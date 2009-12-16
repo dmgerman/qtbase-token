@@ -2242,10 +2242,7 @@ name|rPath
 operator|==
 name|QLatin1String
 argument_list|(
-name|QLatin1String
-argument_list|(
 literal|"HKEY_USERS"
-argument_list|)
 argument_list|)
 condition|)
 name|regList
