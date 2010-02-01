@@ -18366,7 +18366,7 @@ argument_list|()
 decl_stmt|;
 name|t
 operator|<<
-literal|"first: make_default"
+literal|"first: make_first"
 operator|<<
 name|endl
 expr_stmt|;
@@ -18828,8 +18828,6 @@ operator|)
 condition|)
 block|{
 name|targetSuffixes
-operator|<<
-literal|"make_default"
 operator|<<
 literal|"make_first"
 operator|<<
@@ -19367,17 +19365,6 @@ literal|"make_first"
 condition|)
 name|s
 operator|=
-literal|"first"
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|s
-operator|==
-literal|"make_default"
-condition|)
-name|s
-operator|=
 name|QString
 argument_list|()
 expr_stmt|;
@@ -19794,15 +19781,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|(
 name|suffix
 operator|==
 literal|"make_first"
-operator|||
-name|suffix
-operator|==
-literal|"make_default"
-operator|)
 operator|&&
 name|project
 operator|->
