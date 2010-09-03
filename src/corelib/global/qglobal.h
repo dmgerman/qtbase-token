@@ -8448,6 +8448,27 @@ end_endif
 begin_if
 if|#
 directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_UNIMPLEMENTED
+argument_list|)
+end_if
+begin_define
+DECL|macro|Q_UNIMPLEMENTED
+define|#
+directive|define
+name|Q_UNIMPLEMENTED
+parameter_list|()
+value|qWarning("%s:%d: %s: Unimplemented code.", __FILE__, __LINE__, Q_FUNC_INFO)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
 name|defined
 argument_list|(
 name|QT_NO_THREAD
