@@ -1612,8 +1612,6 @@ init|=
 name|GRADIENT_STOPTABLE_SIZE
 operator|*
 literal|2
-operator|-
-literal|1
 decl_stmt|;
 name|ipos
 operator|=
@@ -1640,6 +1638,8 @@ operator|>=
 name|GRADIENT_STOPTABLE_SIZE
 condition|?
 name|limit
+operator|-
+literal|1
 operator|-
 name|ipos
 else|:
