@@ -544,7 +544,7 @@ argument_list|(
 name|QAction
 operator|*
 argument_list|,
-name|QMacMenuAction
+name|QAction
 operator|*
 operator|=
 literal|0
@@ -775,7 +775,7 @@ argument_list|(
 name|QAction
 operator|*
 argument_list|,
-name|QWceMenuAction
+name|QAction
 operator|*
 operator|=
 literal|0
@@ -975,7 +975,7 @@ argument_list|(
 name|QAction
 operator|*
 argument_list|,
-name|QSymbianMenuAction
+name|QAction
 operator|*
 operator|=
 literal|0

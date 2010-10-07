@@ -6085,15 +6085,10 @@ operator|->
 name|action
 argument_list|()
 argument_list|,
-name|nativeMenuBar
-operator|->
-name|findAction
-argument_list|(
 name|e
 operator|->
 name|before
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 elseif|else
