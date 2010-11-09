@@ -25679,7 +25679,7 @@ operator|<<
 operator|(
 name|sourcePath
 operator|+
-literal|"/projects.pro"
+literal|"/qtbase.pro"
 operator|)
 expr_stmt|;
 name|args
