@@ -29,7 +29,7 @@ begin_comment
 comment|// This file is not part of the Qt API.  It exists purely as an
 end_comment
 begin_comment
-comment|// implementation detail.  This header file may change from version to
+comment|// platformMenuBarementation detail.  This header file may change from version to
 end_comment
 begin_comment
 comment|// version without notice, or even be removed.
@@ -75,6 +75,20 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_WS_X11
+end_ifdef
+begin_include
+include|#
+directive|include
+file|"qabstractplatformmenubar_p.h"
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -110,6 +124,12 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_MENUBAR
+DECL|variable|QToolBar
+name|class
+name|QToolBar
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QMenuBarExtension
 name|class
 name|QMenuBarExtension
@@ -170,12 +190,17 @@ name|altPressed
 argument_list|(
 literal|0
 argument_list|)
+ifndef|#
+directive|ifndef
+name|Q_WS_X11
 block|,
 name|nativeMenuBar
 argument_list|(
 operator|-
 literal|1
 argument_list|)
+endif|#
+directive|endif
 block|,
 name|doChildEffects
 argument_list|(
@@ -196,6 +221,16 @@ directive|ifdef
 name|Q_WS_MAC
 block|,
 name|mac_menubar
+argument_list|(
+literal|0
+argument_list|)
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|Q_WS_X11
+block|,
+name|platformMenuBar
 argument_list|(
 literal|0
 argument_list|)
@@ -231,6 +266,14 @@ operator|~
 name|QMenuBarPrivate
 argument_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_WS_X11
+name|delete
+name|platformMenuBar
+block|;
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|Q_WS_MAC
@@ -397,12 +440,17 @@ name|QWidget
 operator|>
 name|keyboardFocusWidget
 block|;
+ifndef|#
+directive|ifndef
+name|Q_WS_X11
 name|int
 name|nativeMenuBar
 operator|:
 literal|3
 block|;
 comment|// Only has values -1, 0, and 1
+endif|#
+directive|endif
 comment|//firing of events
 name|void
 name|activateAction
@@ -509,6 +557,15 @@ directive|ifdef
 name|QT3_SUPPORT
 name|bool
 name|doAutoResize
+block|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|Q_WS_X11
+name|QAbstractPlatformMenuBar
+operator|*
+name|platformMenuBar
 block|;
 endif|#
 directive|endif
@@ -1123,6 +1180,23 @@ name|QT_SOFTKEYS_ENABLED
 name|QAction
 operator|*
 name|menuBarAction
+block|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|Q_WS_X11
+name|void
+name|updateCornerWidgetToolBar
+argument_list|()
+block|;
+name|QToolBar
+operator|*
+name|cornerWidgetToolBar
+block|;
+name|QWidget
+operator|*
+name|cornerWidgetContainer
 block|;
 endif|#
 directive|endif
