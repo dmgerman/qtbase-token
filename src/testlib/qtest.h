@@ -1416,6 +1416,17 @@ end_endif
 begin_comment
 comment|// QT_GUI_LIB
 end_comment
+begin_define
+DECL|macro|QTEST_GUILESS_MAIN
+define|#
+directive|define
+name|QTEST_GUILESS_MAIN
+parameter_list|(
+name|TestObject
+parameter_list|)
+define|\
+value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
+end_define
 begin_macro
 name|QT_END_HEADER
 end_macro
