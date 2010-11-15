@@ -880,17 +880,6 @@ literal|"@echo off"
 operator|<<
 name|endl
 operator|<<
-literal|"set QTDIR="
-operator|<<
-name|QDir
-operator|::
-name|toNativeSeparators
-argument_list|(
-name|sourcePath
-argument_list|)
-operator|<<
-name|endl
-operator|<<
 literal|"call "
 operator|<<
 name|fixSeparators
@@ -908,21 +897,16 @@ argument_list|(
 name|buildPath
 argument_list|)
 operator|<<
+literal|"\" \""
+operator|<<
+name|fixSeparators
+argument_list|(
+name|sourcePath
+argument_list|)
+operator|<<
 literal|"\""
 operator|<<
 name|endl
-operator|<<
-literal|"set QTDIR="
-operator|<<
-name|QDir
-operator|::
-name|toNativeSeparators
-argument_list|(
-name|buildPath
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
 name|syncqt_bat
 operator|.
 name|close
