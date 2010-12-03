@@ -314,6 +314,15 @@ argument|QRect *r
 argument_list|)
 specifier|const
 block|;
+name|void
+name|adjustViewOptionsForIndex
+argument_list|(
+argument|QStyleOptionViewItemV4 *option
+argument_list|,
+argument|const QModelIndex&current
+argument_list|)
+specifier|const
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_ANIMATION
@@ -716,6 +725,17 @@ argument_list|,
 argument|int y
 argument_list|,
 argument|int bottom
+argument_list|)
+specifier|const
+block|;
+comment|// logicalIndices: vector of currently visibly logical indices
+comment|// itemPositions: vector of view item positions (beginning/middle/end/onlyone)
+name|void
+name|calcLogicalIndices
+argument_list|(
+argument|QVector<int> *logicalIndices
+argument_list|,
+argument|QVector<QStyleOptionViewItemV4::ViewItemPosition> *itemPositions
 argument_list|)
 specifier|const
 block|;

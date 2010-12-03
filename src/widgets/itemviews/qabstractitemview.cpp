@@ -18580,6 +18580,14 @@ argument_list|)
 operator|.
 name|second
 decl_stmt|;
+name|adjustViewOptionsForIndex
+argument_list|(
+operator|&
+name|option
+argument_list|,
+name|current
+argument_list|)
+expr_stmt|;
 name|delegateForIndex
 argument_list|(
 name|current

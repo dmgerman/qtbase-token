@@ -928,6 +928,17 @@ argument|QRect *r
 argument_list|)
 specifier|const
 block|;
+comment|// reimplemented in subclasses
+name|virtual
+name|void
+name|adjustViewOptionsForIndex
+argument_list|(
+argument|QStyleOptionViewItemV4*
+argument_list|,
+argument|const QModelIndex&
+argument_list|)
+specifier|const
+block|{}
 specifier|inline
 name|void
 name|releaseEditor
