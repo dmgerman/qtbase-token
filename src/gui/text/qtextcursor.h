@@ -197,6 +197,16 @@ name|KeepAnchor
 block|}
 enum|;
 end_enum
+begin_enum
+enum|enum
+name|MoveStyle
+block|{
+name|Logical
+block|,
+name|Visual
+block|,     }
+enum|;
+end_enum
 begin_function_decl
 name|void
 name|setPosition
