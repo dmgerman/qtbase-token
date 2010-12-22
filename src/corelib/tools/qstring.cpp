@@ -11397,6 +11397,22 @@ argument_list|,
 name|thresholdMask
 argument_list|)
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|__SSE4_1__
+name|chunk1
+operator|=
+name|_mm_blendv_epi8
+argument_list|(
+name|chunk1
+argument_list|,
+name|questionMark
+argument_list|,
+name|offLimitMask
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 comment|// offLimitQuestionMark contains '?' for each 16 bits that was off-limit
 comment|// the 16 bits that were correct contains zeros
 specifier|const
@@ -11433,6 +11449,8 @@ argument_list|,
 name|offLimitQuestionMark
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 name|__m128i
 name|chunk2
@@ -11475,6 +11493,22 @@ argument_list|,
 name|thresholdMask
 argument_list|)
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|__SSE4_1__
+name|chunk2
+operator|=
+name|_mm_blendv_epi8
+argument_list|(
+name|chunk2
+argument_list|,
+name|questionMark
+argument_list|,
+name|offLimitMask
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 specifier|const
 name|__m128i
 name|offLimitQuestionMark
@@ -11506,6 +11540,8 @@ argument_list|,
 name|offLimitQuestionMark
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 comment|// pack the two vector to 16 x 8bits elements
 specifier|const
