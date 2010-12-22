@@ -11252,6 +11252,72 @@ argument_list|(
 literal|'?'
 argument_list|)
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|__SSE4_2__
+comment|// compare the unsigned shorts for the range 0x0100-0xFFFF
+comment|// note on the use of _mm_cmpestrm:
+comment|//  The MSDN documentation online (http://technet.microsoft.com/en-us/library/bb514080.aspx)
+comment|//  says for range search the following:
+comment|//    For each character c in a, determine whether b0<= c<= b1 or b2<= c<= b3
+comment|//
+comment|//  However, all examples on the Internet, including from Intel
+comment|//  (see http://software.intel.com/en-us/articles/xml-parsing-accelerator-with-intel-streaming-simd-extensions-4-intel-sse4/)
+comment|//  put the range to be searched first
+comment|//
+comment|//  Disassembly and instruction-level debugging with GCC and ICC show
+comment|//  that they are doing the right thing. Inverting the arguments in the
+comment|//  instruction does cause a bunch of test failures.
+specifier|const
+name|int
+name|mode
+init|=
+name|_SIDD_UWORD_OPS
+operator||
+name|_SIDD_CMP_RANGES
+operator||
+name|_SIDD_UNIT_MASK
+decl_stmt|;
+specifier|const
+name|__m128i
+name|rangeMatch
+init|=
+name|_mm_cvtsi32_si128
+argument_list|(
+literal|0xffff0100
+argument_list|)
+decl_stmt|;
+specifier|const
+name|__m128i
+name|offLimitMask
+init|=
+name|_mm_cmpestrm
+argument_list|(
+name|rangeMatch
+argument_list|,
+literal|2
+argument_list|,
+name|chunk
+argument_list|,
+literal|8
+argument_list|,
+name|mode
+argument_list|)
+decl_stmt|;
+comment|// replace the non-Latin 1 characters in the chunk with question marks
+name|chunk
+operator|=
+name|_mm_blendv_epi8
+argument_list|(
+name|chunk
+argument_list|,
+name|questionMark
+argument_list|,
+name|offLimitMask
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 comment|// SSE has no compare instruction for unsigned comparison.
 comment|// The variables must be shiffted + 0x8000 to be compared
 specifier|const
@@ -11349,6 +11415,8 @@ argument_list|,
 name|offLimitQuestionMark
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 return|return
