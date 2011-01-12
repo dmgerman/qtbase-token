@@ -46,7 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtDesigner/uilib_global.h>
+file|"uilib_global.h"
 end_include
 begin_include
 include|#
