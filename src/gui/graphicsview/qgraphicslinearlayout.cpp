@@ -641,17 +641,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|Q_ASSERT
-argument_list|(
-name|item
-argument_list|)
-expr_stmt|;
-comment|//the order of the following instructions is very important because
-comment|//invalidating the layout before adding the child item will make the layout happen
-comment|//before we try to paint the item
-name|invalidate
-argument_list|()
-expr_stmt|;
 name|d
 operator|->
 name|addChildLayoutItem
@@ -712,6 +701,12 @@ literal|0
 argument_list|,
 name|index
 argument_list|)
+expr_stmt|;
+comment|//the order of the following instructions is very important because
+comment|//invalidating the layout before adding the child item will make the layout happen
+comment|//before we try to paint the item
+name|invalidate
+argument_list|()
 expr_stmt|;
 block|}
 end_function
