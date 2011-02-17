@@ -8578,7 +8578,7 @@ name|QAccessibleWidgetEx
 argument_list|(
 name|widget
 argument_list|,
-name|Application
+name|Window
 argument_list|)
 block|{ }
 end_constructor
