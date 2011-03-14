@@ -13544,6 +13544,80 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_class
+DECL|class|CounterButton
+class|class
+name|CounterButton
+super|:
+specifier|public
+name|QPushButton
+block|{
+name|Q_OBJECT
+public|public:
+DECL|function|CounterButton
+name|CounterButton
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|name
+parameter_list|,
+name|QWidget
+modifier|*
+name|parent
+parameter_list|)
+member_init_list|:
+name|QPushButton
+argument_list|(
+name|name
+argument_list|,
+name|parent
+argument_list|)
+member_init_list|,
+name|clickCount
+argument_list|(
+literal|0
+argument_list|)
+block|{
+name|connect
+argument_list|(
+name|this
+argument_list|,
+name|SIGNAL
+argument_list|(
+name|clicked
+argument_list|(
+name|bool
+argument_list|)
+argument_list|)
+argument_list|,
+name|SLOT
+argument_list|(
+name|incClickCount
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|member|clickCount
+name|int
+name|clickCount
+decl_stmt|;
+public|public
+name|Q_SLOTS
+public|:
+DECL|function|incClickCount
+name|void
+name|incClickCount
+parameter_list|()
+block|{
+operator|++
+name|clickCount
+expr_stmt|;
+block|}
+block|}
+class|;
+end_class
 begin_function
 DECL|function|buttonTest
 name|void
@@ -13552,57 +13626,845 @@ operator|::
 name|buttonTest
 parameter_list|()
 block|{
-comment|//#ifdef QTEST_ACCESSIBILITY
-if|#
-directive|if
+ifdef|#
+directive|ifdef
+name|QTEST_ACCESSIBILITY
+name|QAccessibleInterface
+modifier|*
+name|test
+init|=
 literal|0
-block|QAccessibleInterface *test = 0;     Q3VBox vbox;
+decl_stmt|;
+name|QWidget
+name|window
+decl_stmt|;
+name|window
+operator|.
+name|setLayout
+argument_list|(
+operator|new
+name|QVBoxLayout
+argument_list|)
+expr_stmt|;
 comment|// Standard push button
-block|QPushButton pushButton("Ok",&vbox);
+name|CounterButton
+name|pushButton
+argument_list|(
+literal|"Ok"
+argument_list|,
+operator|&
+name|window
+argument_list|)
+decl_stmt|;
 comment|// toggle push button
-block|QPushButton togglepush("Toggle",&vbox);     togglepush.setToggleButton(TRUE);
-comment|// push button with a menu
-block|QPushButton menuButton("Menu",&vbox);     Q3PopupMenu buttonMenu(&menuButton);     buttonMenu.insertItem("Some item");     menuButton.setPopup(&buttonMenu);
+name|QPushButton
+name|togglepush
+argument_list|(
+literal|"Toggle"
+argument_list|,
+operator|&
+name|window
+argument_list|)
+decl_stmt|;
+name|togglepush
+operator|.
+name|setToggleButton
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// standard checkbox
-block|QCheckBox checkBox("Check me!",&vbox);
+name|QCheckBox
+name|checkBox
+argument_list|(
+literal|"Check me!"
+argument_list|,
+operator|&
+name|window
+argument_list|)
+decl_stmt|;
 comment|// tristate checkbox
-block|QCheckBox tristate("Tristate!",&vbox);     tristate.setTristate(TRUE);
+name|QCheckBox
+name|tristate
+argument_list|(
+literal|"Tristate!"
+argument_list|,
+operator|&
+name|window
+argument_list|)
+decl_stmt|;
+name|tristate
+operator|.
+name|setTristate
+argument_list|(
+name|TRUE
+argument_list|)
+expr_stmt|;
 comment|// radiobutton
-block|QRadioButton radio("Radio me!",&vbox);
+name|QRadioButton
+name|radio
+argument_list|(
+literal|"Radio me!"
+argument_list|,
+operator|&
+name|window
+argument_list|)
+decl_stmt|;
 comment|// standard toolbutton
-block|QToolButton toolbutton(&vbox);     toolbutton.setText("Tool");     toolbutton.setMinimumSize(20,20);
+name|QToolButton
+name|toolbutton
+argument_list|(
+operator|&
+name|window
+argument_list|)
+decl_stmt|;
+name|toolbutton
+operator|.
+name|setText
+argument_list|(
+literal|"Tool"
+argument_list|)
+expr_stmt|;
+name|toolbutton
+operator|.
+name|setMinimumSize
+argument_list|(
+literal|20
+argument_list|,
+literal|20
+argument_list|)
+expr_stmt|;
 comment|// standard toolbutton
-block|QToolButton toggletool(&vbox);     toggletool.setToggleButton(TRUE);     toggletool.setText("Toggle");     toggletool.setMinimumSize(20,20);
+name|QToolButton
+name|toggletool
+argument_list|(
+operator|&
+name|window
+argument_list|)
+decl_stmt|;
+name|toggletool
+operator|.
+name|setToggleButton
+argument_list|(
+name|TRUE
+argument_list|)
+expr_stmt|;
+name|toggletool
+operator|.
+name|setText
+argument_list|(
+literal|"Toggle"
+argument_list|)
+expr_stmt|;
+name|toggletool
+operator|.
+name|setMinimumSize
+argument_list|(
+literal|20
+argument_list|,
+literal|20
+argument_list|)
+expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT3_SUPPORT
+comment|// push button with a menu
+name|QPushButton
+name|menuButton
+argument_list|(
+literal|"Menu"
+argument_list|,
+operator|&
+name|window
+argument_list|)
+decl_stmt|;
+name|Q3PopupMenu
+name|buttonMenu
+argument_list|(
+operator|&
+name|menuButton
+argument_list|)
+decl_stmt|;
+name|buttonMenu
+operator|.
+name|insertItem
+argument_list|(
+literal|"Some item"
+argument_list|)
+expr_stmt|;
+name|menuButton
+operator|.
+name|setPopup
+argument_list|(
+operator|&
+name|buttonMenu
+argument_list|)
+expr_stmt|;
 comment|// menu toolbutton
-block|QToolButton menuToolButton(&vbox);     menuToolButton.setText("Menu Tool");     Q3PopupMenu toolMenu(&menuToolButton);     toolMenu.insertItem("Some item");     menuToolButton.setPopup(&toolMenu);     menuToolButton.setMinimumSize(20,20);
+name|QToolButton
+name|menuToolButton
+argument_list|(
+operator|&
+name|window
+argument_list|)
+decl_stmt|;
+name|menuToolButton
+operator|.
+name|setText
+argument_list|(
+literal|"Menu Tool"
+argument_list|)
+expr_stmt|;
+name|Q3PopupMenu
+name|toolMenu
+argument_list|(
+operator|&
+name|menuToolButton
+argument_list|)
+decl_stmt|;
+name|toolMenu
+operator|.
+name|insertItem
+argument_list|(
+literal|"Some item"
+argument_list|)
+expr_stmt|;
+name|menuToolButton
+operator|.
+name|setPopup
+argument_list|(
+operator|&
+name|toolMenu
+argument_list|)
+expr_stmt|;
+name|menuToolButton
+operator|.
+name|setMinimumSize
+argument_list|(
+literal|20
+argument_list|,
+literal|20
+argument_list|)
+expr_stmt|;
 comment|// splitted menu toolbutton
-block|QToolButton splitToolButton(&vbox);     splitToolButton.setTextLabel("Split Tool");     Q3PopupMenu splitMenu(&splitToolButton);     splitMenu.insertItem("Some item");     splitToolButton.setPopup(&splitMenu);     splitToolButton.setPopupDelay(0);     splitToolButton.setMinimumSize(20,20);
+name|QToolButton
+name|splitToolButton
+argument_list|(
+operator|&
+name|window
+argument_list|)
+decl_stmt|;
+name|splitToolButton
+operator|.
+name|setTextLabel
+argument_list|(
+literal|"Split Tool"
+argument_list|)
+expr_stmt|;
+name|Q3PopupMenu
+name|splitMenu
+argument_list|(
+operator|&
+name|splitToolButton
+argument_list|)
+decl_stmt|;
+name|splitMenu
+operator|.
+name|insertItem
+argument_list|(
+literal|"Some item"
+argument_list|)
+expr_stmt|;
+name|splitToolButton
+operator|.
+name|setPopup
+argument_list|(
+operator|&
+name|splitMenu
+argument_list|)
+expr_stmt|;
+name|splitToolButton
+operator|.
+name|setPopupDelay
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|splitToolButton
+operator|.
+name|setMinimumSize
+argument_list|(
+literal|20
+argument_list|,
+literal|20
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|// test push button
-block|QVERIFY(QAccessible::queryAccessibleInterface(&pushButton,&test));     QCOMPARE(test->role(0), QAccessible::PushButton);     QCOMPARE(test->defaultAction(0), QAccessible::Press);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Press"));     QCOMPARE(test->state(0), (int)QAccessible::Normal);     pushButton.setDown(TRUE);     QCOMPARE(test->state(0), (int)QAccessible::Pressed);     QVERIFY(test->doAction(QAccessible::Press, 0));     QTest::qWait(500);     QCOMPARE(test->state(0), (int)QAccessible::Normal);     test->release();
-comment|// test toggle push button
-block|QVERIFY(QAccessible::queryAccessibleInterface(&togglepush,&test));     QCOMPARE(test->role(0), QAccessible::CheckBox);     QCOMPARE(test->defaultAction(0), QAccessible::Press);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Check"));     QCOMPARE(test->state(0), (int)QAccessible::Normal);     QVERIFY(test->doAction(QAccessible::Press, 0));     QTest::qWait(500);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Uncheck"));     QCOMPARE(test->state(0), (int)QAccessible::Checked);     test->release();
-comment|// test menu push button
-block|QVERIFY(QAccessible::queryAccessibleInterface(&menuButton,&test));     QCOMPARE(test->role(0), QAccessible::ButtonMenu);     QCOMPARE(test->defaultAction(0), QAccessible::Press);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Open"));     QCOMPARE(test->state(0), (int)QAccessible::HasPopup);     test->release();
+name|QAccessibleInterface
+modifier|*
+name|interface
+init|=
+name|QAccessible
+operator|::
+name|queryAccessibleInterface
+argument_list|(
+operator|&
+name|pushButton
+argument_list|)
+decl_stmt|;
+name|QAccessibleActionInterface
+modifier|*
+name|actionInterface
+init|=
+name|interface
+operator|->
+name|actionInterface
+argument_list|()
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|actionInterface
+operator|!=
+literal|0
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|interface
+operator|->
+name|role
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QAccessible
+operator|::
+name|PushButton
+argument_list|)
+expr_stmt|;
+comment|// currently our buttons only have click as action, press and release are missing
+name|QCOMPARE
+argument_list|(
+name|actionInterface
+operator|->
+name|actionCount
+argument_list|()
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|actionInterface
+operator|->
+name|name
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QString
+argument_list|(
+literal|"Click"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|pushButton
+operator|.
+name|clickCount
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|actionInterface
+operator|->
+name|doAction
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|qWait
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|pushButton
+operator|.
+name|clickCount
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+operator|delete
+name|interface
+expr_stmt|;
+comment|// test toggle button
+name|interface
+operator|=
+name|QAccessible
+operator|::
+name|queryAccessibleInterface
+argument_list|(
+operator|&
+name|togglepush
+argument_list|)
+expr_stmt|;
+name|actionInterface
+operator|=
+name|interface
+operator|->
+name|actionInterface
+argument_list|()
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|interface
+operator|->
+name|role
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QAccessible
+operator|::
+name|CheckBox
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|actionInterface
+operator|->
+name|description
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QString
+argument_list|(
+literal|"Toggles the button."
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|actionInterface
+operator|->
+name|name
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QString
+argument_list|(
+literal|"Check"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
+name|togglepush
+operator|.
+name|isChecked
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+operator|(
+name|interface
+operator|->
+name|state
+argument_list|(
+literal|0
+argument_list|)
+operator|&
+name|QAccessible
+operator|::
+name|Checked
+operator|)
+operator|==
+literal|0
+argument_list|)
+expr_stmt|;
+name|actionInterface
+operator|->
+name|doAction
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|qWait
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|actionInterface
+operator|->
+name|name
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QString
+argument_list|(
+literal|"Uncheck"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|togglepush
+operator|.
+name|isChecked
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+operator|(
+name|interface
+operator|->
+name|state
+argument_list|(
+literal|0
+argument_list|)
+operator|&
+name|QAccessible
+operator|::
+name|Checked
+operator|)
+argument_list|)
+expr_stmt|;
+operator|delete
+name|interface
+expr_stmt|;
+comment|//    // test menu push button
+comment|//    QVERIFY(QAccessible::queryAccessibleInterface(&menuButton,&test));
+comment|//    QCOMPARE(test->role(0), QAccessible::ButtonMenu);
+comment|//    QCOMPARE(test->defaultAction(0), QAccessible::Press);
+comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Open"));
+comment|//    QCOMPARE(test->state(0), (int)QAccessible::HasPopup);
+comment|//    test->release();
 comment|// test check box
-block|QVERIFY(QAccessible::queryAccessibleInterface(&checkBox,&test));     QCOMPARE(test->role(0), QAccessible::CheckBox);     QCOMPARE(test->defaultAction(0), QAccessible::Press);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Check"));     QCOMPARE(test->state(0), (int)QAccessible::Normal);     QVERIFY(test->doAction(QAccessible::Press, 0));     QTest::qWait(500);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Uncheck"));     QCOMPARE(test->state(0), (int)QAccessible::Checked);     test->release();
-comment|// test tristate check box
-block|QVERIFY(QAccessible::queryAccessibleInterface(&tristate,&test));     QCOMPARE(test->role(0), QAccessible::CheckBox);     QCOMPARE(test->defaultAction(0), QAccessible::Press);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Toggle"));     QCOMPARE(test->state(0), (int)QAccessible::Normal);     QVERIFY(test->doAction(QAccessible::Press, 0));     QTest::qWait(500);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Check"));     QCOMPARE(test->state(0), (int)QAccessible::Mixed);     QVERIFY(test->doAction(QAccessible::Press, 0));     QTest::qWait(500);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Uncheck"));     QCOMPARE(test->state(0), (int)QAccessible::Checked);     test->release();
+name|interface
+operator|=
+name|QAccessible
+operator|::
+name|queryAccessibleInterface
+argument_list|(
+operator|&
+name|checkBox
+argument_list|)
+expr_stmt|;
+name|actionInterface
+operator|=
+name|interface
+operator|->
+name|actionInterface
+argument_list|()
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|interface
+operator|->
+name|role
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QAccessible
+operator|::
+name|CheckBox
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|actionInterface
+operator|->
+name|name
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QString
+argument_list|(
+literal|"Check"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+operator|(
+name|interface
+operator|->
+name|state
+argument_list|(
+literal|0
+argument_list|)
+operator|&
+name|QAccessible
+operator|::
+name|Checked
+operator|)
+operator|==
+literal|0
+argument_list|)
+expr_stmt|;
+name|actionInterface
+operator|->
+name|doAction
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|qWait
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|actionInterface
+operator|->
+name|name
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QString
+argument_list|(
+literal|"Uncheck"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|interface
+operator|->
+name|state
+argument_list|(
+literal|0
+argument_list|)
+operator|&
+name|QAccessible
+operator|::
+name|Checked
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|checkBox
+operator|.
+name|isChecked
+argument_list|()
+argument_list|)
+expr_stmt|;
+operator|delete
+name|interface
+expr_stmt|;
+comment|//    // test tristate check box
+comment|//    QVERIFY(QAccessible::queryAccessibleInterface(&tristate,&test));
+comment|//    QCOMPARE(test->role(0), QAccessible::CheckBox);
+comment|//    QCOMPARE(test->defaultAction(0), QAccessible::Press);
+comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Toggle"));
+comment|//    QCOMPARE(test->state(0), (int)QAccessible::Normal);
+comment|//    QVERIFY(test->doAction(QAccessible::Press, 0));
+comment|//    QTest::qWait(500);
+comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Check"));
+comment|//    QCOMPARE(test->state(0), (int)QAccessible::Mixed);
+comment|//    QVERIFY(test->doAction(QAccessible::Press, 0));
+comment|//    QTest::qWait(500);
+comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Uncheck"));
+comment|//    QCOMPARE(test->state(0), (int)QAccessible::Checked);
+comment|//    test->release();
 comment|// test radiobutton
-block|QVERIFY(QAccessible::queryAccessibleInterface(&radio,&test));     QCOMPARE(test->role(0), QAccessible::RadioButton);     QCOMPARE(test->defaultAction(0), QAccessible::Press);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Check"));     QCOMPARE(test->state(0), (int)QAccessible::Normal);     QVERIFY(test->doAction(QAccessible::Press, 0));     QTest::qWait(500);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Check"));     QCOMPARE(test->state(0), (int)QAccessible::Checked);     test->release();
-comment|// test standard toolbutton
-block|QVERIFY(QAccessible::queryAccessibleInterface(&toolbutton,&test));     QCOMPARE(test->role(0), QAccessible::PushButton);     QCOMPARE(test->defaultAction(0), QAccessible::Press);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Press"));     QCOMPARE(test->state(0), (int)QAccessible::Normal);     test->release();
-comment|// toggle tool button
-block|QVERIFY(QAccessible::queryAccessibleInterface(&toggletool,&test));     QCOMPARE(test->role(0), QAccessible::CheckBox);     QCOMPARE(test->defaultAction(0), QAccessible::Press);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Check"));     QCOMPARE(test->state(0), (int)QAccessible::Normal);     QVERIFY(test->doAction(QAccessible::Press, 0));     QTest::qWait(500);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Uncheck"));     QCOMPARE(test->state(0), (int)QAccessible::Checked);     test->release();
-comment|// test menu toolbutton
-block|QVERIFY(QAccessible::queryAccessibleInterface(&menuToolButton,&test));     QCOMPARE(test->role(0), QAccessible::ButtonMenu);     QCOMPARE(test->defaultAction(0), 1);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Open"));     QCOMPARE(test->state(0), (int)QAccessible::HasPopup);     QCOMPARE(test->actionCount(0), 1);     QCOMPARE(test->actionText(QAccessible::Press, QAccessible::Name, 0), QString("Press"));     test->release();
-comment|// test splitted menu toolbutton
-block|QVERIFY(QAccessible::queryAccessibleInterface(&splitToolButton,&test));     QCOMPARE(test->childCount(), 2);     QCOMPARE(test->role(0), QAccessible::ButtonDropDown);     QCOMPARE(test->role(1), QAccessible::PushButton);     QCOMPARE(test->role(2), QAccessible::ButtonMenu);     QCOMPARE(test->defaultAction(0), QAccessible::Press);     QCOMPARE(test->defaultAction(1), QAccessible::Press);     QCOMPARE(test->defaultAction(2), QAccessible::Press);     QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Press"));     QCOMPARE(test->state(0), (int)QAccessible::HasPopup);     QCOMPARE(test->actionCount(0), 1);     QCOMPARE(test->actionText(1, QAccessible::Name, 0), QString("Open"));     QCOMPARE(test->actionText(test->defaultAction(1), QAccessible::Name, 1), QString("Press"));     QCOMPARE(test->state(1), (int)QAccessible::Normal);     QCOMPARE(test->actionText(test->defaultAction(2), QAccessible::Name, 2), QString("Open"));     QCOMPARE(test->state(2), (int)QAccessible::HasPopup);     test->release();      QTestAccessibility::clearEvents();
+name|interface
+operator|=
+name|QAccessible
+operator|::
+name|queryAccessibleInterface
+argument_list|(
+operator|&
+name|radio
+argument_list|)
+expr_stmt|;
+name|actionInterface
+operator|=
+name|interface
+operator|->
+name|actionInterface
+argument_list|()
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|interface
+operator|->
+name|role
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QAccessible
+operator|::
+name|RadioButton
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|actionInterface
+operator|->
+name|name
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QString
+argument_list|(
+literal|"Check"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+operator|(
+name|interface
+operator|->
+name|state
+argument_list|(
+literal|0
+argument_list|)
+operator|&
+name|QAccessible
+operator|::
+name|Checked
+operator|)
+operator|==
+literal|0
+argument_list|)
+expr_stmt|;
+name|actionInterface
+operator|->
+name|doAction
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|qWait
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|actionInterface
+operator|->
+name|name
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|QString
+argument_list|(
+literal|"Uncheck"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|interface
+operator|->
+name|state
+argument_list|(
+literal|0
+argument_list|)
+operator|&
+name|QAccessible
+operator|::
+name|Checked
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|checkBox
+operator|.
+name|isChecked
+argument_list|()
+argument_list|)
+expr_stmt|;
+operator|delete
+name|interface
+expr_stmt|;
+comment|//    // test standard toolbutton
+comment|//    QVERIFY(QAccessible::queryAccessibleInterface(&toolbutton,&test));
+comment|//    QCOMPARE(test->role(0), QAccessible::PushButton);
+comment|//    QCOMPARE(test->defaultAction(0), QAccessible::Press);
+comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Press"));
+comment|//    QCOMPARE(test->state(0), (int)QAccessible::Normal);
+comment|//    test->release();
+comment|//    // toggle tool button
+comment|//    QVERIFY(QAccessible::queryAccessibleInterface(&toggletool,&test));
+comment|//    QCOMPARE(test->role(0), QAccessible::CheckBox);
+comment|//    QCOMPARE(test->defaultAction(0), QAccessible::Press);
+comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Check"));
+comment|//    QCOMPARE(test->state(0), (int)QAccessible::Normal);
+comment|//    QVERIFY(test->doAction(QAccessible::Press, 0));
+comment|//    QTest::qWait(500);
+comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Uncheck"));
+comment|//    QCOMPARE(test->state(0), (int)QAccessible::Checked);
+comment|//    test->release();
+comment|//    // test menu toolbutton
+comment|//    QVERIFY(QAccessible::queryAccessibleInterface(&menuToolButton,&test));
+comment|//    QCOMPARE(test->role(0), QAccessible::ButtonMenu);
+comment|//    QCOMPARE(test->defaultAction(0), 1);
+comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Open"));
+comment|//    QCOMPARE(test->state(0), (int)QAccessible::HasPopup);
+comment|//    QCOMPARE(test->actionCount(0), 1);
+comment|//    QCOMPARE(test->actionText(QAccessible::Press, QAccessible::Name, 0), QString("Press"));
+comment|//    test->release();
+comment|//    // test splitted menu toolbutton
+comment|//    QVERIFY(QAccessible::queryAccessibleInterface(&splitToolButton,&test));
+comment|//    QCOMPARE(test->childCount(), 2);
+comment|//    QCOMPARE(test->role(0), QAccessible::ButtonDropDown);
+comment|//    QCOMPARE(test->role(1), QAccessible::PushButton);
+comment|//    QCOMPARE(test->role(2), QAccessible::ButtonMenu);
+comment|//    QCOMPARE(test->defaultAction(0), QAccessible::Press);
+comment|//    QCOMPARE(test->defaultAction(1), QAccessible::Press);
+comment|//    QCOMPARE(test->defaultAction(2), QAccessible::Press);
+comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Press"));
+comment|//    QCOMPARE(test->state(0), (int)QAccessible::HasPopup);
+comment|//    QCOMPARE(test->actionCount(0), 1);
+comment|//    QCOMPARE(test->actionText(1, QAccessible::Name, 0), QString("Open"));
+comment|//    QCOMPARE(test->actionText(test->defaultAction(1), QAccessible::Name, 1), QString("Press"));
+comment|//    QCOMPARE(test->state(1), (int)QAccessible::Normal);
+comment|//    QCOMPARE(test->actionText(test->defaultAction(2), QAccessible::Name, 2), QString("Open"));
+comment|//    QCOMPARE(test->state(2), (int)QAccessible::HasPopup);
+comment|//    test->release();
+name|QTestAccessibility
+operator|::
+name|clearEvents
+argument_list|()
+expr_stmt|;
 else|#
 directive|else
-comment|//    QSKIP("Test needs accessibility support.", SkipAll);
 name|QSKIP
 argument_list|(
-literal|"No action interface in Qt 4 yet."
+literal|"Test needs accessibility support."
 argument_list|,
 name|SkipAll
 argument_list|)
