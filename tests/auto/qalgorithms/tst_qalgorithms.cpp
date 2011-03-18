@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../../src/qt3support/tools/q3tl.h"
+file|"q3tl.h"
 end_include
 begin_include
 include|#
