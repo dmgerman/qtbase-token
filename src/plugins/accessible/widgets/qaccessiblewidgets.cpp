@@ -7168,12 +7168,12 @@ argument_list|(
 name|cursor
 argument_list|)
 operator|.
-name|y
+name|x
 argument_list|()
 operator|-
 name|r
 operator|.
-name|y
+name|x
 argument_list|()
 argument_list|)
 expr_stmt|;
