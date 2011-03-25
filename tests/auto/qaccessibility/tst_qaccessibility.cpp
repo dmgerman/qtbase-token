@@ -13840,7 +13840,7 @@ argument_list|)
 argument_list|,
 name|QString
 argument_list|(
-literal|"Click"
+literal|"Press"
 argument_list|)
 argument_list|)
 expr_stmt|;
