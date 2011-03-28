@@ -13379,6 +13379,16 @@ case|case
 name|WM_GETOBJECT
 case|:
 block|{
+comment|/* On Win64, lParam can be 0x00000000fffffffc or 0xfffffffffffffffc (!),                    but MSDN says that lParam should be converted to a DWORD                    before its compared against OBJID_CLIENT                 */
+specifier|const
+name|DWORD
+name|dwObjId
+init|=
+operator|(
+name|DWORD
+operator|)
+name|lParam
+decl_stmt|;
 comment|// Ignoring all requests while starting up
 if|if
 condition|(
@@ -13392,11 +13402,8 @@ operator|::
 name|closingDown
 argument_list|()
 operator|||
-name|lParam
+name|dwObjId
 operator|!=
-operator|(
-name|LPARAM
-operator|)
 name|OBJID_CLIENT
 condition|)
 block|{
