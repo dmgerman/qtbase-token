@@ -13654,9 +13654,9 @@ operator|&
 name|window
 argument_list|)
 decl_stmt|;
-comment|// toggle push button
+comment|// toggle button
 name|QPushButton
-name|togglepush
+name|toggleButton
 argument_list|(
 literal|"Toggle"
 argument_list|,
@@ -13664,9 +13664,9 @@ operator|&
 name|window
 argument_list|)
 decl_stmt|;
-name|togglepush
+name|toggleButton
 operator|.
-name|setToggleButton
+name|setCheckable
 argument_list|(
 literal|true
 argument_list|)
@@ -13742,9 +13742,9 @@ argument_list|)
 decl_stmt|;
 name|toggletool
 operator|.
-name|setToggleButton
+name|setCheckable
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|toggletool
@@ -13887,7 +13887,7 @@ operator|::
 name|queryAccessibleInterface
 argument_list|(
 operator|&
-name|togglepush
+name|toggleButton
 argument_list|)
 expr_stmt|;
 name|actionInterface
@@ -13944,7 +13944,7 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
-name|togglepush
+name|toggleButton
 operator|.
 name|isChecked
 argument_list|()
@@ -13999,7 +13999,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-name|togglepush
+name|toggleButton
 operator|.
 name|isChecked
 argument_list|()
