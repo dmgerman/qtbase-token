@@ -9908,6 +9908,12 @@ literal|19
 argument_list|)
 expr_stmt|;
 comment|//we remove the last row
+name|QApplication
+operator|::
+name|processEvents
+argument_list|()
+expr_stmt|;
+comment|// See QTBUG-18551 and its fix
 comment|//we make sure the editor is at the cell position
 name|QCOMPARE
 argument_list|(
