@@ -221,13 +221,15 @@ block|;
 name|void
 name|authenticationRequired
 argument_list|(
-name|QNetworkAccessBackend
-operator|*
-name|backend
+argument|QAuthenticator *authenticator
 argument_list|,
-name|QAuthenticator
-operator|*
-name|authenticator
+argument|QNetworkReply *reply
+argument_list|,
+argument|bool synchronous
+argument_list|,
+argument|QUrl&url
+argument_list|,
+argument|QUrl *urlForLastAuthentication
 argument_list|)
 block|;
 name|void
