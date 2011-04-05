@@ -269,18 +269,13 @@ name|QT_NO_NETWORKPROXY
 name|void
 name|proxyAuthenticationRequired
 argument_list|(
-name|QNetworkAccessBackend
-operator|*
-name|backend
+argument|const QNetworkProxy&proxy
 argument_list|,
-specifier|const
-name|QNetworkProxy
-operator|&
-name|proxy
+argument|bool synchronous
 argument_list|,
-name|QAuthenticator
-operator|*
-name|authenticator
+argument|QAuthenticator *authenticator
+argument_list|,
+argument|QNetworkProxy *lastProxyAuthentication
 argument_list|)
 block|;
 name|void
