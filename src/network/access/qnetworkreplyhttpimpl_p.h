@@ -774,7 +774,7 @@ block|;
 endif|#
 directive|endif
 name|void
-name|validateCache
+name|loadFromCacheIfAllowed
 argument_list|(
 name|QHttpNetworkRequest
 operator|&

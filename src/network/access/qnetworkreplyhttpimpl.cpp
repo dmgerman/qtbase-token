@@ -1562,11 +1562,11 @@ begin_comment
 comment|/*     For a given httpRequest     1) If AlwaysNetwork, return     2) If we have a cache entry for this url populate headers so the server can return 304     3) Calculate if response_is_fresh and if so send the cache and set loadedFromCache to true  */
 end_comment
 begin_function
-DECL|function|validateCache
+DECL|function|loadFromCacheIfAllowed
 name|void
 name|QNetworkReplyHttpImplPrivate
 operator|::
-name|validateCache
+name|loadFromCacheIfAllowed
 parameter_list|(
 name|QHttpNetworkRequest
 modifier|&
@@ -2393,7 +2393,7 @@ operator|::
 name|Get
 argument_list|)
 expr_stmt|;
-name|validateCache
+name|loadFromCacheIfAllowed
 argument_list|(
 name|httpRequest
 argument_list|,
@@ -2415,7 +2415,7 @@ operator|::
 name|Head
 argument_list|)
 expr_stmt|;
-name|validateCache
+name|loadFromCacheIfAllowed
 argument_list|(
 name|httpRequest
 argument_list|,
