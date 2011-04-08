@@ -773,16 +773,12 @@ name|pendingIgnoreSslErrorsList
 block|;
 endif|#
 directive|endif
-name|void
+name|bool
 name|loadFromCacheIfAllowed
 argument_list|(
 name|QHttpNetworkRequest
 operator|&
 name|httpRequest
-argument_list|,
-name|bool
-operator|&
-name|loadedFromCache
 argument_list|)
 block|;
 name|void

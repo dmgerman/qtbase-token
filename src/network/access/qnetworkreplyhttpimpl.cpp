@@ -1563,7 +1563,7 @@ comment|/*     For a given httpRequest     1) If AlwaysNetwork, return     2) If
 end_comment
 begin_function
 DECL|function|loadFromCacheIfAllowed
-name|void
+name|bool
 name|QNetworkReplyHttpImplPrivate
 operator|::
 name|loadFromCacheIfAllowed
@@ -1571,10 +1571,6 @@ parameter_list|(
 name|QHttpNetworkRequest
 modifier|&
 name|httpRequest
-parameter_list|,
-name|bool
-modifier|&
-name|loadedFromCache
 parameter_list|)
 block|{
 name|QNetworkRequest
@@ -1647,7 +1643,9 @@ literal|"no-cache"
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
+return|return
+literal|false
+return|;
 block|}
 comment|// The disk cache API does not currently support partial content retrieval.
 comment|// That is why we don't use the disk cache for any such requests.
@@ -1660,7 +1658,9 @@ argument_list|(
 literal|"Range"
 argument_list|)
 condition|)
-return|return;
+return|return
+literal|false
+return|;
 name|QAbstractNetworkCache
 modifier|*
 name|nc
@@ -1674,7 +1674,9 @@ condition|(
 operator|!
 name|nc
 condition|)
-return|return;
+return|return
+literal|false
+return|;
 comment|// no local cache
 name|QNetworkCacheMetaData
 name|metaData
@@ -1697,7 +1699,9 @@ operator|.
 name|isValid
 argument_list|()
 condition|)
-return|return;
+return|return
+literal|false
+return|;
 comment|// not in cache
 if|if
 condition|(
@@ -1707,7 +1711,9 @@ operator|.
 name|saveToDisk
 argument_list|()
 condition|)
-return|return;
+return|return
+literal|false
+return|;
 name|QNetworkHeadersPrivate
 name|cacheHeaders
 decl_stmt|;
@@ -1842,7 +1848,9 @@ argument_list|(
 literal|"must-revalidate"
 argument_list|)
 condition|)
-return|return;
+return|return
+literal|false
+return|;
 block|}
 block|}
 name|QDateTime
@@ -1894,11 +1902,9 @@ condition|(
 operator|!
 name|response_is_fresh
 condition|)
-return|return;
-name|loadedFromCache
-operator|=
-literal|true
-expr_stmt|;
+return|return
+literal|false
+return|;
 if|#
 directive|if
 name|defined
@@ -1914,18 +1920,12 @@ name|CacheLoadControlAttribute
 expr_stmt|;
 endif|#
 directive|endif
-if|if
-condition|(
-operator|!
+return|return
 name|sendCacheContents
 argument_list|(
 name|metaData
 argument_list|)
-condition|)
-name|loadedFromCache
-operator|=
-literal|false
-expr_stmt|;
+return|;
 block|}
 end_function
 begin_function
@@ -2393,11 +2393,11 @@ operator|::
 name|Get
 argument_list|)
 expr_stmt|;
+name|loadedFromCache
+operator|=
 name|loadFromCacheIfAllowed
 argument_list|(
 name|httpRequest
-argument_list|,
-name|loadedFromCache
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2415,11 +2415,11 @@ operator|::
 name|Head
 argument_list|)
 expr_stmt|;
+name|loadedFromCache
+operator|=
 name|loadFromCacheIfAllowed
 argument_list|(
 name|httpRequest
-argument_list|,
-name|loadedFromCache
 argument_list|)
 expr_stmt|;
 break|break;
