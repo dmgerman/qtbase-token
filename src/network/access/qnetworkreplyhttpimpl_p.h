@@ -246,8 +246,6 @@ specifier|const
 block|;
 endif|#
 directive|endif
-comment|//    Q_INVOKABLE QSslConfiguration sslConfigurationImplementation() const;
-comment|//    Q_INVOKABLE void setSslConfigurationImplementation(const QSslConfiguration&configuration);
 name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QNetworkReplyHttpImpl
@@ -299,6 +297,13 @@ argument|d_func()
 argument_list|,
 argument|void _q_finished()
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_error(QNetworkReply::NetworkError, const QString&)
+argument_list|)
+comment|// From reply
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
@@ -529,6 +534,14 @@ argument_list|()
 block|;
 name|void
 name|error
+argument_list|(
+argument|QNetworkReply::NetworkError code
+argument_list|,
+argument|const QString&errorString
+argument_list|)
+block|;
+name|void
+name|_q_error
 argument_list|(
 argument|QNetworkReply::NetworkError code
 argument_list|,
