@@ -73,6 +73,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtCore/qcoreapplication.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qnetworkcookiejar.h"
 end_include
 begin_ifndef
