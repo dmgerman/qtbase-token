@@ -2526,6 +2526,14 @@ default|default:
 break|break;
 comment|// can't happen
 block|}
+if|if
+condition|(
+name|loadedFromCache
+condition|)
+block|{
+return|return;
+comment|// no need to send the request! :)
+block|}
 name|QList
 argument_list|<
 name|QByteArray
@@ -2693,14 +2701,6 @@ name|header
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|loadedFromCache
-condition|)
-block|{
-return|return;
-comment|// no need to send the request! :)
-block|}
 if|if
 condition|(
 name|request
