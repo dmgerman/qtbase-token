@@ -1192,6 +1192,36 @@ argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 block|;
+name|virtual
+name|bool
+name|moveRows
+argument_list|(
+argument|const QModelIndex&sourceParent
+argument_list|,
+argument|int sourceRow
+argument_list|,
+argument|int count
+argument_list|,
+argument|const QModelIndex&destinationParent
+argument_list|,
+argument|int destinationChild
+argument_list|)
+block|;
+name|virtual
+name|bool
+name|moveColumns
+argument_list|(
+argument|const QModelIndex&sourceParent
+argument_list|,
+argument|int sourceColumn
+argument_list|,
+argument|int count
+argument_list|,
+argument|const QModelIndex&destinationParent
+argument_list|,
+argument|int destinationChild
+argument_list|)
+block|;
 specifier|inline
 name|bool
 name|insertRow
@@ -1226,6 +1256,32 @@ argument_list|(
 argument|int column
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
+argument_list|)
+block|;
+specifier|inline
+name|bool
+name|moveRow
+argument_list|(
+argument|const QModelIndex&sourceParent
+argument_list|,
+argument|int sourceRow
+argument_list|,
+argument|const QModelIndex&destinationParent
+argument_list|,
+argument|int destinationChild
+argument_list|)
+block|;
+specifier|inline
+name|bool
+name|moveColumn
+argument_list|(
+argument|const QModelIndex&sourceParent
+argument_list|,
+argument|int sourceColumn
+argument_list|,
+argument|const QModelIndex&destinationParent
+argument_list|,
+argument|int destinationChild
 argument_list|)
 block|;
 name|virtual
@@ -1952,6 +2008,72 @@ argument_list|,
 literal|1
 argument_list|,
 name|aparent
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+DECL|function|moveRow
+specifier|inline
+name|bool
+name|QAbstractItemModel
+operator|::
+name|moveRow
+argument_list|(
+argument|const QModelIndex&sourceParent
+argument_list|,
+argument|int sourceRow
+argument_list|,
+argument|const QModelIndex&destinationParent
+argument_list|,
+argument|int destinationChild
+argument_list|)
+block|{
+return|return
+name|moveRows
+argument_list|(
+name|sourceParent
+argument_list|,
+name|sourceRow
+argument_list|,
+literal|1
+argument_list|,
+name|destinationParent
+argument_list|,
+name|destinationChild
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+DECL|function|moveColumn
+specifier|inline
+name|bool
+name|QAbstractItemModel
+operator|::
+name|moveColumn
+argument_list|(
+argument|const QModelIndex&sourceParent
+argument_list|,
+argument|int sourceColumn
+argument_list|,
+argument|const QModelIndex&destinationParent
+argument_list|,
+argument|int destinationChild
+argument_list|)
+block|{
+return|return
+name|moveRows
+argument_list|(
+name|sourceParent
+argument_list|,
+name|sourceColumn
+argument_list|,
+literal|1
+argument_list|,
+name|destinationParent
+argument_list|,
+name|destinationChild
 argument_list|)
 return|;
 block|}
