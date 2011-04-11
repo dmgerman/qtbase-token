@@ -700,6 +700,24 @@ argument_list|()
 expr_stmt|;
 name|proto
 operator|.
+name|sendBlock
+argument_list|(
+name|BaselineProtocol
+operator|::
+name|Abort
+argument_list|,
+name|proto
+operator|.
+name|errorMessage
+argument_list|()
+operator|.
+name|toLatin1
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// In case the client can hear us, tell it what's wrong.
+name|proto
+operator|.
 name|socket
 operator|.
 name|disconnectFromHost

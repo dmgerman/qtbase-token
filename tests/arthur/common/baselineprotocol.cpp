@@ -715,9 +715,9 @@ argument|;         }     }      PlatformInfo pi = PlatformInfo::localHostInfo();
 literal|"Failed to send data to server."
 argument|);         return
 literal|false
-argument|;     }      Command cmd = UnknownError;     if (!receiveBlock(&cmd,&block)) {         errMsg += QLS(
-literal|"Failed to get response from server."
-argument|);         return
+argument|;     }      Command cmd = UnknownError;     if (!receiveBlock(&cmd,&block)) {         errMsg.prepend(QLS(
+literal|"Failed to get response from server. "
+argument|));         return
 literal|false
 argument|;     }      if (cmd == Abort) {         errMsg += QLS(
 literal|"Server rejected connection. Reason: "
