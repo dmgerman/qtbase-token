@@ -564,6 +564,7 @@ operator|&
 name|target
 argument_list|)
 block|;
+comment|// incoming from user
 name|QNetworkAccessManager
 operator|*
 name|manager
@@ -580,6 +581,25 @@ operator|::
 name|Operation
 name|operation
 block|;
+comment|// FIXME already in replyprivate?
+name|QHttpNetworkRequest
+name|httpRequest
+block|;
+comment|// There is also a copy in the HTTP thread
+name|bool
+name|synchronous
+block|;
+name|State
+name|state
+block|;
+comment|// from http thread
+name|int
+name|statusCode
+block|;
+name|QString
+name|reasonPhrase
+block|;
+comment|// upload
 name|QNonContiguousByteDevice
 operator|*
 name|createUploadByteDevice
@@ -610,30 +630,10 @@ argument|qint64 bytesTotal
 argument_list|)
 block|;
 comment|// dup?
-name|bool
-name|migrateBackend
-argument_list|()
-block|;
-name|quint64
-name|resumeOffset
-block|;
-name|bool
-name|canResume
-argument_list|()
-specifier|const
-block|;
-name|void
-name|setResumeOffset
-argument_list|(
-argument|quint64 offset
-argument_list|)
-block|;
 name|qint64
 name|bytesUploaded
 block|;
-name|qint64
-name|preMigrationDownloaded
-block|;
+comment|// cache
 name|void
 name|createCache
 argument_list|()
@@ -668,16 +668,16 @@ operator|*
 name|cacheLoadDevice
 block|;
 name|bool
-name|cacheEnabled
+name|loadingFromCache
 block|;
-comment|// is this for saving?
 name|QIODevice
 operator|*
 name|cacheSaveDevice
 block|;
 name|bool
-name|loadingFromCache
+name|cacheEnabled
 block|;
+comment|// is this for saving?
 name|QUrl
 name|urlForLastAuthentication
 block|;
@@ -695,14 +695,26 @@ name|proxyList
 block|;
 endif|#
 directive|endif
-name|int
-name|statusCode
+name|bool
+name|migrateBackend
+argument_list|()
 block|;
-name|QString
-name|reasonPhrase
+name|bool
+name|canResume
+argument_list|()
+specifier|const
 block|;
-name|State
-name|state
+name|void
+name|setResumeOffset
+argument_list|(
+argument|quint64 offset
+argument_list|)
+block|;
+name|quint64
+name|resumeOffset
+block|;
+name|qint64
+name|preMigrationDownloaded
 block|;
 comment|// Used for normal downloading. For "zero copy" the downloadZerocopyBuffer is used
 name|QByteDataBuffer
@@ -739,10 +751,6 @@ name|char
 operator|*
 name|downloadZerocopyBuffer
 block|;
-name|QHttpNetworkRequest
-name|httpRequest
-block|;
-comment|// There is also a copy in the HTTP thread
 comment|// Will be increased by HTTP thread:
 name|QSharedPointer
 operator|<
@@ -755,9 +763,6 @@ operator|<
 name|QAtomicInt
 operator|>
 name|pendingDownloadProgressEmissions
-block|;
-name|bool
-name|synchronous
 block|;
 ifndef|#
 directive|ifndef
