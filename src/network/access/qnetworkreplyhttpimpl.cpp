@@ -7578,6 +7578,7 @@ expr_stmt|;
 comment|// We want signal emissions only for normal asynchronous uploads
 if|if
 condition|(
+operator|!
 name|synchronous
 condition|)
 name|QObject
