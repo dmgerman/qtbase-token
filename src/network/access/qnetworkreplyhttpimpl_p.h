@@ -215,6 +215,7 @@ name|void
 name|ignoreSslErrors
 argument_list|()
 block|;
+comment|// ### Qt5 Add proper virtual
 name|Q_INVOKABLE
 name|void
 name|ignoreSslErrorsImplementation
@@ -228,6 +229,7 @@ operator|&
 name|errors
 argument_list|)
 block|;
+comment|// ### Qt5 Add proper virtual
 name|Q_INVOKABLE
 name|void
 name|setSslConfigurationImplementation
@@ -238,6 +240,7 @@ operator|&
 name|configuration
 argument_list|)
 block|;
+comment|// ### Qt5 Add proper virtual
 name|Q_INVOKABLE
 name|QSslConfiguration
 name|sslConfigurationImplementation
