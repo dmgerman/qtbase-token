@@ -7804,6 +7804,9 @@ condition|)
 block|{
 comment|// ### Handle this error.
 block|}
+name|qint64
+name|written
+init|=
 name|d
 operator|->
 name|data
@@ -7814,7 +7817,24 @@ name|write
 argument_list|(
 name|sealedBuf
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|written
+operator|<=
+literal|0
+condition|)
+block|{
+name|QSOCKS5_Q_DEBUG
+operator|<<
+literal|"native write returned"
+operator|<<
+name|written
 expr_stmt|;
+return|return
+name|written
+return|;
+block|}
 name|d
 operator|->
 name|data
@@ -7826,6 +7846,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+comment|//NB: returning len rather than written for the OK case, because the "sealing" may increase the length
 return|return
 name|len
 return|;
