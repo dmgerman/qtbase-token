@@ -956,12 +956,51 @@ argument_list|(
 name|QNetworkReplyHttpImpl
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|state
+operator|==
+name|QNetworkReplyHttpImplPrivate
+operator|::
+name|Aborted
+operator|||
+name|d
+operator|->
+name|state
+operator|==
+name|QNetworkReplyHttpImplPrivate
+operator|::
+name|Finished
+condition|)
+return|return;
+comment|// According to the documentation close only stops the download
+comment|// by closing we can ignore the download part and continue uploading.
 name|QNetworkReply
 operator|::
 name|close
 argument_list|()
 expr_stmt|;
-comment|// FIXME
+comment|// call finished which will emit signals
+comment|// FIXME shouldn't this be emitted Queued?
+name|d
+operator|->
+name|error
+argument_list|(
+name|OperationCanceledError
+argument_list|,
+name|tr
+argument_list|(
+literal|"Operation canceled"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|finished
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -977,12 +1016,74 @@ argument_list|(
 name|QNetworkReplyHttpImpl
 argument_list|)
 expr_stmt|;
+comment|// FIXME
+if|if
+condition|(
+name|d
+operator|->
+name|state
+operator|==
+name|QNetworkReplyHttpImplPrivate
+operator|::
+name|Finished
+operator|||
+name|d
+operator|->
+name|state
+operator|==
+name|QNetworkReplyHttpImplPrivate
+operator|::
+name|Aborted
+condition|)
+return|return;
 name|QNetworkReply
 operator|::
 name|close
 argument_list|()
 expr_stmt|;
-comment|// FIXME
+if|if
+condition|(
+name|d
+operator|->
+name|state
+operator|!=
+name|QNetworkReplyHttpImplPrivate
+operator|::
+name|Finished
+condition|)
+block|{
+comment|// call finished which will emit signals
+comment|// FIXME shouldn't this be emitted Queued?
+name|d
+operator|->
+name|error
+argument_list|(
+name|OperationCanceledError
+argument_list|,
+name|tr
+argument_list|(
+literal|"Operation canceled"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|finished
+argument_list|()
+expr_stmt|;
+block|}
+name|d
+operator|->
+name|state
+operator|=
+name|QNetworkReplyHttpImplPrivate
+operator|::
+name|Aborted
+expr_stmt|;
+emit|emit
+name|abortHttpRequest
+argument_list|()
+emit|;
 block|}
 end_function
 begin_function
@@ -4026,6 +4127,16 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
+comment|// If we're closed just ignore this data
+if|if
+condition|(
+operator|!
+name|q
+operator|->
+name|isOpen
+argument_list|()
+condition|)
+return|return;
 name|int
 name|pendingSignals
 init|=
@@ -4091,16 +4202,6 @@ expr_stmt|;
 comment|// FIXME
 comment|//writeDownstreamData(pendingDownloadDataCopy);
 comment|// instead we do:
-comment|// We could be closed
-if|if
-condition|(
-operator|!
-name|q
-operator|->
-name|isOpen
-argument_list|()
-condition|)
-return|return;
 if|if
 condition|(
 name|cacheEnabled
@@ -4897,6 +4998,16 @@ argument_list|(
 name|QNetworkReplyHttpImpl
 argument_list|)
 expr_stmt|;
+comment|// If we're closed just ignore this data
+if|if
+condition|(
+operator|!
+name|q
+operator|->
+name|isOpen
+argument_list|()
+condition|)
+return|return;
 comment|// we can be sure here that there is a download buffer
 name|int
 name|pendingSignals
