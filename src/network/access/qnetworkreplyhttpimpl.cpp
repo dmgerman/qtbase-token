@@ -1813,23 +1813,6 @@ operator|::
 name|PreferNetwork
 condition|)
 block|{
-comment|// PreferNetwork == send request with "If-None-Match" and "If-Modified-Since" header,
-comment|// which will return a 304 Not Modifed if resource has not been changed.
-comment|// We might read from cache later, if receiving a 304.
-return|return
-literal|false
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|CacheLoadControlAttribute
-operator|==
-name|QNetworkRequest
-operator|::
-name|PreferCache
-condition|)
-block|{
 name|it
 operator|=
 name|cacheHeaders
@@ -6402,7 +6385,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// this is the server telling us the resource has not changed, keep the attributes intact
+comment|// this is a redirection, keep the attributes intact
 name|attributes
 operator|=
 name|oldMetaData
