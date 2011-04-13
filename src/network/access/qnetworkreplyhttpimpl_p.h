@@ -508,28 +508,6 @@ name|void
 name|_q_finished
 argument_list|()
 block|;
-comment|// ?
-name|void
-name|consume
-argument_list|(
-argument|qint64 count
-argument_list|)
-block|;
-name|void
-name|setDownloadBuffer
-argument_list|(
-argument|QSharedPointer<char> sp
-argument_list|,
-argument|qint64 size
-argument_list|)
-block|;
-name|char
-operator|*
-name|getDownloadBuffer
-argument_list|(
-argument|qint64 size
-argument_list|)
-block|;
 comment|// FIXME
 name|void
 name|finished
@@ -562,6 +540,12 @@ specifier|const
 name|QUrl
 operator|&
 name|target
+argument_list|)
+block|;
+name|void
+name|checkForRedirect
+argument_list|(
+argument|const int statusCode
 argument_list|)
 block|;
 comment|// incoming from user
@@ -730,6 +714,21 @@ block|;
 name|qint64
 name|lastBytesDownloaded
 block|;
+name|void
+name|setDownloadBuffer
+argument_list|(
+argument|QSharedPointer<char> sp
+argument_list|,
+argument|qint64 size
+argument_list|)
+block|;
+name|char
+operator|*
+name|getDownloadBuffer
+argument_list|(
+argument|qint64 size
+argument_list|)
+block|;
 comment|// only used when the "zero copy" style is used. Else downloadMultiBuffer is used.
 comment|// Please note that the whole "zero copy" download buffer API is private right now. Do not use it.
 name|qint64
@@ -812,12 +811,6 @@ block|;
 name|void
 name|postRequest
 argument_list|()
-block|;
-name|void
-name|checkForRedirect
-argument_list|(
-argument|const int statusCode
-argument_list|)
 block|;
 name|public
 operator|:
