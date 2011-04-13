@@ -940,7 +940,7 @@ name|~
 name|QNetworkReplyHttpImpl
 parameter_list|()
 block|{
-comment|// FIXME?
+comment|// Most work is done in private destructor
 block|}
 end_destructor
 begin_function
@@ -1000,12 +1000,7 @@ specifier|const
 name|QNetworkReplyHttpImpl
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"QNetworkReplyHttpImpl::bytesAvailable()"
-expr_stmt|;
-comment|// FIXME cache device
+comment|// if we load from cache device
 if|if
 condition|(
 name|d
@@ -1034,7 +1029,7 @@ name|byteAmount
 argument_list|()
 return|;
 block|}
-comment|// FIXME 0-copy buffer
+comment|// zerocopy buffer
 if|if
 condition|(
 name|d
@@ -1057,24 +1052,7 @@ operator|->
 name|downloadBufferReadPosition
 return|;
 block|}
-comment|// FIXME normal buffer
-name|qDebug
-argument_list|()
-operator|<<
-literal|"QNetworkReplyHttpImpl::bytesAvailable() =="
-operator|<<
-name|QNetworkReply
-operator|::
-name|bytesAvailable
-argument_list|()
-operator|+
-name|d
-operator|->
-name|downloadMultiBuffer
-operator|.
-name|byteAmount
-argument_list|()
-expr_stmt|;
+comment|// normal buffer
 return|return
 name|QNetworkReply
 operator|::
@@ -1088,7 +1066,6 @@ operator|.
 name|byteAmount
 argument_list|()
 return|;
-comment|// FIXME
 block|}
 end_function
 begin_function
@@ -1100,7 +1077,8 @@ name|isSequential
 parameter_list|()
 specifier|const
 block|{
-comment|// FIXME Maybe not for cache or 0-copy buffer
+comment|// FIXME In the cache of a cached load or the zero-copy buffer we could actually be non-sequential.
+comment|// FIXME however this requires us to implement stuff like seek() too.
 return|return
 literal|true
 return|;
@@ -1115,13 +1093,7 @@ name|size
 parameter_list|()
 specifier|const
 block|{
-name|Q_D
-argument_list|(
-specifier|const
-name|QNetworkReplyHttpImpl
-argument_list|)
-expr_stmt|;
-comment|//return -1;
+comment|// FIXME At some point, this could return a proper value, e.g. if we're non-sequential.
 return|return
 name|QNetworkReply
 operator|::
