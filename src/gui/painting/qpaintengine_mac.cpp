@@ -9529,6 +9529,14 @@ operator|->
 name|radius
 argument_list|()
 decl_stmt|;
+name|qreal
+name|focalRadius
+init|=
+name|radialGrad
+operator|->
+name|focalRadius
+argument_list|()
+decl_stmt|;
 name|shading
 operator|=
 name|CGShadingCreateRadial
@@ -9548,7 +9556,7 @@ name|y
 argument_list|()
 argument_list|)
 argument_list|,
-literal|0.0
+name|focalRadius
 argument_list|,
 name|CGPointMake
 argument_list|(

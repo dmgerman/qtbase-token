@@ -2521,6 +2521,10 @@ literal|"fmp2_m_radius2"
 block|,
 literal|"inverse_2_fmp2_m_radius2"
 block|,
+literal|"sqrfr"
+block|,
+literal|"bradius"
+block|,
 literal|"invertedTextureSize"
 block|,
 literal|"brushTransform"

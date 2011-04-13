@@ -674,6 +674,13 @@ name|re
 parameter_list|)
 function_decl|;
 name|void
+name|command_gradient_setRadialExtended
+parameter_list|(
+name|QRegExp
+name|re
+parameter_list|)
+function_decl|;
+name|void
 name|command_gradient_setLinearPen
 parameter_list|(
 name|QRegExp

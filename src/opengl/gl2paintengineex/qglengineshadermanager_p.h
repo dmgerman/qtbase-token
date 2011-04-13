@@ -635,6 +635,10 @@ name|Fmp2MRadius2
 block|,
 name|Inverse2Fmp2MRadius2
 block|,
+name|SqrFr
+block|,
+name|BRadius
+block|,
 name|InvertedTextureSize
 block|,
 name|BrushTransform
