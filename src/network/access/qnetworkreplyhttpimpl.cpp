@@ -1223,14 +1223,7 @@ argument_list|(
 name|QNetworkReplyHttpImpl
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"QNetworkReplyHttpImpl::readData()"
-operator|<<
-name|maxlen
-expr_stmt|;
-comment|// FIXME cacheload device
+comment|// cacheload device
 if|if
 condition|(
 name|d
@@ -1283,7 +1276,7 @@ return|return
 name|ret
 return|;
 block|}
-comment|// FIXME 0-copy buffer
+comment|// zerocopy buffer
 if|if
 condition|(
 name|d
@@ -1291,7 +1284,7 @@ operator|->
 name|downloadZerocopyBuffer
 condition|)
 block|{
-comment|// bla
+comment|// FIXME bytesdownloaded, position etc?
 name|qint64
 name|howMuch
 init|=
@@ -1335,7 +1328,7 @@ return|return
 name|howMuch
 return|;
 block|}
-comment|// FIXME normal buffer
+comment|// normal buffer
 if|if
 condition|(
 name|d
@@ -1345,7 +1338,9 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-return|return
+block|{
+if|if
+condition|(
 name|d
 operator|->
 name|state
@@ -1353,14 +1348,23 @@ operator|==
 name|d
 operator|->
 name|Finished
-condition|?
+operator|||
+name|d
+operator|->
+name|state
+operator|==
+name|d
+operator|->
+name|Aborted
+condition|)
+return|return
 operator|-
 literal|1
-else|:
+return|;
+return|return
 literal|0
 return|;
-comment|// FIXME what about "Aborted" state?
-comment|//d->backendNotify(QNetworkReplyImplPrivate::NotifyDownstreamReadyWrite);
+block|}
 if|if
 condition|(
 name|maxlen
@@ -1425,8 +1429,8 @@ name|qint64
 name|size
 parameter_list|)
 block|{
-return|return;
 comment|// FIXME, unsupported right now
+return|return;
 block|}
 end_function
 begin_function
@@ -1475,6 +1479,7 @@ operator|.
 name|canReadLine
 argument_list|()
 return|;
+comment|// FIXME zerocopy buffer?
 return|return
 name|d
 operator|->
@@ -1579,11 +1584,6 @@ specifier|const
 name|QNetworkReplyHttpImpl
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"sslConfigurationImplementation"
-expr_stmt|;
 return|return
 name|d
 operator|->
@@ -1601,7 +1601,6 @@ name|QNetworkReplyHttpImplPrivate
 operator|::
 name|QNetworkReplyHttpImplPrivate
 parameter_list|()
-comment|// FIXME order etc
 member_init_list|:
 name|QNetworkReplyPrivate
 argument_list|()
