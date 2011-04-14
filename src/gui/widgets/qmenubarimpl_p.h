@@ -21,7 +21,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"qabstractmenubarinterface_p.h"
+file|"qabstractmenubarimpl_p.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -35,7 +35,7 @@ name|class
 name|QMenuBarImpl
 range|:
 name|public
-name|QAbstractMenuBarInterface
+name|QAbstractMenuBarImpl
 block|{
 name|public
 operator|:
@@ -52,11 +52,10 @@ operator|*
 argument_list|)
 block|;
 name|virtual
-name|void
-name|setVisible
-argument_list|(
-argument|bool visible
-argument_list|)
+name|bool
+name|allowSetVisible
+argument_list|()
+specifier|const
 block|;
 name|virtual
 name|void
@@ -748,11 +747,6 @@ block|;
 endif|#
 directive|endif
 block|}
-block|;
-name|QMenuBarImplFactoryInterface
-operator|*
-name|qt_guiMenuBarImplFactory
-argument_list|()
 block|;
 name|QT_END_NAMESPACE
 end_decl_stmt

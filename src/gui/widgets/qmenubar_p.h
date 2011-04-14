@@ -78,7 +78,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|"qabstractmenubarinterface_p.h"
+file|"qabstractmenubarimpl_p.h"
 end_include
 begin_ifndef
 ifndef|#
@@ -469,7 +469,7 @@ name|doAutoResize
 block|;
 endif|#
 directive|endif
-name|QAbstractMenuBarInterface
+name|QAbstractMenuBarImpl
 operator|*
 name|impl
 block|;
