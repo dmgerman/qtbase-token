@@ -4884,11 +4884,6 @@ name|QEvent
 operator|::
 name|ApplicationLayoutDirectionChange
 case|:
-case|case
-name|QEvent
-operator|::
-name|Resize
-case|:
 name|updateGeometries
 argument_list|()
 expr_stmt|;
@@ -9340,6 +9335,9 @@ name|resizeEvent
 argument_list|(
 name|event
 argument_list|)
+expr_stmt|;
+name|updateGeometries
+argument_list|()
 expr_stmt|;
 block|}
 end_function
