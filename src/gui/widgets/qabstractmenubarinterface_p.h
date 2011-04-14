@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QABSTRACTMENUBARIMPL_P_H
+name|QABSTRACTMENUBARINTERFACE_P_H
 end_ifndef
 begin_define
-DECL|macro|QABSTRACTMENUBARIMPL_P_H
+DECL|macro|QABSTRACTMENUBARINTERFACE_P_H
 define|#
 directive|define
-name|QABSTRACTMENUBARIMPL_P_H
+name|QABSTRACTMENUBARINTERFACE_P_H
 end_define
 begin_include
 include|#
@@ -71,9 +71,9 @@ name|QWidget
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QAbstractMenuBarImpl
+DECL|variable|QAbstractMenuBarInterface
 name|class
-name|QAbstractMenuBarImpl
+name|QAbstractMenuBarInterface
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -85,7 +85,7 @@ name|public
 name|QFactoryInterface
 block|{
 name|virtual
-name|QAbstractMenuBarImpl
+name|QAbstractMenuBarInterface
 operator|*
 name|createImpl
 argument_list|()
@@ -115,16 +115,16 @@ comment|/**  * The platform-specific implementation of a menubar  */
 end_comment
 begin_decl_stmt
 name|class
-name|QAbstractMenuBarImpl
+name|QAbstractMenuBarInterface
 block|{
 name|public
 label|:
-name|QAbstractMenuBarImpl
+name|QAbstractMenuBarInterface
 argument_list|()
 block|{}
 name|virtual
 operator|~
-name|QAbstractMenuBarImpl
+name|QAbstractMenuBarInterface
 argument_list|()
 block|{}
 comment|// QMenuBarPrivate::init()
@@ -266,6 +266,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QABSTRACTMENUBARIMPL_P_H
+comment|// QABSTRACTMENUBARINTERFACE_P_H
 end_comment
 end_unit

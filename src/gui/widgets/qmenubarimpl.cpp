@@ -933,7 +933,7 @@ specifier|public
 name|QMenuBarImplFactoryInterface
 block|{
 DECL|function|createImpl
-name|QAbstractMenuBarImpl
+name|QAbstractMenuBarInterface
 modifier|*
 name|createImpl
 parameter_list|()
