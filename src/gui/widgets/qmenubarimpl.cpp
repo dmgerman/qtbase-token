@@ -414,6 +414,9 @@ operator|*
 name|newWindow
 operator|)
 block|{
+ifdef|#
+directive|ifdef
+name|Q_WS_X11
 name|Q_UNUSED
 argument_list|(
 argument|oldParent
@@ -430,6 +433,8 @@ name|Q_UNUSED
 argument_list|(
 argument|newWindow
 argument_list|)
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|Q_WS_MAC
