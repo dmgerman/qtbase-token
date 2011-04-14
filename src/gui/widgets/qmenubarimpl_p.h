@@ -52,10 +52,11 @@ operator|*
 argument_list|)
 block|;
 name|virtual
-name|bool
-name|allowSetVisible
-argument_list|()
-specifier|const
+name|void
+name|setVisible
+argument_list|(
+argument|bool visible
+argument_list|)
 block|;
 name|virtual
 name|void

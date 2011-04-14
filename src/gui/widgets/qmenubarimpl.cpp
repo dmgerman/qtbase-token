@@ -205,17 +205,18 @@ endif|#
 directive|endif
 end_endif
 begin_macro
-unit|}  bool
-DECL|function|allowSetVisible
+unit|}  void
+DECL|function|setVisible
 name|QMenuBarImpl
 end_macro
 begin_expr_stmt
-DECL|function|allowSetVisible
+DECL|function|setVisible
 operator|::
-name|allowSetVisible
+name|setVisible
 operator|(
+name|bool
+name|visible
 operator|)
-specifier|const
 block|{
 if|#
 directive|if
@@ -233,23 +234,40 @@ name|defined
 argument_list|(
 name|Q_WS_S60
 argument_list|)
-comment|// FIXME: Port this to a setVisible() method
-comment|/*     if (isNativeMenuBar()) {         if (!visible)             QWidget::setVisible(false);         return;     }     */
-return|return
-operator|!
+if|if
+condition|(
 name|isNativeMenuBar
 argument_list|()
-return|;
-end_expr_stmt
-begin_endif
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|visible
+condition|)
+name|menuBar
+operator|->
+name|QWidget
+operator|::
+name|setVisible
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 endif|#
 directive|endif
-end_endif
-begin_return
-return|return
-literal|true
-return|;
-end_return
+name|menuBar
+operator|->
+name|QWidget
+operator|::
+name|setVisible
+argument_list|(
+name|visible
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_macro
 unit|}  void
 DECL|function|actionEvent

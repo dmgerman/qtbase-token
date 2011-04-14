@@ -136,15 +136,16 @@ parameter_list|)
 init|=
 literal|0
 function_decl|;
-comment|// QMenuBar::setVisible()
 name|virtual
+name|void
+name|setVisible
+parameter_list|(
 name|bool
-name|allowSetVisible
-argument_list|()
-specifier|const
-operator|=
+name|visible
+parameter_list|)
+init|=
 literal|0
-expr_stmt|;
+function_decl|;
 name|virtual
 name|void
 name|actionEvent
