@@ -3353,14 +3353,14 @@ name|b
 parameter_list|)
 block|{
 return|return
-operator|(
-name|__m128i
-operator|)
+name|_mm_castps_si128
+argument_list|(
 name|_mm_cmpgt_ps
 argument_list|(
 name|a
 argument_list|,
 name|b
+argument_list|)
 argument_list|)
 return|;
 block|}
