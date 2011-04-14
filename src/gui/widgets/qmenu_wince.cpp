@@ -2536,7 +2536,7 @@ name|QAction
 modifier|*
 name|a
 parameter_list|,
-name|QWceMenuAction
+name|QAction
 modifier|*
 name|before
 parameter_list|)
@@ -2565,7 +2565,10 @@ name|addAction
 argument_list|(
 name|action
 argument_list|,
+name|findAction
+argument_list|(
 name|before
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
