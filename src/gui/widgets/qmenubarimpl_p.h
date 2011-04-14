@@ -748,6 +748,11 @@ endif|#
 directive|endif
 block|}
 block|;
+name|QMenuBarImplFactoryInterface
+operator|*
+name|qt_guiMenuBarImplFactory
+argument_list|()
+block|;
 name|QT_END_NAMESPACE
 end_decl_stmt
 begin_endif

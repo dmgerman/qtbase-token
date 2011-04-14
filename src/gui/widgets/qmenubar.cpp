@@ -76,6 +76,11 @@ include|#
 directive|include
 file|<qwhatsthis.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qpluginloader.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -3388,8 +3393,11 @@ argument_list|)
 expr_stmt|;
 name|impl
 operator|=
-operator|new
-name|QMenuBarImpl
+name|qt_guiMenuBarImplFactory
+argument_list|()
+operator|->
+name|createImpl
+argument_list|()
 expr_stmt|;
 name|impl
 operator|->
