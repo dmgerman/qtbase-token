@@ -2517,16 +2517,16 @@ name|QSize
 name|sz
 decl_stmt|;
 comment|//calc what I think the size is..
-name|i
-name|f
-argument_list|(
+if|if
+condition|(
 name|action
 operator|->
 name|isSeparator
 argument_list|()
-argument_list|)
-argument_list|{             if
-operator|(
+condition|)
+block|{
+if|if
+condition|(
 name|style
 operator|->
 name|styleHint
@@ -2539,41 +2539,42 @@ literal|0
 argument_list|,
 name|q
 argument_list|)
-operator|)
+condition|)
 name|separator
 operator|=
 name|i
-argument_list|;             continue;
+expr_stmt|;
+continue|continue;
 comment|//we don't really position these!
-argument_list|}
-decl|else
-argument_list|{
+block|}
+else|else
+block|{
 specifier|const
 name|QString
 name|s
-operator|=
+init|=
 name|action
 operator|->
 name|text
 argument_list|()
-argument_list|;
+decl_stmt|;
 name|QIcon
 name|is
-operator|=
+init|=
 name|action
 operator|->
 name|icon
 argument_list|()
-argument_list|;
+decl_stmt|;
 comment|// If an icon is set, only the icon is visible
-argument_list|if
-operator|(
+if|if
+condition|(
 operator|!
 name|is
 operator|.
 name|isNull
 argument_list|()
-operator|)
+condition|)
 name|sz
 operator|=
 name|sz
@@ -2587,14 +2588,16 @@ argument_list|,
 name|icone
 argument_list|)
 argument_list|)
-argument_list|;             else if
-operator|(
+expr_stmt|;
+elseif|else
+if|if
+condition|(
 operator|!
 name|s
 operator|.
 name|isEmpty
 argument_list|()
-operator|)
+condition|)
 name|sz
 operator|=
 name|fm
@@ -2607,7 +2610,8 @@ name|TextShowMnemonic
 argument_list|,
 name|s
 argument_list|)
-argument_list|;         }
+expr_stmt|;
+block|}
 comment|//let the style modify the above size..
 name|QStyleOptionMenuItem
 name|opt
