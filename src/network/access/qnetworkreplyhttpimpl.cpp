@@ -2201,11 +2201,6 @@ name|synchronous
 condition|)
 block|{
 comment|// A synchronous HTTP request uses its own thread
-name|qDebug
-argument_list|()
-operator|<<
-literal|"sync!"
-expr_stmt|;
 name|thread
 operator|=
 operator|new
@@ -4116,16 +4111,6 @@ argument_list|(
 name|QNetworkReplyHttpImpl
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"QNetworkReplyHttpImplPrivate::replyDownloadData"
-operator|<<
-name|d
-operator|.
-name|size
-argument_list|()
-expr_stmt|;
 comment|// If we're closed just ignore this data
 if|if
 condition|(
@@ -4198,9 +4183,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|// FIXME
-comment|//writeDownstreamData(pendingDownloadDataCopy);
-comment|// instead we do:
 if|if
 condition|(
 name|cacheEnabled
@@ -4293,8 +4275,6 @@ name|lastBytesDownloaded
 operator|=
 name|bytesDownloaded
 expr_stmt|;
-comment|//appendDownstreamDataSignalEmissions();
-comment|// instead:
 name|QVariant
 name|totalSize
 init|=
@@ -4326,9 +4306,6 @@ argument_list|()
 operator|+
 name|preMigrationDownloaded
 expr_stmt|;
-comment|//    pauseNotificationHandling();
-comment|// important: At the point of this readyRead(), the data parameter list must be empty,
-comment|// else implicit sharing will trigger memcpy when the user is reading data!
 emit|emit
 name|q
 operator|->
@@ -4361,7 +4338,6 @@ name|toLongLong
 argument_list|()
 argument_list|)
 emit|;
-comment|//    resumeNotificationHandling();
 block|}
 end_function
 begin_function
@@ -4463,6 +4439,7 @@ name|header
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// FIXME?
 comment|//redirectionRequested(url);
 name|q
 operator|->
@@ -4515,15 +4492,6 @@ name|qint64
 name|contentLength
 parameter_list|)
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"QNetworkReplyHttpImplPrivate::replyDownloadMetaData"
-operator|<<
-name|contentLength
-operator|<<
-name|sc
-expr_stmt|;
 name|Q_Q
 argument_list|(
 name|QNetworkReplyHttpImpl
