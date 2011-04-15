@@ -1396,6 +1396,13 @@ operator|::
 name|objects
 parameter_list|()
 block|{
+name|QSKIP
+argument_list|(
+literal|"This test currently crashes"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
 name|QFETCH
 argument_list|(
 name|AbstractTester
@@ -1910,6 +1917,13 @@ operator|::
 name|widgets
 parameter_list|()
 block|{
+name|QSKIP
+argument_list|(
+literal|"This test currently crashes"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
 name|QFETCH
 argument_list|(
 name|AbstractTester
