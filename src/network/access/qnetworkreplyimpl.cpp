@@ -223,9 +223,6 @@ argument_list|()
 expr_stmt|;
 return|return;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_BEARERMANAGEMENT
 if|if
 condition|(
 operator|!
@@ -235,9 +232,11 @@ name|start
 argument_list|()
 condition|)
 block|{
-comment|// ### we should call that method even if bearer is not used
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 comment|// backend failed to start because the session state is not Connected.
-comment|// QNetworkAccessManager will call reply->backend->start() again for us when the session
+comment|// QNetworkAccessManager will call _q_startOperation again for us when the session
 comment|// state changes.
 name|state
 operator|=
@@ -313,11 +312,64 @@ argument_list|(
 literal|"Backend is waiting for QNetworkSession to connect, but there is none!"
 argument_list|)
 expr_stmt|;
+name|state
+operator|=
+name|Working
+expr_stmt|;
+name|error
+argument_list|(
+name|QNetworkReplyImpl
+operator|::
+name|UnknownNetworkError
+argument_list|,
+name|QCoreApplication
+operator|::
+name|translate
+argument_list|(
+literal|"QNetworkReply"
+argument_list|,
+literal|"Network session error."
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|finished
+argument_list|()
+expr_stmt|;
 block|}
-return|return;
-block|}
+else|#
+directive|else
+name|qWarning
+argument_list|(
+literal|"Backend start failed"
+argument_list|)
+expr_stmt|;
+name|state
+operator|=
+name|Working
+expr_stmt|;
+name|error
+argument_list|(
+name|QNetworkReplyImpl
+operator|::
+name|UnknownNetworkError
+argument_list|,
+name|QCoreApplication
+operator|::
+name|translate
+argument_list|(
+literal|"QNetworkReply"
+argument_list|,
+literal|"backend start error."
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|finished
+argument_list|()
+expr_stmt|;
 endif|#
 directive|endif
+return|return;
+block|}
 if|if
 condition|(
 name|backend
