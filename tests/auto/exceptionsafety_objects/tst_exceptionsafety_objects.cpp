@@ -81,7 +81,7 @@ file|"3rdparty/memcheck.h"
 endif|#
 directive|endif
 name|class
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|:
 specifier|public
 name|QObject
@@ -496,7 +496,7 @@ struct|;
 end_struct
 begin_function
 name|void
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|::
 name|objects_data
 parameter_list|()
@@ -1059,14 +1059,14 @@ class|;
 end_class
 begin_decl_stmt
 name|QtMsgHandler
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|::
 name|testMessageHandler
 decl_stmt|;
 end_decl_stmt
 begin_function
 name|void
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|::
 name|safeMessageHandler
 parameter_list|(
@@ -1165,7 +1165,7 @@ block|}
 end_function
 begin_function
 name|void
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|::
 name|initTestCase
 parameter_list|()
@@ -1377,7 +1377,7 @@ block|}
 end_function
 begin_function
 name|void
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|::
 name|cleanupTestCase
 parameter_list|()
@@ -1391,7 +1391,7 @@ block|}
 end_function
 begin_function
 name|void
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|::
 name|objects
 parameter_list|()
@@ -1596,7 +1596,7 @@ struct|;
 end_struct
 begin_function
 name|void
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|::
 name|widgets_data
 parameter_list|()
@@ -1912,7 +1912,7 @@ block|}
 end_function
 begin_function
 name|void
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|::
 name|widgets
 parameter_list|()
@@ -3242,7 +3242,7 @@ block|}
 end_function
 begin_function
 name|void
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|::
 name|vector_data
 parameter_list|()
@@ -3257,7 +3257,7 @@ block|}
 end_function
 begin_function
 name|void
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|::
 name|vector
 parameter_list|()
@@ -3315,7 +3315,7 @@ block|}
 end_function
 begin_function
 name|void
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|::
 name|list_data
 parameter_list|()
@@ -3330,7 +3330,7 @@ block|}
 end_function
 begin_function
 name|void
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|::
 name|list
 parameter_list|()
@@ -3353,7 +3353,7 @@ block|}
 end_function
 begin_function
 name|void
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|::
 name|linkedList_data
 parameter_list|()
@@ -3368,7 +3368,7 @@ block|}
 end_function
 begin_function
 name|void
-name|tst_ExceptionSafetyObjects
+name|tst_ExceptionSafety_Objects
 operator|::
 name|linkedList
 parameter_list|()
@@ -3392,7 +3392,7 @@ end_function
 begin_macro
 name|QTEST_MAIN
 argument_list|(
-argument|tst_ExceptionSafetyObjects
+argument|tst_ExceptionSafety_Objects
 argument_list|)
 end_macro
 begin_include
