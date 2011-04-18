@@ -1389,6 +1389,9 @@ name|Q_COMPILER_AUTO_TYPE
 define|#
 directive|define
 name|Q_COMPILER_LAMBDA
+define|#
+directive|define
+name|Q_COMPILER_DECLTYPE
 comment|//#      define Q_COMPILER_VARIADIC_TEMPLATES
 comment|//#      define Q_COMPILER_CLASS_ENUM
 comment|//#      define Q_COMPILER_DEFAULT_DELETE_MEMBERS
@@ -1792,6 +1795,9 @@ comment|/* C++0x features supported in GCC 4.3: */
 define|#
 directive|define
 name|Q_COMPILER_RVALUE_REFS
+define|#
+directive|define
+name|Q_COMPILER_DECLTYPE
 endif|#
 directive|endif
 if|#
@@ -2566,6 +2572,10 @@ DECL|macro|Q_COMPILER_EXTERN_TEMPLATES
 define|#
 directive|define
 name|Q_COMPILER_EXTERN_TEMPLATES
+DECL|macro|Q_COMPILER_DECLTYPE
+define|#
+directive|define
+name|Q_COMPILER_DECLTYPE
 elif|#
 directive|elif
 name|__INTEL_COMPILER
