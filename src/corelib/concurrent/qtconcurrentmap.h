@@ -870,17 +870,7 @@ operator|,
 name|typename
 name|ReduceFunctor
 operator|>
-name|typename
-name|QtPrivate
-operator|::
-name|DisableIfSame
-operator|<
 name|ResultType
-operator|,
-name|Sequence
-operator|>
-operator|::
-name|Type
 name|blockingMappedReduced
 argument_list|(
 argument|const Sequence&sequence
@@ -938,13 +928,13 @@ block|}
 name|template
 operator|<
 name|typename
-name|Sequence
-operator|,
-name|typename
 name|MapFunctor
 operator|,
 name|typename
 name|ReduceFunctor
+operator|,
+name|typename
+name|Sequence
 operator|>
 name|typename
 name|QtPrivate
@@ -1189,17 +1179,7 @@ operator|,
 name|typename
 name|MapFunctor
 operator|>
-name|typename
-name|QtPrivate
-operator|::
-name|DisableIfSame
-operator|<
 name|OutputSequence
-operator|,
-name|InputSequence
-operator|>
-operator|::
-name|Type
 name|blockingMapped
 argument_list|(
 argument|const InputSequence&sequence
@@ -1236,10 +1216,10 @@ block|}
 name|template
 operator|<
 name|typename
-name|InputSequence
+name|MapFunctor
 operator|,
 name|typename
-name|MapFunctor
+name|InputSequence
 operator|>
 name|typename
 name|QtPrivate
