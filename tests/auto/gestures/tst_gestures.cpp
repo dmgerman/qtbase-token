@@ -1242,9 +1242,20 @@ argument_list|()
 expr_stmt|;
 break|break;
 default|default:
-name|Q_ASSERT
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Unknown GestureState enum value:"
+operator|<<
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
 argument_list|(
-literal|false
+name|g
+operator|->
+name|state
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -4287,9 +4298,20 @@ argument_list|)
 emit|;
 break|break;
 default|default:
-name|Q_ASSERT
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Unknown GestureState enum value:"
+operator|<<
+cast|static_cast
+argument_list|<
+name|int
+argument_list|>
 argument_list|(
-literal|false
+name|g
+operator|->
+name|state
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
