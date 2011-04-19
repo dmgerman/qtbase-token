@@ -213,9 +213,13 @@ operator|=
 literal|0
 expr_stmt|;
 return|return
+operator|(
 name|t1
 operator|-
 name|oldt1
+operator|)
+operator|/
+literal|1000
 return|;
 block|}
 end_function
