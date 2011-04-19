@@ -28416,6 +28416,15 @@ name|QString
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QKeySequence::mnemonic: \"Q&A&B\" contains multiple occurrences of '&'"
+argument_list|)
+expr_stmt|;
 name|label
 operator|->
 name|setText
