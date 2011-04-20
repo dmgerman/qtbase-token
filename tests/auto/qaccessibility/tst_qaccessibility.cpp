@@ -28450,6 +28450,9 @@ name|QString
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 name|QTest
 operator|::
 name|ignoreMessage
@@ -28459,6 +28462,8 @@ argument_list|,
 literal|"QKeySequence::mnemonic: \"Q&A&B\" contains multiple occurrences of '&'"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|label
 operator|->
 name|setText
