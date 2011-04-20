@@ -1382,9 +1382,6 @@ directive|define
 name|Q_COMPILER_RVALUE_REFS
 define|#
 directive|define
-name|Q_COMPILER_INITIALIZER_LISTS
-define|#
-directive|define
 name|Q_COMPILER_AUTO_TYPE
 define|#
 directive|define
@@ -1392,11 +1389,8 @@ name|Q_COMPILER_LAMBDA
 define|#
 directive|define
 name|Q_COMPILER_DECLTYPE
-comment|//#      define Q_COMPILER_VARIADIC_TEMPLATES
-comment|//#      define Q_COMPILER_CLASS_ENUM
-comment|//#      define Q_COMPILER_DEFAULT_DELETE_MEMBERS
-comment|//#      define Q_COMPILER_UNICODE_STRINGS
-comment|//#      define Q_COMPILER_EXTERN_TEMPLATES
+comment|//  MSCV has std::initilizer_list, but do not support the braces initilization
+comment|//#      define Q_COMPILER_INITIALIZER_LISTS
 endif|#
 directive|endif
 elif|#
