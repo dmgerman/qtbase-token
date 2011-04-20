@@ -1486,6 +1486,8 @@ ifdef|#
 directive|ifdef
 name|BOOTSTRAPPING
 return|return
+name|QDir
+argument_list|(
 name|QFileInfo
 argument_list|(
 name|qmake_libraryInfoFile
@@ -1494,6 +1496,12 @@ argument_list|)
 operator|.
 name|absolutePath
 argument_list|()
+argument_list|)
+operator|.
+name|absoluteFilePath
+argument_list|(
+name|ret
+argument_list|)
 return|;
 else|#
 directive|else
