@@ -4497,6 +4497,32 @@ modifier|*
 name|notifier
 parameter_list|)
 block|{
+comment|//check socket descriptor is usable
+if|if
+condition|(
+name|notifier
+operator|->
+name|socket
+argument_list|()
+operator|>=
+name|FD_SETSIZE
+operator|||
+name|notifier
+operator|->
+name|socket
+argument_list|()
+operator|<
+literal|0
+condition|)
+block|{
+comment|//same warning message as the unix event dispatcher for easy testing
+name|qWarning
+argument_list|(
+literal|"QSocketNotifier: Internal error"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|//note - this is only for "open C" file descriptors
 comment|//for native sockets, an active object in the symbian socket engine handles this
 name|QSocketActiveObject
