@@ -1158,9 +1158,23 @@ literal|0
 expr_stmt|;
 break|break;
 default|default:
-name|Q_ASSERT
+name|QFAIL
 argument_list|(
-literal|false
+name|qPrintable
+argument_list|(
+name|QString
+argument_list|(
+literal|"Problem with 'step' value in test data: %1 (only P, N, L and F are allowed)."
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|step
+index|[
+name|i
+index|]
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
