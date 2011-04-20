@@ -734,9 +734,6 @@ empty_stmt|;
 name|template
 operator|<
 name|class
-name|InputSequence
-operator|,
-name|class
 name|U
 operator|,
 name|class
@@ -745,7 +742,7 @@ operator|>
 expr|struct
 name|MapResultType
 operator|<
-name|InputSequence
+name|void
 operator|,
 name|U
 argument_list|(
@@ -765,9 +762,6 @@ empty_stmt|;
 name|template
 operator|<
 name|class
-name|InputSequence
-operator|,
-name|class
 name|T
 operator|,
 name|class
@@ -776,7 +770,7 @@ operator|>
 expr|struct
 name|MapResultType
 operator|<
-name|InputSequence
+name|void
 operator|,
 name|T
 argument_list|(
