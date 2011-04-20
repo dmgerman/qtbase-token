@@ -204,7 +204,7 @@ block|{
 name|Logical
 block|,
 name|Visual
-block|,     }
+block|}
 enum|;
 end_enum
 begin_function_decl
