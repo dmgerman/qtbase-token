@@ -2286,6 +2286,9 @@ name|it
 operator|.
 name|value
 argument_list|()
+operator|.
+name|bytes
+argument_list|()
 decl_stmt|;
 name|key
 operator|.
