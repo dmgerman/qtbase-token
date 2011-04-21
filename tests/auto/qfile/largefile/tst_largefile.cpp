@@ -689,7 +689,7 @@ name|filler
 argument_list|,
 name|blockSize
 operator|-
-literal|2
+literal|3
 operator|*
 sizeof|sizeof
 argument_list|(
@@ -724,14 +724,7 @@ name|block
 operator|.
 name|size
 argument_list|()
-operator|>=
-name|blockSize
-argument_list|)
-expr_stmt|;
-name|block
-operator|.
-name|resize
-argument_list|(
+operator|==
 name|blockSize
 argument_list|)
 expr_stmt|;
