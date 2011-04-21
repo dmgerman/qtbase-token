@@ -1349,6 +1349,17 @@ init|=
 name|environment
 decl_stmt|;
 comment|// add PATH if necessary (for DLL loading)
+name|QProcessEnvironmentPrivate
+operator|::
+name|Key
+name|pathKey
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"PATH"
+argument_list|)
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -1356,10 +1367,7 @@ name|copy
 operator|.
 name|contains
 argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"PATH"
-argument_list|)
+name|pathKey
 argument_list|)
 condition|)
 block|{
@@ -1383,10 +1391,7 @@ name|copy
 operator|.
 name|insert
 argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"PATH"
-argument_list|)
+name|pathKey
 argument_list|,
 name|QString
 operator|::
@@ -1398,6 +1403,17 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// add systemroot if needed
+name|QProcessEnvironmentPrivate
+operator|::
+name|Key
+name|rootKey
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"SystemRoot"
+argument_list|)
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -1405,10 +1421,7 @@ name|copy
 operator|.
 name|contains
 argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"SYSTEMROOT"
-argument_list|)
+name|rootKey
 argument_list|)
 condition|)
 block|{
@@ -1417,7 +1430,7 @@ name|systemRoot
 init|=
 name|qgetenv
 argument_list|(
-literal|"SYSTEMROOT"
+literal|"SystemRoot"
 argument_list|)
 decl_stmt|;
 if|if
@@ -1432,10 +1445,7 @@ name|copy
 operator|.
 name|insert
 argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"SYSTEMROOT"
-argument_list|)
+name|rootKey
 argument_list|,
 name|QString
 operator|::

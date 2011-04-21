@@ -261,10 +261,12 @@ name|name
 parameter_list|)
 block|{
 return|return
+name|QProcessEnvironmentPrivate
+operator|::
+name|Key
+argument_list|(
 name|name
-operator|.
-name|toUpper
-argument_list|()
+argument_list|)
 return|;
 block|}
 end_function
