@@ -251,7 +251,7 @@ specifier|static
 specifier|inline
 name|QProcessEnvironmentPrivate
 operator|::
-name|Unit
+name|Key
 name|prepareName
 parameter_list|(
 specifier|const
@@ -278,7 +278,7 @@ parameter_list|(
 specifier|const
 name|QProcessEnvironmentPrivate
 operator|::
-name|Unit
+name|Key
 modifier|&
 name|name
 parameter_list|)
@@ -294,7 +294,7 @@ specifier|static
 specifier|inline
 name|QProcessEnvironmentPrivate
 operator|::
-name|Unit
+name|Value
 name|prepareValue
 parameter_list|(
 specifier|const
@@ -318,7 +318,7 @@ parameter_list|(
 specifier|const
 name|QProcessEnvironmentPrivate
 operator|::
-name|Unit
+name|Value
 modifier|&
 name|value
 parameter_list|)
@@ -337,7 +337,7 @@ specifier|static
 specifier|inline
 name|QProcessEnvironmentPrivate
 operator|::
-name|Unit
+name|Key
 name|prepareName
 parameter_list|(
 specifier|const
@@ -363,7 +363,7 @@ parameter_list|(
 specifier|const
 name|QProcessEnvironmentPrivate
 operator|::
-name|Unit
+name|Key
 modifier|&
 name|name
 parameter_list|)
@@ -383,7 +383,7 @@ specifier|static
 specifier|inline
 name|QProcessEnvironmentPrivate
 operator|::
-name|Unit
+name|Value
 name|prepareValue
 parameter_list|(
 specifier|const
@@ -409,7 +409,7 @@ parameter_list|(
 specifier|const
 name|QProcessEnvironmentPrivate
 operator|::
-name|Unit
+name|Value
 modifier|&
 name|value
 parameter_list|)
