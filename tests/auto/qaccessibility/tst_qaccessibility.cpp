@@ -28172,9 +28172,6 @@ name|y
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|int
-name|child
-init|=
 name|accToplevel
 operator|->
 name|navigate
@@ -28188,7 +28185,7 @@ argument_list|,
 operator|&
 name|acc
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|acc
@@ -28211,8 +28208,6 @@ name|y
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|child
-operator|=
 name|acc
 operator|->
 name|navigate
