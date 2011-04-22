@@ -996,7 +996,7 @@ if|if
 condition|(
 name|interface
 operator|==
-literal|"output"
+literal|"wl_output"
 condition|)
 block|{
 name|struct
@@ -1009,6 +1009,8 @@ argument_list|(
 name|mDisplay
 argument_list|,
 name|id
+argument_list|,
+literal|1
 argument_list|)
 decl_stmt|;
 name|wl_output_add_listener
@@ -1027,7 +1029,7 @@ if|if
 condition|(
 name|interface
 operator|==
-literal|"compositor"
+literal|"wl_compositor"
 condition|)
 block|{
 name|mCompositor
@@ -1037,6 +1039,8 @@ argument_list|(
 name|mDisplay
 argument_list|,
 name|id
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -1045,7 +1049,7 @@ if|if
 condition|(
 name|interface
 operator|==
-literal|"shm"
+literal|"wl_shm"
 condition|)
 block|{
 name|mShm
@@ -1055,6 +1059,8 @@ argument_list|(
 name|mDisplay
 argument_list|,
 name|id
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -1063,7 +1069,7 @@ if|if
 condition|(
 name|interface
 operator|==
-literal|"shell"
+literal|"wl_shell"
 condition|)
 block|{
 name|mShell
@@ -1073,6 +1079,8 @@ argument_list|(
 name|mDisplay
 argument_list|,
 name|id
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|wl_shell_add_listener
@@ -1091,7 +1099,7 @@ if|if
 condition|(
 name|interface
 operator|==
-literal|"input_device"
+literal|"wl_input_device"
 condition|)
 block|{
 name|QWaylandInputDevice
