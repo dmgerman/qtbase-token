@@ -52,12 +52,6 @@ name|FormatOptions
 argument_list|,
 name|FormatOption
 argument_list|)
-if|#
-directive|if
-literal|0
-expr|enum WindowType {         Window = 0x00000001,         Dialog = 0x00000002,         Popup = 0x00000004,         ToolTip = 0x00000008     };     Q_DECLARE_FLAGS(WindowTypes, WindowType)
-endif|#
-directive|endif
 expr|enum
 name|ColorFormat
 block|{
