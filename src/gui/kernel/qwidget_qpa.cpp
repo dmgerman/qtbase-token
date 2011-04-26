@@ -353,16 +353,60 @@ name|winId
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//first check children. and create them if necessary
-comment|//    q_createNativeChildrenAndSetParent(q->platformWindow(),q);
-comment|//    //if we we have a parent, then set correct parent;
-comment|//    if (!q->isWindow()) {
-comment|//        if (QWidget *nativeParent = q->nativeParentWidget()) {
-comment|//            if (nativeParent->platformWindow()) {
-comment|//                platformWindow->setParent(nativeParent->platformWindow());
-comment|//            }
-comment|//        }
-comment|//    }
+comment|//    first check children. and create them if necessary
+name|q_createNativeChildrenAndSetParent
+argument_list|(
+name|q
+operator|->
+name|windowHandle
+argument_list|()
+argument_list|,
+name|q
+argument_list|)
+expr_stmt|;
+comment|//if we we have a parent, then set correct parent;
+if|if
+condition|(
+operator|!
+name|q
+operator|->
+name|isWindow
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|QWidget
+modifier|*
+name|nativeParent
+init|=
+name|q
+operator|->
+name|nativeParentWidget
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|nativeParent
+operator|->
+name|windowHandle
+argument_list|()
+condition|)
+block|{
+name|win
+operator|->
+name|setParent
+argument_list|(
+name|nativeParent
+operator|->
+name|windowHandle
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 name|QApplicationPrivate
 operator|::
 name|platformIntegration
