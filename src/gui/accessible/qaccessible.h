@@ -192,9 +192,12 @@ name|TextAttributeChanged
 operator|,
 name|TextCaretMoved
 operator|,
-name|TextChanged
-operator|,
+comment|// TextChanged, deprecated, use TextUpdated
 name|TextColumnChanged
+operator|=
+name|TextCaretMoved
+operator|+
+literal|2
 operator|,
 name|TextInserted
 operator|,
