@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QObject>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/qwindowformat_qpa.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -82,8 +87,6 @@ argument|WindowType
 argument_list|)
 name|QWindow
 argument_list|(
-argument|const QWindowFormat&format
-argument_list|,
 argument|WindowType type = Window
 argument_list|,
 argument|QWindow *parent =
@@ -113,6 +116,20 @@ name|QWindow
 operator|*
 name|parent
 argument_list|)
+block|;
+name|void
+name|setWindowFormat
+argument_list|(
+specifier|const
+name|QWindowFormat
+operator|&
+name|format
+argument_list|)
+block|;
+name|QWindowFormat
+name|windowFormat
+argument_list|()
+specifier|const
 block|;
 name|QString
 name|windowTitle
