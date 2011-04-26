@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformwindowformat_qpa.h"
+file|"qwindowformat_qpa.h"
 end_include
 begin_include
 include|#

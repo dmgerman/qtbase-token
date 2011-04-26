@@ -89,7 +89,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/qplatformwindowformat_qpa.h>
+file|<QtGui/qwindowformat_qpa.h>
 end_include
 begin_endif
 endif|#
