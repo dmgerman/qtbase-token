@@ -284,20 +284,75 @@ operator|->
 name|windowSurface
 argument_list|()
 decl_stmt|;
-comment|//    QPlatformWindow *platformWindow = q->platformWindow();
-comment|//    if (!platformWindow) {
-comment|//        platformWindow = QApplicationPrivate::platformIntegration()->createPlatformWindow(q);
-comment|//    }
-comment|//    Q_ASSERT(platformWindow);
-comment|//    if (!surface ) {
-comment|//        if (platformWindow&& q->platformWindowFormat().hasWindowSurface()) {
-comment|//            surface = QApplicationPrivate::platformIntegration()->createWindowSurface(q,platformWindow->winId());
-comment|//        } else {
-comment|//            q->setAttribute(Qt::WA_PaintOnScreen,true);
-comment|//        }
-comment|//    }
+name|QWindow
+modifier|*
+name|win
+init|=
+name|topData
+argument_list|()
+operator|->
+name|window
+decl_stmt|;
+comment|// translate window type
+comment|//        window->setWindowType();
+name|win
+operator|->
+name|create
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|surface
+condition|)
+block|{
+if|if
+condition|(
+name|win
+condition|)
+block|{
+name|surface
+operator|=
+name|QApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
+operator|->
+name|createWindowSurface
+argument_list|(
+name|win
+argument_list|,
+name|win
+operator|->
+name|winId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|q
+operator|->
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_PaintOnScreen
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|//    data.window_flags = q->windowHandle()->setWindowFlags(data.window_flags);
-comment|//    setWinId(q->platformWindow()->winId());
+name|setWinId
+argument_list|(
+name|win
+operator|->
+name|winId
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|//first check children. and create them if necessary
 comment|//    q_createNativeChildrenAndSetParent(q->platformWindow(),q);
 comment|//    //if we we have a parent, then set correct parent;
@@ -806,11 +861,7 @@ block|{
 comment|//qDebug()<< "setParent_sys"<< q<< newparent<< hex<< f;
 comment|//        if (QPlatformWindow *window = q->platformWindow())
 comment|//            data.window_flags = window->setWindowFlags(data.window_flags);
-name|Q_ASSERT
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
+comment|//        Q_ASSERT(false);
 block|}
 if|if
 condition|(
@@ -3445,7 +3496,41 @@ name|QWidgetPrivate
 operator|::
 name|createTLSysExtra
 parameter_list|()
-block|{ }
+block|{
+name|Q_Q
+argument_list|(
+name|QWidget
+argument_list|)
+expr_stmt|;
+name|extra
+operator|->
+name|topextra
+operator|->
+name|screenIndex
+operator|=
+literal|0
+expr_stmt|;
+name|extra
+operator|->
+name|topextra
+operator|->
+name|window
+operator|=
+operator|new
+name|QWindow
+expr_stmt|;
+name|extra
+operator|->
+name|topextra
+operator|->
+name|window
+operator|->
+name|setWidget
+argument_list|(
+name|q
+argument_list|)
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|deleteTLSysExtra

@@ -131,11 +131,6 @@ argument_list|(
 name|QWindow
 operator|*
 name|window
-argument_list|,
-specifier|const
-name|QWindowFormat
-operator|&
-name|format
 argument_list|)
 decl|const
 init|=

@@ -26,7 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformWindowFormat>
+file|<QtGui/QWindowFormat>
 end_include
 begin_include
 include|#
@@ -53,7 +53,7 @@ argument|Window window
 argument_list|,
 argument|QXcbScreen *xd
 argument_list|,
-argument|const QPlatformWindowFormat&format
+argument|const QWindowFormat&format
 argument_list|)
 block|;
 operator|~
@@ -95,8 +95,8 @@ return|return
 name|m_context
 return|;
 block|}
-name|QPlatformWindowFormat
-name|platformWindowFormat
+name|QWindowFormat
+name|windowFormat
 argument_list|()
 specifier|const
 block|;
@@ -112,7 +112,7 @@ block|;
 name|GLXContext
 name|m_context
 block|;
-name|QPlatformWindowFormat
+name|QWindowFormat
 name|m_windowFormat
 block|;
 name|QGLXContext

@@ -521,7 +521,10 @@ argument_list|>
 argument_list|(
 name|widget
 operator|->
-name|platformWindow
+name|windowHandle
+argument_list|()
+operator|->
+name|handle
 argument_list|()
 argument_list|)
 return|;
@@ -538,12 +541,12 @@ name|HANDLE_PLATFORM_WINDOW_EVENT
 parameter_list|(
 name|event_t
 parameter_list|,
-name|window
+name|windowMember
 parameter_list|,
 name|handler
 parameter_list|)
 define|\
-value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->window)) { \         QObjectPrivate *d = QObjectPrivate::get(platformWindow->widget()); \         if (!d->wasDeleted) \             platformWindow->handler(e); \     } \ } \ break;
+value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->windowMember)) { \         QWindow *windowHandle = platformWindow->window(); \         QObjectPrivate *d = QObjectPrivate::get(windowHandle->widget()); \         if (!d->wasDeleted) \             platformWindow->handler(e); \     } \ } \ break;
 end_define
 begin_define
 DECL|macro|HANDLE_KEYBOARD_EVENT
@@ -556,7 +559,7 @@ parameter_list|,
 name|handler
 parameter_list|)
 define|\
-value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->event)) \         m_keyboard->handler(platformWindow->widget(), e); \ } \ break;
+value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->event)) \         m_keyboard->handler(platformWindow->window()->widget(), e); \ } \ break;
 end_define
 begin_comment
 comment|//#define XCB_EVENT_DEBUG

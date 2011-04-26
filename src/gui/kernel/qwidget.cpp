@@ -5494,26 +5494,6 @@ name|count
 expr_stmt|;
 endif|#
 directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_QPA
-argument_list|)
-name|x
-operator|->
-name|window
-operator|=
-literal|0
-expr_stmt|;
-name|x
-operator|->
-name|screenIndex
-operator|=
-literal|0
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 block|}
 comment|/*!   \internal   Creates the widget extra data. */

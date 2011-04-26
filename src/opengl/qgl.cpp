@@ -4470,7 +4470,7 @@ name|defined
 argument_list|(
 name|Q_WS_QPA
 argument_list|)
-name|platformContext
+name|windowContext
 operator|=
 literal|0
 expr_stmt|;
@@ -11318,7 +11318,7 @@ operator|&&
 operator|!
 name|d
 operator|->
-name|platformContext
+name|windowContext
 condition|)
 else|#
 directive|else
@@ -11702,11 +11702,11 @@ name|Q_WS_QPA
 if|if
 condition|(
 specifier|const
-name|QPlatformGLContext
+name|QWindowContext
 modifier|*
 name|threadContext
 init|=
-name|QPlatformGLContext
+name|QWindowContext
 operator|::
 name|currentContext
 argument_list|()
@@ -11715,11 +11715,11 @@ block|{
 return|return
 name|QGLContext
 operator|::
-name|fromPlatformGLContext
+name|fromWindowContext
 argument_list|(
 cast|const_cast
 argument_list|<
-name|QPlatformGLContext
+name|QWindowContext
 operator|*
 argument_list|>
 argument_list|(

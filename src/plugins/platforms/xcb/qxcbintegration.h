@@ -65,9 +65,7 @@ name|QPlatformWindow
 operator|*
 name|createPlatformWindow
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
@@ -75,7 +73,7 @@ name|QWindowSurface
 operator|*
 name|createWindowSurface
 argument_list|(
-argument|QWidget *widget
+argument|QWindow *window
 argument_list|,
 argument|WId winId
 argument_list|)

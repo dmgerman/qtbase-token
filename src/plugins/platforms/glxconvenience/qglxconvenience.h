@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QPlatformWindowFormat>
+file|<QWindowFormat>
 end_include
 begin_include
 include|#
@@ -41,7 +41,7 @@ name|int
 name|screen
 parameter_list|,
 specifier|const
-name|QPlatformWindowFormat
+name|QWindowFormat
 modifier|&
 name|format
 parameter_list|)
@@ -59,7 +59,7 @@ name|int
 name|screen
 parameter_list|,
 specifier|const
-name|QPlatformWindowFormat
+name|QWindowFormat
 modifier|&
 name|format
 parameter_list|,
@@ -71,7 +71,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|QPlatformWindowFormat
+name|QWindowFormat
 name|qglx_platformWindowFromGLXFBConfig
 parameter_list|(
 name|Display
@@ -93,18 +93,18 @@ name|int
 operator|>
 name|qglx_buildSpec
 argument_list|(
-argument|const QPlatformWindowFormat&format
+argument|const QWindowFormat&format
 argument_list|,
 argument|int drawableBit = GLX_WINDOW_BIT
 argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_function_decl
-name|QPlatformWindowFormat
-name|qglx_reducePlatformWindowFormat
+name|QWindowFormat
+name|qglx_reduceWindowFormat
 parameter_list|(
 specifier|const
-name|QPlatformWindowFormat
+name|QWindowFormat
 modifier|&
 name|format
 parameter_list|,

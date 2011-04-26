@@ -819,10 +819,10 @@ argument_list|>
 argument_list|(
 name|widget
 operator|->
-name|window
+name|windowHandle
 argument_list|()
 operator|->
-name|platformWindow
+name|handle
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -882,7 +882,7 @@ name|put
 argument_list|(
 name|window
 operator|->
-name|window
+name|xcb_window
 argument_list|()
 argument_list|,
 name|rects

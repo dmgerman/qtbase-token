@@ -27,6 +27,11 @@ include|#
 directive|include
 file|<QtCore/QDebug>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/qwindowcontext_qpa.h>
+end_include
 begin_if
 if|#
 directive|if
@@ -593,7 +598,7 @@ condition|(
 operator|!
 name|widget
 operator|->
-name|platformWindow
+name|windowHandle
 argument_list|()
 condition|)
 block|{
@@ -616,10 +621,13 @@ name|platformContext
 init|=
 name|widget
 operator|->
-name|platformWindow
+name|windowHandle
 argument_list|()
 operator|->
 name|glContext
+argument_list|()
+operator|->
+name|handle
 argument_list|()
 decl_stmt|;
 if|if
@@ -631,11 +639,11 @@ block|{
 name|qDebug
 argument_list|()
 operator|<<
-literal|"QPlatformWindow"
+literal|"QWindow"
 operator|<<
 name|widget
 operator|->
-name|platformWindow
+name|windowHandle
 argument_list|()
 operator|<<
 literal|"does not have a glContext"

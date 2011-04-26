@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformWindowFormat>
+file|<QtGui/QWindowFormat>
 end_include
 begin_include
 include|#
@@ -59,9 +59,9 @@ name|public
 label|:
 name|QXcbWindow
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
-name|tlw
+name|window
 argument_list|)
 expr_stmt|;
 operator|~
@@ -134,7 +134,7 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|xcb_window_t
-name|window
+name|xcb_window
 argument_list|()
 specifier|const
 block|{
