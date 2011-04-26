@@ -79,7 +79,7 @@ argument_list|)
 member_init_list|,
 name|mFormat
 argument_list|(
-name|qt_qPlatformWindowFormatFromConfig
+name|q_windowFormatFromConfig
 argument_list|(
 name|mEglDisplay
 argument_list|,

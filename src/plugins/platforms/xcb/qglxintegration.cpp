@@ -316,11 +316,6 @@ name|connection
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QPlatformGLContext
-operator|::
-name|makeCurrent
-argument_list|()
-expr_stmt|;
 name|glXMakeCurrent
 argument_list|(
 name|DISPLAY_FROM_XCB
@@ -358,11 +353,6 @@ operator|->
 name|connection
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|QPlatformGLContext
-operator|::
-name|doneCurrent
-argument_list|()
 expr_stmt|;
 name|glXMakeCurrent
 argument_list|(

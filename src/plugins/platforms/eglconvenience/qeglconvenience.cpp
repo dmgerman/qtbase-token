@@ -17,7 +17,7 @@ argument_list|>
 name|q_createConfigAttributesFromFormat
 parameter_list|(
 specifier|const
-name|QPlatformWindowFormat
+name|QWindowFormat
 modifier|&
 name|format
 parameter_list|)
@@ -78,68 +78,6 @@ operator|.
 name|samples
 argument_list|()
 decl_stmt|;
-comment|// QPlatformWindowFormat uses a magic value of -1 to indicate "don't care", even when a buffer of that
-comment|// type has been requested. So we must check QPlatformWindowFormat's booleans too if size is -1:
-if|if
-condition|(
-name|format
-operator|.
-name|alpha
-argument_list|()
-operator|&&
-name|alphaSize
-operator|<=
-literal|0
-condition|)
-name|alphaSize
-operator|=
-literal|1
-expr_stmt|;
-if|if
-condition|(
-name|format
-operator|.
-name|depth
-argument_list|()
-operator|&&
-name|depthSize
-operator|<=
-literal|0
-condition|)
-name|depthSize
-operator|=
-literal|1
-expr_stmt|;
-if|if
-condition|(
-name|format
-operator|.
-name|stencil
-argument_list|()
-operator|&&
-name|stencilSize
-operator|<=
-literal|0
-condition|)
-name|stencilSize
-operator|=
-literal|1
-expr_stmt|;
-if|if
-condition|(
-name|format
-operator|.
-name|sampleBuffers
-argument_list|()
-operator|&&
-name|sampleCount
-operator|<=
-literal|0
-condition|)
-name|sampleCount
-operator|=
-literal|1
-expr_stmt|;
 comment|// We want to make sure 16-bit configs are chosen over 32-bit configs as they will provide
 comment|// the best performance. The EGL config selection algorithm is a bit stange in this regard:
 comment|// The selection criteria for EGL_BUFFER_SIZE is "AtLeast", so we can't use it to discard
@@ -157,77 +95,14 @@ comment|// put in the list before 32-bit configs. So, to make sure 16-bit is pre
 comment|// we must set the red/green/blue sizes to zero. This has an unfortunate consequence that
 comment|// if the application sets the red/green/blue size to 5/6/5 on the QPlatformWindowFormat,
 comment|// they will probably get a 32-bit config, even when there's an RGB565 config available.
-comment|// Now normalize the values so -1 becomes 0
-name|redSize
-operator|=
-name|redSize
-operator|>
-literal|0
-condition|?
-name|redSize
-else|:
-literal|0
-expr_stmt|;
-name|greenSize
-operator|=
-name|greenSize
-operator|>
-literal|0
-condition|?
-name|greenSize
-else|:
-literal|0
-expr_stmt|;
-name|blueSize
-operator|=
-name|blueSize
-operator|>
-literal|0
-condition|?
-name|blueSize
-else|:
-literal|0
-expr_stmt|;
-name|alphaSize
-operator|=
-name|alphaSize
-operator|>
-literal|0
-condition|?
-name|alphaSize
-else|:
-literal|0
-expr_stmt|;
-name|depthSize
-operator|=
-name|depthSize
-operator|>
-literal|0
-condition|?
-name|depthSize
-else|:
-literal|0
-expr_stmt|;
-name|stencilSize
-operator|=
-name|stencilSize
-operator|>
-literal|0
-condition|?
-name|stencilSize
-else|:
-literal|0
-expr_stmt|;
-name|sampleCount
-operator|=
-name|sampleCount
-operator|>
-literal|0
-condition|?
-name|sampleCount
-else|:
-literal|0
-expr_stmt|;
+comment|//    // Now normalize the values so -1 becomes 0
+comment|//    redSize   = redSize> 0 ? redSize   : 0;
+comment|//    greenSize = greenSize> 0 ? greenSize : 0;
+comment|//    blueSize  = blueSize> 0 ? blueSize  : 0;
+comment|//    alphaSize = alphaSize> 0 ? alphaSize : 0;
+comment|//    depthSize = depthSize> 0 ? depthSize : 0;
+comment|//    stencilSize = stencilSize> 0 ? stencilSize : 0;
+comment|//    sampleCount = sampleCount> 0 ? sampleCount : 0;
 name|QVector
 argument_list|<
 name|EGLint
@@ -755,7 +630,7 @@ name|EGLDisplay
 name|display
 parameter_list|,
 specifier|const
-name|QPlatformWindowFormat
+name|QWindowFormat
 modifier|&
 name|format
 parameter_list|,
@@ -804,28 +679,6 @@ argument_list|(
 name|EGL_RENDERABLE_TYPE
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|format
-operator|.
-name|windowApi
-argument_list|()
-operator|==
-name|QPlatformWindowFormat
-operator|::
-name|OpenVG
-condition|)
-block|{
-name|configureAttributes
-operator|.
-name|append
-argument_list|(
-name|EGL_OPENVG_BIT
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|configureAttributes
 operator|.
 name|append
@@ -833,7 +686,6 @@ argument_list|(
 name|EGL_OPENGL_ES2_BIT
 argument_list|)
 expr_stmt|;
-block|}
 name|configureAttributes
 operator|.
 name|append
@@ -1178,9 +1030,9 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|qt_qPlatformWindowFormatFromConfig
-name|QPlatformWindowFormat
-name|qt_qPlatformWindowFormatFromConfig
+DECL|function|q_windowFormatFromConfig
+name|QWindowFormat
+name|q_windowFormatFromConfig
 parameter_list|(
 name|EGLDisplay
 name|display
@@ -1190,7 +1042,7 @@ name|EGLConfig
 name|config
 parameter_list|)
 block|{
-name|QPlatformWindowFormat
+name|QWindowFormat
 name|format
 decl_stmt|;
 name|EGLint
@@ -1225,11 +1077,6 @@ literal|0
 decl_stmt|;
 name|EGLint
 name|sampleCount
-init|=
-literal|0
-decl_stmt|;
-name|EGLint
-name|level
 init|=
 literal|0
 decl_stmt|;
@@ -1317,18 +1164,6 @@ operator|&
 name|sampleCount
 argument_list|)
 expr_stmt|;
-name|eglGetConfigAttrib
-argument_list|(
-name|display
-argument_list|,
-name|config
-argument_list|,
-name|EGL_LEVEL
-argument_list|,
-operator|&
-name|level
-argument_list|)
-expr_stmt|;
 name|format
 operator|.
 name|setRedBufferSize
@@ -1380,36 +1215,12 @@ argument_list|)
 expr_stmt|;
 name|format
 operator|.
-name|setDirectRendering
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-comment|// All EGL contexts are direct-rendered
-name|format
-operator|.
-name|setRgba
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-comment|// EGL doesn't support colour index rendering
-name|format
-operator|.
 name|setStereo
 argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
 comment|// EGL doesn't support stereo buffers
-name|format
-operator|.
-name|setAccumBufferSize
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// EGL doesn't support accululation buffers
 comment|// Clear the EGL error state because some of the above may
 comment|// have errored out because the attribute is not applicable
 comment|// to the surface type.  Such errors don't matter.

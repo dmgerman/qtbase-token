@@ -119,7 +119,7 @@ expr_stmt|;
 block|}
 name|m_windowFormat
 operator|=
-name|qt_qPlatformWindowFormatFromConfig
+name|q_windowFormatFromConfig
 argument_list|(
 name|display
 argument_list|,
@@ -199,11 +199,6 @@ operator|::
 name|makeCurrent
 parameter_list|()
 block|{
-name|QPlatformGLContext
-operator|::
-name|makeCurrent
-argument_list|()
-expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QEGL_EXTRA_DEBUG
@@ -379,11 +374,6 @@ operator|::
 name|doneCurrent
 parameter_list|()
 block|{
-name|QPlatformGLContext
-operator|::
-name|doneCurrent
-argument_list|()
-expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QEGL_EXTRA_DEBUG
@@ -531,11 +521,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|platformWindowFormat
-name|QPlatformWindowFormat
+DECL|function|windowFormat
+name|QWindowFormat
 name|QEGLPlatformContext
 operator|::
-name|platformWindowFormat
+name|windowFormat
 parameter_list|()
 specifier|const
 block|{

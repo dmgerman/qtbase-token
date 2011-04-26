@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformWindowFormat>
+file|<QtGui/QWindowFormat>
 end_include
 begin_include
 include|#
@@ -37,7 +37,7 @@ operator|>
 name|q_createConfigAttributesFromFormat
 argument_list|(
 specifier|const
-name|QPlatformWindowFormat
+name|QWindowFormat
 operator|&
 name|format
 argument_list|)
@@ -64,7 +64,7 @@ name|EGLDisplay
 name|display
 parameter_list|,
 specifier|const
-name|QPlatformWindowFormat
+name|QWindowFormat
 modifier|&
 name|format
 parameter_list|,
@@ -81,8 +81,8 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|QPlatformWindowFormat
-name|qt_qPlatformWindowFormatFromConfig
+name|QWindowFormat
+name|q_windowFormatFromConfig
 parameter_list|(
 name|EGLDisplay
 name|display

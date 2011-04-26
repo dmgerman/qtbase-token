@@ -677,7 +677,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|qt_qPlatformWindowFormatFromConfig
+name|q_windowFormatFromConfig
 argument_list|(
 name|mEglIntegration
 operator|->
