@@ -87,7 +87,7 @@ argument|WindowType
 argument_list|)
 name|QWindow
 argument_list|(
-argument|WindowType type = Window
+argument|WindowTypes types = Window
 argument_list|,
 argument|QWindow *parent =
 literal|0
@@ -127,7 +127,17 @@ name|format
 argument_list|)
 block|;
 name|QWindowFormat
-name|windowFormat
+name|requestedWindowFormat
+argument_list|()
+specifier|const
+block|;
+name|QWindowFormat
+name|actualWindowFormat
+argument_list|()
+specifier|const
+block|;
+name|WindowTypes
+name|types
 argument_list|()
 specifier|const
 block|;
