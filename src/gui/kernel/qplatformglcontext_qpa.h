@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformWindowFormat>
+file|<QtGui/QWindowFormat>
 end_include
 begin_function
 name|QT_BEGIN_HEADER
@@ -99,8 +99,8 @@ function_decl|;
 end_function_decl
 begin_expr_stmt
 name|virtual
-name|QPlatformWindowFormat
-name|platformWindowFormat
+name|QWindowFormat
+name|windowFormat
 argument_list|()
 specifier|const
 operator|=
