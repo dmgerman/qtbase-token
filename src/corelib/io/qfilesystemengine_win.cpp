@@ -3518,6 +3518,11 @@ else|#
 directive|else
 name|Q_UNUSED
 argument_list|(
+name|entry
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
 name|own
 argument_list|)
 expr_stmt|;
