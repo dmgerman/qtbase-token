@@ -1331,14 +1331,21 @@ argument_list|(
 name|QWindow
 argument_list|)
 expr_stmt|;
-comment|//JA, this will be solved later....
-comment|//    if (QGLContext *context = extra->topextra->window->glContext()) {
-comment|//                context->deleteQGLContext();
-name|Q_ASSERT
-argument_list|(
-literal|false
-argument_list|)
+if|if
+condition|(
+name|d
+operator|->
+name|glContext
+condition|)
+block|{
+name|d
+operator|->
+name|glContext
+operator|->
+name|deleteQGLContext
+argument_list|()
 expr_stmt|;
+block|}
 operator|delete
 name|d
 operator|->
@@ -1350,7 +1357,17 @@ name|glContext
 operator|=
 literal|0
 expr_stmt|;
-comment|//    }
+operator|delete
+name|d
+operator|->
+name|platformWindow
+expr_stmt|;
+name|d
+operator|->
+name|platformWindow
+operator|=
+literal|0
+expr_stmt|;
 block|}
 end_function
 begin_function
