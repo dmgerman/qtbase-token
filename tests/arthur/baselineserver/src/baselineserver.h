@@ -51,6 +51,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QSettings>
+end_include
+begin_include
+include|#
+directive|include
 file|"baselineprotocol.h"
 end_include
 begin_include
@@ -104,6 +109,11 @@ name|QString
 name|baseUrl
 argument_list|()
 block|;
+specifier|static
+name|QString
+name|settingsFilePath
+argument_list|()
+block|;
 name|protected
 operator|:
 name|void
@@ -141,6 +151,10 @@ block|;
 specifier|static
 name|QString
 name|url
+block|;
+specifier|static
+name|QString
+name|settingsFile
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -372,6 +386,10 @@ name|connectionEstablished
 block|;
 name|Report
 name|report
+block|;
+name|QSettings
+operator|*
+name|settings
 block|; }
 decl_stmt|;
 end_decl_stmt
