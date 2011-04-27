@@ -293,11 +293,27 @@ argument_list|()
 operator|->
 name|window
 decl_stmt|;
-comment|// translate window type
-comment|//        window->setWindowType();
+name|win
+operator|->
+name|setWindowFlags
+argument_list|(
+name|data
+operator|.
+name|window_flags
+argument_list|)
+expr_stmt|;
 name|win
 operator|->
 name|create
+argument_list|()
+expr_stmt|;
+name|data
+operator|.
+name|window_flags
+operator|=
+name|win
+operator|->
+name|windowFlags
 argument_list|()
 expr_stmt|;
 if|if
@@ -344,7 +360,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//    data.window_flags = q->windowHandle()->setWindowFlags(data.window_flags);
 name|setWinId
 argument_list|(
 name|win
@@ -893,20 +908,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|f
-operator|&
-name|Qt
-operator|::
-name|Window
-condition|)
-block|{
-comment|//qDebug()<< "setParent_sys"<< q<< newparent<< hex<< f;
-comment|//        if (QPlatformWindow *window = q->platformWindow())
-comment|//            data.window_flags = window->setWindowFlags(data.window_flags);
-comment|//        Q_ASSERT(false);
-block|}
 if|if
 condition|(
 name|q

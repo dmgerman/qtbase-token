@@ -128,16 +128,6 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 name|virtual
-name|Qt
-operator|::
-name|WindowFlags
-name|windowFlags
-argument_list|()
-specifier|const
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|virtual
 name|WId
 name|winId
 argument_list|()

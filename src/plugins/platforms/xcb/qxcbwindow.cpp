@@ -2026,12 +2026,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|QPlatformWindow
-operator|::
-name|setWindowFlags
-argument_list|(
 name|flags
-argument_list|)
 return|;
 block|}
 end_function

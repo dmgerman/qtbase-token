@@ -128,25 +128,6 @@ argument_list|)
 name|public
 operator|:
 expr|enum
-name|WindowType
-block|{
-name|Window
-block|,
-name|Dialog
-block|,
-name|Popup
-block|,
-name|Tool
-block|,
-name|SplashScreen
-block|,
-name|ToolTip
-block|,
-name|Sheet
-block|,
-name|Drawer
-block|}
-block|;      enum
 name|SurfaceType
 block|{
 name|RasterSurface
@@ -238,13 +219,15 @@ argument_list|()
 specifier|const
 block|;
 name|void
-name|setWindowType
+name|setWindowFlags
 argument_list|(
-argument|WindowType type
+argument|Qt::WindowFlags flags
 argument_list|)
 block|;
-name|WindowType
-name|type
+name|Qt
+operator|::
+name|WindowFlags
+name|windowFlags
 argument_list|()
 specifier|const
 block|;
