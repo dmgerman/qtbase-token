@@ -906,8 +906,20 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+operator|!
+name|plat
+operator|.
+name|value
+argument_list|(
+name|PI_PulseGitBranch
+argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
+comment|// i.e. not adhoc client
 comment|// Abort if client does not match the filters
 foreach|foreach
 control|(
