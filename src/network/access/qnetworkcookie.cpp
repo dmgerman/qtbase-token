@@ -824,8 +824,8 @@ comment|// a quote, we found format (3), where:
 comment|// quoted-string  = (<"> *(qdtext | quoted-pair )<"> )
 comment|// qdtext         =<any TEXT except<">>
 comment|// quoted-pair    = "\" CHAR
-comment|// If its NAME=VALUE, retain the value as is
-comment|// refer to ttp://bugreports.qt.nokia.com/browse/QTBUG-17746
+comment|// If it is NAME=VALUE, retain the value as is
+comment|// refer to http://bugreports.qt.nokia.com/browse/QTBUG-17746
 if|if
 condition|(
 name|isNameValue
@@ -995,6 +995,8 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+comment|// for name value pairs, we want to parse until reaching the next ';'
+comment|// and not break when reaching a space char
 if|if
 condition|(
 name|c
@@ -1005,10 +1007,31 @@ name|c
 operator|==
 literal|';'
 operator|||
+operator|(
+operator|(
+name|isNameValue
+operator|&&
+operator|(
+name|c
+operator|==
+literal|'\n'
+operator|||
+name|c
+operator|==
+literal|'\r'
+operator|)
+operator|)
+operator|||
+operator|(
+operator|!
+name|isNameValue
+operator|&&
 name|isLWS
 argument_list|(
 name|c
 argument_list|)
+operator|)
+operator|)
 condition|)
 break|break;
 block|}
@@ -1121,15 +1144,6 @@ operator|.
 name|contains
 argument_list|(
 literal|','
-argument_list|)
-operator|||
-name|d
-operator|->
-name|value
-operator|.
-name|contains
-argument_list|(
-literal|' '
 argument_list|)
 operator|||
 name|d
