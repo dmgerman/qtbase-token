@@ -9391,6 +9391,14 @@ return|;
 default|default:
 break|break;
 block|}
+if|if
+condition|(
+operator|!
+name|layoutData
+condition|)
+name|itemize
+argument_list|()
+expr_stmt|;
 comment|// this places the cursor in the right position depending on the keyboard layout
 if|if
 condition|(
