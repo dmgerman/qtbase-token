@@ -1,0 +1,777 @@
+begin_unit
+begin_comment
+comment|/**************************************************************************** ** ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** No Commercial Usage ** This file contains pre-release code and may not be distributed. ** You may use this file in accordance with the terms and conditions ** contained in the Technology Preview License Agreement accompanying ** this package. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights.  These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** If you have questions regarding the use of this file, please contact ** Nokia at qt-info@nokia.com. ** ** ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QSYMBIANSOCKETENGINE_P_H
+end_ifndef
+begin_define
+DECL|macro|QSYMBIANSOCKETENGINE_P_H
+define|#
+directive|define
+name|QSYMBIANSOCKETENGINE_P_H
+end_define
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|//  W A R N I N G
+end_comment
+begin_comment
+comment|//  -------------
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// This file is not part of the Qt API.  It exists for the convenience
+end_comment
+begin_comment
+comment|// of the QLibrary class.  This header file may change from
+end_comment
+begin_comment
+comment|// version to version without notice, or even be removed.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// We mean it.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_include
+include|#
+directive|include
+file|"QtNetwork/qhostaddress.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"private/qabstractsocketengine_p.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"qplatformdefs.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<private/qeventdispatcher_symbian_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<unistd.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<es_sock.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<in_sock.h>
+end_include
+begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
+DECL|variable|QSymbianSocketEnginePrivate
+name|class
+name|QSymbianSocketEnginePrivate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QNetworkInterface
+name|class
+name|QNetworkInterface
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
+name|Q_AUTOTEST_EXPORT
+name|QSymbianSocketEngine
+range|:
+name|public
+name|QAbstractSocketEngine
+block|{
+name|Q_OBJECT
+name|friend
+name|class
+name|QAsyncSelect
+block|;
+name|public
+operator|:
+name|QSymbianSocketEngine
+argument_list|(
+name|QObject
+operator|*
+name|parent
+operator|=
+literal|0
+argument_list|)
+block|;
+operator|~
+name|QSymbianSocketEngine
+argument_list|()
+block|;
+name|bool
+name|initialize
+argument_list|(
+argument|QAbstractSocket::SocketType type
+argument_list|,
+argument|QAbstractSocket::NetworkLayerProtocol protocol = QAbstractSocket::IPv4Protocol
+argument_list|)
+block|;
+name|bool
+name|initialize
+argument_list|(
+argument|int socketDescriptor
+argument_list|,
+argument|QAbstractSocket::SocketState socketState = QAbstractSocket::ConnectedState
+argument_list|)
+block|;
+name|int
+name|socketDescriptor
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|isValid
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|connectToHost
+argument_list|(
+argument|const QHostAddress&address
+argument_list|,
+argument|quint16 port
+argument_list|)
+block|;
+name|bool
+name|connectToHostByName
+argument_list|(
+argument|const QString&name
+argument_list|,
+argument|quint16 port
+argument_list|)
+block|;
+name|bool
+name|bind
+argument_list|(
+argument|const QHostAddress&address
+argument_list|,
+argument|quint16 port
+argument_list|)
+block|;
+name|bool
+name|listen
+argument_list|()
+block|;
+name|int
+name|accept
+argument_list|()
+block|;
+name|void
+name|close
+argument_list|()
+block|;
+name|bool
+name|joinMulticastGroup
+argument_list|(
+specifier|const
+name|QHostAddress
+operator|&
+name|groupAddress
+argument_list|,
+specifier|const
+name|QNetworkInterface
+operator|&
+name|iface
+argument_list|)
+block|;
+name|bool
+name|leaveMulticastGroup
+argument_list|(
+specifier|const
+name|QHostAddress
+operator|&
+name|groupAddress
+argument_list|,
+specifier|const
+name|QNetworkInterface
+operator|&
+name|iface
+argument_list|)
+block|;
+name|QNetworkInterface
+name|multicastInterface
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|setMulticastInterface
+argument_list|(
+specifier|const
+name|QNetworkInterface
+operator|&
+name|iface
+argument_list|)
+block|;
+name|qint64
+name|bytesAvailable
+argument_list|()
+specifier|const
+block|;
+name|qint64
+name|read
+argument_list|(
+argument|char *data
+argument_list|,
+argument|qint64 maxlen
+argument_list|)
+block|;
+name|qint64
+name|write
+argument_list|(
+argument|const char *data
+argument_list|,
+argument|qint64 len
+argument_list|)
+block|;
+name|qint64
+name|readDatagram
+argument_list|(
+argument|char *data
+argument_list|,
+argument|qint64 maxlen
+argument_list|,
+argument|QHostAddress *addr =
+literal|0
+argument_list|,
+argument|quint16 *port =
+literal|0
+argument_list|)
+block|;
+name|qint64
+name|writeDatagram
+argument_list|(
+argument|const char *data
+argument_list|,
+argument|qint64 len
+argument_list|,
+argument|const QHostAddress&addr
+argument_list|,
+argument|quint16 port
+argument_list|)
+block|;
+name|bool
+name|hasPendingDatagrams
+argument_list|()
+specifier|const
+block|;
+name|qint64
+name|pendingDatagramSize
+argument_list|()
+specifier|const
+block|;
+name|qint64
+name|bytesToWrite
+argument_list|()
+specifier|const
+block|;
+name|qint64
+name|receiveBufferSize
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setReceiveBufferSize
+argument_list|(
+argument|qint64 bufferSize
+argument_list|)
+block|;
+name|qint64
+name|sendBufferSize
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setSendBufferSize
+argument_list|(
+argument|qint64 bufferSize
+argument_list|)
+block|;
+name|int
+name|option
+argument_list|(
+argument|SocketOption option
+argument_list|)
+specifier|const
+block|;
+name|bool
+name|setOption
+argument_list|(
+argument|SocketOption option
+argument_list|,
+argument|int value
+argument_list|)
+block|;
+name|bool
+name|waitForRead
+argument_list|(
+argument|int msecs =
+literal|30000
+argument_list|,
+argument|bool *timedOut =
+literal|0
+argument_list|)
+block|;
+name|bool
+name|waitForWrite
+argument_list|(
+argument|int msecs =
+literal|30000
+argument_list|,
+argument|bool *timedOut =
+literal|0
+argument_list|)
+block|;
+name|bool
+name|waitForReadOrWrite
+argument_list|(
+argument|bool *readyToRead
+argument_list|,
+argument|bool *readyToWrite
+argument_list|,
+argument|bool checkRead
+argument_list|,
+argument|bool checkWrite
+argument_list|,
+argument|int msecs =
+literal|30000
+argument_list|,
+argument|bool *timedOut =
+literal|0
+argument_list|)
+block|;
+name|bool
+name|isReadNotificationEnabled
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setReadNotificationEnabled
+argument_list|(
+argument|bool enable
+argument_list|)
+block|;
+name|bool
+name|isWriteNotificationEnabled
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setWriteNotificationEnabled
+argument_list|(
+argument|bool enable
+argument_list|)
+block|;
+name|bool
+name|isExceptionNotificationEnabled
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setExceptionNotificationEnabled
+argument_list|(
+argument|bool enable
+argument_list|)
+block|;
+name|bool
+name|event
+argument_list|(
+name|QEvent
+operator|*
+name|ev
+argument_list|)
+block|;
+name|Q_INVOKABLE
+name|void
+name|startNotifications
+argument_list|()
+block|;
+name|public
+name|Q_SLOTS
+operator|:
+comment|// TODO: Why do we do this? This is private Qt implementation stuff anyway, no need for it
+comment|// non-virtual override;
+name|void
+name|connectionNotification
+argument_list|()
+block|;
+name|private
+operator|:
+name|Q_DECLARE_PRIVATE
+argument_list|(
+argument|QSymbianSocketEngine
+argument_list|)
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QSymbianSocketEngine
+argument_list|)
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QSocketNotifier
+name|class
+name|QSocketNotifier
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QReadNotifier
+name|class
+name|QReadNotifier
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QWriteNotifier
+name|class
+name|QWriteNotifier
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QExceptionNotifier
+name|class
+name|QExceptionNotifier
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
+name|QAsyncSelect
+range|:
+name|public
+name|QActiveObject
+block|{
+name|public
+operator|:
+name|QAsyncSelect
+argument_list|(
+name|QEventDispatcherSymbian
+operator|*
+name|dispatcher
+argument_list|,
+name|RSocket
+operator|&
+name|sock
+argument_list|,
+name|QSymbianSocketEngine
+operator|*
+name|parent
+argument_list|)
+block|;
+operator|~
+name|QAsyncSelect
+argument_list|()
+block|;
+name|void
+name|deleteLater
+argument_list|()
+block|;
+name|void
+name|IssueRequest
+argument_list|()
+block|;
+name|void
+name|refresh
+argument_list|()
+block|;
+name|protected
+operator|:
+name|void
+name|DoCancel
+argument_list|()
+block|;
+name|void
+name|RunL
+argument_list|()
+block|;
+name|void
+name|run
+argument_list|()
+block|;
+name|TInt
+name|RunError
+argument_list|(
+argument|TInt aError
+argument_list|)
+block|;
+name|private
+operator|:
+name|bool
+name|m_inSocketEvent
+block|;
+name|bool
+name|m_deleteLater
+block|;
+name|RSocket
+operator|&
+name|m_socket
+block|;
+name|TUint
+name|m_selectFlags
+block|;
+name|TPckgBuf
+operator|<
+name|TUint
+operator|>
+name|m_selectBuf
+block|;
+comment|//in& out IPC buffer
+name|QSymbianSocketEngine
+operator|*
+name|engine
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
+name|QSymbianSocketEnginePrivate
+range|:
+name|public
+name|QAbstractSocketEnginePrivate
+block|{
+name|Q_DECLARE_PUBLIC
+argument_list|(
+argument|QSymbianSocketEngine
+argument_list|)
+name|public
+operator|:
+name|QSymbianSocketEnginePrivate
+argument_list|()
+block|;
+operator|~
+name|QSymbianSocketEnginePrivate
+argument_list|()
+block|;
+name|int
+name|socketDescriptor
+block|;
+name|mutable
+name|RSocket
+name|nativeSocket
+block|;
+comment|// From QtCore:
+name|RSocketServ
+operator|&
+name|socketServer
+block|;
+name|mutable
+name|RTimer
+name|selectTimer
+block|;
+name|bool
+name|readNotificationsEnabled
+block|;
+name|bool
+name|writeNotificationsEnabled
+block|;
+name|bool
+name|exceptNotificationsEnabled
+block|;
+name|QAsyncSelect
+operator|*
+name|asyncSelect
+block|;
+comment|// FIXME this is duplicated from qnativesocketengine_p.h
+block|enum
+name|ErrorString
+block|{
+name|NonBlockingInitFailedErrorString
+block|,
+name|BroadcastingInitFailedErrorString
+block|,
+name|NoIpV6ErrorString
+block|,
+name|RemoteHostClosedErrorString
+block|,
+name|TimeOutErrorString
+block|,
+name|ResourceErrorString
+block|,
+name|OperationUnsupportedErrorString
+block|,
+name|ProtocolUnsupportedErrorString
+block|,
+name|InvalidSocketErrorString
+block|,
+name|HostUnreachableErrorString
+block|,
+name|NetworkUnreachableErrorString
+block|,
+name|AccessErrorString
+block|,
+name|ConnectionTimeOutErrorString
+block|,
+name|ConnectionRefusedErrorString
+block|,
+name|AddressInuseErrorString
+block|,
+name|AddressNotAvailableErrorString
+block|,
+name|AddressProtectedErrorString
+block|,
+name|DatagramTooLargeErrorString
+block|,
+name|SendDatagramErrorString
+block|,
+name|ReceiveDatagramErrorString
+block|,
+name|WriteErrorString
+block|,
+name|ReadErrorString
+block|,
+name|PortInuseErrorString
+block|,
+name|NotSocketErrorString
+block|,
+name|InvalidProxyTypeString
+block|,
+comment|//symbian specific
+name|InvalidAddressErrorString
+block|,
+name|SessionNotOpenErrorString
+block|,
+name|UnknownSocketErrorString
+operator|=
+operator|-
+literal|1
+block|}
+block|;
+name|void
+name|setError
+argument_list|(
+argument|QAbstractSocket::SocketError error
+argument_list|,
+argument|ErrorString errorString
+argument_list|)
+specifier|const
+block|;
+name|void
+name|getPortAndAddress
+argument_list|(
+specifier|const
+name|TInetAddr
+operator|&
+name|a
+argument_list|,
+name|quint16
+operator|*
+name|port
+argument_list|,
+name|QHostAddress
+operator|*
+name|addr
+argument_list|)
+block|;
+name|void
+name|setPortAndAddress
+argument_list|(
+argument|TInetAddr& nativeAddr
+argument_list|,
+argument|quint16 port
+argument_list|,
+argument|const QHostAddress&addr
+argument_list|)
+block|;
+name|void
+name|setError
+argument_list|(
+argument|TInt symbianError
+argument_list|)
+block|;
+name|int
+name|nativeSelect
+argument_list|(
+argument|int timeout
+argument_list|,
+argument|bool selectForRead
+argument_list|)
+specifier|const
+block|;
+name|int
+name|nativeSelect
+argument_list|(
+argument|int timeout
+argument_list|,
+argument|bool checkRead
+argument_list|,
+argument|bool checkWrite
+argument_list|,
+argument|bool *selectForRead
+argument_list|,
+argument|bool *selectForWrite
+argument_list|)
+specifier|const
+block|;
+name|bool
+name|createNewSocket
+argument_list|(
+argument|QAbstractSocket::SocketType socketType
+argument_list|,
+argument|QAbstractSocket::NetworkLayerProtocol socketProtocol
+argument_list|)
+block|;
+name|bool
+name|checkProxy
+argument_list|(
+specifier|const
+name|QHostAddress
+operator|&
+name|address
+argument_list|)
+block|;
+name|bool
+name|fetchConnectionParameters
+argument_list|()
+block|;
+name|bool
+name|multicastGroupMembershipHelper
+argument_list|(
+argument|const QHostAddress&groupAddress
+argument_list|,
+argument|const QNetworkInterface&iface
+argument_list|,
+argument|TUint operation
+argument_list|)
+block|;
+specifier|static
+name|bool
+name|translateSocketOption
+argument_list|(
+argument|QAbstractSocketEngine::SocketOption opt
+argument_list|,
+argument|TUint&n
+argument_list|,
+argument|TUint&level
+argument_list|)
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QSYMBIANSOCKETENGINE_P_H
+end_comment
+end_unit

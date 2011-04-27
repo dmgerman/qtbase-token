@@ -1,0 +1,573 @@
+begin_unit
+begin_comment
+comment|/***************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                         */
+end_comment
+begin_comment
+comment|/*  pshglob.h                                                              */
+end_comment
+begin_comment
+comment|/*                                                                         */
+end_comment
+begin_comment
+comment|/*    PostScript hinter global hinting management.                         */
+end_comment
+begin_comment
+comment|/*                                                                         */
+end_comment
+begin_comment
+comment|/*  Copyright 2001, 2002, 2003 by                                          */
+end_comment
+begin_comment
+comment|/*  David Turner, Robert Wilhelm, and Werner Lemberg.                      */
+end_comment
+begin_comment
+comment|/*                                                                         */
+end_comment
+begin_comment
+comment|/*  This file is part of the FreeType project, and may only be used,       */
+end_comment
+begin_comment
+comment|/*  modified, and distributed under the terms of the FreeType project      */
+end_comment
+begin_comment
+comment|/*  license, LICENSE.TXT.  By continuing to use, modify, or distribute     */
+end_comment
+begin_comment
+comment|/*  this file you indicate that you have read the license and              */
+end_comment
+begin_comment
+comment|/*  understand and accept it fully.                                        */
+end_comment
+begin_comment
+comment|/*                                                                         */
+end_comment
+begin_comment
+comment|/***************************************************************************/
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|__PSHGLOB_H__
+end_ifndef
+begin_define
+DECL|macro|__PSHGLOB_H__
+define|#
+directive|define
+name|__PSHGLOB_H__
+end_define
+begin_include
+include|#
+directive|include
+include|FT_FREETYPE_H
+end_include
+begin_include
+include|#
+directive|include
+include|FT_INTERNAL_POSTSCRIPT_HINTS_H
+end_include
+begin_macro
+name|FT_BEGIN_HEADER
+end_macro
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*****                                                               *****/
+end_comment
+begin_comment
+comment|/*****                    GLOBAL HINTS INTERNALS                     *****/
+end_comment
+begin_comment
+comment|/*****                                                               *****/
+end_comment
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* @constant:                                                            */
+end_comment
+begin_comment
+comment|/*    PS_GLOBALS_MAX_BLUE_ZONES                                          */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* @description:                                                         */
+end_comment
+begin_comment
+comment|/*    The maximum number of blue zones in a font global hints structure. */
+end_comment
+begin_comment
+comment|/*    See @PS_Globals_BluesRec.                                          */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_define
+DECL|macro|PS_GLOBALS_MAX_BLUE_ZONES
+define|#
+directive|define
+name|PS_GLOBALS_MAX_BLUE_ZONES
+value|16
+end_define
+begin_comment
+comment|/*************************************************************************/
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* @constant:                                                            */
+end_comment
+begin_comment
+comment|/*    PS_GLOBALS_MAX_STD_WIDTHS                                          */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_comment
+comment|/* @description:                                                         */
+end_comment
+begin_comment
+comment|/*    The maximum number of standard and snap widths in either the       */
+end_comment
+begin_comment
+comment|/*    horizontal or vertical direction.  See @PS_Globals_WidthsRec.      */
+end_comment
+begin_comment
+comment|/*                                                                       */
+end_comment
+begin_define
+DECL|macro|PS_GLOBALS_MAX_STD_WIDTHS
+define|#
+directive|define
+name|PS_GLOBALS_MAX_STD_WIDTHS
+value|16
+end_define
+begin_comment
+comment|/* standard and snap width */
+end_comment
+begin_typedef
+DECL|struct|PSH_WidthRec_
+typedef|typedef
+struct|struct
+name|PSH_WidthRec_
+block|{
+DECL|member|org
+name|FT_Int
+name|org
+decl_stmt|;
+DECL|member|cur
+name|FT_Pos
+name|cur
+decl_stmt|;
+DECL|member|fit
+name|FT_Pos
+name|fit
+decl_stmt|;
+block|}
+DECL|typedef|PSH_WidthRec
+DECL|typedef|PSH_Width
+name|PSH_WidthRec
+operator|,
+typedef|*
+name|PSH_Width
+typedef|;
+end_typedef
+begin_comment
+comment|/* standard and snap widths table */
+end_comment
+begin_typedef
+DECL|struct|PSH_WidthsRec_
+typedef|typedef
+struct|struct
+name|PSH_WidthsRec_
+block|{
+DECL|member|count
+name|FT_UInt
+name|count
+decl_stmt|;
+DECL|member|widths
+name|PSH_WidthRec
+name|widths
+index|[
+name|PS_GLOBALS_MAX_STD_WIDTHS
+index|]
+decl_stmt|;
+block|}
+DECL|typedef|PSH_WidthsRec
+DECL|typedef|PSH_Widths
+name|PSH_WidthsRec
+operator|,
+typedef|*
+name|PSH_Widths
+typedef|;
+end_typedef
+begin_typedef
+DECL|struct|PSH_DimensionRec_
+typedef|typedef
+struct|struct
+name|PSH_DimensionRec_
+block|{
+DECL|member|stdw
+name|PSH_WidthsRec
+name|stdw
+decl_stmt|;
+DECL|member|scale_mult
+name|FT_Fixed
+name|scale_mult
+decl_stmt|;
+DECL|member|scale_delta
+name|FT_Fixed
+name|scale_delta
+decl_stmt|;
+block|}
+DECL|typedef|PSH_DimensionRec
+DECL|typedef|PSH_Dimension
+name|PSH_DimensionRec
+operator|,
+typedef|*
+name|PSH_Dimension
+typedef|;
+end_typedef
+begin_comment
+comment|/* blue zone descriptor */
+end_comment
+begin_typedef
+DECL|struct|PSH_Blue_ZoneRec_
+typedef|typedef
+struct|struct
+name|PSH_Blue_ZoneRec_
+block|{
+DECL|member|org_ref
+name|FT_Int
+name|org_ref
+decl_stmt|;
+DECL|member|org_delta
+name|FT_Int
+name|org_delta
+decl_stmt|;
+DECL|member|org_top
+name|FT_Int
+name|org_top
+decl_stmt|;
+DECL|member|org_bottom
+name|FT_Int
+name|org_bottom
+decl_stmt|;
+DECL|member|cur_ref
+name|FT_Pos
+name|cur_ref
+decl_stmt|;
+DECL|member|cur_delta
+name|FT_Pos
+name|cur_delta
+decl_stmt|;
+DECL|member|cur_bottom
+name|FT_Pos
+name|cur_bottom
+decl_stmt|;
+DECL|member|cur_top
+name|FT_Pos
+name|cur_top
+decl_stmt|;
+block|}
+DECL|typedef|PSH_Blue_ZoneRec
+DECL|typedef|PSH_Blue_Zone
+name|PSH_Blue_ZoneRec
+operator|,
+typedef|*
+name|PSH_Blue_Zone
+typedef|;
+end_typedef
+begin_typedef
+DECL|struct|PSH_Blue_TableRec_
+typedef|typedef
+struct|struct
+name|PSH_Blue_TableRec_
+block|{
+DECL|member|count
+name|FT_UInt
+name|count
+decl_stmt|;
+DECL|member|zones
+name|PSH_Blue_ZoneRec
+name|zones
+index|[
+name|PS_GLOBALS_MAX_BLUE_ZONES
+index|]
+decl_stmt|;
+block|}
+DECL|typedef|PSH_Blue_TableRec
+DECL|typedef|PSH_Blue_Table
+name|PSH_Blue_TableRec
+operator|,
+typedef|*
+name|PSH_Blue_Table
+typedef|;
+end_typedef
+begin_comment
+comment|/* blue zones table */
+end_comment
+begin_typedef
+DECL|struct|PSH_BluesRec_
+typedef|typedef
+struct|struct
+name|PSH_BluesRec_
+block|{
+DECL|member|normal_top
+name|PSH_Blue_TableRec
+name|normal_top
+decl_stmt|;
+DECL|member|normal_bottom
+name|PSH_Blue_TableRec
+name|normal_bottom
+decl_stmt|;
+DECL|member|family_top
+name|PSH_Blue_TableRec
+name|family_top
+decl_stmt|;
+DECL|member|family_bottom
+name|PSH_Blue_TableRec
+name|family_bottom
+decl_stmt|;
+DECL|member|blue_scale
+name|FT_Fixed
+name|blue_scale
+decl_stmt|;
+DECL|member|blue_shift
+name|FT_Int
+name|blue_shift
+decl_stmt|;
+DECL|member|blue_threshold
+name|FT_Int
+name|blue_threshold
+decl_stmt|;
+DECL|member|blue_fuzz
+name|FT_Int
+name|blue_fuzz
+decl_stmt|;
+DECL|member|no_overshoots
+name|FT_Bool
+name|no_overshoots
+decl_stmt|;
+block|}
+DECL|typedef|PSH_BluesRec
+DECL|typedef|PSH_Blues
+name|PSH_BluesRec
+operator|,
+typedef|*
+name|PSH_Blues
+typedef|;
+end_typedef
+begin_comment
+comment|/* font globals.                                         */
+end_comment
+begin_comment
+comment|/* dimension 0 => X coordinates + vertical hints/stems   */
+end_comment
+begin_comment
+comment|/* dimension 1 => Y coordinates + horizontal hints/stems */
+end_comment
+begin_typedef
+DECL|struct|PSH_GlobalsRec_
+typedef|typedef
+struct|struct
+name|PSH_GlobalsRec_
+block|{
+DECL|member|memory
+name|FT_Memory
+name|memory
+decl_stmt|;
+DECL|member|dimension
+name|PSH_DimensionRec
+name|dimension
+index|[
+literal|2
+index|]
+decl_stmt|;
+DECL|member|blues
+name|PSH_BluesRec
+name|blues
+decl_stmt|;
+block|}
+DECL|typedef|PSH_GlobalsRec
+name|PSH_GlobalsRec
+typedef|;
+end_typedef
+begin_define
+DECL|macro|PSH_BLUE_ALIGN_NONE
+define|#
+directive|define
+name|PSH_BLUE_ALIGN_NONE
+value|0
+end_define
+begin_define
+DECL|macro|PSH_BLUE_ALIGN_TOP
+define|#
+directive|define
+name|PSH_BLUE_ALIGN_TOP
+value|1
+end_define
+begin_define
+DECL|macro|PSH_BLUE_ALIGN_BOT
+define|#
+directive|define
+name|PSH_BLUE_ALIGN_BOT
+value|2
+end_define
+begin_typedef
+DECL|struct|PSH_AlignmentRec_
+typedef|typedef
+struct|struct
+name|PSH_AlignmentRec_
+block|{
+DECL|member|align
+name|int
+name|align
+decl_stmt|;
+DECL|member|align_top
+name|FT_Pos
+name|align_top
+decl_stmt|;
+DECL|member|align_bot
+name|FT_Pos
+name|align_bot
+decl_stmt|;
+block|}
+DECL|typedef|PSH_AlignmentRec
+DECL|typedef|PSH_Alignment
+name|PSH_AlignmentRec
+operator|,
+typedef|*
+name|PSH_Alignment
+typedef|;
+end_typedef
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|void
+argument_list|)
+end_macro
+begin_expr_stmt
+DECL|variable|funcs
+name|psh_globals_funcs_init
+argument_list|(
+name|PSH_Globals_FuncsRec
+operator|*
+name|funcs
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+begin_comment
+comment|/* snap a stem width to fitter coordinates.  `org_width' is in font */
+end_comment
+begin_comment
+comment|/* units.  The result is in device pixels (26.6 format).            */
+end_comment
+begin_endif
+unit|FT_LOCAL( FT_Pos )   psh_dimension_snap_width( PSH_Dimension  dimension,                             FT_Int         org_width );
+endif|#
+directive|endif
+end_endif
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|FT_Error
+argument_list|)
+end_macro
+begin_macro
+name|psh_globals_set_scale
+argument_list|(
+argument|PSH_Globals  globals
+argument_list|,
+argument|FT_Fixed     x_scale
+argument_list|,
+argument|FT_Fixed     y_scale
+argument_list|,
+argument|FT_Fixed     x_delta
+argument_list|,
+argument|FT_Fixed     y_delta
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_comment
+comment|/* snap a stem to one or two blue zones */
+end_comment
+begin_macro
+name|FT_LOCAL
+argument_list|(
+argument|void
+argument_list|)
+end_macro
+begin_macro
+DECL|variable|psh_blues_snap_stem
+name|psh_blues_snap_stem
+argument_list|(
+argument|PSH_Blues      blues
+argument_list|,
+argument|FT_Int         stem_top
+argument_list|,
+argument|FT_Int         stem_bot
+argument_list|,
+argument|PSH_Alignment  alignment
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_comment
+comment|/* */
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|DEBUG_HINTER
+end_ifdef
+begin_decl_stmt
+specifier|extern
+name|PSH_Globals
+name|ps_debug_globals
+decl_stmt|;
+end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_macro
+name|FT_END_HEADER
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* __PSHGLOB_H__ */
+end_comment
+begin_comment
+comment|/* END */
+end_comment
+end_unit

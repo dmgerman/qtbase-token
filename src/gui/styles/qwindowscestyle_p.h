@@ -1,0 +1,276 @@
+begin_unit
+begin_comment
+comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** No Commercial Usage ** This file contains pre-release code and may not be distributed. ** You may use this file in accordance with the terms and conditions ** contained in the Technology Preview License Agreement accompanying ** this package. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights.  These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** If you have questions regarding the use of this file, please contact ** Nokia at qt-info@nokia.com. ** ** ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QWINDOWSCE_P_H
+end_ifndef
+begin_define
+DECL|macro|QWINDOWSCE_P_H
+define|#
+directive|define
+name|QWINDOWSCE_P_H
+end_define
+begin_include
+include|#
+directive|include
+file|"qwindowscestyle.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<private/qwindowsstyle_p.h>
+end_include
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|//  W A R N I N G
+end_comment
+begin_comment
+comment|//  -------------
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// This file is not part of the Qt API.  It exists for the convenience
+end_comment
+begin_comment
+comment|// of qapplication_*.cpp, qwidget*.cpp and qfiledialog.cpp.  This header
+end_comment
+begin_comment
+comment|// file may change from version to version without notice, or even be removed.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// We mean it.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
+DECL|variable|QPainter
+name|class
+name|QPainter
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QPalette
+name|class
+name|QPalette
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QPoint
+name|class
+name|QPoint
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QColor
+name|class
+name|QColor
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QBrush
+name|class
+name|QBrush
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QRect
+name|class
+name|QRect
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// Private class
+end_comment
+begin_decl_stmt
+name|class
+name|QWindowsCEStylePrivate
+range|:
+name|public
+name|QWindowsStylePrivate
+block|{
+name|Q_DECLARE_PUBLIC
+argument_list|(
+argument|QWindowsCEStyle
+argument_list|)
+name|public
+operator|:
+specifier|inline
+name|QWindowsCEStylePrivate
+argument_list|()
+block|{ }
+specifier|static
+name|void
+name|drawWinCEButton
+argument_list|(
+argument|QPainter *p
+argument_list|,
+argument|int x
+argument_list|,
+argument|int y
+argument_list|,
+argument|int w
+argument_list|,
+argument|int h
+argument_list|,
+argument|const QPalette&pal
+argument_list|,
+argument|bool sunken = false
+argument_list|,
+argument|const QBrush *fill =
+literal|0
+argument_list|)
+block|;
+specifier|static
+name|void
+name|drawWinCEButton
+argument_list|(
+argument|QPainter *p
+argument_list|,
+argument|const QRect&r
+argument_list|,
+argument|const QPalette&pal
+argument_list|,
+argument|bool sunken = false
+argument_list|,
+argument|const QBrush *fill =
+literal|0
+argument_list|)
+block|;
+specifier|static
+name|void
+name|drawWinCEPanel
+argument_list|(
+argument|QPainter *p
+argument_list|,
+argument|int x
+argument_list|,
+argument|int y
+argument_list|,
+argument|int w
+argument_list|,
+argument|int h
+argument_list|,
+argument|const QPalette&pal
+argument_list|,
+argument|bool sunken = false
+argument_list|,
+argument|const QBrush *fill =
+literal|0
+argument_list|)
+block|;
+specifier|static
+name|void
+name|drawWinCEPanel
+argument_list|(
+argument|QPainter *p
+argument_list|,
+argument|const QRect&r
+argument_list|,
+argument|const QPalette&pal
+argument_list|,
+argument|bool sunken = false
+argument_list|,
+argument|const QBrush *fill =
+literal|0
+argument_list|)
+block|;
+specifier|static
+name|void
+name|drawWinShades
+argument_list|(
+argument|QPainter *p
+argument_list|,
+argument|int x
+argument_list|,
+argument|int y
+argument_list|,
+argument|int w
+argument_list|,
+argument|int h
+argument_list|,
+argument|const QColor&c1
+argument_list|,
+argument|const QColor&c2
+argument_list|,
+argument|const QColor&c3
+argument_list|,
+argument|const QColor&c4
+argument_list|,
+argument|const QBrush *fill
+argument_list|)
+block|;
+specifier|static
+name|void
+name|drawWinCEShades
+argument_list|(
+argument|QPainter *p
+argument_list|,
+argument|int x
+argument_list|,
+argument|int y
+argument_list|,
+argument|int w
+argument_list|,
+argument|int h
+argument_list|,
+argument|const QColor&c1
+argument_list|,
+argument|const QColor&c2
+argument_list|,
+argument|const QColor&c3
+argument_list|,
+argument|const QColor&c4
+argument_list|,
+argument|const QBrush *fill
+argument_list|)
+block|;
+specifier|static
+name|void
+name|drawWinCEShadesSunken
+argument_list|(
+argument|QPainter *p
+argument_list|,
+argument|int x
+argument_list|,
+argument|int y
+argument_list|,
+argument|int w
+argument_list|,
+argument|int h
+argument_list|,
+argument|const QColor&c1
+argument_list|,
+argument|const QColor&c2
+argument_list|,
+argument|const QColor&c3
+argument_list|,
+argument|const QColor&c4
+argument_list|,
+argument|const QBrush *fill
+argument_list|)
+block|;     }
+decl_stmt|;
+end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|//QWINDOWSCE_P_H
+end_comment
+end_unit
