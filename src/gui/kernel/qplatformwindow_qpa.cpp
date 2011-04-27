@@ -281,7 +281,13 @@ name|QString
 modifier|&
 name|title
 parameter_list|)
-block|{}
+block|{
+name|Q_UNUSED
+argument_list|(
+name|title
+argument_list|)
+expr_stmt|;
+block|}
 end_function
 begin_comment
 comment|/*!   Reimplement to be able to let Qt rais windows to the top of the desktop */
