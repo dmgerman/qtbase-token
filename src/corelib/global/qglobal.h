@@ -12637,6 +12637,15 @@ argument_list|(
 name|QT_NO_FREETYPE
 argument_list|)
 operator|)
+expr|\
+operator|&&
+operator|!
+operator|(
+name|defined
+argument_list|(
+name|Q_WS_QPA
+argument_list|)
+operator|)
 end_if
 begin_define
 DECL|macro|QT_NO_RAWFONT

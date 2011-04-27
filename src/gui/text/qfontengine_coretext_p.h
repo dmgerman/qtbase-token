@@ -305,6 +305,15 @@ name|emSquareSize
 argument_list|()
 specifier|const
 block|;
+name|virtual
+name|QFontEngine
+operator|*
+name|cloneWithSize
+argument_list|(
+argument|qreal pixelSize
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|friend

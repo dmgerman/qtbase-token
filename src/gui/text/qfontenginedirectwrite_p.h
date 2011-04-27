@@ -234,6 +234,14 @@ argument_list|,
 argument|const QTransform&xform
 argument_list|)
 block|;
+name|QFontEngine
+operator|*
+name|cloneWithSize
+argument_list|(
+argument|qreal pixelSize
+argument_list|)
+specifier|const
+block|;
 name|bool
 name|canRender
 argument_list|(
