@@ -184,7 +184,7 @@ name|event
 expr_stmt|;
 continue|continue;
 block|}
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|processWindowSystemEvent
 argument_list|(

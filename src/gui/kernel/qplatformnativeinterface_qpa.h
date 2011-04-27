@@ -26,14 +26,14 @@ parameter_list|(
 name|Gui
 parameter_list|)
 name|class
-name|QWidget
+name|QWindow
 decl_stmt|;
 name|class
 name|Q_GUI_EXPORT
 name|QPlatformNativeInterface
-decl_stmt|{ public:     virtual void *nativeResourceForWidget(const QByteArray&resource
+decl_stmt|{ public:     virtual void *nativeResourceForWindow(const QByteArray&resource
 operator|,
-decl_stmt|QWidget *widget
+decl_stmt|QWindow *window
 end_function
 begin_empty_stmt
 unit|)

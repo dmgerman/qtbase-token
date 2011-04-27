@@ -3662,6 +3662,14 @@ name|QApplicationPrivate
 decl_stmt|;
 name|friend
 name|class
+name|QGuiApplication
+decl_stmt|;
+name|friend
+name|class
+name|QGuiApplicationPrivate
+decl_stmt|;
+name|friend
+name|class
 name|QBaseApplication
 decl_stmt|;
 name|friend

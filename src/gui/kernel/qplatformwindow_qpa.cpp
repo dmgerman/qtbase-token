@@ -202,11 +202,6 @@ name|WindowFlags
 name|flags
 parameter_list|)
 block|{
-name|Q_D
-argument_list|(
-name|QPlatformWindow
-argument_list|)
-expr_stmt|;
 return|return
 name|flags
 return|;
@@ -367,9 +362,6 @@ operator|::
 name|handleWindowActivated
 argument_list|(
 name|window
-argument_list|()
-operator|->
-name|widget
 argument_list|()
 argument_list|)
 expr_stmt|;

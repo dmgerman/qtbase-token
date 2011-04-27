@@ -559,7 +559,7 @@ parameter_list|,
 name|handler
 parameter_list|)
 define|\
-value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->event)) \         m_keyboard->handler(platformWindow->window()->widget(), e); \ } \ break;
+value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->event)) \         m_keyboard->handler(platformWindow->window(), e); \ } \ break;
 end_define
 begin_comment
 comment|//#define XCB_EVENT_DEBUG

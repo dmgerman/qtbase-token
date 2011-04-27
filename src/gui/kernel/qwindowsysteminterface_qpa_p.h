@@ -84,7 +84,7 @@ name|public
 operator|:
 name|CloseEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|tlw
 argument_list|)
@@ -101,7 +101,7 @@ argument_list|)
 block|{ }
 name|QWeakPointer
 operator|<
-name|QWidget
+name|QWindow
 operator|>
 name|topLevel
 block|;     }
@@ -116,7 +116,7 @@ name|public
 operator|:
 name|GeometryChangeEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|tlw
 argument_list|,
@@ -143,7 +143,7 @@ argument_list|)
 block|{ }
 name|QWeakPointer
 operator|<
-name|QWidget
+name|QWindow
 operator|>
 name|tlw
 block|;
@@ -161,7 +161,7 @@ name|public
 operator|:
 name|EnterEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|enter
 argument_list|)
@@ -178,7 +178,7 @@ argument_list|)
 block|{ }
 name|QWeakPointer
 operator|<
-name|QWidget
+name|QWindow
 operator|>
 name|enter
 block|;     }
@@ -193,7 +193,7 @@ name|public
 operator|:
 name|LeaveEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|leave
 argument_list|)
@@ -210,7 +210,7 @@ argument_list|)
 block|{ }
 name|QWeakPointer
 operator|<
-name|QWidget
+name|QWindow
 operator|>
 name|leave
 block|;     }
@@ -225,7 +225,7 @@ name|public
 operator|:
 name|ActivatedWindowEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|activatedWindow
 argument_list|)
@@ -242,7 +242,7 @@ argument_list|)
 block|{ }
 name|QWeakPointer
 operator|<
-name|QWidget
+name|QWindow
 operator|>
 name|activated
 block|;     }
@@ -257,7 +257,7 @@ name|public
 operator|:
 name|UserEvent
 argument_list|(
-argument|QWidget * w
+argument|QWindow * w
 argument_list|,
 argument|ulong time
 argument_list|,
@@ -269,7 +269,7 @@ argument_list|(
 name|t
 argument_list|)
 block|,
-name|widget
+name|window
 argument_list|(
 name|w
 argument_list|)
@@ -281,9 +281,9 @@ argument_list|)
 block|{ }
 name|QWeakPointer
 operator|<
-name|QWidget
+name|QWindow
 operator|>
-name|widget
+name|window
 block|;
 name|unsigned
 name|long
@@ -300,7 +300,7 @@ name|public
 operator|:
 name|MouseEvent
 argument_list|(
-argument|QWidget * w
+argument|QWindow * w
 argument_list|,
 argument|ulong time
 argument_list|,
@@ -357,7 +357,7 @@ name|public
 operator|:
 name|WheelEvent
 argument_list|(
-argument|QWidget *w
+argument|QWindow *w
 argument_list|,
 argument|ulong time
 argument_list|,
@@ -424,7 +424,7 @@ name|public
 operator|:
 name|KeyEvent
 argument_list|(
-argument|QWidget *w
+argument|QWindow *w
 argument_list|,
 argument|ulong time
 argument_list|,
@@ -498,7 +498,7 @@ argument_list|)
 block|{ }
 name|KeyEvent
 argument_list|(
-argument|QWidget *w
+argument|QWindow *w
 argument_list|,
 argument|ulong time
 argument_list|,
@@ -618,7 +618,7 @@ name|public
 operator|:
 name|TouchEvent
 argument_list|(
-argument|QWidget *w
+argument|QWindow *w
 argument_list|,
 argument|ulong time
 argument_list|,

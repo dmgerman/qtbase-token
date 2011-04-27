@@ -31,7 +31,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QWidget>
+file|<QtGui/QWindow>
 end_include
 begin_include
 include|#
@@ -59,7 +59,7 @@ parameter_list|)
 name|class
 name|Q_GUI_EXPORT
 name|QWindowSystemInterface
-decl_stmt|{ public:     static void handleMouseEvent(QWidget *w
+decl_stmt|{ public:     static void handleMouseEvent(QWindow *w
 operator|,
 decl_stmt|const QPoint& local
 operator|,
@@ -76,7 +76,7 @@ specifier|static
 name|void
 name|handleMouseEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|w
 argument_list|,
@@ -105,7 +105,7 @@ specifier|static
 name|void
 name|handleKeyEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|w
 argument_list|,
@@ -147,7 +147,7 @@ specifier|static
 name|void
 name|handleKeyEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|w
 argument_list|,
@@ -192,7 +192,7 @@ specifier|static
 name|void
 name|handleExtendedKeyEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|w
 argument_list|,
@@ -243,7 +243,7 @@ specifier|static
 name|void
 name|handleExtendedKeyEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|w
 argument_list|,
@@ -297,7 +297,7 @@ specifier|static
 name|void
 name|handleWheelEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|w
 argument_list|,
@@ -326,7 +326,7 @@ specifier|static
 name|void
 name|handleWheelEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|w
 argument_list|,
@@ -391,7 +391,7 @@ specifier|static
 name|void
 name|handleTouchEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|w
 argument_list|,
@@ -421,7 +421,7 @@ specifier|static
 name|void
 name|handleTouchEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|w
 argument_list|,
@@ -454,7 +454,7 @@ specifier|static
 name|void
 name|handleGeometryChange
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 name|w
 parameter_list|,
@@ -470,7 +470,7 @@ specifier|static
 name|void
 name|handleCloseEvent
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 name|w
 parameter_list|)
@@ -481,7 +481,7 @@ specifier|static
 name|void
 name|handleEnterEvent
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 name|w
 parameter_list|)
@@ -492,7 +492,7 @@ specifier|static
 name|void
 name|handleLeaveEvent
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 name|w
 parameter_list|)
@@ -503,7 +503,7 @@ specifier|static
 name|void
 name|handleWindowActivated
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 name|w
 parameter_list|)

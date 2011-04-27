@@ -29,6 +29,12 @@ directive|include
 file|<QEvent>
 end_include
 begin_decl_stmt
+DECL|variable|QWindow
+name|class
+name|QWindow
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QXcbKeyboard
 range|:
@@ -51,9 +57,9 @@ block|;
 name|void
 name|handleKeyPressEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|,
 specifier|const
 name|xcb_key_press_event_t
@@ -64,9 +70,9 @@ block|;
 name|void
 name|handleKeyReleaseEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|,
 specifier|const
 name|xcb_key_release_event_t
@@ -96,7 +102,7 @@ operator|:
 name|void
 name|handleKeyEvent
 argument_list|(
-argument|QWidget *widget
+argument|QWindow *window
 argument_list|,
 argument|QEvent::Type type
 argument_list|,

@@ -512,7 +512,14 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QWindow
 argument_list|)
-block|}
+name|friend
+name|class
+name|QGuiApplication
+block|;
+name|friend
+name|class
+name|QGuiApplicationPrivate
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt

@@ -745,7 +745,7 @@ block|}
 name|nevents
 operator|++
 expr_stmt|;
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|processWindowSystemEvent
 argument_list|(

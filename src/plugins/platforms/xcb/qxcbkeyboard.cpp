@@ -5631,9 +5631,9 @@ name|QXcbKeyboard
 operator|::
 name|handleKeyEvent
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
-name|widget
+name|window
 parameter_list|,
 name|QEvent
 operator|::
@@ -5854,7 +5854,7 @@ name|QWindowSystemInterface
 operator|::
 name|handleExtendedKeyEvent
 argument_list|(
-name|widget
+name|window
 argument_list|,
 name|time
 argument_list|,
@@ -5887,9 +5887,9 @@ name|QXcbKeyboard
 operator|::
 name|handleKeyPressEvent
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
-name|widget
+name|window
 parameter_list|,
 specifier|const
 name|xcb_key_press_event_t
@@ -5899,7 +5899,7 @@ parameter_list|)
 block|{
 name|handleKeyEvent
 argument_list|(
-name|widget
+name|window
 argument_list|,
 name|QEvent
 operator|::
@@ -5927,9 +5927,9 @@ name|QXcbKeyboard
 operator|::
 name|handleKeyReleaseEvent
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
-name|widget
+name|window
 parameter_list|,
 specifier|const
 name|xcb_key_release_event_t
@@ -5939,7 +5939,7 @@ parameter_list|)
 block|{
 name|handleKeyEvent
 argument_list|(
-name|widget
+name|window
 argument_list|,
 name|QEvent
 operator|::

@@ -2828,9 +2828,6 @@ name|handleCloseEvent
 argument_list|(
 name|window
 argument_list|()
-operator|->
-name|widget
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3090,9 +3087,6 @@ operator|::
 name|handleGeometryChange
 argument_list|(
 name|window
-argument_list|()
-operator|->
-name|widget
 argument_list|()
 argument_list|,
 name|rect
@@ -3373,9 +3367,6 @@ name|handleWheelEvent
 argument_list|(
 name|window
 argument_list|()
-operator|->
-name|widget
-argument_list|()
 argument_list|,
 name|event
 operator|->
@@ -3595,9 +3586,6 @@ name|handleMouseEvent
 argument_list|(
 name|window
 argument_list|()
-operator|->
-name|widget
-argument_list|()
 argument_list|,
 name|time
 argument_list|,
@@ -3628,9 +3616,6 @@ name|handleEnterEvent
 argument_list|(
 name|window
 argument_list|()
-operator|->
-name|widget
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3653,9 +3638,6 @@ name|handleLeaveEvent
 argument_list|(
 name|window
 argument_list|()
-operator|->
-name|widget
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3677,9 +3659,6 @@ operator|::
 name|handleWindowActivated
 argument_list|(
 name|window
-argument_list|()
-operator|->
-name|widget
 argument_list|()
 argument_list|)
 expr_stmt|;
