@@ -886,7 +886,25 @@ name|QByteArray
 operator|&
 name|fontFamily
 argument_list|)
+block|;      enum
+name|HintStyle
+block|{
+name|HintNone
+block|,
+name|HintLight
+block|,
+name|HintMedium
+block|,
+name|HintFull
+block|}
 block|;
+name|virtual
+name|void
+name|setDefaultHintStyle
+argument_list|(
+argument|HintStyle
+argument_list|)
+block|{ }
 name|QAtomicInt
 name|ref
 block|;

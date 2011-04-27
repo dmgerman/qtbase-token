@@ -266,6 +266,16 @@ name|inputDevice
 operator|->
 name|mPointerFocus
 decl_stmt|;
+if|if
+condition|(
+name|window
+operator|==
+name|NULL
+condition|)
+block|{
+comment|/* We destroyed the pointer focus surface, but the server 	 * didn't get the message yet. */
+return|return;
+block|}
 name|inputDevice
 operator|->
 name|mSurfacePos
@@ -374,6 +384,16 @@ operator|::
 name|MouseButton
 name|qt_button
 decl_stmt|;
+if|if
+condition|(
+name|window
+operator|==
+name|NULL
+condition|)
+block|{
+comment|/* We destroyed the pointer focus surface, but the server 	 * didn't get the message yet. */
+return|return;
+block|}
 switch|switch
 condition|(
 name|button
@@ -952,6 +972,16 @@ index|[
 literal|2
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|window
+operator|==
+name|NULL
+condition|)
+block|{
+comment|/* We destroyed the keyboard focus surface, but the server 	 * didn't get the message yet. */
+return|return;
+block|}
 name|code
 operator|=
 name|key
@@ -1068,27 +1098,6 @@ name|s
 argument_list|,
 sizeof|sizeof
 name|s
-argument_list|)
-expr_stmt|;
-name|qWarning
-argument_list|(
-literal|"keycode %d, sym %d, string %d, modifiers 0x%x"
-argument_list|,
-name|code
-argument_list|,
-name|sym
-argument_list|,
-name|s
-index|[
-literal|0
-index|]
-argument_list|,
-operator|(
-name|int
-operator|)
-name|inputDevice
-operator|->
-name|mModifiers
 argument_list|)
 expr_stmt|;
 if|if
