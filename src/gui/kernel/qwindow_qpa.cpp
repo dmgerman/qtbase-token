@@ -84,7 +84,12 @@ name|widget
 argument_list|(
 literal|0
 argument_list|)
-block|{      }
+block|{
+name|isWindow
+operator|=
+literal|true
+expr_stmt|;
+block|}
 DECL|function|~QWindowPrivate
 name|~
 name|QWindowPrivate

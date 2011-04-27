@@ -620,6 +620,10 @@ name|hasGuards
 operator|=
 literal|false
 expr_stmt|;
+name|isWindow
+operator|=
+literal|false
+expr_stmt|;
 block|}
 end_constructor
 begin_destructor
