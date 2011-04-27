@@ -1066,6 +1066,8 @@ name|EGL_SURFACE_TYPE
 argument_list|,
 name|EGL_WINDOW_BIT
 operator||
+name|EGL_SWAP_BEHAVIOR_PRESERVED_BIT
+operator||
 name|EGL_VG_ALPHA_FORMAT_PRE_BIT
 argument_list|)
 expr_stmt|;
@@ -1097,6 +1099,8 @@ argument_list|(
 name|EGL_SURFACE_TYPE
 argument_list|,
 name|EGL_WINDOW_BIT
+operator||
+name|EGL_SWAP_BEHAVIOR_PRESERVED_BIT
 argument_list|)
 expr_stmt|;
 if|if
@@ -1127,6 +1131,8 @@ argument_list|(
 name|EGL_SURFACE_TYPE
 argument_list|,
 name|EGL_WINDOW_BIT
+operator||
+name|EGL_SWAP_BEHAVIOR_PRESERVED_BIT
 argument_list|)
 expr_stmt|;
 name|configProps
