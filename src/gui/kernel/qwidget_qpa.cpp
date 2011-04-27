@@ -304,6 +304,16 @@ argument_list|)
 expr_stmt|;
 name|win
 operator|->
+name|setGeometry
+argument_list|(
+name|q
+operator|->
+name|geometry
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|win
+operator|->
 name|create
 argument_list|()
 expr_stmt|;

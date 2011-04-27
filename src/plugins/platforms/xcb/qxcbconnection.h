@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QHash>
+end_include
+begin_include
+include|#
+directive|include
 file|<QList>
 end_include
 begin_include
@@ -45,6 +50,26 @@ name|class
 name|QXcbScreen
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QXcbWindow
+name|class
+name|QXcbWindow
+decl_stmt|;
+end_decl_stmt
+begin_typedef
+DECL|typedef|xcb_window_t
+DECL|typedef|WindowMapper
+typedef|typedef
+name|QHash
+operator|<
+name|xcb_window_t
+operator|,
+name|QXcbWindow
+operator|*
+operator|>
+name|WindowMapper
+expr_stmt|;
+end_typedef
 begin_decl_stmt
 name|namespace
 name|QXcbAtom
@@ -481,6 +506,20 @@ operator|*
 name|error
 argument_list|)
 block|;
+name|void
+name|addWindow
+argument_list|(
+argument|xcb_window_t id
+argument_list|,
+argument|QXcbWindow *window
+argument_list|)
+block|;
+name|void
+name|removeWindow
+argument_list|(
+argument|xcb_window_t id
+argument_list|)
+block|;
 name|private
 name|slots
 operator|:
@@ -512,6 +551,13 @@ argument_list|()
 block|;
 endif|#
 directive|endif
+name|QXcbWindow
+operator|*
+name|platformWindowFromId
+argument_list|(
+argument|xcb_window_t id
+argument_list|)
+block|;
 name|xcb_connection_t
 operator|*
 name|m_connection
@@ -650,7 +696,9 @@ argument_list|)
 block|;
 endif|#
 directive|endif
-block|}
+name|WindowMapper
+name|m_mapper
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_define

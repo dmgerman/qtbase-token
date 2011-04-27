@@ -81,6 +81,10 @@ operator|~
 name|QGuiApplicationPrivate
 argument_list|()
 block|;
+name|void
+name|createEventDispatcher
+argument_list|()
+block|;
 specifier|static
 name|int
 name|keyboard_input_time
