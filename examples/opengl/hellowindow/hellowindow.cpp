@@ -346,13 +346,6 @@ argument_list|)
 expr_stmt|;
 name|modelview
 operator|.
-name|scale
-argument_list|(
-name|m_fScale
-argument_list|)
-expr_stmt|;
-name|modelview
-operator|.
 name|translate
 argument_list|(
 literal|0.0f
@@ -637,10 +630,6 @@ expr_stmt|;
 name|m_fAngle
 operator|=
 literal|0
-expr_stmt|;
-name|m_fScale
-operator|=
-literal|1
 expr_stmt|;
 name|createGeometry
 argument_list|()
