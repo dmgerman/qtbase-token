@@ -20727,6 +20727,11 @@ operator|->
 name|dynamicDocumentSize
 argument_list|()
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|oldSize
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|checkPoints

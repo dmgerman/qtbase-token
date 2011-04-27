@@ -2438,23 +2438,6 @@ name|Popup
 operator|)
 decl_stmt|;
 name|bool
-name|dialog
-init|=
-operator|(
-name|type
-operator|==
-name|Qt
-operator|::
-name|Dialog
-operator|||
-name|type
-operator|==
-name|Qt
-operator|::
-name|Sheet
-operator|)
-decl_stmt|;
-name|bool
 name|desktop
 init|=
 operator|(
@@ -2811,8 +2794,6 @@ name|desktop
 condition|)
 block|{
 comment|// desktop widget
-name|dialog
-operator|=
 name|popup
 operator|=
 literal|false

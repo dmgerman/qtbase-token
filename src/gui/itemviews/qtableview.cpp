@@ -6790,16 +6790,6 @@ operator|->
 name|horizontalHeader
 decl_stmt|;
 specifier|const
-name|QStyle
-operator|::
-name|State
-name|state
-init|=
-name|option
-operator|.
-name|state
-decl_stmt|;
-specifier|const
 name|bool
 name|alternate
 init|=
