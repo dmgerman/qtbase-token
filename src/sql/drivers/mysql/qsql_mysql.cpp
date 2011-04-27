@@ -7036,18 +7036,9 @@ name|sql
 init|=
 name|QLatin1String
 argument_list|(
-literal|"select table_name from information_schema.tables where table_schema = ':schema' and table_type = 'BASE TABLE'"
+literal|"select table_name from information_schema.tables where table_schema = '"
 argument_list|)
-decl_stmt|;
-name|sql
-operator|.
-name|replace
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|":schema"
-argument_list|)
-argument_list|,
+operator|+
 name|QLatin1String
 argument_list|(
 name|d
@@ -7056,8 +7047,12 @@ name|mysql
 operator|->
 name|db
 argument_list|)
+operator|+
+name|QLatin1String
+argument_list|(
+literal|"' and table_type = 'BASE TABLE'"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|q
 operator|.
 name|exec
@@ -7102,18 +7097,9 @@ name|sql
 init|=
 name|QLatin1String
 argument_list|(
-literal|"select table_name from information_schema.tables where table_schema = ':schema' and table_type = 'VIEW'"
+literal|"select table_name from information_schema.tables where table_schema = '"
 argument_list|)
-decl_stmt|;
-name|sql
-operator|.
-name|replace
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|":schema"
-argument_list|)
-argument_list|,
+operator|+
 name|QLatin1String
 argument_list|(
 name|d
@@ -7122,8 +7108,12 @@ name|mysql
 operator|->
 name|db
 argument_list|)
+operator|+
+name|QLatin1String
+argument_list|(
+literal|"' and table_type = 'VIEW'"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|q
 operator|.
 name|exec
