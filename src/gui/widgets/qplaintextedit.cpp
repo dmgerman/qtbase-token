@@ -2125,6 +2125,11 @@ argument_list|(
 name|currentBlock
 argument_list|)
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
 name|QTextLayout
 modifier|*
 name|layout
