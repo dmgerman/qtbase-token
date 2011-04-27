@@ -267,6 +267,13 @@ argument_list|(
 name|QWindow
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|platformWindow
+condition|)
 name|d
 operator|->
 name|platformWindow
