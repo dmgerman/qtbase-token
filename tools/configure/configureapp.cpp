@@ -880,17 +880,6 @@ literal|"@echo off"
 operator|<<
 name|endl
 operator|<<
-literal|"set QTDIR="
-operator|<<
-name|QDir
-operator|::
-name|toNativeSeparators
-argument_list|(
-name|sourcePath
-argument_list|)
-operator|<<
-name|endl
-operator|<<
 literal|"call "
 operator|<<
 name|fixSeparators
@@ -908,18 +897,14 @@ argument_list|(
 name|buildPath
 argument_list|)
 operator|<<
-literal|"\""
+literal|"\" \""
 operator|<<
-name|endl
-operator|<<
-literal|"set QTDIR="
-operator|<<
-name|QDir
-operator|::
-name|toNativeSeparators
+name|fixSeparators
 argument_list|(
-name|buildPath
+name|sourcePath
 argument_list|)
+operator|<<
+literal|"\""
 operator|<<
 name|endl
 expr_stmt|;
@@ -10319,13 +10304,6 @@ index|]
 operator|=
 literal|"system"
 expr_stmt|;
-comment|// Disable building docs and translations for now
-name|disabledBuildParts
-operator|<<
-literal|"docs"
-operator|<<
-literal|"translations"
-expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -17325,7 +17303,7 @@ literal|"yes"
 condition|)
 name|qtConfig
 operator|+=
-literal|"qt3support"
+literal|"gui-qt3support"
 expr_stmt|;
 if|if
 condition|(
@@ -17519,72 +17497,21 @@ name|qtConfig
 operator|+=
 literal|"cetest"
 expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"SCRIPT"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|qtConfig
-operator|+=
-literal|"script"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"SCRIPTTOOLS"
-index|]
-operator|==
-literal|"yes"
-condition|)
-block|{
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"SCRIPT"
-index|]
-operator|==
-literal|"no"
-condition|)
-block|{
-name|cout
-operator|<<
-literal|"QtScriptTools was requested, but it can't be built due to QtScript being "
-literal|"disabled."
-operator|<<
-name|endl
-expr_stmt|;
-name|dictionary
-index|[
-literal|"DONE"
-index|]
-operator|=
-literal|"error"
-expr_stmt|;
-block|}
-name|qtConfig
-operator|+=
-literal|"scripttools"
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"XMLPATTERNS"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|qtConfig
-operator|+=
-literal|"xmlpatterns"
-expr_stmt|;
+comment|// No longer needed after modularization
+comment|//    if (dictionary[ "SCRIPT" ] == "yes")
+comment|//        qtConfig += "script";
+comment|// No longer needed after modularization
+comment|//    if (dictionary[ "SCRIPTTOOLS" ] == "yes") {
+comment|//        if (dictionary[ "SCRIPT" ] == "no") {
+comment|//            cout<< "QtScriptTools was requested, but it can't be built due to QtScript being "
+comment|//                    "disabled."<< endl;
+comment|//            dictionary[ "DONE" ] = "error";
+comment|//        }
+comment|//        qtConfig += "scripttools";
+comment|//    }
+comment|// No longer needed after modularization
+comment|//    if (dictionary[ "XMLPATTERNS" ] == "yes")
+comment|//        qtConfig += "xmlpatterns";
 if|if
 condition|(
 name|dictionary
@@ -17595,10 +17522,8 @@ operator|==
 literal|"yes"
 condition|)
 block|{
-name|qtConfig
-operator|+=
-literal|"phonon"
-expr_stmt|;
+comment|// No longer needed after modularization
+comment|//qtConfig += "phonon";
 if|if
 condition|(
 name|dictionary
@@ -17623,10 +17548,8 @@ operator|==
 literal|"yes"
 condition|)
 block|{
-name|qtConfig
-operator|+=
-literal|"multimedia"
-expr_stmt|;
+comment|// No longer needed after modularization
+comment|//qtConfig += "multimedia";
 if|if
 condition|(
 name|dictionary
@@ -17641,20 +17564,6 @@ operator|+=
 literal|"audio-backend"
 expr_stmt|;
 block|}
-name|QString
-name|dst
-init|=
-name|buildPath
-operator|+
-literal|"/mkspecs/modules/qt_webkit_version.pri"
-decl_stmt|;
-name|QFile
-operator|::
-name|remove
-argument_list|(
-name|dst
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|dictionary
@@ -17665,23 +17574,6 @@ operator|!=
 literal|"no"
 condition|)
 block|{
-comment|// This include takes care of adding "webkit" to QT_CONFIG.
-name|QString
-name|src
-init|=
-name|sourcePath
-operator|+
-literal|"/src/3rdparty/webkit/WebKit/qt/qt_webkit_version.pri"
-decl_stmt|;
-name|QFile
-operator|::
-name|copy
-argument_list|(
-name|src
-argument_list|,
-name|dst
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|dictionary
@@ -17696,46 +17588,15 @@ operator|+=
 literal|"webkit-debug"
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"DECLARATIVE"
-index|]
-operator|==
-literal|"yes"
-condition|)
-block|{
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"SCRIPT"
-index|]
-operator|==
-literal|"no"
-condition|)
-block|{
-name|cout
-operator|<<
-literal|"QtDeclarative was requested, but it can't be built due to QtScript being "
-literal|"disabled."
-operator|<<
-name|endl
-expr_stmt|;
-name|dictionary
-index|[
-literal|"DONE"
-index|]
-operator|=
-literal|"error"
-expr_stmt|;
-block|}
-name|qtConfig
-operator|+=
-literal|"declarative"
-expr_stmt|;
-block|}
+comment|// No longer needed after modularization
+comment|//    if (dictionary["DECLARATIVE"] == "yes") {
+comment|//        if (dictionary[ "SCRIPT" ] == "no") {
+comment|//            cout<< "QtDeclarative was requested, but it can't be built due to QtScript being "
+comment|//                    "disabled."<< endl;
+comment|//            dictionary[ "DONE" ] = "error";
+comment|//        }
+comment|//        qtConfig += "declarative";
+comment|//    }
 if|if
 condition|(
 name|dictionary
@@ -18831,6 +18692,12 @@ operator|&
 name|cacheFile
 argument_list|)
 decl_stmt|;
+name|cacheStream
+operator|<<
+literal|"include($$PWD/mkspecs/qmodule.pri)"
+operator|<<
+name|endl
+expr_stmt|;
 for|for
 control|(
 name|QStringList
@@ -18879,6 +18746,91 @@ literal|" incremental msvc_mp create_prl link_prl depend_includepath QTDIR_build
 operator|<<
 name|endl
 expr_stmt|;
+name|cacheStream
+operator|.
+name|flush
+argument_list|()
+expr_stmt|;
+name|cacheFile
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+comment|// Generate qmodule.pri
+name|QFile
+name|moduleFile
+argument_list|(
+name|dictionary
+index|[
+literal|"QT_BUILD_TREE"
+index|]
+operator|+
+literal|"/mkspecs/qmodule.pri"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|moduleFile
+operator|.
+name|open
+argument_list|(
+name|QFile
+operator|::
+name|WriteOnly
+operator||
+name|QFile
+operator|::
+name|Text
+argument_list|)
+condition|)
+block|{
+comment|// Truncates any existing file.
+name|QTextStream
+name|moduleStream
+argument_list|(
+operator|&
+name|moduleFile
+argument_list|)
+decl_stmt|;
+name|moduleStream
+operator|<<
+literal|"#paths"
+operator|<<
+name|endl
+expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"QT_BUILD_TREE   = "
+operator|<<
+name|fixSeparators
+argument_list|(
+name|dictionary
+index|[
+literal|"QT_BUILD_TREE"
+index|]
+argument_list|,
+literal|true
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"QT_SOURCE_TREE  = "
+operator|<<
+name|fixSeparators
+argument_list|(
+name|dictionary
+index|[
+literal|"QT_SOURCE_TREE"
+index|]
+argument_list|,
+literal|true
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
 name|QStringList
 name|buildParts
 decl_stmt|;
@@ -18886,15 +18838,9 @@ name|buildParts
 operator|<<
 literal|"libs"
 operator|<<
-literal|"tools"
-operator|<<
 literal|"examples"
 operator|<<
 literal|"demos"
-operator|<<
-literal|"docs"
-operator|<<
-literal|"translations"
 expr_stmt|;
 foreach|foreach
 control|(
@@ -18914,7 +18860,7 @@ name|item
 argument_list|)
 expr_stmt|;
 block|}
-name|cacheStream
+name|moduleStream
 operator|<<
 literal|"QT_BUILD_PARTS  = "
 operator|<<
@@ -18923,6 +18869,93 @@ operator|.
 name|join
 argument_list|(
 literal|" "
+argument_list|)
+operator|<<
+name|endl
+operator|<<
+name|endl
+expr_stmt|;
+comment|//so that we can build without an install first (which would be impossible)
+name|moduleStream
+operator|<<
+literal|"#local paths that cannot be queried from the QT_INSTALL_* properties while building QTDIR"
+operator|<<
+name|endl
+expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"QMAKE_MOC       = $$QT_BUILD_TREE"
+operator|<<
+name|fixSeparators
+argument_list|(
+literal|"/bin/moc.exe"
+argument_list|,
+literal|true
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"QMAKE_UIC       = $$QT_BUILD_TREE"
+operator|<<
+name|fixSeparators
+argument_list|(
+literal|"/bin/uic.exe"
+argument_list|,
+literal|true
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"QMAKE_RCC       = $$QT_BUILD_TREE"
+operator|<<
+name|fixSeparators
+argument_list|(
+literal|"/bin/rcc.exe"
+argument_list|,
+literal|true
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"QMAKE_DUMPCPP   = $$QT_BUILD_TREE"
+operator|<<
+name|fixSeparators
+argument_list|(
+literal|"/bin/dumpcpp.exe"
+argument_list|,
+literal|true
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"QMAKE_INCDIR_QT = $$QT_BUILD_TREE"
+operator|<<
+name|fixSeparators
+argument_list|(
+literal|"/include"
+argument_list|,
+literal|true
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"QMAKE_LIBDIR_QT = $$QT_BUILD_TREE"
+operator|<<
+name|fixSeparators
+argument_list|(
+literal|"/lib"
+argument_list|,
+literal|true
 argument_list|)
 operator|<<
 name|endl
@@ -18968,7 +19001,7 @@ argument_list|(
 name|mkspec_path
 argument_list|)
 condition|)
-name|cacheStream
+name|moduleStream
 operator|<<
 literal|"QMAKESPEC       = "
 operator|<<
@@ -18980,7 +19013,7 @@ operator|<<
 name|endl
 expr_stmt|;
 else|else
-name|cacheStream
+name|moduleStream
 operator|<<
 literal|"QMAKESPEC       = "
 operator|<<
@@ -18993,7 +19026,7 @@ argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
-name|cacheStream
+name|moduleStream
 operator|<<
 literal|"ARCH            = "
 operator|<<
@@ -19001,38 +19034,6 @@ name|dictionary
 index|[
 literal|"ARCHITECTURE"
 index|]
-operator|<<
-name|endl
-expr_stmt|;
-name|cacheStream
-operator|<<
-literal|"QT_BUILD_TREE   = "
-operator|<<
-name|fixSeparators
-argument_list|(
-name|dictionary
-index|[
-literal|"QT_BUILD_TREE"
-index|]
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|cacheStream
-operator|<<
-literal|"QT_SOURCE_TREE  = "
-operator|<<
-name|fixSeparators
-argument_list|(
-name|dictionary
-index|[
-literal|"QT_SOURCE_TREE"
-index|]
-argument_list|,
-literal|true
-argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -19045,101 +19046,9 @@ index|]
 operator|!=
 literal|"QT_EDITION_OPENSOURCE"
 condition|)
-name|cacheStream
+name|moduleStream
 operator|<<
 literal|"DEFINES        *= QT_EDITION=QT_EDITION_DESKTOP"
-operator|<<
-name|endl
-expr_stmt|;
-comment|//so that we can build without an install first (which would be impossible)
-name|cacheStream
-operator|<<
-literal|"QMAKE_MOC       = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/bin/moc.exe"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|cacheStream
-operator|<<
-literal|"QMAKE_UIC       = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/bin/uic.exe"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|cacheStream
-operator|<<
-literal|"QMAKE_UIC3      = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/bin/uic3.exe"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|cacheStream
-operator|<<
-literal|"QMAKE_RCC       = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/bin/rcc.exe"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|cacheStream
-operator|<<
-literal|"QMAKE_DUMPCPP   = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/bin/dumpcpp.exe"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|cacheStream
-operator|<<
-literal|"QMAKE_INCDIR_QT = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/include"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|cacheStream
-operator|<<
-literal|"QMAKE_LIBDIR_QT = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/lib"
-argument_list|,
-literal|true
-argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
@@ -19153,7 +19062,7 @@ operator|==
 literal|"yes"
 condition|)
 block|{
-name|cacheStream
+name|moduleStream
 operator|<<
 literal|"QT_CE_RAPI_INC  = "
 operator|<<
@@ -19169,7 +19078,7 @@ argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
-name|cacheStream
+name|moduleStream
 operator|<<
 literal|"QT_CE_RAPI_LIB  = "
 operator|<<
@@ -19186,6 +19095,151 @@ operator|<<
 name|endl
 expr_stmt|;
 block|}
+name|moduleStream
+operator|<<
+literal|"#Qt for Windows CE c-runtime deployment"
+operator|<<
+name|endl
+operator|<<
+literal|"QT_CE_C_RUNTIME = "
+operator|<<
+name|fixSeparators
+argument_list|(
+name|dictionary
+index|[
+literal|"CE_CRT"
+index|]
+argument_list|,
+literal|true
+argument_list|)
+operator|<<
+name|endl
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"CE_SIGNATURE"
+index|]
+operator|!=
+name|QLatin1String
+argument_list|(
+literal|"no"
+argument_list|)
+condition|)
+name|moduleStream
+operator|<<
+literal|"DEFAULT_SIGNATURE="
+operator|<<
+name|dictionary
+index|[
+literal|"CE_SIGNATURE"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|dictionary
+index|[
+literal|"QMAKE_RPATHDIR"
+index|]
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|moduleStream
+operator|<<
+literal|"QMAKE_RPATHDIR += "
+operator|<<
+name|dictionary
+index|[
+literal|"QMAKE_RPATHDIR"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|dictionary
+index|[
+literal|"QT_LIBINFIX"
+index|]
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|moduleStream
+operator|<<
+literal|"QT_LIBINFIX = "
+operator|<<
+name|dictionary
+index|[
+literal|"QT_LIBINFIX"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"#Qt for Symbian FPU settings"
+operator|<<
+name|endl
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|dictionary
+index|[
+literal|"ARM_FPU_TYPE"
+index|]
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|moduleStream
+operator|<<
+literal|"MMP_RULES += \"ARMFPU "
+operator|<<
+name|dictionary
+index|[
+literal|"ARM_FPU_TYPE"
+index|]
+operator|<<
+literal|"\""
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|dictionary
+index|[
+literal|"QT_NAMESPACE"
+index|]
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|moduleStream
+operator|<<
+literal|"#namespaces"
+operator|<<
+name|endl
+operator|<<
+literal|"QT_NAMESPACE = "
+operator|<<
+name|dictionary
+index|[
+literal|"QT_NAMESPACE"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
+block|}
 comment|// embedded
 if|if
 condition|(
@@ -19198,7 +19252,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-name|cacheStream
+name|moduleStream
 operator|<<
 literal|"kbd-drivers += "
 operator|<<
@@ -19220,7 +19274,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-name|cacheStream
+name|moduleStream
 operator|<<
 literal|"gfx-drivers += "
 operator|<<
@@ -19242,7 +19296,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-name|cacheStream
+name|moduleStream
 operator|<<
 literal|"mouse-drivers += "
 operator|<<
@@ -19264,7 +19318,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-name|cacheStream
+name|moduleStream
 operator|<<
 literal|"decorations += "
 operator|<<
@@ -19286,7 +19340,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-name|cacheStream
+name|moduleStream
 operator|<<
 literal|"QMAKE_RPATHDIR += "
 operator|<<
@@ -19295,17 +19349,18 @@ index|[
 literal|"QMAKE_RPATHDIR"
 index|]
 expr_stmt|;
-name|cacheStream
+name|moduleStream
 operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-name|cacheFile
+name|moduleFile
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Generate qconfig.pri
 name|QFile
 name|configFile
 argument_list|(
@@ -19699,151 +19754,6 @@ index|]
 operator|<<
 name|endl
 expr_stmt|;
-name|configStream
-operator|<<
-literal|"#Qt for Windows CE c-runtime deployment"
-operator|<<
-name|endl
-operator|<<
-literal|"QT_CE_C_RUNTIME = "
-operator|<<
-name|fixSeparators
-argument_list|(
-name|dictionary
-index|[
-literal|"CE_CRT"
-index|]
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"CE_SIGNATURE"
-index|]
-operator|!=
-name|QLatin1String
-argument_list|(
-literal|"no"
-argument_list|)
-condition|)
-name|configStream
-operator|<<
-literal|"DEFAULT_SIGNATURE="
-operator|<<
-name|dictionary
-index|[
-literal|"CE_SIGNATURE"
-index|]
-operator|<<
-name|endl
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|dictionary
-index|[
-literal|"QMAKE_RPATHDIR"
-index|]
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|configStream
-operator|<<
-literal|"QMAKE_RPATHDIR += "
-operator|<<
-name|dictionary
-index|[
-literal|"QMAKE_RPATHDIR"
-index|]
-operator|<<
-name|endl
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|dictionary
-index|[
-literal|"QT_LIBINFIX"
-index|]
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|configStream
-operator|<<
-literal|"QT_LIBINFIX = "
-operator|<<
-name|dictionary
-index|[
-literal|"QT_LIBINFIX"
-index|]
-operator|<<
-name|endl
-expr_stmt|;
-name|configStream
-operator|<<
-literal|"#Qt for Symbian FPU settings"
-operator|<<
-name|endl
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|dictionary
-index|[
-literal|"ARM_FPU_TYPE"
-index|]
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-name|configStream
-operator|<<
-literal|"MMP_RULES += \"ARMFPU "
-operator|<<
-name|dictionary
-index|[
-literal|"ARM_FPU_TYPE"
-index|]
-operator|<<
-literal|"\""
-expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|dictionary
-index|[
-literal|"QT_NAMESPACE"
-index|]
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-name|configStream
-operator|<<
-literal|"#namespaces"
-operator|<<
-name|endl
-operator|<<
-literal|"QT_NAMESPACE = "
-operator|<<
-name|dictionary
-index|[
-literal|"QT_NAMESPACE"
-index|]
-operator|<<
-name|endl
-expr_stmt|;
-block|}
 name|configStream
 operator|.
 name|flush
@@ -25679,7 +25589,7 @@ operator|<<
 operator|(
 name|sourcePath
 operator|+
-literal|"/projects.pro"
+literal|"/qtbase.pro"
 operator|)
 expr_stmt|;
 name|args

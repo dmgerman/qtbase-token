@@ -41,6 +41,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|HAVE_JSC
+end_ifdef
 begin_include
 include|#
 directive|include
@@ -51,6 +56,10 @@ include|#
 directive|include
 file|"pcre/pcre.h"
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|ZLIB_VERSION
 define|#
@@ -164,6 +173,9 @@ name|void
 name|matchReplace2
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|HAVE_JSC
 name|void
 name|simpleFindJSC
 parameter_list|()
@@ -176,6 +188,8 @@ name|void
 name|matchReplaceJSC
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|HAVE_BOOST
@@ -210,6 +224,9 @@ name|void
 name|horribleWrongReplace2
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|HAVE_JSC
 name|void
 name|horribleWrongReplaceJSC
 parameter_list|()
@@ -218,6 +235,8 @@ name|void
 name|horribleReplaceJSC
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|HAVE_BOOST
@@ -1850,6 +1869,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|HAVE_JSC
+end_ifdef
 begin_function
 DECL|function|simpleFindJSC
 name|void
@@ -2264,6 +2288,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef

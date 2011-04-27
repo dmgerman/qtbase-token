@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtDesigner/extension.h>
+file|"extension.h"
 end_include
 begin_include
 include|#
