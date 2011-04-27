@@ -596,7 +596,7 @@ name|int
 name|flags
 parameter_list|)
 member_init_list|:
-name|QGuiApplicationPrivate
+name|QApplicationPrivateBase
 argument_list|(
 name|argc
 argument_list|,
@@ -2271,7 +2271,7 @@ modifier|*
 name|argv
 parameter_list|)
 member_init_list|:
-name|QGuiApplication
+name|QApplicationBase
 argument_list|(
 operator|*
 operator|new
@@ -2318,7 +2318,7 @@ name|int
 name|_internal
 parameter_list|)
 member_init_list|:
-name|QGuiApplication
+name|QApplicationBase
 argument_list|(
 operator|*
 operator|new
@@ -2368,7 +2368,7 @@ name|bool
 name|GUIenabled
 parameter_list|)
 member_init_list|:
-name|QGuiApplication
+name|QApplicationBase
 argument_list|(
 operator|*
 operator|new
@@ -2422,7 +2422,7 @@ name|int
 name|_internal
 parameter_list|)
 member_init_list|:
-name|QGuiApplication
+name|QApplicationBase
 argument_list|(
 operator|*
 operator|new
@@ -2476,7 +2476,7 @@ name|Type
 name|type
 parameter_list|)
 member_init_list|:
-name|QGuiApplication
+name|QApplicationBase
 argument_list|(
 operator|*
 operator|new
@@ -2526,7 +2526,7 @@ name|int
 name|_internal
 parameter_list|)
 member_init_list|:
-name|QGuiApplication
+name|QApplicationBase
 argument_list|(
 operator|*
 operator|new
@@ -3007,7 +3007,7 @@ name|HANDLE
 name|colormap
 parameter_list|)
 member_init_list|:
-name|QGuiApplication
+name|QApplicationBase
 argument_list|(
 operator|*
 operator|new
@@ -3075,7 +3075,7 @@ name|int
 name|_internal
 parameter_list|)
 member_init_list|:
-name|QGuiApplication
+name|QApplicationBase
 argument_list|(
 operator|*
 operator|new
@@ -3158,7 +3158,7 @@ name|HANDLE
 name|colormap
 parameter_list|)
 member_init_list|:
-name|QGuiApplication
+name|QApplicationBase
 argument_list|(
 operator|*
 operator|new
@@ -3235,7 +3235,7 @@ name|int
 name|_internal
 parameter_list|)
 member_init_list|:
-name|QGuiApplication
+name|QApplicationBase
 argument_list|(
 operator|*
 operator|new
