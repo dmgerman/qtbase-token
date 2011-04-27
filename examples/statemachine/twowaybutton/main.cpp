@@ -160,6 +160,35 @@ argument_list|()
 expr_stmt|;
 comment|//! [4]
 comment|//! [5]
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_SYMBIAN
+argument_list|)
+name|button
+operator|.
+name|showMaximized
+argument_list|()
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_WS_MAEMO_5
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_WS_SIMULATOR
+argument_list|)
+name|button
+operator|.
+name|show
+argument_list|()
+expr_stmt|;
+else|#
+directive|else
 name|button
 operator|.
 name|resize
@@ -174,6 +203,8 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|app
 operator|.

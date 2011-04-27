@@ -27,11 +27,23 @@ name|QWidget
 modifier|*
 name|parent
 parameter_list|)
+ifdef|#
+directive|ifdef
+name|Q_WS_MAEMO_5
+member_init_list|:
+name|QWidget
+argument_list|(
+name|parent
+argument_list|)
+else|#
+directive|else
 member_init_list|:
 name|QDialog
 argument_list|(
 name|parent
 argument_list|)
+endif|#
+directive|endif
 block|{
 name|hostLabel
 operator|=
@@ -69,6 +81,13 @@ argument_list|(
 literal|"This examples requires that you run the "
 literal|"Fortune Server example as well."
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|statusLabel
+operator|->
+name|setWordWrap
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 name|getFortuneButton

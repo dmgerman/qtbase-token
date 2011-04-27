@@ -296,9 +296,9 @@ name|QStringList
 name|htmlFiles
 init|=
 name|QDir
-operator|::
-name|current
-argument_list|()
+argument_list|(
+literal|":/"
+argument_list|)
 operator|.
 name|entryList
 argument_list|(
@@ -343,6 +343,8 @@ name|parseHtmlFile
 argument_list|(
 name|out
 argument_list|,
+literal|":/"
+operator|+
 name|file
 argument_list|)
 expr_stmt|;

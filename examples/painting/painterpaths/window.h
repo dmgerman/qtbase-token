@@ -97,19 +97,12 @@ argument_list|)
 block|;
 comment|//! [1]
 comment|//! [2]
-block|enum
-block|{
-name|NumRenderAreas
-operator|=
-literal|9
-block|}
-block|;
+name|QList
+operator|<
 name|RenderArea
 operator|*
+operator|>
 name|renderAreas
-index|[
-name|NumRenderAreas
-index|]
 block|;
 name|QLabel
 operator|*
