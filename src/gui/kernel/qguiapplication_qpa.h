@@ -100,12 +100,17 @@ block|static QCursor *overrideCursor();     static void setOverrideCursor(const 
 endif|#
 directive|endif
 block|static QFont font();     static QFont font(const QWidget*);     static QFont font(const char *className);     static void setFont(const QFont&, const char* className = 0);     static QFontMetrics fontMetrics();
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_CLIPBOARD
-block|static QClipboard *clipboard();
-endif|#
-directive|endif
+specifier|static
+name|QClipboard
+operator|*
+name|clipboard
+argument_list|()
+block|;
 endif|#
 directive|endif
 specifier|static

@@ -1654,11 +1654,21 @@ begin_comment
 DECL|variable|qt_desktopWidget
 comment|// root window widgets
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_WS_QPA
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_CLIPBOARD
-end_ifndef
+argument_list|)
+end_if
 begin_decl_stmt
 DECL|variable|qt_clipboard
 name|QClipboard
@@ -3626,9 +3636,19 @@ argument_list|(
 name|QApplication
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_WS_QPA
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_CLIPBOARD
+argument_list|)
 comment|// flush clipboard contents
 if|if
 condition|(
@@ -3675,6 +3695,13 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_WS_QPA
+argument_list|)
 name|d
 operator|->
 name|eventDispatcher
@@ -3688,6 +3715,8 @@ name|eventDispatcher
 operator|=
 literal|0
 expr_stmt|;
+endif|#
+directive|endif
 name|QApplicationPrivate
 operator|::
 name|is_app_closing
@@ -3794,9 +3823,19 @@ name|qt_desktopWidget
 operator|=
 literal|0
 expr_stmt|;
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_WS_QPA
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_CLIPBOARD
+argument_list|)
 operator|delete
 name|qt_clipboard
 expr_stmt|;
@@ -12827,11 +12866,21 @@ name|qt_desktopWidget
 return|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_WS_QPA
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_CLIPBOARD
-end_ifndef
+argument_list|)
+end_if
 begin_comment
 comment|/*!     Returns a pointer to the application global clipboard.      \note The QApplication object should already be constructed before     accessing the clipboard. */
 end_comment
@@ -12885,7 +12934,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_CLIPBOARD
+comment|// Q_WS_QPA&& QT_NO_CLIPBOARD
 end_comment
 begin_comment
 comment|/*!     Sets whether Qt should use the system's standard colors, fonts, etc., to     \a on. By default, this is true.      This function must be called before creating the QApplication object, like     this:      \snippet doc/src/snippets/code/src_gui_kernel_qapplication.cpp 6      \sa desktopSettingsAware() */

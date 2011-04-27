@@ -277,6 +277,10 @@ name|QApplicationPrivate
 block|;
 name|friend
 name|class
+name|QGuiApplication
+block|;
+name|friend
+name|class
 name|QBaseApplication
 block|;
 name|friend

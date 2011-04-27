@@ -322,6 +322,16 @@ specifier|static
 name|int
 name|mouse_double_click_distance
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
+specifier|static
+name|QClipboard
+operator|*
+name|qt_clipboard
+block|;
+endif|#
+directive|endif
 name|private
 operator|:
 name|void
