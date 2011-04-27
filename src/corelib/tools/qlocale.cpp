@@ -11885,13 +11885,6 @@ condition|)
 return|return
 literal|false
 return|;
-specifier|const
-name|QChar
-name|_group
-init|=
-name|group
-argument_list|()
-decl_stmt|;
 while|while
 condition|(
 name|idx

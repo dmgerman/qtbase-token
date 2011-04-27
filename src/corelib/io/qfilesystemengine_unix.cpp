@@ -2007,6 +2007,11 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|nativeFilePathLength
+argument_list|)
+expr_stmt|;
 block|}
 name|bool
 name|entryExists
