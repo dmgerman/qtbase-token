@@ -149,10 +149,20 @@ operator|*
 operator|new
 name|QWindowPrivate
 argument_list|()
-argument_list|,
+argument_list|)
+block|{
+if|if
+condition|(
+name|parent
+condition|)
+block|{
+name|setParent
+argument_list|(
 name|parent
 argument_list|)
-block|{ }
+expr_stmt|;
+block|}
+block|}
 end_constructor
 begin_destructor
 DECL|function|~QWindow
@@ -365,7 +375,6 @@ name|QWindow
 operator|::
 name|setParent
 parameter_list|(
-specifier|const
 name|QWindow
 modifier|*
 name|parent
@@ -376,6 +385,18 @@ argument_list|(
 name|QWindow
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|QObject
+operator|::
+name|parent
+argument_list|()
+operator|==
+name|parent
+condition|)
+block|{
+return|return;
+block|}
 comment|//How should we support lazy init when setting parent
 if|if
 condition|(
@@ -425,6 +446,13 @@ name|d_func
 argument_list|()
 operator|->
 name|platformWindow
+argument_list|)
+expr_stmt|;
+name|QObject
+operator|::
+name|setParent
+argument_list|(
+name|parent
 argument_list|)
 expr_stmt|;
 block|}

@@ -182,7 +182,6 @@ block|;
 name|void
 name|setParent
 argument_list|(
-specifier|const
 name|QWindow
 operator|*
 name|parent
