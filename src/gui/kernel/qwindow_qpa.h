@@ -170,6 +170,11 @@ argument_list|(
 argument|bool visible
 argument_list|)
 block|;
+name|bool
+name|visible
+argument_list|()
+specifier|const
+block|;
 name|void
 name|create
 argument_list|()
