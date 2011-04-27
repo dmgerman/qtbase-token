@@ -847,6 +847,15 @@ argument_list|(
 name|option
 argument_list|)
 expr_stmt|;
+name|layout
+operator|.
+name|setCursorMoveStyle
+argument_list|(
+name|QTextCursor
+operator|::
+name|Visual
+argument_list|)
+expr_stmt|;
 name|bool
 name|moved
 decl_stmt|;
