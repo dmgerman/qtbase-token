@@ -2918,6 +2918,11 @@ operator|.
 name|createLine
 argument_list|()
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|line
+argument_list|)
+expr_stmt|;
 name|layout
 operator|.
 name|endLayout
