@@ -16883,6 +16883,9 @@ argument_list|(
 name|stackChild1Interface
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_CC_INTEL
 name|QCOMPARE
 argument_list|(
 name|stackChild1Interface
@@ -16893,6 +16896,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|stackChild1Interface
@@ -16967,6 +16972,9 @@ argument_list|(
 name|parent
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_CC_INTEL
 name|QCOMPARE
 argument_list|(
 name|parent
@@ -16977,6 +16985,8 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|parent
@@ -17083,6 +17093,9 @@ argument_list|(
 name|parent
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_CC_INTEL
 name|QCOMPARE
 argument_list|(
 name|parent
@@ -17093,6 +17106,8 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|parent
