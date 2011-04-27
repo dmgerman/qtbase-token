@@ -2017,12 +2017,17 @@ name|runtime_graphics_system
 block|;
 name|private
 operator|:
+ifndef|#
+directive|ifndef
+name|Q_WS_QPA
 specifier|static
 name|QFont
 operator|*
 name|app_font
 block|;
 comment|// private for a reason! Always use QApplication::font() instead!
+endif|#
+directive|endif
 name|public
 operator|:
 specifier|static

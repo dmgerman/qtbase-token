@@ -996,6 +996,11 @@ init|=
 literal|false
 decl_stmt|;
 end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_WS_QPA
+end_ifndef
 begin_macro
 name|Q_GLOBAL_STATIC
 argument_list|(
@@ -1019,6 +1024,10 @@ begin_comment
 DECL|member|app_font
 comment|// default application font
 end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 DECL|member|sys_font
 name|QFont
@@ -3949,6 +3958,9 @@ operator|->
 name|clear
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_WS_QPA
 block|{
 name|QMutexLocker
 name|locker
@@ -3969,6 +3981,8 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 operator|delete
 name|QApplicationPrivate
 operator|::
@@ -6850,6 +6864,9 @@ operator|::
 name|font
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_WS_QPA
 name|QMutexLocker
 name|locker
 argument_list|(
@@ -6883,6 +6900,16 @@ name|QApplicationPrivate
 operator|::
 name|app_font
 return|;
+else|#
+directive|else
+return|return
+name|QGuiApplication
+operator|::
+name|font
+argument_list|()
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -7164,6 +7191,9 @@ operator|!
 name|className
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|Q_WS_QPA
 name|QMutexLocker
 name|locker
 argument_list|(
@@ -7196,6 +7226,17 @@ name|app_font
 operator|=
 name|font
 expr_stmt|;
+else|#
+directive|else
+name|QGuiApplication
+operator|::
+name|setFont
+argument_list|(
+name|font
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|hash

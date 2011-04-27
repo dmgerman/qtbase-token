@@ -99,9 +99,22 @@ name|QT_NO_CURSOR
 block|static QCursor *overrideCursor();     static void setOverrideCursor(const QCursor&);     static void changeOverrideCursor(const QCursor&);     static void restoreOverrideCursor();
 endif|#
 directive|endif
-block|static QFont font();     static QFont font(const QWidget*);     static QFont font(const char *className);     static void setFont(const QFont&, const char* className = 0);     static QFontMetrics fontMetrics();
 endif|#
 directive|endif
+specifier|static
+name|QFont
+name|font
+argument_list|()
+block|;
+specifier|static
+name|void
+name|setFont
+argument_list|(
+specifier|const
+name|QFont
+operator|&
+argument_list|)
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CLIPBOARD

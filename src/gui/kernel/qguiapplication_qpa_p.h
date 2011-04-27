@@ -332,6 +332,11 @@ name|qt_clipboard
 block|;
 endif|#
 directive|endif
+specifier|static
+name|QFont
+operator|*
+name|app_font
+block|;
 name|private
 operator|:
 name|void
