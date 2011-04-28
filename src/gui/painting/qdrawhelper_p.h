@@ -2816,9 +2816,12 @@ name|Simd
 operator|::
 name|v_dup
 argument_list|(
+name|float
+argument_list|(
 name|GRADIENT_STOPTABLE_SIZE
 operator|-
-literal|1.5f
+literal|1
+argument_list|)
 argument_list|)
 block|;
 specifier|const
@@ -2833,25 +2836,6 @@ operator|::
 name|v_dup
 argument_list|(
 literal|0.5f
-argument_list|)
-block|;
-specifier|const
-name|typename
-name|Simd
-operator|::
-name|Float32x4
-name|v_table_size_minus_one
-operator|=
-name|Simd
-operator|::
-name|v_dup
-argument_list|(
-name|float
-argument_list|(
-name|GRADIENT_STOPTABLE_SIZE
-operator|-
-literal|1
-argument_list|)
 argument_list|)
 block|;
 specifier|const
@@ -2940,7 +2924,7 @@ define|#
 directive|define
 name|FETCH_RADIAL_LOOP_PROLOGUE
 define|\
-value|while (buffer< end) { \             typename Simd::Vect_buffer_i v_buffer_mask; \             v_buffer_mask.v = Simd::v_greaterOrEqual(det_vec.v, v_min); \             const typename Simd::Float32x4 v_index_local = Simd::v_sub(Simd::v_sqrt(Simd::v_max(v_min, det_vec.v)), b_vec.v); \             const typename Simd::Float32x4 v_index = Simd::v_add(Simd::v_mul(v_index_local, v_table_size_minus_one), v_half); \             v_buffer_mask.v = Simd::v_and(v_buffer_mask.v, Simd::v_greaterOrEqual(Simd::v_add(v_r0, Simd::v_mul(v_dr, v_index_local)), v_min)); \             typename Simd::Vect_buffer_i index_vec;
+value|while (buffer< end) { \             typename Simd::Vect_buffer_i v_buffer_mask; \             v_buffer_mask.v = Simd::v_greaterOrEqual(det_vec.v, v_min); \             const typename Simd::Float32x4 v_index_local = Simd::v_sub(Simd::v_sqrt(Simd::v_max(v_min, det_vec.v)), b_vec.v); \             const typename Simd::Float32x4 v_index = Simd::v_add(Simd::v_mul(v_index_local, v_max), v_half); \             v_buffer_mask.v = Simd::v_and(v_buffer_mask.v, Simd::v_greaterOrEqual(Simd::v_add(v_r0, Simd::v_mul(v_dr, v_index_local)), v_min)); \             typename Simd::Vect_buffer_i index_vec;
 DECL|macro|FETCH_RADIAL_LOOP_CLAMP_REPEAT
 define|#
 directive|define
