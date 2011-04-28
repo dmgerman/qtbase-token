@@ -2082,7 +2082,15 @@ name|environment
 operator|.
 name|contains
 argument_list|(
+name|QProcessEnvironmentPrivate
+operator|::
+name|Key
+argument_list|(
+name|QByteArray
+argument_list|(
 name|libraryPath
+argument_list|)
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|char
@@ -2167,6 +2175,8 @@ name|it
 operator|.
 name|key
 argument_list|()
+operator|.
+name|key
 decl_stmt|;
 name|QByteArray
 name|value
