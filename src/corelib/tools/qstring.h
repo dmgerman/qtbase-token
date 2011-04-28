@@ -12897,16 +12897,6 @@ name|toString
 argument_list|()
 specifier|const
 block|;
-name|QByteArray
-name|toLatin1
-argument_list|()
-specifier|const
-block|;
-name|QByteArray
-name|toUtf8
-argument_list|()
-specifier|const
-block|;
 specifier|inline
 name|bool
 name|isEmpty
