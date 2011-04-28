@@ -41,6 +41,13 @@ name|QMouseEvent
 operator|*
 argument_list|)
 block|;
+name|void
+name|resizeEvent
+argument_list|(
+name|QResizeEvent
+operator|*
+argument_list|)
+block|;
 name|private
 name|slots
 operator|:
