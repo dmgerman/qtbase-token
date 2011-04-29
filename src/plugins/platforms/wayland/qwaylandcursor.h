@@ -58,9 +58,9 @@ name|QCursor
 operator|*
 name|cursor
 argument_list|,
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|)
 block|;
 name|QWaylandShmBuffer

@@ -40,7 +40,7 @@ name|public
 operator|:
 name|QWaylandGLWindowSurface
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|window
 argument_list|)
@@ -65,9 +65,9 @@ block|;
 name|void
 name|flush
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|,
 specifier|const
 name|QRegion

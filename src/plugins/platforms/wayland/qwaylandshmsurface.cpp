@@ -312,7 +312,7 @@ name|QWaylandShmWindowSurface
 operator|::
 name|QWaylandShmWindowSurface
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 name|window
 parameter_list|)
@@ -331,7 +331,7 @@ name|mDisplay
 argument_list|(
 name|QWaylandScreen
 operator|::
-name|waylandScreenFromWidget
+name|waylandScreenFromWindow
 argument_list|(
 name|window
 argument_list|)
@@ -392,7 +392,7 @@ argument_list|(
 name|window
 argument_list|()
 operator|->
-name|platformWindow
+name|handle
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -422,9 +422,9 @@ name|QWaylandShmWindowSurface
 operator|::
 name|flush
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
-name|widget
+name|window
 parameter_list|,
 specifier|const
 name|QRegion
@@ -439,7 +439,7 @@ parameter_list|)
 block|{
 name|Q_UNUSED
 argument_list|(
-name|widget
+name|window
 argument_list|)
 expr_stmt|;
 name|Q_UNUSED
@@ -458,9 +458,8 @@ operator|*
 argument_list|>
 argument_list|(
 name|window
-argument_list|()
 operator|->
-name|platformWindow
+name|handle
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -511,7 +510,7 @@ argument_list|(
 name|window
 argument_list|()
 operator|->
-name|platformWindow
+name|handle
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -541,7 +540,7 @@ name|format
 init|=
 name|QPlatformScreen
 operator|::
-name|platformScreenForWidget
+name|platformScreenForWindow
 argument_list|(
 name|window
 argument_list|()

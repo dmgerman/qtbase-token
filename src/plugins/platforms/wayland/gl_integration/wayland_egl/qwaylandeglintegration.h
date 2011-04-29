@@ -30,9 +30,9 @@ name|QWaylandWindow
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QWidget
+DECL|variable|QWindow
 name|class
-name|QWidget
+name|QWindow
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -64,7 +64,7 @@ name|QWaylandWindow
 operator|*
 name|createEglWindow
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|window
 argument_list|)

@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QWidget>
+file|<QtGui/QWindow>
 end_include
 begin_include
 include|#
@@ -48,7 +48,7 @@ name|QWaylandWindow
 operator|::
 name|QWaylandWindow
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 name|window
 parameter_list|)
@@ -62,7 +62,7 @@ name|mDisplay
 argument_list|(
 name|QWaylandScreen
 operator|::
-name|waylandScreenFromWidget
+name|waylandScreenFromWindow
 argument_list|(
 name|window
 argument_list|)
@@ -318,7 +318,7 @@ name|QWindowSystemInterface
 operator|::
 name|handleGeometryChange
 argument_list|(
-name|widget
+name|window
 argument_list|()
 argument_list|,
 name|geometry

@@ -40,7 +40,7 @@ name|public
 operator|:
 name|QWaylandReadbackEglWindow
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|window
 argument_list|,

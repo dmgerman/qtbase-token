@@ -140,7 +140,7 @@ name|QWaylandEglIntegration
 operator|::
 name|createEglWindow
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 name|window
 parameter_list|)

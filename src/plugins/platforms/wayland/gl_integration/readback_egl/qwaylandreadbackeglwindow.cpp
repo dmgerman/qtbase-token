@@ -18,7 +18,7 @@ name|QWaylandReadbackEglWindow
 operator|::
 name|QWaylandReadbackEglWindow
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 name|window
 parameter_list|,

@@ -273,7 +273,7 @@ name|QCursor
 operator|*
 name|widgetCursor
 argument_list|,
-name|QWidget
+name|QWindow
 operator|*
 name|widget
 argument_list|)

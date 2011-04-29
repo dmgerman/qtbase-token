@@ -329,9 +329,9 @@ name|QCursor
 modifier|*
 name|cursor
 parameter_list|,
-name|QWidget
+name|QWindow
 modifier|*
-name|widget
+name|window
 parameter_list|)
 block|{
 specifier|const
@@ -342,7 +342,7 @@ name|p
 decl_stmt|;
 if|if
 condition|(
-name|widget
+name|window
 operator|==
 name|NULL
 condition|)

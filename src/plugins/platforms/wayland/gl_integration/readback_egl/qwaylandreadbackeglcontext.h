@@ -21,11 +21,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QWidget>
-end_include
-begin_include
-include|#
-directive|include
 file|"qwaylandreadbackeglintegration.h"
 end_include
 begin_include

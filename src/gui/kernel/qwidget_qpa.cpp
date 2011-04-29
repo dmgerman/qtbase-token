@@ -4110,6 +4110,9 @@ operator|&
 name|cursorCursor
 argument_list|,
 name|cursorWidget
+operator|->
+name|windowHandle
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

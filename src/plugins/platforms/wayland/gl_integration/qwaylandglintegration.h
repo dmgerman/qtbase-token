@@ -26,9 +26,9 @@ name|QWaylandDisplay
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QWidget
+DECL|variable|QWindow
 name|class
-name|QWidget
+name|QWindow
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -57,9 +57,9 @@ name|QWaylandWindow
 modifier|*
 name|createEglWindow
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
-name|widget
+name|window
 parameter_list|)
 init|=
 literal|0

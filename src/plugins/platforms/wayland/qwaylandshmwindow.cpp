@@ -28,14 +28,14 @@ name|QWaylandShmWindow
 operator|::
 name|QWaylandShmWindow
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
-name|widget
+name|window
 parameter_list|)
 member_init_list|:
 name|QWaylandWindow
 argument_list|(
-name|widget
+name|window
 argument_list|)
 block|{
 name|newSurfaceCreated

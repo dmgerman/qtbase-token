@@ -41,11 +41,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QWidget>
-end_include
-begin_include
-include|#
-directive|include
 file|<X11/Xlib.h>
 end_include
 begin_include
@@ -81,9 +76,9 @@ name|QWaylandWindow
 operator|*
 name|createEglWindow
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|)
 block|;
 name|QWaylandDisplay
