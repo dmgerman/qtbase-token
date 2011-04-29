@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtGui/QPlatformWindow>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QImage>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -35,7 +40,7 @@ name|public
 operator|:
 name|QMinimalWindowSurface
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|window
 argument_list|)
@@ -52,9 +57,9 @@ block|;
 name|void
 name|flush
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|,
 specifier|const
 name|QRegion

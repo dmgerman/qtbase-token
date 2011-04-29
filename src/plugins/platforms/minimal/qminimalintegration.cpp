@@ -191,9 +191,6 @@ operator|new
 name|QMinimalWindowSurface
 argument_list|(
 name|window
-operator|->
-name|widget
-argument_list|()
 argument_list|)
 return|;
 block|}

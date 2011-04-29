@@ -26,7 +26,7 @@ name|QMinimalWindowSurface
 operator|::
 name|QMinimalWindowSurface
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 name|window
 parameter_list|)
@@ -71,9 +71,9 @@ name|QMinimalWindowSurface
 operator|::
 name|flush
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
-name|widget
+name|window
 parameter_list|,
 specifier|const
 name|QRegion
@@ -88,7 +88,7 @@ parameter_list|)
 block|{
 name|Q_UNUSED
 argument_list|(
-name|widget
+name|window
 argument_list|)
 expr_stmt|;
 name|Q_UNUSED
