@@ -205,6 +205,11 @@ include|#
 directive|include
 file|"qplatformwindow_qpa.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"private/qwidgetwindow_qpa_p.h"
+end_include
 begin_endif
 endif|#
 directive|endif
@@ -1309,7 +1314,7 @@ public|public:
 DECL|function|QDummyWindowSurface
 name|QDummyWindowSurface
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 name|window
 parameter_list|)
@@ -1326,7 +1331,17 @@ name|paintDevice
 parameter_list|()
 block|{
 return|return
+cast|static_cast
+argument_list|<
+name|QWidgetWindow
+operator|*
+argument_list|>
+argument_list|(
 name|window
+argument_list|()
+argument_list|)
+operator|->
+name|widget
 argument_list|()
 return|;
 block|}
@@ -1334,7 +1349,7 @@ DECL|function|flush
 name|void
 name|flush
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 parameter_list|,
 specifier|const
@@ -1389,6 +1404,9 @@ operator|new
 name|QDummyWindowSurface
 argument_list|(
 name|q
+operator|->
+name|windowHandle
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1413,6 +1431,9 @@ operator|->
 name|createWindowSurface
 argument_list|(
 name|q
+operator|->
+name|windowHandle
+argument_list|()
 argument_list|)
 expr_stmt|;
 else|else

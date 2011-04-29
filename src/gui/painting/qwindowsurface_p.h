@@ -46,7 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/qwidget.h>
+file|<QtGui/qwindow_qpa.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -130,7 +130,7 @@ argument|WindowSurfaceFeature
 argument_list|)
 name|QWindowSurface
 argument_list|(
-argument|QWidget *window
+argument|QWindow *window
 argument_list|,
 argument|bool setDefaultSurface = true
 argument_list|)
@@ -140,7 +140,7 @@ operator|~
 name|QWindowSurface
 argument_list|()
 expr_stmt|;
-name|QWidget
+name|QWindow
 operator|*
 name|window
 argument_list|()
@@ -154,17 +154,17 @@ parameter_list|()
 init|=
 literal|0
 function_decl|;
-comment|// 'widget' can be a child widget, in which case 'region' is in child widget coordinates and
-comment|// offset is the (child) widget's offset in relation to the window surface. On QWS, 'offset'
-comment|// can be larger than just the offset from the top-level widget as there may also be window
+comment|// 'window' can be a child window, in which case 'region' is in child window coordinates and
+comment|// offset is the (child) window's offset in relation to the window surface. On QWS, 'offset'
+comment|// can be larger than just the offset from the top-level window as there may also be window
 comment|// decorations which are painted into the window surface.
 name|virtual
 name|void
 name|flush
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
-name|widget
+name|window
 parameter_list|,
 specifier|const
 name|QRegion
@@ -273,24 +273,13 @@ modifier|&
 parameter_list|)
 function_decl|;
 name|virtual
-name|QImage
-modifier|*
-name|buffer
-parameter_list|(
-specifier|const
-name|QWidget
-modifier|*
-name|widget
-parameter_list|)
-function_decl|;
-name|virtual
 name|QPixmap
-name|grabWidget
+name|grabWindow
 argument_list|(
 specifier|const
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|,
 specifier|const
 name|QRect
@@ -307,9 +296,9 @@ name|QPoint
 name|offset
 argument_list|(
 specifier|const
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|)
 decl|const
 decl_stmt|;
@@ -318,9 +307,9 @@ name|QRect
 name|rect
 argument_list|(
 specifier|const
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|)
 decl|const
 decl_stmt|;
@@ -384,21 +373,21 @@ name|QWindowSurface
 operator|::
 name|rect
 argument_list|(
-argument|const QWidget *widget
+argument|const QWindow *window
 argument_list|)
 specifier|const
 block|{
 return|return
-name|widget
+name|window
 operator|->
-name|rect
+name|geometry
 argument_list|()
 operator|.
 name|translated
 argument_list|(
 name|offset
 argument_list|(
-name|widget
+name|window
 argument_list|)
 argument_list|)
 return|;

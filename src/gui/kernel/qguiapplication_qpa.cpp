@@ -1772,15 +1772,9 @@ name|QWidget
 modifier|*
 name|tlw
 init|=
-name|window
-condition|?
-name|window
-operator|->
-name|widget
-argument_list|()
-else|:
 literal|0
 decl_stmt|;
+comment|//window ? window->widget() : 0;
 name|QPoint
 name|localPoint
 init|=
@@ -2218,19 +2212,14 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|mouseWidget
-operator|!=
-name|qt_last_mouse_receiver
-condition|)
-block|{
+if|#
+directive|if
+literal|0
+block|if (mouseWidget != qt_last_mouse_receiver) {
 comment|//        dispatchEnterLeave(mouseWidget, qt_last_mouse_receiver);
-name|qt_last_mouse_receiver
-operator|=
-name|mouseWidget
-expr_stmt|;
-block|}
+block|qt_last_mouse_receiver = mouseWidget;     }
+endif|#
+directive|endif
 comment|// Remember, we might enter a modal event loop when sending the event,
 comment|// so think carefully before adding code below this point.
 comment|// qDebug()<< "sending mouse ev."<< ev.type()<< localPoint<< globalPoint<< ev.button()<< ev.buttons()<< mouseWidget<< "mouse grabber"<< implicit_mouse_grabber;
@@ -2345,15 +2334,9 @@ name|QWidget
 modifier|*
 name|mouseWidget
 init|=
-name|window
-condition|?
-name|window
-operator|->
-name|widget
-argument_list|()
-else|:
 literal|0
 decl_stmt|;
+comment|//window ? window->widget() : 0;
 comment|// find the tlw if we didn't get it from the plugin
 if|#
 directive|if
@@ -2490,31 +2473,8 @@ modifier|*
 name|target
 init|=
 name|window
-operator|->
-name|widget
-argument_list|()
-condition|?
-cast|static_cast
-argument_list|<
-name|QObject
-operator|*
-argument_list|>
-argument_list|(
-name|window
-operator|->
-name|widget
-argument_list|()
-argument_list|)
-else|:
-cast|static_cast
-argument_list|<
-name|QObject
-operator|*
-argument_list|>
-argument_list|(
-name|window
-argument_list|)
 decl_stmt|;
+comment|//window->widget() ? static_cast<QObject *>(window->widget()) : static_cast<QObject *>(window);
 if|#
 directive|if
 literal|0
@@ -2652,27 +2612,7 @@ name|e
 parameter_list|)
 block|{
 comment|//    QGuiApplicationPrivate::dispatchEnterLeave(e->enter.data(),0);
-name|qt_last_mouse_receiver
-operator|=
-name|e
-operator|->
-name|enter
-operator|.
-name|data
-argument_list|()
-condition|?
-name|e
-operator|->
-name|enter
-operator|.
-name|data
-argument_list|()
-operator|->
-name|widget
-argument_list|()
-else|:
-literal|0
-expr_stmt|;
+comment|//    qt_last_mouse_receiver = e->enter.data();
 block|}
 end_function
 begin_function
@@ -2764,11 +2704,9 @@ name|QWidget
 modifier|*
 name|tlw
 init|=
-name|window
-operator|->
-name|widget
-argument_list|()
+literal|0
 decl_stmt|;
+comment|//window->widget();
 name|QObject
 modifier|*
 name|target

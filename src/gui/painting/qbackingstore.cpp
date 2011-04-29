@@ -379,6 +379,9 @@ operator|->
 name|flush
 argument_list|(
 name|widget
+operator|->
+name|windowHandle
+argument_list|()
 argument_list|,
 name|region
 argument_list|,
@@ -401,6 +404,9 @@ operator|->
 name|flush
 argument_list|(
 name|widget
+operator|->
+name|windowHandle
+argument_list|()
 argument_list|,
 name|region
 argument_list|,

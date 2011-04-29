@@ -3757,6 +3757,10 @@ name|friend
 struct_decl|struct
 name|QWidgetExceptionCleaner
 struct_decl|;
+name|friend
+name|class
+name|QWidgetWindow
+decl_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_GESTURES

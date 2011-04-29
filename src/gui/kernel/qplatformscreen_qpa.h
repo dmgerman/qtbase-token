@@ -153,6 +153,18 @@ name|QWidget
 operator|*
 name|widget
 argument_list|)
+block|;
+comment|// temporary convenience
+specifier|static
+name|QPlatformScreen
+operator|*
+name|platformScreenForWindow
+argument_list|(
+specifier|const
+name|QWindow
+operator|*
+name|window
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

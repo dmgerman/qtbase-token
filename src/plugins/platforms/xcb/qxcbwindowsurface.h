@@ -49,7 +49,7 @@ name|public
 label|:
 name|QXcbWindowSurface
 argument_list|(
-argument|QWidget *widget
+argument|QWindow *widget
 argument_list|,
 argument|bool setDefaultSurface = true
 argument_list|)
@@ -66,9 +66,9 @@ function_decl|;
 name|void
 name|flush
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
-name|widget
+name|window
 parameter_list|,
 specifier|const
 name|QRegion

@@ -81,7 +81,7 @@ name|QWindowSurface
 operator|*
 name|createWindowSurface
 argument_list|(
-argument|QWidget *widget
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;

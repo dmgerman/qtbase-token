@@ -289,7 +289,6 @@ name|enterModal_sys
 parameter_list|(
 name|QWidget
 modifier|*
-name|widget
 parameter_list|)
 block|{
 if|#
@@ -309,7 +308,6 @@ name|leaveModal_sys
 parameter_list|(
 name|QWidget
 modifier|*
-name|widget
 parameter_list|)
 block|{
 if|#

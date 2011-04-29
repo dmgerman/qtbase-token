@@ -112,9 +112,9 @@ name|QWindowSurface
 modifier|*
 name|createWindowSurface
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|)
 decl|const
 init|=

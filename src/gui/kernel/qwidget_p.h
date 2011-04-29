@@ -256,9 +256,9 @@ name|Q_WS_QPA
 argument_list|)
 end_if
 begin_decl_stmt
-DECL|variable|QWindow
+DECL|variable|QWidgetWindow
 name|class
-name|QWindow
+name|QWidgetWindow
 decl_stmt|;
 end_decl_stmt
 begin_endif
@@ -764,7 +764,7 @@ argument_list|(
 name|Q_WS_QPA
 argument_list|)
 DECL|member|window
-name|QWindow
+name|QWidgetWindow
 modifier|*
 name|window
 decl_stmt|;
