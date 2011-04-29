@@ -18,11 +18,11 @@ include|#
 directive|include
 file|<QtCore/QSize>
 end_include
-begin_include
-include|#
-directive|include
-file|<wayland-client-protocol.h>
-end_include
+begin_struct_decl
+struct_decl|struct
+name|wl_buffer
+struct_decl|;
+end_struct_decl
 begin_decl_stmt
 name|class
 name|QWaylandBuffer
