@@ -1326,6 +1326,13 @@ block|{
 name|QProcessEnvironment
 name|env
 decl_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
 comment|// Calls to setenv() affect the low-level environment as well.
 comment|// This is not the case the other way round.
 if|if
@@ -1445,11 +1452,22 @@ name|envStrings
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 return|return
 name|env
 return|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+end_if
 begin_function
 DECL|function|qt_create_environment
 specifier|static
@@ -1875,6 +1893,10 @@ name|envlist
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|startProcess
 name|void
