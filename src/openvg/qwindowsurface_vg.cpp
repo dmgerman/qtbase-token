@@ -156,6 +156,25 @@ argument_list|(
 name|offset
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_SYMBIAN
+if|if
+condition|(
+name|window
+argument_list|()
+operator|!=
+name|widget
+condition|)
+block|{
+comment|// For performance reasons we don't support
+comment|// flushing native child widgets on Symbian.
+comment|// It breaks overlapping native child widget
+comment|// rendering in some cases but we prefer performance.
+return|return;
+block|}
+endif|#
+directive|endif
 name|QWidget
 modifier|*
 name|parent
