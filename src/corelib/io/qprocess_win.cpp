@@ -1328,13 +1328,16 @@ name|env
 decl_stmt|;
 comment|// Calls to setenv() affect the low-level environment as well.
 comment|// This is not the case the other way round.
+if|if
+condition|(
 name|wchar_t
 modifier|*
 name|envStrings
 init|=
 name|GetEnvironmentStringsW
 argument_list|()
-decl_stmt|;
+condition|)
+block|{
 for|for
 control|(
 specifier|const
@@ -1441,6 +1444,7 @@ argument_list|(
 name|envStrings
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|env
 return|;
