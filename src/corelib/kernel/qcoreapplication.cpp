@@ -1101,7 +1101,7 @@ name|Q_GLOBAL_STATIC_WITH_ARGS
 argument_list|(
 argument|QSettings
 argument_list|,
-argument|trolltechConf
+argument|staticTrolltechConf
 argument_list|,
 argument|(QSettings::UserScope, QLatin1String(
 literal|"Trolltech"
@@ -1118,8 +1118,7 @@ name|trolltechConf
 parameter_list|()
 block|{
 return|return
-operator|::
-name|trolltechConf
+name|staticTrolltechConf
 argument_list|()
 return|;
 block|}
