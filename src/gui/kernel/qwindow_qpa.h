@@ -103,6 +103,12 @@ name|QWindowContext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QWindowSurface
+name|class
+name|QWindowSurface
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QWindow
@@ -329,6 +335,12 @@ name|handle
 argument_list|()
 specifier|const
 block|;
+name|QWindowSurface
+operator|*
+name|surface
+argument_list|()
+specifier|const
+block|;
 name|public
 name|Q_SLOTS
 operator|:
@@ -510,6 +522,10 @@ block|;
 name|friend
 name|class
 name|QGuiApplicationPrivate
+block|;
+name|friend
+name|class
+name|QWindowSurface
 block|; }
 decl_stmt|;
 end_decl_stmt

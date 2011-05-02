@@ -73,6 +73,11 @@ name|glContext
 argument_list|(
 literal|0
 argument_list|)
+block|,
+name|surface
+argument_list|(
+literal|0
+argument_list|)
 block|{
 name|isWindow
 operator|=
@@ -81,7 +86,7 @@ block|;     }
 operator|~
 name|QWindowPrivate
 argument_list|()
-block|{      }
+block|{     }
 name|Qt
 operator|::
 name|WindowFlags
@@ -115,6 +120,10 @@ block|;
 name|QWindowContext
 operator|*
 name|glContext
+block|;
+name|QWindowSurface
+operator|*
+name|surface
 block|; }
 decl_stmt|;
 end_decl_stmt
