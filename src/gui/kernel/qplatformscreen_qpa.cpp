@@ -287,7 +287,6 @@ parameter_list|(
 specifier|const
 name|QWindow
 modifier|*
-name|window
 parameter_list|)
 block|{
 return|return

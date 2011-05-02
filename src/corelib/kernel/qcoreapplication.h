@@ -871,6 +871,12 @@ end_decl_stmt
 begin_decl_stmt
 name|friend
 name|class
+name|QWidgetWindow
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|friend
+name|class
 name|QWidgetPrivate
 decl_stmt|;
 end_decl_stmt

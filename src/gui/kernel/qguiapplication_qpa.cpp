@@ -2608,7 +2608,6 @@ name|QWindowSystemInterfacePrivate
 operator|::
 name|EnterEvent
 modifier|*
-name|e
 parameter_list|)
 block|{
 comment|//    QGuiApplicationPrivate::dispatchEnterLeave(e->enter.data(),0);
