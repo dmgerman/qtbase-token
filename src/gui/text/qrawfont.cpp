@@ -595,7 +595,7 @@ comment|/*!    Returns the pixel size set for this QRawFont. The pixel size affe
 end_comment
 begin_function
 DECL|function|pixelSize
-name|int
+name|qreal
 name|QRawFont
 operator|::
 name|pixelSize
@@ -609,8 +609,7 @@ name|isValid
 argument_list|()
 condition|)
 return|return
-operator|-
-literal|1
+literal|0.0
 return|;
 return|return
 name|d
@@ -1785,7 +1784,7 @@ name|QRawFont
 operator|::
 name|setPixelSize
 parameter_list|(
-name|int
+name|qreal
 name|pixelSize
 parameter_list|)
 block|{

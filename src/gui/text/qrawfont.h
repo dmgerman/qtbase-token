@@ -249,13 +249,13 @@ begin_function_decl
 name|void
 name|setPixelSize
 parameter_list|(
-name|int
+name|qreal
 name|pixelSize
 parameter_list|)
 function_decl|;
 end_function_decl
 begin_expr_stmt
-name|int
+name|qreal
 name|pixelSize
 argument_list|()
 specifier|const
