@@ -304,6 +304,13 @@ operator|::
 name|render
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|glContext
+argument_list|()
+condition|)
+return|return;
 name|glContext
 argument_list|()
 operator|->

@@ -86,7 +86,7 @@ name|CloseEvent
 argument_list|(
 name|QWindow
 operator|*
-name|tlw
+name|w
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -94,16 +94,16 @@ argument_list|(
 name|Close
 argument_list|)
 block|,
-name|topLevel
+name|window
 argument_list|(
-argument|tlw
+argument|w
 argument_list|)
 block|{ }
 name|QWeakPointer
 operator|<
 name|QWindow
 operator|>
-name|topLevel
+name|window
 block|;     }
 decl_stmt|;
 name|class

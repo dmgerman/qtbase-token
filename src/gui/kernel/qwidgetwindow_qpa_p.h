@@ -67,9 +67,9 @@ operator|*
 argument_list|)
 block|;
 name|void
-name|handleMouseEvent
+name|handleCloseEvent
 argument_list|(
-name|QMouseEvent
+name|QCloseEvent
 operator|*
 argument_list|)
 block|;
@@ -77,6 +77,13 @@ name|void
 name|handleKeyEvent
 argument_list|(
 name|QKeyEvent
+operator|*
+argument_list|)
+block|;
+name|void
+name|handleMouseEvent
+argument_list|(
+name|QMouseEvent
 operator|*
 argument_list|)
 block|;

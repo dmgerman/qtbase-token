@@ -2904,16 +2904,30 @@ if|if
 condition|(
 name|e
 operator|->
-name|topLevel
+name|window
 operator|.
 name|isNull
 argument_list|()
 condition|)
-block|{
-comment|//qDebug()<< "QGuiApplicationPrivate::processCloseEvent NULL";
 return|return;
-block|}
-comment|//    e->topLevel.data()->d_func()->close_helper(QWidgetPrivate::CloseWithSpontaneousEvent);
+name|QCloseEvent
+name|event
+decl_stmt|;
+name|QGuiApplication
+operator|::
+name|sendSpontaneousEvent
+argument_list|(
+name|e
+operator|->
+name|window
+operator|.
+name|data
+argument_list|()
+argument_list|,
+operator|&
+name|event
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function

@@ -1108,6 +1108,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|d
+operator|->
+name|platformWindow
+operator|&&
 operator|!
 name|d
 operator|->
@@ -1607,6 +1611,15 @@ expr_stmt|;
 break|break;
 endif|#
 directive|endif
+case|case
+name|QEvent
+operator|::
+name|Close
+case|:
+name|destroy
+argument_list|()
+expr_stmt|;
+break|break;
 default|default:
 return|return
 name|QObject
