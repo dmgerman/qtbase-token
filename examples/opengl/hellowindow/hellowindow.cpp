@@ -36,6 +36,14 @@ argument_list|(
 name|OpenGLSurface
 argument_list|)
 expr_stmt|;
+name|setWindowTitle
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"Hello Window"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|QWindowFormat
 name|format
 decl_stmt|;
