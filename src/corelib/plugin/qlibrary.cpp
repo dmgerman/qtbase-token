@@ -2829,6 +2829,7 @@ operator|=
 name|QCoreApplicationPrivate
 operator|::
 name|trolltechConf
+argument_list|()
 expr_stmt|;
 block|}
 name|reg

@@ -437,6 +437,7 @@ specifier|static
 name|QSettings
 operator|*
 name|trolltechConf
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
