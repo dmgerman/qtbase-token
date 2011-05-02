@@ -30146,6 +30146,17 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_MAC_USE_COCOA
+if|if
+condition|(
+name|QApplicationPrivate
+operator|::
+name|graphics_system_name
+operator|!=
+name|QLatin1String
+argument_list|(
+literal|"raster"
+argument_list|)
+condition|)
 name|QEXPECT_FAIL
 argument_list|(
 literal|0
