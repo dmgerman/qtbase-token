@@ -1439,7 +1439,7 @@ operator|+
 literal|1
 expr_stmt|;
 block|}
-name|FreeEnvironmentStrings
+name|FreeEnvironmentStringsW
 argument_list|(
 name|envStrings
 argument_list|)
