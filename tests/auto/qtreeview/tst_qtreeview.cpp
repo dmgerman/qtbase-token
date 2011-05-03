@@ -18239,7 +18239,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*     This is a model that every time kill() is called it will completely change     all of its nodes for new nodes.  It then asserts if you later use a dead node.  */
+comment|/*     This is a model that every time kill() is called it will completely change     all of its nodes for new nodes.  It then qFatal's if you later use a dead node.  */
 end_comment
 begin_class
 DECL|class|EvilModel
@@ -18734,12 +18734,17 @@ name|internalPointer
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-operator|!
+if|if
+condition|(
 name|parentNode
 operator|->
 name|isDead
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: parentNode is dead!"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}
@@ -18832,12 +18837,17 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|Q_ASSERT
-argument_list|(
-operator|!
+if|if
+condition|(
 name|grandparentNode
 operator|->
 name|isDead
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: grandparentNode is dead!"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 name|parentNode
@@ -18852,12 +18862,17 @@ name|row
 argument_list|()
 index|]
 expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-operator|!
+if|if
+condition|(
 name|parentNode
 operator|->
 name|isDead
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: grandparentNode is dead!"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}
@@ -18990,12 +19005,17 @@ name|internalPointer
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-operator|!
+if|if
+condition|(
 name|parentNode
 operator|->
 name|isDead
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: grandparentNode is dead!"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}
