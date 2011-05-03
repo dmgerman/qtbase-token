@@ -85,6 +85,11 @@ name|void
 name|createEventDispatcher
 argument_list|()
 block|;
+name|virtual
+name|void
+name|notifyLayoutDirectionChange
+argument_list|()
+block|;
 specifier|static
 name|int
 name|keyboard_input_time

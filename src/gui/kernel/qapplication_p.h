@@ -1498,6 +1498,11 @@ operator|~
 name|QApplicationPrivate
 argument_list|()
 block|;
+name|virtual
+name|void
+name|notifyLayoutDirectionChange
+argument_list|()
+block|;
 if|#
 directive|if
 name|defined
