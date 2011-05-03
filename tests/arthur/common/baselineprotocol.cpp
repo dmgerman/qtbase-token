@@ -735,13 +735,11 @@ argument|;      if (pi) {         QDataStream ds(block);         ds>> *pi;      
 literal|true
 argument|; }   bool BaselineProtocol::requestBaselineChecksums(const QString&testFunction, ImageItemList *itemList) {     errMsg.clear();     if (!itemList)         return
 literal|false
-argument|;      for(ImageItemList::iterator it = itemList->begin(); it != itemList->end(); it++)         it->testFunction = testFunction;      QByteArray block;     QDataStream ds(&block, QIODevice::ReadWrite);     ds<< *itemList;     if (!sendBlock(RequestBaselineChecksums, block))         return
+argument|;      for(ImageItemList::iterator it = itemList->begin(); it != itemList->end(); it++)         it->testFunction = testFunction;      QByteArray block;     QDataStream ds(&block, QIODevice::WriteOnly);     ds<< *itemList;     if (!sendBlock(RequestBaselineChecksums, block))         return
 literal|false
-argument|;     Command cmd;     if (!receiveBlock(&cmd,&block))         return
+argument|;      Command cmd;     QByteArray rcvBlock;     if (!receiveBlock(&cmd,&rcvBlock) || cmd != BaselineProtocol::Ack)         return
 literal|false
-argument|;     ds.device()->seek(
-literal|0
-argument|);     ds>> *itemList;     return
+argument|;     QDataStream rds(&rcvBlock, QIODevice::ReadOnly);     rds>> *itemList;     return
 literal|true
 argument|; }   bool BaselineProtocol::submitNewBaseline(const ImageItem&item, QByteArray *serverMsg) {     Command cmd;     return (sendItem(AcceptNewBaseline, item)&& receiveBlock(&cmd, serverMsg)&& cmd == Ack); }   bool BaselineProtocol::submitMismatch(const ImageItem&item, QByteArray *serverMsg) {     Command cmd;     return (sendItem(AcceptMismatch, item)&& receiveBlock(&cmd, serverMsg)&& cmd == Ack); }   bool BaselineProtocol::sendItem(Command cmd, const ImageItem&item) {     errMsg.clear();     QBuffer buf;     buf.open(QIODevice::WriteOnly);     QDataStream ds(&buf);     ds<< item;     if (!sendBlock(cmd, buf.data())) {         errMsg.prepend(QLS(
 literal|"Failed to submit image to server. "
