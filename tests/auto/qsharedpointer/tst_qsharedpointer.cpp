@@ -372,15 +372,15 @@ name|~
 name|Data
 parameter_list|()
 block|{
-name|Q_ASSERT_X
-argument_list|(
+if|if
+condition|(
 name|generation
-operator|>
+operator|<=
 literal|0
-argument_list|,
-literal|"tst_QSharedPointer"
-argument_list|,
-literal|"Double deletion!"
+condition|)
+name|qFatal
+argument_list|(
+literal|"tst_qsharedpointer: Double deletion!"
 argument_list|)
 expr_stmt|;
 name|generation
