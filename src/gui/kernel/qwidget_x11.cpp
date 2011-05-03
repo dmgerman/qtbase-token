@@ -5162,8 +5162,27 @@ comment|// We send QGLWidgets a ParentChange event which causes them to
 comment|// recreate their GL context, which in turn causes them to choose
 comment|// their visual again. Now that WA_TranslucentBackground is set,
 comment|// QGLContext::chooseVisual will select an ARGB visual.
+comment|// QGLWidget expects a ParentAboutToChange to be sent first
 name|QEvent
-name|e
+name|aboutToChangeEvent
+argument_list|(
+name|QEvent
+operator|::
+name|ParentAboutToChange
+argument_list|)
+decl_stmt|;
+name|QApplication
+operator|::
+name|sendEvent
+argument_list|(
+name|widget
+argument_list|,
+operator|&
+name|aboutToChangeEvent
+argument_list|)
+expr_stmt|;
+name|QEvent
+name|parentChangeEvent
 argument_list|(
 name|QEvent
 operator|::
@@ -5177,7 +5196,7 @@ argument_list|(
 name|widget
 argument_list|,
 operator|&
-name|e
+name|parentChangeEvent
 argument_list|)
 expr_stmt|;
 block|}
