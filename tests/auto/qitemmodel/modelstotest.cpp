@@ -843,11 +843,6 @@ name|model
 argument_list|()
 return|;
 block|}
-name|Q_ASSERT
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 return|return
 literal|0
 return|;
