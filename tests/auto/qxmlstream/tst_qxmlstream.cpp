@@ -974,34 +974,14 @@ name|readNext
 argument_list|()
 expr_stmt|;
 block|}
-name|Q_ASSERT_X
+name|qFatal
 argument_list|(
-literal|false
+literal|"The input %s didn't contain an element"
 argument_list|,
-name|Q_FUNC_INFO
-argument_list|,
-name|qPrintable
-argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-literal|"The input %1 didn't contain an element."
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|QString
-operator|::
-name|fromUtf8
-argument_list|(
 name|document
 operator|.
 name|constData
 argument_list|()
-argument_list|)
-argument_list|)
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1968,12 +1948,8 @@ return|;
 block|}
 else|else
 block|{
-name|Q_ASSERT_X
+name|qFatal
 argument_list|(
-literal|false
-argument_list|,
-name|Q_FUNC_INFO
-argument_list|,
 literal|"The input catalog is invalid."
 argument_list|)
 expr_stmt|;
