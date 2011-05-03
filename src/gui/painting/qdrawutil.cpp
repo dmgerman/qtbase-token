@@ -50,7 +50,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qstylehelper_p.h>
+file|<private/qhexstring_p.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
