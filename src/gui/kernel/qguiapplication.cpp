@@ -93,7 +93,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qwindow_qpa_p.h"
+file|"private/qwindow_p.h"
 end_include
 begin_ifndef
 ifndef|#

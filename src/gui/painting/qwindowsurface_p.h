@@ -46,7 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/qwindow_qpa.h>
+file|<QtGui/qwindow.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qwindow_qpa.h>
+file|<QtGui/qwindow.h>
 end_include
 begin_include
 include|#

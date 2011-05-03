@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindow_qpa.h"
+file|"qwindow.h"
 end_include
 begin_include
 include|#

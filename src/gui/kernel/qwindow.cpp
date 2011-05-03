@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qwindow_qpa.h"
+file|"qwindow.h"
 end_include
 begin_include
 include|#
@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindow_qpa_p.h"
+file|"qwindow_p.h"
 end_include
 begin_include
 include|#
