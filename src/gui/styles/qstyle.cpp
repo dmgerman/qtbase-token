@@ -1930,15 +1930,6 @@ comment|// pos<= span< sqrt(INT_MAX+0.0625)+0.25 ~ sqrt(INT_MAX)
 block|}
 end_function
 begin_comment
-comment|/*### \fn void QStyle::drawItem(QPainter *p, const QRect&r,                               int flags, const QColorGroup&colorgroup, bool enabled,                               const QString&text, int len = -1,                               const QColor *penColor = 0) const      Use one of the drawItem() overloads that takes a QPalette instead     of a QColorGroup. */
-end_comment
-begin_comment
-comment|/*### \fn void QStyle::drawItem(QPainter *p, const QRect&r,                               int flags, const QColorGroup colorgroup, bool enabled,                               const QPixmap&pixmap,                               const QColor *penColor = 0) const      Use one of the drawItem() overloads that takes a QPalette instead     of a QColorGroup. */
-end_comment
-begin_comment
-comment|/*### \fn void QStyle::drawItem(QPainter *p, const QRect&r,                           int flags, const QColorGroup colorgroup, bool enabled,                           const QPixmap *pixmap,                           const QString&text, int len = -1,                           const QColor *penColor = 0) const      Use one of the drawItem() overloads that takes a QPalette instead     of a QColorGroup. */
-end_comment
-begin_comment
 comment|/*!      Returns the style's standard palette.      Note that on systems that support system colors, the style's     standard palette is not used. In particular, the Windows XP,     Vista, and Mac styles do not use the standard palette, but make     use of native theme engines. With these styles, you should not set     the palette with QApplication::setStandardPalette().   */
 end_comment
 begin_function

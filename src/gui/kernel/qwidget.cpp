@@ -40672,7 +40672,6 @@ comment|/*!     \fn void QWidget::setPaletteBackgroundColor(const QColor&color) 
 comment|/*!     \fn void QWidget::setPaletteBackgroundPixmap(const QPixmap&pixmap)      Use the palette directly.      \oldcode     widget->setPaletteBackgroundPixmap(pixmap);     \newcode     QPalette palette;     palette.setBrush(widget->backgroundRole(), QBrush(pixmap));     widget->setPalette(palette);     \endcode */
 comment|/*!     \fn void QWidget::setBackgroundPixmap(const QPixmap&pixmap)      Use the palette instead.      \oldcode     widget->setBackgroundPixmap(pixmap);     \newcode     QPalette palette;     palette.setBrush(widget->backgroundRole(), QBrush(pixmap));     widget->setPalette(palette);     \endcode */
 comment|/*!     \fn void QWidget::setBackgroundColor(const QColor&color)      Use the palette instead.      \oldcode     widget->setBackgroundColor(color);     \newcode     QPalette palette;     palette.setColor(widget->backgroundRole(), color);     widget->setPalette(palette);     \endcode */
-comment|/*!     \fn QColorGroup QWidget::colorGroup() const      Use QColorGroup(palette()) instead. */
 comment|/*!     \fn QWidget *QWidget::parentWidget(bool sameWindow) const      Use the no-argument overload instead. */
 comment|/*!     \fn void QWidget::setKeyCompression(bool b)      Use setAttribute(Qt::WA_KeyCompression, b) instead. */
 comment|/*!     \fn void QWidget::setFont(const QFont&f, bool b)      Use the single-argument overload instead. */
