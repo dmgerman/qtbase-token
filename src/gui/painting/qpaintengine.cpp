@@ -283,7 +283,7 @@ name|ti
 operator|->
 name|f
 else|:
-name|QApplication
+name|QGuiApplication
 operator|::
 name|font
 argument_list|()

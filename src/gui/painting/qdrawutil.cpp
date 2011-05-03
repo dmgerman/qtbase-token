@@ -4939,7 +4939,7 @@ name|Qt
 operator|::
 name|AlignLeft
 operator|&&
-name|QApplication
+name|QGuiApplication
 operator|::
 name|isRightToLeft
 argument_list|()
@@ -5445,7 +5445,7 @@ operator|::
 name|AlignLeft
 operator|)
 operator|&&
-name|QApplication
+name|QGuiApplication
 operator|::
 name|isRightToLeft
 argument_list|()

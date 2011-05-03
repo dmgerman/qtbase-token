@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qapplication.h>
+file|<qcoreapplication.h>
 end_include
 begin_include
 include|#
@@ -1211,7 +1211,10 @@ argument_list|)
 if|if
 condition|(
 operator|!
-name|qApp
+name|QCoreApplication
+operator|::
+name|instance
+argument_list|()
 condition|)
 block|{
 else|#
@@ -1219,7 +1222,10 @@ directive|else
 if|if
 condition|(
 operator|!
-name|qApp
+name|QCoreApplication
+operator|::
+name|instance
+argument_list|()
 operator|||
 operator|!
 name|X11

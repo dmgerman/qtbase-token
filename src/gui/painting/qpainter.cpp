@@ -23759,21 +23759,9 @@ name|underlineStyle
 operator|=
 name|QTextCharFormat
 operator|::
-name|UnderlineStyle
-argument_list|(
-name|QApplication
-operator|::
-name|style
-argument_list|()
-operator|->
-name|styleHint
-argument_list|(
-name|QStyle
-operator|::
-name|SH_SpellCheckUnderlineStyle
-argument_list|)
-argument_list|)
+name|SpellCheckUnderline
 expr_stmt|;
+comment|// ### Qt5 QTextCharFormat::UnderlineStyle(QApplication::style()->styleHint(QStyle::SH_SpellCheckUnderlineStyle));
 block|}
 if|if
 condition|(
@@ -31496,7 +31484,7 @@ argument_list|)
 member_init_list|,
 name|layoutDirection
 argument_list|(
-name|QApplication
+name|QGuiApplication
 operator|::
 name|layoutDirection
 argument_list|()
@@ -31653,7 +31641,7 @@ argument_list|()
 expr_stmt|;
 name|layoutDirection
 operator|=
-name|QApplication
+name|QGuiApplication
 operator|::
 name|layoutDirection
 argument_list|()

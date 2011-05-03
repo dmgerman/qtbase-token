@@ -125,12 +125,6 @@ name|surface
 operator|=
 name|this
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|if (!QApplicationPrivate::runtime_graphics_system) {         if (setDefaultSurface&& window)             window->setWindowSurface(this);     }
-endif|#
-directive|endif
 block|}
 end_constructor
 begin_comment
@@ -195,9 +189,7 @@ specifier|const
 name|QRegion
 modifier|&
 parameter_list|)
-block|{
-comment|//     QApplication::syncX();
-block|}
+block|{ }
 end_function
 begin_if
 if|#
