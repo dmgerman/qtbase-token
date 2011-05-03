@@ -26,21 +26,6 @@ name|QC14N
 block|{
 name|public
 label|:
-enum|enum
-name|Option
-block|{
-name|IgnoreProcessingInstruction
-block|,
-name|IgnoreComments
-block|}
-enum|;
-typedef|typedef
-name|QFlags
-operator|<
-name|Option
-operator|>
-name|Options
-expr_stmt|;
 specifier|static
 name|bool
 name|isEqual
@@ -61,13 +46,6 @@ specifier|const
 name|message
 init|=
 literal|0
-parameter_list|,
-specifier|const
-name|Options
-name|options
-init|=
-name|Options
-argument_list|()
 parameter_list|)
 function_decl|;
 name|private
@@ -137,8 +115,6 @@ argument_list|,
 argument|QIODevice *const secondDocument
 argument_list|,
 argument|QString *const message
-argument_list|,
-argument|const Options options
 argument_list|)
 block|{
 name|qDebug
@@ -186,23 +162,6 @@ argument_list|,
 name|Q_FUNC_INFO
 argument_list|,
 literal|"The device must be readable."
-argument_list|)
-block|;
-name|Q_ASSERT_X
-argument_list|(
-name|options
-operator|==
-name|Options
-argument_list|()
-argument_list|,
-name|Q_FUNC_INFO
-argument_list|,
-literal|"Not yet implemented."
-argument_list|)
-block|;
-name|Q_UNUSED
-argument_list|(
-name|options
 argument_list|)
 block|;
 name|QXmlStreamReader
