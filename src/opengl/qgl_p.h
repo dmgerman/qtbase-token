@@ -1038,6 +1038,10 @@ block|,
 name|Depth24
 init|=
 literal|0x00100000
+block|,
+name|SRGBFrameBuffer
+init|=
+literal|0x00200000
 block|}
 enum|;
 name|Q_DECLARE_FLAGS
