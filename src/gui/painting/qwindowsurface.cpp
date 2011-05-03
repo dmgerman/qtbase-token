@@ -17,11 +17,6 @@ include|#
 directive|include
 file|<private/qwindow_p.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<private/qapplication_p.h>
-end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro

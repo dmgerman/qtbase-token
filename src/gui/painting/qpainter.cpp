@@ -86,11 +86,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qapplication.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qstyle.h"
 end_include
 begin_include
