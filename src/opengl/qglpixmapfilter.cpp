@@ -40,11 +40,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qgraphicssystem_gl_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qpaintengine_opengl_p.h"
 end_include
 begin_include

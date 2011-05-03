@@ -34,11 +34,6 @@ end_if
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qgraphicssystem_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtGui/private/qapplication_p.h>
 end_include
 begin_include

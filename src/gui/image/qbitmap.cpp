@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qgraphicssystem_p.h>
+file|<private/qguiapplication_qpa_p.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
@@ -564,9 +564,12 @@ name|QPixmapData
 argument_list|>
 name|data
 argument_list|(
-name|QGraphicsSystem
+name|QGuiApplicationPrivate
 operator|::
-name|createDefaultPixmapData
+name|platformIntegration
+argument_list|()
+operator|->
+name|createPixmapData
 argument_list|(
 name|QPixmapData
 operator|::

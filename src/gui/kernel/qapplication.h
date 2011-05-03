@@ -608,8 +608,12 @@ name|int
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_function_decl
+begin_comment
+comment|// ### Qt4 compatibility, remove?
+end_comment
+begin_function
 specifier|static
+specifier|inline
 name|void
 name|setGraphicsSystem
 parameter_list|(
@@ -617,8 +621,8 @@ specifier|const
 name|QString
 modifier|&
 parameter_list|)
-function_decl|;
-end_function_decl
+block|{}
+end_function
 begin_ifndef
 ifndef|#
 directive|ifndef

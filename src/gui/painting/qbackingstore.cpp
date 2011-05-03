@@ -72,11 +72,6 @@ include|#
 directive|include
 file|<private/qgraphicseffect_p.h>
 end_include
-begin_include
-include|#
-directive|include
-file|"qgraphicssystem_p.h"
-end_include
 begin_ifdef
 ifdef|#
 directive|ifdef

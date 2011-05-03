@@ -25,11 +25,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qgraphicssystem_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qblittable_p.h>
 end_include
 begin_include

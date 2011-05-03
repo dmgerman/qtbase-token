@@ -7711,10 +7711,6 @@ literal|"-session"
 operator|||
 name|l1arg
 operator|==
-literal|"-graphicssystem"
-operator|||
-name|l1arg
-operator|==
 literal|"-testability"
 condition|)
 operator|++

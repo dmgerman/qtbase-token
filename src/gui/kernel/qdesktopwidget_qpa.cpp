@@ -15,11 +15,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qgraphicssystem_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<QWidget>
 end_include
 begin_include
