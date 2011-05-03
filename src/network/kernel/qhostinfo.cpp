@@ -836,11 +836,6 @@ name|QNetworkSession
 argument_list|>
 parameter_list|)
 block|{
-name|Q_UNUSED
-argument_list|(
-name|networkSession
-argument_list|)
-expr_stmt|;
 return|return
 name|QHostInfoAgent
 operator|::
