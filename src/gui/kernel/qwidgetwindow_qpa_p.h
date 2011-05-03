@@ -101,6 +101,13 @@ name|QResizeEvent
 operator|*
 argument_list|)
 block|;
+name|void
+name|handleWheelEvent
+argument_list|(
+name|QWheelEvent
+operator|*
+argument_list|)
+block|;
 name|private
 operator|:
 name|QWidget
