@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qbackingstore_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qapplication_p.h>
 end_include
 begin_macro
