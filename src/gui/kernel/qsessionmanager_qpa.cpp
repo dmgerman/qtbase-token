@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qapplication.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qobject_p.h>
 end_include
 begin_ifndef

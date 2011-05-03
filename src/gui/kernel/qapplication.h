@@ -98,7 +98,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|<QtGui/qguiapplication_qpa.h>
+file|<QtGui/qguiapplication.h>
 end_include
 begin_endif
 endif|#

@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qguiapplication_qpa_p.h>
+file|<private/qguiapplication_p.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

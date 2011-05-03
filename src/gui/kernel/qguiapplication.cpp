@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qguiapplication_qpa.h"
+file|"qguiapplication.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"private/qguiapplication_qpa_p.h"
+file|"private/qguiapplication_p.h"
 end_include
 begin_include
 include|#
@@ -448,7 +448,7 @@ operator|::
 name|Clipboard
 argument_list|)
 decl_stmt|;
-name|QApplication
+name|QGuiApplication
 operator|::
 name|sendEvent
 argument_list|(

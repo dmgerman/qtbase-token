@@ -77,6 +77,11 @@ include|#
 directive|include
 file|"private/qguiplatformplugin_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qguiapplication.h"
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef

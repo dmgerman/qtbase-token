@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qwindow_qpa.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QThreadStorage>
 end_include
 begin_include
