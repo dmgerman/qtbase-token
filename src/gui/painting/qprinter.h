@@ -436,8 +436,6 @@ block|{
 name|NativeFormat
 block|,
 name|PdfFormat
-block|,
-name|PostScriptFormat
 block|}
 enum|;
 end_enum

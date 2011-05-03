@@ -114,11 +114,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_include
-include|#
-directive|include
-file|<private/qprintengine_ps_p.h>
-end_include
 begin_if
 if|#
 directive|if
@@ -652,7 +647,7 @@ name|realOutputFormat
 operator|=
 name|QPrinter
 operator|::
-name|PostScriptFormat
+name|PdfFormat
 expr_stmt|;
 block|}
 endif|#
@@ -780,32 +775,6 @@ expr_stmt|;
 name|printEngine
 operator|=
 name|pdfEngine
-expr_stmt|;
-block|}
-break|break;
-case|case
-name|QPrinter
-operator|::
-name|PostScriptFormat
-case|:
-block|{
-name|QPSPrintEngine
-modifier|*
-name|psEngine
-init|=
-operator|new
-name|QPSPrintEngine
-argument_list|(
-name|printerMode
-argument_list|)
-decl_stmt|;
-name|paintEngine
-operator|=
-name|psEngine
-expr_stmt|;
-name|printEngine
-operator|=
-name|psEngine
 expr_stmt|;
 block|}
 break|break;
@@ -1003,13 +972,13 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \class QPrinter   \reentrant    \brief The QPrinter class is a paint device that paints on a printer.    \ingroup printing     This device represents a series of pages of printed output, and is   used in almost exactly the same way as other paint devices such as   QWidget and QPixmap.   A set of additional functions are provided to manage device-specific   features, such as orientation and resolution, and to step through   the pages in a document as it is generated.    When printing directly to a printer on Windows or Mac OS X, QPrinter uses   the built-in printer drivers. On X11, QPrinter uses the   \l{Common Unix Printing System (CUPS)} or the standard Unix \l lpr utility   to send PostScript or PDF output to the printer. As an alternative,   the printProgram() function can be used to specify the command or utility   to use instead of the system default.    Note that setting parameters like paper size and resolution on an   invalid printer is undefined. You can use QPrinter::isValid() to   verify this before changing any parameters.    QPrinter supports a number of parameters, most of which can be   changed by the end user through a \l{QPrintDialog}{print dialog}. In   general, QPrinter passes these functions onto the underlying QPrintEngine.    The most important parameters are:   \list   \i setOrientation() tells QPrinter which page orientation to use.   \i setPaperSize() tells QPrinter what paper size to expect from the   printer.   \i setResolution() tells QPrinter what resolution you wish the   printer to provide, in dots per inch (DPI).   \i setFullPage() tells QPrinter whether you want to deal with the   full page or just with the part the printer can draw on.   \i setCopyCount() tells QPrinter how many copies of the document   it should print.   \endlist    Many of these functions can only be called before the actual printing   begins (i.e., before QPainter::begin() is called). This usually makes   sense because, for example, it's not possible to change the number of   copies when you are halfway through printing. There are also some   settings that the user sets (through the printer dialog) and that   applications are expected to obey. See QAbstractPrintDialog's   documentation for more details.    When QPainter::begin() is called, the QPrinter it operates on is prepared for   a new page, enabling the QPainter to be used immediately to paint the first   page in a document. Once the first page has been painted, newPage() can be   called to request a new blank page to paint on, or QPainter::end() can be   called to finish printing. The second page and all following pages are   prepared using a call to newPage() before they are painted.    The first page in a document does not need to be preceded by a call to   newPage(). You only need to calling newPage() after QPainter::begin() if you   need to insert a blank page at the beginning of a printed document.   Similarly, calling newPage() after the last page in a document is painted will   result in a trailing blank page appended to the end of the printed document.    If you want to abort the print job, abort() will try its best to   stop printing. It may cancel the entire job or just part of it.    Since QPrinter can print to any QPrintEngine subclass, it is possible to   extend printing support to cover new types of printing subsystem by   subclassing QPrintEngine and reimplementing its interface.    \sa QPrintDialog, {Printing with Qt} */
+comment|/*!   \class QPrinter   \reentrant    \brief The QPrinter class is a paint device that paints on a printer.    \ingroup printing     This device represents a series of pages of printed output, and is   used in almost exactly the same way as other paint devices such as   QWidget and QPixmap.   A set of additional functions are provided to manage device-specific   features, such as orientation and resolution, and to step through   the pages in a document as it is generated.    When printing directly to a printer on Windows or Mac OS X, QPrinter uses   the built-in printer drivers. On X11, QPrinter uses the   \l{Common Unix Printing System (CUPS)} or the standard Unix \l lpr utility   to send PDF output to the printer. As an alternative,   the printProgram() function can be used to specify the command or utility   to use instead of the system default.    Note that setting parameters like paper size and resolution on an   invalid printer is undefined. You can use QPrinter::isValid() to   verify this before changing any parameters.    QPrinter supports a number of parameters, most of which can be   changed by the end user through a \l{QPrintDialog}{print dialog}. In   general, QPrinter passes these functions onto the underlying QPrintEngine.    The most important parameters are:   \list   \i setOrientation() tells QPrinter which page orientation to use.   \i setPaperSize() tells QPrinter what paper size to expect from the   printer.   \i setResolution() tells QPrinter what resolution you wish the   printer to provide, in dots per inch (DPI).   \i setFullPage() tells QPrinter whether you want to deal with the   full page or just with the part the printer can draw on.   \i setCopyCount() tells QPrinter how many copies of the document   it should print.   \endlist    Many of these functions can only be called before the actual printing   begins (i.e., before QPainter::begin() is called). This usually makes   sense because, for example, it's not possible to change the number of   copies when you are halfway through printing. There are also some   settings that the user sets (through the printer dialog) and that   applications are expected to obey. See QAbstractPrintDialog's   documentation for more details.    When QPainter::begin() is called, the QPrinter it operates on is prepared for   a new page, enabling the QPainter to be used immediately to paint the first   page in a document. Once the first page has been painted, newPage() can be   called to request a new blank page to paint on, or QPainter::end() can be   called to finish printing. The second page and all following pages are   prepared using a call to newPage() before they are painted.    The first page in a document does not need to be preceded by a call to   newPage(). You only need to calling newPage() after QPainter::begin() if you   need to insert a blank page at the beginning of a printed document.   Similarly, calling newPage() after the last page in a document is painted will   result in a trailing blank page appended to the end of the printed document.    If you want to abort the print job, abort() will try its best to   stop printing. It may cancel the entire job or just part of it.    Since QPrinter can print to any QPrintEngine subclass, it is possible to   extend printing support to cover new types of printing subsystem by   subclassing QPrintEngine and reimplementing its interface.    \sa QPrintDialog, {Printing with Qt} */
 end_comment
 begin_comment
 comment|/*!     \enum QPrinter::PrinterState      \value Idle     \value Active     \value Aborted     \value Error */
 end_comment
 begin_comment
-comment|/*!     \enum QPrinter::PrinterMode      This enum describes the mode the printer should work in. It     basically presets a certain resolution and working mode.      \value ScreenResolution Sets the resolution of the print device to     the screen resolution. This has the big advantage that the results     obtained when painting on the printer will match more or less     exactly the visible output on the screen. It is the easiest to     use, as font metrics on the screen and on the printer are the     same. This is the default value. ScreenResolution will produce a     lower quality output than HighResolution and should only be used     for drafts.      \value PrinterResolution This value is deprecated. Is is     equivalent to ScreenResolution on Unix and HighResolution on     Windows and Mac. Due do the difference between ScreenResolution     and HighResolution, use of this value may lead to non-portable     printer code.      \value HighResolution On Windows, sets the printer resolution to that     defined for the printer in use. For PostScript printing, sets the     resolution of the PostScript driver to 1200 dpi.      \note When rendering text on a QPrinter device, it is important     to realize that the size of text, when specified in points, is     independent of the resolution specified for the device itself.     Therefore, it may be useful to specify the font size in pixels     when combining text with graphics to ensure that their relative     sizes are what you expect. */
+comment|/*!     \enum QPrinter::PrinterMode      This enum describes the mode the printer should work in. It     basically presets a certain resolution and working mode.      \value ScreenResolution Sets the resolution of the print device to     the screen resolution. This has the big advantage that the results     obtained when painting on the printer will match more or less     exactly the visible output on the screen. It is the easiest to     use, as font metrics on the screen and on the printer are the     same. This is the default value. ScreenResolution will produce a     lower quality output than HighResolution and should only be used     for drafts.      \value PrinterResolution This value is deprecated. Is is     equivalent to ScreenResolution on Unix and HighResolution on     Windows and Mac. Due do the difference between ScreenResolution     and HighResolution, use of this value may lead to non-portable     printer code.      \value HighResolution On Windows, sets the printer resolution to that     defined for the printer in use. For PDF printing, sets the     resolution of the PDF driver to 1200 dpi.      \note When rendering text on a QPrinter device, it is important     to realize that the size of text, when specified in points, is     independent of the resolution specified for the device itself.     Therefore, it may be useful to specify the font size in pixels     when combining text with graphics to ensure that their relative     sizes are what you expect. */
 end_comment
 begin_comment
 comment|/*!   \enum QPrinter::Orientation    This enum type (not to be confused with \c Orientation) is used   to specify each page's orientation.    \value Portrait the page's height is greater than its width.    \value Landscape the page's width is greater than its height.    This type interacts with \l QPrinter::PaperSize and   QPrinter::setFullPage() to determine the final size of the page   available to the application. */
@@ -1421,7 +1390,7 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-comment|/*!     \enum QPrinter::OutputFormat      The OutputFormat enum is used to describe the format QPrinter should     use for printing.      \value NativeFormat QPrinter will print output using a method defined     by the platform it is running on. This mode is the default when printing     directly to a printer.      \value PdfFormat QPrinter will generate its output as a searchable PDF file.     This mode is the default when printing to a file.      \value PostScriptFormat QPrinter will generate its output as in the PostScript format.     (This feature was introduced in Qt 4.2.)      \sa outputFormat(), setOutputFormat(), setOutputFileName() */
+comment|/*!     \enum QPrinter::OutputFormat      The OutputFormat enum is used to describe the format QPrinter should     use for printing.      \value NativeFormat QPrinter will print output using a method defined     by the platform it is running on. This mode is the default when printing     directly to a printer.      \value PdfFormat QPrinter will generate its output as a searchable PDF file.     This mode is the default when printing to a file.      \sa outputFormat(), setOutputFormat(), setOutputFileName() */
 comment|/*!     \since 4.1      Sets the output format for this printer to \a format. */
 DECL|function|setOutputFormat
 name|void
@@ -1591,14 +1560,6 @@ operator|==
 name|QPrinter
 operator|::
 name|PdfFormat
-operator|||
-name|d
-operator|->
-name|outputFormat
-operator|==
-name|QPrinter
-operator|::
-name|PostScriptFormat
 condition|)
 name|d
 operator|->
@@ -1735,41 +1696,11 @@ operator|::
 name|NativeFormat
 condition|)
 block|{
-if|if
-condition|(
-name|QCUPSSupport
-operator|::
-name|cupsVersion
-argument_list|()
-operator|>=
-literal|10200
-operator|&&
-name|QCUPSSupport
-operator|::
-name|printerHasPPD
-argument_list|(
-name|name
-operator|.
-name|toLocal8Bit
-argument_list|()
-operator|.
-name|constData
-argument_list|()
-argument_list|)
-condition|)
 name|setOutputFormat
 argument_list|(
 name|QPrinter
 operator|::
 name|PdfFormat
-argument_list|)
-expr_stmt|;
-else|else
-name|setOutputFormat
-argument_list|(
-name|QPrinter
-operator|::
-name|PostScriptFormat
 argument_list|)
 expr_stmt|;
 name|d
@@ -1813,14 +1744,6 @@ operator|==
 name|QPrinter
 operator|::
 name|PdfFormat
-operator|||
-name|d
-operator|->
-name|outputFormat
-operator|==
-name|QPrinter
-operator|::
-name|PostScriptFormat
 expr_stmt|;
 block|}
 else|else
@@ -1895,7 +1818,7 @@ name|PPK_PrinterName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!   \since 4.4    Returns true if the printer currently selected is a valid printer   in the system, or a pure PDF/PostScript printer; otherwise returns false.    To detect other failures check the output of QPainter::begin() or QPrinter::newPage().    \snippet doc/src/snippets/printing-qprinter/errors.cpp 0    \sa setPrinterName() */
+comment|/*!   \since 4.4    Returns true if the printer currently selected is a valid printer   in the system, or a pure PDF printer; otherwise returns false.    To detect other failures check the output of QPainter::begin() or QPrinter::newPage().    \snippet doc/src/snippets/printing-qprinter/errors.cpp 0    \sa setPrinterName() */
 DECL|function|isValid
 name|bool
 name|QPrinter
@@ -1970,7 +1893,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/*!     Sets the name of the output file to \a fileName.      Setting a null or empty name (0 or "") disables printing to a file.     Setting a non-empty name enables printing to a file.      This can change the value of outputFormat().  If the file name has the     suffix ".ps" then PostScript is automatically selected as output format.     If the file name has the ".pdf" suffix PDF is generated. If the file name     has a suffix other than ".ps" and ".pdf", the output format used is the     one set with setOutputFormat().      QPrinter uses Qt's cross-platform PostScript or PDF print engines     respectively. If you can produce this format natively, for example     Mac OS X can generate PDF's from its print engine, set the output format     back to NativeFormat.      \sa outputFileName() setOutputToFile() setOutputFormat() */
+comment|/*!     Sets the name of the output file to \a fileName.      Setting a null or empty name (0 or "") disables printing to a file.     Setting a non-empty name enables printing to a file.      This can change the value of outputFormat().     If the file name has the ".pdf" suffix PDF is generated. If the file name     has a suffix other than ".pdf", the output format used is the     one set with setOutputFormat().      QPrinter uses Qt's cross-platform PDF print engines     respectively. If you can produce this format natively, for example     Mac OS X can generate PDF's from its print engine, set the output format     back to NativeFormat.      \sa outputFileName() setOutputToFile() setOutputFormat() */
 DECL|function|setOutputFileName
 name|void
 name|QPrinter
@@ -1999,34 +1922,6 @@ argument_list|(
 name|fileName
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|fi
-operator|.
-name|suffix
-argument_list|()
-operator|.
-name|compare
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"ps"
-argument_list|)
-argument_list|,
-name|Qt
-operator|::
-name|CaseInsensitive
-argument_list|)
-condition|)
-name|setOutputFormat
-argument_list|(
-name|QPrinter
-operator|::
-name|PostScriptFormat
-argument_list|)
-expr_stmt|;
-elseif|else
 if|if
 condition|(
 operator|!
@@ -2123,7 +2018,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/*!   Sets the name of the program that should do the print job to \a   printProg.    On X11, this function sets the program to call with the PostScript   output. On other platforms, it has no effect.    \sa printProgram() */
+comment|/*!   Sets the name of the program that should do the print job to \a   printProg.    On X11, this function sets the program to call with the PDF   output. On other platforms, it has no effect.    \sa printProgram() */
 DECL|function|setPrintProgram
 name|void
 name|QPrinter
@@ -4333,7 +4228,7 @@ block|}
 endif|#
 directive|endif
 comment|// Q_WS_WIN
-comment|/*!     Returns a list of the resolutions (a list of dots-per-inch     integers) that the printer says it supports.      For X11 where all printing is directly to postscript, this     function will always return a one item list containing only the     postscript resolution, i.e., 72 (72 dpi -- but see PrinterMode). */
+comment|/*!     Returns a list of the resolutions (a list of dots-per-inch     integers) that the printer says it supports.      For X11 where all printing is directly to PDF, this     function will always return a one item list containing only the     PDF resolution, i.e., 72 (72 dpi -- but see PrinterMode). */
 DECL|function|supportedResolutions
 name|QList
 argument_list|<
