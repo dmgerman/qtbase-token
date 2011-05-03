@@ -236,11 +236,6 @@ operator|::
 name|makeCurrent
 parameter_list|()
 block|{
-name|QPlatformGLContext
-operator|::
-name|makeCurrent
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|mSurface

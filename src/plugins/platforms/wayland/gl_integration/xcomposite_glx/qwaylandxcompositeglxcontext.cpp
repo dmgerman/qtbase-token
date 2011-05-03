@@ -147,11 +147,6 @@ operator|::
 name|makeCurrent
 parameter_list|()
 block|{
-name|QPlatformGLContext
-operator|::
-name|makeCurrent
-argument_list|()
-expr_stmt|;
 name|glXMakeCurrent
 argument_list|(
 name|mGlxIntegration
