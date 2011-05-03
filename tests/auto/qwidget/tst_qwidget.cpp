@@ -63500,7 +63500,7 @@ argument_list|,
 name|fp
 argument_list|)
 expr_stmt|;
-comment|// No Q_ASSERT, then it's allright.
+comment|// In debug mode, no assertion failure means it's alright.
 block|}
 end_function
 begin_function
