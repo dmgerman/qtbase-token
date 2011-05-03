@@ -330,15 +330,6 @@ block|,
 name|PartialMatch
 block|,
 name|ExactMatch
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-block|,
-name|Identical
-init|=
-name|ExactMatch
-endif|#
-directive|endif
 block|}
 enum|;
 name|QString

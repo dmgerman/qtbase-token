@@ -3028,39 +3028,6 @@ name|pixelSize
 return|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-end_ifdef
-begin_comment
-comment|/*! \obsolete    Sets the logical pixel height of font characters when shown on   the screen to \a pixelSize. */
-end_comment
-begin_function
-DECL|function|setPixelSizeFloat
-name|void
-name|QFont
-operator|::
-name|setPixelSizeFloat
-parameter_list|(
-name|qreal
-name|pixelSize
-parameter_list|)
-block|{
-name|setPixelSize
-argument_list|(
-operator|(
-name|int
-operator|)
-name|pixelSize
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!   \fn bool QFont::italic() const      Returns true if the style() of the font is not QFont::StyleNormal      \sa setItalic() style() */
 end_comment
@@ -4909,65 +4876,6 @@ end_comment
 begin_comment
 comment|/*!     \fn void QFont::resolve(uint mask)     \internal */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-end_ifdef
-begin_comment
-comment|/*! \obsolete    Please use QApplication::font() instead. */
-end_comment
-begin_function
-DECL|function|defaultFont
-name|QFont
-name|QFont
-operator|::
-name|defaultFont
-parameter_list|()
-block|{
-return|return
-name|QApplication
-operator|::
-name|font
-argument_list|()
-return|;
-block|}
-end_function
-begin_comment
-comment|/*! \obsolete    Please use QApplication::setFont() instead. */
-end_comment
-begin_function
-DECL|function|setDefaultFont
-name|void
-name|QFont
-operator|::
-name|setDefaultFont
-parameter_list|(
-specifier|const
-name|QFont
-modifier|&
-name|f
-parameter_list|)
-block|{
-name|QApplication
-operator|::
-name|setFont
-argument_list|(
-name|f
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     \fn qreal QFont::pointSizeFloat() const     \compat      Use pointSizeF() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QFont::setPointSizeFloat(qreal size)     \compat      Use setPointSizeF() instead. */
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*****************************************************************************   QFont substitution management  *****************************************************************************/
 end_comment
