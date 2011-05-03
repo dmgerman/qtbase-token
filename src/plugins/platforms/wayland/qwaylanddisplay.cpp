@@ -392,6 +392,9 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|blockingReadEvents
+argument_list|()
+expr_stmt|;
 name|qRegisterMetaType
 argument_list|<
 name|uint32_t
@@ -826,9 +829,6 @@ name|int32_t
 name|height
 parameter_list|)
 block|{
-comment|//call back function called from another thread;
-comment|//but its safe to call createScreen from another thread since
-comment|//QWaylandScreen does a moveToThread
 name|QWaylandDisplay
 modifier|*
 name|waylandDisplay
