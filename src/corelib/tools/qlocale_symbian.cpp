@@ -591,6 +591,16 @@ block|}
 block|,
 comment|// 59
 block|{
+literal|63
+comment|/*ELangKazakh*/
+block|,
+literal|"kk_KZ"
+block|,
+literal|"kk"
+block|}
+block|,
+comment|// 63
+block|{
 name|ELangKorean
 block|,
 literal|"ko_KO"
