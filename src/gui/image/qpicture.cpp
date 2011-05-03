@@ -4687,9 +4687,6 @@ directive|include
 file|"qregexp.h"
 include|#
 directive|include
-file|"qapplication.h"
-include|#
-directive|include
 file|"qpictureformatplugin.h"
 name|QT_END_INCLUDE_NAMESPACE
 comment|/*!     \obsolete      Returns a string that specifies the picture format of the file \a     fileName, or 0 if the file cannot be read or if the format is not     recognized.      \sa load() save() */

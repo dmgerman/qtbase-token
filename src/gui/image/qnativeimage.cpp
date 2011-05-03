@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qapplication_p.h"
+file|"private/qguiapplication_qpa_p.h"
 end_include
 begin_if
 if|#
@@ -1377,11 +1377,8 @@ operator|::
 name|systemFormat
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
 return|return
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -1397,15 +1394,6 @@ operator|->
 name|format
 argument_list|()
 return|;
-else|#
-directive|else
-return|return
-name|QImage
-operator|::
-name|Format_RGB32
-return|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_endif

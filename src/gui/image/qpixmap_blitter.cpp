@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qapplication_p.h>
+file|<private/qguiapplication_qpa_p.h>
 end_include
 begin_include
 include|#
@@ -251,7 +251,7 @@ directive|ifdef
 name|Q_WS_QPA
 name|d
 operator|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()

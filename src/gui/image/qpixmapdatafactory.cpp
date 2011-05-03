@@ -97,7 +97,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|"private/qapplication_p.h"
+file|"private/qguiapplication_qpa_p.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
