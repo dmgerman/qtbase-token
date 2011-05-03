@@ -90,9 +90,9 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QWidget
+DECL|variable|QWindow
 name|class
-name|QWidget
+name|QWindow
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -111,7 +111,7 @@ argument|QImage::Format format
 argument_list|,
 argument|bool isTextBuffer = false
 argument_list|,
-argument|QWidget *widget =
+argument|QWindow *widget =
 literal|0
 argument_list|)
 empty_stmt|;

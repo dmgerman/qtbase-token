@@ -1346,7 +1346,7 @@ parameter_list|,
 name|bool
 comment|/* isTextBuffer */
 parameter_list|,
-name|QWidget
+name|QWindow
 modifier|*
 parameter_list|)
 member_init_list|:
