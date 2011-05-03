@@ -4461,7 +4461,7 @@ expr_stmt|;
 operator|++
 name|i
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|i
 operator|<
