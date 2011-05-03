@@ -1311,20 +1311,26 @@ literal|256
 argument_list|)
 decl_stmt|;
 comment|//painter.begin(pg, pgSize);
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
 name|pg
 index|[
 literal|0
 index|]
-operator|==
+operator|!=
 name|pg
 index|[
 name|pgSize
 operator|-
 literal|1
 index|]
-argument_list|)
+condition|)
+name|qWarning
+argument_list|()
+operator|<<
+name|Q_FUNC_INFO
+operator|<<
+literal|"Malformed polygon (first and last points must be identical)"
 expr_stmt|;
 comment|// generate edge table
 comment|//     qDebug()<< "POINTS:";
