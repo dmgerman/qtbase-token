@@ -1328,7 +1328,7 @@ name|fontPointSize
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we currently Q_ASSERT_X in QFont::setPointSizeF for that
+comment|// we currently assert in QFont::setPointSizeF for that
 comment|//obj1.setFontPointSize(0.0);
 comment|//QCOMPARE(1.1, obj1.fontPointSize()); // Should not accept 0.0 => keep old
 comment|// int QTextEdit::fontWeight()
@@ -1369,7 +1369,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Range<1, 99>
-comment|/* Q_ASSERT_X in qfont.cpp     obj1.setFontWeight(INT_MIN);     QCOMPARE(1, obj1.fontWeight()); // Range<1, 99>     obj1.setFontWeight(INT_MAX);     QCOMPARE(99, obj1.fontWeight()); // Range<1, 99>     */
+comment|/* assertion in qfont.cpp     obj1.setFontWeight(INT_MIN);     QCOMPARE(1, obj1.fontWeight()); // Range<1, 99>     obj1.setFontWeight(INT_MAX);     QCOMPARE(99, obj1.fontWeight()); // Range<1, 99>     */
 comment|// bool QTextEdit::fontUnderline()
 comment|// void QTextEdit::setFontUnderline(bool)
 name|obj1
@@ -12458,13 +12458,13 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QCOMPARE
 argument_list|(
 name|image
 operator|.
 name|depth
 argument_list|()
-operator|==
+argument_list|,
 literal|32
 argument_list|)
 expr_stmt|;
