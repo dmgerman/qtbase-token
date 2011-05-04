@@ -1183,7 +1183,6 @@ literal|"httpcachetest_cachecontrol.cgi?no-cache"
 operator|<<
 literal|false
 expr_stmt|;
-comment|//AlwaysTrue;
 name|QTest
 operator|::
 name|newRow
@@ -1257,7 +1256,7 @@ name|AlwaysCache
 operator|<<
 literal|"httpcachetest_cachecontrol.cgi?max-age=1000, must-revalidate"
 operator|<<
-name|AlwaysTrue
+literal|false
 expr_stmt|;
 name|QTest
 operator|::
