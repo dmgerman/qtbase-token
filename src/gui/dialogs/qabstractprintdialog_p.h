@@ -102,7 +102,12 @@ argument_list|)
 block|,
 name|ownsPrinter
 argument_list|(
-argument|false
+name|false
+argument_list|)
+block|,
+name|options
+argument_list|(
+argument|QAbstractPrintDialog::PrintToFile | QAbstractPrintDialog::PrintPageRange |                 QAbstractPrintDialog::PrintCollateCopies | QAbstractPrintDialog::PrintShowPageSize
 argument_list|)
 block|{     }
 name|QPrinter
@@ -124,6 +129,11 @@ name|receiverToDisconnectOnClose
 block|;
 name|QByteArray
 name|memberToDisconnectOnClose
+block|;
+name|QAbstractPrintDialog
+operator|::
+name|PrintDialogOptions
+name|options
 block|;
 name|virtual
 name|void

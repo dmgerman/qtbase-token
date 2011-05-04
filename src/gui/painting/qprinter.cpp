@@ -30,11 +30,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qpagesetupdialog.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qcoreapplication.h>
 end_include
 begin_include
@@ -4716,14 +4711,6 @@ name|maxPage
 operator|=
 name|to
 expr_stmt|;
-name|d
-operator|->
-name|options
-operator||=
-name|QAbstractPrintDialog
-operator|::
-name|PrintPageRange
-expr_stmt|;
 block|}
 block|}
 comment|/*!     \since 4.1      Sets the print range option in to be \a range. */
@@ -4746,12 +4733,7 @@ name|d
 operator|->
 name|printRange
 operator|=
-name|QAbstractPrintDialog
-operator|::
-name|PrintRange
-argument_list|(
 name|range
-argument_list|)
 expr_stmt|;
 block|}
 comment|/*!     \since 4.1      Returns the page range of the QPrinter. After the print setup     dialog has been opened, this function returns the value selected     by the user.      \sa setPrintRange() */
@@ -4772,12 +4754,9 @@ name|QPrinter
 argument_list|)
 expr_stmt|;
 return|return
-name|PrintRange
-argument_list|(
 name|d
 operator|->
 name|printRange
-argument_list|)
 return|;
 block|}
 comment|/*!     \class QPrintEngine     \reentrant      \ingroup printing      \brief The QPrintEngine class defines an interface for how QPrinter     interacts with a given printing subsystem.      The common case when creating your own print engine is to derive from both     QPaintEngine and QPrintEngine. Various properties of a print engine are     given with property() and set with setProperty().      \sa QPaintEngine */

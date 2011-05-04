@@ -56,6 +56,7 @@ argument_list|)
 name|Q_OBJECT
 name|public
 operator|:
+comment|// Keep in sync with QPrinter::PrintRange
 expr|enum
 name|PrintRange
 block|{

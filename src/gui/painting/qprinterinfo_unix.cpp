@@ -30,17 +30,17 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qprintdialog.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qlibrary.h>
 end_include
 begin_include
 include|#
 directive|include
 file|<qtextstream.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<qcoreapplication.h>
 end_include
 begin_if
 if|#
@@ -609,9 +609,6 @@ name|name
 argument_list|)
 condition|)
 return|return;
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTDIALOG
 if|if
 condition|(
 name|host
@@ -621,15 +618,15 @@ argument_list|()
 condition|)
 name|host
 operator|=
-name|QPrintDialog
+name|QCoreApplication
 operator|::
-name|tr
+name|translate
 argument_list|(
+literal|"QPrinter"
+argument_list|,
 literal|"locally connected"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|printers
 operator|->
 name|append
@@ -779,16 +776,15 @@ literal|'|'
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTDIALOG
 comment|// try extracting a comment from the aliases
 name|printerComment
 operator|=
-name|QPrintDialog
+name|QCoreApplication
 operator|::
-name|tr
+name|translate
 argument_list|(
+literal|"QPrinter"
+argument_list|,
 literal|"Aliases: %1"
 argument_list|)
 operator|.
@@ -805,8 +801,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 else|else
 block|{
@@ -2181,15 +2175,14 @@ literal|'|'
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTDIALOG
 name|printerComment
 operator|=
-name|QPrintDialog
+name|QCoreApplication
 operator|::
-name|tr
+name|translate
 argument_list|(
+literal|"QPrinter"
+argument_list|,
 literal|"Aliases: %1"
 argument_list|)
 operator|.
@@ -2206,8 +2199,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 comment|// look for signs of this being a remote printer
 name|i
@@ -3390,16 +3381,6 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return;
-ifdef|#
-directive|ifdef
-name|QT_NO_PRINTDIALOG
-name|Q_UNUSED
-argument_list|(
-name|printers
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QString
 name|tmp
 decl_stmt|;
@@ -3451,10 +3432,12 @@ operator|.
 name|fileName
 argument_list|()
 argument_list|,
-name|QPrintDialog
+name|QCoreApplication
 operator|::
-name|tr
+name|translate
 argument_list|(
+literal|"QPrinter"
+argument_list|,
 literal|"unknown"
 argument_list|)
 argument_list|,
@@ -3465,8 +3448,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment
@@ -4630,9 +4611,6 @@ literal|"NGPRINTER"
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTDIALOG
 if|if
 condition|(
 operator|!
@@ -4648,10 +4626,12 @@ name|printers
 argument_list|,
 name|dollarPrinter
 argument_list|,
-name|QPrintDialog
+name|QCoreApplication
 operator|::
-name|tr
+name|translate
 argument_list|(
+literal|"QPrinter"
+argument_list|,
 literal|"unknown"
 argument_list|)
 argument_list|,
@@ -4661,8 +4641,6 @@ literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 name|QRegExp
 name|ps

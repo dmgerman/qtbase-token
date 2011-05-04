@@ -440,7 +440,7 @@ block|}
 enum|;
 end_enum
 begin_comment
-comment|// ### Qt 5: Merge with QAbstractPrintDialog::PrintRange
+comment|// Keep in sync with QAbstractPrintDialog::PrintRange
 end_comment
 begin_enum
 enum|enum

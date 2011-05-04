@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qprintdialog.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qaction.h>
 end_include
 begin_include
