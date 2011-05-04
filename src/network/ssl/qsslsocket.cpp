@@ -3635,6 +3635,21 @@ name|proxy
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//copy user agent down to the plain socket (if it has been set)
+name|d
+operator|->
+name|plainSocket
+operator|->
+name|setProperty
+argument_list|(
+literal|"_q_user-agent"
+argument_list|,
+name|property
+argument_list|(
+literal|"_q_user-agent"
+argument_list|)
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 name|QIODevice

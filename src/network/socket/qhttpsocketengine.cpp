@@ -2195,7 +2195,38 @@ expr_stmt|;
 name|data
 operator|+=
 literal|"Proxy-Connection: keep-alive\r\n"
-literal|"User-Agent: Mozilla/5.0\r\n"
+literal|"User-Agent: "
+expr_stmt|;
+name|QVariant
+name|v
+init|=
+name|property
+argument_list|(
+literal|"_q_user-agent"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|v
+operator|.
+name|isValid
+argument_list|()
+condition|)
+name|data
+operator|+=
+name|v
+operator|.
+name|toByteArray
+argument_list|()
+expr_stmt|;
+else|else
+name|data
+operator|+=
+literal|"Mozilla/5.0"
+expr_stmt|;
+name|data
+operator|+=
+literal|"\r\n"
 literal|"Host: "
 operator|+
 name|peerAddress
