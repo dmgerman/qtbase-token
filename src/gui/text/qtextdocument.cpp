@@ -100,11 +100,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qapplication.h>
-end_include
-begin_include
-include|#
-directive|include
 file|"qtextcontrol_p.h"
 end_include
 begin_include
