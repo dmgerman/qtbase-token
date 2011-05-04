@@ -13475,7 +13475,7 @@ name|QInternal
 operator|::
 name|Widget
 operator|&&
-name|currentClipWidget
+name|currentClipDevice
 condition|)
 block|{
 name|QWidgetPrivate
@@ -13484,7 +13484,14 @@ name|widgetPrivate
 init|=
 name|qt_widget_private
 argument_list|(
-name|currentClipWidget
+cast|static_cast
+argument_list|<
+name|QWidget
+operator|*
+argument_list|>
+argument_list|(
+name|currentClipDevice
+argument_list|)
 operator|->
 name|window
 argument_list|()
