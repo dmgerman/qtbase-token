@@ -978,15 +978,6 @@ name|lastModified
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|CacheLoadControlAttribute
-operator|==
-name|QNetworkRequest
-operator|::
-name|PreferNetwork
-condition|)
-block|{
 name|it
 operator|=
 name|cacheHeaders
@@ -1035,7 +1026,6 @@ condition|)
 return|return
 literal|false
 return|;
-block|}
 block|}
 name|QDateTime
 name|currentDateTime
