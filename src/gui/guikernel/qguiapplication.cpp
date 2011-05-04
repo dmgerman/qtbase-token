@@ -2735,7 +2735,7 @@ operator|::
 name|Enter
 argument_list|)
 decl_stmt|;
-name|QApplication
+name|QCoreApplication
 operator|::
 name|sendSpontaneousEvent
 argument_list|(
@@ -2774,7 +2774,7 @@ operator|::
 name|Leave
 argument_list|)
 decl_stmt|;
-name|QApplication
+name|QCoreApplication
 operator|::
 name|sendSpontaneousEvent
 argument_list|(

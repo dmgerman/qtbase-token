@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qapplication.h"
+file|"qcoreapplication.h"
 end_include
 begin_include
 include|#
@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qapplication_p.h"
+file|"private/qguiapplication_p.h"
 end_include
 begin_include
 include|#
@@ -671,7 +671,7 @@ name|interrupt
 operator|=
 literal|false
 expr_stmt|;
-name|QApplication
+name|QCoreApplication
 operator|::
 name|sendPostedEvents
 argument_list|()

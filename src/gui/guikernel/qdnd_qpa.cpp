@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qapplication.h"
+file|"qguiapplication.h"
 end_include
 begin_ifndef
 ifndef|#
@@ -215,17 +215,7 @@ block|{
 comment|// ### Temporary workaround for 4.2-rc1!!! To prevent flickering when
 comment|// using drag'n drop in a client application. (task 126956)
 comment|// setAttribute() should be done unconditionally!
-if|if
-condition|(
-name|QApplication
-operator|::
-name|type
-argument_list|()
-operator|==
-name|QApplication
-operator|::
-name|GuiServer
-condition|)
+comment|// if (QApplication::type() == QApplication::GuiServer)
 name|setAttribute
 argument_list|(
 name|Qt
@@ -503,7 +493,7 @@ operator|!=
 name|global_accepted_action
 condition|)
 block|{
-name|QApplication
+name|QGuiApplication
 operator|::
 name|changeOverrideCursor
 argument_list|(
@@ -532,7 +522,7 @@ name|QCursor
 modifier|*
 name|overrideCursor
 init|=
-name|QApplication
+name|QGuiApplication
 operator|::
 name|overrideCursor
 argument_list|()
@@ -552,7 +542,7 @@ operator|::
 name|ForbiddenCursor
 condition|)
 block|{
-name|QApplication
+name|QGuiApplication
 operator|::
 name|changeOverrideCursor
 argument_list|(
@@ -950,7 +940,7 @@ block|{
 name|QDragLeaveEvent
 name|dle
 decl_stmt|;
-name|QApplication
+name|QCoreApplication
 operator|::
 name|sendEvent
 argument_list|(
@@ -1037,7 +1027,7 @@ name|modifiers
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|QApplication
+name|QCoreApplication
 operator|::
 name|sendEvent
 argument_list|(
@@ -1144,7 +1134,7 @@ name|accept
 argument_list|()
 expr_stmt|;
 block|}
-name|QApplication
+name|QCoreApplication
 operator|::
 name|sendEvent
 argument_list|(
@@ -1223,7 +1213,7 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CURSOR
-name|QApplication
+name|QGuiApplication
 operator|::
 name|restoreOverrideCursor
 argument_list|()
@@ -1314,7 +1304,7 @@ name|modifiers
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|QApplication
+name|QCoreApplication
 operator|::
 name|sendEvent
 argument_list|(
@@ -1580,7 +1570,7 @@ block|{
 name|QDragLeaveEvent
 name|dle
 decl_stmt|;
-name|QApplication
+name|QCoreApplication
 operator|::
 name|sendEvent
 argument_list|(
@@ -1602,7 +1592,7 @@ condition|(
 name|restoreCursor
 condition|)
 block|{
-name|QApplication
+name|QGuiApplication
 operator|::
 name|restoreOverrideCursor
 argument_list|()
