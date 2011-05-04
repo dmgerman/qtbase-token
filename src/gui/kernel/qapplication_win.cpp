@@ -4313,7 +4313,8 @@ if|if
 condition|(
 name|SystemParametersInfo
 argument_list|(
-name|SPI_GETFONTSMOOTHINGCONTRAST
+literal|0x200C
+comment|/* SPI_GETFONTSMOOTHINGCONTRAST */
 argument_list|,
 literal|0
 argument_list|,
