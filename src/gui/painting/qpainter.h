@@ -48,11 +48,6 @@ include|#
 directive|include
 file|<QtGui/qtextoption.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<QtGui/qdrawutil.h>
-end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
