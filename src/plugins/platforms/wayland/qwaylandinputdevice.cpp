@@ -93,6 +93,8 @@ argument_list|(
 name|display
 argument_list|,
 name|id
+argument_list|,
+literal|1
 argument_list|)
 argument_list|)
 member_init_list|,

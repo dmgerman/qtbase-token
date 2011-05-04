@@ -136,9 +136,6 @@ name|QDesktopScreenWidget
 operator|*
 operator|>
 name|screens
-block|;
-name|QDesktopScreenWidget
-name|virtualScreen
 block|; }
 decl_stmt|;
 end_decl_stmt
