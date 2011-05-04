@@ -9469,6 +9469,11 @@ name|GestureWidget
 argument_list|(
 name|name
 argument_list|)
+member_init_list|,
+name|badGestureEvents
+argument_list|(
+literal|0
+argument_list|)
 block|{ }
 name|bool
 name|event
@@ -9503,8 +9508,8 @@ argument_list|(
 name|event
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
 name|ge
 operator|->
 name|gestures
@@ -9512,11 +9517,13 @@ argument_list|()
 operator|.
 name|count
 argument_list|()
-operator|==
+operator|!=
 literal|1
-argument_list|)
+condition|)
+operator|++
+name|badGestureEvents
 expr_stmt|;
-comment|// can't use QCOMPARE here...
+comment|// event should contain exactly one gesture
 name|ge
 operator|->
 name|gestures
@@ -9542,6 +9549,9 @@ name|event
 argument_list|)
 return|;
 block|}
+name|int
+name|badGestureEvents
+decl_stmt|;
 block|}
 class|;
 specifier|const
@@ -9749,6 +9759,15 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|parent
+operator|.
+name|badGestureEvents
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -9777,6 +9796,11 @@ member_init_list|:
 name|GestureItem
 argument_list|(
 name|name
+argument_list|)
+member_init_list|,
+name|badGestureEvents
+argument_list|(
+literal|0
 argument_list|)
 block|{ }
 name|bool
@@ -9812,8 +9836,8 @@ argument_list|(
 name|event
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
 name|ge
 operator|->
 name|gestures
@@ -9821,11 +9845,13 @@ argument_list|()
 operator|.
 name|count
 argument_list|()
-operator|==
+operator|!=
 literal|1
-argument_list|)
+condition|)
+operator|++
+name|badGestureEvents
 expr_stmt|;
-comment|// can't use QCOMPARE here...
+comment|// event should contain exactly one gesture
 name|ge
 operator|->
 name|gestures
@@ -9851,6 +9877,9 @@ name|event
 argument_list|)
 return|;
 block|}
+name|int
+name|badGestureEvents
+decl_stmt|;
 block|}
 class|;
 specifier|const
@@ -10110,6 +10139,15 @@ name|count
 argument_list|()
 argument_list|,
 literal|2
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|parent
+operator|->
+name|badGestureEvents
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
