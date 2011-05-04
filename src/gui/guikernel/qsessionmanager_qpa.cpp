@@ -123,7 +123,7 @@ name|QSessionManager
 operator|::
 name|QSessionManager
 parameter_list|(
-name|QApplication
+name|QGuiApplication
 modifier|*
 name|app
 parameter_list|,

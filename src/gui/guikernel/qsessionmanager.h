@@ -64,7 +64,7 @@ argument|QSessionManager
 argument_list|)
 name|QSessionManager
 argument_list|(
-name|QApplication
+name|QGuiApplication
 operator|*
 name|app
 argument_list|,

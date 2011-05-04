@@ -944,7 +944,7 @@ name|QAbstractEventDispatcher
 modifier|*
 name|dispatcher
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|qt_qpa_core_dispatcher
 argument_list|()

@@ -377,7 +377,7 @@ return|return
 name|force_reverse
 operator|^
 operator|(
-name|QApplication
+name|QCoreApplication
 operator|::
 name|tr
 argument_list|(
@@ -3222,7 +3222,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QApplication: Must construct a QApplication before accessing a QClipboard"
+literal|"QGuiApplication: Must construct a QGuiApplication before accessing a QClipboard"
 argument_list|)
 expr_stmt|;
 return|return

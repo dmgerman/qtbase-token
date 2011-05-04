@@ -4471,7 +4471,7 @@ operator|>
 literal|1
 argument_list|)
 decl_stmt|;
-name|QApplication
+name|QCoreApplication
 operator|::
 name|sendEvent
 argument_list|(
