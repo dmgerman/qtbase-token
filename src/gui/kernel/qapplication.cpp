@@ -13077,7 +13077,7 @@ name|align
 parameter_list|)
 block|{
 return|return
-name|QStyle
+name|QGuiApplicationPrivate
 operator|::
 name|visualAlignment
 argument_list|(

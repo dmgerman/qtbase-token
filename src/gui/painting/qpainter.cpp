@@ -81,11 +81,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qstyle.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qthread.h"
 end_include
 begin_include
@@ -152,6 +147,11 @@ begin_include
 include|#
 directive|include
 file|<private/qhexstring_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<private/qguiapplication_p.h>
 end_include
 begin_include
 include|#
@@ -27501,7 +27501,7 @@ name|LeftToRight
 expr_stmt|;
 name|tf
 operator|=
-name|QStyle
+name|QGuiApplicationPrivate
 operator|::
 name|visualAlignment
 argument_list|(
