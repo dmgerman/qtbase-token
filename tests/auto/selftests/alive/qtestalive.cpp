@@ -175,9 +175,14 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
+operator|!
 name|rec
+condition|)
+name|qFatal
+argument_list|(
+literal|"Null receiver object passed to QTestAlivePinger::QTestAlivePinger()"
 argument_list|)
 expr_stmt|;
 name|timerId
@@ -482,16 +487,17 @@ operator|::
 name|run
 parameter_list|()
 block|{
-name|Q_ASSERT_X
-argument_list|(
+if|if
+condition|(
+operator|!
 name|QCoreApplication
 operator|::
 name|instance
 argument_list|()
-argument_list|,
-literal|"QTestAlive::run()"
-argument_list|,
-literal|"Cannot start QTestAlive without a QCoreApplication instance."
+condition|)
+name|qFatal
+argument_list|(
+literal|"QTestAlive::run(): Cannot start QTestAlive without a QCoreApplication instance."
 argument_list|)
 expr_stmt|;
 name|QTestAlivePinger
