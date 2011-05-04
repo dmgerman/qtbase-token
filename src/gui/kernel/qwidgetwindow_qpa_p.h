@@ -113,6 +113,12 @@ operator|:
 name|QWidget
 operator|*
 name|m_widget
+block|;
+name|QWeakPointer
+operator|<
+name|QWidget
+operator|>
+name|m_implicit_mouse_grabber
 block|; }
 decl_stmt|;
 end_decl_stmt
