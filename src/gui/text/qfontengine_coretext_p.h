@@ -446,6 +446,16 @@ return|return
 literal|"CoreText"
 return|;
 block|}
+specifier|inline
+name|CTFontRef
+name|macFontID
+argument_list|()
+specifier|const
+block|{
+return|return
+name|ctfont
+return|;
+block|}
 name|protected
 operator|:
 name|virtual
