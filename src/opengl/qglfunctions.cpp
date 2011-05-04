@@ -1161,6 +1161,7 @@ begin_function
 DECL|function|qglfResolveActiveTexture
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveActiveTexture
 parameter_list|(
 name|GLenum
@@ -1266,6 +1267,7 @@ begin_function
 DECL|function|qglfResolveAttachShader
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveAttachShader
 parameter_list|(
 name|GLuint
@@ -1379,6 +1381,7 @@ begin_function
 DECL|function|qglfResolveBindAttribLocation
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveBindAttribLocation
 parameter_list|(
 name|GLuint
@@ -1504,6 +1507,7 @@ begin_function
 DECL|function|qglfResolveBindBuffer
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveBindBuffer
 parameter_list|(
 name|GLenum
@@ -1674,6 +1678,7 @@ begin_function
 DECL|function|qglfResolveBindFramebuffer
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveBindFramebuffer
 parameter_list|(
 name|GLenum
@@ -1844,6 +1849,7 @@ begin_function
 DECL|function|qglfResolveBindRenderbuffer
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveBindRenderbuffer
 parameter_list|(
 name|GLenum
@@ -2014,6 +2020,7 @@ begin_function
 DECL|function|qglfResolveBlendColor
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveBlendColor
 parameter_list|(
 name|GLclampf
@@ -2200,6 +2207,7 @@ begin_function
 DECL|function|qglfResolveBlendEquation
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveBlendEquation
 parameter_list|(
 name|GLenum
@@ -2362,6 +2370,7 @@ begin_function
 DECL|function|qglfResolveBlendEquationSeparate
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveBlendEquationSeparate
 parameter_list|(
 name|GLenum
@@ -2532,6 +2541,7 @@ begin_function
 DECL|function|qglfResolveBlendFuncSeparate
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveBlendFuncSeparate
 parameter_list|(
 name|GLenum
@@ -2718,6 +2728,7 @@ begin_function
 DECL|function|qglfResolveBufferData
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveBufferData
 parameter_list|(
 name|GLenum
@@ -2908,6 +2919,7 @@ begin_function
 DECL|function|qglfResolveBufferSubData
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveBufferSubData
 parameter_list|(
 name|GLenum
@@ -3098,6 +3110,7 @@ begin_function
 DECL|function|qglfResolveCheckFramebufferStatus
 specifier|static
 name|GLenum
+name|QGLF_APIENTRY
 name|qglfResolveCheckFramebufferStatus
 parameter_list|(
 name|GLenum
@@ -3266,6 +3279,7 @@ begin_function
 DECL|function|qglfResolveCompileShader
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveCompileShader
 parameter_list|(
 name|GLuint
@@ -3371,6 +3385,7 @@ begin_function
 DECL|function|qglfResolveCompressedTexImage2D
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveCompressedTexImage2D
 parameter_list|(
 name|GLenum
@@ -3593,6 +3608,7 @@ begin_function
 DECL|function|qglfResolveCompressedTexSubImage2D
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveCompressedTexSubImage2D
 parameter_list|(
 name|GLenum
@@ -3823,6 +3839,7 @@ begin_function
 DECL|function|qglfResolveCreateProgram
 specifier|static
 name|GLuint
+name|QGLF_APIENTRY
 name|qglfResolveCreateProgram
 parameter_list|()
 block|{
@@ -3926,6 +3943,7 @@ begin_function
 DECL|function|qglfResolveCreateShader
 specifier|static
 name|GLuint
+name|QGLF_APIENTRY
 name|qglfResolveCreateShader
 parameter_list|(
 name|GLenum
@@ -4037,6 +4055,7 @@ begin_function
 DECL|function|qglfResolveDeleteBuffers
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveDeleteBuffers
 parameter_list|(
 name|GLsizei
@@ -4211,6 +4230,7 @@ begin_function
 DECL|function|qglfResolveDeleteFramebuffers
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveDeleteFramebuffers
 parameter_list|(
 name|GLsizei
@@ -4385,6 +4405,7 @@ begin_function
 DECL|function|qglfResolveDeleteProgram
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveDeleteProgram
 parameter_list|(
 name|GLuint
@@ -4490,6 +4511,7 @@ begin_function
 DECL|function|qglfResolveDeleteRenderbuffers
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveDeleteRenderbuffers
 parameter_list|(
 name|GLsizei
@@ -4664,6 +4686,7 @@ begin_function
 DECL|function|qglfResolveDeleteShader
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveDeleteShader
 parameter_list|(
 name|GLuint
@@ -4769,6 +4792,7 @@ begin_function
 DECL|function|qglfResolveDetachShader
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveDetachShader
 parameter_list|(
 name|GLuint
@@ -4882,6 +4906,7 @@ begin_function
 DECL|function|qglfResolveDisableVertexAttribArray
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveDisableVertexAttribArray
 parameter_list|(
 name|GLuint
@@ -4987,6 +5012,7 @@ begin_function
 DECL|function|qglfResolveEnableVertexAttribArray
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveEnableVertexAttribArray
 parameter_list|(
 name|GLuint
@@ -5092,6 +5118,7 @@ begin_function
 DECL|function|qglfResolveFramebufferRenderbuffer
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveFramebufferRenderbuffer
 parameter_list|(
 name|GLenum
@@ -5278,6 +5305,7 @@ begin_function
 DECL|function|qglfResolveFramebufferTexture2D
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveFramebufferTexture2D
 parameter_list|(
 name|GLenum
@@ -5472,6 +5500,7 @@ begin_function
 DECL|function|qglfResolveGenBuffers
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGenBuffers
 parameter_list|(
 name|GLsizei
@@ -5644,6 +5673,7 @@ begin_function
 DECL|function|qglfResolveGenerateMipmap
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGenerateMipmap
 parameter_list|(
 name|GLenum
@@ -5806,6 +5836,7 @@ begin_function
 DECL|function|qglfResolveGenFramebuffers
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGenFramebuffers
 parameter_list|(
 name|GLsizei
@@ -5978,6 +6009,7 @@ begin_function
 DECL|function|qglfResolveGenRenderbuffers
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGenRenderbuffers
 parameter_list|(
 name|GLsizei
@@ -6150,6 +6182,7 @@ begin_function
 DECL|function|qglfResolveGetActiveAttrib
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetActiveAttrib
 parameter_list|(
 name|GLuint
@@ -6311,6 +6344,7 @@ begin_function
 DECL|function|qglfResolveGetActiveUniform
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetActiveUniform
 parameter_list|(
 name|GLuint
@@ -6472,6 +6506,7 @@ begin_function
 DECL|function|qglfResolveGetAttachedShaders
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetAttachedShaders
 parameter_list|(
 name|GLuint
@@ -6605,6 +6640,7 @@ begin_function
 DECL|function|qglfResolveGetAttribLocation
 specifier|static
 name|int
+name|QGLF_APIENTRY
 name|qglfResolveGetAttribLocation
 parameter_list|(
 name|GLuint
@@ -6728,6 +6764,7 @@ begin_function
 DECL|function|qglfResolveGetBufferParameteriv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetBufferParameteriv
 parameter_list|(
 name|GLenum
@@ -6908,6 +6945,7 @@ begin_function
 DECL|function|qglfResolveGetFramebufferAttachmentParameteriv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetFramebufferAttachmentParameteriv
 parameter_list|(
 name|GLenum
@@ -7096,6 +7134,7 @@ begin_function
 DECL|function|qglfResolveGetProgramiv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetProgramiv
 parameter_list|(
 name|GLuint
@@ -7219,6 +7258,7 @@ begin_function
 DECL|function|qglfResolveGetProgramInfoLog
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetProgramInfoLog
 parameter_list|(
 name|GLuint
@@ -7352,6 +7392,7 @@ begin_function
 DECL|function|qglfResolveGetRenderbufferParameteriv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetRenderbufferParameteriv
 parameter_list|(
 name|GLenum
@@ -7532,6 +7573,7 @@ begin_function
 DECL|function|qglfResolveGetShaderiv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetShaderiv
 parameter_list|(
 name|GLuint
@@ -7655,6 +7697,7 @@ begin_function
 DECL|function|qglfResolveGetShaderInfoLog
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetShaderInfoLog
 parameter_list|(
 name|GLuint
@@ -7788,6 +7831,7 @@ begin_function
 DECL|function|qglfSpecialGetShaderPrecisionFormat
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfSpecialGetShaderPrecisionFormat
 parameter_list|(
 name|GLenum
@@ -7838,6 +7882,7 @@ begin_function
 DECL|function|qglfResolveGetShaderPrecisionFormat
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetShaderPrecisionFormat
 parameter_list|(
 name|GLenum
@@ -8028,6 +8073,7 @@ begin_function
 DECL|function|qglfResolveGetShaderSource
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetShaderSource
 parameter_list|(
 name|GLuint
@@ -8161,6 +8207,7 @@ begin_function
 DECL|function|qglfResolveGetUniformfv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetUniformfv
 parameter_list|(
 name|GLuint
@@ -8284,6 +8331,7 @@ begin_function
 DECL|function|qglfResolveGetUniformiv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetUniformiv
 parameter_list|(
 name|GLuint
@@ -8407,6 +8455,7 @@ begin_function
 DECL|function|qglfResolveGetUniformLocation
 specifier|static
 name|int
+name|QGLF_APIENTRY
 name|qglfResolveGetUniformLocation
 parameter_list|(
 name|GLuint
@@ -8530,6 +8579,7 @@ begin_function
 DECL|function|qglfResolveGetVertexAttribfv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetVertexAttribfv
 parameter_list|(
 name|GLuint
@@ -8653,6 +8703,7 @@ begin_function
 DECL|function|qglfResolveGetVertexAttribiv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetVertexAttribiv
 parameter_list|(
 name|GLuint
@@ -8776,6 +8827,7 @@ begin_function
 DECL|function|qglfResolveGetVertexAttribPointerv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveGetVertexAttribPointerv
 parameter_list|(
 name|GLuint
@@ -8901,6 +8953,7 @@ begin_function
 DECL|function|qglfResolveIsBuffer
 specifier|static
 name|GLboolean
+name|QGLF_APIENTRY
 name|qglfResolveIsBuffer
 parameter_list|(
 name|GLuint
@@ -9069,6 +9122,7 @@ begin_function
 DECL|function|qglfResolveIsFramebuffer
 specifier|static
 name|GLboolean
+name|QGLF_APIENTRY
 name|qglfResolveIsFramebuffer
 parameter_list|(
 name|GLuint
@@ -9237,6 +9291,7 @@ begin_function
 DECL|function|qglfSpecialIsProgram
 specifier|static
 name|GLboolean
+name|QGLF_APIENTRY
 name|qglfSpecialIsProgram
 parameter_list|(
 name|GLuint
@@ -9254,6 +9309,7 @@ begin_function
 DECL|function|qglfResolveIsProgram
 specifier|static
 name|GLboolean
+name|QGLF_APIENTRY
 name|qglfResolveIsProgram
 parameter_list|(
 name|GLuint
@@ -9360,6 +9416,7 @@ begin_function
 DECL|function|qglfResolveIsRenderbuffer
 specifier|static
 name|GLboolean
+name|QGLF_APIENTRY
 name|qglfResolveIsRenderbuffer
 parameter_list|(
 name|GLuint
@@ -9528,6 +9585,7 @@ begin_function
 DECL|function|qglfSpecialIsShader
 specifier|static
 name|GLboolean
+name|QGLF_APIENTRY
 name|qglfSpecialIsShader
 parameter_list|(
 name|GLuint
@@ -9545,6 +9603,7 @@ begin_function
 DECL|function|qglfResolveIsShader
 specifier|static
 name|GLboolean
+name|QGLF_APIENTRY
 name|qglfResolveIsShader
 parameter_list|(
 name|GLuint
@@ -9651,6 +9710,7 @@ begin_function
 DECL|function|qglfResolveLinkProgram
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveLinkProgram
 parameter_list|(
 name|GLuint
@@ -9756,6 +9816,7 @@ begin_function
 DECL|function|qglfSpecialReleaseShaderCompiler
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfSpecialReleaseShaderCompiler
 parameter_list|()
 block|{ }
@@ -9764,6 +9825,7 @@ begin_function
 DECL|function|qglfResolveReleaseShaderCompiler
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveReleaseShaderCompiler
 parameter_list|()
 block|{
@@ -9861,6 +9923,7 @@ begin_function
 DECL|function|qglfResolveRenderbufferStorage
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveRenderbufferStorage
 parameter_list|(
 name|GLenum
@@ -10047,6 +10110,7 @@ begin_function
 DECL|function|qglfResolveSampleCoverage
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveSampleCoverage
 parameter_list|(
 name|GLclampf
@@ -10217,6 +10281,7 @@ begin_function
 DECL|function|qglfResolveShaderBinary
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveShaderBinary
 parameter_list|(
 name|GLint
@@ -10362,6 +10427,7 @@ begin_function
 DECL|function|qglfResolveShaderSource
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveShaderSource
 parameter_list|(
 name|GLuint
@@ -10501,6 +10567,7 @@ begin_function
 DECL|function|qglfResolveStencilFuncSeparate
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveStencilFuncSeparate
 parameter_list|(
 name|GLenum
@@ -10687,6 +10754,7 @@ begin_function
 DECL|function|qglfResolveStencilMaskSeparate
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveStencilMaskSeparate
 parameter_list|(
 name|GLenum
@@ -10857,6 +10925,7 @@ begin_function
 DECL|function|qglfResolveStencilOpSeparate
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveStencilOpSeparate
 parameter_list|(
 name|GLenum
@@ -11043,6 +11112,7 @@ begin_function
 DECL|function|qglfResolveUniform1f
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform1f
 parameter_list|(
 name|GLint
@@ -11156,6 +11226,7 @@ begin_function
 DECL|function|qglfResolveUniform1fv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform1fv
 parameter_list|(
 name|GLint
@@ -11281,6 +11352,7 @@ begin_function
 DECL|function|qglfResolveUniform1i
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform1i
 parameter_list|(
 name|GLint
@@ -11394,6 +11466,7 @@ begin_function
 DECL|function|qglfResolveUniform1iv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform1iv
 parameter_list|(
 name|GLint
@@ -11519,6 +11592,7 @@ begin_function
 DECL|function|qglfResolveUniform2f
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform2f
 parameter_list|(
 name|GLint
@@ -11640,6 +11714,7 @@ begin_function
 DECL|function|qglfResolveUniform2fv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform2fv
 parameter_list|(
 name|GLint
@@ -11765,6 +11840,7 @@ begin_function
 DECL|function|qglfResolveUniform2i
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform2i
 parameter_list|(
 name|GLint
@@ -11886,6 +11962,7 @@ begin_function
 DECL|function|qglfResolveUniform2iv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform2iv
 parameter_list|(
 name|GLint
@@ -12011,6 +12088,7 @@ begin_function
 DECL|function|qglfResolveUniform3f
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform3f
 parameter_list|(
 name|GLint
@@ -12140,6 +12218,7 @@ begin_function
 DECL|function|qglfResolveUniform3fv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform3fv
 parameter_list|(
 name|GLint
@@ -12265,6 +12344,7 @@ begin_function
 DECL|function|qglfResolveUniform3i
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform3i
 parameter_list|(
 name|GLint
@@ -12394,6 +12474,7 @@ begin_function
 DECL|function|qglfResolveUniform3iv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform3iv
 parameter_list|(
 name|GLint
@@ -12519,6 +12600,7 @@ begin_function
 DECL|function|qglfResolveUniform4f
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform4f
 parameter_list|(
 name|GLint
@@ -12656,6 +12738,7 @@ begin_function
 DECL|function|qglfResolveUniform4fv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform4fv
 parameter_list|(
 name|GLint
@@ -12781,6 +12864,7 @@ begin_function
 DECL|function|qglfResolveUniform4i
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform4i
 parameter_list|(
 name|GLint
@@ -12918,6 +13002,7 @@ begin_function
 DECL|function|qglfResolveUniform4iv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniform4iv
 parameter_list|(
 name|GLint
@@ -13043,6 +13128,7 @@ begin_function
 DECL|function|qglfResolveUniformMatrix2fv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniformMatrix2fv
 parameter_list|(
 name|GLint
@@ -13176,6 +13262,7 @@ begin_function
 DECL|function|qglfResolveUniformMatrix3fv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniformMatrix3fv
 parameter_list|(
 name|GLint
@@ -13309,6 +13396,7 @@ begin_function
 DECL|function|qglfResolveUniformMatrix4fv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUniformMatrix4fv
 parameter_list|(
 name|GLint
@@ -13442,6 +13530,7 @@ begin_function
 DECL|function|qglfResolveUseProgram
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveUseProgram
 parameter_list|(
 name|GLuint
@@ -13547,6 +13636,7 @@ begin_function
 DECL|function|qglfResolveValidateProgram
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveValidateProgram
 parameter_list|(
 name|GLuint
@@ -13652,6 +13742,7 @@ begin_function
 DECL|function|qglfResolveVertexAttrib1f
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveVertexAttrib1f
 parameter_list|(
 name|GLuint
@@ -13765,6 +13856,7 @@ begin_function
 DECL|function|qglfResolveVertexAttrib1fv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveVertexAttrib1fv
 parameter_list|(
 name|GLuint
@@ -13882,6 +13974,7 @@ begin_function
 DECL|function|qglfResolveVertexAttrib2f
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveVertexAttrib2f
 parameter_list|(
 name|GLuint
@@ -14003,6 +14096,7 @@ begin_function
 DECL|function|qglfResolveVertexAttrib2fv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveVertexAttrib2fv
 parameter_list|(
 name|GLuint
@@ -14120,6 +14214,7 @@ begin_function
 DECL|function|qglfResolveVertexAttrib3f
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveVertexAttrib3f
 parameter_list|(
 name|GLuint
@@ -14249,6 +14344,7 @@ begin_function
 DECL|function|qglfResolveVertexAttrib3fv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveVertexAttrib3fv
 parameter_list|(
 name|GLuint
@@ -14366,6 +14462,7 @@ begin_function
 DECL|function|qglfResolveVertexAttrib4f
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveVertexAttrib4f
 parameter_list|(
 name|GLuint
@@ -14503,6 +14600,7 @@ begin_function
 DECL|function|qglfResolveVertexAttrib4fv
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveVertexAttrib4fv
 parameter_list|(
 name|GLuint
@@ -14620,6 +14718,7 @@ begin_function
 DECL|function|qglfResolveVertexAttribPointer
 specifier|static
 name|void
+name|QGLF_APIENTRY
 name|qglfResolveVertexAttribPointer
 parameter_list|(
 name|GLuint

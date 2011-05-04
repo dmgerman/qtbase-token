@@ -137,7 +137,17 @@ block|;
 name|void
 name|waitForFrameSync
 argument_list|()
-block|;
+block|;      struct
+name|wl_surface
+operator|*
+name|wl_surface
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mSurface
+return|;
+block|}
 name|protected
 operator|:
 expr|struct

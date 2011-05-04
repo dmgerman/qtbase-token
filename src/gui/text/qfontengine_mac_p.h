@@ -458,6 +458,8 @@ argument_list|,
 argument|unsigned short *logClusters
 argument_list|,
 argument|const HB_CharAttributes *charAttributes
+argument_list|,
+argument|QScriptItem *
 argument_list|)
 specifier|const
 block|;

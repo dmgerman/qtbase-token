@@ -802,6 +802,20 @@ name|glyphCount
 argument_list|()
 specifier|const
 block|;
+name|virtual
+name|QFontEngine
+operator|*
+name|cloneWithSize
+argument_list|(
+argument|qreal
+comment|/*pixelSize*/
+argument_list|)
+specifier|const
+block|{
+return|return
+literal|0
+return|;
+block|}
 name|HB_Font
 name|harfbuzzFont
 argument_list|()
@@ -886,7 +900,25 @@ name|QByteArray
 operator|&
 name|fontFamily
 argument_list|)
+block|;      enum
+name|HintStyle
+block|{
+name|HintNone
+block|,
+name|HintLight
+block|,
+name|HintMedium
+block|,
+name|HintFull
+block|}
 block|;
+name|virtual
+name|void
+name|setDefaultHintStyle
+argument_list|(
+argument|HintStyle
+argument_list|)
+block|{ }
 name|QAtomicInt
 name|ref
 block|;

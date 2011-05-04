@@ -494,6 +494,14 @@ operator|~
 name|QFontEngineX11FT
 argument_list|()
 block|;
+name|QFontEngine
+operator|*
+name|cloneWithSize
+argument_list|(
+argument|qreal pixelSize
+argument_list|)
+specifier|const
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_XRENDER

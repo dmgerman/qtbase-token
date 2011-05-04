@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/qtextcursor.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qstring.h>
 end_include
 begin_include
@@ -511,6 +516,19 @@ argument_list|)
 block|;
 name|bool
 name|dragEnabled
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setCursorMoveStyle
+argument_list|(
+argument|QTextCursor::MoveStyle style
+argument_list|)
+block|;
+name|QTextCursor
+operator|::
+name|MoveStyle
+name|cursorMoveStyle
 argument_list|()
 specifier|const
 block|;

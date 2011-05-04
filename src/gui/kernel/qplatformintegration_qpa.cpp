@@ -225,6 +225,11 @@ name|cap
 parameter_list|)
 specifier|const
 block|{
+name|Q_UNUSED
+argument_list|(
+name|cap
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;

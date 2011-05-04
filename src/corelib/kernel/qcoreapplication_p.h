@@ -186,6 +186,10 @@ name|QEvent
 operator|*
 argument_list|)
 block|;
+name|void
+name|_q_initializeProcessManager
+argument_list|()
+block|;
 name|virtual
 name|QString
 name|appName

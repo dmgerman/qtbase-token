@@ -343,6 +343,15 @@ argument_list|,
 argument|const QTransform&xform
 argument_list|)
 block|;
+name|virtual
+name|QFontEngine
+operator|*
+name|cloneWithSize
+argument_list|(
+argument|qreal pixelSize
+argument_list|)
+specifier|const
+block|;
 ifndef|#
 directive|ifndef
 name|Q_CC_MINGW
@@ -396,6 +405,9 @@ endif|#
 directive|endif
 name|QString
 name|_name
+block|;
+name|QString
+name|uniqueFamilyName
 block|;
 name|HFONT
 name|hfont

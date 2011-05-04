@@ -334,11 +334,6 @@ name|mWaylandEglWindow
 operator|=
 name|wl_egl_window_create
 argument_list|(
-name|mEglIntegration
-operator|->
-name|nativeDisplay
-argument_list|()
-argument_list|,
 name|mSurface
 argument_list|,
 name|size
