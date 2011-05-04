@@ -44,7 +44,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qapplication_p.h>
+file|<private/qguiapplication_p.h>
 end_include
 begin_include
 include|#
@@ -341,7 +341,7 @@ operator|->
 name|parent
 argument_list|()
 operator|->
-name|windowHandle
+name|handle
 argument_list|()
 condition|)
 name|xcb_parent_id
@@ -357,7 +357,7 @@ operator|->
 name|parent
 argument_list|()
 operator|->
-name|windowHandle
+name|handle
 argument_list|()
 argument_list|)
 operator|->
@@ -2496,7 +2496,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()

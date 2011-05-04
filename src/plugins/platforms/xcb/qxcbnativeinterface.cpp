@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qapplication_p.h>
+file|<private/qguiapplication_p.h>
 end_include
 begin_include
 include|#
@@ -332,7 +332,7 @@ name|QXcbScreen
 operator|*
 argument_list|>
 argument_list|(
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
