@@ -149,6 +149,11 @@ operator|~
 name|QGuiApplication
 argument_list|()
 block|;
+specifier|static
+name|QWindowList
+name|topLevelWindows
+argument_list|()
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CURSOR

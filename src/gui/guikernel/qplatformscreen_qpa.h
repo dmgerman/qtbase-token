@@ -56,7 +56,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qwidget.h>
+file|<QtGui/qwindowdefs.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
@@ -133,7 +133,7 @@ argument|const QRect&
 argument_list|)
 block|{}
 name|virtual
-name|QWidget
+name|QWindow
 operator|*
 name|topLevelAt
 argument_list|(
@@ -142,19 +142,7 @@ argument_list|)
 specifier|const
 block|;
 comment|//jl: should this function be in QPlatformIntegration
-comment|//jl: maybe screenForWidget is a better name?
-specifier|static
-name|QPlatformScreen
-operator|*
-name|platformScreenForWidget
-argument_list|(
-specifier|const
-name|QWidget
-operator|*
-name|widget
-argument_list|)
-block|;
-comment|// temporary convenience
+comment|//jl: maybe screenForWindow is a better name?
 specifier|static
 name|QPlatformScreen
 operator|*

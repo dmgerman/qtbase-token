@@ -432,7 +432,7 @@ argument_list|()
 operator|->
 name|moveToScreen
 argument_list|(
-name|q
+name|win
 argument_list|,
 name|topData
 argument_list|()
@@ -1001,6 +1001,9 @@ operator|->
 name|moveToScreen
 argument_list|(
 name|q
+operator|->
+name|windowHandle
+argument_list|()
 argument_list|,
 name|targetScreen
 argument_list|)
@@ -3158,9 +3161,10 @@ name|screen
 init|=
 name|QPlatformScreen
 operator|::
-name|platformScreenForWidget
+name|platformScreenForWindow
 argument_list|(
-name|this
+name|windowHandle
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

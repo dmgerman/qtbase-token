@@ -51,10 +51,6 @@ DECL|variable|QBlittable
 name|class
 name|QBlittable
 decl_stmt|;
-DECL|variable|QWidget
-name|class
-name|QWidget
-decl_stmt|;
 DECL|variable|QPlatformEventLoopIntegration
 name|class
 name|QPlatformEventLoopIntegration
@@ -177,7 +173,7 @@ name|virtual
 name|void
 name|moveToScreen
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 name|window
 parameter_list|,

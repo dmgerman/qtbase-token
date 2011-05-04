@@ -508,6 +508,12 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_decl_stmt
+specifier|static
+name|QWindowList
+name|window_list
+decl_stmt|;
+end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef

@@ -3210,6 +3210,9 @@ operator|->
 name|moveToScreen
 argument_list|(
 name|q
+operator|->
+name|windowHandle
+argument_list|()
 argument_list|,
 name|screen
 argument_list|)

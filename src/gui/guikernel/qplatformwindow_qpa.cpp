@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qwidget.h>
+file|<QtGui/qwindow.h>
 end_include
 begin_class
 DECL|class|QPlatformWindowPrivate
@@ -39,7 +39,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     Constructs a platform window with the given top level widget. */
+comment|/*!     Constructs a platform window with the given top level window. */
 end_comment
 begin_constructor
 DECL|function|QPlatformWindow
@@ -72,7 +72,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Virtual destructor does not delete its top level widget. */
+comment|/*!     Virtual destructor does not delete its top level window. */
 end_comment
 begin_destructor
 DECL|function|~QPlatformWindow
@@ -84,7 +84,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Returnes the widget which belongs to the QPlatformWindow */
+comment|/*!     Returnes the window which belongs to the QPlatformWindow */
 end_comment
 begin_function
 DECL|function|window
@@ -110,7 +110,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function is called by Qt whenever a window is moved or the window is resized. The resize     can happen programatically(from ie. user application) or by the window manager. This means that     there is no need to call this function specifically from the window manager callback, instead     call QWindowSystemInterface::handleGeometryChange(QWidget *w, const QRect&newRect); */
+comment|/*!     This function is called by Qt whenever a window is moved or the window is resized. The resize     can happen programatically(from ie. user application) or by the window manager. This means that     there is no need to call this function specifically from the window manager callback, instead     call QWindowSystemInterface::handleGeometryChange(QWindow *w, const QRect&newRect); */
 end_comment
 begin_function
 DECL|function|setGeometry
@@ -228,7 +228,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function is called to enable native child widgets in QPA. It is common not to support this     feature in Window systems, but can be faked. When this function is called all geometry of this     platform window will be relative to the parent. */
+comment|/*!     This function is called to enable native child window in QPA. It is common not to support this     feature in Window systems, but can be faked. When this function is called all geometry of this     platform window will be relative to the parent. */
 end_comment
 begin_comment
 comment|//jl: It would be useful to have a property on the platform window which indicated if the sub-class
@@ -347,7 +347,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Reimplement to let Qt be able to request activation/focus for a window    Some window systems will probably not have callbacks for this functionality,   and then calling QWindowSystemInterface::handleWindowActivated(QWidget *w)   would be sufficient.    If the window system has some event handling/callbacks then call   QWindowSystemInterface::handleWindowActivated(QWidget *w) when the window system   gives the notification.    Default implementation calls QWindowSystem::handleWindowActivated(QWidget *w) */
+comment|/*!   Reimplement to let Qt be able to request activation/focus for a window    Some window systems will probably not have callbacks for this functionality,   and then calling QWindowSystemInterface::handleWindowActivated(QWindow *w)   would be sufficient.    If the window system has some event handling/callbacks then call   QWindowSystemInterface::handleWindowActivated(QWindow *w) when the window system   gives the notification.    Default implementation calls QWindowSystem::handleWindowActivated(QWindow *w) */
 end_comment
 begin_function
 DECL|function|requestActivateWindow
@@ -386,6 +386,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QPlatformWindow     \since 4.8     \internal     \preliminary     \ingroup qpa      \brief The QPlatformWindow class provides an abstraction for top-level windows.      The QPlatformWindow abstraction is used by QWidget for all its top level widgets. It is being     created by calling the createPlatformWindow function in the loaded QPlatformIntegration     instance.      QPlatformWindow is used to signal to the windowing system, how Qt persieves its frame.     However, it is not concerned with how Qt renders into the window it represents.      Top level QWidgets(tlw) will always have a QPlatformWindow. However, it is not necessary for     all tlw to have a QWindowSurface. This is the case for QGLWidget. And could be the case for     widgets where some  3.party renders into it.      The platform specific window handle can be retrieved by the winId function.      QPlatformWindow is also the way QPA defines how native child windows should be supported     through the setParent function.      The only way to retrieve a QPlatformGLContext in QPA is by calling the glContext() function     on QPlatformWindow.      \sa QWindowSurface, QWidget */
+comment|/*!     \class QPlatformWindow     \since 4.8     \internal     \preliminary     \ingroup qpa      \brief The QPlatformWindow class provides an abstraction for top-level windows.      The QPlatformWindow abstraction is used by QWindow for all its top level windows. It is being     created by calling the createPlatformWindow function in the loaded QPlatformIntegration     instance.      QPlatformWindow is used to signal to the windowing system, how Qt persieves its frame.     However, it is not concerned with how Qt renders into the window it represents.      Visible QWindows will always have a QPlatformWindow. However, it is not necessary for     all windows to have a QWindowSurface. This is the case for QGLWidget. And could be the case for     windows where some  3.party renders into it.      The platform specific window handle can be retrieved by the winId function.      QPlatformWindow is also the way QPA defines how native child windows should be supported     through the setParent function.      The only way to retrieve a QPlatformGLContext in QPA is by calling the glContext() function     on QPlatformWindow.      \sa QWindowSurface, QWindow */
 end_comment
 end_unit
