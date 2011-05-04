@@ -1634,12 +1634,6 @@ name|now
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_function_decl
-name|void
-name|fontDatabaseChanged
-parameter_list|()
-function_decl|;
-end_function_decl
 begin_ifndef
 ifndef|#
 directive|ifndef
