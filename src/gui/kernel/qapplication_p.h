@@ -1791,17 +1791,6 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|QT_NO_CURSOR
-name|QList
-operator|<
-name|QCursor
-operator|>
-name|cursor_list
-block|;
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
 name|QT_NO_GRAPHICSVIEW
 comment|// Maintain a list of all scenes to ensure font and palette propagation to
 comment|// all scenes.
@@ -2505,12 +2494,6 @@ name|ignore_cursor
 block|;
 endif|#
 directive|endif
-name|QPixmap
-name|getPixmapCursor
-argument_list|(
-argument|Qt::CursorShape cshape
-argument_list|)
-block|;
 name|QMap
 operator|<
 name|int
@@ -2906,26 +2889,6 @@ begin_function_decl
 specifier|extern
 name|void
 name|qt_symbian_set_cursor
-parameter_list|(
-name|QWidget
-modifier|*
-parameter_list|,
-name|bool
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_elif
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_WS_QPA
-argument_list|)
-end_elif
-begin_function_decl
-specifier|extern
-name|void
-name|qt_qpa_set_cursor
 parameter_list|(
 name|QWidget
 modifier|*

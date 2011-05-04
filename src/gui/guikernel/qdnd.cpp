@@ -40,7 +40,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qapplication.h"
+file|"qguiapplication.h"
 end_include
 begin_include
 include|#
@@ -100,7 +100,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qapplication_p.h>
+file|<private/qguiapplication_p.h>
 end_include
 begin_ifndef
 ifndef|#
@@ -476,7 +476,7 @@ if|if
 condition|(
 name|restoreCursor
 condition|)
-name|QApplication
+name|QGuiApplication
 operator|::
 name|restoreOverrideCursor
 argument_list|()
@@ -574,7 +574,7 @@ operator|::
 name|MoveAction
 condition|)
 return|return
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|instance
 argument_list|()
@@ -596,7 +596,7 @@ operator|::
 name|CopyAction
 condition|)
 return|return
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|instance
 argument_list|()
@@ -618,7 +618,7 @@ operator|::
 name|LinkAction
 condition|)
 return|return
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|instance
 argument_list|()
@@ -643,7 +643,7 @@ operator|::
 name|IgnoreAction
 condition|)
 return|return
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|instance
 argument_list|()

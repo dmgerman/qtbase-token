@@ -15,7 +15,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|<qapplication.h>
+file|<qcoreapplication.h>
 end_include
 begin_include
 include|#
@@ -749,7 +749,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|QApplication
+name|QCoreApplication
 operator|::
 name|startingUp
 argument_list|()
