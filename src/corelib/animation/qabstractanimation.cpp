@@ -275,14 +275,20 @@ operator|)
 name|inst
 operator|->
 name|updateAnimationsTime
-argument_list|()
+argument_list|(
+operator|-
+literal|1
+argument_list|)
 argument_list|; }
 DECL|function|updateAnimationsTime
 name|void
 name|QUnifiedTimer
 operator|::
 name|updateAnimationsTime
-argument_list|()
+argument_list|(
+name|qint64
+name|timeStep
+argument_list|)
 argument_list|{
 comment|//setCurrentTime can get this called again while we're the for loop. At least with pauseAnimations
 argument_list|if
@@ -295,6 +301,12 @@ begin_decl_stmt
 name|qint64
 name|totalElapsed
 init|=
+name|timeStep
+operator|>=
+literal|0
+condition|?
+name|timeStep
+else|:
 name|time
 operator|.
 name|elapsed
@@ -740,7 +752,10 @@ condition|)
 block|{
 comment|// update current time on all top level animations
 name|updateAnimationsTime
-argument_list|()
+argument_list|(
+operator|-
+literal|1
+argument_list|)
 expr_stmt|;
 name|restartAnimationTimer
 argument_list|()
@@ -1395,15 +1410,18 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Advances the animation based on the current time. This function should     be continuously called by the driver while the animation is running.      \internal  */
+comment|/*!     Advances the animation based to the specified \a timeStep. This function should     be continuously called by the driver subclasses while the animation is running.      If \a timeStep is positive, it will be used as the current time in the     calculations; otherwise, the current clock time will be used.  */
 end_comment
 begin_function
-DECL|function|advance
+DECL|function|advanceAnimation
 name|void
 name|QAnimationDriver
 operator|::
-name|advance
-parameter_list|()
+name|advanceAnimation
+parameter_list|(
+name|qint64
+name|timeStep
+parameter_list|)
 block|{
 name|QUnifiedTimer
 modifier|*
@@ -1418,7 +1436,9 @@ comment|// update current time on all top level animations
 name|instance
 operator|->
 name|updateAnimationsTime
-argument_list|()
+argument_list|(
+name|timeStep
+argument_list|)
 expr_stmt|;
 name|instance
 operator|->
@@ -1428,7 +1448,26 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Installs this animation driver. The animation driver is thread local and     will only apply for the thread its installed in.      \internal  */
+comment|/*!     Advances the animation. This function should be continously called     by the driver while the animation is running.  */
+end_comment
+begin_function
+DECL|function|advance
+name|void
+name|QAnimationDriver
+operator|::
+name|advance
+parameter_list|()
+block|{
+name|advanceAnimation
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     Installs this animation driver. The animation driver is thread local and     will only apply for the thread its installed in.  */
 end_comment
 begin_function
 DECL|function|install
@@ -1527,9 +1566,10 @@ operator|->
 name|running
 condition|)
 block|{
+emit|emit
 name|started
 argument_list|()
-expr_stmt|;
+emit|;
 name|d
 operator|->
 name|running
@@ -1559,9 +1599,10 @@ operator|->
 name|running
 condition|)
 block|{
+emit|emit
 name|stopped
 argument_list|()
-expr_stmt|;
+emit|;
 name|d
 operator|->
 name|running
@@ -1572,10 +1613,35 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QAnimationDriver::started()      This function is called by the animation framework to notify the driver     that it should start running.      \internal  */
+comment|/*!     \fn qint64 QAnimationDriver::elapsed() const      Returns the number of milliseconds since the animations was started.  */
+end_comment
+begin_function
+DECL|function|elapsed
+name|qint64
+name|QAnimationDriver
+operator|::
+name|elapsed
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QUnifiedTimer
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|time
+operator|.
+name|elapsed
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \fn QAnimationDriver::started()      This signal is emitted by the animation framework to notify the driver     that continous animation has started.      \internal  */
 end_comment
 begin_comment
-comment|/*!     \fn QAnimationDriver::stopped()      This function is called by the animation framework to notify the driver     that it should stop running.      \internal  */
+comment|/*!     \fn QAnimationDriver::stopped()      This signal is emitted by the animation framework to notify the driver     that continous animation has stopped.      \internal  */
 end_comment
 begin_comment
 comment|/*!    The default animation driver just spins the timer...  */

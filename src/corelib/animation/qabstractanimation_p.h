@@ -458,7 +458,9 @@ argument_list|()
 block|;
 name|void
 name|updateAnimationsTime
-argument_list|()
+argument_list|(
+argument|qint64 timeStep
+argument_list|)
 block|;
 comment|//useful for profiling/debugging
 name|int
@@ -486,6 +488,10 @@ operator|:
 name|friend
 name|class
 name|QDefaultAnimationDriver
+block|;
+name|friend
+name|class
+name|QAnimationDriver
 block|;
 name|QAnimationDriver
 operator|*
