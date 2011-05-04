@@ -766,6 +766,14 @@ begin_label
 name|private
 label|:
 end_label
+begin_macro
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_initializeProcessManager()
+argument_list|)
+end_macro
 begin_function_decl
 specifier|static
 name|bool

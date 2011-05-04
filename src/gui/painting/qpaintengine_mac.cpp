@@ -379,6 +379,12 @@ operator|==
 name|QInternal
 operator|::
 name|Pixmap
+operator|||
+name|devType
+operator|==
+name|QInternal
+operator|::
+name|Image
 operator|)
 condition|)
 block|{

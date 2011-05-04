@@ -89,11 +89,7 @@ name|mWaylandDisplay
 block|;
 name|EGLDisplay
 name|mEglDisplay
-block|;     struct
-name|wl_egl_display
-operator|*
-name|mNativeEglDisplay
-block|;   }
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_endif

@@ -171,6 +171,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|Q_OPENGL_EXPORT
 name|QGLWidgetGLPaintDevice
 range|:
 name|public

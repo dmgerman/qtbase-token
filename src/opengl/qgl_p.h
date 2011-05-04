@@ -499,6 +499,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
+name|Q_OPENGL_EXPORT
 name|QGLWidgetPrivate
 range|:
 name|public
@@ -1037,6 +1038,10 @@ block|,
 name|Depth24
 init|=
 literal|0x00100000
+block|,
+name|SRGBFrameBuffer
+init|=
+literal|0x00200000
 block|}
 enum|;
 name|Q_DECLARE_FLAGS
@@ -1656,6 +1661,10 @@ name|QGLTextureDestroyer
 modifier|*
 name|texture_destroyer
 decl_stmt|;
+name|QGLFunctions
+modifier|*
+name|functions
+decl_stmt|;
 name|bool
 name|vertexAttributeArraysEnabledState
 index|[
@@ -1922,6 +1931,7 @@ end_decl_stmt
 begin_decl_stmt
 unit|};
 name|class
+name|Q_OPENGL_EXPORT
 name|QGLTextureDestroyer
 range|:
 name|public

@@ -879,6 +879,15 @@ operator|.
 name|d
 argument_list|)
 block|;
+name|qSwap
+argument_list|(
+name|resolve_mask
+argument_list|,
+name|other
+operator|.
+name|resolve_mask
+argument_list|)
+block|;
 return|return
 operator|*
 name|this

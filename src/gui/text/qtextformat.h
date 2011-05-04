@@ -1532,6 +1532,8 @@ block|,
 name|AlignTop
 block|,
 name|AlignBottom
+block|,
+name|AlignBaseline
 block|}
 block|;     enum
 name|UnderlineStyle

@@ -273,7 +273,7 @@ name|strcmp
 argument_list|(
 name|interface
 argument_list|,
-literal|"xcomposite"
+literal|"wl_xcomposite"
 argument_list|)
 operator|==
 literal|0
@@ -301,6 +301,8 @@ argument_list|(
 name|display
 argument_list|,
 name|id
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 name|wl_xcomposite_add_listener
