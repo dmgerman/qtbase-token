@@ -40,11 +40,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwidget.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qpainter.h"
 end_include
 begin_include
@@ -61,11 +56,6 @@ begin_include
 include|#
 directive|include
 file|<private/qguiapplication_p.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<private/qwidget_p.h>
 end_include
 begin_include
 include|#

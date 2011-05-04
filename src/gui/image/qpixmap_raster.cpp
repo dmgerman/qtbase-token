@@ -65,11 +65,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qwidget_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qdrawhelper_p.h>
 end_include
 begin_decl_stmt
