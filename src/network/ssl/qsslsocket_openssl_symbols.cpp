@@ -141,1744 +141,1806 @@ name|a
 argument_list|, return
 literal|0
 argument_list|, return)
-name|DEFINEFUNC4
-argument_list|(
-name|long
-argument_list|,
-name|BIO_ctrl
-argument_list|,
-name|BIO
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|,
-name|int
-name|b
-argument_list|,
-name|b
-argument_list|,
-name|long
-name|c
-argument_list|,
-name|c
-argument_list|,
-name|void
-operator|*
-name|d
-argument_list|,
-name|d
-argument_list|, return
-operator|-
-literal|1
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|int
-argument_list|,
-name|BIO_free
-argument_list|,
-name|BIO
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|, return
-literal|0
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|BIO
-operator|*
-argument_list|,
-name|BIO_new
-argument_list|,
-name|BIO_METHOD
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|, return
-literal|0
-argument_list|, return)
 name|DEFINEFUNC2
 argument_list|(
-name|BIO
-operator|*
-argument_list|,
-name|BIO_new_mem_buf
-argument_list|,
-name|void
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|,
-name|int
-name|b
-argument_list|,
-name|b
-argument_list|, return
-literal|0
-argument_list|, return)
-name|DEFINEFUNC3
-argument_list|(
 name|int
 argument_list|,
-name|BIO_read
-argument_list|,
-name|BIO
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|,
-name|void
-operator|*
-name|b
-argument_list|,
-name|b
-argument_list|,
-name|int
-name|c
-argument_list|,
-name|c
-argument_list|, return
-operator|-
-literal|1
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|BIO_METHOD
-operator|*
-argument_list|,
-name|BIO_s_mem
-argument_list|,
-name|void
-argument_list|,
-name|DUMMYARG
-argument_list|, return
-literal|0
-argument_list|, return)
-name|DEFINEFUNC3
-argument_list|(
-name|int
-argument_list|,
-name|BIO_write
-argument_list|,
-name|BIO
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|,
-specifier|const
-name|void
-operator|*
-name|b
-argument_list|,
-name|b
-argument_list|,
-name|int
-name|c
-argument_list|,
-name|c
-argument_list|, return
-operator|-
-literal|1
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|int
-argument_list|,
-name|BN_num_bits
-argument_list|,
-specifier|const
-name|BIGNUM
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|, return
-literal|0
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|int
-argument_list|,
-name|CRYPTO_num_locks
-argument_list|,
-name|DUMMYARG
-argument_list|,
-name|DUMMYARG
-argument_list|, return
-literal|0
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|void
-argument_list|,
-name|CRYPTO_set_locking_callback
-argument_list|,
-name|void
-argument_list|(
-operator|*
-name|a
-argument_list|)
-argument_list|(
-name|int
-argument_list|,
-name|int
-argument_list|,
-specifier|const
-name|char
-operator|*
-argument_list|,
-name|int
-argument_list|)
-argument_list|,
-name|a
-argument_list|, return,
-name|DUMMYARG
-argument_list|)
-name|DEFINEFUNC
-argument_list|(
-name|void
-argument_list|,
-name|CRYPTO_set_id_callback
+name|ASN1_STRING_to_UTF8
 argument_list|,
 name|unsigned
-name|long
-argument_list|(
+name|char
+operator|*
 operator|*
 name|a
-argument_list|)
-argument_list|()
 argument_list|,
 name|a
-argument_list|, return,
-name|DUMMYARG
+argument_list|,
+name|ASN1_STRING
+operator|*
+name|b
+argument_list|,
+name|b
+argument_list|, return
+literal|0
+argument_list|, return)
+decl_stmt|;
+end_decl_stmt
+begin_macro
+name|DEFINEFUNC4
+argument_list|(
+argument|long
+argument_list|,
+argument|BIO_ctrl
+argument_list|,
+argument|BIO *a
+argument_list|,
+argument|a
+argument_list|,
+argument|int b
+argument_list|,
+argument|b
+argument_list|,
+argument|long c
+argument_list|,
+argument|c
+argument_list|,
+argument|void *d
+argument_list|,
+argument|d
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
 argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|void
+argument|int
 argument_list|,
-name|CRYPTO_free
+argument|BIO_free
 argument_list|,
-name|void
-operator|*
-name|a
+argument|BIO *a
 argument_list|,
-name|a
-argument_list|, return,
-name|DUMMYARG
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
 argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|void
+argument|BIO *
 argument_list|,
-name|DSA_free
+argument|BIO_new
 argument_list|,
-name|DSA
-operator|*
-name|a
+argument|BIO_METHOD *a
 argument_list|,
-name|a
-argument_list|, return,
-name|DUMMYARG
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
 argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|BIO *
+argument_list|,
+argument|BIO_new_mem_buf
+argument_list|,
+argument|void *a
+argument_list|,
+argument|a
+argument_list|,
+argument|int b
+argument_list|,
+argument|b
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC3
+argument_list|(
+argument|int
+argument_list|,
+argument|BIO_read
+argument_list|,
+argument|BIO *a
+argument_list|,
+argument|a
+argument_list|,
+argument|void *b
+argument_list|,
+argument|b
+argument_list|,
+argument|int c
+argument_list|,
+argument|c
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|BIO_METHOD *
+argument_list|,
+argument|BIO_s_mem
+argument_list|,
+argument|void
+argument_list|,
+argument|DUMMYARG
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC3
+argument_list|(
+argument|int
+argument_list|,
+argument|BIO_write
+argument_list|,
+argument|BIO *a
+argument_list|,
+argument|a
+argument_list|,
+argument|const void *b
+argument_list|,
+argument|b
+argument_list|,
+argument|int c
+argument_list|,
+argument|c
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|int
+argument_list|,
+argument|BN_num_bits
+argument_list|,
+argument|const BIGNUM *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|int
+argument_list|,
+argument|CRYPTO_num_locks
+argument_list|,
+argument|DUMMYARG
+argument_list|,
+argument|DUMMYARG
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|void
+argument_list|,
+argument|CRYPTO_set_locking_callback
+argument_list|,
+argument|void (*a)(int, int, const char *, int)
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|void
+argument_list|,
+argument|CRYPTO_set_id_callback
+argument_list|,
+argument|unsigned long (*a)()
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|void
+argument_list|,
+argument|CRYPTO_free
+argument_list|,
+argument|void *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|void
+argument_list|,
+argument|DSA_free
+argument_list|,
+argument|DSA *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_if
 if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|<
 literal|0x00908000L
+end_if
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
-name|X509
-operator|*
+argument|X509 *
 argument_list|,
-name|d2i_X509
+argument|d2i_X509
 argument_list|,
-name|X509
-operator|*
-operator|*
-name|a
+argument|X509 **a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|unsigned
-name|char
-operator|*
-operator|*
-name|b
+argument|unsigned char **b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|long
-name|c
+argument|long c
 argument_list|,
-name|c
-argument_list|, return
+argument|c
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_else
 else|#
 directive|else
+end_else
+begin_comment
 comment|// 0.9.8 broke SC and BC by changing this signature.
+end_comment
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
-name|X509
-operator|*
+argument|X509 *
 argument_list|,
-name|d2i_X509
+argument|d2i_X509
 argument_list|,
-name|X509
-operator|*
-operator|*
-name|a
+argument|X509 **a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-specifier|const
-name|unsigned
-name|char
-operator|*
-operator|*
-name|b
+argument|const unsigned char **b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|long
-name|c
+argument|long c
 argument_list|,
-name|c
-argument_list|, return
+argument|c
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|char
-operator|*
+argument|char *
 argument_list|,
-name|ERR_error_string
+argument|ERR_error_string
 argument_list|,
-name|unsigned
-name|long
-name|a
+argument|unsigned long a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|char
-operator|*
-name|b
+argument|char *b
 argument_list|,
-name|b
-argument_list|, return
+argument|b
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|unsigned
-name|long
+argument|unsigned long
 argument_list|,
-name|ERR_get_error
+argument|ERR_get_error
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-specifier|const
-name|EVP_CIPHER
-operator|*
+argument|const EVP_CIPHER *
 argument_list|,
-name|EVP_des_ede3_cbc
+argument|EVP_des_ede3_cbc
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|EVP_PKEY_assign
+argument|EVP_PKEY_assign
 argument_list|,
-name|EVP_PKEY
-operator|*
-name|a
+argument|EVP_PKEY *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|int
-name|b
+argument|int b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|char
-operator|*
-name|c
+argument|char *c
 argument_list|,
-name|c
-argument_list|, return
-operator|-
+argument|c
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
-name|DEFINEFUNC2
-argument_list|(
-name|int
 argument_list|,
-name|EVP_PKEY_set1_RSA
-argument_list|,
-name|EVP_PKEY
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|,
-name|RSA
-operator|*
-name|b
-argument_list|,
-name|b
-argument_list|, return
-operator|-
-literal|1
-argument_list|, return)
-name|DEFINEFUNC2
-argument_list|(
-name|int
-argument_list|,
-name|EVP_PKEY_set1_DSA
-argument_list|,
-name|EVP_PKEY
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|,
-name|DSA
-operator|*
-name|b
-argument_list|,
-name|b
-argument_list|, return
-operator|-
-literal|1
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|void
-argument_list|,
-name|EVP_PKEY_free
-argument_list|,
-name|EVP_PKEY
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|, return,
-name|DUMMYARG
+argument|return
 argument_list|)
-name|DEFINEFUNC
-argument_list|(
-name|DSA
-operator|*
-argument_list|,
-name|EVP_PKEY_get1_DSA
-argument_list|,
-name|EVP_PKEY
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|, return
-literal|0
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|RSA
-operator|*
-argument_list|,
-name|EVP_PKEY_get1_RSA
-argument_list|,
-name|EVP_PKEY
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|, return
-literal|0
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|EVP_PKEY
-operator|*
-argument_list|,
-name|EVP_PKEY_new
-argument_list|,
-name|DUMMYARG
-argument_list|,
-name|DUMMYARG
-argument_list|, return
-literal|0
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|int
-argument_list|,
-name|EVP_PKEY_type
-argument_list|,
-name|int
-name|a
-argument_list|,
-name|a
-argument_list|, return
-name|NID_undef
-argument_list|, return)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|i2d_X509
+argument|EVP_PKEY_set1_RSA
 argument_list|,
-name|X509
-operator|*
-name|a
+argument|EVP_PKEY *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|unsigned
-name|char
-operator|*
-operator|*
-name|b
+argument|RSA *b
 argument_list|,
-name|b
-argument_list|, return
-operator|-
+argument|b
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|int
+argument_list|,
+argument|EVP_PKEY_set1_DSA
+argument_list|,
+argument|EVP_PKEY *a
+argument_list|,
+argument|a
+argument_list|,
+argument|DSA *b
+argument_list|,
+argument|b
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-specifier|const
-name|char
-operator|*
+argument|void
 argument_list|,
-name|OBJ_nid2sn
+argument|EVP_PKEY_free
 argument_list|,
-name|int
-name|a
+argument|EVP_PKEY *a
 argument_list|,
-name|a
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|DSA *
+argument_list|,
+argument|EVP_PKEY_get1_DSA
+argument_list|,
+argument|EVP_PKEY *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|int
+argument|RSA *
 argument_list|,
-name|OBJ_obj2nid
+argument|EVP_PKEY_get1_RSA
 argument_list|,
-specifier|const
-name|ASN1_OBJECT
-operator|*
-name|a
+argument|EVP_PKEY *a
 argument_list|,
-name|a
-argument_list|, return
-name|NID_undef
-argument_list|, return)
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|EVP_PKEY *
+argument_list|,
+argument|EVP_PKEY_new
+argument_list|,
+argument|DUMMYARG
+argument_list|,
+argument|DUMMYARG
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|int
+argument_list|,
+argument|EVP_PKEY_type
+argument_list|,
+argument|int a
+argument_list|,
+argument|a
+argument_list|,
+argument|return NID_undef
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|int
+argument_list|,
+argument|i2d_X509
+argument_list|,
+argument|X509 *a
+argument_list|,
+argument|a
+argument_list|,
+argument|unsigned char **b
+argument_list|,
+argument|b
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|const char *
+argument_list|,
+argument|OBJ_nid2sn
+argument_list|,
+argument|int a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|int
+argument_list|,
+argument|OBJ_obj2nid
+argument_list|,
+argument|const ASN1_OBJECT *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return NID_undef
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|SSLEAY_MACROS
+end_ifdef
+begin_macro
 name|DEFINEFUNC6
 argument_list|(
-name|void
-operator|*
+argument|void *
 argument_list|,
-name|PEM_ASN1_read_bio
+argument|PEM_ASN1_read_bio
 argument_list|,
-name|d2i_of_void
-operator|*
-name|a
+argument|d2i_of_void *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-specifier|const
-name|char
-operator|*
-name|b
+argument|const char *b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|BIO
-operator|*
-name|c
+argument|BIO *c
 argument_list|,
-name|c
+argument|c
 argument_list|,
-name|void
-operator|*
-operator|*
-name|d
+argument|void **d
 argument_list|,
-name|d
+argument|d
 argument_list|,
-name|pem_password_cb
-operator|*
-name|e
+argument|pem_password_cb *e
 argument_list|,
-name|e
+argument|e
 argument_list|,
-name|void
-operator|*
-name|f
+argument|void *f
 argument_list|,
-name|f
-argument_list|, return
+argument|f
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC6
 argument_list|(
-name|void
-operator|*
+argument|void *
 argument_list|,
-name|PEM_ASN1_write_bio
+argument|PEM_ASN1_write_bio
 argument_list|,
-name|d2i_of_void
-operator|*
-name|a
+argument|d2i_of_void *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-specifier|const
-name|char
-operator|*
-name|b
+argument|const char *b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|BIO
-operator|*
-name|c
+argument|BIO *c
 argument_list|,
-name|c
+argument|c
 argument_list|,
-name|void
-operator|*
-operator|*
-name|d
+argument|void **d
 argument_list|,
-name|d
+argument|d
 argument_list|,
-name|pem_password_cb
-operator|*
-name|e
+argument|pem_password_cb *e
 argument_list|,
-name|e
+argument|e
 argument_list|,
-name|void
-operator|*
-name|f
+argument|void *f
 argument_list|,
-name|f
-argument_list|, return
+argument|f
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_else
 else|#
 directive|else
+end_else
+begin_macro
 name|DEFINEFUNC4
 argument_list|(
-name|DSA
-operator|*
+argument|DSA *
 argument_list|,
-name|PEM_read_bio_DSAPrivateKey
+argument|PEM_read_bio_DSAPrivateKey
 argument_list|,
-name|BIO
-operator|*
-name|a
+argument|BIO *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|DSA
-operator|*
-operator|*
-name|b
+argument|DSA **b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|pem_password_cb
-operator|*
-name|c
+argument|pem_password_cb *c
 argument_list|,
-name|c
+argument|c
 argument_list|,
-name|void
-operator|*
-name|d
+argument|void *d
 argument_list|,
-name|d
-argument_list|, return
+argument|d
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC4
 argument_list|(
-name|RSA
-operator|*
+argument|RSA *
 argument_list|,
-name|PEM_read_bio_RSAPrivateKey
+argument|PEM_read_bio_RSAPrivateKey
 argument_list|,
-name|BIO
-operator|*
-name|a
+argument|BIO *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|RSA
-operator|*
-operator|*
-name|b
+argument|RSA **b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|pem_password_cb
-operator|*
-name|c
+argument|pem_password_cb *c
 argument_list|,
-name|c
+argument|c
 argument_list|,
-name|void
-operator|*
-name|d
+argument|void *d
 argument_list|,
-name|d
-argument_list|, return
+argument|d
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC7
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|PEM_write_bio_DSAPrivateKey
+argument|PEM_write_bio_DSAPrivateKey
 argument_list|,
-name|BIO
-operator|*
-name|a
+argument|BIO *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|DSA
-operator|*
-name|b
+argument|DSA *b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-specifier|const
-name|EVP_CIPHER
-operator|*
-name|c
+argument|const EVP_CIPHER *c
 argument_list|,
-name|c
+argument|c
 argument_list|,
-name|unsigned
-name|char
-operator|*
-name|d
+argument|unsigned char *d
 argument_list|,
-name|d
+argument|d
 argument_list|,
-name|int
-name|e
+argument|int e
 argument_list|,
-name|e
+argument|e
 argument_list|,
-name|pem_password_cb
-operator|*
-name|f
+argument|pem_password_cb *f
 argument_list|,
-name|f
+argument|f
 argument_list|,
-name|void
-operator|*
-name|g
+argument|void *g
 argument_list|,
-name|g
-argument_list|, return
+argument|g
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC7
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|PEM_write_bio_RSAPrivateKey
+argument|PEM_write_bio_RSAPrivateKey
 argument_list|,
-name|BIO
-operator|*
-name|a
+argument|BIO *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|RSA
-operator|*
-name|b
+argument|RSA *b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-specifier|const
-name|EVP_CIPHER
-operator|*
-name|c
+argument|const EVP_CIPHER *c
 argument_list|,
-name|c
+argument|c
 argument_list|,
-name|unsigned
-name|char
-operator|*
-name|d
+argument|unsigned char *d
 argument_list|,
-name|d
+argument|d
 argument_list|,
-name|int
-name|e
+argument|int e
 argument_list|,
-name|e
+argument|e
 argument_list|,
-name|pem_password_cb
-operator|*
-name|f
+argument|pem_password_cb *f
 argument_list|,
-name|f
+argument|f
 argument_list|,
-name|void
-operator|*
-name|g
+argument|void *g
 argument_list|,
-name|g
-argument_list|, return
+argument|g
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_macro
 name|DEFINEFUNC4
 argument_list|(
-name|DSA
-operator|*
+argument|DSA *
 argument_list|,
-name|PEM_read_bio_DSA_PUBKEY
+argument|PEM_read_bio_DSA_PUBKEY
 argument_list|,
-name|BIO
-operator|*
-name|a
+argument|BIO *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|DSA
-operator|*
-operator|*
-name|b
+argument|DSA **b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|pem_password_cb
-operator|*
-name|c
+argument|pem_password_cb *c
 argument_list|,
-name|c
+argument|c
 argument_list|,
-name|void
-operator|*
-name|d
+argument|void *d
 argument_list|,
-name|d
-argument_list|, return
+argument|d
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC4
 argument_list|(
-name|RSA
-operator|*
+argument|RSA *
 argument_list|,
-name|PEM_read_bio_RSA_PUBKEY
+argument|PEM_read_bio_RSA_PUBKEY
 argument_list|,
-name|BIO
-operator|*
-name|a
+argument|BIO *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|RSA
-operator|*
-operator|*
-name|b
+argument|RSA **b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|pem_password_cb
-operator|*
-name|c
+argument|pem_password_cb *c
 argument_list|,
-name|c
+argument|c
 argument_list|,
-name|void
-operator|*
-name|d
+argument|void *d
 argument_list|,
-name|d
-argument_list|, return
+argument|d
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
-name|DEFINEFUNC2
-argument_list|(
-name|int
 argument_list|,
-name|PEM_write_bio_DSA_PUBKEY
-argument_list|,
-name|BIO
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|,
-name|DSA
-operator|*
-name|b
-argument_list|,
-name|b
-argument_list|, return
-literal|0
-argument_list|, return)
-name|DEFINEFUNC2
-argument_list|(
-name|int
-argument_list|,
-name|PEM_write_bio_RSA_PUBKEY
-argument_list|,
-name|BIO
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|,
-name|RSA
-operator|*
-name|b
-argument_list|,
-name|b
-argument_list|, return
-literal|0
-argument_list|, return)
-name|DEFINEFUNC2
-argument_list|(
-name|void
-argument_list|,
-name|RAND_seed
-argument_list|,
-specifier|const
-name|void
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|,
-name|int
-name|b
-argument_list|,
-name|b
-argument_list|, return,
-name|DUMMYARG
+argument|return
 argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|int
+argument_list|,
+argument|PEM_write_bio_DSA_PUBKEY
+argument_list|,
+argument|BIO *a
+argument_list|,
+argument|a
+argument_list|,
+argument|DSA *b
+argument_list|,
+argument|b
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|int
+argument_list|,
+argument|PEM_write_bio_RSA_PUBKEY
+argument_list|,
+argument|BIO *a
+argument_list|,
+argument|a
+argument_list|,
+argument|RSA *b
+argument_list|,
+argument|b
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|void
+argument_list|,
+argument|RAND_seed
+argument_list|,
+argument|const void *a
+argument_list|,
+argument|a
+argument_list|,
+argument|int b
+argument_list|,
+argument|b
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|RAND_status
+argument|RAND_status
 argument_list|,
-name|void
+argument|void
 argument_list|,
-name|DUMMYARG
-argument_list|, return
-operator|-
+argument|DUMMYARG
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|void
 argument_list|,
-name|RSA_free
-argument_list|,
-name|RSA
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|, return,
-name|DUMMYARG
+argument|return
 argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|int
+argument|void
 argument_list|,
-name|sk_num
+argument|RSA_free
 argument_list|,
-name|STACK
-operator|*
-name|a
+argument|RSA *a
 argument_list|,
-name|a
-argument_list|, return
-operator|-
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|int
+argument_list|,
+argument|sk_num
+argument_list|,
+argument|STACK *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|void
+argument|void
 argument_list|,
-name|sk_pop_free
+argument|sk_pop_free
 argument_list|,
-name|STACK
-operator|*
-name|a
+argument|STACK *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|void
-argument_list|(
-operator|*
-name|b
+argument|void (*b)(void*)
+argument_list|,
+argument|b
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
 argument_list|)
-argument_list|(
-name|void
-operator|*
-argument_list|)
-argument_list|,
-name|b
-argument_list|, return,
-name|DUMMYARG
-argument_list|)
+end_macro
+begin_if
 if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|>=
 literal|0x10000000L
+end_if
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|void
+argument|void
 argument_list|,
-name|sk_free
+argument|sk_free
 argument_list|,
-name|_STACK
-operator|*
-name|a
+argument|_STACK *a
 argument_list|,
-name|a
-argument_list|, return,
-name|DUMMYARG
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
 argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|void
-operator|*
+argument|void *
 argument_list|,
-name|sk_value
+argument|sk_value
 argument_list|,
-name|STACK
-operator|*
-name|a
+argument|STACK *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|int
-name|b
+argument|int b
 argument_list|,
-name|b
-argument_list|, return
+argument|b
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_else
 else|#
 directive|else
+end_else
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|void
+argument|void
 argument_list|,
-name|sk_free
+argument|sk_free
 argument_list|,
-name|STACK
-operator|*
-name|a
+argument|STACK *a
 argument_list|,
-name|a
-argument_list|, return,
-name|DUMMYARG
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
 argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|char
-operator|*
+argument|char *
 argument_list|,
-name|sk_value
+argument|sk_value
 argument_list|,
-name|STACK
-operator|*
-name|a
+argument|STACK *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|int
-name|b
+argument|int b
 argument_list|,
-name|b
-argument_list|, return
+argument|b
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_accept
+argument|SSL_accept
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
-argument_list|, return
-operator|-
+argument|a
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_clear
+argument|SSL_clear
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
-argument_list|, return
-operator|-
+argument|a
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
-name|char
-operator|*
+argument|char *
 argument_list|,
-name|SSL_CIPHER_description
+argument|SSL_CIPHER_description
 argument_list|,
-name|SSL_CIPHER
-operator|*
-name|a
+argument|SSL_CIPHER *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|char
-operator|*
-name|b
+argument|char *b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|int
-name|c
+argument|int c
 argument_list|,
-name|c
-argument_list|, return
+argument|c
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_connect
+argument|SSL_connect
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
-argument_list|, return
-operator|-
+argument|a
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_if
 if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|>=
 literal|0x00908000L
+end_if
+begin_comment
 comment|// 0.9.8 broke SC and BC by changing this function's signature.
+end_comment
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_CTX_check_private_key
+argument|SSL_CTX_check_private_key
 argument_list|,
-specifier|const
-name|SSL_CTX
-operator|*
-name|a
+argument|const SSL_CTX *a
 argument_list|,
-name|a
-argument_list|, return
-operator|-
+argument|a
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_else
 else|#
 directive|else
+end_else
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_CTX_check_private_key
+argument|SSL_CTX_check_private_key
 argument_list|,
-name|SSL_CTX
-operator|*
-name|a
+argument|SSL_CTX *a
 argument_list|,
-name|a
-argument_list|, return
-operator|-
+argument|a
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_macro
 name|DEFINEFUNC4
 argument_list|(
-name|long
+argument|long
 argument_list|,
-name|SSL_CTX_ctrl
+argument|SSL_CTX_ctrl
 argument_list|,
-name|SSL_CTX
-operator|*
-name|a
+argument|SSL_CTX *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|int
-name|b
+argument|int b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|long
-name|c
+argument|long c
 argument_list|,
-name|c
+argument|c
 argument_list|,
-name|void
-operator|*
-name|d
+argument|void *d
 argument_list|,
-name|d
-argument_list|, return
-operator|-
+argument|d
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|void
+argument|void
 argument_list|,
-name|SSL_CTX_free
+argument|SSL_CTX_free
 argument_list|,
-name|SSL_CTX
-operator|*
-name|a
+argument|SSL_CTX *a
 argument_list|,
-name|a
-argument_list|, return,
-name|DUMMYARG
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
 argument_list|)
+end_macro
+begin_if
 if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|>=
 literal|0x10000000L
+end_if
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|SSL_CTX
-operator|*
+argument|SSL_CTX *
 argument_list|,
-name|SSL_CTX_new
+argument|SSL_CTX_new
 argument_list|,
-specifier|const
-name|SSL_METHOD
-operator|*
-name|a
+argument|const SSL_METHOD *a
 argument_list|,
-name|a
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_else
 else|#
 directive|else
+end_else
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|SSL_CTX
-operator|*
+argument|SSL_CTX *
 argument_list|,
-name|SSL_CTX_new
+argument|SSL_CTX_new
 argument_list|,
-name|SSL_METHOD
-operator|*
-name|a
+argument|SSL_METHOD *a
 argument_list|,
-name|a
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_CTX_set_cipher_list
+argument|SSL_CTX_set_cipher_list
 argument_list|,
-name|SSL_CTX
-operator|*
-name|a
+argument|SSL_CTX *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-specifier|const
-name|char
-operator|*
-name|b
+argument|const char *b
 argument_list|,
-name|b
-argument_list|, return
-operator|-
+argument|b
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_CTX_set_default_verify_paths
+argument|SSL_CTX_set_default_verify_paths
 argument_list|,
-name|SSL_CTX
-operator|*
-name|a
+argument|SSL_CTX *a
 argument_list|,
-name|a
-argument_list|, return
-operator|-
+argument|a
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
-name|void
+argument|void
 argument_list|,
-name|SSL_CTX_set_verify
+argument|SSL_CTX_set_verify
 argument_list|,
-name|SSL_CTX
-operator|*
-name|a
+argument|SSL_CTX *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|int
-name|b
+argument|int b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|int
-argument_list|(
-operator|*
-name|c
+argument|int (*c)(int, X509_STORE_CTX *)
+argument_list|,
+argument|c
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
 argument_list|)
-argument_list|(
-name|int
-argument_list|,
-name|X509_STORE_CTX
-operator|*
-argument_list|)
-argument_list|,
-name|c
-argument_list|, return,
-name|DUMMYARG
-argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|void
+argument|void
 argument_list|,
-name|SSL_CTX_set_verify_depth
+argument|SSL_CTX_set_verify_depth
 argument_list|,
-name|SSL_CTX
-operator|*
-name|a
+argument|SSL_CTX *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|int
-name|b
+argument|int b
 argument_list|,
-name|b
-argument_list|, return,
-name|DUMMYARG
+argument|b
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
 argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_CTX_use_certificate
+argument|SSL_CTX_use_certificate
 argument_list|,
-name|SSL_CTX
-operator|*
-name|a
+argument|SSL_CTX *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|X509
-operator|*
-name|b
+argument|X509 *b
 argument_list|,
-name|b
-argument_list|, return
-operator|-
+argument|b
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_CTX_use_certificate_file
+argument|SSL_CTX_use_certificate_file
 argument_list|,
-name|SSL_CTX
-operator|*
-name|a
+argument|SSL_CTX *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-specifier|const
-name|char
-operator|*
-name|b
+argument|const char *b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|int
-name|c
+argument|int c
 argument_list|,
-name|c
-argument_list|, return
-operator|-
+argument|c
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_CTX_use_PrivateKey
+argument|SSL_CTX_use_PrivateKey
 argument_list|,
-name|SSL_CTX
-operator|*
-name|a
+argument|SSL_CTX *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|EVP_PKEY
-operator|*
-name|b
+argument|EVP_PKEY *b
 argument_list|,
-name|b
-argument_list|, return
-operator|-
+argument|b
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_CTX_use_RSAPrivateKey
+argument|SSL_CTX_use_RSAPrivateKey
 argument_list|,
-name|SSL_CTX
-operator|*
-name|a
+argument|SSL_CTX *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|RSA
-operator|*
-name|b
+argument|RSA *b
 argument_list|,
-name|b
-argument_list|, return
-operator|-
+argument|b
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_CTX_use_PrivateKey_file
+argument|SSL_CTX_use_PrivateKey_file
 argument_list|,
-name|SSL_CTX
-operator|*
-name|a
+argument|SSL_CTX *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-specifier|const
-name|char
-operator|*
-name|b
+argument|const char *b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|int
-name|c
+argument|int c
 argument_list|,
-name|c
-argument_list|, return
-operator|-
+argument|c
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|void
+argument|void
 argument_list|,
-name|SSL_free
+argument|SSL_free
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
-argument_list|, return,
-name|DUMMYARG
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
 argument_list|)
+end_macro
+begin_if
 if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|>=
 literal|0x00908000L
+end_if
+begin_comment
 comment|// 0.9.8 broke SC and BC by changing this function's signature.
+end_comment
+begin_macro
 DECL|variable|a
 DECL|variable|a
 name|DEFINEFUNC
 argument_list|(
-name|STACK_OF
-argument_list|(
-name|SSL_CIPHER
-argument_list|)
-operator|*
+argument|STACK_OF(SSL_CIPHER) *
 argument_list|,
-name|SSL_get_ciphers
+argument|SSL_get_ciphers
 argument_list|,
-specifier|const
-name|SSL
-operator|*
-name|a
+argument|const SSL *a
 argument_list|,
-name|a
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_else
 else|#
 directive|else
+end_else
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|STACK_OF
-argument_list|(
-name|SSL_CIPHER
-argument_list|)
-operator|*
+argument|STACK_OF(SSL_CIPHER) *
 argument_list|,
-name|SSL_get_ciphers
+argument|SSL_get_ciphers
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_if
 if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|>=
 literal|0x10000000L
+end_if
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-specifier|const
-name|SSL_CIPHER
-operator|*
+argument|const SSL_CIPHER *
 argument_list|,
-name|SSL_get_current_cipher
+argument|SSL_get_current_cipher
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_else
 else|#
 directive|else
+end_else
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|SSL_CIPHER
-operator|*
+argument|SSL_CIPHER *
 argument_list|,
-name|SSL_get_current_cipher
+argument|SSL_get_current_cipher
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_get_error
+argument|SSL_get_error
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|int
-name|b
+argument|int b
 argument_list|,
-name|b
-argument_list|, return
-operator|-
+argument|b
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|STACK_OF
-argument_list|(
-name|X509
+argument_list|,
+argument|return
 argument_list|)
-operator|*
-argument_list|,
-name|SSL_get_peer_cert_chain
-argument_list|,
-name|SSL
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|, return
-literal|0
-argument_list|, return)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|X509
-operator|*
+argument|STACK_OF(X509) *
 argument_list|,
-name|SSL_get_peer_certificate
+argument|SSL_get_peer_cert_chain
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|X509 *
+argument_list|,
+argument|SSL_get_peer_certificate
+argument_list|,
+argument|SSL *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_if
 if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|>=
 literal|0x00908000L
+end_if
+begin_comment
 comment|// 0.9.8 broke SC and BC by changing this function's signature.
+end_comment
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|long
+argument|long
 argument_list|,
-name|SSL_get_verify_result
+argument|SSL_get_verify_result
 argument_list|,
-specifier|const
-name|SSL
-operator|*
-name|a
+argument|const SSL *a
 argument_list|,
-name|a
-argument_list|, return
-operator|-
+argument|a
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_else
 else|#
 directive|else
+end_else
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|long
+argument|long
 argument_list|,
-name|SSL_get_verify_result
+argument|SSL_get_verify_result
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
-argument_list|, return
-operator|-
+argument|a
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_library_init
+argument|SSL_library_init
 argument_list|,
-name|void
+argument|void
 argument_list|,
-name|DUMMYARG
-argument_list|, return
-operator|-
+argument|DUMMYARG
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|void
 argument_list|,
-name|SSL_load_error_strings
-argument_list|,
-name|void
-argument_list|,
-name|DUMMYARG
-argument_list|, return,
-name|DUMMYARG
+argument|return
 argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|SSL
-operator|*
+argument|void
 argument_list|,
-name|SSL_new
+argument|SSL_load_error_strings
 argument_list|,
-name|SSL_CTX
-operator|*
-name|a
+argument|void
 argument_list|,
-name|a
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|SSL *
+argument_list|,
+argument|SSL_new
+argument_list|,
+argument|SSL_CTX *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_if
 if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
@@ -1890,917 +1952,1055 @@ name|defined
 argument_list|(
 name|OPENSSL_NO_TLSEXT
 argument_list|)
+end_if
+begin_macro
 name|DEFINEFUNC4
 argument_list|(
-name|long
+argument|long
 argument_list|,
-name|SSL_ctrl
+argument|SSL_ctrl
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|int
-name|cmd
+argument|int cmd
 argument_list|,
-name|cmd
+argument|cmd
 argument_list|,
-name|long
-name|larg
+argument|long larg
 argument_list|,
-name|larg
+argument|larg
 argument_list|,
-specifier|const
-name|void
-operator|*
-name|parg
+argument|const void *parg
 argument_list|,
-name|parg
-argument_list|, return
-operator|-
+argument|parg
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_read
+argument|SSL_read
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|void
-operator|*
-name|b
+argument|void *b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|int
-name|c
+argument|int c
 argument_list|,
-name|c
-argument_list|, return
-operator|-
+argument|c
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
-name|void
+argument|void
 argument_list|,
-name|SSL_set_bio
+argument|SSL_set_bio
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|BIO
-operator|*
-name|b
+argument|BIO *b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|BIO
-operator|*
-name|c
+argument|BIO *c
 argument_list|,
-name|c
-argument_list|, return,
-name|DUMMYARG
+argument|c
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
 argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|void
+argument|void
 argument_list|,
-name|SSL_set_accept_state
+argument|SSL_set_accept_state
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
-argument_list|, return,
-name|DUMMYARG
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
 argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|void
+argument|void
 argument_list|,
-name|SSL_set_connect_state
+argument|SSL_set_connect_state
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
-argument_list|, return,
-name|DUMMYARG
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
 argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_shutdown
+argument|SSL_shutdown
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
-argument_list|, return
-operator|-
+argument|a
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_if
 if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|>=
 literal|0x10000000L
+end_if
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-specifier|const
-name|SSL_METHOD
-operator|*
+argument|const SSL_METHOD *
 argument_list|,
-name|SSLv2_client_method
+argument|SSLv2_client_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-specifier|const
-name|SSL_METHOD
-operator|*
+argument|const SSL_METHOD *
 argument_list|,
-name|SSLv3_client_method
+argument|SSLv3_client_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-specifier|const
-name|SSL_METHOD
-operator|*
+argument|const SSL_METHOD *
 argument_list|,
-name|SSLv23_client_method
+argument|SSLv23_client_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-specifier|const
-name|SSL_METHOD
-operator|*
+argument|const SSL_METHOD *
 argument_list|,
-name|TLSv1_client_method
+argument|TLSv1_client_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-specifier|const
-name|SSL_METHOD
-operator|*
+argument|const SSL_METHOD *
 argument_list|,
-name|SSLv2_server_method
+argument|SSLv2_server_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-specifier|const
-name|SSL_METHOD
-operator|*
+argument|const SSL_METHOD *
 argument_list|,
-name|SSLv3_server_method
+argument|SSLv3_server_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-specifier|const
-name|SSL_METHOD
-operator|*
+argument|const SSL_METHOD *
 argument_list|,
-name|SSLv23_server_method
+argument|SSLv23_server_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-specifier|const
-name|SSL_METHOD
-operator|*
+argument|const SSL_METHOD *
 argument_list|,
-name|TLSv1_server_method
+argument|TLSv1_server_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_else
 else|#
 directive|else
+end_else
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|SSL_METHOD
-operator|*
+argument|SSL_METHOD *
 argument_list|,
-name|SSLv2_client_method
+argument|SSLv2_client_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|SSL_METHOD
-operator|*
+argument|SSL_METHOD *
 argument_list|,
-name|SSLv3_client_method
+argument|SSLv3_client_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|SSL_METHOD
-operator|*
+argument|SSL_METHOD *
 argument_list|,
-name|SSLv23_client_method
+argument|SSLv23_client_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|SSL_METHOD
-operator|*
+argument|SSL_METHOD *
 argument_list|,
-name|TLSv1_client_method
+argument|TLSv1_client_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|SSL_METHOD
-operator|*
+argument|SSL_METHOD *
 argument_list|,
-name|SSLv2_server_method
+argument|SSLv2_server_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|SSL_METHOD
-operator|*
+argument|SSL_METHOD *
 argument_list|,
-name|SSLv3_server_method
+argument|SSLv3_server_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|SSL_METHOD
-operator|*
+argument|SSL_METHOD *
 argument_list|,
-name|SSLv23_server_method
+argument|SSLv23_server_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|SSL_METHOD
-operator|*
+argument|SSL_METHOD *
 argument_list|,
-name|TLSv1_server_method
+argument|TLSv1_server_method
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_write
+argument|SSL_write
 argument_list|,
-name|SSL
-operator|*
-name|a
+argument|SSL *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-specifier|const
-name|void
-operator|*
-name|b
+argument|const void *b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|int
-name|c
+argument|int c
 argument_list|,
-name|c
-argument_list|, return
-operator|-
+argument|c
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|X509_cmp
+argument|X509_cmp
 argument_list|,
-name|X509
-operator|*
-name|a
+argument|X509 *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|X509
-operator|*
-name|b
+argument|X509 *b
 argument_list|,
-name|b
-argument_list|, return
-operator|-
+argument|b
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_ifndef
 ifndef|#
 directive|ifndef
 name|SSLEAY_MACROS
+end_ifndef
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|X509
-operator|*
+argument|X509 *
 argument_list|,
-name|X509_dup
+argument|X509_dup
 argument_list|,
-name|X509
-operator|*
-name|a
+argument|X509 *a
 argument_list|,
-name|a
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|ASN1_OBJECT
-operator|*
+argument|ASN1_OBJECT *
 argument_list|,
-name|X509_EXTENSION_get_object
+argument|X509_EXTENSION_get_object
 argument_list|,
-name|X509_EXTENSION
-operator|*
-name|a
+argument|X509_EXTENSION *a
 argument_list|,
-name|a
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|void
+argument|void
 argument_list|,
-name|X509_free
+argument|X509_free
 argument_list|,
-name|X509
-operator|*
-name|a
+argument|X509 *a
 argument_list|,
-name|a
-argument_list|, return,
-name|DUMMYARG
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
 argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|X509_EXTENSION
-operator|*
+argument|X509_EXTENSION *
 argument_list|,
-name|X509_get_ext
+argument|X509_get_ext
 argument_list|,
-name|X509
-operator|*
-name|a
+argument|X509 *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|int
-name|b
+argument|int b
 argument_list|,
-name|b
-argument_list|, return
+argument|b
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|X509_get_ext_count
+argument|X509_get_ext_count
 argument_list|,
-name|X509
-operator|*
-name|a
+argument|X509 *a
 argument_list|,
-name|a
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC4
 argument_list|(
-name|void
-operator|*
+argument|void *
 argument_list|,
-name|X509_get_ext_d2i
+argument|X509_get_ext_d2i
 argument_list|,
-name|X509
-operator|*
-name|a
+argument|X509 *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|int
-name|b
+argument|int b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|int
-operator|*
-name|c
+argument|int *c
 argument_list|,
-name|c
+argument|c
 argument_list|,
-name|int
-operator|*
-name|d
+argument|int *d
 argument_list|,
-name|d
-argument_list|, return
+argument|d
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|X509_NAME
-operator|*
 argument_list|,
-name|X509_get_issuer_name
-argument_list|,
-name|X509
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|, return
-literal|0
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|X509_NAME
-operator|*
-argument_list|,
-name|X509_get_subject_name
-argument_list|,
-name|X509
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|, return
-literal|0
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|int
-argument_list|,
-name|X509_verify_cert
-argument_list|,
-name|X509_STORE_CTX
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|, return
-operator|-
-literal|1
-argument_list|, return)
-name|DEFINEFUNC3
-argument_list|(
-name|char
-operator|*
-argument_list|,
-name|X509_NAME_oneline
-argument_list|,
-name|X509_NAME
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|,
-name|char
-operator|*
-name|b
-argument_list|,
-name|b
-argument_list|,
-name|int
-name|c
-argument_list|,
-name|c
-argument_list|, return
-literal|0
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|EVP_PKEY
-operator|*
-argument_list|,
-name|X509_PUBKEY_get
-argument_list|,
-name|X509_PUBKEY
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|, return
-literal|0
-argument_list|, return)
-name|DEFINEFUNC
-argument_list|(
-name|void
-argument_list|,
-name|X509_STORE_free
-argument_list|,
-name|X509_STORE
-operator|*
-name|a
-argument_list|,
-name|a
-argument_list|, return,
-name|DUMMYARG
+argument|return
 argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|X509_STORE
-operator|*
+argument|X509_NAME *
 argument_list|,
-name|X509_STORE_new
+argument|X509_get_issuer_name
 argument_list|,
-name|DUMMYARG
+argument|X509 *a
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|a
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|X509_NAME *
+argument_list|,
+argument|X509_get_subject_name
+argument_list|,
+argument|X509 *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|int
+argument_list|,
+argument|X509_verify_cert
+argument_list|,
+argument|X509_STORE_CTX *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|int
+argument_list|,
+argument|X509_NAME_entry_count
+argument_list|,
+argument|X509_NAME *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|int
+argument|X509_NAME_ENTRY *
 argument_list|,
-name|X509_STORE_add_cert
+argument|X509_NAME_get_entry
 argument_list|,
-name|X509_STORE
-operator|*
-name|a
+argument|X509_NAME *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|X509
-operator|*
-name|b
+argument|int b
 argument_list|,
-name|b
-argument_list|, return
+argument|b
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|void
+argument|ASN1_STRING *
 argument_list|,
-name|X509_STORE_CTX_free
+argument|X509_NAME_ENTRY_get_data
 argument_list|,
-name|X509_STORE_CTX
-operator|*
-name|a
+argument|X509_NAME_ENTRY *a
 argument_list|,
-name|a
-argument_list|, return,
-name|DUMMYARG
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
 argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|ASN1_OBJECT *
+argument_list|,
+argument|X509_NAME_ENTRY_get_object
+argument_list|,
+argument|X509_NAME_ENTRY *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|EVP_PKEY *
+argument_list|,
+argument|X509_PUBKEY_get
+argument_list|,
+argument|X509_PUBKEY *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|void
+argument_list|,
+argument|X509_STORE_free
+argument_list|,
+argument|X509_STORE *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|X509_STORE *
+argument_list|,
+argument|X509_STORE_new
+argument_list|,
+argument|DUMMYARG
+argument_list|,
+argument|DUMMYARG
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|int
+argument_list|,
+argument|X509_STORE_add_cert
+argument_list|,
+argument|X509_STORE *a
+argument_list|,
+argument|a
+argument_list|,
+argument|X509 *b
+argument_list|,
+argument|b
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|void
+argument_list|,
+argument|X509_STORE_CTX_free
+argument_list|,
+argument|X509_STORE_CTX *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC4
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|X509_STORE_CTX_init
+argument|X509_STORE_CTX_init
 argument_list|,
-name|X509_STORE_CTX
-operator|*
-name|a
+argument|X509_STORE_CTX *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|X509_STORE
-operator|*
-name|b
+argument|X509_STORE *b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|X509
-operator|*
-name|c
+argument|X509 *c
 argument_list|,
-name|c
+argument|c
 argument_list|,
-name|STACK_OF
-argument_list|(
-name|X509
-argument_list|)
-operator|*
-name|d
+argument|STACK_OF(X509) *d
 argument_list|,
-name|d
-argument_list|, return
-operator|-
+argument|d
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|X509_STORE_CTX_set_purpose
+argument|X509_STORE_CTX_set_purpose
 argument_list|,
-name|X509_STORE_CTX
-operator|*
-name|a
+argument|X509_STORE_CTX *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|int
-name|b
+argument|int b
 argument_list|,
-name|b
-argument_list|, return
-operator|-
+argument|b
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|X509_STORE_CTX
-operator|*
+argument|X509_STORE_CTX *
 argument_list|,
-name|X509_STORE_CTX_new
+argument|X509_STORE_CTX_new
 argument_list|,
-name|DUMMYARG
+argument|DUMMYARG
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|SSLEAY_MACROS
+end_ifdef
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|i2d_DSAPrivateKey
+argument|i2d_DSAPrivateKey
 argument_list|,
-specifier|const
-name|DSA
-operator|*
-name|a
+argument|const DSA *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|unsigned
-name|char
-operator|*
-operator|*
-name|b
+argument|unsigned char **b
 argument_list|,
-name|b
-argument_list|, return
-operator|-
+argument|b
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC2
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|i2d_RSAPrivateKey
+argument|i2d_RSAPrivateKey
 argument_list|,
-specifier|const
-name|RSA
-operator|*
-name|a
+argument|const RSA *a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|unsigned
-name|char
-operator|*
-operator|*
-name|b
+argument|unsigned char **b
 argument_list|,
-name|b
-argument_list|, return
-operator|-
+argument|b
+argument_list|,
+argument|return -
 literal|1
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
-name|RSA
-operator|*
+argument|RSA *
 argument_list|,
-name|d2i_RSAPrivateKey
+argument|d2i_RSAPrivateKey
 argument_list|,
-name|RSA
-operator|*
-operator|*
-name|a
+argument|RSA **a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|unsigned
-name|char
-operator|*
-operator|*
-name|b
+argument|unsigned char **b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|long
-name|c
+argument|long c
 argument_list|,
-name|c
-argument_list|, return
+argument|c
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
-name|DSA
-operator|*
+argument|DSA *
 argument_list|,
-name|d2i_DSAPrivateKey
+argument|d2i_DSAPrivateKey
 argument_list|,
-name|DSA
-operator|*
-operator|*
-name|a
+argument|DSA **a
 argument_list|,
-name|a
+argument|a
 argument_list|,
-name|unsigned
-name|char
-operator|*
-operator|*
-name|b
+argument|unsigned char **b
 argument_list|,
-name|b
+argument|b
 argument_list|,
-name|long
-name|c
+argument|long c
 argument_list|,
-name|c
-argument_list|, return
+argument|c
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|void
+argument|void
 argument_list|,
-name|OPENSSL_add_all_algorithms_noconf
+argument|OPENSSL_add_all_algorithms_noconf
 argument_list|,
-name|void
+argument|void
 argument_list|,
-name|DUMMYARG
-argument_list|, return,
-name|DUMMYARG
+argument|DUMMYARG
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
 argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|void
+argument|void
 argument_list|,
-name|OPENSSL_add_all_algorithms_conf
+argument|OPENSSL_add_all_algorithms_conf
 argument_list|,
-name|void
+argument|void
 argument_list|,
-name|DUMMYARG
-argument_list|, return,
-name|DUMMYARG
+argument|DUMMYARG
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
 argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC3
 argument_list|(
-name|int
+argument|int
 argument_list|,
-name|SSL_CTX_load_verify_locations
+argument|SSL_CTX_load_verify_locations
 argument_list|,
-name|SSL_CTX
-operator|*
-name|ctx
+argument|SSL_CTX *ctx
 argument_list|,
-name|ctx
+argument|ctx
 argument_list|,
-specifier|const
-name|char
-operator|*
-name|CAfile
+argument|const char *CAfile
 argument_list|,
-name|CAfile
+argument|CAfile
 argument_list|,
-specifier|const
-name|char
-operator|*
-name|CApath
+argument|const char *CApath
 argument_list|,
-name|CApath
-argument_list|, return
+argument|CApath
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
-name|long
+argument|long
 argument_list|,
-name|SSLeay
+argument|SSLeay
 argument_list|,
-name|void
+argument|void
 argument_list|,
-name|DUMMYARG
-argument_list|, return
+argument|DUMMYARG
+argument_list|,
+argument|return
 literal|0
-argument_list|, return)
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|Q_OS_SYMBIAN
+end_ifdef
+begin_define
 DECL|macro|RESOLVEFUNC
 define|#
 directive|define
@@ -2814,8 +3014,12 @@ name|lib
 parameter_list|)
 define|\
 value|if (!(_q_##func = _q_PTR_##func(lib->resolve(#ordinal)))) \         qWarning("QSslSocket: cannot resolve "#func);
+end_define
+begin_else
 else|#
 directive|else
+end_else
+begin_define
 define|#
 directive|define
 name|RESOLVEFUNC
@@ -2824,58 +3028,74 @@ name|func
 parameter_list|)
 define|\
 value|if (!(_q_##func = _q_PTR_##func(libs.first->resolve(#func)))     \&& !(_q_##func = _q_PTR_##func(libs.second->resolve(#func)))) \         qWarning("QSslSocket: cannot resolve "#func);
+end_define
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_if
 if|#
 directive|if
 operator|!
 name|defined
 name|QT_LINKED_OPENSSL
+end_if
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_NO_LIBRARY
+end_ifdef
+begin_function
 name|bool
 name|q_resolveOpenSslSymbols
-argument_list|()
-argument_list|{
+parameter_list|()
+block|{
 name|qWarning
 argument_list|(
 literal|"QSslSocket: unable to resolve symbols. "
 literal|"QT_NO_LIBRARY is defined which means runtime resolving of "
 literal|"libraries won't work."
 argument_list|)
-argument_list|;
+expr_stmt|;
 name|qWarning
 argument_list|(
 literal|"Either compile Qt statically or with support for runtime resolving "
 literal|"of libraries."
 argument_list|)
-argument_list|;     return
+expr_stmt|;
+return|return
 literal|false
-argument_list|; }
+return|;
+block|}
+end_function
+begin_else
 else|#
 directive|else
+end_else
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|Q_OS_UNIX
-decl|static
+end_ifdef
+begin_function
+specifier|static
 name|bool
 name|libGreaterThan
-argument_list|(
+parameter_list|(
 specifier|const
 name|QString
-operator|&
+modifier|&
 name|lhs
-argument_list|,
+parameter_list|,
 specifier|const
 name|QString
-operator|&
+modifier|&
 name|rhs
-argument_list|)
-argument_list|{
+parameter_list|)
+block|{
 name|QStringList
 name|lhsparts
-operator|=
+init|=
 name|lhs
 operator|.
 name|split
@@ -2885,10 +3105,10 @@ argument_list|(
 literal|'.'
 argument_list|)
 argument_list|)
-argument_list|;
+decl_stmt|;
 name|QStringList
 name|rhsparts
-operator|=
+init|=
 name|rhs
 operator|.
 name|split
@@ -2898,7 +3118,7 @@ argument_list|(
 literal|'.'
 argument_list|)
 argument_list|)
-argument_list|;
+decl_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|lhsparts
@@ -2915,23 +3135,24 @@ argument_list|()
 operator|>
 literal|1
 argument_list|)
-argument_list|;      for
-operator|(
+expr_stmt|;
+for|for
+control|(
 name|int
 name|i
-operator|=
+init|=
 literal|1
-expr|;
+init|;
 name|i
 operator|<
 name|rhsparts
 operator|.
 name|count
 argument_list|()
-expr|;
+condition|;
 operator|++
 name|i
-operator|)
+control|)
 block|{
 if|if
 condition|(
@@ -2948,17 +3169,17 @@ literal|false
 return|;
 name|bool
 name|ok
-operator|=
+init|=
 literal|false
-argument_list|;
+decl_stmt|;
 name|int
 name|b
-operator|=
+init|=
 literal|0
-argument_list|;
+decl_stmt|;
 name|int
 name|a
-operator|=
+init|=
 name|lhsparts
 operator|.
 name|at
@@ -2971,10 +3192,11 @@ argument_list|(
 operator|&
 name|ok
 argument_list|)
-argument_list|;         if
-operator|(
+decl_stmt|;
+if|if
+condition|(
 name|ok
-operator|)
+condition|)
 name|b
 operator|=
 name|rhsparts
@@ -2989,10 +3211,11 @@ argument_list|(
 operator|&
 name|ok
 argument_list|)
-argument_list|;         if
-operator|(
+expr_stmt|;
+if|if
+condition|(
 name|ok
-operator|)
+condition|)
 block|{
 comment|// both toInt succeeded
 if|if
@@ -3007,9 +3230,8 @@ name|a
 operator|>
 name|b
 return|;
-end_decl_stmt
-begin_block
-unit|} else
+block|}
+else|else
 block|{
 comment|// compare as strings;
 if|if
@@ -3045,21 +3267,16 @@ name|i
 argument_list|)
 return|;
 block|}
-end_block
-begin_comment
-unit|}
+block|}
 comment|// they compared strictly equally so far
-end_comment
-begin_comment
 comment|// lhs cannot be less than rhs
-end_comment
-begin_expr_stmt
-unit|return
+return|return
 literal|true
-expr_stmt|;
-end_expr_stmt
+return|;
+block|}
+end_function
 begin_function
-unit|}  static
+specifier|static
 name|QStringList
 name|findAllLibSsl
 parameter_list|()
@@ -4891,6 +5108,10 @@ argument|ASN1_STRING_length
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(
+argument|ASN1_STRING_to_UTF8
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
 argument|BIO_ctrl
 argument_list|)
 name|RESOLVEFUNC
@@ -5248,7 +5469,19 @@ argument|TLSv1_server_method
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(
-argument|X509_NAME_oneline
+argument|X509_NAME_entry_count
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|X509_NAME_get_entry
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|X509_NAME_ENTRY_get_data
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|X509_NAME_ENTRY_get_object
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(
