@@ -299,13 +299,6 @@ name|qt_last_mouse_receiver
 operator|=
 name|m_widget
 expr_stmt|;
-name|printf
-argument_list|(
-literal|"Enter event: %p\n"
-argument_list|,
-name|m_widget
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_function

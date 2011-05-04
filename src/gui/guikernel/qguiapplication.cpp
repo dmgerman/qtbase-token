@@ -214,19 +214,6 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|member|qt_last_mouse_receiver
-name|QPointer
-argument_list|<
-name|QWidget
-argument_list|>
-name|QGuiApplicationPrivate
-operator|::
-name|qt_last_mouse_receiver
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|member|qt_modal_stack
 name|QWidgetList
 name|QGuiApplicationPrivate
@@ -2723,8 +2710,6 @@ modifier|*
 name|e
 parameter_list|)
 block|{
-comment|//    QGuiApplicationPrivate::dispatchEnterLeave(e->enter.data(),0);
-comment|//    qt_last_mouse_receiver = e->enter.data();
 name|QEvent
 name|event
 argument_list|(

@@ -382,15 +382,6 @@ name|bool
 name|app_do_modal
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
-specifier|static
-name|QPointer
-operator|<
-name|QWidget
-operator|>
-name|qt_last_mouse_receiver
-expr_stmt|;
-end_expr_stmt
 begin_decl_stmt
 specifier|static
 name|QWidgetList
