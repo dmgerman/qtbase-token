@@ -148,7 +148,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsysteminterface_qpa_p.h"
+file|"private/qwindowsysteminterface_qpa_p.h"
 end_include
 begin_include
 include|#

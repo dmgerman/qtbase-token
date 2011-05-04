@@ -115,7 +115,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qdnd_p.h"
+file|"private/qdnd_p.h"
 end_include
 begin_include
 include|#
@@ -155,7 +155,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qkeymapper_p.h"
+file|"private/qkeymapper_p.h"
 end_include
 begin_ifdef
 ifdef|#
@@ -249,7 +249,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qevent_p.h"
+file|"private/qevent_p.h"
 end_include
 begin_include
 include|#

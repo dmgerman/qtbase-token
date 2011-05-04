@@ -70,7 +70,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qapplication_p.h"
+file|"private/qapplication_p.h"
 end_include
 begin_include
 include|#
@@ -1409,7 +1409,7 @@ operator|->
 name|ignore
 argument_list|()
 expr_stmt|;
-name|QApplication
+name|QCoreApplication
 operator|::
 name|sendEvent
 argument_list|(

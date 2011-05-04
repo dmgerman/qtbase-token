@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qapplication_p.h"
+file|"private/qapplication_p.h"
 end_include
 begin_include
 include|#

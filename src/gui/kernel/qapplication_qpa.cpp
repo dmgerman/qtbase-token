@@ -29,7 +29,7 @@ end_if
 begin_include
 include|#
 directive|include
-file|"qeventdispatcher_glib_qpa_p.h"
+file|"private/qeventdispatcher_glib_qpa_p.h"
 end_include
 begin_endif
 endif|#
@@ -38,7 +38,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|"qeventdispatcher_qpa_p.h"
+file|"private/qeventdispatcher_qpa_p.h"
 end_include
 begin_ifndef
 ifndef|#
@@ -72,7 +72,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qplatformintegrationfactory_qpa_p.h"
+file|"private/qplatformintegrationfactory_qpa_p.h"
 end_include
 begin_include
 include|#
@@ -102,7 +102,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsysteminterface_qpa_p.h"
+file|"private/qwindowsysteminterface_qpa_p.h"
 end_include
 begin_include
 include|#
