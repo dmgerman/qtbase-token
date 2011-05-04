@@ -3502,6 +3502,15 @@ name|PaintDeviceMetric
 argument_list|)
 decl|const
 decl_stmt|;
+name|void
+name|init
+argument_list|(
+name|QPainter
+operator|*
+name|painter
+argument_list|)
+decl|const
+decl_stmt|;
 name|virtual
 name|void
 name|inputMethodEvent

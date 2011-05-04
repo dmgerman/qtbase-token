@@ -91,6 +91,20 @@ endif|#
 directive|endif
 end_endif
 begin_function
+DECL|function|init
+name|void
+name|QPaintDevice
+operator|::
+name|init
+parameter_list|(
+name|QPainter
+modifier|*
+name|painter
+parameter_list|)
+specifier|const
+block|{ }
+end_function
+begin_function
 DECL|function|qt_paint_device_metric
 name|Q_GUI_EXPORT
 name|int

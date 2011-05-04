@@ -356,9 +356,9 @@ name|void
 name|initFrom
 parameter_list|(
 specifier|const
-name|QWidget
+name|QPaintDevice
 modifier|*
-name|widget
+name|device
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -3666,6 +3666,12 @@ operator|>
 name|d_ptr
 expr_stmt|;
 end_expr_stmt
+begin_decl_stmt
+name|friend
+name|class
+name|QWidget
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|friend
 name|class
