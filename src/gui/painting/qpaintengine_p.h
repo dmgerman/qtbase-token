@@ -93,7 +93,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|,
-name|currentClipWidget
+name|currentClipDevice
 argument_list|(
 literal|0
 argument_list|)
@@ -133,9 +133,9 @@ decl_stmt|;
 name|QTransform
 name|systemTransform
 decl_stmt|;
-name|QWidget
+name|QPaintDevice
 modifier|*
-name|currentClipWidget
+name|currentClipDevice
 decl_stmt|;
 name|uint
 name|hasSystemTransform
