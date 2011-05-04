@@ -2720,10 +2720,34 @@ name|QWindowSystemInterfacePrivate
 operator|::
 name|EnterEvent
 modifier|*
+name|e
 parameter_list|)
 block|{
 comment|//    QGuiApplicationPrivate::dispatchEnterLeave(e->enter.data(),0);
 comment|//    qt_last_mouse_receiver = e->enter.data();
+name|QEvent
+name|event
+argument_list|(
+name|QEvent
+operator|::
+name|Enter
+argument_list|)
+decl_stmt|;
+name|QApplication
+operator|::
+name|sendSpontaneousEvent
+argument_list|(
+name|e
+operator|->
+name|enter
+operator|.
+name|data
+argument_list|()
+argument_list|,
+operator|&
+name|event
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -2737,20 +2761,31 @@ name|QWindowSystemInterfacePrivate
 operator|::
 name|LeaveEvent
 modifier|*
+name|e
 parameter_list|)
 block|{
-comment|//    QGuiApplicationPrivate::dispatchEnterLeave(0,qt_last_mouse_receiver);
-if|#
-directive|if
-literal|0
-block|if (e->leave.data()&& !e->leave.data()->isAncestorOf(qt_last_mouse_receiver))
-comment|//(???) this should not happen
-block|QGuiApplicationPrivate::dispatchEnterLeave(0, e->leave.data());
-endif|#
-directive|endif
-name|qt_last_mouse_receiver
-operator|=
-literal|0
+name|QEvent
+name|event
+argument_list|(
+name|QEvent
+operator|::
+name|Leave
+argument_list|)
+decl_stmt|;
+name|QApplication
+operator|::
+name|sendSpontaneousEvent
+argument_list|(
+name|e
+operator|->
+name|leave
+operator|.
+name|data
+argument_list|()
+argument_list|,
+operator|&
+name|event
+argument_list|)
 expr_stmt|;
 block|}
 end_function

@@ -74,6 +74,13 @@ operator|*
 argument_list|)
 block|;
 name|void
+name|handleEnterLeaveEvent
+argument_list|(
+name|QEvent
+operator|*
+argument_list|)
+block|;
+name|void
 name|handleKeyEvent
 argument_list|(
 name|QKeyEvent
