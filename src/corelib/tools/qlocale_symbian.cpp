@@ -794,7 +794,8 @@ block|}
 block|,
 comment|// 161 ### Not supported by CLDR
 block|{
-name|ELangEnglish_India
+literal|230
+comment|/*ELangEnglish_India*/
 block|,
 literal|"en_IN"
 block|,
