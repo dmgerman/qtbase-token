@@ -397,7 +397,7 @@ directive|ifdef
 name|Q_OS_SYMBIAN
 name|QSKIP
 argument_list|(
-literal|"Symbian socket engine psuedo descriptors can't be used for QSocketNotifier"
+literal|"Symbian socket engine pseudo descriptors can't be used for QSocketNotifier"
 argument_list|,
 name|SkipAll
 argument_list|)
