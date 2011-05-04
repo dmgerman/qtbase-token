@@ -59,6 +59,11 @@ operator|::
 name|RasterSurface
 argument_list|)
 block|,
+name|parentWindow
+argument_list|(
+literal|0
+argument_list|)
+block|,
 name|platformWindow
 argument_list|(
 literal|0

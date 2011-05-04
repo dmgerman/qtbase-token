@@ -26,6 +26,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qlocale.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qpoint.h>
 end_include
 begin_include
