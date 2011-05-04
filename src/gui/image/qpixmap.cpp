@@ -2518,12 +2518,10 @@ name|grabWidget
 parameter_list|(
 name|QPaintDevice
 modifier|*
-name|widget
 parameter_list|,
 specifier|const
 name|QRect
 modifier|&
-name|rect
 parameter_list|)
 block|{
 comment|// ### Qt5: should we keep or remove this method?
