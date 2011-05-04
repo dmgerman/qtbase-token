@@ -75,7 +75,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qapplication.h>
+file|<qguiapplication.h>
 end_include
 begin_include
 include|#
@@ -9191,7 +9191,7 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return
-name|QApplication
+name|QGuiApplication
 operator|::
 name|keyboardInputDirection
 argument_list|()

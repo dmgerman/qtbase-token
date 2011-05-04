@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qapplication.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qpainter.h>
 end_include
 begin_include

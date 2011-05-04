@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qapplication.h"
+file|"qguiapplication.h"
 end_include
 begin_include
 include|#
@@ -150,7 +150,7 @@ argument_list|)
 block|{
 name|direction
 operator|=
-name|QApplication
+name|QGuiApplication
 operator|::
 name|layoutDirection
 argument_list|()
