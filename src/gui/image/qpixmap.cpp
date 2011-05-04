@@ -2303,20 +2303,31 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// #### Qt5: needs fixing
+comment|/*!     \fn void QPixmap::fill(const QPaintDevice *device, int x, int y)     \overload      \obsolete      Fills the pixmap with the \a device's background color or pixmap.     The given point, (\a x, \a y), defines an offset in widget     coordinates to which the pixmap's top-left pixel will be mapped     to. */
 end_comment
-begin_comment
-comment|// The implementation (and documentation) of
-end_comment
-begin_comment
-comment|// QPixmap::fill(const QWidget *, const QPoint&)
-end_comment
-begin_comment
-comment|// is in qwidget.cpp
-end_comment
-begin_comment
-comment|/*!     \fn void QPixmap::fill(const QWidget *widget, int x, int y)     \overload      Fills the pixmap with the \a widget's background color or pixmap.     The given point, (\a x, \a y), defines an offset in widget     coordinates to which the pixmap's top-left pixel will be mapped     to. */
-end_comment
+begin_function
+DECL|function|fill
+name|void
+name|QPixmap
+operator|::
+name|fill
+parameter_list|(
+specifier|const
+name|QPaintDevice
+modifier|*
+parameter_list|,
+specifier|const
+name|QPoint
+modifier|&
+parameter_list|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QPixmap::fill(const QPaintDevice *device, const QPoint&offset) is deprecated, ignored"
+expr_stmt|;
+block|}
+end_function
 begin_comment
 comment|/*!     Fills the pixmap with the given \a color.      The effect of this function is undefined when the pixmap is     being painted on.      \sa {QPixmap#Pixmap Transformations}{Pixmap Transformations} */
 end_comment
@@ -2496,7 +2507,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \fn QPixmap QPixmap::grabWidget(QWidget * widget, const QRect&rectangle)      Creates a pixmap and paints the given \a widget, restricted by the     given \a rectangle, in it. If the \a widget has any children, then     they are also painted in the appropriate positions.      If no rectangle is specified (the default) the entire widget is     painted.      If \a widget is 0, the specified rectangle doesn't overlap the     widget's rectangle, or an error occurs, the function will return a     null QPixmap.  If the rectangle is a superset of the given \a     widget, the areas outside the \a widget are covered with the     widget's background.      This function actually asks \a widget to paint itself (and its     children to paint themselves) by calling paintEvent() with painter     redirection turned on. But QPixmap also provides the grabWindow()     function which is a bit faster by grabbing pixels directly off the     screen. In addition, if there are overlaying windows,     grabWindow(), unlike grabWidget(), will see them.      \warning Do not grab a widget from its QWidget::paintEvent().     However, it is safe to grab a widget from another widget's     \l {QWidget::}{paintEvent()}.      \sa grabWindow() */
+comment|/*!     \fn QPixmap QPixmap::grabWidget(QPaintDevice * widget, const QRect&rectangle)      Creates a pixmap and paints the given \a widget, restricted by the     given \a rectangle, in it. If the \a widget has any children, then     they are also painted in the appropriate positions.      If no rectangle is specified (the default) the entire widget is     painted.      If \a widget is 0, the specified rectangle doesn't overlap the     widget's rectangle, or an error occurs, the function will return a     null QPixmap.  If the rectangle is a superset of the given \a     widget, the areas outside the \a widget are covered with the     widget's background.      This function actually asks \a widget to paint itself (and its     children to paint themselves) by calling paintEvent() with painter     redirection turned on. But QPixmap also provides the grabWindow()     function which is a bit faster by grabbing pixels directly off the     screen. In addition, if there are overlaying windows,     grabWindow(), unlike grabWidget(), will see them.      \warning Do not grab a widget from its QWidget::paintEvent().     However, it is safe to grab a widget from another widget's     \l {QWidget::}{paintEvent()}.      \sa grabWindow() */
 end_comment
 begin_function
 DECL|function|grabWidget
@@ -2505,7 +2516,7 @@ name|QPixmap
 operator|::
 name|grabWidget
 parameter_list|(
-name|QWidget
+name|QPaintDevice
 modifier|*
 name|widget
 parameter_list|,

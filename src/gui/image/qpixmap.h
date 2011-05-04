@@ -306,9 +306,9 @@ name|void
 name|fill
 argument_list|(
 specifier|const
-name|QWidget
+name|QPaintDevice
 operator|*
-name|widget
+name|device
 argument_list|,
 specifier|const
 name|QPoint
@@ -320,7 +320,7 @@ specifier|inline
 name|void
 name|fill
 argument_list|(
-argument|const QWidget *widget
+argument|const QPaintDevice *device
 argument_list|,
 argument|int xofs
 argument_list|,
@@ -329,7 +329,7 @@ argument_list|)
 block|{
 name|fill
 argument_list|(
-name|widget
+name|device
 argument_list|,
 name|QPoint
 argument_list|(
@@ -427,7 +427,7 @@ specifier|static
 name|QPixmap
 name|grabWidget
 argument_list|(
-name|QWidget
+name|QPaintDevice
 operator|*
 name|widget
 argument_list|,
@@ -442,7 +442,7 @@ specifier|inline
 name|QPixmap
 name|grabWidget
 argument_list|(
-argument|QWidget *widget
+argument|QPaintDevice *widget
 argument_list|,
 argument|int x=
 literal|0

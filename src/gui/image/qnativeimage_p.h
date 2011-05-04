@@ -63,19 +63,6 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_X11
-argument_list|)
-end_elif
-begin_include
-include|#
-directive|include
-file|<private/qt_x11_p.h>
-end_include
-begin_elif
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|Q_WS_MAC
 argument_list|)
 end_elif
@@ -111,7 +98,7 @@ argument|QImage::Format format
 argument_list|,
 argument|bool isTextBuffer = false
 argument_list|,
-argument|QWindow *widget =
+argument|QWindow *window =
 literal|0
 argument_list|)
 empty_stmt|;
@@ -152,28 +139,6 @@ name|bitmap
 decl_stmt|;
 name|HBITMAP
 name|null_bitmap
-decl_stmt|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_WS_X11
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_MITSHM
-argument_list|)
-name|XImage
-modifier|*
-name|xshmimg
-decl_stmt|;
-name|Pixmap
-name|xshmpm
-decl_stmt|;
-name|XShmSegmentInfo
-name|xshminfo
 decl_stmt|;
 elif|#
 directive|elif
