@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qapplication_p.h"
+file|"private/qguiapplication_p.h"
 end_include
 begin_include
 include|#
@@ -1378,9 +1378,9 @@ comment|//The keypad modifier should not make a difference
 name|uint
 name|platform
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
-name|currentPlatform
+name|currentKeyPlatform
 argument_list|()
 decl_stmt|;
 ifdef|#

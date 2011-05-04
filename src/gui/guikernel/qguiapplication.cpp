@@ -3397,6 +3397,51 @@ return|;
 block|}
 end_function
 begin_comment
+comment|// Returns the current platform used by keyBindings
+end_comment
+begin_function
+DECL|function|currentKeyPlatform
+name|uint
+name|QGuiApplicationPrivate
+operator|::
+name|currentKeyPlatform
+parameter_list|()
+block|{
+name|uint
+name|platform
+init|=
+name|KB_Win
+decl_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_WS_MAC
+name|platform
+operator|=
+name|KB_Mac
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+name|Q_WS_X11
+name|platform
+operator|=
+name|KB_X11
+expr_stmt|;
+comment|// ## TODO: detect these
+if|#
+directive|if
+literal|0
+block|if (X11->desktopEnvironment == DE_KDE)         platform |= KB_KDE;     if (X11->desktopEnvironment == DE_GNOME)         platform |= KB_Gnome;     if (X11->desktopEnvironment == DE_CDE)         platform |= KB_CDE;
+endif|#
+directive|endif
+endif|#
+directive|endif
+return|return
+name|platform
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     \since 4.2      Returns the current keyboard input locale. */
 end_comment
 begin_function
