@@ -23,16 +23,6 @@ include|#
 directive|include
 file|"abstractformbuilder.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<QtCore/QStringList>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtCore/QMap>
-end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -338,18 +328,7 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|QStringList
-name|m_pluginPaths
-block|;
-name|QMap
-operator|<
-name|QString
-block|,
-name|QDesignerCustomWidgetInterface
-operator|*
-operator|>
-name|m_customWidgets
-block|; }
+block|}
 decl_stmt|;
 ifdef|#
 directive|ifdef
