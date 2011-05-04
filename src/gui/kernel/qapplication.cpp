@@ -8247,9 +8247,6 @@ end_comment
 begin_comment
 comment|/*!     \since 4.1     \fn void QApplication::focusChanged(QWidget *old, QWidget *now)      This signal is emitted when the widget that has keyboard focus changed from     \a old to \a now, i.e., because the user pressed the tab-key, clicked into     a widget or changed the active window. Both \a old and \a now can be the     null-pointer.      The signal is emitted after both widget have been notified about the change     through QFocusEvent.      \sa QWidget::setFocus(), QWidget::clearFocus(), Qt::FocusReason */
 end_comment
-begin_comment
-comment|/*!     \since 4.5     \fn void QApplication::fontDatabaseChanged()      This signal is emitted when application fonts are loaded or removed.      \sa QFontDatabase::addApplicationFont(),     QFontDatabase::addApplicationFontFromData(),     QFontDatabase::removeAllApplicationFonts(),     QFontDatabase::removeApplicationFont() */
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef

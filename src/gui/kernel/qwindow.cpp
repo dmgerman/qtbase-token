@@ -176,7 +176,7 @@ name|d
 operator|->
 name|platformWindow
 operator|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()

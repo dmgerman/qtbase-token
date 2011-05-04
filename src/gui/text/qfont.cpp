@@ -50,7 +50,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qapplication.h"
+file|"qguiapplication.h"
 end_include
 begin_include
 include|#
@@ -180,7 +180,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qapplication_p.h>
+file|<QtGui/private/qguiapplication_p.h>
 end_include
 begin_endif
 endif|#
@@ -636,7 +636,7 @@ name|QPlatformIntegration
 modifier|*
 name|pi
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -650,10 +650,7 @@ name|QPlatformScreen
 modifier|*
 name|screen
 init|=
-name|QApplicationPrivate
-operator|::
-name|platformIntegration
-argument_list|()
+name|pi
 operator|->
 name|screens
 argument_list|()
@@ -878,7 +875,7 @@ name|QPlatformIntegration
 modifier|*
 name|pi
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -892,10 +889,7 @@ name|QPlatformScreen
 modifier|*
 name|screen
 init|=
-name|QApplicationPrivate
-operator|::
-name|platformIntegration
-argument_list|()
+name|pi
 operator|->
 name|screens
 argument_list|()
@@ -2076,7 +2070,7 @@ comment|// Q_WS_X11 || Q_WS_WIN || Q_WS_MAC
 block|}
 end_destructor
 begin_comment
-comment|/*!     \class QFont     \reentrant      \brief The QFont class specifies a font used for drawing text.      \ingroup painting     \ingroup appearance     \ingroup shared     \ingroup richtext-processing       When you create a QFont object you specify various attributes that     you want the font to have. Qt will use the font with the specified     attributes, or if no matching font exists, Qt will use the closest     matching installed font. The attributes of the font that is     actually used are retrievable from a QFontInfo object. If the     window system provides an exact match exactMatch() returns true.     Use QFontMetrics to get measurements, e.g. the pixel length of a     string using QFontMetrics::width().      Note that a QApplication instance must exist before a QFont can be     used. You can set the application's default font with     QApplication::setFont().      If a chosen font does not include all the characters that     need to be displayed, QFont will try to find the characters in the     nearest equivalent fonts. When a QPainter draws a character from a     font the QFont will report whether or not it has the character; if     it does not, QPainter will draw an unfilled square.      Create QFonts like this:      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 0      The attributes set in the constructor can also be set later, e.g.     setFamily(), setPointSize(), setPointSizeFloat(), setWeight() and     setItalic(). The remaining attributes must be set after     contstruction, e.g. setBold(), setUnderline(), setOverline(),     setStrikeOut() and setFixedPitch(). QFontInfo objects should be     created \e after the font's attributes have been set. A QFontInfo     object will not change, even if you change the font's     attributes. The corresponding "get" functions, e.g. family(),     pointSize(), etc., return the values that were set, even though     the values used may differ. The actual values are available from a     QFontInfo object.      If the requested font family is unavailable you can influence the     \link #fontmatching font matching algorithm\endlink by choosing a     particular \l{QFont::StyleHint} and \l{QFont::StyleStrategy} with     setStyleHint(). The default family (corresponding to the current     style hint) is returned by defaultFamily().      The font-matching algorithm has a lastResortFamily() and     lastResortFont() in cases where a suitable match cannot be found.     You can provide substitutions for font family names using     insertSubstitution() and insertSubstitutions(). Substitutions can     be removed with removeSubstitution(). Use substitute() to retrieve     a family's first substitute, or the family name itself if it has     no substitutes. Use substitutes() to retrieve a list of a family's     substitutes (which may be empty).      Every QFont has a key() which you can use, for example, as the key     in a cache or dictionary. If you want to store a user's font     preferences you could use QSettings, writing the font information     with toString() and reading it back with fromString(). The     operator<<() and operator>>() functions are also available, but     they work on a data stream.      It is possible to set the height of characters shown on the screen     to a specified number of pixels with setPixelSize(); however using     setPointSize() has a similar effect and provides device     independence.      In X11 you can set a font using its system     specific name with setRawName().      Loading fonts can be expensive, especially on X11. QFont contains     extensive optimizations to make the copying of QFont objects fast,     and to cache the results of the slow window system functions it     depends upon.      \target fontmatching     The font matching algorithm works as follows:     \list 1     \o The specified font family is searched for.     \o If not found, the styleHint() is used to select a replacement        family.     \o Each replacement font family is searched for.     \o If none of these are found or there was no styleHint(), "helvetica"        will be searched for.     \o If "helvetica" isn't found Qt will try the lastResortFamily().     \o If the lastResortFamily() isn't found Qt will try the        lastResortFont() which will always return a name of some kind.     \endlist      Note that the actual font matching algorithm varies from platform to platform.      In Windows a request for the "Courier" font is automatically changed to     "Courier New", an improved version of Courier that allows for smooth scaling.     The older "Courier" bitmap font can be selected by setting the PreferBitmap     style strategy (see setStyleStrategy()).      Once a font is found, the remaining attributes are matched in order of     priority:     \list 1     \o fixedPitch()     \o pointSize() (see below)     \o weight()     \o style()     \endlist      If you have a font which matches on family, even if none of the     other attributes match, this font will be chosen in preference to     a font which doesn't match on family but which does match on the     other attributes. This is because font family is the dominant     search criteria.      The point size is defined to match if it is within 20% of the     requested point size. When several fonts match and are only     distinguished by point size, the font with the closest point size     to the one requested will be chosen.      The actual family, font size, weight and other font attributes     used for drawing text will depend on what's available for the     chosen family under the window system. A QFontInfo object can be     used to determine the actual values used for drawing the text.      Examples:      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 1     If you had both an Adobe and a Cronyx Helvetica, you might get     either.      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 2      You can specify the foundry you want in the family name. The font f     in the above example will be set to "Helvetica     [Cronyx]".      To determine the attributes of the font actually used in the window     system, use a QFontInfo object, e.g.      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 3      To find out font metrics use a QFontMetrics object, e.g.      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 4      For more general information on fonts, see the     \link http://nwalsh.com/comp.fonts/FAQ/ comp.fonts FAQ.\endlink     Information on encodings can be found from     \link http://czyborra.com/ Roman Czyborra's\endlink page.      \sa QFontComboBox, QFontMetrics, QFontInfo, QFontDatabase, {Character Map Example} */
+comment|/*!     \class QFont     \reentrant      \brief The QFont class specifies a font used for drawing text.      \ingroup painting     \ingroup appearance     \ingroup shared     \ingroup richtext-processing       When you create a QFont object you specify various attributes that     you want the font to have. Qt will use the font with the specified     attributes, or if no matching font exists, Qt will use the closest     matching installed font. The attributes of the font that is     actually used are retrievable from a QFontInfo object. If the     window system provides an exact match exactMatch() returns true.     Use QFontMetrics to get measurements, e.g. the pixel length of a     string using QFontMetrics::width().      Note that a QGuiApplication instance must exist before a QFont can be     used. You can set the application's default font with     QGuiApplication::setFont().      If a chosen font does not include all the characters that     need to be displayed, QFont will try to find the characters in the     nearest equivalent fonts. When a QPainter draws a character from a     font the QFont will report whether or not it has the character; if     it does not, QPainter will draw an unfilled square.      Create QFonts like this:      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 0      The attributes set in the constructor can also be set later, e.g.     setFamily(), setPointSize(), setPointSizeFloat(), setWeight() and     setItalic(). The remaining attributes must be set after     contstruction, e.g. setBold(), setUnderline(), setOverline(),     setStrikeOut() and setFixedPitch(). QFontInfo objects should be     created \e after the font's attributes have been set. A QFontInfo     object will not change, even if you change the font's     attributes. The corresponding "get" functions, e.g. family(),     pointSize(), etc., return the values that were set, even though     the values used may differ. The actual values are available from a     QFontInfo object.      If the requested font family is unavailable you can influence the     \link #fontmatching font matching algorithm\endlink by choosing a     particular \l{QFont::StyleHint} and \l{QFont::StyleStrategy} with     setStyleHint(). The default family (corresponding to the current     style hint) is returned by defaultFamily().      The font-matching algorithm has a lastResortFamily() and     lastResortFont() in cases where a suitable match cannot be found.     You can provide substitutions for font family names using     insertSubstitution() and insertSubstitutions(). Substitutions can     be removed with removeSubstitution(). Use substitute() to retrieve     a family's first substitute, or the family name itself if it has     no substitutes. Use substitutes() to retrieve a list of a family's     substitutes (which may be empty).      Every QFont has a key() which you can use, for example, as the key     in a cache or dictionary. If you want to store a user's font     preferences you could use QSettings, writing the font information     with toString() and reading it back with fromString(). The     operator<<() and operator>>() functions are also available, but     they work on a data stream.      It is possible to set the height of characters shown on the screen     to a specified number of pixels with setPixelSize(); however using     setPointSize() has a similar effect and provides device     independence.      In X11 you can set a font using its system     specific name with setRawName().      Loading fonts can be expensive, especially on X11. QFont contains     extensive optimizations to make the copying of QFont objects fast,     and to cache the results of the slow window system functions it     depends upon.      \target fontmatching     The font matching algorithm works as follows:     \list 1     \o The specified font family is searched for.     \o If not found, the styleHint() is used to select a replacement        family.     \o Each replacement font family is searched for.     \o If none of these are found or there was no styleHint(), "helvetica"        will be searched for.     \o If "helvetica" isn't found Qt will try the lastResortFamily().     \o If the lastResortFamily() isn't found Qt will try the        lastResortFont() which will always return a name of some kind.     \endlist      Note that the actual font matching algorithm varies from platform to platform.      In Windows a request for the "Courier" font is automatically changed to     "Courier New", an improved version of Courier that allows for smooth scaling.     The older "Courier" bitmap font can be selected by setting the PreferBitmap     style strategy (see setStyleStrategy()).      Once a font is found, the remaining attributes are matched in order of     priority:     \list 1     \o fixedPitch()     \o pointSize() (see below)     \o weight()     \o style()     \endlist      If you have a font which matches on family, even if none of the     other attributes match, this font will be chosen in preference to     a font which doesn't match on family but which does match on the     other attributes. This is because font family is the dominant     search criteria.      The point size is defined to match if it is within 20% of the     requested point size. When several fonts match and are only     distinguished by point size, the font with the closest point size     to the one requested will be chosen.      The actual family, font size, weight and other font attributes     used for drawing text will depend on what's available for the     chosen family under the window system. A QFontInfo object can be     used to determine the actual values used for drawing the text.      Examples:      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 1     If you had both an Adobe and a Cronyx Helvetica, you might get     either.      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 2      You can specify the foundry you want in the family name. The font f     in the above example will be set to "Helvetica     [Cronyx]".      To determine the attributes of the font actually used in the window     system, use a QFontInfo object, e.g.      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 3      To find out font metrics use a QFontMetrics object, e.g.      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 4      For more general information on fonts, see the     \link http://nwalsh.com/comp.fonts/FAQ/ comp.fonts FAQ.\endlink     Information on encodings can be found from     \link http://czyborra.com/ Roman Czyborra's\endlink page.      \sa QFontComboBox, QFontMetrics, QFontInfo, QFontDatabase, {Character Map Example} */
 end_comment
 begin_comment
 comment|/*!     \internal     \enum QFont::ResolveProperties      This enum describes the properties of a QFont that can be set on a font     individually and then considered resolved.      \value FamilyResolved     \value SizeResolved     \value StyleHintResolved     \value StyleStrategyResolved     \value WeightResolved     \value StyleResolved     \value UnderlineResolved     \value OverlineResolved     \value StrikeOutResolved     \value FixedPitchResolved     \value StretchResolved     \value KerningResolved     \value CapitalizationResolved     \value LetterSpacingResolved     \value WordSpacingResolved     \value CompletelyResolved */
@@ -2376,7 +2370,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Constructs a font object that uses the application's default font.      \sa QApplication::setFont(), QApplication::font() */
+comment|/*!     Constructs a font object that uses the application's default font.      \sa QGuiApplication::setFont(), QGuiApplication::font() */
 end_comment
 begin_constructor
 DECL|function|QFont
@@ -2387,7 +2381,7 @@ parameter_list|()
 member_init_list|:
 name|d
 argument_list|(
-name|QApplication
+name|QGuiApplication
 operator|::
 name|font
 argument_list|()
@@ -2405,7 +2399,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Constructs a font object with the specified \a family, \a     pointSize, \a weight and \a italic settings.      If \a pointSize is zero or negative, the point size of the font     is set to a system-dependent default value. Generally, this is     12 points, except on Symbian where it is 7 points.      The \a family name may optionally also include a foundry name,     e.g. "Helvetica [Cronyx]". If the \a family is     available from more than one foundry and the foundry isn't     specified, an arbitrary foundry is chosen. If the family isn't     available a family will be set using the \l{QFont}{font matching}     algorithm.      \sa Weight, setFamily(), setPointSize(), setWeight(), setItalic(),     setStyleHint() QApplication::font() */
+comment|/*!     Constructs a font object with the specified \a family, \a     pointSize, \a weight and \a italic settings.      If \a pointSize is zero or negative, the point size of the font     is set to a system-dependent default value. Generally, this is     12 points, except on Symbian where it is 7 points.      The \a family name may optionally also include a foundry name,     e.g. "Helvetica [Cronyx]". If the \a family is     available from more than one foundry and the foundry isn't     specified, an arbitrary foundry is chosen. If the family isn't     available a family will be set using the \l{QFont}{font matching}     algorithm.      \sa Weight, setFamily(), setPointSize(), setWeight(), setItalic(),     setStyleHint() QGuiApplication::font() */
 end_comment
 begin_constructor
 DECL|function|QFont

@@ -339,7 +339,7 @@ condition|)
 block|{
 name|surface
 operator|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -439,7 +439,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -1005,7 +1005,7 @@ name|QPlatformIntegration
 modifier|*
 name|platform
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()

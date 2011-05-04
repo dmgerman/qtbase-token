@@ -233,6 +233,12 @@ name|QEvent
 operator|*
 argument_list|)
 block|;
+name|Q_SIGNALS
+operator|:
+name|void
+name|fontDatabaseChanged
+argument_list|()
+block|;
 name|protected
 operator|:
 name|bool
@@ -282,7 +288,10 @@ name|QGestureManager
 block|;
 endif|#
 directive|endif
-block|}
+name|friend
+name|class
+name|QFontDatabasePrivate
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt

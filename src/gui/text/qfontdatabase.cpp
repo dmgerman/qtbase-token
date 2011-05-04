@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qapplication.h"
+file|"qguiapplication.h"
 end_include
 begin_include
 include|#
@@ -63,7 +63,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qapplication_p.h>
+file|<QtGui/private/qguiapplication_p.h>
 end_include
 begin_include
 include|#
@@ -292,7 +292,7 @@ name|s
 operator|.
 name|compare
 argument_list|(
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -326,7 +326,7 @@ name|s
 operator|.
 name|compare
 argument_list|(
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -367,7 +367,7 @@ name|s
 operator|.
 name|compare
 argument_list|(
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -401,7 +401,7 @@ name|s
 operator|.
 name|compare
 argument_list|(
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -452,7 +452,7 @@ name|s
 operator|.
 name|contains
 argument_list|(
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -483,7 +483,7 @@ name|s
 operator|.
 name|compare
 argument_list|(
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -532,7 +532,7 @@ name|s
 operator|.
 name|compare
 argument_list|(
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -572,7 +572,7 @@ name|s
 operator|.
 name|compare
 argument_list|(
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -1378,7 +1378,7 @@ name|QPlatformIntegration
 modifier|*
 name|integration
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -1556,7 +1556,7 @@ name|styleString
 operator|.
 name|contains
 argument_list|(
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -1589,7 +1589,7 @@ name|styleString
 operator|.
 name|contains
 argument_list|(
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -3963,11 +3963,11 @@ expr_stmt|;
 emit|emit
 cast|static_cast
 argument_list|<
-name|QApplication
+name|QGuiApplication
 operator|*
 argument_list|>
 argument_list|(
-name|QApplication
+name|QCoreApplication
 operator|::
 name|instance
 argument_list|()
@@ -8350,7 +8350,7 @@ name|Black
 condition|)
 name|result
 operator|=
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -8370,7 +8370,7 @@ name|Bold
 condition|)
 name|result
 operator|=
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -8390,7 +8390,7 @@ name|DemiBold
 condition|)
 name|result
 operator|=
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -8410,7 +8410,7 @@ name|Normal
 condition|)
 name|result
 operator|=
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -8434,7 +8434,7 @@ argument_list|(
 literal|' '
 argument_list|)
 operator|+
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -8459,7 +8459,7 @@ argument_list|(
 literal|' '
 argument_list|)
 operator|+
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -8477,7 +8477,7 @@ argument_list|()
 condition|)
 name|result
 operator|=
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(
@@ -10265,7 +10265,7 @@ operator|!
 name|f
 condition|)
 return|return
-name|QApplication
+name|QGuiApplication
 operator|::
 name|font
 argument_list|()
@@ -10382,7 +10382,7 @@ name|s
 condition|)
 comment|// no styles found?
 return|return
-name|QApplication
+name|QGuiApplication
 operator|::
 name|font
 argument_list|()
@@ -11900,7 +11900,7 @@ expr_stmt|;
 break|break;
 block|}
 return|return
-name|QApplication
+name|QCoreApplication
 operator|::
 name|translate
 argument_list|(

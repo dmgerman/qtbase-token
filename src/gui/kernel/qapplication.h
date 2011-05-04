@@ -2572,12 +2572,6 @@ name|class
 name|QAction
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-name|friend
-name|class
-name|QFontDatabasePrivate
-decl_stmt|;
-end_decl_stmt
 begin_if
 if|#
 directive|if

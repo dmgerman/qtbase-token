@@ -89,7 +89,7 @@ name|QPlatformClipboard
 modifier|*
 name|clipboard
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -139,7 +139,7 @@ name|QPlatformClipboard
 modifier|*
 name|clipboard
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -190,7 +190,7 @@ name|QPlatformClipboard
 modifier|*
 name|clipboard
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()

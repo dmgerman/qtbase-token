@@ -3371,6 +3371,9 @@ name|layout_direction
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \since 4.5     \fn void QGuiApplication::fontDatabaseChanged()      This signal is emitted when application fonts are loaded or removed.      \sa QFontDatabase::addApplicationFont(),     QFontDatabase::addApplicationFontFromData(),     QFontDatabase::removeAllApplicationFonts(),     QFontDatabase::removeApplicationFont() */
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

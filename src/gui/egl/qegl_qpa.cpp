@@ -133,7 +133,7 @@ name|QPlatformIntegration
 modifier|*
 name|pi
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()

@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qapplication_p.h>
+file|<QtGui/private/qguiapplication_p.h>
 end_include
 begin_include
 include|#
@@ -21,7 +21,7 @@ operator|::
 name|initialize
 parameter_list|()
 block|{
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -190,7 +190,7 @@ block|}
 name|QStringList
 name|list
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()

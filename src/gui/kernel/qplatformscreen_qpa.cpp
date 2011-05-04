@@ -260,7 +260,7 @@ name|QPlatformIntegration
 modifier|*
 name|integration
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()

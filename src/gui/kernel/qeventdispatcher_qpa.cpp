@@ -379,7 +379,7 @@ block|{
 comment|// guiThread
 if|if
 condition|(
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -389,7 +389,7 @@ name|that
 operator|->
 name|eventLoopIntegration
 operator|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()

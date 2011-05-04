@@ -388,7 +388,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()

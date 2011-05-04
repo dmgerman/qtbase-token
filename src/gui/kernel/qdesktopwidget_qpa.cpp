@@ -44,7 +44,7 @@ modifier|*
 argument_list|>
 name|screenList
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -143,7 +143,7 @@ decl_stmt|;
 name|bool
 name|doVirtualGeometry
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -290,7 +290,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -327,7 +327,7 @@ name|QPlatformIntegration
 modifier|*
 name|pi
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -367,7 +367,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -435,7 +435,7 @@ name|QPlatformIntegration
 modifier|*
 name|pi
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -509,7 +509,7 @@ name|QPlatformIntegration
 modifier|*
 name|pi
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -665,7 +665,7 @@ name|QPlatformIntegration
 modifier|*
 name|pi
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()

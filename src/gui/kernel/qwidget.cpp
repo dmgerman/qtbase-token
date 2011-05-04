@@ -3200,7 +3200,7 @@ name|QPlatformIntegration
 modifier|*
 name|platform
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
