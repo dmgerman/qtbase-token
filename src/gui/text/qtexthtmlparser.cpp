@@ -8242,7 +8242,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|qApp
+name|QCoreApplication
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|thread
 argument_list|()
