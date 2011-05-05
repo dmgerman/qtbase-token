@@ -58,6 +58,9 @@ name|bool
 name|init_flag
 block|;
 name|bool
+name|is64Bit
+block|;
+name|bool
 name|writeVcprojParts
 argument_list|(
 name|QTextStream
