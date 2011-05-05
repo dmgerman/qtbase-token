@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qapplication.h"
+file|"qguiapplication.h"
 end_include
 begin_include
 include|#
@@ -20,17 +20,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qapplication.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<glib.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"private/qapplication_p.h"
+file|"private/qguiapplication_p.h"
 end_include
 begin_include
 include|#

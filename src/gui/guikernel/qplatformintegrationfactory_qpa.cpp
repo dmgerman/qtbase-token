@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qapplication.h"
+file|"qguiapplication.h"
 end_include
 begin_include
 include|#

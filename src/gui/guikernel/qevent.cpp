@@ -15,11 +15,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qapplication.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"private/qguiapplication_p.h"
 end_include
 begin_include
@@ -55,7 +50,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qdnd_p.h"
+file|"private/qdnd_p.h"
 end_include
 begin_include
 include|#
