@@ -69,9 +69,16 @@ argument_list|(
 literal|false
 argument_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
+operator|!
 name|model
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: model must not be null"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 name|connect
