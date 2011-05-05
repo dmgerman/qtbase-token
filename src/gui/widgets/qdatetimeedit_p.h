@@ -611,7 +611,8 @@ name|selectedDate
 argument_list|()
 block|{
 return|return
-name|calendar
+name|verifyCalendarInstance
+argument_list|()
 operator|->
 name|selectedDate
 argument_list|()
@@ -646,7 +647,8 @@ argument_list|(
 argument|Qt::DayOfWeek dow
 argument_list|)
 block|{
-name|calendar
+name|verifyCalendarInstance
+argument_list|()
 operator|->
 name|setFirstDayOfWeek
 argument_list|(
@@ -660,7 +662,17 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|calendar
+name|const_cast
+operator|<
+name|QCalendarPopup
+operator|*
+operator|>
+operator|(
+name|this
+operator|)
+operator|->
+name|verifyCalendarInstance
+argument_list|()
 return|;
 block|}
 name|void
@@ -756,6 +768,13 @@ name|private
 operator|:
 name|QCalendarWidget
 operator|*
+name|verifyCalendarInstance
+argument_list|()
+block|;
+name|QWeakPointer
+operator|<
+name|QCalendarWidget
+operator|>
 name|calendar
 block|;
 name|QDate
