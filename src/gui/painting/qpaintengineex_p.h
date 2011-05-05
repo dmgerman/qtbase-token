@@ -996,6 +996,7 @@ name|void
 name|endNativePainting
 argument_list|()
 block|{}
+comment|// ### Qt5: remove, once QtOpenGL is merged into QtGui and QtWidgets
 comment|// Return a pixmap filter of "type" that can render the parameters
 comment|// in "prototype".  The returned filter is owned by the engine and
 comment|// will be destroyed when the engine is destroyed.  The "prototype"
