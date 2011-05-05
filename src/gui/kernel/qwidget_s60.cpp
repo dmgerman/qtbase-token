@@ -3159,6 +3159,19 @@ argument_list|,
 name|cbaVisible
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|cbaVisible
+condition|)
+block|{
+comment|// Fix window dimensions as without screen furniture they will have
+comment|// defaulted to full screen dimensions initially.
+name|id
+operator|->
+name|handleClientAreaChange
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
