@@ -37,11 +37,9 @@ include|#
 directive|include
 file|"qmime.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"private/qdnd_p.h"
-end_include
+begin_comment
+comment|//#include "private/qdnd_p.h"
+end_comment
 begin_include
 include|#
 directive|include
@@ -2869,18 +2867,11 @@ argument_list|)
 block|{
 name|default_action
 operator|=
-name|QDragManager
+name|Qt
 operator|::
-name|self
-argument_list|()
-operator|->
-name|defaultAction
-argument_list|(
-name|act
-argument_list|,
-name|modifiers
-argument_list|)
+name|CopyAction
 expr_stmt|;
+comment|// ### Qt5: QDragManager::self()->defaultAction(act, modifiers);
 name|drop_action
 operator|=
 name|default_action
@@ -3073,25 +3064,12 @@ name|source
 parameter_list|()
 specifier|const
 block|{
-name|QDragManager
-modifier|*
-name|manager
-init|=
-name|QDragManager
-operator|::
-name|self
-argument_list|()
-decl_stmt|;
 return|return
-name|manager
-condition|?
-name|manager
-operator|->
-name|source
-argument_list|()
-else|:
 literal|0
 return|;
+comment|// ### Qt5
+comment|//    QDragManager *manager = QDragManager::self();
+comment|//    return manager ? manager->source() : 0;
 block|}
 end_function
 begin_function
