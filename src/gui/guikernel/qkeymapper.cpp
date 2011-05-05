@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qapplication.h"
+file|"qguiapplication.h"
 end_include
 begin_include
 include|#
@@ -16,11 +16,6 @@ begin_include
 include|#
 directive|include
 file|"qkeymapper_p.h"
-end_include
-begin_include
-include|#
-directive|include
-file|<qwidget.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

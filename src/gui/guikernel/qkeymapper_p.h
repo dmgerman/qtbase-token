@@ -131,6 +131,9 @@ name|void
 name|changeKeyboard
 argument_list|()
 block|;
+ifndef|#
+directive|ifndef
+name|Q_WS_QPA
 specifier|static
 name|bool
 name|sendKeyEvent
@@ -161,6 +164,8 @@ argument|bool *unusedExceptForCocoa =
 literal|0
 argument_list|)
 block|;
+endif|#
+directive|endif
 specifier|static
 name|QList
 operator|<
