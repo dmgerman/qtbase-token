@@ -4261,18 +4261,6 @@ condition|)
 return|return
 literal|true
 return|;
-comment|// Backend does not support resuming download.
-if|if
-condition|(
-operator|!
-name|backend
-operator|->
-name|canResume
-argument_list|()
-condition|)
-return|return
-literal|false
-return|;
 comment|// Request has outgoing data, not migrating.
 if|if
 condition|(
@@ -4288,6 +4276,18 @@ name|copyDevice
 condition|)
 return|return
 literal|true
+return|;
+comment|// Backend does not support resuming download.
+if|if
+condition|(
+operator|!
+name|backend
+operator|->
+name|canResume
+argument_list|()
+condition|)
+return|return
+literal|false
 return|;
 name|state
 operator|=
