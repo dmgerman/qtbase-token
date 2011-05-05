@@ -75,12 +75,6 @@ name|QTextBlockUserData
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QTextEdit
-name|class
-name|QTextEdit
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QSyntaxHighlighter
@@ -105,13 +99,6 @@ block|;
 name|QSyntaxHighlighter
 argument_list|(
 name|QTextDocument
-operator|*
-name|parent
-argument_list|)
-block|;
-name|QSyntaxHighlighter
-argument_list|(
-name|QTextEdit
 operator|*
 name|parent
 argument_list|)

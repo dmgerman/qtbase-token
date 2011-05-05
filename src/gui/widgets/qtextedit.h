@@ -183,6 +183,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|Qt::TextInteractionFlags textInteractionFlags READ textInteractionFlags WRITE setTextInteractionFlags
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QObject *document READ document
+argument_list|)
 name|public
 operator|:
 expr|enum
