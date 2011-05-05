@@ -1232,6 +1232,12 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
+DECL|variable|QGLFunctions
+name|class
+name|QGLFunctions
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_OPENGL_EXPORT
 name|QGLContext
@@ -1341,6 +1347,12 @@ function_decl|;
 name|virtual
 name|void
 name|swapBuffers
+argument_list|()
+specifier|const
+expr_stmt|;
+name|QGLFunctions
+operator|*
+name|functions
 argument_list|()
 specifier|const
 expr_stmt|;
@@ -2025,6 +2037,10 @@ name|friend
 name|class
 name|QGLContextResourceBase
 decl_stmt|;
+name|friend
+name|class
+name|QSGDistanceFieldGlyphCache
+decl_stmt|;
 name|private
 label|:
 name|Q_DISABLE_COPY
@@ -2587,6 +2603,22 @@ literal|2000
 argument_list|)
 block|;
 comment|// ### Qt 5: remove
+name|QGLWidget
+argument_list|(
+argument|QGLWidgetPrivate&dd
+argument_list|,
+argument|const QGLFormat&format = QGLFormat()
+argument_list|,
+argument|QWidget *parent =
+literal|0
+argument_list|,
+argument|const QGLWidget* shareWidget =
+literal|0
+argument_list|,
+argument|Qt::WindowFlags f =
+literal|0
+argument_list|)
+block|;
 name|private
 operator|:
 name|Q_DISABLE_COPY

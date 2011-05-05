@@ -103,9 +103,6 @@ name|wl_egl_window
 operator|*
 name|mWaylandEglWindow
 block|;
-name|EGLConfig
-name|mConfig
-block|;
 specifier|const
 name|QWaylandWindow
 operator|*

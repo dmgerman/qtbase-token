@@ -76,6 +76,12 @@ name|QBearerEngine
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QTimer
+name|class
+name|QTimer
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_NETWORK_EXPORT
 name|QNetworkConfigurationManagerPrivate
@@ -225,6 +231,10 @@ operator|:
 name|void
 name|startPolling
 argument_list|()
+block|;
+name|QTimer
+operator|*
+name|pollTimer
 block|;
 name|private
 operator|:
