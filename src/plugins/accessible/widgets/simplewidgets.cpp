@@ -640,7 +640,6 @@ argument_list|,
 name|child
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 return|return
 name|qt_accStripAmp
 argument_list|(
