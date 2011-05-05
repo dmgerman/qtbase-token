@@ -40,6 +40,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qdrag.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qlabel.h"
 end_include
 begin_include

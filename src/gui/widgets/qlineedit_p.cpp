@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qdrag.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qclipboard.h"
 end_include
 begin_ifndef
