@@ -9834,6 +9834,13 @@ operator|&
 name|HB_ShaperFlag_UseDesignMetrics
 operator|)
 operator|)
+operator|&&
+name|FT_IS_SCALABLE
+argument_list|(
+name|freetype
+operator|->
+name|face
+argument_list|)
 decl_stmt|;
 for|for
 control|(
