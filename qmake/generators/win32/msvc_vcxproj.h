@@ -16,16 +16,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|"winmakefile.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"msbuild_objectmodel.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"msvc_vcproj.h"
 end_include
 begin_decl_stmt
@@ -41,10 +31,6 @@ operator|:
 name|VcxprojGenerator
 argument_list|()
 block|;
-operator|~
-name|VcxprojGenerator
-argument_list|()
-block|;
 name|protected
 operator|:
 name|virtual
@@ -52,26 +38,12 @@ name|VCProjectWriter
 operator|*
 name|createProjectWriter
 argument_list|()
-block|;
-name|private
-operator|:
-name|friend
-name|class
-name|VCFilter
-block|;  }
+block|; }
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
-DECL|function|~VcxprojGenerator
-specifier|inline
-name|VcxprojGenerator
-operator|::
-operator|~
-name|VcxprojGenerator
-argument_list|()
-block|{ }
+begin_macro
 name|QT_END_NAMESPACE
-end_expr_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif
