@@ -1483,7 +1483,7 @@ operator|=
 name|toolButton
 argument_list|()
 operator|->
-name|text
+name|accessibleName
 argument_list|()
 expr_stmt|;
 if|if
