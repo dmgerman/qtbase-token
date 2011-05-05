@@ -1838,6 +1838,25 @@ operator|::
 name|usedInThread
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+name|Q_OS_MAC
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_COREWLAN
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"QTBUG-19070 Mac CoreWlan plugin is broken"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QNCMTestThread
 name|thread
 decl_stmt|;
@@ -1877,9 +1896,10 @@ argument_list|()
 operator|.
 name|enterLoop
 argument_list|(
-literal|5
+literal|100
 argument_list|)
 expr_stmt|;
+comment|//QTRY_VERIFY could take ~90 seconds to time out in the thread
 name|QVERIFY
 argument_list|(
 name|thread
@@ -1985,6 +2005,8 @@ argument_list|,
 name|preScanConfigs
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_macro
