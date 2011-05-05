@@ -31956,14 +31956,11 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-name|manager
-operator|.
-name|setProxy
-argument_list|(
-name|QNetworkProxy
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//clearing the proxy here causes the test to fail.
+comment|//the proxy isn't used until after the bearer has been started
+comment|//which is correct in general, because system proxy isn't known until that time.
+comment|//removing this line is safe, as the proxy is also reset by the cleanup() function
+comment|//manager.setProxy(QNetworkProxy());
 comment|// wait for the finished signal
 name|connect
 argument_list|(
@@ -31995,7 +31992,7 @@ argument_list|()
 operator|.
 name|enterLoop
 argument_list|(
-literal|1
+literal|15
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -32011,6 +32008,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//qDebug()<< reply->error()<< reply->errorString();
+comment|//qDebug()<< proxyServer.receivedData;
 comment|// we don't really care if the request succeeded
 comment|// especially since it won't succeed in the HTTPS case
 comment|// so just check that the command was correct
