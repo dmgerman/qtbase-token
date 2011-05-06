@@ -1643,9 +1643,11 @@ name|QModelIndex
 argument_list|()
 return|;
 block|}
-name|Q_ASSERT
+name|qFatal
 argument_list|(
-literal|false
+literal|"%s: unknown type of model"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 return|return
