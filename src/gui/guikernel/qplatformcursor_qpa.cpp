@@ -10,11 +10,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QWidget>
-end_include
-begin_include
-include|#
-directive|include
 file|<QPainter>
 end_include
 begin_include
