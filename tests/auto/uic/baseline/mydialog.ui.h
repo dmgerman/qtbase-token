@@ -16,11 +16,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|<Qt3Support/Q3MimeSourceFactory>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/QVariant>
 end_include
 begin_include
