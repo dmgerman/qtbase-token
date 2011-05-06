@@ -191,6 +191,17 @@ return|return
 name|mDisplay
 return|;
 block|}
+expr|struct
+name|wl_shell
+operator|*
+name|wl_shell
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mShell
+return|;
+block|}
 name|QList
 operator|<
 name|QWaylandInputDevice

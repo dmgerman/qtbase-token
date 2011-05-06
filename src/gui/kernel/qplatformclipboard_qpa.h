@@ -97,6 +97,17 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|void
+name|emitChanged
+argument_list|(
+name|QClipboard
+operator|::
+name|Mode
+name|mode
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 unit|};
 name|QT_END_NAMESPACE
