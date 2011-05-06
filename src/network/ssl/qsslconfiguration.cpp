@@ -385,7 +385,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the verify mode. This mode decides whether QSslSocket should     request a certificate from the peer (i.e., the client requests a     certificate from the server, or a server requesting a certificate from the     client), and whether it should require that this certificate is valid.      The default mode is AutoVerifyPeer, which tells QSslSocket to use     VerifyPeer for clients, QueryPeer for clients.      \sa setPeerVerifyMode() */
+comment|/*!     Returns the verify mode. This mode decides whether QSslSocket should     request a certificate from the peer (i.e., the client requests a     certificate from the server, or a server requesting a certificate from the     client), and whether it should require that this certificate is valid.      The default mode is AutoVerifyPeer, which tells QSslSocket to use     VerifyPeer for clients, QueryPeer for servers.      \sa setPeerVerifyMode() */
 end_comment
 begin_function
 DECL|function|peerVerifyMode
@@ -406,7 +406,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the verify mode to \a mode. This mode decides whether QSslSocket     should request a certificate from the peer (i.e., the client requests a     certificate from the server, or a server requesting a certificate from the     client), and whether it should require that this certificate is valid.      The default mode is AutoVerifyPeer, which tells QSslSocket to use     VerifyPeer for clients, QueryPeer for clients.      \sa peerVerifyMode() */
+comment|/*!     Sets the verify mode to \a mode. This mode decides whether QSslSocket     should request a certificate from the peer (i.e., the client requests a     certificate from the server, or a server requesting a certificate from the     client), and whether it should require that this certificate is valid.      The default mode is AutoVerifyPeer, which tells QSslSocket to use     VerifyPeer for clients, QueryPeer for servers.      \sa peerVerifyMode() */
 end_comment
 begin_function
 DECL|function|setPeerVerifyMode

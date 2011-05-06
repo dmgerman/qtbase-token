@@ -881,6 +881,60 @@ name|cookie
 operator|.
 name|setValue
 argument_list|(
+literal|"b c"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"with-value-with-whitespace"
+argument_list|)
+operator|<<
+literal|"a = b c"
+operator|<<
+name|cookie
+expr_stmt|;
+name|cookie
+operator|.
+name|setValue
+argument_list|(
+literal|"\"b\""
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"quoted-value"
+argument_list|)
+operator|<<
+literal|"a = \"b\""
+operator|<<
+name|cookie
+expr_stmt|;
+name|cookie
+operator|.
+name|setValue
+argument_list|(
+literal|"\"b c\""
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"quoted-value-with-whitespace"
+argument_list|)
+operator|<<
+literal|"a = \"b c\""
+operator|<<
+name|cookie
+expr_stmt|;
+name|cookie
+operator|.
+name|setValue
+argument_list|(
 literal|"b"
 argument_list|)
 expr_stmt|;

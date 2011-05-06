@@ -585,6 +585,10 @@ name|friend
 name|class
 name|QNetworkAccessHttpBackend
 block|;
+name|friend
+name|class
+name|QNetworkReplyHttpImpl
+block|;
 name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QNetworkAccessManager
