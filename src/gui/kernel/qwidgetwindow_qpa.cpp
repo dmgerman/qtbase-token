@@ -17,9 +17,20 @@ include|#
 directive|include
 file|"private/qapplication_p.h"
 end_include
-begin_macro
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-end_macro
+DECL|variable|qt_button_down
+name|QWidget
+modifier|*
+name|qt_button_down
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
+begin_comment
+DECL|variable|qt_button_down
+comment|// widget got last button-down
+end_comment
 begin_constructor
 DECL|function|QWidgetWindow
 name|QWidgetWindow
