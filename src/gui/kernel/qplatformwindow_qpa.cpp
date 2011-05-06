@@ -325,7 +325,6 @@ parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|title
 parameter_list|)
 block|{}
 end_function

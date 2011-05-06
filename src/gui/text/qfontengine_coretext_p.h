@@ -305,6 +305,15 @@ name|emSquareSize
 argument_list|()
 specifier|const
 block|;
+name|virtual
+name|QFontEngine
+operator|*
+name|cloneWithSize
+argument_list|(
+argument|qreal pixelSize
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|friend
@@ -420,6 +429,8 @@ argument_list|,
 argument|unsigned short *logClusters
 argument_list|,
 argument|const HB_CharAttributes *charAttributes
+argument_list|,
+argument|QScriptItem *si
 argument_list|)
 specifier|const
 block|;
@@ -433,6 +444,16 @@ specifier|const
 block|{
 return|return
 literal|"CoreText"
+return|;
+block|}
+specifier|inline
+name|CTFontRef
+name|macFontID
+argument_list|()
+specifier|const
+block|{
+return|return
+name|ctfont
 return|;
 block|}
 name|protected

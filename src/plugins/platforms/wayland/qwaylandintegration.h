@@ -95,6 +95,12 @@ name|fontDatabase
 argument_list|()
 specifier|const
 block|;
+name|QPlatformNativeInterface
+operator|*
+name|nativeInterface
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|bool
@@ -112,6 +118,10 @@ name|mDisplay
 block|;
 name|bool
 name|mUseOpenGL
+block|;
+name|QPlatformNativeInterface
+operator|*
+name|mNativeInterface
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -2586,6 +2586,9 @@ name|log_clusters
 argument_list|,
 name|attributes
 argument_list|()
+argument_list|,
+operator|&
+name|si
 argument_list|)
 condition|)
 block|{
@@ -2625,6 +2628,9 @@ name|log_clusters
 argument_list|,
 name|attributes
 argument_list|()
+argument_list|,
+operator|&
+name|si
 argument_list|)
 expr_stmt|;
 block|}

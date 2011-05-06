@@ -56,6 +56,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
+name|Q_OPENGL_EXPORT
 name|QVertexIndexVector
 block|{
 name|public
@@ -243,6 +244,7 @@ begin_struct
 DECL|struct|QTriangleSet
 unit|};
 struct|struct
+name|Q_OPENGL_EXPORT
 name|QTriangleSet
 block|{
 DECL|function|QTriangleSet
@@ -320,6 +322,7 @@ end_struct
 begin_struct
 DECL|struct|QPolylineSet
 struct|struct
+name|Q_OPENGL_EXPORT
 name|QPolylineSet
 block|{
 DECL|function|QPolylineSet
@@ -389,6 +392,7 @@ DECL|member|indices
 name|QVertexIndexVector
 name|indices
 decl_stmt|;
+comment|// End of polyline is marked with -1.
 block|}
 struct|;
 end_struct
@@ -466,6 +470,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|QTriangleSet
+name|Q_OPENGL_EXPORT
 name|qTriangulate
 parameter_list|(
 specifier|const
@@ -514,6 +519,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|QPolylineSet
+name|Q_OPENGL_EXPORT
 name|qPolyline
 parameter_list|(
 specifier|const

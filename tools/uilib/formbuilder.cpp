@@ -54,9 +54,6 @@ name|QFormBuilder
 operator|::
 name|QFormBuilder
 parameter_list|()
-member_init_list|:
-name|QAbstractFormBuilder
-argument_list|()
 block|{ }
 comment|/*!     Destroys the form builder. */
 DECL|function|~QFormBuilder
@@ -83,26 +80,15 @@ modifier|*
 name|parentWidget
 parameter_list|)
 block|{
-name|QFormBuilderExtra
-modifier|*
-name|fb
-init|=
-name|QFormBuilderExtra
-operator|::
-name|instance
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 operator|!
-name|fb
+name|d
 operator|->
 name|parentWidgetIsSet
 argument_list|()
 condition|)
-name|fb
+name|d
 operator|->
 name|setParentWidget
 argument_list|(
@@ -111,7 +97,7 @@ argument_list|)
 expr_stmt|;
 comment|// Is this a QLayoutWidget with a margin of 0: Not a known page-based
 comment|// container and no method for adding pages registered.
-name|fb
+name|d
 operator|->
 name|setProcessingLayoutWidget
 argument_list|(
@@ -264,14 +250,14 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|fb
+name|d
 operator|->
 name|isCustomWidgetContainer
 argument_list|(
 name|parentClassName
 argument_list|)
 condition|)
-name|fb
+name|d
 operator|->
 name|setProcessingLayoutWidget
 argument_list|(
@@ -554,6 +540,8 @@ name|QDesignerCustomWidgetInterface
 modifier|*
 name|factory
 init|=
+name|d
+operator|->
 name|m_customWidgets
 operator|.
 name|value
@@ -582,17 +570,6 @@ condition|(
 literal|false
 condition|)
 do|;
-name|QFormBuilderExtra
-modifier|*
-name|fb
-init|=
-name|QFormBuilderExtra
-operator|::
-name|instance
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|w
@@ -605,7 +582,7 @@ specifier|const
 name|QString
 name|baseClassName
 init|=
-name|fb
+name|d
 operator|->
 name|customWidgetBaseClass
 argument_list|(
@@ -1393,23 +1370,12 @@ modifier|*
 name|parentWidget
 parameter_list|)
 block|{
-name|QFormBuilderExtra
-modifier|*
-name|fb
-init|=
-name|QFormBuilderExtra
-operator|::
-name|instance
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
 comment|// Is this a temporary layout widget used to represent QLayout hierarchies in Designer?
 comment|// Set its margins to 0.
 name|bool
 name|layoutWidget
 init|=
-name|fb
+name|d
 operator|->
 name|processingLayoutWidget
 argument_list|()
@@ -1576,7 +1542,7 @@ argument_list|,
 name|bottom
 argument_list|)
 expr_stmt|;
-name|fb
+name|d
 operator|->
 name|setProcessingLayoutWidget
 argument_list|(
@@ -1688,6 +1654,8 @@ parameter_list|()
 specifier|const
 block|{
 return|return
+name|d
+operator|->
 name|m_pluginPaths
 return|;
 block|}
@@ -1699,6 +1667,8 @@ operator|::
 name|clearPluginPaths
 parameter_list|()
 block|{
+name|d
+operator|->
 name|m_pluginPaths
 operator|.
 name|clear
@@ -1721,6 +1691,8 @@ modifier|&
 name|pluginPath
 parameter_list|)
 block|{
+name|d
+operator|->
 name|m_pluginPaths
 operator|.
 name|append
@@ -1745,6 +1717,8 @@ modifier|&
 name|pluginPaths
 parameter_list|)
 block|{
+name|d
+operator|->
 name|m_pluginPaths
 operator|=
 name|pluginPaths
@@ -1854,6 +1828,8 @@ operator|::
 name|updateCustomWidgets
 parameter_list|()
 block|{
+name|d
+operator|->
 name|m_customWidgets
 operator|.
 name|clear
@@ -1866,6 +1842,8 @@ name|QString
 modifier|&
 name|path
 decl|,
+name|d
+operator|->
 name|m_pluginPaths
 control|)
 block|{
@@ -1947,6 +1925,8 @@ name|instance
 argument_list|()
 argument_list|,
 operator|&
+name|d
+operator|->
 name|m_customWidgets
 argument_list|)
 expr_stmt|;
@@ -1983,6 +1963,8 @@ argument_list|(
 name|o
 argument_list|,
 operator|&
+name|d
+operator|->
 name|m_customWidgets
 argument_list|)
 expr_stmt|;
@@ -2001,6 +1983,8 @@ parameter_list|()
 specifier|const
 block|{
 return|return
+name|d
+operator|->
 name|m_customWidgets
 operator|.
 name|values
@@ -2044,17 +2028,6 @@ name|empty
 argument_list|()
 condition|)
 return|return;
-name|QFormBuilderExtra
-modifier|*
-name|fb
-init|=
-name|QFormBuilderExtra
-operator|::
-name|instance
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
 specifier|const
 name|QFormBuilderStrings
 modifier|&
@@ -2149,7 +2122,7 @@ operator|->
 name|parent
 argument_list|()
 operator|==
-name|fb
+name|d
 operator|->
 name|parentWidget
 argument_list|()
@@ -2189,7 +2162,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|fb
+name|d
 operator|->
 name|applyPropertyInternally
 argument_list|(

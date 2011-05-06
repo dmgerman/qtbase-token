@@ -2700,12 +2700,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|QFormBuilderExtra
-operator|::
-name|instance
-argument_list|(
-name|this
-argument_list|)
+name|d
 operator|->
 name|customWidgetAddPageMethod
 argument_list|(

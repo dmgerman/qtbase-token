@@ -18742,7 +18742,7 @@ argument_list|(
 literal|" "
 argument_list|)
 operator|<<
-literal|" incremental msvc_mp create_prl link_prl depend_includepath QTDIR_build"
+literal|" incremental msvc_mp create_prl link_prl depend_includepath no_private_qt_headers_warning QTDIR_build"
 operator|<<
 name|endl
 expr_stmt|;
@@ -24243,6 +24243,12 @@ name|dictionary
 index|[
 literal|"QMAKESPEC"
 index|]
+operator|<<
+name|endl
+operator|<<
+literal|"QT_VERSION = "
+operator|<<
+name|QT_VERSION_STR
 operator|<<
 name|endl
 expr_stmt|;

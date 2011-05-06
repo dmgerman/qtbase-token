@@ -1331,6 +1331,15 @@ operator|>
 name|QTransform
 operator|::
 name|TxTranslate
+operator|&&
+name|m_current_fontengine
+operator|->
+name|type
+argument_list|()
+operator|==
+name|QFontEngine
+operator|::
+name|Freetype
 condition|)
 block|{
 name|QFontEngineFT

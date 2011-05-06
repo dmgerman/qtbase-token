@@ -519,6 +519,11 @@ argument_list|(
 name|time
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|surface
+argument_list|)
+expr_stmt|;
 name|QWaylandWindow
 modifier|*
 name|self

@@ -210,8 +210,7 @@ operator|.
 name|pixelSize
 argument_list|()
 argument_list|,
-operator|-
-literal|1
+literal|0.0
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -626,7 +625,7 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
-name|int
+name|qreal
 argument_list|>
 argument_list|(
 literal|"pixelSize"
@@ -747,7 +746,7 @@ argument_list|)
 operator|<<
 literal|1000.0
 operator|<<
-literal|10
+literal|10.0
 expr_stmt|;
 name|fileName
 operator|=
@@ -811,7 +810,7 @@ argument_list|)
 operator|<<
 literal|1000.0
 operator|<<
-literal|10
+literal|10.0
 expr_stmt|;
 operator|++
 name|hintingPreference
@@ -877,7 +876,7 @@ argument_list|)
 expr_stmt|;
 name|QFETCH
 argument_list|(
-name|int
+name|qreal
 argument_list|,
 name|pixelSize
 argument_list|)
@@ -1333,7 +1332,7 @@ name|font
 operator|.
 name|setPixelSize
 argument_list|(
-literal|18
+literal|18.0
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1444,7 +1443,7 @@ operator|.
 name|pixelSize
 argument_list|()
 argument_list|,
-literal|18
+literal|18.0
 argument_list|)
 expr_stmt|;
 name|QVector
@@ -3090,7 +3089,7 @@ name|font
 operator|.
 name|setPixelSize
 argument_list|(
-literal|26
+literal|26.0
 argument_list|)
 expr_stmt|;
 name|QRawFont
@@ -3130,7 +3129,7 @@ operator|.
 name|pixelSize
 argument_list|()
 argument_list|,
-literal|26
+literal|26.0
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -3232,7 +3231,7 @@ block|{
 name|QString
 name|rawFontFamilyName
 decl_stmt|;
-name|int
+name|qreal
 name|rawFontPixelSize
 decl_stmt|;
 name|qreal
@@ -3648,7 +3647,7 @@ block|{
 name|QString
 name|rawFontFamilyName
 decl_stmt|;
-name|int
+name|qreal
 name|rawFontPixelSize
 decl_stmt|;
 name|qreal
@@ -4139,7 +4138,7 @@ name|font
 operator|.
 name|setPixelSize
 argument_list|(
-literal|12
+literal|12.0
 argument_list|)
 expr_stmt|;
 name|QRawFont
@@ -4178,7 +4177,7 @@ operator|.
 name|pixelSize
 argument_list|()
 argument_list|,
-literal|12
+literal|12.0
 argument_list|)
 expr_stmt|;
 name|rawFont
@@ -4216,7 +4215,7 @@ operator|.
 name|pixelSize
 argument_list|()
 argument_list|,
-literal|12
+literal|12.0
 argument_list|)
 expr_stmt|;
 name|QString
@@ -4324,7 +4323,7 @@ operator|.
 name|pixelSize
 argument_list|()
 argument_list|,
-literal|12
+literal|12.0
 argument_list|)
 expr_stmt|;
 name|rawFont
@@ -4360,7 +4359,7 @@ operator|.
 name|pixelSize
 argument_list|()
 argument_list|,
-literal|12
+literal|12.0
 argument_list|)
 expr_stmt|;
 name|fontDatabase
