@@ -2685,11 +2685,25 @@ operator|)
 return|;
 block|}
 end_expr_stmt
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_comment
+comment|// QT_USE_FAST_OPERATOR_PLUS was introduced in 4.7, QT_USE_QSTRINGBUILDER is to be used from 4.8 onwards
+end_comment
+begin_comment
+comment|// QT_USE_FAST_OPERATOR_PLUS does not remove the normal operator+ for QByteArray
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|QT_USE_FAST_OPERATOR_PLUS
-end_ifdef
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|QT_USE_QSTRINGBUILDER
+argument_list|)
+end_if
 begin_expr_stmt
 DECL|variable|A
 name|template
