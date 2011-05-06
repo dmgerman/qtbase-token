@@ -34,16 +34,16 @@ name|public
 operator|:
 name|void
 operator|*
-name|nativeResourceForWidget
+name|nativeResourceForWindow
 argument_list|(
 specifier|const
 name|QByteArray
 operator|&
 name|resourceString
 argument_list|,
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|)
 block|;
 name|private
@@ -51,11 +51,11 @@ operator|:
 specifier|static
 name|QWaylandScreen
 operator|*
-name|qPlatformScreenForWidget
+name|qPlatformScreenForWindow
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|)
 block|; }
 decl_stmt|;
