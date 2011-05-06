@@ -20756,6 +20756,25 @@ name|type
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// If the matrix is not affine, the paint engine will fall back to
+comment|// drawing the glyphs as paths, which in turn means we should not
+comment|// preprocess the glyph positions
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|state
+operator|->
+name|matrix
+operator|.
+name|isAffine
+argument_list|()
+condition|)
+name|paintEngineSupportsTransformations
+operator|=
+literal|true
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -21047,6 +21066,13 @@ condition|(
 name|extended
 operator|!=
 literal|0
+operator|&&
+name|state
+operator|->
+name|matrix
+operator|.
+name|isAffine
+argument_list|()
 condition|)
 block|{
 name|QStaticTextItem
