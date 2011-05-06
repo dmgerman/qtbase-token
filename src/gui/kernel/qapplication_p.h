@@ -1899,11 +1899,6 @@ block|;
 specifier|static
 name|QPalette
 operator|*
-name|app_pal
-block|;
-specifier|static
-name|QPalette
-operator|*
 name|sys_pal
 block|;
 specifier|static

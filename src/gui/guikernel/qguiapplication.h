@@ -55,6 +55,12 @@ name|class
 name|QPlatformNativeInterface
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QPalette
+name|class
+name|QPalette
+decl_stmt|;
+end_decl_stmt
 begin_if
 if|#
 directive|if
@@ -213,6 +219,11 @@ argument_list|()
 block|;
 endif|#
 directive|endif
+specifier|static
+name|QPalette
+name|palette
+argument_list|()
+block|;
 specifier|static
 name|Qt
 operator|::
