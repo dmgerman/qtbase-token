@@ -3131,13 +3131,6 @@ argument_list|(
 name|cursor
 argument_list|)
 expr_stmt|;
-name|qt_qpa_set_cursor
-argument_list|(
-literal|0
-argument_list|,
-literal|false
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_function
@@ -3170,13 +3163,6 @@ name|cursor_list
 operator|.
 name|removeFirst
 argument_list|()
-expr_stmt|;
-name|qt_qpa_set_cursor
-argument_list|(
-literal|0
-argument_list|,
-literal|false
-argument_list|)
 expr_stmt|;
 block|}
 end_function
