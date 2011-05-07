@@ -26,7 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QIcon>
+file|<QtWidgets/QIcon>
 end_include
 begin_comment
 comment|//

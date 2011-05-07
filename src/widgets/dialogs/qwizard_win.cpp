@@ -45,7 +45,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QDesktopWidget>
+file|<QtWidgets/QDesktopWidget>
 end_include
 begin_comment
 comment|// Note, these tests are duplicates in qwindowsxpstyle_p.h.

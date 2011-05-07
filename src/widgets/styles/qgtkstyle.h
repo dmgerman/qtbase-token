@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/QCleanlooksStyle>
+file|<QtWidgets/QCleanlooksStyle>
 end_include
 begin_include
 include|#
@@ -31,7 +31,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QFileDialog>
+file|<QtWidgets/QFileDialog>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER

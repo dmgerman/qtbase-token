@@ -75,12 +75,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QFileDialog>
+file|<QtWidgets/QFileDialog>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGtkStyle>
+file|<QtWidgets/QGtkStyle>
 end_include
 begin_include
 include|#
