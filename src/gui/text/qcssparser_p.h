@@ -2206,6 +2206,7 @@ name|StyleSheetOrigin_Inline
 block|}
 enum|;
 struct|struct
+name|Q_GUI_EXPORT
 name|StyleSheet
 block|{
 name|StyleSheet

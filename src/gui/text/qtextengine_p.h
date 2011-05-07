@@ -3407,6 +3407,7 @@ end_function_decl
 begin_decl_stmt
 unit|};
 name|class
+name|Q_GUI_EXPORT
 name|QStackTextEngine
 range|:
 name|public

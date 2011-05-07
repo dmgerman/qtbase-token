@@ -390,6 +390,7 @@ comment|/// return the multiplier of converting from the unit value to postscrip
 end_comment
 begin_function
 DECL|function|qt_multiplierForUnit
+name|Q_GUI_EXPORT
 name|double
 name|qt_multiplierForUnit
 parameter_list|(
@@ -476,6 +477,7 @@ comment|// not static: it's needed in qpagesetupdialog_unix.cpp
 end_comment
 begin_function
 DECL|function|qt_printerPaperSize
+name|Q_GUI_EXPORT
 name|QSizeF
 name|qt_printerPaperSize
 parameter_list|(

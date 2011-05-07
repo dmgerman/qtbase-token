@@ -3041,34 +3041,6 @@ end_endif
 begin_comment
 comment|// Q_WS_X11
 end_comment
-begin_function_decl
-specifier|extern
-name|void
-name|qInitDrawhelperAsm
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_function_decl
-specifier|extern
-name|void
-name|qInitImageConversions
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_function_decl
-specifier|extern
-name|int
-name|qRegisterGuiVariant
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_function_decl
-specifier|extern
-name|int
-name|qUnregisterGuiVariant
-parameter_list|()
-function_decl|;
-end_function_decl
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -3134,10 +3106,6 @@ name|style
 argument_list|()
 expr_stmt|;
 comment|// trigger creation of application style
-comment|// trigger registering of QVariant's GUI types
-name|qRegisterGuiVariant
-argument_list|()
-expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_STATEMACHINE
@@ -3229,14 +3197,6 @@ comment|//QT_AUTO_MAXIMIZE_THRESHOLD
 endif|#
 directive|endif
 comment|//Q_WS_WINCE
-comment|// Set up which span functions should be used in raster engine...
-name|qInitDrawhelperAsm
-argument_list|()
-expr_stmt|;
-comment|// and QImage conversion functions
-name|qInitImageConversions
-argument_list|()
-expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_WHEELEVENT
@@ -3901,10 +3861,6 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
-comment|// trigger unregistering of QVariant's GUI types
-name|qUnregisterGuiVariant
-argument_list|()
-expr_stmt|;
 block|}
 end_destructor
 begin_comment

@@ -255,6 +255,7 @@ comment|/***********************************************************************
 end_comment
 begin_decl_stmt
 name|class
+name|Q_GUI_EXPORT
 name|QRasterPaintEngine
 range|:
 name|public

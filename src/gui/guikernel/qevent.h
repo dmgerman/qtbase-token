@@ -1261,8 +1261,12 @@ name|m_erased
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// ### Qt5: make internal
+end_comment
 begin_decl_stmt
 name|class
+name|Q_GUI_EXPORT
 name|QUpdateLaterEvent
 range|:
 name|public

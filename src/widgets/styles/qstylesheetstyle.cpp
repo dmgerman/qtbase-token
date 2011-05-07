@@ -6003,28 +6003,9 @@ operator|.
 name|sizeValue
 argument_list|()
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|hintName
-operator|.
-name|endsWith
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"icon"
-argument_list|)
-argument_list|)
-condition|)
-block|{
-name|hintValue
-operator|=
-name|decl
-operator|.
-name|iconValue
-argument_list|()
-expr_stmt|;
+comment|// ### Qt5
+comment|//                   } else if (hintName.endsWith(QLatin1String("icon"))) {
+comment|//                       hintValue = decl.iconValue();
 block|}
 elseif|else
 if|if
@@ -16453,19 +16434,8 @@ name|type
 argument_list|()
 condition|)
 block|{
-case|case
-name|QVariant
-operator|::
-name|Icon
-case|:
-name|v
-operator|=
-name|decl
-operator|.
-name|iconValue
-argument_list|()
-expr_stmt|;
-break|break;
+comment|// ### Qt 5
+comment|//        case QVariant::Icon: v = decl.iconValue(); break;
 case|case
 name|QVariant
 operator|::

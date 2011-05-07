@@ -1362,12 +1362,6 @@ operator|::
 name|initialize
 argument_list|()
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_CURSOR
-comment|//    QCursorData::initialize();
-endif|#
-directive|endif
 name|qApp
 operator|->
 name|setObjectName
@@ -1404,16 +1398,6 @@ operator|::
 name|clear
 argument_list|()
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_CURSOR
-name|QCursorData
-operator|::
-name|cleanup
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 name|QColormap
 operator|::
 name|cleanup
