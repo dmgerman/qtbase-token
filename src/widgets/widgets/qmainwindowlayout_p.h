@@ -56,12 +56,12 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"QtGui/qlayout.h"
+file|"QtWidgets/qlayout.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qtabbar.h"
+file|"QtWidgets/qtabbar.h"
 end_include
 begin_include
 include|#

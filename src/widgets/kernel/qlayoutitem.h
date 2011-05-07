@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qsizepolicy.h>
+file|<QtWidgets/qsizepolicy.h>
 end_include
 begin_include
 include|#

@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qwidget.h>
+file|<QtWidgets/qwidget.h>
 end_include
 begin_include
 include|#
@@ -26,12 +26,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qicon.h>
+file|<QtWidgets/qicon.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qaction.h>
+file|<QtWidgets/qaction.h>
 end_include
 begin_ifdef
 ifdef|#

@@ -89,7 +89,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qgesture.h>
+file|<QtWidgets/qgesture.h>
 end_include
 begin_include
 include|#

@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qapplication.h>
+file|<QtWidgets/qapplication.h>
 end_include
 begin_include
 include|#
@@ -45,7 +45,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qgraphicsproxywidget.h>
+file|<QtWidgets/qgraphicsproxywidget.h>
 end_include
 begin_include
 include|#

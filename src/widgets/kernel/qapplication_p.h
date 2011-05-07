@@ -49,7 +49,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"QtGui/qapplication.h"
+file|"QtWidgets/qapplication.h"
 end_include
 begin_include
 include|#
@@ -104,7 +104,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/private/qshortcutmap_p.h"
+file|"private/qshortcutmap_p.h"
 end_include
 begin_include
 include|#
@@ -158,7 +158,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/private/qguiapplication_p.h"
+file|"private/qguiapplication_p.h"
 end_include
 begin_endif
 endif|#

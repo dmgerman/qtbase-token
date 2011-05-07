@@ -56,7 +56,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qgraphicseffect.h>
+file|<QtWidgets/qgraphicseffect.h>
 end_include
 begin_ifndef
 ifndef|#

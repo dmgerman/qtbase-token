@@ -46,7 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"QtGui/qstyleoption.h"
+file|"QtWidgets/qstyleoption.h"
 end_include
 begin_include
 include|#
@@ -56,12 +56,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qboxlayout.h"
+file|"QtWidgets/qboxlayout.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qdockwidget.h"
+file|"QtWidgets/qdockwidget.h"
 end_include
 begin_ifndef
 ifndef|#

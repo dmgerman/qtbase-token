@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qabstractitemview.h>
+file|<QtWidgets/qabstractitemview.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER

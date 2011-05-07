@@ -26,7 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qwidget.h>
+file|<QtWidgets/qwidget.h>
 end_include
 begin_include
 include|#
@@ -36,7 +36,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qicon.h>
+file|<QtWidgets/qicon.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
@@ -1031,7 +1031,7 @@ begin_expr_stmt
 name|QT_BEGIN_INCLUDE_NAMESPACE
 include|#
 directive|include
-file|<QtGui/qactiongroup.h>
+file|<QtWidgets/qactiongroup.h>
 name|QT_END_INCLUDE_NAMESPACE
 endif|#
 directive|endif

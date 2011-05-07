@@ -56,12 +56,12 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"QtGui/qtreeview.h"
+file|"QtWidgets/qtreeview.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qabstractproxymodel.h"
+file|"QtWidgets/qabstractproxymodel.h"
 end_include
 begin_include
 include|#
@@ -71,7 +71,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qitemdelegate.h"
+file|"QtWidgets/qitemdelegate.h"
 end_include
 begin_include
 include|#

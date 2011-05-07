@@ -21,12 +21,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qlayoutitem.h>
+file|<QtWidgets/qlayoutitem.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qsizepolicy.h>
+file|<QtWidgets/qsizepolicy.h>
 end_include
 begin_include
 include|#
@@ -1076,10 +1076,10 @@ comment|//def QT3_SUPPORT
 name|QT_BEGIN_INCLUDE_NAMESPACE
 include|#
 directive|include
-file|<QtGui/qboxlayout.h>
+file|<QtWidgets/qboxlayout.h>
 include|#
 directive|include
-file|<QtGui/qgridlayout.h>
+file|<QtWidgets/qgridlayout.h>
 name|QT_END_INCLUDE_NAMESPACE
 endif|#
 directive|endif

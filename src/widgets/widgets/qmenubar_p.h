@@ -51,7 +51,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"QtGui/qstyleoption.h"
+file|"QtWidgets/qstyleoption.h"
 end_include
 begin_include
 include|#

@@ -123,7 +123,7 @@ end_if
 begin_include
 include|#
 directive|include
-file|<QtGui/qdesktopwidget.h>
+file|<QtWidgets/qdesktopwidget.h>
 end_include
 begin_endif
 endif|#

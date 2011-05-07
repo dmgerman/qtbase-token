@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qtreeview.h>
+file|<QtWidgets/qtreeview.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qtreewidgetitemiterator.h>
+file|<QtWidgets/qtreewidgetitemiterator.h>
 end_include
 begin_include
 include|#

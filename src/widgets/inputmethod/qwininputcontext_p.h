@@ -46,7 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"QtGui/qinputcontext.h"
+file|"QtWidgets/qinputcontext.h"
 end_include
 begin_include
 include|#

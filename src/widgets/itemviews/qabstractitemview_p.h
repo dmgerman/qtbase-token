@@ -56,7 +56,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qapplication.h"
+file|"QtWidgets/qapplication.h"
 end_include
 begin_include
 include|#

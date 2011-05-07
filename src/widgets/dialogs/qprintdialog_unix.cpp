@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qmessagebox.h>
+file|<QtWidgets/qmessagebox.h>
 end_include
 begin_include
 include|#
@@ -45,12 +45,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qfilesystemmodel.h>
+file|<QtWidgets/qfilesystemmodel.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qstyleditemdelegate.h>
+file|<QtWidgets/qstyleditemdelegate.h>
 end_include
 begin_include
 include|#
@@ -60,7 +60,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qdialogbuttonbox.h>
+file|<QtWidgets/qdialogbuttonbox.h>
 end_include
 begin_include
 include|#

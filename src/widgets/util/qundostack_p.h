@@ -31,7 +31,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qaction.h>
+file|<QtWidgets/qaction.h>
 end_include
 begin_include
 include|#

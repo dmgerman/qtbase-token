@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qlistview.h>
+file|<QtWidgets/qlistview.h>
 end_include
 begin_include
 include|#
@@ -31,7 +31,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qitemselectionmodel.h>
+file|<QtWidgets/qitemselectionmodel.h>
 end_include
 begin_function
 name|QT_BEGIN_HEADER

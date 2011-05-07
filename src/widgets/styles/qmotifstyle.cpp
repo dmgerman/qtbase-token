@@ -154,12 +154,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qgraphicsproxywidget.h>
+file|<QtWidgets/qgraphicsproxywidget.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qgraphicsview.h>
+file|<QtWidgets/qgraphicsview.h>
 end_include
 begin_ifdef
 ifdef|#

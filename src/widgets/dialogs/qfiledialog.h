@@ -26,7 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qdialog.h>
+file|<QtWidgets/qdialog.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER

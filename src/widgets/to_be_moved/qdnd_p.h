@@ -61,7 +61,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qdrag.h"
+file|"QtWidgets/qdrag.h"
 end_include
 begin_include
 include|#

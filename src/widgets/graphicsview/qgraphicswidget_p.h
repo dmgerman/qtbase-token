@@ -71,12 +71,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qsizepolicy.h>
+file|<QtWidgets/qsizepolicy.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qstyle.h>
+file|<QtWidgets/qstyle.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

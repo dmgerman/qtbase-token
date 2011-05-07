@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qlayout.h>
+file|<QtWidgets/qlayout.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER

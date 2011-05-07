@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qwidget.h>
+file|<QtWidgets/qwidget.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qtabwidget.h>
+file|<QtWidgets/qtabwidget.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER

@@ -56,7 +56,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qscrollbar.h"
+file|"QtWidgets/qscrollbar.h"
 end_include
 begin_include
 include|#
@@ -71,7 +71,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qmenu.h"
+file|"QtWidgets/qmenu.h"
 end_include
 begin_include
 include|#

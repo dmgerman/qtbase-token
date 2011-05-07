@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qwidget.h>
+file|<QtWidgets/qwidget.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qabstractitemdelegate.h>
+file|<QtWidgets/qabstractitemdelegate.h>
 end_include
 begin_include
 include|#

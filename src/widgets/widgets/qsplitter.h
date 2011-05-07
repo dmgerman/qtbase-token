@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qframe.h>
+file|<QtWidgets/qframe.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qsizepolicy.h>
+file|<QtWidgets/qsizepolicy.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER

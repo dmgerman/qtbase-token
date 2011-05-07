@@ -21,12 +21,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qgraphicslayoutitem.h>
+file|<QtWidgets/qgraphicslayoutitem.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qgraphicsitem.h>
+file|<QtWidgets/qgraphicsitem.h>
 end_include
 begin_include
 include|#

@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qabstractpagesetupdialog.h>
+file|<QtWidgets/qabstractpagesetupdialog.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER

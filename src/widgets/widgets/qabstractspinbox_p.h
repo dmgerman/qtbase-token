@@ -46,7 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"QtGui/qabstractspinbox.h"
+file|"QtWidgets/qabstractspinbox.h"
 end_include
 begin_ifndef
 ifndef|#
@@ -56,12 +56,12 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"QtGui/qlineedit.h"
+file|"QtWidgets/qlineedit.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qstyleoption.h"
+file|"QtWidgets/qstyleoption.h"
 end_include
 begin_include
 include|#

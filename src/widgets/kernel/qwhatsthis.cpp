@@ -75,7 +75,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../text/qtextdocumentlayout_p.h"
+file|"private/qtextdocumentlayout_p.h"
 end_include
 begin_include
 include|#

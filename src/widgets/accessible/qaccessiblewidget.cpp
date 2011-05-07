@@ -65,12 +65,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QFocusFrame>
+file|<QFocusFrame>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QMenu>
+file|<QMenu>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE

@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qaccessibleobject.h>
+file|<QtWidgets/qaccessibleobject.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER

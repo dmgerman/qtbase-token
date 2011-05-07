@@ -48,12 +48,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qabstractitemview.h>
+file|<QtWidgets/qabstractitemview.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qlistwidget.h>
+file|<QtWidgets/qlistwidget.h>
 end_include
 begin_include
 include|#

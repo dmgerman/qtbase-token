@@ -215,7 +215,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qtoolbar.h>
+file|<QtWidgets/qtoolbar.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

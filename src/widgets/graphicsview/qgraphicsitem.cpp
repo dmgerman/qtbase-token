@@ -114,7 +114,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qapplication.h>
+file|<QtWidgets/qapplication.h>
 end_include
 begin_include
 include|#
@@ -139,7 +139,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qstyleoption.h>
+file|<QtWidgets/qstyleoption.h>
 end_include
 begin_include
 include|#
@@ -149,12 +149,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qinputcontext.h>
+file|<QtWidgets/qinputcontext.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qgraphicseffect.h>
+file|<QtWidgets/qgraphicseffect.h>
 end_include
 begin_ifndef
 ifndef|#

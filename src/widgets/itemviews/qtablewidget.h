@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qtableview.h>
+file|<QtWidgets/qtableview.h>
 end_include
 begin_include
 include|#
@@ -29,7 +29,7 @@ directive|include
 file|<QtCore/qvector.h>
 end_include
 begin_comment
-comment|//#include<QtGui/qitemselectionmodel.h>
+comment|//#include<QtWidgets/qitemselectionmodel.h>
 end_comment
 begin_function
 name|QT_BEGIN_HEADER

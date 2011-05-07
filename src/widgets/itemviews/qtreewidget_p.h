@@ -63,7 +63,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qtreewidget.h>
+file|<QtWidgets/qtreewidget.h>
 end_include
 begin_include
 include|#
@@ -73,7 +73,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qheaderview.h>
+file|<QtWidgets/qheaderview.h>
 end_include
 begin_ifndef
 ifndef|#

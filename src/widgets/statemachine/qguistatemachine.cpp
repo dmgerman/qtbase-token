@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qgraphicssceneevent.h>
+file|<QtWidgets/qgraphicssceneevent.h>
 end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE

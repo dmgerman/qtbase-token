@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qdialog.h>
+file|<QtWidgets/qdialog.h>
 end_include
 begin_include
 include|#

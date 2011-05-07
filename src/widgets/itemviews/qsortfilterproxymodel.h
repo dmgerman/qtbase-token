@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qabstractproxymodel.h>
+file|<QtWidgets/qabstractproxymodel.h>
 end_include
 begin_ifndef
 ifndef|#

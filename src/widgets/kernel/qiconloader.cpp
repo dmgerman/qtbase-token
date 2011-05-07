@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QIconEnginePlugin>
+file|<QtWidgets/QIconEnginePlugin>
 end_include
 begin_include
 include|#
@@ -40,12 +40,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QIconEngine>
+file|<QtWidgets/QIconEngine>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QStyleOption>
+file|<QtWidgets/QStyleOption>
 end_include
 begin_include
 include|#

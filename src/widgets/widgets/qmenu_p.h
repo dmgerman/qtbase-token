@@ -46,12 +46,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"QtGui/qmenubar.h"
+file|"QtWidgets/qmenubar.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qstyleoption.h"
+file|"QtWidgets/qstyleoption.h"
 end_include
 begin_include
 include|#

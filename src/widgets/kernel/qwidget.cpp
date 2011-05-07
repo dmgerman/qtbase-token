@@ -367,12 +367,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qgraphicsproxywidget.h"
+file|"QtWidgets/qgraphicsproxywidget.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qgraphicsscene.h"
+file|"QtWidgets/qgraphicsscene.h"
 end_include
 begin_include
 include|#
@@ -382,7 +382,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qabstractscrollarea.h"
+file|"QtWidgets/qabstractscrollarea.h"
 end_include
 begin_include
 include|#

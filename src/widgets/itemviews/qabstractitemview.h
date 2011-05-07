@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qabstractscrollarea.h>
+file|<QtWidgets/qabstractscrollarea.h>
 end_include
 begin_include
 include|#
@@ -26,12 +26,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qitemselectionmodel.h>
+file|<QtWidgets/qitemselectionmodel.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qabstractitemdelegate.h>
+file|<QtWidgets/qabstractitemdelegate.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER

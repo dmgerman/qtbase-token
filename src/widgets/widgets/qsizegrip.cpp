@@ -104,7 +104,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qabstractscrollarea.h>
+file|<QtWidgets/qabstractscrollarea.h>
 end_include
 begin_define
 DECL|macro|SZ_SIZEBOTTOMRIGHT

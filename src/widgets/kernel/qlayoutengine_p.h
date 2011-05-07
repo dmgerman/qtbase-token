@@ -46,12 +46,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"QtGui/qlayoutitem.h"
+file|"QtWidgets/qlayoutitem.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qstyle.h"
+file|"QtWidgets/qstyle.h"
 end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE

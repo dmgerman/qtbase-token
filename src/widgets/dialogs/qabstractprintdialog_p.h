@@ -56,7 +56,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"QtGui/qabstractprintdialog.h"
+file|"QtWidgets/qabstractprintdialog.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

@@ -10,12 +10,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qwidget.h>
+file|<QtWidgets/qwidget.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qmainwindowlayout_p.h>
+file|<private/qmainwindowlayout_p.h>
 end_include
 begin_include
 include|#

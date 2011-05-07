@@ -46,7 +46,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|<QtGui/qdesktopwidget.h>
+file|<QtWidgets/qdesktopwidget.h>
 end_include
 begin_endif
 endif|#
@@ -60,7 +60,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|<QtGui/qwidget.h>
+file|<QtWidgets/qwidget.h>
 end_include
 begin_include
 include|#

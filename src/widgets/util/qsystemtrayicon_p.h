@@ -61,7 +61,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"QtGui/qmenu.h"
+file|"QtWidgets/qmenu.h"
 end_include
 begin_include
 include|#
