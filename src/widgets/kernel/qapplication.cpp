@@ -1131,7 +1131,7 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
-DECL|variable|qt_is_gui_used
+specifier|extern
 name|bool
 name|qt_is_gui_used
 decl_stmt|;

@@ -73,6 +73,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qpalette.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QPlatformIntegration>
 end_include
 begin_include
@@ -121,6 +126,14 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|qt_is_gui_used
+name|bool
+name|qt_is_gui_used
+init|=
+literal|true
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|member|mouse_buttons
 name|Qt
 operator|::

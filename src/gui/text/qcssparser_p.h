@@ -86,13 +86,14 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QIcon>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/QSharedData>
 end_include
+begin_decl_stmt
+DECL|variable|QIcon
+name|class
+name|QIcon
+decl_stmt|;
+end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -1171,11 +1172,7 @@ name|uriValue
 argument_list|()
 specifier|const
 expr_stmt|;
-name|QIcon
-name|iconValue
-argument_list|()
-specifier|const
-expr_stmt|;
+comment|//    QIcon iconValue() const;
 name|void
 name|borderImageValue
 argument_list|(

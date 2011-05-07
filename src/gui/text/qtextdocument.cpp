@@ -80,11 +80,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qtextedit.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<qfile.h>
 end_include
 begin_include
@@ -101,11 +96,6 @@ begin_include
 include|#
 directive|include
 file|"qfont_p.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"private/qtextedit_p.h"
 end_include
 begin_include
 include|#
