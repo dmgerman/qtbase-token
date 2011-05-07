@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGraphicsPixmapItem>
+file|<QtWidgets/QGraphicsPixmapItem>
 end_include
 begin_comment
 comment|//! [0]

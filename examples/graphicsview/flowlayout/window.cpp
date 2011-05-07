@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/qgraphicsproxywidget.h>
+file|<QtWidgets/qgraphicsproxywidget.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qlabel.h>
+file|<QtWidgets/qlabel.h>
 end_include
 begin_include
 include|#

@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QtGui>
+file|<QtWidgets/QtWidgets>
 end_include
 begin_ifndef
 ifndef|#

@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/qgraphicswidget.h>
+file|<QtWidgets/qgraphicswidget.h>
 end_include
 begin_decl_stmt
 name|class

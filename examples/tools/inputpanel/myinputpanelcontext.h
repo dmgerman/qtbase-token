@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/QInputContext>
+file|<QtWidgets/QInputContext>
 end_include
 begin_include
 include|#

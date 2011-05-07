@@ -20,12 +20,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGraphicsScene>
+file|<QtWidgets/QGraphicsScene>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGraphicsView>
+file|<QtWidgets/QGraphicsView>
 end_include
 begin_constructor
 DECL|function|GraphicsView
