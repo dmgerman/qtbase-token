@@ -30,6 +30,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtWidgets/QtWidgets>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QCoreApplication>
 end_include
 begin_macro

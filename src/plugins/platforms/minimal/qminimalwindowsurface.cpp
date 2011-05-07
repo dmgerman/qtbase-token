@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qapplication_p.h>
+file|<private/qguiapplication_p.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
@@ -178,7 +178,7 @@ operator|::
 name|Format
 name|format
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
