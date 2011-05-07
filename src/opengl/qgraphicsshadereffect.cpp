@@ -45,12 +45,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qgraphicsitem.h>
+file|<QtWidgets/qgraphicsitem.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qgraphicseffect_p.h>
+file|<private/qgraphicseffect_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
