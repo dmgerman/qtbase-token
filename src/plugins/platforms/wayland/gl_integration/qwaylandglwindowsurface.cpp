@@ -951,6 +951,10 @@ operator|new
 name|QGLFramebufferObject
 argument_list|(
 name|size
+argument_list|,
+name|QGLFramebufferObject
+operator|::
+name|CombinedDepthStencil
 argument_list|)
 expr_stmt|;
 block|}
