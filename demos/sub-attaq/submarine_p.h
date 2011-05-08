@@ -72,7 +72,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGraphicsScene>
+file|<QtWidgets/QGraphicsScene>
 end_include
 begin_comment
 comment|//This state is describing when the boat is moving right
