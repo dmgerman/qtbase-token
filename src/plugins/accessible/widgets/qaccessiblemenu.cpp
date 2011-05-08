@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QAction>
+file|<QtWidgets/QAction>
 end_include
 begin_include
 include|#

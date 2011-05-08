@@ -29,7 +29,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qinputcontextplugin.h>
+file|<QtWidgets/qinputcontextplugin.h>
 end_include
 begin_include
 include|#
