@@ -10154,7 +10154,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QTextTable
 argument_list|,
-argument|QtGui
+argument|QtWidgets
 argument_list|,
 argument|qtexttable.h
 argument_list|)
@@ -10164,7 +10164,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QCompleter
 argument_list|,
-argument|QtGui
+argument|QtWidgets
 argument_list|,
 argument|qcompleter.h
 argument_list|)
@@ -10174,7 +10174,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QDesktopServices
 argument_list|,
-argument|QtGui
+argument|QtWidgets
 argument_list|,
 argument|qdesktopservices.h
 argument_list|)
@@ -10184,7 +10184,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QScroller
 argument_list|,
-argument|QtGui
+argument|QtWidgets
 argument_list|,
 argument|qscroller.h
 argument_list|)
@@ -10194,7 +10194,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QScrollerProperties
 argument_list|,
-argument|QtGui
+argument|QtWidgets
 argument_list|,
 argument|qscrollerproperties.h
 argument_list|)
@@ -10214,7 +10214,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QUndoGroup
 argument_list|,
-argument|QtGui
+argument|QtWidgets
 argument_list|,
 argument|qundogroup.h
 argument_list|)
@@ -10224,7 +10224,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QUndoCommand
 argument_list|,
-argument|QtGui
+argument|QtWidgets
 argument_list|,
 argument|qundostack.h
 argument_list|)
@@ -10234,7 +10234,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QUndoStack
 argument_list|,
-argument|QtGui
+argument|QtWidgets
 argument_list|,
 argument|qundostack.h
 argument_list|)
@@ -10244,7 +10244,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QUndoView
 argument_list|,
-argument|QtGui
+argument|QtWidgets
 argument_list|,
 argument|qundoview.h
 argument_list|)
