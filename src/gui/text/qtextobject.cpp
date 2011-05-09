@@ -4412,7 +4412,7 @@ name|ret
 operator|+=
 name|textLine
 operator|.
-name|glyphs
+name|glyphRuns
 argument_list|(
 name|pos
 argument_list|,
