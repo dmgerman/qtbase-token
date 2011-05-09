@@ -38,6 +38,10 @@ parameter_list|)
 name|class
 name|QUrl
 decl_stmt|;
+DECL|variable|QNetworkConfiguration
+name|class
+name|QNetworkConfiguration
+decl_stmt|;
 DECL|variable|QNetworkProxyQueryPrivate
 name|class
 name|QNetworkProxyQueryPrivate
@@ -115,6 +119,60 @@ name|other
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
+end_ifndef
+begin_macro
+name|QNetworkProxyQuery
+argument_list|(
+argument|const QNetworkConfiguration&networkConfiguration
+argument_list|,
+argument|const QUrl&requestUrl
+argument_list|,
+argument|QueryType queryType = UrlRequest
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|QNetworkProxyQuery
+argument_list|(
+argument|const QNetworkConfiguration&networkConfiguration
+argument_list|,
+argument|const QString&hostname
+argument_list|,
+argument|int port
+argument_list|,
+argument|const QString&protocolTag = QString()
+argument_list|,
+argument|QueryType queryType = TcpSocket
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_macro
+name|QNetworkProxyQuery
+argument_list|(
+argument|const QNetworkConfiguration&networkConfiguration
+argument_list|,
+argument|quint16 bindPort
+argument_list|,
+argument|const QString&protocolTag = QString()
+argument_list|,
+argument|QueryType queryType = TcpServer
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_expr_stmt
 operator|~
 name|QNetworkProxyQuery
@@ -273,6 +331,33 @@ name|url
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
+end_ifndef
+begin_expr_stmt
+name|QNetworkConfiguration
+name|networkConfiguration
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
+begin_function_decl
+name|void
+name|setNetworkConfiguration
+parameter_list|(
+specifier|const
+name|QNetworkConfiguration
+modifier|&
+name|networkConfiguration
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_label
 name|private
 label|:

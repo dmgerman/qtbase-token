@@ -31931,6 +31931,21 @@ argument_list|(
 name|proxy
 argument_list|)
 expr_stmt|;
+name|QNetworkRequest
+name|request
+argument_list|(
+name|url
+argument_list|)
+decl_stmt|;
+name|request
+operator|.
+name|setRawHeader
+argument_list|(
+literal|"User-Agent"
+argument_list|,
+literal|"QNetworkReplyAutoTest/1.0"
+argument_list|)
+expr_stmt|;
 name|QNetworkReplyPtr
 name|reply
 init|=
@@ -31938,20 +31953,14 @@ name|manager
 operator|.
 name|get
 argument_list|(
-name|QNetworkRequest
-argument_list|(
-name|url
-argument_list|)
+name|request
 argument_list|)
 decl_stmt|;
-name|manager
-operator|.
-name|setProxy
-argument_list|(
-name|QNetworkProxy
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//clearing the proxy here causes the test to fail.
+comment|//the proxy isn't used until after the bearer has been started
+comment|//which is correct in general, because system proxy isn't known until that time.
+comment|//removing this line is safe, as the proxy is also reset by the cleanup() function
+comment|//manager.setProxy(QNetworkProxy());
 comment|// wait for the finished signal
 name|connect
 argument_list|(
@@ -31983,7 +31992,7 @@ argument_list|()
 operator|.
 name|enterLoop
 argument_list|(
-literal|1
+literal|15
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -31999,6 +32008,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//qDebug()<< reply->error()<< reply->errorString();
+comment|//qDebug()<< proxyServer.receivedData;
 comment|// we don't really care if the request succeeded
 comment|// especially since it won't succeed in the HTTPS case
 comment|// so just check that the command was correct
@@ -32022,6 +32032,59 @@ argument_list|(
 name|receivedHeader
 argument_list|,
 name|expectedCommand
+argument_list|)
+expr_stmt|;
+comment|//QTBUG-17223 - make sure the user agent from the request is sent to proxy server even for CONNECT
+name|int
+name|uapos
+init|=
+name|proxyServer
+operator|.
+name|receivedData
+operator|.
+name|indexOf
+argument_list|(
+literal|"User-Agent"
+argument_list|)
+decl_stmt|;
+name|int
+name|uaend
+init|=
+name|proxyServer
+operator|.
+name|receivedData
+operator|.
+name|indexOf
+argument_list|(
+literal|"\r\n"
+argument_list|,
+name|uapos
+argument_list|)
+decl_stmt|;
+name|QByteArray
+name|uaheader
+init|=
+name|proxyServer
+operator|.
+name|receivedData
+operator|.
+name|mid
+argument_list|(
+name|uapos
+argument_list|,
+name|uaend
+operator|-
+name|uapos
+argument_list|)
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|uaheader
+argument_list|,
+name|QByteArray
+argument_list|(
+literal|"User-Agent: QNetworkReplyAutoTest/1.0"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

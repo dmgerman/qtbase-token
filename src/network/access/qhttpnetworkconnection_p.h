@@ -516,6 +516,10 @@ operator|&
 name|request
 argument_list|)
 block|;
+name|QHttpNetworkRequest
+name|predictNextRequest
+argument_list|()
+block|;
 name|void
 name|fillPipeline
 argument_list|(
