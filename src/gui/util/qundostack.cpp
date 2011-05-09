@@ -68,11 +68,10 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|d
-operator|->
+name|setText
+argument_list|(
 name|text
-operator|=
-name|text
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -272,7 +271,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a short text string describing what this command does; for example,     "insert text".      The text is used when the text properties of the stack's undo and redo     actions are updated.      \sa setText(), QUndoStack::createUndoAction(), QUndoStack::createRedoAction() */
+comment|/*!     Returns a short text string describing what this command does; for example,     "insert text".      The text is used for names of items in QUndoView.      \sa actionText(), setText(), QUndoStack::createUndoAction(), QUndoStack::createRedoAction() */
 end_comment
 begin_function
 DECL|function|text
@@ -291,7 +290,26 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the command's text to be the \a text specified.      The specified text should be a short user-readable string describing what this     command does.      \sa text() QUndoStack::createUndoAction() QUndoStack::createRedoAction() */
+comment|/*!     \since 4.8      Returns a short text string describing what this command does; for example,     "insert text".      The text is used when the text properties of the stack's undo and redo     actions are updated.      \sa text(), setText(), QUndoStack::createUndoAction(), QUndoStack::createRedoAction() */
+end_comment
+begin_function
+DECL|function|actionText
+name|QString
+name|QUndoCommand
+operator|::
+name|actionText
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|d
+operator|->
+name|actionText
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Sets the command's text to be the \a text specified.      The specified text should be a short user-readable string describing what this     command does.      If you need to have two different strings for text() and actionText(), separate     them with "\n" and pass into this function. Even if you do not use this feature     for English strings during development, you can still let translators use two     different strings in order to match specific languages' needs.     The described feature and the function actionText() are available since Qt 4.8.      \sa text() actionText() QUndoStack::createUndoAction() QUndoStack::createRedoAction() */
 end_comment
 begin_function
 DECL|function|setText
@@ -306,12 +324,66 @@ modifier|&
 name|text
 parameter_list|)
 block|{
+name|int
+name|cdpos
+init|=
+name|text
+operator|.
+name|indexOf
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'\n'
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|cdpos
+operator|>
+literal|0
+condition|)
+block|{
+name|d
+operator|->
+name|text
+operator|=
+name|text
+operator|.
+name|left
+argument_list|(
+name|cdpos
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|actionText
+operator|=
+name|text
+operator|.
+name|mid
+argument_list|(
+name|cdpos
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|d
 operator|->
 name|text
 operator|=
 name|text
 expr_stmt|;
+name|d
+operator|->
+name|actionText
+operator|=
+name|text
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_comment
@@ -1814,7 +1886,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the text of the command which will be undone in the next call to undo().      \sa QUndoCommand::text() redoText() */
+comment|/*!     Returns the text of the command which will be undone in the next call to undo().      \sa QUndoCommand::actionText() redoText() */
 end_comment
 begin_function
 DECL|function|undoText
@@ -1867,7 +1939,7 @@ operator|-
 literal|1
 argument_list|)
 operator|->
-name|text
+name|actionText
 argument_list|()
 return|;
 return|return
@@ -1877,7 +1949,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the text of the command which will be redone in the next call to redo().      \sa QUndoCommand::text() undoText() */
+comment|/*!     Returns the text of the command which will be redone in the next call to redo().      \sa QUndoCommand::actionText() undoText() */
 end_comment
 begin_function
 DECL|function|redoText
@@ -1933,7 +2005,7 @@ operator|->
 name|index
 argument_list|)
 operator|->
-name|text
+name|actionText
 argument_list|()
 return|;
 return|return

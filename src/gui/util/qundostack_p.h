@@ -106,6 +106,9 @@ expr_stmt|;
 name|QString
 name|text
 decl_stmt|;
+name|QString
+name|actionText
+decl_stmt|;
 name|int
 name|id
 decl_stmt|;
