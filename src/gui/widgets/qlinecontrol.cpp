@@ -1500,6 +1500,16 @@ operator|->
 name|replacementStart
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|m_cursor
+operator|<
+literal|0
+condition|)
+name|m_cursor
+operator|=
+literal|0
+expr_stmt|;
 comment|// insert commit string
 if|if
 condition|(
@@ -1553,8 +1563,10 @@ expr_stmt|;
 block|}
 name|m_cursor
 operator|=
-name|qMin
+name|qBound
 argument_list|(
+literal|0
+argument_list|,
 name|c
 argument_list|,
 name|m_text
