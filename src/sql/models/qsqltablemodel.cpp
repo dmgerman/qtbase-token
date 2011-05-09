@@ -3944,7 +3944,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the index of the field \a fieldName. */
+comment|/*!     Returns the index of the field \a fieldName, or -1 if no corresponding field     exists in the model. */
 end_comment
 begin_function
 DECL|function|fieldIndex
