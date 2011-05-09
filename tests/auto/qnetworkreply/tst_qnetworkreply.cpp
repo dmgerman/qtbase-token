@@ -2548,11 +2548,11 @@ name|QNetworkCacheMetaData
 modifier|&
 parameter_list|)
 block|{
-name|Q_ASSERT
+name|qFatal
 argument_list|(
-literal|0
-operator|&&
-literal|"Should not have tried to add to the cache"
+literal|"%s: Should not have tried to add to the cache"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 return|return
@@ -2567,11 +2567,11 @@ name|QIODevice
 modifier|*
 parameter_list|)
 block|{
-name|Q_ASSERT
+name|qFatal
 argument_list|(
-literal|0
-operator|&&
-literal|"Should not have tried to add to the cache"
+literal|"%s: Should not have tried to add to the cache"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}
