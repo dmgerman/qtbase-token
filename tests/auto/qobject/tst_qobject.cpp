@@ -9378,11 +9378,15 @@ name|QEvent
 modifier|*
 parameter_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
 name|customEventThread
-operator|==
-literal|0
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: customEventThread should be null"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 name|customEventThread
@@ -9405,11 +9409,15 @@ name|QTimerEvent
 modifier|*
 parameter_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
 name|timerEventThread
-operator|==
-literal|0
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: timerEventThread should be null"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 name|timerEventThread
@@ -9432,11 +9440,15 @@ name|void
 name|theSlot
 parameter_list|()
 block|{
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
 name|slotThread
-operator|==
-literal|0
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: slotThread should be null"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 name|slotThread
