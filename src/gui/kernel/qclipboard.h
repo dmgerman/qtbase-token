@@ -287,6 +287,10 @@ name|friend
 name|class
 name|QMimeSource
 block|;
+name|friend
+name|class
+name|QPlatformClipboard
+block|;
 name|private
 operator|:
 name|Q_DISABLE_COPY

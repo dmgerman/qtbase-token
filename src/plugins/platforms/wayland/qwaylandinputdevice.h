@@ -85,6 +85,17 @@ modifier|*
 name|window
 parameter_list|)
 function_decl|;
+block|struct
+name|wl_input_device
+operator|*
+name|wl_input_device
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mInputDevice
+return|;
+block|}
 name|private
 label|:
 name|struct
