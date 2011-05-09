@@ -24532,7 +24532,9 @@ name|this
 condition|)
 name|qWarning
 argument_list|(
-literal|"MyData::~MyData(): object has moved"
+literal|"%s: object has moved"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}
@@ -24550,14 +24552,20 @@ argument_list|(
 name|this
 argument_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
 name|o
 operator|.
 name|ptr
-operator|==
+operator|!=
 operator|&
 name|o
+condition|)
+name|qWarning
+argument_list|(
+literal|"%s: other object has moved"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}
@@ -24581,7 +24589,9 @@ name|this
 condition|)
 name|qWarning
 argument_list|(
-literal|"MyData::operator=(): object has moved"
+literal|"%s: object has moved"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 if|if
@@ -24595,7 +24605,9 @@ name|o
 condition|)
 name|qWarning
 argument_list|(
-literal|"MyData::operator=(): other object has moved"
+literal|"%s: other object has moved"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 return|return
@@ -24623,7 +24635,9 @@ name|this
 condition|)
 name|qWarning
 argument_list|(
-literal|"MyData::operator==(): object has moved"
+literal|"%s: object has moved"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 if|if
@@ -24637,7 +24651,9 @@ name|o
 condition|)
 name|qWarning
 argument_list|(
-literal|"MyData::operator==(): other object has moved"
+literal|"%s: other object has moved"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 return|return
