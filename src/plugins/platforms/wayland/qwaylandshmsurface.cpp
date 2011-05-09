@@ -15,11 +15,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qapplication_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|"qwaylanddisplay.h"
 end_include
 begin_include
