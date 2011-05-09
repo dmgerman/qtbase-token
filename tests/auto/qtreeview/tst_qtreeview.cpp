@@ -1099,9 +1099,16 @@ argument_list|()
 parameter_list|)
 specifier|const
 block|{
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
+operator|!
 name|fetched
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: rowCount should not be called before fetching"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 if|if
@@ -18434,12 +18441,19 @@ operator|==
 literal|0
 condition|)
 block|{
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
+operator|!
 name|children
 operator|.
 name|isEmpty
 argument_list|()
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: children should be empty when parent is null"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 name|populate
