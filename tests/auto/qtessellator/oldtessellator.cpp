@@ -2438,16 +2438,22 @@ operator|=
 name|edge
 expr_stmt|;
 block|}
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
 name|isects
 operator|.
 name|size
 argument_list|()
 operator|%
 literal|2
-operator|==
+operator|!=
 literal|1
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: number of intersection points must be odd"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 comment|// sort intersection points
