@@ -1106,6 +1106,7 @@ begin_function_decl
 name|void
 name|drawGlyphs
 parameter_list|(
+specifier|const
 name|quint32
 modifier|*
 name|glyphArray
