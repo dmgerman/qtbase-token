@@ -33,6 +33,17 @@ include|#
 directive|include
 file|<QtCore/QVariant>
 end_include
+begin_comment
+comment|// qcoreapplication_p.h includes qsettings.h which undefines Status
+end_comment
+begin_comment
+comment|// therefore it is included here before the X stuff.
+end_comment
+begin_include
+include|#
+directive|include
+file|<QtCore/private/qcoreapplication_p.h>
+end_include
 begin_if
 if|#
 directive|if
