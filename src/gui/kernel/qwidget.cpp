@@ -4672,6 +4672,12 @@ name|d
 operator|->
 name|layout
 expr_stmt|;
+name|d
+operator|->
+name|layout
+operator|=
+literal|0
+expr_stmt|;
 comment|// Remove myself from focus list
 name|Q_ASSERT
 argument_list|(

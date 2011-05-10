@@ -80,6 +80,105 @@ name|class
 name|QNativeImage
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// This is the implementation of the unified toolbar on Mac OS X
+end_comment
+begin_comment
+comment|// with the graphics system raster.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// General idea:
+end_comment
+begin_comment
+comment|// -------------
+end_comment
+begin_comment
+comment|// We redirect the painting of widgets inside the unified toolbar
+end_comment
+begin_comment
+comment|// to a special window surface, the QUnifiedToolbarSurface.
+end_comment
+begin_comment
+comment|// We need a separate window surface because the unified toolbar
+end_comment
+begin_comment
+comment|// is out of the content view.
+end_comment
+begin_comment
+comment|// The input system is the same as for the unified toolbar with the
+end_comment
+begin_comment
+comment|// native (CoreGraphics) engine.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// Execution flow:
+end_comment
+begin_comment
+comment|// ---------------
+end_comment
+begin_comment
+comment|// The unified toolbar is triggered by QMainWindow::setUnifiedTitleAndToolBarOnMac().
+end_comment
+begin_comment
+comment|// It calls QMainWindowLayout::insertIntoMacToolbar() which will
+end_comment
+begin_comment
+comment|// set all the appropriate variables (offsets, redirection, ...).
+end_comment
+begin_comment
+comment|// When Qt tells a widget to repaint, QWidgetPrivate::drawWidget()
+end_comment
+begin_comment
+comment|// checks if the widget is inside the unified toolbar and exits without
+end_comment
+begin_comment
+comment|// painting is that is the case.
+end_comment
+begin_comment
+comment|// We trigger the rendering of the unified toolbar in QWidget::repaint()
+end_comment
+begin_comment
+comment|// and QWidget::update().
+end_comment
+begin_comment
+comment|// We keep track of flush requests via "flushRequested" variable. That
+end_comment
+begin_comment
+comment|// allow flush() to be a no-op if no repaint occured for a widget.
+end_comment
+begin_comment
+comment|// We rely on the needsDisplay: and drawRect: mecanism for drawing our
+end_comment
+begin_comment
+comment|// content into the graphics context.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// Notes:
+end_comment
+begin_comment
+comment|// ------
+end_comment
+begin_comment
+comment|// The painting of items inside the unified toolbar is expensive.
+end_comment
+begin_comment
+comment|// Too many repaints will drastically slow down the whole application.
+end_comment
+begin_comment
+comment|//
+end_comment
 begin_decl_stmt
 name|class
 name|QUnifiedToolbarSurfacePrivate

@@ -696,6 +696,10 @@ name|layout
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|mlayout
+condition|)
 name|mlayout
 operator|->
 name|updateUnifiedToolbarOffset
