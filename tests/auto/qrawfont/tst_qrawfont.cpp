@@ -4512,12 +4512,12 @@ operator|.
 name|endLayout
 argument_list|()
 expr_stmt|;
-name|QGlyphs
+name|QGlyphRun
 name|glyphs
 init|=
 name|layout
 operator|.
-name|glyphs
+name|glyphRuns
 argument_list|()
 operator|.
 name|at
@@ -4530,7 +4530,7 @@ name|rawFont
 init|=
 name|glyphs
 operator|.
-name|font
+name|rawFont
 argument_list|()
 decl_stmt|;
 name|QCOMPARE
