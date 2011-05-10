@@ -122,7 +122,6 @@ block|{  }
 end_destructor
 begin_function
 DECL|function|mimeData
-specifier|const
 name|QMimeData
 modifier|*
 name|QPlatformClipboard
@@ -134,7 +133,6 @@ operator|::
 name|Mode
 name|mode
 parameter_list|)
-specifier|const
 block|{
 comment|//we know its clipboard
 name|Q_UNUSED

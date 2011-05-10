@@ -944,7 +944,6 @@ block|}
 end_function
 begin_function
 DECL|function|mimeData
-specifier|const
 name|QMimeData
 modifier|*
 name|QWaylandClipboard
@@ -956,7 +955,6 @@ operator|::
 name|Mode
 name|mode
 parameter_list|)
-specifier|const
 block|{
 name|Q_ASSERT
 argument_list|(

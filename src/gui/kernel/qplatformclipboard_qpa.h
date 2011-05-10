@@ -47,7 +47,6 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|virtual
-specifier|const
 name|QMimeData
 modifier|*
 name|mimeData
@@ -61,7 +60,6 @@ name|QClipboard
 operator|::
 name|Clipboard
 argument_list|)
-decl|const
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
