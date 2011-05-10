@@ -1927,6 +1927,15 @@ begin_comment
 comment|/*! \typedef QString::iterator      The QString::iterator typedef provides an STL-style non-const     iterator for QString.      \sa QString::const_iterator */
 end_comment
 begin_comment
+comment|/*!     \typedef QString::const_reference      The QString::const_reference typedef provides an STL-style     const reference for QString. */
+end_comment
+begin_comment
+comment|/*!     \typedef QString::reference      The QString::const_reference typedef provides an STL-style     reference for QString. */
+end_comment
+begin_comment
+comment|/*!     \typedef QString::value_type      The QString::const_reference typedef provides an STL-style     value type for QString. */
+end_comment
+begin_comment
 comment|/*! \fn QString::iterator QString::begin()      Returns an \l{STL-style iterator} pointing to the first character in     the string.      \sa constBegin(), end() */
 end_comment
 begin_comment
@@ -27379,7 +27388,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8      Returns a UCS-4/UTF-32 representation of the string as a QVector<uint>.      UCS-4 is a Unicode codec and is lossless. All characters from this string     can be encoded in UCS-4.      \sa fromUtf8(), toAscii(), toLatin1(), toLocal8Bit(), QTextCodec, fromUcs4(), toWCharArray() */
+comment|/*!     \since 4.8      Returns a UCS-4/UTF-32 representation of the string as a QVector<uint>.      UCS-4 is a Unicode codec and is lossless. All characters from this string     can be encoded in UCS-4.      \sa toAscii(), toLatin1(), toLocal8Bit(), QTextCodec */
 end_comment
 begin_function
 DECL|function|toUcs4

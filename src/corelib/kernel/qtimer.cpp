@@ -180,7 +180,7 @@ begin_comment
 comment|/*!     \fn int QTimer::timerId() const      Returns the ID of the timer if the timer is running; otherwise returns     -1. */
 end_comment
 begin_comment
-comment|/*! \overload start()      Starts or restarts the timer with the timeout specified in \l interval.      If \l singleShot is true, the timer will be activated only once. */
+comment|/*! \overload start()      Starts or restarts the timer with the timeout specified in \l interval.      If the timer is already running, it will be     \l{QTimer::stop()}{stopped} and restarted.      If \l singleShot is true, the timer will be activated only once. */
 end_comment
 begin_function
 DECL|function|start
@@ -221,7 +221,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Starts or restarts the timer with a timeout interval of \a msec     milliseconds. */
+comment|/*!     Starts or restarts the timer with a timeout interval of \a msec     milliseconds.      If the timer is already running, it will be     \l{QTimer::stop()}{stopped} and restarted.      If \l singleShot is true, the timer will be activated only once.  */
 end_comment
 begin_function
 DECL|function|start

@@ -1740,14 +1740,14 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \internal */
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
 name|Q_OS_WIN
 end_ifndef
+begin_comment
+comment|/*!     \internal */
+end_comment
 begin_function
 DECL|function|sizeFdFh
 name|qint64

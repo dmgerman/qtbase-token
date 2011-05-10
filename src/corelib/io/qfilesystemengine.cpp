@@ -784,7 +784,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Resolves the \a entry (see QDir::searchPaths) and returns an engine for     it, but never a QFSFileEngine.      \returns a file engine that can be used to access the entry. Returns 0 if     QFileSystemEngine API should be used to query and interact with the file     system object. */
+comment|/*!     \internal      Resolves the \a entry (see QDir::searchPaths) and returns an engine for     it, but never a QFSFileEngine.      Returns a file engine that can be used to access the entry. Returns 0 if     QFileSystemEngine API should be used to query and interact with the file     system object. */
 end_comment
 begin_function
 DECL|function|resolveEntryAndCreateLegacyEngine

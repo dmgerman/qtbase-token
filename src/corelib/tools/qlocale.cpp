@@ -4458,7 +4458,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the language and country of this locale as a     string of the form "language_country", where     language is a lowercase, two-letter ISO 639 language code,     and country is an uppercase, two- or three-letter ISO 3166 country code.      Note that even if QLocale object was constructed with an explicit script,     name() will not contain it for compatibility reasons. Use bcp47Name() instead     if you need a full locale name.      \sa QLocale(const QString&), language(), script(), country(), bcp47Name() */
+comment|/*!     Returns the language and country of this locale as a     string of the form "language_country", where     language is a lowercase, two-letter ISO 639 language code,     and country is an uppercase, two- or three-letter ISO 3166 country code.      Note that even if QLocale object was constructed with an explicit script,     name() will not contain it for compatibility reasons. Use bcp47Name() instead     if you need a full locale name.      \sa QLocale(), language(), script(), country(), bcp47Name() */
 end_comment
 begin_function
 DECL|function|name

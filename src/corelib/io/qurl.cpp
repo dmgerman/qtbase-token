@@ -41253,7 +41253,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QUrl representation of \a localFile, interpreted as a local     file. This function accepts paths separated by slashes as well as the     native separator for this platform.      This function also accepts paths with a doubled leading slash (or     backslash) to indicate a remote file, as in     "//servername/path/to/file.txt". Note that only certain platforms can     actually open this file using QFile::open().      \sa toLocalFile(), isLocalFile(), QDir::toNativeSeparators */
+comment|/*!     Returns a QUrl representation of \a localFile, interpreted as a local     file. This function accepts paths separated by slashes as well as the     native separator for this platform.      This function also accepts paths with a doubled leading slash (or     backslash) to indicate a remote file, as in     "//servername/path/to/file.txt". Note that only certain platforms can     actually open this file using QFile::open().      \sa toLocalFile(), isLocalFile(), QDir::toNativeSeparators() */
 end_comment
 begin_function
 DECL|function|fromLocalFile

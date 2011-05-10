@@ -4564,10 +4564,10 @@ begin_comment
 comment|/*!     \macro QT_TRID_NOOP(id)     \relates<QtGlobal>     \since 4.6      \brief The QT_TRID_NOOP macro marks an id for dynamic translation.      The only purpose of this macro is to provide an anchor for attaching     meta data like to qtTrId().      The macro expands to \a id.      Example:      \snippet doc/src/snippets/code/src_corelib_global_qglobal.cpp qttrid_noop      \sa qtTrId(), {Internationalization with Qt} */
 end_comment
 begin_comment
-comment|/*!     \macro Q_LIKELY(expr)     \relates<QtGlobal>     \since 4.8      \brief Hints the compiler that the enclosed condition is likely to evaluate     to \c true.      Use of this macro can help the compiler to optimize the code.      Example:      \snippet doc/src/snippets/code/src_corelib_global_qglobal.cpp qlikely      \sa Q_UNLIKELY() */
+comment|/*!     \macro Q_LIKELY(expr)     \relates<QtGlobal>     \since 4.8      \brief Hints to the compiler that the enclosed condition, \a expr, is     likely to evaluate to \c true.      Use of this macro can help the compiler to optimize the code.      Example:      \snippet doc/src/snippets/code/src_corelib_global_qglobal.cpp qlikely      \sa Q_UNLIKELY() */
 end_comment
 begin_comment
-comment|/*!     \macro Q_UNLIKELY(expr)     \relates<QtGlobal>     \since 4.8      \brief Hints the compiler that the enclosed condition is likely to evaluate     to \c false.      Use of this macro can help the compiler to optimize the code.      Example:      \snippet doc/src/snippets/code/src_corelib_global_qglobal.cpp qunlikely      \sa Q_LIKELY() */
+comment|/*!     \macro Q_UNLIKELY(expr)     \relates<QtGlobal>     \since 4.8      \brief Hints to the compiler that the enclosed condition, \a expr, is     likely to evaluate to \c false.      Use of this macro can help the compiler to optimize the code.      Example:      \snippet doc/src/snippets/code/src_corelib_global_qglobal.cpp qunlikely      \sa Q_LIKELY() */
 end_comment
 begin_comment
 comment|/*!     \macro QT_POINTER_SIZE     \relates<QtGlobal>      Expands to the size of a pointer in bytes (4 or 8). This is     equivalent to \c sizeof(void *) but can be used in a preprocessor     directive. */

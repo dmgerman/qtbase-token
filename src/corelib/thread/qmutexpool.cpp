@@ -163,7 +163,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  \fn QMutexPool::get(void *address)     Returns a QMutex from the pool. QMutexPool uses the value \a address     to determine which mutex is returned from the pool. */
+comment|/*!     \fn QMutexPool::get(const void *address)     Returns a QMutex from the pool. QMutexPool uses the value \a address     to determine which mutex is returned from the pool. */
 end_comment
 begin_comment
 comment|/*! \internal   create the mutex for the given index  */
