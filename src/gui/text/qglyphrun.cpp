@@ -19,47 +19,47 @@ end_if
 begin_include
 include|#
 directive|include
-file|"qglyphs.h"
+file|"qglyphrun.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qglyphs_p.h"
+file|"qglyphrun_p.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QGlyphs     \brief The QGlyphs class provides direct access to the internal glyphs in a font.     \since 4.8      \ingroup text     \mainclass      When Qt displays a string of text encoded in Unicode, it will first convert the Unicode points     into a list of glyph indexes and a list of positions based on one or more fonts. The Unicode     representation of the text and the QFont object will in this case serve as a convenient     abstraction that hides the details of what actually takes place when displaying the text     on-screen. For instance, by the time the text actually reaches the screen, it may be represented     by a set of fonts in addition to the one specified by the user, e.g. in case the originally     selected font did not support all the writing systems contained in the text.      Under certain circumstances, it can be useful as an application developer to have more low-level     control over which glyphs in a specific font are drawn to the screen. This could for instance     be the case in applications that use an external font engine and text shaper together with Qt.     QGlyphs provides an interface to the raw data needed to get text on the screen. It     contains a list of glyph indexes, a position for each glyph and a font.      It is the user's responsibility to ensure that the selected font actually contains the     provided glyph indexes.      QTextLayout::glyphs() or QTextFragment::glyphs() can be used to convert unicode encoded text     into a list of QGlyphs objects, and QPainter::drawGlyphs() can be used to draw the glyphs.      \note Please note that QRawFont is considered local to the thread in which it is constructed.     This in turn means that a new QRawFont will have to be created and set on the QGlyphs if it is     moved to a different thread. If the QGlyphs contains a reference to a QRawFont from a different     thread than the current, it will not be possible to draw the glyphs using a QPainter, as the     QRawFont is considered invalid and inaccessible in this case. */
+comment|/*!     \class QGlyphRun     \brief The QGlyphRun class provides direct access to the internal glyphs in a font.     \since 4.8      \ingroup text     \mainclass      When Qt displays a string of text encoded in Unicode, it will first convert the Unicode points     into a list of glyph indexes and a list of positions based on one or more fonts. The Unicode     representation of the text and the QFont object will in this case serve as a convenient     abstraction that hides the details of what actually takes place when displaying the text     on-screen. For instance, by the time the text actually reaches the screen, it may be represented     by a set of fonts in addition to the one specified by the user, e.g. in case the originally     selected font did not support all the writing systems contained in the text.      Under certain circumstances, it can be useful as an application developer to have more low-level     control over which glyphs in a specific font are drawn to the screen. This could for instance     be the case in applications that use an external font engine and text shaper together with Qt.     QGlyphRun provides an interface to the raw data needed to get text on the screen. It     contains a list of glyph indexes, a position for each glyph and a font.      It is the user's responsibility to ensure that the selected font actually contains the     provided glyph indexes.      QTextLayout::glyphRuns() or QTextFragment::glyphRuns() can be used to convert unicode encoded     text into a list of QGlyphRun objects, and QPainter::drawGlyphRun() can be used to draw the     glyphs.      \note Please note that QRawFont is considered local to the thread in which it is constructed.     This in turn means that a new QRawFont will have to be created and set on the QGlyphRun if it is     moved to a different thread. If the QGlyphRun contains a reference to a QRawFont from a different     thread than the current, it will not be possible to draw the glyphs using a QPainter, as the     QRawFont is considered invalid and inaccessible in this case. */
 end_comment
 begin_comment
-comment|/*!     Constructs an empty QGlyphs object. */
+comment|/*!     Constructs an empty QGlyphRun object. */
 end_comment
 begin_constructor
-DECL|function|QGlyphs
-name|QGlyphs
+DECL|function|QGlyphRun
+name|QGlyphRun
 operator|::
-name|QGlyphs
+name|QGlyphRun
 parameter_list|()
 member_init_list|:
 name|d
 argument_list|(
 operator|new
-name|QGlyphsPrivate
+name|QGlyphRunPrivate
 argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Constructs a QGlyphs object which is a copy of \a other. */
+comment|/*!     Constructs a QGlyphRun object which is a copy of \a other. */
 end_comment
 begin_constructor
-DECL|function|QGlyphs
-name|QGlyphs
+DECL|function|QGlyphRun
+name|QGlyphRun
 operator|::
-name|QGlyphs
+name|QGlyphRun
 parameter_list|(
 specifier|const
-name|QGlyphs
+name|QGlyphRun
 modifier|&
 name|other
 parameter_list|)
@@ -73,14 +73,14 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Destroys the QGlyphs. */
+comment|/*!     Destroys the QGlyphRun. */
 end_comment
 begin_destructor
-DECL|function|~QGlyphs
-name|QGlyphs
+DECL|function|~QGlyphRun
+name|QGlyphRun
 operator|::
 name|~
-name|QGlyphs
+name|QGlyphRun
 parameter_list|()
 block|{
 comment|// Required for QExplicitlySharedDataPointer
@@ -92,7 +92,7 @@ end_comment
 begin_function
 DECL|function|detach
 name|void
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|detach
 parameter_list|()
@@ -113,19 +113,19 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Assigns \a other to this QGlyphs object. */
+comment|/*!     Assigns \a other to this QGlyphRun object. */
 end_comment
 begin_function
 DECL|function|operator =
-name|QGlyphs
+name|QGlyphRun
 modifier|&
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|operator
 name|=
 parameter_list|(
 specifier|const
-name|QGlyphs
+name|QGlyphRun
 modifier|&
 name|other
 parameter_list|)
@@ -143,18 +143,18 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Compares \a other to this QGlyphs object. Returns true if the list of glyph indexes,     the list of positions and the font are all equal, otherwise returns false. */
+comment|/*!     Compares \a other to this QGlyphRun object. Returns true if the list of glyph indexes,     the list of positions and the font are all equal, otherwise returns false. */
 end_comment
 begin_function
 DECL|function|operator ==
 name|bool
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|operator
 name|==
 parameter_list|(
 specifier|const
-name|QGlyphs
+name|QGlyphRun
 modifier|&
 name|other
 parameter_list|)
@@ -223,31 +223,31 @@ name|strikeOut
 operator|&&
 name|d
 operator|->
-name|font
+name|rawFont
 operator|==
 name|other
 operator|.
 name|d
 operator|->
-name|font
+name|rawFont
 operator|)
 operator|)
 return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Compares \a other to this QGlyphs object. Returns true if any of the list of glyph     indexes, the list of positions or the font are different, otherwise returns false. */
+comment|/*!     Compares \a other to this QGlyphRun object. Returns true if any of the list of glyph     indexes, the list of positions or the font are different, otherwise returns false. */
 end_comment
 begin_function
 DECL|function|operator !=
 name|bool
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|operator
 name|!=
 parameter_list|(
 specifier|const
-name|QGlyphs
+name|QGlyphRun
 modifier|&
 name|other
 parameter_list|)
@@ -265,24 +265,24 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Adds together the lists of glyph indexes and positions in \a other and this QGlyphs     object and returns the result. The font in the returned QGlyphs will be the same as in     this QGlyphs object. */
+comment|/*!     \internal      Adds together the lists of glyph indexes and positions in \a other and this QGlyphRun     object and returns the result. The font in the returned QGlyphRun will be the same as in     this QGlyphRun object. */
 end_comment
 begin_function
 DECL|function|operator +
-name|QGlyphs
-name|QGlyphs
+name|QGlyphRun
+name|QGlyphRun
 operator|::
 name|operator
 name|+
 parameter_list|(
 specifier|const
-name|QGlyphs
+name|QGlyphRun
 modifier|&
 name|other
 parameter_list|)
 specifier|const
 block|{
-name|QGlyphs
+name|QGlyphRun
 name|ret
 argument_list|(
 operator|*
@@ -299,19 +299,19 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Appends the glyph indexes and positions in \a other to this QGlyphs object and returns     a reference to the current object. */
+comment|/*!     \internal      Appends the glyph indexes and positions in \a other to this QGlyphRun object and returns     a reference to the current object. */
 end_comment
 begin_function
 DECL|function|operator +=
-name|QGlyphs
+name|QGlyphRun
 modifier|&
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|operator
 name|+=
 parameter_list|(
 specifier|const
-name|QGlyphs
+name|QGlyphRun
 modifier|&
 name|other
 parameter_list|)
@@ -346,38 +346,38 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the font selected for this QGlyphs object.      \sa setFont() */
+comment|/*!     Returns the font selected for this QGlyphRun object.      \sa setRawFont() */
 end_comment
 begin_function
-DECL|function|font
+DECL|function|rawFont
 name|QRawFont
-name|QGlyphs
+name|QGlyphRun
 operator|::
-name|font
+name|rawFont
 parameter_list|()
 specifier|const
 block|{
 return|return
 name|d
 operator|->
-name|font
+name|rawFont
 return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the font in which to look up the glyph indexes to \a font.      \sa font(), setGlyphIndexes() */
+comment|/*!     Sets the font in which to look up the glyph indexes to \a font.      \sa rawFont(), setGlyphIndexes() */
 end_comment
 begin_function
-DECL|function|setFont
+DECL|function|setRawFont
 name|void
-name|QGlyphs
+name|QGlyphRun
 operator|::
-name|setFont
+name|setRawFont
 parameter_list|(
 specifier|const
 name|QRawFont
 modifier|&
-name|font
+name|rawFont
 parameter_list|)
 block|{
 name|detach
@@ -385,14 +385,14 @@ argument_list|()
 expr_stmt|;
 name|d
 operator|->
-name|font
+name|rawFont
 operator|=
-name|font
+name|rawFont
 expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the glyph indexes for this QGlyphs object.      \sa setGlyphIndexes(), setPositions() */
+comment|/*!     Returns the glyph indexes for this QGlyphRun object.      \sa setGlyphIndexes(), setPositions() */
 end_comment
 begin_function
 DECL|function|glyphIndexes
@@ -400,7 +400,7 @@ name|QVector
 argument_list|<
 name|quint32
 argument_list|>
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|glyphIndexes
 parameter_list|()
@@ -414,12 +414,12 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set the glyph indexes for this QGlyphs object to \a glyphIndexes. The glyph indexes must     be valid for the selected font. */
+comment|/*!     Set the glyph indexes for this QGlyphRun object to \a glyphIndexes. The glyph indexes must     be valid for the selected font. */
 end_comment
 begin_function
 DECL|function|setGlyphIndexes
 name|void
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|setGlyphIndexes
 parameter_list|(
@@ -452,7 +452,7 @@ name|QVector
 argument_list|<
 name|QPointF
 argument_list|>
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|positions
 parameter_list|()
@@ -471,7 +471,7 @@ end_comment
 begin_function
 DECL|function|setPositions
 name|void
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|setPositions
 parameter_list|(
@@ -496,12 +496,12 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Clears all data in the QGlyphs object. */
+comment|/*!     Clears all data in the QGlyphRun object. */
 end_comment
 begin_function
 DECL|function|clear
 name|void
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|clear
 parameter_list|()
@@ -531,7 +531,7 @@ argument_list|()
 expr_stmt|;
 name|d
 operator|->
-name|font
+name|rawFont
 operator|=
 name|QRawFont
 argument_list|()
@@ -557,12 +557,12 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!    Returns true if this QGlyphs should be painted with an overline decoration.     \sa setOverline() */
+comment|/*!    Returns true if this QGlyphRun should be painted with an overline decoration.     \sa setOverline() */
 end_comment
 begin_function
 DECL|function|overline
 name|bool
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|overline
 parameter_list|()
@@ -576,12 +576,12 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Indicates that this QGlyphs should be painted with an overline decoration if \a overline is true.   Otherwise the QGlyphs should be painted with no overline decoration.    \sa overline() */
+comment|/*!   Indicates that this QGlyphRun should be painted with an overline decoration if \a overline is true.   Otherwise the QGlyphRun should be painted with no overline decoration.    \sa overline() */
 end_comment
 begin_function
 DECL|function|setOverline
 name|void
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|setOverline
 parameter_list|(
@@ -601,12 +601,12 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!    Returns true if this QGlyphs should be painted with an underline decoration.     \sa setUnderline() */
+comment|/*!    Returns true if this QGlyphRun should be painted with an underline decoration.     \sa setUnderline() */
 end_comment
 begin_function
 DECL|function|underline
 name|bool
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|underline
 parameter_list|()
@@ -620,12 +620,12 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Indicates that this QGlyphs should be painted with an underline decoration if \a underline is   true. Otherwise the QGlyphs should be painted with no underline decoration.    \sa underline() */
+comment|/*!   Indicates that this QGlyphRun should be painted with an underline decoration if \a underline is   true. Otherwise the QGlyphRun should be painted with no underline decoration.    \sa underline() */
 end_comment
 begin_function
 DECL|function|setUnderline
 name|void
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|setUnderline
 parameter_list|(
@@ -645,12 +645,12 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!    Returns true if this QGlyphs should be painted with a strike out decoration.     \sa setStrikeOut() */
+comment|/*!    Returns true if this QGlyphRun should be painted with a strike out decoration.     \sa setStrikeOut() */
 end_comment
 begin_function
 DECL|function|strikeOut
 name|bool
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|strikeOut
 parameter_list|()
@@ -664,12 +664,12 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Indicates that this QGlyphs should be painted with an strike out decoration if \a strikeOut is   true. Otherwise the QGlyphs should be painted with no strike out decoration.    \sa strikeOut() */
+comment|/*!   Indicates that this QGlyphRun should be painted with an strike out decoration if \a strikeOut is   true. Otherwise the QGlyphRun should be painted with no strike out decoration.    \sa strikeOut() */
 end_comment
 begin_function
 DECL|function|setStrikeOut
 name|void
-name|QGlyphs
+name|QGlyphRun
 operator|::
 name|setStrikeOut
 parameter_list|(

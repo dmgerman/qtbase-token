@@ -4275,7 +4275,7 @@ begin_comment
 comment|/*!     \fn bool QTextFragment::operator<(const QTextFragment&other) const      Returns true if this text fragment appears earlier in the document     than the \a other text fragment; otherwise returns false. */
 end_comment
 begin_comment
-comment|/*!     Returns the glyphs of this text fragment. The positions of the glyphs are     relative to the position of the QTextBlock's layout.      \sa QGlyphs, QTextBlock::layout(), QTextLayout::position(), QPainter::drawGlyphs() */
+comment|/*!     Returns the glyphs of this text fragment. The positions of the glyphs are     relative to the position of the QTextBlock's layout.      \sa QGlyphRun, QTextBlock::layout(), QTextLayout::position(), QPainter::drawGlyphRun() */
 end_comment
 begin_if
 if|#
@@ -4287,14 +4287,14 @@ name|QT_NO_RAWFONT
 argument_list|)
 end_if
 begin_function
-DECL|function|glyphs
+DECL|function|glyphRuns
 name|QList
 argument_list|<
-name|QGlyphs
+name|QGlyphRun
 argument_list|>
 name|QTextFragment
 operator|::
-name|glyphs
+name|glyphRuns
 parameter_list|()
 specifier|const
 block|{
@@ -4309,7 +4309,7 @@ condition|)
 return|return
 name|QList
 argument_list|<
-name|QGlyphs
+name|QGlyphRun
 argument_list|>
 argument_list|()
 return|;
@@ -4334,7 +4334,7 @@ condition|)
 return|return
 name|QList
 argument_list|<
-name|QGlyphs
+name|QGlyphRun
 argument_list|>
 argument_list|()
 return|;
@@ -4376,7 +4376,7 @@ name|layout
 decl_stmt|;
 name|QList
 argument_list|<
-name|QGlyphs
+name|QGlyphRun
 argument_list|>
 name|ret
 decl_stmt|;

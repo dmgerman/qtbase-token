@@ -151,9 +151,9 @@ DECL|variable|QStaticText
 name|class
 name|QStaticText
 decl_stmt|;
-DECL|variable|QGlyphs
+DECL|variable|QGlyphRun
 name|class
-name|QGlyphs
+name|QGlyphRun
 decl_stmt|;
 DECL|variable|QPainterPrivateDeleter
 name|class
@@ -2864,7 +2864,7 @@ argument_list|)
 end_if
 begin_function_decl
 name|void
-name|drawGlyphs
+name|drawGlyphRun
 parameter_list|(
 specifier|const
 name|QPointF
@@ -2872,9 +2872,9 @@ modifier|&
 name|position
 parameter_list|,
 specifier|const
-name|QGlyphs
+name|QGlyphRun
 modifier|&
-name|glyphs
+name|glyphRun
 parameter_list|)
 function_decl|;
 end_function_decl

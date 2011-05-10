@@ -11909,12 +11909,12 @@ operator|.
 name|ref
 parameter_list|()
 constructor_decl|;
-name|QGlyphs
+name|QGlyphRun
 name|glyphs
 decl_stmt|;
 name|glyphs
 operator|.
-name|setFont
+name|setRawFont
 argument_list|(
 name|rawFont
 argument_list|)
@@ -11935,7 +11935,7 @@ argument_list|)
 expr_stmt|;
 name|painter
 operator|->
-name|drawGlyphs
+name|drawGlyphRun
 argument_list|(
 name|QPointF
 argument_list|()

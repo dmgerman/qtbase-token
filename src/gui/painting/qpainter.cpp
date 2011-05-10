@@ -111,7 +111,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qglyphs.h"
+file|"qglyphrun.h"
 end_include
 begin_include
 include|#
@@ -161,7 +161,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qglyphs_p.h>
+file|<private/qglyphrun_p.h>
 end_include
 begin_include
 include|#
@@ -20627,7 +20627,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Draws the glyphs represented by \a glyphs at \a position. The \a position gives the     edge of the baseline for the string of glyphs. The glyphs will be retrieved from the font     selected on \a glyphs and at offsets given by the positions in \a glyphs.      \since 4.8      \sa QGlyphs::setFont(), QGlyphs::setPositions(), QGlyphs::setGlyphIndexes() */
+comment|/*!     Draws the glyphs represented by \a glyphs at \a position. The \a position gives the     edge of the baseline for the string of glyphs. The glyphs will be retrieved from the font     selected on \a glyphs and at offsets given by the positions in \a glyphs.      \since 4.8      \sa QGlyphRun::setRawFont(), QGlyphRun::setPositions(), QGlyphRun::setGlyphIndexes() */
 end_comment
 begin_if
 if|#
@@ -20639,11 +20639,11 @@ name|QT_NO_RAWFONT
 argument_list|)
 end_if
 begin_function
-DECL|function|drawGlyphs
+DECL|function|drawGlyphRun
 name|void
 name|QPainter
 operator|::
-name|drawGlyphs
+name|drawGlyphRun
 parameter_list|(
 specifier|const
 name|QPointF
@@ -20651,9 +20651,9 @@ modifier|&
 name|position
 parameter_list|,
 specifier|const
-name|QGlyphs
+name|QGlyphRun
 modifier|&
-name|glyphs
+name|glyphRun
 parameter_list|)
 block|{
 name|Q_D
@@ -20664,9 +20664,9 @@ expr_stmt|;
 name|QRawFont
 name|font
 init|=
-name|glyphs
+name|glyphRun
 operator|.
-name|font
+name|rawFont
 argument_list|()
 decl_stmt|;
 if|if
@@ -20684,7 +20684,7 @@ name|quint32
 argument_list|>
 name|glyphIndexes
 init|=
-name|glyphs
+name|glyphRun
 operator|.
 name|glyphIndexes
 argument_list|()
@@ -20695,7 +20695,7 @@ name|QPointF
 argument_list|>
 name|glyphPositions
 init|=
-name|glyphs
+name|glyphRun
 operator|.
 name|positions
 argument_list|()
@@ -20852,17 +20852,17 @@ name|count
 argument_list|,
 name|font
 argument_list|,
-name|glyphs
+name|glyphRun
 operator|.
 name|overline
 argument_list|()
 argument_list|,
-name|glyphs
+name|glyphRun
 operator|.
 name|underline
 argument_list|()
 argument_list|,
-name|glyphs
+name|glyphRun
 operator|.
 name|strikeOut
 argument_list|()
