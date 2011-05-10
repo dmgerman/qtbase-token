@@ -1196,12 +1196,19 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
+operator|!
 name|returnIndex
 operator|.
 name|isValid
 argument_list|()
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: model index to be returned is invalid"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 return|return
