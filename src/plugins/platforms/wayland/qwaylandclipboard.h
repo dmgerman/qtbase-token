@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtCore/QStringList>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QVariant>
+end_include
 begin_decl_stmt
 DECL|variable|QWaylandDisplay
 name|class
@@ -33,6 +38,12 @@ begin_decl_stmt
 DECL|variable|QWaylandSelection
 name|class
 name|QWaylandSelection
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QWaylandMimeData
+name|class
+name|QWaylandMimeData
 decl_stmt|;
 end_decl_stmt
 begin_struct_decl
@@ -97,6 +108,15 @@ name|createSelectionOffer
 argument_list|(
 argument|uint32_t id
 argument_list|)
+block|;
+name|QVariant
+name|retrieveData
+argument_list|(
+argument|const QString&mimeType
+argument_list|,
+argument|QVariant::Type type
+argument_list|)
+specifier|const
 block|;
 name|private
 operator|:
@@ -172,7 +192,7 @@ operator|*
 name|mSelection
 block|;
 name|mutable
-name|QMimeData
+name|QWaylandMimeData
 operator|*
 name|mMimeDataIn
 block|;
