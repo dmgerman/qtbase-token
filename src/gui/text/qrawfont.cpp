@@ -1713,7 +1713,7 @@ name|rawfont
 init|=
 name|glyphs
 operator|.
-name|font
+name|rawFont
 argument_list|()
 decl_stmt|;
 if|if
@@ -1740,7 +1740,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|font
+name|rawFont
 argument_list|()
 return|;
 block|}

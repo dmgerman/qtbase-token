@@ -39960,6 +39960,12 @@ directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
+if|if
+condition|(
+name|isVisible
+argument_list|()
+condition|)
+block|{
 comment|// ##### is this correct
 name|QAccessible
 operator|::
@@ -39974,6 +39980,7 @@ operator|::
 name|StateChanged
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 block|}
