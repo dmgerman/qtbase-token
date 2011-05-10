@@ -71,14 +71,12 @@ operator|~
 name|QWaylandClipboard
 argument_list|()
 block|;
-specifier|const
 name|QMimeData
 operator|*
 name|mimeData
 argument_list|(
 argument|QClipboard::Mode mode = QClipboard::Clipboard
 argument_list|)
-specifier|const
 block|;
 name|void
 name|setMimeData
@@ -191,7 +189,6 @@ name|QWaylandSelection
 operator|*
 name|mSelection
 block|;
-name|mutable
 name|QWaylandMimeData
 operator|*
 name|mMimeDataIn
