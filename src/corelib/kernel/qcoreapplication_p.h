@@ -56,6 +56,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtCore/qsettings.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qobject_p.h"
 end_include
 begin_ifdef
@@ -428,7 +433,12 @@ name|useQt3Support
 block|;
 endif|#
 directive|endif
-block|}
+specifier|static
+name|QSettings
+operator|*
+name|trolltechConf
+argument_list|()
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro

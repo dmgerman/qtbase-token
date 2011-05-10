@@ -1398,7 +1398,7 @@ begin_comment
 comment|// QT_NO_BEARERMANAGEMENT
 end_comment
 begin_comment
-comment|/*!     \since 4.7      Sends a custom request to the server identified by the URL of \a request.      It is the user's responsibility to send a \a verb to the server that is valid     according to the HTTP specification.      This method provides means to send verbs other than the common ones provided     via get() or post() etc., for instance sending an HTTP OPTIONS command.      If \a data is not empty, the contents of the \a data     device will be uploaded to the server; in that case, data must be open for     reading and must remain valid until the finished() signal is emitted for this reply.      \note This feature is currently available for HTTP only.      \sa get(), post(), put(), deleteResource() */
+comment|/*!     \since 4.7      Sends a custom request to the server identified by the URL of \a request.      It is the user's responsibility to send a \a verb to the server that is valid     according to the HTTP specification.      This method provides means to send verbs other than the common ones provided     via get() or post() etc., for instance sending an HTTP OPTIONS command.      If \a data is not empty, the contents of the \a data     device will be uploaded to the server; in that case, data must be open for     reading and must remain valid until the finished() signal is emitted for this reply.      \note This feature is currently available for HTTP(S) only.      \sa get(), post(), put(), deleteResource() */
 end_comment
 begin_function
 DECL|function|sendCustomRequest

@@ -471,12 +471,6 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|QRect
-name|r
-init|=
-name|rect
-argument_list|()
-decl_stmt|;
 name|QStyleOptionToolButton
 name|opt
 decl_stmt|;

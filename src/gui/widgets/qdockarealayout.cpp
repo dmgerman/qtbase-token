@@ -11648,11 +11648,6 @@ name|tab_idx
 init|=
 literal|0
 decl_stmt|;
-name|bool
-name|changed
-init|=
-literal|false
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -11795,10 +11790,6 @@ argument_list|,
 name|id
 argument_list|)
 expr_stmt|;
-name|changed
-operator|=
-literal|true
-expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -11889,10 +11880,6 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
-name|changed
-operator|=
-literal|true
-expr_stmt|;
 block|}
 if|if
 condition|(
@@ -11929,10 +11916,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|changed
-operator|=
-literal|true
-expr_stmt|;
 block|}
 operator|++
 name|tab_idx
@@ -11954,10 +11937,6 @@ name|removeTab
 argument_list|(
 name|tab_idx
 argument_list|)
-expr_stmt|;
-name|changed
-operator|=
-literal|true
 expr_stmt|;
 block|}
 name|tabBar

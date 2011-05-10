@@ -587,10 +587,6 @@ name|other
 operator|.
 name|pos
 expr_stmt|;
-name|freePrivate
-operator|=
-literal|true
-expr_stmt|;
 name|QTextBoundaryFinderPrivate
 modifier|*
 name|newD
@@ -601,7 +597,11 @@ operator|*
 operator|)
 name|realloc
 argument_list|(
+name|freePrivate
+condition|?
 name|d
+else|:
+literal|0
 argument_list|,
 name|length
 operator|*
@@ -615,6 +615,10 @@ name|Q_CHECK_PTR
 argument_list|(
 name|newD
 argument_list|)
+expr_stmt|;
+name|freePrivate
+operator|=
+literal|true
 expr_stmt|;
 name|d
 operator|=

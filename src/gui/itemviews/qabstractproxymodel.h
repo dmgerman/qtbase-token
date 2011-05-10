@@ -269,13 +269,6 @@ argument_list|()
 specifier|const
 block|;
 name|protected
-name|Q_SLOTS
-operator|:
-name|void
-name|resetInternalData
-argument_list|()
-block|;
-name|protected
 operator|:
 name|QAbstractProxyModel
 argument_list|(

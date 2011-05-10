@@ -748,6 +748,13 @@ name|updateActionRects
 argument_list|()
 specifier|const
 block|;
+name|void
+name|updateActionRects
+argument_list|(
+argument|const QRect&screen
+argument_list|)
+specifier|const
+block|;
 name|QRect
 name|popupGeometry
 argument_list|(
@@ -774,6 +781,20 @@ name|uint
 name|collapsibleSeparators
 operator|:
 literal|1
+block|;
+name|QSize
+name|adjustMenuSizeForScreen
+argument_list|(
+specifier|const
+name|QRect
+operator|&
+name|screen
+argument_list|)
+block|;
+name|int
+name|getLastVisibleAction
+argument_list|()
+specifier|const
 block|;
 name|bool
 name|activationRecursionGuard

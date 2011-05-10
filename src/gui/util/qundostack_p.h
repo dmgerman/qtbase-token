@@ -106,6 +106,9 @@ expr_stmt|;
 name|QString
 name|text
 decl_stmt|;
+name|QString
+name|actionText
+decl_stmt|;
 name|int
 name|id
 decl_stmt|;
@@ -225,6 +228,20 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|void
+name|setTextFormat
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|textFormat
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|defaultText
+argument_list|)
+block|;
 name|public
 name|Q_SLOTS
 operator|:
@@ -241,6 +258,9 @@ name|private
 operator|:
 name|QString
 name|m_prefix
+block|;
+name|QString
+name|m_defaultText
 block|; }
 decl_stmt|;
 end_decl_stmt

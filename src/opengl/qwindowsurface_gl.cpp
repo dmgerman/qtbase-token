@@ -840,7 +840,12 @@ name|initializing
 argument_list|(
 literal|false
 argument_list|)
-block|{}
+block|{
+name|created
+operator|=
+literal|true
+expr_stmt|;
+block|}
 DECL|function|shareWidget
 name|QGLWidget
 modifier|*
@@ -981,6 +986,11 @@ specifier|static
 name|bool
 name|cleanedUp
 decl_stmt|;
+DECL|member|created
+specifier|static
+name|bool
+name|created
+decl_stmt|;
 DECL|member|firstPixmap
 name|QGLPixmapData
 modifier|*
@@ -1013,6 +1023,16 @@ init|=
 literal|false
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|member|created
+name|bool
+name|QGLGlobalShareWidget
+operator|::
+name|created
+init|=
+literal|false
+decl_stmt|;
+end_decl_stmt
 begin_function_decl
 specifier|static
 name|void
@@ -1037,6 +1057,12 @@ name|void
 name|qt_cleanup_gl_share_widget
 parameter_list|()
 block|{
+if|if
+condition|(
+name|QGLGlobalShareWidget
+operator|::
+name|created
+condition|)
 name|_qt_gl_share_widget
 argument_list|()
 operator|->
@@ -1076,6 +1102,12 @@ name|void
 name|qt_destroy_gl_share_widget
 parameter_list|()
 block|{
+if|if
+condition|(
+name|QGLGlobalShareWidget
+operator|::
+name|created
+condition|)
 name|_qt_gl_share_widget
 argument_list|()
 operator|->
@@ -2772,6 +2804,25 @@ operator|->
 name|did_paint
 condition|)
 return|return;
+ifdef|#
+directive|ifdef
+name|Q_OS_SYMBIAN
+if|if
+condition|(
+name|window
+argument_list|()
+operator|!=
+name|widget
+condition|)
+block|{
+comment|// For performance reasons we don't support
+comment|// flushing native child widgets on Symbian.
+comment|// It breaks overlapping native child widget
+comment|// rendering in some cases but we prefer performance.
+return|return;
+block|}
+endif|#
+directive|endif
 name|QWidget
 modifier|*
 name|parent

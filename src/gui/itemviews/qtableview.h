@@ -108,6 +108,10 @@ operator|*
 name|selectionModel
 argument_list|)
 block|;
+name|void
+name|doItemsLayout
+argument_list|()
+block|;
 name|QHeaderView
 operator|*
 name|horizontalHeader

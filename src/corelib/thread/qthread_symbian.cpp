@@ -1324,6 +1324,15 @@ operator|->
 name|exited
 expr_stmt|;
 block|}
+name|CTrapCleanup
+modifier|*
+name|cleanup
+init|=
+name|CTrapCleanup
+operator|::
+name|New
+argument_list|()
+decl_stmt|;
 comment|// ### TODO: allow the user to create a custom event dispatcher
 name|createEventDispatcher
 argument_list|(
@@ -1347,6 +1356,9 @@ name|finish
 argument_list|(
 name|arg
 argument_list|)
+expr_stmt|;
+operator|delete
+name|cleanup
 expr_stmt|;
 return|return
 literal|0

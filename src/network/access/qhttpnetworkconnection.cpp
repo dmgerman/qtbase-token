@@ -365,11 +365,6 @@ operator|::
 name|init
 parameter_list|()
 block|{
-name|Q_Q
-argument_list|(
-name|QHttpNetworkConnection
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|int

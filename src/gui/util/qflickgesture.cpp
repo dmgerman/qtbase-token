@@ -914,18 +914,8 @@ name|mouseTarget
 condition|)
 block|{
 comment|// we did send a press, so we need to fake a release now
-name|Qt
-operator|::
-name|MouseButtons
-name|mouseButtons
-init|=
-name|QApplication
-operator|::
-name|mouseButtons
-argument_list|()
-decl_stmt|;
 comment|// release all pressed mouse buttons
-comment|/*for (int i = 0; i< 32; ++i) {                 if (mouseButtons& (1<< i)) {                     Qt::MouseButton b = static_cast<Qt::MouseButton>(1<< i);                     mouseButtons&= ~b;                     QPoint farFarAway(-QWIDGETSIZE_MAX, -QWIDGETSIZE_MAX);                      qFGDebug()<< "QFG: sending a fake mouse release at far-far-away to "<< mouseTarget;                     QMouseEvent re(QEvent::MouseButtonRelease, QPoint(), farFarAway,                                    b, mouseButtons, QApplication::keyboardModifiers());                     sendMouseEvent(&re);                 }             }*/
+comment|/* Qt::MouseButtons mouseButtons = QApplication::mouseButtons();             for (int i = 0; i< 32; ++i) {                 if (mouseButtons& (1<< i)) {                     Qt::MouseButton b = static_cast<Qt::MouseButton>(1<< i);                     mouseButtons&= ~b;                     QPoint farFarAway(-QWIDGETSIZE_MAX, -QWIDGETSIZE_MAX);                      qFGDebug()<< "QFG: sending a fake mouse release at far-far-away to "<< mouseTarget;                     QMouseEvent re(QEvent::MouseButtonRelease, QPoint(), farFarAway,                                    b, mouseButtons, QApplication::keyboardModifiers());                     sendMouseEvent(&re);                 }             }*/
 name|QPoint
 name|farFarAway
 argument_list|(

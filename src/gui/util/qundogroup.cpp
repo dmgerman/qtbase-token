@@ -1071,7 +1071,7 @@ directive|ifndef
 name|QT_NO_ACTION
 end_ifndef
 begin_comment
-comment|/*!     Creates an undo QAction object with parent \a parent.      Triggering this action will cause a call to QUndoStack::undo() on the active stack.     The text of this action will always be the text of the command which will be undone     in the next call to undo(), prefixed by \a prefix. If there is no command available     for undo, if the group is empty or if none of the stacks are active, this action will     be disabled.      If \a prefix is empty, the default prefix "Undo" is used.      \sa createRedoAction() canUndo() QUndoCommand::text() */
+comment|/*!     Creates an undo QAction object with parent \a parent.      Triggering this action will cause a call to QUndoStack::undo() on the active stack.     The text of this action will always be the text of the command which will be undone     in the next call to undo(), prefixed by \a prefix. If there is no command available     for undo, if the group is empty or if none of the stacks are active, this action will     be disabled.      If \a prefix is empty, the default template "Undo %1" is used instead of prefix.     Before Qt 4.8, the prefix "Undo" was used by default.      \sa createRedoAction() canUndo() QUndoCommand::text() */
 end_comment
 begin_function
 DECL|function|createUndoAction
@@ -1092,21 +1092,6 @@ name|prefix
 parameter_list|)
 specifier|const
 block|{
-name|QString
-name|pref
-init|=
-name|prefix
-operator|.
-name|isEmpty
-argument_list|()
-condition|?
-name|tr
-argument_list|(
-literal|"Undo"
-argument_list|)
-else|:
-name|prefix
-decl_stmt|;
 name|QUndoAction
 modifier|*
 name|result
@@ -1114,11 +1099,35 @@ init|=
 operator|new
 name|QUndoAction
 argument_list|(
-name|pref
+name|prefix
 argument_list|,
 name|parent
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|prefix
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|result
+operator|->
+name|setTextFormat
+argument_list|(
+name|tr
+argument_list|(
+literal|"Undo %1"
+argument_list|)
+argument_list|,
+name|tr
+argument_list|(
+literal|"Undo"
+argument_list|,
+literal|"Default text for undo action"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|result
 operator|->
 name|setEnabled
@@ -1206,7 +1215,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates an redo QAction object with parent \a parent.      Triggering this action will cause a call to QUndoStack::redo() on the active stack.     The text of this action will always be the text of the command which will be redone     in the next call to redo(), prefixed by \a prefix. If there is no command available     for redo, if the group is empty or if none of the stacks are active, this action will     be disabled.      If \a prefix is empty, the default prefix "Undo" is used.      \sa createUndoAction() canRedo() QUndoCommand::text() */
+comment|/*!     Creates an redo QAction object with parent \a parent.      Triggering this action will cause a call to QUndoStack::redo() on the active stack.     The text of this action will always be the text of the command which will be redone     in the next call to redo(), prefixed by \a prefix. If there is no command available     for redo, if the group is empty or if none of the stacks are active, this action will     be disabled.      If \a prefix is empty, the default template "Redo %1" is used instead of prefix.     Before Qt 4.8, the prefix "Redo" was used by default.      \sa createUndoAction() canRedo() QUndoCommand::text() */
 end_comment
 begin_function
 DECL|function|createRedoAction
@@ -1227,21 +1236,6 @@ name|prefix
 parameter_list|)
 specifier|const
 block|{
-name|QString
-name|pref
-init|=
-name|prefix
-operator|.
-name|isEmpty
-argument_list|()
-condition|?
-name|tr
-argument_list|(
-literal|"Redo"
-argument_list|)
-else|:
-name|prefix
-decl_stmt|;
 name|QUndoAction
 modifier|*
 name|result
@@ -1249,11 +1243,35 @@ init|=
 operator|new
 name|QUndoAction
 argument_list|(
-name|pref
+name|prefix
 argument_list|,
 name|parent
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|prefix
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|result
+operator|->
+name|setTextFormat
+argument_list|(
+name|tr
+argument_list|(
+literal|"Redo %1"
+argument_list|)
+argument_list|,
+name|tr
+argument_list|(
+literal|"Redo"
+argument_list|,
+literal|"Default text for redo action"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|result
 operator|->
 name|setEnabled

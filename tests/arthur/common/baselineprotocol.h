@@ -520,7 +520,7 @@ literal|54129
 block|,
 name|Timeout
 init|=
-literal|5000
+literal|15000
 block|}
 enum|;
 enum|enum

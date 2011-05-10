@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"../../shared/util.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qeventloop.h>
 end_include
 begin_include
@@ -9909,7 +9914,7 @@ argument_list|)
 expr_stmt|;
 comment|//we remove the last row
 comment|//we make sure the editor is at the cell position
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|testWidget
 operator|->

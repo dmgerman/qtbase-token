@@ -138,7 +138,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|setSizePolicy
+name|d_func
+argument_list|()
+operator|->
+name|sizePolicy
+operator|=
+name|QSizePolicy
 argument_list|(
 name|QSizePolicy
 operator|::
@@ -247,7 +252,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|setSizePolicy
+name|d_func
+argument_list|()
+operator|->
+name|sizePolicy
+operator|=
+name|QSizePolicy
 argument_list|(
 name|QSizePolicy
 operator|::

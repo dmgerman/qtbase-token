@@ -110,6 +110,13 @@ argument_list|()
 specifier|const
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+name|QString
+name|actionText
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 name|void
 name|setText

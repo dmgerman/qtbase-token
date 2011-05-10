@@ -950,8 +950,12 @@ argument_list|,
 name|offset
 argument_list|)
 expr_stmt|;
+name|uchar
+modifier|*
+name|imageSrcMemory
+init|=
 name|srcMemory
-operator|+=
+operator|+
 operator|(
 name|offset
 operator|*
@@ -960,11 +964,11 @@ argument_list|(
 name|quint32
 argument_list|)
 operator|)
-expr_stmt|;
+decl_stmt|;
 name|QImage
 name|src
 argument_list|(
-name|srcMemory
+name|imageSrcMemory
 argument_list|,
 name|dimension
 argument_list|,

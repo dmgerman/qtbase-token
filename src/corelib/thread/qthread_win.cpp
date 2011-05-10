@@ -1239,6 +1239,7 @@ DECL|function|start
 name|unsigned
 name|int
 name|__stdcall
+name|QT_ENSURE_STACK_ALIGNED_FOR_SSE
 name|QThreadPrivate
 operator|::
 name|start
