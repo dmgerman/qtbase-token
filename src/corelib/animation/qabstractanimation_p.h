@@ -280,12 +280,15 @@ operator|*
 name|e
 argument_list|)
 block|;
+name|private
+name|Q_SLOTS
+operator|:
 name|void
-name|started
+name|startTimer
 argument_list|()
 block|;
 name|void
-name|stopped
+name|stopTimer
 argument_list|()
 block|;
 name|private
