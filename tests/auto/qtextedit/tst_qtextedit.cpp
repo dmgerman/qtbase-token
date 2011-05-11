@@ -14112,9 +14112,9 @@ argument_list|()
 operator|->
 name|setDefaultCursorMoveStyle
 argument_list|(
-name|QTextCursor
+name|Qt
 operator|::
-name|Visual
+name|VisualMoveStyle
 argument_list|)
 expr_stmt|;
 name|ed
@@ -14398,9 +14398,9 @@ argument_list|()
 operator|->
 name|setDefaultCursorMoveStyle
 argument_list|(
-name|QTextCursor
+name|Qt
 operator|::
-name|Logical
+name|LogicalMoveStyle
 argument_list|)
 expr_stmt|;
 name|ed

@@ -1991,9 +1991,9 @@ name|defaultTextOption
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
-name|QTextCursor
+name|Qt
 operator|::
-name|MoveStyle
+name|CursorMoveStyle
 name|defaultCursorMoveStyle
 expr_stmt|;
 end_expr_stmt

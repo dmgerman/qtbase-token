@@ -851,9 +851,9 @@ name|layout
 operator|.
 name|setCursorMoveStyle
 argument_list|(
-name|QTextCursor
+name|Qt
 operator|::
-name|Visual
+name|VisualMoveStyle
 argument_list|)
 expr_stmt|;
 name|bool

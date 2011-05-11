@@ -164,6 +164,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|QString placeholderText READ placeholderText WRITE setPlaceholderText
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|Qt::CursorMoveStyle cursorMoveStyle READ cursorMoveStyle WRITE setCursorMoveStyle
+argument_list|)
 name|public
 operator|:
 name|explicit
@@ -522,12 +526,12 @@ block|;
 name|void
 name|setCursorMoveStyle
 argument_list|(
-argument|QTextCursor::MoveStyle style
+argument|Qt::CursorMoveStyle style
 argument_list|)
 block|;
-name|QTextCursor
+name|Qt
 operator|::
-name|MoveStyle
+name|CursorMoveStyle
 name|cursorMoveStyle
 argument_list|()
 specifier|const

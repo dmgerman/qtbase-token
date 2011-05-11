@@ -33,11 +33,6 @@ include|#
 directive|include
 file|<QtGui/qfont.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<QtGui/qtextcursor.h>
-end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -137,6 +132,12 @@ begin_decl_stmt
 DECL|variable|QTextOption
 name|class
 name|QTextOption
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QTextCursor
+name|class
+name|QTextCursor
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
@@ -925,9 +926,9 @@ operator|&
 name|option
 argument_list|)
 block|;
-name|QTextCursor
+name|Qt
 operator|::
-name|MoveStyle
+name|CursorMoveStyle
 name|defaultCursorMoveStyle
 argument_list|()
 specifier|const
@@ -935,7 +936,7 @@ block|;
 name|void
 name|setDefaultCursorMoveStyle
 argument_list|(
-argument|QTextCursor::MoveStyle style
+argument|Qt::CursorMoveStyle style
 argument_list|)
 block|;
 name|Q_SIGNALS
