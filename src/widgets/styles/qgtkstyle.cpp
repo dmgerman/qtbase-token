@@ -4148,13 +4148,6 @@ name|type
 init|=
 name|GTK_ARROW_UP
 decl_stmt|;
-name|QRect
-name|r
-init|=
-name|header
-operator|->
-name|rect
-decl_stmt|;
 name|QImage
 name|arrow
 decl_stmt|;
@@ -11461,11 +11454,6 @@ operator|->
 name|frame
 condition|)
 block|{
-name|GtkShadowType
-name|shadow
-init|=
-name|GTK_SHADOW_OUT
-decl_stmt|;
 name|GtkStateType
 name|state
 init|=
@@ -11514,10 +11502,6 @@ condition|)
 name|state
 operator|=
 name|GTK_STATE_NORMAL
-expr_stmt|;
-name|shadow
-operator|=
-name|GTK_SHADOW_IN
 expr_stmt|;
 name|style
 operator|=

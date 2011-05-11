@@ -2586,10 +2586,7 @@ decl_stmt|;
 if|if
 condition|(
 name|pd
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|pd
 operator|->
 name|classId
@@ -2613,13 +2610,6 @@ operator|->
 name|handle
 argument_list|()
 return|;
-else|else
-name|qWarning
-argument_list|(
-literal|"QPixmap::handle(): Pixmap is not an X11 class pixmap"
-argument_list|)
-expr_stmt|;
-block|}
 endif|#
 directive|endif
 return|return

@@ -3272,16 +3272,6 @@ argument_list|()
 condition|)
 block|{
 comment|// i.e. 'w' listens to gesture 'type'
-name|Qt
-operator|::
-name|GestureFlags
-name|flags
-init|=
-name|it
-operator|.
-name|value
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 operator|!

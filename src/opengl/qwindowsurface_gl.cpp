@@ -234,7 +234,12 @@ name|initializing
 argument_list|(
 literal|false
 argument_list|)
-block|{}
+block|{
+name|created
+operator|=
+literal|true
+expr_stmt|;
+block|}
 DECL|function|shareWidget
 name|QGLWidget
 modifier|*
@@ -375,6 +380,11 @@ specifier|static
 name|bool
 name|cleanedUp
 decl_stmt|;
+DECL|member|created
+specifier|static
+name|bool
+name|created
+decl_stmt|;
 DECL|member|firstPixmap
 name|QGLPixmapData
 modifier|*
@@ -407,6 +417,16 @@ init|=
 literal|false
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|member|created
+name|bool
+name|QGLGlobalShareWidget
+operator|::
+name|created
+init|=
+literal|false
+decl_stmt|;
+end_decl_stmt
 begin_function_decl
 specifier|static
 name|void
@@ -431,6 +451,12 @@ name|void
 name|qt_cleanup_gl_share_widget
 parameter_list|()
 block|{
+if|if
+condition|(
+name|QGLGlobalShareWidget
+operator|::
+name|created
+condition|)
 name|_qt_gl_share_widget
 argument_list|()
 operator|->
@@ -470,6 +496,12 @@ name|void
 name|qt_destroy_gl_share_widget
 parameter_list|()
 block|{
+if|if
+condition|(
+name|QGLGlobalShareWidget
+operator|::
+name|created
+condition|)
 name|_qt_gl_share_widget
 argument_list|()
 operator|->
@@ -1976,7 +2008,19 @@ comment|// at least cleared the background (= painted something). In EGL API it'
 comment|// mistake to call swapBuffers if nothing was painted unless
 comment|// EGL_BUFFER_PRESERVED is set. This check protects the flush func from
 comment|// being executed if it's for nothing.
-block|if (!d_ptr->destructive_swap_buffers&& !d_ptr->did_paint)         return;      QWidget *parent = widget->internalWinId() ? widget : widget->nativeParentWidget();     Q_ASSERT(parent);
+block|if (!d_ptr->destructive_swap_buffers&& !d_ptr->did_paint)         return;
+ifdef|#
+directive|ifdef
+name|Q_OS_SYMBIAN
+block|if (window() != widget) {
+comment|// For performance reasons we don't support
+comment|// flushing native child widgets on Symbian.
+comment|// It breaks overlapping native child widget
+comment|// rendering in some cases but we prefer performance.
+block|return;     }
+endif|#
+directive|endif
+block|QWidget *parent = widget->internalWinId() ? widget : widget->nativeParentWidget();     Q_ASSERT(parent);
 if|#
 directive|if
 operator|!

@@ -19844,7 +19844,7 @@ argument_list|)
 operator|<<
 name|reply200
 operator|<<
-literal|"Not-reloaded"
+literal|"Reloaded"
 operator|<<
 name|content
 operator|<<
@@ -19858,9 +19858,9 @@ operator|<<
 name|QStringList
 argument_list|()
 operator|<<
-literal|true
-operator|<<
 literal|false
+operator|<<
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -19871,7 +19871,7 @@ argument_list|)
 operator|<<
 name|reply200
 operator|<<
-literal|"Not-reloaded"
+literal|""
 operator|<<
 name|content
 operator|<<
@@ -19885,7 +19885,7 @@ operator|<<
 name|QStringList
 argument_list|()
 operator|<<
-literal|true
+literal|false
 operator|<<
 literal|false
 expr_stmt|;
@@ -19941,7 +19941,7 @@ argument_list|()
 operator|<<
 literal|true
 operator|<<
-literal|false
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -19952,7 +19952,7 @@ argument_list|)
 operator|<<
 name|reply304
 operator|<<
-literal|"Not-reloaded"
+literal|""
 operator|<<
 name|content
 operator|<<
@@ -19966,7 +19966,7 @@ operator|<<
 name|QStringList
 argument_list|()
 operator|<<
-literal|true
+literal|false
 operator|<<
 literal|false
 expr_stmt|;
@@ -26474,6 +26474,25 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|connect
+argument_list|(
+name|serverSocket
+argument_list|,
+name|SIGNAL
+argument_list|(
+name|readyRead
+argument_list|()
+argument_list|)
+argument_list|,
+name|this
+argument_list|,
+name|SLOT
+argument_list|(
+name|readyReadSlot
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|serverSocket
 operator|->
 name|setProtocol
@@ -26565,6 +26584,14 @@ name|newEncryptedConnection
 argument_list|()
 emit|;
 block|}
+DECL|function|readyReadSlot
+name|void
+name|readyReadSlot
+parameter_list|()
+block|{
+comment|// for the incoming sockets, not the server socket
+comment|//qDebug()<< static_cast<QSslSocket*>(sender())->bytesAvailable()<< static_cast<QSslSocket*>(sender())->encryptedBytesAvailable();
+block|}
 public|public:
 DECL|member|socket
 name|QSslSocket
@@ -26585,24 +26612,45 @@ operator|::
 name|ioPostToHttpsUploadProgress
 parameter_list|()
 block|{
-name|QFile
-name|sourceFile
-argument_list|(
-name|SRCDIR
-literal|"/bigfile"
-argument_list|)
+comment|//QFile sourceFile(SRCDIR "/bigfile");
+comment|//QVERIFY(sourceFile.open(QIODevice::ReadOnly));
+name|qint64
+name|wantedSize
+init|=
+literal|2
+operator|*
+literal|1024
+operator|*
+literal|1024
 decl_stmt|;
-name|QVERIFY
-argument_list|(
+comment|// 2 MB
+name|QByteArray
 name|sourceFile
-operator|.
-name|open
-argument_list|(
-name|QIODevice
-operator|::
-name|ReadOnly
-argument_list|)
-argument_list|)
+decl_stmt|;
+comment|// And in the case of SSL, the compression can fool us and let the
+comment|// server send the data much faster than expected.
+comment|// So better provide random data that cannot be compressed.
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|wantedSize
+condition|;
+operator|++
+name|i
+control|)
+name|sourceFile
+operator|+=
+operator|(
+name|char
+operator|)
+name|qrand
+argument_list|()
 expr_stmt|;
 comment|// emulate a minimal https server
 name|SslServer
@@ -26666,7 +26714,6 @@ name|post
 argument_list|(
 name|request
 argument_list|,
-operator|&
 name|sourceFile
 argument_list|)
 decl_stmt|;
@@ -26851,6 +26898,7 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// but not everything!
 name|QVERIFY
 argument_list|(
 name|args
@@ -26866,78 +26914,6 @@ operator|!=
 name|sourceFile
 operator|.
 name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|incomingSocket
-operator|->
-name|setReadBufferSize
-argument_list|(
-literal|32
-operator|*
-literal|1024
-argument_list|)
-expr_stmt|;
-name|incomingSocket
-operator|->
-name|read
-argument_list|(
-literal|16
-operator|*
-literal|1024
-argument_list|)
-expr_stmt|;
-name|QTestEventLoop
-operator|::
-name|instance
-argument_list|()
-operator|.
-name|enterLoop
-argument_list|(
-literal|2
-argument_list|)
-expr_stmt|;
-comment|// some more progress than before
-name|QVERIFY
-argument_list|(
-operator|!
-name|spy
-operator|.
-name|isEmpty
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|QList
-argument_list|<
-name|QVariant
-argument_list|>
-name|args2
-init|=
-name|spy
-operator|.
-name|last
-argument_list|()
-decl_stmt|;
-name|QVERIFY
-argument_list|(
-name|args2
-operator|.
-name|at
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|toLongLong
-argument_list|()
-operator|>
-name|args
-operator|.
-name|at
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|toLongLong
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -26980,29 +26956,6 @@ operator|.
 name|last
 argument_list|()
 decl_stmt|;
-name|QVERIFY
-argument_list|(
-name|args3
-operator|.
-name|at
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|toLongLong
-argument_list|()
-operator|>
-name|args2
-operator|.
-name|at
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|toLongLong
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|args3
@@ -27038,10 +26991,13 @@ operator|.
 name|toLongLong
 argument_list|()
 argument_list|,
+name|qint64
+argument_list|(
 name|sourceFile
 operator|.
 name|size
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// after sending this, the QNAM should emit finished()
@@ -31975,6 +31931,21 @@ argument_list|(
 name|proxy
 argument_list|)
 expr_stmt|;
+name|QNetworkRequest
+name|request
+argument_list|(
+name|url
+argument_list|)
+decl_stmt|;
+name|request
+operator|.
+name|setRawHeader
+argument_list|(
+literal|"User-Agent"
+argument_list|,
+literal|"QNetworkReplyAutoTest/1.0"
+argument_list|)
+expr_stmt|;
 name|QNetworkReplyPtr
 name|reply
 init|=
@@ -31982,20 +31953,14 @@ name|manager
 operator|.
 name|get
 argument_list|(
-name|QNetworkRequest
-argument_list|(
-name|url
-argument_list|)
+name|request
 argument_list|)
 decl_stmt|;
-name|manager
-operator|.
-name|setProxy
-argument_list|(
-name|QNetworkProxy
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//clearing the proxy here causes the test to fail.
+comment|//the proxy isn't used until after the bearer has been started
+comment|//which is correct in general, because system proxy isn't known until that time.
+comment|//removing this line is safe, as the proxy is also reset by the cleanup() function
+comment|//manager.setProxy(QNetworkProxy());
 comment|// wait for the finished signal
 name|connect
 argument_list|(
@@ -32027,7 +31992,7 @@ argument_list|()
 operator|.
 name|enterLoop
 argument_list|(
-literal|1
+literal|15
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -32043,6 +32008,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//qDebug()<< reply->error()<< reply->errorString();
+comment|//qDebug()<< proxyServer.receivedData;
 comment|// we don't really care if the request succeeded
 comment|// especially since it won't succeed in the HTTPS case
 comment|// so just check that the command was correct
@@ -32066,6 +32032,59 @@ argument_list|(
 name|receivedHeader
 argument_list|,
 name|expectedCommand
+argument_list|)
+expr_stmt|;
+comment|//QTBUG-17223 - make sure the user agent from the request is sent to proxy server even for CONNECT
+name|int
+name|uapos
+init|=
+name|proxyServer
+operator|.
+name|receivedData
+operator|.
+name|indexOf
+argument_list|(
+literal|"User-Agent"
+argument_list|)
+decl_stmt|;
+name|int
+name|uaend
+init|=
+name|proxyServer
+operator|.
+name|receivedData
+operator|.
+name|indexOf
+argument_list|(
+literal|"\r\n"
+argument_list|,
+name|uapos
+argument_list|)
+decl_stmt|;
+name|QByteArray
+name|uaheader
+init|=
+name|proxyServer
+operator|.
+name|receivedData
+operator|.
+name|mid
+argument_list|(
+name|uapos
+argument_list|,
+name|uaend
+operator|-
+name|uapos
+argument_list|)
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|uaheader
+argument_list|,
+name|QByteArray
+argument_list|(
+literal|"User-Agent: QNetworkReplyAutoTest/1.0"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

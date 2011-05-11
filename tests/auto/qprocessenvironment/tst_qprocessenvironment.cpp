@@ -17,15 +17,6 @@ include|#
 directive|include
 file|<QProcessEnvironment>
 end_include
-begin_comment
-comment|// Note:
-end_comment
-begin_comment
-comment|// in cross-platform tests, ALWAYS use UPPERCASE variable names
-end_comment
-begin_comment
-comment|// That's because on Windows, the variables are uppercased
-end_comment
 begin_class
 DECL|class|tst_QProcessEnvironment
 class|class
@@ -1002,7 +993,7 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_OS_WIN
-comment|// on Windows, it's uppercased
+comment|// Windows is case-insensitive, but case-preserving
 name|QVERIFY
 argument_list|(
 name|e
@@ -1076,6 +1067,16 @@ name|QString
 argument_list|(
 literal|"bar"
 argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Per Windows, this overwrites the value, but keeps the name's original capitalization
+name|e
+operator|.
+name|insert
+argument_list|(
+literal|"Foo"
+argument_list|,
+literal|"Bar"
 argument_list|)
 expr_stmt|;
 name|QStringList
@@ -1090,6 +1091,16 @@ name|QCOMPARE
 argument_list|(
 name|list
 operator|.
+name|length
+argument_list|()
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|list
+operator|.
 name|at
 argument_list|(
 literal|0
@@ -1097,7 +1108,7 @@ argument_list|)
 argument_list|,
 name|QString
 argument_list|(
-literal|"FOO=bar"
+literal|"foo=Bar"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1182,6 +1193,16 @@ operator|.
 name|toStringList
 argument_list|()
 decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|list
+operator|.
+name|length
+argument_list|()
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|list

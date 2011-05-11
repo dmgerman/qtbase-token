@@ -3215,6 +3215,11 @@ argument_list|)
 decl_stmt|;
 comment|//             // line to the beginning of the arc segment, (should not be needed).
 comment|//             emitLineTo(qt_real_to_fixed(curve_start.x()), qt_real_to_fixed(curve_start.y()));
+name|Q_UNUSED
+argument_list|(
+name|curve_start
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

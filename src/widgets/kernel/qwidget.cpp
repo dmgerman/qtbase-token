@@ -4674,6 +4674,12 @@ name|d
 operator|->
 name|layout
 expr_stmt|;
+name|d
+operator|->
+name|layout
+operator|=
+literal|0
+expr_stmt|;
 comment|// Remove myself from focus list
 name|Q_ASSERT
 argument_list|(
@@ -39533,6 +39539,19 @@ name|accessibleName
 operator|=
 name|name
 expr_stmt|;
+name|QAccessible
+operator|::
+name|updateAccessibility
+argument_list|(
+name|this
+argument_list|,
+literal|0
+argument_list|,
+name|QAccessible
+operator|::
+name|NameChanged
+argument_list|)
+expr_stmt|;
 block|}
 DECL|function|accessibleName
 name|QString
@@ -39577,6 +39596,19 @@ operator|->
 name|accessibleDescription
 operator|=
 name|description
+expr_stmt|;
+name|QAccessible
+operator|::
+name|updateAccessibility
+argument_list|(
+name|this
+argument_list|,
+literal|0
+argument_list|,
+name|QAccessible
+operator|::
+name|DescriptionChanged
+argument_list|)
 expr_stmt|;
 block|}
 DECL|function|accessibleDescription
@@ -39862,6 +39894,12 @@ directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
+if|if
+condition|(
+name|isVisible
+argument_list|()
+condition|)
+block|{
 comment|// ##### is this correct
 name|QAccessible
 operator|::
@@ -39876,6 +39914,7 @@ operator|::
 name|StateChanged
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 block|}

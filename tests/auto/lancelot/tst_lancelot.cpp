@@ -1022,6 +1022,9 @@ operator|::
 name|BaselineNotFound
 condition|)
 block|{
+if|if
+condition|(
+operator|!
 name|proto
 operator|.
 name|submitNewBaseline
@@ -1029,6 +1032,19 @@ argument_list|(
 name|rendered
 argument_list|,
 literal|0
+argument_list|)
+condition|)
+name|QWARN
+argument_list|(
+literal|"Failed to submit new baseline: "
+operator|+
+name|proto
+operator|.
+name|errorMessage
+argument_list|()
+operator|.
+name|toLatin1
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QSKIP

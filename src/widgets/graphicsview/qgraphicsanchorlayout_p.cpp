@@ -1553,9 +1553,13 @@ parameter_list|)
 block|{
 name|qreal
 name|lower
+init|=
+literal|0
 decl_stmt|;
 name|qreal
 name|upper
+init|=
+literal|0
 decl_stmt|;
 switch|switch
 condition|(

@@ -56,7 +56,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qglyphs.h>
+file|<QtGui/qglyphrun.h>
 end_include
 begin_include
 include|#
@@ -672,9 +672,9 @@ name|QT_NO_RAWFONT
 argument_list|)
 name|QList
 operator|<
-name|QGlyphs
+name|QGlyphRun
 operator|>
-name|glyphs
+name|glyphRuns
 argument_list|()
 specifier|const
 expr_stmt|;
@@ -1064,7 +1064,7 @@ name|QT_NO_RAWFONT
 argument_list|)
 name|QList
 operator|<
-name|QGlyphs
+name|QGlyphRun
 operator|>
 name|glyphs
 argument_list|(

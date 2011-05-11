@@ -14451,7 +14451,6 @@ argument_list|(
 literal|24
 argument_list|)
 expr_stmt|;
-comment|// With pixels font size is not transfered in html
 name|QTextCursor
 name|cursorInput
 argument_list|(

@@ -991,6 +991,10 @@ name|friend
 name|class
 name|QConicalGradient
 decl_stmt|;
+name|friend
+name|class
+name|QBrush
+decl_stmt|;
 name|Type
 name|m_type
 decl_stmt|;
@@ -1027,7 +1031,7 @@ name|fx
 decl_stmt|,
 name|fy
 decl_stmt|,
-name|radius
+name|cradius
 decl_stmt|;
 block|}
 name|radial
@@ -1227,6 +1231,32 @@ argument_list|,
 argument|qreal radius
 argument_list|)
 block|;
+name|QRadialGradient
+argument_list|(
+argument|const QPointF&center
+argument_list|,
+argument|qreal centerRadius
+argument_list|,
+argument|const QPointF&focalPoint
+argument_list|,
+argument|qreal focalRadius
+argument_list|)
+block|;
+name|QRadialGradient
+argument_list|(
+argument|qreal cx
+argument_list|,
+argument|qreal cy
+argument_list|,
+argument|qreal centerRadius
+argument_list|,
+argument|qreal fx
+argument_list|,
+argument|qreal fy
+argument_list|,
+argument|qreal focalRadius
+argument_list|)
+block|;
 name|QPointF
 name|center
 argument_list|()
@@ -1300,6 +1330,28 @@ specifier|const
 block|;
 name|void
 name|setRadius
+argument_list|(
+argument|qreal radius
+argument_list|)
+block|;
+name|qreal
+name|centerRadius
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setCenterRadius
+argument_list|(
+argument|qreal radius
+argument_list|)
+block|;
+name|qreal
+name|focalRadius
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setFocalRadius
 argument_list|(
 argument|qreal radius
 argument_list|)

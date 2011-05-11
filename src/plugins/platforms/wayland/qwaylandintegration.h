@@ -99,6 +99,12 @@ name|nativeInterface
 argument_list|()
 specifier|const
 block|;
+name|QPlatformClipboard
+operator|*
+name|clipboard
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|bool
@@ -120,6 +126,11 @@ block|;
 name|QPlatformNativeInterface
 operator|*
 name|mNativeInterface
+block|;
+name|mutable
+name|QPlatformClipboard
+operator|*
+name|mClipboard
 block|; }
 decl_stmt|;
 end_decl_stmt

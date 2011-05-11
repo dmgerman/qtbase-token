@@ -1706,22 +1706,6 @@ name|class
 name|QFontEngineFTRawFont
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
-name|QFontEngineFT
-operator|::
-name|Glyph
-operator|*
-name|loadGlyphMetrics
-argument_list|(
-argument|QGlyphSet *set
-argument_list|,
-argument|uint glyph
-argument_list|,
-argument|GlyphFormat format
-argument_list|)
-specifier|const
-expr_stmt|;
-end_expr_stmt
 begin_decl_stmt
 name|int
 name|loadFlags

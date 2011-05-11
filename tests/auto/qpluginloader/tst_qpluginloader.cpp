@@ -1822,7 +1822,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"not an ELF object"
+literal|"not a valid Qt plugin"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1852,7 +1852,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"invalid"
+literal|"not a valid Qt plugin"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1882,7 +1882,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"invalid"
+literal|"not a valid Qt plugin"
 argument_list|)
 argument_list|)
 expr_stmt|;

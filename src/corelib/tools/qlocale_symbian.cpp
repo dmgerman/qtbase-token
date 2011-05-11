@@ -30,6 +30,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QStringList>
+end_include
+begin_include
+include|#
+directive|include
 file|<e32std.h>
 end_include
 begin_include
@@ -230,6 +235,13 @@ index|[
 literal|8
 index|]
 decl_stmt|;
+DECL|member|uilanguage
+name|char
+name|uilanguage
+index|[
+literal|8
+index|]
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -249,6 +261,8 @@ block|{
 name|ELangEnglish
 block|,
 literal|"en_GB"
+block|,
+literal|"en"
 block|}
 block|,
 comment|// 1
@@ -256,6 +270,8 @@ block|{
 name|ELangFrench
 block|,
 literal|"fr_FR"
+block|,
+literal|"fr"
 block|}
 block|,
 comment|// 2
@@ -263,6 +279,8 @@ block|{
 name|ELangGerman
 block|,
 literal|"de_DE"
+block|,
+literal|"de"
 block|}
 block|,
 comment|// 3
@@ -270,6 +288,8 @@ block|{
 name|ELangSpanish
 block|,
 literal|"es_ES"
+block|,
+literal|"es"
 block|}
 block|,
 comment|// 4
@@ -277,6 +297,8 @@ block|{
 name|ELangItalian
 block|,
 literal|"it_IT"
+block|,
+literal|"it"
 block|}
 block|,
 comment|// 5
@@ -284,6 +306,8 @@ block|{
 name|ELangSwedish
 block|,
 literal|"sv_SE"
+block|,
+literal|"sv"
 block|}
 block|,
 comment|// 6
@@ -291,13 +315,17 @@ block|{
 name|ELangDanish
 block|,
 literal|"da_DK"
+block|,
+literal|"da"
 block|}
 block|,
 comment|// 7
 block|{
 name|ELangNorwegian
 block|,
-literal|"no_NO"
+literal|"nb_NO"
+block|,
+literal|"nb"
 block|}
 block|,
 comment|// 8
@@ -305,6 +333,8 @@ block|{
 name|ELangFinnish
 block|,
 literal|"fi_FI"
+block|,
+literal|"fi"
 block|}
 block|,
 comment|// 9
@@ -312,6 +342,8 @@ block|{
 name|ELangAmerican
 block|,
 literal|"en_US"
+block|,
+literal|"en-US"
 block|}
 block|,
 comment|// 10
@@ -319,6 +351,8 @@ block|{
 name|ELangPortuguese
 block|,
 literal|"pt_PT"
+block|,
+literal|"pt"
 block|}
 block|,
 comment|// 13
@@ -326,6 +360,8 @@ block|{
 name|ELangTurkish
 block|,
 literal|"tr_TR"
+block|,
+literal|"tr"
 block|}
 block|,
 comment|// 14
@@ -333,6 +369,8 @@ block|{
 name|ELangIcelandic
 block|,
 literal|"is_IS"
+block|,
+literal|"is"
 block|}
 block|,
 comment|// 15
@@ -340,6 +378,8 @@ block|{
 name|ELangRussian
 block|,
 literal|"ru_RU"
+block|,
+literal|"ru"
 block|}
 block|,
 comment|// 16
@@ -347,6 +387,8 @@ block|{
 name|ELangHungarian
 block|,
 literal|"hu_HU"
+block|,
+literal|"hu"
 block|}
 block|,
 comment|// 17
@@ -354,20 +396,17 @@ block|{
 name|ELangDutch
 block|,
 literal|"nl_NL"
+block|,
+literal|"nl"
 block|}
 block|,
 comment|// 18
 block|{
-name|ELangBelgianFlemish
-block|,
-literal|"nl_BE"
-block|}
-block|,
-comment|// 19
-block|{
 name|ELangCzech
 block|,
 literal|"cs_CZ"
+block|,
+literal|"cs"
 block|}
 block|,
 comment|// 25
@@ -375,6 +414,8 @@ block|{
 name|ELangSlovak
 block|,
 literal|"sk_SK"
+block|,
+literal|"sk"
 block|}
 block|,
 comment|// 26
@@ -382,6 +423,8 @@ block|{
 name|ELangPolish
 block|,
 literal|"pl_PL"
+block|,
+literal|"pl"
 block|}
 block|,
 comment|// 27
@@ -389,6 +432,8 @@ block|{
 name|ELangSlovenian
 block|,
 literal|"sl_SI"
+block|,
+literal|"sl"
 block|}
 block|,
 comment|// 28
@@ -396,6 +441,8 @@ block|{
 name|ELangTaiwanChinese
 block|,
 literal|"zh_TW"
+block|,
+literal|"zh-TW"
 block|}
 block|,
 comment|// 29
@@ -403,6 +450,8 @@ block|{
 name|ELangHongKongChinese
 block|,
 literal|"zh_HK"
+block|,
+literal|"zh-HK"
 block|}
 block|,
 comment|// 30
@@ -410,6 +459,8 @@ block|{
 name|ELangPrcChinese
 block|,
 literal|"zh_CN"
+block|,
+literal|"zh"
 block|}
 block|,
 comment|// 31
@@ -417,6 +468,8 @@ block|{
 name|ELangJapanese
 block|,
 literal|"ja_JP"
+block|,
+literal|"ja"
 block|}
 block|,
 comment|// 32
@@ -424,6 +477,8 @@ block|{
 name|ELangThai
 block|,
 literal|"th_TH"
+block|,
+literal|"th"
 block|}
 block|,
 comment|// 33
@@ -431,6 +486,8 @@ block|{
 name|ELangArabic
 block|,
 literal|"ar_AE"
+block|,
+literal|"ar"
 block|}
 block|,
 comment|// 37
@@ -438,6 +495,8 @@ block|{
 name|ELangTagalog
 block|,
 literal|"tl_PH"
+block|,
+literal|"tl"
 block|}
 block|,
 comment|// 39
@@ -445,6 +504,8 @@ block|{
 name|ELangBulgarian
 block|,
 literal|"bg_BG"
+block|,
+literal|"bg"
 block|}
 block|,
 comment|// 42
@@ -452,6 +513,8 @@ block|{
 name|ELangCatalan
 block|,
 literal|"ca_ES"
+block|,
+literal|"ca"
 block|}
 block|,
 comment|// 44
@@ -459,6 +522,8 @@ block|{
 name|ELangCroatian
 block|,
 literal|"hr_HR"
+block|,
+literal|"hr"
 block|}
 block|,
 comment|// 45
@@ -466,6 +531,8 @@ block|{
 name|ELangEstonian
 block|,
 literal|"et_EE"
+block|,
+literal|"et"
 block|}
 block|,
 comment|// 49
@@ -473,6 +540,8 @@ block|{
 name|ELangFarsi
 block|,
 literal|"fa_IR"
+block|,
+literal|"fa"
 block|}
 block|,
 comment|// 50
@@ -480,6 +549,8 @@ block|{
 name|ELangCanadianFrench
 block|,
 literal|"fr_CA"
+block|,
+literal|"fr-CA"
 block|}
 block|,
 comment|// 51
@@ -487,6 +558,8 @@ block|{
 name|ELangGreek
 block|,
 literal|"el_GR"
+block|,
+literal|"el"
 block|}
 block|,
 comment|// 54
@@ -494,6 +567,8 @@ block|{
 name|ELangHebrew
 block|,
 literal|"he_IL"
+block|,
+literal|"he"
 block|}
 block|,
 comment|// 57
@@ -501,6 +576,8 @@ block|{
 name|ELangHindi
 block|,
 literal|"hi_IN"
+block|,
+literal|"hi"
 block|}
 block|,
 comment|// 58
@@ -508,13 +585,27 @@ block|{
 name|ELangIndonesian
 block|,
 literal|"id_ID"
+block|,
+literal|"id"
 block|}
 block|,
 comment|// 59
 block|{
+literal|63
+comment|/*ELangKazakh*/
+block|,
+literal|"kk_KZ"
+block|,
+literal|"kk"
+block|}
+block|,
+comment|// 63
+block|{
 name|ELangKorean
 block|,
 literal|"ko_KO"
+block|,
+literal|"ko"
 block|}
 block|,
 comment|// 65
@@ -522,6 +613,8 @@ block|{
 name|ELangLatvian
 block|,
 literal|"lv_LV"
+block|,
+literal|"lv"
 block|}
 block|,
 comment|// 67
@@ -529,6 +622,8 @@ block|{
 name|ELangLithuanian
 block|,
 literal|"lt_LT"
+block|,
+literal|"lt"
 block|}
 block|,
 comment|// 68
@@ -536,6 +631,8 @@ block|{
 name|ELangMalay
 block|,
 literal|"ms_MY"
+block|,
+literal|"ms"
 block|}
 block|,
 comment|// 70
@@ -543,6 +640,8 @@ block|{
 name|ELangNorwegianNynorsk
 block|,
 literal|"nn_NO"
+block|,
+literal|"nn"
 block|}
 block|,
 comment|// 75
@@ -550,6 +649,8 @@ block|{
 name|ELangBrazilianPortuguese
 block|,
 literal|"pt_BR"
+block|,
+literal|"pt-BR"
 block|}
 block|,
 comment|// 76
@@ -557,6 +658,8 @@ block|{
 name|ELangRomanian
 block|,
 literal|"ro_RO"
+block|,
+literal|"ro"
 block|}
 block|,
 comment|// 78
@@ -564,6 +667,8 @@ block|{
 name|ELangSerbian
 block|,
 literal|"sr_RS"
+block|,
+literal|"sr"
 block|}
 block|,
 comment|// 79
@@ -571,6 +676,8 @@ block|{
 name|ELangLatinAmericanSpanish
 block|,
 literal|"es_419"
+block|,
+literal|"es-419"
 block|}
 block|,
 comment|// 83
@@ -578,6 +685,8 @@ block|{
 name|ELangUkrainian
 block|,
 literal|"uk_UA"
+block|,
+literal|"uk"
 block|}
 block|,
 comment|// 93
@@ -585,6 +694,8 @@ block|{
 name|ELangUrdu
 block|,
 literal|"ur_PK"
+block|,
+literal|"ur"
 block|}
 block|,
 comment|// 94 - India/Pakistan
@@ -592,6 +703,8 @@ block|{
 name|ELangVietnamese
 block|,
 literal|"vi_VN"
+block|,
+literal|"vi"
 block|}
 block|,
 comment|// 96
@@ -603,6 +716,8 @@ block|{
 name|ELangBasque
 block|,
 literal|"eu_ES"
+block|,
+literal|"eu"
 block|}
 block|,
 comment|// 102
@@ -610,6 +725,8 @@ block|{
 name|ELangGalician
 block|,
 literal|"gl_ES"
+block|,
+literal|"gl"
 block|}
 block|,
 comment|// 103
@@ -625,6 +742,8 @@ argument_list|)
 block|{
 name|ELangEnglish_Apac
 block|,
+literal|"en_GB"
+block|,
 literal|"en"
 block|}
 block|,
@@ -633,6 +752,8 @@ block|{
 name|ELangEnglish_Taiwan
 block|,
 literal|"en_TW"
+block|,
+literal|"en-TW"
 block|}
 block|,
 comment|// 157 ### Not supported by CLDR
@@ -640,6 +761,8 @@ block|{
 name|ELangEnglish_HongKong
 block|,
 literal|"en_HK"
+block|,
+literal|"en-HK"
 block|}
 block|,
 comment|// 158
@@ -647,6 +770,8 @@ block|{
 name|ELangEnglish_Prc
 block|,
 literal|"en_CN"
+block|,
+literal|"en-CN"
 block|}
 block|,
 comment|// 159 ### Not supported by CLDR
@@ -654,6 +779,8 @@ block|{
 name|ELangEnglish_Japan
 block|,
 literal|"en_JP"
+block|,
+literal|"en"
 block|}
 block|,
 comment|// 160 ### Not supported by CLDR
@@ -661,11 +788,25 @@ block|{
 name|ELangEnglish_Thailand
 block|,
 literal|"en_TH"
+block|,
+literal|"en"
 block|}
 block|,
 comment|// 161 ### Not supported by CLDR
 block|{
+literal|230
+comment|/*ELangEnglish_India*/
+block|,
+literal|"en_IN"
+block|,
+literal|"en"
+block|}
+block|,
+comment|// 230
+block|{
 name|ELangMalay_Apac
+block|,
+literal|"ms_MY"
 block|,
 literal|"ms"
 block|}
@@ -678,21 +819,36 @@ literal|327
 comment|/*ELangIndonesian_Apac*/
 block|,
 literal|"id_ID"
+block|,
+literal|"id"
 block|}
 comment|// 327 - appeared in Symbian^3
 block|}
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|/*!     Returns ISO name corresponding to the Symbian locale code \a sys_fmt. */
-end_comment
+begin_enum
+DECL|enum|LocaleNameType
+enum|enum
+name|LocaleNameType
+block|{
+DECL|enumerator|ISO
+name|ISO
+block|,
+DECL|enumerator|UILanguage
+name|UILanguage
+block|}
+enum|;
+end_enum
 begin_function
-DECL|function|qt_symbianLocaleName
+DECL|function|qt_resolveSymbianLocaleName
 name|QByteArray
-name|qt_symbianLocaleName
+name|qt_resolveSymbianLocaleName
 parameter_list|(
 name|int
 name|code
+parameter_list|,
+name|LocaleNameType
+name|type
 parameter_list|)
 block|{
 comment|//Number of Symbian to ISO locale mappings
@@ -738,6 +894,13 @@ name|cmp
 operator|==
 literal|0
 condition|)
+block|{
+if|if
+condition|(
+name|type
+operator|==
+name|ISO
+condition|)
 return|return
 name|symbian_to_iso_list
 index|[
@@ -746,6 +909,15 @@ index|]
 operator|.
 name|iso_name
 return|;
+return|return
+name|symbian_to_iso_list
+index|[
+literal|0
+index|]
+operator|.
+name|uilanguage
+return|;
+block|}
 name|int
 name|begin
 init|=
@@ -800,10 +972,12 @@ name|cmp
 operator|<
 literal|0
 condition|)
+block|{
 name|end
 operator|=
 name|mid
 expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -811,19 +985,56 @@ name|cmp
 operator|>
 literal|0
 condition|)
+block|{
 name|begin
 operator|=
 name|mid
 expr_stmt|;
+block|}
 else|else
+block|{
+if|if
+condition|(
+name|type
+operator|==
+name|ISO
+condition|)
 return|return
 name|elt
 operator|->
 name|iso_name
 return|;
+return|return
+name|elt
+operator|->
+name|uilanguage
+return|;
+block|}
 block|}
 return|return
 literal|0
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns ISO name corresponding to the Symbian locale code \a sys_fmt. */
+end_comment
+begin_function
+DECL|function|qt_symbianLocaleName
+name|QByteArray
+name|qt_symbianLocaleName
+parameter_list|(
+name|int
+name|code
+parameter_list|)
+block|{
+return|return
+name|qt_resolveSymbianLocaleName
+argument_list|(
+name|code
+argument_list|,
+name|ISO
+argument_list|)
 return|;
 block|}
 end_function
@@ -3082,6 +3293,42 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|symbianUILanguages
+specifier|static
+name|QStringList
+name|symbianUILanguages
+parameter_list|()
+block|{
+name|TLanguage
+name|lang
+init|=
+name|User
+operator|::
+name|Language
+argument_list|()
+decl_stmt|;
+name|QString
+name|s
+init|=
+name|QLatin1String
+argument_list|(
+name|qt_resolveSymbianLocaleName
+argument_list|(
+name|lang
+argument_list|,
+name|UILanguage
+argument_list|)
+argument_list|)
+decl_stmt|;
+return|return
+name|QStringList
+argument_list|(
+name|s
+argument_list|)
+return|;
+block|}
+end_function
+begin_function
 DECL|function|query
 name|QVariant
 name|QSystemLocale
@@ -3446,6 +3693,16 @@ argument_list|(
 name|EPm
 argument_list|)
 argument_list|)
+argument_list|)
+return|;
+case|case
+name|UILanguages
+case|:
+return|return
+name|QVariant
+argument_list|(
+name|symbianUILanguages
+argument_list|()
 argument_list|)
 return|;
 default|default:

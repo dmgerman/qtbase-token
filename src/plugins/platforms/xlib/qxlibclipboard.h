@@ -45,14 +45,12 @@ operator|*
 name|screen
 argument_list|)
 block|;
-specifier|const
 name|QMimeData
 operator|*
 name|mimeData
 argument_list|(
 argument|QClipboard::Mode mode
 argument_list|)
-specifier|const
 block|;
 name|void
 name|setMimeData

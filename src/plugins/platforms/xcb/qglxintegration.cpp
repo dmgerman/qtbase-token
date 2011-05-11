@@ -402,9 +402,6 @@ argument_list|,
 name|m_drawable
 argument_list|)
 expr_stmt|;
-name|doneCurrent
-argument_list|()
-expr_stmt|;
 name|Q_XCB_NOOP
 argument_list|(
 name|m_screen

@@ -21073,14 +21073,6 @@ block|{
 comment|// These features are not ported to Symbian (yet)
 name|qconfigList
 operator|+=
-literal|"QT_NO_CONCURRENT"
-expr_stmt|;
-name|qconfigList
-operator|+=
-literal|"QT_NO_QFUTURE"
-expr_stmt|;
-name|qconfigList
-operator|+=
 literal|"QT_NO_CRASHHANDLER"
 expr_stmt|;
 name|qconfigList

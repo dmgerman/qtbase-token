@@ -96,7 +96,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qglyphs.h"
+file|"qglyphrun.h"
 end_include
 begin_include
 include|#
@@ -141,7 +141,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qglyphs_p.h>
+file|<private/qglyphrun_p.h>
 end_include
 begin_include
 include|#
@@ -2519,6 +2519,19 @@ operator|=
 name|QTransform
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|extended
+condition|)
+block|{
+name|extended
+operator|->
+name|transformChanged
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 name|state
 operator|->
 name|dirtyFlags
@@ -2532,6 +2545,7 @@ argument_list|(
 name|state
 argument_list|)
 expr_stmt|;
+block|}
 name|engine
 operator|->
 name|drawImage
@@ -3594,6 +3608,18 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_function_decl
+specifier|extern
+name|bool
+name|qt_isExtendedRadialGradient
+parameter_list|(
+specifier|const
+name|QBrush
+modifier|&
+name|brush
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_function
 DECL|function|updateEmulationSpecifier
 name|void
@@ -3618,6 +3644,11 @@ literal|false
 decl_stmt|;
 name|bool
 name|radialGradient
+init|=
+literal|false
+decl_stmt|;
+name|bool
+name|extendedRadialGradient
 init|=
 literal|false
 decl_stmt|;
@@ -3873,6 +3904,24 @@ name|Qt
 operator|::
 name|RadialGradientPattern
 operator|)
+operator|)
+expr_stmt|;
+name|extendedRadialGradient
+operator|=
+name|radialGradient
+operator|&&
+operator|(
+name|qt_isExtendedRadialGradient
+argument_list|(
+name|penBrush
+argument_list|)
+operator|||
+name|qt_isExtendedRadialGradient
+argument_list|(
+name|s
+operator|->
+name|brush
+argument_list|)
 operator|)
 expr_stmt|;
 name|conicalGradient
@@ -4348,6 +4397,9 @@ expr_stmt|;
 comment|// Radial gradient emulation
 if|if
 condition|(
+name|extendedRadialGradient
+operator|||
+operator|(
 name|radialGradient
 operator|&&
 operator|!
@@ -4359,6 +4411,7 @@ name|QPaintEngine
 operator|::
 name|RadialGradientFill
 argument_list|)
+operator|)
 condition|)
 name|s
 operator|->
@@ -19763,7 +19816,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Draws the glyphs represented by \a glyphs at \a position. The \a position gives the     edge of the baseline for the string of glyphs. The glyphs will be retrieved from the font     selected on \a glyphs and at offsets given by the positions in \a glyphs.      \since 4.8      \sa QGlyphs::setFont(), QGlyphs::setPositions(), QGlyphs::setGlyphIndexes() */
+comment|/*!     Draws the glyphs represented by \a glyphs at \a position. The \a position gives the     edge of the baseline for the string of glyphs. The glyphs will be retrieved from the font     selected on \a glyphs and at offsets given by the positions in \a glyphs.      \since 4.8      \sa QGlyphRun::setRawFont(), QGlyphRun::setPositions(), QGlyphRun::setGlyphIndexes() */
 end_comment
 begin_if
 if|#
@@ -19775,11 +19828,11 @@ name|QT_NO_RAWFONT
 argument_list|)
 end_if
 begin_function
-DECL|function|drawGlyphs
+DECL|function|drawGlyphRun
 name|void
 name|QPainter
 operator|::
-name|drawGlyphs
+name|drawGlyphRun
 parameter_list|(
 specifier|const
 name|QPointF
@@ -19787,9 +19840,9 @@ modifier|&
 name|position
 parameter_list|,
 specifier|const
-name|QGlyphs
+name|QGlyphRun
 modifier|&
-name|glyphs
+name|glyphRun
 parameter_list|)
 block|{
 name|Q_D
@@ -19800,9 +19853,9 @@ expr_stmt|;
 name|QRawFont
 name|font
 init|=
-name|glyphs
+name|glyphRun
 operator|.
-name|font
+name|rawFont
 argument_list|()
 decl_stmt|;
 if|if
@@ -19820,7 +19873,7 @@ name|quint32
 argument_list|>
 name|glyphIndexes
 init|=
-name|glyphs
+name|glyphRun
 operator|.
 name|glyphIndexes
 argument_list|()
@@ -19831,7 +19884,7 @@ name|QPointF
 argument_list|>
 name|glyphPositions
 init|=
-name|glyphs
+name|glyphRun
 operator|.
 name|positions
 argument_list|()
@@ -19892,6 +19945,25 @@ name|type
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// If the matrix is not affine, the paint engine will fall back to
+comment|// drawing the glyphs as paths, which in turn means we should not
+comment|// preprocess the glyph positions
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|state
+operator|->
+name|matrix
+operator|.
+name|isAffine
+argument_list|()
+condition|)
+name|paintEngineSupportsTransformations
+operator|=
+literal|true
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -19969,17 +20041,17 @@ name|count
 argument_list|,
 name|font
 argument_list|,
-name|glyphs
+name|glyphRun
 operator|.
 name|overline
 argument_list|()
 argument_list|,
-name|glyphs
+name|glyphRun
 operator|.
 name|underline
 argument_list|()
 argument_list|,
-name|glyphs
+name|glyphRun
 operator|.
 name|strikeOut
 argument_list|()
@@ -20183,6 +20255,13 @@ condition|(
 name|extended
 operator|!=
 literal|0
+operator|&&
+name|state
+operator|->
+name|matrix
+operator|.
+name|isAffine
+argument_list|()
 condition|)
 block|{
 name|QStaticTextItem

@@ -834,7 +834,6 @@ name|QSharedPointer
 argument_list|<
 name|QNetworkSession
 argument_list|>
-name|networkSession
 parameter_list|)
 block|{
 return|return

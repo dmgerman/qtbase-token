@@ -55,12 +55,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qglyphs.h"
+file|"qglyphrun.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qglyphs_p.h"
+file|"qglyphrun_p.h"
 end_include
 begin_include
 include|#
@@ -3155,7 +3155,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the glyph indexes and positions for all glyphs in this QTextLayout. This is an     expensive function, and should not be called in a time sensitive context.      \since 4.8      \sa draw(), QPainter::drawGlyphs() */
+comment|/*!     Returns the glyph indexes and positions for all glyphs in this QTextLayout. This is an     expensive function, and should not be called in a time sensitive context.      \since 4.8      \sa draw(), QPainter::drawGlyphRun() */
 end_comment
 begin_if
 if|#
@@ -3167,20 +3167,20 @@ name|QT_NO_RAWFONT
 argument_list|)
 end_if
 begin_function
-DECL|function|glyphs
+DECL|function|glyphRuns
 name|QList
 argument_list|<
-name|QGlyphs
+name|QGlyphRun
 argument_list|>
 name|QTextLayout
 operator|::
-name|glyphs
+name|glyphRuns
 parameter_list|()
 specifier|const
 block|{
 name|QList
 argument_list|<
-name|QGlyphs
+name|QGlyphRun
 argument_list|>
 name|glyphs
 decl_stmt|;
@@ -4477,32 +4477,6 @@ operator|+
 name|d
 operator|->
 name|position
-decl_stmt|;
-name|QFixed
-name|pos_x
-init|=
-name|QFixed
-operator|::
-name|fromReal
-argument_list|(
-name|position
-operator|.
-name|x
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|QFixed
-name|pos_y
-init|=
-name|QFixed
-operator|::
-name|fromReal
-argument_list|(
-name|position
-operator|.
-name|y
-argument_list|()
-argument_list|)
 decl_stmt|;
 name|cursorPosition
 operator|=
@@ -8913,7 +8887,7 @@ struct|;
 block|}
 end_namespace
 begin_comment
-comment|/*!     \internal      Returns the glyph indexes and positions for all glyphs in this QTextLine which reside in     QScriptItems that overlap with the range defined by \a from and \a length. The arguments     specify characters, relative to the text in the layout. Note that it is not possible to     use this function to retrieve a subset of the glyphs in a QScriptItem.      \since 4.8      \sa QTextLayout::glyphs() */
+comment|/*!     \internal      Returns the glyph indexes and positions for all glyphs in this QTextLine which reside in     QScriptItems that overlap with the range defined by \a from and \a length. The arguments     specify characters, relative to the text in the layout. Note that it is not possible to     use this function to retrieve a subset of the glyphs in a QScriptItem.      \since 4.8      \sa QTextLayout::glyphRuns() */
 end_comment
 begin_if
 if|#
@@ -8928,7 +8902,7 @@ begin_function
 DECL|function|glyphs
 name|QList
 argument_list|<
-name|QGlyphs
+name|QGlyphRun
 argument_list|>
 name|QTextLine
 operator|::
@@ -8965,7 +8939,7 @@ condition|)
 return|return
 name|QList
 argument_list|<
-name|QGlyphs
+name|QGlyphRun
 argument_list|>
 argument_list|()
 return|;
@@ -9438,7 +9412,7 @@ argument_list|,
 name|int
 argument_list|>
 argument_list|,
-name|QGlyphs
+name|QGlyphRun
 argument_list|>
 name|glyphsHash
 decl_stmt|;
@@ -9827,7 +9801,7 @@ name|pos
 argument_list|)
 expr_stmt|;
 block|}
-name|QGlyphs
+name|QGlyphRun
 name|glyphIndexes
 decl_stmt|;
 name|glyphIndexes
@@ -9888,7 +9862,7 @@ argument_list|)
 expr_stmt|;
 name|glyphIndexes
 operator|.
-name|setFont
+name|setRawFont
 argument_list|(
 name|font
 argument_list|)
