@@ -15,7 +15,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qapplication_p.h>
+file|<QtGui/private/qguiapplication_p.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
@@ -218,7 +218,7 @@ name|Mode
 name|mode
 parameter_list|)
 block|{
-name|QApplication
+name|QGuiApplication
 operator|::
 name|clipboard
 argument_list|()
