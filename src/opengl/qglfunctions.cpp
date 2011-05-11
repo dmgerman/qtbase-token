@@ -309,6 +309,9 @@ name|QGLFunctions
 operator|::
 name|StencilSeparate
 decl_stmt|;
+name|QGLExtensionMatcher
+name|extensions
+decl_stmt|;
 if|if
 condition|(
 name|extensions
