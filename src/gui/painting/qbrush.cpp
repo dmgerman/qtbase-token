@@ -5979,7 +5979,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Constructs a simple radial gradient with the given \a center, \a     radius and \a focalPoint.      \note If the given focal point is outside the circle defined by the     center (\a cx, \a cy) and the \a radius it will be re-adjusted to     the intersection between the line from the center to the focal point     and the circle.      \sa QGradient::setColorAt(), QGradient::setStops() */
+comment|/*!     Constructs a simple radial gradient with the given \a center, \a     radius and \a focalPoint.      \note If the given focal point is outside the circle defined by the     \a center point and \a radius, it will be re-adjusted to lie at a point on     the circle where it intersects with the line from \a center to     \a focalPoint.      \sa QGradient::setColorAt(), QGradient::setStops() */
 end_comment
 begin_constructor
 DECL|function|QRadialGradient
@@ -6481,7 +6481,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     \since 4.8      Constructs an extended radial gradient with the given \a center, \a     centerRadius, \a focalPoint, and \a focalRadius.     Constructs a radial gradient with the given center (\a cx, \a cy),     center radius \a centerRadius, focal point (\a fx, \a fy), and     focal radius \a focalRadius. */
+comment|/*!     \since 4.8      Constructs an extended radial gradient with the given center     (\a cx, \a cy), center radius, \a centerRadius, focal point, (\a fx, \a fy),     and focal radius \a focalRadius. */
 end_comment
 begin_constructor
 DECL|function|QRadialGradient
@@ -6738,7 +6738,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*    \since 4.8     Sets the center radius of this radial gradient in logical coordinates    to \a radius */
+comment|/*!    \since 4.8     Sets the center radius of this radial gradient in logical coordinates    to \a radius */
 end_comment
 begin_function
 DECL|function|setCenterRadius
@@ -6817,7 +6817,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*    \since 4.8     Sets the focal radius of this radial gradient in logical coordinates    to \a radius */
+comment|/*!    \since 4.8     Sets the focal radius of this radial gradient in logical coordinates    to \a radius */
 end_comment
 begin_function
 DECL|function|setFocalRadius

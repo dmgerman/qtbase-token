@@ -281,7 +281,7 @@ begin_comment
 comment|/*!     \enum QHttpMultiPart::ContentType      List of known content types for a multipart subtype as described     in RFC 2046 and others.      \value MixedType    corresponds to the "multipart/mixed" subtype,     meaning the body parts are independent of each other, as described     in RFC 2046.      \value RelatedType  corresponds to the "multipart/related" subtype,     meaning the body parts are related to each other, as described in RFC 2387.      \value FormDataType       corresponds to the "multipart/form-data"     subtype, meaning the body parts contain form elements, as described in RFC 2388.      \value AlternativeType   corresponds to the "multipart/alternative"     subtype, meaning the body parts are alternative representations of     the same information, as described in RFC 2046.      \sa setContentType() */
 end_comment
 begin_comment
-comment|/*!     Constructs a QHttpMultiPart with content type MixedType and sets     parent as the parent object.      \sa QHttpMultiPart::ContentType */
+comment|/*!     Constructs a QHttpMultiPart with content type MixedType and sets     \a parent as the parent object.      \sa QHttpMultiPart::ContentType */
 end_comment
 begin_constructor
 DECL|function|QHttpMultiPart

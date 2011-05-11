@@ -4592,7 +4592,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool openFile(QFile&file, QIODevice::OpenMode flags) const      Opens a QFile on the file referenced by this event.     Returns true if successful; otherwise returns false.      This is necessary as some files cannot be opened by name, but require specific     information stored in this event.     For example, if this QFileOpenEvent contains a request to open a Symbian data caged file,     the QFile could only be opened from the Symbian RFile used in the construction of this event.      \since 4.8 */
+comment|/*!     \fn bool QFileOpenEvent::openFile(QFile&file, QIODevice::OpenMode flags) const      Opens a QFile on the \a file referenced by this event in the mode specified     by \a flags. Returns true if successful; otherwise returns false.      This is necessary as some files cannot be opened by name, but require specific     information stored in this event.     For example, if this QFileOpenEvent contains a request to open a Symbian data caged file,     the QFile could only be opened from the Symbian RFile used in the construction of this event.      \since 4.8 */
 end_comment
 begin_function
 DECL|function|openFile

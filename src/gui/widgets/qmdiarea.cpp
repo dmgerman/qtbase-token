@@ -10071,7 +10071,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QMdiArea::tabsMovable     \brief whether the user can move the tabs within the tabbar area in tabbed view mode.     \since 4.8      Tabs are not movable by default.      \sa QTabBar::tabsMovable, setViewMode() */
+comment|/*!     \property QMdiArea::tabsMovable     \brief whether the user can move the tabs within the tabbar area in tabbed view mode.     \since 4.8      Tabs are not movable by default.      \sa QTabBar::movable, setViewMode() */
 end_comment
 begin_function
 DECL|function|tabsMovable

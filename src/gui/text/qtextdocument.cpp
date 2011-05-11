@@ -1920,7 +1920,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8      Set the default cursor movement style. */
+comment|/*!     \since 4.8      Sets the default cursor movement style to the given \a style. */
 end_comment
 begin_function
 DECL|function|setDefaultCursorMoveStyle

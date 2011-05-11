@@ -1825,6 +1825,9 @@ argument_list|()
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Returns a OpenGL context for the platform-specific OpenGL context given by     \a platformContext. */
+end_comment
 begin_function
 DECL|function|fromPlatformGLContext
 name|QGLContext

@@ -5511,7 +5511,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \reimp */
+comment|/*!   \internal */
 end_comment
 begin_function
 DECL|function|doItemsLayout

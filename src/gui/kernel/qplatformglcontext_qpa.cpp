@@ -438,12 +438,12 @@ begin_comment
 comment|/*!     \class QPlatformGLContext     \since 4.8     \internal     \preliminary     \ingroup qpa      \brief The QPlatformGLContext class provides an abstraction for native GL contexts.      In QPA the way to support OpenGL or OpenVG or other technologies that requires a native GL     context is through the QPlatformGLContext wrapper.      There is no factory function for QPlatformGLContexts, but rather only one accessor function.     The only place to retrieve a QPlatformGLContext from is through a QPlatformWindow.      The context which is current for a specific thread can be collected by the currentContext()     function. This is how QPlatformGLContext also makes it possible to use the QtOpenGL module     withhout using QGLWidget. When using QGLContext::currentContext(), it will ask     QPlatformGLContext for the currentContext. Then a corresponding QGLContext will be returned,     which maps to the QPlatformGLContext. */
 end_comment
 begin_comment
-comment|/*! \fn void swapBuffers()     Reimplement in subclass to native swap buffers calls */
+comment|/*! \fn void QPlatformGLContext::swapBuffers()     Reimplement in subclass to native swap buffers calls */
 end_comment
 begin_comment
-comment|/*! getProcAddress(const QString& procName)     Reimplement in subclass to native getProcAddr calls.      Note: its convenient to use qPrintable(const QString&str) to get the const char * pointer */
+comment|/*! \fn void *QPlatformGLContext::getProcAddress(const QString&procName)     Reimplement in subclass to native getProcAddr calls.      Note: its convenient to use qPrintable(const QString&str) to get the const char * pointer */
 end_comment
 begin_comment
-comment|/*! platformWindowFormat() const     QWidget has the function qplatformWindowFormat(). That function is for the application     programmer to request the format of the window and the context that he wants.      Reimplement this function in a subclass to indicate what format the glContext actually has. */
+comment|/*! \fn QPlatformWindowFormat QPlatformGLContext::platformWindowFormat() const     QWidget has the function qplatformWindowFormat(). That function is for the application     programmer to request the format of the window and the context that he wants.      Reimplement this function in a subclass to indicate what format the glContext actually has. */
 end_comment
 end_unit

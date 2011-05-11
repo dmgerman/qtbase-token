@@ -1767,6 +1767,9 @@ name|int
 parameter_list|)
 block|{ }
 end_function
+begin_comment
+comment|/*!     \internal */
+end_comment
 begin_function
 DECL|function|platformNativeInterface
 name|QPlatformNativeInterface

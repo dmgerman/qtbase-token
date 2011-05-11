@@ -69,7 +69,7 @@ comment|//QT_NO_LIBRARY
 endif|#
 directive|endif
 comment|//QT_MAKEDLL
-comment|/*!     \class QGenericPluginFactory     \ingroup qpa      \brief The QGenericPluginFactory class creates window-system     related plugin drivers in Qt QPA.      Note that this class is only available in \l{Qt QPA}.       \sa QGenericPlugin */
+comment|/*!     \class QGenericPluginFactory     \ingroup qpa      \brief The QGenericPluginFactory class creates window-system     related plugin drivers in Qt QPA.      Note that this class is only available in Qt QPA.      \sa QGenericPlugin */
 comment|/*!     Creates the driver specified by \a key, using the given \a specification.      Note that the keys are case-insensitive.      \sa keys() */
 DECL|function|create
 name|QObject

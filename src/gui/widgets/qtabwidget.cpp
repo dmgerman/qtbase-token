@@ -3030,7 +3030,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*     \reimp */
+comment|/*!     \reimp */
 end_comment
 begin_function
 DECL|function|heightForWidth

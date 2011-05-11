@@ -1102,7 +1102,7 @@ literal|false
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!     \internal     \since 4.8     \see instantInvalidatePropagation      Calling this function with \a enable set to true will enable a feature that     makes propagation of invalidation up to ancestor layout items to be done in     one go. It will propagate up the parentLayoutItem() hierarchy until it has     reached the root. If the root item is a QGraphicsWidget, it will *post* a     layout request to it. When the layout request is consumed it will traverse     down the hierarchy of layouts and widgets and activate all layouts that is     invalid (not activated). This is the recommended behaviour.      If not set it will also propagate up the parentLayoutItem() hierarchy, but     it will stop at the \i first \i widget it encounters, and post a layout     request to the widget. When the layout request is consumed, this might     cause it to continue propagation up to the parentLayoutItem() of the     widget. It will continue in this fashion until it has reached a widget with     no parentLayoutItem(). This strategy might cause drawing artifacts, since     it is not done in one go, and the consumption of layout requests might be     interleaved by consumption of paint events, which might cause significant     flicker.     Note, this is not the recommended behavior, but for compatibility reasons     this is the default behaviour. */
+comment|/*!     \internal     \since 4.8     \sa instantInvalidatePropagation()      Calling this function with \a enable set to true will enable a feature that     makes propagation of invalidation up to ancestor layout items to be done in     one go. It will propagate up the parentLayoutItem() hierarchy until it has     reached the root. If the root item is a QGraphicsWidget, it will *post* a     layout request to it. When the layout request is consumed it will traverse     down the hierarchy of layouts and widgets and activate all layouts that is     invalid (not activated). This is the recommended behaviour.      If not set it will also propagate up the parentLayoutItem() hierarchy, but     it will stop at the \e{first widget} it encounters, and post a layout     request to the widget. When the layout request is consumed, this might     cause it to continue propagation up to the parentLayoutItem() of the     widget. It will continue in this fashion until it has reached a widget with     no parentLayoutItem(). This strategy might cause drawing artifacts, since     it is not done in one go, and the consumption of layout requests might be     interleaved by consumption of paint events, which might cause significant     flicker.     Note, this is not the recommended behavior, but for compatibility reasons     this is the default behaviour. */
 end_comment
 begin_function
 DECL|function|setInstantInvalidatePropagation
@@ -1122,7 +1122,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     \since 4.8     \see setInstantInvalidatePropagation      returns true if the complete widget/layout hierarchy is rearranged in one go. */
+comment|/*!     \internal     \since 4.8     \sa setInstantInvalidatePropagation()      returns true if the complete widget/layout hierarchy is rearranged in one go. */
 end_comment
 begin_function
 DECL|function|instantInvalidatePropagation

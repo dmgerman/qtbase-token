@@ -8358,9 +8358,6 @@ literal|true
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \internal   Free up any allocated colormaps. This fn is only called for   top-level widgets. */
-end_comment
 begin_function
 DECL|function|cleanupColormaps
 name|void

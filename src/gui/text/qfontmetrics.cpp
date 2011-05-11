@@ -3773,7 +3773,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    Returns true if the character encoded in UCS-4/UTF-32 is a valid    character in the font; otherwise returns false. */
+comment|/*!     \fn bool QFontMetricsF::inFontUcs4(uint ch) const      Returns true if the character given by \a ch, encoded in UCS-4/UTF-32,     is a valid character in the font; otherwise returns false. */
 end_comment
 begin_function
 DECL|function|inFontUcs4

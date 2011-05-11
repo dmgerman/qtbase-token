@@ -931,7 +931,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!  */
+comment|/*!     Returns the font engine that can be used to render the font described by     the font definition, \a fontDef, in the specified \a script. */
 end_comment
 begin_function
 DECL|function|fontEngine
@@ -1046,7 +1046,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  */
+comment|/*!     Returns a list of alternative fonts for the specified \a family and     \a style and \a script using the \a styleHint given. */
 end_comment
 begin_function
 DECL|function|fallbacksForFamily
@@ -1109,7 +1109,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds an application font. Returns a list of family names, or an empty list if the font could     not be added */
+comment|/*!     Adds an application font described by the given \a fontData that can be     referenced using the specified \a fontName, which is the name for the font     family. Returns a list of family names, or an empty list if the font could     not be added */
 end_comment
 begin_function
 DECL|function|addApplicationFont
@@ -1246,7 +1246,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QPlatformFontDatabase     \brief The QPlatformFontDatabase makes it possible to customize how fonts are picked up, and     and how they are rendered      \ingroup painting      QPlatformFontDatabase is the superclass which is intended to let platform implementations use     native font handling.      Qt has its internal fontdatabase which it uses to pick up available fonts. To be able     to populate this database subclass this class, and reimplement populateFontDatabase().      Use the function registerFont to populate the internal fontdatabase.      Sometimes a specified font does not have the required glyphs, then the fallbackForFamily     function is called.      \sa QSupportedWritingSystems */
+comment|/*!     \class QPlatformFontDatabase     \brief The QPlatformFontDatabase class makes it possible to customize how fonts     are discovered and how they are rendered      \ingroup painting      QPlatformFontDatabase is the superclass which is intended to let platform implementations use     native font handling.      Qt has its internal font database which it uses to discover available fonts on the     user's system. To be able to populate this database subclass this class, and     reimplement populateFontDatabase().      Use the function registerFont() to populate the internal font database.      Sometimes a specified font does not have the required glyphs; in such a case, the     fallbackForFamily() function is called automatically to find alternative font     families that can supply alternatives to the missing glyphs.      \sa QSupportedWritingSystems */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

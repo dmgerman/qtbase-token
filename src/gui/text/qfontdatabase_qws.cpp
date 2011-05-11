@@ -4326,9 +4326,6 @@ literal|true
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \internal */
-end_comment
 begin_function
 name|QFontEngine
 modifier|*

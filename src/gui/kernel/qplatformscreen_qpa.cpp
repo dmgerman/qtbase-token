@@ -267,15 +267,15 @@ begin_comment
 comment|/*!     \class QPlatformScreen     \since 4.8     \internal     \preliminary     \ingroup qpa      \brief The QPlatformScreen class provides an abstraction for visual displays.      Many window systems has support for retrieving information on the attached displays. To be able     to query the display QPA uses QPlatformScreen. Qt its self is most dependent on the     physicalSize() function, since this is the function it uses to calculate the dpi to use when     converting point sizes to pixels sizes. However, this is unfortunate on some systems, as the     native system fakes its dpi size.      QPlatformScreen is also used by the public api QDesktopWidget for information about the desktop.  */
 end_comment
 begin_comment
-comment|/*! \fn geometry() const     Reimplement in subclass to return the pixel geometry of the screen */
+comment|/*! \fn QRect QPlatformScreen::geometry() const = 0     Reimplement in subclass to return the pixel geometry of the screen */
 end_comment
 begin_comment
-comment|/*! \fn availableGeometry() const     Reimplement in subclass to return the pixel geometry of the available space     This normally is the desktop screen minus the task manager, global menubar etc. */
+comment|/*! \fn QRect QPlatformScreen::availableGeometry() const     Reimplement in subclass to return the pixel geometry of the available space     This normally is the desktop screen minus the task manager, global menubar etc. */
 end_comment
 begin_comment
-comment|/*! \fn depth() const     Reimplement in subclass to return current depth of the screen */
+comment|/*! \fn int QPlatformScreen::depth() const = 0     Reimplement in subclass to return current depth of the screen */
 end_comment
 begin_comment
-comment|/*! \fn format() const     Reimplement in subclass to return the image format which corresponds to the screen format */
+comment|/*! \fn QImage::Format QPlatformScreen::format() const = 0     Reimplement in subclass to return the image format which corresponds to the screen format */
 end_comment
 end_unit

@@ -965,7 +965,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8      Sets a different hostname for the certificate validation instead of the one used for the TCP     connection.      \sa connectToHostEncrypted() */
+comment|/*!     \since 4.8      Sets a different host name, given by \a hostName, for the certificate     validation instead of the one used for the TCP connection.      \sa connectToHostEncrypted() */
 end_comment
 begin_function
 DECL|function|setPeerVerifyName
