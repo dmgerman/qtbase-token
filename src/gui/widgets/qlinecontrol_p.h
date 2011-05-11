@@ -813,9 +813,9 @@ expr_stmt|;
 block|}
 end_function
 begin_expr_stmt
-name|QTextCursor
+name|Qt
 operator|::
-name|MoveStyle
+name|CursorMoveStyle
 name|cursorMoveStyle
 argument_list|()
 specifier|const
@@ -832,9 +832,9 @@ begin_decl_stmt
 name|void
 name|setCursorMoveStyle
 argument_list|(
-name|QTextCursor
+name|Qt
 operator|::
-name|MoveStyle
+name|CursorMoveStyle
 name|style
 argument_list|)
 block|{
@@ -894,9 +894,9 @@ operator|=
 name|cursorMoveStyle
 argument_list|()
 operator|==
-name|QTextCursor
+name|Qt
 operator|::
-name|Visual
+name|VisualMoveStyle
 condition|?
 name|m_textLayout
 operator|.
@@ -931,9 +931,9 @@ operator|=
 name|cursorMoveStyle
 argument_list|()
 operator|==
-name|QTextCursor
+name|Qt
 operator|::
-name|Visual
+name|VisualMoveStyle
 condition|?
 name|m_textLayout
 operator|.

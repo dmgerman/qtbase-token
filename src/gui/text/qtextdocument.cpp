@@ -1893,13 +1893,13 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8      The default cursor movement style is used by all QTextCursor objects     created from the document. The default is QTextCursor::Logical. */
+comment|/*!     \since 4.8      The default cursor movement style is used by all QTextCursor objects     created from the document. The default is Qt::LogicalMoveStyle. */
 end_comment
 begin_function
 DECL|function|defaultCursorMoveStyle
-name|QTextCursor
+name|Qt
 operator|::
-name|MoveStyle
+name|CursorMoveStyle
 name|QTextDocument
 operator|::
 name|defaultCursorMoveStyle
@@ -1929,9 +1929,9 @@ name|QTextDocument
 operator|::
 name|setDefaultCursorMoveStyle
 parameter_list|(
-name|QTextCursor
+name|Qt
 operator|::
-name|MoveStyle
+name|CursorMoveStyle
 name|style
 parameter_list|)
 block|{

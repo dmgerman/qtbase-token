@@ -7609,9 +7609,9 @@ init|=
 name|cursorMoveStyle
 argument_list|()
 operator|==
-name|QTextCursor
+name|Qt
 operator|::
-name|Visual
+name|VisualMoveStyle
 decl_stmt|;
 if|if
 condition|(

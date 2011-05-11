@@ -1456,7 +1456,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set the visual cursor movement style. If the QTextLayout is backed by     a document, you can ignore this and use the option in QTextDocument,     this option is for widgets like QLineEdit or custom widgets without     a QTextDocument. Default value is QTextCursor::Logical.      \sa setCursorMoveStyle() */
+comment|/*!     Set the cursor movement style. If the QTextLayout is backed by     a document, you can ignore this and use the option in QTextDocument,     this option is for widgets like QLineEdit or custom widgets without     a QTextDocument. Default value is Qt::LogicalMoveStyle.      \sa setCursorMoveStyle() */
 end_comment
 begin_function
 DECL|function|setCursorMoveStyle
@@ -1465,9 +1465,9 @@ name|QTextLayout
 operator|::
 name|setCursorMoveStyle
 parameter_list|(
-name|QTextCursor
+name|Qt
 operator|::
-name|MoveStyle
+name|CursorMoveStyle
 name|style
 parameter_list|)
 block|{
@@ -1477,9 +1477,9 @@ name|visualMovement
 operator|=
 name|style
 operator|==
-name|QTextCursor
+name|Qt
 operator|::
-name|Visual
+name|VisualMoveStyle
 condition|?
 literal|true
 else|:
@@ -1488,13 +1488,13 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     The cursor movement style of this QTextLayout. The default is     QTextCursor::Logical.      \sa setCursorMoveStyle() */
+comment|/*!     The cursor movement style of this QTextLayout. The default is     Qt::LogicalMoveStyle.      \sa setCursorMoveStyle() */
 end_comment
 begin_function
 DECL|function|cursorMoveStyle
-name|QTextCursor
+name|Qt
 operator|::
-name|MoveStyle
+name|CursorMoveStyle
 name|QTextLayout
 operator|::
 name|cursorMoveStyle
@@ -1506,13 +1506,13 @@ name|d
 operator|->
 name|visualMovement
 condition|?
-name|QTextCursor
+name|Qt
 operator|::
-name|Visual
+name|VisualMoveStyle
 else|:
-name|QTextCursor
+name|Qt
 operator|::
-name|Logical
+name|LogicalMoveStyle
 return|;
 block|}
 end_function

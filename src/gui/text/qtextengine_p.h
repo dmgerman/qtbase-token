@@ -3083,9 +3083,9 @@ argument_list|()
 operator|->
 name|defaultCursorMoveStyle
 operator|==
-name|QTextCursor
+name|Qt
 operator|::
-name|Visual
+name|VisualMoveStyle
 operator|:
 name|false
 operator|)
