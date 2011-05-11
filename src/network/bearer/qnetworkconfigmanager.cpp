@@ -73,7 +73,7 @@ begin_comment
 comment|/*!      \fn void QNetworkConfigurationManager::configurationAdded(const QNetworkConfiguration&config)      This signal is emitted whenever a new network configuration is added to the system. The new     configuration is specified by \a config. */
 end_comment
 begin_comment
-comment|/*!     \fn void QNetworkConfigurationManager::configurationRemoved(const QNetworkConfiguration&config)      This signal is emitted when a configuration is about to be removed from the system. The removed     \a configuration is invalid but retains name and identifier. */
+comment|/*!     \fn void QNetworkConfigurationManager::configurationRemoved(const QNetworkConfiguration&config)      This signal is emitted when a configuration is about to be removed from the system. The removed     configuration, specified by \a config, is invalid but retains name and identifier. */
 end_comment
 begin_comment
 comment|/*!     \fn void QNetworkConfigurationManager::updateCompleted()      This signal is emitted when the configuration update has been completed. Such an update can     be initiated via \l updateConfigurations(). */
