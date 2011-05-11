@@ -589,6 +589,14 @@ name|QAsyncSelect
 operator|*
 name|asyncSelect
 block|;
+name|mutable
+name|QByteArray
+name|receivedDataBuffer
+block|;
+name|mutable
+name|bool
+name|hasReceivedBufferedDatagram
+block|;
 comment|// FIXME this is duplicated from qnativesocketengine_p.h
 block|enum
 name|ErrorString

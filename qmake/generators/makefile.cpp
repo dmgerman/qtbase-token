@@ -8134,6 +8134,7 @@ operator|==
 literal|"vclib"
 operator|)
 operator|&&
+operator|(
 operator|!
 name|project
 operator|->
@@ -8141,6 +8142,14 @@ name|isActiveConfig
 argument_list|(
 literal|"plugin"
 argument_list|)
+operator|||
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"static"
+argument_list|)
+operator|)
 condition|)
 block|{
 comment|//write prl file
