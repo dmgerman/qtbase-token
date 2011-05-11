@@ -510,7 +510,6 @@ block|}
 end_function
 begin_decl_stmt
 DECL|variable|openPopupCount
-specifier|static
 name|int
 name|openPopupCount
 init|=
