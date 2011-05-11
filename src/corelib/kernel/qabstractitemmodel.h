@@ -885,6 +885,10 @@ name|friend
 name|class
 name|QAbstractItemViewPrivate
 block|;
+name|friend
+name|class
+name|QIdentityProxyModel
+block|;
 name|public
 operator|:
 name|explicit
