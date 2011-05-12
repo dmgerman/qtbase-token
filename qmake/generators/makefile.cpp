@@ -20488,26 +20488,15 @@ argument_list|(
 name|out_directory
 argument_list|)
 expr_stmt|;
-comment|//don't need the makefile arg if it isn't changed
 name|QString
 name|makefilein
-decl_stmt|;
-if|if
-condition|(
-name|subtarget
-operator|->
-name|makefile
-operator|!=
-literal|"$(MAKEFILE)"
-condition|)
-name|makefilein
-operator|=
+init|=
 literal|" -f "
 operator|+
 name|subtarget
 operator|->
 name|makefile
-expr_stmt|;
+decl_stmt|;
 comment|//write the rule/depends
 if|if
 condition|(
