@@ -31,7 +31,12 @@ directive|include
 file|<qpen.h>
 end_include
 begin_decl_stmt
-DECL|variable|QCosmeticStroker
+name|QT_BEGIN_HEADER
+name|QT_BEGIN_NAMESPACE
+name|QT_MODULE
+argument_list|(
+name|Gui
+argument_list|)
 name|class
 name|QCosmeticStroker
 decl_stmt|;
@@ -422,6 +427,10 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_expr_stmt
+name|QT_END_NAMESPACE
+name|QT_END_HEADER
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

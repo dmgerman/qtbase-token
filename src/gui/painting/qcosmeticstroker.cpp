@@ -19,17 +19,14 @@ include|#
 directive|include
 file|<math.h>
 end_include
-begin_if
+begin_function
+name|QT_BEGIN_NAMESPACE
 if|#
 directive|if
 literal|0
-end_if
-begin_endif
-unit|inline QString capString(int caps) {     QString str;     if (caps& QCosmeticStroker::CapBegin) {         str += "CapBegin ";     }     if (caps& QCosmeticStroker::CapEnd) {         str += "CapEnd ";     }     return str; }
+type|inline QString capString(int caps) {     QString str;     if (caps& QCosmeticStroker::CapBegin) {         str += "CapBegin ";     }     if (caps& QCosmeticStroker::CapEnd) {         str += "CapEnd ";     }     return str; }
 endif|#
 directive|endif
-end_endif
-begin_define
 DECL|macro|toF26Dot6
 define|#
 directive|define
@@ -38,8 +35,6 @@ parameter_list|(
 name|x
 parameter_list|)
 value|((int)((x)*64.))
-end_define
-begin_function
 DECL|function|sourceOver
 specifier|static
 specifier|inline
@@ -6368,4 +6363,7 @@ block|}
 block|}
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit
