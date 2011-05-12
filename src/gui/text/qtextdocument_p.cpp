@@ -525,9 +525,9 @@ argument_list|)
 expr_stmt|;
 name|defaultCursorMoveStyle
 operator|=
-name|QTextCursor
+name|Qt
 operator|::
-name|Logical
+name|LogicalMoveStyle
 expr_stmt|;
 name|indentWidth
 operator|=

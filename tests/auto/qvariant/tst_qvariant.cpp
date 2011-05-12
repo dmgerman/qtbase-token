@@ -21244,15 +21244,6 @@ argument_list|(
 literal|"An invalid QColor::name() value."
 argument_list|)
 decl_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QColor::setNamedColor: Unknown color name 'An invalid QColor::name() value.'"
-argument_list|)
-expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|va

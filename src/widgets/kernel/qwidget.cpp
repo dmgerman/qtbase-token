@@ -1075,6 +1075,11 @@ literal|0
 argument_list|)
 endif|#
 directive|endif
+member_init_list|,
+name|inSetParent
+argument_list|(
+literal|0
+argument_list|)
 if|#
 directive|if
 name|defined
@@ -9486,6 +9491,34 @@ init|=
 name|nativeParentWidget
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|realParent
+operator|&&
+name|d_func
+argument_list|()
+operator|->
+name|inSetParent
+condition|)
+block|{
+comment|// In transitional state. This is really just a workaround. The real problem
+comment|// is that QWidgetPrivate::setParent_sys (platform specific code) first sets
+comment|// the window id to 0 (setWinId(0)) before it sets the Qt::WA_WState_Created
+comment|// attribute to false. The correct way is to do it the other way around, and
+comment|// in that case the Qt::WA_WState_Created logic above will kick in and
+comment|// return 0 whenever the widget is in a transitional state. However, changing
+comment|// the original logic for all platforms is far more intrusive and might
+comment|// break existing applications.
+comment|// Note: The widget can only be in a transitional state when changing its
+comment|// parent -- everything else is an internal error -- hence explicitly checking
+comment|// against 'inSetParent' rather than doing an unconditional return whenever
+comment|// 'realParent' is 0 (which may cause strange artifacts and headache later).
+return|return
+literal|0
+return|;
+block|}
+comment|// This widget *must* have a native parent widget.
 name|Q_ASSERT
 argument_list|(
 name|realParent
@@ -34877,6 +34910,12 @@ argument_list|(
 name|QWidget
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|inSetParent
+operator|=
+literal|true
+expr_stmt|;
 name|bool
 name|resized
 init|=
@@ -35802,6 +35841,12 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+name|d
+operator|->
+name|inSetParent
+operator|=
+literal|false
+expr_stmt|;
 block|}
 comment|/*!     Scrolls the widget including its children \a dx pixels to the     right and \a dy downward. Both \a dx and \a dy may be negative.      After scrolling, the widgets will receive paint events for     the areas that need to be repainted. For widgets that Qt knows to     be opaque, this is only the newly exposed parts.     For example, if an opaque widget is scrolled 8 pixels to the left,     only an 8-pixel wide stripe at the right edge needs updating.      Since widgets propagate the contents of their parents by default,     you need to set the \l autoFillBackground property, or use     setAttribute() to set the Qt::WA_OpaquePaintEvent attribute, to make     a widget opaque.      For widgets that use contents propagation, a scroll will cause an     update of the entire scroll area.      \sa {Transparency and Double Buffering} */
 DECL|function|scroll

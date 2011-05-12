@@ -2790,13 +2790,13 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \property QLineEdit::cursorMoveStyle   \brief the movement style of cursor in this line edit   \since 4.8    When this property is set to QTextCursor::Visual, the line edit will use visual   movement style. Pressing the left arrow key will always cause the cursor to move   left, regardless of the text's writing direction. The same behavior applies to   right arrow key.    When the property is QTextCursor::Logical (the default), within a LTR text block,   increase cursor position when pressing left arrow key, decrease cursor position   when pressing the right arrow key. If the text block is right to left, the opposite   behavior applies. */
+comment|/*!   \property QLineEdit::cursorMoveStyle   \brief the movement style of cursor in this line edit   \since 4.8    When this property is set to Qt::VisualMoveStyle, the line edit will use visual   movement style. Pressing the left arrow key will always cause the cursor to move   left, regardless of the text's writing direction. The same behavior applies to   right arrow key.    When the property is Qt::LogicalMoveStyle (the default), within a LTR text block,   increase cursor position when pressing left arrow key, decrease cursor position   when pressing the right arrow key. If the text block is right to left, the opposite   behavior applies. */
 end_comment
 begin_function
 DECL|function|cursorMoveStyle
-name|QTextCursor
+name|Qt
 operator|::
-name|MoveStyle
+name|CursorMoveStyle
 name|QLineEdit
 operator|::
 name|cursorMoveStyle
@@ -2826,9 +2826,9 @@ name|QLineEdit
 operator|::
 name|setCursorMoveStyle
 parameter_list|(
-name|QTextCursor
+name|Qt
 operator|::
-name|MoveStyle
+name|CursorMoveStyle
 name|style
 parameter_list|)
 block|{

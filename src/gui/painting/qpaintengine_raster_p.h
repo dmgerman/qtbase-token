@@ -657,26 +657,6 @@ name|brush
 argument_list|)
 block|;
 name|void
-name|strokePolygonCosmetic
-argument_list|(
-argument|const QPoint *pts
-argument_list|,
-argument|int pointCount
-argument_list|,
-argument|PolygonDrawMode mode
-argument_list|)
-block|;
-name|void
-name|strokePolygonCosmetic
-argument_list|(
-argument|const QPointF *pt
-argument_list|,
-argument|int pointCount
-argument_list|,
-argument|PolygonDrawMode mode
-argument_list|)
-block|;
-name|void
 name|clip
 argument_list|(
 argument|const QVectorPath&path
@@ -1264,24 +1244,6 @@ argument_list|(
 argument|const QRectF&rect
 argument_list|,
 argument|int penWidth
-argument_list|)
-specifier|const
-block|;
-name|ProcessSpans
-name|getPenFunc
-argument_list|(
-argument|const QRect&rect
-argument_list|,
-argument|const QSpanData *data
-argument_list|)
-specifier|const
-block|;
-name|ProcessSpans
-name|getPenFunc
-argument_list|(
-argument|const QRectF&rect
-argument_list|,
-argument|const QSpanData *data
 argument_list|)
 specifier|const
 block|;

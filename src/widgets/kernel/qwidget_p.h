@@ -3646,6 +3646,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_decl_stmt
+name|uint
+name|inSetParent
+range|:
+literal|1
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|// *************************** Platform specific ************************************
 end_comment
