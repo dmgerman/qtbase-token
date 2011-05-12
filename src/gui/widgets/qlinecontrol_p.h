@@ -81,11 +81,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qlineedit.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"QtGui/qclipboard.h"
 end_include
 begin_include
@@ -97,6 +92,11 @@ begin_include
 include|#
 directive|include
 file|"QtGui/qcompleter.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"QtGui/qaccessible.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
