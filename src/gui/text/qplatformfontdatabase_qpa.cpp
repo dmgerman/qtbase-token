@@ -74,6 +74,9 @@ name|hanlde
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|/*!     \fn void QPlatformFontDatabase::registerQPF2Font(const QByteArray&dataArray, void *)      Registers the pre-rendered QPF2 font contained in the given \a dataArray.      \sa registerFont() */
+end_comment
 begin_function
 DECL|function|registerQPF2Font
 name|void
@@ -402,6 +405,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QPlatformFontDatabase::registerFont(const QString&familyName,         const QString&foundryName, QFont::Weight weight, QFont::Style style,         QFont::Stretch stretch, bool antialiased, bool scalable, int pixelSize,         const QSupportedWritingSystems&writingSystems, void *usrPtr)      Registers a font with the given set of attributes describing the font's     foundry, family name, style and stretch information, pixel size, and     supported writing systems. Additional information about whether the font     can be scaled and antialiased can also be provided.      The foundry name and font family are described by \a foundryName and     \a familyName. The font weight (light, normal, bold, etc.), style (normal,     oblique, italic) and stretch information (condensed, expanded, unstretched,     etc.) are specified by \a weight, \a style and \a stretch.      Some fonts can be antialiased and scaled; \a scalable and \a antialiased     can be set to true for fonts with these attributes. The intended pixel     size of non-scalable fonts is specified by \a pixelSize; this value will be     ignored for scalable fonts.      The writing systems supported by the font are specified by the     \a writingSystems argument.      \sa registerQPF2Font() */
+end_comment
 begin_function
 DECL|function|registerFont
 name|void
@@ -1109,7 +1115,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds an application font described by the given \a fontData that can be     referenced using the specified \a fontName, which is the name for the font     family. Returns a list of family names, or an empty list if the font could     not be added */
+comment|/*!     Adds an application font described by the font contained supplied \a fontData     or using the font contained in the file referenced by \a fileName. Returns     a list of family names, or an empty list if the font could not be added.      \note The default implementation of this function does not add an application     font. Subclasses should reimplement this function to perform the necessary     loading and registration of fonts. */
 end_comment
 begin_function
 DECL|function|addApplicationFont

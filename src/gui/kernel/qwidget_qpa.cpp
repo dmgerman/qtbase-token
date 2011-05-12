@@ -3534,7 +3534,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \preliminary      Sets the window to be the \a window specified.     The QWidget takes ownership of the \a surface. */
+comment|/*!     \preliminary      Sets the window to be the platform \a window specified.      The widget takes ownership of the \a window. Any platform window     previously set on the widget will be destroyed. */
 end_comment
 begin_function
 DECL|function|setPlatformWindow
@@ -3630,6 +3630,9 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Sets the platform window format for the widget to the \a format specified. */
+end_comment
 begin_function
 DECL|function|setPlatformWindowFormat
 name|void
@@ -3727,6 +3730,9 @@ block|}
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the platform window format for the widget. */
+end_comment
 begin_function
 DECL|function|platformWindowFormat
 name|QPlatformWindowFormat

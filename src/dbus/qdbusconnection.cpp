@@ -355,7 +355,7 @@ begin_comment
 comment|/*!     \enum QDBusConnection::UnregisterMode     The mode for unregistering an object path:      \value UnregisterNode       unregister this node only: do not unregister child objects     \value UnregisterTree       unregister this node and all its sub-tree      Note, however, if this object was registered with the ExportChildObjects option, UnregisterNode     will unregister the child objects too. */
 end_comment
 begin_comment
-comment|/*!     \since 4.8     \enum QDBusConnection::ConnectionCapabilities     The available capabilities for a D-Bus connection.      \value UnixFileDescriptorPassing        passing of Unix file descriptors to other processes                                             (see QDBusUnixFileDescriptor)      \sa connectionCapabilities() */
+comment|/*!     \since 4.8     \enum QDBusConnection::ConnectionCapability      This enum describes the available capabilities for a D-Bus connection.      \value UnixFileDescriptorPassing        enables passing of Unix file descriptors to other processes                                             (see QDBusUnixFileDescriptor)      \sa connectionCapabilities() */
 end_comment
 begin_comment
 comment|/*!     Creates a QDBusConnection object attached to the connection with name \a name.      This does not open the connection. You have to call connectToBus() to open it. */

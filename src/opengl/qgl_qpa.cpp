@@ -44,6 +44,7 @@ file|"qgl_p.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
+comment|/*!     Returns an OpenGL format for the platform window format specified by \a format. */
 DECL|function|fromPlatformWindowFormat
 name|QGLFormat
 name|QGLFormat
@@ -307,6 +308,9 @@ name|retFormat
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns a platform window format for the OpenGL format specified by \a format. */
+end_comment
 begin_function
 DECL|function|toPlatformWindowFormat
 name|QPlatformWindowFormat

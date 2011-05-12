@@ -57,7 +57,7 @@ begin_comment
 comment|/*!     \fn virtual void QPlatformCursor::changeCursor(QCursor * widgetCursor, QWidget * widget)      \brief This method is called by Qt whenever the cursor graphic should be changed.      Implementation of this method is mandatory for a subclass of QPlatformCursor.      \a widgetCursor is a pointer to the QCursor that should be displayed.      \a widget is a pointer to the widget currently displayed at QCursor::pos(). Note     that this may be 0 if the current position is not occupied by a displayed widget.      \sa QCursor::pos() */
 end_comment
 begin_comment
-comment|/*!     \fn QPlatformCursor::QPlatformCursor()      \brief Constructs a QPlatformCursor */
+comment|/*!     \fn QPlatformCursor::QPlatformCursor(QPlatformScreen *screen)      Constructs a QPlatformCursor for the given \a screen. */
 end_comment
 begin_constructor
 DECL|function|QPlatformCursor
@@ -6752,7 +6752,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QPlatformCursorImage::QPlatformCursorImage(const uchar *data, const uchar *mask, int width, int height, int hotX, int hotY)      \brief set the cursor image to the graphic represented by the combination of data, mask,     width, and height      \a data The pixel data of the graphic      \a mask Mask data for the graphic. pixels in data with a corresponding mask bit of 0 are not drawn      \a width The width of the graphic in pixels      \a height The height of the graphic in pixels      \a hotX The X hotspot of the cursor graphic      \a hotY The Y hotspot of the cursor graphic      \sa set */
+comment|/*!     \fn QPlatformCursorImage::QPlatformCursorImage(const uchar *data, const uchar *mask, int width, int height, int hotX, int hotY)      Sets the cursor image to the graphic represented by the combination of     \a data and \a mask, with dimensions given by \a width and \a height and a     hotspot at the point specified by (\a hotX, \a hotY).      \sa set() */
 end_comment
 begin_comment
 comment|/*!   \fn QImage *QPlatformCursorImage::image()    \brief Return the cursor graphic as a pointer to a QImage */
