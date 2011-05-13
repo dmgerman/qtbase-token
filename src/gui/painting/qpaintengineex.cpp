@@ -5469,6 +5469,8 @@ operator|)
 name|pts
 argument_list|,
 name|point_count
+operator|+
+literal|1
 argument_list|,
 name|qpaintengineex_ellipse_types
 argument_list|,
