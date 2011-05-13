@@ -3400,6 +3400,10 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|wordSelectionEnabled
+operator|&&
+operator|(
 name|mouseXPosition
 argument_list|<
 name|wordStartX
@@ -3407,6 +3411,7 @@ operator|||
 name|mouseXPosition
 argument_list|>
 name|wordEndX
+operator|)
 condition|)
 return|return;
 comment|// keep the already selected word even when moving to the left
