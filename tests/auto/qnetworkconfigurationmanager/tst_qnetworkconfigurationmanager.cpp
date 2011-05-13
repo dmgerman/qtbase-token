@@ -1902,9 +1902,13 @@ expr_stmt|;
 comment|//QTRY_VERIFY could take ~90 seconds to time out in the thread
 name|QVERIFY
 argument_list|(
-name|thread
+operator|!
+name|QTestEventLoop
+operator|::
+name|instance
+argument_list|()
 operator|.
-name|isFinished
+name|timeout
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1996,15 +2000,9 @@ argument_list|,
 name|configs
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
-argument_list|(
-name|thread
-operator|.
-name|preScanConfigs
-argument_list|,
-name|preScanConfigs
-argument_list|)
-expr_stmt|;
+comment|//Don't compare pre scan configs, because these may be cached and therefore give different results
+comment|//which makes the test unstable.  The post scan results should have all configurations every time
+comment|//QCOMPARE(thread.preScanConfigs, preScanConfigs);
 endif|#
 directive|endif
 block|}
