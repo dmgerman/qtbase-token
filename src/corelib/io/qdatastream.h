@@ -222,17 +222,22 @@ block|,
 name|Qt_4_8
 init|=
 name|Qt_4_7
+block|,
+name|Qt_4_9
+init|=
+name|Qt_4_8
+block|,
+name|Qt_5_0
+init|=
+name|Qt_4_8
 if|#
 directive|if
 name|QT_VERSION
 operator|>=
-literal|0x040900
+literal|0x050100
 error|#
 directive|error
 error|Add the datastream version for this Qt version
-name|Qt_4_9
-operator|=
-name|Qt_4_8
 endif|#
 directive|endif
 block|}

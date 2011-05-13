@@ -4105,22 +4105,9 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|QT_VERSION
-operator|>=
-literal|0x050000
-name|i
-operator|=
-name|set2
-operator|.
-name|insert
-argument_list|(
-literal|"foo"
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
+comment|// #if QT_VERSION>= 0x050000
+comment|//         i = set2.insert("foo");
+comment|// #else
 name|QSet
 argument_list|<
 name|QString
@@ -4152,8 +4139,7 @@ argument_list|(
 name|k
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
+comment|// #endif
 name|QVERIFY
 argument_list|(
 operator|*

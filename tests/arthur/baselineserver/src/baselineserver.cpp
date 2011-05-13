@@ -3152,7 +3152,7 @@ name|PI_QtVersion
 argument_list|,
 name|QLS
 argument_list|(
-literal|"4.8.0"
+literal|"5.0.0"
 argument_list|)
 argument_list|)
 expr_stmt|;
