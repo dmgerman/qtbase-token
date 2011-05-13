@@ -2060,8 +2060,14 @@ name|forcedPolling
 operator|==
 literal|1
 condition|)
-name|startPolling
-argument_list|()
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|this
+argument_list|,
+literal|"startPolling"
+argument_list|)
 expr_stmt|;
 block|}
 end_function
