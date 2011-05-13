@@ -53,6 +53,23 @@ struct_decl|;
 end_struct_decl
 begin_decl_stmt
 name|class
+name|QWaylandClipboardSignalEmitter
+range|:
+name|public
+name|QObject
+block|{
+name|Q_OBJECT
+name|public
+name|slots
+operator|:
+name|void
+name|emitChanged
+argument_list|()
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
 name|QWaylandClipboard
 range|:
 name|public
@@ -185,10 +202,6 @@ name|QWaylandDisplay
 operator|*
 name|mDisplay
 block|;
-name|QWaylandSelection
-operator|*
-name|mSelection
-block|;
 name|QWaylandMimeData
 operator|*
 name|mMimeDataIn
@@ -206,6 +219,9 @@ block|;     struct
 name|wl_selection_offer
 operator|*
 name|mOffer
+block|;
+name|QWaylandClipboardSignalEmitter
+name|mEmitter
 block|; }
 decl_stmt|;
 end_decl_stmt
