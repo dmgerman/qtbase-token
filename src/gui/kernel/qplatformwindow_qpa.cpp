@@ -208,6 +208,30 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Requests setting the window state of this surface     to \a type. Returns the actual state set.      Qt::WindowActive can be ignored. */
+end_comment
+begin_function
+DECL|function|setWindowState
+name|Qt
+operator|::
+name|WindowState
+name|QPlatformWindow
+operator|::
+name|setWindowState
+parameter_list|(
+name|Qt
+operator|::
+name|WindowState
+parameter_list|)
+block|{
+return|return
+name|Qt
+operator|::
+name|WindowNoState
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!   Reimplement in subclasses to return a handle to the native window */
 end_comment
 begin_function

@@ -249,7 +249,7 @@ argument_list|()
 block|;
 name|Qt
 operator|::
-name|WindowStates
+name|WindowState
 name|windowState
 argument_list|()
 specifier|const
@@ -257,7 +257,7 @@ block|;
 name|void
 name|setWindowState
 argument_list|(
-argument|Qt::WindowStates state
+argument|Qt::WindowState state
 argument_list|)
 block|;
 name|QSize

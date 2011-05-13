@@ -128,6 +128,17 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 name|virtual
+name|Qt
+operator|::
+name|WindowState
+name|setWindowState
+argument_list|(
+argument|Qt::WindowState state
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|virtual
 name|WId
 name|winId
 argument_list|()

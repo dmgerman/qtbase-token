@@ -92,6 +92,14 @@ argument_list|(
 argument|Qt::WindowFlags flags
 argument_list|)
 expr_stmt|;
+name|Qt
+operator|::
+name|WindowState
+name|setWindowState
+argument_list|(
+argument|Qt::WindowState state
+argument_list|)
+expr_stmt|;
 name|WId
 name|winId
 argument_list|()
@@ -270,6 +278,21 @@ name|WindowFlags
 name|flags
 argument_list|)
 decl_stmt|;
+name|void
+name|changeNetWmState
+parameter_list|(
+name|bool
+name|set
+parameter_list|,
+name|xcb_atom_t
+name|one
+parameter_list|,
+name|xcb_atom_t
+name|two
+init|=
+literal|0
+parameter_list|)
+function_decl|;
 name|QXcbScreen
 modifier|*
 name|m_screen
@@ -290,6 +313,11 @@ decl_stmt|;
 name|bool
 name|m_hasReceivedSyncRequest
 decl_stmt|;
+name|Qt
+operator|::
+name|WindowState
+name|m_windowState
+expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

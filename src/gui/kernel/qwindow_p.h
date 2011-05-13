@@ -83,6 +83,11 @@ name|surface
 argument_list|(
 literal|0
 argument_list|)
+block|,
+name|windowState
+argument_list|(
+argument|Qt::WindowNoState
+argument_list|)
 block|{
 name|isWindow
 operator|=
@@ -129,6 +134,11 @@ block|;
 name|QWindowSurface
 operator|*
 name|surface
+block|;
+name|Qt
+operator|::
+name|WindowState
+name|windowState
 block|; }
 decl_stmt|;
 end_decl_stmt
