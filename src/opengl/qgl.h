@@ -1760,11 +1760,6 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|QT_NO_EGL
-argument_list|)
 name|virtual
 name|void
 modifier|*
