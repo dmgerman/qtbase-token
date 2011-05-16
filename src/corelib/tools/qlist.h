@@ -5562,6 +5562,17 @@ operator|>
 name|cpy
 expr_stmt|;
 end_expr_stmt
+begin_if
+if|if
+condition|(
+name|alength
+operator|<=
+literal|0
+condition|)
+return|return
+name|cpy
+return|;
+end_if
 begin_expr_stmt
 name|cpy
 operator|.
