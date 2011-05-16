@@ -345,6 +345,24 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/*!   Reimplement to propagate the size hints of the QWindow.    The size hints include QWindow::minimumSize(), QWindow::maximumSize(),   QWindow::sizeIncrement(), and QWindow::baseSize(). */
+end_comment
+begin_function
+DECL|function|propagateSizeHints
+name|void
+name|QPlatformWindow
+operator|::
+name|propagateSizeHints
+parameter_list|()
+block|{
+name|qWarning
+argument_list|(
+literal|"This plugin does not support propagateSizeHints()"
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*!   Reimplement to be able to let Qt set the opacity level of a window */
 end_comment
 begin_function

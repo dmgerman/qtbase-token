@@ -186,6 +186,13 @@ end_function_decl
 begin_function_decl
 name|virtual
 name|void
+name|propagateSizeHints
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
+name|virtual
+name|void
 name|setOpacity
 parameter_list|(
 name|qreal

@@ -132,6 +132,10 @@ name|lower
 parameter_list|()
 function_decl|;
 name|void
+name|propagateSizeHints
+parameter_list|()
+function_decl|;
+name|void
 name|requestActivateWindow
 parameter_list|()
 function_decl|;
@@ -292,6 +296,14 @@ name|two
 init|=
 literal|0
 parameter_list|)
+function_decl|;
+name|void
+name|show
+parameter_list|()
+function_decl|;
+name|void
+name|hide
+parameter_list|()
 function_decl|;
 name|QXcbScreen
 modifier|*
