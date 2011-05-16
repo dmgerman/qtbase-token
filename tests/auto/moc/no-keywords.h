@@ -67,11 +67,9 @@ include|#
 directive|include
 file|<QtSql/QtSql>
 end_include
-begin_include
-include|#
-directive|include
-file|<QtSvg>
-end_include
+begin_comment
+comment|//#include<QtSvg>
+end_comment
 begin_if
 if|#
 directive|if

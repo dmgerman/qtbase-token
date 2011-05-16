@@ -160,6 +160,18 @@ argument_list|)
 operator|=
 literal|0
 block|;
+specifier|static
+name|void
+name|setInstantInvalidatePropagation
+argument_list|(
+argument|bool enable
+argument_list|)
+block|;
+specifier|static
+name|bool
+name|instantInvalidatePropagation
+argument_list|()
+block|;
 name|protected
 operator|:
 name|QGraphicsLayout

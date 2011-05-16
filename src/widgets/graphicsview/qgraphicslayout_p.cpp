@@ -766,11 +766,27 @@ argument_list|()
 operator|->
 name|activated
 condition|)
+block|{
+if|if
+condition|(
+name|QGraphicsLayout
+operator|::
+name|instantInvalidatePropagation
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
+else|else
+block|{
 name|layout
 operator|->
 name|invalidate
 argument_list|()
 expr_stmt|;
+comment|// ### LOOKS SUSPICIOUSLY WRONG!!???
+block|}
+block|}
 for|for
 control|(
 name|int

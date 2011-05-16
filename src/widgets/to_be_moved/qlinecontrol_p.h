@@ -81,11 +81,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtWidgets/qlineedit.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"QtGui/qclipboard.h"
 end_include
 begin_include

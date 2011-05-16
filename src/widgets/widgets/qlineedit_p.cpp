@@ -619,6 +619,13 @@ argument_list|)
 expr_stmt|;
 name|control
 operator|->
+name|setParent
+argument_list|(
+name|q
+argument_list|)
+expr_stmt|;
+name|control
+operator|->
 name|setFont
 argument_list|(
 name|q

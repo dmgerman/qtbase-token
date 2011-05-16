@@ -9167,6 +9167,22 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+comment|// 21x21
+name|QCOMPARE
+argument_list|(
+name|p
+operator|->
+name|size
+argument_list|()
+argument_list|,
+name|QSizeF
+argument_list|(
+literal|41
+argument_list|,
+literal|41
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|a

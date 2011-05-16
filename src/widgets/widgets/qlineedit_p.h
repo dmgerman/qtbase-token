@@ -189,10 +189,7 @@ block|{     }
 operator|~
 name|QLineEditPrivate
 argument_list|()
-block|{
-name|delete
-name|control
-block|;     }
+block|{     }
 name|QLineControl
 operator|*
 name|control
