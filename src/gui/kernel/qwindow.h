@@ -237,6 +237,13 @@ name|windowFlags
 argument_list|()
 specifier|const
 block|;
+name|Qt
+operator|::
+name|WindowType
+name|windowType
+argument_list|()
+specifier|const
+block|;
 name|QString
 name|windowTitle
 argument_list|()

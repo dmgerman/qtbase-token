@@ -298,15 +298,6 @@ name|window
 decl_stmt|;
 if|if
 condition|(
-operator|!
-name|q
-operator|->
-name|isWindow
-argument_list|()
-condition|)
-block|{
-if|if
-condition|(
 name|QWidget
 modifier|*
 name|nativeParent
@@ -334,7 +325,6 @@ name|windowHandle
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|win
 operator|->

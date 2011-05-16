@@ -85,6 +85,14 @@ argument_list|()
 specifier|const
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+name|QPlatformWindow
+operator|*
+name|parent
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 name|virtual
 name|void

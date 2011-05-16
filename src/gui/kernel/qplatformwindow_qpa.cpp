@@ -84,7 +84,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Returnes the window which belongs to the QPlatformWindow */
+comment|/*!     Returns the window which belongs to the QPlatformWindow */
 end_comment
 begin_function
 DECL|function|window
@@ -106,6 +106,47 @@ return|return
 name|d
 operator|->
 name|window
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns the parent platform window (or 0 if orphan). */
+end_comment
+begin_function
+DECL|function|parent
+name|QPlatformWindow
+modifier|*
+name|QPlatformWindow
+operator|::
+name|parent
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QPlatformWindow
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|window
+operator|->
+name|parent
+argument_list|()
+condition|?
+name|d
+operator|->
+name|window
+operator|->
+name|parent
+argument_list|()
+operator|->
+name|handle
+argument_list|()
+else|:
+literal|0
 return|;
 block|}
 end_function
