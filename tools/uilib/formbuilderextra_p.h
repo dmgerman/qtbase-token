@@ -654,6 +654,12 @@ decl_stmt|;
 name|QDir
 name|m_workingDirectory
 decl_stmt|;
+name|QString
+name|m_errorString
+decl_stmt|;
+name|QString
+name|m_language
+decl_stmt|;
 name|private
 label|:
 name|void
