@@ -1546,7 +1546,7 @@ argument|English
 argument_list|,
 argument|UnitedKingdom
 argument_list|)
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|QLocale
 operator|::
@@ -2044,7 +2044,7 @@ literal|"de"
 argument_list|,
 literal|"de_DE"
 argument_list|)
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|QLocale
 operator|::

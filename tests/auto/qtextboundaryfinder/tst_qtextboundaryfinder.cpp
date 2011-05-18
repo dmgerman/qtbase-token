@@ -333,7 +333,7 @@ name|strPos
 argument_list|)
 expr_stmt|;
 else|else
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|test
 operator|.
@@ -361,7 +361,7 @@ name|length
 argument_list|()
 condition|)
 block|{
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|pos
 operator|<
@@ -408,7 +408,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|ok
 argument_list|)
@@ -694,7 +694,7 @@ name|strPos
 argument_list|)
 expr_stmt|;
 else|else
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|test
 operator|.
@@ -722,7 +722,7 @@ name|length
 argument_list|()
 condition|)
 block|{
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|pos
 operator|<
@@ -769,7 +769,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|ok
 argument_list|)
@@ -1047,7 +1047,7 @@ name|strPos
 argument_list|)
 expr_stmt|;
 else|else
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|test
 operator|.
@@ -1075,7 +1075,7 @@ name|length
 argument_list|()
 condition|)
 block|{
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|pos
 operator|<
@@ -1122,7 +1122,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|ok
 argument_list|)

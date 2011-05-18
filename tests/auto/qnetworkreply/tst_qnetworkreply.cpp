@@ -2548,11 +2548,11 @@ name|QNetworkCacheMetaData
 modifier|&
 parameter_list|)
 block|{
-name|Q_ASSERT
+name|qFatal
 argument_list|(
-literal|0
-operator|&&
-literal|"Should not have tried to add to the cache"
+literal|"%s: Should not have tried to add to the cache"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 return|return
@@ -2567,11 +2567,11 @@ name|QIODevice
 modifier|*
 parameter_list|)
 block|{
-name|Q_ASSERT
+name|qFatal
 argument_list|(
-literal|0
-operator|&&
-literal|"Should not have tried to add to the cache"
+literal|"%s: Should not have tried to add to the cache"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}
@@ -3216,9 +3216,16 @@ condition|(
 name|doSsl
 condition|)
 block|{
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
+operator|!
 name|sslSocket
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: sslSocket should not be null after calling waitForNewConnection()"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 return|return
@@ -4027,8 +4034,18 @@ name|BlockSize
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+if|if
+condition|(
+name|bytesToWrite
+operator|<=
+literal|0
+condition|)
+name|qFatal
 argument_list|(
+literal|"%s: attempt to write %d bytes"
+argument_list|,
+name|Q_FUNC_INFO
+argument_list|,
 name|bytesToWrite
 argument_list|)
 expr_stmt|;
@@ -4301,9 +4318,16 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
+operator|!
 name|ok
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: Cannot connect dataReady signal"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}
@@ -4385,10 +4409,17 @@ condition|(
 name|readBufferSize
 operator|>
 literal|0
+operator|&&
+name|device
+operator|->
+name|bytesAvailable
+argument_list|()
+operator|>
+name|readBufferSize
 condition|)
 block|{
-comment|// This asserts passes all the time, except in the final flush.
-comment|//Q_ASSERT(device->bytesAvailable()<= readBufferSize);
+comment|// This passes all the time, except in the final flush.
+comment|//qFatal("%s: Too many bytes available", Q_FUNC_INFO);
 block|}
 name|qint64
 name|bytesRead
@@ -5206,13 +5237,11 @@ argument_list|)
 expr_stmt|;
 break|break;
 default|default:
-name|Q_ASSERT_X
+name|qFatal
 argument_list|(
-literal|false
+literal|"%s: Invalid/unknown operation requested"
 argument_list|,
-literal|"tst_QNetworkReply"
-argument_list|,
-literal|"Invalid/unknown operation requested"
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}

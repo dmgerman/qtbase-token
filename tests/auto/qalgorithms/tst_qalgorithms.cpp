@@ -1005,12 +1005,19 @@ name|time
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
+operator|!
 name|isSorted
 argument_list|(
 name|container
 argument_list|)
+condition|)
+name|qWarning
+argument_list|(
+literal|"%s: container is not sorted after test"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}

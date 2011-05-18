@@ -17,6 +17,11 @@ include|#
 directive|include
 file|"math.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QDebug>
+end_include
 begin_class
 DECL|class|TestTessellator
 class|class
@@ -356,14 +361,20 @@ name|winding
 parameter_list|)
 block|{
 comment|// 5 points per rect
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
 name|nPoints
 operator|%
 literal|5
-operator|==
+operator|!=
 literal|0
-argument_list|)
+condition|)
+name|qWarning
+argument_list|()
+operator|<<
+name|Q_FUNC_INFO
+operator|<<
+literal|"multiples of 5 points expected"
 expr_stmt|;
 name|TestTessellator
 name|t

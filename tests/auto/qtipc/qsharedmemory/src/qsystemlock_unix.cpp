@@ -769,11 +769,17 @@ block|{
 operator|--
 name|lockCount
 expr_stmt|;
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
 name|lockCount
-operator|>=
+operator|<
 literal|0
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: lockCount must not be negative"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 if|if

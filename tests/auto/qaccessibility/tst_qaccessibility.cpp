@@ -1331,362 +1331,6 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|stateNames
-specifier|static
-name|QString
-name|stateNames
-parameter_list|(
-name|int
-name|state
-parameter_list|)
-block|{
-name|QString
-name|stateString
-decl_stmt|;
-if|if
-condition|(
-name|state
-operator|==
-literal|0x00000000
-condition|)
-name|stateString
-operator|+=
-literal|" Normal"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00000001
-condition|)
-name|stateString
-operator|+=
-literal|" Unavailable"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00000002
-condition|)
-name|stateString
-operator|+=
-literal|" Selected"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00000004
-condition|)
-name|stateString
-operator|+=
-literal|" Focused"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00000008
-condition|)
-name|stateString
-operator|+=
-literal|" Pressed"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00000010
-condition|)
-name|stateString
-operator|+=
-literal|" Checked"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00000020
-condition|)
-name|stateString
-operator|+=
-literal|" Mixed"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00000040
-condition|)
-name|stateString
-operator|+=
-literal|" ReadOnly"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00000080
-condition|)
-name|stateString
-operator|+=
-literal|" HotTracked"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00000100
-condition|)
-name|stateString
-operator|+=
-literal|" DefaultButton"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00000200
-condition|)
-name|stateString
-operator|+=
-literal|" Expanded"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00000400
-condition|)
-name|stateString
-operator|+=
-literal|" Collapsed"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00000800
-condition|)
-name|stateString
-operator|+=
-literal|" Busy"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00001000
-condition|)
-name|stateString
-operator|+=
-literal|" Floating"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00002000
-condition|)
-name|stateString
-operator|+=
-literal|" Marqueed"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00004000
-condition|)
-name|stateString
-operator|+=
-literal|" Animated"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00008000
-condition|)
-name|stateString
-operator|+=
-literal|" Invisible"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00010000
-condition|)
-name|stateString
-operator|+=
-literal|" Offscreen"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00020000
-condition|)
-name|stateString
-operator|+=
-literal|" Sizeable"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00040000
-condition|)
-name|stateString
-operator|+=
-literal|" Moveable"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00080000
-condition|)
-name|stateString
-operator|+=
-literal|" SelfVoicing"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00100000
-condition|)
-name|stateString
-operator|+=
-literal|" Focusable"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00200000
-condition|)
-name|stateString
-operator|+=
-literal|" Selectable"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00400000
-condition|)
-name|stateString
-operator|+=
-literal|" Linked"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x00800000
-condition|)
-name|stateString
-operator|+=
-literal|" Traversed"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x01000000
-condition|)
-name|stateString
-operator|+=
-literal|" MultiSelectable"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x02000000
-condition|)
-name|stateString
-operator|+=
-literal|" ExtSelectable"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x04000000
-condition|)
-name|stateString
-operator|+=
-literal|" AlertLow"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x08000000
-condition|)
-name|stateString
-operator|+=
-literal|" AlertMedium"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x10000000
-condition|)
-name|stateString
-operator|+=
-literal|" AlertHigh"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x20000000
-condition|)
-name|stateString
-operator|+=
-literal|" Protected"
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|&
-literal|0x3fffffff
-condition|)
-name|stateString
-operator|+=
-literal|" Valid"
-expr_stmt|;
-if|if
-condition|(
-name|stateString
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|stateString
-operator|=
-literal|"Unknown state "
-operator|+
-name|QString
-operator|::
-name|number
-argument_list|(
-name|state
-argument_list|)
-expr_stmt|;
-return|return
-name|stateString
-return|;
-block|}
-end_function
-begin_function
 DECL|function|state
 name|QAccessible
 operator|::
@@ -1710,22 +1354,41 @@ argument_list|(
 name|widget
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
+operator|!
 name|iface
-argument_list|)
+condition|)
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Cannot get QAccessibleInterface for widget"
 expr_stmt|;
 name|QAccessible
 operator|::
 name|State
 name|state
 init|=
+operator|(
+name|iface
+condition|?
 name|iface
 operator|->
 name|state
 argument_list|(
 literal|0
 argument_list|)
+else|:
+cast|static_cast
+argument_list|<
+name|QAccessible
+operator|::
+name|State
+argument_list|>
+argument_list|(
+literal|0
+argument_list|)
+operator|)
 decl_stmt|;
 operator|delete
 name|iface
@@ -1733,100 +1396,6 @@ expr_stmt|;
 return|return
 name|state
 return|;
-block|}
-end_function
-begin_function
-DECL|function|printState
-name|void
-name|printState
-parameter_list|(
-name|QWidget
-modifier|*
-specifier|const
-name|widget
-parameter_list|)
-block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"State for"
-operator|<<
-name|widget
-operator|->
-name|metaObject
-argument_list|()
-operator|->
-name|className
-argument_list|()
-operator|<<
-name|stateNames
-argument_list|(
-name|state
-argument_list|(
-name|widget
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_function
-DECL|function|printState
-name|void
-name|printState
-parameter_list|(
-name|QAccessibleInterface
-modifier|*
-specifier|const
-name|iface
-parameter_list|,
-specifier|const
-name|int
-name|child
-init|=
-literal|0
-parameter_list|)
-block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"State for"
-operator|<<
-name|iface
-operator|->
-name|object
-argument_list|()
-operator|->
-name|metaObject
-argument_list|()
-operator|->
-name|className
-argument_list|()
-operator|<<
-literal|"child"
-operator|<<
-name|child
-operator|<<
-name|iface
-operator|->
-name|text
-argument_list|(
-name|QAccessible
-operator|::
-name|Name
-argument_list|,
-name|child
-argument_list|)
-operator|<<
-name|stateNames
-argument_list|(
-name|iface
-operator|->
-name|state
-argument_list|(
-name|child
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_class
@@ -1894,11 +1463,6 @@ block|}
 block|}
 class|;
 end_class
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
-end_ifdef
 begin_class
 DECL|class|QtTestAccessibleWidgetIface
 class|class
@@ -2001,10 +1565,6 @@ block|}
 block|}
 class|;
 end_class
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_constructor
 DECL|function|tst_QAccessibility
 name|tst_QAccessibility
@@ -2030,9 +1590,6 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QTestAccessibility
 operator|::
 name|initialize
@@ -2047,8 +1604,6 @@ operator|::
 name|ifaceFactory
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -2059,16 +1614,11 @@ operator|::
 name|cleanupTestCase
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QTestAccessibility
 operator|::
 name|cleanup
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -2094,9 +1644,6 @@ operator|::
 name|cleanup
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 specifier|const
 name|EventList
 name|list
@@ -2216,17 +1763,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -2237,9 +1773,6 @@ operator|::
 name|eventTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QPushButton
 modifier|*
 name|button
@@ -2380,17 +1913,6 @@ expr_stmt|;
 operator|delete
 name|button
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -2401,9 +1923,6 @@ operator|::
 name|customWidget
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QtTestAccessibleWidget
 modifier|*
 name|widget
@@ -2497,17 +2016,6 @@ expr_stmt|;
 operator|delete
 name|widget
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -2518,9 +2026,6 @@ operator|::
 name|deletedWidget
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QtTestAccessibleWidget
 modifier|*
 name|widget
@@ -2592,17 +2097,6 @@ expr_stmt|;
 operator|delete
 name|iface
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -2631,9 +2125,6 @@ literal|0
 return|;
 else|#
 directive|else
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QWidget
 modifier|*
 name|toplevel
@@ -3221,19 +2712,6 @@ expr_stmt|;
 return|return
 name|toplevel
 return|;
-else|#
-directive|else
-name|Q_ASSERT
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// this function cannot be called without accessibility support
-return|return
-literal|0
-return|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|// !QT3_SUPPORT
@@ -3263,9 +2741,6 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QWidget
 modifier|*
 name|toplevel
@@ -3565,17 +3040,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|// !QT3_SUPPORT
@@ -3605,9 +3069,6 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QWidget
 modifier|*
 name|toplevel
@@ -3887,17 +3348,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|// !QT3_SUPPORT
@@ -3927,9 +3377,6 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QWidget
 modifier|*
 name|toplevel
@@ -5733,17 +5180,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|// !QT3_SUPPORT
@@ -5757,9 +5193,6 @@ operator|::
 name|navigateGeometric
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 specifier|static
 specifier|const
@@ -6573,17 +6006,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -6594,9 +6016,6 @@ operator|::
 name|navigateSlider
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QSlider
 modifier|*
@@ -6837,17 +6256,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -6858,9 +6266,6 @@ operator|::
 name|navigateCovered
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QWidget
 modifier|*
@@ -7808,17 +7213,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -7829,9 +7223,6 @@ operator|::
 name|navigateHierarchy
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QWidget
 modifier|*
@@ -8774,17 +8165,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_define
@@ -8826,9 +8206,6 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|Q3VBox
 name|vbox
@@ -9623,17 +9000,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|// !QT3_SUPPORT
@@ -9663,9 +9029,6 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|Q3VBox
 name|vbox
@@ -10802,17 +10165,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|// !QT3_SUPPORT
@@ -11301,9 +10653,6 @@ operator|::
 name|accessibleName
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QWidget
 modifier|*
 name|toplevel
@@ -11475,17 +10824,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -11512,9 +10850,6 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QWidget
 modifier|*
 name|toplevel
@@ -12424,17 +11759,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|// !QT3_SUPPORT
@@ -12464,9 +11788,6 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QWidget
 modifier|*
 name|toplevel
@@ -12644,17 +11965,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|//QT3_SUPPORT
@@ -12668,9 +11978,6 @@ operator|::
 name|hideShowTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QWidget
 modifier|*
 specifier|const
@@ -12886,17 +12193,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -12907,9 +12203,6 @@ operator|::
 name|userActionCount
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QWidget
 name|widget
 decl_stmt|;
@@ -13122,17 +12415,6 @@ name|test
 operator|=
 literal|0
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -13143,14 +12425,15 @@ operator|::
 name|actionText
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QWidget
+modifier|*
 name|widget
+init|=
+operator|new
+name|QWidget
 decl_stmt|;
 name|widget
-operator|.
+operator|->
 name|show
 argument_list|()
 expr_stmt|;
@@ -13162,7 +12445,6 @@ name|QAccessible
 operator|::
 name|queryAccessibleInterface
 argument_list|(
-operator|&
 name|widget
 argument_list|)
 decl_stmt|;
@@ -13307,21 +12589,14 @@ expr_stmt|;
 operator|delete
 name|test
 expr_stmt|;
-name|test
-operator|=
-literal|0
+operator|delete
+name|widget
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
+name|QTestAccessibility
+operator|::
+name|clearEvents
+argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -13332,9 +12607,6 @@ operator|::
 name|doAction
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QSKIP
 argument_list|(
 literal|"TODO: Implement me"
@@ -13342,17 +12614,6 @@ argument_list|,
 name|SkipAll
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -13630,9 +12891,6 @@ operator|::
 name|buttonTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QWidget
 name|window
 decl_stmt|;
@@ -14334,17 +13592,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -14371,9 +13618,6 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QAccessibleInterface
 modifier|*
 name|test
@@ -14381,66 +13625,80 @@ init|=
 literal|0
 decl_stmt|;
 name|Q3VBox
+modifier|*
 name|vbox
+init|=
+operator|new
+name|Q3VBox
 decl_stmt|;
 name|QLabel
+modifier|*
 name|labelHorizontal
+init|=
+operator|new
+name|QLabel
 argument_list|(
 literal|"Horizontal"
 argument_list|,
-operator|&
 name|vbox
 argument_list|)
 decl_stmt|;
 name|QSlider
+modifier|*
 name|sliderHorizontal
+init|=
+operator|new
+name|QSlider
 argument_list|(
 name|Qt
 operator|::
 name|Horizontal
 argument_list|,
-operator|&
 name|vbox
 argument_list|)
 decl_stmt|;
 name|labelHorizontal
-operator|.
+operator|->
 name|setBuddy
 argument_list|(
-operator|&
 name|sliderHorizontal
 argument_list|)
 expr_stmt|;
 name|QLabel
+modifier|*
 name|labelVertical
+init|=
+operator|new
+name|QLabel
 argument_list|(
 literal|"Vertical"
 argument_list|,
-operator|&
 name|vbox
 argument_list|)
 decl_stmt|;
 name|QSlider
+modifier|*
 name|sliderVertical
+init|=
+operator|new
+name|QSlider
 argument_list|(
 name|Qt
 operator|::
 name|Vertical
 argument_list|,
-operator|&
 name|vbox
 argument_list|)
 decl_stmt|;
 name|labelVertical
-operator|.
+operator|->
 name|setBuddy
 argument_list|(
-operator|&
 name|sliderVertical
 argument_list|)
 expr_stmt|;
 name|vbox
-operator|.
+operator|->
 name|show
 argument_list|()
 expr_stmt|;
@@ -14451,7 +13709,6 @@ name|QAccessible
 operator|::
 name|queryAccessibleInterface
 argument_list|(
-operator|&
 name|sliderHorizontal
 argument_list|)
 expr_stmt|;
@@ -14540,7 +13797,7 @@ literal|0
 argument_list|)
 argument_list|,
 name|labelHorizontal
-operator|.
+operator|->
 name|text
 argument_list|()
 argument_list|)
@@ -14626,7 +13883,7 @@ operator|::
 name|number
 argument_list|(
 name|sliderHorizontal
-operator|.
+operator|->
 name|value
 argument_list|()
 argument_list|)
@@ -14667,7 +13924,7 @@ operator|::
 name|number
 argument_list|(
 name|sliderHorizontal
-operator|.
+operator|->
 name|value
 argument_list|()
 argument_list|)
@@ -14690,11 +13947,11 @@ name|QString
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Skip acton tests.
+comment|// Skip action tests.
 if|#
 directive|if
 literal|0
-block|QCOMPARE(test->defaultAction(0), QAccessible::SetFocus);     QCOMPARE(test->defaultAction(1), QAccessible::Press);     QCOMPARE(test->defaultAction(2), QAccessible::NoAction);     QCOMPARE(test->defaultAction(3), QAccessible::Press);     QCOMPARE(test->actionText(QAccessible::SetFocus, QAccessible::Name, 0), QSlider::tr("Set Focus"));     QCOMPARE(test->actionText(QAccessible::Press, QAccessible::Name, 1), QSlider::tr("Press"));     QCOMPARE(test->actionText(QAccessible::Increase, QAccessible::Name, 2), QSlider::tr("Increase"));     QCOMPARE(test->actionText(QAccessible::Decrease, QAccessible::Name, 2), QSlider::tr("Decrease"));     QCOMPARE(test->actionText(QAccessible::Press, QAccessible::Name, 3), QSlider::tr("Press"));     QVERIFY(test->doAction(QAccessible::Press, 3));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderHorizontal.pageStep()));     QVERIFY(test->doAction(QAccessible::Press, 3));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(2*sliderHorizontal.pageStep()));     QVERIFY(test->doAction(QAccessible::Press, 1));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderHorizontal.pageStep()));     QVERIFY(test->doAction(QAccessible::Press, 1));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(0));     QVERIFY(test->doAction(QAccessible::Increase, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderHorizontal.lineStep()));     QVERIFY(test->doAction(QAccessible::Increase, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(2*sliderHorizontal.lineStep()));     QVERIFY(test->doAction(QAccessible::Decrease, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderHorizontal.lineStep()));     QVERIFY(test->doAction(QAccessible::Decrease, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(0));
+block|QCOMPARE(test->defaultAction(0), QAccessible::SetFocus);     QCOMPARE(test->defaultAction(1), QAccessible::Press);     QCOMPARE(test->defaultAction(2), QAccessible::NoAction);     QCOMPARE(test->defaultAction(3), QAccessible::Press);     QCOMPARE(test->actionText(QAccessible::SetFocus, QAccessible::Name, 0), QSlider::tr("Set Focus"));     QCOMPARE(test->actionText(QAccessible::Press, QAccessible::Name, 1), QSlider::tr("Press"));     QCOMPARE(test->actionText(QAccessible::Increase, QAccessible::Name, 2), QSlider::tr("Increase"));     QCOMPARE(test->actionText(QAccessible::Decrease, QAccessible::Name, 2), QSlider::tr("Decrease"));     QCOMPARE(test->actionText(QAccessible::Press, QAccessible::Name, 3), QSlider::tr("Press"));     QVERIFY(test->doAction(QAccessible::Press, 3));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderHorizontal->pageStep()));     QVERIFY(test->doAction(QAccessible::Press, 3));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(2*sliderHorizontal->pageStep()));     QVERIFY(test->doAction(QAccessible::Press, 1));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderHorizontal->pageStep()));     QVERIFY(test->doAction(QAccessible::Press, 1));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(0));     QVERIFY(test->doAction(QAccessible::Increase, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderHorizontal->lineStep()));     QVERIFY(test->doAction(QAccessible::Increase, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(2*sliderHorizontal->lineStep()));     QVERIFY(test->doAction(QAccessible::Decrease, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderHorizontal->lineStep()));     QVERIFY(test->doAction(QAccessible::Decrease, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(0));
 endif|#
 directive|endif
 operator|delete
@@ -14707,7 +13964,6 @@ name|QAccessible
 operator|::
 name|queryAccessibleInterface
 argument_list|(
-operator|&
 name|sliderVertical
 argument_list|)
 expr_stmt|;
@@ -14796,7 +14052,7 @@ literal|0
 argument_list|)
 argument_list|,
 name|labelVertical
-operator|.
+operator|->
 name|text
 argument_list|()
 argument_list|)
@@ -14882,7 +14138,7 @@ operator|::
 name|number
 argument_list|(
 name|sliderVertical
-operator|.
+operator|->
 name|value
 argument_list|()
 argument_list|)
@@ -14923,7 +14179,7 @@ operator|::
 name|number
 argument_list|(
 name|sliderVertical
-operator|.
+operator|->
 name|value
 argument_list|()
 argument_list|)
@@ -14946,15 +14202,30 @@ name|QString
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Skip acton tests.
+comment|// Skip action tests.
 if|#
 directive|if
 literal|0
-block|QCOMPARE(test->defaultAction(0), QAccessible::SetFocus);     QCOMPARE(test->defaultAction(1), QAccessible::Press);     QCOMPARE(test->defaultAction(2), QAccessible::NoAction);     QCOMPARE(test->defaultAction(3), QAccessible::Press);     QCOMPARE(test->actionText(QAccessible::SetFocus, QAccessible::Name, 0), QSlider::tr("Set Focus"));     QCOMPARE(test->actionText(QAccessible::Press, QAccessible::Name, 1), QSlider::tr("Press"));     QCOMPARE(test->actionText(QAccessible::Increase, QAccessible::Name, 2), QSlider::tr("Increase"));     QCOMPARE(test->actionText(QAccessible::Decrease, QAccessible::Name, 2), QSlider::tr("Decrease"));     QCOMPARE(test->actionText(QAccessible::Press, QAccessible::Name, 3), QSlider::tr("Press"));     QVERIFY(test->doAction(QAccessible::Press, 3));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderVertical.pageStep()));     QVERIFY(test->doAction(QAccessible::Press, 3));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(2*sliderVertical.pageStep()));     QVERIFY(test->doAction(QAccessible::Press, 1));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderVertical.pageStep()));     QVERIFY(test->doAction(QAccessible::Press, 1));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(0));     QVERIFY(test->doAction(QAccessible::Increase, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderVertical.lineStep()));     QVERIFY(test->doAction(QAccessible::Increase, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(2*sliderVertical.lineStep()));     QVERIFY(test->doAction(QAccessible::Decrease, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderVertical.lineStep()));     QVERIFY(test->doAction(QAccessible::Decrease, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(0));
+block|QCOMPARE(test->defaultAction(0), QAccessible::SetFocus);     QCOMPARE(test->defaultAction(1), QAccessible::Press);     QCOMPARE(test->defaultAction(2), QAccessible::NoAction);     QCOMPARE(test->defaultAction(3), QAccessible::Press);     QCOMPARE(test->actionText(QAccessible::SetFocus, QAccessible::Name, 0), QSlider::tr("Set Focus"));     QCOMPARE(test->actionText(QAccessible::Press, QAccessible::Name, 1), QSlider::tr("Press"));     QCOMPARE(test->actionText(QAccessible::Increase, QAccessible::Name, 2), QSlider::tr("Increase"));     QCOMPARE(test->actionText(QAccessible::Decrease, QAccessible::Name, 2), QSlider::tr("Decrease"));     QCOMPARE(test->actionText(QAccessible::Press, QAccessible::Name, 3), QSlider::tr("Press"));     QVERIFY(test->doAction(QAccessible::Press, 3));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderVertical->pageStep()));     QVERIFY(test->doAction(QAccessible::Press, 3));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(2*sliderVertical->pageStep()));     QVERIFY(test->doAction(QAccessible::Press, 1));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderVertical->pageStep()));     QVERIFY(test->doAction(QAccessible::Press, 1));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(0));     QVERIFY(test->doAction(QAccessible::Increase, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderVertical->lineStep()));     QVERIFY(test->doAction(QAccessible::Increase, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(2*sliderVertical->lineStep()));     QVERIFY(test->doAction(QAccessible::Decrease, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(sliderVertical->lineStep()));     QVERIFY(test->doAction(QAccessible::Decrease, 2));     QCOMPARE(test->text(QAccessible::Value, 0), QString::number(0));
 endif|#
 directive|endif
 operator|delete
 name|test
+expr_stmt|;
+operator|delete
+name|sliderHorizontal
+expr_stmt|;
+operator|delete
+name|sliderVertical
+expr_stmt|;
+operator|delete
+name|labelHorizontal
+expr_stmt|;
+operator|delete
+name|labelVertical
+expr_stmt|;
+operator|delete
+name|vbox
 expr_stmt|;
 comment|// Test that when we hide() a slider, the PageLeft, Indicator, and PageRight also gets the
 comment|// Invisible state bit set.
@@ -15558,17 +14829,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|//!QT3_SUPPORT
@@ -15582,9 +14842,6 @@ operator|::
 name|scrollBarTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 comment|// Test that when we hide() a slider, the PageLeft, Indicator, and PageRight also gets the
 comment|// Invisible state bit set.
 enum|enum
@@ -16209,17 +15466,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -16230,9 +15476,6 @@ operator|::
 name|tabTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QTabBar
 modifier|*
 name|tabBar
@@ -16448,17 +15691,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -17169,9 +16401,6 @@ operator|::
 name|menuTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QMainWindow
 name|mw
@@ -19300,17 +18529,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs Qt>= 0x040000 and accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -19321,9 +18539,6 @@ operator|::
 name|spinBoxTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QSpinBox
 modifier|*
 specifier|const
@@ -19498,17 +18713,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -19519,9 +18723,6 @@ operator|::
 name|doubleSpinBoxTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QDoubleSpinBox
 modifier|*
 name|doubleSpinBox
@@ -19630,17 +18831,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -19651,9 +18841,6 @@ operator|::
 name|textEditTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QTextEdit
 name|edit
@@ -19901,17 +19088,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -19922,9 +19098,6 @@ operator|::
 name|textBrowserTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QTextBrowser
 name|textBrowser
@@ -20067,17 +19240,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -20088,10 +19250,6 @@ operator|::
 name|listViewTest
 parameter_list|()
 block|{
-if|#
-directive|if
-literal|1
-comment|//def QTEST_ACCESSIBILITY
 block|{
 name|QListView
 name|listView
@@ -20677,17 +19835,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -20698,9 +19845,6 @@ operator|::
 name|mdiAreaTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QMdiArea
 name|mdiArea
@@ -21016,17 +20160,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -21037,9 +20170,6 @@ operator|::
 name|mdiSubWindowTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QMdiArea
 name|mdiArea
@@ -22061,17 +21191,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -22082,9 +21201,6 @@ operator|::
 name|lineEditTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QLineEdit
 modifier|*
 name|le
@@ -22674,17 +21790,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -22695,9 +21800,6 @@ operator|::
 name|workspaceTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QWorkspace
 name|workspace
@@ -23048,17 +22150,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -23069,9 +22160,6 @@ operator|::
 name|dialogButtonBoxTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QDialogButtonBox
 name|box
@@ -23676,17 +22764,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -23697,9 +22774,6 @@ operator|::
 name|dialTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QDial
 name|dial
@@ -24103,17 +23177,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -24124,9 +23187,6 @@ operator|::
 name|rubberBandTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QRubberBand
 name|rubberBand
 argument_list|(
@@ -24174,17 +23234,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -24195,9 +23244,6 @@ operator|::
 name|abstractScrollAreaTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QAbstractScrollArea
 name|abstractScrollArea
@@ -25316,17 +24362,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -25337,9 +24372,6 @@ operator|::
 name|scrollAreaTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QScrollArea
 name|scrollArea
@@ -25407,17 +24439,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -25428,9 +24449,6 @@ operator|::
 name|tableWidgetTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QWidget
 modifier|*
@@ -25756,17 +24774,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_class
@@ -26138,9 +25145,6 @@ operator|::
 name|tableViewTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QtTestTableModel
 modifier|*
@@ -26847,17 +25851,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -26871,9 +25864,6 @@ block|{
 ifndef|#
 directive|ifndef
 name|QT_NO_CALENDARWIDGET
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 block|{
 name|QCalendarWidget
 name|calendarWidget
@@ -27463,17 +26453,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|// QT_NO_CALENDARWIDGET
@@ -27490,9 +26469,6 @@ block|{
 ifndef|#
 directive|ifndef
 name|QT_NO_DOCKWIDGET
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 comment|// Set up a proper main window with two dock widgets
 name|QMainWindow
 modifier|*
@@ -27986,17 +26962,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|// QT_NO_DOCKWIDGET
@@ -28017,17 +26982,15 @@ name|defined
 argument_list|(
 name|QT3_SUPPORT
 argument_list|)
-name|qWarning
+name|QSKIP
 argument_list|(
 literal|"Should never get here without Qt3Support"
+argument_list|,
+name|SkipAll
 argument_list|)
 expr_stmt|;
-return|return ;
 else|#
 directive|else
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 comment|// Set up a proper main window with two dock widgets
 name|QWidget
 modifier|*
@@ -28290,17 +27253,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|//QT3_SUPPORT
@@ -28314,9 +27266,6 @@ operator|::
 name|comboBoxTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 if|#
 directive|if
 name|defined
@@ -28568,17 +27517,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -28589,9 +27527,6 @@ operator|::
 name|treeWidgetTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QWidget
 modifier|*
 name|w
@@ -29004,17 +27939,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -29025,9 +27949,6 @@ operator|::
 name|labelTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QString
 name|text
 init|=
@@ -29223,17 +28144,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -29244,9 +28154,6 @@ operator|::
 name|accelerators
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QWidget
 modifier|*
 name|window
@@ -29543,6 +28450,30 @@ name|QString
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_DEBUG
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_WS_MAC
+argument_list|)
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QKeySequence::mnemonic: \"Q&A&B\" contains multiple occurrences of '&'"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|label
 operator|->
 name|setText
@@ -29614,17 +28545,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs Qt>= 0x040000 and accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_macro

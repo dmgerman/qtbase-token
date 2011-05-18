@@ -44949,7 +44949,7 @@ argument_list|,
 name|expectedColor
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT_X
+name|QVERIFY2
 argument_list|(
 name|expectedColor
 operator|!=
@@ -44959,8 +44959,6 @@ name|Qt
 operator|::
 name|red
 argument_list|)
-argument_list|,
-name|Q_FUNC_INFO
 argument_list|,
 literal|"Qt::red is the reference color for the image, pick another color"
 argument_list|)
@@ -63500,7 +63498,7 @@ argument_list|,
 name|fp
 argument_list|)
 expr_stmt|;
-comment|// No Q_ASSERT, then it's allright.
+comment|// In debug mode, no assertion failure means it's alright.
 block|}
 end_function
 begin_function

@@ -2426,9 +2426,20 @@ block|}
 break|break;
 block|}
 default|default:
-name|Q_ASSERT
+name|QFAIL
 argument_list|(
-literal|0
+name|qPrintable
+argument_list|(
+name|QString
+argument_list|(
+literal|"Unknown operation: %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|operation
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;

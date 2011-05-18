@@ -4995,7 +4995,7 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|filterCombo
 argument_list|)

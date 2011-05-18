@@ -2305,7 +2305,7 @@ name|SRCDIR
 literal|"test"
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QCOMPARE
 argument_list|(
 name|model
 operator|.
@@ -2313,7 +2313,7 @@ name|rowCount
 argument_list|(
 name|index
 argument_list|)
-operator|==
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -2328,7 +2328,7 @@ name|SRCDIR
 literal|"test/file01.tst"
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 operator|!
 name|index2
@@ -2337,7 +2337,7 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QCOMPARE
 argument_list|(
 name|model
 operator|.
@@ -2345,7 +2345,7 @@ name|rowCount
 argument_list|(
 name|index
 argument_list|)
-operator|==
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

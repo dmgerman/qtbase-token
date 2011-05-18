@@ -81475,7 +81475,7 @@ operator|->
 name|extraItemCache
 argument_list|()
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|itemCache
 argument_list|)

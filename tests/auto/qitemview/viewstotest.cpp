@@ -590,11 +590,6 @@ name|SelectItems
 argument_list|)
 expr_stmt|;
 block|}
-name|Q_ASSERT
-argument_list|(
-name|view
-argument_list|)
-expr_stmt|;
 return|return
 name|view
 return|;

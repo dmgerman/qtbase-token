@@ -10574,7 +10574,7 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|referenceReader
 operator|.
@@ -10582,7 +10582,7 @@ name|canRead
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|referenceReader
 operator|.

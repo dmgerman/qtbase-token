@@ -2248,7 +2248,7 @@ literal|106
 argument_list|)
 decl_stmt|;
 comment|// UTF-8
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|codec
 argument_list|)
@@ -2407,7 +2407,7 @@ literal|106
 argument_list|)
 decl_stmt|;
 comment|// UTF-8
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|codec
 argument_list|)
@@ -2514,7 +2514,7 @@ literal|106
 argument_list|)
 decl_stmt|;
 comment|// UTF-8
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|codec
 argument_list|)
@@ -9908,7 +9908,7 @@ literal|106
 argument_list|)
 decl_stmt|;
 comment|// UTF-8
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|codec
 argument_list|)
