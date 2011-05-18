@@ -3219,42 +3219,6 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Constructs a drag response event containing the \a accepted value,     indicating whether the drag and drop operation was accepted by the     recipient. */
-end_comment
-begin_constructor
-DECL|function|QDragResponseEvent
-name|QDragResponseEvent
-operator|::
-name|QDragResponseEvent
-parameter_list|(
-name|bool
-name|accepted
-parameter_list|)
-member_init_list|:
-name|QEvent
-argument_list|(
-name|DragResponse
-argument_list|)
-member_init_list|,
-name|a
-argument_list|(
-name|accepted
-argument_list|)
-block|{}
-end_constructor
-begin_comment
-comment|/*! \internal */
-end_comment
-begin_destructor
-DECL|function|~QDragResponseEvent
-name|QDragResponseEvent
-operator|::
-name|~
-name|QDragResponseEvent
-parameter_list|()
-block|{ }
-end_destructor
-begin_comment
 comment|/*!     \class QDragMoveEvent     \brief The QDragMoveEvent class provides an event which is sent while a drag and drop action is in progress.      \ingroup events     \ingroup draganddrop      A widget will receive drag move events repeatedly while the drag     is within its boundaries, if it accepts     \l{QWidget::setAcceptDrops()}{drop events} and \l     {QWidget::dragEnterEvent()}{enter events}. The widget should     examine the event to see what kind of data it     \l{QDragMoveEvent::provides()}{provides}, and call the accept()     function to accept the drop if appropriate.      The rectangle supplied by the answerRect() function can be used to restrict     drops to certain parts of the widget. For example, we can check whether the     rectangle intersects with the geometry of a certain child widget and only     call \l{QDropEvent::acceptProposedAction()}{acceptProposedAction()} if that     is the case.      Note that this class inherits most of its functionality from     QDropEvent.      \sa QDragEnterEvent, QDragLeaveEvent, QDropEvent */
 end_comment
 begin_comment

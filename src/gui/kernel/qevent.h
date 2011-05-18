@@ -2258,45 +2258,6 @@ argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|/* An internal class */
-end_comment
-begin_decl_stmt
-name|class
-name|Q_GUI_EXPORT
-name|QDragResponseEvent
-range|:
-name|public
-name|QEvent
-block|{
-name|public
-operator|:
-name|QDragResponseEvent
-argument_list|(
-argument|bool accepted
-argument_list|)
-block|;
-operator|~
-name|QDragResponseEvent
-argument_list|()
-block|;
-specifier|inline
-name|bool
-name|dragAccepted
-argument_list|()
-specifier|const
-block|{
-return|return
-name|a
-return|;
-block|}
-name|protected
-operator|:
-name|bool
-name|a
-block|; }
-decl_stmt|;
-end_decl_stmt
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT

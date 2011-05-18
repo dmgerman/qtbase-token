@@ -7812,16 +7812,6 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
-argument|QDragResponseEvent
-argument_list|,
-argument|QtGui
-argument_list|,
-argument|qevent.h
-argument_list|)
-end_macro
-begin_macro
-name|QT_CLASS_LIB
-argument_list|(
 argument|QDragLeaveEvent
 argument_list|,
 argument|QtGui
