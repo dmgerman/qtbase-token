@@ -230,15 +230,6 @@ empty_stmt|;
 comment|// No impl yet
 block|}
 end_function
-begin_if
-if|#
-directive|if
-operator|(
-name|QT_VERSION
-operator|>=
-literal|0x040600
-operator|)
-end_if
 begin_comment
 comment|/*virtual*/
 end_comment
@@ -261,8 +252,4 @@ expr_stmt|;
 comment|// No impl
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 end_unit

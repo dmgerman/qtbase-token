@@ -803,11 +803,6 @@ name|PixmapMode
 argument_list|)
 operator|)
 expr_stmt|;
-if|#
-directive|if
-name|QT_VERSION
-operator|>=
-literal|0x040700
 name|benchmarks
 operator|<<
 operator|(
@@ -976,8 +971,6 @@ name|StaticTextBackendOptimizations
 argument_list|)
 operator|)
 expr_stmt|;
-endif|#
-directive|endif
 foreach|foreach
 control|(
 name|Benchmark

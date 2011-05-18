@@ -90,13 +90,6 @@ argument_list|(
 argument|const bool twoColumns
 argument_list|)
 block|;
-if|#
-directive|if
-operator|(
-name|QT_VERSION
-operator|>=
-literal|0x040600
-operator|)
 name|bool
 name|listItemCaching
 argument_list|()
@@ -117,8 +110,6 @@ argument_list|,
 argument|const int index
 argument_list|)
 block|;
-endif|#
-directive|endif
 name|protected
 operator|:
 name|virtual
@@ -169,13 +160,6 @@ name|QGraphicsLinearLayout
 operator|*
 name|m_layout
 block|;
-if|#
-directive|if
-operator|(
-name|QT_VERSION
-operator|>=
-literal|0x040600
-operator|)
 name|void
 name|setListItemCaching
 argument_list|(
@@ -186,10 +170,7 @@ argument_list|)
 block|;
 name|bool
 name|m_listItemCaching
-block|;
-endif|#
-directive|endif
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_endif
