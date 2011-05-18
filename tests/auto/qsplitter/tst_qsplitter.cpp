@@ -14540,7 +14540,7 @@ argument_list|,
 name|addOutsideConstructor
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|addInConstructor
 operator|||
@@ -14559,7 +14559,7 @@ operator|->
 name|show
 argument_list|()
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|splitter
 operator|->
@@ -14580,7 +14580,7 @@ argument_list|,
 name|addInConstructor
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|w
 argument_list|)

@@ -17,19 +17,6 @@ include|#
 directive|include
 file|<QtTest/QtTest>
 end_include
-begin_undef
-DECL|macro|Q_ASSERT
-undef|#
-directive|undef
-name|Q_ASSERT
-end_undef
-begin_define
-DECL|macro|Q_ASSERT
-define|#
-directive|define
-name|Q_ASSERT
-value|QVERIFY
-end_define
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
@@ -639,7 +626,7 @@ operator|::
 name|nonDestructiveBasicTest
 parameter_list|()
 block|{
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -661,7 +648,7 @@ name|QModelIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -674,7 +661,7 @@ operator|>=
 literal|0
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -717,7 +704,7 @@ name|QModelIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|flags
 operator|==
@@ -796,7 +783,7 @@ operator|->
 name|mimeTypes
 argument_list|()
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -810,7 +797,7 @@ name|QModelIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -938,7 +925,7 @@ argument_list|(
 name|topIndex
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|rows
 operator|>=
@@ -951,7 +938,7 @@ name|rows
 operator|>
 literal|0
 condition|)
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -959,8 +946,6 @@ name|hasChildren
 argument_list|(
 name|topIndex
 argument_list|)
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 name|QModelIndex
@@ -996,7 +981,7 @@ argument_list|(
 name|secondLevelIndex
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|rows
 operator|>=
@@ -1009,7 +994,7 @@ name|rows
 operator|>
 literal|0
 condition|)
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1017,8 +1002,6 @@ name|hasChildren
 argument_list|(
 name|secondLevelIndex
 argument_list|)
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1053,7 +1036,7 @@ name|QModelIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1087,7 +1070,7 @@ operator|.
 name|isValid
 argument_list|()
 condition|)
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1116,8 +1099,9 @@ parameter_list|()
 block|{
 comment|//     qDebug()<< "hi";
 comment|// Make sure that invalid values returns an invalid index
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
+operator|!
 name|model
 operator|->
 name|hasIndex
@@ -1128,12 +1112,11 @@ argument_list|,
 operator|-
 literal|2
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
+operator|!
 name|model
 operator|->
 name|hasIndex
@@ -1143,12 +1126,11 @@ literal|2
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
+operator|!
 name|model
 operator|->
 name|hasIndex
@@ -1158,8 +1140,6 @@ argument_list|,
 operator|-
 literal|2
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 name|int
@@ -1179,8 +1159,9 @@ name|columnCount
 argument_list|()
 decl_stmt|;
 comment|// check out of bounds
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
+operator|!
 name|model
 operator|->
 name|hasIndex
@@ -1189,12 +1170,11 @@ name|rows
 argument_list|,
 name|columns
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
+operator|!
 name|model
 operator|->
 name|hasIndex
@@ -1207,8 +1187,6 @@ name|columns
 operator|+
 literal|1
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 if|if
@@ -1217,7 +1195,7 @@ name|rows
 operator|>
 literal|0
 condition|)
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1227,8 +1205,6 @@ literal|0
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 comment|// hasIndex() is tested more extensively in checkChildren(),
@@ -1248,7 +1224,7 @@ parameter_list|()
 block|{
 comment|//     qDebug()<< "i";
 comment|// Make sure that invalid values returns an invalid index
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1265,7 +1241,7 @@ name|QModelIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1281,7 +1257,7 @@ name|QModelIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1321,7 +1297,7 @@ literal|0
 condition|)
 return|return;
 comment|// Catch off by one errors
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1336,7 +1312,7 @@ name|QModelIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1349,8 +1325,6 @@ argument_list|)
 operator|.
 name|isValid
 argument_list|()
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 comment|// Make sure that the same index is *always* returned
@@ -1378,7 +1352,7 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|a
 operator|==
@@ -1403,7 +1377,7 @@ block|{
 comment|//     qDebug()<< "p";
 comment|// Make sure the model wont crash and will return an invalid QModelIndex
 comment|// when asked for the parent of an invalid index.
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1448,7 +1422,7 @@ name|QModelIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1489,7 +1463,7 @@ argument_list|,
 name|topIndex
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1560,7 +1534,7 @@ argument_list|,
 name|topIndex1
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|childIndex
 operator|!=
@@ -1670,7 +1644,7 @@ name|rows
 operator|>
 literal|0
 condition|)
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1681,14 +1655,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Some further testing against rows(), columns(), and hasChildren()
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|rows
 operator|>=
 literal|0
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|columns
 operator|>=
@@ -1701,7 +1675,7 @@ name|rows
 operator|>
 literal|0
 condition|)
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1709,14 +1683,13 @@ name|hasChildren
 argument_list|(
 name|parent
 argument_list|)
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 comment|//qDebug()<< "parent:"<< model->data(parent).toString()<< "rows:"<< rows
 comment|//<< "columns:"<< columns<< "parent column:"<< parent.column();
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
+operator|!
 name|model
 operator|->
 name|hasIndex
@@ -1729,8 +1702,6 @@ literal|0
 argument_list|,
 name|parent
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 for|for
@@ -1774,8 +1745,9 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
+operator|!
 name|model
 operator|->
 name|hasIndex
@@ -1788,8 +1760,6 @@ literal|1
 argument_list|,
 name|parent
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 for|for
@@ -1807,7 +1777,7 @@ operator|++
 name|c
 control|)
 block|{
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -1819,8 +1789,6 @@ name|c
 argument_list|,
 name|parent
 argument_list|)
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 name|QModelIndex
@@ -1838,14 +1806,12 @@ name|parent
 argument_list|)
 decl_stmt|;
 comment|// rowCount() and columnCount() said that it existed...
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|index
 operator|.
 name|isValid
 argument_list|()
-operator|==
-literal|true
 argument_list|)
 expr_stmt|;
 comment|// index() should always return the same index when called twice in a row
@@ -1863,7 +1829,7 @@ argument_list|,
 name|parent
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|index
 operator|==
@@ -1899,7 +1865,7 @@ argument_list|,
 name|parent
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|a
 operator|==
@@ -1907,7 +1873,7 @@ name|b
 argument_list|)
 expr_stmt|;
 comment|// Some basic checking on the index that is returned
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|index
 operator|.
@@ -1917,29 +1883,29 @@ operator|==
 name|model
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QCOMPARE
 argument_list|(
 name|index
 operator|.
 name|row
 argument_list|()
-operator|==
+argument_list|,
 name|r
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QCOMPARE
 argument_list|(
 name|index
 operator|.
 name|column
 argument_list|()
-operator|==
+argument_list|,
 name|c
 argument_list|)
 expr_stmt|;
 comment|// While you can technically return a QVariant usually this is a sign
-comment|// of an bug in data()  Disable if this really is ok in your model.
-comment|//            Q_ASSERT ( model->data ( index, Qt::DisplayRole ).isValid() == true );
+comment|// of a bug in data().  Disable if this really is ok in your model.
+comment|//            QVERIFY( model->data ( index, Qt::DisplayRole ).isValid() );
 comment|// If the next test fails here is some somewhat useful debug you play with.
 if|if
 condition|(
@@ -2002,8 +1968,7 @@ comment|//                 view.setModel(model);
 comment|//                 view.show();
 block|}
 comment|// Check that we can get back our real parent.
-comment|//             qDebug()<< model->parent ( index )<< parent ;
-name|Q_ASSERT
+name|QCOMPARE
 argument_list|(
 name|model
 operator|->
@@ -2011,7 +1976,7 @@ name|parent
 argument_list|(
 name|index
 argument_list|)
-operator|==
+argument_list|,
 name|parent
 argument_list|)
 expr_stmt|;
@@ -2056,7 +2021,7 @@ argument_list|,
 name|parent
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|index
 operator|==
@@ -2079,7 +2044,7 @@ name|data
 parameter_list|()
 block|{
 comment|// Invalid index should return an invalid qvariant
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 operator|!
 name|model
@@ -2105,7 +2070,7 @@ literal|0
 condition|)
 return|return;
 comment|// A valid index should have a valid QVariant data
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|model
 operator|->
@@ -2121,8 +2086,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// shouldn't be able to set data on an invalid index
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
+operator|!
 name|model
 operator|->
 name|setData
@@ -2139,8 +2105,6 @@ name|Qt
 operator|::
 name|DisplayRole
 argument_list|)
-operator|==
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// General Purpose roles that should return a QString
@@ -2173,7 +2137,7 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|qVariantCanConvert
 argument_list|<
@@ -2213,7 +2177,7 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|qVariantCanConvert
 argument_list|<
@@ -2253,7 +2217,7 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|qVariantCanConvert
 argument_list|<
@@ -2294,7 +2258,7 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|qVariantCanConvert
 argument_list|<
@@ -2336,7 +2300,7 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|qVariantCanConvert
 argument_list|<
@@ -2386,10 +2350,10 @@ operator|.
 name|toInt
 argument_list|()
 decl_stmt|;
-name|Q_ASSERT
+name|QCOMPARE
 argument_list|(
 name|alignment
-operator|==
+argument_list|,
 operator|(
 name|alignment
 operator|&
@@ -2436,7 +2400,7 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|qVariantCanConvert
 argument_list|<
@@ -2476,7 +2440,7 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|qVariantCanConvert
 argument_list|<
@@ -2526,7 +2490,7 @@ operator|.
 name|toInt
 argument_list|()
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|state
 operator|==
@@ -2677,7 +2641,7 @@ operator|.
 name|pop
 argument_list|()
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|c
 operator|.
@@ -2693,7 +2657,7 @@ comment|//    {
 comment|//      qDebug()<< "itemWasInserted:"<< ii<< model->data ( model->index ( ii, 0, parent ));
 comment|//    }
 comment|//    qDebug();
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|c
 operator|.
@@ -2715,7 +2679,7 @@ name|parent
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|c
 operator|.
@@ -2839,7 +2803,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|c
 operator|.
@@ -2953,7 +2917,7 @@ index|[
 name|i
 index|]
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|p
 operator|==
@@ -3133,7 +3097,7 @@ operator|.
 name|pop
 argument_list|()
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|c
 operator|.
@@ -3142,7 +3106,7 @@ operator|==
 name|parent
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|c
 operator|.
@@ -3164,7 +3128,7 @@ name|parent
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|c
 operator|.
@@ -3191,7 +3155,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|c
 operator|.

@@ -4753,7 +4753,7 @@ operator|.
 name|primeInsert
 argument_list|()
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|rec
 argument_list|)
@@ -5281,7 +5281,7 @@ operator|.
 name|primeInsert
 argument_list|()
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|rec
 argument_list|)

@@ -1048,7 +1048,7 @@ argument_list|(
 name|dialog
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|ledit
 argument_list|)
@@ -1066,7 +1066,7 @@ argument_list|(
 name|dialog
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|bbox
 argument_list|)
@@ -1084,7 +1084,7 @@ operator|::
 name|Ok
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|okButton
 argument_list|)
@@ -1161,7 +1161,7 @@ argument_list|(
 name|dialog
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|cbox
 argument_list|)
@@ -1179,7 +1179,7 @@ argument_list|(
 name|dialog
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|bbox
 argument_list|)
@@ -1197,7 +1197,7 @@ operator|::
 name|Ok
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|okButton
 argument_list|)
@@ -1366,7 +1366,7 @@ argument_list|(
 name|parent
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|dialog
 argument_list|)
@@ -1501,7 +1501,7 @@ argument_list|,
 name|max
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|min
 operator|<
@@ -1869,7 +1869,7 @@ argument_list|,
 name|decimals
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|min
 operator|<

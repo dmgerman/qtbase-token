@@ -29608,7 +29608,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|scene
 operator|.

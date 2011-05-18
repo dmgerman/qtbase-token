@@ -22120,13 +22120,13 @@ argument_list|,
 name|expectedCursorPositions
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QCOMPARE
 argument_list|(
 name|setCurrentSections
 operator|.
 name|size
 argument_list|()
-operator|==
+argument_list|,
 name|expectedCursorPositions
 operator|.
 name|size

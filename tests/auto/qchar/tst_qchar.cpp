@@ -4379,13 +4379,13 @@ argument_list|(
 literal|';'
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QCOMPARE
 argument_list|(
 name|l
 operator|.
 name|size
 argument_list|()
-operator|==
+argument_list|,
 literal|5
 argument_list|)
 expr_stmt|;
@@ -4433,7 +4433,7 @@ argument_list|(
 literal|' '
 argument_list|)
 decl_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 operator|!
 name|c
