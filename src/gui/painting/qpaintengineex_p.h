@@ -933,8 +933,6 @@ argument_list|(
 name|QStaticTextItem
 operator|*
 argument_list|)
-operator|=
-literal|0
 block|;
 name|virtual
 name|void
