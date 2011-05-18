@@ -15967,6 +15967,12 @@ endif|#
 directive|endif
 name|w
 operator|=
+name|qobject_cast
+argument_list|<
+name|QWidget
+operator|*
+argument_list|>
+argument_list|(
 name|QDragManager
 operator|::
 name|self
@@ -15974,6 +15980,7 @@ argument_list|()
 operator|->
 name|currentTarget
 argument_list|()
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

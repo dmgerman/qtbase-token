@@ -61,7 +61,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtWidgets/qdrag.h"
+file|"QtGui/qdrag.h"
 end_include
 begin_include
 include|#
@@ -662,11 +662,11 @@ name|QObjectPrivate
 block|{
 name|public
 operator|:
-name|QWidget
+name|QObject
 operator|*
 name|source
 block|;
-name|QWidget
+name|QObject
 operator|*
 name|target
 block|;
@@ -765,6 +765,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|Q_GUI_EXPORT
 name|QDragManager
 range|:
 name|public
@@ -795,16 +796,6 @@ name|friend
 name|class
 name|QApplication
 block|;
-ifdef|#
-directive|ifdef
-name|Q_WS_MAC
-name|friend
-name|class
-name|QWidgetPrivate
-block|;
-comment|//dnd is implemented here
-endif|#
-directive|endif
 name|bool
 name|eventFilter
 argument_list|(
@@ -855,7 +846,7 @@ name|void
 name|updatePixmap
 argument_list|()
 block|;
-name|QWidget
+name|QObject
 operator|*
 name|source
 argument_list|()
@@ -986,12 +977,12 @@ block|}
 name|void
 name|setCurrentTarget
 argument_list|(
-argument|QWidget *target
+argument|QObject *target
 argument_list|,
 argument|bool dropped = false
 argument_list|)
 block|;
-name|QWidget
+name|QObject
 operator|*
 name|currentTarget
 argument_list|()
@@ -1043,7 +1034,7 @@ endif|#
 directive|endif
 endif|#
 directive|endif
-name|QWidget
+name|QObject
 operator|*
 name|currentDropTarget
 block|;

@@ -50,11 +50,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwidget.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qbuffer.h"
 end_include
 begin_include
@@ -507,7 +502,7 @@ operator|!
 name|instance
 operator|&&
 operator|!
-name|QApplication
+name|QGuiApplication
 operator|::
 name|closingDown
 argument_list|()
@@ -1036,7 +1031,7 @@ name|QDragManager
 operator|::
 name|setCurrentTarget
 parameter_list|(
-name|QWidget
+name|QObject
 modifier|*
 name|target
 parameter_list|,
@@ -1085,7 +1080,7 @@ block|}
 end_function
 begin_function
 DECL|function|currentTarget
-name|QWidget
+name|QObject
 modifier|*
 name|QDragManager
 operator|::

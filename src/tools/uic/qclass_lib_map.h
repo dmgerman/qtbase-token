@@ -7594,7 +7594,7 @@ name|QT_CLASS_LIB
 argument_list|(
 argument|QDrag
 argument_list|,
-argument|QtGui
+argument|QtWidgets
 argument_list|,
 argument|qdrag.h
 argument_list|)
