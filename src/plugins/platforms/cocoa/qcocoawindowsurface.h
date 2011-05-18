@@ -45,7 +45,7 @@ name|public
 operator|:
 name|QCocoaWindowSurface
 argument_list|(
-argument|QWidget *window
+argument|QWindow *window
 argument_list|,
 argument|WId wid
 argument_list|)
@@ -62,7 +62,7 @@ block|;
 name|void
 name|flush
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|widget
 argument_list|,
@@ -95,10 +95,6 @@ block|;
 name|QImage
 operator|*
 name|m_image
-block|;
-name|QNSView
-operator|*
-name|m_contentView
 block|; }
 decl_stmt|;
 end_decl_stmt

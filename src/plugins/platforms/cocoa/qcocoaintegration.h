@@ -142,10 +142,7 @@ name|QPlatformWindow
 operator|*
 name|createPlatformWindow
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId =
-literal|0
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
@@ -153,7 +150,7 @@ name|QWindowSurface
 operator|*
 name|createWindowSurface
 argument_list|(
-argument|QWidget *widget
+argument|QWindow *widget
 argument_list|,
 argument|WId winId
 argument_list|)
