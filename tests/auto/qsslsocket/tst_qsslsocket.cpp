@@ -9450,19 +9450,19 @@ name|server
 operator|.
 name|socket
 decl_stmt|;
-name|QVERIFY
-argument_list|(
+if|if
+condition|(
+operator|!
 name|socket
-argument_list|)
-expr_stmt|;
-name|QVERIFY
-argument_list|(
+operator|||
+operator|!
 name|socket
 operator|->
 name|isValid
 argument_list|()
-argument_list|)
-expr_stmt|;
+condition|)
+return|return;
+comment|// error
 name|socket
 operator|->
 name|ignoreSslErrors
