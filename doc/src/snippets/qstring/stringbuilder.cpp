@@ -55,21 +55,10 @@ condition|)
 operator|...
 comment|//! [0]
 comment|//! [3]
-DECL|macro|QT_USE_FAST_CONCATENATION
-define|#
-directive|define
-name|QT_USE_FAST_CONCATENATION
+name|DEFINES
+operator|*=
+name|QT_USE_QSTRINGBUILDER
 comment|//! [3]
-comment|//! [4]
-DECL|macro|QT_USE_FAST_CONCATENATION
-define|#
-directive|define
-name|QT_USE_FAST_CONCATENATION
-DECL|macro|QT_USE_FAST_OPERATOR_PLUS
-define|#
-directive|define
-name|QT_USE_FAST_OPERATOR_PLUS
-comment|//! [4]
 comment|//! [5]
 include|#
 directive|include
