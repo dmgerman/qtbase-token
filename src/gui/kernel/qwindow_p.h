@@ -166,6 +166,11 @@ name|baseSize
 block|;
 name|QSize
 name|sizeIncrement
+block|;
+name|Qt
+operator|::
+name|WindowModality
+name|modality
 block|; }
 decl_stmt|;
 end_decl_stmt

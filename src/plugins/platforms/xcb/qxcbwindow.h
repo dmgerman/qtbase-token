@@ -298,6 +298,10 @@ literal|0
 parameter_list|)
 function_decl|;
 name|void
+name|updateMotifWmHintsBeforeShow
+parameter_list|()
+function_decl|;
+name|void
 name|show
 parameter_list|()
 function_decl|;

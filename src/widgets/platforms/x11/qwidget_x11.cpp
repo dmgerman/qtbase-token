@@ -451,10 +451,10 @@ block|}
 enum|;
 end_enum
 begin_function
-DECL|function|GetMWMHints
+DECL|function|getMWMHints
 specifier|static
 name|QtMWMHints
-name|GetMWMHints
+name|getMWMHints
 parameter_list|(
 name|Display
 modifier|*

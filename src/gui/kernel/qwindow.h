@@ -188,11 +188,23 @@ name|isTopLevel
 argument_list|()
 specifier|const
 block|;
-name|QWindow
-operator|*
-name|topLevelWindow
+name|bool
+name|isModal
 argument_list|()
 specifier|const
+block|;
+name|Qt
+operator|::
+name|WindowModality
+name|windowModality
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setWindowModality
+argument_list|(
+argument|Qt::WindowModality windowModality
+argument_list|)
 block|;
 name|void
 name|setWindowFormat
