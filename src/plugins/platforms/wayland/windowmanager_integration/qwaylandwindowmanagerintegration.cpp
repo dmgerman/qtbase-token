@@ -181,6 +181,10 @@ name|long
 name|processId
 parameter_list|)
 block|{
+if|if
+condition|(
+name|mWaylandWindowManager
+condition|)
 name|wl_windowmanager_map_client_to_process
 argument_list|(
 name|mWaylandWindowManager
