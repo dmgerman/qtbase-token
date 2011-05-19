@@ -6255,11 +6255,14 @@ name|b
 parameter_list|)
 block|{
 return|return
-name|vcge_f32
+name|vreinterpretq_s32_u32
+argument_list|(
+name|vcgeq_f32
 argument_list|(
 name|a
 argument_list|,
 name|b
+argument_list|)
 argument_list|)
 return|;
 block|}
