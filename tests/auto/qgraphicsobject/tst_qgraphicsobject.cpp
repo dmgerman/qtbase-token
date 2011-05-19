@@ -1474,6 +1474,11 @@ argument_list|,
 name|item1
 argument_list|)
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|item2
+argument_list|)
+expr_stmt|;
 operator|delete
 name|item1
 expr_stmt|;

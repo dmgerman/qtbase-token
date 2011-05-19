@@ -26759,7 +26759,7 @@ name|Model_11466
 parameter_list|(
 name|QObject
 modifier|*
-name|parent
+comment|/* parent */
 parameter_list|)
 member_init_list|:
 name|m_block
@@ -26860,7 +26860,7 @@ parameter_list|(
 specifier|const
 name|QModelIndex
 modifier|&
-name|parent
+comment|/* parent */
 parameter_list|)
 specifier|const
 block|{

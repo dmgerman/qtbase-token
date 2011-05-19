@@ -716,7 +716,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|p
 init|=
 literal|0
@@ -754,7 +754,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|min
 init|=
 literal|0
@@ -785,7 +785,7 @@ index|]
 decl_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|max
 init|=
 literal|0
@@ -816,7 +816,7 @@ index|]
 decl_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|sh
 init|=
 literal|0
@@ -847,7 +847,7 @@ index|]
 decl_stmt|;
 for|for
 control|(
-name|int
+name|size_t
 name|a
 init|=
 literal|0

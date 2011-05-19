@@ -2213,7 +2213,7 @@ comment|// 10 MB
 comment|// init with garbage. needed so ssl cannot compress it in an efficient way.
 for|for
 control|(
-name|int
+name|size_t
 name|i
 init|=
 literal|0

@@ -955,15 +955,6 @@ init|=
 literal|2
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|pkey
-specifier|static
-name|int
-name|pkey
-init|=
-literal|1
-decl_stmt|;
-end_decl_stmt
 begin_comment
 comment|//helper class for database specific tests
 end_comment
@@ -2698,12 +2689,9 @@ condition|)
 block|{
 name|qDebug
 argument_list|(
-name|QString
-argument_list|(
-literal|"DBMS '%1' cannot handle VIEWs: %2"
-argument_list|)
-operator|.
-name|arg
+literal|"DBMS '%s' cannot handle VIEWs: %s"
+argument_list|,
+name|qPrintable
 argument_list|(
 name|tst_Databases
 operator|::
@@ -2712,10 +2700,8 @@ argument_list|(
 name|db
 argument_list|)
 argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|QString
+argument_list|,
+name|qPrintable
 argument_list|(
 name|tst_Databases
 operator|::
@@ -2727,10 +2713,6 @@ name|lastError
 argument_list|()
 argument_list|)
 argument_list|)
-argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|views
@@ -7185,8 +7167,10 @@ condition|)
 block|{
 name|qDebug
 argument_list|(
-literal|"MySQL: "
-operator|+
+literal|"MySQL: %s"
+argument_list|,
+name|qPrintable
+argument_list|(
 name|tst_Databases
 operator|::
 name|printError
@@ -7195,6 +7179,7 @@ name|db
 operator|.
 name|lastError
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13897,6 +13882,10 @@ argument_list|()
 condition|)
 name|qFatal
 argument_list|(
+literal|"%s"
+argument_list|,
+name|qPrintable
+argument_list|(
 name|tst_Databases
 operator|::
 name|printError
@@ -13907,6 +13896,7 @@ name|lastError
 argument_list|()
 argument_list|,
 name|db
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

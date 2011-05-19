@@ -48,6 +48,11 @@ expr_stmt|;
 name|int
 name|c
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
 name|fgetc
 argument_list|(
 name|stdin

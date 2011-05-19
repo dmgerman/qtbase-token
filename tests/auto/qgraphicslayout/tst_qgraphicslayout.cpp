@@ -3663,7 +3663,7 @@ parameter_list|,
 specifier|const
 name|QSizeF
 modifier|&
-name|constraint
+comment|/* constraint */
 parameter_list|)
 specifier|const
 block|{
@@ -4473,7 +4473,7 @@ parameter_list|,
 specifier|const
 name|QSizeF
 modifier|&
-name|constraint
+comment|/* constraint */
 parameter_list|)
 specifier|const
 block|{
@@ -4705,7 +4705,7 @@ parameter_list|,
 specifier|const
 name|QSizeF
 modifier|&
-name|constraint
+comment|/* constraint */
 parameter_list|)
 specifier|const
 block|{
@@ -5062,12 +5062,12 @@ parameter_list|(
 name|Qt
 operator|::
 name|SizeHint
-name|which
+comment|/* which */
 parameter_list|,
 specifier|const
 name|QSizeF
 modifier|&
-name|constraint
+comment|/* constraint */
 parameter_list|)
 specifier|const
 block|{

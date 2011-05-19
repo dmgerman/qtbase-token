@@ -521,7 +521,7 @@ name|resizeEvent
 parameter_list|(
 name|QResizeEvent
 modifier|*
-name|event
+comment|/* event */
 parameter_list|)
 block|{
 name|visibleUpdates

@@ -1589,11 +1589,11 @@ parameter_list|,
 specifier|const
 name|QStyleOptionGraphicsItem
 modifier|*
-name|option
+comment|/* option */
 parameter_list|,
 name|QWidget
 modifier|*
-name|widget
+comment|/* widget */
 parameter_list|)
 block|{
 name|painter
@@ -1913,7 +1913,7 @@ name|paint
 parameter_list|(
 name|QPainter
 modifier|*
-name|painter
+comment|/* painter */
 parameter_list|,
 specifier|const
 name|QStyleOptionGraphicsItem

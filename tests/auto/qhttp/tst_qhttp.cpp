@@ -4413,6 +4413,11 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
 name|QTimer
 operator|::
 name|singleShot

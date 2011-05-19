@@ -29197,7 +29197,7 @@ name|focusInEvent
 parameter_list|(
 name|QFocusEvent
 modifier|*
-name|event
+comment|/* event */
 parameter_list|)
 block|{
 name|QGraphicsView
@@ -31728,7 +31728,7 @@ name|drawBackground
 parameter_list|(
 name|QPainter
 modifier|*
-name|painter
+comment|/* painter */
 parameter_list|,
 specifier|const
 name|QRectF
@@ -31779,7 +31779,7 @@ name|paint
 parameter_list|(
 name|QPainter
 modifier|*
-name|painter
+comment|/* painter */
 parameter_list|,
 specifier|const
 name|QStyleOptionGraphicsItem
@@ -31788,7 +31788,7 @@ name|option
 parameter_list|,
 name|QWidget
 modifier|*
-name|widget
+comment|/* widget */
 init|=
 literal|0
 parameter_list|)
@@ -32532,7 +32532,6 @@ parameter_list|(
 name|Qt
 operator|::
 name|InputMethodQuery
-name|query
 parameter_list|)
 specifier|const
 block|{

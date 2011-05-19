@@ -1718,6 +1718,10 @@ init|=
 operator|new
 name|QTextDocument
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|doc
+argument_list|)
 name|QBENCHMARK
 block|{
 name|QTextDocument
@@ -1937,6 +1941,11 @@ argument_list|(
 name|m_shortLorem
 argument_list|)
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|control
+argument_list|)
+expr_stmt|;
 name|QBENCHMARK
 block|{
 name|QTextControl

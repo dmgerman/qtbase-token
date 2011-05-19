@@ -1325,7 +1325,7 @@ parameter_list|(
 specifier|const
 name|SPointer
 modifier|&
-name|other
+comment|/* other */
 parameter_list|)
 block|{
 name|count

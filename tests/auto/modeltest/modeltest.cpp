@@ -2533,7 +2533,7 @@ name|int
 name|start
 parameter_list|,
 name|int
-name|end
+comment|/* end */
 parameter_list|)
 block|{
 comment|//     Q_UNUSED(end);

@@ -213,7 +213,7 @@ name|int
 name|from
 parameter_list|,
 name|int
-name|oldLength
+comment|/* oldLength */
 parameter_list|,
 name|int
 name|length

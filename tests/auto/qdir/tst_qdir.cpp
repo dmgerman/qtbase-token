@@ -6551,6 +6551,11 @@ name|exists
 argument_list|()
 decl_stmt|;
 comment|// make sure we cache this before so we can see if 'cd' fails to flush this
+name|Q_UNUSED
+argument_list|(
+name|notUsed
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|d
