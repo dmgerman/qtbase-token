@@ -218,11 +218,11 @@ name|tst_QMenuBar
 parameter_list|()
 destructor_decl|;
 name|void
-name|initSimpleMenubar_noQt3
+name|initSimpleMenubar
 parameter_list|()
 function_decl|;
 name|void
-name|initComplexMenubar_noQt3
+name|initComplexMenubar
 parameter_list|()
 function_decl|;
 public|public
@@ -248,39 +248,39 @@ name|getSetCheck
 parameter_list|()
 function_decl|;
 name|void
-name|clear_noQt3
+name|clear
 parameter_list|()
 function_decl|;
 name|void
-name|removeItemAt_noQt3
+name|removeItemAt
 parameter_list|()
 function_decl|;
 name|void
-name|removeItemAt_noQt3_data
+name|removeItemAt_data
 parameter_list|()
 function_decl|;
 name|void
-name|removeItem_noQt3_data
+name|removeItem_data
 parameter_list|()
 function_decl|;
 name|void
-name|removeItem_noQt3
+name|removeItem
 parameter_list|()
 function_decl|;
 name|void
-name|count_noQt3
+name|count
 parameter_list|()
 function_decl|;
 name|void
-name|insertItem_QString_QObject_noQt3
+name|insertItem_QString_QObject
 parameter_list|()
 function_decl|;
 name|void
-name|accel_noQt3
+name|accel
 parameter_list|()
 function_decl|;
 name|void
-name|activatedCount_noQt3
+name|activatedCount
 parameter_list|()
 function_decl|;
 name|void
@@ -312,7 +312,7 @@ name|check_endKey
 parameter_list|()
 function_decl|;
 name|void
-name|check_escKey_noQt3
+name|check_escKey
 parameter_list|()
 function_decl|;
 comment|//     void check_mouse1_data();
@@ -355,17 +355,13 @@ protected|protected
 name|slots
 protected|:
 name|void
-name|onActivated_noQt3
+name|onActivated
 parameter_list|(
 name|QAction
 modifier|*
 parameter_list|)
 function_decl|;
 private|private:
-name|void
-name|initTestCase_noQt3
-parameter_list|()
-function_decl|;
 DECL|member|menu1
 name|QtTestSlot
 modifier|*
@@ -447,10 +443,10 @@ argument_list|()
 expr_stmt|;
 block|}
 empty_stmt|;
-DECL|member|last_accel_id_Qt4
+DECL|member|last_accel_id
 name|QAction
 modifier|*
-name|last_accel_id_Qt4
+name|last_accel_id
 decl_stmt|;
 DECL|member|activated_count
 name|int
@@ -476,15 +472,15 @@ name|QMenuBar
 modifier|*
 name|mb
 decl_stmt|;
-DECL|member|pm1_Qt4
+DECL|member|pm1
 name|QMenu
 modifier|*
-name|pm1_Qt4
+name|pm1
 decl_stmt|;
-DECL|member|pm2_Qt4
+DECL|member|pm2
 name|QMenu
 modifier|*
-name|pm2_Qt4
+name|pm2
 decl_stmt|;
 block|}
 class|;
@@ -605,15 +601,15 @@ name|mb
 operator|=
 literal|0
 expr_stmt|;
-name|pm1_Qt4
+name|pm1
 operator|=
 literal|0
 expr_stmt|;
-name|pm2_Qt4
+name|pm2
 operator|=
 literal|0
 expr_stmt|;
-name|last_accel_id_Qt4
+name|last_accel_id
 operator|=
 literal|0
 expr_stmt|;
@@ -640,19 +636,6 @@ name|void
 name|tst_QMenuBar
 operator|::
 name|initTestCase
-parameter_list|()
-block|{
-name|initTestCase_noQt3
-argument_list|()
-expr_stmt|;
-block|}
-end_function
-begin_function
-DECL|function|initTestCase_noQt3
-name|void
-name|tst_QMenuBar
-operator|::
-name|initTestCase_noQt3
 parameter_list|()
 block|{
 comment|// create a default mainwindow
@@ -695,7 +678,7 @@ name|this
 argument_list|,
 name|SLOT
 argument_list|(
-name|onActivated_noQt3
+name|onActivated
 argument_list|(
 name|QAction
 operator|*
@@ -703,7 +686,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|initSimpleMenubar_noQt3
+name|initSimpleMenubar
 argument_list|()
 expr_stmt|;
 name|mw
@@ -835,11 +818,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|initSimpleMenubar_noQt3
+DECL|function|initSimpleMenubar
 name|void
 name|tst_QMenuBar
 operator|::
-name|initSimpleMenubar_noQt3
+name|initSimpleMenubar
 parameter_list|()
 block|{
 name|mb
@@ -853,9 +836,9 @@ name|clear
 argument_list|()
 expr_stmt|;
 operator|delete
-name|pm1_Qt4
+name|pm1
 expr_stmt|;
-name|pm1_Qt4
+name|pm1
 operator|=
 name|mb
 operator|->
@@ -866,7 +849,7 @@ argument_list|)
 expr_stmt|;
 name|action
 operator|=
-name|pm1_Qt4
+name|pm1
 operator|->
 name|addAction
 argument_list|(
@@ -895,7 +878,7 @@ argument_list|)
 expr_stmt|;
 name|connect
 argument_list|(
-name|pm1_Qt4
+name|pm1
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -910,7 +893,7 @@ name|this
 argument_list|,
 name|SLOT
 argument_list|(
-name|onActivated_noQt3
+name|onActivated
 argument_list|(
 name|QAction
 operator|*
@@ -919,9 +902,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 operator|delete
-name|pm2_Qt4
+name|pm2
 expr_stmt|;
-name|pm2_Qt4
+name|pm2
 operator|=
 name|mb
 operator|->
@@ -932,7 +915,7 @@ argument_list|)
 expr_stmt|;
 name|action1
 operator|=
-name|pm2_Qt4
+name|pm2
 operator|->
 name|addAction
 argument_list|(
@@ -950,7 +933,7 @@ argument_list|)
 expr_stmt|;
 name|connect
 argument_list|(
-name|pm2_Qt4
+name|pm2
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -965,7 +948,7 @@ name|this
 argument_list|,
 name|SLOT
 argument_list|(
-name|onActivated_noQt3
+name|onActivated
 argument_list|(
 name|QAction
 operator|*
@@ -1084,7 +1067,7 @@ operator|::
 name|resetCount
 parameter_list|()
 block|{
-name|last_accel_id_Qt4
+name|last_accel_id
 operator|=
 literal|0
 expr_stmt|;
@@ -1095,18 +1078,18 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|onActivated_noQt3
+DECL|function|onActivated
 name|void
 name|tst_QMenuBar
 operator|::
-name|onActivated_noQt3
+name|onActivated
 parameter_list|(
 name|QAction
 modifier|*
 name|action
 parameter_list|)
 block|{
-name|last_accel_id_Qt4
+name|last_accel_id
 operator|=
 name|action
 expr_stmt|;
@@ -1117,11 +1100,11 @@ comment|//     printf( QString("acceleratorId: %1, count: %1\n").arg( i ).arg(ac
 block|}
 end_function
 begin_function
-DECL|function|accel_noQt3
+DECL|function|accel
 name|void
 name|tst_QMenuBar
 operator|::
-name|accel_noQt3
+name|accel
 parameter_list|()
 block|{
 if|#
@@ -1157,7 +1140,7 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// create a popup menu with menu items set the accelerators later...
-name|initSimpleMenubar_noQt3
+name|initSimpleMenubar
 argument_list|()
 expr_stmt|;
 comment|//    QTest::keyClick( 0, Qt::Key_A, AltKey );
@@ -1185,7 +1168,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|last_accel_id_Qt4
+name|last_accel_id
 argument_list|,
 name|action
 argument_list|)
@@ -1193,11 +1176,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|activatedCount_noQt3
+DECL|function|activatedCount
 name|void
 name|tst_QMenuBar
 operator|::
-name|activatedCount_noQt3
+name|activatedCount
 parameter_list|()
 block|{
 if|#
@@ -1221,7 +1204,7 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// create a popup menu with menu items set the accelerators later...
-name|initSimpleMenubar_noQt3
+name|initSimpleMenubar
 argument_list|()
 expr_stmt|;
 name|QTest
@@ -1251,11 +1234,11 @@ comment|//1 from the popupmenu and 1 from the menubar
 block|}
 end_function
 begin_function
-DECL|function|clear_noQt3
+DECL|function|clear
 name|void
 name|tst_QMenuBar
 operator|::
-name|clear_noQt3
+name|clear
 parameter_list|()
 block|{
 name|mb
@@ -1399,11 +1382,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|count_noQt3
+DECL|function|count
 name|void
 name|tst_QMenuBar
 operator|::
-name|count_noQt3
+name|count
 parameter_list|()
 block|{
 name|mb
@@ -1474,11 +1457,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|removeItem_noQt3_data
+DECL|function|removeItem_data
 name|void
 name|tst_QMenuBar
 operator|::
-name|removeItem_noQt3_data
+name|removeItem_data
 parameter_list|()
 block|{
 name|QTest
@@ -1524,11 +1507,11 @@ begin_comment
 comment|// Basically the same test as removeItemAt, except that we remember and remove id's.
 end_comment
 begin_function
-DECL|function|removeItem_noQt3
+DECL|function|removeItem
 name|void
 name|tst_QMenuBar
 operator|::
-name|removeItem_noQt3
+name|removeItem
 parameter_list|()
 block|{
 name|mb
@@ -1984,11 +1967,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|removeItemAt_noQt3_data
+DECL|function|removeItemAt_data
 name|void
 name|tst_QMenuBar
 operator|::
-name|removeItemAt_noQt3_data
+name|removeItemAt_data
 parameter_list|()
 block|{
 name|QTest
@@ -2031,11 +2014,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|removeItemAt_noQt3
+DECL|function|removeItemAt
 name|void
 name|tst_QMenuBar
 operator|::
-name|removeItemAt_noQt3
+name|removeItemAt
 parameter_list|()
 block|{
 name|mb
@@ -2395,11 +2378,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|initComplexMenubar_noQt3
+DECL|function|initComplexMenubar
 name|void
 name|tst_QMenuBar
 operator|::
-name|initComplexMenubar_noQt3
+name|initComplexMenubar
 parameter_list|()
 comment|// well, complex....
 block|{
@@ -2414,9 +2397,9 @@ name|clear
 argument_list|()
 expr_stmt|;
 operator|delete
-name|pm1_Qt4
+name|pm1
 expr_stmt|;
-name|pm1_Qt4
+name|pm1
 operator|=
 name|mb
 operator|->
@@ -2425,7 +2408,7 @@ argument_list|(
 literal|"Menu&1"
 argument_list|)
 expr_stmt|;
-name|pm1_Qt4
+name|pm1
 operator|->
 name|addAction
 argument_list|(
@@ -2451,7 +2434,7 @@ operator|::
 name|Key_A
 argument_list|)
 expr_stmt|;
-name|pm1_Qt4
+name|pm1
 operator|->
 name|addAction
 argument_list|(
@@ -2478,9 +2461,9 @@ name|Key_B
 argument_list|)
 expr_stmt|;
 operator|delete
-name|pm2_Qt4
+name|pm2
 expr_stmt|;
-name|pm2_Qt4
+name|pm2
 operator|=
 name|mb
 operator|->
@@ -2489,7 +2472,7 @@ argument_list|(
 literal|"Menu&2"
 argument_list|)
 expr_stmt|;
-name|pm2_Qt4
+name|pm2
 operator|->
 name|addAction
 argument_list|(
@@ -2515,7 +2498,7 @@ operator|::
 name|Key_C
 argument_list|)
 expr_stmt|;
-name|pm2_Qt4
+name|pm2
 operator|->
 name|addAction
 argument_list|(
@@ -2541,7 +2524,7 @@ operator|::
 name|Key_D
 argument_list|)
 expr_stmt|;
-name|pm2_Qt4
+name|pm2
 operator|->
 name|addAction
 argument_list|(
@@ -2567,7 +2550,7 @@ operator|::
 name|Key_E
 argument_list|)
 expr_stmt|;
-name|pm2_Qt4
+name|pm2
 operator|->
 name|addAction
 argument_list|(
@@ -2593,12 +2576,12 @@ operator|::
 name|Key_F
 argument_list|)
 expr_stmt|;
-name|pm2_Qt4
+name|pm2
 operator|->
 name|addSeparator
 argument_list|()
 expr_stmt|;
-name|pm2_Qt4
+name|pm2
 operator|->
 name|addAction
 argument_list|(
@@ -2624,7 +2607,7 @@ operator|::
 name|Key_G
 argument_list|)
 expr_stmt|;
-name|pm2_Qt4
+name|pm2
 operator|->
 name|addAction
 argument_list|(
@@ -2696,14 +2679,14 @@ begin_comment
 comment|/*     Check the insert functions that create menu items.     For the moment i only check the strings and pixmaps. The rest are special cases which are     used less frequently. */
 end_comment
 begin_function
-DECL|function|insertItem_QString_QObject_noQt3
+DECL|function|insertItem_QString_QObject
 name|void
 name|tst_QMenuBar
 operator|::
-name|insertItem_QString_QObject_noQt3
+name|insertItem_QString_QObject
 parameter_list|()
 block|{
-name|initComplexMenubar_noQt3
+name|initComplexMenubar
 argument_list|()
 expr_stmt|;
 name|QList
@@ -2813,7 +2796,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|initComplexMenubar_noQt3
+name|initComplexMenubar
 argument_list|()
 expr_stmt|;
 comment|// start with a bogus key that shouldn't trigger anything
@@ -3417,7 +3400,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|initComplexMenubar_noQt3
+name|initComplexMenubar
 argument_list|()
 expr_stmt|;
 comment|// start with a ALT + 1 that activates the first popupmenu
@@ -3614,7 +3597,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|initComplexMenubar_noQt3
+name|initComplexMenubar
 argument_list|()
 expr_stmt|;
 comment|// select popupmenu2
@@ -3786,7 +3769,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|initComplexMenubar_noQt3
+name|initComplexMenubar
 argument_list|()
 expr_stmt|;
 comment|// select Popupmenu 2
@@ -3933,7 +3916,7 @@ argument_list|,
 name|Abort
 argument_list|)
 expr_stmt|;
-name|initComplexMenubar_noQt3
+name|initComplexMenubar
 argument_list|()
 expr_stmt|;
 comment|// select Popupmenu 2
@@ -4141,7 +4124,7 @@ argument_list|,
 name|Abort
 argument_list|)
 expr_stmt|;
-name|initComplexMenubar_noQt3
+name|initComplexMenubar
 argument_list|()
 expr_stmt|;
 comment|// select Popupmenu 2
@@ -4293,11 +4276,11 @@ begin_comment
 comment|/*!     If a popupmenu is active you can use esc to hide the menu and then the     menubar should become active.     If Down is pressed next the popup is activated again. */
 end_comment
 begin_function
-DECL|function|check_escKey_noQt3
+DECL|function|check_escKey
 name|void
 name|tst_QMenuBar
 operator|::
-name|check_escKey_noQt3
+name|check_escKey
 parameter_list|()
 block|{
 if|#
@@ -4320,13 +4303,13 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|initComplexMenubar_noQt3
+name|initComplexMenubar
 argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
-name|pm1_Qt4
+name|pm1
 operator|->
 name|isActiveWindow
 argument_list|()
@@ -4335,7 +4318,7 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
-name|pm2_Qt4
+name|pm2
 operator|->
 name|isActiveWindow
 argument_list|()
@@ -4360,7 +4343,7 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
-name|pm1_Qt4
+name|pm1
 operator|->
 name|isActiveWindow
 argument_list|()
@@ -4368,7 +4351,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-name|pm2_Qt4
+name|pm2
 operator|->
 name|isActiveWindow
 argument_list|()
@@ -4389,7 +4372,7 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
-name|pm1_Qt4
+name|pm1
 operator|->
 name|isActiveWindow
 argument_list|()
@@ -4398,7 +4381,7 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
-name|pm2_Qt4
+name|pm2
 operator|->
 name|isActiveWindow
 argument_list|()
@@ -4433,7 +4416,7 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!
-name|pm1_Qt4
+name|pm1
 operator|->
 name|isActiveWindow
 argument_list|()
@@ -4441,7 +4424,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-name|pm2_Qt4
+name|pm2
 operator|->
 name|isActiveWindow
 argument_list|()
@@ -4452,7 +4435,7 @@ name|QTest
 operator|::
 name|keyClick
 argument_list|(
-name|pm2_Qt4
+name|pm2
 argument_list|,
 name|Qt
 operator|::
@@ -5057,7 +5040,7 @@ name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
-name|initSimpleMenubar_noQt3
+name|initSimpleMenubar
 argument_list|()
 expr_stmt|;
 name|qApp
@@ -5129,7 +5112,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|initComplexMenubar_noQt3
+name|initComplexMenubar
 argument_list|()
 expr_stmt|;
 name|qApp
@@ -5207,7 +5190,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-name|pm1_Qt4
+name|pm1
 operator|->
 name|isActiveWindow
 argument_list|()
@@ -5226,7 +5209,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-name|pm1_Qt4
+name|pm1
 operator|->
 name|isActiveWindow
 argument_list|()
@@ -5269,7 +5252,7 @@ directive|endif
 name|Menu
 name|menu
 decl_stmt|;
-name|initComplexMenubar_noQt3
+name|initComplexMenubar
 argument_list|()
 expr_stmt|;
 name|menu
