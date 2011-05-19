@@ -343,6 +343,14 @@ name|QPlatformIntegration
 operator|::
 name|OpenGL
 argument_list|)
+operator|||
+name|tlw
+operator|->
+name|platformWindowFormat
+argument_list|()
+operator|.
+name|alpha
+argument_list|()
 condition|)
 block|{
 if|#
