@@ -149,6 +149,11 @@ argument_list|)
 operator|,
 name|m_in_clip_elements
 argument_list|(
+name|false
+argument_list|)
+operator|,
+name|m_round_coords
+argument_list|(
 argument|false
 argument_list|)
 block|{     }
@@ -619,6 +624,18 @@ modifier|&
 name|path
 parameter_list|)
 function_decl|;
+name|void
+name|setCoordinateRounding
+parameter_list|(
+name|bool
+name|coordinateRounding
+parameter_list|)
+block|{
+name|m_round_coords
+operator|=
+name|coordinateRounding
+expr_stmt|;
+block|}
 specifier|inline
 name|QPainterPath
 operator|::
@@ -739,6 +756,11 @@ name|m_valid
 decl_stmt|;
 name|bool
 name|m_in_clip_elements
+decl_stmt|;
+name|private
+label|:
+name|bool
+name|m_round_coords
 decl_stmt|;
 block|}
 end_decl_stmt

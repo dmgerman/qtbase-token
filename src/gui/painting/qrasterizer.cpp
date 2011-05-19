@@ -125,7 +125,7 @@ DECL|macro|COORD_ROUNDING
 define|#
 directive|define
 name|COORD_ROUNDING
-value|0
+value|1
 end_define
 begin_comment
 DECL|macro|COORD_ROUNDING
@@ -136,7 +136,7 @@ DECL|macro|COORD_OFFSET
 define|#
 directive|define
 name|COORD_OFFSET
-value|0
+value|32
 end_define
 begin_comment
 DECL|macro|COORD_OFFSET
