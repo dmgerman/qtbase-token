@@ -635,25 +635,9 @@ modifier|&
 name|name
 parameter_list|)
 block|{
-if|if
-condition|(
-operator|!
 name|setColorFromString
 argument_list|(
 name|name
-argument_list|)
-condition|)
-name|qWarning
-argument_list|(
-literal|"QColor::setNamedColor: Unknown color name '%s'"
-argument_list|,
-name|name
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
