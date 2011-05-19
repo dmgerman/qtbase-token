@@ -4756,6 +4756,10 @@ name|flags
 operator|&
 name|HB_ShaperFlag_UseDesignMetrics
 operator|)
+operator|||
+name|set
+operator|->
+name|outline_drawing
 condition|)
 name|load_flags
 operator||=

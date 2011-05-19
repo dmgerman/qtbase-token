@@ -3097,7 +3097,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Loads a form from the given \a device and creates a new widget with the     given \a parentWidget to hold its contents.      \sa createWidget() */
+comment|/*!     Loads a form from the given \a device and creates a new widget with the     given \a parentWidget to hold its contents.      \sa createWidget(), errorString() */
 end_comment
 begin_function
 DECL|function|load
@@ -3758,6 +3758,34 @@ operator|->
 name|builder
 operator|.
 name|trEnabled
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns a human-readable description of the last error occurred in load().      \since 5.0     \sa load() */
+end_comment
+begin_function
+DECL|function|errorString
+name|QString
+name|QUiLoader
+operator|::
+name|errorString
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QUiLoader
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|builder
+operator|.
+name|errorString
+argument_list|()
 return|;
 block|}
 end_function

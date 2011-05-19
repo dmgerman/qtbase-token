@@ -959,7 +959,7 @@ argument_list|,
 name|isValid
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT_X
+name|QVERIFY2
 argument_list|(
 name|data
 operator|.
@@ -968,12 +968,10 @@ argument_list|()
 operator|==
 literal|1
 argument_list|,
-literal|"tst_QDBusType"
-argument_list|,
 literal|"Test is malformed, this function must test only one-letter types"
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|isValid
 operator|||
@@ -1085,7 +1083,7 @@ argument_list|,
 name|isValid
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT_X
+name|QVERIFY2
 argument_list|(
 name|data
 operator|.
@@ -1094,12 +1092,10 @@ argument_list|()
 operator|==
 literal|1
 argument_list|,
-literal|"tst_QDBusType"
-argument_list|,
 literal|"Test is malformed, this function must test only one-letter types"
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|isValid
 operator|||
