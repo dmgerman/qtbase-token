@@ -113,6 +113,15 @@ operator|->
 name|root
 return|;
 block|}
+name|xcb_window_t
+name|clientLeader
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_clientLeader
+return|;
+block|}
 name|QString
 name|windowManagerName
 argument_list|()
@@ -145,6 +154,9 @@ name|m_windowManagerName
 decl_stmt|;
 name|bool
 name|m_syncRequestSupported
+decl_stmt|;
+name|xcb_window_t
+name|m_clientLeader
 decl_stmt|;
 block|}
 end_decl_stmt

@@ -426,15 +426,6 @@ argument_list|(
 name|QWindow
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|d
-operator|->
-name|parentWindow
-operator|==
-name|parent
-condition|)
-return|return;
 name|QObject
 operator|::
 name|setParent
