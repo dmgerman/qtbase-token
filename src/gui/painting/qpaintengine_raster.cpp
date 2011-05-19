@@ -17869,9 +17869,10 @@ index|]
 operator|.
 name|x
 operator|+
-name|metrics
+name|tmetrics
 operator|.
-name|x
+name|HorizBearingX
+argument_list|()
 operator|+
 name|aliasDelta
 argument_list|)
@@ -17888,10 +17889,11 @@ name|i
 index|]
 operator|.
 name|y
-operator|+
-name|metrics
+operator|-
+name|tmetrics
 operator|.
-name|y
+name|HorizBearingY
+argument_list|()
 operator|+
 name|aliasDelta
 argument_list|)
