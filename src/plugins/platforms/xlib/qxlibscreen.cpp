@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<X11/extensions/Xfixes.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"qxlibcursor.h"
 end_include
 begin_include
@@ -56,11 +61,6 @@ begin_include
 include|#
 directive|include
 file|<private/qapplication_p.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<X11/extensions/Xfixes.h>
 end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
@@ -558,7 +558,7 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|DONT_USE_MIT_SHM
-name|Status
+name|int
 name|MIT_SHM_extension_supported
 init|=
 name|XShmQueryExtension

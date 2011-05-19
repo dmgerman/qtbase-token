@@ -42,23 +42,6 @@ include|#
 directive|include
 file|<QDebug>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_XFIXES
-end_ifndef
-begin_include
-include|#
-directive|include
-file|<X11/extensions/Xfixes.h>
-end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_XFIXES
-end_comment
 begin_decl_stmt
 DECL|variable|x11_atomnames
 specifier|static

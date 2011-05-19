@@ -563,7 +563,6 @@ name|screen
 init|=
 cast|static_cast
 argument_list|<
-specifier|const
 name|QXlibScreen
 operator|*
 argument_list|>

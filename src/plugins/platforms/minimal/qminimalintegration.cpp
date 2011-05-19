@@ -56,7 +56,7 @@ name|mPrimaryScreen
 operator|->
 name|mDepth
 operator|=
-literal|16
+literal|32
 expr_stmt|;
 name|mPrimaryScreen
 operator|->
@@ -64,7 +64,7 @@ name|mFormat
 operator|=
 name|QImage
 operator|::
-name|Format_RGB16
+name|Format_ARGB32_Premultiplied
 expr_stmt|;
 name|mScreens
 operator|.
