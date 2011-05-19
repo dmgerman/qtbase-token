@@ -115,13 +115,6 @@ name|void
 name|themeChange
 argument_list|()
 block|;
-if|#
-directive|if
-operator|(
-name|QT_VERSION
-operator|>=
-literal|0x040600
-operator|)
 name|virtual
 name|void
 name|setSubtreeCacheEnabled
@@ -129,8 +122,6 @@ argument_list|(
 argument|bool enabled
 argument_list|)
 block|;
-endif|#
-directive|endif
 name|virtual
 name|QSizeF
 name|effectiveSizeHint

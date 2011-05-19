@@ -1479,7 +1479,7 @@ parameter_list|(
 name|TYPE
 parameter_list|)
 define|\
-value|QFETCH(QString, device); \     if (device == "bytearray") { \ 	    QByteArray ba; \ 	    QDataStream sout(&ba, QIODevice::WriteOnly); \ 	    write##TYPE(&sout); \ 	    QDataStream sin(&ba, QIODevice::ReadOnly); \ 	    read##TYPE(&sin); \     } else if (device == "file") { \ 	    QString fileName = "qdatastream.out"; \ 	    QFile fOut(fileName); \ 	    QVERIFY(fOut.open(QIODevice::WriteOnly)); \ 	    QDataStream sout(&fOut); \ 	    write##TYPE(&sout); \ 	    fOut.close(); \ 	    QFile fIn(fileName); \ 	    QVERIFY(fIn.open(QIODevice::ReadOnly)); \ 	    QDataStream sin(&fIn); \ 	    read##TYPE(&sin); \ 	    fIn.close(); \     } else if (device == "buffer") { \ 	    QByteArray ba(10000, '\0'); \ 	    QBuffer bOut(&ba); \ 	    bOut.open(QIODevice::WriteOnly); \ 	    QDataStream sout(&bOut); \ 	    write##TYPE(&sout); \ 	    bOut.close(); \ 	    QBuffer bIn(&ba); \ 	    bIn.open(QIODevice::ReadOnly); \ 	    QDataStream sin(&bIn); \ 	    read##TYPE(&sin); \ 	    bIn.close(); \     }
+value|QFETCH(QString, device); \     if (device == "bytearray") { \         QByteArray ba; \         QDataStream sout(&ba, QIODevice::WriteOnly); \         write##TYPE(&sout); \         QDataStream sin(&ba, QIODevice::ReadOnly); \         read##TYPE(&sin); \     } else if (device == "file") { \         QString fileName = "qdatastream.out"; \         QFile fOut(fileName); \         QVERIFY(fOut.open(QIODevice::WriteOnly)); \         QDataStream sout(&fOut); \         write##TYPE(&sout); \         fOut.close(); \         QFile fIn(fileName); \         QVERIFY(fIn.open(QIODevice::ReadOnly)); \         QDataStream sin(&fIn); \         read##TYPE(&sin); \         fIn.close(); \     } else if (device == "buffer") { \         QByteArray ba(10000, '\0'); \         QBuffer bOut(&ba); \         bOut.open(QIODevice::WriteOnly); \         QDataStream sout(&bOut); \         write##TYPE(&sout); \         bOut.close(); \         QBuffer bIn(&ba); \         bIn.open(QIODevice::ReadOnly); \         QDataStream sin(&bIn); \         read##TYPE(&sin); \         bIn.close(); \     }
 end_define
 begin_comment
 comment|// ************************************
@@ -8177,9 +8177,9 @@ comment|//     ################ Bug : ref and orig has ff in alpha; readback has
 comment|//     ### (Was like this in 1.44 as well)
 comment|//
 comment|//    for(int i = 0; i< d12.height(); i++)
-comment|//	for(int j = 0; j< d12.width(); j++)
-comment|//	    if (d12.pixel(j, i) != ref.pixel(j, i))
-comment|//		qDebug("Feil %i %i", j, i);
+comment|//        for(int j = 0; j< d12.width(); j++)
+comment|//            if (d12.pixel(j, i) != ref.pixel(j, i))
+comment|//                qDebug("Feil %i %i", j, i);
 comment|//
 block|}
 end_function
@@ -11795,7 +11795,7 @@ argument_list|,
 name|vers
 argument_list|)
 expr_stmt|;
-comment|/*     Test QKeySequence.     */
+comment|/*         Test QKeySequence.     */
 name|QByteArray
 name|ba1
 decl_stmt|;
@@ -11938,7 +11938,7 @@ literal|0xDEADBEEF
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*     Test QPalette.     */
+comment|/*         Test QPalette.     */
 comment|// revise the test if new color roles or color groups are added
 name|QVERIFY
 argument_list|(

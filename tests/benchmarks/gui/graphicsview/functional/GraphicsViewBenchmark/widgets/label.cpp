@@ -68,11 +68,6 @@ argument_list|(
 name|text
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|QT_VERSION
-operator|>=
-literal|0x040600
 comment|// This flag was introduced in Qt 4.6.
 name|setFlag
 argument_list|(
@@ -83,8 +78,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_constructor
 begin_destructor

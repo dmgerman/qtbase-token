@@ -226,13 +226,6 @@ return|return
 name|m_listItemRounding
 return|;
 block|}
-if|#
-directive|if
-operator|(
-name|QT_VERSION
-operator|>=
-literal|0x040600
-operator|)
 name|bool
 name|isIconOpacityEffectEnabled
 argument_list|(
@@ -247,8 +240,6 @@ name|iconPos
 index|]
 return|;
 block|}
-endif|#
-directive|endif
 name|qreal
 name|iconRotation
 argument_list|(
@@ -343,13 +334,6 @@ block|;
 name|QSize
 name|m_listItemRounding
 block|;
-if|#
-directive|if
-operator|(
-name|QT_VERSION
-operator|>=
-literal|0x040600
-operator|)
 name|QHash
 operator|<
 name|ListItem
@@ -360,8 +344,6 @@ name|bool
 operator|>
 name|m_iconOpacityEffectEnabled
 block|;
-endif|#
-directive|endif
 name|QHash
 operator|<
 name|ListItem

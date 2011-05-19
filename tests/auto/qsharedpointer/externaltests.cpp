@@ -1371,18 +1371,6 @@ name|qtModules
 operator|&
 name|QExternalTest
 operator|::
-name|Qt3Support
-condition|)
-name|sourceCode
-operator|+=
-literal|"#include<Qt3Support/Qt3Support>\n"
-expr_stmt|;
-if|if
-condition|(
-name|qtModules
-operator|&
-name|QExternalTest
-operator|::
 name|QtSvg
 condition|)
 name|sourceCode
@@ -2055,21 +2043,6 @@ operator|.
 name|write
 argument_list|(
 literal|"QT += sql\n"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|qtModules
-operator|&
-name|QExternalTest
-operator|::
-name|Qt3Support
-condition|)
-name|projectFile
-operator|.
-name|write
-argument_list|(
-literal|"QT += qt3support\n"
 argument_list|)
 expr_stmt|;
 if|if

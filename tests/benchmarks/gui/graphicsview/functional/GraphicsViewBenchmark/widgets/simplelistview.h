@@ -114,13 +114,6 @@ name|void
 name|themeChange
 argument_list|()
 block|;
-if|#
-directive|if
-operator|(
-name|QT_VERSION
-operator|>=
-literal|0x040600
-operator|)
 name|bool
 name|listItemCaching
 argument_list|()
@@ -132,8 +125,6 @@ argument_list|(
 argument|bool enabled
 argument_list|)
 block|;
-endif|#
-directive|endif
 name|protected
 operator|:
 name|virtual

@@ -2291,13 +2291,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|QT_VERSION
-operator|>=
-literal|0x040600
-operator|)
 name|m_container
 operator|->
 name|setListItemCaching
@@ -2308,8 +2301,6 @@ argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 name|qreal
 name|diff

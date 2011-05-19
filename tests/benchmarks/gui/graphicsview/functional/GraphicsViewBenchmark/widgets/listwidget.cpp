@@ -324,15 +324,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-operator|(
-name|QT_VERSION
-operator|>=
-literal|0x040600
-operator|)
-end_if
 begin_function
 DECL|function|listItemCaching
 name|bool
@@ -370,10 +361,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|setTwoColumns
 name|void
