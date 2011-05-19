@@ -451,6 +451,11 @@ ifndef|#
 directive|ifndef
 name|QT_NO_XFIXES
 end_ifndef
+begin_include
+include|#
+directive|include
+file|<X11/extensions/Xfixes.h>
+end_include
 begin_typedef
 DECL|typedef|PtrXFixesQueryExtension
 typedef|typedef
