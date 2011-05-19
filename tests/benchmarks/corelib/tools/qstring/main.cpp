@@ -4821,7 +4821,7 @@ name|int
 name|bsf_nonzero
 parameter_list|(
 specifier|register
-name|long
+name|int
 name|val
 parameter_list|)
 block|{
