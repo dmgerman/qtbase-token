@@ -1354,8 +1354,6 @@ literal|"QT_CONFIG+=private_tests"
 operator|<<
 literal|"QT_CONFIG+=pulseaudio"
 operator|<<
-literal|"QT_CONFIG+=qt3support"
-operator|<<
 literal|"QT_CONFIG+=script"
 operator|<<
 literal|"QT_CONFIG+=svg"
