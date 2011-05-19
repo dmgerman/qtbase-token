@@ -7289,6 +7289,16 @@ argument_list|,
 name|ffmt
 argument_list|)
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|frame
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|childFrame
+argument_list|)
+expr_stmt|;
 comment|// used to give a failing assertion
 name|table
 operator|->

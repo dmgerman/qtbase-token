@@ -116,9 +116,10 @@ comment|// const QPicture& QPictureIO::picture()
 comment|// void QPictureIO::setPicture(const QPicture&)
 comment|// const char * QPictureIO::format()
 comment|// void QPictureIO::setFormat(const char *)
+specifier|const
 name|char
-modifier|*
 name|var2
+index|[]
 init|=
 literal|"PNG"
 decl_stmt|;
@@ -167,9 +168,10 @@ argument_list|)
 expr_stmt|;
 comment|// const char * QPictureIO::parameters()
 comment|// void QPictureIO::setParameters(const char *)
+specifier|const
 name|char
-modifier|*
 name|var3
+index|[]
 init|=
 literal|"Bogus data"
 decl_stmt|;

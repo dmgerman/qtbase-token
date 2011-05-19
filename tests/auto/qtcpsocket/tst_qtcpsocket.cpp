@@ -1745,7 +1745,7 @@ operator|::
 name|earlySocketBytesSent
 parameter_list|(
 name|qint64
-name|bytes
+comment|/* bytes */
 parameter_list|)
 block|{
 name|earlyBytesWrittenCount

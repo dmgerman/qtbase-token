@@ -331,13 +331,10 @@ continue|continue;
 block|}
 name|qDebug
 argument_list|(
+literal|"Testing: %s"
+argument_list|,
 name|qPrintable
 argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"Testing: "
-argument_list|)
-operator|+
 name|tst_Databases
 operator|::
 name|dbToString
@@ -842,13 +839,10 @@ condition|)
 block|{
 name|qDebug
 argument_list|(
+literal|"Promiscuous database server without access control - test skipped for %s"
+argument_list|,
 name|qPrintable
 argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"Promiscuous database server without access control - test skipped for "
-argument_list|)
-operator|+
 name|tst_Databases
 operator|::
 name|dbToString

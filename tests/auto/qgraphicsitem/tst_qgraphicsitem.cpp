@@ -367,7 +367,7 @@ parameter_list|,
 name|Qt
 operator|::
 name|MouseButtons
-name|buttons
+comment|/* buttons */
 init|=
 literal|0
 parameter_list|)
@@ -4136,6 +4136,11 @@ argument_list|(
 name|rect
 argument_list|)
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|child3
+argument_list|)
+expr_stmt|;
 operator|delete
 name|child1
 expr_stmt|;

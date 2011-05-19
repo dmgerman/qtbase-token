@@ -3768,10 +3768,10 @@ parameter_list|(
 specifier|const
 name|char
 modifier|*
-name|data
+comment|/* data */
 parameter_list|,
 name|qint64
-name|maxlen
+comment|/* maxlen */
 parameter_list|)
 block|{
 return|return

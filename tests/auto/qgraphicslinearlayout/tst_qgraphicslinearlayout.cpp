@@ -1266,8 +1266,9 @@ literal|true
 decl_stmt|;
 for|for
 control|(
+name|size_t
 name|i
-operator|=
+init|=
 literal|0
 init|;
 name|i
@@ -7226,6 +7227,11 @@ operator|&
 name|scene
 argument_list|)
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|view
+argument_list|)
+expr_stmt|;
 name|QGraphicsWidget
 modifier|*
 name|form

@@ -18457,7 +18457,7 @@ parameter_list|,
 specifier|const
 name|QModelIndex
 modifier|&
-name|source_parent
+comment|/* source_parent */
 parameter_list|)
 specifier|const
 block|{

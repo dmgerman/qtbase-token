@@ -57,6 +57,11 @@ operator|new
 name|base
 argument_list|()
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|b
+argument_list|)
+expr_stmt|;
 return|return
 name|app
 operator|.

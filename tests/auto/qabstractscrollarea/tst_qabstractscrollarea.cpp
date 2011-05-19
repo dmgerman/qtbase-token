@@ -1694,7 +1694,7 @@ name|timerEvent
 parameter_list|(
 name|QTimerEvent
 modifier|*
-name|event
+comment|/* event */
 parameter_list|)
 block|{
 comment|// should not crash.

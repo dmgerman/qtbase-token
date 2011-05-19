@@ -1810,6 +1810,13 @@ argument_list|,
 name|SkipAll
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|style
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 name|QScrollBar

@@ -2625,6 +2625,16 @@ argument_list|,
 name|fullpage
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|width
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|height
+argument_list|)
+expr_stmt|;
 name|QPrinter
 name|printer
 decl_stmt|;

@@ -26101,6 +26101,11 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|wrappedEvent
+argument_list|)
+expr_stmt|;
 name|QStateMachine
 operator|::
 name|SignalEvent
@@ -26123,6 +26128,11 @@ argument_list|>
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|signalEvent
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function

@@ -1313,6 +1313,10 @@ argument_list|)
 return|;
 endif|#
 directive|endif
+case|case
+name|NumberOfFileTypes
+case|:
+break|break;
 block|}
 return|return
 literal|false

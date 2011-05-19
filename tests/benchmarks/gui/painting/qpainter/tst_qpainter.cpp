@@ -5595,6 +5595,10 @@ argument_list|)
 expr_stmt|;
 block|}
 break|break;
+case|case
+name|Primitive_Last_Primitive
+case|:
+break|break;
 block|}
 block|}
 end_function
