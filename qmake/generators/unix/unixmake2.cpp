@@ -998,30 +998,6 @@ name|project
 operator|->
 name|isEmpty
 argument_list|(
-literal|"QMAKE_MACOSX_DEPLOYMENT_TARGET"
-argument_list|)
-condition|)
-name|t
-operator|<<
-literal|"export MACOSX_DEPLOYMENT_TARGET = "
-comment|//exported to children processes
-operator|<<
-name|project
-operator|->
-name|first
-argument_list|(
-literal|"QMAKE_MACOSX_DEPLOYMENT_TARGET"
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|project
-operator|->
-name|isEmpty
-argument_list|(
 literal|"QMAKE_SYMBIAN_SHLIB"
 argument_list|)
 condition|)
