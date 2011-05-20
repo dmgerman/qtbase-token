@@ -115,6 +115,36 @@ parameter_list|)
 init|=
 literal|0
 function_decl|;
+name|virtual
+name|bool
+name|canAddWidget
+argument_list|()
+specifier|const
+comment|// ### Qt6 remove body, provided in Qt5 for source compatibility to Qt4.
+block|{
+return|return
+name|true
+return|;
+block|}
+name|virtual
+name|bool
+name|canRemove
+argument_list|(
+name|int
+name|index
+argument_list|)
+decl|const
+comment|// ### Qt6 remove body, provided in Qt5 for source compatibility to Qt4.
+block|{
+name|Q_UNUSED
+argument_list|(
+name|index
+argument_list|)
+expr_stmt|;
+return|return
+name|true
+return|;
+block|}
 block|}
 end_decl_stmt
 begin_empty_stmt
