@@ -181,6 +181,12 @@ name|createEventLoopIntegration
 argument_list|()
 specifier|const
 block|;
+name|QPlatformNativeInterface
+operator|*
+name|nativeInterface
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QList

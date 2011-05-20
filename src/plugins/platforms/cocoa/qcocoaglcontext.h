@@ -75,6 +75,12 @@ operator|*
 name|createNSOpenGLPixelFormat
 argument_list|()
 block|;
+name|NSOpenGLContext
+operator|*
+name|nsOpenGLContext
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|NSOpenGLView
