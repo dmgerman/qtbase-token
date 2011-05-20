@@ -162,12 +162,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGraphicsView>
+file|<QtWidgets/QGraphicsView>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGraphicsProxyWidget>
+file|<QtWidgets/QGraphicsProxyWidget>
 end_include
 begin_include
 include|#
