@@ -6252,7 +6252,7 @@ operator|::
 name|resizeMode
 parameter_list|()
 block|{
-comment|// Q_ASSERT's when resizeMode is called with an invalid index
+comment|// resizeMode must not be called with an invalid index
 name|int
 name|last
 init|=

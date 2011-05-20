@@ -1196,6 +1196,11 @@ argument_list|,
 name|tableFormat
 argument_list|)
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|table
+argument_list|)
+expr_stmt|;
 comment|// Make height of document 2/3 of the table, fitting the table into two pages
 name|QSizeF
 name|documentSize

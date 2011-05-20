@@ -400,16 +400,23 @@ decl_stmt|;
 operator|++
 name|nitr
 expr_stmt|;
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
 name|nitr
-operator|!=
+operator|==
 name|nums
 operator|.
 name|end
 argument_list|()
-argument_list|)
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"parsePoints: Even number of co-ordinates required, odd number found: skipping last point"
 expr_stmt|;
+break|break;
+block|}
 name|qreal
 name|y
 init|=

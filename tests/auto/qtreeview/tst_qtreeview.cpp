@@ -1099,9 +1099,16 @@ argument_list|()
 parameter_list|)
 specifier|const
 block|{
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
+operator|!
 name|fetched
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: rowCount should not be called before fetching"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 if|if
@@ -18239,7 +18246,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*     This is a model that every time kill() is called it will completely change     all of its nodes for new nodes.  It then asserts if you later use a dead node.  */
+comment|/*     This is a model that every time kill() is called it will completely change     all of its nodes for new nodes.  It then qFatal's if you later use a dead node.  */
 end_comment
 begin_class
 DECL|class|EvilModel
@@ -18434,12 +18441,19 @@ operator|==
 literal|0
 condition|)
 block|{
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
+operator|!
 name|children
 operator|.
 name|isEmpty
 argument_list|()
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: children should be empty when parent is null"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 name|populate
@@ -18734,12 +18748,17 @@ name|internalPointer
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-operator|!
+if|if
+condition|(
 name|parentNode
 operator|->
 name|isDead
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: parentNode is dead!"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}
@@ -18832,12 +18851,17 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|Q_ASSERT
-argument_list|(
-operator|!
+if|if
+condition|(
 name|grandparentNode
 operator|->
 name|isDead
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: grandparentNode is dead!"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 name|parentNode
@@ -18852,12 +18876,17 @@ name|row
 argument_list|()
 index|]
 expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-operator|!
+if|if
+condition|(
 name|parentNode
 operator|->
 name|isDead
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: grandparentNode is dead!"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}
@@ -18990,12 +19019,17 @@ name|internalPointer
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-operator|!
+if|if
+condition|(
 name|parentNode
 operator|->
 name|isDead
+condition|)
+name|qFatal
+argument_list|(
+literal|"%s: grandparentNode is dead!"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}
@@ -26725,7 +26759,7 @@ name|Model_11466
 parameter_list|(
 name|QObject
 modifier|*
-name|parent
+comment|/* parent */
 parameter_list|)
 member_init_list|:
 name|m_block
@@ -26826,7 +26860,7 @@ parameter_list|(
 specifier|const
 name|QModelIndex
 modifier|&
-name|parent
+comment|/* parent */
 parameter_list|)
 specifier|const
 block|{

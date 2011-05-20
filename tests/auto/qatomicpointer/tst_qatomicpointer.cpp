@@ -162,12 +162,11 @@ operator|::
 name|warningFreeHelper
 parameter_list|()
 block|{
-name|Q_ASSERT
+name|qFatal
 argument_list|(
-literal|false
+literal|"This code is bogus, and shouldn't be run. We're looking for compiler warnings only."
 argument_list|)
 expr_stmt|;
-comment|// The code below is bogus, and shouldn't be run. We're looking for warnings, only.
 name|QBasicAtomicPointer
 argument_list|<
 name|WFHC

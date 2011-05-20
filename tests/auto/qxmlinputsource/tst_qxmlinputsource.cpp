@@ -610,16 +610,11 @@ operator|-
 literal|1
 condition|)
 block|{
-name|Q_ASSERT_X
+name|qFatal
 argument_list|(
-literal|false
-argument_list|,
-name|Q_FUNC_INFO
-argument_list|,
 literal|"No length was specified in the header."
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 name|QDomDocument
 name|domDoc

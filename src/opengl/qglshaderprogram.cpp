@@ -987,11 +987,20 @@ end_comment
 begin_comment
 comment|// keywords to empty strings on desktop systems.
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_OPENGL_ES
-end_ifndef
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|QT_OPENGL_FORCE_SHADER_DEFINES
+argument_list|)
+end_if
 begin_define
 DECL|macro|QGL_DEFINE_QUALIFIERS
 define|#
@@ -1012,21 +1021,16 @@ literal|"#define mediump\n"
 literal|"#define highp\n"
 decl_stmt|;
 end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
+begin_else
+else|#
+directive|else
+end_else
 begin_comment
 comment|// The "highp" qualifier doesn't exist in fragment shaders
 end_comment
 begin_comment
 comment|// on all ES platforms.  When it doesn't exist, use "mediump".
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_OPENGL_ES
-end_ifdef
 begin_define
 DECL|macro|QGL_REDEFINE_HIGHP
 define|#

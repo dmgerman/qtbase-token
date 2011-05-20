@@ -86,13 +86,13 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_USE_FAST_CONCATENATION
+name|QT_USE_QSTRINGBUILDER
 end_ifdef
 begin_undef
-DECL|macro|QT_USE_FAST_CONCATENATION
+DECL|macro|QT_USE_QSTRINGBUILDER
 undef|#
 directive|undef
-name|QT_USE_FAST_CONCATENATION
+name|QT_USE_QSTRINGBUILDER
 end_undef
 begin_endif
 endif|#
@@ -4856,16 +4856,15 @@ literal|0
 return|;
 block|}
 end_expr_stmt
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_USE_FAST_OPERATOR_PLUS
-end_ifndef
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_USE_FAST_CONCATENATION
-end_ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_USE_QSTRINGBUILDER
+argument_list|)
+end_if
 begin_expr_stmt
 specifier|inline
 specifier|const
@@ -5010,14 +5009,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_USE_FAST_CONCATENATION
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_USE_FAST_OPERATOR_PLUS
+comment|// QT_USE_QSTRINGBUILDER
 end_comment
 begin_expr_stmt
 specifier|inline
@@ -5482,7 +5474,7 @@ end_expr_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_USE_FAST_CONCATENATION
+name|QT_USE_QSTRINGBUILDER
 end_ifdef
 begin_include
 include|#

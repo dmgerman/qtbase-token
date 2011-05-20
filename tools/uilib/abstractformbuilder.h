@@ -318,6 +318,11 @@ name|isScriptingEnabled
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QString
+name|errorString
+argument_list|()
+specifier|const
+expr_stmt|;
 name|protected
 label|:
 comment|//

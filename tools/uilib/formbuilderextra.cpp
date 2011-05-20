@@ -206,6 +206,14 @@ argument_list|(
 name|INT_MIN
 argument_list|)
 member_init_list|,
+name|m_language
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"c++"
+argument_list|)
+argument_list|)
+member_init_list|,
 name|m_layoutWidget
 argument_list|(
 literal|false

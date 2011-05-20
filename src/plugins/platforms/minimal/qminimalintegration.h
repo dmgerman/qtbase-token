@@ -38,12 +38,12 @@ argument_list|()
 operator|:
 name|mDepth
 argument_list|(
-literal|16
+literal|32
 argument_list|)
 block|,
 name|mFormat
 argument_list|(
-argument|QImage::Format_RGB16
+argument|QImage::Format_ARGB32_Premultiplied
 argument_list|)
 block|{}
 name|QRect

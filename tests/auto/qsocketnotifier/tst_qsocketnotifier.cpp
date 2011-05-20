@@ -86,7 +86,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<select.h>
+file|<sys/select.h>
 end_include
 begin_class
 DECL|class|tst_QSocketNotifier
@@ -656,6 +656,7 @@ argument_list|(
 name|timer
 operator|.
 name|isActive
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//escape if test would hang

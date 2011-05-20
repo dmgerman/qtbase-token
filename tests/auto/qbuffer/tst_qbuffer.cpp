@@ -1083,13 +1083,6 @@ name|offset
 init|=
 literal|1
 decl_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|offset
-operator|>
-literal|0
-argument_list|)
-expr_stmt|;
 comment|// any positive integer will do
 specifier|const
 name|qint64

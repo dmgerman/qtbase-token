@@ -10197,8 +10197,10 @@ condition|)
 block|{
 name|qDebug
 argument_list|(
-literal|"MySQL: "
-operator|+
+literal|"MySQL: %s"
+argument_list|,
+name|qPrintable
+argument_list|(
 name|tst_Databases
 operator|::
 name|printError
@@ -10207,6 +10209,7 @@ name|q
 operator|.
 name|lastError
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10342,12 +10345,9 @@ argument_list|()
 condition|)
 name|qDebug
 argument_list|(
-name|QString
-argument_list|(
-literal|"DBMS '%1' doesn't support query based transactions with concurrent access"
-argument_list|)
-operator|.
-name|arg
+literal|"DBMS '%s' doesn't support query based transactions with concurrent access"
+argument_list|,
+name|qPrintable
 argument_list|(
 name|tst_Databases
 operator|::
@@ -10356,9 +10356,6 @@ argument_list|(
 name|db
 argument_list|)
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|QVERIFY_SQL

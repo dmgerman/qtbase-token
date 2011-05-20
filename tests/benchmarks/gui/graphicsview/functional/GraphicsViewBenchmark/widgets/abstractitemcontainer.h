@@ -164,13 +164,6 @@ name|bool
 name|twoColumns
 argument_list|()
 block|;
-if|#
-directive|if
-operator|(
-name|QT_VERSION
-operator|>=
-literal|0x040600
-operator|)
 name|void
 name|setSubtreeCacheEnabled
 argument_list|(
@@ -188,8 +181,6 @@ argument_list|)
 operator|=
 literal|0
 block|;
-endif|#
-directive|endif
 name|protected
 operator|:
 name|virtual

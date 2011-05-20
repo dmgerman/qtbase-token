@@ -116,13 +116,6 @@ name|itemCount
 argument_list|()
 specifier|const
 block|;
-if|#
-directive|if
-operator|(
-name|QT_VERSION
-operator|>=
-literal|0x040600
-operator|)
 name|bool
 name|listItemCaching
 argument_list|()
@@ -134,8 +127,6 @@ argument_list|(
 argument|bool enable
 argument_list|)
 block|;
-endif|#
-directive|endif
 name|ScrollBar
 operator|*
 name|verticalScrollBar

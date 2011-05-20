@@ -50,7 +50,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/private/qdnd_p.h>
+file|<QtGui/private/qdnd_p.h>
 end_include
 begin_decl_stmt
 DECL|variable|clipboard

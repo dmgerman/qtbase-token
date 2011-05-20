@@ -9612,17 +9612,7 @@ block|}
 else|else
 block|{
 comment|// Qt controls everything (default)
-if|if
-condition|(
-name|QApplication
-operator|::
-name|testAttribute
-argument_list|(
-name|Qt
-operator|::
-name|AA_X11InitThreads
-argument_list|)
-condition|)
+comment|// With the threaded QML renderer, we always need this.
 name|XInitThreads
 argument_list|()
 expr_stmt|;

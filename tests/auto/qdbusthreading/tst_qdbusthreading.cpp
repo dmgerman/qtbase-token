@@ -2767,7 +2767,7 @@ operator|.
 name|acquire
 argument_list|()
 expr_stmt|;
-name|Q_ASSERT
+name|QVERIFY
 argument_list|(
 name|loop
 argument_list|)

@@ -5873,6 +5873,11 @@ operator|)
 name|sender
 argument_list|()
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|reply
+argument_list|)
+expr_stmt|;
 name|receivedCount
 operator|++
 expr_stmt|;
@@ -6128,6 +6133,11 @@ operator|)
 name|sender
 argument_list|()
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|reply
+argument_list|)
+expr_stmt|;
 name|receivedCount
 operator|++
 expr_stmt|;

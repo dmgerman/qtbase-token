@@ -540,6 +540,11 @@ argument_list|(
 name|modelType
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|currentModel
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|currentModel
@@ -875,6 +880,11 @@ argument_list|(
 name|modelType
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|currentModel
+argument_list|)
+expr_stmt|;
 name|QFETCH
 argument_list|(
 name|bool
@@ -1111,6 +1121,11 @@ argument_list|(
 name|modelType
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|currentModel
+argument_list|)
+expr_stmt|;
 name|QFETCH
 argument_list|(
 name|bool
@@ -1251,6 +1266,11 @@ operator|->
 name|createModel
 argument_list|(
 name|modelType
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|currentModel
 argument_list|)
 expr_stmt|;
 comment|// Make sure that invalid values returns an invalid index
@@ -1416,6 +1436,11 @@ operator|->
 name|createModel
 argument_list|(
 name|modelType
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|currentModel
 argument_list|)
 expr_stmt|;
 comment|// Make sure that invalid values returns an invalid index
@@ -2059,6 +2084,11 @@ argument_list|(
 name|modelType
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|currentModel
+argument_list|)
+expr_stmt|;
 comment|// Make sure the model wont crash and will return an invalid QModelIndex
 comment|// when asked for the parent of an invalid index.
 name|QCOMPARE
@@ -2278,6 +2308,11 @@ operator|->
 name|createModel
 argument_list|(
 name|modelType
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|currentModel
 argument_list|)
 expr_stmt|;
 comment|// Invalid index should return an invalid qvariant
@@ -2795,6 +2830,11 @@ argument_list|(
 name|modelType
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|currentModel
+argument_list|)
+expr_stmt|;
 name|qRegisterMetaType
 argument_list|<
 name|QModelIndex
@@ -3033,6 +3073,11 @@ operator|->
 name|createModel
 argument_list|(
 name|modelType
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|currentModel
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -3326,6 +3371,11 @@ operator|->
 name|createModel
 argument_list|(
 name|modelType
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|currentModel
 argument_list|)
 expr_stmt|;
 name|QFETCH
@@ -4402,6 +4452,11 @@ operator|->
 name|createModel
 argument_list|(
 name|modelType
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|currentModel
 argument_list|)
 expr_stmt|;
 name|QFETCH
@@ -6997,6 +7052,11 @@ operator|->
 name|createModel
 argument_list|(
 name|modelType
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|currentModel
 argument_list|)
 expr_stmt|;
 name|QFETCH

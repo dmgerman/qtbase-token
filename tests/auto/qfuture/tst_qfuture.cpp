@@ -7287,6 +7287,11 @@ block|{
 name|MyClass
 name|m
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|m
+argument_list|)
+expr_stmt|;
 throw|throw
 literal|0
 throw|;

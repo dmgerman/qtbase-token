@@ -610,13 +610,9 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|Q_ASSERT_X
+name|qFatal
 argument_list|(
-literal|false
-argument_list|,
-literal|"tst_QThread"
-argument_list|,
-literal|"test case hung"
+literal|"tst_QThread: test case hung"
 argument_list|)
 expr_stmt|;
 block|}

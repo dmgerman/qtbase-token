@@ -52,13 +52,6 @@ name|rows
 argument_list|()
 specifier|const
 block|;
-if|#
-directive|if
-operator|(
-name|QT_VERSION
-operator|>=
-literal|0x040600
-operator|)
 name|virtual
 name|bool
 name|listItemCaching
@@ -76,8 +69,6 @@ argument_list|)
 operator|=
 literal|0
 block|;
-endif|#
-directive|endif
 name|protected
 operator|:
 name|void

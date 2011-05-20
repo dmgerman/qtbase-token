@@ -472,6 +472,7 @@ end_function
 begin_function
 DECL|function|tokenName
 specifier|static
+specifier|const
 name|char
 modifier|*
 name|tokenName

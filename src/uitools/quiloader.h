@@ -277,6 +277,11 @@ name|isTranslationEnabled
 argument_list|()
 specifier|const
 block|;
+name|QString
+name|errorString
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QScopedPointer

@@ -17797,7 +17797,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"QTBUG-6004: No failing Q_ASSERT, then it passes."
+literal|"QTBUG-6004: No failing assertion, then it passes."
 argument_list|)
 operator|<<
 literal|5
@@ -17848,7 +17848,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"QTBUG-6004 (follow-up): No failing Q_ASSERT, then it passes."
+literal|"QTBUG-6004 (follow-up): No failing assertion, then it passes."
 argument_list|)
 operator|<<
 literal|10
