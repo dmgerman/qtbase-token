@@ -318,6 +318,7 @@ name|toString
 argument_list|()
 return|;
 block|}
+comment|// ### Qt5 remove
 endif|#
 directive|endif
 name|bool
