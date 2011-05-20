@@ -160,6 +160,12 @@ name|QWindowList
 name|topLevelWindows
 argument_list|()
 block|;
+specifier|static
+name|QWindow
+operator|*
+name|activeWindow
+argument_list|()
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CURSOR
