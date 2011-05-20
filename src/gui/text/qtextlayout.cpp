@@ -12550,11 +12550,6 @@ operator|->
 name|visualCursorMovement
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|reverse
-condition|)
-block|{
 name|int
 name|end
 init|=
@@ -12573,6 +12568,11 @@ name|si
 operator|->
 name|position
 decl_stmt|;
+if|if
+condition|(
+name|reverse
+condition|)
+block|{
 name|int
 name|glyph_end
 init|=
@@ -12737,9 +12737,7 @@ name|si
 argument_list|,
 name|pos
 argument_list|,
-name|line
-operator|.
-name|length
+name|end
 argument_list|,
 name|glyph_pos
 argument_list|)
