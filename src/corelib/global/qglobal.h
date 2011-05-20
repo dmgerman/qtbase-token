@@ -1389,7 +1389,7 @@ name|Q_COMPILER_LAMBDA
 define|#
 directive|define
 name|Q_COMPILER_DECLTYPE
-comment|//  MSCV has std::initilizer_list, but do not support the braces initilization
+comment|//  MSCV has std::initilizer_list, but do not support the braces initialization
 comment|//#      define Q_COMPILER_INITIALIZER_LISTS
 endif|#
 directive|endif
