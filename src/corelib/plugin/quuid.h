@@ -319,6 +319,18 @@ argument_list|()
 return|;
 block|}
 comment|// ### Qt5 remove
+name|QUuid
+argument_list|(
+specifier|const
+name|QByteArray
+operator|&
+argument_list|)
+expr_stmt|;
+name|QByteArray
+name|toByteArray
+argument_list|()
+specifier|const
+expr_stmt|;
 endif|#
 directive|endif
 name|bool
