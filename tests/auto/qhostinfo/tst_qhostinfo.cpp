@@ -710,6 +710,28 @@ name|ipv6LookupsAvailable
 operator|=
 literal|false
 expr_stmt|;
+name|QTcpServer
+name|server
+decl_stmt|;
+if|if
+condition|(
+name|server
+operator|.
+name|listen
+argument_list|(
+name|QHostAddress
+argument_list|(
+literal|"::1"
+argument_list|)
+argument_list|)
+condition|)
+block|{
+comment|// We have IPv6 support
+name|ipv6Available
+operator|=
+literal|true
+expr_stmt|;
+block|}
 if|#
 directive|if
 operator|!
@@ -831,28 +853,6 @@ endif|#
 directive|endif
 endif|#
 directive|endif
-name|QTcpServer
-name|server
-decl_stmt|;
-if|if
-condition|(
-name|server
-operator|.
-name|listen
-argument_list|(
-name|QHostAddress
-argument_list|(
-literal|"::1"
-argument_list|)
-argument_list|)
-condition|)
-block|{
-comment|// We have IPv6 support
-name|ipv6Available
-operator|=
-literal|true
-expr_stmt|;
-block|}
 comment|// run each testcase with and without test enabled
 name|QTest
 operator|::
