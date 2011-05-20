@@ -945,10 +945,11 @@ operator|(
 name|uchar
 operator|*
 operator|)
-operator|&
 name|req
 operator|.
 name|ifr_addr
+operator|.
+name|sa_data
 decl_stmt|;
 name|iface
 operator|->
