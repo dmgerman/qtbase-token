@@ -163,6 +163,17 @@ block|;
 specifier|static
 name|QWindow
 operator|*
+name|topLevelAt
+argument_list|(
+specifier|const
+name|QPoint
+operator|&
+name|pos
+argument_list|)
+block|;
+specifier|static
+name|QWindow
+operator|*
 name|activeWindow
 argument_list|()
 block|;
