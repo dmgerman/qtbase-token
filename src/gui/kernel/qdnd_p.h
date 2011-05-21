@@ -987,6 +987,10 @@ operator|*
 name|currentTarget
 argument_list|()
 block|;
+name|QWindow
+operator|*
+name|currentWindow
+block|;
 ifdef|#
 directive|ifdef
 name|Q_WS_X11

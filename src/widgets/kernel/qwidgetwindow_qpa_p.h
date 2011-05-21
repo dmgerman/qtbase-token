@@ -115,6 +115,13 @@ name|QWheelEvent
 operator|*
 argument_list|)
 block|;
+name|void
+name|handleDragEvent
+argument_list|(
+name|QEvent
+operator|*
+argument_list|)
+block|;
 name|private
 operator|:
 name|QWidget
@@ -126,6 +133,12 @@ operator|<
 name|QWidget
 operator|>
 name|m_implicit_mouse_grabber
+block|;
+name|QWeakPointer
+operator|<
+name|QWidget
+operator|>
+name|m_dragTarget
 block|; }
 decl_stmt|;
 end_decl_stmt

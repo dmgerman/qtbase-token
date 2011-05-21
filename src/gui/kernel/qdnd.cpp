@@ -454,6 +454,10 @@ literal|0
 expr_stmt|;
 endif|#
 directive|endif
+name|currentWindow
+operator|=
+literal|0
+expr_stmt|;
 block|}
 end_constructor
 begin_destructor
