@@ -237,11 +237,17 @@ block|,
 name|_NET_ACTIVE_WINDOW
 block|,
 comment|// Property formats
+name|XA_STRING
+block|,
 name|COMPOUND_TEXT
 block|,
 name|TEXT
 block|,
 name|UTF8_STRING
+block|,
+name|XA_PIXMAP
+block|,
+name|XA_BITMAP
 block|,
 comment|// Xdnd
 name|XdndEnter
@@ -391,6 +397,21 @@ name|xcb_atom_t
 name|atom
 argument_list|(
 argument|QXcbAtom::Atom atom
+argument_list|)
+block|;
+name|xcb_atom_t
+name|internAtom
+argument_list|(
+specifier|const
+name|char
+operator|*
+name|name
+argument_list|)
+block|;
+name|QByteArray
+name|atomName
+argument_list|(
+argument|xcb_atom_t atom
 argument_list|)
 block|;
 specifier|const
