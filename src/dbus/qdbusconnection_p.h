@@ -392,6 +392,17 @@ block|;
 name|QByteArray
 name|matchRule
 block|;     }
+block|;      enum
+name|TreeNodeType
+block|{
+name|Object
+operator|=
+literal|0x0
+block|,
+name|VirtualObject
+operator|=
+literal|0x01000000
+block|}
 block|;      struct
 name|ObjectTreeNode
 block|{
@@ -489,9 +500,16 @@ block|}
 name|QString
 name|name
 block|;
+expr|union
+block|{
 name|QObject
 operator|*
 name|obj
+block|;
+name|QDBusVirtualObject
+operator|*
+name|treeNode
+block|;         }
 block|;
 name|int
 name|flags
@@ -1978,6 +1996,11 @@ operator|::
 name|ObjectTreeNode
 operator|&
 name|node
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|path
 argument_list|)
 decl_stmt|;
 end_decl_stmt
