@@ -428,13 +428,6 @@ if|if
 condition|(
 name|parent
 argument_list|()
-operator|&&
-operator|!
-name|window
-argument_list|()
-operator|->
-name|isTopLevel
-argument_list|()
 condition|)
 name|xcb_parent_id
 operator|=
@@ -1512,19 +1505,22 @@ expr_stmt|;
 comment|// update WM_TRANSIENT_FOR
 if|if
 condition|(
+name|window
+argument_list|()
+operator|->
+name|transientParent
+argument_list|()
+operator|&&
 name|isTransient
 argument_list|(
 name|window
 argument_list|()
 argument_list|)
-operator|&&
-name|parent
-argument_list|()
 condition|)
 block|{
-comment|// ICCCM 4.1.2.6
-name|xcb_window_t
-name|parentWindow
+name|QXcbWindow
+modifier|*
+name|transientXcbParent
 init|=
 cast|static_cast
 argument_list|<
@@ -1532,9 +1528,26 @@ name|QXcbWindow
 operator|*
 argument_list|>
 argument_list|(
-name|parent
+name|window
+argument_list|()
+operator|->
+name|transientParent
+argument_list|()
+operator|->
+name|handle
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|transientXcbParent
+condition|)
+block|{
+comment|// ICCCM 4.1.2.6
+name|xcb_window_t
+name|parentWindow
+init|=
+name|transientXcbParent
 operator|->
 name|xcb_window
 argument_list|()
@@ -1564,6 +1577,7 @@ name|parentWindow
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// update _MOTIF_WM_HINTS
 name|updateMotifWmHintsBeforeMap

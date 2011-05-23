@@ -99,9 +99,14 @@ argument_list|)
 block|,
 name|maximumSize
 argument_list|(
-argument|QWINDOWSIZE_MAX
+name|QWINDOWSIZE_MAX
 argument_list|,
-argument|QWINDOWSIZE_MAX
+name|QWINDOWSIZE_MAX
+argument_list|)
+block|,
+name|transientParent
+argument_list|(
+literal|0
 argument_list|)
 block|{
 name|isWindow
@@ -171,6 +176,12 @@ name|Qt
 operator|::
 name|WindowModality
 name|modality
+block|;
+name|QPointer
+operator|<
+name|QWindow
+operator|>
+name|transientParent
 block|; }
 decl_stmt|;
 end_decl_stmt

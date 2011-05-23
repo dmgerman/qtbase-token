@@ -284,6 +284,20 @@ argument_list|(
 argument|Qt::WindowState state
 argument_list|)
 block|;
+name|void
+name|setTransientParent
+argument_list|(
+name|QWindow
+operator|*
+name|parent
+argument_list|)
+block|;
+name|QWindow
+operator|*
+name|transientParent
+argument_list|()
+specifier|const
+block|;
 name|QSize
 name|minimumSize
 argument_list|()
