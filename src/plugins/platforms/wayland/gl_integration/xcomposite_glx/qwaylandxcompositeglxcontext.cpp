@@ -94,7 +94,7 @@ operator|->
 name|window
 argument_list|()
 operator|->
-name|format
+name|requestedWindowFormat
 argument_list|()
 argument_list|)
 argument_list|)
