@@ -312,12 +312,28 @@ name|mScreensInitialized
 block|;
 name|uint32_t
 name|mSocketMask
+block|;      struct
+name|wl_visual
+operator|*
+name|argb_visual
+block|,
+operator|*
+name|premultiplied_argb_visual
+block|,
+operator|*
+name|rgb_visual
 block|;
 specifier|static
 specifier|const
 expr|struct
 name|wl_output_listener
 name|outputListener
+block|;
+specifier|static
+specifier|const
+expr|struct
+name|wl_compositor_listener
+name|compositorListener
 block|;
 specifier|static
 name|int
@@ -358,6 +374,19 @@ argument_list|,
 argument|int32_t width
 argument_list|,
 argument|int32_t height
+argument_list|)
+block|;
+specifier|static
+name|void
+name|handleVisual
+argument_list|(
+argument|void *data
+argument_list|,
+argument|struct wl_compositor *compositor
+argument_list|,
+argument|uint32_t id
+argument_list|,
+argument|uint32_t token
 argument_list|)
 block|;
 ifdef|#
