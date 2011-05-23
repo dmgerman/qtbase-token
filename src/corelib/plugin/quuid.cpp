@@ -44,15 +44,6 @@ index|[]
 init|=
 literal|"0123456789abcdef"
 decl_stmt|;
-if|if
-condition|(
-sizeof|sizeof
-argument_list|(
-name|Integral
-argument_list|)
-operator|>
-literal|1
-condition|)
 name|value
 operator|=
 name|qToBigEndian

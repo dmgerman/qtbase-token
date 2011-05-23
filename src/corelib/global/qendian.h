@@ -2213,6 +2213,27 @@ block|; }
 endif|#
 directive|endif
 comment|// Q_BYTE_ORDER == Q_BIG_ENDIAN
+DECL|function|quint8
+name|template
+operator|<
+operator|>
+specifier|inline
+name|quint8
+name|qbswap
+operator|<
+name|quint8
+operator|>
+operator|(
+name|quint8
+name|source
+operator|)
+block|{
+return|return
+name|source
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER
 end_expr_stmt
