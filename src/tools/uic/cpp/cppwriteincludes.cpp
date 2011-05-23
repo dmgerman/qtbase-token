@@ -198,6 +198,11 @@ name|m_scriptsActivated
 argument_list|(
 literal|false
 argument_list|)
+member_init_list|,
+name|m_laidOut
+argument_list|(
+literal|false
+argument_list|)
 block|{
 comment|// When possible (no namespace) use the "QtModule/QClass" convention
 comment|// and create a re-mapping of the old header "qclass.h" to it. Do not do this
@@ -348,6 +353,10 @@ name|node
 parameter_list|)
 block|{
 name|m_scriptsActivated
+operator|=
+literal|false
+expr_stmt|;
+name|m_laidOut
 operator|=
 literal|false
 expr_stmt|;
@@ -539,6 +548,10 @@ operator|->
 name|attributeClass
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|m_laidOut
+operator|=
+literal|true
 expr_stmt|;
 name|TreeWalker
 operator|::
@@ -943,6 +956,35 @@ argument_list|(
 name|className
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|m_laidOut
+operator|&&
+name|m_uic
+operator|->
+name|customWidgetsInfo
+argument_list|()
+operator|->
+name|extends
+argument_list|(
+name|className
+argument_list|,
+name|QLatin1String
+argument_list|(
+literal|"QToolBox"
+argument_list|)
+argument_list|)
+condition|)
+name|add
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"QLayout"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// spacing property of QToolBox)
 if|if
 condition|(
 name|className
