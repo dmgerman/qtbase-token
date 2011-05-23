@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qboxlayout.h>
+file|<QtWidgets/qboxlayout.h>
 end_include
 begin_comment
 comment|//TESTED_CLASS=

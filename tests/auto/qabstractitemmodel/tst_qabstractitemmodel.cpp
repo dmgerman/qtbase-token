@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QSortFilterProxyModel>
+file|<QtWidgets/QSortFilterProxyModel>
 end_include
 begin_comment
 comment|//TESTED_CLASS=QAbstractListModel QAbstractTableModel

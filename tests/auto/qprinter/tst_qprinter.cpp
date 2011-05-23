@@ -3598,6 +3598,11 @@ operator|::
 name|changingOutputFormat
 parameter_list|()
 block|{
+if|#
+directive|if
+name|QT_VERSION
+operator|<
+literal|0x050000
 name|QPrinter
 name|p
 decl_stmt|;
@@ -3640,6 +3645,8 @@ operator|::
 name|A8
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -3682,25 +3689,6 @@ operator|==
 name|QPrinter
 operator|::
 name|NativeFormat
-argument_list|)
-expr_stmt|;
-name|p
-operator|.
-name|setOutputFileName
-argument_list|(
-literal|"test.ps"
-argument_list|)
-expr_stmt|;
-name|QVERIFY
-argument_list|(
-name|p
-operator|.
-name|outputFormat
-argument_list|()
-operator|==
-name|QPrinter
-operator|::
-name|PostScriptFormat
 argument_list|)
 expr_stmt|;
 name|p
@@ -5017,8 +5005,9 @@ name|newFormat
 init|=
 name|QPrinter
 operator|::
-name|PostScriptFormat
+name|NativeFormat
 decl_stmt|;
+comment|// TODO: Correct?
 block|{
 name|QPrinter
 name|printer

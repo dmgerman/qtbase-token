@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QtGui>
-end_include
-begin_include
-include|#
-directive|include
 file|<QSortFilterProxyModel>
 end_include
 begin_comment

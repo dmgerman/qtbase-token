@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qgraphicsscene.h>
+file|<QtWidgets/qgraphicsscene.h>
 end_include
 begin_include
 include|#

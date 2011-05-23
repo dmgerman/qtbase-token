@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../../src/gui/itemviews/qcolumnviewgrip_p.h"
+file|"../../../src/widgets/itemviews/qcolumnviewgrip_p.h"
 end_include
 begin_ifndef
 ifndef|#
@@ -35,7 +35,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"../../../src/gui/dialogs/qfilesystemmodel_p.h"
+file|"../../../src/widgets/dialogs/qfilesystemmodel_p.h"
 end_include
 begin_endif
 endif|#

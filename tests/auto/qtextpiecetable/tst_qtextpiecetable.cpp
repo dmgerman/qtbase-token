@@ -8,10 +8,10 @@ directive|include
 file|<QtTest/QtTest>
 end_include
 begin_define
-DECL|macro|private
+DECL|macro|protected
 define|#
 directive|define
-name|private
+name|protected
 value|public
 end_define
 begin_include
@@ -19,6 +19,12 @@ include|#
 directive|include
 file|<qtextdocument.h>
 end_include
+begin_undef
+DECL|macro|protected
+undef|#
+directive|undef
+name|protected
+end_undef
 begin_include
 include|#
 directive|include
@@ -283,7 +289,7 @@ name|table
 operator|=
 name|doc
 operator|->
-name|d_func
+name|docHandle
 argument_list|()
 expr_stmt|;
 name|blockFormatIndex

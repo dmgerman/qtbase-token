@@ -22,11 +22,22 @@ include|#
 directive|include
 file|<QWindowsStyle>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|Q_WS_MAC
-end_ifndef
+argument_list|)
+operator|&&
+name|QT_VERSION
+operator|<
+literal|0x050000
+end_if
+begin_comment
+comment|// Fixme Qt 5
+end_comment
 begin_include
 include|#
 directive|include

@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qapplication.h>
+file|<qguiapplication.h>
 end_include
 begin_include
 include|#
@@ -220,7 +220,7 @@ name|argc
 init|=
 literal|0
 decl_stmt|;
-name|QApplication
+name|QGuiApplication
 name|app
 argument_list|(
 name|argc
@@ -574,7 +574,7 @@ name|argc
 init|=
 literal|0
 decl_stmt|;
-name|QApplication
+name|QGuiApplication
 name|app
 argument_list|(
 name|argc
@@ -745,7 +745,7 @@ name|argc
 init|=
 literal|0
 decl_stmt|;
-name|QApplication
+name|QGuiApplication
 name|app
 argument_list|(
 name|argc
@@ -1003,7 +1003,7 @@ name|argc
 init|=
 literal|0
 decl_stmt|;
-name|QApplication
+name|QGuiApplication
 name|app
 argument_list|(
 name|argc
