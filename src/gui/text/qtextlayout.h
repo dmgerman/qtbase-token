@@ -675,7 +675,13 @@ operator|<
 name|QGlyphRun
 operator|>
 name|glyphRuns
-argument_list|()
+argument_list|(
+argument|int from = -
+literal|1
+argument_list|,
+argument|int length = -
+literal|1
+argument_list|)
 specifier|const
 expr_stmt|;
 endif|#
@@ -1030,6 +1036,29 @@ literal|0
 argument_list|)
 decl|const
 decl_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_RAWFONT
+argument_list|)
+name|QList
+operator|<
+name|QGlyphRun
+operator|>
+name|glyphRuns
+argument_list|(
+argument|int from = -
+literal|1
+argument_list|,
+argument|int length = -
+literal|1
+argument_list|)
+specifier|const
+expr_stmt|;
+endif|#
+directive|endif
 name|private
 label|:
 name|QTextLine
@@ -1055,27 +1084,6 @@ argument_list|(
 argument|int numGlyphs
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_RAWFONT
-argument_list|)
-name|QList
-operator|<
-name|QGlyphRun
-operator|>
-name|glyphs
-argument_list|(
-argument|int from
-argument_list|,
-argument|int length
-argument_list|)
-specifier|const
-expr_stmt|;
-endif|#
-directive|endif
 name|friend
 name|class
 name|QTextLayout

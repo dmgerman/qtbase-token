@@ -287,6 +287,16 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|QRectF
+name|boundingRect
+argument_list|(
+name|quint32
+name|glyphIndex
+argument_list|)
+decl|const
+decl_stmt|;
+end_decl_stmt
 begin_function_decl
 name|void
 name|setPixelSize

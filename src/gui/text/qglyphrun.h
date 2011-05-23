@@ -236,6 +236,13 @@ argument_list|()
 specifier|const
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+name|QRectF
+name|boundingRect
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
 begin_label
 name|private
 label|:
