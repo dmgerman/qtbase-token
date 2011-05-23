@@ -24240,7 +24240,10 @@ name|endl
 operator|<<
 literal|"QT_VERSION = "
 operator|<<
-name|QT_VERSION_STR
+name|dictionary
+index|[
+literal|"VERSION"
+index|]
 operator|<<
 name|endl
 expr_stmt|;
