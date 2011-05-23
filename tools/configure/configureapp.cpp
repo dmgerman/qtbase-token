@@ -7254,6 +7254,27 @@ block|}
 elseif|else
 if|if
 condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-qpa"
+condition|)
+block|{
+name|dictionary
+index|[
+literal|"QPA"
+index|]
+operator|=
+literal|"yes"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 operator|(
 name|configCmdLine
 operator|.
@@ -10763,7 +10784,7 @@ literal|"[-no-multimedia] [-multimedia] [-no-audio-backend] [-audio-backend]\n"
 literal|"[-no-script] [-script] [-no-scripttools] [-scripttools]\n"
 literal|"[-no-webkit] [-webkit] [-webkit-debug]\n"
 literal|"[-graphicssystem raster|opengl|openvg]\n"
-literal|"[-no-directwrite] [-directwrite]\n\n"
+literal|"[-no-directwrite] [-directwrite] [-qpa]\n\n"
 argument_list|,
 literal|0
 argument_list|,
@@ -19597,6 +19618,19 @@ expr_stmt|;
 if|if
 condition|(
 name|dictionary
+index|[
+literal|"QPA"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|configStream
+operator|<<
+literal|" qpa"
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
 operator|.
 name|contains
 argument_list|(
@@ -20257,6 +20291,23 @@ expr_stmt|;
 name|tmpStream
 operator|<<
 literal|"#define Q_BYTE_ORDER Q_LITTLE_ENDIAN"
+operator|<<
+name|endl
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"QPA"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|tmpStream
+operator|<<
+name|endl
+operator|<<
+literal|"#define Q_WS_QPA"
 operator|<<
 name|endl
 expr_stmt|;
