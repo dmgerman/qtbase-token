@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qcoreapplication.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"qtextdocument.h"
 end_include
 begin_include

@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qpixmap.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qwindow_p.h>
 end_include
 begin_macro

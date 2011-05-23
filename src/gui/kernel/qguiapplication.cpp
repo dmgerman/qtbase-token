@@ -22,6 +22,11 @@ include|#
 directive|include
 file|"private/qevent_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qfont.h"
+end_include
 begin_if
 if|#
 directive|if
