@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qnetworkcookiejar_p.h"
+file|"private/qtldurl_p.h"
 end_include
 begin_class
 DECL|class|tst_QNetworkCookieJar
@@ -3067,9 +3067,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|QNetworkCookieJarPrivate
-operator|::
-name|isEffectiveTLD
+name|qIsEffectiveTLD
 argument_list|(
 name|domain
 argument_list|)
