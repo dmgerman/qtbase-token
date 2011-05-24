@@ -5643,6 +5643,18 @@ operator|::
 name|ConnectingState
 argument_list|)
 expr_stmt|;
+comment|//limit buffer in internal socket, data is buffered in the external socket under application control
+name|d
+operator|->
+name|data
+operator|->
+name|controlSocket
+operator|->
+name|setReadBufferSize
+argument_list|(
+literal|65536
+argument_list|)
+expr_stmt|;
 name|d
 operator|->
 name|data
