@@ -48,7 +48,7 @@ name|certificationPathView
 argument_list|,
 name|SIGNAL
 argument_list|(
-name|currentRowChanged
+name|currentIndexChanged
 argument_list|(
 name|int
 argument_list|)
@@ -194,7 +194,7 @@ name|form
 operator|->
 name|certificationPathView
 operator|->
-name|setCurrentRow
+name|setCurrentIndex
 argument_list|(
 literal|0
 argument_list|)

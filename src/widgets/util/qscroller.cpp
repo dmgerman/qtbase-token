@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** No Commercial Usage ** This file contains pre-release code and may not be distributed. ** You may use this file in accordance with the terms and conditions ** contained in the Technology Preview License Agreement accompanying ** this package. ** ** GNU Lesser General Public License Usage ** Alternatively, this file may be used under the terms of the GNU Lesser ** General Public License version 2.1 as published by the Free Software ** Foundation and appearing in the file LICENSE.LGPL included in the ** packaging of this file.  Please review the following information to ** ensure the GNU Lesser General Public License version 2.1 requirements ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights.  These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** If you have questions regarding the use of this file, please contact ** Nokia at qt-info@nokia.com. ** ** ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -1385,7 +1385,7 @@ directive|ifndef
 name|QT_NO_GESTURES
 end_ifndef
 begin_comment
-comment|/*!     Registers a custom scroll gesture recognizer, grabs it for the \a     target and returns the resulting gesture type.  If \a scrollGestureType is     set to TouchGesture the gesture triggers on touch events. If it is set to     one of LeftMouseButtonGesture, RightMouseButtonGesture or     MiddleMouseButtonGesture it triggers on mouse events of the     corresponding button.      Only one scroll gesture can be active on a single object at the same     time. If you call this function twice on the same object, it will     ungrab the existing gesture before grabbing the new one.      \note To avoid unwanted side-effects, mouse events are consumed while     the gesture is triggered. Since the initial mouse press event is     not consumed, the gesture sends a fake mouse release event     at the global position \c{(INT_MIN, INT_MIN)}. This ensures that     internal states of the widget that received the original mouse press     are consistent.      \sa ungrabGesture, grabbedGesture */
+comment|/*!     Registers a custom scroll gesture recognizer, grabs it for the \a     target and returns the resulting gesture type.  If \a scrollGestureType is     set to TouchGesture the gesture triggers on touch events. If it is set to     one of LeftMouseButtonGesture, RightMouseButtonGesture or     MiddleMouseButtonGesture it triggers on mouse events of the     corresponding button.      Only one scroll gesture can be active on a single object at the same     time. If you call this function twice on the same object, it will     ungrab the existing gesture before grabbing the new one.      \note To avoid unwanted side-effects, mouse events are consumed while     the gesture is triggered. Since the initial mouse press event is     not consumed, the gesture sends a fake mouse release event     at the global position \c{(INT_MIN, INT_MIN)}. This ensures that     internal states of the widget that received the original mouse press     are consistent.      \sa ungrabGesture(), grabbedGesture() */
 end_comment
 begin_function
 DECL|function|grabGesture
@@ -1623,7 +1623,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the gesture type currently grabbed for the \a target or 0 if no     gesture is grabbed.      \sa grabGesture, ungrabGesture */
+comment|/*!     Returns the gesture type currently grabbed for the \a target or 0 if no     gesture is grabbed.      \sa grabGesture(), ungrabGesture() */
 end_comment
 begin_function
 DECL|function|grabbedGesture
@@ -1675,7 +1675,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Ungrabs the gesture for the \a target.     Does nothing if no gesture is grabbed.      \sa grabGesture, grabbedGesture */
+comment|/*!     Ungrabs the gesture for the \a target.     Does nothing if no gesture is grabbed.      \sa grabGesture(), grabbedGesture() */
 end_comment
 begin_function
 DECL|function|ungrabGesture
@@ -2868,7 +2868,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Starts scrolling so that the rectangle \a rect is visible inside the     viewport with additional margins specified in pixels by \a xmargin and \a ymargin around     the rect.      In cases where it is not possible to fit the rect plus margins inside the viewport the contents     are scrolled so that as much as possible is visible from \a rect.      The scrolling speed is calculated so that the given position is reached after a platform-defined     time span.      This function performs the actual scrolling by calling scrollTo().      \sa scrollTo */
+comment|/*!     Starts scrolling so that the rectangle \a rect is visible inside the     viewport with additional margins specified in pixels by \a xmargin and \a ymargin around     the rect.      In cases where it is not possible to fit the rect plus margins inside the viewport the contents     are scrolled so that as much as possible is visible from \a rect.      The scrolling speed is calculated so that the given position is reached after a platform-defined     time span.      This function performs the actual scrolling by calling scrollTo().      \sa scrollTo() */
 end_comment
 begin_function
 DECL|function|ensureVisible

@@ -58,10 +58,9 @@ name|public
 operator|:
 name|PiecesModel
 argument_list|(
-name|QObject
-operator|*
-name|parent
-operator|=
+argument|int pieceSize
+argument_list|,
+argument|QObject *parent =
 literal|0
 argument_list|)
 block|;
@@ -170,6 +169,9 @@ operator|<
 name|QPixmap
 operator|>
 name|pixmaps
+block|;
+name|int
+name|m_PieceSize
 block|; }
 decl_stmt|;
 end_decl_stmt

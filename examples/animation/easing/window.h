@@ -138,7 +138,7 @@ name|m_anim
 block|;
 name|QSize
 name|m_iconSize
-block|;   }
+block|; }
 decl_stmt|;
 end_decl_stmt
 end_unit

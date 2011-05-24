@@ -161,6 +161,15 @@ name|QVBoxLayout
 decl_stmt|;
 name|mainLayout
 operator|->
+name|setSizeConstraint
+argument_list|(
+name|QLayout
+operator|::
+name|SetNoConstraint
+argument_list|)
+expr_stmt|;
+name|mainLayout
+operator|->
 name|addWidget
 argument_list|(
 name|tabWidget

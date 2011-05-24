@@ -1,0 +1,73 @@
+begin_unit
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|BUTTONWIDGET_H
+end_ifndef
+begin_define
+DECL|macro|BUTTONWIDGET_H
+define|#
+directive|define
+name|BUTTONWIDGET_H
+end_define
+begin_include
+include|#
+directive|include
+file|<QWidget>
+end_include
+begin_include
+include|#
+directive|include
+file|<QSignalMapper>
+end_include
+begin_comment
+comment|//! [0]
+end_comment
+begin_decl_stmt
+name|class
+name|ButtonWidget
+range|:
+name|public
+name|QWidget
+block|{
+name|Q_OBJECT
+name|public
+operator|:
+name|ButtonWidget
+argument_list|(
+argument|QStringList texts
+argument_list|,
+argument|QWidget *parent =
+literal|0
+argument_list|)
+block|;
+name|signals
+operator|:
+name|void
+name|clicked
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|text
+argument_list|)
+block|;
+name|private
+operator|:
+name|QSignalMapper
+operator|*
+name|signalMapper
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|//! [0]
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// BUTTONWIDGET_H
+end_comment
+end_unit

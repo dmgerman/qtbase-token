@@ -40,6 +40,16 @@ decl_stmt|;
 name|MainWindow
 name|mainWin
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_SYMBIAN
+name|mainWin
+operator|.
+name|showFullScreen
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
 name|mainWin
 operator|.
 name|show

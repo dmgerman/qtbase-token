@@ -45,6 +45,15 @@ argument_list|)
 block|;
 name|protected
 operator|:
+name|virtual
+name|void
+name|resizeEvent
+argument_list|(
+name|QResizeEvent
+operator|*
+name|event
+argument_list|)
+block|;
 name|void
 name|keyPressEvent
 argument_list|(

@@ -221,12 +221,12 @@ name|painter
 operator|->
 name|setBrush
 argument_list|(
-name|QBrush
-argument_list|(
-name|Qt
-operator|::
-name|black
-argument_list|)
+name|option
+operator|.
+name|palette
+operator|.
+name|text
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//! [9]
