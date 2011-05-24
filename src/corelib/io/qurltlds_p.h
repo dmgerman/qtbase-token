@@ -119,13 +119,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QNETWORKCOOKIEJARTLD_P_H
+name|QURLTLD_P_H
 end_ifndef
 begin_define
-DECL|macro|QNETWORKCOOKIEJARTLD_P_H
+DECL|macro|QURLTLD_P_H
 define|#
 directive|define
-name|QNETWORKCOOKIEJARTLD_P_H
+name|QURLTLD_P_H
 end_define
 begin_comment
 comment|//
@@ -143,7 +143,7 @@ begin_comment
 comment|// This file is not part of the Qt API.  It exists for the convenience
 end_comment
 begin_comment
-comment|// of the Network Access framework.  This header file may change from
+comment|// of the Network Access and Core framework.  This header file may change from
 end_comment
 begin_comment
 comment|// version to version without notice, or even be removed.
@@ -162,7 +162,7 @@ name|QT_BEGIN_NAMESPACE
 comment|// note to maintainer:
 comment|// this file should be updated before each release ->
 comment|// for instructions see the program at
-comment|// util/network/cookiejar-generateTLDs
+comment|// util/corelib/qurl-generateTLDs
 DECL|variable|tldCount
 specifier|static
 specifier|const
@@ -10584,6 +10584,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QNETWORKCOOKIEJARTLD_P_H
+comment|// QURLTLD_P_H
 end_comment
 end_unit
