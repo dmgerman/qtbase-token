@@ -139,6 +139,26 @@ argument_list|()
 operator|+
 literal|2
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_WS_MAEMO_5
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_WS_SIMULATOR
+argument_list|)
+if|if
+condition|(
+name|x
+operator|>=
+literal|345
+condition|)
+block|{
+else|#
+directive|else
 if|if
 condition|(
 name|x
@@ -146,6 +166,8 @@ operator|>=
 literal|245
 condition|)
 block|{
+endif|#
+directive|endif
 name|x
 operator|=
 literal|5
@@ -221,14 +243,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-end_constructor
-begin_comment
 comment|//! [3]
-end_comment
-begin_comment
 comment|//! [4]
-end_comment
-begin_function
 DECL|function|dragEnterEvent
 name|void
 name|DragWidget
@@ -321,14 +337,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_comment
 comment|//! [7]
-end_comment
-begin_comment
 comment|//! [8]
-end_comment
-begin_function
 DECL|function|dragMoveEvent
 name|void
 name|DragWidget
@@ -418,14 +428,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_comment
 comment|//! [8]
-end_comment
-begin_comment
 comment|//! [9]
-end_comment
-begin_function
 DECL|function|dropEvent
 name|void
 name|DragWidget
@@ -681,14 +685,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_comment
 comment|//! [12]
-end_comment
-begin_comment
 comment|//! [13]
-end_comment
-begin_function
 DECL|function|mousePressEvent
 name|void
 name|DragWidget
@@ -873,7 +871,7 @@ name|show
 argument_list|()
 expr_stmt|;
 block|}
-end_function
+end_constructor
 begin_comment
 comment|//! [17]
 end_comment

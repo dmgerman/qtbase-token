@@ -18,6 +18,9 @@ name|PiecesModel
 operator|::
 name|PiecesModel
 parameter_list|(
+name|int
+name|pieceSize
+parameter_list|,
 name|QObject
 modifier|*
 name|parent
@@ -26,6 +29,11 @@ member_init_list|:
 name|QAbstractListModel
 argument_list|(
 name|parent
+argument_list|)
+member_init_list|,
+name|m_PieceSize
+argument_list|(
+name|pieceSize
 argument_list|)
 block|{ }
 end_constructor
@@ -81,9 +89,9 @@ argument_list|)
 operator|.
 name|scaled
 argument_list|(
-literal|60
+name|m_PieceSize
 argument_list|,
-literal|60
+name|m_PieceSize
 argument_list|,
 name|Qt
 operator|::
@@ -842,15 +850,15 @@ name|copy
 argument_list|(
 name|x
 operator|*
-literal|80
+name|m_PieceSize
 argument_list|,
 name|y
 operator|*
-literal|80
+name|m_PieceSize
 argument_list|,
-literal|80
+name|m_PieceSize
 argument_list|,
-literal|80
+name|m_PieceSize
 argument_list|)
 decl_stmt|;
 name|addPiece

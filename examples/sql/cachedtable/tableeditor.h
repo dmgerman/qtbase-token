@@ -44,7 +44,7 @@ name|class
 name|TableEditor
 range|:
 name|public
-name|QDialog
+name|QWidget
 block|{
 name|Q_OBJECT
 name|public

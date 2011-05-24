@@ -73,7 +73,7 @@ else|#
 directive|else
 name|view
 operator|.
-name|showFullScreen
+name|showMaximized
 argument_list|()
 expr_stmt|;
 endif|#

@@ -65,16 +65,25 @@ name|public
 operator|:
 name|PuzzleWidget
 argument_list|(
-name|QWidget
-operator|*
-name|parent
-operator|=
+argument|int imageSize
+argument_list|,
+argument|QWidget *parent =
 literal|0
 argument_list|)
 block|;
 name|void
 name|clear
 argument_list|()
+block|;
+name|int
+name|pieceSize
+argument_list|()
+specifier|const
+block|;
+name|int
+name|imageSize
+argument_list|()
+specifier|const
 block|;
 name|signals
 operator|:
@@ -172,6 +181,9 @@ name|highlightedRect
 block|;
 name|int
 name|inPlace
+block|;
+name|int
+name|m_ImageSize
 block|; }
 decl_stmt|;
 end_decl_stmt

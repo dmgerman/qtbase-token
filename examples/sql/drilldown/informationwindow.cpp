@@ -346,13 +346,10 @@ operator|->
 name|currentText
 argument_list|()
 expr_stmt|;
-name|setWindowFlags
-argument_list|(
-name|Qt
-operator|::
-name|Window
-argument_list|)
-expr_stmt|;
+comment|// Commented the following line. Now the window will look like dialog and the Qt will place the QDialogBox buttons to menu area in Symbian.
+comment|// Too bad that the revert button is missing, Should the Qt place the buttons under Option menu in the menu area?!
+comment|// If the Qt::Window flag was used, the background of window is white in symbian and the QLabels can't be regognized from the background.
+comment|//setWindowFlags(Qt::Window);
 name|enableButtons
 argument_list|(
 literal|false

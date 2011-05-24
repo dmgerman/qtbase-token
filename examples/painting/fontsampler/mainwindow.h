@@ -87,6 +87,9 @@ name|void
 name|on_markAction_triggered
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
 name|void
 name|on_printAction_triggered
 parameter_list|()
@@ -95,10 +98,15 @@ name|void
 name|on_printPreviewAction_triggered
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|on_unmarkAction_triggered
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
 name|void
 name|printDocument
 parameter_list|(
@@ -122,6 +130,8 @@ modifier|*
 name|printer
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|showFont
 parameter_list|(

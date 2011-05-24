@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QDialog>
+file|<QWidget>
 end_include
 begin_include
 include|#
@@ -42,7 +42,7 @@ name|class
 name|Dialog
 range|:
 name|public
-name|QDialog
+name|QWidget
 block|{
 name|Q_OBJECT
 name|public

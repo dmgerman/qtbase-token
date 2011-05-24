@@ -55,6 +55,16 @@ name|void
 name|setupScene
 argument_list|()
 block|;
+name|protected
+operator|:
+name|void
+name|resizeEvent
+argument_list|(
+name|QResizeEvent
+operator|*
+name|event
+argument_list|)
+block|;
 name|private
 operator|:
 name|qreal

@@ -28,7 +28,7 @@ modifier|*
 name|parent
 parameter_list|)
 member_init_list|:
-name|QDialog
+name|QWidget
 argument_list|(
 name|parent
 argument_list|)
@@ -42,6 +42,13 @@ name|tr
 argument_list|(
 literal|"Ready to broadcast datagrams on port 45454"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|statusLabel
+operator|->
+name|setWordWrap
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 name|startButton

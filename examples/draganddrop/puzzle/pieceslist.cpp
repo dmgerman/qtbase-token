@@ -18,6 +18,9 @@ name|PiecesList
 operator|::
 name|PiecesList
 parameter_list|(
+name|int
+name|pieceSize
+parameter_list|,
 name|QWidget
 modifier|*
 name|parent
@@ -26,6 +29,11 @@ member_init_list|:
 name|QListWidget
 argument_list|(
 name|parent
+argument_list|)
+member_init_list|,
+name|m_PieceSize
+argument_list|(
+name|pieceSize
 argument_list|)
 block|{
 name|setDragEnabled
@@ -44,9 +52,9 @@ name|setIconSize
 argument_list|(
 name|QSize
 argument_list|(
-literal|60
+name|m_PieceSize
 argument_list|,
-literal|60
+name|m_PieceSize
 argument_list|)
 argument_list|)
 expr_stmt|;

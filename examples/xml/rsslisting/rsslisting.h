@@ -43,7 +43,36 @@ include|#
 directive|include
 file|<QUrl>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_SYMBIAN
+end_ifdef
+begin_comment
+comment|// Bearer
+end_comment
+begin_include
+include|#
+directive|include
+file|<QNetworkConfigurationManager>
+end_include
+begin_include
+include|#
+directive|include
+file|<QNetworkSession>
+end_include
+begin_include
+include|#
+directive|include
+file|<QPointer>
+end_include
+begin_comment
+comment|// QtMobility namespace
+end_comment
 begin_decl_stmt
+name|QTM_USE_NAMESPACE
+endif|#
+directive|endif
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QLineEdit
 name|class
@@ -172,7 +201,20 @@ block|;
 name|QPushButton
 operator|*
 name|fetchButton
-block|; }
+block|;
+ifdef|#
+directive|ifdef
+name|Q_OS_SYMBIAN
+comment|// for bearer management
+name|QPointer
+operator|<
+name|QNetworkSession
+operator|>
+name|m_session
+block|;
+endif|#
+directive|endif
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_endif

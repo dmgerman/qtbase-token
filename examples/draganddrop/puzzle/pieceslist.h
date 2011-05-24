@@ -30,10 +30,9 @@ name|public
 operator|:
 name|PiecesList
 argument_list|(
-name|QWidget
-operator|*
-name|parent
-operator|=
+argument|int pieceSize
+argument_list|,
+argument|QWidget *parent =
 literal|0
 argument_list|)
 block|;
@@ -76,6 +75,9 @@ name|startDrag
 argument_list|(
 argument|Qt::DropActions supportedActions
 argument_list|)
+block|;
+name|int
+name|m_PieceSize
 block|; }
 decl_stmt|;
 end_decl_stmt

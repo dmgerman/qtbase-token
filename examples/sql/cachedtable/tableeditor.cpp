@@ -36,7 +36,7 @@ modifier|*
 name|parent
 parameter_list|)
 member_init_list|:
-name|QDialog
+name|QWidget
 argument_list|(
 name|parent
 argument_list|)
@@ -132,6 +132,11 @@ name|setModel
 argument_list|(
 name|model
 argument_list|)
+expr_stmt|;
+name|view
+operator|->
+name|resizeColumnsToContents
+argument_list|()
 expr_stmt|;
 comment|//! [1]
 comment|//! [2]
