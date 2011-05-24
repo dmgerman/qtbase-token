@@ -2742,9 +2742,14 @@ if|#
 directive|if
 name|defined
 argument_list|(
+name|Q_WS_QPA
+argument_list|)
+elif|#
+directive|elif
+name|defined
+argument_list|(
 name|Q_OS_MSDOS
 argument_list|)
-DECL|macro|Q_WS_WIN16
 define|#
 directive|define
 name|Q_WS_WIN16
@@ -4353,7 +4358,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 end_if
 begin_if
@@ -6966,7 +6971,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 operator|||
 name|defined
@@ -7377,7 +7382,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 operator|||
 name|defined
@@ -7457,7 +7462,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* Q_WS_WIN */
+comment|/* Q_OS_WIN */
 end_comment
 begin_ifndef
 ifndef|#

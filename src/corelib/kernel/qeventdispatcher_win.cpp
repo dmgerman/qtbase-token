@@ -1299,7 +1299,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_WIN64
+name|Q_OS_WIN64
 argument_list|)
 end_if
 begin_define

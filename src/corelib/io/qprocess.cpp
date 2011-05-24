@@ -224,7 +224,7 @@ directive|include
 file|<qtimer.h>
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 include|#
 directive|include
 file|<private/qwineventnotifier_p.h>
@@ -1349,7 +1349,7 @@ literal|false
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|pipeWriter
 operator|=
 literal|0
@@ -1360,7 +1360,7 @@ literal|0
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_WS_WIN
+comment|// Q_OS_WIN
 ifdef|#
 directive|ifdef
 name|Q_OS_UNIX

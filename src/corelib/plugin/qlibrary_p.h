@@ -46,7 +46,7 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 end_ifdef
 begin_include
 include|#
@@ -108,7 +108,7 @@ name|public
 label|:
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|HINSTANCE
 else|#
 directive|else
