@@ -10106,7 +10106,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"QUrl(%1)"
+literal|"QUrl(QString::fromUtf8(%1))"
 argument_list|)
 operator|.
 name|arg
