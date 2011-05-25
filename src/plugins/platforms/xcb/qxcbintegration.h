@@ -133,6 +133,12 @@ name|printerSupport
 argument_list|()
 specifier|const
 block|;
+name|QPlatformClipboard
+operator|*
+name|clipboard
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|bool
