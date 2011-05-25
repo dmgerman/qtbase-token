@@ -6906,12 +6906,17 @@ return|;
 block|}
 else|else
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_XRENDER
 name|fe
 operator|->
 name|xglyph_format
 operator|=
 name|xglyph_format
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|fe
 return|;
