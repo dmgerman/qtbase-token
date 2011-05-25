@@ -1272,7 +1272,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 end_if
 begin_function
@@ -1348,7 +1348,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 end_if
 begin_function
@@ -1781,7 +1781,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 end_if
 begin_comment
@@ -2791,7 +2791,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 end_if
 begin_comment

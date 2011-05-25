@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qeventdispatcher_unix_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"private/qguiapplication_p.h"
 end_include
 begin_include
@@ -256,7 +251,7 @@ class|class
 name|QEventDispatcherQPAPrivate
 super|:
 specifier|public
-name|QEventDispatcherUNIXPrivate
+name|EVENTDISPATCHERBASEPRIVATE
 block|{
 name|Q_DECLARE_PUBLIC
 parameter_list|(
@@ -578,7 +573,7 @@ modifier|*
 name|parent
 parameter_list|)
 member_init_list|:
-name|QEventDispatcherUNIX
+name|EVENTDISPATCHERBASE
 argument_list|(
 operator|*
 operator|new
@@ -766,7 +761,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|QEventDispatcherUNIX
+name|EVENTDISPATCHERBASE
 operator|::
 name|processEvents
 argument_list|(
@@ -774,7 +769,7 @@ name|flags
 argument_list|)
 condition|)
 block|{
-name|QEventDispatcherUNIX
+name|EVENTDISPATCHERBASE
 operator|::
 name|processEvents
 argument_list|(
@@ -837,7 +832,7 @@ argument_list|(
 name|QEventDispatcherQPA
 argument_list|)
 expr_stmt|;
-name|QEventDispatcherUNIX
+name|EVENTDISPATCHERBASE
 operator|::
 name|registerSocketNotifier
 argument_list|(
@@ -873,7 +868,7 @@ argument_list|(
 name|QEventDispatcherQPA
 argument_list|)
 expr_stmt|;
-name|QEventDispatcherUNIX
+name|EVENTDISPATCHERBASE
 operator|::
 name|unregisterSocketNotifier
 argument_list|(
@@ -1100,9 +1095,15 @@ comment|//is 0 if select has not returned
 block|}
 else|else
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
 name|retVal
 operator|=
-name|QEventDispatcherUNIX
+name|EVENTDISPATCHERBASE
 operator|::
 name|select
 argument_list|(
@@ -1117,6 +1118,15 @@ argument_list|,
 name|timeout
 argument_list|)
 expr_stmt|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+comment|// ### TODO
+endif|#
+directive|endif
 block|}
 return|return
 name|retVal
@@ -1148,6 +1158,12 @@ name|checkpoint
 argument_list|()
 expr_stmt|;
 comment|// wait for mainthread
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
 name|int
 name|tmpRet
 init|=
@@ -1164,6 +1180,20 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+comment|// ### TODO
+name|int
+name|tmpRet
+init|=
+literal|0
+decl_stmt|;
+endif|#
+directive|endif
 name|m_edPrivate
 operator|->
 name|selectReturnMutex

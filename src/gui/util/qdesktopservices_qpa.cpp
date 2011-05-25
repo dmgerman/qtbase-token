@@ -12,6 +12,11 @@ include|#
 directive|include
 file|<qdir.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qurl.h>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|launchWebBrowser

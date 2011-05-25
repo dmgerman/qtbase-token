@@ -461,7 +461,7 @@ directive|ifndef
 name|QT_NO_DEBUG_STREAM
 end_ifndef
 begin_expr_stmt
-name|Q_OPENGL_EXPORT
+name|Q_GUI_EXPORT
 name|QDebug
 name|operator
 operator|<<

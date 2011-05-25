@@ -1066,6 +1066,12 @@ name|defined
 argument_list|(
 name|QT_NO_GLIB
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
 if|if
 condition|(
 name|qgetenv
