@@ -12597,7 +12597,7 @@ argument_list|<
 name|QByteArray
 argument_list|>
 argument_list|(
-literal|"serverVerifyData"
+literal|"hostfield"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -12626,9 +12626,10 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"\r\nHost: [::1]\r\n"
+literal|"[::1]"
 argument_list|)
 expr_stmt|;
+comment|//QTest::newRow("ipv4localhost")<< QUrl(QByteArray("http://127.0.0.1"))<< QNetworkReply::NoError<< QByteArray("ipv4localhost")<< QByteArray("127.0.0.1");
 comment|//to add more test data here
 block|}
 end_function
@@ -12667,7 +12668,7 @@ name|QFETCH
 argument_list|(
 name|QByteArray
 argument_list|,
-name|serverVerifyData
+name|hostfield
 argument_list|)
 expr_stmt|;
 name|QByteArray
@@ -12797,18 +12798,40 @@ operator|->
 name|readAll
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|serverVerifyData
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
 comment|//qDebug()<< server.receivedData;
-comment|//QVERIFY(server.receivedData.contains(serverVerifyData)); //got a bug here
-block|}
+name|QByteArray
+name|hostinfo
+init|=
+literal|"\r\nHost: "
+operator|+
+name|hostfield
+operator|+
+literal|":"
+operator|+
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|server
+operator|.
+name|serverPort
+argument_list|()
+argument_list|)
+operator|+
+literal|"\r\n"
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|server
+operator|.
+name|receivedData
+operator|.
+name|contains
+argument_list|(
+name|hostinfo
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|content
