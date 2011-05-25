@@ -127,6 +127,14 @@ name|applicationPid
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|mDisplay
+operator|->
+name|windowManagerIntegration
+argument_list|()
+operator|->
+name|authenticateWithToken
+argument_list|()
+expr_stmt|;
 endif|#
 directive|endif
 name|mSurface

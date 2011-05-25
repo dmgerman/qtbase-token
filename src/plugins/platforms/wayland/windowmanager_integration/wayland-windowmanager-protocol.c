@@ -31,8 +31,12 @@ block|{
 literal|"map_client_to_process"
 block|,
 literal|"u"
+block|}
 block|,
-name|NULL
+block|{
+literal|"authenticate_with_token"
+block|,
+literal|"s"
 block|}
 block|, }
 decl_stmt|;
