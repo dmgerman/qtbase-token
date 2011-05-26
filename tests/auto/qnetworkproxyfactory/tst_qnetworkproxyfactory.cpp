@@ -389,7 +389,7 @@ name|HttpProxy
 argument_list|,
 name|QString
 argument_list|(
-literal|"http://test.proxy.com"
+literal|"test.proxy.com"
 argument_list|)
 argument_list|,
 literal|8080
