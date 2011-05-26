@@ -91,7 +91,7 @@ block|;
 name|void
 name|moveToScreen
 argument_list|(
-argument|QWidget *window
+argument|QWindow *window
 argument_list|,
 argument|int screen
 argument_list|)

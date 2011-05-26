@@ -267,7 +267,7 @@ name|QXcbIntegration
 operator|::
 name|moveToScreen
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 name|window
 parameter_list|,
