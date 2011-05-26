@@ -2439,6 +2439,7 @@ name|c
 argument_list|)
 decl_stmt|;
 return|return
+operator|(
 name|l
 operator|>
 literal|65536
@@ -2450,6 +2451,7 @@ else|:
 name|l
 operator|*
 literal|4
+operator|)
 operator|-
 literal|100
 return|;
@@ -2504,10 +2506,6 @@ name|ulong
 name|bytes_left
 decl_stmt|;
 comment|// bytes_after
-name|ulong
-name|length
-decl_stmt|;
-comment|// nitems
 name|xcb_atom_t
 name|dummy_type
 decl_stmt|;
@@ -2607,12 +2605,6 @@ operator|=
 name|reply
 operator|->
 name|type
-expr_stmt|;
-name|length
-operator|=
-name|reply
-operator|->
-name|length
 expr_stmt|;
 operator|*
 name|format
@@ -2777,10 +2769,8 @@ operator|/
 literal|4
 argument_list|)
 decl_stmt|;
-name|xcb_get_property_reply_t
-modifier|*
 name|reply
-init|=
+operator|=
 name|xcb_get_property_reply
 argument_list|(
 name|m_connection
@@ -2792,7 +2782,7 @@ name|cookie
 argument_list|,
 literal|0
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -2804,19 +2794,20 @@ name|type
 operator|==
 name|XCB_NONE
 condition|)
+block|{
+name|free
+argument_list|(
+name|reply
+argument_list|)
+expr_stmt|;
 break|break;
+block|}
 operator|*
 name|type
 operator|=
 name|reply
 operator|->
 name|type
-expr_stmt|;
-name|length
-operator|=
-name|reply
-operator|->
-name|length
 expr_stmt|;
 operator|*
 name|format
@@ -2840,6 +2831,14 @@ name|char
 operator|*
 operator|)
 name|xcb_get_property_value
+argument_list|(
+name|reply
+argument_list|)
+decl_stmt|;
+name|int
+name|length
+init|=
+name|xcb_get_property_value_length
 argument_list|(
 name|reply
 argument_list|)
@@ -3884,6 +3883,11 @@ name|INCR
 argument_list|)
 condition|)
 block|{
+name|qDebug
+argument_list|()
+operator|<<
+literal|"INCR"
+expr_stmt|;
 name|int
 name|nbytes
 init|=

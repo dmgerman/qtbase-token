@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qdebug.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<X11/Xutil.h>
 end_include
 begin_undef
@@ -939,15 +944,7 @@ argument_list|,
 name|a
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|atomName
-operator|==
-name|format
-condition|)
-return|return
-name|data
-return|;
+comment|//    qDebug()<< "mimeConvertDataToFormat"<< format<< atomName<< data;
 if|if
 condition|(
 operator|!
@@ -1034,6 +1031,12 @@ operator|::
 name|UTF8_STRING
 argument_list|)
 condition|)
+block|{
+name|qDebug
+argument_list|()
+operator|<<
+name|data
+expr_stmt|;
 return|return
 name|QString
 operator|::
@@ -1042,6 +1045,7 @@ argument_list|(
 name|data
 argument_list|)
 return|;
+block|}
 if|if
 condition|(
 name|a
@@ -1179,6 +1183,15 @@ argument_list|()
 return|;
 block|}
 block|}
+if|if
+condition|(
+name|atomName
+operator|==
+name|format
+condition|)
+return|return
+name|data
+return|;
 if|#
 directive|if
 literal|0
