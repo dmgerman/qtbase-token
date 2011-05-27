@@ -58,6 +58,25 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// MAP_ANON is deprecated on Linux, and MAP_ANONYMOUS is not present on Mac
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|MAP_ANONYMOUS
+end_ifndef
+begin_define
+DECL|macro|MAP_ANONYMOUS
+define|#
+directive|define
+name|MAP_ANONYMOUS
+value|MAP_ANON
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -3740,8 +3759,6 @@ argument_list|,
 name|MAP_PRIVATE
 operator||
 name|MAP_ANONYMOUS
-operator||
-name|MAP_POPULATE
 argument_list|,
 operator|-
 literal|1
@@ -7549,8 +7566,6 @@ argument_list|,
 name|MAP_PRIVATE
 operator||
 name|MAP_ANONYMOUS
-operator||
-name|MAP_POPULATE
 argument_list|,
 operator|-
 literal|1
