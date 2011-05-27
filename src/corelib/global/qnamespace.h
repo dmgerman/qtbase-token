@@ -907,9 +907,7 @@ name|Window
 block|,
 name|SubWindow
 init|=
-name|Desktop
-operator||
-name|Dialog
+literal|0x00000012
 block|,
 name|WindowType_Mask
 init|=

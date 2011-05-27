@@ -316,6 +316,25 @@ argument_list|()
 operator|->
 name|window
 decl_stmt|;
+comment|// topData() ensures the extra is created but does not ensure 'window' is non-null
+comment|// in case the extra was already valid.
+if|if
+condition|(
+operator|!
+name|win
+condition|)
+block|{
+name|createTLSysExtra
+argument_list|()
+expr_stmt|;
+name|win
+operator|=
+name|topData
+argument_list|()
+operator|->
+name|window
+expr_stmt|;
+block|}
 name|win
 operator|->
 name|setWindowFlags
