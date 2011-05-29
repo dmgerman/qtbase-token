@@ -2924,7 +2924,6 @@ name|reply
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* ###### FIXME         if (*format == 8&& type == m_connection->atom(QXcbAtom::COMPOUND_TEXT)) {             // convert COMPOUND_TEXT to a multibyte string             XTextProperty textprop;             textprop.encoding = type;             textprop.format = *format;             textprop.nitems = buffer_offset;             textprop.value = (unsigned char *) buffer->data();              char **list_ret = 0;             int count;             if (XmbTextPropertyToTextList(DISPLAY_FROM_XCB(m_connection),&textprop,&list_ret,&count) == Success&& count&& list_ret) {                 offset = buffer_offset = strlen(list_ret[0]);                 buffer->resize(offset);                 memcpy(buffer->data(), list_ret[0], offset);             }             if (list_ret) XFreeStringList(list_ret);         } */
 block|}
 comment|// correct size, not 0-term.
 if|if

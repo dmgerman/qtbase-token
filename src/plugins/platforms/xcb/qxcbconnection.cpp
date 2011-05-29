@@ -2109,7 +2109,6 @@ literal|"_NET_WM_CM_S0\0"
 literal|"_NET_SYSTEM_TRAY_VISUAL\0"
 literal|"_NET_ACTIVE_WINDOW\0"
 comment|// Property formats
-literal|"COMPOUND_TEXT\0"
 literal|"TEXT\0"
 literal|"UTF8_STRING\0"
 comment|// xdnd

@@ -279,8 +279,6 @@ block|,
 name|_NET_ACTIVE_WINDOW
 block|,
 comment|// Property formats
-name|COMPOUND_TEXT
-block|,
 name|TEXT
 block|,
 name|UTF8_STRING
