@@ -99,6 +99,7 @@ directive|endif
 end_endif
 begin_function_decl
 specifier|extern
+name|Q_OPENGL_EXPORT
 name|QImage
 name|qt_gl_read_framebuffer
 parameter_list|(
