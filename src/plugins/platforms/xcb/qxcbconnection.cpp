@@ -2473,6 +2473,11 @@ argument_list|,
 literal|0
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|reply
+condition|)
+block|{
 name|QByteArray
 name|result
 argument_list|(
@@ -2494,6 +2499,11 @@ argument_list|)
 expr_stmt|;
 return|return
 name|result
+return|;
+block|}
+return|return
+name|QByteArray
+argument_list|()
 return|;
 block|}
 end_function
