@@ -90,6 +90,15 @@ name|void
 name|notifyLayoutDirectionChange
 argument_list|()
 block|;
+name|virtual
+name|void
+name|notifyActiveWindowChange
+argument_list|(
+name|QWindow
+operator|*
+name|previous
+argument_list|)
+block|;
 specifier|static
 name|int
 name|keyboard_input_time

@@ -2761,6 +2761,14 @@ modifier|*
 name|e
 parameter_list|)
 block|{
+name|QWindow
+modifier|*
+name|previous
+init|=
+name|QGuiApplicationPrivate
+operator|::
+name|active_window
+decl_stmt|;
 name|QGuiApplicationPrivate
 operator|::
 name|active_window
@@ -2771,6 +2779,17 @@ name|activated
 operator|.
 name|data
 argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|self
+condition|)
+name|self
+operator|->
+name|notifyActiveWindowChange
+argument_list|(
+name|previous
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -3265,6 +3284,18 @@ name|QGuiApplicationPrivate
 operator|::
 name|notifyLayoutDirectionChange
 parameter_list|()
+block|{ }
+end_function
+begin_function
+DECL|function|notifyActiveWindowChange
+name|void
+name|QGuiApplicationPrivate
+operator|::
+name|notifyActiveWindowChange
+parameter_list|(
+name|QWindow
+modifier|*
+parameter_list|)
 block|{ }
 end_function
 begin_comment
