@@ -1058,6 +1058,13 @@ name|destroy
 argument_list|()
 expr_stmt|;
 block|}
+name|adjustFlags
+argument_list|(
+name|f
+argument_list|,
+name|q
+argument_list|)
+expr_stmt|;
 name|data
 operator|.
 name|window_flags
