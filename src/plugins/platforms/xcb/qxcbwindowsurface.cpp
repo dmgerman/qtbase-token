@@ -1211,6 +1211,9 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
+name|m_image
+operator|||
 name|m_image
 operator|->
 name|image
