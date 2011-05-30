@@ -13,6 +13,16 @@ define|#
 directive|define
 name|QPRINTERINFO_UNIX_P_H
 end_define
+begin_include
+include|#
+directive|include
+file|<QtGui/qprinter.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qstringlist.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -513,6 +523,19 @@ name|printers
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|QList
+operator|<
+name|QPrinter
+operator|::
+name|PaperSize
+operator|>
+name|qt_getCupsPrinterPaperSizes
+argument_list|(
+argument|int cupsPrinterIndex
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
