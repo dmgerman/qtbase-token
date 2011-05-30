@@ -1083,6 +1083,7 @@ argument_list|)
 expr_stmt|;
 specifier|static
 specifier|const
+name|unsigned
 name|char
 name|ibuf
 index|[]

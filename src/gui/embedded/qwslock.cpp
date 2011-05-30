@@ -339,7 +339,8 @@ parameter_list|(
 name|int
 name|semId
 parameter_list|,
-name|int
+name|unsigned
+name|short
 name|semNum
 parameter_list|,
 name|int
@@ -445,7 +446,8 @@ parameter_list|(
 name|int
 name|semId
 parameter_list|,
-name|int
+name|unsigned
+name|short
 name|semNum
 parameter_list|)
 block|{
@@ -530,7 +532,8 @@ parameter_list|(
 name|int
 name|semId
 parameter_list|,
-name|int
+name|unsigned
+name|short
 name|semNum
 parameter_list|)
 block|{
@@ -616,7 +619,8 @@ parameter_list|(
 name|int
 name|semId
 parameter_list|,
-name|int
+name|unsigned
+name|short
 name|semNum
 parameter_list|)
 block|{
@@ -841,7 +845,8 @@ condition|)
 return|return;
 block|}
 specifier|const
-name|int
+name|unsigned
+name|short
 name|semNum
 init|=
 name|type
