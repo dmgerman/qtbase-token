@@ -549,7 +549,7 @@ return|return
 name|d
 operator|->
 name|parentWindow
-operator|!=
+operator|==
 literal|0
 return|;
 block|}
