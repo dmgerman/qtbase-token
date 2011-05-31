@@ -58,7 +58,7 @@ decl_stmt|;
 end_decl_stmt
 begin_function_decl
 name|EGLConfig
-name|q_configFromQPlatformWindowFormat
+name|q_configFromQWindowFormat
 parameter_list|(
 name|EGLDisplay
 name|display

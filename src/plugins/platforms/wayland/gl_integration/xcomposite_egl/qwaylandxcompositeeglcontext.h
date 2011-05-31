@@ -21,11 +21,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QWaitCondition>
-end_include
-begin_include
-include|#
-directive|include
 file|"qwaylandbuffer.h"
 end_include
 begin_include
@@ -81,8 +76,8 @@ operator|&
 name|procName
 argument_list|)
 block|;
-name|QPlatformWindowFormat
-name|platformWindowFormat
+name|QWindowFormat
+name|windowFormat
 argument_list|()
 specifier|const
 block|;

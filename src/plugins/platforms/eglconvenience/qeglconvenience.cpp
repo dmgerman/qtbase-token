@@ -622,9 +622,9 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|q_configFromQPlatformWindowFormat
+DECL|function|q_configFromQWindowFormat
 name|EGLConfig
-name|q_configFromQPlatformWindowFormat
+name|q_configFromQWindowFormat
 parameter_list|(
 name|EGLDisplay
 name|display

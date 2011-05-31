@@ -53,7 +53,7 @@ name|QWaylandGLContext
 argument_list|(
 argument|EGLDisplay eglDisplay
 argument_list|,
-argument|const QPlatformWindowFormat&format
+argument|const QWindowFormat&format
 argument_list|)
 block|;
 operator|~
@@ -81,8 +81,8 @@ name|QString
 operator|&
 argument_list|)
 block|;
-name|QPlatformWindowFormat
-name|platformWindowFormat
+name|QWindowFormat
+name|windowFormat
 argument_list|()
 specifier|const
 block|{
@@ -115,7 +115,7 @@ block|;
 name|EGLConfig
 name|mConfig
 block|;
-name|QPlatformWindowFormat
+name|QWindowFormat
 name|mFormat
 block|;
 name|QWaylandGLContext

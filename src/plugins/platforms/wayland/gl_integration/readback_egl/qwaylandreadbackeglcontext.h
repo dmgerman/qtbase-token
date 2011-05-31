@@ -81,8 +81,8 @@ name|procName
 argument_list|)
 block|;
 name|virtual
-name|QPlatformWindowFormat
-name|platformWindowFormat
+name|QWindowFormat
+name|windowFormat
 argument_list|()
 specifier|const
 block|;

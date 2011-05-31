@@ -200,7 +200,7 @@ return|return
 operator|new
 name|QWaylandReadbackEglWindow
 argument_list|(
-name|widget
+name|window
 argument_list|,
 name|this
 argument_list|)

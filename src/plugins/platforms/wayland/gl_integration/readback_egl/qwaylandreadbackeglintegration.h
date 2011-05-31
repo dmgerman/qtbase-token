@@ -41,6 +41,16 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QEvent>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QCursor>
+end_include
+begin_include
+include|#
+directive|include
 file|<X11/Xlib.h>
 end_include
 begin_include

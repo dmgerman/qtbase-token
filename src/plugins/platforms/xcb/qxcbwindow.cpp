@@ -545,7 +545,7 @@ decl_stmt|;
 name|EGLConfig
 name|eglConfig
 init|=
-name|q_configFromQPlatformWindowFormat
+name|q_configFromQWindowFormat
 argument_list|(
 name|eglDisplay
 argument_list|,
@@ -4632,7 +4632,7 @@ decl_stmt|;
 name|EGLConfig
 name|config
 init|=
-name|q_configFromQPlatformWindowFormat
+name|q_configFromQWindowFormat
 argument_list|(
 name|display
 argument_list|,
