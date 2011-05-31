@@ -1830,7 +1830,7 @@ index|[
 literal|"QT3SUPPORT"
 index|]
 operator|=
-literal|"yes"
+literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
