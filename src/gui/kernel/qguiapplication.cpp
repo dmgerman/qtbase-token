@@ -179,7 +179,7 @@ name|QGuiApplicationPrivate
 operator|::
 name|keyboard_input_time
 init|=
-literal|0
+literal|400
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -189,7 +189,7 @@ name|QGuiApplicationPrivate
 operator|::
 name|mouse_double_click_time
 init|=
-literal|0
+literal|400
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
