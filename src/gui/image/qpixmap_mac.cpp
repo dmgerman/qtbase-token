@@ -3965,7 +3965,15 @@ name|base_pixels
 argument_list|,
 name|pixels
 argument_list|,
+name|qMin
+argument_list|(
 name|pixelsSize
+argument_list|,
+operator|(
+name|uint
+operator|)
+name|numBytes
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|pixels
