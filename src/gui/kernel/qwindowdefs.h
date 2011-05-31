@@ -312,7 +312,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 end_if
 begin_include
@@ -325,7 +325,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_WS_WIN
+comment|// Q_OS_WIN
 end_comment
 begin_if
 if|#

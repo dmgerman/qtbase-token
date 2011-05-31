@@ -775,7 +775,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|void
 name|setDC
 argument_list|(
@@ -793,6 +793,11 @@ argument_list|(
 argument|HDC hdc
 argument_list|)
 specifier|const
+block|;
+specifier|static
+name|bool
+name|clearTypeFontsEnabled
+argument_list|()
 block|;
 endif|#
 directive|endif
@@ -1314,7 +1319,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 name|HDC
 name|hdc
@@ -1389,7 +1394,7 @@ literal|1
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|uint
 name|isPlain45DegreeRotation
 operator|:
