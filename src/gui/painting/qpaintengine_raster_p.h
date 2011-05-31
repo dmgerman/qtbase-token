@@ -1323,6 +1323,15 @@ argument_list|)
 specifier|const
 block|;
 name|ProcessSpans
+name|getPenFunc
+argument_list|(
+argument|const QRectF&rect
+argument_list|,
+argument|const QSpanData *data
+argument_list|)
+specifier|const
+block|;
+name|ProcessSpans
 name|getBrushFunc
 argument_list|(
 argument|const QRect&rect
