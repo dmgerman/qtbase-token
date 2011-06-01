@@ -3936,9 +3936,6 @@ operator|::
 name|Window
 expr_stmt|;
 block|}
-ifndef|#
-directive|ifndef
-name|Q_WS_QPA
 if|if
 condition|(
 name|QWidget
@@ -4031,9 +4028,6 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-endif|#
-directive|endif
-comment|//Q_WS_QPA
 ifdef|#
 directive|ifdef
 name|QT3_SUPPORT
@@ -9212,9 +9206,6 @@ argument_list|()
 operator|)
 condition|)
 block|{
-ifndef|#
-directive|ifndef
-name|Q_WS_QPA
 if|if
 condition|(
 operator|!
@@ -9405,21 +9396,6 @@ name|create
 argument_list|()
 expr_stmt|;
 block|}
-else|#
-directive|else
-name|Q_UNUSED
-argument_list|(
-name|winid
-argument_list|)
-expr_stmt|;
-name|q
-operator|->
-name|create
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
-comment|//Q_WS_QPA
 block|}
 block|}
 comment|/*! \internal Ensures that the widget has a window system identifier, i.e. that it is known to the windowing system.  */
