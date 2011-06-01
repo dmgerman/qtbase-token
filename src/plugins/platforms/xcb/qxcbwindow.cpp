@@ -361,6 +361,12 @@ operator|==
 name|Qt
 operator|::
 name|Popup
+operator|||
+name|type
+operator|==
+name|Qt
+operator|::
+name|ToolTip
 block|,
 comment|// XCB_CW_SAVE_UNDER
 name|type
