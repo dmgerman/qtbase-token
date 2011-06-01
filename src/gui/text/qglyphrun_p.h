@@ -156,6 +156,13 @@ operator|.
 name|rawFont
 argument_list|)
 block|,
+name|boundingRect
+argument_list|(
+name|other
+operator|.
+name|boundingRect
+argument_list|)
+block|,
 name|overline
 argument_list|(
 name|other
@@ -217,6 +224,9 @@ name|glyphPositions
 block|;
 name|QRawFont
 name|rawFont
+block|;
+name|QRectF
+name|boundingRect
 block|;
 name|uint
 name|overline
