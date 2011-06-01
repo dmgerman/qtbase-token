@@ -136,6 +136,18 @@ argument_list|,
 argument|int&count
 argument_list|)
 block|;
+name|void
+name|initXkb
+argument_list|()
+block|;
+name|void
+name|setMask
+argument_list|(
+argument|uint sym
+argument_list|,
+argument|uint mask
+argument_list|)
+block|;
 name|uint
 name|m_alt_mask
 block|;
@@ -157,7 +169,18 @@ block|;
 name|xcb_key_symbols_t
 operator|*
 name|m_key_symbols
-block|; }
+block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_XCB_XKB
+block|struct
+name|xkb_desc
+operator|*
+name|m_xkb
+block|;
+endif|#
+directive|endif
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_endif
