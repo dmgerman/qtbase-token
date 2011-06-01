@@ -155,6 +155,14 @@ name|void
 name|disablePolling
 argument_list|()
 block|;
+name|void
+name|initialize
+argument_list|()
+block|;
+name|void
+name|cleanup
+argument_list|()
+block|;
 name|public
 name|Q_SLOTS
 operator|:
@@ -241,6 +249,10 @@ block|;
 name|QTimer
 operator|*
 name|pollTimer
+block|;
+name|QThread
+operator|*
+name|bearerThread
 block|;
 name|private
 operator|:

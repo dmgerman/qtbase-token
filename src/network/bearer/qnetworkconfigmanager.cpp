@@ -74,18 +74,25 @@ name|connManager_cleanup
 parameter_list|()
 block|{
 comment|// this is not atomic or thread-safe!
-operator|delete
+name|QNetworkConfigurationManagerPrivate
+modifier|*
+name|cmp
+init|=
 name|connManager_ptr
 operator|.
-name|load
-argument_list|()
-expr_stmt|;
-name|connManager_ptr
-operator|.
-name|store
+name|fetchAndStoreAcquire
 argument_list|(
 literal|0
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|cmp
+condition|)
+name|cmp
+operator|->
+name|cleanup
+argument_list|()
 expr_stmt|;
 block|}
 end_function
@@ -172,7 +179,7 @@ argument_list|()
 expr_stmt|;
 name|ptr
 operator|->
-name|updateConfigurations
+name|initialize
 argument_list|()
 expr_stmt|;
 block|}
@@ -213,10 +220,10 @@ argument_list|)
 expr_stmt|;
 name|ptr
 operator|->
-name|updateConfigurations
+name|initialize
 argument_list|()
 expr_stmt|;
-comment|// this moves us to the main thread
+comment|// this moves us to the right thread
 name|obj
 operator|->
 name|moveToThread
