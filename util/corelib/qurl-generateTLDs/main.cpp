@@ -248,7 +248,7 @@ argument_list|)
 expr_stmt|;
 name|printf
 argument_list|(
-literal|"Now copy the data from effective_tld_names.dat.qt to the file src/network/access/qnetworkcookiejartlds_p.h in your Qt repo\n\n"
+literal|"Now copy the data from effective_tld_names.dat.qt to the file src/corelib/io/qurltlds_p.h in your Qt repo\n\n"
 argument_list|)
 expr_stmt|;
 name|exit
@@ -777,7 +777,7 @@ argument_list|()
 expr_stmt|;
 name|printf
 argument_list|(
-literal|"data generated to %s . Now copy the data from this file to src/network/access/qnetworkcookiejartlds_p.h in your Qt repo\n"
+literal|"data generated to %s . Now copy the data from this file to src/corelib/io/qurltlds_p.h in your Qt repo\n"
 argument_list|,
 name|argv
 index|[

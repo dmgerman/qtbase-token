@@ -4899,6 +4899,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_gl_read_framebuffer
+name|Q_OPENGL_EXPORT
 name|QImage
 name|qt_gl_read_framebuffer
 parameter_list|(

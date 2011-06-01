@@ -289,6 +289,9 @@ operator|::
 name|initializeGL
 parameter_list|()
 block|{
+name|initializeGLFunctions
+argument_list|()
+expr_stmt|;
 name|qglClearColor
 argument_list|(
 name|Qt

@@ -1369,7 +1369,7 @@ argument_list|)
 operator|<<
 literal|"www.ipv6-net.org"
 operator|<<
-literal|"62.93.217.177 2001:618:1401:0:0:0:0:4"
+literal|"62.93.217.177 2001:618:1401::4"
 operator|<<
 name|int
 argument_list|(
@@ -1387,7 +1387,7 @@ argument_list|)
 operator|<<
 literal|"ipv6-test.dev.troll.no"
 operator|<<
-literal|"2001:638:a00:2:0:0:0:2"
+literal|"2001:638:a00:2::2"
 operator|<<
 name|int
 argument_list|(
@@ -1405,7 +1405,7 @@ argument_list|)
 operator|<<
 literal|"dns6-test-dev.troll.no"
 operator|<<
-literal|"2001:470:1f01:115:0:0:0:10"
+literal|"2001:470:1f01:115::10"
 operator|<<
 name|int
 argument_list|(
@@ -1423,7 +1423,7 @@ argument_list|)
 operator|<<
 literal|"multi-dns6-test-dev.troll.no"
 operator|<<
-literal|"2001:470:1f01:115:0:0:0:11 2001:470:1f01:115:0:0:0:12"
+literal|"2001:470:1f01:115::11 2001:470:1f01:115::12"
 operator|<<
 name|int
 argument_list|(
@@ -1441,7 +1441,7 @@ argument_list|)
 operator|<<
 literal|"dns46-test-dev.troll.no"
 operator|<<
-literal|"10.3.4.90 2001:470:1f01:115:0:0:0:13"
+literal|"10.3.4.90 2001:470:1f01:115::13"
 operator|<<
 name|int
 argument_list|(
@@ -1479,7 +1479,7 @@ argument_list|)
 operator|<<
 literal|"f001:618:1401::4"
 operator|<<
-literal|"f001:618:1401:0:0:0:0:4"
+literal|"f001:618:1401::4"
 operator|<<
 name|int
 argument_list|(

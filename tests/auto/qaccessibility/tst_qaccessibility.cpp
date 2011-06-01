@@ -6349,9 +6349,6 @@ operator|::
 name|applicationTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QLatin1String
 name|name
 init|=
@@ -6411,17 +6408,6 @@ expr_stmt|;
 operator|delete
 name|interface
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -6432,9 +6418,6 @@ operator|::
 name|mainWindowTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QMainWindow
 name|mw
 decl_stmt|;
@@ -6521,17 +6504,6 @@ expr_stmt|;
 operator|delete
 name|interface
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_class
@@ -8174,9 +8146,6 @@ operator|::
 name|tabWidgetTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QTEST_ACCESSIBILITY
 name|QTabWidget
 modifier|*
 name|tabWidget
@@ -8853,17 +8822,6 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test needs accessibility support."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function

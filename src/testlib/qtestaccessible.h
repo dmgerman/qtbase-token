@@ -36,12 +36,6 @@ directive|ifndef
 name|QT_NO_ACCESSIBILITY
 end_ifndef
 begin_define
-DECL|macro|QTEST_ACCESSIBILITY
-define|#
-directive|define
-name|QTEST_ACCESSIBILITY
-end_define
-begin_define
 DECL|macro|QVERIFY_EVENT
 define|#
 directive|define
@@ -372,7 +366,9 @@ name|app
 condition|)
 name|qWarning
 argument_list|(
-literal|"QTEST_ACCESSIBILITY: root Object is not a QApplication!"
+literal|"%s: root Object is not a QApplication!"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}
@@ -380,7 +376,9 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-literal|"QTEST_ACCESSIBILITY: root Object called with 0 pointer"
+literal|"%s: root Object called with 0 pointer"
+argument_list|,
+name|Q_FUNC_INFO
 argument_list|)
 expr_stmt|;
 block|}

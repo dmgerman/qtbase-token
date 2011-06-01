@@ -13744,6 +13744,25 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// Needed for fontconfig version< 2.2.97
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|FC_FAMILYLANG
+end_ifndef
+begin_define
+DECL|macro|FC_FAMILYLANG
+define|#
+directive|define
+name|FC_FAMILYLANG
+value|"familylang"
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|registerFont
 specifier|static

@@ -228,6 +228,7 @@ argument_list|()
 block|;
 name|private
 operator|:
+name|Q_INVOKABLE
 name|void
 name|startPolling
 argument_list|()

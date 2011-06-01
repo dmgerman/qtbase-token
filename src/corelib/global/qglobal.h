@@ -1382,18 +1382,15 @@ directive|define
 name|Q_COMPILER_RVALUE_REFS
 define|#
 directive|define
-name|Q_COMPILER_INITIALIZER_LISTS
-define|#
-directive|define
 name|Q_COMPILER_AUTO_TYPE
 define|#
 directive|define
 name|Q_COMPILER_LAMBDA
-comment|//#      define Q_COMPILER_VARIADIC_TEMPLATES
-comment|//#      define Q_COMPILER_CLASS_ENUM
-comment|//#      define Q_COMPILER_DEFAULT_DELETE_MEMBERS
-comment|//#      define Q_COMPILER_UNICODE_STRINGS
-comment|//#      define Q_COMPILER_EXTERN_TEMPLATES
+define|#
+directive|define
+name|Q_COMPILER_DECLTYPE
+comment|//  MSCV has std::initilizer_list, but do not support the braces initialization
+comment|//#      define Q_COMPILER_INITIALIZER_LISTS
 endif|#
 directive|endif
 elif|#
@@ -1792,6 +1789,9 @@ comment|/* C++0x features supported in GCC 4.3: */
 define|#
 directive|define
 name|Q_COMPILER_RVALUE_REFS
+define|#
+directive|define
+name|Q_COMPILER_DECLTYPE
 endif|#
 directive|endif
 if|#
@@ -2566,6 +2566,10 @@ DECL|macro|Q_COMPILER_EXTERN_TEMPLATES
 define|#
 directive|define
 name|Q_COMPILER_EXTERN_TEMPLATES
+DECL|macro|Q_COMPILER_DECLTYPE
+define|#
+directive|define
+name|Q_COMPILER_DECLTYPE
 elif|#
 directive|elif
 name|__INTEL_COMPILER
@@ -12216,6 +12220,7 @@ name|QT_MODULE_CORE
 operator|)
 end_if
 begin_macro
+DECL|function|QT_LICENSED_MODULE
 name|QT_LICENSED_MODULE
 argument_list|(
 argument|Core
@@ -12835,6 +12840,45 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_decl_stmt
+name|namespace
+name|QtPrivate
+block|{
+comment|//like std::enable_if
+name|template
+operator|<
+name|bool
+name|B
+operator|,
+name|typename
+name|T
+operator|=
+name|void
+operator|>
+expr|struct
+name|QEnableIf
+expr_stmt|;
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+expr|struct
+name|QEnableIf
+operator|<
+name|true
+operator|,
+name|T
+operator|>
+block|{
+typedef|typedef
+name|T
+name|Type
+typedef|;
+block|}
+empty_stmt|;
+block|}
+end_decl_stmt
 begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER

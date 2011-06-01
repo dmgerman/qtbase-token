@@ -76,6 +76,9 @@ operator|::
 name|init
 parameter_list|()
 block|{
+name|initializeGLFunctions
+argument_list|()
+expr_stmt|;
 comment|//! [0]
 comment|// Generate 2 VBOs
 name|glGenBuffers
