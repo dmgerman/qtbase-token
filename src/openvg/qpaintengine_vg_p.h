@@ -629,6 +629,19 @@ operator|&
 name|surfaceSize
 argument_list|)
 block|;
+name|bool
+name|supportsTransformations
+argument_list|(
+argument|qreal
+argument_list|,
+argument|const QTransform&
+argument_list|)
+specifier|const
+block|{
+return|return
+name|true
+return|;
+block|}
 name|protected
 operator|:
 name|QVGPaintEngine

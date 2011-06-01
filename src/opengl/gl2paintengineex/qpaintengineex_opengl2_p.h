@@ -518,19 +518,30 @@ name|isNativePaintingActive
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|supportsTransformations
+argument_list|(
+argument|qreal
+argument_list|,
+argument|const QTransform&
+argument_list|)
+specifier|const
+block|{
+return|return
+name|true
+return|;
+block|}
 name|private
 operator|:
 name|Q_DISABLE_COPY
 argument_list|(
 argument|QGL2PaintEngineEx
 argument_list|)
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
+expr|}
+block|;
 name|class
 name|QGL2PaintEngineExPrivate
-range|:
+operator|:
 name|public
 name|QPaintEngineExPrivate
 block|{
@@ -1174,9 +1185,7 @@ index|[
 literal|3
 index|]
 block|; }
-decl_stmt|;
-end_decl_stmt
-begin_expr_stmt
+block|;
 DECL|function|setVertexAttributePointer
 name|void
 name|QGL2PaintEngineExPrivate
@@ -1211,9 +1220,7 @@ name|arrayIndex
 index|]
 operator|=
 name|pointer
-expr_stmt|;
-end_expr_stmt
-begin_if
+block|;
 if|if
 condition|(
 name|arrayIndex
@@ -1251,9 +1258,12 @@ argument_list|,
 name|pointer
 argument_list|)
 expr_stmt|;
-end_if
+block|}
+end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
-unit|}  QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif
