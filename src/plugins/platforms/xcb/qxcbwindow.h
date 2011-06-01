@@ -207,6 +207,15 @@ name|event
 parameter_list|)
 function_decl|;
 name|void
+name|handleMapNotifyEvent
+parameter_list|(
+specifier|const
+name|xcb_map_notify_event_t
+modifier|*
+name|event
+parameter_list|)
+function_decl|;
+name|void
 name|handleButtonPressEvent
 parameter_list|(
 specifier|const
@@ -419,6 +428,9 @@ operator|::
 name|WindowState
 name|m_windowState
 expr_stmt|;
+name|bool
+name|m_mapped
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
