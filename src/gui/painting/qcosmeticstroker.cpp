@@ -4337,7 +4337,7 @@ operator|.
 name|x
 operator|)
 argument_list|)
-operator|>
+operator|>=
 name|len
 operator|||
 name|qAbs
@@ -4378,7 +4378,7 @@ operator|.
 name|x
 operator|)
 argument_list|)
-operator|>
+operator|>=
 name|len
 condition|)
 block|{
