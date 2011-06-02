@@ -31,12 +31,6 @@ name|QXcbConnection
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QSimpleDrag
-name|class
-name|QSimpleDrag
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QXcbIntegration
 range|:
@@ -180,10 +174,6 @@ block|;
 name|QPlatformPrinterSupport
 operator|*
 name|m_printerSupport
-block|;
-name|QSimpleDrag
-operator|*
-name|m_drag
 block|; }
 decl_stmt|;
 end_decl_stmt

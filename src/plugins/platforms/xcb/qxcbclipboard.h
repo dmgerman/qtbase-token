@@ -163,12 +163,35 @@ argument|xcb_atom_t atom
 argument_list|)
 specifier|const
 block|;
+name|QByteArray
+name|getSelection
+argument_list|(
+argument|xcb_window_t win
+argument_list|,
+argument|xcb_atom_t selection
+argument_list|,
+argument|xcb_atom_t target
+argument_list|,
+argument|xcb_atom_t property
+argument_list|)
+block|;
 name|private
 operator|:
 name|void
 name|setOwner
 argument_list|(
 argument|xcb_window_t window
+argument_list|)
+block|;
+name|xcb_generic_event_t
+operator|*
+name|waitForClipboardEvent
+argument_list|(
+argument|xcb_window_t win
+argument_list|,
+argument|int type
+argument_list|,
+argument|int timeout
 argument_list|)
 block|;
 name|xcb_atom_t

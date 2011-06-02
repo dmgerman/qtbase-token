@@ -40,7 +40,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qsimpledrag.h>
+file|"qxcbdrag.h"
 end_include
 begin_include
 include|#
@@ -126,11 +126,6 @@ operator|=
 operator|new
 name|QXcbNativeInterface
 expr_stmt|;
-name|m_drag
-operator|=
-operator|new
-name|QSimpleDrag
-expr_stmt|;
 block|}
 end_constructor
 begin_destructor
@@ -143,9 +138,6 @@ parameter_list|()
 block|{
 operator|delete
 name|m_connection
-expr_stmt|;
-operator|delete
-name|m_drag
 expr_stmt|;
 block|}
 end_destructor
@@ -1653,7 +1645,10 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|m_drag
+name|m_connection
+operator|->
+name|drag
+argument_list|()
 return|;
 block|}
 end_function
