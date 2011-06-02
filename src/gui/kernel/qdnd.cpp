@@ -1937,6 +1937,11 @@ directive|endif
 name|updatePixmap
 argument_list|()
 expr_stmt|;
+name|platformDrag
+operator|->
+name|startDrag
+argument_list|()
+expr_stmt|;
 name|eventLoop
 operator|=
 operator|new

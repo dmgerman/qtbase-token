@@ -52,6 +52,12 @@ literal|0
 expr_stmt|;
 name|virtual
 name|void
+name|startDrag
+parameter_list|()
+block|{}
+empty_stmt|;
+name|virtual
+name|void
 name|move
 parameter_list|(
 specifier|const
