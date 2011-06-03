@@ -20445,7 +20445,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Draws the glyphs represented by \a glyphs at \a position. The \a position gives the     edge of the baseline for the string of glyphs. The glyphs will be retrieved from the font     selected on \a glyphs and at offsets given by the positions in \a glyphs.      \since 4.8      \sa QGlyphRun::setRawFont(), QGlyphRun::setPositions(), QGlyphRun::setGlyphIndexes() */
+comment|/*!     \fn void QPainter::drawGlyphRun(const QPointF&position, const QGlyphRun&glyphs)      Draws the glyphs represented by \a glyphs at \a position. The \a position gives the     edge of the baseline for the string of glyphs. The glyphs will be retrieved from the font     selected on \a glyphs and at offsets given by the positions in \a glyphs.      \since 4.8      \sa QGlyphRun::setRawFont(), QGlyphRun::setPositions(), QGlyphRun::setGlyphIndexes() */
 end_comment
 begin_if
 if|#

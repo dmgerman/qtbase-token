@@ -1433,7 +1433,7 @@ begin_comment
 comment|/*!     \class QNonContiguousByteDeviceFactory     \since 4.6      \inmodule QtCore      Creates a QNonContiguousByteDevice out of a QIODevice,     QByteArray etc.      \sa QNonContiguousByteDevice      \internal */
 end_comment
 begin_comment
-comment|/*!     \fn static QNonContiguousByteDevice* QNonContiguousByteDeviceFactory::create(QIODevice *device);      Create a QNonContiguousByteDevice out of a QIODevice.     For QFile, QBuffer and all other QIoDevice, sequential or not.      \internal */
+comment|/*!     \fn static QNonContiguousByteDevice* QNonContiguousByteDeviceFactory::create(QIODevice *device)      Create a QNonContiguousByteDevice out of a QIODevice.     For QFile, QBuffer and all other QIoDevice, sequential or not.      \internal */
 end_comment
 begin_function
 DECL|function|create
@@ -1487,7 +1487,7 @@ comment|// FIXME
 block|}
 end_function
 begin_comment
-comment|/*!     \fn static QNonContiguousByteDevice* QNonContiguousByteDeviceFactory::create(QRingBuffer *ringBuffer);      Create a QNonContiguousByteDevice out of a QRingBuffer.      \internal */
+comment|/*!     \fn static QNonContiguousByteDevice* QNonContiguousByteDeviceFactory::create(QSharedPointer<QRingBuffer> ringBuffer)      Create a QNonContiguousByteDevice out of a QRingBuffer.      \internal */
 end_comment
 begin_function
 DECL|function|create
@@ -1514,7 +1514,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn static QNonContiguousByteDevice* QNonContiguousByteDeviceFactory::create(QByteArray *byteArray);      Create a QNonContiguousByteDevice out of a QByteArray.      \internal */
+comment|/*!     \fn static QNonContiguousByteDevice* QNonContiguousByteDeviceFactory::create(QByteArray *byteArray)      Create a QNonContiguousByteDevice out of a QByteArray.      \internal */
 end_comment
 begin_function
 DECL|function|create
@@ -1539,7 +1539,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn static QIODevice* QNonContiguousByteDeviceFactory::wrap(QNonContiguousByteDevice* byteDevice);      Wrap the \a byteDevice (possibly again) into a QIODevice.      \internal */
+comment|/*!     \fn static QIODevice* QNonContiguousByteDeviceFactory::wrap(QNonContiguousByteDevice* byteDevice)      Wrap the \a byteDevice (possibly again) into a QIODevice.      \internal */
 end_comment
 begin_function
 DECL|function|wrap

@@ -2501,6 +2501,9 @@ ifndef|#
 directive|ifndef
 name|QT_NO_BEARERMANAGEMENT
 end_ifndef
+begin_comment
+comment|/*!     Returns the network configuration component of the query.      \sa setNetworkConfiguration() */
+end_comment
 begin_function
 DECL|function|networkConfiguration
 name|QNetworkConfiguration
@@ -2523,7 +2526,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the network configuration component of this QNetworkProxyQuery     object to be \a networkConfiguration. The network configuration can     be used to return different proxy settings based on the network in     use, for example WLAN vs cellular networks on a mobile phone.      In the case of "user choice" or "service network" configurations,     you should first start the QNetworkSession and obtain the active     configuration from its properties.      \sa networkConfiguration */
+comment|/*!     Sets the network configuration component of this QNetworkProxyQuery     object to be \a networkConfiguration. The network configuration can     be used to return different proxy settings based on the network in     use, for example WLAN vs cellular networks on a mobile phone.      In the case of "user choice" or "service network" configurations,     you should first start the QNetworkSession and obtain the active     configuration from its properties.      \sa networkConfiguration() */
 end_comment
 begin_function
 DECL|function|setNetworkConfiguration
