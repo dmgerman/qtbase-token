@@ -269,7 +269,6 @@ name|window_flags
 decl_stmt|;
 if|if
 condition|(
-operator|(
 operator|!
 name|q
 operator|->
@@ -285,16 +284,6 @@ name|q
 operator|->
 name|isWindow
 argument_list|()
-operator|)
-operator|||
-name|q
-operator|->
-name|windowType
-argument_list|()
-operator|==
-name|Qt
-operator|::
-name|Desktop
 condition|)
 return|return;
 comment|// we only care about real toplevels
@@ -4089,7 +4078,6 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
-operator|(
 name|q
 operator|->
 name|testAttribute
@@ -4103,16 +4091,6 @@ name|q
 operator|->
 name|isWindow
 argument_list|()
-operator|)
-operator|&&
-name|q
-operator|->
-name|windowType
-argument_list|()
-operator|!=
-name|Qt
-operator|::
-name|Desktop
 condition|)
 name|extra
 operator|->
