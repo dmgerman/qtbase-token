@@ -780,13 +780,6 @@ operator|&
 name|a
 argument_list|)
 expr_stmt|;
-name|printf
-argument_list|(
-literal|"created GL window: %x\n"
-argument_list|,
-name|m_window
-argument_list|)
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -893,13 +886,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// value list
-name|printf
-argument_list|(
-literal|"created regular window: %x\n"
-argument_list|,
-name|m_window
-argument_list|)
-expr_stmt|;
 block|}
 name|connection
 argument_list|()
