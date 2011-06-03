@@ -1078,6 +1078,8 @@ block|}
 elseif|else
 if|if
 condition|(
+name|newparent
+operator|&&
 name|wasCreated
 condition|)
 block|{
