@@ -36,7 +36,6 @@ comment|// popup control
 end_comment
 begin_decl_stmt
 DECL|variable|qt_popup_down
-specifier|static
 name|QWidget
 modifier|*
 name|qt_popup_down
@@ -55,10 +54,9 @@ name|openPopupCount
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|replayPopupMouseEvent
-specifier|static
+DECL|variable|qt_replay_popup_mouse_event
 name|bool
-name|replayPopupMouseEvent
+name|qt_replay_popup_mouse_event
 init|=
 literal|false
 decl_stmt|;
@@ -550,7 +548,7 @@ argument_list|()
 condition|)
 block|{
 comment|// deliver event
-name|replayPopupMouseEvent
+name|qt_replay_popup_mouse_event
 operator|=
 literal|false
 expr_stmt|;
@@ -715,7 +713,7 @@ argument_list|()
 operator|!=
 name|activePopupWidget
 operator|&&
-name|replayPopupMouseEvent
+name|qt_replay_popup_mouse_event
 condition|)
 block|{
 if|if
@@ -733,7 +731,7 @@ name|qt_button_down
 operator|=
 literal|0
 expr_stmt|;
-name|replayPopupMouseEvent
+name|qt_replay_popup_mouse_event
 operator|=
 literal|false
 expr_stmt|;
