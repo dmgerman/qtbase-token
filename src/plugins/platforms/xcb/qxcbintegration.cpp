@@ -1511,11 +1511,6 @@ literal|4
 expr_stmt|;
 block|}
 block|}
-name|image
-operator|.
-name|detach
-argument_list|()
-expr_stmt|;
 name|result
 operator|=
 name|QPixmap
@@ -1523,6 +1518,9 @@ operator|::
 name|fromImage
 argument_list|(
 name|image
+operator|.
+name|copy
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
