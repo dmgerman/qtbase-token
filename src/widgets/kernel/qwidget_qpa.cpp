@@ -591,7 +591,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-comment|//### we don't have proper focus event handling yet
 if|if
 condition|(
 name|this
@@ -2249,22 +2248,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|//### we don't yet have proper focus event handling
-if|if
-condition|(
-name|q
-operator|==
-name|QApplicationPrivate
-operator|::
-name|active_window
-condition|)
-name|QApplication
-operator|::
-name|setActiveWindow
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_function
