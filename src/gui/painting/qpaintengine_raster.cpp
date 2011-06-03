@@ -20203,8 +20203,6 @@ operator|::
 name|Type
 name|fontEngineType
 init|=
-name|ti
-operator|.
 name|fontEngine
 operator|->
 name|type
@@ -20225,8 +20223,6 @@ operator|(
 name|QFontEngineWin
 operator|*
 operator|)
-name|ti
-operator|.
 name|fontEngine
 operator|)
 operator|->
