@@ -478,6 +478,26 @@ return|return
 name|m_connection
 return|;
 block|}
+specifier|const
+name|xcb_setup_t
+operator|*
+name|setup
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_setup
+return|;
+block|}
+specifier|const
+name|xcb_format_t
+operator|*
+name|formatForDepth
+argument_list|(
+argument|uint8_t depth
+argument_list|)
+specifier|const
+block|;
 name|QXcbKeyboard
 operator|*
 name|keyboard
