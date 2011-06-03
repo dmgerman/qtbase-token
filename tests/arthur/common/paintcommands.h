@@ -815,6 +815,13 @@ name|re
 parameter_list|)
 function_decl|;
 name|void
+name|command_drawStaticText
+parameter_list|(
+name|QRegExp
+name|re
+parameter_list|)
+function_decl|;
+name|void
 name|command_drawTiledPixmap
 parameter_list|(
 name|QRegExp
