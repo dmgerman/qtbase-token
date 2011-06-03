@@ -9105,9 +9105,6 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_WS_QPA
 name|that
 operator|->
 name|setAttribute
@@ -9117,8 +9114,6 @@ operator|::
 name|WA_NativeWindow
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|that
 operator|->
 name|d_func
