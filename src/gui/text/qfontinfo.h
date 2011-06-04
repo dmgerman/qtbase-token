@@ -75,6 +75,13 @@ specifier|const
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+name|QString
+name|styleName
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|int
 name|pixelSize
 argument_list|()

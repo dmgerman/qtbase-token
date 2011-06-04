@@ -171,6 +171,10 @@ DECL|member|family
 name|QString
 name|family
 expr_stmt|;
+DECL|member|styleName
+name|QString
+name|styleName
+decl_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_WS_X11
