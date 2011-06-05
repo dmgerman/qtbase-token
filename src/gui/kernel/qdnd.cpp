@@ -450,6 +450,10 @@ literal|0
 expr_stmt|;
 endif|#
 directive|endif
+name|shapedPixmapWindow
+operator|=
+literal|0
+expr_stmt|;
 name|possible_actions
 operator|=
 name|Qt
@@ -1133,131 +1137,6 @@ name|KeyboardModifiers
 name|oldstate
 decl_stmt|;
 end_decl_stmt
-begin_class
-DECL|class|QShapedPixmapWindow
-class|class
-name|QShapedPixmapWindow
-super|:
-specifier|public
-name|QWindow
-block|{
-DECL|member|pixmap
-name|QPixmap
-name|pixmap
-decl_stmt|;
-public|public:
-DECL|function|QShapedPixmapWindow
-name|QShapedPixmapWindow
-parameter_list|()
-member_init_list|:
-name|QWindow
-argument_list|(
-literal|0
-argument_list|)
-block|{
-name|setWindowFlags
-argument_list|(
-name|Qt
-operator|::
-name|Tool
-operator||
-name|Qt
-operator|::
-name|FramelessWindowHint
-operator||
-name|Qt
-operator|::
-name|X11BypassWindowManagerHint
-argument_list|)
-expr_stmt|;
-comment|// ### Should we set the surface type to raster?
-comment|// ### FIXME
-comment|//            setAttribute(Qt::WA_TransparentForMouseEvents);
-block|}
-DECL|function|move
-name|void
-name|move
-parameter_list|(
-specifier|const
-name|QPoint
-modifier|&
-name|p
-parameter_list|)
-block|{
-name|QRect
-name|g
-init|=
-name|geometry
-argument_list|()
-decl_stmt|;
-name|g
-operator|.
-name|setTopLeft
-argument_list|(
-name|p
-argument_list|)
-expr_stmt|;
-name|setGeometry
-argument_list|(
-name|g
-argument_list|)
-expr_stmt|;
-block|}
-DECL|function|setPixmap
-name|void
-name|setPixmap
-parameter_list|(
-name|QPixmap
-name|pm
-parameter_list|)
-block|{
-name|pixmap
-operator|=
-name|pm
-expr_stmt|;
-comment|// ###
-comment|//        if (!pixmap.mask().isNull()) {
-comment|//            setMask(pixmap.mask());
-comment|//        } else {
-comment|//            clearMask();
-comment|//        }
-name|setGeometry
-argument_list|(
-name|QRect
-argument_list|(
-name|geometry
-argument_list|()
-operator|.
-name|topLeft
-argument_list|()
-argument_list|,
-name|pm
-operator|.
-name|size
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-comment|// ### Get it painted again!
-comment|//    void paintEvent(QPaintEvent*)
-comment|//    {
-comment|//        QPainter p(this);
-comment|//        p.drawPixmap(0,0,pixmap);
-comment|//    }
-block|}
-class|;
-end_class
-begin_decl_stmt
-DECL|variable|qt_qws_dnd_deco
-specifier|static
-name|QShapedPixmapWindow
-modifier|*
-name|qt_qws_dnd_deco
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|updatePixmap
 name|void
@@ -1268,7 +1147,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|qt_qws_dnd_deco
+name|shapedPixmapWindow
 condition|)
 block|{
 name|QPixmap
@@ -1337,14 +1216,14 @@ operator|*
 name|defaultPm
 expr_stmt|;
 block|}
-name|qt_qws_dnd_deco
+name|shapedPixmapWindow
 operator|->
 name|setPixmap
 argument_list|(
 name|pm
 argument_list|)
 expr_stmt|;
-name|qt_qws_dnd_deco
+name|shapedPixmapWindow
 operator|->
 name|move
 argument_list|(
@@ -1361,7 +1240,7 @@ condition|(
 name|willDrop
 condition|)
 block|{
-name|qt_qws_dnd_deco
+name|shapedPixmapWindow
 operator|->
 name|show
 argument_list|()
@@ -1369,7 +1248,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qt_qws_dnd_deco
+name|shapedPixmapWindow
 operator|->
 name|hide
 argument_list|()
@@ -1396,9 +1275,9 @@ condition|)
 block|{
 if|if
 condition|(
-name|qt_qws_dnd_deco
+name|shapedPixmapWindow
 condition|)
-name|qt_qws_dnd_deco
+name|shapedPixmapWindow
 operator|->
 name|show
 argument_list|()
@@ -1480,9 +1359,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|qt_qws_dnd_deco
+name|shapedPixmapWindow
 condition|)
-name|qt_qws_dnd_deco
+name|shapedPixmapWindow
 operator|->
 name|hide
 argument_list|()
@@ -1864,9 +1743,9 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|qt_qws_dnd_deco
+name|shapedPixmapWindow
 condition|)
-name|qt_qws_dnd_deco
+name|shapedPixmapWindow
 operator|=
 operator|new
 name|QShapedPixmapWindow
@@ -1963,9 +1842,9 @@ operator|=
 literal|0
 expr_stmt|;
 operator|delete
-name|qt_qws_dnd_deco
+name|shapedPixmapWindow
 expr_stmt|;
-name|qt_qws_dnd_deco
+name|shapedPixmapWindow
 operator|=
 literal|0
 expr_stmt|;

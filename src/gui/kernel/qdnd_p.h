@@ -76,6 +76,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtGui/qwindow.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"QtCore/qpoint.h"
 end_include
 begin_include
@@ -286,6 +291,111 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|QShapedPixmapWindow
+range|:
+name|public
+name|QWindow
+block|{
+name|QPixmap
+name|pixmap
+block|;
+name|public
+operator|:
+name|QShapedPixmapWindow
+argument_list|()
+operator|:
+name|QWindow
+argument_list|(
+literal|0
+argument_list|)
+block|{
+name|setWindowFlags
+argument_list|(
+name|Qt
+operator|::
+name|Tool
+operator||
+name|Qt
+operator|::
+name|FramelessWindowHint
+operator||
+name|Qt
+operator|::
+name|X11BypassWindowManagerHint
+argument_list|)
+block|;
+comment|// ### Should we set the surface type to raster?
+comment|// ### FIXME
+comment|//            setAttribute(Qt::WA_TransparentForMouseEvents);
+block|}
+name|void
+name|move
+argument_list|(
+argument|const QPoint&p
+argument_list|)
+block|{
+name|QRect
+name|g
+operator|=
+name|geometry
+argument_list|()
+block|;
+name|g
+operator|.
+name|setTopLeft
+argument_list|(
+name|p
+argument_list|)
+block|;
+name|setGeometry
+argument_list|(
+name|g
+argument_list|)
+block|;     }
+name|void
+name|setPixmap
+argument_list|(
+argument|QPixmap pm
+argument_list|)
+block|{
+name|pixmap
+operator|=
+name|pm
+block|;
+comment|// ###
+comment|//        if (!pixmap.mask().isNull()) {
+comment|//            setMask(pixmap.mask());
+comment|//        } else {
+comment|//            clearMask();
+comment|//        }
+name|setGeometry
+argument_list|(
+name|QRect
+argument_list|(
+name|geometry
+argument_list|()
+operator|.
+name|topLeft
+argument_list|()
+argument_list|,
+name|pm
+operator|.
+name|size
+argument_list|()
+argument_list|)
+argument_list|)
+block|;     }
+comment|// ### Get it painted again!
+comment|//    void paintEvent(QPaintEvent*)
+comment|//    {
+comment|//        QPainter p(this);
+comment|//        p.drawPixmap(0,0,pixmap);
+comment|//    }
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
 name|Q_GUI_EXPORT
 name|QDragManager
 range|:
@@ -491,6 +601,10 @@ name|Qt
 operator|::
 name|DropAction
 name|global_accepted_action
+block|;
+name|QShapedPixmapWindow
+operator|*
+name|shapedPixmapWindow
 block|;
 name|private
 operator|:

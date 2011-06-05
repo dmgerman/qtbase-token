@@ -896,7 +896,10 @@ name|newOwner
 argument_list|,
 name|modeAtom
 argument_list|,
-name|XCB_CURRENT_TIME
+name|m_connection
+operator|->
+name|time
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -1880,12 +1883,14 @@ block|}
 else|else
 block|{
 name|qWarning
+argument_list|()
+operator|<<
+literal|"QClipboard: Unknown selection"
+operator|<<
+name|m_connection
+operator|->
+name|atomName
 argument_list|(
-literal|"QClipboard: Unknown selection '%lx'"
-argument_list|,
-operator|(
-name|long
-operator|)
 name|req
 operator|->
 name|selection
@@ -2537,6 +2542,8 @@ comment|// Don't read anything, just get the size of the property data
 name|xcb_get_property_cookie_t
 name|cookie
 init|=
+name|Q_XCB_CALL
+argument_list|(
 name|xcb_get_property
 argument_list|(
 name|m_connection
@@ -2555,6 +2562,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|0
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|xcb_get_property_reply_t
@@ -2744,6 +2752,8 @@ comment|// more to read...
 name|xcb_get_property_cookie_t
 name|cookie
 init|=
+name|Q_XCB_CALL
+argument_list|(
 name|xcb_get_property
 argument_list|(
 name|m_connection
@@ -2764,6 +2774,7 @@ argument_list|,
 name|maxsize
 operator|/
 literal|4
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|reply
