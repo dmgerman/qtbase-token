@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtCore/private/qobject_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/private/qevent_p.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -129,6 +134,13 @@ name|void
 name|handleDragEvent
 argument_list|(
 name|QEvent
+operator|*
+argument_list|)
+block|;
+name|void
+name|handleExposeEvent
+argument_list|(
+name|QExposeEvent
 operator|*
 argument_list|)
 block|;

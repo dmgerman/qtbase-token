@@ -230,6 +230,15 @@ name|event
 parameter_list|)
 function_decl|;
 name|void
+name|handleUnmapNotifyEvent
+parameter_list|(
+specifier|const
+name|xcb_unmap_notify_event_t
+modifier|*
+name|event
+parameter_list|)
+function_decl|;
+name|void
 name|handleButtonPressEvent
 parameter_list|(
 specifier|const

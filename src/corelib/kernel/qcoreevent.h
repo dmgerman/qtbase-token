@@ -893,6 +893,18 @@ name|Scroll
 init|=
 literal|205
 block|,
+name|Map
+init|=
+literal|206
+block|,
+name|Unmap
+init|=
+literal|207
+block|,
+name|Expose
+init|=
+literal|208
+block|,
 comment|// 512 reserved for Qt Jambi's MetaCall event
 comment|// 513 reserved for Qt Jambi's DeleteOnMainThread event
 name|User
