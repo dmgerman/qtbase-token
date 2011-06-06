@@ -7698,6 +7698,13 @@ return|return
 name|QString
 argument_list|()
 return|;
+name|cursor
+operator|.
+name|setPosition
+argument_list|(
+name|offset
+argument_list|)
+expr_stmt|;
 switch|switch
 condition|(
 name|boundaryType
@@ -7706,13 +7713,6 @@ block|{
 case|case
 name|CharBoundary
 case|:
-name|cursor
-operator|.
-name|setPosition
-argument_list|(
-name|offset
-argument_list|)
-expr_stmt|;
 operator|*
 name|startOffset
 operator|=
