@@ -6379,6 +6379,13 @@ operator|::
 name|NoButton
 return|;
 block|}
+else|#
+directive|else
+return|return
+name|QMessageBox
+operator|::
+name|NoButton
+return|;
 endif|#
 directive|endif
 block|}
