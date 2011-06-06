@@ -651,6 +651,13 @@ operator|&
 name|checker
 argument_list|)
 block|;
+name|QXcbWindow
+operator|*
+name|platformWindowFromId
+argument_list|(
+argument|xcb_window_t id
+argument_list|)
+block|;
 name|private
 name|slots
 operator|:
@@ -682,13 +689,6 @@ argument_list|()
 block|;
 endif|#
 directive|endif
-name|QXcbWindow
-operator|*
-name|platformWindowFromId
-argument_list|(
-argument|xcb_window_t id
-argument_list|)
-block|;
 name|xcb_connection_t
 operator|*
 name|m_connection

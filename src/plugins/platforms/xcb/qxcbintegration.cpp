@@ -816,6 +816,11 @@ name|root
 expr_stmt|;
 name|free
 argument_list|(
+name|translate_reply
+argument_list|)
+expr_stmt|;
+name|free
+argument_list|(
 name|reply
 argument_list|)
 expr_stmt|;

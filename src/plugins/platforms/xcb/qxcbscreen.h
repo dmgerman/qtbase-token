@@ -65,6 +65,17 @@ operator|~
 name|QXcbScreen
 argument_list|()
 expr_stmt|;
+name|QWindow
+modifier|*
+name|topLevelAt
+argument_list|(
+specifier|const
+name|QPoint
+operator|&
+name|point
+argument_list|)
+decl|const
+decl_stmt|;
 name|QRect
 name|geometry
 argument_list|()
