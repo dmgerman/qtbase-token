@@ -504,6 +504,13 @@ name|QGuiApplicationPrivate
 operator|::
 name|active_window
 decl_stmt|;
+if|if
+condition|(
+name|inPopupMode
+argument_list|()
+condition|)
+comment|// some delayed focus event to ignore
+return|return;
 name|QWidget
 modifier|*
 name|tlw
