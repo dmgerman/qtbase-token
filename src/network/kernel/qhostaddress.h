@@ -127,6 +127,8 @@ block|,
 name|Any
 block|,
 name|AnyIPv6
+block|,
+name|AnyIPv4
 block|}
 enum|;
 name|QHostAddress

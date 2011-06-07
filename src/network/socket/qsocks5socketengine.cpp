@@ -4086,9 +4086,9 @@ condition|)
 block|{
 name|QSOCKS5_DEBUG
 operator|<<
-literal|"error setting address"
+literal|"error setting peer name"
 operator|<<
-name|address
+name|peerName
 operator|<<
 literal|" : "
 operator|<<
@@ -6544,7 +6544,7 @@ parameter_list|(
 specifier|const
 name|QHostAddress
 modifier|&
-name|address
+name|addr
 parameter_list|,
 name|quint16
 name|port
@@ -6556,6 +6556,32 @@ name|QSocks5SocketEngine
 argument_list|)
 expr_stmt|;
 comment|// when bind wee will block until the bind is finished as the info from the proxy server is needed
+name|QHostAddress
+name|address
+decl_stmt|;
+if|if
+condition|(
+name|addr
+operator|.
+name|protocol
+argument_list|()
+operator|==
+name|QAbstractSocket
+operator|::
+name|AnyIPProtocol
+condition|)
+name|address
+operator|=
+name|QHostAddress
+operator|::
+name|AnyIPv4
+expr_stmt|;
+comment|//SOCKS5 doesnt support dual stack, and there isn't any implementation of udp on ipv6 yet
+else|else
+name|address
+operator|=
+name|addr
+expr_stmt|;
 if|if
 condition|(
 operator|!
