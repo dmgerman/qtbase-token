@@ -5260,9 +5260,6 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
-name|requestActivateWindow
-argument_list|()
-expr_stmt|;
 block|}
 elseif|else
 if|if
