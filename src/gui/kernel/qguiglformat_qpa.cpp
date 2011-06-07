@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qwindowformat_qpa.h"
+file|"qguiglformat_qpa.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qplatformglcontext_qpa.h"
+file|<QtCore/qatomic.h>
 end_include
 begin_include
 include|#
@@ -18,13 +18,13 @@ directive|include
 file|<QtCore/QDebug>
 end_include
 begin_class
-DECL|class|QWindowFormatPrivate
+DECL|class|QGuiGLFormatPrivate
 class|class
-name|QWindowFormatPrivate
+name|QGuiGLFormatPrivate
 block|{
 public|public:
-DECL|function|QWindowFormatPrivate
-name|QWindowFormatPrivate
+DECL|function|QGuiGLFormatPrivate
+name|QGuiGLFormatPrivate
 parameter_list|()
 member_init_list|:
 name|ref
@@ -34,11 +34,11 @@ argument_list|)
 member_init_list|,
 name|opts
 argument_list|(
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|DoubleBuffer
 operator||
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|WindowSurface
 argument_list|)
@@ -81,7 +81,7 @@ argument_list|)
 member_init_list|,
 name|swapBehavior
 argument_list|(
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|DefaultSwapBehavior
 argument_list|)
@@ -91,17 +91,12 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
-member_init_list|,
-name|sharedContext
-argument_list|(
-literal|0
-argument_list|)
 block|{     }
-DECL|function|QWindowFormatPrivate
-name|QWindowFormatPrivate
+DECL|function|QGuiGLFormatPrivate
+name|QGuiGLFormatPrivate
 parameter_list|(
 specifier|const
-name|QWindowFormatPrivate
+name|QGuiGLFormatPrivate
 modifier|*
 name|other
 parameter_list|)
@@ -173,20 +168,13 @@ name|other
 operator|->
 name|numSamples
 argument_list|)
-member_init_list|,
-name|sharedContext
-argument_list|(
-name|other
-operator|->
-name|sharedContext
-argument_list|)
 block|{     }
 DECL|member|ref
 name|QAtomicInt
 name|ref
 decl_stmt|;
 DECL|member|opts
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|FormatOptions
 name|opts
@@ -216,7 +204,7 @@ name|int
 name|stencilSize
 decl_stmt|;
 DECL|member|swapBehavior
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|SwapBehavior
 name|swapBehavior
@@ -225,35 +213,30 @@ DECL|member|numSamples
 name|int
 name|numSamples
 decl_stmt|;
-DECL|member|sharedContext
-name|QWindowContext
-modifier|*
-name|sharedContext
-decl_stmt|;
 block|}
 class|;
 end_class
 begin_constructor
-DECL|function|QWindowFormat
-name|QWindowFormat
+DECL|function|QGuiGLFormat
+name|QGuiGLFormat
 operator|::
-name|QWindowFormat
+name|QGuiGLFormat
 parameter_list|()
 block|{
 name|d
 operator|=
 operator|new
-name|QWindowFormatPrivate
+name|QGuiGLFormatPrivate
 expr_stmt|;
 block|}
 end_constructor
 begin_constructor
-DECL|function|QWindowFormat
-name|QWindowFormat
+DECL|function|QGuiGLFormat
+name|QGuiGLFormat
 operator|::
-name|QWindowFormat
+name|QGuiGLFormat
 parameter_list|(
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|FormatOptions
 name|options
@@ -262,7 +245,7 @@ block|{
 name|d
 operator|=
 operator|new
-name|QWindowFormatPrivate
+name|QGuiGLFormatPrivate
 expr_stmt|;
 name|d
 operator|->
@@ -278,7 +261,7 @@ end_comment
 begin_function
 DECL|function|detach
 name|void
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|detach
 parameter_list|()
@@ -292,12 +275,12 @@ operator|!=
 literal|1
 condition|)
 block|{
-name|QWindowFormatPrivate
+name|QGuiGLFormatPrivate
 modifier|*
 name|newd
 init|=
 operator|new
-name|QWindowFormatPrivate
+name|QGuiGLFormatPrivate
 argument_list|(
 name|d
 argument_list|)
@@ -326,13 +309,13 @@ begin_comment
 comment|/*!     Constructs a copy of \a other. */
 end_comment
 begin_constructor
-DECL|function|QWindowFormat
-name|QWindowFormat
+DECL|function|QGuiGLFormat
+name|QGuiGLFormat
 operator|::
-name|QWindowFormat
+name|QGuiGLFormat
 parameter_list|(
 specifier|const
-name|QWindowFormat
+name|QGuiGLFormat
 modifier|&
 name|other
 parameter_list|)
@@ -357,15 +340,15 @@ comment|/*!     Assigns \a other to this object. */
 end_comment
 begin_function
 DECL|function|operator =
-name|QWindowFormat
+name|QGuiGLFormat
 modifier|&
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|operator
 name|=
 parameter_list|(
 specifier|const
-name|QWindowFormat
+name|QGuiGLFormat
 modifier|&
 name|other
 parameter_list|)
@@ -415,14 +398,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Destroys the QWindowFormat. */
+comment|/*!     Destroys the QGuiGLFormat. */
 end_comment
 begin_destructor
-DECL|function|~QWindowFormat
-name|QWindowFormat
+DECL|function|~QGuiGLFormat
+name|QGuiGLFormat
 operator|::
 name|~
-name|QWindowFormat
+name|QGuiGLFormat
 parameter_list|()
 block|{
 if|if
@@ -441,7 +424,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     \fn bool QWindowFormat::stereo() const      Returns true if stereo buffering is enabled; otherwise returns     false. Stereo buffering is disabled by default.      \sa setStereo() */
+comment|/*!     \fn bool QGuiGLFormat::stereo() const      Returns true if stereo buffering is enabled; otherwise returns     false. Stereo buffering is disabled by default.      \sa setStereo() */
 end_comment
 begin_comment
 comment|/*!     If \a enable is true enables stereo buffering; otherwise disables     stereo buffering.      Stereo buffering is disabled by default.      Stereo buffering provides extra color buffers to generate left-eye     and right-eye images.      \sa stereo() */
@@ -449,7 +432,7 @@ end_comment
 begin_function
 DECL|function|setStereo
 name|void
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|setStereo
 parameter_list|(
@@ -466,7 +449,7 @@ name|d
 operator|->
 name|opts
 operator||=
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|StereoBuffers
 expr_stmt|;
@@ -478,7 +461,7 @@ operator|->
 name|opts
 operator|&=
 operator|~
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|StereoBuffers
 expr_stmt|;
@@ -491,7 +474,7 @@ end_comment
 begin_function
 DECL|function|samples
 name|int
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|samples
 parameter_list|()
@@ -510,7 +493,7 @@ end_comment
 begin_function
 DECL|function|setSamples
 name|void
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|setSamples
 parameter_list|(
@@ -529,50 +512,13 @@ name|numSamples
 expr_stmt|;
 block|}
 end_function
-begin_function
-DECL|function|setSharedContext
-name|void
-name|QWindowFormat
-operator|::
-name|setSharedContext
-parameter_list|(
-name|QWindowContext
-modifier|*
-name|context
-parameter_list|)
-block|{
-name|d
-operator|->
-name|sharedContext
-operator|=
-name|context
-expr_stmt|;
-block|}
-end_function
-begin_function
-DECL|function|sharedContext
-name|QWindowContext
-modifier|*
-name|QWindowFormat
-operator|::
-name|sharedContext
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|d
-operator|->
-name|sharedContext
-return|;
-block|}
-end_function
 begin_comment
-comment|/*!     \fn bool QWindowFormat::hasWindowSurface() const      Returns true if the corresponding widget has an instance of QWindowSurface.      Otherwise returns false.      WindowSurface is enabled by default.      \sa setOverlay() */
+comment|/*!     \fn bool QGuiGLFormat::hasWindowSurface() const      Returns true if the corresponding widget has an instance of QWindowSurface.      Otherwise returns false.      WindowSurface is enabled by default.      \sa setOverlay() */
 end_comment
 begin_function
 DECL|function|setWindowSurface
 name|void
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|setWindowSurface
 parameter_list|(
@@ -589,7 +535,7 @@ name|d
 operator|->
 name|opts
 operator||=
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|WindowSurface
 expr_stmt|;
@@ -601,7 +547,7 @@ operator|->
 name|opts
 operator|&=
 operator|~
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|WindowSurface
 expr_stmt|;
@@ -614,11 +560,11 @@ end_comment
 begin_function
 DECL|function|setOption
 name|void
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|setOption
 parameter_list|(
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|FormatOptions
 name|opt
@@ -641,11 +587,11 @@ end_comment
 begin_function
 DECL|function|testOption
 name|bool
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|testOption
 parameter_list|(
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|FormatOptions
 name|opt
@@ -667,7 +613,7 @@ end_comment
 begin_function
 DECL|function|setDepthBufferSize
 name|void
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|setDepthBufferSize
 parameter_list|(
@@ -692,7 +638,7 @@ end_comment
 begin_function
 DECL|function|depthBufferSize
 name|int
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|depthBufferSize
 parameter_list|()
@@ -708,7 +654,7 @@ end_function
 begin_function
 DECL|function|setSwapBehavior
 name|void
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|setSwapBehavior
 parameter_list|(
@@ -726,10 +672,10 @@ block|}
 end_function
 begin_function
 DECL|function|swapBehavior
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|SwapBehavior
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|swapBehavior
 parameter_list|()
@@ -745,7 +691,7 @@ end_function
 begin_function
 DECL|function|hasAlpha
 name|bool
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|hasAlpha
 parameter_list|()
@@ -766,7 +712,7 @@ end_comment
 begin_function
 DECL|function|setStencilBufferSize
 name|void
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|setStencilBufferSize
 parameter_list|(
@@ -791,7 +737,7 @@ end_comment
 begin_function
 DECL|function|stencilBufferSize
 name|int
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|stencilBufferSize
 parameter_list|()
@@ -807,7 +753,7 @@ end_function
 begin_function
 DECL|function|redBufferSize
 name|int
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|redBufferSize
 parameter_list|()
@@ -823,7 +769,7 @@ end_function
 begin_function
 DECL|function|greenBufferSize
 name|int
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|greenBufferSize
 parameter_list|()
@@ -839,7 +785,7 @@ end_function
 begin_function
 DECL|function|blueBufferSize
 name|int
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|blueBufferSize
 parameter_list|()
@@ -855,7 +801,7 @@ end_function
 begin_function
 DECL|function|alphaBufferSize
 name|int
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|alphaBufferSize
 parameter_list|()
@@ -871,7 +817,7 @@ end_function
 begin_function
 DECL|function|setRedBufferSize
 name|void
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|setRedBufferSize
 parameter_list|(
@@ -890,7 +836,7 @@ end_function
 begin_function
 DECL|function|setGreenBufferSize
 name|void
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|setGreenBufferSize
 parameter_list|(
@@ -909,7 +855,7 @@ end_function
 begin_function
 DECL|function|setBlueBufferSize
 name|void
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|setBlueBufferSize
 parameter_list|(
@@ -928,7 +874,7 @@ end_function
 begin_function
 DECL|function|setAlphaBufferSize
 name|void
-name|QWindowFormat
+name|QGuiGLFormat
 operator|::
 name|setAlphaBufferSize
 parameter_list|(
@@ -951,12 +897,12 @@ name|operator
 name|==
 parameter_list|(
 specifier|const
-name|QWindowFormat
+name|QGuiGLFormat
 modifier|&
 name|a
 parameter_list|,
 specifier|const
-name|QWindowFormat
+name|QGuiGLFormat
 modifier|&
 name|b
 parameter_list|)
@@ -1086,24 +1032,12 @@ operator|.
 name|d
 operator|->
 name|swapBehavior
-operator|&&
-name|a
-operator|.
-name|d
-operator|->
-name|sharedContext
-operator|==
-name|b
-operator|.
-name|d
-operator|->
-name|sharedContext
 operator|)
 return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns false if all the options of the two QWindowFormat objects     \a a and \a b are equal; otherwise returns true.      \relates QWindowFormat */
+comment|/*!     Returns false if all the options of the two QGuiGLFormat objects     \a a and \a b are equal; otherwise returns true.      \relates QGuiGLFormat */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -1112,12 +1046,12 @@ name|operator
 name|!=
 parameter_list|(
 specifier|const
-name|QWindowFormat
+name|QGuiGLFormat
 modifier|&
 name|a
 parameter_list|,
 specifier|const
-name|QWindowFormat
+name|QGuiGLFormat
 modifier|&
 name|b
 parameter_list|)
@@ -1147,13 +1081,13 @@ name|QDebug
 name|dbg
 parameter_list|,
 specifier|const
-name|QWindowFormat
+name|QGuiGLFormat
 modifier|&
 name|f
 parameter_list|)
 block|{
 specifier|const
-name|QWindowFormatPrivate
+name|QGuiGLFormatPrivate
 modifier|*
 specifier|const
 name|d
@@ -1167,7 +1101,7 @@ operator|.
 name|nospace
 argument_list|()
 operator|<<
-literal|"QWindowFormat("
+literal|"QGuiGLFormat("
 operator|<<
 literal|"options "
 operator|<<
@@ -1222,12 +1156,6 @@ operator|<<
 name|d
 operator|->
 name|swapBehavior
-operator|<<
-literal|", sharedContext "
-operator|<<
-name|d
-operator|->
-name|sharedContext
 operator|<<
 literal|')'
 expr_stmt|;

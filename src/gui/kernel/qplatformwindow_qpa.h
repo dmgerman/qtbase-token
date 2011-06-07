@@ -47,9 +47,9 @@ DECL|variable|QWindow
 name|class
 name|QWindow
 decl_stmt|;
-DECL|variable|QPlatformGLContext
+DECL|variable|QPlatformGLSurface
 name|class
-name|QPlatformGLContext
+name|QPlatformGLSurface
 decl_stmt|;
 name|class
 name|Q_GUI_EXPORT
@@ -217,9 +217,9 @@ function_decl|;
 end_function_decl
 begin_expr_stmt
 name|virtual
-name|QPlatformGLContext
+name|QPlatformGLSurface
 operator|*
-name|glContext
+name|createGLSurface
 argument_list|()
 specifier|const
 expr_stmt|;

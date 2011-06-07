@@ -68,6 +68,16 @@ argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
+name|QPlatformGLContext
+operator|*
+name|createPlatformGLContext
+argument_list|(
+argument|const QGuiGLFormat&glFormat
+argument_list|,
+argument|QPlatformGLContext *share
+argument_list|)
+specifier|const
+block|;
 name|QWindowSurface
 operator|*
 name|createWindowSurface

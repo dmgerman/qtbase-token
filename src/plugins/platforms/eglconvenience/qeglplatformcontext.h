@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QOPENKODEGLINTEGRATION_H
+name|QEGLPLATFORMCONTEXT_H
 end_ifndef
 begin_define
-DECL|macro|QOPENKODEGLINTEGRATION_H
+DECL|macro|QEGLPLATFORMCONTEXT_H
 define|#
 directive|define
-name|QOPENKODEGLINTEGRATION_H
+name|QEGLPLATFORMCONTEXT_H
 end_define
 begin_include
 include|#
@@ -25,6 +25,39 @@ file|<EGL/egl.h>
 end_include
 begin_decl_stmt
 name|class
+name|QEGLSurface
+range|:
+name|public
+name|QPlatformGLSurface
+block|{
+name|public
+operator|:
+name|QEGLSurface
+argument_list|(
+argument|EGLSurface surface
+argument_list|,
+argument|const QGuiGLFormat&format
+argument_list|)
+block|;
+name|virtual
+name|EGLSurface
+name|eglSurface
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_eglSurface
+return|;
+block|}
+name|private
+operator|:
+name|EGLSurface
+name|m_eglSurface
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
 name|QEGLPlatformContext
 range|:
 name|public
@@ -34,24 +67,30 @@ name|public
 operator|:
 name|QEGLPlatformContext
 argument_list|(
+argument|const QGuiGLFormat&format
+argument_list|,
+argument|QPlatformGLContext *share
+argument_list|,
 argument|EGLDisplay display
 argument_list|,
-argument|EGLConfig config
+argument|EGLint eglClientVersion =
+literal|2
 argument_list|,
-argument|EGLint contextAttrs[]
-argument_list|,
-argument|EGLSurface surface
-argument_list|,
-argument|EGLenum eglApi
+argument|EGLenum eglApi = EGL_OPENGL_ES_API
 argument_list|)
 block|;
 operator|~
 name|QEGLPlatformContext
 argument_list|()
 block|;
-name|void
+name|bool
 name|makeCurrent
-argument_list|()
+argument_list|(
+specifier|const
+name|QPlatformGLSurface
+operator|&
+name|surface
+argument_list|)
 block|;
 name|void
 name|doneCurrent
@@ -59,20 +98,28 @@ argument_list|()
 block|;
 name|void
 name|swapBuffers
-argument_list|()
+argument_list|(
+specifier|const
+name|QPlatformGLSurface
+operator|&
+name|surface
+argument_list|)
 block|;
 name|void
+argument_list|(
 operator|*
 name|getProcAddress
 argument_list|(
 specifier|const
-name|QString
+name|QByteArray
 operator|&
 name|procName
 argument_list|)
+argument_list|)
+argument_list|()
 block|;
-name|QWindowFormat
-name|windowFormat
+name|QGuiGLFormat
+name|format
 argument_list|()
 specifier|const
 block|;
@@ -89,14 +136,11 @@ block|;
 name|EGLDisplay
 name|m_eglDisplay
 block|;
-name|EGLSurface
-name|m_eglSurface
-block|;
 name|EGLenum
 name|m_eglApi
 block|;
-name|QWindowFormat
-name|m_windowFormat
+name|QGuiGLFormat
+name|m_format
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -105,6 +149,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//QOPENKODEGLINTEGRATION_H
+comment|//QEGLPLATFORMCONTEXT_H
 end_comment
 end_unit

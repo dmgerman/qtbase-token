@@ -46,7 +46,17 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<QtCore/qrect.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qwindow.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/qregion.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

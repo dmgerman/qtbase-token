@@ -69,9 +69,20 @@ end_expr_stmt
 begin_comment
 comment|//- (NSRect)windowWillUseStandardFrame:(NSWindow *)window defaultFrame:(NSRect)defaultFrame;
 end_comment
-begin_comment
-comment|//- (void)windowDidMove:(NSNotification *)notification;
-end_comment
+begin_expr_stmt
+operator|-
+operator|(
+name|void
+operator|)
+name|windowDidMove
+operator|:
+operator|(
+name|NSNotification
+operator|*
+operator|)
+name|notification
+expr_stmt|;
+end_expr_stmt
 begin_comment
 comment|//- (BOOL)windowShouldClose:(id)window;
 end_comment
@@ -136,6 +147,20 @@ operator|(
 name|void
 operator|)
 name|windowDidResize
+operator|:
+operator|(
+name|NSNotification
+operator|*
+operator|)
+name|notification
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+operator|-
+operator|(
+name|void
+operator|)
+name|windowDidMove
 operator|:
 operator|(
 name|NSNotification

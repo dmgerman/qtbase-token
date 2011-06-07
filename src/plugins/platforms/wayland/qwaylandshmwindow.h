@@ -48,9 +48,9 @@ name|windowType
 argument_list|()
 specifier|const
 block|;
-name|QPlatformGLContext
+name|QPlatformGLSurface
 operator|*
-name|glContext
+name|glSurface
 argument_list|()
 specifier|const
 block|; }

@@ -89,6 +89,12 @@ operator|&
 name|size
 argument_list|)
 block|;
+name|QGuiGLContext
+operator|*
+name|context
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QWaylandDisplay
@@ -98,6 +104,10 @@ block|;
 name|QGLFramebufferObject
 operator|*
 name|mPaintDevice
+block|;
+name|QGuiGLContext
+operator|*
+name|mContext
 block|; }
 decl_stmt|;
 end_decl_stmt

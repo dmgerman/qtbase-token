@@ -312,6 +312,10 @@ argument_list|(
 name|void
 argument_list|)
 block|;
+name|void
+name|cleanupThreadData
+argument_list|()
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_TRANSLATION
@@ -333,6 +337,9 @@ name|in_exec
 block|;
 name|bool
 name|aboutToQuitEmitted
+block|;
+name|bool
+name|threadData_clean
 block|;
 name|QString
 name|cachedApplicationDirPath

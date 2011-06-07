@@ -50,6 +50,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtGui/qguiglformat_qpa.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"QtGui/qplatformglcontext_qpa.h"
 end_include
 begin_include
@@ -355,13 +360,8 @@ name|WA_TranslucentBackground
 argument_list|)
 condition|)
 block|{
-name|QWindowFormat
+name|QGuiGLFormat
 name|format
-init|=
-name|win
-operator|->
-name|requestedWindowFormat
-argument_list|()
 decl_stmt|;
 name|format
 operator|.
@@ -372,7 +372,7 @@ argument_list|)
 expr_stmt|;
 name|win
 operator|->
-name|setWindowFormat
+name|setGLFormat
 argument_list|(
 name|format
 argument_list|)

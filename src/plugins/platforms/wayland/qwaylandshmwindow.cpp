@@ -71,18 +71,18 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|glContext
-name|QPlatformGLContext
+DECL|function|glSurface
+name|QPlatformGLSurface
 modifier|*
 name|QWaylandShmWindow
 operator|::
-name|glContext
+name|glSurface
 parameter_list|()
 specifier|const
 block|{
 name|qWarning
 argument_list|(
-literal|"Trying to retrieve a glContext from a Raster window surface!"
+literal|"Raster window does not have a GL drawable"
 argument_list|)
 expr_stmt|;
 return|return

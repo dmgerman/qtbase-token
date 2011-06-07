@@ -217,6 +217,35 @@ end_comment
 begin_comment
 comment|/*!     \fn QWindowSurface *QPlatformIntegration::createWindowSurface(QWindow *window, WId winId) const      Factory function for QWindowSurface. The QWindow parameter is a pointer to the     top level widget(tlw) the window surface is created for. A QPlatformWindow is always created     before the QWindowSurface for tlw where the widget also requires a WindowSurface. It is     possible to create top level QWindow without a QWindowSurface by specifying     QPlatformWindowFormat::setWindowSurface(false) for the tlw QPlatformWindowFormat.      \sa QWindowSurface     \sa createPlatformWindow(QWindow *window, WId winId = 0) const */
 end_comment
+begin_function
+DECL|function|createPlatformGLContext
+name|QPlatformGLContext
+modifier|*
+name|QPlatformIntegration
+operator|::
+name|createPlatformGLContext
+parameter_list|(
+specifier|const
+name|QGuiGLFormat
+modifier|&
+name|glFormat
+parameter_list|,
+name|QPlatformGLContext
+modifier|*
+name|share
+parameter_list|)
+specifier|const
+block|{
+name|qWarning
+argument_list|(
+literal|"This plugin does not support createPlatformGLContext!"
+argument_list|)
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     \fn void QPlatformIntegration::moveToScreen(QWindow *window, int screen)      This function is called when a QWindow is displayed on screen, or the QWindow is to be     displayed on a new screen. The QWindow parameter is a pointer to the top level widget and     the int parameter is the index to the screen in QList<QPlatformScreen *> screens() const.      Default implementation does nothing.      \sa screens() const */
 end_comment

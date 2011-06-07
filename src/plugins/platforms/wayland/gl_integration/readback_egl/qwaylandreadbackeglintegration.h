@@ -91,6 +91,16 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|QPlatformGLContext
+operator|*
+name|createPlatformGLContext
+argument_list|(
+argument|const QGuiGLFormat&glFormat
+argument_list|,
+argument|QPlatformGLContext *share
+argument_list|)
+specifier|const
+block|;
 name|QWaylandDisplay
 operator|*
 name|waylandDisplay

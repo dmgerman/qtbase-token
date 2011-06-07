@@ -80,7 +80,7 @@ argument_list|(
 name|false
 argument_list|)
 block|,
-name|glContext
+name|glSurface
 argument_list|(
 literal|0
 argument_list|)
@@ -145,7 +145,7 @@ block|;
 name|bool
 name|visible
 block|;
-name|QWindowFormat
+name|QGuiGLFormat
 name|requestedFormat
 block|;
 name|QString
@@ -154,9 +154,9 @@ block|;
 name|QRect
 name|geometry
 block|;
-name|QWindowContext
+name|QPlatformGLSurface
 operator|*
-name|glContext
+name|glSurface
 block|;
 name|QWindowSurface
 operator|*

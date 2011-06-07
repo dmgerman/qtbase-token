@@ -451,15 +451,15 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Reimplement to return the glContext associated with the window. */
+comment|/*!   Reimplement to create a GL surface for the window. */
 end_comment
 begin_function
-DECL|function|glContext
-name|QPlatformGLContext
+DECL|function|createGLSurface
+name|QPlatformGLSurface
 modifier|*
 name|QPlatformWindow
 operator|::
-name|glContext
+name|createGLSurface
 parameter_list|()
 specifier|const
 block|{

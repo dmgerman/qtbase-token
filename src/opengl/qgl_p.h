@@ -118,7 +118,7 @@ end_if
 begin_include
 include|#
 directive|include
-file|<QtGui/QWindowContext>
+file|<QtGui/QGuiGLContext>
 end_include
 begin_endif
 endif|#
@@ -1387,9 +1387,9 @@ name|defined
 argument_list|(
 name|Q_WS_QPA
 argument_list|)
-name|QWindowContext
+name|QGuiGLContext
 modifier|*
-name|windowContext
+name|guiGlContext
 decl_stmt|;
 name|void
 name|setupSharing

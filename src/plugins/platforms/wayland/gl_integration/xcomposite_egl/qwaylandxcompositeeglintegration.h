@@ -51,6 +51,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QPlatformGLContext>
+end_include
+begin_include
+include|#
+directive|include
 file|<QWaitCondition>
 end_include
 begin_include
@@ -100,6 +105,16 @@ name|QWindow
 operator|*
 name|window
 argument_list|)
+block|;
+name|QPlatformGLContext
+operator|*
+name|createPlatformGLContext
+argument_list|(
+argument|const QGuiGLFormat&glFormat
+argument_list|,
+argument|QPlatformGLContext *share
+argument_list|)
+specifier|const
 block|;
 name|QWaylandDisplay
 operator|*
