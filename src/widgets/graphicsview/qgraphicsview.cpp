@@ -2608,10 +2608,17 @@ name|dest
 operator|->
 name|setSource
 argument_list|(
+name|qobject_cast
+argument_list|<
+name|QWidget
+operator|*
+argument_list|>
+argument_list|(
 name|source
 operator|->
 name|source
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 else|#

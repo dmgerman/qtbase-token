@@ -2029,7 +2029,7 @@ name|DropAction
 name|action
 argument_list|)
 decl_stmt|;
-name|QWidget
+name|QObject
 operator|*
 name|source
 argument_list|()

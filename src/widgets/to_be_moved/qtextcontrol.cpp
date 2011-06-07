@@ -10180,7 +10180,7 @@ operator|::
 name|DropAction
 name|dropAction
 parameter_list|,
-name|QWidget
+name|QObject
 modifier|*
 name|source
 parameter_list|)

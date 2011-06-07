@@ -509,7 +509,7 @@ argument|const QPointF&pos
 argument_list|,
 argument|Qt::DropAction dropAction
 argument_list|,
-argument|QWidget *source
+argument|QObject *source
 argument_list|)
 block|;
 name|void

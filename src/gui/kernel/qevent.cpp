@@ -37,9 +37,11 @@ include|#
 directive|include
 file|"qmime.h"
 end_include
-begin_comment
-comment|//#include "private/qdnd_p.h"
-end_comment
+begin_include
+include|#
+directive|include
+file|"private/qdnd_p.h"
+end_include
 begin_include
 include|#
 directive|include
@@ -3056,7 +3058,7 @@ comment|/*!     If the source of the drag operation is a widget in this     appl
 end_comment
 begin_function
 DECL|function|source
-name|QWidget
+name|QObject
 modifier|*
 name|QDropEvent
 operator|::
@@ -3064,12 +3066,33 @@ name|source
 parameter_list|()
 specifier|const
 block|{
+name|QDragManager
+modifier|*
+name|manager
+init|=
+name|QDragManager
+operator|::
+name|self
+argument_list|()
+decl_stmt|;
 return|return
+operator|(
+name|manager
+operator|&&
+name|manager
+operator|->
+name|object
+operator|)
+condition|?
+name|manager
+operator|->
+name|object
+operator|->
+name|source
+argument_list|()
+else|:
 literal|0
 return|;
-comment|// ### Qt5
-comment|//    QDragManager *manager = QDragManager::self();
-comment|//    return manager ? manager->source() : 0;
 block|}
 end_function
 begin_function
