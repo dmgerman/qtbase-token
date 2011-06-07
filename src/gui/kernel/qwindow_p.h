@@ -104,6 +104,13 @@ argument_list|,
 name|QWINDOWSIZE_MAX
 argument_list|)
 block|,
+name|modality
+argument_list|(
+name|Qt
+operator|::
+name|NonModal
+argument_list|)
+block|,
 name|transientParent
 argument_list|(
 literal|0
