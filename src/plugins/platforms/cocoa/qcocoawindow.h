@@ -78,6 +78,14 @@ operator|&
 name|title
 argument_list|)
 block|;
+name|void
+name|raise
+argument_list|()
+block|;
+name|void
+name|lower
+argument_list|()
+block|;
 name|WId
 name|winId
 argument_list|()
