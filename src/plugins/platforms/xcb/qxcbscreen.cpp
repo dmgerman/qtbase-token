@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qxcbcursor.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<stdio.h>
 end_include
 begin_constructor
@@ -534,6 +539,16 @@ name|depth_iterator
 argument_list|)
 expr_stmt|;
 block|}
+name|m_cursor
+operator|=
+operator|new
+name|QXcbCursor
+argument_list|(
+name|connection
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 end_constructor
 begin_destructor
@@ -543,7 +558,11 @@ operator|::
 name|~
 name|QXcbScreen
 parameter_list|()
-block|{ }
+block|{
+operator|delete
+name|m_cursor
+expr_stmt|;
+block|}
 end_destructor
 begin_function
 DECL|function|topLevelAt

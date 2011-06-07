@@ -881,7 +881,9 @@ argument_list|)
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QString
+modifier|&
 name|key
 decl|,
 name|keys
@@ -929,6 +931,7 @@ name|QList
 argument_list|<
 name|QByteArray
 argument_list|>
+modifier|&
 name|pluginList
 parameter_list|)
 block|{

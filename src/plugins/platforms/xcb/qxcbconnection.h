@@ -736,6 +736,12 @@ literal|0
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+begin_function_decl
+name|void
+name|initializeXFixes
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_ifdef
 ifdef|#
 directive|ifdef

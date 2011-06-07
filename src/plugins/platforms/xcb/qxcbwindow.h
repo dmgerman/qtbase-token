@@ -164,6 +164,13 @@ name|bool
 name|grab
 parameter_list|)
 function_decl|;
+name|void
+name|setCursor
+parameter_list|(
+name|xcb_cursor_t
+name|cursor
+parameter_list|)
+function_decl|;
 name|xcb_window_t
 name|xcb_window
 argument_list|()
