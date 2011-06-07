@@ -69,10 +69,7 @@ file|<qrect.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|macro|DND_DEBUG
-define|#
-directive|define
-name|DND_DEBUG
+comment|//#define DND_DEBUG
 ifdef|#
 directive|ifdef
 name|DND_DEBUG
@@ -3134,13 +3131,6 @@ operator|.
 name|topLeft
 argument_list|()
 expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"handle_xdnd_position"
-operator|<<
-name|p
-expr_stmt|;
 comment|// ####
 comment|//    if (!passive&& checkEmbedded(w, e))
 comment|//        return;
@@ -3404,7 +3394,6 @@ index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//             possible_actions |= Qt::CopyAction;
 block|}
 name|QDragMoveEvent
 name|me
@@ -5565,23 +5554,8 @@ begin_comment
 unit|}
 comment|// No children!
 end_comment
-begin_comment
-unit|return w;         }     }     return 0; }  void QDragManager::drop() {     endDrag();      if (!current_target)         return;      qDeleteInEventHandler(xdnd_data.deco);     xdnd_data.deco = 0;      XClientMessageEvent drop;     drop.type = ClientMessage;     drop.window = current_target;     drop.format = 32;     drop.message_type = ATOM(XdndDrop);     drop.data.l[0] = dragPrivate()->source->effectiveWinId();     drop.data.l[1] = 0;
-comment|// flags
-end_comment
-begin_ifndef
-unit|drop.data.l[2] = connection()->time();      drop.data.l[3] = 0;     drop.data.l[4] = 0;      QWidget * w = QWidget::find(current_proxy_target);      if (w&& (w->windowType() == Qt::Desktop)&& !w->acceptDrops())         w = 0;      QXdndDropTransaction t = {         connection()->time(),         current_target,         current_proxy_target,         w,         current_embedding_widget,         object     };     X11->dndDropTransactions.append(t);     restartXdndDropExpiryTimer();      if (w)         X11->xdndHandleDrop(w, (const XEvent *)&drop, false);     else         XSendEvent(X11->display, current_proxy_target, False,                    NoEventMask, (XEvent*)&drop);      current_target = 0;     current_proxy_target = 0;     source_time = 0;     current_embedding_widget = 0;     object = 0;
-ifndef|#
-directive|ifndef
-name|QT_NO_CURSOR
-end_ifndef
 begin_endif
-unit|if (restoreCursor) {         QApplication::restoreOverrideCursor();         restoreCursor = false;     }
-endif|#
-directive|endif
-end_endif
-begin_endif
-unit|}    bool QX11Data::xdndHandleBadwindow() {     if (current_target) {         QDragManager *manager = QDragManager::self();         if (manager->object) {             current_target = 0;             current_proxy_target = 0;             manager->object->deleteLater();             manager->object = 0;             delete xdnd_data.deco;             xdnd_data.deco = 0;             return true;         }     }     if (xdnd_dragsource) {         xdnd_dragsource = 0;         if (currentWindow) {             QApplication::postEvent(currentWindow, new QDragLeaveEvent);             currentWindow = 0;         }         return true;     }     return false; }
+unit|return w;         }     }     return 0; }  bool QX11Data::xdndHandleBadwindow() {     if (current_target) {         QDragManager *manager = QDragManager::self();         if (manager->object) {             current_target = 0;             current_proxy_target = 0;             manager->object->deleteLater();             manager->object = 0;             delete xdnd_data.deco;             xdnd_data.deco = 0;             return true;         }     }     if (xdnd_dragsource) {         xdnd_dragsource = 0;         if (currentWindow) {             QApplication::postEvent(currentWindow, new QDragLeaveEvent);             currentWindow = 0;         }         return true;     }     return false; }
 endif|#
 directive|endif
 end_endif
@@ -6520,54 +6494,6 @@ return|return
 name|result
 return|;
 comment|// should never happen?
-name|QWindow
-modifier|*
-name|tw
-init|=
-name|drag
-operator|->
-name|currentWindow
-operator|.
-name|data
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|drag
-operator|->
-name|currentWindow
-operator|||
-operator|(
-name|drag
-operator|->
-name|currentWindow
-operator|.
-name|data
-argument_list|()
-operator|->
-name|windowType
-argument_list|()
-operator|==
-name|Qt
-operator|::
-name|Desktop
-operator|)
-condition|)
-name|tw
-operator|=
-operator|new
-name|QWindow
-expr_stmt|;
-name|xcb_window_t
-name|win
-init|=
-operator|::
-name|xcb_window
-argument_list|(
-name|tw
-argument_list|)
-decl_stmt|;
 name|xcb_atom_t
 name|xdnd_selection
 init|=
@@ -6589,40 +6515,12 @@ argument_list|()
 operator|->
 name|getSelection
 argument_list|(
-name|win
-argument_list|,
 name|xdnd_selection
 argument_list|,
 name|a
 argument_list|,
 name|xdnd_selection
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|drag
-operator|->
-name|currentWindow
-operator|||
-operator|(
-name|drag
-operator|->
-name|currentWindow
-operator|.
-name|data
-argument_list|()
-operator|->
-name|windowType
-argument_list|()
-operator|==
-name|Qt
-operator|::
-name|Desktop
-operator|)
-condition|)
-operator|delete
-name|tw
 expr_stmt|;
 return|return
 name|mimeConvertToFormat

@@ -166,8 +166,6 @@ block|;
 name|QByteArray
 name|getSelection
 argument_list|(
-argument|xcb_window_t win
-argument_list|,
 argument|xcb_atom_t selection
 argument_list|,
 argument|xcb_atom_t target
