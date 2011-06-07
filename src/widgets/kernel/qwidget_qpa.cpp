@@ -590,6 +590,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|deactivateWidgetCleanup
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -2224,6 +2229,9 @@ name|WA_Mapped
 argument_list|,
 literal|false
 argument_list|)
+expr_stmt|;
+name|deactivateWidgetCleanup
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
