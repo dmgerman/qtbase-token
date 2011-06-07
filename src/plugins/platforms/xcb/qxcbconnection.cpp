@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qxcbwmsupport.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtAlgorithms>
 end_include
 begin_include
@@ -365,6 +370,14 @@ name|it
 argument_list|)
 expr_stmt|;
 block|}
+name|m_wmSupport
+operator|=
+operator|new
+name|QXcbWMSupport
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|m_keyboard
 operator|=
 operator|new
@@ -634,7 +647,7 @@ parameter_list|,
 name|handler
 parameter_list|)
 define|\
-value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->event)) \         m_keyboard->handler(platformWindow->window(), e); \ } \ break;
+value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->event)) \         m_keyboard->handler(platformWindow, e); \ } \ break;
 end_define
 begin_comment
 comment|//#define XCB_EVENT_DEBUG
@@ -2022,6 +2035,13 @@ operator|!
 name|event
 condition|)
 continue|continue;
+name|eventqueue
+index|[
+name|i
+index|]
+operator|=
+literal|0
+expr_stmt|;
 name|uint
 name|response_type
 init|=
@@ -2758,12 +2778,27 @@ name|xcb_atom_t
 name|atom
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|atom
+condition|)
+return|return
+name|QByteArray
+argument_list|()
+return|;
+name|xcb_generic_error_t
+modifier|*
+name|error
+init|=
+literal|0
+decl_stmt|;
 name|xcb_get_atom_name_cookie_t
 name|cookie
 init|=
 name|Q_XCB_CALL
 argument_list|(
-name|xcb_get_atom_name_unchecked
+name|xcb_get_atom_name
 argument_list|(
 name|xcb_connection
 argument_list|()
@@ -2783,9 +2818,23 @@ argument_list|()
 argument_list|,
 name|cookie
 argument_list|,
-literal|0
+operator|&
+name|error
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|error
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QXcbConnection::atomName: bad Atom"
+operator|<<
+name|atom
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|reply
