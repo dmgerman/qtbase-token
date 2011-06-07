@@ -557,25 +557,6 @@ operator|::
 name|startDrag
 parameter_list|()
 block|{
-comment|// ####
-comment|//    if (object) {
-comment|//        // the last drag and drop operation hasn't finished, so we are going to wait
-comment|//        // for one second to see if it does... if the finish message comes after this,
-comment|//        // then we could still have problems, but this is highly unlikely
-comment|//        QGuiApplication::flush();
-comment|//        QElapsedTimer timer;
-comment|//        timer.start();
-comment|//        do {
-comment|//            XEvent event;
-comment|//            if (XCheckTypedEvent(X11->display, ClientMessage,&event))
-comment|//                qApp->x11ProcessEvent(&event);
-comment|//            // sleep 50 ms, so we don't use up CPU cycles all the time.
-comment|//            struct timeval usleep_tv;
-comment|//            usleep_tv.tv_sec = 0;
-comment|//            usleep_tv.tv_usec = 50000;
-comment|//            select(0, 0, 0, 0,&usleep_tv);
-comment|//        } while (object&& timer.hasExpired(1000));
-comment|//    }
 name|init
 argument_list|()
 expr_stmt|;
@@ -2687,18 +2668,11 @@ unit|Atom type = 0;         int f;         unsigned long n, a;         unsigned 
 comment|// try window's parent
 end_comment
 begin_comment
-unit|Window root;         Window parent;         Window *children;         uint unused;         if (!XQueryTree(X11->display, window,&root,&parent,&children,&unused))             break;         if (children)             XFree(children);         if (window == root)             break;         window = parent;     }     return target; }   static bool waiting_for_status = false;
-comment|// used to preset each new QDragMoveEvent
-end_comment
-begin_comment
+unit|Window root;         Window parent;         Window *children;         uint unused;         if (!XQueryTree(X11->display, window,&root,&parent,&children,&unused))             break;         if (children)             XFree(children);         if (window == root)             break;         window = parent;     }     return target; }
 comment|// for embedding only
 end_comment
-begin_comment
-unit|static QWidget* current_embedding_widget  = 0; static xcb_client_message_event_t last_enter_event;   class QExtraWidget : public QWidget {     Q_DECLARE_PRIVATE(QWidget) public:     inline QWExtra* extraData();     inline QTLWExtra* topData(); };  inline QWExtra* QExtraWidget::extraData() { return d_func()->extraData(); } inline QTLWExtra* QExtraWidget::topData() { return d_func()->topData(); }   static QWidget *find_child(QWidget *tlw, QPoint& p) {     QWidget *widget = tlw;      p = widget->mapFromGlobal(p);     bool done = false;     while (!done) {         done = true;         if (((QExtraWidget*)widget)->extraData()&&              ((QExtraWidget*)widget)->extraData()->xDndProxy != 0)             break;
-comment|// stop searching for widgets under the mouse cursor if found widget is a proxy.
-end_comment
 begin_endif
-unit|QObjectList children = widget->children();         if (!children.isEmpty()) {             for(int i = children.size(); i> 0;) {                 --i;                 QWidget *w = qobject_cast<QWidget *>(children.at(i));                 if (!w)                     continue;                 if (w->testAttribute(Qt::WA_TransparentForMouseEvents))                     continue;                 if (w->isVisible()&&                      w->geometry().contains(p)&&                      !w->isWindow()) {                     widget = w;                     done = false;                     p = widget->mapFromParent(p);                     break;                 }             }         }     }     return widget; }   static bool checkEmbedded(QWidget* w, const XEvent* xe) {     if (!w)         return false;      if (current_embedding_widget != 0&& current_embedding_widget != w) {         current_target = ((QExtraWidget*)current_embedding_widget)->extraData()->xDndProxy;         current_proxy_target = current_target;         qt_xdnd_send_leave();         current_target = 0;         current_proxy_target = 0;         current_embedding_widget = 0;     }      QWExtra* extra = ((QExtraWidget*)w)->extraData();     if (extra&& extra->xDndProxy != 0) {          if (current_embedding_widget != w) {              last_enter_event.xany.window = extra->xDndProxy;             XSendEvent(X11->display, extra->xDndProxy, False, NoEventMask,&last_enter_event);             current_embedding_widget = w;         }          ((XEvent*)xe)->xany.window = extra->xDndProxy;         XSendEvent(X11->display, extra->xDndProxy, False, NoEventMask, (XEvent*)xe);         if (currentWindow != w) {             currentWindow = w;         }         return true;     }     current_embedding_widget = 0;     return false; }
+unit|static QWidget* current_embedding_widget  = 0; static xcb_client_message_event_t last_enter_event;   static bool checkEmbedded(QWidget* w, const XEvent* xe) {     if (!w)         return false;      if (current_embedding_widget != 0&& current_embedding_widget != w) {         current_target = ((QExtraWidget*)current_embedding_widget)->extraData()->xDndProxy;         current_proxy_target = current_target;         qt_xdnd_send_leave();         current_target = 0;         current_proxy_target = 0;         current_embedding_widget = 0;     }      QWExtra* extra = ((QExtraWidget*)w)->extraData();     if (extra&& extra->xDndProxy != 0) {          if (current_embedding_widget != w) {              last_enter_event.xany.window = extra->xDndProxy;             XSendEvent(X11->display, extra->xDndProxy, False, NoEventMask,&last_enter_event);             current_embedding_widget = w;         }          ((XEvent*)xe)->xany.window = extra->xDndProxy;         XSendEvent(X11->display, extra->xDndProxy, False, NoEventMask, (XEvent*)xe);         if (currentWindow != w) {             currentWindow = w;         }         return true;     }     current_embedding_widget = 0;     return false; }
 endif|#
 directive|endif
 end_endif
@@ -4720,19 +4694,6 @@ literal|false
 expr_stmt|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_comment
-comment|// TODO: remove and use QApplication::currentKeyboardModifiers() in Qt 4.8.
-end_comment
-begin_endif
-unit|static Qt::KeyboardModifiers currentKeyboardModifiers() {     Window root;     Window child;     int root_x, root_y, win_x, win_y;     uint keybstate;     for (int i = 0; i< ScreenCount(X11->display); ++i) {         if (XQueryPointer(X11->display, QX11Info::appRootWindow(i),&root,&child,&root_x,&root_y,&win_x,&win_y,&keybstate))             return X11->translateModifiers(keybstate& 0x00ff);     }     return 0; }
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|handleDrop
 name|void
@@ -5463,7 +5424,7 @@ unit|}
 comment|// No children!
 end_comment
 begin_endif
-unit|return w;         }     }     return 0; }  bool QX11Data::xdndHandleBadwindow() {     if (current_target) {         QDragManager *manager = QDragManager::self();         if (manager->object) {             current_target = 0;             current_proxy_target = 0;             manager->object->deleteLater();             manager->object = 0;             delete xdnd_data.deco;             xdnd_data.deco = 0;             return true;         }     }     if (xdnd_dragsource) {         xdnd_dragsource = 0;         if (currentWindow) {             QApplication::postEvent(currentWindow, new QDragLeaveEvent);             currentWindow = 0;         }         return true;     }     return false; }
+unit|return w;         }     }     return 0; }
 endif|#
 directive|endif
 end_endif
@@ -5779,8 +5740,6 @@ name|object
 operator|=
 name|currentObject
 expr_stmt|;
-comment|// ### this can die if event->requestor crashes at the wrong
-comment|// ### moment
 name|xcb_send_event
 argument_list|(
 name|xcb_connection
