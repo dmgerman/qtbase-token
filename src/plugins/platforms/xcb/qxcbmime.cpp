@@ -33,22 +33,22 @@ directive|include
 file|<X11/Xutil.h>
 end_include
 begin_undef
-DECL|macro|XA_STRING
+DECL|macro|XCB_ATOM_STRING
 undef|#
 directive|undef
-name|XA_STRING
+name|XCB_ATOM_STRING
 end_undef
 begin_undef
-DECL|macro|XA_PIXMAP
+DECL|macro|XCB_ATOM_PIXMAP
 undef|#
 directive|undef
-name|XA_PIXMAP
+name|XCB_ATOM_PIXMAP
 end_undef
 begin_undef
-DECL|macro|XA_BITMAP
+DECL|macro|XCB_ATOM_BITMAP
 undef|#
 directive|undef
-name|XA_BITMAP
+name|XCB_ATOM_BITMAP
 end_undef
 begin_constructor
 DECL|function|QXcbMime
@@ -99,9 +99,7 @@ if|if
 condition|(
 name|a
 operator|==
-name|QXcbAtom
-operator|::
-name|XA_STRING
+name|XCB_ATOM_STRING
 operator|||
 name|a
 operator|==
@@ -136,9 +134,7 @@ if|if
 condition|(
 name|a
 operator|==
-name|QXcbAtom
-operator|::
-name|XA_PIXMAP
+name|XCB_ATOM_PIXMAP
 condition|)
 return|return
 name|QLatin1String
@@ -250,9 +246,7 @@ argument_list|)
 operator|||
 name|a
 operator|==
-name|QXcbAtom
-operator|::
-name|XA_STRING
+name|XCB_ATOM_STRING
 operator|||
 name|a
 operator|==
@@ -318,9 +312,7 @@ if|if
 condition|(
 name|a
 operator|==
-name|QXcbAtom
-operator|::
-name|XA_STRING
+name|XCB_ATOM_STRING
 operator|||
 name|a
 operator|==
@@ -525,15 +517,11 @@ condition|(
 operator|(
 name|a
 operator|==
-name|QXcbAtom
-operator|::
-name|XA_PIXMAP
+name|XCB_ATOM_PIXMAP
 operator|||
 name|a
 operator|==
-name|QXcbAtom
-operator|::
-name|XA_BITMAP
+name|XCB_ATOM_BITMAP
 operator|)
 operator|&&
 name|mimeData
@@ -622,9 +610,7 @@ name|atoms
 operator|.
 name|append
 argument_list|(
-name|QXcbAtom
-operator|::
-name|XA_STRING
+name|XCB_ATOM_STRING
 argument_list|)
 expr_stmt|;
 name|atoms
@@ -678,9 +664,7 @@ name|atoms
 operator|.
 name|append
 argument_list|(
-name|QXcbAtom
-operator|::
-name|XA_PIXMAP
+name|XCB_ATOM_PIXMAP
 argument_list|)
 expr_stmt|;
 if|if
@@ -696,9 +680,7 @@ name|atoms
 operator|.
 name|append
 argument_list|(
-name|QXcbAtom
-operator|::
-name|XA_BITMAP
+name|XCB_ATOM_BITMAP
 argument_list|)
 expr_stmt|;
 return|return
@@ -850,9 +832,7 @@ if|if
 condition|(
 name|a
 operator|==
-name|QXcbAtom
-operator|::
-name|XA_STRING
+name|XCB_ATOM_STRING
 operator|||
 name|a
 operator|==
@@ -970,7 +950,7 @@ directive|if
 literal|0
 comment|// ###
 comment|// special case for images
-block|if (format == QLatin1String("image/ppm")) {         if (a == XA_PIXMAP&& data.size() == sizeof(Pixmap)) {             Pixmap xpm = *((Pixmap*)data.data());             if (!xpm)                 return QByteArray();             Window root;             int x;             int y;             uint width;             uint height;             uint border_width;             uint depth;              XGetGeometry(display, xpm,&root,&x,&y,&width,&height,&border_width,&depth);             XImage *ximg = XGetImage(display,xpm,x,y,width,height,AllPlanes,depth==1 ? XYPixmap : ZPixmap);             QImage qimg = QXlibStatic::qimageFromXImage(ximg);             XDestroyImage(ximg);              QImageWriter imageWriter;             imageWriter.setFormat("PPMRAW");             QBuffer buf;             buf.open(QIODevice::WriteOnly);             imageWriter.setDevice(&buf);             imageWriter.write(qimg);             return buf.buffer();         }     }
+block|if (format == QLatin1String("image/ppm")) {         if (a == XCB_ATOM_PIXMAP&& data.size() == sizeof(Pixmap)) {             Pixmap xpm = *((Pixmap*)data.data());             if (!xpm)                 return QByteArray();             Window root;             int x;             int y;             uint width;             uint height;             uint border_width;             uint depth;              XGetGeometry(display, xpm,&root,&x,&y,&width,&height,&border_width,&depth);             XImage *ximg = XGetImage(display,xpm,x,y,width,height,AllPlanes,depth==1 ? XYPixmap : ZPixmap);             QImage qimg = QXlibStatic::qimageFromXImage(ximg);             XDestroyImage(ximg);              QImageWriter imageWriter;             imageWriter.setFormat("PPMRAW");             QBuffer buf;             buf.open(QIODevice::WriteOnly);             imageWriter.setDevice(&buf);             imageWriter.write(qimg);             return buf.buffer();         }     }
 endif|#
 directive|endif
 return|return
@@ -1061,15 +1041,11 @@ name|atoms
 operator|.
 name|contains
 argument_list|(
-name|QXcbAtom
-operator|::
-name|XA_STRING
+name|XCB_ATOM_STRING
 argument_list|)
 condition|)
 return|return
-name|QXcbAtom
-operator|::
-name|XA_STRING
+name|XCB_ATOM_STRING
 return|;
 if|if
 condition|(
@@ -1177,15 +1153,11 @@ name|atoms
 operator|.
 name|contains
 argument_list|(
-name|QXcbAtom
-operator|::
-name|XA_PIXMAP
+name|XCB_ATOM_PIXMAP
 argument_list|)
 condition|)
 return|return
-name|QXcbAtom
-operator|::
-name|XA_PIXMAP
+name|XCB_ATOM_PIXMAP
 return|;
 block|}
 comment|// for string/text requests try to use a format with a well-defined charset

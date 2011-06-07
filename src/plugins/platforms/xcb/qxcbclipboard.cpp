@@ -85,9 +85,7 @@ name|Selection
 case|:
 name|modeAtom
 operator|=
-name|QXcbAtom
-operator|::
-name|XA_PRIMARY
+name|XCB_ATOM_PRIMARY
 expr_stmt|;
 break|break;
 case|case
@@ -98,9 +96,6 @@ case|:
 name|modeAtom
 operator|=
 name|m_clipboard
-operator|->
-name|connection
-argument_list|()
 operator|->
 name|atom
 argument_list|(
@@ -171,9 +166,6 @@ argument_list|(
 name|modeAtom
 argument_list|,
 name|m_clipboard
-operator|->
-name|connection
-argument_list|()
 operator|->
 name|atom
 argument_list|(
@@ -522,16 +514,16 @@ name|QXcbClipboard
 parameter_list|(
 name|QXcbConnection
 modifier|*
-name|connection
+name|c
 parameter_list|)
 member_init_list|:
+name|QXcbObject
+argument_list|(
+name|c
+argument_list|)
+member_init_list|,
 name|QPlatformClipboard
 argument_list|()
-member_init_list|,
-name|m_connection
-argument_list|(
-name|connection
-argument_list|)
 member_init_list|,
 name|m_xClipboard
 argument_list|(
@@ -565,14 +557,16 @@ argument_list|)
 block|{
 name|m_screen
 operator|=
-name|m_connection
+name|connection
+argument_list|()
 operator|->
 name|screens
 argument_list|()
 operator|.
 name|at
 argument_list|(
-name|m_connection
+name|connection
+argument_list|()
 operator|->
 name|primaryScreen
 argument_list|()
@@ -596,8 +590,6 @@ name|xcb_connection_t
 modifier|*
 name|c
 init|=
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 decl_stmt|;
@@ -688,8 +680,6 @@ name|clipboardOwner
 init|=
 name|getSelectionOwner
 argument_list|(
-name|m_connection
-operator|->
 name|atom
 argument_list|(
 name|QXcbAtom
@@ -749,9 +739,7 @@ name|clipboardOwner
 init|=
 name|getSelectionOwner
 argument_list|(
-name|QXcbAtom
-operator|::
-name|XA_PRIMARY
+name|XCB_ATOM_PRIMARY
 argument_list|)
 decl_stmt|;
 if|if
@@ -815,9 +803,7 @@ name|Selection
 case|:
 name|modeAtom
 operator|=
-name|QXcbAtom
-operator|::
-name|XA_PRIMARY
+name|XCB_ATOM_PRIMARY
 expr_stmt|;
 name|d
 operator|=
@@ -832,8 +818,6 @@ name|Clipboard
 case|:
 name|modeAtom
 operator|=
-name|m_connection
-operator|->
 name|atom
 argument_list|(
 name|QXcbAtom
@@ -887,8 +871,6 @@ expr_stmt|;
 block|}
 name|xcb_set_selection_owner
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -896,7 +878,8 @@ name|newOwner
 argument_list|,
 name|modeAtom
 argument_list|,
-name|m_connection
+name|connection
+argument_list|()
 operator|->
 name|time
 argument_list|()
@@ -1007,8 +990,6 @@ name|window
 init|=
 name|xcb_generate_id
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|)
@@ -1017,8 +998,6 @@ name|Q_XCB_CALL
 argument_list|(
 name|xcb_create_window
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -1073,8 +1052,6 @@ name|XCB_EVENT_MASK_PROPERTY_CHANGE
 decl_stmt|;
 name|xcb_change_window_attributes
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -1119,8 +1096,6 @@ condition|)
 block|{
 name|xcb_destroy_window
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -1184,8 +1159,6 @@ name|window
 init|=
 name|xcb_generate_id
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|)
@@ -1194,8 +1167,6 @@ name|Q_XCB_CALL
 argument_list|(
 name|xcb_create_window
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -1276,8 +1247,6 @@ condition|)
 block|{
 name|xcb_destroy_window
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -1353,7 +1322,8 @@ name|QXcbMime
 operator|::
 name|mimeAtomsForFormat
 argument_list|(
-name|m_connection
+name|connection
+argument_list|()
 argument_list|,
 name|formats
 operator|.
@@ -1414,8 +1384,6 @@ name|types
 operator|.
 name|append
 argument_list|(
-name|m_connection
-operator|->
 name|atom
 argument_list|(
 name|QXcbAtom
@@ -1428,8 +1396,6 @@ name|types
 operator|.
 name|append
 argument_list|(
-name|m_connection
-operator|->
 name|atom
 argument_list|(
 name|QXcbAtom
@@ -1442,8 +1408,6 @@ name|types
 operator|.
 name|append
 argument_list|(
-name|m_connection
-operator|->
 name|atom
 argument_list|(
 name|QXcbAtom
@@ -1456,8 +1420,6 @@ name|types
 operator|.
 name|append
 argument_list|(
-name|m_connection
-operator|->
 name|atom
 argument_list|(
 name|QXcbAtom
@@ -1468,8 +1430,6 @@ argument_list|)
 expr_stmt|;
 name|xcb_change_property
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -1479,9 +1439,7 @@ name|window
 argument_list|,
 name|property
 argument_list|,
-name|QXcbAtom
-operator|::
-name|XA_ATOM
+name|XCB_ATOM_ATOM
 argument_list|,
 literal|32
 argument_list|,
@@ -1547,7 +1505,8 @@ name|QXcbMime
 operator|::
 name|mimeAtomToString
 argument_list|(
-name|m_connection
+name|connection
+argument_list|()
 argument_list|,
 name|target
 argument_list|)
@@ -1591,7 +1550,8 @@ name|QXcbMime
 operator|::
 name|mimeDataForAtom
 argument_list|(
-name|m_connection
+name|connection
+argument_list|()
 argument_list|,
 name|target
 argument_list|,
@@ -1614,8 +1574,6 @@ specifier|static
 name|xcb_atom_t
 name|motif_clip_temporary
 init|=
-name|m_connection
-operator|->
 name|atom
 argument_list|(
 name|QXcbAtom
@@ -1638,8 +1596,6 @@ init|=
 operator|(
 name|xcb_get_maximum_request_length
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|)
@@ -1671,8 +1627,6 @@ argument_list|()
 decl_stmt|;
 name|xcb_change_property
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -1682,8 +1636,6 @@ name|window
 argument_list|,
 name|property
 argument_list|,
-name|m_connection
-operator|->
 name|atom
 argument_list|(
 name|QXcbAtom
@@ -1745,8 +1697,6 @@ decl_stmt|;
 comment|// use a single request to transfer data
 name|xcb_change_property
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -1868,9 +1818,7 @@ name|req
 operator|->
 name|selection
 operator|==
-name|QXcbAtom
-operator|::
-name|XA_PRIMARY
+name|XCB_ATOM_PRIMARY
 condition|)
 block|{
 name|d
@@ -1885,8 +1833,6 @@ name|req
 operator|->
 name|selection
 operator|==
-name|m_connection
-operator|->
 name|atom
 argument_list|(
 name|QXcbAtom
@@ -1907,7 +1853,8 @@ argument_list|()
 operator|<<
 literal|"QClipboard: Unknown selection"
 operator|<<
-name|m_connection
+name|connection
+argument_list|()
 operator|->
 name|atomName
 argument_list|(
@@ -1918,8 +1865,6 @@ argument_list|)
 expr_stmt|;
 name|xcb_send_event
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -1955,8 +1900,6 @@ argument_list|)
 expr_stmt|;
 name|xcb_send_event
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -1982,8 +1925,6 @@ block|}
 name|xcb_atom_t
 name|xa_targets
 init|=
-name|m_connection
-operator|->
 name|atom
 argument_list|(
 name|QXcbAtom
@@ -1994,8 +1935,6 @@ decl_stmt|;
 name|xcb_atom_t
 name|xa_multiple
 init|=
-name|m_connection
-operator|->
 name|atom
 argument_list|(
 name|QXcbAtom
@@ -2006,8 +1945,6 @@ decl_stmt|;
 name|xcb_atom_t
 name|xa_timestamp
 init|=
-name|m_connection
-operator|->
 name|atom
 argument_list|(
 name|QXcbAtom
@@ -2109,8 +2046,6 @@ block|{
 comment|// MULTIPLE property not formatted correctly
 name|xcb_send_event
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -2268,7 +2203,7 @@ name|xa_timestamp
 condition|)
 block|{
 comment|//            if (d->timestamp != CurrentTime) {
-comment|//                XChangeProperty(DISPLAY_FROM_XCB(m_connection), req->requestor, property, QXcbAtom::XA_INTEGER, 32,
+comment|//                XChangeProperty(DISPLAY_FROM_XCB(connection()), req->requestor, property, QXcbAtom::XA_INTEGER, 32,
 comment|//                                PropModeReplace, CurrentTime, 1);
 comment|//                ret = property;
 comment|//            } else {
@@ -2371,8 +2306,6 @@ comment|// according to ICCCM 2.6.2 says to put None back
 comment|// into the original property on the requestor window
 name|xcb_change_property
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -2419,8 +2352,6 @@ block|}
 comment|// send selection notify to requestor
 name|xcb_send_event
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -2521,8 +2452,6 @@ name|maxsize
 init|=
 name|maxSelectionIncr
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|)
@@ -2566,8 +2495,6 @@ name|Q_XCB_CALL
 argument_list|(
 name|xcb_get_property
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -2591,8 +2518,6 @@ name|reply
 init|=
 name|xcb_get_property_reply
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -2776,8 +2701,6 @@ name|Q_XCB_CALL
 argument_list|(
 name|xcb_get_property
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -2801,8 +2724,6 @@ name|reply
 operator|=
 name|xcb_get_property_reply
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -2969,8 +2890,6 @@ name|deleteProperty
 condition|)
 name|xcb_delete_property
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -2979,7 +2898,8 @@ argument_list|,
 name|property
 argument_list|)
 expr_stmt|;
-name|m_connection
+name|connection
+argument_list|()
 operator|->
 name|flush
 argument_list|()
@@ -3202,9 +3122,7 @@ name|sr
 operator|->
 name|selection
 operator|==
-name|QXcbAtom
-operator|::
-name|XA_PRIMARY
+name|XCB_ATOM_PRIMARY
 operator|||
 name|sr
 operator|->
@@ -3236,9 +3154,7 @@ name|sc
 operator|->
 name|selection
 operator|==
-name|QXcbAtom
-operator|::
-name|XA_PRIMARY
+name|XCB_ATOM_PRIMARY
 operator|||
 name|sc
 operator|->
@@ -3295,7 +3211,8 @@ name|xcb_generic_event_t
 modifier|*
 name|e
 init|=
-name|m_connection
+name|connection
+argument_list|()
 operator|->
 name|checkEvent
 argument_list|(
@@ -3313,12 +3230,14 @@ comment|// process other clipboard events, since someone is probably requesting 
 name|ClipboardEvent
 name|clipboard
 argument_list|(
-name|m_connection
+name|connection
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|e
 operator|=
-name|m_connection
+name|connection
+argument_list|()
 operator|->
 name|checkEvent
 argument_list|(
@@ -3330,7 +3249,8 @@ condition|(
 name|e
 condition|)
 block|{
-name|m_connection
+name|connection
+argument_list|()
 operator|->
 name|handleXcbEvent
 argument_list|(
@@ -3343,7 +3263,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-name|m_connection
+name|connection
+argument_list|()
 operator|->
 name|flush
 argument_list|()
@@ -3471,7 +3392,8 @@ init|;
 condition|;
 control|)
 block|{
-name|m_connection
+name|connection
+argument_list|()
 operator|->
 name|flush
 argument_list|()
@@ -3722,8 +3644,6 @@ name|modeAtom
 argument_list|,
 name|fmtAtom
 argument_list|,
-name|m_connection
-operator|->
 name|atom
 argument_list|(
 name|QXcbAtom
@@ -3762,8 +3682,6 @@ argument_list|()
 decl_stmt|;
 name|xcb_delete_property
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -3774,8 +3692,6 @@ argument_list|)
 expr_stmt|;
 name|xcb_convert_selection
 argument_list|(
-name|m_connection
-operator|->
 name|xcb_connection
 argument_list|()
 argument_list|,
@@ -3787,13 +3703,15 @@ name|target
 argument_list|,
 name|property
 argument_list|,
-name|m_connection
+name|connection
+argument_list|()
 operator|->
 name|time
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|m_connection
+name|connection
+argument_list|()
 operator|->
 name|sync
 argument_list|()
@@ -3870,8 +3788,6 @@ if|if
 condition|(
 name|type
 operator|==
-name|m_connection
-operator|->
 name|atom
 argument_list|(
 name|QXcbAtom

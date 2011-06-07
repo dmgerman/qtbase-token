@@ -134,9 +134,7 @@ operator|::
 name|_NET_SUPPORTED
 argument_list|)
 argument_list|,
-name|QXcbAtom
-operator|::
-name|XA_ATOM
+name|XCB_ATOM_ATOM
 argument_list|,
 name|offset
 argument_list|,
@@ -176,9 +174,7 @@ name|reply
 operator|->
 name|type
 operator|==
-name|QXcbAtom
-operator|::
-name|XA_ATOM
+name|XCB_ATOM_ATOM
 operator|&&
 name|reply
 operator|->
@@ -364,9 +360,7 @@ operator|::
 name|_NET_VIRTUAL_ROOTS
 argument_list|)
 argument_list|,
-name|QXcbAtom
-operator|::
-name|XA_ATOM
+name|XCB_ATOM_ATOM
 argument_list|,
 name|offset
 argument_list|,
@@ -406,9 +400,7 @@ name|reply
 operator|->
 name|type
 operator|==
-name|QXcbAtom
-operator|::
-name|XA_ATOM
+name|XCB_ATOM_ATOM
 operator|&&
 name|reply
 operator|->

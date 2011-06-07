@@ -4253,9 +4253,7 @@ operator|::
 name|_NET_WM_USER_TIME_WINDOW
 argument_list|)
 argument_list|,
-name|QXcbAtom
-operator|::
-name|XA_WINDOW
+name|XCB_ATOM_WINDOW
 argument_list|,
 literal|32
 argument_list|,
@@ -4342,9 +4340,7 @@ operator|::
 name|_NET_WM_USER_TIME
 argument_list|)
 argument_list|,
-name|QXcbAtom
-operator|::
-name|XA_CARDINAL
+name|XCB_ATOM_CARDINAL
 argument_list|,
 literal|32
 argument_list|,
