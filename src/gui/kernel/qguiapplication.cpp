@@ -1337,6 +1337,13 @@ index|]
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|j
+operator|<
+name|argc
+condition|)
+block|{
 name|argv
 index|[
 name|j
@@ -1348,6 +1355,7 @@ name|argc
 operator|=
 name|j
 expr_stmt|;
+block|}
 if|#
 directive|if
 literal|0
