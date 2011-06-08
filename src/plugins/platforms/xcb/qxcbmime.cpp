@@ -92,7 +92,8 @@ operator|==
 name|XCB_NONE
 condition|)
 return|return
-literal|0
+name|QString
+argument_list|()
 return|;
 comment|// special cases for string type
 if|if

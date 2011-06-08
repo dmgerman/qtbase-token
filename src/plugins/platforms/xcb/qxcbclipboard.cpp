@@ -1520,30 +1520,12 @@ argument_list|()
 condition|)
 block|{
 comment|// Not a MIME type we have
-name|qDebug
-argument_list|()
-operator|<<
-literal|"QClipboard: send_selection(): converting to type '%s' is not supported"
-operator|<<
-name|fmt
-operator|.
-name|data
-argument_list|()
-expr_stmt|;
+comment|//        qDebug()<< "QClipboard: send_selection(): converting to type"<< connection()->atomName(target)<< "is not supported";
 return|return
 name|XCB_NONE
 return|;
 block|}
-name|qDebug
-argument_list|()
-operator|<<
-literal|"QClipboard: send_selection(): converting to type '%s'"
-operator|<<
-name|fmt
-operator|.
-name|data
-argument_list|()
-expr_stmt|;
+comment|//    qDebug()<< "QClipboard: send_selection(): converting to type"<< fmt;
 if|if
 condition|(
 name|QXcbMime
@@ -1657,10 +1639,10 @@ name|bytes
 argument_list|)
 expr_stmt|;
 comment|//            (void)new QClipboardINCRTransaction(window, property, atomFormat, dataFormat, data, increment);
-name|qDebug
+name|qWarning
 argument_list|()
 operator|<<
-literal|"not implemented INCRT just YET!"
+literal|"not implemented INCR just YET!"
 expr_stmt|;
 return|return
 name|property
