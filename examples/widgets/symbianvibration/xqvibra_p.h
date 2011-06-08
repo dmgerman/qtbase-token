@@ -24,7 +24,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<HWRMVibra.h>
+file|<hwrmvibra.h>
 end_include
 begin_include
 include|#
