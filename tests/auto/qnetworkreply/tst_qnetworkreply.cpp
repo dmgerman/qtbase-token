@@ -38036,6 +38036,11 @@ decl_stmt|;
 if|if
 condition|(
 name|bytesReceived
+operator|&&
+name|m_reply
+operator|->
+name|readBufferSize
+argument_list|()
 condition|)
 block|{
 name|QByteArray
