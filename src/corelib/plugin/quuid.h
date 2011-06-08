@@ -308,6 +308,15 @@ name|toString
 argument_list|()
 specifier|const
 expr_stmt|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+name|QT_DEPRECATED
 name|operator
 name|QString
 argument_list|()
@@ -318,7 +327,8 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|// ### Qt5 remove
+endif|#
+directive|endif
 name|QUuid
 argument_list|(
 specifier|const
