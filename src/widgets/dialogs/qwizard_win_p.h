@@ -76,12 +76,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qwidget_p.h>
+file|<QtWidgets/private/qwidget_p.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qstylehelper_p.h>
+file|<QtWidgets/private/qstylehelper_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
