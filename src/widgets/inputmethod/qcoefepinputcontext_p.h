@@ -572,7 +572,7 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_s60_setPartialScreenInputMode
 parameter_list|(

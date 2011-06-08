@@ -73,7 +73,7 @@ define|#
 directive|define
 name|AUTO_REPEAT_INTERVAL
 value|100
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 specifier|extern
 name|bool
 name|qt_tab_all_widgets

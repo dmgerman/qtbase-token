@@ -65,7 +65,7 @@ enum|;
 end_enum
 begin_decl_stmt
 unit|}  class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QAccessible2Interface
 block|{
 name|public
@@ -171,7 +171,7 @@ value|public: \     QAccessible2Interface *interface_cast(QAccessible2::Interfac
 end_define
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QAccessibleTextInterface
 range|:
 name|public
@@ -376,7 +376,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QAccessibleEditableTextInterface
 range|:
 name|public
@@ -482,7 +482,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QAccessibleSimpleEditableTextInterface
 range|:
 name|public
@@ -566,7 +566,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QAccessibleValueInterface
 range|:
 name|public
@@ -626,7 +626,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QAccessibleTableInterface
 range|:
 name|public
@@ -895,7 +895,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QAccessibleActionInterface
 range|:
 name|public
@@ -969,7 +969,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QAccessibleImageInterface
 range|:
 name|public

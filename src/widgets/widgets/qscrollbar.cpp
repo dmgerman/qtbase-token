@@ -3249,7 +3249,7 @@ comment|/*! \internal     Returns the style option for scroll bar. */
 end_comment
 begin_function
 DECL|function|qt_qscrollbarStyleOption
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionSlider
 name|qt_qscrollbarStyleOption
 parameter_list|(

@@ -95,7 +95,7 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 expr|@
 DECL|function|QT_MANGLE_NAMESPACE
 name|interface

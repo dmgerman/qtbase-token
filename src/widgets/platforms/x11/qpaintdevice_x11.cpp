@@ -42,7 +42,7 @@ name|QT_BEGIN_NAMESPACE
 comment|/*! \internal      Returns the X11 Drawable of the paint device. 0 is returned if it     can't be obtained. */
 DECL|function|qt_x11Handle
 name|Drawable
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|qt_x11Handle
 parameter_list|(
 specifier|const
@@ -121,7 +121,7 @@ end_comment
 begin_function
 DECL|function|qt_x11Info
 specifier|const
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QX11Info
 modifier|*
 name|qt_x11Info

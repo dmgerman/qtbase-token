@@ -1131,7 +1131,7 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
-specifier|extern
+DECL|variable|qt_is_gui_used
 name|bool
 name|qt_is_gui_used
 decl_stmt|;
@@ -1139,7 +1139,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|qt_tab_all_widgets
 name|bool
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|qt_tab_all_widgets
 init|=
 literal|true
@@ -10875,7 +10875,7 @@ comment|/* exported for the benefit of testing tools */
 end_comment
 begin_function
 DECL|function|qt_tryModalHelper
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|bool
 name|qt_tryModalHelper
 parameter_list|(
@@ -20951,7 +20951,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_translateRawTouchEvent
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_translateRawTouchEvent
 parameter_list|(

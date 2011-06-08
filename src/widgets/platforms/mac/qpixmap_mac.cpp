@@ -168,7 +168,7 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 DECL|function|qt_mac_pixmap_get_base
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|quint32
 modifier|*
 name|qt_mac_pixmap_get_base
@@ -240,7 +240,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_mac_pixmap_get_bytes_per_line
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|int
 name|qt_mac_pixmap_get_bytes_per_line
 parameter_list|(

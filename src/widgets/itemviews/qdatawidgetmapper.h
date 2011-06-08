@@ -54,7 +54,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataWidgetMapper
 range|:
 name|public

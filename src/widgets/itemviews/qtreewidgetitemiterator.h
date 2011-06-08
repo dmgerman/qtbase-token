@@ -49,7 +49,7 @@ name|class
 name|QTreeWidgetItemIteratorPrivate
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QTreeWidgetItemIterator
 decl_stmt|{     friend class QTreeModel;
 end_function

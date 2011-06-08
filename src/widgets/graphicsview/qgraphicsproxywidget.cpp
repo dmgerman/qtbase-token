@@ -109,7 +109,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_decl_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 specifier|extern
 name|bool
 name|qt_tab_all_widgets

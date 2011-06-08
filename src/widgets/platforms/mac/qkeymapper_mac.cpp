@@ -87,7 +87,7 @@ comment|//qapplication_mac.cpp
 end_comment
 begin_function
 DECL|function|qt_mac_secure_keyboard
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_mac_secure_keyboard
 parameter_list|(

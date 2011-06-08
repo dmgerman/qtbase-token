@@ -47,7 +47,7 @@ name|class
 name|QScrollerPropertiesPrivate
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QScrollerProperties
 decl_stmt|{ public:     QScrollerProperties(
 end_function

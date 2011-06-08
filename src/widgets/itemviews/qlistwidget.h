@@ -59,7 +59,7 @@ name|class
 name|QListWidgetItemPrivate
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QListWidgetItem
 decl_stmt|{     friend class QListModel;
 end_function
@@ -1055,7 +1055,7 @@ block|; }
 ifndef|#
 directive|ifndef
 name|QT_NO_DATASTREAM
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -1073,7 +1073,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -1101,7 +1101,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QListWidget
 range|:
 name|public

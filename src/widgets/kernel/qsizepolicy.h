@@ -29,7 +29,7 @@ name|class
 name|QVariant
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSizePolicy
 decl_stmt|{     Q_GADGET     Q_ENUMS(Policy
 end_function
@@ -1086,7 +1086,7 @@ name|QT_NO_DATASTREAM
 end_ifndef
 begin_expr_stmt
 name|friend
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -1103,7 +1103,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 name|friend
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -1161,7 +1161,7 @@ begin_comment
 comment|// implemented in qlayout.cpp
 end_comment
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -1177,7 +1177,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataStream
 operator|&
 name|operator

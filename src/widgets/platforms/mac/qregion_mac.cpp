@@ -151,7 +151,7 @@ directive|endif
 end_endif
 begin_function
 DECL|function|qt_mac_get_rgn
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|RgnHandle
 name|qt_mac_get_rgn
 parameter_list|()
@@ -268,7 +268,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_mac_dispose_rgn
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_mac_dispose_rgn
 parameter_list|(
@@ -422,7 +422,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_mac_convert_mac_region
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QRegion
 name|qt_mac_convert_mac_region
 parameter_list|(

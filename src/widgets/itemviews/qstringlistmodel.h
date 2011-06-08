@@ -35,7 +35,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_STRINGLISTMODEL
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStringListModel
 range|:
 name|public

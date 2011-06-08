@@ -176,7 +176,7 @@ name|class
 name|QGraphicsItemPrivate
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGraphicsItem
 decl_stmt|{ public:     enum GraphicsItemFlag
 block|{
@@ -4000,7 +4000,7 @@ end_expr_stmt
 begin_decl_stmt
 DECL|variable|QObject
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGraphicsObject
 range|:
 name|public
@@ -4386,7 +4386,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QAbstractGraphicsShapeItem
 range|:
 name|public
@@ -4497,7 +4497,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGraphicsPathItem
 range|:
 name|public
@@ -4674,7 +4674,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGraphicsRectItem
 range|:
 name|public
@@ -4917,7 +4917,7 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGraphicsEllipseItem
 range|:
 name|public
@@ -5182,7 +5182,7 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGraphicsPolygonItem
 range|:
 name|public
@@ -5372,7 +5372,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGraphicsLineItem
 range|:
 name|public
@@ -5613,7 +5613,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGraphicsPixmapItem
 range|:
 name|public
@@ -5879,7 +5879,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGraphicsTextItem
 range|:
 name|public
@@ -6373,7 +6373,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGraphicsSimpleTextItem
 range|:
 name|public
@@ -6562,7 +6562,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGraphicsItemGroup
 range|:
 name|public
@@ -6815,7 +6815,7 @@ directive|ifndef
 name|QT_NO_DEBUG_STREAM
 end_ifndef
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDebug
 name|operator
 operator|<<
@@ -6830,7 +6830,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDebug
 name|operator
 operator|<<
@@ -6845,7 +6845,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDebug
 name|operator
 operator|<<
@@ -6861,7 +6861,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDebug
 name|operator
 operator|<<
@@ -6877,7 +6877,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDebug
 name|operator
 operator|<<

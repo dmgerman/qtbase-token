@@ -427,7 +427,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|QObject
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QWidget
 range|:
 name|public
@@ -3981,7 +3981,7 @@ decl_stmt|;
 endif|#
 directive|endif
 name|friend
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QWidgetData
 modifier|*
 name|qt_qwidget_data
@@ -3992,7 +3992,7 @@ name|widget
 parameter_list|)
 function_decl|;
 name|friend
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QWidgetPrivate
 modifier|*
 name|qt_widget_private

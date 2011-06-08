@@ -473,7 +473,7 @@ comment|// for compatibility with Qt 4.0
 end_comment
 begin_function
 DECL|function|qt_x11_set_global_double_buffer
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_x11_set_global_double_buffer
 parameter_list|(
@@ -42065,7 +42065,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|function|qt_qwidget_data
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QWidgetData
 modifier|*
 name|qt_qwidget_data
@@ -42082,7 +42082,7 @@ name|data
 return|;
 block|}
 DECL|function|qt_widget_private
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QWidgetPrivate
 modifier|*
 name|qt_widget_private

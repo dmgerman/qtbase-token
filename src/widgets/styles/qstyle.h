@@ -103,7 +103,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyle
 range|:
 name|public
@@ -2345,7 +2345,7 @@ name|QT_NO_DEBUG_STREAM
 argument_list|)
 end_if
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDebug
 name|operator
 operator|<<

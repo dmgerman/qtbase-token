@@ -42,7 +42,7 @@ name|class
 name|QFileIconProviderPrivate
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QFileIconProvider
 decl_stmt|{ public:     QFileIconProvider(
 end_function

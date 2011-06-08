@@ -59,7 +59,7 @@ name|class
 name|QTreeWidgetItemPrivate
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QTreeWidgetItem
 decl_stmt|{     friend class QTreeModel;
 end_function
@@ -1641,7 +1641,7 @@ directive|ifndef
 name|QT_NO_DATASTREAM
 end_ifndef
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -1659,7 +1659,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -1687,7 +1687,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QTreeWidget
 range|:
 name|public

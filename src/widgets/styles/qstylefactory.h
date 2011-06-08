@@ -29,7 +29,7 @@ name|class
 name|QStyle
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleFactory
 decl_stmt|{ public:     static QStringList keys(
 end_function

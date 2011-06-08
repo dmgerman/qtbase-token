@@ -366,7 +366,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QMacCocoaAutoReleasePool
 block|{
 name|private
@@ -416,7 +416,7 @@ comment|//implemented in qmacstyle_mac.cpp
 end_comment
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QMacWindowChangeEvent
 block|{
 name|private

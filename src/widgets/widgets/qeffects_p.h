@@ -104,7 +104,7 @@ end_struct
 begin_decl_stmt
 specifier|extern
 name|void
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|qScrollEffect
 argument_list|(
 name|QWidget
@@ -130,7 +130,7 @@ end_decl_stmt
 begin_function_decl
 specifier|extern
 name|void
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|qFadeEffect
 parameter_list|(
 name|QWidget

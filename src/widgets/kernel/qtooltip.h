@@ -30,7 +30,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_TOOLTIP
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QToolTip
 decl_stmt|{     QToolTip(
 end_function

@@ -5769,7 +5769,7 @@ comment|// ------------------------------------------------------------------
 end_comment
 begin_function
 DECL|function|qt_x11ft_convert_pattern
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_x11ft_convert_pattern
 parameter_list|(

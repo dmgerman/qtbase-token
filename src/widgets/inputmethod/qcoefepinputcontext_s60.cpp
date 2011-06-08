@@ -127,7 +127,7 @@ end_define
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|qt_s60_setPartialScreenInputMode
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_s60_setPartialScreenInputMode
 parameter_list|(

@@ -668,7 +668,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|qt_x11Data
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QX11Data
 modifier|*
 name|qt_x11Data
@@ -1140,7 +1140,7 @@ comment|// session management
 end_comment
 begin_decl_stmt
 DECL|variable|qt_xfocusout_grab_counter
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|int
 name|qt_xfocusout_grab_counter
 init|=
@@ -1212,7 +1212,7 @@ argument_list|)
 end_macro
 begin_function
 DECL|function|qt_installX11EventFilter
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_installX11EventFilter
 parameter_list|(
@@ -1248,7 +1248,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_removeX11EventFilter
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_removeX11EventFilter
 parameter_list|(
@@ -1474,7 +1474,7 @@ parameter_list|()
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|bool
 name|qt_try_modal
 parameter_list|(
@@ -3543,7 +3543,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_x11_apply_settings_in_all_apps
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_x11_apply_settings_in_all_apps
 parameter_list|()

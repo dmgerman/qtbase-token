@@ -78,7 +78,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QUnixPrintWidget
 range|:
 name|public
@@ -149,7 +149,7 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QPrintDialog
 range|:
 name|public

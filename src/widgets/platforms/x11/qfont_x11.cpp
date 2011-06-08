@@ -334,7 +334,7 @@ comment|// Sets the fallback family for the specified script.
 end_comment
 begin_function
 DECL|function|qt_x11_set_fallback_font_family
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_x11_set_fallback_font_family
 parameter_list|(

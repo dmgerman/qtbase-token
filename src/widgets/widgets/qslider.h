@@ -40,7 +40,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSlider
 range|:
 name|public
@@ -341,7 +341,7 @@ directive|endif
 name|private
 operator|:
 name|friend
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionSlider
 name|qt_qsliderStyleOption
 argument_list|(

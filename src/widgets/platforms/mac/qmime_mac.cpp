@@ -229,7 +229,7 @@ comment|/*!     \fn void qRegisterDraggedTypes(const QStringList&types)     \rel
 end_comment
 begin_function
 DECL|function|qRegisterDraggedTypes
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qRegisterDraggedTypes
 parameter_list|(

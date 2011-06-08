@@ -58,7 +58,7 @@ name|class
 name|QGraphicsItem
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGraphicsLayoutItem
 decl_stmt|{ public:     QGraphicsLayoutItem(QGraphicsLayoutItem *parent = 0
 operator|,

@@ -294,7 +294,7 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QApplication
 range|:
 name|public

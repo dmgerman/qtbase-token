@@ -667,7 +667,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGraphicsItemPrivate
 block|{
 name|Q_DECLARE_PUBLIC

@@ -189,7 +189,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|qt_filedialog_existing_directory_hook
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|_qt_filedialog_existing_directory_hook
 name|qt_filedialog_existing_directory_hook
 init|=
@@ -237,7 +237,7 @@ function_decl|;
 end_typedef
 begin_decl_stmt
 DECL|variable|qt_filedialog_open_filename_hook
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|_qt_filedialog_open_filename_hook
 name|qt_filedialog_open_filename_hook
 init|=
@@ -285,7 +285,7 @@ function_decl|;
 end_typedef
 begin_decl_stmt
 DECL|variable|qt_filedialog_open_filenames_hook
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|_qt_filedialog_open_filenames_hook
 name|qt_filedialog_open_filenames_hook
 init|=
@@ -333,7 +333,7 @@ function_decl|;
 end_typedef
 begin_decl_stmt
 DECL|variable|qt_filedialog_save_filename_hook
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|_qt_filedialog_save_filename_hook
 name|qt_filedialog_save_filename_hook
 init|=
@@ -389,7 +389,7 @@ end_if
 begin_decl_stmt
 DECL|variable|qt_use_native_dialogs
 name|bool
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|qt_use_native_dialogs
 init|=
 literal|true

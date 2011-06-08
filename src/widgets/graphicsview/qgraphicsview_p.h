@@ -98,7 +98,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGraphicsViewPrivate
 range|:
 name|public

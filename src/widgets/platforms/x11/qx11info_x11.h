@@ -81,7 +81,7 @@ function_decl|;
 end_function_decl
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QX11Info
 block|{
 name|public

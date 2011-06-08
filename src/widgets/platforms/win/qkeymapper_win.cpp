@@ -2180,7 +2180,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_translateKeyCode
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|int
 name|qt_translateKeyCode
 parameter_list|(

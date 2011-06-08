@@ -96,7 +96,7 @@ comment|/*! \internal      Returns the QuickDraw CGrafPtr of the paint device. 0
 end_comment
 begin_function
 DECL|function|qt_mac_qd_context
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|GrafPtr
 name|qt_mac_qd_context
 parameter_list|(
@@ -246,7 +246,7 @@ comment|/*! \internal      Returns the CoreGraphics CGContextRef of the paint de
 end_comment
 begin_function
 DECL|function|qt_mac_cg_context
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|CGContextRef
 name|qt_mac_cg_context
 parameter_list|(

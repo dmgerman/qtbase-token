@@ -45,7 +45,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_UNDOCOMMAND
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QUndoCommand
 decl_stmt|{     QUndoCommandPrivate *d;
 end_function
@@ -198,7 +198,7 @@ name|QT_NO_UNDOSTACK
 end_ifndef
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QUndoStack
 range|:
 name|public

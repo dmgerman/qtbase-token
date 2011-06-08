@@ -47,7 +47,7 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QMdiSubWindow
 range|:
 name|public

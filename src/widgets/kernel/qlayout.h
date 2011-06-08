@@ -61,7 +61,7 @@ ifdef|#
 directive|ifdef
 name|QT3_SUPPORT
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QLayoutIterator
 decl_stmt|{ public:
 specifier|inline
@@ -230,7 +230,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|QObject
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QLayout
 range|:
 name|public

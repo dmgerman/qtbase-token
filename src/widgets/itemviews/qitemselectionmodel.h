@@ -45,7 +45,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_ITEMVIEWS
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QItemSelectionRange
 decl_stmt|{  public:
 specifier|inline
@@ -797,7 +797,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QItemSelectionModel
 range|:
 name|public
@@ -1186,7 +1186,7 @@ block|}
 end_function
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QItemSelection
 range|:
 name|public
@@ -1274,7 +1274,7 @@ directive|ifndef
 name|QT_NO_DEBUG_STREAM
 end_ifndef
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDebug
 name|operator
 operator|<<

@@ -1415,7 +1415,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|qt_x11_preferred_pixmap_depth
 name|int
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|qt_x11_preferred_pixmap_depth
 init|=
 literal|0

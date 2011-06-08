@@ -37,7 +37,7 @@ argument_list|(
 name|Gui
 argument_list|)
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QMenuItem
 range|:
 name|public

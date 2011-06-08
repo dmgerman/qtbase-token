@@ -76,7 +76,7 @@ begin_decl_stmt
 unit|};
 DECL|struct|QFactoryInterface
 name|struct
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QAccessibleBridgeFactoryInterface
 range|:
 name|public
@@ -116,7 +116,7 @@ argument_list|)
 end_macro
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QAccessibleBridgePlugin
 range|:
 name|public

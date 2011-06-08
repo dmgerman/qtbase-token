@@ -38,7 +38,7 @@ parameter_list|(
 name|Gui
 parameter_list|)
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSymbianEvent
 decl_stmt|{ public:     enum Type
 block|{
@@ -185,7 +185,7 @@ directive|ifndef
 name|QT_NO_DEBUG_STREAM
 end_ifndef
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDebug
 name|operator
 operator|<<

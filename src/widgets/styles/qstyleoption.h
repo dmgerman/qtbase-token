@@ -88,7 +88,7 @@ name|class
 name|QDebug
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOption
 decl_stmt|{ public:     enum OptionType
 block|{
@@ -291,7 +291,7 @@ end_decl_stmt
 begin_decl_stmt
 unit|};
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionFocusRect
 range|:
 name|public
@@ -351,7 +351,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionFrame
 range|:
 name|public
@@ -414,7 +414,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionFrameV2
 range|:
 name|public
@@ -507,7 +507,7 @@ argument_list|)
 end_macro
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionFrameV3
 range|:
 name|public
@@ -591,7 +591,7 @@ name|QT_NO_TABWIDGET
 end_ifndef
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionTabWidgetFrame
 range|:
 name|public
@@ -669,7 +669,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionTabWidgetFrameV2
 range|:
 name|public
@@ -751,7 +751,7 @@ name|QT_NO_TABBAR
 end_ifndef
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionTabBarBase
 range|:
 name|public
@@ -819,7 +819,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionTabBarBaseV2
 range|:
 name|public
@@ -893,7 +893,7 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionHeader
 range|:
 name|public
@@ -1014,7 +1014,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionButton
 range|:
 name|public
@@ -1127,7 +1127,7 @@ name|QT_NO_TABBAR
 end_ifndef
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionTab
 range|:
 name|public
@@ -1254,7 +1254,7 @@ argument_list|)
 end_macro
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionTabV2
 range|:
 name|public
@@ -1324,7 +1324,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionTabV3
 range|:
 name|public
@@ -1427,7 +1427,7 @@ name|QT_NO_TOOLBAR
 end_ifndef
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionToolBar
 range|:
 name|public
@@ -1545,7 +1545,7 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionProgressBar
 range|:
 name|public
@@ -1625,7 +1625,7 @@ comment|// Adds style info for vertical progress bars
 end_comment
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionProgressBarV2
 range|:
 name|public
@@ -1700,7 +1700,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionMenuItem
 range|:
 name|public
@@ -1815,7 +1815,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionQ3ListViewItem
 range|:
 name|public
@@ -1922,7 +1922,7 @@ argument_list|)
 end_macro
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionQ3DockWindow
 range|:
 name|public
@@ -1985,7 +1985,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionDockWidget
 range|:
 name|public
@@ -2054,7 +2054,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionDockWidgetV2
 range|:
 name|public
@@ -2124,7 +2124,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionViewItem
 range|:
 name|public
@@ -2219,7 +2219,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionViewItemV2
 range|:
 name|public
@@ -2328,7 +2328,7 @@ argument_list|)
 end_macro
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionViewItemV3
 range|:
 name|public
@@ -2408,7 +2408,7 @@ name|QT_NO_ITEMVIEWS
 end_ifndef
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionViewItemV4
 range|:
 name|public
@@ -2512,7 +2512,7 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionToolBox
 range|:
 name|public
@@ -2575,7 +2575,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionToolBoxV2
 range|:
 name|public
@@ -2673,7 +2673,7 @@ name|QT_NO_RUBBERBAND
 end_ifndef
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionRubberBand
 range|:
 name|public
@@ -2748,7 +2748,7 @@ comment|// -------------------------- Complex style options --------------------
 end_comment
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionComplex
 range|:
 name|public
@@ -2818,7 +2818,7 @@ name|QT_NO_SLIDER
 end_ifndef
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionSlider
 range|:
 name|public
@@ -2927,7 +2927,7 @@ name|QT_NO_SPINBOX
 end_ifndef
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionSpinBox
 range|:
 name|public
@@ -3004,7 +3004,7 @@ comment|// QT_NO_SPINBOX
 end_comment
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionQ3ListView
 range|:
 name|public
@@ -3087,7 +3087,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionToolButton
 range|:
 name|public
@@ -3211,7 +3211,7 @@ argument_list|)
 end_macro
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionComboBox
 range|:
 name|public
@@ -3286,7 +3286,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionTitleBar
 range|:
 name|public
@@ -3357,7 +3357,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionGroupBox
 range|:
 name|public
@@ -3436,7 +3436,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionSizeGrip
 range|:
 name|public
@@ -3498,7 +3498,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionGraphicsItem
 range|:
 name|public
@@ -3790,7 +3790,7 @@ comment|// -------------------------- QStyleHintReturn -------------------------
 end_comment
 begin_decl_stmt
 unit|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleHintReturn
 block|{
 name|public
@@ -3847,7 +3847,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleHintReturnMask
 range|:
 name|public
@@ -3880,7 +3880,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleHintReturnVariant
 range|:
 name|public
@@ -4080,7 +4080,7 @@ name|QT_NO_DEBUG_STREAM
 argument_list|)
 end_if
 begin_expr_stmt
-unit|Q_GUI_EXPORT
+unit|Q_WIDGETS_EXPORT
 name|QDebug
 name|operator
 operator|<<
@@ -4098,7 +4098,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDebug
 name|operator
 operator|<<

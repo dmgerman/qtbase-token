@@ -1589,7 +1589,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_x11_enforce_cursor
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_x11_enforce_cursor
 parameter_list|(
@@ -1834,7 +1834,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_x11_wait_for_window_manager
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_x11_wait_for_window_manager
 parameter_list|(

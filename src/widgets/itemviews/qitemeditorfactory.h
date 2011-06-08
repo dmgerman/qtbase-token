@@ -47,7 +47,7 @@ name|class
 name|QWidget
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QItemEditorCreatorBase
 decl_stmt|{ public:     virtual ~QItemEditorCreatorBase(
 end_function
@@ -230,7 +230,7 @@ argument|avaluePropertyName
 argument_list|)
 block|{}
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QItemEditorFactory
 block|{
 name|public

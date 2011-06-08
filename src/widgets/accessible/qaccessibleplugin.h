@@ -47,7 +47,7 @@ begin_decl_stmt
 DECL|variable|QAccessible
 DECL|struct|QFactoryInterface
 name|struct
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QAccessibleFactoryInterface
 range|:
 name|public
@@ -101,7 +101,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QAccessiblePlugin
 range|:
 name|public

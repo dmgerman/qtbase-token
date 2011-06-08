@@ -80,7 +80,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStandardItem
 block|{
 name|public
@@ -1614,7 +1614,7 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStandardItemModel
 range|:
 name|public
@@ -2341,7 +2341,7 @@ directive|ifndef
 name|QT_NO_DATASTREAM
 end_ifndef
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -2358,7 +2358,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataStream
 operator|&
 name|operator

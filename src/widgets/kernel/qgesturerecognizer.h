@@ -47,7 +47,7 @@ name|class
 name|QGesture
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGestureRecognizer
 decl_stmt|{ public:     enum ResultFlag
 block|{

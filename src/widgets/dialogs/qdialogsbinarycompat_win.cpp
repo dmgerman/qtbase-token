@@ -61,7 +61,7 @@ end_class_decl
 begin_class
 DECL|class|QColorDialog
 class|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QColorDialog
 block|{
 private|private:
@@ -212,7 +212,7 @@ end_function
 begin_class
 DECL|class|QFontDialog
 class|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QFontDialog
 block|{
 private|private:
@@ -388,7 +388,7 @@ end_function
 begin_class
 DECL|class|QInputDialog
 class|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QInputDialog
 block|{
 private|private:

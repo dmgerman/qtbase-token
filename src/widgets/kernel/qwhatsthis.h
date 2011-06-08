@@ -46,7 +46,7 @@ decl_stmt|;
 endif|#
 directive|endif
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QWhatsThis
 decl_stmt|{     QWhatsThis(
 end_function

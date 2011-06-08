@@ -1516,7 +1516,7 @@ block|}
 end_function
 begin_function
 DECL|function|qSmartMinSize
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSize
 name|qSmartMinSize
 parameter_list|(
@@ -1728,7 +1728,7 @@ block|}
 end_function
 begin_function
 DECL|function|qSmartMinSize
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSize
 name|qSmartMinSize
 parameter_list|(
@@ -1786,7 +1786,7 @@ block|}
 end_function
 begin_function
 DECL|function|qSmartMinSize
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSize
 name|qSmartMinSize
 parameter_list|(
@@ -1829,7 +1829,7 @@ block|}
 end_function
 begin_function
 DECL|function|qSmartMaxSize
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSize
 name|qSmartMaxSize
 parameter_list|(
@@ -2017,7 +2017,7 @@ block|}
 end_function
 begin_function
 DECL|function|qSmartMaxSize
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSize
 name|qSmartMaxSize
 parameter_list|(
@@ -2085,7 +2085,7 @@ block|}
 end_function
 begin_function
 DECL|function|qSmartMaxSize
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSize
 name|qSmartMaxSize
 parameter_list|(
@@ -2138,7 +2138,7 @@ block|}
 end_function
 begin_function
 DECL|function|qSmartSpacing
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|int
 name|qSmartSpacing
 parameter_list|(

@@ -37,7 +37,7 @@ parameter_list|(
 name|Gui
 parameter_list|)
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QIconEngine
 decl_stmt|{ public:     virtual ~QIconEngine(
 end_function
@@ -182,7 +182,7 @@ comment|// ### Qt 5: move the below into QIconEngine
 end_comment
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QIconEngineV2
 range|:
 name|public

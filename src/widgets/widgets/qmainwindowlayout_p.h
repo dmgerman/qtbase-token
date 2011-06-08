@@ -123,7 +123,7 @@ name|QTextStream
 decl_stmt|;
 end_decl_stmt
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_dumpLayout
 parameter_list|(

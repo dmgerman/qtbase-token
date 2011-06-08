@@ -102,7 +102,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|struct|QFactoryInterface
 name|struct
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGuiPlatformPluginInterface
 range|:
 name|public
@@ -128,7 +128,7 @@ argument_list|)
 end_macro
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QGuiPlatformPlugin
 range|:
 name|public

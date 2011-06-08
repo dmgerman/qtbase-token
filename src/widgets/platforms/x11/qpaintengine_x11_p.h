@@ -466,7 +466,7 @@ name|class
 name|QFontEngineBox
 block|;
 name|friend
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|GC
 name|qt_x11_get_pen_gc
 argument_list|(
@@ -475,7 +475,7 @@ operator|*
 argument_list|)
 block|;
 name|friend
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|GC
 name|qt_x11_get_brush_gc
 argument_list|(

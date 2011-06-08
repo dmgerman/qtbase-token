@@ -52,7 +52,7 @@ name|class
 name|QIconEngineV2
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QIcon
 decl_stmt|{ public:     enum Mode
 block|{
@@ -644,7 +644,7 @@ argument_list|)
 end_if
 begin_expr_stmt
 name|friend
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -661,7 +661,7 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 name|friend
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -729,7 +729,7 @@ argument_list|)
 end_if
 begin_expr_stmt
 DECL|variable|operator
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataStream
 operator|&
 name|operator
@@ -745,7 +745,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QDataStream
 operator|&
 name|operator

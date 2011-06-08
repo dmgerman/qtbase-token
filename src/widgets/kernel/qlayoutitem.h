@@ -79,7 +79,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QLayoutItem
 block|{
 name|public
@@ -262,7 +262,7 @@ argument|aalignment
 argument_list|)
 block|{ }
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSpacerItem
 operator|:
 name|public
@@ -373,7 +373,7 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QWidgetItem
 range|:
 name|public
@@ -466,7 +466,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QWidgetItemV2
 range|:
 name|public

@@ -343,7 +343,7 @@ name|QT_EXPERIMENTAL_CLIENT_DECORATIONS
 end_ifdef
 begin_function
 DECL|function|qt_setMainWindowTitleWidget
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_setMainWindowTitleWidget
 parameter_list|(

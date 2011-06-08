@@ -2518,7 +2518,7 @@ comment|/*! \internal     Returns the style option for slider. */
 end_comment
 begin_function
 DECL|function|qt_qsliderStyleOption
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QStyleOptionSlider
 name|qt_qsliderStyleOption
 parameter_list|(

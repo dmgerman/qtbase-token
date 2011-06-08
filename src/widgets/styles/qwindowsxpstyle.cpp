@@ -1169,7 +1169,7 @@ comment|// External function calls
 end_comment
 begin_function_decl
 specifier|extern
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|HDC
 name|qt_win_display_dc
 parameter_list|()

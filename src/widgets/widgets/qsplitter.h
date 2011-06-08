@@ -62,7 +62,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSplitter
 range|:
 name|public
@@ -538,7 +538,7 @@ directive|ifndef
 name|QT_NO_TEXTSTREAM
 end_ifndef
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QTextStream
 operator|&
 name|operator
@@ -554,7 +554,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QTextStream
 operator|&
 name|operator
@@ -583,7 +583,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSplitterHandle
 range|:
 name|public

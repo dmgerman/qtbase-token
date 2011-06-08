@@ -398,7 +398,7 @@ name|QT_NO_FONTCONFIG
 end_ifndef
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QFontEngineMultiFT
 range|:
 name|public
@@ -458,7 +458,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QFontEngineX11FT
 range|:
 name|public

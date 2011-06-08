@@ -50,10 +50,10 @@ name|QT_PLUGIN
 argument_list|)
 end_if
 begin_define
-DECL|macro|Q_GUI_EXPORT_STYLE_MAC
+DECL|macro|Q_WIDGETS_EXPORT_STYLE_MAC
 define|#
 directive|define
-name|Q_GUI_EXPORT_STYLE_MAC
+name|Q_WIDGETS_EXPORT_STYLE_MAC
 end_define
 begin_else
 else|#
@@ -62,8 +62,8 @@ end_else
 begin_define
 define|#
 directive|define
-name|Q_GUI_EXPORT_STYLE_MAC
-value|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT_STYLE_MAC
+value|Q_WIDGETS_EXPORT
 end_define
 begin_endif
 endif|#
@@ -89,7 +89,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT_STYLE_MAC
+name|Q_WIDGETS_EXPORT_STYLE_MAC
 name|QMacStyle
 range|:
 name|public

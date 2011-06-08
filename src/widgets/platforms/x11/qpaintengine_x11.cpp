@@ -251,7 +251,7 @@ comment|/*!     Returns the X11 specific pen GC for the painter \a p. Note that 
 end_comment
 begin_function
 DECL|function|qt_x11_get_pen_gc
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|GC
 name|qt_x11_get_pen_gc
 parameter_list|(
@@ -319,7 +319,7 @@ comment|/*!     Returns the X11 specific brush GC for the painter \a p. Note tha
 end_comment
 begin_function
 DECL|function|qt_x11_get_brush_gc
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|GC
 name|qt_x11_get_brush_gc
 parameter_list|(
@@ -489,7 +489,7 @@ comment|// X11 headers in qregion.h
 end_comment
 begin_function
 DECL|function|qt_getClipRects
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 modifier|*
 name|qt_getClipRects
@@ -12796,7 +12796,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_x11_drawImage
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_x11_drawImage
 parameter_list|(

@@ -87,7 +87,7 @@ begin_comment
 comment|//
 end_comment
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qDrawShadeLine
 parameter_list|(
@@ -130,7 +130,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qDrawShadeLine
 parameter_list|(
@@ -171,7 +171,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qDrawShadeRect
 parameter_list|(
@@ -221,7 +221,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qDrawShadeRect
 parameter_list|(
@@ -264,7 +264,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qDrawShadePanel
 parameter_list|(
@@ -309,7 +309,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qDrawShadePanel
 parameter_list|(
@@ -347,7 +347,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qDrawWinButton
 parameter_list|(
@@ -387,7 +387,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qDrawWinButton
 parameter_list|(
@@ -420,7 +420,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qDrawWinPanel
 parameter_list|(
@@ -460,7 +460,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qDrawWinPanel
 parameter_list|(
@@ -493,7 +493,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qDrawPlainRect
 parameter_list|(
@@ -532,7 +532,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qDrawPlainRect
 parameter_list|(
@@ -716,7 +716,7 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qDrawBorderPixmap
 argument_list|(

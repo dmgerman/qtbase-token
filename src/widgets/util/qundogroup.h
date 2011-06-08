@@ -57,7 +57,7 @@ name|QT_NO_UNDOGROUP
 end_ifndef
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QUndoGroup
 range|:
 name|public

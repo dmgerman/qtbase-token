@@ -209,7 +209,7 @@ block|}
 struct|;
 end_struct
 begin_decl_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qGeomCalc
 argument_list|(
@@ -241,7 +241,7 @@ argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSize
 name|qSmartMinSize
 parameter_list|(
@@ -273,7 +273,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSize
 name|qSmartMinSize
 parameter_list|(
@@ -285,7 +285,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSize
 name|qSmartMinSize
 parameter_list|(
@@ -297,7 +297,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_decl_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSize
 name|qSmartMaxSize
 argument_list|(
@@ -331,7 +331,7 @@ argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSize
 name|qSmartMaxSize
 argument_list|(
@@ -350,7 +350,7 @@ argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QSize
 name|qSmartMaxSize
 argument_list|(
@@ -369,7 +369,7 @@ argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|int
 name|qSmartSpacing
 argument_list|(

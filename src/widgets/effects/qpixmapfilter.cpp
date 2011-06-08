@@ -3601,7 +3601,7 @@ value|( ((((a)^(b))& 0xf7deUL)>> 1) + ((a)&(b)) )
 end_define
 begin_function
 DECL|function|qt_halfScaled
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QImage
 name|qt_halfScaled
 parameter_list|(
@@ -4453,7 +4453,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_blurImage
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_blurImage
 parameter_list|(
@@ -4651,7 +4651,7 @@ block|}
 end_function
 begin_function
 DECL|function|qt_blurImage
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|void
 name|qt_blurImage
 parameter_list|(
@@ -4722,7 +4722,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|bool
 name|qt_scaleForTransform
 parameter_list|(
