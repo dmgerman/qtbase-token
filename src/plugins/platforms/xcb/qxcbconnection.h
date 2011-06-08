@@ -742,6 +742,12 @@ name|initializeXFixes
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_function_decl
+name|void
+name|initializeXRender
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_ifdef
 ifdef|#
 directive|ifdef
