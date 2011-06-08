@@ -289,6 +289,9 @@ name|ps
 init|=
 literal|0
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
 if|if
 condition|(
 operator|!
@@ -299,6 +302,8 @@ operator|=
 operator|new
 name|QPlatformPrinterSupport
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|ps
 return|;
