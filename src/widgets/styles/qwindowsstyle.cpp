@@ -3265,7 +3265,7 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|Q_WS_WIN
 end_ifdef
 begin_function
 DECL|function|loadIconFromShell32
@@ -21548,7 +21548,7 @@ name|pixmap
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|Q_WS_WIN
 switch|switch
 condition|(
 name|standardIcon

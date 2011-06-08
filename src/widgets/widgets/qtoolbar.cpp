@@ -1600,7 +1600,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|Q_WS_WIN
 name|grabMouseWhileInWindow
 argument_list|()
 expr_stmt|;

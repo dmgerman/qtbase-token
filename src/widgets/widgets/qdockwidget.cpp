@@ -4425,7 +4425,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|Q_WS_WIN
 name|grabMouseWhileInWindow
 argument_list|()
 expr_stmt|;
@@ -4785,7 +4785,7 @@ condition|)
 break|break;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|Q_WS_WIN
 comment|// On Windows, NCA mouse events don't contain modifier info
 name|state
 operator|->
@@ -6737,7 +6737,7 @@ return|;
 break|break;
 ifdef|#
 directive|ifdef
-name|Q_OS_WIN
+name|Q_WS_WIN
 case|case
 name|QEvent
 operator|::
