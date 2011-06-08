@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"XQVibra.h"
+file|"xqvibra.h"
 end_include
 begin_comment
 comment|//! [0]
