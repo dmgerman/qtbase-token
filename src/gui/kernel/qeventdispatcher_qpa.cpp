@@ -239,6 +239,10 @@ operator|delete
 name|event
 expr_stmt|;
 block|}
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+comment|// (inverted inheritance on mac: QEventDispatcherMac calls QEventDispatcherQPA)
 if|if
 condition|(
 operator|!
@@ -269,6 +273,8 @@ literal|true
 return|;
 block|}
 block|}
+endif|#
+directive|endif
 return|return
 operator|(
 name|nevents

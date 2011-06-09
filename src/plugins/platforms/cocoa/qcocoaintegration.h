@@ -175,12 +175,6 @@ name|fontDatabase
 argument_list|()
 specifier|const
 block|;
-name|QPlatformEventLoopIntegration
-operator|*
-name|createEventLoopIntegration
-argument_list|()
-specifier|const
-block|;
 name|QPlatformNativeInterface
 operator|*
 name|nativeInterface
