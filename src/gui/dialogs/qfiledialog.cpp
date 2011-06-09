@@ -3092,7 +3092,7 @@ literal|1
 argument_list|,
 name|QDir
 operator|::
-name|homeDirPath
+name|homePath
 argument_list|()
 argument_list|)
 expr_stmt|;
