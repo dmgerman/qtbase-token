@@ -9670,7 +9670,7 @@ name|html
 operator|+=
 name|QLatin1String
 argument_list|(
-literal|"-qt-paragraph-type:empty;"
+literal|"-qt-paragraph-type:empty; height:1em;"
 argument_list|)
 expr_stmt|;
 block|}
