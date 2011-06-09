@@ -137,7 +137,7 @@ argument|int&count
 argument_list|)
 block|;
 name|void
-name|initXkb
+name|setupModifiers
 argument_list|()
 block|;
 name|void
