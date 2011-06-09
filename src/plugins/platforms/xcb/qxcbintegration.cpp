@@ -50,7 +50,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qgenericunixprintersupport.h>
+file|<QtPlatformSupport/private/qgenericunixprintersupport_p.h>
 end_include
 begin_include
 include|#
@@ -65,7 +65,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qgenericunixfontdatabase.h"
+file|<QtPlatformSupport/private/qgenericunixfontdatabase_p.h>
 end_include
 begin_include
 include|#
