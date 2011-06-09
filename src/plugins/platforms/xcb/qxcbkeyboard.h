@@ -148,6 +148,20 @@ argument_list|,
 argument|uint mask
 argument_list|)
 block|;
+name|xcb_keysym_t
+name|lookupString
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|uint state
+argument_list|,
+argument|xcb_keycode_t code
+argument_list|,
+argument|QEvent::Type type
+argument_list|,
+argument|QByteArray *chars
+argument_list|)
+block|;
 name|uint
 name|m_alt_mask
 block|;
@@ -165,6 +179,9 @@ name|m_mode_switch_mask
 block|;
 name|uint
 name|m_num_lock_mask
+block|;
+name|uint
+name|m_caps_lock_mask
 block|;
 name|xcb_key_symbols_t
 operator|*
