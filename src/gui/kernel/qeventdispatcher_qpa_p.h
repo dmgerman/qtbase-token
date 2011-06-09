@@ -137,6 +137,17 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|QEventDispatcherQPA
+argument_list|(
+name|QEventDispatcherUNIXPrivate
+operator|&
+name|priv
+argument_list|,
+name|QObject
+operator|*
+name|parent
+argument_list|)
+block|;
 operator|~
 name|QEventDispatcherQPA
 argument_list|()
@@ -152,40 +163,30 @@ name|hasPendingEvents
 argument_list|()
 block|;
 name|void
-name|registerSocketNotifier
-argument_list|(
-name|QSocketNotifier
-operator|*
-name|notifier
-argument_list|)
-block|;
-name|void
-name|unregisterSocketNotifier
-argument_list|(
-name|QSocketNotifier
-operator|*
-name|notifier
-argument_list|)
-block|;
-name|void
 name|flush
 argument_list|()
-block|;
-name|protected
-operator|:
-name|int
-name|select
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
+name|QEventDispatcherQPAPrivate
+range|:
+name|public
+name|EVENTDISPATCHERBASEPRIVATE
+block|{
+name|Q_DECLARE_PUBLIC
 argument_list|(
-argument|int nfds
-argument_list|,
-argument|fd_set *readfds
-argument_list|,
-argument|fd_set *writefds
-argument_list|,
-argument|fd_set *exceptfds
-argument_list|,
-argument|timeval *timeout
+argument|QEventDispatcherQPA
 argument_list|)
+name|public
+operator|:
+name|QEventDispatcherQPAPrivate
+argument_list|()
+block|;
+operator|~
+name|QEventDispatcherQPAPrivate
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt

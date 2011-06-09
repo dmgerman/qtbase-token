@@ -8252,16 +8252,6 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
-argument|QPlatformEventLoopIntegration
-argument_list|,
-argument|QtGui
-argument_list|,
-argument|qplatformeventloopintegration_qpa.h
-argument_list|)
-end_macro
-begin_macro
-name|QT_CLASS_LIB
-argument_list|(
 argument|QPlatformGLContext
 argument_list|,
 argument|QtGui

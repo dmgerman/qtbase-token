@@ -90,12 +90,6 @@ block|;
 operator|~
 name|QPAEventDispatcherGlib
 argument_list|()
-block|;
-name|bool
-name|processEvents
-argument_list|(
-argument|QEventLoop::ProcessEventsFlags flags
-argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

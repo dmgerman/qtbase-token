@@ -84,24 +84,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Factory function for the eventloop integration interface.      Default implementation returns 0, which causes the eventloop to run in a single thread mode.      \sa QPlatformEventLoopIntegration */
-end_comment
-begin_function
-DECL|function|createEventLoopIntegration
-name|QPlatformEventLoopIntegration
-modifier|*
-name|QPlatformIntegration
-operator|::
-name|createEventLoopIntegration
-parameter_list|()
-specifier|const
-block|{
-return|return
-literal|0
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!     Accessor for the platform integrations fontdatabase.      Default implementation returns a default QPlatformFontDatabase.      \sa QPlatformFontDatabase */
 end_comment
 begin_function

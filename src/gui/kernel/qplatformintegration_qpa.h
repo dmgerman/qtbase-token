@@ -51,10 +51,6 @@ DECL|variable|QBlittable
 name|class
 name|QBlittable
 decl_stmt|;
-DECL|variable|QPlatformEventLoopIntegration
-name|class
-name|QPlatformEventLoopIntegration
-decl_stmt|;
 DECL|variable|QPlatformFontDatabase
 name|class
 name|QPlatformFontDatabase
@@ -283,24 +279,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|// Experimental in mainthread eventloop integration
-end_comment
-begin_comment
-comment|// This should only be used if it is only possible to do window system event processing in
-end_comment
-begin_comment
-comment|// the gui thread. All of the functions in QWindowSystemInterface are thread safe.
-end_comment
-begin_expr_stmt
-name|virtual
-name|QPlatformEventLoopIntegration
-operator|*
-name|createEventLoopIntegration
-argument_list|()
-specifier|const
-expr_stmt|;
-end_expr_stmt
 begin_comment
 comment|// Access native handles. The window handle is already available from Wid;
 end_comment
