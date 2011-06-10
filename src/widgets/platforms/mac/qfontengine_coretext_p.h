@@ -386,7 +386,7 @@ argument_list|)
 block|;
 name|QCoreTextFontEngineMulti
 argument_list|(
-argument|CGFontRef cgFontRef
+argument|CTFontRef ctFontRef
 argument_list|,
 argument|const QFontDef&fontDef
 argument_list|,
@@ -526,6 +526,17 @@ name|QFontDialogPrivate
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_function_decl
+name|CGAffineTransform
+name|qt_transform_from_fontdef
+parameter_list|(
+specifier|const
+name|QFontDef
+modifier|&
+name|fontDef
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_endif
 endif|#
 directive|endif

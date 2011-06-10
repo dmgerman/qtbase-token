@@ -130,7 +130,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|"private/qharfbuzz_p.h"
+file|"private/qharfbuzz_copy_p.h"
 end_include
 begin_include
 include|#

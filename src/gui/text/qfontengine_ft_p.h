@@ -107,7 +107,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<harfbuzz-shaper.h>
+file|"private/qharfbuzz_copy_p.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

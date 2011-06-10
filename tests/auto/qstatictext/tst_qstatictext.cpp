@@ -1643,6 +1643,12 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_WS_MAC
+argument_list|)
 operator|||
 name|type
 operator|==
@@ -2651,10 +2657,7 @@ name|drawStaticText
 argument_list|(
 literal|0
 argument_list|,
-name|fm
-operator|.
-name|ascent
-argument_list|()
+literal|0
 argument_list|,
 name|staticText
 argument_list|)

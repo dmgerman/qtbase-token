@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtOpenGL/private/qpixmapdata_gl_p.h>
+file|<QtGui/private/qpixmap_raster_p.h>
 end_include
 begin_include
 include|#
@@ -152,7 +152,7 @@ endif|#
 directive|endif
 return|return
 operator|new
-name|QGLPixmapData
+name|QRasterPixmapData
 argument_list|(
 name|type
 argument_list|)

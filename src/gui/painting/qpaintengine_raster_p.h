@@ -833,6 +833,22 @@ name|coordinateOffset
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|supportsTransformations
+argument_list|(
+argument|const QFontEngine *fontEngine
+argument_list|)
+specifier|const
+block|;
+name|bool
+name|supportsTransformations
+argument_list|(
+argument|qreal pixelSize
+argument_list|,
+argument|const QTransform&m
+argument_list|)
+specifier|const
+block|;
 name|protected
 operator|:
 name|QRasterPaintEngine

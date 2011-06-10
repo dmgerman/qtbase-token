@@ -4510,6 +4510,11 @@ name|defined
 argument_list|(
 name|QT_ENABLE_HARFBUZZ_FOR_MAC
 argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|Q_WS_MAC
+argument_list|)
 end_if
 begin_function
 DECL|function|enableHarfBuzz

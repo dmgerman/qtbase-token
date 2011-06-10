@@ -6154,6 +6154,11 @@ return|;
 block|}
 do|while
 condition|(
+name|msecs
+operator|==
+operator|-
+literal|1
+operator|||
 name|qt_timeout_value
 argument_list|(
 name|msecs
