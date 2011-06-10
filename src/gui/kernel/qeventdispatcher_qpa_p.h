@@ -139,7 +139,7 @@ argument_list|)
 block|;
 name|QEventDispatcherQPA
 argument_list|(
-name|QEventDispatcherUNIXPrivate
+name|EVENTDISPATCHERBASEPRIVATE
 operator|&
 name|priv
 argument_list|,

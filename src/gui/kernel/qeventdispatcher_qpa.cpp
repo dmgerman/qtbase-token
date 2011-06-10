@@ -98,7 +98,7 @@ name|QEventDispatcherQPA
 operator|::
 name|QEventDispatcherQPA
 parameter_list|(
-name|QEventDispatcherUNIXPrivate
+name|EVENTDISPATCHERBASEPRIVATE
 modifier|&
 name|priv
 parameter_list|,
