@@ -204,6 +204,21 @@ name|rect
 return|;
 block|}
 end_function
+begin_function
+DECL|function|frameMargins
+name|QMargins
+name|QPlatformWindow
+operator|::
+name|frameMargins
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QMargins
+argument_list|()
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     Reimplemented in subclasses to show the surface     if \a visible is \c true, and hide it if \a visible is \c false. */
 end_comment

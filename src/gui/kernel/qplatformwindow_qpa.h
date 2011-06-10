@@ -26,6 +26,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qmargins.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qstring.h>
 end_include
 begin_include
@@ -109,6 +114,14 @@ begin_expr_stmt
 name|virtual
 name|QRect
 name|geometry
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|virtual
+name|QMargins
+name|frameMargins
 argument_list|()
 specifier|const
 expr_stmt|;

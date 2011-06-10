@@ -82,6 +82,11 @@ modifier|&
 name|rect
 parameter_list|)
 function_decl|;
+name|QMargins
+name|frameMargins
+argument_list|()
+specifier|const
+expr_stmt|;
 name|void
 name|setVisible
 parameter_list|(
@@ -471,6 +476,14 @@ name|m_mapped
 decl_stmt|;
 name|xcb_window_t
 name|m_netWmUserTimeWindow
+decl_stmt|;
+name|mutable
+name|bool
+name|m_dirtyFrameMargins
+decl_stmt|;
+name|mutable
+name|QMargins
+name|m_frameMargins
 decl_stmt|;
 block|}
 end_decl_stmt

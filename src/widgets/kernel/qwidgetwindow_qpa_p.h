@@ -146,6 +146,10 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|void
+name|updateGeometry
+argument_list|()
+block|;
 name|QWidget
 operator|*
 name|m_widget

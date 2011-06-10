@@ -26,6 +26,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QMargins>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qguiglformat_qpa.h>
 end_include
 begin_include
@@ -371,6 +376,11 @@ argument_list|)
 block|;
 name|QRect
 name|geometry
+argument_list|()
+specifier|const
+block|;
+name|QMargins
+name|frameMargins
 argument_list|()
 specifier|const
 block|;
