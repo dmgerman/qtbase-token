@@ -55,7 +55,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qglxconvenience.h"
+file|<QtPlatformSupport/private/qglxconvenience_p.h>
 end_include
 begin_if
 if|#

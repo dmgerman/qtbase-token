@@ -106,12 +106,12 @@ end_if
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/glxintegration_p.h>
+file|"qglxintegration.h"
 end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/glxconvenience_p.h>
+file|<QtPlatformSupport/private/qglxconvenience_p.h>
 end_include
 begin_elif
 elif|#
