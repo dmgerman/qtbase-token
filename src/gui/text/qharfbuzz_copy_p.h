@@ -16,6 +16,28 @@ end_define
 begin_comment
 comment|/*   The purpose of this header file is to allow inclusion of the private   headers for font and text classes without having to pull in the full   harfbuzz library under QTDIR/src/3rdparty/harfbuzz/src */
 end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_BUILD_GUI_LIB
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|QT_COMPILES_IN_HARFBUZZ
+argument_list|)
+end_if
+begin_include
+include|#
+directive|include
+file|<private/qharfbuzz_p.h>
+end_include
+begin_else
+else|#
+directive|else
+end_else
 begin_extern
 extern|extern
 literal|"C"
@@ -233,6 +255,13 @@ name|HB_CharAttributes
 typedef|;
 block|}
 end_extern
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// ifdef QT_BUILD_GUI_LIB
+end_comment
 begin_endif
 endif|#
 directive|endif
