@@ -6042,6 +6042,12 @@ directive|define
 name|Q_MULTIMEDIA_EXPORT
 end_define
 begin_define
+DECL|macro|Q_OPENVG_EXPORT
+define|#
+directive|define
+name|Q_OPENVG_EXPORT
+end_define
+begin_define
 DECL|macro|Q_XML_EXPORT
 define|#
 directive|define
