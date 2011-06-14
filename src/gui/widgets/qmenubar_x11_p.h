@@ -148,6 +148,13 @@ comment|// Only has values -1, 0, and 1
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_function_decl
+name|QPlatformMenuBarFactoryInterface
+modifier|*
+name|qt_guiPlatformMenuBarFactory
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
