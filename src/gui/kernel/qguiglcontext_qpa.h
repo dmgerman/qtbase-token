@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtCore/qnamespace.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QScopedPointer>
+end_include
 begin_function
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
