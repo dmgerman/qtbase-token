@@ -8323,7 +8323,7 @@ begin_comment
 comment|/*!     \fn void QTextEdit::cursorPositionChanged()      This signal is emitted whenever the position of the     cursor changed. */
 end_comment
 begin_comment
-comment|/*!     \since 4.2      Sets the text edit's \a text. The text can be plain text or HTML     and the text edit will try to guess the right format.      Use setHtml() or setPlainText() directly to avoid text edit's guessing. */
+comment|/*!     \since 4.2      Sets the text edit's \a text. The text can be plain text or HTML     and the text edit will try to guess the right format.      Use setHtml() or setPlainText() directly to avoid text edit's guessing.      \sa toPlainText(), toHtml() */
 end_comment
 begin_function
 DECL|function|setText
