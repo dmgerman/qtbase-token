@@ -41,9 +41,7 @@ block|{
 name|public
 operator|:
 name|QWaylandIntegration
-argument_list|(
-argument|bool useOpenGL = false
-argument_list|)
+argument_list|()
 block|;
 name|bool
 name|hasCapability
@@ -117,11 +115,6 @@ specifier|const
 block|;
 name|private
 operator|:
-name|bool
-name|hasOpenGL
-argument_list|()
-specifier|const
-block|;
 name|QPlatformFontDatabase
 operator|*
 name|mFontDb
@@ -129,9 +122,6 @@ block|;
 name|QWaylandDisplay
 operator|*
 name|mDisplay
-block|;
-name|bool
-name|mUseOpenGL
 block|;
 name|QPlatformNativeInterface
 operator|*

@@ -478,8 +478,6 @@ condition|)
 name|makeCurrent
 argument_list|(
 name|surface
-argument_list|,
-name|surface
 argument_list|)
 expr_stmt|;
 specifier|const

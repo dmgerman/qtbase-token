@@ -138,13 +138,6 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
-name|timer
-operator|->
-name|start
-argument_list|(
-literal|10
-argument_list|)
-expr_stmt|;
 name|connect
 argument_list|(
 name|timer
@@ -162,6 +155,13 @@ argument_list|(
 name|render
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|timer
+operator|->
+name|start
+argument_list|(
+literal|10
 argument_list|)
 expr_stmt|;
 name|updateColor

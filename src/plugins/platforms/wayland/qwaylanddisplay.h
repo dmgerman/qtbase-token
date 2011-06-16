@@ -149,16 +149,11 @@ operator|*
 name|argbPremultipliedVisual
 argument_list|()
 block|;
-ifdef|#
-directive|ifdef
-name|QT_WAYLAND_GL_SUPPORT
 name|QWaylandGLIntegration
 operator|*
 name|eglIntegration
 argument_list|()
 block|;
-endif|#
-directive|endif
 ifdef|#
 directive|ifdef
 name|QT_WAYLAND_WINDOWMANAGER_SUPPORT
@@ -389,15 +384,10 @@ argument_list|,
 argument|uint32_t token
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT_WAYLAND_GL_SUPPORT
 name|QWaylandGLIntegration
 operator|*
 name|mEglIntegration
 block|;
-endif|#
-directive|endif
 ifdef|#
 directive|ifdef
 name|QT_WAYLAND_WINDOWMANAGER_SUPPORT

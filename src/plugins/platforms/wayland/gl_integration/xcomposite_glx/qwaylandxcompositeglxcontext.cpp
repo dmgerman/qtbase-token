@@ -84,6 +84,11 @@ argument_list|(
 name|display
 argument_list|)
 block|{
+name|qDebug
+argument_list|(
+literal|"creating XComposite-GLX context"
+argument_list|)
+expr_stmt|;
 name|GLXContext
 name|shareContext
 init|=

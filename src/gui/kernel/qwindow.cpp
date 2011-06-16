@@ -299,6 +299,16 @@ operator|->
 name|windowState
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|platformWindow
+operator|->
+name|setGeometry
+argument_list|(
+name|geometry
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QObjectList
 name|childObjects
 init|=

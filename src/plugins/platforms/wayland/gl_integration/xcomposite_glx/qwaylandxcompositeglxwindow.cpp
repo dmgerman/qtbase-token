@@ -316,6 +316,22 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|m_glxIntegration
+operator|->
+name|xDisplay
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"XCompositeGLXWindow: X display still null?!"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|XVisualInfo
 modifier|*
 name|visualInfo
