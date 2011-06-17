@@ -186,18 +186,7 @@ block|;
 name|xcb_key_symbols_t
 operator|*
 name|m_key_symbols
-block|;
-ifndef|#
-directive|ifndef
-name|QT_NO_XCB_XKB
-block|struct
-name|xkb_desc
-operator|*
-name|m_xkb
-block|;
-endif|#
-directive|endif
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_endif
