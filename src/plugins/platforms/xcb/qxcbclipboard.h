@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<xcb/xcb.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<xcb/xfixes.h>
+end_include
 begin_decl_stmt
 DECL|variable|QXcbConnection
 name|class
@@ -152,6 +157,14 @@ name|void
 name|handleSelectionClearRequest
 parameter_list|(
 name|xcb_selection_clear_event_t
+modifier|*
+name|event
+parameter_list|)
+function_decl|;
+name|void
+name|handleXFixesSelectionRequest
+parameter_list|(
+name|xcb_xfixes_selection_notify_event_t
 modifier|*
 name|event
 parameter_list|)
