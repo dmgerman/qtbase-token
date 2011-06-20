@@ -2474,7 +2474,7 @@ name|QVarLengthArray
 argument_list|<
 name|char
 argument_list|,
-literal|4096
+literal|16384
 argument_list|>
 name|data
 decl_stmt|;
@@ -2490,7 +2490,7 @@ operator|.
 name|data
 argument_list|()
 argument_list|,
-literal|4096
+literal|16384
 argument_list|)
 decl_stmt|;
 if|if
