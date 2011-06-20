@@ -4999,6 +4999,14 @@ endif|#
 directive|endif
 name|RESOLVEFUNC
 argument_list|(
+argument|X509_print
+argument_list|,
+literal|2046
+argument_list|,
+argument|libs.second
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
 argument|X509_EXTENSION_get_object
 argument_list|,
 literal|1785
