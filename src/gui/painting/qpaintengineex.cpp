@@ -7324,9 +7324,12 @@ argument_list|(
 name|path
 argument_list|)
 argument_list|,
-name|staticTextItem
+name|s
 operator|->
+name|pen
+operator|.
 name|color
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
