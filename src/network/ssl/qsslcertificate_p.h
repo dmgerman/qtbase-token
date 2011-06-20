@@ -171,6 +171,15 @@ name|format
 argument_list|)
 decl_stmt|;
 specifier|static
+name|QByteArray
+name|text_from_X509
+parameter_list|(
+name|X509
+modifier|*
+name|x509
+parameter_list|)
+function_decl|;
+specifier|static
 name|QSslCertificate
 name|QSslCertificate_from_X509
 parameter_list|(

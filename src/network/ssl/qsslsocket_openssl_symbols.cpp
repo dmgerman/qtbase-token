@@ -2444,6 +2444,29 @@ endif|#
 directive|endif
 end_endif
 begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|void
+argument_list|,
+argument|X509_print
+argument_list|,
+argument|BIO *a
+argument_list|,
+argument|a
+argument_list|,
+argument|X509 *b
+argument_list|,
+argument|b
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_macro
 name|DEFINEFUNC
 argument_list|(
 argument|ASN1_OBJECT *
@@ -3046,6 +3069,7 @@ directive|ifdef
 name|QT_NO_LIBRARY
 end_ifdef
 begin_function
+DECL|function|q_resolveOpenSslSymbols
 name|bool
 name|q_resolveOpenSslSymbols
 parameter_list|()
@@ -5562,6 +5586,10 @@ endif|#
 directive|endif
 name|RESOLVEFUNC
 argument_list|(
+argument|X509_print
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
 argument|X509_EXTENSION_get_object
 argument_list|)
 name|RESOLVEFUNC
@@ -5711,6 +5739,7 @@ begin_comment
 comment|//==============================================================================
 end_comment
 begin_function
+DECL|function|q_getTimeFromASN1
 name|QDateTime
 name|q_getTimeFromASN1
 parameter_list|(
