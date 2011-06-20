@@ -110,7 +110,7 @@ end_elif
 begin_include
 include|#
 directive|include
-file|"../eglconvenience/qeglplatformcontext.h"
+file|<QtPlatformSupport/private/qeglplatformcontext_p.h>
 end_include
 begin_endif
 endif|#

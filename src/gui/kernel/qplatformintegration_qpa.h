@@ -75,6 +75,10 @@ DECL|variable|QPlatformGLContext
 name|class
 name|QPlatformGLContext
 decl_stmt|;
+DECL|variable|QGuiGLFormat
+name|class
+name|QGuiGLFormat
+decl_stmt|;
 name|class
 name|Q_GUI_EXPORT
 name|QPlatformIntegration

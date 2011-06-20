@@ -26,7 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qeglplatformcontext.h"
+file|<QtPlatformSupport/private/qeglplatformcontext_p.h>
 end_include
 begin_decl_stmt
 DECL|variable|QWaylandXCompositeEGLWindow

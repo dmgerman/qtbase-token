@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtPlatformSupport/private/qeglconvenience_p.h"
+file|<QtPlatformSupport/private/qeglconvenience_p.h>
 end_include
 begin_constructor
 DECL|function|QWaylandXCompositeEGLSurface

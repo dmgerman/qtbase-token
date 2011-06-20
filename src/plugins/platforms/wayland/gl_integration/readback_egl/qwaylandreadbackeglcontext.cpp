@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../../eglconvenience/qeglconvenience.h"
+file|<QPlatformSupport/eglconvenience/qeglconvenience_p.h>
 end_include
 begin_include
 include|#
