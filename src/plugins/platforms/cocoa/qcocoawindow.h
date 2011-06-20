@@ -135,7 +135,7 @@ name|private
 operator|:
 name|friend
 name|class
-name|QCocoaWindowSurface
+name|QCocoaBackingStore
 block|;
 name|NSWindow
 operator|*
