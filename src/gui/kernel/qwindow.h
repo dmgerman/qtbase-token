@@ -113,9 +113,9 @@ name|QPlatformWindow
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QWindowSurface
+DECL|variable|QBackingStore
 name|class
-name|QWindowSurface
+name|QBackingStore
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -401,12 +401,6 @@ name|handle
 argument_list|()
 specifier|const
 block|;
-name|QWindowSurface
-operator|*
-name|surface
-argument_list|()
-specifier|const
-block|;
 name|bool
 name|setKeyboardGrabEnabled
 argument_list|(
@@ -600,10 +594,6 @@ block|;
 name|friend
 name|class
 name|QGuiApplicationPrivate
-block|;
-name|friend
-name|class
-name|QWindowSurface
 block|;
 name|friend
 name|Q_GUI_EXPORT

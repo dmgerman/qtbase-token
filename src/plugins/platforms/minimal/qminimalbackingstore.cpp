@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qminimalwindowsurface.h"
+file|"qminimalbackingstore.h"
 end_include
 begin_include
 include|#
@@ -21,30 +21,30 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_constructor
-DECL|function|QMinimalWindowSurface
-name|QMinimalWindowSurface
+DECL|function|QMinimalBackingStore
+name|QMinimalBackingStore
 operator|::
-name|QMinimalWindowSurface
+name|QMinimalBackingStore
 parameter_list|(
 name|QWindow
 modifier|*
 name|window
 parameter_list|)
 member_init_list|:
-name|QWindowSurface
+name|QPlatformBackingStore
 argument_list|(
 name|window
 argument_list|)
 block|{
-comment|//qDebug()<< "QMinimalWindowSurface::QMinimalWindowSurface:"<< (long)this;
+comment|//qDebug()<< "QMinimalBackingStore::QMinimalBackingStore:"<< (long)this;
 block|}
 end_constructor
 begin_destructor
-DECL|function|~QMinimalWindowSurface
-name|QMinimalWindowSurface
+DECL|function|~QMinimalBackingStore
+name|QMinimalBackingStore
 operator|::
 name|~
-name|QMinimalWindowSurface
+name|QMinimalBackingStore
 parameter_list|()
 block|{ }
 end_destructor
@@ -52,12 +52,12 @@ begin_function
 DECL|function|paintDevice
 name|QPaintDevice
 modifier|*
-name|QMinimalWindowSurface
+name|QMinimalBackingStore
 operator|::
 name|paintDevice
 parameter_list|()
 block|{
-comment|//qDebug()<< "QMinimalWindowSurface::paintDevice";
+comment|//qDebug()<< "QMinimalBackingStore::paintDevice";
 return|return
 operator|&
 name|mImage
@@ -67,7 +67,7 @@ end_function
 begin_function
 DECL|function|flush
 name|void
-name|QMinimalWindowSurface
+name|QMinimalBackingStore
 operator|::
 name|flush
 parameter_list|(
@@ -133,7 +133,7 @@ decl_stmt|;
 name|qDebug
 argument_list|()
 operator|<<
-literal|"QMinimalWindowSurface::flush() saving contents to"
+literal|"QMinimalBackingStore::flush() saving contents to"
 operator|<<
 name|filename
 operator|.
@@ -155,7 +155,7 @@ end_function
 begin_function
 DECL|function|resize
 name|void
-name|QMinimalWindowSurface
+name|QMinimalBackingStore
 operator|::
 name|resize
 parameter_list|(
@@ -163,16 +163,13 @@ specifier|const
 name|QSize
 modifier|&
 name|size
+parameter_list|,
+specifier|const
+name|QRegion
+modifier|&
 parameter_list|)
 block|{
-comment|//qDebug()<< "QMinimalWindowSurface::setGeometry:"<< (long)this<< rect;
-name|QWindowSurface
-operator|::
-name|resize
-argument_list|(
-name|size
-argument_list|)
-expr_stmt|;
+comment|//qDebug()<< "QMinimalBackingStore::setGeometry:"<< (long)this<< rect;
 name|QImage
 operator|::
 name|Format

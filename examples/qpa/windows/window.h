@@ -81,6 +81,10 @@ name|m_lastPos
 block|;
 name|int
 name|m_backgroundColorIndex
+block|;
+name|QBackingStore
+operator|*
+name|m_backingStore
 block|; }
 decl_stmt|;
 end_decl_stmt

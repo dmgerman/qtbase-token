@@ -64,11 +64,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qpixmapdata_gl_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qdatabuffer_p.h>
 end_include
 begin_include

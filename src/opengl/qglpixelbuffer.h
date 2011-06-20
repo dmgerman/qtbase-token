@@ -306,10 +306,6 @@ name|QGLDrawable
 block|;
 name|friend
 name|class
-name|QGLWindowSurface
-block|;
-name|friend
-name|class
 name|QGLPaintDevice
 block|;
 name|friend

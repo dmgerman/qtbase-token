@@ -1088,8 +1088,7 @@ name|Q_OS_SYMBIAN
 argument_list|)
 comment|// Make sure we don't call eglDestroySurface on a surface which
 comment|// was created for a different winId. This applies only to QGLWidget
-comment|// paint device, so make sure this is the one we're operating on
-comment|// (as opposed to a QGLWindowSurface use case).
+comment|// paint device, so make sure this is the one we're operating on.
 if|if
 condition|(
 name|paintDevice

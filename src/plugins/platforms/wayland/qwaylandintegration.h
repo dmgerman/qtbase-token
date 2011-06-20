@@ -76,13 +76,11 @@ argument|QPlatformGLContext *share
 argument_list|)
 specifier|const
 block|;
-name|QWindowSurface
+name|QPlatformBackingStore
 operator|*
-name|createWindowSurface
+name|createPlatformBackingStore
 argument_list|(
 argument|QWindow *window
-argument_list|,
-argument|WId winId
 argument_list|)
 specifier|const
 block|;

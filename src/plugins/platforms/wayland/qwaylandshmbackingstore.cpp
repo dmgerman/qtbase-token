@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qwaylandshmsurface.h"
+file|"qwaylandshmbackingstore.h"
 end_include
 begin_include
 include|#
@@ -302,17 +302,17 @@ expr_stmt|;
 block|}
 end_destructor
 begin_constructor
-DECL|function|QWaylandShmWindowSurface
-name|QWaylandShmWindowSurface
+DECL|function|QWaylandShmBackingStore
+name|QWaylandShmBackingStore
 operator|::
-name|QWaylandShmWindowSurface
+name|QWaylandShmBackingStore
 parameter_list|(
 name|QWindow
 modifier|*
 name|window
 parameter_list|)
 member_init_list|:
-name|QWindowSurface
+name|QPlatformBackingStore
 argument_list|(
 name|window
 argument_list|)
@@ -337,11 +337,11 @@ argument_list|)
 block|{ }
 end_constructor
 begin_destructor
-DECL|function|~QWaylandShmWindowSurface
-name|QWaylandShmWindowSurface
+DECL|function|~QWaylandShmBackingStore
+name|QWaylandShmBackingStore
 operator|::
 name|~
-name|QWaylandShmWindowSurface
+name|QWaylandShmBackingStore
 parameter_list|()
 block|{ }
 end_destructor
@@ -349,7 +349,7 @@ begin_function
 DECL|function|paintDevice
 name|QPaintDevice
 modifier|*
-name|QWaylandShmWindowSurface
+name|QWaylandShmBackingStore
 operator|::
 name|paintDevice
 parameter_list|()
@@ -365,7 +365,7 @@ end_function
 begin_function
 DECL|function|beginPaint
 name|void
-name|QWaylandShmWindowSurface
+name|QWaylandShmBackingStore
 operator|::
 name|beginPaint
 parameter_list|(
@@ -413,7 +413,7 @@ end_function
 begin_function
 DECL|function|flush
 name|void
-name|QWaylandShmWindowSurface
+name|QWaylandShmBackingStore
 operator|::
 name|flush
 parameter_list|(
@@ -482,7 +482,7 @@ end_function
 begin_function
 DECL|function|resize
 name|void
-name|QWaylandShmWindowSurface
+name|QWaylandShmBackingStore
 operator|::
 name|resize
 parameter_list|(
@@ -490,6 +490,10 @@ specifier|const
 name|QSize
 modifier|&
 name|size
+parameter_list|,
+specifier|const
+name|QRegion
+modifier|&
 parameter_list|)
 block|{
 name|QWaylandShmWindow
@@ -519,13 +523,6 @@ operator|==
 name|QWaylandWindow
 operator|::
 name|Shm
-argument_list|)
-expr_stmt|;
-name|QWindowSurface
-operator|::
-name|resize
-argument_list|(
-name|size
 argument_list|)
 expr_stmt|;
 name|QImage

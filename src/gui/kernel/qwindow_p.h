@@ -85,11 +85,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
-name|surface
-argument_list|(
-literal|0
-argument_list|)
-block|,
 name|windowState
 argument_list|(
 name|Qt
@@ -157,10 +152,6 @@ block|;
 name|QPlatformGLSurface
 operator|*
 name|glSurface
-block|;
-name|QWindowSurface
-operator|*
-name|surface
 block|;
 name|Qt
 operator|::

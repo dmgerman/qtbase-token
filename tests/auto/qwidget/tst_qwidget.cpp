@@ -130,7 +130,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qbackingstore_p.h>
+file|<QtGui/qbackingstore.h>
 end_include
 begin_include
 include|#
@@ -55860,7 +55860,7 @@ operator|->
 name|topData
 argument_list|()
 operator|->
-name|backingStore
+name|backingStoreTracker
 operator|.
 name|create
 argument_list|(
@@ -55972,7 +55972,7 @@ name|backingStore
 operator|=
 name|topExtra
 operator|->
-name|backingStore
+name|backingStoreTracker
 operator|.
 name|data
 argument_list|()
@@ -60627,7 +60627,7 @@ operator|->
 name|topData
 argument_list|()
 operator|->
-name|backingStore
+name|backingStoreTracker
 operator|.
 name|destroy
 argument_list|()
@@ -60672,7 +60672,7 @@ operator|->
 name|topData
 argument_list|()
 operator|->
-name|backingStore
+name|backingStoreTracker
 operator|.
 name|create
 argument_list|(

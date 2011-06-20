@@ -1931,14 +1931,6 @@ name|QGLEngineShaderManager
 decl_stmt|;
 name|friend
 name|class
-name|QGLWindowSurface
-decl_stmt|;
-name|friend
-name|class
-name|QGLPixmapData
-decl_stmt|;
-name|friend
-name|class
 name|QGLPixmapFilterBase
 decl_stmt|;
 name|friend
@@ -2024,10 +2016,6 @@ decl_stmt|;
 name|friend
 name|class
 name|QGLWidgetGLPaintDevice
-decl_stmt|;
-name|friend
-name|class
-name|QX11GLPixmapData
 decl_stmt|;
 name|friend
 name|class

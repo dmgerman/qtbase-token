@@ -20,12 +20,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwaylandshmsurface.h"
+file|"qwaylandscreen.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qwaylandscreen.h"
+file|"qwaylandshmbackingstore.h"
 end_include
 begin_include
 include|#
