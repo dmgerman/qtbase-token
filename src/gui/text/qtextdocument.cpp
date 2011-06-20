@@ -9670,7 +9670,7 @@ name|html
 operator|+=
 name|QLatin1String
 argument_list|(
-literal|"-qt-paragraph-type:empty; height:1em;"
+literal|"-qt-paragraph-type:empty;"
 argument_list|)
 expr_stmt|;
 block|}
@@ -10647,6 +10647,20 @@ name|QLatin1Char
 argument_list|(
 literal|'>'
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|block
+operator|.
+name|begin
+argument_list|()
+operator|.
+name|atEnd
+argument_list|()
+condition|)
+name|html
+operator|+=
+literal|"<br />"
 expr_stmt|;
 name|QTextBlock
 operator|::
