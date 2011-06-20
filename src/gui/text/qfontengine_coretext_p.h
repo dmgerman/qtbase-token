@@ -34,6 +34,8 @@ name|MAC_OS_X_VERSION_10_5
 operator|)
 end_if
 begin_decl_stmt
+name|QT_BEGIN_HEADER
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QRawFontPrivate
 name|class
 name|QRawFontPrivate
@@ -537,6 +539,10 @@ name|fontDef
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_expr_stmt
+name|QT_END_NAMESPACE
+name|QT_END_HEADER
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

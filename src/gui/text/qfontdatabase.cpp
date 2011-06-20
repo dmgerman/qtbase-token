@@ -6350,6 +6350,7 @@ directive|include
 file|"qfontdatabase_s60.cpp"
 endif|#
 directive|endif
+name|QT_END_INCLUDE_NAMESPACE
 if|#
 directive|if
 operator|!
@@ -6379,7 +6380,6 @@ endif|#
 directive|endif
 end_endif
 begin_function
-name|QT_END_INCLUDE_NAMESPACE
 DECL|function|bestStyle
 specifier|static
 name|QtFontStyle
