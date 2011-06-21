@@ -100,6 +100,10 @@ name|m_config
 block|;
 name|GLXPixmap
 name|m_glxPixmap
+block|;
+name|QWindow
+operator|*
+name|m_window
 block|; }
 decl_stmt|;
 end_decl_stmt
