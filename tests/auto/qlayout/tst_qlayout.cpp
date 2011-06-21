@@ -75,7 +75,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_WS_MAC
 end_ifdef
 begin_include
 include|#
@@ -1381,7 +1381,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_WS_MAC
 if|if
 condition|(
 name|qobject_cast
