@@ -891,7 +891,7 @@ end_decl_stmt
 begin_decl_stmt
 name|friend
 name|class
-name|QEventDispatcherMacPrivate
+name|QCocoaEventDispatcherPrivate
 decl_stmt|;
 end_decl_stmt
 begin_function_decl

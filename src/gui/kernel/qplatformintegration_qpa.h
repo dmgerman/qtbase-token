@@ -79,6 +79,10 @@ DECL|variable|QGuiGLFormat
 name|class
 name|QGuiGLFormat
 decl_stmt|;
+DECL|variable|QAbstractEventDispatcher
+name|class
+name|QAbstractEventDispatcher
+decl_stmt|;
 name|class
 name|Q_GUI_EXPORT
 name|QPlatformIntegration
@@ -254,6 +258,20 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// Event dispatcher:
+end_comment
+begin_expr_stmt
+name|virtual
+name|QAbstractEventDispatcher
+operator|*
+name|createEventDispatcher
+argument_list|()
+specifier|const
+operator|=
+literal|0
+expr_stmt|;
+end_expr_stmt
 begin_comment
 comment|//Deeper window system integrations
 end_comment

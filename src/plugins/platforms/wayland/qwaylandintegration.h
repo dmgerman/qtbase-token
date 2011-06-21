@@ -32,6 +32,12 @@ name|QWaylandDisplay
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QAbstractEventDispatcher
+name|class
+name|QAbstractEventDispatcher
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QWaylandIntegration
 range|:
@@ -82,6 +88,12 @@ name|createPlatformBackingStore
 argument_list|(
 argument|QWindow *window
 argument_list|)
+specifier|const
+block|;
+name|QAbstractEventDispatcher
+operator|*
+name|createEventDispatcher
+argument_list|()
 specifier|const
 block|;
 name|QList

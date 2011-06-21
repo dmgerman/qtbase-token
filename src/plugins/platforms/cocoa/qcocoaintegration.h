@@ -164,6 +164,12 @@ argument|QWindow *widget
 argument_list|)
 specifier|const
 block|;
+name|QAbstractEventDispatcher
+operator|*
+name|createEventDispatcher
+argument_list|()
+specifier|const
+block|;
 name|QList
 operator|<
 name|QPlatformScreen

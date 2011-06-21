@@ -41,6 +41,12 @@ name|QThread
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QAbstractEventDispatcher
+name|class
+name|QAbstractEventDispatcher
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QDirectFBCursor
 name|class
 name|QDirectFBCursor
@@ -174,6 +180,12 @@ argument|QWidget *widget
 argument_list|,
 argument|WId winId
 argument_list|)
+specifier|const
+block|;
+name|QAbstractEventDispatcher
+operator|*
+name|createEventDispatcher
+argument_list|()
 specifier|const
 block|;
 name|QList

@@ -107,6 +107,12 @@ name|fb_fix_screeninfo
 struct_decl|;
 end_struct_decl
 begin_decl_stmt
+DECL|variable|QAbstractEventDispatcher
+name|class
+name|QAbstractEventDispatcher
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QLinuxFbIntegration
 range|:
@@ -155,6 +161,12 @@ argument|QWidget *widget
 argument_list|,
 argument|WId WinId
 argument_list|)
+specifier|const
+block|;
+name|QAbstractEventDispatcher
+operator|*
+name|createEventDispatcher
+argument_list|()
 specifier|const
 block|;
 name|QList

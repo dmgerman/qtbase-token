@@ -256,6 +256,9 @@ end_comment
 begin_comment
 comment|/*!     \fn QPixmap QPlatformIntegration::grabWindow(WId window, int x, int y, int width, int height) const      This function is called when Qt needs to be able to grab the content of a window.      Returnes the content of the window specified with the WId handle within the boundaries of     QRect(x,y,width,height). */
 end_comment
+begin_comment
+comment|/*!     \fn QAbstractEventDispatcher *createEventDispatcher() const      Factory function for the event dispatcher. The platform plugin     must create and and return a QAbstractEventDispatcher subclass when     this function is called. */
+end_comment
 begin_function
 DECL|function|hasCapability
 name|bool

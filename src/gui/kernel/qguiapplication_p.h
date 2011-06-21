@@ -82,6 +82,10 @@ name|QGuiApplicationPrivate
 argument_list|()
 block|;
 name|void
+name|createPlatformIntegration
+argument_list|()
+block|;
+name|void
 name|createEventDispatcher
 argument_list|()
 block|;
