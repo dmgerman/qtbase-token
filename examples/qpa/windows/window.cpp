@@ -74,11 +74,6 @@ name|colorIndexId
 operator|++
 argument_list|)
 block|{
-name|setSurfaceType
-argument_list|(
-name|RasterSurface
-argument_list|)
-expr_stmt|;
 name|setWindowTitle
 argument_list|(
 name|QLatin1String
