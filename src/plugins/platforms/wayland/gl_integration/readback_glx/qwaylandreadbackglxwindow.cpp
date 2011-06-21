@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwaylandshmsurface.h"
+file|"qwaylandshmbackingstore.h"
 end_include
 begin_constructor
 DECL|function|QWaylandReadbackGlxWindow
