@@ -1923,6 +1923,67 @@ name|replace_length
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|class
+name|Q_GUI_EXPORT
+name|QInputMethodQueryEvent
+range|:
+name|public
+name|QEvent
+block|{
+name|public
+operator|:
+name|QInputMethodQueryEvent
+argument_list|(
+argument|Qt::InputMethodQuery query
+argument_list|)
+block|;
+operator|~
+name|QInputMethodQueryEvent
+argument_list|()
+block|;
+name|Qt
+operator|::
+name|InputMethodQuery
+name|query
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_query
+return|;
+block|}
+name|void
+name|setValue
+argument_list|(
+argument|const QVariant&v
+argument_list|)
+block|{
+name|m_value
+operator|=
+name|v
+block|; }
+name|QVariant
+name|value
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_value
+return|;
+block|}
+name|private
+operator|:
+name|Qt
+operator|::
+name|InputMethodQuery
+name|m_query
+block|;
+name|QVariant
+name|m_value
+block|; }
+decl_stmt|;
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif

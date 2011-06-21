@@ -4959,6 +4959,8 @@ block|,
 name|ImMaximumTextLength
 block|,
 name|ImAnchorPosition
+block|,
+name|ImHints
 block|}
 enum|;
 end_enum

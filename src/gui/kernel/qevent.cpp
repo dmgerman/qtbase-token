@@ -2507,6 +2507,50 @@ end_comment
 begin_comment
 comment|/*!     \fn int QInputMethodEvent::replacementLength() const      Returns the number of characters to be replaced in the preedit     string.      \sa replacementStart(), setCommitString() */
 end_comment
+begin_comment
+comment|/*! \class QInputMethodQueryEvent      This event is sent by the input context to input objects.      It is used by the     input method to query a set of properties of the object to be     able to support complex input method operations as support for     surrounding text and reconversions.      query() specifies which property is queried.      The object should call setValue() on the event to fill in the requested     data before calling accept(). */
+end_comment
+begin_constructor
+DECL|function|QInputMethodQueryEvent
+name|QInputMethodQueryEvent
+operator|::
+name|QInputMethodQueryEvent
+parameter_list|(
+name|Qt
+operator|::
+name|InputMethodQuery
+name|query
+parameter_list|)
+member_init_list|:
+name|QEvent
+argument_list|(
+name|InputMethodQuery
+argument_list|)
+member_init_list|,
+name|m_query
+argument_list|(
+name|query
+argument_list|)
+block|{ }
+end_constructor
+begin_destructor
+DECL|function|~QInputMethodQueryEvent
+name|QInputMethodQueryEvent
+operator|::
+name|~
+name|QInputMethodQueryEvent
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
+comment|/*!     \fn Qt::InputMethodQuery QInputMethodQueryEvent::query() const      returns the type of data queried. */
+end_comment
+begin_comment
+comment|/*!     \fn QVariant QInputMethodQueryEvent::value() const      returns the value set by the receiving object. Mainly used by the input method.      \sa setValue() */
+end_comment
+begin_comment
+comment|/*!     \fn QVariant QInputMethodQueryEvent::setValue()      Used by the receiving object to set the value requested by query().      \sa setValue() */
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef

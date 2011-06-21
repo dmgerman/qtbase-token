@@ -905,6 +905,10 @@ name|Expose
 init|=
 literal|208
 block|,
+name|InputMethodQuery
+init|=
+literal|209
+block|,
 comment|// 512 reserved for Qt Jambi's MetaCall event
 comment|// 513 reserved for Qt Jambi's DeleteOnMainThread event
 name|User
