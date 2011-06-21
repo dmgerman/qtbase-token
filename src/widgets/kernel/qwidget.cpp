@@ -212,7 +212,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qinputcontext_p.h"
+file|"qinputcontext.h"
 end_include
 begin_include
 include|#

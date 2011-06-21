@@ -83,6 +83,10 @@ DECL|variable|QAbstractEventDispatcher
 name|class
 name|QAbstractEventDispatcher
 decl_stmt|;
+DECL|variable|QPlatformInputContext
+name|class
+name|QPlatformInputContext
+decl_stmt|;
 name|class
 name|Q_GUI_EXPORT
 name|QPlatformIntegration
@@ -320,6 +324,15 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_expr_stmt
+name|virtual
+name|QPlatformInputContext
+operator|*
+name|inputContext
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
 begin_comment
 comment|// Access native handles. The window handle is already available from Wid;
 end_comment

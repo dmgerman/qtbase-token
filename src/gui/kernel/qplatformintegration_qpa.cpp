@@ -171,6 +171,9 @@ ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP
 end_ifndef
+begin_comment
+comment|/*!     Accessor for the platform integrations drag object.      Default implementation returns 0, implying no drag and drop support.  */
+end_comment
 begin_function
 DECL|function|drag
 name|QPlatformDrag
@@ -318,6 +321,24 @@ endif|#
 directive|endif
 return|return
 name|ps
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!   Returns the platforms input context.    The default implementation returns 0, implying no input method support. */
+end_comment
+begin_function
+DECL|function|inputContext
+name|QPlatformInputContext
+modifier|*
+name|QPlatformIntegration
+operator|::
+name|inputContext
+parameter_list|()
+specifier|const
+block|{
+return|return
+literal|0
 return|;
 block|}
 end_function
