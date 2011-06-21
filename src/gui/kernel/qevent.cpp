@@ -1956,6 +1956,44 @@ begin_comment
 comment|/*!     \fn const QPoint&QMoveEvent::oldPos() const      Returns the old position of the widget. */
 end_comment
 begin_comment
+comment|/*!     \class QExposeEvent     \brief The QExposeEvent class contains event parameters for expose events.      \ingroup events      Expose events are sent to widgets when an area of the widget is invalidated     and needs to be flushed from the backing store.      The event handler QWindow::exposeEvent() receives expose events. */
+end_comment
+begin_constructor
+DECL|function|QExposeEvent
+name|QExposeEvent
+operator|::
+name|QExposeEvent
+parameter_list|(
+specifier|const
+name|QRegion
+modifier|&
+name|exposeRegion
+parameter_list|)
+member_init_list|:
+name|QEvent
+argument_list|(
+name|Expose
+argument_list|)
+member_init_list|,
+name|rgn
+argument_list|(
+name|exposeRegion
+argument_list|)
+block|{ }
+end_constructor
+begin_comment
+comment|/*!   \internal */
+end_comment
+begin_destructor
+DECL|function|~QExposeEvent
+name|QExposeEvent
+operator|::
+name|~
+name|QExposeEvent
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
 comment|/*!     \class QResizeEvent     \brief The QResizeEvent class contains event parameters for resize events.      \ingroup events      Resize events are sent to widgets that have been resized.      The event handler QWidget::resizeEvent() receives resize events.      \sa QWidget::resize() QWidget::setGeometry() */
 end_comment
 begin_comment

@@ -48,6 +48,10 @@ parameter_list|)
 name|class
 name|QWindowPrivate
 decl_stmt|;
+DECL|variable|QExposeEvent
+name|class
+name|QExposeEvent
+decl_stmt|;
 DECL|variable|QResizeEvent
 name|class
 name|QResizeEvent
@@ -530,6 +534,14 @@ parameter_list|()
 function_decl|;
 name|protected
 label|:
+name|virtual
+name|void
+name|exposeEvent
+parameter_list|(
+name|QExposeEvent
+modifier|*
+parameter_list|)
+function_decl|;
 name|virtual
 name|void
 name|resizeEvent
