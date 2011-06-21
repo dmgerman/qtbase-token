@@ -37,9 +37,13 @@ DECL|variable|QPlatformGLContext
 name|class
 name|QPlatformGLContext
 decl_stmt|;
-DECL|variable|QPlatformGLSurface
+DECL|variable|QSurface
 name|class
-name|QPlatformGLSurface
+name|QSurface
+decl_stmt|;
+DECL|variable|QSurfaceFormat
+name|class
+name|QSurfaceFormat
 decl_stmt|;
 name|class
 name|Q_GUI_EXPORT
@@ -58,11 +62,11 @@ begin_expr_stmt
 name|QGuiGLContext
 argument_list|(
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|&
 name|format
 operator|=
-name|QGuiGLFormat
+name|QSurfaceFormat
 argument_list|()
 argument_list|,
 name|QGuiGLContext
@@ -90,7 +94,7 @@ begin_function_decl
 name|bool
 name|makeCurrent
 parameter_list|(
-name|QPlatformGLSurface
+name|QSurface
 modifier|*
 name|surface
 parameter_list|)
@@ -106,7 +110,7 @@ begin_function_decl
 name|void
 name|swapBuffers
 parameter_list|(
-name|QPlatformGLSurface
+name|QSurface
 modifier|*
 name|surface
 parameter_list|)
@@ -128,7 +132,7 @@ argument_list|()
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|format
 argument_list|()
 specifier|const

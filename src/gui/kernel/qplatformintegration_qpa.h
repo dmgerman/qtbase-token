@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<QtGui/qplatformscreen_qpa.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/qsurfaceformat.h>
+end_include
 begin_function
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -162,9 +167,9 @@ modifier|*
 name|createPlatformGLContext
 argument_list|(
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|&
-name|glFormat
+name|format
 argument_list|,
 name|QPlatformGLContext
 operator|*

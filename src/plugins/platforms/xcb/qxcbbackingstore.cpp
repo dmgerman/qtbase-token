@@ -1110,7 +1110,7 @@ argument_list|()
 argument_list|,
 name|win
 operator|->
-name|format
+name|imageFormat
 argument_list|()
 argument_list|)
 expr_stmt|;

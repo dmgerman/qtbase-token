@@ -70,24 +70,4 @@ name|Shm
 return|;
 block|}
 end_function
-begin_function
-DECL|function|glSurface
-name|QPlatformGLSurface
-modifier|*
-name|QWaylandShmWindow
-operator|::
-name|glSurface
-parameter_list|()
-specifier|const
-block|{
-name|qWarning
-argument_list|(
-literal|"Raster window does not have a GL drawable"
-argument_list|)
-expr_stmt|;
-return|return
-literal|0
-return|;
-block|}
-end_function
 end_unit

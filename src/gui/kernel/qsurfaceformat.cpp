@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qguiglformat_qpa.h"
+file|"qsurfaceformat.h"
 end_include
 begin_include
 include|#
@@ -18,13 +18,13 @@ directive|include
 file|<QtCore/QDebug>
 end_include
 begin_class
-DECL|class|QGuiGLFormatPrivate
+DECL|class|QSurfaceFormatPrivate
 class|class
-name|QGuiGLFormatPrivate
+name|QSurfaceFormatPrivate
 block|{
 public|public:
-DECL|function|QGuiGLFormatPrivate
-name|QGuiGLFormatPrivate
+DECL|function|QSurfaceFormatPrivate
+name|QSurfaceFormatPrivate
 parameter_list|()
 member_init_list|:
 name|ref
@@ -34,13 +34,9 @@ argument_list|)
 member_init_list|,
 name|opts
 argument_list|(
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|DoubleBuffer
-operator||
-name|QGuiGLFormat
-operator|::
-name|WindowSurface
 argument_list|)
 member_init_list|,
 name|redBufferSize
@@ -81,7 +77,7 @@ argument_list|)
 member_init_list|,
 name|swapBehavior
 argument_list|(
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|DefaultSwapBehavior
 argument_list|)
@@ -92,11 +88,11 @@ operator|-
 literal|1
 argument_list|)
 block|{     }
-DECL|function|QGuiGLFormatPrivate
-name|QGuiGLFormatPrivate
+DECL|function|QSurfaceFormatPrivate
+name|QSurfaceFormatPrivate
 parameter_list|(
 specifier|const
-name|QGuiGLFormatPrivate
+name|QSurfaceFormatPrivate
 modifier|*
 name|other
 parameter_list|)
@@ -174,7 +170,7 @@ name|QAtomicInt
 name|ref
 decl_stmt|;
 DECL|member|opts
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|FormatOptions
 name|opts
@@ -204,7 +200,7 @@ name|int
 name|stencilSize
 decl_stmt|;
 DECL|member|swapBehavior
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|SwapBehavior
 name|swapBehavior
@@ -217,26 +213,26 @@ block|}
 class|;
 end_class
 begin_constructor
-DECL|function|QGuiGLFormat
-name|QGuiGLFormat
+DECL|function|QSurfaceFormat
+name|QSurfaceFormat
 operator|::
-name|QGuiGLFormat
+name|QSurfaceFormat
 parameter_list|()
 block|{
 name|d
 operator|=
 operator|new
-name|QGuiGLFormatPrivate
+name|QSurfaceFormatPrivate
 expr_stmt|;
 block|}
 end_constructor
 begin_constructor
-DECL|function|QGuiGLFormat
-name|QGuiGLFormat
+DECL|function|QSurfaceFormat
+name|QSurfaceFormat
 operator|::
-name|QGuiGLFormat
+name|QSurfaceFormat
 parameter_list|(
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|FormatOptions
 name|options
@@ -245,7 +241,7 @@ block|{
 name|d
 operator|=
 operator|new
-name|QGuiGLFormatPrivate
+name|QSurfaceFormatPrivate
 expr_stmt|;
 name|d
 operator|->
@@ -261,7 +257,7 @@ end_comment
 begin_function
 DECL|function|detach
 name|void
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|detach
 parameter_list|()
@@ -275,12 +271,12 @@ operator|!=
 literal|1
 condition|)
 block|{
-name|QGuiGLFormatPrivate
+name|QSurfaceFormatPrivate
 modifier|*
 name|newd
 init|=
 operator|new
-name|QGuiGLFormatPrivate
+name|QSurfaceFormatPrivate
 argument_list|(
 name|d
 argument_list|)
@@ -309,13 +305,13 @@ begin_comment
 comment|/*!     Constructs a copy of \a other. */
 end_comment
 begin_constructor
-DECL|function|QGuiGLFormat
-name|QGuiGLFormat
+DECL|function|QSurfaceFormat
+name|QSurfaceFormat
 operator|::
-name|QGuiGLFormat
+name|QSurfaceFormat
 parameter_list|(
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|other
 parameter_list|)
@@ -340,15 +336,15 @@ comment|/*!     Assigns \a other to this object. */
 end_comment
 begin_function
 DECL|function|operator =
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|operator
 name|=
 parameter_list|(
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|other
 parameter_list|)
@@ -398,14 +394,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Destroys the QGuiGLFormat. */
+comment|/*!     Destroys the QSurfaceFormat. */
 end_comment
 begin_destructor
-DECL|function|~QGuiGLFormat
-name|QGuiGLFormat
+DECL|function|~QSurfaceFormat
+name|QSurfaceFormat
 operator|::
 name|~
-name|QGuiGLFormat
+name|QSurfaceFormat
 parameter_list|()
 block|{
 if|if
@@ -424,7 +420,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     \fn bool QGuiGLFormat::stereo() const      Returns true if stereo buffering is enabled; otherwise returns     false. Stereo buffering is disabled by default.      \sa setStereo() */
+comment|/*!     \fn bool QSurfaceFormat::stereo() const      Returns true if stereo buffering is enabled; otherwise returns     false. Stereo buffering is disabled by default.      \sa setStereo() */
 end_comment
 begin_comment
 comment|/*!     If \a enable is true enables stereo buffering; otherwise disables     stereo buffering.      Stereo buffering is disabled by default.      Stereo buffering provides extra color buffers to generate left-eye     and right-eye images.      \sa stereo() */
@@ -432,7 +428,7 @@ end_comment
 begin_function
 DECL|function|setStereo
 name|void
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|setStereo
 parameter_list|(
@@ -449,7 +445,7 @@ name|d
 operator|->
 name|opts
 operator||=
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|StereoBuffers
 expr_stmt|;
@@ -461,7 +457,7 @@ operator|->
 name|opts
 operator|&=
 operator|~
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|StereoBuffers
 expr_stmt|;
@@ -474,7 +470,7 @@ end_comment
 begin_function
 DECL|function|samples
 name|int
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|samples
 parameter_list|()
@@ -493,7 +489,7 @@ end_comment
 begin_function
 DECL|function|setSamples
 name|void
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|setSamples
 parameter_list|(
@@ -513,58 +509,16 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QGuiGLFormat::hasWindowSurface() const      Returns true if the corresponding widget has an instance of QWindowSurface.      Otherwise returns false.      WindowSurface is enabled by default.      \sa setOverlay() */
-end_comment
-begin_function
-DECL|function|setWindowSurface
-name|void
-name|QGuiGLFormat
-operator|::
-name|setWindowSurface
-parameter_list|(
-name|bool
-name|enable
-parameter_list|)
-block|{
-if|if
-condition|(
-name|enable
-condition|)
-block|{
-name|d
-operator|->
-name|opts
-operator||=
-name|QGuiGLFormat
-operator|::
-name|WindowSurface
-expr_stmt|;
-block|}
-else|else
-block|{
-name|d
-operator|->
-name|opts
-operator|&=
-operator|~
-name|QGuiGLFormat
-operator|::
-name|WindowSurface
-expr_stmt|;
-block|}
-block|}
-end_function
-begin_comment
 comment|/*!     Sets the format option to \a opt.      \sa testOption() */
 end_comment
 begin_function
 DECL|function|setOption
 name|void
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|setOption
 parameter_list|(
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|FormatOptions
 name|opt
@@ -587,11 +541,11 @@ end_comment
 begin_function
 DECL|function|testOption
 name|bool
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|testOption
 parameter_list|(
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|FormatOptions
 name|opt
@@ -613,7 +567,7 @@ end_comment
 begin_function
 DECL|function|setDepthBufferSize
 name|void
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|setDepthBufferSize
 parameter_list|(
@@ -638,7 +592,7 @@ end_comment
 begin_function
 DECL|function|depthBufferSize
 name|int
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|depthBufferSize
 parameter_list|()
@@ -654,7 +608,7 @@ end_function
 begin_function
 DECL|function|setSwapBehavior
 name|void
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|setSwapBehavior
 parameter_list|(
@@ -672,10 +626,10 @@ block|}
 end_function
 begin_function
 DECL|function|swapBehavior
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|SwapBehavior
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|swapBehavior
 parameter_list|()
@@ -691,7 +645,7 @@ end_function
 begin_function
 DECL|function|hasAlpha
 name|bool
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|hasAlpha
 parameter_list|()
@@ -712,7 +666,7 @@ end_comment
 begin_function
 DECL|function|setStencilBufferSize
 name|void
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|setStencilBufferSize
 parameter_list|(
@@ -737,7 +691,7 @@ end_comment
 begin_function
 DECL|function|stencilBufferSize
 name|int
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|stencilBufferSize
 parameter_list|()
@@ -753,7 +707,7 @@ end_function
 begin_function
 DECL|function|redBufferSize
 name|int
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|redBufferSize
 parameter_list|()
@@ -769,7 +723,7 @@ end_function
 begin_function
 DECL|function|greenBufferSize
 name|int
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|greenBufferSize
 parameter_list|()
@@ -785,7 +739,7 @@ end_function
 begin_function
 DECL|function|blueBufferSize
 name|int
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|blueBufferSize
 parameter_list|()
@@ -801,7 +755,7 @@ end_function
 begin_function
 DECL|function|alphaBufferSize
 name|int
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|alphaBufferSize
 parameter_list|()
@@ -817,7 +771,7 @@ end_function
 begin_function
 DECL|function|setRedBufferSize
 name|void
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|setRedBufferSize
 parameter_list|(
@@ -836,7 +790,7 @@ end_function
 begin_function
 DECL|function|setGreenBufferSize
 name|void
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|setGreenBufferSize
 parameter_list|(
@@ -855,7 +809,7 @@ end_function
 begin_function
 DECL|function|setBlueBufferSize
 name|void
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|setBlueBufferSize
 parameter_list|(
@@ -874,7 +828,7 @@ end_function
 begin_function
 DECL|function|setAlphaBufferSize
 name|void
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|setAlphaBufferSize
 parameter_list|(
@@ -897,12 +851,12 @@ name|operator
 name|==
 parameter_list|(
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|a
 parameter_list|,
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|b
 parameter_list|)
@@ -1037,7 +991,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns false if all the options of the two QGuiGLFormat objects     \a a and \a b are equal; otherwise returns true.      \relates QGuiGLFormat */
+comment|/*!     Returns false if all the options of the two QSurfaceFormat objects     \a a and \a b are equal; otherwise returns true.      \relates QSurfaceFormat */
 end_comment
 begin_function
 DECL|function|operator !=
@@ -1046,12 +1000,12 @@ name|operator
 name|!=
 parameter_list|(
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|a
 parameter_list|,
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|b
 parameter_list|)
@@ -1081,13 +1035,13 @@ name|QDebug
 name|dbg
 parameter_list|,
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|f
 parameter_list|)
 block|{
 specifier|const
-name|QGuiGLFormatPrivate
+name|QSurfaceFormatPrivate
 modifier|*
 specifier|const
 name|d
@@ -1101,7 +1055,7 @@ operator|.
 name|nospace
 argument_list|()
 operator|<<
-literal|"QGuiGLFormat("
+literal|"QSurfaceFormat("
 operator|<<
 literal|"options "
 operator|<<

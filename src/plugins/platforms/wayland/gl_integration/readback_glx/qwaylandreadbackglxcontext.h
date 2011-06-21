@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QGuiGLFormat>
+file|<QSurfaceFormat>
 end_include
 begin_include
 include|#
@@ -47,45 +47,6 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QWaylandReadbackGlxSurface
-range|:
-name|public
-name|QPlatformGLSurface
-block|{
-name|public
-operator|:
-name|QWaylandReadbackGlxSurface
-argument_list|(
-name|QWaylandReadbackGlxWindow
-operator|*
-name|window
-argument_list|)
-block|;
-name|QWaylandReadbackGlxWindow
-operator|*
-name|window
-argument_list|()
-specifier|const
-block|{
-return|return
-name|m_window
-return|;
-block|}
-name|GLXPixmap
-name|glxPixmap
-argument_list|()
-specifier|const
-block|;
-name|private
-operator|:
-name|QWaylandReadbackGlxWindow
-operator|*
-name|m_window
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
 name|QWaylandReadbackGlxContext
 range|:
 name|public
@@ -95,7 +56,7 @@ name|public
 operator|:
 name|QWaylandReadbackGlxContext
 argument_list|(
-argument|const QGuiGLFormat&format
+argument|const QSurfaceFormat&format
 argument_list|,
 argument|QPlatformGLContext *share
 argument_list|,
@@ -104,7 +65,7 @@ argument_list|,
 argument|int screen
 argument_list|)
 block|;
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|format
 argument_list|()
 specifier|const
@@ -112,18 +73,16 @@ block|;
 name|void
 name|swapBuffers
 argument_list|(
-specifier|const
-name|QPlatformGLSurface
-operator|&
+name|QPlatformSurface
+operator|*
 name|surface
 argument_list|)
 block|;
 name|bool
 name|makeCurrent
 argument_list|(
-specifier|const
-name|QPlatformGLSurface
-operator|&
+name|QPlatformSurface
+operator|*
 name|surface
 argument_list|)
 block|;
@@ -153,7 +112,7 @@ name|Display
 operator|*
 name|m_display
 block|;
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|m_format
 block|; }
 decl_stmt|;

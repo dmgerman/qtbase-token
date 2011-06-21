@@ -42,45 +42,6 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QWaylandXCompositeGLXSurface
-range|:
-name|public
-name|QPlatformGLSurface
-block|{
-name|public
-operator|:
-name|QWaylandXCompositeGLXSurface
-argument_list|(
-name|QWaylandXCompositeGLXWindow
-operator|*
-name|window
-argument_list|)
-block|;
-name|QWaylandXCompositeGLXWindow
-operator|*
-name|window
-argument_list|()
-specifier|const
-block|{
-return|return
-name|m_window
-return|;
-block|}
-name|Window
-name|xWindow
-argument_list|()
-specifier|const
-block|;
-name|private
-operator|:
-name|QWaylandXCompositeGLXWindow
-operator|*
-name|m_window
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
 name|QWaylandXCompositeGLXContext
 range|:
 name|public
@@ -90,7 +51,7 @@ name|public
 operator|:
 name|QWaylandXCompositeGLXContext
 argument_list|(
-argument|const QGuiGLFormat&format
+argument|const QSurfaceFormat&format
 argument_list|,
 argument|QPlatformGLContext *share
 argument_list|,
@@ -99,7 +60,7 @@ argument_list|,
 argument|int screen
 argument_list|)
 block|;
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|format
 argument_list|()
 specifier|const
@@ -107,18 +68,16 @@ block|;
 name|void
 name|swapBuffers
 argument_list|(
-specifier|const
-name|QPlatformGLSurface
-operator|&
+name|QPlatformSurface
+operator|*
 name|surface
 argument_list|)
 block|;
 name|bool
 name|makeCurrent
 argument_list|(
-specifier|const
-name|QPlatformGLSurface
-operator|&
+name|QPlatformSurface
+operator|*
 name|surface
 argument_list|)
 block|;
@@ -148,7 +107,7 @@ name|Display
 operator|*
 name|m_display
 block|;
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|m_format
 block|; }
 decl_stmt|;

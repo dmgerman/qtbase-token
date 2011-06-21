@@ -111,12 +111,6 @@ name|void
 name|windowDidResize
 argument_list|()
 block|;
-name|QPlatformGLSurface
-operator|*
-name|createGLSurface
-argument_list|()
-specifier|const
-block|;
 name|void
 name|setCurrentContext
 argument_list|(

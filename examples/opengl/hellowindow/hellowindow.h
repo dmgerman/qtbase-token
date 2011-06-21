@@ -37,7 +37,7 @@ operator|:
 name|Renderer
 argument_list|()
 block|;
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|format
 argument_list|()
 specifier|const
@@ -45,7 +45,7 @@ block|;
 name|void
 name|render
 argument_list|(
-name|QPlatformGLSurface
+name|QSurface
 operator|*
 name|surface
 argument_list|,
@@ -148,7 +148,7 @@ block|;
 name|bool
 name|m_initialized
 block|;
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|m_format
 block|;
 name|QGuiGLContext

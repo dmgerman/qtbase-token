@@ -284,7 +284,7 @@ operator|::
 name|QGuiGLContext
 parameter_list|(
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|format
 parameter_list|,
@@ -411,7 +411,7 @@ name|QGuiGLContext
 operator|::
 name|makeCurrent
 parameter_list|(
-name|QPlatformGLSurface
+name|QSurface
 modifier|*
 name|surface
 parameter_list|)
@@ -446,14 +446,27 @@ return|;
 block|}
 if|if
 condition|(
+operator|!
+name|surface
+operator|->
+name|surfaceHandle
+argument_list|()
+condition|)
+return|return
+literal|false
+return|;
+if|if
+condition|(
 name|d
 operator|->
 name|platformGLContext
 operator|->
 name|makeCurrent
 argument_list|(
-operator|*
 name|surface
+operator|->
+name|surfaceHandle
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -520,7 +533,7 @@ name|QGuiGLContext
 operator|::
 name|swapBuffers
 parameter_list|(
-name|QPlatformGLSurface
+name|QSurface
 modifier|*
 name|surface
 parameter_list|)
@@ -557,8 +570,10 @@ name|platformGLContext
 operator|->
 name|swapBuffers
 argument_list|(
-operator|*
 name|surface
+operator|->
+name|surfaceHandle
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -604,7 +619,7 @@ argument_list|)
 return|;
 end_return
 begin_macro
-unit|}  QGuiGLFormat
+unit|}  QSurfaceFormat
 DECL|function|format
 name|QGuiGLContext
 end_macro
@@ -630,7 +645,7 @@ operator|->
 name|platformGLContext
 condition|)
 return|return
-name|QGuiGLFormat
+name|QSurfaceFormat
 argument_list|()
 return|;
 end_expr_stmt

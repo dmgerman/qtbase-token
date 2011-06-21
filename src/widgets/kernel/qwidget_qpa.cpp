@@ -50,7 +50,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qguiglformat_qpa.h"
+file|"QtGui/qsurfaceformat.h"
 end_include
 begin_include
 include|#
@@ -351,7 +351,7 @@ name|WA_TranslucentBackground
 argument_list|)
 condition|)
 block|{
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|format
 decl_stmt|;
 name|format
@@ -363,7 +363,7 @@ argument_list|)
 expr_stmt|;
 name|win
 operator|->
-name|setGLFormat
+name|setFormat
 argument_list|(
 name|format
 argument_list|)

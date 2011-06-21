@@ -38,9 +38,9 @@ name|QPlatformGLContext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QGuiGLFormat
+DECL|variable|QSurfaceFormat
 name|class
-name|QGuiGLFormat
+name|QSurfaceFormat
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -82,7 +82,7 @@ modifier|*
 name|createPlatformGLContext
 argument_list|(
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|&
 name|glFormat
 argument_list|,

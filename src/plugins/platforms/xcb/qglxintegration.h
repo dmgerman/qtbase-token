@@ -21,12 +21,17 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qxcbscreen.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QPlatformGLContext>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGuiGLFormat>
+file|<QtGui/QSurfaceFormat>
 end_include
 begin_include
 include|#
@@ -38,27 +43,6 @@ include|#
 directive|include
 file|<GL/glx.h>
 end_include
-begin_decl_stmt
-name|class
-name|QGLXSurface
-range|:
-name|public
-name|QPlatformGLSurface
-block|{
-name|public
-operator|:
-name|QGLXSurface
-argument_list|(
-argument|GLXDrawable drawable
-argument_list|,
-argument|const QGuiGLFormat&format
-argument_list|)
-block|;
-name|GLXDrawable
-name|glxDrawable
-block|; }
-decl_stmt|;
-end_decl_stmt
 begin_decl_stmt
 name|class
 name|QGLXContext
@@ -75,7 +59,7 @@ operator|*
 name|xd
 argument_list|,
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|&
 name|format
 argument_list|,
@@ -91,9 +75,8 @@ block|;
 name|bool
 name|makeCurrent
 argument_list|(
-specifier|const
-name|QPlatformGLSurface
-operator|&
+name|QPlatformSurface
+operator|*
 name|surface
 argument_list|)
 block|;
@@ -104,9 +87,8 @@ block|;
 name|void
 name|swapBuffers
 argument_list|(
-specifier|const
-name|QPlatformGLSurface
-operator|&
+name|QPlatformSurface
+operator|*
 name|surface
 argument_list|)
 block|;
@@ -123,7 +105,7 @@ argument_list|)
 argument_list|)
 argument_list|()
 block|;
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|format
 argument_list|()
 specifier|const
@@ -146,7 +128,7 @@ block|;
 name|GLXContext
 name|m_context
 block|;
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|m_format
 block|; }
 decl_stmt|;

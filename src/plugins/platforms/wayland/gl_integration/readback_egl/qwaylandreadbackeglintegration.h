@@ -95,7 +95,7 @@ name|QPlatformGLContext
 operator|*
 name|createPlatformGLContext
 argument_list|(
-argument|const QGuiGLFormat&glFormat
+argument|const QSurfaceFormat&glFormat
 argument_list|,
 argument|QPlatformGLContext *share
 argument_list|)

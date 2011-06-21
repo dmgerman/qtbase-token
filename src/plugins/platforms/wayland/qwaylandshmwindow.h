@@ -48,13 +48,21 @@ name|windowType
 argument_list|()
 specifier|const
 block|;
-name|QPlatformGLSurface
-operator|*
-name|glSurface
+name|QSurfaceFormat
+name|format
 argument_list|()
 specifier|const
-block|; }
-decl_stmt|;
+block|{
+return|return
+name|window
+argument_list|()
+operator|->
+name|format
+argument_list|()
+return|;
+block|}
+expr|}
+block|;
 end_decl_stmt
 begin_endif
 endif|#

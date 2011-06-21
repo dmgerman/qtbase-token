@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/QGuiGLFormat>
+file|<QtGui/QSurfaceFormat>
 end_include
 begin_include
 include|#
@@ -37,7 +37,7 @@ operator|>
 name|q_createConfigAttributesFromFormat
 argument_list|(
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|&
 name|format
 argument_list|)
@@ -64,7 +64,7 @@ name|EGLDisplay
 name|display
 parameter_list|,
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|format
 parameter_list|,
@@ -81,7 +81,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|q_glFormatFromConfig
 parameter_list|(
 name|EGLDisplay

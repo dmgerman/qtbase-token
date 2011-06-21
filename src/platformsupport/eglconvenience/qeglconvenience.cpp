@@ -22,7 +22,7 @@ argument_list|>
 name|q_createConfigAttributesFromFormat
 parameter_list|(
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|format
 parameter_list|)
@@ -98,7 +98,7 @@ comment|// highest priority rule, which is EGL_BUFFER_SIZE. Despite the selectio
 comment|// "AtLeast" for EGL_BUFFER_SIZE, it's sort order is "smaller" meaning 16-bit configs are
 comment|// put in the list before 32-bit configs. So, to make sure 16-bit is preffered over 32-bit,
 comment|// we must set the red/green/blue sizes to zero. This has an unfortunate consequence that
-comment|// if the application sets the red/green/blue size to 5/6/5 on the QGuiGLFormat,
+comment|// if the application sets the red/green/blue size to 5/6/5 on the QSurfaceFormat,
 comment|// they will probably get a 32-bit config, even when there's an RGB565 config available.
 comment|//    // Now normalize the values so -1 becomes 0
 comment|//    redSize   = redSize> 0 ? redSize   : 0;
@@ -635,7 +635,7 @@ name|EGLDisplay
 name|display
 parameter_list|,
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|format
 parameter_list|,
@@ -1036,7 +1036,7 @@ block|}
 end_function
 begin_function
 DECL|function|q_glFormatFromConfig
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|q_glFormatFromConfig
 parameter_list|(
 name|EGLDisplay
@@ -1047,7 +1047,7 @@ name|EGLConfig
 name|config
 parameter_list|)
 block|{
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|format
 decl_stmt|;
 name|EGLint

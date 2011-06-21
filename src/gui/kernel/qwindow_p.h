@@ -58,13 +58,6 @@ operator|::
 name|Window
 argument_list|)
 block|,
-name|surfaceType
-argument_list|(
-name|QWindow
-operator|::
-name|RasterSurface
-argument_list|)
-block|,
 name|parentWindow
 argument_list|(
 literal|0
@@ -78,11 +71,6 @@ block|,
 name|visible
 argument_list|(
 name|false
-argument_list|)
-block|,
-name|glSurface
-argument_list|(
-literal|0
 argument_list|)
 block|,
 name|windowState
@@ -125,11 +113,6 @@ name|WindowFlags
 name|windowFlags
 block|;
 name|QWindow
-operator|::
-name|SurfaceType
-name|surfaceType
-block|;
-name|QWindow
 operator|*
 name|parentWindow
 block|;
@@ -140,7 +123,7 @@ block|;
 name|bool
 name|visible
 block|;
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|requestedFormat
 block|;
 name|QString
@@ -148,10 +131,6 @@ name|windowTitle
 block|;
 name|QRect
 name|geometry
-block|;
-name|QPlatformGLSurface
-operator|*
-name|glSurface
 block|;
 name|Qt
 operator|::

@@ -36,45 +36,6 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QWaylandXCompositeEGLSurface
-range|:
-name|public
-name|QEGLSurface
-block|{
-name|public
-operator|:
-name|QWaylandXCompositeEGLSurface
-argument_list|(
-name|QWaylandXCompositeEGLWindow
-operator|*
-name|window
-argument_list|)
-block|;
-name|EGLSurface
-name|eglSurface
-argument_list|()
-specifier|const
-block|;
-name|QWaylandXCompositeEGLWindow
-operator|*
-name|window
-argument_list|()
-specifier|const
-block|{
-return|return
-name|m_window
-return|;
-block|}
-name|private
-operator|:
-name|QWaylandXCompositeEGLWindow
-operator|*
-name|m_window
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
 name|QWaylandXCompositeEGLContext
 range|:
 name|public
@@ -84,7 +45,7 @@ name|public
 operator|:
 name|QWaylandXCompositeEGLContext
 argument_list|(
-argument|const QGuiGLFormat&format
+argument|const QSurfaceFormat&format
 argument_list|,
 argument|QPlatformGLContext *share
 argument_list|,
@@ -94,9 +55,18 @@ block|;
 name|void
 name|swapBuffers
 argument_list|(
-specifier|const
-name|QPlatformGLSurface
-operator|&
+name|QPlatformSurface
+operator|*
+name|surface
+argument_list|)
+block|;
+name|private
+operator|:
+name|EGLSurface
+name|eglSurfaceForPlatformSurface
+argument_list|(
+name|QPlatformSurface
+operator|*
 name|surface
 argument_list|)
 block|; }

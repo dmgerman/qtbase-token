@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<QtGui/QPlatformWindow>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QPlatformGLContext>
 end_include
 begin_include
@@ -23,39 +28,6 @@ include|#
 directive|include
 file|<EGL/egl.h>
 end_include
-begin_decl_stmt
-name|class
-name|QEGLSurface
-range|:
-name|public
-name|QPlatformGLSurface
-block|{
-name|public
-operator|:
-name|QEGLSurface
-argument_list|(
-argument|EGLSurface surface
-argument_list|,
-argument|const QGuiGLFormat&format
-argument_list|)
-block|;
-name|virtual
-name|EGLSurface
-name|eglSurface
-argument_list|()
-specifier|const
-block|{
-return|return
-name|m_eglSurface
-return|;
-block|}
-name|private
-operator|:
-name|EGLSurface
-name|m_eglSurface
-block|; }
-decl_stmt|;
-end_decl_stmt
 begin_decl_stmt
 name|class
 name|QEGLPlatformContext
@@ -67,7 +39,7 @@ name|public
 operator|:
 name|QEGLPlatformContext
 argument_list|(
-argument|const QGuiGLFormat&format
+argument|const QSurfaceFormat&format
 argument_list|,
 argument|QPlatformGLContext *share
 argument_list|,
@@ -86,9 +58,8 @@ block|;
 name|bool
 name|makeCurrent
 argument_list|(
-specifier|const
-name|QPlatformGLSurface
-operator|&
+name|QPlatformSurface
+operator|*
 name|surface
 argument_list|)
 block|;
@@ -99,9 +70,8 @@ block|;
 name|void
 name|swapBuffers
 argument_list|(
-specifier|const
-name|QPlatformGLSurface
-operator|&
+name|QPlatformSurface
+operator|*
 name|surface
 argument_list|)
 block|;
@@ -118,7 +88,7 @@ argument_list|)
 argument_list|)
 argument_list|()
 block|;
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|format
 argument_list|()
 specifier|const
@@ -127,6 +97,19 @@ name|EGLContext
 name|eglContext
 argument_list|()
 specifier|const
+block|;
+name|protected
+operator|:
+name|virtual
+name|EGLSurface
+name|eglSurfaceForPlatformSurface
+argument_list|(
+name|QPlatformSurface
+operator|*
+name|surface
+argument_list|)
+operator|=
+literal|0
 block|;
 name|private
 operator|:
@@ -139,7 +122,7 @@ block|;
 name|EGLenum
 name|m_eglApi
 block|;
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|m_format
 block|; }
 decl_stmt|;

@@ -216,7 +216,7 @@ operator|::
 name|createPlatformGLContext
 parameter_list|(
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|glFormat
 parameter_list|,

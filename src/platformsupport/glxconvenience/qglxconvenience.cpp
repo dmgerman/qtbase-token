@@ -143,7 +143,7 @@ argument_list|>
 name|qglx_buildSpec
 parameter_list|(
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|format
 parameter_list|,
@@ -353,7 +353,7 @@ operator|.
 name|swapBehavior
 argument_list|()
 operator|!=
-name|QGuiGLFormat
+name|QSurfaceFormat
 operator|::
 name|SingleBuffer
 condition|?
@@ -528,7 +528,7 @@ name|int
 name|screen
 parameter_list|,
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|format
 parameter_list|,
@@ -546,7 +546,7 @@ name|chosenConfig
 init|=
 literal|0
 decl_stmt|;
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|reducedFormat
 init|=
 name|format
@@ -730,7 +730,7 @@ expr_stmt|;
 block|}
 name|reducedFormat
 operator|=
-name|qglx_reduceGuiGLFormat
+name|qglx_reduceSurfaceFormat
 argument_list|(
 name|reducedFormat
 argument_list|,
@@ -768,7 +768,7 @@ name|int
 name|screen
 parameter_list|,
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|format
 parameter_list|)
@@ -802,9 +802,9 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|qglx_guiGLFormatFromGLXFBConfig
-name|QGuiGLFormat
-name|qglx_guiGLFormatFromGLXFBConfig
+DECL|function|qglx_surfaceFormatFromGLXFBConfig
+name|QSurfaceFormat
+name|qglx_surfaceFormatFromGLXFBConfig
 parameter_list|(
 name|Display
 modifier|*
@@ -816,7 +816,7 @@ parameter_list|,
 name|GLXContext
 parameter_list|)
 block|{
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|format
 decl_stmt|;
 name|int
@@ -1056,12 +1056,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|qglx_reduceGuiGLFormat
-name|QGuiGLFormat
-name|qglx_reduceGuiGLFormat
+DECL|function|qglx_reduceSurfaceFormat
+name|QSurfaceFormat
+name|qglx_reduceSurfaceFormat
 parameter_list|(
 specifier|const
-name|QGuiGLFormat
+name|QSurfaceFormat
 modifier|&
 name|format
 parameter_list|,
@@ -1070,7 +1070,7 @@ modifier|*
 name|reduced
 parameter_list|)
 block|{
-name|QGuiGLFormat
+name|QSurfaceFormat
 name|retFormat
 init|=
 name|format

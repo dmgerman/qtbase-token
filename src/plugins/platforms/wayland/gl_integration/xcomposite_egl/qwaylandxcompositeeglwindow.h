@@ -58,12 +58,6 @@ name|windowType
 argument_list|()
 specifier|const
 block|;
-name|QPlatformGLSurface
-operator|*
-name|createGLSurface
-argument_list|()
-specifier|const
-block|;
 name|void
 name|setGeometry
 argument_list|(
