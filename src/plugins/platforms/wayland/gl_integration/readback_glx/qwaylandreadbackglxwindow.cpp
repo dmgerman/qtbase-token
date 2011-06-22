@@ -320,7 +320,7 @@ argument_list|()
 argument_list|,
 name|m_window
 operator|->
-name|glFormat
+name|format
 argument_list|()
 argument_list|)
 expr_stmt|;
