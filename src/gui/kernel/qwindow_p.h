@@ -51,6 +51,13 @@ operator|:
 name|QObjectPrivate
 argument_list|()
 block|,
+name|surfaceType
+argument_list|(
+name|QWindow
+operator|::
+name|RasterSurface
+argument_list|)
+block|,
 name|windowFlags
 argument_list|(
 name|Qt
@@ -107,6 +114,11 @@ operator|~
 name|QWindowPrivate
 argument_list|()
 block|{     }
+name|QWindow
+operator|::
+name|SurfaceType
+name|surfaceType
+block|;
 name|Qt
 operator|::
 name|WindowFlags

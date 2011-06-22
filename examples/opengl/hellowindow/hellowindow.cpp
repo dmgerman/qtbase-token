@@ -90,6 +90,13 @@ argument_list|(
 name|renderer
 argument_list|)
 block|{
+name|setSurfaceType
+argument_list|(
+name|QWindow
+operator|::
+name|OpenGLSurface
+argument_list|)
+expr_stmt|;
 name|setWindowTitle
 argument_list|(
 name|QLatin1String
