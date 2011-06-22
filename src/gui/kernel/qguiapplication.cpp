@@ -1282,11 +1282,6 @@ operator|::
 name|init
 parameter_list|()
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"QGuiApplicationPrivate::init"
-expr_stmt|;
 name|QList
 argument_list|<
 name|QByteArray
