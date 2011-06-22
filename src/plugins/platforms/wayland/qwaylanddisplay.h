@@ -388,6 +388,29 @@ argument_list|,
 argument|int32_t width
 argument_list|,
 argument|int32_t height
+argument_list|,
+argument|int subpixel
+argument_list|,
+argument|const char *make
+argument_list|,
+argument|const char *model
+argument_list|)
+block|;
+specifier|static
+name|void
+name|mode
+argument_list|(
+argument|void *data
+argument_list|,
+argument|struct wl_output *wl_output
+argument_list|,
+argument|uint32_t flags
+argument_list|,
+argument|int width
+argument_list|,
+argument|int height
+argument_list|,
+argument|int refresh
 argument_list|)
 block|;
 specifier|static
