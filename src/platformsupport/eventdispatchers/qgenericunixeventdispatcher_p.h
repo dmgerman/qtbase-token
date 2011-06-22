@@ -26,7 +26,6 @@ else|#
 directive|else
 end_else
 begin_function_decl
-name|Q_GUI_EXPORT
 name|QAbstractEventDispatcher
 modifier|*
 name|createUnixEventDispatcher
