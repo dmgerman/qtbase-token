@@ -7,6 +7,11 @@ include|#
 directive|include
 file|<qplatforminputcontext_qpa.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QMouseEvent>
+end_include
 begin_constructor
 DECL|function|QPlatformInputContext
 name|QPlatformInputContext
