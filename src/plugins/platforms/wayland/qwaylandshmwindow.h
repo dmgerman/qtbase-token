@@ -54,10 +54,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|window
-argument_list|()
-operator|->
-name|format
+name|QSurfaceFormat
 argument_list|()
 return|;
 block|}
