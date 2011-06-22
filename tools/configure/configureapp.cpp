@@ -7784,42 +7784,6 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
-literal|"-demosdir"
-condition|)
-block|{
-operator|++
-name|i
-expr_stmt|;
-if|if
-condition|(
-name|i
-operator|==
-name|argCount
-condition|)
-break|break;
-name|dictionary
-index|[
-literal|"QT_INSTALL_DEMOS"
-index|]
-operator|=
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
 literal|"-hostprefix"
 condition|)
 block|{
@@ -10760,7 +10724,7 @@ literal|"Usage: configure [-buildkey<key>]\n"
 comment|//      desc("Usage: configure [-prefix dir] [-bindir<dir>] [-libdir<dir>]\n"
 comment|//                  "[-docdir<dir>] [-headerdir<dir>] [-plugindir<dir>]\n"
 comment|//                  "[-importdir<dir>] [-datadir<dir>] [-translationdir<dir>]\n"
-comment|//                  "[-examplesdir<dir>] [-demosdir<dir>][-buildkey<key>]\n"
+comment|//                  "[-examplesdir<dir>] [-buildkey<key>]\n"
 literal|"[-release] [-debug] [-debug-and-release] [-shared] [-static]\n"
 literal|"[-no-fast] [-fast] [-no-exceptions] [-exceptions]\n"
 literal|"[-no-accessibility] [-accessibility] [-no-rtti] [-rtti]\n"
@@ -10803,7 +10767,7 @@ name|defined
 argument_list|(
 name|EVAL
 argument_list|)
-comment|/*         desc(" These are optional, but you may specify install directories.\n\n", 0, 1);          desc(                   "-prefix dir",          "This will install everything relative to dir\n(default $QT_INSTALL_PREFIX)\n");          desc(" You may use these to separate different parts of the install:\n\n", 0, 1);          desc(                   "-bindir<dir>",        "Executables will be installed to dir\n(default PREFIX/bin)");         desc(                   "-libdir<dir>",        "Libraries will be installed to dir\n(default PREFIX/lib)");         desc(                   "-docdir<dir>",        "Documentation will be installed to dir\n(default PREFIX/doc)");         desc(                   "-headerdir<dir>",     "Headers will be installed to dir\n(default PREFIX/include)");         desc(                   "-plugindir<dir>",     "Plugins will be installed to dir\n(default PREFIX/plugins)");         desc(                   "-importdir<dir>",     "Imports for QML will be installed to dir\n(default PREFIX/imports)");         desc(                   "-datadir<dir>",       "Data used by Qt programs will be installed to dir\n(default PREFIX)");         desc(                   "-translationdir<dir>","Translations of Qt programs will be installed to dir\n(default PREFIX/translations)\n");         desc(                   "-examplesdir<dir>",   "Examples will be installed to dir\n(default PREFIX/examples)");         desc(                   "-demosdir<dir>",      "Demos will be installed to dir\n(default PREFIX/demos)"); */
+comment|/*         desc(" These are optional, but you may specify install directories.\n\n", 0, 1);          desc(                   "-prefix dir",          "This will install everything relative to dir\n(default $QT_INSTALL_PREFIX)\n");          desc(" You may use these to separate different parts of the install:\n\n", 0, 1);          desc(                   "-bindir<dir>",        "Executables will be installed to dir\n(default PREFIX/bin)");         desc(                   "-libdir<dir>",        "Libraries will be installed to dir\n(default PREFIX/lib)");         desc(                   "-docdir<dir>",        "Documentation will be installed to dir\n(default PREFIX/doc)");         desc(                   "-headerdir<dir>",     "Headers will be installed to dir\n(default PREFIX/include)");         desc(                   "-plugindir<dir>",     "Plugins will be installed to dir\n(default PREFIX/plugins)");         desc(                   "-importdir<dir>",     "Imports for QML will be installed to dir\n(default PREFIX/imports)");         desc(                   "-datadir<dir>",       "Data used by Qt programs will be installed to dir\n(default PREFIX)");         desc(                   "-translationdir<dir>","Translations of Qt programs will be installed to dir\n(default PREFIX/translations)\n");         desc(                   "-examplesdir<dir>",   "Examples will be installed to dir\n(default PREFIX/examples)"); */
 name|desc
 argument_list|(
 literal|" You may use these options to turn on strict plugin loading:\n\n"
@@ -18028,36 +17992,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|dictionary
-index|[
-literal|"QT_INSTALL_DEMOS"
-index|]
-operator|.
-name|size
-argument_list|()
-condition|)
-name|dictionary
-index|[
-literal|"QT_INSTALL_DEMOS"
-index|]
-operator|=
-name|qipempty
-condition|?
-literal|""
-else|:
-name|fixSeparators
-argument_list|(
-name|dictionary
-index|[
-literal|"QT_INSTALL_PREFIX"
-index|]
-operator|+
-literal|"/demos"
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
 name|dictionary
 operator|.
 name|contains
@@ -18860,8 +18794,6 @@ operator|<<
 literal|"libs"
 operator|<<
 literal|"examples"
-operator|<<
-literal|"demos"
 expr_stmt|;
 foreach|foreach
 control|(
@@ -21949,20 +21881,6 @@ operator|<<
 literal|"\";"
 operator|<<
 name|endl
-operator|<<
-literal|"static const char qt_configure_demos_path_str        [512 + 12] = \"qt_demopath="
-operator|<<
-name|escapeSeparators
-argument_list|(
-name|dictionary
-index|[
-literal|"QT_INSTALL_DEMOS"
-index|]
-argument_list|)
-operator|<<
-literal|"\";"
-operator|<<
-name|endl
 comment|//<< "static const char qt_configure_settings_path_str [256] = \"qt_stngpath="<< escapeSeparators(dictionary["QT_INSTALL_SETTINGS"])<< "\";"<< endl
 expr_stmt|;
 if|if
@@ -22157,24 +22075,6 @@ literal|"\";"
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_demos_path_str        [512 + 12] = \"qt_demopath="
-operator|<<
-name|fixSeparators
-argument_list|(
-name|dictionary
-index|[
-literal|"QT_HOST_PREFIX"
-index|]
-operator|+
-literal|"/demos"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-literal|"\";"
-operator|<<
-name|endl
-operator|<<
 literal|"#endif //QT_BOOTSTRAPPED"
 operator|<<
 name|endl
@@ -22231,10 +22131,6 @@ operator|<<
 name|endl
 operator|<<
 literal|"#define QT_CONFIGURE_EXAMPLES_PATH qt_configure_examples_path_str + 12;"
-operator|<<
-name|endl
-operator|<<
-literal|"#define QT_CONFIGURE_DEMOS_PATH qt_configure_demos_path_str + 12;"
 operator|<<
 name|endl
 comment|//<< "#define QT_CONFIGURE_SETTINGS_PATH qt_configure_settings_path_str + 12;"<< endl
@@ -23590,19 +23486,6 @@ name|dictionary
 index|[
 literal|"QT_INSTALL_EXAMPLES"
 index|]
-operator|<<
-name|endl
-expr_stmt|;
-name|cout
-operator|<<
-literal|"Demos installed to.........."
-operator|<<
-name|dictionary
-index|[
-literal|"QT_INSTALL_DEMOS"
-index|]
-operator|<<
-name|endl
 operator|<<
 name|endl
 expr_stmt|;
