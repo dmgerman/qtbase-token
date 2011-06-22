@@ -64,7 +64,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qeventdispatcher_qpa.h>
+file|<QtPlatformSupport/private/qeventdispatcher_qpa_p.h>
 end_include
 begin_include
 include|#
