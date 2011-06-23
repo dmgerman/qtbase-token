@@ -142,7 +142,9 @@ name|source
 operator|->
 name|q
 argument_list|,
-name|flags
+name|QEventLoop
+operator|::
+name|AllEvents
 argument_list|)
 expr_stmt|;
 return|return
