@@ -263,8 +263,6 @@ name|mWindow
 operator|->
 name|damage
 argument_list|(
-name|QRegion
-argument_list|(
 name|QRect
 argument_list|(
 name|QPoint
@@ -275,7 +273,6 @@ literal|0
 argument_list|)
 argument_list|,
 name|size
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

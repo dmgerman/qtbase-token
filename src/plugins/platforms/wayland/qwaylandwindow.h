@@ -129,9 +129,9 @@ name|void
 name|damage
 argument_list|(
 specifier|const
-name|QRegion
+name|QRect
 operator|&
-name|region
+name|rect
 argument_list|)
 block|;
 name|void
