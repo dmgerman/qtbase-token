@@ -255,15 +255,6 @@ name|flushRequests
 argument_list|()
 block|;
 name|private
-name|slots
-operator|:
-name|void
-name|handleSelectionOffer
-argument_list|(
-argument|uint32_t id
-argument_list|)
-block|;
-name|private
 operator|:
 name|void
 name|waitForScreens
@@ -321,9 +312,6 @@ name|mScreensInitialized
 block|;
 name|uint32_t
 name|mSocketMask
-block|;
-name|uint32_t
-name|mSelectionOfferId
 block|;      struct
 name|wl_visual
 operator|*

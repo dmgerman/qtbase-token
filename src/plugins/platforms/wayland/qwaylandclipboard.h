@@ -77,7 +77,10 @@ name|QPlatformClipboard
 block|{
 name|public
 operator|:
+specifier|static
 name|QWaylandClipboard
+operator|*
+name|instance
 argument_list|(
 name|QWaylandDisplay
 operator|*
@@ -135,6 +138,13 @@ specifier|const
 block|;
 name|private
 operator|:
+name|QWaylandClipboard
+argument_list|(
+name|QWaylandDisplay
+operator|*
+name|display
+argument_list|)
+block|;
 specifier|static
 name|void
 name|offer
