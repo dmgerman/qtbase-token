@@ -26,19 +26,40 @@ parameter_list|(
 name|Gui
 parameter_list|)
 name|class
+name|QGuiGLContext
+decl_stmt|;
+DECL|variable|QWindow
+name|class
 name|QWindow
 decl_stmt|;
 name|class
 name|Q_GUI_EXPORT
 name|QPlatformNativeInterface
-decl_stmt|{ public:     virtual void *nativeResourceForWindow(const QByteArray&resource
+decl_stmt|{ public:     virtual void *nativeResourceForContext(const QByteArray&resource
 operator|,
-decl_stmt|QWindow *window
+decl_stmt|QGuiGLContext *context
 end_function
 begin_empty_stmt
 unit|)
 empty_stmt|;
 end_empty_stmt
+begin_function_decl
+name|virtual
+name|void
+modifier|*
+name|nativeResourceForWindow
+parameter_list|(
+specifier|const
+name|QByteArray
+modifier|&
+name|resource
+parameter_list|,
+name|QWindow
+modifier|*
+name|window
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_expr_stmt
 unit|};
 name|QT_END_NAMESPACE

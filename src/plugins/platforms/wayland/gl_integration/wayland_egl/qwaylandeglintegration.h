@@ -69,14 +69,18 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|QPlatformGLContext
+operator|*
+name|createPlatformGLContext
+argument_list|(
+argument|const QSurfaceFormat&glFormat
+argument_list|,
+argument|QPlatformGLContext *share
+argument_list|)
+specifier|const
+block|;
 name|EGLDisplay
 name|eglDisplay
-argument_list|()
-specifier|const
-block|;     struct
-name|wl_egl_display
-operator|*
-name|nativeDisplay
 argument_list|()
 specifier|const
 block|;
@@ -85,10 +89,10 @@ operator|:
 expr|struct
 name|wl_display
 operator|*
-name|mWaylandDisplay
+name|m_waylandDisplay
 block|;
 name|EGLDisplay
-name|mEglDisplay
+name|m_eglDisplay
 block|; }
 decl_stmt|;
 end_decl_stmt

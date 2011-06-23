@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtCore/QScopedPointer>
 end_include
+begin_include
+include|#
+directive|include
+file|<QSurfaceFormat>
+end_include
 begin_function
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -40,10 +45,6 @@ decl_stmt|;
 DECL|variable|QSurface
 name|class
 name|QSurface
-decl_stmt|;
-DECL|variable|QSurfaceFormat
-name|class
-name|QSurfaceFormat
 decl_stmt|;
 name|class
 name|Q_GUI_EXPORT

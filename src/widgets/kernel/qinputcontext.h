@@ -263,8 +263,6 @@ return|return
 name|false
 return|;
 block|}
-name|private
-operator|:
 expr|enum
 name|StandardFormat
 block|{

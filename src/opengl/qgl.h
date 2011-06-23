@@ -1691,6 +1691,12 @@ modifier|*
 name|platformContext
 parameter_list|)
 function_decl|;
+name|QGuiGLContext
+operator|*
+name|contextHandle
+argument_list|()
+specifier|const
+expr_stmt|;
 endif|#
 directive|endif
 name|protected
