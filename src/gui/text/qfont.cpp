@@ -456,6 +456,12 @@ name|this_family
 operator|==
 name|other_family
 operator|&&
+name|styleName
+operator|==
+name|other
+operator|.
+name|styleName
+operator|&&
 operator|(
 name|this_foundry
 operator|.
