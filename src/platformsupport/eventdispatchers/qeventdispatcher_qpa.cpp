@@ -52,25 +52,12 @@ include|#
 directive|include
 file|<errno.h>
 end_include
-begin_function
+begin_macro
 name|QT_BEGIN_NAMESPACE
+end_macro
+begin_macro
 name|QT_USE_NAMESPACE
-DECL|function|QEventDispatcherQPAPrivate
-name|QEventDispatcherQPAPrivate
-operator|::
-name|QEventDispatcherQPAPrivate
-parameter_list|()
-block|{  }
-end_function
-begin_destructor
-DECL|function|~QEventDispatcherQPAPrivate
-name|QEventDispatcherQPAPrivate
-operator|::
-name|~
-name|QEventDispatcherQPAPrivate
-parameter_list|()
-block|{  }
-end_destructor
+end_macro
 begin_constructor
 DECL|function|QEventDispatcherQPA
 name|QEventDispatcherQPA
@@ -82,35 +69,8 @@ modifier|*
 name|parent
 parameter_list|)
 member_init_list|:
-name|EVENTDISPATCHERBASE
+name|QEventDispatcherUNIX
 argument_list|(
-operator|*
-operator|new
-name|QEventDispatcherQPAPrivate
-argument_list|,
-name|parent
-argument_list|)
-block|{ }
-end_constructor
-begin_constructor
-DECL|function|QEventDispatcherQPA
-name|QEventDispatcherQPA
-operator|::
-name|QEventDispatcherQPA
-parameter_list|(
-name|EVENTDISPATCHERBASEPRIVATE
-modifier|&
-name|priv
-parameter_list|,
-name|QObject
-modifier|*
-name|parent
-parameter_list|)
-member_init_list|:
-name|EVENTDISPATCHERBASE
-argument_list|(
-name|priv
-argument_list|,
 name|parent
 argument_list|)
 block|{ }
@@ -156,7 +116,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|EVENTDISPATCHERBASE
+name|QEventDispatcherUNIX
 operator|::
 name|processEvents
 argument_list|(
@@ -164,7 +124,7 @@ name|flags
 argument_list|)
 condition|)
 block|{
-name|EVENTDISPATCHERBASE
+name|QEventDispatcherUNIX
 operator|::
 name|processEvents
 argument_list|(
