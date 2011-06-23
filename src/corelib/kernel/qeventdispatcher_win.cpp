@@ -3267,7 +3267,11 @@ name|bool
 name|QEventDispatcherWin32
 operator|::
 name|dispatchGuiEvents
-parameter_list|()
+parameter_list|(
+name|QEventLoop
+operator|::
+name|ProcessEventsFlags
+parameter_list|)
 block|{
 return|return
 literal|false
@@ -3897,7 +3901,9 @@ name|msg
 argument_list|)
 expr_stmt|;
 name|dispatchGuiEvents
-argument_list|()
+argument_list|(
+name|flags
+argument_list|)
 expr_stmt|;
 block|}
 block|}
