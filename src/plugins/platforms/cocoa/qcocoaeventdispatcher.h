@@ -64,7 +64,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qeventdispatcher_qpa_p.h>
+file|<QtCore/private/qeventdispatcher_unix_p.h>
 end_include
 begin_include
 include|#
@@ -157,7 +157,7 @@ name|class
 name|QCocoaEventDispatcher
 range|:
 name|public
-name|QEventDispatcherQPA
+name|QEventDispatcherUNIX
 block|{
 name|Q_OBJECT
 name|Q_DECLARE_PRIVATE
@@ -401,7 +401,7 @@ name|class
 name|QCocoaEventDispatcherPrivate
 range|:
 name|public
-name|QEventDispatcherQPAPrivate
+name|QEventDispatcherUNIXPrivate
 block|{
 name|Q_DECLARE_PUBLIC
 argument_list|(
