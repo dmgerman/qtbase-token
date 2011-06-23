@@ -22,7 +22,6 @@ begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|class
-name|Q_GUI_EXPORT
 name|QWindowSystemInterfacePrivate
 block|{
 name|public

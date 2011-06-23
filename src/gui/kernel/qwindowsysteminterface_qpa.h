@@ -609,6 +609,13 @@ name|flags
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+begin_function_decl
+specifier|static
+name|int
+name|windowSystemEventsQueued
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_expr_stmt
 unit|};
 name|QT_END_NAMESPACE

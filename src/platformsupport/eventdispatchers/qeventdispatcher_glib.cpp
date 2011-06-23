@@ -76,7 +76,7 @@ argument_list|(
 argument|timeout
 argument_list|)
 return|return
-name|QWindowSystemInterfacePrivate
+name|QWindowSystemInterface
 operator|::
 name|windowSystemEventsQueued
 argument_list|()

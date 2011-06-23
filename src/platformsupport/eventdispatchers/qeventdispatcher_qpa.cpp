@@ -198,7 +198,7 @@ return|return
 name|qGlobalPostedEventsCount
 argument_list|()
 operator|||
-name|QWindowSystemInterfacePrivate
+name|QWindowSystemInterface
 operator|::
 name|windowSystemEventsQueued
 argument_list|()
