@@ -4951,7 +4951,7 @@ name|targetData
 operator|->
 name|postEventList
 operator|.
-name|append
+name|addEvent
 argument_list|(
 name|pe
 argument_list|)
