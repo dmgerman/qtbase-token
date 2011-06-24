@@ -390,6 +390,26 @@ name|result
 init|=
 literal|0
 decl_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|SPI_GETFONTSMOOTHINGTYPE
+argument_list|)
+comment|// MinGW
+DECL|macro|SPI_GETFONTSMOOTHINGTYPE
+define|#
+directive|define
+name|SPI_GETFONTSMOOTHINGTYPE
+value|0x200A
+DECL|macro|FE_FONTSMOOTHINGCLEARTYPE
+define|#
+directive|define
+name|FE_FONTSMOOTHINGCLEARTYPE
+value|0x002
+endif|#
+directive|endif
 name|SystemParametersInfo
 argument_list|(
 name|SPI_GETFONTSMOOTHINGTYPE
