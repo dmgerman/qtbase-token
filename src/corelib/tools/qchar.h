@@ -284,12 +284,7 @@ name|Symbol_Modifier
 block|,
 comment|//   Sk
 name|Symbol_Other
-block|,
 comment|//   So
-name|Punctuation_Dask
-init|=
-name|Punctuation_Dash
-comment|// ### Qt 5: remove
 block|}
 enum|;
 enum|enum
