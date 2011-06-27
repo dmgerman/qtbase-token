@@ -491,31 +491,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|wl_surface_damage
-argument_list|(
-name|mSurface
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-name|mBuffer
-operator|->
-name|size
-argument_list|()
-operator|.
-name|width
-argument_list|()
-argument_list|,
-name|mBuffer
-operator|->
-name|size
-argument_list|()
-operator|.
-name|height
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// do not damage the surface here, as this leads to graphical corruptions in the compositor until
+comment|// the first frame has been rendered
 block|}
 block|}
 end_function
