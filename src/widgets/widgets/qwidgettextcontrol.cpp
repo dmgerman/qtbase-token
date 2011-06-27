@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qtextcontrol_p.h"
+file|"qwidgettextcontrol_p.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qtextcontrol_p_p.h"
+file|"qwidgettextcontrol_p_p.h"
 end_include
 begin_ifndef
 ifndef|#
@@ -100,7 +100,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qtextcontrol_p.h"
+file|"private/qwidgettextcontrol_p.h"
 end_include
 begin_include
 include|#
@@ -344,10 +344,10 @@ return|;
 block|}
 end_function
 begin_constructor
-DECL|function|QTextControlPrivate
-name|QTextControlPrivate
+DECL|function|QWidgetTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 parameter_list|()
 member_init_list|:
 name|doc
@@ -466,7 +466,7 @@ end_constructor
 begin_function
 DECL|function|cursorMoveKeyEvent
 name|bool
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|cursorMoveKeyEvent
 parameter_list|(
@@ -487,7 +487,7 @@ endif|#
 directive|endif
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -1323,14 +1323,14 @@ end_function
 begin_function
 DECL|function|updateCurrentCharFormat
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|updateCurrentCharFormat
 parameter_list|()
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|QTextCharFormat
@@ -1371,7 +1371,7 @@ end_function
 begin_function
 DECL|function|indent
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|indent
 parameter_list|()
@@ -1479,7 +1479,7 @@ end_function
 begin_function
 DECL|function|outdent
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|outdent
 parameter_list|()
@@ -1565,7 +1565,7 @@ end_function
 begin_function
 DECL|function|gotoNextTableCell
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|gotoNextTableCell
 parameter_list|()
@@ -1672,7 +1672,7 @@ end_function
 begin_function
 DECL|function|gotoPreviousTableCell
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|gotoPreviousTableCell
 parameter_list|()
@@ -1764,7 +1764,7 @@ end_function
 begin_function
 DECL|function|createAutoBulletList
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|createAutoBulletList
 parameter_list|()
@@ -1837,7 +1837,7 @@ end_function
 begin_function
 DECL|function|init
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|init
 parameter_list|(
@@ -1858,7 +1858,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|setContent
@@ -1894,7 +1894,7 @@ end_function
 begin_function
 DECL|function|setContent
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|setContent
 parameter_list|(
@@ -1915,7 +1915,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 comment|// for use when called from setPlainText. we may want to re-use the currently
@@ -1962,7 +1962,7 @@ name|QApplication
 operator|::
 name|palette
 argument_list|(
-literal|"QTextControl"
+literal|"QWidgetTextControl"
 argument_list|)
 expr_stmt|;
 name|doc
@@ -2192,7 +2192,7 @@ specifier|static
 name|int
 name|textChangedIndex
 init|=
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|staticMetaObject
 operator|.
@@ -2414,7 +2414,7 @@ end_function
 begin_function
 DECL|function|startDrag
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|startDrag
 parameter_list|()
@@ -2424,7 +2424,7 @@ directive|ifndef
 name|QT_NO_DRAGANDDROP
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|mousePressed
@@ -2549,7 +2549,7 @@ end_function
 begin_function
 DECL|function|setCursorPosition
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|setCursorPosition
 parameter_list|(
@@ -2561,7 +2561,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -2599,7 +2599,7 @@ end_function
 begin_function
 DECL|function|setCursorPosition
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|setCursorPosition
 parameter_list|(
@@ -2646,14 +2646,14 @@ end_function
 begin_function
 DECL|function|repaintCursor
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|repaintCursor
 parameter_list|()
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 emit|emit
@@ -2672,7 +2672,7 @@ end_function
 begin_function
 DECL|function|repaintOldAndNewSelection
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|repaintOldAndNewSelection
 parameter_list|(
@@ -2684,7 +2684,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -2826,7 +2826,7 @@ end_function
 begin_function
 DECL|function|selectionChanged
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|selectionChanged
 parameter_list|(
@@ -2837,7 +2837,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -2899,7 +2899,7 @@ end_function
 begin_function
 DECL|function|_q_updateCurrentCharFormatAndSelection
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|_q_updateCurrentCharFormatAndSelection
 parameter_list|()
@@ -2920,7 +2920,7 @@ end_ifndef
 begin_function
 DECL|function|setClipboardSelection
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|setClipboardSelection
 parameter_list|()
@@ -2951,7 +2951,7 @@ condition|)
 return|return;
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|QMimeData
@@ -2983,7 +2983,7 @@ end_endif
 begin_function
 DECL|function|_q_emitCursorPosChanged
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|_q_emitCursorPosChanged
 parameter_list|(
@@ -2995,7 +2995,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -3026,14 +3026,14 @@ end_function
 begin_function
 DECL|function|_q_documentLayoutChanged
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|_q_documentLayoutChanged
 parameter_list|()
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|QAbstractTextDocumentLayout
@@ -3125,7 +3125,7 @@ end_function
 begin_function
 DECL|function|setBlinkingCursorEnabled
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|setBlinkingCursorEnabled
 parameter_list|(
@@ -3135,7 +3135,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -3181,7 +3181,7 @@ end_function
 begin_function
 DECL|function|extendWordwiseSelection
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|extendWordwiseSelection
 parameter_list|(
@@ -3194,7 +3194,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 comment|// if inside the initial selected word keep that
@@ -3515,7 +3515,7 @@ end_function
 begin_function
 DECL|function|extendBlockwiseSelection
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|extendBlockwiseSelection
 parameter_list|(
@@ -3525,7 +3525,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 comment|// if inside the initial selected line keep that
@@ -3678,7 +3678,7 @@ end_function
 begin_function
 DECL|function|_q_deleteSelected
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|_q_deleteSelected
 parameter_list|()
@@ -3711,14 +3711,14 @@ end_function
 begin_function
 DECL|function|undo
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|undo
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -3776,14 +3776,14 @@ end_function
 begin_function
 DECL|function|redo
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|redo
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -3839,10 +3839,10 @@ expr_stmt|;
 block|}
 end_function
 begin_constructor
-DECL|function|QTextControl
-name|QTextControl
+DECL|function|QWidgetTextControl
+name|QWidgetTextControl
 operator|::
-name|QTextControl
+name|QWidgetTextControl
 parameter_list|(
 name|QObject
 modifier|*
@@ -3853,14 +3853,14 @@ name|QObject
 argument_list|(
 operator|*
 operator|new
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 argument_list|,
 name|parent
 argument_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -3871,10 +3871,10 @@ expr_stmt|;
 block|}
 end_constructor
 begin_constructor
-DECL|function|QTextControl
-name|QTextControl
+DECL|function|QWidgetTextControl
+name|QWidgetTextControl
 operator|::
-name|QTextControl
+name|QWidgetTextControl
 parameter_list|(
 specifier|const
 name|QString
@@ -3890,14 +3890,14 @@ name|QObject
 argument_list|(
 operator|*
 operator|new
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 argument_list|,
 name|parent
 argument_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -3914,10 +3914,10 @@ expr_stmt|;
 block|}
 end_constructor
 begin_constructor
-DECL|function|QTextControl
-name|QTextControl
+DECL|function|QWidgetTextControl
+name|QWidgetTextControl
 operator|::
-name|QTextControl
+name|QWidgetTextControl
 parameter_list|(
 name|QTextDocument
 modifier|*
@@ -3932,14 +3932,14 @@ name|QObject
 argument_list|(
 operator|*
 operator|new
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 argument_list|,
 name|parent
 argument_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -3959,18 +3959,18 @@ expr_stmt|;
 block|}
 end_constructor
 begin_destructor
-DECL|function|~QTextControl
-name|QTextControl
+DECL|function|~QWidgetTextControl
+name|QWidgetTextControl
 operator|::
 name|~
-name|QTextControl
+name|QWidgetTextControl
 parameter_list|()
 block|{ }
 end_destructor
 begin_function
 DECL|function|setDocument
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setDocument
 parameter_list|(
@@ -3981,7 +3981,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -4068,7 +4068,7 @@ begin_function
 DECL|function|document
 name|QTextDocument
 modifier|*
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|document
 parameter_list|()
@@ -4077,7 +4077,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -4090,7 +4090,7 @@ end_function
 begin_function
 DECL|function|setTextCursor
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setTextCursor
 parameter_list|(
@@ -4102,7 +4102,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -4187,7 +4187,7 @@ end_function
 begin_function
 DECL|function|textCursor
 name|QTextCursor
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|textCursor
 parameter_list|()
@@ -4196,7 +4196,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -4214,14 +4214,14 @@ end_ifndef
 begin_function
 DECL|function|cut
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|cut
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -4261,14 +4261,14 @@ end_function
 begin_function
 DECL|function|copy
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|copy
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -4304,7 +4304,7 @@ end_function
 begin_function
 DECL|function|paste
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|paste
 parameter_list|(
@@ -4347,14 +4347,14 @@ end_endif
 begin_function
 DECL|function|clear
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|clear
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 comment|// clears and sets empty content
@@ -4375,14 +4375,14 @@ end_function
 begin_function
 DECL|function|selectAll
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|selectAll
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -4456,7 +4456,7 @@ end_function
 begin_function
 DECL|function|processEvent
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|processEvent
 parameter_list|(
@@ -4506,7 +4506,7 @@ end_function
 begin_function
 DECL|function|processEvent
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|processEvent
 parameter_list|(
@@ -4526,7 +4526,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -6063,7 +6063,7 @@ end_function
 begin_function
 DECL|function|event
 name|bool
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|event
 parameter_list|(
@@ -6085,7 +6085,7 @@ end_function
 begin_function
 DECL|function|timerEvent
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|timerEvent
 parameter_list|(
@@ -6096,7 +6096,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -6187,7 +6187,7 @@ end_function
 begin_function
 DECL|function|setPlainText
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setPlainText
 parameter_list|(
@@ -6199,7 +6199,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -6218,7 +6218,7 @@ end_function
 begin_function
 DECL|function|setHtml
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setHtml
 parameter_list|(
@@ -6230,7 +6230,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -6249,7 +6249,7 @@ end_function
 begin_function
 DECL|function|keyPressEvent
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|keyPressEvent
 parameter_list|(
@@ -6260,7 +6260,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 ifndef|#
@@ -7076,7 +7076,7 @@ end_function
 begin_function
 DECL|function|loadResource
 name|QVariant
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|loadResource
 parameter_list|(
@@ -7156,7 +7156,7 @@ end_function
 begin_function
 DECL|function|_q_updateBlock
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|_q_updateBlock
 parameter_list|(
@@ -7168,7 +7168,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|QRectF
@@ -7205,7 +7205,7 @@ end_function
 begin_function
 DECL|function|rectForPosition
 name|QRectF
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|rectForPosition
 parameter_list|(
@@ -7217,7 +7217,7 @@ block|{
 name|Q_Q
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -7731,7 +7731,7 @@ end_function
 begin_function
 DECL|function|selectionRect
 name|QRectF
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|selectionRect
 parameter_list|(
@@ -7745,7 +7745,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|QRectF
@@ -8111,7 +8111,7 @@ end_function
 begin_function
 DECL|function|selectionRect
 name|QRectF
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|selectionRect
 parameter_list|()
@@ -8120,7 +8120,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -8136,7 +8136,7 @@ end_function
 begin_function
 DECL|function|mousePressEvent
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|mousePressEvent
 parameter_list|(
@@ -8172,7 +8172,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -8655,7 +8655,7 @@ end_function
 begin_function
 DECL|function|mouseMoveEvent
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|mouseMoveEvent
 parameter_list|(
@@ -8691,7 +8691,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -9041,7 +9041,7 @@ end_function
 begin_function
 DECL|function|mouseReleaseEvent
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|mouseReleaseEvent
 parameter_list|(
@@ -9077,7 +9077,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -9368,7 +9368,7 @@ end_function
 begin_function
 DECL|function|mouseDoubleClickEvent
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|mouseDoubleClickEvent
 parameter_list|(
@@ -9404,7 +9404,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -9573,7 +9573,7 @@ end_function
 begin_function
 DECL|function|sendMouseEventToInputContext
 name|bool
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|sendMouseEventToInputContext
 parameter_list|(
@@ -9621,7 +9621,7 @@ name|QT_NO_IM
 argument_list|)
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|QTextLayout
@@ -9822,7 +9822,7 @@ end_function
 begin_function
 DECL|function|contextMenuEvent
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|contextMenuEvent
 parameter_list|(
@@ -9863,7 +9863,7 @@ else|#
 directive|else
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -9914,7 +9914,7 @@ end_function
 begin_function
 DECL|function|dragEnterEvent
 name|bool
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|dragEnterEvent
 parameter_list|(
@@ -9930,7 +9930,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -9976,14 +9976,14 @@ end_function
 begin_function
 DECL|function|dragLeaveEvent
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|dragLeaveEvent
 parameter_list|()
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -10022,7 +10022,7 @@ end_function
 begin_function
 DECL|function|dragMoveEvent
 name|bool
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|dragMoveEvent
 parameter_list|(
@@ -10043,7 +10043,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -10161,7 +10161,7 @@ end_function
 begin_function
 DECL|function|dropEvent
 name|bool
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|dropEvent
 parameter_list|(
@@ -10187,7 +10187,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|dndFeedbackCursor
@@ -10282,7 +10282,7 @@ end_function
 begin_function
 DECL|function|inputMethodEvent
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|inputMethodEvent
 parameter_list|(
@@ -10293,7 +10293,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -10803,7 +10803,7 @@ end_function
 begin_function
 DECL|function|inputMethodQuery
 name|QVariant
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|inputMethodQuery
 parameter_list|(
@@ -10817,7 +10817,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|QTextBlock
@@ -10966,7 +10966,7 @@ end_function
 begin_function
 DECL|function|setFocus
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setFocus
 parameter_list|(
@@ -11006,7 +11006,7 @@ end_function
 begin_function
 DECL|function|focusEvent
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|focusEvent
 parameter_list|(
@@ -11017,7 +11017,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 emit|emit
@@ -11168,7 +11168,7 @@ end_function
 begin_function
 DECL|function|anchorForCursor
 name|QString
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|anchorForCursor
 parameter_list|(
@@ -11272,7 +11272,7 @@ end_ifdef
 begin_function
 DECL|function|editFocusEvent
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|editFocusEvent
 parameter_list|(
@@ -11283,7 +11283,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -11427,7 +11427,7 @@ begin_function
 DECL|function|createStandardContextMenu
 name|QMenu
 modifier|*
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|createStandardContextMenu
 parameter_list|(
@@ -11443,7 +11443,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -12044,7 +12044,7 @@ directive|endif
 comment|// QT_NO_CONTEXTMENU
 DECL|function|cursorForPosition
 name|QTextCursor
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|cursorForPosition
 parameter_list|(
@@ -12058,7 +12058,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|int
@@ -12105,7 +12105,7 @@ return|;
 block|}
 DECL|function|cursorRect
 name|QRectF
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|cursorRect
 parameter_list|(
@@ -12119,7 +12119,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -12147,7 +12147,7 @@ return|;
 block|}
 DECL|function|cursorRect
 name|QRectF
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|cursorRect
 parameter_list|()
@@ -12156,7 +12156,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -12170,7 +12170,7 @@ return|;
 block|}
 DECL|function|cursorRectPlusUnicodeDirectionMarkers
 name|QRectF
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|cursorRectPlusUnicodeDirectionMarkers
 parameter_list|(
@@ -12216,7 +12216,7 @@ return|;
 block|}
 DECL|function|anchorAt
 name|QString
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|anchorAt
 parameter_list|(
@@ -12230,7 +12230,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -12249,7 +12249,7 @@ return|;
 block|}
 DECL|function|anchorAtCursor
 name|QString
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|anchorAtCursor
 parameter_list|()
@@ -12258,7 +12258,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -12274,7 +12274,7 @@ return|;
 block|}
 DECL|function|overwriteMode
 name|bool
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|overwriteMode
 parameter_list|()
@@ -12283,7 +12283,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -12294,7 +12294,7 @@ return|;
 block|}
 DECL|function|setOverwriteMode
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setOverwriteMode
 parameter_list|(
@@ -12304,7 +12304,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -12316,7 +12316,7 @@ expr_stmt|;
 block|}
 DECL|function|cursorWidth
 name|int
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|cursorWidth
 parameter_list|()
@@ -12328,7 +12328,7 @@ name|QT_NO_PROPERTIES
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -12357,7 +12357,7 @@ directive|endif
 block|}
 DECL|function|setCursorWidth
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setCursorWidth
 parameter_list|(
@@ -12367,7 +12367,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 ifdef|#
@@ -12425,7 +12425,7 @@ expr_stmt|;
 block|}
 DECL|function|acceptRichText
 name|bool
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|acceptRichText
 parameter_list|()
@@ -12434,7 +12434,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -12445,7 +12445,7 @@ return|;
 block|}
 DECL|function|setAcceptRichText
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setAcceptRichText
 parameter_list|(
@@ -12455,7 +12455,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -12470,7 +12470,7 @@ directive|ifndef
 name|QT_NO_TEXTEDIT
 DECL|function|setExtraSelections
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setExtraSelections
 parameter_list|(
@@ -12487,7 +12487,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|QHash
@@ -12887,7 +12887,7 @@ name|QTextEdit
 operator|::
 name|ExtraSelection
 argument_list|>
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|extraSelections
 parameter_list|()
@@ -12896,7 +12896,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|QList
@@ -12979,7 +12979,7 @@ directive|endif
 comment|// QT_NO_TEXTEDIT
 DECL|function|setTextWidth
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setTextWidth
 parameter_list|(
@@ -12989,7 +12989,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -13004,7 +13004,7 @@ expr_stmt|;
 block|}
 DECL|function|textWidth
 name|qreal
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|textWidth
 parameter_list|()
@@ -13013,7 +13013,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -13027,7 +13027,7 @@ return|;
 block|}
 DECL|function|size
 name|QSizeF
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|size
 parameter_list|()
@@ -13036,7 +13036,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -13050,7 +13050,7 @@ return|;
 block|}
 DECL|function|setOpenExternalLinks
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setOpenExternalLinks
 parameter_list|(
@@ -13060,7 +13060,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -13072,7 +13072,7 @@ expr_stmt|;
 block|}
 DECL|function|openExternalLinks
 name|bool
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|openExternalLinks
 parameter_list|()
@@ -13081,7 +13081,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -13092,7 +13092,7 @@ return|;
 block|}
 DECL|function|ignoreUnusedNavigationEvents
 name|bool
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|ignoreUnusedNavigationEvents
 parameter_list|()
@@ -13101,7 +13101,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -13112,7 +13112,7 @@ return|;
 block|}
 DECL|function|setIgnoreUnusedNavigationEvents
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setIgnoreUnusedNavigationEvents
 parameter_list|(
@@ -13122,7 +13122,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -13134,7 +13134,7 @@ expr_stmt|;
 block|}
 DECL|function|moveCursor
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|moveCursor
 parameter_list|(
@@ -13151,7 +13151,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -13203,7 +13203,7 @@ emit|;
 block|}
 DECL|function|canPaste
 name|bool
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|canPaste
 parameter_list|()
@@ -13215,7 +13215,7 @@ name|QT_NO_CLIPBOARD
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -13259,7 +13259,7 @@ return|;
 block|}
 DECL|function|setCursorIsFocusIndicator
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setCursorIsFocusIndicator
 parameter_list|(
@@ -13269,7 +13269,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -13286,7 +13286,7 @@ expr_stmt|;
 block|}
 DECL|function|cursorIsFocusIndicator
 name|bool
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|cursorIsFocusIndicator
 parameter_list|()
@@ -13295,7 +13295,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -13306,7 +13306,7 @@ return|;
 block|}
 DECL|function|setDragEnabled
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setDragEnabled
 parameter_list|(
@@ -13316,7 +13316,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -13328,7 +13328,7 @@ expr_stmt|;
 block|}
 DECL|function|isDragEnabled
 name|bool
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|isDragEnabled
 parameter_list|()
@@ -13337,7 +13337,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -13348,7 +13348,7 @@ return|;
 block|}
 DECL|function|setWordSelectionEnabled
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setWordSelectionEnabled
 parameter_list|(
@@ -13358,7 +13358,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -13370,7 +13370,7 @@ expr_stmt|;
 block|}
 DECL|function|isWordSelectionEnabled
 name|bool
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|isWordSelectionEnabled
 parameter_list|()
@@ -13379,7 +13379,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -13393,7 +13393,7 @@ directive|ifndef
 name|QT_NO_PRINTER
 DECL|function|print
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|print
 parameter_list|(
@@ -13409,7 +13409,7 @@ name|QT_NO_PRINTER
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -13587,7 +13587,7 @@ comment|// QT_NO_PRINTER
 DECL|function|createMimeDataFromSelection
 name|QMimeData
 modifier|*
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|createMimeDataFromSelection
 parameter_list|()
@@ -13596,7 +13596,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -13618,7 +13618,7 @@ return|;
 block|}
 DECL|function|canInsertFromMimeData
 name|bool
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|canInsertFromMimeData
 parameter_list|(
@@ -13632,7 +13632,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -13702,7 +13702,7 @@ return|;
 block|}
 DECL|function|insertFromMimeData
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|insertFromMimeData
 parameter_list|(
@@ -13714,7 +13714,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -13913,7 +13913,7 @@ expr_stmt|;
 block|}
 DECL|function|findNextPrevAnchor
 name|bool
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|findNextPrevAnchor
 parameter_list|(
@@ -13932,7 +13932,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|int
@@ -14634,7 +14634,7 @@ return|;
 block|}
 DECL|function|activateLinkUnderCursor
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|activateLinkUnderCursor
 parameter_list|(
@@ -15006,7 +15006,7 @@ directive|ifndef
 name|QT_NO_TOOLTIP
 DECL|function|showToolTip
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|showToolTip
 parameter_list|(
@@ -15068,7 +15068,7 @@ directive|endif
 comment|// QT_NO_TOOLTIP
 DECL|function|setFocusToNextOrPreviousAnchor
 name|bool
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setFocusToNextOrPreviousAnchor
 parameter_list|(
@@ -15078,7 +15078,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -15240,7 +15240,7 @@ block|}
 block|}
 DECL|function|setFocusToAnchor
 name|bool
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setFocusToAnchor
 parameter_list|(
@@ -15252,7 +15252,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -15363,7 +15363,7 @@ return|;
 block|}
 DECL|function|setTextInteractionFlags
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setTextInteractionFlags
 parameter_list|(
@@ -15375,7 +15375,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -15415,7 +15415,7 @@ DECL|function|textInteractionFlags
 name|Qt
 operator|::
 name|TextInteractionFlags
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|textInteractionFlags
 parameter_list|()
@@ -15424,7 +15424,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -15435,7 +15435,7 @@ return|;
 block|}
 DECL|function|mergeCurrentCharFormat
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|mergeCurrentCharFormat
 parameter_list|(
@@ -15447,7 +15447,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -15467,7 +15467,7 @@ expr_stmt|;
 block|}
 DECL|function|setCurrentCharFormat
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setCurrentCharFormat
 parameter_list|(
@@ -15479,7 +15479,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -15499,7 +15499,7 @@ expr_stmt|;
 block|}
 DECL|function|currentCharFormat
 name|QTextCharFormat
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|currentCharFormat
 parameter_list|()
@@ -15508,7 +15508,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -15522,7 +15522,7 @@ return|;
 block|}
 DECL|function|insertPlainText
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|insertPlainText
 parameter_list|(
@@ -15534,7 +15534,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -15552,7 +15552,7 @@ directive|ifndef
 name|QT_NO_TEXTHTMLPARSER
 DECL|function|insertHtml
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|insertHtml
 parameter_list|(
@@ -15564,7 +15564,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -15582,7 +15582,7 @@ directive|endif
 comment|// QT_NO_TEXTHTMLPARSER
 DECL|function|anchorPosition
 name|QPointF
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|anchorPosition
 parameter_list|(
@@ -15596,7 +15596,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 if|if
@@ -15780,14 +15780,14 @@ return|;
 block|}
 DECL|function|adjustSize
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|adjustSize
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -15800,7 +15800,7 @@ expr_stmt|;
 block|}
 DECL|function|find
 name|bool
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|find
 parameter_list|(
@@ -15817,7 +15817,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|QTextCursor
@@ -15859,7 +15859,7 @@ return|;
 block|}
 DECL|function|append
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|append
 parameter_list|(
@@ -16017,7 +16017,7 @@ expr_stmt|;
 block|}
 DECL|function|append
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|append
 parameter_list|(
@@ -16029,7 +16029,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -16046,7 +16046,7 @@ expr_stmt|;
 block|}
 DECL|function|appendHtml
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|appendHtml
 parameter_list|(
@@ -16058,7 +16058,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -16075,7 +16075,7 @@ expr_stmt|;
 block|}
 DECL|function|appendPlainText
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|appendPlainText
 parameter_list|(
@@ -16087,7 +16087,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -16104,14 +16104,14 @@ expr_stmt|;
 block|}
 DECL|function|ensureCursorVisible
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|ensureCursorVisible
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|QRectF
@@ -16154,7 +16154,7 @@ emit|;
 block|}
 DECL|function|palette
 name|QPalette
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|palette
 parameter_list|()
@@ -16163,7 +16163,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -16174,7 +16174,7 @@ return|;
 block|}
 DECL|function|setPalette
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|setPalette
 parameter_list|(
@@ -16186,7 +16186,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|d
@@ -16200,7 +16200,7 @@ DECL|function|getPaintContext
 name|QAbstractTextDocumentLayout
 operator|::
 name|PaintContext
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|getPaintContext
 parameter_list|(
@@ -16213,7 +16213,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|QAbstractTextDocumentLayout
@@ -16570,7 +16570,7 @@ return|;
 block|}
 DECL|function|drawContents
 name|void
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|drawContents
 parameter_list|(
@@ -16590,7 +16590,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 name|p
@@ -16654,7 +16654,7 @@ expr_stmt|;
 block|}
 DECL|function|_q_copyLink
 name|void
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|_q_copyLink
 parameter_list|()
@@ -16692,7 +16692,7 @@ block|}
 DECL|function|inputContext
 name|QInputContext
 modifier|*
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 operator|::
 name|inputContext
 parameter_list|()
@@ -16732,7 +16732,7 @@ return|;
 block|}
 DECL|function|hitTest
 name|int
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|hitTest
 parameter_list|(
@@ -16751,7 +16751,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -16772,7 +16772,7 @@ return|;
 block|}
 DECL|function|blockBoundingRect
 name|QRectF
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|blockBoundingRect
 parameter_list|(
@@ -16786,7 +16786,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QTextControl
+name|QWidgetTextControl
 argument_list|)
 expr_stmt|;
 return|return
@@ -17107,13 +17107,13 @@ endif|#
 directive|endif
 if|if
 condition|(
-name|QTextControl
+name|QWidgetTextControl
 modifier|*
 name|control
 init|=
 name|qobject_cast
 argument_list|<
-name|QTextControl
+name|QWidgetTextControl
 operator|*
 argument_list|>
 argument_list|(
@@ -17370,7 +17370,7 @@ end_function
 begin_include
 include|#
 directive|include
-file|"moc_qtextcontrol_p.cpp"
+file|"moc_qwidgettextcontrol_p.cpp"
 end_include
 begin_endif
 endif|#

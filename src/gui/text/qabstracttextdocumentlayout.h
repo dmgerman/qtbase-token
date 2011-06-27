@@ -359,7 +359,7 @@ name|private
 operator|:
 name|friend
 name|class
-name|QTextControl
+name|QWidgetTextControl
 block|;
 name|friend
 name|class

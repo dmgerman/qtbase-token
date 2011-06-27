@@ -96,7 +96,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qlinecontrol_p.h"
+file|"private/qwidgetlinecontrol_p.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -190,7 +190,7 @@ operator|~
 name|QLineEditPrivate
 argument_list|()
 block|{     }
-name|QLineControl
+name|QWidgetLineControl
 operator|*
 name|control
 block|;

@@ -86,7 +86,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qtextcontrol_p.h"
+file|"private/qwidgettextcontrol_p.h"
 end_include
 begin_include
 include|#
@@ -122,7 +122,7 @@ name|class
 name|QPlainTextEditControl
 range|:
 name|public
-name|QTextControl
+name|QWidgetTextControl
 block|{
 name|Q_OBJECT
 name|public
@@ -183,7 +183,7 @@ block|{
 name|QRectF
 name|r
 operator|=
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|cursorRect
 argument_list|(

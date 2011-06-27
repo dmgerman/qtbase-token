@@ -56,7 +56,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qtextcontrol_p.h"
+file|"private/qwidgettextcontrol_p.h"
 end_include
 begin_include
 include|#
@@ -274,7 +274,7 @@ name|TextFormat
 name|textformat
 block|;
 name|mutable
-name|QTextControl
+name|QWidgetTextControl
 operator|*
 name|control
 block|;

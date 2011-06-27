@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QTEXTCONTROL_P_P_H
+name|QWIDGETTEXTCONTROL_P_P_H
 end_ifndef
 begin_define
-DECL|macro|QTEXTCONTROL_P_P_H
+DECL|macro|QWIDGETTEXTCONTROL_P_P_H
 define|#
 directive|define
-name|QTEXTCONTROL_P_P_H
+name|QWIDGETTEXTCONTROL_P_P_H
 end_define
 begin_comment
 comment|//
@@ -109,18 +109,18 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 range|:
 name|public
 name|QObjectPrivate
 block|{
 name|Q_DECLARE_PUBLIC
 argument_list|(
-argument|QTextControl
+argument|QWidgetTextControl
 argument_list|)
 name|public
 operator|:
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 argument_list|()
 block|;
 name|bool
@@ -710,6 +710,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QTEXTCONTROL_P_H
+comment|// QWidgetTextControl_P_H
 end_comment
 end_unit

@@ -95,7 +95,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qtextcontrol_p.h"
+file|"private/qwidgettextcontrol_p.h"
 end_include
 begin_include
 include|#
@@ -167,7 +167,7 @@ class|class
 name|QTextEditControl
 super|:
 specifier|public
-name|QTextControl
+name|QWidgetTextControl
 block|{
 public|public:
 DECL|function|QTextEditControl
@@ -179,7 +179,7 @@ modifier|*
 name|parent
 parameter_list|)
 member_init_list|:
-name|QTextControl
+name|QWidgetTextControl
 argument_list|(
 name|parent
 argument_list|)
@@ -212,7 +212,7 @@ operator|!
 name|ed
 condition|)
 return|return
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|createMimeDataFromSelection
 argument_list|()
@@ -256,7 +256,7 @@ operator|!
 name|ed
 condition|)
 return|return
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|canInsertFromMimeData
 argument_list|(
@@ -302,7 +302,7 @@ condition|(
 operator|!
 name|ed
 condition|)
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|insertFromMimeData
 argument_list|(
@@ -1237,7 +1237,7 @@ specifier|static
 name|QSize
 name|documentSize
 parameter_list|(
-name|QTextControl
+name|QWidgetTextControl
 modifier|*
 name|control
 parameter_list|)
@@ -7321,7 +7321,7 @@ name|d
 operator|->
 name|control
 operator|->
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|createMimeDataFromSelection
 argument_list|()
@@ -7356,7 +7356,7 @@ name|d
 operator|->
 name|control
 operator|->
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|canInsertFromMimeData
 argument_list|(
@@ -7390,7 +7390,7 @@ name|d
 operator|->
 name|control
 operator|->
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|insertFromMimeData
 argument_list|(

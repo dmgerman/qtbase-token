@@ -91,7 +91,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qtextcontrol_p.h"
+file|"private/qwidgettextcontrol_p.h"
 end_include
 begin_include
 include|#
@@ -310,7 +310,7 @@ return|return
 name|url
 return|;
 block|}
-name|QTextControl
+name|QWidgetTextControl
 operator|*
 name|control
 block|;

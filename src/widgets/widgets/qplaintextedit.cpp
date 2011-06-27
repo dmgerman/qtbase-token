@@ -85,11 +85,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qtextcontrol_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<qtextformat.h>
 end_include
 begin_include
@@ -1811,7 +1806,7 @@ modifier|*
 name|parent
 parameter_list|)
 member_init_list|:
-name|QTextControl
+name|QWidgetTextControl
 argument_list|(
 name|parent
 argument_list|)
@@ -1937,7 +1932,7 @@ operator|!
 name|ed
 condition|)
 return|return
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|createMimeDataFromSelection
 argument_list|()
@@ -1984,7 +1979,7 @@ operator|!
 name|ed
 condition|)
 return|return
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|canInsertFromMimeData
 argument_list|(
@@ -2033,7 +2028,7 @@ condition|(
 operator|!
 name|ed
 condition|)
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|insertFromMimeData
 argument_list|(
@@ -10930,7 +10925,7 @@ name|d
 operator|->
 name|control
 operator|->
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|createMimeDataFromSelection
 argument_list|()
@@ -10965,7 +10960,7 @@ name|d
 operator|->
 name|control
 operator|->
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|canInsertFromMimeData
 argument_list|(
@@ -10999,7 +10994,7 @@ name|d
 operator|->
 name|control
 operator|->
-name|QTextControl
+name|QWidgetTextControl
 operator|::
 name|insertFromMimeData
 argument_list|(

@@ -6301,7 +6301,7 @@ directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_TEXTCONTROL
-block|else if (QTextControl *control = qobject_cast<QTextControl *>(parent())) {         r = control->loadResource(type, name);     }
+block|else if (QWidgetTextControl *control = qobject_cast<QWidgetTextControl *>(parent())) {         r = control->loadResource(type, name);     }
 endif|#
 directive|endif
 endif|#

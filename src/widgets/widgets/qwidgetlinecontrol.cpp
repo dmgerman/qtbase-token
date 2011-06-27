@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qlinecontrol_p.h"
+file|"qwidgetlinecontrol_p.h"
 end_include
 begin_ifndef
 ifndef|#
@@ -79,7 +79,7 @@ name|QT_BEGIN_NAMESPACE
 comment|/*!     \internal      Updates the display text based of the current edit text     If the text has changed will emit displayTextChanged() */
 DECL|function|updateDisplayText
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|updateDisplayText
 parameter_list|(
@@ -323,7 +323,7 @@ end_comment
 begin_function
 DECL|function|copy
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|copy
 parameter_list|(
@@ -416,7 +416,7 @@ end_comment
 begin_function
 DECL|function|paste
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|paste
 parameter_list|(
@@ -479,7 +479,7 @@ end_comment
 begin_function
 DECL|function|backspace
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|backspace
 parameter_list|()
@@ -609,7 +609,7 @@ end_comment
 begin_function
 DECL|function|del
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|del
 parameter_list|()
@@ -665,7 +665,7 @@ end_comment
 begin_function
 DECL|function|insert
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|insert
 parameter_list|(
@@ -701,7 +701,7 @@ end_comment
 begin_function
 DECL|function|clear
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|clear
 parameter_list|()
@@ -747,7 +747,7 @@ end_comment
 begin_function
 DECL|function|setSelection
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|setSelection
 parameter_list|(
@@ -777,7 +777,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QLineControl::setSelection: Invalid start position"
+literal|"QWidgetLineControl::setSelection: Invalid start position"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -913,7 +913,7 @@ end_function
 begin_function
 DECL|function|_q_clipboardChanged
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|_q_clipboardChanged
 parameter_list|()
@@ -922,7 +922,7 @@ end_function
 begin_function
 DECL|function|_q_deleteSelected
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|_q_deleteSelected
 parameter_list|()
@@ -962,7 +962,7 @@ end_comment
 begin_function
 DECL|function|init
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|init
 parameter_list|(
@@ -994,7 +994,7 @@ end_comment
 begin_function
 DECL|function|updatePasswordEchoEditing
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|updatePasswordEchoEditing
 parameter_list|(
@@ -1017,7 +1017,7 @@ end_comment
 begin_function
 DECL|function|xToPos
 name|int
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|xToPos
 parameter_list|(
@@ -1054,7 +1054,7 @@ end_comment
 begin_function
 DECL|function|cursorRect
 name|QRect
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|cursorRect
 parameter_list|()
@@ -1138,7 +1138,7 @@ end_comment
 begin_function
 DECL|function|fixup
 name|bool
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|fixup
 parameter_list|()
@@ -1220,7 +1220,7 @@ end_comment
 begin_function
 DECL|function|moveCursor
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|moveCursor
 parameter_list|(
@@ -1363,7 +1363,7 @@ end_comment
 begin_function
 DECL|function|processInputMethodEvent
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|processInputMethodEvent
 parameter_list|(
@@ -1935,7 +1935,7 @@ end_comment
 begin_function
 DECL|function|draw
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|draw
 parameter_list|(
@@ -2172,7 +2172,7 @@ end_comment
 begin_function
 DECL|function|selectWordAtPos
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|selectWordAtPos
 parameter_list|(
@@ -2267,7 +2267,7 @@ end_comment
 begin_function
 DECL|function|finishChange
 name|bool
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|finishChange
 parameter_list|(
@@ -2497,7 +2497,7 @@ end_comment
 begin_function
 DECL|function|internalSetText
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|internalSetText
 parameter_list|(
@@ -2663,7 +2663,7 @@ end_comment
 begin_function
 DECL|function|addCommand
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|addCommand
 parameter_list|(
@@ -2752,7 +2752,7 @@ end_comment
 begin_function
 DECL|function|internalInsert
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|internalInsert
 parameter_list|(
@@ -3001,7 +3001,7 @@ end_comment
 begin_function
 DECL|function|internalDelete
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|internalDelete
 parameter_list|(
@@ -3155,7 +3155,7 @@ end_comment
 begin_function
 DECL|function|removeSelectedText
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|removeSelectedText
 parameter_list|()
@@ -3449,7 +3449,7 @@ end_comment
 begin_function
 DECL|function|parseInputMask
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|parseInputMask
 parameter_list|(
@@ -4011,7 +4011,7 @@ end_comment
 begin_function
 DECL|function|isValidInput
 name|bool
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|isValidInput
 parameter_list|(
@@ -4399,7 +4399,7 @@ end_comment
 begin_function
 DECL|function|hasAcceptableInput
 name|bool
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|hasAcceptableInput
 parameter_list|(
@@ -4548,7 +4548,7 @@ end_comment
 begin_function
 DECL|function|maskString
 name|QString
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|maskString
 parameter_list|(
@@ -5001,7 +5001,7 @@ end_comment
 begin_function
 DECL|function|clearString
 name|QString
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|clearString
 parameter_list|(
@@ -5087,12 +5087,12 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Strips blank parts of the input in a QLineControl when an inputMask is set,     separators are still included. Typically "127.0__.0__.1__" becomes "127.0.0.1". */
+comment|/*!     \internal      Strips blank parts of the input in a QWidgetLineControl when an inputMask is set,     separators are still included. Typically "127.0__.0__.1__" becomes "127.0.0.1". */
 end_comment
 begin_function
 DECL|function|stripString
 name|QString
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|stripString
 parameter_list|(
@@ -5190,7 +5190,7 @@ end_comment
 begin_function
 DECL|function|findInMask
 name|int
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|findInMask
 parameter_list|(
@@ -5338,7 +5338,7 @@ end_function
 begin_function
 DECL|function|internalUndo
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|internalUndo
 parameter_list|(
@@ -5549,7 +5549,7 @@ end_function
 begin_function
 DECL|function|internalRedo
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|internalRedo
 parameter_list|()
@@ -5782,7 +5782,7 @@ end_comment
 begin_function
 DECL|function|emitCursorPositionChanged
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|emitCursorPositionChanged
 parameter_list|()
@@ -5847,7 +5847,7 @@ end_comment
 begin_function
 DECL|function|advanceToEnabledItem
 name|bool
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|advanceToEnabledItem
 parameter_list|(
@@ -5986,7 +5986,7 @@ end_function
 begin_function
 DECL|function|complete
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|complete
 parameter_list|(
@@ -6211,7 +6211,7 @@ end_endif
 begin_function
 DECL|function|setCursorBlinkPeriod
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|setCursorBlinkPeriod
 parameter_list|(
@@ -6294,7 +6294,7 @@ end_function
 begin_function
 DECL|function|resetCursorBlinkTimer
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|resetCursorBlinkTimer
 parameter_list|()
@@ -6333,7 +6333,7 @@ end_function
 begin_function
 DECL|function|timerEvent
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|timerEvent
 parameter_list|(
@@ -6424,7 +6424,7 @@ end_function
 begin_function
 DECL|function|processEvent
 name|bool
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|processEvent
 parameter_list|(
@@ -6981,7 +6981,7 @@ end_function
 begin_function
 DECL|function|processMouseEvent
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|processMouseEvent
 parameter_list|(
@@ -7279,7 +7279,7 @@ end_function
 begin_function
 DECL|function|processKeyEvent
 name|void
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|processKeyEvent
 parameter_list|(

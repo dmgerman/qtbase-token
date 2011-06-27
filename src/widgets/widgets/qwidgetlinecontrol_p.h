@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QLINECONTROL_P_H
+name|QWidgetLineControl_P_H
 end_ifndef
 begin_define
-DECL|macro|QLINECONTROL_P_H
+DECL|macro|QWidgetLineControl_P_H
 define|#
 directive|define
-name|QLINECONTROL_P_H
+name|QWidgetLineControl_P_H
 end_define
 begin_comment
 comment|//
@@ -103,7 +103,7 @@ name|Gui
 argument_list|)
 name|class
 name|Q_WIDGETS_EXPORT
-name|QLineControl
+name|QWidgetLineControl
 range|:
 name|public
 name|QObject
@@ -111,7 +111,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-name|QLineControl
+name|QWidgetLineControl
 argument_list|(
 specifier|const
 name|QString
@@ -261,7 +261,7 @@ name|txt
 argument_list|)
 block|;     }
 operator|~
-name|QLineControl
+name|QWidgetLineControl
 argument_list|()
 block|{
 name|delete
@@ -2826,6 +2826,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QLINECONTROL_P_H
+comment|// QWidgetLineControl_P_H
 end_comment
 end_unit

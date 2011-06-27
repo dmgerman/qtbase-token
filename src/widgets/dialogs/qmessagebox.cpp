@@ -1907,7 +1907,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|QTextControl
+name|QWidgetTextControl
 modifier|*
 name|control
 init|=
@@ -2086,7 +2086,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|QTextControl
+name|QWidgetTextControl
 modifier|*
 name|control
 init|=

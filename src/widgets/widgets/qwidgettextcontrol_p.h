@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QTEXTCONTROL_P_H
+name|QWIDGETTEXTCONTROL_P_H
 end_ifndef
 begin_define
-DECL|macro|QTEXTCONTROL_P_H
+DECL|macro|QWIDGETTEXTCONTROL_P_H
 define|#
 directive|define
-name|QTEXTCONTROL_P_H
+name|QWIDGETTEXTCONTROL_P_H
 end_define
 begin_comment
 comment|//
@@ -117,9 +117,9 @@ name|QMenu
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QTextControlPrivate
+DECL|variable|QWidgetTextControlPrivate
 name|class
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -149,7 +149,7 @@ end_decl_stmt
 begin_decl_stmt
 name|class
 name|Q_WIDGETS_EXPORT
-name|QTextControl
+name|QWidgetTextControl
 range|:
 name|public
 name|QObject
@@ -157,7 +157,7 @@ block|{
 name|Q_OBJECT
 name|Q_DECLARE_PRIVATE
 argument_list|(
-argument|QTextControl
+argument|QWidgetTextControl
 argument_list|)
 ifndef|#
 directive|ifndef
@@ -195,7 +195,7 @@ argument_list|)
 name|public
 operator|:
 name|explicit
-name|QTextControl
+name|QWidgetTextControl
 argument_list|(
 name|QObject
 operator|*
@@ -205,7 +205,7 @@ literal|0
 argument_list|)
 block|;
 name|explicit
-name|QTextControl
+name|QWidgetTextControl
 argument_list|(
 specifier|const
 name|QString
@@ -220,7 +220,7 @@ literal|0
 argument_list|)
 block|;
 name|explicit
-name|QTextControl
+name|QWidgetTextControl
 argument_list|(
 name|QTextDocument
 operator|*
@@ -235,7 +235,7 @@ argument_list|)
 block|;
 name|virtual
 operator|~
-name|QTextControl
+name|QWidgetTextControl
 argument_list|()
 block|;
 name|void
@@ -998,7 +998,7 @@ name|private
 operator|:
 name|Q_DISABLE_COPY
 argument_list|(
-argument|QTextControl
+argument|QWidgetTextControl
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(
@@ -1153,6 +1153,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QTEXTCONTROL_H
+comment|// QWidgetTextControl_H
 end_comment
 end_unit

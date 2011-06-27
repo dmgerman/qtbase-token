@@ -612,7 +612,7 @@ expr_stmt|;
 name|control
 operator|=
 operator|new
-name|QLineControl
+name|QWidgetLineControl
 argument_list|(
 name|txt
 argument_list|)

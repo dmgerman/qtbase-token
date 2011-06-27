@@ -653,7 +653,7 @@ operator|==
 name|text
 condition|)
 return|return;
-name|QTextControl
+name|QWidgetTextControl
 modifier|*
 name|oldControl
 init|=
@@ -6324,7 +6324,7 @@ block|{
 name|control
 operator|=
 operator|new
-name|QTextControl
+name|QWidgetTextControl
 argument_list|(
 cast|const_cast
 argument_list|<

@@ -183,7 +183,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qtextcontrol_p.h>
+file|<private/qwidgettextcontrol_p.h>
 end_include
 begin_include
 include|#
@@ -28710,11 +28710,11 @@ argument_list|)
 block|{ }
 DECL|member|control
 specifier|mutable
-name|QTextControl
+name|QWidgetTextControl
 modifier|*
 name|control
 decl_stmt|;
-name|QTextControl
+name|QWidgetTextControl
 modifier|*
 name|textControl
 parameter_list|()
@@ -29198,7 +29198,7 @@ modifier|&
 name|col
 parameter_list|)
 block|{
-name|QTextControl
+name|QWidgetTextControl
 modifier|*
 name|c
 init|=
@@ -31162,7 +31162,7 @@ block|}
 end_function
 begin_function
 DECL|function|textControl
-name|QTextControl
+name|QWidgetTextControl
 modifier|*
 name|QGraphicsTextItemPrivate
 operator|::
@@ -31192,7 +31192,7 @@ decl_stmt|;
 name|control
 operator|=
 operator|new
-name|QTextControl
+name|QWidgetTextControl
 argument_list|(
 name|that
 argument_list|)

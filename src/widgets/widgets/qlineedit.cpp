@@ -6561,7 +6561,7 @@ expr_stmt|;
 name|int
 name|flags
 init|=
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|DrawText
 decl_stmt|;
@@ -6618,7 +6618,7 @@ condition|)
 block|{
 name|flags
 operator||=
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|DrawSelections
 expr_stmt|;
@@ -6678,7 +6678,7 @@ argument_list|()
 condition|)
 name|flags
 operator||=
-name|QLineControl
+name|QWidgetLineControl
 operator|::
 name|DrawCursor
 expr_stmt|;
