@@ -10,11 +10,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qtextcontrol_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qgraphicsitem_p.h>
 end_include
 begin_include
