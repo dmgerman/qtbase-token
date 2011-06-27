@@ -3801,6 +3801,13 @@ operator|->
 name|incomingContentLength
 argument_list|)
 expr_stmt|;
+name|replyDownloadData
+argument_list|(
+name|delegate
+operator|->
+name|synchronousDownloadData
+argument_list|)
+expr_stmt|;
 name|httpError
 argument_list|(
 name|delegate
