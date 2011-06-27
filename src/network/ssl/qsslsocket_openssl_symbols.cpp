@@ -1953,6 +1953,46 @@ argument_list|(
 name|OPENSSL_NO_TLSEXT
 argument_list|)
 end_if
+begin_if
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10000000L
+end_if
+begin_macro
+name|DEFINEFUNC4
+argument_list|(
+argument|long
+argument_list|,
+argument|SSL_ctrl
+argument_list|,
+argument|SSL *a
+argument_list|,
+argument|a
+argument_list|,
+argument|int cmd
+argument_list|,
+argument|cmd
+argument_list|,
+argument|long larg
+argument_list|,
+argument|larg
+argument_list|,
+argument|void *parg
+argument_list|,
+argument|parg
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_else
+else|#
+directive|else
+end_else
 begin_macro
 name|DEFINEFUNC4
 argument_list|(
@@ -1982,6 +2022,10 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
