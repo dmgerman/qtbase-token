@@ -109,6 +109,8 @@ name|IPv4Protocol
 block|,
 name|IPv6Protocol
 block|,
+name|AnyIPProtocol
+block|,
 name|UnknownNetworkLayerProtocol
 operator|=
 operator|-

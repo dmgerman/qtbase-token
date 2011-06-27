@@ -10568,6 +10568,20 @@ argument_list|(
 literal|'>'
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|block
+operator|.
+name|begin
+argument_list|()
+operator|.
+name|atEnd
+argument_list|()
+condition|)
+name|html
+operator|+=
+literal|"<br />"
+expr_stmt|;
 name|QTextBlock
 operator|::
 name|Iterator

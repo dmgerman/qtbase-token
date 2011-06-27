@@ -39469,7 +39469,7 @@ name|fromTheme
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"media-skip-backward"
+literal|"media-skip-forward"
 argument_list|)
 argument_list|)
 operator|.

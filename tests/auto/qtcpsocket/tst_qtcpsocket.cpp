@@ -7779,7 +7779,7 @@ argument_list|()
 operator|==
 name|QHostAddress
 operator|::
-name|Any
+name|AnyIPv4
 operator|)
 operator|&&
 operator|!

@@ -140,6 +140,29 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
+begin_define
+DECL|macro|QT_SOCKLEN_T
+define|#
+directive|define
+name|QT_SOCKLEN_T
+value|int
+end_define
+begin_define
+DECL|macro|QT_SOCKOPTLEN_T
+define|#
+directive|define
+name|QT_SOCKOPTLEN_T
+value|int
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// sockaddr_in6 size changed between old and new SDK
 end_comment
@@ -888,6 +911,27 @@ argument|bool *selectForWrite
 argument_list|)
 specifier|const
 block|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|void
+name|setPortAndAddress
+argument_list|(
+argument|sockaddr_in * sockAddrIPv4
+argument_list|,
+argument|qt_sockaddr_in6 * sockAddrIPv6
+argument_list|,
+argument|quint16 port
+argument_list|,
+argument|const QHostAddress& address
+argument_list|,
+argument|sockaddr ** sockAddrPtr
+argument_list|,
+argument|QT_SOCKLEN_T *sockAddrSize
+argument_list|)
+block|;
+endif|#
+directive|endif
 name|void
 name|nativeClose
 argument_list|()

@@ -1123,6 +1123,20 @@ argument_list|,
 argument|(major_version_p, minor_version_p, micro_version_p)
 argument_list|, )
 end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|char*
+argument_list|,
+argument|dbus_get_local_machine_id
+argument_list|,
+argument|(void)
+argument_list|,
+argument|()
+argument_list|,
+argument|return
+argument_list|)
+end_macro
 begin_comment
 comment|/* dbus-pending-call.h */
 end_comment

@@ -9255,6 +9255,8 @@ argument_list|(
 name|iterator
 operator|.
 name|itemEnd
+operator|-
+literal|1
 argument_list|,
 name|from
 operator|+
@@ -9422,6 +9424,8 @@ operator|-
 name|si
 operator|.
 name|position
+operator|-
+literal|1
 operator|)
 operator|&&
 name|rtl

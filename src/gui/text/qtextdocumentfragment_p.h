@@ -373,6 +373,8 @@ block|{
 name|ContinueWithNextNode
 block|,
 name|ContinueWithCurrentNode
+block|,
+name|ContinueWithNextSibling
 block|}
 block|;
 name|void

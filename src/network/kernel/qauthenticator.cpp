@@ -486,9 +486,11 @@ name|userDomain
 operator|=
 name|user
 operator|.
-name|left
+name|mid
 argument_list|(
 name|separatorPosn
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 name|d

@@ -313,6 +313,11 @@ name|toDer
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QByteArray
+name|toText
+argument_list|()
+specifier|const
+expr_stmt|;
 specifier|static
 name|QList
 operator|<

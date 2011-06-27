@@ -102,11 +102,6 @@ argument_list|(
 operator|new
 name|QWaylandNativeInterface
 argument_list|)
-member_init_list|,
-name|mClipboard
-argument_list|(
-literal|0
-argument_list|)
 block|{ }
 end_constructor
 begin_function
@@ -403,21 +398,13 @@ name|clipboard
 parameter_list|()
 specifier|const
 block|{
-if|if
-condition|(
-operator|!
-name|mClipboard
-condition|)
-name|mClipboard
-operator|=
-operator|new
+return|return
 name|QWaylandClipboard
+operator|::
+name|instance
 argument_list|(
 name|mDisplay
 argument_list|)
-expr_stmt|;
-return|return
-name|mClipboard
 return|;
 block|}
 end_function

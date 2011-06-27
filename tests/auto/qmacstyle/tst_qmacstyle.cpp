@@ -20,7 +20,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
+name|Q_WS_MAC
 end_ifdef
 begin_decl_stmt
 DECL|variable|N

@@ -773,6 +773,11 @@ name|name
 parameter_list|)
 function_decl|;
 specifier|static
+name|QByteArray
+name|localMachineId
+parameter_list|()
+function_decl|;
+specifier|static
 name|QDBusConnection
 name|sessionBus
 parameter_list|()

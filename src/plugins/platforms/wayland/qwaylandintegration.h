@@ -136,11 +136,6 @@ block|;
 name|QPlatformNativeInterface
 operator|*
 name|mNativeInterface
-block|;
-name|mutable
-name|QPlatformClipboard
-operator|*
-name|mClipboard
 block|; }
 decl_stmt|;
 end_decl_stmt
