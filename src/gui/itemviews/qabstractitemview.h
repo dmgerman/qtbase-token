@@ -1364,6 +1364,12 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
+argument|void _q_rowsInserted(const QModelIndex&, int, int)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
 argument|void _q_rowsRemoved(const QModelIndex&, int, int)
 argument_list|)
 name|Q_PRIVATE_SLOT

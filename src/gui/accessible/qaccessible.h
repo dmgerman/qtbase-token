@@ -333,6 +333,7 @@ name|DefaultButton
 init|=
 literal|0x00000100
 block|,
+comment|// #### Qt5 Expandable
 name|Expanded
 init|=
 literal|0x00000200
@@ -422,6 +423,8 @@ name|Modal
 init|=
 literal|0x80000000
 block|,
+comment|// #### Qt5 ManagesDescendants
+comment|// #### Qt5 remove HasInvokeExtension
 name|HasInvokeExtension
 init|=
 literal|0x10000000
@@ -1116,6 +1119,8 @@ block|,
 name|ActionInterface
 block|,
 name|ImageInterface
+block|,
+name|Table2Interface
 block|}
 enum|;
 block|}
@@ -1160,6 +1165,12 @@ begin_decl_stmt
 DECL|variable|QAccessibleImageInterface
 name|class
 name|QAccessibleImageInterface
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QAccessibleTable2Interface
+name|class
+name|QAccessibleTable2Interface
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1549,6 +1560,28 @@ argument_list|(
 name|QAccessible2
 operator|::
 name|ImageInterface
+argument_list|)
+operator|)
+return|;
+block|}
+specifier|inline
+name|QAccessibleTable2Interface
+operator|*
+name|table2Interface
+argument_list|()
+block|{
+return|return
+name|reinterpret_cast
+operator|<
+name|QAccessibleTable2Interface
+operator|*
+operator|>
+operator|(
+name|cast_helper
+argument_list|(
+name|QAccessible2
+operator|::
+name|Table2Interface
 argument_list|)
 operator|)
 return|;

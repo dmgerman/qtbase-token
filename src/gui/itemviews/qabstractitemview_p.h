@@ -355,6 +355,17 @@ argument_list|)
 block|;
 name|virtual
 name|void
+name|_q_rowsInserted
+argument_list|(
+argument|const QModelIndex&parent
+argument_list|,
+argument|int start
+argument_list|,
+argument|int end
+argument_list|)
+block|;
+name|virtual
+name|void
 name|_q_columnsAboutToBeRemoved
 argument_list|(
 argument|const QModelIndex&parent
