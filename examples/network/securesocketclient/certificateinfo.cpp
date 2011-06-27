@@ -174,6 +174,14 @@ name|QSslCertificate
 operator|::
 name|Organization
 argument_list|)
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|" "
+argument_list|)
+argument_list|)
 argument_list|)
 operator|.
 name|arg
@@ -185,6 +193,14 @@ argument_list|(
 name|QSslCertificate
 operator|::
 name|CommonName
+argument_list|)
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|" "
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -265,6 +281,14 @@ name|QSslCertificate
 operator|::
 name|Organization
 argument_list|)
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|" "
+argument_list|)
+argument_list|)
 argument_list|)
 operator|<<
 name|tr
@@ -281,6 +305,14 @@ argument_list|(
 name|QSslCertificate
 operator|::
 name|OrganizationalUnitName
+argument_list|)
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|" "
+argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
@@ -299,6 +331,14 @@ name|QSslCertificate
 operator|::
 name|CountryName
 argument_list|)
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|" "
+argument_list|)
+argument_list|)
 argument_list|)
 operator|<<
 name|tr
@@ -315,6 +355,14 @@ argument_list|(
 name|QSslCertificate
 operator|::
 name|LocalityName
+argument_list|)
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|" "
+argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
@@ -333,6 +381,14 @@ name|QSslCertificate
 operator|::
 name|StateOrProvinceName
 argument_list|)
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|" "
+argument_list|)
+argument_list|)
 argument_list|)
 operator|<<
 name|tr
@@ -349,6 +405,14 @@ argument_list|(
 name|QSslCertificate
 operator|::
 name|CommonName
+argument_list|)
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|" "
+argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
@@ -370,6 +434,14 @@ name|QSslCertificate
 operator|::
 name|Organization
 argument_list|)
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|" "
+argument_list|)
+argument_list|)
 argument_list|)
 operator|<<
 name|tr
@@ -386,6 +458,14 @@ argument_list|(
 name|QSslCertificate
 operator|::
 name|OrganizationalUnitName
+argument_list|)
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|" "
+argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
@@ -404,6 +484,14 @@ name|QSslCertificate
 operator|::
 name|CountryName
 argument_list|)
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|" "
+argument_list|)
+argument_list|)
 argument_list|)
 operator|<<
 name|tr
@@ -420,6 +508,14 @@ argument_list|(
 name|QSslCertificate
 operator|::
 name|LocalityName
+argument_list|)
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|" "
+argument_list|)
 argument_list|)
 argument_list|)
 operator|<<
@@ -438,6 +534,14 @@ name|QSslCertificate
 operator|::
 name|StateOrProvinceName
 argument_list|)
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|" "
+argument_list|)
+argument_list|)
 argument_list|)
 operator|<<
 name|tr
@@ -454,6 +558,14 @@ argument_list|(
 name|QSslCertificate
 operator|::
 name|CommonName
+argument_list|)
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|" "
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
