@@ -10556,7 +10556,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|UniteClip
+name|IntersectClip
 operator|+
 literal|1
 argument_list|)
@@ -10648,7 +10648,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|UniteClip
+name|IntersectClip
 operator|+
 literal|1
 argument_list|)
@@ -10766,7 +10766,7 @@ argument_list|)
 argument_list|,
 name|Qt
 operator|::
-name|UniteClip
+name|IntersectClip
 operator|+
 literal|1
 argument_list|)

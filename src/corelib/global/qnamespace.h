@@ -5019,8 +5019,6 @@ block|,
 name|ReplaceClip
 block|,
 name|IntersectClip
-block|,
-name|UniteClip
 block|}
 enum|;
 end_enum

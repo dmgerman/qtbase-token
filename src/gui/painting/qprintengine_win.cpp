@@ -3045,10 +3045,7 @@ name|RGN_COPY
 block|,
 comment|// Qt::ReplaceClip
 name|RGN_AND
-block|,
 comment|// Qt::IntersectClip
-name|RGN_OR
-comment|// Qt::UniteClip
 block|}
 decl_stmt|;
 name|Q_ASSERT
