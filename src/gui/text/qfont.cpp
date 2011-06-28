@@ -189,7 +189,12 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<QMutexLocker>
+file|<QtCore/QMutexLocker>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QMutex>
 end_include
 begin_comment
 comment|// #define QFONTCACHE_DEBUG
