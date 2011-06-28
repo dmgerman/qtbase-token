@@ -60,23 +60,6 @@ argument|QObject *parent =
 literal|0
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QSocketNotifier
-argument_list|(
-argument|int socket
-argument_list|,
-argument|Type
-argument_list|,
-argument|QObject *parent
-argument_list|,
-argument|const char *name
-argument_list|)
-block|;
-endif|#
-directive|endif
 operator|~
 name|QSocketNotifier
 argument_list|()

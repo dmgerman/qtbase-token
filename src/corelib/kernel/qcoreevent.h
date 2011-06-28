@@ -508,43 +508,10 @@ init|=
 literal|51
 block|,
 comment|// shortcut override request
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|Accel
-init|=
-literal|30
-block|,
-comment|// accelerator event
-name|AccelAvailable
-init|=
-literal|32
-block|,
-comment|// accelerator available event
-name|AccelOverride
-init|=
-name|ShortcutOverride
-block|,
-comment|// accelerator override event
-endif|#
-directive|endif
 name|WhatsThisClicked
 init|=
 literal|118
 block|,
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|CaptionChange
-init|=
-name|WindowTitleChange
-block|,
-name|IconChange
-init|=
-name|WindowIconChange
-block|,
-endif|#
-directive|endif
 name|ToolBarChange
 init|=
 literal|120
