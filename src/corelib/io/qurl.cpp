@@ -38914,6 +38914,16 @@ operator|-
 name|pos
 argument_list|)
 expr_stmt|;
+name|query
+operator|=
+name|d
+operator|->
+name|query
+operator|.
+name|constData
+argument_list|()
+expr_stmt|;
+comment|//required if remove detach;
 block|}
 else|else
 block|{
