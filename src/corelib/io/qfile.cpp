@@ -690,18 +690,6 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT3_SUPPORT
-end_ifdef
-begin_comment
-comment|/*!     \typedef QFile::PermissionSpec      Use QFile::Permission instead. */
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
 name|QT_NO_QOBJECT
 end_ifdef
 begin_constructor

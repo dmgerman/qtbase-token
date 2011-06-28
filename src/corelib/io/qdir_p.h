@@ -142,17 +142,6 @@ operator|::
 name|Filters
 name|filters
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QChar
-name|filterSepChar
-block|;
-name|bool
-name|matchAllDirs
-block|;
-endif|#
-directive|endif
 name|QScopedPointer
 operator|<
 name|QAbstractFileEngine
