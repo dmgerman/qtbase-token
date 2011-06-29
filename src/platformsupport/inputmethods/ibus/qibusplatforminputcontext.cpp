@@ -123,6 +123,13 @@ name|QIBusPlatformInputContextPrivate
 argument_list|()
 argument_list|)
 block|{
+if|if
+condition|(
+name|d
+operator|->
+name|context
+condition|)
+block|{
 name|connect
 argument_list|(
 name|d
@@ -179,6 +186,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_constructor
 begin_destructor
@@ -1246,6 +1254,9 @@ argument_list|)
 block|{
 if|if
 condition|(
+operator|!
+name|connection
+operator|||
 operator|!
 name|connection
 operator|->
