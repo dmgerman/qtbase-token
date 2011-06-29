@@ -18458,7 +18458,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_WIN
+name|Q_WS_WIN
 argument_list|)
 operator|||
 name|defined

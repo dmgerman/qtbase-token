@@ -191,6 +191,7 @@ end_comment
 begin_struct
 DECL|struct|glyph_metrics_t
 struct|struct
+name|Q_GUI_EXPORT
 name|glyph_metrics_t
 block|{
 DECL|function|glyph_metrics_t
