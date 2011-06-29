@@ -10747,6 +10747,11 @@ argument_list|()
 operator|->
 name|hoverGlobalPos
 argument_list|)
+argument_list|,
+name|QApplication
+operator|::
+name|keyboardModifiers
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|qApp
@@ -10888,6 +10893,11 @@ argument_list|,
 operator|-
 literal|1
 argument_list|)
+argument_list|,
+name|QApplication
+operator|::
+name|keyboardModifiers
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|qApp
@@ -15717,6 +15727,11 @@ argument_list|,
 name|relpos
 operator|-
 name|diff
+argument_list|,
+name|mouse
+operator|->
+name|modifiers
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|d

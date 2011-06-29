@@ -461,7 +461,7 @@ name|Q_GUI_EXPORT
 name|QHoverEvent
 range|:
 name|public
-name|QEvent
+name|QInputEvent
 block|{
 name|public
 operator|:
@@ -472,6 +472,8 @@ argument_list|,
 argument|const QPointF&pos
 argument_list|,
 argument|const QPointF&oldPos
+argument_list|,
+argument|Qt::KeyboardModifiers modifiers = Qt::NoModifier
 argument_list|)
 block|;
 operator|~
