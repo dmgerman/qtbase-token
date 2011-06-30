@@ -3033,6 +3033,11 @@ operator|delete
 index|[]
 name|alphaValues
 expr_stmt|;
+name|glyphAnalysis
+operator|->
+name|Release
+argument_list|()
+expr_stmt|;
 return|return
 name|img
 return|;
@@ -3043,6 +3048,11 @@ operator|delete
 index|[]
 name|alphaValues
 expr_stmt|;
+name|glyphAnalysis
+operator|->
+name|Release
+argument_list|()
+expr_stmt|;
 name|qErrnoWarning
 argument_list|(
 literal|"QFontEngineDirectWrite::imageForGlyph: CreateAlphaTexture failed"
@@ -3050,11 +3060,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|glyphAnalysis
-operator|->
-name|Release
-argument_list|()
-expr_stmt|;
 block|}
 else|else
 block|{
