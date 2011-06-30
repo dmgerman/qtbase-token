@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qregexp.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qtimer.h>
 end_include
 begin_include
@@ -1168,35 +1173,22 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-comment|// in the case of \" already being in the string the \ must also be escaped
+comment|// Quotes are escaped and their preceding backslashes are doubled.
 name|tmp
 operator|.
 name|replace
 argument_list|(
+name|QRegExp
+argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"\\\""
+literal|"(\\\\*)\""
+argument_list|)
 argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"\\\\\""
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// escape a single " because the arguments will be parsed
-name|tmp
-operator|.
-name|replace
-argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'\"'
-argument_list|)
-argument_list|,
-name|QLatin1String
-argument_list|(
-literal|"\\\""
+literal|"\\1\\1\\\""
 argument_list|)
 argument_list|)
 expr_stmt|;
