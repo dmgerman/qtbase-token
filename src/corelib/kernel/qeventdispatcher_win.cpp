@@ -3262,23 +3262,6 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_function
-DECL|function|dispatchGuiEvents
-name|bool
-name|QEventDispatcherWin32
-operator|::
-name|dispatchGuiEvents
-parameter_list|(
-name|QEventLoop
-operator|::
-name|ProcessEventsFlags
-parameter_list|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-end_function
-begin_function
 DECL|function|processEvents
 name|bool
 name|QEventDispatcherWin32
@@ -3898,11 +3881,6 @@ name|DispatchMessage
 argument_list|(
 operator|&
 name|msg
-argument_list|)
-expr_stmt|;
-name|dispatchGuiEvents
-argument_list|(
-name|flags
 argument_list|)
 expr_stmt|;
 block|}
