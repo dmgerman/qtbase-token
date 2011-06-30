@@ -6725,7 +6725,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     \since 4.x     Creates a key sequence from the \a key string based on \a format. */
+comment|/*!     \since 4.7     Creates a key sequence from the \a key string based on \a format. */
 end_comment
 begin_constructor
 DECL|function|QKeySequence
@@ -7450,7 +7450,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn int QKeySequence::assign(const QString&keys, QKeySequence::SequenceFormat format)     \since 4.x      Adds the given \a keys to the key sequence (based on \a format).     \a keys may contain up to four key codes, provided they are     separated by a comma; for example, "Alt+X,Ctrl+S,Z". The return     value is the number of key codes added. */
+comment|/*!     \fn int QKeySequence::assign(const QString&keys, QKeySequence::SequenceFormat format)     \since 4.7      Adds the given \a keys to the key sequence (based on \a format).     \a keys may contain up to four key codes, provided they are     separated by a comma; for example, "Alt+X,Ctrl+S,Z". The return     value is the number of key codes added. */
 end_comment
 begin_function
 DECL|function|assign
