@@ -68,6 +68,11 @@ include|#
 directive|include
 file|<QtCore/qrunnable.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qthreadpool.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -524,6 +529,28 @@ name|QRunnable
 modifier|*
 name|runnable
 decl_stmt|;
+name|QThreadPool
+modifier|*
+name|m_pool
+decl_stmt|;
+specifier|inline
+name|QThreadPool
+operator|*
+name|pool
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_pool
+operator|?
+name|m_pool
+operator|:
+name|QThreadPool
+operator|::
+name|globalInstance
+argument_list|()
+return|;
+block|}
 comment|// Internal functions that does not change the mutex state.
 comment|// The mutex must be locked when calling these.
 name|int

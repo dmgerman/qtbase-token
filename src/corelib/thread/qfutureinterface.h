@@ -51,6 +51,12 @@ name|QFuture
 expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
+DECL|variable|QThreadPool
+name|class
+name|QThreadPool
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QFutureInterfaceBasePrivate
 name|class
 name|QFutureInterfaceBasePrivate
@@ -168,6 +174,14 @@ parameter_list|(
 name|QRunnable
 modifier|*
 name|runnable
+parameter_list|)
+function_decl|;
+name|void
+name|setThreadPool
+parameter_list|(
+name|QThreadPool
+modifier|*
+name|pool
 parameter_list|)
 function_decl|;
 name|void
