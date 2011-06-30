@@ -1223,15 +1223,6 @@ block|{
 comment|// The argument must not end with a \ since this would be interpreted
 comment|// as escaping the quote -- rather put the \ behind the quote: e.g.
 comment|// rather use "foo"\ than "foo\"
-name|QString
-name|endQuote
-argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'\"'
-argument_list|)
-argument_list|)
-decl_stmt|;
 name|int
 name|i
 init|=
@@ -1260,37 +1251,32 @@ argument_list|(
 literal|'\\'
 argument_list|)
 condition|)
-block|{
 operator|--
 name|i
 expr_stmt|;
-name|endQuote
-operator|+=
-name|QLatin1Char
-argument_list|(
-literal|'\\'
-argument_list|)
-expr_stmt|;
-block|}
-name|args
-operator|+=
-name|QLatin1String
-argument_list|(
-literal|" \""
-argument_list|)
-operator|+
 name|tmp
 operator|.
-name|left
+name|insert
 argument_list|(
 name|i
+argument_list|,
+name|QLatin1Char
+argument_list|(
+literal|'"'
 argument_list|)
-operator|+
-name|endQuote
+argument_list|)
+expr_stmt|;
+name|tmp
+operator|.
+name|prepend
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'"'
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
 name|args
 operator|+=
 name|QLatin1Char
@@ -1300,7 +1286,6 @@ argument_list|)
 operator|+
 name|tmp
 expr_stmt|;
-block|}
 block|}
 return|return
 name|args
