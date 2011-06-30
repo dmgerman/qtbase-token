@@ -507,6 +507,12 @@ name|class
 name|QRawFontPrivate
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|friend
+name|class
+name|QTextLayout
+decl_stmt|;
+end_decl_stmt
 begin_function_decl
 name|void
 name|detach
