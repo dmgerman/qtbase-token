@@ -367,7 +367,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Returns the angle of the line in degrees.      Positive values for the angles mean counter-clockwise while negative values     mean the clockwise direction. Zero degrees is at the 3 o'clock position.      \sa setAngle() */
+comment|/*!     \since 4.4      Returns the angle of the line in degrees.      The return value will be in the range of values from 0.0 up to but not     including 360.0. The angles are measured counter-clockwise from a point     on the x-axis to the right of the origin (x> 0).      \sa setAngle() */
 end_comment
 begin_function
 DECL|function|angle
