@@ -1855,14 +1855,6 @@ literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"IPV6"
-index|]
-operator|=
-literal|"yes"
-expr_stmt|;
-comment|// Always, dynamically loaded
-name|dictionary
-index|[
 literal|"OPENSSL"
 index|]
 operator|=
@@ -10080,14 +10072,6 @@ index|]
 operator|=
 literal|"yes"
 expr_stmt|;
-comment|// On Symbian we now always will have IPv6 with no chance to disable it
-name|dictionary
-index|[
-literal|"IPV6"
-index|]
-operator|=
-literal|"yes"
-expr_stmt|;
 name|dictionary
 index|[
 literal|"STL"
@@ -16081,7 +16065,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  Things that affect the Qt API/ABI:    Options:      minimal-config small-config medium-config large-config full-config     Options:      debug release      stl   Things that do not affect the Qt API/ABI:      system-jpeg no-jpeg jpeg      system-mng no-mng mng      system-png no-png png      system-zlib no-zlib zlib      system-tiff no-tiff tiff      no-gif gif      dll staticlib       nocrosscompiler      GNUmake      largefile      nis      nas      tablet      ipv6       X11     : x11sm xinerama xcursor xfixes xrandr xrender fontconfig xkb      Embedded: embedded freetype */
+comment|/*  Things that affect the Qt API/ABI:    Options:      minimal-config small-config medium-config large-config full-config     Options:      debug release      stl   Things that do not affect the Qt API/ABI:      system-jpeg no-jpeg jpeg      system-mng no-mng mng      system-png no-png png      system-zlib no-zlib zlib      system-tiff no-tiff tiff      no-gif gif      dll staticlib       nocrosscompiler      GNUmake      largefile      nis      nas      tablet       X11     : x11sm xinerama xcursor xfixes xrandr xrender fontconfig xkb      Embedded: embedded freetype */
 end_comment
 begin_function
 DECL|function|generateBuildKey
@@ -17441,33 +17425,6 @@ condition|)
 name|qtConfig
 operator|+=
 literal|"dbus dbus-linked"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"IPV6"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|qtConfig
-operator|+=
-literal|"ipv6"
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"IPV6"
-index|]
-operator|==
-literal|"no"
-condition|)
-name|qtConfig
-operator|+=
-literal|"no-ipv6"
 expr_stmt|;
 if|if
 condition|(
@@ -20634,19 +20591,6 @@ condition|)
 name|qconfigList
 operator|+=
 literal|"QT_NO_DBUS"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"IPV6"
-index|]
-operator|==
-literal|"no"
-condition|)
-name|qconfigList
-operator|+=
-literal|"QT_NO_IPV6"
 expr_stmt|;
 if|if
 condition|(

@@ -57,20 +57,11 @@ end_comment
 begin_comment
 comment|/* Make sure IP v6 is defined first of all, before windows.h     */
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_IPV6
-end_ifndef
 begin_include
 include|#
 directive|include
 file|<winsock2.h>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include

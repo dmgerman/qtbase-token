@@ -2634,43 +2634,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_NO_IPV6
-argument_list|)
-if|if
-condition|(
-name|host
-operator|.
-name|protocol
-argument_list|()
-operator|==
-name|QAbstractSocket
-operator|::
-name|IPv6Protocol
-condition|)
-block|{
-comment|// If we have no IPv6 support, then we will not be able to
-comment|// connect. So we just pretend we didn't see this address.
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QABSTRACTSOCKET_DEBUG
-argument_list|)
-name|qDebug
-argument_list|(
-literal|"QAbstractSocketPrivate::_q_connectToNextAddress(), skipping IPv6 entry"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-continue|continue;
-block|}
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!

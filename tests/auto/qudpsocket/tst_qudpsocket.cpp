@@ -2127,21 +2127,6 @@ operator|::
 name|ipv6Loop
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_NO_IPV6
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"IPv6 is not yet supported"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QByteArray
