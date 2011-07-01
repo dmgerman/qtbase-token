@@ -248,6 +248,8 @@ argument_list|,
 argument|quint16 port
 argument_list|,
 argument|OpenMode mode = ReadWrite
+argument_list|,
+argument|NetworkLayerProtocol protocol = AnyIPProtocol
 argument_list|)
 block|;
 name|void
