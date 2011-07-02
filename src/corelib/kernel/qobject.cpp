@@ -3381,7 +3381,7 @@ name|needToUnlock
 condition|)
 name|m
 operator|->
-name|unlockInline
+name|unlock
 argument_list|()
 expr_stmt|;
 name|connectionList
@@ -3499,7 +3499,7 @@ condition|)
 block|{
 name|m
 operator|->
-name|unlockInline
+name|unlock
 argument_list|()
 expr_stmt|;
 continue|continue;
@@ -3543,7 +3543,7 @@ name|needToUnlock
 condition|)
 name|m
 operator|->
-name|unlockInline
+name|unlock
 argument_list|()
 expr_stmt|;
 block|}
@@ -10414,7 +10414,7 @@ name|needToUnlock
 condition|)
 name|receiverMutex
 operator|->
-name|unlockInline
+name|unlock
 argument_list|()
 expr_stmt|;
 name|c
