@@ -117,20 +117,12 @@ end_if
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
-name|QT_NO_ICONV
-argument_list|)
-operator|&&
 operator|!
 name|defined
 argument_list|(
 name|QT_BOOTSTRAPPED
 argument_list|)
 end_if
-begin_comment
-comment|// no iconv(3) support, must build all codecs into the library
-end_comment
 begin_include
 include|#
 directive|include
@@ -166,7 +158,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_ICONV
+comment|// !QT_BOOTSTRAPPED
 end_comment
 begin_if
 if|#
@@ -3745,13 +3737,6 @@ operator|)
 operator|new
 name|QFontLaoCodec
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_NO_ICONV
-argument_list|)
-comment|// no iconv(3) support, must build all codecs into the library
 operator|(
 name|void
 operator|)
@@ -3802,10 +3787,7 @@ name|QFontBig5Codec
 expr_stmt|;
 endif|#
 directive|endif
-comment|// QT_NO_ICONV&& !QT_BOOTSTRAPPED
-endif|#
-directive|endif
-comment|// Q_OS_UNIX
+comment|// Q_OS_UNIX&& !QT_BOOTSTRAPPED
 if|#
 directive|if
 operator|!
@@ -3815,11 +3797,6 @@ name|Q_OS_INTEGRITY
 argument_list|)
 if|#
 directive|if
-name|defined
-argument_list|(
-name|QT_NO_ICONV
-argument_list|)
-operator|&&
 operator|!
 name|defined
 argument_list|(
@@ -3888,7 +3865,7 @@ name|QBig5hkscsCodec
 expr_stmt|;
 endif|#
 directive|endif
-comment|// QT_NO_ICONV&& !QT_BOOTSTRAPPED
+comment|// !QT_BOOTSTRAPPED
 endif|#
 directive|endif
 comment|// !Q_OS_INTEGRITY
