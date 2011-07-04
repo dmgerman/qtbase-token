@@ -8521,16 +8521,6 @@ literal|true
 expr_stmt|;
 return|return;
 block|}
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-emit|emit
-name|connectionClosed
-argument_list|()
-emit|;
-comment|// compat signal
-endif|#
-directive|endif
 comment|// Disable and delete read notification
 if|if
 condition|(
@@ -8847,16 +8837,6 @@ name|readChannelFinished
 argument_list|()
 emit|;
 comment|// we got an EOF
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-emit|emit
-name|delayedCloseFinished
-argument_list|()
-emit|;
-comment|// compat signal
-endif|#
-directive|endif
 comment|// only emit disconnected if we were connected before
 if|if
 condition|(
@@ -9269,39 +9249,6 @@ directive|endif
 end_endif
 begin_comment
 comment|// QT_NO_NETWORKPROXY
-end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-end_ifdef
-begin_comment
-comment|/*!      \enum QAbstractSocket::Error     \compat      Use QAbstractSocket::SocketError instead.      \value ErrConnectionRefused Use QAbstractSocket::ConnectionRefusedError instead.     \value ErrHostNotFound Use QAbstractSocket::HostNotFoundError instead.     \value ErrSocketRead Use QAbstractSocket::UnknownSocketError instead. */
-end_comment
-begin_comment
-comment|/*!     \typedef QAbstractSocket::State     \compat      Use QAbstractSocket::SocketState instead.      \table     \header \o Qt 3 enum value \o Qt 4 enum value     \row \o \c Idle            \o \l UnconnectedState     \row \o \c HostLookup      \o \l HostLookupState     \row \o \c Connecting      \o \l ConnectingState     \row \o \c Connected       \o \l ConnectedState     \row \o \c Closing         \o \l ClosingState     \row \o \c Connection      \o \l ConnectedState     \endtable */
-end_comment
-begin_comment
-comment|/*!     \fn int QAbstractSocket::socket() const      Use socketDescriptor() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QAbstractSocket::setSocket(int socket)      Use setSocketDescriptor() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn Q_ULONG QAbstractSocket::waitForMore(int msecs, bool *timeout = 0) const      Use waitForReadyRead() instead.      \oldcode         bool timeout;         Q_ULONG numBytes = socket->waitForMore(30000,&timeout);     \newcode         qint64 numBytes = 0;         if (socket->waitForReadyRead(msecs))             numBytes = socket->bytesAvailable();         bool timeout = (error() == QAbstractSocket::SocketTimeoutError);     \endcode      \sa waitForReadyRead(), bytesAvailable(), error(), SocketTimeoutError */
-end_comment
-begin_comment
-comment|/*!     \fn void QAbstractSocket::connectionClosed()      Use disconnected() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QAbstractSocket::delayedCloseFinished()      Use disconnected() instead. */
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT3_SUPPORT
 end_comment
 begin_ifndef
 ifndef|#

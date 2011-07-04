@@ -964,33 +964,6 @@ argument_list|,
 argument|qint64 maxlen
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-specifier|inline
-name|QT3_SUPPORT
-name|qint64
-name|readBlock
-argument_list|(
-argument|char *data
-argument_list|,
-argument|quint64 maxlen
-argument_list|)
-block|{
-return|return
-name|read
-argument_list|(
-name|data
-argument_list|,
-name|qint64
-argument_list|(
-name|maxlen
-argument_list|)
-argument_list|)
-return|;
-block|}
-endif|#
-directive|endif
 name|QByteArray
 name|readAll
 argument_list|()
