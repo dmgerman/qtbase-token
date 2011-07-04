@@ -155,9 +155,12 @@ name|args
 argument_list|)
 operator|:
 name|QList
-argument_list|(
-argument|args
-argument_list|)
+operator|<
+name|QString
+operator|>
+operator|(
+name|args
+operator|)
 block|{ }
 endif|#
 directive|endif
