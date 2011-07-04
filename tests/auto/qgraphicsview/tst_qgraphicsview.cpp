@@ -23137,7 +23137,7 @@ name|move
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Check that no draggin has occured...
+comment|// Check that no draggin has occurred...
 name|QCOMPARE
 argument_list|(
 name|basePos

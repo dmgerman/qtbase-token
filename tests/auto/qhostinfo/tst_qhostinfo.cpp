@@ -892,7 +892,7 @@ operator|::
 name|init
 parameter_list|()
 block|{
-comment|// delete the cache so inidividual testcase results are independant from each other
+comment|// delete the cache so inidividual testcase results are independent from each other
 name|qt_qhostinfo_clear_cache
 argument_list|()
 expr_stmt|;

@@ -9546,7 +9546,7 @@ argument_list|()
 return|;
 block|}
 comment|// Accumulate the bounding box in device space. This is not 100%
-comment|// precise, but it fits within the guarantee and it is resonably
+comment|// precise, but it fits within the guarantee and it is reasonably
 comment|// fast.
 name|QRectF
 name|bounds

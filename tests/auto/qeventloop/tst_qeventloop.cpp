@@ -878,7 +878,7 @@ directive|else
 comment|// In here we try to use timers and sockets exclusively using the Symbian
 comment|// active scheduler and no processEvents().
 comment|// This test should therefore be run first, so that we can verify that
-comment|// the first occurrence of processEvents does not do any initalization that
+comment|// the first occurrence of processEvents does not do any initialization that
 comment|// we depend on.
 comment|// Open up a pipe so we can test socket notifiers.
 name|int

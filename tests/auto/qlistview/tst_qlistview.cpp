@@ -5797,7 +5797,7 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-comment|// depending on wether the display is double-pixeld, we need
+comment|// depending on whether the display is double-pixeld, we need
 comment|// to click at a different position
 name|bool
 name|doubledSize

@@ -1403,7 +1403,7 @@ name|isVisible
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//context menus can allways be accessed with right click except on windows
+comment|//context menus can always be accessed with right click except on windows
 name|menu
 operator|.
 name|show

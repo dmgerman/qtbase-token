@@ -399,7 +399,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*     Test that the apropriate signals are emitted when the cliboard     contents is changed by calling the qt funcitons. */
+comment|/*     Test that the appropriate signals are emitted when the cliboard     contents is changed by calling the qt functions. */
 end_comment
 begin_function
 DECL|function|testSignals
@@ -595,7 +595,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|// Test the selction mode signal.
+comment|// Test the selection mode signal.
 if|if
 condition|(
 name|clipboard

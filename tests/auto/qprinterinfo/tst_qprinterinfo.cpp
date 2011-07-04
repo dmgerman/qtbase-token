@@ -1249,7 +1249,7 @@ block|{
 name|qDebug
 argument_list|()
 operator|<<
-literal|"Avaliable printers: "
+literal|"Available printers: "
 operator|<<
 name|qtPrinters
 expr_stmt|;

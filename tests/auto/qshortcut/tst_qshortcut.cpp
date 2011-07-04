@@ -8662,7 +8662,7 @@ operator|->
 name|clear
 argument_list|()
 expr_stmt|;
-comment|// edit doens't have focus, so ActiveWindow context should work
+comment|// edit doesn't have focus, so ActiveWindow context should work
 comment|// ..but Focus context shouldn't..
 comment|// Changing focus to edit should make focus context work
 comment|// Application context should always work

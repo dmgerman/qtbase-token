@@ -43,7 +43,7 @@ begin_comment
 comment|//TESTED_FILES=gui/itemviews/qstandarditemmodel.h gui/itemviews/qstandarditemmodel.cpp
 end_comment
 begin_comment
-comment|/*!     See modelstotest.cpp for instructions on how to have your model tested with these tests.      Each test such as rowCount have a _data() function which populate the QTest data with     the tests specified by modelstotest.cpp and any extra data needed for that perticular test.      setupWithNoTestData() fills the QTest data with just the tests and is used by most tests.      There are some basic qDebug statements sprikled about that might be helpfull for fixing     your issues.  */
+comment|/*!     See modelstotest.cpp for instructions on how to have your model tested with these tests.      Each test such as rowCount have a _data() function which populate the QTest data with     the tests specified by modelstotest.cpp and any extra data needed for that particular test.      setupWithNoTestData() fills the QTest data with just the tests and is used by most tests.      There are some basic qDebug statements sprikled about that might be helpfull for fixing     your issues.  */
 end_comment
 begin_class
 DECL|class|tst_QItemModel
@@ -514,7 +514,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     nonDestructiveBasicTest trys to call a number of the basic functions (not all)     to make sure the model doesn't segfault, testing the functions that makes sense.  */
+comment|/*!     nonDestructiveBasicTest tries to call a number of the basic functions (not all)     to make sure the model doesn't segfault, testing the functions that makes sense.  */
 end_comment
 begin_function
 DECL|function|nonDestructiveBasicTest
@@ -2188,7 +2188,7 @@ name|topIndex
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Common error test #3, the second colum has the same children
+comment|// Common error test #3, the second column has the same children
 comment|// as the first column in a row.
 name|QModelIndex
 name|topIndex1
@@ -4423,7 +4423,7 @@ argument_list|,
 name|FAIL
 argument_list|)
 expr_stmt|;
-comment|// Recursive remove's might assert, havn't decided yet...
+comment|// Recursive remove's might assert, haven't decided yet...
 comment|//makeTestRow(":one at the start recursivly",  START,  DEFAULTCOUNT, 2, DNS, 2, DNS, RECURSIVE, START, DEFAULTCOUNT, FAIL);
 comment|//makeTestRow(":one at the middle recursivly", MIDDLE, DEFAULTCOUNT, 2, DNS, 2, DNS, RECURSIVE, START, DEFAULTCOUNT, SUCCESS);
 comment|//makeTestRow(":one at the end recursivly",    END,    DEFAULTCOUNT, 2, DNS, 2, DNS, RECURSIVE, START, DEFAULTCOUNT, SUCCESS);
@@ -4505,7 +4505,7 @@ name|shouldSucceed
 argument_list|)
 expr_stmt|;
 comment|// Populate the test area so we can remove something.  See: cleanup()
-comment|// parentOfRemoved is stored so that the slots can make sure parentOfRemoved is the index that is emited.
+comment|// parentOfRemoved is stored so that the slots can make sure parentOfRemoved is the index that is emitted.
 name|parentOfRemoved
 operator|=
 name|testModels
@@ -4579,7 +4579,7 @@ return|return;
 block|}
 comment|//qDebug()<< "remove start:"<< start<< "count:"<< count<< "rowCount:"<< currentModel->rowCount(parentOfRemoved);
 comment|// When a row or column is removed there should be two signals.
-comment|// Watch to make sure they are emited and get the row/column count when they do get emited by connecting them to a slot
+comment|// Watch to make sure they are emitted and get the row/column count when they do get emitted by connecting them to a slot
 name|qRegisterMetaType
 argument_list|<
 name|QModelIndex
@@ -5041,7 +5041,7 @@ name|parent
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Only the row signals should have been emited
+comment|// Only the row signals should have been emitted
 if|if
 condition|(
 name|modelResetSpy
@@ -5143,7 +5143,7 @@ name|numberOfRowsRemovedSignals
 argument_list|)
 expr_stmt|;
 block|}
-comment|// The row count should only change *after* rowsAboutToBeRemoved has been emited
+comment|// The row count should only change *after* rowsAboutToBeRemoved has been emitted
 comment|//qDebug()<< beforeRemoveRowCount<< afterAboutToRemoveRowCount<< afterRemoveRowCount<< currentModel->rowCount(parentOfRemoved);
 if|if
 condition|(
@@ -5510,7 +5510,7 @@ name|numberOfRowsRemovedSignals
 argument_list|)
 expr_stmt|;
 block|}
-comment|// The column count should only change *after* rowsAboutToBeRemoved has been emited
+comment|// The column count should only change *after* rowsAboutToBeRemoved has been emitted
 if|if
 condition|(
 name|shouldSucceed
@@ -7023,7 +7023,7 @@ argument_list|,
 name|FAIL
 argument_list|)
 expr_stmt|;
-comment|// Recursive insert's might assert, havn't decided yet...
+comment|// Recursive insert's might assert, haven't decided yet...
 comment|//makeTestRow(":one at the start recursivly",  START,  DEFAULTCOUNT, 2, DNS, 2, DNS, RECURSIVE, START, DEFAULTCOUNT, FAIL);
 comment|//makeTestRow(":one at the middle recursivly", MIDDLE, DEFAULTCOUNT, 2, DNS, 2, DNS, RECURSIVE, START, DEFAULTCOUNT, SUCCESS);
 comment|//makeTestRow(":one at the end recursivly",    END,    DEFAULTCOUNT, 2, DNS, 2, DNS, RECURSIVE, START, DEFAULTCOUNT, SUCCESS);
@@ -7105,7 +7105,7 @@ name|shouldSucceed
 argument_list|)
 expr_stmt|;
 comment|// Populate the test area so we can insert something.  See: cleanup()
-comment|// parentOfInserted is stored so that the slots can make sure parentOfInserted is the index that is emited.
+comment|// parentOfInserted is stored so that the slots can make sure parentOfInserted is the index that is emitted.
 name|parentOfInserted
 operator|=
 name|testModels
@@ -7179,7 +7179,7 @@ return|return;
 block|}
 comment|//qDebug()<< "insert start:"<< start<< "count:"<< count<< "rowCount:"<< currentModel->rowCount(parentOfInserted);
 comment|// When a row or column is inserted there should be two signals.
-comment|// Watch to make sure they are emited and get the row/column count when they do get emited by connecting them to a slot
+comment|// Watch to make sure they are emitted and get the row/column count when they do get emitted by connecting them to a slot
 name|qRegisterMetaType
 argument_list|<
 name|QModelIndex
@@ -7602,7 +7602,7 @@ name|parent
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Only the row signals should have been emited
+comment|// Only the row signals should have been emitted
 if|if
 condition|(
 name|modelResetSpy
@@ -7704,7 +7704,7 @@ name|numberOfRowsInsertedSignals
 argument_list|)
 expr_stmt|;
 block|}
-comment|// The row count should only change *after* rowsAboutToBeInserted has been emited
+comment|// The row count should only change *after* rowsAboutToBeInserted has been emitted
 comment|//qDebug()<< beforeInsertRowCount<< afterAboutToInsertRowCount<< afterInsertRowCount<< currentModel->rowCount(parentOfInserted);
 if|if
 condition|(
@@ -8062,7 +8062,7 @@ name|numberOfRowsInsertedSignals
 argument_list|)
 expr_stmt|;
 block|}
-comment|// The column count should only change *after* rowsAboutToBeInserted has been emited
+comment|// The column count should only change *after* rowsAboutToBeInserted has been emitted
 if|if
 condition|(
 name|shouldSucceed

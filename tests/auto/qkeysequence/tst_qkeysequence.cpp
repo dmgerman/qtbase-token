@@ -1691,7 +1691,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/* * We must ensure that the keyBindings data is allways sorted * so that we can safely perform binary searches. */
+comment|/* * We must ensure that the keyBindings data is always sorted * so that we can safely perform binary searches. */
 end_comment
 begin_function
 DECL|function|ensureSorted

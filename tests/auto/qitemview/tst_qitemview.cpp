@@ -230,7 +230,7 @@ begin_comment
 comment|//TESTED_FILES=gui/itemviews/qtreeview.h gui/itemviews/qtreeview.cpp
 end_comment
 begin_comment
-comment|/*!     See viewstotest.cpp for instructions on how to have your view tested with these tests.      Each test such as visualRect have a _data() function which populate the QTest data with     tests specified by viewstotest.cpp and any extra data needed for that perticular test.      setupWithNoTestData() fills QTest data with only the tests it is used by most tests.      There are some basic qDebug statements sprikled about that might be helpfull for     fixing your issues.  */
+comment|/*!     See viewstotest.cpp for instructions on how to have your view tested with these tests.      Each test such as visualRect have a _data() function which populate the QTest data with     tests specified by viewstotest.cpp and any extra data needed for that particular test.      setupWithNoTestData() fills QTest data with only the tests it is used by most tests.      There are some basic qDebug statements sprikled about that might be helpfull for     fixing your issues.  */
 end_comment
 begin_class
 DECL|class|tst_QItemView
@@ -1561,7 +1561,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     nonDestructiveBasicTest trys to call a number of the basic functions (not all)     to make sure the view doesn't segfault, testing the functions that makes sense.  */
+comment|/*!     nonDestructiveBasicTest tries to call a number of the basic functions (not all)     to make sure the view doesn't segfault, testing the functions that makes sense.  */
 end_comment
 begin_function
 DECL|function|nonDestructiveBasicTest

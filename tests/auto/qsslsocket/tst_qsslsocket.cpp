@@ -11998,7 +11998,7 @@ literal|"Error while writing! Check if the OpenSSL BIO size is limited?!"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// also check the error string. If another error (than UnknownError) occured, it should be different than before
+comment|// also check the error string. If another error (than UnknownError) occurred, it should be different than before
 name|QVERIFY
 argument_list|(
 name|errorBefore

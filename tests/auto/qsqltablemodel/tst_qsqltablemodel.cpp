@@ -11831,7 +11831,7 @@ name|timeString
 argument_list|)
 expr_stmt|;
 comment|//verify correct record
-comment|//At this point we know that the intial value (timestamp) was succsefully stored in the database
+comment|//At this point we know that the initial value (timestamp) was succsefully stored in the database
 comment|//Attempt to modify the data in the new record
 comment|//equivalent to query.exec("update test set column3="... command in direct test
 comment|//set the data in the first column to "col1ModelData"

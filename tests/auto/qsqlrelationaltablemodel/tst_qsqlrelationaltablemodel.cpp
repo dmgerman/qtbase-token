@@ -1151,7 +1151,7 @@ literal|"herr"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//try a non-existant index
+comment|//try a non-existent index
 name|QVERIFY2
 argument_list|(
 name|model

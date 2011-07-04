@@ -4962,7 +4962,7 @@ argument_list|()
 condition|)
 name|qWarning
 argument_list|(
-literal|"Failed to bind with QUdpSocket::ReuseAddressHint, user isn't an adminstrator?"
+literal|"Failed to bind with QUdpSocket::ReuseAddressHint, user isn't an administrator?"
 argument_list|)
 expr_stmt|;
 name|socket
