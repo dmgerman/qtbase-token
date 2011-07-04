@@ -246,7 +246,7 @@ name|view
 operator|.
 name|setWindowTitle
 argument_list|(
-literal|"Embedded Dialogs Demo"
+literal|"Embedded Dialogs Example"
 argument_list|)
 expr_stmt|;
 return|return

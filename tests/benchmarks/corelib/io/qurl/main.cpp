@@ -638,7 +638,7 @@ block|{
 name|QUrl
 name|base
 argument_list|(
-literal|"file:///home/user/qt/demos/declarative/samegame/SamegameCore/"
+literal|"file:///home/user/qt/examples/declarative/samegame/SamegameCore/"
 argument_list|)
 decl_stmt|;
 name|QString

@@ -206,7 +206,7 @@ name|setWindowTitle
 argument_list|(
 name|tr
 argument_list|(
-literal|"Chip Demo"
+literal|"Chip Example"
 argument_list|)
 argument_list|)
 expr_stmt|;
