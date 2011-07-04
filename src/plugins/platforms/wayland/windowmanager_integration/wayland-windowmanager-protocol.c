@@ -62,6 +62,14 @@ literal|"i"
 block|,
 name|NULL
 block|}
+block|,
+block|{
+literal|"set_screen_rotation"
+block|,
+literal|"i"
+block|,
+name|NULL
+block|}
 block|, }
 decl_stmt|;
 end_decl_stmt

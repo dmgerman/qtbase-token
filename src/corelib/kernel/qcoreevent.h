@@ -831,6 +831,11 @@ name|Scroll
 init|=
 literal|205
 block|,
+name|OrientationChange
+init|=
+literal|206
+block|,
+comment|// Screen orientation has changed
 comment|// 512 reserved for Qt Jambi's MetaCall event
 comment|// 513 reserved for Qt Jambi's DeleteOnMainThread event
 name|User
