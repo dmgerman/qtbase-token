@@ -1429,6 +1429,11 @@ name|qint64
 name|size
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|size
+argument_list|)
+expr_stmt|;
 comment|// FIXME, unsupported right now
 return|return;
 block|}
@@ -5095,11 +5100,6 @@ modifier|*
 name|auth
 parameter_list|)
 block|{
-name|Q_Q
-argument_list|(
-name|QNetworkReplyHttpImpl
-argument_list|)
-expr_stmt|;
 name|managerPrivate
 operator|->
 name|authenticationRequired
