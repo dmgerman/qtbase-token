@@ -68,6 +68,10 @@ operator|&
 name|rect
 argument_list|)
 block|;
+name|void
+name|requestActivateWindow
+argument_list|()
+block|;
 name|private
 operator|:
 name|QWaylandXCompositeEGLIntegration
