@@ -360,7 +360,7 @@ name|location
 argument_list|(
 name|QLibraryInfo
 operator|::
-name|DemosPath
+name|ExamplesPath
 argument_list|)
 return|;
 elseif|else
