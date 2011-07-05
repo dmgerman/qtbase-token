@@ -2167,6 +2167,11 @@ argument_list|(
 name|QAbstractSocket
 argument_list|)
 expr_stmt|;
+name|addresses
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|state
