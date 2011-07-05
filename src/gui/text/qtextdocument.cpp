@@ -10660,7 +10660,10 @@ argument_list|()
 condition|)
 name|html
 operator|+=
+name|QLatin1String
+argument_list|(
 literal|"<br />"
+argument_list|)
 expr_stmt|;
 name|QTextBlock
 operator|::
