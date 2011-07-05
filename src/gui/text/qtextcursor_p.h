@@ -97,7 +97,23 @@ block|;
 operator|~
 name|QTextCursorPrivate
 argument_list|()
-block|;      enum
+block|;
+specifier|static
+specifier|inline
+name|QTextCursorPrivate
+operator|*
+name|getPrivate
+argument_list|(
+argument|QTextCursor *c
+argument_list|)
+block|{
+return|return
+name|c
+operator|->
+name|d
+return|;
+block|}
+expr|enum
 name|AdjustResult
 block|{
 name|CursorMoved
