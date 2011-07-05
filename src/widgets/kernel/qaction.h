@@ -1012,7 +1012,7 @@ name|QToolButton
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|friend
 name|void
 name|qt_mac_clear_status_text

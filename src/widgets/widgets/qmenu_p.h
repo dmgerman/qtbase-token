@@ -53,6 +53,20 @@ include|#
 directive|include
 file|"QtWidgets/qstyleoption.h"
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+end_ifdef
+begin_include
+include|#
+directive|include
+file|"QtWidgets/qmacdefines_mac.h"
+end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -173,7 +187,7 @@ end_decl_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_ifdef
 ifdef|#
@@ -216,23 +230,11 @@ block|{
 DECL|function|QMacMenuAction
 name|QMacMenuAction
 argument_list|()
-ifndef|#
-directive|ifndef
-name|QT_MAC_USE_COCOA
-operator|:
-name|command
-argument_list|(
-literal|0
-argument_list|)
-else|#
-directive|else
 operator|:
 name|menuItem
 argument_list|(
 literal|0
 argument_list|)
-endif|#
-directive|endif
 operator|,
 name|ignore_accel
 argument_list|(
@@ -253,22 +255,11 @@ operator|~
 name|QMacMenuAction
 argument_list|()
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_MAC_USE_COCOA
-DECL|member|command
-name|uint
-name|command
-decl_stmt|;
-else|#
-directive|else
 DECL|member|menuItem
 name|NSMenuItem
 modifier|*
 name|menuItem
 decl_stmt|;
-endif|#
-directive|endif
 DECL|member|ignore_accel
 name|uchar
 name|ignore_accel
@@ -300,34 +291,7 @@ DECL|struct|QMenuMergeItem
 struct|struct
 name|QMenuMergeItem
 block|{
-ifndef|#
-directive|ifndef
-name|QT_MAC_USE_COCOA
 DECL|function|QMenuMergeItem
-specifier|inline
-name|QMenuMergeItem
-argument_list|(
-argument|MenuCommand c
-argument_list|,
-argument|QMacMenuAction *a
-argument_list|)
-operator|:
-name|command
-argument_list|(
-name|c
-argument_list|)
-operator|,
-name|action
-argument_list|(
-argument|a
-argument_list|)
-block|{ }
-DECL|member|command
-name|MenuCommand
-name|command
-expr_stmt|;
-else|#
-directive|else
 specifier|inline
 name|QMenuMergeItem
 argument_list|(
@@ -350,12 +314,11 @@ argument_list|(
 argument|a
 argument_list|)
 block|{ }
+DECL|member|menuItem
 name|NSMenuItem
 operator|*
 name|menuItem
 expr_stmt|;
-endif|#
-directive|endif
 DECL|member|action
 name|QMacMenuAction
 modifier|*
@@ -378,6 +341,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// Q_OS_MAC
+end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -592,7 +558,7 @@ name|false
 argument_list|)
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 block|,
 name|mac_menu
 argument_list|(
@@ -649,7 +615,7 @@ name|scroll
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|delete
 name|mac_menu
 block|;
@@ -1237,7 +1203,7 @@ name|doChildEffects
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|//mac menu binding
 block|struct
 name|QMacMenuPrivate

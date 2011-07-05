@@ -193,7 +193,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 block|,
 name|mac_menubar
 argument_list|(
@@ -233,7 +233,7 @@ argument_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|delete
 name|mac_menubar
 block|;
@@ -514,7 +514,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|//mac menubar binding
 block|struct
 name|QMacMenuBarPrivate

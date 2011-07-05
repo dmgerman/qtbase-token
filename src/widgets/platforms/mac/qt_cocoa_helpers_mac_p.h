@@ -444,11 +444,6 @@ name|tabletEvent
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-end_ifdef
 begin_function_decl
 name|bool
 name|qt_dispatchKeyEventWithCocoa
@@ -499,24 +494,6 @@ name|widget
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_function_decl
-name|void
-name|qt_mac_menu_collapseSeparators
-parameter_list|(
-name|void
-modifier|*
-comment|/*NSMenu */
-name|menu
-parameter_list|,
-name|bool
-name|collapse
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function_decl
 name|bool
 name|qt_dispatchKeyEvent
@@ -665,13 +642,11 @@ name|SP_CustomBase
 argument_list|)
 decl_stmt|;
 end_decl_stmt
-begin_if
-if|#
-directive|if
-name|QT_MAC_USE_COCOA
-operator|&&
+begin_ifdef
+ifdef|#
+directive|ifdef
 name|__OBJC__
-end_if
+end_ifdef
 begin_struct
 DECL|struct|DnDParams
 struct|struct
@@ -1068,11 +1043,6 @@ index|]
 return|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-end_ifdef
 begin_decl_stmt
 name|class
 name|QCocoaPostMessageArgs
@@ -1228,10 +1198,6 @@ literal|0
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif
@@ -1427,11 +1393,6 @@ name|qt_mac_post_retranslateAppMenu
 parameter_list|()
 function_decl|;
 end_function_decl
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-end_ifdef
 begin_function_decl
 name|void
 name|qt_mac_display
@@ -1465,13 +1426,6 @@ name|region
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_MAC_USE_COCOA
-end_comment
 begin_comment
 comment|// Utility functions to ease the use of Core Graphics contexts.
 end_comment

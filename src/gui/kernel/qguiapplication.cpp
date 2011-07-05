@@ -1034,6 +1034,25 @@ operator|::
 name|createPlatformIntegration
 parameter_list|()
 block|{
+name|Q_Q
+argument_list|(
+name|QGuiApplication
+argument_list|)
+expr_stmt|;
+comment|// Use the Qt menus by default. Platform plugins that
+comment|// want to enable a native menu implementation can clear
+comment|// this flag.
+name|q
+operator|->
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|AA_DontUseNativeMenuBar
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// Load the platform integration
 name|QString
 name|platformPluginPath

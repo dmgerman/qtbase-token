@@ -48,11 +48,6 @@ include|#
 directive|include
 file|"qmacdefines_mac.h"
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-end_ifdef
 begin_empty
 empty|#import<Cocoa/Cocoa.h>
 end_empty
@@ -317,13 +312,6 @@ begin_macro
 unit|@
 name|end
 end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_MAC_USE_COCOA
-end_comment
 begin_endif
 endif|#
 directive|endif
