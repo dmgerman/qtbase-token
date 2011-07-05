@@ -751,6 +751,20 @@ operator|>
 block|{
 name|public
 operator|:
+specifier|inline
+name|QScopedArrayPointer
+argument_list|()
+operator|:
+name|QScopedPointer
+operator|<
+name|T
+block|,
+name|Cleanup
+operator|>
+operator|(
+literal|0
+operator|)
+block|{}
 name|template
 operator|<
 name|typename
@@ -760,8 +774,7 @@ name|explicit
 specifier|inline
 name|QScopedArrayPointer
 argument_list|(
-argument|D *p =
-literal|0
+argument|D *p
 argument_list|,
 argument|typename QtPrivate::QScopedArrayEnsureSameType<T
 argument_list|,
