@@ -1265,6 +1265,21 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|cache
+operator|.
+name|contains
+argument_list|(
+name|index
+operator|.
+name|row
+argument_list|()
+argument_list|)
+condition|)
+block|{
 specifier|const
 name|QSqlTableModelPrivate
 operator|::
@@ -1437,6 +1452,7 @@ argument_list|)
 return|;
 break|break;
 block|}
+block|}
 comment|// We need to handle row mapping here, but not column mapping
 return|return
 name|QSqlQueryModel
@@ -1507,6 +1523,18 @@ operator|::
 name|DisplayRole
 condition|)
 block|{
+if|if
+condition|(
+name|d
+operator|->
+name|cache
+operator|.
+name|contains
+argument_list|(
+name|section
+argument_list|)
+condition|)
+block|{
 specifier|const
 name|QSqlTableModelPrivate
 operator|::
@@ -1553,6 +1581,7 @@ argument_list|(
 literal|"!"
 argument_list|)
 return|;
+block|}
 block|}
 return|return
 name|QSqlQueryModel
