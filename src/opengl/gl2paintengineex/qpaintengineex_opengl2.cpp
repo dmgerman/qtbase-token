@@ -9605,6 +9605,13 @@ literal|4
 decl_stmt|;
 if|if
 condition|(
+name|numGlyphs
+operator|==
+literal|0
+condition|)
+return|return;
+if|if
+condition|(
 name|elementIndices
 operator|.
 name|size
