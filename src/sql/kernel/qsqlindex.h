@@ -157,35 +157,6 @@ argument_list|,
 argument|bool desc
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QT3_SUPPORT
-name|QString
-name|toString
-argument_list|(
-argument|const QString&prefix = QString()
-argument_list|,
-argument|const QString&sep = QLatin1String(
-literal|","
-argument|)
-argument_list|,
-argument|bool verbose = true
-argument_list|)
-specifier|const
-block|;
-name|QT3_SUPPORT
-name|QStringList
-name|toStringList
-argument_list|(
-argument|const QString& prefix = QString()
-argument_list|,
-argument|bool verbose = true
-argument_list|)
-specifier|const
-block|;
-endif|#
-directive|endif
 name|private
 operator|:
 name|QString
