@@ -1731,8 +1731,11 @@ operator|=
 literal|0
 expr_stmt|;
 name|counter
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|4
+argument_list|)
 expr_stmt|;
 block|}
 end_function
