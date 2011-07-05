@@ -374,7 +374,7 @@ operator|*
 operator|*
 name|prev
 block|;
-name|QBasicAtomicPointer
+name|QAtomicPointer
 operator|<
 name|int
 operator|>

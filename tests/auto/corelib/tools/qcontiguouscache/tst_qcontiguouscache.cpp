@@ -2053,6 +2053,9 @@ return|return
 name|d
 operator|->
 name|ref
+operator|.
+name|load
+argument_list|()
 return|;
 block|}
 private|private:

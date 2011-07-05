@@ -1519,6 +1519,9 @@ init|=
 name|SPointer
 operator|::
 name|count
+operator|.
+name|load
+argument_list|()
 decl_stmt|;
 name|QThreadStorage
 argument_list|<
@@ -1644,6 +1647,9 @@ argument_list|(
 name|SPointer
 operator|::
 name|count
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 name|c
@@ -1751,6 +1757,9 @@ init|=
 name|SPointer
 operator|::
 name|count
+operator|.
+name|load
+argument_list|()
 decl_stmt|;
 name|Thread
 name|t1
@@ -1808,6 +1817,9 @@ argument_list|(
 name|SPointer
 operator|::
 name|count
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 name|c
@@ -2077,6 +2089,9 @@ init|=
 name|SPointer
 operator|::
 name|count
+operator|.
+name|load
+argument_list|()
 decl_stmt|;
 name|Thread
 name|t1
@@ -2193,6 +2208,9 @@ argument_list|(
 name|SPointer
 operator|::
 name|count
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

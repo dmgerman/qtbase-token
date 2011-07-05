@@ -730,6 +730,9 @@ block|{
 if|if
 condition|(
 name|counter
+operator|.
+name|load
+argument_list|()
 operator|<=
 literal|0
 condition|)

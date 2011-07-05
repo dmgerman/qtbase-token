@@ -720,6 +720,9 @@ name|ptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 argument_list|)
@@ -738,6 +741,9 @@ name|ptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 argument_list|)
@@ -803,6 +809,9 @@ name|ptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 argument_list|)
@@ -821,6 +830,9 @@ name|ptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 argument_list|)
@@ -926,6 +938,9 @@ name|ptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 argument_list|)
@@ -944,6 +959,9 @@ name|ptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 argument_list|)
@@ -1144,6 +1162,9 @@ name|ptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 argument_list|)
@@ -1162,6 +1183,9 @@ name|ptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 argument_list|)
@@ -2822,6 +2846,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -2837,6 +2864,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -2875,6 +2905,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -2890,6 +2923,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -2956,6 +2992,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -2971,6 +3010,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -3029,6 +3071,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -3044,6 +3089,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5099,6 +5147,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5114,6 +5165,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5190,6 +5244,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5205,6 +5262,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5273,6 +5333,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5288,6 +5351,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5388,6 +5454,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5403,6 +5472,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5479,6 +5551,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5494,6 +5569,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5562,6 +5640,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5577,6 +5658,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5756,6 +5840,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5771,6 +5858,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5847,6 +5937,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5862,6 +5955,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5930,6 +6026,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -5945,6 +6044,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -6026,6 +6128,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -6041,6 +6146,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -6080,6 +6188,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -6095,6 +6206,9 @@ name|baseptr
 argument_list|)
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|,
 literal|1
@@ -7717,6 +7831,9 @@ argument_list|(
 name|d
 operator|->
 name|weakref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 argument_list|)
@@ -7726,6 +7843,9 @@ argument_list|(
 name|d
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 argument_list|)

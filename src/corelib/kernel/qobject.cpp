@@ -3057,6 +3057,9 @@ operator|->
 name|sharedRefcount
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 operator|>
 literal|0
 condition|)
@@ -3074,8 +3077,11 @@ operator|->
 name|sharedRefcount
 operator|->
 name|strongref
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

@@ -179,6 +179,9 @@ literal|0
 argument_list|)
 decl_stmt|;
 name|p
+operator|.
+name|load
+argument_list|()
 operator|->
 name|bar
 argument_list|()

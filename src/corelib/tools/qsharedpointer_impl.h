@@ -747,12 +747,18 @@ name|ExternalRefCountData
 argument_list|()
 block|{
 name|strongref
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|1
+argument_list|)
 block|;
 name|weakref
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|1
+argument_list|)
 block|;         }
 specifier|inline
 name|ExternalRefCountData
@@ -770,11 +776,17 @@ name|Q_ASSERT
 argument_list|(
 operator|!
 name|weakref
+operator|.
+name|load
+argument_list|()
 argument_list|)
 block|;
 name|Q_ASSERT
 argument_list|(
 name|strongref
+operator|.
+name|load
+argument_list|()
 operator|<=
 literal|0
 argument_list|)
@@ -2029,6 +2041,9 @@ init|=
 name|o
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 decl_stmt|;
 while|while
 condition|(
@@ -2060,6 +2075,9 @@ operator|=
 name|o
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 expr_stmt|;
 comment|// failed, try again
 block|}
@@ -2113,6 +2131,9 @@ operator|||
 name|d
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 condition|)
@@ -2812,6 +2833,9 @@ operator|||
 name|d
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 operator|||
@@ -2905,6 +2929,9 @@ operator|||
 name|d
 operator|->
 name|strongref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 operator|?

@@ -1031,6 +1031,9 @@ if|if
 condition|(
 operator|!
 name|changedSignalIndex
+operator|.
+name|load
+argument_list|()
 condition|)
 block|{
 comment|//we keep the mask so that we emit valueChanged only when needed (for performance reasons)
@@ -1052,6 +1055,9 @@ condition|(
 name|isSignalConnected
 argument_list|(
 name|changedSignalIndex
+operator|.
+name|load
+argument_list|()
 argument_list|)
 operator|&&
 name|currentValue

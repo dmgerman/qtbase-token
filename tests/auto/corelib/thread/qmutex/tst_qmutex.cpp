@@ -2262,6 +2262,9 @@ argument_list|(
 name|StressTestThread
 operator|::
 name|lockCount
+operator|.
+name|load
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

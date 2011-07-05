@@ -60,9 +60,7 @@ specifier|inline
 name|int
 name|_q_futex
 parameter_list|(
-name|QMutexPrivate
-modifier|*
-specifier|volatile
+name|void
 modifier|*
 name|addr
 parameter_list|,
@@ -234,6 +232,9 @@ init|=
 name|this
 operator|->
 name|d
+operator|.
+name|load
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -369,8 +370,6 @@ operator|&
 name|this
 operator|->
 name|d
-operator|.
-name|_q_value
 argument_list|,
 name|FUTEX_WAIT
 argument_list|,
@@ -429,6 +428,9 @@ argument_list|(
 name|this
 operator|->
 name|d
+operator|.
+name|load
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -451,6 +453,9 @@ init|=
 name|this
 operator|->
 name|d
+operator|.
+name|load
+argument_list|()
 decl_stmt|;
 name|Q_ASSERT
 argument_list|(
@@ -490,8 +495,6 @@ operator|&
 name|this
 operator|->
 name|d
-operator|.
-name|_q_value
 argument_list|,
 name|FUTEX_WAKE
 argument_list|,

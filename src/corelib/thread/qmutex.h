@@ -83,6 +83,9 @@ block|{
 name|Q_ASSERT
 argument_list|(
 name|d
+operator|.
+name|load
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//mutex must be locked

@@ -366,15 +366,21 @@ decl_stmt|;
 name|x
 operator|->
 name|strongref
-operator|=
+operator|.
+name|store
+argument_list|(
 operator|-
 literal|1
+argument_list|)
 expr_stmt|;
 name|x
 operator|->
 name|weakref
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|2
+argument_list|)
 expr_stmt|;
 comment|// the QWeakPointer that called us plus the QObject itself
 if|if
@@ -409,6 +415,9 @@ return|return
 name|d
 operator|->
 name|sharedRefcount
+operator|.
+name|loadAcquire
+argument_list|()
 return|;
 block|}
 end_function

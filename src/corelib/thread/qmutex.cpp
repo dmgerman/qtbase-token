@@ -71,21 +71,19 @@ name|RecursionMode
 name|mode
 parameter_list|)
 block|{
-if|if
-condition|(
+name|d
+operator|.
+name|store
+argument_list|(
 name|mode
 operator|==
 name|Recursive
-condition|)
-name|d
-operator|=
+condition|?
 operator|new
 name|QRecursiveMutexPrivate
-expr_stmt|;
-else|else
-name|d
-operator|=
+else|:
 literal|0
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -114,13 +112,17 @@ argument_list|>
 argument_list|(
 name|d
 operator|.
-name|_q_value
+name|load
+argument_list|()
 argument_list|)
 expr_stmt|;
 elseif|else
 if|if
 condition|(
 name|d
+operator|.
+name|load
+argument_list|()
 condition|)
 block|{
 ifndef|#
@@ -129,6 +131,9 @@ name|Q_OS_LINUX
 if|if
 condition|(
 name|d
+operator|.
+name|load
+argument_list|()
 operator|->
 name|possiblyUnlocked
 operator|&&
@@ -181,6 +186,9 @@ init|=
 name|this
 operator|->
 name|d
+operator|.
+name|load
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -255,6 +263,9 @@ init|=
 name|this
 operator|->
 name|d
+operator|.
+name|loadAcquire
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -373,6 +384,9 @@ operator|!=
 name|this
 operator|->
 name|d
+operator|.
+name|loadAcquire
+argument_list|()
 condition|)
 block|{
 comment|//Either the mutex is already unlocked, or relocked with another mutex
@@ -464,6 +478,9 @@ operator|!=
 name|this
 operator|->
 name|d
+operator|.
+name|load
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//else testAndSetAcquire should have succeeded
@@ -503,6 +520,9 @@ operator|!=
 name|this
 operator|->
 name|d
+operator|.
+name|loadAcquire
+argument_list|()
 condition|)
 block|{
 comment|// Mutex was unlocked.
@@ -666,6 +686,9 @@ init|=
 name|this
 operator|->
 name|d
+operator|.
+name|loadAcquire
+argument_list|()
 decl_stmt|;
 name|Q_ASSERT
 argument_list|(

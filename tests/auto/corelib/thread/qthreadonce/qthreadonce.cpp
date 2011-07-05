@@ -76,8 +76,10 @@ expr_stmt|;
 comment|// check if code has already run once
 if|if
 condition|(
-operator|*
 name|gv
+operator|->
+name|loadAcquire
+argument_list|()
 operator|==
 literal|2
 condition|)

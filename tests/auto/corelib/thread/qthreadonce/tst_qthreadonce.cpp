@@ -97,8 +97,11 @@ name|SingletonObject
 parameter_list|()
 block|{
 name|val
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|42
+argument_list|)
 expr_stmt|;
 operator|++
 name|runCount
@@ -374,6 +377,9 @@ operator|)
 name|s
 operator|->
 name|val
+operator|.
+name|load
+argument_list|()
 argument_list|,
 literal|"expectedValue"
 argument_list|)
@@ -497,8 +503,11 @@ expr_stmt|;
 name|IncrementThread
 operator|::
 name|runCount
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 comment|// wait for all of them to be ready
 name|sem2
@@ -535,6 +544,9 @@ operator|)
 name|IncrementThread
 operator|::
 name|runCount
+operator|.
+name|load
+argument_list|()
 argument_list|,
 name|NumberOfThreads
 argument_list|)
