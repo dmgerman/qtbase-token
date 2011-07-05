@@ -162,6 +162,11 @@ name|void
 name|updateConfigurations
 argument_list|()
 block|;
+specifier|static
+name|void
+name|addPostRoutine
+argument_list|()
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
