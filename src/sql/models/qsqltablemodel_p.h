@@ -237,11 +237,14 @@ block|}
 block|;      struct
 name|ModifiedRow
 block|{
+specifier|inline
 name|ModifiedRow
 argument_list|(
 argument|Op o = None
 argument_list|,
 argument|const QSqlRecord&r = QSqlRecord()
+argument_list|,
+argument|const QSqlRecord&pVals = QSqlRecord()
 argument_list|)
 operator|:
 name|op
@@ -251,41 +254,46 @@ argument_list|)
 block|,
 name|rec
 argument_list|(
-argument|r
+name|r
+argument_list|)
+block|,
+name|primaryValues
+argument_list|(
+argument|pVals
 argument_list|)
 block|{
 name|clearGenerated
 argument_list|(
 name|rec
 argument_list|)
-block|;}
-name|ModifiedRow
+block|; }
+specifier|inline
+name|void
+name|setValue
 argument_list|(
-specifier|const
-name|ModifiedRow
-operator|&
-name|other
+argument|int c
+argument_list|,
+argument|const QVariant&v
 argument_list|)
-operator|:
-name|op
-argument_list|(
-name|other
-operator|.
-name|op
-argument_list|)
-block|,
+block|{
 name|rec
-argument_list|(
-name|other
 operator|.
-name|rec
-argument_list|)
-block|,
-name|primaryValues
+name|setValue
 argument_list|(
-argument|other.primaryValues
+name|c
+argument_list|,
+name|v
 argument_list|)
-block|{}
+block|;
+name|rec
+operator|.
+name|setGenerated
+argument_list|(
+name|c
+argument_list|,
+name|true
+argument_list|)
+block|;         }
 name|Op
 name|op
 block|;
