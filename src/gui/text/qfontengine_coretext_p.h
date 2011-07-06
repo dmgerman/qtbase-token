@@ -353,15 +353,6 @@ block|;
 name|QFixed
 name|avgCharWidth
 block|;
-name|qreal
-name|ctMaxCharWidth
-block|;
-name|qreal
-name|ctMinLeftBearing
-block|;
-name|qreal
-name|ctMinRightBearing
-block|;
 name|friend
 name|class
 name|QCoreTextFontEngineMulti
