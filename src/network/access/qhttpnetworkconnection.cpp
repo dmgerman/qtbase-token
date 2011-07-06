@@ -1233,7 +1233,7 @@ name|setHeaderField
 argument_list|(
 literal|"Accept-Encoding"
 argument_list|,
-literal|"gzip"
+literal|"gzip, deflate"
 argument_list|)
 expr_stmt|;
 name|request
