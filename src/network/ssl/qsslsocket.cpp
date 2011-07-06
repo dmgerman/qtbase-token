@@ -294,6 +294,9 @@ name|port
 parameter_list|,
 name|OpenMode
 name|mode
+parameter_list|,
+name|NetworkLayerProtocol
+name|protocol
 parameter_list|)
 block|{
 name|Q_D
@@ -349,6 +352,8 @@ argument_list|,
 name|port
 argument_list|,
 name|mode
+argument_list|,
+name|protocol
 argument_list|)
 expr_stmt|;
 block|}
@@ -378,6 +383,9 @@ name|sslPeerName
 parameter_list|,
 name|OpenMode
 name|mode
+parameter_list|,
+name|NetworkLayerProtocol
+name|protocol
 parameter_list|)
 block|{
 name|Q_D
@@ -439,6 +447,8 @@ argument_list|,
 name|port
 argument_list|,
 name|mode
+argument_list|,
+name|protocol
 argument_list|)
 expr_stmt|;
 block|}
@@ -3670,6 +3680,10 @@ argument_list|,
 name|port
 argument_list|,
 name|openMode
+argument_list|,
+name|d
+operator|->
+name|preferredNetworkLayerProtocol
 argument_list|)
 expr_stmt|;
 name|d

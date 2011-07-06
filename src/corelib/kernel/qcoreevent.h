@@ -175,15 +175,6 @@ init|=
 literal|131
 block|,
 comment|// sent just before the parent change is done
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|Reparent
-init|=
-name|ParentChange
-block|,
-endif|#
-directive|endif
 name|ThreadChange
 init|=
 literal|22
@@ -314,26 +305,6 @@ init|=
 literal|69
 block|,
 comment|// polished child widget
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|ChildInsertedRequest
-init|=
-literal|67
-block|,
-comment|// send ChildInserted compatibility events to receiver
-name|ChildInserted
-init|=
-literal|70
-block|,
-comment|// compatibility child inserted
-name|LayoutHint
-init|=
-literal|72
-block|,
-comment|// compatibility relayout request
-endif|#
-directive|endif
 name|ChildRemoved
 init|=
 literal|71
@@ -537,43 +508,10 @@ init|=
 literal|51
 block|,
 comment|// shortcut override request
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|Accel
-init|=
-literal|30
-block|,
-comment|// accelerator event
-name|AccelAvailable
-init|=
-literal|32
-block|,
-comment|// accelerator available event
-name|AccelOverride
-init|=
-name|ShortcutOverride
-block|,
-comment|// accelerator override event
-endif|#
-directive|endif
 name|WhatsThisClicked
 init|=
 literal|118
 block|,
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|CaptionChange
-init|=
-name|WindowTitleChange
-block|,
-name|IconChange
-init|=
-name|WindowIconChange
-block|,
-endif|#
-directive|endif
 name|ToolBarChange
 init|=
 literal|120
@@ -909,6 +847,11 @@ name|InputMethodQuery
 init|=
 literal|209
 block|,
+name|OrientationChange
+init|=
+literal|210
+block|,
+comment|// Screen orientation has changed
 comment|// 512 reserved for Qt Jambi's MetaCall event
 comment|// 513 reserved for Qt Jambi's DeleteOnMainThread event
 name|User
@@ -1252,24 +1195,6 @@ operator|==
 name|ChildAdded
 return|;
 block|}
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QT3_SUPPORT
-name|bool
-name|inserted
-argument_list|()
-specifier|const
-block|{
-return|return
-name|type
-argument_list|()
-operator|==
-name|ChildInserted
-return|;
-block|}
-endif|#
-directive|endif
 name|bool
 name|polished
 argument_list|()
@@ -1302,71 +1227,11 @@ name|c
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-end_ifdef
 begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
-name|QCustomEvent
-range|:
-name|public
-name|QEvent
-block|{
-name|public
-operator|:
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QCustomEvent
-argument_list|(
-argument|int type
-argument_list|,
-argument|void *data =
-literal|0
-argument_list|)
-block|;
-operator|~
-name|QCustomEvent
-argument_list|()
-block|;
-name|QT3_SUPPORT
-name|void
-operator|*
-name|data
-argument_list|()
-specifier|const
-block|{
-return|return
-name|d
-return|;
-block|}
-name|QT3_SUPPORT
-name|void
-name|setData
-argument_list|(
-argument|void* aData
-argument_list|)
-block|{
-name|d
-operator|=
-name|reinterpret_cast
-operator|<
-name|QEventPrivate
-operator|*
-operator|>
-operator|(
-name|aData
-operator|)
-block|; }
-expr|}
-block|;
-endif|#
-directive|endif
-name|class
-name|Q_CORE_EXPORT
 name|QDynamicPropertyChangeEvent
-operator|:
+range|:
 name|public
 name|QEvent
 block|{
@@ -1399,10 +1264,12 @@ operator|:
 name|QByteArray
 name|n
 block|; }
-block|;
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER
-end_decl_stmt
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

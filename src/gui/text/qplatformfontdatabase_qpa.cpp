@@ -75,7 +75,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*!     \fn void QPlatformFontDatabase::registerQPF2Font(const QByteArray&dataArray, void *)      Registers the pre-rendered QPF2 font contained in the given \a dataArray.      \sa registerFont() */
+comment|/*!     \fn void QPlatformFontDatabase::registerQPF2Font(const QByteArray&dataArray, void *handle)      Registers the pre-rendered QPF2 font contained in the given \a dataArray.      \sa registerFont() */
 end_comment
 begin_function
 DECL|function|registerQPF2Font
@@ -551,6 +551,9 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_comment
+comment|/*!     Constructs a new object to handle supported writing systems. */
+end_comment
 begin_constructor
 DECL|function|QSupportedWritingSystems
 name|QSupportedWritingSystems
@@ -565,6 +568,9 @@ name|QWritingSystemsPrivate
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Constructs a copy of the \a other writing systems object. */
+end_comment
 begin_constructor
 DECL|function|QSupportedWritingSystems
 name|QSupportedWritingSystems
@@ -592,6 +598,9 @@ parameter_list|()
 constructor_decl|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Constructs a copy of the \a other writing systems object. */
+end_comment
 begin_function
 DECL|function|operator =
 name|QSupportedWritingSystems
@@ -651,6 +660,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Destroys the supported writing systems object. */
+end_comment
 begin_destructor
 DECL|function|~QSupportedWritingSystems
 name|QSupportedWritingSystems
@@ -674,6 +686,9 @@ name|d
 expr_stmt|;
 block|}
 end_destructor
+begin_comment
+comment|/*!     \internal */
+end_comment
 begin_function
 DECL|function|detach
 name|void
@@ -721,6 +736,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!     Sets or clears support for the specified \a writingSystem based on the     value given by \a support. */
+end_comment
 begin_function
 DECL|function|setSupported
 name|void
@@ -751,6 +769,9 @@ name|support
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns true if the writing system specified by \a writingSystem is     supported; otherwise returns false. */
+end_comment
 begin_function
 DECL|function|supported
 name|bool
@@ -781,7 +802,7 @@ begin_comment
 comment|/*!     \class QSupportedWritingSystems     \brief The QSupportedWritingSystems class is used when registering fonts with the internal Qt     fontdatabase     \ingroup painting      Its to provide an easy to use interface for indicating what writing systems a specific font     supports.  */
 end_comment
 begin_comment
-comment|/*!   This function is called once at startup by Qts internal fontdatabase. Reimplement this function   in a subclass for a convenient place to initialise the internal fontdatabase.    The default implementation looks in the fontDir() location and registers all qpf2 fonts. */
+comment|/*!   This function is called once at startup by Qt's internal font database.   Reimplement this function in a subclass for a convenient place to initialize   the internal font database.    The default implementation looks in the fontDir() location and registers all   QPF2 fonts. */
 end_comment
 begin_function
 DECL|function|populateFontDatabase
@@ -1157,7 +1178,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  */
+comment|/*!     Releases the specified font \a handle. */
 end_comment
 begin_function
 DECL|function|releaseHandle
@@ -1190,7 +1211,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!  */
+comment|/*!     Returns the directory containing the fonts used by the database. */
 end_comment
 begin_function
 DECL|function|fontDir

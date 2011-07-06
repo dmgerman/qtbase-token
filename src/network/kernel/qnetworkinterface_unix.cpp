@@ -174,9 +174,6 @@ name|s_addr
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_IPV6
 elseif|else
 if|if
 condition|(
@@ -203,8 +200,6 @@ operator|.
 name|s6_addr
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|address
 return|;

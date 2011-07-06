@@ -64,24 +64,6 @@ operator|=
 literal|0
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QTranslator
-argument_list|(
-name|QObject
-operator|*
-name|parent
-argument_list|,
-specifier|const
-name|char
-operator|*
-name|name
-argument_list|)
-block|;
-endif|#
-directive|endif
 operator|~
 name|QTranslator
 argument_list|()
@@ -198,35 +180,6 @@ argument_list|,
 argument|int len
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QT3_SUPPORT
-name|QString
-name|find
-argument_list|(
-argument|const char *context
-argument_list|,
-argument|const char *sourceText
-argument_list|,
-argument|const char * comment =
-literal|0
-argument_list|)
-specifier|const
-block|{
-return|return
-name|translate
-argument_list|(
-name|context
-argument_list|,
-name|sourceText
-argument_list|,
-name|comment
-argument_list|)
-return|;
-block|}
-endif|#
-directive|endif
 name|private
 operator|:
 name|Q_DISABLE_COPY
@@ -237,14 +190,20 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QTranslator
 argument_list|)
-expr|}
-block|;
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|// QT_NO_TRANSLATION
+end_comment
+begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER
-end_decl_stmt
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

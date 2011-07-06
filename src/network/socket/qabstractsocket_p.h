@@ -407,6 +407,11 @@ operator|::
 name|SocketError
 name|socketError
 expr_stmt|;
+name|QAbstractSocket
+operator|::
+name|NetworkLayerProtocol
+name|preferredNetworkLayerProtocol
+expr_stmt|;
 name|bool
 name|prePauseReadSocketNotifierState
 decl_stmt|;

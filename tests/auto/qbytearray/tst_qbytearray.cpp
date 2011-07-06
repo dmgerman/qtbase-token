@@ -4462,7 +4462,7 @@ literal|"Tumdelidu"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// normal copy with length is longer than neccessary
+comment|// normal copy with length is longer than necessary
 name|src
 operator|=
 name|QByteArray

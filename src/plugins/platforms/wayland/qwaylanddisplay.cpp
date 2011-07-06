@@ -1299,7 +1299,7 @@ init|=
 operator|new
 name|QWaylandInputDevice
 argument_list|(
-name|mDisplay
+name|this
 argument_list|,
 name|id
 argument_list|)

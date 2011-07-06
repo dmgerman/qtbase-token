@@ -506,15 +506,6 @@ name|void
 name|cleanConnectionLists
 argument_list|()
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|void
-name|sendPendingChildInsertedEvents
-argument_list|()
-block|;
-endif|#
-directive|endif
 specifier|static
 specifier|inline
 name|Sender
@@ -652,28 +643,6 @@ index|[
 literal|2
 index|]
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QVector
-operator|<
-name|QWeakPointer
-operator|<
-name|QObject
-operator|>
-expr|>
-name|pendingChildInsertedEvents
-block|;
-else|#
-directive|else
-comment|// preserve binary compatibility with code compiled without Qt 3 support
-comment|// keeping the binary layout stable helps the Qt Creator debugger
-name|void
-operator|*
-name|unused
-block|;
-endif|#
-directive|endif
 name|QList
 operator|<
 name|QPointer

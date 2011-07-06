@@ -156,6 +156,12 @@ name|QByteArray
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QHostInfo
+name|class
+name|QHostInfo
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QHttpNetworkConnectionPrivate
 name|class
 name|QHttpNetworkConnectionPrivate
@@ -369,6 +375,12 @@ argument|d_func()
 argument_list|,
 argument|void _q_startNextRequest()
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_hostLookupFinished(QHostInfo)
+argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -427,6 +439,17 @@ name|PausedState
 operator|=
 literal|1
 block|,     }
+block|;      enum
+name|NetworkLayerPreferenceState
+block|{
+name|Unknown
+block|,
+name|InProgress
+block|,
+name|IPv4
+block|,
+name|IPv6
+block|}
 block|;
 name|QHttpNetworkConnectionPrivate
 argument_list|(
@@ -466,6 +489,9 @@ argument_list|()
 block|;
 name|ConnectionState
 name|state
+block|;
+name|NetworkLayerPreferenceState
+name|networkLayerState
 block|;      enum
 block|{
 name|ChunkSize
@@ -562,12 +588,26 @@ argument_list|,
 argument|bool isProxy
 argument_list|)
 block|;
+name|void
+name|startHostInfoLookup
+argument_list|()
+block|;
+name|void
+name|startNetworkLayerStateLookup
+argument_list|()
+block|;
 comment|// private slots
 name|void
 name|_q_startNextRequest
 argument_list|()
 block|;
 comment|// send the next request from the queue
+name|void
+name|_q_hostLookupFinished
+argument_list|(
+argument|QHostInfo info
+argument_list|)
+block|;
 name|void
 name|createAuthorization
 argument_list|(
@@ -631,6 +671,14 @@ operator|*
 name|channels
 block|;
 comment|// parallel connections to the server
+name|bool
+name|shouldEmitChannelError
+argument_list|(
+name|QAbstractSocket
+operator|*
+name|socket
+argument_list|)
+block|;
 name|qint64
 name|uncompressedBytesAvailable
 argument_list|(

@@ -2221,6 +2221,12 @@ modifier|&
 name|out
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|a
+condition|)
+return|return;
 while|while
 condition|(
 operator|*

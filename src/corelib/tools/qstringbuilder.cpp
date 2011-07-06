@@ -124,6 +124,12 @@ operator|-
 literal|1
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|a
+condition|)
+return|return;
 while|while
 condition|(
 operator|*

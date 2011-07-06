@@ -71,24 +71,6 @@ operator|=
 literal|0
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QTimer
-argument_list|(
-name|QObject
-operator|*
-name|parent
-argument_list|,
-specifier|const
-name|char
-operator|*
-name|name
-argument_list|)
-block|;
-endif|#
-directive|endif
 operator|~
 name|QTimer
 argument_list|()
@@ -174,33 +156,6 @@ name|void
 name|stop
 argument_list|()
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-specifier|inline
-name|QT_MOC_COMPAT
-name|void
-name|changeInterval
-argument_list|(
-argument|int msec
-argument_list|)
-block|{
-name|start
-argument_list|(
-name|msec
-argument_list|)
-block|; }
-name|QT_MOC_COMPAT
-name|int
-name|start
-argument_list|(
-argument|int msec
-argument_list|,
-argument|bool sshot
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|Q_SIGNALS
 operator|:
 name|void

@@ -203,26 +203,6 @@ argument|d_func()
 argument_list|,
 argument|void _q_senderDestroyed()
 argument_list|)
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|public
-operator|:
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QSignalMapper
-argument_list|(
-name|QObject
-operator|*
-name|parent
-argument_list|,
-specifier|const
-name|char
-operator|*
-name|name
-argument_list|)
-block|;
-endif|#
-directive|endif
 block|}
 decl_stmt|;
 end_decl_stmt

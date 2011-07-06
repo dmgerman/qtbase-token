@@ -41,36 +41,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-end_ifdef
-begin_comment
-comment|/*!     \fn QStringList QStringList::split(const QChar&sep, const QString&str, bool allowEmptyEntries)      \overload      This version of the function uses a QChar as separator.      \sa join() QString::section() */
-end_comment
-begin_comment
-comment|/*!     \fn QStringList QStringList::split(const QString&sep, const QString&str, bool allowEmptyEntries)      \overload      This version of the function uses a QString as separator.      \sa join() QString::section() */
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_REGEXP
-end_ifndef
-begin_comment
-comment|/*!     \fn QStringList QStringList::split(const QRegExp&sep, const QString&str, bool allowEmptyEntries)      Use QString::split(\a sep, QString::SkipEmptyParts) or     QString::split(\a sep, QString::KeepEmptyParts) instead.      Be aware that the QString::split()'s return value is a     QStringList that always contains at least one element, even if \a     str is empty.      \sa join() QString::section() */
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT3_SUPPORT
-end_comment
 begin_comment
 comment|/*!     \fn QStringList QStringList::filter(const QString&str, Qt::CaseSensitivity cs) const      Returns a list of all the strings containing the substring \a str.      If \a cs is \l Qt::CaseSensitive (the default), the string     comparison is case sensitive; otherwise the comparison is case     insensitive.      \snippet doc/src/snippets/qstringlist/main.cpp 5     \snippet doc/src/snippets/qstringlist/main.cpp 10      This is equivalent to      \snippet doc/src/snippets/qstringlist/main.cpp 11     \snippet doc/src/snippets/qstringlist/main.cpp 12      \sa contains() */
 end_comment

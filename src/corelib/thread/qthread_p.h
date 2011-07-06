@@ -224,6 +224,12 @@ name|priority
 return|;
 block|}
 end_expr_stmt
+begin_comment
+comment|// This class holds the list of posted events.
+end_comment
+begin_comment
+comment|//  The list has to be kept sorted by priority
+end_comment
 begin_decl_stmt
 name|class
 name|QPostEventList
@@ -277,7 +283,91 @@ argument_list|(
 literal|0
 argument_list|)
 block|{ }
+name|void
+name|addEvent
+argument_list|(
+argument|const QPostEvent&ev
+argument_list|)
+block|{
+name|int
+name|priority
+operator|=
+name|ev
+operator|.
+name|priority
+block|;
+if|if
+condition|(
+name|isEmpty
+argument_list|()
+operator|||
+name|last
+argument_list|()
+operator|.
+name|priority
+operator|>=
+name|priority
+condition|)
+block|{
+comment|// optimization: we can simply append if the last event in
+comment|// the queue has higher or equal priority
+name|append
+argument_list|(
+name|ev
+argument_list|)
+expr_stmt|;
 block|}
+else|else
+block|{
+comment|// insert event in descending priority order, using upper
+comment|// bound for a given priority (to ensure proper ordering
+comment|// of events with the same priority)
+name|QPostEventList
+operator|::
+name|iterator
+name|at
+operator|=
+name|qUpperBound
+argument_list|(
+name|begin
+argument_list|()
+operator|+
+name|insertionOffset
+argument_list|,
+name|end
+argument_list|()
+argument_list|,
+name|priority
+argument_list|)
+expr_stmt|;
+name|insert
+argument_list|(
+name|at
+argument_list|,
+name|ev
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|private
+operator|:
+comment|//hides because they do not keep that list sorted. addEvent must be used
+name|using
+name|QList
+operator|<
+name|QPostEvent
+operator|>
+operator|::
+name|append
+block|;
+name|using
+name|QList
+operator|<
+name|QPostEvent
+operator|>
+operator|::
+name|insert
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_ifndef

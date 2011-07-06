@@ -1269,6 +1269,15 @@ argument_list|)
 specifier|const
 block|;
 name|ProcessSpans
+name|getPenFunc
+argument_list|(
+argument|const QRectF&rect
+argument_list|,
+argument|const QSpanData *data
+argument_list|)
+specifier|const
+block|;
+name|ProcessSpans
 name|getBrushFunc
 argument_list|(
 argument|const QRect&rect
@@ -1408,16 +1417,6 @@ name|outlinemapper_xform_dirty
 operator|:
 literal|1
 block|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-name|uint
-name|isPlain45DegreeRotation
-operator|:
-literal|1
-block|;
-endif|#
-directive|endif
 name|QScopedPointer
 operator|<
 name|QRasterizer

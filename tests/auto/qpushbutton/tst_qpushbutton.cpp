@@ -1449,7 +1449,7 @@ operator|==
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// do it again, just to be shure
+comment|// do it again, just to be sure
 name|resetCounters
 argument_list|()
 expr_stmt|;

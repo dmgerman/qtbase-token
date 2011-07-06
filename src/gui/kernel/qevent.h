@@ -181,7 +181,7 @@ name|QMouseEvent
 argument_list|(
 argument|Type type
 argument_list|,
-argument|const QPoint&pos
+argument|const QPointF&pos
 argument_list|,
 argument|Qt::MouseButton button
 argument_list|,
@@ -194,9 +194,9 @@ name|QMouseEvent
 argument_list|(
 argument|Type type
 argument_list|,
-argument|const QPoint&pos
+argument|const QPointF&pos
 argument_list|,
-argument|const QPoint&globalPos
+argument|const QPointF&globalPos
 argument_list|,
 argument|Qt::MouseButton button
 argument_list|,
@@ -210,27 +210,29 @@ name|QMouseEvent
 argument_list|()
 block|;
 specifier|inline
-specifier|const
 name|QPoint
-operator|&
 name|pos
 argument_list|()
 specifier|const
 block|{
 return|return
 name|p
+operator|.
+name|toPoint
+argument_list|()
 return|;
 block|}
 specifier|inline
-specifier|const
 name|QPoint
-operator|&
 name|globalPos
 argument_list|()
 specifier|const
 block|{
 return|return
 name|g
+operator|.
+name|toPoint
+argument_list|()
 return|;
 block|}
 specifier|inline
@@ -240,10 +242,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|qRound
+argument_list|(
 name|p
 operator|.
 name|x
 argument_list|()
+argument_list|)
 return|;
 block|}
 specifier|inline
@@ -253,10 +258,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|qRound
+argument_list|(
 name|p
 operator|.
 name|y
 argument_list|()
+argument_list|)
 return|;
 block|}
 specifier|inline
@@ -266,10 +274,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|qRound
+argument_list|(
 name|g
 operator|.
 name|x
 argument_list|()
+argument_list|)
 return|;
 block|}
 specifier|inline
@@ -279,10 +290,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|qRound
+argument_list|(
 name|g
 operator|.
 name|y
 argument_list|()
+argument_list|)
 return|;
 block|}
 specifier|inline
@@ -309,52 +323,31 @@ return|return
 name|mouseState
 return|;
 block|}
-specifier|static
-name|QMouseEvent
-operator|*
-name|createExtendedMouseEvent
-argument_list|(
-argument|Type type
-argument_list|,
-argument|const QPointF&pos
-argument_list|,
-argument|const QPoint&globalPos
-argument_list|,
-argument|Qt::MouseButton button
-argument_list|,
-argument|Qt::MouseButtons buttons
-argument_list|,
-argument|Qt::KeyboardModifiers modifiers
-argument_list|)
-block|;
-specifier|inline
-name|bool
-name|hasExtendedInfo
+specifier|const
+name|QPointF
+operator|&
+name|posF
 argument_list|()
 specifier|const
 block|{
 return|return
-name|reinterpret_cast
-operator|<
-specifier|const
-name|QMouseEvent
-operator|*
-operator|>
-operator|(
-name|d
-operator|)
-operator|==
-name|this
+name|p
 return|;
 block|}
+specifier|const
 name|QPointF
-name|posF
+operator|&
+name|globalPosF
 argument_list|()
 specifier|const
-block|;
+block|{
+return|return
+name|g
+return|;
+block|}
 name|protected
 operator|:
-name|QPoint
+name|QPointF
 name|p
 block|,
 name|g
@@ -377,7 +370,7 @@ name|Q_GUI_EXPORT
 name|QHoverEvent
 range|:
 name|public
-name|QEvent
+name|QInputEvent
 block|{
 name|public
 operator|:
@@ -385,9 +378,11 @@ name|QHoverEvent
 argument_list|(
 argument|Type type
 argument_list|,
-argument|const QPoint&pos
+argument|const QPointF&pos
 argument_list|,
-argument|const QPoint&oldPos
+argument|const QPointF&oldPos
+argument_list|,
+argument|Qt::KeyboardModifiers modifiers = Qt::NoModifier
 argument_list|)
 block|;
 operator|~
@@ -395,10 +390,36 @@ name|QHoverEvent
 argument_list|()
 block|;
 specifier|inline
-specifier|const
 name|QPoint
-operator|&
 name|pos
+argument_list|()
+specifier|const
+block|{
+return|return
+name|p
+operator|.
+name|toPoint
+argument_list|()
+return|;
+block|}
+specifier|inline
+name|QPoint
+name|oldPos
+argument_list|()
+specifier|const
+block|{
+return|return
+name|op
+operator|.
+name|toPoint
+argument_list|()
+return|;
+block|}
+specifier|inline
+specifier|const
+name|QPointF
+operator|&
+name|posF
 argument_list|()
 specifier|const
 block|{
@@ -408,9 +429,9 @@ return|;
 block|}
 specifier|inline
 specifier|const
-name|QPoint
+name|QPointF
 operator|&
-name|oldPos
+name|oldPosF
 argument_list|()
 specifier|const
 block|{
@@ -420,7 +441,7 @@ return|;
 block|}
 name|protected
 operator|:
-name|QPoint
+name|QPointF
 name|p
 block|,
 name|op
@@ -444,7 +465,7 @@ name|public
 operator|:
 name|QWheelEvent
 argument_list|(
-argument|const QPoint&pos
+argument|const QPointF&pos
 argument_list|,
 argument|int delta
 argument_list|,
@@ -457,9 +478,9 @@ argument_list|)
 block|;
 name|QWheelEvent
 argument_list|(
-argument|const QPoint&pos
+argument|const QPointF&pos
 argument_list|,
-argument|const QPoint& globalPos
+argument|const QPointF& globalPos
 argument_list|,
 argument|int delta
 argument_list|,
@@ -485,27 +506,29 @@ name|d
 return|;
 block|}
 specifier|inline
-specifier|const
 name|QPoint
-operator|&
 name|pos
 argument_list|()
 specifier|const
 block|{
 return|return
 name|p
+operator|.
+name|toPoint
+argument_list|()
 return|;
 block|}
 specifier|inline
-specifier|const
 name|QPoint
-operator|&
 name|globalPos
 argument_list|()
 specifier|const
 block|{
 return|return
 name|g
+operator|.
+name|toPoint
+argument_list|()
 return|;
 block|}
 specifier|inline
@@ -583,12 +606,36 @@ return|return
 name|o
 return|;
 block|}
+specifier|inline
+specifier|const
+name|QPointF
+operator|&
+name|posF
+argument_list|()
+specifier|const
+block|{
+return|return
+name|p
+return|;
+block|}
+specifier|inline
+specifier|const
+name|QPointF
+operator|&
+name|globalPosF
+argument_list|()
+specifier|const
+block|{
+return|return
+name|g
+return|;
+block|}
 name|protected
 operator|:
-name|QPoint
+name|QPointF
 name|p
 block|;
-name|QPoint
+name|QPointF
 name|g
 block|;
 name|int
@@ -3664,6 +3711,83 @@ name|d_func
 argument_list|()
 specifier|const
 block|; }
+block|;
+DECL|variable|QScreenOrientationChangeEventPrivate
+name|class
+name|QScreenOrientationChangeEventPrivate
+block|;
+name|class
+name|Q_GUI_EXPORT
+name|QScreenOrientationChangeEvent
+operator|:
+name|public
+name|QEvent
+block|{
+name|public
+operator|:
+expr|enum
+name|Orientation
+block|{
+name|Portrait
+operator|=
+literal|1
+block|,
+name|Landscape
+operator|=
+literal|2
+block|,
+name|PortraitInverted
+operator|=
+literal|4
+block|,
+name|LandscapeInverted
+operator|=
+literal|8
+block|}
+block|;
+name|QScreenOrientationChangeEvent
+argument_list|(
+argument|qint32 screenOrientationInDegrees
+argument_list|)
+block|;
+name|QScreenOrientationChangeEvent
+argument_list|(
+argument|Orientation screenOrientation
+argument_list|)
+block|;
+operator|~
+name|QScreenOrientationChangeEvent
+argument_list|()
+block|;
+name|bool
+name|isValid
+argument_list|()
+specifier|const
+block|;
+name|qint32
+name|orientationInDegrees
+argument_list|()
+specifier|const
+block|;
+name|Orientation
+name|orientation
+argument_list|()
+specifier|const
+block|;
+name|private
+operator|:
+name|QScreenOrientationChangeEventPrivate
+operator|*
+name|d_func
+argument_list|()
+block|;
+specifier|const
+name|QScreenOrientationChangeEventPrivate
+operator|*
+name|d_func
+argument_list|()
+specifier|const
+block|;  }
 block|;
 name|QT_END_NAMESPACE
 name|QT_END_HEADER

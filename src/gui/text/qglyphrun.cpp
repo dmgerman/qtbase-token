@@ -375,7 +375,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the font in which to look up the glyph indexes to \a font.      \sa rawFont(), setGlyphIndexes() */
+comment|/*!     Sets the font in which to look up the glyph indexes to the \a rawFont     specified.      \sa rawFont(), setGlyphIndexes() */
 end_comment
 begin_function
 DECL|function|setRawFont

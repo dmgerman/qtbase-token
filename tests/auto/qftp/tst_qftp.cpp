@@ -9171,7 +9171,7 @@ block|}
 block|}
 else|else
 block|{
-comment|// this could be tested by verifying that no more progress signals are emited
+comment|// this could be tested by verifying that no more progress signals are emitted
 name|QVERIFY
 argument_list|(
 name|bytesDone

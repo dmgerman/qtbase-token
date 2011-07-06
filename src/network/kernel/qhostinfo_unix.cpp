@@ -507,14 +507,9 @@ argument_list|)
 name|sockaddr_in
 name|sa4
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_IPV6
 name|sockaddr_in6
 name|sa6
 decl_stmt|;
-endif|#
-directive|endif
 name|sockaddr
 modifier|*
 name|sa
@@ -588,9 +583,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_IPV6
 else|else
 block|{
 name|sa
@@ -654,8 +646,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 name|char
 name|hbuf
 index|[
@@ -1083,9 +1073,6 @@ name|addr
 argument_list|)
 expr_stmt|;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_IPV6
 elseif|else
 if|if
 condition|(
@@ -1160,8 +1147,6 @@ name|addr
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 name|node
 operator|=
 name|node

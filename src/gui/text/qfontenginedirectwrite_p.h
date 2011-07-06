@@ -177,6 +177,18 @@ argument_list|(
 argument|glyph_t g
 argument_list|)
 block|;
+name|glyph_metrics_t
+name|alphaMapBoundingBox
+argument_list|(
+argument|glyph_t glyph
+argument_list|,
+argument|QFixed subPixelPosition
+argument_list|,
+argument|const QTransform&matrix
+argument_list|,
+argument|GlyphFormat format
+argument_list|)
+block|;
 name|QFixed
 name|ascent
 argument_list|()
@@ -217,9 +229,11 @@ block|;
 name|QImage
 name|alphaMapForGlyph
 argument_list|(
-argument|glyph_t glyph
+argument|glyph_t
 argument_list|,
 argument|QFixed subPixelPosition
+argument_list|,
+argument|const QTransform&t
 argument_list|)
 block|;
 name|QImage

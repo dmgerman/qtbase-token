@@ -7298,7 +7298,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*     Test for crash whith QApplication::setDesktopSettingsAware(false). */
+comment|/*     Test for crash with QApplication::setDesktopSettingsAware(false). */
 end_comment
 begin_function
 DECL|function|desktopSettingsAware

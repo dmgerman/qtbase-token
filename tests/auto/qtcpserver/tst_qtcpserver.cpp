@@ -1177,18 +1177,6 @@ operator|::
 name|dualStack
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_NO_IPV6
-name|QSKIP
-argument_list|(
-literal|"test requires IPv6 support"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool
@@ -1299,8 +1287,6 @@ argument_list|,
 name|v6ok
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment

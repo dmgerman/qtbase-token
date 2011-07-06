@@ -479,12 +479,7 @@ argument_list|)
 expr_stmt|;
 comment|// Send mouse event.
 name|QMouseEvent
-modifier|*
 name|mouseEvent
-init|=
-name|QMouseEvent
-operator|::
-name|createExtendedMouseEvent
 argument_list|(
 name|type
 argument_list|,
@@ -532,6 +527,7 @@ name|sendMouseEvent
 argument_list|(
 name|receiver
 argument_list|,
+operator|&
 name|mouseEvent
 argument_list|,
 name|alienWidget
@@ -646,13 +642,10 @@ operator|->
 name|setAccepted
 argument_list|(
 name|mouseEvent
-operator|->
+operator|.
 name|isAccepted
 argument_list|()
 argument_list|)
-expr_stmt|;
-operator|delete
-name|mouseEvent
 expr_stmt|;
 block|}
 end_function

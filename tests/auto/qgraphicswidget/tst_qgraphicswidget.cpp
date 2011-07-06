@@ -16406,7 +16406,7 @@ operator|)
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// Showing it grabs the mosue again
+comment|// Showing it grabs the mouse again
 name|widget
 operator|->
 name|show
@@ -20547,7 +20547,7 @@ class|;
 comment|// Don't let paint events triggered by the windowing system
 comment|// influence our test case. We're only interested in knowing
 comment|// whether a QGraphicsWidget generates an additional repaint
-comment|// on the inital show. Hence create a dummy scenario to find out
+comment|// on the initial show. Hence create a dummy scenario to find out
 comment|// how many repaints we should expect.
 name|QGraphicsScene
 name|dummyScene

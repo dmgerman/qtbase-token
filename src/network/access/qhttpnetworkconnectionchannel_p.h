@@ -361,6 +361,11 @@ block|;
 name|QHttpNetworkConnectionChannel
 argument_list|()
 block|;
+name|QAbstractSocket
+operator|::
+name|NetworkLayerProtocol
+name|networkLayerPreference
+block|;
 name|void
 name|setConnection
 argument_list|(

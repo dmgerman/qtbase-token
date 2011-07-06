@@ -1146,7 +1146,7 @@ name|FontUnderline
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// verify that deleting a non-existant property does not affect the font resolving
+comment|// verify that deleting a non-existent property does not affect the font resolving
 name|QVERIFY
 argument_list|(
 operator|!
@@ -1206,7 +1206,7 @@ name|underline
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// verify that deleting an existant but font _unrelated_ property does not affect the font resolving
+comment|// verify that deleting an existent but font _unrelated_ property does not affect the font resolving
 name|QVERIFY
 argument_list|(
 name|fmt

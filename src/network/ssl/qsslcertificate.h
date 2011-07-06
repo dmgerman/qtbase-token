@@ -129,6 +129,12 @@ block|,
 name|CountryName
 block|,
 name|StateOrProvinceName
+block|,
+name|DistinguishedNameQualifier
+block|,
+name|SerialNumber
+block|,
+name|EmailAddress
 block|}
 enum|;
 name|QSslCertificate
@@ -240,7 +246,7 @@ name|Md5
 argument_list|)
 decl|const
 decl_stmt|;
-name|QString
+name|QStringList
 name|issuerInfo
 argument_list|(
 name|SubjectInfo
@@ -248,7 +254,7 @@ name|info
 argument_list|)
 decl|const
 decl_stmt|;
-name|QString
+name|QStringList
 name|issuerInfo
 argument_list|(
 specifier|const
@@ -258,7 +264,7 @@ name|tag
 argument_list|)
 decl|const
 decl_stmt|;
-name|QString
+name|QStringList
 name|subjectInfo
 argument_list|(
 name|SubjectInfo
@@ -266,7 +272,7 @@ name|info
 argument_list|)
 decl|const
 decl_stmt|;
-name|QString
+name|QStringList
 name|subjectInfo
 argument_list|(
 specifier|const

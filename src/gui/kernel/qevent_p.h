@@ -113,48 +113,6 @@ name|QKeyEvent
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|// ### Qt 5: remove
-end_comment
-begin_decl_stmt
-name|class
-name|QMouseEventEx
-range|:
-name|public
-name|QMouseEvent
-block|{
-name|public
-operator|:
-name|QMouseEventEx
-argument_list|(
-argument|Type type
-argument_list|,
-argument|const QPointF&pos
-argument_list|,
-argument|const QPoint&globalPos
-argument_list|,
-argument|Qt::MouseButton button
-argument_list|,
-argument|Qt::MouseButtons buttons
-argument_list|,
-argument|Qt::KeyboardModifiers modifiers
-argument_list|)
-block|;
-operator|~
-name|QMouseEventEx
-argument_list|()
-block|;
-name|protected
-operator|:
-name|QPointF
-name|posF
-block|;
-name|friend
-name|class
-name|QMouseEvent
-block|; }
-decl_stmt|;
-end_decl_stmt
 begin_decl_stmt
 name|class
 name|QTouchEventTouchPointPrivate
@@ -382,6 +340,32 @@ operator|::
 name|ScrollState
 name|state
 expr_stmt|;
+block|}
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_decl_stmt
+name|class
+name|QScreenOrientationChangeEventPrivate
+block|{
+name|public
+label|:
+specifier|inline
+name|QScreenOrientationChangeEventPrivate
+argument_list|()
+block|{     }
+name|QScreenOrientationChangeEvent
+operator|::
+name|Orientation
+name|orientation
+expr_stmt|;
+name|qint32
+name|orientationInDegrees
+decl_stmt|;
+name|bool
+name|isValid
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
