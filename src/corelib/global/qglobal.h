@@ -1846,6 +1846,23 @@ directive|define
 name|Q_COMPILER_LAMBDA
 endif|#
 directive|endif
+if|#
+directive|if
+operator|(
+name|__GNUC__
+operator|*
+literal|100
+operator|+
+name|__GNUC_MINOR__
+operator|)
+operator|>=
+literal|406
+comment|/* C++0x features supported in GCC 4.6: */
+define|#
+directive|define
+name|Q_COMPILER_CONSTEXPR
+endif|#
+directive|endif
 endif|#
 directive|endif
 comment|/* IBM compiler versions are a bit messy. There are actually two products:    the C product, and the C++ product. The C++ compiler is always packaged    with the latest version of the C compiler. Version numbers do not always    match. This little table (I'm not sure it's accurate) should be helpful:     C++ product                C product     C Set 3.1                  C Compiler 3.0    ...                        ...    C++ Compiler 3.6.6         C Compiler 4.3    ...                        ...    Visual Age C++ 4.0         ...    ...                        ...    Visual Age C++ 5.0         C Compiler 5.0    ...                        ...    Visual Age C++ 6.0         C Compiler 6.0     Now:    __xlC__    is the version of the C compiler in hexadecimal notation               is only an approximation of the C++ compiler version    __IBMCPP__ is the version of the C++ compiler in decimal notation               but it is not defined on older compilers like C Set 3.1 */
@@ -4173,6 +4190,31 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_CONSTEXPR
+end_ifdef
+begin_define
+DECL|macro|Q_DECL_CONSTEXPR
+define|#
+directive|define
+name|Q_DECL_CONSTEXPR
+value|constexpr
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+define|#
+directive|define
+name|Q_DECL_CONSTEXPR
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//defines the type for the WNDPROC on windows
 end_comment
@@ -4368,6 +4410,7 @@ name|typename
 name|T
 operator|>
 DECL|function|qAbs
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|T
 name|qAbs
@@ -4389,6 +4432,7 @@ block|}
 end_expr_stmt
 begin_function
 DECL|function|qRound
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|qRound
@@ -4466,6 +4510,7 @@ argument_list|)
 end_if
 begin_function
 DECL|function|qRound64
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qint64
 name|qRound64
@@ -4518,6 +4563,7 @@ directive|else
 end_else
 begin_function
 DECL|function|qRound64
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qint64
 name|qRound64
@@ -4584,6 +4630,7 @@ name|typename
 name|T
 operator|>
 DECL|function|qMin
+name|Q_DECL_CONSTEXPR
 specifier|inline
 specifier|const
 name|T
@@ -4595,30 +4642,27 @@ argument_list|,
 argument|const T&b
 argument_list|)
 block|{
-if|if
-condition|(
+return|return
+operator|(
 name|a
 operator|<
 name|b
-condition|)
-return|return
+operator|)
+operator|?
 name|a
-return|;
-end_expr_stmt
-begin_return
-DECL|function|qMin
-return|return
+operator|:
 name|b
 return|;
-end_return
+block|}
+end_expr_stmt
 begin_expr_stmt
-DECL|function|qMin
-unit|} template
+name|template
 operator|<
 name|typename
 name|T
 operator|>
 DECL|function|qMax
+name|Q_DECL_CONSTEXPR
 specifier|inline
 specifier|const
 name|T
@@ -4630,30 +4674,27 @@ argument_list|,
 argument|const T&b
 argument_list|)
 block|{
-if|if
-condition|(
+return|return
+operator|(
 name|a
 operator|<
 name|b
-condition|)
-return|return
+operator|)
+operator|?
 name|b
-return|;
-end_expr_stmt
-begin_return
-DECL|function|qMax
-return|return
+operator|:
 name|a
 return|;
-end_return
+block|}
+end_expr_stmt
 begin_expr_stmt
-DECL|function|qMax
-unit|} template
+name|template
 operator|<
 name|typename
 name|T
 operator|>
 DECL|function|qBound
+name|Q_DECL_CONSTEXPR
 specifier|inline
 specifier|const
 name|T
@@ -8448,6 +8489,7 @@ block|}
 end_expr_stmt
 begin_function
 DECL|function|qFuzzyCompare
+name|Q_DECL_CONSTEXPR
 specifier|static
 specifier|inline
 name|bool
@@ -8489,6 +8531,7 @@ block|}
 end_function
 begin_function
 DECL|function|qFuzzyCompare
+name|Q_DECL_CONSTEXPR
 specifier|static
 specifier|inline
 name|bool
@@ -8533,6 +8576,7 @@ comment|/*!   \internal */
 end_comment
 begin_function
 DECL|function|qFuzzyIsNull
+name|Q_DECL_CONSTEXPR
 specifier|static
 specifier|inline
 name|bool
@@ -8557,6 +8601,7 @@ comment|/*!   \internal */
 end_comment
 begin_function
 DECL|function|qFuzzyIsNull
+name|Q_DECL_CONSTEXPR
 specifier|static
 specifier|inline
 name|bool
