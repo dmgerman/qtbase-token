@@ -1808,6 +1808,9 @@ literal|404
 comment|/* C++0x features supported in GCC 4.4: */
 define|#
 directive|define
+name|Q_COMPILER_UNICODE_STRINGS
+define|#
+directive|define
 name|Q_COMPILER_VARIADIC_TEMPLATES
 define|#
 directive|define
@@ -1841,9 +1844,6 @@ comment|/* C++0x features supported in GCC 4.5: */
 define|#
 directive|define
 name|Q_COMPILER_LAMBDA
-define|#
-directive|define
-name|Q_COMPILER_UNICODE_STRINGS
 endif|#
 directive|endif
 endif|#
