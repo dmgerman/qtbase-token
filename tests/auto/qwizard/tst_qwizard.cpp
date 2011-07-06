@@ -6842,7 +6842,7 @@ literal|10
 argument_list|)
 expr_stmt|;
 comment|// Now, turn on the option and check that they're called at the
-comment|// appropiate times (which aren't the same).
+comment|// appropriate times (which aren't the same).
 name|wizard
 operator|.
 name|setOption

@@ -8004,7 +8004,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|// A convinience / helper function for testcases. Return the first matching configuration.
+comment|// A convenience / helper function for testcases. Return the first matching configuration.
 end_comment
 begin_comment
 comment|// Ignores configurations in other than 'discovered' -state. Returns invalid (QNetworkConfiguration())
@@ -8166,7 +8166,7 @@ operator|==
 literal|"cellular"
 condition|)
 block|{
-comment|// 'cellular' bearertype is for convinience
+comment|// 'cellular' bearertype is for convenience
 if|if
 condition|(
 name|config
@@ -8270,7 +8270,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|// A convinience-function: updates configurations and waits that they are updated.
+comment|// A convenience-function: updates configurations and waits that they are updated.
 end_comment
 begin_function
 DECL|function|updateConfigurations
@@ -8312,7 +8312,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|// A convinience-function: updates and prints all available confiurations and their states
+comment|// A convenience-function: updates and prints all available confiurations and their states
 end_comment
 begin_function
 DECL|function|printConfigurations
@@ -8371,7 +8371,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|// A convinience function for test-cases: opens the given configuration and return
+comment|// A convenience function for test-cases: opens the given configuration and return
 end_comment
 begin_comment
 comment|// true if it was done gracefully.
@@ -8787,7 +8787,7 @@ begin_comment
 comment|// the session. The lastSessionOnConfiguration (true by default) is used to
 end_comment
 begin_comment
-comment|// tell if there are more sessions open, basing on same configration. This
+comment|// tell if there are more sessions open, basing on same configuration. This
 end_comment
 begin_comment
 comment|// impacts the checks made.

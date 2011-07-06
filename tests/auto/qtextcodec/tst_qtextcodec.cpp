@@ -2582,7 +2582,7 @@ literal|"?>"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* When 0xEFBFBF is preceeded by what seems to be an arbitrary character,      * QTextCodec fails to flag it. */
+comment|/* When 0xEFBFBF is preceded by what seems to be an arbitrary character,      * QTextCodec fails to flag it. */
 block|{
 name|QByteArray
 name|start

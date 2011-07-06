@@ -13933,7 +13933,7 @@ name|isFinished
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// a file should immediatly be done
+comment|// a file should immediately be done
 name|DataReader
 name|reader
 argument_list|(
@@ -16300,7 +16300,7 @@ name|ioGetFromHttpWithAuthSynchronous
 parameter_list|()
 block|{
 comment|// verify that we do not enter an endless loop with synchronous calls and wrong credentials
-comment|// the case when we succed with the login is tested in ioGetFromHttpWithAuth()
+comment|// the case when we succeed with the login is tested in ioGetFromHttpWithAuth()
 name|QNetworkRequest
 name|request
 argument_list|(
@@ -17101,7 +17101,7 @@ name|ioGetFromHttpWithProxyAuthSynchronous
 parameter_list|()
 block|{
 comment|// verify that we do not enter an endless loop with synchronous calls and wrong credentials
-comment|// the case when we succed with the login is tested in ioGetFromHttpWithAuth()
+comment|// the case when we succeed with the login is tested in ioGetFromHttpWithAuth()
 name|QNetworkProxy
 name|proxy
 argument_list|(
@@ -39885,7 +39885,7 @@ name|isFinished
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Abort immediatly after the get()
+comment|// Abort immediately after the get()
 name|QNetworkReplyPtr
 name|reply2
 init|=
