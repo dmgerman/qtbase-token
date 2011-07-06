@@ -129,14 +129,6 @@ argument_list|(
 argument|int row
 argument_list|)
 block|;
-name|bool
-name|setRecord
-argument_list|(
-argument|int row
-argument_list|,
-argument|const QSqlRecord&record
-argument_list|)
-block|;
 name|virtual
 name|int
 name|nameToIndex
