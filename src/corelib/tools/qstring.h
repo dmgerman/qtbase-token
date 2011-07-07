@@ -250,6 +250,54 @@ block|}
 block|}
 struct|;
 end_struct
+begin_expr_stmt
+name|template
+operator|<
+name|int
+name|N
+operator|>
+expr|struct
+name|QConstStringData
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+DECL|struct|QConstStringDataPtr
+name|template
+operator|<
+name|int
+name|N
+operator|>
+expr|struct
+name|QConstStringDataPtr
+block|{
+DECL|member|ptr
+specifier|const
+name|QConstStringData
+operator|<
+name|N
+operator|>
+operator|*
+name|ptr
+block|; }
+expr_stmt|;
+end_expr_stmt
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_GNU
+argument_list|)
+end_if
+begin_comment
+comment|// We need to create a QStringData in the .rodata section of memory
+end_comment
+begin_comment
+comment|// and the only way to do that is to create a "static const" variable.
+end_comment
+begin_comment
+comment|// To do that, we need the __extension__ {( )} trick which only GCC supports
+end_comment
 begin_if
 if|#
 directive|if
@@ -304,11 +352,9 @@ name|QStringLiteral
 parameter_list|(
 name|str
 parameter_list|)
-value|(const QConstStringData<sizeof(u"" str)/2>) \ { { Q_REFCOUNT_INITIALIZER(-1), sizeof(u"" str)/2 -1, 0, 0, { 0 } }, u"" str }
+define|\
+value|__extension__ ({ \         enum { Size = sizeof(u"" str)/2 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size -1, 0, 0, { 0 } }, u"" str }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \         holder; })
 end_define
-begin_comment
-comment|// wchar_t is 2 bytes
-end_comment
 begin_elif
 elif|#
 directive|elif
@@ -341,6 +387,9 @@ operator|<
 literal|65536
 operator|)
 end_elif
+begin_comment
+comment|// wchar_t is 2 bytes
+end_comment
 begin_expr_stmt
 DECL|struct|QConstStringData
 name|template
@@ -387,15 +436,28 @@ name|QStringLiteral
 parameter_list|(
 name|str
 parameter_list|)
-value|(const QConstStringData<sizeof(L"" str)/2>) \ { { Q_REFCOUNT_INITIALIZER(-1), sizeof(L"" str)/2 -1, 0, 0, { 0 } }, L"" str }
+define|\
+value|__extension__ ({ \         enum { Size = sizeof(L"" str)/2 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size -1, 0, 0, { 0 } }, L"" str }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \         holder; })
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QStringLiteral
+end_ifndef
+begin_comment
+comment|// not GCC, or GCC in C++98 mode with 4-byte wchar_t
+end_comment
 begin_comment
 comment|// fallback, uses QLatin1String as next best options
 end_comment
-begin_else
-else|#
-directive|else
-end_else
 begin_expr_stmt
 DECL|struct|QConstStringData
 name|template
@@ -5487,6 +5549,26 @@ operator|:
 name|d
 argument_list|(
 argument|const_cast<QStringData *>(&dd.str)
+argument_list|)
+block|{}
+name|template
+operator|<
+name|int
+name|N
+operator|>
+specifier|inline
+name|QString
+argument_list|(
+name|QConstStringDataPtr
+operator|<
+name|N
+operator|>
+name|dd
+argument_list|)
+operator|:
+name|d
+argument_list|(
+argument|const_cast<QStringData *>(&dd.ptr->str)
 argument_list|)
 block|{}
 name|private
