@@ -1974,6 +1974,9 @@ operator|::
 name|Insert
 condition|)
 block|{
+comment|// historical bug: bad style to call updateRowInTable.
+comment|// Should call submit(), but maybe the author wanted to avoid
+comment|// clearing the cache on failure.
 name|isOk
 operator|=
 name|updateRowInTable
@@ -1996,6 +1999,17 @@ name|select
 argument_list|()
 expr_stmt|;
 block|}
+comment|// historical bug: dataChanged() is suppressed for OnFieldChange and OnRowChange
+comment|// when operating on an "insert" record. This is to accomodate
+comment|// applications that call setData() while handling primeInsert().
+comment|// Otherwise dataChanged() would be emitted between beginInsert()
+comment|// and endInsert().
+comment|// The price of this workaround is that, although the view making
+comment|// the change will already display the new value, other views connected
+comment|// to the model probably will not.
+comment|// It's not clear why OnManualSubmit is excluded from this workaround.
+comment|// Calling setData() while handling primeInsert() is arguably very wrong anyway.
+comment|// primeInsert() provides a ref to the record for settings values.
 if|if
 condition|(
 name|d
