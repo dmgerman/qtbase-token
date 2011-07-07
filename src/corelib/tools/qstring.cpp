@@ -1784,13 +1784,6 @@ name|QString
 operator|::
 name|shared_null
 init|=
-operator|(
-specifier|const
-name|QConstStringData
-argument_list|<
-literal|1
-argument_list|>
-operator|)
 block|{
 block|{
 name|Q_REFCOUNT_INITIALIZER
@@ -1827,13 +1820,6 @@ name|QString
 operator|::
 name|shared_empty
 init|=
-operator|(
-specifier|const
-name|QConstStringData
-argument_list|<
-literal|1
-argument_list|>
-operator|)
 block|{
 block|{
 name|Q_REFCOUNT_INITIALIZER
