@@ -342,7 +342,7 @@ parameter_list|()
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|HDC
 name|qt_win_display_dc
 parameter_list|()
