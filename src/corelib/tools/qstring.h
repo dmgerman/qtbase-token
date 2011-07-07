@@ -6050,11 +6050,11 @@ end_function
 begin_decl_stmt
 unit|};
 name|class
-name|Q_CORE_EXPORT
 name|QLatin1String
 block|{
 name|public
 label|:
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|explicit
 name|QLatin1String

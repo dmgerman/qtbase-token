@@ -37,6 +37,7 @@ block|{
 DECL|member|public
 name|public
 label|:
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|explicit
 name|QLatin1Char
@@ -49,6 +50,7 @@ argument_list|(
 argument|c
 argument_list|)
 block|{}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|char
 name|toLatin1
@@ -59,6 +61,7 @@ return|return
 name|ch
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|ushort
 name|unicode
@@ -91,66 +94,6 @@ name|QChar
 block|{
 name|public
 label|:
-name|QChar
-argument_list|()
-expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_CAST_FROM_ASCII
-name|QT_ASCII_CAST_WARN_CONSTRUCTOR
-name|QChar
-parameter_list|(
-name|char
-name|c
-parameter_list|)
-function_decl|;
-name|QT_ASCII_CAST_WARN_CONSTRUCTOR
-name|QChar
-parameter_list|(
-name|uchar
-name|c
-parameter_list|)
-function_decl|;
-endif|#
-directive|endif
-name|QChar
-argument_list|(
-argument|QLatin1Char ch
-argument_list|)
-empty_stmt|;
-name|QChar
-argument_list|(
-argument|uchar c
-argument_list|,
-argument|uchar r
-argument_list|)
-empty_stmt|;
-specifier|inline
-name|QChar
-argument_list|(
-argument|ushort rc
-argument_list|)
-operator|:
-name|ucs
-argument_list|(
-argument|rc
-argument_list|)
-block|{}
-name|QChar
-argument_list|(
-argument|short rc
-argument_list|)
-expr_stmt|;
-name|QChar
-argument_list|(
-argument|uint rc
-argument_list|)
-empty_stmt|;
-name|QChar
-argument_list|(
-argument|int rc
-argument_list|)
-empty_stmt|;
 enum|enum
 name|SpecialCharacter
 block|{
@@ -187,11 +130,125 @@ init|=
 literal|0x2028
 block|}
 enum|;
+name|Q_DECL_CONSTEXPR
+name|QChar
+argument_list|()
+operator|:
+name|ucs
+argument_list|(
+literal|0
+argument_list|)
+block|{}
+name|Q_DECL_CONSTEXPR
 name|QChar
 argument_list|(
-argument|SpecialCharacter sc
+argument|ushort rc
 argument_list|)
-empty_stmt|;
+operator|:
+name|ucs
+argument_list|(
+argument|rc
+argument_list|)
+block|{}
+comment|// implicit
+name|Q_DECL_CONSTEXPR
+name|QChar
+argument_list|(
+argument|uchar c
+argument_list|,
+argument|uchar r
+argument_list|)
+operator|:
+name|ucs
+argument_list|(
+argument|ushort((r<<
+literal|8
+argument|) | c)
+argument_list|)
+block|{}
+name|Q_DECL_CONSTEXPR
+name|QChar
+argument_list|(
+argument|short rc
+argument_list|)
+operator|:
+name|ucs
+argument_list|(
+argument|ushort(rc)
+argument_list|)
+block|{}
+comment|// implicit
+name|Q_DECL_CONSTEXPR
+name|QChar
+argument_list|(
+argument|uint rc
+argument_list|)
+operator|:
+name|ucs
+argument_list|(
+argument|ushort(rc&
+literal|0xffff
+argument|)
+argument_list|)
+block|{}
+name|Q_DECL_CONSTEXPR
+name|QChar
+argument_list|(
+argument|int rc
+argument_list|)
+operator|:
+name|ucs
+argument_list|(
+argument|ushort(rc&
+literal|0xffff
+argument|)
+argument_list|)
+block|{}
+name|Q_DECL_CONSTEXPR
+name|QChar
+argument_list|(
+argument|SpecialCharacter s
+argument_list|)
+operator|:
+name|ucs
+argument_list|(
+argument|ushort(s)
+argument_list|)
+block|{}
+comment|// implicit
+name|Q_DECL_CONSTEXPR
+name|QChar
+argument_list|(
+argument|QLatin1Char ch
+argument_list|)
+operator|:
+name|ucs
+argument_list|(
+argument|ch.unicode()
+argument_list|)
+block|{}
+comment|// implicit
+ifndef|#
+directive|ifndef
+name|QT_NO_CAST_FROM_ASCII
+comment|// these two constructors are NOT inline const_expr!
+name|QT_ASCII_CAST_WARN_CONSTRUCTOR
+name|explicit
+name|QChar
+argument_list|(
+argument|char c
+argument_list|)
+expr_stmt|;
+name|QT_ASCII_CAST_WARN_CONSTRUCTOR
+name|explicit
+name|QChar
+parameter_list|(
+name|uchar
+name|c
+parameter_list|)
+function_decl|;
+endif|#
+directive|endif
 comment|// Unicode information
 enum|enum
 name|Category
@@ -1414,17 +1471,6 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 specifier|inline
-name|QChar
-operator|::
-name|QChar
-argument_list|()
-operator|:
-name|ucs
-argument_list|(
-literal|0
-argument_list|)
-block|{}
-specifier|inline
 name|char
 name|QChar
 operator|::
@@ -1471,92 +1517,6 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
-specifier|inline
-name|QChar
-operator|::
-name|QChar
-argument_list|(
-argument|uchar c
-argument_list|,
-argument|uchar r
-argument_list|)
-operator|:
-name|ucs
-argument_list|(
-argument|ushort((r<<
-literal|8
-argument|) | c)
-argument_list|)
-block|{}
-specifier|inline
-name|QChar
-operator|::
-name|QChar
-argument_list|(
-argument|short rc
-argument_list|)
-operator|:
-name|ucs
-argument_list|(
-argument|ushort(rc)
-argument_list|)
-block|{}
-specifier|inline
-name|QChar
-operator|::
-name|QChar
-argument_list|(
-argument|uint rc
-argument_list|)
-operator|:
-name|ucs
-argument_list|(
-argument|ushort(rc&
-literal|0xffff
-argument|)
-argument_list|)
-block|{}
-specifier|inline
-name|QChar
-operator|::
-name|QChar
-argument_list|(
-argument|int rc
-argument_list|)
-operator|:
-name|ucs
-argument_list|(
-argument|ushort(rc&
-literal|0xffff
-argument|)
-argument_list|)
-block|{}
-specifier|inline
-name|QChar
-operator|::
-name|QChar
-argument_list|(
-argument|SpecialCharacter s
-argument_list|)
-operator|:
-name|ucs
-argument_list|(
-argument|ushort(s)
-argument_list|)
-block|{}
-specifier|inline
-name|QChar
-operator|::
-name|QChar
-argument_list|(
-argument|QLatin1Char ch
-argument_list|)
-operator|:
-name|ucs
-argument_list|(
-argument|ch.unicode()
-argument_list|)
-block|{}
 specifier|inline
 name|void
 name|QChar
