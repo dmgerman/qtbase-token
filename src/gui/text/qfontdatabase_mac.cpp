@@ -537,12 +537,11 @@ operator|::
 name|Key
 name|styleKey
 decl_stmt|;
-name|styleKey
-operator|.
+name|QString
 name|styleName
-operator|=
+init|=
 name|style_name
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|QCFType
@@ -690,6 +689,8 @@ operator|->
 name|style
 argument_list|(
 name|styleKey
+argument_list|,
+name|styleName
 argument_list|,
 literal|true
 argument_list|)
@@ -1090,6 +1091,9 @@ operator|->
 name|style
 argument_list|(
 name|styleKey
+argument_list|,
+name|QString
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
