@@ -68,7 +68,7 @@ begin_comment
 comment|/*!     \class QNetworkRequest     \brief The QNetworkRequest class holds a request to be sent with QNetworkAccessManager.     \since 4.4      \ingroup network     \inmodule QtNetwork      QNetworkRequest is part of the Network Access API and is the class     holding the information necessary to send a request over the     network. It contains a URL and some ancillary information that can     be used to modify the request.      \sa QNetworkReply, QNetworkAccessManager */
 end_comment
 begin_comment
-comment|/*!     \enum QNetworkRequest::KnownHeaders      List of known header types that QNetworkRequest parses. Each known     header is also represented in raw form with its full HTTP name.      \value ContentDispositionHeader  Corresponds to the HTTP     Content-Disposition header and contains a string containing the     disposition type (for instance, attachment) and a parameter (for     instance, filename).      \value ContentTypeHeader    Corresponds to the HTTP Content-Type     header and contains a string containing the media (MIME) type and     any auxiliary data (for instance, charset).      \value ContentLengthHeader  Corresponds to the HTTP Content-Length     header and contains the length in bytes of the data transmitted.      \value LocationHeader       Corresponds to the HTTP Location     header and contains a URL representing the actual location of the     data, including the destination URL in case of redirections.      \value LastModifiedHeader   Corresponds to the HTTP Last-Modified     header and contains a QDateTime representing the last modification     date of the contents.      \value CookieHeader         Corresponds to the HTTP Cookie header     and contains a QList<QNetworkCookie> representing the cookies to     be sent back to the server.      \value SetCookieHeader      Corresponds to the HTTP Set-Cookie     header and contains a QList<QNetworkCookie> representing the     cookies sent by the server to be stored locally.      \sa header(), setHeader(), rawHeader(), setRawHeader() */
+comment|/*!     \enum QNetworkRequest::KnownHeaders      List of known header types that QNetworkRequest parses. Each known     header is also represented in raw form with its full HTTP name.      \value ContentDispositionHeader  Corresponds to the HTTP     Content-Disposition header and contains a string containing the     disposition type (for instance, attachment) and a parameter (for     instance, filename).      \value ContentTypeHeader    Corresponds to the HTTP Content-Type     header and contains a string containing the media (MIME) type and     any auxiliary data (for instance, charset).      \value ContentLengthHeader  Corresponds to the HTTP Content-Length     header and contains the length in bytes of the data transmitted.      \value LocationHeader       Corresponds to the HTTP Location     header and contains a URL representing the actual location of the     data, including the destination URL in case of redirections.      \value LastModifiedHeader   Corresponds to the HTTP Last-Modified     header and contains a QDateTime representing the last modification     date of the contents.      \value CookieHeader         Corresponds to the HTTP Cookie header     and contains a QList<QNetworkCookie> representing the cookies to     be sent back to the server.      \value SetCookieHeader      Corresponds to the HTTP Set-Cookie     header and contains a QList<QNetworkCookie> representing the     cookies sent by the server to be stored locally.      \value UserAgentHeader      The User-Agent header sent by HTTP clients.      \value ServerHeader         The Server header received by HTTP clients.      \sa header(), setHeader(), rawHeader(), setRawHeader() */
 end_comment
 begin_comment
 comment|/*!     \enum QNetworkRequest::Attribute     \since 4.7          Attribute codes for the QNetworkRequest and QNetworkReply.      Attributes are extra meta-data that are used to control the     behavior of the request and to pass further information from the     reply back to the application. Attributes are also extensible,     allowing custom implementations to pass custom values.      The following table explains what the default attribute codes are,     the QVariant types associated, the default value if said attribute     is missing and whether it's used in requests or replies.      \value HttpStatusCodeAttribute         Replies only, type: QVariant::Int (no default)         Indicates the HTTP status code received from the HTTP server         (like 200, 304, 404, 401, etc.). If the connection was not         HTTP-based, this attribute will not be present.      \value HttpReasonPhraseAttribute         Replies only, type: QVariant::ByteArray (no default)         Indicates the HTTP reason phrase as received from the HTTP         server (like "Ok", "Found", "Not Found", "Access Denied",         etc.) This is the human-readable representation of the status         code (see above). If the connection was not HTTP-based, this         attribute will not be present.      \value RedirectionTargetAttribute         Replies only, type: QVariant::Url (no default)         If present, it indicates that the server is redirecting the         request to a different URL. The Network Access API does not by         default follow redirections: it's up to the application to         determine if the requested redirection should be allowed,         according to its security policies.         The returned URL might be relative. Use QUrl::resolved()         to create an absolute URL out of it.      \value ConnectionEncryptedAttribute         Replies only, type: QVariant::Bool (default: false)         Indicates whether the data was obtained through an encrypted         (secure) connection.      \value CacheLoadControlAttribute         Requests only, type: QVariant::Int (default: QNetworkRequest::PreferNetwork)         Controls how the cache should be accessed. The possible values         are those of QNetworkRequest::CacheLoadControl. Note that the         default QNetworkAccessManager implementation does not support         caching. However, this attribute may be used by certain         backends to modify their requests (for example, for caching proxies).      \value CacheSaveControlAttribute         Requests only, type: QVariant::Bool (default: true)         Controls if the data obtained should be saved to cache for         future uses. If the value is false, the data obtained will not         be automatically cached. If true, data may be cached, provided         it is cacheable (what is cacheable depends on the protocol         being used).      \value SourceIsFromCacheAttribute         Replies only, type: QVariant::Bool (default: false)         Indicates whether the data was obtained from cache         or not.      \value DoNotBufferUploadDataAttribute         Requests only, type: QVariant::Bool (default: false)         Indicates whether the QNetworkAccessManager code is         allowed to buffer the upload data, e.g. when doing a HTTP POST.         When using this flag with sequential upload data, the ContentLengthHeader         header must be set.      \value HttpPipeliningAllowedAttribute         Requests only, type: QVariant::Bool (default: false)         Indicates whether the QNetworkAccessManager code is         allowed to use HTTP pipelining with this request.      \value HttpPipeliningWasUsedAttribute         Replies only, type: QVariant::Bool         Indicates whether the HTTP pipelining was used for receiving         this reply.      \value CustomVerbAttribute        Requests only, type: QVariant::ByteArray        Holds the value for the custom HTTP verb to send (destined for usage        of other verbs than GET, POST, PUT and DELETE). This verb is set        when calling QNetworkAccessManager::sendCustomRequest().      \value CookieLoadControlAttribute         Requests only, type: QVariant::Int (default: QNetworkRequest::Automatic)         Indicates whether to send 'Cookie' headers in the request.         This attribute is set to false by QtWebKit when creating a cross-origin         XMLHttpRequest where withCredentials has not been set explicitly to true by the         Javascript that created the request.         See \l{http://www.w3.org/TR/XMLHttpRequest2/#credentials-flag}{here} for more information.         (This value was introduced in 4.7.)      \value CookieSaveControlAttribute         Requests only, type: QVariant::Int (default: QNetworkRequest::Automatic)         Indicates whether to save 'Cookie' headers received from the server in reply         to the request.         This attribute is set to false by QtWebKit when creating a cross-origin         XMLHttpRequest where withCredentials has not been set explicitly to true by the         Javascript that created the request.         See \l{http://www.w3.org/TR/XMLHttpRequest2/#credentials-flag} {here} for more information.         (This value was introduced in 4.7.)      \value AuthenticationReuseAttribute         Requests only, type: QVariant::Int (default: QNetworkRequest::Automatic)         Indicates whether to use cached authorization credentials in the request,         if available. If this is set to QNetworkRequest::Manual and the authentication         mechanism is 'Basic' or 'Digest', Qt will not send an an 'Authorization' HTTP         header with any cached credentials it may have for the request's URL.         This attribute is set to QNetworkRequest::Manual by QtWebKit when creating a cross-origin         XMLHttpRequest where withCredentials has not been set explicitly to true by the         Javascript that created the request.         See \l{http://www.w3.org/TR/XMLHttpRequest2/#credentials-flag} {here} for more information.         (This value was introduced in 4.7.)      \omitvalue MaximumDownloadBufferSizeAttribute      \omitvalue DownloadBufferAttribute      \omitvalue SynchronousRequestAttribute      \value User         Special type. Additional information can be passed in         QVariants with types ranging from User to UserMax. The default         implementation of Network Access will ignore any request         attributes in this range and it will not produce any         attributes in this range in replies. The range is reserved for         extensions of QNetworkAccessManager.      \value UserMax         Special type. See User. */
@@ -976,6 +976,22 @@ case|:
 return|return
 literal|"Content-Disposition"
 return|;
+case|case
+name|QNetworkRequest
+operator|::
+name|UserAgentHeader
+case|:
+return|return
+literal|"User-Agent"
+return|;
+case|case
+name|QNetworkRequest
+operator|::
+name|ServerHeader
+case|:
+return|return
+literal|"Server"
+return|;
 comment|// no default:
 comment|// if new values are added, this will generate a compiler warning
 block|}
@@ -1021,6 +1037,16 @@ case|case
 name|QNetworkRequest
 operator|::
 name|ContentDispositionHeader
+case|:
+case|case
+name|QNetworkRequest
+operator|::
+name|UserAgentHeader
+case|:
+case|case
+name|QNetworkRequest
+operator|::
+name|ServerHeader
 case|:
 return|return
 name|value
@@ -1465,6 +1491,49 @@ name|QNetworkRequest
 operator|::
 name|SetCookieHeader
 return|;
+elseif|else
+if|if
+condition|(
+name|qstricmp
+argument_list|(
+name|headerName
+operator|.
+name|constData
+argument_list|()
+argument_list|,
+literal|"server"
+argument_list|)
+operator|==
+literal|0
+condition|)
+return|return
+name|QNetworkRequest
+operator|::
+name|ServerHeader
+return|;
+break|break;
+case|case
+literal|'u'
+case|:
+if|if
+condition|(
+name|qstricmp
+argument_list|(
+name|headerName
+operator|.
+name|constData
+argument_list|()
+argument_list|,
+literal|"user-agent"
+argument_list|)
+operator|==
+literal|0
+condition|)
+return|return
+name|QNetworkRequest
+operator|::
+name|UserAgentHeader
+return|;
 break|break;
 block|}
 return|return
@@ -1627,6 +1696,16 @@ condition|(
 name|header
 condition|)
 block|{
+case|case
+name|QNetworkRequest
+operator|::
+name|UserAgentHeader
+case|:
+case|case
+name|QNetworkRequest
+operator|::
+name|ServerHeader
+case|:
 case|case
 name|QNetworkRequest
 operator|::
