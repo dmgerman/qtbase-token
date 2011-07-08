@@ -1621,6 +1621,8 @@ argument_list|,
 argument|int numChars
 argument_list|,
 argument|QFontEngine *fe
+argument_list|,
+argument|const QTextCharFormat&format = QTextCharFormat()
 argument_list|)
 block|;
 comment|/// copy the structure items, adjusting the glyphs arrays to the right subarrays.
@@ -1635,6 +1637,15 @@ argument_list|,
 argument|int numGlyphs
 argument_list|)
 specifier|const
+block|;
+name|void
+name|initWithScriptItem
+argument_list|(
+specifier|const
+name|QScriptItem
+operator|&
+name|si
+argument_list|)
 block|;
 name|QFixed
 name|descent
