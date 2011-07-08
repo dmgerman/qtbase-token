@@ -286,23 +286,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_CC_GNU
-argument_list|)
-end_if
-begin_comment
-comment|// We need to create a QStringData in the .rodata section of memory
-end_comment
-begin_comment
-comment|// and the only way to do that is to create a "static const" variable.
-end_comment
-begin_comment
-comment|// To do that, we need the __extension__ {( )} trick which only GCC supports
-end_comment
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
 name|Q_COMPILER_UNICODE_STRINGS
 argument_list|)
 end_if
@@ -344,16 +327,12 @@ return|;
 block|}
 end_expr_stmt
 begin_define
-DECL|macro|QStringLiteral
+DECL|macro|QT_QSTRING_UNICODE_MARKER
 unit|};
 define|#
 directive|define
-name|QStringLiteral
-parameter_list|(
-name|str
-parameter_list|)
-define|\
-value|__extension__ ({ \         enum { Size = sizeof(u"" str)/2 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size -1, 0, 0, { 0 } }, u"" str }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \         holder; })
+name|QT_QSTRING_UNICODE_MARKER
+value|u""
 end_define
 begin_elif
 elif|#
@@ -428,36 +407,17 @@ return|;
 block|}
 end_expr_stmt
 begin_define
-DECL|macro|QStringLiteral
+DECL|macro|QT_QSTRING_UNICODE_MARKER
 unit|};
 define|#
 directive|define
-name|QStringLiteral
-parameter_list|(
-name|str
-parameter_list|)
-define|\
-value|__extension__ ({ \         enum { Size = sizeof(L"" str)/2 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size -1, 0, 0, { 0 } }, L"" str }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \         holder; })
+name|QT_QSTRING_UNICODE_MARKER
+value|L""
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QStringLiteral
-end_ifndef
-begin_comment
-comment|// not GCC, or GCC in C++98 mode with 4-byte wchar_t
-end_comment
-begin_comment
-comment|// fallback, uses QLatin1String as next best options
-end_comment
+begin_else
+else|#
+directive|else
+end_else
 begin_expr_stmt
 DECL|struct|QConstStringData
 name|template
@@ -495,9 +455,86 @@ name|str
 return|;
 block|}
 end_expr_stmt
+begin_endif
+unit|};
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_QSTRING_UNICODE_MARKER
+argument_list|)
+end_if
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_COMPILER_LAMBDA
+argument_list|)
+end_if
 begin_define
 DECL|macro|QStringLiteral
-unit|};
+define|#
+directive|define
+name|QStringLiteral
+parameter_list|(
+name|str
+parameter_list|)
+value|([]() { \         enum { Size = sizeof(QT_QSTRING_UNICODE_MARKER str)/2 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size -1, 0, 0, { 0 } }, QT_QSTRING_UNICODE_MARKER str }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \     return holder; }())
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_CC_GNU
+argument_list|)
+end_elif
+begin_comment
+comment|// We need to create a QStringData in the .rodata section of memory
+end_comment
+begin_comment
+comment|// and the only way to do that is to create a "static const" variable.
+end_comment
+begin_comment
+comment|// To do that, we need the __extension__ {( )} trick which only GCC supports
+end_comment
+begin_define
+DECL|macro|QStringLiteral
+define|#
+directive|define
+name|QStringLiteral
+parameter_list|(
+name|str
+parameter_list|)
+define|\
+value|__extension__ ({ \         enum { Size = sizeof(QT_QSTRING_UNICODE_MARKER str)/2 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size -1, 0, 0, { 0 } }, QT_QSTRING_UNICODE_MARKER str }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \         holder; })
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QStringLiteral
+end_ifndef
+begin_comment
+comment|// no lambdas, not GCC, or GCC in C++98 mode with 4-byte wchar_t
+end_comment
+begin_comment
+comment|// fallback, uses QLatin1String as next best options
+end_comment
+begin_define
+DECL|macro|QStringLiteral
 define|#
 directive|define
 name|QStringLiteral
@@ -5537,6 +5574,7 @@ operator|<
 name|int
 name|N
 operator|>
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QString
 argument_list|(
