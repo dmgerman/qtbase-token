@@ -196,9 +196,6 @@ comment|// Unicode information
 enum|enum
 name|Category
 block|{
-name|NoCategory
-block|,
-comment|// ### Qt 5: replace with Other_NotAssigned
 name|Mark_NonSpacing
 block|,
 comment|//   Mn

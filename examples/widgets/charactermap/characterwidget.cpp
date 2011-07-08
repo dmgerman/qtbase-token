@@ -479,7 +479,7 @@ argument_list|()
 operator|!=
 name|QChar
 operator|::
-name|NoCategory
+name|Other_NotAssigned
 condition|)
 emit|emit
 name|characterSelected
