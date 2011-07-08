@@ -76,6 +76,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtGui/qguiapplication.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"QtCore/qpoint.h"
 end_include
 begin_decl_stmt

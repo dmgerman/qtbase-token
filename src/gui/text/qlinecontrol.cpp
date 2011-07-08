@@ -2644,9 +2644,15 @@ operator|!=
 name|m_text
 operator|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
+ifdef|#
+directive|ifdef
 name|QT_NO_ACCESSIBILITY
+name|Q_UNUSED
+argument_list|(
+argument|edited
+argument_list|)
+else|#
+directive|else
 name|bool
 name|changed
 init|=
