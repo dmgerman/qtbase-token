@@ -583,10 +583,6 @@ name|QNetworkReplyImplPrivate
 block|;
 name|friend
 name|class
-name|QNetworkAccessHttpBackend
-block|;
-name|friend
-name|class
 name|QNetworkReplyHttpImpl
 block|;
 name|Q_DECLARE_PRIVATE

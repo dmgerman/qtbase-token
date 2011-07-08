@@ -50,11 +50,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qnetworkaccesshttpbackend_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qnetworkaccessftpbackend_p.h"
 end_include
 begin_include

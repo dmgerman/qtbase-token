@@ -445,10 +445,6 @@ name|isSocketReading
 argument_list|()
 specifier|const
 block|;
-name|friend
-name|class
-name|QNetworkAccessHttpBackend
-block|;
 name|protected
 name|slots
 operator|:
