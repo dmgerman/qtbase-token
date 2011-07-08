@@ -11732,15 +11732,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// ### Qt 5: Change the return type of at least toAscii(),
-end_comment
-begin_comment
-comment|// toLatin1() and unicode() such that the use of Q_COMPILER_MANGLES_RETURN_TYPE
-end_comment
-begin_comment
-comment|// isn't necessary in the header. See task 177402.
-end_comment
-begin_comment
 comment|/*!     Returns an 8-bit representation of the string as a QByteArray.      If a codec has been set using QTextCodec::setCodecForCStrings(),     it is used to convert Unicode to 8-bit char; otherwise this     function does the same as toLatin1().      Note that, despite the name, this function does not necessarily return an US-ASCII     (ANSI X3.4-1986) string and its result may not be US-ASCII compatible.      \sa fromAscii(), toLatin1(), toUtf8(), toLocal8Bit(), QTextCodec */
 end_comment
 begin_function
