@@ -37,10 +37,10 @@ comment|/*!     \class QAccessibleValueInterface     \ingroup accessibility     
 comment|/*!     \class QAccessibleActionInterface     \ingroup accessibility     \internal     \preliminary      \brief The QAccessibleActionInterface class implements support for     the IAccessibleAction interface.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 comment|/*!     \class QAccessibleImageInterface     \ingroup accessibility     \internal     \preliminary      \brief The QAccessibleImageInterface class implements support for     the IAccessibleImage interface.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 comment|/*!   \internal */
-DECL|function|textBeforeOffsetFromString
+DECL|function|qTextBeforeOffsetFromString
 name|QString
 name|Q_GUI_EXPORT
-name|textBeforeOffsetFromString
+name|qTextBeforeOffsetFromString
 parameter_list|(
 name|int
 name|offset
@@ -206,10 +206,10 @@ begin_comment
 comment|/*!   \internal */
 end_comment
 begin_function
-DECL|function|textAfterOffsetFromString
+DECL|function|qTextAfterOffsetFromString
 name|QString
 name|Q_GUI_EXPORT
-name|textAfterOffsetFromString
+name|qTextAfterOffsetFromString
 parameter_list|(
 name|int
 name|offset
@@ -360,10 +360,10 @@ begin_comment
 comment|/*!   \internal */
 end_comment
 begin_function
-DECL|function|textAtOffsetFromString
+DECL|function|qTextAtOffsetFromString
 name|QString
 name|Q_GUI_EXPORT
-name|textAtOffsetFromString
+name|qTextAtOffsetFromString
 parameter_list|(
 name|int
 name|offset

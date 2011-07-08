@@ -143,7 +143,7 @@ end_function_decl
 begin_function_decl
 name|QString
 name|Q_GUI_EXPORT
-name|textBeforeOffsetFromString
+name|qTextBeforeOffsetFromString
 parameter_list|(
 name|int
 name|offset
@@ -171,7 +171,7 @@ end_function_decl
 begin_function_decl
 name|QString
 name|Q_GUI_EXPORT
-name|textAtOffsetFromString
+name|qTextAtOffsetFromString
 parameter_list|(
 name|int
 name|offset
@@ -199,7 +199,7 @@ end_function_decl
 begin_function_decl
 name|QString
 name|Q_GUI_EXPORT
-name|textAfterOffsetFromString
+name|qTextAfterOffsetFromString
 parameter_list|(
 name|int
 name|offset
@@ -3552,7 +3552,7 @@ argument_list|()
 return|;
 block|}
 return|return
-name|textBeforeOffsetFromString
+name|qTextBeforeOffsetFromString
 argument_list|(
 name|offset
 argument_list|,
@@ -3621,7 +3621,7 @@ argument_list|()
 return|;
 block|}
 return|return
-name|textAfterOffsetFromString
+name|qTextAfterOffsetFromString
 argument_list|(
 name|offset
 argument_list|,
@@ -3690,7 +3690,7 @@ argument_list|()
 return|;
 block|}
 return|return
-name|textAtOffsetFromString
+name|qTextAtOffsetFromString
 argument_list|(
 name|offset
 argument_list|,
