@@ -810,9 +810,6 @@ name|metrics
 operator|.
 name|x
 operator|.
-name|round
-argument_list|()
-operator|.
 name|truncate
 argument_list|()
 block|,
