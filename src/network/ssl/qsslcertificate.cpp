@@ -867,7 +867,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the issuer information for \a tag from the certificate,   or an empty string if there is no information for \a tag in the   certificate.    \sa subjectInfo() */
+comment|/*!   Returns the issuer information for \a attribute from the certificate,   or an empty string if there is no information for \a attribute in the   certificate.    \sa subjectInfo() */
 end_comment
 begin_function
 DECL|function|issuerInfo
@@ -879,7 +879,7 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|tag
+name|attribute
 parameter_list|)
 specifier|const
 block|{
@@ -918,7 +918,7 @@ name|issuerInfo
 operator|.
 name|values
 argument_list|(
-name|tag
+name|attribute
 argument_list|)
 return|;
 block|}
@@ -982,7 +982,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the subject information for \a tag, or an empty string if     there is no information for \a tag in the certificate.      \sa issuerInfo() */
+comment|/*!     Returns the subject information for \a attribute, or an empty string if     there is no information for \a attribute in the certificate.      \sa issuerInfo() */
 end_comment
 begin_function
 DECL|function|subjectInfo
@@ -994,7 +994,7 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|tag
+name|attribute
 parameter_list|)
 specifier|const
 block|{
@@ -1033,23 +1033,23 @@ name|subjectInfo
 operator|.
 name|values
 argument_list|(
-name|tag
+name|attribute
 argument_list|)
 return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of the tags that have values in the subject     information of this certificate. The information associated     with a given tag can be accessed using the subjectInfo()     method. Note that this list may include the OIDs for any     elements that are not known by the SSL backend.      \sa subjectInfo() */
+comment|/*!     Returns a list of the attributes that have values in the subject     information of this certificate. The information associated     with a given attribute can be accessed using the subjectInfo()     method. Note that this list may include the OIDs for any     elements that are not known by the SSL backend.      \sa subjectInfo() */
 end_comment
 begin_function
-DECL|function|subjectInfoTags
+DECL|function|subjectInfoAttributes
 name|QList
 argument_list|<
 name|QByteArray
 argument_list|>
 name|QSslCertificate
 operator|::
-name|subjectInfoTags
+name|subjectInfoAttributes
 parameter_list|()
 specifier|const
 block|{
@@ -1092,17 +1092,17 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of the tags that have values in the issuer     information of this certificate. The information associated     with a given tag can be accessed using the issuerInfo()     method. Note that this list may include the OIDs for any     elements that are not known by the SSL backend.      \sa subjectInfo() */
+comment|/*!     Returns a list of the attributes that have values in the issuer     information of this certificate. The information associated     with a given attribute can be accessed using the issuerInfo()     method. Note that this list may include the OIDs for any     elements that are not known by the SSL backend.      \sa subjectInfo() */
 end_comment
 begin_function
-DECL|function|issuerInfoTags
+DECL|function|issuerInfoAttributes
 name|QList
 argument_list|<
 name|QByteArray
 argument_list|>
 name|QSslCertificate
 operator|::
-name|issuerInfoTags
+name|issuerInfoAttributes
 parameter_list|()
 specifier|const
 block|{

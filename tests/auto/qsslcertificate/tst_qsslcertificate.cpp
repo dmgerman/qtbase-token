@@ -314,7 +314,7 @@ name|multipleCommonNames
 parameter_list|()
 function_decl|;
 name|void
-name|subjectAndIssuerTags
+name|subjectAndIssuerAttributes
 parameter_list|()
 function_decl|;
 comment|// ### add tests for certificate bundles (multiple certificates concatenated into a single
@@ -5768,11 +5768,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|subjectAndIssuerTags
+DECL|function|subjectAndIssuerAttributes
 name|void
 name|tst_QSslCertificate
 operator|::
-name|subjectAndIssuerTags
+name|subjectAndIssuerAttributes
 parameter_list|()
 block|{
 name|QList
@@ -5805,19 +5805,19 @@ name|QList
 argument_list|<
 name|QByteArray
 argument_list|>
-name|tags
+name|attributes
 init|=
 name|certList
 index|[
 literal|0
 index|]
 operator|.
-name|subjectInfoTags
+name|subjectInfoAttributes
 argument_list|()
 decl_stmt|;
 name|QVERIFY
 argument_list|(
-name|tags
+name|attributes
 operator|.
 name|contains
 argument_list|(
@@ -5828,7 +5828,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|tags
+name|attributes
 operator|.
 name|clear
 argument_list|()
@@ -5855,19 +5855,19 @@ argument_list|,
 literal|"Please run this test from the source directory"
 argument_list|)
 expr_stmt|;
-name|tags
+name|attributes
 operator|=
 name|certList
 index|[
 literal|0
 index|]
 operator|.
-name|subjectInfoTags
+name|subjectInfoAttributes
 argument_list|()
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-name|tags
+name|attributes
 operator|.
 name|contains
 argument_list|(

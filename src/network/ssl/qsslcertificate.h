@@ -260,7 +260,7 @@ argument_list|(
 specifier|const
 name|QByteArray
 operator|&
-name|tag
+name|attribute
 argument_list|)
 decl|const
 decl_stmt|;
@@ -278,7 +278,7 @@ argument_list|(
 specifier|const
 name|QByteArray
 operator|&
-name|tag
+name|attribute
 argument_list|)
 decl|const
 decl_stmt|;
@@ -286,7 +286,7 @@ name|QList
 operator|<
 name|QByteArray
 operator|>
-name|subjectInfoTags
+name|subjectInfoAttributes
 argument_list|()
 specifier|const
 expr_stmt|;
@@ -294,7 +294,7 @@ name|QList
 operator|<
 name|QByteArray
 operator|>
-name|issuerInfoTags
+name|issuerInfoAttributes
 argument_list|()
 specifier|const
 expr_stmt|;
