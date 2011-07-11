@@ -400,6 +400,9 @@ name|QString
 operator|&
 name|prefix
 argument_list|,
+name|bool
+name|resolve
+argument_list|,
 name|QMap
 operator|<
 name|QString
