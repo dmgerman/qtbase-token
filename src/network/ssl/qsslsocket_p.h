@@ -345,6 +345,16 @@ name|supportsSsl
 argument_list|()
 block|;
 specifier|static
+name|long
+name|opensslVersionNumber
+argument_list|()
+block|;
+specifier|static
+name|QString
+name|opensslVersionString
+argument_list|()
+block|;
+specifier|static
 name|void
 name|ensureInitialized
 argument_list|()

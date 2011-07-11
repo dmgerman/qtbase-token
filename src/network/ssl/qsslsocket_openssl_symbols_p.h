@@ -2950,6 +2950,17 @@ name|q_SSLeay
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_function_decl
+specifier|const
+name|char
+modifier|*
+name|q_SSLeay_version
+parameter_list|(
+name|int
+name|type
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_comment
 comment|// Helper function
 end_comment

@@ -3062,6 +3062,23 @@ argument_list|,
 argument|return
 argument_list|)
 end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|const char *
+argument_list|,
+argument|SSLeay_version
+argument_list|,
+argument|int a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -5716,6 +5733,10 @@ argument_list|)
 name|RESOLVEFUNC
 argument_list|(
 argument|SSLeay
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|SSLeay_version
 argument_list|)
 endif|#
 directive|endif
