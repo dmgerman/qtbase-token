@@ -158,6 +158,15 @@ argument_list|)
 decl_stmt|;
 specifier|static
 name|QByteArray
+name|asn1ObjectName
+parameter_list|(
+name|ASN1_OBJECT
+modifier|*
+name|object
+parameter_list|)
+function_decl|;
+specifier|static
+name|QByteArray
 name|QByteArray_from_X509
 argument_list|(
 name|X509
