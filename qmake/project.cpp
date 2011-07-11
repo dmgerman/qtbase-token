@@ -12361,8 +12361,11 @@ argument_list|)
 condition|)
 block|{
 name|sortedList
-operator|+=
+operator|.
+name|prepend
+argument_list|(
 name|item
+argument_list|)
 expr_stmt|;
 name|org
 operator|.
