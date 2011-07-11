@@ -94,7 +94,7 @@ comment|// forward declaration
 specifier|static
 name|QMap
 argument_list|<
-name|QString
+name|QByteArray
 argument_list|,
 name|QString
 argument_list|>
@@ -668,7 +668,7 @@ end_function
 begin_function
 DECL|function|_q_SubjectInfoToString
 specifier|static
-name|QString
+name|QByteArray
 name|_q_SubjectInfoToString
 parameter_list|(
 name|QSslCertificate
@@ -677,7 +677,7 @@ name|SubjectInfo
 name|info
 parameter_list|)
 block|{
-name|QString
+name|QByteArray
 name|str
 decl_stmt|;
 switch|switch
@@ -692,7 +692,7 @@ name|Organization
 case|:
 name|str
 operator|=
-name|QLatin1String
+name|QByteArray
 argument_list|(
 literal|"O"
 argument_list|)
@@ -705,7 +705,7 @@ name|CommonName
 case|:
 name|str
 operator|=
-name|QLatin1String
+name|QByteArray
 argument_list|(
 literal|"CN"
 argument_list|)
@@ -718,7 +718,7 @@ name|LocalityName
 case|:
 name|str
 operator|=
-name|QLatin1String
+name|QByteArray
 argument_list|(
 literal|"L"
 argument_list|)
@@ -731,7 +731,7 @@ name|OrganizationalUnitName
 case|:
 name|str
 operator|=
-name|QLatin1String
+name|QByteArray
 argument_list|(
 literal|"OU"
 argument_list|)
@@ -744,7 +744,7 @@ name|CountryName
 case|:
 name|str
 operator|=
-name|QLatin1String
+name|QByteArray
 argument_list|(
 literal|"C"
 argument_list|)
@@ -757,7 +757,7 @@ name|StateOrProvinceName
 case|:
 name|str
 operator|=
-name|QLatin1String
+name|QByteArray
 argument_list|(
 literal|"ST"
 argument_list|)
@@ -770,7 +770,7 @@ name|DistinguishedNameQualifier
 case|:
 name|str
 operator|=
-name|QLatin1String
+name|QByteArray
 argument_list|(
 literal|"dnQualifier"
 argument_list|)
@@ -783,7 +783,7 @@ name|SerialNumber
 case|:
 name|str
 operator|=
-name|QLatin1String
+name|QByteArray
 argument_list|(
 literal|"serialNumber"
 argument_list|)
@@ -796,7 +796,7 @@ name|EmailAddress
 case|:
 name|str
 operator|=
-name|QLatin1String
+name|QByteArray
 argument_list|(
 literal|"emailAddress"
 argument_list|)
@@ -918,12 +918,7 @@ name|issuerInfo
 operator|.
 name|values
 argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
 name|tag
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1038,12 +1033,7 @@ name|subjectInfo
 operator|.
 name|values
 argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
 name|tag
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -2567,7 +2557,7 @@ DECL|function|_q_mapFromX509Name
 specifier|static
 name|QMap
 argument_list|<
-name|QString
+name|QByteArray
 argument_list|,
 name|QString
 argument_list|>
@@ -2580,7 +2570,7 @@ parameter_list|)
 block|{
 name|QMap
 argument_list|<
-name|QString
+name|QByteArray
 argument_list|,
 name|QString
 argument_list|>
@@ -2697,9 +2687,7 @@ name|info
 operator|.
 name|insertMulti
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QByteArray
 argument_list|(
 name|obj
 condition|?

@@ -118,7 +118,7 @@ name|serialNumberString
 decl_stmt|;
 name|QMap
 operator|<
-name|QString
+name|QByteArray
 operator|,
 name|QString
 operator|>
@@ -126,7 +126,7 @@ name|issuerInfo
 expr_stmt|;
 name|QMap
 operator|<
-name|QString
+name|QByteArray
 operator|,
 name|QString
 operator|>
