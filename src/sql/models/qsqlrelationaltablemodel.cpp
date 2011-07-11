@@ -1219,6 +1219,7 @@ condition|(
 name|row
 operator|.
 name|op
+argument_list|()
 operator|!=
 name|QSqlTableModelPrivate
 operator|::
@@ -1227,6 +1228,7 @@ operator|&&
 name|row
 operator|.
 name|rec
+argument_list|()
 operator|.
 name|isGenerated
 argument_list|(
@@ -1248,6 +1250,7 @@ operator|||
 name|row
 operator|.
 name|op
+argument_list|()
 operator|!=
 name|QSqlTableModelPrivate
 operator|::
@@ -1260,6 +1263,7 @@ init|=
 name|row
 operator|.
 name|rec
+argument_list|()
 operator|.
 name|value
 argument_list|(

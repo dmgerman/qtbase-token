@@ -327,6 +327,7 @@ condition|(
 name|r
 operator|.
 name|op
+argument_list|()
 condition|)
 block|{
 case|case
@@ -1338,6 +1339,7 @@ condition|(
 name|row
 operator|.
 name|op
+argument_list|()
 operator|==
 name|QSqlTableModelPrivate
 operator|::
@@ -1361,6 +1363,7 @@ operator|>=
 name|row
 operator|.
 name|rec
+argument_list|()
 operator|.
 name|count
 argument_list|()
@@ -1373,6 +1376,7 @@ return|return
 name|row
 operator|.
 name|rec
+argument_list|()
 operator|.
 name|value
 argument_list|(
@@ -1389,6 +1393,7 @@ condition|(
 name|row
 operator|.
 name|op
+argument_list|()
 operator|==
 name|QSqlTableModelPrivate
 operator|::
@@ -1400,6 +1405,7 @@ condition|(
 name|row
 operator|.
 name|rec
+argument_list|()
 operator|.
 name|isGenerated
 argument_list|(
@@ -1413,6 +1419,7 @@ return|return
 name|row
 operator|.
 name|rec
+argument_list|()
 operator|.
 name|value
 argument_list|(
@@ -1432,6 +1439,7 @@ condition|(
 name|row
 operator|.
 name|op
+argument_list|()
 operator|==
 name|QSqlTableModelPrivate
 operator|::
@@ -1441,6 +1449,7 @@ operator|(
 name|row
 operator|.
 name|op
+argument_list|()
 operator|!=
 name|QSqlTableModelPrivate
 operator|::
@@ -1449,6 +1458,7 @@ operator|&&
 name|row
 operator|.
 name|rec
+argument_list|()
 operator|.
 name|isGenerated
 argument_list|(
@@ -1463,6 +1473,7 @@ return|return
 name|row
 operator|.
 name|rec
+argument_list|()
 operator|.
 name|value
 argument_list|(
@@ -1573,6 +1584,7 @@ name|section
 argument_list|)
 operator|.
 name|op
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1692,6 +1704,7 @@ return|return
 name|row
 operator|.
 name|op
+argument_list|()
 operator|==
 name|QSqlTableModelPrivate
 operator|::
@@ -1700,6 +1713,7 @@ operator|&&
 name|row
 operator|.
 name|rec
+argument_list|()
 operator|.
 name|isGenerated
 argument_list|(
@@ -1736,6 +1750,7 @@ return|return
 name|row
 operator|.
 name|op
+argument_list|()
 operator|==
 name|QSqlTableModelPrivate
 operator|::
@@ -1744,6 +1759,7 @@ operator|||
 name|row
 operator|.
 name|op
+argument_list|()
 operator|==
 name|QSqlTableModelPrivate
 operator|::
@@ -1753,6 +1769,7 @@ operator|(
 name|row
 operator|.
 name|op
+argument_list|()
 operator|==
 name|QSqlTableModelPrivate
 operator|::
@@ -1761,6 +1778,7 @@ operator|&&
 name|row
 operator|.
 name|rec
+argument_list|()
 operator|.
 name|isGenerated
 argument_list|(
@@ -1879,6 +1897,7 @@ argument_list|()
 argument_list|)
 operator|.
 name|op
+argument_list|()
 operator|!=
 name|QSqlTableModelPrivate
 operator|::
@@ -1956,6 +1975,7 @@ condition|(
 name|row
 operator|.
 name|op
+argument_list|()
 operator|==
 name|QSqlTableModelPrivate
 operator|::
@@ -2019,6 +2039,7 @@ operator|&&
 name|row
 operator|.
 name|op
+argument_list|()
 operator|!=
 name|QSqlTableModelPrivate
 operator|::
@@ -2040,6 +2061,7 @@ argument_list|,
 name|row
 operator|.
 name|rec
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -2072,6 +2094,7 @@ operator|||
 name|row
 operator|.
 name|op
+argument_list|()
 operator|!=
 name|QSqlTableModelPrivate
 operator|::
@@ -2171,6 +2194,7 @@ name|row
 index|]
 operator|.
 name|primaryValues
+argument_list|()
 else|:
 name|d
 operator|->
@@ -2488,6 +2512,7 @@ name|row
 index|]
 operator|.
 name|primaryValues
+argument_list|()
 else|:
 name|d
 operator|->
@@ -2686,6 +2711,7 @@ name|value
 argument_list|()
 operator|.
 name|op
+argument_list|()
 condition|)
 block|{
 case|case
@@ -2704,6 +2730,7 @@ name|value
 argument_list|()
 operator|.
 name|rec
+argument_list|()
 argument_list|)
 condition|)
 return|return
@@ -2758,6 +2785,7 @@ name|value
 argument_list|()
 operator|.
 name|rec
+argument_list|()
 argument_list|)
 condition|)
 return|return
@@ -3730,6 +3758,7 @@ name|idx
 argument_list|)
 operator|.
 name|op
+argument_list|()
 operator|==
 name|QSqlTableModelPrivate
 operator|::
@@ -4110,7 +4139,8 @@ operator|+
 name|i
 index|]
 operator|.
-name|rec
+name|recRef
+argument_list|()
 argument_list|)
 emit|;
 block|}
@@ -4285,6 +4315,7 @@ name|value
 argument_list|()
 operator|.
 name|op
+argument_list|()
 operator|==
 name|QSqlTableModelPrivate
 operator|::
@@ -4383,6 +4414,7 @@ name|value
 argument_list|()
 operator|.
 name|op
+argument_list|()
 operator|==
 name|QSqlTableModelPrivate
 operator|::
@@ -4677,6 +4709,7 @@ name|row
 argument_list|)
 operator|.
 name|op
+argument_list|()
 operator|!=
 name|QSqlTableModelPrivate
 operator|::
@@ -4737,6 +4770,7 @@ condition|(
 name|mrow
 operator|.
 name|op
+argument_list|()
 operator|==
 name|QSqlTableModelPrivate
 operator|::
@@ -4903,6 +4937,7 @@ condition|(
 name|mrow
 operator|.
 name|op
+argument_list|()
 operator|!=
 name|QSqlTableModelPrivate
 operator|::

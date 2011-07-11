@@ -186,9 +186,12 @@ name|Update
 block|,
 name|Delete
 block|}
-block|;      struct
+block|;
+name|class
 name|ModifiedRow
 block|{
+name|public
+operator|:
 specifier|inline
 name|ModifiedRow
 argument_list|(
@@ -199,17 +202,17 @@ argument_list|,
 argument|const QSqlRecord&pVals = QSqlRecord()
 argument_list|)
 operator|:
-name|op
+name|m_op
 argument_list|(
 name|o
 argument_list|)
 block|,
-name|rec
+name|m_rec
 argument_list|(
 name|r
 argument_list|)
 block|,
-name|primaryValues
+name|m_primaryValues
 argument_list|(
 argument|pVals
 argument_list|)
@@ -219,7 +222,7 @@ control|(
 name|int
 name|i
 init|=
-name|rec
+name|m_rec
 operator|.
 name|count
 argument_list|()
@@ -233,7 +236,7 @@ condition|;
 operator|--
 name|i
 control|)
-name|rec
+name|m_rec
 operator|.
 name|setGenerated
 argument_list|(
@@ -244,6 +247,46 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|inline
+name|Op
+name|op
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_op
+return|;
+block|}
+specifier|inline
+name|QSqlRecord
+name|rec
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_rec
+return|;
+block|}
+specifier|inline
+name|QSqlRecord
+operator|&
+name|recRef
+argument_list|()
+block|{
+return|return
+name|m_rec
+return|;
+block|}
+specifier|inline
+name|QSqlRecord
+name|primaryValues
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_primaryValues
+return|;
+block|}
+specifier|inline
 name|void
 name|setValue
 argument_list|(
@@ -252,7 +295,7 @@ argument_list|,
 argument|const QVariant&v
 argument_list|)
 block|{
-name|rec
+name|m_rec
 operator|.
 name|setValue
 argument_list|(
@@ -261,7 +304,7 @@ argument_list|,
 name|v
 argument_list|)
 block|;
-name|rec
+name|m_rec
 operator|.
 name|setGenerated
 argument_list|(
@@ -270,14 +313,16 @@ argument_list|,
 name|true
 argument_list|)
 block|;         }
+name|private
+operator|:
 name|Op
-name|op
+name|m_op
 block|;
 name|QSqlRecord
-name|rec
+name|m_rec
 block|;
 name|QSqlRecord
-name|primaryValues
+name|m_primaryValues
 block|;     }
 block|;
 typedef|typedef
