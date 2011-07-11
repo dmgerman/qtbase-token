@@ -728,6 +728,48 @@ end_macro
 begin_macro
 name|DEFINEFUNC
 argument_list|(
+argument|const char *
+argument_list|,
+argument|OBJ_nid2ln
+argument_list|,
+argument|int a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC3
+argument_list|(
+argument|int
+argument_list|,
+argument|i2t_ASN1_OBJECT
+argument_list|,
+argument|char *a
+argument_list|,
+argument|a
+argument_list|,
+argument|int b
+argument_list|,
+argument|b
+argument_list|,
+argument|ASN1_OBJECT *c
+argument_list|,
+argument|c
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
 argument|int
 argument_list|,
 argument|OBJ_obj2nid
@@ -5334,6 +5376,14 @@ argument_list|)
 name|RESOLVEFUNC
 argument_list|(
 argument|OBJ_nid2sn
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|OBJ_nid2ln
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|i2t_ASN1_OBJECT
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(
