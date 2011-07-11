@@ -346,12 +346,12 @@ argument_list|()
 block|;
 specifier|static
 name|long
-name|opensslVersionNumber
+name|sslLibraryVersionNumber
 argument_list|()
 block|;
 specifier|static
 name|QString
-name|opensslVersionString
+name|sslLibraryVersionString
 argument_list|()
 block|;
 specifier|static

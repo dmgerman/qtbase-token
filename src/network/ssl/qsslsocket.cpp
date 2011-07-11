@@ -3371,7 +3371,7 @@ block|{
 return|return
 name|QSslSocketPrivate
 operator|::
-name|opensslVersionNumber
+name|sslLibraryVersionNumber
 argument_list|()
 return|;
 block|}
@@ -3390,7 +3390,7 @@ block|{
 return|return
 name|QSslSocketPrivate
 operator|::
-name|opensslVersionString
+name|sslLibraryVersionString
 argument_list|()
 return|;
 block|}

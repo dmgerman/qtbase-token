@@ -2857,11 +2857,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|opensslVersionNumber
+DECL|function|sslLibraryVersionNumber
 name|long
 name|QSslSocketPrivate
 operator|::
-name|opensslVersionNumber
+name|sslLibraryVersionNumber
 parameter_list|()
 block|{
 return|return
@@ -2871,11 +2871,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|opensslVersionString
+DECL|function|sslLibraryVersionString
 name|QString
 name|QSslSocketPrivate
 operator|::
-name|opensslVersionString
+name|sslLibraryVersionString
 parameter_list|()
 block|{
 if|if
