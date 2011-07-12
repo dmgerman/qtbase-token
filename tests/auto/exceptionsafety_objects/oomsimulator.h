@@ -113,6 +113,31 @@ begin_comment
 comment|/* Use glibc's memory allocation hooks */
 end_comment
 begin_comment
+comment|// From glibc 2.14, the malloc hook variables are declared volatile.
+end_comment
+begin_comment
+comment|// Note: The malloc hook implementation is marked as deprecated.
+end_comment
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|__MALLOC_HOOK_VOLATILE
+argument_list|)
+end_if
+begin_define
+DECL|macro|__MALLOC_HOOK_VOLATILE
+define|#
+directive|define
+name|__MALLOC_HOOK_VOLATILE
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
 comment|/* our hooks */
 end_comment
 begin_function_decl
@@ -186,6 +211,7 @@ name|void
 modifier|*
 function_decl|(
 modifier|*
+name|__MALLOC_HOOK_VOLATILE
 name|old_malloc_hook
 function_decl|)
 parameter_list|(
@@ -204,6 +230,7 @@ name|void
 modifier|*
 function_decl|(
 modifier|*
+name|__MALLOC_HOOK_VOLATILE
 name|old_realloc_hook
 function_decl|)
 parameter_list|(
@@ -225,6 +252,7 @@ name|void
 modifier|*
 function_decl|(
 modifier|*
+name|__MALLOC_HOOK_VOLATILE
 name|old_memalign_hook
 function_decl|)
 parameter_list|(
@@ -244,6 +272,7 @@ specifier|static
 name|void
 function_decl|(
 modifier|*
+name|__MALLOC_HOOK_VOLATILE
 name|old_free_hook
 function_decl|)
 parameter_list|(
@@ -274,6 +303,7 @@ DECL|variable|__malloc_initialize_hook
 name|void
 function_decl|(
 modifier|*
+name|__MALLOC_HOOK_VOLATILE
 name|__malloc_initialize_hook
 function_decl|)
 parameter_list|(
