@@ -773,6 +773,12 @@ operator|->
 name|bodyLength
 operator|>
 literal|0
+operator|&&
+name|d
+operator|->
+name|statusCode
+operator|==
+literal|200
 operator|)
 return|;
 block|}
@@ -3154,9 +3160,9 @@ literal|1
 condition|)
 block|{
 return|return
-literal|0
+operator|-
+literal|1
 return|;
-comment|// ### error checking here;
 block|}
 name|contentRead
 operator|+=
