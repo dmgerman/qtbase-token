@@ -856,7 +856,11 @@ argument_list|)
 block|{}
 name|HRGN
 name|mask
-argument_list|()
+argument_list|(
+name|QWidget
+operator|*
+name|widget
+argument_list|)
 expr_stmt|;
 name|HTHEME
 name|handle

@@ -60,6 +60,12 @@ name|QBackingStorePrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPlatformBackingStore
+name|class
+name|QPlatformBackingStore
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QBackingStore
@@ -170,6 +176,12 @@ specifier|const
 expr_stmt|;
 name|bool
 name|hasStaticContents
+argument_list|()
+specifier|const
+expr_stmt|;
+name|QPlatformBackingStore
+operator|*
+name|handle
 argument_list|()
 specifier|const
 expr_stmt|;
