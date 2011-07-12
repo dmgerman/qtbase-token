@@ -1579,6 +1579,11 @@ name|QChar
 operator|::
 name|Direction
 name|dir
+init|=
+name|control
+operator|.
+name|basicDirection
+argument_list|()
 decl_stmt|;
 name|int
 name|level
