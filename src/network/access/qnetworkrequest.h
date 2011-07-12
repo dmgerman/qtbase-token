@@ -65,7 +65,11 @@ operator|,
 name|SetCookieHeader
 operator|,
 name|ContentDispositionHeader
+operator|,
 comment|// added for QMultipartMessage
+name|UserAgentHeader
+operator|,
+name|ServerHeader
 block|}
 end_function
 begin_empty_stmt

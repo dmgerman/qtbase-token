@@ -7254,7 +7254,7 @@ comment|//    QCOMPARE(test->state(0), (int)QAccessible::HasPopup);
 comment|//    QCOMPARE(test->actionCount(0), 1);
 comment|//    QCOMPARE(test->actionText(QAccessible::Press, QAccessible::Name, 0), QString("Press"));
 comment|//    test->release();
-comment|//    // test splitted menu toolbutton
+comment|//    // test split menu toolbutton
 comment|//    QVERIFY(QAccessible::queryAccessibleInterface(&splitToolButton,&test));
 comment|//    QCOMPARE(test->childCount(), 2);
 comment|//    QCOMPARE(test->role(0), QAccessible::ButtonDropDown);

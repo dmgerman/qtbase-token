@@ -2318,7 +2318,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*     A writer aquires a read-lock, a reader locks     the writer releases the lock, the reader gets the lock */
+comment|/*     A writer acquires a read-lock, a reader locks     the writer releases the lock, the reader gets the lock */
 end_comment
 begin_function
 DECL|function|readLockBlockRelease
@@ -2374,7 +2374,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*     writer1 aquires a read-lock, writer2 blocks,     writer1 releases the lock, writer2 gets the lock */
+comment|/*     writer1 acquires a read-lock, writer2 blocks,     writer1 releases the lock, writer2 gets the lock */
 end_comment
 begin_function
 DECL|function|writeLockBlockRelease
@@ -2430,7 +2430,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*     Two readers aquire a read-lock, one writer attempts a write block,     the readers release their locks, the writer gets the lock. */
+comment|/*     Two readers acquire a read-lock, one writer attempts a write block,     the readers release their locks, the writer gets the lock. */
 end_comment
 begin_function
 DECL|function|multipleReadersBlockRelease

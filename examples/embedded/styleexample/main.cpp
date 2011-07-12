@@ -36,7 +36,7 @@ argument_list|)
 decl_stmt|;
 name|Q_INIT_RESOURCE
 argument_list|(
-name|styledemo
+name|styleexample
 argument_list|)
 expr_stmt|;
 name|app

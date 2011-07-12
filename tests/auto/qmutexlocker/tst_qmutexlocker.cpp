@@ -402,7 +402,7 @@ expr_stmt|;
 name|waitForThread
 argument_list|()
 expr_stmt|;
-comment|// mutex has been explicity relocked via QMutexLocker
+comment|// mutex has been explicitly relocked via QMutexLocker
 name|QVERIFY
 argument_list|(
 operator|!

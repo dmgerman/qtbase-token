@@ -1272,7 +1272,7 @@ operator|->
 name|count
 argument_list|()
 decl_stmt|;
-comment|// Boundry Checking
+comment|// Boundary Checking
 name|testWidget
 operator|->
 name|addItem
@@ -1387,7 +1387,7 @@ operator|->
 name|count
 argument_list|()
 decl_stmt|;
-comment|// Boundry Checking
+comment|// Boundary Checking
 name|testWidget
 operator|->
 name|addItems
@@ -1523,7 +1523,7 @@ operator|::
 name|openPersistentEditor
 parameter_list|()
 block|{
-comment|// Boundry checking
+comment|// Boundary checking
 name|testWidget
 operator|->
 name|openPersistentEditor
@@ -1631,7 +1631,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Boundry checking
+comment|// Boundary checking
 name|int
 name|childCount
 init|=
@@ -1831,7 +1831,7 @@ operator|::
 name|setItemHidden
 parameter_list|()
 block|{
-comment|// Boundry checking
+comment|// Boundary checking
 name|testWidget
 operator|->
 name|setItemHidden
@@ -2223,7 +2223,7 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Boundry checking
+comment|// Boundary checking
 name|testWidget
 operator|->
 name|setCurrentItem
@@ -2454,7 +2454,7 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Boundry checking
+comment|// Boundary checking
 name|testWidget
 operator|->
 name|setCurrentRow
@@ -2758,7 +2758,7 @@ operator|::
 name|editItem
 parameter_list|()
 block|{
-comment|// Boundry checking
+comment|// Boundary checking
 name|testWidget
 operator|->
 name|editItem
@@ -3005,7 +3005,7 @@ name|findItems
 parameter_list|()
 block|{
 comment|// This really just tests that the items that are returned are converted from index's to items correctly.
-comment|// Boundry checking
+comment|// Boundary checking
 name|QCOMPARE
 argument_list|(
 name|testWidget

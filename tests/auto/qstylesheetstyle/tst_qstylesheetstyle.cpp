@@ -2645,7 +2645,7 @@ argument_list|(
 literal|"may_insanity_prevail { }"
 argument_list|)
 expr_stmt|;
-comment|// app has styleshet
+comment|// app has stylesheet
 name|QCOMPARE
 argument_list|(
 name|window1

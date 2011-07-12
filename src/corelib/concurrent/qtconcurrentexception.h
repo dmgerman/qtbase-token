@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<QtCore/qatomic.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qshareddata.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -150,10 +155,12 @@ name|exception
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QExplicitlySharedDataPointer
+operator|<
 name|Base
-modifier|*
+operator|>
 name|base
-decl_stmt|;
+expr_stmt|;
 block|}
 empty_stmt|;
 name|class

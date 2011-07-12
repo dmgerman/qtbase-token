@@ -121,7 +121,7 @@ modifier|*
 specifier|const
 name|message
 init|=
-literal|"<p><b>Qt Main Window Demo</b></p>"
+literal|"<p><b>Qt Main Window Example</b></p>"
 literal|"<p>This is a demonstration of the QMainWindow, QToolBar and "
 literal|"QDockWidget classes.</p>"
 literal|"<p>The tool bar and dock widgets can be dragged around and rearranged "
@@ -183,7 +183,7 @@ argument_list|)
 expr_stmt|;
 name|setWindowTitle
 argument_list|(
-literal|"Qt Main Window Demo"
+literal|"Qt Main Window Example"
 argument_list|)
 expr_stmt|;
 name|center

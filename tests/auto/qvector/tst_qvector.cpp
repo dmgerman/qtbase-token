@@ -586,7 +586,7 @@ name|QString
 argument_list|>
 name|myvec
 decl_stmt|;
-comment|// TODO: is this guarenteed? seems a safe assumption, but I suppose preallocation of a
+comment|// TODO: is this guaranteed? seems a safe assumption, but I suppose preallocation of a
 comment|// few items isn't an entirely unforseeable possibility.
 name|QVERIFY
 argument_list|(

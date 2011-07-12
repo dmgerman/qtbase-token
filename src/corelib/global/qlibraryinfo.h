@@ -98,8 +98,6 @@ name|TranslationsPath
 block|,
 name|SettingsPath
 block|,
-name|DemosPath
-block|,
 name|ExamplesPath
 block|,
 name|ImportsPath
