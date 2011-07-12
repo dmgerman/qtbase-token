@@ -120,9 +120,15 @@ ifndef|#
 directive|ifndef
 name|QT_NO_IMAGE_TEXT
 end_ifndef
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_DEPRECATED
+end_ifdef
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
+name|QT_DEPRECATED
 name|QImageTextKeyLang
 block|{
 name|public
@@ -243,6 +249,10 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
@@ -1270,7 +1280,10 @@ operator|&
 name|value
 argument_list|)
 block|;
-comment|// The following functions are obsolete as of 4.1
+ifdef|#
+directive|ifdef
+name|QT_DEPRECATED
+name|QT_DEPRECATED
 name|QString
 name|text
 argument_list|(
@@ -1281,6 +1294,7 @@ literal|0
 argument_list|)
 specifier|const
 block|;
+name|QT_DEPRECATED
 name|QList
 operator|<
 name|QImageTextKeyLang
@@ -1289,11 +1303,13 @@ name|textList
 argument_list|()
 specifier|const
 block|;
+name|QT_DEPRECATED
 name|QStringList
 name|textLanguages
 argument_list|()
 specifier|const
 block|;
+name|QT_DEPRECATED
 name|QString
 name|text
 argument_list|(
@@ -1301,6 +1317,7 @@ argument|const QImageTextKeyLang&
 argument_list|)
 specifier|const
 block|;
+name|QT_DEPRECATED
 name|void
 name|setText
 argument_list|(
@@ -1319,6 +1336,8 @@ name|QString
 operator|&
 argument_list|)
 block|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 ifdef|#
