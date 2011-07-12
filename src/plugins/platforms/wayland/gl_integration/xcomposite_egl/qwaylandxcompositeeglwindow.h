@@ -67,6 +67,10 @@ operator|&
 name|rect
 argument_list|)
 block|;
+name|void
+name|requestActivateWindow
+argument_list|()
+block|;
 name|EGLSurface
 name|eglSurface
 argument_list|()

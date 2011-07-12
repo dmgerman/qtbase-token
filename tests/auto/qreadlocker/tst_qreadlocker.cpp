@@ -391,7 +391,7 @@ expr_stmt|;
 name|waitForThread
 argument_list|()
 expr_stmt|;
-comment|// lock has been explicity relocked via QReadLocker
+comment|// lock has been explicitly relocked via QReadLocker
 name|QVERIFY
 argument_list|(
 operator|!

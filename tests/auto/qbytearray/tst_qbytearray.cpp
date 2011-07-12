@@ -6694,6 +6694,9 @@ literal|'x'
 block|,
 literal|0x00
 block|,
+operator|(
+name|char
+operator|)
 literal|0xe7
 block|,
 literal|0x25
@@ -7801,6 +7804,9 @@ init|=
 block|{
 literal|0x00
 block|,
+operator|(
+name|char
+operator|)
 literal|0xbc
 block|,
 literal|0x03

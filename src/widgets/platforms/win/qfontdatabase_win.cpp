@@ -1298,6 +1298,9 @@ name|style
 argument_list|(
 name|styleKey
 argument_list|,
+name|QString
+argument_list|()
+argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
@@ -1354,6 +1357,9 @@ name|style
 argument_list|(
 name|key
 argument_list|,
+name|QString
+argument_list|()
+argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
@@ -1409,6 +1415,9 @@ operator|->
 name|style
 argument_list|(
 name|key
+argument_list|,
+name|QString
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -1481,6 +1490,9 @@ operator|->
 name|style
 argument_list|(
 name|key
+argument_list|,
+name|QString
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)

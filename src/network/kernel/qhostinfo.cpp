@@ -1445,6 +1445,9 @@ argument_list|(
 name|hostInfo
 argument_list|)
 expr_stmt|;
+operator|delete
+name|postponed
+expr_stmt|;
 block|}
 block|}
 block|}

@@ -578,7 +578,7 @@ argument_list|,
 name|str
 argument_list|)
 expr_stmt|;
-comment|// second and third time we call this it shoud FAIL
+comment|// second and third time we call this it should FAIL
 name|QCOMPARE
 argument_list|(
 name|str

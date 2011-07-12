@@ -8396,7 +8396,7 @@ operator|::
 name|LineUnderCursor
 argument_list|)
 expr_stmt|;
-comment|// since we are not yet layed-out, we expect the whole paragraph to be selected.
+comment|// since we are not yet laid-out, we expect the whole paragraph to be selected.
 name|QCOMPARE
 argument_list|(
 name|cursor

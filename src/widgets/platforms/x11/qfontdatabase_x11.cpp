@@ -5729,6 +5729,9 @@ name|style
 argument_list|(
 name|styleKey
 argument_list|,
+name|QString
+argument_list|()
+argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
@@ -8111,10 +8114,9 @@ operator|::
 name|Key
 name|styleKey
 decl_stmt|;
-name|styleKey
-operator|.
+name|QString
 name|styleName
-operator|=
+init|=
 name|style_value
 condition|?
 name|QString
@@ -8131,7 +8133,7 @@ argument_list|)
 else|:
 name|QString
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|styleKey
 operator|.
 name|style
@@ -8243,6 +8245,8 @@ operator|->
 name|style
 argument_list|(
 name|styleKey
+argument_list|,
+name|styleName
 argument_list|,
 literal|true
 argument_list|)
@@ -8617,6 +8621,9 @@ operator|->
 name|style
 argument_list|(
 name|styleKey
+argument_list|,
+name|QString
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)
@@ -9533,6 +9540,9 @@ operator|->
 name|style
 argument_list|(
 name|key
+argument_list|,
+name|QString
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)

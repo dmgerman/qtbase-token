@@ -2816,6 +2816,9 @@ name|style
 argument_list|(
 name|styleKey
 argument_list|,
+name|QString
+argument_list|()
+argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;

@@ -9766,7 +9766,7 @@ name|textEditor
 operator|->
 name|setText
 argument_list|(
-literal|"Qt Affine Transformation Demo"
+literal|"Qt Affine Transformation Example"
 argument_list|)
 expr_stmt|;
 name|textEditor

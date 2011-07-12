@@ -2918,7 +2918,7 @@ argument_list|)
 expr_stmt|;
 comment|// At this point w has a windowsurface but it's completely covered by
 comment|// the directpainter so nothing will be painted here and the
-comment|// windowsurface contains unitialized data.
+comment|// windowsurface contains uninitialized data.
 name|QApplication
 operator|::
 name|processEvents
@@ -2958,7 +2958,7 @@ operator|::
 name|black
 argument_list|)
 expr_stmt|;
-comment|// fill with "unitialized" data
+comment|// fill with "uninitialized" data
 name|p
 operator|.
 name|setRegion
@@ -3126,7 +3126,7 @@ operator|::
 name|black
 argument_list|)
 expr_stmt|;
-comment|// fill with "unitialized" data
+comment|// fill with "uninitialized" data
 name|p
 operator|.
 name|setRegion
