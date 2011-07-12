@@ -5245,10 +5245,10 @@ name|key
 init|=
 name|qPixmapSerial
 argument_list|(
-name|qt_pixmap_id
-argument_list|(
 name|pixmap
-argument_list|)
+operator|.
+name|cacheKey
+argument_list|()
 argument_list|,
 name|enabled
 argument_list|)

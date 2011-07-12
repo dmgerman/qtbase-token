@@ -6533,7 +6533,7 @@ condition|)
 return|return;
 name|cursorImage
 operator|.
-name|setNumColors
+name|setColorCount
 argument_list|(
 literal|3
 argument_list|)

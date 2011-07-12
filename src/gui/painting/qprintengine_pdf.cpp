@@ -113,41 +113,11 @@ include|#
 directive|include
 file|"private/qdrawhelper_p.h"
 end_include
-begin_function_decl
-name|QT_BEGIN_NAMESPACE
-specifier|extern
-name|qint64
-name|qt_pixmap_id
-parameter_list|(
-specifier|const
-name|QPixmap
-modifier|&
-name|pixmap
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
-specifier|extern
-name|qint64
-name|qt_image_id
-parameter_list|(
-specifier|const
-name|QImage
-modifier|&
-name|image
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_comment
-comment|//#define FONT_DUMP
-end_comment
-begin_comment
-comment|// might be helpful for smooth transforms of images
-end_comment
-begin_comment
-comment|// Can't use it though, as gs generates completely wrong images if this is true.
-end_comment
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
+comment|//#define FONT_DUMP
+comment|// might be helpful for smooth transforms of images
+comment|// Can't use it though, as gs generates completely wrong images if this is true.
 DECL|variable|interpolateImages
 specifier|static
 specifier|const
@@ -2405,13 +2375,13 @@ argument_list|,
 operator|&
 name|bitmap
 argument_list|,
-name|qt_pixmap_id
-argument_list|(
 name|brush
 operator|.
 name|texture
 argument_list|()
-argument_list|)
+operator|.
+name|cacheKey
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

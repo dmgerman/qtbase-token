@@ -219,15 +219,6 @@ name|paintEngine
 parameter_list|()
 function_decl|;
 name|void
-name|setAlphaChannel
-parameter_list|(
-specifier|const
-name|QPixmap
-modifier|&
-name|alphaChannel
-parameter_list|)
-function_decl|;
-name|void
 name|fill
 parameter_list|(
 name|uint
