@@ -1779,8 +1779,6 @@ name|req
 operator|.
 name|pointSize
 operator|=
-name|qRound
-argument_list|(
 name|qt_mac_pointsize
 argument_list|(
 name|d
@@ -1790,7 +1788,6 @@ argument_list|,
 name|d
 operator|->
 name|dpi
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|QFontEngine
