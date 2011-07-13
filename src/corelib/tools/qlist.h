@@ -6316,9 +6316,6 @@ argument_list|(
 argument|const T&_t
 argument_list|)
 block|{
-name|detachShared
-argument_list|()
-block|;
 name|int
 name|index
 operator|=
