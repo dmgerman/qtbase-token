@@ -749,6 +749,9 @@ name|d
 operator|->
 name|size
 operator|<
+operator|(
+name|int
+operator|)
 name|d
 operator|->
 name|alloc
@@ -2709,6 +2712,9 @@ name|size
 operator|+
 literal|1
 operator|>
+operator|(
+name|int
+operator|)
 name|d
 operator|->
 name|alloc
@@ -6013,6 +6019,9 @@ name|m_size
 argument_list|(
 name|s
 condition|?
+operator|(
+name|int
+operator|)
 name|strlen
 argument_list|(
 name|s
@@ -8664,6 +8673,9 @@ literal|1
 operator|||
 name|asize
 operator|>
+operator|(
+name|int
+operator|)
 name|d
 operator|->
 name|alloc
