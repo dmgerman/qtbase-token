@@ -17405,6 +17405,15 @@ init|=
 name|attributes
 argument_list|()
 decl_stmt|;
+name|logClusters
+operator|=
+name|this
+operator|->
+name|logClusters
+argument_list|(
+name|si
+argument_list|)
+expr_stmt|;
 name|clusterLength
 operator|=
 name|getClusterLength
