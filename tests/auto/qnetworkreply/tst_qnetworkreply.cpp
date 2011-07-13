@@ -5901,13 +5901,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// clear the internal cache
-name|QNetworkAccessManagerPrivate
-operator|::
-name|clearCache
-argument_list|(
-operator|&
 name|manager
-argument_list|)
+operator|.
+name|clearAccessCache
+argument_list|()
 expr_stmt|;
 name|manager
 operator|.
