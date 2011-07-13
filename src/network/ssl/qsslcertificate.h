@@ -76,6 +76,12 @@ name|QIODevice
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QSslError
+name|class
+name|QSslError
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QSslKey
 name|class
 name|QSslKey
@@ -376,6 +382,28 @@ argument_list|(
 argument|const QByteArray&data
 argument_list|,
 argument|QSsl::EncodingFormat format = QSsl::Pem
+argument_list|)
+expr_stmt|;
+specifier|static
+name|QList
+operator|<
+name|QSslError
+operator|>
+name|verify
+argument_list|(
+name|QList
+operator|<
+name|QSslCertificate
+operator|>
+name|certificateChain
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|hostName
+operator|=
+name|QString
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Qt

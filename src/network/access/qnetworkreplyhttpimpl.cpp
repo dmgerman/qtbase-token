@@ -3073,10 +3073,9 @@ name|synchronous
 condition|)
 block|{
 comment|// Tell our zerocopy policy to the delegate
-name|delegate
-operator|->
-name|downloadBufferMaximumSize
-operator|=
+name|QVariant
+name|downloadBufferMaximumSizeAttribute
+init|=
 name|request
 operator|.
 name|attribute
@@ -3085,10 +3084,39 @@ name|QNetworkRequest
 operator|::
 name|MaximumDownloadBufferSizeAttribute
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|downloadBufferMaximumSizeAttribute
+operator|.
+name|isValid
+argument_list|()
+condition|)
+block|{
+name|delegate
+operator|->
+name|downloadBufferMaximumSize
+operator|=
+name|downloadBufferMaximumSizeAttribute
 operator|.
 name|toLongLong
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// If there is no MaximumDownloadBufferSizeAttribute set (which is for the majority
+comment|// of QNetworkRequest) then we can assume we'll do it anyway for small HTTP replies.
+comment|// This helps with performance and memory fragmentation.
+name|delegate
+operator|->
+name|downloadBufferMaximumSize
+operator|=
+literal|128
+operator|*
+literal|1024
+expr_stmt|;
+block|}
 comment|// These atomic integers are used for signal compression
 name|delegate
 operator|->

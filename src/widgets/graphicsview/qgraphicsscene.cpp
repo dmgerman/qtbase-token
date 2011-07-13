@@ -6749,6 +6749,13 @@ name|QGraphicsScene
 argument_list|)
 expr_stmt|;
 comment|// Remove this scene from qApp's global scene list.
+if|if
+condition|(
+operator|!
+name|QApplicationPrivate
+operator|::
+name|is_app_closing
+condition|)
 name|qApp
 operator|->
 name|d_func

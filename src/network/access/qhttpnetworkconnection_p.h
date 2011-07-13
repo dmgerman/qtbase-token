@@ -630,21 +630,6 @@ argument_list|,
 argument|const QString&extraDetail = QString()
 argument_list|)
 block|;
-ifndef|#
-directive|ifndef
-name|QT_NO_COMPRESS
-name|bool
-name|expand
-argument_list|(
-argument|QAbstractSocket *socket
-argument_list|,
-argument|QHttpNetworkReply *reply
-argument_list|,
-argument|bool dataComplete
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|void
 name|removeReply
 argument_list|(

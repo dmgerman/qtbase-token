@@ -396,12 +396,6 @@ name|bool
 name|ensureConnection
 argument_list|()
 block|;
-name|bool
-name|expand
-argument_list|(
-argument|bool dataComplete
-argument_list|)
-block|;
 name|void
 name|allDone
 argument_list|()

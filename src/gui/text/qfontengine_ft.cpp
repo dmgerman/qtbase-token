@@ -10252,12 +10252,9 @@ name|overall
 operator|.
 name|xoff
 operator|+=
-name|qRound
-argument_list|(
 name|g
 operator|->
 name|advance
-argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -10441,7 +10438,7 @@ name|overall
 operator|.
 name|xoff
 operator|+=
-name|qRound
+name|int
 argument_list|(
 name|TRUNC
 argument_list|(
