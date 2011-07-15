@@ -53,15 +53,15 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_constructor
-DECL|function|QBlittablePixmapData
-name|QBlittablePixmapData
+DECL|function|QBlittablePlatformPixmap
+name|QBlittablePlatformPixmap
 operator|::
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 parameter_list|()
 member_init_list|:
-name|QPixmapData
+name|QPlatformPixmap
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|,
@@ -103,11 +103,11 @@ expr_stmt|;
 block|}
 end_constructor
 begin_destructor
-DECL|function|~QBlittablePixmapData
-name|QBlittablePixmapData
+DECL|function|~QBlittablePlatformPixmap
+name|QBlittablePlatformPixmap
 operator|::
 name|~
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 parameter_list|()
 block|{
 operator|delete
@@ -134,7 +134,7 @@ begin_function
 DECL|function|blittable
 name|QBlittable
 modifier|*
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|blittable
 parameter_list|()
@@ -146,13 +146,13 @@ operator|!
 name|m_blittable
 condition|)
 block|{
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 modifier|*
 name|that
 init|=
 cast|const_cast
 argument_list|<
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -184,7 +184,7 @@ end_function
 begin_function
 DECL|function|setBlittable
 name|void
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|setBlittable
 parameter_list|(
@@ -221,7 +221,7 @@ end_function
 begin_function
 DECL|function|resize
 name|void
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|resize
 parameter_list|(
@@ -294,7 +294,7 @@ end_function
 begin_function
 DECL|function|metric
 name|int
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|metric
 parameter_list|(
@@ -399,7 +399,7 @@ return|;
 default|default:
 name|qWarning
 argument_list|(
-literal|"QRasterPixmapData::metric(): Unhandled metric type %d"
+literal|"QRasterPlatformPixmap::metric(): Unhandled metric type %d"
 argument_list|,
 name|metric
 argument_list|)
@@ -414,7 +414,7 @@ end_function
 begin_function
 DECL|function|fill
 name|void
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|fill
 parameter_list|(
@@ -609,7 +609,7 @@ begin_function
 DECL|function|buffer
 name|QImage
 modifier|*
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|buffer
 parameter_list|()
@@ -626,7 +626,7 @@ end_function
 begin_function
 DECL|function|toImage
 name|QImage
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|toImage
 parameter_list|()
@@ -647,7 +647,7 @@ end_function
 begin_function
 DECL|function|hasAlphaChannel
 name|bool
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|hasAlphaChannel
 parameter_list|()
@@ -668,7 +668,7 @@ end_function
 begin_function
 DECL|function|fromImage
 name|void
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|fromImage
 parameter_list|(
@@ -822,7 +822,7 @@ begin_function
 DECL|function|paintEngine
 name|QPaintEngine
 modifier|*
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|paintEngine
 parameter_list|()
@@ -834,13 +834,13 @@ operator|!
 name|m_engine
 condition|)
 block|{
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 modifier|*
 name|that
 init|=
 cast|const_cast
 argument_list|<
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -887,7 +887,7 @@ end_decl_stmt
 begin_function
 DECL|function|mergeOverlay
 name|void
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|mergeOverlay
 parameter_list|()
@@ -951,7 +951,7 @@ end_function
 begin_function
 DECL|function|unmergeOverlay
 name|void
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|unmergeOverlay
 parameter_list|()
@@ -1011,7 +1011,7 @@ begin_function
 DECL|function|overlay
 name|QImage
 modifier|*
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|overlay
 parameter_list|()
@@ -1095,7 +1095,7 @@ end_function
 begin_function
 DECL|function|markRasterOverlayImpl
 name|void
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|markRasterOverlayImpl
 parameter_list|(
@@ -1169,7 +1169,7 @@ end_function
 begin_function
 DECL|function|unmarkRasterOverlayImpl
 name|void
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|unmarkRasterOverlayImpl
 parameter_list|(
@@ -1255,7 +1255,7 @@ end_function
 begin_function
 DECL|function|clipAndTransformRect
 name|QRectF
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|clipAndTransformRect
 parameter_list|(

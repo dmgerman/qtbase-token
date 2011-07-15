@@ -58,7 +58,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qpixmapdata_gl_p.h"
+file|"qplatformpixmap_gl_p.h"
 end_include
 begin_include
 include|#
@@ -1521,7 +1521,7 @@ end_function
 begin_function
 DECL|function|fromNativeType
 name|void
-name|QGLPixmapData
+name|QGLPlatformPixmap
 operator|::
 name|fromNativeType
 parameter_list|(
@@ -1537,7 +1537,7 @@ if|if
 condition|(
 name|type
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|FbsBitmap
 condition|)
@@ -1704,7 +1704,7 @@ if|if
 condition|(
 name|type
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|VolatileImage
 operator|&&
@@ -1786,7 +1786,7 @@ if|if
 condition|(
 name|type
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|NativeImageHandleProvider
 operator|&&
@@ -1818,7 +1818,7 @@ begin_function
 DECL|function|toNativeType
 name|void
 modifier|*
-name|QGLPixmapData
+name|QGLPlatformPixmap
 operator|::
 name|toNativeType
 parameter_list|(
@@ -1830,7 +1830,7 @@ if|if
 condition|(
 name|type
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|FbsBitmap
 condition|)
@@ -1870,7 +1870,7 @@ end_function
 begin_function
 DECL|function|initFromNativeImageHandle
 name|bool
-name|QGLPixmapData
+name|QGLPlatformPixmap
 operator|::
 name|initFromNativeImageHandle
 parameter_list|(
@@ -1898,7 +1898,7 @@ name|fromNativeType
 argument_list|(
 name|handle
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|SgImage
 argument_list|)
@@ -1922,7 +1922,7 @@ name|fromNativeType
 argument_list|(
 name|handle
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|FbsBitmap
 argument_list|)
@@ -1939,7 +1939,7 @@ end_function
 begin_function
 DECL|function|createFromNativeImageHandleProvider
 name|void
-name|QGLPixmapData
+name|QGLPlatformPixmap
 operator|::
 name|createFromNativeImageHandleProvider
 parameter_list|()
@@ -1992,7 +1992,7 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-literal|"QGLPixmapData: Unknown native image type '%s'"
+literal|"QGLPlatformPixmap: Unknown native image type '%s'"
 argument_list|,
 name|qPrintable
 argument_list|(
@@ -2006,7 +2006,7 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-literal|"QGLPixmapData: Native handle is null"
+literal|"QGLPlatformPixmap: Native handle is null"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2015,7 +2015,7 @@ end_function
 begin_function
 DECL|function|releaseNativeImageHandle
 name|void
-name|QGLPixmapData
+name|QGLPlatformPixmap
 operator|::
 name|releaseNativeImageHandle
 parameter_list|()

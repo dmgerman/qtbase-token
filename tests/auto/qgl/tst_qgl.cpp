@@ -65,12 +65,12 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|<QtOpenGL/private/qgl_p.h>
+file|<qplatformpixmap_qpa.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qpixmapdata_p.h>
+file|<QtOpenGL/private/qgl_p.h>
 end_include
 begin_include
 include|#

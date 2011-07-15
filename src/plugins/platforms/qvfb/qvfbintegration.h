@@ -121,11 +121,11 @@ operator|&
 name|paramList
 argument_list|)
 block|;
-name|QPixmapData
+name|QPlatformPixmap
 operator|*
-name|createPixmapData
+name|createPlatformPixmap
 argument_list|(
-argument|QPixmapData::PixelType type
+argument|QPlatformPixmap::PixelType type
 argument_list|)
 specifier|const
 block|;

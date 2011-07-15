@@ -201,11 +201,11 @@ name|surface
 init|=
 name|QDirectFbConvenience
 operator|::
-name|dfbSurfaceForPixmapData
+name|dfbSurfaceForPlatformPixmap
 argument_list|(
 name|map
 operator|.
-name|pixmapData
+name|handle
 argument_list|()
 argument_list|)
 decl_stmt|;

@@ -247,13 +247,13 @@ name|m_prefer_image
 operator|=
 name|xRenderPixmap
 operator|.
-name|pixmapData
+name|handle
 argument_list|()
 operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|X11Class
 operator|&&

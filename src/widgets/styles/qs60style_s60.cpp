@@ -4672,11 +4672,11 @@ name|pixmap
 decl_stmt|;
 name|QScopedPointer
 argument_list|<
-name|QPixmapData
+name|QPlatformPixmap
 argument_list|>
 name|pd
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|create
 argument_list|(
@@ -4684,7 +4684,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -4711,7 +4711,7 @@ argument_list|(
 operator|&
 name|img
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|VolatileImage
 argument_list|)
@@ -4750,7 +4750,7 @@ name|fromNativeType
 argument_list|(
 name|icon
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|FbsBitmap
 argument_list|)

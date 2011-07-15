@@ -132,7 +132,7 @@ decl_stmt|;
 name|m_pmdata
 operator|=
 operator|new
-name|QDirectFbBlitterPixmapData
+name|QDirectFbBlitterPlatformPixmap
 expr_stmt|;
 name|m_pmdata
 operator|->

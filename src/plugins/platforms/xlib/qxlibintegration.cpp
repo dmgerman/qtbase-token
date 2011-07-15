@@ -104,7 +104,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qpixmapdata_gl_p.h>
+file|<qplatformpixmap_gl_p.h>
 end_include
 begin_endif
 endif|#
@@ -209,14 +209,14 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|createPixmapData
-name|QPixmapData
+DECL|function|createPlatformPixmap
+name|QPlatformPixmap
 modifier|*
 name|QXlibIntegration
 operator|::
-name|createPixmapData
+name|createPlatformPixmap
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixelType
 name|type
@@ -232,7 +232,7 @@ name|mUseOpenGL
 condition|)
 return|return
 operator|new
-name|QGLPixmapData
+name|QGLPlatformPixmap
 argument_list|(
 name|type
 argument_list|)
@@ -241,7 +241,7 @@ endif|#
 directive|endif
 return|return
 operator|new
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 argument_list|(
 name|type
 argument_list|)

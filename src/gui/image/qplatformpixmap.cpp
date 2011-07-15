@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qpixmapdata_p.h"
+file|"qplatformpixmap_qpa.h"
 end_include
 begin_include
 include|#
@@ -35,9 +35,9 @@ end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|create
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|create
 parameter_list|(
@@ -51,7 +51,7 @@ name|PixelType
 name|type
 parameter_list|)
 block|{
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|data
 init|=
@@ -60,11 +60,11 @@ operator|::
 name|platformIntegration
 argument_list|()
 operator|->
-name|createPixmapData
+name|createPlatformPixmap
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixelType
 argument_list|>
@@ -88,10 +88,10 @@ return|;
 block|}
 end_function
 begin_constructor
-DECL|function|QPixmapData
-name|QPixmapData
+DECL|function|QPlatformPixmap
+name|QPlatformPixmap
 operator|::
-name|QPixmapData
+name|QPlatformPixmap
 parameter_list|(
 name|PixelType
 name|pixelType
@@ -152,17 +152,17 @@ argument_list|)
 block|{ }
 end_constructor
 begin_destructor
-DECL|function|~QPixmapData
-name|QPixmapData
+DECL|function|~QPlatformPixmap
+name|QPlatformPixmap
 operator|::
 name|~
-name|QPixmapData
+name|QPlatformPixmap
 parameter_list|()
 block|{
 comment|// Sometimes the pixmap cleanup hooks will be called from derrived classes, which will
 comment|// then set is_cached to false. For example, on X11 QtOpenGL needs to delete the GLXPixmap
 comment|// or EGL Pixmap Surface for a given pixmap _before_ the native X11 pixmap is deleted,
-comment|// otherwise some drivers will leak the GL surface. In this case, QX11PixmapData will
+comment|// otherwise some drivers will leak the GL surface. In this case, QX11PlatformPixmap will
 comment|// call the cleanup hooks itself before deleting the native pixmap and set is_cached to
 comment|// false.
 if|if
@@ -172,7 +172,7 @@ condition|)
 block|{
 name|QImagePixmapCleanupHooks
 operator|::
-name|executePixmapDataDestructionHooks
+name|executePlatformPixmapDestructionHooks
 argument_list|(
 name|this
 argument_list|)
@@ -185,16 +185,16 @@ block|}
 block|}
 end_destructor
 begin_function
-DECL|function|createCompatiblePixmapData
-name|QPixmapData
+DECL|function|createCompatiblePlatformPixmap
+name|QPlatformPixmap
 modifier|*
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
-name|createCompatiblePixmapData
+name|createCompatiblePlatformPixmap
 parameter_list|()
 specifier|const
 block|{
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|d
 init|=
@@ -203,7 +203,7 @@ operator|::
 name|platformIntegration
 argument_list|()
 operator|->
-name|createPixmapData
+name|createPlatformPixmap
 argument_list|(
 name|pixelType
 argument_list|()
@@ -220,7 +220,7 @@ specifier|static
 name|QImage
 name|makeBitmapCompliantIfNeeded
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|d
 parameter_list|,
@@ -242,7 +242,7 @@ operator|->
 name|pixelType
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|BitmapType
 condition|)
@@ -348,7 +348,7 @@ end_function
 begin_function
 DECL|function|fromImageReader
 name|void
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|fromImageReader
 parameter_list|(
@@ -383,7 +383,7 @@ end_function
 begin_function
 DECL|function|fromFile
 name|bool
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|fromFile
 parameter_list|(
@@ -450,7 +450,7 @@ end_function
 begin_function
 DECL|function|fromData
 name|bool
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|fromData
 parameter_list|(
@@ -547,12 +547,12 @@ end_function
 begin_function
 DECL|function|copy
 name|void
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|copy
 parameter_list|(
 specifier|const
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|data
 parameter_list|,
@@ -581,7 +581,7 @@ end_function
 begin_function
 DECL|function|scroll
 name|bool
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|scroll
 parameter_list|(
@@ -620,7 +620,7 @@ end_function
 begin_function
 DECL|function|transformed
 name|QPixmap
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|transformed
 parameter_list|(
@@ -657,7 +657,7 @@ end_function
 begin_function
 DECL|function|setSerialNumber
 name|void
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|setSerialNumber
 parameter_list|(
@@ -674,7 +674,7 @@ end_function
 begin_function
 DECL|function|toImage
 name|QImage
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|toImage
 parameter_list|(
@@ -723,7 +723,7 @@ begin_function
 DECL|function|buffer
 name|QImage
 modifier|*
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|buffer
 parameter_list|()
@@ -745,7 +745,7 @@ begin_function
 DECL|function|toNativeType
 name|void
 modifier|*
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|toNativeType
 parameter_list|(
@@ -761,7 +761,7 @@ end_function
 begin_function
 DECL|function|fromNativeType
 name|void
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|fromNativeType
 parameter_list|(

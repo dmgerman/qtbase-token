@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qpixmapdata_p.h>
+file|<QtGui/qplatformpixmap_qpa.h>
 end_include
 begin_include
 include|#
@@ -124,11 +124,11 @@ comment|// GraphicsSystem functions
 end_comment
 begin_decl_stmt
 name|virtual
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
-name|createPixmapData
+name|createPlatformPixmap
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixelType
 name|type

@@ -7956,7 +7956,7 @@ argument_list|()
 argument_list|,
 cast|static_cast
 argument_list|<
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -8927,7 +8927,7 @@ name|pixmap_handle
 operator|=
 cast|static_cast
 argument_list|<
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|*
 argument_list|>
 argument_list|(

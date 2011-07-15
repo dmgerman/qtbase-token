@@ -9326,7 +9326,7 @@ operator|::
 name|clear
 argument_list|()
 expr_stmt|;
-comment|// Has to happen now, since QS60PixmapData has FBS handles
+comment|// Has to happen now, since QS60PlatformPixmap has FBS handles
 ifdef|#
 directive|ifdef
 name|QT_NO_FREETYPE

@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qpixmapdata_p.h>
+file|<QtGui/qplatformpixmap_qpa.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
@@ -847,7 +847,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     To be called from the PixmapData's paintEngine().   */
+comment|/*!     To be called from the PlatformPixmap's paintEngine().   */
 end_comment
 begin_function
 DECL|function|paintEngine
@@ -1027,12 +1027,12 @@ name|nativeData
 init|=
 name|pm
 operator|.
-name|pixmapData
+name|handle
 argument_list|()
 operator|->
 name|toNativeType
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|VolatileImage
 argument_list|)
@@ -1139,12 +1139,12 @@ name|nativeData
 init|=
 name|pm
 operator|.
-name|pixmapData
+name|handle
 argument_list|()
 operator|->
 name|toNativeType
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|VolatileImage
 argument_list|)

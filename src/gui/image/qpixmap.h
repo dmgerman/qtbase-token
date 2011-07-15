@@ -87,9 +87,9 @@ name|QX11Info
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QPixmapData
+DECL|variable|QPlatformPixmap
 name|class
-name|QPixmapData
+name|QPlatformPixmap
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -108,7 +108,7 @@ block|;
 name|explicit
 name|QPixmap
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|*
 name|data
 argument_list|)
@@ -761,7 +761,7 @@ name|private
 operator|:
 name|QExplicitlySharedDataPointer
 operator|<
-name|QPixmapData
+name|QPlatformPixmap
 operator|>
 name|data
 block|;
@@ -801,7 +801,7 @@ argument|QPixmap
 argument_list|)
 name|friend
 name|class
-name|QPixmapData
+name|QPlatformPixmap
 block|;
 name|friend
 name|class
@@ -852,9 +852,9 @@ endif|#
 directive|endif
 name|public
 operator|:
-name|QPixmapData
+name|QPlatformPixmap
 operator|*
-name|pixmapData
+name|handle
 argument_list|()
 specifier|const
 block|;
@@ -863,7 +863,7 @@ operator|:
 typedef|typedef
 name|QExplicitlySharedDataPointer
 operator|<
-name|QPixmapData
+name|QPlatformPixmap
 operator|>
 name|DataPtr
 expr_stmt|;

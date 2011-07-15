@@ -119,7 +119,7 @@ name|QPixmap
 operator|*
 name|m_pixmap
 block|;
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|*
 name|m_pmdata
 block|;

@@ -307,13 +307,13 @@ if|if
 condition|(
 name|pm
 operator|.
-name|pixmapData
+name|handle
 argument_list|()
 operator|->
 name|classId
 argument_list|()
 operator|!=
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|BlitterClass
 condition|)
@@ -724,7 +724,7 @@ public|public:
 DECL|function|QBlitterPaintEnginePrivate
 name|QBlitterPaintEnginePrivate
 parameter_list|(
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 modifier|*
 name|p
 parameter_list|)
@@ -1339,7 +1339,7 @@ modifier|*
 name|raster
 decl_stmt|;
 DECL|member|pmData
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 modifier|*
 name|pmData
 decl_stmt|;
@@ -1365,7 +1365,7 @@ name|QBlitterPaintEngine
 operator|::
 name|QBlitterPaintEngine
 parameter_list|(
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 modifier|*
 name|p
 parameter_list|)

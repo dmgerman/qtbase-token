@@ -46,12 +46,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qpixmapdata_p.h>
+file|<QtGui/qplatformpixmap_qpa.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qpixmapdatafactory_p.h>
+file|<QtGui/qplatformpixmapfactory_p.h>
 end_include
 begin_include
 include|#
@@ -61,25 +61,25 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
-name|QMacPixmapData
+name|QMacPlatformPixmap
 range|:
 name|public
-name|QPixmapData
+name|QPlatformPixmap
 block|{
 name|public
 operator|:
-name|QMacPixmapData
+name|QMacPlatformPixmap
 argument_list|(
 argument|PixelType type
 argument_list|)
 block|;
 operator|~
-name|QMacPixmapData
+name|QMacPlatformPixmap
 argument_list|()
 block|;
-name|QPixmapData
+name|QPlatformPixmap
 operator|*
-name|createCompatiblePixmapData
+name|createCompatiblePlatformPixmap
 argument_list|()
 specifier|const
 block|;
@@ -103,7 +103,7 @@ name|void
 name|copy
 argument_list|(
 specifier|const
-name|QPixmapData
+name|QPlatformPixmap
 operator|*
 name|data
 argument_list|,
@@ -209,7 +209,7 @@ block|;
 name|void
 name|macGetAlphaChannel
 argument_list|(
-argument|QMacPixmapData *
+argument|QMacPlatformPixmap *
 argument_list|,
 argument|bool asMask
 argument_list|)
@@ -218,7 +218,7 @@ block|;
 name|void
 name|macSetAlphaChannel
 argument_list|(
-argument|const QMacPixmapData *
+argument|const QMacPlatformPixmap *
 argument_list|,
 argument|bool asMask
 argument_list|)
@@ -263,7 +263,7 @@ block|;
 specifier|static
 name|QSet
 operator|<
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|*
 operator|>
 name|validDataPointers

@@ -10356,13 +10356,13 @@ argument_list|(
 name|QGLContext
 argument_list|)
 expr_stmt|;
-name|QX11PixmapData
+name|QX11PlatformPixmap
 modifier|*
-name|pixmapData
+name|handle
 init|=
 cast|static_cast
 argument_list|<
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -10377,12 +10377,12 @@ argument_list|)
 decl_stmt|;
 name|Q_ASSERT
 argument_list|(
-name|pixmapData
+name|handle
 operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|X11Class
 argument_list|)
@@ -10390,7 +10390,7 @@ expr_stmt|;
 comment|// We can't use TFP if the pixmap has a separate X11 mask
 if|if
 condition|(
-name|pixmapData
+name|handle
 operator|->
 name|x11_mask
 condition|)
@@ -10413,7 +10413,7 @@ name|QX11Info
 modifier|&
 name|x11Info
 init|=
-name|pixmapData
+name|handle
 operator|->
 name|xinfo
 decl_stmt|;
@@ -10445,7 +10445,7 @@ decl_stmt|;
 name|bool
 name|hasAlpha
 init|=
-name|pixmapData
+name|handle
 operator|->
 name|hasAlphaChannel
 argument_list|()
@@ -10606,18 +10606,18 @@ block|}
 comment|// Check to see if the surface is still valid
 if|if
 condition|(
-name|pixmapData
+name|handle
 operator|->
 name|gl_surface
 operator|&&
 name|hasAlpha
 operator|!=
 operator|(
-name|pixmapData
+name|handle
 operator|->
 name|flags
 operator|&
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|GlSurfaceCreatedWithAlpha
 operator|)
@@ -10626,7 +10626,7 @@ block|{
 comment|// Surface is invalid!
 name|destroyGlSurfaceForPixmap
 argument_list|(
-name|pixmapData
+name|handle
 argument_list|)
 expr_stmt|;
 block|}
@@ -10634,7 +10634,7 @@ comment|// Check to see if we need a surface
 if|if
 condition|(
 operator|!
-name|pixmapData
+name|handle
 operator|->
 name|gl_surface
 condition|)
@@ -10683,7 +10683,7 @@ name|glxRGBAPixmapConfig
 else|:
 name|glxRGBPixmapConfig
 argument_list|,
-name|pixmapData
+name|handle
 operator|->
 name|handle
 argument_list|()
@@ -10699,7 +10699,7 @@ condition|)
 return|return
 literal|0
 return|;
-name|pixmapData
+name|handle
 operator|->
 name|gl_surface
 operator|=
@@ -10714,7 +10714,7 @@ name|QImagePixmapCleanupHooks
 operator|::
 name|enableCleanupHooks
 argument_list|(
-name|pixmapData
+name|handle
 argument_list|)
 expr_stmt|;
 block|}
@@ -10746,7 +10746,7 @@ argument_list|,
 operator|(
 name|GLXPixmap
 operator|)
-name|pixmapData
+name|handle
 operator|->
 name|gl_surface
 argument_list|,
@@ -10846,11 +10846,11 @@ name|QGLContext
 operator|::
 name|InvertedYBindOption
 condition|)
-name|pixmapData
+name|handle
 operator|->
 name|flags
 operator||=
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|InvertedWhenBoundToTexture
 expr_stmt|;
@@ -10886,7 +10886,7 @@ name|QGLContextPrivate
 operator|::
 name|destroyGlSurfaceForPixmap
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|pmd
 parameter_list|)
@@ -10910,18 +10910,18 @@ operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|X11Class
 argument_list|)
 expr_stmt|;
-name|QX11PixmapData
+name|QX11PlatformPixmap
 modifier|*
-name|pixmapData
+name|handle
 init|=
 cast|static_cast
 argument_list|<
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -10930,7 +10930,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|pixmapData
+name|handle
 operator|->
 name|gl_surface
 condition|)
@@ -10945,12 +10945,12 @@ argument_list|,
 operator|(
 name|GLXPixmap
 operator|)
-name|pixmapData
+name|handle
 operator|->
 name|gl_surface
 argument_list|)
 expr_stmt|;
-name|pixmapData
+name|handle
 operator|->
 name|gl_surface
 operator|=
@@ -10968,7 +10968,7 @@ name|QGLContextPrivate
 operator|::
 name|unbindPixmapFromTexture
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|pmd
 parameter_list|)
@@ -10992,7 +10992,7 @@ operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|X11Class
 argument_list|)
@@ -11005,13 +11005,13 @@ name|currentContext
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QX11PixmapData
+name|QX11PlatformPixmap
 modifier|*
-name|pixmapData
+name|handle
 init|=
 cast|static_cast
 argument_list|<
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -11020,7 +11020,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|pixmapData
+name|handle
 operator|->
 name|gl_surface
 condition|)
@@ -11034,7 +11034,7 @@ argument_list|,
 operator|(
 name|GLXPixmap
 operator|)
-name|pixmapData
+name|handle
 operator|->
 name|gl_surface
 argument_list|,

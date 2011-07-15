@@ -46,12 +46,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qpixmapdata_p.h>
+file|<QtGui/qplatformpixmap_qpa.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qpixmapdatafactory_p.h>
+file|<QtGui/qplatformpixmapfactory_p.h>
 end_include
 begin_include
 include|#
@@ -73,28 +73,28 @@ end_struct_decl
 begin_decl_stmt
 name|class
 name|Q_WIDGETS_EXPORT
-name|QX11PixmapData
+name|QX11PlatformPixmap
 range|:
 name|public
-name|QPixmapData
+name|QPlatformPixmap
 block|{
 name|public
 operator|:
-name|QX11PixmapData
+name|QX11PlatformPixmap
 argument_list|(
 argument|PixelType type
 argument_list|)
 block|;
-comment|//     QX11PixmapData(PixelType type, int width, int height);
-comment|//     QX11PixmapData(PixelType type, const QImage&image,
+comment|//     QX11PlatformPixmap(PixelType type, int width, int height);
+comment|//     QX11PlatformPixmap(PixelType type, const QImage&image,
 comment|//                    Qt::ImageConversionFlags flags);
 operator|~
-name|QX11PixmapData
+name|QX11PlatformPixmap
 argument_list|()
 block|;
-name|QPixmapData
+name|QPlatformPixmap
 operator|*
-name|createCompatiblePixmapData
+name|createCompatiblePlatformPixmap
 argument_list|()
 specifier|const
 block|;
@@ -118,7 +118,7 @@ name|void
 name|copy
 argument_list|(
 specifier|const
-name|QPixmapData
+name|QPlatformPixmap
 operator|*
 name|data
 argument_list|,
@@ -299,19 +299,19 @@ block|;
 comment|// Needs gl_surface
 name|friend
 name|class
-name|QX11GLPixmapData
+name|QX11GLPlatformPixmap
 block|;
 comment|// Needs gl_surface
 name|friend
 name|class
-name|QMeeGoLivePixmapData
+name|QMeeGoLivePlatformPixmap
 block|;
 comment|// Needs gl_surface and flags
 name|friend
 name|bool
 name|qt_createEGLSurfaceForPixmap
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|*
 argument_list|,
 name|bool

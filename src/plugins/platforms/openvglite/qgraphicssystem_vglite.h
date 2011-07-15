@@ -55,11 +55,11 @@ operator|~
 name|QVGLiteGraphicsSystem
 argument_list|()
 expr_stmt|;
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
-name|createPixmapData
+name|createPlatformPixmap
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixelType
 name|type

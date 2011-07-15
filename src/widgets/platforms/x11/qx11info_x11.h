@@ -374,7 +374,7 @@ name|QPixmap
 decl_stmt|;
 name|friend
 name|class
-name|QX11PixmapData
+name|QX11PlatformPixmap
 decl_stmt|;
 name|friend
 name|class

@@ -163,7 +163,7 @@ block|;
 typedef|typedef
 name|QExplicitlySharedDataPointer
 operator|<
-name|QPixmapData
+name|QPlatformPixmap
 operator|>
 name|DataPtr
 expr_stmt|;

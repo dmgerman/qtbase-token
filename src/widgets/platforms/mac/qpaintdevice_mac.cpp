@@ -312,7 +312,7 @@ init|=
 literal|0
 decl_stmt|;
 comment|// It would make sense to put this into a mac #ifdef'ed
-comment|// virtual function in the QPixmapData at some point
+comment|// virtual function in the QPlatformPixmap at some point
 if|if
 condition|(
 name|pm
@@ -322,20 +322,20 @@ operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|MacClass
 condition|)
 block|{
 specifier|const
-name|QMacPixmapData
+name|QMacPlatformPixmap
 modifier|*
 name|pmData
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -413,7 +413,7 @@ operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|RasterClass
 condition|)

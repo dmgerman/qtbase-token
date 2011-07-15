@@ -79,12 +79,12 @@ modifier|&
 name|image
 parameter_list|)
 block|{
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|data
 init|=
 operator|new
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 argument_list|(
 name|image
 operator|.
@@ -93,11 +93,11 @@ argument_list|()
 operator|==
 literal|1
 condition|?
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|BitmapType
 else|:
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -156,7 +156,7 @@ operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|RasterClass
 condition|)
@@ -175,16 +175,16 @@ return|;
 block|}
 end_function
 begin_constructor
-DECL|function|QRasterPixmapData
-name|QRasterPixmapData
+DECL|function|QRasterPlatformPixmap
+name|QRasterPlatformPixmap
 operator|::
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 parameter_list|(
 name|PixelType
 name|type
 parameter_list|)
 member_init_list|:
-name|QPixmapData
+name|QPlatformPixmap
 argument_list|(
 name|type
 argument_list|,
@@ -193,27 +193,27 @@ argument_list|)
 block|{ }
 end_constructor
 begin_destructor
-DECL|function|~QRasterPixmapData
-name|QRasterPixmapData
+DECL|function|~QRasterPlatformPixmap
+name|QRasterPlatformPixmap
 operator|::
 name|~
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 parameter_list|()
 block|{ }
 end_destructor
 begin_function
-DECL|function|createCompatiblePixmapData
-name|QPixmapData
+DECL|function|createCompatiblePlatformPixmap
+name|QPlatformPixmap
 modifier|*
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
-name|createCompatiblePixmapData
+name|createCompatiblePlatformPixmap
 parameter_list|()
 specifier|const
 block|{
 return|return
 operator|new
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 argument_list|(
 name|pixelType
 argument_list|()
@@ -224,7 +224,7 @@ end_function
 begin_function
 DECL|function|resize
 name|void
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
 name|resize
 parameter_list|(
@@ -433,7 +433,7 @@ end_function
 begin_function
 DECL|function|fromData
 name|bool
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
 name|fromData
 parameter_list|(
@@ -536,7 +536,7 @@ end_function
 begin_function
 DECL|function|fromImage
 name|void
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
 name|fromImage
 parameter_list|(
@@ -576,7 +576,7 @@ end_function
 begin_function
 DECL|function|fromImageReader
 name|void
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
 name|fromImageReader
 parameter_list|(
@@ -650,12 +650,12 @@ end_function_decl
 begin_function
 DECL|function|copy
 name|void
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
 name|copy
 parameter_list|(
 specifier|const
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|data
 parameter_list|,
@@ -687,7 +687,7 @@ end_function
 begin_function
 DECL|function|scroll
 name|bool
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
 name|scroll
 parameter_list|(
@@ -733,7 +733,7 @@ end_function
 begin_function
 DECL|function|fill
 name|void
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
 name|fill
 parameter_list|(
@@ -1240,7 +1240,7 @@ end_function
 begin_function
 DECL|function|hasAlphaChannel
 name|bool
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
 name|hasAlphaChannel
 parameter_list|()
@@ -1257,7 +1257,7 @@ end_function
 begin_function
 DECL|function|toImage
 name|QImage
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
 name|toImage
 parameter_list|()
@@ -1328,7 +1328,7 @@ end_function
 begin_function
 DECL|function|toImage
 name|QImage
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
 name|toImage
 parameter_list|(
@@ -1436,7 +1436,7 @@ begin_function
 DECL|function|paintEngine
 name|QPaintEngine
 modifier|*
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
 name|paintEngine
 parameter_list|()
@@ -1453,7 +1453,7 @@ end_function
 begin_function
 DECL|function|metric
 name|int
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
 name|metric
 parameter_list|(
@@ -1594,7 +1594,7 @@ return|;
 default|default:
 name|qWarning
 argument_list|(
-literal|"QRasterPixmapData::metric(): Unhandled metric type %d"
+literal|"QRasterPlatformPixmap::metric(): Unhandled metric type %d"
 argument_list|,
 name|metric
 argument_list|)
@@ -1609,7 +1609,7 @@ end_function
 begin_function
 DECL|function|createPixmapForImage
 name|void
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
 name|createPixmapForImage
 parameter_list|(
@@ -2129,7 +2129,7 @@ begin_function
 DECL|function|buffer
 name|QImage
 modifier|*
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|::
 name|buffer
 parameter_list|()

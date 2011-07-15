@@ -199,7 +199,7 @@ argument_list|>
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -222,7 +222,7 @@ else|else
 return|return
 cast|static_cast
 argument_list|<
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -264,7 +264,7 @@ condition|)
 return|return
 cast|static_cast
 argument_list|<
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -286,7 +286,7 @@ else|else
 return|return
 cast|static_cast
 argument_list|<
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -319,13 +319,13 @@ parameter_list|,
 name|size_t
 parameter_list|)
 block|{
-name|QMacPixmapData
+name|QMacPlatformPixmap
 modifier|*
 name|pmdata
 init|=
 cast|static_cast
 argument_list|<
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -355,7 +355,7 @@ else|else
 block|{
 if|if
 condition|(
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|validDataPointers
 operator|.
@@ -803,25 +803,25 @@ begin_decl_stmt
 DECL|member|validDataPointers
 name|QSet
 argument_list|<
-name|QMacPixmapData
+name|QMacPlatformPixmap
 modifier|*
 argument_list|>
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|validDataPointers
 decl_stmt|;
 end_decl_stmt
 begin_constructor
-DECL|function|QMacPixmapData
-name|QMacPixmapData
+DECL|function|QMacPlatformPixmap
+name|QMacPlatformPixmap
 operator|::
-name|QMacPixmapData
+name|QMacPlatformPixmap
 parameter_list|(
 name|PixelType
 name|type
 parameter_list|)
 member_init_list|:
-name|QPixmapData
+name|QPlatformPixmap
 argument_list|(
 name|type
 argument_list|,
@@ -885,18 +885,18 @@ argument_list|)
 block|{ }
 end_constructor
 begin_function
-DECL|function|createCompatiblePixmapData
-name|QPixmapData
+DECL|function|createCompatiblePlatformPixmap
+name|QPlatformPixmap
 modifier|*
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
-name|createCompatiblePixmapData
+name|createCompatiblePlatformPixmap
 parameter_list|()
 specifier|const
 block|{
 return|return
 operator|new
-name|QMacPixmapData
+name|QMacPlatformPixmap
 argument_list|(
 name|pixelType
 argument_list|()
@@ -925,7 +925,7 @@ end_define
 begin_function
 DECL|function|resize
 name|void
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|resize
 parameter_list|(
@@ -1068,7 +1068,7 @@ end_undef
 begin_function
 DECL|function|fromImage
 name|void
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|fromImage
 parameter_list|(
@@ -2158,7 +2158,7 @@ end_function
 begin_function
 DECL|function|toImage
 name|QImage
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|toImage
 parameter_list|()
@@ -2422,7 +2422,7 @@ end_function
 begin_function
 DECL|function|fill
 name|void
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|fill
 parameter_list|(
@@ -2538,7 +2538,7 @@ end_function
 begin_function
 DECL|function|alphaChannel
 name|QPixmap
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|alphaChannel
 parameter_list|()
@@ -2553,12 +2553,12 @@ return|return
 name|QPixmap
 argument_list|()
 return|;
-name|QMacPixmapData
+name|QMacPlatformPixmap
 modifier|*
 name|alpha
 init|=
 operator|new
-name|QMacPixmapData
+name|QMacPlatformPixmap
 argument_list|(
 name|PixmapType
 argument_list|)
@@ -2590,7 +2590,7 @@ end_function
 begin_function
 DECL|function|setAlphaChannel
 name|void
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|setAlphaChannel
 parameter_list|(
@@ -2604,13 +2604,13 @@ name|has_mask
 operator|=
 literal|true
 expr_stmt|;
-name|QMacPixmapData
+name|QMacPlatformPixmap
 modifier|*
 name|alphaData
 init|=
 cast|static_cast
 argument_list|<
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -2634,7 +2634,7 @@ end_function
 begin_function
 DECL|function|mask
 name|QBitmap
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|mask
 parameter_list|()
@@ -2652,12 +2652,12 @@ return|return
 name|QBitmap
 argument_list|()
 return|;
-name|QMacPixmapData
+name|QMacPlatformPixmap
 modifier|*
 name|mask
 init|=
 operator|new
-name|QMacPixmapData
+name|QMacPlatformPixmap
 argument_list|(
 name|BitmapType
 argument_list|)
@@ -2689,7 +2689,7 @@ end_function
 begin_function
 DECL|function|setMask
 name|void
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|setMask
 parameter_list|(
@@ -2707,7 +2707,7 @@ name|isNull
 argument_list|()
 condition|)
 block|{
-name|QMacPixmapData
+name|QMacPlatformPixmap
 name|opaque
 argument_list|(
 name|PixmapType
@@ -2762,13 +2762,13 @@ name|has_mask
 operator|=
 literal|true
 expr_stmt|;
-name|QMacPixmapData
+name|QMacPlatformPixmap
 modifier|*
 name|maskData
 init|=
 cast|static_cast
 argument_list|<
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -2792,7 +2792,7 @@ end_function
 begin_function
 DECL|function|metric
 name|int
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|metric
 parameter_list|(
@@ -2961,11 +2961,11 @@ return|;
 block|}
 end_function
 begin_destructor
-DECL|function|~QMacPixmapData
-name|QMacPixmapData
+DECL|function|~QMacPlatformPixmap
+name|QMacPlatformPixmap
 operator|::
 name|~
-name|QMacPixmapData
+name|QMacPlatformPixmap
 parameter_list|()
 block|{
 name|validDataPointers
@@ -3032,12 +3032,12 @@ end_destructor
 begin_function
 DECL|function|macSetAlphaChannel
 name|void
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|macSetAlphaChannel
 parameter_list|(
 specifier|const
-name|QMacPixmapData
+name|QMacPlatformPixmap
 modifier|*
 name|pix
 parameter_list|,
@@ -3526,11 +3526,11 @@ end_function
 begin_function
 DECL|function|macGetAlphaChannel
 name|void
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|macGetAlphaChannel
 parameter_list|(
-name|QMacPixmapData
+name|QMacPlatformPixmap
 modifier|*
 name|pix
 parameter_list|,
@@ -3733,7 +3733,7 @@ end_function
 begin_function
 DECL|function|macSetHasAlpha
 name|void
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|macSetHasAlpha
 parameter_list|(
@@ -3753,7 +3753,7 @@ end_function
 begin_function
 DECL|function|macCreateCGImageRef
 name|void
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|macCreateCGImageRef
 parameter_list|()
@@ -3847,7 +3847,7 @@ end_function
 begin_function
 DECL|function|macReleaseCGImageRef
 name|void
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|macReleaseCGImageRef
 parameter_list|()
@@ -3901,7 +3901,7 @@ end_comment
 begin_function
 DECL|function|macCreatePixels
 name|void
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|macCreatePixels
 parameter_list|()
@@ -3984,7 +3984,7 @@ directive|if
 literal|0
 end_if
 begin_comment
-unit|QPixmap QMacPixmapData::transformed(const QTransform&transform,                                     Qt::TransformationMode mode) const {     int w, h;
+unit|QPixmap QMacPlatformPixmap::transformed(const QTransform&transform,                                     Qt::TransformationMode mode) const {     int w, h;
 comment|// size of target pixmap
 end_comment
 begin_comment
@@ -3996,17 +3996,17 @@ unit|QPolygonF a(QRectF(0,0,ws+1,hs+1));         a = mat.map(a);         QRectF 
 comment|// create destination
 end_comment
 begin_comment
-unit|QMacPixmapData *pm = new QMacPixmapData(pixelType(), w, h);     const quint32 *sptr = pixels;     quint32 *dptr = pm->pixels;     memset(dptr, 0, (pm->bytesPerRow * pm->h));
+unit|QMacPlatformPixmap *pm = new QMacPlatformPixmap(pixelType(), w, h);     const quint32 *sptr = pixels;     quint32 *dptr = pm->pixels;     memset(dptr, 0, (pm->bytesPerRow * pm->h));
 comment|// do the transform
 end_comment
 begin_warning
 unit|if (mode == Qt::SmoothTransformation) {
 warning|#
 directive|warning
-warning|QMacPixmapData::transformed not properly implemented
+warning|QMacPlatformPixmap::transformed not properly implemented
 end_warning
 begin_if
-unit|qWarning("QMacPixmapData::transformed not properly implemented");
+unit|qWarning("QMacPlatformPixmap::transformed not properly implemented");
 if|#
 directive|if
 literal|0
@@ -4017,7 +4017,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-unit|} else {         bool invertible;         mat = mat.inverted(&invertible);         if (!invertible)             return QPixmap();          const int bpp = 32;         const int xbpl = (w * bpp) / 8;         if (!qt_xForm_helper(mat, 0, QT_XFORM_TYPE_MSBFIRST, bpp,                              (uchar*)dptr, xbpl, (pm->bytesPerRow) - xbpl,                              h, (uchar*)sptr, (bytesPerRow), ws, hs)) {             qWarning("QMacPixmapData::transform(): failure");             return QPixmap();         }     }
+unit|} else {         bool invertible;         mat = mat.inverted(&invertible);         if (!invertible)             return QPixmap();          const int bpp = 32;         const int xbpl = (w * bpp) / 8;         if (!qt_xForm_helper(mat, 0, QT_XFORM_TYPE_MSBFIRST, bpp,                              (uchar*)dptr, xbpl, (pm->bytesPerRow) - xbpl,                              h, (uchar*)sptr, (bytesPerRow), ws, hs)) {             qWarning("QMacPlatformPixmap::transform(): failure");             return QPixmap();         }     }
 comment|// update the alpha
 end_comment
 begin_endif
@@ -5603,18 +5603,18 @@ operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|MacClass
 condition|)
 block|{
-name|QMacPixmapData
+name|QMacPlatformPixmap
 modifier|*
 name|d
 init|=
 cast|static_cast
 argument_list|<
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -5660,7 +5660,7 @@ operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|RasterClass
 condition|)
@@ -5670,7 +5670,7 @@ name|qt_mac_image_to_cgimage
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -5692,7 +5692,7 @@ end_function
 begin_function
 DECL|function|hasAlphaChannel
 name|bool
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|hasAlphaChannel
 parameter_list|()
@@ -5719,13 +5719,13 @@ modifier|&
 name|sr
 parameter_list|)
 block|{
-name|QMacPixmapData
+name|QMacPlatformPixmap
 modifier|*
 name|px
 init|=
 cast|static_cast
 argument_list|<
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -6651,7 +6651,7 @@ begin_function
 DECL|function|paintEngine
 name|QPaintEngine
 modifier|*
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|paintEngine
 parameter_list|()
@@ -6663,13 +6663,13 @@ operator|!
 name|pengine
 condition|)
 block|{
-name|QMacPixmapData
+name|QMacPlatformPixmap
 modifier|*
 name|that
 init|=
 cast|const_cast
 argument_list|<
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -6693,12 +6693,12 @@ end_function
 begin_function
 DECL|function|copy
 name|void
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|copy
 parameter_list|(
 specifier|const
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|data
 parameter_list|,
@@ -6734,14 +6734,14 @@ expr_stmt|;
 return|return;
 block|}
 specifier|const
-name|QMacPixmapData
+name|QMacPlatformPixmap
 modifier|*
 name|macData
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -6887,7 +6887,7 @@ end_function
 begin_function
 DECL|function|scroll
 name|bool
-name|QMacPixmapData
+name|QMacPlatformPixmap
 operator|::
 name|scroll
 parameter_list|(

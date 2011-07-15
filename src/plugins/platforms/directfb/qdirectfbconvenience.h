@@ -129,9 +129,9 @@ function_decl|;
 specifier|static
 name|IDirectFBSurface
 modifier|*
-name|dfbSurfaceForPixmapData
+name|dfbSurfaceForPlatformPixmap
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 parameter_list|)
 function_decl|;

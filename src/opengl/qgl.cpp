@@ -199,7 +199,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qpixmapdata_p.h>
+file|<qplatformpixmap_qpa.h>
 end_include
 begin_include
 include|#
@@ -5174,7 +5174,7 @@ operator|::
 name|instance
 argument_list|()
 operator|->
-name|addPixmapDataModificationHook
+name|addPlatformPixmapModificationHook
 argument_list|(
 name|cleanupTexturesForPixampData
 argument_list|)
@@ -5184,7 +5184,7 @@ operator|::
 name|instance
 argument_list|()
 operator|->
-name|addPixmapDataDestructionHook
+name|addPlatformPixmapDestructionHook
 argument_list|(
 name|cleanupBeforePixmapDestruction
 argument_list|)
@@ -5214,7 +5214,7 @@ operator|::
 name|instance
 argument_list|()
 operator|->
-name|removePixmapDataModificationHook
+name|removePlatformPixmapModificationHook
 argument_list|(
 name|cleanupTexturesForPixampData
 argument_list|)
@@ -5224,7 +5224,7 @@ operator|::
 name|instance
 argument_list|()
 operator|->
-name|removePixmapDataDestructionHook
+name|removePlatformPixmapDestructionHook
 argument_list|(
 name|cleanupBeforePixmapDestruction
 argument_list|)
@@ -5607,7 +5607,7 @@ name|QGLTextureCache
 operator|::
 name|cleanupTexturesForPixampData
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|pmd
 parameter_list|)
@@ -5629,7 +5629,7 @@ name|QGLTextureCache
 operator|::
 name|cleanupBeforePixmapDestruction
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|pmd
 parameter_list|)
@@ -5653,7 +5653,7 @@ operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|X11Class
 condition|)
@@ -8738,13 +8738,13 @@ argument_list|(
 name|QGLContext
 argument_list|)
 expr_stmt|;
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|pd
 init|=
 name|pixmap
 operator|.
-name|pixmapData
+name|handle
 argument_list|()
 decl_stmt|;
 name|Q_UNUSED
@@ -8840,7 +8840,7 @@ operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|X11Class
 operator|&&
@@ -8849,7 +8849,7 @@ operator|->
 name|pixelType
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 operator|&&
@@ -13385,14 +13385,14 @@ operator|.
 name|depth
 argument_list|()
 expr_stmt|;
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|data
 init|=
 operator|new
-name|QX11PixmapData
+name|QX11PlatformPixmap
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)

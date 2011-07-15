@@ -119,10 +119,10 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QDirectFbBlitterPixmapData
+name|QDirectFbBlitterPlatformPixmap
 range|:
 name|public
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 block|{
 name|public
 operator|:

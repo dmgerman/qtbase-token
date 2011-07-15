@@ -75,9 +75,9 @@ name|QPainter
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QPixmapData
+DECL|variable|QPlatformPixmap
 name|class
-name|QPixmapData
+name|QPlatformPixmap
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

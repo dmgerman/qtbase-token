@@ -1422,7 +1422,7 @@ name|screen
 decl_stmt|;
 name|QHash
 operator|<
-name|QPixmapData
+name|QPlatformPixmap
 operator|*
 operator|,
 name|QPixmap
@@ -1450,7 +1450,7 @@ specifier|static
 name|void
 name|destroyGlSurfaceForPixmap
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 parameter_list|)
 function_decl|;
@@ -1458,7 +1458,7 @@ specifier|static
 name|void
 name|unbindPixmapFromTexture
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 parameter_list|)
 function_decl|;
@@ -1940,7 +1940,7 @@ argument_list|(
 name|QGLContext
 operator|*
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|*
 argument_list|,
 name|GLuint
@@ -1956,7 +1956,7 @@ argument_list|(
 name|QGLContext
 operator|*
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|*
 argument_list|,
 name|GLuint
@@ -1969,7 +1969,7 @@ name|emitFreeTexture
 argument_list|(
 argument|QGLContext *context
 argument_list|,
-argument|QPixmapData *boundPixmap
+argument|QPlatformPixmap *boundPixmap
 argument_list|,
 argument|GLuint id
 argument_list|)
@@ -1991,7 +1991,7 @@ name|freeTexture
 argument_list|(
 argument|QGLContext *context
 argument_list|,
-argument|QPixmapData *boundPixmap
+argument|QPlatformPixmap *boundPixmap
 argument_list|,
 argument|GLuint id
 argument_list|)
@@ -2004,7 +2004,7 @@ name|freeTexture_slot
 argument_list|(
 argument|QGLContext *context
 argument_list|,
-argument|QPixmapData *boundPixmap
+argument|QPlatformPixmap *boundPixmap
 argument_list|,
 argument|GLuint id
 argument_list|)
@@ -2216,7 +2216,7 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|boundPixmap
 init|=
@@ -2262,7 +2262,7 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|boundPixmap
 decl_stmt|;
@@ -2543,7 +2543,7 @@ specifier|static
 name|void
 name|cleanupTexturesForPixampData
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|pixmap
 parameter_list|)
@@ -2552,7 +2552,7 @@ specifier|static
 name|void
 name|cleanupBeforePixmapDestruction
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|pixmap
 parameter_list|)

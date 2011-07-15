@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qpixmapdata_p.h"
+file|"qplatformpixmap_qpa.h"
 end_include
 begin_include
 include|#
@@ -1484,7 +1484,7 @@ specifier|static
 name|void
 name|pixmapDestroyed
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|pixmap
 parameter_list|)
@@ -1747,7 +1747,7 @@ operator|::
 name|instance
 argument_list|()
 operator|->
-name|addPixmapDataDestructionHook
+name|addPlatformPixmapDestructionHook
 argument_list|(
 name|pixmapDestroyed
 argument_list|)
@@ -1757,7 +1757,7 @@ operator|::
 name|instance
 argument_list|()
 operator|->
-name|addPixmapDataModificationHook
+name|addPlatformPixmapModificationHook
 argument_list|(
 name|pixmapDestroyed
 argument_list|)
@@ -1821,7 +1821,7 @@ name|QGLBlurTextureCache
 operator|::
 name|pixmapDestroyed
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|pmd
 parameter_list|)

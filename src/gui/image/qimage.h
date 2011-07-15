@@ -1348,11 +1348,11 @@ name|d
 block|;
 name|friend
 name|class
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 block|;
 name|friend
 name|class
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 block|;
 name|friend
 name|class

@@ -63,7 +63,7 @@ end_decl_stmt
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
-name|QPixmapData
+name|QPlatformPixmap
 block|{
 name|public
 label|:
@@ -91,7 +91,7 @@ init|=
 literal|1024
 block|}
 enum|;
-name|QPixmapData
+name|QPlatformPixmap
 argument_list|(
 argument|PixelType pixelType
 argument_list|,
@@ -100,13 +100,13 @@ argument_list|)
 empty_stmt|;
 name|virtual
 operator|~
-name|QPixmapData
+name|QPlatformPixmap
 argument_list|()
 expr_stmt|;
 name|virtual
-name|QPixmapData
+name|QPlatformPixmap
 operator|*
-name|createCompatiblePixmapData
+name|createCompatiblePlatformPixmap
 argument_list|()
 specifier|const
 expr_stmt|;
@@ -202,7 +202,7 @@ name|void
 name|copy
 parameter_list|(
 specifier|const
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|data
 parameter_list|,
@@ -464,7 +464,7 @@ block|}
 end_decl_stmt
 begin_function_decl
 specifier|static
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|create
 parameter_list|(
@@ -545,7 +545,7 @@ name|friend
 name|class
 name|QExplicitlySharedDataPointer
 operator|<
-name|QPixmapData
+name|QPlatformPixmap
 operator|>
 expr_stmt|;
 end_expr_stmt

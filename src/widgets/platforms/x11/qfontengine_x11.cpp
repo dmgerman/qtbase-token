@@ -3857,14 +3857,14 @@ return|return
 name|QBitmap
 argument_list|()
 return|;
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|data
 init|=
 operator|new
-name|QX11PixmapData
+name|QX11PlatformPixmap
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|BitmapType
 argument_list|)

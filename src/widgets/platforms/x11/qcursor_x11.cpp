@@ -5388,7 +5388,7 @@ argument_list|()
 decl_stmt|;
 name|pm
 operator|=
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|createBitmapFromImage
 argument_list|(
@@ -5397,7 +5397,7 @@ argument_list|)
 expr_stmt|;
 name|pmm
 operator|=
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|createBitmapFromImage
 argument_list|(

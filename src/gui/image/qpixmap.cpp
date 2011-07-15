@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qpixmapdata_p.h"
+file|"qplatformpixmap_qpa.h"
 end_include
 begin_include
 include|#
@@ -252,13 +252,13 @@ operator|)
 operator|||
 name|type
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|BitmapType
 condition|)
 name|data
 operator|=
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|create
 argument_list|(
@@ -267,7 +267,7 @@ argument_list|,
 name|h
 argument_list|,
 operator|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixelType
 operator|)
@@ -309,7 +309,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -347,7 +347,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -359,7 +359,7 @@ name|w
 argument_list|,
 name|h
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -396,7 +396,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -414,7 +414,7 @@ operator|.
 name|height
 argument_list|()
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -453,7 +453,7 @@ literal|0
 argument_list|,
 cast|static_cast
 argument_list|<
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixelType
 argument_list|>
@@ -477,7 +477,7 @@ argument_list|()
 argument_list|,
 cast|static_cast
 argument_list|<
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixelType
 argument_list|>
@@ -497,7 +497,7 @@ name|QPixmap
 operator|::
 name|QPixmap
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|d
 parameter_list|)
@@ -545,7 +545,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -599,7 +599,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -667,7 +667,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -702,7 +702,7 @@ operator|->
 name|pixelType
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|BitmapType
 condition|)
@@ -837,13 +837,13 @@ argument_list|(
 name|rect
 argument_list|)
 expr_stmt|;
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|d
 init|=
 name|data
 operator|->
-name|createCompatiblePixmapData
+name|createCompatiblePlatformPixmap
 argument_list|()
 decl_stmt|;
 name|d
@@ -1274,7 +1274,7 @@ name|data
 operator|->
 name|type
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|BitmapType
 return|;
@@ -2029,7 +2029,7 @@ operator|->
 name|pixelType
 argument_list|()
 else|:
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -2073,11 +2073,11 @@ literal|true
 return|;
 name|QScopedPointer
 argument_list|<
-name|QPixmapData
+name|QPlatformPixmap
 argument_list|>
 name|tmp
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|create
 argument_list|(
@@ -2091,7 +2091,7 @@ name|data
 operator|->
 name|type
 else|:
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -2186,7 +2186,7 @@ name|data
 condition|)
 name|data
 operator|=
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|create
 argument_list|(
@@ -2194,7 +2194,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -2482,13 +2482,13 @@ else|else
 block|{
 comment|// Don't bother to make a copy of the data object, since
 comment|// it will be filled with new pixel data anyway.
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|d
 init|=
 name|data
 operator|->
-name|createCompatiblePixmapData
+name|createCompatiblePlatformPixmap
 argument_list|()
 decl_stmt|;
 name|d
@@ -3679,16 +3679,16 @@ operator|!
 name|data
 condition|)
 return|return;
-comment|// QPixmap.data member may be QRuntimePixmapData so use pixmapData() function to get
+comment|// QPixmap.data member may be QRuntimePlatformPixmap so use handle() function to get
 comment|// the actual underlaying runtime pixmap data.
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|pd
 init|=
-name|pixmapData
+name|handle
 argument_list|()
 decl_stmt|;
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|ClassId
 name|id
@@ -3702,18 +3702,18 @@ if|if
 condition|(
 name|id
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|RasterClass
 condition|)
 block|{
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 modifier|*
 name|rasterData
 init|=
 cast|static_cast
 argument_list|<
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -3742,7 +3742,7 @@ literal|1
 condition|)
 name|QImagePixmapCleanupHooks
 operator|::
-name|executePixmapDataModificationHooks
+name|executePlatformPixmapModificationHooks
 argument_list|(
 name|data
 operator|.
@@ -3807,7 +3807,7 @@ argument_list|()
 return|;
 name|QScopedPointer
 argument_list|<
-name|QPixmapData
+name|QPlatformPixmap
 argument_list|>
 name|data
 argument_list|(
@@ -3816,9 +3816,9 @@ operator|::
 name|platformIntegration
 argument_list|()
 operator|->
-name|createPixmapData
+name|createPlatformPixmap
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -3866,7 +3866,7 @@ parameter_list|)
 block|{
 name|QScopedPointer
 argument_list|<
-name|QPixmapData
+name|QPlatformPixmap
 argument_list|>
 name|data
 argument_list|(
@@ -3875,9 +3875,9 @@ operator|::
 name|platformIntegration
 argument_list|()
 operator|->
-name|createPixmapData
+name|createPlatformPixmap
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -3910,12 +3910,12 @@ begin_comment
 comment|/*!   \internal */
 end_comment
 begin_function
-DECL|function|pixmapData
-name|QPixmapData
+DECL|function|handle
+name|QPlatformPixmap
 modifier|*
 name|QPixmap
 operator|::
-name|pixmapData
+name|handle
 parameter_list|()
 specifier|const
 block|{

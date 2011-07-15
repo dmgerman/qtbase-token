@@ -73,7 +73,7 @@ modifier|*
 name|_qt_pixmap_cleanup_hook_pmd
 function_decl|)
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 parameter_list|)
 function_decl|;
@@ -121,9 +121,9 @@ specifier|static
 name|void
 name|enableCleanupHooks
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
-name|pixmapData
+name|handle
 parameter_list|)
 function_decl|;
 specifier|static
@@ -148,14 +148,14 @@ parameter_list|)
 function_decl|;
 comment|// Gets called when a pixmap data is about to be modified:
 name|void
-name|addPixmapDataModificationHook
+name|addPlatformPixmapModificationHook
 parameter_list|(
 name|_qt_pixmap_cleanup_hook_pmd
 parameter_list|)
 function_decl|;
 comment|// Gets called when a pixmap data is about to be destroyed:
 name|void
-name|addPixmapDataDestructionHook
+name|addPlatformPixmapDestructionHook
 parameter_list|(
 name|_qt_pixmap_cleanup_hook_pmd
 parameter_list|)
@@ -168,13 +168,13 @@ name|_qt_image_cleanup_hook_64
 parameter_list|)
 function_decl|;
 name|void
-name|removePixmapDataModificationHook
+name|removePlatformPixmapModificationHook
 parameter_list|(
 name|_qt_pixmap_cleanup_hook_pmd
 parameter_list|)
 function_decl|;
 name|void
-name|removePixmapDataDestructionHook
+name|removePlatformPixmapDestructionHook
 parameter_list|(
 name|_qt_pixmap_cleanup_hook_pmd
 parameter_list|)
@@ -187,17 +187,17 @@ parameter_list|)
 function_decl|;
 specifier|static
 name|void
-name|executePixmapDataModificationHooks
+name|executePlatformPixmapModificationHooks
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 parameter_list|)
 function_decl|;
 specifier|static
 name|void
-name|executePixmapDataDestructionHooks
+name|executePlatformPixmapDestructionHooks
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 parameter_list|)
 function_decl|;

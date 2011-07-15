@@ -338,7 +338,7 @@ name|QMeeGoGraphicsSystem
 decl_stmt|;
 name|friend
 name|class
-name|QMeeGoPixmapData
+name|QMeeGoPlatformPixmap
 decl_stmt|;
 block|}
 end_decl_stmt

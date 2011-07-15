@@ -1188,7 +1188,7 @@ name|eglSurfaceForDevice
 parameter_list|()
 specifier|const
 block|{
-comment|// If a QPixmapData had to create the QGLContext, we don't have a paintDevice
+comment|// If a QPlatformPixmap had to create the QGLContext, we don't have a paintDevice
 if|if
 condition|(
 operator|!
@@ -1212,7 +1212,7 @@ operator|::
 name|Pixmap
 condition|)
 block|{
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|pmd
 init|=
@@ -1238,18 +1238,18 @@ operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|X11Class
 condition|)
 block|{
-name|QX11PixmapData
+name|QX11PlatformPixmap
 modifier|*
-name|x11PixmapData
+name|x11PlatformPixmap
 init|=
 cast|static_cast
 argument_list|<
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -1260,7 +1260,7 @@ return|return
 operator|(
 name|EGLSurface
 operator|)
-name|x11PixmapData
+name|x11PlatformPixmap
 operator|->
 name|gl_surface
 return|;

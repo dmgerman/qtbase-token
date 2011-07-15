@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qpixmapdata_p.h"
+file|"qplatformpixmap_qpa.h"
 end_include
 begin_include
 include|#
@@ -60,7 +60,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|BitmapType
 argument_list|)
@@ -91,7 +91,7 @@ argument_list|,
 name|h
 argument_list|)
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|BitmapType
 argument_list|)
@@ -116,7 +116,7 @@ name|QPixmap
 argument_list|(
 name|size
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|BitmapType
 argument_list|)
@@ -182,7 +182,7 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|BitmapType
 argument_list|)
@@ -461,7 +461,7 @@ expr_stmt|;
 block|}
 name|QScopedPointer
 argument_list|<
-name|QPixmapData
+name|QPlatformPixmap
 argument_list|>
 name|data
 argument_list|(
@@ -470,9 +470,9 @@ operator|::
 name|platformIntegration
 argument_list|()
 operator|->
-name|createPixmapData
+name|createPlatformPixmap
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|BitmapType
 argument_list|)

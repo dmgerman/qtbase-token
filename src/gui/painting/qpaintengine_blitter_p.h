@@ -36,9 +36,9 @@ name|QBlitterPaintEnginePrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QBlittablePixmapData
+DECL|variable|QBlittablePlatformPixmap
 name|class
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -64,7 +64,7 @@ name|public
 operator|:
 name|QBlitterPaintEngine
 argument_list|(
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|*
 name|p
 argument_list|)

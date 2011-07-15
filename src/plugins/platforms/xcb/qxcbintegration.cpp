@@ -258,14 +258,14 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|createPixmapData
-name|QPixmapData
+DECL|function|createPlatformPixmap
+name|QPlatformPixmap
 modifier|*
 name|QXcbIntegration
 operator|::
-name|createPixmapData
+name|createPlatformPixmap
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixelType
 name|type
@@ -274,7 +274,7 @@ specifier|const
 block|{
 return|return
 operator|new
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 argument_list|(
 name|type
 argument_list|)

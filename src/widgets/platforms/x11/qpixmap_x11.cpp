@@ -163,12 +163,12 @@ modifier|&
 name|image
 parameter_list|)
 block|{
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|data
 init|=
 operator|new
-name|QX11PixmapData
+name|QX11PlatformPixmap
 argument_list|(
 name|image
 operator|.
@@ -177,11 +177,11 @@ argument_list|()
 operator|==
 literal|1
 condition|?
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|BitmapType
 else|:
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -240,7 +240,7 @@ operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|X11Class
 condition|)
@@ -307,7 +307,7 @@ end_function
 begin_function
 DECL|function|mask_to_bitmap
 name|QBitmap
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|mask_to_bitmap
 parameter_list|(
@@ -416,7 +416,7 @@ DECL|function|bitmap_to_mask
 name|Qt
 operator|::
 name|HANDLE
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|bitmap_to_mask
 parameter_list|(
@@ -1422,16 +1422,16 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_constructor
-DECL|function|QX11PixmapData
-name|QX11PixmapData
+DECL|function|QX11PlatformPixmap
+name|QX11PlatformPixmap
 operator|::
-name|QX11PixmapData
+name|QX11PlatformPixmap
 parameter_list|(
 name|PixelType
 name|type
 parameter_list|)
 member_init_list|:
-name|QPixmapData
+name|QPlatformPixmap
 argument_list|(
 name|type
 argument_list|,
@@ -1487,18 +1487,18 @@ argument_list|)
 block|{ }
 end_constructor
 begin_function
-DECL|function|createCompatiblePixmapData
-name|QPixmapData
+DECL|function|createCompatiblePlatformPixmap
+name|QPlatformPixmap
 modifier|*
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
-name|createCompatiblePixmapData
+name|createCompatiblePlatformPixmap
 parameter_list|()
 specifier|const
 block|{
 return|return
 operator|new
-name|QX11PixmapData
+name|QX11PlatformPixmap
 argument_list|(
 name|pixelType
 argument_list|()
@@ -1509,7 +1509,7 @@ end_function
 begin_function
 DECL|function|resize
 name|void
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|resize
 parameter_list|(
@@ -2000,7 +2000,7 @@ end_struct
 begin_function
 DECL|function|fromImage
 name|void
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|fromImage
 parameter_list|(
@@ -5936,7 +5936,7 @@ DECL|function|createBitmapFromImage
 name|Qt
 operator|::
 name|HANDLE
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|createBitmapFromImage
 parameter_list|(
@@ -6218,7 +6218,7 @@ end_function
 begin_function
 DECL|function|bitmapFromImage
 name|void
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|bitmapFromImage
 parameter_list|(
@@ -6306,7 +6306,7 @@ end_function
 begin_function
 DECL|function|fill
 name|void
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|fill
 parameter_list|(
@@ -6588,11 +6588,11 @@ expr_stmt|;
 block|}
 end_function
 begin_destructor
-DECL|function|~QX11PixmapData
-name|QX11PixmapData
+DECL|function|~QX11PlatformPixmap
+name|QX11PlatformPixmap
 operator|::
 name|~
-name|QX11PixmapData
+name|QX11PlatformPixmap
 parameter_list|()
 block|{
 comment|// Cleanup hooks have to be called before the handles are freed
@@ -6603,7 +6603,7 @@ condition|)
 block|{
 name|QImagePixmapCleanupHooks
 operator|::
-name|executePixmapDataDestructionHooks
+name|executePlatformPixmapDestructionHooks
 argument_list|(
 name|this
 argument_list|)
@@ -6621,7 +6621,7 @@ end_destructor
 begin_function
 DECL|function|release
 name|void
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|release
 parameter_list|()
@@ -6763,7 +6763,7 @@ end_function
 begin_function
 DECL|function|alphaChannel
 name|QPixmap
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|alphaChannel
 parameter_list|()
@@ -6824,7 +6824,7 @@ end_function
 begin_function
 DECL|function|setAlphaChannel
 name|void
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|setAlphaChannel
 parameter_list|(
@@ -6872,7 +6872,7 @@ end_function
 begin_function
 DECL|function|mask
 name|QBitmap
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|mask
 parameter_list|()
@@ -6918,13 +6918,13 @@ operator|==
 literal|1
 condition|)
 block|{
-name|QX11PixmapData
+name|QX11PlatformPixmap
 modifier|*
 name|that
 init|=
 cast|const_cast
 argument_list|<
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -6963,7 +6963,7 @@ end_comment
 begin_function
 DECL|function|setMask
 name|void
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|setMask
 parameter_list|(
@@ -6994,7 +6994,7 @@ operator|==
 literal|32
 condition|)
 block|{
-name|QX11PixmapData
+name|QX11PlatformPixmap
 name|newData
 argument_list|(
 name|pixelType
@@ -7060,14 +7060,14 @@ name|this
 operator|=
 name|newData
 expr_stmt|;
-comment|// the new QX11PixmapData object isn't referenced yet, so
+comment|// the new QX11PlatformPixmap object isn't referenced yet, so
 comment|// ref it
 name|ref
 operator|.
 name|ref
 parameter_list|()
 constructor_decl|;
-comment|// the below is to make sure the QX11PixmapData destructor
+comment|// the below is to make sure the QX11PlatformPixmap destructor
 comment|// doesn't delete our newly created render picture
 name|newData
 operator|.
@@ -7337,7 +7337,7 @@ directive|endif
 block|}
 name|x11_mask
 operator|=
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|bitmap_to_mask
 argument_list|(
@@ -7413,7 +7413,7 @@ end_function
 begin_function
 DECL|function|metric
 name|int
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|metric
 parameter_list|(
@@ -7596,7 +7596,7 @@ return|;
 default|default:
 name|qWarning
 argument_list|(
-literal|"QX11PixmapData::metric(): Invalid metric"
+literal|"QX11PlatformPixmap::metric(): Invalid metric"
 argument_list|)
 expr_stmt|;
 return|return
@@ -7621,7 +7621,7 @@ end_struct
 begin_function
 DECL|function|canTakeQImageFromXImage
 name|bool
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|canTakeQImageFromXImage
 parameter_list|(
@@ -7744,7 +7744,7 @@ end_function
 begin_function
 DECL|function|takeQImageFromXImage
 name|QImage
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|takeQImageFromXImage
 parameter_list|(
@@ -8141,7 +8141,7 @@ end_function
 begin_function
 DECL|function|toImage
 name|QImage
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|toImage
 parameter_list|(
@@ -8263,7 +8263,7 @@ end_comment
 begin_function
 DECL|function|toImage
 name|QImage
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|toImage
 parameter_list|()
@@ -8289,7 +8289,7 @@ end_function
 begin_function
 DECL|function|toImage
 name|QImage
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|toImage
 parameter_list|(
@@ -10112,7 +10112,7 @@ end_comment
 begin_function
 DECL|function|transformed
 name|QPixmap
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|transformed
 parameter_list|(
@@ -11068,14 +11068,14 @@ block|}
 else|else
 block|{
 comment|// color pixmap
-name|QX11PixmapData
+name|QX11PlatformPixmap
 modifier|*
 name|x11Data
 init|=
 operator|new
-name|QX11PixmapData
+name|QX11PlatformPixmap
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -11091,7 +11091,7 @@ operator|->
 name|flags
 operator|&=
 operator|~
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|Uninitialized
 expr_stmt|;
@@ -11525,7 +11525,7 @@ operator|->
 name|classId
 argument_list|()
 operator|!=
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|X11Class
 condition|)
@@ -11543,13 +11543,13 @@ operator|::
 name|appScreen
 argument_list|()
 expr_stmt|;
-name|QX11PixmapData
+name|QX11PlatformPixmap
 modifier|*
 name|x11Data
 init|=
 cast|static_cast
 argument_list|<
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -11927,14 +11927,14 @@ operator|=
 name|root_attr
 expr_stmt|;
 block|}
-name|QX11PixmapData
+name|QX11PlatformPixmap
 modifier|*
 name|data
 init|=
 operator|new
-name|QX11PixmapData
+name|QX11PlatformPixmap
 argument_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -11982,7 +11982,7 @@ operator|->
 name|flags
 operator|&=
 operator|~
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|Uninitialized
 expr_stmt|;
@@ -12060,7 +12060,7 @@ end_function
 begin_function
 DECL|function|hasAlphaChannel
 name|bool
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|hasAlphaChannel
 parameter_list|()
@@ -12093,14 +12093,14 @@ operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|X11Class
 condition|)
 return|return
 cast|static_cast
 argument_list|<
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -12210,19 +12210,19 @@ begin_function
 DECL|function|paintEngine
 name|QPaintEngine
 modifier|*
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|paintEngine
 parameter_list|()
 specifier|const
 block|{
-name|QX11PixmapData
+name|QX11PlatformPixmap
 modifier|*
 name|that
 init|=
 cast|const_cast
 argument_list|<
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -12434,7 +12434,7 @@ operator|->
 name|flags
 operator|&=
 operator|~
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|Readonly
 expr_stmt|;
@@ -12483,7 +12483,7 @@ operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|X11Class
 condition|)
@@ -12491,7 +12491,7 @@ return|return
 cast|static_cast
 argument_list|<
 specifier|const
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -12522,7 +12522,7 @@ DECL|function|x11ConvertToDefaultDepth
 name|Qt
 operator|::
 name|HANDLE
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|x11ConvertToDefaultDepth
 parameter_list|()
@@ -12672,12 +12672,12 @@ end_function
 begin_function
 DECL|function|copy
 name|void
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|copy
 parameter_list|(
 specifier|const
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|data
 parameter_list|,
@@ -12717,14 +12717,14 @@ expr_stmt|;
 return|return;
 block|}
 specifier|const
-name|QX11PixmapData
+name|QX11PlatformPixmap
 modifier|*
 name|x11Data
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -13165,7 +13165,7 @@ end_function
 begin_function
 DECL|function|scroll
 name|bool
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|scroll
 parameter_list|(
@@ -13270,7 +13270,7 @@ end_if
 begin_function
 DECL|function|convertToARGB32
 name|void
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|convertToARGB32
 parameter_list|(
@@ -13615,22 +13615,22 @@ argument_list|)
 condition|)
 break|break;
 block|}
-name|QX11PixmapData
+name|QX11PlatformPixmap
 modifier|*
 name|data
 init|=
 operator|new
-name|QX11PixmapData
+name|QX11PlatformPixmap
 argument_list|(
 name|depth
 operator|==
 literal|1
 condition|?
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|BitmapType
 else|:
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 argument_list|)
@@ -13651,7 +13651,7 @@ name|data
 operator|->
 name|flags
 operator|=
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|::
 name|Readonly
 expr_stmt|;

@@ -56,9 +56,9 @@ name|QS60PaintEnginePrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QS60PixmapData
+DECL|variable|QS60PlatformPixmap
 name|class
-name|QS60PixmapData
+name|QS60PlatformPixmap
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -80,7 +80,7 @@ name|QPaintDevice
 operator|*
 name|device
 argument_list|,
-name|QS60PixmapData
+name|QS60PlatformPixmap
 operator|*
 name|data
 argument_list|)
@@ -159,9 +159,9 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|QS60PixmapData
+name|QS60PlatformPixmap
 operator|*
-name|pixmapData
+name|handle
 block|; }
 decl_stmt|;
 end_decl_stmt
