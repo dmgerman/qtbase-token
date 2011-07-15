@@ -40,7 +40,7 @@ block|{
 if|if
 condition|(
 name|atomic
-operator|>=
+operator|>
 literal|0
 condition|)
 name|atomic
@@ -57,7 +57,7 @@ block|{
 if|if
 condition|(
 name|atomic
-operator|<
+operator|<=
 literal|0
 condition|)
 return|return
