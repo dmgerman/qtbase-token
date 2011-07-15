@@ -2884,10 +2884,15 @@ friend|friend
 class_decl|class
 name|Box
 class_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP_CCLASS
 name|void
 name|setupCategoriesRangeMap
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 comment|/*       This is the lexical analyzer for regular expressions.     */
 DECL|enumerator|Tok_Eos
 DECL|enumerator|Tok_Dollar
@@ -3103,6 +3108,9 @@ name|bool
 name|yyMayCapture
 decl_stmt|;
 comment|// set this to false to disable capturing
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP_CCLASS
 DECL|member|categoriesRangeMap
 name|QHash
 argument_list|<
@@ -3118,6 +3126,8 @@ argument_list|>
 name|categoriesRangeMap
 decl_stmt|;
 comment|// fast lookup hash for xml schema extensions
+endif|#
+directive|endif
 friend|friend
 struct_decl|struct
 name|QRegExpMatchState
@@ -11291,6 +11301,11 @@ block|}
 block|}
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP_CCLASS
+end_ifndef
 begin_function
 DECL|function|setupCategoriesRangeMap
 name|void
@@ -13289,6 +13304,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|getChar
 name|int
