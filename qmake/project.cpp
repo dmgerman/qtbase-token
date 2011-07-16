@@ -9364,6 +9364,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+name|vars
+operator|=
+name|base_vars
+expr_stmt|;
+comment|// start with the base
 if|if
 condition|(
 name|cmd
@@ -9400,16 +9406,10 @@ literal|"default_pre"
 argument_list|,
 name|IncludeFlagFeature
 argument_list|,
-name|base_vars
+name|vars
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-name|vars
-operator|=
-name|base_vars
-expr_stmt|;
-comment|// start with the base
 comment|//get a default
 if|if
 condition|(
