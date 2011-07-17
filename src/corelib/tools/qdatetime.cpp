@@ -1010,7 +1010,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the year of this date. Negative numbers indicate years     before 1 A.D. = 1 C.E., such that year -44 is 44 B.C.      \sa month(), day() */
+comment|/*!     Returns the year of this date. Negative numbers indicate years     before 1 A.D. = 1 C.E., such that year -44 is 44 B.C.      Returns 0 if the date is invalid.      \sa month(), day() */
 end_comment
 begin_function
 DECL|function|year
@@ -1021,6 +1021,14 @@ name|year
 parameter_list|()
 specifier|const
 block|{
+if|if
+condition|(
+name|isNull
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 name|int
 name|y
 decl_stmt|;
@@ -1042,7 +1050,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number corresponding to the month of this date, using     the following convention:      \list     \i 1 = "January"     \i 2 = "February"     \i 3 = "March"     \i 4 = "April"     \i 5 = "May"     \i 6 = "June"     \i 7 = "July"     \i 8 = "August"     \i 9 = "September"     \i 10 = "October"     \i 11 = "November"     \i 12 = "December"     \endlist      \sa year(), day() */
+comment|/*!     Returns the number corresponding to the month of this date, using     the following convention:      \list     \i 1 = "January"     \i 2 = "February"     \i 3 = "March"     \i 4 = "April"     \i 5 = "May"     \i 6 = "June"     \i 7 = "July"     \i 8 = "August"     \i 9 = "September"     \i 10 = "October"     \i 11 = "November"     \i 12 = "December"     \endlist      Returns 0 if the date is invalid.      \sa year(), day() */
 end_comment
 begin_function
 DECL|function|month
@@ -1053,6 +1061,14 @@ name|month
 parameter_list|()
 specifier|const
 block|{
+if|if
+condition|(
+name|isNull
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 name|int
 name|m
 decl_stmt|;
@@ -1074,7 +1090,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the day of the month (1 to 31) of this date.      \sa year(), month(), dayOfWeek() */
+comment|/*!     Returns the day of the month (1 to 31) of this date.      Returns 0 if the date is invalid.      \sa year(), month(), dayOfWeek() */
 end_comment
 begin_function
 DECL|function|day
@@ -1085,6 +1101,14 @@ name|day
 parameter_list|()
 specifier|const
 block|{
+if|if
+condition|(
+name|isNull
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 name|int
 name|d
 decl_stmt|;
@@ -1106,7 +1130,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the weekday (1 to 7) for this date.      \sa day(), dayOfYear(), Qt::DayOfWeek */
+comment|/*!     Returns the weekday (1 to 7) for this date.      Returns 0 if the date is invalid.      \sa day(), dayOfYear(), Qt::DayOfWeek */
 end_comment
 begin_function
 DECL|function|dayOfWeek
@@ -1117,6 +1141,14 @@ name|dayOfWeek
 parameter_list|()
 specifier|const
 block|{
+if|if
+condition|(
+name|isNull
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 return|return
 operator|(
 name|jd
@@ -1129,7 +1161,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the day of the year (1 to 365 or 366 on leap years) for     this date.      \sa day(), dayOfWeek() */
+comment|/*!     Returns the day of the year (1 to 365 or 366 on leap years) for     this date.      Returns 0 if the date is invalid.      \sa day(), dayOfWeek() */
 end_comment
 begin_function
 DECL|function|dayOfYear
@@ -1140,6 +1172,14 @@ name|dayOfYear
 parameter_list|()
 specifier|const
 block|{
+if|if
+condition|(
+name|isNull
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 return|return
 name|jd
 operator|-
@@ -1158,7 +1198,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of days in the month (28 to 31) for this date.      \sa day(), daysInYear() */
+comment|/*!     Returns the number of days in the month (28 to 31) for this date.      Returns 0 if the date is invalid.      \sa day(), daysInYear() */
 end_comment
 begin_function
 DECL|function|daysInMonth
@@ -1169,12 +1209,18 @@ name|daysInMonth
 parameter_list|()
 specifier|const
 block|{
+if|if
+condition|(
+name|isNull
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 name|int
 name|y
 decl_stmt|,
 name|m
-decl_stmt|,
-name|d
 decl_stmt|;
 name|getDateFromJulianDay
 argument_list|(
@@ -1186,8 +1232,7 @@ argument_list|,
 operator|&
 name|m
 argument_list|,
-operator|&
-name|d
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -1204,6 +1249,20 @@ condition|)
 return|return
 literal|29
 return|;
+elseif|else
+if|if
+condition|(
+name|m
+argument_list|<
+literal|1
+operator|||
+name|m
+argument_list|>
+literal|12
+condition|)
+return|return
+literal|0
+return|;
 else|else
 return|return
 name|monthDays
@@ -1214,7 +1273,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of days in the year (365 or 366) for this date.      \sa day(), daysInMonth() */
+comment|/*!     Returns the number of days in the year (365 or 366) for this date.      Returns 0 if the date is invalid.      \sa day(), daysInMonth() */
 end_comment
 begin_function
 DECL|function|daysInYear
@@ -1225,12 +1284,16 @@ name|daysInYear
 parameter_list|()
 specifier|const
 block|{
+if|if
+condition|(
+name|isNull
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 name|int
 name|y
-decl_stmt|,
-name|m
-decl_stmt|,
-name|d
 decl_stmt|;
 name|getDateFromJulianDay
 argument_list|(
@@ -1239,11 +1302,9 @@ argument_list|,
 operator|&
 name|y
 argument_list|,
-operator|&
-name|m
+literal|0
 argument_list|,
-operator|&
-name|d
+literal|0
 argument_list|)
 expr_stmt|;
 return|return
@@ -1463,7 +1524,7 @@ directive|ifndef
 name|QT_NO_TEXTDATE
 end_ifndef
 begin_comment
-comment|/*!     \since 4.5      Returns the short name of the \a month for the representation specified     by \a type.      The months are enumerated using the following convention:      \list     \i 1 = "Jan"     \i 2 = "Feb"     \i 3 = "Mar"     \i 4 = "Apr"     \i 5 = "May"     \i 6 = "Jun"     \i 7 = "Jul"     \i 8 = "Aug"     \i 9 = "Sep"     \i 10 = "Oct"     \i 11 = "Nov"     \i 12 = "Dec"     \endlist      The month names will be localized according to the system's locale     settings.      \sa toString(), longMonthName(), shortDayName(), longDayName() */
+comment|/*!     \since 4.5      Returns the short name of the \a month for the representation specified     by \a type.      The months are enumerated using the following convention:      \list     \i 1 = "Jan"     \i 2 = "Feb"     \i 3 = "Mar"     \i 4 = "Apr"     \i 5 = "May"     \i 6 = "Jun"     \i 7 = "Jul"     \i 8 = "Aug"     \i 9 = "Sep"     \i 10 = "Oct"     \i 11 = "Nov"     \i 12 = "Dec"     \endlist      The month names will be localized according to the system's locale     settings.      Returns an empty string if the date is invalid.      \sa toString(), longMonthName(), shortDayName(), longDayName() */
 end_comment
 begin_function
 DECL|function|shortMonthName
@@ -1491,12 +1552,10 @@ name|month
 argument_list|>
 literal|12
 condition|)
-block|{
-name|month
-operator|=
-literal|1
-expr_stmt|;
-block|}
+return|return
+name|QString
+argument_list|()
+return|;
 switch|switch
 condition|(
 name|type
@@ -1552,7 +1611,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Returns the long name of the \a month for the representation specified     by \a type.      The months are enumerated using the following convention:      \list     \i 1 = "January"     \i 2 = "February"     \i 3 = "March"     \i 4 = "April"     \i 5 = "May"     \i 6 = "June"     \i 7 = "July"     \i 8 = "August"     \i 9 = "September"     \i 10 = "October"     \i 11 = "November"     \i 12 = "December"     \endlist      The month names will be localized according to the system's locale     settings.      \sa toString(), shortMonthName(), shortDayName(), longDayName() */
+comment|/*!     \since 4.5      Returns the long name of the \a month for the representation specified     by \a type.      The months are enumerated using the following convention:      \list     \i 1 = "January"     \i 2 = "February"     \i 3 = "March"     \i 4 = "April"     \i 5 = "May"     \i 6 = "June"     \i 7 = "July"     \i 8 = "August"     \i 9 = "September"     \i 10 = "October"     \i 11 = "November"     \i 12 = "December"     \endlist      The month names will be localized according to the system's locale     settings.      Returns an empty string if the date is invalid.      \sa toString(), shortMonthName(), shortDayName(), longDayName() */
 end_comment
 begin_function
 DECL|function|longMonthName
@@ -1578,12 +1637,10 @@ name|month
 argument_list|>
 literal|12
 condition|)
-block|{
-name|month
-operator|=
-literal|1
-expr_stmt|;
-block|}
+return|return
+name|QString
+argument_list|()
+return|;
 switch|switch
 condition|(
 name|type
@@ -1639,7 +1696,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Returns the short name of the \a weekday for the representation specified     by \a type.      The days are enumerated using the following convention:      \list     \i 1 = "Mon"     \i 2 = "Tue"     \i 3 = "Wed"     \i 4 = "Thu"     \i 5 = "Fri"     \i 6 = "Sat"     \i 7 = "Sun"     \endlist      The day names will be localized according to the system's locale     settings.      \sa toString(), shortMonthName(), longMonthName(), longDayName() */
+comment|/*!     \since 4.5      Returns the short name of the \a weekday for the representation specified     by \a type.      The days are enumerated using the following convention:      \list     \i 1 = "Mon"     \i 2 = "Tue"     \i 3 = "Wed"     \i 4 = "Thu"     \i 5 = "Fri"     \i 6 = "Sat"     \i 7 = "Sun"     \endlist      The day names will be localized according to the system's locale     settings.      Returns an empty string if the date is invalid.      \sa toString(), shortMonthName(), longMonthName(), longDayName() */
 end_comment
 begin_function
 DECL|function|shortDayName
@@ -1665,12 +1722,10 @@ name|weekday
 argument_list|>
 literal|7
 condition|)
-block|{
-name|weekday
-operator|=
-literal|1
-expr_stmt|;
-block|}
+return|return
+name|QString
+argument_list|()
+return|;
 switch|switch
 condition|(
 name|type
@@ -1726,7 +1781,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Returns the long name of the \a weekday for the representation specified     by \a type.      The days are enumerated using the following convention:      \list     \i 1 = "Monday"     \i 2 = "Tuesday"     \i 3 = "Wednesday"     \i 4 = "Thursday"     \i 5 = "Friday"     \i 6 = "Saturday"     \i 7 = "Sunday"     \endlist      The day names will be localized according to the system's locale     settings.      \sa toString(), shortDayName(), shortMonthName(), longMonthName() */
+comment|/*!     \since 4.5      Returns the long name of the \a weekday for the representation specified     by \a type.      The days are enumerated using the following convention:      \list     \i 1 = "Monday"     \i 2 = "Tuesday"     \i 3 = "Wednesday"     \i 4 = "Thursday"     \i 5 = "Friday"     \i 6 = "Saturday"     \i 7 = "Sunday"     \endlist      The day names will be localized according to the system's locale     settings.      Returns an empty string if the date is invalid.      \sa toString(), shortDayName(), shortMonthName(), longMonthName() */
 end_comment
 begin_function
 DECL|function|longDayName
@@ -1752,12 +1807,10 @@ name|weekday
 argument_list|>
 literal|7
 condition|)
-block|{
-name|weekday
-operator|=
-literal|1
-expr_stmt|;
-block|}
+return|return
+name|QString
+argument_list|()
+return|;
 switch|switch
 condition|(
 name|type
@@ -2216,7 +2269,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Extracts the date's year, month, and day, and assigns them to     *\a year, *\a month, and *\a day. The pointers may be null.      \sa year(), month(), day(), isValid() */
+comment|/*!     \since 4.5      Extracts the date's year, month, and day, and assigns them to     *\a year, *\a month, and *\a day. The pointers may be null.      Returns 0 if the date is invalid.      \sa year(), month(), day(), isValid() */
 end_comment
 begin_function
 DECL|function|getDate
@@ -2238,6 +2291,12 @@ modifier|*
 name|day
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isValid
+argument_list|()
+condition|)
+block|{
 name|getDateFromJulianDay
 argument_list|(
 name|jd
@@ -2250,9 +2309,40 @@ name|day
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+if|if
+condition|(
+name|year
+condition|)
+operator|*
+name|year
+operator|=
+literal|0
+expr_stmt|;
+if|if
+condition|(
+name|month
+condition|)
+operator|*
+name|month
+operator|=
+literal|0
+expr_stmt|;
+if|if
+condition|(
+name|day
+condition|)
+operator|*
+name|day
+operator|=
+literal|0
+expr_stmt|;
+block|}
+block|}
 end_function
 begin_comment
-comment|/*!     Returns a QDate object containing a date \a ndays later than the     date of this object (or earlier if \a ndays is negative).      \sa addMonths() addYears() daysTo() */
+comment|/*!     Returns a QDate object containing a date \a ndays later than the     date of this object (or earlier if \a ndays is negative).      Returns a null date if the current date is invalid or the new date is     out-of-range.      \sa addMonths() addYears() daysTo() */
 end_comment
 begin_function
 DECL|function|addDays
@@ -2266,6 +2356,15 @@ name|ndays
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+name|isNull
+argument_list|()
+condition|)
+return|return
+name|QDate
+argument_list|()
+return|;
 name|QDate
 name|d
 decl_stmt|;
@@ -2684,7 +2783,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of days from this date to \a d (which is     negative if \a d is earlier than this date).      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qdatetime.cpp 0      \sa addDays() */
+comment|/*!     Returns the number of days from this date to \a d (which is     negative if \a d is earlier than this date).      Returns 0 if either date is invalid.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qdatetime.cpp 0      \sa addDays() */
 end_comment
 begin_function
 DECL|function|daysTo
@@ -2700,6 +2799,19 @@ name|d
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+name|isNull
+argument_list|()
+operator|||
+name|d
+operator|.
+name|isNull
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 return|return
 name|d
 operator|.
@@ -3515,7 +3627,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the hour part (0 to 23) of the time.      \sa minute(), second(), msec() */
+comment|/*!     Returns the hour part (0 to 23) of the time.      Returns -1 if the time is invalid.      \sa minute(), second(), msec() */
 end_comment
 begin_function
 DECL|function|hour
@@ -3526,6 +3638,16 @@ name|hour
 parameter_list|()
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|isValid
+argument_list|()
+condition|)
+return|return
+operator|-
+literal|1
+return|;
 return|return
 name|ds
 argument_list|()
@@ -3535,7 +3657,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the minute part (0 to 59) of the time.      \sa hour(), second(), msec() */
+comment|/*!     Returns the minute part (0 to 59) of the time.      Returns -1 if the time is invalid.      \sa hour(), second(), msec() */
 end_comment
 begin_function
 DECL|function|minute
@@ -3546,6 +3668,16 @@ name|minute
 parameter_list|()
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|isValid
+argument_list|()
+condition|)
+return|return
+operator|-
+literal|1
+return|;
 return|return
 operator|(
 name|ds
@@ -3559,7 +3691,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the second part (0 to 59) of the time.      \sa hour(), minute(), msec() */
+comment|/*!     Returns the second part (0 to 59) of the time.      Returns -1 if the time is invalid.      \sa hour(), minute(), msec() */
 end_comment
 begin_function
 DECL|function|second
@@ -3570,6 +3702,16 @@ name|second
 parameter_list|()
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|isValid
+argument_list|()
+condition|)
+return|return
+operator|-
+literal|1
+return|;
 return|return
 operator|(
 name|ds
@@ -3583,7 +3725,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the millisecond part (0 to 999) of the time.      \sa hour(), minute(), second() */
+comment|/*!     Returns the millisecond part (0 to 999) of the time.      Returns -1 if the time is invalid.      \sa hour(), minute(), second() */
 end_comment
 begin_function
 DECL|function|msec
@@ -3594,6 +3736,16 @@ name|msec
 parameter_list|()
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|isValid
+argument_list|()
+condition|)
+return|return
+operator|-
+literal|1
+return|;
 return|return
 name|ds
 argument_list|()
@@ -3905,7 +4057,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QTime object containing a time \a s seconds later     than the time of this object (or earlier if \a s is negative).      Note that the time will wrap if it passes midnight.      Example:      \snippet doc/src/snippets/code/src_corelib_tools_qdatetime.cpp 5      \sa addMSecs(), secsTo(), QDateTime::addSecs() */
+comment|/*!     Returns a QTime object containing a time \a s seconds later     than the time of this object (or earlier if \a s is negative).      Note that the time will wrap if it passes midnight.      Returns a null time if this time is invalid.      Example:      \snippet doc/src/snippets/code/src_corelib_tools_qdatetime.cpp 5      \sa addMSecs(), secsTo(), QDateTime::addSecs() */
 end_comment
 begin_function
 DECL|function|addSecs
@@ -3930,7 +4082,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of seconds from this time to \a t.     If \a t is earlier than this time, the number of seconds returned     is negative.      Because QTime measures time within a day and there are 86400     seconds in a day, the result is always between -86400 and 86400.      secsTo() does not take into account any milliseconds.      \sa addSecs(), QDateTime::secsTo() */
+comment|/*!     Returns the number of seconds from this time to \a t.     If \a t is earlier than this time, the number of seconds returned     is negative.      Because QTime measures time within a day and there are 86400     seconds in a day, the result is always between -86400 and 86400.      secsTo() does not take into account any milliseconds.      Returns 0 if either time is invalid.      \sa addSecs(), QDateTime::secsTo() */
 end_comment
 begin_function
 DECL|function|secsTo
@@ -3946,6 +4098,21 @@ name|t
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|isValid
+argument_list|()
+operator|||
+operator|!
+name|t
+operator|.
+name|isValid
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 return|return
 operator|(
 name|t
@@ -3962,7 +4129,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QTime object containing a time \a ms milliseconds later     than the time of this object (or earlier if \a ms is negative).      Note that the time will wrap if it passes midnight. See addSecs()     for an example.      \sa addSecs(), msecsTo(), QDateTime::addMSecs() */
+comment|/*!     Returns a QTime object containing a time \a ms milliseconds later     than the time of this object (or earlier if \a ms is negative).      Note that the time will wrap if it passes midnight. See addSecs()     for an example.      Returns a null time if this time is invalid.      \sa addSecs(), msecsTo(), QDateTime::addMSecs() */
 end_comment
 begin_function
 DECL|function|addMSecs
@@ -3979,6 +4146,12 @@ block|{
 name|QTime
 name|t
 decl_stmt|;
+if|if
+condition|(
+name|isValid
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|ms
@@ -4032,6 +4205,7 @@ operator|%
 name|MSECS_PER_DAY
 expr_stmt|;
 block|}
+block|}
 if|#
 directive|if
 name|defined
@@ -4064,7 +4238,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of milliseconds from this time to \a t.     If \a t is earlier than this time, the number of milliseconds returned     is negative.      Because QTime measures time within a day and there are 86400     seconds in a day, the result is always between -86400000 and     86400000 ms.      \sa secsTo(), addMSecs(), QDateTime::msecsTo() */
+comment|/*!     Returns the number of milliseconds from this time to \a t.     If \a t is earlier than this time, the number of milliseconds returned     is negative.      Because QTime measures time within a day and there are 86400     seconds in a day, the result is always between -86400000 and     86400000 ms.      Returns 0 if either time is invalid.      \sa secsTo(), addMSecs(), QDateTime::msecsTo() */
 end_comment
 begin_function
 DECL|function|msecsTo
@@ -4080,6 +4254,21 @@ name|t
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|isValid
+argument_list|()
+operator|||
+operator|!
+name|t
+operator|.
+name|isValid
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 if|#
 directive|if
 name|defined
@@ -5319,12 +5508,22 @@ name|toMSecsSinceEpoch_helper
 argument_list|(
 name|utcDate
 operator|.
-name|jd
-argument_list|,
-name|utcTime
-operator|.
-name|ds
+name|toJulianDay
 argument_list|()
+argument_list|,
+name|QTime
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+operator|.
+name|msecsTo
+argument_list|(
+name|utcTime
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -5452,7 +5651,13 @@ operator|->
 name|time
 operator|=
 name|QTime
-argument_list|()
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
 operator|.
 name|addMSecs
 argument_list|(
@@ -5545,7 +5750,13 @@ operator|->
 name|time
 operator|=
 name|QTime
-argument_list|()
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
 operator|.
 name|addSecs
 argument_list|(
@@ -6360,20 +6571,30 @@ name|qint64
 name|msecs
 parameter_list|)
 block|{
-name|uint
+name|int
 name|dd
 init|=
 name|utcDate
 operator|.
-name|jd
+name|toJulianDay
+argument_list|()
 decl_stmt|;
 name|int
 name|tt
 init|=
-name|utcTime
+name|QTime
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
 operator|.
-name|ds
-argument_list|()
+name|msecsTo
+argument_list|(
+name|utcTime
+argument_list|)
 decl_stmt|;
 name|int
 name|sign
@@ -6490,16 +6711,29 @@ name|MSECS_PER_DAY
 expr_stmt|;
 block|}
 name|utcDate
-operator|.
-name|jd
 operator|=
+name|QDate
+operator|::
+name|fromJulianDay
+argument_list|(
 name|dd
+argument_list|)
 expr_stmt|;
 name|utcTime
-operator|.
-name|mds
 operator|=
+name|QTime
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+operator|.
+name|addMSecs
+argument_list|(
 name|tt
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -6598,7 +6832,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of seconds from this datetime to the \a other     datetime. If the \a other datetime is earlier than this datetime,     the value returned is negative.      Before performing the comparison, the two datetimes are converted     to Qt::UTC to ensure that the result is correct if one of the two     datetimes has daylight saving time (DST) and the other doesn't.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qdatetime.cpp 11      \sa addSecs(), daysTo(), QTime::secsTo() */
+comment|/*!     Returns the number of seconds from this datetime to the \a other     datetime. If the \a other datetime is earlier than this datetime,     the value returned is negative.      Before performing the comparison, the two datetimes are converted     to Qt::UTC to ensure that the result is correct if one of the two     datetimes has daylight saving time (DST) and the other doesn't.      Returns 0 if either time is invalid.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qdatetime.cpp 11      \sa addSecs(), daysTo(), QTime::secsTo() */
 end_comment
 begin_function
 DECL|function|secsTo
@@ -6614,6 +6848,21 @@ name|other
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|isValid
+argument_list|()
+operator|||
+operator|!
+name|other
+operator|.
+name|isValid
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 name|QDate
 name|date1
 decl_stmt|,
@@ -6666,7 +6915,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of milliseconds from this datetime to the \a other     datetime. If the \a other datetime is earlier than this datetime,     the value returned is negative.      Before performing the comparison, the two datetimes are converted     to Qt::UTC to ensure that the result is correct if one of the two     datetimes has daylight saving time (DST) and the other doesn't.      \sa addMSecs(), daysTo(), QTime::msecsTo() */
+comment|/*!     Returns the number of milliseconds from this datetime to the \a other     datetime. If the \a other datetime is earlier than this datetime,     the value returned is negative.      Before performing the comparison, the two datetimes are converted     to Qt::UTC to ensure that the result is correct if one of the two     datetimes has daylight saving time (DST) and the other doesn't.      Returns 0 if either time is null.      \sa addMSecs(), daysTo(), QTime::msecsTo() */
 end_comment
 begin_function
 DECL|function|msecsTo
@@ -6682,6 +6931,21 @@ name|other
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|isValid
+argument_list|()
+operator|||
+operator|!
+name|other
+operator|.
+name|isValid
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 name|QDate
 name|selfDate
 decl_stmt|;
@@ -7255,9 +7519,7 @@ argument_list|)
 expr_stmt|;
 name|ct
 operator|.
-name|mds
-operator|=
-name|msecsFromDecomposed
+name|setHMS
 argument_list|(
 name|st
 operator|.
@@ -11946,7 +12208,13 @@ name|toJulianDay
 argument_list|()
 argument_list|,
 name|QTime
-argument_list|()
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
 operator|.
 name|msecsTo
 argument_list|(
