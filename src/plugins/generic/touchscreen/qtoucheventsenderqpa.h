@@ -29,6 +29,17 @@ name|QTouchScreenObserver
 block|{
 name|public
 operator|:
+name|QTouchEventSenderQPA
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|spec
+operator|=
+name|QString
+argument_list|()
+argument_list|)
+block|;
 name|void
 name|touch_configure
 argument_list|(
@@ -51,6 +62,9 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|bool
+name|m_forceToActiveWindow
+block|;
 name|int
 name|hw_range_x_min
 block|;

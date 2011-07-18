@@ -151,6 +151,10 @@ name|void
 name|readData
 argument_list|()
 block|;
+name|void
+name|onTimeout
+argument_list|()
+block|;
 name|private
 operator|:
 name|void
