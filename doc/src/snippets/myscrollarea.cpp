@@ -266,7 +266,7 @@ argument_list|()
 operator|->
 name|setPageStep
 argument_list|(
-name|widgetSize
+name|areaSize
 operator|.
 name|height
 argument_list|()
@@ -277,7 +277,7 @@ argument_list|()
 operator|->
 name|setPageStep
 argument_list|(
-name|widgetSize
+name|areaSize
 operator|.
 name|width
 argument_list|()
