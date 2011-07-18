@@ -749,12 +749,12 @@ name|d
 operator|->
 name|size
 operator|<
-operator|(
 name|int
-operator|)
+argument_list|(
 name|d
 operator|->
 name|alloc
+argument_list|)
 operator|||
 name|d
 operator|->
