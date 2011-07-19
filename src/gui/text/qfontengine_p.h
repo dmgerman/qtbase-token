@@ -342,6 +342,9 @@ block|{}
 name|QByteArray
 name|filename
 block|;
+name|QByteArray
+name|uuid
+block|;
 name|int
 name|index
 block|;
@@ -1173,6 +1176,10 @@ argument_list|(
 name|f
 operator|.
 name|filename
+operator|+
+name|f
+operator|.
+name|uuid
 argument_list|)
 return|;
 block|}
