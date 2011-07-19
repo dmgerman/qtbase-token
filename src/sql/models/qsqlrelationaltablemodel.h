@@ -163,6 +163,14 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+expr|enum
+name|JoinMode
+block|{
+name|InnerJoin
+block|,
+name|LeftJoin
+block|}
+block|;
 name|explicit
 name|QSqlRelationalTableModel
 argument_list|(
@@ -247,6 +255,12 @@ argument_list|(
 argument|int column
 argument_list|)
 specifier|const
+block|;
+name|void
+name|setJoinMode
+argument_list|(
+argument|QSqlRelationalTableModel::JoinMode joinMode
+argument_list|)
 block|;
 name|public
 name|Q_SLOTS
