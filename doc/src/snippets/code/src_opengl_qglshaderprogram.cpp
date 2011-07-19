@@ -71,7 +71,7 @@ operator|::
 name|Vertex
 argument_list|,
 literal|"attribute highp vec4 vertex;\n"
-literal|"attribute mediump mat4 matrix;\n"
+literal|"uniform highp mat4 matrix;\n"
 literal|"void main(void)\n"
 literal|"{\n"
 literal|"   gl_Position = matrix * vertex;\n"
@@ -130,7 +130,7 @@ name|matrixLocation
 init|=
 name|program
 operator|.
-name|attributeLocation
+name|uniformLocation
 argument_list|(
 literal|"matrix"
 argument_list|)
