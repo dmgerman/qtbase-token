@@ -6480,18 +6480,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn QTextCodec *QTextCodec::codecForContent(const char *str, int size)      This functionality is no longer provided by Qt. This     compatibility function always returns a null pointer. */
-end_comment
-begin_comment
-comment|/*!     \fn QTextCodec *QTextCodec::codecForName(const char *hint, int accuracy)      Use the codecForName(const QByteArray&) overload instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QTextCodec *QTextCodec::codecForIndex(int i)      Use availableCodecs() or availableMibs() instead and iterate     through the resulting list. */
-end_comment
-begin_comment
-comment|/*!     \fn QByteArray QTextCodec::mimeName() const      Use name() instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

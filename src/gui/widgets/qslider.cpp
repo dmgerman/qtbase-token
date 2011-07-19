@@ -2454,12 +2454,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn TickPosition QSlider::tickmarks() const     \compat      Use tickPosition() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QSlider::setTickmarks(TickPosition position)     \compat      Use setTickPosition() instead. */
-end_comment
-begin_comment
 comment|/*!     \property QSlider::tickInterval     \brief the interval between tickmarks      This is a value interval, not a pixel interval. If it is 0, the     slider will choose between singleStep() and pageStep().      The default value is 0.      \sa tickPosition, lineStep(), pageStep() */
 end_comment
 begin_function

@@ -20129,30 +20129,6 @@ name|quoted
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn bool QRegExp::caseSensitive() const      Use \l caseSensitivity() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QRegExp::setCaseSensitive(bool sensitive)      Use \l setCaseSensitivity() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QRegExp::wildcard() const      Use \l patternSyntax() instead.      \oldcode         bool wc = rx.wildcard();     \newcode         bool wc = (rx.patternSyntax() == QRegExp::Wildcard);     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn void QRegExp::setWildcard(bool wildcard)      Use \l setPatternSyntax() instead.      \oldcode         rx.setWildcard(wc);     \newcode         rx.setPatternSyntax(wc ? QRegExp::Wildcard : QRegExp::RegExp);     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn bool QRegExp::minimal() const      Use \l isMinimal() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QRegExp::search(const QString&str, int from = 0,                             CaretMode caretMode = CaretAtZero) const      Use \l indexIn() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QRegExp::searchRev(const QString&str, int from = -1, \                                CaretMode caretMode = CaretAtZero) const      Use \l lastIndexIn() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QRegExp::QRegExp(const QString&pattern, bool cs, bool wildcard = false)      Use another constructor instead.      \oldcode         QRegExp rx("*.txt", false, true);     \newcode         QRegExp rx("*.txt", Qt::CaseInsensitive, QRegExp::Wildcard);     \endcode */
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef

@@ -291,21 +291,6 @@ comment|/*! \fn qint64 qRound64(qreal value)     \relates<QtGlobal>      Rounds 
 comment|/*! \fn const T&qMin(const T&value1, const T&value2)     \relates<QtGlobal>      Returns the minimum of \a value1 and \a value2.      Example:      \snippet doc/src/snippets/code/src_corelib_global_qglobal.cpp 13      \sa qMax(), qBound() */
 comment|/*! \fn const T&qMax(const T&value1, const T&value2)     \relates<QtGlobal>      Returns the maximum of \a value1 and \a value2.      Example:      \snippet doc/src/snippets/code/src_corelib_global_qglobal.cpp 14      \sa qMin(), qBound() */
 comment|/*! \fn const T&qBound(const T&min, const T&value, const T&max)     \relates<QtGlobal>      Returns \a value bounded by \a min and \a max. This is equivalent     to qMax(\a min, qMin(\a value, \a max)).      Example:      \snippet doc/src/snippets/code/src_corelib_global_qglobal.cpp 15      \sa qMin(), qMax() */
-comment|/*!     \typedef Q_INT8     \relates<QtGlobal>     \compat      Use \l qint8 instead. */
-comment|/*!     \typedef Q_UINT8     \relates<QtGlobal>     \compat      Use \l quint8 instead. */
-comment|/*!     \typedef Q_INT16     \relates<QtGlobal>     \compat      Use \l qint16 instead. */
-comment|/*!     \typedef Q_UINT16     \relates<QtGlobal>     \compat      Use \l quint16 instead. */
-comment|/*!     \typedef Q_INT32     \relates<QtGlobal>     \compat      Use \l qint32 instead. */
-comment|/*!     \typedef Q_UINT32     \relates<QtGlobal>     \compat      Use \l quint32 instead. */
-comment|/*!     \typedef Q_INT64     \relates<QtGlobal>     \compat      Use \l qint64 instead. */
-comment|/*!     \typedef Q_UINT64     \relates<QtGlobal>     \compat      Use \l quint64 instead. */
-comment|/*!     \typedef Q_LLONG     \relates<QtGlobal>     \compat      Use \l qint64 instead. */
-comment|/*!     \typedef Q_ULLONG     \relates<QtGlobal>     \compat      Use \l quint64 instead. */
-comment|/*!     \typedef Q_LONG     \relates<QtGlobal>     \compat      Use \c{void *} instead. */
-comment|/*!     \typedef Q_ULONG     \relates<QtGlobal>     \compat      Use \c{void *} instead. */
-comment|/*! \fn bool qSysInfo(int *wordSize, bool *bigEndian)     \relates<QtGlobal>      Use QSysInfo::WordSize and QSysInfo::ByteOrder instead. */
-comment|/*!     \fn bool qt_winUnicode()     \relates<QtGlobal>      This function always returns true.      \sa QSysInfo */
-comment|/*!     \fn int qWinVersion()     \relates<QtGlobal>      Use QSysInfo::WindowsVersion instead.      \sa QSysInfo */
 comment|/*!     \fn int qMacVersion()     \relates<QtGlobal>      Use QSysInfo::MacintoshVersion instead.      \sa QSysInfo */
 comment|/*!     \macro QT_VERSION_CHECK     \relates<QtGlobal>      Turns the major, minor and patch numbers of a version into an     integer, 0xMMNNPP (MM = major, NN = minor, PP = patch). This can     be compared with another similarly processed version id.      \sa QT_VERSION */
 comment|/*!     \macro QT_VERSION     \relates<QtGlobal>      This macro expands a numeric value of the form 0xMMNNPP (MM =     major, NN = minor, PP = patch) that specifies Qt's version     number. For example, if you compile your application against Qt     4.1.2, the QT_VERSION macro will expand to 0x040102.      You can use QT_VERSION to use the latest Qt features where     available.      Example:      \snippet doc/src/snippets/code/src_corelib_global_qglobal.cpp 16      \sa QT_VERSION_STR, qVersion() */

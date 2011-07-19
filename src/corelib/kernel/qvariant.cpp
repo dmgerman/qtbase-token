@@ -11008,12 +11008,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \fn QVariant::canCast(Type t) const     Use canConvert() instead. */
-end_comment
-begin_comment
-comment|/*! \fn QVariant::cast(Type t)     Use convert() instead. */
-end_comment
 begin_decl_stmt
 DECL|variable|qCanConvertMatrix
 specifier|static
@@ -12589,69 +12583,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|/*!     \fn int&QVariant::asInt()      Use toInt() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn uint&QVariant::asUInt()      Use toUInt() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn qlonglong&QVariant::asLongLong()      Use toLongLong() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn qulonglong&QVariant::asULongLong()      Use toULongLong() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool&QVariant::asBool()      Use toBool() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn double&QVariant::asDouble()      Use toDouble() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QByteArray&QVariant::asByteArray()      Use toByteArray() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QBitArray&QVariant::asBitArray()      Use toBitArray() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString&QVariant::asString()      Use toString() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QStringList&QVariant::asStringList()      Use toStringList() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QDate&QVariant::asDate()      Use toDate() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QTime&QVariant::asTime()      Use toTime() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QDateTime&QVariant::asDateTime()      Use toDateTime() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QList<QVariant>&QVariant::asList()      Use toList() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QMap<QString, QVariant>&QVariant::asMap()      Use toMap() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QVariant::QVariant(bool b, int dummy)      Use the QVariant(bool) constructor instead.  */
-end_comment
-begin_comment
-comment|/*!     \fn const QByteArray QVariant::toCString() const      Use toByteArray() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QByteArray&QVariant::asCString()      Use toByteArray() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QPoint&QVariant::asPoint()      Use toPoint() instead.  */
-end_comment
-begin_comment
-comment|/*!     \fn QRect&QVariant::asRect()      Use toRect() instead.  */
-end_comment
-begin_comment
-comment|/*!     \fn QSize&QVariant::asSize()      Use toSize() instead.  */
-end_comment
 begin_comment
 comment|/*! \fn void QVariant::setValue(const T&value)      Stores a copy of \a value. If \c{T} is a type that QVariant     doesn't support, QMetaType is used to store the value. A compile     error will occur if QMetaType doesn't handle the type.      Example:      \snippet doc/src/snippets/code/src_corelib_kernel_qvariant.cpp 4      \sa value(), fromValue(), canConvert()  */
 end_comment

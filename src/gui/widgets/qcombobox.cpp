@@ -15006,30 +15006,6 @@ begin_comment
 comment|/*!     \fn void QComboBox::editTextChanged(const QString&text)      This signal is emitted when the text in the combobox's line edit     widget is changed. The new text is specified by \a text. */
 end_comment
 begin_comment
-comment|/*!     \fn QComboBox::InsertPolicy QComboBox::insertionPolicy() const     \compat      Use QComboBox::insertPolicy instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QComboBox::setInsertionPolicy(InsertPolicy policy)     \compat      Use QComboBox::insertPolicy instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QComboBox::setCurrentText(const QString&text)     \compat      Use setItemText() instead.      \sa currentIndex() */
-end_comment
-begin_comment
-comment|/*!     \fn QString QComboBox::text(int index) const     \compat      Use itemText() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QPixmap QComboBox::pixmap(int index) const     \compat      Use itemIcon() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QComboBox::insertStringList(const QStringList&list, int index)     \compat      Use insertItems() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QComboBox::insertItem(const QString&text, int index)     \compat */
-end_comment
-begin_comment
-comment|/*!     \fn void QComboBox::clearEdit()     \compat      Use clearEditText() instead. */
-end_comment
-begin_comment
 comment|/*!     \property QComboBox::frame     \brief whether the combo box draws itself with a frame       If enabled (the default) the combo box draws itself inside a     frame, otherwise the combo box draws itself without any frame. */
 end_comment
 begin_function
@@ -15222,9 +15198,6 @@ comment|/*!     \fn void QComboBox::popup()      Use showPopup() instead. */
 end_comment
 begin_comment
 comment|/*!     \fn void QComboBox::textChanged(const QString&text)      Use the editTextChanged(const QString&text) signal instead. */
-end_comment
-begin_comment
-comment|/*!     \typedef QComboBox::Policy     \compat      Use QComboBox::InsertPolicy instead. */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

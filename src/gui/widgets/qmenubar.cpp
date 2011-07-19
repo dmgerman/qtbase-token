@@ -10301,9 +10301,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \enum QMenuBar::Separator      \compat      \value Never     \value InWindowsStyle  */
-end_comment
-begin_comment
 comment|/*!     \fn void QMenuBar::addAction(QAction *action)     \overload      Appends the action \a action to the menu bar's list of actions.      \sa QMenu::addAction(), QWidget::addAction(), QWidget::actions() */
 end_comment
 begin_comment

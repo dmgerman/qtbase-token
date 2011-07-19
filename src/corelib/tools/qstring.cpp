@@ -11248,18 +11248,6 @@ operator|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \fn const char *QString::ascii() const     \nonreentrant      Use toAscii() instead. */
-end_comment
-begin_comment
-comment|/*! \fn const char *QString::latin1() const     \nonreentrant      Use toLatin1() instead. */
-end_comment
-begin_comment
-comment|/*! \fn const char *QString::utf8() const     \nonreentrant      Use toUtf8() instead. */
-end_comment
-begin_comment
-comment|/*! \fn const char *QString::local8Bit() const     \nonreentrant      Use toLocal8Bit() instead. */
-end_comment
 begin_function
 DECL|function|toLatin1_helper
 specifier|static
@@ -13697,9 +13685,6 @@ comment|/*!     \fn const QString operator+(char ch, const QString&s)     \relat
 end_comment
 begin_comment
 comment|/*!     \fn int QString::compare(const QString&s1, const QString&s2, Qt::CaseSensitivity cs)     \since 4.2      Compares \a s1 with \a s2 and returns an integer less than, equal     to, or greater than zero if \a s1 is less than, equal to, or     greater than \a s2.      If \a cs is Qt::CaseSensitive, the comparison is case sensitive;     otherwise the comparison is case insensitive.      Case sensitive comparison is based exclusively on the numeric     Unicode values of the characters and is very fast, but is not what     a human would expect.  Consider sorting user-visible strings with     localeAwareCompare().      \snippet doc/src/snippets/qstring/main.cpp 16      \sa operator==(), operator<(), operator>() */
-end_comment
-begin_comment
-comment|/*!     \fn int QString::compare(const QString& s1, const QString& s2)      \overload compare()      Performs a case sensitive compare of \a s1 and \a s2. */
 end_comment
 begin_comment
 comment|/*!     \fn int QString::compare(const QString&s1, const QLatin1String&s2, Qt::CaseSensitivity cs)     \since 4.2     \overload compare()      Performs a comparison of \a s1 and \a s2, using the case     sensitivity setting \a cs. */
@@ -22760,9 +22745,6 @@ begin_comment
 comment|/*! \fn QLatin1String::QLatin1String(const char *str)      Constructs a QLatin1String object that stores \a str. Note that if     \a str is 0, an empty string is created; this case is handled by     QString.      The string data is \e not copied. The caller must be able to     guarantee that \a str will not be deleted or modified as long as     the QLatin1String object exists.      \sa latin1() */
 end_comment
 begin_comment
-comment|/*!     \since 4.1     \fn QLatin1String&QLatin1String::operator=(const QLatin1String&other)      Constructs a copy of \a other. */
-end_comment
-begin_comment
 comment|/*! \fn const char *QLatin1String::latin1() const      Returns the Latin-1 string stored in this object. */
 end_comment
 begin_comment
@@ -23373,117 +23355,6 @@ directive|endif
 end_endif
 begin_comment
 comment|// QT_NO_DATASTREAM
-end_comment
-begin_comment
-comment|/*!     \fn void QString::setLength(int nl)      Use resize() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QString::copy() const      Use simple assignment instead. QString is implicitly shared so if     a copy is modified only the copy is changed. */
-end_comment
-begin_comment
-comment|/*!     \fn QString&QString::remove(QChar c, bool cs)      Use the remove(QChar, Qt::CaseSensitive) overload instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString&QString::remove(const QString&s, bool cs)      Use the remove(QString, Qt::CaseSensitive) overload instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString&QString::replace(QChar c, const QString&after, bool cs)      Use the replace(QChar, QString, Qt::CaseSensitive) overload instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString&QString::replace(const QString&before, const QString&after, bool cs)      Use the replace(QString, QString, Qt::CaseSensitive) overload instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString&QString::replace(char c, const QString&after, bool cs)      Use the replace(QChar, QString, Qt::CaseSensitive) overload instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString&QString::replace(char c, const QString&after, Qt::CaseSensitivity cs)      Use the replace(QChar, QString, Qt::CaseSensitive) overload instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QString::find(QChar c, int i = 0, bool cs = true) const      Use indexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QString::find(const QString&s, int i = 0, bool cs = true) const      Use indexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QString::findRev(QChar c, int i = -1, bool cs = true) const      Use lastIndexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QString::findRev(const QString&s, int i = -1, bool cs = true) const      Use lastIndexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QString::find(const QRegExp&rx, int i=0) const      Use indexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QString::find(QRegExp&rx, int i=0) const     \internal     \since 4.5      Use indexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QString::findRev(const QRegExp&rx, int i=-1) const      Use lastIndexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QString::findRev(QRegExp&rx, int i=0) const     \internal     \since 4.5      Use lastIndexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QBool QString::contains(QChar c, bool cs) const      Use the contains(QChar, Qt::CaseSensitive) overload instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QBool QString::contains(const QString&s, bool cs) const      Use the contains(QString, Qt::CaseSensitive) overload instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QString::startsWith(const QString&s, bool cs) const      Use the startsWith(QString, Qt::CaseSensitive) overload instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QString::endsWith(const QString&s, bool cs) const      Use the endsWith(QString, Qt::CaseSensitive) overload instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QString::leftJustify(int width, QChar fill = QLatin1Char(' '), bool trunc=false) const      Use leftJustified() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QString::rightJustify(int width, QChar fill = QLatin1Char(' '), bool trunc=false) const      Use rightJustified() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QString::lower() const      Use toLower() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QString::upper() const      Use toUpper() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QString::stripWhiteSpace() const      Use trimmed() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QString::simplifyWhiteSpace() const      Use simplified() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString&QString::setUnicodeCodes(const ushort *unicode_as_ushorts, int size)      Use setUtf16() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn ushort *QString::ucs2() const      Use utf16() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QString::fromUcs2(const ushort *unicode, int size = -1)      Use fromUtf16() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString&QString::setAscii(const char *str, int len = -1)      Use fromAscii() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString&QString::setLatin1(const char *str, int len = -1)      Use fromLatin1() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QChar QString::constref(uint i) const      Use at() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QChar&QString::ref(uint i);      Use operator[]() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString::operator const char *() const      Use toAscii().constData() instead. */
-end_comment
-begin_comment
-comment|/*!     \class QConstString     \brief The QConstString class is a wrapper for constant Unicode string data.     \compat      In Qt 4, QConstString is replaced by QString::fromRawData(), a     static function that constructs a QString object based on Unicode     string data.      Because QString::fromRawData() has slightly more stringent     constraints than QConstString had in Qt 3, the new QConstString     class takes a deep copy of the string data.      \sa QString::fromRawData() */
-end_comment
-begin_comment
-comment|/*!     \fn QConstString::QConstString(const QChar *unicode, int size)      Use QString(\a unicode, \a size) or     QString::fromRawData(\a unicode, \a size) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn const QString&QConstString::string() const      Returns \c *this. Not necessary in Qt 4. */
 end_comment
 begin_comment
 comment|/*!     \class QStringRef     \since 4.3     \brief The QStringRef class provides a thin wrapper around QString substrings.     \reentrant     \ingroup tools     \ingroup string-processing      QStringRef provides a read-only subset of the QString API.      A string reference explicitly references a portion of a string()     with a given size(), starting at a specific position(). Calling     toString() returns a copy of the data as a real QString instance.      This class is designed to improve the performance of substring     handling when manipulating substrings obtained from existing QString     instances. QStringRef avoids the memory allocation and reference     counting overhead of a standard QString by simply referencing a     part of the original string. This can prove to be advantageous in     low level code, such as that used in a parser, at the expense of     potentially more complex code.      For most users, there are no semantic benefits to using QStringRef     instead of QString since QStringRef requires attention to be paid     to memory management issues, potentially making code more complex     to write and maintain.      \warning A QStringRef is only valid as long as the referenced     string exists. If the original string is deleted, the string     reference points to an invalid memory location.      We suggest that you only use this class in stable code where profiling     has clearly identified that performance improvements can be made by     replacing standard string operations with the optimized substring     handling provided by this class.      \sa {Implicitly Shared Classes} */

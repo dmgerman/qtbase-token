@@ -1760,9 +1760,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QToolButton::TextPosition     \compat      This enum describes the position of the tool button's text label in     relation to the tool button's icon.      \value BesideIcon The text appears beside the icon.     \value BelowIcon The text appears below the icon.     \omitvalue Right     \omitvalue Under */
-end_comment
-begin_comment
 comment|/*!     \property QToolButton::toolButtonStyle     \brief whether the tool button displays an icon only, text only,     or text beside/below the icon.      The default is Qt::ToolButtonIconOnly.      To have the style of toolbuttons follow the system settings (as available     in GNOME and KDE desktop environments), set this property to Qt::ToolButtonFollowStyle.      QToolButton automatically connects this slot to the relevant     signal in the QMainWindow in which is resides. */
 end_comment
 begin_comment

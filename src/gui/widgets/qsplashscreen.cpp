@@ -721,12 +721,6 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QSplashScreen::message(const QString&message, int alignment,                                     const QColor&color)     \compat      Use showMessage() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QSplashScreen::clear()     \compat      Use clearMessage() instead. */
-end_comment
-begin_comment
 comment|/*! \reimp */
 end_comment
 begin_function

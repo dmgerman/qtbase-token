@@ -2541,12 +2541,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn char QChar::latin1() const      Use toLatin1() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn char QChar::ascii() const      Use toAscii() instead. */
-end_comment
-begin_comment
 comment|/*!     \fn char QChar::toLatin1() const      Returns the Latin-1 character equivalent to the QChar, or 0. This     is mainly useful for non-internationalized software.      \sa toAscii(), unicode(), QTextCodec::codecForCStrings() */
 end_comment
 begin_comment
@@ -2788,18 +2782,6 @@ comment|/*!     \fn int operator<(QChar c1, QChar c2)      \relates QChar      R
 end_comment
 begin_comment
 comment|/*!     \fn int operator>(QChar c1, QChar c2)      \relates QChar      Returns true if the numeric Unicode value of \a c1 is greater than     that of \a c2; otherwise returns false. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QChar::mirrored() const      Use hasMirrored() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QChar QChar::lower() const      Use toLower() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QChar QChar::upper() const      Use toUpper() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QChar::networkOrdered()      See if QSysInfo::ByteOrder == QSysInfo::BigEndian instead. */
 end_comment
 begin_comment
 comment|// ---------------------------------------------------------------------------

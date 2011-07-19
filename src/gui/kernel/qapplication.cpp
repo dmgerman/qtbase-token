@@ -19261,9 +19261,6 @@ begin_comment
 comment|// QT_NO_SESSIONMANAGER
 end_comment
 begin_comment
-comment|/*!     \typedef QApplication::ColorMode     \compat      Use ColorSpec instead. */
-end_comment
-begin_comment
 comment|/*!     \fn Qt::MacintoshVersion QApplication::macVersion()      Use QSysInfo::MacintoshVersion instead. */
 end_comment
 begin_comment
@@ -19433,12 +19430,6 @@ emit|;
 block|}
 block|}
 end_function
-begin_comment
-comment|/*! \variable QApplication::NormalColors     \compat      Use \l NormalColor instead. */
-end_comment
-begin_comment
-comment|/*! \variable QApplication::CustomColors     \compat      Use \l CustomColor instead. */
-end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef

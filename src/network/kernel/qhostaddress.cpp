@@ -3487,18 +3487,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn quint32 QHostAddress::ip4Addr() const      Use toIPv4Address() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QHostAddress::isIp4Addr() const      Use protocol() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QHostAddress::isIPv4Address() const      Use protocol() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QHostAddress::isIPv6Address() const      Use protocol() instead. */
-end_comment
-begin_comment
 comment|/*!     \since 4.5      Returns true if this IP is in the subnet described by the network     prefix \a subnet and netmask \a netmask.      An IP is considered to belong to a subnet if it is contained     between the lowest and the highest address in that subnet. In the     case of IP version 4, the lowest address is the network address,     while the highest address is the broadcast address.      The \a subnet argument does not have to be the actual network     address (the lowest address in the subnet). It can be any valid IP     belonging to that subnet. In particular, if it is equal to the IP     address held by this object, this function will always return true     (provided the netmask is a valid value).      \sa parseSubnet() */
 end_comment
 begin_function

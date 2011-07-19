@@ -12119,60 +12119,6 @@ begin_comment
 comment|/*! \typedef QByteArray::value_type   \internal  */
 end_comment
 begin_comment
-comment|/*!     \fn QByteArray::QByteArray(int size)      Use QByteArray(int, char) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QByteArray QByteArray::leftJustify(uint width, char fill, bool truncate) const      Use leftJustified() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QByteArray QByteArray::rightJustify(uint width, char fill, bool truncate) const      Use rightJustified() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QByteArray& QByteArray::duplicate(const QByteArray& a)      \oldcode         QByteArray bdata;         bdata.duplicate(original);     \newcode         QByteArray bdata;         bdata = original;     \endcode      \note QByteArray uses implicit sharing so if you modify a copy, only the     copy is changed. */
-end_comment
-begin_comment
-comment|/*!     \fn QByteArray& QByteArray::duplicate(const char *a, uint n)      \overload      \oldcode         QByteArray bdata;         bdata.duplicate(ptr, size);     \newcode         QByteArray bdata;         bdata = QByteArray(ptr, size);     \endcode      \note QByteArray uses implicit sharing so if you modify a copy, only the     copy is changed. */
-end_comment
-begin_comment
-comment|/*!     \fn void QByteArray::resetRawData(const char *data, uint n)      Use clear() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QByteArray QByteArray::lower() const      Use toLower() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QByteArray QByteArray::upper() const      Use toUpper() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QByteArray QByteArray::stripWhiteSpace() const      Use trimmed() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QByteArray QByteArray::simplifyWhiteSpace() const      Use simplified() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QByteArray::find(char c, int from = 0) const      Use indexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QByteArray::find(const char *c, int from = 0) const      Use indexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QByteArray::find(const QByteArray&ba, int from = 0) const      Use indexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QByteArray::findRev(char c, int from = -1) const      Use lastIndexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QByteArray::findRev(const char *c, int from = -1) const      Use lastIndexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QByteArray::findRev(const QByteArray&ba, int from = -1) const      Use lastIndexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QByteArray::find(const QString&s, int from = 0) const      Use indexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QByteArray::findRev(const QString&s, int from = -1) const      Use lastIndexOf() instead. */
-end_comment
-begin_comment
 comment|/*!     \fn DataPtr&QByteArray::data_ptr()     \internal */
 end_comment
 begin_comment

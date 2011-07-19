@@ -40753,7 +40753,6 @@ name|languageChange
 parameter_list|()
 block|{ }
 comment|// compat
-comment|/*!     \enum QWidget::BackgroundOrigin      \compat      \value WidgetOrigin     \value ParentOrigin     \value WindowOrigin     \value AncestorOrigin  */
 comment|/*!     \fn bool QWidget::isVisibleToTLW() const      Use isVisible() instead. */
 comment|/*!     \fn void QWidget::iconify()      Use showMinimized() instead. */
 comment|/*!     \fn void QWidget::constPolish() const      Use ensurePolished() instead. */
@@ -40808,8 +40807,6 @@ comment|/*!     \fn bool QWidget::isPopup() const      Use windowType() == Qt::P
 comment|/*!     \fn bool QWidget::isDesktop() const      Use windowType() == Qt::Desktop instead. */
 comment|/*!     \fn void QWidget::polish()      Use ensurePolished() instead. */
 comment|/*!     \fn QWidget *QWidget::childAt(int x, int y, bool includeThis) const      Use the childAt() overload that doesn't have an \a includeThis parameter.      \oldcode         return widget->childAt(x, y, true);     \newcode         QWidget *child = widget->childAt(x, y, true);         if (child)             return child;         if (widget->rect().contains(x, y))             return widget;     \endcode */
-comment|/*!     \fn void QWidget::setSizePolicy(QSizePolicy::Policy hor, QSizePolicy::Policy ver, bool hfw)     \compat      Use the \l sizePolicy property and heightForWidth() function instead. */
-comment|/*!     \fn bool QWidget::isUpdatesEnabled() const     \compat      Use the \l updatesEnabled property instead. */
 comment|/*!      \macro QWIDGETSIZE_MAX      \relates QWidget       Defines the maximum size for a QWidget object.       The largest allowed size for a widget is QSize(QWIDGETSIZE_MAX,      QWIDGETSIZE_MAX), i.e. QSize (16777215,16777215).       \sa QWidget::setMaximumSize() */
 comment|/*!     \fn QWidget::setupUi(QWidget *widget)      Sets up the user interface for the specified \a widget.      \note This function is available with widgets that derive from user     interface descriptions created using \l{uic}.      \sa {Using a Designer UI File in Your Application} */
 DECL|function|frameStrut

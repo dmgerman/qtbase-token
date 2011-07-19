@@ -371,24 +371,6 @@ begin_comment
 comment|/*! \fn QDataStream&operator>>(QDataStream&in, QLinkedList<T>&list)     \relates QLinkedList      Reads a linked list from stream \a in into \a list.      This function requires the value type to implement \c operator>>().      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
 end_comment
 begin_comment
-comment|/*!     \fn iterator QLinkedList::remove(iterator pos)      Use erase() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QLinkedList::findIndex(const T& t) const      If you need indexes then QList or QVector are better choices than     QLinkedList.      \oldcode     int index = list->findIndex(value);     \newcode     int index = 0;     bool found = false;     for (const_iterator i = list->begin(); i != list->end(); ++i; ++index)         if (*i == value) {             found = true;             break;         }     if (!found)         index = -1;     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn iterator QLinkedList::find(iterator from, const T& t)      If you need random access to a data structure then QList, QVector,     QMap, or QHash, are all better choices than QLinkedList.      \oldcode     QLinkedList::iterator i = list->find(from, value);     \newcode     QLinkedList::iterator i = from;     while (i != list->end()&& *i != value)         ++i;     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn iterator QLinkedList::find(const T& t)      If you need random access to a data structure then QList, QVector,     QMap, or QHash, are all better choices than QLinkedList.      \oldcode     QLinkedList::iterator i = list->find(value);     \newcode     QLinkedList::iterator i = list->begin();     while (i != list->end()&& *i != value)         ++i;     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn const_iterator QLinkedList::find(const_iterator from, const T& t) const      If you need random access to a data structure then QList, QVector,     QMap, or QHash, are all better choices than QLinkedList.      \oldcode     QLinkedList::const_iterator i = list->find(from, value);     \newcode     QLinkedList::const_iterator i = from;     while (i != list->end()&& *i != value)         ++i;     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn const_iterator QLinkedList::find(const T& t) const      If you need random access to a data structure then QList, QVector,     QMap, or QHash, are all better choices than QLinkedList.      \oldcode     QLinkedList::const_iterator i = list->find(value);     \newcode     QLinkedList::const_iterator i = list->begin();     while (i != list->end()&& *i != value)         ++i;     \endcode */
-end_comment
-begin_comment
 comment|/*!     \since 4.1     \fn QLinkedList<T> QLinkedList<T>::fromStdList(const std::list<T>&list)      Returns a QLinkedList object with the data contained in \a list.     The order of the elements in the QLinkedList is the same as in \a     list.      Example:      \snippet doc/src/snippets/code/src_corelib_tools_qlinkedlist.cpp 16      \sa toStdList() */
 end_comment
 begin_comment

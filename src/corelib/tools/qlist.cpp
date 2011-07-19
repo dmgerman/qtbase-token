@@ -2206,27 +2206,6 @@ begin_comment
 comment|/*! \fn QDataStream&operator>>(QDataStream&in, QList<T>&list)     \relates QList      Reads a list from stream \a in into \a list.      This function requires the value type to implement \c     operator>>().      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
 end_comment
 begin_comment
-comment|/*!     \fn iterator QList::remove(iterator pos)      Use erase() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QList::remove(const T&t)      Use removeAll() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QList::findIndex(const T& t) const      Use indexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn iterator QList::find(const T& t)      Use indexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn const_iterator QList::find (const T& t) const      Use indexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn iterator QList::find(iterator from, const T& t)      Use indexOf() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn const_iterator QList::find(const_iterator from, const T& t) const      Use indexOf() instead. */
-end_comment
-begin_comment
 comment|/*! \fn QList<T> QList<T>::fromVector(const QVector<T>&vector)      Returns a QList object with the data contained in \a vector.      Example:      \snippet doc/src/snippets/code/src_corelib_tools_qlistdata.cpp 21      \sa fromSet(), toVector(), QVector::toList() */
 end_comment
 begin_comment
