@@ -802,6 +802,13 @@ endif|#
 directive|endif
 block|}
 end_constructor
+begin_function_decl
+specifier|static
+name|void
+name|qt_cleanup_gl_share_widget
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_comment
 comment|//
 end_comment
@@ -841,6 +848,12 @@ argument_list|(
 literal|false
 argument_list|)
 block|{
+comment|// ### FIXME - readd the post routine if the qApp is recreated
+name|qAddPostRoutine
+argument_list|(
+name|qt_cleanup_gl_share_widget
+argument_list|)
+expr_stmt|;
 name|created
 operator|=
 literal|true
@@ -1033,21 +1046,12 @@ init|=
 literal|false
 decl_stmt|;
 end_decl_stmt
-begin_function_decl
-specifier|static
-name|void
-name|qt_cleanup_gl_share_widget
-parameter_list|()
-function_decl|;
-end_function_decl
 begin_macro
-name|Q_GLOBAL_STATIC_WITH_INITIALIZER
+name|Q_GLOBAL_STATIC
 argument_list|(
 argument|QGLGlobalShareWidget
 argument_list|,
 argument|_qt_gl_share_widget
-argument_list|,
-argument|{                                      qAddPostRoutine(qt_cleanup_gl_share_widget);                                  }
 argument_list|)
 end_macro
 begin_function
