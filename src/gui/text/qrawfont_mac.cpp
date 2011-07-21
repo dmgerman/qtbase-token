@@ -55,7 +55,7 @@ name|QByteArray
 modifier|&
 name|fontData
 parameter_list|,
-name|int
+name|qreal
 name|pixelSize
 parameter_list|,
 name|QFont

@@ -2475,7 +2475,7 @@ name|QByteArray
 modifier|&
 name|_fontData
 parameter_list|,
-name|int
+name|qreal
 name|pixelSize
 parameter_list|,
 name|QFont

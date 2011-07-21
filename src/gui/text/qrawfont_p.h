@@ -223,7 +223,7 @@ name|QByteArray
 operator|&
 name|fontData
 argument_list|,
-name|int
+name|qreal
 name|pixelSize
 argument_list|,
 name|QFont
