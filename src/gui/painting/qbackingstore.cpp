@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qscreen.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qguiapplication_p.h>
 end_include
 begin_include

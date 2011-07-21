@@ -97,11 +97,6 @@ name|ProcessEventsFlags
 name|flags
 parameter_list|)
 block|{
-name|Q_D
-argument_list|(
-name|QEventDispatcherQPA
-argument_list|)
-expr_stmt|;
 name|bool
 name|didSendEvents
 init|=

@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qscreen.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qguiapplication_p.h>
 end_include
 begin_function
@@ -36,9 +41,12 @@ name|h
 parameter_list|)
 block|{
 return|return
-name|QGuiApplicationPrivate
+name|QGuiApplication
 operator|::
-name|platformIntegration
+name|primaryScreen
+argument_list|()
+operator|->
+name|handle
 argument_list|()
 operator|->
 name|grabWindow

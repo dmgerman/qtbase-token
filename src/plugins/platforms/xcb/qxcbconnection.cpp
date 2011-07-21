@@ -332,6 +332,20 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|//XCB_USE_XLIB
+if|if
+condition|(
+name|m_connection
+condition|)
+name|printf
+argument_list|(
+literal|"Successfully connected to display %s\n"
+argument_list|,
+name|m_displayName
+operator|.
+name|constData
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|xcb_prefetch_extension_data
 argument_list|(
 name|m_connection

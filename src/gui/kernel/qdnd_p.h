@@ -305,9 +305,7 @@ name|QShapedPixmapWindow
 argument_list|()
 operator|:
 name|QWindow
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 block|{
 name|setWindowFlags
 argument_list|(

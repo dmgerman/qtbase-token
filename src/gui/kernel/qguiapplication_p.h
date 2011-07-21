@@ -585,6 +585,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_expr_stmt
+specifier|static
+name|QList
+operator|<
+name|QScreen
+operator|*
+operator|>
+name|screen_list
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 specifier|static
 name|QFont

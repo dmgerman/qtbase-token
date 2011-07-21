@@ -74,16 +74,7 @@ argument_list|(
 name|this
 argument_list|)
 argument_list|)
-block|{
-name|moveToThread
-argument_list|(
-name|waylandDisplay
-operator|->
-name|thread
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~QWaylandScreen

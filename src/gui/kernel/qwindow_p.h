@@ -105,6 +105,11 @@ name|transientParent
 argument_list|(
 literal|0
 argument_list|)
+block|,
+name|screen
+argument_list|(
+literal|0
+argument_list|)
 block|{
 name|isWindow
 operator|=
@@ -171,6 +176,10 @@ operator|<
 name|QWindow
 operator|>
 name|transientParent
+block|;
+name|QScreen
+operator|*
+name|screen
 block|; }
 decl_stmt|;
 end_decl_stmt

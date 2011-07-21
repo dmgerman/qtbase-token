@@ -56,14 +56,6 @@ argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
 block|;
-name|QPlatformPixmap
-operator|*
-name|createPlatformPixmap
-argument_list|(
-argument|QPlatformPixmap::PixelType type
-argument_list|)
-specifier|const
-block|;
 name|QPlatformWindow
 operator|*
 name|createPlatformWindow

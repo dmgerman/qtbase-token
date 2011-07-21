@@ -46,26 +46,16 @@ block|{
 name|public
 operator|:
 name|QXcbIntegration
-argument_list|()
+argument_list|(
+specifier|const
+name|QStringList
+operator|&
+name|parameters
+argument_list|)
 block|;
 operator|~
 name|QXcbIntegration
 argument_list|()
-block|;
-name|bool
-name|hasCapability
-argument_list|(
-argument|Capability cap
-argument_list|)
-specifier|const
-block|;
-name|QPlatformPixmap
-operator|*
-name|createPlatformPixmap
-argument_list|(
-argument|QPlatformPixmap::PixelType type
-argument_list|)
-specifier|const
 block|;
 name|QPlatformWindow
 operator|*
@@ -79,9 +69,7 @@ name|QPlatformGLContext
 operator|*
 name|createPlatformGLContext
 argument_list|(
-argument|const QSurfaceFormat&glFormat
-argument_list|,
-argument|QPlatformGLContext *share
+argument|QGuiGLContext *context
 argument_list|)
 specifier|const
 block|;
@@ -93,18 +81,16 @@ argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
+name|bool
+name|hasCapability
+argument_list|(
+argument|Capability cap
+argument_list|)
+specifier|const
+block|;
 name|QAbstractEventDispatcher
 operator|*
 name|createEventDispatcher
-argument_list|()
-specifier|const
-block|;
-name|QList
-operator|<
-name|QPlatformScreen
-operator|*
-operator|>
-name|screens
 argument_list|()
 specifier|const
 block|;
@@ -115,25 +101,6 @@ argument|QWindow *window
 argument_list|,
 argument|int screen
 argument_list|)
-block|;
-name|bool
-name|isVirtualDesktop
-argument_list|()
-block|;
-name|QPixmap
-name|grabWindow
-argument_list|(
-argument|WId window
-argument_list|,
-argument|int x
-argument_list|,
-argument|int y
-argument_list|,
-argument|int width
-argument_list|,
-argument|int height
-argument_list|)
-specifier|const
 block|;
 name|QPlatformFontDatabase
 operator|*
@@ -173,21 +140,12 @@ specifier|const
 block|;
 name|private
 operator|:
-name|bool
-name|hasOpenGL
-argument_list|()
-specifier|const
-block|;
 name|QList
 operator|<
-name|QPlatformScreen
-operator|*
-operator|>
-name|m_screens
-block|;
 name|QXcbConnection
 operator|*
-name|m_connection
+operator|>
+name|m_connections
 block|;
 name|QPlatformFontDatabase
 operator|*

@@ -112,14 +112,6 @@ argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
 block|;
-name|QPlatformPixmap
-operator|*
-name|createPlatformPixmap
-argument_list|(
-argument|QPlatformPixmap::PixelType type
-argument_list|)
-specifier|const
-block|;
 name|QPlatformWindow
 operator|*
 name|createPlatformWindow
@@ -141,28 +133,6 @@ operator|*
 name|createEventDispatcher
 argument_list|()
 specifier|const
-block|;
-name|QList
-operator|<
-name|QPlatformScreen
-operator|*
-operator|>
-name|screens
-argument_list|()
-specifier|const
-block|{
-return|return
-name|mScreens
-return|;
-block|}
-name|private
-operator|:
-name|QList
-operator|<
-name|QPlatformScreen
-operator|*
-operator|>
-name|mScreens
 block|; }
 decl_stmt|;
 end_decl_stmt
