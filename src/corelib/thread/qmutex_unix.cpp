@@ -721,7 +721,7 @@ name|ts
 operator|.
 name|tv_sec
 operator|=
-name|timeout
+name|xtimeout
 operator|/
 name|Q_INT64_C
 argument_list|(
@@ -736,7 +736,7 @@ name|ts
 operator|.
 name|tv_nsec
 operator|=
-name|timeout
+name|xtimeout
 operator|%
 operator|(
 name|Q_INT64_C
