@@ -528,6 +528,15 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"Object::connect: No such signal QObject::mysignal(x)"
+argument_list|)
+expr_stmt|;
 name|ok
 operator|=
 name|QObject
@@ -572,6 +581,15 @@ name|QObject
 operator|*
 operator|)
 literal|0
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"Object::disconnect: No such signal QObject::mysignal(x)"
 argument_list|)
 expr_stmt|;
 name|ok
