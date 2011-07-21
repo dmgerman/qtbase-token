@@ -128,9 +128,6 @@ begin_comment
 comment|/*!     \class QCheckBox     \brief The QCheckBox widget provides a checkbox with a text label.      \ingroup basicwidgets       A QCheckBox is an option button that can be switched on (checked) or off     (unchecked). Checkboxes are typically used to represent features in an     application that can be enabled or disabled without affecting others, but     different types of behavior can be implemented. For example, a     QButtonGroup can be used to group check buttons logically, allowing     exclusive checkboxes. However, QButtonGroup does not provide any visual     representation.      The image below further illustrates the differences between exclusive and     non-exclusive checkboxes.      \table     \row \o \inlineimage checkboxes-exclusive.png          \o \inlineimage checkboxes-non-exclusive.png     \endtable      Whenever a checkbox is checked or cleared it emits the signal     stateChanged(). Connect to this signal if you want to trigger an action     each time the checkbox changes state. You can use isChecked() to query     whether or not a checkbox is checked.      In addition to the usual checked and unchecked states, QCheckBox optionally     provides a third state to indicate "no change". This is useful whenever you     need to give the user the option of neither checking nor unchecking a     checkbox. If you need this third state, enable it with setTristate(), and     use checkState() to query the current toggle state.      Just like QPushButton, a checkbox displays text, and optionally a small     icon. The icon is set with setIcon(). The text can be set in the     constructor or with setText(). A shortcut key can be specified by preceding     the preferred character with an ampersand. For example:      \snippet doc/src/snippets/code/src_gui_widgets_qcheckbox.cpp 0      In this example the shortcut is \e{Alt+A}. See the \l{QShortcut#mnemonic}     {QShortcut} documentation for details (to display an actual ampersand,     use '&&').      Important inherited functions: text(), setText(), text(), pixmap(),     setPixmap(), accel(), setAccel(), isToggleButton(), setDown(), isDown(),     isOn(), checkState(), autoRepeat(), isExclusiveToggle(), group(),     setAutoRepeat(), toggle(), pressed(), released(), clicked(), toggled(),     checkState(), and stateChanged().      \table 100%     \row         \o \inlineimage macintosh-checkbox.png Screenshot of a Macintosh style checkbox         \o A checkbox shown in the \l{Macintosh Style Widget Gallery}{Macintosh widget style}.     \row         \o \inlineimage windows-checkbox.png Screenshot of a Windows XP style checkbox         \o A checkbox shown in the \l{Windows XP Style Widget Gallery}{Windows XP widget style}.     \row         \o \inlineimage plastique-checkbox.png Screenshot of a Plastique style checkbox         \o A checkbox shown in the \l{Plastique Style Widget Gallery}{Plastique widget style}.     \endtable      \sa QAbstractButton, QRadioButton, {fowler}{GUI Design Handbook: Check Box} */
 end_comment
 begin_comment
-comment|/*!     \enum QCheckBox::ToggleState     \compat      \value Off  Use Qt::Unchecked instead.     \value NoChange  Use Qt::PartiallyChecked instead.     \value On  Use Qt::Checked instead. */
-end_comment
-begin_comment
 comment|/*!     \fn void QCheckBox::stateChanged(int state)      This signal is emitted whenever the check box's state changes, i.e.     whenever the user checks or unchecks it.      \a state contains the check box's new Qt::CheckState. */
 end_comment
 begin_comment
@@ -1254,15 +1251,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|/*!     \fn void QCheckBox::setNoChange()     \compat      Use setCheckState() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QCheckBox::setState(ToggleState state)     \compat      Use setCheckState() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QCheckBox::ToggleState QCheckBox::state() const     \compat      Use checkState() instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

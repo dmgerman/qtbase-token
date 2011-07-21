@@ -10666,27 +10666,6 @@ begin_comment
 comment|// QT_NO_DATASTREAM
 end_comment
 begin_comment
-comment|/*!     \fn QString QDate::monthName(int month)      Use shortMonthName() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QDate::dayName(int weekday)      Use shortDayName() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QDate::leapYear(int year)      Use isLeapYear() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QDate QDate::currentDate(Qt::TimeSpec spec)      If \a spec is Qt::LocalTime, use the currentDate() overload that     takes no parameters instead; otherwise, use     QDateTime::currentDateTime().      \oldcode         QDate localDate = QDate::currentDate(Qt::LocalTime);         QDate utcDate = QDate::currentDate(Qt::UTC);     \newcode         QDate localDate = QDate::currentDate();         QDate utcDate = QDateTime::currentDateTime().toUTC().date();     \endcode      \sa QDateTime::toUTC() */
-end_comment
-begin_comment
-comment|/*!     \fn QTime QTime::currentTime(Qt::TimeSpec specification)      Returns the current time for the given \a specification.      To replace uses of this function where the \a specification is Qt::LocalTime,     use the currentDate() overload that takes no parameters instead; otherwise,     use QDateTime::currentDateTime() and convert the result to a UTC measurement.      \oldcode         QTime localTime = QTime::currentTime(Qt::LocalTime);         QTime utcTime = QTime::currentTime(Qt::UTC);     \newcode         QTime localTime = QTime::currentTime();         QTime utcTime = QTimeTime::currentDateTime().toUTC().time();     \endcode      \sa QDateTime::toUTC() */
-end_comment
-begin_comment
-comment|/*!     \fn void QDateTime::setTime_t(uint secsSince1Jan1970UTC, Qt::TimeSpec spec)      Use the single-argument overload of setTime_t() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QDateTime QDateTime::currentDateTime(Qt::TimeSpec spec)      Use the currentDateTime() overload that takes no parameters     instead. */
-end_comment
-begin_comment
 comment|// checks if there is an unqoted 'AP' or 'ap' in the string
 end_comment
 begin_function

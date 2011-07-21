@@ -196,9 +196,6 @@ comment|// Unicode information
 enum|enum
 name|Category
 block|{
-name|NoCategory
-block|,
-comment|// ### Qt 5: replace with Other_NotAssigned
 name|Mark_NonSpacing
 block|,
 comment|//   Mn
@@ -287,12 +284,7 @@ name|Symbol_Modifier
 block|,
 comment|//   Sk
 name|Symbol_Other
-block|,
 comment|//   So
-name|Punctuation_Dask
-init|=
-name|Punctuation_Dash
-comment|// ### Qt 5: remove
 block|}
 enum|;
 enum|enum

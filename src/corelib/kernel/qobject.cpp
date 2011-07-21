@@ -13906,36 +13906,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!   \fn void QObject::insertChild(QObject *object)    Use setParent() instead, i.e., call object->setParent(this). */
-end_comment
-begin_comment
-comment|/*!   \fn void QObject::removeChild(QObject *object)    Use setParent() instead, i.e., call object->setParent(0). */
-end_comment
-begin_comment
-comment|/*!   \fn bool QObject::isA(const char *className) const    Compare \a className with the object's metaObject()->className() instead. */
-end_comment
-begin_comment
-comment|/*!   \fn const char *QObject::className() const    Use metaObject()->className() instead. */
-end_comment
-begin_comment
-comment|/*!   \fn const char *QObject::name() const    Use objectName() instead. */
-end_comment
-begin_comment
-comment|/*!   \fn const char *QObject::name(const char *defaultName) const    Use objectName() instead. */
-end_comment
-begin_comment
-comment|/*!   \fn void QObject::setName(const char *name)    Use setObjectName() instead. */
-end_comment
-begin_comment
-comment|/*!   \fn bool QObject::checkConnectArgs(const char *signal, const   QObject *object, const char *method)    Use QMetaObject::checkConnectArgs() instead. */
-end_comment
-begin_comment
-comment|/*!   \fn QByteArray QObject::normalizeSignalSlot(const char *signalSlot)    Use QMetaObject::normalizedSignature() instead. */
-end_comment
-begin_comment
-comment|/*!   \fn const char *QMetaObject::superClassName() const    \internal */
-end_comment
-begin_comment
 comment|/*!     \macro Q_CLASSINFO(Name, Value)     \relates QObject      This macro associates extra information to the class, which is     available using QObject::metaObject(). Except for the ActiveQt     extension, Qt doesn't use this information.      The extra information takes the form of a \a Name string and a \a     Value literal string.      Example:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 35      \sa QMetaObject::classInfo() */
 end_comment
 begin_comment

@@ -2188,6 +2188,26 @@ name|reply
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \since 5.0      Flushes the internal cache of authentication data and network connections.      This function is useful for doing auto tests.  */
+end_comment
+begin_function
+DECL|function|clearAccessCache
+name|void
+name|QNetworkAccessManager
+operator|::
+name|clearAccessCache
+parameter_list|()
+block|{
+name|QNetworkAccessManagerPrivate
+operator|::
+name|clearCache
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_function
 DECL|function|_q_replyFinished
 name|void

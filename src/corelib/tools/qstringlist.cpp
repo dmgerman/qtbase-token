@@ -599,24 +599,6 @@ end_endif
 begin_comment
 comment|// QT_NO_DATASTREAM
 end_comment
-begin_comment
-comment|/*!     \fn QStringList QStringList::grep(const QString&str, bool cs = true) const      Use filter() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QStringList QStringList::grep(const QRegExp&rx) const      Use filter() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QStringList&QStringList::gres(const QString&before, const QString&after, bool cs = true)      Use replaceInStrings() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QStringList&QStringList::gres(const QRegExp&rx, const QString&after)      Use replaceInStrings() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn Iterator QStringList::fromLast()      Use end() instead.      \oldcode     QStringList::Iterator i = list.fromLast();     \newcode     QStringList::Iterator i = list.isEmpty() ? list.end() : --list.end();     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn ConstIterator QStringList::fromLast() const      Use end() instead.      \oldcode     QStringList::ConstIterator i = list.fromLast();     \newcode     QStringList::ConstIterator i = list.isEmpty() ? list.end() : --list.end();     \endcode */
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef

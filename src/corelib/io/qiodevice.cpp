@@ -408,12 +408,6 @@ begin_comment
 comment|/*!     \class QIODevice     \reentrant      \brief The QIODevice class is the base interface class of all I/O     devices in Qt.      \ingroup io      QIODevice provides both a common implementation and an abstract     interface for devices that support reading and writing of blocks     of data, such as QFile, QBuffer and QTcpSocket. QIODevice is     abstract and can not be instantiated, but it is common to use the     interface it defines to provide device-independent I/O features.     For example, Qt's XML classes operate on a QIODevice pointer,     allowing them to be used with various devices (such as files and     buffers).      Before accessing the device, open() must be called to set the     correct OpenMode (such as ReadOnly or ReadWrite). You can then     write to the device with write() or putChar(), and read by calling     either read(), readLine(), or readAll(). Call close() when you are     done with the device.      QIODevice distinguishes between two types of devices:     random-access devices and sequential devices.      \list     \o Random-access devices support seeking to arbitrary     positions using seek(). The current position in the file is     available by calling pos(). QFile and QBuffer are examples of     random-access devices.      \o Sequential devices don't support seeking to arbitrary     positions. The data must be read in one pass. The functions     pos() and size() don't work for sequential devices.     QTcpSocket and QProcess are examples of sequential devices.     \endlist      You can use isSequential() to determine the type of device.      QIODevice emits readyRead() when new data is available for     reading; for example, if new data has arrived on the network or if     additional data is appended to a file that you are reading     from. You can call bytesAvailable() to determine the number of     bytes that are currently available for reading. It's common to use     bytesAvailable() together with the readyRead() signal when     programming with asynchronous devices such as QTcpSocket, where     fragments of data can arrive at arbitrary points in     time. QIODevice emits the bytesWritten() signal every time a     payload of data has been written to the device. Use bytesToWrite()     to determine the current amount of data waiting to be written.      Certain subclasses of QIODevice, such as QTcpSocket and QProcess,     are asynchronous. This means that I/O functions such as write()     or read() always return immediately, while communication with the     device itself may happen when control goes back to the event loop.     QIODevice provides functions that allow you to force these     operations to be performed immediately, while blocking the     calling thread and without entering the event loop. This allows     QIODevice subclasses to be used without an event loop, or in     a separate thread:      \list     \o waitForReadyRead() - This function suspends operation in the     calling thread until new data is available for reading.      \o waitForBytesWritten() - This function suspends operation in the     calling thread until one payload of data has been written to the     device.      \o waitFor....() - Subclasses of QIODevice implement blocking     functions for device-specific operations. For example, QProcess     has a function called waitForStarted() which suspends operation in     the calling thread until the process has started.     \endlist      Calling these functions from the main, GUI thread, may cause your     user interface to freeze. Example:      \snippet doc/src/snippets/code/src_corelib_io_qiodevice.cpp 0      By subclassing QIODevice, you can provide the same interface to     your own I/O devices. Subclasses of QIODevice are only required to     implement the protected readData() and writeData() functions.     QIODevice uses these functions to implement all its convenience     functions, such as getChar(), readLine() and write(). QIODevice     also handles access control for you, so you can safely assume that     the device is opened in write mode if writeData() is called.      Some subclasses, such as QFile and QTcpSocket, are implemented     using a memory buffer for intermediate storing of data. This     reduces the number of required device accessing calls, which are     often very slow. Buffering makes functions like getChar() and     putChar() fast, as they can operate on the memory buffer instead     of directly on the device itself. Certain I/O operations, however,     don't work well with a buffer. For example, if several users open     the same device and read it character by character, they may end     up reading the same data when they meant to read a separate chunk     each. For this reason, QIODevice allows you to bypass any     buffering by passing the Unbuffered flag to open(). When     subclassing QIODevice, remember to bypass any buffer you may use     when the device is open in Unbuffered mode.      \sa QBuffer QFile QTcpSocket */
 end_comment
 begin_comment
-comment|/*!     \typedef QIODevice::Offset     \compat      Use \c qint64 instead. */
-end_comment
-begin_comment
-comment|/*!     \typedef QIODevice::Status     \compat      Use QIODevice::OpenMode instead, or see the documentation for     specific devices. */
-end_comment
-begin_comment
 comment|/*!     \enum QIODevice::OpenModeFlag      This enum is used with open() to describe the mode in which a device     is opened. It is also returned by openMode().      \value NotOpen   The device is not open.     \value ReadOnly  The device is open for reading.     \value WriteOnly The device is open for writing.     \value ReadWrite The device is open for reading and writing.     \value Append    The device is opened in append mode, so that all data is                      written to the end of the file.     \value Truncate  If possible, the device is truncated before it is opened.                      All earlier contents of the device are lost.     \value Text      When reading, the end-of-line terminators are                      translated to '\n'. When writing, the end-of-line                      terminators are translated to the local encoding, for                      example '\r\n' for Win32.     \value Unbuffered Any buffer in the device is bypassed.      Certain flags, such as \c Unbuffered and \c Truncate, are     meaningless when used with some subclasses. Some of these     restrictions are implied by the type of device that is represented     by a subclass. In other cases, the restriction may be due to the     implementation, or may be imposed by the underlying platform; for     example, QTcpSocket does not support \c Unbuffered mode, and     limitations in the native API prevent QFile from supporting \c     Unbuffered on Windows. */
 end_comment
 begin_comment
@@ -4836,69 +4830,6 @@ comment|/*!     \fn qint64 QIODevice::readData(char *data, qint64 maxSize)      
 end_comment
 begin_comment
 comment|/*!     \fn qint64 QIODevice::writeData(const char *data, qint64 maxSize)      Writes up to \a maxSize bytes from \a data to the device. Returns     the number of bytes written, or -1 if an error occurred.      This function is called by QIODevice. Reimplement this function     when creating a subclass of QIODevice.      When reimplementing this function it is important that this function     writes all the data available before returning. This is required in order     for QDataStream to be able to operate on the class. QDataStream assumes     all the information was written and therefore does not retry writing if     there was a problem.      \sa read() write() */
-end_comment
-begin_comment
-comment|/*!     \fn QIODevice::Offset QIODevice::status() const      For device specific error handling, please refer to the     individual device documentation.      \sa qobject_cast() */
-end_comment
-begin_comment
-comment|/*!     \fn QIODevice::Offset QIODevice::at() const      Use pos() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QIODevice::at(Offset offset)      Use seek(\a offset) instead. */
-end_comment
-begin_comment
-comment|/*! \fn int QIODevice::flags() const      Use openMode() instead. */
-end_comment
-begin_comment
-comment|/*! \fn int QIODevice::getch()      Use getChar() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QIODevice::isAsynchronous() const      This functionality is no longer available. This function always     returns true. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QIODevice::isBuffered() const      Use !(openMode()& QIODevice::Unbuffered) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QIODevice::isCombinedAccess() const      Use openMode() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QIODevice::isDirectAccess() const      Use !isSequential() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QIODevice::isInactive() const      Use isOpen(), isReadable(), or isWritable() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QIODevice::isRaw() const      Use openMode() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QIODevice::isSequentialAccess() const      Use isSequential() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QIODevice::isSynchronous() const      This functionality is no longer available. This function always     returns false. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QIODevice::isTranslated() const      Use openMode() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QIODevice::mode() const      Use openMode() instead. */
-end_comment
-begin_comment
-comment|/*! \fn int QIODevice::putch(int ch)      Use putChar(\a ch) instead. */
-end_comment
-begin_comment
-comment|/*! \fn int QIODevice::ungetch(int ch)      Use ungetChar(\a ch) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn quint64 QIODevice::readBlock(char *data, quint64 size)      Use read(\a data, \a size) instead. */
-end_comment
-begin_comment
-comment|/*! \fn int QIODevice::state() const      Use isOpen() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn qint64 QIODevice::writeBlock(const char *data, quint64 size)      Use write(\a data, \a size) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn qint64 QIODevice::writeBlock(const QByteArray&data)      Use write(\a data) instead. */
 end_comment
 begin_if
 if|#

@@ -1684,12 +1684,6 @@ operator|.
 name|dwReserved0
 operator|==
 name|IO_REPARSE_TAG_SYMLINK
-operator|||
-name|findData
-operator|.
-name|dwReserved0
-operator|==
-name|IO_REPARSE_TAG_MOUNT_POINT
 operator|)
 condition|)
 block|{

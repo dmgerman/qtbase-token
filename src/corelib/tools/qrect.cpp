@@ -132,9 +132,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QRect QRect::normalize() const     \compat      Returns a normalized rectangle; i.e., a rectangle that has a     non-negative width and height.      Use the normalized() function instead */
-end_comment
-begin_comment
 comment|/*!     \fn int QRect::left() const      Returns the x-coordinate of the rectangle's left edge. Equivalent     to x().      \sa setLeft(),  topLeft(), bottomLeft() */
 end_comment
 begin_comment
@@ -145,18 +142,6 @@ comment|/*!     \fn int QRect::right() const      Returns the x-coordinate of th
 end_comment
 begin_comment
 comment|/*!     \fn int QRect::bottom() const      Returns the y-coordinate of the rectangle's bottom edge.      Note that for historical reasons this function returns top() +     height() - 1; use y() + height() to retrieve the true y-coordinate.      \sa setBottom(), bottomLeft(), bottomRight() */
-end_comment
-begin_comment
-comment|/*!     \fn int&QRect::rLeft()     \compat      Returns a reference to the left coordinate of the rectangle.      Use the left() function instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int&QRect::rTop()     \compat      Returns a reference to the top coordinate of the rectangle.      Use the top() function instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int&QRect::rRight()     \compat      Returns a reference to the right coordinate of the rectangle.      Use the right() function instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int&QRect::rBottom()     \compat      Returns a reference to the bottom coordinate of the rectangle.      Use the bottom() function instead. */
 end_comment
 begin_comment
 comment|/*!     \fn int QRect::x() const      Returns the x-coordinate of the rectangle's left edge. Equivalent to left().      \sa setX(), y(), topLeft() */
@@ -214,12 +199,6 @@ comment|/*!     \fn void QRect::getRect(int *x, int *y, int *width, int *height)
 end_comment
 begin_comment
 comment|/*!     \fn void QRect::getCoords(int *x1, int *y1, int *x2, int *y2) const      Extracts the position of the rectangle's top-left corner to *\a x1     and *\a y1, and the position of the bottom-right corner to *\a x2     and *\a y2.      \sa setCoords(), getRect() */
-end_comment
-begin_comment
-comment|/*!     \fn void QRect::rect(int *x, int *y, int *width, int *height) const     \compat      Extracts the position of the rectangle's top-left corner to *\a x and     *\a y, and its dimensions to *\a width and * \a height.      Use the getRect() function instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QRect::coords(int *x1, int *y1, int *x2, int *y2) const     \compat      Extracts the position of the rectangle's top-left corner to *\a x1     and *\a y1, and the position of the bottom-right corner to *\a x2     and *\a y2.      Use the getCoords() function instead. */
 end_comment
 begin_comment
 comment|/*!     \fn void QRect::moveLeft(int x)      Moves the rectangle horizontally, leaving the rectangle's left     edge at the given \a x coordinate. The rectangle's size is     unchanged.      \sa left(), setLeft(), moveRight() */
@@ -312,12 +291,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QRect::moveBy(int dx, int dy)     \compat      Moves the rectangle \a dx along the x axis and \a dy along the y     axis, relative to the current position.      Use the translate() function instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QRect::moveBy(const QPoint&)     \compat      Use the translate() function instead. */
-end_comment
-begin_comment
 comment|/*!     \fn void QRect::moveTo(int x, int y)      Moves the rectangle, leaving the top-left corner at the given     position (\a x, \a y).  The rectangle's size is unchanged.      \sa translate(), moveTopLeft() */
 end_comment
 begin_comment
@@ -340,9 +313,6 @@ comment|/*!     \fn void QRect::setRect(int x, int y, int width, int height)    
 end_comment
 begin_comment
 comment|/*!     \fn void QRect::setCoords(int x1, int y1, int x2, int y2)      Sets the coordinates of the rectangle's top-left corner to (\a x1,     \a y1), and the coordinates of its bottom-right corner to (\a x2,     \a y2).      \sa getCoords(), setRect() */
-end_comment
-begin_comment
-comment|/*!     \fn void QRect::addCoords(int dx1, int dy1, int dx2, int dy2)     \compat      Adds \a dx1, \a dy1, \a dx2 and \a dy2 to the existing coordinates     of the rectangle respectively.      Use the adjust() function instead. */
 end_comment
 begin_comment
 comment|/*! \fn QRect QRect::adjusted(int dx1, int dy1, int dx2, int dy2) const      Returns a new rectangle with \a dx1, \a dy1, \a dx2 and \a dy2     added respectively to the existing coordinates of this rectangle.      \sa adjust() */

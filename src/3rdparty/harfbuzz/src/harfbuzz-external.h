@@ -135,9 +135,6 @@ begin_typedef
 typedef|typedef
 enum|enum
 block|{
-DECL|enumerator|HB_NoCategory
-name|HB_NoCategory
-block|,
 DECL|enumerator|HB_Mark_NonSpacing
 name|HB_Mark_NonSpacing
 block|,

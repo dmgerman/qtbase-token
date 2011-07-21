@@ -308,6 +308,15 @@ name|toString
 argument_list|()
 specifier|const
 expr_stmt|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+name|QT_DEPRECATED
 name|operator
 name|QString
 argument_list|()
@@ -318,7 +327,8 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|// ### Qt5 remove
+endif|#
+directive|endif
 name|QUuid
 argument_list|(
 specifier|const
@@ -770,6 +780,18 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_function_decl
+name|Q_CORE_EXPORT
+name|uint
+name|qHash
+parameter_list|(
+specifier|const
+name|QUuid
+modifier|&
+name|uuid
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER

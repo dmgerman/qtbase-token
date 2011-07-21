@@ -221,6 +221,10 @@ operator|~
 name|QNetworkAccessManager
 argument_list|()
 block|;
+name|void
+name|clearAccessCache
+argument_list|()
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_NETWORKPROXY

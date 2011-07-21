@@ -6725,9 +6725,6 @@ begin_comment
 comment|/*!     \fn void QSplitter::setResizeMode(QWidget *widget, ResizeMode mode)      Use setStretchFactor() instead.      \oldcode         splitter->setResizeMode(firstChild, QSplitter::KeepSize);         splitter->setResizeMode(secondChild, QSplitter::Stretch);     \newcode         splitter->setStretchFactor(splitter->indexOf(firstChild), 0);         splitter->setStretchFactor(splitter->indexOf(secondChild), 1);     \endcode */
 end_comment
 begin_comment
-comment|/*!     \enum QSplitter::ResizeMode     \compat      This enum describes the different resizing behaviors child     widgets can have:      \value Auto   The widget will be resized according to the stretch factors set in its sizePolicy().     \value Stretch  The widget will be resized when the splitter itself is resized.     \value KeepSize  QSplitter will try to keep the widget's size unchanged.     \value FollowSizeHint  QSplitter will resize the widget when the widget's size hint changes.      Use setStretchFactor() instead. */
-end_comment
-begin_comment
 comment|/*!     \fn void QSplitter::setCollapsible(QWidget *widget, bool collapsible)      Use setCollapsible(indexOf(\a widget, \a collapsible)) instead. */
 end_comment
 begin_comment

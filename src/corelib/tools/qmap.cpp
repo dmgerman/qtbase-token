@@ -1512,24 +1512,6 @@ end_comment
 begin_comment
 comment|/*!     \fn typename QMap<Key, T>::const_iterator QMultiMap::constFind(const Key&key) const     \overload     \sa QMap::constFind() */
 end_comment
-begin_comment
-comment|/*!     \fn T&QMap::iterator::data() const      Use value() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn const T&QMap::const_iterator::data() const      Use value() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn iterator QMap::remove(iterator it)      Use erase(\a it) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QMap::erase(const Key&key)      Use remove(\a key) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn iterator QMap::insert(const Key&key, const T&value, bool overwrite);      Use the two-argument insert() overload instead. If you don't want     to overwrite, call contains() beforehand.      \oldcode         QMap<QString, int> map;         ...         map.insert("delay", 30000, false);     \newcode         QMap<QString, int> map;         ...         if (!map.contains("delay"))             map.insert("delay", 30000);     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn iterator QMap::replace(const Key&key, const T&value)      Use remove() then insert(). */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

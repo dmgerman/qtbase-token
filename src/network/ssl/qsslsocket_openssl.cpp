@@ -7401,16 +7401,18 @@ expr_stmt|;
 block|}
 block|}
 end_if
-begin_expr_stmt
+begin_decl_stmt
+name|QMutexLocker
+name|sslErrorListMutexLocker
+argument_list|(
+operator|&
 name|_q_sslErrorList
 argument_list|()
 operator|->
 name|mutex
-operator|.
-name|lock
-argument_list|()
-expr_stmt|;
-end_expr_stmt
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|// Register a custom callback to get all verification errors.
 end_comment
@@ -7739,10 +7741,7 @@ argument_list|()
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|_q_sslErrorList
-argument_list|()
-operator|->
-name|mutex
+name|sslErrorListMutexLocker
 operator|.
 name|unlock
 argument_list|()

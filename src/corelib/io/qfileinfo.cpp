@@ -4029,27 +4029,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString QFileInfo::baseName(bool complete)      Use completeBaseName() or the baseName() overload that takes no     parameters instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QFileInfo::extension(bool complete = true) const      Use completeSuffix() or suffix() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QFileInfo::absFilePath() const      Use absoluteFilePath() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QFileInfo::dirPath(bool absPath) const      Use absolutePath() if the absolute path is wanted (\a absPath     is true) or path() if it's not necessary (\a absPath is false). */
-end_comment
-begin_comment
-comment|/*!     \fn bool QFileInfo::convertToAbs()      Use makeAbsolute() instead. */
-end_comment
-begin_comment
-comment|/*!     \enum QFileInfo::Permission      \compat      \value ReadOwner     \value WriteOwner     \value ExeOwner     \value ReadUser     \value WriteUser     \value ExeUser     \value ReadGroup     \value WriteGroup     \value ExeGroup     \value ReadOther     \value WriteOther     \value ExeOther */
-end_comment
-begin_comment
-comment|/*!     \fn bool QFileInfo::permission(PermissionSpec permissions) const     \compat      Use permission() instead. */
-end_comment
-begin_comment
 comment|/*!     \typedef QFileInfoList     \relates QFileInfo      Synonym for QList<QFileInfo>. */
 end_comment
 begin_macro

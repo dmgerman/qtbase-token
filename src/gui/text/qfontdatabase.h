@@ -398,6 +398,16 @@ name|style
 argument_list|)
 decl|const
 decl_stmt|;
+name|bool
+name|hasFamily
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|family
+argument_list|)
+decl|const
+decl_stmt|;
 specifier|static
 name|QString
 name|writingSystemName

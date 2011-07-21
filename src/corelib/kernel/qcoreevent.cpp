@@ -379,9 +379,6 @@ begin_comment
 comment|/*!     \fn bool QChildEvent::polished() const      Returns true if type() is QEvent::ChildPolished; otherwise returns     false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QChildEvent::inserted() const      \compat      A child has been inserted if the event's type() is ChildInserted. */
-end_comment
-begin_comment
 comment|/*!     \class QDynamicPropertyChangeEvent     \since 4.2     \brief The QDynamicPropertyChangeEvent class contains event parameters for dynamic     property change events.      \ingroup events      Dynamic property change events are sent to objects when properties are     dynamically added, changed or removed using QObject::setProperty(). */
 end_comment
 begin_comment

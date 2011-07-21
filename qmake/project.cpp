@@ -16084,9 +16084,15 @@ name|dset
 operator|.
 name|remove
 argument_list|(
-name|item
+name|rootSet
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// *Don't* use 'item' - rootSet may have changed!
 if|if
 condition|(
 name|dset

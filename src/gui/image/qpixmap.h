@@ -678,11 +678,17 @@ argument|QRegion *exposed =
 literal|0
 argument_list|)
 block|;
+ifdef|#
+directive|ifdef
+name|QT_DEPRECATED
+name|QT_DEPRECATED
 name|int
 name|serialNumber
 argument_list|()
 specifier|const
 block|;
+endif|#
+directive|endif
 name|qint64
 name|cacheKey
 argument_list|()
