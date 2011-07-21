@@ -294,7 +294,7 @@ DECL|struct|QConstStringData
 name|template
 operator|<
 name|int
-name|n
+name|N
 operator|>
 expr|struct
 name|QConstStringData
@@ -309,7 +309,9 @@ specifier|const
 name|char16_t
 name|data
 index|[
-name|n
+name|N
+operator|+
+literal|1
 index|]
 block|; }
 expr_stmt|;
@@ -361,7 +363,7 @@ DECL|struct|QConstStringData
 name|template
 operator|<
 name|int
-name|n
+name|N
 operator|>
 expr|struct
 name|QConstStringData
@@ -376,7 +378,9 @@ specifier|const
 name|wchar_t
 name|data
 index|[
-name|n
+name|N
+operator|+
+literal|1
 index|]
 block|; }
 expr_stmt|;
@@ -397,7 +401,7 @@ DECL|struct|QConstStringData
 name|template
 operator|<
 name|int
-name|n
+name|N
 operator|>
 expr|struct
 name|QConstStringData
@@ -412,7 +416,9 @@ specifier|const
 name|ushort
 name|data
 index|[
-name|n
+name|N
+operator|+
+literal|1
 index|]
 block|; }
 expr_stmt|;
@@ -445,7 +451,7 @@ name|QStringLiteral
 parameter_list|(
 name|str
 parameter_list|)
-value|([]() { \         enum { Size = sizeof(QT_QSTRING_UNICODE_MARKER str)/2 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size -1, 0, 0, { 0 } }, QT_QSTRING_UNICODE_MARKER str }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \     return holder; }())
+value|([]() { \         enum { Size = sizeof(QT_QSTRING_UNICODE_MARKER str)/2 - 1 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size, 0, 0, { 0 } }, QT_QSTRING_UNICODE_MARKER str }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \     return holder; }())
 end_define
 begin_elif
 elif|#
@@ -473,7 +479,7 @@ parameter_list|(
 name|str
 parameter_list|)
 define|\
-value|__extension__ ({ \         enum { Size = sizeof(QT_QSTRING_UNICODE_MARKER str)/2 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size -1, 0, 0, { 0 } }, QT_QSTRING_UNICODE_MARKER str }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \         holder; })
+value|__extension__ ({ \         enum { Size = sizeof(QT_QSTRING_UNICODE_MARKER str)/2 - 1 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size, 0, 0, { 0 } }, QT_QSTRING_UNICODE_MARKER str }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \         holder; })
 end_define
 begin_endif
 endif|#
