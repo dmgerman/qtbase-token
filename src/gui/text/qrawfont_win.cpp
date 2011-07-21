@@ -2403,8 +2403,7 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|void
-modifier|*
+name|QFunctionPointer
 name|func
 init|=
 name|QSystemLibrary
@@ -2643,8 +2642,7 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|void
-modifier|*
+name|QFunctionPointer
 name|func
 init|=
 name|QSystemLibrary

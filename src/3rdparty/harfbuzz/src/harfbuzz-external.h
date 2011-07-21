@@ -467,26 +467,22 @@ name|ch
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_function_decl
+begin_expr_stmt
 name|void
-modifier|*
+argument_list|(
+operator|*
 name|HB_Library_Resolve
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|library
-parameter_list|,
-name|int
-name|version
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|symbol
-parameter_list|)
-function_decl|;
-end_function_decl
+argument_list|(
+argument|const char *library
+argument_list|,
+argument|int version
+argument_list|,
+argument|const char *symbol
+argument_list|)
+argument_list|)
+argument_list|()
+expr_stmt|;
+end_expr_stmt
 begin_macro
 name|HB_END_HEADER
 end_macro

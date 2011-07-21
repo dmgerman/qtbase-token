@@ -1545,8 +1545,7 @@ end_comment
 begin_function
 DECL|function|qt_load_library_runtime
 specifier|static
-name|void
-modifier|*
+name|QFunctionPointer
 name|qt_load_library_runtime
 parameter_list|(
 specifier|const
@@ -1638,8 +1637,7 @@ argument_list|,
 name|version
 argument_list|)
 decl_stmt|;
-name|void
-modifier|*
+name|QFunctionPointer
 name|ptr
 init|=
 name|xfixesLib

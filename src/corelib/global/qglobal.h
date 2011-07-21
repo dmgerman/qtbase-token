@@ -8031,6 +8031,17 @@ name|QtMsgHandler
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_typedef
+DECL|typedef|QFunctionPointer
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|QFunctionPointer
+function_decl|)
+parameter_list|()
+function_decl|;
+end_typedef
 begin_if
 if|#
 directive|if

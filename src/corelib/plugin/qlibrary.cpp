@@ -1665,8 +1665,7 @@ block|}
 end_destructor
 begin_function
 DECL|function|resolve
-name|void
-modifier|*
+name|QFunctionPointer
 name|QLibraryPrivate
 operator|::
 name|resolve
@@ -4261,8 +4260,7 @@ comment|/*!     Returns the address of the exported symbol \a symbol. The librar
 end_comment
 begin_function
 DECL|function|resolve
-name|void
-modifier|*
+name|QFunctionPointer
 name|QLibrary
 operator|::
 name|resolve
@@ -4301,8 +4299,7 @@ comment|/*!     \overload      Loads the library \a fileName and returns the add
 end_comment
 begin_function
 DECL|function|resolve
-name|void
-modifier|*
+name|QFunctionPointer
 name|QLibrary
 operator|::
 name|resolve
@@ -4339,8 +4336,7 @@ comment|/*!     \overload      Loads the library \a fileName with major version 
 end_comment
 begin_function
 DECL|function|resolve
-name|void
-modifier|*
+name|QFunctionPointer
 name|QLibrary
 operator|::
 name|resolve
@@ -4382,8 +4378,7 @@ comment|/*!     \overload     \since 4.4      Loads the library \a fileName with
 end_comment
 begin_function
 DECL|function|resolve
-name|void
-modifier|*
+name|QFunctionPointer
 name|QLibrary
 operator|::
 name|resolve
