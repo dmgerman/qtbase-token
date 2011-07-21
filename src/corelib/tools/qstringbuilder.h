@@ -1849,6 +1849,8 @@ argument_list|(
 name|a
 argument_list|,
 name|N
+operator|-
+literal|1
 argument_list|,
 name|out
 argument_list|)
@@ -1988,6 +1990,8 @@ argument_list|(
 name|a
 argument_list|,
 name|N
+operator|-
+literal|1
 argument_list|,
 name|out
 argument_list|)
@@ -2235,6 +2239,7 @@ begin_function
 DECL|function|appendTo
 specifier|static
 specifier|inline
+name|QT_ASCII_CAST_WARN
 name|void
 name|appendTo
 parameter_list|(
@@ -2249,7 +2254,6 @@ modifier|&
 name|out
 parameter_list|)
 block|{
-comment|// adding 1 because convertFromAscii expects the size including the null-termination
 name|QAbstractConcatenable
 operator|::
 name|convertFromAscii
@@ -2263,8 +2267,6 @@ name|ba
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|1
 argument_list|,
 name|out
 argument_list|)
@@ -2416,7 +2418,6 @@ modifier|&
 name|out
 parameter_list|)
 block|{
-comment|// adding 1 because convertFromAscii expects the size including the null-termination
 name|QAbstractConcatenable
 operator|::
 name|convertFromAscii
@@ -2428,8 +2429,6 @@ operator|->
 name|data
 argument_list|,
 name|N
-operator|+
-literal|1
 argument_list|,
 name|out
 argument_list|)

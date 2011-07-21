@@ -19,7 +19,7 @@ comment|/*! \fn QStringBuilder::QStringBuilder(const A&a, const B&b)   Construct
 comment|/* \fn QStringBuilder::operator%(const A&a, const B&b)      Returns a \c QStringBuilder object that is converted to a QString object     when assigned to a variable of QString type or passed to a function that     takes a QString parameter.      This function is usable with arguments of type \c QString,     \c QLatin1String, \c QStringRef,     \c QChar, \c QCharRef, \c QLatin1Char, and \c char. */
 comment|/*! \fn QByteArray QStringBuilder::toLatin1() const   Returns a Latin-1 representation of the string as a QByteArray.  The   returned byte array is undefined if the string contains non-Latin1   characters.  */
 comment|/*!     \fn operator QStringBuilder::QString() const       Converts the \c QLatin1String into a \c QString object. */
-comment|/*! \internal    Note: The len contains the ending \0  */
+comment|/*! \internal  */
 DECL|function|convertFromAscii
 name|void
 name|QAbstractConcatenable
@@ -66,8 +66,6 @@ operator|>
 literal|0
 condition|?
 name|len
-operator|-
-literal|1
 else|:
 operator|-
 literal|1
@@ -155,8 +153,6 @@ init|;
 name|i
 operator|<
 name|len
-operator|-
-literal|1
 condition|;
 operator|++
 name|i
