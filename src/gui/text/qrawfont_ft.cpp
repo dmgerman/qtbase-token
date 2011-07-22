@@ -211,10 +211,7 @@ operator|::
 name|createUuid
 argument_list|()
 operator|.
-name|toString
-argument_list|()
-operator|.
-name|toAscii
+name|toByteArray
 argument_list|()
 expr_stmt|;
 return|return
