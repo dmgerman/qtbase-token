@@ -22,6 +22,11 @@ include|#
 directive|include
 file|"qscreen.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qguiapplication.h"
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
