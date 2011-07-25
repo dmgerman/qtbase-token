@@ -56,6 +56,12 @@ argument_list|(
 name|Gui
 argument_list|)
 name|class
+name|QPlatformScreen
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QPlatformWindowPrivate
+name|class
 name|QPlatformWindowPrivate
 decl_stmt|;
 end_decl_stmt
@@ -100,6 +106,12 @@ block|;
 name|QPlatformWindow
 operator|*
 name|parent
+argument_list|()
+specifier|const
+block|;
+name|QPlatformScreen
+operator|*
+name|screen
 argument_list|()
 specifier|const
 block|;

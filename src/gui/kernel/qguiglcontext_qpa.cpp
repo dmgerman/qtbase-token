@@ -495,6 +495,15 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|platformGLContext
+operator|->
+name|setContext
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 return|return
 name|d
 operator|->

@@ -77,6 +77,15 @@ name|platformContext
 argument_list|()
 specifier|const
 block|;
+name|EGLSurface
+name|surface
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_surface
+return|;
+block|}
 name|private
 operator|:
 name|void
