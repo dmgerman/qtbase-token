@@ -604,6 +604,14 @@ name|QShapedPixmapWindow
 operator|*
 name|shapedPixmapWindow
 block|;
+name|void
+name|unmanageEvents
+argument_list|()
+block|;
+name|void
+name|stopDrag
+argument_list|()
+block|;
 name|private
 operator|:
 name|QMimeData
