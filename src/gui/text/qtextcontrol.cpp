@@ -10355,6 +10355,11 @@ argument_list|()
 operator|>
 literal|0
 decl_stmt|;
+name|bool
+name|forceSelectionChanged
+init|=
+literal|false
+decl_stmt|;
 name|cursor
 operator|.
 name|beginEditBlock
@@ -10543,6 +10548,10 @@ name|repaintOldAndNewSelection
 argument_list|(
 name|oldCursor
 argument_list|)
+expr_stmt|;
+name|forceSelectionChanged
+operator|=
+literal|true
 expr_stmt|;
 block|}
 block|}
@@ -10798,6 +10807,11 @@ operator|->
 name|microFocusChanged
 argument_list|()
 emit|;
+name|selectionChanged
+argument_list|(
+name|forceSelectionChanged
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
