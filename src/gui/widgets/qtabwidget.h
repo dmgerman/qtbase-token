@@ -464,6 +464,12 @@ name|void
 name|clear
 argument_list|()
 block|;
+name|QTabBar
+operator|*
+name|tabBar
+argument_list|()
+specifier|const
+block|;
 name|public
 name|Q_SLOTS
 operator|:
@@ -545,12 +551,6 @@ argument_list|(
 name|QTabBar
 operator|*
 argument_list|)
-block|;
-name|QTabBar
-operator|*
-name|tabBar
-argument_list|()
-specifier|const
 block|;
 name|void
 name|changeEvent
