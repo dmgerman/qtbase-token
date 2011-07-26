@@ -2354,7 +2354,7 @@ block|}
 end_namespace
 begin_function
 DECL|function|qt_regionToPath
-name|Q_AUTOTEST_EXPORT
+name|Q_GUI_EXPORT
 name|QPainterPath
 name|qt_regionToPath
 parameter_list|(

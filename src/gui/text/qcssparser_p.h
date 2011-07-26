@@ -944,7 +944,7 @@ comment|// 3. QVector<BasicSelector> - y:clicked z:checked
 comment|// 4. QVector<Declaration> - { prop1: value1; prop2: value2; }
 comment|// 5. Declaration - prop1: value1;
 struct|struct
-name|Q_AUTOTEST_EXPORT
+name|Q_GUI_EXPORT
 name|Declaration
 block|{
 name|struct
@@ -1739,7 +1739,7 @@ decl_stmt|;
 block|}
 struct|;
 struct|struct
-name|Q_AUTOTEST_EXPORT
+name|Q_GUI_EXPORT
 name|Selector
 block|{
 name|QVector
@@ -1784,7 +1784,7 @@ struct_decl|struct
 name|ImportRule
 struct_decl|;
 struct|struct
-name|Q_AUTOTEST_EXPORT
+name|Q_GUI_EXPORT
 name|ValueExtractor
 block|{
 name|ValueExtractor
@@ -2635,7 +2635,7 @@ expr_stmt|;
 block|}
 struct|;
 name|class
-name|Q_AUTOTEST_EXPORT
+name|Q_GUI_EXPORT
 name|Scanner
 block|{
 name|public
