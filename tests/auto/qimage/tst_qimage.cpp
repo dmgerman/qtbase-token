@@ -15149,7 +15149,7 @@ argument_list|()
 argument_list|,
 name|image
 operator|.
-name|numBytes
+name|byteCount
 argument_list|()
 argument_list|)
 argument_list|,
