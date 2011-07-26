@@ -39,7 +39,7 @@ file|<private/qdnd_p.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     Accessor for the platform integrations fontdatabase.      Default implementation returns a default QPlatformFontDatabase.      \sa QPlatformFontDatabase */
+comment|/*!     Accessor for the platform integration's fontdatabase.      Default implementation returns a default QPlatformFontDatabase.      \sa QPlatformFontDatabase */
 DECL|function|fontDatabase
 name|QPlatformFontDatabase
 modifier|*
@@ -74,7 +74,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Accessor for the platform integrations clipboard.      Default implementation returns a default QPlatformClipboard.      \sa QPlatformClipboard  */
+comment|/*!     Accessor for the platform integration's clipboard.      Default implementation returns a default QPlatformClipboard.      \sa QPlatformClipboard  */
 end_comment
 begin_ifndef
 ifndef|#
@@ -125,7 +125,7 @@ directive|ifndef
 name|QT_NO_DRAGANDDROP
 end_ifndef
 begin_comment
-comment|/*!     Accessor for the platform integrations drag object.      Default implementation returns 0, implying no drag and drop support.  */
+comment|/*!     Accessor for the platform integration's drag object.      Default implementation returns 0, implying no drag and drop support.  */
 end_comment
 begin_function
 DECL|function|drag
@@ -162,25 +162,16 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QPlatformIntegration     \since 4.8     \internal     \preliminary     \ingroup qpa     \brief The QPlatformIntegration class is the entry for WindowSystem specific functionality.      QPlatformIntegration is the single entry point for windowsystem specific functionality when     using the QPA platform. It has factory functions for creating platform specific pixmaps and     windows. The class also controls the font subsystem.      QPlatformIntegration is a singelton class which gets instansiated in the QApplication     constructor. The QPlatformIntegration instance do not have ownership of objects it creates in     functions where the name starts with create. However, functions which don't have a name     starting with create acts as assessors to member variables.      It is not trivial to create or build a platform plugin outside of the Qt source tree. Therefor     the recommended approach for making new platform plugin is to copy an existing plugin inside     the QTSRCTREE/src/plugins/platform and develop the plugin inside the source tree.      The minimal platform integration is the smallest platform integration it is possible to make,     which makes it an ideal starting point for new plugins. For a slightly more advanced plugin,     consider reviewing the directfb plugin, or the testlite plugin. */
+comment|/*!     \class QPlatformIntegration     \since 4.8     \internal     \preliminary     \ingroup qpa     \brief The QPlatformIntegration class is the entry for WindowSystem specific functionality.      QPlatformIntegration is the single entry point for windowsystem specific functionality when     using the QPA platform. It has factory functions for creating platform specific pixmaps and     windows. The class also controls the font subsystem.      QPlatformIntegration is a singleton class which gets instantiated in the QGuiApplication     constructor. The QPlatformIntegration instance do not have ownership of objects it creates in     functions where the name starts with create. However, functions which don't have a name     starting with create acts as accessors to member variables.      It is not trivial to create or build a platform plugin outside of the Qt source tree. Therefore     the recommended approach for making new platform plugin is to copy an existing plugin inside     the QTSRCTREE/src/plugins/platform and develop the plugin inside the source tree.      The minimal platform integration is the smallest platform integration it is possible to make,     which makes it an ideal starting point for new plugins. For a slightly more advanced plugin,     consider reviewing the directfb plugin, or the testlite plugin. */
 end_comment
 begin_comment
 comment|/*!     \fn QPlatformPixmap *QPlatformIntegration::createPlatformPixmap(QPlatformPixmap::PixelType type) const      Factory function for QPlatformPixmap. PixelType can be either PixmapType or BitmapType.     \sa QPlatformPixmap */
 end_comment
 begin_comment
-comment|/*!     \fn QPlatformWindow *QPlatformIntegration::createPlatformWindow(QWindow *window, WId winId = 0) const      Factory function for QPlatformWindow. The widget parameter is a pointer to the top level     widget(tlw) which the QPlatformWindow is suppose to be created for. The WId handle is actually     never used, but there for future reference. Its purpose is if it is going to be possible to     create QPlatformWindows on existing WId.      All tlw has to have a QPlatformWindow, and it will be created when the QPlatformWindow is set     to be visible for the first time. If the tlw's window flags are changed, or if the tlw's     QPlatformWindowFormat is changed, then the tlw's QPlatformWindow is deleted and a new one is     created.      \sa QPlatformWindow, QPlatformWindowFormat     \sa createPlatformBackingStore(QWindow *window) const */
+comment|/*!     \fn QPlatformWindow *QPlatformIntegration::createPlatformWindow(QWindow *window) const      Factory function for QPlatformWindow. The \a window parameter is a pointer to the top level     window which the QPlatformWindow is supposed to be created for.      All top level windows have to have a QPlatformWindow, and it will be created when the     QPlatformWindow is set to be visible for the first time. If the top level window's flags are     changed, or if the top level window's QPlatformWindowFormat is changed, then the top level     window's QPlatformWindow is deleted and a new one is created.      In the constructor, of the QPlatformWindow, the window flags, state, title and geometry     of the \a window should be applied to the underlying window. If the resulting flags or state     differs, the resulting values should be set on the \a window using QWindow::setWindowFlags()     or QWindow::setWindowState(), respectively.      \sa QPlatformWindow, QPlatformWindowFormat     \sa createPlatformBackingStore(QWindow *window) const */
 end_comment
 begin_comment
 comment|/*!     \fn QPlatformBackingStore *QPlatformIntegration::createPlatformBackingStore(QWindow *window) const      Factory function for QPlatformBackingStore. The QWindow parameter is a pointer to the     top level widget(tlw) the window surface is created for. A QPlatformWindow is always created     before the QPlatformBackingStore for tlw where the widget also requires a backing store.      \sa QBackingStore     \sa createPlatformWindow(QWindow *window, WId winId = 0) const */
-end_comment
-begin_comment
-comment|/*!     \fn void QPlatformIntegration::moveToScreen(QWindow *window, int screen)      This function is called when a QWindow is displayed on screen, or the QWindow is to be     displayed on a new screen. The QWindow parameter is a pointer to the top level widget and     the int parameter is the index to the screen in QList<QPlatformScreen *> screens() const.      Default implementation does nothing.      \sa screens() const */
-end_comment
-begin_comment
-comment|/*!     \fn QList<QPlatformScreen *> QPlatformIntegration::screens() const      Accessor function to a list of all the screens on the current system. The screen with the     index == 0 is the default/main screen. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QPlatformIntegration::isVirtualDesktop()      Returns if the current windowing system configuration defines all the screens to be one     desktop(virtual desktop), or if each screen is a desktop of its own.      Default implementation returns false. */
 end_comment
 begin_comment
 comment|/*!     \fn QAbstractEventDispatcher *createEventDispatcher() const      Factory function for the event dispatcher. The platform plugin     must create and and return a QAbstractEventDispatcher subclass when     this function is called. */
