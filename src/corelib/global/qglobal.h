@@ -920,7 +920,7 @@ else|#
 directive|else
 error|#
 directive|error
-literal|"Qt has not been ported to this OS - talk to qt-bugs@trolltech.com"
+literal|"Qt has not been ported to this OS - talk to qt-info@nokia.com"
 endif|#
 directive|endif
 if|#
@@ -2585,7 +2585,7 @@ else|#
 directive|else
 error|#
 directive|error
-literal|"Qt has not been tested with this compiler - talk to qt-bugs@trolltech.com"
+literal|"Qt has not been tested with this compiler - talk to qt-info@nokia.com"
 endif|#
 directive|endif
 ifdef|#

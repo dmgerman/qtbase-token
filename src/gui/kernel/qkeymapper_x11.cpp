@@ -2312,7 +2312,7 @@ expr_stmt|;
 block|}
 comment|// ### ???
 comment|// if (keyboardLayoutName.isEmpty())
-comment|//     qWarning("Qt: unable to determine keyboard layout, please talk to qt-bugs@trolltech.com"); ?
+comment|//     qWarning("Qt: unable to determine keyboard layout, please talk to qt-info@nokia.com"); ?
 name|keyboardInputLocale
 operator|=
 name|q_getKeyboardLocale
