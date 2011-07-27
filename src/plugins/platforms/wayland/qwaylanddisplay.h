@@ -237,14 +237,6 @@ return|return
 name|mInputDevices
 return|;
 block|}
-name|void
-name|eventDispatcherCreated
-argument_list|(
-name|QAbstractEventDispatcher
-operator|*
-name|dispatcher
-argument_list|)
-block|;
 name|public
 name|slots
 operator|:

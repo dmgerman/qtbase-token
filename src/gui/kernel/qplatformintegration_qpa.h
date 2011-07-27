@@ -178,7 +178,7 @@ begin_expr_stmt
 name|virtual
 name|QAbstractEventDispatcher
 operator|*
-name|createEventDispatcher
+name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
 operator|=

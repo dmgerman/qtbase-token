@@ -84,7 +84,7 @@ specifier|const
 block|;
 name|QAbstractEventDispatcher
 operator|*
-name|createEventDispatcher
+name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
 block|;
@@ -126,6 +126,10 @@ operator|:
 name|QPlatformFontDatabase
 operator|*
 name|mFontDb
+block|;
+name|QAbstractEventDispatcher
+operator|*
+name|mEventDispatcher
 block|;
 name|QWaylandDisplay
 operator|*

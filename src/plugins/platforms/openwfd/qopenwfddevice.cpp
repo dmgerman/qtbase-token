@@ -216,7 +216,7 @@ expr_stmt|;
 block|}
 block|}
 name|int
-name|copyFd
+name|fd
 init|=
 name|wfdDeviceEventGetFD
 argument_list|(
@@ -230,7 +230,7 @@ operator|=
 operator|new
 name|QSocketNotifier
 argument_list|(
-name|copyFd
+name|fd
 argument_list|,
 name|QSocketNotifier
 operator|::

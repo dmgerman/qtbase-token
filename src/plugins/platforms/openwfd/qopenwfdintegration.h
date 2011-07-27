@@ -86,7 +86,7 @@ block|;
 comment|//This should not be a factory interface, but rather a accessor
 name|QAbstractEventDispatcher
 operator|*
-name|createEventDispatcher
+name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
 block|;
@@ -143,6 +143,10 @@ block|;
 name|QPlatformPrinterSupport
 operator|*
 name|mPrinterSupport
+block|;
+name|QAbstractEventDispatcher
+operator|*
+name|mEventDispatcher
 block|; }
 decl_stmt|;
 end_decl_stmt

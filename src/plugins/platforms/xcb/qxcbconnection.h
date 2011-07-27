@@ -387,14 +387,6 @@ name|this
 operator|)
 return|;
 block|}
-name|void
-name|setEventDispatcher
-argument_list|(
-name|QAbstractEventDispatcher
-operator|*
-name|eventDispatcher
-argument_list|)
-block|;
 specifier|const
 name|QList
 operator|<
