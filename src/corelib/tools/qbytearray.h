@@ -2972,9 +2972,12 @@ literal|1
 operator|||
 name|asize
 operator|>
+name|int
+argument_list|(
 name|d
 operator|->
 name|alloc
+argument_list|)
 condition|)
 name|realloc
 argument_list|(
@@ -3003,9 +3006,12 @@ name|d
 operator|->
 name|size
 operator|<
+name|int
+argument_list|(
 name|d
 operator|->
 name|alloc
+argument_list|)
 condition|)
 name|realloc
 argument_list|(
