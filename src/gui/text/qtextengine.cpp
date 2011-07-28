@@ -9613,7 +9613,7 @@ expr_stmt|;
 name|int
 name|left
 init|=
-literal|0
+literal|1
 decl_stmt|;
 name|int
 name|right
