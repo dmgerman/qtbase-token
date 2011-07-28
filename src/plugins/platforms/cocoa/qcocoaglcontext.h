@@ -30,6 +30,12 @@ include|#
 directive|include
 file|<QtGui/QWindow>
 end_include
+begin_undef
+DECL|macro|slots
+undef|#
+directive|undef
+name|slots
+end_undef
 begin_include
 include|#
 directive|include
