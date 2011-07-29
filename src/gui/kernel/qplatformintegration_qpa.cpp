@@ -174,7 +174,7 @@ begin_comment
 comment|/*!     \fn QPlatformBackingStore *QPlatformIntegration::createPlatformBackingStore(QWindow *window) const      Factory function for QPlatformBackingStore. The QWindow parameter is a pointer to the     top level widget(tlw) the window surface is created for. A QPlatformWindow is always created     before the QPlatformBackingStore for tlw where the widget also requires a backing store.      \sa QBackingStore     \sa createPlatformWindow(QWindow *window, WId winId = 0) const */
 end_comment
 begin_comment
-comment|/*!     \fn QAbstractEventDispatcher *createEventDispatcher() const      Factory function for the event dispatcher. The platform plugin     must create and and return a QAbstractEventDispatcher subclass when     this function is called. */
+comment|/*!      \fn QAbstractEventDispatcher *guiThreadEventDispatcher() const = 0      Accessor function for the event dispatcher. The platform plugin should create     an instance of the QAbstractEventDispatcher in its constructor and set it     on the application using QGuiApplicationPrivate::instance()->setEventDispatcher().     The event dispatcher is owned by QGuiApplication, the accessor should return     a flat pointer.     \sa QGuiApplicationPrivate */
 end_comment
 begin_function
 DECL|function|hasCapability

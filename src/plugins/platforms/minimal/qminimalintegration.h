@@ -130,9 +130,15 @@ specifier|const
 block|;
 name|QAbstractEventDispatcher
 operator|*
-name|createEventDispatcher
+name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
+block|;
+name|private
+operator|:
+name|QAbstractEventDispatcher
+operator|*
+name|m_eventDispatcher
 block|; }
 decl_stmt|;
 end_decl_stmt
