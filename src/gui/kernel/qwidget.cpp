@@ -5087,7 +5087,7 @@ argument_list|()
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NOACCESSIBILITY
+name|QT_NO_ACCESSIBILITY
 name|QAccessible
 operator|::
 name|updateAccessibility
