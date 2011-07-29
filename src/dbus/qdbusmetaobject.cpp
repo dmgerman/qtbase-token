@@ -338,6 +338,21 @@ init|=
 literal|0x40
 block|}
 enum|;
+DECL|enum|MetaObjectFlags
+enum|enum
+name|MetaObjectFlags
+block|{
+DECL|enumerator|DynamicMetaObject
+name|DynamicMetaObject
+init|=
+literal|0x01
+block|,
+DECL|enumerator|RequiresVariantMetaObject
+name|RequiresVariantMetaObject
+init|=
+literal|0x02
+block|}
+enum|;
 DECL|member|methods
 name|QMap
 argument_list|<
@@ -476,6 +491,19 @@ name|enumeratorCount
 decl_stmt|,
 name|enumeratorData
 decl_stmt|;
+DECL|member|constructorCount
+DECL|member|constructorData
+name|int
+name|constructorCount
+decl_stmt|,
+name|constructorData
+decl_stmt|;
+comment|// since revision 2
+DECL|member|flags
+name|int
+name|flags
+decl_stmt|;
+comment|// since revision 3
 comment|// this is specific for QDBusMetaObject:
 DECL|member|propertyDBusData
 name|int
@@ -1971,7 +1999,7 @@ name|header
 operator|->
 name|revision
 operator|=
-literal|1
+literal|3
 expr_stmt|;
 name|header
 operator|->
@@ -2043,6 +2071,24 @@ operator|->
 name|enumeratorData
 operator|=
 literal|0
+expr_stmt|;
+name|header
+operator|->
+name|constructorCount
+operator|=
+literal|0
+expr_stmt|;
+name|header
+operator|->
+name|constructorData
+operator|=
+literal|0
+expr_stmt|;
+name|header
+operator|->
+name|flags
+operator|=
+name|RequiresVariantMetaObject
 expr_stmt|;
 name|header
 operator|->
