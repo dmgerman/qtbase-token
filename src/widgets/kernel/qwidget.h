@@ -247,6 +247,10 @@ DECL|variable|QUnifiedToolbarSurface
 name|class
 name|QUnifiedToolbarSurface
 decl_stmt|;
+DECL|variable|QPixmap
+name|class
+name|QPixmap
+decl_stmt|;
 if|#
 directive|if
 name|defined
@@ -1740,6 +1744,16 @@ name|DrawWindowBackground
 operator||
 name|DrawChildren
 argument_list|)
+parameter_list|)
+function_decl|;
+name|Q_INVOKABLE
+name|QPixmap
+name|grab
+parameter_list|(
+specifier|const
+name|QRect
+modifier|&
+name|rectangle
 parameter_list|)
 function_decl|;
 ifndef|#

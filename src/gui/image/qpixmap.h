@@ -384,7 +384,7 @@ specifier|static
 name|QPixmap
 name|grabWidget
 argument_list|(
-name|QPaintDevice
+name|QObject
 operator|*
 name|widget
 argument_list|,
@@ -399,7 +399,7 @@ specifier|inline
 name|QPixmap
 name|grabWidget
 argument_list|(
-argument|QPaintDevice *widget
+argument|QObject *widget
 argument_list|,
 argument|int x=
 literal|0
