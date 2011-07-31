@@ -76,15 +76,6 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|QT_ARCH_IA64
-argument_list|)
-include|#
-directive|include
-file|"QtCore/qatomic_ia64.h"
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|QT_ARCH_MACOSX
 argument_list|)
 include|#
