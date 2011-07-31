@@ -94,15 +94,6 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|QT_ARCH_MIPS
-argument_list|)
-include|#
-directive|include
-file|"QtCore/qatomic_mips.h"
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|QT_ARCH_PARISC
 argument_list|)
 include|#
