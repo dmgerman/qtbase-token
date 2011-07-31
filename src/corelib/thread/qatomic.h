@@ -21,7 +21,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/qoldbasicatomic.h>
+file|<QtCore/qbasicatomic.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
