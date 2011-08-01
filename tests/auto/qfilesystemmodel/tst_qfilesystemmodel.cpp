@@ -7539,6 +7539,11 @@ condition|(
 name|fileDialogMode
 condition|)
 block|{
+comment|// FIXME: we were only able to disableRecursiveSort in developer builds, so we can only
+comment|// stably perform this test for developer builds
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|QList
 argument_list|<
 name|QString
@@ -7603,6 +7608,8 @@ operator|!=
 name|expectedOrder
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 else|else
 block|{
