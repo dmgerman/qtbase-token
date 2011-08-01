@@ -1546,7 +1546,7 @@ name|process
 operator|->
 name|waitForFinished
 argument_list|(
-literal|5000
+literal|30000
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1876,7 +1876,7 @@ argument_list|()
 operator|.
 name|enterLoop
 argument_list|(
-literal|5
+literal|30
 argument_list|)
 expr_stmt|;
 if|if
@@ -3608,7 +3608,7 @@ name|process
 operator|->
 name|waitForFinished
 argument_list|(
-literal|5000
+literal|30000
 argument_list|)
 argument_list|)
 expr_stmt|;
