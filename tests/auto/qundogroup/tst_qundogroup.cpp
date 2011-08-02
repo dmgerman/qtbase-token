@@ -2424,6 +2424,28 @@ operator|::
 name|BinariesPath
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|QProcess
+operator|::
+name|execute
+argument_list|(
+name|binDir
+operator|+
+literal|"/lrelease -version"
+argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"lrelease is missing or broken"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 name|QVERIFY
 argument_list|(
 operator|!
