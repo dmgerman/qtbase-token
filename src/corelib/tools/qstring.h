@@ -317,11 +317,14 @@ block|; }
 expr_stmt|;
 end_expr_stmt
 begin_define
-DECL|macro|QT_QSTRING_UNICODE_MARKER
+DECL|macro|QT_UNICODE_LITERAL_II
 define|#
 directive|define
-name|QT_QSTRING_UNICODE_MARKER
-value|u""
+name|QT_UNICODE_LITERAL_II
+parameter_list|(
+name|str
+parameter_list|)
+value|u"" str
 end_define
 begin_elif
 elif|#
@@ -385,13 +388,42 @@ index|]
 block|; }
 expr_stmt|;
 end_expr_stmt
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_MSVC
+argument_list|)
+end_if
 begin_define
-DECL|macro|QT_QSTRING_UNICODE_MARKER
+DECL|macro|QT_UNICODE_LITERAL_II
 define|#
 directive|define
-name|QT_QSTRING_UNICODE_MARKER
-value|L""
+name|QT_UNICODE_LITERAL_II
+parameter_list|(
+name|str
+parameter_list|)
+value|L##str
 end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|QT_UNICODE_LITERAL_II
+define|#
+directive|define
+name|QT_UNICODE_LITERAL_II
+parameter_list|(
+name|str
+parameter_list|)
+value|L"" str
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_else
 else|#
 directive|else
@@ -432,9 +464,19 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_QSTRING_UNICODE_MARKER
+name|QT_UNICODE_LITERAL_II
 argument_list|)
 end_if
+begin_define
+DECL|macro|QT_UNICODE_LITERAL
+define|#
+directive|define
+name|QT_UNICODE_LITERAL
+parameter_list|(
+name|str
+parameter_list|)
+value|QT_UNICODE_LITERAL_II(str)
+end_define
 begin_if
 if|#
 directive|if
@@ -451,7 +493,7 @@ name|QStringLiteral
 parameter_list|(
 name|str
 parameter_list|)
-value|([]() { \         enum { Size = sizeof(QT_QSTRING_UNICODE_MARKER str)/2 - 1 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size, 0, 0, { 0 } }, QT_QSTRING_UNICODE_MARKER str }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \     return holder; }())
+value|([]() -> QConstStringDataPtr<sizeof(QT_UNICODE_LITERAL(str))/2 - 1> { \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size, 0, 0, { 0 } }, QT_UNICODE_LITERAL(str) }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \     return holder; }())
 end_define
 begin_elif
 elif|#
@@ -479,7 +521,7 @@ parameter_list|(
 name|str
 parameter_list|)
 define|\
-value|__extension__ ({ \         enum { Size = sizeof(QT_QSTRING_UNICODE_MARKER str)/2 - 1 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size, 0, 0, { 0 } }, QT_QSTRING_UNICODE_MARKER str }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \         holder; })
+value|__extension__ ({ \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size, 0, 0, { 0 } }, QT_UNICODE_LITERAL(str) }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \         holder; })
 end_define
 begin_endif
 endif|#
