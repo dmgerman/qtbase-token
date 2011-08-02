@@ -924,7 +924,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Raghindi"
+literal|"couldn't find Raghindi"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -2070,7 +2070,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Akaash"
+literal|"couldn't find Akaash"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -2770,7 +2770,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Mukti"
+literal|"couldn't find Mukti"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -2951,7 +2951,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Likhan"
+literal|"couldn't find Likhan"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -3083,7 +3083,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Lohit Punjabi"
+literal|"couldn't find Lohit Punjabi"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -3354,7 +3354,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find utkal"
+literal|"couldn't find utkal"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -3916,7 +3916,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find AkrutiTml1"
+literal|"couldn't find AkrutiTml1"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -4264,7 +4264,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Pothana2000"
+literal|"couldn't find Pothana2000"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -4570,7 +4570,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Sampige"
+literal|"couldn't find Sampige"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -4799,7 +4799,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Tunga"
+literal|"couldn't find Tunga"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -5237,7 +5237,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find AkrutiMal2"
+literal|"couldn't find AkrutiMal2"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -5440,7 +5440,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Rachana"
+literal|"couldn't find Rachana"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -5680,7 +5680,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Malithi Web"
+literal|"couldn't find Malithi Web"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -5964,7 +5964,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Khmer OS"
+literal|"couldn't find Khmer OS"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -6104,7 +6104,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Penuturesu"
+literal|"couldn't find Penuturesu"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -6618,7 +6618,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find DejaVu Sans"
+literal|"couldn't find DejaVu Sans"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -6817,7 +6817,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find SBL_grk"
+literal|"couldn't find SBL_grk"
 argument_list|,
 name|SkipAll
 argument_list|)
