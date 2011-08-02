@@ -6010,15 +6010,6 @@ argument_list|(
 name|toVerify
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-20582 fails since ~5am, 27th July 2011"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|VERIFY_VERBOSE
 argument_list|(
 name|errors
@@ -6265,15 +6256,6 @@ argument_list|(
 name|toVerify
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-20582 fails since ~5am, 27th July 2011"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|VERIFY_VERBOSE
 argument_list|(
 name|errors
@@ -6297,15 +6279,6 @@ name|QLatin1String
 argument_list|(
 literal|"example.com"
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-20582 fails since ~5am, 27th July 2011"
-argument_list|,
-name|Continue
 argument_list|)
 expr_stmt|;
 name|VERIFY_VERBOSE
