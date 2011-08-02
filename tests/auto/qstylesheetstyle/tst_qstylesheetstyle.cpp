@@ -3349,11 +3349,6 @@ ifdef|#
 directive|ifdef
 name|Q_OS_MAC
 end_ifdef
-begin_include
-include|#
-directive|include
-file|<QtGui/QMacStyle>
-end_include
 begin_function
 DECL|function|layoutSpacing
 name|void

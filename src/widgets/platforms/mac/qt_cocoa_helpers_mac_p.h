@@ -152,6 +152,29 @@ end_struct_decl
 begin_ifdef
 ifdef|#
 directive|ifdef
+name|__OBJC__
+end_ifdef
+begin_comment
+comment|// If the source file including this file also includes e.g. Cocoa/Cocoa.h, typedef-ing NSPoint will
+end_comment
+begin_comment
+comment|// fail since NSPoint will already be a type. So we try to detect this. If the build fails, ensure
+end_comment
+begin_comment
+comment|// that the inclusion of cocoa headers happends before the inclusion of this file.
+end_comment
+begin_include
+include|#
+directive|include
+file|<Foundation/NSGeometry.h>
+end_include
+begin_else
+else|#
+directive|else
+end_else
+begin_ifdef
+ifdef|#
+directive|ifdef
 name|Q_WS_MAC32
 end_ifdef
 begin_typedef
@@ -178,6 +201,10 @@ name|CGPoint
 name|NSPoint
 typedef|;
 end_typedef
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
