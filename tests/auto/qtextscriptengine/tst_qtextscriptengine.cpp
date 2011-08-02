@@ -116,12 +116,6 @@ end_comment
 begin_comment
 comment|//TESTED_FILES= gui/text/qscriptengine.cpp
 end_comment
-begin_comment
-comment|// This test depends on the fonts in the following package being installed:
-end_comment
-begin_comment
-comment|// http://people.freedesktop.org/~hausmann/harfbuzz-test-fonts-0.1.tar.bz2
-end_comment
 begin_class
 DECL|class|tst_QTextScriptEngine
 class|class
@@ -143,6 +137,10 @@ destructor_decl|;
 public|public
 name|slots
 public|:
+name|void
+name|initTestCase
+parameter_list|()
+function_decl|;
 name|void
 name|init
 parameter_list|()
@@ -219,6 +217,11 @@ name|void
 name|mirroredChars
 parameter_list|()
 function_decl|;
+private|private:
+DECL|member|haveTestFonts
+name|bool
+name|haveTestFonts
+decl_stmt|;
 block|}
 class|;
 end_class
@@ -228,6 +231,19 @@ name|tst_QTextScriptEngine
 operator|::
 name|tst_QTextScriptEngine
 parameter_list|()
+member_init_list|:
+name|haveTestFonts
+argument_list|(
+name|qgetenv
+argument_list|(
+literal|"QT_HAVE_TEST_FONTS"
+argument_list|)
+operator|==
+name|QByteArray
+argument_list|(
+literal|"1"
+argument_list|)
+argument_list|)
 block|{ }
 end_constructor
 begin_destructor
@@ -239,6 +255,40 @@ name|tst_QTextScriptEngine
 parameter_list|()
 block|{ }
 end_destructor
+begin_function
+DECL|function|initTestCase
+name|void
+name|tst_QTextScriptEngine
+operator|::
+name|initTestCase
+parameter_list|()
+block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_WS_X11
+argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"Some of these tests depend on the internals of some test fonts which are not freely "
+literal|"distributable.\n"
+literal|"These tests will be skipped.\n"
+literal|"If you have the fonts available, set QT_HAVE_TEST_FONTS=1 in your environment and "
+literal|"run the test again."
+argument_list|)
+expr_stmt|;
+block|}
+endif|#
+directive|endif
+block|}
+end_function
 begin_function
 DECL|function|init
 name|void
@@ -608,6 +658,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -1279,6 +1343,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -2985,6 +3063,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -3108,6 +3200,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -3388,6 +3494,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -3950,6 +4070,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -4833,6 +4967,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -5474,6 +5622,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -5714,6 +5876,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -5998,6 +6174,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -6514,6 +6704,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
