@@ -321,6 +321,18 @@ name|void
 name|verify
 parameter_list|()
 function_decl|;
+comment|// helper for verbose test failure messages
+name|QString
+name|toString
+parameter_list|(
+specifier|const
+name|QList
+argument_list|<
+name|QSslError
+argument_list|>
+modifier|&
+parameter_list|)
+function_decl|;
 comment|// ### add tests for certificate bundles (multiple certificates concatenated into a single
 comment|//     structure); both PEM and DER formatted
 endif|#
@@ -5904,6 +5916,16 @@ name|QSslCertificate
 argument_list|>
 name|toVerify
 decl_stmt|;
+comment|// Like QVERIFY, but be verbose about the content of `errors' when failing
+DECL|macro|VERIFY_VERBOSE
+define|#
+directive|define
+name|VERIFY_VERBOSE
+parameter_list|(
+name|A
+parameter_list|)
+define|\
+value|QVERIFY2((A),                                               \         qPrintable(QString("errors: %1").arg(toString(errors))) \     )
 comment|// Empty chain is unspecified error
 name|errors
 operator|=
@@ -5914,7 +5936,7 @@ argument_list|(
 name|toVerify
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|VERIFY_VERBOSE
 argument_list|(
 name|errors
 operator|.
@@ -5924,7 +5946,7 @@ operator|==
 literal|1
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|VERIFY_VERBOSE
 argument_list|(
 name|errors
 index|[
@@ -5997,7 +6019,7 @@ argument_list|,
 name|Continue
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|VERIFY_VERBOSE
 argument_list|(
 name|errors
 operator|.
@@ -6096,7 +6118,7 @@ argument_list|(
 name|toVerify
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|VERIFY_VERBOSE
 argument_list|(
 name|errors
 operator|.
@@ -6116,7 +6138,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|VERIFY_VERBOSE
 argument_list|(
 name|errors
 operator|.
@@ -6182,7 +6204,7 @@ argument_list|(
 name|toVerify
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|VERIFY_VERBOSE
 argument_list|(
 name|errors
 operator|.
@@ -6252,11 +6274,11 @@ argument_list|,
 name|Continue
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|VERIFY_VERBOSE
 argument_list|(
 name|errors
 operator|.
-name|length
+name|count
 argument_list|()
 operator|==
 literal|0
@@ -6286,11 +6308,11 @@ argument_list|,
 name|Continue
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|VERIFY_VERBOSE
 argument_list|(
 name|errors
 operator|.
-name|length
+name|count
 argument_list|()
 operator|==
 literal|0
@@ -6311,7 +6333,7 @@ literal|"fail.example.com"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|VERIFY_VERBOSE
 argument_list|(
 name|errors
 operator|.
@@ -6336,6 +6358,83 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+DECL|macro|VERIFY_VERBOSE
+undef|#
+directive|undef
+name|VERIFY_VERBOSE
+block|}
+end_function
+begin_function
+DECL|function|toString
+name|QString
+name|tst_QSslCertificate
+operator|::
+name|toString
+parameter_list|(
+specifier|const
+name|QList
+argument_list|<
+name|QSslError
+argument_list|>
+modifier|&
+name|errors
+parameter_list|)
+block|{
+name|QStringList
+name|errorStrings
+decl_stmt|;
+foreach|foreach
+control|(
+specifier|const
+name|QSslError
+modifier|&
+name|error
+decl|,
+name|errors
+control|)
+block|{
+name|errorStrings
+operator|.
+name|append
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"\""
+argument_list|)
+operator|+
+name|error
+operator|.
+name|errorString
+argument_list|()
+operator|+
+name|QLatin1String
+argument_list|(
+literal|"\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|QLatin1String
+argument_list|(
+literal|"[ "
+argument_list|)
+operator|+
+name|errorStrings
+operator|.
+name|join
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|", "
+argument_list|)
+argument_list|)
+operator|+
+name|QLatin1String
+argument_list|(
+literal|" ]"
+argument_list|)
+return|;
 block|}
 end_function
 begin_endif
