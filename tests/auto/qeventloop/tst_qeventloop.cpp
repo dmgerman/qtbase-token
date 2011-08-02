@@ -612,6 +612,10 @@ name|exec
 parameter_list|()
 function_decl|;
 name|void
+name|throwInExec
+parameter_list|()
+function_decl|;
+name|void
 name|reexec
 parameter_list|()
 function_decl|;
@@ -1713,36 +1717,116 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+end_function
+begin_function
+DECL|function|throwInExec
+name|void
+name|tst_QEventLoop
+operator|::
+name|throwInExec
+parameter_list|()
+block|{
 if|#
 directive|if
-operator|!
 name|defined
 argument_list|(
 name|QT_NO_EXCEPTIONS
 argument_list|)
-operator|&&
-operator|!
+operator|||
+name|defined
+argument_list|(
+name|NO_EVENTLOOP_EXCEPTIONS
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Exceptions are disabled"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+elif|#
+directive|elif
 name|defined
 argument_list|(
 name|Q_OS_WINCE_WM
 argument_list|)
-operator|&&
-operator|!
+operator|||
 name|defined
 argument_list|(
 name|Q_OS_SYMBIAN
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|NO_EVENTLOOP_EXCEPTIONS
 argument_list|)
 comment|// Windows Mobile cannot handle cross library exceptions
 comment|// qobject.cpp will try to rethrow the exception after handling
 comment|// which causes gwes.exe to crash
 comment|// Symbian doesn't propagate exceptions from eventloop, but converts them to
 comment|// CActiveScheduler errors instead -> this test will hang.
+name|QSKIP
+argument_list|(
+literal|"This platform doesn't support propagating exceptions through the event loop"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_LINUX
+argument_list|)
+comment|// C++ exceptions can't be passed through glib callbacks.  Skip the test if
+comment|// we're using the glib event loop.
+name|QByteArray
+name|dispatcher
+init|=
+name|QAbstractEventDispatcher
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|metaObject
+argument_list|()
+operator|->
+name|className
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|dispatcher
+operator|.
+name|contains
+argument_list|(
+literal|"Glib"
+argument_list|)
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+name|qPrintable
+argument_list|(
+name|QString
+argument_list|(
+literal|"Throwing exceptions in exec() won't work if %1 event dispatcher is used.\n"
+literal|"Try running with QT_NO_GLIB=1 in environment."
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+name|dispatcher
+argument_list|)
+argument_list|)
+argument_list|)
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 block|{
 comment|// QEventLoop::exec() is exception safe
 name|QEventLoop
@@ -1839,8 +1923,6 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
