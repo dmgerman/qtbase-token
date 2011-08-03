@@ -1051,6 +1051,16 @@ argument|const QTransform&m
 argument_list|)
 specifier|const
 block|;
+name|virtual
+name|bool
+name|shouldDrawCachedGlyphs
+argument_list|(
+argument|qreal pixelSize
+argument_list|,
+argument|const QTransform&m
+argument_list|)
+specifier|const
+block|;
 name|protected
 operator|:
 name|QPaintEngineEx

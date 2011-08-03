@@ -138,7 +138,7 @@ name|mtx1
 condition|)
 name|mtx1
 operator|->
-name|lockInline
+name|lock
 argument_list|()
 expr_stmt|;
 if|if
@@ -147,7 +147,7 @@ name|mtx2
 condition|)
 name|mtx2
 operator|->
-name|lockInline
+name|lock
 argument_list|()
 expr_stmt|;
 name|locked
@@ -171,7 +171,7 @@ name|mtx1
 condition|)
 name|mtx1
 operator|->
-name|unlockInline
+name|unlock
 argument_list|()
 expr_stmt|;
 if|if
@@ -180,7 +180,7 @@ name|mtx2
 condition|)
 name|mtx2
 operator|->
-name|unlockInline
+name|unlock
 argument_list|()
 expr_stmt|;
 name|locked
@@ -217,7 +217,7 @@ condition|)
 block|{
 name|mtx2
 operator|->
-name|lockInline
+name|lock
 argument_list|()
 expr_stmt|;
 return|return
@@ -229,7 +229,7 @@ condition|(
 operator|!
 name|mtx2
 operator|->
-name|tryLockInline
+name|tryLock
 argument_list|()
 condition|)
 block|{

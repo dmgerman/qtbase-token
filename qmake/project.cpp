@@ -9364,6 +9364,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+name|vars
+operator|=
+name|base_vars
+expr_stmt|;
+comment|// start with the base
 if|if
 condition|(
 name|cmd
@@ -9394,35 +9400,16 @@ name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
 name|doProjectInclude
 argument_list|(
 literal|"default_pre"
 argument_list|,
 name|IncludeFlagFeature
 argument_list|,
-name|base_vars
-argument_list|)
-operator|==
-name|IncludeNoExist
-condition|)
-name|doProjectInclude
-argument_list|(
-literal|"default"
-argument_list|,
-name|IncludeFlagFeature
-argument_list|,
-name|base_vars
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 name|vars
-operator|=
-name|base_vars
+argument_list|)
 expr_stmt|;
-comment|// start with the base
+block|}
 comment|//get a default
 if|if
 condition|(

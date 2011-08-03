@@ -41548,7 +41548,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_QSTRING_UNICODE_MARKER
+name|QT_UNICODE_LITERAL
 argument_list|)
 operator|&&
 operator|(

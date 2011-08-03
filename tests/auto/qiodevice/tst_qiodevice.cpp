@@ -350,7 +350,7 @@ name|socket
 operator|.
 name|waitForConnected
 argument_list|(
-literal|5000
+literal|30000
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -376,7 +376,7 @@ name|device
 operator|->
 name|waitForReadyRead
 argument_list|(
-literal|5000
+literal|30000
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -456,7 +456,7 @@ name|socket
 operator|.
 name|waitForConnected
 argument_list|(
-literal|5000
+literal|30000
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -482,7 +482,7 @@ name|device
 operator|->
 name|waitForReadyRead
 argument_list|(
-literal|5000
+literal|30000
 argument_list|)
 argument_list|)
 expr_stmt|;

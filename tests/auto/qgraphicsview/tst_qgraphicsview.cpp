@@ -376,6 +376,11 @@ operator|&
 name|event
 argument_list|)
 expr_stmt|;
+name|QApplication
+operator|::
+name|processEvents
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_function

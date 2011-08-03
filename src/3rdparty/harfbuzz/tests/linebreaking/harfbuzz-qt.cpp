@@ -267,22 +267,11 @@ expr_stmt|;
 block|}
 DECL|function|HB_Library_Resolve
 name|void
-modifier|*
-name|HB_Library_Resolve
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|library
-parameter_list|,
-name|int
-name|version
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|symbol
-parameter_list|)
+argument_list|(
+argument|*HB_Library_Resolve(const char *library, int version, const char *symbol)
+argument_list|)
+operator|(
+operator|)
 block|{
 return|return
 name|QLibrary

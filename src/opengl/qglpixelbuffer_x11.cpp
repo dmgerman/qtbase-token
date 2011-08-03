@@ -399,19 +399,15 @@ directive|define
 name|glXMakeContextCurrent
 value|qt_glXMakeContextCurrent
 end_define
-begin_function_decl
-specifier|extern
-name|void
-modifier|*
-name|qglx_getProcAddress
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|procName
-parameter_list|)
-function_decl|;
-end_function_decl
+begin_extern
+extern|extern void (*qglx_getProcAddress(const char* procName
+end_extern
+begin_expr_stmt
+unit|))
+operator|(
+operator|)
+expr_stmt|;
+end_expr_stmt
 begin_comment
 comment|// in qgl_x11.cpp
 end_comment

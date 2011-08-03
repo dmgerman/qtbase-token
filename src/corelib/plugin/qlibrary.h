@@ -160,8 +160,7 @@ operator|~
 name|QLibrary
 argument_list|()
 block|;
-name|void
-operator|*
+name|QFunctionPointer
 name|resolve
 argument_list|(
 specifier|const
@@ -171,8 +170,7 @@ name|symbol
 argument_list|)
 block|;
 specifier|static
-name|void
-operator|*
+name|QFunctionPointer
 name|resolve
 argument_list|(
 specifier|const
@@ -187,8 +185,7 @@ name|symbol
 argument_list|)
 block|;
 specifier|static
-name|void
-operator|*
+name|QFunctionPointer
 name|resolve
 argument_list|(
 argument|const QString&fileName
@@ -199,8 +196,7 @@ argument|const char *symbol
 argument_list|)
 block|;
 specifier|static
-name|void
-operator|*
+name|QFunctionPointer
 name|resolve
 argument_list|(
 specifier|const

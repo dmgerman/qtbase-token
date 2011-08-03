@@ -95,7 +95,7 @@ name|QRawFont
 argument_list|(
 argument|const QString&fileName
 argument_list|,
-argument|int pixelSize
+argument|qreal pixelSize
 argument_list|,
 argument|QFont::HintingPreference hintingPreference = QFont::PreferDefaultHinting
 argument_list|)
@@ -108,7 +108,7 @@ name|QRawFont
 argument_list|(
 argument|const QByteArray&fontData
 argument_list|,
-argument|int pixelSize
+argument|qreal pixelSize
 argument_list|,
 argument|QFont::HintingPreference hintingPreference = QFont::PreferDefaultHinting
 argument_list|)
@@ -401,7 +401,7 @@ name|QString
 operator|&
 name|fileName
 argument_list|,
-name|int
+name|qreal
 name|pixelSize
 argument_list|,
 name|QFont
@@ -420,7 +420,7 @@ name|QByteArray
 operator|&
 name|fontData
 argument_list|,
-name|int
+name|qreal
 name|pixelSize
 argument_list|,
 name|QFont

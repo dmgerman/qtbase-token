@@ -920,7 +920,7 @@ else|#
 directive|else
 error|#
 directive|error
-literal|"Qt has not been ported to this OS - talk to qt-bugs@trolltech.com"
+literal|"Qt has not been ported to this OS - talk to qt-info@nokia.com"
 endif|#
 directive|endif
 if|#
@@ -2558,7 +2558,7 @@ else|#
 directive|else
 error|#
 directive|error
-literal|"Qt has not been tested with this compiler - talk to qt-bugs@trolltech.com"
+literal|"Qt has not been tested with this compiler - talk to qt-info@nokia.com"
 endif|#
 directive|endif
 ifdef|#
@@ -8053,6 +8053,17 @@ name|QtMsgHandler
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_typedef
+DECL|typedef|QFunctionPointer
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|QFunctionPointer
+function_decl|)
+parameter_list|()
+function_decl|;
+end_typedef
 begin_if
 if|#
 directive|if

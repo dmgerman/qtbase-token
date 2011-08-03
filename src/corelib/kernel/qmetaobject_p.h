@@ -246,6 +246,11 @@ DECL|enumerator|DynamicMetaObject
 name|DynamicMetaObject
 init|=
 literal|0x01
+block|,
+DECL|enumerator|RequiresVariantMetaObject
+name|RequiresVariantMetaObject
+init|=
+literal|0x02
 block|}
 enum|;
 end_enum

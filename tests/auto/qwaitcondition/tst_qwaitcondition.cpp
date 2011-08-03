@@ -2102,7 +2102,7 @@ name|exited
 operator|>
 literal|0
 condition|?
-literal|3
+literal|10
 else|:
 literal|1000
 argument_list|)
@@ -2375,7 +2375,7 @@ name|exited
 operator|>
 literal|0
 condition|?
-literal|3
+literal|10
 else|:
 literal|1000
 argument_list|)
@@ -2701,7 +2701,7 @@ name|exited
 operator|>
 literal|0
 condition|?
-literal|3
+literal|10
 else|:
 literal|1000
 argument_list|)
@@ -3001,7 +3001,7 @@ name|exited
 operator|>
 literal|0
 condition|?
-literal|3
+literal|10
 else|:
 literal|1000
 argument_list|)

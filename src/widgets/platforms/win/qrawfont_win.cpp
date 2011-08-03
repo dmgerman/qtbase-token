@@ -2403,8 +2403,7 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|void
-modifier|*
+name|QFunctionPointer
 name|func
 init|=
 name|QSystemLibrary
@@ -2476,7 +2475,7 @@ name|QByteArray
 modifier|&
 name|_fontData
 parameter_list|,
-name|int
+name|qreal
 name|pixelSize
 parameter_list|,
 name|QFont
@@ -2643,8 +2642,7 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|void
-modifier|*
+name|QFunctionPointer
 name|func
 init|=
 name|QSystemLibrary

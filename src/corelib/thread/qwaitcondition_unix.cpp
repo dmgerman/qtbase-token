@@ -592,9 +592,8 @@ if|if
 condition|(
 name|mutex
 operator|->
-name|d
-operator|->
-name|recursive
+name|isRecursive
+argument_list|()
 condition|)
 block|{
 name|qWarning
