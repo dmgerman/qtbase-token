@@ -236,6 +236,11 @@ name|context
 parameter_list|)
 specifier|const
 block|{
+name|Q_UNUSED
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 name|qWarning
 argument_list|(
 literal|"This plugin does not support createPlatformGLContext!"

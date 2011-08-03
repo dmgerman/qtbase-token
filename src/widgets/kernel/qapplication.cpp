@@ -271,6 +271,16 @@ include|#
 directive|include
 file|"private/qgesturemanager_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"private/qguiapplication_p.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"qplatformfontdatabase_qpa.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -1463,11 +1473,13 @@ return|;
 block|}
 end_function
 begin_macro
-name|Q_GLOBAL_STATIC
+name|Q_GLOBAL_STATIC_WITH_INITIALIZER
 argument_list|(
 argument|FontHash
 argument_list|,
 argument|app_fonts
+argument_list|,
+argument|{ *x = QGuiApplicationPrivate::platformIntegration()->fontDatabase()->defaultFonts(); }
 argument_list|)
 end_macro
 begin_function
