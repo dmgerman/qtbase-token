@@ -1150,21 +1150,21 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the list of alternative subject names for this   certificate. The alternate subject names typically contain host   names, optionally with wildcards, that are valid for this   certificate.      These names are tested against the connected peer's host name, if   either the subject information for \l CommonName doesn't define a   valid host name, or the subject info name doesn't match the peer's   host name.      \sa subjectInfo() */
+comment|/*!   Returns the list of alternative subject names for this   certificate. The alternative names typically contain host   names, optionally with wildcards, that are valid for this   certificate.      These names are tested against the connected peer's host name, if   either the subject information for \l CommonName doesn't define a   valid host name, or the subject info name doesn't match the peer's   host name.      \sa subjectInfo() */
 end_comment
 begin_function
-DECL|function|alternateSubjectNames
+DECL|function|subjectAlternativeNames
 name|QMultiMap
 argument_list|<
 name|QSsl
 operator|::
-name|AlternateNameEntryType
+name|AlternativeNameEntryType
 argument_list|,
 name|QString
 argument_list|>
 name|QSslCertificate
 operator|::
-name|alternateSubjectNames
+name|subjectAlternativeNames
 parameter_list|()
 specifier|const
 block|{
@@ -1172,7 +1172,7 @@ name|QMultiMap
 argument_list|<
 name|QSsl
 operator|::
-name|AlternateNameEntryType
+name|AlternativeNameEntryType
 argument_list|,
 name|QString
 argument_list|>
@@ -3640,7 +3640,7 @@ literal|','
 operator|<<
 name|certificate
 operator|.
-name|alternateSubjectNames
+name|subjectAlternativeNames
 argument_list|()
 ifndef|#
 directive|ifndef

@@ -234,7 +234,7 @@ name|digest
 parameter_list|()
 function_decl|;
 name|void
-name|alternateSubjectNames_data
+name|subjectAlternativeNames_data
 parameter_list|()
 function_decl|;
 name|void
@@ -242,7 +242,7 @@ name|utf8SubjectNames
 parameter_list|()
 function_decl|;
 name|void
-name|alternateSubjectNames
+name|subjectAlternativeNames
 parameter_list|()
 function_decl|;
 name|void
@@ -848,7 +848,7 @@ name|QCOMPARE
 argument_list|(
 name|certificate
 operator|.
-name|alternateSubjectNames
+name|subjectAlternativeNames
 argument_list|()
 argument_list|,
 operator|(
@@ -856,7 +856,7 @@ name|QMultiMap
 argument_list|<
 name|QSsl
 operator|::
-name|AlternateNameEntryType
+name|AlternativeNameEntryType
 argument_list|,
 name|QString
 argument_list|>
@@ -1276,12 +1276,12 @@ name|QCOMPARE
 argument_list|(
 name|cert1
 operator|.
-name|alternateSubjectNames
+name|subjectAlternativeNames
 argument_list|()
 argument_list|,
 name|cert2
 operator|.
-name|alternateSubjectNames
+name|subjectAlternativeNames
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1746,11 +1746,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|alternateSubjectNames_data
+DECL|function|subjectAlternativeNames_data
 name|void
 name|tst_QSslCertificate
 operator|::
-name|alternateSubjectNames_data
+name|subjectAlternativeNames_data
 parameter_list|()
 block|{
 name|QTest
@@ -1844,11 +1844,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|alternateSubjectNames
+DECL|function|subjectAlternativeNames
 name|void
 name|tst_QSslCertificate
 operator|::
-name|alternateSubjectNames
+name|subjectAlternativeNames
 parameter_list|()
 block|{
 if|if
@@ -1921,7 +1921,7 @@ name|QMultiMap
 argument_list|<
 name|QSsl
 operator|::
-name|AlternateNameEntryType
+name|AlternativeNameEntryType
 argument_list|,
 name|QString
 argument_list|>
@@ -1929,7 +1929,7 @@ name|altSubjectNames
 init|=
 name|certificate
 operator|.
-name|alternateSubjectNames
+name|subjectAlternativeNames
 argument_list|()
 decl_stmt|;
 comment|// verify that each entry in subjAltNames is present in fileContents
@@ -1937,7 +1937,7 @@ name|QMapIterator
 argument_list|<
 name|QSsl
 operator|::
-name|AlternateNameEntryType
+name|AlternativeNameEntryType
 argument_list|,
 name|QString
 argument_list|>
@@ -2083,7 +2083,7 @@ control|)
 block|{
 name|QSsl
 operator|::
-name|AlternateNameEntryType
+name|AlternativeNameEntryType
 name|key
 decl_stmt|;
 if|if
@@ -5240,7 +5240,7 @@ name|QMultiMap
 argument_list|<
 name|QSsl
 operator|::
-name|AlternateNameEntryType
+name|AlternativeNameEntryType
 argument_list|,
 name|QString
 argument_list|>
@@ -5248,7 +5248,7 @@ name|san
 init|=
 name|cert
 operator|.
-name|alternateSubjectNames
+name|subjectAlternativeNames
 argument_list|()
 decl_stmt|;
 name|QVERIFY
