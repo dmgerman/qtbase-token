@@ -2672,7 +2672,7 @@ name|process
 operator|.
 name|waitForFinished
 argument_list|(
-literal|5000
+literal|30000
 argument_list|)
 argument_list|)
 expr_stmt|;

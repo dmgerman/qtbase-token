@@ -323,7 +323,7 @@ name|QHostAddress
 argument_list|(
 name|QHostAddress
 operator|::
-name|Any
+name|AnyIPv4
 argument_list|)
 operator|<<
 literal|0

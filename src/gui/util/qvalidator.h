@@ -201,11 +201,11 @@ block|{
 name|Q_OBJECT
 name|Q_PROPERTY
 argument_list|(
-argument|int bottom READ bottom WRITE setBottom
+argument|int bottom READ bottom WRITE setBottom NOTIFY bottomChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|int top READ top WRITE setTop
+argument|int top READ top WRITE setTop NOTIFY topChanged
 argument_list|)
 name|public
 operator|:
@@ -290,6 +290,20 @@ return|return
 name|t
 return|;
 block|}
+name|Q_SIGNALS
+operator|:
+name|void
+name|bottomChanged
+argument_list|(
+argument|int bottom
+argument_list|)
+block|;
+name|void
+name|topChanged
+argument_list|(
+argument|int top
+argument_list|)
+block|;
 ifdef|#
 directive|ifdef
 name|QT3_SUPPORT
@@ -358,15 +372,15 @@ block|{
 name|Q_OBJECT
 name|Q_PROPERTY
 argument_list|(
-argument|double bottom READ bottom WRITE setBottom
+argument|double bottom READ bottom WRITE setBottom NOTIFY bottomChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|double top READ top WRITE setTop
+argument|double top READ top WRITE setTop NOTIFY topChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|int decimals READ decimals WRITE setDecimals
+argument|int decimals READ decimals WRITE setDecimals NOTIFY decimalsChanged
 argument_list|)
 name|Q_ENUMS
 argument_list|(
@@ -374,7 +388,7 @@ argument|Notation
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|Notation notation READ notation WRITE setNotation
+argument|Notation notation READ notation WRITE setNotation NOTIFY notationChanged
 argument_list|)
 name|public
 operator|:
@@ -490,6 +504,32 @@ name|notation
 argument_list|()
 specifier|const
 block|;
+name|Q_SIGNALS
+operator|:
+name|void
+name|bottomChanged
+argument_list|(
+argument|double bottom
+argument_list|)
+block|;
+name|void
+name|topChanged
+argument_list|(
+argument|double top
+argument_list|)
+block|;
+name|void
+name|decimalsChanged
+argument_list|(
+argument|int decimals
+argument_list|)
+block|;
+name|void
+name|notationChanged
+argument_list|(
+argument|QDoubleValidator::Notation notation
+argument_list|)
+block|;
 ifdef|#
 directive|ifdef
 name|QT3_SUPPORT
@@ -556,7 +596,7 @@ block|{
 name|Q_OBJECT
 name|Q_PROPERTY
 argument_list|(
-argument|QRegExp regExp READ regExp WRITE setRegExp
+argument|QRegExp regExp READ regExp WRITE setRegExp NOTIFY regExpChanged
 argument_list|)
 name|public
 operator|:
@@ -621,6 +661,17 @@ name|r
 return|;
 block|}
 comment|// ### make inline for 5.0
+name|Q_SIGNALS
+operator|:
+name|void
+name|regExpChanged
+argument_list|(
+specifier|const
+name|QRegExp
+operator|&
+name|regExp
+argument_list|)
+block|;
 ifdef|#
 directive|ifdef
 name|QT3_SUPPORT

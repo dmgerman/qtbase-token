@@ -13930,7 +13930,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"renamefile -> Makefile"
+literal|"renamefile -> noreadfile"
 argument_list|)
 operator|<<
 name|QString
@@ -13940,7 +13940,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"Makefile"
+literal|"noreadfile"
 argument_list|)
 operator|<<
 literal|false

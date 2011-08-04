@@ -1309,8 +1309,7 @@ argument_list|(
 literal|"./mylib"
 argument_list|)
 decl_stmt|;
-name|void
-modifier|*
+name|QFunctionPointer
 name|p
 init|=
 name|library

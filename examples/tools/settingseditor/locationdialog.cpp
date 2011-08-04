@@ -89,7 +89,7 @@ name|addItem
 argument_list|(
 name|tr
 argument_list|(
-literal|"Trolltech"
+literal|"Qt"
 argument_list|)
 argument_list|)
 expr_stmt|;

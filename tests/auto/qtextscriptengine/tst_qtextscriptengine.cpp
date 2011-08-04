@@ -116,12 +116,6 @@ end_comment
 begin_comment
 comment|//TESTED_FILES= gui/text/qscriptengine.cpp
 end_comment
-begin_comment
-comment|// This test depends on the fonts in the following package being installed:
-end_comment
-begin_comment
-comment|// http://people.freedesktop.org/~hausmann/harfbuzz-test-fonts-0.1.tar.bz2
-end_comment
 begin_class
 DECL|class|tst_QTextScriptEngine
 class|class
@@ -143,6 +137,10 @@ destructor_decl|;
 public|public
 name|slots
 public|:
+name|void
+name|initTestCase
+parameter_list|()
+function_decl|;
 name|void
 name|init
 parameter_list|()
@@ -219,6 +217,11 @@ name|void
 name|mirroredChars
 parameter_list|()
 function_decl|;
+private|private:
+DECL|member|haveTestFonts
+name|bool
+name|haveTestFonts
+decl_stmt|;
 block|}
 class|;
 end_class
@@ -228,6 +231,19 @@ name|tst_QTextScriptEngine
 operator|::
 name|tst_QTextScriptEngine
 parameter_list|()
+member_init_list|:
+name|haveTestFonts
+argument_list|(
+name|qgetenv
+argument_list|(
+literal|"QT_HAVE_TEST_FONTS"
+argument_list|)
+operator|==
+name|QByteArray
+argument_list|(
+literal|"1"
+argument_list|)
+argument_list|)
 block|{ }
 end_constructor
 begin_destructor
@@ -239,6 +255,40 @@ name|tst_QTextScriptEngine
 parameter_list|()
 block|{ }
 end_destructor
+begin_function
+DECL|function|initTestCase
+name|void
+name|tst_QTextScriptEngine
+operator|::
+name|initTestCase
+parameter_list|()
+block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_WS_X11
+argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"Some of these tests depend on the internals of some test fonts which are not freely "
+literal|"distributable.\n"
+literal|"These tests will be skipped.\n"
+literal|"If you have the fonts available, set QT_HAVE_TEST_FONTS=1 in your environment and "
+literal|"run the test again."
+argument_list|)
+expr_stmt|;
+block|}
+endif|#
+directive|endif
+block|}
+end_function
 begin_function
 DECL|function|init
 name|void
@@ -608,6 +658,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -924,7 +988,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Raghindi"
+literal|"couldn't find Raghindi"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -1279,6 +1343,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -2070,7 +2148,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Akaash"
+literal|"couldn't find Akaash"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -2770,7 +2848,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Mukti"
+literal|"couldn't find Mukti"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -2951,7 +3029,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Likhan"
+literal|"couldn't find Likhan"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -2985,6 +3063,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -3083,7 +3175,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Lohit Punjabi"
+literal|"couldn't find Lohit Punjabi"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -3108,6 +3200,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -3354,7 +3460,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find utkal"
+literal|"couldn't find utkal"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -3388,6 +3494,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -3916,7 +4036,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find AkrutiTml1"
+literal|"couldn't find AkrutiTml1"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -3950,6 +4070,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -4264,7 +4398,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Pothana2000"
+literal|"couldn't find Pothana2000"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -4570,7 +4704,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Sampige"
+literal|"couldn't find Sampige"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -4799,7 +4933,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Tunga"
+literal|"couldn't find Tunga"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -4833,6 +4967,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -5237,7 +5385,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find AkrutiMal2"
+literal|"couldn't find AkrutiMal2"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -5440,7 +5588,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Rachana"
+literal|"couldn't find Rachana"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -5474,6 +5622,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -5680,7 +5842,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Malithi Web"
+literal|"couldn't find Malithi Web"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -5714,6 +5876,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -5964,7 +6140,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Khmer OS"
+literal|"couldn't find Khmer OS"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -5998,6 +6174,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -6104,7 +6294,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find Penuturesu"
+literal|"couldn't find Penuturesu"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -6514,6 +6704,20 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+if|if
+condition|(
+operator|!
+name|haveTestFonts
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test fonts are not available"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|{
 if|if
 condition|(
@@ -6618,7 +6822,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find DejaVu Sans"
+literal|"couldn't find DejaVu Sans"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -6817,7 +7021,7 @@ else|else
 block|{
 name|QSKIP
 argument_list|(
-literal|"couln't find SBL_grk"
+literal|"couldn't find SBL_grk"
 argument_list|,
 name|SkipAll
 argument_list|)

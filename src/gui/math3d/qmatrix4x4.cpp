@@ -32,7 +32,7 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_MATRIX4X4
-comment|/*!     \class QMatrix4x4     \brief The QMatrix4x4 class represents a 4x4 transformation matrix in 3D space.     \since 4.6     \ingroup painting-3D      \sa QVector3D, QGenericMatrix */
+comment|/*!     \class QMatrix4x4     \brief The QMatrix4x4 class represents a 4x4 transformation matrix in 3D space.     \since 4.6     \ingroup painting-3D      The QMatrix4x4 class in general is treated as a row-major matrix, in that the     constructors and operator() functions take data in row-major format, as is     familiar in C-style usage.      Internally the data is stored as column-major format, so as to be optimal for     passing to OpenGL functions, which expect column-major data.      When using these functions be aware that they return data in \bold{column-major}     format:     \list     \o data()     \o constData()     \endlist      \sa QVector3D, QGenericMatrix */
 DECL|variable|inv_dist_to_plane
 specifier|static
 specifier|const
@@ -10545,10 +10545,10 @@ begin_comment
 comment|/*!     \fn qreal *QMatrix4x4::data()      Returns a pointer to the raw data of this matrix.      \sa constData(), optimize() */
 end_comment
 begin_comment
-comment|/*!     \fn const qreal *QMatrix4x4::data() const      Returns a constant pointer to the raw data of this matrix.      \sa constData() */
+comment|/*!     \fn const qreal *QMatrix4x4::data() const      Returns a constant pointer to the raw data of this matrix.     This raw data is stored in column-major format.      \sa constData() */
 end_comment
 begin_comment
-comment|/*!     \fn const qreal *QMatrix4x4::constData() const      Returns a constant pointer to the raw data of this matrix.      \sa data() */
+comment|/*!     \fn const qreal *QMatrix4x4::constData() const      Returns a constant pointer to the raw data of this matrix.     This raw data is stored in column-major format.      \sa data() */
 end_comment
 begin_comment
 comment|// Helper routine for inverting orthonormal matrices that consist

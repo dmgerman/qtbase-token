@@ -76,7 +76,7 @@ name|QString
 modifier|&
 name|fileName
 parameter_list|,
-name|int
+name|qreal
 name|pixelSize
 parameter_list|,
 name|QFont
@@ -116,7 +116,7 @@ name|QByteArray
 modifier|&
 name|fontData
 parameter_list|,
-name|int
+name|qreal
 name|pixelSize
 parameter_list|,
 name|QFont
@@ -261,7 +261,7 @@ name|QString
 modifier|&
 name|fileName
 parameter_list|,
-name|int
+name|qreal
 name|pixelSize
 parameter_list|,
 name|QFont
@@ -316,7 +316,7 @@ name|QByteArray
 modifier|&
 name|fontData
 parameter_list|,
-name|int
+name|qreal
 name|pixelSize
 parameter_list|,
 name|QFont

@@ -143,8 +143,7 @@ name|void
 name|release
 parameter_list|()
 function_decl|;
-name|void
-modifier|*
+name|QFunctionPointer
 name|resolve
 parameter_list|(
 specifier|const
@@ -232,8 +231,7 @@ name|bool
 name|unload_sys
 parameter_list|()
 function_decl|;
-name|void
-modifier|*
+name|QFunctionPointer
 name|resolve_sys
 parameter_list|(
 specifier|const
