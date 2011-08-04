@@ -308,6 +308,17 @@ argument_list|)
 block|;
 specifier|static
 name|void
+name|processWindowStateChangedEvent
+argument_list|(
+name|QWindowSystemInterfacePrivate
+operator|::
+name|WindowStateChangedEvent
+operator|*
+name|e
+argument_list|)
+block|;
+specifier|static
+name|void
 name|processWindowSystemEvent
 argument_list|(
 name|QWindowSystemInterfacePrivate

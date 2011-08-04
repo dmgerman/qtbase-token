@@ -144,6 +144,14 @@ name|QExposeEvent
 operator|*
 argument_list|)
 block|;
+name|void
+name|handleWindowStateChangedEvent
+argument_list|(
+name|QWindowStateChangeEvent
+operator|*
+name|event
+argument_list|)
+block|;
 name|private
 operator|:
 name|void

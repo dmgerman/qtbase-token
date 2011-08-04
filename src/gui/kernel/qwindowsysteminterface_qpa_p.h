@@ -39,6 +39,8 @@ name|Leave
 block|,
 name|ActivatedWindow
 block|,
+name|WindowStateChanged
+block|,
 name|Mouse
 block|,
 name|Wheel
@@ -65,6 +67,7 @@ name|WindowSystemEvent
 block|{
 name|public
 label|:
+name|explicit
 name|WindowSystemEvent
 argument_list|(
 argument|EventType t
@@ -88,6 +91,7 @@ name|WindowSystemEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|CloseEvent
 argument_list|(
 name|QWindow
@@ -165,6 +169,7 @@ name|WindowSystemEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|EnterEvent
 argument_list|(
 name|QWindow
@@ -197,6 +202,7 @@ name|WindowSystemEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|LeaveEvent
 argument_list|(
 name|QWindow
@@ -229,6 +235,7 @@ name|WindowSystemEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|ActivatedWindowEvent
 argument_list|(
 name|QWindow
@@ -251,6 +258,48 @@ operator|<
 name|QWindow
 operator|>
 name|activated
+block|;     }
+decl_stmt|;
+name|class
+name|WindowStateChangedEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|WindowStateChangedEvent
+argument_list|(
+argument|QWindow *_window
+argument_list|,
+argument|Qt::WindowState _newState
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|WindowStateChanged
+argument_list|)
+block|,
+name|window
+argument_list|(
+name|_window
+argument_list|)
+block|,
+name|newState
+argument_list|(
+argument|_newState
+argument_list|)
+block|{ }
+name|QWeakPointer
+operator|<
+name|QWindow
+operator|>
+name|window
+block|;
+name|Qt
+operator|::
+name|WindowState
+name|newState
 block|;     }
 decl_stmt|;
 name|class
