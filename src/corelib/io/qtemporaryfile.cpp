@@ -153,13 +153,16 @@ name|defined
 argument_list|(
 name|QT_BUILD_CORE_LIB
 argument_list|)
-name|qint64
+name|quint64
 name|pid
 init|=
+name|quint64
+argument_list|(
 name|QCoreApplication
 operator|::
 name|applicationPid
 argument_list|()
+argument_list|)
 decl_stmt|;
 do|do
 block|{
