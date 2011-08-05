@@ -81,7 +81,7 @@ specifier|const
 block|;
 name|QAbstractEventDispatcher
 operator|*
-name|createEventDispatcher
+name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
 block|;

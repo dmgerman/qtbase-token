@@ -248,12 +248,12 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|createEventDispatcher
+DECL|function|guiThreadEventDispatcher
 name|QAbstractEventDispatcher
 modifier|*
 name|QEglFSIntegration
 operator|::
-name|createEventDispatcher
+name|guiThreadEventDispatcher
 parameter_list|()
 specifier|const
 block|{
