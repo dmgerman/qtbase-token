@@ -90,6 +90,8 @@ argument|const QString family
 argument_list|,
 argument|const QFont::Style&style
 argument_list|,
+argument|const QFont::StyleHint&styleHint
+argument_list|,
 argument|const QUnicodeTables::Script&script
 argument_list|)
 specifier|const

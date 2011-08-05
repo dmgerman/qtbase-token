@@ -1007,6 +1007,13 @@ modifier|&
 name|style
 parameter_list|,
 specifier|const
+name|QFont
+operator|::
+name|StyleHint
+modifier|&
+name|styleHint
+parameter_list|,
+specifier|const
 name|QUnicodeTables
 operator|::
 name|Script
