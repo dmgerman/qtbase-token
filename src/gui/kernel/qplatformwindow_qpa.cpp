@@ -81,6 +81,15 @@ name|window
 operator|=
 name|window
 expr_stmt|;
+name|d
+operator|->
+name|rect
+operator|=
+name|window
+operator|->
+name|geometry
+argument_list|()
+expr_stmt|;
 block|}
 end_constructor
 begin_comment

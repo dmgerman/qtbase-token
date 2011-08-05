@@ -68,9 +68,7 @@ name|QPlatformGLContext
 operator|*
 name|createPlatformGLContext
 argument_list|(
-argument|const QSurfaceFormat&glFormat
-argument_list|,
-argument|QPlatformGLContext *share
+argument|QGuiGLContext *context
 argument_list|)
 specifier|const
 block|;
@@ -85,15 +83,6 @@ block|;
 name|QAbstractEventDispatcher
 operator|*
 name|guiThreadEventDispatcher
-argument_list|()
-specifier|const
-block|;
-name|QList
-operator|<
-name|QPlatformScreen
-operator|*
-operator|>
-name|screens
 argument_list|()
 specifier|const
 block|;
