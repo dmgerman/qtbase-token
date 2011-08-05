@@ -291,7 +291,9 @@ condition|(
 operator|!
 name|QFileInfo
 argument_list|(
-name|QLatin1String
+name|QString
+operator|::
+name|fromLocal8Bit
 argument_list|(
 name|path
 argument_list|)
