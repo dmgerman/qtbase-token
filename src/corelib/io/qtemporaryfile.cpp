@@ -1108,6 +1108,11 @@ operator|=
 name|QFileSystemEntry
 argument_list|(
 name|template_
+argument_list|,
+name|QFileSystemEntry
+operator|::
+name|FromInternalPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
