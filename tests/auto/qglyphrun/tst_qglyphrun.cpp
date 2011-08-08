@@ -54,6 +54,10 @@ name|initTestCase
 parameter_list|()
 function_decl|;
 name|void
+name|init
+parameter_list|()
+function_decl|;
+name|void
 name|cleanupTestCase
 parameter_list|()
 function_decl|;
@@ -134,6 +138,10 @@ DECL|member|m_testFont
 name|QFont
 name|m_testFont
 decl_stmt|;
+DECL|member|m_testFont_ok
+name|bool
+name|m_testFont_ok
+decl_stmt|;
 endif|#
 directive|endif
 comment|// QT_NO_RAWFONT
@@ -165,6 +173,10 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
+name|m_testFont_ok
+operator|=
+literal|false
+expr_stmt|;
 name|m_testFontId
 operator|=
 name|QFontDatabase
@@ -198,7 +210,7 @@ literal|""
 argument_list|,
 literal|"QTBUG-20760 fails on qpa"
 argument_list|,
-name|Continue
+name|Abort
 argument_list|)
 expr_stmt|;
 endif|#
@@ -221,6 +233,34 @@ literal|"QtsSpecialTestFont"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|m_testFont_ok
+operator|=
+literal|true
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|init
+name|void
+name|tst_QGlyphRun
+operator|::
+name|init
+parameter_list|()
+block|{
+if|if
+condition|(
+operator|!
+name|m_testFont_ok
+condition|)
+block|{
+name|QSKIP
+argument_list|(
+literal|"Test font is not working correctly"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -934,20 +974,6 @@ operator|.
 name|glyphRuns
 argument_list|()
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-20760 fails on qpa"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|listOfGlyphs
@@ -1203,20 +1229,6 @@ operator|.
 name|save
 argument_list|(
 literal|"drawExistingGlyphs_drawGlyphIndexes.png"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-20760 fails on qpa"
-argument_list|,
-name|Continue
 argument_list|)
 expr_stmt|;
 endif|#
