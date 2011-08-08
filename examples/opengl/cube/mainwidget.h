@@ -39,6 +39,7 @@ directive|include
 file|<QVector2D>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QBasicTimer
 name|class
 name|QBasicTimer
@@ -51,6 +52,7 @@ name|QGLShaderProgram
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|QT_END_NAMESPACE
 DECL|variable|GeometryEngine
 name|class
 name|GeometryEngine
