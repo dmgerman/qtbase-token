@@ -2133,9 +2133,12 @@ argument_list|(
 literal|1024.0f
 argument_list|)
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_LINUX
+if|#
+directive|if
+name|defined
+argument_list|(
+name|MAY_HIT_QTBUG_20661
+argument_list|)
 comment|// These failures possibly relate to the float vs qreal issue mentioned
 comment|// in the comment above fuzzyCompare().
 if|if
