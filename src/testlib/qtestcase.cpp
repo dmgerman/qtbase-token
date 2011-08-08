@@ -1529,8 +1529,6 @@ literal|" -minimumvalue n : Sets the minimum acceptable measurement value\n"
 literal|" -iterations  n  : Sets the number of accumulation iterations.\n"
 literal|" -median  n      : Sets the number of median iterations.\n"
 literal|" -vb             : Print out verbose benchmarking information.\n"
-literal|"\n"
-literal|" -help      : This help\n"
 decl_stmt|;
 for|for
 control|(
@@ -1598,6 +1596,26 @@ literal|0
 index|]
 argument_list|,
 name|testOptions
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|qml
+condition|)
+block|{
+name|printf
+argument_list|(
+literal|"\nqmltest related options:\n"
+literal|" -import    : Specify an import directory.\n"
+literal|" -input     : Specify the root directory for test cases.\n"
+literal|" -qtquick1  : Run with QtQuick 1 rather than QtQuick 2.\n"
+argument_list|)
+expr_stmt|;
+block|}
+name|printf
+argument_list|(
+literal|"\n"
+literal|" -help      : This help\n"
 argument_list|)
 expr_stmt|;
 name|exit
@@ -2765,6 +2783,26 @@ name|i
 index|]
 argument_list|,
 name|testOptions
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|qml
+condition|)
+block|{
+name|printf
+argument_list|(
+literal|"\nqmltest related options:\n"
+literal|" -import    : Specify an import directory.\n"
+literal|" -input     : Specify the root directory for test cases.\n"
+literal|" -qtquick1  : Run with QtQuick 1 rather than QtQuick 2.\n"
+argument_list|)
+expr_stmt|;
+block|}
+name|printf
+argument_list|(
+literal|"\n"
+literal|" -help      : This help\n"
 argument_list|)
 expr_stmt|;
 name|exit
