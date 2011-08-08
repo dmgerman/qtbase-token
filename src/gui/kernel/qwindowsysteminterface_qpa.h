@@ -61,9 +61,9 @@ name|Q_GUI_EXPORT
 name|QWindowSystemInterface
 decl_stmt|{ public:     static void handleMouseEvent(QWidget *w
 operator|,
-decl_stmt|const QPoint& local
+decl_stmt|const QPointF& local
 operator|,
-decl_stmt|const QPoint& global
+decl_stmt|const QPointF& global
 operator|,
 decl_stmt|Qt::MouseButtons b
 end_function
@@ -84,12 +84,12 @@ name|ulong
 name|timestamp
 argument_list|,
 specifier|const
-name|QPoint
+name|QPointF
 operator|&
 name|local
 argument_list|,
 specifier|const
-name|QPoint
+name|QPointF
 operator|&
 name|global
 argument_list|,
@@ -302,12 +302,12 @@ operator|*
 name|w
 argument_list|,
 specifier|const
-name|QPoint
+name|QPointF
 operator|&
 name|local
 argument_list|,
 specifier|const
-name|QPoint
+name|QPointF
 operator|&
 name|global
 argument_list|,
@@ -334,12 +334,12 @@ name|ulong
 name|timestamp
 argument_list|,
 specifier|const
-name|QPoint
+name|QPointF
 operator|&
 name|local
 argument_list|,
 specifier|const
-name|QPoint
+name|QPointF
 operator|&
 name|global
 argument_list|,

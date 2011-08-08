@@ -163,7 +163,7 @@ comment|// stack of modal widgets
 end_comment
 begin_decl_stmt
 DECL|variable|qt_last_x
-name|int
+name|qreal
 name|qt_last_x
 init|=
 literal|0
@@ -171,7 +171,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|variable|qt_last_y
-name|int
+name|qreal
 name|qt_last_y
 init|=
 literal|0
@@ -2692,7 +2692,7 @@ name|e
 operator|->
 name|globalPos
 operator|!=
-name|QPoint
+name|QPointF
 argument_list|(
 name|qt_last_x
 argument_list|,
@@ -2771,14 +2771,14 @@ operator|.
 name|data
 argument_list|()
 decl_stmt|;
-name|QPoint
+name|QPointF
 name|localPoint
 init|=
 name|e
 operator|->
 name|localPos
 decl_stmt|;
-name|QPoint
+name|QPointF
 name|globalPoint
 init|=
 name|e
@@ -3091,6 +3091,9 @@ operator|::
 name|topLevelAt
 argument_list|(
 name|globalPoint
+operator|.
+name|toPoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3126,6 +3129,9 @@ operator|->
 name|mapFromGlobal
 argument_list|(
 name|globalPoint
+operator|.
+name|toPoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3150,6 +3156,9 @@ operator|->
 name|childAt
 argument_list|(
 name|localPoint
+operator|.
+name|toPoint
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -3225,6 +3234,9 @@ operator|->
 name|mapFromGlobal
 argument_list|(
 name|globalPoint
+operator|.
+name|toPoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3243,6 +3255,9 @@ argument_list|(
 name|mouseWindow
 argument_list|,
 name|localPoint
+operator|.
+name|toPoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -3389,8 +3404,14 @@ operator|::
 name|Mouse
 argument_list|,
 name|localPoint
+operator|.
+name|toPoint
+argument_list|()
 argument_list|,
 name|globalPoint
+operator|.
+name|toPoint
+argument_list|()
 argument_list|,
 name|QApplication
 operator|::
@@ -3432,7 +3453,7 @@ name|e
 parameter_list|)
 block|{
 comment|//    QPoint localPoint = ev.pos();
-name|QPoint
+name|QPointF
 name|globalPoint
 init|=
 name|e
@@ -3483,6 +3504,9 @@ operator|::
 name|topLevelAt
 argument_list|(
 name|globalPoint
+operator|.
+name|toPoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3520,7 +3544,7 @@ name|mouseWindow
 expr_stmt|;
 return|return;
 block|}
-name|QPoint
+name|QPointF
 name|p
 init|=
 name|mouseWindow
@@ -3528,6 +3552,9 @@ operator|->
 name|mapFromGlobal
 argument_list|(
 name|globalPoint
+operator|.
+name|toPoint
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|QWidget
@@ -3539,6 +3566,9 @@ operator|->
 name|childAt
 argument_list|(
 name|p
+operator|.
+name|toPoint
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -3557,6 +3587,9 @@ operator|->
 name|mapFromGlobal
 argument_list|(
 name|globalPoint
+operator|.
+name|toPoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

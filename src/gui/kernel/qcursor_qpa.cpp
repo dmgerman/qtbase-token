@@ -324,7 +324,7 @@ comment|//QT_NO_CURSOR
 end_comment
 begin_decl_stmt
 specifier|extern
-name|int
+name|qreal
 name|qt_last_x
 decl_stmt|,
 name|qt_last_y
@@ -339,12 +339,15 @@ name|pos
 parameter_list|()
 block|{
 return|return
-name|QPoint
+name|QPointF
 argument_list|(
 name|qt_last_x
 argument_list|,
 name|qt_last_y
 argument_list|)
+operator|.
+name|toPoint
+argument_list|()
 return|;
 block|}
 end_function
