@@ -9573,6 +9573,14 @@ name|focusScopeItem
 operator|->
 name|isVisible
 argument_list|()
+operator|&&
+name|f
+operator|->
+name|d_ptr
+operator|->
+name|focusScopeItem
+operator|!=
+name|f
 condition|)
 name|f
 operator|=
