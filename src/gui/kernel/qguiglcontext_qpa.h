@@ -178,6 +178,14 @@ argument_list|)
 argument_list|()
 expr_stmt|;
 end_expr_stmt
+begin_expr_stmt
+name|QSurface
+operator|*
+name|surface
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
 specifier|static
 name|QGuiGLContext
