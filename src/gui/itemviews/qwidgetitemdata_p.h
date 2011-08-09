@@ -94,6 +94,7 @@ name|QWidgetItemData
 operator|&
 name|other
 operator|)
+specifier|const
 block|{
 return|return
 name|role
