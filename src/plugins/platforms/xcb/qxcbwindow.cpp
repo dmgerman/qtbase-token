@@ -342,10 +342,6 @@ name|Qt
 operator|::
 name|WindowNoState
 expr_stmt|;
-name|m_hasReceivedSyncRequest
-operator|=
-literal|false
-expr_stmt|;
 name|m_dirtyFrameMargins
 operator|=
 literal|true
@@ -5669,22 +5665,6 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|m_hasReceivedSyncRequest
-condition|)
-block|{
-name|m_hasReceivedSyncRequest
-operator|=
-literal|true
-expr_stmt|;
-name|printf
-argument_list|(
-literal|"Window manager supports _NET_WM_SYNC_REQUEST, syncing resizes\n"
-argument_list|)
-expr_stmt|;
-block|}
 name|m_syncValue
 operator|.
 name|lo

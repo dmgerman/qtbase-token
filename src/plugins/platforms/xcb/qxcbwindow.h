@@ -482,9 +482,6 @@ decl_stmt|;
 name|xcb_sync_counter_t
 name|m_syncCounter
 decl_stmt|;
-name|bool
-name|m_hasReceivedSyncRequest
-decl_stmt|;
 name|Qt
 operator|::
 name|WindowState
