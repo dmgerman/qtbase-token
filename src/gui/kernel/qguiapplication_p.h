@@ -522,6 +522,13 @@ name|alignment
 return|;
 block|}
 end_decl_stmt
+begin_function_decl
+specifier|static
+name|void
+name|emitLastWindowClosed
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_decl_stmt
 name|QPixmap
 name|getPixmapCursor
@@ -659,6 +666,12 @@ specifier|static
 name|QFont
 modifier|*
 name|app_font
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|static
+name|bool
+name|quitOnLastWindowClosed
 decl_stmt|;
 end_decl_stmt
 begin_label

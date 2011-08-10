@@ -43,6 +43,10 @@ range|:
 name|public
 name|QObjectPrivate
 block|{
+name|Q_DECLARE_PUBLIC
+argument_list|(
+argument|QWindow
+argument_list|)
 name|public
 operator|:
 name|QWindowPrivate
@@ -119,6 +123,10 @@ operator|~
 name|QWindowPrivate
 argument_list|()
 block|{     }
+name|void
+name|maybeQuitOnLastWindowClosed
+argument_list|()
+block|;
 name|QWindow
 operator|::
 name|SurfaceType

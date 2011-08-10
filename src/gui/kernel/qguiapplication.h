@@ -138,6 +138,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|int keyboardInputInterval READ keyboardInputInterval WRITE setKeyboardInputInterval
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool quitOnLastWindowClosed  READ quitOnLastWindowClosed WRITE setQuitOnLastWindowClosed
+argument_list|)
 name|public
 operator|:
 name|QGuiApplication
@@ -363,6 +367,18 @@ name|platformNativeInterface
 argument_list|()
 block|;
 specifier|static
+name|void
+name|setQuitOnLastWindowClosed
+argument_list|(
+argument|bool quit
+argument_list|)
+block|;
+specifier|static
+name|bool
+name|quitOnLastWindowClosed
+argument_list|()
+block|;
+specifier|static
 name|int
 name|exec
 argument_list|()
@@ -390,6 +406,10 @@ name|QScreen
 operator|*
 name|screen
 argument_list|)
+block|;
+name|void
+name|lastWindowClosed
+argument_list|()
 block|;
 name|protected
 operator|:
