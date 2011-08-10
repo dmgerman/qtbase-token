@@ -47,12 +47,6 @@ include|#
 directive|include
 file|<stdio.h>
 end_include
-begin_define
-DECL|macro|XCB_USE_IBUS
-define|#
-directive|define
-name|XCB_USE_IBUS
-end_define
 begin_if
 if|#
 directive|if

@@ -51,6 +51,11 @@ operator|~
 name|QIBusPlatformInputContext
 argument_list|()
 expr_stmt|;
+name|bool
+name|isValid
+argument_list|()
+specifier|const
+expr_stmt|;
 name|void
 name|mouseHandler
 parameter_list|(
