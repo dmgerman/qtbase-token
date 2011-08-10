@@ -57,6 +57,14 @@ include|#
 directive|include
 file|<QtGui/private/qdnd_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/private/qcore_unix_p.h>
+end_include
+begin_comment
+comment|// for QT_READ
+end_comment
 begin_decl_stmt
 DECL|variable|clipboard
 specifier|static
@@ -946,7 +954,7 @@ condition|(
 operator|(
 name|n
 operator|=
-name|read
+name|QT_READ
 argument_list|(
 name|pipefd
 index|[
