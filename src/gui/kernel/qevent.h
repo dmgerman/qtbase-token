@@ -797,11 +797,9 @@ name|QTabletEvent
 argument_list|(
 argument|Type t
 argument_list|,
-argument|const QPoint&pos
+argument|const QPointF&pos
 argument_list|,
-argument|const QPoint&globalPos
-argument_list|,
-argument|const QPointF&hiResGlobalPos
+argument|const QPointF&globalPos
 argument_list|,
 argument|int device
 argument_list|,
@@ -831,27 +829,40 @@ block|;
 specifier|inline
 specifier|const
 name|QPoint
-operator|&
 name|pos
 argument_list|()
 specifier|const
 block|{
 return|return
 name|mPos
+operator|.
+name|toPoint
+argument_list|()
 return|;
 block|}
 specifier|inline
 specifier|const
 name|QPoint
-operator|&
 name|globalPos
 argument_list|()
 specifier|const
 block|{
 return|return
 name|mGPos
+operator|.
+name|toPoint
+argument_list|()
 return|;
 block|}
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+name|QT_DEPRECATED
 specifier|inline
 specifier|const
 name|QPointF
@@ -861,7 +872,33 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|mHiResGlobalPos
+name|mPos
+return|;
+block|}
+endif|#
+directive|endif
+specifier|inline
+specifier|const
+name|QPointF
+operator|&
+name|posF
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mPos
+return|;
+block|}
+specifier|inline
+specifier|const
+name|QPointF
+operator|&
+name|globalPosF
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mGPos
 return|;
 block|}
 specifier|inline
@@ -871,10 +908,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|qRound
+argument_list|(
 name|mPos
 operator|.
 name|x
 argument_list|()
+argument_list|)
 return|;
 block|}
 specifier|inline
@@ -884,10 +924,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|qRound
+argument_list|(
 name|mPos
 operator|.
 name|y
 argument_list|()
+argument_list|)
 return|;
 block|}
 specifier|inline
@@ -897,10 +940,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|qRound
+argument_list|(
 name|mGPos
 operator|.
 name|x
 argument_list|()
+argument_list|)
 return|;
 block|}
 specifier|inline
@@ -910,10 +956,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|qRound
+argument_list|(
 name|mGPos
 operator|.
 name|y
 argument_list|()
+argument_list|)
 return|;
 block|}
 specifier|inline
@@ -923,7 +972,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|mHiResGlobalPos
+name|mGPos
 operator|.
 name|x
 argument_list|()
@@ -936,7 +985,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|mHiResGlobalPos
+name|mGPos
 operator|.
 name|y
 argument_list|()
@@ -1040,13 +1089,10 @@ return|;
 block|}
 name|protected
 operator|:
-name|QPoint
+name|QPointF
 name|mPos
 block|,
 name|mGPos
-block|;
-name|QPointF
-name|mHiResGlobalPos
 block|;
 name|int
 name|mDev
@@ -2180,7 +2226,7 @@ name|public
 operator|:
 name|QDropEvent
 argument_list|(
-argument|const QPoint& pos
+argument|const QPointF& pos
 argument_list|,
 argument|Qt::DropActions actions
 argument_list|,
@@ -2200,8 +2246,22 @@ block|;
 specifier|inline
 specifier|const
 name|QPoint
-operator|&
 name|pos
+argument_list|()
+specifier|const
+block|{
+return|return
+name|p
+operator|.
+name|toPoint
+argument_list|()
+return|;
+block|}
+specifier|inline
+specifier|const
+name|QPointF
+operator|&
+name|posF
 argument_list|()
 specifier|const
 block|{
@@ -2311,7 +2371,7 @@ name|friend
 name|class
 name|QApplication
 block|;
-name|QPoint
+name|QPointF
 name|p
 block|;
 name|Qt
