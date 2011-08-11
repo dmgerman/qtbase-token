@@ -1136,6 +1136,7 @@ comment|//if the size isn't the same...
 return|return
 literal|false
 return|;
+comment|// Fallback to expensive canonical path computation
 return|return
 name|canonicalFilePath
 argument_list|()

@@ -1977,6 +1977,7 @@ name|compare
 parameter_list|()
 block|{
 comment|// operator==
+comment|// Not using QCOMPARE to test result of QDir::operator==
 name|QDir
 name|dir
 decl_stmt|;
@@ -1993,6 +1994,38 @@ name|QDir
 operator|::
 name|currentPath
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|QDir
+argument_list|()
+operator|==
+name|QDir
+argument_list|(
+name|QDir
+operator|::
+name|currentPath
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|QDir
+argument_list|(
+literal|"../"
+argument_list|)
+operator|==
+name|QDir
+argument_list|(
+name|QDir
+operator|::
+name|currentPath
+argument_list|()
+operator|+
+literal|"/.."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
