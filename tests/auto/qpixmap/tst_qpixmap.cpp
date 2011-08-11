@@ -5677,6 +5677,18 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
+name|Q_WS_QPA
+name|QSKIP
+argument_list|(
+literal|"QTBUG-20863 grabWindow is broken on most qpa backends"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
 name|Q_OS_WINCE
 comment|// We get out of memory, if the desktop itself is too big.
 if|if
@@ -8550,6 +8562,18 @@ operator|::
 name|onlyNullPixmapsOutsideGuiThread
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_WS_QPA
+name|QSKIP
+argument_list|(
+literal|"QTBUG-20864 can't determine if threaded pixmaps are available for qpa"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
 operator|!
