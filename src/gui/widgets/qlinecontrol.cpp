@@ -6852,11 +6852,7 @@ name|ev
 argument_list|)
 decl_stmt|;
 name|QMouseEvent
-modifier|*
 name|mouse
-init|=
-operator|new
-name|QMouseEvent
 argument_list|(
 name|ev
 operator|->
@@ -6889,6 +6885,7 @@ argument_list|)
 decl_stmt|;
 name|processMouseEvent
 argument_list|(
+operator|&
 name|mouse
 argument_list|)
 expr_stmt|;
