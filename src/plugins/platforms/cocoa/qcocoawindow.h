@@ -26,6 +26,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QRect>
+end_include
+begin_include
+include|#
+directive|include
 file|"qcocoaglcontext.h"
 end_include
 begin_include
@@ -135,6 +140,24 @@ name|NSWindow
 operator|*
 name|createWindow
 argument_list|()
+block|;
+name|NSRect
+name|globalGeometry
+argument_list|(
+argument|const QRect localWindowGeometry
+argument_list|)
+specifier|const
+block|;
+name|QRect
+name|windowGeometry
+argument_list|()
+specifier|const
+block|;
+name|QCocoaWindow
+operator|*
+name|parentCocoaWindow
+argument_list|()
+specifier|const
 block|;
 name|private
 operator|:
