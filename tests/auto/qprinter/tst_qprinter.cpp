@@ -2726,11 +2726,16 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
+name|Q_WS_QPA
+argument_list|)
+operator|||
+name|defined
+argument_list|(
 name|Q_OS_MAC
 argument_list|)
 name|QSKIP
 argument_list|(
-literal|"QPrinter::testNonExistentPrinter() is not relevant for X11/Embedded/Mac"
+literal|"QPrinter::testNonExistentPrinter() is not relevant for this platform"
 argument_list|,
 name|SkipAll
 argument_list|)
