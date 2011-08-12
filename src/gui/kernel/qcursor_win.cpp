@@ -4056,6 +4056,7 @@ name|hy
 argument_list|)
 expr_stmt|;
 block|}
+break|break;
 default|default:
 name|qWarning
 argument_list|(
