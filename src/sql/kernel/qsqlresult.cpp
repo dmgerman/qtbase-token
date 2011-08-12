@@ -790,10 +790,10 @@ operator|)
 operator|&&
 operator|(
 name|i
+operator|+
+literal|1
 operator|<
 name|n
-operator|-
-literal|1
 operator|&&
 name|qIsAlnum
 argument_list|(
@@ -1549,10 +1549,10 @@ operator|)
 operator|&&
 operator|(
 name|i
+operator|+
+literal|1
 operator|<
 name|n
-operator|-
-literal|1
 operator|&&
 name|qIsAlnum
 argument_list|(

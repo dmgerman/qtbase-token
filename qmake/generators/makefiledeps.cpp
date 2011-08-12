@@ -3189,10 +3189,10 @@ block|{
 if|if
 condition|(
 name|x
+operator|+
+literal|1
 operator|<
 name|buffer_len
-operator|-
-literal|1
 operator|&&
 operator|*
 operator|(

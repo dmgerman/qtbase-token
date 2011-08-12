@@ -1233,13 +1233,13 @@ decl_stmt|;
 if|if
 condition|(
 name|i
+operator|+
+literal|1
 operator|<
 name|points
 operator|.
 name|size
 argument_list|()
-operator|-
-literal|1
 operator|&&
 name|x
 operator|==

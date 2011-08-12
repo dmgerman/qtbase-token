@@ -16968,12 +16968,12 @@ decl_stmt|;
 while|while
 condition|(
 name|x
+operator|+
+literal|1
 operator|<
 name|glyph
 operator|->
 name|width
-operator|-
-literal|1
 operator|&&
 name|src
 index|[

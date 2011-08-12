@@ -21048,10 +21048,10 @@ decl_stmt|;
 while|while
 condition|(
 name|src_x
+operator|+
+literal|1
 operator|<
 name|w
-operator|-
-literal|1
 operator|&&
 name|src
 index|[
@@ -21260,10 +21260,10 @@ decl_stmt|;
 while|while
 condition|(
 name|src_x
+operator|+
+literal|1
 operator|<
 name|w
-operator|-
-literal|1
 operator|&&
 name|src
 index|[

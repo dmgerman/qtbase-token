@@ -4998,12 +4998,12 @@ block|}
 while|while
 condition|(
 name|max
+operator|+
+literal|1
 operator|<
 name|scanline
 operator|.
 name|size
-operator|-
-literal|1
 operator|&&
 name|scanline
 operator|.

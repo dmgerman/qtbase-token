@@ -679,10 +679,10 @@ elseif|else
 if|if
 condition|(
 name|tabIndex
+operator|+
+literal|1
 operator|<
 name|totalTabs
-operator|-
-literal|1
 operator|&&
 name|tabIndex
 operator|+
