@@ -5614,6 +5614,16 @@ operator|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"no_include_pwd"
+argument_list|)
+condition|)
 block|{
 comment|//get the output_dir into the pwd
 if|if
