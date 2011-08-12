@@ -4813,6 +4813,18 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|Q_WS_QPA
+name|QSKIP
+argument_list|(
+literal|"QTBUG-20753 QCursor::setPos() / QTest::mouseMove() doesn't work on qpa"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|Menu258920
 name|menu
 decl_stmt|;
