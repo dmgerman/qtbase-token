@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<directfb/directfbgl.h>
+file|<directfbgl.h>
 end_include
 begin_include
 include|#
