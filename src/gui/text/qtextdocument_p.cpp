@@ -2608,13 +2608,13 @@ operator|==
 name|pos
 argument_list|)
 expr_stmt|;
-comment|//  	qDebug("removing empty block");
+comment|// qDebug("removing empty block");
 comment|// empty block remove the block itself
 block|}
 else|else
 block|{
 comment|// non empty block, merge with next one into this block
-comment|//  	qDebug("merging block with next");
+comment|// qDebug("merging block with next");
 name|int
 name|n
 init|=
@@ -2664,6 +2664,24 @@ argument_list|)
 operator|-
 literal|1
 argument_list|)
+expr_stmt|;
+name|blocks
+operator|.
+name|fragment
+argument_list|(
+name|b
+argument_list|)
+operator|->
+name|userState
+operator|=
+name|blocks
+operator|.
+name|fragment
+argument_list|(
+name|n
+argument_list|)
+operator|->
+name|userState
 expr_stmt|;
 name|b
 operator|=
