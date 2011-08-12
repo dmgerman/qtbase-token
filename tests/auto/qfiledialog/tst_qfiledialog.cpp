@@ -197,6 +197,7 @@ directive|ifdef
 name|QT_BUILD_INTERNAL
 end_ifdef
 begin_function_decl
+name|QT_BEGIN_NAMESPACE
 specifier|extern
 name|Q_GUI_EXPORT
 name|QString
@@ -215,6 +216,9 @@ literal|0
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif
