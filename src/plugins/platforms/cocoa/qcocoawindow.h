@@ -125,6 +125,10 @@ name|windowDidResize
 argument_list|()
 block|;
 name|void
+name|windowWillClose
+argument_list|()
+block|;
+name|void
 name|setCurrentContext
 argument_list|(
 name|QCocoaGLContext
