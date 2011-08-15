@@ -783,12 +783,12 @@ operator|::
 name|PdfFormat
 case|:
 block|{
-name|QPdfEngine
+name|QPdfPrintEngine
 modifier|*
 name|pdfEngine
 init|=
 operator|new
-name|QPdfEngine
+name|QPdfPrintEngine
 argument_list|(
 name|printerMode
 argument_list|)

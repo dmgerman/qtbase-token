@@ -41,7 +41,7 @@ block|{
 name|engine
 operator|=
 operator|new
-name|QPdfEngine
+name|QPdfPrintEngine
 argument_list|(
 name|QPrinter
 operator|::
@@ -66,7 +66,7 @@ name|output
 expr_stmt|;
 block|}
 DECL|member|engine
-name|QPdfEngine
+name|QPdfPrintEngine
 modifier|*
 name|engine
 decl_stmt|;

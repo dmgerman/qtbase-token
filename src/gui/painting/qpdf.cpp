@@ -5299,12 +5299,12 @@ expr_stmt|;
 block|}
 end_function
 begin_constructor
-DECL|function|QPdfBaseEngine
-name|QPdfBaseEngine
+DECL|function|QPdfEngine
+name|QPdfEngine
 operator|::
-name|QPdfBaseEngine
+name|QPdfEngine
 parameter_list|(
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 modifier|&
 name|dd
 parameter_list|,
@@ -5323,7 +5323,7 @@ end_constructor
 begin_function
 DECL|function|drawPoints
 name|void
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|drawPoints
 parameter_list|(
@@ -5344,7 +5344,7 @@ condition|)
 return|return;
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 name|QPainterPath
@@ -5422,7 +5422,7 @@ end_function
 begin_function
 DECL|function|drawLines
 name|void
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|drawLines
 parameter_list|(
@@ -5443,7 +5443,7 @@ condition|)
 return|return;
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 name|QPainterPath
@@ -5520,7 +5520,7 @@ end_function
 begin_function
 DECL|function|drawRects
 name|void
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|drawRects
 parameter_list|(
@@ -5541,7 +5541,7 @@ condition|)
 return|return;
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 if|if
@@ -5791,7 +5791,7 @@ end_function
 begin_function
 DECL|function|drawPolygon
 name|void
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|drawPolygon
 parameter_list|(
@@ -5809,7 +5809,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 if|if
@@ -5965,7 +5965,7 @@ end_function
 begin_function
 DECL|function|drawPath
 name|void
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|drawPath
 parameter_list|(
@@ -5977,7 +5977,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 if|if
@@ -6156,7 +6156,7 @@ end_function
 begin_function
 DECL|function|drawPixmap
 name|void
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|drawPixmap
 parameter_list|(
@@ -6196,7 +6196,7 @@ condition|)
 return|return;
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 name|QBrush
@@ -6399,7 +6399,7 @@ end_function
 begin_function
 DECL|function|drawImage
 name|void
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|drawImage
 parameter_list|(
@@ -6443,7 +6443,7 @@ condition|)
 return|return;
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 name|QRect
@@ -6607,7 +6607,7 @@ end_function
 begin_function
 DECL|function|drawTiledPixmap
 name|void
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|drawTiledPixmap
 parameter_list|(
@@ -6629,7 +6629,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 name|bool
@@ -6773,7 +6773,7 @@ end_function
 begin_function
 DECL|function|drawTextItem
 name|void
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|drawTextItem
 parameter_list|(
@@ -6790,7 +6790,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 if|if
@@ -6988,7 +6988,7 @@ end_function
 begin_function
 DECL|function|updateState
 name|void
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|updateState
 parameter_list|(
@@ -7000,7 +7000,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 if|if
@@ -7416,7 +7416,7 @@ end_function
 begin_function
 DECL|function|setupGraphicsState
 name|void
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|setupGraphicsState
 parameter_list|(
@@ -7428,7 +7428,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 if|if
@@ -7691,7 +7691,7 @@ end_function_decl
 begin_function
 DECL|function|updateClipPath
 name|void
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|updateClipPath
 parameter_list|(
@@ -7708,7 +7708,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 name|QPainterPath
@@ -8000,14 +8000,14 @@ end_function
 begin_function
 DECL|function|setPen
 name|void
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|setPen
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 if|if
@@ -8274,14 +8274,14 @@ end_function
 begin_function
 DECL|function|setBrush
 name|void
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|setBrush
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 name|Qt
@@ -8469,14 +8469,14 @@ end_function
 begin_function
 DECL|function|newPage
 name|bool
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|newPage
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 if|if
@@ -8543,7 +8543,7 @@ DECL|function|type
 name|QPaintEngine
 operator|::
 name|Type
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|type
 parameter_list|()
@@ -8559,7 +8559,7 @@ end_function
 begin_function
 DECL|function|metric
 name|int
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|metric
 parameter_list|(
@@ -8573,7 +8573,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 name|int
@@ -8739,10 +8739,10 @@ return|;
 block|}
 end_function
 begin_constructor
-DECL|function|QPdfBaseEnginePrivate
-name|QPdfBaseEnginePrivate
+DECL|function|QPdfEnginePrivate
+name|QPdfEnginePrivate
 operator|::
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 parameter_list|(
 name|QPrinter
 operator|::
@@ -8956,7 +8956,7 @@ end_constructor
 begin_function
 DECL|function|begin
 name|bool
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|begin
 parameter_list|(
@@ -8967,7 +8967,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 name|d
@@ -9124,14 +9124,14 @@ end_function
 begin_function
 DECL|function|end
 name|bool
-name|QPdfBaseEngine
+name|QPdfEngine
 operator|::
 name|end
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 name|d
@@ -9182,11 +9182,11 @@ return|;
 block|}
 end_function
 begin_destructor
-DECL|function|~QPdfBaseEnginePrivate
-name|QPdfBaseEnginePrivate
+DECL|function|~QPdfEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|~
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 parameter_list|()
 block|{
 name|qDeleteAll
@@ -9205,7 +9205,7 @@ end_destructor
 begin_function
 DECL|function|paperRect
 name|QRect
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|paperRect
 parameter_list|()
@@ -9374,7 +9374,7 @@ end_function
 begin_function
 DECL|function|pageRect
 name|QRect
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|pageRect
 parameter_list|()
@@ -9709,7 +9709,7 @@ end_function
 begin_function
 DECL|function|writeHeader
 name|void
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|writeHeader
 parameter_list|()
@@ -9796,7 +9796,7 @@ end_function
 begin_function
 DECL|function|writeInfo
 name|void
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|writeInfo
 parameter_list|()
@@ -9919,7 +9919,7 @@ end_function
 begin_function
 DECL|function|writePageRoot
 name|void
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|writePageRoot
 parameter_list|()
@@ -9997,7 +9997,7 @@ end_function
 begin_function
 DECL|function|embedFont
 name|void
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|embedFont
 parameter_list|(
@@ -10561,7 +10561,7 @@ end_function
 begin_function
 DECL|function|writeFonts
 name|void
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|writeFonts
 parameter_list|()
@@ -10618,7 +10618,7 @@ end_function
 begin_function
 DECL|function|writePage
 name|void
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|writePage
 parameter_list|()
@@ -11055,7 +11055,7 @@ end_function
 begin_function
 DECL|function|writeTail
 name|void
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|writeTail
 parameter_list|()
@@ -11160,7 +11160,7 @@ end_function
 begin_function
 DECL|function|addXrefEntry
 name|int
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|addXrefEntry
 parameter_list|(
@@ -11226,7 +11226,7 @@ end_function
 begin_function
 DECL|function|printString
 name|void
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|printString
 parameter_list|(
@@ -11378,7 +11378,7 @@ end_comment
 begin_function
 DECL|function|xprintf
 name|void
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|xprintf
 parameter_list|(
@@ -11462,7 +11462,7 @@ end_function
 begin_function
 DECL|function|writeCompressed
 name|int
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|writeCompressed
 parameter_list|(
@@ -11922,7 +11922,7 @@ end_function
 begin_function
 DECL|function|writeCompressed
 name|int
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|writeCompressed
 parameter_list|(
@@ -12053,7 +12053,7 @@ end_function
 begin_function
 DECL|function|writeImage
 name|int
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|writeImage
 parameter_list|(
@@ -12270,7 +12270,7 @@ end_ifdef
 begin_function
 DECL|function|gradientBrush
 name|int
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|gradientBrush
 parameter_list|(
@@ -12786,7 +12786,7 @@ end_endif
 begin_function
 DECL|function|addConstantAlphaObject
 name|int
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|addConstantAlphaObject
 parameter_list|(
@@ -12948,7 +12948,7 @@ end_function
 begin_function
 DECL|function|addBrushPattern
 name|int
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|addBrushPattern
 parameter_list|(
@@ -13445,7 +13445,7 @@ end_comment
 begin_function
 DECL|function|addImage
 name|int
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|addImage
 parameter_list|(
@@ -14437,7 +14437,7 @@ end_function
 begin_function
 DECL|function|drawTextItem
 name|void
-name|QPdfBaseEnginePrivate
+name|QPdfEnginePrivate
 operator|::
 name|drawTextItem
 parameter_list|(
@@ -14454,7 +14454,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QPdfBaseEngine
+name|QPdfEngine
 argument_list|)
 expr_stmt|;
 if|if
@@ -14795,7 +14795,7 @@ endif|#
 directive|endif
 argument|*currentPage<<
 literal|"ET\n"
-argument|; }  QTransform QPdfBaseEnginePrivate::pageMatrix() const {     qreal scale =
+argument|; }  QTransform QPdfEnginePrivate::pageMatrix() const {     qreal scale =
 literal|72.
 argument|/resolution;     QTransform tmp(scale,
 literal|0.0
@@ -14803,7 +14803,7 @@ argument|,
 literal|0.0
 argument|, -scale,
 literal|0.0
-argument|, height());     if (!fullPage) {         QRect r = pageRect();         tmp.translate(r.left(), r.top());     }     return tmp; }  void QPdfBaseEnginePrivate::newPage() {     if (currentPage&& currentPage->pageSize.isEmpty())         currentPage->pageSize = QSize(width(), height());     writePage();      delete currentPage;     currentPage = new QPdfPage;     currentPage->pageSize = QSize(width(), height());     stroker.stream = currentPage;     pages.append(requestObject());      *currentPage<<
+argument|, height());     if (!fullPage) {         QRect r = pageRect();         tmp.translate(r.left(), r.top());     }     return tmp; }  void QPdfEnginePrivate::newPage() {     if (currentPage&& currentPage->pageSize.isEmpty())         currentPage->pageSize = QSize(width(), height());     writePage();      delete currentPage;     currentPage = new QPdfPage;     currentPage->pageSize = QSize(width(), height());     stroker.stream = currentPage;     pages.append(requestObject());      *currentPage<<
 literal|"/GSa gs /CSp cs /CSp CS\n"
 argument|<< QPdf::generateMatrix(pageMatrix())<<
 literal|"q q\n"

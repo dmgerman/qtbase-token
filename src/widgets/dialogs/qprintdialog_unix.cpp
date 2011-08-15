@@ -110,7 +110,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qpdf_p.h>
+file|<private/qprintengine_pdf_p.h>
 end_include
 begin_else
 else|#
