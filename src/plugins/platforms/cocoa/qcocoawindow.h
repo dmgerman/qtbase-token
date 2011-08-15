@@ -38,11 +38,19 @@ include|#
 directive|include
 file|"qnsview.h"
 end_include
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
+expr|@
+name|interface
+name|QNSWindow
+operator|:
+name|NSWindow
+block|{  }
+expr|@
+name|end
 name|class
 name|QCocoaWindow
-range|:
+operator|:
 name|public
 name|QPlatformWindow
 block|{
@@ -136,7 +144,7 @@ name|void
 name|determineWindowClass
 argument_list|()
 block|;
-name|NSWindow
+name|QNSWindow
 operator|*
 name|createWindow
 argument_list|()
@@ -165,7 +173,7 @@ name|friend
 name|class
 name|QCocoaBackingStore
 block|;
-name|NSWindow
+name|QNSWindow
 operator|*
 name|m_nsWindow
 block|;
@@ -187,8 +195,8 @@ name|QCocoaGLContext
 operator|*
 name|m_glContext
 block|; }
-decl_stmt|;
-end_decl_stmt
+expr_stmt|;
+end_expr_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
