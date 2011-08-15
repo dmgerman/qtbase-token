@@ -178,6 +178,27 @@ argument_list|(
 argument|unsigned long time = ULONG_MAX
 argument_list|)
 block|;
+specifier|static
+name|void
+name|sleep
+argument_list|(
+argument|unsigned long
+argument_list|)
+block|;
+specifier|static
+name|void
+name|msleep
+argument_list|(
+argument|unsigned long
+argument_list|)
+block|;
+specifier|static
+name|void
+name|usleep
+argument_list|(
+argument|unsigned long
+argument_list|)
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
@@ -208,27 +229,6 @@ name|void
 name|setTerminationEnabled
 argument_list|(
 argument|bool enabled = true
-argument_list|)
-block|;
-specifier|static
-name|void
-name|sleep
-argument_list|(
-argument|unsigned long
-argument_list|)
-block|;
-specifier|static
-name|void
-name|msleep
-argument_list|(
-argument|unsigned long
-argument_list|)
-block|;
-specifier|static
-name|void
-name|usleep
-argument_list|(
-argument|unsigned long
 argument_list|)
 block|;
 name|protected
