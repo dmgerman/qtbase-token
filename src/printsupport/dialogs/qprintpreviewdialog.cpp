@@ -55,12 +55,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qpagesetupdialog.h>
+file|<QtPrintSupport/qpagesetupdialog.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qprinter.h>
+file|<QtPrintSupport/qprinter.h>
 end_include
 begin_include
 include|#

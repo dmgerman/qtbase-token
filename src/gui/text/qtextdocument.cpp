@@ -80,11 +80,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qprinter.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<qfile.h>
 end_include
 begin_include
@@ -111,11 +106,6 @@ begin_include
 include|#
 directive|include
 file|"qtextdocument_p.h"
-end_include
-begin_include
-include|#
-directive|include
-file|<private/qprinter_p.h>
 end_include
 begin_include
 include|#

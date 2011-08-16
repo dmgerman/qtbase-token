@@ -85,11 +85,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qprinter.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qtextdocumentwriter.h"
 end_include
 begin_include

@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformPrinterSupport>
+file|<QtPrintSupport/QPlatformPrinterSupport>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPrinterInfo>
+file|<QtPrintSupport/QPrinterInfo>
 end_include
 begin_include
 include|#

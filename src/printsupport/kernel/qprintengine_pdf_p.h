@@ -46,7 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"QtGui/qprintengine.h"
+file|"QtPrintSupport/qprintengine.h"
 end_include
 begin_ifndef
 ifndef|#

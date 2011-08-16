@@ -40,7 +40,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qprinter.h>
+file|<QtPrintSupport/qprinter.h>
 end_include
 begin_include
 include|#

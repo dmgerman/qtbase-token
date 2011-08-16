@@ -55,7 +55,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qprinter.h>
+file|<QtPrintSupport/qprinter.h>
 end_include
 begin_include
 include|#
@@ -65,7 +65,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qfscompleter_p.h"
+file|"private/qfscompleter_p.h"
 end_include
 begin_include
 include|#

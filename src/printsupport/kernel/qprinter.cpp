@@ -74,7 +74,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformPrinterSupport>
+file|<QtPrintSupport/QPlatformPrinterSupport>
 end_include
 begin_if
 if|#
