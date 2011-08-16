@@ -48,11 +48,6 @@ include|#
 directive|include
 file|"private/qfontengine_p.h"
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTER
-end_ifndef
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -125,16 +120,6 @@ decl_stmt|;
 block|}
 name|QByteArray
 name|toTruetype
-argument_list|()
-specifier|const
-expr_stmt|;
-name|QByteArray
-name|toType1
-argument_list|()
-specifier|const
-expr_stmt|;
-name|QByteArray
-name|type1AddedGlyphs
 argument_list|()
 specifier|const
 expr_stmt|;
@@ -247,13 +232,6 @@ end_empty_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_PRINTER
-end_comment
 begin_endif
 endif|#
 directive|endif
