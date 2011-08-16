@@ -11881,14 +11881,6 @@ argument_list|(
 name|QGL2PaintEngineEx
 argument_list|)
 expr_stmt|;
-name|QGLContext
-modifier|*
-name|ctx
-init|=
-name|d
-operator|->
-name|ctx
-decl_stmt|;
 name|glUseProgram
 argument_list|(
 literal|0
@@ -11908,29 +11900,6 @@ operator|->
 name|endPaint
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_X11
-argument_list|)
-comment|// On some (probably all) drivers, deleting an X pixmap which has been bound to a texture
-comment|// before calling glFinish/swapBuffers renders garbage. Presumably this is because X deletes
-comment|// the pixmap behind the driver's back before it's had a chance to use it. To fix this, we
-comment|// reference all QPixmaps which have been bound to stop them being deleted and only deref
-comment|// them here, after swapBuffers, where they can be safely deleted.
-name|ctx
-operator|->
-name|d_func
-argument_list|()
-operator|->
-name|boundPixmaps
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 name|d
 operator|->
 name|ctx

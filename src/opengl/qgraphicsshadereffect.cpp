@@ -7,15 +7,6 @@ include|#
 directive|include
 file|"qgraphicsshadereffect_p.h"
 end_include
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_1
-argument_list|)
-end_if
 begin_include
 include|#
 directive|include
@@ -33,10 +24,6 @@ directive|define
 name|QGL_HAVE_CUSTOM_SHADERS
 value|1
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include

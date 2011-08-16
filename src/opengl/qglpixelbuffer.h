@@ -175,66 +175,6 @@ argument_list|,
 argument|GLenum textureTarget = GL_TEXTURE_2D
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|Q_MAC_COMPAT_GL_FUNCTIONS
-name|bool
-name|bindToDynamicTexture
-argument_list|(
-argument|QMacCompatGLuint texture
-argument_list|)
-block|;
-name|void
-name|updateDynamicTexture
-argument_list|(
-argument|QMacCompatGLuint texture_id
-argument_list|)
-specifier|const
-block|;
-name|GLuint
-name|bindTexture
-argument_list|(
-argument|const QImage&image
-argument_list|,
-argument|QMacCompatGLenum target = GL_TEXTURE_2D
-argument_list|)
-block|;
-name|GLuint
-name|bindTexture
-argument_list|(
-argument|const QPixmap&pixmap
-argument_list|,
-argument|QMacCompatGLenum target = GL_TEXTURE_2D
-argument_list|)
-block|;
-name|void
-name|drawTexture
-argument_list|(
-argument|const QRectF&target
-argument_list|,
-argument|QMacCompatGLuint textureId
-argument_list|,
-argument|QMacCompatGLenum textureTarget = GL_TEXTURE_2D
-argument_list|)
-block|;
-name|void
-name|drawTexture
-argument_list|(
-argument|const QPointF&point
-argument_list|,
-argument|QMacCompatGLuint textureId
-argument_list|,
-argument|QMacCompatGLenum textureTarget = GL_TEXTURE_2D
-argument_list|)
-block|;
-name|void
-name|deleteTexture
-argument_list|(
-argument|QMacCompatGLuint texture_id
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|QSize
 name|size
 argument_list|()

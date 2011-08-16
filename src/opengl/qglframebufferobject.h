@@ -166,51 +166,6 @@ argument_list|,
 argument|const QGLFramebufferObjectFormat&format
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|Q_MAC_COMPAT_GL_FUNCTIONS
-name|QGLFramebufferObject
-argument_list|(
-argument|const QSize&size
-argument_list|,
-argument|QMacCompatGLenum target = GL_TEXTURE_2D
-argument_list|)
-block|;
-name|QGLFramebufferObject
-argument_list|(
-argument|int width
-argument_list|,
-argument|int height
-argument_list|,
-argument|QMacCompatGLenum target = GL_TEXTURE_2D
-argument_list|)
-block|;
-name|QGLFramebufferObject
-argument_list|(
-argument|const QSize&size
-argument_list|,
-argument|Attachment attachment
-argument_list|,
-argument|QMacCompatGLenum target = GL_TEXTURE_2D
-argument_list|,
-argument|QMacCompatGLenum internal_format = GL_RGBA8
-argument_list|)
-block|;
-name|QGLFramebufferObject
-argument_list|(
-argument|int width
-argument_list|,
-argument|int height
-argument_list|,
-argument|Attachment attachment
-argument_list|,
-argument|QMacCompatGLenum target = GL_TEXTURE_2D
-argument_list|,
-argument|QMacCompatGLenum internal_format = GL_RGBA8
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|virtual
 operator|~
 name|QGLFramebufferObject
@@ -300,31 +255,6 @@ argument_list|,
 argument|GLenum textureTarget = GL_TEXTURE_2D
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|Q_MAC_COMPAT_GL_FUNCTIONS
-name|void
-name|drawTexture
-argument_list|(
-argument|const QRectF&target
-argument_list|,
-argument|QMacCompatGLuint textureId
-argument_list|,
-argument|QMacCompatGLenum textureTarget = GL_TEXTURE_2D
-argument_list|)
-block|;
-name|void
-name|drawTexture
-argument_list|(
-argument|const QPointF&point
-argument_list|,
-argument|QMacCompatGLuint textureId
-argument_list|,
-argument|QMacCompatGLenum textureTarget = GL_TEXTURE_2D
-argument_list|)
-block|;
-endif|#
-directive|endif
 specifier|static
 name|bool
 name|hasOpenGLFramebufferBlit
@@ -492,25 +422,6 @@ name|internalTextureFormat
 argument_list|()
 specifier|const
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_MAC_COMPAT_GL_FUNCTIONS
-name|void
-name|setTextureTarget
-parameter_list|(
-name|QMacCompatGLenum
-name|target
-parameter_list|)
-function_decl|;
-name|void
-name|setInternalTextureFormat
-parameter_list|(
-name|QMacCompatGLenum
-name|internalTextureFormat
-parameter_list|)
-function_decl|;
-endif|#
-directive|endif
 name|bool
 name|operator
 operator|==
