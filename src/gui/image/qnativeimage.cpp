@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qcolormap.h"
+file|"private/qguiapplication_p.h"
 end_include
 begin_include
 include|#
@@ -529,11 +529,11 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|QColormap
+name|QGuiApplication
 operator|::
-name|instance
+name|primaryScreen
 argument_list|()
-operator|.
+operator|->
 name|depth
 argument_list|()
 operator|==

@@ -30,11 +30,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qcolormap.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qimage.h"
 end_include
 begin_include
