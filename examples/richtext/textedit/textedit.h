@@ -65,6 +65,12 @@ argument_list|(
 argument|QMenu
 argument_list|)
 end_macro
+begin_macro
+name|QT_FORWARD_DECLARE_CLASS
+argument_list|(
+argument|QPrinter
+argument_list|)
+end_macro
 begin_decl_stmt
 name|class
 name|TextEdit

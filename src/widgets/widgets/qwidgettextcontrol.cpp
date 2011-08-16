@@ -13403,9 +13403,6 @@ name|printer
 parameter_list|)
 specifier|const
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTER
 name|Q_D
 argument_list|(
 specifier|const
@@ -13578,8 +13575,6 @@ expr_stmt|;
 operator|delete
 name|tempDoc
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 endif|#
 directive|endif

@@ -19,6 +19,12 @@ directive|include
 file|<QTableView>
 end_include
 begin_decl_stmt
+DECL|variable|QPrinter
+name|class
+name|QPrinter
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|PrintView
 range|:
