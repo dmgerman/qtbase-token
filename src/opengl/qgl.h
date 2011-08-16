@@ -1521,10 +1521,6 @@ name|QGLContextGroup
 decl_stmt|;
 name|friend
 name|class
-name|QGLSharedResourceGuard
-decl_stmt|;
-name|friend
-name|class
 name|QGLPixmapBlurFilter
 decl_stmt|;
 name|friend

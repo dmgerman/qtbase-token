@@ -11,7 +11,7 @@ begin_comment
 comment|/*!     \class QPlatformGLContext     \since 4.8     \internal     \preliminary     \ingroup qpa      \brief The QPlatformGLContext class provides an abstraction for native GL contexts.      In QPA the way to support OpenGL or OpenVG or other technologies that requires a native GL     context is through the QPlatformGLContext wrapper.      There is no factory function for QPlatformGLContexts, but rather only one accessor function.     The only place to retrieve a QPlatformGLContext from is through a QPlatformWindow.      The context which is current for a specific thread can be collected by the currentContext()     function. This is how QPlatformGLContext also makes it possible to use the QtOpenGL module     withhout using QGLWidget. When using QGLContext::currentContext(), it will ask     QPlatformGLContext for the currentContext. Then a corresponding QGLContext will be returned,     which maps to the QPlatformGLContext. */
 end_comment
 begin_comment
-comment|/*! \fn void QPlatformGLContext::swapBuffers()     Reimplement in subclass to native swap buffers calls */
+comment|/*! \fn void QPlatformGLContext::swapBuffers()     Reimplement in subclass to native swap buffers calls      The implementation must support being called in a thread different than the gui-thread. */
 end_comment
 begin_comment
 comment|/*! \fn void *QPlatformGLContext::getProcAddress(const QString&procName)     Reimplement in subclass to native getProcAddr calls.      Note: its convenient to use qPrintable(const QString&str) to get the const char * pointer */

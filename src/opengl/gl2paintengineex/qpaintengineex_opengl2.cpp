@@ -8940,7 +8940,7 @@ name|glyphType
 operator|||
 name|cache
 operator|->
-name|context
+name|contextGroup
 argument_list|()
 operator|==
 literal|0
@@ -8951,8 +8951,6 @@ operator|=
 operator|new
 name|QGLTextureGlyphCache
 argument_list|(
-name|ctx
-argument_list|,
 name|glyphType
 argument_list|,
 name|QTransform
@@ -8967,15 +8965,6 @@ operator|->
 name|setGlyphCache
 argument_list|(
 name|cacheKey
-argument_list|,
-name|cache
-argument_list|)
-expr_stmt|;
-name|cache
-operator|->
-name|insert
-argument_list|(
-name|ctx
 argument_list|,
 name|cache
 argument_list|)
