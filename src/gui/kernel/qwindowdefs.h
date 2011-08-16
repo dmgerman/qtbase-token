@@ -174,12 +174,6 @@ name|QPicture
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QPrinter
-name|class
-name|QPrinter
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QTimer
 name|class
 name|QTimer

@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qprintengine_pdf_p.h"
+file|"private/qpdf_p.h"
 end_include
 begin_include
 include|#
@@ -41,12 +41,8 @@ block|{
 name|engine
 operator|=
 operator|new
-name|QPdfPrintEngine
-argument_list|(
-name|QPrinter
-operator|::
-name|HighResolution
-argument_list|)
+name|QPdfEngine
+argument_list|()
 expr_stmt|;
 name|output
 operator|=
@@ -66,7 +62,7 @@ name|output
 expr_stmt|;
 block|}
 DECL|member|engine
-name|QPdfPrintEngine
+name|QPdfEngine
 modifier|*
 name|engine
 decl_stmt|;
@@ -106,12 +102,8 @@ name|d
 operator|->
 name|engine
 operator|->
-name|setProperty
+name|setOutputFilename
 argument_list|(
-name|QPrintEngine
-operator|::
-name|PPK_OutputFileName
-argument_list|,
 name|filename
 argument_list|)
 expr_stmt|;
