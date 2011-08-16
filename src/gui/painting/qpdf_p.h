@@ -66,7 +66,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qpaintengine_alpha_p.h"
+file|"private/qpaintengine_p.h"
 end_include
 begin_include
 include|#
@@ -537,7 +537,7 @@ name|class
 name|QPdfEngine
 range|:
 name|public
-name|QAlphaPaintEngine
+name|QPaintEngine
 block|{
 name|Q_DECLARE_PRIVATE
 argument_list|(
@@ -753,7 +753,7 @@ name|class
 name|QPdfEnginePrivate
 range|:
 name|public
-name|QAlphaPaintEnginePrivate
+name|QPaintEnginePrivate
 block|{
 name|Q_DECLARE_PUBLIC
 argument_list|(
@@ -952,9 +952,6 @@ name|simplePen
 block|;
 name|qreal
 name|opacity
-block|;
-name|bool
-name|useAlphaEngine
 block|;
 name|QHash
 operator|<
