@@ -247,24 +247,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      Returns the platform's printing support.      \since 5.0 */
-end_comment
-begin_function
-DECL|function|printerSupport
-name|QPlatformPrinterSupport
-modifier|*
-name|QPlatformIntegration
-operator|::
-name|printerSupport
-parameter_list|()
-specifier|const
-block|{
-return|return
-literal|0
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!   Returns the platforms input context.    The default implementation returns 0, implying no input method support. */
 end_comment
 begin_function

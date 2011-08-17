@@ -114,12 +114,6 @@ name|nativeInterface
 argument_list|()
 specifier|const
 block|;
-name|QPlatformPrinterSupport
-operator|*
-name|printerSupport
-argument_list|()
-specifier|const
-block|;
 name|QPlatformClipboard
 operator|*
 name|clipboard
@@ -154,10 +148,6 @@ block|;
 name|QPlatformNativeInterface
 operator|*
 name|m_nativeInterface
-block|;
-name|QPlatformPrinterSupport
-operator|*
-name|m_printerSupport
 block|;
 name|QPlatformInputContext
 operator|*

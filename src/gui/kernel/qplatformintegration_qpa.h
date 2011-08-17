@@ -58,10 +58,6 @@ DECL|variable|QPlatformNativeInterface
 name|class
 name|QPlatformNativeInterface
 decl_stmt|;
-DECL|variable|QPlatformPrinterSupport
-name|class
-name|QPlatformPrinterSupport
-decl_stmt|;
 DECL|variable|QPlatformDrag
 name|class
 name|QPlatformDrag
@@ -250,15 +246,6 @@ name|virtual
 name|QPlatformNativeInterface
 operator|*
 name|nativeInterface
-argument_list|()
-specifier|const
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|virtual
-name|QPlatformPrinterSupport
-operator|*
-name|printerSupport
 argument_list|()
 specifier|const
 expr_stmt|;
