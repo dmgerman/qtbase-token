@@ -1886,20 +1886,9 @@ decl_stmt|;
 name|HICON
 name|hIcon
 init|=
-name|wizard
-operator|->
-name|windowIcon
-argument_list|()
-operator|.
-name|pixmap
-argument_list|(
-name|iconSize
-argument_list|()
-argument_list|)
-operator|.
-name|toWinHICON
-argument_list|()
+literal|0
 decl_stmt|;
+comment|//###FIXME wizard->windowIcon().pixmap(iconSize()).toWinHICON();
 name|DrawIconEx
 argument_list|(
 name|hdc

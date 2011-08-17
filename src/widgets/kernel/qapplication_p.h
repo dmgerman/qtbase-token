@@ -2476,14 +2476,10 @@ name|QWindow
 operator|*
 name|window
 operator|=
-name|qobject_cast
-operator|<
-name|QWindow
-operator|*
-operator|>
-operator|(
 name|widget
-operator|)
+operator|->
+name|windowHandle
+argument_list|()
 block|;
 return|return
 name|static_cast
