@@ -259,16 +259,6 @@ begin_decl_stmt
 name|namespace
 name|QGL
 block|{
-name|Q_OPENGL_EXPORT
-name|void
-name|setPreferredPaintEngine
-argument_list|(
-name|QPaintEngine
-operator|::
-name|Type
-name|engineType
-argument_list|)
-decl_stmt|;
 enum|enum
 name|FormatOption
 block|{
