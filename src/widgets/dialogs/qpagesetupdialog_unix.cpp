@@ -2482,7 +2482,7 @@ name|ps
 operator|<
 name|QPrinter
 operator|::
-name|NPaperSize
+name|NPageSize
 condition|;
 operator|++
 name|ps

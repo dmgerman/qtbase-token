@@ -426,7 +426,9 @@ name|QSizeF
 name|customPaperSize
 block|;
 comment|// in postscript points
-block|}
+name|int
+name|fd
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro

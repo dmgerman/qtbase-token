@@ -527,6 +527,12 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPdfWriter
+name|class
+name|QPdfWriter
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QPdfEnginePrivate
 name|class
 name|QPdfEnginePrivate
@@ -543,6 +549,10 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QPdfEngine
 argument_list|)
+name|friend
+name|class
+name|QPdfWriter
+block|;
 name|public
 operator|:
 name|QPdfEngine
@@ -973,8 +983,8 @@ name|QIODevice
 operator|*
 name|outDevice
 block|;
-name|int
-name|fd
+name|bool
+name|ownsDevice
 block|;
 comment|// printer options
 name|QString
