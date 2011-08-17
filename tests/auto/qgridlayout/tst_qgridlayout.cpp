@@ -4010,12 +4010,6 @@ operator|.
 name|totalMinimumSize
 argument_list|()
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
 if|if
 condition|(
 name|topsize
@@ -4045,8 +4039,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 comment|// We are relying on the order here...
 for|for
 control|(
