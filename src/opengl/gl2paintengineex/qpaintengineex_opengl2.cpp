@@ -11881,6 +11881,14 @@ argument_list|(
 name|QGL2PaintEngineEx
 argument_list|)
 expr_stmt|;
+name|QGLContext
+modifier|*
+name|ctx
+init|=
+name|d
+operator|->
+name|ctx
+decl_stmt|;
 name|glUseProgram
 argument_list|(
 literal|0
@@ -11900,8 +11908,6 @@ operator|->
 name|endPaint
 argument_list|()
 expr_stmt|;
-name|d
-operator|->
 name|ctx
 operator|->
 name|d_ptr

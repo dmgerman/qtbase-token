@@ -12543,22 +12543,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// this changes what paintEngine() returns
-name|qgl_engine_selector
-argument_list|()
-operator|->
-name|setPreferredPaintEngine
-argument_list|(
-name|QPaintEngine
-operator|::
-name|OpenGL
-argument_list|)
-expr_stmt|;
-name|engine
-operator|=
-name|paintEngine
-argument_list|()
-expr_stmt|;
 name|QPainter
 modifier|*
 name|p
@@ -13049,22 +13033,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// this changes what paintEngine() returns
-name|qgl_engine_selector
-argument_list|()
-operator|->
-name|setPreferredPaintEngine
-argument_list|(
-name|QPaintEngine
-operator|::
-name|OpenGL
-argument_list|)
-expr_stmt|;
-name|engine
-operator|=
-name|paintEngine
-argument_list|()
-expr_stmt|;
 name|QPainter
 modifier|*
 name|p
