@@ -13591,6 +13591,23 @@ parameter_list|)
 block|{ }
 end_function
 begin_function
+DECL|function|queryKeyboardModifiers
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|QApplication
+operator|::
+name|queryKeyboardModifiers
+parameter_list|()
+block|{
+return|return
+name|keyboardModifiers
+argument_list|()
+return|;
+comment|// TODO proper implementation
+block|}
+end_function
+begin_function
 DECL|function|qwsProcessEvent
 name|int
 name|QApplication

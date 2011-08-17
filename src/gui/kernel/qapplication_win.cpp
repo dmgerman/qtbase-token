@@ -7859,6 +7859,22 @@ name|modifiers
 return|;
 block|}
 end_function
+begin_function
+DECL|function|queryKeyboardModifiers
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|QApplication
+operator|::
+name|queryKeyboardModifiers
+parameter_list|()
+block|{
+return|return
+name|qt_win_getKeyboardModifiers
+argument_list|()
+return|;
+block|}
+end_function
 begin_comment
 comment|/*****************************************************************************   Routines to find a Qt widget from a screen position  *****************************************************************************/
 end_comment
