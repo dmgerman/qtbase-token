@@ -573,18 +573,13 @@ argument_list|(
 argument|bool enabled
 argument_list|)
 block|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTER
 name|void
 name|print
 argument_list|(
-argument|QPrinter *printer
+argument|QPagedPaintDevice *printer
 argument_list|)
 specifier|const
 block|;
-endif|#
-directive|endif
 name|virtual
 name|int
 name|hitTest

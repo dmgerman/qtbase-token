@@ -89,6 +89,12 @@ name|QMimeData
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPagedPaintDevice
+name|class
+name|QPagedPaintDevice
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_WIDGETS_EXPORT
 name|QPlainTextEdit
@@ -574,18 +580,13 @@ name|canPaste
 argument_list|()
 specifier|const
 block|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTER
 name|void
 name|print
 argument_list|(
-argument|QPrinter *printer
+argument|QPagedPaintDevice *printer
 argument_list|)
 specifier|const
 block|;
-endif|#
-directive|endif
 name|int
 name|blockCount
 argument_list|()
