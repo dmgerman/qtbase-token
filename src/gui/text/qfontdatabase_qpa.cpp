@@ -1517,6 +1517,9 @@ name|i
 init|=
 literal|0
 init|;
+operator|!
+name|engine
+operator|&&
 name|i
 operator|<
 name|fallbacks
@@ -1661,7 +1664,6 @@ operator|->
 name|fontDef
 argument_list|)
 expr_stmt|;
-break|break;
 block|}
 block|}
 block|}
