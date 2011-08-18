@@ -120,6 +120,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"private/qpagedpaintdevice_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<limits.h>
 end_include
 begin_function_decl
@@ -5216,9 +5221,6 @@ operator|!
 name|printer
 condition|)
 return|return;
-comment|// ###
-comment|//    if (!d->title.isEmpty())
-comment|//        printer->setDocName(d->title);
 name|bool
 name|documentPaginated
 init|=
@@ -5246,9 +5248,85 @@ argument_list|()
 operator|!=
 name|INT_MAX
 decl_stmt|;
+name|QPagedPaintDevicePrivate
+modifier|*
+name|pd
+init|=
+name|QPagedPaintDevicePrivate
+operator|::
+name|get
+argument_list|(
+name|printer
+argument_list|)
+decl_stmt|;
 comment|// ### set page size to paginated size?
-comment|//    if (!documentPaginated&& !printer->fullPage()&& !printer->d_func()->hasCustomPageMargins)
-comment|//        printer->setPageMargins(23.53, 23.53, 23.53, 23.53, QPrinter::Millimeter);
+name|QPagedPaintDevice
+operator|::
+name|Margins
+name|m
+init|=
+name|printer
+operator|->
+name|margins
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|documentPaginated
+operator|&&
+name|m
+operator|.
+name|left
+operator|==
+literal|0.
+operator|&&
+name|m
+operator|.
+name|right
+operator|==
+literal|0.
+operator|&&
+name|m
+operator|.
+name|top
+operator|==
+literal|0.
+operator|&&
+name|m
+operator|.
+name|bottom
+operator|==
+literal|0.
+condition|)
+block|{
+name|m
+operator|.
+name|left
+operator|=
+name|m
+operator|.
+name|right
+operator|=
+name|m
+operator|.
+name|top
+operator|=
+name|m
+operator|.
+name|bottom
+operator|=
+literal|2.
+expr_stmt|;
+name|printer
+operator|->
+name|setMargins
+argument_list|(
+name|m
+argument_list|)
+expr_stmt|;
+block|}
+comment|// ### use the margins correctly
 name|QPainter
 name|p
 argument_list|(
@@ -5708,15 +5786,17 @@ block|}
 name|int
 name|fromPage
 init|=
-literal|0
+name|pd
+operator|->
+name|fromPage
 decl_stmt|;
 name|int
 name|toPage
 init|=
-literal|0
+name|pd
+operator|->
+name|toPage
 decl_stmt|;
-comment|//    int fromPage = printer->fromPage();
-comment|//    int toPage = printer->toPage();
 name|bool
 name|ascending
 init|=

@@ -116,6 +116,15 @@ modifier|&
 name|size
 parameter_list|)
 function_decl|;
+name|void
+name|setMargins
+parameter_list|(
+specifier|const
+name|Margins
+modifier|&
+name|m
+parameter_list|)
+function_decl|;
 name|protected
 label|:
 name|QPaintEngine

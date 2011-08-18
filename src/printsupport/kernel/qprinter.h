@@ -943,6 +943,17 @@ expr_stmt|;
 end_expr_stmt
 begin_function_decl
 name|void
+name|setMargins
+parameter_list|(
+specifier|const
+name|Margins
+modifier|&
+name|m
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
 name|setPageMargins
 parameter_list|(
 name|qreal
