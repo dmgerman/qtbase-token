@@ -368,6 +368,20 @@ name|height
 argument_list|()
 argument_list|)
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_WS_QPA
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-20863 QPixmap::grabWindow unimplemented for qpa"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|pixmap
