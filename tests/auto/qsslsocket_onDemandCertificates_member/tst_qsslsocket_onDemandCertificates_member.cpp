@@ -720,6 +720,15 @@ argument_list|,
 literal|443
 argument_list|)
 expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-20983 fails"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
 name|QVERIFY2
 argument_list|(
 name|socket
