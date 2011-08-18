@@ -1320,6 +1320,15 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-20982 fails"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|writeSpy
@@ -1488,15 +1497,8 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WIN
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QSocketNotifier: Internal error"
-argument_list|)
-expr_stmt|;
+comment|// FIXME QTBUG-20982: this fails, and ignoreMessage can't be skipped or QEXPECT_FAILed
+comment|// QTest::ignoreMessage(QtWarningMsg, "QSocketNotifier: Internal error");
 endif|#
 directive|endif
 name|QSocketNotifier
@@ -1520,15 +1522,8 @@ decl_stmt|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WIN
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QSocketNotifier: Internal error"
-argument_list|)
-expr_stmt|;
+comment|// FIXME QTBUG-20982: this fails, and ignoreMessage can't be skipped or QEXPECT_FAILed
+comment|// QTest::ignoreMessage(QtWarningMsg, "QSocketNotifier: Internal error");
 endif|#
 directive|endif
 comment|//bogus magic number is the first pseudo socket descriptor from symbian socket engine.
