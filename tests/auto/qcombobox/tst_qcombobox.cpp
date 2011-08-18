@@ -16132,6 +16132,20 @@ argument_list|(
 name|selection
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_WS_QPA
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-20753 QCursor::setPos doesn't work for qpa"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|//since we moved the mouse is in the middle it should even be around 5;
 name|QVERIFY
 argument_list|(
