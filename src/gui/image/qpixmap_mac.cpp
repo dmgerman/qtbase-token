@@ -4859,6 +4859,15 @@ expr_stmt|;
 comment|// and destroy the context
 block|}
 end_function
+begin_if
+if|#
+directive|if
+operator|(
+name|MAC_OS_X_VERSION_MAX_ALLOWED
+operator|>=
+name|MAC_OS_X_VERSION_10_6
+operator|)
+end_if
 begin_comment
 comment|// Returns a pixmap containing the screen contents at rect.
 end_comment
@@ -5095,6 +5104,10 @@ name|windowPixmap
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|qt_mac_grabScreenRect
 specifier|static
@@ -5720,8 +5733,15 @@ decl_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_MAC_USE_COCOA
-return|return
+if|#
+directive|if
 operator|(
+name|MAC_OS_X_VERSION_MAX_ALLOWED
+operator|>=
+name|MAC_OS_X_VERSION_10_6
+operator|)
+if|if
+condition|(
 name|QSysInfo
 operator|::
 name|MacintoshVersion
@@ -5729,13 +5749,17 @@ operator|>=
 name|QSysInfo
 operator|::
 name|MV_10_6
-operator|)
-condition|?
+condition|)
+return|return
 name|qt_mac_grabScreenRect_10_6
 argument_list|(
 name|rect
 argument_list|)
-else|:
+return|;
+else|else
+endif|#
+directive|endif
+return|return
 name|qt_mac_grabScreenRect
 argument_list|(
 name|rect
