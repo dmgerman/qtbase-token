@@ -48,7 +48,7 @@ name|class
 name|QColormapPrivate
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|QColormap
 decl_stmt|{ public:     enum Mode
 block|{

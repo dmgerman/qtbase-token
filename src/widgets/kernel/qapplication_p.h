@@ -2487,8 +2487,6 @@ operator|<
 name|HWND
 operator|>
 operator|(
-literal|"handle"
-expr|,
 name|QGuiApplication
 operator|::
 name|platformNativeInterface
