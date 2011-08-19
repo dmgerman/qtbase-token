@@ -972,7 +972,7 @@ condition|(
 name|d
 operator|->
 name|blueBufferSize
-operator|=
+operator|!=
 name|size
 condition|)
 block|{
