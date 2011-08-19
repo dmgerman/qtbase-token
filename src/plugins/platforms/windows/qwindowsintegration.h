@@ -127,13 +127,6 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
-name|QPlatformPrinterSupport
-operator|*
-name|printerSupport
-argument_list|()
-specifier|const
-block|;
-name|virtual
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase

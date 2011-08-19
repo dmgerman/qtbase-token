@@ -194,7 +194,7 @@ decl_stmt|;
 comment|// in postscript points
 block|}
 struct|;
-name|Q_GUI_EXPORT
+name|Q_PRINTSUPPORT_EXPORT
 name|PaperSize
 name|paperSize
 argument_list|(
@@ -204,7 +204,7 @@ name|PaperSize
 name|paperSize
 argument_list|)
 decl_stmt|;
-name|Q_GUI_EXPORT
+name|Q_PRINTSUPPORT_EXPORT
 specifier|const
 name|char
 modifier|*

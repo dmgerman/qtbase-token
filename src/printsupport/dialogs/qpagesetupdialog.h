@@ -34,7 +34,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_PRINTSUPPORT_EXPORT
 name|QPageSetupDialog
 range|:
 name|public

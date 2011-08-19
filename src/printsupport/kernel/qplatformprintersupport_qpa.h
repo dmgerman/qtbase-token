@@ -32,7 +32,7 @@ name|class
 name|QPrintEngine
 decl_stmt|;
 name|class
-name|Q_GUI_EXPORT
+name|Q_PRINTSUPPORT_EXPORT
 name|QPlatformPrinterSupport
 decl_stmt|{ public:     QPlatformPrinterSupport(
 end_function

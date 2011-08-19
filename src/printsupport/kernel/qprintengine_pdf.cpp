@@ -74,6 +74,23 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
+begin_include
+include|#
+directive|include
+file|<io.h>
+end_include
+begin_comment
+comment|// _close.
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 comment|//#define FONT_DUMP

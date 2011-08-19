@@ -43,7 +43,7 @@ comment|// ### Qt 5: remove this class
 end_comment
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_PRINTSUPPORT_EXPORT
 name|QAbstractPrintDialog
 range|:
 name|public

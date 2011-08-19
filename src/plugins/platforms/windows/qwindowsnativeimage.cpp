@@ -15,11 +15,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QColorMap>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtGui/private/qpaintengine_p.h>
 end_include
 begin_include

@@ -35,7 +35,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_PRINTER
 name|class
-name|Q_GUI_EXPORT
+name|Q_PRINTSUPPORT_EXPORT
 name|QPrintEngine
 decl_stmt|{ public:     virtual ~QPrintEngine(
 end_function
