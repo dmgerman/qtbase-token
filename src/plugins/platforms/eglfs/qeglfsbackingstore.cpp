@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformGLContext>
+file|<QtGui/QPlatformOpenGLContext>
 end_include
 begin_include
 include|#
@@ -96,7 +96,7 @@ block|{
 return|return
 name|QGLContext
 operator|::
-name|fromGuiGLContext
+name|fromOpenGLContext
 argument_list|(
 name|m_screen
 operator|->

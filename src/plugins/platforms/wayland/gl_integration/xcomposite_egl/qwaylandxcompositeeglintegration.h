@@ -51,7 +51,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QPlatformGLContext>
+file|<QPlatformOpenGLContext>
 end_include
 begin_include
 include|#
@@ -106,13 +106,13 @@ operator|*
 name|window
 argument_list|)
 block|;
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|*
-name|createPlatformGLContext
+name|createPlatformOpenGLContext
 argument_list|(
 argument|const QSurfaceFormat&glFormat
 argument_list|,
-argument|QPlatformGLContext *share
+argument|QPlatformOpenGLContext *share
 argument_list|)
 specifier|const
 block|;

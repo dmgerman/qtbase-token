@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qpaintengineex_opengl2_p.h>
+file|<gl2paintengineex/qpaintengineex_opengl2_p.h>
 end_include
 begin_include
 include|#
@@ -50,7 +50,6 @@ end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 specifier|extern
-name|Q_OPENGL_EXPORT
 name|QImage
 name|qt_gl_read_framebuffer
 parameter_list|(

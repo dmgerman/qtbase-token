@@ -1359,14 +1359,14 @@ function_decl|;
 specifier|static
 name|QGLContext
 modifier|*
-name|fromGuiGLContext
+name|fromOpenGLContext
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|platformContext
 parameter_list|)
 function_decl|;
-name|QGuiGLContext
+name|QOpenGLContext
 operator|*
 name|contextHandle
 argument_list|()
@@ -1464,7 +1464,7 @@ name|private
 label|:
 name|QGLContext
 argument_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 operator|*
 name|windowContext
 argument_list|)

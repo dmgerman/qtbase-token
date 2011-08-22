@@ -8252,11 +8252,11 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
-argument|QPlatformGLContext
+argument|QPlatformOpenGLContext
 argument_list|,
 argument|QtGui
 argument_list|,
-argument|qplatformglcontext_qpa.h
+argument|qplatformopenglcontext_qpa.h
 argument_list|)
 end_macro
 begin_macro

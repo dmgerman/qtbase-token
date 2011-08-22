@@ -139,7 +139,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<QtGui/QGuiGLContext>
+file|<QtGui/QOpenGLContext>
 end_include
 begin_include
 include|#
@@ -401,7 +401,7 @@ name|QSurfaceFormat
 modifier|&
 name|glFormat
 parameter_list|,
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|share
 parameter_list|,
@@ -452,14 +452,14 @@ endif|#
 directive|endif
 end_endif
 begin_function
-DECL|function|createPlatformGLContext
-name|QPlatformGLContext
+DECL|function|createPlatformOpenGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|QXcbIntegration
 operator|::
-name|createPlatformGLContext
+name|createPlatformOpenGLContext
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 parameter_list|)

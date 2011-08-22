@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGuiGLContext>
+file|<QtGui/QOpenGLContext>
 end_include
 begin_include
 include|#
@@ -255,7 +255,7 @@ name|QSurfaceFormat
 modifier|&
 name|format
 parameter_list|,
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|share
 parameter_list|,
@@ -425,10 +425,10 @@ modifier|*
 name|surface
 parameter_list|)
 block|{
-comment|// #### makeCurrent() directly on the platform context doesn't update QGuiGLContext::currentContext()
+comment|// #### makeCurrent() directly on the platform context doesn't update QOpenGLContext::currentContext()
 if|if
 condition|(
-name|QGuiGLContext
+name|QOpenGLContext
 operator|::
 name|currentContext
 argument_list|()

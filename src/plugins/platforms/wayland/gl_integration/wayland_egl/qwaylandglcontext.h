@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformGLContext>
+file|<QtGui/QPlatformOpenGLContext>
 end_include
 begin_include
 include|#
@@ -45,7 +45,7 @@ name|class
 name|QWaylandGLContext
 range|:
 name|public
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 block|{
 name|public
 operator|:
@@ -55,7 +55,7 @@ argument|EGLDisplay eglDisplay
 argument_list|,
 argument|const QSurfaceFormat&format
 argument_list|,
-argument|QPlatformGLContext *share
+argument|QPlatformOpenGLContext *share
 argument_list|)
 block|;
 operator|~

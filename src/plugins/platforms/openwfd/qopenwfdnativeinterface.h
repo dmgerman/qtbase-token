@@ -61,7 +61,7 @@ name|QByteArray
 operator|&
 name|resourceString
 argument_list|,
-name|QGuiGLContext
+name|QOpenGLContext
 operator|*
 name|context
 argument_list|)
@@ -117,7 +117,7 @@ name|void
 operator|*
 name|eglContextForContext
 argument_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 operator|*
 name|context
 argument_list|)

@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qguiglcontext_qpa.h>
+file|<QtGui/qopenglcontext.h>
 end_include
 begin_include
 include|#
@@ -176,7 +176,7 @@ name|QByteArray
 modifier|&
 name|resourceString
 parameter_list|,
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 parameter_list|)
@@ -645,7 +645,7 @@ name|QXcbNativeInterface
 operator|::
 name|eglContextForContext
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 parameter_list|)
@@ -688,7 +688,7 @@ directive|endif
 if|#
 directive|if
 literal|0
-block|Q_ASSERT(window);     QPlatformGLContext *platformContext = window->glContext()->handle();     if (!platformContext) {         qDebug()<< "QWindow"<< window<< "does not have a glContext"<< "cannot return EGLContext";         return 0;     }
+block|Q_ASSERT(window);     QPlatformOpenGLContext *platformContext = window->glContext()->handle();     if (!platformContext) {         qDebug()<< "QWindow"<< window<< "does not have a glContext"<< "cannot return EGLContext";         return 0;     }
 if|#
 directive|if
 name|defined

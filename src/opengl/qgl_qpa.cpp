@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformGLContext>
+file|<QtGui/QPlatformOpenGLContext>
 end_include
 begin_include
 include|#
@@ -480,7 +480,7 @@ argument_list|(
 name|QGLContext
 argument_list|)
 expr_stmt|;
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|sharedContext
 init|=
@@ -500,7 +500,7 @@ name|actualSharedContext
 init|=
 name|QGLContext
 operator|::
-name|fromGuiGLContext
+name|fromOpenGLContext
 argument_list|(
 name|sharedContext
 argument_list|)
@@ -721,7 +721,7 @@ name|d
 operator|->
 name|guiGlContext
 expr_stmt|;
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|shareGlContext
 init|=
@@ -741,7 +741,7 @@ operator|->
 name|guiGlContext
 operator|=
 operator|new
-name|QGuiGLContext
+name|QOpenGLContext
 expr_stmt|;
 name|d
 operator|->
@@ -1382,7 +1382,7 @@ modifier|*
 name|window
 decl_stmt|;
 DECL|member|context
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 decl_stmt|;
@@ -1476,7 +1476,7 @@ operator|->
 name|context
 operator|=
 operator|new
-name|QGuiGLContext
+name|QOpenGLContext
 expr_stmt|;
 name|d
 operator|->
@@ -1741,7 +1741,7 @@ name|QGLContext
 operator|::
 name|QGLContext
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 parameter_list|)
@@ -1812,7 +1812,7 @@ block|}
 end_constructor
 begin_function
 DECL|function|contextHandle
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|QGLContext
 operator|::
@@ -1837,14 +1837,14 @@ begin_comment
 comment|/*!     Returns a OpenGL context for the window context specified by \a windowContext */
 end_comment
 begin_function
-DECL|function|fromGuiGLContext
+DECL|function|fromOpenGLContext
 name|QGLContext
 modifier|*
 name|QGLContext
 operator|::
-name|fromGuiGLContext
+name|fromOpenGLContext
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 parameter_list|)

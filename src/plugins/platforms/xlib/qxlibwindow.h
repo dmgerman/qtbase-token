@@ -476,7 +476,7 @@ name|GC
 name|createGC
 argument_list|()
 block|;
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|*
 name|mGLContext
 block|;

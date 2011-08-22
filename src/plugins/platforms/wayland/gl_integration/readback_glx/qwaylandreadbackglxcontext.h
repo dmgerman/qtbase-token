@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QPlatformGLContext>
+file|<QPlatformOpenGLContext>
 end_include
 begin_include
 include|#
@@ -50,7 +50,7 @@ name|class
 name|QWaylandReadbackGlxContext
 range|:
 name|public
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 block|{
 name|public
 operator|:
@@ -58,7 +58,7 @@ name|QWaylandReadbackGlxContext
 argument_list|(
 argument|const QSurfaceFormat&format
 argument_list|,
-argument|QPlatformGLContext *share
+argument|QPlatformOpenGLContext *share
 argument_list|,
 argument|Display *display
 argument_list|,

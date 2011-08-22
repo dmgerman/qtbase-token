@@ -277,7 +277,7 @@ name|QSurfaceFormat
 modifier|&
 name|format
 parameter_list|,
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|share
 parameter_list|,
@@ -1013,7 +1013,7 @@ block|}
 end_function
 begin_function
 DECL|function|platformContext
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|QEglFSScreen
 operator|::

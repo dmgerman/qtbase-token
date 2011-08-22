@@ -101,7 +101,7 @@ literal|" -> QGLTextureGlyphCache() %p for context %p."
 argument_list|,
 name|this
 argument_list|,
-name|QGuiGLContext
+name|QOpenGLContext
 operator|::
 name|currentContext
 argument_list|()

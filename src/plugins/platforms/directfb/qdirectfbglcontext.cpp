@@ -159,7 +159,7 @@ operator|::
 name|makeCurrent
 parameter_list|()
 block|{
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|::
 name|makeCurrent
 argument_list|()
@@ -181,7 +181,7 @@ operator|::
 name|doneCurrent
 parameter_list|()
 block|{
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|::
 name|doneCurrent
 argument_list|()

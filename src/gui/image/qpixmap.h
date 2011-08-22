@@ -823,7 +823,7 @@ name|QPainter
 block|;
 name|friend
 name|class
-name|QGLWidget
+name|QOpenGLWidget
 block|;
 name|friend
 name|class

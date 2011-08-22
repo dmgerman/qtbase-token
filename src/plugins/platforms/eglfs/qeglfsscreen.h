@@ -30,9 +30,9 @@ file|<EGL/egl.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QPlatformGLContext
+DECL|variable|QPlatformOpenGLContext
 name|class
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -71,7 +71,7 @@ name|format
 argument_list|()
 specifier|const
 block|;
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|*
 name|platformContext
 argument_list|()
@@ -108,7 +108,7 @@ operator|::
 name|Format
 name|m_format
 block|;
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|*
 name|m_platformContext
 block|;

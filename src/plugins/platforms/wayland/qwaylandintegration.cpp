@@ -70,7 +70,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGuiGLContext>
+file|<QtGui/QOpenGLContext>
 end_include
 begin_ifdef
 ifdef|#
@@ -274,14 +274,14 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|createPlatformGLContext
-name|QPlatformGLContext
+DECL|function|createPlatformOpenGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|QWaylandIntegration
 operator|::
-name|createPlatformGLContext
+name|createPlatformOpenGLContext
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 parameter_list|)
@@ -296,7 +296,7 @@ operator|->
 name|eglIntegration
 argument_list|()
 operator|->
-name|createPlatformGLContext
+name|createPlatformOpenGLContext
 argument_list|(
 name|context
 operator|->

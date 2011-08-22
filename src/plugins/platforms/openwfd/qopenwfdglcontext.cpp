@@ -28,7 +28,7 @@ modifier|*
 name|device
 parameter_list|)
 member_init_list|:
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 argument_list|()
 member_init_list|,
 name|mWfdDevice

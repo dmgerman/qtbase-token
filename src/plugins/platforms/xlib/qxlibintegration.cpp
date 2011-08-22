@@ -186,13 +186,13 @@ block|}
 end_function
 begin_function
 DECL|function|createPlatformGLContext
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|QXlibIntegration
 operator|::
 name|createPlatformGLContext
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 parameter_list|)

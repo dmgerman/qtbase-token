@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/private/qguiglcontext_qpa_p.h"
+file|"QtGui/private/qopenglcontext_p.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
@@ -38,12 +38,12 @@ specifier|public
 name|QGLFunctionsPrivate
 super|,
 specifier|public
-name|QGLSharedResource
+name|QOpenGLSharedResource
 block|{
 DECL|function|QGLFunctionsPrivateEx
 name|QGLFunctionsPrivateEx
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 parameter_list|)
@@ -52,13 +52,13 @@ name|QGLFunctionsPrivate
 argument_list|(
 name|QGLContext
 operator|::
-name|fromGuiGLContext
+name|fromOpenGLContext
 argument_list|(
 name|context
 argument_list|)
 argument_list|)
 member_init_list|,
-name|QGLSharedResource
+name|QOpenGLSharedResource
 argument_list|(
 name|context
 operator|->
@@ -87,7 +87,7 @@ DECL|function|freeResource
 name|void
 name|freeResource
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 parameter_list|)
 block|{
@@ -103,7 +103,7 @@ end_struct
 begin_macro
 name|Q_GLOBAL_STATIC
 argument_list|(
-argument|QGLMultiGroupSharedResource
+argument|QOpenGLMultiGroupSharedResource
 argument_list|,
 argument|qt_gl_functions_resource
 argument_list|)

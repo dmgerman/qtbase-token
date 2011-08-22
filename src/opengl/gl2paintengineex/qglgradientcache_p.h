@@ -63,7 +63,7 @@ name|class
 name|QGL2GradientCache
 range|:
 name|public
-name|QGLSharedResource
+name|QOpenGLSharedResource
 block|{     struct
 name|CacheInfo
 block|{
@@ -133,7 +133,7 @@ end_decl_stmt
 begin_expr_stmt
 name|QGL2GradientCache
 argument_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 operator|*
 argument_list|)
 expr_stmt|;
@@ -180,7 +180,7 @@ begin_function_decl
 name|void
 name|freeResource
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|ctx
 parameter_list|)

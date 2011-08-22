@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformGLContext>
+file|<QtGui/QPlatformOpenGLContext>
 end_include
 begin_include
 include|#
@@ -56,12 +56,12 @@ name|QSurfaceFormat
 modifier|&
 name|format
 parameter_list|,
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|share
 parameter_list|)
 member_init_list|:
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 argument_list|()
 member_init_list|,
 name|m_eglDisplay

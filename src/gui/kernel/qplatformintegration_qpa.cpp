@@ -218,14 +218,14 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|createPlatformGLContext
-name|QPlatformGLContext
+DECL|function|createPlatformOpenGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|QPlatformIntegration
 operator|::
-name|createPlatformGLContext
+name|createPlatformOpenGLContext
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 parameter_list|)
@@ -238,7 +238,7 @@ argument_list|)
 expr_stmt|;
 name|qWarning
 argument_list|(
-literal|"This plugin does not support createPlatformGLContext!"
+literal|"This plugin does not support createPlatformOpenGLContext!"
 argument_list|)
 expr_stmt|;
 return|return

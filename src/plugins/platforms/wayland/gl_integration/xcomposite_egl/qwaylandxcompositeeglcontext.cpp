@@ -38,7 +38,7 @@ name|QSurfaceFormat
 modifier|&
 name|format
 parameter_list|,
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|share
 parameter_list|,

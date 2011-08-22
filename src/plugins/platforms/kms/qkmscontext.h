@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformGLContext>
+file|<QtGui/QPlatformOpenGLContext>
 end_include
 begin_define
 DECL|macro|EGL_EGLEXT_PROTOTYPES
@@ -42,7 +42,7 @@ name|class
 name|QKmsContext
 range|:
 name|public
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 block|{
 name|public
 operator|:

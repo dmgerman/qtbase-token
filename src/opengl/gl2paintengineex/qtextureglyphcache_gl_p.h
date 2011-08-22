@@ -69,12 +69,12 @@ name|QGL2PaintEngineExPrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|struct|QGLSharedResource
+DECL|struct|QOpenGLSharedResource
 name|struct
 name|QGLGlyphTexture
 range|:
 name|public
-name|QGLSharedResource
+name|QOpenGLSharedResource
 block|{
 DECL|function|QGLGlyphTexture
 name|QGLGlyphTexture
@@ -85,7 +85,7 @@ operator|*
 name|ctx
 argument_list|)
 operator|:
-name|QGLSharedResource
+name|QOpenGLSharedResource
 argument_list|(
 name|ctx
 operator|->
@@ -144,7 +144,7 @@ DECL|function|freeResource
 name|void
 name|freeResource
 argument_list|(
-argument|QGuiGLContext *context
+argument|QOpenGLContext *context
 argument_list|)
 block|{
 specifier|const
@@ -154,7 +154,7 @@ name|ctx
 operator|=
 name|QGLContext
 operator|::
-name|fromGuiGLContext
+name|fromOpenGLContext
 argument_list|(
 name|context
 argument_list|)
@@ -451,7 +451,7 @@ name|p
 block|; }
 specifier|inline
 specifier|const
-name|QGuiGLContextGroup
+name|QOpenGLContextGroup
 operator|*
 name|contextGroup
 argument_list|()

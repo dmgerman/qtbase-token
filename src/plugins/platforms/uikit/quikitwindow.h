@@ -407,7 +407,7 @@ operator|*
 name|ensureNativeWindow
 argument_list|()
 block|;
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|*
 name|glContext
 argument_list|()

@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qguiglcontext_qpa_p.h>
+file|<QtGui/private/qopenglcontext_p.h>
 end_include
 begin_if
 if|#
@@ -56,18 +56,18 @@ class|class
 name|QGLEngineSharedShadersResource
 super|:
 specifier|public
-name|QGLSharedResource
+name|QOpenGLSharedResource
 block|{
 public|public:
 DECL|function|QGLEngineSharedShadersResource
 name|QGLEngineSharedShadersResource
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|ctx
 parameter_list|)
 member_init_list|:
-name|QGLSharedResource
+name|QOpenGLSharedResource
 argument_list|(
 name|ctx
 operator|->
@@ -82,7 +82,7 @@ name|QGLEngineSharedShaders
 argument_list|(
 name|QGLContext
 operator|::
-name|fromGuiGLContext
+name|fromOpenGLContext
 argument_list|(
 name|ctx
 argument_list|)
@@ -115,7 +115,7 @@ DECL|function|freeResource
 name|void
 name|freeResource
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 parameter_list|)
 block|{     }
@@ -156,7 +156,7 @@ modifier|*
 name|context
 parameter_list|)
 block|{
-name|QGLMultiGroupSharedResource
+name|QOpenGLMultiGroupSharedResource
 modifier|*
 modifier|&
 name|shaders
@@ -174,7 +174,7 @@ condition|)
 name|shaders
 operator|=
 operator|new
-name|QGLMultiGroupSharedResource
+name|QOpenGLMultiGroupSharedResource
 expr_stmt|;
 name|QGLEngineSharedShadersResource
 modifier|*
@@ -208,7 +208,7 @@ private|private:
 DECL|member|m_storage
 name|QThreadStorage
 argument_list|<
-name|QGLMultiGroupSharedResource
+name|QOpenGLMultiGroupSharedResource
 modifier|*
 argument_list|>
 name|m_storage

@@ -54,7 +54,7 @@ name|QByteArray
 modifier|&
 name|resource
 parameter_list|,
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 parameter_list|)

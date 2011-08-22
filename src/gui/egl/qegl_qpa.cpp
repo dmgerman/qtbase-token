@@ -235,7 +235,7 @@ operator|!
 name|dev
 condition|)
 return|return;
-comment|// Find the QGLScreen for this paint device.
+comment|// Find the QOpenGLScreen for this paint device.
 name|QPlatformScreen
 modifier|*
 name|screen

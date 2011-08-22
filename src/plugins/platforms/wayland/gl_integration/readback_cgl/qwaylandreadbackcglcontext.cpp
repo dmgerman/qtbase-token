@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGuiGLContext>
+file|<QtGui/QOpenGLContext>
 end_include
 begin_include
 include|#
@@ -53,12 +53,12 @@ name|QWaylandReadbackCGLContext
 operator|::
 name|QWaylandReadbackCGLContext
 parameter_list|(
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|share
 parameter_list|)
 member_init_list|:
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 argument_list|()
 block|{
 name|Q_UNUSED
@@ -173,7 +173,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|QGuiGLContext
+name|QOpenGLContext
 operator|::
 name|currentContext
 argument_list|()

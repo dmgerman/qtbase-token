@@ -425,7 +425,7 @@ operator|::
 name|doneCurrent
 parameter_list|()
 block|{
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|::
 name|doneCurrent
 argument_list|()

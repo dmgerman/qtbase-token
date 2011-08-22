@@ -1370,7 +1370,7 @@ end_struct_decl
 begin_decl_stmt
 name|friend
 name|class
-name|QGLContext
+name|QOpenGLContext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

@@ -82,7 +82,7 @@ name|winId
 argument_list|()
 specifier|const
 block|;
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|*
 name|glContext
 argument_list|()

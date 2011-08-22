@@ -472,11 +472,11 @@ argument_list|)
 expr_stmt|;
 comment|//restore the old current context
 specifier|const
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|currentContext
 init|=
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|::
 name|currentContext
 argument_list|()
@@ -487,7 +487,7 @@ name|currentContext
 condition|)
 cast|const_cast
 argument_list|<
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|*
 argument_list|>
 argument_list|(

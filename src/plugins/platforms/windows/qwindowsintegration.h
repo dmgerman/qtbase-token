@@ -83,11 +83,11 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|*
-name|createPlatformGLContext
+name|createPlatformOpenGLContext
 argument_list|(
-argument|QGuiGLContext *context
+argument|QOpenGLContext *context
 argument_list|)
 specifier|const
 block|;

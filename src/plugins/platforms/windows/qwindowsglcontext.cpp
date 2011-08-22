@@ -4396,7 +4396,7 @@ name|QOpenGLStaticContextPtr
 modifier|&
 name|staticContext
 parameter_list|,
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 parameter_list|)
@@ -4683,7 +4683,7 @@ decl_stmt|;
 if|if
 condition|(
 specifier|const
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|sc
 init|=

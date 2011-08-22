@@ -62,9 +62,9 @@ DECL|variable|QPlatformDrag
 name|class
 name|QPlatformDrag
 decl_stmt|;
-DECL|variable|QPlatformGLContext
+DECL|variable|QPlatformOpenGLContext
 name|class
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 decl_stmt|;
 DECL|variable|QGuiGLFormat
 name|class
@@ -160,11 +160,11 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|virtual
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 modifier|*
-name|createPlatformGLContext
+name|createPlatformOpenGLContext
 argument_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 operator|*
 name|context
 argument_list|)

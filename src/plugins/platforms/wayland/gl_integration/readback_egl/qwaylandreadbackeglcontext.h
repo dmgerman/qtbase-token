@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QPlatformGLContext>
+file|<QPlatformOpenGLContext>
 end_include
 begin_include
 include|#
@@ -39,7 +39,7 @@ name|class
 name|QWaylandReadbackEglContext
 range|:
 name|public
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 block|{
 name|public
 operator|:

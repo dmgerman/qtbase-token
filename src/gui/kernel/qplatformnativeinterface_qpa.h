@@ -26,7 +26,7 @@ parameter_list|(
 name|Gui
 parameter_list|)
 name|class
-name|QGuiGLContext
+name|QOpenGLContext
 decl_stmt|;
 DECL|variable|QWindow
 name|class
@@ -41,7 +41,7 @@ name|Q_GUI_EXPORT
 name|QPlatformNativeInterface
 decl_stmt|{ public:     virtual void *nativeResourceForContext(const QByteArray&resource
 operator|,
-decl_stmt|QGuiGLContext *context
+decl_stmt|QOpenGLContext *context
 end_function
 begin_empty_stmt
 unit|)

@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformGLContext>
+file|<QtGui/QPlatformOpenGLContext>
 end_include
 begin_decl_stmt
 DECL|variable|QXcbWindow
@@ -40,7 +40,7 @@ name|class
 name|QDri2Context
 range|:
 name|public
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 block|{
 name|Q_DECLARE_PRIVATE
 argument_list|(

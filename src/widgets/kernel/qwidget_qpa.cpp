@@ -55,7 +55,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qplatformglcontext_qpa.h"
+file|"QtGui/qplatformopenglcontext_qpa.h"
 end_include
 begin_include
 include|#
@@ -4328,7 +4328,7 @@ name|topextra
 condition|)
 block|{
 comment|//the toplevel might have a context with a "qglcontext associated with it. We need to
-comment|//delete the qglcontext before we delete the qplatformglcontext.
+comment|//delete the qglcontext before we delete the qplatformopenglcontext.
 comment|//One unfortunate thing about this is that we potentially create a glContext just to
 comment|//delete it straight afterwards.
 if|if

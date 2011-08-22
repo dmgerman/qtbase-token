@@ -1075,7 +1075,7 @@ block|}
 end_function
 begin_function
 DECL|function|glContext
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|QOpenKODEWindow
 operator|::

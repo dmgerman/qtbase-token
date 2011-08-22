@@ -40,7 +40,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGuiGLContext>
+file|<QtGui/QOpenGLContext>
 end_include
 begin_include
 include|#
@@ -210,14 +210,14 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|createPlatformGLContext
-name|QPlatformGLContext
+DECL|function|createPlatformOpenGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|QEglFSIntegration
 operator|::
-name|createPlatformGLContext
+name|createPlatformOpenGLContext
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 parameter_list|)

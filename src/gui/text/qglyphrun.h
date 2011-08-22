@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QGLYPHRUN_H
+name|QOpenGLYPHRUN_H
 end_ifndef
 begin_define
-DECL|macro|QGLYPHRUN_H
+DECL|macro|QOpenGLYPHRUN_H
 define|#
 directive|define
-name|QGLYPHRUN_H
+name|QOpenGLYPHRUN_H
 end_define
 begin_include
 include|#
@@ -353,6 +353,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QGLYPHS_H
+comment|// QOpenGLYPHS_H
 end_comment
 end_unit

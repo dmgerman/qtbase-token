@@ -83,11 +83,11 @@ argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|*
 name|createPlatformGLContext
 argument_list|(
-argument|QGuiGLContext *context
+argument|QOpenGLContext *context
 argument_list|)
 specifier|const
 block|;

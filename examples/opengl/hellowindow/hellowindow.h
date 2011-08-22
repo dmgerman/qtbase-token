@@ -7,17 +7,17 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtOpenGL/qgl.h>
+file|<QtGui/qopengl.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtOpenGL/qglshaderprogram.h>
+file|<QtGui/qopenglshaderprogram.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtOpenGL/qglframebufferobject.h>
+file|<QColor>
 end_include
 begin_include
 include|#
@@ -25,9 +25,9 @@ directive|include
 file|<QTime>
 end_include
 begin_decl_stmt
-DECL|variable|QGuiGLContext
+DECL|variable|QOpenGLContext
 name|class
-name|QGuiGLContext
+name|QOpenGLContext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -154,9 +154,6 @@ name|QVector3D
 operator|>
 name|normals
 block|;
-name|QGLShaderProgram
-name|program
-block|;
 name|int
 name|vertexAttr
 block|;
@@ -175,9 +172,13 @@ block|;
 name|QSurfaceFormat
 name|m_format
 block|;
-name|QGuiGLContext
+name|QOpenGLContext
 operator|*
 name|m_context
+block|;
+name|QOpenGLShaderProgram
+operator|*
+name|m_program
 block|; }
 decl_stmt|;
 end_decl_stmt

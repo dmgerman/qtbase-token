@@ -63,7 +63,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformGLContext>
+file|<QtGui/QPlatformOpenGLContext>
 end_include
 begin_include
 include|#
@@ -3629,6 +3629,11 @@ argument_list|(
 name|context
 argument_list|)
 member_init_list|,
+name|texture_destroyer
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|functions
 argument_list|(
 literal|0
@@ -3642,6 +3647,11 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|qApp
+condition|)
+block|{
 name|texture_destroyer
 operator|=
 operator|new
@@ -3657,6 +3667,7 @@ name|thread
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_constructor
 begin_destructor
@@ -4132,7 +4143,6 @@ block|}
 end_function
 begin_function
 DECL|function|qt_gl_read_framebuffer
-name|Q_OPENGL_EXPORT
 name|QImage
 name|qt_gl_read_framebuffer
 parameter_list|(
@@ -10083,11 +10093,11 @@ block|{
 if|if
 condition|(
 specifier|const
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|threadContext
 init|=
-name|QGuiGLContext
+name|QOpenGLContext
 operator|::
 name|currentContext
 argument_list|()
@@ -10096,11 +10106,11 @@ block|{
 return|return
 name|QGLContext
 operator|::
-name|fromGuiGLContext
+name|fromOpenGLContext
 argument_list|(
 cast|const_cast
 argument_list|<
-name|QGuiGLContext
+name|QOpenGLContext
 operator|*
 argument_list|>
 argument_list|(
@@ -13708,7 +13718,6 @@ argument_list|)
 end_macro
 begin_function
 DECL|function|qt_qgl_paint_engine
-name|Q_OPENGL_EXPORT
 name|QPaintEngine
 modifier|*
 name|qt_qgl_paint_engine
@@ -15000,7 +15009,6 @@ argument_list|)
 end_macro
 begin_function
 DECL|function|qt_set_gl_library_name
-name|Q_OPENGL_EXPORT
 name|void
 name|qt_set_gl_library_name
 parameter_list|(
@@ -15023,7 +15031,6 @@ block|}
 end_function
 begin_function
 DECL|function|qt_gl_library_name
-name|Q_OPENGL_EXPORT
 specifier|const
 name|QString
 name|qt_gl_library_name

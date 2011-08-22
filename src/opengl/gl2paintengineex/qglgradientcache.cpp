@@ -66,7 +66,7 @@ return|;
 block|}
 private|private:
 DECL|member|m_resource
-name|QGLMultiGroupSharedResource
+name|QOpenGLMultiGroupSharedResource
 name|m_resource
 decl_stmt|;
 DECL|member|m_mutex
@@ -90,12 +90,12 @@ name|QGL2GradientCache
 operator|::
 name|QGL2GradientCache
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|ctx
 parameter_list|)
 member_init_list|:
-name|QGLSharedResource
+name|QOpenGLSharedResource
 argument_list|(
 name|ctx
 operator|->
@@ -173,7 +173,7 @@ name|QGL2GradientCache
 operator|::
 name|freeResource
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 parameter_list|)
 block|{

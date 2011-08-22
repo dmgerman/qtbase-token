@@ -142,7 +142,7 @@ name|QByteArray
 modifier|&
 name|resourceString
 parameter_list|,
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 parameter_list|)
@@ -486,7 +486,7 @@ name|QOpenWFDNativeInterface
 operator|::
 name|eglContextForContext
 parameter_list|(
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|context
 parameter_list|)

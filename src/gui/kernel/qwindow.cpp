@@ -20,12 +20,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qplatformglcontext_qpa.h"
+file|"qplatformopenglcontext_qpa.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qguiglcontext_qpa.h"
+file|"qopenglcontext.h"
 end_include
 begin_include
 include|#

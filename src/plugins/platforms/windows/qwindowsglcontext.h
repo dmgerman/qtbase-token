@@ -26,12 +26,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformGLContext>
+file|<QtGui/QPlatformOpenGLContext>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGuiGLContext>
+file|<QtGui/QOpenGLContext>
 end_include
 begin_include
 include|#
@@ -368,7 +368,7 @@ name|class
 name|QWindowsGLContext
 range|:
 name|public
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 block|{
 name|public
 operator|:
@@ -387,7 +387,7 @@ name|QOpenGLStaticContextPtr
 operator|&
 name|staticContext
 argument_list|,
-name|QGuiGLContext
+name|QOpenGLContext
 operator|*
 name|context
 argument_list|)
@@ -503,7 +503,7 @@ name|m_staticContext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|m_context
 decl_stmt|;

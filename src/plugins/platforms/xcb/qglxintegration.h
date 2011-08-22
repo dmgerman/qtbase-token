@@ -26,7 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformGLContext>
+file|<QtGui/QPlatformOpenGLContext>
 end_include
 begin_include
 include|#
@@ -48,7 +48,7 @@ name|class
 name|QGLXContext
 range|:
 name|public
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 block|{
 name|public
 operator|:
@@ -63,7 +63,7 @@ name|QSurfaceFormat
 operator|&
 name|format
 argument_list|,
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|*
 name|share
 argument_list|)

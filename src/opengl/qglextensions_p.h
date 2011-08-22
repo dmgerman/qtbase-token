@@ -4952,7 +4952,6 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|bool
-name|Q_OPENGL_EXPORT
 name|qt_resolve_buffer_extensions
 parameter_list|(
 name|QGLContext
@@ -4973,7 +4972,6 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|bool
-name|Q_OPENGL_EXPORT
 name|qt_resolve_version_2_0_functions
 parameter_list|(
 name|QGLContext

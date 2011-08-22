@@ -73,9 +73,9 @@ parameter_list|)
 name|class
 name|QPlatformBackingStore
 decl_stmt|;
-DECL|variable|QPlatformGLContext
+DECL|variable|QPlatformOpenGLContext
 name|class
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 decl_stmt|;
 DECL|variable|QPlatformScreenPrivate
 name|class

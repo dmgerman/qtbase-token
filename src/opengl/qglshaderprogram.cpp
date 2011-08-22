@@ -3197,7 +3197,7 @@ operator|->
 name|group
 argument_list|()
 operator|!=
-name|QGuiGLContextGroup
+name|QOpenGLContextGroup
 operator|::
 name|currentContextGroup
 argument_list|()
@@ -3265,7 +3265,7 @@ operator|->
 name|group
 argument_list|()
 operator|!=
-name|QGuiGLContextGroup
+name|QOpenGLContextGroup
 operator|::
 name|currentContextGroup
 argument_list|()
@@ -3303,19 +3303,6 @@ endif|#
 directive|endif
 block|}
 end_function
-begin_undef
-DECL|macro|ctx
-undef|#
-directive|undef
-name|ctx
-end_undef
-begin_define
-DECL|macro|ctx
-define|#
-directive|define
-name|ctx
-value|d->programGuard.context()
-end_define
 begin_comment
 comment|/*!     Returns the OpenGL identifier associated with this shader program.      \sa QGLShader::shaderId() */
 end_comment

@@ -86,7 +86,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/private/qguiglcontext_qpa_p.h"
+file|"QtGui/private/qopenglcontext_p.h"
 end_include
 begin_include
 include|#
@@ -101,7 +101,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGuiGLContext>
+file|<QtGui/QOpenGLContext>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -702,7 +702,6 @@ begin_comment
 comment|// "ctx" is destroyed.  Returns null if nothing is sharing with ctx.
 end_comment
 begin_function_decl
-name|Q_OPENGL_EXPORT
 specifier|const
 name|QGLContext
 modifier|*
@@ -1070,7 +1069,7 @@ modifier|&
 name|region
 parameter_list|)
 function_decl|;
-name|QGuiGLContext
+name|QOpenGLContext
 modifier|*
 name|guiGlContext
 decl_stmt|;
@@ -2107,7 +2106,6 @@ block|}
 end_expr_stmt
 begin_function_decl
 specifier|extern
-name|Q_OPENGL_EXPORT
 name|QPaintEngine
 modifier|*
 name|qt_qgl_paint_engine
@@ -2131,11 +2129,10 @@ comment|// context destruction cleaned up the identifier in this case.
 end_comment
 begin_decl_stmt
 name|class
-name|Q_OPENGL_EXPORT
 name|QGLSharedResourceGuardBase
 range|:
 name|public
-name|QGLSharedResource
+name|QOpenGLSharedResource
 block|{
 name|public
 operator|:
@@ -2146,7 +2143,7 @@ argument_list|,
 argument|GLuint id
 argument_list|)
 operator|:
-name|QGLSharedResource
+name|QOpenGLSharedResource
 argument_list|(
 name|context
 operator|->
@@ -2184,7 +2181,7 @@ block|;     }
 name|void
 name|freeResource
 argument_list|(
-argument|QGuiGLContext *context
+argument|QOpenGLContext *context
 argument_list|)
 block|{
 if|if
@@ -2196,7 +2193,7 @@ name|freeResource
 argument_list|(
 name|QGLContext
 operator|::
-name|fromGuiGLContext
+name|fromOpenGLContext
 argument_list|(
 name|context
 argument_list|)

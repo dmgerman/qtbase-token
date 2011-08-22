@@ -656,7 +656,7 @@ operator|!
 name|d
 operator|->
 name|guard
-operator|.
+operator|->
 name|id
 argument_list|()
 condition|)
@@ -922,7 +922,7 @@ operator|->
 name|group
 argument_list|()
 operator|!=
-name|QGuiGLContextGroup
+name|QOpenGLContextGroup
 operator|::
 name|currentContextGroup
 argument_list|()
