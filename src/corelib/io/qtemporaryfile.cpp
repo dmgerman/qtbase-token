@@ -283,7 +283,7 @@ expr_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|length
-operator|<
+operator|<=
 name|size_t
 argument_list|(
 name|path
