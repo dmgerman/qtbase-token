@@ -717,6 +717,15 @@ if|if
 condition|(
 name|engine
 operator|&&
+name|engine
+operator|->
+name|type
+argument_list|()
+operator|!=
+name|QFontEngine
+operator|::
+name|Multi
+operator|&&
 operator|!
 operator|(
 name|request
