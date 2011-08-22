@@ -2404,7 +2404,6 @@ if|if
 condition|(
 name|wasVisible
 condition|)
-empty_stmt|;
 name|d
 operator|->
 name|maybeQuitOnLastWindowClosed
