@@ -1307,9 +1307,9 @@ name|SIGNAL
 argument_list|(
 name|dataReadProgress
 argument_list|(
-name|int
+name|qint64
 argument_list|,
-name|int
+name|qint64
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1319,9 +1319,9 @@ name|SLOT
 argument_list|(
 name|dataReadProgressSlot
 argument_list|(
-name|int
+name|qint64
 argument_list|,
-name|int
+name|qint64
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2330,10 +2330,10 @@ name|QHttpThreadDelegate
 operator|::
 name|dataReadProgressSlot
 parameter_list|(
-name|int
+name|qint64
 name|done
 parameter_list|,
-name|int
+name|qint64
 name|total
 parameter_list|)
 block|{

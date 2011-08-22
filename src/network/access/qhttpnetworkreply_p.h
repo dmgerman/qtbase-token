@@ -476,14 +476,13 @@ name|void
 name|headerChanged
 parameter_list|()
 function_decl|;
-comment|// FIXME we need to change this to qint64!
 name|void
 name|dataReadProgress
 parameter_list|(
-name|int
+name|qint64
 name|done
 parameter_list|,
-name|int
+name|qint64
 name|total
 parameter_list|)
 function_decl|;
