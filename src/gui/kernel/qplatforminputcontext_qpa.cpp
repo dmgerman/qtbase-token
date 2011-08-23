@@ -12,14 +12,24 @@ include|#
 directive|include
 file|<QtGui/QMouseEvent>
 end_include
-begin_constructor
+begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|QPlatformInputContext
 name|QPlatformInputContext
 operator|::
 name|QPlatformInputContext
 parameter_list|()
 block|{ }
-end_constructor
+end_function
+begin_destructor
+DECL|function|~QPlatformInputContext
+name|QPlatformInputContext
+operator|::
+name|~
+name|QPlatformInputContext
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|reset
 name|void
@@ -90,7 +100,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|focus
+name|m_focusObject
 operator|.
 name|data
 argument_list|()
@@ -106,13 +116,16 @@ name|setFocusObject
 parameter_list|(
 name|QObject
 modifier|*
-name|o
+name|object
 parameter_list|)
 block|{
-name|focus
+name|m_focusObject
 operator|=
-name|o
+name|object
 expr_stmt|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit
