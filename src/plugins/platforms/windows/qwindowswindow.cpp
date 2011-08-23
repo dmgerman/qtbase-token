@@ -4573,7 +4573,7 @@ name|updateRect
 expr_stmt|;
 name|QWindowSystemInterface
 operator|::
-name|handleExposeEvent
+name|handleSynchronousExposeEvent
 argument_list|(
 name|window
 argument_list|()

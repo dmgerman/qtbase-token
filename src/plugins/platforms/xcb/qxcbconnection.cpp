@@ -1813,7 +1813,7 @@ name|xcb_expose_event_t
 argument_list|,
 name|window
 argument_list|,
-name|handleExposeEvent
+name|handleSynchronousExposeEvent
 argument_list|)
 expr_stmt|;
 case|case

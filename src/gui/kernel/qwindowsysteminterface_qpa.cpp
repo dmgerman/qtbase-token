@@ -1503,11 +1503,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|handleExposeEvent
+DECL|function|handleSynchronousExposeEvent
 name|void
 name|QWindowSystemInterface
 operator|::
-name|handleExposeEvent
+name|handleSynchronousExposeEvent
 parameter_list|(
 name|QWindow
 modifier|*
@@ -1535,13 +1535,14 @@ argument_list|,
 name|region
 argument_list|)
 decl_stmt|;
-name|QWindowSystemInterfacePrivate
+name|QGuiApplicationPrivate
 operator|::
-name|queueWindowSystemEvent
+name|processWindowSystemEvent
 argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+comment|// send event immediately.
 block|}
 end_function
 begin_function

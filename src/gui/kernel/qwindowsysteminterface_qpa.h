@@ -560,11 +560,11 @@ parameter_list|)
 function_decl|;
 specifier|static
 name|void
-name|handleExposeEvent
+name|handleSynchronousExposeEvent
 parameter_list|(
 name|QWindow
 modifier|*
-name|w
+name|tlw
 parameter_list|,
 specifier|const
 name|QRegion
