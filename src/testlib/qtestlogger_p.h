@@ -62,12 +62,6 @@ name|QTestElement
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QTestFileLogger
-name|class
-name|QTestFileLogger
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QTestLogger
 range|:
@@ -269,10 +263,6 @@ name|logFormatter
 block|;
 name|TestLoggerFormat
 name|format
-block|;
-name|QTestFileLogger
-operator|*
-name|filelogger
 block|;
 name|int
 name|testCounter
