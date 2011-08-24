@@ -78,7 +78,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../network-settings.h"
+file|"../../../network-settings.h"
 end_include
 begin_decl_stmt
 DECL|variable|TestFileName

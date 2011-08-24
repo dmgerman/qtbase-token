@@ -139,7 +139,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|"../network-settings.h"
+file|"../../../network-settings.h"
 end_include
 begin_include
 include|#
@@ -149,7 +149,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../shared/filesystem.h"
+file|"../../../../shared/filesystem.h"
 end_include
 begin_if
 if|#
