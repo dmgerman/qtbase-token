@@ -1764,7 +1764,7 @@ name|setFlushMode
 argument_list|(
 name|QTestLog
 operator|::
-name|FLushOn
+name|FlushOn
 argument_list|)
 expr_stmt|;
 block|}

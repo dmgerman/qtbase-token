@@ -576,7 +576,7 @@ name|flushMode
 operator|==
 name|QTestLog
 operator|::
-name|FLushOn
+name|FlushOn
 condition|)
 name|QTest
 operator|::
@@ -617,7 +617,7 @@ name|flushMode
 operator|==
 name|QTestLog
 operator|::
-name|FLushOn
+name|FlushOn
 condition|)
 name|QTest
 operator|::

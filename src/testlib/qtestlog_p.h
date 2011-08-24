@@ -83,7 +83,7 @@ name|NoFlush
 init|=
 literal|0
 block|,
-name|FLushOn
+name|FlushOn
 block|}
 enum|;
 specifier|static
