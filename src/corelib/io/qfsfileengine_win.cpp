@@ -2353,6 +2353,9 @@ name|QFileSystemEngine
 operator|::
 name|currentPath
 argument_list|()
+operator|.
+name|filePath
+argument_list|()
 return|;
 endif|#
 directive|endif
