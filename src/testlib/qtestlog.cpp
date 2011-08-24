@@ -938,6 +938,11 @@ operator|::
 name|testLogger
 argument_list|)
 expr_stmt|;
+name|QTEST_ASSERT
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
 name|QTest
 operator|::
 name|testLogger
@@ -1481,6 +1486,11 @@ modifier|*
 name|msg
 parameter_list|)
 block|{
+name|QTEST_ASSERT
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
 name|QTest
 operator|::
 name|IgnoreResultList
