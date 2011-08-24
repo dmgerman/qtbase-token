@@ -132,8 +132,8 @@ name|private
 operator|:
 name|QDirectFBCursor
 operator|*
-name|cursor
-block|;  }
+name|m_cursor
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -192,19 +192,19 @@ name|private
 operator|:
 name|QDirectFbInput
 operator|*
-name|mInput
+name|m_input
 block|;
 name|QThread
 operator|*
-name|mInputRunner
+name|m_inputRunner
 block|;
 name|QPlatformFontDatabase
 operator|*
-name|mFontDb
+name|m_fontDb
 block|;
 name|QAbstractEventDispatcher
 operator|*
-name|mEventDispatcher
+name|m_eventDispatcher
 block|; }
 decl_stmt|;
 end_decl_stmt

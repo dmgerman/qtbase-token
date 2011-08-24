@@ -46,11 +46,6 @@ name|m_inputHandler
 argument_list|(
 name|inputhandler
 argument_list|)
-member_init_list|,
-name|m_context
-argument_list|(
-literal|0
-argument_list|)
 block|{
 name|IDirectFBDisplayLayer
 modifier|*
