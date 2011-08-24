@@ -47,6 +47,23 @@ include|#
 directive|include
 file|<time.h>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WINCE
+end_ifdef
+begin_include
+include|#
+directive|include
+file|"qfunctions_wince.h"
+end_include
+begin_comment
+comment|// for _control87
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_if
 if|#
 directive|if
