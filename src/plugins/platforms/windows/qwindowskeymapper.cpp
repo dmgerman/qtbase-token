@@ -3805,6 +3805,7 @@ argument_list|(
 name|msg
 argument_list|)
 expr_stmt|;
+return|return
 name|translateKeyEventInternal
 argument_list|(
 name|widget
@@ -3813,9 +3814,6 @@ name|msg
 argument_list|,
 literal|false
 argument_list|)
-expr_stmt|;
-return|return
-literal|true
 return|;
 block|}
 end_function

@@ -303,6 +303,10 @@ specifier|static
 name|int
 name|verboseOLE
 decl_stmt|;
+specifier|static
+name|int
+name|verboseInputMethods
+decl_stmt|;
 name|explicit
 name|QWindowsContext
 parameter_list|(

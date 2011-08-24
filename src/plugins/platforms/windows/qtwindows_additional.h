@@ -191,6 +191,16 @@ directive|define
 name|PFD_SUPPORT_COMPOSITION
 value|0x00008000
 end_define
+begin_comment
+comment|// IME.
+end_comment
+begin_define
+DECL|macro|IMR_CONFIRMRECONVERTSTRING
+define|#
+directive|define
+name|IMR_CONFIRMRECONVERTSTRING
+value|0x0005
+end_define
 begin_endif
 endif|#
 directive|endif
