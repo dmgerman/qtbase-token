@@ -1297,8 +1297,21 @@ argument_list|,
 argument|int otherChild
 argument_list|)
 specifier|const
-operator|=
-literal|0
+block|;
+name|virtual
+name|QVector
+operator|<
+name|QPair
+operator|<
+name|QAccessibleInterface
+operator|*
+block|,
+name|Relation
+operator|>
+expr|>
+name|relations
+argument_list|()
+specifier|const
 block|;
 name|virtual
 name|int
