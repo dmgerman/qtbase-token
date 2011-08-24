@@ -637,6 +637,7 @@ argument_list|()
 expr_stmt|;
 if|#
 directive|if
+operator|(
 name|defined
 argument_list|(
 name|XCB_USE_GLX
@@ -645,6 +646,12 @@ operator|||
 name|defined
 argument_list|(
 name|XCB_USE_EGL
+argument_list|)
+operator|)
+operator|&&
+name|defined
+argument_list|(
+name|XCB_USE_XLIB
 argument_list|)
 if|if
 condition|(
