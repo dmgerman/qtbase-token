@@ -28,8 +28,7 @@ include|#
 directive|include
 file|<OpenGL/OpenGL.h>
 end_include
-begin_decl_stmt
-name|Q_GUI_EXPORT
+begin_expr_stmt
 name|void
 argument_list|(
 operator|*
@@ -42,17 +41,15 @@ name|procName
 argument_list|)
 argument_list|)
 argument_list|()
-decl_stmt|;
-end_decl_stmt
+expr_stmt|;
+end_expr_stmt
 begin_function_decl
-name|Q_GUI_EXPORT
 name|QSurfaceFormat
 name|qcgl_surfaceFormat
 parameter_list|()
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
 name|void
 modifier|*
 name|qcgl_createNSOpenGLPixelFormat
@@ -60,7 +57,6 @@ parameter_list|()
 function_decl|;
 end_function_decl
 begin_function_decl
-name|Q_GUI_EXPORT
 name|CGLContextObj
 name|qcgl_createGlContext
 parameter_list|()
