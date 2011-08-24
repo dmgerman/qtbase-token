@@ -10,11 +10,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtTest/private/qtestlog_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"QtTest/qtestassert.h"
 end_include
 begin_include
@@ -167,7 +162,12 @@ name|void
 name|QAbstractTestLogger
 operator|::
 name|startLogging
-parameter_list|()
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|filename
+parameter_list|)
 block|{
 name|QTEST_ASSERT
 argument_list|(
@@ -177,20 +177,10 @@ operator|::
 name|stream
 argument_list|)
 expr_stmt|;
-specifier|const
-name|char
-modifier|*
-name|out
-init|=
-name|QTestLog
-operator|::
-name|outputFileName
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 operator|!
-name|out
+name|filename
 condition|)
 block|{
 name|QTest
@@ -227,7 +217,7 @@ name|QTest
 operator|::
 name|stream
 argument_list|,
-name|out
+name|filename
 argument_list|,
 literal|"wt"
 argument_list|)
@@ -242,7 +232,7 @@ operator|=
 operator|::
 name|fopen
 argument_list|(
-name|out
+name|filename
 argument_list|,
 literal|"wt"
 argument_list|)
@@ -261,7 +251,7 @@ name|printf
 argument_list|(
 literal|"Unable to open file for logging: %s"
 argument_list|,
-name|out
+name|filename
 argument_list|)
 expr_stmt|;
 operator|::

@@ -102,7 +102,12 @@ block|{}
 name|virtual
 name|void
 name|startLogging
-argument_list|()
+argument_list|(
+specifier|const
+name|char
+operator|*
+name|filename
+argument_list|)
 expr_stmt|;
 name|virtual
 name|void

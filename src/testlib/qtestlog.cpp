@@ -1207,7 +1207,11 @@ operator|::
 name|testLogger
 operator|->
 name|startLogging
-argument_list|()
+argument_list|(
+name|QTest
+operator|::
+name|outFile
+argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
@@ -1248,7 +1252,11 @@ operator|::
 name|testLogger
 operator|->
 name|startLogging
-argument_list|()
+argument_list|(
+name|QTest
+operator|::
+name|outFile
+argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
