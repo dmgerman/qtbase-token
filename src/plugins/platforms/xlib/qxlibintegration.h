@@ -58,9 +58,7 @@ block|{
 name|public
 operator|:
 name|QXlibIntegration
-argument_list|(
-argument|bool useOpenGL = false
-argument_list|)
+argument_list|()
 block|;
 name|bool
 name|hasCapability
@@ -69,37 +67,33 @@ argument|Capability cap
 argument_list|)
 specifier|const
 block|;
-name|QPlatformPixmap
-operator|*
-name|createPlatformPixmap
-argument_list|(
-argument|QPlatformPixmap::PixelType type
-argument_list|)
-specifier|const
-block|;
 name|QPlatformWindow
 operator|*
 name|createPlatformWindow
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|QWindowSurface
+name|QPlatformBackingStore
 operator|*
-name|createWindowSurface
+name|createPlatformBackingStore
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId
+argument|QWindow *window
+argument_list|)
+specifier|const
+block|;
+name|QPlatformGLContext
+operator|*
+name|createPlatformGLContext
+argument_list|(
+argument|QGuiGLContext *context
 argument_list|)
 specifier|const
 block|;
 name|QAbstractEventDispatcher
 operator|*
-name|createEventDispatcher
+name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
 block|;
@@ -151,14 +145,6 @@ specifier|const
 block|;
 name|private
 operator|:
-name|bool
-name|hasOpenGL
-argument_list|()
-specifier|const
-block|;
-name|bool
-name|mUseOpenGL
-block|;
 name|QXlibScreen
 operator|*
 name|mPrimaryScreen
@@ -181,6 +167,10 @@ block|;
 name|QPlatformNativeInterface
 operator|*
 name|mNativeInterface
+block|;
+name|QAbstractEventDispatcher
+operator|*
+name|mEventDispatcher
 block|; }
 decl_stmt|;
 end_decl_stmt

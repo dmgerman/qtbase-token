@@ -57,7 +57,7 @@ name|QByteArray
 operator|&
 name|resourceString
 argument_list|,
-name|QWidget
+name|QWindow
 operator|*
 name|widget
 argument_list|)
@@ -66,7 +66,7 @@ name|void
 operator|*
 name|displayForWidget
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|widget
 argument_list|)
@@ -75,7 +75,7 @@ name|void
 operator|*
 name|eglDisplayForWidget
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|widget
 argument_list|)
@@ -84,7 +84,7 @@ name|void
 operator|*
 name|connectionForWidget
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|widget
 argument_list|)
@@ -93,7 +93,7 @@ name|void
 operator|*
 name|screenForWidget
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|widget
 argument_list|)
@@ -102,7 +102,7 @@ name|void
 operator|*
 name|graphicsDeviceForWidget
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|widget
 argument_list|)
@@ -111,7 +111,7 @@ name|void
 operator|*
 name|eglContextForWidget
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|widget
 argument_list|)
@@ -123,7 +123,7 @@ name|QXlibScreen
 operator|*
 name|qPlatformScreenForWidget
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|widget
 argument_list|)
