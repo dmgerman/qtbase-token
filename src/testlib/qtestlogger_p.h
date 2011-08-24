@@ -166,16 +166,6 @@ argument|int line =
 literal|0
 argument_list|)
 block|;
-name|void
-name|setLogFormat
-argument_list|(
-argument|TestLoggerFormat fm
-argument_list|)
-block|;
-name|TestLoggerFormat
-name|logFormat
-argument_list|()
-block|;
 name|int
 name|passCount
 argument_list|()
