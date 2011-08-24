@@ -8,10 +8,10 @@ directive|ifndef
 name|QTESTXMLSTREAMER_H
 end_ifndef
 begin_define
-DECL|macro|QTESXMLSTREAMER_H
+DECL|macro|QTESTXMLSTREAMER_H
 define|#
 directive|define
-name|QTESXMLSTREAMER_H
+name|QTESTXMLSTREAMER_H
 end_define
 begin_include
 include|#
