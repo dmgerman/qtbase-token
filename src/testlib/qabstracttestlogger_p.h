@@ -220,11 +220,6 @@ modifier|*
 name|msg
 parameter_list|)
 function_decl|;
-specifier|static
-name|bool
-name|isTtyOutput
-parameter_list|()
-function_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt
