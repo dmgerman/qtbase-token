@@ -59,7 +59,6 @@ range|:
 name|public
 name|QPlatformScreen
 block|{
-name|Q_OBJECT
 name|public
 operator|:
 name|QDirectFbScreen
@@ -165,42 +164,24 @@ name|QPlatformWindow
 operator|*
 name|createPlatformWindow
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId =
-literal|0
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|QWindowSurface
+name|QPlatformBackingStore
 operator|*
-name|createWindowSurface
+name|createPlatformBackingStore
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
 name|QAbstractEventDispatcher
 operator|*
-name|createEventDispatcher
+name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
 block|;
-name|QList
-operator|<
-name|QPlatformScreen
-operator|*
-operator|>
-name|screens
-argument_list|()
-specifier|const
-block|{
-return|return
-name|mScreens
-return|;
-block|}
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase
@@ -209,13 +190,6 @@ specifier|const
 block|;
 name|private
 operator|:
-name|QList
-operator|<
-name|QPlatformScreen
-operator|*
-operator|>
-name|mScreens
-block|;
 name|QDirectFbInput
 operator|*
 name|mInput
@@ -227,6 +201,10 @@ block|;
 name|QPlatformFontDatabase
 operator|*
 name|mFontDb
+block|;
+name|QAbstractEventDispatcher
+operator|*
+name|mEventDispatcher
 block|; }
 decl_stmt|;
 end_decl_stmt

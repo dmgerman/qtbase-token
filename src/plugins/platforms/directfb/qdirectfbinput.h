@@ -70,7 +70,7 @@ name|addWindow
 argument_list|(
 argument|DFBWindowID id
 argument_list|,
-argument|QWidget *tlw
+argument|QWindow *window
 argument_list|)
 block|;
 name|void
@@ -162,7 +162,7 @@ name|QHash
 operator|<
 name|DFBWindowID
 block|,
-name|QWidget
+name|QWindow
 operator|*
 operator|>
 name|m_tlwMap
