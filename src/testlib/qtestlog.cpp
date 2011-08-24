@@ -666,23 +666,6 @@ block|}
 block|}
 block|}
 end_namespace
-begin_constructor
-DECL|function|QTestLog
-name|QTestLog
-operator|::
-name|QTestLog
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~QTestLog
-name|QTestLog
-operator|::
-name|~
-name|QTestLog
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|enterTestFunction
 name|void
