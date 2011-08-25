@@ -163,23 +163,6 @@ begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|enum
 type|{
-DECL|enumerator|FIRST_YEAR
-name|FIRST_YEAR
-init|=
-operator|-
-literal|4713
-decl_stmt|,
-DECL|enumerator|FIRST_MONTH
-name|FIRST_MONTH
-init|=
-literal|1
-decl_stmt|,
-DECL|enumerator|FIRST_DAY
-name|FIRST_DAY
-init|=
-literal|2
-decl_stmt|,
-comment|// ### Qt 5: make FIRST_DAY = 1, by support jd == 0 as valid
 DECL|enumerator|SECS_PER_DAY
 name|SECS_PER_DAY
 init|=
@@ -276,10 +259,10 @@ begin_function
 DECL|function|julianDayFromGregorianDate
 specifier|static
 specifier|inline
-name|uint
+name|qint64
 name|julianDayFromGregorianDate
 parameter_list|(
-name|int
+name|qint64
 name|year
 parameter_list|,
 name|int
@@ -369,10 +352,10 @@ end_function
 begin_function
 DECL|function|julianDayFromDate
 specifier|static
-name|uint
+name|qint64
 name|julianDayFromDate
 parameter_list|(
-name|int
+name|qint64
 name|year
 parameter_list|,
 name|int
@@ -382,15 +365,6 @@ name|int
 name|day
 parameter_list|)
 block|{
-if|if
-condition|(
-name|year
-operator|<
-literal|0
-condition|)
-operator|++
-name|year
-expr_stmt|;
 if|if
 condition|(
 name|year
@@ -463,6 +437,15 @@ condition|)
 block|{
 comment|// Julian calendar until October 4, 1582
 comment|// Algorithm from Frequently Asked Questions about Calendars by Claus Toendering
+if|if
+condition|(
+name|year
+operator|<
+literal|0
+condition|)
+operator|++
+name|year
+expr_stmt|;
 name|int
 name|a
 init|=
@@ -518,8 +501,17 @@ else|else
 block|{
 comment|// the day following October 4, 1582 is October 15, 1582
 return|return
-literal|0
+name|std
+operator|::
+name|numeric_limits
+argument_list|<
+name|qint64
+argument_list|>
+operator|::
+name|min
+argument_list|()
 return|;
+comment|// i.e. nullJd()
 block|}
 block|}
 end_function
@@ -529,7 +521,7 @@ specifier|static
 name|void
 name|getDateFromJulianDay
 parameter_list|(
-name|uint
+name|qint64
 name|julianDay
 parameter_list|,
 name|int
@@ -561,7 +553,7 @@ condition|)
 block|{
 comment|// Gregorian calendar starting from October 15, 1582
 comment|// This algorithm is from Henry F. Fliegel and Thomas C. Van Flandern
-name|qulonglong
+name|qint64
 name|ell
 decl_stmt|,
 name|n
@@ -570,12 +562,10 @@ name|i
 decl_stmt|,
 name|j
 decl_stmt|;
+comment|//TODO These will need to be bigger to prevent overflow!!!
 name|ell
 operator|=
-name|qulonglong
-argument_list|(
 name|julianDay
-argument_list|)
 operator|+
 literal|68569
 expr_stmt|;
@@ -694,7 +684,7 @@ name|julianDay
 operator|+=
 literal|32082
 expr_stmt|;
-name|int
+name|qint64
 name|dd
 init|=
 operator|(
@@ -707,7 +697,8 @@ operator|)
 operator|/
 literal|1461
 decl_stmt|;
-name|int
+comment|//TODO These may need to be bigger to prevent overflow!!!
+name|qint64
 name|ee
 init|=
 name|julianDay
@@ -720,7 +711,8 @@ operator|)
 operator|/
 literal|4
 decl_stmt|;
-name|int
+comment|//TODO These may need to be bigger to prevent overflow!!!
+name|qint64
 name|mm
 init|=
 operator|(
@@ -735,6 +727,7 @@ operator|)
 operator|/
 literal|153
 decl_stmt|;
+comment|//TODO These may need to be bigger to prevent overflow!!!
 name|d
 operator|=
 name|ee
@@ -941,13 +934,13 @@ begin_comment
 comment|/*!     \since 4.5      \enum QDate::MonthNameType      This enum describes the types of the string representation used     for the month name.      \value DateFormat This type of name can be used for date-to-string formatting.     \value StandaloneFormat This type is used when you need to enumerate months or weekdays.            Usually standalone names are represented in singular forms with            capitalized first letter. */
 end_comment
 begin_comment
-comment|/*!     \class QDate     \reentrant     \brief The QDate class provides date functions.       A QDate object contains a calendar date, i.e. year, month, and day     numbers, in the Gregorian calendar. (see \l{QDate G and J} {Use of     Gregorian and Julian Calendars} for dates prior to 15 October     1582). It can read the current date from the system clock. It     provides functions for comparing dates, and for manipulating     dates. For example, it is possible to add and subtract days,     months, and years to dates.      A QDate object is typically created either by giving the year,     month, and day numbers explicitly. Note that QDate interprets two     digit years as is, i.e., years 0 - 99. A QDate can also be     constructed with the static function currentDate(), which creates     a QDate object containing the system clock's date.  An explicit     date can also be set using setDate(). The fromString() function     returns a QDate given a string and a date format which is used to     interpret the date within the string.      The year(), month(), and day() functions provide access to the     year, month, and day numbers. Also, dayOfWeek() and dayOfYear()     functions are provided. The same information is provided in     textual format by the toString(), shortDayName(), longDayName(),     shortMonthName(), and longMonthName() functions.      QDate provides a full set of operators to compare two QDate     objects where smaller means earlier, and larger means later.      You can increment (or decrement) a date by a given number of days     using addDays(). Similarly you can use addMonths() and addYears().     The daysTo() function returns the number of days between two     dates.      The daysInMonth() and daysInYear() functions return how many days     there are in this date's month and year, respectively. The     isLeapYear() function indicates whether a date is in a leap year.      \section1      \target QDate G and J     \section2 Use of Gregorian and Julian Calendars      QDate uses the Gregorian calendar in all locales, beginning     on the date 15 October 1582. For dates up to and including 4     October 1582, the Julian calendar is used.  This means there is a     10-day gap in the internal calendar between the 4th and the 15th     of October 1582. When you use QDateTime for dates in that epoch,     the day after 4 October 1582 is 15 October 1582, and the dates in     the gap are invalid.      The Julian to Gregorian changeover date used here is the date when     the Gregorian calendar was first introduced, by Pope Gregory     XIII. That change was not universally accepted and some localities     only executed it at a later date (if at all).  QDateTime     doesn't take any of these historical facts into account. If an     application must support a locale-specific dating system, it must     do so on its own, remembering to convert the dates using the     Julian day.      \section2 No Year 0      There is no year 0. Dates in that year are considered invalid. The     year -1 is the year "1 before Christ" or "1 before current era."     The day before 0001-01-01 is December 31st, 1 BCE.      \section2 Range of Valid Dates      The range of valid dates is from January 2nd, 4713 BCE, to     sometime in the year 11 million CE. The Julian Day returned by     QDate::toJulianDay() is a number in the contiguous range from 1 to     \e{overflow}, even across QDateTime's "date holes". It is suitable     for use in applications that must convert a QDateTime to a date in     another calendar system, e.g., Hebrew, Islamic or Chinese.      \sa QTime, QDateTime, QDateEdit, QDateTimeEdit, QCalendarWidget */
+comment|/*!     \class QDate     \reentrant     \brief The QDate class provides date functions.       A QDate object contains a calendar date, i.e. year, month, and day     numbers, in the Gregorian calendar. (see \l{QDate G and J} {Use of     Gregorian and Julian Calendars} for dates prior to 15 October     1582). It can read the current date from the system clock. It     provides functions for comparing dates, and for manipulating     dates. For example, it is possible to add and subtract days,     months, and years to dates.      A QDate object is typically created either by giving the year,     month, and day numbers explicitly. Note that QDate interprets two     digit years as is, i.e., years 0 - 99. A QDate can also be     constructed with the static function currentDate(), which creates     a QDate object containing the system clock's date.  An explicit     date can also be set using setDate(). The fromString() function     returns a QDate given a string and a date format which is used to     interpret the date within the string.      The year(), month(), and day() functions provide access to the     year, month, and day numbers. Also, dayOfWeek() and dayOfYear()     functions are provided. The same information is provided in     textual format by the toString(), shortDayName(), longDayName(),     shortMonthName(), and longMonthName() functions.      QDate provides a full set of operators to compare two QDate     objects where smaller means earlier, and larger means later.      You can increment (or decrement) a date by a given number of days     using addDays(). Similarly you can use addMonths() and addYears().     The daysTo() function returns the number of days between two     dates.      The daysInMonth() and daysInYear() functions return how many days     there are in this date's month and year, respectively. The     isLeapYear() function indicates whether a date is in a leap year.      \section1      \target QDate G and J     \section2 Use of Gregorian and Julian Calendars      QDate uses the Gregorian calendar in all locales, beginning     on the date 15 October 1582. For dates up to and including 4     October 1582, the Julian calendar is used.  This means there is a     10-day gap in the internal calendar between the 4th and the 15th     of October 1582. When you use QDateTime for dates in that epoch,     the day after 4 October 1582 is 15 October 1582, and the dates in     the gap are invalid.      The Julian to Gregorian changeover date used here is the date when     the Gregorian calendar was first introduced, by Pope Gregory     XIII. That change was not universally accepted and some localities     only executed it at a later date (if at all).  QDateTime     doesn't take any of these historical facts into account. If an     application must support a locale-specific dating system, it must     do so on its own, remembering to convert the dates using the     Julian day.      \section2 No Year 0      There is no year 0. Dates in that year are considered invalid. The     year -1 is the year "1 before Christ" or "1 before current era."     The day before 1 January 1 CE is 31 December 1 BCE.      \section2 Range of Valid Dates      Dates are stored internally as a Julian Day number, an interger count of     every day in a contiguous range, with 24 November 4714 BCE in the Gregorian     calendar being Julian Day 0 (1 January 4713 BCE in the Julian calendar).     As well as being an efficient and accurate way of storing an absolute date,     it is suitable for converting a Date into other calendar systems such as     Hebrew, Islamic or Chinese. The Julian Day number can be obtained using     QDate::toJulianDay() and can be set using QDate::fromJulianDay().      The range of dates able to be stored by QDate as a Julian Day number is     limited for convenience from std::numeric_limits<qint64>::min() / 2 to     std::numeric_limits<qint64>::max() / 2, which on most platforms means     from around 2.5 quadrillion BCE to around 2.5 quadrillion CE, effectively     covering the full range of astronomical time. The range of Julian Days     able to be accurately converted to and from valid YMD form Dates is     restricted to 1 January 4800 BCE to 31 December 1400000 CE due to     shortcomings in the available conversion formulas. Conversions outside this     range are not guaranteed to be correct. This may change in the future.      \sa QTime, QDateTime, QDateEdit, QDateTimeEdit, QCalendarWidget */
 end_comment
 begin_comment
 comment|/*!     \fn QDate::QDate()      Constructs a null date. Null dates are invalid.      \sa isNull(), isValid() */
 end_comment
 begin_comment
-comment|/*!     Constructs a date with year \a y, month \a m and day \a d.      If the specified date is invalid, the date is not set and     isValid() returns false. A date before 2 January 4713 B.C. is     considered invalid.      \warning Years 0 to 99 are interpreted as is, i.e., years              0-99.      \sa isValid() */
+comment|/*!     Constructs a date with year \a y, month \a m and day \a d.      If the specified date is invalid, the date is not set and     isValid() returns false.      \warning Years 0 to 99 are interpreted as is, i.e., years              0-99.      \sa isValid() */
 end_comment
 begin_constructor
 DECL|function|QDate
@@ -980,26 +973,10 @@ begin_comment
 comment|/*!     \fn bool QDate::isNull() const      Returns true if the date is null; otherwise returns false. A null     date is invalid.      \note The behavior of this function is equivalent to isValid().      \sa isValid() */
 end_comment
 begin_comment
-comment|/*!     Returns true if this date is valid; otherwise returns false.      \sa isNull() */
+comment|/*!     \fn bool isValid() const      Returns true if this date is valid; otherwise returns false.      \sa isNull() */
 end_comment
-begin_function
-DECL|function|isValid
-name|bool
-name|QDate
-operator|::
-name|isValid
-parameter_list|()
-specifier|const
-block|{
-return|return
-operator|!
-name|isNull
-argument_list|()
-return|;
-block|}
-end_function
 begin_comment
-comment|/*!     Returns the year of this date. Negative numbers indicate years     before 1 A.D. = 1 C.E., such that year -44 is 44 B.C.      Returns 0 if the date is invalid.      \sa month(), day() */
+comment|/*!     Returns the year of this date. Negative numbers indicate years     before 1 CE, such that year -44 is 44 BCE.      Returns 0 if the date is invalid.      \sa month(), day() */
 end_comment
 begin_function
 DECL|function|year
@@ -1138,6 +1115,12 @@ condition|)
 return|return
 literal|0
 return|;
+if|if
+condition|(
+name|jd
+operator|>=
+literal|0
+condition|)
 return|return
 operator|(
 name|jd
@@ -1146,6 +1129,20 @@ literal|7
 operator|)
 operator|+
 literal|1
+return|;
+else|else
+return|return
+operator|(
+operator|(
+name|jd
+operator|+
+literal|1
+operator|)
+operator|%
+literal|7
+operator|)
+operator|+
+literal|7
 return|;
 block|}
 end_function
@@ -2199,7 +2196,7 @@ begin_comment
 comment|/*!     \fn bool setYMD(int y, int m, int d)      \deprecated in 5.0, use setDate() instead.      Sets the date's year \a y, month \a m, and day \a d.      If \a y is in the range 0 to 99, it is interpreted as 1900 to     1999.      Use setDate() instead. */
 end_comment
 begin_comment
-comment|/*!     \since 4.2      Sets the date's \a year, \a month, and \a day. Returns true if     the date is valid; otherwise returns false.      If the specified date is invalid, the QDate object is set to be     invalid. Any date before 2 January 4713 B.C. is considered     invalid.      \sa isValid() */
+comment|/*!     \since 4.2      Sets the date's \a year, \a month, and \a day. Returns true if     the date is valid; otherwise returns false.      If the specified date is invalid, the QDate object is set to be     invalid.      Note that any date before 4800 BCE or after about 1.4 million CE     may not be accurately stored.      \sa isValid() */
 end_comment
 begin_function
 DECL|function|setDate
@@ -2220,7 +2217,6 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
 name|isValid
 argument_list|(
 name|year
@@ -2230,14 +2226,6 @@ argument_list|,
 name|day
 argument_list|)
 condition|)
-block|{
-name|jd
-operator|=
-literal|0
-expr_stmt|;
-block|}
-else|else
-block|{
 name|jd
 operator|=
 name|julianDayFromDate
@@ -2249,16 +2237,20 @@ argument_list|,
 name|day
 argument_list|)
 expr_stmt|;
-block|}
-return|return
+else|else
 name|jd
-operator|!=
-literal|0
+operator|=
+name|nullJd
+argument_list|()
+expr_stmt|;
+return|return
+name|isValid
+argument_list|()
 return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Extracts the date's year, month, and day, and assigns them to     *\a year, *\a month, and *\a day. The pointers may be null.      Returns 0 if the date is invalid.      \sa year(), month(), day(), isValid() */
+comment|/*!     \since 4.5      Extracts the date's year, month, and day, and assigns them to     *\a year, *\a month, and *\a day. The pointers may be null.      Returns 0 if the date is invalid.      Note that any date before 4800 BCE or after about 1.4 million CE     may not be accurately stored.      \sa year(), month(), day(), isValid() */
 end_comment
 begin_function
 DECL|function|getDate
@@ -2340,7 +2332,7 @@ name|QDate
 operator|::
 name|addDays
 parameter_list|(
-name|int
+name|qint64
 name|ndays
 parameter_list|)
 specifier|const
@@ -2357,49 +2349,50 @@ return|;
 name|QDate
 name|d
 decl_stmt|;
+name|quint64
+name|diff
+init|=
+literal|0
+decl_stmt|;
 comment|// this is basically "d.jd = jd + ndays" with checks for integer overflow
+comment|// Due to limits on minJd() and maxJd() we know diff will never overflow
 if|if
 condition|(
 name|ndays
 operator|>=
 literal|0
 condition|)
-name|d
-operator|.
-name|jd
+name|diff
 operator|=
-operator|(
+name|maxJd
+argument_list|()
+operator|-
 name|jd
-operator|+
-name|ndays
-operator|>=
-name|jd
-operator|)
-condition|?
-name|jd
-operator|+
-name|ndays
-else|:
-literal|0
 expr_stmt|;
 else|else
+name|diff
+operator|=
+name|jd
+operator|-
+name|minJd
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|abs
+argument_list|(
+name|ndays
+argument_list|)
+operator|<=
+name|diff
+condition|)
 name|d
 operator|.
 name|jd
 operator|=
-operator|(
 name|jd
 operator|+
 name|ndays
-operator|<
-name|jd
-operator|)
-condition|?
-name|jd
-operator|+
-name|ndays
-else|:
-literal|0
 expr_stmt|;
 return|return
 name|d
@@ -2776,7 +2769,7 @@ comment|/*!     Returns the number of days from this date to \a d (which is     
 end_comment
 begin_function
 DECL|function|daysTo
-name|int
+name|qint64
 name|QDate
 operator|::
 name|daysTo
@@ -2801,6 +2794,7 @@ condition|)
 return|return
 literal|0
 return|;
+comment|// Due to limits on minJd() and maxJd() we know this will never overflow
 return|return
 name|d
 operator|.
@@ -3373,39 +3367,13 @@ name|int
 name|day
 parameter_list|)
 block|{
+comment|// there is no year 0 in the Julian calendar
 if|if
 condition|(
-name|year
-operator|<
-name|FIRST_YEAR
-operator|||
-operator|(
-name|year
-operator|==
-name|FIRST_YEAR
-operator|&&
-operator|(
-name|month
-operator|<
-name|FIRST_MONTH
-operator|||
-operator|(
-name|month
-operator|==
-name|FIRST_MONTH
-operator|&&
-name|day
-operator|<
-name|FIRST_DAY
-operator|)
-operator|)
-operator|)
-operator|||
 name|year
 operator|==
 literal|0
 condition|)
-comment|// there is no year 0 in the Julian calendar
 return|return
 literal|false
 return|;
@@ -3429,7 +3397,7 @@ operator|<
 literal|15
 condition|)
 return|return
-literal|0
+literal|false
 return|;
 return|return
 operator|(
@@ -4874,7 +4842,7 @@ begin_comment
 comment|/*****************************************************************************   QDateTime member functions  *****************************************************************************/
 end_comment
 begin_comment
-comment|/*!     \class QDateTime     \reentrant     \brief The QDateTime class provides date and time functions.       A QDateTime object contains a calendar date and a clock time (a     "datetime"). It is a combination of the QDate and QTime classes.     It can read the current datetime from the system clock. It     provides functions for comparing datetimes and for manipulating a     datetime by adding a number of seconds, days, months, or years.      A QDateTime object is typically created either by giving a date     and time explicitly in the constructor, or by using the static     function currentDateTime() that returns a QDateTime object set     to the system clock's time. The date and time can be changed with     setDate() and setTime(). A datetime can also be set using the     setTime_t() function that takes a POSIX-standard "number of     seconds since 00:00:00 on January 1, 1970" value. The fromString()     function returns a QDateTime, given a string and a date format     used to interpret the date within the string.      The date() and time() functions provide access to the date and     time parts of the datetime. The same information is provided in     textual format by the toString() function.      QDateTime provides a full set of operators to compare two     QDateTime objects where smaller means earlier and larger means     later.      You can increment (or decrement) a datetime by a given number of     milliseconds using addMSecs(), seconds using addSecs(), or days     using addDays(). Similarly you can use addMonths() and addYears().     The daysTo() function returns the number of days between two datetimes,     secsTo() returns the number of seconds between two datetimes, and     msecsTo() returns the number of milliseconds between two datetimes.      QDateTime can store datetimes as \l{Qt::LocalTime}{local time} or     as \l{Qt::UTC}{UTC}. QDateTime::currentDateTime() returns a     QDateTime expressed as local time; use toUTC() to convert it to     UTC. You can also use timeSpec() to find out if a QDateTime     object stores a UTC time or a local time. Operations such as     addSecs() and secsTo() are aware of daylight saving time (DST).      \note QDateTime does not account for leap seconds.      \section1      \target QDateTime G and J     \section2 Use of Gregorian and Julian Calendars      QDate uses the Gregorian calendar in all locales, beginning     on the date 15 October 1582. For dates up to and including 4     October 1582, the Julian calendar is used.  This means there is a     10-day gap in the internal calendar between the 4th and the 15th     of October 1582. When you use QDateTime for dates in that epoch,     the day after 4 October 1582 is 15 October 1582, and the dates in     the gap are invalid.      The Julian to Gregorian changeover date used here is the date when     the Gregorian calendar was first introduced, by Pope Gregory     XIII. That change was not universally accepted and some localities     only executed it at a later date (if at all).  QDateTime     doesn't take any of these historical facts into account. If an     application must support a locale-specific dating system, it must     do so on its own, remembering to convert the dates using the     Julian day.      \section2 No Year 0      There is no year 0. Dates in that year are considered invalid. The     year -1 is the year "1 before Christ" or "1 before current era."     The day before 0001-01-01 is December 31st, 1 BCE.      \section2 Range of Valid Dates      The range of valid dates is from January 2nd, 4713 BCE, to     sometime in the year 11 million CE. The Julian Day returned by     QDate::toJulianDay() is a number in the contiguous range from 1 to     \e{overflow}, even across QDateTime's "date holes". It is suitable     for use in applications that must convert a QDateTime to a date in     another calendar system, e.g., Hebrew, Islamic or Chinese.      The Gregorian calendar was introduced in different places around     the world on different dates. QDateTime uses QDate to store the     date, so it uses the Gregorian calendar for all locales, beginning     on the date 15 October 1582. For dates up to and including 4     October 1582, QDateTime uses the Julian calendar.  This means     there is a 10-day gap in the QDateTime calendar between the 4th     and the 15th of October 1582. When you use QDateTime for dates in     that epoch, the day after 4 October 1582 is 15 October 1582, and     the dates in the gap are invalid.      \section2     Use of System Timezone      QDateTime uses the system's time zone information to determine the     offset of local time from UTC. If the system is not configured     correctly or not up-to-date, QDateTime will give wrong results as     well.      \section2 Daylight Savings Time (DST)      QDateTime takes into account the system's time zone information     when dealing with DST. On modern Unix systems, this means it     applies the correct historical DST data whenever possible. On     Windows and Windows CE, where the system doesn't support     historical DST data, historical accuracy is not maintained with     respect to DST.      The range of valid dates taking DST into account is 1970-01-01 to     the present, and rules are in place for handling DST correctly     until 2037-12-31, but these could change. For dates falling     outside that range, QDateTime makes a \e{best guess} using the     rules for year 1970 or 2037, but we can't guarantee accuracy. This     means QDateTime doesn't take into account changes in a locale's     time zone before 1970, even if the system's time zone database     supports that information.      \sa QDate QTime QDateTimeEdit */
+comment|/*!     \class QDateTime     \reentrant     \brief The QDateTime class provides date and time functions.       A QDateTime object contains a calendar date and a clock time (a     "datetime"). It is a combination of the QDate and QTime classes.     It can read the current datetime from the system clock. It     provides functions for comparing datetimes and for manipulating a     datetime by adding a number of seconds, days, months, or years.      A QDateTime object is typically created either by giving a date     and time explicitly in the constructor, or by using the static     function currentDateTime() that returns a QDateTime object set     to the system clock's time. The date and time can be changed with     setDate() and setTime(). A datetime can also be set using the     setTime_t() function that takes a POSIX-standard "number of     seconds since 00:00:00 on January 1, 1970" value. The fromString()     function returns a QDateTime, given a string and a date format     used to interpret the date within the string.      The date() and time() functions provide access to the date and     time parts of the datetime. The same information is provided in     textual format by the toString() function.      QDateTime provides a full set of operators to compare two     QDateTime objects where smaller means earlier and larger means     later.      You can increment (or decrement) a datetime by a given number of     milliseconds using addMSecs(), seconds using addSecs(), or days     using addDays(). Similarly you can use addMonths() and addYears().     The daysTo() function returns the number of days between two datetimes,     secsTo() returns the number of seconds between two datetimes, and     msecsTo() returns the number of milliseconds between two datetimes.      QDateTime can store datetimes as \l{Qt::LocalTime}{local time} or     as \l{Qt::UTC}{UTC}. QDateTime::currentDateTime() returns a     QDateTime expressed as local time; use toUTC() to convert it to     UTC. You can also use timeSpec() to find out if a QDateTime     object stores a UTC time or a local time. Operations such as     addSecs() and secsTo() are aware of daylight saving time (DST).      \note QDateTime does not account for leap seconds.      \section1      \target QDateTime G and J     \section2 Use of Gregorian and Julian Calendars      QDate uses the Gregorian calendar in all locales, beginning     on the date 15 October 1582. For dates up to and including 4     October 1582, the Julian calendar is used.  This means there is a     10-day gap in the internal calendar between the 4th and the 15th     of October 1582. When you use QDateTime for dates in that epoch,     the day after 4 October 1582 is 15 October 1582, and the dates in     the gap are invalid.      The Julian to Gregorian changeover date used here is the date when     the Gregorian calendar was first introduced, by Pope Gregory     XIII. That change was not universally accepted and some localities     only executed it at a later date (if at all).  QDateTime     doesn't take any of these historical facts into account. If an     application must support a locale-specific dating system, it must     do so on its own, remembering to convert the dates using the     Julian day.      \section2 No Year 0      There is no year 0. Dates in that year are considered invalid. The     year -1 is the year "1 before Christ" or "1 before current era."     The day before 1 January 1 CE is 31 December 1 BCE.      \section2 Range of Valid Dates      Dates are stored internally as a Julian Day number, an interger count of     every day in a contiguous range, with 24 November 4714 BCE in the Gregorian     calendar being Julian Day 0 (1 January 4713 BCE in the Julian calendar).     As well as being an efficient and accurate way of storing an absolute date,     it is suitable for converting a Date into other calendar systems such as     Hebrew, Islamic or Chinese. The Julian Day number can be obtained using     QDate::toJulianDay() and can be set using QDate::fromJulianDay().      The range of dates able to be stored by QDate as a Julian Day number is     limited for convenience from std::numeric_limits<qint64>::min() / 2 to     std::numeric_limits<qint64>::max() / 2, which on most platforms means     from around 2.5 quadrillion BCE to around 2.5 quadrillion CE, effectively     covering the full range of astronomical time. The range of Julian Days     able to be accurately converted to and from valid YMD form Dates is     restricted to 1 January 4800 BCE to 31 December 1400000 CE due to     shortcomings in the available conversion formulas. Conversions outside this     range are not guaranteed to be correct. This may change in the future.      The Gregorian calendar was introduced in different places around     the world on different dates. QDateTime uses QDate to store the     date, so it uses the Gregorian calendar for all locales, beginning     on the date 15 October 1582. For dates up to and including 4     October 1582, QDateTime uses the Julian calendar.  This means     there is a 10-day gap in the QDateTime calendar between the 4th     and the 15th of October 1582. When you use QDateTime for dates in     that epoch, the day after 4 October 1582 is 15 October 1582, and     the dates in the gap are invalid.      \section2     Use of System Timezone      QDateTime uses the system's time zone information to determine the     offset of local time from UTC. If the system is not configured     correctly or not up-to-date, QDateTime will give wrong results as     well.      \section2 Daylight Savings Time (DST)      QDateTime takes into account the system's time zone information     when dealing with DST. On modern Unix systems, this means it     applies the correct historical DST data whenever possible. On     Windows and Windows CE, where the system doesn't support     historical DST data, historical accuracy is not maintained with     respect to DST.      The range of valid dates taking DST into account is 1970-01-01 to     the present, and rules are in place for handling DST correctly     until 2037-12-31, but these could change. For dates falling     outside that range, QDateTime makes a \e{best guess} using the     rules for year 1970 or 2037, but we can't guarantee accuracy. This     means QDateTime doesn't take into account changes in a locale's     time zone before 1970, even if the system's time zone database     supports that information.      \sa QDate QTime QDateTimeEdit */
 end_comment
 begin_comment
 comment|/*!     Constructs a null datetime (i.e. null date and null time). A null     datetime is invalid, since the date is invalid.      \sa isValid() */
@@ -6373,7 +6341,7 @@ name|QDateTime
 operator|::
 name|addDays
 parameter_list|(
-name|int
+name|qint64
 name|ndays
 parameter_list|)
 specifier|const
@@ -6560,7 +6528,7 @@ name|qint64
 name|msecs
 parameter_list|)
 block|{
-name|int
+name|qint64
 name|dd
 init|=
 name|utcDate
@@ -6792,7 +6760,7 @@ comment|/*!     Returns the number of days from this datetime to the \a other   
 end_comment
 begin_function
 DECL|function|daysTo
-name|int
+name|qint64
 name|QDateTime
 operator|::
 name|daysTo
@@ -9965,7 +9933,7 @@ return|return
 name|out
 operator|<<
 call|(
-name|quint32
+name|qint64
 call|)
 argument_list|(
 name|date
@@ -9994,7 +9962,7 @@ modifier|&
 name|date
 parameter_list|)
 block|{
-name|quint32
+name|qint64
 name|jd
 decl_stmt|;
 name|in

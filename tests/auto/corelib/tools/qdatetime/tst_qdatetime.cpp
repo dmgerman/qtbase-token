@@ -8437,6 +8437,9 @@ argument_list|(
 name|dt2
 argument_list|)
 argument_list|,
+operator|(
+name|qint64
+operator|)
 literal|31
 argument_list|)
 expr_stmt|;
@@ -8461,6 +8464,9 @@ argument_list|(
 name|dt3
 argument_list|)
 argument_list|,
+operator|(
+name|qint64
+operator|)
 literal|29
 argument_list|)
 expr_stmt|;
@@ -8485,6 +8491,9 @@ argument_list|(
 name|dt3
 argument_list|)
 argument_list|,
+operator|(
+name|qint64
+operator|)
 literal|60
 argument_list|)
 expr_stmt|;
@@ -8509,6 +8518,9 @@ argument_list|(
 name|dt1
 argument_list|)
 argument_list|,
+operator|(
+name|qint64
+operator|)
 operator|-
 literal|31
 argument_list|)
@@ -8535,6 +8547,9 @@ argument_list|(
 name|dt2
 argument_list|)
 argument_list|,
+operator|(
+name|qint64
+operator|)
 operator|-
 literal|29
 argument_list|)
@@ -8561,6 +8576,9 @@ argument_list|(
 name|dt1
 argument_list|)
 argument_list|,
+operator|(
+name|qint64
+operator|)
 operator|-
 literal|60
 argument_list|)
