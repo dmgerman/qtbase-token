@@ -214,6 +214,14 @@ specifier|const
 name|char
 modifier|*
 name|msg
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|file
+parameter_list|,
+name|int
+name|line
 parameter_list|)
 function_decl|;
 specifier|static

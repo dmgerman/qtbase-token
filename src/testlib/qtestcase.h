@@ -147,7 +147,7 @@ parameter_list|(
 name|msg
 parameter_list|)
 define|\
-value|QTest::qWarn(msg)
+value|QTest::qWarn(msg, __FILE__, __LINE__)
 name|class
 name|QObject
 decl_stmt|;
@@ -369,6 +369,18 @@ specifier|const
 name|char
 modifier|*
 name|message
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|file
+init|=
+literal|0
+parameter_list|,
+name|int
+name|line
+init|=
+literal|0
 parameter_list|)
 function_decl|;
 end_function_decl

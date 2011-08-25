@@ -5971,6 +5971,14 @@ specifier|const
 name|char
 modifier|*
 name|message
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|file
+parameter_list|,
+name|int
+name|line
 parameter_list|)
 block|{
 name|QTestLog
@@ -5978,6 +5986,10 @@ operator|::
 name|warn
 argument_list|(
 name|message
+argument_list|,
+name|file
+argument_list|,
+name|line
 argument_list|)
 expr_stmt|;
 block|}

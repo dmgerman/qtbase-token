@@ -1521,6 +1521,14 @@ specifier|const
 name|char
 modifier|*
 name|msg
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|file
+parameter_list|,
+name|int
+name|line
 parameter_list|)
 block|{
 name|QTEST_ASSERT
@@ -1550,6 +1558,10 @@ operator|::
 name|Warn
 argument_list|,
 name|msg
+argument_list|,
+name|file
+argument_list|,
+name|line
 argument_list|)
 expr_stmt|;
 block|}
