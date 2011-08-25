@@ -120,6 +120,9 @@ argument_list|(
 name|mEventDispatcher
 argument_list|)
 expr_stmt|;
+name|XInitThreads
+argument_list|()
+expr_stmt|;
 name|mPrimaryScreen
 operator|=
 operator|new
