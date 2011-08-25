@@ -174,6 +174,14 @@ argument_list|(
 name|m_eventDispatcher
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|XCB_USE_XLIB
+name|XInitThreads
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
 name|m_connections
 operator|<<
 operator|new
