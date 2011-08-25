@@ -1264,11 +1264,6 @@ name|char
 modifier|*
 name|message
 parameter_list|,
-name|QTest
-operator|::
-name|SkipMode
-name|mode
-parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -1286,8 +1281,6 @@ operator|::
 name|addSkip
 argument_list|(
 name|message
-argument_list|,
-name|mode
 argument_list|,
 name|file
 argument_list|,

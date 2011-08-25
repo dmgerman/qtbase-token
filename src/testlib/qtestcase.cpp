@@ -6029,8 +6029,6 @@ name|addSkip
 argument_list|(
 name|message
 argument_list|,
-name|mode
-argument_list|,
 name|file
 argument_list|,
 name|line

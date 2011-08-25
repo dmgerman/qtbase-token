@@ -1083,11 +1083,6 @@ name|char
 modifier|*
 name|msg
 parameter_list|,
-name|QTest
-operator|::
-name|SkipMode
-comment|/*mode*/
-parameter_list|,
 specifier|const
 name|char
 modifier|*
