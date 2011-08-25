@@ -217,6 +217,62 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Compare the \a other error's values to this error and returns true, if it equal. */
+end_comment
+begin_function
+DECL|function|operator ==
+name|bool
+name|QSqlError
+operator|::
+name|operator
+name|==
+parameter_list|(
+specifier|const
+name|QSqlError
+modifier|&
+name|other
+parameter_list|)
+block|{
+return|return
+operator|(
+name|errorType
+operator|==
+name|other
+operator|.
+name|errorType
+operator|)
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Compare the \a other error's values to this error and returns true if it is not equal. */
+end_comment
+begin_function
+DECL|function|operator !=
+name|bool
+name|QSqlError
+operator|::
+name|operator
+name|!=
+parameter_list|(
+specifier|const
+name|QSqlError
+modifier|&
+name|other
+parameter_list|)
+block|{
+return|return
+operator|(
+name|errorType
+operator|!=
+name|other
+operator|.
+name|errorType
+operator|)
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Destroys the object and frees any allocated resources. */
 end_comment
 begin_destructor

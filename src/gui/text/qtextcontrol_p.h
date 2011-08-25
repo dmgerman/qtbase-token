@@ -738,6 +738,18 @@ argument_list|()
 block|;
 comment|// control signals
 name|void
+name|updateCursorRequest
+argument_list|(
+specifier|const
+name|QRectF
+operator|&
+name|rect
+operator|=
+name|QRectF
+argument_list|()
+argument_list|)
+block|;
+name|void
 name|updateRequest
 argument_list|(
 specifier|const
@@ -928,6 +940,11 @@ argument|bool next
 argument_list|,
 argument|QTextCursor& newAnchor
 argument_list|)
+block|;
+name|bool
+name|cursorOn
+argument_list|()
+specifier|const
 block|;
 name|protected
 operator|:

@@ -359,9 +359,9 @@ argument|QWindow * w
 argument_list|,
 argument|ulong time
 argument_list|,
-argument|const QPoint& local
+argument|const QPointF& local
 argument_list|,
-argument|const QPoint& global
+argument|const QPointF& global
 argument_list|,
 argument|Qt::MouseButtons b
 argument_list|)
@@ -390,10 +390,10 @@ argument_list|(
 argument|b
 argument_list|)
 block|{ }
-name|QPoint
+name|QPointF
 name|localPos
 block|;
-name|QPoint
+name|QPointF
 name|globalPos
 block|;
 name|Qt
@@ -416,9 +416,9 @@ argument|QWindow *w
 argument_list|,
 argument|ulong time
 argument_list|,
-argument|const QPoint& local
+argument|const QPointF& local
 argument_list|,
-argument|const QPoint& global
+argument|const QPointF& global
 argument_list|,
 argument|int d
 argument_list|,
@@ -457,10 +457,10 @@ block|{ }
 name|int
 name|delta
 block|;
-name|QPoint
+name|QPointF
 name|localPos
 block|;
-name|QPoint
+name|QPointF
 name|globalPos
 block|;
 name|Qt

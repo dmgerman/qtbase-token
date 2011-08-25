@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qwaylandmime.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QPlatformNativeInterface>
 end_include
 begin_include
@@ -52,6 +57,14 @@ include|#
 directive|include
 file|<QtGui/private/qdnd_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/private/qcore_unix_p.h>
+end_include
+begin_comment
+comment|// for QT_READ
+end_comment
 begin_decl_stmt
 DECL|variable|clipboard
 specifier|static
@@ -63,9 +76,9 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_class
-DECL|class|QWaylandMimeData
+DECL|class|QWaylandClipboardMimeData
 class|class
-name|QWaylandMimeData
+name|QWaylandClipboardMimeData
 super|:
 specifier|public
 name|QInternalMimeData
@@ -125,7 +138,7 @@ end_class
 begin_function
 DECL|function|clearAll
 name|void
-name|QWaylandMimeData
+name|QWaylandClipboardMimeData
 operator|::
 name|clearAll
 parameter_list|()
@@ -143,7 +156,7 @@ end_function
 begin_function
 DECL|function|setFormats
 name|void
-name|QWaylandMimeData
+name|QWaylandClipboardMimeData
 operator|::
 name|setFormats
 parameter_list|(
@@ -162,7 +175,7 @@ end_function
 begin_function
 DECL|function|hasFormat_sys
 name|bool
-name|QWaylandMimeData
+name|QWaylandClipboardMimeData
 operator|::
 name|hasFormat_sys
 parameter_list|(
@@ -187,7 +200,7 @@ end_function
 begin_function
 DECL|function|formats_sys
 name|QStringList
-name|QWaylandMimeData
+name|QWaylandClipboardMimeData
 operator|::
 name|formats_sys
 parameter_list|()
@@ -201,7 +214,7 @@ end_function
 begin_function
 DECL|function|retrieveData_sys
 name|QVariant
-name|QWaylandMimeData
+name|QWaylandClipboardMimeData
 operator|::
 name|retrieveData_sys
 parameter_list|(
@@ -554,12 +567,14 @@ decl_stmt|;
 name|QByteArray
 name|content
 init|=
+name|QWaylandMimeHelper
+operator|::
+name|getByteArray
+argument_list|(
 name|self
 operator|->
 name|mMimeData
-operator|->
-name|data
-argument_list|(
+argument_list|,
 name|mimeType
 argument_list|)
 decl_stmt|;
@@ -939,7 +954,7 @@ condition|(
 operator|(
 name|n
 operator|=
-name|read
+name|QT_READ
 argument_list|(
 name|pipefd
 index|[
@@ -1025,7 +1040,7 @@ condition|)
 name|mMimeDataIn
 operator|=
 operator|new
-name|QWaylandMimeData
+name|QWaylandClipboardMimeData
 expr_stmt|;
 name|mMimeDataIn
 operator|->

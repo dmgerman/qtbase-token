@@ -107,7 +107,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<QtXml/QXmlStreamReader>
+file|<QtCore/QXmlStreamReader>
 end_include
 begin_include
 include|#

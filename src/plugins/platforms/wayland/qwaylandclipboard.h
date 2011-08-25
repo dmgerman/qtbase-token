@@ -41,9 +41,9 @@ name|QWaylandSelection
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QWaylandMimeData
+DECL|variable|QWaylandClipboardMimeData
 name|class
-name|QWaylandMimeData
+name|QWaylandClipboardMimeData
 decl_stmt|;
 end_decl_stmt
 begin_struct_decl
@@ -212,7 +212,7 @@ name|QWaylandDisplay
 operator|*
 name|mDisplay
 block|;
-name|QWaylandMimeData
+name|QWaylandClipboardMimeData
 operator|*
 name|mMimeDataIn
 block|;

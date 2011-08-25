@@ -966,17 +966,6 @@ name|other
 operator|)
 return|;
 block|}
-name|bool
-name|operator
-operator|==
-operator|(
-specifier|const
-name|QGradient
-operator|&
-name|gradient
-operator|)
-expr_stmt|;
-comment|// ### Qt 5: remove
 name|private
 label|:
 name|friend

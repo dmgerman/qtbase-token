@@ -5427,42 +5427,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal */
-end_comment
-begin_function
-DECL|function|operator ==
-name|bool
-name|QGradient
-operator|::
-name|operator
-name|==
-parameter_list|(
-specifier|const
-name|QGradient
-modifier|&
-name|gradient
-parameter_list|)
-block|{
-return|return
-cast|const_cast
-argument_list|<
-specifier|const
-name|QGradient
-operator|*
-argument_list|>
-argument_list|(
-name|this
-argument_list|)
-operator|->
-name|operator
-name|==
-argument_list|(
-name|gradient
-argument_list|)
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!     \class QLinearGradient     \ingroup painting      \brief The QLinearGradient class is used in combination with QBrush to     specify a linear gradient brush.      Linear gradients interpolate colors between start and end     points. Outside these points the gradient is either padded,     reflected or repeated depending on the currently set \l     {QGradient::Spread}{spread} method:      \table     \row     \o \inlineimage qlineargradient-pad.png     \o \inlineimage qlineargradient-reflect.png     \o \inlineimage qlineargradient-repeat.png     \row     \o \l {QGradient::PadSpread}{PadSpread} (default)     \o \l {QGradient::ReflectSpread}{ReflectSpread}     \o \l {QGradient::RepeatSpread}{RepeatSpread}     \endtable      The colors in a gradient is defined using stop points of the     QGradientStop type, i.e. a position and a color. Use the     QGradient::setColorAt() or the QGradient::setStops() function to     define the stop points. It is the gradient's complete set of stop     points that describes how the gradient area should be filled. If     no stop points have been specified, a gradient of black at 0 to     white at 1 is used.      In addition to the functions inherited from QGradient, the     QLinearGradient class provides the finalStop() function which     returns the final stop point of the gradient, and the start()     function returning the start point of the gradient.      \sa QRadialGradient, QConicalGradient, {painting/gradients}{The     Gradients Example} */
 end_comment
 begin_comment

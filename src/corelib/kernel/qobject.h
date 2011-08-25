@@ -188,32 +188,42 @@ operator|*
 operator|>
 operator|*
 name|list
+argument_list|,
+name|Qt
+operator|::
+name|FindChildOptions
+name|options
 argument_list|)
 decl_stmt|;
 end_decl_stmt
-begin_function_decl
+begin_decl_stmt
 name|Q_CORE_EXPORT
 name|QObject
 modifier|*
 name|qt_qFindChild_helper
-parameter_list|(
+argument_list|(
 specifier|const
 name|QObject
-modifier|*
+operator|*
 name|parent
-parameter_list|,
+argument_list|,
 specifier|const
 name|QString
-modifier|&
+operator|&
 name|name
-parameter_list|,
+argument_list|,
 specifier|const
 name|QMetaObject
-modifier|&
+operator|&
 name|mo
-parameter_list|)
-function_decl|;
-end_function_decl
+argument_list|,
+name|Qt
+operator|::
+name|FindChildOptions
+name|options
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|class
 if|#
@@ -654,6 +664,8 @@ name|T
 name|findChild
 argument_list|(
 argument|const QString&aName = QString()
+argument_list|,
+argument|Qt::FindChildOptions options = Qt::FindChildrenRecursively
 argument_list|)
 specifier|const
 block|{
@@ -678,6 +690,8 @@ literal|0
 operator|)
 operator|->
 name|staticMetaObject
+argument_list|,
+name|options
 argument_list|)
 operator|)
 return|;
@@ -695,6 +709,8 @@ operator|>
 name|findChildren
 argument_list|(
 argument|const QString&aName = QString()
+argument_list|,
+argument|Qt::FindChildOptions options = Qt::FindChildrenRecursively
 argument_list|)
 specifier|const
 block|{
@@ -751,6 +767,8 @@ argument_list|,
 name|u
 operator|.
 name|voidList
+argument_list|,
+name|options
 argument_list|)
 block|;
 return|return
@@ -773,6 +791,8 @@ operator|>
 name|findChildren
 argument_list|(
 argument|const QRegExp&re
+argument_list|,
+argument|Qt::FindChildOptions options = Qt::FindChildrenRecursively
 argument_list|)
 specifier|const
 block|{
@@ -831,6 +851,8 @@ argument_list|,
 name|u
 operator|.
 name|voidList
+argument_list|,
+name|options
 argument_list|)
 block|;
 return|return

@@ -1069,6 +1069,7 @@ name|GlyphCacheEntry
 operator|&
 name|other
 operator|)
+specifier|const
 block|{
 return|return
 name|context

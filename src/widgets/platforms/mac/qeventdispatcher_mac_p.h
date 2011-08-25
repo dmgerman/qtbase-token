@@ -280,6 +280,7 @@ name|MacTimerInfo
 operator|&
 name|other
 operator|)
+specifier|const
 block|{
 return|return
 operator|(

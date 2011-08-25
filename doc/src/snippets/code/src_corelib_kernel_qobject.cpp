@@ -1597,6 +1597,77 @@ literal|"Example"
 argument_list|)
 decl_stmt|;
 comment|//! [40]
+comment|//! [41]
+DECL|member|button
+name|QPushButton
+modifier|*
+name|button
+init|=
+name|parentWidget
+operator|->
+name|findChild
+argument_list|<
+name|QPushButton
+operator|*
+argument_list|>
+argument_list|(
+literal|"button1"
+argument_list|,
+name|Qt
+operator|::
+name|FindDirectChildOnly
+argument_list|)
+decl_stmt|;
+comment|//! [41]
+comment|//! [42]
+DECL|member|list
+name|QListWidget
+modifier|*
+name|list
+init|=
+name|parentWidget
+operator|->
+name|findChild
+argument_list|<
+name|QListWidget
+operator|*
+argument_list|>
+argument_list|(
+name|QString
+argument_list|()
+argument_list|,
+name|Qt
+operator|::
+name|FindDirectChildOnly
+argument_list|)
+decl_stmt|;
+comment|//! [42]
+comment|//! [43]
+DECL|member|childButtons
+name|QList
+argument_list|<
+name|QPushButton
+modifier|*
+argument_list|>
+name|childButtons
+init|=
+name|parentWidget
+operator|.
+name|findChildren
+argument_list|<
+name|QPushButton
+operator|*
+argument_list|>
+argument_list|(
+name|QString
+argument_list|()
+argument_list|,
+name|Qt
+operator|::
+name|FindDirectChildOnly
+argument_list|)
+decl_stmt|;
+comment|//! [43]
 comment|//! [meta data]
 comment|//: This is a comment for the translator.
 comment|//= qtn_foo_bar
