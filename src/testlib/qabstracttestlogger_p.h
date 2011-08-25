@@ -48,6 +48,11 @@ include|#
 directive|include
 file|<qglobal.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<stdio.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QBenchmarkResult
@@ -93,6 +98,11 @@ block|}
 enum|;
 name|QAbstractTestLogger
 argument_list|()
+operator|:
+name|stream
+argument_list|(
+literal|0
+argument_list|)
 block|{}
 name|virtual
 operator|~
@@ -210,7 +220,6 @@ parameter_list|)
 init|=
 literal|0
 function_decl|;
-specifier|static
 name|void
 name|outputString
 parameter_list|(
@@ -220,6 +229,12 @@ modifier|*
 name|msg
 parameter_list|)
 function_decl|;
+name|private
+label|:
+name|FILE
+modifier|*
+name|stream
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

@@ -75,13 +75,11 @@ decl_stmt|;
 name|void
 name|setLogger
 parameter_list|(
-specifier|const
 name|QTestLogger
 modifier|*
 name|tstLogger
 parameter_list|)
 function_decl|;
-specifier|const
 name|QTestLogger
 operator|*
 name|logger
@@ -202,7 +200,6 @@ decl|const
 decl_stmt|;
 name|private
 label|:
-specifier|const
 name|QTestLogger
 modifier|*
 name|testLogger

@@ -142,6 +142,38 @@ name|randomSeed
 block|;
 name|bool
 name|hasRandomSeed
+block|;
+name|void
+name|printMessage
+argument_list|(
+argument|const char *type
+argument_list|,
+argument|const char *msg
+argument_list|,
+argument|const char *file =
+literal|0
+argument_list|,
+argument|int line =
+literal|0
+argument_list|)
+block|;
+name|void
+name|outputMessage
+argument_list|(
+specifier|const
+name|char
+operator|*
+name|str
+argument_list|)
+block|;
+name|void
+name|printBenchmarkResult
+argument_list|(
+specifier|const
+name|QBenchmarkResult
+operator|&
+name|result
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

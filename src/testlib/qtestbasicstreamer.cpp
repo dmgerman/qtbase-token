@@ -530,7 +530,6 @@ name|QTestBasicStreamer
 operator|::
 name|setLogger
 parameter_list|(
-specifier|const
 name|QTestLogger
 modifier|*
 name|tstLogger
@@ -544,7 +543,6 @@ block|}
 end_function
 begin_function
 DECL|function|logger
-specifier|const
 name|QTestLogger
 modifier|*
 name|QTestBasicStreamer
