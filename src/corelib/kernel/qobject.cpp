@@ -3601,7 +3601,7 @@ begin_comment
 comment|/*!     \fn bool QObject::inherits(const char *className) const      Returns true if this object is an instance of a class that     inherits \a className or a QObject subclass that inherits \a     className; otherwise returns false.      A class is considered to inherit itself.      Example:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 4      If you need to determine whether an object is an instance of a particular     class for the purpose of casting it, consider using qobject_cast<Type *>(object)     instead.      \sa metaObject(), qobject_cast() */
 end_comment
 begin_comment
-comment|/*!     \property QObject::objectName      \brief the name of this object      You can find an object by name (and type) using findChild(). You can     find a set of objects with findChildren().      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 5      By default, this property contains an empty string.      \sa metaObject(), QMetaObject::className() */
+comment|/*!     \property QObject::objectName      \brief the name of this object      You can find an object by name (and type) using findChild().     You can find a set of objects with findChildren().      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 5      By default, this property contains an empty string.      \sa metaObject(), QMetaObject::className() */
 end_comment
 begin_function
 DECL|function|objectName
@@ -4867,13 +4867,13 @@ begin_comment
 comment|/*!     \fn const QObjectList&QObject::children() const      Returns a list of child objects.     The QObjectList class is defined in the \c{<QObject>} header     file as the following:      \quotefromfile src/corelib/kernel/qobject.h     \skipto /typedef .*QObjectList/     \printuntil QObjectList      The first child added is the \l{QList::first()}{first} object in     the list and the last child added is the \l{QList::last()}{last}     object in the list, i.e. new children are appended at the end.      Note that the list order changes when QWidget children are     \l{QWidget::raise()}{raised} or \l{QWidget::lower()}{lowered}. A     widget that is raised becomes the last object in the list, and a     widget that is lowered becomes the first object in the list.      \sa findChild(), findChildren(), parent(), setParent() */
 end_comment
 begin_comment
-comment|/*!     \fn T *QObject::findChild(const QString&name) const      Returns the child of this object that can be cast into type T and     that is called \a name, or 0 if there is no such object.     Omitting the \a name argument causes all object names to be matched.     The search is performed recursively.      If there is more than one child matching the search, the most     direct ancestor is returned. If there are several direct     ancestors, it is undefined which one will be returned. In that     case, findChildren() should be used.      This example returns a child \l{QPushButton} of \c{parentWidget}     named \c{"button1"}:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 10      This example returns a \l{QListWidget} child of \c{parentWidget}:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 11      \sa findChildren() */
+comment|/*!     \fn T *QObject::findChild(const QString&name, Qt::FindChildOptions options) const      Returns the child of this object that can be cast into type T and     that is called \a name, or 0 if there is no such object.     Omitting the \a name argument causes all object names to be matched.     The search is performed recursively, unless \a options specifies the     option FindDirectChildrenOnly.      If there is more than one child matching the search, the most     direct ancestor is returned. If there are several direct     ancestors, it is undefined which one will be returned. In that     case, findChildren() should be used.      This example returns a child \l{QPushButton} of \c{parentWidget}     named \c{"button1"}, even if the button isn't a direct child of     the parent:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 10      This example returns a \l{QListWidget} child of \c{parentWidget}:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 11      This example returns a child \l{QPushButton} of \c{parentWidget}     (its direct parent) named \c{"button1"}:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 41      This example returns a \l{QListWidget} child of \c{parentWidget},     its direct parent:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 42      \sa findChildren() */
 end_comment
 begin_comment
-comment|/*!     \fn QList<T> QObject::findChildren(const QString&name) const      Returns all children of this object with the given \a name that can be     cast to type T, or an empty list if there are no such objects.     Omitting the \a name argument causes all object names to be matched.     The search is performed recursively.      The following example shows how to find a list of child \l{QWidget}s of     the specified \c{parentWidget} named \c{widgetname}:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 12      This example returns all \c{QPushButton}s that are children of \c{parentWidget}:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 13      \sa findChild() */
+comment|/*!     \fn QList<T> QObject::findChildren(const QString&name, Qt::FindChildOptions options) const      Returns all children of this object with the given \a name that can be     cast to type T, or an empty list if there are no such objects.     Omitting the \a name argument causes all object names to be matched.     The search is performed recursively, unless \a options specifies the     option FindDirectChildrenOnly.      The following example shows how to find a list of child \l{QWidget}s of     the specified \c{parentWidget} named \c{widgetname}:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 12      This example returns all \c{QPushButton}s that are children of \c{parentWidget}:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 13      This example returns all \c{QPushButton}s that are immediate children of \c{parentWidget}:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 43      \sa findChild() */
 end_comment
 begin_comment
-comment|/*!     \fn QList<T> QObject::findChildren(const QRegExp&regExp) const     \overload findChildren()      Returns the children of this object that can be cast to type T     and that have names matching the regular expression \a regExp,     or an empty list if there are no such objects.     The search is performed recursively. */
+comment|/*!     \fn QList<T> QObject::findChildren(const QRegExp&regExp, Qt::FindChildOptions options) const     \overload findChildren()      Returns the children of this object that can be cast to type T     and that have names matching the regular expression \a regExp,     or an empty list if there are no such objects.     The search is performed recursively. */
 end_comment
 begin_comment
 comment|/*!     \fn T qFindChild(const QObject *obj, const QString&name)     \relates QObject     \overload qFindChildren()     \obsolete      This function is equivalent to     \a{obj}->\l{QObject::findChild()}{findChild}<T>(\a name).      \note This function was provided as a workaround for MSVC 6     which did not support member template functions. It is advised     to use the other form in new code.      \sa QObject::findChild() */
@@ -4919,6 +4919,11 @@ modifier|*
 argument_list|>
 modifier|*
 name|list
+parameter_list|,
+name|Qt
+operator|::
+name|FindChildOptions
+name|options
 parameter_list|)
 block|{
 if|if
@@ -5034,6 +5039,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|options
+operator|&
+name|Qt
+operator|::
+name|FindChildrenRecursively
+condition|)
 name|qt_qFindChildren_helper
 argument_list|(
 name|obj
@@ -5045,6 +5058,8 @@ argument_list|,
 name|mo
 argument_list|,
 name|list
+argument_list|,
+name|options
 argument_list|)
 expr_stmt|;
 block|}
@@ -5073,6 +5088,11 @@ specifier|const
 name|QMetaObject
 modifier|&
 name|mo
+parameter_list|,
+name|Qt
+operator|::
+name|FindChildOptions
+name|options
 parameter_list|)
 block|{
 if|if
@@ -5153,6 +5173,15 @@ return|return
 name|obj
 return|;
 block|}
+if|if
+condition|(
+name|options
+operator|&
+name|Qt
+operator|::
+name|FindChildrenRecursively
+condition|)
+block|{
 for|for
 control|(
 name|i
@@ -5184,6 +5213,8 @@ argument_list|,
 name|name
 argument_list|,
 name|mo
+argument_list|,
+name|options
 argument_list|)
 expr_stmt|;
 if|if
@@ -5193,6 +5224,7 @@ condition|)
 return|return
 name|obj
 return|;
+block|}
 block|}
 return|return
 literal|0

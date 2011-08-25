@@ -1598,7 +1598,13 @@ operator|<
 name|QGlyphRun
 operator|>
 name|glyphRuns
-argument_list|()
+argument_list|(
+argument|int from = -
+literal|1
+argument_list|,
+argument|int length = -
+literal|1
+argument_list|)
 specifier|const
 expr_stmt|;
 endif|#

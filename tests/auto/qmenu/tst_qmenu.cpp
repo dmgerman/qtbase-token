@@ -4813,6 +4813,18 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|Q_WS_QPA
+name|QSKIP
+argument_list|(
+literal|"QTBUG-20753 QCursor::setPos() / QTest::mouseMove() doesn't work on qpa"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|Menu258920
 name|menu
 decl_stmt|;
@@ -5205,9 +5217,19 @@ argument_list|(
 name|scrNumber
 argument_list|)
 decl_stmt|;
+name|QRect
+name|desiredGeometry
+init|=
 name|b
 operator|.
-name|move
+name|geometry
+argument_list|()
+decl_stmt|;
+name|desiredGeometry
+operator|.
+name|moveTopLeft
+argument_list|(
+name|QPoint
 argument_list|(
 literal|10
 argument_list|,
@@ -5223,6 +5245,14 @@ argument_list|()
 operator|-
 literal|5
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|b
+operator|.
+name|setGeometry
+argument_list|(
+name|desiredGeometry
+argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
@@ -5232,6 +5262,30 @@ operator|&
 name|b
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|b
+operator|.
+name|geometry
+argument_list|()
+operator|!=
+name|desiredGeometry
+condition|)
+block|{
+comment|// We are trying to put the button very close to the edge of the screen,
+comment|// explicitly to test behavior when the popup menu goes off the screen.
+comment|// However a modern window manager is quite likely to reject this requested geometry
+comment|// (kwin in kde4 does, for example, since the button would probably appear behind
+comment|// or partially behind the taskbar).
+comment|// Your best bet is to run this test _without_ a WM.
+name|QSKIP
+argument_list|(
+literal|"Your window manager won't allow a window against the bottom of the screen"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
 name|QTimer
 operator|::
 name|singleShot
@@ -5288,6 +5342,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// note: we're assuming that, if we previously got the desired geometry, we'll get it here too
 name|b
 operator|.
 name|move

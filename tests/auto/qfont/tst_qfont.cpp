@@ -3188,12 +3188,20 @@ operator|::
 name|lastResortFont
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_WS_QWS
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_WS_QPA
+argument_list|)
 name|QSKIP
 argument_list|(
-literal|"QFont::lastResortFont() may abort with qFatal() on QWS"
+literal|"QFont::lastResortFont() may abort with qFatal() on QWS/QPA"
 argument_list|,
 name|SkipAll
 argument_list|)

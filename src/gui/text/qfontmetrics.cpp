@@ -347,33 +347,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     Returns true if \a other is equal to this object; otherwise     returns false.      Two font metrics are considered equal if they were constructed     from the same QFont and the paint devices they were constructed     for are considered compatible.      \sa operator!=() */
-end_comment
-begin_function
-DECL|function|operator ==
-name|bool
-name|QFontMetrics
-operator|::
-name|operator
-name|==
-parameter_list|(
-specifier|const
-name|QFontMetrics
-modifier|&
-name|other
-parameter_list|)
-specifier|const
-block|{
-return|return
-name|d
-operator|==
-name|other
-operator|.
-name|d
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!     Returns true if \a other is equal to this object; otherwise     returns false.      Two font metrics are considered equal if they were constructed     from the same QFont and the paint devices they were constructed     for are considered compatible.      \sa operator!=() */
 end_comment
 begin_function
@@ -389,6 +362,7 @@ name|QFontMetrics
 modifier|&
 name|other
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|d
@@ -3170,33 +3144,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \overload   Returns true if the font metrics are equal to the \a other font   metrics; otherwise returns false.    Two font metrics are considered equal if they were constructed from the   same QFont and the paint devices they were constructed for are   considered to be compatible. */
-end_comment
-begin_function
-DECL|function|operator ==
-name|bool
-name|QFontMetricsF
-operator|::
-name|operator
-name|==
-parameter_list|(
-specifier|const
-name|QFontMetricsF
-modifier|&
-name|other
-parameter_list|)
-specifier|const
-block|{
-return|return
-name|d
-operator|==
-name|other
-operator|.
-name|d
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!   Returns true if the font metrics are equal to the \a other font   metrics; otherwise returns false.    Two font metrics are considered equal if they were constructed from the   same QFont and the paint devices they were constructed for are   considered to be compatible. */
 end_comment
 begin_function
@@ -3212,6 +3159,7 @@ name|QFontMetricsF
 modifier|&
 name|other
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|d

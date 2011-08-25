@@ -486,6 +486,7 @@ name|QGLEngineShaderProg
 operator|&
 name|other
 operator|)
+specifier|const
 block|{
 comment|// We don't care about the program
 return|return

@@ -294,6 +294,7 @@ name|QLayoutStyleInfo
 operator|&
 name|other
 operator|)
+specifier|const
 block|{
 return|return
 name|m_style
@@ -321,6 +322,7 @@ name|QLayoutStyleInfo
 operator|&
 name|other
 operator|)
+specifier|const
 block|{
 return|return
 operator|!

@@ -6901,7 +6901,7 @@ name|altName
 operator|,
 name|cert
 operator|.
-name|alternateSubjectNames
+name|subjectAlternativeNames
 argument_list|()
 operator|.
 name|values

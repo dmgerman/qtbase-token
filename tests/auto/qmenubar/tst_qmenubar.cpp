@@ -1143,6 +1143,15 @@ comment|// create a popup menu with menu items set the accelerators later...
 name|initSimpleMenubar
 argument_list|()
 expr_stmt|;
+comment|// shortcuts won't work unless the window is active
+name|QTRY_VERIFY
+argument_list|(
+name|QApplication
+operator|::
+name|activeWindow
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|//    QTest::keyClick( 0, Qt::Key_A, AltKey );
 name|QTest
 operator|::

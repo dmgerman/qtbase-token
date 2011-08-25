@@ -615,6 +615,9 @@ begin_comment
 comment|/*!     \fn QAccessibleTableInterface *QAccessibleInterface::tableInterface()     \internal */
 end_comment
 begin_comment
+comment|/*!     \fn QAccessibleTable2Interface *QAccessibleInterface::table2Interface()     \internal */
+end_comment
+begin_comment
 comment|/*!     \fn QAccessibleActionInterface *QAccessibleInterface::actionInterface()     \internal */
 end_comment
 begin_comment

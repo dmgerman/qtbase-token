@@ -29,15 +29,15 @@ directive|include
 file|"ui_portrait.h"
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QAbstractButton
 name|class
 name|QAbstractButton
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|//! [0]
-end_comment
 begin_decl_stmt
+name|QT_END_NAMESPACE
+comment|//! [0]
 name|class
 name|MainWindow
 range|:

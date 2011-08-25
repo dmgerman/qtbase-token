@@ -2141,6 +2141,7 @@ name|iterator
 operator|&
 name|o
 operator|)
+specifier|const
 block|{
 return|return
 name|operator
@@ -2165,6 +2166,7 @@ name|iterator
 operator|&
 name|o
 operator|)
+specifier|const
 block|{
 return|return
 name|operator

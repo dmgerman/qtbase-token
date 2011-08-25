@@ -77,6 +77,11 @@ include|#
 directive|include
 file|"qdbusutil_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qdbusvirtualobject.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -264,6 +269,11 @@ operator|::
 name|ObjectTreeNode
 modifier|&
 name|node
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|path
 parameter_list|)
 block|{
 comment|// object may be null
@@ -516,6 +526,30 @@ operator|+=
 name|ifaceXml
 expr_stmt|;
 block|}
+block|}
+comment|// is it a virtual node that handles introspection itself?
+if|if
+condition|(
+name|node
+operator|.
+name|flags
+operator|&
+name|QDBusConnectionPrivate
+operator|::
+name|VirtualObject
+condition|)
+block|{
+name|xml_data
+operator|+=
+name|node
+operator|.
+name|treeNode
+operator|->
+name|introspect
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
 block|}
 name|xml_data
 operator|+=

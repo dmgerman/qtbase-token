@@ -1240,6 +1240,11 @@ name|user
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+name|password
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 name|phase
 operator|=
@@ -1307,6 +1312,11 @@ expr_stmt|;
 if|if
 condition|(
 name|user
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+name|password
 operator|.
 name|isEmpty
 argument_list|()
