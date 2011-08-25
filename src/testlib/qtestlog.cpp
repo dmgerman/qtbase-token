@@ -568,7 +568,6 @@ name|QTestLog
 operator|::
 name|XML
 case|:
-block|{
 if|if
 condition|(
 name|QTest
@@ -605,13 +604,11 @@ name|TLF_XML
 argument_list|)
 expr_stmt|;
 break|break;
-block|}
 case|case
 name|QTestLog
 operator|::
 name|LightXML
 case|:
-block|{
 if|if
 condition|(
 name|QTest
@@ -648,7 +645,6 @@ name|TLF_LightXml
 argument_list|)
 expr_stmt|;
 break|break;
-block|}
 case|case
 name|QTestLog
 operator|::
