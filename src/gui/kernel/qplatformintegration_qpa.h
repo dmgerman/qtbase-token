@@ -90,6 +90,10 @@ operator|,
 name|OpenGL
 operator|=
 literal|2
+operator|,
+name|ThreadedOpenGL
+operator|=
+literal|3
 block|}
 end_function
 begin_empty_stmt

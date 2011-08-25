@@ -202,6 +202,15 @@ literal|false
 return|;
 endif|#
 directive|endif
+case|case
+name|ThreadedOpenGL
+case|:
+return|return
+name|hasCapability
+argument_list|(
+name|OpenGL
+argument_list|)
+return|;
 default|default:
 return|return
 name|QPlatformIntegration
