@@ -110,6 +110,15 @@ file|"qplatformdefs.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
+ifdef|#
+directive|ifdef
+name|DrawText
+DECL|macro|DrawText
+undef|#
+directive|undef
+name|DrawText
+endif|#
+directive|endif
 name|QT_BEGIN_NAMESPACE
 DECL|function|QT_MODULE
 name|QT_MODULE

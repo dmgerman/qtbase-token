@@ -39,7 +39,7 @@ comment|/*!     \class QAccessibleImageInterface     \ingroup accessibility     
 comment|/*!   \internal */
 DECL|function|qTextBeforeOffsetFromString
 name|QString
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|qTextBeforeOffsetFromString
 parameter_list|(
 name|int
@@ -208,7 +208,7 @@ end_comment
 begin_function
 DECL|function|qTextAfterOffsetFromString
 name|QString
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|qTextAfterOffsetFromString
 parameter_list|(
 name|int
@@ -362,7 +362,7 @@ end_comment
 begin_function
 DECL|function|qTextAtOffsetFromString
 name|QString
-name|Q_GUI_EXPORT
+name|Q_WIDGETS_EXPORT
 name|qTextAtOffsetFromString
 parameter_list|(
 name|int
