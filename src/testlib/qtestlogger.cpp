@@ -202,6 +202,11 @@ operator|::
 name|startLogging
 parameter_list|()
 block|{
+name|QAbstractTestLogger
+operator|::
+name|startLogging
+argument_list|()
+expr_stmt|;
 switch|switch
 condition|(
 name|format
@@ -275,11 +280,6 @@ name|setLogger
 argument_list|(
 name|this
 argument_list|)
-expr_stmt|;
-name|logFormatter
-operator|->
-name|startStreaming
-argument_list|()
 expr_stmt|;
 block|}
 end_function
@@ -645,9 +645,9 @@ name|iterator
 argument_list|)
 expr_stmt|;
 block|}
-name|logFormatter
-operator|->
-name|stopStreaming
+name|QAbstractTestLogger
+operator|::
+name|stopLogging
 argument_list|()
 expr_stmt|;
 block|}
