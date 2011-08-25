@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QPointF>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/private/qcoreapplication_p.h>
 end_include
 begin_include
@@ -596,6 +601,12 @@ begin_decl_stmt
 specifier|static
 name|int
 name|mouse_double_click_distance
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|static
+name|QPointF
+name|lastCursorPosition
 decl_stmt|;
 end_decl_stmt
 begin_ifndef
