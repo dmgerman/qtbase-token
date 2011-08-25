@@ -52,7 +52,6 @@ name|resizeEvent
 parameter_list|(
 name|QResizeEvent
 modifier|*
-name|event
 parameter_list|)
 block|{
 if|#

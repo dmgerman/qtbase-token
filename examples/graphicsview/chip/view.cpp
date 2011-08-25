@@ -12,6 +12,16 @@ include|#
 directive|include
 file|<QtWidgets>
 end_include
+begin_include
+include|#
+directive|include
+file|<QPrinter>
+end_include
+begin_include
+include|#
+directive|include
+file|<QPrintDialog>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef

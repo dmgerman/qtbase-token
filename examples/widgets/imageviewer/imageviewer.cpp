@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QPrintDialog>
+end_include
+begin_include
+include|#
+directive|include
 file|"imageviewer.h"
 end_include
 begin_comment

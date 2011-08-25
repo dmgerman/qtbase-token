@@ -8,7 +8,7 @@ directive|include
 file|"thread.h"
 end_include
 begin_comment
-comment|/*  * QThread derived class with additional capability to move a QObject to the  * new thread, to stop the thread and move the QObject back to the thread where  *it came from.   */
+comment|/*  * QThread derived class with additional capability to move a QObject to the  * new thread, to stop the thread and move the QObject back to the thread where  *it came from.  */
 end_comment
 begin_constructor
 DECL|function|Thread
@@ -126,11 +126,6 @@ expr_stmt|;
 name|start
 argument_list|()
 expr_stmt|;
-name|int
-name|i
-init|=
-literal|0
-decl_stmt|;
 name|worker
 operator|->
 name|moveToThread

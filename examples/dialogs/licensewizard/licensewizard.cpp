@@ -10,6 +10,16 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QPrinter>
+end_include
+begin_include
+include|#
+directive|include
+file|<QPrintDialog>
+end_include
+begin_include
+include|#
+directive|include
 file|"licensewizard.h"
 end_include
 begin_comment
