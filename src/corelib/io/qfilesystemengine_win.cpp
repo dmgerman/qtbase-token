@@ -3121,6 +3121,11 @@ return|return
 name|QFileSystemEntry
 argument_list|(
 name|ret
+argument_list|,
+name|QFileSystemEntry
+operator|::
+name|FromInternalPath
+argument_list|()
 argument_list|)
 return|;
 block|}
