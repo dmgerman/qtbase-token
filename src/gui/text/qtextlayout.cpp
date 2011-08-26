@@ -10372,6 +10372,13 @@ operator|-
 name|start
 argument_list|)
 decl_stmt|;
+name|multiFontEngine
+operator|->
+name|ensureEngineAt
+argument_list|(
+name|which
+argument_list|)
+expr_stmt|;
 name|glyphRuns
 operator|.
 name|append
@@ -10463,6 +10470,13 @@ operator|-
 name|start
 argument_list|)
 decl_stmt|;
+name|multiFontEngine
+operator|->
+name|ensureEngineAt
+argument_list|(
+name|which
+argument_list|)
+expr_stmt|;
 name|QGlyphRun
 name|glyphRun
 init|=
