@@ -6884,10 +6884,10 @@ return|;
 block|}
 end_function
 begin_define
-DECL|macro|COMPARE_IMPL2
+DECL|macro|TO_STRING_IMPL
 define|#
 directive|define
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 parameter_list|(
 name|TYPE
 parameter_list|,
@@ -6897,7 +6897,7 @@ define|\
 value|template<> Q_TESTLIB_EXPORT char *QTest::toString<TYPE>(const TYPE&t) \ { \     char *msg = new char[128]; \     qt_snprintf(msg, 128, #FORMAT, t); \     return msg; \ }
 end_define
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|short
 argument_list|,
@@ -6905,7 +6905,7 @@ argument|%hd
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|ushort
 argument_list|,
@@ -6913,7 +6913,7 @@ argument|%hu
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|int
 argument_list|,
@@ -6921,7 +6921,7 @@ argument|%d
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|uint
 argument_list|,
@@ -6929,7 +6929,7 @@ argument|%u
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|long
 argument_list|,
@@ -6937,7 +6937,7 @@ argument|%ld
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|ulong
 argument_list|,
@@ -6953,7 +6953,7 @@ name|Q_OS_WIN
 argument_list|)
 end_if
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|qint64
 argument_list|,
@@ -6961,7 +6961,7 @@ argument|%I64d
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|quint64
 argument_list|,
@@ -6973,7 +6973,7 @@ else|#
 directive|else
 end_else
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|qint64
 argument_list|,
@@ -6981,7 +6981,7 @@ argument|%lld
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|quint64
 argument_list|,
@@ -6993,7 +6993,7 @@ endif|#
 directive|endif
 end_endif
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|bool
 argument_list|,
@@ -7001,7 +7001,7 @@ argument|%d
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|char
 argument_list|,
@@ -7009,7 +7009,7 @@ argument|%c
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|float
 argument_list|,
@@ -7017,7 +7017,7 @@ argument|%g
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|double
 argument_list|,
