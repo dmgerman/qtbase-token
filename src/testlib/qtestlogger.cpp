@@ -227,6 +227,9 @@ name|logFormatter
 operator|=
 operator|new
 name|QTestLightXmlStreamer
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 name|filelogger
 operator|->
@@ -243,6 +246,9 @@ name|logFormatter
 operator|=
 operator|new
 name|QTestXmlStreamer
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 name|filelogger
 operator|->
@@ -259,6 +265,9 @@ name|logFormatter
 operator|=
 operator|new
 name|QTestXunitStreamer
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 operator|delete
 name|errorLogElement
@@ -281,13 +290,6 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-name|logFormatter
-operator|->
-name|setLogger
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_function

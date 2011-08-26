@@ -45,7 +45,11 @@ block|{
 name|public
 operator|:
 name|QTestXmlStreamer
-argument_list|()
+argument_list|(
+name|QTestLogger
+operator|*
+name|logger
+argument_list|)
 block|;
 operator|~
 name|QTestXmlStreamer

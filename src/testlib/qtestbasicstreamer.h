@@ -45,7 +45,11 @@ block|{
 name|public
 label|:
 name|QTestBasicStreamer
-argument_list|()
+argument_list|(
+name|QTestLogger
+operator|*
+name|logger
+argument_list|)
 expr_stmt|;
 name|virtual
 operator|~
@@ -72,14 +76,6 @@ name|msg
 argument_list|)
 decl|const
 decl_stmt|;
-name|void
-name|setLogger
-parameter_list|(
-name|QTestLogger
-modifier|*
-name|tstLogger
-parameter_list|)
-function_decl|;
 name|QTestLogger
 operator|*
 name|logger
