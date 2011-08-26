@@ -1301,6 +1301,11 @@ argument_list|(
 name|script
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|styleHint
+argument_list|)
+expr_stmt|;
 return|return
 name|QStringList
 argument_list|()

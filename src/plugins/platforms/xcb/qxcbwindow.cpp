@@ -381,15 +381,6 @@ operator|::
 name|create
 parameter_list|()
 block|{
-name|bool
-name|wasCreated
-init|=
-operator|(
-name|m_window
-operator|!=
-literal|0
-operator|)
-decl_stmt|;
 name|destroy
 argument_list|()
 expr_stmt|;

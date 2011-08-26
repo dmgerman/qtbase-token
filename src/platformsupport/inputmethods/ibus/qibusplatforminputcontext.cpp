@@ -57,6 +57,16 @@ include|#
 directive|include
 file|<QtDBus>
 end_include
+begin_enum
+DECL|enumerator|debug
+enum|enum
+block|{
+name|debug
+init|=
+literal|0
+block|}
+enum|;
+end_enum
 begin_class
 DECL|class|QIBusPlatformInputContextPrivate
 class|class
@@ -355,10 +365,14 @@ name|isValid
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|debug
+condition|)
 name|qDebug
 argument_list|()
 operator|<<
-literal|"mocroFocus"
+literal|"microFocus"
 operator|<<
 name|r
 expr_stmt|;
@@ -419,6 +433,10 @@ operator|->
 name|valid
 condition|)
 return|return;
+if|if
+condition|(
+name|debug
+condition|)
 name|qDebug
 argument_list|()
 operator|<<
@@ -478,6 +496,10 @@ decl_stmt|;
 name|QIBusText
 name|t
 decl_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
 name|qDebug
 argument_list|()
 operator|<<
@@ -493,6 +515,10 @@ argument_list|(
 name|arg
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
 name|qDebug
 argument_list|()
 operator|<<
@@ -571,6 +597,10 @@ argument_list|(
 name|arg
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
 name|qDebug
 argument_list|()
 operator|<<
@@ -1281,9 +1311,9 @@ argument_list|()
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
-literal|"not connected"
+argument_list|(
+literal|"QIBusPlatformInputContext: not connected."
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -1315,10 +1345,10 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"invalid bus"
+name|qWarning
+argument_list|(
+literal|"QIBusPlatformInputContext: invalid bus."
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -1347,10 +1377,10 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"CreateInputContext failed"
+name|qWarning
+argument_list|(
+literal|"QIBusPlatformInputContext: CreateInputContext failed."
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -1385,10 +1415,10 @@ name|isValid
 argument_list|()
 condition|)
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"invalid input context"
+name|qWarning
+argument_list|(
+literal|"QIBusPlatformInputContext: invalid input context."
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -1430,7 +1460,7 @@ init|=
 literal|1
 operator|<<
 literal|5
-block|,     }
+block|}
 enum|;
 name|context
 operator|->
@@ -1441,10 +1471,14 @@ operator||
 name|IBUS_CAP_FOCUS
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
 name|qDebug
-argument_list|()
-operator|<<
+argument_list|(
 literal|">>>> valid!"
+argument_list|)
 expr_stmt|;
 name|valid
 operator|=
@@ -1539,6 +1573,10 @@ operator|-
 name|pos
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|debug
+condition|)
 name|qDebug
 argument_list|()
 operator|<<
@@ -1605,10 +1643,18 @@ name|exists
 argument_list|()
 condition|)
 block|{
-name|qDebug
+name|qWarning
+argument_list|(
+literal|"QIBusPlatformInputContext: ibus config file '%s' does not exist."
+argument_list|,
+name|qPrintable
+argument_list|(
+name|file
+operator|.
+name|fileName
 argument_list|()
-operator|<<
-literal|"ibus config file does not exist"
+argument_list|)
+argument_list|)
 expr_stmt|;
 return|return
 literal|0
@@ -1712,6 +1758,10 @@ name|toInt
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|debug
+condition|)
 name|qDebug
 argument_list|()
 operator|<<

@@ -26847,10 +26847,18 @@ operator|!=
 literal|0
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|replacement
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|offset
+argument_list|)
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPainter::setRedirected(): ignoring call to deprecated function, use QWidget::render() instead"
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -26870,10 +26878,14 @@ modifier|*
 name|device
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|device
+argument_list|)
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QPainter::restoreRedirected(): ignoring call to deprecated function, use QWidget::render() instead"
+argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -26898,6 +26910,14 @@ modifier|*
 name|offset
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|device
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|offset
+argument_list|)
 return|return
 literal|0
 return|;

@@ -219,6 +219,11 @@ name|mode
 parameter_list|)
 specifier|const
 block|{
+name|Q_UNUSED
+argument_list|(
+name|mode
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
