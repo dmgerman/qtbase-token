@@ -1121,7 +1121,6 @@ operator|::
 name|LET_Benchmark
 argument_list|)
 decl_stmt|;
-comment|//    printf("element %i", benchmarkElement->elementType());
 name|benchmarkElement
 operator|->
 name|addAttribute
