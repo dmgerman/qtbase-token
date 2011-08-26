@@ -16777,23 +16777,6 @@ argument_list|,
 name|SkipAll
 argument_list|)
 expr_stmt|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_COMPILER_RVALUE_REFS
-argument_list|)
-comment|//mapped uses&Container::push_back,  but in c++0x, std::vector has two overload of it
-comment|// meaning it is not possible to take the address of that function anymore.
-name|QSKIP
-argument_list|(
-literal|"mapped do not work with c++0x stl vector"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|std
 operator|::
 name|vector
