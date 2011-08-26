@@ -6048,14 +6048,6 @@ operator|->
 name|height
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|rect
-operator|==
-name|geometry
-argument_list|()
-condition|)
-return|return;
 name|QPlatformWindow
 operator|::
 name|setGeometry
