@@ -4722,7 +4722,8 @@ expr_stmt|;
 block|}
 end_function
 begin_function_decl
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
+specifier|extern
 name|bool
 name|qt_scaleForTransform
 parameter_list|(
