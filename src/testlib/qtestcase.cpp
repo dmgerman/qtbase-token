@@ -1339,7 +1339,11 @@ DECL|function|qPrintTestSlots
 specifier|static
 name|void
 name|qPrintTestSlots
-parameter_list|()
+parameter_list|(
+name|FILE
+modifier|*
+name|stream
+parameter_list|)
 block|{
 for|for
 control|(
@@ -1386,8 +1390,10 @@ argument_list|(
 name|sl
 argument_list|)
 condition|)
-name|printf
+name|fprintf
 argument_list|(
+name|stream
+argument_list|,
 literal|"%s\n"
 argument_list|,
 name|sl
@@ -1436,8 +1442,10 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Invalid numeric parameter: '%s'\n"
 argument_list|,
 name|str
@@ -1655,7 +1663,9 @@ block|}
 else|else
 block|{
 name|qPrintTestSlots
-argument_list|()
+argument_list|(
+name|stdout
+argument_list|)
 expr_stmt|;
 name|exit
 argument_list|(
@@ -1888,8 +1898,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-o needs an extra parameter specifying the filename\n"
 argument_list|)
 expr_stmt|;
@@ -1939,8 +1951,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-eventdelay needs an extra parameter to indicate the delay(ms)\n"
 argument_list|)
 expr_stmt|;
@@ -1992,8 +2006,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-keydelay needs an extra parameter to indicate the delay(ms)\n"
 argument_list|)
 expr_stmt|;
@@ -2045,8 +2061,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-mousedelay needs an extra parameter to indicate the delay(ms)\n"
 argument_list|)
 expr_stmt|;
@@ -2098,8 +2116,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-maxwarnings needs an extra parameter with the amount of warnings\n"
 argument_list|)
 expr_stmt|;
@@ -2241,16 +2261,20 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"WARNING: Current directory not writable. Using the walltime measurer.\n"
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"WARNING: Valgrind not found or too old. Make sure it is installed and in your path. "
 literal|"Using the walltime measurer.\n"
 argument_list|)
@@ -2462,8 +2486,10 @@ operator|!
 name|argumentOk
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-seed needs an extra positive integer parameter to specify the seed\n"
 argument_list|)
 expr_stmt|;
@@ -2508,8 +2534,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-minimumvalue needs an extra parameter to indicate the minimum time(ms)\n"
 argument_list|)
 expr_stmt|;
@@ -2563,8 +2591,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-iterations needs an extra parameter to indicate the number of iterations\n"
 argument_list|)
 expr_stmt|;
@@ -2618,8 +2648,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-median needs an extra parameter to indicate the number of median iterations\n"
 argument_list|)
 expr_stmt|;
@@ -2741,8 +2773,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-graphicssystem needs an extra parameter specifying the graphics system\n"
 argument_list|)
 expr_stmt|;
@@ -2773,8 +2807,10 @@ operator|==
 literal|'-'
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Unknown option: '%s'\n\n%s"
 argument_list|,
 name|argv
@@ -2790,8 +2826,10 @@ condition|(
 name|qml
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"\nqmltest related options:\n"
 literal|" -import    : Specify an import directory.\n"
 literal|" -input     : Specify the root directory for test cases.\n"
@@ -2799,8 +2837,10 @@ literal|" -qtquick1  : Run with QtQuick 1 rather than QtQuick 2.\n"
 argument_list|)
 expr_stmt|;
 block|}
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"\n"
 literal|" -help      : This help\n"
 argument_list|)
@@ -3155,20 +3195,26 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Unknown testfunction: '%s'\n"
 argument_list|,
 name|buf
 argument_list|)
 expr_stmt|;
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Available testfunctions:\n"
 argument_list|)
 expr_stmt|;
 name|qPrintTestSlots
-argument_list|()
+argument_list|(
+name|stderr
+argument_list|)
 expr_stmt|;
 name|exit
 argument_list|(
@@ -3214,8 +3260,10 @@ operator|::
 name|randomOrder
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-seed requires -random\n"
 argument_list|)
 expr_stmt|;
@@ -3927,8 +3975,10 @@ literal|0
 expr_stmt|;
 else|else
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Unknown testdata for function %s: '%s'\n"
 argument_list|,
 name|slotName
@@ -3936,8 +3986,10 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Function has no testdata.\n"
 argument_list|)
 expr_stmt|;
@@ -4039,8 +4091,10 @@ operator|!
 name|foundFunction
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Unknown testdata for function %s: '%s'\n"
 argument_list|,
 name|slotName
@@ -4048,8 +4102,10 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Available testdata:\n"
 argument_list|)
 expr_stmt|;
@@ -4070,8 +4126,10 @@ condition|;
 operator|++
 name|i
 control|)
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"%s\n"
 argument_list|,
 name|table

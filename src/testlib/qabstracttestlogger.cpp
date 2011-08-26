@@ -162,8 +162,10 @@ condition|)
 block|{
 endif|#
 directive|endif
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Unable to open file for logging: %s"
 argument_list|,
 name|filename
