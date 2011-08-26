@@ -117,14 +117,10 @@ specifier|const
 name|char
 operator|*
 name|tag
-operator|=
-literal|0
 argument_list|,
 name|QTestTable
 operator|*
 name|parent
-operator|=
-literal|0
 argument_list|)
 expr_stmt|;
 end_expr_stmt
