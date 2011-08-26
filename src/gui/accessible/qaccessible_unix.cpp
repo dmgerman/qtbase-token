@@ -262,6 +262,10 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|bridges
+argument_list|()
+operator|||
 name|bridges
 argument_list|()
 operator|->
