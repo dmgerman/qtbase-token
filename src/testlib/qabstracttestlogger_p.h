@@ -209,17 +209,6 @@ parameter_list|)
 init|=
 literal|0
 function_decl|;
-name|virtual
-name|void
-name|registerRandomSeed
-parameter_list|(
-name|unsigned
-name|int
-name|seed
-parameter_list|)
-init|=
-literal|0
-function_decl|;
 name|void
 name|outputString
 parameter_list|(
