@@ -2878,14 +2878,14 @@ operator|::
 name|release
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_DEBUG
 name|Q_D
 argument_list|(
 name|QOpenGLShaderProgram
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 if|if
 condition|(
 name|d

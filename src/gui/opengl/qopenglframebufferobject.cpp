@@ -3005,14 +3005,14 @@ condition|)
 return|return
 literal|false
 return|;
-ifdef|#
-directive|ifdef
-name|QT_DEBUG
 name|Q_D
 argument_list|(
 name|QOpenGLFramebufferObject
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_DEBUG
 if|if
 condition|(
 name|current
