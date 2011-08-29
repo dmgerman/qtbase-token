@@ -50,10 +50,16 @@ DECL|function|QTestLightXmlStreamer
 name|QTestLightXmlStreamer
 operator|::
 name|QTestLightXmlStreamer
-parameter_list|()
+parameter_list|(
+name|QTestLogger
+modifier|*
+name|logger
+parameter_list|)
 member_init_list|:
 name|QTestBasicStreamer
-argument_list|()
+argument_list|(
+name|logger
+argument_list|)
 block|{ }
 end_constructor
 begin_destructor

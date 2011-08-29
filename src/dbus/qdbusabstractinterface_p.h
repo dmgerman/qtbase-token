@@ -118,6 +118,9 @@ name|mutable
 name|QDBusError
 name|lastError
 block|;
+name|int
+name|timeout
+block|;
 comment|// this is set during creation and never changed
 comment|// it can't be const because QDBusInterfacePrivate has one more check
 name|bool

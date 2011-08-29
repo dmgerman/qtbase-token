@@ -12467,6 +12467,14 @@ block|}
 block|}
 block|}
 name|QFixed
+name|leading
+init|=
+name|leadingSpaceWidth
+argument_list|(
+name|line
+argument_list|)
+decl_stmt|;
+name|QFixed
 name|need
 init|=
 name|line
@@ -12476,6 +12484,8 @@ operator|-
 name|line
 operator|.
 name|textWidth
+operator|-
+name|leading
 decl_stmt|;
 if|if
 condition|(

@@ -30,6 +30,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtTest/private/qtestlogger_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"QtTest/private/qxmltestlogger_p.h"
 end_include
 begin_include
@@ -56,11 +61,6 @@ begin_include
 include|#
 directive|include
 file|<limits.h>
-end_include
-begin_include
-include|#
-directive|include
-file|"qtestlogger_p.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
@@ -568,7 +568,6 @@ name|QTestLog
 operator|::
 name|XML
 case|:
-block|{
 if|if
 condition|(
 name|QTest
@@ -577,7 +576,7 @@ name|flushMode
 operator|==
 name|QTestLog
 operator|::
-name|FLushOn
+name|FlushOn
 condition|)
 name|QTest
 operator|::
@@ -605,13 +604,11 @@ name|TLF_XML
 argument_list|)
 expr_stmt|;
 break|break;
-block|}
 case|case
 name|QTestLog
 operator|::
 name|LightXML
 case|:
-block|{
 if|if
 condition|(
 name|QTest
@@ -620,7 +617,7 @@ name|flushMode
 operator|==
 name|QTestLog
 operator|::
-name|FLushOn
+name|FlushOn
 condition|)
 name|QTest
 operator|::
@@ -648,7 +645,6 @@ name|TLF_LightXml
 argument_list|)
 expr_stmt|;
 break|break;
-block|}
 case|case
 name|QTestLog
 operator|::
@@ -670,23 +666,6 @@ block|}
 block|}
 block|}
 end_namespace
-begin_constructor
-DECL|function|QTestLog
-name|QTestLog
-operator|::
-name|QTestLog
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~QTestLog
-name|QTestLog
-operator|::
-name|~
-name|QTestLog
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|enterTestFunction
 name|void
@@ -942,6 +921,11 @@ operator|::
 name|testLogger
 argument_list|)
 expr_stmt|;
+name|QTEST_ASSERT
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
 name|QTest
 operator|::
 name|testLogger
@@ -1087,11 +1071,6 @@ name|char
 modifier|*
 name|msg
 parameter_list|,
-name|QTest
-operator|::
-name|SkipMode
-comment|/*mode*/
-parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -1207,7 +1186,11 @@ operator|::
 name|testLogger
 operator|->
 name|startLogging
-argument_list|()
+argument_list|(
+name|QTest
+operator|::
+name|outFile
+argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
@@ -1248,7 +1231,11 @@ operator|::
 name|testLogger
 operator|->
 name|startLogging
-argument_list|()
+argument_list|(
+name|QTest
+operator|::
+name|outFile
+argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
@@ -1482,6 +1469,11 @@ modifier|*
 name|msg
 parameter_list|)
 block|{
+name|QTEST_ASSERT
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
 name|QTest
 operator|::
 name|IgnoreResultList

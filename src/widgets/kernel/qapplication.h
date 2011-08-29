@@ -985,6 +985,15 @@ begin_expr_stmt
 specifier|static
 name|Qt
 operator|::
+name|KeyboardModifiers
+name|queryKeyboardModifiers
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+specifier|static
+name|Qt
+operator|::
 name|MouseButtons
 name|mouseButtons
 argument_list|()

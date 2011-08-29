@@ -1032,24 +1032,6 @@ literal|true
 expr_stmt|;
 block|}
 block|}
-DECL|function|qTestRandomSeed
-name|int
-name|qTestRandomSeed
-parameter_list|()
-block|{
-name|Q_ASSERT
-argument_list|(
-name|QTest
-operator|::
-name|seedSet
-argument_list|)
-expr_stmt|;
-return|return
-name|QTest
-operator|::
-name|seed
-return|;
-block|}
 template|template
 parameter_list|<
 name|typename
@@ -1339,7 +1321,11 @@ DECL|function|qPrintTestSlots
 specifier|static
 name|void
 name|qPrintTestSlots
-parameter_list|()
+parameter_list|(
+name|FILE
+modifier|*
+name|stream
+parameter_list|)
 block|{
 for|for
 control|(
@@ -1386,8 +1372,10 @@ argument_list|(
 name|sl
 argument_list|)
 condition|)
-name|printf
+name|fprintf
 argument_list|(
+name|stream
+argument_list|,
 literal|"%s\n"
 argument_list|,
 name|sl
@@ -1436,8 +1424,10 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Invalid numeric parameter: '%s'\n"
 argument_list|,
 name|str
@@ -1655,7 +1645,9 @@ block|}
 else|else
 block|{
 name|qPrintTestSlots
-argument_list|()
+argument_list|(
+name|stdout
+argument_list|)
 expr_stmt|;
 name|exit
 argument_list|(
@@ -1764,7 +1756,7 @@ name|setFlushMode
 argument_list|(
 name|QTestLog
 operator|::
-name|FLushOn
+name|FlushOn
 argument_list|)
 expr_stmt|;
 block|}
@@ -1888,8 +1880,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-o needs an extra parameter specifying the filename\n"
 argument_list|)
 expr_stmt|;
@@ -1939,8 +1933,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-eventdelay needs an extra parameter to indicate the delay(ms)\n"
 argument_list|)
 expr_stmt|;
@@ -1992,8 +1988,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-keydelay needs an extra parameter to indicate the delay(ms)\n"
 argument_list|)
 expr_stmt|;
@@ -2045,8 +2043,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-mousedelay needs an extra parameter to indicate the delay(ms)\n"
 argument_list|)
 expr_stmt|;
@@ -2098,8 +2098,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-maxwarnings needs an extra parameter with the amount of warnings\n"
 argument_list|)
 expr_stmt|;
@@ -2241,16 +2243,20 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"WARNING: Current directory not writable. Using the walltime measurer.\n"
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"WARNING: Valgrind not found or too old. Make sure it is installed and in your path. "
 literal|"Using the walltime measurer.\n"
 argument_list|)
@@ -2462,8 +2468,10 @@ operator|!
 name|argumentOk
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-seed needs an extra positive integer parameter to specify the seed\n"
 argument_list|)
 expr_stmt|;
@@ -2508,8 +2516,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-minimumvalue needs an extra parameter to indicate the minimum time(ms)\n"
 argument_list|)
 expr_stmt|;
@@ -2563,8 +2573,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-iterations needs an extra parameter to indicate the number of iterations\n"
 argument_list|)
 expr_stmt|;
@@ -2618,8 +2630,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-median needs an extra parameter to indicate the number of median iterations\n"
 argument_list|)
 expr_stmt|;
@@ -2683,30 +2697,6 @@ index|[
 name|i
 index|]
 argument_list|,
-literal|"-chart"
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
-name|fprintf
-argument_list|(
-name|stderr
-argument_list|,
-literal|"Warning: `-chart' option is not available\n"
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|strcmp
-argument_list|(
-name|argv
-index|[
-name|i
-index|]
-argument_list|,
 literal|"-qws"
 argument_list|)
 operator|==
@@ -2741,8 +2731,10 @@ operator|>=
 name|argc
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-graphicssystem needs an extra parameter specifying the graphics system\n"
 argument_list|)
 expr_stmt|;
@@ -2773,8 +2765,10 @@ operator|==
 literal|'-'
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Unknown option: '%s'\n\n%s"
 argument_list|,
 name|argv
@@ -2790,8 +2784,10 @@ condition|(
 name|qml
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"\nqmltest related options:\n"
 literal|" -import    : Specify an import directory.\n"
 literal|" -input     : Specify the root directory for test cases.\n"
@@ -2799,8 +2795,10 @@ literal|" -qtquick1  : Run with QtQuick 1 rather than QtQuick 2.\n"
 argument_list|)
 expr_stmt|;
 block|}
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"\n"
 literal|" -help      : This help\n"
 argument_list|)
@@ -3155,20 +3153,26 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Unknown testfunction: '%s'\n"
 argument_list|,
 name|buf
 argument_list|)
 expr_stmt|;
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Available testfunctions:\n"
 argument_list|)
 expr_stmt|;
 name|qPrintTestSlots
-argument_list|()
+argument_list|(
+name|stderr
+argument_list|)
 expr_stmt|;
 name|exit
 argument_list|(
@@ -3214,8 +3218,10 @@ operator|::
 name|randomOrder
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"-seed requires -random\n"
 argument_list|)
 expr_stmt|;
@@ -3927,8 +3933,10 @@ literal|0
 expr_stmt|;
 else|else
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Unknown testdata for function %s: '%s'\n"
 argument_list|,
 name|slotName
@@ -3936,8 +3944,10 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Function has no testdata.\n"
 argument_list|)
 expr_stmt|;
@@ -4039,8 +4049,10 @@ operator|!
 name|foundFunction
 condition|)
 block|{
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Unknown testdata for function %s: '%s'\n"
 argument_list|,
 name|slotName
@@ -4048,8 +4060,10 @@ argument_list|,
 name|data
 argument_list|)
 expr_stmt|;
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"Available testdata:\n"
 argument_list|)
 expr_stmt|;
@@ -4070,8 +4084,10 @@ condition|;
 operator|++
 name|i
 control|)
-name|printf
+name|fprintf
 argument_list|(
+name|stderr
+argument_list|,
 literal|"%s\n"
 argument_list|,
 name|table
@@ -5744,17 +5760,6 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QTEST_NOEXITCODE
-argument_list|)
-return|return
-literal|0
-return|;
-else|#
-directive|else
 ifdef|#
 directive|ifdef
 name|QTESTLIB_USE_VALGRIND
@@ -5789,8 +5794,6 @@ argument_list|,
 literal|127
 argument_list|)
 return|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment
@@ -6028,8 +6031,6 @@ operator|::
 name|addSkip
 argument_list|(
 name|message
-argument_list|,
-name|mode
 argument_list|,
 name|file
 argument_list|,
@@ -6870,10 +6871,10 @@ return|;
 block|}
 end_function
 begin_define
-DECL|macro|COMPARE_IMPL2
+DECL|macro|TO_STRING_IMPL
 define|#
 directive|define
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 parameter_list|(
 name|TYPE
 parameter_list|,
@@ -6883,7 +6884,7 @@ define|\
 value|template<> Q_TESTLIB_EXPORT char *QTest::toString<TYPE>(const TYPE&t) \ { \     char *msg = new char[128]; \     qt_snprintf(msg, 128, #FORMAT, t); \     return msg; \ }
 end_define
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|short
 argument_list|,
@@ -6891,7 +6892,7 @@ argument|%hd
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|ushort
 argument_list|,
@@ -6899,7 +6900,7 @@ argument|%hu
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|int
 argument_list|,
@@ -6907,7 +6908,7 @@ argument|%d
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|uint
 argument_list|,
@@ -6915,7 +6916,7 @@ argument|%u
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|long
 argument_list|,
@@ -6923,7 +6924,7 @@ argument|%ld
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|ulong
 argument_list|,
@@ -6939,7 +6940,7 @@ name|Q_OS_WIN
 argument_list|)
 end_if
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|qint64
 argument_list|,
@@ -6947,7 +6948,7 @@ argument|%I64d
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|quint64
 argument_list|,
@@ -6959,7 +6960,7 @@ else|#
 directive|else
 end_else
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|qint64
 argument_list|,
@@ -6967,7 +6968,7 @@ argument|%lld
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|quint64
 argument_list|,
@@ -6979,7 +6980,7 @@ endif|#
 directive|endif
 end_endif
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|bool
 argument_list|,
@@ -6987,7 +6988,7 @@ argument|%d
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|char
 argument_list|,
@@ -6995,7 +6996,7 @@ argument|%c
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|float
 argument_list|,
@@ -7003,7 +7004,7 @@ argument|%g
 argument_list|)
 end_macro
 begin_macro
-name|COMPARE_IMPL2
+name|TO_STRING_IMPL
 argument_list|(
 argument|double
 argument_list|,

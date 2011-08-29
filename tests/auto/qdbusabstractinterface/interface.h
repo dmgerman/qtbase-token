@@ -292,6 +292,13 @@ name|voidMethod
 argument_list|()
 block|{}
 name|Q_SCRIPTABLE
+name|int
+name|sleepMethod
+argument_list|(
+name|int
+argument_list|)
+block|;
+name|Q_SCRIPTABLE
 name|QString
 name|stringMethod
 argument_list|()

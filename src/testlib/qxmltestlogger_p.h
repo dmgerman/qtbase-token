@@ -79,7 +79,12 @@ argument_list|()
 block|;
 name|void
 name|startLogging
-argument_list|()
+argument_list|(
+specifier|const
+name|char
+operator|*
+name|filename
+argument_list|)
 block|;
 name|void
 name|stopLogging
