@@ -306,6 +306,10 @@ name|ctx
 argument_list|)
 block|;
 name|void
+name|cleanup
+argument_list|()
+block|;
+name|void
 name|deletePendingResources
 argument_list|(
 name|QOpenGLContext
