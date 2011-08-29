@@ -74,7 +74,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qtriangulator_p.h>
+file|<QtGui/private/qtriangulator_p.h>
 end_include
 begin_include
 include|#

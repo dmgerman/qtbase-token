@@ -413,6 +413,7 @@ comment|// 'lod' is the level of detail. Default is 1. Curves are split into mor
 end_comment
 begin_function_decl
 name|QTriangleSet
+name|Q_GUI_EXPORT
 name|qTriangulate
 parameter_list|(
 specifier|const
@@ -446,6 +447,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|QTriangleSet
+name|Q_GUI_EXPORT
 name|qTriangulate
 parameter_list|(
 specifier|const

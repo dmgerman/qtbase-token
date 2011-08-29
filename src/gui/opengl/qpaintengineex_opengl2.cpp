@@ -263,7 +263,7 @@ name|GLuint
 name|id
 parameter_list|)
 block|{
-comment|//    glActiveTexture(GL_TEXTURE0 + QT_BRUSH_TEXTURE_UNIT); //### Is it always this texture unit?
+comment|//    funcs.glActiveTexture(GL_TEXTURE0 + QT_BRUSH_TEXTURE_UNIT); //### Is it always this texture unit?
 if|if
 condition|(
 name|id
@@ -632,6 +632,8 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+name|funcs
+operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -706,6 +708,8 @@ argument_list|,
 literal|1.0
 argument_list|)
 decl_stmt|;
+name|funcs
+operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -867,6 +871,8 @@ operator|::
 name|KeepAspectRatio
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -3204,6 +3210,8 @@ argument_list|(
 name|GL_BLEND
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -7560,6 +7568,10 @@ argument_list|(
 name|ImageDrawingMode
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|funcs
+operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -7851,6 +7863,10 @@ argument_list|(
 name|ImageDrawingMode
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|funcs
+operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -9779,6 +9795,8 @@ argument_list|,
 name|GL_ONE_MINUS_SRC_COLOR
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glBlendColor
 argument_list|(
 name|c
@@ -9873,6 +9891,8 @@ argument_list|,
 name|GL_ONE_MINUS_SRC_COLOR
 argument_list|)
 expr_stmt|;
+name|funcs
+operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -10077,6 +10097,8 @@ operator|!=
 name|filterMode
 condition|)
 block|{
+name|funcs
+operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0
@@ -11031,6 +11053,8 @@ literal|0.99f
 operator|)
 expr_stmt|;
 block|}
+name|funcs
+operator|.
 name|glActiveTexture
 argument_list|(
 name|GL_TEXTURE0

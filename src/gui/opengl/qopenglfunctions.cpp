@@ -8049,10 +8049,10 @@ parameter_list|(
 name|GLenum
 name|target
 parameter_list|,
-name|GLintptr
+name|qopengl_GLintptr
 name|offset
 parameter_list|,
-name|GLsizeiptr
+name|qopengl_GLsizeiptr
 name|size
 parameter_list|,
 name|GLvoid

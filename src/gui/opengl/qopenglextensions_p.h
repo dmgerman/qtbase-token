@@ -79,11 +79,12 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_struct_decl
-struct_decl|struct
+begin_decl_stmt
+DECL|variable|QOpenGLExtensionsPrivate
+name|class
 name|QOpenGLExtensionsPrivate
-struct_decl|;
-end_struct_decl
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
@@ -275,9 +276,9 @@ name|glGetBufferSubData
 argument_list|(
 argument|GLenum target
 argument_list|,
-argument|GLintptr offset
+argument|qopengl_GLintptr offset
 argument_list|,
-argument|GLsizeiptr size
+argument|qopengl_GLsizeiptr size
 argument_list|,
 argument|GLvoid *data
 argument_list|)
@@ -303,13 +304,15 @@ name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(
 argument|QOpenGLExtensions::OpenGLExtensions
 argument_list|)
-block|struct
-DECL|struct|QOpenGLFunctionsPrivate
+name|class
 name|QOpenGLExtensionsPrivate
 operator|:
 name|public
 name|QOpenGLFunctionsPrivate
 block|{
+name|public
+operator|:
+name|explicit
 name|QOpenGLExtensionsPrivate
 argument_list|(
 name|QOpenGLContext
@@ -405,10 +408,10 @@ operator|(
 name|GLenum
 name|target
 expr|,
-name|GLintptr
+name|qopengl_GLintptr
 name|offset
 expr|,
-name|GLsizeiptr
+name|qopengl_GLsizeiptr
 name|size
 expr|,
 name|GLvoid
@@ -632,9 +635,9 @@ name|glGetBufferSubData
 argument_list|(
 argument|GLenum target
 argument_list|,
-argument|GLintptr offset
+argument|qopengl_GLintptr offset
 argument_list|,
-argument|GLsizeiptr size
+argument|qopengl_GLsizeiptr size
 argument_list|,
 argument|GLvoid *data
 argument_list|)

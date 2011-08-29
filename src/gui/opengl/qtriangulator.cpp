@@ -19055,6 +19055,7 @@ comment|//======================================================================
 end_comment
 begin_function
 DECL|function|qTriangulate
+name|Q_GUI_EXPORT
 name|QTriangleSet
 name|qTriangulate
 parameter_list|(
@@ -19141,6 +19142,7 @@ block|}
 end_function
 begin_function
 DECL|function|qTriangulate
+name|Q_GUI_EXPORT
 name|QTriangleSet
 name|qTriangulate
 parameter_list|(

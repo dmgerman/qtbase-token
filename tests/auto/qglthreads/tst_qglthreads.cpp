@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtWidgets/QApplication>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtOpenGL/QtOpenGL>
 end_include
 begin_include

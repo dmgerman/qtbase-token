@@ -56,6 +56,10 @@ parameter_list|(
 name|Gui
 parameter_list|)
 name|class
+name|QPainter
+decl_stmt|;
+DECL|variable|QOpenGLCustomShaderStagePrivate
+name|class
 name|QOpenGLCustomShaderStagePrivate
 decl_stmt|;
 name|class

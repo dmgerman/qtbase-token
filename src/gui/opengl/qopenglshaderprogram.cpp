@@ -42,6 +42,16 @@ include|#
 directive|include
 file|<QtCore/qvector.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/qtransform.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QColor>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro

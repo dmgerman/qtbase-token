@@ -142,9 +142,8 @@ block|{
 name|Q_OBJECT
 name|Q_DECLARE_PRIVATE
 argument_list|(
-name|QOpenGLContext
+argument|QOpenGLContext
 argument_list|)
-block|;
 name|public
 operator|:
 name|QOpenGLContext

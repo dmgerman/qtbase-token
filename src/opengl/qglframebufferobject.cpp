@@ -30,12 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<gl2paintengineex/qpaintengineex_opengl2_p.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qglframebufferobject.h>
+file|"gl2paintengineex/qpaintengineex_opengl2_p.h"
 end_include
 begin_include
 include|#
