@@ -8,10 +8,10 @@ directive|ifndef
 name|QTESTXMLSTREAMER_H
 end_ifndef
 begin_define
-DECL|macro|QTESXMLSTREAMER_H
+DECL|macro|QTESTXMLSTREAMER_H
 define|#
 directive|define
-name|QTESXMLSTREAMER_H
+name|QTESTXMLSTREAMER_H
 end_define
 begin_include
 include|#
@@ -45,7 +45,11 @@ block|{
 name|public
 operator|:
 name|QTestXmlStreamer
-argument_list|()
+argument_list|(
+name|QTestLogger
+operator|*
+name|logger
+argument_list|)
 block|;
 operator|~
 name|QTestXmlStreamer

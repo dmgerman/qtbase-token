@@ -26,15 +26,8 @@ name|QT_MODULE
 parameter_list|(
 name|Test
 parameter_list|)
-ifdef|#
-directive|ifdef
-name|QTEST_EMBED
-DECL|macro|Q_TESTLIB_EXPORT
-define|#
-directive|define
-name|Q_TESTLIB_EXPORT
-elif|#
-directive|elif
+if|#
+directive|if
 operator|!
 name|defined
 argument_list|(
@@ -53,6 +46,7 @@ argument_list|(
 name|Q_CC_RVCT
 argument_list|)
 operator|)
+DECL|macro|Q_TESTLIB_EXPORT
 define|#
 directive|define
 name|Q_TESTLIB_EXPORT

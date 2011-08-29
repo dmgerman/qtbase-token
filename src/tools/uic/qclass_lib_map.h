@@ -5292,16 +5292,6 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
-argument|QTestFileLogger
-argument_list|,
-argument|QtTest
-argument_list|,
-argument|qtestfilelogger.h
-argument_list|)
-end_macro
-begin_macro
-name|QT_CLASS_LIB
-argument_list|(
 argument|QTestLightXmlStreamer
 argument_list|,
 argument|QtTest

@@ -177,6 +177,17 @@ name|lastError
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setTimeout
+argument_list|(
+argument|int timeout
+argument_list|)
+block|;
+name|int
+name|timeout
+argument_list|()
+specifier|const
+block|;
 name|QDBusMessage
 name|call
 argument_list|(

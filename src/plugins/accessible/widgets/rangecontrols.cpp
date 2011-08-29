@@ -861,7 +861,7 @@ argument_list|()
 operator|->
 name|setProperty
 argument_list|(
-literal|"setValue"
+literal|"value"
 argument_list|,
 name|value
 argument_list|)
