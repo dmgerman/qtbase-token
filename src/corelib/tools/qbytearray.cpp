@@ -2079,6 +2079,9 @@ begin_comment
 comment|/*! \fn QByteArray::const_iterator QByteArray::begin() const      \internal */
 end_comment
 begin_comment
+comment|/*! \fn QByteArray::const_iterator QByteArray::cbegin() const     \since 5.0      \internal */
+end_comment
+begin_comment
 comment|/*! \fn QByteArray::const_iterator QByteArray::constBegin() const      \internal */
 end_comment
 begin_comment
@@ -2086,6 +2089,9 @@ comment|/*! \fn QByteArray::iterator QByteArray::end()      \internal */
 end_comment
 begin_comment
 comment|/*! \fn QByteArray::const_iterator QByteArray::end() const      \internal */
+end_comment
+begin_comment
+comment|/*! \fn QByteArray::const_iterator QByteArray::cend() const     \since 5.0      \internal */
 end_comment
 begin_comment
 comment|/*! \fn QByteArray::const_iterator QByteArray::constEnd() const      \internal */

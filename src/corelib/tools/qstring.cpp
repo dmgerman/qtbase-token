@@ -1862,6 +1862,9 @@ begin_comment
 comment|/*! \fn QString::const_iterator QString::begin() const      \overload begin() */
 end_comment
 begin_comment
+comment|/*! \fn QString::const_iterator QString::cbegin() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the first character     in the string.      \sa begin(), cend() */
+end_comment
+begin_comment
 comment|/*! \fn QString::const_iterator QString::constBegin() const      Returns a const \l{STL-style iterator} pointing to the first character     in the string.      \sa begin(), constEnd() */
 end_comment
 begin_comment
@@ -1869,6 +1872,9 @@ comment|/*! \fn QString::iterator QString::end()      Returns an \l{STL-style it
 end_comment
 begin_comment
 comment|/*! \fn QString::const_iterator QString::end() const      \overload end() */
+end_comment
+begin_comment
+comment|/*! \fn QString::const_iterator QString::cend() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the list.      \sa cbegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QString::const_iterator QString::constEnd() const      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the list.      \sa constBegin(), end() */

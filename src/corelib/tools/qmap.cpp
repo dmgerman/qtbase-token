@@ -1208,6 +1208,9 @@ begin_comment
 comment|/*! \fn QMap::const_iterator QMap::begin() const      \overload */
 end_comment
 begin_comment
+comment|/*! \fn QMap::const_iterator QMap::cbegin() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the first item     in the map.      \sa begin(), cend() */
+end_comment
+begin_comment
 comment|/*! \fn QMap::const_iterator QMap::constBegin() const      Returns a const \l{STL-style iterator} pointing to the first item     in the map.      \sa begin(), constEnd() */
 end_comment
 begin_comment
@@ -1215,6 +1218,9 @@ comment|/*! \fn QMap::iterator QMap::end()      Returns an \l{STL-style iterator
 end_comment
 begin_comment
 comment|/*! \fn QMap::const_iterator QMap::end() const      \overload */
+end_comment
+begin_comment
+comment|/*! \fn QMap::const_iterator QMap::cend() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the map.      \sa cbegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QMap::const_iterator QMap::constEnd() const      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the map.      \sa constBegin(), end() */
@@ -1229,7 +1235,7 @@ begin_comment
 comment|/*! \fn QMap::const_iterator QMap::find(const Key&key) const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QMap::iterator QMap::constFind(const Key&key) const     \since 4.1      Returns an const iterator pointing to the item with key \a key in the     map.      If the map contains no item with key \a key, the function     returns constEnd().      \sa find(), QMultiMap::constFind() */
+comment|/*! \fn QMap::const_iterator QMap::constFind(const Key&key) const     \since 4.1      Returns an const iterator pointing to the item with key \a key in the     map.      If the map contains no item with key \a key, the function     returns constEnd().      \sa find(), QMultiMap::constFind() */
 end_comment
 begin_comment
 comment|/*! \fn QMap::iterator QMap::lowerBound(const Key&key)      Returns an iterator pointing to the first item with key \a key in     the map. If the map contains no item with key \a key, the     function returns an iterator to the nearest item with a greater     key.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qmap.cpp 15      If the map contains multiple items with key \a key, this     function returns an iterator that points to the most recently     inserted value. The other values are accessible by incrementing     the iterator. For example, here's some code that iterates over all     the items with the same key:      \snippet doc/src/snippets/code/src_corelib_tools_qmap.cpp 16      \sa qLowerBound(), upperBound(), find() */

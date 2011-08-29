@@ -2096,6 +2096,9 @@ begin_comment
 comment|/*! \fn QHash::const_iterator QHash::begin() const      \overload */
 end_comment
 begin_comment
+comment|/*! \fn QHash::const_iterator QHash::cbegin() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the first item     in the hash.      \sa begin(), cend() */
+end_comment
+begin_comment
 comment|/*! \fn QHash::const_iterator QHash::constBegin() const      Returns a const \l{STL-style iterator} pointing to the first item     in the hash.      \sa begin(), constEnd() */
 end_comment
 begin_comment
@@ -2108,6 +2111,9 @@ begin_comment
 comment|/*! \fn QHash::const_iterator QHash::constEnd() const      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the hash.      \sa constBegin(), end() */
 end_comment
 begin_comment
+comment|/*! \fn QHash::const_iterator QHash::cend() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the hash.      \sa cbegin(), end() */
+end_comment
+begin_comment
 comment|/*! \fn QHash::iterator QHash::erase(iterator pos)      Removes the (key, value) pair associated with the iterator \a pos     from the hash, and returns an iterator to the next item in the     hash.      Unlike remove() and take(), this function never causes QHash to     rehash its internal data structure. This means that it can safely     be called while iterating, and won't affect the order of items in     the hash. For example:      \snippet doc/src/snippets/code/src_corelib_tools_qhash.cpp 15      \sa remove(), take(), find() */
 end_comment
 begin_comment
@@ -2117,7 +2123,7 @@ begin_comment
 comment|/*! \fn QHash::const_iterator QHash::find(const Key&key) const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QHash::iterator QHash::constFind(const Key&key) const     \since 4.1      Returns an iterator pointing to the item with the \a key in the     hash.      If the hash contains no item with the \a key, the function     returns constEnd().      \sa find(), QMultiHash::constFind() */
+comment|/*! \fn QHash::const_iterator QHash::constFind(const Key&key) const     \since 4.1      Returns an iterator pointing to the item with the \a key in the     hash.      If the hash contains no item with the \a key, the function     returns constEnd().      \sa find(), QMultiHash::constFind() */
 end_comment
 begin_comment
 comment|/*! \fn QHash::iterator QHash::insert(const Key&key, const T&value)      Inserts a new item with the \a key and a value of \a value.      If there is already an item with the \a key, that item's value     is replaced with \a value.      If there are multiple items with the \a key, the most     recently inserted item's value is replaced with \a value.      \sa insertMulti() */
