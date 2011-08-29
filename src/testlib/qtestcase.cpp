@@ -5760,17 +5760,6 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QTEST_NOEXITCODE
-argument_list|)
-return|return
-literal|0
-return|;
-else|#
-directive|else
 ifdef|#
 directive|ifdef
 name|QTESTLIB_USE_VALGRIND
@@ -5805,8 +5794,6 @@ argument_list|,
 literal|127
 argument_list|)
 return|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment
