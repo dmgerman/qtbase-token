@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QObject>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QScopedPointer>
 end_include
 begin_include
