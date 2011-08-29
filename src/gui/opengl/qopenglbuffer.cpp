@@ -204,13 +204,6 @@ parameter_list|()
 constructor_decl|;
 block|}
 end_constructor
-begin_define
-DECL|macro|ctx
-define|#
-directive|define
-name|ctx
-value|QOpenGLContext::currentContext();
-end_define
 begin_comment
 comment|/*!     Destroys this buffer object, including the storage being     used in the GL server. */
 end_comment
@@ -391,12 +384,6 @@ name|value
 expr_stmt|;
 block|}
 end_function
-begin_undef
-DECL|macro|ctx
-undef|#
-directive|undef
-name|ctx
-end_undef
 begin_namespace
 namespace|namespace
 block|{
@@ -545,13 +532,6 @@ literal|false
 return|;
 block|}
 end_function
-begin_define
-DECL|macro|ctx
-define|#
-directive|define
-name|ctx
-value|QOpenGLContext::currentContext()
-end_define
 begin_comment
 comment|/*!     Returns true if this buffer has been created; false otherwise.      \sa create(), destroy() */
 end_comment
@@ -1058,12 +1038,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_undef
-DECL|macro|ctx
-undef|#
-directive|undef
-name|ctx
-end_undef
 begin_comment
 comment|/*!     Releases the buffer associated with \a type in the current     QOpenGLContext.      This function is a direct call to \c{glBindBuffer(type, 0)}     for use when the caller does not know which QOpenGLBuffer has     been bound to the context but wants to make sure that it     is released.      \code     QOpenGLBuffer::release(QOpenGLBuffer::VertexBuffer);     \endcode */
 end_comment
@@ -1093,12 +1067,11 @@ if|if
 condition|(
 name|ctx
 condition|)
-block|{
-name|QOpenGLFunctions
-argument_list|(
 name|ctx
-argument_list|)
-operator|.
+operator|->
+name|functions
+argument_list|()
+operator|->
 name|glBindBuffer
 argument_list|(
 name|GLenum
@@ -1110,15 +1083,7 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 end_function
-begin_define
-DECL|macro|ctx
-define|#
-directive|define
-name|ctx
-value|QOpenGLContext::currentContext()
-end_define
 begin_comment
 comment|/*!     Returns the GL identifier associated with this buffer; zero if     the buffer has not been created.      \sa isCreated() */
 end_comment
@@ -1153,22 +1118,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|GL_BUFFER_SIZE
-end_ifndef
-begin_define
-DECL|macro|GL_BUFFER_SIZE
-define|#
-directive|define
-name|GL_BUFFER_SIZE
-value|0x8764
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!     Returns the size of the data in this buffer, for reading operations.     Returns -1 if fetching the buffer size is not supported, or the     buffer has not been created.      It is assumed that this buffer has been bound to the current context.      \sa isCreated(), bind() */
 end_comment
