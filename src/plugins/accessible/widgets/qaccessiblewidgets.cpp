@@ -1081,7 +1081,7 @@ modifier|*
 name|o
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|o
 argument_list|,
@@ -1101,7 +1101,7 @@ argument_list|)
 expr_stmt|;
 name|childOffset
 operator|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|childCount
 argument_list|()
@@ -1153,7 +1153,7 @@ operator|<=
 name|childOffset
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|rect
 argument_list|(
@@ -1368,7 +1368,7 @@ operator|+
 name|childOffset
 return|;
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|childAt
 argument_list|(
@@ -1443,7 +1443,7 @@ argument_list|()
 return|;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -1493,7 +1493,7 @@ name|childOffset
 operator|)
 condition|)
 block|{
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|setText
 argument_list|(
@@ -1609,7 +1609,7 @@ return|return
 name|EditableText
 return|;
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|role
 argument_list|(
@@ -1619,11 +1619,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleTextEdit
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|QAccessible
 operator|::
@@ -1689,9 +1689,9 @@ name|Method
 argument_list|>
 argument_list|>
 argument_list|(
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 name|method
 argument_list|,
@@ -1737,9 +1737,9 @@ argument_list|()
 return|;
 default|default:
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 name|method
 argument_list|,
@@ -1800,7 +1800,7 @@ modifier|*
 name|widget
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -1822,11 +1822,11 @@ expr_stmt|;
 block|}
 end_constructor
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleStackedWidget
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|QAccessible
 operator|::
@@ -2086,7 +2086,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -2168,7 +2168,7 @@ modifier|*
 name|widget
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -2223,7 +2223,7 @@ name|count
 argument_list|()
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -2283,7 +2283,7 @@ name|count
 argument_list|()
 condition|)
 block|{
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|setText
 argument_list|(
@@ -2344,7 +2344,7 @@ operator|!
 name|childWidget
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -2389,11 +2389,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleToolBox
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|QAccessible
 operator|::
@@ -2544,7 +2544,7 @@ name|count
 argument_list|()
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -2664,7 +2664,7 @@ modifier|*
 name|widget
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -2706,7 +2706,7 @@ operator|<
 literal|0
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -2752,7 +2752,7 @@ name|count
 argument_list|()
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -2789,11 +2789,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleMdiArea
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|QAccessible
 operator|::
@@ -3036,7 +3036,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -3106,7 +3106,7 @@ modifier|*
 name|widget
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -3192,7 +3192,7 @@ name|title
 return|;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -3249,7 +3249,7 @@ name|text
 argument_list|)
 expr_stmt|;
 else|else
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|setText
 argument_list|(
@@ -3290,7 +3290,7 @@ name|parent
 argument_list|()
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -3421,11 +3421,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleMdiSubWindow
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|QAccessible
 operator|::
@@ -3547,7 +3547,7 @@ name|parent
 argument_list|()
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -3733,7 +3733,7 @@ break|break;
 block|}
 default|default:
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -3800,7 +3800,7 @@ name|parent
 argument_list|()
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|rect
 argument_list|(
@@ -3959,7 +3959,7 @@ name|parent
 argument_list|()
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|childAt
 argument_list|(
@@ -4092,7 +4092,7 @@ modifier|*
 name|widget
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -4134,7 +4134,7 @@ operator|<
 literal|0
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -4176,7 +4176,7 @@ name|count
 argument_list|()
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -4213,11 +4213,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleWorkspace
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|QAccessible
 operator|::
@@ -4456,7 +4456,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -4535,7 +4535,7 @@ modifier|*
 name|widget
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -4557,11 +4557,11 @@ expr_stmt|;
 block|}
 end_constructor
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleDialogButtonBox
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|QAccessible
 operator|::
@@ -4683,7 +4683,7 @@ modifier|*
 name|widget
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -4705,11 +4705,11 @@ expr_stmt|;
 block|}
 end_constructor
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleCalendarWidget
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|QAccessible
 operator|::
@@ -4844,7 +4844,7 @@ name|childCount
 argument_list|()
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -4941,7 +4941,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -5009,7 +5009,7 @@ operator|==
 literal|0
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|rect
 argument_list|(
@@ -5296,7 +5296,7 @@ modifier|*
 name|widget
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -5397,7 +5397,7 @@ literal|1
 return|;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -5596,7 +5596,7 @@ specifier|const
 block|{
 comment|//### mark tabified widgets as invisible
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -5763,11 +5763,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleDockWidget
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|QAccessible
 operator|::
@@ -9363,7 +9363,7 @@ modifier|*
 name|widget
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -9372,11 +9372,11 @@ argument_list|)
 block|{ }
 end_constructor
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleMainWindow
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|QAccessible
 operator|::
@@ -9578,7 +9578,7 @@ return|;
 block|}
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(

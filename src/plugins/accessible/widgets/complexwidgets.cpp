@@ -5773,7 +5773,7 @@ name|atViewport
 argument_list|()
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|isValid
 argument_list|()
@@ -7058,7 +7058,7 @@ modifier|*
 name|w
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|)
@@ -7126,7 +7126,7 @@ operator|!
 name|child
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|rect
 argument_list|(
@@ -7407,7 +7407,7 @@ argument_list|()
 condition|)
 name|str
 operator|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -7476,7 +7476,7 @@ block|{
 name|State
 name|state
 init|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -7590,7 +7590,7 @@ modifier|*
 name|w
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|)
@@ -7738,7 +7738,7 @@ name|isVisible
 argument_list|()
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|rect
 argument_list|(
@@ -8018,7 +8018,7 @@ argument_list|()
 condition|)
 name|str
 operator|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -8096,7 +8096,7 @@ block|{
 name|State
 name|st
 init|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -8516,7 +8516,7 @@ modifier|*
 name|w
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|,
@@ -8688,7 +8688,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|rect
 argument_list|(
@@ -8929,7 +8929,7 @@ default|default:
 break|break;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -9199,7 +9199,7 @@ expr_stmt|;
 else|else
 name|str
 operator|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -9282,7 +9282,7 @@ argument_list|()
 condition|)
 name|str
 operator|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -9372,7 +9372,7 @@ parameter_list|)
 specifier|const
 block|{
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -9623,7 +9623,7 @@ modifier|*
 name|widget
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -9666,7 +9666,7 @@ operator|==
 name|Self
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -9777,7 +9777,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|setText
 argument_list|(
@@ -9869,7 +9869,7 @@ operator|==
 name|Self
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -9896,7 +9896,7 @@ name|count
 argument_list|()
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -9925,7 +9925,7 @@ operator|!
 name|childInterface
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -9953,11 +9953,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleAbstractScrollArea
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|QAccessible
 operator|::
@@ -10071,7 +10071,7 @@ specifier|const
 block|{
 return|return
 operator|(
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|isValid
 argument_list|()
@@ -10507,7 +10507,7 @@ block|}
 else|else
 block|{
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -10591,7 +10591,7 @@ operator|==
 name|Self
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|rect
 argument_list|(

@@ -48,7 +48,7 @@ name|class
 name|QAccessibleMenu
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|public
 operator|:
@@ -163,7 +163,7 @@ name|class
 name|QAccessibleMenuBar
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|public
 operator|:

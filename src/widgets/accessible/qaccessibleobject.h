@@ -123,10 +123,6 @@ argument_list|()
 block|;
 name|private
 operator|:
-name|friend
-name|class
-name|QAccessibleObjectEx
-block|;
 name|QAccessibleObjectPrivate
 operator|*
 name|d
@@ -134,102 +130,6 @@ block|;
 name|Q_DISABLE_COPY
 argument_list|(
 argument|QAccessibleObject
-argument_list|)
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
-name|Q_WIDGETS_EXPORT
-name|QAccessibleObjectEx
-range|:
-name|public
-name|QAccessibleInterfaceEx
-block|{
-name|public
-operator|:
-name|explicit
-name|QAccessibleObjectEx
-argument_list|(
-name|QObject
-operator|*
-name|object
-argument_list|)
-block|;
-name|bool
-name|isValid
-argument_list|()
-specifier|const
-block|;
-name|QObject
-operator|*
-name|object
-argument_list|()
-specifier|const
-block|;
-comment|// properties
-name|QRect
-name|rect
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|void
-name|setText
-argument_list|(
-argument|Text t
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QString&text
-argument_list|)
-block|;
-comment|// actions
-name|int
-name|userActionCount
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|bool
-name|doAction
-argument_list|(
-argument|int action
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-block|;
-name|QString
-name|actionText
-argument_list|(
-argument|int action
-argument_list|,
-argument|Text t
-argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|protected
-operator|:
-name|virtual
-operator|~
-name|QAccessibleObjectEx
-argument_list|()
-block|;
-name|private
-operator|:
-name|QAccessibleObjectPrivate
-operator|*
-name|d
-block|;
-name|Q_DISABLE_COPY
-argument_list|(
-argument|QAccessibleObjectEx
 argument_list|)
 block|}
 decl_stmt|;

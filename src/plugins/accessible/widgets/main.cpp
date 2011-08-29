@@ -1034,7 +1034,7 @@ block|{
 name|iface
 operator|=
 operator|new
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -1056,7 +1056,7 @@ block|{
 name|iface
 operator|=
 operator|new
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -1152,7 +1152,7 @@ block|{
 name|iface
 operator|=
 operator|new
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -1199,7 +1199,7 @@ block|{
 name|iface
 operator|=
 operator|new
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -1538,7 +1538,7 @@ block|{
 name|iface
 operator|=
 operator|new
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -1560,7 +1560,7 @@ block|{
 name|iface
 operator|=
 operator|new
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -1585,7 +1585,7 @@ block|{
 name|iface
 operator|=
 operator|new
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -1607,7 +1607,7 @@ block|{
 name|iface
 operator|=
 operator|new
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -1868,7 +1868,7 @@ block|{
 name|iface
 operator|=
 operator|new
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,

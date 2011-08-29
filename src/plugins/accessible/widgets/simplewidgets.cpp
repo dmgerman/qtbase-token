@@ -228,7 +228,7 @@ begin_comment
 comment|/*!   \class QAccessibleButton   \brief The QAccessibleButton class implements the QAccessibleInterface for button type widgets.   \internal    \ingroup accessibility */
 end_comment
 begin_comment
-comment|/*!   Creates a QAccessibleButton object for \a w.   \a role is propagated to the QAccessibleWidgetEx constructor. */
+comment|/*!   Creates a QAccessibleButton object for \a w.   \a role is propagated to the QAccessibleWidget constructor. */
 end_comment
 begin_constructor
 DECL|function|QAccessibleButton
@@ -244,7 +244,7 @@ name|Role
 name|role
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|,
@@ -466,7 +466,7 @@ block|}
 break|break;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|actionText
 argument_list|(
@@ -573,7 +573,7 @@ literal|true
 return|;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|doAction
 argument_list|(
@@ -715,7 +715,7 @@ argument_list|()
 condition|)
 name|str
 operator|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -752,7 +752,7 @@ block|{
 name|State
 name|state
 init|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -1154,7 +1154,7 @@ begin_comment
 comment|/*!     \enum QAccessibleToolButton::ToolButtonElements      This enum identifies the components of the tool button.      \value ToolButtonSelf The tool button as a whole.     \value ButtonExecute The button.     \value ButtonDropMenu The drop down menu. */
 end_comment
 begin_comment
-comment|/*!   Creates a QAccessibleToolButton object for \a w.   \a role is propagated to the QAccessibleWidgetEx constructor. */
+comment|/*!   Creates a QAccessibleToolButton object for \a w.   \a role is propagated to the QAccessibleWidget constructor. */
 end_comment
 begin_constructor
 DECL|function|QAccessibleToolButton
@@ -1902,7 +1902,7 @@ begin_comment
 comment|/*!   \class QAccessibleDisplay   \brief The QAccessibleDisplay class implements the QAccessibleInterface for widgets that display information.   \internal    \ingroup accessibility */
 end_comment
 begin_comment
-comment|/*!   Constructs a QAccessibleDisplay object for \a w.   \a role is propagated to the QAccessibleWidgetEx constructor. */
+comment|/*!   Constructs a QAccessibleDisplay object for \a w.   \a role is propagated to the QAccessibleWidget constructor. */
 end_comment
 begin_constructor
 DECL|function|QAccessibleDisplay
@@ -1918,7 +1918,7 @@ name|Role
 name|role
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|,
@@ -2027,7 +2027,7 @@ endif|#
 directive|endif
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|role
 argument_list|(
@@ -2266,7 +2266,7 @@ argument_list|()
 condition|)
 name|str
 operator|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -2312,7 +2312,7 @@ block|{
 name|Relation
 name|relation
 init|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|relationTo
 argument_list|(
@@ -2573,7 +2573,7 @@ literal|0
 return|;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -2793,7 +2793,7 @@ begin_comment
 comment|/*!   \class QAccessibleLineEdit   \brief The QAccessibleLineEdit class implements the QAccessibleInterface for widgets with editable text   \internal    \ingroup accessibility */
 end_comment
 begin_comment
-comment|/*!   Constructs a QAccessibleLineEdit object for \a w.   \a name is propagated to the QAccessibleWidgetEx constructor. */
+comment|/*!   Constructs a QAccessibleLineEdit object for \a w.   \a name is propagated to the QAccessibleWidget constructor. */
 end_comment
 begin_constructor
 DECL|function|QAccessibleLineEdit
@@ -2811,7 +2811,7 @@ modifier|&
 name|name
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|,
@@ -2931,7 +2931,7 @@ argument_list|()
 condition|)
 name|str
 operator|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -2980,7 +2980,7 @@ operator|||
 name|control
 condition|)
 block|{
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|setText
 argument_list|(
@@ -3063,7 +3063,7 @@ block|{
 name|State
 name|state
 init|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -3148,11 +3148,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleLineEdit
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|QAccessible
 operator|::
@@ -3218,9 +3218,9 @@ name|Method
 argument_list|>
 argument_list|>
 argument_list|(
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 name|method
 argument_list|,
@@ -3260,9 +3260,9 @@ argument_list|()
 return|;
 default|default:
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 name|method
 argument_list|,

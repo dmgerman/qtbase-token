@@ -326,7 +326,7 @@ modifier|*
 name|w
 parameter_list|)
 member_init_list|:
-name|QAccessibleObjectEx
+name|QAccessibleObject
 argument_list|(
 name|w
 argument_list|)
@@ -1756,8 +1756,6 @@ return|return
 name|QAccessible
 operator|::
 name|Normal
-operator||
-name|HasInvokeExtension
 return|;
 block|}
 end_function

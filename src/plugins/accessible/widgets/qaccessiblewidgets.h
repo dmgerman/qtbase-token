@@ -118,13 +118,13 @@ directive|ifndef
 name|QT_NO_TEXTEDIT
 end_ifndef
 begin_decl_stmt
-DECL|variable|QAccessibleWidgetEx
+DECL|variable|QAccessibleWidget
 DECL|variable|QAccessibleTextInterface
 name|class
 name|QAccessibleTextEdit
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 decl_stmt|,
 name|public
 name|QAccessibleTextInterface
@@ -178,7 +178,7 @@ argument_list|)
 decl|const
 decl_stmt|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 name|QAccessible
 operator|::
@@ -514,7 +514,7 @@ name|class
 name|QAccessibleStackedWidget
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|Q_ACCESSIBLE_OBJECT
 name|public
@@ -528,7 +528,7 @@ name|widget
 argument_list|)
 block|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,
@@ -584,7 +584,7 @@ name|class
 name|QAccessibleToolBox
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|Q_ACCESSIBLE_OBJECT
 name|public
@@ -624,7 +624,7 @@ argument_list|)
 specifier|const
 block|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,
@@ -676,7 +676,7 @@ name|class
 name|QAccessibleMdiArea
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|public
 operator|:
@@ -696,7 +696,7 @@ argument_list|)
 specifier|const
 block|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,
@@ -743,7 +743,7 @@ name|class
 name|QAccessibleMdiSubWindow
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|public
 operator|:
@@ -782,7 +782,7 @@ argument_list|)
 specifier|const
 block|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,
@@ -857,7 +857,7 @@ name|class
 name|QAccessibleWorkspace
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|public
 operator|:
@@ -877,7 +877,7 @@ argument_list|)
 specifier|const
 block|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,
@@ -928,7 +928,7 @@ name|class
 name|QAccessibleDialogButtonBox
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|public
 operator|:
@@ -941,7 +941,7 @@ name|widget
 argument_list|)
 block|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,
@@ -1000,7 +1000,7 @@ name|class
 name|QAccessibleCalendarWidget
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|public
 operator|:
@@ -1013,7 +1013,7 @@ name|widget
 argument_list|)
 block|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,
@@ -1102,7 +1102,7 @@ name|class
 name|QAccessibleDockWidget
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|public
 operator|:
@@ -1168,7 +1168,7 @@ argument_list|)
 specifier|const
 block|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,
@@ -1361,7 +1361,7 @@ name|class
 name|QAccessibleMainWindow
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|public
 operator|:
@@ -1374,7 +1374,7 @@ name|widget
 argument_list|)
 block|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,

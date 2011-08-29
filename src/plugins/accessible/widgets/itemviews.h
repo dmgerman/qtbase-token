@@ -66,7 +66,7 @@ name|public
 name|QAccessibleTable2Interface
 decl_stmt|,
 name|public
-name|QAccessibleObjectEx
+name|QAccessibleObject
 block|{
 name|Q_ACCESSIBLE_OBJECT
 name|public

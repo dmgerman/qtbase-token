@@ -482,13 +482,6 @@ block|,
 name|Modal
 init|=
 literal|0x80000000
-block|,
-comment|// #### Qt5 ManagesDescendants
-comment|// #### Qt5 remove HasInvokeExtension
-name|HasInvokeExtension
-init|=
-literal|0x10000000
-comment|// internal
 block|}
 enum|;
 end_enum
@@ -1434,6 +1427,7 @@ argument_list|)
 operator|=
 literal|0
 block|;
+name|virtual
 name|QVariant
 name|invokeMethod
 argument_list|(
@@ -1659,42 +1653,7 @@ argument_list|)
 operator|)
 return|;
 block|}
-name|private
-operator|:
-name|QAccessible2Interface
-operator|*
-name|cast_helper
-argument_list|(
-name|QAccessible2
-operator|::
-name|InterfaceType
-argument_list|)
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
-name|Q_WIDGETS_EXPORT
-name|QAccessibleInterfaceEx
-range|:
-name|public
-name|QAccessibleInterface
-block|{
-name|public
-operator|:
-name|virtual
-name|QVariant
-name|invokeMethodEx
-argument_list|(
-argument|Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-operator|=
-literal|0
-block|;
+comment|// FIXME
 name|virtual
 name|QVariant
 name|virtual_hook
@@ -1717,12 +1676,24 @@ return|return
 literal|0
 return|;
 block|}
-expr|}
-block|;
+name|private
+operator|:
+name|QAccessible2Interface
+operator|*
+name|cast_helper
+argument_list|(
+name|QAccessible2
+operator|::
+name|InterfaceType
+argument_list|)
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_WIDGETS_EXPORT
 name|QAccessibleEvent
-operator|:
+range|:
 name|public
 name|QEvent
 block|{
@@ -1775,7 +1746,9 @@ block|;
 name|QString
 name|val
 block|; }
-block|;
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
 DECL|function|QAccessibleEvent
 specifier|inline
 name|QAccessibleEvent
@@ -1791,7 +1764,7 @@ name|QEvent
 argument_list|(
 name|atype
 argument_list|)
-block|,
+operator|,
 name|c
 argument_list|(
 argument|achild
@@ -1813,7 +1786,7 @@ directive|endif
 comment|// QT_NO_ACCESSIBILITY
 name|QT_END_NAMESPACE
 name|QT_END_HEADER
-end_decl_stmt
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

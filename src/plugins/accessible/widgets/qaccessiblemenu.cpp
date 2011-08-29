@@ -71,7 +71,7 @@ modifier|*
 name|w
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|)
@@ -151,7 +151,7 @@ name|childCount
 argument_list|()
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|rect
 argument_list|(
@@ -315,7 +315,7 @@ block|{
 name|QString
 name|tx
 init|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -512,7 +512,7 @@ block|{
 name|State
 name|s
 init|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -731,7 +731,7 @@ argument_list|)
 return|;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|actionText
 argument_list|(
@@ -1053,7 +1053,7 @@ block|}
 else|else
 block|{
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -1069,7 +1069,7 @@ break|break;
 block|}
 default|default:
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -1199,7 +1199,7 @@ modifier|*
 name|w
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|)
@@ -1274,7 +1274,7 @@ operator|!
 name|child
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|rect
 argument_list|(
@@ -1522,7 +1522,7 @@ block|}
 break|break;
 default|default:
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -1726,7 +1726,7 @@ argument_list|()
 condition|)
 name|str
 operator|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -1811,7 +1811,7 @@ block|{
 name|State
 name|s
 init|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -2023,7 +2023,7 @@ argument_list|)
 return|;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|actionText
 argument_list|(

@@ -142,7 +142,7 @@ modifier|*
 name|w
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|,
@@ -517,7 +517,7 @@ default|default:
 break|break;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -623,7 +623,7 @@ default|default:
 break|break;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -675,7 +675,7 @@ default|default:
 break|break;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|role
 argument_list|(
@@ -759,7 +759,7 @@ break|break;
 block|}
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|doAction
 argument_list|(
@@ -907,11 +907,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleAbstractSpinBox
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|Method
 name|method
@@ -963,9 +963,9 @@ name|Method
 argument_list|>
 argument_list|>
 argument_list|(
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 name|method
 argument_list|,
@@ -979,9 +979,9 @@ return|;
 block|}
 default|default:
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 name|method
 argument_list|,
@@ -1292,7 +1292,7 @@ modifier|*
 name|widget
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -1597,7 +1597,7 @@ operator|<=
 literal|0
 condition|)
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -1702,7 +1702,7 @@ default|default:
 break|break;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|navigate
 argument_list|(
@@ -1716,11 +1716,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleDoubleSpinBox
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|QAccessible
 operator|::
@@ -1826,7 +1826,7 @@ default|default:
 break|break;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -1878,7 +1878,7 @@ default|default:
 break|break;
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|role
 argument_list|(
@@ -1907,7 +1907,7 @@ block|{
 name|State
 name|state
 init|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -1990,7 +1990,7 @@ begin_comment
 comment|/*!     \enum QAccessibleScrollBar::ScrollBarElements      This enum identifies the components of the scroll bar.      \value ScrollBarSelf The scroll bar as a whole.     \value LineUp The up arrow button.     \value PageUp The area between the position and the up arrow button.     \value Position The position marking rectangle.     \value PageDown The area between the position and the down arrow button.     \value LineDown The down arrow button. */
 end_comment
 begin_comment
-comment|/*!   Constructs a QAccessibleScrollBar object for \a w.   \a name is propagated to the QAccessibleWidgetEx constructor. */
+comment|/*!   Constructs a QAccessibleScrollBar object for \a w.   \a name is propagated to the QAccessibleWidget constructor. */
 end_comment
 begin_constructor
 DECL|function|QAccessibleScrollBar
@@ -2576,7 +2576,7 @@ begin_comment
 comment|/*!     \enum QAccessibleSlider::SliderElements      This enum identifies the components of the slider.      \value SliderSelf The slider as a whole.     \value PageLeft The area to the left of the position.     \value Position The position indicator.     \value PageRight The area to the right of the position. */
 end_comment
 begin_comment
-comment|/*!   Constructs a QAccessibleScrollBar object for \a w.   \a name is propagated to the QAccessibleWidgetEx constructor. */
+comment|/*!   Constructs a QAccessibleScrollBar object for \a w.   \a name is propagated to the QAccessibleWidget constructor. */
 end_comment
 begin_constructor
 DECL|function|QAccessibleSlider
@@ -3312,7 +3312,7 @@ name|Role
 name|r
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|,
@@ -3334,11 +3334,11 @@ expr_stmt|;
 block|}
 end_constructor
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleAbstractSlider
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|Method
 name|method
@@ -3390,9 +3390,9 @@ name|Method
 argument_list|>
 argument_list|>
 argument_list|(
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 name|method
 argument_list|,
@@ -3406,9 +3406,9 @@ return|;
 block|}
 default|default:
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 name|method
 argument_list|,
@@ -3546,7 +3546,7 @@ modifier|*
 name|widget
 parameter_list|)
 member_init_list|:
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
@@ -3611,7 +3611,7 @@ case|case
 name|Self
 case|:
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|rect
 argument_list|(
@@ -4363,7 +4363,7 @@ return|;
 block|}
 block|}
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|text
 argument_list|(
@@ -4408,7 +4408,7 @@ return|return
 name|Indicator
 return|;
 return|return
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|role
 argument_list|(
@@ -4435,7 +4435,7 @@ specifier|const
 name|State
 name|parentState
 init|=
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 operator|::
 name|state
 argument_list|(
@@ -4459,11 +4459,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|invokeMethodEx
+DECL|function|invokeMethod
 name|QVariant
 name|QAccessibleDial
 operator|::
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|Method
 parameter_list|,

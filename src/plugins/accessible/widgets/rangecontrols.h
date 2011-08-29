@@ -75,12 +75,12 @@ directive|ifndef
 name|QT_NO_SPINBOX
 end_ifndef
 begin_decl_stmt
-DECL|variable|QAccessibleWidgetEx
+DECL|variable|QAccessibleWidget
 name|class
 name|QAccessibleAbstractSpinBox
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 decl_stmt|,
 name|public
 name|QAccessibleValueInterface
@@ -174,7 +174,7 @@ name|params
 parameter_list|)
 function_decl|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|Method
 name|method
@@ -272,7 +272,7 @@ name|class
 name|QAccessibleDoubleSpinBox
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|public
 operator|:
@@ -321,7 +321,7 @@ argument_list|)
 specifier|const
 block|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,
@@ -371,12 +371,12 @@ begin_comment
 comment|// QT_NO_SPINBOX
 end_comment
 begin_decl_stmt
-DECL|variable|QAccessibleWidgetEx
+DECL|variable|QAccessibleWidget
 name|class
 name|QAccessibleAbstractSlider
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 decl_stmt|,
 name|public
 name|QAccessibleValueInterface
@@ -393,7 +393,7 @@ argument|Role r = Slider
 argument_list|)
 decl_stmt|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|Method
 name|method
@@ -648,7 +648,7 @@ name|class
 name|QAccessibleDial
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|public
 operator|:
@@ -707,7 +707,7 @@ argument_list|)
 specifier|const
 block|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 argument|Method method
 argument_list|,

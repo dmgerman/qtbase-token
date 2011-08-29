@@ -89,7 +89,7 @@ name|class
 name|QAccessibleAbstractScrollArea
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|public
 operator|:
@@ -145,7 +145,7 @@ argument_list|)
 specifier|const
 block|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,
@@ -262,7 +262,7 @@ name|class
 name|QAccessibleHeader
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|Q_ACCESSIBLE_OBJECT
 name|public
@@ -976,7 +976,7 @@ name|class
 name|QAccessibleTabBar
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|Q_ACCESSIBLE_OBJECT
 name|public
@@ -1089,7 +1089,7 @@ name|class
 name|QAccessibleComboBox
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 block|{
 name|Q_ACCESSIBLE_OBJECT
 name|public

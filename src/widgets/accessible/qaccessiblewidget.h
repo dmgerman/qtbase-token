@@ -158,6 +158,16 @@ argument_list|)
 block|;
 endif|#
 directive|endif
+name|QVariant
+name|invokeMethod
+argument_list|(
+argument|Method method
+argument_list|,
+argument|int child
+argument_list|,
+argument|const QVariantList&params
+argument_list|)
+block|;
 name|protected
 operator|:
 operator|~
@@ -223,10 +233,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|friend
-name|class
-name|QAccessibleWidgetEx
-block|;
 name|QAccessibleWidgetPrivate
 operator|*
 name|d
@@ -234,206 +240,6 @@ block|;
 name|Q_DISABLE_COPY
 argument_list|(
 argument|QAccessibleWidget
-argument_list|)
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
-name|Q_WIDGETS_EXPORT
-name|QAccessibleWidgetEx
-range|:
-name|public
-name|QAccessibleObjectEx
-block|{
-name|public
-operator|:
-name|explicit
-name|QAccessibleWidgetEx
-argument_list|(
-argument|QWidget *o
-argument_list|,
-argument|Role r = Client
-argument_list|,
-argument|const QString& name = QString()
-argument_list|)
-block|;
-name|int
-name|childCount
-argument_list|()
-specifier|const
-block|;
-name|int
-name|indexOfChild
-argument_list|(
-argument|const QAccessibleInterface *child
-argument_list|)
-specifier|const
-block|;
-name|Relation
-name|relationTo
-argument_list|(
-argument|int child
-argument_list|,
-argument|const QAccessibleInterface *other
-argument_list|,
-argument|int otherChild
-argument_list|)
-specifier|const
-block|;
-name|int
-name|childAt
-argument_list|(
-argument|int x
-argument_list|,
-argument|int y
-argument_list|)
-specifier|const
-block|;
-name|QRect
-name|rect
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|int
-name|navigate
-argument_list|(
-argument|RelationFlag rel
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
-argument_list|)
-specifier|const
-block|;
-name|QString
-name|text
-argument_list|(
-argument|Text t
-argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|Role
-name|role
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|State
-name|state
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|QString
-name|actionText
-argument_list|(
-argument|int action
-argument_list|,
-argument|Text t
-argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|bool
-name|doAction
-argument_list|(
-argument|int action
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-block|;
-name|QVariant
-name|invokeMethodEx
-argument_list|(
-argument|Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-block|;
-name|protected
-operator|:
-operator|~
-name|QAccessibleWidgetEx
-argument_list|()
-block|;
-name|QWidget
-operator|*
-name|widget
-argument_list|()
-specifier|const
-block|;
-name|QObject
-operator|*
-name|parentObject
-argument_list|()
-specifier|const
-block|;
-name|void
-name|addControllingSignal
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|signal
-argument_list|)
-block|;
-name|void
-name|setValue
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|value
-argument_list|)
-block|;
-name|void
-name|setDescription
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|desc
-argument_list|)
-block|;
-name|void
-name|setHelp
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|help
-argument_list|)
-block|;
-name|void
-name|setAccelerator
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|accel
-argument_list|)
-block|;
-name|private
-operator|:
-name|QAccessibleWidgetPrivate
-operator|*
-name|d
-block|;
-name|Q_DISABLE_COPY
-argument_list|(
-argument|QAccessibleWidgetEx
 argument_list|)
 block|}
 decl_stmt|;

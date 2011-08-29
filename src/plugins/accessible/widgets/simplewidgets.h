@@ -57,12 +57,12 @@ name|QProgressBar
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QAccessibleWidgetEx
+DECL|variable|QAccessibleWidget
 name|class
 name|QAccessibleButton
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 decl_stmt|,
 name|public
 name|QAccessibleActionInterface
@@ -300,12 +300,12 @@ begin_comment
 comment|// QT_NO_TOOLBUTTON
 end_comment
 begin_decl_stmt
-DECL|variable|QAccessibleWidgetEx
+DECL|variable|QAccessibleWidget
 name|class
 name|QAccessibleDisplay
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 decl_stmt|,
 name|public
 name|QAccessibleImageInterface
@@ -400,13 +400,13 @@ directive|ifndef
 name|QT_NO_LINEEDIT
 end_ifndef
 begin_decl_stmt
-DECL|variable|QAccessibleWidgetEx
+DECL|variable|QAccessibleWidget
 DECL|variable|QAccessibleTextInterface
 name|class
 name|QAccessibleLineEdit
 range|:
 name|public
-name|QAccessibleWidgetEx
+name|QAccessibleWidget
 decl_stmt|,
 name|public
 name|QAccessibleTextInterface
@@ -468,7 +468,7 @@ argument_list|)
 decl|const
 decl_stmt|;
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 argument_list|(
 name|QAccessible
 operator|::
