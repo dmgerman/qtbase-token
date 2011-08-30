@@ -110,12 +110,6 @@ name|contentView
 argument_list|()
 specifier|const
 block|;
-name|NSView
-operator|*
-name|windowSurfaceView
-argument_list|()
-specifier|const
-block|;
 name|void
 name|windowDidMove
 argument_list|()
@@ -184,10 +178,6 @@ block|;
 name|QNSView
 operator|*
 name|m_contentView
-block|;
-name|NSView
-operator|*
-name|m_windowSurfaceView
 block|;
 name|quint32
 name|m_windowAttributes
