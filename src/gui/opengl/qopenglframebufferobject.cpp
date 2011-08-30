@@ -40,7 +40,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qpaintengineex_opengl2_p.h>
+file|<private/qopenglpaintengine_p.h>
 end_include
 begin_include
 include|#

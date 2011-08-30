@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qtextureglyphcache_gl_p.h"
+file|"qopengltextureglyphcache_p.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qpaintengineex_opengl2_p.h"
+file|"qopenglpaintengine_p.h"
 end_include
 begin_include
 include|#

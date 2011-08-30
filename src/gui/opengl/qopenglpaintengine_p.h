@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QGRAPHICSCONTEXT_OPENGL2_P_H
+name|QOPENGLPAINTENGINE_P_H
 end_ifndef
 begin_define
-DECL|macro|QGRAPHICSCONTEXT_OPENGL2_P_H
+DECL|macro|QOPENGLPAINTENGINE_P_H
 define|#
 directive|define
-name|QGRAPHICSCONTEXT_OPENGL2_P_H
+name|QOPENGLPAINTENGINE_P_H
 end_define
 begin_comment
 comment|//
@@ -81,7 +81,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qtriangulatingstroker_p.h>
+file|<private/qopengltriangulatingstroker_p.h>
 end_include
 begin_include
 include|#

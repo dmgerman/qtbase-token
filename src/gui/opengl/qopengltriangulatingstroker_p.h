@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QTRIANGULATINGSTROKER_P_H
+name|QOPENGLTRIANGULATINGSTROKER_P_H
 end_ifndef
 begin_define
-DECL|macro|QTRIANGULATINGSTROKER_P_H
+DECL|macro|QOPENGLTRIANGULATINGSTROKER_P_H
 define|#
 directive|define
-name|QTRIANGULATINGSTROKER_P_H
+name|QOPENGLTRIANGULATINGSTROKER_P_H
 end_define
 begin_include
 include|#
