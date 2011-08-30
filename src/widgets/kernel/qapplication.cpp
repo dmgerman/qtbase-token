@@ -1326,14 +1326,6 @@ init|=
 literal|false
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|member|qmljs_debug_arguments
-name|QString
-name|QApplicationPrivate
-operator|::
-name|qmljs_debug_arguments
-decl_stmt|;
-end_decl_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -20634,19 +20626,6 @@ end_endif
 begin_comment
 comment|// QT_NO_GESTURES
 end_comment
-begin_function
-DECL|function|qmljsDebugArgumentsString
-name|QString
-name|QApplicationPrivate
-operator|::
-name|qmljsDebugArgumentsString
-parameter_list|()
-block|{
-return|return
-name|qmljs_debug_arguments
-return|;
-block|}
-end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

@@ -2042,17 +2042,6 @@ name|bool
 name|load_testability
 block|;
 comment|// Coupled with -testability switch
-specifier|static
-name|QString
-name|qmljs_debug_arguments
-block|;
-comment|// a string containing arguments for js/qml debugging.
-specifier|static
-name|QString
-name|qmljsDebugArgumentsString
-argument_list|()
-block|;
-comment|// access string from other libraries
 ifdef|#
 directive|ifdef
 name|Q_WS_MAC
