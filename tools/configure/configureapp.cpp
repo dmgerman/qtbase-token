@@ -1510,6 +1510,13 @@ literal|"auto"
 expr_stmt|;
 name|dictionary
 index|[
+literal|"V8"
+index|]
+operator|=
+literal|"auto"
+expr_stmt|;
+name|dictionary
+index|[
 literal|"DECLARATIVE"
 index|]
 operator|=
@@ -6578,6 +6585,48 @@ literal|"WEBKIT"
 index|]
 operator|=
 literal|"debug"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-no-v8"
+condition|)
+block|{
+name|dictionary
+index|[
+literal|"V8"
+index|]
+operator|=
+literal|"no"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-v8"
+condition|)
+block|{
+name|dictionary
+index|[
+literal|"V8"
+index|]
+operator|=
+literal|"yes"
 expr_stmt|;
 block|}
 elseif|else
@@ -12101,6 +12150,28 @@ argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
+literal|"V8"
+argument_list|,
+literal|"no"
+argument_list|,
+literal|"-no-v8"
+argument_list|,
+literal|"Do not build the V8 module."
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"V8"
+argument_list|,
+literal|"yes"
+argument_list|,
+literal|"-v8"
+argument_list|,
+literal|"Build the V8 module."
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
 literal|"DECLARATIVE"
 argument_list|,
 literal|"no"
@@ -14400,6 +14471,10 @@ literal|"SCRIPTTOOLS"
 operator|||
 name|part
 operator|==
+literal|"V8"
+operator|||
+name|part
+operator|==
 literal|"DECLARATIVE"
 condition|)
 block|{
@@ -15596,6 +15671,29 @@ if|if
 condition|(
 name|dictionary
 index|[
+literal|"V8"
+index|]
+operator|==
+literal|"auto"
+condition|)
+name|dictionary
+index|[
+literal|"V8"
+index|]
+operator|=
+name|checkAvailability
+argument_list|(
+literal|"V8"
+argument_list|)
+condition|?
+literal|"yes"
+else|:
+literal|"no"
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
 literal|"DECLARATIVE"
 index|]
 operator|==
@@ -15608,7 +15706,7 @@ index|]
 operator|=
 name|dictionary
 index|[
-literal|"SCRIPT"
+literal|"V8"
 index|]
 operator|==
 literal|"yes"
@@ -16014,7 +16112,7 @@ literal|"yes"
 operator|&&
 name|dictionary
 index|[
-literal|"SCRIPT"
+literal|"V8"
 index|]
 operator|==
 literal|"no"
@@ -16026,7 +16124,7 @@ literal|"WARNING: To be able to compile QtDeclarative we need to also compile th
 operator|<<
 name|endl
 operator|<<
-literal|"QtScript module. If you continue, we will turn on the QtScript module."
+literal|"V8 module. If you continue, we will turn on the V8 module."
 operator|<<
 name|endl
 operator|<<
@@ -17574,8 +17672,8 @@ expr_stmt|;
 block|}
 comment|// No longer needed after modularization
 comment|//    if (dictionary["DECLARATIVE"] == "yes") {
-comment|//        if (dictionary[ "SCRIPT" ] == "no") {
-comment|//            cout<< "QtDeclarative was requested, but it can't be built due to QtScript being "
+comment|//        if (dictionary[ "V8" ] == "no") {
+comment|//            cout<< "QtDeclarative was requested, but it can't be built due to V8 being "
 comment|//                    "disabled."<< endl;
 comment|//            dictionary[ "DONE" ] = "error";
 comment|//        }
@@ -20651,6 +20749,19 @@ if|if
 condition|(
 name|dictionary
 index|[
+literal|"V8"
+index|]
+operator|==
+literal|"no"
+condition|)
+name|qconfigList
+operator|+=
+literal|"QT_NO_V8"
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
 literal|"DECLARATIVE"
 index|]
 operator|==
@@ -22967,6 +23078,17 @@ operator|<<
 name|endl
 expr_stmt|;
 block|}
+name|cout
+operator|<<
+literal|"V8 support.................."
+operator|<<
+name|dictionary
+index|[
+literal|"V8"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
 name|cout
 operator|<<
 literal|"QtScript support............"
