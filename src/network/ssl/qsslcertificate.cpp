@@ -3496,24 +3496,54 @@ init|=
 block|{
 literal|"04:7e:cb:e9:fc:a5:5f:7b:d0:9e:ae:36:e1:0c:ae:1e"
 block|,
+literal|"mail.google.com"
+block|,
+comment|// Comodo
 literal|"f5:c8:6a:f3:61:62:f1:3a:64:f5:4f:6d:c9:58:7c:06"
 block|,
+literal|"www.google.com"
+block|,
+comment|// Comodo
 literal|"d7:55:8f:da:f5:f1:10:5b:b2:13:28:2b:70:77:29:a3"
 block|,
+literal|"login.yahoo.com"
+block|,
+comment|// Comodo
 literal|"39:2a:43:4f:0e:07:df:1f:8a:a3:05:de:34:e0:c2:29"
 block|,
+literal|"login.yahoo.com"
+block|,
+comment|// Comodo
 literal|"3e:75:ce:d4:6b:69:30:21:21:88:30:ae:86:a8:2a:71"
 block|,
+literal|"login.yahoo.com"
+block|,
+comment|// Comodo
 literal|"e9:02:8b:95:78:e4:15:dc:1a:71:0a:2b:88:15:44:47"
 block|,
+literal|"login.skype.com"
+block|,
+comment|// Comodo
 literal|"92:39:d5:34:8f:40:d1:69:5a:74:54:70:e1:f2:3f:43"
 block|,
+literal|"addons.mozilla.org"
+block|,
+comment|// Comodo
 literal|"b0:b7:13:3e:d0:96:f9:b5:6f:ae:91:c8:74:bd:3a:c0"
 block|,
+literal|"login.live.com"
+block|,
+comment|// Comodo
 literal|"d8:f3:5f:4e:b7:87:2b:2d:ab:06:92:e3:15:38:2f:b0"
 block|,
+literal|"global trustee"
+block|,
+comment|// Comodo
 literal|"05:e2:e6:a4:cd:09:ea:54:d6:65:b0:75:fe:22:a2:56"
 block|,
+literal|"*.google.com"
+block|,
+comment|// DigiNotar
 literal|0
 block|}
 decl_stmt|;
@@ -3559,7 +3589,30 @@ operator|==
 name|certificate_blacklist
 index|[
 name|a
+operator|++
 index|]
+operator|&&
+name|certificate
+operator|.
+name|subjectInfo
+argument_list|(
+name|QSslCertificate
+operator|::
+name|CommonName
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+name|QString
+operator|::
+name|fromUtf8
+argument_list|(
+name|certificate_blacklist
+index|[
+name|a
+index|]
+argument_list|)
+argument_list|)
 condition|)
 return|return
 literal|true
