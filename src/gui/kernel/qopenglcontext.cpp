@@ -702,6 +702,21 @@ literal|false
 return|;
 if|if
 condition|(
+name|thread
+argument_list|()
+operator|!=
+name|QThread
+operator|::
+name|currentThread
+argument_list|()
+condition|)
+name|qFatal
+argument_list|(
+literal|"Cannot make QOpenGLContext current in a different thread"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 operator|!
 name|surface
 condition|)
