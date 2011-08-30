@@ -71,29 +71,11 @@ block|{
 name|public
 operator|:
 name|QTestLogger
-argument_list|(
-argument|int fm =
-literal|0
-argument_list|)
+argument_list|()
 block|;
 operator|~
 name|QTestLogger
 argument_list|()
-block|;          enum
-name|TestLoggerFormat
-block|{
-name|TLF_XML
-operator|=
-literal|0
-block|,
-name|TLF_LightXml
-operator|=
-literal|1
-block|,
-name|TLF_XunitXml
-operator|=
-literal|2
-block|}
 block|;
 name|void
 name|startLogging
@@ -183,9 +165,6 @@ block|;
 name|QTestBasicStreamer
 operator|*
 name|logFormatter
-block|;
-name|TestLoggerFormat
-name|format
 block|;
 name|int
 name|testCounter

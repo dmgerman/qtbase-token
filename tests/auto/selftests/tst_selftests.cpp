@@ -765,20 +765,6 @@ argument_list|)
 operator|<<
 name|Logger
 argument_list|(
-literal|"xml flush"
-argument_list|,
-literal|"xml"
-argument_list|,
-name|QStringList
-argument_list|()
-operator|<<
-literal|"-xml"
-operator|<<
-literal|"-flush"
-argument_list|)
-operator|<<
-name|Logger
-argument_list|(
 literal|"xunitxml"
 argument_list|,
 literal|"xunitxml"
@@ -799,20 +785,6 @@ name|QStringList
 argument_list|()
 operator|<<
 literal|"-lightxml"
-argument_list|)
-operator|<<
-name|Logger
-argument_list|(
-literal|"lightxml flush"
-argument_list|,
-literal|"lightxml"
-argument_list|,
-name|QStringList
-argument_list|()
-operator|<<
-literal|"-lightxml"
-operator|<<
-literal|"-flush"
 argument_list|)
 return|;
 block|}

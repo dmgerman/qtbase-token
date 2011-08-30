@@ -1294,7 +1294,6 @@ literal|" -functions : Returns a list of current testfunctions\n"
 literal|" -xunitxml  : Outputs results as XML XUnit document\n"
 literal|" -xml       : Outputs results as XML document\n"
 literal|" -lightxml  : Outputs results as stream of XML tags\n"
-literal|" -flush     : Flushes the results\n"
 literal|" -o filename: Writes all output into a file\n"
 literal|" -silent    : Only outputs warnings and failures\n"
 literal|" -v1        : Print enter messages for each testfunction\n"
@@ -1552,32 +1551,6 @@ argument_list|(
 name|QTestLog
 operator|::
 name|LightXML
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|strcmp
-argument_list|(
-name|argv
-index|[
-name|i
-index|]
-argument_list|,
-literal|"-flush"
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
-name|QTestLog
-operator|::
-name|setFlushMode
-argument_list|(
-name|QTestLog
-operator|::
-name|FlushOn
 argument_list|)
 expr_stmt|;
 block|}
