@@ -647,7 +647,7 @@ name|qt_asprintf
 argument_list|(
 name|formatted
 argument_list|,
-literal|"<Incident type=\"%s\" %s/>\n"
+literal|"<Incident type=\"%s\" %s />\n"
 argument_list|,
 name|element
 operator|->
