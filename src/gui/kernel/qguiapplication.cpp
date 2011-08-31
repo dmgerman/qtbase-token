@@ -668,6 +668,11 @@ name|argv
 argument_list|,
 name|flags
 argument_list|)
+member_init_list|,
+name|styleHints
+argument_list|(
+literal|0
+argument_list|)
 block|{
 name|self
 operator|=
