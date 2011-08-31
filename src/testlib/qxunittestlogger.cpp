@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qtestlogger_p.h"
+file|"qxunittestlogger_p.h"
 end_include
 begin_include
 include|#
@@ -41,10 +41,10 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_constructor
-DECL|function|QTestLogger
-name|QTestLogger
+DECL|function|QXunitTestLogger
+name|QXunitTestLogger
 operator|::
-name|QTestLogger
+name|QXunitTestLogger
 parameter_list|()
 member_init_list|:
 name|listOfTestcases
@@ -84,11 +84,11 @@ argument_list|)
 block|{ }
 end_constructor
 begin_destructor
-DECL|function|~QTestLogger
-name|QTestLogger
+DECL|function|~QXunitTestLogger
+name|QXunitTestLogger
 operator|::
 name|~
-name|QTestLogger
+name|QXunitTestLogger
 parameter_list|()
 block|{
 operator|delete
@@ -102,7 +102,7 @@ end_destructor
 begin_function
 DECL|function|startLogging
 name|void
-name|QTestLogger
+name|QXunitTestLogger
 operator|::
 name|startLogging
 parameter_list|(
@@ -145,7 +145,7 @@ end_function
 begin_function
 DECL|function|stopLogging
 name|void
-name|QTestLogger
+name|QXunitTestLogger
 operator|::
 name|stopLogging
 parameter_list|()
@@ -433,7 +433,7 @@ end_function
 begin_function
 DECL|function|enterTestFunction
 name|void
-name|QTestLogger
+name|QXunitTestLogger
 operator|::
 name|enterTestFunction
 parameter_list|(
@@ -480,7 +480,7 @@ end_function
 begin_function
 DECL|function|leaveTestFunction
 name|void
-name|QTestLogger
+name|QXunitTestLogger
 operator|::
 name|leaveTestFunction
 parameter_list|()
@@ -489,7 +489,7 @@ end_function
 begin_function
 DECL|function|addIncident
 name|void
-name|QTestLogger
+name|QXunitTestLogger
 operator|::
 name|addIncident
 parameter_list|(
@@ -902,7 +902,7 @@ operator|::
 name|XFail
 condition|)
 block|{
-name|QTestLogger
+name|QXunitTestLogger
 operator|::
 name|addMessage
 argument_list|(
@@ -923,7 +923,7 @@ end_function
 begin_function
 DECL|function|addBenchmarkResult
 name|void
-name|QTestLogger
+name|QXunitTestLogger
 operator|::
 name|addBenchmarkResult
 parameter_list|(
@@ -1056,7 +1056,7 @@ end_function
 begin_function
 DECL|function|addTag
 name|void
-name|QTestLogger
+name|QXunitTestLogger
 operator|::
 name|addTag
 parameter_list|(
@@ -1187,7 +1187,7 @@ end_function
 begin_function
 DECL|function|addMessage
 name|void
-name|QTestLogger
+name|QXunitTestLogger
 operator|::
 name|addMessage
 parameter_list|(

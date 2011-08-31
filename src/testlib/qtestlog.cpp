@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtTest/private/qtestlogger_p.h"
+file|"QtTest/private/qxunittestlogger_p.h"
 end_include
 begin_include
 include|#
@@ -598,7 +598,7 @@ operator|::
 name|testLogger
 operator|=
 operator|new
-name|QTestLogger
+name|QXunitTestLogger
 argument_list|()
 expr_stmt|;
 break|break;

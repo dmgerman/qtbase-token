@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qtestlogger_p.h"
+file|"qxunittestlogger_p.h"
 end_include
 begin_include
 include|#
@@ -60,7 +60,7 @@ name|QTestBasicStreamer
 operator|::
 name|QTestBasicStreamer
 parameter_list|(
-name|QTestLogger
+name|QXunitTestLogger
 modifier|*
 name|logger
 parameter_list|)
@@ -540,7 +540,7 @@ block|}
 end_function
 begin_function
 DECL|function|logger
-name|QTestLogger
+name|QXunitTestLogger
 modifier|*
 name|QTestBasicStreamer
 operator|::

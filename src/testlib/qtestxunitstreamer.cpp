@@ -36,7 +36,7 @@ name|QTestXunitStreamer
 operator|::
 name|QTestXunitStreamer
 parameter_list|(
-name|QTestLogger
+name|QXunitTestLogger
 modifier|*
 name|logger
 parameter_list|)

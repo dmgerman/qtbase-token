@@ -32,9 +32,9 @@ DECL|variable|QTestElementAttribute
 name|class
 name|QTestElementAttribute
 decl_stmt|;
-DECL|variable|QTestLogger
+DECL|variable|QXunitTestLogger
 name|class
-name|QTestLogger
+name|QXunitTestLogger
 decl_stmt|;
 function|struct QTestCharBuffer;
 end_function
@@ -46,7 +46,7 @@ name|public
 label|:
 name|QTestBasicStreamer
 argument_list|(
-name|QTestLogger
+name|QXunitTestLogger
 operator|*
 name|logger
 argument_list|)
@@ -76,7 +76,7 @@ name|msg
 argument_list|)
 decl|const
 decl_stmt|;
-name|QTestLogger
+name|QXunitTestLogger
 operator|*
 name|logger
 argument_list|()
@@ -196,7 +196,7 @@ decl|const
 decl_stmt|;
 name|private
 label|:
-name|QTestLogger
+name|QXunitTestLogger
 modifier|*
 name|testLogger
 decl_stmt|;

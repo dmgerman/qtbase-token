@@ -26,7 +26,7 @@ argument_list|(
 name|Test
 argument_list|)
 name|class
-name|QTestLogger
+name|QXunitTestLogger
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -40,7 +40,7 @@ name|public
 operator|:
 name|QTestXunitStreamer
 argument_list|(
-name|QTestLogger
+name|QXunitTestLogger
 operator|*
 name|logger
 argument_list|)
