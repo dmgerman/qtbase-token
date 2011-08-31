@@ -115,13 +115,6 @@ begin_decl_stmt
 specifier|extern
 specifier|const
 name|QString
-name|PI_BuildKey
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-specifier|extern
-specifier|const
-name|QString
 name|PI_GitCommit
 decl_stmt|;
 end_decl_stmt

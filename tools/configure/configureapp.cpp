@@ -2794,42 +2794,6 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
-literal|"-buildkey"
-condition|)
-block|{
-operator|++
-name|i
-expr_stmt|;
-if|if
-condition|(
-name|i
-operator|==
-name|argCount
-condition|)
-break|break;
-name|dictionary
-index|[
-literal|"USER_BUILD_KEY"
-index|]
-operator|=
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
 literal|"-release"
 condition|)
 block|{
@@ -10795,11 +10759,11 @@ condition|)
 block|{
 name|desc
 argument_list|(
-literal|"Usage: configure [-buildkey<key>]\n"
+literal|"Usage: configure\n"
 comment|//      desc("Usage: configure [-prefix dir] [-bindir<dir>] [-libdir<dir>]\n"
 comment|//                  "[-docdir<dir>] [-headerdir<dir>] [-plugindir<dir>]\n"
 comment|//                  "[-importdir<dir>] [-datadir<dir>] [-translationdir<dir>]\n"
-comment|//                  "[-examplesdir<dir>] [-buildkey<key>]\n"
+comment|//                  "[-examplesdir<dir>]\n"
 literal|"[-release] [-debug] [-debug-and-release] [-shared] [-static]\n"
 literal|"[-no-fast] [-fast] [-no-exceptions] [-exceptions]\n"
 literal|"[-no-accessibility] [-accessibility] [-no-rtti] [-rtti]\n"
@@ -10843,23 +10807,6 @@ argument_list|(
 name|EVAL
 argument_list|)
 comment|/*         desc(" These are optional, but you may specify install directories.\n\n", 0, 1);          desc(                   "-prefix dir",          "This will install everything relative to dir\n(default $QT_INSTALL_PREFIX)\n");          desc(" You may use these to separate different parts of the install:\n\n", 0, 1);          desc(                   "-bindir<dir>",        "Executables will be installed to dir\n(default PREFIX/bin)");         desc(                   "-libdir<dir>",        "Libraries will be installed to dir\n(default PREFIX/lib)");         desc(                   "-docdir<dir>",        "Documentation will be installed to dir\n(default PREFIX/doc)");         desc(                   "-headerdir<dir>",     "Headers will be installed to dir\n(default PREFIX/include)");         desc(                   "-plugindir<dir>",     "Plugins will be installed to dir\n(default PREFIX/plugins)");         desc(                   "-importdir<dir>",     "Imports for QML will be installed to dir\n(default PREFIX/imports)");         desc(                   "-datadir<dir>",       "Data used by Qt programs will be installed to dir\n(default PREFIX)");         desc(                   "-translationdir<dir>","Translations of Qt programs will be installed to dir\n(default PREFIX/translations)\n");         desc(                   "-examplesdir<dir>",   "Examples will be installed to dir\n(default PREFIX/examples)"); */
-name|desc
-argument_list|(
-literal|" You may use these options to turn on strict plugin loading:\n\n"
-argument_list|,
-literal|0
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
-literal|"-buildkey<key>"
-argument_list|,
-literal|"Build the Qt library and plugins using the specified<key>.  "
-literal|"When the library loads plugins, it will only load those that have a matching<key>.\n"
-argument_list|)
-expr_stmt|;
 name|desc
 argument_list|(
 literal|"Configure options:\n\n"
@@ -16304,216 +16251,6 @@ operator|.
 name|sort
 argument_list|()
 expr_stmt|;
-comment|// Build up the QT_BUILD_KEY ifdef
-name|QString
-name|buildKey
-init|=
-literal|"QT_BUILD_KEY \""
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|dictionary
-index|[
-literal|"USER_BUILD_KEY"
-index|]
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|buildKey
-operator|+=
-name|dictionary
-index|[
-literal|"USER_BUILD_KEY"
-index|]
-operator|+
-literal|" "
-expr_stmt|;
-name|QString
-name|build32Key
-init|=
-name|buildKey
-operator|+
-literal|"Windows "
-operator|+
-name|compiler
-operator|+
-literal|" %1 "
-operator|+
-name|build_options
-operator|.
-name|join
-argument_list|(
-literal|" "
-argument_list|)
-operator|+
-literal|" "
-operator|+
-name|build_defines
-operator|.
-name|join
-argument_list|(
-literal|" "
-argument_list|)
-decl_stmt|;
-name|QString
-name|build64Key
-init|=
-name|buildKey
-operator|+
-literal|"Windows x64 "
-operator|+
-name|compiler
-operator|+
-literal|" %1 "
-operator|+
-name|build_options
-operator|.
-name|join
-argument_list|(
-literal|" "
-argument_list|)
-operator|+
-literal|" "
-operator|+
-name|build_defines
-operator|.
-name|join
-argument_list|(
-literal|" "
-argument_list|)
-decl_stmt|;
-name|QString
-name|buildSymbianKey
-init|=
-name|buildKey
-operator|+
-literal|"Symbian "
-operator|+
-name|build_options
-operator|.
-name|join
-argument_list|(
-literal|" "
-argument_list|)
-operator|+
-literal|" "
-operator|+
-name|build_defines
-operator|.
-name|join
-argument_list|(
-literal|" "
-argument_list|)
-decl_stmt|;
-name|build32Key
-operator|=
-name|build32Key
-operator|.
-name|simplified
-argument_list|()
-expr_stmt|;
-name|build64Key
-operator|=
-name|build64Key
-operator|.
-name|simplified
-argument_list|()
-expr_stmt|;
-name|buildSymbianKey
-operator|=
-name|buildSymbianKey
-operator|.
-name|simplified
-argument_list|()
-expr_stmt|;
-name|build32Key
-operator|.
-name|prepend
-argument_list|(
-literal|"#   define "
-argument_list|)
-expr_stmt|;
-name|build64Key
-operator|.
-name|prepend
-argument_list|(
-literal|"#   define "
-argument_list|)
-expr_stmt|;
-name|buildSymbianKey
-operator|.
-name|prepend
-argument_list|(
-literal|"# define "
-argument_list|)
-expr_stmt|;
-name|QString
-name|buildkey
-init|=
-literal|"#if defined(__SYMBIAN32__)\n"
-operator|+
-name|buildSymbianKey
-operator|+
-literal|"\"\n"
-literal|"#else\n"
-comment|// Debug builds
-literal|"# if !defined(QT_NO_DEBUG)\n"
-literal|"#  if (defined(WIN64) || defined(_WIN64) || defined(__WIN64__))\n"
-operator|+
-name|build64Key
-operator|.
-name|arg
-argument_list|(
-literal|"debug"
-argument_list|)
-operator|+
-literal|"\"\n"
-literal|"#  else\n"
-operator|+
-name|build32Key
-operator|.
-name|arg
-argument_list|(
-literal|"debug"
-argument_list|)
-operator|+
-literal|"\"\n"
-literal|"#  endif\n"
-literal|"# else\n"
-comment|// Release builds
-literal|"#  if (defined(WIN64) || defined(_WIN64) || defined(__WIN64__))\n"
-operator|+
-name|build64Key
-operator|.
-name|arg
-argument_list|(
-literal|"release"
-argument_list|)
-operator|+
-literal|"\"\n"
-literal|"#  else\n"
-operator|+
-name|build32Key
-operator|.
-name|arg
-argument_list|(
-literal|"release"
-argument_list|)
-operator|+
-literal|"\"\n"
-literal|"#  endif\n"
-literal|"# endif\n"
-literal|"#endif\n"
-decl_stmt|;
-name|dictionary
-index|[
-literal|"BUILD_KEY"
-index|]
-operator|=
-name|buildkey
-expr_stmt|;
 block|}
 end_function
 begin_function
@@ -16525,27 +16262,6 @@ name|generateOutputVars
 parameter_list|()
 block|{
 comment|// Generate variables for output
-comment|// Build key ----------------------------------------------------
-if|if
-condition|(
-name|dictionary
-operator|.
-name|contains
-argument_list|(
-literal|"BUILD_KEY"
-argument_list|)
-condition|)
-block|{
-name|qmakeVars
-operator|+=
-name|dictionary
-operator|.
-name|value
-argument_list|(
-literal|"BUILD_KEY"
-argument_list|)
-expr_stmt|;
-block|}
 name|QString
 name|build
 init|=
@@ -20249,17 +19965,6 @@ operator|<<
 literal|"#endif"
 operator|<<
 name|endl
-expr_stmt|;
-name|tmpStream
-operator|<<
-name|endl
-expr_stmt|;
-name|tmpStream
-operator|<<
-name|dictionary
-index|[
-literal|"BUILD_KEY"
-index|]
 expr_stmt|;
 name|tmpStream
 operator|<<
