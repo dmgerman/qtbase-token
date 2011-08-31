@@ -117,14 +117,6 @@ name|previous
 argument_list|)
 block|;
 specifier|static
-name|int
-name|keyboard_input_time
-block|;
-specifier|static
-name|int
-name|mouse_double_click_time
-block|;
-specifier|static
 name|Qt
 operator|::
 name|KeyboardModifiers
@@ -677,6 +669,12 @@ specifier|static
 name|QFont
 modifier|*
 name|app_font
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|QStyleHints
+modifier|*
+name|styleHints
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

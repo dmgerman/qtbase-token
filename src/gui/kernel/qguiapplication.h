@@ -67,6 +67,12 @@ name|class
 name|QScreen
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QStyleHints
+name|class
+name|QStyleHints
+decl_stmt|;
+end_decl_stmt
 begin_if
 if|#
 directive|if
@@ -129,14 +135,6 @@ name|Q_OBJECT
 name|Q_PROPERTY
 argument_list|(
 argument|Qt::LayoutDirection layoutDirection READ layoutDirection WRITE setLayoutDirection
-argument_list|)
-name|Q_PROPERTY
-argument_list|(
-argument|int doubleClickInterval  READ doubleClickInterval WRITE setDoubleClickInterval
-argument_list|)
-name|Q_PROPERTY
-argument_list|(
-argument|int keyboardInputInterval READ keyboardInputInterval WRITE setKeyboardInputInterval
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -282,30 +280,6 @@ argument_list|()
 block|;
 specifier|static
 name|void
-name|setDoubleClickInterval
-argument_list|(
-name|int
-argument_list|)
-block|;
-specifier|static
-name|int
-name|doubleClickInterval
-argument_list|()
-block|;
-specifier|static
-name|void
-name|setKeyboardInputInterval
-argument_list|(
-name|int
-argument_list|)
-block|;
-specifier|static
-name|int
-name|keyboardInputInterval
-argument_list|()
-block|;
-specifier|static
-name|void
 name|setLayoutDirection
 argument_list|(
 argument|Qt::LayoutDirection direction
@@ -359,6 +333,12 @@ operator|::
 name|LayoutDirection
 name|keyboardInputDirection
 argument_list|()
+block|;
+name|QStyleHints
+operator|*
+name|styleHints
+argument_list|()
+specifier|const
 block|;
 specifier|static
 name|QPlatformNativeInterface
