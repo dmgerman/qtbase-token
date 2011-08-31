@@ -1797,6 +1797,8 @@ name|QT_VERSION_STR
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// Q_ASSERT uses __FILE__.  Some compilers include the absolute path in
+comment|// __FILE__, while others do not.
 if|if
 condition|(
 name|line
@@ -1811,11 +1813,18 @@ operator|!=
 name|expected
 condition|)
 block|{
+specifier|const
+name|char
+name|msg
+index|[]
+init|=
+literal|"Q_ASSERT prints out the absolute path on this platform."
+decl_stmt|;
 name|QEXPECT_FAIL
 argument_list|(
 literal|"assert"
 argument_list|,
-literal|"QTestLib prints out the absolute path."
+name|msg
 argument_list|,
 name|Continue
 argument_list|)
@@ -1824,7 +1833,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"assert xml"
 argument_list|,
-literal|"QTestLib prints out the absolute path."
+name|msg
 argument_list|,
 name|Continue
 argument_list|)
@@ -1833,7 +1842,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"assert xml flush"
 argument_list|,
-literal|"QTestLib prints out the absolute path."
+name|msg
 argument_list|,
 name|Continue
 argument_list|)
@@ -1842,7 +1851,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"assert lightxml"
 argument_list|,
-literal|"QTestLib prints out the absolute path."
+name|msg
 argument_list|,
 name|Continue
 argument_list|)
@@ -1851,7 +1860,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"assert lightxml flush"
 argument_list|,
-literal|"QTestLib prints out the absolute path."
+name|msg
 argument_list|,
 name|Continue
 argument_list|)
@@ -1860,7 +1869,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"assert xunitxml"
 argument_list|,
-literal|"QTestLib prints out the absolute path."
+name|msg
 argument_list|,
 name|Continue
 argument_list|)
