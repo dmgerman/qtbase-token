@@ -95,12 +95,6 @@ parameter_list|()
 function_decl|;
 end_function_decl
 begin_decl_stmt
-DECL|variable|QSettings
-name|class
-name|QSettings
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QLibraryPrivate
 block|{
@@ -195,13 +189,7 @@ name|loadHints
 expr_stmt|;
 name|bool
 name|isPlugin
-parameter_list|(
-name|QSettings
-modifier|*
-name|settings
-init|=
-literal|0
-parameter_list|)
+parameter_list|()
 function_decl|;
 name|private
 label|:
