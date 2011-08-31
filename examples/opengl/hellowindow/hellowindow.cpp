@@ -49,6 +49,9 @@ name|m_context
 operator|=
 operator|new
 name|QOpenGLContext
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 name|m_context
 operator|->
