@@ -800,6 +800,20 @@ argument_list|()
 operator|<<
 literal|"-lightxml"
 argument_list|)
+operator|<<
+name|Logger
+argument_list|(
+literal|"lightxml flush"
+argument_list|,
+literal|"lightxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-lightxml"
+operator|<<
+literal|"-flush"
+argument_list|)
 return|;
 block|}
 end_function
@@ -1827,6 +1841,15 @@ expr_stmt|;
 name|QEXPECT_FAIL
 argument_list|(
 literal|"assert lightxml"
+argument_list|,
+literal|"QTestLib prints out the absolute path."
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert lightxml flush"
 argument_list|,
 literal|"QTestLib prints out the absolute path."
 argument_list|,
