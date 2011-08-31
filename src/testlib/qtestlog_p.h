@@ -251,15 +251,6 @@ parameter_list|()
 function_decl|;
 specifier|static
 name|void
-name|startLogging
-parameter_list|(
-name|unsigned
-name|int
-name|randomSeed
-parameter_list|)
-function_decl|;
-specifier|static
-name|void
 name|stopLogging
 parameter_list|()
 function_decl|;

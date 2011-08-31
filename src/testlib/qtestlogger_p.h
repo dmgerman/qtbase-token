@@ -166,23 +166,6 @@ argument|int line =
 literal|0
 argument_list|)
 block|;
-name|void
-name|registerRandomSeed
-argument_list|(
-argument|unsigned int seed
-argument_list|)
-block|;
-name|unsigned
-name|int
-name|randomSeed
-argument_list|()
-specifier|const
-block|;
-name|bool
-name|hasRandomSeed
-argument_list|()
-specifier|const
-block|;
 name|private
 operator|:
 name|QTestElement
@@ -212,13 +195,6 @@ name|failureCounter
 block|;
 name|int
 name|errorCounter
-block|;
-name|unsigned
-name|int
-name|randomSeed_
-block|;
-name|bool
-name|hasRandomSeed_
 block|; }
 decl_stmt|;
 end_decl_stmt

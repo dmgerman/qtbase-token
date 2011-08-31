@@ -3512,6 +3512,8 @@ literal|"b0:b7:13:3e:d0:96:f9:b5:6f:ae:91:c8:74:bd:3a:c0"
 block|,
 literal|"d8:f3:5f:4e:b7:87:2b:2d:ab:06:92:e3:15:38:2f:b0"
 block|,
+literal|"05:e2:e6:a4:cd:09:ea:54:d6:65:b0:75:fe:22:a2:56"
+block|,
 literal|0
 block|}
 decl_stmt|;

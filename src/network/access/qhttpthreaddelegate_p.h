@@ -464,9 +464,9 @@ block|;
 name|void
 name|dataReadProgressSlot
 argument_list|(
-argument|int done
+argument|qint64 done
 argument_list|,
-argument|int total
+argument|qint64 total
 argument_list|)
 block|;
 name|void

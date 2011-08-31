@@ -140,12 +140,6 @@ argument|int line =
 literal|0
 argument_list|)
 block|;
-name|void
-name|registerRandomSeed
-argument_list|(
-argument|unsigned int seed
-argument_list|)
-block|;
 specifier|static
 name|int
 name|xmlCdata
@@ -200,13 +194,6 @@ name|private
 operator|:
 name|XmlMode
 name|xmlmode
-block|;
-name|unsigned
-name|int
-name|randomSeed
-block|;
-name|bool
-name|hasRandomSeed
 block|; }
 decl_stmt|;
 end_decl_stmt

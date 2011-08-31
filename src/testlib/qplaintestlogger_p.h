@@ -128,21 +128,8 @@ argument|int line =
 literal|0
 argument_list|)
 block|;
-name|void
-name|registerRandomSeed
-argument_list|(
-argument|unsigned int seed
-argument_list|)
-block|;
 name|private
 operator|:
-name|unsigned
-name|int
-name|randomSeed
-block|;
-name|bool
-name|hasRandomSeed
-block|;
 name|void
 name|printMessage
 argument_list|(
