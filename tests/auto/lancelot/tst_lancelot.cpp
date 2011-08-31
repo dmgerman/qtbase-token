@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<paintcommands.h>
+file|"paintcommands.h"
 end_include
 begin_include
 include|#

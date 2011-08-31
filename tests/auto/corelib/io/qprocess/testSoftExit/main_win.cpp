@@ -61,9 +61,12 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|int
+argument_list|(
 name|msg
 operator|.
 name|wParam
+argument_list|)
 return|;
 block|}
 end_function

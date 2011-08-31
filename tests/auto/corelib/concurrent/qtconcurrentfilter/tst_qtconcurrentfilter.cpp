@@ -9177,12 +9177,32 @@ operator|::
 name|stlContainers
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|QT_NO_STL
+argument_list|)
 name|QSKIP
 argument_list|(
 literal|"Qt compiled without STL support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|_MSC_VER
+argument_list|)
+operator|&&
+name|_MSC_VER
+operator|>=
+literal|1600
+name|QSKIP
+argument_list|(
+literal|"Test does not compile with MSVC 2010 (see QTBUG-18996)"
 argument_list|,
 name|SkipAll
 argument_list|)

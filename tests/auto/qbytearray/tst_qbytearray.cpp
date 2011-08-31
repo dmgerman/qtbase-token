@@ -1002,6 +1002,17 @@ argument_list|,
 name|SkipAll
 argument_list|)
 expr_stmt|;
+elif|#
+directive|elif
+name|defined
+name|Q_OS_WIN
+name|QSKIP
+argument_list|(
+literal|"Corrupt data causes this test to lock up on Windows"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 name|QByteArray

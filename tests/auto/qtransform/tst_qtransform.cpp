@@ -218,11 +218,20 @@ block|{
 comment|// No cleanup is required.
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN32
-end_ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|M_PI
+argument_list|)
+end_if
 begin_define
 DECL|macro|M_PI
 define|#
@@ -5090,9 +5099,9 @@ operator|<<
 name|big
 expr_stmt|;
 name|QTransform
-name|small
+name|smallTransform
 decl_stmt|;
-name|small
+name|smallTransform
 operator|.
 name|scale
 argument_list|(
@@ -5112,7 +5121,7 @@ argument_list|(
 literal|"small"
 argument_list|)
 operator|<<
-name|small
+name|smallTransform
 expr_stmt|;
 block|}
 end_function

@@ -22587,7 +22587,12 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_class
+begin_namespace
+DECL|namespace|QObjectTest
+namespace|namespace
+name|QObjectTest
+block|{
+comment|// Do not clash with WinAPI 'DeleteObject'
 DECL|class|DeleteObject
 class|class
 name|DeleteObject
@@ -22630,7 +22635,11 @@ parameter_list|()
 function_decl|;
 block|}
 class|;
-end_class
+block|}
+end_namespace
+begin_comment
+comment|// namespace QObjectTest
+end_comment
 begin_function
 DECL|function|deleteSelfInSlot
 name|void
@@ -22643,11 +22652,15 @@ block|{
 name|SenderObject
 name|sender
 decl_stmt|;
+name|QObjectTest
+operator|::
 name|DeleteObject
 modifier|*
 name|receiver
 init|=
 operator|new
+name|QObjectTest
+operator|::
 name|DeleteObject
 argument_list|()
 decl_stmt|;
@@ -22716,6 +22729,8 @@ argument_list|()
 expr_stmt|;
 name|QPointer
 argument_list|<
+name|QObjectTest
+operator|::
 name|DeleteObject
 argument_list|>
 name|p
@@ -22750,11 +22765,15 @@ block|{
 name|SenderObject
 name|sender
 decl_stmt|;
+name|QObjectTest
+operator|::
 name|DeleteObject
 modifier|*
 name|receiver
 init|=
 operator|new
+name|QObjectTest
+operator|::
 name|DeleteObject
 argument_list|()
 decl_stmt|;
@@ -22846,6 +22865,8 @@ argument_list|()
 expr_stmt|;
 name|QPointer
 argument_list|<
+name|QObjectTest
+operator|::
 name|DeleteObject
 argument_list|>
 name|p
@@ -22880,11 +22901,15 @@ block|{
 name|EmitThread
 name|sender
 decl_stmt|;
+name|QObjectTest
+operator|::
 name|DeleteObject
 modifier|*
 name|receiver
 init|=
 operator|new
+name|QObjectTest
+operator|::
 name|DeleteObject
 argument_list|()
 decl_stmt|;
@@ -22914,6 +22939,8 @@ argument_list|)
 expr_stmt|;
 name|QPointer
 argument_list|<
+name|QObjectTest
+operator|::
 name|DeleteObject
 argument_list|>
 name|p

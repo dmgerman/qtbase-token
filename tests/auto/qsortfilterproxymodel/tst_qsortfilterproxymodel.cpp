@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtWidgets/QSortFilterProxyModel>
+end_include
+begin_include
+include|#
+directive|include
 file|<qdebug.h>
 end_include
 begin_comment

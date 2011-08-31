@@ -8345,7 +8345,7 @@ name|error
 argument_list|(
 name|QString
 operator|::
-name|fromUtf16
+name|fromWCharArray
 argument_list|(
 name|errstr
 argument_list|,

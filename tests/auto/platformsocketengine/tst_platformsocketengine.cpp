@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtTest/QtTest>
+file|<QtTest/QTest>
 end_include
 begin_ifdef
 ifdef|#

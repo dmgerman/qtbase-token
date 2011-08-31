@@ -646,6 +646,7 @@ argument_list|(
 literal|"expectedWidth"
 argument_list|)
 expr_stmt|;
+specifier|const
 name|int
 name|iconDefault
 init|=
@@ -661,8 +662,9 @@ operator|::
 name|PM_TabBarIconSize
 argument_list|)
 decl_stmt|;
+specifier|const
 name|int
-name|small
+name|smallIconSize
 init|=
 name|qApp
 operator|->
@@ -676,8 +678,9 @@ operator|::
 name|PM_SmallIconSize
 argument_list|)
 decl_stmt|;
+specifier|const
 name|int
-name|large
+name|largeIconSize
 init|=
 name|qApp
 operator|->
@@ -732,9 +735,9 @@ argument_list|(
 literal|"large"
 argument_list|)
 operator|<<
-name|large
+name|largeIconSize
 operator|<<
-name|large
+name|largeIconSize
 expr_stmt|;
 name|QTest
 operator|::
@@ -743,9 +746,9 @@ argument_list|(
 literal|"small"
 argument_list|)
 operator|<<
-name|small
+name|smallIconSize
 operator|<<
-name|small
+name|smallIconSize
 expr_stmt|;
 block|}
 end_function
