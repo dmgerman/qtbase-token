@@ -70,7 +70,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../platformquirks.h"
+file|"../../../platformquirks.h"
 end_include
 begin_if
 if|#
