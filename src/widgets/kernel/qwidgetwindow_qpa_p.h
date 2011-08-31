@@ -110,6 +110,13 @@ operator|*
 argument_list|)
 block|;
 name|void
+name|handleTouchEvent
+argument_list|(
+name|QTouchEvent
+operator|*
+argument_list|)
+block|;
+name|void
 name|handleMoveEvent
 argument_list|(
 name|QMoveEvent
