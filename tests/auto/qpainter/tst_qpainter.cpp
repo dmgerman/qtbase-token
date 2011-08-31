@@ -2707,6 +2707,12 @@ directive|if
 operator|!
 name|defined
 argument_list|(
+name|QT_NO_PRINTER
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
 name|Q_OS_WINCE
 argument_list|)
 operator|&&
