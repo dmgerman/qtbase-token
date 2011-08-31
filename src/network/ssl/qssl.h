@@ -52,6 +52,8 @@ begin_enum
 enum|enum
 name|KeyAlgorithm
 block|{
+name|Opaque
+block|,
 name|Rsa
 block|,
 name|Dsa
