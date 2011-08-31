@@ -50,9 +50,9 @@ file|<QtTest/private/qabstracttestlogger_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QTestBasicStreamer
+DECL|variable|QTestXunitStreamer
 name|class
-name|QTestBasicStreamer
+name|QTestXunitStreamer
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -162,7 +162,7 @@ name|QTestElement
 operator|*
 name|errorLogElement
 block|;
-name|QTestBasicStreamer
+name|QTestXunitStreamer
 operator|*
 name|logFormatter
 block|;

@@ -5162,16 +5162,6 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
-argument|QTestBasicStreamer
-argument_list|,
-argument|QtTest
-argument_list|,
-argument|qtestbasicstreamer.h
-argument_list|)
-end_macro
-begin_macro
-name|QT_CLASS_LIB
-argument_list|(
 argument|QTestCoreElement
 argument_list|,
 argument|QtTest
