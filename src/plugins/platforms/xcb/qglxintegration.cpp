@@ -15,11 +15,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QGLFormat>
-end_include
-begin_include
-include|#
-directive|include
 file|"qxcbwindow.h"
 end_include
 begin_include
