@@ -1289,22 +1289,24 @@ name|char
 modifier|*
 name|testOptions
 init|=
-literal|" options:\n"
-literal|" -functions : Returns a list of current testfunctions\n"
-literal|" -xunitxml  : Outputs results as XML XUnit document\n"
-literal|" -xml       : Outputs results as XML document\n"
-literal|" -lightxml  : Outputs results as stream of XML tags\n"
-literal|" -o filename: Writes all output into a file\n"
-literal|" -silent    : Only outputs warnings and failures\n"
-literal|" -v1        : Print enter messages for each testfunction\n"
-literal|" -v2        : Also print out each QVERIFY/QCOMPARE/QTEST\n"
-literal|" -vs        : Print every signal emitted\n"
-literal|" -eventdelay ms    : Set default delay for mouse and keyboard simulation to ms milliseconds\n"
-literal|" -keydelay ms      : Set default delay for keyboard simulation to ms milliseconds\n"
-literal|" -mousedelay ms    : Set default delay for mouse simulation to ms milliseconds\n"
-literal|" -keyevent-verbose : Turn on verbose messages for keyboard simulation\n"
-literal|" -maxwarnings n    : Sets the maximum amount of messages to output.\n"
-literal|"                     0 means unlimited, default: 2000\n"
+literal|" Output options:\n"
+literal|" -xunitxml           : Outputs results as XML XUnit document\n"
+literal|" -xml                : Outputs results as XML document\n"
+literal|" -lightxml           : Outputs results as stream of XML tags\n"
+literal|" -o filename         : Writes all output into a file\n"
+literal|" -silent             : Only outputs warnings and failures\n"
+literal|" -v1                 : Print enter messages for each testfunction\n"
+literal|" -v2                 : Also print out each QVERIFY/QCOMPARE/QTEST\n"
+literal|" -vs                 : Print every signal emitted\n"
+literal|"\n"
+literal|" Testing options:\n"
+literal|" -functions          : Returns a list of current testfunctions\n"
+literal|" -eventdelay ms      : Set default delay for mouse and keyboard simulation to ms milliseconds\n"
+literal|" -keydelay ms        : Set default delay for keyboard simulation to ms milliseconds\n"
+literal|" -mousedelay ms      : Set default delay for mouse simulation to ms milliseconds\n"
+literal|" -keyevent-verbose   : Turn on verbose messages for keyboard simulation\n"
+literal|" -maxwarnings n      : Sets the maximum amount of messages to output.\n"
+literal|"                       0 means unlimited, default: 2000\n"
 if|#
 directive|if
 name|defined
@@ -1317,28 +1319,28 @@ name|defined
 argument_list|(
 name|Q_OS_SYMBIAN
 argument_list|)
-literal|" -nocrashhandler   : Disables the crash handler\n"
+literal|" -nocrashhandler     : Disables the crash handler\n"
 endif|#
 directive|endif
 literal|"\n"
-literal|" Benchmark related options:\n"
+literal|" Benchmarking options:\n"
 ifdef|#
 directive|ifdef
 name|QTESTLIB_USE_VALGRIND
-literal|" -callgrind      : Use callgrind to time benchmarks\n"
+literal|" -callgrind          : Use callgrind to time benchmarks\n"
 endif|#
 directive|endif
 ifdef|#
 directive|ifdef
 name|HAVE_TICK_COUNTER
-literal|" -tickcounter    : Use CPU tick counters to time benchmarks\n"
+literal|" -tickcounter        : Use CPU tick counters to time benchmarks\n"
 endif|#
 directive|endif
-literal|" -eventcounter   : Counts events received during benchmarks\n"
-literal|" -minimumvalue n : Sets the minimum acceptable measurement value\n"
-literal|" -iterations  n  : Sets the number of accumulation iterations.\n"
-literal|" -median  n      : Sets the number of median iterations.\n"
-literal|" -vb             : Print out verbose benchmarking information.\n"
+literal|" -eventcounter       : Counts events received during benchmarks\n"
+literal|" -minimumvalue n     : Sets the minimum acceptable measurement value\n"
+literal|" -iterations  n      : Sets the number of accumulation iterations.\n"
+literal|" -median  n          : Sets the number of median iterations.\n"
+literal|" -vb                 : Print out verbose benchmarking information.\n"
 decl_stmt|;
 for|for
 control|(
@@ -1415,17 +1417,18 @@ condition|)
 block|{
 name|printf
 argument_list|(
-literal|"\nqmltest related options:\n"
-literal|" -import    : Specify an import directory.\n"
-literal|" -input     : Specify the root directory for test cases.\n"
-literal|" -qtquick1  : Run with QtQuick 1 rather than QtQuick 2.\n"
+literal|"\n"
+literal|" QmlTest options:\n"
+literal|" -import             : Specify an import directory.\n"
+literal|" -input              : Specify the root directory for test cases.\n"
+literal|" -qtquick1           : Run with QtQuick 1 rather than QtQuick 2.\n"
 argument_list|)
 expr_stmt|;
 block|}
 name|printf
 argument_list|(
 literal|"\n"
-literal|" -help      : This help\n"
+literal|" -help               : This help\n"
 argument_list|)
 expr_stmt|;
 name|exit
