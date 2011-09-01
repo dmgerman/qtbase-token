@@ -3134,7 +3134,7 @@ function_decl|;
 end_function_decl
 begin_decl_stmt
 name|void
-name|free
+name|dealloc
 argument_list|(
 name|QListData
 operator|::
@@ -3846,7 +3846,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|free
+name|dealloc
 argument_list|(
 name|d
 argument_list|)
@@ -5721,7 +5721,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|free
+name|dealloc
 argument_list|(
 name|x
 argument_list|)
@@ -5848,7 +5848,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|free
+name|dealloc
 argument_list|(
 name|x
 argument_list|)
@@ -5903,7 +5903,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|free
+name|dealloc
 argument_list|(
 name|d
 argument_list|)
@@ -6062,12 +6062,8 @@ return|return
 name|true
 return|;
 end_return
-begin_comment
-unit|}
-comment|// ### Qt 5: rename freeData() to avoid confusion with std::free()
-end_comment
 begin_expr_stmt
-unit|template
+unit|}  template
 operator|<
 name|typename
 name|T
@@ -6079,7 +6075,7 @@ operator|<
 name|T
 operator|>
 operator|::
-name|free
+name|dealloc
 argument_list|(
 argument|QListData::Data *data
 argument_list|)
