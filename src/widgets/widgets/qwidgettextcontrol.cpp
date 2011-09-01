@@ -9735,6 +9735,16 @@ argument_list|(
 name|globalPos
 argument_list|)
 argument_list|,
+name|contextWidget
+operator|->
+name|topLevelWidget
+argument_list|()
+operator|->
+name|mapFromGlobal
+argument_list|(
+name|globalPos
+argument_list|)
+argument_list|,
 name|globalPos
 argument_list|,
 name|button

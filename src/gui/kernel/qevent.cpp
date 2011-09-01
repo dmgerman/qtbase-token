@@ -123,7 +123,7 @@ begin_comment
 comment|/*!     \class QMouseEvent     \ingroup events      \brief The QMouseEvent class contains parameters that describe a mouse event.      Mouse events occur when a mouse button is pressed or released     inside a widget, or when the mouse cursor is moved.      Mouse move events will occur only when a mouse button is pressed     down, unless mouse tracking has been enabled with     QWidget::setMouseTracking().      Qt automatically grabs the mouse when a mouse button is pressed     inside a widget; the widget will continue to receive mouse events     until the last mouse button is released.      A mouse event contains a special accept flag that indicates     whether the receiver wants the event. You should call ignore() if     the mouse event is not handled by your widget. A mouse event is     propagated up the parent widget chain until a widget accepts it     with accept(), or an event filter consumes it.      \note If a mouse event is propagated to a \l{QWidget}{widget} for     which Qt::WA_NoMousePropagation has been set, that mouse event     will not be propagated further up the parent widget chain.      The state of the keyboard modifier keys can be found by calling the     \l{QInputEvent::modifiers()}{modifiers()} function, inherited from     QInputEvent.      The functions pos(), x(), and y() give the cursor position     relative to the widget that receives the mouse event. If you     move the widget as a result of the mouse event, use the global     position returned by globalPos() to avoid a shaking motion.      The QWidget::setEnabled() function can be used to enable or     disable mouse and keyboard events for a widget.      Reimplement the QWidget event handlers, QWidget::mousePressEvent(),     QWidget::mouseReleaseEvent(), QWidget::mouseDoubleClickEvent(),     and QWidget::mouseMoveEvent() to receive mouse events in your own     widgets.      \sa QWidget::setMouseTracking() QWidget::grabMouse()     QCursor::pos() */
 end_comment
 begin_comment
-comment|/*!     Constructs a mouse event object.      The \a type parameter must be one of QEvent::MouseButtonPress,     QEvent::MouseButtonRelease, QEvent::MouseButtonDblClick,     or QEvent::MouseMove.      The \a position is the mouse cursor's position relative to the     receiving widget.     The \a button that caused the event is given as a value from     the Qt::MouseButton enum. If the event \a type is     \l MouseMove, the appropriate button for this event is Qt::NoButton.     The mouse and keyboard states at the time of the event are specified by     \a buttons and \a modifiers.      The globalPos() is initialized to QCursor::pos(), which may not     be appropriate. Use the other constructor to specify the global     position explicitly. */
+comment|/*!     Constructs a mouse event object.      The \a type parameter must be one of QEvent::MouseButtonPress,     QEvent::MouseButtonRelease, QEvent::MouseButtonDblClick,     or QEvent::MouseMove.      The \a localPos is the mouse cursor's position relative to the     receiving widget or item. The window position is set to the same value     as \a localPos.     The \a button that caused the event is given as a value from     the Qt::MouseButton enum. If the event \a type is     \l MouseMove, the appropriate button for this event is Qt::NoButton.     The mouse and keyboard states at the time of the event are specified by     \a buttons and \a modifiers.      The screenPos() is initialized to QCursor::pos(), which may not     be appropriate. Use the other constructor to specify the global     position explicitly. */
 end_comment
 begin_constructor
 DECL|function|QMouseEvent
@@ -137,7 +137,7 @@ parameter_list|,
 specifier|const
 name|QPointF
 modifier|&
-name|position
+name|localPos
 parameter_list|,
 name|Qt
 operator|::
@@ -162,9 +162,14 @@ argument_list|,
 name|modifiers
 argument_list|)
 member_init_list|,
-name|p
+name|l
 argument_list|(
-name|position
+name|localPos
+argument_list|)
+member_init_list|,
+name|w
+argument_list|(
+name|localPos
 argument_list|)
 member_init_list|,
 name|b
@@ -177,7 +182,7 @@ argument_list|(
 name|buttons
 argument_list|)
 block|{
-name|g
+name|s
 operator|=
 name|QCursor
 operator|::
@@ -187,17 +192,76 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     \internal */
+comment|/*!     Constructs a mouse event object.      The \a type parameter must be QEvent::MouseButtonPress,     QEvent::MouseButtonRelease, QEvent::MouseButtonDblClick,     or QEvent::MouseMove.      The \a localPos is the mouse cursor's position relative to the     receiving widget or item. The cursor's position in screen coordinates is     specified by \a screenPos. The window position is set to the same value     as \a localPos. The \a button that caused the event is     given as a value from the \l Qt::MouseButton enum. If the event \a     type is \l MouseMove, the appropriate button for this event is     Qt::NoButton. \a buttons is the state of all buttons at the     time of the event, \a modifiers the state of all keyboard     modifiers.  */
 end_comment
-begin_destructor
-DECL|function|~QMouseEvent
+begin_constructor
+DECL|function|QMouseEvent
 name|QMouseEvent
 operator|::
-name|~
 name|QMouseEvent
-parameter_list|()
-block|{ }
-end_destructor
+parameter_list|(
+name|Type
+name|type
+parameter_list|,
+specifier|const
+name|QPointF
+modifier|&
+name|localPos
+parameter_list|,
+specifier|const
+name|QPointF
+modifier|&
+name|screenPos
+parameter_list|,
+name|Qt
+operator|::
+name|MouseButton
+name|button
+parameter_list|,
+name|Qt
+operator|::
+name|MouseButtons
+name|buttons
+parameter_list|,
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|modifiers
+parameter_list|)
+member_init_list|:
+name|QInputEvent
+argument_list|(
+name|type
+argument_list|,
+name|modifiers
+argument_list|)
+member_init_list|,
+name|l
+argument_list|(
+name|localPos
+argument_list|)
+member_init_list|,
+name|w
+argument_list|(
+name|localPos
+argument_list|)
+member_init_list|,
+name|s
+argument_list|(
+name|screenPos
+argument_list|)
+member_init_list|,
+name|b
+argument_list|(
+name|button
+argument_list|)
+member_init_list|,
+name|mouseState
+argument_list|(
+name|buttons
+argument_list|)
+block|{}
+end_constructor
 begin_comment
 comment|/*!     Constructs a mouse event object.      The \a type parameter must be QEvent::MouseButtonPress,     QEvent::MouseButtonRelease, QEvent::MouseButtonDblClick,     or QEvent::MouseMove.      The \a pos is the mouse cursor's position relative to the     receiving widget. The cursor's position in global coordinates is     specified by \a globalPos.  The \a button that caused the event is     given as a value from the \l Qt::MouseButton enum. If the event \a     type is \l MouseMove, the appropriate button for this event is     Qt::NoButton. \a buttons is the state of all buttons at the     time of the event, \a modifiers the state of all keyboard     modifiers.  */
 end_comment
@@ -213,12 +277,17 @@ parameter_list|,
 specifier|const
 name|QPointF
 modifier|&
-name|pos
+name|localPos
 parameter_list|,
 specifier|const
 name|QPointF
 modifier|&
-name|globalPos
+name|windowPos
+parameter_list|,
+specifier|const
+name|QPointF
+modifier|&
+name|screenPos
 parameter_list|,
 name|Qt
 operator|::
@@ -243,14 +312,19 @@ argument_list|,
 name|modifiers
 argument_list|)
 member_init_list|,
-name|p
+name|l
 argument_list|(
-name|pos
+name|localPos
 argument_list|)
 member_init_list|,
-name|g
+name|w
 argument_list|(
-name|globalPos
+name|windowPos
+argument_list|)
+member_init_list|,
+name|s
+argument_list|(
+name|screenPos
 argument_list|)
 member_init_list|,
 name|b
@@ -265,10 +339,25 @@ argument_list|)
 block|{}
 end_constructor
 begin_comment
-comment|/*!     \fn bool QMouseEvent::hasExtendedInfo() const     \internal */
+comment|/*!     \internal */
+end_comment
+begin_destructor
+DECL|function|~QMouseEvent
+name|QMouseEvent
+operator|::
+name|~
+name|QMouseEvent
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
+comment|/*!     \fn QPointF QMouseEvent::localPos() const      \since 5.0      Returns the position of the mouse cursor as a QPointF, relative to the     widget or item that received the event.      If you move the widget as a result of the mouse event, use the     screen position returned by screenPos() to avoid a shaking     motion.      \sa x() y() windowPos() screenPos() */
 end_comment
 begin_comment
-comment|/*!     \fn QPointF QMouseEvent::posF() const      \since 4.4      Returns the position of the mouse cursor as a QPointF, relative to the     widget that received the event.      If you move the widget as a result of the mouse event, use the     global position returned by globalPos() to avoid a shaking     motion.      \sa x() y() pos() globalPos() */
+comment|/*!     \fn QPointF QMouseEvent::windowPos() const      \since 5.0      Returns the position of the mouse cursor as a QPointF, relative to the     window that received the event.      If you move the widget as a result of the mouse event, use the     global position returned by globalPos() to avoid a shaking     motion.      \sa x() y() pos() localPos() screenPos() */
+end_comment
+begin_comment
+comment|/*!     \fn QPointF QMouseEvent::screenPos() const      \since 5.0      Returns the position of the mouse cursor as a QPointF, relative to the     screen that received the event.      \sa x() y() pos() localPos() screenPos() */
 end_comment
 begin_comment
 comment|/*!     \fn const QPoint&QMouseEvent::pos() const      Returns the position of the mouse cursor, relative to the widget     that received the event.      If you move the widget as a result of the mouse event, use the     global position returned by globalPos() to avoid a shaking     motion.      \sa x() y() globalPos() */

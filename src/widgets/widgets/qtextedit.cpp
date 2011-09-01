@@ -3310,6 +3310,14 @@ name|MouseMove
 argument_list|,
 name|pos
 argument_list|,
+name|mapTo
+argument_list|(
+name|topLevelWidget
+argument_list|()
+argument_list|,
+name|pos
+argument_list|)
+argument_list|,
 name|globalPos
 argument_list|,
 name|Qt

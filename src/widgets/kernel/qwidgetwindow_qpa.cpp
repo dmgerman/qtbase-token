@@ -736,7 +736,12 @@ name|widgetPos
 argument_list|,
 name|event
 operator|->
-name|globalPos
+name|windowPos
+argument_list|()
+argument_list|,
+name|event
+operator|->
+name|screenPos
 argument_list|()
 argument_list|,
 name|event
@@ -1105,7 +1110,12 @@ name|mapped
 argument_list|,
 name|event
 operator|->
-name|globalPos
+name|windowPos
+argument_list|()
+argument_list|,
+name|event
+operator|->
+name|screenPos
 argument_list|()
 argument_list|,
 name|event
