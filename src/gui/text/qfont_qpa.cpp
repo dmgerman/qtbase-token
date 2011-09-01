@@ -20,19 +20,7 @@ name|QFont
 operator|::
 name|initialize
 parameter_list|()
-block|{
-name|QApplicationPrivate
-operator|::
-name|platformIntegration
-argument_list|()
-operator|->
-name|fontDatabase
-argument_list|()
-operator|->
-name|populateFontDatabase
-argument_list|()
-expr_stmt|;
-block|}
+block|{ }
 end_function
 begin_function
 DECL|function|cleanup
