@@ -125,7 +125,7 @@ begin_comment
 comment|// GENERATED PART STARTS HERE
 end_comment
 begin_comment
-comment|/*     This part of the file was generated on 2011-03-28 from the     Common Locale Data Repository v1.8.1      http://www.unicode.org/cldr/      Do not change it, instead edit CLDR data and regenerate this file using     cldr2qlocalexml.py and qlocalexml2cpp.py. */
+comment|/*     This part of the file was generated on 2011-09-01 from the     Common Locale Data Repository v1.8.1      http://www.unicode.org/cldr/      Do not change it, instead edit CLDR data and regenerate this file using     cldr2qlocalexml.py and qlocalexml2cpp.py. */
 end_comment
 begin_decl_stmt
 DECL|variable|locale_index
@@ -456,7 +456,7 @@ block|,
 comment|// Sindhi
 literal|219
 block|,
-comment|// Singhalese
+comment|// Sinhalese
 literal|220
 block|,
 comment|// Siswati
@@ -567,7 +567,7 @@ block|,
 comment|// Bosnian
 literal|287
 block|,
-comment|// Divehi
+comment|// Dhivehi
 literal|288
 block|,
 comment|// Manx
@@ -36655,7 +36655,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Singhalese/AnyScript/SriLanka
+comment|// Sinhalese/AnyScript/SriLanka
 block|{
 literal|107
 block|,
@@ -47739,7 +47739,7 @@ block|,
 literal|7
 block|}
 block|,
-comment|// Divehi/AnyScript/Maldives
+comment|// Dhivehi/AnyScript/Maldives
 block|{
 literal|144
 block|,
@@ -235219,7 +235219,7 @@ literal|"Sesotho\0"
 literal|"Setswana\0"
 literal|"Shona\0"
 literal|"Sindhi\0"
-literal|"Singhalese\0"
+literal|"Sinhalese\0"
 literal|"Siswati\0"
 literal|"Slovak\0"
 literal|"Slovenian\0"
@@ -235256,7 +235256,7 @@ literal|"Zhuang\0"
 literal|"Zulu\0"
 literal|"Nynorsk\0"
 literal|"Bosnian\0"
-literal|"Divehi\0"
+literal|"Dhivehi\0"
 literal|"Manx\0"
 literal|"Cornish\0"
 literal|"Akan\0"
@@ -235659,118 +235659,118 @@ block|,
 comment|// Sindhi
 literal|881
 block|,
-comment|// Singhalese
-literal|892
+comment|// Sinhalese
+literal|891
 block|,
 comment|// Siswati
-literal|900
+literal|899
 block|,
 comment|// Slovak
-literal|907
+literal|906
 block|,
 comment|// Slovenian
-literal|917
+literal|916
 block|,
 comment|// Somali
-literal|924
+literal|923
 block|,
 comment|// Spanish
-literal|932
+literal|931
 block|,
 comment|// Sundanese
-literal|942
+literal|941
 block|,
 comment|// Swahili
-literal|950
+literal|949
 block|,
 comment|// Swedish
-literal|958
+literal|957
 block|,
 comment|// Tagalog
-literal|966
+literal|965
 block|,
 comment|// Tajik
-literal|972
+literal|971
 block|,
 comment|// Tamil
-literal|978
+literal|977
 block|,
 comment|// Tatar
-literal|984
+literal|983
 block|,
 comment|// Telugu
-literal|991
+literal|990
 block|,
 comment|// Thai
-literal|996
+literal|995
 block|,
 comment|// Tibetan
-literal|1004
+literal|1003
 block|,
 comment|// Tigrinya
-literal|1013
+literal|1012
 block|,
 comment|// Tonga
-literal|1019
+literal|1018
 block|,
 comment|// Tsonga
-literal|1026
+literal|1025
 block|,
 comment|// Turkish
-literal|1034
+literal|1033
 block|,
 comment|// Turkmen
-literal|1042
+literal|1041
 block|,
 comment|// Twi
-literal|1046
+literal|1045
 block|,
 comment|// Uigur
-literal|1052
+literal|1051
 block|,
 comment|// Ukrainian
-literal|1062
+literal|1061
 block|,
 comment|// Urdu
-literal|1067
+literal|1066
 block|,
 comment|// Uzbek
-literal|1073
+literal|1072
 block|,
 comment|// Vietnamese
-literal|1084
+literal|1083
 block|,
 comment|// Volapuk
-literal|1092
+literal|1091
 block|,
 comment|// Welsh
-literal|1098
+literal|1097
 block|,
 comment|// Wolof
-literal|1104
+literal|1103
 block|,
 comment|// Xhosa
-literal|1110
+literal|1109
 block|,
 comment|// Yiddish
-literal|1118
+literal|1117
 block|,
 comment|// Yoruba
-literal|1125
+literal|1124
 block|,
 comment|// Zhuang
-literal|1132
+literal|1131
 block|,
 comment|// Zulu
-literal|1137
+literal|1136
 block|,
 comment|// Nynorsk
-literal|1145
+literal|1144
 block|,
 comment|// Bosnian
-literal|1153
+literal|1152
 block|,
-comment|// Divehi
+comment|// Dhivehi
 literal|1160
 block|,
 comment|// Manx
@@ -237281,7 +237281,7 @@ comment|// Shona
 literal|"sd\0"
 comment|// Sindhi
 literal|"si\0"
-comment|// Singhalese
+comment|// Sinhalese
 literal|"ss\0"
 comment|// Siswati
 literal|"sk\0"
@@ -237355,7 +237355,7 @@ comment|// Nynorsk
 literal|"bs\0"
 comment|// Bosnian
 literal|"dv\0"
-comment|// Divehi
+comment|// Dhivehi
 literal|"gv\0"
 comment|// Manx
 literal|"kw\0"
