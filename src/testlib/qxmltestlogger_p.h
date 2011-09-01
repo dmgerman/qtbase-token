@@ -70,7 +70,7 @@ block|}
 block|;
 name|QXmlTestLogger
 argument_list|(
-argument|XmlMode mode = Complete
+argument|XmlMode mode
 argument_list|)
 block|;
 operator|~
