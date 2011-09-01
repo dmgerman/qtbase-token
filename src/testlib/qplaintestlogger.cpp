@@ -801,10 +801,9 @@ condition|)
 do|;
 if|if
 condition|(
-name|QTestLog
-operator|::
-name|outputFileName
-argument_list|()
+name|stream
+operator|!=
+name|stdout
 condition|)
 elif|#
 directive|elif

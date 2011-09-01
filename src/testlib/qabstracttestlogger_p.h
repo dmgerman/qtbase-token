@@ -218,7 +218,7 @@ modifier|*
 name|msg
 parameter_list|)
 function_decl|;
-name|private
+name|protected
 label|:
 name|FILE
 modifier|*
