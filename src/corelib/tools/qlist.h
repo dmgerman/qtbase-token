@@ -185,24 +185,6 @@ name|int
 name|n
 parameter_list|)
 function_decl|;
-name|Data
-modifier|*
-name|detach
-parameter_list|()
-function_decl|;
-comment|// remove in 5.0
-name|Data
-modifier|*
-name|detach2
-parameter_list|()
-function_decl|;
-comment|// remove in 5.0
-name|Data
-modifier|*
-name|detach3
-parameter_list|()
-function_decl|;
-comment|// remove in 5.0
 name|void
 name|realloc
 parameter_list|(
@@ -257,18 +239,6 @@ modifier|&
 name|l
 parameter_list|)
 function_decl|;
-name|void
-modifier|*
-modifier|*
-name|append2
-parameter_list|(
-specifier|const
-name|QListData
-modifier|&
-name|l
-parameter_list|)
-function_decl|;
-comment|// remove in 5.0
 name|void
 modifier|*
 modifier|*
@@ -6497,7 +6467,7 @@ operator|>
 operator|(
 name|p
 operator|.
-name|append2
+name|append
 argument_list|(
 name|l
 operator|.
