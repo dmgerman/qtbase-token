@@ -343,9 +343,11 @@ operator|&
 name|path
 argument_list|)
 block|;
-name|void
+name|PlatformInfo
 name|mapPlatformInfo
-argument_list|()
+argument_list|(
+argument|const PlatformInfo& orig
+argument_list|)
 specifier|const
 block|;
 specifier|const
@@ -372,11 +374,15 @@ name|BaselineProtocol
 name|proto
 block|;
 name|PlatformInfo
-name|plat
+name|clientInfo
 block|;
 name|mutable
 name|PlatformInfo
-name|mapped
+name|mappedClientInfo
+block|;
+name|mutable
+name|PlatformInfo
+name|overriddenMappedClientInfo
 block|;
 name|QString
 name|runId
