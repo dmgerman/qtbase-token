@@ -1305,11 +1305,28 @@ name|char
 modifier|*
 name|testOptions
 init|=
-literal|" Output options:\n"
-literal|" -xunitxml           : Outputs results as XML XUnit document\n"
-literal|" -xml                : Outputs results as XML document\n"
-literal|" -lightxml           : Outputs results as stream of XML tags\n"
-literal|" -o filename         : Writes all output into a file\n"
+literal|" New-style logging options:\n"
+literal|" -o filename,format  : Output results to file in the specified format\n"
+literal|"                       Use - to output to stdout\n"
+literal|"                       Valid formats are:\n"
+literal|"                         txt      : Plain text\n"
+literal|"                         xunitxml : XML XUnit document\n"
+literal|"                         xml      : XML document\n"
+literal|"                         lightxml : A stream of XML tags\n"
+literal|"\n"
+literal|"     *** Multiple loggers can be specified, but at most one can log to stdout.\n"
+literal|"\n"
+literal|" Old-style logging options:\n"
+literal|" -o filename         : Write the output into file\n"
+literal|" -txt                : Output results in Plain Text\n"
+literal|" -xunitxml           : Output results as XML XUnit document\n"
+literal|" -xml                : Output results as XML document\n"
+literal|" -lightxml           : Output results as stream of XML tags\n"
+literal|"\n"
+literal|"     *** If no output file is specified, stdout is assumed.\n"
+literal|"     *** If no output format is specified, -txt is assumed.\n"
+literal|"\n"
+literal|" Detail options:\n"
 literal|" -silent             : Only outputs warnings and failures\n"
 literal|" -v1                 : Print enter messages for each testfunction\n"
 literal|" -v2                 : Also print out each QVERIFY/QCOMPARE/QTEST\n"
@@ -1505,6 +1522,29 @@ index|[
 name|i
 index|]
 argument_list|,
+literal|"-txt"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|logFormat
+operator|=
+name|QTestLog
+operator|::
+name|Plain
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|argv
+index|[
+name|i
+index|]
+argument_list|,
 literal|"-xunitxml"
 argument_list|)
 operator|==
@@ -1688,7 +1728,7 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"-o needs an extra parameter specifying the filename\n"
+literal|"-o needs an extra parameter specifying the filename and optional format\n"
 argument_list|)
 expr_stmt|;
 name|exit
@@ -1697,17 +1737,211 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+operator|++
+name|i
+expr_stmt|;
+comment|// Do we have the old or new style -o option?
+name|char
+modifier|*
+name|filename
+init|=
+operator|new
+name|char
+index|[
+name|strlen
+argument_list|(
+name|argv
+index|[
+name|i
+index|]
+argument_list|)
+operator|+
+literal|1
+index|]
+decl_stmt|;
+name|char
+modifier|*
+name|format
+init|=
+operator|new
+name|char
+index|[
+name|strlen
+argument_list|(
+name|argv
+index|[
+name|i
+index|]
+argument_list|)
+operator|+
+literal|1
+index|]
+decl_stmt|;
+if|if
+condition|(
+name|sscanf
+argument_list|(
+name|argv
+index|[
+name|i
+index|]
+argument_list|,
+literal|"%[^,],%s"
+argument_list|,
+name|filename
+argument_list|,
+name|format
+argument_list|)
+operator|==
+literal|1
+condition|)
 block|{
+comment|// Old-style
 name|logFilename
 operator|=
 name|argv
 index|[
-operator|++
 name|i
 index|]
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// New-style
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|format
+argument_list|,
+literal|"txt"
+argument_list|)
+operator|==
+literal|0
+condition|)
+name|logFormat
+operator|=
+name|QTestLog
+operator|::
+name|Plain
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|format
+argument_list|,
+literal|"lightxml"
+argument_list|)
+operator|==
+literal|0
+condition|)
+name|logFormat
+operator|=
+name|QTestLog
+operator|::
+name|LightXML
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|format
+argument_list|,
+literal|"xml"
+argument_list|)
+operator|==
+literal|0
+condition|)
+name|logFormat
+operator|=
+name|QTestLog
+operator|::
+name|XML
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|format
+argument_list|,
+literal|"xunitxml"
+argument_list|)
+operator|==
+literal|0
+condition|)
+name|logFormat
+operator|=
+name|QTestLog
+operator|::
+name|XunitXML
+expr_stmt|;
+else|else
+block|{
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"output format must be one of txt, lightxml, xml or xunitxml\n"
+argument_list|)
+expr_stmt|;
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|filename
+argument_list|,
+literal|"-"
+argument_list|)
+operator|==
+literal|0
+operator|&&
+name|QTestLog
+operator|::
+name|loggerUsingStdout
+argument_list|()
+condition|)
+block|{
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"only one logger can log to stdout\n"
+argument_list|)
+expr_stmt|;
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+name|QTestLog
+operator|::
+name|addLogger
+argument_list|(
+name|logFormat
+argument_list|,
+name|filename
+argument_list|)
+expr_stmt|;
+block|}
+operator|delete
+index|[]
+name|filename
+expr_stmt|;
+operator|delete
+index|[]
+name|format
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -2882,10 +3116,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Create the logger
+comment|// If no loggers were created by the long version of the -o command-line
+comment|// option, create a logger using whatever filename and format were
+comment|// set using the old-style command-line options.
+if|if
+condition|(
 name|QTestLog
 operator|::
-name|initLogger
+name|loggerCount
+argument_list|()
+operator|==
+literal|0
+condition|)
+name|QTestLog
+operator|::
+name|addLogger
 argument_list|(
 name|logFormat
 argument_list|,

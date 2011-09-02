@@ -246,7 +246,7 @@ parameter_list|()
 function_decl|;
 specifier|static
 name|void
-name|initLogger
+name|addLogger
 parameter_list|(
 name|LogMode
 name|mode
@@ -258,8 +258,13 @@ name|filename
 parameter_list|)
 function_decl|;
 specifier|static
-name|LogMode
-name|logMode
+name|int
+name|loggerCount
+parameter_list|()
+function_decl|;
+specifier|static
+name|bool
+name|loggerUsingStdout
 parameter_list|()
 function_decl|;
 specifier|static

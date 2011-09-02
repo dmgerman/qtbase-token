@@ -796,20 +796,20 @@ argument_list|>
 name|allLoggerSets
 parameter_list|()
 block|{
-comment|// For the plain text logger, we'll test logging to file and to standard
-comment|// output.  For all other loggers (XML), we'll tell testlib to redirect to
-comment|// file.  The reason is that tests are allowed to print to standard output,
-comment|// and that means the test log is no longer guaranteed to be valid XML.
+comment|// Note that in order to test XML output to standard output, the subtests
+comment|// must not send output directly to stdout, bypassing Qt's output mechanisms
+comment|// (e.g. via printf), otherwise the output may not be well-formed XML.
 return|return
 name|QList
 argument_list|<
 name|LoggerSet
 argument_list|>
 argument_list|()
+comment|// Test with old-style options for a single logger
 operator|<<
 name|LoggerSet
 argument_list|(
-literal|"stdout txt"
+literal|"old stdout txt"
 argument_list|,
 name|QStringList
 argument_list|()
@@ -822,7 +822,7 @@ argument_list|)
 operator|<<
 name|LoggerSet
 argument_list|(
-literal|"txt"
+literal|"old txt"
 argument_list|,
 name|QStringList
 argument_list|()
@@ -842,7 +842,22 @@ argument_list|)
 operator|<<
 name|LoggerSet
 argument_list|(
-literal|"xml"
+literal|"old stdout xml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"stdout xml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-xml"
+argument_list|)
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"old xml"
 argument_list|,
 name|QStringList
 argument_list|()
@@ -864,7 +879,22 @@ argument_list|)
 operator|<<
 name|LoggerSet
 argument_list|(
-literal|"xunitxml"
+literal|"old stdout xunitxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"stdout xunitxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-xunitxml"
+argument_list|)
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"old xunitxml"
 argument_list|,
 name|QStringList
 argument_list|()
@@ -886,7 +916,22 @@ argument_list|)
 operator|<<
 name|LoggerSet
 argument_list|(
-literal|"lightxml"
+literal|"old stdout lightxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"stdout lightxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-lightxml"
+argument_list|)
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"old lightxml"
 argument_list|,
 name|QStringList
 argument_list|()
@@ -904,6 +949,343 @@ name|logName
 argument_list|(
 literal|"lightxml"
 argument_list|)
+argument_list|)
+comment|// Test with new-style options for a single logger
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"new stdout txt"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"stdout txt"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-o"
+operator|<<
+literal|"-,txt"
+argument_list|)
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"new txt"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"txt"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-o"
+operator|<<
+name|logName
+argument_list|(
+literal|"txt"
+argument_list|)
+operator|+
+literal|",txt"
+argument_list|)
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"new stdout xml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"stdout xml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-o"
+operator|<<
+literal|"-,xml"
+argument_list|)
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"new xml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"xml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-o"
+operator|<<
+name|logName
+argument_list|(
+literal|"xml"
+argument_list|)
+operator|+
+literal|",xml"
+argument_list|)
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"new stdout xunitxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"stdout xunitxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-o"
+operator|<<
+literal|"-,xunitxml"
+argument_list|)
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"new xunitxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"xunitxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-o"
+operator|<<
+name|logName
+argument_list|(
+literal|"xunitxml"
+argument_list|)
+operator|+
+literal|",xunitxml"
+argument_list|)
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"new stdout lightxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"stdout lightxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-o"
+operator|<<
+literal|"-,lightxml"
+argument_list|)
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"new lightxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"lightxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-o"
+operator|<<
+name|logName
+argument_list|(
+literal|"lightxml"
+argument_list|)
+operator|+
+literal|",lightxml"
+argument_list|)
+comment|// Test with two loggers (don't test all 32 combinations, just a sample)
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"stdout txt + txt"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"stdout txt"
+operator|<<
+literal|"txt"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-o"
+operator|<<
+literal|"-,txt"
+operator|<<
+literal|"-o"
+operator|<<
+name|logName
+argument_list|(
+literal|"txt"
+argument_list|)
+operator|+
+literal|",txt"
+argument_list|)
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"xml + stdout txt"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"xml"
+operator|<<
+literal|"stdout txt"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-o"
+operator|<<
+name|logName
+argument_list|(
+literal|"xml"
+argument_list|)
+operator|+
+literal|",xml"
+operator|<<
+literal|"-o"
+operator|<<
+literal|"-,txt"
+argument_list|)
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"txt + xunitxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"txt"
+operator|<<
+literal|"xunitxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-o"
+operator|<<
+name|logName
+argument_list|(
+literal|"txt"
+argument_list|)
+operator|+
+literal|",txt"
+operator|<<
+literal|"-o"
+operator|<<
+name|logName
+argument_list|(
+literal|"xunitxml"
+argument_list|)
+operator|+
+literal|",xunitxml"
+argument_list|)
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"lightxml + stdout xunitxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"lightxml"
+operator|<<
+literal|"stdout xunitxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-o"
+operator|<<
+name|logName
+argument_list|(
+literal|"lightxml"
+argument_list|)
+operator|+
+literal|",lightxml"
+operator|<<
+literal|"-o"
+operator|<<
+literal|"-,xunitxml"
+argument_list|)
+comment|// All loggers at the same time
+operator|<<
+name|LoggerSet
+argument_list|(
+literal|"all loggers"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"txt"
+operator|<<
+literal|"xml"
+operator|<<
+literal|"lightxml"
+operator|<<
+literal|"stdout txt"
+operator|<<
+literal|"xunitxml"
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"-o"
+operator|<<
+name|logName
+argument_list|(
+literal|"txt"
+argument_list|)
+operator|+
+literal|",txt"
+operator|<<
+literal|"-o"
+operator|<<
+name|logName
+argument_list|(
+literal|"xml"
+argument_list|)
+operator|+
+literal|",xml"
+operator|<<
+literal|"-o"
+operator|<<
+name|logName
+argument_list|(
+literal|"lightxml"
+argument_list|)
+operator|+
+literal|",lightxml"
+operator|<<
+literal|"-o"
+operator|<<
+literal|"-,txt"
+operator|<<
+literal|"-o"
+operator|<<
+name|logName
+argument_list|(
+literal|"xunitxml"
+argument_list|)
+operator|+
+literal|",xunitxml"
 argument_list|)
 return|;
 block|}
@@ -1207,7 +1589,13 @@ name|loggerSet
 operator|.
 name|name
 operator|!=
-literal|"stdout txt"
+literal|"old stdout txt"
+operator|&&
+name|loggerSet
+operator|.
+name|name
+operator|!=
+literal|"new stdout txt"
 condition|)
 block|{
 if|if
@@ -1961,7 +2349,7 @@ literal|"Q_ASSERT prints out the absolute path on this platform."
 decl_stmt|;
 name|QEXPECT_FAIL
 argument_list|(
-literal|"assert stdout txt"
+literal|"assert old stdout txt"
 argument_list|,
 name|msg
 argument_list|,
@@ -1970,7 +2358,7 @@ argument_list|)
 expr_stmt|;
 name|QEXPECT_FAIL
 argument_list|(
-literal|"assert txt"
+literal|"assert old txt"
 argument_list|,
 name|msg
 argument_list|,
@@ -1979,7 +2367,7 @@ argument_list|)
 expr_stmt|;
 name|QEXPECT_FAIL
 argument_list|(
-literal|"assert xml"
+literal|"assert old stdout xml"
 argument_list|,
 name|msg
 argument_list|,
@@ -1988,7 +2376,7 @@ argument_list|)
 expr_stmt|;
 name|QEXPECT_FAIL
 argument_list|(
-literal|"assert lightxml"
+literal|"assert old xml"
 argument_list|,
 name|msg
 argument_list|,
@@ -1997,7 +2385,151 @@ argument_list|)
 expr_stmt|;
 name|QEXPECT_FAIL
 argument_list|(
-literal|"assert xunitxml"
+literal|"assert old stdout lightxml"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert old lightxml"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert old stdout xunitxml"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert old xunitxml"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert new stdout txt"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert new txt"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert new stdout xml"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert new xml"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert new stdout lightxml"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert new lightxml"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert new stdout xunitxml"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert new xunitxml"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert stdout txt + txt"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert xml + stdout txt"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert txt + xunitxml"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert lightxml + stdout xunitxml"
+argument_list|,
+name|msg
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"assert all loggers"
 argument_list|,
 name|msg
 argument_list|,
