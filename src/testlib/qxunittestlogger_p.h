@@ -71,7 +71,12 @@ block|{
 name|public
 operator|:
 name|QXunitTestLogger
-argument_list|()
+argument_list|(
+specifier|const
+name|char
+operator|*
+name|filename
+argument_list|)
 block|;
 operator|~
 name|QXunitTestLogger
@@ -79,12 +84,7 @@ argument_list|()
 block|;
 name|void
 name|startLogging
-argument_list|(
-specifier|const
-name|char
-operator|*
-name|filename
-argument_list|)
+argument_list|()
 block|;
 name|void
 name|stopLogging

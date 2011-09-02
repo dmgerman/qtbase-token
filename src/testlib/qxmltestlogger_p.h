@@ -71,6 +71,8 @@ block|;
 name|QXmlTestLogger
 argument_list|(
 argument|XmlMode mode
+argument_list|,
+argument|const char *filename
 argument_list|)
 block|;
 operator|~
@@ -79,12 +81,7 @@ argument_list|()
 block|;
 name|void
 name|startLogging
-argument_list|(
-specifier|const
-name|char
-operator|*
-name|filename
-argument_list|)
+argument_list|()
 block|;
 name|void
 name|stopLogging
