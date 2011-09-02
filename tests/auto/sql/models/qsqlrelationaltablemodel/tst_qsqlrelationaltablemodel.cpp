@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../qsqldatabase/tst_databases.h"
+file|"../../kernel/qsqldatabase/tst_databases.h"
 end_include
 begin_decl_stmt
 specifier|const
