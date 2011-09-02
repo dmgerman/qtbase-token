@@ -59,7 +59,7 @@ begin_comment
 comment|/*!     \class QOpenGLShaderProgram     \brief The QOpenGLShaderProgram class allows OpenGL shader programs to be linked and used.     \since 5.0     \ingroup painting-3D      \section1 Introduction      This class supports shader programs written in the OpenGL Shading     Language (GLSL) and in the OpenGL/ES Shading Language (GLSL/ES).      QOpenGLShader and QOpenGLShaderProgram shelter the programmer from the details of     compiling and linking vertex and fragment shaders.      The following example creates a vertex shader program using the     supplied source \c{code}.  Once compiled and linked, the shader     program is activated in the current QOpenGLContext by calling     QOpenGLShaderProgram::bind():      \snippet doc/src/snippets/code/src_opengl_qopenglshaderprogram.cpp 0      \section1 Writing portable shaders      Shader programs can be difficult to reuse across OpenGL implementations     because of varying levels of support for standard vertex attributes and     uniform variables.  In particular, GLSL/ES lacks all of the     standard variables that are present on desktop OpenGL systems:     \c{gl_Vertex}, \c{gl_Normal}, \c{gl_Color}, and so on.  Desktop OpenGL     lacks the variable qualifiers \c{highp}, \c{mediump}, and \c{lowp}.      The QOpenGLShaderProgram class makes the process of writing portable shaders     easier by prefixing all shader programs with the following lines on     desktop OpenGL:      \code     #define highp     #define mediump     #define lowp     \endcode      This makes it possible to run most GLSL/ES shader programs     on desktop systems.  The programmer should restrict themselves     to just features that are present in GLSL/ES, and avoid     standard variable names that only work on the desktop.      \section1 Simple shader example      \snippet doc/src/snippets/code/src_opengl_qopenglshaderprogram.cpp 1      With the above shader program active, we can draw a green triangle     as follows:      \snippet doc/src/snippets/code/src_opengl_qopenglshaderprogram.cpp 2      \section1 Binary shaders and programs      Binary shaders may be specified using \c{glShaderBinary()} on     the return value from QOpenGLShader::shaderId().  The QOpenGLShader instance     containing the binary can then be added to the shader program with     addShader() and linked in the usual fashion with link().      Binary programs may be specified using \c{glProgramBinaryOES()}     on the return value from programId().  Then the application should     call link(), which will notice that the program has already been     specified and linked, allowing other operations to be performed     on the shader program.      \sa QOpenGLShader */
 end_comment
 begin_comment
-comment|/*!     \class QOpenGLShader     \brief The QOpenGLShader class allows OpenGL shaders to be compiled.     \since 4.6     \ingroup painting-3D      This class supports shaders written in the OpenGL Shading Language (GLSL)     and in the OpenGL/ES Shading Language (GLSL/ES).      QOpenGLShader and QOpenGLShaderProgram shelter the programmer from the details of     compiling and linking vertex and fragment shaders.      \sa QOpenGLShaderProgram */
+comment|/*!     \class QOpenGLShader     \brief The QOpenGLShader class allows OpenGL shaders to be compiled.     \since 5.0     \ingroup painting-3D      This class supports shaders written in the OpenGL Shading Language (GLSL)     and in the OpenGL/ES Shading Language (GLSL/ES).      QOpenGLShader and QOpenGLShaderProgram shelter the programmer from the details of     compiling and linking vertex and fragment shaders.      \sa QOpenGLShaderProgram */
 end_comment
 begin_comment
 comment|/*!     \enum QOpenGLShader::ShaderTypeBit     This enum specifies the type of QOpenGLShader that is being created.      \value Vertex Vertex shader written in the OpenGL Shading Language (GLSL).     \value Fragment Fragment shader written in the OpenGL Shading Language (GLSL).     \value Geometry Geometry shaders written in the OpenGL Shading            Language (GLSL), based on the GL_EXT_geometry_shader4 extension. */
@@ -4505,7 +4505,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Sets an array of vertex \a values on the attribute at \a location     in this shader program.  The \a stride indicates the number of bytes     between vertices.  A default \a stride value of zero indicates that     the vertices are densely packed in \a values.      The \a type indicates the type of elements in the \a values array,     usually \c{GL_FLOAT}, \c{GL_UNSIGNED_BYTE}, etc.  The \a tupleSize     indicates the number of components per vertex: 1, 2, 3, or 4.      The array will become active when enableAttributeArray() is called     on the \a location.  Otherwise the value specified with     setAttributeValue() for \a location will be used.      The setAttributeBuffer() function can be used to set the attribute     array to an offset within a vertex buffer.      \sa setAttributeValue(), setUniformValue(), enableAttributeArray()     \sa disableAttributeArray(), setAttributeBuffer()     \since 4.7 */
+comment|/*!     Sets an array of vertex \a values on the attribute at \a location     in this shader program.  The \a stride indicates the number of bytes     between vertices.  A default \a stride value of zero indicates that     the vertices are densely packed in \a values.      The \a type indicates the type of elements in the \a values array,     usually \c{GL_FLOAT}, \c{GL_UNSIGNED_BYTE}, etc.  The \a tupleSize     indicates the number of components per vertex: 1, 2, 3, or 4.      The array will become active when enableAttributeArray() is called     on the \a location.  Otherwise the value specified with     setAttributeValue() for \a location will be used.      The setAttributeBuffer() function can be used to set the attribute     array to an offset within a vertex buffer.      \sa setAttributeValue(), setUniformValue(), enableAttributeArray()     \sa disableAttributeArray(), setAttributeBuffer() */
 end_comment
 begin_function
 DECL|function|setAttributeArray
@@ -4730,7 +4730,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets an array of vertex \a values on the attribute called \a name     in this shader program.  The \a stride indicates the number of bytes     between vertices.  A default \a stride value of zero indicates that     the vertices are densely packed in \a values.      The \a type indicates the type of elements in the \a values array,     usually \c{GL_FLOAT}, \c{GL_UNSIGNED_BYTE}, etc.  The \a tupleSize     indicates the number of components per vertex: 1, 2, 3, or 4.      The array will become active when enableAttributeArray() is called     on the \a name.  Otherwise the value specified with     setAttributeValue() for \a name will be used.      The setAttributeBuffer() function can be used to set the attribute     array to an offset within a vertex buffer.      \sa setAttributeValue(), setUniformValue(), enableAttributeArray()     \sa disableAttributeArray(), setAttributeBuffer()     \since 4.7 */
+comment|/*!     \overload      Sets an array of vertex \a values on the attribute called \a name     in this shader program.  The \a stride indicates the number of bytes     between vertices.  A default \a stride value of zero indicates that     the vertices are densely packed in \a values.      The \a type indicates the type of elements in the \a values array,     usually \c{GL_FLOAT}, \c{GL_UNSIGNED_BYTE}, etc.  The \a tupleSize     indicates the number of components per vertex: 1, 2, 3, or 4.      The array will become active when enableAttributeArray() is called     on the \a name.  Otherwise the value specified with     setAttributeValue() for \a name will be used.      The setAttributeBuffer() function can be used to set the attribute     array to an offset within a vertex buffer.      \sa setAttributeValue(), setUniformValue(), enableAttributeArray()     \sa disableAttributeArray(), setAttributeBuffer() */
 end_comment
 begin_function
 DECL|function|setAttributeArray
@@ -4778,7 +4778,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets an array of vertex values on the attribute at \a location in     this shader program, starting at a specific \a offset in the     currently bound vertex buffer.  The \a stride indicates the number     of bytes between vertices.  A default \a stride value of zero     indicates that the vertices are densely packed in the value array.      The \a type indicates the type of elements in the vertex value     array, usually \c{GL_FLOAT}, \c{GL_UNSIGNED_BYTE}, etc.  The \a     tupleSize indicates the number of components per vertex: 1, 2, 3,     or 4.      The array will become active when enableAttributeArray() is called     on the \a location.  Otherwise the value specified with     setAttributeValue() for \a location will be used.      \sa setAttributeArray()     \since 4.7 */
+comment|/*!     Sets an array of vertex values on the attribute at \a location in     this shader program, starting at a specific \a offset in the     currently bound vertex buffer.  The \a stride indicates the number     of bytes between vertices.  A default \a stride value of zero     indicates that the vertices are densely packed in the value array.      The \a type indicates the type of elements in the vertex value     array, usually \c{GL_FLOAT}, \c{GL_UNSIGNED_BYTE}, etc.  The \a     tupleSize indicates the number of components per vertex: 1, 2, 3,     or 4.      The array will become active when enableAttributeArray() is called     on the \a location.  Otherwise the value specified with     setAttributeValue() for \a location will be used.      \sa setAttributeArray() */
 end_comment
 begin_function
 DECL|function|setAttributeBuffer
@@ -4852,7 +4852,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets an array of vertex values on the attribute called \a name     in this shader program, starting at a specific \a offset in the     currently bound vertex buffer.  The \a stride indicates the number     of bytes between vertices.  A default \a stride value of zero     indicates that the vertices are densely packed in the value array.      The \a type indicates the type of elements in the vertex value     array, usually \c{GL_FLOAT}, \c{GL_UNSIGNED_BYTE}, etc.  The \a     tupleSize indicates the number of components per vertex: 1, 2, 3,     or 4.      The array will become active when enableAttributeArray() is called     on the \a name.  Otherwise the value specified with     setAttributeValue() for \a name will be used.      \sa setAttributeArray()     \since 4.7 */
+comment|/*!     \overload      Sets an array of vertex values on the attribute called \a name     in this shader program, starting at a specific \a offset in the     currently bound vertex buffer.  The \a stride indicates the number     of bytes between vertices.  A default \a stride value of zero     indicates that the vertices are densely packed in the value array.      The \a type indicates the type of elements in the vertex value     array, usually \c{GL_FLOAT}, \c{GL_UNSIGNED_BYTE}, etc.  The \a     tupleSize indicates the number of components per vertex: 1, 2, 3,     or 4.      The array will become active when enableAttributeArray() is called     on the \a name.  Otherwise the value specified with     setAttributeValue() for \a name will be used.      \sa setAttributeArray() */
 end_comment
 begin_function
 DECL|function|setAttributeBuffer
@@ -7348,7 +7348,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the uniform variable at \a location in the current context     to a 2x2 matrix \a value.  The matrix elements must be specified     in column-major order.      \sa setAttributeValue()     \since 4.7 */
+comment|/*!     \overload      Sets the uniform variable at \a location in the current context     to a 2x2 matrix \a value.  The matrix elements must be specified     in column-major order.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -7409,7 +7409,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the uniform variable at \a location in the current context     to a 3x3 matrix \a value.  The matrix elements must be specified     in column-major order.      \sa setAttributeValue()     \since 4.7 */
+comment|/*!     \overload      Sets the uniform variable at \a location in the current context     to a 3x3 matrix \a value.  The matrix elements must be specified     in column-major order.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -7531,7 +7531,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 2x2 matrix \a value.  The matrix elements must be specified     in column-major order.      \sa setAttributeValue()     \since 4.7 */
+comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 2x2 matrix \a value.  The matrix elements must be specified     in column-major order.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -7569,7 +7569,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 3x3 matrix \a value.  The matrix elements must be specified     in column-major order.      \sa setAttributeValue()     \since 4.7 */
+comment|/*!     \overload      Sets the uniform variable called \a name in the current context     to a 3x3 matrix \a value.  The matrix elements must be specified     in column-major order.      \sa setAttributeValue() */
 end_comment
 begin_function
 DECL|function|setUniformValue
@@ -9372,7 +9372,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the hardware limit for how many vertices a geometry shader     can output.      \since 4.7      \sa setGeometryOutputVertexCount() */
+comment|/*!     Returns the hardware limit for how many vertices a geometry shader     can output.      \sa setGeometryOutputVertexCount() */
 end_comment
 begin_function
 DECL|function|maxGeometryOutputVertices
@@ -9395,7 +9395,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the maximum number of vertices the current geometry shader     program will produce, if active, to \a count.      \since 4.7      This parameter takes effect the next time the program is linked. */
+comment|/*!     Sets the maximum number of vertices the current geometry shader     program will produce, if active, to \a count.      This parameter takes effect the next time the program is linked. */
 end_comment
 begin_function
 DECL|function|setGeometryOutputVertexCount
@@ -9446,7 +9446,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the maximum number of vertices the current geometry shader     program will produce, if active.      \since 4.7      This parameter takes effect the ntext time the program is linked. */
+comment|/*!     Returns the maximum number of vertices the current geometry shader     program will produce, if active.      This parameter takes effect the ntext time the program is linked. */
 end_comment
 begin_function
 DECL|function|geometryOutputVertexCount
@@ -9489,7 +9489,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the geometry shader input type, if active.      This parameter takes effect the next time the program is linked.      \since 4.7  */
+comment|/*!     Returns the geometry shader input type, if active.      This parameter takes effect the next time the program is linked.  */
 end_comment
 begin_function
 DECL|function|geometryInputType
@@ -9509,7 +9509,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the output type from the geometry shader, if active, to     \a outputType.      This parameter takes effect the next time the program is linked.      \since 4.7 */
+comment|/*!     Sets the output type from the geometry shader, if active, to     \a outputType.      This parameter takes effect the next time the program is linked. */
 end_comment
 begin_function
 DECL|function|setGeometryOutputType
@@ -9532,7 +9532,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the geometry shader output type, if active.      This parameter takes effect the next time the program is linked.      \since 4.7  */
+comment|/*!     Returns the geometry shader output type, if active.      This parameter takes effect the next time the program is linked.  */
 end_comment
 begin_function
 DECL|function|geometryOutputType
@@ -9667,7 +9667,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if shader programs of type \a type are supported on     this system; false otherwise.      The \a context is used to resolve the GLSL extensions.     If \a context is null, then QOpenGLContext::currentContext() is used.      \since 4.7 */
+comment|/*!     Returns true if shader programs of type \a type are supported on     this system; false otherwise.      The \a context is used to resolve the GLSL extensions.     If \a context is null, then QOpenGLContext::currentContext() is used. */
 end_comment
 begin_function
 DECL|function|hasOpenGLShaders
