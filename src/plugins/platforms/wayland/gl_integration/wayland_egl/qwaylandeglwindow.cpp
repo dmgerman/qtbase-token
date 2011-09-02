@@ -27,6 +27,11 @@ include|#
 directive|include
 file|<QtGui/QWindow>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QWindowSystemInterface>
+end_include
 begin_constructor
 DECL|function|QWaylandEglWindow
 name|QWaylandEglWindow
@@ -158,6 +163,7 @@ if|if
 condition|(
 name|m_waylandEglWindow
 condition|)
+block|{
 name|wl_egl_window_resize
 argument_list|(
 name|m_waylandEglWindow
@@ -177,6 +183,17 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|QWindowSystemInterface
+operator|::
+name|handleGeometryChange
+argument_list|(
+name|window
+argument_list|()
+argument_list|,
+name|rect
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
