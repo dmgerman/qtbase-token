@@ -523,6 +523,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn bool QRawFont::operator!=(const QRawFont&other) const      Returns true if this QRawFont is not equal to \a other. Otherwise, returns false. */
+end_comment
+begin_comment
 comment|/*!    Returns the ascent of this QRawFont in pixel units.     \sa QFontMetricsF::ascent() */
 end_comment
 begin_function
