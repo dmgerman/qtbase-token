@@ -195,6 +195,7 @@ specifier|const
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+specifier|inline
 name|bool
 name|operator
 operator|!=
@@ -205,7 +206,16 @@ operator|&
 name|other
 operator|)
 specifier|const
-expr_stmt|;
+block|{
+return|return
+operator|!
+name|operator
+operator|==
+operator|(
+name|other
+operator|)
+return|;
+block|}
 end_expr_stmt
 begin_function_decl
 name|void

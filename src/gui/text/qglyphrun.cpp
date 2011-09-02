@@ -332,34 +332,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Compares \a other to this QGlyphRun object. Returns true if any of the list of glyph     indexes, the list of positions or the font are different, otherwise returns false. */
+comment|/*!     \fn bool QGlyphRun::operator!=(const QGlyphRun&other) const      Compares \a other to this QGlyphRun object. Returns true if any of the list of glyph     indexes, the list of positions or the font are different, otherwise returns false. */
 end_comment
-begin_function
-DECL|function|operator !=
-name|bool
-name|QGlyphRun
-operator|::
-name|operator
-name|!=
-parameter_list|(
-specifier|const
-name|QGlyphRun
-modifier|&
-name|other
-parameter_list|)
-specifier|const
-block|{
-return|return
-operator|!
-operator|(
-operator|*
-name|this
-operator|==
-name|other
-operator|)
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     Returns the font selected for this QGlyphRun object.      \sa setRawFont() */
 end_comment
