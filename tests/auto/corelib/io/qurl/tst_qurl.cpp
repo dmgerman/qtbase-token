@@ -17587,6 +17587,7 @@ name|QT_BUILD_INTERNAL
 end_ifdef
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
+name|Q_CORE_EXPORT
 specifier|extern
 name|void
 name|qt_nameprep
@@ -17601,6 +17602,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
+name|Q_CORE_EXPORT
 specifier|extern
 name|bool
 name|qt_check_std3rules
