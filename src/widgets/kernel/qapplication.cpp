@@ -14537,6 +14537,16 @@ operator|->
 name|spontaneous
 argument_list|()
 expr_stmt|;
+name|me
+operator|.
+name|setTimestamp
+argument_list|(
+name|mouse
+operator|->
+name|timestamp
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// throw away any mouse-tracking-only mouse events
 if|if
 condition|(

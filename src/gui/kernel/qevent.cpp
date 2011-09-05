@@ -99,6 +99,11 @@ name|modState
 argument_list|(
 name|modifiers
 argument_list|)
+member_init_list|,
+name|ts
+argument_list|(
+literal|0
+argument_list|)
 block|{}
 end_constructor
 begin_comment

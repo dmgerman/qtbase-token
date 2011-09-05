@@ -158,12 +158,36 @@ name|modState
 operator|=
 name|amodifiers
 block|; }
+specifier|inline
+name|ulong
+name|timestamp
+argument_list|()
+specifier|const
+block|{
+return|return
+name|ts
+return|;
+block|}
+specifier|inline
+name|void
+name|setTimestamp
+argument_list|(
+argument|ulong atimestamp
+argument_list|)
+block|{
+name|ts
+operator|=
+name|atimestamp
+block|; }
 name|protected
 operator|:
 name|Qt
 operator|::
 name|KeyboardModifiers
 name|modState
+block|;
+name|ulong
+name|ts
 block|; }
 decl_stmt|;
 end_decl_stmt
