@@ -3543,7 +3543,90 @@ literal|"05:e2:e6:a4:cd:09:ea:54:d6:65:b0:75:fe:22:a2:56"
 block|,
 literal|"*.google.com"
 block|,
-comment|// DigiNotar
+comment|// leaf certificate issued by DigiNotar
+literal|"0c:76:da:9c:91:0c:4e:2c:9e:fe:15:d0:58:93:3c:4c"
+block|,
+literal|"DigiNotar Root CA"
+block|,
+comment|// DigiNotar root
+literal|"f1:4a:13:f4:87:2b:56:dc:39:df:84:ca:7a:a1:06:49"
+block|,
+literal|"DigiNotar Services CA"
+block|,
+comment|// DigiNotar intermediate signed by DigiNotar Root
+literal|"36:16:71:55:43:42:1b:9d:e6:cb:a3:64:41:df:24:38"
+block|,
+literal|"DigiNotar Services 1024 CA"
+block|,
+comment|// DigiNotar intermediate signed by DigiNotar Root
+literal|"0a:82:bd:1e:14:4e:88:14:d7:5b:1a:55:27:be:bf:3e"
+block|,
+literal|"DigiNotar Root CA G2"
+block|,
+comment|// other DigiNotar Root CA
+literal|"a4:b6:ce:e3:2e:d3:35:46:26:3c:b3:55:3a:a8:92:21"
+block|,
+literal|"CertiID Enterprise Certificate Authority"
+block|,
+comment|// DigiNotar intermediate signed by "DigiNotar Root CA G2"
+literal|"5b:d5:60:9c:64:17:68:cf:21:0e:35:fd:fb:05:ad:41"
+block|,
+literal|"DigiNotar Qualified CA"
+block|,
+comment|// DigiNotar intermediate signed by DigiNotar Root
+literal|"1184640176"
+block|,
+literal|"DigiNotar Services 1024 CA"
+block|,
+comment|// DigiNotar intermediate cross-signed by Entrust
+literal|"120000525"
+block|,
+literal|"DigiNotar Cyber CA"
+block|,
+comment|// DigiNotar intermediate cross-signed by CyberTrust
+literal|"120000505"
+block|,
+literal|"DigiNotar Cyber CA"
+block|,
+comment|// DigiNotar intermediate cross-signed by CyberTrust
+literal|"120000515"
+block|,
+literal|"DigiNotar Cyber CA"
+block|,
+comment|// DigiNotar intermediate cross-signed by CyberTrust
+literal|"20015536"
+block|,
+literal|"DigiNotar PKIoverheid CA Overheid en Bedrijven"
+block|,
+comment|// DigiNotar intermediate cross-signed by the Dutch government
+literal|"20001983"
+block|,
+literal|"DigiNotar PKIoverheid CA Organisatie - G2"
+block|,
+comment|// DigiNotar intermediate cross-signed by the Dutch government
+literal|"d6:d0:29:77:f1:49:fd:1a:83:f2:b9:ea:94:8c:5c:b4"
+block|,
+literal|"DigiNotar Extended Validation CA"
+block|,
+comment|// DigiNotar intermediate signed by DigiNotar EV Root
+literal|"1e:7d:7a:53:3d:45:30:41:96:40:0f:71:48:1f:45:04"
+block|,
+literal|"DigiNotar Public CA 2025"
+block|,
+comment|// DigiNotar intermediate
+comment|//    "(has not been seen in the wild so far)", "DigiNotar Public CA - G2", // DigiNotar intermediate
+comment|//    "(has not been seen in the wild so far)", "Koninklijke Notariele Beroepsorganisatie CA", // compromised during DigiNotar breach
+comment|//    "(has not been seen in the wild so far)", "Stichting TTP Infos CA," // compromised during DigiNotar breach
+literal|"1184640175"
+block|,
+literal|"DigiNotar Root CA"
+block|,
+comment|// DigiNotar intermediate cross-signed by Entrust
+literal|"1184644297"
+block|,
+literal|"DigiNotar Root CA"
+block|,
+comment|// DigiNotar intermediate cross-signed by Entrust
 literal|0
 block|}
 decl_stmt|;
@@ -3579,6 +3662,23 @@ name|a
 operator|++
 control|)
 block|{
+name|QString
+name|blacklistedCommonName
+init|=
+name|QString
+operator|::
+name|fromUtf8
+argument_list|(
+name|certificate_blacklist
+index|[
+operator|(
+name|a
+operator|+
+literal|1
+operator|)
+index|]
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|certificate
@@ -3592,6 +3692,7 @@ name|a
 operator|++
 index|]
 operator|&&
+operator|(
 name|certificate
 operator|.
 name|subjectInfo
@@ -3603,16 +3704,23 @@ argument_list|)
 operator|.
 name|contains
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|blacklistedCommonName
+argument_list|)
+operator|||
+name|certificate
+operator|.
+name|issuerInfo
 argument_list|(
-name|certificate_blacklist
-index|[
-name|a
-index|]
+name|QSslCertificate
+operator|::
+name|CommonName
 argument_list|)
+operator|.
+name|contains
+argument_list|(
+name|blacklistedCommonName
 argument_list|)
+operator|)
 condition|)
 return|return
 literal|true
