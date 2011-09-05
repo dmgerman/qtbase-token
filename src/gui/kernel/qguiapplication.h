@@ -73,6 +73,12 @@ name|class
 name|QStyleHints
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QInputPanel
+name|class
+name|QInputPanel
+decl_stmt|;
+end_decl_stmt
 begin_if
 if|#
 directive|if
@@ -322,6 +328,7 @@ operator|::
 name|LeftToRight
 return|;
 block|}
+comment|// ### move to QInputPanel
 specifier|static
 name|QLocale
 name|keyboardInputLocale
@@ -337,6 +344,12 @@ block|;
 name|QStyleHints
 operator|*
 name|styleHints
+argument_list|()
+specifier|const
+block|;
+name|QInputPanel
+operator|*
+name|inputPanel
 argument_list|()
 specifier|const
 block|;

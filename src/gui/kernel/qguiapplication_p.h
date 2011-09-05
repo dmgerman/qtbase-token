@@ -678,6 +678,12 @@ name|styleHints
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|QInputPanel
+modifier|*
+name|inputPanel
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 specifier|static
 name|bool
 name|quitOnLastWindowClosed
