@@ -2717,6 +2717,15 @@ name|selectionChanged
 argument_list|()
 emit|;
 block|}
+if|if
+condition|(
+name|m_cursor
+operator|==
+name|m_lastCursorPos
+condition|)
+name|updateMicroFocus
+argument_list|()
+expr_stmt|;
 name|emitCursorPositionChanged
 argument_list|()
 expr_stmt|;
