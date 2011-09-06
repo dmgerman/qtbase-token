@@ -316,6 +316,15 @@ argument_list|()
 expr_stmt|;
 block|}
 end_destructor
+begin_destructor
+DECL|function|~QSurface
+name|QSurface
+operator|::
+name|~
+name|QSurface
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|setSurfaceType
 name|void

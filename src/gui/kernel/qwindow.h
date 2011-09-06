@@ -118,6 +118,13 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_expr_stmt
+name|virtual
+operator|~
+name|QSurface
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|SurfaceType
 name|surfaceType
 argument_list|()
