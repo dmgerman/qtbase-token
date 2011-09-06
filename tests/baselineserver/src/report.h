@@ -245,6 +245,9 @@ decl_stmt|;
 name|QTextStream
 name|out
 decl_stmt|;
+name|bool
+name|hasOverride
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

@@ -8,7 +8,7 @@ directive|include
 file|<QtTest/private/qbenchmarkmetric_p.h>
 end_include
 begin_comment
-comment|/*!   \enum QTest::QBenchmarkMetric   \since 4.7    This enum lists all the things that can be benchmarked.      \value FramesPerSecond        Frames per second   \value BitsPerSecond          Bits per second   \value BytesPerSecond         Bytes per second   \value WalltimeMilliseconds   Clock time in milliseconds   \value CPUTicks               CPU time   \value InstructionReads       Instruction reads   \value Events                 Event count    \sa QTest::benchmarkMetricName(), QTest::benchmarkMetricUnit()   */
+comment|/*!   \enum QTest::QBenchmarkMetric   \since 4.7    This enum lists all the things that can be benchmarked.    \value FramesPerSecond        Frames per second   \value BitsPerSecond          Bits per second   \value BytesPerSecond         Bytes per second   \value WalltimeMilliseconds   Clock time in milliseconds   \value CPUTicks               CPU time   \value InstructionReads       Instruction reads   \value Events                 Event count    \sa QTest::benchmarkMetricName(), QTest::benchmarkMetricUnit()   */
 end_comment
 begin_comment
 comment|/*!   \relates QTest   \since 4.7   Returns the enum value \a metric as a character string.  */

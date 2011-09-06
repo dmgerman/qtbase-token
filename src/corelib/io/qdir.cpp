@@ -886,6 +886,11 @@ name|dirEntry
 operator|.
 name|isRelative
 argument_list|()
+operator|&&
+name|dirEntry
+operator|.
+name|isClean
+argument_list|()
 condition|)
 block|{
 name|absoluteDirEntry

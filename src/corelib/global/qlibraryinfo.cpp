@@ -483,27 +483,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a unique key identifying this build of Qt and its     configurations. This key is not globally unique, rather only useful     for establishing of two configurations are compatible. This can be     used to compare with the \c QT_BUILD_KEY preprocessor symbol.      \sa location() */
-end_comment
-begin_function
-name|QString
-DECL|function|buildKey
-name|QLibraryInfo
-operator|::
-name|buildKey
-parameter_list|()
-block|{
-return|return
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-name|QT_BUILD_KEY
-argument_list|)
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!     \since 4.6     Returns the installation date for this build of Qt. The install date will     usually be the last time that Qt sources were configured. */
 end_comment
 begin_ifndef
@@ -1671,35 +1650,6 @@ literal|"\n"
 literal|"Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).\n"
 literal|"Contact: Nokia Corporation (qt-info@nokia.com)\n"
 literal|"\n"
-literal|"Build key:           "
-name|QT_BUILD_KEY
-literal|"\n"
-literal|"Compat build key:    "
-ifdef|#
-directive|ifdef
-name|QT_BUILD_KEY_COMPAT
-literal|"| "
-name|QT_BUILD_KEY_COMPAT
-literal|" "
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
-name|QT_BUILD_KEY_COMPAT2
-literal|"| "
-name|QT_BUILD_KEY_COMPAT2
-literal|" "
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
-name|QT_BUILD_KEY_COMPAT3
-literal|"| "
-name|QT_BUILD_KEY_COMPAT3
-literal|" "
-endif|#
-directive|endif
-literal|"|\n"
 literal|"Build date:          %s\n"
 literal|"Installation prefix: %s\n"
 literal|"Library path:        %s\n"

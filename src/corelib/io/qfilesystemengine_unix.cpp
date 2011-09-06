@@ -1155,6 +1155,11 @@ name|entry
 operator|.
 name|isAbsolute
 argument_list|()
+operator|&&
+name|entry
+operator|.
+name|isClean
+argument_list|()
 condition|)
 return|return
 name|entry

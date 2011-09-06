@@ -652,13 +652,13 @@ begin_comment
 comment|// ensures that enough space is available to append the list
 end_comment
 begin_function
-DECL|function|append2
+DECL|function|append
 name|void
 modifier|*
 modifier|*
 name|QListData
 operator|::
-name|append2
+name|append
 parameter_list|(
 specifier|const
 name|QListData

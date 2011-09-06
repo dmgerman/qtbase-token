@@ -320,7 +320,7 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
-block|{     }
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~QBenchmarkTestMethodData
@@ -362,7 +362,7 @@ name|QBenchmarkTestMethodData
 operator|::
 name|endDataRun
 parameter_list|()
-block|{  }
+block|{ }
 end_function
 begin_function
 DECL|function|adjustIterationCount
@@ -842,7 +842,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the benchmark result for this test function to \a result.       Use this function if you want to report benchmark results without     using the QBENCHMARK macro. Use \a metric to specify how QTestLib     should interpret the results.       The context for the result will be the test function name and any     data tag from the _data function. This function can only be called     once in each test function, subsequent calls will replace the     earlier reported results.      Note that the -iterations command line argument has no effect     on test functions without the QBENCHMARK macro.      \since 4.7 */
+comment|/*!     Sets the benchmark result for this test function to \a result.      Use this function if you want to report benchmark results without     using the QBENCHMARK macro. Use \a metric to specify how QTestLib     should interpret the results.      The context for the result will be the test function name and any     data tag from the _data function. This function can only be called     once in each test function, subsequent calls will replace the     earlier reported results.      Note that the -iterations command line argument has no effect     on test functions without the QBENCHMARK macro.      \since 4.7 */
 end_comment
 begin_function
 DECL|function|setBenchmarkResult

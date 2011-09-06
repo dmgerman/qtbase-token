@@ -195,6 +195,11 @@ name|isRelative
 argument_list|()
 specifier|const
 expr_stmt|;
+name|bool
+name|isClean
+argument_list|()
+specifier|const
+expr_stmt|;
 if|#
 directive|if
 name|defined

@@ -145,12 +145,7 @@ operator|+
 operator|(
 name|plat
 operator|.
-name|value
-argument_list|(
-name|PI_PulseGitBranch
-argument_list|)
-operator|.
-name|isEmpty
+name|isAdHocRun
 argument_list|()
 condition|?
 name|QLS
@@ -206,6 +201,17 @@ name|QLS
 argument_list|(
 literal|".html"
 argument_list|)
+expr_stmt|;
+name|hasOverride
+operator|=
+operator|!
+name|plat
+operator|.
+name|overrides
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
 expr_stmt|;
 block|}
 end_function
@@ -587,7 +593,7 @@ literal|"</b></span> items reported mismatching</p>\n\n"
 expr_stmt|;
 name|out
 operator|<<
-literal|"<h3>Platform Info:</h3>\n"
+literal|"<h3>Testing Client Platform Info:</h3>\n"
 operator|<<
 literal|"<table>\n"
 expr_stmt|;
@@ -607,7 +613,7 @@ literal|"<tr><td>"
 operator|<<
 name|key
 operator|<<
-literal|"</td><td>"
+literal|":</td><td>"
 operator|<<
 name|plat
 operator|.
@@ -622,6 +628,77 @@ name|out
 operator|<<
 literal|"</table>\n\n"
 expr_stmt|;
+if|if
+condition|(
+name|hasOverride
+condition|)
+block|{
+name|out
+operator|<<
+literal|"<span style=\"color:red\"><h4>Note! Platform Override Info:</h4></span>\n"
+operator|<<
+literal|"<p>The client's output has been compared to baselines created on a different platform. Differences:</p>\n"
+operator|<<
+literal|"<table>\n"
+expr_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|plat
+operator|.
+name|overrides
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+condition|;
+name|i
+operator|+=
+literal|2
+control|)
+name|out
+operator|<<
+literal|"<tr><td>"
+operator|<<
+name|plat
+operator|.
+name|overrides
+argument_list|()
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|<<
+literal|":</td><td>"
+operator|<<
+name|plat
+operator|.
+name|overrides
+argument_list|()
+operator|.
+name|at
+argument_list|(
+name|i
+operator|+
+literal|1
+argument_list|)
+operator|<<
+literal|"</td></tr>\n"
+expr_stmt|;
+name|out
+operator|<<
+literal|"</table>\n\n"
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -731,6 +808,12 @@ name|testFunction
 operator|<<
 literal|"</h3>\n"
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|hasOverride
+condition|)
+block|{
 name|out
 operator|<<
 literal|"<p><a href=\"/cgi-bin/server.cgi?cmd=clearAllBaselines&context="
@@ -759,6 +842,7 @@ name|pageUrl
 operator|<<
 literal|"\"><b>Let these mismatching images be the new baselines</b></a> for this testfunction</p>\n\n"
 expr_stmt|;
+block|}
 name|out
 operator|<<
 literal|"<table border=\"2\">\n"
@@ -935,6 +1019,14 @@ case|:
 name|out
 operator|<<
 literal|"<span style=\"background-color:yellow\">Blacklisted</span> "
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|hasOverride
+condition|)
+block|{
+name|out
 operator|<<
 literal|"<a href=\"/cgi-bin/server.cgi?cmd=whitelist&context="
 operator|<<
@@ -952,6 +1044,7 @@ name|pageUrl
 operator|<<
 literal|"\">Whitelist this item</a>"
 expr_stmt|;
+block|}
 break|break;
 case|case
 name|ImageItem
@@ -1096,6 +1189,14 @@ operator|<<
 name|metadata
 operator|<<
 literal|"\">Baseline Info</a>\n"
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|hasOverride
+condition|)
+block|{
+name|out
 operator|<<
 literal|"<p><a href=\"/cgi-bin/server.cgi?cmd=updateSingleBaseline&context="
 operator|<<
@@ -1130,6 +1231,9 @@ operator|<<
 name|pageUrl
 operator|<<
 literal|"\">Blacklist this item</a></p>\n"
+expr_stmt|;
+block|}
+name|out
 operator|<<
 literal|"<p><a href=\"/cgi-bin/server.cgi?cmd=view&baseline="
 operator|<<

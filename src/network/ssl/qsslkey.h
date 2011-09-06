@@ -102,6 +102,24 @@ argument_list|,
 argument|const QByteArray&passPhrase = QByteArray()
 argument_list|)
 empty_stmt|;
+name|explicit
+name|QSslKey
+argument_list|(
+name|Qt
+operator|::
+name|HANDLE
+name|handle
+argument_list|,
+name|QSsl
+operator|::
+name|KeyType
+name|type
+operator|=
+name|QSsl
+operator|::
+name|PrivateKey
+argument_list|)
+decl_stmt|;
 name|QSslKey
 argument_list|(
 specifier|const
