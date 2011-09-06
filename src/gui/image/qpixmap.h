@@ -788,7 +788,7 @@ argument|int type
 argument_list|)
 block|;
 name|void
-name|init
+name|doInit
 argument_list|(
 name|int
 argument_list|,

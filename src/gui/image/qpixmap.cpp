@@ -217,11 +217,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|init
+DECL|function|doInit
 name|void
 name|QPixmap
 operator|::
-name|init
+name|doInit
 parameter_list|(
 name|int
 name|w
@@ -298,7 +298,7 @@ operator|)
 name|qt_pixmap_thread_test
 argument_list|()
 expr_stmt|;
-name|init
+name|doInit
 argument_list|(
 literal|0
 argument_list|,
@@ -336,7 +336,7 @@ operator|!
 name|qt_pixmap_thread_test
 argument_list|()
 condition|)
-name|init
+name|doInit
 argument_list|(
 literal|0
 argument_list|,
@@ -348,7 +348,7 @@ name|PixmapType
 argument_list|)
 expr_stmt|;
 else|else
-name|init
+name|doInit
 argument_list|(
 name|w
 argument_list|,
@@ -385,7 +385,7 @@ operator|!
 name|qt_pixmap_thread_test
 argument_list|()
 condition|)
-name|init
+name|doInit
 argument_list|(
 literal|0
 argument_list|,
@@ -397,7 +397,7 @@ name|PixmapType
 argument_list|)
 expr_stmt|;
 else|else
-name|init
+name|doInit
 argument_list|(
 name|size
 operator|.
@@ -440,7 +440,7 @@ operator|!
 name|qt_pixmap_thread_test
 argument_list|()
 condition|)
-name|init
+name|doInit
 argument_list|(
 literal|0
 argument_list|,
@@ -458,7 +458,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 else|else
-name|init
+name|doInit
 argument_list|(
 name|s
 operator|.
@@ -534,7 +534,7 @@ member_init_list|:
 name|QPaintDevice
 argument_list|()
 block|{
-name|init
+name|doInit
 argument_list|(
 literal|0
 argument_list|,
@@ -588,7 +588,7 @@ name|qt_pixmap_thread_test
 argument_list|()
 condition|)
 block|{
-name|init
+name|doInit
 argument_list|(
 literal|0
 argument_list|,
@@ -656,7 +656,7 @@ member_init_list|:
 name|QPaintDevice
 argument_list|()
 block|{
-name|init
+name|doInit
 argument_list|(
 literal|0
 argument_list|,
