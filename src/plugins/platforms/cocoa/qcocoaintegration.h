@@ -166,6 +166,24 @@ name|fontDatabase
 argument_list|()
 specifier|const
 block|;
+name|QPlatformMenu
+operator|*
+name|createPlatformMenu
+argument_list|(
+argument|QMenu *menu =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|QPlatformMenuBar
+operator|*
+name|createPlatformMenuBar
+argument_list|(
+argument|QMenuBar *menuBar =
+literal|0
+argument_list|)
+specifier|const
+block|;
 name|QPlatformNativeInterface
 operator|*
 name|nativeInterface

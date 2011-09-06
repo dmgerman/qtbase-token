@@ -301,20 +301,6 @@ specifier|const
 block|;
 ifdef|#
 directive|ifdef
-name|Q_OS_MAC
-name|OSMenuRef
-name|macMenu
-argument_list|()
-block|;
-specifier|static
-name|bool
-name|macUpdateMenuBar
-argument_list|()
-block|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
 name|Q_WS_WINCE
 name|void
 name|setDefaultAction
@@ -353,6 +339,11 @@ name|setNativeMenuBar
 argument_list|(
 argument|bool nativeMenuBar
 argument_list|)
+block|;
+name|QPlatformMenuBar
+operator|*
+name|platformMenuBar
+argument_list|()
 block|;
 name|public
 name|Q_SLOTS

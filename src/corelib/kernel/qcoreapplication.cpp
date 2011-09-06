@@ -2739,48 +2739,6 @@ operator|<<
 name|attribute
 operator|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-comment|// Turn on the no native menubar here, since we used to
-comment|// do this implicitly. We DO NOT flip it off if someone sets
-comment|// it to false.
-comment|// Ideally, we'd have magic that would be something along the lines of
-comment|// "follow MacPluginApplication" unless explicitly set.
-comment|// Considering this attribute isn't only at the beginning
-comment|// it's unlikely it will ever be a problem, but I want
-comment|// to have the behavior documented here.
-if|if
-condition|(
-name|attribute
-operator|==
-name|Qt
-operator|::
-name|AA_MacPluginApplication
-operator|&&
-name|on
-operator|&&
-operator|!
-name|testAttribute
-argument_list|(
-name|Qt
-operator|::
-name|AA_DontUseNativeMenuBar
-argument_list|)
-condition|)
-block|{
-name|setAttribute
-argument_list|(
-name|Qt
-operator|::
-name|AA_DontUseNativeMenuBar
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment

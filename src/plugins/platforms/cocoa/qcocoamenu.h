@@ -154,7 +154,7 @@ expr|@
 name|interface
 name|QT_MANGLE_NAMESPACE
 argument_list|(
-name|QCocoaMenu
+name|QNativeCocoaMenu
 argument_list|)
 operator|:
 name|NSMenu
