@@ -946,6 +946,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
+name|Q_AUTOTEST_EXPORT
 name|int
 name|q_EVP_PKEY_set1_RSA
 parameter_list|(
@@ -1015,6 +1016,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
+name|Q_AUTOTEST_EXPORT
 name|EVP_PKEY
 modifier|*
 name|q_EVP_PKEY_new

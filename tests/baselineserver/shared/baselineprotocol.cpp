@@ -132,18 +132,6 @@ end_decl_stmt
 begin_decl_stmt
 specifier|const
 name|QString
-name|PI_BuildKey
-argument_list|(
-name|QLS
-argument_list|(
-literal|"BuildKey"
-argument_list|)
-argument_list|)
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-specifier|const
-name|QString
 name|PI_GitCommit
 argument_list|(
 name|QLS
@@ -313,9 +301,9 @@ name|QString
 argument_list|>
 argument_list|()
 member_init_list|,
-name|replaceDefault
+name|adHoc
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 block|{ }
 end_constructor
@@ -379,18 +367,6 @@ literal|"^.*mkspecs/"
 argument_list|)
 argument_list|)
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|pi
-operator|.
-name|insert
-argument_list|(
-name|PI_BuildKey
-argument_list|,
-name|QLibraryInfo
-operator|::
-name|buildKey
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|#
@@ -632,17 +608,21 @@ argument|);     if (!git.exitCode())         pi.insert(PI_GitCommit, QString::fr
 literal|"Unknown"
 argument|));      QByteArray gb = qgetenv(
 literal|"PULSE_GIT_BRANCH"
-argument|);     if (!gb.isEmpty())         pi.insert(PI_PulseGitBranch, QString::fromLatin1(gb));     QByteArray tb = qgetenv(
+argument|);     if (!gb.isEmpty()) {         pi.insert(PI_PulseGitBranch, QString::fromLatin1(gb));         pi.setAdHocRun(
+literal|false
+argument|);     }     QByteArray tb = qgetenv(
 literal|"PULSE_TESTR_BRANCH"
-argument|);     if (!tb.isEmpty())         pi.insert(PI_PulseTestrBranch, QString::fromLatin1(tb));      return pi; }   PlatformInfo::PlatformInfo(const PlatformInfo&other)     : QMap<QString
+argument|);     if (!tb.isEmpty()) {         pi.insert(PI_PulseTestrBranch, QString::fromLatin1(tb));         pi.setAdHocRun(
+literal|false
+argument|);     }      return pi; }   PlatformInfo::PlatformInfo(const PlatformInfo&other)     : QMap<QString
 argument_list|,
-argument|QString>(other) {     sigKeys = other.sigKeys;     replaceDefault = other.replaceDefault; }   PlatformInfo&PlatformInfo::operator=(const PlatformInfo&other) {     QMap<QString
+argument|QString>(other) {     orides = other.orides;     adHoc = other.adHoc; }   PlatformInfo&PlatformInfo::operator=(const PlatformInfo&other) {     QMap<QString
 argument_list|,
-argument|QString>::operator=(other);     sigKeys = other.sigKeys;     replaceDefault = other.replaceDefault;     return *this; }   void PlatformInfo::addSignificantKeys(const QStringList&keys, bool replaceDefaultKeys) {     sigKeys = keys;     replaceDefault = replaceDefaultKeys; }   QStringList PlatformInfo::addedKeys() const {     return sigKeys; }   bool PlatformInfo::addedKeysReplaceDefault() const {     return replaceDefault; }   QDataStream& operator<< (QDataStream&stream, const PlatformInfo&pi) {     stream<< static_cast<const QMap<QString
+argument|QString>::operator=(other);     orides = other.orides;     adHoc = other.adHoc;     return *this; }   void PlatformInfo::addOverride(const QString& key, const QString& value) {     orides.append(key);     orides.append(value); }   QStringList PlatformInfo::overrides() const {     return orides; }   void PlatformInfo::setAdHocRun(bool isAdHoc) {     adHoc = isAdHoc; }   bool PlatformInfo::isAdHocRun() const {     return adHoc; }   QDataStream& operator<< (QDataStream&stream, const PlatformInfo&pi) {     stream<< static_cast<const QMap<QString
 argument_list|,
-argument|QString>&>(pi);     stream<< pi.sigKeys<< pi.replaceDefault;     return stream; }   QDataStream& operator>> (QDataStream&stream, PlatformInfo&pi) {     stream>> static_cast<QMap<QString
+argument|QString>&>(pi);     stream<< pi.orides<< pi.adHoc;     return stream; }   QDataStream& operator>> (QDataStream&stream, PlatformInfo&pi) {     stream>> static_cast<QMap<QString
 argument_list|,
-argument|QString>&>(pi);     stream>> pi.sigKeys>> pi.replaceDefault;     return stream; }   ImageItem&ImageItem::operator=(const ImageItem&other) {     testFunction = other.testFunction;     itemName = other.itemName;     itemChecksum = other.itemChecksum;     status = other.status;     image = other.image;     imageChecksums = other.imageChecksums;     return *this; }
+argument|QString>&>(pi);     stream>> pi.orides>> pi.adHoc;     return stream; }   ImageItem&ImageItem::operator=(const ImageItem&other) {     testFunction = other.testFunction;     itemName = other.itemName;     itemChecksum = other.itemChecksum;     status = other.status;     image = other.image;     imageChecksums = other.imageChecksums;     return *this; }
 comment|// Defined in lookup3.c:
 argument|void hashword2 ( const quint32 *k,
 comment|/* the key, an array of quint32 values */
@@ -699,7 +679,7 @@ argument|) {         image = QImage();         return;     }     in>> fmt>> endi
 literal|"ImageItem cannot read streamed image with different endianness"
 argument|);         image = QImage();         return;     }     in>> width>> height>> bpl;     in>> data;     data = qUncompress(data);     QImage res((const uchar *)data.constData(), width, height, bpl, QImage::Format(fmt));     image = res.copy();
 comment|//# yuck, seems there is currently no way to avoid data copy
-argument|}  QDataStream& operator<< (QDataStream&stream, const ImageItem&ii) {     stream<< ii.testFunction<< ii.itemName<< ii.itemChecksum<< quint8(ii.status)<< ii.imageChecksums<< ii.misc;     ii.writeImageToStream(stream);     return stream; }  QDataStream& operator>> (QDataStream&stream, ImageItem&ii) {     quint8 encStatus;     stream>> ii.testFunction>> ii.itemName>> ii.itemChecksum>> encStatus>> ii.imageChecksums>> ii.misc;     ii.status = ImageItem::ItemStatus(encStatus);     ii.readImageFromStream(stream);     return stream; }  BaselineProtocol::BaselineProtocol() { }  BaselineProtocol::~BaselineProtocol() {     socket.close();     if (socket.state() != QTcpSocket::UnconnectedState)         socket.waitForDisconnected(Timeout); }   bool BaselineProtocol::connect(const QString&testCase, bool *dryrun) {     errMsg.clear();     QByteArray serverName(qgetenv(
+argument|}  QDataStream& operator<< (QDataStream&stream, const ImageItem&ii) {     stream<< ii.testFunction<< ii.itemName<< ii.itemChecksum<< quint8(ii.status)<< ii.imageChecksums<< ii.misc;     ii.writeImageToStream(stream);     return stream; }  QDataStream& operator>> (QDataStream&stream, ImageItem&ii) {     quint8 encStatus;     stream>> ii.testFunction>> ii.itemName>> ii.itemChecksum>> encStatus>> ii.imageChecksums>> ii.misc;     ii.status = ImageItem::ItemStatus(encStatus);     ii.readImageFromStream(stream);     return stream; }  BaselineProtocol::BaselineProtocol() { }  BaselineProtocol::~BaselineProtocol() {     socket.close();     if (socket.state() != QTcpSocket::UnconnectedState)         socket.waitForDisconnected(Timeout); }   bool BaselineProtocol::connect(const QString&testCase, bool *dryrun, const PlatformInfo& clientInfo) {     errMsg.clear();     QByteArray serverName(qgetenv(
 literal|"QT_LANCELOT_SERVER"
 argument|));     if (serverName.isNull())         serverName =
 literal|"lancelot.test.qt.nokia.com"
@@ -711,7 +691,7 @@ argument|) + serverName + QLS(
 literal|" port:"
 argument|) + QString::number(ServerPort);             return
 literal|false
-argument|;         }     }      PlatformInfo pi = PlatformInfo::localHostInfo();     pi.insert(PI_TestCase, testCase);     QByteArray block;     QDataStream ds(&block, QIODevice::ReadWrite);     ds<< pi;     if (!sendBlock(AcceptPlatformInfo, block)) {         errMsg += QLS(
+argument|;         }     }      PlatformInfo pi = clientInfo.isEmpty() ? PlatformInfo::localHostInfo() : clientInfo;     pi.insert(PI_TestCase, testCase);     QByteArray block;     QDataStream ds(&block, QIODevice::ReadWrite);     ds<< pi;     if (!sendBlock(AcceptPlatformInfo, block)) {         errMsg += QLS(
 literal|"Failed to send data to server."
 argument|);         return
 literal|false

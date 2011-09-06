@@ -514,6 +514,21 @@ expr_stmt|;
 comment|// do not damage the surface here, as this leads to graphical corruptions in the compositor until
 comment|// the first frame has been rendered
 block|}
+ifdef|#
+directive|ifdef
+name|QT_WAYLAND_WINDOWMANAGER_SUPPORT
+name|QWaylandWindowManagerIntegration
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|flushPropertyChanges
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

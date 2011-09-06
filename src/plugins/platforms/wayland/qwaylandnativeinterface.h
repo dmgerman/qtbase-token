@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QVariantMap>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QPlatformNativeInterface>
 end_include
 begin_decl_stmt
@@ -46,6 +51,51 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|QVariantMap
+name|windowProperties
+argument_list|(
+argument|QPlatformWindow *window
+argument_list|)
+specifier|const
+block|;
+name|QVariant
+name|windowProperty
+argument_list|(
+argument|QPlatformWindow *window
+argument_list|,
+argument|const QString&name
+argument_list|)
+specifier|const
+block|;
+name|QVariant
+name|windowProperty
+argument_list|(
+argument|QPlatformWindow *window
+argument_list|,
+argument|const QString&name
+argument_list|,
+argument|const QVariant&defaultValue
+argument_list|)
+specifier|const
+block|;
+name|void
+name|setWindowProperty
+argument_list|(
+name|QPlatformWindow
+operator|*
+name|window
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|name
+argument_list|,
+specifier|const
+name|QVariant
+operator|&
+name|value
+argument_list|)
+block|;
 name|private
 operator|:
 specifier|static
@@ -57,6 +107,17 @@ name|QWindow
 operator|*
 name|window
 argument_list|)
+block|;
+name|private
+operator|:
+name|QHash
+operator|<
+name|QPlatformWindow
+operator|*
+block|,
+name|QVariantMap
+operator|>
+name|m_windowProperties
 block|; }
 decl_stmt|;
 end_decl_stmt

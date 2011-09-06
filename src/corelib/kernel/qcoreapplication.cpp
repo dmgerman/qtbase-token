@@ -1071,36 +1071,6 @@ init|=
 literal|false
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|/*   Create an instance of Trolltech.conf. This ensures that the settings will not   be thrown out of QSetting's cache for unused settings.   */
-end_comment
-begin_macro
-name|Q_GLOBAL_STATIC_WITH_ARGS
-argument_list|(
-argument|QSettings
-argument_list|,
-argument|staticTrolltechConf
-argument_list|,
-argument|(QSettings::UserScope, QLatin1String(
-literal|"Trolltech"
-argument|))
-argument_list|)
-end_macro
-begin_function
-DECL|function|trolltechConf
-name|QSettings
-modifier|*
-name|QCoreApplicationPrivate
-operator|::
-name|trolltechConf
-parameter_list|()
-block|{
-return|return
-name|staticTrolltechConf
-argument_list|()
-return|;
-block|}
-end_function
 begin_function
 DECL|function|qGlobalPostedEventsCount
 name|Q_CORE_EXPORT

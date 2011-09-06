@@ -78,6 +78,11 @@ name|dsa
 argument_list|(
 literal|0
 argument_list|)
+operator|,
+name|opaque
+argument_list|(
+literal|0
+argument_list|)
 block|{
 name|clear
 argument_list|()
@@ -165,6 +170,10 @@ decl_stmt|;
 name|DSA
 modifier|*
 name|dsa
+decl_stmt|;
+name|EVP_PKEY
+modifier|*
+name|opaque
 decl_stmt|;
 name|QAtomicInt
 name|ref
