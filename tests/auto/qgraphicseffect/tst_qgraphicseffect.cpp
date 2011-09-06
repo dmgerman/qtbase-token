@@ -3721,12 +3721,12 @@ operator|&
 name|view
 argument_list|)
 expr_stmt|;
-name|QTRY_COMPARE
+name|QTRY_VERIFY
 argument_list|(
 name|parent
 operator|.
 name|nbPaint
-argument_list|,
+operator|>=
 literal|1
 argument_list|)
 expr_stmt|;
@@ -3750,12 +3750,12 @@ name|processEvents
 argument_list|()
 expr_stmt|;
 comment|//new effect applied->repaint
-name|QCOMPARE
+name|QVERIFY
 argument_list|(
 name|parent
 operator|.
 name|nbPaint
-argument_list|,
+operator|>=
 literal|2
 argument_list|)
 expr_stmt|;
@@ -3773,12 +3773,12 @@ name|processEvents
 argument_list|()
 expr_stmt|;
 comment|//a new child appears we need to redraw the effect.
-name|QCOMPARE
+name|QVERIFY
 argument_list|(
 name|parent
 operator|.
 name|nbPaint
-argument_list|,
+operator|>=
 literal|3
 argument_list|)
 expr_stmt|;
@@ -3851,12 +3851,12 @@ operator|&
 name|view
 argument_list|)
 expr_stmt|;
-name|QTRY_COMPARE
+name|QTRY_VERIFY
 argument_list|(
 name|item
 operator|->
 name|nbPaint
-argument_list|,
+operator|>=
 literal|1
 argument_list|)
 expr_stmt|;
@@ -4025,12 +4025,12 @@ operator|&
 name|view
 argument_list|)
 expr_stmt|;
-name|QTRY_COMPARE
+name|QTRY_VERIFY
 argument_list|(
 name|child
 operator|->
 name|nbPaint
-argument_list|,
+operator|>=
 literal|1
 argument_list|)
 expr_stmt|;
