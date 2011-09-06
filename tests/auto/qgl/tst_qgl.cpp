@@ -5827,17 +5827,6 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
-name|qt_x11_wait_for_window_manager
-argument_list|(
-operator|&
-name|widget
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTest
 operator|::
 name|qWait
@@ -5884,19 +5873,6 @@ argument_list|,
 literal|50
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_MAC
-comment|// repaint() is not immediate on the Mac; it has to go through the event loop.
-name|QTest
-operator|::
-name|qWait
-argument_list|(
-literal|200
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|supportsPartialUpdates

@@ -7193,18 +7193,6 @@ name|size
 argument_list|()
 expr_stmt|;
 block|}
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
-comment|//Dont even call q->p
-name|QPaintEngine
-modifier|*
-name|engine
-init|=
-literal|0
-decl_stmt|;
-else|#
-directive|else
 name|QPaintEngine
 modifier|*
 name|engine
@@ -7214,8 +7202,6 @@ operator|->
 name|paintEngine
 argument_list|()
 decl_stmt|;
-endif|#
-directive|endif
 comment|// QGLWidget does not support partial updates if:
 comment|// 1) The context is double buffered
 comment|// 2) The context is single buffered and auto-fill background is enabled.
