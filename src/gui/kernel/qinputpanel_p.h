@@ -43,7 +43,7 @@ specifier|inline
 name|QInputPanelPrivate
 argument_list|()
 operator|:
-name|open
+name|visible
 argument_list|(
 argument|false
 argument_list|)
@@ -58,7 +58,7 @@ operator|>
 name|inputItem
 block|;
 name|bool
-name|open
+name|visible
 block|; }
 decl_stmt|;
 end_decl_stmt

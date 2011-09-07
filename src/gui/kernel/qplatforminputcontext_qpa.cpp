@@ -113,7 +113,7 @@ operator|->
 name|inputPanel
 argument_list|()
 operator|->
-name|keyboardRectChanged
+name|keyboardRectangleChanged
 argument_list|()
 emit|;
 block|}

@@ -16674,7 +16674,7 @@ case|:
 name|inputPanel
 argument_list|()
 operator|->
-name|open
+name|show
 argument_list|()
 expr_stmt|;
 break|break;
@@ -16686,7 +16686,7 @@ case|:
 name|inputPanel
 argument_list|()
 operator|->
-name|close
+name|hide
 argument_list|()
 expr_stmt|;
 break|break;

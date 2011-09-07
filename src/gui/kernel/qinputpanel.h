@@ -66,15 +66,15 @@ argument|QObject *inputItem READ inputItem WRITE setInputItem NOTIFY inputItemCh
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QRectF cursorRect READ cursorRect NOTIFY cursorRectChanged
+argument|QRectF cursorRectangle READ cursorRectangle NOTIFY cursorRectangleChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QRectF keyboardRect READ keyboardRect NOTIFY keyboardRectChanged
+argument|QRectF keyboardRectangle READ keyboardRectangle NOTIFY keyboardRectangleChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|bool open READ isOpen WRITE setOpen NOTIFY openChanged
+argument|bool visible READ visible WRITE setVisible NOTIFY visibleChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -119,14 +119,14 @@ argument_list|)
 block|;
 comment|// in window coordinates
 name|QRectF
-name|cursorRect
+name|cursorRectangle
 argument_list|()
 specifier|const
 block|;
 comment|// ### what if we have rotations for the item?
 comment|// keyboard geometry in window coords
 name|QRectF
-name|keyboardRect
+name|keyboardRectangle
 argument_list|()
 block|;      enum
 name|Action
@@ -137,14 +137,14 @@ name|ContextMenu
 block|}
 block|;
 name|bool
-name|isOpen
+name|visible
 argument_list|()
 specifier|const
 block|;
 name|void
-name|setOpen
+name|setVisible
 argument_list|(
-argument|bool open
+argument|bool visible
 argument_list|)
 block|;
 name|bool
@@ -156,11 +156,11 @@ name|public
 name|Q_SLOTS
 operator|:
 name|void
-name|open
+name|show
 argument_list|()
 block|;
 name|void
-name|close
+name|hide
 argument_list|()
 block|;
 name|void
@@ -188,15 +188,15 @@ name|inputItemChanged
 argument_list|()
 block|;
 name|void
-name|cursorRectChanged
+name|cursorRectangleChanged
 argument_list|()
 block|;
 name|void
-name|keyboardRectChanged
+name|keyboardRectangleChanged
 argument_list|()
 block|;
 name|void
-name|openChanged
+name|visibleChanged
 argument_list|()
 block|;
 name|void
