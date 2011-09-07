@@ -13304,12 +13304,12 @@ operator|-
 name|g_offset
 expr_stmt|;
 block|}
+block|}
 comment|// Make sure we delete the simplex solver -before- we delete the
 comment|// constraints used by it.
 operator|delete
 name|simplex
 expr_stmt|;
-block|}
 comment|// Delete constraints and variables we created.
 name|qDeleteAll
 argument_list|(
