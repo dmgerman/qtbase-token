@@ -54,6 +54,11 @@ argument_list|)
 expr_stmt|;
 name|RUN_TEST
 argument_list|(
+name|evalwithinwith
+argument_list|)
+expr_stmt|;
+name|RUN_TEST
+argument_list|(
 name|userobjectcompare
 argument_list|)
 expr_stmt|;
