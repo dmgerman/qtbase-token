@@ -388,13 +388,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|ch
-operator|>=
-literal|0xdc00
-operator|&&
-name|ch
-operator|<
-literal|0xe000
+name|uc
+index|[
+name|i
+index|]
+operator|.
+name|isLowSurrogate
+argument_list|()
 condition|)
 block|{
 comment|// valid surrogate pair
@@ -404,21 +404,20 @@ expr_stmt|;
 name|uint
 name|u
 init|=
-operator|(
+name|QChar
+operator|::
+name|surrogateToUcs4
+argument_list|(
 name|high
-operator|-
-literal|0xd800
-operator|)
-operator|*
-literal|0x400
-operator|+
-operator|(
-name|ch
-operator|-
-literal|0xdc00
-operator|)
-operator|+
-literal|0x10000
+argument_list|,
+name|uc
+index|[
+name|i
+index|]
+operator|.
+name|unicode
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|len
 operator|=
@@ -499,9 +498,10 @@ block|}
 block|}
 if|if
 condition|(
+name|IsLatin
+argument_list|(
 name|ch
-operator|<
-literal|0x80
+argument_list|)
 condition|)
 block|{
 comment|// ASCII
@@ -515,15 +515,13 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|(
-name|ch
-operator|>=
-literal|0xd800
-operator|&&
-name|ch
-operator|<
-literal|0xdc00
-operator|)
+name|uc
+index|[
+name|i
+index|]
+operator|.
+name|isHighSurrogate
+argument_list|()
 condition|)
 block|{
 comment|// surrogates area. check for correct encoding
@@ -848,9 +846,10 @@ literal|0
 case|:
 if|if
 condition|(
+name|IsLatin
+argument_list|(
 name|ch
-operator|<
-literal|0x80
+argument_list|)
 condition|)
 block|{
 comment|// ASCII
@@ -1472,9 +1471,10 @@ literal|0
 case|:
 if|if
 condition|(
+name|IsLatin
+argument_list|(
 name|ch
-operator|<
-literal|0x80
+argument_list|)
 condition|)
 block|{
 comment|// ASCII
@@ -2112,9 +2112,10 @@ literal|0
 case|:
 if|if
 condition|(
+name|IsLatin
+argument_list|(
 name|ch
-operator|<
-literal|0x80
+argument_list|)
 condition|)
 block|{
 comment|// ASCII

@@ -6518,17 +6518,8 @@ name|fpos
 operator|&&
 name|uc
 operator|.
-name|unicode
+name|isLowSurrogate
 argument_list|()
-operator|>=
-literal|0xdc00
-operator|&&
-name|uc
-operator|.
-name|unicode
-argument_list|()
-operator|<
-literal|0xe000
 condition|)
 block|{
 comment|// second half of a surrogate, check if we have the first half as well,
@@ -6561,17 +6552,8 @@ if|if
 condition|(
 name|uc
 operator|.
-name|unicode
+name|isHighSurrogate
 argument_list|()
-operator|>=
-literal|0xd800
-operator|&&
-name|uc
-operator|.
-name|unicode
-argument_list|()
-operator|<
-literal|0xdc00
 condition|)
 operator|--
 name|d
