@@ -3754,6 +3754,10 @@ name|guiGlContext
 operator|=
 literal|0
 expr_stmt|;
+name|ownContext
+operator|=
+literal|false
+expr_stmt|;
 name|fbo
 operator|=
 literal|0

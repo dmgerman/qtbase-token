@@ -1073,6 +1073,9 @@ name|QOpenGLContext
 modifier|*
 name|guiGlContext
 decl_stmt|;
+name|bool
+name|ownContext
+decl_stmt|;
 name|void
 name|setupSharing
 parameter_list|()
