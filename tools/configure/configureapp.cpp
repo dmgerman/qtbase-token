@@ -23794,7 +23794,10 @@ literal|"SYNCQT"
 index|]
 operator|==
 literal|"yes"
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|findFile
 argument_list|(
 literal|"perl.exe"
@@ -23871,6 +23874,23 @@ operator|<<
 name|retc
 operator|<<
 name|endl
+operator|<<
+name|endl
+expr_stmt|;
+name|dictionary
+index|[
+literal|"DONE"
+index|]
+operator|=
+literal|"error"
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|cout
+operator|<<
+literal|"Perl not found in environment - cannot run syncqt."
 operator|<<
 name|endl
 expr_stmt|;
