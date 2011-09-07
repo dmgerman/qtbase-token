@@ -181,10 +181,6 @@ emit|emit
 name|cursorRectangleChanged
 argument_list|()
 emit|;
-emit|emit
-name|keyboardRectangleChanged
-argument_list|()
-emit|;
 block|}
 end_function
 begin_function
