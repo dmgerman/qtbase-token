@@ -1031,14 +1031,6 @@ name|QAction
 operator|>
 name|actionAboutToTrigger
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|bool
-name|emitHighlighted
-block|;
-endif|#
-directive|endif
 if|#
 directive|if
 name|defined
