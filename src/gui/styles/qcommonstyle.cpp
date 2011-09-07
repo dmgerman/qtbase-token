@@ -6403,12 +6403,6 @@ name|role
 parameter_list|)
 specifier|const
 block|{
-name|Q_Q
-argument_list|(
-specifier|const
-name|QCommonStyle
-argument_list|)
-expr_stmt|;
 specifier|const
 name|QWidget
 modifier|*
@@ -6441,7 +6435,7 @@ condition|)
 return|return
 name|QSize
 argument_list|(
-name|q
+name|proxyStyle
 operator|->
 name|pixelMetric
 argument_list|(
@@ -6454,7 +6448,7 @@ argument_list|,
 name|widget
 argument_list|)
 argument_list|,
-name|q
+name|proxyStyle
 operator|->
 name|pixelMetric
 argument_list|(
@@ -6541,7 +6535,7 @@ specifier|const
 name|int
 name|textMargin
 init|=
-name|q
+name|proxyStyle
 operator|->
 name|pixelMetric
 argument_list|(
@@ -6916,12 +6910,6 @@ name|rect
 parameter_list|)
 specifier|const
 block|{
-name|Q_Q
-argument_list|(
-specifier|const
-name|QCommonStyle
-argument_list|)
-expr_stmt|;
 specifier|const
 name|QWidget
 modifier|*
@@ -6935,7 +6923,7 @@ specifier|const
 name|int
 name|textMargin
 init|=
-name|q
+name|proxyStyle
 operator|->
 name|pixelMetric
 argument_list|(
@@ -7533,12 +7521,6 @@ name|sizehint
 parameter_list|)
 specifier|const
 block|{
-name|Q_Q
-argument_list|(
-specifier|const
-name|QCommonStyle
-argument_list|)
-expr_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|checkRect
@@ -7656,7 +7638,7 @@ name|textMargin
 init|=
 name|hasText
 condition|?
-name|q
+name|proxyStyle
 operator|->
 name|pixelMetric
 argument_list|(
@@ -7679,7 +7661,7 @@ name|pixmapMargin
 init|=
 name|hasPixmap
 condition|?
-name|q
+name|proxyStyle
 operator|->
 name|pixelMetric
 argument_list|(
@@ -7702,7 +7684,7 @@ name|checkMargin
 init|=
 name|hasCheck
 condition|?
-name|q
+name|proxyStyle
 operator|->
 name|pixelMetric
 argument_list|(
