@@ -40,6 +40,15 @@ parameter_list|()
 block|{ }
 end_function
 begin_function
+DECL|function|commit
+name|void
+name|QPlatformInputContext
+operator|::
+name|commit
+parameter_list|()
+block|{ }
+end_function
+begin_function
 DECL|function|update
 name|void
 name|QPlatformInputContext

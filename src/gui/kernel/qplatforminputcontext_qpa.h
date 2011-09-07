@@ -55,6 +55,13 @@ name|reset
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_function_decl
+name|virtual
+name|void
+name|commit
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_decl_stmt
 name|virtual
 name|void

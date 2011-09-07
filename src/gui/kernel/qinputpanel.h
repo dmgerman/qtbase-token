@@ -174,6 +174,10 @@ name|reset
 argument_list|()
 block|;
 name|void
+name|commit
+argument_list|()
+block|;
+name|void
 name|invokeAction
 argument_list|(
 argument|Action a
