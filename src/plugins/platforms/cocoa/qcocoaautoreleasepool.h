@@ -13,6 +13,12 @@ define|#
 directive|define
 name|QCOCOAAUTORELEASEPOOL_H
 end_define
+begin_undef
+DECL|macro|slots
+undef|#
+directive|undef
+name|slots
+end_undef
 begin_include
 include|#
 directive|include
