@@ -5616,7 +5616,9 @@ condition|)
 block|{
 name|userPath
 operator|=
-name|QLatin1String
+name|QFile
+operator|::
+name|decodeName
 argument_list|(
 name|env
 argument_list|)
@@ -5637,7 +5639,9 @@ argument_list|)
 expr_stmt|;
 name|userPath
 operator|+=
-name|QLatin1String
+name|QFile
+operator|::
+name|decodeName
 argument_list|(
 name|env
 argument_list|)
