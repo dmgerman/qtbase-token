@@ -1461,7 +1461,7 @@ operator|->
 name|inputPanel
 argument_list|()
 operator|->
-name|setInputItemTranform
+name|setInputItemTransform
 argument_list|(
 name|t
 argument_list|)

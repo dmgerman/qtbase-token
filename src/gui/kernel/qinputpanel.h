@@ -109,7 +109,7 @@ argument_list|()
 specifier|const
 block|;
 name|void
-name|setInputItemTranform
+name|setInputItemTransform
 argument_list|(
 specifier|const
 name|QTransform
