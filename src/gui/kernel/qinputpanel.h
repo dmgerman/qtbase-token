@@ -42,6 +42,12 @@ name|QRectF
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QTransform
+name|class
+name|QTransform
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QInputPanel
