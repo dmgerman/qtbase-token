@@ -85,7 +85,7 @@ specifier|const
 block|;
 name|QPlatformOpenGLContext
 operator|*
-name|createPlatformGLContext
+name|createPlatformOpenGLContext
 argument_list|(
 argument|QOpenGLContext *context
 argument_list|)
