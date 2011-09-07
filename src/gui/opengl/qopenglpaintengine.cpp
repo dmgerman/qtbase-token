@@ -1815,7 +1815,7 @@ if|if
 condition|(
 name|device
 operator|->
-name|isFlipped
+name|paintFlipped
 argument_list|()
 condition|)
 block|{
@@ -2030,7 +2030,7 @@ if|if
 condition|(
 name|device
 operator|->
-name|isFlipped
+name|paintFlipped
 argument_list|()
 condition|)
 block|{
@@ -2931,6 +2931,14 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_OPENGL_ES_2
+name|Q_ASSERT
+argument_list|(
+name|QOpenGLContext
+operator|::
+name|currentContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 specifier|const
 name|QSurfaceFormat
 modifier|&
@@ -2939,6 +2947,9 @@ init|=
 name|d
 operator|->
 name|device
+operator|->
+name|context
+argument_list|()
 operator|->
 name|format
 argument_list|()
@@ -5085,14 +5096,18 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|device
+operator|->
+name|context
+argument_list|()
 operator|->
 name|format
 argument_list|()
 operator|.
 name|stencilBufferSize
 argument_list|()
+operator|==
+literal|0
 condition|)
 block|{
 comment|// If there is no stencil buffer, triangulate the path instead.
@@ -8069,8 +8084,16 @@ name|d
 operator|->
 name|device
 operator|->
-name|alphaRequested
+name|context
 argument_list|()
+operator|->
+name|format
+argument_list|()
+operator|.
+name|alphaBufferSize
+argument_list|()
+operator|>
+literal|0
 operator|||
 name|s
 operator|->
@@ -8421,8 +8444,16 @@ name|d
 operator|->
 name|device
 operator|->
-name|alphaRequested
+name|context
 argument_list|()
+operator|->
+name|format
+argument_list|()
+operator|.
+name|alphaBufferSize
+argument_list|()
+operator|>
+literal|0
 operator|||
 name|txtype
 operator|>
@@ -11324,9 +11355,8 @@ argument_list|(
 name|QOpenGL2PaintEngineEx
 argument_list|)
 expr_stmt|;
-comment|//     qDebug("QOpenGL2PaintEngineEx::begin()");
-if|if
-condition|(
+name|Q_ASSERT
+argument_list|(
 name|pdev
 operator|->
 name|devType
@@ -11335,7 +11365,8 @@ operator|==
 name|QInternal
 operator|::
 name|OpenGL
-condition|)
+argument_list|)
+expr_stmt|;
 name|d
 operator|->
 name|device
@@ -11345,18 +11376,6 @@ argument_list|<
 name|QOpenGLPaintDevice
 operator|*
 argument_list|>
-argument_list|(
-name|pdev
-argument_list|)
-expr_stmt|;
-else|else
-name|d
-operator|->
-name|device
-operator|=
-name|QOpenGLPaintDevice
-operator|::
-name|getDevice
 argument_list|(
 name|pdev
 argument_list|)
@@ -11377,18 +11396,18 @@ name|d
 operator|->
 name|device
 operator|->
-name|group
+name|context
 argument_list|()
 operator|!=
-name|QOpenGLContextGroup
+name|QOpenGLContext
 operator|::
-name|currentContextGroup
+name|currentContext
 argument_list|()
 condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QPainter::begin(): OpenGL resource not valid in current context"
+literal|"QPainter::begin(): QOpenGLPaintDevice's context needs to be current"
 argument_list|)
 expr_stmt|;
 return|return
@@ -11565,16 +11584,6 @@ name|stencilClean
 operator|=
 literal|true
 expr_stmt|;
-comment|// Calling begin paint should make the correct context current. So, any
-comment|// code which calls into GL or otherwise needs a current context *must*
-comment|// go after beginPaint:
-name|d
-operator|->
-name|device
-operator|->
-name|beginPaint
-argument_list|()
-expr_stmt|;
 name|d
 operator|->
 name|shaderManager
@@ -11693,6 +11702,9 @@ name|d
 operator|->
 name|device
 operator|->
+name|context
+argument_list|()
+operator|->
 name|format
 argument_list|()
 operator|.
@@ -11752,13 +11764,6 @@ name|transferMode
 argument_list|(
 name|BrushDrawingMode
 argument_list|)
-expr_stmt|;
-name|d
-operator|->
-name|device
-operator|->
-name|endPaint
-argument_list|()
 expr_stmt|;
 name|ctx
 operator|->
@@ -11926,13 +11931,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-name|d
-operator|->
-name|device
-operator|->
-name|ensureActiveTarget
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|d
@@ -12283,7 +12281,7 @@ if|if
 condition|(
 name|device
 operator|->
-name|isFlipped
+name|paintFlipped
 argument_list|()
 condition|)
 block|{

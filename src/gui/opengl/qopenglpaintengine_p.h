@@ -51,6 +51,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qopenglpaintdevice.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qpaintengineex_p.h>
 end_include
 begin_include
@@ -62,11 +67,6 @@ begin_include
 include|#
 directive|include
 file|<private/qopengl2pexvertexarray_p.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<private/qopenglpaintdevice_p.h>
 end_include
 begin_include
 include|#
