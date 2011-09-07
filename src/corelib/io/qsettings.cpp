@@ -113,6 +113,10 @@ include|#
 directive|include
 file|"qcoreapplication.h"
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -135,16 +139,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|// Q_OS_WIN
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_QOBJECT
-end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -5219,11 +5213,6 @@ name|result
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_QOBJECT
-comment|// We can't use QLibrary if there is QT_NO_QOBJECT is defined
-comment|// This only happens when bootstrapping qmake.
-ifndef|#
-directive|ifndef
 name|Q_OS_WINCE
 name|QSystemLibrary
 name|library
@@ -5310,9 +5299,6 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// QT_NO_QOBJECT
 if|if
 condition|(
 name|result
