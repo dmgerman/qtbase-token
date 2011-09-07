@@ -162,7 +162,8 @@ literal|"  -D<macro>[=<def>]  define macro, with optional definition\n"
 literal|"  -U<macro>          undefine macro\n"
 literal|"  -i                 do not generate an #include statement\n"
 literal|"  -p<path>           path prefix for included file\n"
-literal|"  -f[<file>]         force #include, optional file name\n"
+literal|"  -f[<file>]         force #include, optional file name (overwrite default)\n"
+literal|"  -b<file>           prepend #include<file> (preserve default include)\n"
 literal|"  -nn                do not display notes\n"
 literal|"  -nw                do not display warnings\n"
 literal|"  @<file>            read additional options from file\n"
@@ -494,6 +495,11 @@ parameter_list|)
 block|{
 name|bool
 name|autoInclude
+init|=
+literal|true
+decl_stmt|;
+name|bool
+name|defaultInclude
 init|=
 literal|true
 decl_stmt|;
@@ -932,6 +938,7 @@ index|[
 literal|1
 index|]
 condition|)
+block|{
 comment|// -fsomething.h
 name|moc
 operator|.
@@ -947,6 +954,80 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|defaultInclude
+operator|=
+literal|false
+expr_stmt|;
+block|}
+break|break;
+case|case
+literal|'b'
+case|:
+if|if
+condition|(
+name|ignoreConflictingOptions
+condition|)
+break|break;
+if|if
+condition|(
+operator|!
+name|more
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|n
+operator|<
+name|argc
+operator|-
+literal|1
+operator|)
+condition|)
+name|error
+argument_list|(
+literal|"Missing file name for the -b option."
+argument_list|)
+expr_stmt|;
+name|moc
+operator|.
+name|includeFiles
+operator|.
+name|prepend
+argument_list|(
+name|argv
+index|[
+operator|++
+name|n
+index|]
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|opt
+index|[
+literal|1
+index|]
+condition|)
+block|{
+name|moc
+operator|.
+name|includeFiles
+operator|.
+name|prepend
+argument_list|(
+name|opt
+operator|.
+name|mid
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 break|break;
 case|case
 literal|'p'
@@ -1516,12 +1597,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|moc
-operator|.
-name|includeFiles
-operator|.
-name|isEmpty
-argument_list|()
+name|defaultInclude
 condition|)
 block|{
 if|if
