@@ -129,6 +129,10 @@ name|void
 name|inputItemChanged
 parameter_list|()
 function_decl|;
+name|void
+name|cursorRectChanged
+parameter_list|()
+function_decl|;
 name|private
 label|:
 name|QIBusPlatformInputContextPrivate

@@ -1970,6 +1970,15 @@ name|region
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|// tells the input panel about the widgets transform
+end_comment
+begin_function_decl
+name|void
+name|updateWidgetTransform
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_function_decl
 name|void
 name|reparentFocusWidgets
