@@ -63,12 +63,17 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_include
 include|#
 directive|include
-file|<private/qt_mac_p.h>
+file|<QtCore/private/qcore_mac_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<Carbon/Carbon.h>
 end_include
 begin_endif
 endif|#
@@ -78,7 +83,7 @@ begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 DECL|variable|qt_sequence_no_mnemonics
 specifier|static
 name|bool
@@ -6854,7 +6859,7 @@ end_constructor
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_function
 DECL|function|maybeSwapShortcut
@@ -7015,7 +7020,7 @@ name|shortcut
 init|=
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|maybeSwapShortcut
 argument_list|(
 name|QKeySequencePrivate
@@ -7846,7 +7851,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 specifier|const
 name|bool
 name|dontSwap
@@ -8226,7 +8231,7 @@ name|accel
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 for|for
 control|(
 name|int
@@ -8470,7 +8475,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|int
 name|qtKey
 init|=
@@ -8810,7 +8815,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 if|if
 condition|(
@@ -9334,7 +9339,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 if|if
 condition|(
@@ -9372,7 +9377,7 @@ directive|endif
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|NonSymbol
 label|:
 endif|#
@@ -9508,7 +9513,7 @@ block|}
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 name|nativeText
