@@ -17898,6 +17898,10 @@ operator|+
 name|line
 operator|.
 name|length
+operator|+
+name|line
+operator|.
+name|trailingSpaces
 operator|>
 name|pos
 condition|)

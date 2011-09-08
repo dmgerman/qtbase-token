@@ -1932,6 +1932,11 @@ argument_list|(
 literal|0
 argument_list|)
 operator|,
+name|trailingSpaces
+argument_list|(
+literal|0
+argument_list|)
+operator|,
 name|length
 argument_list|(
 literal|0
@@ -1992,6 +1997,11 @@ decl_stmt|;
 DECL|member|from
 name|int
 name|from
+decl_stmt|;
+DECL|member|trailingSpaces
+name|unsigned
+name|short
+name|trailingSpaces
 decl_stmt|;
 DECL|member|length
 name|signed
