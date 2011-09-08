@@ -51,15 +51,11 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
+DECL|function|QT_MODULE
 name|QT_MODULE
 argument_list|(
 name|Gui
 argument_list|)
-name|class
-name|QPlatformIntegration
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QGuiApplicationPrivate
