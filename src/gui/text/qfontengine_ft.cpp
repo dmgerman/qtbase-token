@@ -168,6 +168,26 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_MAX_CACHED_GLYPH_SIZE
+argument_list|)
+end_if
+begin_define
+DECL|macro|QT_MAX_CACHED_GLYPH_SIZE
+define|#
+directive|define
+name|QT_MAX_CACHED_GLYPH_SIZE
+value|64
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|/*  * Freetype 2.1.7 and earlier used width/height  * for matching sizes in the BDF and PCF loaders.  * This has been fixed for 2.1.8.  */
@@ -1845,7 +1865,7 @@ operator|*
 name|xsize
 operator|>
 operator|(
-literal|64
+name|QT_MAX_CACHED_GLYPH_SIZE
 operator|<<
 literal|6
 operator|)
@@ -1854,7 +1874,7 @@ operator|*
 name|ysize
 operator|>
 operator|(
-literal|64
+name|QT_MAX_CACHED_GLYPH_SIZE
 operator|<<
 literal|6
 operator|)
@@ -8306,7 +8326,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|>=
-literal|64
+name|QT_MAX_CACHED_GLYPH_SIZE
 decl_stmt|;
 if|if
 condition|(
