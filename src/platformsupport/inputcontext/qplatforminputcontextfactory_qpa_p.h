@@ -79,6 +79,14 @@ name|key
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+specifier|static
+name|QPlatformInputContext
+modifier|*
+name|create
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_expr_stmt
 unit|};
 name|QT_END_NAMESPACE

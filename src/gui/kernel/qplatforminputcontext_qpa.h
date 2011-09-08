@@ -55,6 +55,12 @@ name|QPlatformInputContext
 argument_list|()
 block|;
 name|virtual
+name|bool
+name|isValid
+argument_list|()
+specifier|const
+block|;
+name|virtual
 name|void
 name|reset
 argument_list|()

@@ -47,7 +47,6 @@ operator|~
 name|QIBusPlatformInputContext
 argument_list|()
 block|;
-name|Q_INVOKABLE
 name|bool
 name|isValid
 argument_list|()

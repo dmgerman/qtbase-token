@@ -31,6 +31,20 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_function
+DECL|function|isValid
+name|bool
+name|QPlatformInputContext
+operator|::
+name|isValid
+parameter_list|()
+specifier|const
+block|{
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_function
 DECL|function|reset
 name|void
 name|QPlatformInputContext
