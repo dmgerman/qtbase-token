@@ -60,6 +60,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qinputpanel.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qtextdocumentlayout_p.h"
 end_include
 begin_include
@@ -8388,14 +8393,22 @@ emit|;
 name|_q_updateCurrentCharFormatAndSelection
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|// ### ndef QT_NO_IM
-block|if (contextObject) {             if (QInputContext *ic = inputContext()) {                 ic->update();             }         }
-endif|#
-directive|endif
-comment|//QT_NO_IM
+if|if
+condition|(
+name|qGuiApp
+condition|)
+name|qGuiApp
+operator|->
+name|inputPanel
+argument_list|()
+operator|->
+name|update
+argument_list|(
+name|Qt
+operator|::
+name|ImQueryAll
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
