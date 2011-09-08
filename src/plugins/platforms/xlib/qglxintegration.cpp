@@ -349,11 +349,6 @@ operator|::
 name|doneCurrent
 parameter_list|()
 block|{
-name|QPlatformOpenGLContext
-operator|::
-name|doneCurrent
-argument_list|()
-expr_stmt|;
 name|glXMakeCurrent
 argument_list|(
 name|m_screen
