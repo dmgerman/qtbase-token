@@ -247,7 +247,11 @@ init|=
 name|query
 operator|.
 name|value
-argument_list|()
+argument_list|(
+name|Qt
+operator|::
+name|ImCursorRectangle
+argument_list|)
 operator|.
 name|toRect
 argument_list|()

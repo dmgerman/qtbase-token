@@ -66,6 +66,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qvector.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qset.h>
 end_include
 begin_include
@@ -2072,7 +2077,7 @@ name|public
 operator|:
 name|QInputMethodQueryEvent
 argument_list|(
-argument|Qt::InputMethodQuery query
+argument|Qt::InputMethodQueries queries
 argument_list|)
 block|;
 operator|~
@@ -2081,43 +2086,53 @@ argument_list|()
 block|;
 name|Qt
 operator|::
-name|InputMethodQuery
-name|query
+name|InputMethodQueries
+name|queries
 argument_list|()
 specifier|const
 block|{
 return|return
-name|m_query
+name|m_queries
 return|;
 block|}
 name|void
 name|setValue
 argument_list|(
+argument|Qt::InputMethodQuery q
+argument_list|,
 argument|const QVariant&v
 argument_list|)
-block|{
-name|m_value
-operator|=
-name|v
-block|; }
+block|;
 name|QVariant
 name|value
-argument_list|()
+argument_list|(
+argument|Qt::InputMethodQuery q
+argument_list|)
 specifier|const
-block|{
-return|return
-name|m_value
-return|;
-block|}
+block|;
 name|private
 operator|:
 name|Qt
 operator|::
+name|InputMethodQueries
+name|m_queries
+block|;     struct
+name|QueryPair
+block|{
+name|Qt
+operator|::
 name|InputMethodQuery
-name|m_query
+name|query
 block|;
 name|QVariant
-name|m_value
+name|value
+block|;     }
+block|;
+name|QVector
+operator|<
+name|QueryPair
+operator|>
+name|m_values
 block|; }
 decl_stmt|;
 end_decl_stmt
