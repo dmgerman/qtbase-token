@@ -6362,8 +6362,8 @@ name|inputContext
 argument_list|()
 condition|)
 block|{
-name|QVariant
-name|value
+name|bool
+name|retval
 decl_stmt|;
 name|QMetaObject
 operator|::
@@ -6379,9 +6379,9 @@ name|DirectConnection
 argument_list|,
 name|Q_RETURN_ARG
 argument_list|(
-name|QVariant
+name|bool
 argument_list|,
-name|value
+name|retval
 argument_list|)
 argument_list|,
 name|Q_ARG
@@ -6419,10 +6419,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|value
-operator|.
-name|toBool
-argument_list|()
+name|retval
 condition|)
 return|return;
 block|}
