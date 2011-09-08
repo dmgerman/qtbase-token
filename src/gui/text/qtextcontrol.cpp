@@ -10021,7 +10021,7 @@ block|{
 case|case
 name|Qt
 operator|::
-name|ImMicroFocus
+name|ImCursorRectangle
 case|:
 return|return
 name|cursorRect

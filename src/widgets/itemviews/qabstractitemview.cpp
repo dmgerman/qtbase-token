@@ -2673,7 +2673,7 @@ name|query
 operator|!=
 name|Qt
 operator|::
-name|ImMicroFocus
+name|ImCursorRectangle
 condition|)
 return|return
 name|QAbstractScrollArea

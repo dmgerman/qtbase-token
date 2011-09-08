@@ -223,7 +223,7 @@ name|query
 argument_list|(
 name|Qt
 operator|::
-name|ImMicroFocus
+name|ImCursorRectangle
 argument_list|)
 decl_stmt|;
 name|QGuiApplication
@@ -492,7 +492,7 @@ name|queries
 operator|&
 name|Qt
 operator|::
-name|ImMicroFocus
+name|ImCursorRectangle
 condition|)
 emit|emit
 name|cursorRectangleChanged

@@ -3949,10 +3949,15 @@ name|ImEnabled
 init|=
 literal|0x1
 block|,
+name|ImCursorRectangle
+init|=
+literal|0x2
+block|,
 name|ImMicroFocus
 init|=
 literal|0x2
 block|,
+comment|// deprecated
 name|ImFont
 init|=
 literal|0x4

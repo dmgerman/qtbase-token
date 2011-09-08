@@ -30468,7 +30468,7 @@ name|inputMethodQuery
 argument_list|(
 name|Qt
 operator|::
-name|ImMicroFocus
+name|ImCursorRectangle
 argument_list|)
 operator|.
 name|toRect
@@ -33078,7 +33078,7 @@ block|{
 case|case
 name|Qt
 operator|::
-name|ImMicroFocus
+name|ImCursorRectangle
 case|:
 return|return
 name|QRect
