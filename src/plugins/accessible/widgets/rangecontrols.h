@@ -463,55 +463,12 @@ name|QWidget
 operator|*
 name|w
 argument_list|)
-block|;      enum
-name|ScrollBarElements
-block|{
-name|ScrollBarSelf
-operator|=
-literal|0
-block|,
-name|LineUp
-block|,
-name|PageUp
-block|,
-name|Position
-block|,
-name|PageDown
-block|,
-name|LineDown
-block|}
-block|;
-name|int
-name|childCount
-argument_list|()
-specifier|const
-block|;
-name|QRect
-name|rect
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
 block|;
 name|QString
 name|text
 argument_list|(
 argument|Text t
 argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|Role
-name|role
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|State
-name|state
-argument_list|(
 argument|int child
 argument_list|)
 specifier|const
