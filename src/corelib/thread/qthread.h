@@ -40,6 +40,12 @@ name|class
 name|QThreadPrivate
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QAbstractEventDispatcher
+name|class
+name|QAbstractEventDispatcher
+decl_stmt|;
+end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -148,6 +154,20 @@ name|exit
 argument_list|(
 argument|int retcode =
 literal|0
+argument_list|)
+block|;
+name|QAbstractEventDispatcher
+operator|*
+name|eventDispatcher
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setEventDispatcher
+argument_list|(
+name|QAbstractEventDispatcher
+operator|*
+name|eventDispatcher
 argument_list|)
 block|;
 name|public

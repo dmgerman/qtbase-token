@@ -1167,7 +1167,21 @@ operator|->
 name|exited
 expr_stmt|;
 block|}
-comment|// ### TODO: allow the user to create a custom event dispatcher
+if|if
+condition|(
+name|data
+operator|->
+name|eventDispatcher
+condition|)
+comment|// custom event dispatcher set?
+name|data
+operator|->
+name|eventDispatcher
+operator|->
+name|startingUp
+argument_list|()
+expr_stmt|;
+else|else
 name|createEventDispatcher
 argument_list|(
 name|data

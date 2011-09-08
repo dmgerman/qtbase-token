@@ -84,10 +84,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|{ }
-name|void
-name|init
-argument_list|()
-block|;
 name|QAbstractEventDispatcher
 operator|::
 name|EventFilter
