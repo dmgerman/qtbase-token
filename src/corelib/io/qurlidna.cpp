@@ -24250,7 +24250,7 @@ condition|)
 return|return
 literal|false
 return|;
-comment|// verifying the absence of LDH is the same as verifying that
+comment|// verifying the absence of non-LDH is the same as verifying that
 comment|// only LDH is present
 if|if
 condition|(
