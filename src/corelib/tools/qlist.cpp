@@ -26,6 +26,7 @@ begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*     QList as an array-list combines the easy-of-use of a random     access interface with fast list operations and the low memory     management overhead of an array. Accessing elements by index,     appending, prepending, and removing elements from both the front     and the back all happen in constant time O(1). Inserting or     removing elements at random index positions \ai happens in linear     time, or more precisly in O(min{i,n-i})<= O(n/2), with n being     the number of elements in the list. */
 DECL|member|shared_null
+specifier|const
 name|QListData
 operator|::
 name|Data
@@ -34,8 +35,9 @@ operator|::
 name|shared_null
 init|=
 block|{
-name|Q_BASIC_ATOMIC_INITIALIZER
+name|Q_REFCOUNT_INITIALIZER
 argument_list|(
+operator|-
 literal|1
 argument_list|)
 block|,

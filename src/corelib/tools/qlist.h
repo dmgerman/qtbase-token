@@ -16,17 +16,17 @@ end_define
 begin_include
 include|#
 directive|include
+file|<QtCore/qalgorithms.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qiterator.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/qatomic.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtCore/qalgorithms.h>
+file|<QtCore/qrefcount.h>
 end_include
 begin_ifndef
 ifndef|#
@@ -119,9 +119,11 @@ struct|struct
 name|Data
 block|{
 DECL|member|ref
-name|QBasicAtomicInt
+name|QtPrivate
+operator|::
+name|RefCount
 name|ref
-decl_stmt|;
+expr_stmt|;
 DECL|member|alloc
 DECL|member|begin
 DECL|member|end
@@ -194,6 +196,7 @@ parameter_list|)
 function_decl|;
 DECL|member|shared_null
 specifier|static
+specifier|const
 name|Data
 name|shared_null
 decl_stmt|;
@@ -474,16 +477,9 @@ argument_list|()
 operator|:
 name|d
 argument_list|(
-argument|&QListData::shared_null
+argument|const_cast<QListData::Data *>(&QListData::shared_null)
 argument_list|)
-block|{
-name|d
-operator|->
-name|ref
-operator|.
-name|ref
-argument_list|()
-block|; }
+block|{ }
 specifier|inline
 name|QList
 argument_list|(
@@ -625,16 +621,9 @@ argument_list|)
 operator|:
 name|d
 argument_list|(
-argument|&QListData::shared_null
+argument|const_cast<QListData::Data *>(&QListData::shared_null)
 argument_list|)
 block|{
-name|d
-operator|->
-name|ref
-operator|.
-name|ref
-argument_list|()
-block|;
 name|qCopy
 argument_list|(
 name|args
