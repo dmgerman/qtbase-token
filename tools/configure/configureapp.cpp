@@ -17426,6 +17426,19 @@ name|qtConfig
 operator|+=
 literal|"svg"
 expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"V8"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|qtConfig
+operator|+=
+literal|"v8"
+expr_stmt|;
 comment|// Add config levels --------------------------------------------
 name|QStringList
 name|possible_configs
