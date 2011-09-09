@@ -157,6 +157,12 @@ parameter_list|)
 block|{
 return|return
 index|[
+name|const_cast
+operator|<
+name|NSString
+operator|*
+operator|>
+operator|(
 name|reinterpret_cast
 operator|<
 specifier|const
@@ -170,6 +176,7 @@ name|toCFStringRef
 argument_list|(
 name|qstr
 argument_list|)
+operator|)
 operator|)
 name|autorelease
 index|]

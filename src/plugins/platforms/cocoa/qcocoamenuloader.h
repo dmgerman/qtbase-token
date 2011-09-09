@@ -43,14 +43,14 @@ end_comment
 begin_comment
 comment|//
 end_comment
+begin_empty
+empty|#import<Cocoa/Cocoa.h>
+end_empty
 begin_include
 include|#
 directive|include
 file|<QtCore/private/qcore_mac_p.h>
 end_include
-begin_empty
-empty|#import<Cocoa/Cocoa.h>
-end_empty
 begin_macro
 unit|@
 DECL|function|QT_MANGLE_NAMESPACE
