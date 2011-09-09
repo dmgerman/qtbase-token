@@ -41,14 +41,16 @@ block|}
 end_function
 begin_decl_stmt
 DECL|member|shared_null
+specifier|const
 name|QVectorData
 name|QVectorData
 operator|::
 name|shared_null
 init|=
 block|{
-name|Q_BASIC_ATOMIC_INITIALIZER
+name|Q_REFCOUNT_INITIALIZER
 argument_list|(
+operator|-
 literal|1
 argument_list|)
 block|,

@@ -16,22 +16,22 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/qiterator.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtCore/qatomic.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/qalgorithms.h>
 end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qiterator.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qlist.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qrefcount.h>
 end_include
 begin_ifndef
 ifndef|#
@@ -88,9 +88,11 @@ decl|struct
 name|Q_CORE_EXPORT
 name|QVectorData
 block|{
-name|QBasicAtomicInt
+name|QtPrivate
+operator|::
+name|RefCount
 name|ref
-decl_stmt|;
+expr_stmt|;
 name|int
 name|alloc
 decl_stmt|;
@@ -148,6 +150,7 @@ decl_stmt|;
 endif|#
 directive|endif
 specifier|static
+specifier|const
 name|QVectorData
 name|shared_null
 decl_stmt|;
@@ -364,16 +367,9 @@ argument_list|()
 operator|:
 name|d
 argument_list|(
-argument|&QVectorData::shared_null
+argument|const_cast<QVectorData *>(&QVectorData::shared_null)
 argument_list|)
-block|{
-name|d
-operator|->
-name|ref
-operator|.
-name|ref
-argument_list|()
-block|; }
+block|{ }
 name|explicit
 name|QVector
 argument_list|(

@@ -16720,6 +16720,21 @@ name|vectorize
 argument_list|()
 expr_stmt|;
 comment|// hw: modify the vector size directly to avoid reallocation
+if|if
+condition|(
+name|d
+operator|->
+name|qt_rgn
+operator|->
+name|rects
+operator|.
+name|d
+operator|!=
+operator|&
+name|QVectorData
+operator|::
+name|shared_null
+condition|)
 name|d
 operator|->
 name|qt_rgn
