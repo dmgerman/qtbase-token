@@ -16203,6 +16203,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|cache
 operator|.
 name|contains

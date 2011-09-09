@@ -1193,16 +1193,6 @@ name|n
 operator|->
 name|p
 expr_stmt|;
-if|if
-condition|(
-name|qIsDetached
-argument_list|(
-operator|*
-name|u
-operator|->
-name|t
-argument_list|)
-condition|)
 name|unlink
 argument_list|(
 operator|*
