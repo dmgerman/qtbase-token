@@ -96,14 +96,6 @@ operator|*
 name|w
 argument_list|)
 decl_stmt|;
-name|QRect
-name|rect
-argument_list|(
-name|int
-name|child
-argument_list|)
-decl|const
-decl_stmt|;
 name|QString
 name|text
 argument_list|(
@@ -223,7 +215,7 @@ name|class
 name|QAccessibleDoubleSpinBox
 range|:
 name|public
-name|QAccessibleWidget
+name|QAccessibleAbstractSpinBox
 block|{
 name|public
 operator|:
@@ -234,42 +226,6 @@ name|QWidget
 operator|*
 name|widget
 argument_list|)
-block|;      enum
-name|DoubleSpinBoxElements
-block|{
-name|SpinBoxSelf
-operator|=
-literal|0
-block|,
-name|Editor
-block|,
-name|ValueUp
-block|,
-name|ValueDown
-block|}
-block|;
-name|int
-name|childCount
-argument_list|()
-specifier|const
-block|;
-name|QRect
-name|rect
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|int
-name|navigate
-argument_list|(
-argument|RelationFlag rel
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
-argument_list|)
-specifier|const
 block|;
 name|QVariant
 name|invokeMethod
@@ -286,20 +242,6 @@ name|text
 argument_list|(
 argument|Text t
 argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|Role
-name|role
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|State
-name|state
-argument_list|(
 argument|int child
 argument_list|)
 specifier|const
