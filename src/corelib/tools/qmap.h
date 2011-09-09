@@ -16,17 +16,17 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/qatomic.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/qiterator.h>
 end_include
 begin_include
 include|#
 directive|include
 file|<QtCore/qlist.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qrefcount.h>
 end_include
 begin_ifndef
 ifndef|#
@@ -101,9 +101,11 @@ operator|+
 literal|1
 index|]
 decl_stmt|;
-name|QBasicAtomicInt
+name|QtPrivate
+operator|::
+name|RefCount
 name|ref
-decl_stmt|;
+expr_stmt|;
 name|int
 name|topLevel
 decl_stmt|;
@@ -220,6 +222,7 @@ function_decl|;
 endif|#
 directive|endif
 specifier|static
+specifier|const
 name|QMapData
 name|shared_null
 decl_stmt|;
@@ -590,16 +593,9 @@ argument_list|()
 operator|:
 name|d
 argument_list|(
-argument|&QMapData::shared_null
+argument|const_cast<QMapData *>(&QMapData::shared_null)
 argument_list|)
-block|{
-name|d
-operator|->
-name|ref
-operator|.
-name|ref
-argument_list|()
-block|; }
+block|{ }
 specifier|inline
 name|QMap
 argument_list|(
