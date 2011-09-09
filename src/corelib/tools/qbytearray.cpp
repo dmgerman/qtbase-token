@@ -1991,6 +1991,7 @@ block|}
 end_function
 begin_decl_stmt
 DECL|member|shared_null
+specifier|const
 name|QConstByteArrayData
 argument_list|<
 literal|1
@@ -2026,6 +2027,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 DECL|member|shared_empty
+specifier|const
 name|QConstByteArrayData
 argument_list|<
 literal|1

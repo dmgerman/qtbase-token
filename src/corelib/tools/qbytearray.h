@@ -2465,6 +2465,7 @@ argument_list|()
 specifier|const
 expr_stmt|;
 specifier|static
+specifier|const
 name|QConstByteArrayData
 operator|<
 literal|1
@@ -2472,6 +2473,7 @@ operator|>
 name|shared_null
 expr_stmt|;
 specifier|static
+specifier|const
 name|QConstByteArrayData
 operator|<
 literal|1
@@ -2995,6 +2997,12 @@ argument_list|()
 block|{
 if|if
 condition|(
+name|d
+operator|->
+name|ref
+operator|!=
+literal|1
+operator|||
 name|d
 operator|->
 name|size
