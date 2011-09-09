@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/qatomic.h>
+file|<QtCore/qrefcount.h>
 end_include
 begin_ifndef
 ifndef|#
@@ -61,9 +61,11 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-name|QBasicAtomicInt
+name|QtPrivate
+operator|::
+name|RefCount
 name|ref
-decl_stmt|;
+expr_stmt|;
 name|int
 name|size
 decl_stmt|;
@@ -73,6 +75,7 @@ range|:
 literal|1
 decl_stmt|;
 specifier|static
+specifier|const
 name|QLinkedListData
 name|shared_null
 decl_stmt|;
@@ -163,16 +166,9 @@ argument_list|()
 operator|:
 name|d
 argument_list|(
-argument|&QLinkedListData::shared_null
+argument|const_cast<QLinkedListData *>(&QLinkedListData::shared_null)
 argument_list|)
-block|{
-name|d
-operator|->
-name|ref
-operator|.
-name|ref
-argument_list|()
-block|; }
+block|{ }
 specifier|inline
 name|QLinkedList
 argument_list|(
