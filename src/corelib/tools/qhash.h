@@ -16,11 +16,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/qatomic.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/qchar.h>
 end_include
 begin_include
@@ -37,6 +32,11 @@ begin_include
 include|#
 directive|include
 file|<QtCore/qpair.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qrefcount.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
@@ -611,9 +611,11 @@ modifier|*
 name|buckets
 decl_stmt|;
 DECL|member|ref
-name|QBasicAtomicInt
+name|QtPrivate
+operator|::
+name|RefCount
 name|ref
-decl_stmt|;
+expr_stmt|;
 DECL|member|size
 name|int
 name|size
@@ -808,6 +810,7 @@ parameter_list|)
 function_decl|;
 DECL|member|shared_null
 specifier|static
+specifier|const
 name|QHashData
 name|shared_null
 decl_stmt|;
@@ -1427,16 +1430,9 @@ argument_list|()
 operator|:
 name|d
 argument_list|(
-argument|&QHashData::shared_null
+argument|const_cast<QHashData *>(&QHashData::shared_null)
 argument_list|)
-block|{
-name|d
-operator|->
-name|ref
-operator|.
-name|ref
-argument_list|()
-block|; }
+block|{ }
 specifier|inline
 name|QHash
 argument_list|(
