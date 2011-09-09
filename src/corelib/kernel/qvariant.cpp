@@ -343,6 +343,25 @@ parameter_list|<>
 struct|struct
 name|TypeDefinition
 argument_list|<
+name|QUrl
+argument_list|>
+block|{
+specifier|static
+specifier|const
+name|bool
+name|IsAvailable
+init|=
+literal|false
+decl_stmt|;
+block|}
+struct|;
+DECL|struct|TypeDefinition
+DECL|member|IsAvailable
+template|template
+parameter_list|<>
+struct|struct
+name|TypeDefinition
+argument_list|<
 name|QRegularExpression
 argument_list|>
 block|{
@@ -1532,6 +1551,9 @@ name|t
 argument_list|)
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
 case|case
 name|QVariant
 operator|::
@@ -1578,6 +1600,8 @@ literal|false
 return|;
 block|}
 break|break;
+endif|#
+directive|endif
 case|case
 name|QVariant
 operator|::
@@ -1931,6 +1955,9 @@ literal|0
 argument_list|)
 expr_stmt|;
 break|break;
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
 case|case
 name|QVariant
 operator|::
@@ -1951,6 +1978,8 @@ name|toString
 argument_list|()
 expr_stmt|;
 break|break;
+endif|#
+directive|endif
 case|case
 name|QVariant
 operator|::
@@ -6725,6 +6754,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+end_ifndef
 begin_constructor
 DECL|function|QVariant
 name|QVariant
@@ -6762,6 +6796,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_constructor
 DECL|function|QVariant
 name|QVariant
@@ -8903,6 +8941,11 @@ end_endif
 begin_comment
 comment|// QT_NO_GEOM_VARIANT
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+end_ifndef
 begin_comment
 comment|/*!     \fn QUrl QVariant::toUrl() const      Returns the variant as a QUrl if the variant has type()     \l Url; otherwise returns an invalid QUrl.      \sa canConvert(), convert() */
 end_comment
@@ -8928,6 +8971,10 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \fn QLocale QVariant::toLocale() const      Returns the variant as a QLocale if the variant has type()     \l Locale; otherwise returns an invalid QLocale.      \sa canConvert(), convert() */
 end_comment

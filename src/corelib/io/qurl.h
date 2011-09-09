@@ -725,16 +725,11 @@ name|hasFragment
 argument_list|()
 specifier|const
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_BOOTSTRAPPED
 name|QString
 name|topLevelDomain
 argument_list|()
 specifier|const
 expr_stmt|;
-endif|#
-directive|endif
 name|QUrl
 name|resolved
 argument_list|(
