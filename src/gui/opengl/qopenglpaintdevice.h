@@ -46,7 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<qpaintdevice.h>
+file|<QtGui/qpaintdevice.h>
 end_include
 begin_include
 include|#
