@@ -231,7 +231,9 @@ condition|)
 name|d_ptr
 operator|=
 name|qt_gl_functions
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 expr_stmt|;
 else|else
 name|qWarning
