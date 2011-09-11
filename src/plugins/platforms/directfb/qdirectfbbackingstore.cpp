@@ -327,15 +327,6 @@ modifier|&
 name|reg
 parameter_list|)
 block|{
-name|QPlatformBackingStore
-operator|::
-name|resize
-argument_list|(
-name|size
-argument_list|,
-name|reg
-argument_list|)
-expr_stmt|;
 comment|//Have to add 1 ref ass it will be removed by deleting the old blitter in setBlittable
 name|m_dfbSurface
 operator|->
