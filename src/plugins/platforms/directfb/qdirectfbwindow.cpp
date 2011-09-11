@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qdirectfbwindowsurface.h"
+file|"qdirectfbbackingstore.h"
 end_include
 begin_include
 include|#

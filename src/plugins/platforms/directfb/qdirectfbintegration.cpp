@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qdirectfbwindowsurface.h"
+file|"qdirectfbbackingstore.h"
 end_include
 begin_include
 include|#
@@ -535,7 +535,7 @@ specifier|const
 block|{
 return|return
 operator|new
-name|QDirectFbWindowSurface
+name|QDirectFbBackingStore
 argument_list|(
 name|window
 argument_list|)

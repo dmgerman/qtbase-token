@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qdirectfbwindowsurface.h"
+file|"qdirectfbbackingstore.h"
 end_include
 begin_include
 include|#
@@ -36,10 +36,10 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_constructor
-DECL|function|QDirectFbWindowSurface
-name|QDirectFbWindowSurface
+DECL|function|QDirectFbBackingStore
+name|QDirectFbBackingStore
 operator|::
-name|QDirectFbWindowSurface
+name|QDirectFbBackingStore
 parameter_list|(
 name|QWindow
 modifier|*
@@ -149,11 +149,11 @@ expr_stmt|;
 block|}
 end_constructor
 begin_destructor
-DECL|function|~QDirectFbWindowSurface
-name|QDirectFbWindowSurface
+DECL|function|~QDirectFbBackingStore
+name|QDirectFbBackingStore
 operator|::
 name|~
-name|QDirectFbWindowSurface
+name|QDirectFbBackingStore
 parameter_list|()
 block|{
 operator|delete
@@ -165,7 +165,7 @@ begin_function
 DECL|function|paintDevice
 name|QPaintDevice
 modifier|*
-name|QDirectFbWindowSurface
+name|QDirectFbBackingStore
 operator|::
 name|paintDevice
 parameter_list|()
@@ -178,7 +178,7 @@ end_function
 begin_function
 DECL|function|flush
 name|void
-name|QDirectFbWindowSurface
+name|QDirectFbBackingStore
 operator|::
 name|flush
 parameter_list|(
@@ -312,7 +312,7 @@ end_function
 begin_function
 DECL|function|resize
 name|void
-name|QDirectFbWindowSurface
+name|QDirectFbBackingStore
 operator|::
 name|resize
 parameter_list|(
@@ -492,7 +492,7 @@ end_function
 begin_function
 DECL|function|scroll
 name|bool
-name|QDirectFbWindowSurface
+name|QDirectFbBackingStore
 operator|::
 name|scroll
 parameter_list|(
@@ -627,7 +627,7 @@ end_function
 begin_function
 DECL|function|beginPaint
 name|void
-name|QDirectFbWindowSurface
+name|QDirectFbBackingStore
 operator|::
 name|beginPaint
 parameter_list|(
@@ -647,7 +647,7 @@ end_function
 begin_function
 DECL|function|endPaint
 name|void
-name|QDirectFbWindowSurface
+name|QDirectFbBackingStore
 operator|::
 name|endPaint
 parameter_list|(

@@ -31,14 +31,14 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
-name|QDirectFbWindowSurface
+name|QDirectFbBackingStore
 range|:
 name|public
 name|QPlatformBackingStore
 block|{
 name|public
 operator|:
-name|QDirectFbWindowSurface
+name|QDirectFbBackingStore
 argument_list|(
 name|QWindow
 operator|*
@@ -46,7 +46,7 @@ name|window
 argument_list|)
 block|;
 operator|~
-name|QDirectFbWindowSurface
+name|QDirectFbBackingStore
 argument_list|()
 block|;
 name|QPaintDevice
