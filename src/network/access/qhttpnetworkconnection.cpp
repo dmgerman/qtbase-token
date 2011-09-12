@@ -55,6 +55,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qcoreapplication.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qbuffer.h>
 end_include
 begin_include
@@ -3541,16 +3546,13 @@ name|HostNotFoundError
 case|:
 name|errorString
 operator|=
-name|QString
+name|QCoreApplication
 operator|::
-name|fromLatin1
-argument_list|(
-name|QT_TRANSLATE_NOOP
+name|translate
 argument_list|(
 literal|"QHttp"
 argument_list|,
 literal|"Host %1 not found"
-argument_list|)
 argument_list|)
 operator|.
 name|arg
@@ -3569,14 +3571,13 @@ name|ConnectionRefusedError
 case|:
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
 literal|"QHttp"
 argument_list|,
 literal|"Connection refused"
-argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -3587,14 +3588,13 @@ name|RemoteHostClosedError
 case|:
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
 literal|"QHttp"
 argument_list|,
 literal|"Connection closed"
-argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -3605,14 +3605,13 @@ name|TimeoutError
 case|:
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
 literal|"QAbstractSocket"
 argument_list|,
 literal|"Socket operation timed out"
-argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -3623,14 +3622,13 @@ name|ProxyAuthenticationRequiredError
 case|:
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
 literal|"QHttp"
 argument_list|,
 literal|"Proxy requires authentication"
-argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -3641,14 +3639,13 @@ name|AuthenticationRequiredError
 case|:
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
 literal|"QHttp"
 argument_list|,
 literal|"Host requires authentication"
-argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -3659,14 +3656,13 @@ name|ProtocolFailure
 case|:
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
 literal|"QHttp"
 argument_list|,
 literal|"Data corrupted"
-argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -3677,14 +3673,13 @@ name|ProtocolUnknownError
 case|:
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
 literal|"QHttp"
 argument_list|,
 literal|"Unknown protocol specified"
-argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
@@ -3695,14 +3690,13 @@ name|SslHandshakeFailedError
 case|:
 name|errorString
 operator|=
-name|QLatin1String
-argument_list|(
-name|QT_TRANSLATE_NOOP
+name|QCoreApplication
+operator|::
+name|translate
 argument_list|(
 literal|"QHttp"
 argument_list|,
 literal|"SSL handshake failed"
-argument_list|)
 argument_list|)
 expr_stmt|;
 break|break;
