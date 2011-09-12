@@ -238,17 +238,7 @@ name|create
 argument_list|(
 name|icString
 argument_list|)
-argument_list|;
-name|qDebug
-argument_list|()
-operator|<<
-name|ic
-operator|<<
-name|ic
-operator|->
-name|isValid
-argument_list|()
-argument_list|;     if
+argument_list|;      if
 operator|(
 name|ic
 operator|&&
