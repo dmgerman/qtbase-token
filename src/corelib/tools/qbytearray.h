@@ -2574,14 +2574,7 @@ name|d
 argument_list|(
 argument|const_cast<Data *>(&shared_null.ba)
 argument_list|)
-block|{
-name|d
-operator|->
-name|ref
-operator|.
-name|ref
-argument_list|()
-block|; }
+block|{ }
 DECL|function|~QByteArray
 specifier|inline
 name|QByteArray
