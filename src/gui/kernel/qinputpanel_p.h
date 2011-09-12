@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<QtCore/QWeakPointer>
 end_include
+begin_include
+include|#
+directive|include
+file|<QTransform>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
