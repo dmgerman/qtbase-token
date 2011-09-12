@@ -8406,7 +8406,7 @@ name|update
 argument_list|(
 name|Qt
 operator|::
-name|ImQueryAll
+name|ImQueryInput
 argument_list|)
 expr_stmt|;
 block|}
