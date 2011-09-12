@@ -1683,11 +1683,7 @@ argument_list|)
 expr_stmt|;
 comment|// Uncomplicate things by using NPOT:
 name|QOpenGLFramebufferObject
-modifier|*
 name|fbo
-init|=
-operator|new
-name|QOpenGLFramebufferObject
 argument_list|(
 literal|256
 argument_list|,
@@ -1699,7 +1695,7 @@ decl_stmt|;
 if|if
 condition|(
 name|fbo
-operator|->
+operator|.
 name|attachment
 argument_list|()
 operator|!=
@@ -1707,10 +1703,6 @@ name|QOpenGLFramebufferObject
 operator|::
 name|CombinedDepthStencil
 condition|)
-block|{
-operator|delete
-name|fbo
-expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"FBOs missing combined depth~stencil support"
@@ -1718,7 +1710,11 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-block|}
+name|fbo
+operator|.
+name|bind
+argument_list|()
+expr_stmt|;
 name|QPainter
 name|fboPainter
 decl_stmt|;
@@ -1726,12 +1722,12 @@ name|QOpenGLPaintDevice
 name|device
 argument_list|(
 name|fbo
-operator|->
+operator|.
 name|width
 argument_list|()
 argument_list|,
 name|fbo
-operator|->
+operator|.
 name|height
 argument_list|()
 argument_list|)
@@ -1758,12 +1754,12 @@ operator|&
 name|fboPainter
 argument_list|,
 name|fbo
-operator|->
+operator|.
 name|width
 argument_list|()
 argument_list|,
 name|fbo
-operator|->
+operator|.
 name|height
 argument_list|()
 argument_list|)
@@ -1777,7 +1773,7 @@ name|QImage
 name|fb
 init|=
 name|fbo
-operator|->
+operator|.
 name|toImage
 argument_list|()
 operator|.
@@ -1788,9 +1784,6 @@ operator|::
 name|Format_RGB32
 argument_list|)
 decl_stmt|;
-operator|delete
-name|fbo
-expr_stmt|;
 name|qt_opengl_check_test_pattern
 argument_list|(
 name|fb

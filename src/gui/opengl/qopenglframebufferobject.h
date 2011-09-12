@@ -267,7 +267,7 @@ return|return
 name|size
 argument_list|()
 operator|.
-name|width
+name|height
 argument_list|()
 return|;
 block|}
