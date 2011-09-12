@@ -423,6 +423,15 @@ modifier|*
 name|context
 parameter_list|)
 function_decl|;
+name|QList
+operator|<
+name|QOpenGLSharedResource
+operator|*
+operator|>
+name|resources
+argument_list|()
+specifier|const
+expr_stmt|;
 name|template
 operator|<
 name|typename
