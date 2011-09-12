@@ -10130,7 +10130,10 @@ name|tst_QStyleSheetStyle
 operator|::
 name|QTBUG15910_crashNullWidget
 parameter_list|()
-block|{     struct :
+block|{
+struct|struct
+name|Widget
+super|:
 name|QWidget
 block|{
 specifier|virtual
@@ -10214,7 +10217,7 @@ expr_stmt|;
 block|}
 block|}
 name|w
-expr_stmt|;
+struct|;
 name|w
 operator|.
 name|setStyleSheet

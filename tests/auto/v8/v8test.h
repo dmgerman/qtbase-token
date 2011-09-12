@@ -44,6 +44,12 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|bool
+name|v8test_evalwithinwith
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
+name|bool
 name|v8test_userobjectcompare
 parameter_list|()
 function_decl|;
