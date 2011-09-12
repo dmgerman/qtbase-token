@@ -323,6 +323,9 @@ name|dwAdditionalFlags
 init|=
 literal|0
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 if|if
 condition|(
 name|QSysInfo
@@ -346,6 +349,8 @@ literal|1
 expr_stmt|;
 comment|// FindExInfoBasic;
 block|}
+endif|#
+directive|endif
 name|int
 name|searchOps
 init|=
