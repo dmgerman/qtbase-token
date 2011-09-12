@@ -16965,7 +16965,7 @@ operator|==
 literal|"yes"
 condition|)
 block|{
-name|qmakeConfig
+name|qtConfig
 operator|+=
 literal|"build_all"
 expr_stmt|;
