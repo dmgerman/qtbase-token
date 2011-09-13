@@ -799,6 +799,13 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|qWait
+argument_list|(
+literal|10
+argument_list|)
+expr_stmt|;
 name|targetWindow
 operator|=
 literal|0
