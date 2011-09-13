@@ -17621,7 +17621,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|Q_D
 argument_list|(
 name|QTableView
@@ -17727,6 +17727,10 @@ argument_list|(
 name|QTableView
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|d
+argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
@@ -17762,7 +17766,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|int
 name|entry
 init|=
@@ -17844,7 +17848,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|int
 name|entry
 init|=

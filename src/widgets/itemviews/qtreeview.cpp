@@ -14756,6 +14756,10 @@ argument_list|(
 name|QTreeView
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|q
+argument_list|)
 name|viewItems
 operator|.
 name|insert
@@ -14820,7 +14824,7 @@ directive|ifndef
 name|QT_NO_ACCESSIBILITY
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 if|if
 condition|(
 name|QAccessible
@@ -14868,6 +14872,10 @@ argument_list|(
 name|QTreeView
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|q
+argument_list|)
 name|viewItems
 operator|.
 name|remove
@@ -14928,7 +14936,7 @@ directive|ifndef
 name|QT_NO_ACCESSIBILITY
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 if|if
 condition|(
 name|QAccessible
@@ -20018,7 +20026,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|int
 name|entry
 init|=
@@ -20172,7 +20180,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|int
 name|entry
 init|=
@@ -20287,7 +20295,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|int
 name|entry
 init|=

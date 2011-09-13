@@ -1286,7 +1286,7 @@ directive|ifndef
 name|QT_NO_ITEMVIEWS
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 block|}
 elseif|else
 if|if
@@ -1494,7 +1494,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_WS_X11
+comment|// Q_OS_UNIX
 endif|#
 directive|endif
 comment|// QT_NO_ITEMVIEWS

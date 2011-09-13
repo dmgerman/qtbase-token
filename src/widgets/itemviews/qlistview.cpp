@@ -17866,7 +17866,7 @@ literal|1
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|QAccessible
 operator|::
 name|updateAccessibility
@@ -17979,7 +17979,7 @@ literal|1
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|QAccessible
 operator|::
 name|updateAccessibility
@@ -18045,7 +18045,7 @@ literal|1
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|QAccessible
 operator|::
 name|updateAccessibility

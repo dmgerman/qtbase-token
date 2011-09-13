@@ -9179,7 +9179,7 @@ name|Name
 case|:
 ifndef|#
 directive|ifndef
-name|Q_WS_X11
+name|Q_OS_UNIX
 comment|// on Linux we use relations for this, name is text (fall through to Value)
 if|if
 condition|(
