@@ -80,7 +80,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qguiapplication.h"
+file|"qapplication.h"
 end_include
 begin_ifdef
 ifdef|#
@@ -1265,24 +1265,198 @@ name|KeepAspectRatio
 argument_list|)
 expr_stmt|;
 comment|// #### Qt5 no idea what this really does, but we need to remove the QApp and style references
-comment|//    QString key = QLatin1Literal("qt_")
-comment|//                  % HexString<quint64>(pm.cacheKey())
-comment|//                  % HexString<uint>(pe->mode)
-comment|//                  % HexString<quint64>(QApplication::palette().cacheKey())
-comment|//                  % HexString<uint>(actualSize.width())
-comment|//                  % HexString<uint>(actualSize.height());
-comment|//    if (mode == QIcon::Active) {
-comment|//        if (QPixmapCache::find(key % HexString<uint>(mode), pm))
-comment|//            return pm; // horray
-comment|//        if (QPixmapCache::find(key % HexString<uint>(QIcon::Normal), pm)) {
-comment|//            QStyleOption opt(0);
-comment|//            opt.palette = QApplication::palette();
-comment|//            QPixmap active = QApplication::style()->generatedIconPixmap(QIcon::Active, pm,&opt);
-comment|//            if (pm.cacheKey() == active.cacheKey())
-comment|//                return pm;
-comment|//        }
-comment|//    }
-comment|//    if (!QPixmapCache::find(key % HexString<uint>(mode), pm)) {
+name|QString
+name|key
+init|=
+name|QLatin1Literal
+argument_list|(
+literal|"qt_"
+argument_list|)
+operator|%
+name|HexString
+argument_list|<
+name|quint64
+argument_list|>
+argument_list|(
+name|pm
+operator|.
+name|cacheKey
+argument_list|()
+argument_list|)
+operator|%
+name|HexString
+argument_list|<
+name|uint
+argument_list|>
+argument_list|(
+name|pe
+operator|->
+name|mode
+argument_list|)
+operator|%
+name|HexString
+argument_list|<
+name|quint64
+argument_list|>
+argument_list|(
+name|QApplication
+operator|::
+name|palette
+argument_list|()
+operator|.
+name|cacheKey
+argument_list|()
+argument_list|)
+operator|%
+name|HexString
+argument_list|<
+name|uint
+argument_list|>
+argument_list|(
+name|actualSize
+operator|.
+name|width
+argument_list|()
+argument_list|)
+operator|%
+name|HexString
+argument_list|<
+name|uint
+argument_list|>
+argument_list|(
+name|actualSize
+operator|.
+name|height
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|mode
+operator|==
+name|QIcon
+operator|::
+name|Active
+condition|)
+block|{
+if|if
+condition|(
+name|QPixmapCache
+operator|::
+name|find
+argument_list|(
+name|key
+operator|%
+name|HexString
+argument_list|<
+name|uint
+argument_list|>
+argument_list|(
+name|mode
+argument_list|)
+argument_list|,
+name|pm
+argument_list|)
+condition|)
+return|return
+name|pm
+return|;
+comment|// horray
+if|if
+condition|(
+name|QPixmapCache
+operator|::
+name|find
+argument_list|(
+name|key
+operator|%
+name|HexString
+argument_list|<
+name|uint
+argument_list|>
+argument_list|(
+name|QIcon
+operator|::
+name|Normal
+argument_list|)
+argument_list|,
+name|pm
+argument_list|)
+condition|)
+block|{
+name|QStyleOption
+name|opt
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+name|opt
+operator|.
+name|palette
+operator|=
+name|QApplication
+operator|::
+name|palette
+argument_list|()
+expr_stmt|;
+name|QPixmap
+name|active
+init|=
+name|QApplication
+operator|::
+name|style
+argument_list|()
+operator|->
+name|generatedIconPixmap
+argument_list|(
+name|QIcon
+operator|::
+name|Active
+argument_list|,
+name|pm
+argument_list|,
+operator|&
+name|opt
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|pm
+operator|.
+name|cacheKey
+argument_list|()
+operator|==
+name|active
+operator|.
+name|cacheKey
+argument_list|()
+condition|)
+return|return
+name|pm
+return|;
+block|}
+block|}
+if|if
+condition|(
+operator|!
+name|QPixmapCache
+operator|::
+name|find
+argument_list|(
+name|key
+operator|%
+name|HexString
+argument_list|<
+name|uint
+argument_list|>
+argument_list|(
+name|mode
+argument_list|)
+argument_list|,
+name|pm
+argument_list|)
+condition|)
+block|{
 if|if
 condition|(
 name|pm
@@ -1309,15 +1483,85 @@ operator|::
 name|SmoothTransformation
 argument_list|)
 expr_stmt|;
-comment|//        if (pe->mode != mode&& mode != QIcon::Normal) {
-comment|//            QStyleOption opt(0);
-comment|//            opt.palette = QApplication::palette();
-comment|//            QPixmap generated = QApplication::style()->generatedIconPixmap(mode, pm,&opt);
-comment|//            if (!generated.isNull())
-comment|//                pm = generated;
-comment|//        }
-comment|//        QPixmapCache::insert(key % HexString<uint>(mode), pm);
-comment|//    }
+if|if
+condition|(
+name|pe
+operator|->
+name|mode
+operator|!=
+name|mode
+operator|&&
+name|mode
+operator|!=
+name|QIcon
+operator|::
+name|Normal
+condition|)
+block|{
+name|QStyleOption
+name|opt
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+name|opt
+operator|.
+name|palette
+operator|=
+name|QApplication
+operator|::
+name|palette
+argument_list|()
+expr_stmt|;
+name|QPixmap
+name|generated
+init|=
+name|QApplication
+operator|::
+name|style
+argument_list|()
+operator|->
+name|generatedIconPixmap
+argument_list|(
+name|mode
+argument_list|,
+name|pm
+argument_list|,
+operator|&
+name|opt
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|generated
+operator|.
+name|isNull
+argument_list|()
+condition|)
+name|pm
+operator|=
+name|generated
+expr_stmt|;
+block|}
+name|QPixmapCache
+operator|::
+name|insert
+argument_list|(
+name|key
+operator|%
+name|HexString
+argument_list|<
+name|uint
+argument_list|>
+argument_list|(
+name|mode
+argument_list|)
+argument_list|,
+name|pm
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|pm
 return|;
