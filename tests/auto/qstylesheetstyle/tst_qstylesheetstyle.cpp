@@ -5206,20 +5206,6 @@ argument_list|(
 literal|60
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QCursor::setPos / QTest::mouseMove is not implemented on qpa"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|widget
