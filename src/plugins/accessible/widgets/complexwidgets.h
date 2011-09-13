@@ -1052,22 +1052,38 @@ name|selection
 argument_list|()
 specifier|const
 block|;
+name|QAccessibleInterface
+operator|*
+name|child
+argument_list|(
+argument|int index
+argument_list|)
+specifier|const
+block|;
+name|int
+name|indexOfChild
+argument_list|(
+argument|const QAccessibleInterface *child
+argument_list|)
+specifier|const
+block|;
+name|int
+name|navigate
+argument_list|(
+argument|RelationFlag rel
+argument_list|,
+argument|int entry
+argument_list|,
+argument|QAccessibleInterface **target
+argument_list|)
+specifier|const
+block|;
 name|protected
 operator|:
 name|QTabBar
 operator|*
 name|tabBar
 argument_list|()
-specifier|const
-block|;
-name|private
-operator|:
-name|QAbstractButton
-operator|*
-name|button
-argument_list|(
-argument|int child
-argument_list|)
 specifier|const
 block|; }
 decl_stmt|;
