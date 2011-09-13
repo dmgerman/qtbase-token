@@ -17449,6 +17449,9 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+name|adjustSize
+argument_list|()
+expr_stmt|;
 name|QRect
 name|r
 argument_list|(
