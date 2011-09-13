@@ -110,6 +110,12 @@ name|drag
 argument_list|()
 specifier|const
 block|;
+name|QPlatformInputContext
+operator|*
+name|inputContext
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QPlatformFontDatabase
@@ -127,6 +133,10 @@ block|;
 name|QPlatformNativeInterface
 operator|*
 name|mNativeInterface
+block|;
+name|QPlatformInputContext
+operator|*
+name|mInputContext
 block|; }
 decl_stmt|;
 end_decl_stmt
