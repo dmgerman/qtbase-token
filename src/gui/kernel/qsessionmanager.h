@@ -46,6 +46,12 @@ argument_list|(
 name|Gui
 argument_list|)
 name|class
+name|QGuiApplication
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QSessionManagerPrivate
+name|class
 name|QSessionManagerPrivate
 decl_stmt|;
 end_decl_stmt
@@ -64,7 +70,7 @@ argument|QSessionManager
 argument_list|)
 name|QSessionManager
 argument_list|(
-name|QApplication
+name|QGuiApplication
 operator|*
 name|app
 argument_list|,

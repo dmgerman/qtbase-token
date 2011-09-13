@@ -315,9 +315,15 @@ literal|1
 decl_stmt|;
 comment|//true iff there is one or more QPointer attached to this object
 name|uint
+name|isWindow
+range|:
+literal|1
+decl_stmt|;
+comment|//for QWindow
+name|uint
 name|unused
 range|:
-literal|22
+literal|21
 decl_stmt|;
 name|int
 name|postedEvents
@@ -587,6 +593,18 @@ return|return
 name|d_ptr
 operator|->
 name|isWidget
+return|;
+block|}
+specifier|inline
+name|bool
+name|isWindowType
+argument_list|()
+specifier|const
+block|{
+return|return
+name|d_ptr
+operator|->
+name|isWindow
 return|;
 block|}
 specifier|inline

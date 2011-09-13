@@ -999,6 +999,12 @@ end_expr_stmt
 begin_decl_stmt
 name|friend
 name|class
+name|QTextCursorPrivate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|friend
+name|class
 name|QTextDocumentFragmentPrivate
 decl_stmt|;
 end_decl_stmt
@@ -1011,7 +1017,7 @@ end_decl_stmt
 begin_decl_stmt
 name|friend
 name|class
-name|QTextControlPrivate
+name|QWidgetTextControlPrivate
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt

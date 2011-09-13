@@ -58,12 +58,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qaccessible.h>
+file|<QtWidgets/qaccessible.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qapplication.h>
+file|<QtWidgets/qapplication.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER

@@ -130,7 +130,7 @@ name|QVector2D
 argument_list|(
 name|e
 operator|->
-name|posF
+name|localPos
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -156,7 +156,7 @@ name|QVector2D
 argument_list|(
 name|e
 operator|->
-name|posF
+name|localPos
 argument_list|()
 argument_list|)
 operator|-

@@ -34,6 +34,12 @@ directive|include
 file|<wayland-client.h>
 end_include
 begin_decl_stmt
+DECL|variable|QAbstractEventDispatcher
+name|class
+name|QAbstractEventDispatcher
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QWaylandInputDevice
 name|class
 name|QWaylandInputDevice

@@ -46,7 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qfontengine_p.h"
+file|"private/qfontengine_p.h"
 end_include
 begin_ifndef
 ifndef|#

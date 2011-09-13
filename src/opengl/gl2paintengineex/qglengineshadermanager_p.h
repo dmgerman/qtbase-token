@@ -359,9 +359,6 @@ parameter_list|)
 function_decl|;
 name|private
 label|:
-name|QGLSharedResourceGuard
-name|ctxGuard
-decl_stmt|;
 name|QGLShaderProgram
 modifier|*
 name|blitShaderProg

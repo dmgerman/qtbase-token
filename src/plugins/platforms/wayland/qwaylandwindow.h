@@ -64,7 +64,7 @@ block|}
 block|;
 name|QWaylandWindow
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|window
 argument_list|)

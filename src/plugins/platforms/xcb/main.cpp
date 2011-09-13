@@ -82,14 +82,9 @@ parameter_list|,
 specifier|const
 name|QStringList
 modifier|&
-name|paramList
+name|parameters
 parameter_list|)
 block|{
-name|Q_UNUSED
-argument_list|(
-name|paramList
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|system
@@ -102,6 +97,9 @@ condition|)
 return|return
 operator|new
 name|QXcbIntegration
+argument_list|(
+name|parameters
+argument_list|)
 return|;
 return|return
 literal|0

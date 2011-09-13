@@ -67,7 +67,7 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|Q_WS_WIN
+name|Q_OS_WIN
 end_ifndef
 begin_include
 include|#
@@ -6106,7 +6106,7 @@ condition|)
 block|{
 ifndef|#
 directive|ifndef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|buf
 operator|=
 name|d

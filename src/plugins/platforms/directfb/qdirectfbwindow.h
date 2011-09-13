@@ -40,7 +40,7 @@ name|public
 operator|:
 name|QDirectFbWindow
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|tlw
 argument_list|,
@@ -95,12 +95,6 @@ name|winId
 argument_list|()
 specifier|const
 block|;
-name|QPlatformGLContext
-operator|*
-name|glContext
-argument_list|()
-specifier|const
-block|;
 name|private
 operator|:
 name|IDirectFBWindow
@@ -110,10 +104,6 @@ block|;
 name|QDirectFbInput
 operator|*
 name|m_inputHandler
-block|;
-name|QPlatformGLContext
-operator|*
-name|m_context
 block|; }
 decl_stmt|;
 end_decl_stmt

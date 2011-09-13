@@ -79,7 +79,7 @@ name|class
 name|QWingedEdge
 decl_stmt|;
 name|class
-name|Q_AUTOTEST_EXPORT
+name|Q_GUI_EXPORT
 name|QPathClipper
 decl_stmt|{ public:     enum Operation
 block|{

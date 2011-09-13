@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui>
+file|<QtWidgets>
 end_include
 begin_class
 DECL|class|Pixmap
@@ -206,7 +206,6 @@ name|resizeEvent
 parameter_list|(
 name|QResizeEvent
 modifier|*
-name|event
 parameter_list|)
 block|{
 name|fitInView

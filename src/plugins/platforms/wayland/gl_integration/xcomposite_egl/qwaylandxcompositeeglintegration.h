@@ -46,7 +46,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QWidget>
+file|<QtGui/QWindow>
+end_include
+begin_include
+include|#
+directive|include
+file|<QPlatformOpenGLContext>
 end_include
 begin_include
 include|#
@@ -96,10 +101,20 @@ name|QWaylandWindow
 operator|*
 name|createEglWindow
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|)
+block|;
+name|QPlatformOpenGLContext
+operator|*
+name|createPlatformOpenGLContext
+argument_list|(
+argument|const QSurfaceFormat&glFormat
+argument_list|,
+argument|QPlatformOpenGLContext *share
+argument_list|)
+specifier|const
 block|;
 name|QWaylandDisplay
 operator|*

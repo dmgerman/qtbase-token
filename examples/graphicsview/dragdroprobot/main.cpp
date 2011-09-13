@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui>
+file|<QtWidgets>
 end_include
 begin_include
 include|#
@@ -52,7 +52,6 @@ name|resizeEvent
 parameter_list|(
 name|QResizeEvent
 modifier|*
-name|event
 parameter_list|)
 block|{
 if|#

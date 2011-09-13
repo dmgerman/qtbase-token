@@ -52,7 +52,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../qpathclipper/pathcompare.h"
+file|"../gui/painting/qpathclipper/pathcompare.h"
 end_include
 begin_if
 if|#

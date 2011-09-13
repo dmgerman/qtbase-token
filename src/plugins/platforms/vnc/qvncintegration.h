@@ -140,6 +140,12 @@ name|QVNCIntegrationPrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QAbstractEventDispatcher
+name|class
+name|QAbstractEventDispatcher
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QVNCIntegration
 range|:
@@ -163,11 +169,11 @@ argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
 block|;
-name|QPixmapData
+name|QPlatformPixmap
 operator|*
-name|createPixmapData
+name|createPlatformPixmap
 argument_list|(
-argument|QPixmapData::PixelType type
+argument|QPlatformPixmap::PixelType type
 argument_list|)
 specifier|const
 block|;
@@ -189,6 +195,11 @@ argument|QWidget *widget
 argument_list|,
 argument|WId winId
 argument_list|)
+specifier|const
+block|;
+name|QAbstractEventDispatcher
+name|createEventDispatcher
+argument_list|()
 specifier|const
 block|;
 name|QPixmap

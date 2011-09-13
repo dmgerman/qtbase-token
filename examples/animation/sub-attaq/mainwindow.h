@@ -19,7 +19,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/QMainWindow>
+file|<QtWidgets/QMainWindow>
 end_include
 begin_decl_stmt
 DECL|variable|GraphicsScene

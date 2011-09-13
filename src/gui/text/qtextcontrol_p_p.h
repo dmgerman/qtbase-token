@@ -51,22 +51,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qscrollbar.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"QtGui/qtextcursor.h"
 end_include
 begin_include
 include|#
 directive|include
 file|"QtGui/qtextformat.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"QtGui/qmenu.h"
 end_include
 begin_include
 include|#
@@ -509,7 +499,7 @@ argument|const QPointF&pos
 argument_list|,
 argument|Qt::DropAction dropAction
 argument_list|,
-argument|QWidget *source
+argument|QObject *source
 argument_list|)
 block|;
 name|void
@@ -525,29 +515,6 @@ argument_list|(
 argument|QString href = QString()
 argument_list|)
 block|;
-ifndef|#
-directive|ifndef
-name|QT_NO_TOOLTIP
-name|void
-name|showToolTip
-argument_list|(
-specifier|const
-name|QPoint
-operator|&
-name|globalPos
-argument_list|,
-specifier|const
-name|QPointF
-operator|&
-name|pos
-argument_list|,
-name|QWidget
-operator|*
-name|contextWidget
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|void
 name|append
 argument_list|(
@@ -608,9 +575,9 @@ name|dragStartPos
 block|;
 name|QPointer
 operator|<
-name|QWidget
+name|QObject
 operator|>
-name|contextWidget
+name|contextObject
 block|;
 name|bool
 name|lastSelectionState
@@ -710,6 +677,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QTEXTCONTROL_P_H
+comment|// QTextControl_P_H
 end_comment
 end_unit

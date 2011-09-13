@@ -16,12 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QPlatformGLContext>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtGui/QWidget>
+file|<QPlatformOpenGLContext>
 end_include
 begin_include
 include|#
@@ -44,7 +39,7 @@ name|class
 name|QWaylandReadbackEglContext
 range|:
 name|public
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 block|{
 name|public
 operator|:
@@ -86,8 +81,8 @@ name|procName
 argument_list|)
 block|;
 name|virtual
-name|QPlatformWindowFormat
-name|platformWindowFormat
+name|QWindowFormat
+name|windowFormat
 argument_list|()
 specifier|const
 block|;

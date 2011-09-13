@@ -63,9 +63,9 @@ name|QPainter
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QPrinter
+DECL|variable|QPagedPaintDevice
 name|class
-name|QPrinter
+name|QPagedPaintDevice
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -687,19 +687,13 @@ name|isModified
 argument_list|()
 specifier|const
 block|;
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTER
 name|void
 name|print
 argument_list|(
-argument|QPrinter *printer
+argument|QPagedPaintDevice *printer
 argument_list|)
 specifier|const
-block|;
-endif|#
-directive|endif
-block|enum
+block|;      enum
 name|ResourceType
 block|{
 name|HtmlResource

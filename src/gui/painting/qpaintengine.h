@@ -1044,7 +1044,7 @@ name|QPreviewPaintEngine
 decl_stmt|;
 name|friend
 name|class
-name|QX11GLPixmapData
+name|QX11GLPlatformPixmap
 decl_stmt|;
 block|}
 end_decl_stmt

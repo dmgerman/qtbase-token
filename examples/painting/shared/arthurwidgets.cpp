@@ -57,11 +57,6 @@ include|#
 directive|include
 file|<QBoxLayout>
 end_include
-begin_include
-include|#
-directive|include
-file|<private/qpixmapdata_p.h>
-end_include
 begin_function_decl
 specifier|extern
 name|QPixmap
@@ -232,39 +227,6 @@ expr_stmt|;
 comment|//     QPalette pal = palette();
 comment|//     pal.setBrush(backgroundRole(), m_tile);
 comment|//     setPalette(pal);
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
-name|QPixmap
-name|xRenderPixmap
-argument_list|(
-literal|1
-argument_list|,
-literal|1
-argument_list|)
-decl_stmt|;
-name|m_prefer_image
-operator|=
-name|xRenderPixmap
-operator|.
-name|pixmapData
-argument_list|()
-operator|->
-name|classId
-argument_list|()
-operator|==
-name|QPixmapData
-operator|::
-name|X11Class
-operator|&&
-operator|!
-name|xRenderPixmap
-operator|.
-name|x11PictureHandle
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_constructor
 begin_ifdef

@@ -31,6 +31,12 @@ name|QXcbConnection
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QAbstractEventDispatcher
+name|class
+name|QAbstractEventDispatcher
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QXcbIntegration
 range|:
@@ -40,11 +46,40 @@ block|{
 name|public
 operator|:
 name|QXcbIntegration
-argument_list|()
+argument_list|(
+specifier|const
+name|QStringList
+operator|&
+name|parameters
+argument_list|)
 block|;
 operator|~
 name|QXcbIntegration
 argument_list|()
+block|;
+name|QPlatformWindow
+operator|*
+name|createPlatformWindow
+argument_list|(
+argument|QWindow *window
+argument_list|)
+specifier|const
+block|;
+name|QPlatformOpenGLContext
+operator|*
+name|createPlatformOpenGLContext
+argument_list|(
+argument|QOpenGLContext *context
+argument_list|)
+specifier|const
+block|;
+name|QPlatformBackingStore
+operator|*
+name|createPlatformBackingStore
+argument_list|(
+argument|QWindow *window
+argument_list|)
+specifier|const
 block|;
 name|bool
 name|hasCapability
@@ -53,69 +88,19 @@ argument|Capability cap
 argument_list|)
 specifier|const
 block|;
-name|QPixmapData
+name|QAbstractEventDispatcher
 operator|*
-name|createPixmapData
-argument_list|(
-argument|QPixmapData::PixelType type
-argument_list|)
-specifier|const
-block|;
-name|QPlatformWindow
-operator|*
-name|createPlatformWindow
-argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId
-argument_list|)
-specifier|const
-block|;
-name|QWindowSurface
-operator|*
-name|createWindowSurface
-argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId
-argument_list|)
-specifier|const
-block|;
-name|QList
-operator|<
-name|QPlatformScreen
-operator|*
-operator|>
-name|screens
+name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
 block|;
 name|void
 name|moveToScreen
 argument_list|(
-argument|QWidget *window
+argument|QWindow *window
 argument_list|,
 argument|int screen
 argument_list|)
-block|;
-name|bool
-name|isVirtualDesktop
-argument_list|()
-block|;
-name|QPixmap
-name|grabWindow
-argument_list|(
-argument|WId window
-argument_list|,
-argument|int x
-argument_list|,
-argument|int y
-argument_list|,
-argument|int width
-argument_list|,
-argument|int height
-argument_list|)
-specifier|const
 block|;
 name|QPlatformFontDatabase
 operator|*
@@ -129,23 +114,32 @@ name|nativeInterface
 argument_list|()
 specifier|const
 block|;
-name|private
-operator|:
-name|bool
-name|hasOpenGL
+name|QPlatformClipboard
+operator|*
+name|clipboard
 argument_list|()
 specifier|const
 block|;
+name|QPlatformDrag
+operator|*
+name|drag
+argument_list|()
+specifier|const
+block|;
+name|QPlatformInputContext
+operator|*
+name|inputContext
+argument_list|()
+specifier|const
+block|;
+name|private
+operator|:
 name|QList
 operator|<
-name|QPlatformScreen
-operator|*
-operator|>
-name|m_screens
-block|;
 name|QXcbConnection
 operator|*
-name|m_connection
+operator|>
+name|m_connections
 block|;
 name|QPlatformFontDatabase
 operator|*
@@ -154,6 +148,14 @@ block|;
 name|QPlatformNativeInterface
 operator|*
 name|m_nativeInterface
+block|;
+name|QPlatformInputContext
+operator|*
+name|m_inputContext
+block|;
+name|QAbstractEventDispatcher
+operator|*
+name|m_eventDispatcher
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -6574,7 +6574,14 @@ name|QTest
 operator|::
 name|keyClick
 argument_list|(
+cast|static_cast
+argument_list|<
+name|QWindow
+operator|*
+argument_list|>
+argument_list|(
 literal|0
+argument_list|)
 argument_list|,
 name|Qt
 operator|::

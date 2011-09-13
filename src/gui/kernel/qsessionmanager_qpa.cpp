@@ -10,12 +10,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qobject_p.h>
+file|<qguiapplication.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<qapplication.h>
+file|<private/qobject_p.h>
 end_include
 begin_ifndef
 ifndef|#
@@ -118,7 +118,7 @@ name|QSessionManager
 operator|::
 name|QSessionManager
 parameter_list|(
-name|QApplication
+name|QGuiApplication
 modifier|*
 name|app
 parameter_list|,

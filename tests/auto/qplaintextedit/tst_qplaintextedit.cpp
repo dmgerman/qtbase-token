@@ -45,7 +45,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qtextcontrol_p.h>
+file|<private/qwidgettextcontrol_p.h>
 end_include
 begin_include
 include|#
@@ -6498,13 +6498,13 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
-name|QTextControl
+name|QWidgetTextControl
 modifier|*
 name|control
 init|=
 name|qFindChild
 argument_list|<
-name|QTextControl
+name|QWidgetTextControl
 operator|*
 argument_list|>
 argument_list|(

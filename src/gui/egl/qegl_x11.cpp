@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qpixmapdata_p.h>
+file|<QtGui/qplatformpixmap_qpa.h>
 end_include
 begin_include
 include|#
@@ -1420,9 +1420,9 @@ return|return
 name|EGL_NO_SURFACE
 return|;
 block|}
-name|QX11PixmapData
+name|QX11PlatformPixmap
 modifier|*
-name|x11PixmapData
+name|x11PlatformPixmap
 init|=
 literal|0
 decl_stmt|;
@@ -1435,7 +1435,7 @@ operator|::
 name|Pixmap
 condition|)
 block|{
-name|QPixmapData
+name|QPlatformPixmap
 modifier|*
 name|pmd
 init|=
@@ -1461,15 +1461,15 @@ operator|->
 name|classId
 argument_list|()
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|X11Class
 condition|)
-name|x11PixmapData
+name|x11PlatformPixmap
 operator|=
 cast|static_cast
 argument_list|<
-name|QX11PixmapData
+name|QX11PlatformPixmap
 operator|*
 argument_list|>
 argument_list|(
@@ -1478,10 +1478,10 @@ argument_list|)
 expr_stmt|;
 else|else
 block|{
-comment|// TODO: Replace the pixmap's data with a new QX11PixmapData
+comment|// TODO: Replace the pixmap's data with a new QX11PlatformPixmap
 name|qWarning
 argument_list|(
-literal|"WARNING: Creating an EGL surface on a QPixmap is only supported for QX11PixmapData"
+literal|"WARNING: Creating an EGL surface on a QPixmap is only supported for QX11PlatformPixmap"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1959,7 +1959,7 @@ return|;
 block|}
 if|if
 condition|(
-name|x11PixmapData
+name|x11PlatformPixmap
 condition|)
 block|{
 comment|// X11 Pixmaps are only created with a depth, so that's all we need to check
@@ -1983,7 +1983,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|x11PixmapData
+name|x11PlatformPixmap
 operator|->
 name|depth
 argument_list|()
@@ -2008,13 +2008,13 @@ name|qWarning
 argument_list|(
 literal|"Warning: EGLConfig's depth (32) != pixmap's depth (%d), converting to ARGB32"
 argument_list|,
-name|x11PixmapData
+name|x11PlatformPixmap
 operator|->
 name|depth
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|x11PixmapData
+name|x11PlatformPixmap
 operator|->
 name|convertToARGB32
 argument_list|(
@@ -2032,7 +2032,7 @@ literal|"Warning: EGLConfig's depth (%d) != pixmap's depth (%d)"
 argument_list|,
 name|configDepth
 argument_list|,
-name|x11PixmapData
+name|x11PlatformPixmap
 operator|->
 name|depth
 argument_list|()
@@ -2093,7 +2093,7 @@ argument_list|,
 operator|(
 name|EGLNativePixmapType
 operator|)
-name|x11PixmapData
+name|x11PlatformPixmap
 operator|->
 name|handle
 argument_list|()
@@ -2104,7 +2104,7 @@ name|properties
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|x11PixmapData
+name|x11PlatformPixmap
 operator|->
 name|gl_surface
 operator|=
@@ -2118,7 +2118,7 @@ name|QImagePixmapCleanupHooks
 operator|::
 name|enableCleanupHooks
 argument_list|(
-name|x11PixmapData
+name|x11PlatformPixmap
 argument_list|)
 expr_stmt|;
 return|return

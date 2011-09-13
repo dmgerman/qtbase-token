@@ -86,13 +86,14 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QIcon>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/QSharedData>
 end_include
+begin_decl_stmt
+DECL|variable|QIcon
+name|class
+name|QIcon
+decl_stmt|;
+end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -943,7 +944,7 @@ comment|// 3. QVector<BasicSelector> - y:clicked z:checked
 comment|// 4. QVector<Declaration> - { prop1: value1; prop2: value2; }
 comment|// 5. Declaration - prop1: value1;
 struct|struct
-name|Q_AUTOTEST_EXPORT
+name|Q_GUI_EXPORT
 name|Declaration
 block|{
 name|struct
@@ -1171,11 +1172,7 @@ name|uriValue
 argument_list|()
 specifier|const
 expr_stmt|;
-name|QIcon
-name|iconValue
-argument_list|()
-specifier|const
-expr_stmt|;
+comment|//    QIcon iconValue() const;
 name|void
 name|borderImageValue
 argument_list|(
@@ -1742,7 +1739,7 @@ decl_stmt|;
 block|}
 struct|;
 struct|struct
-name|Q_AUTOTEST_EXPORT
+name|Q_GUI_EXPORT
 name|Selector
 block|{
 name|QVector
@@ -1787,7 +1784,7 @@ struct_decl|struct
 name|ImportRule
 struct_decl|;
 struct|struct
-name|Q_AUTOTEST_EXPORT
+name|Q_GUI_EXPORT
 name|ValueExtractor
 block|{
 name|ValueExtractor
@@ -2209,6 +2206,7 @@ name|StyleSheetOrigin_Inline
 block|}
 enum|;
 struct|struct
+name|Q_GUI_EXPORT
 name|StyleSheet
 block|{
 name|StyleSheet
@@ -2637,7 +2635,7 @@ expr_stmt|;
 block|}
 struct|;
 name|class
-name|Q_AUTOTEST_EXPORT
+name|Q_GUI_EXPORT
 name|Scanner
 block|{
 name|public

@@ -71,6 +71,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
+name|Q_GUI_EXPORT
 name|QTextCursorPrivate
 range|:
 name|public
@@ -96,7 +97,23 @@ block|;
 operator|~
 name|QTextCursorPrivate
 argument_list|()
-block|;      enum
+block|;
+specifier|static
+specifier|inline
+name|QTextCursorPrivate
+operator|*
+name|getPrivate
+argument_list|(
+argument|QTextCursor *c
+argument_list|)
+block|{
+return|return
+name|c
+operator|->
+name|d
+return|;
+block|}
+expr|enum
 name|AdjustResult
 block|{
 name|CursorMoved

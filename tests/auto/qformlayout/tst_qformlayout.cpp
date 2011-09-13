@@ -35,12 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtGui/QWindowsStyle>
+file|<QtWidgets/QWindowsStyle>
 end_include
 begin_include
 include|#

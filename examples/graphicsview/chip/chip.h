@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QGraphicsItem>
+file|<QtWidgets/QGraphicsItem>
 end_include
 begin_decl_stmt
 name|class

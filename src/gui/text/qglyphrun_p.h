@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QGLYPHRUN_P_H
+name|QOpenGLYPHRUN_P_H
 end_ifndef
 begin_define
-DECL|macro|QGLYPHRUN_P_H
+DECL|macro|QOpenGLYPHRUN_P_H
 define|#
 directive|define
-name|QGLYPHRUN_P_H
+name|QOpenGLYPHRUN_P_H
 end_define
 begin_comment
 comment|//
@@ -286,7 +286,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QGLYPHS_P_H
+comment|// QOpenGLYPHS_P_H
 end_comment
 begin_endif
 endif|#

@@ -169,17 +169,6 @@ name|uchar
 modifier|*
 name|data
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-DECL|member|jumptable
-name|uchar
-modifier|*
-modifier|*
-name|jumptable
-decl_stmt|;
-endif|#
-directive|endif
 DECL|member|format
 name|QImage
 operator|::

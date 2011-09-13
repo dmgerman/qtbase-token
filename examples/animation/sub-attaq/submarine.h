@@ -19,7 +19,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/QGraphicsTransform>
+file|<QtWidgets/QGraphicsTransform>
 end_include
 begin_include
 include|#

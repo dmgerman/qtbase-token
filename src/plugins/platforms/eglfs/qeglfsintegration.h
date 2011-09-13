@@ -49,50 +49,39 @@ argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
 block|;
-name|QPixmapData
-operator|*
-name|createPixmapData
-argument_list|(
-argument|QPixmapData::PixelType type
-argument_list|)
-specifier|const
-block|;
 name|QPlatformWindow
 operator|*
 name|createPlatformWindow
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|QWindowSurface
+name|QPlatformBackingStore
 operator|*
-name|createWindowSurface
+name|createPlatformBackingStore
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|QList
-operator|<
-name|QPlatformScreen
+name|QPlatformOpenGLContext
 operator|*
-operator|>
-name|screens
-argument_list|()
+name|createPlatformOpenGLContext
+argument_list|(
+argument|QOpenGLContext *context
+argument_list|)
 specifier|const
-block|{
-return|return
-name|mScreens
-return|;
-block|}
+block|;
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase
+argument_list|()
+specifier|const
+block|;
+name|QAbstractEventDispatcher
+operator|*
+name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
 block|;
@@ -101,17 +90,6 @@ operator|:
 name|QPlatformFontDatabase
 operator|*
 name|mFontDb
-block|;
-name|QList
-operator|<
-name|QPlatformScreen
-operator|*
-operator|>
-name|mScreens
-block|;
-name|QEglFSScreen
-operator|*
-name|m_primaryScreen
 block|; }
 decl_stmt|;
 end_decl_stmt

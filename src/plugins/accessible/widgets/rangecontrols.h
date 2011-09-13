@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qaccessiblewidget.h>
+file|<QtWidgets/qaccessiblewidget.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qaccessible2.h>
+file|<QtWidgets/qaccessible2.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

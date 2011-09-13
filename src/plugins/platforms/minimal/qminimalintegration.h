@@ -112,55 +112,33 @@ argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
 block|;
-name|QPixmapData
-operator|*
-name|createPixmapData
-argument_list|(
-argument|QPixmapData::PixelType type
-argument_list|)
-specifier|const
-block|;
 name|QPlatformWindow
 operator|*
 name|createPlatformWindow
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|QWindowSurface
+name|QPlatformBackingStore
 operator|*
-name|createWindowSurface
+name|createPlatformBackingStore
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|QList
-operator|<
-name|QPlatformScreen
+name|QAbstractEventDispatcher
 operator|*
-operator|>
-name|screens
+name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
-block|{
-return|return
-name|mScreens
-return|;
-block|}
+block|;
 name|private
 operator|:
-name|QList
-operator|<
-name|QPlatformScreen
+name|QAbstractEventDispatcher
 operator|*
-operator|>
-name|mScreens
+name|m_eventDispatcher
 block|; }
 decl_stmt|;
 end_decl_stmt

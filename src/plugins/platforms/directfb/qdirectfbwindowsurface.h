@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qwindowsurface_p.h>
+file|<qplatformbackingstore_qpa.h>
 end_include
 begin_include
 include|#
@@ -34,15 +34,15 @@ name|class
 name|QDirectFbWindowSurface
 range|:
 name|public
-name|QWindowSurface
+name|QPlatformBackingStore
 block|{
 name|public
 operator|:
 name|QDirectFbWindowSurface
 argument_list|(
-argument|QWidget *window
-argument_list|,
-argument|WId wid
+name|QWindow
+operator|*
+name|window
 argument_list|)
 block|;
 operator|~
@@ -57,9 +57,9 @@ block|;
 name|void
 name|flush
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|,
 specifier|const
 name|QRegion
@@ -79,6 +79,11 @@ specifier|const
 name|QSize
 operator|&
 name|size
+argument_list|,
+specifier|const
+name|QRegion
+operator|&
+name|staticContents
 argument_list|)
 block|;
 name|bool
@@ -119,7 +124,7 @@ name|QPixmap
 operator|*
 name|m_pixmap
 block|;
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|*
 name|m_pmdata
 block|;

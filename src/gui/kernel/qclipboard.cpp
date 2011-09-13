@@ -15,16 +15,6 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"qapplication.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qapplication_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qpixmap.h"
 end_include
 begin_include

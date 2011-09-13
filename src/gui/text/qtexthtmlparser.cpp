@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qapplication.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qstack.h>
 end_include
 begin_include
@@ -36,6 +31,11 @@ begin_include
 include|#
 directive|include
 file|<qthread.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<qcoreapplication.h>
 end_include
 begin_include
 include|#
@@ -5825,15 +5825,12 @@ name|charFormat
 operator|.
 name|setForeground
 argument_list|(
-name|QApplication
+name|Qt
 operator|::
-name|palette
-argument_list|()
-operator|.
-name|link
-argument_list|()
+name|blue
 argument_list|)
 expr_stmt|;
+comment|// ### Qt5: QApplication::palette().link());
 block|}
 block|}
 break|break;
@@ -8223,7 +8220,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|qApp
+name|QCoreApplication
+operator|::
+name|instance
+argument_list|()
 operator|->
 name|thread
 argument_list|()

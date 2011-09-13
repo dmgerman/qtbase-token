@@ -34,7 +34,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QKeyEventTransition>
+file|<QtWidgets/QKeyEventTransition>
 end_include
 begin_include
 include|#

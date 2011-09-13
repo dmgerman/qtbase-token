@@ -107,6 +107,16 @@ return|return
 name|mInputDevice
 return|;
 block|}
+name|QWaylandWindow
+operator|*
+name|pointerFocus
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mPointerFocus
+return|;
+block|}
 name|private
 label|:
 name|QWaylandDisplay

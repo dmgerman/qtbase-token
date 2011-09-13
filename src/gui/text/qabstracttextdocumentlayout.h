@@ -359,6 +359,10 @@ name|private
 operator|:
 name|friend
 name|class
+name|QWidgetTextControl
+block|;
+name|friend
+name|class
 name|QTextControl
 block|;
 name|friend

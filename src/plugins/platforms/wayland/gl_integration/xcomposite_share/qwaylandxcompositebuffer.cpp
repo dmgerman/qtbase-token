@@ -12,6 +12,11 @@ include|#
 directive|include
 file|"wayland-client.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"wayland-xcomposite-client-protocol.h"
+end_include
 begin_constructor
 DECL|function|QWaylandXCompositeBuffer
 name|QWaylandXCompositeBuffer

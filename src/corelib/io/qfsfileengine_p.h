@@ -126,7 +126,7 @@ name|public
 operator|:
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 specifier|static
 name|QString
 name|longFileName
@@ -352,7 +352,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|HANDLE
 name|fileHandle
 block|;

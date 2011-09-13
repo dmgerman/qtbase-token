@@ -42,6 +42,12 @@ name|QWidget
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QWindow
+name|class
+name|QWindow
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QDialog
 name|class
 name|QDialog
@@ -59,21 +65,6 @@ name|class
 name|QPalette
 decl_stmt|;
 end_decl_stmt
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-end_ifdef
-begin_decl_stmt
-DECL|variable|QColorGroup
-name|class
-name|QColorGroup
-decl_stmt|;
-end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 DECL|variable|QCursor
 name|class
@@ -183,12 +174,6 @@ name|QPicture
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QPrinter
-name|class
-name|QPrinter
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QTimer
 name|class
 name|QTimer
@@ -244,6 +229,17 @@ name|QWidget
 operator|*
 operator|>
 name|QWidgetList
+expr_stmt|;
+end_typedef
+begin_typedef
+DECL|typedef|QWindowList
+typedef|typedef
+name|QList
+operator|<
+name|QWindow
+operator|*
+operator|>
+name|QWindowList
 expr_stmt|;
 end_typedef
 begin_expr_stmt
@@ -310,7 +306,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 end_if
 begin_include
@@ -323,7 +319,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_WS_WIN
+comment|// Q_OS_WIN
 end_comment
 begin_if
 if|#

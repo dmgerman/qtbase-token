@@ -34,9 +34,9 @@ name|public
 operator|:
 name|QWaylandShmWindow
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|)
 block|;
 operator|~
@@ -48,13 +48,18 @@ name|windowType
 argument_list|()
 specifier|const
 block|;
-name|QPlatformGLContext
-operator|*
-name|glContext
+name|QSurfaceFormat
+name|format
 argument_list|()
 specifier|const
-block|; }
-decl_stmt|;
+block|{
+return|return
+name|QSurfaceFormat
+argument_list|()
+return|;
+block|}
+expr|}
+block|;
 end_decl_stmt
 begin_endif
 endif|#

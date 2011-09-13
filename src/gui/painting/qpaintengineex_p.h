@@ -51,11 +51,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qdrawutil.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qpaintengine_p.h>
 end_include
 begin_include
@@ -999,6 +994,7 @@ name|void
 name|endNativePainting
 argument_list|()
 block|{}
+comment|// ### Qt5: remove, once QtGui is merged into QtGui and QtWidgets
 comment|// Return a pixmap filter of "type" that can render the parameters
 comment|// in "prototype".  The returned filter is owned by the engine and
 comment|// will be destroyed when the engine is destroyed.  The "prototype"

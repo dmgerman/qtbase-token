@@ -41,20 +41,6 @@ name|argv
 parameter_list|)
 block|{
 comment|//   Q_INIT_RESOURCE(deform);
-ifdef|#
-directive|ifdef
-name|QT_OPENGL_SUPPORT
-name|QGL
-operator|::
-name|setPreferredPaintEngine
-argument_list|(
-name|QPaintEngine
-operator|::
-name|OpenGL
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QApplication
 name|app
 argument_list|(

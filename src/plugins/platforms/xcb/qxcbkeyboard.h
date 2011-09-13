@@ -29,6 +29,12 @@ directive|include
 file|<QEvent>
 end_include
 begin_decl_stmt
+DECL|variable|QWindow
+name|class
+name|QWindow
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QXcbKeyboard
 range|:
@@ -51,9 +57,9 @@ block|;
 name|void
 name|handleKeyPressEvent
 argument_list|(
-name|QWidget
+name|QXcbWindow
 operator|*
-name|widget
+name|window
 argument_list|,
 specifier|const
 name|xcb_key_press_event_t
@@ -64,9 +70,9 @@ block|;
 name|void
 name|handleKeyReleaseEvent
 argument_list|(
-name|QWidget
+name|QXcbWindow
 operator|*
-name|widget
+name|window
 argument_list|,
 specifier|const
 name|xcb_key_release_event_t
@@ -96,7 +102,7 @@ operator|:
 name|void
 name|handleKeyEvent
 argument_list|(
-argument|QWidget *widget
+argument|QWindow *window
 argument_list|,
 argument|QEvent::Type type
 argument_list|,
@@ -130,6 +136,32 @@ argument_list|,
 argument|int&count
 argument_list|)
 block|;
+name|void
+name|setupModifiers
+argument_list|()
+block|;
+name|void
+name|setMask
+argument_list|(
+argument|uint sym
+argument_list|,
+argument|uint mask
+argument_list|)
+block|;
+name|xcb_keysym_t
+name|lookupString
+argument_list|(
+argument|QWindow *window
+argument_list|,
+argument|uint state
+argument_list|,
+argument|xcb_keycode_t code
+argument_list|,
+argument|QEvent::Type type
+argument_list|,
+argument|QByteArray *chars
+argument_list|)
+block|;
 name|uint
 name|m_alt_mask
 block|;
@@ -147,6 +179,9 @@ name|m_mode_switch_mask
 block|;
 name|uint
 name|m_num_lock_mask
+block|;
+name|uint
+name|m_caps_lock_mask
 block|;
 name|xcb_key_symbols_t
 operator|*

@@ -40,11 +40,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QApplication>
-end_include
-begin_include
-include|#
-directive|include
 file|<directfb.h>
 end_include
 begin_constructor
@@ -182,9 +177,9 @@ parameter_list|(
 name|DFBWindowID
 name|id
 parameter_list|,
-name|QWidget
+name|QWindow
 modifier|*
-name|tlw
+name|qt_window
 parameter_list|)
 block|{
 name|m_tlwMap
@@ -193,7 +188,7 @@ name|insert
 argument_list|(
 name|id
 argument_list|,
-name|tlw
+name|qt_window
 argument_list|)
 expr_stmt|;
 name|IDirectFBWindow
@@ -551,7 +546,7 @@ name|window
 argument_list|)
 expr_stmt|;
 block|}
-name|QWidget
+name|QWindow
 modifier|*
 name|tlw
 init|=
@@ -647,7 +642,7 @@ operator|/
 literal|1000
 operator|)
 decl_stmt|;
-name|QWidget
+name|QWindow
 modifier|*
 name|tlw
 init|=
@@ -807,7 +802,7 @@ operator|.
 name|key_symbol
 argument_list|)
 expr_stmt|;
-name|QWidget
+name|QWindow
 modifier|*
 name|tlw
 init|=
@@ -854,7 +849,7 @@ modifier|&
 name|event
 parameter_list|)
 block|{
-name|QWidget
+name|QWindow
 modifier|*
 name|tlw
 init|=

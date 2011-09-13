@@ -15,7 +15,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|"../../../src/gui/dialogs/qfilesystemmodel_p.h"
+file|"../../../src/widgets/dialogs/qfilesystemmodel_p.h"
 end_include
 begin_endif
 endif|#

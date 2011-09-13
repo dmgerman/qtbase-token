@@ -45,13 +45,6 @@ name|QT_MODULE
 argument_list|(
 name|OpenGL
 argument_list|)
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_OPENGL_ES_1
-argument_list|)
 name|class
 name|QGLShaderProgram
 decl_stmt|;
@@ -823,71 +816,6 @@ argument|int stride =
 literal|0
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|Q_MAC_COMPAT_GL_FUNCTIONS
-name|void
-name|setAttributeArray
-argument_list|(
-argument|int location
-argument_list|,
-argument|QMacCompatGLenum type
-argument_list|,
-argument|const void *values
-argument_list|,
-argument|int tupleSize
-argument_list|,
-argument|int stride =
-literal|0
-argument_list|)
-block|;
-name|void
-name|setAttributeArray
-argument_list|(
-argument|const char *name
-argument_list|,
-argument|QMacCompatGLenum type
-argument_list|,
-argument|const void *values
-argument_list|,
-argument|int tupleSize
-argument_list|,
-argument|int stride =
-literal|0
-argument_list|)
-block|;
-name|void
-name|setAttributeBuffer
-argument_list|(
-argument|int location
-argument_list|,
-argument|QMacCompatGLenum type
-argument_list|,
-argument|int offset
-argument_list|,
-argument|int tupleSize
-argument_list|,
-argument|int stride =
-literal|0
-argument_list|)
-block|;
-name|void
-name|setAttributeBuffer
-argument_list|(
-argument|const char *name
-argument_list|,
-argument|QMacCompatGLenum type
-argument_list|,
-argument|int offset
-argument_list|,
-argument|int tupleSize
-argument_list|,
-argument|int stride =
-literal|0
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|void
 name|enableAttributeArray
 argument_list|(
@@ -939,83 +867,6 @@ argument|const QString& name
 argument_list|)
 specifier|const
 block|;
-ifdef|#
-directive|ifdef
-name|Q_MAC_COMPAT_GL_FUNCTIONS
-name|void
-name|setUniformValue
-argument_list|(
-argument|int location
-argument_list|,
-argument|QMacCompatGLint value
-argument_list|)
-block|;
-name|void
-name|setUniformValue
-argument_list|(
-argument|int location
-argument_list|,
-argument|QMacCompatGLuint value
-argument_list|)
-block|;
-name|void
-name|setUniformValue
-argument_list|(
-argument|const char *name
-argument_list|,
-argument|QMacCompatGLint value
-argument_list|)
-block|;
-name|void
-name|setUniformValue
-argument_list|(
-argument|const char *name
-argument_list|,
-argument|QMacCompatGLuint value
-argument_list|)
-block|;
-name|void
-name|setUniformValueArray
-argument_list|(
-argument|int location
-argument_list|,
-argument|const QMacCompatGLint *values
-argument_list|,
-argument|int count
-argument_list|)
-block|;
-name|void
-name|setUniformValueArray
-argument_list|(
-argument|int location
-argument_list|,
-argument|const QMacCompatGLuint *values
-argument_list|,
-argument|int count
-argument_list|)
-block|;
-name|void
-name|setUniformValueArray
-argument_list|(
-argument|const char *name
-argument_list|,
-argument|const QMacCompatGLint *values
-argument_list|,
-argument|int count
-argument_list|)
-block|;
-name|void
-name|setUniformValueArray
-argument_list|(
-argument|const char *name
-argument_list|,
-argument|const QMacCompatGLuint *values
-argument_list|,
-argument|int count
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|void
 name|setUniformValue
 argument_list|(
@@ -1943,10 +1794,6 @@ argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER

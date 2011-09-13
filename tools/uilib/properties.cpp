@@ -45,7 +45,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QIcon>
+file|<QtWidgets/QIcon>
 end_include
 begin_include
 include|#
@@ -60,12 +60,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QFrame>
+file|<QtWidgets/QFrame>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QAbstractScrollArea>
+file|<QtWidgets/QAbstractScrollArea>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

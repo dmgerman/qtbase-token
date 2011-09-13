@@ -191,6 +191,7 @@ end_comment
 begin_struct
 DECL|struct|glyph_metrics_t
 struct|struct
+name|Q_GUI_EXPORT
 name|glyph_metrics_t
 block|{
 DECL|function|glyph_metrics_t
@@ -2230,6 +2231,7 @@ name|LayoutFailed
 block|,     }
 enum|;
 struct|struct
+name|Q_GUI_EXPORT
 name|LayoutData
 block|{
 name|LayoutData
@@ -3473,6 +3475,7 @@ end_function_decl
 begin_decl_stmt
 unit|};
 name|class
+name|Q_GUI_EXPORT
 name|QStackTextEngine
 range|:
 name|public

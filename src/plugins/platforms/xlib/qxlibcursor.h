@@ -46,7 +46,7 @@ name|QCursor
 operator|*
 name|cursor
 argument_list|,
-name|QWidget
+name|QWindow
 operator|*
 name|widget
 argument_list|)

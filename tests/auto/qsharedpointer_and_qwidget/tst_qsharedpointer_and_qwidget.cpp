@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/QWidget>
+file|<QtWidgets/QWidget>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPushButton>
+file|<QtWidgets/QPushButton>
 end_include
 begin_include
 include|#

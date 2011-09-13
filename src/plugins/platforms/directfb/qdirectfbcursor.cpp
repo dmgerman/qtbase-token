@@ -27,11 +27,6 @@ name|QPlatformCursor
 argument_list|(
 name|screen
 argument_list|)
-member_init_list|,
-name|surface
-argument_list|(
-literal|0
-argument_list|)
 block|{
 name|QDirectFbConvenience
 operator|::
@@ -51,7 +46,7 @@ operator|&
 name|m_layer
 argument_list|)
 expr_stmt|;
-name|image
+name|m_image
 operator|=
 operator|new
 name|QPlatformCursorImage
@@ -71,6 +66,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
+begin_warning
+warning|#
+directive|warning
+literal|"Memory leak?"
+end_warning
 begin_function
 DECL|function|changeCursor
 name|void
@@ -82,16 +82,10 @@ name|QCursor
 modifier|*
 name|cursor
 parameter_list|,
-name|QWidget
+name|QWindow
 modifier|*
-name|widget
 parameter_list|)
 block|{
-name|Q_UNUSED
-argument_list|(
-name|widget
-argument_list|)
-expr_stmt|;
 name|int
 name|xSpot
 decl_stmt|;
@@ -113,7 +107,7 @@ operator|::
 name|BitmapCursor
 condition|)
 block|{
-name|image
+name|m_image
 operator|->
 name|set
 argument_list|(
@@ -125,7 +119,7 @@ argument_list|)
 expr_stmt|;
 name|xSpot
 operator|=
-name|image
+name|m_image
 operator|->
 name|hotspot
 argument_list|()
@@ -135,7 +129,7 @@ argument_list|()
 expr_stmt|;
 name|ySpot
 operator|=
-name|image
+name|m_image
 operator|->
 name|hotspot
 argument_list|()
@@ -147,7 +141,7 @@ name|QImage
 modifier|*
 name|i
 init|=
-name|image
+name|m_image
 operator|->
 name|image
 argument_list|()
@@ -201,11 +195,11 @@ name|surface
 init|=
 name|QDirectFbConvenience
 operator|::
-name|dfbSurfaceForPixmapData
+name|dfbSurfaceForPlatformPixmap
 argument_list|(
 name|map
 operator|.
-name|pixmapData
+name|handle
 argument_list|()
 argument_list|)
 decl_stmt|;

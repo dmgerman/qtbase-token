@@ -39,6 +39,8 @@ name|Leave
 block|,
 name|ActivatedWindow
 block|,
+name|WindowStateChanged
+block|,
 name|Mouse
 block|,
 name|Wheel
@@ -52,6 +54,12 @@ block|,
 name|ScreenAvailableGeometry
 block|,
 name|ScreenCountChange
+block|,
+name|Map
+block|,
+name|Unmap
+block|,
+name|Expose
 block|}
 enum|;
 name|class
@@ -59,6 +67,7 @@ name|WindowSystemEvent
 block|{
 name|public
 label|:
+name|explicit
 name|WindowSystemEvent
 argument_list|(
 argument|EventType t
@@ -82,11 +91,12 @@ name|WindowSystemEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|CloseEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
-name|tlw
+name|w
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -94,16 +104,16 @@ argument_list|(
 name|Close
 argument_list|)
 block|,
-name|topLevel
+name|window
 argument_list|(
-argument|tlw
+argument|w
 argument_list|)
 block|{ }
 name|QWeakPointer
 operator|<
-name|QWidget
+name|QWindow
 operator|>
-name|topLevel
+name|window
 block|;     }
 decl_stmt|;
 name|class
@@ -116,7 +126,7 @@ name|public
 operator|:
 name|GeometryChangeEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|tlw
 argument_list|,
@@ -143,7 +153,7 @@ argument_list|)
 block|{ }
 name|QWeakPointer
 operator|<
-name|QWidget
+name|QWindow
 operator|>
 name|tlw
 block|;
@@ -159,9 +169,10 @@ name|WindowSystemEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|EnterEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|enter
 argument_list|)
@@ -178,7 +189,7 @@ argument_list|)
 block|{ }
 name|QWeakPointer
 operator|<
-name|QWidget
+name|QWindow
 operator|>
 name|enter
 block|;     }
@@ -191,9 +202,10 @@ name|WindowSystemEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|LeaveEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|leave
 argument_list|)
@@ -210,7 +222,7 @@ argument_list|)
 block|{ }
 name|QWeakPointer
 operator|<
-name|QWidget
+name|QWindow
 operator|>
 name|leave
 block|;     }
@@ -223,9 +235,10 @@ name|WindowSystemEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|ActivatedWindowEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|activatedWindow
 argument_list|)
@@ -242,9 +255,51 @@ argument_list|)
 block|{ }
 name|QWeakPointer
 operator|<
-name|QWidget
+name|QWindow
 operator|>
 name|activated
+block|;     }
+decl_stmt|;
+name|class
+name|WindowStateChangedEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|WindowStateChangedEvent
+argument_list|(
+argument|QWindow *_window
+argument_list|,
+argument|Qt::WindowState _newState
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|WindowStateChanged
+argument_list|)
+block|,
+name|window
+argument_list|(
+name|_window
+argument_list|)
+block|,
+name|newState
+argument_list|(
+argument|_newState
+argument_list|)
+block|{ }
+name|QWeakPointer
+operator|<
+name|QWindow
+operator|>
+name|window
+block|;
+name|Qt
+operator|::
+name|WindowState
+name|newState
 block|;     }
 decl_stmt|;
 name|class
@@ -257,7 +312,7 @@ name|public
 operator|:
 name|UserEvent
 argument_list|(
-argument|QWidget * w
+argument|QWindow * w
 argument_list|,
 argument|ulong time
 argument_list|,
@@ -269,7 +324,7 @@ argument_list|(
 name|t
 argument_list|)
 block|,
-name|widget
+name|window
 argument_list|(
 name|w
 argument_list|)
@@ -281,9 +336,9 @@ argument_list|)
 block|{ }
 name|QWeakPointer
 operator|<
-name|QWidget
+name|QWindow
 operator|>
-name|widget
+name|window
 block|;
 name|unsigned
 name|long
@@ -300,7 +355,7 @@ name|public
 operator|:
 name|MouseEvent
 argument_list|(
-argument|QWidget * w
+argument|QWindow * w
 argument_list|,
 argument|ulong time
 argument_list|,
@@ -357,7 +412,7 @@ name|public
 operator|:
 name|WheelEvent
 argument_list|(
-argument|QWidget *w
+argument|QWindow *w
 argument_list|,
 argument|ulong time
 argument_list|,
@@ -424,7 +479,7 @@ name|public
 operator|:
 name|KeyEvent
 argument_list|(
-argument|QWidget *w
+argument|QWindow *w
 argument_list|,
 argument|ulong time
 argument_list|,
@@ -498,7 +553,7 @@ argument_list|)
 block|{ }
 name|KeyEvent
 argument_list|(
-argument|QWidget *w
+argument|QWindow *w
 argument_list|,
 argument|ulong time
 argument_list|,
@@ -618,7 +673,7 @@ name|public
 operator|:
 name|TouchEvent
 argument_list|(
-argument|QWidget *w
+argument|QWindow *w
 argument_list|,
 argument|ulong time
 argument_list|,
@@ -751,6 +806,115 @@ argument_list|)
 block|{ }
 name|int
 name|index
+block|;     }
+decl_stmt|;
+name|class
+name|MapEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|MapEvent
+argument_list|(
+name|QWindow
+operator|*
+name|mapped
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|Map
+argument_list|)
+block|,
+name|mapped
+argument_list|(
+argument|mapped
+argument_list|)
+block|{ }
+name|QWeakPointer
+operator|<
+name|QWindow
+operator|>
+name|mapped
+block|;     }
+decl_stmt|;
+name|class
+name|UnmapEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|UnmapEvent
+argument_list|(
+name|QWindow
+operator|*
+name|unmapped
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|Unmap
+argument_list|)
+block|,
+name|unmapped
+argument_list|(
+argument|unmapped
+argument_list|)
+block|{ }
+name|QWeakPointer
+operator|<
+name|QWindow
+operator|>
+name|unmapped
+block|;     }
+decl_stmt|;
+name|class
+name|ExposeEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|ExposeEvent
+argument_list|(
+name|QWindow
+operator|*
+name|exposed
+argument_list|,
+specifier|const
+name|QRegion
+operator|&
+name|region
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|Expose
+argument_list|)
+block|,
+name|exposed
+argument_list|(
+name|exposed
+argument_list|)
+block|,
+name|region
+argument_list|(
+argument|region
+argument_list|)
+block|{ }
+name|QWeakPointer
+operator|<
+name|QWindow
+operator|>
+name|exposed
+block|;
+name|QRegion
+name|region
 block|;     }
 decl_stmt|;
 specifier|static

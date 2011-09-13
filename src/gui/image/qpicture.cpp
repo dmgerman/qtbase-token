@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qguiapplication.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"qdatastream.h"
 end_include
 begin_include
@@ -4685,9 +4690,6 @@ name|QT_BEGIN_INCLUDE_NAMESPACE
 include|#
 directive|include
 file|"qregexp.h"
-include|#
-directive|include
-file|"qapplication.h"
 include|#
 directive|include
 file|"qpictureformatplugin.h"

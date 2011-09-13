@@ -25,11 +25,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qapplication.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qpainter.h>
 end_include
 begin_include
@@ -56,11 +51,6 @@ begin_include
 include|#
 directive|include
 file|"qtextformat_p.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qstyleoption.h"
 end_include
 begin_include
 include|#

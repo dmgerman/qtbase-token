@@ -329,7 +329,7 @@ name|handleMouseEvent
 argument_list|(
 name|window
 operator|->
-name|widget
+name|window
 argument_list|()
 argument_list|,
 name|time
@@ -481,7 +481,7 @@ name|handleMouseEvent
 argument_list|(
 name|window
 operator|->
-name|widget
+name|window
 argument_list|()
 argument_list|,
 name|time
@@ -1130,7 +1130,7 @@ name|handleKeyEvent
 argument_list|(
 name|window
 operator|->
-name|widget
+name|window
 argument_list|()
 argument_list|,
 name|time
@@ -1251,7 +1251,7 @@ name|handleLeaveEvent
 argument_list|(
 name|window
 operator|->
-name|widget
+name|window
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1284,7 +1284,7 @@ name|handleEnterEvent
 argument_list|(
 name|window
 operator|->
-name|widget
+name|window
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1474,7 +1474,7 @@ name|handleWindowActivated
 argument_list|(
 name|window
 operator|->
-name|widget
+name|window
 argument_list|()
 argument_list|)
 expr_stmt|;

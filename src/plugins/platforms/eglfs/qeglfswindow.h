@@ -31,7 +31,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QWidget>
+file|<QtWidgets/QWidget>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -45,13 +45,9 @@ name|public
 operator|:
 name|QEglFSWindow
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|w
-argument_list|,
-name|QEglFSScreen
-operator|*
-name|screen
 argument_list|)
 block|;
 name|void
@@ -67,18 +63,8 @@ name|winId
 argument_list|()
 specifier|const
 block|;
-name|QPlatformGLContext
-operator|*
-name|glContext
-argument_list|()
-specifier|const
-block|;
 name|private
 operator|:
-name|QEglFSScreen
-operator|*
-name|m_screen
-block|;
 name|WId
 name|m_winid
 block|; }

@@ -46,7 +46,6 @@ name|mousePressEvent
 parameter_list|(
 name|QGraphicsSceneMouseEvent
 modifier|*
-name|event
 parameter_list|)
 block|{
 emit|emit
@@ -92,11 +91,11 @@ parameter_list|,
 specifier|const
 name|QStyleOptionGraphicsItem
 modifier|*
-name|option
+comment|/* option */
 parameter_list|,
 name|QWidget
 modifier|*
-name|widget
+comment|/* widget */
 parameter_list|)
 block|{
 name|painter

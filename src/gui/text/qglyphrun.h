@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QGLYPHRUN_H
+name|QOpenGLYPHRUN_H
 end_ifndef
 begin_define
-DECL|macro|QGLYPHRUN_H
+DECL|macro|QOpenGLYPHRUN_H
 define|#
 directive|define
-name|QGLYPHRUN_H
+name|QOpenGLYPHRUN_H
 end_define
 begin_include
 include|#
@@ -195,6 +195,7 @@ specifier|const
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+specifier|inline
 name|bool
 name|operator
 operator|!=
@@ -205,7 +206,16 @@ operator|&
 name|other
 operator|)
 specifier|const
-expr_stmt|;
+block|{
+return|return
+operator|!
+name|operator
+operator|==
+operator|(
+name|other
+operator|)
+return|;
+block|}
 end_expr_stmt
 begin_function_decl
 name|void
@@ -353,6 +363,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QGLYPHS_H
+comment|// QOpenGLYPHS_H
 end_comment
 end_unit

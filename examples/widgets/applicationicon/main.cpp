@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/QApplication>
+file|<QtWidgets/QApplication>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QLabel>
+file|<QtWidgets/QLabel>
 end_include
 begin_function
 DECL|function|main

@@ -6006,7 +6006,7 @@ name|QXlibKeyboard
 operator|::
 name|handleKeyEvent
 parameter_list|(
-name|QWidget
+name|QWindow
 modifier|*
 name|widget
 parameter_list|,

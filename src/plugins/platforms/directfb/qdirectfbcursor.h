@@ -58,9 +58,9 @@ name|QCursor
 operator|*
 name|cursor
 argument_list|,
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|)
 block|;
 name|private
@@ -69,17 +69,9 @@ name|IDirectFBDisplayLayer
 operator|*
 name|m_layer
 block|;
-name|IDirectFBSurface
-operator|*
-name|surface
-block|;
 name|QPlatformCursorImage
 operator|*
-name|image
-block|;
-name|QDirectFbBlitter
-operator|*
-name|blitter
+name|m_image
 block|; }
 decl_stmt|;
 end_decl_stmt

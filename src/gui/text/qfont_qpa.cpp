@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qapplication_p.h>
+file|<QtGui/private/qguiapplication_p.h>
 end_include
 begin_include
 include|#
@@ -20,7 +20,19 @@ name|QFont
 operator|::
 name|initialize
 parameter_list|()
-block|{ }
+block|{
+name|QGuiApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
+operator|->
+name|fontDatabase
+argument_list|()
+operator|->
+name|populateFontDatabase
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|cleanup
@@ -178,7 +190,7 @@ block|}
 name|QStringList
 name|list
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()

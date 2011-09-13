@@ -831,9 +831,25 @@ name|Scroll
 init|=
 literal|205
 block|,
-name|OrientationChange
+name|Map
 init|=
 literal|206
+block|,
+name|Unmap
+init|=
+literal|207
+block|,
+name|Expose
+init|=
+literal|208
+block|,
+name|InputMethodQuery
+init|=
+literal|209
+block|,
+name|OrientationChange
+init|=
+literal|210
 block|,
 comment|// Screen orientation has changed
 comment|// 512 reserved for Qt Jambi's MetaCall event

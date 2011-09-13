@@ -38,7 +38,7 @@ function_decl|;
 name|void
 name|handleKeyEvent
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|widget
 argument_list|,

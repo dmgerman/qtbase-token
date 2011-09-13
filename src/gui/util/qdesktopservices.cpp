@@ -33,7 +33,7 @@ end_if
 begin_include
 include|#
 directive|include
-file|"qdesktopservices_qws.cpp"
+file|"qdesktopservices_qpa.cpp"
 end_include
 begin_elif
 elif|#

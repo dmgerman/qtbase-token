@@ -40,7 +40,7 @@ name|public
 operator|:
 name|QWaylandReadbackEglWindow
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
 name|window
 argument_list|,
@@ -54,7 +54,7 @@ name|windowType
 argument_list|()
 specifier|const
 block|;
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|*
 name|glContext
 argument_list|()

@@ -15,22 +15,22 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QLabel>
+file|<QtWidgets/QLabel>
 end_include
 begin_include
 include|#
 directive|include
-file|<QPushButton>
+file|<QtWidgets/QPushButton>
 end_include
 begin_include
 include|#
 directive|include
-file|<QSizePolicy>
+file|<QtWidgets/QSizePolicy>
 end_include
 begin_include
 include|#
 directive|include
-file|<QGridLayout>
+file|<QtWidgets/QGridLayout>
 end_include
 begin_comment
 comment|//! [0]

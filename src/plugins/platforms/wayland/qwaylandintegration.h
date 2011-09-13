@@ -32,6 +32,12 @@ name|QWaylandDisplay
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QAbstractEventDispatcher
+name|class
+name|QAbstractEventDispatcher
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QWaylandIntegration
 range|:
@@ -41,9 +47,7 @@ block|{
 name|public
 operator|:
 name|QWaylandIntegration
-argument_list|(
-argument|bool useOpenGL = false
-argument_list|)
+argument_list|()
 block|;
 name|bool
 name|hasCapability
@@ -52,40 +56,33 @@ argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
 block|;
-name|QPixmapData
-operator|*
-name|createPixmapData
-argument_list|(
-argument|QPixmapData::PixelType type
-argument_list|)
-specifier|const
-block|;
 name|QPlatformWindow
 operator|*
 name|createPlatformWindow
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|QWindowSurface
+name|QPlatformOpenGLContext
 operator|*
-name|createWindowSurface
+name|createPlatformOpenGLContext
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId
+argument|QOpenGLContext *context
 argument_list|)
 specifier|const
 block|;
-name|QList
-operator|<
-name|QPlatformScreen
+name|QPlatformBackingStore
 operator|*
-operator|>
-name|screens
+name|createPlatformBackingStore
+argument_list|(
+argument|QWindow *window
+argument_list|)
+specifier|const
+block|;
+name|QAbstractEventDispatcher
+operator|*
+name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
 block|;
@@ -107,23 +104,25 @@ name|clipboard
 argument_list|()
 specifier|const
 block|;
-name|private
-operator|:
-name|bool
-name|hasOpenGL
+name|QPlatformDrag
+operator|*
+name|drag
 argument_list|()
 specifier|const
 block|;
+name|private
+operator|:
 name|QPlatformFontDatabase
 operator|*
 name|mFontDb
 block|;
+name|QAbstractEventDispatcher
+operator|*
+name|mEventDispatcher
+block|;
 name|QWaylandDisplay
 operator|*
 name|mDisplay
-block|;
-name|bool
-name|mUseOpenGL
 block|;
 name|QPlatformNativeInterface
 operator|*

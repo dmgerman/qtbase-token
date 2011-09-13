@@ -155,6 +155,18 @@ comment|// number of important colors
 block|}
 struct|;
 end_struct
+begin_comment
+comment|// BMP-Handler, which is also able to read and write the DIB
+end_comment
+begin_comment
+comment|// (Device-Independent-Bitmap) format used internally in the Windows operating
+end_comment
+begin_comment
+comment|// system for OLE/clipboard operations. DIB is a subset of BMP (without file
+end_comment
+begin_comment
+comment|// header). The Windows-Lighthouse plugin accesses the DIB-functionality.
+end_comment
 begin_decl_stmt
 name|class
 name|QBmpHandler
@@ -164,8 +176,19 @@ name|QImageIOHandler
 block|{
 name|public
 operator|:
+expr|enum
+name|InternalFormat
+block|{
+name|DibFormat
+block|,
+name|BmpFormat
+block|}
+block|;
+name|explicit
 name|QBmpHandler
-argument_list|()
+argument_list|(
+argument|InternalFormat fmt = BmpFormat
+argument_list|)
 block|;
 name|bool
 name|canRead
@@ -230,7 +253,13 @@ operator|:
 name|bool
 name|readHeader
 argument_list|()
-block|;     enum
+block|;
+specifier|inline
+name|QByteArray
+name|formatName
+argument_list|()
+specifier|const
+block|;      enum
 name|State
 block|{
 name|Ready
@@ -239,6 +268,10 @@ name|ReadHeader
 block|,
 name|Error
 block|}
+block|;
+specifier|const
+name|InternalFormat
+name|m_format
 block|;
 name|State
 name|state

@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<private/qpixmapdata_p.h>
+file|<qplatformpixmap_qpa.h>
 end_include
 begin_include
 include|#
@@ -32,19 +32,19 @@ begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
 name|Q_GUI_EXPORT
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 range|:
 name|public
-name|QPixmapData
+name|QPlatformPixmap
 block|{
-comment|//     Q_DECLARE_PRIVATE(QBlittablePixmapData);
+comment|//     Q_DECLARE_PRIVATE(QBlittablePlatformPixmap);
 name|public
 operator|:
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 argument_list|()
 block|;
 operator|~
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 argument_list|()
 block|;
 name|virtual
@@ -253,7 +253,7 @@ begin_expr_stmt
 DECL|function|markRasterOverlay
 specifier|inline
 name|void
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|markRasterOverlay
 argument_list|(
@@ -280,7 +280,7 @@ block|}
 DECL|function|markRasterOverlay
 specifier|inline
 name|void
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|markRasterOverlay
 argument_list|(
@@ -313,7 +313,7 @@ block|}
 DECL|function|markRasterOverlay
 specifier|inline
 name|void
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|markRasterOverlay
 argument_list|(
@@ -375,7 +375,7 @@ block|}
 DECL|function|markRasterOverlay
 specifier|inline
 name|void
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|markRasterOverlay
 argument_list|(
@@ -430,7 +430,7 @@ begin_expr_stmt
 unit|} inline
 DECL|function|markRasterOverlay
 name|void
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|markRasterOverlay
 argument_list|(
@@ -485,7 +485,7 @@ begin_expr_stmt
 unit|}  inline
 DECL|function|unmarkRasterOverlay
 name|void
-name|QBlittablePixmapData
+name|QBlittablePlatformPixmap
 operator|::
 name|unmarkRasterOverlay
 argument_list|(

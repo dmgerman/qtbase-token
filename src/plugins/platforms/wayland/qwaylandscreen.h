@@ -89,11 +89,11 @@ block|;
 specifier|static
 name|QWaylandScreen
 operator|*
-name|waylandScreenFromWidget
+name|waylandScreenFromWindow
 argument_list|(
-name|QWidget
+name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|)
 block|;
 name|private

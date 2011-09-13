@@ -5,7 +5,17 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui>
+file|<QtWidgets>
+end_include
+begin_include
+include|#
+directive|include
+file|<QPrinter>
+end_include
+begin_include
+include|#
+directive|include
+file|<QPrintDialog>
 end_include
 begin_include
 include|#
@@ -1412,6 +1422,9 @@ operator|::
 name|printButtonClicked
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
 name|QPrinter
 name|printer
 decl_stmt|;
@@ -1449,6 +1462,8 @@ literal|"license text will not actually be printed."
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 end_unit

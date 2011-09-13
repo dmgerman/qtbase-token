@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/QGraphicsWidget>
+file|<QtWidgets/QGraphicsWidget>
 end_include
 begin_comment
 comment|//! [0]

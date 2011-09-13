@@ -34,11 +34,6 @@ end_if
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qgraphicssystem_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtGui/private/qapplication_p.h>
 end_include
 begin_include
@@ -138,7 +133,7 @@ name|QPlatformIntegration
 modifier|*
 name|pi
 init|=
-name|QApplicationPrivate
+name|QGuiApplicationPrivate
 operator|::
 name|platformIntegration
 argument_list|()
@@ -240,7 +235,7 @@ operator|!
 name|dev
 condition|)
 return|return;
-comment|// Find the QGLScreen for this paint device.
+comment|// Find the QOpenGLScreen for this paint device.
 name|QPlatformScreen
 modifier|*
 name|screen

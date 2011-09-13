@@ -160,115 +160,10 @@ argument|const QTransform&matrix
 argument_list|)
 specifier|const
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-specifier|inline
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QBitmap
-argument_list|(
-argument|int w
-argument_list|,
-argument|int h
-argument_list|,
-argument|bool clear
-argument_list|)
-block|;
-specifier|inline
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QBitmap
-argument_list|(
-argument|const QSize&
-argument_list|,
-argument|bool clear
-argument_list|)
-block|;
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QBitmap
-argument_list|(
-argument|int w
-argument_list|,
-argument|int h
-argument_list|,
-argument|const uchar *bits
-argument_list|,
-argument|bool isXbitmap=false
-argument_list|)
-block|;
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QBitmap
-argument_list|(
-argument|const QSize&
-argument_list|,
-argument|const uchar *bits
-argument_list|,
-argument|bool isXbitmap=false
-argument_list|)
-block|;
-specifier|inline
-name|QT3_SUPPORT
-name|QBitmap
-name|xForm
-argument_list|(
-argument|const QMatrix&matrix
-argument_list|)
-specifier|const
-block|{
-return|return
-name|transformed
-argument_list|(
-name|QTransform
-argument_list|(
-name|matrix
-argument_list|)
-argument_list|)
-return|;
-block|}
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QBitmap
-argument_list|(
-argument|const QImage&image
-argument_list|)
-block|{
-operator|*
-name|this
-operator|=
-name|fromImage
-argument_list|(
-name|image
-argument_list|)
-block|; }
-name|QT3_SUPPORT
-name|QBitmap
-operator|&
-name|operator
-operator|=
-operator|(
-specifier|const
-name|QImage
-operator|&
-name|image
-operator|)
-block|{
-operator|*
-name|this
-operator|=
-name|fromImage
-argument_list|(
-name|image
-argument_list|)
-block|;
-return|return
-operator|*
-name|this
-return|;
-block|}
-endif|#
-directive|endif
 typedef|typedef
 name|QExplicitlySharedDataPointer
 operator|<
-name|QPixmapData
+name|QPlatformPixmap
 operator|>
 name|DataPtr
 expr_stmt|;
@@ -278,82 +173,11 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_macro
-DECL|function|Q_DECLARE_SHARED
 name|Q_DECLARE_SHARED
 argument_list|(
 argument|QBitmap
 argument_list|)
 end_macro
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-end_ifdef
-begin_expr_stmt
-specifier|inline
-name|QBitmap
-operator|::
-name|QBitmap
-argument_list|(
-argument|int w
-argument_list|,
-argument|int h
-argument_list|,
-argument|bool clear
-argument_list|)
-operator|:
-name|QPixmap
-argument_list|(
-argument|QSize(w, h)
-argument_list|,
-literal|1
-argument_list|)
-block|{
-if|if
-condition|(
-name|clear
-condition|)
-name|this
-operator|->
-name|clear
-argument_list|()
-expr_stmt|;
-block|}
-end_expr_stmt
-begin_expr_stmt
-DECL|function|QBitmap
-specifier|inline
-name|QBitmap
-operator|::
-name|QBitmap
-argument_list|(
-argument|const QSize&size
-argument_list|,
-argument|bool clear
-argument_list|)
-operator|:
-name|QPixmap
-argument_list|(
-argument|size
-argument_list|,
-literal|1
-argument_list|)
-block|{
-if|if
-condition|(
-name|clear
-condition|)
-name|this
-operator|->
-name|clear
-argument_list|()
-expr_stmt|;
-block|}
-end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER

@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QWidget>
+file|<QtWidgets/QWidget>
 end_include
 begin_include
 include|#
@@ -472,11 +472,11 @@ argument_list|)
 expr_stmt|;
 comment|//restore the old current context
 specifier|const
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|currentContext
 init|=
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|::
 name|currentContext
 argument_list|()
@@ -487,7 +487,7 @@ name|currentContext
 condition|)
 cast|const_cast
 argument_list|<
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 operator|*
 argument_list|>
 argument_list|(
@@ -518,11 +518,6 @@ operator|::
 name|makeCurrent
 parameter_list|()
 block|{
-name|QPlatformGLContext
-operator|::
-name|makeCurrent
-argument_list|()
-expr_stmt|;
 name|Q_D
 argument_list|(
 name|QDri2Context
@@ -565,11 +560,6 @@ operator|::
 name|doneCurrent
 parameter_list|()
 block|{
-name|QPlatformGLContext
-operator|::
-name|doneCurrent
-argument_list|()
-expr_stmt|;
 name|Q_D
 argument_list|(
 name|QDri2Context

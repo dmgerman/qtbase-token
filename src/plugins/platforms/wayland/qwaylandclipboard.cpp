@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QApplication>
+file|<QtGui/QGuiApplication>
 end_include
 begin_include
 include|#

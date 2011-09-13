@@ -40,6 +40,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"private/qguiapplication_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qabstracttextdocumentlayout_p.h"
 end_include
 begin_include
@@ -81,11 +86,6 @@ begin_include
 include|#
 directive|include
 file|<limits.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qstyle.h>
 end_include
 begin_include
 include|#
@@ -17261,7 +17261,7 @@ name|option
 operator|.
 name|setAlignment
 argument_list|(
-name|QStyle
+name|QGuiApplicationPrivate
 operator|::
 name|visualAlignment
 argument_list|(

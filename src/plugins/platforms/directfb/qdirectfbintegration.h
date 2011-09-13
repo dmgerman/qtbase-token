@@ -41,6 +41,12 @@ name|QThread
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QAbstractEventDispatcher
+name|class
+name|QAbstractEventDispatcher
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QDirectFBCursor
 name|class
 name|QDirectFBCursor
@@ -53,7 +59,6 @@ range|:
 name|public
 name|QPlatformScreen
 block|{
-name|Q_OBJECT
 name|public
 operator|:
 name|QDirectFbScreen
@@ -127,8 +132,8 @@ name|private
 operator|:
 name|QDirectFBCursor
 operator|*
-name|cursor
-block|;  }
+name|m_cursor
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -147,11 +152,11 @@ operator|~
 name|QDirectFbIntegration
 argument_list|()
 block|;
-name|QPixmapData
+name|QPlatformPixmap
 operator|*
-name|createPixmapData
+name|createPlatformPixmap
 argument_list|(
-argument|QPixmapData::PixelType type
+argument|QPlatformPixmap::PixelType type
 argument_list|)
 specifier|const
 block|;
@@ -159,36 +164,24 @@ name|QPlatformWindow
 operator|*
 name|createPlatformWindow
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId =
-literal|0
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|QWindowSurface
+name|QPlatformBackingStore
 operator|*
-name|createWindowSurface
+name|createPlatformBackingStore
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|QList
-operator|<
-name|QPlatformScreen
+name|QAbstractEventDispatcher
 operator|*
-operator|>
-name|screens
+name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
-block|{
-return|return
-name|mScreens
-return|;
-block|}
+block|;
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase
@@ -197,24 +190,21 @@ specifier|const
 block|;
 name|private
 operator|:
-name|QList
-operator|<
-name|QPlatformScreen
-operator|*
-operator|>
-name|mScreens
-block|;
 name|QDirectFbInput
 operator|*
-name|mInput
+name|m_input
 block|;
 name|QThread
 operator|*
-name|mInputRunner
+name|m_inputRunner
 block|;
 name|QPlatformFontDatabase
 operator|*
-name|mFontDb
+name|m_fontDb
+block|;
+name|QAbstractEventDispatcher
+operator|*
+name|m_eventDispatcher
 block|; }
 decl_stmt|;
 end_decl_stmt

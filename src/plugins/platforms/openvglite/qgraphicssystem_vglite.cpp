@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtOpenVG/private/qpixmapdata_vg_p.h>
+file|<QtOpenVG/qplatformpixmap_vg_p.h>
 end_include
 begin_include
 include|#
@@ -658,14 +658,14 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_function
-DECL|function|createPixmapData
-name|QPixmapData
+DECL|function|createPlatformPixmap
+name|QPlatformPixmap
 modifier|*
 name|QVGLiteGraphicsSystem
 operator|::
-name|createPixmapData
+name|createPlatformPixmap
 parameter_list|(
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixelType
 name|type
@@ -685,18 +685,18 @@ name|defined
 argument_list|(
 name|QVGLite_NO_PIXMAP_DATA
 argument_list|)
-comment|// Pixmaps can use QVGLitePixmapData; bitmaps must use raster.
+comment|// Pixmaps can use QVGLitePlatformPixmap; bitmaps must use raster.
 if|if
 condition|(
 name|type
 operator|==
-name|QPixmapData
+name|QPlatformPixmap
 operator|::
 name|PixmapType
 condition|)
 return|return
 operator|new
-name|QVGPixmapData
+name|QVGPlatformPixmap
 argument_list|(
 name|type
 argument_list|)
@@ -704,7 +704,7 @@ return|;
 else|else
 return|return
 operator|new
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 argument_list|(
 name|type
 argument_list|)
@@ -713,7 +713,7 @@ else|#
 directive|else
 return|return
 operator|new
-name|QRasterPixmapData
+name|QRasterPlatformPixmap
 argument_list|(
 name|type
 argument_list|)

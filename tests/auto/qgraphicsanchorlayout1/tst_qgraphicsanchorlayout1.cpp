@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qgraphicsanchorlayout.h>
+file|<QtWidgets/qgraphicsanchorlayout.h>
 end_include
 begin_include
 include|#

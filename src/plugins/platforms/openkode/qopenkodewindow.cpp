@@ -59,7 +59,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qwidget.h>
+file|<QtWidgets/qwidget.h>
 end_include
 begin_include
 include|#
@@ -1075,7 +1075,7 @@ block|}
 end_function
 begin_function
 DECL|function|glContext
-name|QPlatformGLContext
+name|QPlatformOpenGLContext
 modifier|*
 name|QOpenKODEWindow
 operator|::

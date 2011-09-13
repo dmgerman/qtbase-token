@@ -18,7 +18,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui>
+file|<QtWidgets>
 end_include
 begin_include
 include|#

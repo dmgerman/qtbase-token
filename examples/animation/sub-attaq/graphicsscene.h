@@ -19,7 +19,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/QGraphicsScene>
+file|<QtWidgets/QGraphicsScene>
 end_include
 begin_include
 include|#

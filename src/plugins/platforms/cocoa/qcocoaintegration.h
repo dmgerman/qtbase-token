@@ -130,72 +130,75 @@ argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
 block|;
-name|QPixmapData
-operator|*
-name|createPixmapData
-argument_list|(
-argument|QPixmapData::PixelType type
-argument_list|)
-specifier|const
-block|;
 name|QPlatformWindow
 operator|*
 name|createPlatformWindow
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId =
-literal|0
+argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|QWindowSurface
+name|QPlatformOpenGLContext
 operator|*
-name|createWindowSurface
+name|createPlatformOpenGLContext
 argument_list|(
-argument|QWidget *widget
-argument_list|,
-argument|WId winId
+argument|QOpenGLContext *context
 argument_list|)
 specifier|const
 block|;
-name|QList
-operator|<
-name|QPlatformScreen
+name|QPlatformBackingStore
 operator|*
-operator|>
-name|screens
+name|createPlatformBackingStore
+argument_list|(
+argument|QWindow *widget
+argument_list|)
+specifier|const
+block|;
+name|QAbstractEventDispatcher
+operator|*
+name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
-block|{
-return|return
-name|mScreens
-return|;
-block|}
+block|;
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase
 argument_list|()
 specifier|const
 block|;
-name|QPlatformEventLoopIntegration
+name|QPlatformMenu
 operator|*
-name|createEventLoopIntegration
+name|createPlatformMenu
+argument_list|(
+argument|QMenu *menu =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|QPlatformMenuBar
+operator|*
+name|createPlatformMenuBar
+argument_list|(
+argument|QMenuBar *menuBar =
+literal|0
+argument_list|)
+specifier|const
+block|;
+name|QPlatformNativeInterface
+operator|*
+name|nativeInterface
 argument_list|()
 specifier|const
 block|;
 name|private
 operator|:
-name|QList
-operator|<
-name|QPlatformScreen
-operator|*
-operator|>
-name|mScreens
-block|;
 name|QPlatformFontDatabase
 operator|*
 name|mFontDb
+block|;
+name|QAbstractEventDispatcher
+operator|*
+name|mEventDispatcher
 block|;
 name|QCocoaAutoReleasePool
 operator|*
