@@ -1145,6 +1145,30 @@ operator|::
 name|TabFocus
 argument_list|)
 expr_stmt|;
+name|leftB
+operator|->
+name|setAccessibleName
+argument_list|(
+name|QTabBar
+operator|::
+name|tr
+argument_list|(
+literal|"Scroll Left"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|rightB
+operator|->
+name|setAccessibleName
+argument_list|(
+name|QTabBar
+operator|::
+name|tr
+argument_list|(
+literal|"Scroll Right"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|q
 operator|->
 name|setSizePolicy
