@@ -7,11 +7,27 @@ include|#
 directive|include
 file|<xcb/xcb.h>
 end_include
+begin_comment
+comment|// FIXME This workaround can be removed for xcb-icccm> 3.8
+end_comment
+begin_define
+DECL|macro|class
+define|#
+directive|define
+name|class
+value|class_name
+end_define
 begin_include
 include|#
 directive|include
 file|<xcb/xcb_icccm.h>
 end_include
+begin_undef
+DECL|macro|class
+undef|#
+directive|undef
+name|class
+end_undef
 begin_include
 include|#
 directive|include
