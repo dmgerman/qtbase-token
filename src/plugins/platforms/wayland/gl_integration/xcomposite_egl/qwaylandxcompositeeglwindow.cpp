@@ -470,7 +470,7 @@ argument_list|,
 name|False
 argument_list|)
 expr_stmt|;
-name|mBuffer
+name|m_buffer
 operator|=
 operator|new
 name|QWaylandXCompositeBuffer
