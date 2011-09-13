@@ -10802,16 +10802,6 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
-argument|QUiLoader
-argument_list|,
-argument|QtUiTools
-argument_list|,
-argument|quiloader.h
-argument_list|)
-end_macro
-begin_macro
-name|QT_CLASS_LIB
-argument_list|(
 argument|QDesignerComponents
 argument_list|,
 argument|QtDesigner
