@@ -534,7 +534,7 @@ name|QDir
 name|dir
 argument_list|(
 name|SRCDIR
-literal|"/../"
+literal|"/../../"
 operator|+
 name|subdir
 argument_list|)
@@ -771,7 +771,7 @@ decl|,
 name|find_subdirs
 argument_list|(
 name|SRCDIR
-literal|"/../auto.pro"
+literal|"/../../auto.pro"
 argument_list|,
 name|Recursive
 argument_list|)
@@ -782,7 +782,7 @@ condition|(
 name|QFileInfo
 argument_list|(
 name|SRCDIR
-literal|"/../"
+literal|"/../../"
 operator|+
 name|subdir
 argument_list|)
@@ -799,7 +799,7 @@ condition|(
 name|looks_like_testcase
 argument_list|(
 name|SRCDIR
-literal|"/../"
+literal|"/../../"
 operator|+
 name|subdir
 operator|+
@@ -1796,7 +1796,7 @@ name|QString
 name|testsDir
 argument_list|(
 name|SRCDIR
-literal|"/.."
+literal|"/../.."
 argument_list|)
 decl_stmt|;
 name|QString
