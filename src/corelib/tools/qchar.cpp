@@ -573,7 +573,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the character is a letter or number (Letter_* or     Number_* categories); otherwise returns false. */
+comment|/*!     \fn bool QChar::isLetterOrNumber() const      Returns true if the character is a letter or number (Letter_* or     Number_* categories); otherwise returns false. */
+end_comment
+begin_comment
+comment|/*!     \internal     \overload */
 end_comment
 begin_function
 DECL|function|isLetterOrNumber
@@ -581,8 +584,10 @@ name|bool
 name|QChar
 operator|::
 name|isLetterOrNumber
-parameter_list|()
-specifier|const
+parameter_list|(
+name|ushort
+name|ucs2
+parameter_list|)
 block|{
 specifier|const
 name|int
@@ -633,7 +638,7 @@ name|FLAG
 argument_list|(
 name|qGetProp
 argument_list|(
-name|ucs
+name|ucs2
 argument_list|)
 operator|->
 name|category
