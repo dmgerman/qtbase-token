@@ -76,7 +76,11 @@ block|;
 name|virtual
 name|void
 name|update
-argument_list|()
+argument_list|(
+name|Qt
+operator|::
+name|InputMethodQueries
+argument_list|)
 block|;
 name|virtual
 name|void
@@ -85,15 +89,6 @@ argument_list|(
 argument|int x
 argument_list|,
 argument|QMouseEvent *event
-argument_list|)
-block|;
-name|virtual
-name|void
-name|setFocusObject
-argument_list|(
-name|QObject
-operator|*
-name|o
 argument_list|)
 block|;
 specifier|static
