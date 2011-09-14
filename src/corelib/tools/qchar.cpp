@@ -295,7 +295,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the character is a separator character     (Separator_* categories or certain code points from Other_Control category);     otherwise returns false. */
+comment|/*!     \fn bool QChar::isSpace() const      Returns true if the character is a separator character     (Separator_* categories or certain code points from Other_Control category);     otherwise returns false. */
+end_comment
+begin_comment
+comment|/*!     \internal     \overload */
 end_comment
 begin_function
 DECL|function|isSpace
@@ -303,22 +306,11 @@ name|bool
 name|QChar
 operator|::
 name|isSpace
-parameter_list|()
-specifier|const
+parameter_list|(
+name|ushort
+name|ucs2
+parameter_list|)
 block|{
-if|if
-condition|(
-name|ucs
-operator|>=
-literal|9
-operator|&&
-name|ucs
-operator|<=
-literal|13
-condition|)
-return|return
-literal|true
-return|;
 specifier|const
 name|int
 name|test
@@ -343,7 +335,7 @@ name|FLAG
 argument_list|(
 name|qGetProp
 argument_list|(
-name|ucs
+name|ucs2
 argument_list|)
 operator|->
 name|category
