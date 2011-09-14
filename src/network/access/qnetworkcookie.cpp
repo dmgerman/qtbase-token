@@ -761,10 +761,6 @@ literal|';'
 operator|||
 name|c
 operator|==
-literal|','
-operator|||
-name|c
-operator|==
 literal|'='
 condition|)
 break|break;
@@ -1003,10 +999,6 @@ if|if
 condition|(
 name|c
 operator|==
-literal|','
-operator|||
-name|c
-operator|==
 literal|';'
 condition|)
 break|break;
@@ -1049,10 +1041,6 @@ comment|// for name value pairs, we want to parse until reaching the next ';'
 comment|// and not break when reaching a space char
 if|if
 condition|(
-name|c
-operator|==
-literal|','
-operator|||
 name|c
 operator|==
 literal|';'
@@ -1132,7 +1120,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QNetworkCookie::RawForm      This enum is used with the toRawForm() function to declare which     form of a cookie shall be returned.      \value NameAndValueOnly     makes toRawForm() return only the         "NAME=VALUE" part of the cookie, as suitable for sending back         to a server in a client request's "Cookie:" header. Multiple         cookies are separated by a semi-colon in the "Cookie:" header         field.      \value Full                 makes toRawForm() return the full         cookie contents, as suitable for sending to a client in a         server's "Set-Cookie:" header. Multiple cookies are separated         by commas in a "Set-Cookie:" header.      Note that only the Full form of the cookie can be parsed back into     its original contents.      \sa toRawForm(), parseCookies() */
+comment|/*!     \enum QNetworkCookie::RawForm      This enum is used with the toRawForm() function to declare which     form of a cookie shall be returned.      \value NameAndValueOnly     makes toRawForm() return only the         "NAME=VALUE" part of the cookie, as suitable for sending back         to a server in a client request's "Cookie:" header. Multiple         cookies are separated by a semi-colon in the "Cookie:" header         field.      \value Full                 makes toRawForm() return the full         cookie contents, as suitable for sending to a client in a         server's "Set-Cookie:" header.      Note that only the Full form of the cookie can be parsed back into     its original contents.      \sa toRawForm(), parseCookies() */
 end_comment
 begin_comment
 comment|/*!     Returns the raw form of this QNetworkCookie. The QByteArray     returned by this function is suitable for an HTTP header, either     in a server response (the Set-Cookie header) or the client request     (the Cookie header). You can choose from one of two formats, using     \a form.      \sa parseCookies() */
@@ -1185,15 +1173,6 @@ operator|.
 name|contains
 argument_list|(
 literal|';'
-argument_list|)
-operator|||
-name|d
-operator|->
-name|value
-operator|.
-name|contains
-argument_list|(
-literal|','
 argument_list|)
 operator|||
 name|d
@@ -3818,16 +3797,8 @@ argument_list|,
 name|position
 argument_list|)
 expr_stmt|;
-name|bool
-name|endOfCookie
-init|=
-literal|false
-decl_stmt|;
 while|while
 condition|(
-operator|!
-name|endOfCookie
-operator|&&
 name|position
 operator|<
 name|length
@@ -3844,15 +3815,6 @@ operator|++
 argument_list|)
 condition|)
 block|{
-case|case
-literal|','
-case|:
-comment|// end of the cookie
-name|endOfCookie
-operator|=
-literal|true
-expr_stmt|;
-break|break;
 case|case
 literal|';'
 case|:
