@@ -110,7 +110,7 @@ argument_list|)
 end_macro
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|Q_PLATFORMSUPPORT_EXPORT
 name|QPlatformInputContextPlugin
 range|:
 name|public
