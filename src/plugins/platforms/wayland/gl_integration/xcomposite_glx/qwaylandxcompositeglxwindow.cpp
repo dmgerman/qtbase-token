@@ -80,6 +80,10 @@ name|window
 operator|->
 name|format
 argument_list|()
+argument_list|,
+name|GLX_WINDOW_BIT
+operator||
+name|GLX_PIXMAP_BIT
 argument_list|)
 argument_list|)
 member_init_list|,

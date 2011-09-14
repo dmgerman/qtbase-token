@@ -102,6 +102,10 @@ name|format
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|EGL_WINDOW_BIT
+operator||
+name|EGL_PIXMAP_BIT
 argument_list|)
 argument_list|)
 member_init_list|,

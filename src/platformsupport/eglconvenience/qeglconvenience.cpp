@@ -759,7 +759,6 @@ argument_list|(
 name|EGL_SURFACE_TYPE
 argument_list|)
 expr_stmt|;
-comment|//we only support eglconfigs for windows for now
 name|configureAttributes
 operator|.
 name|append
