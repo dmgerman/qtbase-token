@@ -639,7 +639,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the character is a decimal digit     (Number_DecimalDigit); otherwise returns false. */
+comment|/*!     \fn bool QChar::isDigit() const      Returns true if the character is a decimal digit     (Number_DecimalDigit); otherwise returns false. */
+end_comment
+begin_comment
+comment|/*!     \internal     \overload */
 end_comment
 begin_function
 DECL|function|isDigit
@@ -647,14 +650,16 @@ name|bool
 name|QChar
 operator|::
 name|isDigit
-parameter_list|()
-specifier|const
+parameter_list|(
+name|ushort
+name|ucs2
+parameter_list|)
 block|{
 return|return
 operator|(
 name|qGetProp
 argument_list|(
-name|ucs
+name|ucs2
 argument_list|)
 operator|->
 name|category
