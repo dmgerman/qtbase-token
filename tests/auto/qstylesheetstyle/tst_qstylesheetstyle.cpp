@@ -5193,9 +5193,9 @@ name|widget
 argument_list|,
 name|QPoint
 argument_list|(
-literal|5
+literal|6
 argument_list|,
-literal|5
+literal|6
 argument_list|)
 argument_list|)
 expr_stmt|;
