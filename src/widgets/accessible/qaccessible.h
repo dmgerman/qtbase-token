@@ -1320,6 +1320,26 @@ literal|0
 block|;
 comment|// navigation
 name|virtual
+name|QAccessibleInterface
+operator|*
+name|parent
+argument_list|()
+specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
+name|QAccessibleInterface
+operator|*
+name|child
+argument_list|(
+argument|int index
+argument_list|)
+specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
 name|int
 name|navigate
 argument_list|(
@@ -1340,7 +1360,8 @@ name|text
 argument_list|(
 argument|Text t
 argument_list|,
-argument|int child
+argument|int child =
+literal|0
 argument_list|)
 specifier|const
 operator|=
@@ -1363,7 +1384,8 @@ name|virtual
 name|QRect
 name|rect
 argument_list|(
-argument|int child
+argument|int child =
+literal|0
 argument_list|)
 specifier|const
 operator|=
@@ -1373,7 +1395,8 @@ name|virtual
 name|Role
 name|role
 argument_list|(
-argument|int child
+argument|int child =
+literal|0
 argument_list|)
 specifier|const
 operator|=
@@ -1383,7 +1406,8 @@ name|virtual
 name|State
 name|state
 argument_list|(
-argument|int child
+argument|int child =
+literal|0
 argument_list|)
 specifier|const
 operator|=
@@ -1394,7 +1418,8 @@ name|virtual
 name|int
 name|userActionCount
 argument_list|(
-argument|int child
+argument|int child =
+literal|0
 argument_list|)
 specifier|const
 operator|=
@@ -1408,7 +1433,8 @@ argument|int action
 argument_list|,
 argument|Text t
 argument_list|,
-argument|int child
+argument|int child =
+literal|0
 argument_list|)
 specifier|const
 operator|=
@@ -1420,7 +1446,8 @@ name|doAction
 argument_list|(
 argument|int action
 argument_list|,
-argument|int child
+argument|int child =
+literal|0
 argument_list|,
 argument|const QVariantList&params = QVariantList()
 argument_list|)

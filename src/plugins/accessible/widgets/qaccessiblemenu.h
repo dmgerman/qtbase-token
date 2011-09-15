@@ -104,6 +104,20 @@ argument|int child
 argument_list|)
 specifier|const
 block|;
+name|QAccessibleInterface
+operator|*
+name|child
+argument_list|(
+argument|int index
+argument_list|)
+specifier|const
+block|;
+name|QAccessibleInterface
+operator|*
+name|parent
+argument_list|()
+specifier|const
+block|;
 name|int
 name|navigate
 argument_list|(
@@ -174,6 +188,14 @@ name|QWidget
 operator|*
 name|w
 argument_list|)
+block|;
+name|QAccessibleInterface
+operator|*
+name|child
+argument_list|(
+argument|int index
+argument_list|)
+specifier|const
 block|;
 name|int
 name|childCount
@@ -352,6 +374,20 @@ name|virtual
 name|bool
 name|isValid
 argument_list|()
+specifier|const
+block|;
+name|QAccessibleInterface
+operator|*
+name|parent
+argument_list|()
+specifier|const
+block|;
+name|QAccessibleInterface
+operator|*
+name|child
+argument_list|(
+argument|int index
+argument_list|)
 specifier|const
 block|;
 name|virtual

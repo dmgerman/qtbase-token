@@ -172,12 +172,26 @@ argument_list|)
 specifier|const
 block|;
 comment|// navigation
+name|QAccessibleInterface
+operator|*
+name|parent
+argument_list|()
+specifier|const
+block|;
 name|int
 name|childAt
 argument_list|(
 argument|int x
 argument_list|,
 argument|int y
+argument_list|)
+specifier|const
+block|;
+name|QAccessibleInterface
+operator|*
+name|child
+argument_list|(
+argument|int index
 argument_list|)
 specifier|const
 block|;
