@@ -21697,7 +21697,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(

@@ -1152,14 +1152,14 @@ name|activeWindow
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//    QTest::keyClick(static_cast<QWindow *>(0), Qt::Key_A, AltKey );
+comment|//    QTest::keyClick(static_cast<QWidget *>(0), Qt::Key_A, AltKey );
 name|QTest
 operator|::
 name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -1229,7 +1229,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -2829,7 +2829,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -2931,7 +2931,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3033,7 +3033,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3135,7 +3135,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3237,7 +3237,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3339,7 +3339,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3475,7 +3475,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3559,7 +3559,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3578,7 +3578,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3693,7 +3693,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3716,7 +3716,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3734,7 +3734,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3752,7 +3752,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3770,7 +3770,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3789,7 +3789,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3907,7 +3907,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3930,7 +3930,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3948,7 +3948,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -3967,7 +3967,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -4082,7 +4082,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -4105,7 +4105,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -4123,7 +4123,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -4141,7 +4141,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -4159,7 +4159,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -4178,7 +4178,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -4332,7 +4332,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -4355,7 +4355,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -4374,7 +4374,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -4550,7 +4550,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -4590,7 +4590,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -4641,7 +4641,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -7211,7 +7211,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -7256,7 +7256,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -7283,7 +7283,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -7392,7 +7392,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -7420,7 +7420,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
@@ -7474,7 +7474,7 @@ name|keyClick
 argument_list|(
 cast|static_cast
 argument_list|<
-name|QWindow
+name|QWidget
 operator|*
 argument_list|>
 argument_list|(
