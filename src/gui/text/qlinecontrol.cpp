@@ -11,12 +11,6 @@ define|#
 directive|define
 name|QT_NO_ACCESSIBILITY
 end_define
-begin_define
-DECL|macro|QT_NO_IM
-define|#
-directive|define
-name|QT_NO_IM
-end_define
 begin_include
 include|#
 directive|include
