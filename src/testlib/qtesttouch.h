@@ -502,7 +502,12 @@ argument_list|)
 operator|,
 name|deviceType
 argument_list|(
-argument|aDeviceType
+name|aDeviceType
+argument_list|)
+operator|,
+name|targetWindow
+argument_list|(
+literal|0
 argument_list|)
 block|{         }
 name|QTouchEventSequence
@@ -519,7 +524,12 @@ argument_list|)
 operator|,
 name|deviceType
 argument_list|(
-argument|aDeviceType
+name|aDeviceType
+argument_list|)
+operator|,
+name|targetWidget
+argument_list|(
+literal|0
 argument_list|)
 block|{         }
 name|QTouchEventSequence
