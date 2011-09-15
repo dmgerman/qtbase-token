@@ -658,7 +658,7 @@ operator|::
 name|TouchPoint
 name|touchPoint
 argument_list|(
-argument|const QTouchEvent::TouchPoint& point
+argument|const QTouchEvent::TouchPoint& pt
 argument_list|)
 block|{
 name|QWindowSystemInterface
@@ -670,7 +670,7 @@ name|p
 operator|.
 name|id
 operator|=
-name|point
+name|pt
 operator|.
 name|id
 argument_list|()
@@ -679,7 +679,7 @@ name|p
 operator|.
 name|isPrimary
 operator|=
-name|point
+name|pt
 operator|.
 name|isPrimary
 argument_list|()
@@ -688,7 +688,7 @@ name|p
 operator|.
 name|normalPosition
 operator|=
-name|point
+name|pt
 operator|.
 name|screenRect
 argument_list|()
@@ -700,7 +700,7 @@ name|p
 operator|.
 name|area
 operator|=
-name|point
+name|pt
 operator|.
 name|screenRect
 argument_list|()
@@ -709,7 +709,7 @@ name|p
 operator|.
 name|pressure
 operator|=
-name|point
+name|pt
 operator|.
 name|pressure
 argument_list|()
@@ -718,7 +718,7 @@ name|p
 operator|.
 name|state
 operator|=
-name|point
+name|pt
 operator|.
 name|state
 argument_list|()
