@@ -1834,25 +1834,7 @@ argument_list|)
 expr_stmt|;
 name|QEXPECT_FAIL
 argument_list|(
-literal|"assert xml flush"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
 literal|"assert lightxml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert lightxml flush"
 argument_list|,
 name|msg
 argument_list|,
