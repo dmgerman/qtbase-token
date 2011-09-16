@@ -2076,6 +2076,24 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!   Returns the accessibility interface for the object that the window represents   */
+end_comment
+begin_function
+DECL|function|accessibleRoot
+name|QAccessibleInterface
+modifier|*
+name|QWindow
+operator|::
+name|accessibleRoot
+parameter_list|()
+specifier|const
+block|{
+return|return
+literal|0
+return|;
+block|}
+end_function
 begin_function
 DECL|function|showMinimized
 name|void

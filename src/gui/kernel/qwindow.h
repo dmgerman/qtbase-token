@@ -141,6 +141,12 @@ name|QScreen
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QAccessibleInterface
+name|class
+name|QAccessibleInterface
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QObject
 name|class
 name|Q_GUI_EXPORT
@@ -684,6 +690,13 @@ modifier|*
 name|screen
 parameter_list|)
 function_decl|;
+name|virtual
+name|QAccessibleInterface
+operator|*
+name|accessibleRoot
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QPoint
 name|mapToGlobal
 argument_list|(
