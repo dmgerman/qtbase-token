@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtWidgets/QtWidgets>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qtablewidget_p.h>
 end_include
 begin_include

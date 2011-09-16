@@ -17,6 +17,11 @@ include|#
 directive|include
 file|<QtGui/QtGui>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtWidgets/QtWidgets>
+end_include
 begin_comment
 comment|/*     To add a view to be tested add the header file to the includes     and impliment what is needed in the functions below.      You can add more then one view, several Qt views are included as examples.      In tst_qitemview.cpp a new ViewsToTest object is created for each test.      When you have errors fix the first ones first.  Later tests depend upon them working */
 end_comment

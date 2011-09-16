@@ -22,9 +22,6 @@ include|#
 directive|include
 file|<private/qsettings_p.h>
 end_include
-begin_comment
-comment|//#include<QtGui/QApplication>
-end_comment
 begin_include
 include|#
 directive|include
@@ -49,6 +46,11 @@ begin_include
 include|#
 directive|include
 file|<QtCore/QString>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QKeySequence>
 end_include
 begin_include
 include|#

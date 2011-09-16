@@ -15053,7 +15053,7 @@ operator|.
 name|color
 argument_list|()
 operator|==
-name|QApplication
+name|QGuiApplication
 operator|::
 name|palette
 argument_list|()

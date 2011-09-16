@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtWidgets/QColorDialog>
+end_include
+begin_include
+include|#
+directive|include
 file|"../../shared/util.h"
 end_include
 begin_comment

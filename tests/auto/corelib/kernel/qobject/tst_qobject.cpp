@@ -24287,7 +24287,7 @@ struct|;
 name|QObject
 name|o
 decl_stmt|;
-name|QApplication
+name|QGuiApplication
 operator|::
 name|postEvent
 argument_list|(

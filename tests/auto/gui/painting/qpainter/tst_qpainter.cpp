@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qdrawutil.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qapplication.h>
 end_include
 begin_include

@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtWidgets/QtWidgets>
+end_include
+begin_include
+include|#
+directive|include
 file|<QSortFilterProxyModel>
 end_include
 begin_comment

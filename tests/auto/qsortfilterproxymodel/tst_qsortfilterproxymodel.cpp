@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QSortFilterProxyModel>
+file|<QtWidgets>
 end_include
 begin_include
 include|#

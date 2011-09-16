@@ -12,6 +12,16 @@ include|#
 directive|include
 file|<qfontdatabase.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qfontinfo.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<qfontmetrics.h>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -855,7 +865,7 @@ expr_stmt|;
 name|QSignalSpy
 name|fontDbChangedSpy
 argument_list|(
-name|QApplication
+name|QGuiApplication
 operator|::
 name|instance
 argument_list|()

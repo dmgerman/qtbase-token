@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QEvent>
+file|<QtGui/qevent.h>
 end_include
 begin_ifdef
 ifdef|#

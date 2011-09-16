@@ -29,6 +29,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|<QtGui/QFontInfo>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QFontMetrics>
+end_include
 begin_comment
 comment|//TESTED_CLASS=QCss
 end_comment
