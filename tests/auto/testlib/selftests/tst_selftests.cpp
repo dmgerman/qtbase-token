@@ -194,7 +194,7 @@ operator|.
 name|unit
 condition|)
 block|{
-comment|/* Nope - compare whole string for best failure message */
+comment|// Nope - compare whole string for best failure message
 return|return
 name|qCompare
 argument_list|(
@@ -218,7 +218,8 @@ name|line
 argument_list|)
 return|;
 block|}
-comment|/*         Now check the value.  Some variance is allowed, and how much depends on the         measured unit.     */
+comment|// Now check the value.  Some variance is allowed, and how much depends on
+comment|// the measured unit.
 name|qreal
 name|variance
 init|=
@@ -275,7 +276,7 @@ operator|==
 literal|0.
 condition|)
 block|{
-comment|/* No variance allowed - compare whole string */
+comment|// No variance allowed - compare whole string
 return|return
 name|qCompare
 argument_list|(
@@ -341,7 +342,7 @@ name|line
 argument_list|)
 return|;
 block|}
-comment|/* Whoops, didn't match.  Compare the whole string for the most useful failure message. */
+comment|// Whoops, didn't match.  Compare the whole string for the most useful failure message.
 return|return
 name|qCompare
 argument_list|(
@@ -369,6 +370,9 @@ block|}
 end_namespace
 begin_function
 name|QT_END_NAMESPACE
+comment|// Split the passed block of text into an array of lines, replacing any
+comment|// filenames and line numbers with generic markers to avoid failing the test
+comment|// due to compiler-specific behaviour.
 DECL|function|splitLines
 specifier|static
 name|QList
@@ -571,6 +575,15 @@ name|out
 return|;
 block|}
 end_function
+begin_comment
+comment|// Load the expected test output for the nominated test (subdir) and logger
+end_comment
+begin_comment
+comment|// as an array of lines.  If there is no expected output file, return an
+end_comment
+begin_comment
+comment|// empty array.
+end_comment
 begin_function
 DECL|function|expectedResult
 specifier|static
@@ -1356,7 +1369,16 @@ name|readAllStandardError
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/*         Some tests may output unpredictable strings to stderr, which we'll ignore.          For instance, uncaught exceptions on Windows might say (depending on Windows         version and JIT debugger settings):         "This application has requested the Runtime to terminate it in an unusual way.         Please contact the application's support team for more information."          Also, tests which use valgrind may generate warnings if the toolchain is         newer than the valgrind version, such that valgrind can't understand the         debug information on the binary.     */
+comment|// Some tests may output unpredictable strings to stderr, which we'll ignore.
+comment|//
+comment|// For instance, uncaught exceptions on Windows might say (depending on Windows
+comment|// version and JIT debugger settings):
+comment|// "This application has requested the Runtime to terminate it in an unusual way.
+comment|// Please contact the application's support team for more information."
+comment|//
+comment|// Also, tests which use valgrind may generate warnings if the toolchain is
+comment|// newer than the valgrind version, such that valgrind can't understand the
+comment|// debug information on the binary.
 if|if
 condition|(
 name|subdir
@@ -1847,7 +1869,6 @@ name|Continue
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* On some platforms we compile without RTTI, and as a result we never throw an exception. */
 if|if
 condition|(
 name|expected
@@ -1864,6 +1885,7 @@ name|expected
 operator|!=
 name|output
 condition|)
+comment|// On some platforms we compile without RTTI, and as a result we never throw an exception.
 name|QCOMPARE
 argument_list|(
 name|output
@@ -1882,8 +1904,7 @@ name|simplified
 argument_list|()
 argument_list|)
 expr_stmt|;
-else|else
-block|{
+elseif|else
 if|if
 condition|(
 name|output
@@ -1902,13 +1923,9 @@ argument_list|)
 operator|==
 literal|0
 condition|)
-block|{
-comment|/* The floating point formatting differs between platforms, so let's just skip it. */
+comment|// The floating point formatting differs between platforms, so let's just skip it.
 continue|continue;
-block|}
-else|else
-block|{
-comment|/*                    Are we expecting this line to be a benchmark result?                    If so, don't do a literal comparison, since results have some natural variance.                 */
+elseif|else
 if|if
 condition|(
 name|benchmark
@@ -1921,6 +1938,8 @@ literal|"<BenchmarkResult"
 argument_list|)
 condition|)
 block|{
+comment|// Don't do a literal comparison for benchmark results, since
+comment|// results have some natural variance.
 name|QString
 name|error
 decl_stmt|;
@@ -2019,8 +2038,6 @@ argument_list|,
 name|expected
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 name|benchmark
 operator|=
@@ -2183,7 +2200,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/* Parse line into the BenchmarkResult it represents. */
+comment|// Parse line into the BenchmarkResult it represents.
 end_comment
 begin_function
 DECL|function|parse
@@ -2432,8 +2449,8 @@ name|out
 return|;
 block|}
 comment|// Text result
-comment|/* This code avoids using a QRegExp because QRegExp might be broken. */
-comment|/* Sample format: 4,000 msec per iteration (total: 4,000, iterations: 1) */
+comment|// This code avoids using a QRegExp because QRegExp might be broken.
+comment|// Sample format: 4,000 msec per iteration (total: 4,000, iterations: 1)
 name|QString
 name|sFirstNumber
 decl_stmt|;
@@ -2483,7 +2500,7 @@ operator|.
 name|trimmed
 argument_list|()
 expr_stmt|;
-comment|/* 4,000 -> 4000 */
+comment|// 4,000 -> 4000
 name|sFirstNumber
 operator|.
 name|remove
@@ -2491,7 +2508,7 @@ argument_list|(
 literal|','
 argument_list|)
 expr_stmt|;
-comment|/* Should now be parseable as floating point */
+comment|// Should now be parseable as floating point
 name|bool
 name|ok
 decl_stmt|;
@@ -2527,7 +2544,7 @@ return|return
 name|out
 return|;
 block|}
-comment|/* Remaining: msec per iteration (total: 4000, iterations: 1) */
+comment|// Remaining: msec per iteration (total: 4000, iterations: 1)
 specifier|static
 specifier|const
 name|char
@@ -2610,7 +2627,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-comment|/* Remaining: 4,000, iterations: 1) */
+comment|// Remaining: 4,000, iterations: 1)
 specifier|static
 specifier|const
 name|char
@@ -2693,7 +2710,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-comment|/* 4,000 -> 4000 */
+comment|// 4,000 -> 4000
 name|sTotal
 operator|.
 name|remove
@@ -2733,7 +2750,7 @@ return|return
 name|out
 return|;
 block|}
-comment|/* Remaining: 1) */
+comment|// Remaining: 1)
 name|QString
 name|sIters
 decl_stmt|;
