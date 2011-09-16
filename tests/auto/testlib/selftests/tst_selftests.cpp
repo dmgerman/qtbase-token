@@ -604,24 +604,6 @@ modifier|&
 name|logger
 parameter_list|)
 block|{
-name|QString
-name|suffix
-init|=
-name|logger
-decl_stmt|;
-if|if
-condition|(
-name|suffix
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-name|suffix
-operator|=
-literal|"txt"
-expr_stmt|;
-block|}
 name|QFile
 name|file
 argument_list|(
@@ -631,7 +613,7 @@ name|subdir
 operator|+
 literal|"."
 operator|+
-name|suffix
+name|logger
 argument_list|)
 decl_stmt|;
 if|if
@@ -675,10 +657,6 @@ name|QString
 specifier|const
 modifier|&
 parameter_list|,
-name|QString
-specifier|const
-modifier|&
-parameter_list|,
 name|QStringList
 specifier|const
 modifier|&
@@ -687,10 +665,6 @@ constructor_decl|;
 DECL|member|name
 name|QString
 name|name
-decl_stmt|;
-DECL|member|testdata_suffix
-name|QString
-name|testdata_suffix
 decl_stmt|;
 DECL|member|arguments
 name|QStringList
@@ -710,11 +684,6 @@ specifier|const
 modifier|&
 name|_name
 parameter_list|,
-name|QString
-specifier|const
-modifier|&
-name|_testdata_suffix
-parameter_list|,
 name|QStringList
 specifier|const
 modifier|&
@@ -724,11 +693,6 @@ member_init_list|:
 name|name
 argument_list|(
 name|_name
-argument_list|)
-member_init_list|,
-name|testdata_suffix
-argument_list|(
-name|_testdata_suffix
 argument_list|)
 member_init_list|,
 name|arguments
@@ -756,8 +720,6 @@ argument_list|()
 operator|<<
 name|Logger
 argument_list|(
-literal|"plain"
-argument_list|,
 literal|"txt"
 argument_list|,
 name|QStringList
@@ -766,8 +728,6 @@ argument_list|)
 operator|<<
 name|Logger
 argument_list|(
-literal|"xml"
-argument_list|,
 literal|"xml"
 argument_list|,
 name|QStringList
@@ -780,8 +740,6 @@ name|Logger
 argument_list|(
 literal|"xunitxml"
 argument_list|,
-literal|"xunitxml"
-argument_list|,
 name|QStringList
 argument_list|()
 operator|<<
@@ -790,8 +748,6 @@ argument_list|)
 operator|<<
 name|Logger
 argument_list|(
-literal|"lightxml"
-argument_list|,
 literal|"lightxml"
 argument_list|,
 name|QStringList
@@ -991,7 +947,7 @@ name|logger
 operator|.
 name|name
 operator|!=
-literal|"plain"
+literal|"txt"
 condition|)
 block|{
 name|rowSuffix
@@ -1111,7 +1067,7 @@ operator|<<
 literal|"-eventcounter"
 expr_stmt|;
 block|}
-comment|// These tests don't work right with loggers other than plain, usually because
+comment|// These tests don't work right with loggers other than plain text, usually because
 comment|// they internally supply arguments to themselves.
 if|if
 condition|(
@@ -1119,7 +1075,7 @@ name|logger
 operator|.
 name|name
 operator|!=
-literal|"plain"
+literal|"txt"
 condition|)
 block|{
 if|if
@@ -1207,7 +1163,7 @@ name|subtest
 operator|<<
 name|logger
 operator|.
-name|testdata_suffix
+name|name
 operator|<<
 name|arguments
 expr_stmt|;
