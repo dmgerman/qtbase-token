@@ -227,6 +227,12 @@ name|is_cached
 range|:
 literal|1
 decl_stmt|;
+DECL|member|is_locked
+name|uint
+name|is_locked
+range|:
+literal|1
+decl_stmt|;
 name|bool
 name|checkForAlphaPixels
 argument_list|()

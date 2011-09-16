@@ -399,6 +399,12 @@ return|return
 name|false
 return|;
 block|}
+name|QFixed
+name|subPixelPositionForX
+argument_list|(
+argument|QFixed x
+argument_list|)
+block|;
 name|virtual
 name|QFixed
 name|emSquareSize
@@ -557,6 +563,7 @@ argument|QTextItem::RenderFlags
 argument_list|)
 block|;
 comment|/**      * Create a qimage with the alpha values for the glyph.      * Returns an image indexed_8 with index values ranging from 0=fully transparent to 255=opaque      */
+comment|// ### Refactor this into a smaller and more flexible API.
 name|virtual
 name|QImage
 name|alphaMapForGlyph
@@ -609,6 +616,38 @@ argument_list|,
 argument|const QTransform&t
 argument_list|)
 block|;
+name|virtual
+name|QImage
+operator|*
+name|lockedAlphaMapForGlyph
+argument_list|(
+argument|glyph_t glyph
+argument_list|,
+argument|QFixed subPixelPosition
+argument_list|,
+argument|GlyphFormat neededFormat
+argument_list|,
+argument|const QTransform&t = QTransform()
+argument_list|,
+argument|QPoint *offset =
+literal|0
+argument_list|)
+block|;
+name|virtual
+name|void
+name|unlockAlphaMapForGlyph
+argument_list|()
+block|;
+name|virtual
+name|bool
+name|hasInternalCaching
+argument_list|()
+specifier|const
+block|{
+return|return
+name|false
+return|;
+block|}
 name|virtual
 name|glyph_metrics_t
 name|alphaMapBoundingBox
@@ -1024,6 +1063,9 @@ endif|#
 directive|endif
 name|int
 name|glyphFormat
+block|;
+name|QImage
+name|currentlyLockedAlphaMap
 block|;
 name|protected
 operator|:
