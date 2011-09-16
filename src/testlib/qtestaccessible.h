@@ -58,12 +58,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qaccessible.h>
+file|<QtGui/qaccessible.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qapplication.h>
+file|<QtGui/qguiapplication.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
@@ -346,13 +346,13 @@ condition|(
 name|object
 condition|)
 block|{
-name|QApplication
+name|QGuiApplication
 modifier|*
 name|app
 init|=
 name|qobject_cast
 operator|<
-name|QApplication
+name|QGuiApplication
 operator|*
 operator|>
 operator|(
@@ -366,7 +366,7 @@ name|app
 condition|)
 name|qWarning
 argument_list|(
-literal|"%s: root Object is not a QApplication!"
+literal|"%s: root Object is not a QGuiApplication!"
 argument_list|,
 name|Q_FUNC_INFO
 argument_list|)

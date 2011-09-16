@@ -65,7 +65,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qaccessible.h>
+file|<QtGui/qaccessible.h>
 end_include
 begin_include
 include|#

@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qaccessible.h>
+file|"qaccessible.h"
 end_include
 begin_function
 name|QT_BEGIN_HEADER
@@ -129,7 +129,7 @@ struct|;
 end_struct
 begin_decl_stmt
 unit|}  class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QAccessible2Interface
 block|{
 name|public
@@ -248,7 +248,7 @@ value|public: \     QAccessible2Interface *interface_cast(QAccessible2::Interfac
 end_define
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QAccessibleTextInterface
 range|:
 name|public
@@ -453,7 +453,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QAccessibleEditableTextInterface
 range|:
 name|public
@@ -559,7 +559,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QAccessibleSimpleEditableTextInterface
 range|:
 name|public
@@ -643,7 +643,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QAccessibleValueInterface
 range|:
 name|public
@@ -703,7 +703,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QAccessibleTableInterface
 range|:
 name|public
@@ -972,7 +972,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QAccessibleTable2CellInterface
 range|:
 name|public
@@ -1093,7 +1093,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QAccessibleTable2Interface
 range|:
 name|public
@@ -1430,7 +1430,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QAccessibleActionInterface
 range|:
 name|public
@@ -1504,7 +1504,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QAccessibleImageInterface
 range|:
 name|public

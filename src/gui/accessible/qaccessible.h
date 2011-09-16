@@ -53,6 +53,12 @@ include|#
 directive|include
 file|<QtGui/qevent.h>
 end_include
+begin_decl_stmt
+DECL|variable|QWindow
+name|class
+name|QWindow
+decl_stmt|;
+end_decl_stmt
 begin_function
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -67,7 +73,7 @@ name|class
 name|QAccessibleInterface
 decl_stmt|;
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QAccessible
 decl_stmt|{ public:     enum Event
 block|{
@@ -1103,13 +1109,6 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|initialize
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_function_decl
-specifier|static
-name|void
 name|cleanup
 parameter_list|()
 function_decl|;
@@ -1228,7 +1227,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QAccessibleInterface
 range|:
 name|public
@@ -1258,6 +1257,13 @@ argument_list|()
 specifier|const
 operator|=
 literal|0
+block|;
+name|virtual
+name|QWindow
+operator|*
+name|window
+argument_list|()
+specifier|const
 block|;
 comment|// hierarchy
 name|virtual
@@ -1718,7 +1724,6 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
 name|QAccessibleEvent
 range|:
 name|public

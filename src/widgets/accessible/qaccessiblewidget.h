@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qaccessibleobject.h>
+file|<QtGui/qaccessibleobject.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
@@ -51,6 +51,12 @@ argument|Role r = Client
 argument_list|,
 argument|const QString& name = QString()
 argument_list|)
+block|;
+name|QWindow
+operator|*
+name|window
+argument_list|()
+specifier|const
 block|;
 name|int
 name|childCount
@@ -87,7 +93,8 @@ block|;
 name|QRect
 name|rect
 argument_list|(
-argument|int child
+argument|int child =
+literal|0
 argument_list|)
 specifier|const
 block|;
@@ -121,21 +128,24 @@ name|text
 argument_list|(
 argument|Text t
 argument_list|,
-argument|int child
+argument|int child =
+literal|0
 argument_list|)
 specifier|const
 block|;
 name|Role
 name|role
 argument_list|(
-argument|int child
+argument|int child =
+literal|0
 argument_list|)
 specifier|const
 block|;
 name|State
 name|state
 argument_list|(
-argument|int child
+argument|int child =
+literal|0
 argument_list|)
 specifier|const
 block|;
@@ -145,7 +155,8 @@ name|QT_NO_ACTION
 name|int
 name|userActionCount
 argument_list|(
-argument|int child
+argument|int child =
+literal|0
 argument_list|)
 specifier|const
 block|;
@@ -156,7 +167,8 @@ argument|int action
 argument_list|,
 argument|Text t
 argument_list|,
-argument|int child
+argument|int child =
+literal|0
 argument_list|)
 specifier|const
 block|;
@@ -165,9 +177,10 @@ name|doAction
 argument_list|(
 argument|int action
 argument_list|,
-argument|int child
+argument|int child =
+literal|0
 argument_list|,
-argument|const QVariantList&params
+argument|const QVariantList&params = QVariantList()
 argument_list|)
 block|;
 endif|#

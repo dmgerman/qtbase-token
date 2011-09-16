@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qapplication.h"
+file|<QtGui/QGuiApplication>
 end_include
 begin_include
 include|#
@@ -39,7 +39,7 @@ comment|/*!     \class QAccessibleImageInterface     \ingroup accessibility     
 comment|/*!   \internal */
 DECL|function|qTextBeforeOffsetFromString
 name|QString
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|qTextBeforeOffsetFromString
 parameter_list|(
 name|int
@@ -208,7 +208,7 @@ end_comment
 begin_function
 DECL|function|qTextAfterOffsetFromString
 name|QString
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|qTextAfterOffsetFromString
 parameter_list|(
 name|int
@@ -362,7 +362,7 @@ end_comment
 begin_function
 DECL|function|qTextAtOffsetFromString
 name|QString
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|qTextAtOffsetFromString
 parameter_list|(
 name|int
@@ -621,7 +621,7 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-name|QApplication
+name|QGuiApplication
 operator|::
 name|clipboard
 argument_list|()
@@ -798,7 +798,7 @@ argument_list|,
 name|endOffset
 argument_list|)
 expr_stmt|;
-name|QApplication
+name|QGuiApplication
 operator|::
 name|clipboard
 argument_list|()
@@ -853,7 +853,7 @@ name|insert
 argument_list|(
 name|offset
 argument_list|,
-name|QApplication
+name|QGuiApplication
 operator|::
 name|clipboard
 argument_list|()

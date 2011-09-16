@@ -1446,6 +1446,8 @@ name|t
 parameter_list|,
 name|int
 name|control
+init|=
+literal|0
 parameter_list|)
 specifier|const
 block|{

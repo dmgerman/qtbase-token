@@ -96,11 +96,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtWidgets/qaccessible.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"QtCore/qthread.h"
 end_include
 begin_include

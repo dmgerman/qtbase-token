@@ -72,6 +72,12 @@ return|return
 name|m_widget
 return|;
 block|}
+name|QAccessibleInterface
+operator|*
+name|accessibleRoot
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 name|bool

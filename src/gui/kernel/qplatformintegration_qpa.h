@@ -94,6 +94,10 @@ DECL|variable|QPlatformMenuBar
 name|class
 name|QPlatformMenuBar
 decl_stmt|;
+DECL|variable|QPlatformAccessibility
+name|class
+name|QPlatformAccessibility
+decl_stmt|;
 name|class
 name|Q_GUI_EXPORT
 name|QPlatformIntegration
@@ -288,6 +292,15 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|virtual
+name|QPlatformAccessibility
+operator|*
+name|accessibility
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
 begin_comment
 comment|// Access native handles. The window handle is already available from Wid;
 end_comment

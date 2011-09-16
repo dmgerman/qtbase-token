@@ -637,6 +637,25 @@ literal|0
 expr_stmt|;
 block|}
 end_constructor
+begin_function
+DECL|function|window
+name|QWindow
+modifier|*
+name|QAccessibleWidget
+operator|::
+name|window
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|widget
+argument_list|()
+operator|->
+name|windowHandle
+argument_list|()
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     Destroys this object. */
 end_comment

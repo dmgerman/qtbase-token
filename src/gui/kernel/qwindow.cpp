@@ -2367,7 +2367,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the accessibility interface for the object that the window represents   */
+comment|/*!   Returns the accessibility interface for the object that the window represents   \preliminary   \sa QAccessible   */
 end_comment
 begin_function
 DECL|function|accessibleRoot

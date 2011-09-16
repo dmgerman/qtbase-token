@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/QPlatformAccessibility>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/private/qguiapplication_p.h>
 end_include
 begin_include
@@ -261,6 +266,25 @@ specifier|const
 block|{
 return|return
 literal|0
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!   Returns the platforms accessibility.    The default implementation returns 0, implying no accessibility support. */
+end_comment
+begin_function
+DECL|function|accessibility
+name|QPlatformAccessibility
+modifier|*
+name|QPlatformIntegration
+operator|::
+name|accessibility
+parameter_list|()
+specifier|const
+block|{
+return|return
+operator|new
+name|QPlatformAccessibility
 return|;
 block|}
 end_function
