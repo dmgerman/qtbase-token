@@ -13,6 +13,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtPrintSupport>
+end_include
+begin_include
+include|#
+directive|include
 file|"mainwindow.h"
 end_include
 begin_comment
