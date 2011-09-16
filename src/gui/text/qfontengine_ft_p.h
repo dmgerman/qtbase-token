@@ -1677,6 +1677,11 @@ name|embolden
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|bool
+name|obliquen
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|SubpixelAntialiasingType
 name|subpixelType
 decl_stmt|;
