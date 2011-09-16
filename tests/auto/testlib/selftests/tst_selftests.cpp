@@ -43,7 +43,7 @@ name|runSubTest
 parameter_list|()
 function_decl|;
 name|void
-name|cleanupTestCase
+name|cleanup
 parameter_list|()
 function_decl|;
 private|private:
@@ -2898,13 +2898,14 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|cleanupTestCase
+DECL|function|cleanup
 name|void
 name|tst_Selftests
 operator|::
-name|cleanupTestCase
+name|cleanup
 parameter_list|()
 block|{
+comment|// Remove the test output file
 name|QFile
 operator|::
 name|remove
