@@ -1274,6 +1274,15 @@ block|}
 if|if
 condition|(
 name|engine
+operator|&&
+name|engine
+operator|->
+name|type
+argument_list|()
+operator|!=
+name|QFontEngine
+operator|::
+name|TestFontEngine
 condition|)
 block|{
 name|initFontDef
