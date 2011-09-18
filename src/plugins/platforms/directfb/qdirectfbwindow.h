@@ -97,8 +97,10 @@ specifier|const
 block|;
 name|private
 operator|:
+name|QDirectFBPointer
+operator|<
 name|IDirectFBWindow
-operator|*
+operator|>
 name|m_dfbWindow
 block|;
 name|QDirectFbInput

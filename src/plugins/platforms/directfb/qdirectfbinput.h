@@ -41,7 +41,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<directfb.h>
+file|"qdirectfbconvenience.h"
 end_include
 begin_decl_stmt
 name|class
@@ -134,15 +134,18 @@ name|IDirectFB
 operator|*
 name|m_dfbInterface
 block|;
+name|QDirectFBPointer
+operator|<
 name|IDirectFBDisplayLayer
-operator|*
+operator|>
 name|m_dfbDisplayLayer
 block|;
+name|QDirectFBPointer
+operator|<
 name|IDirectFBEventBuffer
-operator|*
+operator|>
 name|m_eventBuffer
 block|;
-comment|// XXX: TODO: FIXME: leaked!!! (but it is a singleton)
 name|bool
 name|m_shouldStop
 block|;

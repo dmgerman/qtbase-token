@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<directfb.h>
 end_include
+begin_include
+include|#
+directive|include
+file|"qdirectfbconvenience.h"
+end_include
 begin_decl_stmt
 DECL|variable|QDirectFbScreen
 name|class
@@ -65,8 +70,10 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|QDirectFBPointer
+operator|<
 name|IDirectFBDisplayLayer
-operator|*
+operator|>
 name|m_layer
 block|;
 name|QScopedPointer

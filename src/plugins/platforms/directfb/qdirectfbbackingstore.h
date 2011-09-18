@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<directfb.h>
 end_include
+begin_include
+include|#
+directive|include
+file|"qdirectfbconvenience.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -126,8 +131,10 @@ name|QBlittablePlatformPixmap
 operator|*
 name|m_pmdata
 block|;
+name|QDirectFBPointer
+operator|<
 name|IDirectFBSurface
-operator|*
+operator|>
 name|m_dfbSurface
 block|; }
 decl_stmt|;

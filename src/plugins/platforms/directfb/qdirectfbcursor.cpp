@@ -42,8 +42,10 @@ argument_list|()
 argument_list|,
 name|DLID_PRIMARY
 argument_list|,
-operator|&
 name|m_layer
+operator|.
+name|outPtr
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|m_image
@@ -190,7 +192,7 @@ block|}
 name|IDirectFBSurface
 modifier|*
 name|surface
-init|=
+argument_list|(
 name|QDirectFbConvenience
 operator|::
 name|dfbSurfaceForPlatformPixmap
@@ -200,6 +202,7 @@ operator|.
 name|handle
 argument_list|()
 argument_list|)
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -208,6 +211,9 @@ operator|->
 name|SetCooperativeLevel
 argument_list|(
 name|m_layer
+operator|.
+name|data
+argument_list|()
 argument_list|,
 name|DLSCL_ADMINISTRATIVE
 argument_list|)
@@ -222,6 +228,9 @@ operator|->
 name|SetCursorShape
 argument_list|(
 name|m_layer
+operator|.
+name|data
+argument_list|()
 argument_list|,
 name|surface
 argument_list|,
@@ -235,6 +244,9 @@ operator|->
 name|SetCooperativeLevel
 argument_list|(
 name|m_layer
+operator|.
+name|data
+argument_list|()
 argument_list|,
 name|DLSCL_SHARED
 argument_list|)

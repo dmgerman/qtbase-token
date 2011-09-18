@@ -109,8 +109,10 @@ name|void
 name|doUnlock
 argument_list|()
 block|;
+name|QDirectFBPointer
+operator|<
 name|IDirectFBSurface
-operator|*
+operator|>
 name|m_surface
 block|;
 name|QImage

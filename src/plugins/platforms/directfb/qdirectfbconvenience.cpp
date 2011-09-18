@@ -287,6 +287,9 @@ literal|7
 return|;
 block|}
 end_function
+begin_comment
+comment|/**  * This is borrowing the reference of the QDirectFbBlitter. You may not store this  * pointer as a class member but must only use it locally.  */
+end_comment
 begin_function
 DECL|function|dfbSurfaceForPlatformPixmap
 name|IDirectFBSurface
@@ -344,6 +347,9 @@ return|return
 name|dfbBlitter
 operator|->
 name|m_surface
+operator|.
+name|data
+argument_list|()
 return|;
 block|}
 return|return
