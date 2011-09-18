@@ -45,10 +45,6 @@ operator|*
 name|window
 argument_list|)
 block|;
-operator|~
-name|QDirectFbBackingStore
-argument_list|()
-block|;
 name|QPaintDevice
 operator|*
 name|paintDevice
@@ -120,8 +116,10 @@ name|void
 name|lockSurfaceToImage
 argument_list|()
 block|;
+name|QScopedPointer
+operator|<
 name|QPixmap
-operator|*
+operator|>
 name|m_pixmap
 block|;
 name|QBlittablePlatformPixmap

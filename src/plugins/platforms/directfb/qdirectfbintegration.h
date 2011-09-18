@@ -66,10 +66,6 @@ argument_list|(
 argument|int display
 argument_list|)
 block|;
-operator|~
-name|QDirectFbScreen
-argument_list|()
-block|;
 name|QRect
 name|geometry
 argument_list|()
@@ -130,8 +126,10 @@ name|m_layer
 block|;
 name|private
 operator|:
+name|QScopedPointer
+operator|<
 name|QDirectFBCursor
-operator|*
+operator|>
 name|m_cursor
 block|; }
 decl_stmt|;
@@ -190,12 +188,16 @@ specifier|const
 block|;
 name|private
 operator|:
+name|QScopedPointer
+operator|<
 name|QDirectFbInput
-operator|*
+operator|>
 name|m_input
 block|;
+name|QScopedPointer
+operator|<
 name|QThread
-operator|*
+operator|>
 name|m_inputRunner
 block|;
 name|QPlatformFontDatabase

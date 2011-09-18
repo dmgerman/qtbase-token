@@ -69,8 +69,10 @@ name|IDirectFBDisplayLayer
 operator|*
 name|m_layer
 block|;
+name|QScopedPointer
+operator|<
 name|QPlatformCursorImage
-operator|*
+operator|>
 name|m_image
 block|; }
 decl_stmt|;

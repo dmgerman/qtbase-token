@@ -47,7 +47,9 @@ name|m_layer
 argument_list|)
 expr_stmt|;
 name|m_image
-operator|=
+operator|.
+name|reset
+argument_list|(
 operator|new
 name|QPlatformCursorImage
 argument_list|(
@@ -63,14 +65,10 @@ literal|0
 argument_list|,
 literal|0
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 end_constructor
-begin_warning
-warning|#
-directive|warning
-literal|"Memory leak?"
-end_warning
 begin_function
 DECL|function|changeCursor
 name|void

@@ -152,6 +152,7 @@ name|IDirectFBEventBuffer
 operator|*
 name|m_eventBuffer
 block|;
+comment|// XXX: TODO: FIXME: leaked!!! (but it is a singleton)
 name|bool
 name|m_shouldStop
 block|;
