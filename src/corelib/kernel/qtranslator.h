@@ -68,7 +68,6 @@ operator|~
 name|QTranslator
 argument_list|()
 block|;
-comment|// ### Qt 5: Merge (with "int n = -1")
 name|virtual
 name|QString
 name|translate
@@ -79,19 +78,9 @@ argument|const char *sourceText
 argument_list|,
 argument|const char *disambiguation =
 literal|0
-argument_list|)
-specifier|const
-block|;
-name|QString
-name|translate
-argument_list|(
-argument|const char *context
 argument_list|,
-argument|const char *sourceText
-argument_list|,
-argument|const char *disambiguation
-argument_list|,
-argument|int n
+argument|int n = -
+literal|1
 argument_list|)
 specifier|const
 block|;
