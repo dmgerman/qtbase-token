@@ -685,25 +685,6 @@ name|bool
 name|quitOnLastWindowClosed
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-name|QString
-name|qmljs_debug_arguments
-decl_stmt|;
-end_decl_stmt
-begin_comment
-comment|// a string containing arguments for js/qml debugging.
-end_comment
-begin_function
-specifier|inline
-name|QString
-name|qmljsDebugArgumentsString
-parameter_list|()
-block|{
-return|return
-name|qmljs_debug_arguments
-return|;
-block|}
-end_function
 begin_label
 name|private
 label|:

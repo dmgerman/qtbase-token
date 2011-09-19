@@ -427,12 +427,28 @@ block|}
 specifier|static
 name|int
 name|app_compile_version
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_macro
+block|;
+name|void
+name|processCommandLineArguments
+argument_list|()
+block|;
+name|QString
+name|qmljs_debug_arguments
+block|;
+comment|// a string containing arguments for js/qml debugging.
+specifier|inline
+name|QString
+name|qmljsDebugArgumentsString
+argument_list|()
+block|{
+return|return
+name|qmljs_debug_arguments
+return|;
+block|}
+expr|}
+block|;
 name|QT_END_NAMESPACE
-end_macro
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
