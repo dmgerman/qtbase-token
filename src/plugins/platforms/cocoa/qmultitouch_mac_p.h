@@ -43,22 +43,13 @@ define|#
 directive|define
 name|QMULTITOUCH_MAC_P_H
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-end_ifdef
 begin_empty
 empty|#import<Cocoa/Cocoa.h>
 end_empty
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
-file|<qevent.h>
+file|<QtGui/QWindowSystemInterface>
 end_include
 begin_include
 include|#
@@ -79,9 +70,6 @@ name|MAC_OS_X_VERSION_10_6
 end_if
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 name|class
 name|QCocoaTouch
 block|{
@@ -90,7 +78,7 @@ label|:
 specifier|static
 name|QList
 operator|<
-name|QTouchEvent
+name|QWindowSystemInterface
 operator|::
 name|TouchPoint
 operator|>
@@ -141,7 +129,7 @@ specifier|static
 name|bool
 name|_updateInternalStateOnly
 decl_stmt|;
-name|QTouchEvent
+name|QWindowSystemInterface
 operator|::
 name|TouchPoint
 name|_touchPoint
@@ -195,13 +183,6 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_MAC_USE_COCOA
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
