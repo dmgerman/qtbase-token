@@ -6394,7 +6394,7 @@ condition|(
 operator|!
 name|result
 operator|.
-name|isEmpty
+name|isNull
 argument_list|()
 condition|)
 break|break;
@@ -6404,7 +6404,7 @@ if|if
 condition|(
 name|result
 operator|.
-name|isEmpty
+name|isNull
 argument_list|()
 condition|)
 block|{
