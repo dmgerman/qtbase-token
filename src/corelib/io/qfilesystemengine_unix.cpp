@@ -1412,6 +1412,13 @@ directive|if
 operator|!
 name|defined
 argument_list|(
+name|Q_OS_INTEGRITY
+argument_list|)
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_THREAD
 argument_list|)
 operator|&&
@@ -1459,6 +1466,8 @@ argument_list|(
 name|userId
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 if|if
@@ -1555,6 +1564,13 @@ name|gr
 init|=
 literal|0
 decl_stmt|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_INTEGRITY
+argument_list|)
 if|#
 directive|if
 operator|!
@@ -1667,6 +1683,8 @@ argument_list|(
 name|groupId
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 if|if

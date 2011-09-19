@@ -245,6 +245,13 @@ directive|define
 name|QT_LSEEK
 value|::lseek
 end_define
+begin_define
+DECL|macro|QT_OPEN_LARGEFILE
+define|#
+directive|define
+name|QT_OPEN_LARGEFILE
+value|0
+end_define
 begin_endif
 endif|#
 directive|endif
