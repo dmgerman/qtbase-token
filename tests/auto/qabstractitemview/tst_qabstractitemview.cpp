@@ -6481,20 +6481,6 @@ name|maximum
 argument_list|()
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-20753 QCursor::setPos() is broken for QPA"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|spy
