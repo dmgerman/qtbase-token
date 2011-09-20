@@ -1018,7 +1018,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QUndoView     \brief The QUndoView class displays the contents of a QUndoStack.     \since 4.2      \ingroup advanced      QUndoView is a QListView which displays the list of commands pushed on an undo stack.     The most recently executed command is always selected. Selecting a different command     results in a call to QUndoStack::setIndex(), rolling the state of the document     backwards or forward to the new command.      The stack can be set explicitly with setStack(). Alternatively, a QUndoGroup object can     be set with setGroup(). The view will then update itself automatically whenever the     active stack of the group changes.      \image qundoview.png */
+comment|/*!     \class QUndoView     \brief The QUndoView class displays the contents of a QUndoStack.     \since 4.2      \ingroup advanced     \inmodule QtWidgets      QUndoView is a QListView which displays the list of commands pushed on an undo stack.     The most recently executed command is always selected. Selecting a different command     results in a call to QUndoStack::setIndex(), rolling the state of the document     backwards or forward to the new command.      The stack can be set explicitly with setStack(). Alternatively, a QUndoGroup object can     be set with setGroup(). The view will then update itself automatically whenever the     active stack of the group changes.      \image qundoview.png */
 end_comment
 begin_class
 DECL|class|QUndoViewPrivate

@@ -1196,7 +1196,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \class QWindowsVistaStyle   \brief The QWindowsVistaStyle class provides a look and feel suitable for applications on Microsoft Windows Vista.   \since 4.3   \ingroup appearance    \warning This style is only available on the Windows Vista platform   because it makes use of Windows Vista's style engine.    \sa QMacStyle, QWindowsXPStyle, QPlastiqueStyle, QCleanlooksStyle, QMotifStyle */
+comment|/*!   \class QWindowsVistaStyle   \brief The QWindowsVistaStyle class provides a look and feel suitable for applications on Microsoft Windows Vista.   \since 4.3   \ingroup appearance   \inmodule QtWidgets    \warning This style is only available on the Windows Vista platform   because it makes use of Windows Vista's style engine.    \sa QMacStyle, QWindowsXPStyle, QPlastiqueStyle, QCleanlooksStyle, QMotifStyle */
 end_comment
 begin_comment
 comment|/*!   Constructs a QWindowsVistaStyle object. */

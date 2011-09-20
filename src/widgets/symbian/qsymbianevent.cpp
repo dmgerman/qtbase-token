@@ -21,7 +21,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QSymbianEvent     \brief The QSymbianEvent class contains a Symbian event of any type.     \since 4.6      The class is used as a generic container type for all types of Symbian     events.      \note This class is only available on Symbian.      \sa QApplication::symbianEventFilter() */
+comment|/*!     \class QSymbianEvent     \brief The QSymbianEvent class contains a Symbian event of any type.     \since 4.6     \inmodule QtWidgets      The class is used as a generic container type for all types of Symbian     events.      \note This class is only available on Symbian.      \sa QApplication::symbianEventFilter() */
 end_comment
 begin_comment
 comment|/*!     \enum QSymbianEvent::Type      \value InvalidEvent        The event is not valid.     \value WindowServerEvent   Indicates an event of type \c TWsEvent.     \value CommandEvent        Indicates that the event is a Symbian command.     \value ResourceChangeEvent Indicates that the event is a Symbian resource change type. */

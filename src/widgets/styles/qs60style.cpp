@@ -7263,7 +7263,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \class QS60Style   \brief The QS60Style class provides a look and feel suitable for applications on S60.   \since 4.6   \ingroup appearance    \sa QMacStyle, QWindowsStyle, QWindowsXPStyle, QWindowsVistaStyle, QPlastiqueStyle, QCleanlooksStyle, QMotifStyle */
+comment|/*!   \class QS60Style   \brief The QS60Style class provides a look and feel suitable for applications on S60.   \since 4.6   \ingroup appearance   \inmodule QtWidgets    \sa QMacStyle, QWindowsStyle, QWindowsXPStyle, QWindowsVistaStyle, QPlastiqueStyle, QCleanlooksStyle, QMotifStyle */
 end_comment
 begin_comment
 comment|/*!     Destroys the style. */

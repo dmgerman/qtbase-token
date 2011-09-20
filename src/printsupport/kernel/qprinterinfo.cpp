@@ -37,7 +37,7 @@ name|shared_null
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!     \class QPrinterInfo      \brief The QPrinterInfo class gives access to information about     existing printers.          \ingroup printing      Use the static functions to generate a list of QPrinterInfo     objects. Each QPrinterInfo object in the list represents a single     printer and can be queried for name, supported paper sizes, and     whether or not it is the default printer.      \since 4.4 */
+comment|/*!     \class QPrinterInfo      \brief The QPrinterInfo class gives access to information about     existing printers.          \ingroup printing     \inmodule QtPrintSupport      Use the static functions to generate a list of QPrinterInfo     objects. Each QPrinterInfo object in the list represents a single     printer and can be queried for name, supported paper sizes, and     whether or not it is the default printer.      \since 4.4 */
 end_comment
 begin_comment
 comment|/*!     \fn QList<QPrinterInfo> QPrinterInfo::availablePrinters()      Returns a list of available printers on the system. */

@@ -2422,7 +2422,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QCleanlooksStyle     \brief The QCleanlooksStyle class provides a widget style similar to the     Clearlooks style available in GNOME.     \since 4.2      The Cleanlooks style provides a look and feel for widgets     that closely resembles the Clearlooks style, introduced by Richard     Stellingwerff and Daniel Borgmann.      \sa {Cleanlooks Style Widget Gallery}, QWindowsXPStyle, QMacStyle, QWindowsStyle,         QCDEStyle, QMotifStyle, QPlastiqueStyle */
+comment|/*!     \class QCleanlooksStyle     \brief The QCleanlooksStyle class provides a widget style similar to the     Clearlooks style available in GNOME.     \since 4.2      \inmodule QtWidgets       The Cleanlooks style provides a look and feel for widgets     that closely resembles the Clearlooks style, introduced by Richard     Stellingwerff and Daniel Borgmann.      \sa {Cleanlooks Style Widget Gallery}, QWindowsXPStyle, QMacStyle, QWindowsStyle,         QCDEStyle, QMotifStyle, QPlastiqueStyle */
 end_comment
 begin_comment
 comment|/*!     Constructs a QCleanlooksStyle object. */

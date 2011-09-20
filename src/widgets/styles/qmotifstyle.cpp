@@ -286,7 +286,7 @@ literal|16
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!   \class QMotifStyle   \brief The QMotifStyle class provides Motif look and feel.    \ingroup appearance    This class implements the Motif look and feel. It closely   resembles the original Motif look as defined by the Open Group,   but with some minor improvements. The Motif style is Qt's default   GUI style on Unix platforms.    \img qmotifstyle.png   \sa QWindowsXPStyle, QMacStyle, QWindowsStyle, QPlastiqueStyle, QCDEStyle */
+comment|/*!   \class QMotifStyle   \brief The QMotifStyle class provides Motif look and feel.    \ingroup appearance   \inmodule QtWidgets    This class implements the Motif look and feel. It closely   resembles the original Motif look as defined by the Open Group,   but with some minor improvements. The Motif style is Qt's default   GUI style on Unix platforms.    \img qmotifstyle.png   \sa QWindowsXPStyle, QMacStyle, QWindowsStyle, QPlastiqueStyle, QCDEStyle */
 end_comment
 begin_comment
 comment|/*!     \variable QMotifStyle::focus     \internal */

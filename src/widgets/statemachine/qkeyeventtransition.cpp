@@ -31,7 +31,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!   \class QKeyEventTransition    \brief The QKeyEventTransition class provides a transition for key events.    \since 4.6   \ingroup statemachine    QKeyEventTransition is part of \l{The State Machine Framework}.    \sa QState::addTransition() */
+comment|/*!   \class QKeyEventTransition    \brief The QKeyEventTransition class provides a transition for key events.    \since 4.6   \ingroup statemachine   \inmodule QtWidgets    QKeyEventTransition is part of \l{The State Machine Framework}.    \sa QState::addTransition() */
 end_comment
 begin_comment
 comment|/*!     \property QKeyEventTransition::key      \brief the key that this key event transition is associated with */

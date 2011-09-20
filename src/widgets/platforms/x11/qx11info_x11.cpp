@@ -26,7 +26,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QX11Info     \brief The QX11Info class provides information about the X display     configuration.      \ingroup shared      The class provides two APIs: a set of non-static functions that     provide information about a specific widget or pixmap, and a set     of static functions that provide the default information for the     application.      \warning This class is only available on X11. For querying     per-screen information in a portable way, use QDesktopWidget.      \sa QWidget::x11Info(), QPixmap::x11Info(), QDesktopWidget */
+comment|/*!     \class QX11Info     \brief The QX11Info class provides information about the X display     configuration.      \ingroup shared     \inmodule QtWidgets      The class provides two APIs: a set of non-static functions that     provide information about a specific widget or pixmap, and a set     of static functions that provide the default information for the     application.      \warning This class is only available on X11. For querying     per-screen information in a portable way, use QDesktopWidget.      \sa QWidget::x11Info(), QPixmap::x11Info(), QDesktopWidget */
 end_comment
 begin_comment
 comment|/*!     Constructs an empty QX11Info object. */

@@ -276,7 +276,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/* \class QPlatformPlugin     QGuiPlatformPlugin can be used to integrate Qt applications in a platform built on top of Qt.     The application developer should not know or use the plugin, it is only used by Qt internaly.      But full platform that are built on top of Qt may provide a plugin so 3rd party Qt application     running in the platform are integrated.  */
+comment|/* \class QPlatformPlugin     QGuiPlatformPlugin can be used to integrate Qt applications in a platform built on top of Qt.     The application developer should not know or use the plugin, it is only used by Qt internaly.      But full platforms that are built on top of Qt may provide a plugin so 3rd party Qt applications     running on the platform are integrated.  */
 end_comment
 begin_comment
 comment|/*     The constructor can be used to install hooks in Qt  */

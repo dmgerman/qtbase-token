@@ -219,7 +219,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QAccessibleObject     \brief The QAccessibleObject class implements parts of the     QAccessibleInterface for QObjects.      \ingroup accessibility      This class is mainly provided for convenience. All subclasses of     the QAccessibleInterface that provide implementations of non-widget objects     should use this class as their base class.      \sa QAccessible, QAccessibleWidget */
+comment|/*!     \class QAccessibleObject     \brief The QAccessibleObject class implements parts of the     QAccessibleInterface for QObjects.      \ingroup accessibility     \inmodule QtWidgets      This class is mainly provided for convenience. All subclasses of     the QAccessibleInterface that provide implementations of non-widget objects     should use this class as their base class.      \sa QAccessible, QAccessibleWidget */
 end_comment
 begin_comment
 comment|/*!     Creates a QAccessibleObject for \a object. */

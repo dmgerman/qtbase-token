@@ -36,7 +36,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!   \class QMouseEventTransition    \brief The QMouseEventTransition class provides a transition for mouse events.    \since 4.6   \ingroup statemachine    QMouseEventTransition is part of \l{The State Machine Framework}.    \sa QState::addTransition() */
+comment|/*!   \class QMouseEventTransition    \brief The QMouseEventTransition class provides a transition for mouse events.    \since 4.6   \ingroup statemachine   \inmodule QtWidgets    QMouseEventTransition is part of \l{The State Machine Framework}.    \sa QState::addTransition() */
 end_comment
 begin_comment
 comment|/*!     \property QMouseEventTransition::button      \brief the button that this mouse event transition is associated with */

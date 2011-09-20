@@ -6029,7 +6029,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \class QPlastiqueStyle     \brief The QPlastiqueStyle class provides a widget style similar to the     Plastik style available in KDE.      The Plastique style provides a default look and feel for widgets on X11     that closely resembles the Plastik style, introduced by Sandro Giessl in     KDE 3.2.      \img qplastiquestyle.png     \sa QWindowsXPStyle, QMacStyle, QWindowsStyle, QCDEStyle, QMotifStyle */
+comment|/*!     \class QPlastiqueStyle     \brief The QPlastiqueStyle class provides a widget style similar to the     Plastik style available in KDE.      \inmodule QtWidgets       The Plastique style provides a default look and feel for widgets on X11     that closely resembles the Plastik style, introduced by Sandro Giessl in     KDE 3.2.      \img qplastiquestyle.png     \sa QWindowsXPStyle, QMacStyle, QWindowsStyle, QCDEStyle, QMotifStyle */
 end_comment
 begin_comment
 comment|/*!     Constructs a QPlastiqueStyle object. */
