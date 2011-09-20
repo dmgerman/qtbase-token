@@ -110,7 +110,7 @@ block|{
 name|QFont
 name|boldfont
 init|=
-name|QApplication
+name|QGuiApplication
 operator|::
 name|font
 argument_list|()
@@ -156,7 +156,7 @@ block|{
 name|QFont
 name|boldfont
 init|=
-name|QApplication
+name|QGuiApplication
 operator|::
 name|font
 argument_list|()
@@ -200,7 +200,7 @@ block|{
 name|QFont
 name|boldfont
 init|=
-name|QApplication
+name|QGuiApplication
 operator|::
 name|font
 argument_list|()
@@ -251,7 +251,7 @@ block|{
 name|QFont
 name|boldfont
 init|=
-name|QApplication
+name|QGuiApplication
 operator|::
 name|font
 argument_list|()
