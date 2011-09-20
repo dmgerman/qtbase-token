@@ -89,6 +89,16 @@ argument|int cursorPosition
 argument_list|)
 block|;
 name|virtual
+name|bool
+name|filterEvent
+argument_list|(
+specifier|const
+name|QEvent
+operator|*
+name|event
+argument_list|)
+block|;
+name|virtual
 name|QRectF
 name|keyboardRect
 argument_list|()
