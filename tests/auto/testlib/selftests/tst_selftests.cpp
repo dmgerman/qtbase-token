@@ -853,8 +853,6 @@ literal|"assert"
 endif|#
 directive|endif
 operator|<<
-literal|"waitwithoutgui"
-operator|<<
 literal|"differentexec"
 ifndef|#
 directive|ifndef
@@ -1101,15 +1099,6 @@ condition|(
 name|subtest
 operator|==
 literal|"benchliboptions"
-condition|)
-block|{
-continue|continue;
-block|}
-if|if
-condition|(
-name|subtest
-operator|==
-literal|"waitwithoutgui"
 condition|)
 block|{
 continue|continue;
