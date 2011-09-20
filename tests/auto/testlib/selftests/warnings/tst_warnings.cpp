@@ -43,19 +43,9 @@ operator|::
 name|testWarnings
 parameter_list|()
 block|{
-name|printf
-argument_list|(
-literal|"testWarnings 1: next line prints \"Warning\"\n"
-argument_list|)
-expr_stmt|;
 name|qWarning
 argument_list|(
 literal|"Warning"
-argument_list|)
-expr_stmt|;
-name|printf
-argument_list|(
-literal|"testWarnings 2: next line prints nothing\n"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -72,34 +62,14 @@ argument_list|(
 literal|"Warning"
 argument_list|)
 expr_stmt|;
-name|printf
-argument_list|(
-literal|"testWarnings 3: next line prints \"Warning\"\n"
-argument_list|)
-expr_stmt|;
 name|qWarning
 argument_list|(
 literal|"Warning"
 argument_list|)
 expr_stmt|;
-name|printf
-argument_list|(
-literal|"testWarnings 4: over\n"
-argument_list|)
-expr_stmt|;
-name|printf
-argument_list|(
-literal|"testWarnings 5: next line prints \"Debug\"\n"
-argument_list|)
-expr_stmt|;
 name|qDebug
 argument_list|(
 literal|"Debug"
-argument_list|)
-expr_stmt|;
-name|printf
-argument_list|(
-literal|"testWarnings 6: next line prints nothing\n"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -116,19 +86,9 @@ argument_list|(
 literal|"Debug"
 argument_list|)
 expr_stmt|;
-name|printf
-argument_list|(
-literal|"testWarnings 7: next line prints \"Debug\"\n"
-argument_list|)
-expr_stmt|;
 name|qDebug
 argument_list|(
 literal|"Debug"
-argument_list|)
-expr_stmt|;
-name|printf
-argument_list|(
-literal|"testWarnings 8: next comes \"Baba\" twice\n"
 argument_list|)
 expr_stmt|;
 name|QTest
