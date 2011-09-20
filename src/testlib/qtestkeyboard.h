@@ -101,6 +101,11 @@ end_function
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
+end_ifdef
 begin_decl_stmt
 specifier|static
 name|void
@@ -227,6 +232,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//QWindow overload
 end_comment
@@ -301,6 +310,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_decl_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
+end_ifdef
 begin_decl_stmt
 specifier|static
 name|void
@@ -803,6 +817,10 @@ expr_stmt|;
 block|}
 block|}
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//QWindow overload
 end_comment
@@ -1225,6 +1243,11 @@ expr_stmt|;
 block|}
 block|}
 end_decl_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
+end_ifdef
 begin_comment
 comment|// Convenience function
 end_comment
@@ -1296,6 +1319,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// QWindow convenience function
 end_comment
@@ -1367,6 +1394,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_decl_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
+end_ifdef
 begin_decl_stmt
 specifier|inline
 specifier|static
@@ -1473,6 +1505,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//Support QWindow
 end_comment
@@ -1585,6 +1621,11 @@ end_decl_stmt
 begin_comment
 comment|///////////////
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
+end_ifdef
 begin_decl_stmt
 specifier|inline
 specifier|static
@@ -1926,6 +1967,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//Support QWindow
 end_comment

@@ -79,7 +79,11 @@ name|Test
 parameter_list|)
 name|class
 name|QTestEvent
-decl_stmt|{ public:     virtual void simulate(QWidget *w
+decl_stmt|{ public:
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
+decl_stmt|virtual void simulate(QWidget *w
 end_function
 begin_expr_stmt
 unit|)
@@ -87,6 +91,10 @@ operator|=
 literal|0
 expr_stmt|;
 end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_expr_stmt
 name|virtual
 name|QTestEvent
@@ -210,6 +218,9 @@ name|this
 argument_list|)
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 specifier|inline
 name|void
 name|simulate
@@ -255,6 +266,8 @@ name|_delay
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 name|protected
 operator|:
 name|QTest
@@ -330,6 +343,9 @@ name|this
 argument_list|)
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 specifier|inline
 name|void
 name|simulate
@@ -350,6 +366,8 @@ argument_list|,
 name|_delay
 argument_list|)
 block|;     }
+endif|#
+directive|endif
 name|private
 operator|:
 name|QString
@@ -429,6 +447,9 @@ name|this
 argument_list|)
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 specifier|inline
 name|void
 name|simulate
@@ -453,6 +474,8 @@ argument_list|,
 name|_delay
 argument_list|)
 block|;     }
+endif|#
+directive|endif
 name|private
 operator|:
 name|QTest
@@ -521,6 +544,9 @@ name|this
 argument_list|)
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 specifier|inline
 name|void
 name|simulate
@@ -536,6 +562,8 @@ argument_list|(
 name|_delay
 argument_list|)
 block|; }
+endif|#
+directive|endif
 name|private
 operator|:
 name|int
@@ -956,6 +984,9 @@ argument_list|(
 argument|new QTestDelayEvent(msecs)
 argument_list|)
 block|; }
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 specifier|inline
 name|void
 name|simulate
@@ -989,6 +1020,8 @@ name|w
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 expr|}
 block|;
 name|QT_END_NAMESPACE

@@ -115,7 +115,11 @@ name|Test
 parameter_list|)
 name|namespace
 name|QTest
-decl_stmt|{  template<>
+decl_stmt|{
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
+decl_stmt|template<>
 specifier|inline
 namespace|bool
 name|qCompare
@@ -207,6 +211,10 @@ operator|)
 return|;
 block|}
 end_block
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_expr_stmt
 name|template
 operator|<

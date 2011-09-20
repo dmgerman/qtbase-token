@@ -110,6 +110,11 @@ end_function
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
+end_ifdef
 begin_decl_stmt
 specifier|static
 name|void
@@ -512,6 +517,10 @@ expr_stmt|;
 block|}
 block|}
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 specifier|static
 name|void
@@ -895,6 +904,11 @@ expr_stmt|;
 block|}
 block|}
 end_decl_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
+end_ifdef
 begin_decl_stmt
 specifier|inline
 name|void
@@ -1140,6 +1154,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//Support QWindow
 end_comment

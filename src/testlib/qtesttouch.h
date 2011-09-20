@@ -77,6 +77,9 @@ name|QT_MODULE
 argument_list|(
 name|Test
 argument_list|)
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 decl|extern
 name|Q_GUI_EXPORT
 name|void
@@ -103,6 +106,10 @@ name|touchPoints
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|namespace
 name|QTest
@@ -124,6 +131,9 @@ operator|.
 name|clear
 argument_list|()
 block|;         }
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 name|QTouchEventSequence
 operator|&
 name|press
@@ -173,6 +183,8 @@ operator|*
 name|this
 return|;
 block|}
+endif|#
+directive|endif
 name|QTouchEventSequence
 modifier|&
 name|press
@@ -229,6 +241,9 @@ operator|*
 name|this
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 name|QTouchEventSequence
 modifier|&
 name|move
@@ -285,6 +300,8 @@ operator|*
 name|this
 return|;
 block|}
+endif|#
+directive|endif
 name|QTouchEventSequence
 modifier|&
 name|move
@@ -341,6 +358,9 @@ operator|*
 name|this
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 name|QTouchEventSequence
 modifier|&
 name|release
@@ -397,6 +417,8 @@ operator|*
 name|this
 return|;
 block|}
+endif|#
+directive|endif
 name|QTouchEventSequence
 modifier|&
 name|release
@@ -488,6 +510,9 @@ return|;
 block|}
 name|private
 label|:
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 name|QTouchEventSequence
 argument_list|(
 argument|QWidget *widget
@@ -510,6 +535,8 @@ argument_list|(
 argument|aDeviceType
 argument_list|)
 block|{         }
+endif|#
+directive|endif
 name|QTouchEventSequence
 argument_list|(
 argument|QWindow *window
@@ -517,11 +544,16 @@ argument_list|,
 argument|QTouchEvent::DeviceType aDeviceType
 argument_list|)
 operator|:
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 name|targetWidget
 argument_list|(
 literal|0
 argument_list|)
 operator|,
+endif|#
+directive|endif
 name|targetWindow
 argument_list|(
 name|window
@@ -587,6 +619,9 @@ name|touchId
 index|]
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 name|QPoint
 name|mapToScreen
 parameter_list|(
@@ -625,6 +660,8 @@ else|:
 name|pt
 return|;
 block|}
+endif|#
+directive|endif
 name|QPoint
 name|mapToScreen
 parameter_list|(
@@ -821,6 +858,9 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 elseif|else
 if|if
 condition|(
@@ -844,6 +884,8 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 name|QMap
 operator|<
@@ -855,10 +897,15 @@ name|TouchPoint
 operator|>
 name|points
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 name|QWidget
 modifier|*
 name|targetWidget
 decl_stmt|;
+endif|#
+directive|endif
 name|QWindow
 modifier|*
 name|targetWindow
@@ -868,6 +915,9 @@ operator|::
 name|DeviceType
 name|deviceType
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
 name|friend
 name|QTouchEventSequence
 name|touchEvent
@@ -880,6 +930,8 @@ operator|::
 name|DeviceType
 argument_list|)
 decl_stmt|;
+endif|#
+directive|endif
 name|friend
 name|QTouchEventSequence
 name|touchEvent
@@ -897,6 +949,11 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_WIDGETS_LIB
+end_ifdef
 begin_decl_stmt
 specifier|inline
 name|QTouchEventSequence
@@ -928,6 +985,10 @@ argument_list|)
 return|;
 block|}
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 specifier|inline
 name|QTouchEventSequence
