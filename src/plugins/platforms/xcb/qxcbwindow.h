@@ -446,6 +446,13 @@ name|updateNetWmStateBeforeMap
 parameter_list|()
 function_decl|;
 name|void
+name|setTransparentForMouseEvents
+parameter_list|(
+name|bool
+name|transparent
+parameter_list|)
+function_decl|;
+name|void
 name|create
 parameter_list|()
 function_decl|;
@@ -489,6 +496,9 @@ name|m_windowState
 expr_stmt|;
 name|bool
 name|m_mapped
+decl_stmt|;
+name|bool
+name|m_transparent
 decl_stmt|;
 name|xcb_window_t
 name|m_netWmUserTimeWindow

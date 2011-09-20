@@ -794,6 +794,10 @@ name|WindowStaysOnTopHint
 init|=
 literal|0x00040000
 block|,
+name|WindowTransparentForInput
+init|=
+literal|0x00080000
+block|,
 name|CustomizeWindowHint
 init|=
 literal|0x02000000
