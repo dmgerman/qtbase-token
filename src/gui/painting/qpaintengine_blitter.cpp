@@ -748,7 +748,9 @@ literal|false
 argument_list|)
 block|{
 name|raster
-operator|=
+operator|.
+name|reset
+argument_list|(
 operator|new
 name|QRasterPaintEngine
 argument_list|(
@@ -757,9 +759,12 @@ operator|->
 name|buffer
 argument_list|()
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|capabillities
-operator|=
+operator|.
+name|reset
+argument_list|(
 operator|new
 name|CapabilitiesToStateMask
 argument_list|(
@@ -770,6 +775,7 @@ argument_list|()
 operator|->
 name|capabilities
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1334,8 +1340,10 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|member|raster
+name|QScopedPointer
+argument_list|<
 name|QRasterPaintEngine
-modifier|*
+argument_list|>
 name|raster
 decl_stmt|;
 DECL|member|pmData
@@ -1348,8 +1356,10 @@ name|bool
 name|isBlitterLocked
 decl_stmt|;
 DECL|member|capabillities
+name|QScopedPointer
+argument_list|<
 name|CapabilitiesToStateMask
-modifier|*
+argument_list|>
 name|capabillities
 decl_stmt|;
 DECL|member|hasXForm
@@ -3645,6 +3655,9 @@ return|return
 name|d
 operator|->
 name|raster
+operator|.
+name|data
+argument_list|()
 return|;
 block|}
 end_function
