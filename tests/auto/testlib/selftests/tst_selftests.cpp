@@ -811,6 +811,8 @@ operator|<<
 literal|"cmptest"
 comment|//<< "alive"    // timer dependent
 operator|<<
+literal|"float"
+operator|<<
 literal|"globaldata"
 operator|<<
 literal|"skipglobal"
@@ -1119,7 +1121,7 @@ if|if
 condition|(
 name|subtest
 operator|==
-literal|"subtest"
+literal|"float"
 condition|)
 block|{
 continue|continue;
@@ -1845,7 +1847,7 @@ operator|::
 name|currentDataTag
 argument_list|()
 argument_list|,
-literal|"subtest"
+literal|"float"
 argument_list|)
 operator|==
 literal|0
