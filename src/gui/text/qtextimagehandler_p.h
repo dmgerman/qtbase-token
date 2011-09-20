@@ -63,6 +63,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|QObject
 name|class
+name|Q_GUI_EXPORT
 name|QTextImageHandler
 range|:
 name|public
@@ -131,6 +132,19 @@ modifier|&
 name|format
 parameter_list|)
 function_decl|;
+name|QImage
+name|image
+parameter_list|(
+name|QTextDocument
+modifier|*
+name|doc
+parameter_list|,
+specifier|const
+name|QTextImageFormat
+modifier|&
+name|imageFormat
+parameter_list|)
+function_decl|;
 typedef|typedef
 name|QImage
 function_decl|(
@@ -150,7 +164,6 @@ name|context
 parameter_list|)
 function_decl|;
 specifier|static
-name|Q_GUI_EXPORT
 name|ExternalImageLoaderFunction
 name|externalLoader
 decl_stmt|;
