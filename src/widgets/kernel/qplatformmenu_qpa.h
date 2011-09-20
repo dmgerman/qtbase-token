@@ -144,12 +144,13 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_struct
-DECL|struct|QPlatformMenuBar
-struct|struct
+begin_decl_stmt
+name|class
 name|Q_WIDGETS_EXPORT
 name|QPlatformMenuBar
 block|{
+name|public
+label|:
 name|QPlatformMenuBar
 argument_list|()
 expr_stmt|;
@@ -175,7 +176,6 @@ parameter_list|)
 init|=
 literal|0
 function_decl|;
-DECL|member|action
 name|virtual
 name|void
 name|syncAction
@@ -187,7 +187,6 @@ parameter_list|)
 init|=
 literal|0
 function_decl|;
-DECL|member|action
 name|virtual
 name|void
 name|removeAction
@@ -209,8 +208,10 @@ name|newParent
 parameter_list|)
 function_decl|;
 block|}
-struct|;
-end_struct
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
