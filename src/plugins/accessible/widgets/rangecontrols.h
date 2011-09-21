@@ -511,51 +511,12 @@ name|QWidget
 operator|*
 name|w
 argument_list|)
-block|;      enum
-name|SliderElements
-block|{
-name|SliderSelf
-operator|=
-literal|0
-block|,
-name|PageLeft
-block|,
-name|Position
-block|,
-name|PageRight
-block|}
-block|;
-name|int
-name|childCount
-argument_list|()
-specifier|const
-block|;
-name|QRect
-name|rect
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
 block|;
 name|QString
 name|text
 argument_list|(
 argument|Text t
 argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|Role
-name|role
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|State
-name|state
-argument_list|(
 argument|int child
 argument_list|)
 specifier|const
