@@ -66,6 +66,12 @@ name|QExposeEvent
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QMoveEvent
+name|class
+name|QMoveEvent
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QResizeEvent
 name|class
 name|QResizeEvent
@@ -797,6 +803,14 @@ name|void
 name|resizeEvent
 parameter_list|(
 name|QResizeEvent
+modifier|*
+parameter_list|)
+function_decl|;
+name|virtual
+name|void
+name|moveEvent
+parameter_list|(
+name|QMoveEvent
 modifier|*
 parameter_list|)
 function_decl|;

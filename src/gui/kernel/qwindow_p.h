@@ -91,6 +91,11 @@ operator|::
 name|WindowNoState
 argument_list|)
 block|,
+name|resizeEventPending
+argument_list|(
+name|true
+argument_list|)
+block|,
 name|maximumSize
 argument_list|(
 name|QWINDOWSIZE_MAX
@@ -232,6 +237,11 @@ name|WindowState
 name|windowState
 expr_stmt|;
 end_expr_stmt
+begin_decl_stmt
+name|bool
+name|resizeEventPending
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|QSize
 name|minimumSize

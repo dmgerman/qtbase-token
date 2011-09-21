@@ -2220,6 +2220,18 @@ parameter_list|)
 block|{ }
 end_function
 begin_function
+DECL|function|moveEvent
+name|void
+name|QWindow
+operator|::
+name|moveEvent
+parameter_list|(
+name|QMoveEvent
+modifier|*
+parameter_list|)
+block|{ }
+end_function
+begin_function
 DECL|function|resizeEvent
 name|void
 name|QWindow
@@ -2339,6 +2351,24 @@ argument_list|(
 cast|static_cast
 argument_list|<
 name|QMouseEvent
+operator|*
+argument_list|>
+argument_list|(
+name|event
+argument_list|)
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|QEvent
+operator|::
+name|Move
+case|:
+name|moveEvent
+argument_list|(
+cast|static_cast
+argument_list|<
+name|QMoveEvent
 operator|*
 argument_list|>
 argument_list|(
