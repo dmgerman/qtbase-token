@@ -12947,7 +12947,7 @@ operator|->
 name|styleHints
 argument_list|()
 operator|->
-name|startDragTime
+name|startDragDistance
 argument_list|()
 return|;
 block|}
