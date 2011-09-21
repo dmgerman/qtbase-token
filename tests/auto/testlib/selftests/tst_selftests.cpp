@@ -1067,8 +1067,10 @@ operator|<<
 literal|"-eventcounter"
 expr_stmt|;
 block|}
-comment|// These tests don't work right with loggers other than plain text, usually because
-comment|// they internally supply arguments to themselves.
+comment|// These tests don't work right unless logging plain text to
+comment|// standard output, either because they execute multiple test
+comment|// objects or because they internally supply arguments to
+comment|// themselves.
 if|if
 condition|(
 name|logger
@@ -1083,6 +1085,15 @@ condition|(
 name|subtest
 operator|==
 literal|"differentexec"
+condition|)
+block|{
+continue|continue;
+block|}
+if|if
+condition|(
+name|subtest
+operator|==
+literal|"multiexec"
 condition|)
 block|{
 continue|continue;
