@@ -1246,6 +1246,11 @@ name|DEBUG
 argument_list|()
 operator|<<
 literal|"QDragManager::move enter"
+operator|<<
+name|me
+operator|->
+name|globalPos
+argument_list|()
 expr_stmt|;
 comment|// ###
 name|QPoint
@@ -1474,6 +1479,10 @@ operator|<<
 literal|"checking target for XdndAware"
 operator|<<
 name|target
+operator|<<
+name|lx
+operator|<<
+name|ly
 expr_stmt|;
 comment|// translate coordinates
 name|translate
@@ -1519,10 +1528,15 @@ name|dst_y
 expr_stmt|;
 name|src
 operator|=
+name|target
+expr_stmt|;
+name|xcb_window_t
+name|child
+init|=
 name|translate
 operator|->
 name|child
-expr_stmt|;
+decl_stmt|;
 name|free
 argument_list|(
 name|translate
@@ -1601,46 +1615,9 @@ name|target
 expr_stmt|;
 break|break;
 block|}
-comment|// find child at the coordinates
-name|translate
-operator|=
-operator|::
-name|translateCoordinates
-argument_list|(
-name|connection
-argument_list|()
-argument_list|,
-name|src
-argument_list|,
-name|src
-argument_list|,
-name|lx
-argument_list|,
-name|ly
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|translate
-condition|)
-block|{
 name|target
 operator|=
-literal|0
-expr_stmt|;
-break|break;
-block|}
-name|target
-operator|=
-name|translate
-operator|->
 name|child
-expr_stmt|;
-name|free
-argument_list|(
-name|translate
-argument_list|)
 expr_stmt|;
 block|}
 if|if
