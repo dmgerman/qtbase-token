@@ -2391,27 +2391,6 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|output
-operator|!=
-name|expected
-operator|&&
-name|qstrcmp
-argument_list|(
-name|QTest
-operator|::
-name|currentDataTag
-argument_list|()
-argument_list|,
-literal|"float"
-argument_list|)
-operator|==
-literal|0
-condition|)
-comment|// The floating point formatting differs between platforms, so let's just skip it.
-continue|continue;
-elseif|else
-if|if
-condition|(
 name|benchmark
 operator|||
 name|line
