@@ -476,10 +476,6 @@ name|Qt
 operator|::
 name|WindowNoState
 expr_stmt|;
-name|m_dirtyFrameMargins
-operator|=
-literal|true
-expr_stmt|;
 name|Qt
 operator|::
 name|WindowType
@@ -2179,10 +2175,6 @@ name|error
 argument_list|)
 expr_stmt|;
 block|}
-name|m_dirtyFrameMargins
-operator|=
-literal|true
-expr_stmt|;
 if|if
 condition|(
 name|window
@@ -3871,10 +3863,6 @@ condition|)
 return|return
 name|state
 return|;
-name|m_dirtyFrameMargins
-operator|=
-literal|true
-expr_stmt|;
 comment|// unset old state
 switch|switch
 condition|(
@@ -6278,6 +6266,10 @@ argument_list|()
 argument_list|,
 name|rect
 argument_list|)
+expr_stmt|;
+name|m_dirtyFrameMargins
+operator|=
+literal|true
 expr_stmt|;
 if|#
 directive|if
