@@ -393,6 +393,9 @@ argument_list|,
 name|int
 name|pixelSize
 argument_list|,
+name|bool
+name|fixedPitch
+argument_list|,
 specifier|const
 name|QSupportedWritingSystems
 operator|&

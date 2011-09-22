@@ -16599,6 +16599,11 @@ condition|(
 name|alphaMap
 operator|==
 literal|0
+operator|||
+name|alphaMap
+operator|->
+name|isNull
+argument_list|()
 condition|)
 continue|continue;
 name|alphaPenBlt

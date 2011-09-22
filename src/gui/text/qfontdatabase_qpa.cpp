@@ -74,6 +74,9 @@ parameter_list|,
 name|int
 name|pixelSize
 parameter_list|,
+name|bool
+name|fixedPitch
+parameter_list|,
 specifier|const
 name|QSupportedWritingSystems
 modifier|&
@@ -91,7 +94,7 @@ init|=
 name|privateDb
 argument_list|()
 decl_stmt|;
-comment|//    qDebug()<< "Adding font"<< familyname<< weight<< italic<< pixelSize<< file<< fileIndex<< antialiased;
+comment|//    qDebug()<< "Adding font"<< familyName<< weight<< style<< pixelSize<< antialiased;
 name|QtFontStyle
 operator|::
 name|Key
@@ -128,6 +131,12 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+name|f
+operator|->
+name|fixedPitch
+operator|=
+name|fixedPitch
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -437,10 +446,21 @@ name|initialized
 init|=
 literal|false
 decl_stmt|;
+name|QFontDatabasePrivate
+modifier|*
+name|db
+init|=
+name|privateDb
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!
 name|initialized
+operator|||
+name|db
+operator|->
+name|reregisterAppFonts
 condition|)
 block|{
 comment|//init by asking for the platformfontdb for the first time :)
@@ -454,6 +474,12 @@ argument_list|()
 operator|->
 name|populateFontDatabase
 argument_list|()
+expr_stmt|;
+name|db
+operator|->
+name|reregisterAppFonts
+operator|=
+literal|false
 expr_stmt|;
 name|initialized
 operator|=

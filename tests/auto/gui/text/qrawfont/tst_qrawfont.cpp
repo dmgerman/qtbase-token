@@ -224,51 +224,7 @@ name|tst_QRawFont
 operator|::
 name|init
 parameter_list|()
-block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
-comment|// Loading fonts from a QByteArray seems unimplemented for all qpa plugins at time of writing;
-comment|// almost all testfunctions fail on qpa due to this, except these few:
-specifier|const
-name|QByteArray
-name|func
-init|=
-name|QTest
-operator|::
-name|currentTestFunction
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|func
-operator|!=
-literal|"invalidRawFont"
-operator|&&
-name|func
-operator|!=
-literal|"explicitRawFontNotAvailableInSystem"
-operator|&&
-name|func
-operator|!=
-literal|"fromFont"
-operator|&&
-name|func
-operator|!=
-literal|"textLayout"
-condition|)
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-20976 fails on qpa"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-block|}
+block|{ }
 end_function
 begin_function
 DECL|function|invalidRawFont
@@ -1422,20 +1378,6 @@ argument_list|(
 literal|18.0
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-20976 fails on qpa"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|QFontInfo
@@ -3213,20 +3155,6 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-20976 fails on qpa"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|rawFont

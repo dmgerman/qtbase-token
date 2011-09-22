@@ -1554,6 +1554,17 @@ name|QFont
 operator|::
 name|Bold
 expr_stmt|;
+name|bool
+name|fixedPitch
+init|=
+operator|(
+name|face
+operator|->
+name|face_flags
+operator|&
+name|FT_FACE_FLAG_FIXED_WIDTH
+operator|)
+decl_stmt|;
 name|QSupportedWritingSystems
 name|writingSystems
 decl_stmt|;
@@ -1930,6 +1941,8 @@ argument_list|,
 literal|true
 argument_list|,
 literal|0
+argument_list|,
+name|fixedPitch
 argument_list|,
 name|writingSystems
 argument_list|,

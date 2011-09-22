@@ -414,6 +414,34 @@ argument_list|)
 operator|<<
 literal|true
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"DejaVu Sans"
+argument_list|)
+operator|<<
+name|QString
+argument_list|(
+literal|"DejaVu Sans"
+argument_list|)
+operator|<<
+literal|false
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"DejaVu Sans Mono"
+argument_list|)
+operator|<<
+name|QString
+argument_list|(
+literal|"DejaVu Sans Mono"
+argument_list|)
+operator|<<
+literal|true
+expr_stmt|;
 else|#
 directive|else
 name|QTest
@@ -505,27 +533,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
-if|if
-condition|(
-name|fixedPitch
-condition|)
-block|{
-comment|// fixedPitch() never returns true on qpa
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-20754 fails on qpa"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-block|}
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|fdb
@@ -880,20 +887,6 @@ decl_stmt|;
 name|QFontDatabase
 name|db
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
-name|QEXPECT_FAIL
-argument_list|(
-literal|"memory font"
-argument_list|,
-literal|"QTBUG-20754 fails on qpa"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 specifier|const
 name|QStringList
 name|oldFamilies
@@ -1056,20 +1049,6 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
-name|QEXPECT_FAIL
-argument_list|(
-literal|"font file"
-argument_list|,
-literal|"QTBUG-20754 fails on qpa"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 specifier|const
 name|QStringList
 name|newFamilies

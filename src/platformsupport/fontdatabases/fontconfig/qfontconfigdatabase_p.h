@@ -59,6 +59,20 @@ argument_list|,
 argument|const QUnicodeTables::Script&script
 argument_list|)
 specifier|const
+block|;
+name|QStringList
+name|addApplicationFont
+argument_list|(
+specifier|const
+name|QByteArray
+operator|&
+name|fontData
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|fileName
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

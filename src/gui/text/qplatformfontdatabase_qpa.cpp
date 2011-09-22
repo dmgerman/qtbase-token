@@ -63,6 +63,9 @@ parameter_list|,
 name|int
 name|pixelSize
 parameter_list|,
+name|bool
+name|fixedPitch
+parameter_list|,
 specifier|const
 name|QSupportedWritingSystems
 modifier|&
@@ -388,6 +391,8 @@ literal|false
 argument_list|,
 name|pixelSize
 argument_list|,
+literal|false
+argument_list|,
 name|writingSystems
 argument_list|,
 name|handle
@@ -449,6 +454,9 @@ parameter_list|,
 name|int
 name|pixelSize
 parameter_list|,
+name|bool
+name|fixedPitch
+parameter_list|,
 specifier|const
 name|QSupportedWritingSystems
 modifier|&
@@ -484,6 +492,8 @@ argument_list|,
 name|scalable
 argument_list|,
 name|pixelSize
+argument_list|,
+name|fixedPitch
 argument_list|,
 name|writingSystems
 argument_list|,

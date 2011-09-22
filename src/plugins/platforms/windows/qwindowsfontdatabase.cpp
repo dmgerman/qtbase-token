@@ -1549,10 +1549,6 @@ name|QFont
 operator|::
 name|Unstretched
 decl_stmt|;
-name|Q_UNUSED
-argument_list|(
-argument|fixed
-argument_list|)
 if|if
 condition|(
 name|QWindowsContext
@@ -1799,6 +1795,8 @@ name|scalable
 argument_list|,
 name|size
 argument_list|,
+name|fixed
+argument_list|,
 name|writingSystems
 argument_list|,
 literal|0
@@ -1835,6 +1833,8 @@ name|scalable
 argument_list|,
 name|size
 argument_list|,
+name|fixed
+argument_list|,
 name|writingSystems
 argument_list|,
 literal|0
@@ -1869,6 +1869,8 @@ argument_list|,
 name|scalable
 argument_list|,
 name|size
+argument_list|,
+name|fixed
 argument_list|,
 name|writingSystems
 argument_list|,
@@ -1912,6 +1914,8 @@ argument_list|,
 name|scalable
 argument_list|,
 name|size
+argument_list|,
+name|fixed
 argument_list|,
 name|writingSystems
 argument_list|,

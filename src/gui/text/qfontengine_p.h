@@ -1546,6 +1546,15 @@ argument|glyph_t glyph
 argument_list|)
 block|;
 name|virtual
+name|QFontEngine
+operator|*
+name|cloneWithSize
+argument_list|(
+argument|qreal pixelSize
+argument_list|)
+specifier|const
+block|;
+name|virtual
 name|QFixed
 name|ascent
 argument_list|()
