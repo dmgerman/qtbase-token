@@ -2250,16 +2250,6 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|line
-operator|.
-name|startsWith
-argument_list|(
-literal|"Config: Using QTest"
-argument_list|)
-condition|)
-continue|continue;
 comment|// the __FILE__ __LINE__ output is compiler dependent, skip it
 if|if
 condition|(
