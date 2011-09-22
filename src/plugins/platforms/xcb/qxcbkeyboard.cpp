@@ -6360,7 +6360,7 @@ argument_list|()
 operator|->
 name|indexOfMethod
 argument_list|(
-literal|"x11FilterEvent"
+literal|"x11FilterEvent(uint,uint,uint,bool)"
 argument_list|)
 operator|!=
 operator|-
