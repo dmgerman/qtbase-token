@@ -2324,219 +2324,35 @@ name|QT_VERSION_STR
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// Q_ASSERT uses __FILE__.  Some compilers include the absolute path in
-comment|// __FILE__, while others do not.
 if|if
 condition|(
-name|line
+name|subdir
+operator|==
+literal|"assert"
+operator|&&
+name|output
 operator|.
 name|contains
 argument_list|(
-literal|"ASSERT"
+literal|"ASSERT: "
+argument_list|)
+operator|&&
+name|expected
+operator|.
+name|contains
+argument_list|(
+literal|"ASSERT: "
 argument_list|)
 operator|&&
 name|output
 operator|!=
 name|expected
 condition|)
-block|{
-specifier|const
-name|char
-name|msg
-index|[]
-init|=
-literal|"Q_ASSERT prints out the absolute path on this platform."
-decl_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert old stdout txt"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert old txt"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert old stdout xml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert old xml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert old stdout lightxml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert old lightxml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert old stdout xunitxml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert old xunitxml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert new stdout txt"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert new txt"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert new stdout xml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert new xml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert new stdout lightxml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert new lightxml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert new stdout xunitxml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert new xunitxml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert stdout txt + txt"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert xml + stdout txt"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert txt + xunitxml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert lightxml + stdout xunitxml"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"assert all loggers"
-argument_list|,
-name|msg
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-block|}
+comment|// Q_ASSERT uses __FILE__, the exact contents of which are
+comment|// undefined.  If we something that looks like a Q_ASSERT and we
+comment|// were expecting to see a Q_ASSERT, we'll skip the line.
+continue|continue;
+elseif|else
 if|if
 condition|(
 name|expected
