@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<qapplication.h>
+file|<qguiapplication.h>
 end_include
 begin_function
 DECL|function|main
@@ -21,7 +21,7 @@ modifier|*
 name|argv
 parameter_list|)
 block|{
-name|QApplication
+name|QGuiApplication
 name|a
 argument_list|(
 name|argc
