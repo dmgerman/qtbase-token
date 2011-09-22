@@ -527,6 +527,9 @@ name|m_eglSurface
 decl_stmt|;
 endif|#
 directive|endif
+name|QRegion
+name|m_exposeRegion
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
