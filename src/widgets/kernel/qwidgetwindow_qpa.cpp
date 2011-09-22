@@ -342,6 +342,14 @@ operator|::
 name|WA_Mapped
 argument_list|)
 expr_stmt|;
+name|m_widget
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|syncBackingStore
+argument_list|()
+expr_stmt|;
 return|return
 literal|true
 return|;
