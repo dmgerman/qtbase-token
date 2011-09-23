@@ -2979,13 +2979,25 @@ argument_list|(
 name|asize
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_if
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|capacityReserved
+condition|)
+block|{
+comment|// cannot set unconditionally, since d could be the shared_null/shared_empty (which is const)
 name|d
 operator|->
 name|capacityReserved
 operator|=
 name|true
 expr_stmt|;
-end_expr_stmt
+block|}
+end_if
 begin_expr_stmt
 unit|}  inline
 DECL|function|squeeze
@@ -3000,7 +3012,7 @@ condition|(
 name|d
 operator|->
 name|ref
-operator|!=
+operator|>
 literal|1
 operator|||
 name|d
@@ -3021,13 +3033,24 @@ operator|->
 name|size
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+begin_if
+if|if
+condition|(
+name|d
+operator|->
+name|capacityReserved
+condition|)
+block|{
+comment|// cannot set unconditionally, since d could be the shared_null/shared_empty (which is const)
 name|d
 operator|->
 name|capacityReserved
 operator|=
 name|false
 expr_stmt|;
-end_expr_stmt
+block|}
+end_if
 begin_decl_stmt
 unit|}  class
 name|Q_CORE_EXPORT
