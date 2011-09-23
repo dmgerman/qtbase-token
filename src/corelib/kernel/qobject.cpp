@@ -9309,7 +9309,7 @@ name|activateCallbacks
 argument_list|(
 name|QInternal
 operator|::
-name|ConnectCallback
+name|DisconnectCallback
 argument_list|,
 operator|(
 name|void
