@@ -2516,14 +2516,6 @@ end_function
 begin_expr_stmt
 name|QInputContext
 operator|*
-name|assignedInputContext
-argument_list|()
-specifier|const
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|QInputContext
-operator|*
 name|inputContext
 argument_list|()
 specifier|const

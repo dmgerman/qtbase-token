@@ -3064,13 +3064,6 @@ modifier|*
 name|inputContext
 parameter_list|()
 function_decl|;
-name|void
-name|setInputContext
-parameter_list|(
-name|QInputContext
-modifier|*
-parameter_list|)
-function_decl|;
 name|bool
 name|isAncestorOf
 argument_list|(

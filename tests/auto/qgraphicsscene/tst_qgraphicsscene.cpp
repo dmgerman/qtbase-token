@@ -31710,13 +31710,16 @@ name|scene
 argument_list|)
 decl_stmt|;
 name|TestInputContext
+modifier|*
 name|inputContext
+init|=
+operator|new
+name|TestInputContext
 decl_stmt|;
-name|view
-operator|.
+name|qApp
+operator|->
 name|setInputContext
 argument_list|(
-operator|&
 name|inputContext
 argument_list|)
 expr_stmt|;
@@ -31765,7 +31768,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|inputContext
-operator|.
+operator|->
 name|resetCalls
 operator|=
 literal|0
@@ -31813,7 +31816,7 @@ expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|inputContext
-operator|.
+operator|->
 name|resetCalls
 argument_list|,
 literal|0
@@ -31892,7 +31895,7 @@ comment|// the Qt::WA_InputMethodEnabled flag is cleared because no item has foc
 name|QCOMPARE
 argument_list|(
 name|inputContext
-operator|.
+operator|->
 name|resetCalls
 argument_list|,
 name|callFocusItem
