@@ -1333,48 +1333,7 @@ name|tests
 init|=
 name|QStringList
 argument_list|()
-operator|<<
-literal|"subtest"
-operator|<<
-literal|"warnings"
-operator|<<
-literal|"maxwarnings"
-operator|<<
-literal|"cmptest"
 comment|//<< "alive"    // timer dependent
-operator|<<
-literal|"float"
-operator|<<
-literal|"globaldata"
-operator|<<
-literal|"skipglobal"
-operator|<<
-literal|"skip"
-operator|<<
-literal|"strcmp"
-operator|<<
-literal|"expectfail"
-operator|<<
-literal|"sleep"
-operator|<<
-literal|"fetchbogus"
-operator|<<
-literal|"crashes"
-operator|<<
-literal|"multiexec"
-operator|<<
-literal|"failinit"
-operator|<<
-literal|"failinitdata"
-operator|<<
-literal|"skipinit"
-operator|<<
-literal|"skipinitdata"
-operator|<<
-literal|"datetime"
-operator|<<
-literal|"singleskip"
-comment|//on windows assert does nothing in release mode and blocks execution with a popup window in debug mode
 if|#
 directive|if
 operator|!
@@ -1382,43 +1341,14 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+comment|// On windows, assert does nothing in release mode and blocks execution
+comment|// with a popup window in debug mode.
 operator|<<
 literal|"assert"
 endif|#
 directive|endif
 operator|<<
-literal|"differentexec"
-ifndef|#
-directive|ifndef
-name|QT_NO_EXCEPTIONS
-comment|// The machine that run the intel autotests will popup a dialog
-comment|// with a warning that an uncaught exception was thrown.
-comment|// This will time out and falsely fail, therefore we disable the test for that platform.
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_CC_INTEL
-argument_list|)
-operator|||
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-operator|<<
-literal|"exceptionthrow"
-endif|#
-directive|endif
-endif|#
-directive|endif
-operator|<<
-literal|"qexecstringlist"
-operator|<<
-literal|"datatable"
-operator|<<
-literal|"commandlinedata"
+literal|"badxml"
 if|#
 directive|if
 name|defined
@@ -1435,6 +1365,7 @@ name|defined
 argument_list|(
 name|Q_OS_LINUX
 argument_list|)
+comment|// Only run on platforms where callgrind is available.
 operator|<<
 literal|"benchlibcallgrind"
 endif|#
@@ -1443,21 +1374,94 @@ operator|<<
 literal|"benchlibeventcounter"
 operator|<<
 literal|"benchliboptions"
-comment|//### These tests are affected by timing and whether the CPU tick counter is
-comment|//### monotonically increasing. They won't work on some machines so leave them off by default.
-comment|//### Feel free to uncomment for your own testing.
 if|#
 directive|if
 literal|0
-expr|<< "benchlibwalltime"<< "benchlibtickcounter"
+comment|// These tests are affected by timing and whether the CPU tick counter
+comment|// is monotonically increasing.  They won't work on some machines so
+comment|// leave them off by default.  Feel free to uncomment for your own testing.
+expr|<< "benchlibtickcounter"<< "benchlibwalltime"
 endif|#
 directive|endif
 operator|<<
-literal|"xunit"
+literal|"cmptest"
+operator|<<
+literal|"commandlinedata"
+operator|<<
+literal|"crashes"
+operator|<<
+literal|"datatable"
+operator|<<
+literal|"datetime"
+operator|<<
+literal|"differentexec"
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_EXCEPTIONS
+argument_list|)
+operator|&&
+operator|(
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_INTEL
+argument_list|)
+operator|||
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+operator|)
+comment|// Disable this test on Windows and for intel compiler, as the run-times
+comment|// will popup dialogs with warnings that uncaught exceptions were thrown
+operator|<<
+literal|"exceptionthrow"
+endif|#
+directive|endif
+operator|<<
+literal|"expectfail"
+operator|<<
+literal|"failinit"
+operator|<<
+literal|"failinitdata"
+operator|<<
+literal|"fetchbogus"
+operator|<<
+literal|"float"
+operator|<<
+literal|"globaldata"
 operator|<<
 literal|"longstring"
 operator|<<
-literal|"badxml"
+literal|"maxwarnings"
+operator|<<
+literal|"multiexec"
+operator|<<
+literal|"qexecstringlist"
+operator|<<
+literal|"singleskip"
+operator|<<
+literal|"skip"
+operator|<<
+literal|"skipglobal"
+operator|<<
+literal|"skipinit"
+operator|<<
+literal|"skipinitdata"
+operator|<<
+literal|"sleep"
+operator|<<
+literal|"strcmp"
+operator|<<
+literal|"subtest"
+operator|<<
+literal|"warnings"
+operator|<<
+literal|"xunit"
 decl_stmt|;
 foreach|foreach
 control|(
