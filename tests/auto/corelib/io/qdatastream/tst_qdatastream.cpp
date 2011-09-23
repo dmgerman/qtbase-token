@@ -1485,10 +1485,10 @@ begin_comment
 comment|// ************************************
 end_comment
 begin_function
-DECL|function|QStringData
+DECL|function|stringData
 specifier|static
 name|QString
-name|QStringData
+name|stringData
 parameter_list|(
 name|int
 name|index
@@ -1621,7 +1621,7 @@ block|{
 name|QString
 name|test
 argument_list|(
-name|QStringData
+name|stringData
 argument_list|(
 name|dataIndex
 argument_list|(
@@ -1708,7 +1708,7 @@ decl_stmt|;
 name|QString
 name|test
 argument_list|(
-name|QStringData
+name|stringData
 argument_list|(
 name|dataIndex
 argument_list|(

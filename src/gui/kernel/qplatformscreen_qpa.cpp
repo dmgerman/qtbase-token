@@ -32,6 +32,9 @@ include|#
 directive|include
 file|<QtGui/qwindow.h>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_class
 DECL|class|QPlatformScreenPrivate
 class|class
@@ -433,4 +436,7 @@ literal|0
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

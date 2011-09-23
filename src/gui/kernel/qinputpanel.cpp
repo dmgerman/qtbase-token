@@ -12,6 +12,9 @@ include|#
 directive|include
 file|<private/qinputpanel_p.h>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_constructor
 DECL|function|QInputPanel
 name|QInputPanel
@@ -605,6 +608,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_include
 include|#
 directive|include

@@ -29,6 +29,7 @@ directive|include
 file|<qvector.h>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QXcbWMSupport
 range|:
@@ -93,6 +94,9 @@ name|net_virtual_roots
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

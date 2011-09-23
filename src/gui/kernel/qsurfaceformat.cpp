@@ -47,6 +47,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_class
 DECL|class|QSurfaceFormatPrivate
 class|class
@@ -1516,4 +1519,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

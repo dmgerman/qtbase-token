@@ -22,6 +22,9 @@ include|#
 directive|include
 file|<QtGui/qscreen.h>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_class
 DECL|class|QPlatformWindowPrivate
 class|class
@@ -591,4 +594,7 @@ end_function
 begin_comment
 comment|/*!     \class QPlatformWindow     \since 4.8     \internal     \preliminary     \ingroup qpa      \brief The QPlatformWindow class provides an abstraction for top-level windows.      The QPlatformWindow abstraction is used by QWindow for all its top level windows. It is being     created by calling the createPlatformWindow function in the loaded QPlatformIntegration     instance.      QPlatformWindow is used to signal to the windowing system, how Qt persieves its frame.     However, it is not concerned with how Qt renders into the window it represents.      Visible QWindows will always have a QPlatformWindow. However, it is not necessary for     all windows to have a QWindowSurface. This is the case for QOpenGLWidget. And could be the case for     windows where some  3.party renders into it.      The platform specific window handle can be retrieved by the winId function.      QPlatformWindow is also the way QPA defines how native child windows should be supported     through the setParent function.      The only way to retrieve a QPlatformOpenGLContext in QPA is by calling the glContext() function     on QPlatformWindow.      \sa QWindowSurface, QWindow */
 end_comment
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

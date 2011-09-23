@@ -67,6 +67,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_class
 DECL|class|QXcbResourceMap
 class|class
@@ -717,4 +720,7 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

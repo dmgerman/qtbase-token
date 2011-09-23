@@ -17,12 +17,8 @@ include|#
 directive|include
 file|"qeventdispatcher_glib_p.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<qglobal.h>
-end_include
 begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|createUnixEventDispatcher
 name|class
 name|QAbstractEventDispatcher
@@ -73,4 +69,7 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

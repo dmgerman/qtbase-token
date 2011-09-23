@@ -55,6 +55,7 @@ directive|define
 name|Q_XCB_DEBUG
 end_define
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QXcbScreen
 name|class
 name|QXcbScreen
@@ -1392,6 +1393,9 @@ end_endif
 begin_comment
 comment|//endifXCB_USE_DRI2
 end_comment
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

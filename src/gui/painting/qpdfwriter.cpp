@@ -22,6 +22,9 @@ include|#
 directive|include
 file|<QtCore/qfile.h>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_class
 DECL|class|QPdfWriterPrivate
 class|class
@@ -562,4 +565,7 @@ name|multiplier
 expr_stmt|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

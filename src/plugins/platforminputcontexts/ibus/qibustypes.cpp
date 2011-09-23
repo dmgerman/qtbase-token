@@ -17,14 +17,15 @@ include|#
 directive|include
 file|<QtDBus>
 end_include
-begin_constructor
+begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|QIBusSerializable
 name|QIBusSerializable
 operator|::
 name|QIBusSerializable
 parameter_list|()
 block|{ }
-end_constructor
+end_function
 begin_destructor
 DECL|function|~QIBusSerializable
 name|QIBusSerializable
@@ -611,4 +612,7 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

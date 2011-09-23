@@ -293,10 +293,9 @@ end_define
 begin_comment
 comment|//#ifdef NET_WM_STATE_DEBUG
 end_comment
-begin_comment
-comment|// Returns true if we should set WM_TRANSIENT_FOR on \a w
-end_comment
 begin_function
+name|QT_BEGIN_NAMESPACE
+comment|// Returns true if we should set WM_TRANSIENT_FOR on \a w
 DECL|function|isTransient
 specifier|static
 specifier|inline
@@ -7450,4 +7449,7 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

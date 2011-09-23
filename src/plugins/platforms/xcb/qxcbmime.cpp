@@ -50,6 +50,9 @@ undef|#
 directive|undef
 name|XCB_ATOM_BITMAP
 end_undef
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_constructor
 DECL|function|QXcbMime
 name|QXcbMime
@@ -1275,4 +1278,7 @@ literal|0
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

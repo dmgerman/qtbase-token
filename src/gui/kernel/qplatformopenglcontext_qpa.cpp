@@ -7,6 +7,9 @@ include|#
 directive|include
 file|"qplatformopenglcontext_qpa.h"
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_comment
 comment|/*!     \class QPlatformOpenGLContext     \since 4.8     \internal     \preliminary     \ingroup qpa      \brief The QPlatformOpenGLContext class provides an abstraction for native GL contexts.      In QPA the way to support OpenGL or OpenVG or other technologies that requires a native GL     context is through the QPlatformOpenGLContext wrapper.      There is no factory function for QPlatformOpenGLContexts, but rather only one accessor function.     The only place to retrieve a QPlatformOpenGLContext from is through a QPlatformWindow.      The context which is current for a specific thread can be collected by the currentContext()     function. This is how QPlatformOpenGLContext also makes it possible to use the QtGui module     withhout using QOpenGLWidget. When using QOpenGLContext::currentContext(), it will ask     QPlatformOpenGLContext for the currentContext. Then a corresponding QOpenGLContext will be returned,     which maps to the QPlatformOpenGLContext. */
 end_comment
@@ -115,4 +118,7 @@ name|context
 expr_stmt|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

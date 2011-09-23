@@ -52,6 +52,9 @@ include|#
 directive|include
 file|<QDebug>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_class
 DECL|class|QGuiGLThreadContext
 class|class
@@ -2266,4 +2269,7 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

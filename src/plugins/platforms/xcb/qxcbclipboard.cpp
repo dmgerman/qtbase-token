@@ -59,6 +59,9 @@ undef|#
 directive|undef
 name|class
 end_undef
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_class
 DECL|class|QXcbClipboardMime
 class|class
@@ -4380,6 +4383,9 @@ name|buf
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_include
 include|#
 directive|include
