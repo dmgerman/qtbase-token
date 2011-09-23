@@ -459,7 +459,7 @@ name|class
 name|QAccessibleDial
 range|:
 name|public
-name|QAccessibleWidget
+name|QAccessibleAbstractSlider
 block|{
 name|public
 operator|:
@@ -470,49 +470,12 @@ name|QWidget
 operator|*
 name|w
 argument_list|)
-block|;      enum
-name|DialElements
-block|{
-name|Self
-operator|=
-literal|0
-block|,
-name|SpeedoMeter
-block|,
-name|SliderHandle
-block|}
-block|;
-name|int
-name|childCount
-argument_list|()
-specifier|const
-block|;
-name|QRect
-name|rect
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
 block|;
 name|QString
 name|text
 argument_list|(
 argument|Text textType
 argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|Role
-name|role
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|State
-name|state
-argument_list|(
 argument|int child
 argument_list|)
 specifier|const
