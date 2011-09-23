@@ -1683,50 +1683,6 @@ endif|#
 directive|endif
 block|}
 end_function
-begin_comment
-comment|/*!     \obsolete      This function can be called on the widget that currently has focus     to reset the input method operating on it.      This function is providing for convenience, instead you should use     \l{QInputContext::}{reset()} on the input context that was     returned by inputContext().      \sa QInputContext, inputContext(), QInputContext::reset() */
-end_comment
-begin_function
-DECL|function|resetInputContext
-name|void
-name|QWidget
-operator|::
-name|resetInputContext
-parameter_list|()
-block|{
-if|if
-condition|(
-operator|!
-name|hasFocus
-argument_list|()
-condition|)
-return|return;
-ifndef|#
-directive|ifndef
-name|QT_NO_IM
-name|QInputContext
-modifier|*
-name|qic
-init|=
-name|this
-operator|->
-name|inputContext
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|qic
-condition|)
-name|qic
-operator|->
-name|reset
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
-comment|// QT_NO_IM
-block|}
-end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -29984,16 +29940,6 @@ name|QEvent
 operator|::
 name|MouseButtonPress
 case|:
-comment|// Don't reset input context here. Whether reset or not is
-comment|// a responsibility of input method. reset() will be
-comment|// called by mouseHandler() of input method if necessary
-comment|// via mousePressEvent() of text widgets.
-if|#
-directive|if
-literal|0
-block|resetInputContext();
-endif|#
-directive|endif
 name|mousePressEvent
 argument_list|(
 operator|(

@@ -246,6 +246,10 @@ argument_list|(
 name|bool
 argument_list|)
 block|;
+name|void
+name|resetInputPanel
+argument_list|()
+block|;
 specifier|inline
 name|bool
 name|shouldEnableInputMethod

@@ -3565,12 +3565,6 @@ name|hints
 argument_list|)
 decl_stmt|;
 name|protected
-label|:
-name|void
-name|resetInputContext
-parameter_list|()
-function_decl|;
-name|protected
 name|Q_SLOTS
 range|:
 name|void

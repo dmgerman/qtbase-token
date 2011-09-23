@@ -3268,7 +3268,9 @@ argument_list|(
 name|QLineEdit
 argument_list|)
 expr_stmt|;
-name|resetInputContext
+name|d
+operator|->
+name|resetInputPanel
 argument_list|()
 expr_stmt|;
 name|d
@@ -3296,7 +3298,9 @@ argument_list|(
 name|QLineEdit
 argument_list|)
 expr_stmt|;
-name|resetInputContext
+name|d
+operator|->
+name|resetInputPanel
 argument_list|()
 expr_stmt|;
 name|d
@@ -3324,7 +3328,9 @@ argument_list|(
 name|QLineEdit
 argument_list|)
 expr_stmt|;
-name|resetInputContext
+name|d
+operator|->
+name|resetInputPanel
 argument_list|()
 expr_stmt|;
 name|d
