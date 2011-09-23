@@ -66,6 +66,12 @@ name|QTextListFormat
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QTextTableCell
+name|class
+name|QTextTableCell
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QTextDocumentLayoutPrivate
 name|class
 name|QTextDocumentLayoutPrivate
@@ -180,6 +186,22 @@ name|QRectF
 name|blockBoundingRect
 argument_list|(
 argument|const QTextBlock&block
+argument_list|)
+specifier|const
+block|;
+name|QRectF
+name|tableBoundingRect
+argument_list|(
+argument|QTextTable *table
+argument_list|)
+specifier|const
+block|;
+name|QRectF
+name|tableCellBoundingRect
+argument_list|(
+argument|QTextTable *table
+argument_list|,
+argument|const QTextTableCell&cell
 argument_list|)
 specifier|const
 block|;
