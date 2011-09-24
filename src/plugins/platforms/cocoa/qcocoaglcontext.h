@@ -112,7 +112,12 @@ specifier|static
 name|NSOpenGLPixelFormat
 operator|*
 name|createNSOpenGLPixelFormat
-argument_list|()
+argument_list|(
+specifier|const
+name|QSurfaceFormat
+operator|&
+name|format
+argument_list|)
 block|;
 name|NSOpenGLContext
 operator|*

@@ -53,7 +53,12 @@ begin_function_decl
 name|void
 modifier|*
 name|qcgl_createNSOpenGLPixelFormat
-parameter_list|()
+parameter_list|(
+specifier|const
+name|QSurfaceFormat
+modifier|&
+name|format
+parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
