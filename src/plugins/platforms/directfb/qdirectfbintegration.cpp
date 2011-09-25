@@ -223,14 +223,6 @@ operator|::
 name|QDirectFbIntegration
 parameter_list|()
 member_init_list|:
-name|m_dfb
-argument_list|(
-name|QDirectFbConvenience
-operator|::
-name|dfbInterface
-argument_list|()
-argument_list|)
-member_init_list|,
 name|m_fontDb
 argument_list|(
 operator|new
@@ -369,6 +361,17 @@ expr_stmt|;
 operator|delete
 index|[]
 name|argv
+expr_stmt|;
+comment|// This must happen after DirectFBInit.
+name|m_dfb
+operator|.
+name|reset
+argument_list|(
+name|QDirectFbConvenience
+operator|::
+name|dfbInterface
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|m_primaryScreen
 operator|.
