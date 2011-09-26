@@ -89,6 +89,8 @@ name|t
 argument_list|,
 name|int
 name|child
+operator|=
+literal|0
 argument_list|)
 decl|const
 decl_stmt|;
@@ -97,6 +99,8 @@ name|state
 argument_list|(
 name|int
 name|child
+operator|=
+literal|0
 argument_list|)
 decl|const
 decl_stmt|;
@@ -202,29 +206,11 @@ argument|QWidget *w
 argument_list|,
 argument|Role role
 argument_list|)
-block|;      enum
-name|ToolButtonElements
-block|{
-name|ToolButtonSelf
-operator|=
-literal|0
-block|,
-name|ButtonExecute
-block|,
-name|ButtonDropMenu
-block|}
-block|;
-name|Role
-name|role
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
 block|;
 name|State
 name|state
 argument_list|(
-argument|int child
+argument|int
 argument_list|)
 specifier|const
 block|;
@@ -233,10 +219,11 @@ name|childCount
 argument_list|()
 specifier|const
 block|;
-name|QRect
-name|rect
+name|QAccessibleInterface
+operator|*
+name|child
 argument_list|(
-argument|int child
+argument|int index
 argument_list|)
 specifier|const
 block|;
@@ -275,6 +262,41 @@ argument_list|,
 argument|int child
 argument_list|,
 argument|const QVariantList&params
+argument_list|)
+block|;
+comment|// QAccessibleActionInterface
+name|int
+name|actionCount
+argument_list|()
+block|;
+name|void
+name|doAction
+argument_list|(
+argument|int actionIndex
+argument_list|)
+block|;
+name|QString
+name|description
+argument_list|(
+argument|int actionIndex
+argument_list|)
+block|;
+name|QString
+name|name
+argument_list|(
+argument|int actionIndex
+argument_list|)
+block|;
+name|QString
+name|localizedName
+argument_list|(
+argument|int actionIndex
+argument_list|)
+block|;
+name|QStringList
+name|keyBindings
+argument_list|(
+argument|int actionIndex
 argument_list|)
 block|;
 name|protected
