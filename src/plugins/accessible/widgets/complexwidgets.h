@@ -1008,13 +1008,6 @@ name|childCount
 argument_list|()
 specifier|const
 block|;
-name|QRect
-name|rect
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
 name|QString
 name|text
 argument_list|(
@@ -1023,30 +1016,6 @@ argument_list|,
 argument|int child
 argument_list|)
 specifier|const
-block|;
-name|Role
-name|role
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|State
-name|state
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|bool
-name|doAction
-argument_list|(
-argument|int action
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
 block|;
 name|bool
 name|setSelected
