@@ -47,8 +47,13 @@ argument_list|,
 name|IDirectFBSurface
 operator|*
 name|surface
-operator|=
-literal|0
+argument_list|)
+block|;
+name|QDirectFbBlitter
+argument_list|(
+argument|const QSize&size
+argument_list|,
+argument|bool alpha
 argument_list|)
 block|;
 name|virtual
@@ -131,6 +136,25 @@ operator|*
 name|createBlittable
 argument_list|(
 argument|const QSize&size
+argument_list|,
+argument|bool alpha
+argument_list|)
+specifier|const
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
+DECL|function|createBlittable
+specifier|inline
+name|QBlittable
+operator|*
+name|QDirectFbBlitterPlatformPixmap
+operator|::
+name|createBlittable
+argument_list|(
+argument|const QSize& size
+argument_list|,
+argument|bool alpha
 argument_list|)
 specifier|const
 block|{
@@ -139,12 +163,12 @@ name|new
 name|QDirectFbBlitter
 argument_list|(
 name|size
+argument_list|,
+name|alpha
 argument_list|)
 return|;
 block|}
-expr|}
-block|;
-end_decl_stmt
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

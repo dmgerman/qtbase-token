@@ -53,6 +53,8 @@ operator|*
 name|createBlittable
 argument_list|(
 argument|const QSize&size
+argument_list|,
+argument|bool alpha
 argument_list|)
 specifier|const
 operator|=
@@ -209,6 +211,9 @@ operator|<
 name|QBlittable
 operator|>
 name|m_blittable
+block|;
+name|bool
+name|m_alpha
 block|;
 ifdef|#
 directive|ifdef

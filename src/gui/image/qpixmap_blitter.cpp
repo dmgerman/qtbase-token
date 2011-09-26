@@ -72,6 +72,11 @@ name|PixmapType
 argument_list|,
 name|BlitterClass
 argument_list|)
+member_init_list|,
+name|m_alpha
+argument_list|(
+literal|false
+argument_list|)
 ifdef|#
 directive|ifdef
 name|QT_BLITTER_RASTEROVERLAY
@@ -164,6 +169,8 @@ name|w
 argument_list|,
 name|h
 argument_list|)
+argument_list|,
+name|m_alpha
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -464,6 +471,42 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// Need to be backed with an alpha channel now. It would be nice
+comment|// if we could just change the format, e.g. when going from
+comment|// RGB32 -> ARGB8888.
+if|if
+condition|(
+name|color
+operator|.
+name|alpha
+argument_list|()
+operator|!=
+literal|255
+operator|&&
+operator|!
+name|hasAlphaChannel
+argument_list|()
+condition|)
+block|{
+name|m_blittable
+operator|.
+name|reset
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|m_engine
+operator|.
+name|reset
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|m_alpha
+operator|=
+literal|true
+expr_stmt|;
+block|}
 name|uint
 name|pixel
 decl_stmt|;
@@ -674,6 +717,13 @@ name|ImageConversionFlags
 name|flags
 parameter_list|)
 block|{
+name|m_alpha
+operator|=
+name|image
+operator|.
+name|hasAlphaChannel
+argument_list|()
+expr_stmt|;
 name|resize
 argument_list|(
 name|image
