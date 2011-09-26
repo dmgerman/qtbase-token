@@ -1193,7 +1193,7 @@ name|actionIndex
 parameter_list|)
 function_decl|;
 name|QString
-name|description
+name|localizedDescription
 parameter_list|(
 name|int
 name|actionIndex

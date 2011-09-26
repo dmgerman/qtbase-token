@@ -8020,9 +8020,9 @@ name|m_index
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|description
+DECL|function|localizedDescription
 name|QString
-name|description
+name|localizedDescription
 parameter_list|(
 name|int
 name|actionIndex
@@ -9233,11 +9233,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|description
+DECL|function|localizedDescription
 name|QString
 name|QAccessibleComboBox
 operator|::
-name|description
+name|localizedDescription
 parameter_list|(
 name|int
 name|actionIndex

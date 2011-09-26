@@ -936,11 +936,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|description
+DECL|function|localizedDescription
 name|QString
 name|QAccessibleButton
 operator|::
-name|description
+name|localizedDescription
 parameter_list|(
 name|int
 name|actionIndex
@@ -1799,11 +1799,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|description
+DECL|function|localizedDescription
 name|QString
 name|QAccessibleToolButton
 operator|::
-name|description
+name|localizedDescription
 parameter_list|(
 name|int
 name|actionIndex

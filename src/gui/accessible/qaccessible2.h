@@ -1466,7 +1466,7 @@ literal|0
 block|;
 name|virtual
 name|QString
-name|description
+name|localizedDescription
 argument_list|(
 argument|int actionIndex
 argument_list|)

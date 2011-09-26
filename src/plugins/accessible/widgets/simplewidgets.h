@@ -146,7 +146,7 @@ name|actionIndex
 parameter_list|)
 function_decl|;
 name|QString
-name|description
+name|localizedDescription
 parameter_list|(
 name|int
 name|actionIndex
@@ -276,7 +276,7 @@ argument|int actionIndex
 argument_list|)
 block|;
 name|QString
-name|description
+name|localizedDescription
 argument_list|(
 argument|int actionIndex
 argument_list|)

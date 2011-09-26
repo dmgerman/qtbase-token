@@ -7065,7 +7065,7 @@ name|QCOMPARE
 argument_list|(
 name|actionInterface
 operator|->
-name|description
+name|localizedDescription
 argument_list|(
 literal|0
 argument_list|)
