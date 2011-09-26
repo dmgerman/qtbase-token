@@ -4845,9 +4845,13 @@ operator|&
 name|HB_ShaperFlag_UseDesignMetrics
 operator|)
 operator|||
+operator|(
+name|set
+operator|&&
 name|set
 operator|->
 name|outline_drawing
+operator|)
 condition|)
 name|load_flags
 operator||=
