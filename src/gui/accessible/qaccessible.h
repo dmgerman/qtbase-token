@@ -53,12 +53,6 @@ include|#
 directive|include
 file|<QtGui/qevent.h>
 end_include
-begin_decl_stmt
-DECL|variable|QWindow
-name|class
-name|QWindow
-decl_stmt|;
-end_decl_stmt
 begin_function
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -71,6 +65,10 @@ directive|ifndef
 name|QT_NO_ACCESSIBILITY
 name|class
 name|QAccessibleInterface
+decl_stmt|;
+DECL|variable|QWindow
+name|class
+name|QWindow
 decl_stmt|;
 name|class
 name|Q_GUI_EXPORT
@@ -1256,25 +1254,6 @@ name|window
 argument_list|()
 specifier|const
 block|;
-comment|// hierarchy
-name|virtual
-name|int
-name|childCount
-argument_list|()
-specifier|const
-operator|=
-literal|0
-block|;
-name|virtual
-name|int
-name|indexOfChild
-argument_list|(
-argument|const QAccessibleInterface *
-argument_list|)
-specifier|const
-operator|=
-literal|0
-block|;
 comment|// relations
 name|virtual
 name|Relation
@@ -1315,7 +1294,7 @@ specifier|const
 operator|=
 literal|0
 block|;
-comment|// navigation
+comment|// navigation, hierarchy
 name|virtual
 name|QAccessibleInterface
 operator|*
@@ -1331,6 +1310,24 @@ operator|*
 name|child
 argument_list|(
 argument|int index
+argument_list|)
+specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
+name|int
+name|childCount
+argument_list|()
+specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
+name|int
+name|indexOfChild
+argument_list|(
+argument|const QAccessibleInterface *
 argument_list|)
 specifier|const
 operator|=
