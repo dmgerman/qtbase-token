@@ -201,6 +201,10 @@ name|child
 parameter_list|)
 specifier|const
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|child
+argument_list|)
 if|if
 condition|(
 name|t
@@ -250,6 +254,10 @@ modifier|&
 name|params
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|child
+argument_list|)
 if|if
 condition|(
 operator|!
@@ -594,6 +602,10 @@ modifier|&
 name|params
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|child
+argument_list|)
 if|if
 condition|(
 operator|!
@@ -737,6 +749,10 @@ name|child
 parameter_list|)
 specifier|const
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|child
+argument_list|)
 if|if
 condition|(
 name|textType

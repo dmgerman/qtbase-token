@@ -96,6 +96,10 @@ name|int
 name|cursorPosition
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|cursorPosition
+argument_list|)
 comment|// Default behavior for simple ephemeral input contexts. Some
 comment|// complex input contexts should not be reset here.
 if|if
@@ -124,6 +128,10 @@ modifier|*
 name|event
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|event
+argument_list|)
 return|return
 literal|false
 return|;

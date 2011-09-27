@@ -438,7 +438,7 @@ block|,
 name|PausedState
 operator|=
 literal|1
-block|,     }
+block|}
 block|;      enum
 name|NetworkLayerPreferenceState
 block|{

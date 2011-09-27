@@ -162,16 +162,16 @@ argument_list|(
 name|PipeliningSupportUnknown
 argument_list|)
 member_init_list|,
-name|connection
-argument_list|(
-literal|0
-argument_list|)
-member_init_list|,
 name|networkLayerPreference
 argument_list|(
 name|QAbstractSocket
 operator|::
 name|AnyIPProtocol
+argument_list|)
+member_init_list|,
+name|connection
+argument_list|(
+literal|0
 argument_list|)
 block|{
 comment|// Inlining this function in the header leads to compiler error on

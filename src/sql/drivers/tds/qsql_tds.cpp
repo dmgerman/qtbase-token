@@ -4076,6 +4076,10 @@ name|type
 parameter_list|)
 specifier|const
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|type
+argument_list|)
 name|QString
 name|res
 init|=

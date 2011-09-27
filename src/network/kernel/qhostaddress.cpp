@@ -4402,6 +4402,11 @@ name|QAbstractSocket
 operator|::
 name|UnknownNetworkLayerProtocol
 case|:
+case|case
+name|QAbstractSocket
+operator|::
+name|AnyIPProtocol
+case|:
 break|break;
 case|case
 name|QAbstractSocket

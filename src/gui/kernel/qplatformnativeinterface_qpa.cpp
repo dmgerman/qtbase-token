@@ -123,6 +123,10 @@ name|window
 parameter_list|)
 specifier|const
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|window
+argument_list|)
 return|return
 name|QVariantMap
 argument_list|()
