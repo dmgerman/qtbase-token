@@ -2892,6 +2892,8 @@ decl_stmt|;
 if|if
 condition|(
 name|event
+operator|&&
+name|event
 operator|->
 name|response_type
 operator|==
