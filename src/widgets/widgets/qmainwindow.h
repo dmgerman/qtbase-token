@@ -597,22 +597,6 @@ argument_list|()
 block|;
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QMainWindow
-argument_list|(
-argument|QWidget *parent
-argument_list|,
-argument|const char *name
-argument_list|,
-argument|Qt::WindowFlags flags =
-literal|0
-argument_list|)
-block|;
-endif|#
-directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_DOCKWIDGET

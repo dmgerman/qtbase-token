@@ -68,19 +68,6 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_ACTION
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-DECL|variable|QMenuItemEmitter
-name|class
-name|QMenuItemEmitter
-decl_stmt|;
-end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_decl_stmt
 DECL|variable|QShortcutMap
 name|class
 name|QShortcutMap
@@ -333,21 +320,6 @@ block|;
 endif|#
 directive|endif
 comment|// QT_NO_SHORTCUT
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-comment|//for menubar/menu compat
-name|QMenuItemEmitter
-operator|*
-name|act_signal
-block|;
-name|int
-name|id
-block|,
-name|param
-block|;
-endif|#
-directive|endif
 name|void
 name|sendDataChanged
 argument_list|()

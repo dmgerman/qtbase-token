@@ -116,41 +116,6 @@ name|void
 name|clearMessage
 argument_list|()
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-specifier|inline
-name|QT_MOC_COMPAT
-name|void
-name|message
-argument_list|(
-argument|const QString&str
-argument_list|,
-argument|int alignment = Qt::AlignLeft
-argument_list|,
-argument|const QColor&color = Qt::black
-argument_list|)
-block|{
-name|showMessage
-argument_list|(
-name|str
-argument_list|,
-name|alignment
-argument_list|,
-name|color
-argument_list|)
-block|; }
-specifier|inline
-name|QT_MOC_COMPAT
-name|void
-name|clear
-argument_list|()
-block|{
-name|clearMessage
-argument_list|()
-block|; }
-endif|#
-directive|endif
 name|Q_SIGNALS
 operator|:
 name|void

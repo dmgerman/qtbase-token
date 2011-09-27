@@ -93,24 +93,6 @@ operator|&
 name|type
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-specifier|inline
-name|QT_MOC_COMPAT
-name|void
-name|message
-argument_list|(
-argument|const QString&text
-argument_list|)
-block|{
-name|showMessage
-argument_list|(
-name|text
-argument_list|)
-block|; }
-endif|#
-directive|endif
 name|protected
 operator|:
 name|void

@@ -6059,17 +6059,6 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-emit|emit
-name|selected
-argument_list|(
-name|index
-argument_list|)
-emit|;
-endif|#
-directive|endif
 emit|emit
 name|currentChanged
 argument_list|(

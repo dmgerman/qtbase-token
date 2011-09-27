@@ -315,24 +315,6 @@ name|QPainter
 operator|*
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|public
-operator|:
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QFrame
-argument_list|(
-argument|QWidget* parent
-argument_list|,
-argument|const char* name
-argument_list|,
-argument|Qt::WindowFlags f =
-literal|0
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|protected
 operator|:
 name|QFrame

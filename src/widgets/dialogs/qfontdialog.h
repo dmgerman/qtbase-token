@@ -280,65 +280,6 @@ operator|=
 literal|0
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-specifier|static
-name|QFont
-name|getFont
-argument_list|(
-argument|bool *ok
-argument_list|,
-argument|const QFont&initial
-argument_list|,
-argument|QWidget *parent
-argument_list|,
-argument|const char *name
-argument_list|)
-block|{
-name|Q_UNUSED
-argument_list|(
-name|name
-argument_list|)
-block|;
-return|return
-name|getFont
-argument_list|(
-name|ok
-argument_list|,
-name|initial
-argument_list|,
-name|parent
-argument_list|)
-return|;
-block|}
-specifier|static
-name|QFont
-name|getFont
-argument_list|(
-argument|bool *ok
-argument_list|,
-argument|QWidget *parent
-argument_list|,
-argument|const char *name
-argument_list|)
-block|{
-name|Q_UNUSED
-argument_list|(
-name|name
-argument_list|)
-block|;
-return|return
-name|getFont
-argument_list|(
-name|ok
-argument_list|,
-name|parent
-argument_list|)
-return|;
-block|}
-endif|#
-directive|endif
 name|Q_SIGNALS
 operator|:
 name|void

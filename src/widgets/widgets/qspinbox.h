@@ -81,39 +81,6 @@ operator|=
 literal|0
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QSpinBox
-argument_list|(
-name|QWidget
-operator|*
-name|parent
-argument_list|,
-specifier|const
-name|char
-operator|*
-name|name
-argument_list|)
-block|;
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QSpinBox
-argument_list|(
-argument|int min
-argument_list|,
-argument|int max
-argument_list|,
-argument|int step
-argument_list|,
-argument|QWidget *parent
-argument_list|,
-argument|const char *name =
-literal|0
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|int
 name|value
 argument_list|()
@@ -193,74 +160,6 @@ argument_list|,
 argument|int max
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-specifier|inline
-name|QT3_SUPPORT
-name|void
-name|setLineStep
-argument_list|(
-argument|int step
-argument_list|)
-block|{
-name|setSingleStep
-argument_list|(
-name|step
-argument_list|)
-block|; }
-specifier|inline
-name|QT3_SUPPORT
-name|void
-name|setMaxValue
-argument_list|(
-argument|int val
-argument_list|)
-block|{
-name|setMaximum
-argument_list|(
-name|val
-argument_list|)
-block|; }
-specifier|inline
-name|QT3_SUPPORT
-name|void
-name|setMinValue
-argument_list|(
-argument|int val
-argument_list|)
-block|{
-name|setMinimum
-argument_list|(
-name|val
-argument_list|)
-block|; }
-specifier|inline
-name|QT3_SUPPORT
-name|int
-name|maxValue
-argument_list|()
-specifier|const
-block|{
-return|return
-name|maximum
-argument_list|()
-return|;
-block|}
-specifier|inline
-name|QT3_SUPPORT
-name|int
-name|minValue
-argument_list|()
-specifier|const
-block|{
-return|return
-name|minimum
-argument_list|()
-return|;
-block|}
-endif|#
-directive|endif
 name|protected
 operator|:
 name|bool

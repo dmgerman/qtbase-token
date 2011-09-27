@@ -95,53 +95,6 @@ operator|=
 literal|0
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QBoxLayout
-argument_list|(
-argument|QWidget *parent
-argument_list|,
-argument|Direction
-argument_list|,
-argument|int border =
-literal|0
-argument_list|,
-argument|int spacing = -
-literal|1
-argument_list|,
-argument|const char *name =
-literal|0
-argument_list|)
-block|;
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QBoxLayout
-argument_list|(
-argument|QLayout *parentLayout
-argument_list|,
-argument|Direction
-argument_list|,
-argument|int spacing = -
-literal|1
-argument_list|,
-argument|const char *name =
-literal|0
-argument_list|)
-block|;
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QBoxLayout
-argument_list|(
-argument|Direction
-argument_list|,
-argument|int spacing
-argument_list|,
-argument|const char *name =
-literal|0
-argument_list|)
-block|;
-endif|#
-directive|endif
 operator|~
 name|QBoxLayout
 argument_list|()
@@ -377,26 +330,6 @@ name|QRect
 operator|&
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-specifier|inline
-name|QT3_SUPPORT
-name|int
-name|findWidget
-argument_list|(
-argument|QWidget* w
-argument_list|)
-block|{
-return|return
-name|indexOf
-argument_list|(
-name|w
-argument_list|)
-return|;
-block|}
-endif|#
-directive|endif
 name|protected
 operator|:
 comment|// ### Qt 5: make public
@@ -443,46 +376,6 @@ operator|~
 name|QHBoxLayout
 argument_list|()
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QHBoxLayout
-argument_list|(
-argument|QWidget *parent
-argument_list|,
-argument|int border
-argument_list|,
-argument|int spacing = -
-literal|1
-argument_list|,
-argument|const char *name =
-literal|0
-argument_list|)
-block|;
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QHBoxLayout
-argument_list|(
-argument|QLayout *parentLayout
-argument_list|,
-argument|int spacing = -
-literal|1
-argument_list|,
-argument|const char *name =
-literal|0
-argument_list|)
-block|;
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QHBoxLayout
-argument_list|(
-argument|int spacing
-argument_list|,
-argument|const char *name =
-literal|0
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|private
 operator|:
 name|Q_DISABLE_COPY
@@ -518,46 +411,6 @@ operator|~
 name|QVBoxLayout
 argument_list|()
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QVBoxLayout
-argument_list|(
-argument|QWidget *parent
-argument_list|,
-argument|int border
-argument_list|,
-argument|int spacing = -
-literal|1
-argument_list|,
-argument|const char *name =
-literal|0
-argument_list|)
-block|;
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QVBoxLayout
-argument_list|(
-argument|QLayout *parentLayout
-argument_list|,
-argument|int spacing = -
-literal|1
-argument_list|,
-argument|const char *name =
-literal|0
-argument_list|)
-block|;
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QVBoxLayout
-argument_list|(
-argument|int spacing
-argument_list|,
-argument|const char *name =
-literal|0
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|private
 operator|:
 name|Q_DISABLE_COPY

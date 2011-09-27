@@ -679,35 +679,6 @@ argument|int tabIndex
 argument_list|)
 specifier|const
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|public
-name|Q_SLOTS
-operator|:
-name|QT_MOC_COMPAT
-name|void
-name|setCurrentTab
-argument_list|(
-argument|int index
-argument_list|)
-block|{
-name|setCurrentIndex
-argument_list|(
-name|index
-argument_list|)
-block|; }
-name|Q_SIGNALS
-operator|:
-name|QT_MOC_COMPAT
-name|void
-name|selected
-argument_list|(
-name|int
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|friend
 name|class
 name|QAccessibleTabBar

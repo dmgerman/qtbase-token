@@ -193,63 +193,6 @@ argument|QStyleOptionSlider *option
 argument_list|)
 specifier|const
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|public
-operator|:
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QDial
-argument_list|(
-argument|int minValue
-argument_list|,
-argument|int maxValue
-argument_list|,
-argument|int pageStep
-argument_list|,
-argument|int value
-argument_list|,
-argument|QWidget* parent =
-literal|0
-argument_list|,
-argument|const char* name =
-literal|0
-argument_list|)
-block|;
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QDial
-argument_list|(
-name|QWidget
-operator|*
-name|parent
-argument_list|,
-specifier|const
-name|char
-operator|*
-name|name
-argument_list|)
-block|;
-name|Q_SIGNALS
-operator|:
-name|QT_MOC_COMPAT
-name|void
-name|dialPressed
-argument_list|()
-block|;
-name|QT_MOC_COMPAT
-name|void
-name|dialMoved
-argument_list|(
-argument|int value
-argument_list|)
-block|;
-name|QT_MOC_COMPAT
-name|void
-name|dialReleased
-argument_list|()
-block|;
-endif|#
-directive|endif
 name|private
 operator|:
 name|Q_DECLARE_PRIVATE

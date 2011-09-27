@@ -191,39 +191,6 @@ argument_list|(
 name|int
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|public
-operator|:
-specifier|inline
-name|QT3_SUPPORT
-name|void
-name|insert
-argument_list|(
-argument|QAbstractButton *b
-argument_list|)
-block|{
-name|addButton
-argument_list|(
-name|b
-argument_list|)
-block|; }
-specifier|inline
-name|QT3_SUPPORT
-name|void
-name|remove
-argument_list|(
-argument|QAbstractButton *b
-argument_list|)
-block|{
-name|removeButton
-argument_list|(
-name|b
-argument_list|)
-block|; }
-endif|#
-directive|endif
 name|private
 operator|:
 name|Q_DISABLE_COPY

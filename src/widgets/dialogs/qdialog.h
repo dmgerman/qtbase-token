@@ -68,24 +68,6 @@ argument|Qt::WindowFlags f =
 literal|0
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QT3_SUPPORT_CONSTRUCTOR
-name|QDialog
-argument_list|(
-argument|QWidget *parent
-argument_list|,
-argument|const char *name
-argument_list|,
-argument|bool modal = false
-argument_list|,
-argument|Qt::WindowFlags f =
-literal|0
-argument_list|)
-block|;
-endif|#
-directive|endif
 operator|~
 name|QDialog
 argument_list|()

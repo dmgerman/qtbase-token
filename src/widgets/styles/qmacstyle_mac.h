@@ -312,15 +312,6 @@ block|,
 name|SizeMini
 block|,
 name|SizeDefault
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-block|,
-name|SizeNone
-operator|=
-name|SizeDefault
-endif|#
-directive|endif
 block|}
 block|;
 specifier|static

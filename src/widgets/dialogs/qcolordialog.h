@@ -276,65 +276,6 @@ argument_list|,
 argument|QRgb color
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-specifier|static
-name|QColor
-name|getColor
-argument_list|(
-argument|const QColor&init
-argument_list|,
-argument|QWidget *parent
-argument_list|,
-argument|const char *name
-argument_list|)
-block|{
-name|Q_UNUSED
-argument_list|(
-name|name
-argument_list|)
-block|;
-return|return
-name|getColor
-argument_list|(
-name|init
-argument_list|,
-name|parent
-argument_list|)
-return|;
-block|}
-specifier|static
-name|QRgb
-name|getRgba
-argument_list|(
-argument|QRgb rgba
-argument_list|,
-argument|bool *ok
-argument_list|,
-argument|QWidget *parent
-argument_list|,
-argument|const char *name
-argument_list|)
-block|{
-name|Q_UNUSED
-argument_list|(
-name|name
-argument_list|)
-block|;
-return|return
-name|getRgba
-argument_list|(
-name|rgba
-argument_list|,
-name|ok
-argument_list|,
-name|parent
-argument_list|)
-return|;
-block|}
-endif|#
-directive|endif
 name|Q_SIGNALS
 operator|:
 name|void
