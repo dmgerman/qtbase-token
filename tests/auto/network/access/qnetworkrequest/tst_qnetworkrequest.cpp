@@ -2481,7 +2481,7 @@ literal|true
 operator|<<
 literal|"Set-Cookie"
 operator|<<
-literal|"a=b; path=/, c=d"
+literal|"a=b; path=/\nc=d"
 expr_stmt|;
 block|}
 end_function
