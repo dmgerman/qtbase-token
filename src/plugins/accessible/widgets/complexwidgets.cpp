@@ -8793,6 +8793,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+return|return
+literal|0
+return|;
 block|}
 end_function
 begin_comment
