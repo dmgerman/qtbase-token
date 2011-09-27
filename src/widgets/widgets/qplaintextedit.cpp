@@ -112,11 +112,6 @@ include|#
 directive|include
 file|<qvariant.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<qinputcontext.h>
-end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
