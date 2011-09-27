@@ -18,28 +18,6 @@ end_comment
 begin_comment
 comment|//TESTED_FILES=
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_comment
-comment|// In Symbian OS test data is located in applications private dir
-end_comment
-begin_comment
-comment|// And underlying Open C have application private dir in default search path
-end_comment
-begin_define
-DECL|macro|SRCDIR
-define|#
-directive|define
-name|SRCDIR
-value|""
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_define
 DECL|macro|EXISTING_SHARE
 define|#

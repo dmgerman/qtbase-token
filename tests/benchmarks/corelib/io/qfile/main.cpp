@@ -2588,11 +2588,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
 name|Q_WS_WINCE
 argument_list|)
 for|for

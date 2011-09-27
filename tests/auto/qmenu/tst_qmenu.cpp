@@ -2513,19 +2513,6 @@ argument_list|,
 name|SkipAll
 argument_list|)
 expr_stmt|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"On Symbian OS, we need to create native key events to test menu action activation"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
 endif|#
 directive|endif
 name|QAction
@@ -3792,23 +3779,6 @@ argument_list|(
 name|subAction
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-expr|main
-operator|->
-name|popup
-argument_list|(
-name|QPoint
-argument_list|(
-literal|50
-argument_list|,
-literal|200
-argument_list|)
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 expr|main
 operator|->
 name|popup
@@ -3821,8 +3791,6 @@ literal|200
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 expr|main
@@ -3878,31 +3846,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// On Symbian, QS60Style::pixelMetric(QStyle::PM_SubMenuOverlap) is different with other styles.
-name|QVERIFY
-argument_list|(
-name|sub
-operator|->
-name|pos
-argument_list|()
-operator|.
-name|x
-argument_list|()
-operator|<
-expr|main
-operator|->
-name|pos
-argument_list|()
-operator|.
-name|x
-argument_list|()
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QVERIFY
 argument_list|(
 name|sub
@@ -3922,8 +3865,6 @@ name|x
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|sub
@@ -4828,8 +4769,7 @@ directive|endif
 name|Menu258920
 name|menu
 decl_stmt|;
-comment|// On Symbian, styleHint(QStyle::SH_Menu_MouseTracking) in QS60Style is false.
-comment|// For other styles which inherit from QWindowsStyle, the value is true.
+comment|// For styles which inherit from QWindowsStyle, styleHint(QStyle::SH_Menu_MouseTracking) is true.
 name|menu
 operator|.
 name|setMouseTracking

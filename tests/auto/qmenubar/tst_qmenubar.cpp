@@ -1127,18 +1127,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|QSKIP
-argument_list|(
-literal|"On Symbian OS, native key events are needed to test menu action activation"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// create a popup menu with menu items set the accelerators later...
 name|initSimpleMenubar
 argument_list|()

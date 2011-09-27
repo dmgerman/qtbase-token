@@ -2648,14 +2648,9 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
 name|Q_WS_WINCE_WM
 argument_list|)
-comment|// SHow some mercy for non-desktop platform/s
+comment|// Show some mercy for non-desktop platform/s
 enum|enum
 block|{
 name|UploadSize
@@ -3081,11 +3076,6 @@ argument_list|)
 expr_stmt|;
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|||
 name|defined
 argument_list|(
 name|Q_WS_WINCE_WM
@@ -3594,11 +3584,6 @@ expr_stmt|;
 comment|// On my Linux Desktop the results are already visible with 128 kB, however we use this to have good results.
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|||
 name|defined
 argument_list|(
 name|Q_WS_WINCE_WM

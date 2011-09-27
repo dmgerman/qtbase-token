@@ -42,27 +42,6 @@ include|#
 directive|include
 file|<QtNetwork/QTcpSocket>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_include
-include|#
-directive|include
-file|<private/qsymbiansocketengine_p.h>
-end_include
-begin_define
-DECL|macro|NATIVESOCKETENGINE
-define|#
-directive|define
-name|NATIVESOCKETENGINE
-value|QSymbianSocketEngine
-end_define
-begin_else
-else|#
-directive|else
-end_else
 begin_include
 include|#
 directive|include
@@ -75,10 +54,6 @@ directive|define
 name|NATIVESOCKETENGINE
 value|QNativeSocketEngine
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -439,18 +414,6 @@ operator|::
 name|unexpectedDisconnection
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|QSKIP
-argument_list|(
-literal|"Symbian socket engine pseudo descriptors can't be used for QSocketNotifier"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 comment|/*       Given two sockets and two QSocketNotifiers registered on each       their socket. If both sockets receive data, and the first slot       invoked by one of the socket notifiers empties both sockets, the       other notifier will also emit activated(). This results in       unexpected disconnection in QAbstractSocket.        The use case is that somebody calls one of the       waitFor... functions in a QSocketNotifier activated slot, and       the waitFor... functions do local selects that can empty both       stdin and stderr while waiting for fex bytes to be written.     */
 name|QTcpServer
 name|server
@@ -775,8 +738,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_class

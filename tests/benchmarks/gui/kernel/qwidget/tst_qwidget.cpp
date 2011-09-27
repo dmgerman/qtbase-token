@@ -628,12 +628,6 @@ literal|100
 operator|<<
 literal|true
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_SYMBIAN
-comment|//These test cases cause stack overflow in QWidgetPrivate::paintSiblingsRecursive
-comment|//see http://bugreports.qt.nokia.com/browse/QTBUG-8512
-comment|//Symbian threads have a hard limit of 80kB user stack
 name|QTest
 operator|::
 name|newRow
@@ -724,8 +718,6 @@ literal|100
 operator|<<
 literal|true
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function

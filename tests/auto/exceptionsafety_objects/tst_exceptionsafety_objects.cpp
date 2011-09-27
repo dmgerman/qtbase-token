@@ -32,7 +32,6 @@ name|QT_USE_NAMESPACE
 comment|// this test only works with
 comment|//   * GLIBC
 comment|//   * MSVC - only debug builds (we need the crtdbg.h helpers)
-comment|//   * SYMBIAN
 if|#
 directive|if
 operator|(
@@ -53,12 +52,6 @@ name|defined
 argument_list|(
 name|Q_CC_MSVC
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 operator|)
 operator|)
 operator|&&
@@ -73,18 +66,10 @@ directive|else
 include|#
 directive|include
 file|"oomsimulator.h"
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 include|#
 directive|include
 file|"3rdparty/memcheck.h"
-endif|#
-directive|endif
+DECL|class|tst_ExceptionSafety_Objects
 name|class
 name|tst_ExceptionSafety_Objects
 operator|:
@@ -148,6 +133,7 @@ argument_list|()
 block|;
 specifier|private
 operator|:
+DECL|member|testMessageHandler
 specifier|static
 name|QtMsgHandler
 name|testMessageHandler
@@ -169,6 +155,7 @@ begin_comment
 comment|// helper structs to create an arbitrary widget
 end_comment
 begin_struct
+DECL|struct|AbstractTester
 struct|struct
 name|AbstractTester
 block|{
@@ -194,6 +181,7 @@ argument|AbstractTester *
 argument_list|)
 end_macro
 begin_typedef
+DECL|typedef|TestFunction
 typedef|typedef
 name|void
 function_decl|(
@@ -219,11 +207,13 @@ name|typename
 name|T
 parameter_list|>
 struct|struct
+DECL|struct|ObjectCreator
 name|ObjectCreator
 super|:
 specifier|public
 name|AbstractTester
 block|{
+DECL|function|operator ()
 name|void
 name|operator
 name|()
@@ -247,12 +237,14 @@ block|}
 struct|;
 end_struct
 begin_struct
+DECL|struct|BitArrayCreator
 struct|struct
 name|BitArrayCreator
 super|:
 specifier|public
 name|AbstractTester
 block|{
+DECL|function|operator ()
 name|void
 name|operator
 name|()
@@ -281,12 +273,14 @@ block|}
 struct|;
 end_struct
 begin_struct
+DECL|struct|ByteArrayMatcherCreator
 struct|struct
 name|ByteArrayMatcherCreator
 super|:
 specifier|public
 name|AbstractTester
 block|{
+DECL|function|operator ()
 name|void
 name|operator
 name|()
@@ -315,12 +309,14 @@ block|}
 struct|;
 end_struct
 begin_struct
+DECL|struct|CryptographicHashCreator
 struct|struct
 name|CryptographicHashCreator
 super|:
 specifier|public
 name|AbstractTester
 block|{
+DECL|function|operator ()
 name|void
 name|operator
 name|()
@@ -358,12 +354,14 @@ block|}
 struct|;
 end_struct
 begin_struct
+DECL|struct|DataStreamCreator
 struct|struct
 name|DataStreamCreator
 super|:
 specifier|public
 name|AbstractTester
 block|{
+DECL|function|operator ()
 name|void
 name|operator
 name|()
@@ -419,12 +417,14 @@ block|}
 struct|;
 end_struct
 begin_struct
+DECL|struct|DirCreator
 struct|struct
 name|DirCreator
 super|:
 specifier|public
 name|AbstractTester
 block|{
+DECL|function|operator ()
 name|void
 name|operator
 name|()
@@ -500,6 +500,7 @@ block|}
 struct|;
 end_struct
 begin_function
+DECL|function|objects_data
 name|void
 name|tst_ExceptionSafety_Objects
 operator|::
@@ -1284,34 +1285,6 @@ operator|!
 name|buf2
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// temporary workaround for INC138398
-name|std
-operator|::
-name|new_handler
-name|nh_func
-init|=
-name|std
-operator|::
-name|set_new_handler
-argument_list|(
-literal|0
-argument_list|)
-decl_stmt|;
-operator|(
-name|void
-operator|)
-name|std
-operator|::
-name|set_new_handler
-argument_list|(
-name|nh_func
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|ObjectCreator
 argument_list|<
 name|SelfTestObject
@@ -1672,42 +1645,6 @@ operator|::
 name|widgets_data
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// Initialise the S60 rasteriser, which crashes if started while out of memory
-name|QImage
-name|image
-argument_list|(
-literal|20
-argument_list|,
-literal|20
-argument_list|,
-name|QImage
-operator|::
-name|Format_RGB32
-argument_list|)
-decl_stmt|;
-name|QPainter
-name|p
-argument_list|(
-operator|&
-name|image
-argument_list|)
-decl_stmt|;
-name|p
-operator|.
-name|drawText
-argument_list|(
-literal|0
-argument_list|,
-literal|15
-argument_list|,
-literal|"foo"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTest
 operator|::
 name|addColumn

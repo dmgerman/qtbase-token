@@ -1377,16 +1377,6 @@ operator|::
 name|NoFocus
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|this
-operator|->
-name|showMaximized
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_constructor
 begin_constructor

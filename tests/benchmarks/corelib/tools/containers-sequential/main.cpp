@@ -417,16 +417,11 @@ block|}
 struct|;
 end_struct
 begin_comment
-comment|// Symbian devices typically have limited memory
+comment|// Embedded devices typically have limited memory
 end_comment
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|||
 name|defined
 argument_list|(
 name|Q_WS_WINCE

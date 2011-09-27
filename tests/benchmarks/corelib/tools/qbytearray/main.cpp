@@ -193,24 +193,6 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-if|if
-condition|(
-name|size
-operator|>
-literal|1000000
-condition|)
-name|QSKIP
-argument_list|(
-literal|"Skipped due to limited memory in many Symbian devices."
-argument_list|,
-name|SkipSingle
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QByteArray
 name|ba
 decl_stmt|;

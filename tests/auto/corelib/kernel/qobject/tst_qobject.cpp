@@ -10136,11 +10136,6 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|int
 name|loopCount
 init|=
@@ -11419,32 +11414,6 @@ operator|::
 name|DirectConnection
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-comment|// Child timer will be registered after parent timer in the new
-comment|// thread, and 10ms is less than symbian timer resolution, so
-comment|// child->timerEventThread compare after thread.wait() will
-comment|// usually fail unless timers are farther apart.
-name|child
-operator|->
-name|startTimer
-argument_list|(
-literal|100
-argument_list|)
-expr_stmt|;
-name|object
-operator|->
-name|startTimer
-argument_list|(
-literal|150
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|child
 operator|->
 name|startTimer
@@ -11459,8 +11428,6 @@ argument_list|(
 literal|100
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|object
@@ -21572,24 +21539,6 @@ operator|)
 block|{
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|Q_CC_NOKIAX86
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Emulator builds in Symbian do not support launching processes linking to Qt"
-argument_list|,
-name|SkipAll
-argument_list|)
-block|;
-elif|#
-directive|elif
 name|defined
 argument_list|(
 name|QT_NO_PROCESS

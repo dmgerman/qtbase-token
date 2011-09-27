@@ -21002,11 +21002,6 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|view
 operator|.
 name|setStyle

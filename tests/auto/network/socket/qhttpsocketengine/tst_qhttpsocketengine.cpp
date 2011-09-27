@@ -417,9 +417,7 @@ name|tst_QHttpSocketEngine
 operator|::
 name|tst_QHttpSocketEngine
 parameter_list|()
-block|{
-name|Q_SET_DEFAULT_IAP
-block|}
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~tst_QHttpSocketEngine
@@ -2867,11 +2865,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_WINCE
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 name|QTestEventLoop
 operator|::

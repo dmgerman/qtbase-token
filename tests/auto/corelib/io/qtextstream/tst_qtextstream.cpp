@@ -157,22 +157,6 @@ end_comment
 begin_comment
 comment|//TESTED_FILES=
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_define
-DECL|macro|SRCDIR
-define|#
-directive|define
-name|SRCDIR
-value|""
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_class
 DECL|class|tst_QTextStream
 class|class
@@ -1651,9 +1635,7 @@ name|tst_QTextStream
 operator|::
 name|tst_QTextStream
 parameter_list|()
-block|{
-name|Q_SET_DEFAULT_IAP
-block|}
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~tst_QTextStream
@@ -6133,26 +6115,6 @@ argument_list|,
 literal|143
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-comment|// This number is determined in an arbitrary way; whatever it takes
-comment|// to make the test pass.
-name|QVERIFY
-argument_list|(
-name|socket
-operator|.
-name|waitForReadyRead
-argument_list|(
-literal|30000
-argument_list|)
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QVERIFY
 argument_list|(
 name|socket
@@ -6163,8 +6125,6 @@ literal|5000
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QTextStream
 name|stream2
 argument_list|(
@@ -7997,14 +7957,9 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|QSKIP
 argument_list|(
-literal|"Qt/CE and Symbian have no stdin/out support for processes"
+literal|"Qt/CE has no stdin/out support for processes"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -8125,14 +8080,9 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|QSKIP
 argument_list|(
-literal|"Qt/CE and Symbian have no stdin/out support for processes"
+literal|"Qt/CE has no stdin/out support for processes"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -8251,14 +8201,9 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|QSKIP
 argument_list|(
-literal|"Qt/CE and Symbian have no stdin/out support for processes"
+literal|"Qt/CE has no stdin/out support for processes"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -19296,12 +19241,6 @@ name|defined
 argument_list|(
 name|Q_OS_UNIX
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 end_if
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -19332,12 +19271,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_UNIX
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 operator|::
 name|setlocale

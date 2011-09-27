@@ -855,13 +855,6 @@ argument_list|(
 name|Q_WS_X11
 argument_list|)
 literal|"X11"
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-literal|"Symbian"
 else|#
 directive|else
 literal|""

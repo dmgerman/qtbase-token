@@ -327,12 +327,6 @@ name|defined
 argument_list|(
 name|Q_OS_UNIX
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 operator|::
 name|signal
 argument_list|(

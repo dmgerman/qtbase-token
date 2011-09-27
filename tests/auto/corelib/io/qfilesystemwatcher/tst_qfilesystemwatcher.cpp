@@ -225,11 +225,6 @@ name|defined
 argument_list|(
 name|Q_OS_FREEBSD
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 comment|// we have native engines for win32, macosx and freebsd
 name|do_force_engines
 operator|<<
@@ -2087,8 +2082,6 @@ comment|//(e.g., when a file is added, -->modified<-- or deleted) or removed fro
 comment|//Note that if there are several changes during a short period of time, some
 comment|//of the changes might not emit this signal. However, the last change in the
 comment|//sequence of changes will always generate this signal.
-comment|//Symbian behaves as documented (and can't be filtered), but the other platforms don't
-comment|//so test should not assert this
 name|QVERIFY
 argument_list|(
 name|dirChangedSpy
@@ -2289,23 +2282,14 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// polling watcher has generated separate events for content and time change
-comment|// on Symbian emulator, so allow possibility of 2 events
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|dirChangedSpy
 operator|.
 name|count
 argument_list|()
-operator|==
+argument_list|,
 literal|1
-operator|||
-name|dirChangedSpy
-operator|.
-name|count
-argument_list|()
-operator|==
-literal|2
 argument_list|)
 expr_stmt|;
 name|QVERIFY

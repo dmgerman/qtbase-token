@@ -153,44 +153,9 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-end_if
-begin_define
-DECL|macro|STRINGIFY
-define|#
-directive|define
-name|STRINGIFY
-parameter_list|(
-name|x
-parameter_list|)
-value|#x
-end_define
-begin_define
-DECL|macro|TOSTRING
-define|#
-directive|define
-name|TOSTRING
-parameter_list|(
-name|x
-parameter_list|)
-value|STRINGIFY(x)
-end_define
-begin_define
-DECL|macro|SRCDIR
-define|#
-directive|define
-name|SRCDIR
-value|"C:/Private/" TOSTRING(SYMBIAN_SRCDIR_UID) "/"
-end_define
-begin_elif
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|Q_OS_UNIX
 argument_list|)
-end_elif
+end_if
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -3046,11 +3011,6 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 if|if
 condition|(
 name|expectedFiles
@@ -3155,23 +3115,6 @@ expr_stmt|;
 block|}
 comment|//qDebug()<< expectedFiles;
 block|}
-comment|// ### FIXME: This will fail on Symbian on some tests and some environments until the file engine and QFileSystemModel
-comment|// are fixed to properly capitalize paths, so that some folders are not duplicated in QFileSystemModel.
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"This will fail on Symbian on some tests and some environments until the file engine and QFileSystemModel are fixed to properly capitalize paths"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTRY_COMPARE
 argument_list|(
 name|cModel
@@ -5938,16 +5881,11 @@ name|defined
 argument_list|(
 name|Q_WS_WIN
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"This test does not work on Mac, Windows, or Symbian"
+literal|"This test does not work on Mac or Windows"
 argument_list|,
 name|Abort
 argument_list|)
@@ -9066,29 +9004,6 @@ operator|::
 name|hooks
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-if|if
-condition|(
-name|QSysInfo
-operator|::
-name|symbianVersion
-argument_list|()
-operator|<
-name|QSysInfo
-operator|::
-name|SV_SF_3
-condition|)
-name|QSKIP
-argument_list|(
-literal|"writing to data exports in paged dll not supported and crashes on symbian versions prior to ^3"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|qt_filedialog_existing_directory_hook
 operator|=
 operator|&

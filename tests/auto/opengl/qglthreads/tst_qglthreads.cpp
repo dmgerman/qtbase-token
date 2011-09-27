@@ -32,26 +32,6 @@ include|#
 directive|include
 file|"tst_qglthreads.h"
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_define
-DECL|macro|RUNNING_TIME
-define|#
-directive|define
-name|RUNNING_TIME
-value|2000
-end_define
-begin_comment
-DECL|macro|RUNNING_TIME
-comment|// save GPU mem by running shorter time.
-end_comment
-begin_else
-else|#
-directive|else
-end_else
 begin_define
 DECL|macro|RUNNING_TIME
 define|#
@@ -59,10 +39,6 @@ directive|define
 name|RUNNING_TIME
 value|5000
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_constructor
 DECL|function|tst_QGLThreads
 name|tst_QGLThreads
@@ -565,21 +541,6 @@ name|height
 init|=
 literal|300
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// GPU mem is very scarce resource on Symbian currently.
-comment|// That's why we create only small textures.
-name|width
-operator|=
-literal|50
-expr_stmt|;
-name|height
-operator|=
-literal|20
-expr_stmt|;
-endif|#
-directive|endif
 name|QImage
 name|image
 argument_list|(
@@ -1691,18 +1652,6 @@ name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"OpenGL threading tests are currently disabled on Mac as they were causing reboots"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|QSKIP
-argument_list|(
-literal|"OpenGL threading tests are disabled on Symbian as accessing RWindow from a secondary thread is not supported"
 argument_list|,
 name|SkipAll
 argument_list|)

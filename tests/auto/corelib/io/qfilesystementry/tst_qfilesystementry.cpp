@@ -19,11 +19,6 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 end_if
 begin_define
 DECL|macro|WIN_STUFF

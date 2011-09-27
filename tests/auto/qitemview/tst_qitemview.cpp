@@ -1368,11 +1368,6 @@ name|defined
 argument_list|(
 name|QT_ARCH_ARM
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 specifier|const
 name|int
 name|baseInsert
@@ -2795,11 +2790,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_WINCE
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 name|srandom
 argument_list|(

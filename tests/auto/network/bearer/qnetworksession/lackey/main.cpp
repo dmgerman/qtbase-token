@@ -175,7 +175,7 @@ return|return
 name|NO_DISCOVERED_CONFIGURATIONS_ERROR
 return|;
 block|}
-comment|// Cannot read/write to processes on WinCE or Symbian.
+comment|// Cannot read/write to processes on WinCE.
 comment|// Easiest alternative is to use sockets for IPC.
 name|QLocalSocket
 name|oopSocket

@@ -162,11 +162,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
 name|Q_WS_MAC
 argument_list|)
 operator|||
@@ -174,7 +169,7 @@ name|defined
 argument_list|(
 name|Q_WS_WINCE
 argument_list|)
-comment|// give the Symbian and mac app start event queue time to clear
+comment|// give the mac/wince app start event queue time to clear
 name|QTest
 operator|::
 name|qWait

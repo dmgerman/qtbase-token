@@ -779,11 +779,6 @@ name|defined
 argument_list|(
 name|QT_ARCH_WINDOWSCE
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_ARCH_SYMBIAN
-argument_list|)
 comment|// due to rounding error in qRound when qreal==float
 comment|// we cannot use INT_MAX for this check
 name|obj1

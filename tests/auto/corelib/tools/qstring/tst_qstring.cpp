@@ -36094,16 +36094,6 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_OS_SYMBIAN
-name|QSKIP
-argument_list|(
-literal|"QTBUG-16921: There is no way to set up the system locale, so this test is not reliable in Symbian."
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
-ifdef|#
-directive|ifdef
 name|Q_OS_WIN
 ifndef|#
 directive|ifndef
@@ -36633,9 +36623,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-endif|#
-directive|endif
-comment|// Q_OS_SYMBIAN
 block|}
 end_function
 begin_function

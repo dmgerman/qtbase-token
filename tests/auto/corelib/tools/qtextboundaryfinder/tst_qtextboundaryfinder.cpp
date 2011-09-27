@@ -28,22 +28,6 @@ end_comment
 begin_comment
 comment|//TESTED_FILES=gui/text/qtextlayout.h corelib/tools/qtextboundaryfinder.cpp
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_define
-DECL|macro|SRCDIR
-define|#
-directive|define
-name|SRCDIR
-value|"$$PWD"
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_class
 DECL|class|tst_QTextBoundaryFinder
 class|class

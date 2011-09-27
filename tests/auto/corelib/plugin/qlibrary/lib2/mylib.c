@@ -24,11 +24,6 @@ name|defined
 argument_list|(
 name|Q_CC_BOR
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 end_if
 begin_define
 DECL|macro|LIB_EXPORT

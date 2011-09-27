@@ -170,22 +170,6 @@ include|#
 directive|include
 file|"private/qnetworkaccessmanager_p.h"
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_define
-DECL|macro|SRCDIR
-define|#
-directive|define
-name|SRCDIR
-value|"."
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
@@ -3116,9 +3100,6 @@ name|serverPort
 argument_list|()
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_SYMBIAN
 comment|// need more time as working with embedded
 comment|// device and testing from emualtor
 comment|// things tend to get slower
@@ -3148,36 +3129,6 @@ condition|)
 return|return
 literal|false
 return|;
-else|#
-directive|else
-if|if
-condition|(
-operator|!
-name|active
-operator|->
-name|waitForConnected
-argument_list|(
-literal|100
-argument_list|)
-condition|)
-return|return
-literal|false
-return|;
-if|if
-condition|(
-operator|!
-name|server
-operator|.
-name|waitForNewConnection
-argument_list|(
-literal|100
-argument_list|)
-condition|)
-return|return
-literal|false
-return|;
-endif|#
-directive|endif
 name|QTcpSocket
 modifier|*
 name|passive
@@ -4635,16 +4586,15 @@ name|NetworkError
 argument_list|>
 argument_list|()
 expr_stmt|;
-name|Q_SET_DEFAULT_IAP
 name|testFileName
-init|=
+operator|=
 name|QDir
 operator|::
 name|currentPath
 argument_list|()
 operator|+
 literal|"/testfile"
-decl_stmt|;
+expr_stmt|;
 name|uniqueExtension
 operator|=
 name|createUniqueExtension
@@ -8037,12 +7987,6 @@ directive|if
 operator|!
 name|defined
 name|Q_OS_WIN
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|QTest
 operator|::
 name|newRow
@@ -23368,14 +23312,9 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|QSKIP
 argument_list|(
-literal|"Currently no stdin/out supported for Windows CE / Symbian OS"
+literal|"Currently no stdin/out supported for Windows CE"
 argument_list|,
 name|SkipAll
 argument_list|)
@@ -29715,9 +29654,6 @@ argument_list|)
 operator|<<
 literal|4
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_SYMBIAN
 name|QTest
 operator|::
 name|newRow
@@ -29727,22 +29663,6 @@ argument_list|)
 operator|<<
 literal|4096
 expr_stmt|;
-else|#
-directive|else
-comment|// it can run even with 4096
-comment|// but it takes lot time
-comment|//especially on emulator
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"big"
-argument_list|)
-operator|<<
-literal|1024
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -33628,20 +33548,6 @@ literal|10000
 condition|)
 break|break;
 block|}
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// see in qhttpnetworkconnection.cpp
-comment|// hardcoded defaultChannelCount = 3
-name|QCOMPARE
-argument_list|(
-name|pendingConnectionCount
-argument_list|,
-literal|3
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QCOMPARE
 argument_list|(
 name|pendingConnectionCount
@@ -33649,8 +33555,6 @@ argument_list|,
 literal|6
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -36827,11 +36731,6 @@ expr_stmt|;
 comment|// On my Linux Desktop the results are already visible with 128 kB, however we use this to have good results.
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|||
 name|defined
 argument_list|(
 name|Q_WS_WINCE_WM

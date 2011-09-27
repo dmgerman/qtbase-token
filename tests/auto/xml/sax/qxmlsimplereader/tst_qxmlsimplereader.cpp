@@ -2666,21 +2666,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Symbian: Skipped due to problems in Open C and QtNetwork"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
 name|Q_OS_WIN32
 argument_list|)
 operator|&&

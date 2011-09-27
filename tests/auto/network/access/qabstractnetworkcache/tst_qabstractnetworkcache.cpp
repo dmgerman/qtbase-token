@@ -269,7 +269,6 @@ operator|::
 name|tst_QAbstractNetworkCache
 parameter_list|()
 block|{
-name|Q_SET_DEFAULT_IAP
 name|QCoreApplication
 operator|::
 name|setOrganizationName
@@ -279,7 +278,7 @@ argument_list|(
 literal|"Trolltech"
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|QCoreApplication
 operator|::
 name|setApplicationName

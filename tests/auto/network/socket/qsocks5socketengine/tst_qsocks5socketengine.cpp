@@ -457,9 +457,7 @@ name|tst_QSocks5SocketEngine
 operator|::
 name|tst_QSocks5SocketEngine
 parameter_list|()
-block|{
-name|Q_SET_DEFAULT_IAP
-block|}
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~tst_QSocks5SocketEngine
@@ -2200,18 +2198,6 @@ operator|::
 name|udpTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|SYMBIAN_WINSOCK_CONNECTIVITY
-name|QSKIP
-argument_list|(
-literal|"UDP works bads on non WinPCAP emulator setting"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QSocks5SocketEngine
 name|udpSocket
 decl_stmt|;
@@ -3644,12 +3630,6 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_WINCE
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 name|QTestEventLoop
 operator|::

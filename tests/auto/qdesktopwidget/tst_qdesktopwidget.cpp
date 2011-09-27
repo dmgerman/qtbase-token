@@ -441,13 +441,6 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|QCOMPARE
 argument_list|(
 name|desktopWidget
@@ -463,8 +456,6 @@ argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|allScreens
 operator||=
 name|screenGeometry

@@ -4695,11 +4695,6 @@ name|defined
 argument_list|(
 name|QT_ARCH_MIPS
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_ARCH_SYMBIAN
-argument_list|)
 name|int
 name|oldInterval
 init|=
@@ -4917,11 +4912,6 @@ operator|||
 name|defined
 argument_list|(
 name|QT_ARCH_MIPS
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_ARCH_SYMBIAN
 argument_list|)
 name|QApplication
 operator|::

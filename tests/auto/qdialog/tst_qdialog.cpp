@@ -2320,19 +2320,6 @@ operator|++
 name|caughtExceptions
 expr_stmt|;
 block|}
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|//on symbian, the event loop absorbs exceptions
-name|QCOMPARE
-argument_list|(
-name|caughtExceptions
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QCOMPARE
 argument_list|(
 name|caughtExceptions
@@ -2340,8 +2327,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_else

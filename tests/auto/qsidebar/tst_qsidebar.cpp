@@ -370,23 +370,6 @@ operator|.
 name|model
 argument_list|()
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-comment|// On Symbian, QDir::rootPath() and QDir::home() are same.
-name|QDir
-name|testDir
-init|=
-name|QDir
-operator|::
-name|currentPath
-argument_list|()
-decl_stmt|;
-else|#
-directive|else
 name|QDir
 name|testDir
 init|=
@@ -395,8 +378,6 @@ operator|::
 name|home
 argument_list|()
 decl_stmt|;
-endif|#
-directive|endif
 comment|// default
 name|QCOMPARE
 argument_list|(

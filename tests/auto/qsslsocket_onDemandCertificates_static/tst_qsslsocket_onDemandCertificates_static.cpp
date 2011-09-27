@@ -32,22 +32,6 @@ include|#
 directive|include
 file|"../network-settings.h"
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_define
-DECL|macro|SRCDIR
-define|#
-directive|define
-name|SRCDIR
-value|""
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -189,9 +173,7 @@ name|tst_QSslSocket_onDemandCertificates_static
 operator|::
 name|tst_QSslSocket_onDemandCertificates_static
 parameter_list|()
-block|{
-name|Q_SET_DEFAULT_IAP
-block|}
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~tst_QSslSocket_onDemandCertificates_static

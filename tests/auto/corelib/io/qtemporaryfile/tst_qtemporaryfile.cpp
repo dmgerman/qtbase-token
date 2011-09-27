@@ -97,22 +97,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_define
-DECL|macro|SRCDIR
-define|#
-directive|define
-name|SRCDIR
-value|""
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|//TESTED_CLASS=
 end_comment
@@ -990,11 +974,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_WIN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 name|absoluteFilePath
 operator|=
@@ -1878,11 +1857,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_WINCE
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 comment|// 200 is still ok, first colision happens after ~30
 specifier|const

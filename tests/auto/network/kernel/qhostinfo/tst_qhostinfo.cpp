@@ -611,9 +611,7 @@ name|tst_QHostInfo
 operator|::
 name|tst_QHostInfo
 parameter_list|()
-block|{
-name|Q_SET_DEFAULT_IAP
-block|}
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~tst_QHostInfo
@@ -689,19 +687,6 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|ipv6Available
-operator|=
-literal|true
-expr_stmt|;
-name|ipv6LookupsAvailable
-operator|=
-literal|true
-expr_stmt|;
-else|#
-directive|else
 name|ipv6Available
 operator|=
 literal|false
@@ -849,8 +834,6 @@ literal|true
 expr_stmt|;
 block|}
 block|}
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|// run each testcase with and without test enabled
@@ -2261,11 +2244,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_WINCE
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 specifier|const
 name|int

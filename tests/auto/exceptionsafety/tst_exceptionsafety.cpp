@@ -2538,21 +2538,8 @@ begin_comment
 unit|qApp->postEvent(&obj, new NoThrowEvent);     qApp->postEvent(&obj, new ThrowEvent);     qApp->postEvent(&obj, new NoThrowEvent);      try {         qApp->processEvents();     } catch (IntEx code) {         QCOMPARE(code.ex, 3);     }
 comment|// here, we should have received on non-throwing event and one throwing one
 end_comment
-begin_ifndef
-unit|QCOMPARE(obj.throwEventCount, 3);
-ifndef|#
-directive|ifndef
-name|__SYMBIAN32__
-end_ifndef
 begin_comment
-comment|// symbian event loops will have absorbed the exceptions
-end_comment
-begin_endif
-unit|QCOMPARE(obj.noThrowEventCount, 1);
-endif|#
-directive|endif
-end_endif
-begin_comment
+unit|QCOMPARE(obj.throwEventCount, 3);     QCOMPARE(obj.noThrowEventCount, 1);
 comment|// spin the event loop again
 end_comment
 begin_comment

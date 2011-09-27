@@ -909,11 +909,6 @@ name|defined
 argument_list|(
 name|Q_WS_MAC
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|expected
 operator|<<
 name|QKeySequence

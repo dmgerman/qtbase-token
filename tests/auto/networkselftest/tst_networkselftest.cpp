@@ -41,31 +41,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_comment
-comment|// In Symbian OS test data is located in applications private dir
-end_comment
-begin_comment
-comment|// Current path (C:\private\<UID>) contains only ascii chars
-end_comment
-begin_comment
-comment|//#define SRCDIR QDir::currentPath()
-end_comment
-begin_define
-DECL|macro|SRCDIR
-define|#
-directive|define
-name|SRCDIR
-value|"."
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
@@ -1555,9 +1530,7 @@ name|tst_NetworkSelfTest
 operator|::
 name|tst_NetworkSelfTest
 parameter_list|()
-block|{
-name|Q_SET_DEFAULT_IAP
-block|}
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~tst_NetworkSelfTest
@@ -2179,32 +2152,6 @@ operator|::
 name|remotePortsOpen
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-if|if
-condition|(
-name|qstrcmp
-argument_list|(
-name|QTest
-operator|::
-name|currentDataTag
-argument_list|()
-argument_list|,
-literal|"http-proxy-auth-ntlm"
-argument_list|)
-operator|==
-literal|0
-condition|)
-name|QSKIP
-argument_list|(
-literal|"NTML authentication not yet supported in Symbian"
-argument_list|,
-name|SkipSingle
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|int
@@ -2714,21 +2661,6 @@ argument_list|(
 literal|"QUIT\r\n"
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-if|if
-condition|(
-name|userSuffix
-operator|.
-name|length
-argument_list|()
-operator|==
-literal|0
-condition|)
-comment|// received but unacknowledged packets are discarded by TCP RST, so this doesn't work with frox proxy
-endif|#
-directive|endif
 name|rv
 operator|<<
 name|Chat
@@ -4453,18 +4385,6 @@ operator|::
 name|httpProxyNtlmAuth
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|QSKIP
-argument_list|(
-literal|"NTML authentication not yet supported in Symbian"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|netChat
 argument_list|(
 literal|3130
@@ -4540,8 +4460,6 @@ operator|::
 name|DiscardUntilDisconnect
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment

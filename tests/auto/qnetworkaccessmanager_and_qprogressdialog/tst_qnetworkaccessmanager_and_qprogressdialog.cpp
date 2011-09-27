@@ -417,9 +417,7 @@ name|tst_QNetworkAccessManager_And_QProgressDialog
 operator|::
 name|tst_QNetworkAccessManager_And_QProgressDialog
 parameter_list|()
-block|{
-name|Q_SET_DEFAULT_IAP
-block|}
+block|{ }
 end_constructor
 begin_function
 DECL|function|downloadCheck_data

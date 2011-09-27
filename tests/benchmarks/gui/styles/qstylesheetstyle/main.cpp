@@ -688,28 +688,6 @@ argument_list|,
 name|N
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// Symbian has limited stack (max 80k), which will run out when N>= 20 due to
-comment|// QWidget::show() using recursion among grid labels somewhere down the line.
-if|if
-condition|(
-name|show
-operator|&&
-name|N
-operator|>=
-literal|20
-condition|)
-name|QSKIP
-argument_list|(
-literal|"Grid too big for device to show"
-argument_list|,
-name|SkipSingle
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QWidget
 modifier|*
 name|w

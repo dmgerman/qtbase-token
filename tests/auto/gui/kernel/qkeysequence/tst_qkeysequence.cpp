@@ -4208,14 +4208,9 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|QSKIP
 argument_list|(
-literal|"No need to translate modifiers on WinCE or Symbian"
+literal|"No need to translate modifiers on WinCE"
 argument_list|,
 name|SkipAll
 argument_list|)

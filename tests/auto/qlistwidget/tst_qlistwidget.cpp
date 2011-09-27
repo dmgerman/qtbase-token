@@ -1620,22 +1620,6 @@ operator|::
 name|closePersistentEditor
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-comment|//give the Symbian app start event queue time to clear
-name|QTest
-operator|::
-name|qWait
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// Boundary checking
 name|int
 name|childCount

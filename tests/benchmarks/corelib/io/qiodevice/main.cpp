@@ -136,10 +136,6 @@ operator|*
 literal|1024
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_SYMBIAN
-comment|// Symbian devices don't (yet) have enough available RAM to run these
 name|QTest
 operator|::
 name|newRow
@@ -168,8 +164,6 @@ operator|*
 literal|1024
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function

@@ -2006,11 +2006,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
 name|Q_WS_MAEMO_5
 argument_list|)
 name|mMainView
@@ -4728,11 +4723,6 @@ else|else
 block|{
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|||
 name|defined
 argument_list|(
 name|Q_WS_MAEMO_5

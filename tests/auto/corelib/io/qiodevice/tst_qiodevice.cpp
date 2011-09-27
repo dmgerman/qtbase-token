@@ -28,22 +28,6 @@ end_comment
 begin_comment
 comment|//TESTED_FILES=
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_define
-DECL|macro|SRCDIR
-define|#
-directive|define
-name|SRCDIR
-value|""
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_class
 DECL|class|tst_QIODevice
 class|class
@@ -251,9 +235,7 @@ name|tst_QIODevice
 operator|::
 name|tst_QIODevice
 parameter_list|()
-block|{
-name|Q_SET_DEFAULT_IAP
-block|}
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~tst_QIODevice

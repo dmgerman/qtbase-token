@@ -277,9 +277,7 @@ name|tst_QHttpNetworkConnection
 operator|::
 name|tst_QHttpNetworkConnection
 parameter_list|()
-block|{
-name|Q_SET_DEFAULT_IAP
-block|}
+block|{ }
 end_constructor
 begin_function
 DECL|function|initTestCase

@@ -25,11 +25,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|__SYMBIAN32__
-argument_list|)
-operator|||
-name|defined
-argument_list|(
 name|WINCE
 argument_list|)
 operator|||
@@ -37,26 +32,6 @@ name|defined
 argument_list|(
 name|_WIN32_WCE
 argument_list|)
-if|#
-directive|if
-name|defined
-argument_list|(
-name|__SYMBIAN32__
-argument_list|)
-comment|// Printing to stdout messes up the out.txt, so open a file and print there.
-name|FILE
-modifier|*
-name|file
-init|=
-name|fopen
-argument_list|(
-literal|"c:\\logs\\qprocess_args_test.txt"
-argument_list|,
-literal|"w+"
-argument_list|)
-decl_stmt|;
-else|#
-directive|else
 comment|// No pipes on this "OS"
 name|FILE
 modifier|*
@@ -69,8 +44,6 @@ argument_list|,
 literal|"w+"
 argument_list|)
 decl_stmt|;
-endif|#
-directive|endif
 for|for
 control|(
 name|int

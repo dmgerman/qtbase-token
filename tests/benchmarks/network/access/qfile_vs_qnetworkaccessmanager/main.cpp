@@ -51,8 +51,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-comment|// do not use on symbian.. 100 MB is too large..
-comment|// but.. this is a manual test anyway, so :)
 protected|protected:
 name|void
 name|qnamFileRead_iteration
@@ -164,27 +162,6 @@ literal|'x'
 argument_list|)
 decl_stmt|;
 comment|// 1 MB
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-literal|10
-condition|;
-name|i
-operator|++
-control|)
-block|{
-comment|// for Symbian only 10 MB
-else|#
-directive|else
 for|for
 control|(
 name|int
@@ -200,8 +177,6 @@ name|i
 operator|++
 control|)
 block|{
-endif|#
-directive|endif
 name|testFile
 operator|.
 name|write
@@ -229,6 +204,8 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|cleanupTestCase
 name|void
 name|qfile_vs_qnetworkaccessmanager
@@ -236,6 +213,8 @@ operator|::
 name|cleanupTestCase
 parameter_list|()
 block|{  }
+end_function
+begin_function
 DECL|function|qnamFileRead_iteration
 name|void
 name|qfile_vs_qnetworkaccessmanager
@@ -323,6 +302,8 @@ operator|delete
 name|reply
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|qnamFileRead
 name|void
 name|qfile_vs_qnetworkaccessmanager
@@ -454,6 +435,8 @@ operator|<<
 literal|"KB/sec"
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|qnamImmediateFileRead_iteration
 name|void
 name|qfile_vs_qnetworkaccessmanager
@@ -501,6 +484,8 @@ operator|delete
 name|reply
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|qnamImmediateFileRead
 name|void
 name|qfile_vs_qnetworkaccessmanager
@@ -632,6 +617,8 @@ operator|<<
 literal|"KB/sec"
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|qfileFileRead_iteration
 name|void
 name|qfile_vs_qnetworkaccessmanager
@@ -653,6 +640,8 @@ name|readAll
 argument_list|()
 decl_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|qfileFileRead
 name|void
 name|qfile_vs_qnetworkaccessmanager
@@ -751,11 +740,13 @@ operator|<<
 literal|"KB/sec"
 expr_stmt|;
 block|}
+end_function
+begin_macro
 name|QTEST_MAIN
 argument_list|(
 argument|qfile_vs_qnetworkaccessmanager
 argument_list|)
-end_function
+end_macro
 begin_include
 include|#
 directive|include
