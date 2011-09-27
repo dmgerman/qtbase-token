@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<qglobal.h>
+file|<QtCore/qglobal.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<qpointer.h>
+file|<QtCore/qpointer.h>
 end_include
 begin_include
 include|#
