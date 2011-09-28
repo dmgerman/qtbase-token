@@ -68,6 +68,11 @@ include|#
 directive|include
 file|"QtWidgets/qpushbutton.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"QtWidgets/qplatformdialoghelper_qpa.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QSizeGrip
@@ -148,6 +153,11 @@ name|eventLoop
 argument_list|(
 literal|0
 argument_list|)
+block|,
+name|platformHelper
+argument_list|(
+literal|0
+argument_list|)
 block|{}
 name|QPointer
 operator|<
@@ -220,16 +230,6 @@ argument_list|()
 block|;
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
-name|Q_WS_MAC
-name|virtual
-name|void
-name|mac_nativeDialogModalHelp
-argument_list|()
-block|{}
-endif|#
-directive|endif
 name|int
 name|rescode
 block|;
@@ -244,6 +244,10 @@ operator|<
 name|QEventLoop
 operator|>
 name|eventLoop
+block|;
+name|QPlatformDialogHelper
+operator|*
+name|platformHelper
 block|; }
 decl_stmt|;
 end_decl_stmt

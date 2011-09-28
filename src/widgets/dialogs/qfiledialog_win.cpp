@@ -456,17 +456,6 @@ directive|endif
 block|}
 block|}
 end_function
-begin_decl_stmt
-specifier|extern
-specifier|const
-name|char
-modifier|*
-name|qt_file_dialog_filter_reg_exp
-decl_stmt|;
-end_decl_stmt
-begin_comment
-comment|// defined in qfiledialog.cpp
-end_comment
 begin_function_decl
 specifier|extern
 name|QStringList
@@ -524,6 +513,8 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
+name|QFileDialogPrivate
+operator|::
 name|qt_file_dialog_filter_reg_exp
 argument_list|)
 argument_list|)
@@ -712,6 +703,8 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
+name|QFileDialogPrivate
+operator|::
 name|qt_file_dialog_filter_reg_exp
 argument_list|)
 argument_list|)

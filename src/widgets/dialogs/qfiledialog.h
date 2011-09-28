@@ -969,21 +969,16 @@ argument|d_func()
 argument_list|,
 argument|void _q_fileRenamed(const QString&path,                 const QString oldName, const QString newName)
 argument_list|)
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_MAC
-argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_macRunNativeAppModalPanel()
+argument|void _q_platformRunNativeAppModalPanel()
 argument_list|)
-endif|#
-directive|endif
-block|}
+name|friend
+name|class
+name|QPlatformDialogHelper
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
