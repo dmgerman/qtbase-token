@@ -80,6 +80,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|bool animating READ isAnimating NOTIFY animatingChanged
 argument_list|)
+name|Q_ENUMS
+argument_list|(
+argument|Action
+argument_list|)
 name|public
 operator|:
 name|QObject
