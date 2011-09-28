@@ -202,15 +202,6 @@ name|childCount
 argument_list|()
 specifier|const
 block|;
-name|int
-name|childAt
-argument_list|(
-argument|int x
-argument_list|,
-argument|int y
-argument_list|)
-specifier|const
-block|;
 name|QRect
 name|rect
 argument_list|(
