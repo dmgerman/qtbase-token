@@ -17856,7 +17856,7 @@ name|d
 operator|->
 name|accessibleTable2Index
 argument_list|(
-name|sel
+name|desel
 argument_list|)
 decl_stmt|;
 name|QAccessible
