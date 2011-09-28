@@ -27088,7 +27088,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/*!\fn void QWidget::setHidden(bool hidden)      Convenience function, equivalent to setVisible(!\a hidden). */
-comment|/*!\fn void QWidget::setShown(bool shown)      Use setVisible(\a shown) instead. */
 DECL|function|_q_showIfNotHidden
 name|void
 name|QWidgetPrivate

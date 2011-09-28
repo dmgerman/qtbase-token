@@ -186,14 +186,6 @@ name|QAction
 operator|*
 argument_list|)
 block|;
-name|QT_MOC_COMPAT
-name|void
-name|selected
-argument_list|(
-name|QAction
-operator|*
-argument_list|)
-block|;
 name|void
 name|hovered
 argument_list|(

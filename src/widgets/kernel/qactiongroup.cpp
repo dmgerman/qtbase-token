@@ -258,14 +258,6 @@ argument_list|(
 name|action
 argument_list|)
 emit|;
-emit|emit
-name|q
-operator|->
-name|selected
-argument_list|(
-name|action
-argument_list|)
-emit|;
 block|}
 end_function
 begin_function
@@ -1122,9 +1114,6 @@ comment|/*!     \fn void QActionGroup::addSeparator()      Normally you add a se
 end_comment
 begin_comment
 comment|/*!     \fn bool QActionGroup::addTo(QWidget *widget)      \oldcode     actionGroup->addTo(widget);     \newcode     widget->addActions(actionGroup->actions());     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn void QActionGroup::selected(QAction *action);      Use triggered() instead.  */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE
