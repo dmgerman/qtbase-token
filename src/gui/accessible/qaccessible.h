@@ -437,15 +437,6 @@ name|Movable
 init|=
 literal|0x00040000
 block|,
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|Moveable
-init|=
-name|Movable
-block|,
-endif|#
-directive|endif
 name|SelfVoicing
 init|=
 literal|0x00080000

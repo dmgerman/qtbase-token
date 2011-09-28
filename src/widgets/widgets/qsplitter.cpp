@@ -7272,9 +7272,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//#ifdef QT3_SUPPORT
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -7389,9 +7386,6 @@ directive|endif
 end_endif
 begin_comment
 comment|// QT_NO_TEXTSTREAM
-end_comment
-begin_comment
-comment|//#endif // QT3_SUPPORT
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

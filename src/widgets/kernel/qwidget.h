@@ -3973,59 +3973,6 @@ name|QWidgetData
 modifier|*
 name|data
 decl_stmt|;
-name|protected
-label|:
-name|virtual
-name|void
-name|styleChange
-parameter_list|(
-name|QStyle
-modifier|&
-parameter_list|)
-function_decl|;
-comment|// compat
-name|virtual
-name|void
-name|enabledChange
-parameter_list|(
-name|bool
-parameter_list|)
-function_decl|;
-comment|// compat
-name|virtual
-name|void
-name|paletteChange
-parameter_list|(
-specifier|const
-name|QPalette
-modifier|&
-parameter_list|)
-function_decl|;
-comment|// compat
-name|virtual
-name|void
-name|fontChange
-parameter_list|(
-specifier|const
-name|QFont
-modifier|&
-parameter_list|)
-function_decl|;
-comment|// compat
-name|virtual
-name|void
-name|windowActivationChange
-parameter_list|(
-name|bool
-parameter_list|)
-function_decl|;
-comment|// compat
-name|virtual
-name|void
-name|languageChange
-parameter_list|()
-function_decl|;
-comment|// compat
 block|}
 end_decl_stmt
 begin_empty_stmt

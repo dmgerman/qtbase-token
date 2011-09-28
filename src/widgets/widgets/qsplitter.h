@@ -375,9 +375,6 @@ name|QSplitterHandle
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|//#ifdef QT3_SUPPORT
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -418,9 +415,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//#endif
-end_comment
 begin_decl_stmt
 DECL|variable|QSplitterHandlePrivate
 name|class

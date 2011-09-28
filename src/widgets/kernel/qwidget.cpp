@@ -5897,25 +5897,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT3_SUPPORT
-argument_list|)
-name|q
-operator|->
-name|paletteChange
-argument_list|(
-name|q
-operator|->
-name|palette
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// compatibility
-endif|#
-directive|endif
 block|}
 comment|/*   Returns the widget's clipping rectangle. */
 DECL|function|clipRect
@@ -11194,12 +11175,6 @@ name|on
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     \fn void QWidget::enabledChange(bool)      \internal     \obsolete */
-comment|/*!     \fn void QWidget::paletteChange(const QPalette&)      \internal     \obsolete */
-comment|/*!     \fn void QWidget::fontChange(const QFont&)      \internal     \obsolete */
-comment|/*!     \fn void QWidget::windowActivationChange(bool)      \internal     \obsolete */
-comment|/*!     \fn void QWidget::languageChange()      \obsolete */
-comment|/*!     \fn void QWidget::styleChange(QStyle& style)      \internal     \obsolete */
 comment|/*!     Disables widget input events if \a disable is true; otherwise     enables input events.      See the \l enabled documentation for more information.      \sa isEnabledTo(), QKeyEvent, QMouseEvent, changeEvent() */
 DECL|function|setDisabled
 name|void
@@ -38685,68 +38660,6 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|styleChange
-name|void
-name|QWidget
-operator|::
-name|styleChange
-parameter_list|(
-name|QStyle
-modifier|&
-parameter_list|)
-block|{ }
-DECL|function|enabledChange
-name|void
-name|QWidget
-operator|::
-name|enabledChange
-parameter_list|(
-name|bool
-parameter_list|)
-block|{ }
-comment|// compat
-DECL|function|paletteChange
-name|void
-name|QWidget
-operator|::
-name|paletteChange
-parameter_list|(
-specifier|const
-name|QPalette
-modifier|&
-parameter_list|)
-block|{ }
-comment|// compat
-DECL|function|fontChange
-name|void
-name|QWidget
-operator|::
-name|fontChange
-parameter_list|(
-specifier|const
-name|QFont
-modifier|&
-parameter_list|)
-block|{ }
-comment|// compat
-DECL|function|windowActivationChange
-name|void
-name|QWidget
-operator|::
-name|windowActivationChange
-parameter_list|(
-name|bool
-parameter_list|)
-block|{ }
-comment|// compat
-DECL|function|languageChange
-name|void
-name|QWidget
-operator|::
-name|languageChange
-parameter_list|()
-block|{ }
-comment|// compat
 comment|/*!     \enum QWidget::BackgroundOrigin      \compat      \value WidgetOrigin     \value ParentOrigin     \value WindowOrigin     \value AncestorOrigin  */
 comment|/*!     \fn bool QWidget::isVisibleToTLW() const      Use isVisible() instead. */
 comment|/*!     \fn void QWidget::iconify()      Use showMinimized() instead. */
