@@ -127,6 +127,11 @@ include|#
 directive|include
 file|<QPrintPreviewDialog>
 end_include
+begin_include
+include|#
+directive|include
+file|<QMimeData>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef

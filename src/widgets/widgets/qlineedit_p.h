@@ -91,6 +91,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtCore/qmimedata.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"QtWidgets/qlineedit.h"
 end_include
 begin_include

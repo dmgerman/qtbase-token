@@ -83,6 +83,11 @@ include|#
 directive|include
 file|<QtGui/qclipboard.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qmimedata.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -104,12 +109,6 @@ begin_decl_stmt
 DECL|variable|QTextControlPrivate
 name|class
 name|QTextControlPrivate
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QMimeData
-name|class
-name|QMimeData
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

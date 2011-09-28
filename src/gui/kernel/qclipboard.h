@@ -29,12 +29,6 @@ ifndef|#
 directive|ifndef
 name|QT_NO_CLIPBOARD
 name|class
-name|QMimeSource
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QMimeData
-name|class
 name|QMimeData
 decl_stmt|;
 end_decl_stmt
@@ -51,12 +45,6 @@ name|QPixmap
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QClipboardPrivate
-name|class
-name|QClipboardPrivate
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QClipboard
@@ -65,10 +53,6 @@ name|public
 name|QObject
 block|{
 name|Q_OBJECT
-name|Q_DECLARE_PRIVATE
-argument_list|(
-argument|QClipboard
-argument_list|)
 name|private
 operator|:
 name|QClipboard
@@ -153,29 +137,6 @@ argument_list|,
 argument|Mode mode = Clipboard
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT3_SUPPORT
-name|QT3_SUPPORT
-name|QMimeSource
-operator|*
-name|data
-argument_list|(
-argument|Mode mode = Clipboard
-argument_list|)
-specifier|const
-block|;
-name|QT3_SUPPORT
-name|void
-name|setData
-argument_list|(
-argument|QMimeSource*
-argument_list|,
-argument|Mode mode = Clipboard
-argument_list|)
-block|;
-endif|#
-directive|endif
 specifier|const
 name|QMimeData
 operator|*
@@ -286,10 +247,6 @@ block|;
 name|friend
 name|class
 name|QDragManager
-block|;
-name|friend
-name|class
-name|QMimeSource
 block|;
 name|friend
 name|class

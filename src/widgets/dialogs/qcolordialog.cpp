@@ -100,7 +100,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qmime.h"
+file|"qmimedata.h"
 end_include
 begin_include
 include|#
