@@ -988,16 +988,6 @@ operator|*
 name|widget
 argument_list|)
 block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-block|;
 name|int
 name|childCount
 argument_list|()
@@ -1021,21 +1011,23 @@ argument|QAccessibleInterface **target
 argument_list|)
 specifier|const
 block|;
-name|QRect
-name|rect
+name|QAccessibleInterface
+operator|*
+name|child
 argument_list|(
-argument|int child
+argument|int index
 argument_list|)
 specifier|const
 block|;
-name|int
-name|childAt
+name|QVariant
+name|invokeMethod
 argument_list|(
-argument|int x
+argument|QAccessible::Method method
 argument_list|,
-argument|int y
+argument|int child
+argument_list|,
+argument|const QVariantList&params
 argument_list|)
-specifier|const
 block|;
 name|protected
 operator|:

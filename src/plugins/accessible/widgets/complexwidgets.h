@@ -118,29 +118,11 @@ block|,
 name|Undefined
 block|}
 block|;
-name|QString
-name|text
+name|QAccessibleInterface
+operator|*
+name|child
 argument_list|(
-argument|Text textType
-argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|void
-name|setText
-argument_list|(
-argument|Text textType
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QString&text
-argument_list|)
-block|;
-name|State
-name|state
-argument_list|(
-argument|int child
+argument|int index
 argument_list|)
 specifier|const
 block|;
@@ -149,7 +131,7 @@ name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,
-argument|int child
+argument|int
 argument_list|,
 argument|const QVariantList&params
 argument_list|)
@@ -182,22 +164,7 @@ argument|QAccessibleInterface **target
 argument_list|)
 specifier|const
 block|;
-name|QRect
-name|rect
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|int
-name|childAt
-argument_list|(
-argument|int x
-argument_list|,
-argument|int y
-argument_list|)
-specifier|const
-block|;
+comment|//    int childAt(int x, int y) const;
 comment|//protected:
 name|QAbstractScrollArea
 operator|*
