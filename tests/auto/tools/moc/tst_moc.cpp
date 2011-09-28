@@ -4143,7 +4143,7 @@ argument_list|)
 operator|+
 name|QString
 argument_list|(
-literal|"/warn-on-multiple-qobject-subclasses.h:53: Warning: Class Bar inherits from two QObject subclasses QWidget and Foo. This is not supported!\n"
+literal|"/warn-on-multiple-qobject-subclasses.h:53: Warning: Class Bar inherits from two QObject subclasses QWindow and Foo. This is not supported!\n"
 argument_list|)
 argument_list|)
 expr_stmt|;

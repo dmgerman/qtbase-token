@@ -21,12 +21,12 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QWidget
+DECL|variable|QWindow
 name|class
 name|Bar
 range|:
 name|public
-name|QWidget
+name|QWindow
 decl_stmt|,
 name|public
 name|Foo
