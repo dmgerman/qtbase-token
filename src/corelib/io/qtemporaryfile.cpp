@@ -1232,6 +1232,11 @@ name|~
 name|QTemporaryFilePrivate
 parameter_list|()
 destructor_decl|;
+name|QString
+name|defaultTemplateName
+parameter_list|()
+specifier|const
+function_decl|;
 DECL|member|autoRemove
 name|bool
 name|autoRemove
@@ -1265,11 +1270,72 @@ name|QTemporaryFilePrivate
 parameter_list|()
 block|{ }
 end_destructor
+begin_function
+DECL|function|defaultTemplateName
+name|QString
+name|QTemporaryFilePrivate
+operator|::
+name|defaultTemplateName
+parameter_list|()
+specifier|const
+block|{
+name|QString
+name|baseName
+decl_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_BUILD_CORE_LIB
+argument_list|)
+name|baseName
+operator|=
+name|QCoreApplication
+operator|::
+name|applicationName
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|baseName
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+endif|#
+directive|endif
+name|baseName
+operator|=
+name|QLatin1String
+argument_list|(
+literal|"qt_temp"
+argument_list|)
+expr_stmt|;
+return|return
+name|QDir
+operator|::
+name|tempPath
+argument_list|()
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
+operator|+
+name|baseName
+operator|+
+name|QLatin1String
+argument_list|(
+literal|".XXXXXX"
+argument_list|)
+return|;
+block|}
+end_function
 begin_comment
 comment|//************* QTemporaryFile
 end_comment
 begin_comment
-comment|/*!     \class QTemporaryFile     \reentrant     \brief The QTemporaryFile class is an I/O device that operates on temporary files.      \ingroup io       QTemporaryFile is used to create unique temporary files safely.     The file itself is created by calling open(). The name of the     temporary file is guaranteed to be unique (i.e., you are     guaranteed to not overwrite an existing file), and the file will     subsequently be removed upon destruction of the QTemporaryFile     object. This is an important technique that avoids data     corruption for applications that store data in temporary files.     The file name is either auto-generated, or created based on a     template, which is passed to QTemporaryFile's constructor.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qtemporaryfile.cpp 0      Reopening a QTemporaryFile after calling close() is safe. For as long as     the QTemporaryFile object itself is not destroyed, the unique temporary     file will exist and be kept open internally by QTemporaryFile.      The file name of the temporary file can be found by calling fileName().     Note that this is only defined after the file is first opened; the function     returns an empty string before this.      A temporary file will have some static part of the name and some     part that is calculated to be unique. The default filename \c     qt_temp will be placed into the temporary path as returned by     QDir::tempPath(). If you specify your own filename, a relative     file path will not be placed in the temporary directory by     default, but be relative to the current working directory.      Specified filenames can contain the following template \c XXXXXX     (six upper case "X" characters), which will be replaced by the     auto-generated portion of the filename. Note that the template is     case sensitive. If the template is not present in the filename,     QTemporaryFile appends the generated part to the filename given.      \sa QDir::tempPath(), QFile */
+comment|/*!     \class QTemporaryFile     \reentrant     \brief The QTemporaryFile class is an I/O device that operates on temporary files.      \ingroup io       QTemporaryFile is used to create unique temporary files safely.     The file itself is created by calling open(). The name of the     temporary file is guaranteed to be unique (i.e., you are     guaranteed to not overwrite an existing file), and the file will     subsequently be removed upon destruction of the QTemporaryFile     object. This is an important technique that avoids data     corruption for applications that store data in temporary files.     The file name is either auto-generated, or created based on a     template, which is passed to QTemporaryFile's constructor.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qtemporaryfile.cpp 0      Reopening a QTemporaryFile after calling close() is safe. For as long as     the QTemporaryFile object itself is not destroyed, the unique temporary     file will exist and be kept open internally by QTemporaryFile.      The file name of the temporary file can be found by calling fileName().     Note that this is only defined after the file is first opened; the function     returns an empty string before this.      A temporary file will have some static part of the name and some     part that is calculated to be unique. The default filename will be     determined from QCoreApplication::applicationName() (otherwise \c qt_temp) and will     be placed into the temporary path as returned by QDir::tempPath().     If you specify your own filename, a relative file path will not be placed in the     temporary directory by default, but be relative to the current working directory.      Specified filenames can contain the following template \c XXXXXX     (six upper case "X" characters), which will be replaced by the     auto-generated portion of the filename. Note that the template is     case sensitive. If the template is not present in the filename,     QTemporaryFile appends the generated part to the filename given.      \sa QDir::tempPath(), QFile */
 end_comment
 begin_ifdef
 ifdef|#
@@ -1299,15 +1365,10 @@ name|d
 operator|->
 name|templateName
 operator|=
-name|QDir
-operator|::
-name|tempPath
+name|d
+operator|->
+name|defaultTemplateName
 argument_list|()
-operator|+
-name|QLatin1String
-argument_list|(
-literal|"/qt_temp.XXXXXX"
-argument_list|)
 expr_stmt|;
 block|}
 end_constructor
@@ -1348,7 +1409,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|/*!     Constructs a QTemporaryFile in QDir::tempPath(), using the file template     "qt_temp.XXXXXX". The file is stored in the system's temporary directory.      \sa setFileTemplate(), QDir::tempPath() */
+comment|/*!     Constructs a QTemporaryFile using as file template     the application name returned by QCoreApplication::applicationName()     (otherwise \c qt_temp) followed by ".XXXXXX".     The file is stored in the system's temporary directory, QDir::tempPath().      \sa setFileTemplate(), QDir::tempPath() */
 end_comment
 begin_constructor
 DECL|function|QTemporaryFile
@@ -1375,15 +1436,10 @@ name|d
 operator|->
 name|templateName
 operator|=
-name|QDir
-operator|::
-name|tempPath
+name|d
+operator|->
+name|defaultTemplateName
 argument_list|()
-operator|+
-name|QLatin1String
-argument_list|(
-literal|"/qt_temp.XXXXXX"
-argument_list|)
 expr_stmt|;
 block|}
 end_constructor
@@ -1425,7 +1481,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a QTemporaryFile (with the given \a parent) in     QDir::tempPath(), using the file template "qt_temp.XXXXXX".      \sa setFileTemplate() */
+comment|/*!     Constructs a QTemporaryFile (with the given \a parent)     using as file template the application name returned by QCoreApplication::applicationName()     (otherwise \c qt_temp) followed by ".XXXXXX".     The file is stored in the system's temporary directory, QDir::tempPath().      \sa setFileTemplate() */
 end_comment
 begin_constructor
 DECL|function|QTemporaryFile
@@ -1456,15 +1512,10 @@ name|d
 operator|->
 name|templateName
 operator|=
-name|QDir
-operator|::
-name|tempPath
+name|d
+operator|->
+name|defaultTemplateName
 argument_list|()
-operator|+
-name|QLatin1String
-argument_list|(
-literal|"/qt_temp.XXXXXX"
-argument_list|)
 expr_stmt|;
 block|}
 end_constructor
@@ -1651,7 +1702,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the set file template. The default file template will be   called qt_temp and be placed in QDir::tempPath().    \sa setFileTemplate() */
+comment|/*!   Returns the set file template. The default file template will be   called qcoreappname.XXXXXX and be placed in QDir::tempPath().    \sa setFileTemplate() */
 end_comment
 begin_function
 DECL|function|fileTemplate

@@ -279,6 +279,13 @@ literal|"test-XXXXXX"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QCoreApplication
+operator|::
+name|setApplicationName
+argument_list|(
+literal|"tst_qtemporaryfile"
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -937,6 +944,21 @@ operator|.
 name|fileName
 argument_list|()
 decl_stmt|;
+name|QVERIFY2
+argument_list|(
+name|fileName
+operator|.
+name|contains
+argument_list|(
+literal|"/tst_qtemporaryfile."
+argument_list|)
+argument_list|,
+name|qPrintable
+argument_list|(
+name|fileName
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|QFile
@@ -947,7 +969,7 @@ name|fileName
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Get path to the temp file, whithout the file name.
+comment|// Get path to the temp file, without the file name.
 name|QString
 name|absoluteFilePath
 init|=
