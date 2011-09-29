@@ -96,6 +96,23 @@ operator|&
 name|subrect
 argument_list|)
 block|;
+specifier|static
+name|DFBSurfacePixelFormat
+name|alphaPixmapFormat
+argument_list|()
+block|;
+specifier|static
+name|DFBSurfacePixelFormat
+name|pixmapFormat
+argument_list|()
+block|;
+specifier|static
+name|DFBSurfacePixelFormat
+name|selectPixmapFormat
+argument_list|(
+argument|bool withAlpha
+argument_list|)
+block|;
 name|protected
 operator|:
 name|virtual
