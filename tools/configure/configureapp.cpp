@@ -1513,7 +1513,7 @@ index|[
 literal|"V8"
 index|]
 operator|=
-literal|"auto"
+literal|"yes"
 expr_stmt|;
 name|dictionary
 index|[
