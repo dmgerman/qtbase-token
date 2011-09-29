@@ -543,6 +543,9 @@ specifier|const
 block|{
 return|return
 name|m_fontDb
+operator|.
+name|data
+argument_list|()
 return|;
 block|}
 end_function

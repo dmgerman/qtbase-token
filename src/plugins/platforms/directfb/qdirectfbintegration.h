@@ -214,8 +214,10 @@ name|QThread
 operator|>
 name|m_inputRunner
 block|;
+name|QScopedPointer
+operator|<
 name|QPlatformFontDatabase
-operator|*
+operator|>
 name|m_fontDb
 block|;
 name|QAbstractEventDispatcher
