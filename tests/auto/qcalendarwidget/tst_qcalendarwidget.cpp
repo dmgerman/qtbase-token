@@ -381,7 +381,7 @@ expr_stmt|;
 comment|//header visible
 name|object
 operator|.
-name|setHeaderVisible
+name|setNavigationBarVisible
 argument_list|(
 literal|true
 argument_list|)
@@ -390,13 +390,13 @@ name|QVERIFY
 argument_list|(
 name|object
 operator|.
-name|isHeaderVisible
+name|isNavigationBarVisible
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|object
 operator|.
-name|setHeaderVisible
+name|setNavigationBarVisible
 argument_list|(
 literal|false
 argument_list|)
@@ -406,7 +406,7 @@ argument_list|(
 operator|!
 name|object
 operator|.
-name|isHeaderVisible
+name|isNavigationBarVisible
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -13975,14 +13975,14 @@ begin_comment
 comment|/*!     \property QCalendarWidget::headerVisible     \brief whether the navigation bar is shown or not      \obsolete      Use navigationBarVisible() instead.      By default, this property is true. */
 end_comment
 begin_comment
-comment|/*!     \obsolete      Use setNavigationBarVisible() instead. */
+comment|/*!     \property QCalendarWidget::navigationBarVisible     \brief whether the navigation bar is shown or not      \since 4.3      When this property is true (the default), the next month,     previous month, month selection, year selection controls are     shown on top.      When the property is set to false, these controls are hidden. */
 end_comment
 begin_function
-DECL|function|isHeaderVisible
+DECL|function|isNavigationBarVisible
 name|bool
 name|QCalendarWidget
 operator|::
-name|isHeaderVisible
+name|isNavigationBarVisible
 parameter_list|()
 specifier|const
 block|{
@@ -13999,30 +13999,6 @@ name|navBarVisible
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \obsolete      Use setNavigationBarVisible() instead.  */
-end_comment
-begin_function
-DECL|function|setHeaderVisible
-name|void
-name|QCalendarWidget
-operator|::
-name|setHeaderVisible
-parameter_list|(
-name|bool
-name|visible
-parameter_list|)
-block|{
-name|setNavigationBarVisible
-argument_list|(
-name|visible
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     \property QCalendarWidget::navigationBarVisible     \brief whether the navigation bar is shown or not      \since 4.3      When this property is true (the default), the next month,     previous month, month selection, year selection controls are     shown on top.      When the property is set to false, these controls are hidden. */
-end_comment
 begin_function
 DECL|function|setNavigationBarVisible
 name|void

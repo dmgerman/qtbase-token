@@ -108,11 +108,6 @@ argument|VerticalHeaderFormat verticalHeaderFormat READ verticalHeaderFormat WRI
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|bool headerVisible READ isHeaderVisible WRITE setHeaderVisible STORED false DESIGNABLE false
-argument_list|)
-comment|// obsolete
-name|Q_PROPERTY
-argument_list|(
 argument|bool navigationBarVisible READ isNavigationBarVisible WRITE setNavigationBarVisible
 argument_list|)
 name|Q_PROPERTY
@@ -233,29 +228,11 @@ argument_list|(
 argument|Qt::DayOfWeek dayOfWeek
 argument_list|)
 block|;
-comment|// ### Qt 5: eliminate these two
-name|bool
-name|isHeaderVisible
-argument_list|()
-specifier|const
-block|;
-name|void
-name|setHeaderVisible
-argument_list|(
-argument|bool show
-argument_list|)
-block|;
-specifier|inline
 name|bool
 name|isNavigationBarVisible
 argument_list|()
 specifier|const
-block|{
-return|return
-name|isHeaderVisible
-argument_list|()
-return|;
-block|}
+block|;
 name|bool
 name|isGridVisible
 argument_list|()
