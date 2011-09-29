@@ -58,23 +58,11 @@ include|#
 directive|include
 file|<Cocoa/Cocoa.h>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-end_ifdef
 begin_include
 include|#
 directive|include
 file|<objc/runtime.h>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_MAC_USE_COCOA
-end_comment
 begin_endif
 endif|#
 directive|endif

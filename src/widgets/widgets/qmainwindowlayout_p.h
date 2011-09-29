@@ -195,23 +195,11 @@ modifier|*
 name|CFStringRef
 typedef|;
 end_typedef
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-end_ifdef
 begin_include
 include|#
 directive|include
 file|<private/qunifiedtoolbarsurface_mac_p.h>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_MAC_USE_COCOA
-end_comment
 begin_endif
 endif|#
 directive|endif
@@ -1205,9 +1193,6 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|Q_WS_MAC
-ifndef|#
-directive|ifndef
-name|QT_MAC_USE_COCOA
 specifier|static
 name|OSStatus
 name|qtmacToolbarDelegate
@@ -1258,8 +1243,6 @@ operator|*
 name|layout
 argument_list|)
 block|;
-endif|#
-directive|endif
 name|public
 operator|:
 expr|struct
@@ -1383,9 +1366,6 @@ block|;
 name|bool
 name|blockVisiblityCheck
 block|;
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 name|QUnifiedToolbarSurface
 operator|*
 name|unifiedSurface
@@ -1394,9 +1374,6 @@ name|void
 name|updateUnifiedToolbarOffset
 argument_list|()
 block|;
-endif|#
-directive|endif
-comment|// QT_MAC_USE_COCOA
 endif|#
 directive|endif
 comment|// Q_WS_MAC

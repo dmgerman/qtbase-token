@@ -593,12 +593,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|QT_MAC_USE_COCOA
+name|Q_OS_MAC
 argument_list|)
 name|void
 name|drawText_subPixelPositionsInRaster_qtbug5053
@@ -30311,21 +30306,13 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|// Only Mac/Cocoa supports sub pixel positions in raster engine currently
+comment|//Only Mac/Cocoa supports sub pixel positions in raster engine currently
 end_comment
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_MAC
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|QT_MAC_USE_COCOA
-argument_list|)
-end_if
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+end_ifdef
 begin_function
 DECL|function|drawText_subPixelPositionsInRaster_qtbug5053
 name|void

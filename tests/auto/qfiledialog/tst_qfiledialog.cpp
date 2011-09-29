@@ -5882,7 +5882,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 argument_list|)
 operator|||
 name|defined

@@ -5070,12 +5070,9 @@ operator|::
 name|Antialiasing
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_MAC_USE_COCOA
-argument_list|)
+ifdef|#
+directive|ifdef
+name|Q_WS_MAC
 comment|// Always draw the cursor aligned to pixel boundary.
 name|x
 operator|=

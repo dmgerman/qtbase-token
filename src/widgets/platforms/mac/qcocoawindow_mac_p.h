@@ -43,11 +43,6 @@ define|#
 directive|define
 name|QCOCOAWINDOW_MAC_P
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-end_ifdef
 begin_include
 include|#
 directive|include
@@ -311,10 +306,6 @@ begin_macro
 unit|@
 name|end
 end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif

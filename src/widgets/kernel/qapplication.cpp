@@ -340,7 +340,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 end_ifdef
 begin_include
 include|#
@@ -8291,12 +8291,9 @@ operator|::
 name|LanguageChange
 condition|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_MAC_USE_COCOA
-argument_list|)
+ifdef|#
+directive|ifdef
+name|Q_WS_MAC
 name|qt_mac_post_retranslateAppMenu
 argument_list|()
 expr_stmt|;
@@ -8858,7 +8855,7 @@ expr_stmt|;
 block|}
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 comment|// In case the user clicked on a child window, we need to
 comment|// reestablish the stacking order of the window so
 comment|// it pops in front of other child windows in cocoa:
@@ -11253,11 +11250,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_WS_MAC
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|QT_MAC_USE_COCOA
 argument_list|)
 name|top
 operator|=
@@ -16814,7 +16806,7 @@ directive|endif
 comment|// QT_NO_GESTURES
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 case|case
 name|QEvent
 operator|::

@@ -711,9 +711,6 @@ name|quint32
 name|savedWindowAttributesFromMaximized
 decl_stmt|;
 comment|// Saved attributes from when the calling updateMaximizeButton_sys()
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 comment|// This value is just to make sure we maximize and restore to the right location, yet we allow apps to be maximized and
 comment|// manually resized.
 comment|// The name is misleading, since this is set when maximizing the window. It is a hint to saveGeometry(..) to record the
@@ -722,9 +719,6 @@ DECL|member|wasMaximized
 name|bool
 name|wasMaximized
 decl_stmt|;
-endif|#
-directive|endif
-comment|// QT_MAC_USE_COCOA
 elif|#
 directive|elif
 name|defined
@@ -969,9 +963,6 @@ argument_list|(
 name|Q_WS_MAC
 argument_list|)
 comment|//<------------------------------------------------------ MAC
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 comment|// Cocoa Mask stuff
 DECL|member|maskBits
 name|QImage
@@ -981,8 +972,6 @@ DECL|member|imageMask
 name|CGImageRef
 name|imageMask
 decl_stmt|;
-endif|#
-directive|endif
 elif|#
 directive|elif
 name|defined
@@ -4122,30 +4111,6 @@ name|recreateMacWindow
 parameter_list|()
 function_decl|;
 end_function_decl
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_MAC_USE_COCOA
-end_ifndef
-begin_function_decl
-name|void
-name|initWindowPtr
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_function_decl
-name|void
-name|finishCreateWindow_sys_Carbon
-parameter_list|(
-name|OSWindowRef
-name|windowRef
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_else
-else|#
-directive|else
-end_else
 begin_function_decl
 name|void
 name|setSubWindowStacking
@@ -4249,13 +4214,6 @@ name|bool
 name|touchEventsEnabled
 decl_stmt|;
 end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_MAC_USE_COCOA
-end_comment
 begin_function_decl
 name|void
 name|determineWindowClass

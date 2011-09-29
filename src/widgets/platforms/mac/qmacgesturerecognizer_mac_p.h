@@ -162,14 +162,6 @@ argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_MAC_USE_COCOA
-argument_list|)
-end_if
 begin_decl_stmt
 DECL|variable|QObject
 name|class
@@ -237,10 +229,6 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

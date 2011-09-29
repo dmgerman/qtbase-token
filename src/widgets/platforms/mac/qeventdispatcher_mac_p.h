@@ -74,11 +74,6 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-end_ifdef
 begin_typedef
 DECL|typedef|NSModalSession
 typedef|typedef
@@ -115,10 +110,6 @@ DECL|typedef|QCocoaModalSessionInfo
 name|QCocoaModalSessionInfo
 typedef|;
 end_typedef
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 DECL|variable|QEventDispatcherMacPrivate
 name|class
@@ -399,9 +390,6 @@ specifier|static
 name|bool
 name|blockSendPostedEvents
 block|;
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 comment|// The following variables help organizing modal sessions:
 specifier|static
 name|QStack
@@ -474,8 +462,6 @@ name|void
 name|ensureNSAppInitialized
 argument_list|()
 block|;
-endif|#
-directive|endif
 name|MacSocketHash
 name|macSockets
 block|;
@@ -567,11 +553,6 @@ argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-end_ifdef
 begin_decl_stmt
 name|class
 name|QtMacInterruptDispatcherHelp
@@ -608,10 +589,6 @@ argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

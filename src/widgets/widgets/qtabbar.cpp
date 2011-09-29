@@ -268,9 +268,6 @@ argument_list|,
 name|metrics
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|QT_MAC_USE_COCOA
 comment|// In Cocoa we need to keep track of the drawRect method.
 comment|// If documentMode is enabled we need to change it, unless
 comment|// a toolbar is present.
@@ -306,9 +303,6 @@ operator|->
 name|syncUnifiedMode
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
-comment|// QT_MAC_USE_COCOA
 block|}
 endif|#
 directive|endif

@@ -4447,9 +4447,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 comment|// We need to update the HIToolbar status when we go out of or into fullscreen.
 name|QWindowStateChangeEvent
 modifier|*
@@ -4495,9 +4492,6 @@ name|updateHIToolBarStatus
 argument_list|()
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// Cocoa
 block|}
 break|break;
 endif|#
@@ -4621,9 +4615,6 @@ name|createWinId
 argument_list|()
 expr_stmt|;
 comment|// We need the hiview for down below.
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 comment|// Activate the unified toolbar with the raster engine.
 if|if
 condition|(
@@ -4646,9 +4637,6 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// QT_MAC_USE_COCOA
 name|d
 operator|->
 name|layout
@@ -4656,9 +4644,6 @@ operator|->
 name|updateHIToolBarStatus
 argument_list|()
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 comment|// Deactivate the unified toolbar with the raster engine.
 if|if
 condition|(
@@ -4695,9 +4680,6 @@ literal|0
 expr_stmt|;
 block|}
 block|}
-endif|#
-directive|endif
-comment|// QT_MAC_USE_COCOA
 comment|// Enabling the unified toolbar clears the opaque size grip setting, update it.
 name|d
 operator|->

@@ -151,14 +151,6 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|QT_BEGIN_INCLUDE_NAMESPACE
-ifndef|#
-directive|ifndef
-name|QT_MAC_USE_COCOA
-include|#
-directive|include
-file|<AGL/agl.h>
-endif|#
-directive|endif
 name|QT_END_INCLUDE_NAMESPACE
 ifdef|#
 directive|ifdef

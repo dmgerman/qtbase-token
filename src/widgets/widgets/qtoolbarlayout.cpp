@@ -2346,10 +2346,6 @@ block|}
 ifdef|#
 directive|ifdef
 name|Q_WS_MAC
-comment|// Nothing to do for Carbon... probably
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 if|if
 condition|(
 name|QMainWindow
@@ -2407,8 +2403,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-endif|#
-directive|endif
 endif|#
 directive|endif
 block|}

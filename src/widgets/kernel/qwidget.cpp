@@ -411,14 +411,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_MAC_USE_COCOA
-argument_list|)
-end_if
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_WS_MAC
+end_ifdef
 begin_decl_stmt
 DECL|variable|qt_mac_clearDirtyOnWidgetInsideDrawWidget
 name|bool
@@ -1112,9 +1109,9 @@ name|high_attributes
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|QT_MAC_USE_COCOA
+ifdef|#
+directive|ifdef
+name|Q_WS_MAC
 name|drawRectOriginalAdded
 operator|=
 literal|false
@@ -1149,7 +1146,7 @@ literal|false
 expr_stmt|;
 endif|#
 directive|endif
-comment|// QT_MAC_USE_COCOA
+comment|// Q_WS_MAC
 ifdef|#
 directive|ifdef
 name|QWIDGET_EXTRA_DEBUG
@@ -3241,7 +3238,7 @@ literal|0
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 comment|// If we add a child to the unified toolbar, we have to redirect the painting.
 if|if
 condition|(
@@ -3306,7 +3303,7 @@ block|}
 block|}
 endif|#
 directive|endif
-comment|// QT_MAC_USE_COCOA
+comment|// Q_WS_MAC
 block|}
 DECL|function|createRecursively
 name|void
@@ -4486,7 +4483,7 @@ comment|// don't activate again in ~QObject
 block|}
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 comment|// QCocoaView holds a pointer back to this widget. Clear it now
 comment|// to make sure it's not followed later on. The lifetime of the
 comment|// QCocoaView might exceed the lifetime of this widget in cases
@@ -4904,18 +4901,12 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_WS_MAC
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 name|x
 operator|->
 name|wasMaximized
 operator|=
 literal|false
 expr_stmt|;
-endif|#
-directive|endif
-comment|// QT_MAC_USE_COCOA
 endif|#
 directive|endif
 comment|// Q_WS_MAC
@@ -6748,7 +6739,7 @@ condition|)
 return|return;
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 if|if
 condition|(
 name|q
@@ -6761,7 +6752,7 @@ condition|)
 return|return;
 endif|#
 directive|endif
-comment|// QT_MAC_USE_COCOA
+comment|// Q_WS_MAC
 name|QRect
 name|clipBoundingRect
 decl_stmt|;
@@ -17456,17 +17447,9 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return;
-if|#
-directive|if
-name|defined
-argument_list|(
+ifdef|#
+directive|ifdef
 name|Q_WS_MAC
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|QT_MAC_USE_COCOA
-argument_list|)
 if|if
 condition|(
 name|qt_mac_clearDirtyOnWidgetInsideDrawWidget
@@ -17487,7 +17470,7 @@ condition|)
 return|return;
 endif|#
 directive|endif
-comment|// Q_WS_MAC&& QT_MAC_USE_COCOA
+comment|// Q_WS_MAC
 name|Q_Q
 argument_list|(
 name|QWidget
@@ -23863,7 +23846,7 @@ specifier|const
 block|{
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 comment|// We check if the window was maximized during this invocation. If so, we need to record the
 comment|// starting position as 0,0.
 name|Q_D
@@ -23926,7 +23909,7 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-comment|// QT_MAC_USE_COCOA
+comment|// Q_WS_MAC
 name|QByteArray
 name|array
 decl_stmt|;
@@ -23975,22 +23958,14 @@ operator|<<
 name|minorVersion
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 operator|<<
 name|newFramePosition
 operator|<<
 name|newNormalPosition
-else|#
-directive|else
-operator|<<
-name|frameGeometry
-argument_list|()
-operator|<<
-name|normalGeometry
-argument_list|()
 endif|#
 directive|endif
-comment|// QT_MAC_USE_COCOA
+comment|// Q_WS_MAC
 operator|<<
 name|qint32
 argument_list|(
@@ -27322,7 +27297,7 @@ condition|)
 continue|continue;
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 comment|// Before doing anything we need to make sure that we don't leave anything in a non-consistent state.
 comment|// When hiding a widget we need to make sure that no mouse_down events are active, because
 comment|// the mouse_up event will never be received by a hidden widget or one of its descendants.
@@ -27348,7 +27323,7 @@ literal|0
 expr_stmt|;
 endif|#
 directive|endif
-comment|// QT_MAC_USE_COCOA
+comment|// Q_WS_MAC
 if|if
 condition|(
 name|spontaneous
@@ -33693,17 +33668,9 @@ name|Qt
 operator|::
 name|AA_DontCreateNativeWidgetSiblings
 argument_list|)
-if|#
-directive|if
-name|defined
-argument_list|(
+ifdef|#
+directive|ifdef
 name|Q_WS_MAC
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|QT_MAC_USE_COCOA
-argument_list|)
 comment|// On Mac, toolbars inside the unified title bar will never overlap with
 comment|// siblings in the content view. So we skip enforce native siblings in that case
 operator|&&
@@ -33722,7 +33689,7 @@ name|isWindow
 argument_list|()
 endif|#
 directive|endif
-comment|// Q_WS_MAC&& QT_MAC_USE_COCOA
+comment|// Q_WS_MAC
 condition|)
 name|parent
 operator|->
@@ -34844,7 +34811,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 if|if
 condition|(
 name|qt_widget_private
@@ -34873,7 +34840,7 @@ return|return;
 block|}
 endif|#
 directive|endif
-comment|// QT_MAC_USE_COCOA
+comment|// Q_WS_MAC
 name|QTLWExtra
 modifier|*
 name|tlwExtra
@@ -34998,7 +34965,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 if|if
 condition|(
 name|qt_widget_private
@@ -35027,7 +34994,7 @@ return|return;
 block|}
 endif|#
 directive|endif
-comment|// QT_MAC_USE_COCOA
+comment|// Q_WS_MAC
 name|QTLWExtra
 modifier|*
 name|tlwExtra
@@ -35171,7 +35138,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 if|if
 condition|(
 name|qt_widget_private
@@ -35200,7 +35167,7 @@ return|return;
 block|}
 endif|#
 directive|endif
-comment|// QT_MAC_USE_COCOA
+comment|// Q_WS_MAC
 name|QTLWExtra
 modifier|*
 name|tlwExtra
@@ -35313,7 +35280,7 @@ condition|)
 block|{
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 if|if
 condition|(
 name|qt_widget_private
@@ -35342,7 +35309,7 @@ return|return;
 block|}
 endif|#
 directive|endif
-comment|// QT_MAC_USE_COCOA
+comment|// Q_WS_MAC
 name|QTLWExtra
 modifier|*
 name|tlwExtra
@@ -36300,17 +36267,9 @@ argument_list|)
 operator|&&
 name|parentWidget
 argument_list|()
-if|#
-directive|if
-name|defined
-argument_list|(
+ifdef|#
+directive|ifdef
 name|Q_WS_MAC
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|QT_MAC_USE_COCOA
-argument_list|)
 comment|// On Mac, toolbars inside the unified title bar will never overlap with
 comment|// siblings in the content view. So we skip enforce native siblings in that case
 operator|&&
@@ -36326,7 +36285,7 @@ name|isWindow
 argument_list|()
 endif|#
 directive|endif
-comment|// Q_WS_MAC&& QT_MAC_USE_COCOA
+comment|// Q_WS_MAC
 condition|)
 name|parentWidget
 argument_list|()
@@ -40403,7 +40362,7 @@ argument_list|()
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 if|if
 condition|(
 operator|!
@@ -40610,9 +40569,9 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-if|#
-directive|if
-name|QT_MAC_USE_COCOA
+ifdef|#
+directive|ifdef
+name|Q_WS_MAC
 DECL|function|syncUnifiedMode
 name|void
 name|QWidgetPrivate
@@ -40682,7 +40641,7 @@ block|}
 block|}
 endif|#
 directive|endif
-comment|// QT_MAC_USE_COCOA
+comment|// Q_WS_MAC
 name|QT_END_NAMESPACE
 end_function
 begin_include

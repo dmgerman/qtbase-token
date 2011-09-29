@@ -107,17 +107,12 @@ name|void
 name|testChildDialogInFrontOfModalParent
 parameter_list|()
 function_decl|;
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 comment|//    void testChildWindowInFrontOfParentWindow();
 comment|//    void testChildToolWindowInFrontOfChildNormalWindow();
 name|void
 name|testChildWindowInFrontOfStaysOnTopParentWindow
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|testKeyPressOnToplevel
 parameter_list|()
@@ -2446,11 +2441,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-end_ifdef
 begin_if
 if|#
 directive|if
@@ -2631,10 +2621,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|testKeyPressOnToplevel
 name|void

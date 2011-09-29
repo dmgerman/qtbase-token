@@ -462,7 +462,7 @@ expr_stmt|;
 comment|//QCursor::setPos(window->mapToGlobal(pos));
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_OS_MAC
 name|QTest
 operator|::
 name|qWait
@@ -1030,7 +1030,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_OS_MAC
 name|QTest
 operator|::
 name|qWait

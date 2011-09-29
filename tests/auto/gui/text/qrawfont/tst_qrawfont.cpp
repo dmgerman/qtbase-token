@@ -167,11 +167,6 @@ name|defined
 argument_list|(
 name|Q_WS_MAC
 argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|QT_MAC_USE_COCOA
-argument_list|)
 name|void
 name|multipleRawFontsFromData
 parameter_list|()
@@ -4608,11 +4603,6 @@ operator|||
 name|defined
 argument_list|(
 name|Q_WS_MAC
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|QT_MAC_USE_COCOA
 argument_list|)
 end_if
 begin_function

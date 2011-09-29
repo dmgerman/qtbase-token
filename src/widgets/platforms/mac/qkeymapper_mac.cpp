@@ -2517,30 +2517,6 @@ modifier|*
 name|outHandled
 parameter_list|)
 block|{
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_MAC_USE_COCOA
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_MAC64
-argument_list|)
-name|Q_UNUSED
-argument_list|(
-name|er
-argument_list|)
-expr_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|outHandled
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 specifier|const
 name|UInt32
 name|ekind
@@ -3078,9 +3054,6 @@ operator|!
 name|translatedChar
 condition|)
 block|{
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 if|if
 condition|(
 name|outHandled
@@ -3107,8 +3080,6 @@ operator|=
 name|qt_mac_eat_unicode_key
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 return|return
 literal|false
 return|;
@@ -4360,78 +4331,6 @@ condition|(
 name|widget
 condition|)
 block|{
-ifndef|#
-directive|ifndef
-name|QT_MAC_USE_COCOA
-name|Q_UNUSED
-argument_list|(
-name|info
-argument_list|)
-expr_stmt|;
-comment|// Try not to call "other" event handlers if we have a popup,
-comment|// However, if the key has text
-comment|// then we should pass it along because otherwise then people
-comment|// can use input method stuff.
-if|if
-condition|(
-operator|!
-name|qApp
-operator|->
-name|activePopupWidget
-argument_list|()
-operator|||
-operator|(
-name|qApp
-operator|->
-name|activePopupWidget
-argument_list|()
-operator|&&
-operator|!
-name|text
-operator|.
-name|isEmpty
-argument_list|()
-operator|)
-condition|)
-block|{
-comment|//Find out if someone else wants the event, namely
-comment|//is it of use to text services? If so we won't bother
-comment|//with a QKeyEvent.
-name|qt_mac_eat_unicode_key
-operator|=
-literal|false
-expr_stmt|;
-if|if
-condition|(
-name|er
-condition|)
-name|CallNextEventHandler
-argument_list|(
-name|er
-argument_list|,
-name|event
-argument_list|)
-expr_stmt|;
-specifier|extern
-name|bool
-name|qt_mac_menubar_is_open
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|qt_mac_eat_unicode_key
-operator|||
-name|qt_mac_menubar_is_open
-argument_list|()
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-block|}
-endif|#
-directive|endif
 comment|// Try to compress key events.
 if|if
 condition|(
@@ -4791,9 +4690,6 @@ operator|&
 name|macModifiers
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 comment|// The unicode characters in the range 0xF700-0xF747 are reserved
 comment|// by Mac OS X for transient use as keyboard function keys. We
 comment|// wont send 'text' for such key events. This is done to match
@@ -4830,8 +4726,6 @@ expr_stmt|;
 name|bool
 name|isAccepted
 decl_stmt|;
-endif|#
-directive|endif
 name|handled_event
 operator|=
 name|QKeyMapper
@@ -4873,19 +4767,11 @@ argument_list|,
 name|macVirtualKey
 argument_list|,
 name|macModifiers
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 argument_list|,
 operator|&
 name|isAccepted
-endif|#
-directive|endif
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 operator|*
 name|unicodeKey
 operator|=
@@ -4895,8 +4781,6 @@ name|int
 operator|)
 name|isAccepted
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 return|return
 name|handled_event
@@ -4917,16 +4801,8 @@ name|event
 parameter_list|,
 name|void
 modifier|*
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_MAC_USE_COCOA
-argument_list|)
 name|unicodeKey
 comment|// unicode character from NSEvent (modifiers applied)
-endif|#
-directive|endif
 parameter_list|)
 block|{
 name|UInt32

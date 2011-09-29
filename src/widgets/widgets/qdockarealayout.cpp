@@ -11427,7 +11427,7 @@ operator|++
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 name|sepWidget
 operator|->
 name|raise
@@ -19424,7 +19424,7 @@ operator|++
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 name|sepWidget
 operator|->
 name|raise

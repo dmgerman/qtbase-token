@@ -1788,9 +1788,6 @@ operator|->
 name|formats
 argument_list|()
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 comment|// QMimeData sub classes reimplementing the formats() might not expose the
 comment|// temporary "application/x-qt-mime-type-name" mimetype. So check the existence
 comment|// of this mime type while doing drag and drop.
@@ -1842,8 +1839,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-endif|#
-directive|endif
 for|for
 control|(
 name|int

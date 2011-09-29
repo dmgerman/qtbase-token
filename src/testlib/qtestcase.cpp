@@ -176,29 +176,11 @@ end_include
 begin_comment
 comment|// for SetFrontProcess
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-end_ifdef
 begin_include
 include|#
 directive|include
 file|<IOKit/pwr_mgt/IOPMLib.h>
 end_include
-begin_else
-else|#
-directive|else
-end_else
-begin_include
-include|#
-directive|include
-file|<Security/AuthSession.h>
-end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_undef
 DECL|macro|verify
 undef|#
@@ -5239,14 +5221,9 @@ operator|==
 literal|0
 operator|)
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 name|IOPMAssertionID
 name|powerID
 decl_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 ifndef|#
@@ -5306,9 +5283,6 @@ operator|&
 name|psn
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
 name|IOReturn
 name|ok
 init|=
@@ -5333,16 +5307,6 @@ operator|=
 literal|false
 expr_stmt|;
 comment|// no need to release the assertion on exit.
-else|#
-directive|else
-name|UpdateSystemActivity
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-comment|// Wake the display.
-endif|#
-directive|endif
 block|}
 endif|#
 directive|endif
@@ -5562,7 +5526,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 if|if
 condition|(
 name|macNeedsActivate
@@ -5594,7 +5558,7 @@ literal|0
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
+name|Q_WS_MAC
 if|if
 condition|(
 name|macNeedsActivate

@@ -18142,7 +18142,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_MAC_USE_COCOA
+name|Q_OS_MAC
 comment|//cocoa doesn't support drawing regions
 name|QCOMPARE
 argument_list|(
@@ -25054,16 +25054,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_MAC_USE_COCOA
-if|if
-condition|(
-name|QApplicationPrivate
-operator|::
-name|graphicsSystem
-argument_list|()
-operator|==
-literal|0
-condition|)
+name|Q_OS_MAC
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
@@ -27131,7 +27122,7 @@ expr_stmt|;
 comment|// Make sure the item didn't get any repaints.
 ifndef|#
 directive|ifndef
-name|QT_MAC_USE_COCOA
+name|Q_OS_MAC
 name|QCOMPARE
 argument_list|(
 name|item
@@ -28433,7 +28424,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_MAC_USE_COCOA
+name|Q_OS_MAC
 comment|//cocoa doesn't support drawing regions
 name|QTRY_VERIFY
 argument_list|(
@@ -28746,7 +28737,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_MAC_USE_COCOA
+name|Q_OS_MAC
 comment|//cocoa doesn't support drawing regions
 name|QTRY_VERIFY
 argument_list|(
@@ -29025,7 +29016,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_MAC_USE_COCOA
+name|Q_OS_MAC
 comment|//cocoa doesn't support drawing regions
 name|QTRY_VERIFY
 argument_list|(
@@ -29156,7 +29147,7 @@ expr_stmt|;
 comment|// Antialiasing
 ifndef|#
 directive|ifndef
-name|QT_MAC_USE_COCOA
+name|Q_OS_MAC
 comment|//cocoa doesn't support drawing regions
 name|QTRY_VERIFY
 argument_list|(
