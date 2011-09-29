@@ -274,6 +274,12 @@ operator|<=
 literal|0
 operator|)
 expr_stmt|;
+name|setSerialNumber
+argument_list|(
+operator|++
+name|global_ser_no
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
