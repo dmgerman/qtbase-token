@@ -484,7 +484,7 @@ name|wnd
 init|=
 name|QGuiApplicationPrivate
 operator|::
-name|active_window
+name|focus_window
 decl_stmt|;
 if|if
 condition|(

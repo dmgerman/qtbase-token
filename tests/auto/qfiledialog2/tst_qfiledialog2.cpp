@@ -3424,7 +3424,7 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-name|QCOMPARE
+name|QTRY_COMPARE
 argument_list|(
 name|edit
 operator|->

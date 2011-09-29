@@ -184,6 +184,21 @@ expr_stmt|;
 return|return
 literal|true
 return|;
+comment|// these should not be sent to QWidget, the corresponding events
+comment|// are sent by QApplicationPrivate::notifyActiveWindowChange()
+case|case
+name|QEvent
+operator|::
+name|FocusIn
+case|:
+case|case
+name|QEvent
+operator|::
+name|FocusOut
+case|:
+return|return
+literal|false
+return|;
 case|case
 name|QEvent
 operator|::
