@@ -188,16 +188,11 @@ argument_list|()
 operator|=
 literal|0
 block|;
-ifndef|#
-directive|ifndef
-name|QT_NO_BEARERMANAGEMENT
 name|virtual
 name|bool
 name|start
 argument_list|()
 block|;
-endif|#
-directive|endif
 name|virtual
 name|void
 name|closeDownstreamChannel
