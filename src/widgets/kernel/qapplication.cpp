@@ -11312,7 +11312,7 @@ modifier|&
 name|globalPos
 parameter_list|,
 name|QPoint
-modifier|&
+modifier|*
 name|pos
 parameter_list|,
 name|QEvent
@@ -11434,6 +11434,7 @@ name|receiver
 operator|=
 name|mouseGrabber
 expr_stmt|;
+operator|*
 name|pos
 operator|=
 name|receiver

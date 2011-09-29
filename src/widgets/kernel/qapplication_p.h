@@ -2226,7 +2226,7 @@ argument|QWidget *candidate
 argument_list|,
 argument|const QPoint&globalPos
 argument_list|,
-argument|QPoint&pos
+argument|QPoint *pos
 argument_list|,
 argument|QEvent::Type type
 argument_list|,
