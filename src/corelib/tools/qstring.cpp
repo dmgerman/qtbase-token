@@ -26997,23 +26997,29 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the plain text string \a plain to a HTML string with     HTML metacharacters \c{<}, \c{>}, \c{&}, and \c{"} replaced by HTML     entities.      Example:      \snippet doc/src/snippets/code/src_gui_text_qtextdocument.cpp 0      This function is defined in the \c<QString> header file.      \sa convertFromPlainText(), mightBeRichText() */
+comment|/*!     \obsolete     \fn QString Qt::escape(const QString&plain)      \sa QString::toHtmlEscaped() */
+end_comment
+begin_comment
+comment|/*!     Converts the plain text string \a plain to a HTML string with     HTML metacharacters \c{<}, \c{>}, \c{&}, and \c{"} replaced by HTML     entities.      Example:      \snippet doc/src/snippets/code/src_corelib_tools_qstring.cpp 7 */
 end_comment
 begin_function
-DECL|function|escape
+DECL|function|toHtmlEscaped
 name|QString
-name|Qt
+name|QString
 operator|::
-name|escape
-parameter_list|(
+name|toHtmlEscaped
+parameter_list|()
 specifier|const
-name|QString
-modifier|&
-name|plain
-parameter_list|)
 block|{
 name|QString
 name|rich
+decl_stmt|;
+specifier|const
+name|int
+name|len
+init|=
+name|length
+argument_list|()
 decl_stmt|;
 name|rich
 operator|.
@@ -27021,10 +27027,7 @@ name|reserve
 argument_list|(
 name|int
 argument_list|(
-name|plain
-operator|.
-name|length
-argument_list|()
+name|len
 operator|*
 literal|1.1
 argument_list|)
@@ -27039,10 +27042,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|plain
-operator|.
-name|length
-argument_list|()
+name|len
 condition|;
 operator|++
 name|i
@@ -27050,8 +27050,6 @@ control|)
 block|{
 if|if
 condition|(
-name|plain
-operator|.
 name|at
 argument_list|(
 name|i
@@ -27072,8 +27070,6 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|plain
-operator|.
 name|at
 argument_list|(
 name|i
@@ -27094,8 +27090,6 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|plain
-operator|.
 name|at
 argument_list|(
 name|i
@@ -27116,8 +27110,6 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|plain
-operator|.
 name|at
 argument_list|(
 name|i
@@ -27138,8 +27130,6 @@ expr_stmt|;
 else|else
 name|rich
 operator|+=
-name|plain
-operator|.
 name|at
 argument_list|(
 name|i
