@@ -329,6 +329,13 @@ argument_list|(
 name|w
 argument_list|)
 block|,
+name|nullWindow
+argument_list|(
+name|w
+operator|==
+literal|0
+argument_list|)
+block|,
 name|timestamp
 argument_list|(
 argument|time
@@ -339,6 +346,9 @@ operator|<
 name|QWindow
 operator|>
 name|window
+block|;
+name|bool
+name|nullWindow
 block|;
 name|unsigned
 name|long
