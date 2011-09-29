@@ -592,17 +592,13 @@ name|i
 control|)
 name|delete
 index|[]
-name|static_cast
-operator|<
-name|ElementType
-operator|*
-operator|>
-operator|(
 name|_v
 index|[
 name|i
 index|]
-operator|)
+operator|.
+name|load
+argument_list|()
 expr_stmt|;
 block|}
 end_expr_stmt
@@ -652,10 +648,15 @@ name|x
 argument_list|)
 block|;
 return|return
+operator|(
 name|_v
 index|[
 name|block
 index|]
+operator|.
+name|load
+argument_list|()
+operator|)
 index|[
 name|x
 index|]
@@ -712,10 +713,15 @@ name|x
 argument_list|)
 block|;
 return|return
+operator|(
 name|_v
 index|[
 name|block
 index|]
+operator|.
+name|load
+argument_list|()
+operator|)
 index|[
 name|x
 index|]
@@ -765,8 +771,10 @@ block|{
 name|id
 operator|=
 name|_next
+operator|.
+name|load
+argument_list|()
 expr_stmt|;
-comment|// .loadAqcuire();
 name|at
 operator|=
 name|id
@@ -790,6 +798,9 @@ name|_v
 index|[
 name|block
 index|]
+operator|.
+name|loadAcquire
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -846,6 +857,9 @@ name|_v
 index|[
 name|block
 index|]
+operator|.
+name|loadAcquire
+argument_list|()
 expr_stmt|;
 name|Q_ASSERT
 argument_list|(
@@ -882,7 +896,7 @@ operator|(
 operator|!
 name|_next
 operator|.
-name|testAndSetRelease
+name|testAndSetRelaxed
 argument_list|(
 name|id
 argument_list|,
@@ -964,6 +978,9 @@ name|_v
 index|[
 name|block
 index|]
+operator|.
+name|load
+argument_list|()
 block|;
 name|int
 name|x
@@ -975,8 +992,10 @@ block|{
 name|x
 operator|=
 name|_next
+operator|.
+name|loadAcquire
+argument_list|()
 expr_stmt|;
-comment|// .loadAcquire();
 name|v
 index|[
 name|at
