@@ -295,6 +295,11 @@ name|format
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QSurfaceFormat
+name|requestedFormat
+argument_list|()
+specifier|const
+expr_stmt|;
 name|void
 name|setWindowFlags
 argument_list|(
