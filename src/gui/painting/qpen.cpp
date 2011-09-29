@@ -79,6 +79,11 @@ name|PenJoinStyle
 name|_joinStyle
 parameter_list|)
 member_init_list|:
+name|ref
+argument_list|(
+literal|1
+argument_list|)
+member_init_list|,
 name|dashOffset
 argument_list|(
 literal|0
@@ -94,10 +99,6 @@ argument_list|(
 literal|false
 argument_list|)
 block|{
-name|ref
-operator|=
-literal|1
-expr_stmt|;
 name|width
 operator|=
 name|_width
@@ -499,6 +500,9 @@ condition|(
 name|d
 operator|->
 name|ref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 condition|)
@@ -1764,6 +1768,9 @@ return|return
 name|d
 operator|->
 name|ref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 return|;

@@ -986,6 +986,9 @@ block|{
 name|Q_ASSERT
 argument_list|(
 name|ref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 argument_list|)

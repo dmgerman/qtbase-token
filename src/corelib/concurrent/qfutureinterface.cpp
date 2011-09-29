@@ -1896,6 +1896,9 @@ return|return
 name|d
 operator|->
 name|refCount
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 return|;

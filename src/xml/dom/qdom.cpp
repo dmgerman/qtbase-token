@@ -14967,6 +14967,9 @@ operator|&&
 name|p
 operator|->
 name|ref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 condition|)

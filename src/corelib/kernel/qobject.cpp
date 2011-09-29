@@ -3043,17 +3043,26 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
+name|QtSharedPointer
+operator|::
+name|ExternalRefCountData
+modifier|*
+name|sharedRefcount
+init|=
 name|d
 operator|->
+name|sharedRefcount
+operator|.
+name|load
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
 name|sharedRefcount
 condition|)
 block|{
 if|if
 condition|(
-name|d
-operator|->
 name|sharedRefcount
 operator|->
 name|strongref
@@ -3072,8 +3081,6 @@ expr_stmt|;
 comment|// but continue deleting, it's too late to stop anyway
 block|}
 comment|// indicate to all QWeakPointers that this QObject has now been deleted
-name|d
-operator|->
 name|sharedRefcount
 operator|->
 name|strongref
@@ -3086,8 +3093,6 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|d
-operator|->
 name|sharedRefcount
 operator|->
 name|weakref
@@ -3096,8 +3101,6 @@ name|deref
 argument_list|()
 condition|)
 operator|delete
-name|d
-operator|->
 name|sharedRefcount
 expr_stmt|;
 block|}

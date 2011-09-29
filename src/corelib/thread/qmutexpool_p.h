@@ -128,6 +128,9 @@ name|mutexes
 index|[
 name|index
 index|]
+operator|.
+name|load
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

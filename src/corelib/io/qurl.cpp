@@ -41286,6 +41286,9 @@ operator|||
 name|d
 operator|->
 name|ref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 return|;

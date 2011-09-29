@@ -251,6 +251,11 @@ condition|(
 name|d
 operator|->
 name|sharedRefcount
+operator|.
+name|load
+argument_list|()
+operator|!=
+literal|0
 condition|)
 name|qFatal
 argument_list|(
@@ -262,8 +267,11 @@ expr_stmt|;
 name|d
 operator|->
 name|sharedRefcount
-operator|=
+operator|.
+name|store
+argument_list|(
 name|this
+argument_list|)
 expr_stmt|;
 comment|// QObject decreases the refcount too, so increase it up
 name|weakref
@@ -333,6 +341,9 @@ init|=
 name|d
 operator|->
 name|sharedRefcount
+operator|.
+name|load
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -401,9 +412,16 @@ block|{
 operator|delete
 name|x
 expr_stmt|;
+name|x
+operator|=
 name|d
 operator|->
 name|sharedRefcount
+operator|.
+name|loadAcquire
+argument_list|()
+expr_stmt|;
+name|x
 operator|->
 name|weakref
 operator|.
@@ -412,12 +430,7 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|d
-operator|->
-name|sharedRefcount
-operator|.
-name|loadAcquire
-argument_list|()
+name|x
 return|;
 block|}
 end_function

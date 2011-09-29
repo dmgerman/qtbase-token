@@ -860,11 +860,12 @@ parameter_list|()
 member_init_list|:
 name|QObject
 argument_list|()
-block|{
+member_init_list|,
 name|ref
-operator|=
+argument_list|(
 literal|0
-expr_stmt|;
+argument_list|)
+block|{
 name|cache_count
 operator|=
 literal|0
@@ -8575,6 +8576,9 @@ operator|&&
 name|fontEngine
 operator|->
 name|ref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 condition|)

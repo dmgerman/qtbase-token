@@ -128,6 +128,9 @@ block|{
 name|Q_ASSERT
 argument_list|(
 name|_ref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 argument_list|)
@@ -256,6 +259,9 @@ expr_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|_ref
+operator|.
+name|load
+argument_list|()
 operator|!=
 literal|0
 argument_list|)

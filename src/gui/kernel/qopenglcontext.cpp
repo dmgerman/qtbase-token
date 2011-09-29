@@ -1918,6 +1918,9 @@ name|QT_NO_DEBUG
 if|if
 condition|(
 name|active
+operator|.
+name|load
+argument_list|()
 operator|!=
 literal|0
 condition|)

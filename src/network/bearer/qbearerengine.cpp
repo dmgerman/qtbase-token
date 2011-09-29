@@ -301,6 +301,9 @@ name|value
 argument_list|()
 operator|->
 name|ref
+operator|.
+name|load
+argument_list|()
 operator|>
 literal|1
 condition|)
@@ -340,6 +343,9 @@ name|value
 argument_list|()
 operator|->
 name|ref
+operator|.
+name|load
+argument_list|()
 operator|>
 literal|1
 condition|)
@@ -379,6 +385,9 @@ name|value
 argument_list|()
 operator|->
 name|ref
+operator|.
+name|load
+argument_list|()
 operator|>
 literal|1
 condition|)

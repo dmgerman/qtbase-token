@@ -719,6 +719,9 @@ condition|)
 return|return
 operator|(
 name|currentIndex
+operator|.
+name|load
+argument_list|()
 operator|<
 name|iterationCount
 operator|)
@@ -734,6 +737,9 @@ comment|// whileIteration
 return|return
 operator|(
 name|iteratorThreads
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 operator|)
@@ -811,6 +817,9 @@ decl_stmt|;
 if|if
 condition|(
 name|currentIndex
+operator|.
+name|load
+argument_list|()
 operator|>=
 name|iterationCount
 condition|)
@@ -944,6 +953,9 @@ argument_list|(
 name|this
 operator|->
 name|completed
+operator|.
+name|load
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

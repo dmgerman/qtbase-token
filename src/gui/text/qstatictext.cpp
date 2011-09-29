@@ -129,6 +129,9 @@ operator|||
 name|data
 operator|->
 name|ref
+operator|.
+name|load
+argument_list|()
 operator|>=
 literal|1
 argument_list|)
@@ -151,6 +154,9 @@ condition|(
 name|data
 operator|->
 name|ref
+operator|.
+name|load
+argument_list|()
 operator|!=
 literal|1
 condition|)

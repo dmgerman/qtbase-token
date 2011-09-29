@@ -136,6 +136,9 @@ name|load
 argument_list|()
 operator|->
 name|possiblyUnlocked
+operator|.
+name|load
+argument_list|()
 operator|&&
 name|tryLock
 argument_list|()
@@ -363,6 +366,9 @@ operator|!
 name|d
 operator|->
 name|possiblyUnlocked
+operator|.
+name|load
+argument_list|()
 condition|)
 return|return
 literal|false
@@ -407,6 +413,9 @@ operator|=
 name|d
 operator|->
 name|waiters
+operator|.
+name|load
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -584,6 +593,9 @@ condition|(
 name|d
 operator|->
 name|possiblyUnlocked
+operator|.
+name|load
+argument_list|()
 operator|&&
 name|d
 operator|->
@@ -780,6 +792,9 @@ condition|(
 name|d
 operator|->
 name|possiblyUnlocked
+operator|.
+name|load
+argument_list|()
 operator|&&
 name|d
 operator|->
@@ -959,6 +974,9 @@ argument_list|(
 name|d
 operator|->
 name|refCount
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 argument_list|)
@@ -977,6 +995,9 @@ operator|!
 name|d
 operator|->
 name|possiblyUnlocked
+operator|.
+name|load
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Q_ASSERT
@@ -984,6 +1005,9 @@ argument_list|(
 name|d
 operator|->
 name|waiters
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 argument_list|)
@@ -1016,6 +1040,9 @@ expr_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|refCount
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 argument_list|)
@@ -1024,11 +1051,17 @@ name|Q_ASSERT
 argument_list|(
 operator|!
 name|possiblyUnlocked
+operator|.
+name|load
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|waiters
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 argument_list|)
@@ -1068,6 +1101,9 @@ block|{
 name|old_waiters
 operator|=
 name|waiters
+operator|.
+name|load
+argument_list|()
 expr_stmt|;
 name|new_waiters
 operator|=

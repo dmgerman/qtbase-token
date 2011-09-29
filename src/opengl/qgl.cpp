@@ -880,6 +880,9 @@ condition|(
 name|d
 operator|->
 name|ref
+operator|.
+name|load
+argument_list|()
 operator|!=
 literal|1
 condition|)
@@ -14805,6 +14808,9 @@ operator|->
 name|group
 operator|->
 name|m_refs
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|1
 argument_list|)

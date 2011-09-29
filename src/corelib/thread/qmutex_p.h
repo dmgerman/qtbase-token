@@ -134,6 +134,9 @@ block|{
 name|Q_ASSERT
 argument_list|(
 name|refCount
+operator|.
+name|load
+argument_list|()
 operator|>=
 literal|0
 argument_list|)
@@ -146,6 +149,9 @@ block|{
 name|c
 operator|=
 name|refCount
+operator|.
+name|load
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -175,6 +181,9 @@ do|;
 name|Q_ASSERT
 argument_list|(
 name|refCount
+operator|.
+name|load
+argument_list|()
 operator|>=
 literal|0
 argument_list|)
@@ -190,6 +199,9 @@ block|{
 name|Q_ASSERT
 argument_list|(
 name|refCount
+operator|.
+name|load
+argument_list|()
 operator|>=
 literal|0
 argument_list|)
@@ -208,6 +220,9 @@ expr_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|refCount
+operator|.
+name|load
+argument_list|()
 operator|>=
 literal|0
 argument_list|)

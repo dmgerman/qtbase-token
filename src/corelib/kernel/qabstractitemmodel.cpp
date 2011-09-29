@@ -211,6 +211,9 @@ argument_list|(
 name|data
 operator|->
 name|ref
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 argument_list|)
