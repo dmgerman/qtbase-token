@@ -189,16 +189,6 @@ parameter_list|)
 function_decl|;
 name|Q_GUI_EXPORT
 name|QString
-name|escape
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|plain
-parameter_list|)
-function_decl|;
-name|Q_GUI_EXPORT
-name|QString
 name|convertFromPlainText
 parameter_list|(
 specifier|const

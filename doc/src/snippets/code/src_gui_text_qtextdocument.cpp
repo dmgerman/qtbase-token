@@ -5,32 +5,6 @@ end_comment
 begin_comment
 comment|//! [0]
 end_comment
-begin_decl_stmt
-DECL|variable|plain
-name|QString
-name|plain
-init|=
-literal|"#include<QtCore>"
-name|QString
-name|html
-operator|=
-name|Qt
-operator|::
-name|escape
-argument_list|(
-name|plain
-argument_list|)
-decl_stmt|;
-end_decl_stmt
-begin_comment
-comment|// html == "#include&lt;QtCore&gt;"
-end_comment
-begin_comment
-comment|//! [0]
-end_comment
-begin_comment
-comment|//! [1]
-end_comment
 begin_expr_stmt
 operator|<
 name|html
@@ -59,6 +33,6 @@ operator|>
 operator|...
 end_expr_stmt
 begin_comment
-comment|//! [1]
+comment|//! [0]
 end_comment
 end_unit

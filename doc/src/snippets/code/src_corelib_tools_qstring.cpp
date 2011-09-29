@@ -197,4 +197,29 @@ end_decl_stmt
 begin_comment
 comment|//! [6]
 end_comment
+begin_comment
+comment|//! [7]
+end_comment
+begin_decl_stmt
+name|QString
+name|plain
+init|=
+literal|"#include<QtCore>"
+name|QString
+name|html
+operator|=
+name|Qt
+operator|::
+name|escape
+argument_list|(
+name|plain
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// html == "#include&lt;QtCore&gt;"
+end_comment
+begin_comment
+comment|//! [7]
+end_comment
 end_unit
