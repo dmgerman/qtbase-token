@@ -8784,6 +8784,9 @@ decl_stmt|;
 name|QVERIFY
 argument_list|(
 name|counter
+operator|.
+name|load
+argument_list|()
 operator|>=
 name|minValue
 argument_list|)
@@ -8791,6 +8794,9 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|counter
+operator|.
+name|load
+argument_list|()
 operator|<=
 name|maxValue
 argument_list|)
