@@ -10347,7 +10347,7 @@ argument_list|)
 argument_list|)
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 operator|<<
 name|QString
 argument_list|(

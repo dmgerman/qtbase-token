@@ -227,7 +227,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// applicationDirPath() points to a path inside the app bundle on Mac.
 name|QDir
 name|dir

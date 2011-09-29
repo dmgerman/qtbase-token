@@ -1121,7 +1121,7 @@ literal|true
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 name|QSysInfo
@@ -2760,7 +2760,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 ifndef|#
 directive|ifndef
 name|Q_OS_WINCE

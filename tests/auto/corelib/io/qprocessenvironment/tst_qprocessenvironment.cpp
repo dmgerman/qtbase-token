@@ -1277,7 +1277,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 comment|// Windows CE has no environment
 name|QVERIFY
 argument_list|(
@@ -1423,7 +1423,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|QSKIP
 argument_list|(
 literal|"Windows CE has no environment"

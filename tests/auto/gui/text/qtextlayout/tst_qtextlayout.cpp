@@ -6374,7 +6374,7 @@ block|}
 end_function
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
-specifier|extern
+name|Q_GUI_EXPORT
 name|int
 name|qt_defaultDpiY
 parameter_list|()

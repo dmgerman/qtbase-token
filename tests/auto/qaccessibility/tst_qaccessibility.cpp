@@ -623,9 +623,6 @@ name|middleChild
 decl_stmt|,
 modifier|*
 name|if2
-decl_stmt|,
-modifier|*
-name|if3
 decl_stmt|;
 name|middleChild
 operator|=
@@ -22955,7 +22952,7 @@ operator|::
 name|Name
 argument_list|)
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"one"
 argument_list|)
@@ -22974,7 +22971,7 @@ operator|::
 name|Value
 argument_list|)
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"one"
 argument_list|)
@@ -23001,7 +22998,7 @@ operator|::
 name|Name
 argument_list|)
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"three"
 argument_list|)
@@ -23020,7 +23017,7 @@ operator|::
 name|Value
 argument_list|)
 argument_list|,
-name|QStringLiteral
+name|QLatin1String
 argument_list|(
 literal|"three"
 argument_list|)

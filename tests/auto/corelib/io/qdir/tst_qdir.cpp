@@ -748,7 +748,7 @@ directive|if
 operator|(
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 operator|&&
 operator|!
@@ -1831,7 +1831,7 @@ directive|if
 operator|(
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 operator|&&
 operator|!
@@ -4145,7 +4145,7 @@ directive|endif
 comment|//Q_NO_SYMLINKS
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 name|qstrcmp
@@ -5032,7 +5032,7 @@ comment|// remove the ending slash
 if|#
 directive|if
 name|defined
-name|Q_WS_WIN
+name|Q_OS_WIN
 if|if
 condition|(
 name|appPath
@@ -5108,7 +5108,7 @@ literal|"/testData"
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|QTest
 operator|::
 name|newRow
@@ -5554,7 +5554,7 @@ comment|// remove the ending slash
 if|#
 directive|if
 name|defined
-name|Q_WS_WIN
+name|Q_OS_WIN
 if|if
 condition|(
 name|appPath
@@ -5639,7 +5639,7 @@ literal|"/testData"
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|QTest
 operator|::
 name|newRow

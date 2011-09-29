@@ -2608,7 +2608,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|filename
 operator|=
 name|QFileInfo
@@ -2725,7 +2725,7 @@ block|}
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|QSKIP
 argument_list|(
 literal|"Currently low level file I/O not well supported on Windows CE"
@@ -5578,7 +5578,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 name|QTest
 operator|::
@@ -6885,7 +6885,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 comment|// Need to reset permissions on Windows to be able to delete
 name|QVERIFY
 argument_list|(
@@ -10426,7 +10426,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/* #include<qglobal.h> #define BUFFSIZE 1 #define FILESIZE   0x10000000f void tst_QFile::largeFileSupport() { #ifdef Q_OS_SOLARIS     QSKIP("Solaris does not support statfs", SkipAll); #else     qlonglong sizeNeeded = 2147483647;     sizeNeeded *= 2;     sizeNeeded += 1024;     qlonglong freespace = qlonglong(0); #ifdef Q_WS_WIN     _ULARGE_INTEGER free;     if (::GetDiskFreeSpaceEx((wchar_t*)QDir::currentPath().utf16(),&free, 0, 0))         freespace = free.QuadPart;     if (freespace != 0) { #elif defined(Q_OS_IRIX)     struct statfs info;     if (statfs(QDir::currentPath().local8Bit(),&info, sizeof(struct statfs), 0) == 0) {         freespace = qlonglong(info.f_bfree * info.f_bsize); #else     struct statfs info;     if (statfs(const_cast<char *>(QDir::currentPath().toLocal8Bit().constData()),&info) == 0) {         freespace = qlonglong(info.f_bavail * info.f_bsize); #endif         if (freespace> sizeNeeded) {             QFile bigFile("bigfile");             if (bigFile.open(QFile::ReadWrite)) {                 char c[BUFFSIZE] = {'a'};                 QVERIFY(bigFile.write(c, BUFFSIZE) == BUFFSIZE);                 qlonglong oldPos = bigFile.pos();                 QVERIFY(bigFile.resize(sizeNeeded));                 QCOMPARE(oldPos, bigFile.pos());                 QVERIFY(bigFile.seek(sizeNeeded - BUFFSIZE));                 QVERIFY(bigFile.write(c, BUFFSIZE) == BUFFSIZE);                  bigFile.close();                 if (bigFile.open(QFile::ReadOnly)) {                     QVERIFY(bigFile.read(c, BUFFSIZE) == BUFFSIZE);                     int i = 0;                     for (i=0; i<BUFFSIZE; i++)                         QCOMPARE(c[i], 'a');                     QVERIFY(bigFile.seek(sizeNeeded - BUFFSIZE));                     QVERIFY(bigFile.read(c, BUFFSIZE) == BUFFSIZE);                     for (i=0; i<BUFFSIZE; i++)                         QCOMPARE(c[i], 'a');                     bigFile.close();                     QVERIFY(bigFile.remove());                 } else {                     QVERIFY(bigFile.remove());                     QFAIL("Could not reopen file");                 }             } else {                 QFAIL("Could not open file");             }         } else {             QSKIP("Not enough space to run test", SkipSingle);         }     } else {         QFAIL("Could not determin disk space");     } #endif } */
+comment|/* #include<qglobal.h> #define BUFFSIZE 1 #define FILESIZE   0x10000000f void tst_QFile::largeFileSupport() { #ifdef Q_OS_SOLARIS     QSKIP("Solaris does not support statfs", SkipAll); #else     qlonglong sizeNeeded = 2147483647;     sizeNeeded *= 2;     sizeNeeded += 1024;     qlonglong freespace = qlonglong(0); #ifdef Q_OS_WIN     _ULARGE_INTEGER free;     if (::GetDiskFreeSpaceEx((wchar_t*)QDir::currentPath().utf16(),&free, 0, 0))         freespace = free.QuadPart;     if (freespace != 0) { #elif defined(Q_OS_IRIX)     struct statfs info;     if (statfs(QDir::currentPath().local8Bit(),&info, sizeof(struct statfs), 0) == 0) {         freespace = qlonglong(info.f_bfree * info.f_bsize); #else     struct statfs info;     if (statfs(const_cast<char *>(QDir::currentPath().toLocal8Bit().constData()),&info) == 0) {         freespace = qlonglong(info.f_bavail * info.f_bsize); #endif         if (freespace> sizeNeeded) {             QFile bigFile("bigfile");             if (bigFile.open(QFile::ReadWrite)) {                 char c[BUFFSIZE] = {'a'};                 QVERIFY(bigFile.write(c, BUFFSIZE) == BUFFSIZE);                 qlonglong oldPos = bigFile.pos();                 QVERIFY(bigFile.resize(sizeNeeded));                 QCOMPARE(oldPos, bigFile.pos());                 QVERIFY(bigFile.seek(sizeNeeded - BUFFSIZE));                 QVERIFY(bigFile.write(c, BUFFSIZE) == BUFFSIZE);                  bigFile.close();                 if (bigFile.open(QFile::ReadOnly)) {                     QVERIFY(bigFile.read(c, BUFFSIZE) == BUFFSIZE);                     int i = 0;                     for (i=0; i<BUFFSIZE; i++)                         QCOMPARE(c[i], 'a');                     QVERIFY(bigFile.seek(sizeNeeded - BUFFSIZE));                     QVERIFY(bigFile.read(c, BUFFSIZE) == BUFFSIZE);                     for (i=0; i<BUFFSIZE; i++)                         QCOMPARE(c[i], 'a');                     bigFile.close();                     QVERIFY(bigFile.remove());                 } else {                     QVERIFY(bigFile.remove());                     QFAIL("Could not reopen file");                 }             } else {                 QFAIL("Could not open file");             }         } else {             QSKIP("Not enough space to run test", SkipSingle);         }     } else {         QFAIL("Could not determin disk space");     } #endif } */
 end_comment
 begin_function
 DECL|function|i18nFileName_data
@@ -16048,7 +16048,7 @@ literal|"qfile_map_testfile"
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|fileName
 operator|=
 name|QFileInfo
@@ -17431,7 +17431,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 comment|//allthough Windows CE (not mobile!) has functions that allow redirecting
 comment|//the standard file descriptors to a file (see SetStdioPathW/GetStdioPathW)
 comment|//it does not have functions to simply open them like below .
