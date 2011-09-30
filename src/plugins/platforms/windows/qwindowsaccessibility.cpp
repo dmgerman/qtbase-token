@@ -80,7 +80,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qt_windows.h"
+file|<OleAcc.h>
 end_include
 begin_comment
 comment|//#include<uiautomationcoreapi.h>
