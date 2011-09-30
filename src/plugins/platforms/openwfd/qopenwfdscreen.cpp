@@ -395,7 +395,7 @@ block|}
 end_function
 begin_function
 DECL|function|physicalSize
-name|QSize
+name|QSizeF
 name|QOpenWFDScreen
 operator|::
 name|physicalSize
@@ -406,9 +406,6 @@ return|return
 name|mPort
 operator|->
 name|physicalSize
-argument_list|()
-operator|.
-name|toSize
 argument_list|()
 return|;
 block|}

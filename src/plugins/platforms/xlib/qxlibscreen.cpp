@@ -706,7 +706,7 @@ argument_list|)
 decl_stmt|;
 name|mPhysicalSize
 operator|=
-name|QSize
+name|QSizeF
 argument_list|(
 name|physicalWidth
 argument_list|,

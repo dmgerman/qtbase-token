@@ -99,7 +99,7 @@ return|return
 name|m_format
 return|;
 block|}
-name|QSize
+name|QSizeF
 name|physicalSize
 argument_list|()
 specifier|const
@@ -121,7 +121,7 @@ operator|::
 name|Format
 name|m_format
 block|;
-name|QSize
+name|QSizeF
 name|m_physicalSize
 block|;
 name|IDirectFBDisplayLayer

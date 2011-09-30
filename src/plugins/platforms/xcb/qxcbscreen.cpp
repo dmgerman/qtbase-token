@@ -872,7 +872,7 @@ block|}
 end_function
 begin_function
 DECL|function|physicalSize
-name|QSize
+name|QSizeF
 name|QXcbScreen
 operator|::
 name|physicalSize
@@ -880,7 +880,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-name|QSize
+name|QSizeF
 argument_list|(
 name|m_screen
 operator|->

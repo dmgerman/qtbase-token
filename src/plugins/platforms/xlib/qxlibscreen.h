@@ -92,7 +92,7 @@ return|return
 name|mFormat
 return|;
 block|}
-name|QSize
+name|QSizeF
 name|physicalSize
 argument_list|()
 specifier|const
@@ -249,7 +249,7 @@ function_decl|;
 name|QRect
 name|mGeometry
 decl_stmt|;
-name|QSize
+name|QSizeF
 name|mPhysicalSize
 decl_stmt|;
 name|int

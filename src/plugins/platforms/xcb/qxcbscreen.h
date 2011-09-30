@@ -120,7 +120,7 @@ name|format
 argument_list|()
 specifier|const
 expr_stmt|;
-name|QSize
+name|QSizeF
 name|physicalSize
 argument_list|()
 specifier|const

@@ -197,7 +197,7 @@ block|}
 end_function
 begin_function
 DECL|function|physicalSize
-name|QSize
+name|QSizeF
 name|QKmsScreen
 operator|::
 name|physicalSize
@@ -420,7 +420,7 @@ name|Format_RGB32
 expr_stmt|;
 name|m_physicalSize
 operator|=
-name|QSize
+name|QSizeF
 argument_list|(
 name|connector
 operator|->

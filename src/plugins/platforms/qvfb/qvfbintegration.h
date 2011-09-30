@@ -71,7 +71,7 @@ name|format
 argument_list|()
 specifier|const
 block|;
-name|QSize
+name|QSizeF
 name|physicalSize
 argument_list|()
 specifier|const
