@@ -344,9 +344,9 @@ if|if
 condition|(
 name|m_connection
 condition|)
-name|printf
+name|qDebug
 argument_list|(
-literal|"Successfully connected to display %s\n"
+literal|"Successfully connected to display %s"
 argument_list|,
 name|m_displayName
 operator|.
@@ -844,7 +844,7 @@ parameter_list|(
 name|ev
 parameter_list|)
 define|\
-value|case ev: \         printf("%s: %d - %s - sequence: %d\n", message, int(ev), #ev, event->sequence); \         break;
+value|case ev: \         qDebug("%s: %d - %s - sequence: %d", message, int(ev), #ev, event->sequence); \         break;
 switch|switch
 condition|(
 name|event
@@ -1016,9 +1016,9 @@ name|XCB_MAPPING_NOTIFY
 argument_list|)
 expr_stmt|;
 default|default:
-name|printf
+name|qDebug
 argument_list|(
-literal|"%s: unknown event - response_type: %d - sequence: %d\n"
+literal|"%s: unknown event - response_type: %d - sequence: %d"
 argument_list|,
 name|message
 argument_list|,
@@ -1493,9 +1493,9 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-name|printf
+name|qDebug
 argument_list|(
-literal|"XCB error: %d (%s), sequence: %d, resource id: %d, major code: %d (%s), minor code: %d\n"
+literal|"XCB error: %d (%s), sequence: %d, resource id: %d, major code: %d (%s), minor code: %d"
 argument_list|,
 name|int
 argument_list|(
@@ -1588,9 +1588,9 @@ operator|->
 name|sequence
 condition|)
 block|{
-name|printf
+name|qDebug
 argument_list|(
-literal|"Caused by: %s:%d\n"
+literal|"Caused by: %s:%d"
 argument_list|,
 name|qPrintable
 argument_list|(
@@ -1633,9 +1633,9 @@ operator|->
 name|sequence
 condition|)
 block|{
-name|printf
+name|qDebug
 argument_list|(
-literal|"Caused some time before: %s:%d\n"
+literal|"Caused some time before: %s:%d"
 argument_list|,
 name|qPrintable
 argument_list|(
@@ -1665,9 +1665,9 @@ name|i
 operator|>
 literal|0
 condition|)
-name|printf
+name|qDebug
 argument_list|(
-literal|"and after: %s:%d\n"
+literal|"and after: %s:%d"
 argument_list|,
 name|qPrintable
 argument_list|(
@@ -1713,9 +1713,9 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-name|printf
+name|qDebug
 argument_list|(
-literal|"Caused some time after: %s:%d\n"
+literal|"Caused some time after: %s:%d"
 argument_list|,
 name|qPrintable
 argument_list|(
@@ -3942,11 +3942,9 @@ operator|->
 name|authenticated
 condition|)
 block|{
-name|fprintf
+name|qWarning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"DRI2: failed to authenticate\n"
+literal|"DRI2: failed to authenticate"
 argument_list|)
 expr_stmt|;
 name|free
@@ -3973,11 +3971,9 @@ operator|!
 name|display
 condition|)
 block|{
-name|fprintf
+name|qWarning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"failed to create display\n"
+literal|"failed to create display"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -4006,11 +4002,9 @@ name|minor
 argument_list|)
 condition|)
 block|{
-name|fprintf
+name|qWarning
 argument_list|(
-name|stderr
-argument_list|,
-literal|"failed to initialize display\n"
+literal|"failed to initialize display"
 argument_list|)
 expr_stmt|;
 return|return;

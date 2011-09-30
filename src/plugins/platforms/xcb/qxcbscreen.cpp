@@ -27,6 +27,11 @@ include|#
 directive|include
 file|<stdio.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QDebug>
+end_include
 begin_constructor
 DECL|function|QXcbScreen
 name|QXcbScreen
@@ -60,69 +65,65 @@ argument_list|(
 name|number
 argument_list|)
 block|{
-name|printf
-argument_list|(
-literal|"\n"
-argument_list|)
+name|qDebug
+argument_list|()
 expr_stmt|;
-name|printf
+name|qDebug
 argument_list|(
-literal|"Information of screen %d:\n"
+literal|"Information of screen %d:"
 argument_list|,
 name|screen
 operator|->
 name|root
 argument_list|)
 expr_stmt|;
-name|printf
+name|qDebug
 argument_list|(
-literal|"  width.........: %d\n"
+literal|"  width.........: %d"
 argument_list|,
 name|screen
 operator|->
 name|width_in_pixels
 argument_list|)
 expr_stmt|;
-name|printf
+name|qDebug
 argument_list|(
-literal|"  height........: %d\n"
+literal|"  height........: %d"
 argument_list|,
 name|screen
 operator|->
 name|height_in_pixels
 argument_list|)
 expr_stmt|;
-name|printf
+name|qDebug
 argument_list|(
-literal|"  depth.........: %d\n"
+literal|"  depth.........: %d"
 argument_list|,
 name|screen
 operator|->
 name|root_depth
 argument_list|)
 expr_stmt|;
-name|printf
+name|qDebug
 argument_list|(
-literal|"  white pixel...: %x\n"
+literal|"  white pixel...: %x"
 argument_list|,
 name|screen
 operator|->
 name|white_pixel
 argument_list|)
 expr_stmt|;
-name|printf
+name|qDebug
 argument_list|(
-literal|"  black pixel...: %x\n"
+literal|"  black pixel...: %x"
 argument_list|,
 name|screen
 operator|->
 name|black_pixel
 argument_list|)
 expr_stmt|;
-name|printf
-argument_list|(
-literal|"\n"
-argument_list|)
+name|qDebug
+argument_list|()
 expr_stmt|;
 specifier|const
 name|quint32
@@ -324,9 +325,9 @@ name|windowManagerReply
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|printf
+name|qDebug
 argument_list|(
-literal|"Running window manager: %s\n"
+literal|"Running window manager: %s"
 argument_list|,
 name|qPrintable
 argument_list|(
