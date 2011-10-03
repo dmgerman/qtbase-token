@@ -95,6 +95,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qscreen.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qthread.h"
 end_include
 begin_include
@@ -3674,7 +3679,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the default pixmap depth used by the application.      On Windows and Mac, the default depth is always 32. On X11 and     embedded, the depth of the screen will be returned by this     function.      \sa depth(), QColormap::depth(), {QPixmap#Pixmap Information}{Pixmap Information}  */
+comment|/*!     Returns the default pixmap depth used by the application.      On all platforms the depth of the primary screen will be returned.      \sa depth(), QColormap::depth(), {QPixmap#Pixmap Information}{Pixmap Information}  */
 end_comment
 begin_function
 DECL|function|defaultDepth
@@ -3685,9 +3690,14 @@ name|defaultDepth
 parameter_list|()
 block|{
 return|return
-literal|32
+name|QGuiApplication
+operator|::
+name|primaryScreen
+argument_list|()
+operator|->
+name|depth
+argument_list|()
 return|;
-comment|// LITE: ### use QPlatformScreen (we should do that in general)
 block|}
 end_function
 begin_comment
