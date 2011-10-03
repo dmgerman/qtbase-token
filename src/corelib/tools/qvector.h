@@ -744,6 +744,15 @@ condition|)
 name|detach
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|!=
+operator|&
+name|QVectorData
+operator|::
+name|shared_null
+condition|)
 name|d
 operator|->
 name|sharable
