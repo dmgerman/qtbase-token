@@ -3766,10 +3766,9 @@ operator|::
 name|Head
 condition|)
 return|return
-operator|!
-name|shouldEmitSignals
-argument_list|()
+literal|false
 return|;
+comment|// no body expected for HEAD request
 name|qint64
 name|expectedContentLength
 init|=
