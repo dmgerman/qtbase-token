@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QTESTLOGGER_P_H
+name|QXUNITTESTLOGGER_P_H
 end_ifndef
 begin_define
-DECL|macro|QTESTLOGGER_P_H
+DECL|macro|QXUNITTESTLOGGER_P_H
 define|#
 directive|define
-name|QTESTLOGGER_P_H
+name|QXUNITTESTLOGGER_P_H
 end_define
 begin_comment
 comment|//
@@ -185,6 +185,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QTESTLOGGER_P_H
+comment|// QXUNITTESTLOGGER_P_H
 end_comment
 end_unit
