@@ -114,6 +114,13 @@ argument_list|(
 name|WindowFrameExclusive
 argument_list|)
 block|,
+name|orientation
+argument_list|(
+name|Qt
+operator|::
+name|UnknownOrientation
+argument_list|)
+block|,
 name|maximumSize
 argument_list|(
 name|QWINDOWSIZE_MAX
@@ -265,6 +272,13 @@ name|PositionPolicy
 name|positionPolicy
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|Qt
+operator|::
+name|ScreenOrientation
+name|orientation
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|QSize
 name|minimumSize

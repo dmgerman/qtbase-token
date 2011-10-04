@@ -115,6 +115,12 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
+DECL|variable|QScreen
+name|class
+name|QScreen
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QInputEvent
@@ -3788,51 +3794,26 @@ name|QEvent
 block|{
 name|public
 operator|:
-expr|enum
-name|Orientation
-block|{
-name|Portrait
-operator|=
-literal|1
-block|,
-name|Landscape
-operator|=
-literal|2
-block|,
-name|PortraitInverted
-operator|=
-literal|4
-block|,
-name|LandscapeInverted
-operator|=
-literal|8
-block|}
-block|;
 name|QScreenOrientationChangeEvent
 argument_list|(
-argument|qint32 screenOrientationInDegrees
-argument_list|)
-block|;
-name|QScreenOrientationChangeEvent
-argument_list|(
-argument|Orientation screenOrientation
+argument|QScreen *screen
+argument_list|,
+argument|Qt::ScreenOrientation orientation
 argument_list|)
 block|;
 operator|~
 name|QScreenOrientationChangeEvent
 argument_list|()
 block|;
-name|bool
-name|isValid
+name|QScreen
+operator|*
+name|screen
 argument_list|()
 specifier|const
 block|;
-name|qint32
-name|orientationInDegrees
-argument_list|()
-specifier|const
-block|;
-name|Orientation
+name|Qt
+operator|::
+name|ScreenOrientation
 name|orientation
 argument_list|()
 specifier|const
@@ -3850,7 +3831,7 @@ operator|*
 name|d_func
 argument_list|()
 specifier|const
-block|;  }
+block|; }
 block|;
 name|QT_END_NAMESPACE
 name|QT_END_HEADER

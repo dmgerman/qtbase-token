@@ -38,6 +38,16 @@ include|#
 directive|include
 file|<QtCore/QSizeF>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QTransform>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qnamespace.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -172,6 +182,59 @@ name|availableVirtualGeometry
 argument_list|()
 specifier|const
 block|;
+name|Qt
+operator|::
+name|ScreenOrientation
+name|primaryOrientation
+argument_list|()
+specifier|const
+block|;
+name|Qt
+operator|::
+name|ScreenOrientation
+name|currentOrientation
+argument_list|()
+specifier|const
+block|;
+specifier|static
+name|int
+name|angleBetween
+argument_list|(
+argument|Qt::ScreenOrientation a
+argument_list|,
+argument|Qt::ScreenOrientation b
+argument_list|)
+block|;
+specifier|static
+name|QTransform
+name|transformBetween
+argument_list|(
+argument|Qt::ScreenOrientation a
+argument_list|,
+argument|Qt::ScreenOrientation b
+argument_list|,
+argument|const QRect&target
+argument_list|)
+block|;
+specifier|static
+name|QRect
+name|mapBetween
+argument_list|(
+argument|Qt::ScreenOrientation a
+argument_list|,
+argument|Qt::ScreenOrientation b
+argument_list|,
+argument|const QRect&rect
+argument_list|)
+block|;
+name|Q_SIGNALS
+operator|:
+name|void
+name|currentOrientationChanged
+argument_list|(
+argument|Qt::ScreenOrientation orientation
+argument_list|)
+block|;
 name|private
 operator|:
 name|QScreen
@@ -185,6 +248,10 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QScreen
 argument_list|)
+name|friend
+name|class
+name|QGuiApplicationPrivate
+block|;
 name|friend
 name|class
 name|QPlatformScreen

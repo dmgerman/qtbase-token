@@ -49,11 +49,11 @@ name|Key
 block|,
 name|Touch
 block|,
+name|ScreenOrientation
+block|,
 name|ScreenGeometry
 block|,
 name|ScreenAvailableGeometry
-block|,
-name|ScreenCountChange
 block|,
 name|Map
 block|,
@@ -778,30 +778,35 @@ name|touchType
 block|;      }
 decl_stmt|;
 name|class
-name|ScreenCountEvent
+name|ScreenOrientationEvent
 range|:
 name|public
 name|WindowSystemEvent
 block|{
 name|public
 operator|:
-name|ScreenCountEvent
+name|ScreenOrientationEvent
 argument_list|(
-argument|int count
+name|QScreen
+operator|*
+name|s
 argument_list|)
 operator|:
 name|WindowSystemEvent
 argument_list|(
-name|ScreenCountChange
+name|ScreenOrientation
 argument_list|)
 block|,
-name|count
+name|screen
 argument_list|(
-argument|count
+argument|s
 argument_list|)
 block|{ }
-name|int
-name|count
+name|QWeakPointer
+operator|<
+name|QScreen
+operator|>
+name|screen
 block|;     }
 decl_stmt|;
 name|class
@@ -814,7 +819,9 @@ name|public
 operator|:
 name|ScreenGeometryEvent
 argument_list|(
-argument|int index
+name|QScreen
+operator|*
+name|s
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -822,13 +829,16 @@ argument_list|(
 name|ScreenGeometry
 argument_list|)
 block|,
-name|index
+name|screen
 argument_list|(
-argument|index
+argument|s
 argument_list|)
 block|{ }
-name|int
-name|index
+name|QWeakPointer
+operator|<
+name|QScreen
+operator|>
+name|screen
 block|;     }
 decl_stmt|;
 name|class
@@ -841,7 +851,9 @@ name|public
 operator|:
 name|ScreenAvailableGeometryEvent
 argument_list|(
-argument|int index
+name|QScreen
+operator|*
+name|s
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -849,13 +861,16 @@ argument_list|(
 name|ScreenAvailableGeometry
 argument_list|)
 block|,
-name|index
+name|screen
 argument_list|(
-argument|index
+argument|s
 argument_list|)
 block|{ }
-name|int
-name|index
+name|QWeakPointer
+operator|<
+name|QScreen
+operator|>
+name|screen
 block|;     }
 decl_stmt|;
 name|class

@@ -323,11 +323,11 @@ argument_list|)
 block|;
 specifier|static
 name|void
-name|reportScreenCount
+name|reportScreenOrientationChange
 argument_list|(
 name|QWindowSystemInterfacePrivate
 operator|::
-name|ScreenCountEvent
+name|ScreenOrientationEvent
 operator|*
 name|e
 argument_list|)

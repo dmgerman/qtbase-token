@@ -355,17 +355,15 @@ specifier|inline
 name|QScreenOrientationChangeEventPrivate
 argument_list|()
 block|{     }
-name|QScreenOrientationChangeEvent
+name|QScreen
+operator|*
+name|screen
+expr_stmt|;
+name|Qt
 operator|::
-name|Orientation
+name|ScreenOrientation
 name|orientation
 expr_stmt|;
-name|qint32
-name|orientationInDegrees
-decl_stmt|;
-name|bool
-name|isValid
-decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

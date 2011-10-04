@@ -227,6 +227,13 @@ name|requestActivateWindow
 argument_list|()
 block|;
 name|virtual
+name|void
+name|setOrientation
+argument_list|(
+argument|Qt::ScreenOrientation orientation
+argument_list|)
+block|;
+name|virtual
 name|bool
 name|setKeyboardGrabEnabled
 argument_list|(
