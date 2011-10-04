@@ -813,10 +813,6 @@ name|actionText
 parameter_list|()
 function_decl|;
 name|void
-name|doAction
-parameter_list|()
-function_decl|;
-name|void
 name|applicationTest
 parameter_list|()
 function_decl|;
@@ -6360,23 +6356,6 @@ name|QTestAccessibility
 operator|::
 name|clearEvents
 argument_list|()
-expr_stmt|;
-block|}
-end_function
-begin_function
-DECL|function|doAction
-name|void
-name|tst_QAccessibility
-operator|::
-name|doAction
-parameter_list|()
-block|{
-name|QSKIP
-argument_list|(
-literal|"TODO: Implement me"
-argument_list|,
-name|SkipAll
-argument_list|)
 expr_stmt|;
 block|}
 end_function
