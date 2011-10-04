@@ -1334,6 +1334,28 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Resolve alias to actual font family names.      \since 5.0  */
+end_comment
+begin_function
+DECL|function|resolveFontFamilyAlias
+name|QString
+name|QPlatformFontDatabase
+operator|::
+name|resolveFontFamilyAlias
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|family
+parameter_list|)
+specifier|const
+block|{
+return|return
+name|family
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     \class QPlatformFontDatabase     \brief The QPlatformFontDatabase class makes it possible to customize how fonts     are discovered and how they are rendered      \ingroup painting      QPlatformFontDatabase is the superclass which is intended to let platform implementations use     native font handling.      Qt has its internal font database which it uses to discover available fonts on the     user's system. To be able to populate this database subclass this class, and     reimplement populateFontDatabase().      Use the function registerFont() to populate the internal font database.      Sometimes a specified font does not have the required glyphs; in such a case, the     fallbackForFamily() function is called automatically to find alternative font     families that can supply alternatives to the missing glyphs.      \sa QSupportedWritingSystems */
 end_comment
 begin_macro

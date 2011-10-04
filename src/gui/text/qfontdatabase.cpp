@@ -6423,6 +6423,12 @@ name|defined
 argument_list|(
 name|Q_WS_X11
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_WS_QPA
+argument_list|)
 DECL|function|resolveFontFamilyAlias
 name|QString
 name|QFontDatabase

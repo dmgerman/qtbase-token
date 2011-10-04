@@ -73,6 +73,13 @@ name|QString
 operator|&
 name|fileName
 argument_list|)
+block|;
+name|QString
+name|resolveFontFamilyAlias
+argument_list|(
+argument|const QString&family
+argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt
