@@ -35,6 +35,12 @@ name|QT_SHARED
 argument_list|)
 operator|&&
 operator|!
+name|defined
+argument_list|(
+name|QT_DLL
+argument_list|)
+operator|&&
+operator|!
 operator|(
 name|defined
 argument_list|(
