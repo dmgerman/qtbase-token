@@ -1052,13 +1052,6 @@ name|index
 parameter_list|)
 specifier|const
 block|{
-name|Q_ASSERT
-argument_list|(
-name|index
-operator|>=
-literal|0
-argument_list|)
-expr_stmt|;
 specifier|const
 name|QObjectList
 name|tlo
@@ -1112,7 +1105,6 @@ name|RelationFlag
 name|relation
 parameter_list|,
 name|int
-name|entry
 parameter_list|,
 name|QAccessibleInterface
 modifier|*

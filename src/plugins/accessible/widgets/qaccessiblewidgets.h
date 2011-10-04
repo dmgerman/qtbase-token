@@ -1082,14 +1082,11 @@ operator|*
 name|widget
 argument_list|)
 block|;
-name|int
-name|navigate
+name|QAccessibleInterface
+operator|*
+name|child
 argument_list|(
-argument|RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **iface
+argument|int index
 argument_list|)
 specifier|const
 block|;
