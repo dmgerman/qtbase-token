@@ -6861,18 +6861,6 @@ operator|::
 name|initStyleOption
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_MAEMO_5
-name|QSKIP
-argument_list|(
-literal|"The test passes, but it doesn't work when the display is in energy saving mode"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QGraphicsScene
 name|scene
 decl_stmt|;
@@ -11437,18 +11425,6 @@ operator|::
 name|updateFocusChainWhenChildDie
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_MAEMO_5
-name|QSKIP
-argument_list|(
-literal|"On Maemo 5 the Display Manager is shown on Window change, so the test won't work"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QGraphicsScene
 name|scene
 decl_stmt|;
