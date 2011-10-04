@@ -706,19 +706,6 @@ name|sendPostedEvents
 argument_list|()
 expr_stmt|;
 comment|//for the glib event loop
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_WS_S60
-argument_list|)
-name|QTest
-operator|::
-name|qWait
-argument_list|(
-literal|5000
-argument_list|)
-expr_stmt|;
 endif|#
 directive|endif
 name|VERIFY_COLOR

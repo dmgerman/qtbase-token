@@ -21900,15 +21900,6 @@ argument_list|(
 argument|x
 argument_list|)
 block|}
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_CC_RVCT
-argument_list|)
-comment|// RVCT can't handle forward declared template parameters if those are used to declare
-comment|// class members inside templated class.
 block|{
 typedef|typedef
 name|QPair
@@ -21930,8 +21921,6 @@ argument_list|(
 argument|x
 argument_list|)
 block|}
-endif|#
-directive|endif
 block|{
 typedef|typedef
 name|QList

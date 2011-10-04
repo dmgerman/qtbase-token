@@ -12585,24 +12585,6 @@ name|isVisible
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_S60
-argument_list|)
-comment|// Assuming that QtS60 style is used, here. But other ones would certainly also fail
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QtS60Style does not yet position the combobox popup correctly"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|combo

@@ -408,11 +408,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_S60
-argument_list|)
-operator|||
-name|defined
-argument_list|(
 name|Q_WS_WINCE
 argument_list|)
 name|QApplication

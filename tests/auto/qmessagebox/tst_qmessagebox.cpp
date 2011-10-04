@@ -3722,20 +3722,6 @@ block|{
 name|QMessageBox
 name|box
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_S60
-comment|// In S60 messagebox is always occupies maximum width, i.e. screen width
-comment|// so we need to have long enough text to split over several line
-name|box
-operator|.
-name|setText
-argument_list|(
-literal|"This is awesome long text"
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|box
 operator|.
 name|setText
@@ -3743,8 +3729,6 @@ argument_list|(
 literal|"This is awesome"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|box
 operator|.
 name|show
@@ -3830,10 +3814,6 @@ operator|.
 name|size
 argument_list|()
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_WS_S60
-comment|// In S60 dialogs buttons are in softkey area -> message box size does not change
 name|box
 operator|.
 name|setStandardButtons
@@ -3880,8 +3860,6 @@ name|height
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
