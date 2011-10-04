@@ -1341,6 +1341,12 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_function_decl
+name|void
+name|commitPreedit
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_expr_stmt
 name|QString
 name|displayText

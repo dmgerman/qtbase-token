@@ -386,12 +386,12 @@ argument_list|)
 block|;
 endif|#
 directive|endif
+name|QPoint
+name|mousePressPos
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_DRAGANDDROP
-name|QPoint
-name|dndPos
-block|;
 name|QBasicTimer
 name|dndTimer
 block|;
