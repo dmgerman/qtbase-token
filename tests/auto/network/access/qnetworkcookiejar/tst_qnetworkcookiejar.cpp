@@ -49,6 +49,9 @@ name|void
 name|cookiesForUrl
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|effectiveTLDs_data
 parameter_list|()
@@ -57,6 +60,8 @@ name|void
 name|effectiveTLDs
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 block|}
 class|;
 end_class
@@ -2058,6 +2063,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// This test requires private API.
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|effectiveTLDs_data
 name|void
@@ -3039,18 +3052,6 @@ operator|::
 name|effectiveTLDs
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_BUILD_INTERNAL
-name|QSKIP
-argument_list|(
-literal|"Test requires private API"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QString
@@ -3077,6 +3078,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(

@@ -205,6 +205,9 @@ name|void
 name|postAuthNtlm
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENSSL
 name|void
 name|proxyAndSsl
 parameter_list|()
@@ -213,6 +216,8 @@ name|void
 name|cachingProxyAndSsl
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|reconnect
 parameter_list|()
@@ -7867,6 +7872,11 @@ end_function
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENSSL
+end_ifndef
 begin_function
 DECL|function|proxyAndSsl
 name|void
@@ -7875,18 +7885,6 @@ operator|::
 name|proxyAndSsl
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_NO_OPENSSL
-name|QSKIP
-argument_list|(
-literal|"No OpenSSL support in this platform"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool
@@ -8110,10 +8108,17 @@ literal|400
 argument_list|)
 expr_stmt|;
 comment|// Should be 200, but as long as it's not an error, we're happy
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENSSL
+end_ifndef
 begin_function
 DECL|function|cachingProxyAndSsl
 name|void
@@ -8122,18 +8127,6 @@ operator|::
 name|cachingProxyAndSsl
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_NO_OPENSSL
-name|QSKIP
-argument_list|(
-literal|"No OpenSSL support in this platform"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool
@@ -8335,10 +8328,12 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|emptyBodyInReply
 name|void

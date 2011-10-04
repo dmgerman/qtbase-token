@@ -142,6 +142,9 @@ name|void
 name|threadedConnection
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 name|void
 name|processConnection_data
 parameter_list|()
@@ -150,6 +153,8 @@ name|void
 name|processConnection
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|longPath
 parameter_list|()
@@ -4267,6 +4272,11 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
+end_ifndef
 begin_function
 DECL|function|processConnection_data
 name|void
@@ -4339,21 +4349,6 @@ operator|::
 name|processConnection
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Qt was compiled with QT_NO_PROCESS"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QFETCH
 argument_list|(
 name|int
@@ -4570,10 +4565,12 @@ argument_list|(
 literal|15000
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|longPath
 name|void
