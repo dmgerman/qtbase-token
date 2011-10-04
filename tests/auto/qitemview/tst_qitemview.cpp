@@ -1052,12 +1052,6 @@ operator|::
 name|init
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
-return|return;
-endif|#
-directive|endif
 name|testViews
 operator|=
 operator|new
@@ -1108,13 +1102,6 @@ operator|::
 name|setupWithNoTestData
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
-comment|//QSKIP("This test takes too long to execute on IRIX", SkipAll);
-return|return;
-endif|#
-directive|endif
 name|ViewsToTest
 name|testViews
 decl_stmt|;
@@ -1566,18 +1553,6 @@ operator|::
 name|nonDestructiveBasicTest
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
-name|QSKIP
-argument_list|(
-literal|"This test takes too long to execute on IRIX"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 ifdef|#
 directive|ifdef
 name|Q_OS_WINCE
@@ -2702,18 +2677,6 @@ operator|::
 name|spider
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
-name|QSKIP
-argument_list|(
-literal|"This test takes too long to execute on IRIX"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QString
@@ -2898,21 +2861,13 @@ operator|::
 name|resize
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
 name|QSKIP
 argument_list|(
-literal|"This test takes too long to execute on IRIX"
+literal|"This test needs to be re-thought out, it takes too long and doesn't really catch the problem."
 argument_list|,
 name|SkipAll
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
-return|return;
-comment|// This test needs to be re-thought out, it takes too long and
-comment|// doesn't really catch theproblem.
 name|QFETCH
 argument_list|(
 name|QString
@@ -3062,18 +3017,6 @@ operator|::
 name|visualRect
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
-name|QSKIP
-argument_list|(
-literal|"This test takes too long to execute on IRIX"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QString
@@ -3876,18 +3819,6 @@ operator|::
 name|indexAt
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
-name|QSKIP
-argument_list|(
-literal|"This test takes too long to execute on IRIX"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QString
@@ -3990,18 +3921,6 @@ operator|::
 name|scrollTo
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
-name|QSKIP
-argument_list|(
-literal|"This test takes too long to execute on IRIX"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QString
@@ -4315,18 +4234,6 @@ operator|::
 name|moveCursor
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
-name|QSKIP
-argument_list|(
-literal|"This test takes too long to execute on IRIX"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QString
