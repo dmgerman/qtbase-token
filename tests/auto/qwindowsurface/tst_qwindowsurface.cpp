@@ -25,12 +25,6 @@ end_include
 begin_if
 if|#
 directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_MAC
-argument_list|)
-operator|&&
 name|QT_VERSION
 operator|<
 literal|0x050000
@@ -1605,7 +1599,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|// Q_WS_MAC
+comment|// Temporarily skip the entire test until it is fixed for Qt5
 end_comment
 begin_macro
 name|QTEST_NOOP_MAIN
