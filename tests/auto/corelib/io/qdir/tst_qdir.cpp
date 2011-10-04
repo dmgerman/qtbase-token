@@ -2324,16 +2324,6 @@ argument_list|(
 literal|','
 argument_list|)
 expr_stmt|;
-comment|// #### this test uses filenames that cannot be represented on all filesystems we test, in
-comment|// particular HFS+ on the Mac. When checking out the files with perforce it silently ignores the
-comment|// error that it cannot represent the file names stored in the repository and the test fails. That
-comment|// is why the test is marked as 'skip' for the mac. When checking out the files with git on the mac
-comment|// the error of not being able to represent the files stored in the repository is not silently
-comment|// ignored but git reports an error. The test only tried to prevent QDir from _hanging_ when listing
-comment|// the directory.
-comment|//    QTest::newRow("unprintablenames")<< SRCDIR "unprintablenames"<< QStringList("*")
-comment|//<< (int)(QDir::NoFilter)<< (int)(QDir::NoSort)
-comment|//<< QString(".,..").split(",");
 name|QTest
 operator|::
 name|newRow
@@ -4148,32 +4138,6 @@ directive|endif
 endif|#
 directive|endif
 comment|//Q_NO_SYMLINKS
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-if|if
-condition|(
-name|qstrcmp
-argument_list|(
-name|QTest
-operator|::
-name|currentDataTag
-argument_list|()
-argument_list|,
-literal|"unprintablenames"
-argument_list|)
-operator|==
-literal|0
-condition|)
-name|QSKIP
-argument_list|(
-literal|"p4 doesn't sync the files with the unprintable names properly on Mac"
-argument_list|,
-name|SkipSingle
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QDir
 name|dir
 argument_list|(
@@ -4228,25 +4192,6 @@ name|count
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|qstrcmp
-argument_list|(
-name|QTest
-operator|::
-name|currentDataTag
-argument_list|()
-argument_list|,
-literal|"unprintablenames"
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
-comment|// The purpose of this entry is to check that QDir doesn't
-comment|// lock up. The actual result depends on the file system.
-return|return;
-block|}
 name|bool
 name|doContentCheck
 init|=
