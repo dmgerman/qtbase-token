@@ -200,6 +200,9 @@ name|void
 name|throttling
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_STL
 name|void
 name|blockSize
 parameter_list|()
@@ -208,6 +211,8 @@ name|void
 name|multipleResults
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 if|#
 directive|if
 literal|0
@@ -1169,6 +1174,14 @@ block|}
 block|}
 class|;
 end_class
+begin_comment
+comment|// Missing stl iterators prevent correct block size calculation.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_STL
+end_ifndef
 begin_function
 DECL|function|blockSize
 name|void
@@ -1177,18 +1190,6 @@ operator|::
 name|blockSize
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_NO_STL
-name|QSKIP
-argument_list|(
-literal|"Missing stl iterators prevent correct block size calculation"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 specifier|const
 name|int
 name|expectedMinimumBlockSize
@@ -1232,6 +1233,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_class
 DECL|class|MultipleResultsFor
 class|class
@@ -1316,6 +1321,14 @@ block|}
 block|}
 class|;
 end_class
+begin_comment
+comment|// Missing stl iterators prevent correct summation.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_STL
+end_ifndef
 begin_function
 DECL|function|multipleResults
 name|void
@@ -1324,18 +1337,6 @@ operator|::
 name|multipleResults
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_NO_STL
-name|QSKIP
-argument_list|(
-literal|"Missing stl iterators prevent correct summation"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFuture
 argument_list|<
 name|int
@@ -1412,6 +1413,10 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_if
 if|#
 directive|if

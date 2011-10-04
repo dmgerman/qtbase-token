@@ -119,10 +119,15 @@ name|void
 name|processes
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
 name|void
 name|undo
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|initialValue
 parameter_list|()
@@ -1180,6 +1185,14 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|// This test only checks a unix behavior.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
+end_ifndef
 begin_function
 DECL|function|undo
 name|void
@@ -1188,21 +1201,6 @@ operator|::
 name|undo
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"This test only checks a unix behavior"
-argument_list|,
-name|SkipSingle
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QSystemSemaphore
 name|sem
 argument_list|(
@@ -1297,6 +1295,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|initialValue
 name|void

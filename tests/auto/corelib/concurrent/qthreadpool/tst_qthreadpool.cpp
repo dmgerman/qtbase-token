@@ -143,10 +143,15 @@ name|void
 name|expiryTimeout
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_EXCEPTIONS
 name|void
 name|exceptions
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|maxThreadCount
 parameter_list|()
@@ -1239,10 +1244,6 @@ block|}
 block|}
 class|;
 end_class
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|exceptions
 name|void
@@ -1251,9 +1252,6 @@ operator|::
 name|exceptions
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_EXCEPTIONS
 name|ExceptionTask
 name|task
 decl_stmt|;
@@ -1264,19 +1262,12 @@ decl_stmt|;
 comment|//  Uncomment this for a nice crash.
 comment|//        threadPool.start(&task);
 block|}
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"No exception support"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|maxThreadCount
 name|void

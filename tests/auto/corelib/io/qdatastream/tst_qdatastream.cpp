@@ -181,6 +181,9 @@ name|void
 name|stream_QPen
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|void
 name|stream_QPixmap_data
 parameter_list|()
@@ -189,6 +192,8 @@ name|void
 name|stream_QPixmap
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|stream_QPoint_data
 parameter_list|()
@@ -269,6 +274,9 @@ name|void
 name|stream_qint64
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|void
 name|stream_QIcon_data
 parameter_list|()
@@ -277,6 +285,8 @@ name|void
 name|stream_QIcon
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|stream_QEasingCurve_data
 parameter_list|()
@@ -8679,6 +8689,14 @@ end_comment
 begin_comment
 comment|//
 end_comment
+begin_comment
+comment|// Test depends on more memory than available on Qt/CE.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
 begin_function
 DECL|function|stream_QPixmap_data
 name|void
@@ -8687,16 +8705,11 @@ operator|::
 name|stream_QPixmap_data
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
 name|stream_data
 argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -8707,18 +8720,6 @@ operator|::
 name|stream_QPixmap
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Test depends on more memory than available on Qt/CE"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|STREAM_IMPL
 argument_list|(
 name|QPixmap
@@ -8726,6 +8727,18 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Test depends on more memory than available on Qt/CE.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
 begin_function
 DECL|function|stream_QIcon_data
 name|void
@@ -8734,16 +8747,11 @@ operator|::
 name|stream_QIcon_data
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
 name|stream_data
 argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -8754,18 +8762,6 @@ operator|::
 name|stream_QIcon
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Test depends on more memory than available on Qt/CE"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|STREAM_IMPL
 argument_list|(
 name|QIcon
@@ -8773,6 +8769,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|writeQPixmap
 name|void

@@ -100,14 +100,24 @@ literal|0
 private|void createFunctor();
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_DECLTYPE
 name|void
 name|functor
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_LAMBDA
 name|void
 name|lambda
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 block|}
 class|;
 end_class
@@ -2024,6 +2034,14 @@ block|{ }
 block|}
 struct|;
 end_struct
+begin_comment
+comment|// This tests functor without result_type; decltype need to be supported by the compiler.
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_DECLTYPE
+end_ifdef
 begin_function
 DECL|function|functor
 name|void
@@ -2032,19 +2050,6 @@ operator|::
 name|functor
 parameter_list|()
 block|{
-comment|//this test functor without result_type,  decltype need to be supported by the compiler
-ifndef|#
-directive|ifndef
-name|Q_COMPILER_DECLTYPE
-name|QSKIP
-argument_list|(
-literal|"Compiler do not suport decltype"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|Functor
 name|f
 decl_stmt|;
@@ -2222,10 +2227,17 @@ name|waitForFinished
 argument_list|()
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_LAMBDA
+end_ifdef
 begin_function
 DECL|function|lambda
 name|void
@@ -2234,18 +2246,6 @@ operator|::
 name|lambda
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|Q_COMPILER_LAMBDA
-name|QSKIP
-argument_list|(
-literal|"Compiler do not suport lambda"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QCOMPARE
 argument_list|(
 name|QtConcurrent
@@ -2445,10 +2445,12 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include

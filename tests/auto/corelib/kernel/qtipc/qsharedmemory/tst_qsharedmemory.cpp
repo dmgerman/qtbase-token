@@ -145,19 +145,32 @@ name|lock
 parameter_list|()
 function_decl|;
 comment|// custom edge cases
+ifndef|#
+directive|ifndef
+name|Q_OS_HPUX
 name|void
 name|removeWhileAttached
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|emptyMemory
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
 name|void
 name|readOnly
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 comment|// basics all together
+ifndef|#
+directive|ifndef
+name|Q_OS_HPUX
 name|void
 name|simpleProducerConsumer_data
 parameter_list|()
@@ -170,6 +183,8 @@ name|void
 name|simpleDoubleProducerConsumer
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 comment|// with threads
 name|void
 name|simpleThreadedProducerConsumer_data
@@ -193,10 +208,25 @@ name|void
 name|useTooMuchMemory
 parameter_list|()
 function_decl|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_HPUX
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
 name|void
 name|attachTooMuch
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 comment|// unique keys
 name|void
 name|uniqueKey_data
@@ -1880,6 +1910,14 @@ end_function
 begin_comment
 comment|/*!     Other shared memory are allowed to be attached after we remove,     but new shared memory are not allowed to attach after a remove.  */
 end_comment
+begin_comment
+comment|// HPUX doesn't allow for multiple attaches per process.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_HPUX
+end_ifndef
 begin_function
 DECL|function|removeWhileAttached
 name|void
@@ -1888,18 +1926,6 @@ operator|::
 name|removeWhileAttached
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_HPUX
-name|QSKIP
-argument_list|(
-literal|"HPUX doesn't allow for multiple attaches per process"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|rememberKey
 argument_list|(
 literal|"one"
@@ -2007,6 +2033,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     The memory should be set to 0 after created.  */
 end_comment
@@ -2096,6 +2126,14 @@ end_function
 begin_comment
 comment|/*!     Verify that attach with ReadOnly is actually read only     by writing to data and causing a segfault. */
 end_comment
+begin_comment
+comment|// This test opens a crash dialog on Windows.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
+end_ifndef
 begin_function
 DECL|function|readOnly
 name|void
@@ -2104,18 +2142,6 @@ operator|::
 name|readOnly
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-name|QSKIP
-argument_list|(
-literal|"This test opens a crash dialog on Windows"
-argument_list|,
-name|SkipSingle
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QString
 name|program
 init|=
@@ -2176,6 +2202,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     Keep making shared memory until the kernel stops us.  */
 end_comment
@@ -2436,6 +2466,27 @@ end_function
 begin_comment
 comment|/*!     Create one shared memory (government) and see how many other shared memories (wars) we can     attach before the system runs out of resources.  */
 end_comment
+begin_comment
+comment|// HPUX doesn't allow for multiple attaches per process.
+end_comment
+begin_comment
+comment|// For WinCE, this test nearly kills the system, so skip it.
+end_comment
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_HPUX
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+end_if
 begin_function
 DECL|function|attachTooMuch
 name|void
@@ -2451,30 +2502,6 @@ argument_list|,
 name|SkipAll
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_HPUX
-name|QSKIP
-argument_list|(
-literal|"HPUX doesn't allow for multiple attaches per process"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"This nearly kills the system itself, so skip for Qt/WinCE"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QSharedMemory
 name|government
 argument_list|(
@@ -2623,6 +2650,18 @@ block|}
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// HPUX doesn't allow for multiple attaches per process.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_HPUX
+end_ifndef
 begin_function
 DECL|function|simpleProducerConsumer_data
 name|void
@@ -2678,18 +2717,6 @@ operator|::
 name|simpleProducerConsumer
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_HPUX
-name|QSKIP
-argument_list|(
-literal|"HPUX doesn't allow for multiple attaches per process"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QSharedMemory
@@ -2837,6 +2864,18 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// HPUX doesn't allow for multiple attaches per process.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_HPUX
+end_ifndef
 begin_function
 DECL|function|simpleDoubleProducerConsumer
 name|void
@@ -2845,18 +2884,6 @@ operator|::
 name|simpleDoubleProducerConsumer
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_HPUX
-name|QSKIP
-argument_list|(
-literal|"HPUX doesn't allow for multiple attaches per process"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|rememberKey
 argument_list|(
 name|QLatin1String
@@ -2928,6 +2955,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_class
 DECL|class|Consumer
 class|class

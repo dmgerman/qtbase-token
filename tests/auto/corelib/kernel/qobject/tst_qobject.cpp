@@ -245,10 +245,15 @@ name|void
 name|property
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 name|void
 name|recursiveSignalEmission
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|blockingQueuedConnection
 parameter_list|()
@@ -21529,6 +21534,9 @@ name|isEmpty
 argument_list|()
 argument_list|)
 block|; }
+ifndef|#
+directive|ifndef
+name|QT_NO_PROCESS
 DECL|function|recursiveSignalEmission
 name|void
 name|tst_QObject
@@ -21537,21 +21545,6 @@ name|recursiveSignalEmission
 operator|(
 operator|)
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Test requires QProcess"
-argument_list|,
-name|SkipAll
-argument_list|)
-block|;
-else|#
-directive|else
 name|QProcess
 name|proc
 block|;
@@ -21591,10 +21584,9 @@ argument_list|()
 argument_list|,
 literal|0
 argument_list|)
-block|;
+block|; }
 endif|#
 directive|endif
-block|}
 DECL|function|blockingQueuedConnection
 name|void
 name|tst_QObject

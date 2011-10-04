@@ -110,11 +110,16 @@ name|joinEmptiness
 parameter_list|()
 specifier|const
 function_decl|;
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_INITIALIZER_LISTS
 name|void
 name|initializeList
 parameter_list|()
 specifier|const
 function_decl|;
+endif|#
+directive|endif
 block|}
 class|;
 end_class
@@ -1560,6 +1565,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// this test require C++0x support
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_INITIALIZER_LISTS
+end_ifdef
 begin_function
 DECL|function|initializeList
 name|void
@@ -1569,9 +1582,6 @@ name|initializeList
 parameter_list|()
 specifier|const
 block|{
-ifdef|#
-directive|ifdef
-name|Q_COMPILER_INITIALIZER_LISTS
 name|QStringList
 name|v1
 argument_list|{
@@ -1622,19 +1632,12 @@ block|}
 operator|)
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Require C++0x support, pass the right flag to the compiler"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QTEST_APPLESS_MAIN
 argument_list|(

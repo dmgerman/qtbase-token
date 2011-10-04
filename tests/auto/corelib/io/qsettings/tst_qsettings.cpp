@@ -234,6 +234,18 @@ name|void
 name|testCaseSensitivity
 parameter_list|()
 function_decl|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_BUILD_INTERNAL
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
 name|void
 name|testErrorHandling_data
 parameter_list|()
@@ -242,6 +254,8 @@ name|void
 name|testErrorHandling
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|testIniParsing_data
 parameter_list|()
@@ -340,6 +354,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_QSETTINGS_ALWAYS_CASE_SENSITIVE_AND_FORGET_ORIGINAL_KEY_ORDER
 argument_list|)
 name|void
 name|dontReorderIniKeysNeedlessly
@@ -4144,6 +4164,23 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|// Windows doesn't support most file modes, including read-only directories, so this test is moot.
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_BUILD_INTERNAL
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+end_if
 begin_function
 DECL|function|testErrorHandling_data
 name|void
@@ -4603,21 +4640,8 @@ operator|::
 name|testErrorHandling
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_BUILD_INTERNAL
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-name|QSKIP
-argument_list|(
-literal|"Windows doesn't support most file modes, including read-only directories, so this test is moot."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-elif|#
-directive|elif
+if|#
+directive|if
 name|defined
 argument_list|(
 name|Q_OS_UNIX
@@ -5100,11 +5124,12 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-comment|// !Q_OS_WIN
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
@@ -21555,6 +21580,12 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// if QT_QSETTINGS_ALWAYS_CASE_SENSITIVE_AND_FORGET_ORIGINAL_KEY_ORDER is defined,
+end_comment
+begin_comment
+comment|// the Qt build does not preserve ordering, as a code size optimization.
+end_comment
 begin_if
 if|#
 directive|if
@@ -21562,6 +21593,12 @@ operator|!
 name|defined
 argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_QSETTINGS_ALWAYS_CASE_SENSITIVE_AND_FORGET_ORIGINAL_KEY_ORDER
 argument_list|)
 end_if
 begin_function
@@ -21572,18 +21609,6 @@ operator|::
 name|dontReorderIniKeysNeedlessly
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_QSETTINGS_ALWAYS_CASE_SENSITIVE_AND_FORGET_ORIGINAL_KEY_ORDER
-name|QSKIP
-argument_list|(
-literal|"This Qt build does not preserve ordering, as a code size optimization."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|/*         This is a very strong test. It asserts that modifying         resourcefile2.ini will lead to the exact contents of         resourcefile3.ini. Right now it's run only on Unix         systems, but that should be enough since the INI         code (unlike this test) is platform-agnostic.          Things that are tested:              * keys are written in the same order that they were               read in              * new keys are put at the end of their respective               sections     */
 name|QFile
 name|inFile
