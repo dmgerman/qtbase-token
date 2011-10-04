@@ -160,10 +160,15 @@ name|void
 name|widgetActionFocus
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE_WM
 name|void
 name|mouseActivation
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|tearOff
 parameter_list|()
@@ -200,10 +205,15 @@ name|void
 name|menuSizeHint
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE_WM
 name|void
 name|task258920_mouseBorder
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|setFixedWidth
 parameter_list|()
@@ -1323,6 +1333,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// We have a separate mouseActivation test for Windows mobile.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE_WM
+end_ifndef
 begin_function
 DECL|function|mouseActivation
 name|void
@@ -1331,18 +1349,6 @@ operator|::
 name|mouseActivation
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE_WM
-name|QSKIP
-argument_list|(
-literal|"We have a separate mouseActivation test for Windows mobile."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QWidget
 name|topLevel
 decl_stmt|;
@@ -1614,6 +1620,10 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 name|void
 DECL|function|keyboardNavigation_data
@@ -3834,18 +3844,9 @@ argument_list|)
 expr_stmt|;
 comment|// well, it's enough to check the pos is not (0,0) but it's more safe
 comment|// to check that submenu is to the right of the main menu too.
-ifdef|#
-directive|ifdef
+ifndef|#
+directive|ifndef
 name|Q_OS_WINCE_WM
-name|QSKIP
-argument_list|(
-literal|"Not true for Windows Mobile Soft Keys"
-argument_list|,
-name|SkipSingle
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|sub
@@ -3875,6 +3876,8 @@ argument_list|,
 name|subAction
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -4734,6 +4737,14 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_comment
+comment|// Mouse move related signals for Windows Mobile unavailable.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE_WM
+end_ifndef
 begin_function
 DECL|function|task258920_mouseBorder
 name|void
@@ -4742,18 +4753,6 @@ operator|::
 name|task258920_mouseBorder
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE_WM
-name|QSKIP
-argument_list|(
-literal|"Mouse move related signals for Windows Mobile unavailable"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 ifdef|#
 directive|ifdef
 name|Q_WS_QPA
@@ -4951,6 +4950,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|setFixedWidth
 name|void

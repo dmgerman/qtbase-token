@@ -6862,7 +6862,6 @@ argument_list|,
 name|stretches
 argument_list|)
 expr_stmt|;
-comment|//QSKIP("Seems to be some problems with stretch factors. Talk with Jasmin", SkipAll);
 name|QGraphicsScene
 name|scene
 decl_stmt|;

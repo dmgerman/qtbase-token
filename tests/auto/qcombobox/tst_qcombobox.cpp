@@ -388,6 +388,9 @@ name|void
 name|separatorItem
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_STYLE_CLEANLOOKS
 name|void
 name|task190351_layout
 parameter_list|()
@@ -396,6 +399,8 @@ name|void
 name|task191329_size
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|task166349_setEditableOnReturn
 parameter_list|()
@@ -444,10 +449,15 @@ name|void
 name|subControlRectsWithOffset
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_STYLE_WINDOWS
 name|void
 name|task260974_menuItemRectangleForComboBoxPopup
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|removeItem
 parameter_list|()
@@ -4628,6 +4638,9 @@ block|}
 block|}
 block|}
 end_function
+begin_comment
+comment|// Apps running with valgrind are not fast enough.
+end_comment
 begin_function
 DECL|function|virtualAutocompletion
 name|void
@@ -4786,18 +4799,6 @@ operator|==
 literal|1
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QTEST_RUNNING_USING_VALGRIND
-name|QSKIP
-argument_list|(
-literal|"App running with valgrind are not fast enough"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QKeyEvent
 name|kp2
 argument_list|(
@@ -12838,6 +12839,14 @@ block|}
 block|}
 block|}
 end_function
+begin_comment
+comment|// This test requires the Cleanlooks style
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_STYLE_CLEANLOOKS
+end_ifndef
 begin_function
 DECL|function|task190351_layout
 name|void
@@ -12846,9 +12855,6 @@ operator|::
 name|task190351_layout
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_STYLE_CLEANLOOKS
 specifier|const
 name|QString
 name|oldStyle
@@ -13105,19 +13111,12 @@ argument_list|(
 name|oldStyle
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Qt configured without cleanlooks style"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_class
 DECL|class|task166349_ComboBox
 class|class
@@ -13274,6 +13273,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// This test requires the Cleanlooks style.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_STYLE_CLEANLOOKS
+end_ifndef
 begin_function
 DECL|function|task191329_size
 name|void
@@ -13282,9 +13289,6 @@ operator|::
 name|task191329_size
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_STYLE_CLEANLOOKS
 specifier|const
 name|QString
 name|oldStyle
@@ -13570,19 +13574,12 @@ argument_list|(
 name|oldStyle
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Qt configured without cleanlooks style"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|task190205_setModelAdjustToContents
 name|void
@@ -15462,6 +15459,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// This test depends on Windows style.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_STYLE_WINDOWS
+end_ifndef
 begin_function
 DECL|function|task260974_menuItemRectangleForComboBoxPopup
 name|void
@@ -15470,20 +15475,6 @@ operator|::
 name|task260974_menuItemRectangleForComboBoxPopup
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_NO_STYLE_WINDOWS
-name|QSKIP
-argument_list|(
-literal|"test depends on windows style"
-argument_list|,
-name|QTest
-operator|::
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 class|class
 name|TestStyle
 super|:
@@ -15650,10 +15641,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|removeItem
 name|void
@@ -16076,18 +16069,10 @@ literal|"0"
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+comment|// When calling cursor function, Windows CE responds with: This function is not supported on this system.
+ifndef|#
+directive|ifndef
 name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"When calling cursor function, Windows CE responds with: This function is not supported on this system."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// Force cursor movement to prevent QCursor::setPos() from returning prematurely on QPA:
 specifier|const
 name|QPoint
@@ -16259,6 +16244,8 @@ name|final
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

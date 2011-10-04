@@ -123,10 +123,15 @@ name|void
 name|tst_windowFilePath
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|Q_WS_X11
 name|void
 name|tst_showWithoutActivating
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|tst_paintEventOnSecondShow
 parameter_list|()
@@ -1373,6 +1378,11 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_WS_X11
+end_ifdef
 begin_function
 DECL|function|tst_showWithoutActivating
 name|void
@@ -1381,18 +1391,6 @@ operator|::
 name|tst_showWithoutActivating
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|Q_WS_X11
-name|QSKIP
-argument_list|(
-literal|"This test is X11-only."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QWidget
 name|w
 decl_stmt|;
@@ -1497,11 +1495,12 @@ argument_list|)
 expr_stmt|;
 comment|// Note the use of the , before window because we want the XGetInputFocus to be re-executed
 comment|//     in each iteration of the inside loop of the QTRY_COMPARE macro
-endif|#
-directive|endif
-comment|// Q_WS_X11
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|tst_paintEventOnSecondShow
 name|void

@@ -134,10 +134,15 @@ name|void
 name|filePath
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|Q_OS_UNIX
 name|void
 name|hidden
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|fileName
 parameter_list|()
@@ -1649,6 +1654,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_UNIX
+end_ifdef
 begin_function
 DECL|function|hidden
 name|void
@@ -1657,9 +1667,6 @@ operator|::
 name|hidden
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
 name|QDir
 name|current
 decl_stmt|;
@@ -1758,19 +1765,12 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test not implemented on non-Unixes"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|fileName_data
 name|void
@@ -1865,29 +1865,23 @@ directive|if
 literal|0
 end_if
 begin_ifdef
-unit|void tst_QDirModel::unreadable() {
 ifdef|#
 directive|ifdef
 name|Q_OS_UNIX
 end_ifdef
 begin_comment
+unit|void tst_QDirModel::unreadable() {
 comment|//QFile current("qtest_unreadable");
 end_comment
 begin_comment
 comment|//QVERIFY(current.setPermissions(QFile::WriteOwner));
 end_comment
-begin_else
-unit|QDirModel model;     QModelIndex index = model.index(QDir::currentPath() + "/qtest_unreadable");     QVERIFY(!index.isValid());      QDirModel model2;     model2.setFilter(model2.filter() | QDir::Hidden);     index = model2.index(QDir::currentPath() + "/qtest_unreadable");     QVERIFY(index.isValid());
-else|#
-directive|else
-end_else
 begin_endif
-unit|QSKIP("Test not implemented on non-Unixes", SkipAll);
+unit|QDirModel model;     QModelIndex index = model.index(QDir::currentPath() + "/qtest_unreadable");     QVERIFY(!index.isValid());      QDirModel model2;     model2.setFilter(model2.filter() | QDir::Hidden);     index = model2.index(QDir::currentPath() + "/qtest_unreadable");     QVERIFY(index.isValid()); }
 endif|#
 directive|endif
 end_endif
 begin_endif
-unit|}
 endif|#
 directive|endif
 end_endif
