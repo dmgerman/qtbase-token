@@ -952,7 +952,7 @@ argument_list|()
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|// group: ["fridge"]
+comment|// groups: ["fridge"]
 end_comment
 begin_comment
 comment|//! [21]
