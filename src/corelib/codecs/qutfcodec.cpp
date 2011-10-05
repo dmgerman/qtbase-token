@@ -2717,13 +2717,6 @@ condition|)
 block|{
 if|if
 condition|(
-name|endian
-operator|==
-name|DetectEndianness
-condition|)
-block|{
-if|if
-condition|(
 name|tuple
 index|[
 literal|0
@@ -2836,7 +2829,6 @@ name|endian
 operator|=
 name|LittleEndianness
 expr_stmt|;
-block|}
 block|}
 block|}
 elseif|else
