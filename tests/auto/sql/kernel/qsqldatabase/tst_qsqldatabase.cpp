@@ -57,13 +57,6 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
-begin_define
-DECL|macro|NODATABASE_SKIP
-define|#
-directive|define
-name|NODATABASE_SKIP
-value|"No database drivers are available in this Qt configuration"
-end_define
 begin_include
 include|#
 directive|include
@@ -6558,7 +6551,6 @@ argument_list|(
 name|db
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"SQL server specific test"
@@ -6566,8 +6558,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 comment|// ### TODO: Add the rest of the fields
 specifier|static
 specifier|const
@@ -6732,7 +6722,6 @@ argument_list|(
 name|db
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"MS Access specific test"
@@ -6740,8 +6729,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QString
 name|memo
 decl_stmt|;
@@ -6933,7 +6920,6 @@ operator|::
 name|Transactions
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"DBMS not transaction capable"
@@ -6941,7 +6927,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-block|}
 name|QVERIFY
 argument_list|(
 name|db
@@ -7164,13 +7149,10 @@ argument_list|(
 literal|"QMYSQL"
 argument_list|)
 condition|)
-block|{
-name|qDebug
+name|QSKIP
 argument_list|(
-literal|"MySQL: %s"
-argument_list|,
-name|qPrintable
-argument_list|(
+literal|"MySQL transaction failed: "
+operator|+
 name|tst_Databases
 operator|::
 name|printError
@@ -7180,20 +7162,11 @@ operator|.
 name|lastError
 argument_list|()
 argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|QSKIP
-argument_list|(
-literal|"MySQL transaction failed "
 argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-comment|//non-fatal
-block|}
 else|else
-block|{
 name|QFAIL
 argument_list|(
 literal|"Could not rollback transaction: "
@@ -7209,7 +7182,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|QVERIFY_SQL
 argument_list|(
@@ -10242,7 +10214,6 @@ argument_list|(
 literal|"MYSQL"
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"MySQL through ODBC-driver specific test"
@@ -10250,8 +10221,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QSqlQuery
 name|q
 argument_list|(
@@ -10472,7 +10441,6 @@ argument_list|(
 name|db
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"MS Access specific test"
@@ -10480,8 +10448,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QSqlQuery
 name|q
 argument_list|(
@@ -12151,7 +12117,6 @@ argument_list|(
 literal|"QIBASE"
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"InterBase specific test"
@@ -12159,8 +12124,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 specifier|const
 name|QString
 name|procName
@@ -12875,7 +12838,6 @@ argument_list|(
 name|db
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"MySql has inconsistent behaviour of bit field type across versions."
@@ -12883,8 +12845,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QSqlQuery
 name|q
 argument_list|(
@@ -14643,7 +14603,6 @@ argument_list|(
 name|db
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"SQL Server (ODBC) specific test"
@@ -14651,8 +14610,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 specifier|const
 name|QString
 name|tableName
@@ -15767,7 +15724,6 @@ argument_list|(
 literal|"QSQLITE2"
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"SQLite3 specific test"
@@ -15775,8 +15731,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QSqlQuery
 name|q
 argument_list|(
