@@ -549,7 +549,7 @@ parameter_list|(
 name|cond
 parameter_list|)
 define|\
-value|do { \         if (!errorAt&& !(cond)) { \             errorAt = __LINE__; \             qWarning("level: %d, middle: %d, role: %d (%s)", treelevel, middle, iface->role(0), #cond); \         } \     } while (0)
+value|do { \         if (!errorAt&& !(cond)) { \             errorAt = __LINE__; \             qWarning("level: %d, middle: %d, role: %d (%s)", treelevel, middle, iface->role(), #cond); \         } \     } while (0)
 end_define
 begin_function
 DECL|function|verifyHierarchy
@@ -1245,9 +1245,7 @@ condition|?
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 else|:
 cast|static_cast
 argument_list|<
@@ -3818,9 +3816,7 @@ operator|(
 name|iface1
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -3838,9 +3834,7 @@ argument_list|(
 name|iface1
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -6414,9 +6408,7 @@ argument_list|(
 name|interface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -6523,9 +6515,7 @@ argument_list|(
 name|interface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -6791,9 +6781,7 @@ argument_list|(
 name|interface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -6884,9 +6872,7 @@ argument_list|(
 name|interface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -6938,9 +6924,7 @@ operator|(
 name|interface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -6993,9 +6977,7 @@ operator|(
 name|interface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -7008,10 +6990,10 @@ name|interface
 expr_stmt|;
 comment|//    // test menu push button
 comment|//    QVERIFY(QAccessible::queryAccessibleInterface(&menuButton,&test));
-comment|//    QCOMPARE(test->role(0), QAccessible::ButtonMenu);
+comment|//    QCOMPARE(test->role(), QAccessible::ButtonMenu);
 comment|//    QCOMPARE(test->defaultAction(0), QAccessible::Press);
 comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Open"));
-comment|//    QCOMPARE(test->state(0), (int)QAccessible::HasPopup);
+comment|//    QCOMPARE(test->state(), (int)QAccessible::HasPopup);
 comment|//    test->release();
 comment|// test check box
 name|interface
@@ -7036,9 +7018,7 @@ argument_list|(
 name|interface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -7066,9 +7046,7 @@ operator|(
 name|interface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -7112,9 +7090,7 @@ argument_list|(
 name|interface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -7134,18 +7110,18 @@ name|interface
 expr_stmt|;
 comment|//    // test tristate check box
 comment|//    QVERIFY(QAccessible::queryAccessibleInterface(&tristate,&test));
-comment|//    QCOMPARE(test->role(0), QAccessible::CheckBox);
+comment|//    QCOMPARE(test->role(), QAccessible::CheckBox);
 comment|//    QCOMPARE(test->defaultAction(0), QAccessible::Press);
 comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Toggle"));
-comment|//    QCOMPARE(test->state(0), (int)QAccessible::Normal);
+comment|//    QCOMPARE(test->state(), (int)QAccessible::Normal);
 comment|//    QVERIFY(test->doAction(QAccessible::Press, 0));
 comment|//    QTest::qWait(500);
 comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Check"));
-comment|//    QCOMPARE(test->state(0), (int)QAccessible::Mixed);
+comment|//    QCOMPARE(test->state(), (int)QAccessible::Mixed);
 comment|//    QVERIFY(test->doAction(QAccessible::Press, 0));
 comment|//    QTest::qWait(500);
 comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Uncheck"));
-comment|//    QCOMPARE(test->state(0), (int)QAccessible::Checked);
+comment|//    QCOMPARE(test->state(), (int)QAccessible::Checked);
 comment|//    test->release();
 comment|// test radiobutton
 name|interface
@@ -7170,9 +7146,7 @@ argument_list|(
 name|interface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -7200,9 +7174,7 @@ operator|(
 name|interface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -7246,9 +7218,7 @@ argument_list|(
 name|interface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -7268,42 +7238,42 @@ name|interface
 expr_stmt|;
 comment|//    // test standard toolbutton
 comment|//    QVERIFY(QAccessible::queryAccessibleInterface(&toolbutton,&test));
-comment|//    QCOMPARE(test->role(0), QAccessible::PushButton);
+comment|//    QCOMPARE(test->role(), QAccessible::PushButton);
 comment|//    QCOMPARE(test->defaultAction(0), QAccessible::Press);
 comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Press"));
-comment|//    QCOMPARE(test->state(0), (int)QAccessible::Normal);
+comment|//    QCOMPARE(test->state(), (int)QAccessible::Normal);
 comment|//    test->release();
 comment|//    // toggle tool button
 comment|//    QVERIFY(QAccessible::queryAccessibleInterface(&toggletool,&test));
-comment|//    QCOMPARE(test->role(0), QAccessible::CheckBox);
+comment|//    QCOMPARE(test->role(), QAccessible::CheckBox);
 comment|//    QCOMPARE(test->defaultAction(0), QAccessible::Press);
 comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Check"));
-comment|//    QCOMPARE(test->state(0), (int)QAccessible::Normal);
+comment|//    QCOMPARE(test->state(), (int)QAccessible::Normal);
 comment|//    QVERIFY(test->doAction(QAccessible::Press, 0));
 comment|//    QTest::qWait(500);
 comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Uncheck"));
-comment|//    QCOMPARE(test->state(0), (int)QAccessible::Checked);
+comment|//    QCOMPARE(test->state(), (int)QAccessible::Checked);
 comment|//    test->release();
 comment|//    // test menu toolbutton
 comment|//    QVERIFY(QAccessible::queryAccessibleInterface(&menuToolButton,&test));
-comment|//    QCOMPARE(test->role(0), QAccessible::ButtonMenu);
+comment|//    QCOMPARE(test->role(), QAccessible::ButtonMenu);
 comment|//    QCOMPARE(test->defaultAction(0), 1);
 comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Open"));
-comment|//    QCOMPARE(test->state(0), (int)QAccessible::HasPopup);
+comment|//    QCOMPARE(test->state(), (int)QAccessible::HasPopup);
 comment|//    QCOMPARE(test->actionCount(0), 1);
 comment|//    QCOMPARE(test->actionText(QAccessible::Press, QAccessible::Name, 0), QString("Press"));
 comment|//    test->release();
 comment|//    // test split menu toolbutton
 comment|//    QVERIFY(QAccessible::queryAccessibleInterface(&splitToolButton,&test));
 comment|//    QCOMPARE(test->childCount(), 2);
-comment|//    QCOMPARE(test->role(0), QAccessible::ButtonDropDown);
+comment|//    QCOMPARE(test->role(), QAccessible::ButtonDropDown);
 comment|//    QCOMPARE(test->role(1), QAccessible::PushButton);
 comment|//    QCOMPARE(test->role(2), QAccessible::ButtonMenu);
 comment|//    QCOMPARE(test->defaultAction(0), QAccessible::Press);
 comment|//    QCOMPARE(test->defaultAction(1), QAccessible::Press);
 comment|//    QCOMPARE(test->defaultAction(2), QAccessible::Press);
 comment|//    QCOMPARE(test->actionText(test->defaultAction(0), QAccessible::Name, 0), QString("Press"));
-comment|//    QCOMPARE(test->state(0), (int)QAccessible::HasPopup);
+comment|//    QCOMPARE(test->state(), (int)QAccessible::HasPopup);
 comment|//    QCOMPARE(test->actionCount(0), 1);
 comment|//    QCOMPARE(test->actionText(1, QAccessible::Name, 0), QString("Open"));
 comment|//    QCOMPARE(test->actionText(test->defaultAction(1), QAccessible::Name, 1), QString("Press"));
@@ -8026,9 +7996,7 @@ argument_list|(
 name|interface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -8466,9 +8434,7 @@ argument_list|(
 name|parent
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -8957,9 +8923,7 @@ argument_list|(
 name|interface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -9026,9 +8990,7 @@ argument_list|(
 name|iFile
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -9040,9 +9002,7 @@ argument_list|(
 name|iEdit
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -9054,9 +9014,7 @@ argument_list|(
 name|iSeparator
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -9068,9 +9026,7 @@ argument_list|(
 name|iHelp
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -9082,9 +9038,7 @@ argument_list|(
 name|iAction
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -9123,9 +9077,7 @@ argument_list|(
 name|interface
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|.
 name|topLeft
 argument_list|()
@@ -9148,9 +9100,7 @@ argument_list|(
 name|interface
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -9169,18 +9119,14 @@ argument_list|(
 name|interface
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|.
 name|contains
 argument_list|(
 name|iFile
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9189,39 +9135,31 @@ argument_list|(
 name|interface
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|.
 name|contains
 argument_list|(
 name|iEdit
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// QVERIFY(interface->rect(0).contains(childSeparator->rect(0))); //separator might be invisible
+comment|// QVERIFY(interface->rect().contains(childSeparator->rect())); //separator might be invisible
 name|QVERIFY
 argument_list|(
 name|interface
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|.
 name|contains
 argument_list|(
 name|iHelp
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9230,18 +9168,14 @@ argument_list|(
 name|interface
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|.
 name|contains
 argument_list|(
 name|iAction
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10077,9 +10011,7 @@ argument_list|(
 name|iface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -10166,9 +10098,7 @@ argument_list|(
 name|iface2
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|fileRoles
 index|[
@@ -10217,9 +10147,7 @@ argument_list|(
 name|iface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -10281,9 +10209,7 @@ argument_list|(
 name|iface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|fileRoles
 index|[
@@ -10334,9 +10260,7 @@ argument_list|(
 name|iface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -10398,9 +10322,7 @@ argument_list|(
 name|iface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|fileRoles
 index|[
@@ -10446,9 +10368,7 @@ argument_list|(
 name|iface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -10496,9 +10416,7 @@ argument_list|(
 name|iface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -10546,9 +10464,7 @@ argument_list|(
 name|iface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -10750,9 +10666,7 @@ comment|// caused a *crash*
 name|iface2
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 operator|delete
 name|iface2
@@ -11118,9 +11032,7 @@ init|=
 name|interface
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|QCOMPARE
 argument_list|(
@@ -11520,9 +11432,7 @@ argument_list|(
 name|iface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -11813,9 +11723,7 @@ operator|)
 name|iface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 operator|(
 name|int
@@ -13019,9 +12927,7 @@ argument_list|(
 name|interface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|state
 argument_list|)
@@ -13059,9 +12965,7 @@ argument_list|(
 name|interface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|state
 argument_list|)
@@ -13086,9 +12990,7 @@ argument_list|(
 name|interface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -13107,9 +13009,7 @@ argument_list|(
 name|interface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -13135,9 +13035,7 @@ argument_list|(
 name|interface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -13189,9 +13087,7 @@ argument_list|(
 name|interface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -13377,9 +13273,7 @@ argument_list|(
 name|interface
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QRect
 argument_list|(
@@ -13402,9 +13296,7 @@ argument_list|(
 name|interface
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QRect
 argument_list|()
@@ -13680,9 +13572,7 @@ argument_list|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -13694,9 +13584,7 @@ argument_list|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -13710,9 +13598,7 @@ argument_list|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -13730,9 +13616,7 @@ argument_list|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -13744,9 +13628,7 @@ argument_list|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -13760,9 +13642,7 @@ argument_list|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -13807,9 +13687,7 @@ operator|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -13847,9 +13725,7 @@ argument_list|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -13887,9 +13763,7 @@ argument_list|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -13927,9 +13801,7 @@ argument_list|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -13969,9 +13841,7 @@ operator|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -14026,9 +13896,7 @@ operator|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -14043,9 +13911,7 @@ operator|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -14060,9 +13926,7 @@ argument_list|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -14080,9 +13944,7 @@ argument_list|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -14094,9 +13956,7 @@ argument_list|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -14110,9 +13970,7 @@ argument_list|(
 name|iface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -15457,9 +15315,7 @@ argument_list|(
 name|iface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -16273,9 +16129,7 @@ argument_list|(
 name|interface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -16327,9 +16181,7 @@ operator|!
 name|interface
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|.
 name|isValid
 argument_list|()
@@ -17638,9 +17490,7 @@ argument_list|(
 name|client
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -17677,9 +17527,7 @@ argument_list|(
 name|view
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -17704,9 +17552,7 @@ argument_list|(
 name|ifRow
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -18436,9 +18282,7 @@ argument_list|(
 name|client
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -18451,9 +18295,7 @@ init|=
 name|client
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|QVERIFY
 argument_list|(
@@ -19044,9 +18886,7 @@ operator|)
 name|iface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 operator|(
 name|int
@@ -19122,9 +18962,7 @@ argument_list|(
 name|child1
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -19529,9 +19367,7 @@ argument_list|(
 name|cell4
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -19855,9 +19691,7 @@ operator|)
 name|iface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 operator|(
 name|int
@@ -19934,9 +19768,7 @@ argument_list|(
 name|header1
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -20002,9 +19834,7 @@ argument_list|(
 name|child1
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -20018,9 +19848,7 @@ operator|(
 name|child1
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -20204,9 +20032,7 @@ argument_list|(
 name|cell2
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -20260,9 +20086,7 @@ operator|(
 name|cell2
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -20407,9 +20231,7 @@ argument_list|(
 name|cell2
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -20715,9 +20537,7 @@ operator|)
 name|iface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 operator|(
 name|int
@@ -20778,9 +20598,7 @@ argument_list|(
 name|cornerButton
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -20842,9 +20660,7 @@ argument_list|(
 name|child1
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -20858,9 +20674,7 @@ operator|(
 name|child1
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -21130,9 +20944,7 @@ argument_list|(
 name|cell2
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -21216,9 +21028,7 @@ argument_list|(
 name|cell3
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -21402,9 +21212,7 @@ argument_list|(
 name|interface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -21417,9 +21225,7 @@ operator|!
 name|interface
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|.
 name|isValid
 argument_list|()
@@ -22210,9 +22016,7 @@ argument_list|(
 name|accDock1
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
@@ -22238,9 +22042,7 @@ argument_list|(
 name|accDock1
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|.
 name|contains
 argument_list|(
@@ -22327,9 +22129,7 @@ argument_list|(
 name|accTitleBar
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|,
 name|QAccessible
 operator|::
