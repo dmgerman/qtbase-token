@@ -1749,7 +1749,7 @@ name|y1
 operator|-
 name|orig
 operator|->
-name|y1
+name|y2
 operator|)
 operator|*
 operator|(
