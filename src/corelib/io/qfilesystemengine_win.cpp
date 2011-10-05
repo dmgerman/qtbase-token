@@ -6635,11 +6635,6 @@ expr_stmt|;
 comment|// Force uppercase drive letters.
 else|#
 directive|else
-name|Q_UNUSED
-argument_list|(
-name|fileName
-argument_list|)
-expr_stmt|;
 comment|//TODO - a race condition exists when using currentPath / setCurrentPath from multiple threads
 if|if
 condition|(
