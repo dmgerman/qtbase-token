@@ -5751,8 +5751,6 @@ operator|&
 operator|(
 name|State_Raised
 operator||
-name|State_Sunken
-operator||
 name|State_On
 operator||
 name|State_Sunken
