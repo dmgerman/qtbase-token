@@ -7825,6 +7825,7 @@ super|:
 specifier|public
 name|QAbstractTransition
 block|{
+name|Q_OBJECT
 public|public:
 DECL|function|GoToStateTransition
 name|GoToStateTransition
@@ -11409,6 +11410,11 @@ end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
+begin_include
+include|#
+directive|include
+file|"qstatemachine.moc"
+end_include
 begin_include
 include|#
 directive|include
