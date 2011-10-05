@@ -1496,10 +1496,6 @@ operator|::
 name|init
 parameter_list|()
 block|{
-name|tos
-operator|=
-literal|0
-expr_stmt|;
 name|scanDtd
 operator|=
 literal|false
