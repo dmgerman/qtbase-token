@@ -2449,8 +2449,6 @@ name|glLinkProgram
 operator|&&
 name|glUseProgram
 operator|&&
-name|glDeleteProgram
-operator|&&
 name|glGetShaderInfoLog
 operator|&&
 name|glGetShaderiv
