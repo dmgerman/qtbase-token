@@ -601,8 +601,11 @@ name|QWidget
 operator|>
 name|contextWidget
 block|;
-name|bool
-name|lastSelectionState
+name|int
+name|lastSelectionPosition
+block|;
+name|int
+name|lastSelectionAnchor
 block|;
 name|bool
 name|ignoreAutomaticScrollbarAdjustement
