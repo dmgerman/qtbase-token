@@ -945,17 +945,17 @@ DECL|struct|QMetaTypeGuiHelper
 struct|struct
 name|QMetaTypeGuiHelper
 block|{
-DECL|member|constr
+DECL|member|creator
 name|QMetaType
 operator|::
-name|Constructor
-name|constr
+name|Creator
+name|creator
 decl_stmt|;
-DECL|member|destr
+DECL|member|deleter
 name|QMetaType
 operator|::
-name|Destructor
-name|destr
+name|Deleter
+name|deleter
 decl_stmt|;
 ifndef|#
 directive|ifndef
@@ -1012,12 +1012,12 @@ member_init_list|:
 name|typeName
 argument_list|()
 member_init_list|,
-name|constr
+name|creator
 argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|destr
+name|deleter
 argument_list|(
 literal|0
 argument_list|)
@@ -1041,17 +1041,17 @@ DECL|member|typeName
 name|QByteArray
 name|typeName
 decl_stmt|;
-DECL|member|constr
+DECL|member|creator
 name|QMetaType
 operator|::
-name|Constructor
-name|constr
+name|Creator
+name|creator
 decl_stmt|;
-DECL|member|destr
+DECL|member|deleter
 name|QMetaType
 operator|::
-name|Destructor
-name|destr
+name|Deleter
+name|deleter
 decl_stmt|;
 ifndef|#
 directive|ifndef
@@ -1672,11 +1672,11 @@ name|char
 modifier|*
 name|typeName
 parameter_list|,
-name|Destructor
-name|destructor
+name|Deleter
+name|deleter
 parameter_list|,
-name|Constructor
-name|constructor
+name|Creator
+name|creator
 parameter_list|)
 block|{
 name|QVector
@@ -1698,10 +1698,10 @@ operator|!
 name|typeName
 operator|||
 operator|!
-name|destructor
+name|deleter
 operator|||
 operator|!
-name|constructor
+name|creator
 condition|)
 return|return
 operator|-
@@ -1796,15 +1796,15 @@ name|normalizedTypeName
 expr_stmt|;
 name|inf
 operator|.
-name|constr
+name|creator
 operator|=
-name|constructor
+name|creator
 expr_stmt|;
 name|inf
 operator|.
-name|destr
+name|deleter
 operator|=
-name|destructor
+name|deleter
 expr_stmt|;
 name|inf
 operator|.
@@ -1983,13 +1983,13 @@ name|aliasId
 expr_stmt|;
 name|inf
 operator|.
-name|constr
+name|creator
 operator|=
 literal|0
 expr_stmt|;
 name|inf
 operator|.
-name|destr
+name|deleter
 operator|=
 literal|0
 expr_stmt|;
@@ -2128,13 +2128,13 @@ argument_list|()
 expr_stmt|;
 name|inf
 operator|.
-name|constr
+name|creator
 operator|=
 literal|0
 expr_stmt|;
 name|inf
 operator|.
-name|destr
+name|deleter
 operator|=
 literal|0
 expr_stmt|;
@@ -4600,12 +4600,12 @@ begin_comment
 comment|/*!     Returns a copy of \a copy, assuming it is of type \a type. If \a     copy is zero, creates a default type.      \sa destroy(), isRegistered(), Type */
 end_comment
 begin_function
-DECL|function|construct
+DECL|function|create
 name|void
 modifier|*
 name|QMetaType
 operator|::
-name|construct
+name|create
 parameter_list|(
 name|int
 name|type
@@ -6096,8 +6096,8 @@ default|default:
 empty_stmt|;
 block|}
 block|}
-name|Constructor
-name|constr
+name|Creator
+name|creator
 init|=
 literal|0
 decl_stmt|;
@@ -6120,7 +6120,7 @@ condition|)
 return|return
 literal|0
 return|;
-name|constr
+name|creator
 operator|=
 name|qMetaTypeGuiHelper
 index|[
@@ -6129,7 +6129,7 @@ operator|-
 name|FirstGuiType
 index|]
 operator|.
-name|constr
+name|creator
 expr_stmt|;
 block|}
 elseif|else
@@ -6152,7 +6152,7 @@ condition|)
 return|return
 literal|0
 return|;
-name|constr
+name|creator
 operator|=
 name|qMetaTypeWidgetsHelper
 index|[
@@ -6161,7 +6161,7 @@ operator|-
 name|FirstWidgetsType
 index|]
 operator|.
-name|constr
+name|creator
 expr_stmt|;
 block|}
 else|else
@@ -6225,7 +6225,7 @@ condition|)
 return|return
 literal|0
 return|;
-name|constr
+name|creator
 operator|=
 name|ct
 operator|->
@@ -6236,11 +6236,11 @@ operator|-
 name|User
 argument_list|)
 operator|.
-name|constr
+name|creator
 expr_stmt|;
 block|}
 return|return
-name|constr
+name|creator
 argument_list|(
 name|copy
 argument_list|)
@@ -6248,7 +6248,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Destroys the \a data, assuming it is of the \a type given.      \sa construct(), isRegistered(), Type */
+comment|/*!     Destroys the \a data, assuming it is of the \a type given.      \sa create(), isRegistered(), Type */
 end_comment
 begin_function
 DECL|function|destroy
@@ -7017,8 +7017,8 @@ init|=
 name|customTypes
 argument_list|()
 decl_stmt|;
-name|Destructor
-name|destr
+name|Deleter
+name|deleter
 init|=
 literal|0
 decl_stmt|;
@@ -7044,7 +7044,7 @@ operator|!
 name|qMetaTypeGuiHelper
 condition|)
 return|return;
-name|destr
+name|deleter
 operator|=
 name|qMetaTypeGuiHelper
 index|[
@@ -7053,7 +7053,7 @@ operator|-
 name|FirstGuiType
 index|]
 operator|.
-name|destr
+name|deleter
 expr_stmt|;
 block|}
 elseif|else
@@ -7079,7 +7079,7 @@ operator|!
 name|qMetaTypeWidgetsHelper
 condition|)
 return|return;
-name|destr
+name|deleter
 operator|=
 name|qMetaTypeWidgetsHelper
 index|[
@@ -7088,7 +7088,7 @@ operator|-
 name|FirstWidgetsType
 index|]
 operator|.
-name|destr
+name|deleter
 expr_stmt|;
 block|}
 else|else
@@ -7136,7 +7136,7 @@ name|isEmpty
 argument_list|()
 condition|)
 break|break;
-name|destr
+name|deleter
 operator|=
 name|ct
 operator|->
@@ -7147,10 +7147,10 @@ operator|-
 name|User
 argument_list|)
 operator|.
-name|destr
+name|deleter
 expr_stmt|;
 block|}
-name|destr
+name|deleter
 argument_list|(
 name|data
 argument_list|)
@@ -7167,10 +7167,10 @@ begin_comment
 comment|/*!     \fn int qRegisterMetaTypeStreamOperators(const char *typeName)     \relates QMetaType     \threadsafe      Registers the stream operators for the type \c{T} called \a     typeName.      Afterward, the type can be streamed using QMetaType::load() and     QMetaType::save(). These functions are used when streaming a     QVariant.      \snippet doc/src/snippets/code/src_corelib_kernel_qmetatype.cpp 5      The stream operators should have the following signatures:      \snippet doc/src/snippets/code/src_corelib_kernel_qmetatype.cpp 6      \sa qRegisterMetaType(), QMetaType::isRegistered(), Q_DECLARE_METATYPE() */
 end_comment
 begin_comment
-comment|/*! \typedef QMetaType::Destructor     \internal */
+comment|/*! \typedef QMetaType::Deleter     \internal */
 end_comment
 begin_comment
-comment|/*! \typedef QMetaType::Constructor     \internal */
+comment|/*! \typedef QMetaType::Creator     \internal */
 end_comment
 begin_comment
 comment|/*! \typedef QMetaType::SaveOperator     \internal */

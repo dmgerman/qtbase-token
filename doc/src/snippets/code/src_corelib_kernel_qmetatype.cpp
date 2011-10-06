@@ -122,7 +122,7 @@ name|myClassPtr
 init|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|id
 argument_list|)

@@ -11204,7 +11204,7 @@ name|mmatrix
 init|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|QVariant
 operator|::
@@ -11297,7 +11297,7 @@ name|mmatrix
 init|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|QVariant
 operator|::
@@ -11392,7 +11392,7 @@ name|mmatrix
 init|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|QVariant
 operator|::
@@ -11485,7 +11485,7 @@ name|pvector
 init|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|QVariant
 operator|::
@@ -11582,7 +11582,7 @@ name|pvector
 init|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|QVariant
 operator|::
@@ -11683,7 +11683,7 @@ name|pvector
 init|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|QVariant
 operator|::
@@ -11784,7 +11784,7 @@ name|pquaternion
 init|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|QVariant
 operator|::

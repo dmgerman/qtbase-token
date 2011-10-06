@@ -342,7 +342,7 @@ index|]
 operator|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|type
 argument_list|,

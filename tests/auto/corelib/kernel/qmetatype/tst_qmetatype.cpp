@@ -141,7 +141,7 @@ name|typeName
 parameter_list|()
 function_decl|;
 name|void
-name|construct
+name|create
 parameter_list|()
 function_decl|;
 name|void
@@ -470,7 +470,7 @@ name|buf
 init|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|tp
 argument_list|,
@@ -483,7 +483,7 @@ name|buf2
 init|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|tp
 argument_list|,
@@ -502,7 +502,7 @@ expr_stmt|;
 name|qWarning
 argument_list|()
 operator|<<
-literal|"Null buffer returned by QMetaType::construct(tp, 0)"
+literal|"Null buffer returned by QMetaType::create(tp, 0)"
 expr_stmt|;
 block|}
 if|if
@@ -517,7 +517,7 @@ expr_stmt|;
 name|qWarning
 argument_list|()
 operator|<<
-literal|"Null buffer returned by QMetaType::construct(tp, buf)"
+literal|"Null buffer returned by QMetaType::create(tp, buf)"
 expr_stmt|;
 block|}
 name|QMetaType
@@ -1365,11 +1365,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|construct
+DECL|function|create
 name|void
 name|tst_QMetaType
 operator|::
-name|construct
+name|create
 parameter_list|()
 block|{
 name|QSize
@@ -1386,7 +1386,7 @@ name|size
 init|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|QMetaType
 operator|::

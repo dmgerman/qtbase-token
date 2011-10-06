@@ -3345,17 +3345,17 @@ DECL|struct|QMetaTypeGuiHelper
 struct|struct
 name|QMetaTypeGuiHelper
 block|{
-DECL|member|constr
+DECL|member|creator
 name|QMetaType
 operator|::
-name|Constructor
-name|constr
+name|Creator
+name|creator
 decl_stmt|;
-DECL|member|destr
+DECL|member|deleter
 name|QMetaType
 operator|::
-name|Destructor
-name|destr
+name|Deleter
+name|deleter
 decl_stmt|;
 ifndef|#
 directive|ifndef
@@ -3400,7 +3400,7 @@ parameter_list|(
 name|TYPE
 parameter_list|)
 define|\
-value|typedef void *(*QConstruct##TYPE)(const TYPE *); \      static const QConstruct##TYPE qConstruct##TYPE = qMetaTypeConstructHelper<TYPE>; \      typedef void (*QDestruct##TYPE)(TYPE *); \      static const QDestruct##TYPE qDestruct##TYPE = qMetaTypeDeleteHelper<TYPE>;
+value|typedef void *(*QCreate##TYPE)(const TYPE *); \      static const QCreate##TYPE qCreate##TYPE = qMetaTypeCreateHelper<TYPE>; \      typedef void (*QDelete##TYPE)(TYPE *); \      static const QDelete##TYPE qDelete##TYPE = qMetaTypeDeleteHelper<TYPE>;
 end_define
 begin_else
 else|#
@@ -3415,7 +3415,7 @@ parameter_list|(
 name|TYPE
 parameter_list|)
 define|\
-value|typedef void *(*QConstruct##TYPE)(const TYPE *); \      static const QConstruct##TYPE qConstruct##TYPE = qMetaTypeConstructHelper<TYPE>; \      typedef void (*QDestruct##TYPE)(TYPE *); \      static const QDestruct##TYPE qDestruct##TYPE = qMetaTypeDeleteHelper<TYPE>; \      typedef void (*QSave##TYPE)(QDataStream&, const TYPE *); \      static const QSave##TYPE qSave##TYPE = qMetaTypeSaveHelper<TYPE>; \      typedef void (*QLoad##TYPE)(QDataStream&, TYPE *); \      static const QLoad##TYPE qLoad##TYPE = qMetaTypeLoadHelper<TYPE>;
+value|typedef void *(*QCreate##TYPE)(const TYPE *); \      static const QCreate##TYPE qCreate##TYPE = qMetaTypeCreateHelper<TYPE>; \      typedef void (*QDelete##TYPE)(TYPE *); \      static const QDelete##TYPE qDelete##TYPE = qMetaTypeDeleteHelper<TYPE>; \      typedef void (*QSave##TYPE)(QDataStream&, const TYPE *); \      static const QSave##TYPE qSave##TYPE = qMetaTypeSaveHelper<TYPE>; \      typedef void (*QLoad##TYPE)(QDataStream&, TYPE *); \      static const QLoad##TYPE qLoad##TYPE = qMetaTypeLoadHelper<TYPE>;
 end_define
 begin_endif
 endif|#
@@ -3624,7 +3624,7 @@ parameter_list|(
 name|TYPE
 parameter_list|)
 define|\
-value|{ reinterpret_cast<QMetaType::Constructor>(qConstruct##TYPE), \        reinterpret_cast<QMetaType::Destructor>(qDestruct##TYPE) }
+value|{ reinterpret_cast<QMetaType::Creator>(qCreate##TYPE), \        reinterpret_cast<QMetaType::Deleter>(qDelete##TYPE) }
 end_define
 begin_else
 else|#
@@ -3638,7 +3638,7 @@ parameter_list|(
 name|TYPE
 parameter_list|)
 define|\
-value|{ reinterpret_cast<QMetaType::Constructor>(qConstruct##TYPE), \        reinterpret_cast<QMetaType::Destructor>(qDestruct##TYPE), \        reinterpret_cast<QMetaType::SaveOperator>(qSave##TYPE), \        reinterpret_cast<QMetaType::LoadOperator>(qLoad##TYPE) \      }
+value|{ reinterpret_cast<QMetaType::Creator>(qCreate##TYPE), \        reinterpret_cast<QMetaType::Deleter>(qDelete##TYPE), \        reinterpret_cast<QMetaType::SaveOperator>(qSave##TYPE), \        reinterpret_cast<QMetaType::LoadOperator>(qLoad##TYPE) \      }
 end_define
 begin_endif
 endif|#

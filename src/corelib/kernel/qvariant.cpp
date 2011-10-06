@@ -782,7 +782,7 @@ name|ptr
 init|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|x
 operator|->

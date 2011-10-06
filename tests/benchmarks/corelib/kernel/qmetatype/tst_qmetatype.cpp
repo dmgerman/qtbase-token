@@ -1041,7 +1041,7 @@ name|data
 init|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|typeId
 argument_list|,
@@ -1150,7 +1150,7 @@ name|data
 init|=
 name|QMetaType
 operator|::
-name|construct
+name|create
 argument_list|(
 name|typeId
 argument_list|,
