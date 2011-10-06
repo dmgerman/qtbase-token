@@ -102,12 +102,6 @@ name|QAbstractScrollArea
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QInputContext
-name|class
-name|QInputContext
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QWidgetTextControlPrivate
 range|:
@@ -555,11 +549,6 @@ argument|const QString&text
 argument_list|,
 argument|Qt::TextFormat format = Qt::AutoText
 argument_list|)
-block|;
-name|QInputContext
-operator|*
-name|inputContext
-argument_list|()
 block|;
 name|QTextDocument
 operator|*
