@@ -101,11 +101,6 @@ public|public:
 name|tst_QMenu
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QMenu
-parameter_list|()
-destructor_decl|;
 public|public
 name|slots
 public|:
@@ -119,10 +114,6 @@ parameter_list|()
 function_decl|;
 name|void
 name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
 parameter_list|()
 function_decl|;
 private|private
@@ -482,18 +473,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
-begin_destructor
-DECL|function|~tst_QMenu
-name|tst_QMenu
-operator|::
-name|~
-name|tst_QMenu
-parameter_list|()
-block|{  }
-end_destructor
 begin_function
-name|void
 DECL|function|initTestCase
+name|void
 name|tst_QMenu
 operator|::
 name|initTestCase
@@ -607,8 +589,8 @@ block|}
 block|}
 end_function
 begin_function
-name|void
 DECL|function|cleanupTestCase
+name|void
 name|tst_QMenu
 operator|::
 name|cleanupTestCase
@@ -716,8 +698,8 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-name|void
 DECL|function|init
+name|void
 name|tst_QMenu
 operator|::
 name|init
@@ -736,17 +718,8 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-name|void
-DECL|function|cleanup
-name|tst_QMenu
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
-end_function
-begin_function
-name|void
 DECL|function|createActions
+name|void
 name|tst_QMenu
 operator|::
 name|createActions
@@ -1123,8 +1096,8 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-name|void
 DECL|function|onHighlighted
+name|void
 name|tst_QMenu
 operator|::
 name|onHighlighted
@@ -1153,8 +1126,8 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-name|void
 DECL|function|onActivated
+name|void
 name|tst_QMenu
 operator|::
 name|onActivated
@@ -1238,12 +1211,9 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//actual tests
-end_comment
 begin_function
-name|void
 DECL|function|addActionsAndClear
+name|void
 name|tst_QMenu
 operator|::
 name|addActionsAndClear
@@ -1625,8 +1595,8 @@ endif|#
 directive|endif
 end_endif
 begin_function
-name|void
 DECL|function|keyboardNavigation_data
+name|void
 name|tst_QMenu
 operator|::
 name|keyboardNavigation_data
@@ -2007,8 +1977,8 @@ directive|endif
 block|}
 end_function
 begin_function
-name|void
 DECL|function|keyboardNavigation
+name|void
 name|tst_QMenu
 operator|::
 name|keyboardNavigation
@@ -2193,7 +2163,7 @@ name|qt_tab_all_widgets
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|// qapplication_mac.cpp
+comment|// from qapplication.cpp
 end_comment
 begin_function
 name|QT_END_NAMESPACE
@@ -2321,12 +2291,6 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|QVERIFY(!button.hasFocus());     QCOMPARE(QApplication::focusWidget(),&menu);     QCOMPARE(QApplication::activeWindow(),&window);
-else|#
-directive|else
 name|QVERIFY
 argument_list|(
 name|button
@@ -2361,8 +2325,6 @@ operator|&
 name|window
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|menu
 operator|.
 name|hide
