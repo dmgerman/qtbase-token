@@ -67,16 +67,9 @@ include|#
 directive|include
 file|"private/qnoncontiguousbytedevice_p.h"
 end_include
-begin_decl_stmt
+begin_macro
 name|QT_BEGIN_NAMESPACE
-DECL|variable|factoryDataShutdown
-specifier|static
-name|bool
-name|factoryDataShutdown
-init|=
-literal|false
-decl_stmt|;
-end_decl_stmt
+end_macro
 begin_class
 DECL|class|QNetworkAccessBackendFactoryData
 class|class
@@ -100,7 +93,13 @@ name|QMutex
 operator|::
 name|Recursive
 argument_list|)
-block|{ }
+block|{
+name|valid
+operator|.
+name|ref
+argument_list|()
+expr_stmt|;
+block|}
 DECL|function|~QNetworkAccessBackendFactoryData
 name|~
 name|QNetworkAccessBackendFactoryData
@@ -114,14 +113,21 @@ name|mutex
 argument_list|)
 decl_stmt|;
 comment|// why do we need to lock?
-name|factoryDataShutdown
-operator|=
-literal|true
+name|valid
+operator|.
+name|deref
+argument_list|()
 expr_stmt|;
 block|}
 DECL|member|mutex
 name|QMutex
 name|mutex
+decl_stmt|;
+comment|//this is used to avoid (re)constructing factory data from destructors of other global classes
+DECL|member|valid
+specifier|static
+name|QAtomicInt
+name|valid
 decl_stmt|;
 block|}
 class|;
@@ -134,6 +140,14 @@ argument_list|,
 argument|factoryData
 argument_list|)
 end_macro
+begin_decl_stmt
+DECL|member|valid
+name|QAtomicInt
+name|QNetworkAccessBackendFactoryData
+operator|::
+name|valid
+decl_stmt|;
+end_decl_stmt
 begin_constructor
 DECL|function|QNetworkAccessBackendFactory
 name|QNetworkAccessBackendFactory
@@ -171,8 +185,9 @@ parameter_list|()
 block|{
 if|if
 condition|(
-operator|!
-name|factoryDataShutdown
+name|QNetworkAccessBackendFactoryData
+operator|::
+name|valid
 condition|)
 block|{
 name|QMutexLocker
@@ -217,8 +232,9 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
-name|factoryDataShutdown
+name|QNetworkAccessBackendFactoryData
+operator|::
+name|valid
 condition|)
 block|{
 name|QMutexLocker
