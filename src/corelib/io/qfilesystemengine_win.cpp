@@ -4253,7 +4253,7 @@ name|knownFlagsMask
 operator||=
 name|QFileSystemMetaData
 operator|::
-name|UserReadPermission
+name|UserWritePermission
 expr_stmt|;
 block|}
 block|}
