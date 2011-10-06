@@ -1521,6 +1521,10 @@ name|QSharedMemory
 operator|::
 name|NotFound
 expr_stmt|;
+comment|// HPUX doesn't allow for multiple attaches per process.
+ifndef|#
+directive|ifndef
+name|Q_OS_HPUX
 name|QTest
 operator|::
 name|newRow
@@ -1539,6 +1543,8 @@ name|QSharedMemory
 operator|::
 name|NoError
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_comment
@@ -1575,35 +1581,6 @@ argument_list|,
 name|error
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_HPUX
-if|if
-condition|(
-name|QLatin1String
-argument_list|(
-name|QTest
-operator|::
-name|currentDataTag
-argument_list|()
-argument_list|)
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"already exists"
-argument_list|)
-condition|)
-block|{
-name|QSKIP
-argument_list|(
-literal|"HPUX doesn't allow for multiple attaches per process"
-argument_list|,
-name|SkipSingle
-argument_list|)
-expr_stmt|;
-block|}
-endif|#
-directive|endif
 name|QSharedMemory
 name|sm
 argument_list|(

@@ -283,10 +283,15 @@ name|void
 name|startAndQuitCustomEventLoop
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|void
 name|stressTest
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 block|}
 class|;
 end_class
@@ -5101,6 +5106,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// Disconnects on WinCE, so skip this test.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
 begin_function
 DECL|function|stressTest
 name|void
@@ -5109,21 +5122,6 @@ operator|::
 name|stressTest
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Disconnects on WinCE, skipping..."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTime
 name|t
 decl_stmt|;
@@ -5160,6 +5158,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_class
 DECL|class|Syncronizer
 class|class

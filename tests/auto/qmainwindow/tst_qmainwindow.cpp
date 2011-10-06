@@ -4133,6 +4133,9 @@ name|void
 name|setToolButtonStyle
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_WS_WINCE_WM
 name|void
 name|menuBar
 parameter_list|()
@@ -4141,6 +4144,8 @@ name|void
 name|setMenuBar
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|statusBar
 parameter_list|()
@@ -7374,6 +7379,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// With native menubar integration on Windows Mobile the menubar is not a child
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_WS_WINCE_WM
+end_ifndef
 begin_function
 DECL|function|menuBar
 name|void
@@ -7450,18 +7463,6 @@ operator|)
 name|mb1
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_WINCE_WM
-name|QSKIP
-argument_list|(
-literal|"With native menubar integration the menubar is not a child"
-argument_list|,
-name|SkipSingle
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|mb1
@@ -7954,6 +7955,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|statusBar
 name|void

@@ -664,10 +664,15 @@ name|void
 name|enabledPropagation
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
 name|void
 name|acceptDropsPropagation
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|isEnabledTo
 parameter_list|()
@@ -712,18 +717,28 @@ name|void
 name|setTabOrder
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|Q_WS_WIN
 name|void
 name|activation
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|reparent
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_WS_X11
 name|void
 name|windowState
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|showMaximized
 parameter_list|()
@@ -740,26 +755,41 @@ name|void
 name|showMinimizedKeepsFocus
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_WS_QWS
 name|void
 name|icon
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|hideWhenFocusWidgetIsChild
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_IRIX
 name|void
 name|normalGeometry
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|setGeometry
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|void
 name|windowOpacity
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|raise
 parameter_list|()
@@ -768,14 +798,22 @@ name|void
 name|lower
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_MAC_USE_COCOA
 name|void
 name|stackUnder
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|testContentsPropagation
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_IRIX
 name|void
 name|saveRestoreGeometry
 parameter_list|()
@@ -788,6 +826,8 @@ name|void
 name|restoreVersion1Geometry
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|widgetAt
 parameter_list|()
@@ -894,7 +934,10 @@ parameter_list|()
 function_decl|;
 endif|#
 directive|endif
-comment|// tests QWidget::setGeometry() on windows only
+ifndef|#
+directive|ifndef
+name|Q_WS_X11
+comment|// tests QWidget::setGeometry()
 name|void
 name|setWindowGeometry_data
 parameter_list|()
@@ -903,7 +946,22 @@ name|void
 name|setWindowGeometry
 parameter_list|()
 function_decl|;
-comment|// tests QWidget::move() and resize() on windows only
+endif|#
+directive|endif
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_WS_X11
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_IRIX
+argument_list|)
+comment|// tests QWidget::move() and resize()
 name|void
 name|windowMoveResize_data
 parameter_list|()
@@ -912,6 +970,8 @@ name|void
 name|windowMoveResize
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|moveChild_data
 parameter_list|()
@@ -924,10 +984,15 @@ name|void
 name|showAndMoveChild
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_MAC_USE_COCOA
 name|void
 name|subtractOpaqueSiblings
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|Q_WS_WIN
@@ -1019,10 +1084,15 @@ name|void
 name|render_task217815
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
 name|void
 name|render_windowOpacity
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|render_systemClip
 parameter_list|()
@@ -1055,6 +1125,9 @@ name|void
 name|setContentsMargins
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_IRIX
 name|void
 name|moveWindowInShowEvent_data
 parameter_list|()
@@ -1063,6 +1136,8 @@ name|void
 name|moveWindowInShowEvent
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|repaintWhenChildDeleted
 parameter_list|()
@@ -1071,10 +1146,25 @@ name|void
 name|hideOpaqueChildWhileHidden
 parameter_list|()
 function_decl|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_WS_QWS
+argument_list|)
 name|void
 name|updateWhileMinimized
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 if|#
 directive|if
 name|defined
@@ -1112,10 +1202,15 @@ name|void
 name|sendUpdateRequestImmediately
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_IRIX
 name|void
 name|doubleRepaint
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|Q_WS_MAC
@@ -1233,13 +1328,21 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
 name|Q_WS_X11
 argument_list|)
+operator|||
+operator|(
+name|defined
+argument_list|(
+name|Q_WS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE_WM
+argument_list|)
+operator|)
 operator|||
 name|defined
 argument_list|(
@@ -1293,18 +1396,28 @@ name|void
 name|focusWidget_task254563
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE_WM
 name|void
 name|rectOutsideCoordinatesLimit_task144779
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|setGraphicsEffect
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|destroyBackingStore
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|activateWindow
 parameter_list|()
@@ -1317,10 +1430,15 @@ name|void
 name|focusProxyAndInputMethods
 parameter_list|()
 function_decl|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|void
 name|scrollWithoutBackingStore
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|taskQTBUG_7532_tabOrderWithFocusProxy
 parameter_list|()
@@ -6456,6 +6574,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// Drag'n drop disabled in this build.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_DRAGANDDROP
+end_ifndef
 begin_function
 DECL|function|acceptDropsPropagation
 name|void
@@ -6464,18 +6590,6 @@ operator|::
 name|acceptDropsPropagation
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_NO_DRAGANDDROP
-name|QSKIP
-argument_list|(
-literal|"Drag'n drop disabled in this build"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QWidget
 modifier|*
 name|childWidget
@@ -6803,10 +6917,12 @@ name|WA_DropSiteRegistered
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|isEnabledTo
 name|void
@@ -12264,6 +12380,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_WS_WIN
+end_ifdef
 begin_function
 DECL|function|activation
 name|void
@@ -12272,22 +12393,6 @@ operator|::
 name|activation
 parameter_list|()
 block|{
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_WIN
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"This test is Windows-only."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|Q_CHECK_PAINTEVENTS
 if|#
 directive|if
@@ -12524,6 +12629,18 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Many window managers do not support window state properly, which causes this test to fail.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_WS_X11
+end_ifndef
 begin_function
 DECL|function|windowState
 name|void
@@ -12532,19 +12649,6 @@ operator|::
 name|windowState
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
-name|QSKIP
-argument_list|(
-literal|"Many window managers do not support window state properly, which causes this "
-literal|"test to fail."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 ifdef|#
 directive|ifdef
 name|Q_OS_WINCE_WM
@@ -12683,6 +12787,7 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
+DECL|macro|VERIFY_STATE
 define|#
 directive|define
 name|VERIFY_STATE
@@ -13515,10 +13620,12 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|showMaximized
 name|void
@@ -15870,6 +15977,7 @@ argument_list|,
 name|tlwPos
 argument_list|)
 expr_stmt|;
+comment|// This following part of the test only makes sense on Windows.
 ifdef|#
 directive|ifdef
 name|Q_WS_WIN
@@ -16174,19 +16282,18 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"This test makes only sense on Windows"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
 endif|#
 directive|endif
 block|}
 end_function
+begin_comment
+comment|// Qt/Embedded does it differently.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_WS_QWS
+end_ifndef
 begin_function
 DECL|function|icon
 name|void
@@ -16195,21 +16302,6 @@ operator|::
 name|icon
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Qt/Embedded does it differently"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QPixmap
 name|p
 argument_list|(
@@ -16297,10 +16389,12 @@ name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|hideWhenFocusWidgetIsChild
 name|void
@@ -16628,6 +16722,14 @@ name|parentWidget
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// 4DWM issues on IRIX makes this test fail.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_IRIX
+end_ifndef
 begin_function
 DECL|function|normalGeometry
 name|void
@@ -16636,18 +16738,6 @@ operator|::
 name|normalGeometry
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
-name|QSKIP
-argument_list|(
-literal|"4DWM issues on IRIX makes this test fail"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QWidget
 name|parent
 decl_stmt|;
@@ -17412,6 +17502,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|setGeometry
 name|void
@@ -17610,6 +17704,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// Windows CE does not support windowOpacity.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
 begin_function
 DECL|function|windowOpacity
 name|void
@@ -17618,18 +17720,6 @@ operator|::
 name|windowOpacity
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Windows CE does not support windowOpacity"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QWidget
 name|widget
 decl_stmt|;
@@ -17802,6 +17892,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_class
 DECL|class|UpdateWidget
 class|class
@@ -18699,6 +18793,14 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|// Cocoa has no Z-Order for views, we hack it, but it results in paint events.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_MAC_USE_COCOA
+end_ifndef
 begin_function
 DECL|function|lower
 name|void
@@ -18707,18 +18809,6 @@ operator|::
 name|lower
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-name|QSKIP
-argument_list|(
-literal|"Cocoa has no Z-Order for views, we hack it, but it results in paint events."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QWidget
 modifier|*
 name|parent
@@ -19069,6 +19159,18 @@ name|parent
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Cocoa has no Z-Order for views, we hack it, but it results in paint events.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_MAC_USE_COCOA
+end_ifndef
 begin_function
 DECL|function|stackUnder
 name|void
@@ -19077,18 +19179,6 @@ operator|::
 name|stackUnder
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-name|QSKIP
-argument_list|(
-literal|"Cocoa has no Z-Order for views, we hack it, but it results in paint events."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTest
 operator|::
 name|qWait
@@ -19602,6 +19692,10 @@ name|parent
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|drawPolygon
 name|void
@@ -19994,6 +20088,14 @@ end_function
 begin_comment
 comment|/*     Test that saving and restoring window geometry with     saveGeometry() and restoreGeometry() works. */
 end_comment
+begin_comment
+comment|// 4DWM issues on IRIX makes this test fail.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_IRIX
+end_ifndef
 begin_function
 DECL|function|saveRestoreGeometry
 name|void
@@ -20002,18 +20104,6 @@ operator|::
 name|saveRestoreGeometry
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
-name|QSKIP
-argument_list|(
-literal|"4DWM issues on IRIX makes this test fail"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 specifier|const
 name|QPoint
 name|position
@@ -20923,6 +21013,18 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// 4DWM issues on IRIX makes this test fail.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_IRIX
+end_ifndef
 begin_function
 DECL|function|restoreVersion1Geometry_data
 name|void
@@ -21091,18 +21193,6 @@ operator|::
 name|restoreVersion1Geometry
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
-name|QSKIP
-argument_list|(
-literal|"4DWM issues on IRIX makes this test fail"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QString
@@ -21390,6 +21480,10 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|widgetAt
 name|void
@@ -25184,18 +25278,11 @@ name|WA_Resized
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+comment|// Setting a minimum size larger than the desktop does not work on WinCE,
+comment|// so skip this part of the test.
+ifndef|#
+directive|ifndef
 name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Setting a minimum size larger than the desktop does not work"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QSize
 name|nonDefaultSize
 init|=
@@ -25253,6 +25340,8 @@ name|width
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -29097,6 +29186,17 @@ argument_list|(
 argument|QList<QRect>
 argument_list|)
 end_macro
+begin_comment
+comment|// Since X11 WindowManager operations are all async, and we have no way to know if the window
+end_comment
+begin_comment
+comment|// manager has finished playing with the window geometry, this test can't be reliable on X11.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_WS_X11
+end_ifndef
 begin_function
 DECL|function|setWindowGeometry_data
 name|void
@@ -29517,15 +29617,6 @@ operator|<<
 name|Qt
 operator|::
 name|FramelessWindowHint
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
-operator|<<
-name|Qt
-operator|::
-name|X11BypassWindowManagerHint
-endif|#
-directive|endif
 expr_stmt|;
 foreach|foreach
 control|(
@@ -29624,20 +29715,6 @@ operator|::
 name|setWindowGeometry
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
-comment|//Since WindowManager operation are all assync, and we have no way to know if the window
-comment|// manager has finished playing with the window geometry, this test can't be reliable.
-name|QSKIP
-argument_list|(
-literal|"Window Manager behaviour are too random for this test"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QList
@@ -30255,6 +30332,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_if
 if|#
 directive|if
@@ -30390,6 +30471,30 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// Since X11 WindowManager operation are all async, and we have no way to know if the window
+end_comment
+begin_comment
+comment|// manager has finished playing with the window geometry, this test can't be reliable on X11.
+end_comment
+begin_comment
+comment|// 4DWM issues on IRIX also makes this test fail.
+end_comment
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_WS_X11
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_IRIX
+argument_list|)
+end_if
 begin_function
 DECL|function|windowMoveResize_data
 name|void
@@ -30411,32 +30516,6 @@ operator|::
 name|windowMoveResize
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
-comment|//Since WindowManager operation are all assync, and we have no way to know if the window
-comment|// manager has finished playing with the window geometry, this test can't be reliable.
-name|QSKIP
-argument_list|(
-literal|"Window Manager behaviour are too random for this test"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
-name|QSKIP
-argument_list|(
-literal|"4DWM issues on IRIX makes this test fail"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QList
@@ -31662,6 +31741,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_class
 DECL|class|ColorWidget
 class|class
@@ -32446,6 +32529,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// Cocoa only has rect granularity.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_MAC_USE_COCOA
+end_ifndef
 begin_function
 DECL|function|subtractOpaqueSiblings
 name|void
@@ -32454,18 +32545,6 @@ operator|::
 name|subtractOpaqueSiblings
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_MAC_USE_COCOA
-name|QSKIP
-argument_list|(
-literal|"Cocoa only has rect granularity."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|QWidget
 name|w
 decl_stmt|;
@@ -32676,10 +32755,12 @@ name|geometry
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|deleteStyle
 name|void
@@ -35302,18 +35383,10 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
+comment|// Mouse over doesn't work on Windows mobile, so skip the rest of the test for that platform.
+ifndef|#
+directive|ifndef
 name|Q_OS_WINCE_WM
-name|QSKIP
-argument_list|(
-literal|"Mouse over doesn't work on Windows mobile."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 for|for
 control|(
 name|int
@@ -35520,6 +35593,8 @@ operator|delete
 name|popup
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -41135,6 +41210,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// Window Opacity is not supported on Windows CE.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE
+end_ifndef
 begin_function
 DECL|function|render_windowOpacity
 name|void
@@ -41143,18 +41226,6 @@ operator|::
 name|render_windowOpacity
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Window Opacity is not supported on Windows CE"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 specifier|const
 name|qreal
 name|opacity
@@ -41582,6 +41653,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|render_systemClip
 name|void
@@ -44187,6 +44262,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// 4DWM issues on IRIX makes this test fail.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_IRIX
+end_ifndef
 begin_function
 DECL|function|moveWindowInShowEvent_data
 name|void
@@ -44279,18 +44362,6 @@ operator|::
 name|moveWindowInShowEvent
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
-name|QSKIP
-argument_list|(
-literal|"4DWM issues on IRIX makes this test fail"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|QPoint
@@ -44426,6 +44497,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|repaintWhenChildDeleted
 name|void
@@ -44949,6 +45024,24 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// This test doesn't make sense without support for showMinimized().
+end_comment
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_WS_QWS
+argument_list|)
+end_if
 begin_function
 DECL|function|updateWhileMinimized
 name|void
@@ -44957,26 +45050,6 @@ operator|::
 name|updateWhileMinimized
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"This test doesn't make sense without support for showMinimized()"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|UpdateWidget
 name|widget
 decl_stmt|;
@@ -45117,6 +45190,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_if
 if|#
 directive|if
@@ -48503,6 +48580,14 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// 4DWM issues on IRIX makes this test fail.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_IRIX
+end_ifndef
 begin_function
 DECL|function|doubleRepaint
 name|void
@@ -48511,18 +48596,8 @@ operator|::
 name|doubleRepaint
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_IRIX
-name|QSKIP
-argument_list|(
-literal|"4DWM issues on IRIX makes this test fail"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-elif|#
-directive|elif
+if|#
+directive|if
 name|defined
 argument_list|(
 name|Q_WS_MAC
@@ -48662,6 +48737,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -53591,6 +53670,9 @@ expr_stmt|;
 comment|// Full update.
 block|}
 end_function
+begin_comment
+comment|// Windows Mobile has no proper cursor support, so skip this test on that platform.
+end_comment
 begin_if
 if|#
 directive|if
@@ -53599,10 +53681,18 @@ argument_list|(
 name|Q_WS_X11
 argument_list|)
 operator|||
+operator|(
 name|defined
 argument_list|(
 name|Q_WS_WIN
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE_WM
+argument_list|)
+operator|)
 operator|||
 name|defined
 argument_list|(
@@ -53891,18 +53981,6 @@ argument_list|(
 literal|300
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE_WM
-name|QSKIP
-argument_list|(
-literal|"Windows Mobile has no proper cursor support"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|window
@@ -54180,6 +54258,44 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Windows Mobile has no proper cursor support, so skip this test on that platform.
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_WS_X11
+argument_list|)
+operator|||
+operator|(
+name|defined
+argument_list|(
+name|Q_WS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE_WM
+argument_list|)
+operator|)
+operator|||
+name|defined
+argument_list|(
+name|Q_WS_QWS
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_WS_QPA
+argument_list|)
+end_if
 begin_function
 DECL|function|taskQTBUG_4055_sendSyntheticEnterLeave
 name|void
@@ -54188,18 +54304,6 @@ operator|::
 name|taskQTBUG_4055_sendSyntheticEnterLeave
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE_WM
-name|QSKIP
-argument_list|(
-literal|"Windows Mobile has no proper cursor support"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 class|class
 name|SELParent
 super|:
@@ -55291,6 +55395,14 @@ expr_stmt|;
 comment|//dangling pointer
 block|}
 end_function
+begin_comment
+comment|// This test case relies on developer build (AUTOTEST_EXPORT).
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|destroyBackingStore
 name|void
@@ -55299,9 +55411,6 @@ operator|::
 name|destroyBackingStore
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_BUILD_INTERNAL
 name|UpdateWidget
 name|w
 decl_stmt|;
@@ -55413,19 +55522,12 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test case relies on developer build (AUTOTEST_EXPORT)"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// Helper function
 end_comment
@@ -55480,6 +55582,14 @@ name|backingStore
 return|;
 block|}
 end_function
+begin_comment
+comment|// Tables of 5000 elements do not make sense on Windows Mobile.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WINCE_WM
+end_ifndef
 begin_function
 DECL|function|rectOutsideCoordinatesLimit_task144779
 name|void
@@ -55488,18 +55598,6 @@ operator|::
 name|rectOutsideCoordinatesLimit_task144779
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE_WM
-name|QSKIP
-argument_list|(
-literal|"Tables of 5000 elements do not make sense on Windows Mobile."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QApplication
 operator|::
 name|setOverrideCursor
@@ -55749,6 +55847,10 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|inputFocus_task257832
 name|void
@@ -56733,6 +56835,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// Test case relies on developer build (AUTOTEST_EXPORT).
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_function
 DECL|function|scrollWithoutBackingStore
 name|void
@@ -56741,9 +56851,6 @@ operator|::
 name|scrollWithoutBackingStore
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|QT_BUILD_INTERNAL
 name|scrollWidgetWBS
 name|scrollable
 decl_stmt|;
@@ -56865,19 +56972,12 @@ literal|25
 argument_list|)
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Test case relies on developer build (AUTOTEST_EXPORT)"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|taskQTBUG_7532_tabOrderWithFocusProxy
 name|void

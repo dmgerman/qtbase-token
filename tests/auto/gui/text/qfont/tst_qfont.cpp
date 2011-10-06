@@ -84,10 +84,15 @@ name|void
 name|getSetCheck
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_WS_WIN
 name|void
 name|exactMatch
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|compare
 parameter_list|()
@@ -636,6 +641,14 @@ comment|// TODO: Add cleanup code here.
 comment|// This will be executed immediately after each test is run.
 block|}
 end_function
+begin_comment
+comment|// Exact matching on windows misses a lot because of the sample chars.
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_WS_WIN
+end_ifndef
 begin_function
 DECL|function|exactMatch
 name|void
@@ -666,19 +679,6 @@ name|exactMatch
 argument_list|()
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_WIN
-name|QSKIP
-argument_list|(
-literal|"Exact matching on windows misses a lot because of the sample chars"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-return|return;
-endif|#
-directive|endif
 ifdef|#
 directive|ifdef
 name|Q_WS_X11
@@ -1271,6 +1271,10 @@ block|}
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|italicOblique
 name|void

@@ -455,6 +455,20 @@ name|void
 name|switchReadChannels
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
 name|void
 name|setWorkingDirectory
 parameter_list|()
@@ -11706,13 +11720,25 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_comment
-comment|// Windows CE does not support working directory logic.
+comment|// Windows CE does not support working directory logic, and
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_comment
+comment|// setWorkingDirectory will chdir before starting the process on unices.
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
 name|Q_OS_WINCE
-end_ifndef
+argument_list|)
+end_if
 begin_function
 name|void
 name|tst_QProcess
@@ -11749,18 +11775,6 @@ operator|->
 name|start
 argument_list|(
 literal|"testSetWorkingDirectory/testSetWorkingDirectory"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
-name|QSKIP
-argument_list|(
-literal|"setWorkingDirectory will chdir before starting the process on unices"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

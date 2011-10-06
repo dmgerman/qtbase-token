@@ -6647,9 +6647,10 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|//skip test if glibc is not compiled with wide character support
+comment|// Skip the rest of the test if glibc is not compiled with wide character support
 if|#
 directive|if
+operator|!
 operator|(
 name|defined
 name|Q_CC_GNU
@@ -6658,18 +6659,10 @@ operator|!
 name|defined
 name|_GLIBCPP_USE_WCHAR_T
 operator|)
-operator|||
+operator|&&
+operator|!
 name|defined
 name|QT_NO_STL_WCHAR
-name|QSKIP
-argument_list|(
-literal|"Not tested without wide character support"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 specifier|const
 name|wchar_t
 name|arr

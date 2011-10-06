@@ -3301,32 +3301,20 @@ decl_stmt|;
 name|QByteArray
 name|response
 decl_stmt|;
+comment|// Native OOB data test doesn't work on HP-UX or WinCE
 if|#
 directive|if
+operator|!
 name|defined
-name|Q_OS_HPUX
-name|QSKIP
 argument_list|(
-literal|"Native OOB data test doesn't work on HP-UX."
-argument_list|,
-name|SkipAll
+name|Q_OS_HPUX
 argument_list|)
-expr_stmt|;
-elif|#
-directive|elif
+operator|&&
+operator|!
 name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Native OOB data test doesn't work on WinCE."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// The server sends an urgent message
 name|msg
 operator|=
@@ -3523,6 +3511,8 @@ argument_list|,
 name|msg
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_macro

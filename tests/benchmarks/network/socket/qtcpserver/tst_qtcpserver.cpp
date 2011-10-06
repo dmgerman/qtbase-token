@@ -120,10 +120,15 @@ name|void
 name|ipv4LoopbackPerformanceTest
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_WS_WINCE_WM
 name|void
 name|ipv6LoopbackPerformanceTest
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|ipv4PerformanceTest
 parameter_list|()
@@ -614,6 +619,14 @@ end_function
 begin_comment
 comment|//----------------------------------------------------------------------------------
 end_comment
+begin_comment
+comment|// IPv6 loopback not yet supported on Windows Mobile
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_WS_WINCE_WM
+end_ifndef
 begin_function
 DECL|function|ipv6LoopbackPerformanceTest
 name|void
@@ -634,21 +647,6 @@ condition|(
 name|setProxy
 condition|)
 return|return;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_WINCE_WM
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"WinCE WM: Not yet supported"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTcpServer
 name|server
 decl_stmt|;
@@ -951,6 +949,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//----------------------------------------------------------------------------------
 end_comment

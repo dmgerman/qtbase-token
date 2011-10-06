@@ -2757,19 +2757,12 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
-block|{
-ifdef|#
-directive|ifdef
+comment|// Currently low level file I/O is not well supported on Windows CE, so
+comment|// skip this part of the test.
+ifndef|#
+directive|ifndef
 name|Q_OS_WINCE
-name|QSKIP
-argument_list|(
-literal|"Currently low level file I/O not well supported on Windows CE"
-argument_list|,
-name|SkipSingle
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
+block|{
 name|QFile
 name|f
 decl_stmt|;
@@ -2832,6 +2825,8 @@ name|fd
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

@@ -410,6 +410,9 @@ name|void
 name|mapRectFromScene
 parameter_list|()
 function_decl|;
+ifndef|#
+directive|ifndef
+name|Q_WS_WINCE_WM
 name|void
 name|chipTester_data
 parameter_list|()
@@ -418,6 +421,8 @@ name|void
 name|chipTester
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 name|void
 name|deepNesting_data
 parameter_list|()
@@ -2088,6 +2093,14 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|// This test does not make sense Windows Mobile without OpenGL
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_WS_WINCE_WM
+end_ifndef
 begin_function
 DECL|function|chipTester_data
 name|void
@@ -2292,18 +2305,6 @@ operator|::
 name|chipTester
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_WINCE_WM
-name|QSKIP
-argument_list|(
-literal|"WinCE WM: Fails on Windows Mobile w/o OpenGL"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFETCH
 argument_list|(
 name|bool
@@ -2387,6 +2388,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|addChildHelper
 specifier|static

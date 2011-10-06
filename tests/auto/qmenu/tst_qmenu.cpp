@@ -2453,31 +2453,21 @@ argument_list|,
 name|aFileMenu
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_MAC
-name|QSKIP
+comment|// On Mac and Windows CE, we need to create native key events to test menu
+comment|// action activation, so skip this part of the test.
+if|#
+directive|if
+operator|!
+name|defined
 argument_list|(
-literal|"On Mac, we need to create native key events to test menu action activation"
-argument_list|,
-name|SkipAll
+name|Q_WS_MAC
 argument_list|)
-expr_stmt|;
-elif|#
-directive|elif
+operator|&&
+operator|!
 name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-name|QSKIP
-argument_list|(
-literal|"On Windows CE, we need to create native key events to test menu action activation"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QAction
 modifier|*
 name|aQuit
@@ -2606,6 +2596,8 @@ argument_list|,
 name|menuaction
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
