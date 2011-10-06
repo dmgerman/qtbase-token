@@ -67,6 +67,11 @@ argument_list|,
 name|matrix
 argument_list|)
 member_init_list|,
+name|m_textureResource
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|pex
 argument_list|(
 literal|0
