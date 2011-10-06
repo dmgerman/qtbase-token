@@ -84,12 +84,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsaccessibility.h"
+file|"qwindowskeymapper.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qwindowskeymapper.h"
+file|"accessible/qwindowsaccessibility.h"
 end_include
 begin_include
 include|#

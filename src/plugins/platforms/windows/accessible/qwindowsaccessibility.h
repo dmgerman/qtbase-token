@@ -16,12 +16,22 @@ end_define
 begin_include
 include|#
 directive|include
-file|"qtwindowsglobal.h"
+file|"../qtwindowsglobal.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"../qwindowscontext.h"
 end_include
 begin_include
 include|#
 directive|include
 file|<QtGui/QPlatformAccessibility>
+end_include
+begin_include
+include|#
+directive|include
+file|<oleacc.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
@@ -61,7 +71,29 @@ name|event
 argument_list|)
 block|;
 comment|/*     virtual void setRootObject(QObject *o);     virtual void initialize();     virtual void cleanup();     */
-block|}
+specifier|static
+name|IAccessible
+operator|*
+name|wrap
+argument_list|(
+name|QAccessibleInterface
+operator|*
+name|acc
+argument_list|)
+block|;
+specifier|static
+name|QPair
+operator|<
+name|QObject
+operator|*
+block|,
+name|int
+operator|>
+name|getCachedObject
+argument_list|(
+argument|int entryId
+argument_list|)
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
