@@ -653,10 +653,16 @@ name|ucs
 operator|>
 literal|127
 operator|&&
+operator|(
+name|ucs
+operator|==
+literal|0x0085
+operator|||
 name|isSpace
 argument_list|(
 name|ucs
 argument_list|)
+operator|)
 operator|)
 return|;
 block|}
