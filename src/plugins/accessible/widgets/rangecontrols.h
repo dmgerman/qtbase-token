@@ -84,6 +84,7 @@ name|QAccessibleWidget
 decl_stmt|,
 name|public
 name|QAccessibleValueInterface
+comment|// TODO, public QAccessibleActionInterface
 block|{
 name|Q_ACCESSIBLE_OBJECT
 name|public
@@ -188,16 +189,6 @@ argument_list|(
 name|QWidget
 operator|*
 name|w
-argument_list|)
-block|;
-name|bool
-name|doAction
-argument_list|(
-argument|int action
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
 argument_list|)
 block|;
 name|protected
@@ -408,24 +399,6 @@ block|;
 name|QString
 name|text
 argument_list|(
-argument|Text t
-argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|int
-name|defaultAction
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|QString
-name|actionText
-argument_list|(
-argument|int action
-argument_list|,
 argument|Text t
 argument_list|,
 argument|int child

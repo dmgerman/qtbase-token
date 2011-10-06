@@ -136,27 +136,6 @@ argument|const QAccessibleInterface *child
 argument_list|)
 specifier|const
 block|;
-name|QString
-name|actionText
-argument_list|(
-argument|int action
-argument_list|,
-argument|QAccessible::Text text
-argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|bool
-name|doAction
-argument_list|(
-argument|int action
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-block|;
 name|protected
 operator|:
 name|QMenu
@@ -250,27 +229,6 @@ argument|const QAccessibleInterface *child
 argument_list|)
 specifier|const
 block|;
-name|QString
-name|actionText
-argument_list|(
-argument|int action
-argument_list|,
-argument|QAccessible::Text text
-argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|bool
-name|doAction
-argument_list|(
-argument|int action
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-block|;
 name|protected
 operator|:
 name|QMenuBar
@@ -289,14 +247,19 @@ begin_comment
 comment|// QT_NO_MENUBAR
 end_comment
 begin_decl_stmt
+DECL|variable|QAccessibleInterface
 name|class
 name|QAccessibleMenuItem
 range|:
 name|public
 name|QAccessibleInterface
-block|{
+decl_stmt|,
 name|public
-operator|:
+name|QAccessibleActionInterface
+block|{
+name|Q_ACCESSIBLE_OBJECT
+name|public
+range|:
 name|explicit
 name|QAccessibleMenuItem
 argument_list|(
@@ -308,191 +271,228 @@ name|QAction
 operator|*
 name|w
 argument_list|)
-block|;
+decl_stmt|;
 name|virtual
 operator|~
 name|QAccessibleMenuItem
 argument_list|()
-block|;
+expr_stmt|;
 name|virtual
 name|QString
 name|actionText
 argument_list|(
-argument|int action
+name|int
+name|action
 argument_list|,
-argument|Text t
+name|Text
+name|t
 argument_list|,
-argument|int child
+name|int
+name|child
 argument_list|)
-specifier|const
-block|;
+decl|const
+decl_stmt|;
 name|virtual
 name|int
 name|childAt
 argument_list|(
-argument|int x
+name|int
+name|x
 argument_list|,
-argument|int y
+name|int
+name|y
 argument_list|)
-specifier|const
-block|;
+decl|const
+decl_stmt|;
 name|virtual
 name|int
 name|childCount
 argument_list|()
 specifier|const
-block|;
-name|virtual
-name|bool
-name|doAction
-argument_list|(
-argument|int action
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList& params = QVariantList()
-argument_list|)
-block|;
+expr_stmt|;
 name|virtual
 name|int
 name|indexOfChild
 argument_list|(
-argument|const QAccessibleInterface * child
-argument_list|)
 specifier|const
-block|;
+name|QAccessibleInterface
+operator|*
+name|child
+argument_list|)
+decl|const
+decl_stmt|;
 name|virtual
 name|bool
 name|isValid
 argument_list|()
 specifier|const
-block|;
+expr_stmt|;
 name|QAccessibleInterface
 operator|*
 name|parent
 argument_list|()
 specifier|const
-block|;
+expr_stmt|;
 name|QAccessibleInterface
-operator|*
+modifier|*
 name|child
 argument_list|(
-argument|int index
+name|int
+name|index
 argument_list|)
-specifier|const
-block|;
+decl|const
+decl_stmt|;
 name|virtual
 name|int
 name|navigate
 argument_list|(
-argument|RelationFlag relation
+name|RelationFlag
+name|relation
 argument_list|,
-argument|int entry
+name|int
+name|entry
 argument_list|,
-argument|QAccessibleInterface ** target
+name|QAccessibleInterface
+operator|*
+operator|*
+name|target
 argument_list|)
-specifier|const
-block|;
+decl|const
+decl_stmt|;
 name|virtual
 name|QObject
 operator|*
 name|object
 argument_list|()
 specifier|const
-block|;
+expr_stmt|;
 name|virtual
 name|QRect
 name|rect
 argument_list|(
-argument|int child
+name|int
+name|child
 argument_list|)
-specifier|const
-block|;
+decl|const
+decl_stmt|;
 name|virtual
 name|Relation
 name|relationTo
 argument_list|(
-argument|int child
+name|int
+name|child
 argument_list|,
-argument|const QAccessibleInterface * other
-argument_list|,
-argument|int otherChild
-argument_list|)
 specifier|const
-block|;
+name|QAccessibleInterface
+operator|*
+name|other
+argument_list|,
+name|int
+name|otherChild
+argument_list|)
+decl|const
+decl_stmt|;
 name|virtual
 name|Role
 name|role
 argument_list|(
-argument|int child
+name|int
+name|child
 argument_list|)
-specifier|const
-block|;
+decl|const
+decl_stmt|;
 name|virtual
 name|void
 name|setText
-argument_list|(
-argument|Text t
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QString& text
-argument_list|)
-block|;
+parameter_list|(
+name|Text
+name|t
+parameter_list|,
+name|int
+name|child
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|text
+parameter_list|)
+function_decl|;
 name|virtual
 name|State
 name|state
 argument_list|(
-argument|int child
+name|int
+name|child
 argument_list|)
-specifier|const
-block|;
+decl|const
+decl_stmt|;
 name|virtual
 name|QString
 name|text
 argument_list|(
-argument|Text t
+name|Text
+name|t
 argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|virtual
 name|int
-name|userActionCount
-argument_list|(
-argument|int child
+name|child
 argument_list|)
+decl|const
+decl_stmt|;
+comment|// QAccessibleActionInterface
+name|QStringList
+name|actionNames
+argument_list|()
 specifier|const
-block|;
+expr_stmt|;
+name|void
+name|doAction
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|actionName
+parameter_list|)
+function_decl|;
+name|QStringList
+name|keyBindingsForAction
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|actionName
+argument_list|)
+decl|const
+decl_stmt|;
 name|QWidget
 operator|*
 name|owner
 argument_list|()
 specifier|const
-block|;
+expr_stmt|;
 name|protected
-operator|:
+label|:
 name|QAction
 operator|*
 name|action
 argument_list|()
 specifier|const
-block|;
+expr_stmt|;
 name|private
-operator|:
+label|:
 name|QAction
-operator|*
+modifier|*
 name|m_action
-block|;
+decl_stmt|;
 name|QWidget
-operator|*
+modifier|*
 name|m_owner
-block|;
+decl_stmt|;
 comment|// can hold either QMenu or the QMenuBar that contains the action
 block|}
-decl_stmt|;
 end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_endif
 endif|#
 directive|endif

@@ -1407,47 +1407,6 @@ specifier|const
 operator|=
 literal|0
 block|;
-comment|// action
-name|virtual
-name|int
-name|userActionCount
-argument_list|(
-argument|int child =
-literal|0
-argument_list|)
-specifier|const
-operator|=
-literal|0
-block|;
-name|virtual
-name|QString
-name|actionText
-argument_list|(
-argument|int action
-argument_list|,
-argument|Text t
-argument_list|,
-argument|int child =
-literal|0
-argument_list|)
-specifier|const
-operator|=
-literal|0
-block|;
-name|virtual
-name|bool
-name|doAction
-argument_list|(
-argument|int action
-argument_list|,
-argument|int child =
-literal|0
-argument_list|,
-argument|const QVariantList&params = QVariantList()
-argument_list|)
-operator|=
-literal|0
-block|;
 name|virtual
 name|QVariant
 name|invokeMethod

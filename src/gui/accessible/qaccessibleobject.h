@@ -18,6 +18,11 @@ include|#
 directive|include
 file|"qaccessible.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qaccessible2.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -86,38 +91,6 @@ argument_list|,
 argument|const QString&text
 argument_list|)
 block|;
-comment|// actions
-name|int
-name|userActionCount
-argument_list|(
-argument|int child =
-literal|0
-argument_list|)
-specifier|const
-block|;
-name|bool
-name|doAction
-argument_list|(
-argument|int action
-argument_list|,
-argument|int child =
-literal|0
-argument_list|,
-argument|const QVariantList&params = QVariantList()
-argument_list|)
-block|;
-name|QString
-name|actionText
-argument_list|(
-argument|int action
-argument_list|,
-argument|Text t
-argument_list|,
-argument|int child =
-literal|0
-argument_list|)
-specifier|const
-block|;
 name|protected
 operator|:
 name|virtual
@@ -146,6 +119,7 @@ range|:
 name|public
 name|QAccessibleObject
 block|{
+name|Q_ACCESSIBLE_OBJECT
 name|public
 operator|:
 name|QAccessibleApplication
@@ -238,38 +212,6 @@ block|;
 name|State
 name|state
 argument_list|(
-argument|int child =
-literal|0
-argument_list|)
-specifier|const
-block|;
-comment|// actions
-name|int
-name|userActionCount
-argument_list|(
-argument|int child =
-literal|0
-argument_list|)
-specifier|const
-block|;
-name|bool
-name|doAction
-argument_list|(
-argument|int action
-argument_list|,
-argument|int child =
-literal|0
-argument_list|,
-argument|const QVariantList&params = QVariantList()
-argument_list|)
-block|;
-name|QString
-name|actionText
-argument_list|(
-argument|int action
-argument_list|,
-argument|Text t
-argument_list|,
 argument|int child =
 literal|0
 argument_list|)
