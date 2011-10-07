@@ -271,21 +271,6 @@ block|{
 comment|// Check and setup the environment. We treat failures because of test environment
 comment|// (e.g. script files not found) as just warnings, and not QFAILs, to avoid false negatives
 comment|// caused by environment or server instability
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SOMEPLATFORM
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"This test is not supported on this platform."
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!

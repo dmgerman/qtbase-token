@@ -4882,8 +4882,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//QSKIP("LayoutdirectionChange should only posted when QGraphicsWidget::setLayoutDirection() is called, right?", SkipAll);
-comment|//QCOMPARE(layout.layoutDirectionChange, 1);
 block|}
 end_function
 begin_function
