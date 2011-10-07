@@ -320,6 +320,15 @@ name|event
 parameter_list|)
 function_decl|;
 name|void
+name|handlePropertyNotifyEvent
+parameter_list|(
+specifier|const
+name|xcb_property_notify_event_t
+modifier|*
+name|event
+parameter_list|)
+function_decl|;
+name|void
 name|handleMouseEvent
 argument_list|(
 name|xcb_button_t
