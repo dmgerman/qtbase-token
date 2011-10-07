@@ -2581,6 +2581,8 @@ name|isVisible
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 operator|delete
 name|aFileMenu
 expr_stmt|;
@@ -2596,8 +2598,6 @@ argument_list|,
 name|menuaction
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
