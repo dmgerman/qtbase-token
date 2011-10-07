@@ -13595,7 +13595,6 @@ argument_list|(
 name|db
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Postgresql specific test"
@@ -13603,8 +13602,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QSqlRelationalTableModel
 name|model
 argument_list|(

@@ -1006,7 +1006,6 @@ operator|==
 operator|-
 literal|1
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Skip the test since app fonts are not supported on this system"
@@ -1014,8 +1013,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 endif|#
 directive|endif
 specifier|const

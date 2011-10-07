@@ -80328,7 +80328,6 @@ argument_list|,
 name|SkipAll
 argument_list|)
 expr_stmt|;
-return|return;
 endif|#
 directive|endif
 name|QGraphicsScene

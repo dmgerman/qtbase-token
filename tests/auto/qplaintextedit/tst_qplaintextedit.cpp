@@ -1402,7 +1402,6 @@ operator|->
 name|supportsSelection
 argument_list|()
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test only relevant for systems with selection"
@@ -1410,8 +1409,6 @@ argument_list|,
 name|SkipAll
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QApplication
 operator|::
 name|clipboard

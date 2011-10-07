@@ -3464,7 +3464,6 @@ operator|::
 name|PreparedQueries
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test requires prepared query support"
@@ -3472,8 +3471,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QSqlQuery
 name|q
 argument_list|(
@@ -4771,7 +4768,6 @@ operator|::
 name|PreparedQueries
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test requires prepared query support"
@@ -4779,8 +4775,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QSqlQuery
 name|q
 argument_list|(
@@ -5004,7 +4998,6 @@ operator|::
 name|PreparedQueries
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test requires prepared query support"
@@ -5012,8 +5005,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QSqlQuery
 name|q
 argument_list|(
@@ -5183,7 +5174,6 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"Don't know how to create a stored procedure for this database server, please fix this test"
@@ -5191,8 +5181,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|q
 operator|.
 name|addBindValue
@@ -10501,7 +10489,6 @@ argument_list|(
 literal|"QIBASE"
 argument_list|)
 condition|)
-block|{
 comment|// Oracle broken beyond recognition - cannot outer join on more than
 comment|// one table.
 name|QSKIP
@@ -10511,8 +10498,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QSqlQuery
 name|q
 argument_list|(
@@ -14786,7 +14771,6 @@ argument_list|(
 literal|"QPSQL"
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test requires PostgreSQL"
@@ -14794,8 +14778,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 specifier|const
 name|QString
 name|tablename
@@ -15176,7 +15158,6 @@ argument_list|(
 literal|"QDB2"
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test is specific for PostgreSQL, Oracle, MySql and DB2"
@@ -15184,8 +15165,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|db
 operator|.
 name|close
@@ -15772,7 +15751,6 @@ argument_list|(
 literal|"QSQLITE"
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Sqlite3 specific test"
@@ -15780,8 +15758,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 if|if
 condition|(
 name|db
@@ -22009,7 +21985,6 @@ argument_list|(
 literal|"QSQLITE"
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Sqlite3 specific test"
@@ -22017,8 +21992,6 @@ argument_list|,
 name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QSqlQuery
 name|q
 argument_list|(

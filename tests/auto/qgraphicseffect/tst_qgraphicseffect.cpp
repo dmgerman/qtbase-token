@@ -2143,7 +2143,6 @@ argument_list|()
 operator|<
 literal|24
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test only works on 32 bit displays"
@@ -2151,8 +2150,6 @@ argument_list|,
 name|SkipAll
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QGraphicsScene
 name|scene
 argument_list|(
@@ -2454,7 +2451,6 @@ argument_list|()
 operator|<
 literal|24
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test only works on 32 bit displays"
@@ -2462,8 +2458,6 @@ argument_list|,
 name|SkipAll
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QGraphicsScene
 name|scene
 argument_list|(
