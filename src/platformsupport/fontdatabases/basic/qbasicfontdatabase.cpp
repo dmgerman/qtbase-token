@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qbasicunixfontdatabase_p.h"
+file|"qbasicfontdatabase_p.h"
 end_include
 begin_include
 include|#
@@ -349,8 +349,9 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 DECL|function|determineWritingSystemsFromTrueTypeBits
-specifier|static
 name|QSupportedWritingSystems
+name|QBasicFontDatabase
+operator|::
 name|determineWritingSystemsFromTrueTypeBits
 parameter_list|(
 name|quint32
@@ -676,7 +677,7 @@ end_function
 begin_function
 DECL|function|populateFontDatabase
 name|void
-name|QBasicUnixFontDatabase
+name|QBasicFontDatabase
 operator|::
 name|populateFontDatabase
 parameter_list|()
@@ -809,7 +810,7 @@ begin_function
 DECL|function|fontEngine
 name|QFontEngine
 modifier|*
-name|QBasicUnixFontDatabase
+name|QBasicFontDatabase
 operator|::
 name|fontEngine
 parameter_list|(
@@ -1133,7 +1134,7 @@ begin_function
 DECL|function|fontEngine
 name|QFontEngine
 modifier|*
-name|QBasicUnixFontDatabase
+name|QBasicFontDatabase
 operator|::
 name|fontEngine
 parameter_list|(
@@ -1255,7 +1256,7 @@ end_function
 begin_function
 DECL|function|fallbacksForFamily
 name|QStringList
-name|QBasicUnixFontDatabase
+name|QBasicFontDatabase
 operator|::
 name|fallbacksForFamily
 parameter_list|(
@@ -1315,7 +1316,7 @@ end_function
 begin_function
 DECL|function|addApplicationFont
 name|QStringList
-name|QBasicUnixFontDatabase
+name|QBasicFontDatabase
 operator|::
 name|addApplicationFont
 parameter_list|(
@@ -1346,7 +1347,7 @@ end_function
 begin_function
 DECL|function|releaseHandle
 name|void
-name|QBasicUnixFontDatabase
+name|QBasicFontDatabase
 operator|::
 name|releaseHandle
 parameter_list|(
@@ -1376,7 +1377,7 @@ end_function
 begin_function
 DECL|function|addTTFile
 name|QStringList
-name|QBasicUnixFontDatabase
+name|QBasicFontDatabase
 operator|::
 name|addTTFile
 parameter_list|(

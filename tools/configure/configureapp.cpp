@@ -1872,7 +1872,7 @@ index|[
 literal|"FREETYPE"
 index|]
 operator|=
-literal|"no"
+literal|"yes"
 expr_stmt|;
 name|dictionary
 index|[

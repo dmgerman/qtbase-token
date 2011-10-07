@@ -80,11 +80,20 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
+end_ifndef
 begin_include
 include|#
 directive|include
 file|<unistd.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -364,7 +373,7 @@ name|QFontEngineFT
 decl_stmt|;
 DECL|member|QFreetypeFace
 name|friend
-name|class
+block|struct
 name|QScopedPointerDeleter
 operator|<
 name|QFreetypeFace
@@ -399,6 +408,17 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_comment
+comment|// If this is exported this breaks compilation of the windows
+end_comment
+begin_comment
+comment|// plugin as qfontengine_ft_p.h/.cpp are also compiled there
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
+end_ifndef
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
@@ -406,6 +426,15 @@ name|QFontEngineFT
 range|:
 name|public
 name|QFontEngine
+else|#
+directive|else
+name|class
+name|QFontEngineFT
+operator|:
+name|public
+name|QFontEngine
+endif|#
+directive|endif
 block|{
 name|public
 operator|:

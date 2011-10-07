@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QFONTCONFIGDATABASE_H
+name|QBASICFONTDATABASE_H
 end_ifndef
 begin_define
-DECL|macro|QFONTCONFIGDATABASE_H
+DECL|macro|QBASICFONTDATABASE_H
 define|#
 directive|define
-name|QFONTCONFIGDATABASE_H
+name|QBASICFONTDATABASE_H
 end_define
 begin_include
 include|#
@@ -21,14 +21,39 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qbasicfontdatabase_p.h>
+file|<QtCore/QByteArray>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QString>
+end_include
+begin_struct
+DECL|struct|FontFile
+struct|struct
+name|FontFile
+block|{
+DECL|member|fileName
+name|QString
+name|fileName
+decl_stmt|;
+DECL|member|indexValue
+name|int
+name|indexValue
+decl_stmt|;
+DECL|member|hintStyle
+name|int
+name|hintStyle
+decl_stmt|;
+block|}
+struct|;
+end_struct
 begin_decl_stmt
 name|class
-name|QFontconfigDatabase
+name|QBasicFontDatabase
 range|:
 name|public
-name|QBasicFontDatabase
+name|QPlatformFontDatabase
 block|{
 name|public
 operator|:
@@ -45,6 +70,17 @@ argument_list|,
 argument|QUnicodeTables::Script script
 argument_list|,
 argument|void *handle
+argument_list|)
+block|;
+name|QFontEngine
+operator|*
+name|fontEngine
+argument_list|(
+argument|const QByteArray&fontData
+argument_list|,
+argument|qreal pixelSize
+argument_list|,
+argument|QFont::HintingPreference hintingPreference
 argument_list|)
 block|;
 name|QStringList
@@ -74,12 +110,41 @@ operator|&
 name|fileName
 argument_list|)
 block|;
-name|QString
-name|resolveFontFamilyAlias
+name|void
+name|releaseHandle
 argument_list|(
-argument|const QString&family
+name|void
+operator|*
+name|handle
 argument_list|)
+block|;
+specifier|static
+name|QStringList
+name|addTTFile
+argument_list|(
 specifier|const
+name|QByteArray
+operator|&
+name|fontData
+argument_list|,
+specifier|const
+name|QByteArray
+operator|&
+name|file
+argument_list|)
+block|;
+specifier|static
+name|QSupportedWritingSystems
+name|determineWritingSystemsFromTrueTypeBits
+argument_list|(
+argument|quint32 unicodeRange[
+literal|4
+argument|]
+argument_list|,
+argument|quint32 codePageRange[
+literal|2
+argument|]
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -88,6 +153,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QFONTCONFIGDATABASE_H
+comment|// QBASICFONTDATABASE_H
 end_comment
 end_unit

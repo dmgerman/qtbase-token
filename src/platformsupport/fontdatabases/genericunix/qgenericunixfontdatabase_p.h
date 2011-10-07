@@ -37,12 +37,12 @@ end_else
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qbasicunixfontdatabase_p.h>
+file|<QtPlatformSupport/private/qbasicfontdatabase_p.h>
 end_include
 begin_typedef
 DECL|typedef|QGenericUnixFontDatabase
 typedef|typedef
-name|QBasicUnixFontDatabase
+name|QBasicFontDatabase
 name|QGenericUnixFontDatabase
 typedef|;
 end_typedef
