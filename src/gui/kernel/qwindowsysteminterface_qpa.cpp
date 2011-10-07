@@ -386,6 +386,11 @@ name|Qt
 operator|::
 name|MouseButtons
 name|b
+parameter_list|,
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|mods
 parameter_list|)
 block|{
 name|unsigned
@@ -410,6 +415,8 @@ argument_list|,
 name|global
 argument_list|,
 name|b
+argument_list|,
+name|mods
 argument_list|)
 expr_stmt|;
 block|}
@@ -442,6 +449,11 @@ name|Qt
 operator|::
 name|MouseButtons
 name|b
+parameter_list|,
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|mods
 parameter_list|)
 block|{
 name|QWindowSystemInterfacePrivate
@@ -464,6 +476,8 @@ argument_list|,
 name|global
 argument_list|,
 name|b
+argument_list|,
+name|mods
 argument_list|)
 decl_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -821,6 +835,11 @@ name|Qt
 operator|::
 name|Orientation
 name|o
+parameter_list|,
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|mods
 parameter_list|)
 block|{
 name|unsigned
@@ -847,6 +866,8 @@ argument_list|,
 name|d
 argument_list|,
 name|o
+argument_list|,
+name|mods
 argument_list|)
 expr_stmt|;
 block|}
@@ -882,6 +903,11 @@ name|Qt
 operator|::
 name|Orientation
 name|o
+parameter_list|,
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|mods
 parameter_list|)
 block|{
 name|QWindowSystemInterfacePrivate
@@ -906,6 +932,8 @@ argument_list|,
 name|d
 argument_list|,
 name|o
+argument_list|,
+name|mods
 argument_list|)
 decl_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -1079,6 +1107,11 @@ name|TouchPoint
 argument_list|>
 modifier|&
 name|points
+parameter_list|,
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|mods
 parameter_list|)
 block|{
 name|unsigned
@@ -1103,6 +1136,8 @@ argument_list|,
 name|devType
 argument_list|,
 name|points
+argument_list|,
+name|mods
 argument_list|)
 expr_stmt|;
 block|}
@@ -1139,6 +1174,11 @@ name|TouchPoint
 argument_list|>
 modifier|&
 name|points
+parameter_list|,
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|mods
 parameter_list|)
 block|{
 if|if
@@ -1327,6 +1367,8 @@ argument_list|,
 name|devType
 argument_list|,
 name|touchPoints
+argument_list|,
+name|mods
 argument_list|)
 decl_stmt|;
 name|QWindowSystemInterfacePrivate

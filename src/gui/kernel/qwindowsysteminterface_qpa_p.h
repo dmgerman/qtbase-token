@@ -356,10 +356,49 @@ name|timestamp
 block|;     }
 decl_stmt|;
 name|class
-name|MouseEvent
+name|InputEvent
 range|:
 name|public
 name|UserEvent
+block|{
+name|public
+operator|:
+name|InputEvent
+argument_list|(
+argument|QWindow * w
+argument_list|,
+argument|ulong time
+argument_list|,
+argument|EventType t
+argument_list|,
+argument|Qt::KeyboardModifiers mods
+argument_list|)
+operator|:
+name|UserEvent
+argument_list|(
+name|w
+argument_list|,
+name|time
+argument_list|,
+name|t
+argument_list|)
+block|,
+name|modifiers
+argument_list|(
+argument|mods
+argument_list|)
+block|{}
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|modifiers
+block|;     }
+decl_stmt|;
+name|class
+name|MouseEvent
+range|:
+name|public
+name|InputEvent
 block|{
 name|public
 operator|:
@@ -374,15 +413,19 @@ argument_list|,
 argument|const QPointF& global
 argument_list|,
 argument|Qt::MouseButtons b
+argument_list|,
+argument|Qt::KeyboardModifiers mods
 argument_list|)
 operator|:
-name|UserEvent
+name|InputEvent
 argument_list|(
 name|w
 argument_list|,
 name|time
 argument_list|,
 name|Mouse
+argument_list|,
+name|mods
 argument_list|)
 block|,
 name|localPos
@@ -416,7 +459,7 @@ name|class
 name|WheelEvent
 range|:
 name|public
-name|UserEvent
+name|InputEvent
 block|{
 name|public
 operator|:
@@ -433,15 +476,19 @@ argument_list|,
 argument|int d
 argument_list|,
 argument|Qt::Orientation o
+argument_list|,
+argument|Qt::KeyboardModifiers mods
 argument_list|)
 operator|:
-name|UserEvent
+name|InputEvent
 argument_list|(
 name|w
 argument_list|,
 name|time
 argument_list|,
 name|Wheel
+argument_list|,
+name|mods
 argument_list|)
 block|,
 name|delta
@@ -483,7 +530,7 @@ name|class
 name|KeyEvent
 range|:
 name|public
-name|UserEvent
+name|InputEvent
 block|{
 name|public
 operator|:
@@ -507,13 +554,15 @@ argument|ushort count =
 literal|1
 argument_list|)
 operator|:
-name|UserEvent
+name|InputEvent
 argument_list|(
 name|w
 argument_list|,
 name|time
 argument_list|,
 name|Key
+argument_list|,
+name|mods
 argument_list|)
 block|,
 name|key
@@ -534,11 +583,6 @@ block|,
 name|repeatCount
 argument_list|(
 name|count
-argument_list|)
-block|,
-name|modifiers
-argument_list|(
-name|mods
 argument_list|)
 block|,
 name|keyType
@@ -587,13 +631,15 @@ argument|ushort count =
 literal|1
 argument_list|)
 operator|:
-name|UserEvent
+name|InputEvent
 argument_list|(
 name|w
 argument_list|,
 name|time
 argument_list|,
 name|Key
+argument_list|,
+name|mods
 argument_list|)
 block|,
 name|key
@@ -614,11 +660,6 @@ block|,
 name|repeatCount
 argument_list|(
 name|count
-argument_list|)
-block|,
-name|modifiers
-argument_list|(
-name|mods
 argument_list|)
 block|,
 name|keyType
@@ -653,11 +694,6 @@ block|;
 name|ushort
 name|repeatCount
 block|;
-name|Qt
-operator|::
-name|KeyboardModifiers
-name|modifiers
-block|;
 name|QEvent
 operator|::
 name|Type
@@ -677,7 +713,7 @@ name|class
 name|TouchEvent
 range|:
 name|public
-name|UserEvent
+name|InputEvent
 block|{
 name|public
 operator|:
@@ -692,15 +728,19 @@ argument_list|,
 argument|QTouchEvent::DeviceType d
 argument_list|,
 argument|const QList<QTouchEvent::TouchPoint>&p
+argument_list|,
+argument|Qt::KeyboardModifiers mods
 argument_list|)
 operator|:
-name|UserEvent
+name|InputEvent
 argument_list|(
 name|w
 argument_list|,
 name|time
 argument_list|,
 name|Touch
+argument_list|,
+name|mods
 argument_list|)
 block|,
 name|devType
