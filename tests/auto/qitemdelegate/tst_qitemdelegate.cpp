@@ -4548,35 +4548,12 @@ argument_list|,
 name|pm
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"pixmap 30x30 big"
-argument_list|)
-operator|<<
-operator|(
-name|int
-operator|)
-name|QVariant
-operator|::
-name|Pixmap
-operator|<<
-name|QSize
-argument_list|(
-literal|1024
-argument_list|,
-literal|1024
-argument_list|)
-comment|// Over 1M
-operator|<<
-name|QSize
-argument_list|(
-literal|1024
-argument_list|,
-literal|1024
-argument_list|)
-expr_stmt|;
+comment|// This demands too much memory and potentially hangs. Feel free to uncomment
+comment|// for your own testing.
+comment|//    QTest::newRow("pixmap 30x30 big")
+comment|//<< (int)QVariant::Pixmap
+comment|//<< QSize(1024, 1024)        // Over 1M
+comment|//<< QSize(1024, 1024);
 block|}
 end_function
 begin_function
@@ -4587,28 +4564,6 @@ operator|::
 name|decoration
 parameter_list|()
 block|{
-if|if
-condition|(
-name|QByteArray
-argument_list|(
-name|QTest
-operator|::
-name|currentDataTag
-argument_list|()
-argument_list|)
-operator|==
-name|QByteArray
-argument_list|(
-literal|"pixmap 30x30 big"
-argument_list|)
-condition|)
-name|QSKIP
-argument_list|(
-literal|"Skipping this as it demands too much memory and potential hangs"
-argument_list|,
-name|SkipSingle
-argument_list|)
-expr_stmt|;
 name|Q_CHECK_PAINTEVENTS
 name|QFETCH
 argument_list|(
