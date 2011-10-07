@@ -359,7 +359,7 @@ operator|=
 operator|new
 name|QXcbEventReader
 argument_list|(
-name|m_connection
+name|this
 argument_list|)
 expr_stmt|;
 ifdef|#
@@ -2251,6 +2251,9 @@ operator|=
 name|xcb_wait_for_event
 argument_list|(
 name|m_connection
+operator|->
+name|xcb_connection
+argument_list|()
 argument_list|)
 operator|)
 condition|)
@@ -2275,6 +2278,9 @@ operator|=
 name|xcb_poll_for_queued_event
 argument_list|(
 name|m_connection
+operator|->
+name|xcb_connection
+argument_list|()
 argument_list|)
 operator|)
 condition|)
@@ -2361,9 +2367,14 @@ operator|)
 operator|->
 name|type
 operator|==
+name|m_connection
+operator|->
+name|atom
+argument_list|(
 name|QXcbAtom
 operator|::
 name|_QT_CLOSE_CONNECTION
+argument_list|)
 condition|)
 name|m_connection
 operator|=
@@ -2405,6 +2416,9 @@ init|=
 name|xcb_poll_for_event
 argument_list|(
 name|m_connection
+operator|->
+name|xcb_connection
+argument_list|()
 argument_list|)
 condition|)
 name|m_events
@@ -2444,7 +2458,7 @@ parameter_list|(
 name|QXcbAtom
 operator|::
 name|Atom
-name|atom
+name|a
 parameter_list|,
 name|uint
 name|id
@@ -2495,6 +2509,9 @@ operator|.
 name|type
 operator|=
 name|atom
+argument_list|(
+name|a
+argument_list|)
 expr_stmt|;
 name|event
 operator|.

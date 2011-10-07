@@ -355,6 +355,12 @@ enum|;
 block|}
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QXcbConnection
+name|class
+name|QXcbConnection
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QXcbEventReader
 range|:
@@ -366,7 +372,7 @@ name|public
 operator|:
 name|QXcbEventReader
 argument_list|(
-name|xcb_connection_t
+name|QXcbConnection
 operator|*
 name|connection
 argument_list|)
@@ -424,7 +430,7 @@ operator|*
 operator|>
 name|m_events
 block|;
-name|xcb_connection_t
+name|QXcbConnection
 operator|*
 name|m_connection
 block|; }
