@@ -477,6 +477,19 @@ name|count
 argument_list|()
 return|;
 block|}
+name|void
+name|registerProfilerCallback
+argument_list|(
+name|void
+argument_list|(
+operator|*
+name|cb
+argument_list|)
+argument_list|(
+name|qint64
+argument_list|)
+argument_list|)
+block|;
 name|protected
 operator|:
 name|void
@@ -580,6 +593,15 @@ block|;
 name|int
 name|closestPauseAnimationTimeToFinish
 argument_list|()
+block|;
+name|void
+argument_list|(
+operator|*
+name|profilerCallback
+argument_list|)
+argument_list|(
+name|qint64
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
