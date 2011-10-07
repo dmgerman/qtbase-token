@@ -4138,7 +4138,7 @@ operator|&
 name|aBase
 argument_list|)
 condition|)
-name|qFatal
+name|QFAIL
 argument_list|(
 literal|"Something went very wrong -- we couldn't create two different pointers to the same object"
 argument_list|)
@@ -4148,16 +4148,7 @@ condition|(
 name|aData
 operator|!=
 name|aBase
-condition|)
-name|QSKIP
-argument_list|(
-literal|"Broken compiler"
-argument_list|,
-name|SkipAll
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
+operator|||
 name|aBase
 operator|!=
 name|aData
