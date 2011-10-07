@@ -542,6 +542,11 @@ argument_list|)
 block|;
 endif|#
 directive|endif
+name|bool
+name|isPreediting
+argument_list|()
+specifier|const
+block|;
 name|void
 name|append
 argument_list|(
@@ -593,7 +598,7 @@ name|bool
 name|mightStartDrag
 block|;
 name|QPoint
-name|dragStartPos
+name|mousePressPos
 block|;
 name|QPointer
 operator|<
