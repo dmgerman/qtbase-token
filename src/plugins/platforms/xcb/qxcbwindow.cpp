@@ -195,6 +195,13 @@ directive|define
 name|XCB_WM_STATE_ICONIC
 value|XCB_ICCCM_WM_STATE_ICONIC
 end_define
+begin_define
+DECL|macro|XCB_WM_STATE_WITHDRAWN
+define|#
+directive|define
+name|XCB_WM_STATE_WITHDRAWN
+value|XCB_ICCCM_WM_STATE_WITHDRAWN
+end_define
 begin_endif
 endif|#
 directive|endif
