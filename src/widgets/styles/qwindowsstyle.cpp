@@ -979,6 +979,14 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|animateTimer
+operator|==
+literal|0
+condition|)
 name|d
 operator|->
 name|animateTimer
