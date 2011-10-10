@@ -441,6 +441,9 @@ argument_list|(
 name|d
 operator|->
 name|waiters
+operator|.
+name|load
+argument_list|()
 operator|==
 operator|-
 name|QMutexPrivate
@@ -450,6 +453,9 @@ operator|||
 name|d
 operator|->
 name|waiters
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 argument_list|)
@@ -541,6 +547,9 @@ argument_list|(
 name|d
 operator|->
 name|waiters
+operator|.
+name|load
+argument_list|()
 operator|>=
 literal|1
 argument_list|)
@@ -607,6 +616,9 @@ operator|==
 name|this
 operator|->
 name|d
+operator|.
+name|load
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -661,6 +673,11 @@ argument_list|(
 name|this
 operator|->
 name|d
+operator|.
+name|load
+argument_list|()
+operator|!=
+literal|0
 argument_list|)
 expr_stmt|;
 return|return
