@@ -301,14 +301,6 @@ specifier|const
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|QPaintEngine
-operator|*
-name|paintEngine
-argument_list|()
-specifier|const
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|GLuint
 name|handle
 argument_list|()
