@@ -149,6 +149,16 @@ literal|0
 argument_list|)
 specifier|const
 block|;
+name|QColor
+name|foregroundColor
+argument_list|()
+specifier|const
+block|;
+name|QColor
+name|backgroundColor
+argument_list|()
+specifier|const
+block|;
 name|QVariant
 name|invokeMethod
 argument_list|(

@@ -813,14 +813,44 @@ begin_comment
 comment|/*!     \fn QAccessible::State QAccessibleInterface::state(int child) const      Returns the current state of the object, or of the object's child if     \a child is not 0. The returned value is a combination of the flags in     the QAccessible::StateFlag enumeration.      All accessible objects have a state.      \sa text(), role() */
 end_comment
 begin_comment
-comment|/*!     \fn QColor QAccessibleInterface::backgroundColor()     \internal */
-end_comment
-begin_comment
 comment|/*!     \fn QAccessibleEditableTextInterface *QAccessibleInterface::editableTextInterface()     \internal */
 end_comment
 begin_comment
-comment|/*!     \fn QColor QAccessibleInterface::foregroundColor()     \internal */
+comment|/*!     Returns the accessible's foreground color if applicable or an invalid QColor.      \sa backgroundColor() */
 end_comment
+begin_function
+DECL|function|foregroundColor
+name|QColor
+name|QAccessibleInterface
+operator|::
+name|foregroundColor
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QColor
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns the accessible's background color if applicable or an invalid QColor.      \sa foregroundColor() */
+end_comment
+begin_function
+DECL|function|backgroundColor
+name|QColor
+name|QAccessibleInterface
+operator|::
+name|backgroundColor
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QColor
+argument_list|()
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     \fn QAccessibleTextInterface *QAccessibleInterface::textInterface()     \internal */
 end_comment
