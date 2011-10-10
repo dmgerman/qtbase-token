@@ -7655,6 +7655,7 @@ parameter_list|,
 name|QTextEngine
 operator|::
 name|ShaperFlags
+name|flags
 parameter_list|)
 specifier|const
 block|{
@@ -7699,6 +7700,18 @@ index|]
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|flags
+operator|&
+name|QTextEngine
+operator|::
+name|GlyphIndicesOnly
+operator|)
+condition|)
+block|{
 name|glyphs
 operator|->
 name|advances_x
@@ -7717,6 +7730,7 @@ index|]
 operator|=
 literal|0
 expr_stmt|;
+block|}
 block|}
 operator|*
 name|nglyphs
