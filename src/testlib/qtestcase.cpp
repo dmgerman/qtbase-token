@@ -1456,7 +1456,7 @@ argument_list|(
 literal|"\n"
 literal|" QmlTest options:\n"
 literal|" -import             : Specify an import directory.\n"
-literal|" -input              : Specify the root directory for test cases.\n"
+literal|" -input              : Specify the root directory for test cases or a single test case file.\n"
 literal|" -qtquick1           : Run with QtQuick 1 rather than QtQuick 2.\n"
 argument_list|)
 expr_stmt|;
