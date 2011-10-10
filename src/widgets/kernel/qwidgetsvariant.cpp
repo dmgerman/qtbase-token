@@ -543,8 +543,8 @@ block|, }
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|qt_widgets_variant_handler
-name|Q_WIDGETS_EXPORT
+specifier|extern
+name|Q_GUI_EXPORT
 specifier|const
 name|QVariant
 operator|::
