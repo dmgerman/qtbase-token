@@ -389,12 +389,6 @@ begin_comment
 comment|/*!     \fn Qt::MouseButton QMouseEvent::buttons() const      Returns the button state when the event was generated. The button     state is a combination of Qt::LeftButton, Qt::RightButton,     Qt::MidButton using the OR operator. For mouse move events,     this is all buttons that are pressed down. For mouse press and     double click events this includes the button that caused the     event. For mouse release events this excludes the button that     caused the event.      \sa button() Qt::MouseButton */
 end_comment
 begin_comment
-comment|/*!     \fn Qt::ButtonState QMouseEvent::state() const      Returns the button state immediately before the event was     generated. The button state is a combination of mouse buttons     (see Qt::ButtonState) and keyboard modifiers (Qt::MouseButtons).      Use buttons() and/or modifiers() instead. Be aware that buttons()     return the state immediately \e after the event was generated. */
-end_comment
-begin_comment
-comment|/*!     \fn Qt::ButtonState QMouseEvent::stateAfter() const      Returns the button state immediately after the event was     generated. The button state is a combination of mouse buttons     (see Qt::ButtonState) and keyboard modifiers (Qt::MouseButtons).      Use buttons() and/or modifiers() instead. */
-end_comment
-begin_comment
 comment|/*!     \class QHoverEvent     \ingroup events      \brief The QHoverEvent class contains parameters that describe a mouse event.      Mouse events occur when a mouse cursor is moved into, out of, or within a     widget, and if the widget has the Qt::WA_Hover attribute.      The function pos() gives the current cursor position, while oldPos() gives     the old mouse position.      There are a few similarities between the events QEvent::HoverEnter     and QEvent::HoverLeave, and the events QEvent::Enter and QEvent::Leave.     However, they are slightly different because we do an update() in the event     handler of HoverEnter and HoverLeave.      QEvent::HoverMove is also slightly different from QEvent::MouseMove. Let us     consider a top-level window A containing a child B which in turn contains a     child C (all with mouse tracking enabled):      \image hoverevents.png      Now, if you move the cursor from the top to the bottom in the middle of A,     you will get the following QEvent::MouseMove events:      \list 1         \o A::MouseMove         \o B::MouseMove         \o C::MouseMove     \endlist      You will get the same events for QEvent::HoverMove, except that the event     always propagates to the top-level regardless whether the event is accepted     or not. It will only stop propagating with the Qt::WA_NoMousePropagation     attribute.      In this case the events will occur in the following way:      \list 1         \o A::HoverMove         \o A::HoverMove, B::HoverMove         \o A::HoverMove, B::HoverMove, C::HoverMove     \endlist  */
 end_comment
 begin_comment
@@ -654,9 +648,6 @@ comment|/*!     \fn int QWheelEvent::globalX() const      Returns the global x p
 end_comment
 begin_comment
 comment|/*!     \fn int QWheelEvent::globalY() const      Returns the global y position of the mouse cursor at the time of     the event.      \sa globalX() globalPos() */
-end_comment
-begin_comment
-comment|/*! \obsolete     \fn Qt::ButtonState QWheelEvent::state() const      Returns the keyboard modifier flags at the time of the event.      The returned value is a selection of the following values,     combined using the OR operator: Qt::ShiftButton,     Qt::ControlButton, and Qt::AltButton. */
 end_comment
 begin_comment
 comment|/*!     \class QKeyEvent     \brief The QKeyEvent class describes a key event.      \ingroup events      Key events are sent to the widget with keyboard input focus     when keys are pressed or released.      A key event contains a special accept flag that indicates whether     the receiver will handle the key event. You should call ignore()     if the key press or release event is not handled by your widget.     A key event is propagated up the parent widget chain until a     widget accepts it with accept() or an event filter consumes it.     Key events for multimedia keys are ignored by default. You should     call accept() if your widget handles those events.      The QWidget::setEnable() function can be used to enable or disable     mouse and keyboard events for a widget.      The event handlers QWidget::keyPressEvent(), QWidget::keyReleaseEvent(),     QGraphicsItem::keyPressEvent() and QGraphicsItem::keyReleaseEvent()     receive key events.      \sa QFocusEvent, QWidget::grabKeyboard() */
@@ -1696,12 +1687,6 @@ begin_comment
 comment|/*!     \class QPaintEvent     \brief The QPaintEvent class contains event parameters for paint events.      \ingroup events      Paint events are sent to widgets that need to update themselves,     for instance when part of a widget is exposed because a covering     widget was moved.      The event contains a region() that needs to be updated, and a     rect() that is the bounding rectangle of that region. Both are     provided because many widgets can't make much use of region(),     and rect() can be much faster than region().boundingRect().      \section1 Automatic Clipping      Painting is clipped to region() during the processing of a paint     event. This clipping is performed by Qt's paint system and is     independent of any clipping that may be applied to a QPainter used to     draw on the paint device.      As a result, the value returned by QPainter::clipRegion() on     a newly-constructed QPainter will not reflect the clip region that is     used by the paint system.      \sa QPainter, QWidget::update(), QWidget::repaint(),         QWidget::paintEvent() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QPaintEvent::erased() const     \compat      Returns true if the paint event region (or rectangle) has been     erased with the widget's background; otherwise returns false.      Qt 4 \e always erases regions that require painting. The exception     to this rule is if the widget sets the Qt::WA_OpaquePaintEvent or     Qt::WA_NoSystemBackground attributes. If either one of those     attributes is set \e and the window system does not make use of     subwidget alpha composition (currently X11 and Windows, but this     may change), then the region is not erased. */
-end_comment
-begin_comment
-comment|/*!     \fn void QPaintEvent::setErased(bool b) { m_erased = b; }     \internal */
-end_comment
-begin_comment
 comment|/*!     Constructs a paint event object with the region that needs to     be updated. The region is specified by \a paintRegion. */
 end_comment
 begin_constructor
@@ -2227,9 +2212,6 @@ begin_comment
 comment|// QT_NO_CONTEXTMENU
 end_comment
 begin_comment
-comment|/*!     \fn Qt::ButtonState QContextMenuEvent::state() const      Returns the button state (a combination of mouse buttons     and keyboard modifiers) immediately before the event was     generated.      The returned value is a selection of the following values,     combined with the OR operator:     Qt::LeftButton, Qt::RightButton, Qt::MidButton,     Qt::ShiftButton, Qt::ControlButton, and Qt::AltButton. */
-end_comment
-begin_comment
 comment|/*!     \enum QContextMenuEvent::Reason      This enum describes the reason why the event was sent.      \value Mouse The mouse caused the event to be sent. Normally this     means the right mouse button was clicked, but this is platform     dependent.      \value Keyboard The keyboard caused this event to be sent. On     Windows, this means the menu button was pressed.      \value Other The event was sent by some other means (i.e. not by     the mouse or keyboard). */
 end_comment
 begin_comment
@@ -2610,15 +2592,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn Qt::InputMethodQuery QInputMethodQueryEvent::query() const      returns the type of data queried. */
-end_comment
-begin_comment
-comment|/*!     \fn QVariant QInputMethodQueryEvent::value() const      returns the value set by the receiving object. Mainly used by the input method.      \sa setValue() */
-end_comment
-begin_comment
-comment|/*!     \fn QVariant QInputMethodQueryEvent::setValue()      Used by the receiving object to set the value requested by query().      \sa setValue() */
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -2923,9 +2896,6 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \fn void QDragMoveEvent::accept(bool y)      Calls setAccepted(\a y) instead. */
-end_comment
-begin_comment
 comment|/*!     \fn void QDragMoveEvent::accept(const QRect&rectangle)      The same as accept(), but also notifies that future moves will     also be acceptable if they remain within the \a rectangle     given on the widget. This can improve performance, but may     also be ignored by the underlying system.      If the rectangle is empty, drag move events will be sent     continuously. This is useful if the source is scrolling in a     timer event. */
 end_comment
 begin_comment
@@ -3135,18 +3105,6 @@ begin_comment
 comment|/*!     \fn Qt::KeyboardModifiers QDropEvent::keyboardModifiers() const      Returns the modifier keys that are pressed. */
 end_comment
 begin_comment
-comment|/*!     \fn void QDropEvent::accept()     \internal */
-end_comment
-begin_comment
-comment|/*!     \fn void QDropEvent::accept(bool accept)      Call setAccepted(\a accept) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QDropEvent::acceptAction(bool accept = true)      Call this to indicate that the action described by action() is     accepted (i.e. if \a accept is true, which is the default), not merely     the default copy action. If you call acceptAction(true), there is     no need to also call accept(true). */
-end_comment
-begin_comment
-comment|/*!     \enum QDropEvent::Action     \compat      When a drag and drop action is completed, the target is expected     to perform an action on the data provided by the source. This     will be one of the following:      \value Copy The default action. The source simply uses the data                 provided in the operation.     \value Link The source should somehow create a link to the                 location specified by the data.     \value Move The source should somehow move the object from the                 location specified by the data to a new location.     \value Private  The target has special knowledge of the MIME type,                 which the source should respond to in a similar way to                 a Copy.     \value UserAction  The source and target can co-operate using                 special actions. This feature is not currently                 supported.      The Link and Move actions only makes sense if the data is a     reference, for example, text/uri-list file lists (see QUriDrag). */
-end_comment
-begin_comment
 comment|/*!     \fn void QDropEvent::setDropAction(Qt::DropAction action)      Sets the \a action to be performed on the data by the target.     Use this to override the \l{proposedAction()}{proposed action}     with one of the \l{possibleActions()}{possible actions}.      If you set a drop action that is not one of the possible actions, the     drag and drop operation will default to a copy operation.      Once you have supplied a replacement drop action, call accept()     instead of acceptProposedAction().      \sa dropAction() */
 end_comment
 begin_comment
@@ -3160,12 +3118,6 @@ comment|/*!     \fn Qt::DropAction QDropEvent::proposedAction() const      Retur
 end_comment
 begin_comment
 comment|/*!     \fn void QDropEvent::acceptProposedAction()      Sets the drop action to be the proposed action.      \sa setDropAction(), proposedAction(), {QEvent::accept()}{accept()} */
-end_comment
-begin_comment
-comment|/*!     \fn void QDropEvent::setPoint(const QPoint&point)     \compat      Sets the drop to happen at the given \a point. You do not normally     need to use this as it will be set internally before your widget     receives the drop event. */
-end_comment
-begin_comment
-comment|// ### here too - what coordinate system?
 end_comment
 begin_comment
 comment|/*!     \class QDragEnterEvent     \brief The QDragEnterEvent class provides an event which is sent     to a widget when a drag and drop action enters it.      \ingroup events     \ingroup draganddrop      A widget must accept this event in order to receive the \l     {QDragMoveEvent}{drag move events} that are sent while the drag     and drop action is in progress. The drag enter event is always     immediately followed by a drag move event.      QDragEnterEvent inherits most of its functionality from     QDragMoveEvent, which in turn inherits most of its functionality     from QDropEvent.      \sa QDragLeaveEvent, QDragMoveEvent, QDropEvent */

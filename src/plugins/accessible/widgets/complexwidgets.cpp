@@ -7095,9 +7095,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|rect
 name|QRect
@@ -7225,9 +7222,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|childCount
 name|int
@@ -7246,9 +7240,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|text
 name|QString
@@ -7411,9 +7402,6 @@ name|str
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|role
 name|QAccessible
@@ -7446,9 +7434,6 @@ name|RowHeader
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|state
 name|QAccessible
@@ -7565,9 +7550,6 @@ name|QT_NO_TABBAR
 end_ifndef
 begin_comment
 comment|/*!   \class QAccessibleTabBar   \brief The QAccessibleTabBar class implements the QAccessibleInterface for tab bars.   \internal    \ingroup accessibility */
-end_comment
-begin_comment
-comment|/*!   \brief Implements a tab button   \internal   */
 end_comment
 begin_class
 DECL|class|QAccessibleTabButton
@@ -8447,9 +8429,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|childCount
 name|int
@@ -8471,9 +8450,6 @@ literal|2
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|text
 name|QString
@@ -8663,9 +8639,6 @@ begin_comment
 comment|/*!   \class QAccessibleComboBox   \brief The QAccessibleComboBox class implements the QAccessibleInterface for editable and read-only combo boxes.   \internal    \ingroup accessibility */
 end_comment
 begin_comment
-comment|/*!     \enum QAccessibleComboBox::ComboBoxElements      \internal      \value ComboBoxSelf     \value CurrentText     \value OpenList     \value PopupList */
-end_comment
-begin_comment
 comment|/*!   Constructs a QAccessibleComboBox object for \a w. */
 end_comment
 begin_constructor
@@ -8798,9 +8771,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|childCount
 name|int
@@ -8824,9 +8794,6 @@ literal|1
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|childAt
 name|int
@@ -8874,9 +8841,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|indexOfChild
 name|int
@@ -8935,9 +8899,6 @@ literal|1
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|text
 name|QString
@@ -9061,9 +9022,6 @@ name|str
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|doAction
 name|bool

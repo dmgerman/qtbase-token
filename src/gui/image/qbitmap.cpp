@@ -156,9 +156,6 @@ function_decl|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     \fn QBitmap::QBitmap(const QImage&image)      Constructs a bitmap that is a copy of the given \a image.      Use the static fromImage() function instead. */
-end_comment
-begin_comment
 comment|/*!     Constructs a bitmap from the file specified by the given \a     fileName. If the file does not exist, or has an unknown format,     the bitmap becomes a null bitmap.      The \a fileName and \a format parameters are passed on to the     QPixmap::load() function. If the file format uses more than 1 bit     per pixel, the resulting bitmap will be dithered automatically.      \sa QPixmap::isNull(), QImageReader::imageFormat() */
 end_comment
 begin_constructor
@@ -340,9 +337,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn QBitmap&QBitmap::operator=(const QImage&image)     \overload      Converts the given \a image to a bitmap, and assigns the result to     this bitmap. Returns a reference to the bitmap.      Use the static fromImage() function instead. */
-end_comment
 begin_comment
 comment|/*!     Returns a copy of the given \a image converted to a bitmap using     the specified image conversion \a flags.      \sa fromData() */
 end_comment

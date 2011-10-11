@@ -1127,9 +1127,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|text
 name|QString
@@ -1169,9 +1166,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|setText
 name|void

@@ -7823,9 +7823,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn qint64 QFtp::readBlock(char *data, quint64 maxlen)      Use read() instead. */
-end_comment
-begin_comment
 comment|/*!     Reads \a maxlen bytes from the data socket into \a data and     returns the number of bytes read. Returns -1 if an error occurred.      \sa get() readyRead() bytesAvailable() readAll() */
 end_comment
 begin_function

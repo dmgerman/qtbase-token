@@ -973,9 +973,6 @@ begin_comment
 comment|/*!     \fn bool QFileInfo::operator!=(const QFileInfo&fileinfo) const      Returns true if this QFileInfo object refers to a different file     than the one specified by \a fileinfo; otherwise returns false.      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     \overload     \fn bool QFileInfo::operator!=(const QFileInfo&fileinfo) const */
-end_comment
-begin_comment
 comment|/*!     Returns true if this QFileInfo object refers to a file in the same     location as \a fileinfo; otherwise returns false.      Note that the result of comparing two empty QFileInfo objects,     containing no file references, is undefined.      \warning This will not compare two different symbolic links     pointing to the same file.      \warning Long and short file names that refer to the same file on Windows     are treated as if they referred to different files.      \sa operator!=() */
 end_comment
 begin_function

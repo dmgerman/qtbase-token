@@ -282,9 +282,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QPixmap::ColorMode      \compat      This enum type defines the color modes that exist for converting     QImage objects to QPixmap.  It is provided here for compatibility     with earlier versions of Qt.      Use Qt::ImageConversionFlags instead.      \value Auto  Select \c Color or \c Mono on a case-by-case basis.     \value Color Always create colored pixmaps.     \value Mono  Always create bitmaps. */
-end_comment
-begin_comment
 comment|/*!     Constructs a null pixmap.      \sa isNull() */
 end_comment
 begin_constructor
@@ -1150,9 +1147,6 @@ begin_comment
 comment|/*!     \fn bool QPixmap::operator!() const      Returns true if this is a null pixmap; otherwise returns false.      \sa isNull() */
 end_comment
 begin_comment
-comment|/*!     \fn QPixmap::operator QImage() const      Returns the pixmap as a QImage.      Use the toImage() function instead. */
-end_comment
-begin_comment
 comment|/*!     Converts the pixmap to a QImage. Returns a null image if the     conversion fails.      If the pixmap has 1-bit depth, the returned image will also be 1     bit deep. Images with more bits will be returned in a format     closely represents the underlying system. Usually this will be     QImage::Format_ARGB32_Premultiplied for pixmaps with an alpha and     QImage::Format_RGB32 or QImage::Format_RGB16 for pixmaps without     alpha.      Note that for the moment, alpha masks on monochrome images are     ignored.      \sa fromImage(), {QImage#Image Formats}{Image Formats} */
 end_comment
 begin_function
@@ -1449,15 +1443,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn void QPixmap::resize(const QSize&size)     \overload     \compat      Use QPixmap::copy() instead to get the pixmap with the new size.      \oldcode         pixmap.resize(size);     \newcode         pixmap = pixmap.copy(QRect(QPoint(0, 0), size));     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn void QPixmap::resize(int width, int height)     \compat      Use QPixmap::copy() instead to get the pixmap with the new size.      \oldcode         pixmap.resize(10, 20);     \newcode         pixmap = pixmap.copy(0, 0, 10, 20);     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn bool QPixmap::selfMask() const     \compat      Returns whether the pixmap is its own mask or not.      This function is no longer relevant since the concept of self     masking doesn't exists anymore. */
-end_comment
 begin_comment
 comment|/*!     Sets a mask bitmap.      This function merges the \a mask with the pixmap's alpha channel. A pixel     value of 1 on the mask means the pixmap's pixel is unchanged; a value of 0     means the pixel is transparent. The mask must have the same size as this     pixmap.      Setting a null mask resets the mask, leaving the previously transparent     pixels black. The effect of this function is undefined when the pixmap is     being painted on.      \warning This is potentially an expensive operation.      \sa mask(), {QPixmap#Pixmap Transformations}{Pixmap Transformations},     QBitmap */
 end_comment
@@ -2591,9 +2576,6 @@ unit|static void sendResizeEvents(QWidget *target) {     QResizeEvent e(target->
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|/*!     \fn QPixmap QPixmap::grabWidget(QPaintDevice * widget, const QRect&rectangle)      Creates a pixmap and paints the given \a widget, restricted by the     given \a rectangle, in it. If the \a widget has any children, then     they are also painted in the appropriate positions.      If no rectangle is specified (the default) the entire widget is     painted.      If \a widget is 0, the specified rectangle doesn't overlap the     widget's rectangle, or an error occurs, the function will return a     null QPixmap.  If the rectangle is a superset of the given \a     widget, the areas outside the \a widget are covered with the     widget's background.      This function actually asks \a widget to paint itself (and its     children to paint themselves) by calling paintEvent() with painter     redirection turned on. But QPixmap also provides the grabWindow()     function which is a bit faster by grabbing pixels directly off the     screen. In addition, if there are overlaying windows,     grabWindow(), unlike grabWidget(), will see them.      \warning Do not grab a widget from its QWidget::paintEvent().     However, it is safe to grab a widget from another widget's     \l {QWidget::}{paintEvent()}.      \sa grabWindow() */
-end_comment
 begin_function
 DECL|function|grabWidget
 name|QPixmap
@@ -2661,15 +2643,6 @@ name|pixmap
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn QPixmap QPixmap::grabWidget(QWidget *widget, int x, int y, int     width, int height)      \overload      Creates a pixmap and paints the given \a widget, restricted by     QRect(\a x, \a y, \a width, \a height), in it.      \warning Do not grab a widget from its QWidget::paintEvent().     However, it is safe to grab a widget from another widget's     \l {QWidget::}{paintEvent()}. */
-end_comment
-begin_comment
-comment|/*!     \since 4.5      \enum QPixmap::ShareMode      This enum type defines the share modes that are available when     creating a QPixmap object from a raw X11 Pixmap handle.      \value ImplicitlyShared  This mode will cause the QPixmap object to     create a copy of the internal data before it is modified, thus     keeping the original X11 pixmap intact.      \value ExplicitlyShared  In this mode, the pixmap data will \e not be     copied before it is modified, which in effect will change the     original X11 pixmap.      \warning This enum is only used for X11 specific functions; using     it is non-portable.      \sa QPixmap::fromX11Pixmap() */
-end_comment
-begin_comment
-comment|/*!     \since 4.5      \fn QPixmap QPixmap::fromX11Pixmap(Qt::HANDLE pixmap, QPixmap::ShareMode mode)      Creates a QPixmap from the native X11 Pixmap handle \a pixmap,     using \a mode as the share mode. The default share mode is     QPixmap::ImplicitlyShared, which means that a copy of the pixmap is     made if someone tries to modify it by e.g. drawing onto it.      QPixmap does \e not take ownership of the \a pixmap handle, and     have to be deleted by the user.      \warning This function is X11 specific; using it is non-portable.      \sa QPixmap::ShareMode */
-end_comment
 begin_comment
 comment|/*****************************************************************************   QPixmap stream functions  *****************************************************************************/
 end_comment
@@ -2843,9 +2816,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QImage QPixmap::convertToImage() const      Use the toImage() function instead. */
-end_comment
-begin_comment
 comment|/*!     Replaces this pixmap's data with the given \a image using the     specified \a flags to control the conversion.  The \a flags     argument is a bitwise-OR of the \l{Qt::ImageConversionFlags}.     Passing 0 for \a flags sets all the default options. Returns true     if the result is that this pixmap is not null.      Note: this function was part of Qt 3 support in Qt 4.6 and earlier.     It has been promoted to official API status in 4.7 to support updating     the pixmap's image without creating a new QPixmap as fromImage() would.      \sa fromImage()     \since 4.7 */
 end_comment
 begin_function
@@ -2905,9 +2875,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn QPixmap QPixmap::xForm(const QMatrix&matrix) const      Use transformed() instead. */
-end_comment
 begin_comment
 comment|/*!     \fn QPixmap QPixmap::scaled(int width, int height,     Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode     transformMode) const      \overload      Returns a copy of the pixmap scaled to a rectangle with the given     \a width and \a height according to the given \a aspectRatioMode and     \a transformMode.      If either the \a width or the \a height is zero or negative, this     function returns a null pixmap. */
 end_comment
@@ -3965,48 +3932,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \enum QPixmap::HBitmapFormat      \bold{Win32 only:} This enum defines how the conversion between \c     HBITMAP and QPixmap is performed.      \warning This enum is only available on Windows.      \value NoAlpha The alpha channel is ignored and always treated as     being set to fully opaque. This is preferred if the \c HBITMAP is     used with standard GDI calls, such as \c BitBlt().      \value PremultipliedAlpha The \c HBITMAP is treated as having an     alpha channel and premultiplied colors. This is preferred if the     \c HBITMAP is accessed through the \c AlphaBlend() GDI function.      \value Alpha The \c HBITMAP is treated as having a plain alpha     channel. This is the preferred format if the \c HBITMAP is going     to be used as an application icon or systray icon.      \sa fromWinHBITMAP(), toWinHBITMAP() */
-end_comment
-begin_comment
-comment|/*! \fn HBITMAP QPixmap::toWinHBITMAP(HBitmapFormat format) const     \bold{Win32 only:} Creates a \c HBITMAP equivalent to the QPixmap,     based on the given \a format. Returns the \c HBITMAP handle.      It is the caller's responsibility to free the \c HBITMAP data     after use.      \warning This function is only available on Windows.      \sa fromWinHBITMAP(), {QPixmap#Pixmap Conversion}{Pixmap Conversion} */
-end_comment
-begin_comment
-comment|/*! \fn QPixmap QPixmap::fromWinHBITMAP(HBITMAP bitmap, HBitmapFormat format)     \bold{Win32 only:} Returns a QPixmap that is equivalent to the     given \a bitmap. The conversion is based on the specified \a     format.      \warning This function is only available on Windows.      \sa toWinHBITMAP(), {QPixmap#Pixmap Conversion}{Pixmap Conversion}  */
-end_comment
-begin_comment
-comment|/*! \fn HICON QPixmap::toWinHICON() const     \since 4.6      \bold{Win32 only:} Creates a \c HICON equivalent to the QPixmap.     Returns the \c HICON handle.      It is the caller's responsibility to free the \c HICON data after use.      \warning This function is only available on Windows.      \sa fromWinHICON(), {QPixmap#Pixmap Conversion}{Pixmap Conversion} */
-end_comment
-begin_comment
-comment|/*! \fn QPixmap QPixmap::fromWinHICON(HICON icon)     \since 4.6      \bold{Win32 only:} Returns a QPixmap that is equivalent to the given     \a icon.      \warning This function is only available on Windows.      \sa toWinHICON(), {QPixmap#Pixmap Conversion}{Pixmap Conversion}  */
-end_comment
-begin_comment
-comment|/*! \fn const QX11Info&QPixmap::x11Info() const     \bold{X11 only:} Returns information about the configuration of     the X display used by the screen to which the pixmap currently belongs.      \warning This function is only available on X11.      \sa {QPixmap#Pixmap Information}{Pixmap Information} */
-end_comment
-begin_comment
-comment|/*! \fn Qt::HANDLE QPixmap::x11PictureHandle() const     \bold{X11 only:} Returns the X11 Picture handle of the pixmap for     XRender support.      This function will return 0 if XRender support is not compiled     into Qt, if the XRender extension is not supported on the X11     display, or if the handle could not be created. Use of this     function is not portable.      \warning This function is only available on X11.      \sa {QPixmap#Pixmap Information}{Pixmap Information} */
-end_comment
-begin_comment
-comment|/*! \fn int QPixmap::x11SetDefaultScreen(int screen)   \internal */
-end_comment
-begin_comment
-comment|/*! \fn void QPixmap::x11SetScreen(int screen)   \internal */
-end_comment
-begin_comment
-comment|/*! \fn QRgb* QPixmap::clut() const     \internal */
-end_comment
-begin_comment
-comment|/*! \fn int QPixmap::numCols() const     \obsolete     \internal     \sa colorCount() */
-end_comment
-begin_comment
-comment|/*! \fn int QPixmap::colorCount() const     \since 4.6     \internal */
-end_comment
-begin_comment
-comment|/*! \fn const uchar* QPixmap::qwsBits() const     \internal     \since 4.1 */
-end_comment
-begin_comment
-comment|/*! \fn int QPixmap::qwsBytesPerLine() const     \internal     \since 4.1 */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

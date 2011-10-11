@@ -3598,9 +3598,6 @@ name|contextArray
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn QString QTranslator::find(const char *context, const char *sourceText, const char * comment = 0) const      Use translate(\a context, \a sourceText, \a comment) instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

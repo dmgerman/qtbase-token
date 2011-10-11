@@ -3901,12 +3901,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString QLibrary::library() const      Use fileName() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QLibrary::setAutoUnload( bool b )      Use load(), isLoaded(), and unload() as necessary instead. */
-end_comment
-begin_comment
 comment|/*!     \since 4.2      Returns a text string with the description of the last error that occurred.     Currently, errorString will only be set if load(), unload() or resolve() for some reason fails. */
 end_comment
 begin_function

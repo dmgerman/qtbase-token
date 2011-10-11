@@ -6981,9 +6981,6 @@ end_endif
 begin_comment
 comment|//QT_NO_PICTUREIO
 end_comment
-begin_comment
-comment|/*!     \fn QPicture QPicture::copy() const      Use simple assignment instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

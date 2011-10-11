@@ -53,10 +53,10 @@ begin_comment
 comment|/*!     \fn void QIntValidator::bottomChanged(int bottom)      This signal is emitted after the bottom property changed.      \sa QIntValidator::top(), QIntValidator::setTop(), QIntValidator::bottom(), QIntValidator::setBottom()     \internal */
 end_comment
 begin_comment
-comment|/*!     \fn void QDoubleValidator::topChanged(int top)      This signal is emitted after the top property changed.      \sa QDoubleValidator::top(), QDoubleValidator::setTop(), QDoubleValidator::bottom(), QDoubleValidator::setBottom()     \internal */
+comment|/*!     \fn void QDoubleValidator::topChanged(double top)      This signal is emitted after the top property changed.      \sa QDoubleValidator::top(), QDoubleValidator::setTop(), QDoubleValidator::bottom(), QDoubleValidator::setBottom()     \internal */
 end_comment
 begin_comment
-comment|/*!     \fn void QDoubleValidator::bottomChanged(int bottom)      This signal is emitted after the bottom property changed.      \sa QDoubleValidator::top(), QDoubleValidator::setTop(), QDoubleValidator::bottom(), QDoubleValidator::setBottom()     \internal */
+comment|/*!     \fn void QDoubleValidator::bottomChanged(double bottom)      This signal is emitted after the bottom property changed.      \sa QDoubleValidator::top(), QDoubleValidator::setTop(), QDoubleValidator::bottom(), QDoubleValidator::setBottom()     \internal */
 end_comment
 begin_comment
 comment|/*!     \fn void QDoubleValidator::decimalsChanged(int decimals)      This signal is emitted after the decimals property changed.      \internal */

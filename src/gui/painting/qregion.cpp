@@ -1505,9 +1505,6 @@ begin_comment
 comment|/*!     \fn bool QRegion::operator==(const QRegion&r) const      Returns true if the region is equal to \a r; otherwise returns     false. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QRegion::isNull() const      Use isEmpty() instead. */
-end_comment
-begin_comment
 comment|/*!     \fn void QRegion::translate(int dx, int dy)      Translates (moves) the region \a dx along the X axis and \a dy     along the Y axis. */
 end_comment
 begin_comment

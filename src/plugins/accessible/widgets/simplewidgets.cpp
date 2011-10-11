@@ -315,9 +315,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|actionText
 name|QString
@@ -483,9 +480,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|doAction
 name|bool
@@ -595,9 +589,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|text
 name|QString
@@ -748,9 +739,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|state
 name|QAccessible
@@ -1174,9 +1162,6 @@ begin_comment
 comment|/*!   \class QAccessibleToolButton   \brief The QAccessibleToolButton class implements the QAccessibleInterface for tool buttons.   \internal    \ingroup accessibility */
 end_comment
 begin_comment
-comment|/*!     \enum QAccessibleToolButton::ToolButtonElements      This enum identifies the components of the tool button.      \value ToolButtonSelf The tool button as a whole.     \value ButtonExecute The button.     \value ButtonDropMenu The drop down menu. */
-end_comment
-begin_comment
 comment|/*!   Creates a QAccessibleToolButton object for \a w.   \a role is propagated to the QAccessibleWidget constructor. */
 end_comment
 begin_constructor
@@ -1275,9 +1260,6 @@ endif|#
 directive|endif
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|state
 name|QAccessible
@@ -1335,9 +1317,6 @@ name|st
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|childCount
 name|int
@@ -1936,9 +1915,6 @@ name|role
 argument_list|)
 block|{ }
 end_constructor
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|role
 name|QAccessible
@@ -2053,9 +2029,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|text
 name|QString
@@ -2308,9 +2281,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|relationTo
 name|QAccessible
@@ -2466,9 +2436,6 @@ name|relation
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|navigate
 name|int
@@ -2900,9 +2867,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|text
 name|QString
@@ -2987,9 +2951,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|setText
 name|void
@@ -3081,9 +3042,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|state
 name|QAccessible

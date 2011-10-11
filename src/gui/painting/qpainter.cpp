@@ -13080,9 +13080,6 @@ begin_comment
 comment|/*!     \fn void QPainter::drawPoints(const QPolygon&points)      \overload      Draws the points in the vector  \a points. */
 end_comment
 begin_comment
-comment|/*!     \fn void QPainter::drawPoints(const QPolygon&polygon, int index,     int count)      \overload     \compat      Draws \a count points in the vector \a polygon starting on \a index     using the current pen.      Use drawPoints() combined with QPolygon::constData() instead.      \oldcode         QPainter painter(this);         painter.drawPoints(polygon, index, count);     \newcode         int pointCount = (count == -1) ?  polygon.size() - index : count;          QPainter painter(this);         painter.drawPoints(polygon.constData() + index, pointCount);     \endcode */
-end_comment
-begin_comment
 comment|/*!     Sets the background mode of the painter to the given \a mode      Qt::TransparentMode (the default) draws stippled lines and text     without setting the background pixels.  Qt::OpaqueMode fills these     space with the current background color.      Note that in order to draw a bitmap or pixmap transparently, you     must use QPixmap::setMask().      \sa backgroundMode(), setBackground(),     {QPainter#Settings}{Settings} */
 end_comment
 begin_function
@@ -16309,9 +16306,6 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QPainter::drawPolyline(const QPolygon&polygon, int index, int     count)      \overload     \compat      Draws the polyline defined by the \a count lines of the given \a     polygon starting at \a index (\a index defaults to 0).      Use drawPolyline() combined with QPolygon::constData() instead.      \oldcode         QPainter painter(this);         painter.drawPolyline(polygon, index, count);     \newcode         int pointCount = (count == -1) ?  polygon.size() - index : count;          QPainter painter(this);         painter.drawPolyline(polygon.constData() + index, pointCount);     \endcode */
-end_comment
-begin_comment
 comment|/*!     \fn void QPainter::drawPolyline(const QPolygonF&points)      \overload      Draws the polyline defined by the given \a points using the     current pen. */
 end_comment
 begin_comment
@@ -16680,12 +16674,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn void QPainter::drawPolygon(const QPolygonF&polygon, bool winding, int index = 0,                                    int count = -1)     \compat     \overload      Use drawPolygon() combined with QPolygonF::constData() instead.      \oldcode         QPainter painter(this);         painter.drawPolygon(polygon, winding, index, count);     \newcode         int pointCount = (count == -1) ?  polygon.size() - index : count;         int fillRule = winding ? Qt::WindingFill : Qt::OddEvenFill;          QPainter painter(this);         painter.drawPolygon( polygon.constData() + index, pointCount, fillRule);     \endcode */
-end_comment
-begin_comment
-comment|/*! \fn void QPainter::drawPolygon(const QPolygon&polygon, bool winding,                                    int index = 0, int count = -1)      \compat     \overload      Use drawPolygon() combined with QPolygon::constData() instead.      \oldcode         QPainter painter(this);         painter.drawPolygon(polygon, winding, index, count);     \newcode         int pointCount = (count == -1) ?  polygon.size() - index : count;         int fillRule = winding ? Qt::WindingFill : Qt::OddEvenFill;          QPainter painter(this);         painter.drawPolygon( polygon.constData() + index, pointCount, fillRule);     \endcode */
-end_comment
-begin_comment
 comment|/*! \fn void QPainter::drawPolygon(const QPolygonF&points, Qt::FillRule fillRule)      \overload      Draws the polygon defined by the given \a points using the fill     rule \a fillRule. */
 end_comment
 begin_comment
@@ -16702,12 +16690,6 @@ comment|/*!     \fn void QPainter::drawConvexPolygon(const QPolygonF&polygon)   
 end_comment
 begin_comment
 comment|/*!     \fn void QPainter::drawConvexPolygon(const QPolygon&polygon)     \overload      Draws the convex polygon defined by \a polygon using the current     pen and brush. */
-end_comment
-begin_comment
-comment|/*!     \fn void QPainter::drawConvexPolygon(const QPolygonF&polygon, int     index, int count)      \compat     \overload      Use drawConvexPolygon() combined with QPolygonF::constData()     instead.      \oldcode         QPainter painter(this);         painter.drawConvexPolygon(polygon, index, count);     \newcode         int pointCount = (count == -1) ?  polygon.size() - index : count;          QPainter painter(this);         painter.drawConvexPolygon(polygon.constData() + index, pointCount);     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn void QPainter::drawConvexPolygon(const QPolygon&polygon, int     index, int count)      \compat     \overload      Use drawConvexPolygon() combined with QPolygon::constData()     instead.      \oldcode         QPainter painter(this);         painter.drawConvexPolygon(polygon, index, count);     \newcode         int pointCount = (count == -1) ?  polygon.size() - index : count;          QPainter painter(this);         painter.drawConvexPolygon(polygon.constData() + index, pointCount);     \endcode */
 end_comment
 begin_function
 DECL|function|drawConvexPolygon
@@ -26725,21 +26707,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QPainter::hasViewXForm() const     \compat      Use viewTransformEnabled() instead. */
-end_comment
-begin_comment
-comment|/*! \fn bool QPainter::hasWorldXForm() const     \compat      Use worldMatrixEnabled() instead. */
-end_comment
-begin_comment
-comment|/*! \fn void QPainter::resetXForm()     \compat      Use resetTransform() instead. */
-end_comment
-begin_comment
-comment|/*! \fn void QPainter::setViewXForm(bool enabled)     \compat      Use setViewTransformEnabled() instead. */
-end_comment
-begin_comment
-comment|/*! \fn void QPainter::setWorldXForm(bool enabled)     \compat      Use setWorldMatrixEnabled() instead. */
-end_comment
-begin_comment
 comment|/*!     Enables view transformations if \a enable is true, or disables     view transformations if \a enable is false.      \sa viewTransformEnabled(), {Coordinate System#Window-Viewport     Conversion}{Window-Viewport Conversion} */
 end_comment
 begin_function
@@ -29225,27 +29192,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QPainter::setBackgroundColor(const QColor&color)      Use setBackground() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn const QColor&QPainter::backgroundColor() const      Use background() and QBrush::color() instead.      \oldcode         QColor myColor = backgroundColor();     \newcode         QColor myColor = background().color();     \endcode      Note that the background can be a complex brush such as a texture     or a gradient. */
-end_comment
-begin_comment
-comment|/*!     \fn void QPainter::drawText(int x, int y, const QString&text, int pos, int length)     \compat      Use drawText() combined with QString::mid() instead.      \oldcode         QPainter painter(this);         painter.drawText(x, y, text, pos, length);     \newcode         QPainter painter(this);         painter.drawText(x, y, text.mid(pos, length));     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn void QPainter::drawText(const QPoint&point, const QString&text, int pos, int length)     \compat      Use drawText() combined with QString::mid() instead.      \oldcode         QPainter painter(this);         painter.drawText(point, text, pos, length);     \newcode         QPainter painter(this);         painter.drawText(point, text.mid(pos, length));     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn void QPainter::drawText(int x, int y, const QString&text, int length)     \compat      Use drawText() combined with QString::left() instead.      \oldcode         QPainter painter(this);         painter.drawText(x, y, text, length);     \newcode         QPainter painter(this);         painter.drawText(x, y, text.left(length));     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn void QPainter::drawText(const QPoint&point, const QString&text, int length)     \compat      Use drawText() combined with QString::left() instead.      \oldcode         QPainter painter(this);         painter.drawText(point, text, length);     \newcode         QPainter painter(this);         painter.drawText(point, text.left(length));     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn bool QPainter::begin(QPaintDevice *device, const QWidget *init)     \compat      Use begin() instead.      If the paint \a device is a QWidget, QPainter is initialized after     the widget's settings automatically. Otherwise, you must call the     initFrom() function to initialize the painters pen, background and     font to the same as any given widget.      \oldcode         QPainter painter(this);         painter.begin(device, init);     \newcode         QPainter painter(this);         painter.begin(device);         painter.initFrom(init);     \endcode */
-end_comment
-begin_comment
 comment|/*!     \fn void QPainter::drawImage(const QRectF&target, const QImage&image, const QRectF&source,                          Qt::ImageConversionFlags flags)      Draws the rectangular portion \a source of the given \a image     into the \a target rectangle in the paint device.      \note The image is scaled to fit the rectangle, if both the image and rectangle size disagree.      If the image needs to be modified to fit in a lower-resolution     result (e.g. converting from 32-bit to 8-bit), use the \a flags to     specify how you would prefer this to happen.      \table 100%     \row     \o     \snippet doc/src/snippets/code/src_gui_painting_qpainter.cpp 20     \endtable      \sa drawPixmap() */
 end_comment
 begin_comment
@@ -29271,24 +29217,6 @@ comment|/*!     \fn void QPainter::drawImage(const QRect&rectangle, const QImage
 end_comment
 begin_comment
 comment|/*!     \fn void QPainter::drawImage(int x, int y, const QImage&image,                                  int sx, int sy, int sw, int sh,                                  Qt::ImageConversionFlags flags)     \overload      Draws an image at (\a{x}, \a{y}) by copying a part of \a image into     the paint device.      (\a{x}, \a{y}) specifies the top-left point in the paint device that is     to be drawn onto. (\a{sx}, \a{sy}) specifies the top-left point in \a     image that is to be drawn. The default is (0, 0).      (\a{sw}, \a{sh}) specifies the size of the image that is to be drawn.     The default, (0, 0) (and negative) means all the way to the     bottom-right of the image. */
-end_comment
-begin_comment
-comment|/*!     \fn void QPainter::redirect(QPaintDevice *pdev, QPaintDevice *replacement)      Use setRedirected() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QPaintDevice *QPainter::redirect(QPaintDevice *pdev)      Use redirected() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QRect QPainter::boundingRect(const QRect&rectangle, int flags,                                      const QString&text, int length)     \compat      Returns the bounding rectangle for the given \a length of the \a     text constrained by the provided \a rectangle.      Use boundingRect() combined with QString::left() instead.      \oldcode         QRect rectangle = boundingRect(rect, flags, text, length);     \newcode         QRect rectangle = boundingRect(rect, flags, text.left(length));     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn void QPainter::drawText(const QRect&rectangle, int flags, const QString&text,                                 int length, QRect *br)     \compat      Use drawText() combined with QString::left() instead.      \oldcode         QPainter painter(this);         painter.drawText(rectangle, flags, text, length, br );     \newcode         QPainter painter(this);         painter.drawText(rectangle, flags, text.left(length), br );     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn QRect QPainter::boundingRect(int x, int y, int width, int height, int flags,                                      const QString&text, int length);      \compat      Returns the bounding rectangle for the given \a length of the \a     text constrained by the rectangle that begins at point (\a{x},     \a{y}) with the given \a width and \a height.      Use boundingRect() combined with QString::left() instead.      \oldcode         QRect rectangle = boundingRect(x, y, width, height, flags, text, length);     \newcode         QRect rectangle = boundingRect(x, y, width, height, flags, text.left(length));     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn void QPainter::drawText(int x, int y, int width, int height, int flags,                                 const QString&text, int length, QRect *br)      \compat      Use drawText() combined with QString::left() instead.      \oldcode         QPainter painter(this);         painter.drawText(x, y, width, height, flags, text, length, br );     \newcode         QPainter painter(this);         painter.drawText(x, y, width, height, flags, text.left(length), br );     \endcode */
 end_comment
 begin_comment
 comment|/*!     \class QPaintEngineState     \since 4.1      \brief The QPaintEngineState class provides information about the     active paint engine's current state.     \reentrant      QPaintEngineState records which properties that have changed since     the last time the paint engine was updated, as well as their     current value.      Which properties that have changed can at any time be retrieved     using the state() function. This function returns an instance of     the QPaintEngine::DirtyFlags type which stores an OR combination     of QPaintEngine::DirtyFlag values. The QPaintEngine::DirtyFlag     enum defines whether a property has changed since the last update     or not.      If a property is marked with a dirty flag, its current value can     be retrieved using the corresponding get function:      \target GetFunction      \table     \header \o Property Flag \o Current Property Value     \row \o QPaintEngine::DirtyBackground \o backgroundBrush()     \row \o QPaintEngine::DirtyBackgroundMode \o backgroundMode()     \row \o QPaintEngine::DirtyBrush \o brush()     \row \o QPaintEngine::DirtyBrushOrigin \o brushOrigin()     \row \o QPaintEngine::DirtyClipRegion \e or QPaintEngine::DirtyClipPath          \o clipOperation()     \row \o QPaintEngine::DirtyClipPath \o clipPath()     \row \o QPaintEngine::DirtyClipRegion \o clipRegion()     \row \o QPaintEngine::DirtyCompositionMode \o compositionMode()     \row \o QPaintEngine::DirtyFont \o font()     \row \o QPaintEngine::DirtyTransform \o transform()     \row \o QPaintEngine::DirtyClipEnabled \o isClipEnabled()     \row \o QPaintEngine::DirtyPen \o pen()     \row \o QPaintEngine::DirtyHints \o renderHints()     \endtable      The QPaintEngineState class also provide the painter() function     which returns a pointer to the painter that is currently updating     the paint engine.      An instance of this class, representing the current state of the     active paint engine, is passed as argument to the     QPaintEngine::updateState() function. The only situation in which     you will have to use this class directly is when implementing your     own paint engine.      \sa QPaintEngine */
@@ -30810,78 +30738,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*! \fn Display *QPaintDevice::x11Display() const     Use QX11Info::display() instead.      \oldcode         Display *display = widget->x11Display();     \newcode         Display *display = QX11Info::display();     \endcode      \sa QWidget::x11Info(), QX11Info::display() */
-end_comment
-begin_comment
-comment|/*! \fn int QPaintDevice::x11Screen() const     Use QX11Info::screen() instead.      \oldcode         int screen = widget->x11Screen();     \newcode         int screen = widget->x11Info().screen();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn void *QPaintDevice::x11Visual() const     Use QX11Info::visual() instead.      \oldcode         void *visual = widget->x11Visual();     \newcode         void *visual = widget->x11Info().visual();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn int QPaintDevice::x11Depth() const     Use QX11Info::depth() instead.      \oldcode         int depth = widget->x11Depth();     \newcode         int depth = widget->x11Info().depth();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn int QPaintDevice::x11Cells() const     Use QX11Info::cells() instead.      \oldcode         int cells = widget->x11Cells();     \newcode         int cells = widget->x11Info().cells();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn Qt::HANDLE QPaintDevice::x11Colormap() const     Use QX11Info::colormap() instead.      \oldcode         unsigned long screen = widget->x11Colormap();     \newcode         unsigned long screen = widget->x11Info().colormap();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn bool QPaintDevice::x11DefaultColormap() const     Use QX11Info::defaultColormap() instead.      \oldcode         bool isDefault = widget->x11DefaultColormap();     \newcode         bool isDefault = widget->x11Info().defaultColormap();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn bool QPaintDevice::x11DefaultVisual() const     Use QX11Info::defaultVisual() instead.      \oldcode         bool isDefault = widget->x11DefaultVisual();     \newcode         bool isDefault = widget->x11Info().defaultVisual();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn void *QPaintDevice::x11AppVisual(int screen)     Use QX11Info::visual() instead.      \oldcode         void *visual = QPaintDevice::x11AppVisual(screen);     \newcode         void *visual = qApp->x11Info(screen).visual();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn Qt::HANDLE QPaintDevice::x11AppColormap(int screen)     Use QX11Info::colormap() instead.      \oldcode         unsigned long colormap = QPaintDevice::x11AppColormap(screen);     \newcode         unsigned long colormap = qApp->x11Info(screen).colormap();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn Display *QPaintDevice::x11AppDisplay()     Use QX11Info::display() instead.      \oldcode         Display *display = QPaintDevice::x11AppDisplay();     \newcode         Display *display = qApp->x11Info().display();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn int QPaintDevice::x11AppScreen()     Use QX11Info::screen() instead.      \oldcode         int screen = QPaintDevice::x11AppScreen();     \newcode         int screen = qApp->x11Info().screen();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn int QPaintDevice::x11AppDepth(int screen)     Use QX11Info::depth() instead.      \oldcode         int depth = QPaintDevice::x11AppDepth(screen);     \newcode         int depth = qApp->x11Info(screen).depth();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn int QPaintDevice::x11AppCells(int screen)     Use QX11Info::cells() instead.      \oldcode         int cells = QPaintDevice::x11AppCells(screen);     \newcode         int cells = qApp->x11Info(screen).cells();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn Qt::HANDLE QPaintDevice::x11AppRootWindow(int screen)     Use QX11Info::appRootWindow() instead.      \oldcode         unsigned long window = QPaintDevice::x11AppRootWindow(screen);     \newcode         unsigned long window = qApp->x11Info(screen).appRootWindow();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn bool QPaintDevice::x11AppDefaultColormap(int screen)     Use QX11Info::defaultColormap() instead.      \oldcode         bool isDefault = QPaintDevice::x11AppDefaultColormap(screen);     \newcode         bool isDefault = qApp->x11Info(screen).defaultColormap();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn bool QPaintDevice::x11AppDefaultVisual(int screen)     Use QX11Info::defaultVisual() instead.      \oldcode         bool isDefault = QPaintDevice::x11AppDefaultVisual(screen);     \newcode         bool isDefault = qApp->x11Info(screen).defaultVisual();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn void QPaintDevice::x11SetAppDpiX(int dpi, int screen)     Use QX11Info::setAppDpiX() instead. */
-end_comment
-begin_comment
-comment|/*! \fn void QPaintDevice::x11SetAppDpiY(int dpi, int screen)     Use QX11Info::setAppDpiY() instead. */
-end_comment
-begin_comment
-comment|/*! \fn int QPaintDevice::x11AppDpiX(int screen)     Use QX11Info::appDpiX() instead.      \oldcode         bool isDefault = QPaintDevice::x11AppDpiX(screen);     \newcode         bool isDefault = qApp->x11Info(screen).appDpiX();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn int QPaintDevice::x11AppDpiY(int screen)     Use QX11Info::appDpiY() instead.      \oldcode         bool isDefault = QPaintDevice::x11AppDpiY(screen);     \newcode         bool isDefault = qApp->x11Info(screen).appDpiY();     \endcode      \sa QWidget::x11Info(), QPixmap::x11Info() */
-end_comment
-begin_comment
-comment|/*! \fn HDC QPaintDevice::getDC() const   \internal */
-end_comment
-begin_comment
-comment|/*! \fn void QPaintDevice::releaseDC(HDC) const   \internal */
-end_comment
-begin_comment
-comment|/*! \fn QWSDisplay *QPaintDevice::qwsDisplay()     \internal */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

@@ -3352,9 +3352,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn QPalette QPalette::copy() const      Use simple assignment instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
