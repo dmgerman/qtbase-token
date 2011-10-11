@@ -2040,6 +2040,18 @@ argument_list|(
 literal|"OBJECTS_DIR"
 argument_list|)
 expr_stmt|;
+name|QString
+name|pwd
+init|=
+name|escapeFilePath
+argument_list|(
+name|fileFixify
+argument_list|(
+name|qmake_getpwd
+argument_list|()
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|t
 operator|<<
 literal|"###### Dependencies"
@@ -2052,7 +2064,11 @@ name|t
 operator|<<
 name|odir
 operator|<<
-literal|".deps/%.d: %.cpp\n\t"
+literal|".deps/%.d: "
+operator|<<
+name|pwd
+operator|<<
+literal|"/%.cpp\n\t"
 expr_stmt|;
 if|if
 condition|(
@@ -2096,7 +2112,11 @@ name|t
 operator|<<
 name|odir
 operator|<<
-literal|".deps/%.d: %.c\n\t"
+literal|".deps/%.d: "
+operator|<<
+name|pwd
+operator|<<
+literal|"/%.c\n\t"
 expr_stmt|;
 if|if
 condition|(
@@ -2389,7 +2409,16 @@ name|odir
 operator|+
 literal|".deps/"
 operator|+
+name|fileFixify
+argument_list|(
 name|d_file
+argument_list|,
+name|pwd
+argument_list|,
+name|Option
+operator|::
+name|output_dir
+argument_list|)
 operator|+
 literal|".d"
 expr_stmt|;
