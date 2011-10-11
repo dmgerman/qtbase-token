@@ -74,7 +74,7 @@ argument|QRectF keyboardRectangle READ keyboardRectangle NOTIFY keyboardRectangl
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|bool visible READ visible WRITE setVisible NOTIFY visibleChanged
+argument|bool visible READ visible NOTIFY visibleChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
