@@ -7,15 +7,6 @@ include|#
 directive|include
 file|<QtTest/QtTest>
 end_include
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QMAKE_CROSS_COMPILED
-argument_list|)
-end_if
 begin_include
 include|#
 directive|include
@@ -2924,18 +2915,4 @@ include|#
 directive|include
 file|"tst_qmake.moc"
 end_include
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|// QMAKE_CROSS_COMPILED
-end_comment
-begin_macro
-name|QTEST_NOOP_MAIN
-end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
 end_unit

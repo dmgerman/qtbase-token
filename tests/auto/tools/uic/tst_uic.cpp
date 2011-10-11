@@ -32,11 +32,6 @@ include|#
 directive|include
 file|<QtCore/QLibraryInfo>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
-end_ifndef
 begin_class
 DECL|class|tst_uic
 class|class
@@ -1093,15 +1088,4 @@ include|#
 directive|include
 file|"tst_uic.moc"
 end_include
-begin_else
-else|#
-directive|else
-end_else
-begin_macro
-name|QTEST_NOOP_MAIN
-end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
 end_unit
