@@ -12,6 +12,11 @@ include|#
 directive|include
 file|<stdio.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<strings.h>
+end_include
 begin_define
 DECL|macro|RUN_TEST
 define|#
@@ -20,7 +25,7 @@ name|RUN_TEST
 parameter_list|(
 name|testname
 parameter_list|)
-value|{ \     if (!v8test_ ## testname()) \         printf ("Test %s FAILED\n", # testname); \ }
+value|{ \     if (argc == 1 || 0 == ::strcmp(argv[1], # testname)) { \         if (!v8test_ ## testname()) \             printf ("Test %s FAILED\n", # testname); \         else \             printf ("Test %s PASS\n", # testname); \     } \ }
 end_define
 begin_function
 DECL|function|main
@@ -63,6 +68,16 @@ expr_stmt|;
 name|RUN_TEST
 argument_list|(
 name|userobjectcompare
+argument_list|)
+expr_stmt|;
+name|RUN_TEST
+argument_list|(
+name|externalteardown
+argument_list|)
+expr_stmt|;
+name|RUN_TEST
+argument_list|(
+name|globalcall
 argument_list|)
 expr_stmt|;
 return|return
