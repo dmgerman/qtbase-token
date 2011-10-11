@@ -7,11 +7,6 @@ include|#
 directive|include
 file|<QtTest/QtTest>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
-end_ifndef
 begin_include
 include|#
 directive|include
@@ -23476,23 +23471,6 @@ argument_list|(
 argument|tst_QAccessibility
 argument_list|)
 end_macro
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|// Q_OS_WINCE
-end_comment
-begin_macro
-name|QTEST_NOOP_MAIN
-end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// Q_OS_WINCE
-end_comment
 begin_include
 include|#
 directive|include
