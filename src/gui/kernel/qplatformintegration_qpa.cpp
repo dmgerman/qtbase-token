@@ -283,8 +283,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-operator|new
-name|QPlatformAccessibility
+literal|0
 return|;
 block|}
 end_function

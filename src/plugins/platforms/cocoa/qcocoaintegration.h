@@ -190,6 +190,12 @@ name|nativeInterface
 argument_list|()
 specifier|const
 block|;
+name|QPlatformAccessibility
+operator|*
+name|accessibility
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QPlatformFontDatabase
@@ -203,6 +209,10 @@ block|;
 name|QCocoaAutoReleasePool
 operator|*
 name|mPool
+block|;
+name|QPlatformAccessibility
+operator|*
+name|mAccessibility
 block|; }
 decl_stmt|;
 end_decl_stmt

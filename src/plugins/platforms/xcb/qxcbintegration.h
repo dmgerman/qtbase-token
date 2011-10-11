@@ -132,6 +132,12 @@ name|inputContext
 argument_list|()
 specifier|const
 block|;
+name|QPlatformAccessibility
+operator|*
+name|accessibility
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QList
@@ -156,6 +162,10 @@ block|;
 name|QAbstractEventDispatcher
 operator|*
 name|m_eventDispatcher
+block|;
+name|QPlatformAccessibility
+operator|*
+name|m_accessibility
 block|; }
 decl_stmt|;
 end_decl_stmt
