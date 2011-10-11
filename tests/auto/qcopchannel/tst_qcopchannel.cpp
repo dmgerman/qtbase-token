@@ -10,11 +10,6 @@ end_include
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|&&
 operator|!
 name|defined
 argument_list|(

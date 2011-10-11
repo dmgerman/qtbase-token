@@ -7,14 +7,6 @@ include|#
 directive|include
 file|<QtTest/QtTest>
 end_include
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-end_if
 begin_comment
 comment|//TESTED_CLASS=
 end_comment
@@ -767,18 +759,4 @@ include|#
 directive|include
 file|"tst_qtransformedscreen.moc"
 end_include
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|// Q_WS_QWS
-end_comment
-begin_macro
-name|QTEST_NOOP_MAIN
-end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
 end_unit
