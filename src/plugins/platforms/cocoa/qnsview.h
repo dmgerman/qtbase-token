@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtGui/QImage>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QAccessible>
+end_include
 begin_decl_stmt
 unit|@
 name|interface
@@ -41,6 +46,10 @@ name|Qt
 operator|::
 name|MouseButtons
 name|m_buttons
+block|;
+name|QAccessibleInterface
+operator|*
+name|m_accessibleRoot
 block|; }
 operator|-
 operator|(
