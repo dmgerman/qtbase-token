@@ -7,11 +7,6 @@ include|#
 directive|include
 file|<QtTest/QtTest>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-end_ifdef
 begin_include
 include|#
 directive|include
@@ -352,18 +347,4 @@ include|#
 directive|include
 file|"tst_qwineventnotifier.moc"
 end_include
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|// non-windows systems
-end_comment
-begin_macro
-name|QTEST_NOOP_MAIN
-end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
 end_unit
