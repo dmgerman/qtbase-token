@@ -36,7 +36,9 @@ name|QWindowsInputContext
 range|:
 name|public
 name|QPlatformInputContext
-block|{     struct
+block|{
+name|Q_OBJECT
+expr|struct
 name|CompositionContext
 block|{
 name|CompositionContext
@@ -84,11 +86,11 @@ argument_list|)
 block|;
 name|virtual
 name|void
-name|mouseHandler
+name|invokeAction
 argument_list|(
-argument|int x
+argument|QInputPanel::Action
 argument_list|,
-argument|QMouseEvent *event
+argument|int cursorPosition
 argument_list|)
 block|;
 specifier|static
@@ -134,6 +136,13 @@ argument|LPARAM lparam
 argument_list|,
 argument|LRESULT *result
 argument_list|)
+block|;
+name|private
+name|slots
+operator|:
+name|void
+name|cursorRectChanged
+argument_list|()
 block|;
 name|private
 operator|:

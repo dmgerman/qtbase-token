@@ -69,11 +69,6 @@ DECL|enumerator|QWindowsGLAccumBuffer
 name|QWindowsGLAccumBuffer
 init|=
 literal|0x8
-block|,
-DECL|enumerator|QWindowsGLDeprecatedFunctions
-name|QWindowsGLDeprecatedFunctions
-init|=
-literal|0x10
 block|}
 enum|;
 end_enum

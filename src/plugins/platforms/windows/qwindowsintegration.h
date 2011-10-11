@@ -140,6 +140,14 @@ name|fontDatabase
 argument_list|()
 specifier|const
 block|;
+name|virtual
+name|QVariant
+name|styleHint
+argument_list|(
+argument|StyleHint hint
+argument_list|)
+specifier|const
+block|;
 specifier|static
 name|QWindowsIntegration
 operator|*
