@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtGui/qaccessible.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qcoreapplication.h>
+end_include
 begin_function
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -1436,6 +1441,10 @@ range|:
 name|public
 name|QAccessible2Interface
 block|{
+name|Q_DECLARE_TR_FUNCTIONS
+argument_list|(
+argument|QAccessibleActionInterface
+argument_list|)
 name|public
 operator|:
 specifier|inline
