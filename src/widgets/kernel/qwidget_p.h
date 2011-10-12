@@ -307,6 +307,24 @@ name|class
 name|QUnifiedToolbarSurface
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// implemented in qshortcut.cpp
+end_comment
+begin_decl_stmt
+name|bool
+name|qWidgetShortcutContextMatcher
+argument_list|(
+name|QObject
+operator|*
+name|object
+argument_list|,
+name|Qt
+operator|::
+name|ShortcutContext
+name|context
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|class
 name|Q_AUTOTEST_EXPORT
