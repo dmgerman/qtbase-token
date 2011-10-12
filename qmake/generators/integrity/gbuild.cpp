@@ -2294,7 +2294,6 @@ literal|1
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//        QString moctool(project->values("QMAKE_MOC").first());
 name|QString
 name|filepath
 argument_list|(
@@ -2340,16 +2339,10 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|//        if (!project->values("QT_BUILD_TREE").isEmpty()) {
-comment|//            moctool.remove(project->values("QT_BUILD_TREE").first());
-comment|//            moctool.remove(0, 1);
-comment|//        }
 name|s
 operator|+=
 literal|"\n\t:preexecShellSafe='${QT_BUILD_DIR}/bin/moc "
 expr_stmt|;
-comment|//        s += moctool;
-comment|//        s += " ";
 name|s
 operator|+=
 name|varGlue
