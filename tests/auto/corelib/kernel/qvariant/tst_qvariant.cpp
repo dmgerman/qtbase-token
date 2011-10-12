@@ -22831,6 +22831,25 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_define
+DECL|macro|PLAY_WITH_VARIANT
+define|#
+directive|define
+name|PLAY_WITH_VARIANT
+parameter_list|(
+name|Orig
+parameter_list|,
+name|IsNull
+parameter_list|,
+name|ToString
+parameter_list|,
+name|ToDouble
+parameter_list|,
+name|ToBool
+parameter_list|)
+define|\
+value|playWithVariant(Orig, IsNull, ToString, ToDouble, ToBool);\     if (QTest::currentTestFailed())\         QFAIL("playWithVariant failed");
+end_define
 begin_struct
 DECL|struct|MyPrimitive
 struct|struct
@@ -23215,7 +23234,7 @@ name|QSize
 argument_list|>
 name|listSize
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|listSize
 argument_list|,
@@ -23252,7 +23271,7 @@ argument_list|,
 literal|6
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|listSize
 argument_list|,
@@ -23270,7 +23289,7 @@ block|{
 name|QString
 name|str
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|str
 argument_list|,
@@ -23293,7 +23312,7 @@ argument_list|(
 literal|"123456789.123"
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|str
 argument_list|,
@@ -23310,7 +23329,7 @@ block|{
 name|QSize
 name|size
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|size
 argument_list|,
@@ -23324,7 +23343,7 @@ argument_list|,
 literal|false
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|QSize
 argument_list|(
@@ -23347,7 +23366,7 @@ block|{
 name|MyData
 name|d
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|d
 argument_list|,
@@ -23361,7 +23380,7 @@ argument_list|,
 literal|false
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 operator|&
 name|d
@@ -23382,7 +23401,7 @@ name|MyData
 argument_list|>
 name|l
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|l
 argument_list|,
@@ -23404,7 +23423,7 @@ operator|<<
 name|MyData
 argument_list|()
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|l
 argument_list|,
@@ -23428,7 +23447,7 @@ block|,
 literal|5
 block|}
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|d
 argument_list|,
@@ -23442,7 +23461,7 @@ argument_list|,
 literal|false
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 operator|&
 name|d
@@ -23463,7 +23482,7 @@ name|MyPrimitive
 argument_list|>
 name|l
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|l
 argument_list|,
@@ -23481,7 +23500,7 @@ name|l
 operator|<<
 name|d
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|l
 argument_list|,
@@ -23499,7 +23518,7 @@ block|{
 name|MyMovable
 name|d
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|d
 argument_list|,
@@ -23513,7 +23532,7 @@ argument_list|,
 literal|false
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 operator|&
 name|d
@@ -23534,7 +23553,7 @@ name|MyMovable
 argument_list|>
 name|l
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|l
 argument_list|,
@@ -23555,7 +23574,7 @@ argument_list|()
 operator|<<
 name|d
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|l
 argument_list|,
@@ -23579,7 +23598,7 @@ literal|0
 argument_list|)
 argument_list|;
 block|{
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 literal|12.12
 argument_list|,
@@ -23592,7 +23611,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 literal|12.12f
 argument_list|,
@@ -23605,7 +23624,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 literal|'a'
 argument_list|,
@@ -23618,7 +23637,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 call|(
 name|unsigned
@@ -23637,7 +23656,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|quint8
 argument_list|(
@@ -23653,7 +23672,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|qint8
 argument_list|(
@@ -23669,7 +23688,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|quint16
 argument_list|(
@@ -23685,7 +23704,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|qint16
 argument_list|(
@@ -23701,7 +23720,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|quint32
 argument_list|(
@@ -23717,7 +23736,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|qint32
 argument_list|(
@@ -23733,7 +23752,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|quint64
 argument_list|(
@@ -23749,7 +23768,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|qint64
 argument_list|(
@@ -23765,7 +23784,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|qint8
 argument_list|(
@@ -23783,7 +23802,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|qint16
 argument_list|(
@@ -23801,7 +23820,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|qint32
 argument_list|(
@@ -23819,7 +23838,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|qint64
 argument_list|(
@@ -23837,7 +23856,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|quint64
 argument_list|(
@@ -23853,7 +23872,7 @@ argument_list|,
 literal|false
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 literal|true
 argument_list|,
@@ -23866,7 +23885,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 literal|false
 argument_list|,
@@ -23879,7 +23898,7 @@ argument_list|,
 literal|false
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|QString
 argument_list|(
@@ -23901,7 +23920,7 @@ name|i
 operator|=
 literal|5
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 operator|(
 name|void
@@ -23922,7 +23941,7 @@ argument_list|,
 literal|false
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 operator|(
 name|void
@@ -24014,7 +24033,7 @@ name|MyData
 argument_list|()
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|v1
 argument_list|,
@@ -24027,7 +24046,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|v2
 argument_list|,
@@ -24040,7 +24059,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|v3
 argument_list|,
@@ -24053,7 +24072,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|v4
 argument_list|,
@@ -24066,7 +24085,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
-name|playWithVariant
+name|PLAY_WITH_VARIANT
 argument_list|(
 name|v5
 argument_list|,
