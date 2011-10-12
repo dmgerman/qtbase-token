@@ -2345,6 +2345,10 @@ literal|"\n\t:preexecShellSafe='${QT_BUILD_DIR}/bin/moc "
 expr_stmt|;
 name|s
 operator|+=
+literal|"-nn "
+expr_stmt|;
+name|s
+operator|+=
 name|varGlue
 argument_list|(
 literal|"DEFINES"
