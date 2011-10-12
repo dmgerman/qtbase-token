@@ -132,11 +132,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STYLE_CLEANLOOKS
-end_ifndef
 begin_comment
 comment|/*     Notes:      1) The proxy and the widget geometries are linked.        proxy resize => widget resize => stop (no livelock)        widget resize => proxy resize => stop (no livelock)      2) As far as possible, the properties are linked.        proxy enable => widget enable => stop        widget disabled => proxy disabled => stop      3) Windowed state is linked        Windowed proxy state => windowed widget state => stop        Windowed widget state => windowed proxy state => stop */
 end_comment
@@ -23329,18 +23324,4 @@ include|#
 directive|include
 file|"tst_qgraphicsproxywidget.moc"
 end_include
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|// QT_NO_STYLE_CLEANLOOKS
-end_comment
-begin_macro
-name|QTEST_NOOP_MAIN
-end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
 end_unit

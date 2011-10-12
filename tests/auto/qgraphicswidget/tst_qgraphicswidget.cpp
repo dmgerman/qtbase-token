@@ -171,11 +171,6 @@ decl_stmt|;
 block|}
 class|;
 end_class
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STYLE_CLEANLOOKS
-end_ifndef
 begin_class
 DECL|class|tst_QGraphicsWidget
 class|class
@@ -21697,18 +21692,4 @@ include|#
 directive|include
 file|"tst_qgraphicswidget.moc"
 end_include
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|// QT_NO_STYLE_CLEANLOOKS
-end_comment
-begin_macro
-name|QTEST_NOOP_MAIN
-end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
 end_unit
