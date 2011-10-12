@@ -14,13 +14,10 @@ begin_comment
 comment|/*!     \class QPlatformOpenGLContext     \since 4.8     \internal     \preliminary     \ingroup qpa      \brief The QPlatformOpenGLContext class provides an abstraction for native GL contexts.      In QPA the way to support OpenGL or OpenVG or other technologies that requires a native GL     context is through the QPlatformOpenGLContext wrapper.      There is no factory function for QPlatformOpenGLContexts, but rather only one accessor function.     The only place to retrieve a QPlatformOpenGLContext from is through a QPlatformWindow.      The context which is current for a specific thread can be collected by the currentContext()     function. This is how QPlatformOpenGLContext also makes it possible to use the QtGui module     withhout using QOpenGLWidget. When using QOpenGLContext::currentContext(), it will ask     QPlatformOpenGLContext for the currentContext. Then a corresponding QOpenGLContext will be returned,     which maps to the QPlatformOpenGLContext. */
 end_comment
 begin_comment
-comment|/*! \fn void QPlatformOpenGLContext::swapBuffers()     Reimplement in subclass to native swap buffers calls      The implementation must support being called in a thread different than the gui-thread. */
+comment|/*! \fn void QPlatformOpenGLContext::swapBuffers(QPlatformSurface *surface)     Reimplement in subclass to native swap buffers calls      The implementation must support being called in a thread different than the gui-thread. */
 end_comment
 begin_comment
-comment|/*! \fn void *QPlatformOpenGLContext::getProcAddress(const QString&procName)     Reimplement in subclass to native getProcAddr calls.      Note: its convenient to use qPrintable(const QString&str) to get the const char * pointer */
-end_comment
-begin_comment
-comment|/*! \fn QPlatformWindowFormat QPlatformOpenGLContext::platformWindowFormat() const     QWidget has the function qplatformWindowFormat(). That function is for the application     programmer to request the format of the window and the context that he wants.      Reimplement this function in a subclass to indicate what format the glContext actually has. */
+comment|/*! \fn QFunctionPointer QPlatformOpenGLContext::getProcAddress(const QByteArray&procName)     Reimplement in subclass to native getProcAddr calls.      Note: its convenient to use qPrintable(const QString&str) to get the const char * pointer */
 end_comment
 begin_class
 DECL|class|QPlatformOpenGLContextPrivate
