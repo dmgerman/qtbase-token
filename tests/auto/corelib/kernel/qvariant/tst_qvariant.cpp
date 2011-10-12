@@ -1102,6 +1102,23 @@ name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QString
+name|str1
+decl_stmt|;
+name|QVariant
+name|var1
+argument_list|(
+name|str1
+argument_list|)
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|var1
+operator|.
+name|isNull
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QVariant
 name|var2
 argument_list|(
@@ -17124,7 +17141,7 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|userVar2
-operator|!=
+operator|==
 name|userVar3
 argument_list|)
 expr_stmt|;
@@ -17140,6 +17157,14 @@ name|userVar3
 argument_list|)
 expr_stmt|;
 block|}
+comment|// At this point all QVariants got destroyed but we have 2 MyType instances.
+name|QCOMPARE
+argument_list|(
+name|instanceCount
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
 block|{
 name|QVariant
 name|userVar
@@ -17336,7 +17361,7 @@ name|QCOMPARE
 argument_list|(
 name|instanceCount
 argument_list|,
-literal|3
+literal|4
 argument_list|)
 expr_stmt|;
 name|second
@@ -17545,6 +17570,7 @@ literal|42
 argument_list|)
 expr_stmt|;
 block|}
+comment|// At this point all QVariants got destroyed and MyType objects too.
 name|QCOMPARE
 argument_list|(
 name|instanceCount
@@ -21285,8 +21311,29 @@ struct|struct
 name|WontCompare
 block|{
 DECL|member|x
+DECL|member|y
+DECL|member|z
+DECL|member|q
+DECL|member|w
+DECL|member|e
+DECL|member|r
+DECL|member|t
 name|int
 name|x
+decl_stmt|,
+name|y
+decl_stmt|,
+name|z
+decl_stmt|,
+name|q
+decl_stmt|,
+name|w
+decl_stmt|,
+name|e
+decl_stmt|,
+name|r
+decl_stmt|,
+name|t
 decl_stmt|;
 block|}
 struct|;
@@ -22523,6 +22570,29 @@ name|v2
 init|=
 name|v
 decl_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|QTypeInfo
+argument_list|<
+name|T
+argument_list|>
+operator|::
+name|isStatic
+operator|&&
+name|QTypeInfo
+argument_list|<
+name|T
+argument_list|>
+operator|::
+name|isComplex
+operator|)
+condition|)
+block|{
+comment|// Type is movable so standard comparison algorithm in QVariant should work
+comment|// In a custom type QVariant is not aware of ==operator so it won't be called,
+comment|// which may cause problems especially visible when using a not-movable type
 name|QCOMPARE
 argument_list|(
 name|v2
@@ -22530,6 +22600,7 @@ argument_list|,
 name|v
 argument_list|)
 expr_stmt|;
+block|}
 name|QVERIFY
 argument_list|(
 name|v2
@@ -22610,13 +22681,37 @@ name|v
 operator|=
 name|v2
 expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|QTypeInfo
+argument_list|<
+name|T
+argument_list|>
+operator|::
+name|isStatic
+operator|&&
+name|QTypeInfo
+argument_list|<
+name|T
+argument_list|>
+operator|::
+name|isComplex
+operator|)
+condition|)
+block|{
+comment|// Type is movable so standard comparison algorithm in QVariant should work
+comment|// In a custom type QVariant is not aware of ==operator so it won't be called,
+comment|// which may cause problems especially visible when using a not-movable type
 name|QCOMPARE
 argument_list|(
-name|v
-argument_list|,
 name|v2
+argument_list|,
+name|v
 argument_list|)
 expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|qvariant_cast
