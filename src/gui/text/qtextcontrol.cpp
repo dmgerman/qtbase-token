@@ -168,30 +168,6 @@ init|=
 literal|true
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|//#ifndef QT_NO_SHORTCUT
-end_comment
-begin_comment
-comment|//#include "private/QGuiApplication_p.h"
-end_comment
-begin_comment
-comment|//#include "private/qshortcutmap_p.h"
-end_comment
-begin_comment
-comment|//#include<qkeysequence.h>
-end_comment
-begin_comment
-comment|//#define ACCEL_KEY(k) (!qApp->d_func()->shortcutMap.hasShortcutForKeySequence(k) ? QLatin1Char('\t') + QString(QKeySequence(k)) : QString())
-end_comment
-begin_comment
-comment|//#else
-end_comment
-begin_comment
-comment|//#define ACCEL_KEY(k) QString()
-end_comment
-begin_comment
-comment|//#endif
-end_comment
 begin_function
 name|QT_BEGIN_NAMESPACE
 ifndef|#
