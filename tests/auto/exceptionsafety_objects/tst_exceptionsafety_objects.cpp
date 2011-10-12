@@ -29,36 +29,12 @@ file|<exception>
 end_include
 begin_expr_stmt
 name|QT_USE_NAMESPACE
-comment|// this test only works with
-comment|//   * GLIBC
-comment|//   * MSVC - only debug builds (we need the crtdbg.h helpers)
+comment|// this test only works with GLIBC
 if|#
 directive|if
-operator|(
 name|defined
 argument_list|(
 name|QT_NO_EXCEPTIONS
-argument_list|)
-operator|||
-operator|(
-operator|!
-name|defined
-argument_list|(
-name|__GLIBC__
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_CC_MSVC
-argument_list|)
-operator|)
-operator|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_MOC_RUN
 argument_list|)
 name|QTEST_NOOP_MAIN
 else|#
