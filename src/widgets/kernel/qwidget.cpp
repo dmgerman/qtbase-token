@@ -37754,6 +37754,8 @@ argument_list|,
 name|key
 argument_list|,
 name|context
+argument_list|,
+name|qWidgetShortcutContextMatcher
 argument_list|)
 return|;
 block|}

@@ -5516,6 +5516,8 @@ argument_list|,
 name|sequence
 argument_list|,
 name|context
+argument_list|,
+name|qWidgetShortcutContextMatcher
 argument_list|)
 return|;
 block|}

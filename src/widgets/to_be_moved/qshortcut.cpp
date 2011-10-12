@@ -215,6 +215,8 @@ argument_list|,
 name|sc_sequence
 argument_list|,
 name|sc_context
+argument_list|,
+name|qWidgetShortcutContextMatcher
 argument_list|)
 expr_stmt|;
 if|if

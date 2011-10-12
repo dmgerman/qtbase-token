@@ -3704,10 +3704,6 @@ name|QShortcutPrivate
 decl_stmt|;
 name|friend
 name|class
-name|QShortcutMap
-decl_stmt|;
-name|friend
-name|class
 name|QWindowSurface
 decl_stmt|;
 name|friend

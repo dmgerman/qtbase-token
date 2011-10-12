@@ -739,10 +739,6 @@ name|QMenuBar
 block|;
 name|friend
 name|class
-name|QShortcutMap
-block|;
-name|friend
-name|class
 name|QToolButton
 block|;
 ifdef|#

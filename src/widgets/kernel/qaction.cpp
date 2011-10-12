@@ -542,6 +542,8 @@ argument_list|,
 name|shortcut
 argument_list|,
 name|shortcutContext
+argument_list|,
+name|qWidgetShortcutContextMatcher
 argument_list|)
 expr_stmt|;
 if|if
@@ -700,6 +702,8 @@ argument_list|,
 name|alternate
 argument_list|,
 name|shortcutContext
+argument_list|,
+name|qWidgetShortcutContextMatcher
 argument_list|)
 argument_list|)
 expr_stmt|;
