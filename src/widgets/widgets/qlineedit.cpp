@@ -4595,7 +4595,11 @@ case|:
 return|return
 name|QVariant
 argument_list|(
-name|text
+name|d
+operator|->
+name|control
+operator|->
+name|realText
 argument_list|()
 argument_list|)
 return|;

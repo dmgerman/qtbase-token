@@ -1962,6 +1962,15 @@ argument|int replaceLength =
 literal|0
 argument_list|)
 block|;
+name|void
+name|setTentativeCommitString
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|tentativeCommitString
+argument_list|)
+block|;
 specifier|inline
 specifier|const
 name|QList
@@ -2021,6 +2030,18 @@ return|return
 name|replace_length
 return|;
 block|}
+specifier|inline
+specifier|const
+name|QString
+operator|&
+name|tentativeCommitString
+argument_list|()
+specifier|const
+block|{
+return|return
+name|tentativeCommit
+return|;
+block|}
 name|QInputMethodEvent
 argument_list|(
 specifier|const
@@ -2048,6 +2069,9 @@ name|replace_from
 block|;
 name|int
 name|replace_length
+block|;
+name|QString
+name|tentativeCommit
 block|; }
 decl_stmt|;
 end_decl_stmt
