@@ -682,13 +682,6 @@ operator|::
 name|initialized
 condition|)
 return|return;
-ifdef|#
-directive|ifdef
-name|Q_WS_MAC
-comment|// DRSWAT - Not Needed Cocoa or Carbon
-comment|//InitCursor();
-endif|#
-directive|endif
 for|for
 control|(
 name|int

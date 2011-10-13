@@ -2893,11 +2893,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_WS_X11
-end_ifndef
 begin_function
 DECL|function|createSurface
 name|EGLSurface
@@ -3114,10 +3109,6 @@ name|surf
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// Return the error string associated with a specific code.
 end_comment

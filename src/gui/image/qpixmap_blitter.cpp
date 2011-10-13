@@ -244,9 +244,6 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
 name|d
 operator|=
 name|QGuiApplication
@@ -257,8 +254,6 @@ operator|->
 name|depth
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 name|w
 operator|=
 name|width

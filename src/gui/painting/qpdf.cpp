@@ -13762,49 +13762,6 @@ name|fontDef
 operator|.
 name|pixelSize
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_WIN
-if|if
-condition|(
-name|ti
-operator|.
-name|fontEngine
-operator|->
-name|type
-argument_list|()
-operator|==
-name|QFontEngine
-operator|::
-name|Win
-condition|)
-block|{
-name|QFontEngineWin
-modifier|*
-name|fe
-init|=
-cast|static_cast
-argument_list|<
-name|QFontEngineWin
-operator|*
-argument_list|>
-argument_list|(
-name|ti
-operator|.
-name|fontEngine
-argument_list|)
-decl_stmt|;
-name|size
-operator|=
-name|fe
-operator|->
-name|tm
-operator|.
-name|tmHeight
-expr_stmt|;
-block|}
-endif|#
-directive|endif
 name|int
 name|synthesized
 init|=
@@ -14007,14 +13964,7 @@ argument|;         if (face_id.filename.isEmpty())             return;         n
 literal|true
 argument|;     }      QFontSubset *font = fonts.value(face_id,
 literal|0
-argument|);     if (!font) {         font = new QFontSubset(fe, requestObject());         font->noEmbed = noEmbed;     }     fonts.insert(face_id, font);      if (!currentPage->fonts.contains(font->object_id))         currentPage->fonts.append(font->object_id);      qreal size = ti.fontEngine->fontDef.pixelSize;
-ifdef|#
-directive|ifdef
-name|Q_WS_WIN
-argument|if (ti.fontEngine->type() == QFontEngine::Win) {         QFontEngineWin *fe = static_cast<QFontEngineWin *>(ti.fontEngine);         size = fe->tm.tmHeight;     }
-endif|#
-directive|endif
-argument|QVarLengthArray<glyph_t> glyphs;     QVarLengthArray<QFixedPoint> positions;     QTransform m = QTransform::fromTranslate(p.x(), p.y());     ti.fontEngine->getGlyphPositions(ti.glyphs, m, ti.flags,                                      glyphs, positions);     if (glyphs.size() ==
+argument|);     if (!font) {         font = new QFontSubset(fe, requestObject());         font->noEmbed = noEmbed;     }     fonts.insert(face_id, font);      if (!currentPage->fonts.contains(font->object_id))         currentPage->fonts.append(font->object_id);      qreal size = ti.fontEngine->fontDef.pixelSize;      QVarLengthArray<glyph_t> glyphs;     QVarLengthArray<QFixedPoint> positions;     QTransform m = QTransform::fromTranslate(p.x(), p.y());     ti.fontEngine->getGlyphPositions(ti.glyphs, m, ti.flags,                                      glyphs, positions);     if (glyphs.size() ==
 literal|0
 argument|)         return;     int synthesized = ti.fontEngine->synthesized();     qreal stretch = synthesized& QFontEngine::SynthesizedStretch ? ti.fontEngine->fontDef.stretch/
 literal|100.

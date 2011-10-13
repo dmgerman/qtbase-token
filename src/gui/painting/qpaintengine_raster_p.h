@@ -759,22 +759,6 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
-name|void
-name|setCGContext
-argument_list|(
-argument|CGContextRef ref
-argument_list|)
-block|;
-name|CGContextRef
-name|getCGContext
-argument_list|()
-specifier|const
-block|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
 name|Q_OS_WIN
 name|void
 name|setDC
@@ -922,34 +906,6 @@ argument_list|,
 argument|QFontEngine *fontEngine
 argument_list|)
 block|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|QT_NO_FREETYPE
-argument_list|)
-name|void
-name|drawGlyphsS60
-argument_list|(
-specifier|const
-name|QPointF
-operator|&
-name|p
-argument_list|,
-specifier|const
-name|QTextItemInt
-operator|&
-name|ti
-argument_list|)
-block|;
-endif|#
-directive|endif
-comment|// Q_OS_SYMBIAN&& QT_NO_FREETYPE
 name|bool
 name|setClipRectInDeviceCoords
 argument_list|(

@@ -31,34 +31,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QPixmapCache      \brief The QPixmapCache class provides an application-wide cache for pixmaps.      \ingroup painting      This class is a tool for optimized drawing with QPixmap. You can     use it to store temporary pixmaps that are expensive to generate     without using more storage space than cacheLimit(). Use insert()     to insert pixmaps, find() to find them, and clear() to empty the     cache.      QPixmapCache contains no member data, only static functions to     access the global pixmap cache. It creates an internal QCache     object for caching the pixmaps.      The cache associates a pixmap with a user-provided string as a key,     or with a QPixmapCache::Key that the cache generates.     Using QPixmapCache::Key for keys is faster than using strings. The string API is     very convenient for complex keys but the QPixmapCache::Key API will be very     efficient and convenient for a one-to-one object-to-pixmap mapping \mdash in     this case, you can store the keys as members of an object.      If two pixmaps are inserted into the cache using equal keys then the     last pixmap will replace the first pixmap in the cache. This follows the     behavior of the QHash and QCache classes.      The cache becomes full when the total size of all pixmaps in the     cache exceeds cacheLimit(). The initial cache limit is     2048 KB (2 MB) on embedded platforms, 10240 KB (10 MB) on desktop     platforms; you can change this by calling setCacheLimit() with the     required value.     A pixmap takes roughly (\e{width} * \e{height} * \e{depth})/8 bytes of     memory.      The \e{Qt Quarterly} article     \l{http://qt.nokia.com/doc/qq/qq12-qpixmapcache.html}{Optimizing     with QPixmapCache} explains how to use QPixmapCache to speed up     applications by caching the results of painting.      \sa QCache, QPixmap */
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_WS_WINCE
-argument_list|)
 DECL|variable|cache_limit
-specifier|static
-name|int
-name|cache_limit
-init|=
-literal|2048
-decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|variable|cache_limit
-comment|// 2048 KB cache limit for embedded
-end_comment
-begin_else
-else|#
-directive|else
-end_else
-begin_decl_stmt
 specifier|static
 name|int
 name|cache_limit
@@ -67,12 +40,9 @@ literal|10240
 decl_stmt|;
 end_decl_stmt
 begin_comment
+DECL|variable|cache_limit
 comment|// 10 MB cache limit for desktop
 end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!     \class QPixmapCache::Key     \brief The QPixmapCache::Key class can be used for efficient access     to the QPixmapCache.     \since 4.6      Use QPixmapCache::insert() to receive an instance of Key generated     by the pixmap cache. You can store the key in your own objects for     a very efficient one-to-one object-to-pixmap mapping. */
 end_comment

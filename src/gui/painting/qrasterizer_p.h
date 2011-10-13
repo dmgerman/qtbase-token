@@ -85,12 +85,6 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-ifdef|#
-directive|ifdef
-name|Q_WS_QWS
-name|Q_GUI_EXPORT
-endif|#
-directive|endif
 name|QRasterizer
 block|{
 name|public

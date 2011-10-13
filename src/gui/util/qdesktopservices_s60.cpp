@@ -43,27 +43,6 @@ ifndef|#
 directive|ifndef
 name|USE_SCHEMEHANDLER
 end_ifndef
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_WS_S60
-end_ifdef
-begin_comment
-comment|// This flag changes the implementation to use S60 CDcoumentHandler
-end_comment
-begin_comment
-comment|// instead of apparc when opening the files
-end_comment
-begin_define
-DECL|macro|USE_DOCUMENTHANDLER
-define|#
-directive|define
-name|USE_DOCUMENTHANDLER
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include

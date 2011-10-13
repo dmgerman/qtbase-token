@@ -4532,17 +4532,6 @@ name|size
 operator|->
 name|metrics
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_WS_QPA
-argument_list|)
 comment|/*        TrueType fonts with embedded bitmaps may have a bitmap font specific        ascent/descent in the EBLC table. There is no direct public API        to extract those values. The only way we've found is to trick freetype        into thinking that it's not a scalable font in FT_SelectSize so that        the metrics are retrieved from the bitmap strikes.     */
 if|if
 condition|(
@@ -4651,8 +4640,6 @@ break|break;
 block|}
 block|}
 block|}
-endif|#
-directive|endif
 name|fontDef
 operator|.
 name|styleName
@@ -5045,9 +5032,6 @@ argument_list|,
 name|vfactor
 argument_list|)
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_WS_QWS
 if|if
 condition|(
 name|format
@@ -5061,8 +5045,6 @@ name|load_flags
 operator||=
 name|FT_LOAD_NO_BITMAP
 expr_stmt|;
-endif|#
-directive|endif
 name|FT_Matrix
 name|matrix
 init|=

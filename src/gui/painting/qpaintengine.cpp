@@ -2041,9 +2041,6 @@ decl_stmt|;
 name|QPainterPath
 name|path
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_WS_MAC
 name|path
 operator|.
 name|setFillRule
@@ -2053,8 +2050,6 @@ operator|::
 name|WindingFill
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|ti
@@ -2880,47 +2875,6 @@ name|pdev
 return|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_WS_WIN
-end_ifdef
-begin_comment
-comment|/*!     \internal      Empty default implementation. */
-end_comment
-begin_function
-DECL|function|getDC
-name|HDC
-name|QPaintEngine
-operator|::
-name|getDC
-parameter_list|()
-specifier|const
-block|{
-return|return
-literal|0
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     \internal      Empty default implementation. */
-end_comment
-begin_function
-DECL|function|releaseDC
-name|void
-name|QPaintEngine
-operator|::
-name|releaseDC
-parameter_list|(
-name|HDC
-parameter_list|)
-specifier|const
-block|{ }
-end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!     \internal      Returns the offset from the painters origo to the engines     origo. This value is used by QPainter for engines who have     internal double buffering.      This function only makes sense when the engine is active. */
 end_comment
