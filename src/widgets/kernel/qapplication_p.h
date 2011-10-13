@@ -119,11 +119,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qshortcutmap_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qthread_p.h>
 end_include
 begin_include
@@ -1728,14 +1723,6 @@ name|QWidget
 operator|>
 name|toolTipWidget
 block|;
-ifndef|#
-directive|ifndef
-name|QT_NO_SHORTCUT
-name|QShortcutMap
-name|shortcutMap
-block|;
-endif|#
-directive|endif
 specifier|static
 name|QInputContext
 operator|*
