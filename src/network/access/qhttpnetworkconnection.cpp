@@ -857,6 +857,7 @@ block|{
 if|if
 condition|(
 operator|(
+operator|(
 name|networkLayerState
 operator|==
 name|QHttpNetworkConnectionPrivate
@@ -876,7 +877,9 @@ name|QAbstractSocket
 operator|::
 name|IPv4Protocol
 operator|)
+operator|)
 operator|||
+operator|(
 operator|(
 name|networkLayerState
 operator|==
@@ -896,6 +899,7 @@ operator|!=
 name|QAbstractSocket
 operator|::
 name|IPv6Protocol
+operator|)
 operator|)
 condition|)
 block|{
