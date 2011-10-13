@@ -97,13 +97,8 @@ name|QUrl
 name|url
 init|=
 name|QUrl
-operator|::
-name|fromEncoded
 argument_list|(
 name|name
-operator|.
-name|toUtf8
-argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|const
@@ -586,13 +581,8 @@ name|QUrl
 name|url
 init|=
 name|QUrl
-operator|::
-name|fromEncoded
 argument_list|(
 name|name
-operator|.
-name|toUtf8
-argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|const

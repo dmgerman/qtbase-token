@@ -280,15 +280,10 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
 name|url
 operator|.
-name|toEncoded
+name|toString
 argument_list|()
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|setError

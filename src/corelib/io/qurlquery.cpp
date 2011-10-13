@@ -1143,15 +1143,10 @@ operator|=
 operator|new
 name|QUrlQueryPrivate
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
-argument_list|(
 name|url
 operator|.
-name|encodedQuery
+name|query
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

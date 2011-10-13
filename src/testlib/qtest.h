@@ -717,7 +717,11 @@ argument_list|(
 name|uri
 operator|.
 name|toEncoded
-argument_list|()
+argument_list|(
+name|QUrl
+operator|::
+name|DecodeUnambiguousDelimiters
+argument_list|)
 operator|.
 name|constData
 argument_list|()

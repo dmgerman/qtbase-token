@@ -3376,6 +3376,12 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
+name|QUrl
+name|url
+argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
 name|QList
 argument_list|<
 name|Chat
@@ -3390,14 +3396,10 @@ name|send
 argument_list|(
 literal|"HEAD "
 operator|+
-name|QUrl
-operator|::
-name|toPercentEncoding
-argument_list|(
-name|uri
-argument_list|,
-literal|"/"
-argument_list|)
+name|url
+operator|.
+name|toEncoded
+argument_list|()
 operator|+
 literal|" HTTP/1.0\r\n"
 literal|"Host: "

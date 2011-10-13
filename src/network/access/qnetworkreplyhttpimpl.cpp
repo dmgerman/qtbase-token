@@ -4511,10 +4511,13 @@ name|QUrl
 name|url
 init|=
 name|QUrl
+argument_list|(
+name|QString
 operator|::
-name|fromEncoded
+name|fromUtf8
 argument_list|(
 name|header
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if

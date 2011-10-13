@@ -42189,15 +42189,8 @@ operator|->
 name|url
 argument_list|()
 operator|.
-name|queryItems
+name|query
 argument_list|()
-operator|.
-name|at
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|first
 decl_stmt|;
 name|QString
 name|content
