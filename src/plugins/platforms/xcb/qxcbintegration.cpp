@@ -656,6 +656,14 @@ argument_list|)
 return|;
 endif|#
 directive|endif
+name|qWarning
+argument_list|(
+literal|"Cannot create platform GL context, none of GLX, EGL, DRI2 is enabled"
+argument_list|)
+expr_stmt|;
+return|return
+literal|0
+return|;
 block|}
 end_function
 begin_function
