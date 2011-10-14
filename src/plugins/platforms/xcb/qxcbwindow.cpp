@@ -1029,6 +1029,12 @@ name|colormap
 operator|=
 name|cmap
 expr_stmt|;
+name|m_visualId
+operator|=
+name|visualInfo
+operator|->
+name|visualid
+expr_stmt|;
 name|m_window
 operator|=
 name|XCreateWindow
@@ -1121,6 +1127,15 @@ argument_list|(
 name|m_depth
 argument_list|)
 expr_stmt|;
+name|m_visualId
+operator|=
+name|m_screen
+operator|->
+name|screen
+argument_list|()
+operator|->
+name|root_visual
+expr_stmt|;
 name|Q_XCB_CALL
 argument_list|(
 name|xcb_create_window
@@ -1163,12 +1178,7 @@ comment|// border width
 name|XCB_WINDOW_CLASS_INPUT_OUTPUT
 argument_list|,
 comment|// window class
-name|m_screen
-operator|->
-name|screen
-argument_list|()
-operator|->
-name|root_visual
+name|m_visualId
 argument_list|,
 comment|// visual
 literal|0
@@ -4917,12 +4927,7 @@ comment|// border width
 name|XCB_WINDOW_CLASS_INPUT_OUTPUT
 argument_list|,
 comment|// window class
-name|m_screen
-operator|->
-name|screen
-argument_list|()
-operator|->
-name|root_visual
+name|m_visualId
 argument_list|,
 comment|// visual
 literal|0

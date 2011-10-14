@@ -545,6 +545,9 @@ directive|endif
 name|QRegion
 name|m_exposeRegion
 decl_stmt|;
+name|xcb_visualid_t
+name|m_visualId
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
