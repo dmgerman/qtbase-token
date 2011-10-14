@@ -373,10 +373,14 @@ name|winId
 parameter_list|()
 specifier|const
 block|{
+comment|// Return anything but 0. Returning 0 would cause havoc with QWidgets on
+comment|// very basic platform plugins that do not reimplement this function,
+comment|// because the top-level widget's internalWinId() would always be 0 which
+comment|// would mean top-levels are never treated as native.
 return|return
 name|WId
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 return|;
 block|}
