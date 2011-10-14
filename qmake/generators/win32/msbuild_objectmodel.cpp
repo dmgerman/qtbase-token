@@ -4808,7 +4808,7 @@ name|linker
 operator|.
 name|LinkIncremental
 operator|!=
-name|unset
+name|linkIncrementalDefault
 condition|)
 block|{
 specifier|const
