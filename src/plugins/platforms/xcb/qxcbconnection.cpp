@@ -213,6 +213,16 @@ argument_list|)
 argument_list|)
 ifdef|#
 directive|ifdef
+name|XCB_USE_XINPUT2_MAEMO
+member_init_list|,
+name|m_xinputData
+argument_list|(
+literal|0
+argument_list|)
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
 name|XCB_USE_DRI2
 member_init_list|,
 name|m_dri2_major
@@ -614,6 +624,14 @@ expr_stmt|;
 name|initializeXRender
 argument_list|()
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|XCB_USE_XINPUT2_MAEMO
+name|initializeXInput2
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
 name|m_wmSupport
 operator|=
 operator|new
@@ -675,6 +693,14 @@ argument_list|(
 name|m_screens
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|XCB_USE_XINPUT2_MAEMO
+name|finalizeXInput2
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|XCB_POLL_FOR_QUEUED_EVENT
@@ -2127,6 +2153,24 @@ name|handlePropertyNotifyEvent
 argument_list|)
 expr_stmt|;
 break|break;
+ifdef|#
+directive|ifdef
+name|XCB_USE_XINPUT2_MAEMO
+case|case
+name|GenericEvent
+case|:
+name|handleGenericEvent
+argument_list|(
+operator|(
+name|xcb_ge_event_t
+operator|*
+operator|)
+name|event
+argument_list|)
+expr_stmt|;
+break|break;
+endif|#
+directive|endif
 default|default:
 name|handled
 operator|=
@@ -3199,6 +3243,21 @@ literal|"Wacom Eraser\0"
 comment|// Tablet
 literal|"STYLUS\0"
 literal|"ERASER\0"
+comment|// XInput2
+literal|"Button Left\0"
+literal|"Button Middle\0"
+literal|"Button Right\0"
+literal|"Button Wheel Up\0"
+literal|"Button Wheel Down\0"
+literal|"Button Horiz Wheel Left\0"
+literal|"Button Horiz Wheel Right\0"
+literal|"Abs MT Position X\0"
+literal|"Abs MT Position Y\0"
+literal|"Abs MT Touch Major\0"
+literal|"Abs MT Touch Minor\0"
+literal|"Abs MT Pressure\0"
+literal|"Abs MT Tracking ID\0"
+literal|"Max Contacts\0"
 block|}
 decl_stmt|;
 end_decl_stmt
