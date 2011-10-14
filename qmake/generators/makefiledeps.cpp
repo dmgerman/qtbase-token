@@ -3568,6 +3568,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|(
 name|keyword_len
 operator|==
 literal|7
@@ -3579,10 +3580,29 @@ name|keyword
 argument_list|,
 literal|"include"
 argument_list|,
-name|keyword_len
+literal|7
 argument_list|)
+operator|)
+comment|// C& Obj-C
+operator|||
+operator|(
+name|keyword_len
+operator|==
+literal|6
+operator|&&
+operator|!
+name|strncmp
+argument_list|(
+name|keyword
+argument_list|,
+literal|"import"
+argument_list|,
+literal|6
+argument_list|)
+operator|)
 condition|)
 block|{
+comment|// Obj-C
 name|char
 name|term
 init|=
