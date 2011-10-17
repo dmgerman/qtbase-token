@@ -4399,6 +4399,19 @@ argument_list|(
 literal|1.
 argument_list|)
 expr_stmt|;
+comment|// Stationary points might not be delivered down to the receiving item
+comment|// and get their position transformed, keep the old values instead.
+if|if
+condition|(
+name|touchPoint
+operator|.
+name|state
+argument_list|()
+operator|!=
+name|Qt
+operator|::
+name|TouchPointStationary
+condition|)
 name|d
 operator|->
 name|appCurrentTouchPoints
