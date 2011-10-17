@@ -279,21 +279,6 @@ argument_list|(
 argument|TestQString
 argument_list|)
 comment|//! [11]
-comment|//! [12]
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
-name|QTEST_MAIN
-argument_list|(
-argument|MyX11Test
-argument_list|)
-else|#
-directive|else
-comment|// do nothing on non-X11 platforms
-name|QTEST_NOOP_MAIN
-endif|#
-directive|endif
-comment|//! [12]
 comment|//! [13]
 name|QTest
 operator|::
@@ -303,7 +288,7 @@ name|myWidget
 argument_list|,
 literal|'a'
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|//! [13]
 comment|//! [14]
 name|QTest

@@ -231,9 +231,6 @@ begin_comment
 comment|/*! \macro QTEST_APPLESS_MAIN(TestClass)      \relates QTest      Implements a main() function that executes all tests in \a TestClass.      Behaves like \l QTEST_MAIN(), but doesn't instantiate a QApplication     object. Use this macro for really simple stand-alone non-GUI tests.      \sa QTEST_MAIN() */
 end_comment
 begin_comment
-comment|/*! \macro QTEST_NOOP_MAIN()      \relates QTest      Implements a main() function with a test class that does absolutely nothing.     Use this macro to create a test that produces valid test output but just     doesn't execute any test, for example in conditional compilations:      \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 12      \sa QTEST_MAIN() */
-end_comment
-begin_comment
 comment|/*! \macro QTEST_GUILESS_MAIN(TestClass)      \relates QTest      Implements a main() function that instantiates a QCoreApplication object     and the \a TestClass, and executes all tests in the order they were     defined.  Use this macro to build stand-alone executables.      Behaves like \l QTEST_MAIN(), but instantiates a QCoreApplication instead     of the QApplication object. Use this macro if your test case doesn't need     functionality offered by QApplication, but the event loop is still necessary.      \sa QTEST_MAIN() */
 end_comment
 begin_comment

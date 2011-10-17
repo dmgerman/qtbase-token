@@ -1310,14 +1310,6 @@ parameter_list|)
 define|\
 value|int main(int argc, char *argv[]) \ { \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
-begin_define
-DECL|macro|QTEST_NOOP_MAIN
-define|#
-directive|define
-name|QTEST_NOOP_MAIN
-define|\
-value|int main(int argc, char *argv[]) \ { \     QObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
-end_define
 begin_include
 include|#
 directive|include
