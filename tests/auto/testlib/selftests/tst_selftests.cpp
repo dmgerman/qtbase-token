@@ -1659,6 +1659,22 @@ condition|)
 block|{
 continue|continue;
 block|}
+comment|// these tests are quite slow, and running them for all the loggers significantly
+comment|// increases the overall test time.  They do not really relate to logging, so it
+comment|// should be safe to run them just for the stdout loggers.
+if|if
+condition|(
+name|subtest
+operator|==
+literal|"benchlibcallgrind"
+operator|||
+name|subtest
+operator|==
+literal|"sleep"
+condition|)
+block|{
+continue|continue;
+block|}
 block|}
 name|QTest
 operator|::
