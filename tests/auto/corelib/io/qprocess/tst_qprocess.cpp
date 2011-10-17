@@ -55,40 +55,43 @@ include|#
 directive|include
 file|<stdlib.h>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_ifndef
+ifndef|#
+directive|ifndef
 name|QT_NO_PROCESS
-end_ifdef
-begin_function_decl
-name|QTEST_NOOP_MAIN
-else|#
-directive|else
+end_ifndef
+begin_if
 if|#
 directive|if
 name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+end_if
+begin_include
 include|#
 directive|include
 file|<windows.h>
+end_include
+begin_endif
 endif|#
 directive|endif
-comment|//TESTED_CLASS=
-comment|//TESTED_FILES=
+end_endif
+begin_expr_stmt
+DECL|variable|QList
 name|Q_DECLARE_METATYPE
-parameter_list|(
+argument_list|(
 name|QList
 argument_list|<
 name|QProcess
 operator|::
 name|ExitStatus
 argument_list|>
-parameter_list|)
-function_decl|;
-end_function_decl
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_expr_stmt
+DECL|variable|ExitStatus
 name|Q_DECLARE_METATYPE
 argument_list|(
 name|QProcess
@@ -98,6 +101,7 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|variable|ProcessState
 name|Q_DECLARE_METATYPE
 argument_list|(
 name|QProcess
@@ -106,7 +110,12 @@ name|ProcessState
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
+DECL|macro|QPROCESS_VERIFY
 define|#
 directive|define
 name|QPROCESS_VERIFY
@@ -119,6 +128,7 @@ define|\
 value|{ \ const bool ret = Process.Fn; \ if (ret == false) \     qWarning("QProcess error: %d: %s", Process.error(), qPrintable(Process.errorString())); \ QVERIFY(ret); \ }
 end_define
 begin_class
+DECL|class|tst_QProcess
 class|class
 name|tst_QProcess
 super|:
@@ -126,26 +136,18 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QProcess
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QProcess
-parameter_list|()
-destructor_decl|;
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
 public|public
 name|slots
 public|:
 name|void
-name|init
+name|initTestCase
 parameter_list|()
 function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
+else|#
+directive|else
 private|private
 name|slots
 private|:
@@ -541,13 +543,42 @@ decl_stmt|;
 name|qint64
 name|bytesAvailable
 decl_stmt|;
+endif|#
+directive|endif
 block|}
 class|;
 end_class
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_NO_PROCESS
+end_ifdef
+begin_function
+DECL|function|initTestCase
+name|void
+name|tst_QProcess
+operator|::
+name|initTestCase
+parameter_list|()
+block|{
+name|QSKIP
+argument_list|(
+literal|"This test requires QProcess support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_else
+else|#
+directive|else
+end_else
 begin_comment
 comment|// Testing get/set functions
 end_comment
 begin_function
+DECL|function|getSetCheck
 name|void
 name|tst_QProcess
 operator|::
@@ -718,41 +749,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_constructor
-name|tst_QProcess
-operator|::
-name|tst_QProcess
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-name|tst_QProcess
-operator|::
-name|~
-name|tst_QProcess
-parameter_list|()
-block|{ }
-end_destructor
-begin_function
-name|void
-name|tst_QProcess
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-name|void
-name|tst_QProcess
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
-end_function
 begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|constructing
 name|void
 name|tst_QProcess
 operator|::
@@ -1032,6 +1033,7 @@ decl_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|simpleStart
 name|void
 name|tst_QProcess
 operator|::
@@ -1302,6 +1304,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|execute
 name|void
 name|tst_QProcess
 operator|::
@@ -1346,6 +1349,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|startDetached
 name|void
 name|tst_QProcess
 operator|::
@@ -1390,6 +1394,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|readFromProcess
 name|void
 name|tst_QProcess
 operator|::
@@ -1435,6 +1440,7 @@ directive|ifndef
 name|Q_OS_WIN
 end_ifndef
 begin_function
+DECL|function|crashTest
 name|void
 name|tst_QProcess
 operator|::
@@ -1767,6 +1773,7 @@ directive|ifndef
 name|Q_OS_WIN
 end_ifndef
 begin_function
+DECL|function|crashTest2
 name|void
 name|tst_QProcess
 operator|::
@@ -2020,6 +2027,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|echoTest_data
 name|void
 name|tst_QProcess
 operator|::
@@ -2144,6 +2152,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|echoTest
 name|void
 name|tst_QProcess
 operator|::
@@ -2399,6 +2408,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|exitLoopSlot
 name|void
 name|tst_QProcess
 operator|::
@@ -2427,6 +2437,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|echoTest2
 name|void
 name|tst_QProcess
 operator|::
@@ -2712,6 +2723,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|echoTest_performance
 name|void
 name|tst_QProcess
 operator|::
@@ -3039,6 +3051,7 @@ name|Q_OS_WINCE
 argument_list|)
 end_if
 begin_function
+DECL|function|echoTestGui
 name|void
 name|tst_QProcess
 operator|::
@@ -3111,6 +3124,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|batFiles_data
 name|void
 name|tst_QProcess
 operator|::
@@ -3178,6 +3192,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|batFiles
 name|void
 name|tst_QProcess
 operator|::
@@ -3254,6 +3269,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|exitStatus_data
 name|void
 name|tst_QProcess
 operator|::
@@ -3412,6 +3428,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|exitStatus
 name|void
 name|tst_QProcess
 operator|::
@@ -3567,6 +3584,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|loopBackTest
 name|void
 name|tst_QProcess
 operator|::
@@ -3712,6 +3730,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|readTimeoutAndThenCrash
 name|void
 name|tst_QProcess
 operator|::
@@ -3922,6 +3941,7 @@ endif|#
 directive|endif
 end_endif
 begin_function
+DECL|function|waitForFinished
 name|void
 name|tst_QProcess
 operator|::
@@ -4073,6 +4093,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|deadWhileReading
 name|void
 name|tst_QProcess
 operator|::
@@ -4169,6 +4190,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|restartProcessDeadlock
 name|void
 name|tst_QProcess
 operator|::
@@ -4302,6 +4324,7 @@ endif|#
 directive|endif
 end_endif
 begin_function
+DECL|function|restartProcess
 name|void
 name|tst_QProcess
 operator|::
@@ -4343,6 +4366,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|closeWriteChannel
 name|void
 name|tst_QProcess
 operator|::
@@ -4502,6 +4526,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|closeReadChannel
 name|void
 name|tst_QProcess
 operator|::
@@ -4711,6 +4736,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|openModes
 name|void
 name|tst_QProcess
 operator|::
@@ -4996,6 +5022,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|emitReadyReadOnlyWhenNewDataArrives
 name|void
 name|tst_QProcess
 operator|::
@@ -5207,6 +5234,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|hardExit
 name|void
 name|tst_QProcess
 operator|::
@@ -5337,6 +5365,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|softExit
 name|void
 name|tst_QProcess
 operator|::
@@ -5444,6 +5473,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_class
+DECL|class|SoftExitProcess
 class|class
 name|SoftExitProcess
 super|:
@@ -5452,9 +5482,11 @@ name|QProcess
 block|{
 name|Q_OBJECT
 public|public:
+DECL|member|waitedForFinished
 name|bool
 name|waitedForFinished
 decl_stmt|;
+DECL|function|SoftExitProcess
 name|SoftExitProcess
 parameter_list|(
 name|int
@@ -5644,6 +5676,7 @@ block|}
 public|public
 name|slots
 public|:
+DECL|function|terminateSlot
 name|void
 name|terminateSlot
 parameter_list|()
@@ -5712,6 +5745,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|function|finishedSlot
 name|void
 name|finishedSlot
 parameter_list|(
@@ -5728,9 +5762,11 @@ literal|true
 expr_stmt|;
 block|}
 private|private:
+DECL|member|n
 name|int
 name|n
 decl_stmt|;
+DECL|member|killing
 name|bool
 name|killing
 decl_stmt|;
@@ -5741,6 +5777,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|softExitInSlots_data
 name|void
 name|tst_QProcess
 operator|::
@@ -5813,6 +5850,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|softExitInSlots
 name|void
 name|tst_QProcess
 operator|::
@@ -5912,6 +5950,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|mergedChannels
 name|void
 name|tst_QProcess
 operator|::
@@ -6069,6 +6108,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|forwardedChannels
 name|void
 name|tst_QProcess
 operator|::
@@ -6202,6 +6242,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|atEnd
 name|void
 name|tst_QProcess
 operator|::
@@ -6328,6 +6369,7 @@ endif|#
 directive|endif
 end_endif
 begin_class
+DECL|class|TestThread
 class|class
 name|TestThread
 super|:
@@ -6336,6 +6378,7 @@ name|QThread
 block|{
 name|Q_OBJECT
 public|public:
+DECL|function|code
 specifier|inline
 name|int
 name|code
@@ -6346,6 +6389,7 @@ name|exitCode
 return|;
 block|}
 protected|protected:
+DECL|function|run
 specifier|inline
 name|void
 name|run
@@ -6442,6 +6486,7 @@ block|}
 protected|protected
 name|slots
 protected|:
+DECL|function|catchExitCode
 specifier|inline
 name|void
 name|catchExitCode
@@ -6463,6 +6508,7 @@ argument_list|)
 expr_stmt|;
 block|}
 private|private:
+DECL|member|exitCode
 name|int
 name|exitCode
 decl_stmt|;
@@ -6473,6 +6519,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|processInAThread
 name|void
 name|tst_QProcess
 operator|::
@@ -6529,6 +6576,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|processesInMultipleThreads
 name|void
 name|tst_QProcess
 operator|::
@@ -6649,6 +6697,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|waitForFinishedWithTimeout
 name|void
 name|tst_QProcess
 operator|::
@@ -6747,6 +6796,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|waitForReadyReadInAReadyReadSlot
 name|void
 name|tst_QProcess
 operator|::
@@ -6937,6 +6987,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|waitForReadyReadInAReadyReadSlotSlot
 name|void
 name|tst_QProcess
 operator|::
@@ -6995,6 +7046,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|waitForBytesWrittenInABytesWrittenSlot
 name|void
 name|tst_QProcess
 operator|::
@@ -7173,6 +7225,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|waitForBytesWrittenInABytesWrittenSlotSlot
 name|void
 name|tst_QProcess
 operator|::
@@ -7214,6 +7267,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|spaceArgsTest_data
 name|void
 name|tst_QProcess
 operator|::
@@ -7605,6 +7659,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|spaceArgsTest
 name|void
 name|tst_QProcess
 operator|::
@@ -7947,6 +8002,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|nativeArguments
 name|void
 name|tst_QProcess
 operator|::
@@ -8173,6 +8229,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|exitCodeTest
 name|void
 name|tst_QProcess
 operator|::
@@ -8250,6 +8307,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|failToStart
 name|void
 name|tst_QProcess
 operator|::
@@ -8652,6 +8710,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|failToStartWithWait
 name|void
 name|tst_QProcess
 operator|::
@@ -8820,6 +8879,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|failToStartWithEventLoop
 name|void
 name|tst_QProcess
 operator|::
@@ -9026,6 +9086,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|removeFileWhileProcessIsRunning
 name|void
 name|tst_QProcess
 operator|::
@@ -9129,6 +9190,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|setEnvironment_data
 name|void
 name|tst_QProcess
 operator|::
@@ -9233,6 +9295,7 @@ directive|endif
 block|}
 end_function
 begin_function
+DECL|function|setEnvironment
 name|void
 name|tst_QProcess
 operator|::
@@ -9584,6 +9647,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|setProcessEnvironment_data
 name|void
 name|tst_QProcess
 operator|::
@@ -9596,6 +9660,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|setProcessEnvironment
 name|void
 name|tst_QProcess
 operator|::
@@ -9790,6 +9855,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|systemEnvironment
 name|void
 name|tst_QProcess
 operator|::
@@ -9904,6 +9970,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|spaceInName
 name|void
 name|tst_QProcess
 operator|::
@@ -9958,6 +10025,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|lockupsInStartDetached
 name|void
 name|tst_QProcess
 operator|::
@@ -10010,6 +10078,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|atEnd2
 name|void
 name|tst_QProcess
 operator|::
@@ -10105,6 +10174,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|waitForReadyReadForNonexistantProcess
 name|void
 name|tst_QProcess
 operator|::
@@ -10277,6 +10347,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|setStandardInputFile
 name|void
 name|tst_QProcess
 operator|::
@@ -10413,6 +10484,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|setStandardOutputFile_data
 name|void
 name|tst_QProcess
 operator|::
@@ -10590,6 +10662,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|setStandardOutputFile
 name|void
 name|tst_QProcess
 operator|::
@@ -10892,6 +10965,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|setStandardOutputProcess_data
 name|void
 name|tst_QProcess
 operator|::
@@ -10929,6 +11003,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|setStandardOutputProcess
 name|void
 name|tst_QProcess
 operator|::
@@ -11089,6 +11164,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|fileWriterProcess
 name|void
 name|tst_QProcess
 operator|::
@@ -11253,6 +11329,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|detachedWorkingDirectoryAndPid
 name|void
 name|tst_QProcess
 operator|::
@@ -11504,6 +11581,7 @@ directive|ifndef
 name|Q_OS_WINCE
 end_ifndef
 begin_function
+DECL|function|switchReadChannels
 name|void
 name|tst_QProcess
 operator|::
@@ -11740,6 +11818,7 @@ name|Q_OS_WINCE
 argument_list|)
 end_if
 begin_function
+DECL|function|setWorkingDirectory
 name|void
 name|tst_QProcess
 operator|::
@@ -11834,6 +11913,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|startFinishStartFinish
 name|void
 name|tst_QProcess
 operator|::
@@ -11959,6 +12039,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|invalidProgramString_data
 name|void
 name|tst_QProcess
 operator|::
@@ -12012,6 +12093,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|invalidProgramString
 name|void
 name|tst_QProcess
 operator|::
@@ -12101,6 +12183,7 @@ begin_comment
 comment|//-----------------------------------------------------------------------------
 end_comment
 begin_function
+DECL|function|onlyOneStartedSignal
 name|void
 name|tst_QProcess
 operator|::
@@ -12238,6 +12321,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(
@@ -12249,8 +12336,4 @@ include|#
 directive|include
 file|"tst_qprocess.moc"
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 end_unit
