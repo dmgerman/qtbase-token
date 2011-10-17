@@ -27,106 +27,136 @@ include|#
 directive|include
 file|<exception>
 end_include
-begin_expr_stmt
+begin_macro
 name|QT_USE_NAMESPACE
+end_macro
+begin_comment
 comment|// this test only works with GLIBC
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_NO_EXCEPTIONS
-argument_list|)
-name|QTEST_NOOP_MAIN
-else|#
-directive|else
+end_comment
+begin_include
 include|#
 directive|include
 file|"oomsimulator.h"
+end_include
+begin_include
 include|#
 directive|include
 file|"3rdparty/memcheck.h"
+end_include
+begin_class
 DECL|class|tst_ExceptionSafety_Objects
-name|class
+class|class
 name|tst_ExceptionSafety_Objects
-operator|:
+super|:
 specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-specifier|public
+public|public
 name|slots
-operator|:
+public|:
 name|void
 name|initTestCase
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
+ifndef|#
+directive|ifndef
+name|QT_NO_EXCEPTIONS
 name|void
 name|cleanupTestCase
-argument_list|()
-block|;
-specifier|private
+parameter_list|()
+function_decl|;
+private|private
 name|slots
-operator|:
+private|:
 name|void
 name|objects_data
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 name|void
 name|objects
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 name|void
 name|widgets_data
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 name|void
 name|widgets
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 name|void
 name|vector_data
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 name|void
 name|vector
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 name|void
 name|list_data
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 name|void
 name|list
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 name|void
 name|linkedList_data
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 name|void
 name|linkedList
-argument_list|()
-block|;
-specifier|private
-operator|:
+parameter_list|()
+function_decl|;
+private|private:
 DECL|member|testMessageHandler
 specifier|static
 name|QtMsgHandler
 name|testMessageHandler
-block|;
+decl_stmt|;
 specifier|static
 name|void
 name|safeMessageHandler
-argument_list|(
+parameter_list|(
 name|QtMsgType
-argument_list|,
+parameter_list|,
 specifier|const
 name|char
-operator|*
+modifier|*
+parameter_list|)
+function_decl|;
+endif|#
+directive|endif
+block|}
+class|;
+end_class
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_NO_EXCEPTIONS
+end_ifdef
+begin_function
+DECL|function|initTestCase
+name|void
+name|tst_ExceptionSafety_Objects
+operator|::
+name|initTestCase
+parameter_list|()
+block|{
+name|QSKIP
+argument_list|(
+literal|"This test requires exception support"
+argument_list|,
+name|SkipAll
 argument_list|)
-block|; }
 expr_stmt|;
-end_expr_stmt
+block|}
+end_function
+begin_else
+else|#
+directive|else
+end_else
 begin_comment
 comment|// helper structs to create an arbitrary widget
 end_comment
@@ -494,6 +524,7 @@ argument_list|(
 literal|"objectCreator"
 argument_list|)
 expr_stmt|;
+DECL|macro|NEWROW
 define|#
 directive|define
 name|NEWROW
@@ -546,6 +577,7 @@ argument_list|(
 name|QTranslator
 argument_list|)
 expr_stmt|;
+DECL|macro|NEWROW2
 define|#
 directive|define
 name|NEWROW2
@@ -604,6 +636,7 @@ parameter_list|<
 name|typename
 name|T
 parameter_list|>
+DECL|function|doOOMTest
 specifier|static
 name|void
 name|doOOMTest
@@ -822,6 +855,7 @@ directive|endif
 block|}
 end_function
 begin_decl_stmt
+DECL|variable|alloc1Failed
 specifier|static
 name|int
 name|alloc1Failed
@@ -830,6 +864,7 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|alloc2Failed
 specifier|static
 name|int
 name|alloc2Failed
@@ -838,6 +873,7 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|alloc3Failed
 specifier|static
 name|int
 name|alloc3Failed
@@ -846,6 +882,7 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|alloc4Failed
 specifier|static
 name|int
 name|alloc4Failed
@@ -854,6 +891,7 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|malloc1Failed
 specifier|static
 name|int
 name|malloc1Failed
@@ -862,6 +900,7 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|malloc2Failed
 specifier|static
 name|int
 name|malloc2Failed
@@ -873,6 +912,7 @@ begin_comment
 comment|// Tests that new, new[] and malloc() fail at least once during OOM testing.
 end_comment
 begin_class
+DECL|class|SelfTestObject
 class|class
 name|SelfTestObject
 super|:
@@ -880,6 +920,7 @@ specifier|public
 name|QObject
 block|{
 public|public:
+DECL|function|SelfTestObject
 name|SelfTestObject
 parameter_list|(
 name|QObject
@@ -963,6 +1004,7 @@ operator|++
 name|malloc1Failed
 expr_stmt|;
 block|}
+DECL|function|~SelfTestObject
 name|~
 name|SelfTestObject
 parameter_list|()
@@ -1040,6 +1082,7 @@ block|}
 class|;
 end_class
 begin_decl_stmt
+DECL|member|testMessageHandler
 name|QtMsgHandler
 name|tst_ExceptionSafety_Objects
 operator|::
@@ -1047,6 +1090,7 @@ name|testMessageHandler
 decl_stmt|;
 end_decl_stmt
 begin_function
+DECL|function|safeMessageHandler
 name|void
 name|tst_ExceptionSafety_Objects
 operator|::
@@ -1098,6 +1142,7 @@ expr_stmt|;
 block|}
 end_function
 begin_typedef
+DECL|typedef|PVF
 typedef|typedef
 name|void
 function_decl|(
@@ -1108,11 +1153,13 @@ parameter_list|()
 function_decl|;
 end_typedef
 begin_decl_stmt
+DECL|variable|defaultTerminate
 name|PVF
 name|defaultTerminate
 decl_stmt|;
 end_decl_stmt
 begin_function
+DECL|function|debugTerminate
 name|void
 name|debugTerminate
 parameter_list|()
@@ -1127,11 +1174,13 @@ expr_stmt|;
 block|}
 end_function
 begin_decl_stmt
+DECL|variable|defaultUnexpected
 name|PVF
 name|defaultUnexpected
 decl_stmt|;
 end_decl_stmt
 begin_function
+DECL|function|debugUnexpected
 name|void
 name|debugUnexpected
 parameter_list|()
@@ -1146,6 +1195,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|initTestCase
 name|void
 name|tst_ExceptionSafety_Objects
 operator|::
@@ -1330,6 +1380,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|cleanupTestCase
 name|void
 name|tst_ExceptionSafety_Objects
 operator|::
@@ -1344,6 +1395,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|objects
 name|void
 name|tst_ExceptionSafety_Objects
 operator|::
@@ -1433,11 +1485,13 @@ name|typename
 name|T
 parameter_list|>
 struct|struct
+DECL|struct|WidgetCreator
 name|WidgetCreator
 super|:
 specifier|public
 name|AbstractTester
 block|{
+DECL|function|operator ()
 name|void
 name|operator
 name|()
@@ -1497,6 +1551,7 @@ begin_comment
 comment|// QSizeGrip doesn't have a default constructor - always pass parent (even though it might be 0)
 end_comment
 begin_struct
+DECL|struct|WidgetCreator
 template|template
 parameter_list|<>
 struct|struct
@@ -1508,6 +1563,7 @@ super|:
 specifier|public
 name|AbstractTester
 block|{
+DECL|function|operator ()
 name|void
 name|operator
 name|()
@@ -1562,6 +1618,7 @@ begin_comment
 comment|// QDesktopWidget doesn't need a parent.
 end_comment
 begin_struct
+DECL|struct|WidgetCreator
 template|template
 parameter_list|<>
 struct|struct
@@ -1573,6 +1630,7 @@ super|:
 specifier|public
 name|AbstractTester
 block|{
+DECL|function|operator ()
 name|void
 name|operator
 name|()
@@ -1615,6 +1673,7 @@ block|}
 struct|;
 end_struct
 begin_function
+DECL|function|widgets_data
 name|void
 name|tst_ExceptionSafety_Objects
 operator|::
@@ -1632,9 +1691,11 @@ argument_list|(
 literal|"widgetCreator"
 argument_list|)
 expr_stmt|;
+DECL|macro|NEWROW
 undef|#
 directive|undef
 name|NEWROW
+DECL|macro|NEWROW
 define|#
 directive|define
 name|NEWROW
@@ -1885,6 +1946,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|widgets
 name|void
 name|tst_ExceptionSafety_Objects
 operator|::
@@ -2186,9 +2248,11 @@ expr_stmt|;
 block|}
 end_function
 begin_struct
+DECL|struct|Integer
 struct|struct
 name|Integer
 block|{
+DECL|function|Integer
 name|Integer
 parameter_list|(
 name|int
@@ -2210,6 +2274,7 @@ operator|++
 name|instanceCount
 expr_stmt|;
 block|}
+DECL|function|Integer
 name|Integer
 parameter_list|(
 specifier|const
@@ -2234,6 +2299,7 @@ operator|++
 name|instanceCount
 expr_stmt|;
 block|}
+DECL|function|operator =
 name|Integer
 modifier|&
 name|operator
@@ -2270,6 +2336,7 @@ operator|*
 name|this
 return|;
 block|}
+DECL|function|~Integer
 name|~
 name|Integer
 parameter_list|()
@@ -2281,6 +2348,7 @@ operator|delete
 name|ptr
 expr_stmt|;
 block|}
+DECL|function|value
 name|int
 name|value
 parameter_list|()
@@ -2291,10 +2359,12 @@ operator|*
 name|ptr
 return|;
 block|}
+DECL|member|ptr
 name|int
 modifier|*
 name|ptr
 decl_stmt|;
+DECL|member|instanceCount
 specifier|static
 name|int
 name|instanceCount
@@ -2303,6 +2373,7 @@ block|}
 struct|;
 end_struct
 begin_decl_stmt
+DECL|member|instanceCount
 name|int
 name|Integer
 operator|::
@@ -2312,9 +2383,11 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_struct
+DECL|struct|IntegerMoveable
 struct|struct
 name|IntegerMoveable
 block|{
+DECL|function|IntegerMoveable
 name|IntegerMoveable
 parameter_list|(
 name|int
@@ -2336,6 +2409,7 @@ operator|++
 name|instanceCount
 expr_stmt|;
 block|}
+DECL|function|IntegerMoveable
 name|IntegerMoveable
 parameter_list|(
 specifier|const
@@ -2359,6 +2433,7 @@ operator|++
 name|instanceCount
 expr_stmt|;
 block|}
+DECL|function|operator =
 name|IntegerMoveable
 modifier|&
 name|operator
@@ -2385,6 +2460,7 @@ operator|*
 name|this
 return|;
 block|}
+DECL|function|~IntegerMoveable
 name|~
 name|IntegerMoveable
 parameter_list|()
@@ -2393,6 +2469,7 @@ operator|--
 name|instanceCount
 expr_stmt|;
 block|}
+DECL|function|value
 name|int
 name|value
 parameter_list|()
@@ -2402,9 +2479,11 @@ return|return
 name|val
 return|;
 block|}
+DECL|member|val
 name|int
 name|val
 decl_stmt|;
+DECL|member|instanceCount
 specifier|static
 name|int
 name|instanceCount
@@ -2413,6 +2492,7 @@ block|}
 struct|;
 end_struct
 begin_decl_stmt
+DECL|member|instanceCount
 name|int
 name|IntegerMoveable
 operator|::
@@ -2445,6 +2525,7 @@ parameter_list|>
 name|class
 name|Container
 function|>
+DECL|function|containerInsertTest
 name|void
 name|containerInsertTest
 parameter_list|(
@@ -2679,6 +2760,7 @@ parameter_list|>
 name|class
 name|Container
 parameter_list|>
+DECL|function|containerAppendTest
 name|void
 name|containerAppendTest
 parameter_list|(
@@ -2900,6 +2982,7 @@ parameter_list|>
 name|class
 name|Container
 parameter_list|>
+DECL|function|containerEraseTest
 name|void
 name|containerEraseTest
 parameter_list|(
@@ -3323,6 +3406,7 @@ parameter_list|>
 name|class
 name|Container
 parameter_list|>
+DECL|function|containerData
 specifier|static
 name|void
 name|containerData
@@ -3461,6 +3545,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|vector_data
 name|void
 name|tst_ExceptionSafety_Objects
 operator|::
@@ -3476,6 +3561,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|vector
 name|void
 name|tst_ExceptionSafety_Objects
 operator|::
@@ -3534,6 +3620,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|list_data
 name|void
 name|tst_ExceptionSafety_Objects
 operator|::
@@ -3549,6 +3636,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|list
 name|void
 name|tst_ExceptionSafety_Objects
 operator|::
@@ -3572,6 +3660,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|linkedList_data
 name|void
 name|tst_ExceptionSafety_Objects
 operator|::
@@ -3587,6 +3676,7 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|linkedList
 name|void
 name|tst_ExceptionSafety_Objects
 operator|::
@@ -3609,6 +3699,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(
@@ -3620,11 +3714,4 @@ include|#
 directive|include
 file|"tst_exceptionsafety_objects.moc"
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_EXCEPTIONS
-end_comment
 end_unit

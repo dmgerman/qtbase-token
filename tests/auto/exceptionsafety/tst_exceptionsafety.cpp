@@ -7,57 +7,89 @@ include|#
 directive|include
 file|<QtTest/QtTest>
 end_include
-begin_expr_stmt
+begin_macro
 name|QT_USE_NAMESPACE
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_NO_EXCEPTIONS
-argument_list|)
-name|QTEST_NOOP_MAIN
-else|#
-directive|else
-name|class
+end_macro
+begin_class
+DECL|class|tst_ExceptionSafety
+class|class
 name|tst_ExceptionSafety
-operator|:
+super|:
 specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-specifier|private
+private|private
 name|slots
-operator|:
+private|:
+ifdef|#
+directive|ifdef
+name|QT_NO_EXCEPTIONS
+name|void
+name|initTestCase
+parameter_list|()
+function_decl|;
+else|#
+directive|else
 name|void
 name|exceptionInSlot
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 name|void
 name|exceptionVector
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 name|void
 name|exceptionHash
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 name|void
 name|exceptionMap
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 name|void
 name|exceptionList
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 name|void
 name|exceptionLinkedList
-argument_list|()
-block|;
+parameter_list|()
+function_decl|;
 comment|//    void exceptionEventLoop();
 comment|//    void exceptionSignalSlot();
+endif|#
+directive|endif
 block|}
+class|;
+end_class
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_NO_EXCEPTIONS
+end_ifdef
+begin_function
+DECL|function|initTestCase
+name|void
+name|tst_ExceptionSafety
+operator|::
+name|initTestCase
+parameter_list|()
+block|{
+name|QSKIP
+argument_list|(
+literal|"This test requires exception support"
+argument_list|,
+name|SkipAll
+argument_list|)
 expr_stmt|;
-end_expr_stmt
+block|}
+end_function
+begin_else
+else|#
+directive|else
+end_else
 begin_class
+DECL|class|Emitter
 class|class
 name|Emitter
 super|:
@@ -66,6 +98,7 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
+DECL|function|emitTestSignal
 specifier|inline
 name|void
 name|emitTestSignal
@@ -85,6 +118,7 @@ block|}
 class|;
 end_class
 begin_class
+DECL|class|ExceptionThrower
 class|class
 name|ExceptionThrower
 super|:
@@ -95,6 +129,7 @@ name|Q_OBJECT
 public|public
 name|slots
 public|:
+DECL|function|thrower
 name|void
 name|thrower
 parameter_list|()
@@ -107,6 +142,7 @@ block|}
 class|;
 end_class
 begin_class
+DECL|class|Receiver
 class|class
 name|Receiver
 super|:
@@ -115,6 +151,7 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
+DECL|function|Receiver
 name|Receiver
 parameter_list|()
 member_init_list|:
@@ -123,12 +160,14 @@ argument_list|(
 literal|0
 argument_list|)
 block|{}
+DECL|member|received
 name|int
 name|received
 decl_stmt|;
 public|public
 name|slots
 public|:
+DECL|function|receiver
 name|void
 name|receiver
 parameter_list|()
@@ -141,6 +180,12 @@ block|}
 class|;
 end_class
 begin_enum
+DECL|enum|ThrowType
+DECL|enumerator|ThrowNot
+DECL|enumerator|ThrowAtCreate
+DECL|enumerator|ThrowAtCopy
+DECL|enumerator|ThrowLater
+DECL|enumerator|ThrowAtComparison
 enum|enum
 name|ThrowType
 block|{
@@ -167,6 +212,7 @@ block|}
 enum|;
 end_enum
 begin_decl_stmt
+DECL|variable|throwType
 name|ThrowType
 name|throwType
 init|=
@@ -174,9 +220,11 @@ name|ThrowNot
 decl_stmt|;
 end_decl_stmt
 begin_comment
+DECL|variable|throwType
 comment|// global flag to indicate when an exception should be throw. Will be reset when the exception has been generated.
 end_comment
 begin_decl_stmt
+DECL|variable|objCounter
 name|int
 name|objCounter
 init|=
@@ -193,9 +241,11 @@ name|int
 name|T
 parameter_list|>
 class|class
+DECL|class|FlexibleThrower
 name|FlexibleThrower
 block|{
 public|public:
+DECL|function|FlexibleThrower
 name|FlexibleThrower
 parameter_list|()
 member_init_list|:
@@ -224,6 +274,7 @@ name|objCounter
 operator|++
 expr_stmt|;
 block|}
+DECL|function|FlexibleThrower
 name|FlexibleThrower
 parameter_list|(
 name|short
@@ -254,6 +305,7 @@ name|objCounter
 operator|++
 expr_stmt|;
 block|}
+DECL|function|FlexibleThrower
 name|FlexibleThrower
 parameter_list|(
 name|FlexibleThrower
@@ -302,6 +354,7 @@ name|value
 argument_list|()
 expr_stmt|;
 block|}
+DECL|function|~FlexibleThrower
 name|~
 name|FlexibleThrower
 parameter_list|()
@@ -310,6 +363,7 @@ name|objCounter
 operator|--
 expr_stmt|;
 block|}
+DECL|function|operator ==
 name|bool
 name|operator
 name|==
@@ -350,6 +404,7 @@ name|value
 argument_list|()
 return|;
 block|}
+DECL|function|operator <
 name|bool
 name|operator
 name|<
@@ -390,6 +445,7 @@ name|value
 argument_list|()
 return|;
 block|}
+DECL|function|value
 name|int
 name|value
 parameter_list|()
@@ -402,9 +458,11 @@ operator|)
 name|_value
 return|;
 block|}
+DECL|member|_value
 name|short
 name|_value
 decl_stmt|;
+DECL|member|dummy
 name|char
 name|dummy
 index|[
@@ -415,6 +473,7 @@ block|}
 class|;
 end_class
 begin_function
+DECL|function|qHash
 name|uint
 name|qHash
 parameter_list|(
@@ -455,6 +514,7 @@ return|;
 block|}
 end_function
 begin_typedef
+DECL|typedef|FlexibleThrowerSmall
 typedef|typedef
 name|FlexibleThrower
 argument_list|<
@@ -464,6 +524,7 @@ name|FlexibleThrowerSmall
 typedef|;
 end_typedef
 begin_typedef
+DECL|typedef|MyMap
 typedef|typedef
 name|QMap
 argument_list|<
@@ -475,6 +536,7 @@ name|MyMap
 typedef|;
 end_typedef
 begin_typedef
+DECL|typedef|MyHash
 typedef|typedef
 name|QHash
 argument_list|<
@@ -492,6 +554,7 @@ begin_comment
 comment|// run this through valgrind to make sure it doesn't corrupt
 end_comment
 begin_function
+DECL|function|exceptionInSlot
 name|void
 name|tst_ExceptionSafety
 operator|::
@@ -550,6 +613,7 @@ block|}
 block|}
 end_function
 begin_function
+DECL|function|exceptionList
 name|void
 name|tst_ExceptionSafety
 operator|::
@@ -1181,6 +1245,7 @@ comment|// check that every object has been freed
 block|}
 end_function
 begin_function
+DECL|function|exceptionLinkedList
 name|void
 name|tst_ExceptionSafety
 operator|::
@@ -1378,6 +1443,7 @@ comment|// check that every object has been freed
 block|}
 end_function
 begin_function
+DECL|function|exceptionVector
 name|void
 name|tst_ExceptionSafety
 operator|::
@@ -2074,6 +2140,7 @@ comment|// check that every object has been freed
 block|}
 end_function
 begin_function
+DECL|function|exceptionMap
 name|void
 name|tst_ExceptionSafety
 operator|::
@@ -2287,6 +2354,7 @@ comment|// check that every object has been freed
 block|}
 end_function
 begin_function
+DECL|function|exceptionHash
 name|void
 name|tst_ExceptionSafety
 operator|::
@@ -2563,6 +2631,10 @@ unit|QCOMPARE(r1.received, 1);     QCOMPARE(r2.received, 0); }
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(
@@ -2574,11 +2646,4 @@ include|#
 directive|include
 file|"tst_exceptionsafety.moc"
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_EXCEPTIONS
-end_comment
 end_unit
