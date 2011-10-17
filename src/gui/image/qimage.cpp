@@ -1340,9 +1340,6 @@ begin_comment
 comment|/*!     \class QImage      \ingroup painting     \ingroup shared      \reentrant      \brief The QImage class provides a hardware-independent image     representation that allows direct access to the pixel data, and     can be used as a paint device.      Qt provides four classes for handling image data: QImage, QPixmap,     QBitmap and QPicture.  QImage is designed and optimized for I/O,     and for direct pixel access and manipulation, while QPixmap is     designed and optimized for showing images on screen. QBitmap is     only a convenience class that inherits QPixmap, ensuring a     depth of 1. Finally, the QPicture class is a paint device that     records and replays QPainter commands.      Because QImage is a QPaintDevice subclass, QPainter can be used to     draw directly onto images.  When using QPainter on a QImage, the     painting can be performed in another thread than the current GUI     thread.      The QImage class supports several image formats described by the     \l Format enum. These include monochrome, 8-bit, 32-bit and     alpha-blended images which are available in all versions of Qt     4.x.      QImage provides a collection of functions that can be used to     obtain a variety of information about the image. There are also     several functions that enables transformation of the image.      QImage objects can be passed around by value since the QImage     class uses \l{Implicit Data Sharing}{implicit data     sharing}. QImage objects can also be streamed and compared.      \note If you would like to load QImage objects in a static build of Qt,     refer to the \l{How To Create Qt Plugins#Static Plugins}{Plugin HowTo}.      \warning Painting on a QImage with the format     QImage::Format_Indexed8 is not supported.      \tableofcontents      \section1 Reading and Writing Image Files      QImage provides several ways of loading an image file: The file     can be loaded when constructing the QImage object, or by using the     load() or loadFromData() functions later on. QImage also provides     the static fromData() function, constructing a QImage from the     given data.  When loading an image, the file name can either refer     to an actual file on disk or to one of the application's embedded     resources. See \l{The Qt Resource System} overview for details     on how to embed images and other resource files in the     application's executable.      Simply call the save() function to save a QImage object.      The complete list of supported file formats are available through     the QImageReader::supportedImageFormats() and     QImageWriter::supportedImageFormats() functions. New file formats     can be added as plugins. By default, Qt supports the following     formats:      \table     \header \o Format \o Description                      \o Qt's support     \row    \o BMP    \o Windows Bitmap                   \o Read/write     \row    \o GIF    \o Graphic Interchange Format (optional) \o Read     \row    \o JPG    \o Joint Photographic Experts Group \o Read/write     \row    \o JPEG   \o Joint Photographic Experts Group \o Read/write     \row    \o PNG    \o Portable Network Graphics        \o Read/write     \row    \o PBM    \o Portable Bitmap                  \o Read     \row    \o PGM    \o Portable Graymap                 \o Read     \row    \o PPM    \o Portable Pixmap                  \o Read/write     \row    \o TIFF   \o Tagged Image File Format         \o Read/write     \row    \o XBM    \o X11 Bitmap                       \o Read/write     \row    \o XPM    \o X11 Pixmap                       \o Read/write     \endtable      \section1 Image Information      QImage provides a collection of functions that can be used to     obtain a variety of information about the image:      \table     \header     \o \o Available Functions      \row     \o Geometry     \o      The size(), width(), height(), dotsPerMeterX(), and     dotsPerMeterY() functions provide information about the image size     and aspect ratio.      The rect() function returns the image's enclosing rectangle. The     valid() function tells if a given pair of coordinates is within     this rectangle. The offset() function returns the number of pixels     by which the image is intended to be offset by when positioned     relative to other images, which also can be manipulated using the     setOffset() function.      \row     \o Colors     \o      The color of a pixel can be retrieved by passing its coordinates     to the pixel() function.  The pixel() function returns the color     as a QRgb value indepedent of the image's format.      In case of monochrome and 8-bit images, the colorCount() and     colorTable() functions provide information about the color     components used to store the image data: The colorTable() function     returns the image's entire color table. To obtain a single entry,     use the pixelIndex() function to retrieve the pixel index for a     given pair of coordinates, then use the color() function to     retrieve the color. Note that if you create an 8-bit image     manually, you have to set a valid color table on the image as     well.      The hasAlphaChannel() function tells if the image's format     respects the alpha channel, or not. The allGray() and     isGrayscale() functions tell whether an image's colors are all     shades of gray.      See also the \l {QImage#Pixel Manipulation}{Pixel Manipulation}     and \l {QImage#Image Transformations}{Image Transformations}     sections.      \row     \o Text     \o      The text() function returns the image text associated with the     given text key. An image's text keys can be retrieved using the     textKeys() function. Use the setText() function to alter an     image's text.      \row     \o Low-level information     \o      The depth() function returns the depth of the image. The supported     depths are 1 (monochrome), 8, 16, 24 and 32 bits. The     bitPlaneCount() function tells how many of those bits that are     used. For more information see the     \l {QImage#Image Formats}{Image Formats} section.      The format(), bytesPerLine(), and byteCount() functions provide     low-level information about the data stored in the image.      The cacheKey() function returns a number that uniquely     identifies the contents of this QImage object.     \endtable      \section1 Pixel Manipulation      The functions used to manipulate an image's pixels depend on the     image format. The reason is that monochrome and 8-bit images are     index-based and use a color lookup table, while 32-bit images     store ARGB values directly. For more information on image formats,     see the \l {Image Formats} section.      In case of a 32-bit image, the setPixel() function can be used to     alter the color of the pixel at the given coordinates to any other     color specified as an ARGB quadruplet. To make a suitable QRgb     value, use the qRgb() (adding a default alpha component to the     given RGB values, i.e. creating an opaque color) or qRgba()     function. For example:      \table     \header     \o {2,1}32-bit     \row     \o \inlineimage qimage-32bit_scaled.png     \o     \snippet doc/src/snippets/code/src_gui_image_qimage.cpp 0     \endtable      In case of a 8-bit and monchrome images, the pixel value is only     an index from the image's color table. So the setPixel() function     can only be used to alter the color of the pixel at the given     coordinates to a predefined color from the image's color table,     i.e. it can only change the pixel's index value. To alter or add a     color to an image's color table, use the setColor() function.      An entry in the color table is an ARGB quadruplet encoded as an     QRgb value. Use the qRgb() and qRgba() functions to make a     suitable QRgb value for use with the setColor() function. For     example:      \table     \header     \o {2,1} 8-bit     \row     \o \inlineimage qimage-8bit_scaled.png     \o     \snippet doc/src/snippets/code/src_gui_image_qimage.cpp 1     \endtable      QImage also provide the scanLine() function which returns a     pointer to the pixel data at the scanline with the given index,     and the bits() function which returns a pointer to the first pixel     data (this is equivalent to \c scanLine(0)).      \section1 Image Formats      Each pixel stored in a QImage is represented by an integer. The     size of the integer varies depending on the format. QImage     supports several image formats described by the \l Format     enum.      Monochrome images are stored using 1-bit indexes into a color table     with at most two colors. There are two different types of     monochrome images: big endian (MSB first) or little endian (LSB     first) bit order.      8-bit images are stored using 8-bit indexes into a color table,     i.e.  they have a single byte per pixel. The color table is a     QVector<QRgb>, and the QRgb typedef is equivalent to an unsigned     int containing an ARGB quadruplet on the format 0xAARRGGBB.      32-bit images have no color table; instead, each pixel contains an     QRgb value. There are three different types of 32-bit images     storing RGB (i.e. 0xffRRGGBB), ARGB and premultiplied ARGB     values respectively. In the premultiplied format the red, green,     and blue channels are multiplied by the alpha component divided by     255.      An image's format can be retrieved using the format()     function. Use the convertToFormat() functions to convert an image     into another format. The allGray() and isGrayscale() functions     tell whether a color image can safely be converted to a grayscale     image.      \section1 Image Transformations      QImage supports a number of functions for creating a new image     that is a transformed version of the original: The     createAlphaMask() function builds and returns a 1-bpp mask from     the alpha buffer in this image, and the createHeuristicMask()     function creates and returns a 1-bpp heuristic mask for this     image. The latter function works by selecting a color from one of     the corners, then chipping away pixels of that color starting at     all the edges.      The mirrored() function returns a mirror of the image in the     desired direction, the scaled() returns a copy of the image scaled     to a rectangle of the desired measures, and the rgbSwapped() function     constructs a BGR image from a RGB image.      The scaledToWidth() and scaledToHeight() functions return scaled     copies of the image.      The transformed() function returns a copy of the image that is     transformed with the given transformation matrix and     transformation mode: Internally, the transformation matrix is     adjusted to compensate for unwanted translation,     i.e. transformed() returns the smallest image containing all     transformed points of the original image. The static trueMatrix()     function returns the actual matrix used for transforming the     image.      There are also functions for changing attributes of an image     in-place:      \table     \header \o Function \o Description     \row     \o setDotsPerMeterX()     \o Defines the aspect ratio by setting the number of pixels that fit     horizontally in a physical meter.     \row     \o setDotsPerMeterY()     \o Defines the aspect ratio by setting the number of pixels that fit     vertically in a physical meter.     \row     \o fill()     \o Fills the entire image with the given pixel value.     \row     \o invertPixels()     \o Inverts all pixel values in the image using the given InvertMode value.     \row     \o setColorTable()     \o Sets the color table used to translate color indexes. Only     monochrome and 8-bit formats.     \row     \o setColorCount()     \o Resizes the color table. Only monochrome and 8-bit formats.      \endtable      \section1 Legal Information      For smooth scaling, the transformed() functions use code based on     smooth scaling algorithm by Daniel M. Duley.      \legalese      Copyright (C) 2004, 2005 Daniel M. Duley       Redistribution and use in source and binary forms, with or without         modification, are permitted provided that the following conditions         are met:       1. Redistributions of source code must retain the above copyright         notice, this list of conditions and the following disclaimer.      2. Redistributions in binary form must reproduce the above copyright         notice, this list of conditions and the following disclaimer in the         documentation and/or other materials provided with the distribution.       THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR      IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES      OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.      IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,      INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT      NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,      DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY      THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT      (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF      THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.     \endlegalese      \sa QImageReader, QImageWriter, QPixmap, QSvgRenderer, {Image Composition Example},         {Image Viewer Example}, {Scribble Example}, {Pixelator Example} */
 end_comment
 begin_comment
-comment|/*!     \enum QImage::Endian     \compat      This enum type is used to describe the endianness of the CPU and     graphics hardware. It is provided here for compatibility with earlier versions of Qt.      Use the \l Format enum instead. The \l Format enum specify the     endianess for monchrome formats, but for other formats the     endianess is not relevant.      \value IgnoreEndian  Endianness does not matter. Useful for some                          operations that are independent of endianness.     \value BigEndian     Most significant bit first or network byte order, as on SPARC, PowerPC, and Motorola CPUs.     \value LittleEndian  Least significant bit first or little endian byte order, as on Intel x86. */
-end_comment
-begin_comment
 comment|/*!     \enum QImage::InvertMode      This enum type is used to describe how pixel values should be     inverted in the invertPixels() function.      \value InvertRgb    Invert only the RGB values and leave the alpha                         channel unchanged.      \value InvertRgba   Invert all channels, including the alpha channel.      \sa invertPixels() */
 end_comment
 begin_comment
@@ -2580,9 +2577,6 @@ directive|endif
 end_endif
 begin_comment
 comment|// QT_NO_IMAGEFORMAT_XPM
-end_comment
-begin_comment
-comment|/*!     \fn QImage::QImage(const QByteArray&data)      Use the static fromData() function instead.      \oldcode         QByteArray data;         ...         QImage image(data);     \newcode         QByteArray data;         ...         QImage image = QImage::fromData(data);     \endcode */
 end_comment
 begin_comment
 comment|/*!     Constructs a shallow copy of the given \a image.      For more information about shallow copies, see the \l {Implicit     Data Sharing} documentation.      \sa copy() */
@@ -4195,9 +4189,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete     Returns the number of bytes occupied by the image data.      \sa byteCount() */
-end_comment
-begin_comment
 comment|/*!     \since 4.6     Returns the number of bytes occupied by the image data.      \sa bytesPerLine(), bits(), {QImage#Image Information}{Image     Information} */
 end_comment
 begin_function
@@ -4641,9 +4632,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn void QImage::reset()      Resets all image parameters and deallocates the image data.      Assign a null image instead.      \oldcode         QImage image;         image.reset();     \newcode         QImage image;         image = QImage();     \endcode */
-end_comment
 begin_comment
 comment|/*!     \fn void QImage::fill(uint pixelValue)      Fills the entire image with the given \a pixelValue.      If the depth of this image is 1, only the lowest bit is used. If     you say fill(0), fill(2), etc., the image is filled with 0s. If     you say fill(1), fill(3), etc., the image is filled with 1s. If     the depth is 8, the lowest 8 bits are used and if the depth is 16     the lowest 16 bits are used.      Note: QImage::pixel() returns the color of the pixel at the given     coordinates while QColor::pixel() returns the pixel value of the     underlying window system (essentially an index value), so normally     you will want to use QImage::pixel() to use a color from an     existing image or QColor::rgb() to use a specific color.      \sa depth(), {QImage#Image Transformations}{Image Transformations} */
 end_comment
@@ -5357,12 +5345,6 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QImage::invertPixels(bool invertAlpha)      Use the invertPixels() function that takes a QImage::InvertMode     parameter instead. */
-end_comment
-begin_comment
-comment|/*! \fn QImage::Endian QImage::systemByteOrder()      Determines the host computer byte order. Returns     QImage::LittleEndian (LSB first) or QImage::BigEndian (MSB first).      This function is no longer relevant for QImage. Use QSysInfo     instead. */
-end_comment
-begin_comment
 comment|// Windows defines these
 end_comment
 begin_if
@@ -5419,9 +5401,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|/*!     \obsolete     Resizes the color table to contain \a numColors entries.      \sa setColorCount() */
-end_comment
 begin_comment
 comment|/*!     \since 4.6     Resizes the color table to contain \a colorCount entries.      If the color table is expanded, all the extra colors will be set to     transparent (i.e qRgba(0, 0, 0, 0)).      When the image is used, the color table must be large enough to     have entries for all the pixel/index values present in the image,     otherwise the results are undefined.      \sa colorCount(), colorTable(), setColor(), {QImage#Image     Transformations}{Image Transformations} */
 end_comment
@@ -17440,12 +17419,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QImage QImage::smoothScale(int width, int height, Qt::AspectRatioMode mode) const      Use scaled() instead.      \oldcode         QImage image;         image.smoothScale(width, height, mode);     \newcode         QImage image;         image.scaled(width, height, mode, Qt::SmoothTransformation);     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn QImage QImage::smoothScale(const QSize&size, Qt::AspectRatioMode mode) const     \overload      Use scaled() instead.      \oldcode         QImage image;         image.smoothScale(size, mode);     \newcode         QImage image;         image.scaled(size, mode, Qt::SmoothTransformation);     \endcode */
-end_comment
-begin_comment
 comment|/*!     \fn QImage QImage::scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode,                              Qt::TransformationMode transformMode) const     \overload      Returns a copy of the image scaled to a rectangle with the given     \a width and \a height according to the given \a aspectRatioMode     and \a transformMode.      If either the \a width or the \a height is zero or negative, this     function returns a null image. */
 end_comment
 begin_comment
@@ -19029,9 +19002,6 @@ begin_comment
 comment|/*   This code is contributed by Philipp Lang,   GeneriCom Software Germany (www.generi.com)   under the terms of the QPL, Version 1.0 */
 end_comment
 begin_comment
-comment|/*!     \fn QImage QImage::mirror(bool horizontal, bool vertical) const      Use mirrored() instead. */
-end_comment
-begin_comment
 comment|/*!     Returns a mirror of the image, mirrored in the horizontal and/or     the vertical direction depending on whether \a horizontal and \a     vertical are set to true or false.      Note that the original image is not changed.      \sa {QImage#Image Transformations}{Image Transformations} */
 end_comment
 begin_function
@@ -19859,9 +19829,6 @@ name|result
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn QImage QImage::swapRGB() const      Use rgbSwapped() instead.      \omit     Returns a QImage in which the values of the red and blue     components of all pixels have been swapped, effectively converting     an RGB image to an BGR image. The original QImage is not changed.     \endomit */
-end_comment
 begin_comment
 comment|/*!     Returns a QImage in which the values of the red and blue     components of all pixels have been swapped, effectively converting     an RGB image to an BGR image.      The original QImage is not changed.      \sa {QImage#Image Transformations}{Image Transformations} */
 end_comment
@@ -22756,12 +22723,6 @@ begin_comment
 comment|/*!     \fn QString QImage::text(const QImageTextKeyLang& keywordAndLanguage) const     \overload     \obsolete      Returns the text recorded for the given \a keywordAndLanguage.      Use text() instead.      The language the text is recorded in is no longer relevant since     the text is always set using QString and UTF-8 representation. */
 end_comment
 begin_comment
-comment|/*!     \obsolete      Returns the language identifiers for which some texts are     recorded. Note that if you want to iterate over the list, you     should iterate over a copy.      The language the text is recorded in is no longer relevant since     the text is always set using QString and UTF-8 representation. */
-end_comment
-begin_comment
-comment|/*!     \obsolete      Returns a list of QImageTextKeyLang objects that enumerate all the     texts key/language pairs set for this image.      Use textKeys() instead.      The language the text is recorded in is no longer relevant since     the text is always set using QString and UTF-8 representation. */
-end_comment
-begin_comment
 comment|/*!     \fn void QImage::setText(const char* key, const char* language, const QString& text)     \obsolete      Sets the image text to the given \a text and associate it with the     given \a key. The text is recorded in the specified \a language,     or in a default language if \a language is 0.      Use setText() instead.      The language the text is recorded in is no longer relevant since     the text is always set using QString and UTF-8 representation.      \omit     Records string \a  for the keyword \a key. The \a key should be     a portable keyword recognizable by other software - some suggested     values can be found in     \l{http://www.libpng.org/pub/png/spec/1.2/png-1.2-pdg.html#C.Anc-text}     {the PNG specification}. \a s can be any text. \a lang should     specify the language code (see     \l{http://www.rfc-editor.org/rfc/rfc1766.txt}{RFC 1766}) or 0.     \endomit */
 end_comment
 begin_endif
@@ -22773,9 +22734,6 @@ comment|// QT_NO_IMAGE_TEXT
 end_comment
 begin_comment
 comment|/*     Sets the image bits to the \a pixmap contents and returns a     reference to the image.      If the image shares data with other images, it will first     dereference the shared data.      Makes a call to QPixmap::convertToImage(). */
-end_comment
-begin_comment
-comment|/*! \fn QImage::Endian QImage::systemBitOrder()      Determines the bit order of the display hardware. Returns     QImage::LittleEndian (LSB first) or QImage::BigEndian (MSB first).      This function is no longer relevant for QImage. Use QSysInfo     instead. */
 end_comment
 begin_comment
 comment|/*!     \internal      Used by QPainter to retrieve a paint engine for the image. */
@@ -23748,9 +23706,6 @@ undef|#
 directive|undef
 name|IWX_PIX
 end_undef
-begin_comment
-comment|/*!     \fn QImage QImage::xForm(const QMatrix&matrix) const      Use transformed() instead.      \oldcode         QImage image;         ...         image.xForm(matrix);     \newcode         QImage image;         ...         image.transformed(matrix);     \endcode */
-end_comment
 begin_comment
 comment|/*! \obsolete     Returns a number that identifies the contents of this     QImage object. Distinct QImage objects can only have the same     serial number if they refer to the same contents (but they don't     have to).      Use cacheKey() instead.      \warning The serial number doesn't necessarily change when the     image is altered. This means that it may be dangerous to use     it as a cache key.      \sa operator==() */
 end_comment
@@ -24867,18 +24822,6 @@ name|bpc
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn QImage QImage::copy(const QRect&rect, Qt::ImageConversionFlags flags) const     \compat      Use copy() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QImage QImage::copy(int x, int y, int w, int h, Qt::ImageConversionFlags flags) const     \compat      Use copy() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QImage QImage::scaleWidth(int w) const     \compat      Use scaledToWidth() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QImage QImage::scaleHeight(int h) const     \compat      Use scaledToHeight() instead. */
-end_comment
 begin_function
 DECL|function|smoothScaled
 specifier|static

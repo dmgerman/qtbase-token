@@ -2690,9 +2690,6 @@ begin_comment
 comment|/*!     \since 4.6     \fn qreal QMatrix::determinant() const      Returns the matrix's determinant. */
 end_comment
 begin_comment
-comment|/*!     \fn QMatrix QMatrix::invert(bool *invertible) const      Returns an inverted copy of this matrix.      Use the inverted() function instead. */
-end_comment
-begin_comment
 comment|/*!     Returns an inverted copy of this matrix.      If the matrix is singular (not invertible), the returned matrix is     the identity matrix. If \a invertible is valid (i.e. not 0), its     value is set to true if the matrix is invertible, otherwise it is     set to false.      \sa isInvertible() */
 end_comment
 begin_function
@@ -3711,9 +3708,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|/*!     \fn QRect QMatrix::map(const QRect&rect) const     \compat      Creates and returns a QRect object that is a copy of the given     rectangle, mapped into the coordinate system defined by this     matrix.      Use the mapRect() function instead. */
-end_comment
 begin_comment
 comment|/*!     \fn bool qFuzzyCompare(const QMatrix& m1, const QMatrix& m2)      \relates QMatrix     \since 4.6      \brief The qFuzzyCompare function is for comparing two matrices     using a fuzziness factor.          Returns true if \a m1 and \a m2 are equal, allowing for a small     fuzziness factor for floating-point comparisons; false otherwise. */
 end_comment

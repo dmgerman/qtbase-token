@@ -1224,12 +1224,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QThread::finished() const      Use isFinished() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QThread::running() const      Use isRunning() instead. */
-end_comment
-begin_comment
 comment|/*! \fn void QThread::setPriority(Priority priority)     \since 4.1      This function sets the \a priority for a running thread. If the     thread is not running, this function does nothing and returns     immediately.  Use start() to start a thread with a specific     priority.      The \a priority argument can be any value in the \c     QThread::Priority enum except for \c InheritPriorty.      The effect of the \a priority parameter is dependent on the     operating system's scheduling policy. In particular, the \a priority     will be ignored on systems that do not support thread priorities     (such as on Linux, see http://linux.die.net/man/2/sched_setscheduler     for more details).      \sa Priority priority() start() */
 end_comment
 begin_comment

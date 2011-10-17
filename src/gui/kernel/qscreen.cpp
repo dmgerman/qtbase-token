@@ -1011,7 +1011,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QScreen::currentOrientationChanged()      This signal is emitted when the current orientation of the screen     changes. The current orientation is a hint to the application saying     what the preferred application orientation should be, based on the     current orientation of the physical display and / or other factors.      \sa currentOrientation() */
+comment|/*!     \fn QScreen::currentOrientationChanged(Qt::ScreenOrientation orientation)      This signal is emitted when the current orientation of the screen     changes. The current orientation is a hint to the application saying     what the preferred application orientation should be, based on the     current orientation of the physical display and / or other factors.      \sa currentOrientation() */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

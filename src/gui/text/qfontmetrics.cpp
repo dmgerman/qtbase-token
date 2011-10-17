@@ -310,9 +310,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QFontMetrics::operator!=(const QFontMetrics&other)      Returns true if \a other is not equal to this object; otherwise returns false.      Two font metrics are considered equal if they were constructed     from the same QFont and the paint devices they were constructed     for are considered compatible.      \sa operator==() */
-end_comment
-begin_comment
 comment|/*!     \fn bool QFontMetrics::operator !=(const QFontMetrics&other) const      Returns true if \a other is not equal to this object; otherwise returns false.      Two font metrics are considered equal if they were constructed     from the same QFont and the paint devices they were constructed     for are considered compatible.      \sa operator==() */
 end_comment
 begin_comment
@@ -3078,9 +3075,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QFontMetricsF::operator!=(const QFontMetricsF&other)      Returns true if the font metrics are not equal to the \a other font     metrics; otherwise returns false.      \sa operator==() */
-end_comment
-begin_comment
 comment|/*!     \fn bool QFontMetricsF::operator !=(const QFontMetricsF&other) const     \overload      Returns true if the font metrics are not equal to the \a other font     metrics; otherwise returns false.      \sa operator==() */
 end_comment
 begin_comment
@@ -5036,15 +5030,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn QSize QFontMetrics::size(int flags, const QString&text, int len,                                  int tabStops, int *tabArray) const     \compat      Use the size() function in combination with QString::left()     instead.      \oldcode         QSize size = size(flags, str, len, tabstops, tabarray);     \newcode         QSize size = size(flags, str.left(len), tabstops, tabarray);     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn QRect QFontMetrics::boundingRect(int x, int y, int w, int h, int flags,         const QString& text, int len, int tabStops, int *tabArray) const     \compat      Use the boundingRect() function in combination with     QString::left() and a QRect constructor instead.      \oldcode         QRect rect = boundingRect(x, y, w, h , flags, text, len,                                   tabStops, tabArray);     \newcode         QRect rect = boundingRect(QRect(x, y, w, h), flags, text.left(len),                                   tabstops, tabarray);     \endcode  */
-end_comment
-begin_comment
-comment|/*!     \fn QRect QFontMetrics::boundingRect(const QString&text, int len) const     \compat      Use the boundingRect() function in combination with     QString::left() instead.      \oldcode         QRect rect = boundingRect(text, len);     \newcode         QRect rect = boundingRect(text.left(len));     \endcode */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

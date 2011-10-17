@@ -2610,9 +2610,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the Latin-1 character \a c to it's equivalent QChar. This     is mainly useful for non-internationalized software.      \sa fromAscii(), unicode(), QTextCodec::codecForCStrings() */
-end_comment
-begin_comment
 comment|/*!     Converts the ASCII character \a c to it's equivalent QChar. This     is mainly useful for non-internationalized software.      An alternative is to use QLatin1Char.      \sa fromLatin1(), unicode(), QTextCodec::codecForCStrings() */
 end_comment
 begin_function

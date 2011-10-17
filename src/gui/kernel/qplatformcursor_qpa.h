@@ -272,11 +272,11 @@ name|changeCursor
 argument_list|(
 name|QCursor
 operator|*
-name|widgetCursor
+name|windowCursor
 argument_list|,
 name|QWindow
 operator|*
-name|widget
+name|window
 argument_list|)
 operator|=
 literal|0

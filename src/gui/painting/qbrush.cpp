@@ -3599,9 +3599,6 @@ return|;
 block|}
 block|}
 end_function
-begin_comment
-comment|/*!     \fn QBrush::operator const QColor&() const      Returns the brush's color.      Use color() instead. */
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef

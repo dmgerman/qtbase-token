@@ -600,9 +600,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_comment
-comment|/*! \fn void QTimer::changeInterval(int msec)     Use setInterval(msec) or start(msec) instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

@@ -5553,9 +5553,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn QString QDir::currentDirPath()     Returns the absolute path of the application's current directory.      Use currentPath() instead.      \sa currentPath(), setCurrent() */
-end_comment
-begin_comment
 comment|/*!     \fn QDir QDir::home()      Returns the user's home directory.      The directory is constructed using the absolute path of the home directory,     ensuring that its path() will be the same as its absolutePath().      See homePath() for details.      \sa drives(), current(), root(), temp() */
 end_comment
 begin_comment
@@ -5577,9 +5574,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn QString QDir::homeDirPath()      Returns the absolute path of the user's home directory.      Use homePath() instead.      \sa homePath() */
-end_comment
 begin_comment
 comment|/*!     \fn QDir QDir::temp()      Returns the system's temporary directory.      The directory is constructed using the absolute path of the temporary directory,     ensuring that its path() will be the same as its absolutePath().      See tempPath() for details.      \sa drives(), current(), home(), root() */
 end_comment
@@ -5624,9 +5618,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn QString QDir::rootDirPath()      Returns the absolute path of the root directory.      Use rootPath() instead.      \sa rootPath() */
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef

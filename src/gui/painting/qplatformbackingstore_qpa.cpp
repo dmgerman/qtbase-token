@@ -60,12 +60,6 @@ begin_comment
 comment|/*!     \class QPlatformBackingStore     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformBackingStore class provides the drawing area for top-level     windows. */
 end_comment
 begin_comment
-comment|/*!     \fn void QPlatformBackingStore::beginPaint(const QRegion&region)      This function is called before painting onto the surface begins,     with the \a region in which the painting will occur.      \sa endPaint(), paintDevice() */
-end_comment
-begin_comment
-comment|/*!     \fn void QPlatformBackingStore::endPaint(const QRegion&region)      This function is called after painting onto the surface has ended,     with the \a region in which the painting was performed.      \sa beginPaint(), paintDevice() */
-end_comment
-begin_comment
 comment|/*!     \fn void QPlatformBackingStore::flush(QWindow *window, const QRegion&region,                                   const QPoint&offset)      Flushes the given \a region from the specified \a window onto the     screen.      Note that the \a offset parameter is currently unused. */
 end_comment
 begin_comment
@@ -131,6 +125,9 @@ name|window
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     This function is called before painting onto the surface begins,     with the \a region in which the painting will occur.      \sa endPaint(), paintDevice() */
+end_comment
 begin_function
 DECL|function|beginPaint
 name|void
@@ -144,6 +141,9 @@ modifier|&
 parameter_list|)
 block|{ }
 end_function
+begin_comment
+comment|/*!     This function is called after painting onto the surface has ended.      \sa beginPaint(), paintDevice() */
+end_comment
 begin_function
 DECL|function|endPaint
 name|void

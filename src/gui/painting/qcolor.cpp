@@ -2203,9 +2203,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete     \fn void QColor::getRgba(int *r, int *g, int *b, int *a) const      Use getRgb() instead. */
-end_comment
-begin_comment
 comment|/*!     \fn void QColor::setRgbF(qreal r, qreal g, qreal b, qreal a)      Sets the color channels of this color to \a r (red), \a g (green),     \a b (blue) and \a a (alpha, transparency).      All values must be in the range 0.0-1.0.      \sa rgb(), getRgbF(), setRgb() */
 end_comment
 begin_function
@@ -2481,9 +2478,6 @@ literal|0
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     \obsolete     \fn void QColor::setRgba(int r, int g, int b, int a)      Use setRgb() instead. */
-end_comment
 begin_comment
 comment|/*!     \fn QRgb QColor::rgba() const      Returns the RGB value of the color, including its alpha.      For an invalid color, the alpha value of the returned color is unspecified.      \sa setRgba(), rgb() */
 end_comment
@@ -10379,15 +10373,6 @@ comment|/*!     \fn int qGray(int r, int g, int b)     \relates QColor      Retu
 end_comment
 begin_comment
 comment|/*!     \fn int qGray(QRgb rgb)     \overload     \relates QColor      Returns a gray value (0 to 255) from the given ARGB quadruplet \a rgb.      The gray value is calculated using the formula (R * 11 + G * 16 + B * 5)/32;     the alpha-channel is ignored. */
-end_comment
-begin_comment
-comment|/*!     \fn QColor::QColor(int x, int y, int z, Spec colorSpec)      Use one of the other QColor constructors, or one of the static convenience     functions, instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QColor::rgb(int *r, int *g, int *b) const      Use getRgb() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QColor::hsv(int *h, int *s, int *v) const      Use getHsv() instead. */
 end_comment
 begin_comment
 comment|/*!     \fn QColor QColor::convertTo(Spec colorSpec) const      Creates a copy of \e this color in the format specified by \a colorSpec.      \sa spec(), toCmyk(), toHsv(), toRgb(), isValid() */

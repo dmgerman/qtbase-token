@@ -2287,15 +2287,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn QImage QMovie::framePixmap() const      Use currentPixmap() instead. */
-end_comment
-begin_comment
-comment|/*! \fn void QMovie::pause()      Use setPaused(true) instead. */
-end_comment
-begin_comment
-comment|/*! \fn void QMovie::unpause()      Use setPaused(false) instead. */
-end_comment
-begin_comment
 comment|/*!     Returns the current frame as a QPixmap.      \sa currentImage(), updated() */
 end_comment
 begin_function
@@ -2320,9 +2311,6 @@ name|currentPixmap
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \fn QImage QMovie::frameImage() const      Use currentImage() instead. */
-end_comment
 begin_comment
 comment|/*!     Returns the current frame as a QImage.      \sa currentPixmap(), updated() */
 end_comment
@@ -2377,27 +2365,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \fn bool QMovie::running() const      Use state() instead. */
-end_comment
-begin_comment
-comment|/*! \fn bool QMovie::isNull() const      Use isValid() instead. */
-end_comment
-begin_comment
-comment|/*! \fn int QMovie::frameNumber() const      Use currentFrameNumber() instead. */
-end_comment
-begin_comment
-comment|/*! \fn bool QMovie::paused() const      Use state() instead. */
-end_comment
-begin_comment
-comment|/*! \fn bool QMovie::finished() const      Use state() instead. */
-end_comment
-begin_comment
-comment|/*! \fn void QMovie::restart()      Use stop() and start() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QMovie::step()      Use jumpToNextFrame() instead. */
-end_comment
 begin_comment
 comment|/*!     Returns the number of frames in the movie.      Certain animation formats do not support this feature, in which     case 0 is returned. */
 end_comment

@@ -183,9 +183,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|text
 name|QString
@@ -232,9 +229,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|doAction
 name|bool
@@ -509,9 +503,6 @@ begin_comment
 comment|/*!   \class QAccessibleSpinBox   \brief The QAccessibleSpinBox class implements the QAccessibleInterface for spinbox widgets.   \internal    \ingroup accessibility */
 end_comment
 begin_comment
-comment|/*!     \enum QAccessibleAbstractSpinBox::SpinBoxElements      This enum identifies the components of the spin box.      \value SpinBoxSelf The spin box as a whole     \value Editor The line edit sub-widget.     \value ValueUp The up sub-widget (i.e. the up arrow or + button)     \value ValueDown The down sub-widget (i.e. the down arrow or - button) */
-end_comment
-begin_comment
 comment|/*!   Constructs a QAccessibleSpinWidget object for \a w. */
 end_comment
 begin_constructor
@@ -580,9 +571,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|doAction
 name|bool
@@ -731,9 +719,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|text
 name|QString
@@ -800,9 +785,6 @@ begin_comment
 comment|/*!   \class QAccessibleScrollBar   \brief The QAccessibleScrollBar class implements the QAccessibleInterface for scroll bars.   \internal    \ingroup accessibility */
 end_comment
 begin_comment
-comment|/*!     \enum QAccessibleScrollBar::ScrollBarElements      This enum identifies the components of the scroll bar.      \value ScrollBarSelf The scroll bar as a whole.     \value LineUp The up arrow button.     \value PageUp The area between the position and the up arrow button.     \value Position The position marking rectangle.     \value PageDown The area between the position and the down arrow button.     \value LineDown The down arrow button. */
-end_comment
-begin_comment
 comment|/*!   Constructs a QAccessibleScrollBar object for \a w.   \a name is propagated to the QAccessibleWidget constructor. */
 end_comment
 begin_constructor
@@ -865,9 +847,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|text
 name|QString
@@ -927,9 +906,6 @@ name|QT_NO_SLIDER
 end_ifndef
 begin_comment
 comment|/*!   \class QAccessibleSlider   \brief The QAccessibleSlider class implements the QAccessibleInterface for sliders.   \internal    \ingroup accessibility */
-end_comment
-begin_comment
-comment|/*!     \enum QAccessibleSlider::SliderElements      This enum identifies the components of the slider.      \value SliderSelf The slider as a whole.     \value PageLeft The area to the left of the position.     \value Position The position indicator.     \value PageRight The area to the right of the position. */
 end_comment
 begin_comment
 comment|/*!   Constructs a QAccessibleScrollBar object for \a w.   \a name is propagated to the QAccessibleWidget constructor. */
@@ -992,9 +968,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \reimp */
-end_comment
 begin_function
 DECL|function|text
 name|QString
