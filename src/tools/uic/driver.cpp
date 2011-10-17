@@ -1453,7 +1453,7 @@ else|else
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 comment|// As one might also redirect the output to a file on win,
 comment|// we should not create the textstream with QFile::Text flag.
 comment|// The redirected file is opened in TextMode and this will
