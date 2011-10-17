@@ -113,7 +113,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|list
 operator|+=
 name|QFontKsc5601Codec
@@ -162,7 +162,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|list
 operator|+=
 name|QFontKsc5601Codec
@@ -211,7 +211,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|list
 operator|+=
 name|QFontKsc5601Codec
@@ -260,7 +260,7 @@ name|QEucKrCodec
 return|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 if|if
 condition|(
 name|mib
@@ -333,7 +333,7 @@ name|QEucKrCodec
 return|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 if|if
 condition|(
 name|name

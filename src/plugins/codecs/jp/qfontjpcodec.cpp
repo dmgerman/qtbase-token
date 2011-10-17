@@ -16,7 +16,7 @@ begin_function
 name|QT_BEGIN_NAMESPACE
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 comment|// JIS X 0201
 DECL|function|QFontJis0201Codec
 name|QFontJis0201Codec

@@ -2574,7 +2574,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 end_ifdef
 begin_constructor
 DECL|function|QFontGb2312Codec
@@ -3212,7 +3212,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_WS_X11
+comment|// Q_OS_UNIX
 end_comment
 begin_decl_stmt
 DECL|variable|gb18030_to_ucs_index

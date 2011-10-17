@@ -127,7 +127,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|list
 operator|+=
 name|QFontGb2312Codec
@@ -190,7 +190,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|list
 operator|+=
 name|QFontGb2312Codec
@@ -253,7 +253,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|list
 operator|+=
 name|QFontGb2312Codec
@@ -328,7 +328,7 @@ name|QGb2312Codec
 return|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 if|if
 condition|(
 name|mib
@@ -447,7 +447,7 @@ name|QGb2312Codec
 return|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 if|if
 condition|(
 name|name

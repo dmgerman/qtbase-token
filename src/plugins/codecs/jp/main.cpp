@@ -40,7 +40,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 end_ifdef
 begin_include
 include|#
@@ -151,7 +151,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|list
 operator|+=
 name|QFontJis0201Codec
@@ -214,7 +214,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|list
 operator|+=
 name|QFontJis0201Codec
@@ -277,7 +277,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 name|list
 operator|+=
 name|QFontJis0201Codec
@@ -352,7 +352,7 @@ name|QSjisCodec
 return|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 if|if
 condition|(
 name|mib
@@ -471,7 +471,7 @@ name|QSjisCodec
 return|;
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 if|if
 condition|(
 name|name

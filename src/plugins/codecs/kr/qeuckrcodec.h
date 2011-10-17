@@ -219,7 +219,7 @@ end_decl_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_X11
+name|Q_OS_UNIX
 end_ifdef
 begin_decl_stmt
 name|class
