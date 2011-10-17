@@ -12,11 +12,6 @@ include|#
 directive|include
 file|<QtTest/QtTest>
 end_include
-begin_include
-include|#
-directive|include
-file|"../../shared/util.h"
-end_include
 begin_class
 DECL|class|tst_QScreen
 class|class

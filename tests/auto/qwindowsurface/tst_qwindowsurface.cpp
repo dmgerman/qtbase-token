@@ -32,11 +32,6 @@ include|#
 directive|include
 file|<QX11Info>
 end_include
-begin_include
-include|#
-directive|include
-file|"../../shared/util.h"
-end_include
 begin_if
 if|#
 directive|if

@@ -25,11 +25,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../shared/util.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"private/qapplication_p.h"
 end_include
 begin_comment

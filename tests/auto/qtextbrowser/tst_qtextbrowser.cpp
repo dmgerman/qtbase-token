@@ -37,11 +37,6 @@ include|#
 directive|include
 file|<qtextobject.h>
 end_include
-begin_include
-include|#
-directive|include
-file|"../../shared/util.h"
-end_include
 begin_comment
 comment|//TESTED_CLASS=
 end_comment

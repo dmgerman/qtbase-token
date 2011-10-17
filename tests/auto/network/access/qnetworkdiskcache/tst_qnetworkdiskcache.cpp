@@ -17,11 +17,6 @@ include|#
 directive|include
 file|<qnetworkdiskcache.h>
 end_include
-begin_include
-include|#
-directive|include
-file|"../../../../shared/util.h"
-end_include
 begin_define
 DECL|macro|EXAMPLE_URL
 define|#

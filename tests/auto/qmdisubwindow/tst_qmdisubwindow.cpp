@@ -110,11 +110,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_include
-include|#
-directive|include
-file|"../../shared/util.h"
-end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 if|#

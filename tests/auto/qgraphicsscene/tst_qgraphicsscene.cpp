@@ -52,11 +52,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../shared/util.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"../gui/painting/qpathclipper/pathcompare.h"
 end_include
 begin_if

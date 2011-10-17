@@ -99,11 +99,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../shared/util.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"../platformquirks.h"
 end_include
 begin_decl_stmt

@@ -37,11 +37,6 @@ include|#
 directive|include
 file|<private/qobject_p.h>
 end_include
-begin_include
-include|#
-directive|include
-file|"../../shared/util.h"
-end_include
 begin_class
 DECL|class|tst_QGraphicsObject
 class|class

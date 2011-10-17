@@ -157,11 +157,6 @@ include|#
 directive|include
 file|<QtWidgets/QGraphicsProxyWidget>
 end_include
-begin_include
-include|#
-directive|include
-file|"../../shared/util.h"
-end_include
 begin_ifdef
 ifdef|#
 directive|ifdef

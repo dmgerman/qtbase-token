@@ -22,11 +22,6 @@ include|#
 directive|include
 file|<math.h>
 end_include
-begin_include
-include|#
-directive|include
-file|"../../shared/util.h"
-end_include
 begin_comment
 comment|//TESTED_CLASS=QGraphicsLayout
 end_comment

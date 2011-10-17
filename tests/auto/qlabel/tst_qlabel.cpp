@@ -58,11 +58,6 @@ end_comment
 begin_comment
 comment|//TESTED_FILES=
 end_comment
-begin_include
-include|#
-directive|include
-file|"../../shared/util.h"
-end_include
 begin_class
 DECL|class|Widget
 class|class

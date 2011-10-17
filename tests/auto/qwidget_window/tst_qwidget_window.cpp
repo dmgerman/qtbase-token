@@ -49,11 +49,6 @@ end_endif
 begin_comment
 comment|// Q_WS_X11
 end_comment
-begin_include
-include|#
-directive|include
-file|"../../shared/util.h"
-end_include
 begin_class
 DECL|class|tst_QWidget_window
 class|class

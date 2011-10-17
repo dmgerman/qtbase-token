@@ -47,11 +47,6 @@ include|#
 directive|include
 file|<QBoxLayout>
 end_include
-begin_include
-include|#
-directive|include
-file|"../../shared/util.h"
-end_include
 begin_macro
 name|QT_FORWARD_DECLARE_CLASS
 argument_list|(

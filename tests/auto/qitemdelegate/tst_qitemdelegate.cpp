@@ -102,11 +102,6 @@ include|#
 directive|include
 file|<QDialog>
 end_include
-begin_include
-include|#
-directive|include
-file|"../../shared/util.h"
-end_include
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(

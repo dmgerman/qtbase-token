@@ -10,11 +10,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../../../shared/util.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/qpropertyanimation.h>
 end_include
 begin_include
@@ -26,11 +21,6 @@ begin_include
 include|#
 directive|include
 file|<QtWidgets/qwidget.h>
-end_include
-begin_include
-include|#
-directive|include
-file|"../../../../shared/util.h"
 end_include
 begin_comment
 comment|//TESTED_CLASS=QPropertyAnimation

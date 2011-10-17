@@ -80,11 +80,6 @@ end_include
 begin_comment
 comment|// for file error messages
 end_comment
-begin_include
-include|#
-directive|include
-file|"../../shared/util.h"
-end_include
 begin_comment
 comment|//TESTED_CLASS=
 end_comment

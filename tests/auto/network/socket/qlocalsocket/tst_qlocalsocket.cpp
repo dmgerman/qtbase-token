@@ -22,11 +22,6 @@ include|#
 directive|include
 file|<QtNetwork/qlocalserver.h>
 end_include
-begin_include
-include|#
-directive|include
-file|"../../../../shared/util.h"
-end_include
 begin_comment
 comment|//TESTED_CLASS=QLocalServer, QLocalSocket
 end_comment
