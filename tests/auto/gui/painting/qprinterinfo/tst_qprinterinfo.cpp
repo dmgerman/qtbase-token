@@ -22,11 +22,6 @@ include|#
 directive|include
 file|<QtNetwork/QHostInfo>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTER
-end_ifndef
 begin_include
 include|#
 directive|include
@@ -77,16 +72,18 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-comment|//tst_QPrinterInfo();
-comment|//virtual ~tst_QPrinterInfo();
+ifdef|#
+directive|ifdef
+name|QT_NO_PRINTER
 public|public
 name|slots
 public|:
-comment|//void initTestCase();
-comment|//void cleanupTestCase();
-comment|//void init();
-comment|//void cleanup();
+name|void
+name|initTestCase
+parameter_list|()
+function_decl|;
+else|#
+directive|else
 private|private
 name|slots
 private|:
@@ -149,9 +146,37 @@ modifier|&
 name|command
 parameter_list|)
 function_decl|;
+endif|#
+directive|endif
 block|}
 class|;
 end_class
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_NO_PRINTER
+end_ifdef
+begin_function
+DECL|function|initTestCase
+name|void
+name|tst_QPrinterInfo
+operator|::
+name|initTestCase
+parameter_list|()
+block|{
+name|QSKIP
+argument_list|(
+literal|"This test requires printing support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_else
+else|#
+directive|else
+end_else
 begin_function
 DECL|function|macFixNameFormat
 name|void
@@ -1790,6 +1815,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(
@@ -1801,15 +1830,4 @@ include|#
 directive|include
 file|"tst_qprinterinfo.moc"
 end_include
-begin_else
-else|#
-directive|else
-end_else
-begin_macro
-name|QTEST_NOOP_MAIN
-end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
 end_unit

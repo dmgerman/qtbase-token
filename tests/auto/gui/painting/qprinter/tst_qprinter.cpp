@@ -84,11 +84,6 @@ end_comment
 begin_comment
 comment|//TESTED_FILES=
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_PRINTER
-end_ifndef
 begin_class
 DECL|class|tst_QPrinter
 class|class
@@ -98,15 +93,9 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QPrinter
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QPrinter
-parameter_list|()
-destructor_decl|;
+ifdef|#
+directive|ifdef
+name|QT_NO_PRINTER
 public|public
 name|slots
 public|:
@@ -114,18 +103,8 @@ name|void
 name|initTestCase
 parameter_list|()
 function_decl|;
-name|void
-name|cleanupTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
+else|#
+directive|else
 private|private
 name|slots
 private|:
@@ -273,9 +252,37 @@ name|void
 name|testPdfTitle
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 block|}
 class|;
 end_class
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_NO_PRINTER
+end_ifdef
+begin_function
+DECL|function|initTestCase
+name|void
+name|tst_QPrinter
+operator|::
+name|initTestCase
+parameter_list|()
+block|{
+name|QSKIP
+argument_list|(
+literal|"This test requires printing support"
+argument_list|,
+name|SkipAll
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_else
+else|#
+directive|else
+end_else
 begin_comment
 comment|// Testing get/set functions
 end_comment
@@ -1017,88 +1024,6 @@ name|printRange
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_constructor
-DECL|function|tst_QPrinter
-name|tst_QPrinter
-operator|::
-name|tst_QPrinter
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QPrinter
-name|tst_QPrinter
-operator|::
-name|~
-name|tst_QPrinter
-parameter_list|()
-block|{ }
-end_destructor
-begin_comment
-comment|// initTestCase will be executed once before the first testfunction is executed.
-end_comment
-begin_function
-DECL|function|initTestCase
-name|void
-name|tst_QPrinter
-operator|::
-name|initTestCase
-parameter_list|()
-block|{
-comment|// TODO: Add testcase generic initialization code here.
-comment|// suggestion:
-comment|//    testWidget = new QPrinter(0,"testWidget");
-comment|//    testWidget->setFixedSize(200, 200);
-comment|//    qApp->setMainWidget(testWidget);
-comment|//    testWidget->show();
-block|}
-end_function
-begin_comment
-comment|// cleanupTestCase will be executed once after the last testfunction is executed.
-end_comment
-begin_function
-DECL|function|cleanupTestCase
-name|void
-name|tst_QPrinter
-operator|::
-name|cleanupTestCase
-parameter_list|()
-block|{
-comment|// TODO: Add testcase generic cleanup code here.
-comment|// suggestion:
-comment|//    testWidget->hide();
-comment|//    qApp->setMainWidget(0);
-comment|//    delete testWidget;
-block|}
-end_function
-begin_comment
-comment|// init() will be executed immediately before each testfunction is run.
-end_comment
-begin_function
-DECL|function|init
-name|void
-name|tst_QPrinter
-operator|::
-name|init
-parameter_list|()
-block|{
-comment|// TODO: Add testfunction specific initialization code here.
-block|}
-end_function
-begin_comment
-comment|// cleanup() will be executed immediately after each testfunction is run.
-end_comment
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QPrinter
-operator|::
-name|cleanup
-parameter_list|()
-block|{
-comment|// TODO: Add testfunction specific cleanup code here.
 block|}
 end_function
 begin_define
@@ -7411,6 +7336,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(
@@ -7422,21 +7351,4 @@ include|#
 directive|include
 file|"tst_qprinter.moc"
 end_include
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|//QT_NO_PRINTER
-end_comment
-begin_macro
-name|QTEST_NOOP_MAIN
-end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|//QT_NO_PRINTER
-end_comment
 end_unit
