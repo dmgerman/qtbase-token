@@ -3615,6 +3615,12 @@ name|S_FALSE
 return|;
 block|}
 end_function
+begin_comment
+comment|/*  It is recommended to read     "Implementing a Microsoft Active Accessibility (MSAA) Server.     Practical Tips for Developers and How Mozilla Does It"     (https://developer.mozilla.org/En/Accessibility/Implementing_an_MSAA_Server)   to get an overview of what's important to implement and what parts of MSAA  can be ignored. All stuff prefixed with "moz" are information from that page. */
+end_comment
+begin_comment
+comment|// moz: [important]
+end_comment
 begin_function
 DECL|function|accLocation
 name|HRESULT
@@ -3742,6 +3748,9 @@ name|S_OK
 return|;
 block|}
 end_function
+begin_comment
+comment|// moz: [important, but no need to implement up/down/left/right]
+end_comment
 begin_function
 DECL|function|accNavigate
 name|HRESULT
@@ -4188,6 +4197,9 @@ name|S_FALSE
 return|;
 block|}
 end_function
+begin_comment
+comment|// moz: [important]
+end_comment
 begin_function
 DECL|function|get_accChild
 name|HRESULT
@@ -4418,6 +4430,9 @@ name|S_FALSE
 return|;
 block|}
 end_function
+begin_comment
+comment|// moz: [important]
+end_comment
 begin_function
 DECL|function|get_accChildCount
 name|HRESULT
@@ -4462,6 +4477,9 @@ name|S_OK
 return|;
 block|}
 end_function
+begin_comment
+comment|// moz: [important]
+end_comment
 begin_function
 DECL|function|get_accParent
 name|HRESULT
@@ -5048,6 +5066,9 @@ name|S_FALSE
 return|;
 block|}
 end_function
+begin_comment
+comment|// moz: [important]
+end_comment
 begin_function
 DECL|function|get_accName
 name|HRESULT
@@ -5151,6 +5172,9 @@ name|DISP_E_MEMBERNOTFOUND
 return|;
 block|}
 end_function
+begin_comment
+comment|// moz: [important]
+end_comment
 begin_function
 DECL|function|get_accRole
 name|HRESULT
@@ -5252,6 +5276,9 @@ name|S_OK
 return|;
 block|}
 end_function
+begin_comment
+comment|// moz: [important]
+end_comment
 begin_function
 DECL|function|get_accState
 name|HRESULT
@@ -5316,6 +5343,9 @@ name|S_OK
 return|;
 block|}
 end_function
+begin_comment
+comment|// moz: [important]
+end_comment
 begin_function
 DECL|function|get_accValue
 name|HRESULT
@@ -5420,6 +5450,9 @@ name|DISP_E_MEMBERNOTFOUND
 return|;
 block|}
 end_function
+begin_comment
+comment|// moz: [important]
+end_comment
 begin_function
 DECL|function|accSelect
 name|HRESULT
@@ -5468,6 +5501,9 @@ name|S_FALSE
 return|;
 block|}
 end_function
+begin_comment
+comment|// moz: [important]
+end_comment
 begin_function
 DECL|function|get_accFocus
 name|HRESULT
