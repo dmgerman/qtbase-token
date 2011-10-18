@@ -1800,10 +1800,22 @@ argument_list|,
 name|length
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|specialCaseMap
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|specialCaseMap
+operator|<<
+literal|0
+expr_stmt|;
+comment|// placeholder
 name|int
 name|i
 init|=
-literal|0
+literal|1
 decl_stmt|;
 while|while
 condition|(
@@ -11444,12 +11456,16 @@ literal|"}\n\n"
 expr_stmt|;
 name|out
 operator|+=
-literal|"static const ushort specialCaseMap[] = {"
+literal|"static const ushort specialCaseMap[] = {\n"
+expr_stmt|;
+name|out
+operator|+=
+literal|"    0x0, // placeholder"
 expr_stmt|;
 name|int
 name|i
 init|=
-literal|0
+literal|1
 decl_stmt|;
 while|while
 condition|(

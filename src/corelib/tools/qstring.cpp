@@ -14815,10 +14815,6 @@ condition|(
 name|prop
 operator|->
 name|lowerCaseDiff
-operator|||
-name|prop
-operator|->
-name|lowerCaseSpecial
 condition|)
 block|{
 if|if
@@ -15229,10 +15225,6 @@ condition|(
 name|prop
 operator|->
 name|caseFoldDiff
-operator|||
-name|prop
-operator|->
-name|caseFoldSpecial
 condition|)
 block|{
 if|if
@@ -15575,10 +15567,6 @@ condition|(
 name|prop
 operator|->
 name|upperCaseDiff
-operator|||
-name|prop
-operator|->
-name|upperCaseSpecial
 condition|)
 block|{
 if|if
