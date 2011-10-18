@@ -894,6 +894,35 @@ argument_list|,
 name|fallbacks
 argument_list|)
 expr_stmt|;
+comment|// Cache Multi font engine as well in case we got the FT single
+comment|// font engine when we are actually looking for a Multi one
+name|QFontCache
+operator|::
+name|Key
+name|key
+argument_list|(
+name|request
+argument_list|,
+name|script
+argument_list|,
+literal|1
+argument_list|)
+decl_stmt|;
+name|QFontCache
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|instance
+argument_list|()
+operator|->
+name|insertEngine
+argument_list|(
+name|key
+argument_list|,
+name|engine
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|engine
@@ -1109,6 +1138,9 @@ specifier|const
 name|QFontDef
 modifier|&
 name|request
+parameter_list|,
+name|bool
+name|multi
 parameter_list|)
 block|{
 name|QMutexLocker
@@ -1148,6 +1180,12 @@ argument_list|(
 name|request
 argument_list|,
 name|script
+argument_list|,
+name|multi
+condition|?
+literal|1
+else|:
+literal|0
 argument_list|)
 decl_stmt|;
 name|engine
@@ -1476,6 +1514,12 @@ argument_list|(
 name|def
 argument_list|,
 name|script
+argument_list|,
+name|multi
+condition|?
+literal|1
+else|:
+literal|0
 argument_list|)
 decl_stmt|;
 name|engine
@@ -1790,6 +1834,23 @@ name|stretch
 operator|=
 literal|100
 expr_stmt|;
+comment|// Until we specifically asked not to, try looking for Multi font engine
+comment|// first, the last '1' indicates that we want Multi font engine instead
+comment|// of single ones
+name|bool
+name|multi
+init|=
+operator|!
+operator|(
+name|req
+operator|.
+name|styleStrategy
+operator|&
+name|QFont
+operator|::
+name|NoFontMerging
+operator|)
+decl_stmt|;
 name|QFontCache
 operator|::
 name|Key
@@ -1798,6 +1859,12 @@ argument_list|(
 name|req
 argument_list|,
 name|script
+argument_list|,
+name|multi
+condition|?
+literal|1
+else|:
+literal|0
 argument_list|)
 decl_stmt|;
 if|if
@@ -1945,6 +2012,8 @@ argument_list|,
 name|d
 argument_list|,
 name|req
+argument_list|,
+name|multi
 argument_list|)
 expr_stmt|;
 if|if

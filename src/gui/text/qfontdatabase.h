@@ -528,6 +528,11 @@ specifier|const
 name|QFontDef
 modifier|&
 name|request
+parameter_list|,
+name|bool
+name|multi
+init|=
+name|false
 parameter_list|)
 function_decl|;
 specifier|static
