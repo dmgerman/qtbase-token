@@ -377,9 +377,7 @@ parameter_list|,
 name|int
 name|haystackLen
 parameter_list|,
-specifier|const
 name|QChar
-modifier|&
 name|needle
 parameter_list|,
 name|int
@@ -435,9 +433,7 @@ parameter_list|,
 name|int
 name|haystackLen
 parameter_list|,
-specifier|const
 name|QChar
-modifier|&
 name|needle
 parameter_list|,
 name|Qt
@@ -10744,9 +10740,7 @@ name|QString
 operator|::
 name|startsWith
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|c
 parameter_list|,
 name|Qt
@@ -11027,9 +11021,7 @@ name|QString
 operator|::
 name|endsWith
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|c
 parameter_list|,
 name|Qt
@@ -18943,9 +18935,7 @@ name|QString
 operator|::
 name|split
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|sep
 parameter_list|,
 name|SplitBehavior
@@ -20252,9 +20242,7 @@ name|QString
 modifier|&
 name|larg
 parameter_list|,
-specifier|const
 name|QChar
-modifier|&
 name|fillChar
 init|=
 name|QLatin1Char
@@ -20819,9 +20807,7 @@ parameter_list|,
 name|int
 name|fieldWidth
 parameter_list|,
-specifier|const
 name|QChar
-modifier|&
 name|fillChar
 parameter_list|)
 specifier|const
@@ -20912,16 +20898,16 @@ begin_comment
 comment|/*!   \fn QString QString::arg(const QString& a1, const QString& a2, const QString& a3, const QString& a4, const QString& a5, const QString& a6, const QString& a7, const QString& a8, const QString& a9) const   \overload arg()    This is the same as calling \c   {str.arg(a1).arg(a2).arg(a3).arg(a4).arg(a5).arg(a6).arg(a7).arg(a8).arg(a9)},   except that the strings \a a1, \a a2, \a a3, \a a4, \a a5, \a a6, \a   a7, \a a8, and \a a9 are replaced in one pass. */
 end_comment
 begin_comment
-comment|/*! \fn QString QString::arg(int a, int fieldWidth, int base, const QChar&fillChar) const   \overload arg()    The \a a argument is expressed in base \a base, which is 10 by   default and must be between 2 and 36. For bases other than 10, \a a   is treated as an unsigned integer.    \a fieldWidth specifies the minimum amount of space that \a a is   padded to and filled with the character \a fillChar. A positive   value produces right-aligned text; a negative value produces   left-aligned text.    The '%' can be followed by an 'L', in which case the sequence is   replaced with a localized representation of \a a. The conversion   uses the default locale, set by QLocale::setDefault(). If no default   locale was specified, the "C" locale is used. The 'L' flag is   ignored if \a base is not 10.    \snippet doc/src/snippets/qstring/main.cpp 12   \snippet doc/src/snippets/qstring/main.cpp 14    If \a fillChar is '0' (the number 0, ASCII 48), the locale's zero is   used. For negative numbers, zero padding might appear before the   minus sign. */
+comment|/*! \fn QString QString::arg(int a, int fieldWidth, int base, QChar fillChar) const   \overload arg()    The \a a argument is expressed in base \a base, which is 10 by   default and must be between 2 and 36. For bases other than 10, \a a   is treated as an unsigned integer.    \a fieldWidth specifies the minimum amount of space that \a a is   padded to and filled with the character \a fillChar. A positive   value produces right-aligned text; a negative value produces   left-aligned text.    The '%' can be followed by an 'L', in which case the sequence is   replaced with a localized representation of \a a. The conversion   uses the default locale, set by QLocale::setDefault(). If no default   locale was specified, the "C" locale is used. The 'L' flag is   ignored if \a base is not 10.    \snippet doc/src/snippets/qstring/main.cpp 12   \snippet doc/src/snippets/qstring/main.cpp 14    If \a fillChar is '0' (the number 0, ASCII 48), the locale's zero is   used. For negative numbers, zero padding might appear before the   minus sign. */
 end_comment
 begin_comment
-comment|/*! \fn QString QString::arg(uint a, int fieldWidth, int base, const QChar&fillChar) const   \overload arg()    The \a base argument specifies the base to use when converting the   integer \a a into a string. The base must be between 2 and 36.    If \a fillChar is '0' (the number 0, ASCII 48), the locale's zero is   used. For negative numbers, zero padding might appear before the   minus sign. */
+comment|/*! \fn QString QString::arg(uint a, int fieldWidth, int base, QChar fillChar) const   \overload arg()    The \a base argument specifies the base to use when converting the   integer \a a into a string. The base must be between 2 and 36.    If \a fillChar is '0' (the number 0, ASCII 48), the locale's zero is   used. For negative numbers, zero padding might appear before the   minus sign. */
 end_comment
 begin_comment
-comment|/*! \fn QString QString::arg(long a, int fieldWidth, int base, const QChar&fillChar) const   \overload arg()    \a fieldWidth specifies the minimum amount of space that \a a is   padded to and filled with the character \a fillChar. A positive   value produces right-aligned text; a negative value produces   left-aligned text.    The \a a argument is expressed in the given \a base, which is 10 by   default and must be between 2 and 36.    The '%' can be followed by an 'L', in which case the sequence is   replaced with a localized representation of \a a. The conversion   uses the default locale. The default locale is determined from the   system's locale settings at application startup. It can be changed   using QLocale::setDefault(). The 'L' flag is ignored if \a base is   not 10.    \snippet doc/src/snippets/qstring/main.cpp 12   \snippet doc/src/snippets/qstring/main.cpp 14    If \a fillChar is '0' (the number 0, ASCII 48), the locale's zero is   used. For negative numbers, zero padding might appear before the   minus sign. */
+comment|/*! \fn QString QString::arg(long a, int fieldWidth, int base, QChar fillChar) const   \overload arg()    \a fieldWidth specifies the minimum amount of space that \a a is   padded to and filled with the character \a fillChar. A positive   value produces right-aligned text; a negative value produces   left-aligned text.    The \a a argument is expressed in the given \a base, which is 10 by   default and must be between 2 and 36.    The '%' can be followed by an 'L', in which case the sequence is   replaced with a localized representation of \a a. The conversion   uses the default locale. The default locale is determined from the   system's locale settings at application startup. It can be changed   using QLocale::setDefault(). The 'L' flag is ignored if \a base is   not 10.    \snippet doc/src/snippets/qstring/main.cpp 12   \snippet doc/src/snippets/qstring/main.cpp 14    If \a fillChar is '0' (the number 0, ASCII 48), the locale's zero is   used. For negative numbers, zero padding might appear before the   minus sign. */
 end_comment
 begin_comment
-comment|/*! \fn QString QString::arg(ulong a, int fieldWidth, int base, const QChar&fillChar) const   \overload arg()    \a fieldWidth specifies the minimum amount of space that \a a is   padded to and filled with the character \a fillChar. A positive   value produces right-aligned text; a negative value produces   left-aligned text.    The \a base argument specifies the base to use when converting the   integer \a a to a string. The base must be between 2 and 36, with 8   giving octal, 10 decimal, and 16 hexadecimal numbers.    If \a fillChar is '0' (the number 0, ASCII 48), the locale's zero is   used. For negative numbers, zero padding might appear before the   minus sign. */
+comment|/*! \fn QString QString::arg(ulong a, int fieldWidth, int base, QChar fillChar) const   \overload arg()    \a fieldWidth specifies the minimum amount of space that \a a is   padded to and filled with the character \a fillChar. A positive   value produces right-aligned text; a negative value produces   left-aligned text.    The \a base argument specifies the base to use when converting the   integer \a a to a string. The base must be between 2 and 36, with 8   giving octal, 10 decimal, and 16 hexadecimal numbers.    If \a fillChar is '0' (the number 0, ASCII 48), the locale's zero is   used. For negative numbers, zero padding might appear before the   minus sign. */
 end_comment
 begin_comment
 comment|/*!   \overload arg()    \a fieldWidth specifies the minimum amount of space that \a a is   padded to and filled with the character \a fillChar. A positive   value produces right-aligned text; a negative value produces   left-aligned text.    The \a base argument specifies the base to use when converting the   integer \a a into a string. The base must be between 2 and 36, with   8 giving octal, 10 decimal, and 16 hexadecimal numbers.    If \a fillChar is '0' (the number 0, ASCII 48), the locale's zero is   used. For negative numbers, zero padding might appear before the   minus sign. */
@@ -20942,9 +20928,7 @@ parameter_list|,
 name|int
 name|base
 parameter_list|,
-specifier|const
 name|QChar
-modifier|&
 name|fillChar
 parameter_list|)
 specifier|const
@@ -21136,9 +21120,7 @@ parameter_list|,
 name|int
 name|base
 parameter_list|,
-specifier|const
 name|QChar
-modifier|&
 name|fillChar
 parameter_list|)
 specifier|const
@@ -21312,10 +21294,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \overload arg()    \fn QString QString::arg(short a, int fieldWidth, int base, const QChar&fillChar) const    \a fieldWidth specifies the minimum amount of space that \a a is   padded to and filled with the character \a fillChar. A positive   value produces right-aligned text; a negative value produces   left-aligned text.    The \a base argument specifies the base to use when converting the   integer \a a into a string. The base must be between 2 and 36, with   8 giving octal, 10 decimal, and 16 hexadecimal numbers.    If \a fillChar is '0' (the number 0, ASCII 48), the locale's zero is   used. For negative numbers, zero padding might appear before the   minus sign. */
+comment|/*!   \overload arg()    \fn QString QString::arg(short a, int fieldWidth, int base, QChar fillChar) const    \a fieldWidth specifies the minimum amount of space that \a a is   padded to and filled with the character \a fillChar. A positive   value produces right-aligned text; a negative value produces   left-aligned text.    The \a base argument specifies the base to use when converting the   integer \a a into a string. The base must be between 2 and 36, with   8 giving octal, 10 decimal, and 16 hexadecimal numbers.    If \a fillChar is '0' (the number 0, ASCII 48), the locale's zero is   used. For negative numbers, zero padding might appear before the   minus sign. */
 end_comment
 begin_comment
-comment|/*!   \fn QString QString::arg(ushort a, int fieldWidth, int base, const QChar&fillChar) const   \overload arg()    \a fieldWidth specifies the minimum amount of space that \a a is   padded to and filled with the character \a fillChar. A positive   value produces right-aligned text; a negative value produces   left-aligned text.    The \a base argument specifies the base to use when converting the   integer \a a into a string. The base must be between 2 and 36, with   8 giving octal, 10 decimal, and 16 hexadecimal numbers.    If \a fillChar is '0' (the number 0, ASCII 48), the locale's zero is   used. For negative numbers, zero padding might appear before the   minus sign. */
+comment|/*!   \fn QString QString::arg(ushort a, int fieldWidth, int base, QChar fillChar) const   \overload arg()    \a fieldWidth specifies the minimum amount of space that \a a is   padded to and filled with the character \a fillChar. A positive   value produces right-aligned text; a negative value produces   left-aligned text.    The \a base argument specifies the base to use when converting the   integer \a a into a string. The base must be between 2 and 36, with   8 giving octal, 10 decimal, and 16 hexadecimal numbers.    If \a fillChar is '0' (the number 0, ASCII 48), the locale's zero is   used. For negative numbers, zero padding might appear before the   minus sign. */
 end_comment
 begin_comment
 comment|/*!     \overload arg() */
@@ -21333,9 +21315,7 @@ parameter_list|,
 name|int
 name|fieldWidth
 parameter_list|,
-specifier|const
 name|QChar
-modifier|&
 name|fillChar
 parameter_list|)
 specifier|const
@@ -21375,9 +21355,7 @@ parameter_list|,
 name|int
 name|fieldWidth
 parameter_list|,
-specifier|const
 name|QChar
-modifier|&
 name|fillChar
 parameter_list|)
 specifier|const
@@ -21405,7 +21383,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn QString QString::arg(double a, int fieldWidth, char format, int precision, const QChar&fillChar) const   \overload arg()    Argument \a a is formatted according to the specified \a format and   \a precision. See \l{Argument Formats} for details.    \a fieldWidth specifies the minimum amount of space that \a a is   padded to and filled with the character \a fillChar.  A positive   value produces right-aligned text; a negative value produces   left-aligned text.    \snippet doc/src/snippets/code/src_corelib_tools_qstring.cpp 2    The '%' can be followed by an 'L', in which case the sequence is   replaced with a localized representation of \a a. The conversion   uses the default locale, set by QLocale::setDefaultLocale(). If no   default locale was specified, the "C" locale is used.    If \a fillChar is '0' (the number 0, ASCII 48), this function will   use the locale's zero to pad. For negative numbers, the zero padding   will probably appear before the minus sign.    \sa QLocale::toString() */
+comment|/*!   \fn QString QString::arg(double a, int fieldWidth, char format, int precision, QChar fillChar) const   \overload arg()    Argument \a a is formatted according to the specified \a format and   \a precision. See \l{Argument Formats} for details.    \a fieldWidth specifies the minimum amount of space that \a a is   padded to and filled with the character \a fillChar.  A positive   value produces right-aligned text; a negative value produces   left-aligned text.    \snippet doc/src/snippets/code/src_corelib_tools_qstring.cpp 2    The '%' can be followed by an 'L', in which case the sequence is   replaced with a localized representation of \a a. The conversion   uses the default locale, set by QLocale::setDefaultLocale(). If no   default locale was specified, the "C" locale is used.    If \a fillChar is '0' (the number 0, ASCII 48), this function will   use the locale's zero to pad. For negative numbers, the zero padding   will probably appear before the minus sign.    \sa QLocale::toString() */
 end_comment
 begin_function
 DECL|function|arg
@@ -21426,9 +21404,7 @@ parameter_list|,
 name|int
 name|prec
 parameter_list|,
-specifier|const
 name|QChar
-modifier|&
 name|fillChar
 parameter_list|)
 specifier|const
@@ -25385,9 +25361,7 @@ parameter_list|,
 name|int
 name|haystackLen
 parameter_list|,
-specifier|const
 name|QChar
-modifier|&
 name|needle
 parameter_list|,
 name|int
@@ -25675,9 +25649,7 @@ parameter_list|,
 name|int
 name|size
 parameter_list|,
-specifier|const
 name|QChar
-modifier|&
 name|ch
 parameter_list|,
 name|Qt

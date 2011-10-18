@@ -2691,9 +2691,7 @@ name|QDataStream
 modifier|&
 name|out
 parameter_list|,
-specifier|const
 name|QChar
-modifier|&
 name|chr
 parameter_list|)
 block|{

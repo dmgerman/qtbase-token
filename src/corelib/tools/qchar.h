@@ -1738,9 +1738,7 @@ operator|(
 name|QDataStream
 operator|&
 operator|,
-specifier|const
 name|QChar
-operator|&
 operator|)
 expr_stmt|;
 end_expr_stmt

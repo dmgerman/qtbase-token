@@ -917,9 +917,7 @@ name|base
 operator|=
 literal|10
 argument_list|,
-specifier|const
 name|QChar
-operator|&
 name|fillChar
 operator|=
 name|QLatin1Char
@@ -946,9 +944,7 @@ name|base
 operator|=
 literal|10
 argument_list|,
-specifier|const
 name|QChar
-operator|&
 name|fillChar
 operator|=
 name|QLatin1Char
@@ -975,9 +971,7 @@ name|base
 operator|=
 literal|10
 argument_list|,
-specifier|const
 name|QChar
-operator|&
 name|fillChar
 operator|=
 name|QLatin1Char
@@ -1004,9 +998,7 @@ name|base
 operator|=
 literal|10
 argument_list|,
-specifier|const
 name|QChar
-operator|&
 name|fillChar
 operator|=
 name|QLatin1Char
@@ -1033,9 +1025,7 @@ name|base
 operator|=
 literal|10
 argument_list|,
-specifier|const
 name|QChar
-operator|&
 name|fillChar
 operator|=
 name|QLatin1Char
@@ -1062,9 +1052,7 @@ name|base
 operator|=
 literal|10
 argument_list|,
-specifier|const
 name|QChar
-operator|&
 name|fillChar
 operator|=
 name|QLatin1Char
@@ -1091,9 +1079,7 @@ name|base
 operator|=
 literal|10
 argument_list|,
-specifier|const
 name|QChar
-operator|&
 name|fillChar
 operator|=
 name|QLatin1Char
@@ -1120,9 +1106,7 @@ name|base
 operator|=
 literal|10
 argument_list|,
-specifier|const
 name|QChar
-operator|&
 name|fillChar
 operator|=
 name|QLatin1Char
@@ -1155,9 +1139,7 @@ operator|=
 operator|-
 literal|1
 argument_list|,
-specifier|const
 name|QChar
-operator|&
 name|fillChar
 operator|=
 name|QLatin1Char
@@ -1179,9 +1161,7 @@ name|fieldWidth
 operator|=
 literal|0
 argument_list|,
-specifier|const
 name|QChar
-operator|&
 name|fillChar
 operator|=
 name|QLatin1Char
@@ -1203,9 +1183,7 @@ name|fieldWidth
 operator|=
 literal|0
 argument_list|,
-specifier|const
 name|QChar
-operator|&
 name|fillChar
 operator|=
 name|QLatin1Char
@@ -1229,9 +1207,7 @@ name|fieldWidth
 operator|=
 literal|0
 argument_list|,
-specifier|const
 name|QChar
-operator|&
 name|fillChar
 operator|=
 name|QLatin1Char
@@ -2328,9 +2304,7 @@ begin_decl_stmt
 name|bool
 name|startsWith
 argument_list|(
-specifier|const
 name|QChar
-operator|&
 name|c
 argument_list|,
 name|Qt
@@ -2412,9 +2386,7 @@ begin_decl_stmt
 name|bool
 name|endsWith
 argument_list|(
-specifier|const
 name|QChar
-operator|&
 name|c
 argument_list|,
 name|Qt
@@ -3286,9 +3258,7 @@ begin_decl_stmt
 name|QStringList
 name|split
 argument_list|(
-specifier|const
 name|QChar
-operator|&
 name|sep
 argument_list|,
 name|SplitBehavior
@@ -7034,7 +7004,7 @@ argument|int fieldWidth
 argument_list|,
 argument|int base
 argument_list|,
-argument|const QChar&fillChar
+argument|QChar fillChar
 argument_list|)
 specifier|const
 block|{
@@ -7068,7 +7038,7 @@ argument|int fieldWidth
 argument_list|,
 argument|int base
 argument_list|,
-argument|const QChar&fillChar
+argument|QChar fillChar
 argument_list|)
 specifier|const
 block|{
@@ -7102,7 +7072,7 @@ argument|int fieldWidth
 argument_list|,
 argument|int base
 argument_list|,
-argument|const QChar&fillChar
+argument|QChar fillChar
 argument_list|)
 specifier|const
 block|{
@@ -7136,7 +7106,7 @@ argument|int fieldWidth
 argument_list|,
 argument|int base
 argument_list|,
-argument|const QChar&fillChar
+argument|QChar fillChar
 argument_list|)
 specifier|const
 block|{
@@ -7170,7 +7140,7 @@ argument|int fieldWidth
 argument_list|,
 argument|int base
 argument_list|,
-argument|const QChar&fillChar
+argument|QChar fillChar
 argument_list|)
 specifier|const
 block|{
@@ -7204,7 +7174,7 @@ argument|int fieldWidth
 argument_list|,
 argument|int base
 argument_list|,
-argument|const QChar&fillChar
+argument|QChar fillChar
 argument_list|)
 specifier|const
 block|{
@@ -7902,9 +7872,7 @@ modifier|&
 name|operator
 init|=
 operator|(
-specifier|const
 name|QChar
-operator|&
 name|c
 operator|)
 block|{

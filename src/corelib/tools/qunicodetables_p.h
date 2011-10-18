@@ -579,9 +579,7 @@ specifier|inline
 name|int
 name|lineBreakClass
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|ch
 parameter_list|)
 block|{
@@ -608,9 +606,7 @@ specifier|inline
 name|int
 name|script
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|ch
 parameter_list|)
 block|{

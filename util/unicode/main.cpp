@@ -1420,11 +1420,11 @@ modifier|*
 name|methods
 init|=
 literal|"    Q_CORE_EXPORT QUnicodeTables::LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4);\n"
-literal|"    inline int lineBreakClass(const QChar&ch)\n"
+literal|"    inline int lineBreakClass(QChar ch)\n"
 literal|"    { return lineBreakClass(ch.unicode()); }\n"
 literal|"\n"
 literal|"    Q_CORE_EXPORT int QT_FASTCALL script(uint ucs4);\n"
-literal|"    inline int script(const QChar&ch)\n"
+literal|"    inline int script(QChar ch)\n"
 literal|"    { return script(ch.unicode()); }\n\n"
 decl_stmt|;
 end_decl_stmt
