@@ -2994,11 +2994,6 @@ operator|::
 name|setSize
 parameter_list|()
 block|{
-name|DEPENDS_ON
-argument_list|(
-literal|"size"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|QFile
@@ -6180,12 +6175,6 @@ operator|::
 name|setPermissions
 parameter_list|()
 block|{
-name|DEPENDS_ON
-argument_list|(
-literal|"permissions"
-argument_list|)
-expr_stmt|;
-comment|//if that doesn't work...
 if|if
 condition|(
 name|QFile

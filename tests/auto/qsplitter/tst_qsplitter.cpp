@@ -139,11 +139,6 @@ name|getSetCheck
 parameter_list|()
 function_decl|;
 name|void
-name|sizes
-parameter_list|()
-function_decl|;
-comment|// bare (as in empty)
-name|void
 name|setSizes
 parameter_list|()
 function_decl|;
@@ -336,21 +331,6 @@ name|tst_QSplitter
 parameter_list|()
 block|{ }
 end_destructor
-begin_function
-DECL|function|sizes
-name|void
-name|tst_QSplitter
-operator|::
-name|sizes
-parameter_list|()
-block|{
-name|DEPENDS_ON
-argument_list|(
-literal|"setSizes"
-argument_list|)
-expr_stmt|;
-block|}
-end_function
 begin_function
 DECL|function|initTestCase
 name|void

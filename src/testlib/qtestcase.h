@@ -143,13 +143,6 @@ name|name
 parameter_list|)
 define|\
 value|type name = *static_cast<type *>(QTest::qGlobalData(#name, ::qMetaTypeId<type>()))
-DECL|macro|DEPENDS_ON
-define|#
-directive|define
-name|DEPENDS_ON
-parameter_list|(
-name|funcName
-parameter_list|)
 DECL|macro|QTEST
 define|#
 directive|define

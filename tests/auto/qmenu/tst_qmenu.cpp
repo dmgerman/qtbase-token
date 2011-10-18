@@ -1979,12 +1979,6 @@ operator|::
 name|keyboardNavigation
 parameter_list|()
 block|{
-name|DEPENDS_ON
-argument_list|(
-literal|"addActionsAndClear"
-argument_list|)
-expr_stmt|;
-comment|//if add/clear fails...
 name|QFETCH
 argument_list|(
 name|int
