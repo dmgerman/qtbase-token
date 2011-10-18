@@ -82,6 +82,18 @@ argument_list|(
 argument|Qt::WindowFlags flags
 argument_list|)
 block|;
+name|bool
+name|setKeyboardGrabEnabled
+argument_list|(
+argument|bool grab
+argument_list|)
+block|;
+name|bool
+name|setMouseGrabEnabled
+argument_list|(
+argument|bool grab
+argument_list|)
+block|;
 name|void
 name|raise
 argument_list|()
