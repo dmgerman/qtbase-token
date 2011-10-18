@@ -5577,7 +5577,7 @@ begin_comment
 comment|/*!     \fn QVariant::QVariant(const QList<QVariant>&val)      Constructs a new variant with a list value, \a val. */
 end_comment
 begin_comment
-comment|/*!   \fn QVariant::QVariant(const QChar&c)    Constructs a new variant with a char value, \a c. */
+comment|/*!   \fn QVariant::QVariant(QChar c)    Constructs a new variant with a char value, \a c. */
 end_comment
 begin_comment
 comment|/*!   \fn QVariant::QVariant(const QLocale&l)    Constructs a new variant with a locale value, \a l. */
@@ -6016,9 +6016,7 @@ name|QVariant
 operator|::
 name|QVariant
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|val
 parameter_list|)
 block|{

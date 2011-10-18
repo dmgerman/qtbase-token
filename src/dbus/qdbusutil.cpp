@@ -40,9 +40,7 @@ specifier|inline
 name|bool
 name|isValidCharacterNoDash
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|c
 parameter_list|)
 block|{
@@ -101,9 +99,7 @@ specifier|inline
 name|bool
 name|isValidCharacter
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|c
 parameter_list|)
 block|{
@@ -168,9 +164,7 @@ specifier|inline
 name|bool
 name|isValidNumber
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|c
 parameter_list|)
 block|{

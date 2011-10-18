@@ -281,7 +281,7 @@ comment|/*!     \fn char *QTest::toString(const QByteArray&ba)     \overload    
 comment|/*!     \fn char *QTest::toString(const QTime&time)     \overload      Returns a textual representation of the given \a time. */
 comment|/*!     \fn char *QTest::toString(const QDate&date)     \overload      Returns a textual representation of the given \a date. */
 comment|/*!     \fn char *QTest::toString(const QDateTime&dateTime)     \overload      Returns a textual representation of the date and time specified by     \a dateTime. */
-comment|/*!     \fn char *QTest::toString(const QChar&character)     \overload      Returns a textual representation of the given \a character. */
+comment|/*!     \fn char *QTest::toString(QChar character)     \overload      Returns a textual representation of the given \a character. */
 comment|/*!     \fn char *QTest::toString(const QPoint&point)     \overload      Returns a textual representation of the given \a point. */
 comment|/*!     \fn char *QTest::toString(const QSize&size)     \overload      Returns a textual representation of the given \a size. */
 comment|/*!     \fn char *QTest::toString(const QRect&rectangle)     \overload      Returns a textual representation of the given \a rectangle. */

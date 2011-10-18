@@ -609,9 +609,7 @@ begin_decl_stmt
 name|int
 name|insertBlock
 argument_list|(
-specifier|const
 name|QChar
-operator|&
 name|blockSeparator
 argument_list|,
 name|int

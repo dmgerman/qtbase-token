@@ -1876,9 +1876,7 @@ begin_function
 name|void
 name|setPasswordCharacter
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|character
 parameter_list|)
 block|{

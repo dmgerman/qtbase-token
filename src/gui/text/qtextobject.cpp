@@ -1025,9 +1025,7 @@ name|QTextFramePrivate
 operator|::
 name|fragmentAdded
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|type
 parameter_list|,
 name|uint
@@ -1119,9 +1117,7 @@ name|QTextFramePrivate
 operator|::
 name|fragmentRemoved
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|type
 parameter_list|,
 name|uint

@@ -127,7 +127,7 @@ block|;
 name|void
 name|fragmentAdded
 argument_list|(
-argument|const QChar&type
+argument|QChar type
 argument_list|,
 argument|uint fragment
 argument_list|)
@@ -135,7 +135,7 @@ block|;
 name|void
 name|fragmentRemoved
 argument_list|(
-argument|const QChar&type
+argument|QChar type
 argument_list|,
 argument|uint fragment
 argument_list|)

@@ -169,9 +169,7 @@ specifier|static
 name|bool
 name|isValidBlockSeparator
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|ch
 parameter_list|)
 block|{
@@ -1585,9 +1583,7 @@ name|QTextDocumentPrivate
 operator|::
 name|insertBlock
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|blockSeparator
 parameter_list|,
 name|int

@@ -958,9 +958,7 @@ specifier|static
 name|bool
 name|isAnsiCCharacter
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|c
 parameter_list|)
 block|{

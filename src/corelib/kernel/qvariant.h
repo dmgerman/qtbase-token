@@ -921,10 +921,7 @@ argument_list|)
 block|;
 name|QVariant
 argument_list|(
-specifier|const
-name|QChar
-operator|&
-name|qchar
+argument|QChar qchar
 argument_list|)
 block|;
 name|QVariant
