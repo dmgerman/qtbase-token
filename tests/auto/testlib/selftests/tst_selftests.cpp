@@ -1447,8 +1447,6 @@ literal|"singleskip"
 operator|<<
 literal|"skip"
 operator|<<
-literal|"skipglobal"
-operator|<<
 literal|"skipinit"
 operator|<<
 literal|"skipinitdata"
