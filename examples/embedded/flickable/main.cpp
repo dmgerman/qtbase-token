@@ -1040,24 +1040,6 @@ argument_list|(
 literal|"Kinetic Scrolling"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_WINCE_WM
-argument_list|)
-name|list
-operator|.
-name|showMaximized
-argument_list|()
-expr_stmt|;
-else|#
-directive|else
 name|list
 operator|.
 name|resize
@@ -1072,8 +1054,6 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|app
 operator|.

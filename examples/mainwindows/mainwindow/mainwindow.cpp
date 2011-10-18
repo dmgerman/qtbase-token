@@ -130,7 +130,7 @@ literal|"<p>Each dock widget contains a colored frame and a context "
 literal|"(right-click) menu.</p>"
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 literal|"<p>On Mac OS X, the \"Black\" dock widget has been created as a "
 literal|"<em>Drawer</em>, which is a special kind of QDockWidget.</p>"
 endif|#
@@ -1760,7 +1760,7 @@ init|=
 block|{
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 block|{
 literal|"Black"
 block|,

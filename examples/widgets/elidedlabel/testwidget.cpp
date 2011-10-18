@@ -435,20 +435,6 @@ argument_list|)
 expr_stmt|;
 comment|//! [4]
 comment|//! [5]
-ifdef|#
-directive|ifdef
-name|Q_WS_MAEMO_5
-name|setAttribute
-argument_list|(
-name|Qt
-operator|::
-name|WA_Maemo5AutoOrientation
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_constructor
 begin_comment

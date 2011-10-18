@@ -1062,19 +1062,6 @@ argument_list|(
 name|sceneRect
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_MAEMO_5
-argument_list|)
 comment|// Text
 name|QRectF
 name|textRect
@@ -1190,8 +1177,6 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment

@@ -92,7 +92,7 @@ comment|//! [2]
 comment|//! [3]
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|//! [3] //! [4]
 name|setWizardStyle
 argument_list|(

@@ -56,22 +56,6 @@ operator|::
 name|Expanding
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|infoLabel
-operator|=
-operator|new
-name|QLabel
-argument_list|(
-name|tr
-argument_list|(
-literal|"<i>Choose a menu option</i>"
-argument_list|)
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|infoLabel
 operator|=
 operator|new
@@ -84,8 +68,6 @@ literal|"invoke a context menu</i>"
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|infoLabel
 operator|->
 name|setFrameStyle
@@ -178,9 +160,6 @@ expr_stmt|;
 name|createMenus
 argument_list|()
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_SYMBIAN
 name|QString
 name|message
 init|=
@@ -197,8 +176,6 @@ argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|setWindowTitle
 argument_list|(
 name|tr

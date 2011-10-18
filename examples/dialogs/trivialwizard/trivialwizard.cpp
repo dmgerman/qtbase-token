@@ -415,23 +415,11 @@ argument_list|(
 literal|"Trivial Wizard"
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|wizard
-operator|.
-name|showMaximized
-argument_list|()
-expr_stmt|;
-else|#
-directive|else
 name|wizard
 operator|.
 name|show
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|app
 operator|.

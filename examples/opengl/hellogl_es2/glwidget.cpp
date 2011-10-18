@@ -83,9 +83,6 @@ name|m_showBubbles
 operator|=
 literal|true
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_WS_QWS
 name|setMinimumSize
 argument_list|(
 literal|300
@@ -93,8 +90,6 @@ argument_list|,
 literal|250
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_constructor
 begin_destructor

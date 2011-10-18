@@ -419,22 +419,6 @@ end_struct
 begin_comment
 comment|// Symbian devices typically have limited memory
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_define
-DECL|macro|LARGE_MAX_SIZE
-define|#
-directive|define
-name|LARGE_MAX_SIZE
-value|2000
-end_define
-begin_else
-else|#
-directive|else
-end_else
 begin_define
 DECL|macro|LARGE_MAX_SIZE
 define|#
@@ -442,10 +426,6 @@ directive|define
 name|LARGE_MAX_SIZE
 value|20000
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_class
 DECL|class|tst_vector_vs_std
 class|class

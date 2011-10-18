@@ -255,26 +255,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//! [3]
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_WS_SIMULATOR
-argument_list|)
-name|fontSizeSpinBox
-operator|->
-name|setValue
-argument_list|(
-literal|4
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|fontSizeSpinBox
 operator|->
 name|setValue
@@ -282,8 +262,6 @@ argument_list|(
 literal|10
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 comment|//! [4]
 name|QHBoxLayout
 modifier|*

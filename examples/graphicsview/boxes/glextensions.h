@@ -24,7 +24,7 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifndef
 begin_ifndef
 ifndef|#

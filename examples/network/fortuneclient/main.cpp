@@ -37,24 +37,11 @@ decl_stmt|;
 name|Client
 name|client
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// Make application better looking and more usable on small screen
-name|client
-operator|.
-name|showMaximized
-argument_list|()
-expr_stmt|;
-else|#
-directive|else
 name|client
 operator|.
 name|show
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|client
 operator|.

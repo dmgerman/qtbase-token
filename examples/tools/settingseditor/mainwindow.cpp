@@ -862,7 +862,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|openPropertyListAct
 operator|->
 name|setEnabled
@@ -874,7 +874,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|openRegistryPathAct
 operator|->
 name|setEnabled

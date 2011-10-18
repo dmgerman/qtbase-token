@@ -38,19 +38,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_MAEMO_5
-comment|// Alternating row colors look bad on Maemo
-name|view
-operator|->
-name|setAlternatingRowColors
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QStringList
 name|headers
 decl_stmt|;
