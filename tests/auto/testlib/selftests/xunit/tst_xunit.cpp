@@ -117,8 +117,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"skipping this function!"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

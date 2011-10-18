@@ -225,7 +225,7 @@ begin_comment
 comment|/*! \macro QTEST(actual, testElement)     \relates QTest     QTEST() is a convenience macro for \l QCOMPARE() that compares    the value \a actual with the element \a testElement from the test's data.    If there is no such element, the test asserts.     Apart from that, QTEST() behaves exactly as \l QCOMPARE().     Instead of writing:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 6     you can write:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 7     \sa QCOMPARE() */
 end_comment
 begin_comment
-comment|/*! \macro QSKIP(description, mode)     \relates QTest     The QSKIP() macro stops execution of the test without adding a failure to the    test log. You can use it to skip tests that wouldn't make sense in the current    configuration. The text \a description is appended to the test log and should    contain an explanation why the test couldn't be executed. \a mode is a QTest::SkipMode    and describes whether to proceed with the rest of the test data or not.     \bold {Note:} This macro can only be used in a test function that is invoked    by the test framework.     Example:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 8     \sa QTest::SkipMode */
+comment|/*! \macro QSKIP(description)     \relates QTest     The QSKIP() macro stops execution of the test without adding a failure to the    test log. You can use it to skip tests that wouldn't make sense in the current    configuration. The text \a description is appended to the test log and should    contain an explanation of why the test couldn't be executed.     If the test is data-driven, each call to QSKIP() will skip only the current row,    so an unconditional call to QSKIP will produce one skip message in the test log    for each row of test data.     \bold {Note:} This macro can only be used in a test function that is invoked    by the test framework.     Example:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 8 */
 end_comment
 begin_comment
 comment|/*! \macro QEXPECT_FAIL(dataIndex, comment, mode)     \relates QTest     The QEXPECT_FAIL() macro marks the next \l QCOMPARE() or \l QVERIFY() as an    expected failure. Instead of adding a failure to the test log, an expected    failure will be reported.     If a \l QVERIFY() or \l QCOMPARE() is marked as an expected failure,    but passes instead, an unexpected pass (XPASS) is written to the test log.     The parameter \a dataIndex describes for which entry in the test data the    failure is expected. Pass an empty string (\c{""}) if the failure    is expected for all entries or if no test data exists.     \a comment will be appended to the test log for the expected failure.     \a mode is a \l QTest::TestFailMode and sets whether the test should    continue to execute or not.     \bold {Note:} This macro can only be used in a test function that is invoked    by the test framework.     Example 1:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 9     In the example above, an expected fail will be written into the test output    if the variable \c i is not 42. If the variable \c i is 42, an unexpected pass    is written instead. The QEXPECT_FAIL() has no influence on the second QCOMPARE()    statement in the example.     Example 2:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 10     The above testfunction will not continue executing for the test data    entry \c{data27}.     \sa QTest::TestFailMode, QVERIFY(), QCOMPARE() */
@@ -244,9 +244,6 @@ comment|/*!     \macro QBENCHMARK      \relates QTest      This macro is used to
 end_comment
 begin_comment
 comment|/*!     \macro QBENCHMARK_ONCE     \since 4.6      \relates QTest      \brief The QBENCHMARK_ONCE macro is for measuring performance of a     code block by running it once.      This macro is used to measure the performance of code within a test.     The code to be benchmarked is contained within a code block following     this macro.      Unlike QBENCHMARK, the contents of the contained code block is only run     once. The elapsed time will be reported as "0" if it's to short to     be measured by the selected backend. (Use)      \sa {QTestLib Manual#Creating a Benchmark}{Creating a Benchmark},     {Chapter 5: Writing a Benchmark}{Writing a Benchmark} */
-end_comment
-begin_comment
-comment|/*! \enum QTest::SkipMode      This enum describes the modes for skipping tests during execution     of the test data.      \value SkipSingle Skips the current entry in the test table; continues            execution of all the other entries in the table.      \value SkipAll Skips all the entries in the test table; the test won't            be executed further.      \sa QSKIP() */
 end_comment
 begin_comment
 comment|/*! \enum QTest::TestFailMode      This enum describes the modes for handling an expected failure of the     \l QVERIFY() or \l QCOMPARE() macros.      \value Abort Aborts the execution of the test. Use this mode when it            doesn't make sense to execute the test any further after the            expected failure.      \value Continue Continues execution of the test after the expected failure.      \sa QEXPECT_FAIL() */
@@ -3750,25 +3747,6 @@ argument_list|,
 name|member
 argument_list|)
 expr_stmt|;
-comment|// if we encounter a SkipAll in the _data slot, we skip the whole
-comment|// testfunction, no matter how much global data exists
-if|if
-condition|(
-name|QTestResult
-operator|::
-name|skipCurrentTest
-argument_list|()
-condition|)
-block|{
-name|QTestResult
-operator|::
-name|setCurrentGlobalTestData
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-break|break;
-block|}
 block|}
 name|bool
 name|foundFunction
@@ -3798,13 +3776,6 @@ operator|.
 name|dataCount
 argument_list|()
 decl_stmt|;
-name|QTestResult
-operator|::
-name|setSkipCurrentTest
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 comment|// Data tag requested but none available?
 if|if
 condition|(
@@ -3853,6 +3824,13 @@ block|}
 comment|/* For each entry in the data table, do: */
 do|do
 block|{
+name|QTestResult
+operator|::
+name|setSkipCurrentTest
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -3908,15 +3886,6 @@ argument_list|(
 name|slot
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|QTestResult
-operator|::
-name|skipCurrentTest
-argument_list|()
-condition|)
-comment|// check whether SkipAll was requested
-break|break;
 if|if
 condition|(
 name|data
@@ -5813,7 +5782,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn void QTest::qSkip(const char *message, SkipMode mode, const char *file, int line) \internal  */
+comment|/*! \fn void QTest::qSkip(const char *message, const char *file, int line) \internal  */
 end_comment
 begin_function
 DECL|function|qSkip
@@ -5826,11 +5795,6 @@ specifier|const
 name|char
 modifier|*
 name|message
-parameter_list|,
-name|QTest
-operator|::
-name|SkipMode
-name|mode
 parameter_list|,
 specifier|const
 name|char
@@ -5852,14 +5816,6 @@ argument_list|,
 name|line
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|mode
-operator|==
-name|QTest
-operator|::
-name|SkipAll
-condition|)
 name|QTestResult
 operator|::
 name|setSkipCurrentTest

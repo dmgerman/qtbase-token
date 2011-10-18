@@ -150,13 +150,13 @@ name|QTEST_VERSION_STR
 value|QT_VERSION_STR
 name|namespace
 name|QTest
-decl_stmt|{     enum SkipMode
+decl_stmt|{     enum TestFailMode
 block|{
-name|SkipSingle
+name|Abort
 operator|=
 literal|1
 operator|,
-name|SkipAll
+name|Continue
 operator|=
 literal|2
 block|}
@@ -164,20 +164,6 @@ end_function
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_enum
-enum|enum
-name|TestFailMode
-block|{
-name|Abort
-init|=
-literal|1
-block|,
-name|Continue
-init|=
-literal|2
-block|}
-enum|;
-end_enum
 begin_function_decl
 name|int
 name|Q_TESTLIB_EXPORT

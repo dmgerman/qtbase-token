@@ -422,8 +422,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"skipping"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -475,8 +473,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"skipping"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -503,8 +499,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"skipping"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

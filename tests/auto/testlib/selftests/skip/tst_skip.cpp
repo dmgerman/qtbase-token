@@ -90,8 +90,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"skipping all"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -122,8 +120,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"skipping all"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -204,8 +200,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"skipping one"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|qDebug

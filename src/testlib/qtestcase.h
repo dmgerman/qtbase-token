@@ -28,6 +28,11 @@ include|#
 directive|include
 file|<QtCore/qmetatype.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<string.h>
+end_include
 begin_function
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -104,10 +109,10 @@ name|QSKIP
 parameter_list|(
 name|statement
 parameter_list|,
-name|mode
+modifier|...
 parameter_list|)
 define|\
-value|do {\     QTest::qSkip(statement, QTest::mode, __FILE__, __LINE__);\     return;\ } while (0)
+value|do {\     if (strcmp(#__VA_ARGS__, "") != 0)\         QTest::qWarn("The two argument version of QSKIP is deprecated and will be removed soon. "\                      "Please update this test by removing the second parameter.", __FILE__, __LINE__);\     QTest::qSkip(statement, __FILE__, __LINE__);\     return;\ } while (0)
 DECL|macro|QEXPECT_FAIL
 define|#
 directive|define
@@ -333,9 +338,6 @@ specifier|const
 name|char
 modifier|*
 name|message
-parameter_list|,
-name|SkipMode
-name|mode
 parameter_list|,
 specifier|const
 name|char

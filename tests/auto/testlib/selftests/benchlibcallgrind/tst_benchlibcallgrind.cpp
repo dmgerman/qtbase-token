@@ -138,8 +138,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"This test is only defined for gcc and x86."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|#

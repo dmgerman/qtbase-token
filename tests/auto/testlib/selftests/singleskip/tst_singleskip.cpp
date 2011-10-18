@@ -44,8 +44,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"skipping test"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

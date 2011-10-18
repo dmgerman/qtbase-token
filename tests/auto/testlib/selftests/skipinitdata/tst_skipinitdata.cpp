@@ -48,9 +48,7 @@ specifier|const
 block|{
 name|QSKIP
 argument_list|(
-literal|"Skip inside initTestCase. This should skip all tests in the class."
-argument_list|,
-name|SkipAll
+literal|"Skip inside initTestCase_data. This should skip all tests in the class."
 argument_list|)
 expr_stmt|;
 block|}

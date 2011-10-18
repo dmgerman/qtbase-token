@@ -50,8 +50,6 @@ name|HAVE_TICK_COUNTER
 name|QSKIP
 argument_list|(
 literal|"Tick counter not available on this platform"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|#
