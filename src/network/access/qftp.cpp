@@ -7212,20 +7212,6 @@ block|{
 name|QStringList
 name|cmds
 decl_stmt|;
-name|cmds
-operator|<<
-name|QLatin1String
-argument_list|(
-literal|"SIZE "
-argument_list|)
-operator|+
-name|file
-operator|+
-name|QLatin1String
-argument_list|(
-literal|"\r\n"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|type
@@ -7245,6 +7231,20 @@ operator|<<
 name|QLatin1String
 argument_list|(
 literal|"TYPE A\r\n"
+argument_list|)
+expr_stmt|;
+name|cmds
+operator|<<
+name|QLatin1String
+argument_list|(
+literal|"SIZE "
+argument_list|)
+operator|+
+name|file
+operator|+
+name|QLatin1String
+argument_list|(
+literal|"\r\n"
 argument_list|)
 expr_stmt|;
 name|cmds
@@ -8968,8 +8968,7 @@ name|dtp
 operator|.
 name|setBytesTotal
 argument_list|(
-operator|-
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 return|return;
