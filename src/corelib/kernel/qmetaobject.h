@@ -680,6 +680,12 @@ specifier|const
 name|char
 operator|*
 name|key
+argument_list|,
+name|bool
+operator|*
+name|ok
+operator|=
+literal|0
 argument_list|)
 decl|const
 decl_stmt|;
@@ -700,6 +706,12 @@ specifier|const
 name|char
 operator|*
 name|keys
+argument_list|,
+name|bool
+operator|*
+name|ok
+operator|=
+literal|0
 argument_list|)
 decl|const
 decl_stmt|;
