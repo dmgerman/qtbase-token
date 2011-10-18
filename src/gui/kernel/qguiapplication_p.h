@@ -685,6 +685,16 @@ name|bool
 name|quitOnLastWindowClosed
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+specifier|static
+name|QList
+operator|<
+name|QObject
+operator|*
+operator|>
+name|generic_plugin_list
+expr_stmt|;
+end_expr_stmt
 begin_label
 name|private
 label|:
