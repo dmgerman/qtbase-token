@@ -3152,6 +3152,8 @@ condition|(
 name|QWindowsContext
 operator|::
 name|verboseWindows
+operator|>
+literal|1
 condition|)
 name|qDebug
 argument_list|()

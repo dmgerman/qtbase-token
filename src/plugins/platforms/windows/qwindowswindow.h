@@ -316,13 +316,20 @@ specifier|static
 name|WindowData
 name|create
 argument_list|(
-argument|const QWindow *w
+specifier|const
+name|QWindow
+operator|*
+name|w
 argument_list|,
-argument|const WindowData&parameters
+specifier|const
+name|WindowData
+operator|&
+name|parameters
 argument_list|,
-argument|const QString&title
-argument_list|,
-argument|bool isGL
+specifier|const
+name|QString
+operator|&
+name|title
 argument_list|)
 block|;     }
 block|;
@@ -771,6 +778,9 @@ name|WindowData
 name|setWindowFlags_sys
 argument_list|(
 argument|Qt::WindowFlags wt
+argument_list|,
+argument|unsigned flags =
+literal|0
 argument_list|)
 specifier|const
 block|;

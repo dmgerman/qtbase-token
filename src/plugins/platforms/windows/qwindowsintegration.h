@@ -41,9 +41,7 @@ block|{
 name|public
 operator|:
 name|QWindowsIntegration
-argument_list|(
-argument|bool openGL = false
-argument_list|)
+argument_list|()
 block|;
 name|virtual
 operator|~
