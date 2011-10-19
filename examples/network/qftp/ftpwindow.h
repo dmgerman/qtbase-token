@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QHash>
 end_include
+begin_include
+include|#
+directive|include
+file|<QNetworkConfigurationManager>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QDialogButtonBox
@@ -129,6 +134,10 @@ argument_list|()
 block|;
 name|void
 name|cancelDownload
+argument_list|()
+block|;
+name|void
+name|connectToFtp
 argument_list|()
 block|;
 name|void
@@ -242,6 +251,9 @@ block|;
 name|QNetworkSession
 operator|*
 name|networkSession
+block|;
+name|QNetworkConfigurationManager
+name|manager
 block|;
 comment|//![1]
 block|}
