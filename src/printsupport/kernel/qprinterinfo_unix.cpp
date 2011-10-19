@@ -4982,11 +4982,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 return|return
 name|result
 return|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_endif
