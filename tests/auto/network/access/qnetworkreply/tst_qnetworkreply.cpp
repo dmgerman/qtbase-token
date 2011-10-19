@@ -12116,8 +12116,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"test server script cannot handle PUT data yet"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QFETCH
@@ -23990,8 +23988,6 @@ name|QSKIP
 argument_list|(
 literal|"When passing a CR-LF-LF sequence through Windows stdio, it gets converted, "
 literal|"so this test fails. Disabled on Windows"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#
@@ -28100,8 +28096,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Limiting is broken right now, check QTBUG-15065"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QFETCH
@@ -29946,8 +29940,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Test disabled -- only for manual purposes"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 comment|// this function tests that we aren't reading from the network

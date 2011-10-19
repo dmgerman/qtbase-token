@@ -2475,8 +2475,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"disabled"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QSharedMemory
@@ -3478,8 +3476,6 @@ name|__ia64
 name|QSKIP
 argument_list|(
 literal|"This test locks up on gravlaks.troll.no"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#

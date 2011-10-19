@@ -7290,8 +7290,6 @@ name|DBUS_TYPE_UNIX_FD
 name|QSKIP
 argument_list|(
 literal|"Your system's D-Bus library is too old for this test"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|#
@@ -7364,8 +7362,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Your session bus does not allow sending Unix file descriptors"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 comment|// make sure this QDBusConnection won't handle Unix file descriptors

@@ -3627,8 +3627,6 @@ name|Q_OS_WINCE
 name|QSKIP
 argument_list|(
 literal|"Until we have a QEvent::WindowFlagsChange event, this will skip"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -5830,8 +5828,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Until we have a QEvent::WindowFlagsChange event, this will skip"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QFETCH
@@ -6206,8 +6202,6 @@ comment|// With Qt::WindowShadeButtonHint flag set
 name|QSKIP
 argument_list|(
 literal|"Until we have a QEvent::WindowFlagsChange event, this will skip"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|window

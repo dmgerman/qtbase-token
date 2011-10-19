@@ -5388,8 +5388,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This test does not work if this directory path consists of symlinks."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QString
@@ -10247,8 +10245,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Cannot create long file names"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QFile

@@ -2298,8 +2298,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No database drivers are available in this Qt configuration"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|else
@@ -2319,8 +2317,6 @@ operator|)
 operator|.
 name|toLocal8Bit
 argument_list|()
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -2659,8 +2655,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test requires MySQL>= 5.0"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 if|if
@@ -3327,8 +3321,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"DBMS does not support whitespaces in identifiers"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -3483,8 +3475,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"DBMS doesn't support dropping columns in ALTER TABLE statement"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -6554,8 +6544,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"SQL server specific test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 comment|// ### TODO: Add the rest of the fields
@@ -6725,8 +6713,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"MS Access specific test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QString
@@ -6923,8 +6909,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"DBMS not transaction capable"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -7162,8 +7146,6 @@ operator|.
 name|lastError
 argument_list|()
 argument_list|)
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 else|else
@@ -7420,8 +7402,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"no 64 bit integer support"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -8224,8 +8204,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"server does not support schemas"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -8464,8 +8442,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"server does not support schemas"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -9078,8 +9054,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test requires PostgreSQL>= 7.3"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -9394,8 +9368,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Driver or database doesn't support setting precision policy"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 comment|// Create a test table with some data
@@ -10217,8 +10189,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"MySQL through ODBC-driver specific test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -10444,8 +10414,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"MS Access specific test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -12120,8 +12088,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"InterBase specific test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -12841,8 +12807,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"MySql has inconsistent behaviour of bit field type across versions."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -13499,8 +13463,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test requires MySQL>= 4.1"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QVERIFY_SQL
@@ -13938,8 +13900,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This test requries xml type support"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QVERIFY_SQL
@@ -14606,8 +14566,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"SQL Server (ODBC) specific test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -15088,8 +15046,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"DBMS doesn't support event notifications"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 comment|// Not subscribed to any events yet
@@ -15551,8 +15507,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"Event support doesn't work on linux"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -15727,8 +15681,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"SQLite3 specific test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -16278,8 +16230,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test requires MySQL>= 4.1"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -16459,8 +16409,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"cache mode is meaningless for :memory: databases"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlDatabase

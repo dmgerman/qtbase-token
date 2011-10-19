@@ -1505,8 +1505,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This platform does not support IPv6 lookups"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|lookupDone
@@ -1809,8 +1807,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"IPv6 lookups are not supported on this platform"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -1837,8 +1833,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"HP-UX 11i does not support IPv6 reverse lookups."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#

@@ -1034,8 +1034,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Requires XRender support"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -3087,8 +3085,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Requires XRender support"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#
@@ -3118,8 +3114,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Test does not work on displays without true color"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -3266,8 +3260,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Requires XRender support"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -4973,8 +4965,6 @@ name|Q_WS_QPA
 name|QSKIP
 argument_list|(
 literal|"QTBUG-20863 grabWindow is broken on most qpa backends"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -5315,8 +5305,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test only valid for raster pixmaps"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 comment|//first get the screen format
@@ -6450,8 +6438,6 @@ name|Q_OS_WINCE
 name|QSKIP
 argument_list|(
 literal|"Test shall be enabled for Windows CE shortly."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -6667,8 +6653,6 @@ name|Q_OS_WINCE
 name|QSKIP
 argument_list|(
 literal|"Test shall be enabled for Windows CE shortly."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|#
@@ -6811,8 +6795,6 @@ name|Q_WS_QPA
 name|QSKIP
 argument_list|(
 literal|"QTBUG-20864 can't determine if threaded pixmaps are available for qpa"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

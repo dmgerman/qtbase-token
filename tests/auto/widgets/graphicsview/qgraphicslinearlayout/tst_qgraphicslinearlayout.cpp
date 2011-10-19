@@ -6185,8 +6185,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This style uses non-uniform spacings (layoutSpacingImplementation() is reimplemented)"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -6480,8 +6478,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This style uses non-uniform spacings (layoutSpacingImplementation() is reimplemented)"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

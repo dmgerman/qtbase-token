@@ -775,8 +775,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No database drivers installed"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 foreach|foreach

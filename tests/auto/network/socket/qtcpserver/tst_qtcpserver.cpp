@@ -1185,8 +1185,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"test server proxy doesn't support ipv6"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QFETCH
@@ -1513,15 +1511,11 @@ name|QNetworkProxy
 operator|::
 name|Socks5Proxy
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"With socks5 only 1 connection is allowed ever"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|//### sees to fail sometimes ... a timing issue with the test on windows
 name|QTcpServer
@@ -1724,15 +1718,11 @@ name|QNetworkProxy
 operator|::
 name|Socks5Proxy
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"With socks5 we can not make hard requirements on the address or port"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|QTcpServer
 name|server
@@ -1921,15 +1911,11 @@ name|QNetworkProxy
 operator|::
 name|Socks5Proxy
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Localhost servers don't work well with SOCKS5"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|QTcpSocket
 name|findLocalIpSocket
@@ -2427,15 +2413,11 @@ name|QNetworkProxy
 operator|::
 name|Socks5Proxy
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"With socks5 this test does not make senans at the momment"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|#
 directive|if
@@ -2638,15 +2620,11 @@ name|QNetworkProxy
 operator|::
 name|Socks5Proxy
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"With socks5 we can not make the socket descripter blocking"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|SeverWithBlockingSockets
 name|server

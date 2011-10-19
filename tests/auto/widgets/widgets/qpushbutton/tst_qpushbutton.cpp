@@ -2663,8 +2663,6 @@ argument_list|(
 name|stylename
 argument_list|)
 argument_list|)
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QApplication

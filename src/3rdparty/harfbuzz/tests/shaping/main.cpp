@@ -2061,8 +2061,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find DejaVu Sans"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -2255,8 +2253,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find DejaVu Sans"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -2583,8 +2579,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find raghu.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -2900,8 +2894,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find mangal.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -3789,8 +3781,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find AkaashNormal.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -4527,8 +4517,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find MuktiNarrow.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -4764,8 +4752,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find LikhanNormal.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -4875,8 +4861,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find lohit.punjabi.1.1.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -5235,8 +5219,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find utkalm.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -5710,8 +5692,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find akruti1.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -6037,8 +6017,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find Pothana2000.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -6345,8 +6323,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find Sampige.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -6570,8 +6546,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find tunga.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -7013,8 +6987,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find AkrutiMal2Normal.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -7212,8 +7184,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find Rachana.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -7431,8 +7401,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find FM-MalithiUW46.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -7694,8 +7662,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find KhmerOS.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -7887,8 +7853,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find DejaVuSans.ttf"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -8006,8 +7970,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"couln't find PENUTURE.TTF"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

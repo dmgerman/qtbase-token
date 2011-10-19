@@ -2191,8 +2191,6 @@ name|dispatcher
 argument_list|)
 argument_list|)
 argument_list|)
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

@@ -4043,8 +4043,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"The screen is too small to run this test case"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 comment|// We are relying on the order here...
@@ -5309,8 +5307,6 @@ argument_list|(
 name|stylename
 argument_list|)
 argument_list|)
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}

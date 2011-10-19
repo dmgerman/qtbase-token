@@ -1515,8 +1515,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QOpenGLFramebufferObject not supported on this platform"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 comment|// No multisample with combined depth/stencil attachment:
@@ -1688,8 +1686,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QOpenGLFramebufferObject not supported on this platform"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 comment|// No multisample with combined depth/stencil attachment:
@@ -1730,8 +1726,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"FBOs missing combined depth~stencil support"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|fbo
@@ -1875,15 +1869,11 @@ operator|::
 name|hasOpenGLFramebufferObjects
 argument_list|()
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"QOpenGLFramebufferObject not supported on this platform"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
-block|}
 name|fbo
 operator|=
 operator|new

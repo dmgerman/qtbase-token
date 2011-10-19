@@ -1422,8 +1422,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No database drivers are available in this Qt configuration"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|else
@@ -1443,8 +1441,6 @@ operator|)
 operator|.
 name|toLocal8Bit
 argument_list|()
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -2390,8 +2386,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Needs someone with more Unicode knowledge than I have to fix"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 if|if
@@ -2464,8 +2458,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test requires MySQL>= 5.0"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QString
@@ -2729,8 +2721,6 @@ else|else
 name|QSKIP
 argument_list|(
 literal|"Database not unicode capable"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -3106,8 +3096,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test requires MySQL>= 5.0"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|q
@@ -3467,8 +3455,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test requires prepared query support"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -4771,8 +4757,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test requires prepared query support"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -5001,8 +4985,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test requires prepared query support"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -5177,8 +5159,6 @@ else|else
 name|QSKIP
 argument_list|(
 literal|"Don't know how to create a stored procedure for this database server, please fix this test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|q
@@ -5281,8 +5261,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"DBMS not BLOB capable"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 comment|//don' make it too big otherwise sybase and mysql will complain
@@ -6508,8 +6486,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Database doesn't support numRowsAffected"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 if|if
@@ -8873,8 +8849,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"TDS specific test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -9524,8 +9498,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"DB unable to store high precision"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|{
@@ -9911,8 +9883,6 @@ comment|// query based transaction is not really possible with Qt
 name|QSKIP
 argument_list|(
 literal|"only tested manually by trained staff"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QFETCH
@@ -9955,8 +9925,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"DBMS not transaction capable"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 comment|// this is the standard SQL
@@ -10204,8 +10172,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"MySQL transaction failed "
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 comment|//non-fatal
@@ -10494,8 +10460,6 @@ comment|// one table.
 name|QSKIP
 argument_list|(
 literal|"DBMS cannot understand standard SQL"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -11099,8 +11063,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Can't transliterate extended unicode to ascii"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 if|if
@@ -11118,8 +11080,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Needs someone with more Unicode knowledge than I have to fix"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|{
@@ -12796,8 +12756,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"SQL Server specific test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -13278,8 +13236,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Database can't do BatchOperations"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -13731,8 +13687,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Database can't do BatchOperations"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -14610,8 +14564,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Database doesn't support lastInsertId"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -14774,8 +14726,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test requires PostgreSQL"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -15161,8 +15111,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test is specific for PostgreSQL, Oracle, MySql and DB2"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|db
@@ -15754,8 +15702,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Sqlite3 specific test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 if|if
@@ -15773,8 +15719,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This test requires a database on the filesystem, not in-memory"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|{
@@ -16034,8 +15978,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"DBMS does not support multiple result sets or batch operations"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -16083,8 +16025,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test requires MySQL>= 5.0"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 enum|enum
@@ -17368,8 +17308,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"DBMS does not support BLOBs or prepared queries"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -18202,8 +18140,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"Db doesn't support \"1100\" as a size for fields"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -19158,8 +19094,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"SQL Server specific test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -20259,8 +20193,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"SQL Server specific test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -20428,8 +20360,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test requires MySQL>= 5.0"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -20685,8 +20615,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test requires MySQL>= 4.1"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -21988,8 +21916,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Sqlite3 specific test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -22068,7 +21994,7 @@ directive|if
 literal|0
 end_if
 begin_endif
-unit|void tst_QSqlQuery::benchmark() {     QFETCH( QString, dbName );     QSqlDatabase db = QSqlDatabase::database( dbName );     CHECK_DATABASE( db );     if ( tst_Databases::getMySqlVersion( db ).section( QChar('.'), 0, 0 ).toInt()<5 )         QSKIP( "Test requires MySQL>= 5.0", SkipSingle );      QSqlQuery q(db);     const QString tableName(qTableName("benchmark", __FILE__));      tst_Databases::safeDropTable( db, tableName );      QVERIFY_SQL(q, exec("CREATE TABLE "+tableName+"(\n"                         "MainKey INT NOT NULL,\n"                         "OtherTextCol VARCHAR(45) NOT NULL,\n"                         "PRIMARY KEY(`MainKey`))"));      int i=1;      QBENCHMARK {         QVERIFY_SQL(q, exec("INSERT INTO "+tableName+" VALUES("+QString::number(i)+", \"Value"+QString::number(i)+"\")"));         i++;     }      tst_Databases::safeDropTable( db, tableName ); }
+unit|void tst_QSqlQuery::benchmark() {     QFETCH( QString, dbName );     QSqlDatabase db = QSqlDatabase::database( dbName );     CHECK_DATABASE( db );     if ( tst_Databases::getMySqlVersion( db ).section( QChar('.'), 0, 0 ).toInt()<5 )         QSKIP( "Test requires MySQL>= 5.0");      QSqlQuery q(db);     const QString tableName(qTableName("benchmark", __FILE__));      tst_Databases::safeDropTable( db, tableName );      QVERIFY_SQL(q, exec("CREATE TABLE "+tableName+"(\n"                         "MainKey INT NOT NULL,\n"                         "OtherTextCol VARCHAR(45) NOT NULL,\n"                         "PRIMARY KEY(`MainKey`))"));      int i=1;      QBENCHMARK {         QVERIFY_SQL(q, exec("INSERT INTO "+tableName+" VALUES("+QString::number(i)+", \"Value"+QString::number(i)+"\")"));         i++;     }      tst_Databases::safeDropTable( db, tableName ); }
 endif|#
 directive|endif
 end_endif

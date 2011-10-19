@@ -448,8 +448,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QGL not supported on this platform"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QGLFormat
@@ -4153,8 +4151,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QGL not supported on this platform"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QString
@@ -5728,8 +5724,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QGL not supported on this platform"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QFETCH
@@ -5849,8 +5843,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Platform does not support requested format"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|widget
@@ -5935,8 +5927,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QGLPixelBuffer not supported on this platform"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QGLPixelBuffer
@@ -6744,8 +6734,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QGLFramebufferObject not supported on this platform"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QGLWidget
@@ -6888,8 +6876,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QGLFramebufferObject not supported on this platform"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QGLWidget
@@ -6946,8 +6932,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"FBOs missing combined depth~stencil support"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -7043,8 +7027,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QGLFramebufferObject not supported on this platform"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QGLWidget
@@ -7158,8 +7140,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"FBOs missing combined depth~stencil support"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -7221,8 +7201,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Interleaved GL rendering requires OpenGL 2.0 or higher"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QPainterPath
@@ -8281,8 +8259,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QGLFramebufferObject not supported on this platform"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|FBOUseInGLWidget
@@ -8863,8 +8839,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"renderPixmap() not yet supported under EGL on your platform"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -12032,8 +12006,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QGLFramebufferObject not supported on this platform"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QGLWidget
@@ -12357,8 +12329,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"Context sharing is not supported"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -15024,8 +14994,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QGLFramebufferObject not supported on this platform"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QGLWidget
@@ -15145,8 +15113,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"QGL not supported on this system."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

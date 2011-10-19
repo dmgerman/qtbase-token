@@ -12757,15 +12757,11 @@ argument_list|(
 name|double
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Skipped due to rounding errors"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Not here
 name|QVERIFY
 argument_list|(
@@ -16179,8 +16175,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"The Platform does not have regular cursor support"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QGraphicsScene
@@ -16406,8 +16400,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"The Platform does not have regular cursor support"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QGraphicsScene
@@ -21021,8 +21013,6 @@ directive|else
 name|QSKIP
 argument_list|(
 literal|"No Motif style compiled."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#

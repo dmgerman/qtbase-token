@@ -2437,15 +2437,11 @@ argument_list|)
 operator|!=
 literal|0
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"lrelease is missing or broken"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 name|QVERIFY
 argument_list|(
 operator|!
@@ -2703,8 +2699,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Not tested on irix-g++"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -2716,8 +2710,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Not tested on irix-g++"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -2729,8 +2721,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Not tested on irix-g++"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -2742,8 +2732,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Not tested on irix-g++"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -2755,8 +2743,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Not tested on irix-g++"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

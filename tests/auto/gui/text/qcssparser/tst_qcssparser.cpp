@@ -11573,9 +11573,7 @@ literal|"Times New Roman"
 condition|)
 name|QSKIP
 argument_list|(
-literal|"'Times New Roman' font not found "
-argument_list|,
-name|SkipAll
+literal|"'Times New Roman' font not found"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -11928,8 +11926,6 @@ comment|// loaded from disk
 name|QSKIP
 argument_list|(
 literal|"QTBUG-20986 may fail on qpa"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#

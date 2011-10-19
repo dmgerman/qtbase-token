@@ -88,8 +88,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Arthur not tested on this machine"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QVERIFY

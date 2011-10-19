@@ -2234,8 +2234,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This test only works for qreal=double, otherwise ends in rounding errors"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -2868,8 +2866,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This test only works for qreal=double, otherwise ends in rounding errors"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|int
@@ -8286,8 +8282,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This test only works for qreal=double, otherwise ends in rounding errors"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

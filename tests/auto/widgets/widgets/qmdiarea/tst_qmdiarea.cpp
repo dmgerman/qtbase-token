@@ -2658,8 +2658,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Platform is auto maximizing, so no showMinimized()"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 comment|// Check that we only emit _one_ signal and the active window
@@ -2731,8 +2729,6 @@ name|Q_OS_WINCE
 name|QSKIP
 argument_list|(
 literal|"Not fixed yet. See Task 197453"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -10800,8 +10796,6 @@ name|Q_OS_WINCE
 name|QSKIP
 argument_list|(
 literal|"Not fixed yet! See task 197453"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -16798,8 +16792,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QGL not supported on this platform"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QMdiArea
@@ -16875,8 +16867,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QGL is broken, cannot continue test"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 comment|// The viewport and all the sub-windows must be native.

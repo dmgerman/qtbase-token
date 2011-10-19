@@ -35085,8 +35085,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"clib sprintf doesn't fill with 0's on this platform"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -36378,11 +36376,8 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"Please install the proper locale on this machine to test properly"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 endif|#

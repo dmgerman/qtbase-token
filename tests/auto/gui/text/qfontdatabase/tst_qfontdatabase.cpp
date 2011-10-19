@@ -514,8 +514,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Font not installed"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -629,8 +627,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Font not installed"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QFont
@@ -1009,8 +1005,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Skip the test since app fonts are not supported on this system"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#

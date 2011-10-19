@@ -160,7 +160,7 @@ parameter_list|,
 name|driver
 parameter_list|)
 define|\
-value|if (!db.driverName().startsWith(driver)) { QSKIP(driver " specific test", SkipSingle); }
+value|if (!db.driverName().startsWith(driver)) { QSKIP(driver " specific test"); }
 end_define
 begin_comment
 comment|// ### use QSystem::hostName if it is integrated in qtest/main

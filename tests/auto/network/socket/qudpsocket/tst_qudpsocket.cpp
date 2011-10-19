@@ -1038,15 +1038,11 @@ name|QNetworkProxy
 operator|::
 name|Socks5Proxy
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"With socks5 Broadcast is not supported."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 specifier|const
 name|char
@@ -1154,8 +1150,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No interface can broadcast"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 for|for
@@ -2539,8 +2533,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"test server SOCKS proxy doesn't support IPv6"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QUdpSocket
@@ -3435,15 +3427,11 @@ literal|'\0'
 expr_stmt|;
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"does not have the 1st datagram"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|server
@@ -3497,15 +3485,11 @@ literal|'\0'
 expr_stmt|;
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"does not have the 2nd datagram"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|server
@@ -3554,15 +3538,11 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"does not have the 3rd datagram"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function
@@ -3777,8 +3757,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"HP-UX 11.11 on hai (PA-RISC 64) truncates too long datagrams."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#
@@ -3915,7 +3893,6 @@ argument_list|(
 literal|5000
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 name|QString
@@ -3935,11 +3912,8 @@ argument_list|()
 operator|.
 name|data
 argument_list|()
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
-block|}
 name|QCOMPARE
 argument_list|(
 name|server
@@ -4280,15 +4254,11 @@ name|QNetworkProxy
 operator|::
 name|Socks5Proxy
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"With socks5 explicit port binding is not supported."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|QUdpSocket
 name|socket
@@ -4925,8 +4895,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Connected-mode UDP sockets and their behaviour are erratic"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QFETCH
@@ -7433,15 +7401,11 @@ if|if
 condition|(
 name|setProxy
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"UDP Multicast does not work with proxies"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 name|QUdpSocket
 name|udpSocket
 decl_stmt|;

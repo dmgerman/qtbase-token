@@ -4652,8 +4652,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Running this test as root doesn't work, since file perms do not bother him"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|#
@@ -19356,8 +19354,6 @@ directive|else
 name|QSKIP
 argument_list|(
 literal|"Please write a fileName() test for the other platforms"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

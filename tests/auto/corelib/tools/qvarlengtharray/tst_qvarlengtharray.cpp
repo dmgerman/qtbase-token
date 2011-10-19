@@ -1106,8 +1106,6 @@ block|}
 name|QSKIP
 argument_list|(
 literal|"This test causes the machine to crash when allocating too much memory."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|{

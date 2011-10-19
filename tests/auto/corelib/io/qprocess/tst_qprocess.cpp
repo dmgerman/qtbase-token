@@ -564,8 +564,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This test requires QProcess support"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -3476,8 +3474,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This test opens a crash dialog on Windows"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#

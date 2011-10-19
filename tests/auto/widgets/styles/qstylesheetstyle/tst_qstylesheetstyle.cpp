@@ -4871,15 +4871,11 @@ argument_list|()
 operator|<
 literal|24
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test doesn't support color depth< 24"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 name|QVERIFY2
 argument_list|(
 name|testForColors
@@ -5018,8 +5014,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No mouse Cursor on this platform"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QList
@@ -5872,15 +5866,11 @@ argument_list|()
 operator|<
 literal|24
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test doesn't support color depth< 24"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 name|QVERIFY2
 argument_list|(
 name|testForColors
@@ -9285,15 +9275,11 @@ argument_list|()
 operator|<
 literal|24
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test doesn't support color depth< 24"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 name|QVERIFY2
 argument_list|(
 name|testForColors
@@ -9755,15 +9741,11 @@ argument_list|()
 operator|<
 literal|24
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test doesn't support color depth< 24"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 name|QVERIFY2
 argument_list|(
 name|testForColors

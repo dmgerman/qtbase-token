@@ -319,8 +319,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Buffers are not supported on this platform"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 comment|// Should now have a buffer id.
@@ -1013,8 +1011,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"Context sharing is not supported on this platform"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -1038,8 +1034,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Buffers are not supported on this platform"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QVERIFY

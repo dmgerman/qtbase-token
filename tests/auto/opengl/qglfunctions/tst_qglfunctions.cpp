@@ -326,8 +326,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Could not create a GL context"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|glw
@@ -1123,8 +1121,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Could not create a GL context"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|glw
@@ -1152,8 +1148,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Multitexture functions are not supported"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|funcs
@@ -1239,8 +1233,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Could not create a GL context"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|glw
@@ -1268,8 +1260,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"glBlendColor() is not supported"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|funcs

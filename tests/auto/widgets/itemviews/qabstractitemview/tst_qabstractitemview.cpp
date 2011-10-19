@@ -4404,8 +4404,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Some window managers don't handle focus that well"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QTRY_COMPARE
@@ -4477,7 +4475,7 @@ directive|ifdef
 name|Q_WS_QWS
 end_ifdef
 begin_endif
-unit|QSKIP("Embedded drag-and-drop not good enough yet...", SkipAll);
+unit|QSKIP("Embedded drag-and-drop not good enough yet...");
 endif|#
 directive|endif
 end_endif
@@ -4509,7 +4507,7 @@ directive|ifdef
 name|Q_WS_QWS
 end_ifdef
 begin_endif
-unit|QSKIP("Embedded drag-and-drop not good enough yet...", SkipAll);
+unit|QSKIP("Embedded drag-and-drop not good enough yet...");
 endif|#
 directive|endif
 end_endif
@@ -6371,8 +6369,6 @@ name|Q_OS_WINCE_WM
 name|QSKIP
 argument_list|(
 literal|"On Windows Mobile the mouse tracking is unavailable at the moment"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

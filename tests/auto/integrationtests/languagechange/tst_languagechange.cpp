@@ -669,8 +669,6 @@ name|Q_WS_MAC
 name|QSKIP
 argument_list|(
 literal|"The native color dialog is used on Mac OS"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 else|#
@@ -696,8 +694,6 @@ name|Q_WS_MAC
 name|QSKIP
 argument_list|(
 literal|"The native file dialog is used on Mac OS"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#

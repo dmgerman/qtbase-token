@@ -1285,8 +1285,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Uncontrolled animations don't handle looping"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

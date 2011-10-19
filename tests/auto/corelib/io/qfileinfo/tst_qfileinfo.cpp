@@ -3402,8 +3402,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Symbolic links aren't supported by FS"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -3462,8 +3460,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Symbolic links aren't supported by FS"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QString
@@ -3496,8 +3492,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Not enough privilages to create Symbolic links"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -5872,8 +5866,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This Test doesn't work on NFS"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -7822,8 +7814,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"symbolic links not supported by operating system"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -8103,8 +8093,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"link not supported by FS or insufficient privilege"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -9948,8 +9936,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Can't retrieve the user name"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QString

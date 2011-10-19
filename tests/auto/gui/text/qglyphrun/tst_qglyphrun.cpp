@@ -238,15 +238,11 @@ condition|(
 operator|!
 name|m_testFont_ok
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test font is not working correctly"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_function

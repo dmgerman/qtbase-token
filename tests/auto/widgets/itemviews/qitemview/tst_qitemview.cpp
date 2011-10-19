@@ -2864,8 +2864,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This test needs to be re-thought out, it takes too long and doesn't really catch the problem."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QFETCH

@@ -273,8 +273,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This test requires printing support"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -3432,8 +3430,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Current page size is not supported on this printer"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 return|return;
@@ -3645,8 +3641,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No printers available."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QPrinter

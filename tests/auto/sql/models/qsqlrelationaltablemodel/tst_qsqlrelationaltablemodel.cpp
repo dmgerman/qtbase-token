@@ -239,8 +239,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No database drivers are available in this Qt configuration"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -9896,8 +9894,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"The casing test for this database is irrelevant since this database does not treat different cases as separate entities"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QSqlQuery
@@ -9956,8 +9952,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"The casing test for this database is irrelevant since this database does not treat different cases as separate entities"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QVERIFY_SQL
@@ -12809,8 +12803,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"White space test irrelevant for driver"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QSqlRelationalTableModel
@@ -13591,8 +13583,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Postgresql specific test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlRelationalTableModel

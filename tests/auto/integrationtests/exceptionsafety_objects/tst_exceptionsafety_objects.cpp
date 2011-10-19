@@ -147,8 +147,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This test requires exception support"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -1453,8 +1451,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This type of object is not currently strongly exception safe"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QFETCH
@@ -2200,8 +2196,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This type of widget is not currently strongly exception safe"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QFETCH
@@ -3606,8 +3600,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QVector::insert is currently not strongly exception safe"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|doOOMTest

@@ -79,7 +79,7 @@ define|#
 directive|define
 name|Q_CHECK_PAINTEVENTS
 define|\
-value|if (::SwitchDesktop(::GetThreadDesktop(::GetCurrentThreadId())) == 0) \         QSKIP("The Graphics View doesn't get the paint events", SkipSingle);
+value|if (::SwitchDesktop(::GetThreadDesktop(::GetCurrentThreadId())) == 0) \         QSKIP("The Graphics View doesn't get the paint events");
 end_define
 begin_else
 else|#

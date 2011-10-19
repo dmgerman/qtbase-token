@@ -1040,8 +1040,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This is Windows only benchmark."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2770,8 +2768,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This is Windows only benchmark."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#

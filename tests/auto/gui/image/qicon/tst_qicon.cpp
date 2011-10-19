@@ -1266,8 +1266,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"SVG support is not available"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -2904,8 +2902,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"SVG support is not available"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

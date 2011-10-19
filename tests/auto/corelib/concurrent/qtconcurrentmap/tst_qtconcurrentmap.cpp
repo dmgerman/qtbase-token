@@ -212,8 +212,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This test is skipped for gcc 3.x"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

@@ -1181,8 +1181,6 @@ comment|// ### This is only to allow us to generate a test report for now.
 name|QSKIP
 argument_list|(
 literal|"This test shuts down the window manager on HP-UX."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

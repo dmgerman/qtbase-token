@@ -8147,8 +8147,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Not tested with timezone other than Central European (CET/CST)"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -8247,8 +8245,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Not tested with timezone other than Central European (CET/CST)"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -8347,8 +8343,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Not tested with timezone other than Central European (CET/CST)"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -9732,8 +9726,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Failed to get the dates within 1 ms of each other"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 comment|// seconds and milliseconds should be the same:
@@ -10241,8 +10233,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Not tested with timezone other than Central European (CET/CEST)"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QDateTime

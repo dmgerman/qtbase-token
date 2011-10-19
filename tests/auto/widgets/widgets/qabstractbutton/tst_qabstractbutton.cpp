@@ -2616,8 +2616,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Key navigation in QAbstractButton will be fixed/improved as part of task 194373"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QWidget

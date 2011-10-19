@@ -5207,8 +5207,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"localhost connections are immediate, test case is invalid"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QFETCH
@@ -5783,15 +5781,11 @@ name|QAbstractSocket
 operator|::
 name|ConnectedState
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"localhost connections are immediate, test case is invalid"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
-block|}
 name|QFETCH
 argument_list|(
 name|bool
@@ -11820,8 +11814,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"TODO: setup DNS in the new network"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QFETCH_GLOBAL
@@ -11850,8 +11842,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This test takes too long if we also add the proxies."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|qDebug

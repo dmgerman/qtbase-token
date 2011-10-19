@@ -4156,8 +4156,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Broken compiler"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QSharedPointer
@@ -9967,8 +9965,6 @@ name|Q_CC_MINGW
 name|QSKIP
 argument_list|(
 literal|"The maintainer of QSharedPointer: 'We don't know what the problem is so skip the tests.'"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

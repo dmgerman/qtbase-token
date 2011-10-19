@@ -1506,8 +1506,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This test takes too long if we test with proxies too"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QString
@@ -4764,15 +4762,11 @@ name|QNetworkProxy
 operator|::
 name|Socks5Proxy
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"With socks5 the put() test takes too long time on Windows."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 endif|#
 directive|endif
@@ -13554,8 +13548,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Task 127050&& 113966"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QFtp

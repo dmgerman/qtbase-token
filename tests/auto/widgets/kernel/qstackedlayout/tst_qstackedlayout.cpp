@@ -1382,8 +1382,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Can't get focus"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QTest

@@ -8826,15 +8826,11 @@ operator|!
 name|IsValidCEPlatform
 argument_list|()
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Tests do not work on Mobile platforms due to native menus"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 endif|#
 directive|endif
 name|QCOMPARE
@@ -22154,15 +22150,11 @@ operator|!
 name|IsValidCEPlatform
 argument_list|()
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test skipped on Windows Mobile test hardware"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 endif|#
 directive|endif
 block|{

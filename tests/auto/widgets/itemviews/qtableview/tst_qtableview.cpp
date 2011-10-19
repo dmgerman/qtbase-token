@@ -20055,8 +20055,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This test requires full keyboard control to be enabled."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 comment|// QTableView enables tabKeyNavigation by default, but you should be able

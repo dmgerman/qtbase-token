@@ -1492,8 +1492,6 @@ decl_stmt|;
 name|QSKIP
 argument_list|(
 literal|"To be fixed on Mac (font size below not large enough) and Linux QWS (probably too large for the screen)."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|tabBar

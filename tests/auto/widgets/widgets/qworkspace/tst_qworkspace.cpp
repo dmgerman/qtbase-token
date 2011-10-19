@@ -1680,8 +1680,6 @@ name|Q_OS_WINCE
 name|QSKIP
 argument_list|(
 literal|"Test fails on Windows CE due to QWorkspace state handling"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

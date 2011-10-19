@@ -1284,8 +1284,6 @@ directive|else
 name|QSKIP
 argument_list|(
 literal|"Not tested with Qt versions since the operator is broken.."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

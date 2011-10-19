@@ -9901,15 +9901,11 @@ argument_list|(
 literal|"en_US"
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"This test only tests for en_US"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 name|QTime
 name|invalidTime
 decl_stmt|;

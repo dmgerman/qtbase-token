@@ -2490,8 +2490,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This test doesn't make sense for pixmap-based styles"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

@@ -446,8 +446,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QNetworkAccessManager tests disabled"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -3433,8 +3431,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Localhost-only test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -4066,8 +4062,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Localhost-only test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}

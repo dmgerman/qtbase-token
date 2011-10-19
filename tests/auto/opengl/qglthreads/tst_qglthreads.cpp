@@ -376,8 +376,6 @@ name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"OpenGL threading tests are currently disabled on mac as they were causing reboots"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -843,8 +841,6 @@ name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"OpenGL threading tests are currently disabled on mac as they were causing reboots"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1652,8 +1648,6 @@ name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"OpenGL threading tests are currently disabled on Mac as they were causing reboots"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2711,8 +2705,6 @@ name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"OpenGL threading tests are currently disabled on Mac as they were causing reboots"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2748,8 +2740,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"The OpenGL based threaded QPainter tests requires OpenGL/ES 2.0."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -2816,8 +2806,6 @@ name|Q_WS_X11
 name|QSKIP
 argument_list|(
 literal|"Drawing text in threads onto X11 drawables currently crashes on some X11 servers."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2885,8 +2873,6 @@ name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"OpenGL threading tests are currently disabled on Mac as they were causing reboots"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2922,11 +2908,8 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"The OpenGL based threaded QPainter tests requires OpenGL/ES 2.0."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 if|if
 condition|(
@@ -2940,11 +2923,8 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This system doesn't support pbuffers."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 name|PaintThreadManager
 argument_list|<
@@ -3009,8 +2989,6 @@ name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"OpenGL threading tests are currently disabled on Mac as they were causing reboots"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -3046,11 +3024,8 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"The OpenGL based threaded QPainter tests requires OpenGL/ES 2.0."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 if|if
 condition|(
@@ -3064,11 +3039,8 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This system doesn't support framebuffer objects."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 name|PaintThreadManager
 argument_list|<

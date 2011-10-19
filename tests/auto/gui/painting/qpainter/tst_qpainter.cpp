@@ -1492,8 +1492,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"Needs fixing..."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QWidget
@@ -2450,8 +2448,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"Needs fixing..."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|{
@@ -2727,16 +2723,11 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"No printers installed, skipping bounding rect test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
-break|break;
-block|}
 name|printer
 operator|.
 name|setOutputFileName
@@ -3197,16 +3188,11 @@ argument_list|()
 operator|<
 literal|24
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test only works on 32 bit displays"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QTest
 operator|::
 name|addColumn
@@ -3696,8 +3682,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Requires XRender support"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -10609,8 +10593,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test only works for qreal==double"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QImage
@@ -10903,8 +10885,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"The Mac paint engine is off-by-one on certain rect sizes"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#
@@ -20095,7 +20075,7 @@ parameter_list|(
 name|x
 parameter_list|)
 define|\
-value|void tst_QPainter::x() \ { \     QSKIP("Floating point exception checking (fenv.h) not available", SkipAll); \ }
+value|void tst_QPainter::x() \ { \     QSKIP("Floating point exception checking (fenv.h) not available"); \ }
 end_define
 begin_endif
 endif|#
@@ -22023,11 +22003,8 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"currently broken..."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-return|return;
 name|QImage
 name|dst
 argument_list|(
@@ -31136,8 +31113,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No threaded font rendering"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QImage

@@ -2683,8 +2683,6 @@ operator|)
 name|QSKIP
 argument_list|(
 literal|"Regression caused by QHOstInfo change 294548, see task 202231."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

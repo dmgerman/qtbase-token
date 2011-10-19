@@ -359,8 +359,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"This fails due to a bug in the Intel Compiler"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|#

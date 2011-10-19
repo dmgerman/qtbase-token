@@ -2201,8 +2201,6 @@ name|QSKIP
 argument_list|(
 literal|"Computer is currently set up to NOT tab to all widgets,"
 literal|" this test assumes you can tab to all widgets"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -4029,8 +4027,6 @@ comment|//the style prevents the menus from getting columns
 name|QSKIP
 argument_list|(
 literal|"the style doesn't support multiple columns, it makes the menu scrollable"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -4693,8 +4689,6 @@ name|Q_WS_QPA
 name|QSKIP
 argument_list|(
 literal|"QTBUG-20753 QCursor::setPos() / QTest::mouseMove() doesn't work on qpa"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -5158,8 +5152,6 @@ comment|// Your best bet is to run this test _without_ a WM.
 name|QSKIP
 argument_list|(
 literal|"Your window manager won't allow a window against the bottom of the screen"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

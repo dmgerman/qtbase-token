@@ -1306,8 +1306,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test ignored: the local-loop async call is already finished"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QDBusPendingCallWatcher

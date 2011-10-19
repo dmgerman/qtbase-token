@@ -1810,8 +1810,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"strftime() failed"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|originalLocaleEncodedTimeString
@@ -1853,8 +1851,6 @@ directive|else
 name|QSKIP
 argument_list|(
 literal|"This test is not implemented on Windows"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -1912,8 +1908,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Could not find a codec that is not already the codecForLocale()"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

@@ -1674,8 +1674,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"not working yet, see QTBUG-15221"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QFETCH

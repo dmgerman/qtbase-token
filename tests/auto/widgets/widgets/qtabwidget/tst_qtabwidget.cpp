@@ -63,7 +63,7 @@ define|#
 directive|define
 name|Q_CHECK_PAINTEVENTS
 define|\
-value|if (::SwitchDesktop(::GetThreadDesktop(::GetCurrentThreadId())) == 0) \         QSKIP("desktop is not visible, this test would fail", SkipSingle);
+value|if (::SwitchDesktop(::GetThreadDesktop(::GetCurrentThreadId())) == 0) \         QSKIP("desktop is not visible, this test would fail");
 end_define
 begin_else
 else|#

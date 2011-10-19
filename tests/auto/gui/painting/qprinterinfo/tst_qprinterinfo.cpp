@@ -167,8 +167,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This test requires printing support"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -845,8 +843,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Test is hardcoded to \"fantomet\" and \"bobo\" on Windows"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -1085,8 +1081,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Test is hardcoded to \"fantomet\" and \"bobo\" on Windows"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -1308,8 +1302,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"PaperSize feature doesn't work on Windows, fails on Mac, and is unstable on Linux"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 comment|// This test is based on common printers found at the Oslo

@@ -1514,8 +1514,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Could not test: qputenv did not do its job"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QProcessEnvironment

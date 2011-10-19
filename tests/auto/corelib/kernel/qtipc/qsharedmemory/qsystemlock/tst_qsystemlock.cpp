@@ -759,8 +759,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This test takes about 15 minutes and needs to be trimmed down before we can re-enable it"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QFETCH

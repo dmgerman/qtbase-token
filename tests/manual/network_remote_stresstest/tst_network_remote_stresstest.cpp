@@ -533,8 +533,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"QNetworkAccessManager tests disabled"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

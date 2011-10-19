@@ -3226,8 +3226,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This test requires to have an etc directory under /"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

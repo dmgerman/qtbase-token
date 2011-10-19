@@ -1827,8 +1827,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"QTBUG-19070 Mac CoreWlan plugin is broken"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|#

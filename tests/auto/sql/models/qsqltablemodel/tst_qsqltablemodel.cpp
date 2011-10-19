@@ -1144,8 +1144,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No database drivers are available in this Qt configuration"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|else
@@ -1165,8 +1163,6 @@ operator|)
 operator|.
 name|toLocal8Bit
 argument_list|()
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -1207,8 +1203,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No database drivers are available in this Qt configuration"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|else
@@ -1228,8 +1222,6 @@ operator|)
 operator|.
 name|toLocal8Bit
 argument_list|()
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -9292,8 +9284,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"DBMS doesn't support whitespaces in identifiers"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QString
@@ -11247,8 +11237,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|":memory: database, skipping test"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSqlDatabase

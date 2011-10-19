@@ -13344,15 +13344,11 @@ argument_list|)
 operator|<=
 literal|4
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"qreal has too little precision, result will be wrong"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 name|QGraphicsAnchorLayout
 modifier|*
 name|l

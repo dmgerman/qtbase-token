@@ -5667,8 +5667,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"Ambiguous test..."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 comment|// proxy should translate the move events to what the widget would expect
@@ -7699,8 +7697,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"Broken test"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|SubQGraphicsProxyWidget
@@ -15161,8 +15157,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Does not work due to SH_Combobox_Popup"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -15542,8 +15536,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Does not work due to SH_Combobox_Popup"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QGraphicsProxyWidget
@@ -16850,8 +16842,6 @@ name|Q_OS_IRIX
 name|QSKIP
 argument_list|(
 literal|"This test is not reliable on IRIX."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -23181,8 +23171,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"Test case unstable on this platform"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

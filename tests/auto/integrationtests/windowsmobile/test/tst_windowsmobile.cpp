@@ -810,8 +810,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This test is only for Windows Mobile"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QProcess
@@ -888,8 +886,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This test is only for Windows Mobile"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QMenuBar

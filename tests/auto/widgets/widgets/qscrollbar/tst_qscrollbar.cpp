@@ -250,8 +250,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"SC_ScrollBarAddLine not valid"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QTest

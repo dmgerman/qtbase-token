@@ -692,15 +692,11 @@ condition|(
 operator|!
 name|haveTestFonts
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test fonts are not available"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|{
 if|if
 condition|(
@@ -1014,15 +1010,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find Raghindi"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|{
 if|if
@@ -1335,15 +1327,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find mangal"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -1369,15 +1357,11 @@ condition|(
 operator|!
 name|haveTestFonts
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test fonts are not available"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|{
 if|if
 condition|(
@@ -2166,15 +2150,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find Akaash"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|{
 if|if
@@ -2866,15 +2846,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find Mukti"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|{
 if|if
@@ -3047,15 +3023,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find Likhan"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -3081,15 +3053,11 @@ condition|(
 operator|!
 name|haveTestFonts
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test fonts are not available"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|{
 if|if
 condition|(
@@ -3185,15 +3153,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find Lohit Punjabi"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -3219,15 +3183,11 @@ condition|(
 operator|!
 name|haveTestFonts
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test fonts are not available"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|{
 if|if
 condition|(
@@ -3471,15 +3431,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find utkal"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -3505,15 +3461,11 @@ condition|(
 operator|!
 name|haveTestFonts
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test fonts are not available"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|{
 if|if
 condition|(
@@ -4039,15 +3991,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find AkrutiTml1"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -4073,15 +4021,11 @@ condition|(
 operator|!
 name|haveTestFonts
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test fonts are not available"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|{
 if|if
 condition|(
@@ -4393,15 +4337,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find Pothana2000"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -4691,15 +4631,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find Sampige"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|{
 if|if
@@ -4920,15 +4856,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find Tunga"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -4954,15 +4886,11 @@ condition|(
 operator|!
 name|haveTestFonts
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test fonts are not available"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|{
 if|if
 condition|(
@@ -5364,15 +5292,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find AkrutiMal2"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|{
 if|if
@@ -5567,15 +5491,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find Rachana"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -5601,15 +5521,11 @@ condition|(
 operator|!
 name|haveTestFonts
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test fonts are not available"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|{
 if|if
 condition|(
@@ -5813,15 +5729,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find Malithi Web"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -5847,15 +5759,11 @@ condition|(
 operator|!
 name|haveTestFonts
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test fonts are not available"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|{
 if|if
 condition|(
@@ -6103,15 +6011,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find Khmer OS"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -6137,15 +6041,11 @@ condition|(
 operator|!
 name|haveTestFonts
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test fonts are not available"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|{
 if|if
 condition|(
@@ -6249,15 +6149,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find Penuturesu"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -6659,15 +6555,11 @@ condition|(
 operator|!
 name|haveTestFonts
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Test fonts are not available"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|{
 if|if
 condition|(
@@ -6769,15 +6661,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find DejaVu Sans"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|{
 if|if
@@ -6968,15 +6856,11 @@ expr_stmt|;
 block|}
 block|}
 else|else
-block|{
 name|QSKIP
 argument_list|(
 literal|"couldn't find SBL_grk"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
@@ -7272,16 +7156,11 @@ argument_list|(
 literal|"DejaVu Sans Mono"
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Required font (DejaVu Sans Mono) doesn't exist, skip test."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
 name|QString
 name|s
 decl_stmt|;

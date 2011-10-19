@@ -5367,8 +5367,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Could not find smbclient (from Samba), cannot continue testing"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 if|if
@@ -5393,8 +5391,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"smbclient isn't working, cannot continue testing"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|smbclient
@@ -5452,8 +5448,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"smbclient crashed"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QVERIFY2
@@ -5594,8 +5588,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"smbclient crashed"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QVERIFY2

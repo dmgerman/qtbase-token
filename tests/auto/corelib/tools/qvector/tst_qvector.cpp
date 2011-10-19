@@ -3841,8 +3841,6 @@ decl_stmt|;
 name|QSKIP
 argument_list|(
 literal|"This test crashes on many of our machines."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|a

@@ -7911,8 +7911,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"TODO: solve wildcard problem"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 if|if

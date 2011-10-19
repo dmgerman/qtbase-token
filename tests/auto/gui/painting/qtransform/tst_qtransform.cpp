@@ -5148,8 +5148,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"precision error if qreal is not double"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QFETCH

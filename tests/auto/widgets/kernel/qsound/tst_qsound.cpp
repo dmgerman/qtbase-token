@@ -69,8 +69,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"QSound is not implemented on Lighthouse"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|#
@@ -141,8 +139,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Test disabled -- only for manual purposes"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 if|#

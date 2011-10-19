@@ -107,8 +107,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This test is skipped for gcc 3.x"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -9217,8 +9215,6 @@ literal|1600
 name|QSKIP
 argument_list|(
 literal|"Test does not compile with MSVC 2010 (see QTBUG-18996)"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|#

@@ -109,8 +109,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"This test is temporarily skipped until it is fixed for Qt5"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -638,8 +636,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test is unreliable with composition manager"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -885,8 +881,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"task 176755"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

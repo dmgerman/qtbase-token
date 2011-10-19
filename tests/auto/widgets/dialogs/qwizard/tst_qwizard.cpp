@@ -7266,8 +7266,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"Skipped because of limited resources and potential crash. (Task: 166824)"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -7799,8 +7797,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"Skipped because of limited resources and potential crash. (Task: 166824)"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

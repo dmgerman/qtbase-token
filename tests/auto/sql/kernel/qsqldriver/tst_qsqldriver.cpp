@@ -105,8 +105,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No database drivers are available in this Qt configuration"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

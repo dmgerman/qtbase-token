@@ -298,8 +298,6 @@ operator|.
 name|errorMessage
 argument_list|()
 argument_list|)
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 if|#
@@ -380,8 +378,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"Aborted due to errors."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -517,8 +513,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Communication with baseline image server failed."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -564,8 +558,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Communication with baseline image server failed."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -611,8 +603,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Communication with baseline image server failed."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -671,8 +661,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Communication with baseline image server failed."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -786,8 +774,6 @@ else|else
 name|QSKIP
 argument_list|(
 literal|"System under test does not meet preconditions for GL testing. Skipping."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -935,8 +921,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Blacklisted by baseline server."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|ImageItem
@@ -984,8 +968,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Aborted due to errors."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -998,8 +980,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"Too many errors, skipping rest of testfunction."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -1050,8 +1030,6 @@ expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"Baseline not found; new baseline created."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}

@@ -1286,8 +1286,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No database drivers are available in this Qt configuration"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|else
@@ -1307,8 +1305,6 @@ operator|)
 operator|.
 name|toLocal8Bit
 argument_list|()
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -1798,8 +1794,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"does not work with in-memory databases"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QtTestSqlThread
@@ -1935,8 +1929,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"does not work with in-memory databases"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -1952,8 +1944,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"does not work with MS Access databases"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|SqlProducer
@@ -2099,8 +2089,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"does not work with in-memory databases"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QObject
@@ -2230,8 +2218,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"does not work with in-memory databases"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QObject
@@ -2407,8 +2393,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"does not work with in-memory databases"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QObject
@@ -2584,8 +2568,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"does not work with in-memory databases"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 comment|// start and commit a transaction

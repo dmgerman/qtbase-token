@@ -4216,8 +4216,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Custom brushes don't seem to be supported with QDataStream"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|STREAM_IMPL

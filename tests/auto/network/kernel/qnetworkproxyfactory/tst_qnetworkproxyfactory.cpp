@@ -1004,8 +1004,6 @@ comment|//If the network fails to start, QNAM won't ask the factory for proxies 
 name|QSKIP
 argument_list|(
 literal|"network configuration didn't start"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}

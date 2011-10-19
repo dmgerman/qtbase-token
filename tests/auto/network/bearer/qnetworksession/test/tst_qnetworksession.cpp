@@ -1141,15 +1141,11 @@ operator|.
 name|isValid
 argument_list|()
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"No suitable configurations, skipping this round of repeated open-close test."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
-block|}
 name|qDebug
 argument_list|()
 operator|<<
@@ -1182,15 +1178,11 @@ operator|&
 name|session
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Unable to open/close session, skipping this round of close() bombing."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
-block|}
 name|qDebug
 argument_list|()
 operator|<<
@@ -2228,15 +2220,11 @@ operator|.
 name|isValid
 argument_list|()
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"No suitable configurations, skipping this round of repeated open-close test."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
-block|}
 name|qDebug
 argument_list|()
 operator|<<
@@ -2269,15 +2257,11 @@ operator|&
 name|permanentSession
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Unable to open/close session, skipping this round of repeated open-close test."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|int
@@ -2385,8 +2369,6 @@ else|else
 name|QSKIP
 argument_list|(
 literal|"Default configuration is not a UserChoice configuration."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -2476,8 +2458,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Network is not available."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSignalSpy
@@ -2632,8 +2612,6 @@ comment|// but the operation is not supported.
 name|QSKIP
 argument_list|(
 literal|"Configuration does not support open()."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -2681,8 +2659,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Cannot test session for non-Discovered configuration."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -2700,8 +2676,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Unknown session error."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -3271,8 +3245,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Network is not available."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QSignalSpy
@@ -3458,8 +3430,6 @@ comment|// but the operation is not supported.
 name|QSKIP
 argument_list|(
 literal|"Configuration does not support open()."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -3507,8 +3477,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Cannot test session for non-Discovered configuration."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -3526,8 +3494,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Unknown Session error."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -4256,8 +4222,6 @@ comment|// but the operation is not supported.
 name|QSKIP
 argument_list|(
 literal|"Configuration does not support stop()."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -4305,8 +4269,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Cannot test session for non-Discovered configuration."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -5566,8 +5528,6 @@ comment|// but the operation is not supported.
 name|QSKIP
 argument_list|(
 literal|"Configuration does not support close()."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -5615,8 +5575,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Cannot test session for non-Discovered configuration."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -6208,8 +6166,6 @@ case|:
 name|QSKIP
 argument_list|(
 literal|"No discovered configurations found."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 case|case
@@ -6218,16 +6174,12 @@ case|:
 name|QSKIP
 argument_list|(
 literal|"Lackey could not start session."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 default|default:
 name|QSKIP
 argument_list|(
 literal|"Lackey failed"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -7507,8 +7459,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No applicable configurations to test"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -7611,8 +7561,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Session not open"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 comment|// set session to auto close at next polling interval.

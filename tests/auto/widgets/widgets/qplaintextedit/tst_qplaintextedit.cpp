@@ -1212,8 +1212,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Clipboard not working with cron-started unit tests"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|ed
@@ -1405,8 +1403,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Test only relevant for systems with selection"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QApplication
@@ -2229,8 +2225,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Clipboard not working with cron-started unit tests"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QSignalSpy
@@ -3489,8 +3483,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Clipboard not working with cron-started unit tests"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|ed
@@ -5764,8 +5756,6 @@ name|Q_WS_MAC
 name|QSKIP
 argument_list|(
 literal|"copyAvailable has never passed on Mac, task to fix is 132482"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -6889,8 +6879,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Clipboard not working with cron-started unit tests"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QApplication

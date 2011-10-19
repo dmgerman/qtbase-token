@@ -731,11 +731,8 @@ directive|endif
 name|QSKIP
 argument_list|(
 literal|"This test is bogus on Unix with support for font aliases in fontconfig"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-return|return;
 name|QFontDatabase
 name|fdb
 decl_stmt|;
@@ -2769,15 +2766,11 @@ condition|(
 operator|!
 name|found
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Fixed font not available."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
-block|}
 name|QCOMPARE
 argument_list|(
 name|QFontInfo
@@ -3498,8 +3491,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Font family is not available on the system"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QFont

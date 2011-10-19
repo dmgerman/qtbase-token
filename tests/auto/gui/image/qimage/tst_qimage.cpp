@@ -1442,8 +1442,6 @@ argument_list|)
 operator|.
 name|toLatin1
 argument_list|()
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}

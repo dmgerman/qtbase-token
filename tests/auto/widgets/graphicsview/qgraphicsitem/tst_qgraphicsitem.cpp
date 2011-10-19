@@ -188,7 +188,7 @@ define|#
 directive|define
 name|Q_CHECK_PAINTEVENTS
 define|\
-value|if (::SwitchDesktop(::GetThreadDesktop(::GetCurrentThreadId())) == 0) \         QSKIP("The Graphics View doesn't get the paint events", SkipSingle);
+value|if (::SwitchDesktop(::GetThreadDesktop(::GetCurrentThreadId())) == 0) \         QSKIP("The Graphics View doesn't get the paint events");
 end_define
 begin_else
 else|#
@@ -15638,15 +15638,11 @@ argument_list|(
 name|double
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Skipped due to rounding errors"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Rect
 name|QGraphicsRectItem
 name|rect
@@ -17961,15 +17957,11 @@ argument_list|(
 name|double
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Skipped due to rounding errors"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 name|OpaqueItem
 modifier|*
 name|item1
@@ -39103,8 +39095,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"The Graphics View doesn't get the paint events"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 block|}
@@ -43947,8 +43937,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This fails due to internal rounding errors"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -61003,8 +60991,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Skipped because Platform is auto maximizing"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|_paintedItems
@@ -80314,8 +80300,6 @@ name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"QTBUG-9578"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

@@ -6870,8 +6870,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"this machine doesn't support the clipboard"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QString
@@ -15651,8 +15649,6 @@ else|else
 name|QSKIP
 argument_list|(
 literal|"Autotests run from cron and pasteboard don't get along quite ATM"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

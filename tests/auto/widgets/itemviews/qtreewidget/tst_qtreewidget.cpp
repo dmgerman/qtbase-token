@@ -21676,8 +21676,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No pixmap found on current style, skipping this test."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|it

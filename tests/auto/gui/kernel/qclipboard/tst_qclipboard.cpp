@@ -245,8 +245,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Native clipboard not working in this setup"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -404,8 +402,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Native clipboard not working in this setup"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QClipboard
@@ -856,8 +852,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Native clipboard not working in this setup"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -933,8 +927,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Native clipboard not working in this setup"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QMimeData
@@ -1614,8 +1606,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Native clipboard not working in this setup"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 specifier|const

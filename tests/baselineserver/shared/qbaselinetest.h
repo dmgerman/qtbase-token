@@ -94,7 +94,7 @@ parameter_list|,
 name|checksum
 parameter_list|)
 define|\
-value|do {\     QByteArray _msg;\     bool _err = false;\     if (!QBaselineTest::checkImage((image), (name), (checksum),&_msg,&_err)) {\         QFAIL(_msg.constData());\     } else if (_err) {\         QSKIP(_msg.constData(), SkipSingle);\     }\ } while (0)
+value|do {\     QByteArray _msg;\     bool _err = false;\     if (!QBaselineTest::checkImage((image), (name), (checksum),&_msg,&_err)) {\         QFAIL(_msg.constData());\     } else if (_err) {\         QSKIP(_msg.constData());\     }\ } while (0)
 end_define
 begin_define
 DECL|macro|QBASELINE_CHECK
@@ -117,7 +117,7 @@ parameter_list|(
 name|image
 parameter_list|)
 define|\
-value|do {\     QByteArray _msg;\     bool _err = false;\     if (!QBaselineTest::testImage((image),&_msg,&_err)) {\         QFAIL(_msg.constData());\     } else if (_err) {\         QSKIP(_msg.constData(), SkipSingle);\     }\ } while (0)
+value|do {\     QByteArray _msg;\     bool _err = false;\     if (!QBaselineTest::testImage((image),&_msg,&_err)) {\         QFAIL(_msg.constData());\     } else if (_err) {\         QSKIP(_msg.constData());\     }\ } while (0)
 end_define
 begin_endif
 endif|#

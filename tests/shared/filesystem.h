@@ -458,8 +458,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This seems not to be an NTFS volume. Junctions are not allowed."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 if|if

@@ -6031,8 +6031,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"this machine doesn't support native dock widget"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QVERIFY

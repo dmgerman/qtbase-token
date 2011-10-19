@@ -1764,8 +1764,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"SmartPhone doesn't have scrollbar subcontrols."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 else|#

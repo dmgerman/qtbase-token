@@ -20185,8 +20185,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This test only works in English"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|testWidget
@@ -20584,8 +20582,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This test does not work in this locale"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|testWidget
@@ -20768,8 +20764,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"This test only works in English"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|testWidget
@@ -26023,8 +26017,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Not tested in the GMT timezone"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

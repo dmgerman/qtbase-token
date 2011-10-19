@@ -14318,8 +14318,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"The platform is auto maximizing, so the test makes no sense"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 empty_stmt|;

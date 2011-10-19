@@ -7695,8 +7695,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"NTLM not working"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QHostInfo

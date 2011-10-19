@@ -1419,8 +1419,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Failed to recreate directory, skipping final test."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 comment|// qDebug()<< "waiting max 5 seconds for notification for dir recreation to trigger";
@@ -2101,8 +2099,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"dnotify is broken, skipping the rest of the test."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|fileChangedSpy

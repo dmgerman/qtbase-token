@@ -4799,7 +4799,7 @@ begin_comment
 comment|//     if (QSystem::curStyle() == "Motif")
 end_comment
 begin_comment
-comment|// 	QSKIP("This fails in Motif due to a bug in the testing framework", SkipAll);
+comment|// 	QSKIP("This fails in Motif due to a bug in the testing framework");
 end_comment
 begin_comment
 comment|//     QFETCH( QString, popup_item );
@@ -4958,7 +4958,7 @@ begin_comment
 comment|//     if (QSystem::curStyle() == "Motif")
 end_comment
 begin_comment
-comment|// 	QSKIP("This fails in Motif due to a bug in the testing framework", SkipAll);
+comment|// 	QSKIP("This fails in Motif due to a bug in the testing framework");
 end_comment
 begin_comment
 comment|//     QFETCH( QString, label );
@@ -5334,8 +5334,6 @@ argument_list|)
 operator|.
 name|toAscii
 argument_list|()
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

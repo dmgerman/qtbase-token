@@ -7921,8 +7921,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"The current style uses non-uniform layout spacing"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -12557,8 +12555,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"The current style uses non-uniform layout spacing"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -13363,8 +13359,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"The current style uses non-uniform layout spacing"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}

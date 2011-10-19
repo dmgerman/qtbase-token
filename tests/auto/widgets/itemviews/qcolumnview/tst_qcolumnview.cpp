@@ -3546,15 +3546,11 @@ argument_list|(
 name|double
 argument_list|)
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"Skipped due to rounding errors"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|int

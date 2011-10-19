@@ -340,7 +340,7 @@ define|#
 directive|define
 name|Q_CHECK_PAINTEVENTS
 define|\
-value|if (::SwitchDesktop(::GetThreadDesktop(::GetCurrentThreadId())) == 0) \         QSKIP("desktop is not visible, this test would fail", SkipSingle);
+value|if (::SwitchDesktop(::GetThreadDesktop(::GetCurrentThreadId())) == 0) \         QSKIP("desktop is not visible, this test would fail");
 end_define
 begin_else
 else|#
@@ -16535,8 +16535,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Your window manager is too broken for this test"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -17677,8 +17675,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Your window manager is too broken for this test"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -18322,8 +18318,6 @@ block|{
 name|QSKIP
 argument_list|(
 literal|"Cocoa has no Z-Order for views, we hack it, but it results in paint events."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -18497,8 +18491,6 @@ name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"Not yet sure why this fails."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#
@@ -24753,8 +24745,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"We do not yet have static contents support for *top-levels* on this platform"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -25092,7 +25082,7 @@ parameter_list|(
 name|w
 parameter_list|)
 define|\
-value|do { \         QSize safeSize(qt_screen->width() - 250, qt_screen->height() - 250);      \          if (!safeSize.isValid()) \              QSKIP("Screen size too small", SkipAll); \          if (defaultSize.width()> safeSize.width() || defaultSize.height()> safeSize.height()) { \              defaultSize = safeSize; \              w.resize(defaultSize); \              w.setAttribute(Qt::WA_Resized, false); \          } \     } while (false)
+value|do { \         QSize safeSize(qt_screen->width() - 250, qt_screen->height() - 250);      \          if (!safeSize.isValid()) \              QSKIP("Screen size too small"); \          if (defaultSize.width()> safeSize.width() || defaultSize.height()> safeSize.height()) { \              defaultSize = safeSize; \              w.resize(defaultSize); \              w.setAttribute(Qt::WA_Resized, false); \          } \     } while (false)
 end_define
 begin_else
 else|#
@@ -41198,15 +41188,11 @@ argument_list|()
 operator|<
 literal|24
 condition|)
-block|{
 name|QSKIP
 argument_list|(
 literal|"This test won't give correct results with dithered pixmaps"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
-block|}
 endif|#
 directive|endif
 name|expected
@@ -48417,8 +48403,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"We only send update requests on the Mac when passing -graphicssystem"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -48519,8 +48503,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"Not having window server access causes the wrong number of repaints to be issues"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -55791,8 +55773,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"No input context"
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 name|widget

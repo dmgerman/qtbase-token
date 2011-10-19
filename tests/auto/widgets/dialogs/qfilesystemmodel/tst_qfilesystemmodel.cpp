@@ -3160,8 +3160,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"Watching directories does not work on CE(see #137910)"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
@@ -3671,8 +3669,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"Watching directories does not work on CE(see #137910)"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#

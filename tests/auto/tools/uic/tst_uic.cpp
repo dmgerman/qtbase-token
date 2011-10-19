@@ -347,8 +347,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"uic not found in the path..."
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 name|QFETCH

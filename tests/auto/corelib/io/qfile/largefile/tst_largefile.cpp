@@ -1880,8 +1880,6 @@ condition|)
 name|QSKIP
 argument_list|(
 literal|"MSVC 2003 doesn't have 64 bit versions of fseek/ftell."
-argument_list|,
-name|SkipSingle
 argument_list|)
 expr_stmt|;
 endif|#
