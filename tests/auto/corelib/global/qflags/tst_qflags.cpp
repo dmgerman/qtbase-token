@@ -327,6 +327,8 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+name|int
+argument_list|(
 name|Qt
 operator|::
 name|LeftButton
@@ -334,6 +336,7 @@ operator||
 name|Qt
 operator|::
 name|RightButton
+argument_list|)
 case|:
 name|QVERIFY
 argument_list|(
