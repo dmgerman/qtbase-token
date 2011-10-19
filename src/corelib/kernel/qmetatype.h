@@ -804,16 +804,8 @@ argument_list|)
 block|{
 if|if
 condition|(
-operator|!
 name|t
 condition|)
-return|return
-name|new
-name|T
-argument_list|()
-return|;
-end_expr_stmt
-begin_return
 return|return
 name|new
 name|T
@@ -830,6 +822,13 @@ name|t
 operator|)
 argument_list|)
 return|;
+end_expr_stmt
+begin_return
+return|return
+name|new
+name|T
+argument_list|()
+return|;
 end_return
 begin_expr_stmt
 unit|}  template
@@ -844,6 +843,11 @@ argument_list|(
 argument|T *t
 argument_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|t
+argument_list|)
+comment|// Silence MSVC that warns for POD types.
 name|t
 operator|->
 expr|~
@@ -867,17 +871,8 @@ argument_list|)
 block|{
 if|if
 condition|(
-operator|!
 name|t
 condition|)
-return|return
-name|new
-argument_list|(
-argument|where
-argument_list|)
-name|T
-return|;
-else|else
 return|return
 name|new
 argument_list|(
@@ -897,15 +892,24 @@ name|t
 operator|)
 argument_list|)
 return|;
-block|}
 end_expr_stmt
+begin_return
+return|return
+name|new
+argument_list|(
+argument|where
+argument_list|)
+name|T
+return|;
+end_return
 begin_ifndef
+unit|}
 ifndef|#
 directive|ifndef
 name|QT_NO_DATASTREAM
 end_ifndef
 begin_expr_stmt
-name|template
+unit|template
 operator|<
 name|typename
 name|T
