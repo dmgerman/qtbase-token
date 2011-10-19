@@ -496,9 +496,6 @@ block|;
 name|setQuery
 argument_list|(
 name|q
-operator|.
-name|query
-argument_list|()
 argument_list|)
 block|; }
 DECL|function|addQueryItem
@@ -532,9 +529,6 @@ block|;
 name|setQuery
 argument_list|(
 name|q
-operator|.
-name|query
-argument_list|()
 argument_list|)
 block|; }
 DECL|variable|QString
@@ -673,9 +667,6 @@ block|;
 name|setQuery
 argument_list|(
 name|q
-operator|.
-name|query
-argument_list|()
 argument_list|)
 block|; }
 DECL|function|removeAllQueryItems
