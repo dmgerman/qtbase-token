@@ -5758,6 +5758,8 @@ name|node
 block|;
 name|uint
 name|h
+operator|=
+literal|0
 block|;
 if|if
 condition|(
