@@ -126,7 +126,7 @@ decl_stmt|;
 comment|//this is used to avoid (re)constructing factory data from destructors of other global classes
 DECL|member|valid
 specifier|static
-name|QAtomicInt
+name|QBasicAtomicInt
 name|valid
 decl_stmt|;
 block|}
@@ -142,10 +142,15 @@ argument_list|)
 end_macro
 begin_decl_stmt
 DECL|member|valid
-name|QAtomicInt
+name|QBasicAtomicInt
 name|QNetworkAccessBackendFactoryData
 operator|::
 name|valid
+init|=
+name|Q_BASIC_ATOMIC_INITIALIZER
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_constructor
@@ -188,6 +193,9 @@ condition|(
 name|QNetworkAccessBackendFactoryData
 operator|::
 name|valid
+operator|.
+name|load
+argument_list|()
 condition|)
 block|{
 name|QMutexLocker
@@ -235,6 +243,9 @@ condition|(
 name|QNetworkAccessBackendFactoryData
 operator|::
 name|valid
+operator|.
+name|load
+argument_list|()
 condition|)
 block|{
 name|QMutexLocker
