@@ -2725,6 +2725,7 @@ condition|(
 name|desktopWidget
 condition|)
 block|{
+specifier|const
 name|int
 name|screen
 init|=
@@ -2738,10 +2739,18 @@ argument_list|()
 operator|->
 name|screenIndex
 decl_stmt|;
+if|if
+condition|(
+name|QWindow
+modifier|*
+name|window
+init|=
 name|q
 operator|->
 name|windowHandle
 argument_list|()
+condition|)
+name|window
 operator|->
 name|setScreen
 argument_list|(
