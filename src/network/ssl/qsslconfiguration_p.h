@@ -146,6 +146,11 @@ block|;
 name|int
 name|peerVerifyDepth
 block|;
+name|QSsl
+operator|::
+name|SslOptions
+name|sslOptions
+block|;
 comment|// in qsslsocket.cpp:
 specifier|static
 name|QSslConfiguration
