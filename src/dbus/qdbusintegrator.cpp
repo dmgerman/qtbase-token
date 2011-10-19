@@ -4976,11 +4976,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|bool
-name|takesMessage
-init|=
-literal|false
-decl_stmt|;
 if|if
 condition|(
 name|metaTypes
@@ -5022,10 +5017,6 @@ name|msg
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|takesMessage
-operator|=
-literal|true
 expr_stmt|;
 operator|++
 name|i
