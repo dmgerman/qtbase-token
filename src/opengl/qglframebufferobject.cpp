@@ -42,6 +42,11 @@ include|#
 directive|include
 file|<qimage.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qwindow.h>
+end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
 specifier|extern

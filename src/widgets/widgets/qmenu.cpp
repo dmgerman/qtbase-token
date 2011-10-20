@@ -8844,9 +8844,6 @@ argument_list|(
 name|QMenu
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_SYMBIAN
 if|if
 condition|(
 name|d
@@ -8876,8 +8873,6 @@ operator|::
 name|ScrollNone
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 name|d
 operator|->
 name|tearoffHighlighted

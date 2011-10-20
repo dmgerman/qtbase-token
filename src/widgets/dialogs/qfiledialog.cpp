@@ -100,12 +100,6 @@ name|defined
 argument_list|(
 name|Q_WS_WINCE
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 end_if
 begin_include
 include|#
@@ -15969,11 +15963,6 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|bool
 name|startsFromRoot
 init|=
@@ -16082,11 +16071,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_WIN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 if|if
 condition|(

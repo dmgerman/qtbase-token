@@ -21940,11 +21940,6 @@ name|defined
 argument_list|(
 name|Q_WS_QWS
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 operator|)
 if|if
 condition|(

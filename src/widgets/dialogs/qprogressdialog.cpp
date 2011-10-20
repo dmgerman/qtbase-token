@@ -590,17 +590,6 @@ name|additionalSpacing
 init|=
 literal|0
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|//In Symbian, we need to have wider margins for dialog borders, as the actual border is some pixels
-comment|//inside the dialog area (to enable transparent borders)
-name|additionalSpacing
-operator|=
-name|mlr
-expr_stmt|;
-endif|#
-directive|endif
 name|QSize
 name|cs
 init|=

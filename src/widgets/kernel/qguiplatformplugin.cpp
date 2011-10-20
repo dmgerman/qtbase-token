@@ -439,32 +439,6 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_S60
-argument_list|)
-return|return
-name|QLatin1String
-argument_list|(
-literal|"S60"
-argument_list|)
-return|;
-comment|// default style for Symbian with S60
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-return|return
-name|QLatin1String
-argument_list|(
-literal|"Windows"
-argument_list|)
-return|;
-comment|// default style for Symbian without S60
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|Q_WS_X11
 argument_list|)
 operator|&&
@@ -479,24 +453,6 @@ literal|"SGI"
 argument_list|)
 return|;
 comment|// default style for X11 on IRIX
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_WS_QPA
-argument_list|)
-return|return
-name|QLatin1String
-argument_list|(
-literal|"Plastique"
-argument_list|)
-return|;
-comment|// default style for X11 and small devices
 elif|#
 directive|elif
 name|defined
@@ -617,6 +573,15 @@ block|}
 return|return
 name|stylename
 return|;
+else|#
+directive|else
+return|return
+name|QLatin1String
+argument_list|(
+literal|"Plastique"
+argument_list|)
+return|;
+comment|// default style for X11 and small devices
 endif|#
 directive|endif
 block|}

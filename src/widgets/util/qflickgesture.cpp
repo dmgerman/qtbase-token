@@ -2123,33 +2123,6 @@ name|QEvent
 operator|::
 name|MouseMove
 case|:
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// Qt on Symbian tracks the button state internally, while Qt on Win/Mac/Unix
-comment|// relies on the windowing system to report the current buttons state.
-if|if
-condition|(
-name|me
-operator|&&
-operator|(
-name|me
-operator|->
-name|buttons
-argument_list|()
-operator|==
-name|button
-operator|||
-operator|!
-name|me
-operator|->
-name|buttons
-argument_list|()
-operator|)
-condition|)
-block|{
-else|#
-directive|else
 if|if
 condition|(
 name|me
@@ -2162,8 +2135,6 @@ operator|==
 name|button
 condition|)
 block|{
-endif|#
-directive|endif
 name|point
 operator|=
 name|me
@@ -2273,33 +2244,6 @@ name|QEvent
 operator|::
 name|GraphicsSceneMouseMove
 case|:
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// Qt on Symbian tracks the button state internally, while Qt on Win/Mac/Unix
-comment|// relies on the windowing system to report the current buttons state.
-if|if
-condition|(
-name|gsme
-operator|&&
-operator|(
-name|gsme
-operator|->
-name|buttons
-argument_list|()
-operator|==
-name|button
-operator|||
-operator|!
-name|me
-operator|->
-name|buttons
-argument_list|()
-operator|)
-condition|)
-block|{
-else|#
-directive|else
 if|if
 condition|(
 name|gsme
@@ -2312,8 +2256,6 @@ operator|==
 name|button
 condition|)
 block|{
-endif|#
-directive|endif
 name|point
 operator|=
 name|gsme
@@ -3163,7 +3105,11 @@ return|return
 name|result
 return|;
 block|}
+end_function
+begin_comment
 comment|/*! \reimp  */
+end_comment
+begin_function
 DECL|function|reset
 name|void
 name|QFlickGestureRecognizer
@@ -3183,8 +3129,10 @@ name|state
 argument_list|)
 expr_stmt|;
 block|}
-name|QT_END_NAMESPACE
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif
