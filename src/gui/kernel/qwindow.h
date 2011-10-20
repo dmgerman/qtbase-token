@@ -633,6 +633,9 @@ name|topLeft
 argument_list|()
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|QT_DEPRECATED
 name|QT_DEPRECATED
 specifier|inline
 name|void
@@ -670,6 +673,8 @@ name|posy
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 specifier|inline
 name|void
 name|setPos

@@ -76,7 +76,6 @@ operator|,
 name|SplitLigature
 operator|=
 literal|0x10
-operator|,
 block|}
 end_function
 begin_empty_stmt
