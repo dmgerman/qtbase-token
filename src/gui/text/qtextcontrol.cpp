@@ -10020,10 +10020,6 @@ case|:
 return|return
 name|QVariant
 argument_list|(
-name|qBound
-argument_list|(
-literal|0
-argument_list|,
 name|d
 operator|->
 name|cursor
@@ -10035,12 +10031,6 @@ name|block
 operator|.
 name|position
 argument_list|()
-argument_list|,
-name|block
-operator|.
-name|length
-argument_list|()
-argument_list|)
 argument_list|)
 return|;
 default|default:
