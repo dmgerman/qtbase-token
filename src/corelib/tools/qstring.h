@@ -384,7 +384,7 @@ parameter_list|(
 name|str
 parameter_list|)
 define|\
-value|([]() -> QStringDataPtr { \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QStaticStringData<Size> qstring_literal = { \             Q_STATIC_STRING_DATA_HEADER_INITIALIZER(Size), \             QT_UNICODE_LITERAL(str) }; \         QStringDataPtr holder = { qstring_literal.data_ptr() }; \         return holder; \     }())
+value|([]() -> QString { \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QStaticStringData<Size> qstring_literal = { \             Q_STATIC_STRING_DATA_HEADER_INITIALIZER(Size), \             QT_UNICODE_LITERAL(str) }; \         QStringDataPtr holder = { qstring_literal.data_ptr() }; \         const QString s(holder); \         return s; \     }())
 end_define
 begin_comment
 unit|\
@@ -416,7 +416,7 @@ parameter_list|(
 name|str
 parameter_list|)
 define|\
-value|__extension__ ({ \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QStaticStringData<Size> qstring_literal = { \             Q_STATIC_STRING_DATA_HEADER_INITIALIZER(Size), \             QT_UNICODE_LITERAL(str) }; \         QStringDataPtr holder = { qstring_literal.data_ptr() }; \         holder; \     })
+value|QString(__extension__ ({ \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QStaticStringData<Size> qstring_literal = { \             Q_STATIC_STRING_DATA_HEADER_INITIALIZER(Size), \             QT_UNICODE_LITERAL(str) }; \         QStringDataPtr holder = { qstring_literal.data_ptr() }; \         holder; \     }))
 end_define
 begin_comment
 unit|\
@@ -442,7 +442,10 @@ begin_comment
 comment|// no lambdas, not GCC, or GCC in C++98 mode with 4-byte wchar_t
 end_comment
 begin_comment
-comment|// fallback, uses QLatin1String as next best options
+comment|// fallback, return a temporary QString
+end_comment
+begin_comment
+comment|// source code is assumed to be encoded in UTF-8
 end_comment
 begin_define
 DECL|macro|QStringLiteral
@@ -452,7 +455,7 @@ name|QStringLiteral
 parameter_list|(
 name|str
 parameter_list|)
-value|QLatin1String(str)
+value|QString::fromUtf8(str, sizeof(str) - 1)
 end_define
 begin_endif
 endif|#
