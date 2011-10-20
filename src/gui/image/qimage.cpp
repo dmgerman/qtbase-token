@@ -13033,12 +13033,6 @@ end_macro
 begin_if
 if|#
 directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|||
 operator|(
 name|defined
 argument_list|(
@@ -13550,13 +13544,6 @@ literal|0
 block|,
 if|#
 directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|||
-operator|(
 name|defined
 argument_list|(
 name|QT_QWS_DEPTH_15
@@ -13566,7 +13553,6 @@ name|defined
 argument_list|(
 name|QT_QWS_DEPTH_16
 argument_list|)
-operator|)
 name|CONVERT_PTR
 argument_list|(
 name|qrgb555
@@ -13772,13 +13758,6 @@ argument_list|)
 block|,
 if|#
 directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|||
-operator|(
 name|defined
 argument_list|(
 name|QT_QWS_DEPTH_15
@@ -13788,7 +13767,6 @@ name|defined
 argument_list|(
 name|QT_QWS_DEPTH_16
 argument_list|)
-operator|)
 name|CONVERT_PTR
 argument_list|(
 name|quint16

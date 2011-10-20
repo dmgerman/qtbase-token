@@ -93,34 +93,6 @@ endif|#
 directive|endif
 endif|#
 directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_WS_QPA
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-DECL|macro|Q_GUI_QWS_EXPORT
-define|#
-directive|define
-name|Q_GUI_QWS_EXPORT
-value|Q_GUI_EXPORT
-else|#
-directive|else
-define|#
-directive|define
-name|Q_GUI_QWS_EXPORT
-endif|#
-directive|endif
 DECL|macro|QT_DECL_MEMROTATE
 define|#
 directive|define
@@ -131,7 +103,7 @@ parameter_list|,
 name|desttype
 parameter_list|)
 define|\
-value|void Q_GUI_QWS_EXPORT qt_memrotate90(const srctype*, int, int, int, desttype*, int); \     void Q_GUI_QWS_EXPORT qt_memrotate180(const srctype*, int, int, int, desttype*, int); \     void Q_GUI_QWS_EXPORT qt_memrotate270(const srctype*, int, int, int, desttype*, int)
+value|void Q_GUI_EXPORT qt_memrotate90(const srctype*, int, int, int, desttype*, int); \     void Q_GUI_EXPORT qt_memrotate180(const srctype*, int, int, int, desttype*, int); \     void Q_GUI_EXPORT qt_memrotate270(const srctype*, int, int, int, desttype*, int)
 name|void
 name|Q_GUI_EXPORT
 name|qt_memrotate90
@@ -155,7 +127,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
-name|Q_GUI_QWS_EXPORT
+name|Q_GUI_EXPORT
 name|qt_memrotate180
 parameter_list|(
 specifier|const
@@ -177,7 +149,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
-name|Q_GUI_QWS_EXPORT
+name|Q_GUI_EXPORT
 name|qt_memrotate270
 parameter_list|(
 specifier|const

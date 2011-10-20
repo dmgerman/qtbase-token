@@ -6347,11 +6347,11 @@ elif|#
 directive|elif
 name|defined
 name|Q_WS_X11
+comment|// ## TODO: detect these
 name|platform
 operator|=
 name|KB_X11
 expr_stmt|;
-comment|// ## TODO: detect these
 if|#
 directive|if
 literal|0

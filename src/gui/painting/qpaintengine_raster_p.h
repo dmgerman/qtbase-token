@@ -1305,15 +1305,6 @@ argument_list|)
 name|HDC
 name|hdc
 block|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_WS_MAC
-argument_list|)
-name|CGContextRef
-name|cgContext
-block|;
 endif|#
 directive|endif
 name|QRect

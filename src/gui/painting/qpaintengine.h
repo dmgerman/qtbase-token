@@ -927,15 +927,6 @@ name|QFontEngineWin
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_FREETYPE
-name|friend
-name|class
-name|QFontEngineFT
-decl_stmt|;
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
 name|QT_NO_QWS_QPF
 name|friend
 name|class
