@@ -760,7 +760,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     If \a enabled is true, this function sets the \l Text flag on the device;     otherwise the \l Text flag is removed. This feature is useful for classes     that provide custom end-of-line handling on a QIODevice.      \sa open(), setOpenMode()  */
+comment|/*!     If \a enabled is true, this function sets the \l Text flag on the device;     otherwise the \l Text flag is removed. This feature is useful for classes     that provide custom end-of-line handling on a QIODevice.      The IO device should be opened before calling this function.      \sa open(), setOpenMode()  */
 end_comment
 begin_function
 DECL|function|setTextModeEnabled
@@ -778,6 +778,20 @@ argument_list|(
 name|QIODevice
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|isOpen
+argument_list|()
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QIODevice::setTextModeEnabled: The device is not open"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 if|if
 condition|(
 name|enabled
