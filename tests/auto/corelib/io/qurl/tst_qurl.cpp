@@ -11886,15 +11886,6 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QUrl::errorString not reimplemented"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|url
@@ -11904,7 +11895,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"invalid hostname"
+literal|"Hostname contains invalid characters"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11989,16 +11980,7 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QUrl::errorString not reimplemented"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QVERIFY
+name|QVERIFY2
 argument_list|(
 name|url
 operator|.
@@ -12007,7 +11989,15 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"invalid hostname"
+literal|"Hostname contains invalid characters"
+argument_list|)
+argument_list|,
+name|qPrintable
+argument_list|(
+name|url
+operator|.
+name|errorString
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16046,6 +16036,19 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|url
+operator|.
+name|errorString
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"out of range"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_function
@@ -16433,15 +16436,6 @@ init|=
 literal|"Invalid URL \"http://strange<username>@bad_hostname/\": "
 literal|"error at position 14: expected end of URL, but found '<'"
 decl_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"errorString not implemented yet"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|u
