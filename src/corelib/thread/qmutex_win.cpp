@@ -22,25 +22,13 @@ include|#
 directive|include
 file|"qmutex_p.h"
 end_include
-begin_macro
+begin_function
 name|QT_BEGIN_NAMESPACE
-end_macro
-begin_constructor
 DECL|function|QMutexPrivate
 name|QMutexPrivate
 operator|::
 name|QMutexPrivate
-parameter_list|(
-name|QMutex
-operator|::
-name|RecursionMode
-name|mode
-parameter_list|)
-member_init_list|:
-name|recursive
-argument_list|(
-name|mode
-argument_list|)
+parameter_list|()
 block|{
 name|event
 operator|=
@@ -62,11 +50,11 @@ name|event
 condition|)
 name|qWarning
 argument_list|(
-literal|"QMutexPrivate::QMutexPrivate: Cannot create event"
+literal|"QMutexData::QMutexData: Cannot create event"
 argument_list|)
 expr_stmt|;
 block|}
-end_constructor
+end_function
 begin_destructor
 DECL|function|~QMutexPrivate
 name|QMutexPrivate

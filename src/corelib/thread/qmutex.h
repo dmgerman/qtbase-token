@@ -49,7 +49,7 @@ argument_list|(
 name|qdoc
 argument_list|)
 name|class
-name|QMutexPrivate
+name|QMutexData
 decl_stmt|;
 name|class
 name|Q_CORE_EXPORT
@@ -178,7 +178,7 @@ end_function_decl
 begin_expr_stmt
 name|QBasicAtomicPointer
 operator|<
-name|QMutexPrivate
+name|QMutexData
 operator|>
 name|d_ptr
 expr_stmt|;
@@ -186,7 +186,7 @@ end_expr_stmt
 begin_function
 specifier|static
 specifier|inline
-name|QMutexPrivate
+name|QMutexData
 modifier|*
 name|dummyLocked
 parameter_list|()
@@ -194,7 +194,7 @@ block|{
 return|return
 name|reinterpret_cast
 operator|<
-name|QMutexPrivate
+name|QMutexData
 operator|*
 operator|>
 operator|(
@@ -215,7 +215,7 @@ end_decl_stmt
 begin_decl_stmt
 name|friend
 name|class
-name|QMutexPrivate
+name|QMutexData
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
