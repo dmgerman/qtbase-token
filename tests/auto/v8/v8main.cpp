@@ -20,7 +20,7 @@ name|RUN_TEST
 parameter_list|(
 name|testname
 parameter_list|)
-value|{ \     if (!v8test_ ## testname()) \         printf ("Test %s FAILED\n", # testname); \     else \         printf ("Test %s PASS\n", # testname); \ }
+value|{ \     if (!v8test_ ## testname()) \         printf ("Test %s FAILED\n", # testname); \ }
 end_define
 begin_function
 DECL|function|main
@@ -63,11 +63,6 @@ expr_stmt|;
 name|RUN_TEST
 argument_list|(
 name|userobjectcompare
-argument_list|)
-expr_stmt|;
-name|RUN_TEST
-argument_list|(
-name|externalteardown
 argument_list|)
 expr_stmt|;
 return|return
