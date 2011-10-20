@@ -3578,7 +3578,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     \internal      Call init(), slot_data(), slot(), slot(), slot()..., cleanup()     If data is set then it is the only test that is performed      If the function was successfully called, true is returned, otherwise     false.  */
+comment|/*!     \internal      Call slot_data(), init(), slot(), cleanup(), init(), slot(), cleanup(), ...     If data is set then it is the only test that is performed      If the function was successfully called, true is returned, otherwise     false.  */
 DECL|function|qInvokeTestMethod
 specifier|static
 name|bool
