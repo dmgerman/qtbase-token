@@ -102,7 +102,20 @@ name|__expected
 parameter_list|)
 define|\
 value|do { \     const int __step = 50; \     const int __timeout = 5000; \     if ((__expr) != (__expected)) { \         QTest::qWait(0); \     } \     for (int __i = 0; __i< __timeout&& ((__expr) != (__expected)); __i+=__step) { \         QTest::qWait(__step); \     } \     QCOMPARE(__expr, __expected); \ } while (0)
+ifdef|#
+directive|ifdef
+name|Q_CC_MSVC
 DECL|macro|QSKIP
+define|#
+directive|define
+name|QSKIP
+parameter_list|(
+name|statement
+parameter_list|)
+define|\
+value|do {\     QTest::qSkip(statement, __FILE__, __LINE__);\     return;\ } while (0)
+else|#
+directive|else
 define|#
 directive|define
 name|QSKIP
@@ -113,6 +126,8 @@ modifier|...
 parameter_list|)
 define|\
 value|do {\     if (strcmp(#__VA_ARGS__, "") != 0)\         QTest::qWarn("The two argument version of QSKIP is deprecated and will be removed soon. "\                      "Please update this test by removing the second parameter.", __FILE__, __LINE__);\     QTest::qSkip(statement, __FILE__, __LINE__);\     return;\ } while (0)
+endif|#
+directive|endif
 DECL|macro|QEXPECT_FAIL
 define|#
 directive|define
