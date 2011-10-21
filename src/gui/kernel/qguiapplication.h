@@ -185,6 +185,9 @@ operator|&
 name|pos
 argument_list|)
 block|;
+ifdef|#
+directive|ifdef
+name|QT_DEPRECATED
 specifier|static
 name|QT_DEPRECATED
 name|QWindow
@@ -197,6 +200,8 @@ name|focusWindow
 argument_list|()
 return|;
 block|}
+endif|#
+directive|endif
 specifier|static
 name|QWindow
 operator|*
