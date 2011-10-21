@@ -31,11 +31,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtTest/qtestdata.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtTest/qbenchmark.h>
 end_include
 begin_include

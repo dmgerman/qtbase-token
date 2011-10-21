@@ -56,7 +56,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|"3rdparty/cycle_p.h"
+file|<QtTest/private/cycle_p.h>
 end_include
 begin_endif
 endif|#
@@ -65,7 +65,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|"qbenchmark.h"
+file|<QtTest/qbenchmark.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

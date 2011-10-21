@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"QtTest/qtestcase.h"
+file|<QtTest/qtestcase.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"QtTest/qtestassert.h"
+file|<QtTest/qtestassert.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE

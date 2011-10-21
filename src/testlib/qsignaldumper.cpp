@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"QtTest/private/qsignaldumper_p.h"
+file|<QtTest/private/qsignaldumper_p.h>
 end_include
 begin_include
 include|#
@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtTest/private/qtestlog_p.h"
+file|<QtTest/private/qtestlog_p.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

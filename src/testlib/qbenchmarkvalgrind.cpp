@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"QtTest/private/qbenchmark_p.h"
+file|<QtTest/private/qbenchmark_p.h>
 end_include
 begin_ifdef
 ifdef|#
@@ -15,7 +15,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|"QtTest/private/qbenchmarkvalgrind_p.h"
+file|<QtTest/private/qbenchmarkvalgrind_p.h>
 end_include
 begin_include
 include|#
@@ -45,7 +45,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"3rdparty/callgrind_p.h"
+file|<QtTest/private/callgrind_p.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE

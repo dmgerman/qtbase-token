@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qtestelementattribute.h"
+file|<QtTest/qtestelementattribute.h>
 end_include
 begin_include
 include|#

@@ -95,7 +95,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|"QtTest/private/qbenchmarkmeasurement_p.h"
+file|<QtTest/private/qbenchmarkmeasurement_p.h>
 end_include
 begin_include
 include|#
@@ -115,7 +115,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|"QtTest/private/qbenchmarkvalgrind_p.h"
+file|<QtTest/private/qbenchmarkvalgrind_p.h>
 end_include
 begin_endif
 endif|#
@@ -124,12 +124,12 @@ end_endif
 begin_include
 include|#
 directive|include
-file|"QtTest/private/qbenchmarkevent_p.h"
+file|<QtTest/private/qbenchmarkevent_p.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"QtTest/private/qbenchmarkmetric_p.h"
+file|<QtTest/private/qbenchmarkmetric_p.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

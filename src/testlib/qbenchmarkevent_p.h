@@ -46,7 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qbenchmarkmeasurement_p.h"
+file|<QtTest/private/qbenchmarkmeasurement_p.h>
 end_include
 begin_include
 include|#
