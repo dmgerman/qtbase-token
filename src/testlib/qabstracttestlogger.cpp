@@ -163,28 +163,6 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// Convenience sleep for Symbian and TRK. Without this sleep depending on the timing the
-comment|// user would not see the complete output because it is still pending in any of the buffers
-comment|// before arriving via the USB port on the development PC
-name|User
-operator|::
-name|AfterHighRes
-argument_list|(
-literal|2
-operator|*
-literal|1000
-operator|*
-literal|1000
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-block|}
 name|stream
 operator|=
 literal|0

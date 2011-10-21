@@ -559,12 +559,6 @@ name|defined
 argument_list|(
 name|Q_OS_UNIX
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 DECL|member|noCrashHandler
 specifier|static
 name|bool
@@ -1330,12 +1324,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_UNIX
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 literal|" -nocrashhandler     : Disables the crash handler\n"
 endif|#
@@ -2153,12 +2141,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_UNIX
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 block|}
 elseif|else
@@ -4721,12 +4703,6 @@ name|defined
 argument_list|(
 name|Q_OS_UNIX
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 DECL|class|FatalSignalHandler
 class|class
 name|FatalSignalHandler
@@ -5282,28 +5258,6 @@ comment|// no need to release the assertion on exit.
 block|}
 endif|#
 directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|Q_CC_NOKIAX86
-argument_list|)
-comment|// Delay execution of tests in Symbian emulator.
-comment|// Needed to allow worst of other higher priority apps and services launched by emulator
-comment|// to get out of the way before we run our test. Otherwise some of the timing sensitive tests
-comment|// will not work properly.
-name|qSleep
-argument_list|(
-literal|3000
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTestResult
 operator|::
 name|reset
@@ -5416,12 +5370,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_UNIX
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 name|QScopedPointer
 argument_list|<
