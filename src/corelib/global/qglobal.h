@@ -10988,7 +10988,7 @@ name|QT_TR_NOOP
 parameter_list|(
 name|x
 parameter_list|)
-value|(x)
+value|x
 end_define
 begin_define
 DECL|macro|QT_TR_NOOP_UTF8
@@ -10998,7 +10998,7 @@ name|QT_TR_NOOP_UTF8
 parameter_list|(
 name|x
 parameter_list|)
-value|(x)
+value|x
 end_define
 begin_define
 DECL|macro|QT_TRANSLATE_NOOP
@@ -11010,7 +11010,7 @@ name|scope
 parameter_list|,
 name|x
 parameter_list|)
-value|(x)
+value|x
 end_define
 begin_define
 DECL|macro|QT_TRANSLATE_NOOP_UTF8
@@ -11022,7 +11022,7 @@ name|scope
 parameter_list|,
 name|x
 parameter_list|)
-value|(x)
+value|x
 end_define
 begin_define
 DECL|macro|QT_TRANSLATE_NOOP3
