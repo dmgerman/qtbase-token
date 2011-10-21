@@ -240,7 +240,7 @@ argument_list|()
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 if|if
 condition|(
 operator|!
