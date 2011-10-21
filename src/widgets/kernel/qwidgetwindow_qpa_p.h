@@ -78,6 +78,12 @@ name|accessibleRoot
 argument_list|()
 specifier|const
 block|;
+name|QObject
+operator|*
+name|focusObject
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 name|bool

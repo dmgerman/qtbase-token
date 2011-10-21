@@ -811,6 +811,13 @@ name|accessibleRoot
 argument_list|()
 specifier|const
 expr_stmt|;
+name|virtual
+name|QObject
+operator|*
+name|focusObject
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QPoint
 name|mapToGlobal
 argument_list|(
