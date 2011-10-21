@@ -334,7 +334,7 @@ begin_comment
 comment|/*****************************************************************************   System detection routines  *****************************************************************************/
 end_comment
 begin_comment
-comment|/*!     \class QSysInfo     \brief The QSysInfo class provides information about the system.      \list     \o \l WordSize specifies the size of a pointer for the platform        on which the application is compiled.     \o \l ByteOrder specifies whether the platform is big-endian or        little-endian.     \o \l WindowsVersion specifies the version of the Windows operating        system on which the application is run (Windows only)     \o \l MacintoshVersion specifies the version of the Macintosh        operating system on which the application is run (Mac only).     \endlist      Some constants are defined only on certain platforms. You can use     the preprocessor symbols Q_WS_WIN and Q_WS_MAC to test that     the application is compiled under Windows or Mac.      \sa QLibraryInfo */
+comment|/*!     \class QSysInfo     \brief The QSysInfo class provides information about the system.      \list     \o \l WordSize specifies the size of a pointer for the platform        on which the application is compiled.     \o \l ByteOrder specifies whether the platform is big-endian or        little-endian.     \o \l WindowsVersion specifies the version of the Windows operating        system on which the application is run (Windows only)     \o \l MacintoshVersion specifies the version of the Macintosh        operating system on which the application is run (Mac only).     \endlist      Some constants are defined only on certain platforms. You can use     the preprocessor symbols Q_OS_WIN and Q_OS_MAC to test that     the application is compiled under Windows or Mac.      \sa QLibraryInfo */
 end_comment
 begin_comment
 comment|/*!     \enum QSysInfo::Sizes      This enum provides platform-specific information about the sizes of data     structures used by the underlying architecture.      \value WordSize The size in bits of a pointer for the platform on which            the application is compiled (32 or 64). */
@@ -370,31 +370,7 @@ begin_comment
 comment|/*!     \enum QSysInfo::S60Version      This enum provides symbolic names for the various versions of the     S60 SDK. On S60, the     QSysInfo::s60Version() function gives the version of the     SDK on which the application is run.      \value SV_S60_3_1 S60 3rd Edition Feature Pack 1     \value SV_S60_3_2 S60 3rd Edition Feature Pack 2     \value SV_S60_5_0 S60 5th Edition     \value SV_S60_5_1 \e{This enum value is deprecated.}     \value SV_S60_5_2 Symbian^3 and Symbian Anna     \value SV_S60_5_3 Symbian/S60 API version 5.3 release     \value SV_S60_5_4 Symbian/S60 API version 5.4 release     \value SV_S60_Unknown An unknown and currently unsupported platform     \omitvalue SV_S60_None      \sa SymbianVersion, WinVersion, MacVersion */
 end_comment
 begin_comment
-comment|/*!     \macro Q_WS_MAC     \relates<QtGlobal>      Defined on Mac OS X.      \sa Q_WS_WIN, Q_WS_X11, Q_WS_QWS, Q_WS_QPA, Q_WS_S60 */
-end_comment
-begin_comment
-comment|/*!     \macro Q_WS_WIN     \relates<QtGlobal>      Defined on Windows.      \sa Q_WS_MAC, Q_WS_X11, Q_WS_QWS, Q_WS_QPA, Q_WS_S60 */
-end_comment
-begin_comment
-comment|/*!     \macro Q_WS_X11     \relates<QtGlobal>      Defined on X11.      \sa Q_WS_MAC, Q_WS_WIN, Q_WS_QWS, Q_WS_QPA, Q_WS_S60 */
-end_comment
-begin_comment
-comment|/*!     \macro Q_WS_QWS     \relates<QtGlobal>      Defined on Qt for Embedded Linux.      \sa Q_WS_MAC, Q_WS_WIN, Q_WS_X11, Q_WS_QPA, Q_WS_S60 */
-end_comment
-begin_comment
-comment|/*!     \macro Q_WS_QPA     \relates<QtGlobal>      Defined on Qt for Embedded Linux, Lite version.      \sa Q_WS_MAC, Q_WS_WIN, Q_WS_X11, Q_WS_QWS, Q_WS_S60 */
-end_comment
-begin_comment
 comment|/*!     \macro Q_OS_DARWIN     \relates<QtGlobal>      Defined on Darwin OS (synonym for Q_OS_MAC). */
-end_comment
-begin_comment
-comment|/*!     \macro Q_OS_MSDOS     \relates<QtGlobal>      Defined on MS-DOS and Windows. */
-end_comment
-begin_comment
-comment|/*!     \macro Q_OS_OS2     \relates<QtGlobal>      Defined on OS/2. */
-end_comment
-begin_comment
-comment|/*!     \macro Q_OS_OS2EMX     \relates<QtGlobal>      Defined on XFree86 on OS/2 (not PM). */
 end_comment
 begin_comment
 comment|/*!     \macro Q_OS_WIN32     \relates<QtGlobal>      Defined on all supported versions of Windows. */
@@ -535,9 +511,6 @@ begin_comment
 comment|/*!   \macro Q_OS_SYMBIAN   \relates<QtGlobal>    Defined on Symbian.  */
 end_comment
 begin_comment
-comment|/*!   \macro Q_WS_S60   \relates<QtGlobal>    Defined on S60 with the Avkon UI framework.    \sa Q_WS_MAC, Q_WS_WIN, Q_WS_X11, Q_WS_QWS  */
-end_comment
-begin_comment
 comment|/*!   \macro QT_DISABLE_DEPRECATED_BEFORE   \relates<QtGlobal>    This macro can be defined in the project file to disable functions deprecated in   a specified version of Qt or any earlier version. The default version number is 5.0,   meaning that functions deprecated in or before Qt 5.0 will not be included.    Examples:   When using a future release of Qt 5, set QT_DISABLE_DEPRECATED_BEFORE=0x050100 to   disable functions deprecated in Qt 5.1 and earlier. In any release, set   QT_DISABLE_DEPRECATED_BEFORE=0x000000 to enable any functions, including the ones   deprecated in Qt 5.0  */
 end_comment
 begin_if
@@ -599,21 +572,15 @@ end_endif
 begin_if
 if|#
 directive|if
-operator|!
-name|defined
-argument_list|(
-name|QWS
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_QPA
-argument_list|)
-operator|&&
 name|defined
 argument_list|(
 name|Q_OS_MAC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_CORESERVICES
 argument_list|)
 end_if
 begin_function
@@ -666,68 +633,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|// Don't use this function, it won't work in 10.5 (Leopard) and up
-end_comment
-begin_function
-DECL|function|qt_mac_create_fsspec
-name|Q_CORE_EXPORT
-name|OSErr
-name|qt_mac_create_fsspec
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|file
-parameter_list|,
-name|FSSpec
-modifier|*
-name|spec
-parameter_list|)
-block|{
-name|FSRef
-name|fsref
-decl_stmt|;
-name|OSErr
-name|ret
-init|=
-name|qt_mac_create_fsref
-argument_list|(
-name|file
-argument_list|,
-operator|&
-name|fsref
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|ret
-operator|==
-name|noErr
-condition|)
-name|ret
-operator|=
-name|FSGetCatalogInfo
-argument_list|(
-operator|&
-name|fsref
-argument_list|,
-name|kFSCatInfoNone
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|,
-name|spec
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-return|return
-name|ret
-return|;
-block|}
-end_function
 begin_function
 DECL|function|qt_mac_to_pascal_string
 name|Q_CORE_EXPORT
@@ -752,29 +657,14 @@ operator|-
 literal|1
 parameter_list|)
 block|{
-if|if
-condition|(
-name|len
-operator|==
-operator|-
-literal|1
-condition|)
-name|len
-operator|=
-name|s
-operator|.
-name|length
-argument_list|()
-expr_stmt|;
-if|#
-directive|if
-literal|0
-block|UnicodeMapping mapping;     mapping.unicodeEncoding = CreateTextEncoding(kTextEncodingUnicodeDefault,                                                  kTextEncodingDefaultVariant,                                                  kUnicode16BitFormat);     mapping.otherEncoding = (encoding ? encoding : );     mapping.mappingVersion = kUnicodeUseLatestMapping;      UnicodeToTextInfo info;     OSStatus err = CreateUnicodeToTextInfo(&mapping,&info);     if(err != noErr) {         qDebug("Qt: internal: Unable to create pascal string '%s'::%d [%ld]",                s.left(len).latin1(), (int)encoding, err);         return;     }     const int unilen = len * 2;     const UniChar *unibuf = (UniChar *)s.unicode();     ConvertFromUnicodeToPString(info, unilen, unibuf, str);     DisposeUnicodeToTextInfo(&info);
-else|#
-directive|else
 name|Q_UNUSED
 argument_list|(
 name|encoding
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|len
 argument_list|)
 expr_stmt|;
 name|CFStringGetPascalString
@@ -792,8 +682,6 @@ name|CFStringGetSystemEncoding
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -828,17 +716,11 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//!defined(QWS)&& !defined(Q_WS_QPA)&& defined(Q_OS_MAC)
+comment|// defined(Q_OS_MAC)&& !defined(QT_NO_CORESERVICES)
 end_comment
 begin_if
 if|#
 directive|if
-operator|!
-name|defined
-argument_list|(
-name|QWS
-argument_list|)
-operator|&&
 name|defined
 argument_list|(
 name|Q_OS_MAC
@@ -919,7 +801,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_OS_WIN32
+name|Q_OS_WIN
 argument_list|)
 operator|||
 name|defined

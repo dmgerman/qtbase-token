@@ -642,7 +642,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 end_if
 begin_function_decl
@@ -6928,7 +6928,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 name|QString
 name|qAppFileName_str

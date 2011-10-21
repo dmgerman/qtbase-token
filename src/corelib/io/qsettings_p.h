@@ -108,23 +108,10 @@ directive|endif
 end_endif
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_WS_QPA
-argument_list|)
 DECL|macro|QT_QSETTINGS_ALWAYS_CASE_SENSITIVE_AND_FORGET_ORIGINAL_KEY_ORDER
 define|#
 directive|define
 name|QT_QSETTINGS_ALWAYS_CASE_SENSITIVE_AND_FORGET_ORIGINAL_KEY_ORDER
-endif|#
-directive|endif
 comment|// used in testing framework
 DECL|macro|QSETTINGS_P_H_VERSION
 define|#

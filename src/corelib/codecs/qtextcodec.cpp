@@ -179,7 +179,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_OS_UNIX
 argument_list|)
 operator|&&
 operator|!
@@ -3816,7 +3816,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_OS_UNIX
 argument_list|)
 operator|&&
 operator|!
@@ -3891,7 +3891,7 @@ directive|endif
 comment|// QT_NO_ICONV&& !QT_BOOTSTRAPPED
 endif|#
 directive|endif
-comment|// Q_WS_X11
+comment|// Q_OS_UNIX
 if|#
 directive|if
 operator|!

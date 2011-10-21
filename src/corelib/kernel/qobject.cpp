@@ -4285,7 +4285,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|qWarning
 argument_list|(
 literal|"On Mac OS X, you might be loading two sets of Qt binaries into the same process. "

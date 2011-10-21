@@ -1486,7 +1486,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_QPA
+name|QT_NO_CORESERVICES
 argument_list|)
 comment|// Mac OS X
 name|cores
