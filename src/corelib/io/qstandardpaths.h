@@ -62,6 +62,8 @@ name|CacheLocation
 operator|,
 name|GenericDataLocation
 operator|,
+name|RuntimeLocation
+operator|,
 name|ConfigLocation
 block|}
 end_function

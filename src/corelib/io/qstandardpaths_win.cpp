@@ -576,8 +576,9 @@ literal|"\\cache"
 argument_list|)
 return|;
 case|case
-name|QStandardPaths
-operator|::
+name|RuntimeLocation
+case|:
+case|case
 name|HomeLocation
 case|:
 name|result
@@ -589,8 +590,6 @@ argument_list|()
 expr_stmt|;
 break|break;
 case|case
-name|QStandardPaths
-operator|::
 name|TempLocation
 case|:
 name|result
@@ -600,8 +599,6 @@ operator|::
 name|tempPath
 argument_list|()
 expr_stmt|;
-break|break;
-default|default:
 break|break;
 block|}
 return|return

@@ -132,6 +132,11 @@ case|:
 case|case
 name|QStandardPaths
 operator|::
+name|RuntimeLocation
+case|:
+case|case
+name|QStandardPaths
+operator|::
 name|DataLocation
 case|:
 return|return
@@ -385,6 +390,9 @@ name|DataLocation
 case|:
 case|case
 name|CacheLocation
+case|:
+case|case
+name|RuntimeLocation
 case|:
 return|return
 name|macLocation
