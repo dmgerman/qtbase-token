@@ -10,12 +10,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../../src/widgets/dialogs/qsidebar_p.h"
+file|<QtWidgets/private/qsidebar_p.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"../../../src/widgets/dialogs/qfilesystemmodel_p.h"
+file|<QtWidgets/private/qfilesystemmodel_p.h>
 end_include
 begin_comment
 comment|//TESTED_CLASS=
