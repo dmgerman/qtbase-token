@@ -520,7 +520,7 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -529,7 +529,7 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -538,7 +538,7 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -547,7 +547,7 @@ argument_list|,
 name|GL_CLAMP_TO_EDGE
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -769,7 +769,7 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -778,7 +778,7 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -787,7 +787,7 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -796,7 +796,7 @@ argument_list|,
 name|GL_CLAMP_TO_EDGE
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,

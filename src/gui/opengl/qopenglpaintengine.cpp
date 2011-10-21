@@ -261,7 +261,7 @@ condition|(
 name|smoothPixmapTransform
 condition|)
 block|{
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|target
 argument_list|,
@@ -270,7 +270,7 @@ argument_list|,
 name|GL_LINEAR
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|target
 argument_list|,
@@ -282,7 +282,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|target
 argument_list|,
@@ -291,7 +291,7 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|target
 argument_list|,
@@ -301,7 +301,7 @@ name|GL_NEAREST
 argument_list|)
 expr_stmt|;
 block|}
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|target
 argument_list|,
@@ -310,7 +310,7 @@ argument_list|,
 name|wrapMode
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|target
 argument_list|,
@@ -10114,7 +10114,7 @@ operator|::
 name|Linear
 condition|)
 block|{
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -10123,7 +10123,7 @@ argument_list|,
 name|GL_LINEAR
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -10135,7 +10135,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -10144,7 +10144,7 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,

@@ -1353,7 +1353,7 @@ argument_list|(
 literal|"tex"
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -1362,7 +1362,7 @@ argument_list|,
 name|GL_LINEAR
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -1445,7 +1445,7 @@ operator||
 name|GL_DEPTH_BUFFER_BIT
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -1454,7 +1454,7 @@ argument_list|,
 name|GL_LINEAR
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,

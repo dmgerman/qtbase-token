@@ -479,7 +479,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Set nearest filtering mode for texture minification
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -489,7 +489,7 @@ name|GL_NEAREST
 argument_list|)
 expr_stmt|;
 comment|// Set bilinear filtering mode for texture magnification
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -500,7 +500,7 @@ argument_list|)
 expr_stmt|;
 comment|// Wrap texture coordinates by repeating
 comment|// f.ex. texture coordinate (1.1, 1.2) is same as (0.1, 0.2)
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -509,7 +509,7 @@ argument_list|,
 name|GL_REPEAT
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,

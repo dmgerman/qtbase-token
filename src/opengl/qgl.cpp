@@ -6975,7 +6975,7 @@ argument_list|,
 name|tx_id
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|target
 argument_list|,
@@ -7042,9 +7042,6 @@ argument_list|,
 name|GL_NICEST
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_OPENGL_ES
 name|glTexParameteri
 argument_list|(
 name|target
@@ -7054,19 +7051,6 @@ argument_list|,
 name|GL_TRUE
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|glTexParameterf
-argument_list|(
-name|target
-argument_list|,
-name|GL_GENERATE_MIPMAP_SGIS
-argument_list|,
-name|GL_TRUE
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 else|#
 directive|else
 name|glHint
@@ -7082,7 +7066,7 @@ literal|true
 expr_stmt|;
 endif|#
 directive|endif
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|target
 argument_list|,
@@ -7117,7 +7101,7 @@ directive|endif
 block|}
 else|else
 block|{
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|target
 argument_list|,
@@ -15968,7 +15952,7 @@ argument_list|,
 name|id
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -15977,7 +15961,7 @@ argument_list|,
 name|GL_LINEAR
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -16446,7 +16430,7 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -16455,7 +16439,7 @@ argument_list|,
 name|GL_LINEAR
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -16467,7 +16451,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -16476,7 +16460,7 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -16501,7 +16485,7 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -16510,7 +16494,7 @@ argument_list|,
 name|GL_LINEAR
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -16522,7 +16506,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
@@ -16531,7 +16515,7 @@ argument_list|,
 name|GL_NEAREST
 argument_list|)
 expr_stmt|;
-name|glTexParameterf
+name|glTexParameteri
 argument_list|(
 name|GL_TEXTURE_2D
 argument_list|,
