@@ -117,6 +117,11 @@ include|#
 directive|include
 file|<QtNetwork/QHttpMultiPart>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtNetwork/QNetworkProxyQuery>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -164,11 +169,6 @@ begin_include
 include|#
 directive|include
 file|<time.h>
-end_include
-begin_include
-include|#
-directive|include
-file|"private/qnetworkaccessmanager_p.h"
 end_include
 begin_include
 include|#
