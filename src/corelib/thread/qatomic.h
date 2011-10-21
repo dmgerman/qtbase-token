@@ -483,6 +483,8 @@ literal|1
 block|;
 endif|#
 directive|endif
+name|this
+operator|->
 name|store
 argument_list|(
 name|value
@@ -530,6 +532,8 @@ literal|1
 block|;
 endif|#
 directive|endif
+name|this
+operator|->
 name|store
 argument_list|(
 name|other
