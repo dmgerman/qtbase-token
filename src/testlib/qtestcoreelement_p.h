@@ -5,23 +5,53 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QTESTCOREELEMENT_H
+name|QTESTCOREELEMENT_P_H
 end_ifndef
 begin_define
-DECL|macro|QTESTCOREELEMENT_H
+DECL|macro|QTESTCOREELEMENT_P_H
 define|#
 directive|define
-name|QTESTCOREELEMENT_H
+name|QTESTCOREELEMENT_P_H
 end_define
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|//  W A R N I N G
+end_comment
+begin_comment
+comment|//  -------------
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// This file is not part of the Qt API.  It exists purely as an
+end_comment
+begin_comment
+comment|// implementation detail.  This header file may change from version to
+end_comment
+begin_comment
+comment|// version without notice, or even be removed.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// We mean it.
+end_comment
+begin_comment
+comment|//
+end_comment
 begin_include
 include|#
 directive|include
-file|<QtTest/qtestcorelist.h>
+file|<QtTest/private/qtestcorelist_p.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtTest/qtestelementattribute.h>
+file|<QtTest/private/qtestelementattribute_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER

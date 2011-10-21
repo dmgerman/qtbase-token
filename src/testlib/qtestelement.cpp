@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtTest/qtestelement.h>
+file|<QtTest/private/qtestelement_p.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

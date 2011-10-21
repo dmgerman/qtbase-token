@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtTest/qtestxunitstreamer.h>
+file|<QtTest/private/qtestxunitstreamer_p.h>
 end_include
 begin_include
 include|#
@@ -15,12 +15,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtTest/qtestelement.h>
+file|<QtTest/private/qtestelement_p.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtTest/qtestelementattribute.h>
+file|<QtTest/private/qtestelementattribute_p.h>
 end_include
 begin_include
 include|#
