@@ -495,7 +495,7 @@ begin_comment
 comment|/*!     \enum QDesktopServices::StandardLocation     \since 4.4      This enum describes the different locations that can be queried by     QDesktopServices::storageLocation and QDesktopServices::displayName.      \value DesktopLocation Returns the user's desktop directory.     \value DocumentsLocation Returns the user's document.     \value FontsLocation Returns the user's fonts.     \value ApplicationsLocation Returns the user's applications.     \value MusicLocation Returns the users music.     \value MoviesLocation Returns the user's movies.     \value PicturesLocation Returns the user's pictures.     \value TempLocation Returns the system's temporary directory.     \value HomeLocation Returns the user's home directory.     \value DataLocation Returns a directory location where persistent            application data can be stored. QCoreApplication::applicationName            and QCoreApplication::organizationName should work on all            platforms.     \value CacheLocation Returns a directory location where user-specific            non-essential (cached) data should be written.      \sa storageLocation() displayName() */
 end_comment
 begin_comment
-comment|/*!     \deprecated Use QStandardPaths::storageLocation() */
+comment|/*!     \deprecated Use QStandardPaths::writableLocation() */
 end_comment
 begin_function
 DECL|function|storageLocation
@@ -511,7 +511,7 @@ block|{
 return|return
 name|QStandardPaths
 operator|::
-name|storageLocation
+name|writableLocation
 argument_list|(
 cast|static_cast
 argument_list|<

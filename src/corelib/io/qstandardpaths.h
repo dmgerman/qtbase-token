@@ -73,7 +73,7 @@ end_empty_stmt
 begin_function_decl
 specifier|static
 name|QString
-name|storageLocation
+name|writableLocation
 parameter_list|(
 name|StandardLocation
 name|type

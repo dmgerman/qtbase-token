@@ -349,11 +349,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|storageLocation
+DECL|function|writableLocation
 name|QString
 name|QStandardPaths
 operator|::
-name|storageLocation
+name|writableLocation
 parameter_list|(
 name|StandardLocation
 name|type
@@ -474,7 +474,7 @@ specifier|const
 name|QString
 name|localDir
 init|=
-name|storageLocation
+name|writableLocation
 argument_list|(
 name|type
 argument_list|)

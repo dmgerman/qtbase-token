@@ -244,11 +244,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|storageLocation
+DECL|function|writableLocation
 name|QString
 name|QStandardPaths
 operator|::
-name|storageLocation
+name|writableLocation
 parameter_list|(
 name|StandardLocation
 name|type
@@ -565,7 +565,7 @@ comment|// Although Microsoft has a Cache key it is a pointer to IE's cache, not
 comment|// location for everyone.  Most applications seem to be using a
 comment|// cache directory located in their AppData directory
 return|return
-name|storageLocation
+name|writableLocation
 argument_list|(
 name|DataLocation
 argument_list|)
@@ -752,7 +752,7 @@ specifier|const
 name|QString
 name|localDir
 init|=
-name|storageLocation
+name|writableLocation
 argument_list|(
 name|type
 argument_list|)

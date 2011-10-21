@@ -59,11 +59,11 @@ name|QT_NO_STANDARDPATHS
 end_ifndef
 begin_function
 name|QT_BEGIN_NAMESPACE
-DECL|function|storageLocation
+DECL|function|writableLocation
 name|QString
 name|QStandardPaths
 operator|::
-name|storageLocation
+name|writableLocation
 parameter_list|(
 name|StandardLocation
 name|type
@@ -970,7 +970,7 @@ name|ApplicationsLocation
 case|:
 name|path
 operator|=
-name|storageLocation
+name|writableLocation
 argument_list|(
 name|GenericDataLocation
 argument_list|)
@@ -1130,7 +1130,7 @@ specifier|const
 name|QString
 name|localDir
 init|=
-name|storageLocation
+name|writableLocation
 argument_list|(
 name|type
 argument_list|)
