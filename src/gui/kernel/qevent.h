@@ -401,7 +401,7 @@ literal|5
 operator|,
 literal|0
 argument_list|)
-name|Q_DEPRECATED
+name|QT_DEPRECATED
 specifier|inline
 name|QPointF
 name|posF

@@ -69,7 +69,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*     QT_DEPRECATED_SINCE(major, minor) evaluates as true if the Qt version is greater than     the deprecation point specified.      Use it to specify from which version of Qt a function or class has been deprecated      Example:         #if QT_DEPRECATED_SINCE(5,1)             QT_DEPRECATED void deprecatedFunction(); //function deprecated sine Qt 5.1         #endif  */
+comment|/*     QT_DEPRECATED_SINCE(major, minor) evaluates as true if the Qt version is greater than     the deprecation point specified.      Use it to specify from which version of Qt a function or class has been deprecated      Example:         #if QT_DEPRECATED_SINCE(5,1)             QT_DEPRECATED void deprecatedFunction(); //function deprecated since Qt 5.1         #endif  */
 end_comment
 begin_define
 DECL|macro|QT_DEPRECATED_SINCE
