@@ -1352,30 +1352,17 @@ operator|*
 name|widget
 argument_list|)
 block|;
-name|QVariant
-name|invokeMethod
+name|QAccessibleInterface
+operator|*
+name|child
 argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
+argument|int index
 argument_list|)
+specifier|const
 block|;
 name|int
 name|childCount
 argument_list|()
-specifier|const
-block|;
-name|int
-name|navigate
-argument_list|(
-argument|RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **iface
-argument_list|)
 specifier|const
 block|;
 name|int
@@ -1399,7 +1386,17 @@ operator|*
 name|mainWindow
 argument_list|()
 specifier|const
-block|;  }
+block|;
+name|QVariant
+name|invokeMethod
+argument_list|(
+argument|QAccessible::Method method
+argument_list|,
+argument|int child
+argument_list|,
+argument|const QVariantList&params
+argument_list|)
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_endif
