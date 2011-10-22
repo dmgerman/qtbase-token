@@ -368,7 +368,7 @@ name|waitForFinished
 argument_list|()
 expr_stmt|;
 block|}
-comment|// Show a file open dialog at QDesktopServices::PicturesLocation.
+comment|// Show a file open dialog at QStandardPaths::PicturesLocation.
 name|QStringList
 name|files
 init|=
@@ -383,11 +383,11 @@ argument_list|(
 literal|"Select Images"
 argument_list|)
 argument_list|,
-name|QDesktopServices
+name|QStandardPaths
 operator|::
-name|storageLocation
+name|writableLocation
 argument_list|(
-name|QDesktopServices
+name|QStandardPaths
 operator|::
 name|PicturesLocation
 argument_list|)

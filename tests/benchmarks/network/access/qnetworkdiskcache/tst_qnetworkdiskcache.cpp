@@ -45,7 +45,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QDesktopServices>
+file|<QStandardPaths>
 end_include
 begin_enum
 DECL|enum|Numbers
@@ -274,11 +274,11 @@ expr_stmt|;
 name|QString
 name|cacheLoc
 init|=
-name|QDesktopServices
+name|QStandardPaths
 operator|::
-name|storageLocation
+name|writableLocation
 argument_list|(
-name|QDesktopServices
+name|QStandardPaths
 operator|::
 name|CacheLocation
 argument_list|)
@@ -287,7 +287,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"QDesktopServices Cache Location"
+literal|"QStandardPaths Cache Location"
 argument_list|)
 operator|<<
 name|cacheLoc
@@ -521,11 +521,11 @@ expr_stmt|;
 name|QString
 name|cacheLoc
 init|=
-name|QDesktopServices
+name|QStandardPaths
 operator|::
-name|storageLocation
+name|writableLocation
 argument_list|(
-name|QDesktopServices
+name|QStandardPaths
 operator|::
 name|CacheLocation
 argument_list|)
@@ -534,7 +534,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"QDesktopServices Cache Location"
+literal|"QStandardPaths Cache Location"
 argument_list|)
 operator|<<
 name|cacheLoc
@@ -774,11 +774,11 @@ expr_stmt|;
 name|QString
 name|cacheLoc
 init|=
-name|QDesktopServices
+name|QStandardPaths
 operator|::
-name|storageLocation
+name|writableLocation
 argument_list|(
-name|QDesktopServices
+name|QStandardPaths
 operator|::
 name|CacheLocation
 argument_list|)
@@ -787,7 +787,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"QDesktopServices Cache Location"
+literal|"QStandardPaths Cache Location"
 argument_list|)
 operator|<<
 name|cacheLoc
@@ -977,11 +977,11 @@ expr_stmt|;
 name|QString
 name|cacheLoc
 init|=
-name|QDesktopServices
+name|QStandardPaths
 operator|::
-name|storageLocation
+name|writableLocation
 argument_list|(
-name|QDesktopServices
+name|QStandardPaths
 operator|::
 name|CacheLocation
 argument_list|)
@@ -990,7 +990,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"QDesktopServices Cache Location"
+literal|"QStandardPaths Cache Location"
 argument_list|)
 operator|<<
 name|cacheLoc
