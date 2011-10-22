@@ -524,9 +524,6 @@ begin_class
 DECL|class|QAccessibleWidgetPrivate
 class|class
 name|QAccessibleWidgetPrivate
-super|:
-specifier|public
-name|QAccessible
 block|{
 public|public:
 DECL|function|QAccessibleWidgetPrivate
@@ -535,10 +532,14 @@ parameter_list|()
 member_init_list|:
 name|role
 argument_list|(
+name|QAccessible
+operator|::
 name|Client
 argument_list|)
 block|{}
 DECL|member|role
+name|QAccessible
+operator|::
 name|Role
 name|role
 decl_stmt|;
