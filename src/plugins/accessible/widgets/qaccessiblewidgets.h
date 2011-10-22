@@ -148,9 +148,6 @@ name|text
 argument_list|(
 name|Text
 name|t
-argument_list|,
-name|int
-name|child
 argument_list|)
 decl|const
 decl_stmt|;
@@ -159,9 +156,6 @@ name|setText
 parameter_list|(
 name|Text
 name|t
-parameter_list|,
-name|int
-name|control
 parameter_list|,
 specifier|const
 name|QString
@@ -176,9 +170,6 @@ name|QAccessible
 operator|::
 name|Method
 name|method
-argument_list|,
-name|int
-name|child
 argument_list|,
 specifier|const
 name|QVariantList
@@ -573,65 +564,11 @@ operator|*
 name|widget
 argument_list|)
 block|;
-name|QString
-name|text
-argument_list|(
-argument|Text textType
-argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|void
-name|setText
-argument_list|(
-argument|Text textType
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QString&text
-argument_list|)
-block|;
-name|State
-name|state
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-block|;
-name|int
-name|childCount
-argument_list|()
-specifier|const
-block|;
-name|int
-name|indexOfChild
-argument_list|(
-argument|const QAccessibleInterface *child
-argument_list|)
-specifier|const
-block|;
-name|int
-name|navigate
-argument_list|(
-argument|RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
-argument_list|)
-specifier|const
-block|;
+comment|// FIXME we currently expose the toolbox but it is not keyboard navigatable
+comment|// and the accessible hierarchy is not exactly beautiful.
+comment|//    int childCount() const;
+comment|//    QAccessibleInterface *child(int index) const;
+comment|//    int indexOfChild(const QAccessibleInterface *child) const;
 name|protected
 operator|:
 name|QToolBox
@@ -662,23 +599,6 @@ argument_list|(
 name|QWidget
 operator|*
 name|widget
-argument_list|)
-block|;
-name|State
-name|state
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
 argument_list|)
 block|;
 name|int
@@ -735,8 +655,6 @@ name|QString
 name|text
 argument_list|(
 argument|Text textType
-argument_list|,
-argument|int child
 argument_list|)
 specifier|const
 block|;
@@ -745,27 +663,13 @@ name|setText
 argument_list|(
 argument|Text textType
 argument_list|,
-argument|int child
-argument_list|,
 argument|const QString&text
 argument_list|)
 block|;
 name|State
 name|state
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
-block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
 block|;
 name|int
 name|childCount
@@ -792,9 +696,7 @@ specifier|const
 block|;
 name|QRect
 name|rect
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|int
@@ -843,23 +745,6 @@ argument_list|(
 name|QWidget
 operator|*
 name|widget
-argument_list|)
-block|;
-name|State
-name|state
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
 argument_list|)
 block|;
 name|int
@@ -952,9 +837,7 @@ argument_list|)
 block|;
 name|Role
 name|role
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|; }
 decl_stmt|;
@@ -1104,43 +987,13 @@ specifier|const
 block|;
 name|QRect
 name|rect
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|Role
 name|role
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
-block|;
-name|State
-name|state
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|int
-name|childAt
-argument_list|(
-argument|int x
-argument_list|,
-argument|int y
-argument_list|)
-specifier|const
-block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
 block|;
 name|QDockWidget
 operator|*
@@ -1166,34 +1019,6 @@ name|QDockWidget
 operator|*
 name|widget
 argument_list|)
-block|;
-name|QString
-name|actionText
-argument_list|(
-argument|int action
-argument_list|,
-argument|Text t
-argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|bool
-name|doAction
-argument_list|(
-argument|int action
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList& params = QVariantList()
-argument_list|)
-block|;
-name|int
-name|userActionCount
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
 block|;
 name|QAccessibleInterface
 operator|*
@@ -1235,11 +1060,7 @@ block|;
 name|Relation
 name|relationTo
 argument_list|(
-argument|int child
-argument_list|,
 argument|const QAccessibleInterface *other
-argument_list|,
-argument|int otherChild
 argument_list|)
 specifier|const
 block|;
@@ -1248,8 +1069,6 @@ name|setText
 argument_list|(
 argument|Text t
 argument_list|,
-argument|int child
-argument_list|,
 argument|const QString&text
 argument_list|)
 block|;
@@ -1257,30 +1076,22 @@ name|QString
 name|text
 argument_list|(
 argument|Text t
-argument_list|,
-argument|int child
 argument_list|)
 specifier|const
 block|;
 name|Role
 name|role
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|QRect
 name|rect
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|State
 name|state
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|int

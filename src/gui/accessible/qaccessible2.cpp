@@ -1037,8 +1037,6 @@ argument_list|(
 name|QAccessible
 operator|::
 name|Value
-argument_list|,
-literal|0
 argument_list|)
 operator|.
 name|mid
@@ -1130,8 +1128,6 @@ argument_list|(
 name|QAccessible
 operator|::
 name|Value
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 name|txt
@@ -1152,8 +1148,6 @@ argument_list|(
 name|QAccessible
 operator|::
 name|Value
-argument_list|,
-literal|0
 argument_list|,
 name|txt
 argument_list|)
@@ -1186,8 +1180,6 @@ argument_list|(
 name|QAccessible
 operator|::
 name|Value
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 name|txt
@@ -1206,8 +1198,6 @@ argument_list|(
 name|QAccessible
 operator|::
 name|Value
-argument_list|,
-literal|0
 argument_list|,
 name|txt
 argument_list|)
@@ -1307,8 +1297,6 @@ argument_list|(
 name|QAccessible
 operator|::
 name|Value
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 name|txt
@@ -1333,8 +1321,6 @@ argument_list|(
 name|QAccessible
 operator|::
 name|Value
-argument_list|,
-literal|0
 argument_list|,
 name|txt
 argument_list|)
@@ -1372,8 +1358,6 @@ argument_list|(
 name|QAccessible
 operator|::
 name|Value
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 name|txt
@@ -1396,8 +1380,6 @@ argument_list|(
 name|QAccessible
 operator|::
 name|Value
-argument_list|,
-literal|0
 argument_list|,
 name|txt
 argument_list|)

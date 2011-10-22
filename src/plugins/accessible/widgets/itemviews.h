@@ -96,39 +96,27 @@ return|;
 block|}
 name|Role
 name|role
-argument_list|(
-name|int
-name|child
-argument_list|)
-decl|const
-decl_stmt|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|State
 name|state
-argument_list|(
-name|int
-name|child
-argument_list|)
-decl|const
-decl_stmt|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QString
 name|text
 argument_list|(
 name|Text
 name|t
-argument_list|,
-name|int
-name|child
 argument_list|)
 decl|const
 decl_stmt|;
 name|QRect
 name|rect
-argument_list|(
-name|int
-name|child
-argument_list|)
-decl|const
-decl_stmt|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|int
 name|childAt
 argument_list|(
@@ -188,67 +176,17 @@ decl_stmt|;
 name|Relation
 name|relationTo
 argument_list|(
-name|int
-name|child
-argument_list|,
 specifier|const
 name|QAccessibleInterface
 operator|*
 name|other
-argument_list|,
-name|int
-name|otherChild
 argument_list|)
 decl|const
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_ACTION
-name|int
-name|userActionCount
-argument_list|(
-name|int
-name|child
-argument_list|)
-decl|const
-decl_stmt|;
-name|QString
-name|actionText
-argument_list|(
-name|int
-name|action
-argument_list|,
-name|Text
-name|t
-argument_list|,
-name|int
-name|child
-argument_list|)
-decl|const
-decl_stmt|;
-name|bool
-name|doAction
-parameter_list|(
-name|int
-name|action
-parameter_list|,
-name|int
-name|child
-parameter_list|,
-specifier|const
-name|QVariantList
-modifier|&
-name|params
-parameter_list|)
-function_decl|;
-endif|#
-directive|endif
 name|QVariant
-name|invokeMethodEx
+name|invokeMethod
 parameter_list|(
 name|Method
-parameter_list|,
-name|int
 parameter_list|,
 specifier|const
 name|QVariantList
@@ -734,11 +672,7 @@ block|;
 name|Relation
 name|relationTo
 argument_list|(
-argument|int child
-argument_list|,
 argument|const QAccessibleInterface *other
-argument_list|,
-argument|int otherChild
 argument_list|)
 specifier|const
 block|;
@@ -818,23 +752,17 @@ return|;
 block|}
 name|Role
 name|role
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|State
 name|state
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|QRect
 name|rect
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|bool
@@ -880,8 +808,6 @@ name|QString
 name|text
 argument_list|(
 argument|Text t
-argument_list|,
-argument|int child
 argument_list|)
 specifier|const
 block|;
@@ -889,8 +815,6 @@ name|void
 name|setText
 argument_list|(
 argument|Text t
-argument_list|,
-argument|int child
 argument_list|,
 argument|const QString&text
 argument_list|)
@@ -923,11 +847,7 @@ block|;
 name|Relation
 name|relationTo
 argument_list|(
-argument|int child
-argument_list|,
 argument|const QAccessibleInterface *other
-argument_list|,
-argument|int otherChild
 argument_list|)
 specifier|const
 block|;
@@ -936,39 +856,6 @@ name|isExpandable
 argument_list|()
 specifier|const
 block|;
-ifndef|#
-directive|ifndef
-name|QT_NO_ACTION
-name|int
-name|userActionCount
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|QString
-name|actionText
-argument_list|(
-argument|int action
-argument_list|,
-argument|Text t
-argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|bool
-name|doAction
-argument_list|(
-argument|int action
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-block|;
-endif|#
-directive|endif
 comment|// cell interface
 name|virtual
 name|int
@@ -1111,23 +998,17 @@ return|;
 block|}
 name|Role
 name|role
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|State
 name|state
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|QRect
 name|rect
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|bool
@@ -1173,8 +1054,6 @@ name|QString
 name|text
 argument_list|(
 argument|Text t
-argument_list|,
-argument|int child
 argument_list|)
 specifier|const
 block|;
@@ -1182,8 +1061,6 @@ name|void
 name|setText
 argument_list|(
 argument|Text t
-argument_list|,
-argument|int child
 argument_list|,
 argument|const QString&text
 argument_list|)
@@ -1224,39 +1101,6 @@ argument|int otherChild
 argument_list|)
 specifier|const
 block|;
-ifndef|#
-directive|ifndef
-name|QT_NO_ACTION
-name|int
-name|userActionCount
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|QString
-name|actionText
-argument_list|(
-argument|int action
-argument_list|,
-argument|Text t
-argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|bool
-name|doAction
-argument_list|(
-argument|int action
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|private
 operator|:
 name|QAbstractItemView
@@ -1323,18 +1167,9 @@ return|;
 block|}
 name|Role
 name|role
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|{
-name|Q_ASSERT
-argument_list|(
-name|child
-operator|==
-literal|0
-argument_list|)
-block|;
 return|return
 name|QAccessible
 operator|::
@@ -1343,18 +1178,9 @@ return|;
 block|}
 name|State
 name|state
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|{
-name|Q_ASSERT
-argument_list|(
-name|child
-operator|==
-literal|0
-argument_list|)
-block|;
 return|return
 name|QAccessible
 operator|::
@@ -1363,18 +1189,9 @@ return|;
 block|}
 name|QRect
 name|rect
-argument_list|(
-argument|int child
-argument_list|)
+argument_list|()
 specifier|const
 block|{
-name|Q_ASSERT
-argument_list|(
-name|child
-operator|==
-literal|0
-argument_list|)
-block|;
 return|return
 name|QRect
 argument_list|()
@@ -1427,8 +1244,6 @@ name|QString
 name|text
 argument_list|(
 argument|Text
-argument_list|,
-argument|int
 argument_list|)
 specifier|const
 block|{
@@ -1441,8 +1256,6 @@ name|void
 name|setText
 argument_list|(
 argument|Text
-argument_list|,
-argument|int
 argument_list|,
 argument|const QString&
 argument_list|)
@@ -1532,52 +1345,6 @@ operator|::
 name|Unrelated
 return|;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_ACTION
-name|int
-name|userActionCount
-argument_list|(
-argument|int
-argument_list|)
-specifier|const
-block|{
-return|return
-literal|0
-return|;
-block|}
-name|QString
-name|actionText
-argument_list|(
-argument|int
-argument_list|,
-argument|Text
-argument_list|,
-argument|int
-argument_list|)
-specifier|const
-block|{
-return|return
-name|QString
-argument_list|()
-return|;
-block|}
-name|bool
-name|doAction
-argument_list|(
-argument|int
-argument_list|,
-argument|int
-argument_list|,
-argument|const QVariantList&
-argument_list|)
-block|{
-return|return
-name|false
-return|;
-block|}
-endif|#
-directive|endif
 name|private
 operator|:
 name|QAbstractItemView

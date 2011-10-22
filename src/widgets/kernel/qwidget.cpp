@@ -30186,16 +30186,6 @@ argument_list|(
 name|event
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|ev
-operator|->
-name|child
-argument_list|()
-condition|)
-return|return
-literal|false
-return|;
 switch|switch
 condition|(
 name|ev

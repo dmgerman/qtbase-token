@@ -331,7 +331,8 @@ name|show
 argument_list|()
 expr_stmt|;
 comment|// Find the "OK" button and schedule a press.
-name|InterfaceChildPair
+name|QAccessibleInterface
+modifier|*
 name|interface
 init|=
 name|wn
@@ -350,8 +351,6 @@ decl_stmt|;
 name|QVERIFY
 argument_list|(
 name|interface
-operator|.
-name|iface
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -459,7 +458,8 @@ name|show
 argument_list|()
 expr_stmt|;
 comment|// Find the "OK" button and schedule a press.
-name|InterfaceChildPair
+name|QAccessibleInterface
+modifier|*
 name|interface
 init|=
 name|wn
@@ -479,8 +479,6 @@ decl_stmt|;
 name|QVERIFY
 argument_list|(
 name|interface
-operator|.
-name|iface
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -859,7 +857,8 @@ name|toImage
 argument_list|()
 decl_stmt|;
 comment|// Set focus by clicking the less button.
-name|InterfaceChildPair
+name|QAccessibleInterface
+modifier|*
 name|lessInterface
 init|=
 name|wn
@@ -879,8 +878,6 @@ decl_stmt|;
 name|QVERIFY
 argument_list|(
 name|lessInterface
-operator|.
-name|iface
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -936,15 +933,9 @@ name|QRect
 name|lessRect
 init|=
 name|lessInterface
-operator|.
-name|iface
 operator|->
 name|rect
-argument_list|(
-name|lessInterface
-operator|.
-name|possibleChild
-argument_list|)
+argument_list|()
 decl_stmt|;
 specifier|const
 name|QRect

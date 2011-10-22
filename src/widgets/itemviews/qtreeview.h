@@ -820,10 +820,7 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|friend
-name|class
-name|QAccessibleItemView
-block|;
+comment|//friend class QAccessibleItemView;
 name|friend
 name|class
 name|QAccessibleTable2

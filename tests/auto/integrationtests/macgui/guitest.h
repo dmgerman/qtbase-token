@@ -36,55 +36,6 @@ end_include
 begin_decl_stmt
 name|QT_USE_NAMESPACE
 comment|/*     GuiTest provides tools for:      - navigating the Qt Widget hiearchy using the accessibilty APIs.      - Simulating platform mouse and keybord events. */
-comment|/*     InterfaceChildPair specifies an accessibilty interface item. */
-name|class
-name|InterfaceChildPair
-block|{
-name|public
-label|:
-name|InterfaceChildPair
-argument_list|()
-operator|:
-name|iface
-argument_list|(
-literal|0
-argument_list|)
-operator|,
-name|possibleChild
-argument_list|(
-literal|0
-argument_list|)
-block|{}
-name|InterfaceChildPair
-argument_list|(
-argument|QAccessibleInterface *iface
-argument_list|,
-argument|int possibleChild
-argument_list|)
-operator|:
-name|iface
-argument_list|(
-name|iface
-argument_list|)
-operator|,
-name|possibleChild
-argument_list|(
-argument|possibleChild
-argument_list|)
-block|{ }
-name|QAccessibleInterface
-operator|*
-name|iface
-expr_stmt|;
-name|int
-name|possibleChild
-decl_stmt|;
-block|}
-end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-begin_decl_stmt
 name|class
 name|TestBase
 block|{
@@ -94,10 +45,11 @@ name|virtual
 name|bool
 name|operator
 argument_list|()
-operator|(
-name|InterfaceChildPair
+argument_list|(
+name|QAccessibleInterface
+operator|*
 name|candidate
-operator|)
+argument_list|)
 operator|=
 literal|0
 expr_stmt|;
@@ -139,11 +91,13 @@ function_decl|;
 name|void
 name|printAll
 parameter_list|(
-name|InterfaceChildPair
+name|QAccessibleInterface
+modifier|*
 name|interface
 parameter_list|)
 function_decl|;
-name|InterfaceChildPair
+name|QAccessibleInterface
+modifier|*
 name|find
 argument_list|(
 name|QAccessible
@@ -161,7 +115,8 @@ operator|*
 name|start
 argument_list|)
 decl_stmt|;
-name|InterfaceChildPair
+name|QAccessibleInterface
+modifier|*
 name|find
 argument_list|(
 name|QAccessible
@@ -179,7 +134,8 @@ operator|*
 name|start
 argument_list|)
 decl_stmt|;
-name|InterfaceChildPair
+name|QAccessibleInterface
+modifier|*
 name|recursiveSearch
 parameter_list|(
 name|TestBase
@@ -189,9 +145,6 @@ parameter_list|,
 name|QAccessibleInterface
 modifier|*
 name|iface
-parameter_list|,
-name|int
-name|possibleChild
 parameter_list|)
 function_decl|;
 name|void
@@ -207,7 +160,8 @@ name|QWidget
 modifier|*
 name|getWidget
 parameter_list|(
-name|InterfaceChildPair
+name|QAccessibleInterface
+modifier|*
 name|interface
 parameter_list|)
 function_decl|;
@@ -383,7 +337,7 @@ name|public
 operator|:
 name|ClickLaterAction
 argument_list|(
-argument|InterfaceChildPair interface
+argument|QAccessibleInterface *interface
 argument_list|,
 argument|Qt::MouseButtons buttons = Qt::LeftButton
 argument_list|)
@@ -407,7 +361,8 @@ operator|:
 name|bool
 name|useInterface
 block|;
-name|InterfaceChildPair
+name|QAccessibleInterface
+operator|*
 name|interface
 block|;
 name|QWidget
@@ -494,7 +449,7 @@ operator|:
 name|void
 name|clickLater
 argument_list|(
-argument|InterfaceChildPair interface
+argument|QAccessibleInterface *interface
 argument_list|,
 argument|Qt::MouseButtons buttons = Qt::LeftButton
 argument_list|,

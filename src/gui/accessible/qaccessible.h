@@ -1259,11 +1259,7 @@ name|virtual
 name|Relation
 name|relationTo
 argument_list|(
-argument|int child
-argument_list|,
 argument|const QAccessibleInterface *other
-argument_list|,
-argument|int otherChild
 argument_list|)
 specifier|const
 block|;
@@ -1353,9 +1349,6 @@ name|QString
 name|text
 argument_list|(
 argument|Text t
-argument_list|,
-argument|int child =
-literal|0
 argument_list|)
 specifier|const
 operator|=
@@ -1367,8 +1360,6 @@ name|setText
 argument_list|(
 argument|Text t
 argument_list|,
-argument|int child
-argument_list|,
 argument|const QString&text
 argument_list|)
 operator|=
@@ -1377,10 +1368,7 @@ block|;
 name|virtual
 name|QRect
 name|rect
-argument_list|(
-argument|int child =
-literal|0
-argument_list|)
+argument_list|()
 specifier|const
 operator|=
 literal|0
@@ -1388,10 +1376,7 @@ block|;
 name|virtual
 name|Role
 name|role
-argument_list|(
-argument|int child =
-literal|0
-argument_list|)
+argument_list|()
 specifier|const
 operator|=
 literal|0
@@ -1399,10 +1384,7 @@ block|;
 name|virtual
 name|State
 name|state
-argument_list|(
-argument|int child =
-literal|0
-argument_list|)
+argument_list|()
 specifier|const
 operator|=
 literal|0
@@ -1424,9 +1406,6 @@ name|QVariant
 name|invokeMethod
 argument_list|(
 argument|Method method
-argument_list|,
-argument|int child =
-literal|0
 argument_list|,
 argument|const QVariantList&params = QVariantList()
 argument_list|)
@@ -1658,20 +1637,8 @@ specifier|inline
 name|QAccessibleEvent
 argument_list|(
 argument|Type type
-argument_list|,
-argument|int child
 argument_list|)
 block|;
-specifier|inline
-name|int
-name|child
-argument_list|()
-specifier|const
-block|{
-return|return
-name|c
-return|;
-block|}
 specifier|inline
 name|QString
 name|value
@@ -1695,9 +1662,6 @@ name|aText
 block|; }
 name|private
 operator|:
-name|int
-name|c
-block|;
 name|QString
 name|val
 block|; }
@@ -1711,18 +1675,11 @@ operator|::
 name|QAccessibleEvent
 argument_list|(
 argument|Type atype
-argument_list|,
-argument|int achild
 argument_list|)
 operator|:
 name|QEvent
 argument_list|(
-name|atype
-argument_list|)
-operator|,
-name|c
-argument_list|(
-argument|achild
+argument|atype
 argument_list|)
 block|{}
 DECL|macro|QAccessibleInterface_iid

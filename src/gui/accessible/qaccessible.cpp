@@ -737,13 +737,9 @@ name|QAccessibleInterface
 operator|::
 name|relationTo
 parameter_list|(
-name|int
-parameter_list|,
 specifier|const
 name|QAccessibleInterface
 modifier|*
-parameter_list|,
-name|int
 parameter_list|)
 specifier|const
 block|{
@@ -943,9 +939,6 @@ parameter_list|(
 name|Method
 name|method
 parameter_list|,
-name|int
-name|child
-parameter_list|,
 specifier|const
 name|QVariantList
 modifier|&
@@ -955,10 +948,6 @@ block|{
 name|Q_UNUSED
 argument_list|(
 argument|method
-argument_list|)
-name|Q_UNUSED
-argument_list|(
-argument|child
 argument_list|)
 name|Q_UNUSED
 argument_list|(

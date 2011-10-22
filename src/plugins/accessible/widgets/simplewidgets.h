@@ -81,18 +81,12 @@ name|QString
 name|text
 argument_list|(
 argument|Text t
-argument_list|,
-argument|int child =
-literal|0
 argument_list|)
 specifier|const
 block|;
 name|State
 name|state
-argument_list|(
-argument|int child =
-literal|0
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|QStringList
@@ -149,9 +143,7 @@ argument_list|)
 block|;
 name|State
 name|state
-argument_list|(
-argument|int
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|int
@@ -171,38 +163,8 @@ name|QString
 name|text
 argument_list|(
 argument|Text t
-argument_list|,
-argument|int child
 argument_list|)
 specifier|const
-block|;
-name|int
-name|actionCount
-argument_list|(
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|QString
-name|actionText
-argument_list|(
-argument|int action
-argument_list|,
-argument|Text text
-argument_list|,
-argument|int child
-argument_list|)
-specifier|const
-block|;
-name|bool
-name|doAction
-argument_list|(
-argument|int action
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
 block|;
 comment|// QAccessibleActionInterface
 name|QStringList
@@ -268,33 +230,21 @@ name|text
 argument_list|(
 name|Text
 name|t
-argument_list|,
-name|int
-name|child
 argument_list|)
 decl|const
 decl_stmt|;
 name|Role
 name|role
-argument_list|(
-name|int
-name|child
-argument_list|)
-decl|const
-decl_stmt|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|Relation
 name|relationTo
 argument_list|(
-name|int
-name|child
-argument_list|,
 specifier|const
 name|QAccessibleInterface
 operator|*
 name|other
-argument_list|,
-name|int
-name|otherChild
 argument_list|)
 decl|const
 decl_stmt|;
@@ -380,9 +330,6 @@ name|text
 argument_list|(
 name|Text
 name|t
-argument_list|,
-name|int
-name|child
 argument_list|)
 decl|const
 decl_stmt|;
@@ -392,9 +339,6 @@ parameter_list|(
 name|Text
 name|t
 parameter_list|,
-name|int
-name|control
-parameter_list|,
 specifier|const
 name|QString
 modifier|&
@@ -403,12 +347,9 @@ parameter_list|)
 function_decl|;
 name|State
 name|state
-argument_list|(
-name|int
-name|child
-argument_list|)
-decl|const
-decl_stmt|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QVariant
 name|invokeMethod
 argument_list|(
@@ -416,9 +357,6 @@ name|QAccessible
 operator|::
 name|Method
 name|method
-argument_list|,
-name|int
-name|child
 argument_list|,
 specifier|const
 name|QVariantList

@@ -75,18 +75,13 @@ block|;
 comment|// properties
 name|QRect
 name|rect
-argument_list|(
-argument|int child =
-literal|0
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|void
 name|setText
 argument_list|(
 argument|Text t
-argument_list|,
-argument|int child
 argument_list|,
 argument|const QString&text
 argument_list|)
@@ -147,11 +142,7 @@ block|;
 name|Relation
 name|relationTo
 argument_list|(
-argument|int
-argument_list|,
-argument|const QAccessibleInterface *
-argument_list|,
-argument|int
+argument|const QAccessibleInterface *other
 argument_list|)
 specifier|const
 block|;
@@ -195,26 +186,17 @@ name|QString
 name|text
 argument_list|(
 argument|Text t
-argument_list|,
-argument|int child =
-literal|0
 argument_list|)
 specifier|const
 block|;
 name|Role
 name|role
-argument_list|(
-argument|int child =
-literal|0
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|State
 name|state
-argument_list|(
-argument|int child =
-literal|0
-argument_list|)
+argument_list|()
 specifier|const
 block|; }
 decl_stmt|;

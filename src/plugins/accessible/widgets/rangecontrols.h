@@ -102,42 +102,9 @@ name|text
 argument_list|(
 name|Text
 name|t
-argument_list|,
-name|int
-name|child
 argument_list|)
 decl|const
 decl_stmt|;
-name|bool
-name|doAction
-parameter_list|(
-name|int
-name|action
-parameter_list|,
-name|int
-name|child
-parameter_list|,
-specifier|const
-name|QVariantList
-modifier|&
-name|params
-parameter_list|)
-function_decl|;
-name|QVariant
-name|invokeMethod
-parameter_list|(
-name|Method
-name|method
-parameter_list|,
-name|int
-name|child
-parameter_list|,
-specifier|const
-name|QVariantList
-modifier|&
-name|params
-parameter_list|)
-function_decl|;
 comment|// QAccessibleValueInterface
 name|QVariant
 name|currentValue
@@ -218,22 +185,10 @@ operator|*
 name|widget
 argument_list|)
 block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-block|;
 name|QString
 name|text
 argument_list|(
 argument|Text t
-argument_list|,
-argument|int child
 argument_list|)
 specifier|const
 block|;
@@ -276,21 +231,6 @@ argument_list|,
 argument|Role r = Slider
 argument_list|)
 decl_stmt|;
-name|QVariant
-name|invokeMethod
-parameter_list|(
-name|Method
-name|method
-parameter_list|,
-name|int
-name|child
-parameter_list|,
-specifier|const
-name|QVariantList
-modifier|&
-name|params
-parameter_list|)
-function_decl|;
 comment|// QAccessibleValueInterface
 name|QVariant
 name|currentValue
@@ -352,8 +292,6 @@ name|QString
 name|text
 argument_list|(
 argument|Text t
-argument_list|,
-argument|int child
 argument_list|)
 specifier|const
 block|;
@@ -400,8 +338,6 @@ name|QString
 name|text
 argument_list|(
 argument|Text t
-argument_list|,
-argument|int child
 argument_list|)
 specifier|const
 block|;
@@ -448,20 +384,8 @@ name|QString
 name|text
 argument_list|(
 argument|Text textType
-argument_list|,
-argument|int child
 argument_list|)
 specifier|const
-block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
 block|;
 name|protected
 operator|:
