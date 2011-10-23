@@ -1037,12 +1037,6 @@ name|void
 name|sqlite_constraint
 parameter_list|()
 function_decl|;
-if|#
-directive|if
-literal|0
-private|void benchmark_data() { generic_data(); }     void benchmark();
-endif|#
-directive|endif
 private|private:
 comment|// returns all database connections
 name|void
@@ -21988,16 +21982,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_endif
-unit|void tst_QSqlQuery::benchmark() {     QFETCH( QString, dbName );     QSqlDatabase db = QSqlDatabase::database( dbName );     CHECK_DATABASE( db );     if ( tst_Databases::getMySqlVersion( db ).section( QChar('.'), 0, 0 ).toInt()<5 )         QSKIP( "Test requires MySQL>= 5.0");      QSqlQuery q(db);     const QString tableName(qTableName("benchmark", __FILE__));      tst_Databases::safeDropTable( db, tableName );      QVERIFY_SQL(q, exec("CREATE TABLE "+tableName+"(\n"                         "MainKey INT NOT NULL,\n"                         "OtherTextCol VARCHAR(45) NOT NULL,\n"                         "PRIMARY KEY(`MainKey`))"));      int i=1;      QBENCHMARK {         QVERIFY_SQL(q, exec("INSERT INTO "+tableName+" VALUES("+QString::number(i)+", \"Value"+QString::number(i)+"\")"));         i++;     }      tst_Databases::safeDropTable( db, tableName ); }
-endif|#
-directive|endif
-end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(
