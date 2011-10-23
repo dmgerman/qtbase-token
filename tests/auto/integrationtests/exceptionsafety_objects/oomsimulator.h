@@ -888,6 +888,9 @@ argument_list|(
 name|size
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_EXCEPTIONS
 if|if
 condition|(
 operator|!
@@ -899,6 +902,8 @@ operator|::
 name|bad_alloc
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|ptr
 return|;
@@ -934,6 +939,11 @@ end_endif
 begin_comment
 comment|// overload operator new
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_EXCEPTIONS
+end_ifndef
 begin_function
 DECL|function|throw
 name|void
@@ -987,6 +997,10 @@ argument_list|)
 return|;
 block|}
 end_block
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 DECL|function|throw
 name|void
