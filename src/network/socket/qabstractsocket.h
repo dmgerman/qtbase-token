@@ -197,7 +197,32 @@ comment|// IP_MULTICAST_TTL
 name|MulticastLoopbackOption
 comment|// IP_MULTICAST_LOOPBACK
 block|}
+block|;     enum
+name|BindFlag
+block|{
+name|DefaultForPlatform
+operator|=
+literal|0x0
+block|,
+name|ShareAddress
+operator|=
+literal|0x1
+block|,
+name|DontShareAddress
+operator|=
+literal|0x2
+block|,
+name|ReuseAddressHint
+operator|=
+literal|0x4
+block|}
 block|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|BindMode
+argument_list|,
+argument|BindFlag
+argument_list|)
 name|QAbstractSocket
 argument_list|(
 argument|SocketType socketType
@@ -209,6 +234,26 @@ name|virtual
 operator|~
 name|QAbstractSocket
 argument_list|()
+block|;
+name|bool
+name|bind
+argument_list|(
+argument|const QHostAddress&address
+argument_list|,
+argument|quint16 port =
+literal|0
+argument_list|,
+argument|BindMode mode = DefaultForPlatform
+argument_list|)
+block|;
+name|bool
+name|bind
+argument_list|(
+argument|quint16 port =
+literal|0
+argument_list|,
+argument|BindMode mode = DefaultForPlatform
+argument_list|)
 block|;
 comment|// ### Qt 5: Make connectToHost() and disconnectFromHost() virtual.
 name|void
@@ -607,6 +652,12 @@ argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QAbstractSocket::BindMode
+argument_list|)
+end_macro
 begin_ifndef
 ifndef|#
 directive|ifndef

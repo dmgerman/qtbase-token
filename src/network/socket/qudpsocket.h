@@ -54,32 +54,6 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-expr|enum
-name|BindFlag
-block|{
-name|DefaultForPlatform
-operator|=
-literal|0x0
-block|,
-name|ShareAddress
-operator|=
-literal|0x1
-block|,
-name|DontShareAddress
-operator|=
-literal|0x2
-block|,
-name|ReuseAddressHint
-operator|=
-literal|0x4
-block|}
-block|;
-name|Q_DECLARE_FLAGS
-argument_list|(
-argument|BindMode
-argument_list|,
-argument|BindFlag
-argument_list|)
 name|explicit
 name|QUdpSocket
 argument_list|(
@@ -95,40 +69,6 @@ operator|~
 name|QUdpSocket
 argument_list|()
 block|;
-name|bool
-name|bind
-argument_list|(
-argument|const QHostAddress&address
-argument_list|,
-argument|quint16 port
-argument_list|)
-block|;
-name|bool
-name|bind
-argument_list|(
-argument|quint16 port =
-literal|0
-argument_list|)
-block|;
-name|bool
-name|bind
-argument_list|(
-argument|const QHostAddress&address
-argument_list|,
-argument|quint16 port
-argument_list|,
-argument|BindMode mode
-argument_list|)
-block|;
-name|bool
-name|bind
-argument_list|(
-argument|quint16 port
-argument_list|,
-argument|BindMode mode
-argument_list|)
-block|;
-comment|// ### Qt 5: Merge the bind functions
 ifndef|#
 directive|ifndef
 name|QT_NO_NETWORKINTERFACE
@@ -272,10 +212,6 @@ argument|QUdpSocket
 argument_list|)
 expr|}
 block|;
-name|Q_DECLARE_OPERATORS_FOR_FLAGS
-argument_list|(
-argument|QUdpSocket::BindMode
-argument_list|)
 endif|#
 directive|endif
 comment|// QT_NO_UDPSOCKET
