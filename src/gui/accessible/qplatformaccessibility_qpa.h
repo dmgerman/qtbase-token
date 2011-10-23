@@ -26,7 +26,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"qaccessible.h"
+file|<QtGui/qaccessible.h>
 end_include
 begin_function
 name|QT_BEGIN_HEADER
