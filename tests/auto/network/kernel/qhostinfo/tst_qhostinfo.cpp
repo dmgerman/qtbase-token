@@ -712,6 +712,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+comment|// HP-UX 11i does not support IPv6 reverse lookups.
 if|#
 directive|if
 operator|!
@@ -719,6 +720,19 @@ name|defined
 argument_list|(
 name|QT_NO_GETADDRINFO
 argument_list|)
+operator|||
+operator|!
+operator|(
+name|defined
+argument_list|(
+name|Q_OS_HPUX
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|__ia64
+argument_list|)
+operator|)
 comment|// check if the system getaddrinfo can do IPv6 lookups
 name|struct
 name|addrinfo
@@ -1699,6 +1713,16 @@ argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
+name|addColumn
+argument_list|<
+name|bool
+argument_list|>
+argument_list|(
+literal|"ipv6"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
 name|newRow
 argument_list|(
 literal|"trolltech.com"
@@ -1718,9 +1742,9 @@ argument_list|)
 argument_list|)
 operator|<<
 literal|0
+operator|<<
+literal|false
 expr_stmt|;
-comment|// ### Use internal DNS instead. Discussed with Andreas.
-comment|//QTest::newRow("classical.hexago.com")<< QString("2001:5c0:0:2::24")<< QStringList(QString("classical.hexago.com"))<< 0;
 name|QTest
 operator|::
 name|newRow
@@ -1742,6 +1766,8 @@ argument_list|)
 argument_list|)
 operator|<<
 literal|0
+operator|<<
+literal|false
 expr_stmt|;
 name|QTest
 operator|::
@@ -1759,6 +1785,8 @@ name|QStringList
 argument_list|()
 operator|<<
 literal|1
+operator|<<
+literal|true
 expr_stmt|;
 block|}
 end_function
@@ -1791,52 +1819,27 @@ argument_list|,
 name|err
 argument_list|)
 expr_stmt|;
+name|QFETCH
+argument_list|(
+name|bool
+argument_list|,
+name|ipv6
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
+name|ipv6
+operator|&&
 operator|!
 name|ipv6LookupsAvailable
-operator|&&
-name|hostNames
-operator|.
-name|contains
-argument_list|(
-literal|"classical.hexago.com"
-argument_list|)
 condition|)
 block|{
 name|QSKIP
 argument_list|(
-literal|"IPv6 lookups are not supported on this platform"
+literal|"IPv6 reverse lookups are not supported on this platform"
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_HPUX
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|__ia64
-argument_list|)
-if|if
-condition|(
-name|hostNames
-operator|.
-name|contains
-argument_list|(
-literal|"classical.hexago.com"
-argument_list|)
-condition|)
-name|QSKIP
-argument_list|(
-literal|"HP-UX 11i does not support IPv6 reverse lookups."
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QHostInfo
 name|info
 init|=
