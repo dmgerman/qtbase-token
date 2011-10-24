@@ -120,7 +120,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_OS_UNIX
 argument_list|)
 operator|&&
 operator|!
@@ -1758,7 +1758,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_X11
+name|Q_OS_UNIX
 argument_list|)
 operator|&&
 operator|!
