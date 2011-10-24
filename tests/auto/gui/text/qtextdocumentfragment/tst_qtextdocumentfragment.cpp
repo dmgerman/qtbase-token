@@ -4243,7 +4243,7 @@ operator|::
 name|resetHasBlockAfterClosedBlockTags
 parameter_list|()
 block|{
-comment|// when closing tags we have to make sure hasBlock in import() gets resetted
+comment|// when closing tags we have to make sure hasBlock in import() gets reset
 specifier|const
 name|char
 name|html

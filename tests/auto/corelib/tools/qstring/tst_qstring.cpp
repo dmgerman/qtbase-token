@@ -38997,7 +38997,7 @@ operator|<<
 literal|0
 expr_stmt|;
 comment|// embedded nulls
-comment|// These dont work as of now. Its OK that these dont work since \0 is not a valid unicode
+comment|// These don't work as of now. It's OK that these don't work since \0 is not a valid unicode
 comment|/*QTest::newRow("data9")<< QString(QByteArray("\0", 1))<< QString(QByteArray("\0", 1))<< 0<< 0;     QTest::newRow("data10")<< QString(QByteArray("\0", 1))<< QString("")<< 1<< 1;     QTest::newRow("data11")<< QString("")<< QString(QByteArray("\0", 1))<< -1<< -1;     QTest::newRow("data12")<< QString("ab\0c")<< QString(QByteArray("ab\0c", 4))<< 0<< 0;     QTest::newRow("data13")<< QString(QByteArray("ab\0c", 4))<< QString("abc")<< -1<< -1;     QTest::newRow("data14")<< QString("abc")<< QString(QByteArray("ab\0c", 4))<< 1<< 1;*/
 block|}
 end_function

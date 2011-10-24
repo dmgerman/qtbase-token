@@ -2398,7 +2398,7 @@ condition|(
 literal|0
 condition|)
 block|{
-comment|// dont run these tests since the dialog wont close!
+comment|// don't run these tests since the dialog won't close!
 name|keyToSend
 operator|=
 name|Qt

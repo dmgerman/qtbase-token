@@ -2078,7 +2078,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"insert one row in the begining"
+literal|"insert one row in the beginning"
 argument_list|)
 operator|<<
 operator|(

@@ -17942,7 +17942,7 @@ name|page
 operator|.
 name|setSubTitle
 argument_list|(
-literal|"SUBTITLE#:  The subtitle bust be alligned with the rest of the widget"
+literal|"SUBTITLE#:  The subtitle bust be aligned with the rest of the widget"
 argument_list|)
 expr_stmt|;
 name|QLabel

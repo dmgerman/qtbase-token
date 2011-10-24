@@ -27067,7 +27067,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-comment|// this creates a new selection model for the view, but we dont want it either ...
+comment|// this creates a new selection model for the view, but we don't want it either ...
 name|oldModel
 operator|=
 name|view

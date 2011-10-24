@@ -491,7 +491,7 @@ literal|4.4
 argument_list|)
 expr_stmt|;
 comment|// This should pick the highest of w,h components independently of each other,
-comment|// thus the result dont have to be equal to neither input1 nor input2.
+comment|// thus the result don't have to be equal to neither input1 nor input2.
 name|QTest
 operator|::
 name|newRow
@@ -660,7 +660,7 @@ literal|0.0
 argument_list|)
 expr_stmt|;
 comment|// This should pick the lowest of w,h components independently of each other,
-comment|// thus the result dont have to be equal to neither input1 nor input2.
+comment|// thus the result don't have to be equal to neither input1 nor input2.
 name|QTest
 operator|::
 name|newRow

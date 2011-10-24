@@ -10771,7 +10771,7 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// dont forget to login
+comment|// don't forget to login
 name|QCOMPARE
 argument_list|(
 operator|(
@@ -11020,7 +11020,7 @@ literal|10000
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// dont forget to login
+comment|// don't forget to login
 name|QCOMPARE
 argument_list|(
 operator|(

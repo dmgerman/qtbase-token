@@ -489,7 +489,7 @@ name|qApp
 operator|->
 name|setStyleSheet
 argument_list|(
-literal|"[alignement=\"1\"], [text=\"foo\"] { color:black; }"
+literal|"[alignment=\"1\"], [text=\"foo\"] { color:black; }"
 argument_list|)
 expr_stmt|;
 name|QSpinBox

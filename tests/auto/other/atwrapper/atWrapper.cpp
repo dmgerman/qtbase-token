@@ -2659,7 +2659,7 @@ name|configPath
 operator|=
 name|path
 expr_stmt|;
-comment|//If there is no config file, dont proceed;
+comment|//If there is no config file, don't proceed;
 if|if
 condition|(
 operator|!
