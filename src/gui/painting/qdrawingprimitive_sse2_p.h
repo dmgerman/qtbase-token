@@ -114,6 +114,41 @@ comment|/* interpolate RB */
 value|\     __m128i srcVectorRB = _mm_and_si128(srcVector, colorMask); \     __m128i dstVectorRB = _mm_and_si128(dstVector, colorMask); \     __m128i srcVectorRBalpha = _mm_mullo_epi16(srcVectorRB, alphaChannel); \     __m128i dstVectorRBoneMinusAlphalpha = _mm_mullo_epi16(dstVectorRB, oneMinusAlphaChannel); \     __m128i finalRB = _mm_add_epi16(srcVectorRBalpha, dstVectorRBoneMinusAlphalpha); \     finalRB = _mm_add_epi16(finalRB, _mm_srli_epi16(finalRB, 8)); \     finalRB = _mm_add_epi16(finalRB, half); \     finalRB = _mm_srli_epi16(finalRB, 8); \  \
 comment|/* combine */
 value|\     result = _mm_or_si128(finalAG, finalRB); \ }
+comment|// same as BLEND_SOURCE_OVER_ARGB32_SSE2, but for one vector srcVector
+DECL|macro|BLEND_SOURCE_OVER_ARGB32_SSE2_helper
+define|#
+directive|define
+name|BLEND_SOURCE_OVER_ARGB32_SSE2_helper
+parameter_list|(
+name|dst
+parameter_list|,
+name|srcVector
+parameter_list|,
+name|nullVector
+parameter_list|,
+name|half
+parameter_list|,
+name|one
+parameter_list|,
+name|colorMask
+parameter_list|,
+name|alphaMask
+parameter_list|)
+value|{ \         const __m128i srcVectorAlpha = _mm_and_si128(srcVector, alphaMask); \         if (_mm_movemask_epi8(_mm_cmpeq_epi32(srcVectorAlpha, alphaMask)) == 0xffff) { \
+comment|/* all opaque */
+value|\             _mm_store_si128((__m128i *)&dst[x], srcVector); \         } else if (_mm_movemask_epi8(_mm_cmpeq_epi32(srcVectorAlpha, nullVector)) != 0xffff) { \
+comment|/* not fully transparent */
+value|\
+comment|/* extract the alpha channel on 2 x 16 bits */
+value|\
+comment|/* so we have room for the multiplication */
+value|\
+comment|/* each 32 bits will be in the form 0x00AA00AA */
+value|\
+comment|/* with A being the 1 - alpha */
+value|\             __m128i alphaChannel = _mm_srli_epi32(srcVector, 24); \             alphaChannel = _mm_or_si128(alphaChannel, _mm_slli_epi32(alphaChannel, 16)); \             alphaChannel = _mm_sub_epi16(one, alphaChannel); \  \             const __m128i dstVector = _mm_load_si128((__m128i *)&dst[x]); \             __m128i destMultipliedByOneMinusAlpha; \             BYTE_MUL_SSE2(destMultipliedByOneMinusAlpha, dstVector, alphaChannel, colorMask, half); \  \
+comment|/* result = s + d * (1-alpha) */
+value|\             const __m128i result = _mm_add_epi8(srcVector, destMultipliedByOneMinusAlpha); \             _mm_store_si128((__m128i *)&dst[x], result); \         } \     }
 comment|// Basically blend src over dst with the const alpha defined as constAlphaVector.
 comment|// nullVector, half, one, colorMask are constant across the whole image/texture, and should be defined as:
 comment|//const __m128i nullVector = _mm_set1_epi32(0);
@@ -148,21 +183,7 @@ name|alphaMask
 parameter_list|)
 value|{ \     int x = 0; \ \
 comment|/* First, get dst aligned. */
-value|\     ALIGNMENT_PROLOGUE_16BYTES(dst, x, length) { \         uint s = src[x]; \         if (s>= 0xff000000) \             dst[x] = s; \         else if (s != 0) \             dst[x] = s + BYTE_MUL(dst[x], qAlpha(~s)); \     } \ \     for (; x< length-3; x += 4) { \         const __m128i srcVector = _mm_loadu_si128((__m128i *)&src[x]); \         const __m128i srcVectorAlpha = _mm_and_si128(srcVector, alphaMask); \         if (_mm_movemask_epi8(_mm_cmpeq_epi32(srcVectorAlpha, alphaMask)) == 0xffff) { \
-comment|/* all opaque */
-value|\             _mm_store_si128((__m128i *)&dst[x], srcVector); \         } else if (_mm_movemask_epi8(_mm_cmpeq_epi32(srcVectorAlpha, nullVector)) != 0xffff) { \
-comment|/* not fully transparent */
-value|\
-comment|/* extract the alpha channel on 2 x 16 bits */
-value|\
-comment|/* so we have room for the multiplication */
-value|\
-comment|/* each 32 bits will be in the form 0x00AA00AA */
-value|\
-comment|/* with A being the 1 - alpha */
-value|\             __m128i alphaChannel = _mm_srli_epi32(srcVector, 24); \             alphaChannel = _mm_or_si128(alphaChannel, _mm_slli_epi32(alphaChannel, 16)); \             alphaChannel = _mm_sub_epi16(one, alphaChannel); \  \             const __m128i dstVector = _mm_load_si128((__m128i *)&dst[x]); \             __m128i destMultipliedByOneMinusAlpha; \             BYTE_MUL_SSE2(destMultipliedByOneMinusAlpha, dstVector, alphaChannel, colorMask, half); \  \
-comment|/* result = s + d * (1-alpha) */
-value|\             const __m128i result = _mm_add_epi8(srcVector, destMultipliedByOneMinusAlpha); \             _mm_store_si128((__m128i *)&dst[x], result); \         } \     } \     for (; x< length; ++x) { \         uint s = src[x]; \         if (s>= 0xff000000) \             dst[x] = s; \         else if (s != 0) \             dst[x] = s + BYTE_MUL(dst[x], qAlpha(~s)); \     } \ }
+value|\     ALIGNMENT_PROLOGUE_16BYTES(dst, x, length) { \         uint s = src[x]; \         if (s>= 0xff000000) \             dst[x] = s; \         else if (s != 0) \             dst[x] = s + BYTE_MUL(dst[x], qAlpha(~s)); \     } \ \     for (; x< length-3; x += 4) { \         const __m128i srcVector = _mm_loadu_si128((__m128i *)&src[x]); \         BLEND_SOURCE_OVER_ARGB32_SSE2_helper(dst, srcVector, nullVector, half, one, colorMask, alphaMask) \     } \     for (; x< length; ++x) { \         uint s = src[x]; \         if (s>= 0xff000000) \             dst[x] = s; \         else if (s != 0) \             dst[x] = s + BYTE_MUL(dst[x], qAlpha(~s)); \     } \ }
 comment|// Basically blend src over dst with the const alpha defined as constAlphaVector.
 comment|// nullVector, half, one, colorMask are constant across the whole image/texture, and should be defined as:
 comment|//const __m128i nullVector = _mm_set1_epi32(0);
