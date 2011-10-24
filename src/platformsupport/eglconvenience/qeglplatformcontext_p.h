@@ -45,9 +45,6 @@ argument|QPlatformOpenGLContext *share
 argument_list|,
 argument|EGLDisplay display
 argument_list|,
-argument|EGLint eglClientVersion =
-literal|2
-argument_list|,
 argument|EGLenum eglApi = EGL_OPENGL_ES_API
 argument_list|)
 block|;

@@ -136,12 +136,12 @@ argument_list|)
 member_init_list|,
 name|major
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 member_init_list|,
 name|minor
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 block|{     }
 DECL|function|QSurfaceFormatPrivate
@@ -1177,7 +1177,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the major OpenGL version. */
+comment|/*!     Returns the major OpenGL version.      The default version is 2.0. */
 end_comment
 begin_function
 DECL|function|majorVersion
@@ -1196,7 +1196,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the desired minor OpenGL version. */
+comment|/*!     Sets the desired minor OpenGL version.      The default version is 2.0. */
 end_comment
 begin_function
 DECL|function|setMinorVersion

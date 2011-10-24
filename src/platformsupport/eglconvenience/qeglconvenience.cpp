@@ -777,6 +777,15 @@ name|configureAttributes
 operator|.
 name|append
 argument_list|(
+name|format
+operator|.
+name|majorVersion
+argument_list|()
+operator|==
+literal|1
+condition|?
+name|EGL_OPENGL_ES_BIT
+else|:
 name|EGL_OPENGL_ES2_BIT
 argument_list|)
 expr_stmt|;

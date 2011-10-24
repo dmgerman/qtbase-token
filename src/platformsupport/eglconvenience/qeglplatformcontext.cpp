@@ -40,9 +40,6 @@ parameter_list|,
 name|EGLDisplay
 name|display
 parameter_list|,
-name|EGLint
-name|eglClientVersion
-parameter_list|,
 name|EGLenum
 name|eglApi
 parameter_list|)
@@ -118,7 +115,10 @@ name|contextAttrs
 operator|.
 name|append
 argument_list|(
-name|eglClientVersion
+name|format
+operator|.
+name|majorVersion
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|contextAttrs
