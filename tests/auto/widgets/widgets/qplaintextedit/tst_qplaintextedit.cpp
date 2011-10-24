@@ -5755,7 +5755,7 @@ directive|ifdef
 name|Q_WS_MAC
 name|QSKIP
 argument_list|(
-literal|"copyAvailable has never passed on Mac, task to fix is 132482"
+literal|"QTBUG-22283: copyAvailable has never passed on Mac"
 argument_list|)
 expr_stmt|;
 endif|#
