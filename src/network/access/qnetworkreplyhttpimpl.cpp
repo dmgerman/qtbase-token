@@ -6679,19 +6679,9 @@ name|QHostAddress
 argument_list|(
 name|host
 argument_list|)
-operator|==
-name|QHostAddress
-operator|::
-name|LocalHost
-operator|||
-name|QHostAddress
-argument_list|(
-name|host
-argument_list|)
-operator|==
-name|QHostAddress
-operator|::
-name|LocalHostIPv6
+operator|.
+name|isLoopback
+argument_list|()
 condition|)
 block|{
 comment|// Don't need an open session for localhost access.
