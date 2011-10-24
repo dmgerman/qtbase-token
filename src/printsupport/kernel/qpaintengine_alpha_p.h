@@ -62,6 +62,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|Q_PRINTSUPPORT_EXPORT
 name|QAlphaPaintEngine
 range|:
 name|public

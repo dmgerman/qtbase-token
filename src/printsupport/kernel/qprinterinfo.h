@@ -162,6 +162,12 @@ name|class
 name|QPlatformPrinterSupport
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|friend
+name|class
+name|QWindowsPrinterSupport
+decl_stmt|;
+end_decl_stmt
 begin_macro
 name|Q_DECLARE_PRIVATE
 argument_list|(
