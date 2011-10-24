@@ -1088,7 +1088,7 @@ comment|//         addDb( "QMYSQL3", "testdb", "troll", "trond", "horsehead.noki
 comment|//         addDb( "QMYSQL3", "testdb", "troll", "trond", "horsehead.nokia.troll.no", 3308, "CLIENT_COMPRESS=1;CLIENT_SSL=1" ); // MySQL 4.1.1
 comment|//         addDb( "QMYSQL3", "testdb", "troll", "trond", "horsehead.nokia.troll.no", 3309, "CLIENT_COMPRESS=1;CLIENT_SSL=1" ); // MySQL 5.0.18 Linux
 comment|//         addDb( "QMYSQL3", "testdb", "troll", "trond", "silence.nokia.troll.no" ); // MySQL 5.1.36 Windows
-comment|//         addDb( "QMYSQL3", "testdb", "testuser", "Ee4Gabf6_", "mysql4-nokia.trolltech.com.au" ); // MySQL 4.1.22-2.el4  linux
+comment|//         addDb( "QMYSQL3", "testdb", "testuser", "Ee4Gabf6_", "bq-mysql41.apac.nokia.com" ); // MySQL 4.1.22-2.el4  linux
 comment|//         addDb( "QMYSQL3", "testdb", "testuser", "Ee4Gabf6_", "bq-mysql50.apac.nokia.com" ); // MySQL 5.0.45-7.el5 linux
 comment|//         addDb( "QMYSQL3", "testdb", "testuser", "Ee4Gabf6_", "bq-mysql51.apac.nokia.com" ); // MySQL 5.1.36-6.7.2.i586 linux
 comment|//         addDb( "QPSQL7", "testdb", "troll", "trond", "horsehead.nokia.troll.no" ); // V7.2 NOT SUPPORTED!
@@ -1097,17 +1097,20 @@ comment|//         addDb( "QPSQL7", "testdb", "troll", "trond", "horsehead.nokia
 comment|//         addDb( "QPSQL7", "testdb", "troll", "trond", "horsehead.nokia.troll.no", 5436 ); // V7.4
 comment|//         addDb( "QPSQL7", "testdb", "troll", "trond", "horsehead.nokia.troll.no", 5437 ); // V8.0.3
 comment|//         addDb( "QPSQL7", "testdb", "troll", "trond", "silence.nokia.troll.no" );         // V8.2.1, UTF-8
-comment|//         addDb( "QPSQL7", "testdb", "testuser", "Ee4Gabf6_", "postgres74-nokia.trolltech.com.au" );         // Version 7.4.19-1.el4_6.1
+comment|//         addDb( "QPSQL7", "testdb", "testuser", "Ee4Gabf6_", "bq-postgres74.apac.nokia.com" );         // Version 7.4.19-1.el4_6.1
 comment|//         addDb( "QPSQL7", "testdb", "testuser", "Ee4Gabf6_", "bq-pgsql81.apac.nokia.com" );         // Version 8.1.11-1.el5_1.1
 comment|//         addDb( "QPSQL7", "testdb", "testuser", "Ee4Gabf6_", "bq-pgsql84.apac.nokia.com" );         // Version 8.4.1-2.1.i586
 comment|//         addDb( "QPSQL7", "testdb", "testuser", "Ee4Gabf6_", "bq-pgsql90.apac.nokia.com" );         // Version 9.0.0
 comment|//         addDb( "QDB2", "testdb", "troll", "trond", "silence.nokia.troll.no" ); // DB2 v9.1 on silence
+comment|//         addDb( "QDB2", "testdb", "testuser", "Ee4Gabf6_", "bq-db2-972.apac.nokia.com" ); // DB2
 comment|//      yes - interbase really wants the physical path on the host machine.
 comment|//         addDb( "QIBASE", "/opt/interbase/qttest.gdb", "SYSDBA", "masterkey", "horsehead.nokia.troll.no" );
 comment|//         addDb( "QIBASE", "silence.troll.no:c:\\ibase\\testdb", "SYSDBA", "masterkey", "" ); // InterBase 7.5 on silence
 comment|//         addDb( "QIBASE", "silence.troll.no:c:\\ibase\\testdb_ascii", "SYSDBA", "masterkey", "" ); // InterBase 7.5 on silence
 comment|//         addDb( "QIBASE", "/opt/firebird/databases/testdb.fdb", "testuser", "Ee4Gabf6_", "firebird1-nokia.trolltech.com.au" ); // Firebird 1.5.5
 comment|//         addDb( "QIBASE", "/opt/firebird/databases/testdb.fdb", "testuser", "Ee4Gabf6_", "firebird2-nokia.trolltech.com.au" ); // Firebird 2.1.1
+comment|//         addDb( "QIBASE", "/opt/firebird/databases/testdb.fdb", "testuser", "Ee4Gabf6_", "bq-firebird1.apac.nokia.com" ); // Firebird 1.5.5
+comment|//         addDb( "QIBASE", "/opt/firebird/databases/testdb.fdb", "testuser", "Ee4Gabf6_", "bq-firebird2.apac.nokia.com" ); // Firebird 2.1.1
 comment|//      use in-memory database to prevent local files
 comment|//         addDb("QSQLITE", ":memory:");
 name|addDb
