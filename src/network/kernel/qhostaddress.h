@@ -390,6 +390,11 @@ name|subnet
 argument_list|)
 decl|const
 decl_stmt|;
+name|bool
+name|isLoopback
+argument_list|()
+specifier|const
+expr_stmt|;
 specifier|static
 name|QPair
 operator|<
