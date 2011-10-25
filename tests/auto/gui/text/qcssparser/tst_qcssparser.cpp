@@ -11917,19 +11917,14 @@ argument_list|(
 name|fnt
 argument_list|)
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
 comment|// Note, we have to QSKIP rather than QEXPECT_FAIL because font lookup is broken
 comment|// such that it may work or not work depending on the order in which fonts were
-comment|// loaded from disk
+comment|// loaded from disk: ### fixme: Check platforms
 name|QSKIP
 argument_list|(
 literal|"QTBUG-20986 may fail on qpa"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QTEST
 argument_list|(
 name|info

@@ -60,6 +60,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qguiapplication_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qdrawhelper_p.h>
 end_include
 begin_include
@@ -4959,16 +4964,12 @@ operator|::
 name|grabWindow
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
+comment|//  ### fixme: Check platforms
 name|QSKIP
 argument_list|(
 literal|"QTBUG-20863 grabWindow is broken on most qpa backends"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 ifdef|#
 directive|ifdef
 name|Q_OS_WINCE
@@ -6789,29 +6790,6 @@ operator|::
 name|onlyNullPixmapsOutsideGuiThread
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
-name|QSKIP
-argument_list|(
-literal|"QTBUG-20864 can't determine if threaded pixmaps are available for qpa"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_WIN
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_MAC
-argument_list|)
 class|class
 name|Thread
 super|:
@@ -6894,6 +6872,24 @@ expr_stmt|;
 block|}
 block|}
 class|;
+if|if
+condition|(
+name|QGuiApplicationPrivate
+operator|::
+name|platform_integration
+operator|->
+name|hasCapability
+argument_list|(
+name|QPlatformIntegration
+operator|::
+name|ThreadedPixmaps
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"This platform supports threaded pixmaps."
+argument_list|)
+expr_stmt|;
 name|Thread
 name|thread
 decl_stmt|;
@@ -6907,9 +6903,6 @@ operator|.
 name|wait
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
-comment|// !defined(Q_WS_WIN)&& !defined(Q_WS_MAC)
 block|}
 DECL|function|refUnref
 name|void

@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui>
+file|<QtWidgets>
 end_include
 begin_class
 DECL|class|tst_QSound
@@ -60,19 +60,11 @@ operator|::
 name|checkFinished
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_QPA
-argument_list|)
 name|QSKIP
 argument_list|(
 literal|"QSound is not implemented on Lighthouse"
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
 name|QSound
 name|sound
 argument_list|(
@@ -124,8 +116,6 @@ name|isFinished
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -141,13 +131,6 @@ argument_list|(
 literal|"Test disabled -- only for manual purposes"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_QPA
-argument_list|)
 comment|// Check that you hear sound with static play also.
 name|QSound
 operator|::
@@ -164,8 +147,6 @@ argument_list|(
 literal|2000
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_expr_stmt

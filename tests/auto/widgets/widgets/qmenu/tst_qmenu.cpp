@@ -4683,16 +4683,12 @@ operator|::
 name|task258920_mouseBorder
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
+comment|// ### fixme: Check platforms
 name|QSKIP
 argument_list|(
 literal|"QTBUG-20753 QCursor::setPos() / QTest::mouseMove() doesn't work on qpa"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|Menu258920
 name|menu
 decl_stmt|;

@@ -394,9 +394,7 @@ operator|::
 name|supportsMessages
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
+comment|// ### fixme: Check platforms.
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
@@ -406,8 +404,6 @@ argument_list|,
 name|Abort
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 if|#
 directive|if
 operator|!

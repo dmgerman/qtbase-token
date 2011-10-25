@@ -130,25 +130,10 @@ name|void
 name|serializeSpacing
 parameter_list|()
 function_decl|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_QPA
-argument_list|)
 name|void
 name|lastResortFont
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 if|#
 directive|if
 name|defined
@@ -3222,21 +3207,9 @@ end_comment
 begin_comment
 comment|// This happens on our CI machines which run QWS autotests.
 end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_QWS
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_QPA
-argument_list|)
-end_if
+begin_comment
+comment|// ### fixme: Check platforms
+end_comment
 begin_function
 DECL|function|lastResortFont
 name|void
@@ -3245,6 +3218,11 @@ operator|::
 name|lastResortFont
 parameter_list|()
 block|{
+name|QSKIP
+argument_list|(
+literal|"QFont::lastResortFont() may abort with qFatal() on QPA, QTBUG-22325"
+argument_list|)
+expr_stmt|;
 name|QFont
 name|font
 decl_stmt|;
@@ -3262,10 +3240,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_if
 if|#
 directive|if
