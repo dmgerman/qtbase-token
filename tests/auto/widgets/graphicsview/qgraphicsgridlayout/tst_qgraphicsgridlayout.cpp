@@ -7858,6 +7858,7 @@ operator|->
 name|horizontalSpacing
 argument_list|()
 decl_stmt|;
+comment|// The remainder of this test is only applicable if the current style uses uniform layout spacing
 if|if
 condition|(
 name|oldSpacing
@@ -7913,14 +7914,6 @@ name|oldSpacing
 operator|-
 name|horizontalSpacing
 operator|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|QSKIP
-argument_list|(
-literal|"The current style uses non-uniform layout spacing"
 argument_list|)
 expr_stmt|;
 block|}
@@ -12464,6 +12457,7 @@ operator|->
 name|horizontalSpacing
 argument_list|()
 decl_stmt|;
+comment|// The remainder of this test is only applicable if the current style uses uniform layout spacing
 if|if
 condition|(
 name|oldVSpacing
@@ -12547,14 +12541,6 @@ name|oldHSpacing
 operator|-
 name|spacing
 operator|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|QSKIP
-argument_list|(
-literal|"The current style uses non-uniform layout spacing"
 argument_list|)
 expr_stmt|;
 block|}
@@ -13296,6 +13282,7 @@ operator|->
 name|verticalSpacing
 argument_list|()
 decl_stmt|;
+comment|// The remainder of this test is only applicable if the current style uses uniform layout spacing
 if|if
 condition|(
 name|oldSpacing
@@ -13351,14 +13338,6 @@ name|oldSpacing
 operator|-
 name|verticalSpacing
 operator|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|QSKIP
-argument_list|(
-literal|"The current style uses non-uniform layout spacing"
 argument_list|)
 expr_stmt|;
 block|}
