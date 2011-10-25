@@ -6064,6 +6064,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// The remainder of this test is only applicable if the style uses uniform spacing
 name|qreal
 name|oldSpacing
 init|=
@@ -6177,14 +6178,6 @@ operator|-
 name|spacing
 operator|*
 literal|2
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|QSKIP
-argument_list|(
-literal|"This style uses non-uniform spacings (layoutSpacingImplementation() is reimplemented)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -6448,6 +6441,7 @@ operator|::
 name|PreferredSize
 argument_list|)
 decl_stmt|;
+comment|// The remainder of this test is only applicable if the style uses uniform spacing
 if|if
 condition|(
 name|oldSpacing
@@ -6470,14 +6464,6 @@ name|width
 argument_list|()
 operator|-
 name|oldSpacing
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|QSKIP
-argument_list|(
-literal|"This style uses non-uniform spacings (layoutSpacingImplementation() is reimplemented)"
 argument_list|)
 expr_stmt|;
 block|}
