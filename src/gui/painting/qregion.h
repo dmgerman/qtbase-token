@@ -205,6 +205,11 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|bool
+name|isNull
+argument_list|()
+specifier|const
+expr_stmt|;
+name|bool
 name|contains
 argument_list|(
 specifier|const

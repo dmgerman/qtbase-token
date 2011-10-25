@@ -1774,6 +1774,9 @@ begin_comment
 comment|/*!     \fn bool QRegion::isEmpty() const      Returns true if the region is empty; otherwise returns false. An     empty region is a region that contains no points.      Example:     \snippet doc/src/snippets/code/src_gui_painting_qregion_unix.cpp 0 */
 end_comment
 begin_comment
+comment|/*!     \fn bool QRegion::isNull() const     \since 5.0      Returns true if the region is empty; otherwise returns false. An     empty region is a region that contains no points. This function is     the same as isEmpty      \sa isEmpty() */
+end_comment
+begin_comment
 comment|/*!     \fn bool QRegion::contains(const QPoint&p) const      Returns true if the region contains the point \a p; otherwise     returns false. */
 end_comment
 begin_comment
@@ -14482,6 +14485,31 @@ name|bool
 name|QRegion
 operator|::
 name|isEmpty
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|d
+operator|==
+operator|&
+name|shared_empty
+operator|||
+name|d
+operator|->
+name|qt_rgn
+operator|->
+name|numRects
+operator|==
+literal|0
+return|;
+block|}
+end_function
+begin_function
+DECL|function|isNull
+name|bool
+name|QRegion
+operator|::
+name|isNull
 parameter_list|()
 specifier|const
 block|{
