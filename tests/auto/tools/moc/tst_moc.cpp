@@ -145,29 +145,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|// No such thing as "long long" in Microsoft's compiler 13.0 and before
-end_comment
-begin_if
-if|#
-directive|if
-name|defined
-name|Q_CC_MSVC
-operator|&&
-name|_MSC_VER
-operator|<=
-literal|1310
-end_if
-begin_define
-DECL|macro|NOLONGLONG
-define|#
-directive|define
-name|NOLONGLONG
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_macro
 name|QT_USE_NAMESPACE
 end_macro
@@ -754,9 +731,6 @@ argument_list|()
 specifier|const
 name|MACRO_WITH_POSSIBLE_COMPILER_SPECIFIC_ATTRIBUTES
 block|{}
-ifndef|#
-directive|ifndef
-name|NOLONGLONG
 DECL|function|slotWithULongLong
 name|void
 name|slotWithULongLong
@@ -792,8 +766,6 @@ argument_list|(
 argument|long
 argument_list|)
 block|{}
-endif|#
-directive|endif
 DECL|function|slotWithColonColonType
 name|void
 name|slotWithColonColonType
@@ -1489,15 +1461,10 @@ parameter_list|()
 function_decl|;
 endif|#
 directive|endif
-ifndef|#
-directive|ifndef
-name|NOLONGLONG
 name|void
 name|uLongLong
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 if|#
 directive|if
 operator|!
@@ -2589,14 +2556,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|// long long doesn't work on MSVC6& .NET 2002, also skipped on 2003 due to compiler version issue with moc
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|NOLONGLONG
-end_ifndef
 begin_function
 DECL|function|uLongLong
 name|void
@@ -2706,10 +2665,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// Only tested on linux/gcc. Not tested when cross-compiled.
 end_comment

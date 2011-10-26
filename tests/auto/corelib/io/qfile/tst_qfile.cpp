@@ -8472,18 +8472,6 @@ expr_stmt|;
 block|}
 block|{
 comment|// 2) stdlib file handling.
-if|#
-directive|if
-name|_MSC_VER
-operator|<=
-literal|1310
-name|QSKIP
-argument_list|(
-literal|"platform SDK for MSVC 2003 does not support large files"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFile
 name|file
 decl_stmt|;
