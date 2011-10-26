@@ -9202,23 +9202,6 @@ operator|::
 name|stlContainers
 parameter_list|()
 block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|_MSC_VER
-argument_list|)
-operator|&&
-name|_MSC_VER
-operator|>=
-literal|1600
-name|QSKIP
-argument_list|(
-literal|"Test does not compile with MSVC 2010 (see QTBUG-18996)"
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|std
 operator|::
 name|vector
@@ -9448,8 +9431,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_endif
