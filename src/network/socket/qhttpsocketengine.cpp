@@ -2771,6 +2771,27 @@ literal|"Proxy-Connection"
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// Although most proxies use the unofficial Proxy-Connection header, the Connection header
+comment|// from http spec is also allowed.
+if|if
+condition|(
+name|proxyConnectionHeader
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|proxyConnectionHeader
+operator|=
+name|responseHeader
+operator|.
+name|value
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"Connection"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|proxyConnectionHeader
 operator|=
 name|proxyConnectionHeader
