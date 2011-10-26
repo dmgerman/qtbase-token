@@ -1801,15 +1801,11 @@ name|t
 argument_list|)
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|r
-operator|==
-literal|0
-condition|)
-name|QSKIP
+name|QVERIFY
 argument_list|(
-literal|"strftime() failed"
+name|r
+operator|!=
+literal|0
 argument_list|)
 expr_stmt|;
 name|originalLocaleEncodedTimeString
