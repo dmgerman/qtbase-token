@@ -737,12 +737,6 @@ modifier|*
 name|inputPanel
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-specifier|static
-name|bool
-name|quitOnLastWindowClosed
-decl_stmt|;
-end_decl_stmt
 begin_expr_stmt
 specifier|static
 name|QList

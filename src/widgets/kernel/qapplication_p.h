@@ -823,15 +823,6 @@ argument_list|)
 block|;
 endif|#
 directive|endif
-specifier|static
-name|bool
-name|quitOnLastWindowClosed
-block|;
-specifier|static
-name|void
-name|emitLastWindowClosed
-argument_list|()
-block|;
 ifdef|#
 directive|ifdef
 name|Q_WS_WINCE

@@ -124,6 +124,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|QString organizationDomain READ organizationDomain WRITE setOrganizationDomain
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|bool quitLockEnabled READ isQuitLockEnabled WRITE setQuitLockEnabled
+argument_list|)
 name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QCoreApplication
@@ -579,6 +583,23 @@ parameter_list|,
 name|long
 modifier|*
 name|result
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|static
+name|bool
+name|isQuitLockEnabled
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|static
+name|void
+name|setQuitLockEnabled
+parameter_list|(
+name|bool
+name|enabled
 parameter_list|)
 function_decl|;
 end_function_decl

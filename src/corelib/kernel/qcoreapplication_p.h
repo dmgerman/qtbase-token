@@ -187,6 +187,17 @@ argument_list|()
 block|;
 endif|#
 directive|endif
+name|QAtomicInt
+name|quitLockRef
+block|;
+name|void
+name|ref
+argument_list|()
+block|;
+name|void
+name|deref
+argument_list|()
+block|;
 specifier|static
 name|QThread
 operator|*
