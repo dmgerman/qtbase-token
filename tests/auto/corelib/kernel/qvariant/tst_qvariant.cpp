@@ -16564,7 +16564,7 @@ name|max
 init|=
 name|QVariant
 operator|::
-name|Quaternion
+name|LastGuiType
 decl_stmt|;
 for|for
 control|(

@@ -3067,6 +3067,12 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_macro
+name|Q_DECL_METATYPE_HELPER
+argument_list|(
+argument|QPolygonF
+argument_list|)
+end_macro
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -3353,8 +3359,9 @@ directive|ifndef
 name|QT_NO_QUATERNION
 name|Q_IMPL_METATYPE_HELPER
 argument_list|(
-argument|QQuaternion
+name|QQuaternion
 argument_list|)
+block|,
 else|#
 directive|else
 block|{
@@ -3372,8 +3379,13 @@ literal|0
 block|,
 literal|0
 block|}
+block|,
 endif|#
 directive|endif
+name|Q_IMPL_METATYPE_HELPER
+argument_list|(
+argument|QPolygonF
+argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt

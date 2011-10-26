@@ -457,9 +457,13 @@ name|Quaternion
 init|=
 literal|84
 block|,
+name|PolygonF
+init|=
+literal|85
+block|,
 name|LastGuiType
 init|=
-name|Quaternion
+name|PolygonF
 block|,
 name|Icon
 init|=
