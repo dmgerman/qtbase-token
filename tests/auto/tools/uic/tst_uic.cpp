@@ -80,11 +80,6 @@ name|workingDir
 parameter_list|()
 specifier|const
 function_decl|;
-private|private:
-DECL|member|uicExists
-name|bool
-name|uicExists
-decl_stmt|;
 DECL|member|command
 specifier|const
 name|QString
@@ -100,11 +95,6 @@ operator|::
 name|tst_uic
 parameter_list|()
 member_init_list|:
-name|uicExists
-argument_list|(
-literal|true
-argument_list|)
-member_init_list|,
 name|command
 argument_list|(
 name|QLibraryInfo
@@ -158,10 +148,6 @@ name|waitForFinished
 argument_list|()
 condition|)
 block|{
-name|uicExists
-operator|=
-literal|false
-expr_stmt|;
 specifier|const
 name|QString
 name|path
@@ -339,16 +325,6 @@ operator|::
 name|run
 parameter_list|()
 block|{
-if|if
-condition|(
-operator|!
-name|uicExists
-condition|)
-name|QSKIP
-argument_list|(
-literal|"uic not found in the path..."
-argument_list|)
-expr_stmt|;
 name|QFETCH
 argument_list|(
 name|QString
