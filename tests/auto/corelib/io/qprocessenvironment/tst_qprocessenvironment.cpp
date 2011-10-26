@@ -1505,15 +1505,14 @@ argument_list|(
 name|envname
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|valAfter
-operator|!=
-literal|"Hello, World"
-condition|)
-name|QSKIP
+name|QCOMPARE
 argument_list|(
-literal|"Could not test: qputenv did not do its job"
+name|valAfter
+argument_list|,
+name|QByteArray
+argument_list|(
+literal|"Hello, World"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QProcessEnvironment
