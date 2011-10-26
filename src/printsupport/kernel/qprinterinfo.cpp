@@ -275,9 +275,9 @@ name|isNull
 parameter_list|()
 specifier|const
 block|{
-specifier|const
 name|Q_D
 argument_list|(
+specifier|const
 name|QPrinterInfo
 argument_list|)
 expr_stmt|;
@@ -303,9 +303,9 @@ name|isDefault
 parameter_list|()
 specifier|const
 block|{
-specifier|const
 name|Q_D
 argument_list|(
+specifier|const
 name|QPrinterInfo
 argument_list|)
 expr_stmt|;
@@ -319,11 +319,6 @@ end_function
 begin_comment
 comment|/*!     \fn QList< QPrinter::PaperSize> QPrinterInfo::supportedPaperSizes() const     \since 4.4      Returns a list of supported paper sizes by the printer.      Not all printer drivers support this query, so the list may be empty.     On Mac OS X 10.3, this function always returns an empty list. */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_WS_QPA
-end_ifdef
 begin_function
 DECL|function|supportedPaperSizes
 name|QList
@@ -338,9 +333,9 @@ name|supportedPaperSizes
 parameter_list|()
 specifier|const
 block|{
-specifier|const
 name|Q_D
 argument_list|(
+specifier|const
 name|QPrinterInfo
 argument_list|)
 expr_stmt|;
@@ -462,13 +457,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|//Q_WS_QPA
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

@@ -429,14 +429,6 @@ decl_stmt|;
 block|}
 class|;
 end_class
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_UNIX
-argument_list|)
-end_if
 begin_class
 DECL|class|QUnixPrintWidgetPrivate
 class|class
@@ -6024,10 +6016,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|////////////////////////////////////////////////////////////////////////////////
 end_comment
