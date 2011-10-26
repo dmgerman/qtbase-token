@@ -33,7 +33,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<private/qmetaobject_p.h>
+file|<private/qmetaobject_moc_p.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE

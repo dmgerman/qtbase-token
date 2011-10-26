@@ -77,6 +77,14 @@ include|#
 directive|include
 file|"private/qmetaobject_p.h"
 end_include
+begin_comment
+comment|// for normalizeTypeInternal
+end_comment
+begin_include
+include|#
+directive|include
+file|"private/qmetaobject_moc_p.h"
+end_include
 begin_include
 include|#
 directive|include
