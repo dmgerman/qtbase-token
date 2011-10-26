@@ -568,7 +568,7 @@ operator|-=
 name|b
 expr_stmt|;
 operator|::
-name|memmove
+name|memcpy
 argument_list|(
 name|d
 operator|->
