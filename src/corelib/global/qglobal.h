@@ -57,12 +57,15 @@ ifndef|#
 directive|ifndef
 name|QT_DISABLE_DEPRECATED_BEFORE
 end_ifndef
+begin_comment
+comment|// ### Qt5: remember to change that to 5 when we reach feature freeze
+end_comment
 begin_define
 DECL|macro|QT_DISABLE_DEPRECATED_BEFORE
 define|#
 directive|define
 name|QT_DISABLE_DEPRECATED_BEFORE
-value|QT_VERSION_CHECK(5, 0, 0)
+value|QT_VERSION_CHECK(4, 9, 0)
 end_define
 begin_endif
 endif|#
@@ -81,7 +84,7 @@ name|major
 parameter_list|,
 name|minor
 parameter_list|)
-value|(QT_VERSION_CHECK(major, minor, 0)> QT_DISABLE_DEPRECATED_BEFORE)
+value|(defined(QT_DEPRECATED)&&  QT_VERSION_CHECK(major, minor, 0)> QT_DISABLE_DEPRECATED_BEFORE)
 end_define
 begin_define
 DECL|macro|QT_PACKAGEDATE_STR
