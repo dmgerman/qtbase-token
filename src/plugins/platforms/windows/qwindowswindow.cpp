@@ -3179,7 +3179,7 @@ name|OpenGLSurface
 condition|)
 name|setFlag
 argument_list|(
-name|OpenGL_Surface
+name|OpenGLSurface
 argument_list|)
 expr_stmt|;
 name|QWindowsContext
@@ -4047,6 +4047,11 @@ name|parentHWND
 operator|==
 literal|0
 decl_stmt|;
+name|setFlag
+argument_list|(
+name|WithinSetParent
+argument_list|)
+expr_stmt|;
 name|SetParent
 argument_list|(
 name|m_data
@@ -4054,6 +4059,11 @@ operator|.
 name|hwnd
 argument_list|,
 name|parentHWND
+argument_list|)
+expr_stmt|;
+name|clearFlag
+argument_list|(
+name|WithinSetParent
 argument_list|)
 expr_stmt|;
 comment|// WS_CHILD/WS_POPUP must be manually set/cleared in addition
@@ -4396,6 +4406,7 @@ operator|::
 name|handleMoved
 parameter_list|()
 block|{
+comment|// Minimize/Set parent can send nonsensical move events.
 if|if
 condition|(
 operator|!
@@ -4405,8 +4416,13 @@ name|m_data
 operator|.
 name|hwnd
 argument_list|)
+operator|&&
+operator|!
+name|testFlag
+argument_list|(
+name|WithinSetParent
+argument_list|)
 condition|)
-comment|// Minimize can send nonsensical move events.
 name|handleGeometryChange
 argument_list|()
 expr_stmt|;
@@ -4820,7 +4836,7 @@ if|if
 condition|(
 name|testFlag
 argument_list|(
-name|OpenGL_Surface
+name|OpenGLSurface
 argument_list|)
 condition|)
 block|{

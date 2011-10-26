@@ -269,22 +269,30 @@ operator|:
 expr|enum
 name|Flags
 block|{
-name|OpenGL_Surface
+name|WithinWmPaint
 operator|=
 literal|0x1
 block|,
-name|WithinWmPaint
+name|WithinSetParent
 operator|=
 literal|0x2
 block|,
-name|PixelFormatInitialized
+name|FrameDirty
 operator|=
 literal|0x4
 block|,
-name|FrameDirty
-operator|=
-literal|0x8
 comment|//! Frame outdated by setStyle, recalculate in next query.
+name|OpenGLSurface
+operator|=
+literal|0x10
+block|,
+name|OpenGLDoubleBuffered
+operator|=
+literal|0x20
+block|,
+name|OpenGlPixelFormatInitialized
+operator|=
+literal|0x40
 block|}
 block|;      struct
 name|WindowData
