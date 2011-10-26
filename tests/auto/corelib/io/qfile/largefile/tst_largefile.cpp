@@ -2438,6 +2438,23 @@ argument_list|,
 name|blockSize
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__x86_64__
+argument_list|)
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"fails on 64-bit Linux (QTBUG-21175)"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 operator|!
