@@ -1751,6 +1751,7 @@ operator|!=
 literal|0
 argument_list|)
 expr_stmt|;
+comment|// The rest of this test is for Unix only
 if|#
 directive|if
 name|defined
@@ -1842,15 +1843,6 @@ argument_list|,
 name|originalLocaleEncodedTimeString
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"This test is not implemented on Windows"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// find a codec that is not the codecForLocale()
 name|QTextCodec
 modifier|*
@@ -1943,6 +1935,8 @@ argument_list|,
 name|codec
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
