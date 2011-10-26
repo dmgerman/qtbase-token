@@ -1604,11 +1604,7 @@ expr_stmt|;
 end_if
 begin_return
 return|return
-name|d
-operator|->
 name|text
-operator|.
-name|value
 argument_list|(
 name|k
 argument_list|)
@@ -1852,7 +1848,7 @@ name|QImage
 operator|::
 name|text
 argument_list|(
-argument|const QImageTextKeyLang&
+argument|const QImageTextKeyLang&kl
 argument_list|)
 specifier|const
 block|{
@@ -1908,11 +1904,7 @@ expr_stmt|;
 end_if
 begin_return
 return|return
-name|d
-operator|->
 name|text
-operator|.
-name|value
 argument_list|(
 name|k
 argument_list|)
@@ -1930,7 +1922,7 @@ argument|const char* key
 argument_list|,
 argument|const char* lang
 argument_list|,
-argument|const QString&
+argument|const QString&s
 argument_list|)
 block|{
 if|if
@@ -1990,11 +1982,7 @@ argument_list|)
 expr_stmt|;
 end_if
 begin_expr_stmt
-name|d
-operator|->
-name|text
-operator|.
-name|insert
+name|setText
 argument_list|(
 name|k
 argument_list|,
@@ -2018,16 +2006,8 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|d
-operator|?
-name|d
-operator|->
-name|colortable
-operator|.
-name|size
+name|colorCount
 argument_list|()
-operator|:
-literal|0
 return|;
 block|}
 end_expr_stmt
@@ -2039,12 +2019,12 @@ name|QImage
 operator|::
 name|setNumColors
 argument_list|(
-argument|int
+argument|int n
 argument_list|)
 block|{
 name|setColorCount
 argument_list|(
-name|numColors
+name|n
 argument_list|)
 block|; }
 DECL|function|numBytes
@@ -2057,13 +2037,8 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|d
-operator|?
-name|d
-operator|->
-name|nbytes
-operator|:
-literal|0
+name|byteCount
+argument_list|()
 return|;
 block|}
 end_expr_stmt

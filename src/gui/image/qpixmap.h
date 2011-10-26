@@ -1035,11 +1035,16 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|QPixmap
+operator|::
+name|fromImage
+argument_list|(
 name|toImage
 argument_list|()
 operator|.
 name|alphaChannel
 argument_list|()
+argument_list|)
 return|;
 block|}
 end_expr_stmt
@@ -1054,14 +1059,9 @@ argument_list|(
 argument|const QPixmap&p
 argument_list|)
 block|{
-name|detach
-argument_list|()
-block|;
 name|QImage
 name|image
 operator|=
-name|data
-operator|->
 name|toImage
 argument_list|()
 block|;
@@ -1075,8 +1075,11 @@ name|toImage
 argument_list|()
 argument_list|)
 block|;
-name|data
-operator|->
+operator|*
+name|this
+operator|=
+name|QPixmap
+operator|::
 name|fromImage
 argument_list|(
 name|image
