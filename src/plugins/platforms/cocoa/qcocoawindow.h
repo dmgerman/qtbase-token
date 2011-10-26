@@ -143,13 +143,6 @@ operator|*
 name|createWindow
 argument_list|()
 block|;
-name|NSRect
-name|globalGeometry
-argument_list|(
-argument|const QRect localWindowGeometry
-argument_list|)
-specifier|const
-block|;
 name|QRect
 name|windowGeometry
 argument_list|()
