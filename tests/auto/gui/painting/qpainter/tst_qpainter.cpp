@@ -1484,11 +1484,6 @@ operator|::
 name|qt_format_text_clip
 parameter_list|()
 block|{
-name|QVERIFY
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"Needs fixing..."
@@ -2440,11 +2435,6 @@ operator|::
 name|qt_format_text_boundingRect
 parameter_list|()
 block|{
-name|QVERIFY
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 name|QSKIP
 argument_list|(
 literal|"Needs fixing..."
@@ -3994,11 +3984,6 @@ operator|::
 name|saveAndRestore_data
 parameter_list|()
 block|{
-name|QVERIFY
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 name|QTest
 operator|::
 name|addColumn
