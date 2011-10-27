@@ -3318,6 +3318,7 @@ name|QtWindows
 operator|::
 name|ExposeEvent
 case|:
+return|return
 name|platformWindow
 operator|->
 name|handleWmPaint
@@ -3330,9 +3331,6 @@ name|wParam
 argument_list|,
 name|lParam
 argument_list|)
-expr_stmt|;
-return|return
-literal|true
 return|;
 case|case
 name|QtWindows

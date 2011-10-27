@@ -564,7 +564,7 @@ argument|unsigned s
 argument_list|)
 specifier|const
 block|;
-name|void
+name|bool
 name|handleWmPaint
 argument_list|(
 argument|HWND hwnd
