@@ -10362,7 +10362,6 @@ argument_list|(
 argument|c.end()
 argument_list|)
 block|{}
-block|;
 specifier|const
 name|T
 name|c

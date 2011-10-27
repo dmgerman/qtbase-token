@@ -43,6 +43,11 @@ end_comment
 begin_comment
 comment|//
 end_comment
+begin_include
+include|#
+directive|include
+file|<private/qobject_p.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 ifndef|#
@@ -66,7 +71,6 @@ name|void
 name|updateSoftKeys_sys
 argument_list|()
 block|{}
-block|;
 name|protected
 operator|:
 specifier|static

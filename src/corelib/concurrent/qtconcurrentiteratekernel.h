@@ -360,7 +360,6 @@ argument_list|(
 argument|int
 argument_list|)
 block|{ }
-block|;
 specifier|inline
 name|void
 name|reportResults
@@ -368,7 +367,6 @@ argument_list|(
 argument|int
 argument_list|)
 block|{ }
-block|;
 specifier|inline
 name|void
 operator|*

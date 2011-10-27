@@ -449,20 +449,16 @@ operator|~
 name|ResultStoreBase
 argument_list|()
 block|{ }
-expr_stmt|;
 name|protected
-label|:
+operator|:
 name|int
 name|insertResultItem
-parameter_list|(
-name|int
-name|index
-parameter_list|,
-name|ResultItem
-modifier|&
-name|resultItem
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|int index
+argument_list|,
+argument|ResultItem&resultItem
+argument_list|)
+expr_stmt|;
 name|void
 name|insertResultItemIfValid
 parameter_list|(

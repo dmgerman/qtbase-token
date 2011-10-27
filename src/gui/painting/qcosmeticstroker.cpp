@@ -3040,11 +3040,6 @@ name|state
 operator|->
 name|matrix
 decl_stmt|;
-name|QPointF
-name|movedTo
-init|=
-name|p
-decl_stmt|;
 name|patternOffset
 operator|=
 name|state

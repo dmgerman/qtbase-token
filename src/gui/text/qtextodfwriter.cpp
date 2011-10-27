@@ -4544,6 +4544,12 @@ literal|"-100%"
 argument_list|)
 expr_stmt|;
 break|break;
+case|case
+name|QTextCharFormat
+operator|::
+name|AlignBaseline
+case|:
+break|break;
 block|}
 name|writer
 operator|.
