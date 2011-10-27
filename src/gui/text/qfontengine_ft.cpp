@@ -11589,9 +11589,6 @@ name|neededFormat
 argument_list|)
 condition|)
 block|{
-name|unlockFace
-argument_list|()
-expr_stmt|;
 return|return
 name|QFontEngine
 operator|::
