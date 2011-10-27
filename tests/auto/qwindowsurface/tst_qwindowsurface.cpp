@@ -27,11 +27,6 @@ include|#
 directive|include
 file|<QDesktopWidget>
 end_include
-begin_include
-include|#
-directive|include
-file|<QX11Info>
-end_include
 begin_if
 if|#
 directive|if

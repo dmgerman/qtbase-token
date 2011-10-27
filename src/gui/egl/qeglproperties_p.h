@@ -60,12 +60,6 @@ file|<QtGui/private/qegl_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QX11Info
-name|class
-name|QX11Info
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QPaintDevice
 name|class
 name|QPaintDevice

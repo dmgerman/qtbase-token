@@ -138,11 +138,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QX11Info>
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qt_x11_p.h>
 end_include
 begin_decl_stmt
@@ -6436,6 +6431,9 @@ name|winId
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_WS_X11
 name|QGtkStylePrivate
 operator|::
 name|gdk_x11_window_set_user_time
@@ -6450,6 +6448,8 @@ name|appUserTime
 argument_list|()
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 name|QFileInfo
 name|fileinfo

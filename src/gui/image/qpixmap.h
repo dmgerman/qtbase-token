@@ -81,12 +81,6 @@ name|QVariant
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QX11Info
-name|class
-name|QX11Info
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QPlatformPixmap
 name|class
 name|QPlatformPixmap

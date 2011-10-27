@@ -3350,11 +3350,6 @@ end_if
 begin_comment
 comment|//<----------------------------------------------------------- X11
 end_comment
-begin_decl_stmt
-name|QX11Info
-name|xinfo
-decl_stmt|;
-end_decl_stmt
 begin_expr_stmt
 name|Qt
 operator|::

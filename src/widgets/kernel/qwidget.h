@@ -238,18 +238,6 @@ DECL|variable|QPixmap
 name|class
 name|QPixmap
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_X11
-argument_list|)
-DECL|variable|QX11Info
-name|class
-name|QX11Info
-decl_stmt|;
-endif|#
-directive|endif
 name|class
 name|QWidgetData
 decl_stmt|{ public:     WId winid;
