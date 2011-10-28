@@ -81,20 +81,6 @@ include|#
 directive|include
 file|"private/qobject_p.h"
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_include
-include|#
-directive|include
-file|<e32base.h>
-end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QAbstractEventDispatcher
@@ -459,25 +445,6 @@ operator|*
 name|arg
 argument_list|)
 block|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-specifier|static
-name|void
-name|finish
-argument_list|(
-argument|void *arg
-argument_list|,
-argument|bool lockAnyway=true
-argument_list|,
-argument|bool closeNativeHandle=true
-argument_list|)
-block|;
-else|#
-directive|else
 specifier|static
 name|void
 name|finish
@@ -486,8 +453,6 @@ name|void
 operator|*
 argument_list|)
 block|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|// Q_OS_UNIX
@@ -544,11 +509,6 @@ operator|||
 name|defined
 argument_list|(
 name|Q_OS_WINCE
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 name|bool
 name|terminationEnabled
@@ -763,14 +723,6 @@ expr_stmt|;
 name|bool
 name|isAdopted
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|RThread
-name|symbian_thread_handle
-decl_stmt|;
-endif|#
-directive|endif
 block|}
 end_decl_stmt
 begin_empty_stmt
