@@ -13081,12 +13081,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block|if (img1 != img2) {         img1.save("setEqualClipRegionAndPath_1.xpm", "XPM");         img2.save("setEqualClipRegionAndPath_2.xpm", "XPM");     }
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|img1
@@ -13098,14 +13092,7 @@ if|#
 directive|if
 literal|0
 comment|// rotated
-block|img1.fill(0x12345678);     img2.fill(0x12345678);      {         QPainter p(&img1);         p.rotate(25);         p.setClipRegion(region);         p.fillRect(0, 0, img1.width(), img1.height(), QColor(Qt::red));     }     {         QPainter p(&img2);         p.rotate(25);         p.setClipPath(path);         p.fillRect(0, 0, img2.width(), img2.height(), QColor(Qt::red));     }
-if|#
-directive|if
-literal|1
-block|if (img1 != img2) {         img1.save("setEqualClipRegionAndPath_1.xpm", "XPM");         img2.save("setEqualClipRegionAndPath_2.xpm", "XPM");     }
-endif|#
-directive|endif
-block|QCOMPARE(img1, img2);
+block|img1.fill(0x12345678);     img2.fill(0x12345678);      {         QPainter p(&img1);         p.rotate(25);         p.setClipRegion(region);         p.fillRect(0, 0, img1.width(), img1.height(), QColor(Qt::red));     }     {         QPainter p(&img2);         p.rotate(25);         p.setClipPath(path);         p.fillRect(0, 0, img2.width(), img2.height(), QColor(Qt::red));     }      QCOMPARE(img1, img2);
 endif|#
 directive|endif
 name|img1
@@ -13243,12 +13230,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block|if (img1 != img2) {         img1.save("setEqualClipRegionAndPath_1.png", "PNG");         img2.save("setEqualClipRegionAndPath_2.png", "PNG");     }
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|img1
@@ -13376,12 +13357,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block|if (img1 != img2) {         img1.save("setEqualClipRegionAndPath_1.xpm", "XPM");         img2.save("setEqualClipRegionAndPath_2.xpm", "XPM");     }
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|img1
@@ -14603,12 +14578,6 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block|if (clippedRect != clippedPath) {         clippedRect.save(QString("clippedRect.png"), "PNG");         clippedPath.save(QString("clippedPath.png"), "PNG");     }
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|clippedRect
@@ -14723,43 +14692,6 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|1
-if|if
-condition|(
-name|clippedRect
-operator|!=
-name|clippedPath
-condition|)
-block|{
-name|clippedRect
-operator|.
-name|save
-argument_list|(
-name|QString
-argument_list|(
-literal|"clippedRect.png"
-argument_list|)
-argument_list|,
-literal|"PNG"
-argument_list|)
-expr_stmt|;
-name|clippedPath
-operator|.
-name|save
-argument_list|(
-name|QString
-argument_list|(
-literal|"clippedPath.png"
-argument_list|)
-argument_list|,
-literal|"PNG"
-argument_list|)
-expr_stmt|;
-block|}
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|clippedRect
@@ -15417,12 +15349,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block|if (clippedRect != clippedPath) {         clippedRect.save(QString("clippedRect.png"), "PNG");         clippedPath.save(QString("clippedPath.png"), "PNG");     }
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|clippedRect
@@ -15543,12 +15469,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block|if (clippedRect != clippedPath) {         clippedRect.save(QString("clippedRect.png"), "PNG");         clippedPath.save(QString("clippedPath.png"), "PNG");     }
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|clippedRect
@@ -15785,12 +15705,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block|if (clippedRect != clippedPath) {         clippedRect.save(QString("clippedRect.png"), "PNG");         clippedPath.save(QString("clippedPath.png"), "PNG");     }
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|clippedRect
@@ -15925,12 +15839,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block|if (clippedRect != clippedPath) {         clippedRect.save(QString("clippedRect.png"), "PNG");         clippedPath.save(QString("clippedPath.png"), "PNG");     }
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|clippedRect
@@ -17238,12 +17146,6 @@ block|{
 comment|// Test skipped due to rounding errors...
 continue|continue;
 block|}
-if|#
-directive|if
-literal|0
-block|if (subDest != expected) {             qDebug()<< "size"<< size<< "opacity"<< opacity;             for (int j = 0; j< expected.height(); ++j) {                 for (int i = 0; i< expected.width(); ++i) {                     if (expected.pixel(i,j) != subDest.pixel(i,j))                         qDebug()<< i<< j<< hex<< expected.pixel(i, j)<< subDest.pixel(i, j);                 }             }         }
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|subDest
@@ -17600,12 +17502,6 @@ block|{
 comment|// Skipping test due to rounding errors. Test needs rewrite
 continue|continue;
 block|}
-if|#
-directive|if
-literal|0
-block|if (subDest != expected) {             qDebug()<< "size"<< size<< "opacity"<< opacity;             for (int j = 0; j< expected.height(); ++j) {                 for (int i = 0; i< expected.width(); ++i) {                     if (expected.pixel(i,j) != subDest.pixel(i,j))                         qDebug()<< i<< j<< hex<< expected.pixel(i, j)<< subDest.pixel(i, j);                 }             }         }
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|subDest
@@ -22168,12 +22064,6 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|if (!verifyOutlineFillConsistency(dst, background, p.brush().color().rgba(), p.pen().color().rgba()))             dst.save(QString("outlineFillConsistency-%1.png").arg(i));
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|verifyOutlineFillConsistency
@@ -22479,12 +22369,6 @@ name|height
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block|if (result != expected) {             qDebug("i=%i", i);             result.save("result.png");             expected.save("expected.png");         }
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|result
