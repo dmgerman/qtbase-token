@@ -2212,12 +2212,6 @@ operator|::
 name|ConnectingState
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|for (int j = 0; j< spyStateChanged.count(); ++j) {             QLocalSocket::LocalSocketState s;             s = qVariantValue<QLocalSocket::LocalSocketState>(spyStateChanged.at(j).at(0));             qDebug()<< s;         }
-endif|#
-directive|endif
 if|if
 condition|(
 name|canListen
