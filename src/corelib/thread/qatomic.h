@@ -168,6 +168,7 @@ name|load
 argument_list|()
 argument_list|)
 block|;     }
+name|Q_DECL_DEPRECATED
 specifier|inline
 name|QAtomicInt
 operator|&
@@ -190,6 +191,7 @@ operator|*
 name|this
 return|;
 block|}
+name|Q_DECL_DEPRECATED
 specifier|inline
 name|QAtomicInt
 operator|&
@@ -217,6 +219,7 @@ operator|*
 name|this
 return|;
 block|}
+name|Q_DECL_DEPRECATED
 specifier|inline
 name|bool
 name|operator
@@ -236,6 +239,7 @@ operator|==
 name|value
 return|;
 block|}
+name|Q_DECL_DEPRECATED
 specifier|inline
 name|bool
 name|operator
@@ -255,6 +259,7 @@ operator|!=
 name|value
 return|;
 block|}
+name|Q_DECL_DEPRECATED
 specifier|inline
 name|operator
 name|int
@@ -268,6 +273,7 @@ name|load
 argument_list|()
 return|;
 block|}
+name|Q_DECL_DEPRECATED
 specifier|inline
 name|bool
 name|operator
@@ -542,6 +548,7 @@ name|load
 argument_list|()
 argument_list|)
 block|;     }
+name|Q_DECL_DEPRECATED
 specifier|inline
 name|QAtomicPointer
 operator|<
@@ -568,6 +575,7 @@ operator|*
 name|this
 return|;
 block|}
+name|Q_DECL_DEPRECATED
 specifier|inline
 name|QAtomicPointer
 operator|<
@@ -603,6 +611,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_DEPRECATED
 specifier|inline
 name|bool
 name|operator
@@ -625,6 +634,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_DEPRECATED
 specifier|inline
 name|bool
 name|operator
@@ -647,6 +657,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_DEPRECATED
 specifier|inline
 name|bool
 name|operator
@@ -665,6 +676,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_DEPRECATED
 specifier|inline
 name|operator
 name|T
@@ -682,6 +694,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_DEPRECATED
 specifier|inline
 name|T
 operator|*
