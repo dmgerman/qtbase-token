@@ -191,7 +191,6 @@ operator|*
 name|this
 return|;
 block|}
-name|Q_DECL_DEPRECATED
 specifier|inline
 name|QAtomicInt
 operator|&
@@ -575,7 +574,6 @@ operator|*
 name|this
 return|;
 block|}
-name|Q_DECL_DEPRECATED
 specifier|inline
 name|QAtomicPointer
 operator|<
