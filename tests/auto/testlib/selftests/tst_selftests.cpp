@@ -1374,15 +1374,6 @@ operator|<<
 literal|"benchlibeventcounter"
 operator|<<
 literal|"benchliboptions"
-if|#
-directive|if
-literal|0
-comment|// These tests are affected by timing and whether the CPU tick counter
-comment|// is monotonically increasing.  They won't work on some machines so
-comment|// leave them off by default.  Feel free to uncomment for your own testing.
-expr|<< "benchlibtickcounter"<< "benchlibwalltime"
-endif|#
-directive|endif
 operator|<<
 literal|"cmptest"
 operator|<<
@@ -1461,6 +1452,28 @@ literal|"warnings"
 operator|<<
 literal|"xunit"
 decl_stmt|;
+comment|// These tests are affected by timing and whether the CPU tick counter
+comment|// is monotonically increasing.  They won't work on some machines so
+comment|// leave them off by default.  Feel free to enable them for your own
+comment|// testing by setting the QTEST_ENABLE_EXTRA_SELFTESTS environment
+comment|// variable to something non-empty.
+if|if
+condition|(
+operator|!
+name|qgetenv
+argument_list|(
+literal|"QTEST_ENABLE_EXTRA_SELFTESTS"
+argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|tests
+operator|<<
+literal|"benchlibtickcounter"
+operator|<<
+literal|"benchlibwalltime"
+expr_stmt|;
 foreach|foreach
 control|(
 name|LoggerSet
