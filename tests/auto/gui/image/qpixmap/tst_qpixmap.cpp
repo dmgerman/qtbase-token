@@ -2506,13 +2506,6 @@ operator|!=
 name|oldKey
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|// Remember to add to resources.
-block|QString fileName = QString("images/%1.png").arg(QTest::currentDataTag());     pixmap.toImage().save(fileName);
-else|#
-directive|else
 name|QString
 name|fileName
 init|=
@@ -2529,8 +2522,6 @@ name|currentDataTag
 argument_list|()
 argument_list|)
 decl_stmt|;
-endif|#
-directive|endif
 name|QPixmap
 name|output
 argument_list|(
