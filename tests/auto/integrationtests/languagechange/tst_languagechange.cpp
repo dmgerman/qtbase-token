@@ -854,12 +854,6 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-if|#
-directive|if
-literal|0
-block|QList<QByteArray> list = translator.m_translations.toList();     qSort(list);     qDebug()<< list;
-endif|#
-directive|endif
 comment|// In case we use a Color dialog, we do not want to test for
 comment|// strings non existing in the dialog and which do not get
 comment|// translated.
