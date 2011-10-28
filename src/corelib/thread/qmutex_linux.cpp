@@ -229,9 +229,7 @@ name|QMutexPrivate
 modifier|*
 name|d
 init|=
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|load
 argument_list|()
@@ -265,9 +263,7 @@ literal|false
 return|;
 while|while
 condition|(
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|fetchAndStoreAcquire
 argument_list|(
@@ -367,9 +363,7 @@ init|=
 name|_q_futex
 argument_list|(
 operator|&
-name|this
-operator|->
-name|d
+name|d_ptr
 argument_list|,
 name|FUTEX_WAIT
 argument_list|,
@@ -425,9 +419,7 @@ return|;
 block|}
 name|Q_ASSERT
 argument_list|(
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|load
 argument_list|()
@@ -450,9 +442,7 @@ name|QMutexPrivate
 modifier|*
 name|d
 init|=
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|load
 argument_list|()
@@ -480,9 +470,7 @@ name|dummyFutexValue
 argument_list|()
 condition|)
 block|{
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|fetchAndStoreRelease
 argument_list|(
@@ -492,9 +480,7 @@ expr_stmt|;
 name|_q_futex
 argument_list|(
 operator|&
-name|this
-operator|->
-name|d
+name|d_ptr
 argument_list|,
 name|FUTEX_WAKE
 argument_list|,

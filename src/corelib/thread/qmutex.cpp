@@ -71,7 +71,7 @@ name|RecursionMode
 name|mode
 parameter_list|)
 block|{
-name|d
+name|d_ptr
 operator|.
 name|store
 argument_list|(
@@ -110,7 +110,7 @@ name|QRecursiveMutexPrivate
 operator|*
 argument_list|>
 argument_list|(
-name|d
+name|d_ptr
 operator|.
 name|load
 argument_list|()
@@ -119,7 +119,7 @@ expr_stmt|;
 elseif|else
 if|if
 condition|(
-name|d
+name|d_ptr
 operator|.
 name|load
 argument_list|()
@@ -130,7 +130,7 @@ directive|ifndef
 name|Q_OS_LINUX
 if|if
 condition|(
-name|d
+name|d_ptr
 operator|.
 name|load
 argument_list|()
@@ -186,9 +186,7 @@ name|QMutexPrivate
 modifier|*
 name|d
 init|=
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|load
 argument_list|()
@@ -263,9 +261,7 @@ name|QMutexPrivate
 modifier|*
 name|d
 init|=
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|loadAcquire
 argument_list|()
@@ -306,9 +302,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|testAndSetOrdered
 argument_list|(
@@ -387,9 +381,7 @@ if|if
 condition|(
 name|d
 operator|!=
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|loadAcquire
 argument_list|()
@@ -431,9 +423,7 @@ comment|// we are unlocking, and the thread that unlocks is about to change d to
 comment|// we try to aquire the mutex by changing to dummyLocked()
 if|if
 condition|(
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|testAndSetAcquire
 argument_list|(
@@ -490,9 +480,7 @@ name|Q_ASSERT
 argument_list|(
 name|d
 operator|!=
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|load
 argument_list|()
@@ -532,9 +520,7 @@ if|if
 condition|(
 name|d
 operator|!=
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|loadAcquire
 argument_list|()
@@ -625,9 +611,7 @@ name|Q_ASSERT
 argument_list|(
 name|d
 operator|==
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|load
 argument_list|()
@@ -682,9 +666,7 @@ block|}
 block|}
 name|Q_ASSERT
 argument_list|(
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|load
 argument_list|()
@@ -712,9 +694,7 @@ name|QMutexPrivate
 modifier|*
 name|d
 init|=
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|loadAcquire
 argument_list|()
@@ -775,9 +755,7 @@ block|{
 comment|//there is no one waiting on this mutex anymore, set the mutex as unlocked (d = 0)
 if|if
 condition|(
-name|this
-operator|->
-name|d
+name|d_ptr
 operator|.
 name|testAndSetRelease
 argument_list|(

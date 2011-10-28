@@ -82,7 +82,7 @@ parameter_list|()
 block|{
 name|Q_ASSERT
 argument_list|(
-name|d
+name|d_ptr
 operator|.
 name|load
 argument_list|()
@@ -92,7 +92,7 @@ comment|//mutex must be locked
 if|if
 condition|(
 operator|!
-name|d
+name|d_ptr
 operator|.
 name|testAndSetRelease
 argument_list|(
@@ -145,7 +145,7 @@ name|fastTryLock
 parameter_list|()
 block|{
 return|return
-name|d
+name|d_ptr
 operator|.
 name|testAndSetAcquire
 argument_list|(
@@ -180,7 +180,7 @@ name|QBasicAtomicPointer
 operator|<
 name|QMutexPrivate
 operator|>
-name|d
+name|d_ptr
 expr_stmt|;
 end_expr_stmt
 begin_function
