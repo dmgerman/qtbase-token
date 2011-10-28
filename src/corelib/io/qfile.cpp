@@ -2189,6 +2189,9 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|close
+argument_list|()
+expr_stmt|;
 name|d
 operator|->
 name|setError
@@ -2262,6 +2265,9 @@ name|in
 argument_list|)
 condition|)
 block|{
+name|close
+argument_list|()
+expr_stmt|;
 name|d
 operator|->
 name|setError
@@ -2316,6 +2322,9 @@ name|error
 operator|=
 literal|true
 expr_stmt|;
+name|close
+argument_list|()
+expr_stmt|;
 name|d
 operator|->
 name|setError
@@ -2365,9 +2374,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 if|if
 condition|(
@@ -2384,6 +2390,9 @@ argument_list|,
 name|permissions
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|close
+argument_list|()
 expr_stmt|;
 name|unsetError
 argument_list|()
