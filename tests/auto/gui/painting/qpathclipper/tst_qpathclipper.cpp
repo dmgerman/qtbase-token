@@ -2827,13 +2827,6 @@ argument_list|,
 name|opStr
 argument_list|)
 expr_stmt|;
-comment|// debugging
-if|#
-directive|if
-literal|0
-block|QRect rect = bounds.toAlignedRect();              QPainter p(&img);             p.scale(scale, scale);             p.translate(-bounds.topLeft());              p.setPen(Qt::NoPen);             p.setBrush(QColor(0x700ff00));             p.drawPath(result);              p.setPen(Qt::blue);             p.drawPoint(point);             p.end();              char str2[256];             sprintf(str2, "fail-%d-%d-%s.png", subjectIndex, clipIndex, opStr);             img.save(str2);
-endif|#
-directive|endif
 name|QFAIL
 argument_list|(
 name|str
