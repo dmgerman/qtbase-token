@@ -177,6 +177,20 @@ name|QByteArray
 operator|>
 name|values
 expr_stmt|;
+DECL|member|isEnumClass
+name|bool
+name|isEnumClass
+decl_stmt|;
+comment|// c++11 enum class
+DECL|function|EnumDef
+name|EnumDef
+argument_list|()
+operator|:
+name|isEnumClass
+argument_list|(
+argument|false
+argument_list|)
+block|{}
 block|}
 struct|;
 end_struct

@@ -1135,6 +1135,19 @@ if|if
 condition|(
 name|test
 argument_list|(
+name|CLASS
+argument_list|)
+condition|)
+name|def
+operator|->
+name|isEnumClass
+operator|=
+literal|true
+expr_stmt|;
+if|if
+condition|(
+name|test
+argument_list|(
 name|IDENTIFIER
 argument_list|)
 condition|)
@@ -1167,6 +1180,21 @@ name|isTypdefEnum
 operator|=
 literal|true
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|test
+argument_list|(
+name|COLON
+argument_list|)
+condition|)
+block|{
+comment|// C++11 strongly typed enum
+comment|// enum Foo : unsigned long { ... };
+name|parseType
+argument_list|()
+expr_stmt|;
+comment|//ignore the result
 block|}
 if|if
 condition|(
