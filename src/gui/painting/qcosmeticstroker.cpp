@@ -1409,7 +1409,10 @@ name|int
 operator|)
 name|qMax
 argument_list|(
+name|qreal
+argument_list|(
 literal|1.
+argument_list|)
 argument_list|,
 name|penPattern
 operator|.
@@ -1455,7 +1458,10 @@ name|int
 operator|)
 name|qMax
 argument_list|(
+name|qreal
+argument_list|(
 literal|1.
+argument_list|)
 argument_list|,
 name|penPattern
 operator|.
