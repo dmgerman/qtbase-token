@@ -193,15 +193,6 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|QT_ARCH_SYMBIAN
-argument_list|)
-include|#
-directive|include
-file|"QtCore/qatomic_symbian.h"
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|QT_ARCH_SH
 argument_list|)
 include|#
