@@ -1896,10 +1896,6 @@ name|items_QPainterPath_2
 parameter_list|()
 function_decl|;
 name|void
-name|selection
-parameter_list|()
-function_decl|;
-name|void
 name|selectionChanged
 parameter_list|()
 function_decl|;
@@ -9646,20 +9642,6 @@ argument_list|,
 name|ellipse
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_function
-DECL|function|selection
-name|void
-name|tst_QGraphicsScene
-operator|::
-name|selection
-parameter_list|()
-block|{
-comment|// ### This test is difficult to make work for all platforms; instead, a
-comment|// hand crafted data set would make it stable. Its behavior is thoroughly
-comment|// covered by other tests. Todo: Fix this test.
-comment|/*     QGraphicsScene scene;     QMap<QGraphicsItem *, int> itemIndexes;     for (int i = 0; i< 256; ++i) {         QPainterPath path;         path.addRect(randomX[i], randomY[i], 25, 25);          QGraphicsPathItem *pathItem = scene.addPath(path);         pathItem->setFlag(QGraphicsItem::ItemIsSelectable);         itemIndexes.insert(pathItem, i);     }  #if 0     // Write data     QFile::remove("graphicsScene_selection.data");     QFile file("graphicsScene_selection.data");     if (!file.open(QFile::WriteOnly))         QFAIL("Unable to generate data file graphicsScene_selection.data");     QDataStream stream(&file);     for (qreal y = -1000; y< 1000; y += 33) {         for (qreal x = -1000; x< 1000; x += 33) {             for (qreal size = 1; size< 200; size += 33) {                 QPainterPath path;                 path.addRect(QRectF(x, y, size, size));                 scene.setSelectionArea(path);                 QCOMPARE(scene.selectionArea(), path);                  QList<int> indexes;                 foreach (QGraphicsItem *item, scene.selectedItems())                     indexes<< itemIndexes.value(item);                  stream<< x<< y<< size<< indexes;             }         }     } #else     // Read data     QFile file("graphicsScene_selection.data");     if (!file.open(QFile::ReadOnly))         QFAIL("Unable to load data file graphicsScene_selection.data");      QDataStream stream(&file);      while (!stream.atEnd()) {         QList<int> expectedIndexes;          qreal x, y, size;         stream>> x>> y>> size>> expectedIndexes;          QPainterPath path;         path.addRect(QRectF(x, y, size, size));         scene.setSelectionArea(path);         QCOMPARE(scene.selectionArea(), path);          QList<int> indexes;         foreach (QGraphicsItem *item, scene.selectedItems())             indexes<< itemIndexes.value(item);          qSort(indexes);         qSort(expectedIndexes);          QCOMPARE(indexes, expectedIndexes);          scene.clearSelection();         QVERIFY(scene.selectedItems().isEmpty());     } #endif     */
 block|}
 end_function
 begin_class
