@@ -114,6 +114,11 @@ argument_list|(
 name|_name
 argument_list|)
 operator|,
+name|rawName
+argument_list|(
+name|name
+argument_list|)
+operator|,
 name|isVolatile
 argument_list|(
 name|false
@@ -138,6 +143,12 @@ DECL|member|name
 name|QByteArray
 name|name
 expr_stmt|;
+comment|//When used as a return type, the type name may be modified to remove the references.
+comment|// rawName is the type as found in the function signature
+DECL|member|rawName
+name|QByteArray
+name|rawName
+decl_stmt|;
 DECL|member|isVolatile
 name|uint
 name|isVolatile

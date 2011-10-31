@@ -2073,6 +2073,9 @@ name|QueryPropertyUser
 block|,
 DECL|enumerator|CreateInstance
 name|CreateInstance
+block|,
+DECL|enumerator|IndexOfMethod
+name|IndexOfMethod
 block|}
 enum|;
 name|int

@@ -1087,6 +1087,14 @@ operator|::
 name|Pointer
 expr_stmt|;
 block|}
+name|type
+operator|.
+name|rawName
+operator|=
+name|type
+operator|.
+name|name
+expr_stmt|;
 comment|// transform stupid things like 'const void' or 'void const' into 'void'
 if|if
 condition|(
@@ -2006,6 +2014,16 @@ name|Type
 operator|::
 name|Reference
 condition|)
+block|{
+name|QByteArray
+name|rawName
+init|=
+name|def
+operator|->
+name|type
+operator|.
+name|rawName
+decl_stmt|;
 name|def
 operator|->
 name|type
@@ -2015,6 +2033,15 @@ argument_list|(
 literal|"void"
 argument_list|)
 expr_stmt|;
+name|def
+operator|->
+name|type
+operator|.
+name|rawName
+operator|=
+name|rawName
+expr_stmt|;
+block|}
 name|def
 operator|->
 name|normalizedType
