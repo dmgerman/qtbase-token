@@ -181,7 +181,6 @@ name|void
 name|decomposition
 parameter_list|()
 function_decl|;
-comment|//     void ligature();
 name|void
 name|lineBreakClass
 parameter_list|()
@@ -4779,16 +4778,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_endif
-unit|void tst_QChar::ligature() {     QVERIFY(QChar::ligature(0x0041, 0x00300) == 0xc0);     QVERIFY(QChar::ligature(0x0049, 0x00308) == 0xcf);     QVERIFY(QChar::ligature(0x0391, 0x00301) == 0x386);     QVERIFY(QChar::ligature(0x0627, 0x00653) == 0x622);      QVERIFY(QChar::ligature(0x1100, 0x1161) == 0xac00);     QVERIFY(QChar::ligature(0xac00, 0x11a8) == 0xac01); }
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|lineBreakClass
 name|void
