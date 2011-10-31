@@ -2490,12 +2490,6 @@ name|m_size
 block|;
 name|d
 operator|->
-name|sharable
-operator|=
-literal|0
-block|;
-name|d
-operator|->
 name|capacity
 operator|=
 literal|0

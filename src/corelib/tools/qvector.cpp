@@ -54,8 +54,6 @@ literal|0
 block|,
 literal|0
 block|,
-literal|true
-block|,
 literal|false
 block|,
 literal|0
