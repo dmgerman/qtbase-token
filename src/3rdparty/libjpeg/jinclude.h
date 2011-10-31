@@ -23,11 +23,20 @@ begin_comment
 DECL|macro|JCONFIG_INCLUDED
 comment|/* so that jpeglib.h doesn't do it again */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|_MSC_VER
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|_CRT_SECURE_NO_DEPRECATE
+argument_list|)
+end_if
 begin_define
 DECL|macro|_CRT_SECURE_NO_DEPRECATE
 define|#
