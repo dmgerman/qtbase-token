@@ -498,8 +498,11 @@ expr_stmt|;
 name|d
 operator|->
 name|waiters
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 name|d
 operator|->
@@ -1042,8 +1045,11 @@ expr_stmt|;
 name|d
 operator|->
 name|refCount
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|1
+argument_list|)
 expr_stmt|;
 return|return
 name|d
