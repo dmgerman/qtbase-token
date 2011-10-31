@@ -90,6 +90,66 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QScreen
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QString name READ name CONSTANT
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|int depth READ depth CONSTANT
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QSize size READ size CONSTANT
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QRect geometry READ geometry CONSTANT
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QSizeF physicalSize READ physicalSize CONSTANT
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|qreal physicalDotsPerInchX READ physicalDotsPerInchX CONSTANT
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|qreal physicalDotsPerInchY READ physicalDotsPerInchY CONSTANT
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|qreal logicalDotsPerInchX READ logicalDotsPerInchX CONSTANT
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|qreal logicalDotsPerInchY READ logicalDotsPerInchY CONSTANT
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QSize availableSize READ availableSize CONSTANT
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QRect availableGeometry READ availableGeometry CONSTANT
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QSize virtualSize READ virtualSize CONSTANT
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QRect availableVirtualGeometry READ availableVirtualGeometry CONSTANT
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|Qt::ScreenOrientation primaryOrientation READ primaryOrientation CONSTANT
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|Qt::ScreenOrientation currentOrientation READ currentOrientation NOTIFY currentOrientationChanged
+argument_list|)
 name|public
 operator|:
 name|QPlatformScreen

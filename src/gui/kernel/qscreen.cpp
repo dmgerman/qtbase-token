@@ -50,6 +50,9 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_comment
+comment|/*!     \class QScreen     \brief The QScreen class is used to query screen properties.      \inmodule QtGui */
+end_comment
 begin_constructor
 DECL|function|QScreen
 name|QScreen
@@ -101,7 +104,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Get the platform dependent screen name.    For example, on an X11 platform this should typically be   the DISPLAY environment variable corresponding to the screen. */
+comment|/*!   \property QScreen::name   \brief a user presentable string representing the screen    For example, on X11 these correspond to the XRandr screen names,   typically "VGA1", "HDMI1", etc. */
 end_comment
 begin_function
 DECL|function|name
@@ -129,7 +132,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Get the screen's color depth. */
+comment|/*!   \property QScreen::depth   \brief the color depth of the screen */
 end_comment
 begin_function
 DECL|function|depth
@@ -157,7 +160,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Get the screen's size. */
+comment|/*!   \property QScreen::size   \brief the pixel resolution of the screen */
 end_comment
 begin_function
 DECL|function|size
@@ -188,7 +191,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Gets the number of physical dots or pixels per inch in the horizontal direction.    This value represents the actual horizontal pixel density on the screen's display.   Depending on what information the underlying system provides the value might not be   entirely accurate.    \sa physicalDotsPerInchY() */
+comment|/*!   \property QScreen::physicalDotsPerInchX   \brief the number of physical dots or pixels per inch in the horizontal direction    This value represents the actual horizontal pixel density on the screen's display.   Depending on what information the underlying system provides the value might not be   entirely accurate.    \sa physicalDotsPerInchY() */
 end_comment
 begin_function
 DECL|function|physicalDotsPerInchX
@@ -217,7 +220,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Gets the number of physical dots or pixels per inch in the vertical direction.    This value represents the actual vertical pixel density on the screen's display.   Depending on what information the underlying system provides the value might not be   entirely accurate.    \sa physicalDotsPerInchX() */
+comment|/*!   \property QScreen::physicalDotsPerInchY   \brief the number of physical dots or pixels per inch in the vertical direction    This value represents the actual vertical pixel density on the screen's display.   Depending on what information the underlying system provides the value might not be   entirely accurate.    \sa physicalDotsPerInchX() */
 end_comment
 begin_function
 DECL|function|physicalDotsPerInchY
@@ -246,7 +249,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Gets the number of logical dots or pixels per inch in the horizontal direction.    This value is used to convert font point sizes to pixel sizes.    \sa logicalDotsPerInchY() */
+comment|/*!   \property QScreen::logicalDotsPerInchX   \brief the number of logical dots or pixels per inch in the horizontal direction    This value is used to convert font point sizes to pixel sizes.    \sa logicalDotsPerInchY() */
 end_comment
 begin_function
 DECL|function|logicalDotsPerInchX
@@ -276,7 +279,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Gets the number of logical dots or pixels per inch in the vertical direction.    This value is used to convert font point sizes to pixel sizes.    \sa logicalDotsPerInchX() */
+comment|/*!   \property QScreen::logicalDotsPerInchY   \brief the number of logical dots or pixels per inch in the vertical direction    This value is used to convert font point sizes to pixel sizes.    \sa logicalDotsPerInchX() */
 end_comment
 begin_function
 DECL|function|logicalDotsPerInchY
@@ -306,7 +309,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Get the screen's physical size (in millimeters).    The physical size represents the actual physical dimensions of the   screen's display.    Depending on what information the underlying system provides the value   might not be entirely accurate. */
+comment|/*!   \property QScreen::physicalSize   \brief the screen's physical size (in millimeters)    The physical size represents the actual physical dimensions of the   screen's display.    Depending on what information the underlying system provides the value   might not be entirely accurate. */
 end_comment
 begin_function
 DECL|function|physicalSize
@@ -334,7 +337,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Get the screen's available size.    The available size is the size excluding window manager reserved areas   such as task bars and system menus. */
+comment|/*!   \property QScreen::availableSize   \brief the screen's available size in pixels    The available size is the size excluding window manager reserved areas   such as task bars and system menus. */
 end_comment
 begin_function
 DECL|function|availableSize
@@ -365,7 +368,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Get the screen's geometry. */
+comment|/*!   \property QScreen::geometry   \brief the screen's geometry in pixels    As an example this might return QRect(0, 0, 1280, 1024), or in a   virtual desktop setting QRect(1280, 0, 1280, 1024). */
 end_comment
 begin_function
 DECL|function|geometry
@@ -393,7 +396,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Get the screen's available geometry.    The available geometry is the geometry excluding window manager reserved areas   such as task bars and system menus. */
+comment|/*!   \property QScreen::availableGeometry   \brief the screen's available geometry in pixels    The available geometry is the geometry excluding window manager reserved areas   such as task bars and system menus. */
 end_comment
 begin_function
 DECL|function|availableGeometry
@@ -484,7 +487,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Get the size of the virtual desktop corresponding to this screen.    This is the combined size of the virtual siblings' individual geometries.    \sa virtualSiblings() */
+comment|/*!   \property QScreen::virtualSize   \brief the pixel size of the virtual desktop corresponding to this screen    This is the combined size of the virtual siblings' individual geometries.    \sa virtualSiblings() */
 end_comment
 begin_function
 DECL|function|virtualSize
@@ -505,7 +508,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Get the geometry of the virtual desktop corresponding to this screen.    This is the union of the virtual siblings' individual geometries.    \sa virtualSiblings() */
+comment|/*!   \property QScreen::virtualGeometry   \brief the pixel geometry of the virtual desktop corresponding to this screen    This is the union of the virtual siblings' individual geometries.    \sa virtualSiblings() */
 end_comment
 begin_function
 DECL|function|virtualGeometry
@@ -551,7 +554,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Get the available size of the virtual desktop corresponding to this screen.    This is the combined size of the virtual siblings' individual available geometries.    \sa availableSize()   \sa virtualSiblings() */
+comment|/*!   \property QScreen::availableVirtualSize   \brief the available pixel size of the virtual desktop corresponding to this screen    This is the combined size of the virtual siblings' individual available geometries.    \sa availableSize()   \sa virtualSiblings() */
 end_comment
 begin_function
 DECL|function|availableVirtualSize
@@ -572,7 +575,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Get the available size of the virtual desktop corresponding to this screen.    This is the union of the virtual siblings' individual available geometries.    \sa availableGeometry()   \sa virtualSiblings() */
+comment|/*!   \property QScreen::availableVirtualGeometry   \brief the available size of the virtual desktop corresponding to this screen    This is the union of the virtual siblings' individual available geometries.    \sa availableGeometry()   \sa virtualSiblings() */
 end_comment
 begin_function
 DECL|function|availableVirtualGeometry
@@ -618,7 +621,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Gets the primary screen orientation.      The primary screen orientation is the orientation that corresponds     to an un-rotated screen buffer. When the current orientation is equal     to the primary orientation no rotation needs to be done by the     application. */
+comment|/*!     \property QScreen::primaryOrientation     \brief the primary screen orientation      The primary screen orientation is the orientation that corresponds     to an un-rotated screen buffer. When the current orientation is equal     to the primary orientation no rotation needs to be done by the     application. */
 end_comment
 begin_function
 DECL|function|primaryOrientation
@@ -648,7 +651,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Gets the current orientation of the screen.      The current orientation is a hint to the application saying     what the preferred application orientation should be, based on the     current orientation of the physical display and / or other factors.      \sa primaryOrientation()     \sa currentOrientationChanged() */
+comment|/*!     \property QScreen::primaryOrientation     \brief the current screen orientation      The current orientation is a hint to the application saying     what the preferred application orientation should be, based on the     current orientation of the physical display and / or other factors.      \sa primaryOrientation()     \sa currentOrientationChanged() */
 end_comment
 begin_function
 DECL|function|currentOrientation
