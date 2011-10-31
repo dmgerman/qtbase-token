@@ -2279,11 +2279,6 @@ parameter_list|()
 specifier|const
 function_decl|;
 name|void
-name|parseXSLTTestSuite
-parameter_list|()
-specifier|const
-function_decl|;
-name|void
 name|writerHangs
 parameter_list|()
 specifier|const
@@ -4182,32 +4177,6 @@ name|reference
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_function
-begin_function
-DECL|function|parseXSLTTestSuite
-name|void
-name|tst_QXmlStream
-operator|::
-name|parseXSLTTestSuite
-parameter_list|()
-specifier|const
-block|{
-comment|/* We disable this test for now, so it doesn't show up as an XFAIL. */
-if|#
-directive|if
-literal|0
-block|QEXPECT_FAIL("", "Two problems needs to be solved in order to enable this test: \n"                      "* The XSLT suite is 69 MB large, which is quite a lot compared to the existing XML suite on 2 mb.\n"                      "* We need a c14n-like implementation in order to compare the outputs.", Abort);     QVERIFY(false);
-comment|/* We don't yet know this. TODO */
-block|int xsltExpectedRunCount = -1;      QStringList nameFilters;     nameFilters.append("*.xsl");     nameFilters.append("*.xml");      QDirIterator dirIterator("XSLT-Test-Suite/", nameFilters,                              QDir::AllEntries, QDirIterator::Subdirectories);      int filesParsed = 0;      while(dirIterator.hasNext())     {         dirIterator.next();          const QString fp(dirIterator.filePath());         qDebug()<< "Found"<< fp;          QFile inputFile(fp);         QVERIFY(inputFile.open(QIODevice::ReadOnly));
-comment|/* Read in and write out to the QByteArray. */
-block|QByteArray outputArray;         {             QXmlStreamReader reader(&inputFile);              QXmlStreamWriter writer(&outputArray);              while(!reader.atEnd())             {                 writer.writeCurrentToken(reader);                 reader.readNext();                  QVERIFY2(!reader.hasError(), qPrintable(reader.errorString()));             }
-comment|/* Might be we got an error here, but we don't care. */
-block|}
-comment|/* Read in the two files, and compare them. */
-block|{             QBuffer outputBuffer(&outputArray);             outputBuffer.open(QIODevice::ReadOnly);             inputFile.close();             inputFile.open(QIODevice::ReadOnly);              QString message;             const bool isEqual = QC14N::isEqual(&inputFile,&outputBuffer,&message);              QVERIFY2(isEqual, message.toLatin1().constData());              ++filesParsed;         }     }      QCOMPARE(xsltExpectedRunCount, filesParsed);
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
