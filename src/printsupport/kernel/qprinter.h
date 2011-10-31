@@ -1030,15 +1030,6 @@ begin_label
 name|private
 label|:
 end_label
-begin_function_decl
-name|void
-name|init
-parameter_list|(
-name|PrinterMode
-name|mode
-parameter_list|)
-function_decl|;
-end_function_decl
 begin_macro
 name|Q_DISABLE_COPY
 argument_list|(

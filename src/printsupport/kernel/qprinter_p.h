@@ -157,9 +157,15 @@ name|QPrinterPrivate
 argument_list|()
 block|{      }
 name|void
-name|createDefaultEngines
-argument_list|()
+name|init
+argument_list|(
+argument|QPrinter::PrinterMode mode
+argument_list|)
 expr_stmt|;
+name|void
+name|createDefaultEngines
+parameter_list|()
+function_decl|;
 ifndef|#
 directive|ifndef
 name|QT_NO_PRINTPREVIEWWIDGET
