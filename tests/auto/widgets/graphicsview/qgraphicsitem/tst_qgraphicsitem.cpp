@@ -84535,6 +84535,15 @@ operator|&
 name|view
 argument_list|)
 expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-22434"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
 name|QTRY_COMPARE
 argument_list|(
 name|view
