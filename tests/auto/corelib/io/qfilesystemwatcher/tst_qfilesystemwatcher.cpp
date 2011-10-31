@@ -1795,16 +1795,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_endif
-unit|class SignalTest : public QObject {     Q_OBJECT     public slots:         void fileSlot(const QString&file) { qDebug()<< "file "<< file;}         void dirSlot(const QString&dir) { qDebug()<< "dir"<< dir;} };
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|watchFileAndItsDirectory
 name|void
@@ -1948,7 +1938,6 @@ argument_list|(
 name|testFileName
 argument_list|)
 expr_stmt|;
-comment|/*     SignalTest signalTest;     QObject::connect(&watcher, SIGNAL(fileChanged(const QString&)),&signalTest, SLOT(fileSlot(const QString&)));     QObject::connect(&watcher, SIGNAL(directoryChanged(const QString&)),&signalTest, SLOT(dirSlot(const QString&)));     */
 name|QSignalSpy
 name|fileChangedSpy
 argument_list|(
