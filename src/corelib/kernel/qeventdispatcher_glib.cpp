@@ -1081,6 +1081,9 @@ operator|(
 name|source
 operator|->
 name|serialNumber
+operator|.
+name|load
+argument_list|()
 operator|!=
 name|source
 operator|->
@@ -1146,6 +1149,9 @@ operator|=
 name|source
 operator|->
 name|serialNumber
+operator|.
+name|load
+argument_list|()
 expr_stmt|;
 name|QCoreApplication
 operator|::
@@ -1345,8 +1351,11 @@ expr_stmt|;
 name|postEventSource
 operator|->
 name|serialNumber
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|1
+argument_list|)
 expr_stmt|;
 name|postEventSource
 operator|->

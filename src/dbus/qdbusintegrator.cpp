@@ -2988,6 +2988,9 @@ if|if
 condition|(
 operator|!
 name|ref
+operator|.
+name|load
+argument_list|()
 condition|)
 return|return
 literal|false
@@ -10856,8 +10859,11 @@ decl_stmt|;
 name|pcall
 operator|->
 name|ref
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 name|QDBusError
 name|error

@@ -635,8 +635,11 @@ expr_stmt|;
 name|d
 operator|->
 name|ref
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|1
+argument_list|)
 expr_stmt|;
 return|return;
 block|}

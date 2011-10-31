@@ -58,6 +58,11 @@ name|CursorShape
 name|s
 parameter_list|)
 member_init_list|:
+name|ref
+argument_list|(
+literal|1
+argument_list|)
+member_init_list|,
 name|cshape
 argument_list|(
 name|s
@@ -87,12 +92,7 @@ name|id
 argument_list|(
 name|s
 argument_list|)
-block|{
-name|ref
-operator|=
-literal|1
-expr_stmt|;
-block|}
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~QCursorData

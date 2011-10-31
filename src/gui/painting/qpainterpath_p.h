@@ -441,10 +441,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
-name|ref
-operator|=
-literal|1
-block|;
 name|require_moveTo
 operator|=
 name|false
@@ -461,9 +457,6 @@ operator|&
 name|other
 argument_list|)
 operator|:
-name|QPainterPathPrivate
-argument_list|()
-block|,
 name|cStart
 argument_list|(
 name|other
@@ -518,10 +511,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|{
-name|ref
-operator|=
-literal|1
-block|;
 name|require_moveTo
 operator|=
 name|false

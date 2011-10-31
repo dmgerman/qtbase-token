@@ -795,8 +795,11 @@ expr_stmt|;
 name|d
 operator|->
 name|pendingResultsReady
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 name|qDeleteAll
 argument_list|(
@@ -979,8 +982,11 @@ operator|::
 name|Canceled
 case|:
 name|pendingResultsReady
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 emit|emit
 name|q

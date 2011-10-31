@@ -78,16 +78,16 @@ argument_list|(
 argument|Type t
 argument_list|)
 block|:
+name|ref
+argument_list|(
+literal|0
+argument_list|)
+operator|,
 name|type
 argument_list|(
 argument|t
 argument_list|)
-block|{
-name|ref
-operator|=
-literal|0
-expr_stmt|;
-block|}
+block|{}
 name|virtual
 operator|~
 name|QStaticTextUserData

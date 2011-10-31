@@ -112,12 +112,12 @@ name|QSqlRecordPrivate
 operator|::
 name|QSqlRecordPrivate
 parameter_list|()
-block|{
+member_init_list|:
 name|ref
-operator|=
+argument_list|(
 literal|1
-expr_stmt|;
-block|}
+argument_list|)
+block|{ }
 end_constructor
 begin_constructor
 DECL|function|QSqlRecordPrivate
@@ -137,12 +137,12 @@ name|other
 operator|.
 name|fields
 argument_list|)
-block|{
+member_init_list|,
 name|ref
-operator|=
+argument_list|(
 literal|1
-expr_stmt|;
-block|}
+argument_list|)
+block|{ }
 end_constructor
 begin_comment
 comment|/*! \internal     Just for compat */

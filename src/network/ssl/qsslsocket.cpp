@@ -1568,8 +1568,11 @@ decl_stmt|;
 name|copy
 operator|->
 name|ref
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 comment|// the QSslConfiguration constructor refs up
 name|copy
@@ -4953,8 +4956,11 @@ block|}
 name|ptr
 operator|->
 name|ref
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|1
+argument_list|)
 expr_stmt|;
 name|ptr
 operator|->

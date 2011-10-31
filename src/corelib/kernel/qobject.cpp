@@ -9987,8 +9987,11 @@ expr_stmt|;
 name|c
 operator|->
 name|argumentTypes
-operator|=
+operator|.
+name|store
+argument_list|(
 name|types
+argument_list|)
 expr_stmt|;
 name|c
 operator|->
