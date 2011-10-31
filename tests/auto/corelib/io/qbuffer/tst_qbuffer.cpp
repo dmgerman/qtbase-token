@@ -1219,12 +1219,19 @@ operator|&
 name|ba
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
+name|QCOMPARE
+argument_list|(
+name|buf
+operator|.
+name|pos
+argument_list|()
+argument_list|,
+name|qint64
+argument_list|(
 literal|0
-block|QCOMPARE(buf.pos(), qint64(-1));
-endif|#
-directive|endif
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|buf
 operator|.
 name|open
