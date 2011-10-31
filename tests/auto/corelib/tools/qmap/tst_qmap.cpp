@@ -4188,13 +4188,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*         I've removed findNextKey() and findPreviousKey() from the API         for Qt 4.0 beta 1.     */
-if|#
-directive|if
-literal|0
-block|QVERIFY(javaIt.findNextKey(50));     QVERIFY(javaIt.value() == "Teststring 50");
-endif|#
-directive|endif
 name|i
 operator|=
 literal|51
@@ -4231,12 +4224,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block|QVERIFY(javaIt.findNextKey(50));     QVERIFY(javaIt.value() == "Teststring 50");      QVERIFY(javaIt.hasPrevious());     QVERIFY(javaIt.findPreviousKey(20));     QCOMPARE(javaIt.value(), QString("Teststring 20"));
-endif|#
-directive|endif
 block|}
 end_function
 begin_function

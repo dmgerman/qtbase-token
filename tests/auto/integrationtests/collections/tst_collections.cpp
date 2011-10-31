@@ -11203,14 +11203,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block|{         QMultiHash<QString, int> hash1;         hash1.insert("1", 2);         hash1.insert("1", 1);         hash1.insert("a", 3);         hash1.insert("a", 2);         hash1.insert("a", 1);         hash1.insert("b", 2);         hash1.insert("b", 1);
-comment|// hash1: [ "1" -> 1, "1" -> 2, "a" -> 1, "a" -> 2, "a" -> 3, "b" -> 1, "b" -> 2 ]
-block|QHashIterator<QString, int> i1(hash1);         i1.toBack();          bool found;          found = i1.findPreviousKey("1");         QVERIFY(found&& i1.value() == 2);          found = i1.findPreviousKey("1");         QVERIFY(found&& i1.value() == 1);          found = i1.findPreviousKey("1");         QVERIFY(!found);          i1.toFront();         found = i1.findNextKey("1");         QVERIFY(found&& i1.value() == 1);          found = i1.findNextKey("1");         QVERIFY(found&& i1.value() == 2);          found = i1.findNextKey("1");         QVERIFY(!found);          i1.toBack();         found = i1.findPreviousKey("b");         QVERIFY(found&& i1.value() == 2);          found = i1.findPreviousKey("b");         QVERIFY(found&& i1.value() == 1);          found = i1.findPreviousKey("b");         QVERIFY(!found);          i1.toFront();         found = i1.findNextKey("b");         QVERIFY(found&& i1.value() == 1);          found = i1.findNextKey("b");         QVERIFY(found&& i1.value() == 2);          found = i1.findNextKey("b");         QVERIFY(!found);     }
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -12639,13 +12631,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// map1: [ "1" -> 1, "1" -> 2, "a" -> 1, "a" -> 2, "a" -> 3, "b" -> 1, "b" -> 2 ]
-if|#
-directive|if
-literal|0
-block|QMapIterator<QString, int> i1(map1);         i1.toBack();          bool found;         found = i1.findPreviousKey("1"); 	QVERIFY(found&& i1.value() == 2);          found = i1.findPreviousKey("1"); 	QVERIFY(found&& i1.value() == 1);          found = i1.findPreviousKey("1");         QVERIFY(!found);  	i1.toFront();         found = i1.findNextKey("1");         QVERIFY(found&& i1.value() == 1);          found = i1.findNextKey("1");         QVERIFY(found&& i1.value() == 2);          found = i1.findNextKey("1");         QVERIFY(!found);  	i1.toBack();         found = i1.findPreviousKey("b");         QVERIFY(found&& i1.value() == 2);          found = i1.findPreviousKey("b");         QVERIFY(found&& i1.value() == 1);          found = i1.findPreviousKey("b");         QVERIFY(!found);  	i1.toFront();         found = i1.findNextKey("b");         QVERIFY(found&& i1.value() == 1);          found = i1.findNextKey("b");         QVERIFY(found&& i1.value() == 2);          found = i1.findNextKey("b");         QVERIFY(!found);
-endif|#
-directive|endif
 name|QMultiMap
 argument_list|<
 name|QString
