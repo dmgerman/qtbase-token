@@ -82,14 +82,6 @@ argument_list|,
 argument|int height
 argument_list|)
 block|;
-name|void
-name|fromFile
-argument_list|(
-argument|const QString&filename
-argument_list|,
-argument|Qt::ImageConversionFlags flags
-argument_list|)
-block|;
 name|bool
 name|fromData
 argument_list|(
