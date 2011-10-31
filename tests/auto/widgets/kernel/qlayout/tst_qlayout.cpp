@@ -917,12 +917,6 @@ operator|.
 name|width
 argument_list|()
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block|qDebug()<< expectedIndex<< sizePolicy.horizontalPolicy()<< align<< minSize<< sizeHint<< maxSize<< width;
-else|#
-directive|else
 name|int
 name|expectedWidth
 init|=
@@ -966,8 +960,6 @@ operator|++
 name|regressionCount
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 operator|++
 name|expectedIndex
 expr_stmt|;
