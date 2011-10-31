@@ -63,9 +63,11 @@ argument_list|)
 block|;
 name|void
 name|reset
-argument_list|(
+argument_list|()
+block|;
 name|void
-argument_list|)
+name|commit
+argument_list|()
 block|;
 name|void
 name|update
