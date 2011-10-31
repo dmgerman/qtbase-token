@@ -203,13 +203,6 @@ parameter_list|()
 function_decl|;
 endif|#
 directive|endif
-if|#
-directive|if
-literal|0
-comment|//"while" iterations tests:
-private|void instantiateWhile();     void stresstestWhile();
-endif|#
-directive|endif
 block|}
 class|;
 end_class
@@ -1404,20 +1397,6 @@ expr_stmt|;
 block|}
 end_function
 begin_endif
-endif|#
-directive|endif
-end_endif
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_comment
-unit|class PrintWhile : public IterateKernel<TestIterator, void> { public:     PrintWhile() : IterateKernel<TestIterator, void>(0, 10, WhileIteration) { }     bool runIteration(TestIterator it, TestIterator, void *)     {         return false;     } };  void tst_QtConcurrentIterateKernel::instantiateWhile() {     PrintWhile w;     w.startBlocking(); }  QAtomicInt iterationCount; class StressWhile : public IterateKernel<TestIterator, void> { public:     StressWhile(TestIterator iterations) : IterateKernel<TestIterator, void>(0, iterations, WhileIteration) { }     bool runIteration(TestIterator it, TestIterator index, void *)     {         if (it == index)
-comment|// should match.
-end_comment
-begin_endif
-unit|::iterationCount.ref();         return false;     } };  void tst_QtConcurrentIterateKernel::stresstestWhile() {     int iterations = 100000;     StressWhile w(iterations);     w.startBlocking();     QCOMPARE(int(iterationCount), iterations); }
 endif|#
 directive|endif
 end_endif
