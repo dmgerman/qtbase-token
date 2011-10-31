@@ -2272,13 +2272,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|// everything is closed, so doing this should not emit lastWindowClosed() again
-block|QMetaObject::invokeMethod(dialog, "close", Qt::QueuedConnection);     QTimer::singleShot(1000,&app, SLOT(quit()));     app.exec();     QCOMPARE(spy.count(), 0);
-endif|#
-directive|endif
 operator|delete
 name|dialog
 expr_stmt|;
