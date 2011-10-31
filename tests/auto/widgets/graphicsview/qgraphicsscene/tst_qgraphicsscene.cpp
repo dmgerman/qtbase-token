@@ -31858,6 +31858,15 @@ argument_list|)
 expr_stmt|;
 comment|// the input context is reset twice, once because an item has lost focus and again because
 comment|// the Qt::WA_InputMethodEnabled flag is cleared because no item has focus.
+name|QEXPECT_FAIL
+argument_list|(
+literal|"3"
+argument_list|,
+literal|"QTBUG-22456"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|inputContext
