@@ -10393,12 +10393,6 @@ name|ii
 index|]
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|const char T[] = "ws-";                 qWarning("%c%c%c: %.3d", i[T], j[T], k[T], window.sizeHint().height());
-endif|#
-directive|endif
 operator|++
 name|ii
 expr_stmt|;
