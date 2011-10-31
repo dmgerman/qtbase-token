@@ -6083,12 +6083,6 @@ expr_stmt|;
 operator|++
 name|row
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|{                 QString txt = token;                 for (int t = 0; t< ind; ++t)                     txt.prepend(' ');                 qDebug()<< "#"<< txt;             }
-endif|#
-directive|endif
 block|}
 block|}
 block|}
@@ -6286,12 +6280,6 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block|qDebug()<< "proxy data is"<< str<< "level"<< indent;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|str
