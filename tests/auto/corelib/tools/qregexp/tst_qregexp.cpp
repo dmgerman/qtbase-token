@@ -2840,12 +2840,6 @@ literal|"^a(?:(\\1aa)a)*$"
 block|,
 literal|"^(\\2(\\1a))+$"
 block|,
-if|#
-directive|if
-literal|0
-block|"^(?:(\\B\\1aa|^a))+$",
-endif|#
-directive|endif
 literal|"^((\\2a)*)\\1\\2a$"
 block|,
 literal|0
@@ -8547,13 +8541,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|QCOMPARE(rx1.pos(3), -1);
-comment|// ###
-endif|#
-directive|endif
 name|QRegExp
 name|rx3
 decl_stmt|;
