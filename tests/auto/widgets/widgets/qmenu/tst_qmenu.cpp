@@ -2119,6 +2119,7 @@ name|expected_action
 index|]
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|expected_highlighted
@@ -2136,7 +2137,18 @@ argument_list|,
 name|highlighted
 argument_list|)
 expr_stmt|;
-block|}
+else|else
+name|QCOMPARE
+argument_list|(
+name|highlighted
+argument_list|,
+operator|(
+name|QAction
+operator|*
+operator|)
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_ifdef
