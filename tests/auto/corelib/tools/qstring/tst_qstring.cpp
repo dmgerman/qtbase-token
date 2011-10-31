@@ -15743,22 +15743,6 @@ operator|)
 literal|"<>ABCABCABCABC>"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_STL
-argument_list|)
-comment|/*       The std::string support is fairly trivial in itself. The major       problem is whether it compiles or not, because of the way       different compilers choose an overload based on the type of the       argument. If it compiles, we're happy.     */
-block|std::string stroustrup;     a.append( stroustrup );     a += stroustrup;
-endif|#
-directive|endif
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -15835,15 +15819,6 @@ index|]
 operator|=
 literal|'d'
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|ba[4] = 0;      for ( int i=0; i<2; i++ ) {
-comment|// i == 0: the byte array is exactly strlen+1
-comment|// i == 1: the byte array is larger than strlen+1
-block|QTest::newRow( QString("nullTerminated_%1_0").arg(i) )<< QString()<< ba<< QString("abcd"); 	QTest::newRow( QString("nullTerminated_%1_1").arg(i) )<< QString("")<< ba<< QString("abcd"); 	QTest::newRow( QString("nullTerminated_%1_2").arg(i) )<< QString("foobar ")<< ba<< QString("foobar abcd");  	ba.resize( 8 );     }
-endif|#
-directive|endif
 comment|// no 0 termination
 name|ba
 operator|.
@@ -16250,21 +16225,6 @@ operator|)
 literal|"-<>ABCABCABCABC>"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_STL
-argument_list|)
-block|std::string stroustrup;     a.prepend( stroustrup );
-endif|#
-directive|endif
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -16341,17 +16301,6 @@ index|]
 operator|=
 literal|'d'
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|ba[4] = 0;      for ( int i=0; i<2; i++ ) {
-comment|// i == 0: the byte array is exactly strlen+1
-comment|// i == 1: the byte array is larger than strlen+1
-block|QTest::newRow( QString("nullTerminated_%1_0").arg(i) )<< QString()<< ba<< QString("abcd"); 	QTest::newRow( QString("nullTerminated_%1_1").arg(i) )<< QString("")<< ba<< QString("abcd"); 	QTest::newRow( QString("nullTerminated_%1_2").arg(i) )<< QString(" foobar")<< ba<< QString("abcd foobar");  	ba.resize( 8 );     }
-comment|// no 0 termination
-block|ba.resize( 4 );     QTest::newRow( "notTerminated_0" )<< QString()<< ba<< QString("abcd");     QTest::newRow( "notTerminated_1" )<< QString("")<< ba<< QString("abcd");     QTest::newRow( "notTerminated_2" )<< QString(" foobar")<< ba<< QString("abcd foobar");
-endif|#
-directive|endif
 comment|// byte array with only a 0
 name|ba
 operator|.
