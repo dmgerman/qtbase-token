@@ -13667,12 +13667,6 @@ name|mainWindow
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|QEventLoop eventLoop;         QPushButton quitButton("Quit",&centralWidget);         quitButton.setGeometry(0, 0, 100, 40);         connect(&quitButton, SIGNAL(clicked()),&eventLoop, SLOT(quit()));         quitButton.show();         eventLoop.exec();
-endif|#
-directive|endif
 block|}
 comment|// restoreState() after show
 block|{
