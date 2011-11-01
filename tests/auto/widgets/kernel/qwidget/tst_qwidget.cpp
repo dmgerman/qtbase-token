@@ -25450,13 +25450,6 @@ name|WA_Resized
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|//we don't enforce maximum size on show, apparently
-block|QSize nonDefaultSize = defaultSize - QSize(5,5);     w.setMaximumSize(nonDefaultSize);     w.show();     QTest::qWait(50);     qDebug()<< nonDefaultSize<< w.size();     QVERIFY(w.height()<= nonDefaultSize.height());     QVERIFY(w.width()<= nonDefaultSize.width());
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
