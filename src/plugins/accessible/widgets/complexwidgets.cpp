@@ -7926,9 +7926,10 @@ specifier|const
 block|{
 return|return
 name|QStringList
+argument_list|(
+name|pressAction
 argument_list|()
-operator|<<
-name|PressAction
+argument_list|)
 return|;
 block|}
 DECL|function|doAction
@@ -7945,7 +7946,8 @@ if|if
 condition|(
 name|actionName
 operator|==
-name|PressAction
+name|pressAction
+argument_list|()
 condition|)
 name|m_parent
 operator|->
@@ -8905,9 +8907,10 @@ specifier|const
 block|{
 return|return
 name|QStringList
+argument_list|(
+name|showMenuAction
 argument_list|()
-operator|<<
-name|ShowMenuAction
+argument_list|)
 return|;
 block|}
 end_function
@@ -8929,7 +8932,8 @@ if|if
 condition|(
 name|actionName
 operator|==
-name|ShowMenuAction
+name|showMenuAction
+argument_list|()
 condition|)
 return|return
 name|QComboBox
@@ -8962,7 +8966,8 @@ if|if
 condition|(
 name|actionName
 operator|==
-name|ShowMenuAction
+name|showMenuAction
+argument_list|()
 condition|)
 block|{
 if|if

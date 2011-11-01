@@ -3871,7 +3871,8 @@ name|NoFocus
 condition|)
 name|names
 operator|<<
-name|SetFocusAction
+name|setFocusAction
+argument_list|()
 expr_stmt|;
 block|}
 return|return
@@ -3906,7 +3907,8 @@ if|if
 condition|(
 name|actionName
 operator|==
-name|SetFocusAction
+name|setFocusAction
+argument_list|()
 condition|)
 block|{
 if|if

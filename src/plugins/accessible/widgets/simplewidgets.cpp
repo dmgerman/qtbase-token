@@ -640,7 +640,8 @@ name|ButtonMenu
 case|:
 name|names
 operator|<<
-name|ShowMenuAction
+name|showMenuAction
+argument_list|()
 expr_stmt|;
 break|break;
 case|case
@@ -648,7 +649,8 @@ name|RadioButton
 case|:
 name|names
 operator|<<
-name|CheckAction
+name|checkAction
+argument_list|()
 expr_stmt|;
 break|break;
 default|default:
@@ -671,7 +673,8 @@ condition|)
 block|{
 name|names
 operator|<<
-name|UncheckAction
+name|uncheckAction
+argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -681,7 +684,8 @@ comment|//                QCheckBox *cb = qobject_cast<QCheckBox*>(object());
 comment|//                if (!cb || !cb->isTristate() || cb->checkState() == Qt::PartiallyChecked)
 name|names
 operator|<<
-name|CheckAction
+name|checkAction
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -689,7 +693,8 @@ else|else
 block|{
 name|names
 operator|<<
-name|PressAction
+name|pressAction
+argument_list|()
 expr_stmt|;
 block|}
 break|break;
@@ -734,11 +739,13 @@ if|if
 condition|(
 name|actionName
 operator|==
-name|PressAction
+name|pressAction
+argument_list|()
 operator|||
 name|actionName
 operator|==
-name|ShowMenuAction
+name|showMenuAction
+argument_list|()
 condition|)
 block|{
 ifndef|#
@@ -787,7 +794,8 @@ if|if
 condition|(
 name|actionName
 operator|==
-name|CheckAction
+name|checkAction
+argument_list|()
 condition|)
 block|{
 name|button
@@ -804,7 +812,8 @@ if|if
 condition|(
 name|actionName
 operator|==
-name|UncheckAction
+name|uncheckAction
+argument_list|()
 condition|)
 block|{
 name|button
@@ -846,7 +855,8 @@ if|if
 condition|(
 name|actionName
 operator|==
-name|PressAction
+name|pressAction
+argument_list|()
 condition|)
 block|{
 ifndef|#
@@ -1236,7 +1246,8 @@ argument_list|()
 condition|)
 name|names
 operator|<<
-name|ShowMenuAction
+name|showMenuAction
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -1290,7 +1301,8 @@ if|if
 condition|(
 name|actionName
 operator|==
-name|PressAction
+name|pressAction
+argument_list|()
 condition|)
 block|{
 name|button
@@ -1305,7 +1317,8 @@ if|if
 condition|(
 name|actionName
 operator|==
-name|ShowMenuAction
+name|showMenuAction
+argument_list|()
 condition|)
 block|{
 if|if
