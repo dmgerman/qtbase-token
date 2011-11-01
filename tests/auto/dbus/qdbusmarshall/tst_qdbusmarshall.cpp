@@ -5361,13 +5361,6 @@ operator|::
 name|StructureType
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|// this is now unsupported
-block|arg<< 1<< 2U<< short(-3)<< ushort(4)<< 5.0<< false;     QTest::newRow("many-args")<< qVariantFromValue(arg)<< "(iunqdb)iunqdb";
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
