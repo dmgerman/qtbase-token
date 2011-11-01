@@ -63,33 +63,6 @@ ifndef|#
 directive|ifndef
 name|QT_NO_BEARERMANAGEMENT
 end_ifndef
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_decl_stmt
-DECL|variable|RConnection
-name|class
-name|RConnection
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|RSocket
-name|class
-name|RSocket
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|RHostResolver
-name|class
-name|RHostResolver
-decl_stmt|;
-end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -285,59 +258,6 @@ specifier|const
 operator|=
 literal|0
 block|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// get internal RConnection (not thread safe, call only from thread that owns the QNetworkSession)
-specifier|static
-name|RConnection
-operator|*
-name|nativeSession
-argument_list|(
-name|QNetworkSession
-operator|&
-argument_list|)
-block|;
-name|virtual
-name|RConnection
-operator|*
-name|nativeSession
-argument_list|()
-operator|=
-literal|0
-block|;
-comment|// open socket using the internal RConnection (thread safe)
-specifier|static
-name|TInt
-name|nativeOpenSocket
-argument_list|(
-argument|QNetworkSession& session
-argument_list|,
-argument|RSocket& socket
-argument_list|,
-argument|TUint family
-argument_list|,
-argument|TUint type
-argument_list|,
-argument|TUint protocol
-argument_list|)
-block|;
-comment|// open host resolver using the internal RConnection (thread safe)
-specifier|static
-name|TInt
-name|nativeOpenHostResolver
-argument_list|(
-argument|QNetworkSession& session
-argument_list|,
-argument|RHostResolver& resolver
-argument_list|,
-argument|TUint family
-argument_list|,
-argument|TUint protocol
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|protected
 operator|:
 specifier|inline

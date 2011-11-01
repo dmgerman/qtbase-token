@@ -113,24 +113,7 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
 DECL|member|defaultChannelCount
-specifier|const
-name|int
-name|QHttpNetworkConnectionPrivate
-operator|::
-name|defaultChannelCount
-init|=
-literal|3
-decl_stmt|;
-end_decl_stmt
-begin_else
-else|#
-directive|else
-end_else
-begin_decl_stmt
 specifier|const
 name|int
 name|QHttpNetworkConnectionPrivate
@@ -140,10 +123,6 @@ init|=
 literal|6
 decl_stmt|;
 end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// The pipeline length. So there will be 4 requests in flight.
 end_comment

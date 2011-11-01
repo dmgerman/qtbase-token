@@ -1147,9 +1147,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-ifndef|#
-directive|ifndef
-name|Q_OS_SYMBIAN
 comment|// set non blocking so we can try to connect and it wont wait
 name|int
 name|flags
@@ -1205,8 +1202,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-endif|#
-directive|endif
 comment|// _q_connectToSocket does the actual connecting
 name|d
 operator|->
@@ -2531,36 +2526,6 @@ name|msec
 operator|)
 condition|)
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// On Symbian, ready-to-write is signaled when non-blocking socket
-comment|// connect is finised. Is ready-to-read really used on other
-comment|// UNIX paltforms when using non-blocking AF_UNIX socket?
-name|result
-operator|=
-operator|::
-name|select
-argument_list|(
-name|d
-operator|->
-name|connectingSocket
-operator|+
-literal|1
-argument_list|,
-literal|0
-argument_list|,
-operator|&
-name|fds
-argument_list|,
-literal|0
-argument_list|,
-operator|&
-name|timeout
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|result
 operator|=
 operator|::
@@ -2583,8 +2548,6 @@ operator|&
 name|timeout
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|-

@@ -84,25 +84,7 @@ file|<qnetworkinterface.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
 DECL|variable|MaxWriteBufferSize
-specifier|static
-specifier|const
-name|int
-name|MaxWriteBufferSize
-init|=
-literal|4
-operator|*
-literal|1024
-decl_stmt|;
-end_decl_stmt
-begin_else
-else|#
-directive|else
-end_else
-begin_decl_stmt
 specifier|static
 specifier|const
 name|int
@@ -113,10 +95,6 @@ operator|*
 literal|1024
 decl_stmt|;
 end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|//#define QSOCKS5SOCKETLAYER_DEBUG
 end_comment
