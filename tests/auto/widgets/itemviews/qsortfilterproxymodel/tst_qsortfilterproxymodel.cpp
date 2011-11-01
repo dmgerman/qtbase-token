@@ -5794,12 +5794,6 @@ operator|<<
 literal|">"
 operator|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|QTest::newRow("hierarchical")<< (QStringList()<< "a"<< "<"<< "x"<< "y"<< "z"<< ">"<< "b"<< "<"<< "k"<< "<"<< "7"<< "8"<< "9"<< ">"<< "l"<< "m"<< ">"<< "c"<< "<"<< "g"<< "h"<< "<"<< "0"<< "1"<< "2"<< ">"<< "i"<< ">")<< (QStringList()<< "a"<< "<"<< "x"<< "z"<< ">"<< "c"<< "<"<< "g"<< "i"<< ">");
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
