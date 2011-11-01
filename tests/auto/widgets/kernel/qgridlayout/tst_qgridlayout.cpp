@@ -2522,12 +2522,6 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|leftChild.setMaximumWidth(200);     rightChild.setMaximumWidth(200);      QApplication::sendPostedEvents(0, 0);     QCOMPARE(widget.maximumWidth(), leftChild.maximumWidth() + rightChild.maximumWidth());
-endif|#
-directive|endif
 name|layout
 operator|.
 name|removeWidget
