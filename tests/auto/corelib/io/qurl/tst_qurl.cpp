@@ -21123,13 +21123,6 @@ argument_list|(
 literal|"fec0:8000:4000:8002:1000:ffff:200.100.50.250"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|// this is actually invalid
-block|QTest::newRow("mac-literal")<< QString("obex://[00:30:1b:b7:21:fb]")<< QString("00:30:1b:b7:21:fb");
-endif|#
-directive|endif
 comment|// normal hostnames
 name|QTest
 operator|::
