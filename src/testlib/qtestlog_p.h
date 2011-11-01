@@ -296,6 +296,11 @@ name|int
 name|max
 parameter_list|)
 function_decl|;
+specifier|static
+name|void
+name|setPrintAvailableTagsMode
+parameter_list|()
+function_decl|;
 name|private
 label|:
 name|QTestLog
@@ -305,6 +310,10 @@ operator|~
 name|QTestLog
 argument_list|()
 expr_stmt|;
+specifier|static
+name|bool
+name|printAvailableTags
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
