@@ -1642,9 +1642,6 @@ argument_list|(
 literal|"expected"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|1
 name|QTest
 operator|::
 name|newRow
@@ -1696,8 +1693,6 @@ operator|<<
 literal|"f"
 operator|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QTest
 operator|::
 name|newRow
@@ -1753,9 +1748,6 @@ operator|<<
 literal|">"
 operator|)
 expr_stmt|;
-if|#
-directive|if
-literal|1
 name|QTest
 operator|::
 name|newRow
@@ -1895,8 +1887,6 @@ operator|<<
 literal|">"
 operator|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
