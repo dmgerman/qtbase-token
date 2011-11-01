@@ -7673,10 +7673,10 @@ define|#
 directive|define
 name|Q_STATIC_ASSERT
 parameter_list|(
-modifier|...
+name|Condition
 parameter_list|)
 define|\
-value|enum {Q_STATIC_ASSERT_PRIVATE_JOIN(q_static_assert_result, __LINE__) = sizeof(QStaticAssertFailure<bool(__VA_ARGS__)>)}
+value|enum {Q_STATIC_ASSERT_PRIVATE_JOIN(q_static_assert_result, __LINE__) = sizeof(QStaticAssertFailure<bool(Condition)>)}
 end_define
 begin_function_decl
 name|Q_CORE_EXPORT
