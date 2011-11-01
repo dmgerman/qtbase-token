@@ -197,7 +197,6 @@ name|void
 name|waitForFinished_error
 parameter_list|()
 function_decl|;
-comment|//    void setReplyCallback();
 name|void
 name|watcher
 parameter_list|()
@@ -1080,19 +1079,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_comment
-comment|// This function was removed from the public API
-end_comment
-begin_endif
-unit|void tst_QDBusPendingCall::setReplyCallback() {     QDBusPendingCall ac = sendMessage();     QVERIFY(!ac.isFinished());     QVERIFY(!ac.isError());     QVERIFY(ac.reply().type() == QDBusMessage::InvalidMessage);      callCount = 0;     callbackArgument.clear();     QVERIFY(ac.setReplyCallback(this, SLOT(callback(const QStringList&))));     QVERIFY(callCount == 0);     QVERIFY(callbackArgument.isEmpty());      QTestEventLoop::instance().enterLoop(2);     QVERIFY(!QTestEventLoop::instance().timeout());      QVERIFY(ac.isFinished());     QVERIFY(!ac.isError());      QCOMPARE(callCount, 1);     QCOMPARE(slotCalled, (int)CallbackCalled);     QVERIFY(!callbackArgument.isEmpty());     QVERIFY(callbackArgument.contains(conn.baseService()));      const QVariantList args = ac.reply().arguments();     QVERIFY(!args.isEmpty());     QCOMPARE(args.at(0).toStringList(), callbackArgument); }
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|watcher
 name|void
