@@ -652,6 +652,7 @@ literal|0
 argument_list|,
 sizeof|sizeof
 argument_list|(
+operator|*
 name|ctx
 argument_list|)
 argument_list|)
