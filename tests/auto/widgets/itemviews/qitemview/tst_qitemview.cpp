@@ -5883,16 +5883,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-comment|// ### disable this part for now
-comment|// ### hide the first/last row,column and re-run all of these tests
-comment|// ### Not 100% sure, but I think the next to are tableview specific only and everyone else just does up/down
-comment|// QAbstractItemView::MoveNext, AbstractItemView::MovePrevious
-block|while (!events.isEmpty()) {         Event event = events.pop();         view->setCurrentIndex(event.start);         QCOMPARE(view->currentIndex(), event.start);          if (event.key == Qt::Key_PageUp&& event.end == QModelIndex()) {             QModelIndex x = view->indexAt(QPoint(1,1));             if (x.row() == 0)                 event.end = x;             else                 event.end = x.sibling(x.row() - 1, x.column());         }         if (event.key == Qt::Key_PageDown&& event.end == QModelIndex()) {             QModelIndex x = view->indexAt(QPoint(1, view->viewport()->height() - 10));             if (x.row() == view->model()->rowCount() - 1)                 event.end = x;             else                 event.end = x.sibling(x.row() + 1, x.column());         }          QTest::keyPress(view, event.key);         QTest::keyRelease(view, event.key);         QModelIndex current = view->currentIndex();         if (event.key == Qt::Key_PageUp) {             int diff = event.end.row() - current.row();             QVERIFY(diff<= 2);             continue;         }         if (event.key == Qt::Key_PageDown) {             int diff = current.row() - event.end.row();             QVERIFY(diff<= 2);             continue;         }          if (current != event.end) {             QString k;             if (event.key == Qt::Key_Up) k = "up";             if (event.key == Qt::Key_Right) k = "right";             if (event.key == Qt::Key_Left) k = "left";             if (event.key == Qt::Key_PageUp) k = "page up";             if (event.key == Qt::Key_PageDown) k = "page down";             if (event.key == Qt::Key_Down) k = "down";             if (event.key == Qt::Key_Home) k = "home";             if (event.key == Qt::Key_End) k = "end";             qDebug()<< k<< event.name<< event.start<< event.end<< current;         }         QCOMPARE(current, event.end);     }
-endif|#
-directive|endif
 block|}
 end_function
 begin_macro
