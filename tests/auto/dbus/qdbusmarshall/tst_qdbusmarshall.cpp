@@ -586,9 +586,6 @@ literal|"b"
 operator|<<
 literal|"false"
 expr_stmt|;
-if|#
-directive|if
-literal|1
 name|QTest
 operator|::
 name|newRow
@@ -859,8 +856,6 @@ literal|"h"
 operator|<<
 literal|"[Unix FD: valid]"
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
