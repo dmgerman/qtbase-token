@@ -58163,9 +58163,6 @@ argument_list|(
 name|p2
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|1
 name|p1
 operator|->
 name|setObjectName
@@ -58180,16 +58177,11 @@ argument_list|(
 literal|"p2"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|w
 operator|.
 name|show
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-literal|1
 name|w
 operator|.
 name|activateWindow
@@ -58238,16 +58230,6 @@ argument_list|(
 literal|10
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"checking active window:"
-operator|<<
-name|QApplication
-operator|::
-name|activeWindow
-argument_list|()
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|QApplication
@@ -58276,8 +58258,6 @@ name|p1
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QTest
 operator|::
 name|qWait
