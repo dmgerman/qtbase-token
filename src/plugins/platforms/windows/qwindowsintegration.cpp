@@ -559,15 +559,15 @@ operator|::
 name|QWindowsIntegrationPrivate
 parameter_list|()
 member_init_list|:
+name|m_fontDatabase
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|m_eventDispatcher
 argument_list|(
 operator|new
 name|QWindowsGuiEventDispatcher
-argument_list|)
-member_init_list|,
-name|m_fontDatabase
-argument_list|(
-literal|0
 argument_list|)
 block|{ }
 end_constructor

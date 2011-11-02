@@ -462,7 +462,7 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: Unable to obtain handle for monitor '%s', defaulting to %d DPI."
+literal|"%s: Unable to obtain handle for monitor '%s', defaulting to %g DPI."
 argument_list|,
 name|__FUNCTION__
 argument_list|,
