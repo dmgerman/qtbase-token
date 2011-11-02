@@ -14790,6 +14790,15 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_function_decl
+specifier|extern
+specifier|const
+name|uchar
+modifier|*
+name|qt_pow_rgb_gamma
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_function
 DECL|function|qGamma_correct_back_to_linear_cs
 name|void
@@ -14800,13 +14809,20 @@ modifier|*
 name|image
 parameter_list|)
 block|{
-specifier|extern
+specifier|const
 name|uchar
+modifier|*
+name|gamma
+init|=
 name|qt_pow_rgb_gamma
-index|[
-literal|256
-index|]
+argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|gamma
+condition|)
+return|return;
 comment|// gamma correct the pixels back to linear color space...
 name|int
 name|h
@@ -14880,7 +14896,7 @@ decl_stmt|;
 name|uint
 name|r
 init|=
-name|qt_pow_rgb_gamma
+name|gamma
 index|[
 name|qRed
 argument_list|(
@@ -14891,7 +14907,7 @@ decl_stmt|;
 name|uint
 name|g
 init|=
-name|qt_pow_rgb_gamma
+name|gamma
 index|[
 name|qGreen
 argument_list|(
@@ -14902,7 +14918,7 @@ decl_stmt|;
 name|uint
 name|b
 init|=
-name|qt_pow_rgb_gamma
+name|gamma
 index|[
 name|qBlue
 argument_list|(
