@@ -85,6 +85,10 @@ DECL|variable|QSslKey
 name|class
 name|QSslKey
 decl_stmt|;
+DECL|variable|QSslCertificateExtension
+name|class
+name|QSslCertificateExtension
+decl_stmt|;
 DECL|variable|QStringList
 name|class
 name|QStringList
@@ -391,6 +395,16 @@ end_expr_stmt
 begin_expr_stmt
 name|QSslKey
 name|publicKey
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|QList
+operator|<
+name|QSslCertificateExtension
+operator|>
+name|extensions
 argument_list|()
 specifier|const
 expr_stmt|;

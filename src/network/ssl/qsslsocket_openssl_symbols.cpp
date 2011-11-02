@@ -768,6 +768,35 @@ argument|return
 argument_list|)
 end_macro
 begin_macro
+name|DEFINEFUNC4
+argument_list|(
+argument|int
+argument_list|,
+argument|OBJ_obj2txt
+argument_list|,
+argument|char *a
+argument_list|,
+argument|a
+argument_list|,
+argument|int b
+argument_list|,
+argument|b
+argument_list|,
+argument|ASN1_OBJECT *c
+argument_list|,
+argument|c
+argument_list|,
+argument|int d
+argument_list|,
+argument|d
+argument_list|,
+argument|return -
+literal|1
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
 name|DEFINEFUNC
 argument_list|(
 argument|int
@@ -2719,6 +2748,127 @@ argument_list|,
 argument|int *d
 argument_list|,
 argument|d
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|const X509V3_EXT_METHOD *
+argument_list|,
+argument|X509V3_EXT_get
+argument_list|,
+argument|X509_EXTENSION *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|void *
+argument_list|,
+argument|X509V3_EXT_d2i
+argument_list|,
+argument|X509_EXTENSION *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|int
+argument_list|,
+argument|X509_EXTENSION_get_critical
+argument_list|,
+argument|X509_EXTENSION *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|ASN1_OCTET_STRING *
+argument_list|,
+argument|X509_EXTENSION_get_data
+argument_list|,
+argument|X509_EXTENSION *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+literal|0
+argument_list|,
+argument|return
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|void
+argument_list|,
+argument|BASIC_CONSTRAINTS_free
+argument_list|,
+argument|BASIC_CONSTRAINTS *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
+argument|void
+argument_list|,
+argument|AUTHORITY_KEYID_free
+argument_list|,
+argument|AUTHORITY_KEYID *a
+argument_list|,
+argument|a
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC2
+argument_list|(
+argument|int
+argument_list|,
+argument|ASN1_STRING_print
+argument_list|,
+argument|BIO *a
+argument_list|,
+argument|a
+argument_list|,
+argument|const ASN1_STRING *b
+argument_list|,
+argument|b
 argument_list|,
 argument|return
 literal|0
@@ -5461,6 +5611,10 @@ argument|i2t_ASN1_OBJECT
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(
+argument|OBJ_obj2txt
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
 argument|OBJ_obj2nid
 argument_list|)
 ifdef|#
@@ -5808,6 +5962,34 @@ argument_list|)
 name|RESOLVEFUNC
 argument_list|(
 argument|X509_get_ext_d2i
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|X509V3_EXT_get
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|X509V3_EXT_d2i
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|X509_EXTENSION_get_critical
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|X509_EXTENSION_get_data
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|BASIC_CONSTRAINTS_free
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|AUTHORITY_KEYID_free
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|ASN1_STRING_print
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(
