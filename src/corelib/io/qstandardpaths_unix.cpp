@@ -537,7 +537,9 @@ comment|// http://www.freedesktop.org/wiki/Software/xdg-user-dirs
 name|QString
 name|xdgConfigHome
 init|=
-name|QLatin1String
+name|QFile
+operator|::
+name|decodeName
 argument_list|(
 name|qgetenv
 argument_list|(
