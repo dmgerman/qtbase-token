@@ -157,12 +157,22 @@ argument_list|)
 expr_stmt|;
 block|}
 end_expr_stmt
-begin_macro
-DECL|function|SimpleVector
-name|explicit
-end_macro
 begin_expr_stmt
-DECL|function|SimpleVector
+name|SimpleVector
+argument_list|(
+name|QArrayDataPointerRef
+operator|<
+name|T
+operator|>
+name|ptr
+argument_list|)
+operator|:
+name|d
+argument_list|(
+argument|ptr
+argument_list|)
+block|{     }
+name|explicit
 name|SimpleVector
 argument_list|(
 name|Data
@@ -175,7 +185,6 @@ argument_list|(
 argument|ptr
 argument_list|)
 block|{     }
-DECL|function|empty
 name|bool
 name|empty
 argument_list|()
@@ -1415,11 +1424,11 @@ return|;
 block|}
 end_decl_stmt
 begin_label
-DECL|member|private
 name|private
 label|:
 end_label
 begin_expr_stmt
+DECL|variable|d
 name|QArrayDataPointer
 operator|<
 name|T
@@ -1428,6 +1437,7 @@ name|d
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|variable|d
 unit|};
 name|template
 operator|<
