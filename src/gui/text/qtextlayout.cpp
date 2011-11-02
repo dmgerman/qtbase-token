@@ -874,7 +874,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the \a position and \a text of the area in the layout that is     processed before editing occurs.      \sa preeditAreaPosition(), preeditAreaText() */
+comment|/*!     Sets the \a position and \a text of the area in the layout that is     processed before editing occurs. The layout is     invalidated and must be laid out again.      \sa preeditAreaPosition(), preeditAreaText() */
 end_comment
 begin_function
 DECL|function|setPreeditArea
