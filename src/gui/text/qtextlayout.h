@@ -802,7 +802,7 @@ specifier|inline
 name|QTextLine
 argument_list|()
 operator|:
-name|i
+name|index
 argument_list|(
 literal|0
 argument_list|)
@@ -1010,7 +1010,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|i
+name|index
 return|;
 block|}
 name|void
@@ -1068,7 +1068,7 @@ argument_list|,
 argument|QTextEngine *e
 argument_list|)
 block|:
-name|i
+name|index
 argument_list|(
 name|line
 argument_list|)
@@ -1093,7 +1093,7 @@ name|class
 name|QTextFragment
 decl_stmt|;
 name|int
-name|i
+name|index
 decl_stmt|;
 name|QTextEngine
 modifier|*

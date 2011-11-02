@@ -5185,7 +5185,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 decl_stmt|;
 return|return
@@ -5244,7 +5244,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 decl_stmt|;
 name|QFixed
@@ -5328,7 +5328,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|x
@@ -5355,7 +5355,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|y
@@ -5382,7 +5382,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|width
@@ -5409,7 +5409,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|ascent
@@ -5436,7 +5436,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|descent
@@ -5463,7 +5463,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|height
@@ -5491,7 +5491,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|leading
@@ -5519,7 +5519,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|leadingIncluded
@@ -5545,7 +5545,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|leadingIncluded
@@ -5569,7 +5569,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|textWidth
@@ -5596,7 +5596,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|textAdvance
@@ -5628,7 +5628,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 decl_stmt|;
 if|if
@@ -5742,7 +5742,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 decl_stmt|;
 name|line
@@ -5795,7 +5795,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 decl_stmt|;
 name|line
@@ -6479,7 +6479,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 decl_stmt|;
 name|line
@@ -8228,7 +8228,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|x
@@ -8247,7 +8247,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|y
@@ -8283,7 +8283,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|x
@@ -8295,7 +8295,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|y
@@ -8344,7 +8344,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|from
@@ -8383,7 +8383,7 @@ operator|.
 name|isValid
 argument_list|()
 operator|&&
-name|i
+name|index
 operator|==
 name|eng
 operator|->
@@ -8400,7 +8400,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|length
@@ -8413,7 +8413,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|length
@@ -8422,7 +8422,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 operator|.
 name|trailingSpaces
@@ -9485,7 +9485,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 decl_stmt|;
 if|if
@@ -9560,7 +9560,7 @@ name|iterator
 argument_list|(
 name|eng
 argument_list|,
-name|i
+name|index
 argument_list|,
 name|QPointF
 argument_list|()
@@ -10544,7 +10544,7 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 decl_stmt|;
 name|QPen
@@ -10696,7 +10696,7 @@ name|iterator
 argument_list|(
 name|eng
 argument_list|,
-name|i
+name|index
 argument_list|,
 name|pos
 argument_list|,
@@ -12082,13 +12082,13 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 decl_stmt|;
 name|bool
 name|lastLine
 init|=
-name|i
+name|index
 operator|>=
 name|eng
 operator|->
@@ -12118,7 +12118,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|i
+name|index
 operator|&&
 operator|!
 name|eng
@@ -13033,13 +13033,13 @@ name|eng
 operator|->
 name|lines
 index|[
-name|i
+name|index
 index|]
 decl_stmt|;
 name|bool
 name|lastLine
 init|=
-name|i
+name|index
 operator|>=
 name|eng
 operator|->
@@ -13053,7 +13053,7 @@ decl_stmt|;
 name|int
 name|lineNum
 init|=
-name|i
+name|index
 decl_stmt|;
 if|if
 condition|(
@@ -14352,7 +14352,7 @@ if|if
 condition|(
 name|this
 operator|->
-name|i
+name|index
 operator|<
 name|eng
 operator|->
