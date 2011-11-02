@@ -1318,6 +1318,9 @@ name|Q_COMPILER_LAMBDA
 define|#
 directive|define
 name|Q_COMPILER_DECLTYPE
+define|#
+directive|define
+name|Q_COMPILER_STATIC_ASSERT
 comment|//  MSCV has std::initilizer_list, but do not support the braces initialization
 comment|//#      define Q_COMPILER_INITIALIZER_LISTS
 endif|#
@@ -1721,6 +1724,9 @@ name|Q_COMPILER_RVALUE_REFS
 define|#
 directive|define
 name|Q_COMPILER_DECLTYPE
+define|#
+directive|define
+name|Q_COMPILER_STATIC_ASSERT
 endif|#
 directive|endif
 if|#
@@ -2548,6 +2554,10 @@ DECL|macro|Q_COMPILER_LAMBDA
 define|#
 directive|define
 name|Q_COMPILER_LAMBDA
+DECL|macro|Q_COMPILER_STATIC_ASSERT
+define|#
+directive|define
+name|Q_COMPILER_STATIC_ASSERT
 endif|#
 directive|endif
 endif|#
@@ -7617,6 +7627,37 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_COMPILER_STATIC_ASSERT
+end_ifdef
+begin_define
+DECL|macro|Q_STATIC_ASSERT
+define|#
+directive|define
+name|Q_STATIC_ASSERT
+parameter_list|(
+name|Condition
+parameter_list|)
+value|static_assert(Condition, #Condition)
+end_define
+begin_define
+DECL|macro|Q_STATIC_ASSERT_X
+define|#
+directive|define
+name|Q_STATIC_ASSERT_X
+parameter_list|(
+name|Condition
+parameter_list|,
+name|Message
+parameter_list|)
+value|static_assert(Condition, Message)
+end_define
+begin_else
+else|#
+directive|else
+end_else
 begin_comment
 comment|// Intentionally undefined
 end_comment
@@ -7678,6 +7719,22 @@ parameter_list|)
 define|\
 value|enum {Q_STATIC_ASSERT_PRIVATE_JOIN(q_static_assert_result, __LINE__) = sizeof(QStaticAssertFailure<bool(Condition)>)}
 end_define
+begin_define
+DECL|macro|Q_STATIC_ASSERT_X
+define|#
+directive|define
+name|Q_STATIC_ASSERT_X
+parameter_list|(
+name|Condition
+parameter_list|,
+name|Message
+parameter_list|)
+value|Q_STATIC_ASSERT(Condition)
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function_decl
 name|Q_CORE_EXPORT
 name|void
