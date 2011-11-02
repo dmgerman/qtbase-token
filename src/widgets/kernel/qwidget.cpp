@@ -3023,12 +3023,6 @@ if|if
 condition|(
 name|QApplicationPrivate
 operator|::
-name|app_compile_version
-operator|<
-literal|0x040200
-operator|||
-name|QApplicationPrivate
-operator|::
 name|testAttribute
 argument_list|(
 name|Qt
@@ -33535,13 +33529,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|(
-name|QApplicationPrivate
-operator|::
-name|app_compile_version
-operator|<
-literal|0x040200
-operator|||
 name|QApplicationPrivate
 operator|::
 name|testAttribute
@@ -33550,7 +33537,6 @@ name|Qt
 operator|::
 name|AA_ImmediateWidgetCreation
 argument_list|)
-operator|)
 operator|&&
 operator|!
 name|testAttribute

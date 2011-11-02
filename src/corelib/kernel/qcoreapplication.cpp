@@ -656,6 +656,22 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_if
+if|#
+directive|if
+name|QT_VERSION
+operator|>=
+literal|0x060000
+end_if
+begin_error
+error|#
+directive|error
+literal|"Bump QCoreApplicatoinPrivate::app_compile_version to 0x060000"
+end_error
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 DECL|member|app_compile_version
 name|int
@@ -663,12 +679,12 @@ name|QCoreApplicationPrivate
 operator|::
 name|app_compile_version
 init|=
-literal|0x040000
+literal|0x050000
 decl_stmt|;
 end_decl_stmt
 begin_comment
 DECL|member|app_compile_version
-comment|//we don't know exactly, but it's at least 4.0.0
+comment|//we don't know exactly, but it's at least 5.0.0
 end_comment
 begin_if
 if|#
