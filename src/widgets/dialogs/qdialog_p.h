@@ -154,11 +154,28 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
-name|platformHelper
+name|nativeDialogInUse
+argument_list|(
+name|false
+argument_list|)
+block|,
+name|m_platformHelper
 argument_list|(
 literal|0
 argument_list|)
+block|,
+name|m_platformHelperCreated
+argument_list|(
+argument|false
+argument_list|)
 block|{}
+operator|~
+name|QDialogPrivate
+argument_list|()
+block|{
+name|delete
+name|m_platformHelper
+block|; }
 name|QPointer
 operator|<
 name|QPushButton
@@ -245,9 +262,26 @@ name|QEventLoop
 operator|>
 name|eventLoop
 block|;
+name|bool
+name|nativeDialogInUse
+block|;
+comment|// Assigned in setVisible_sys() in derived classes.
 name|QPlatformDialogHelper
 operator|*
 name|platformHelper
+argument_list|()
+specifier|const
+block|;
+name|private
+operator|:
+name|mutable
+name|QPlatformDialogHelper
+operator|*
+name|m_platformHelper
+block|;
+name|mutable
+name|bool
+name|m_platformHelperCreated
 block|; }
 decl_stmt|;
 end_decl_stmt
