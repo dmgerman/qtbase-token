@@ -26,6 +26,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qcocoacursor.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QPlatformIntegration>
 end_include
 begin_decl_stmt
@@ -104,6 +109,10 @@ name|m_format
 block|;
 name|QSizeF
 name|m_physicalSize
+block|;
+name|QCocoaCursor
+operator|*
+name|m_cursor
 block|; }
 decl_stmt|;
 end_decl_stmt
