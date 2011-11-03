@@ -41,10 +41,6 @@ DECL|member|indexValue
 name|int
 name|indexValue
 decl_stmt|;
-DECL|member|hintStyle
-name|int
-name|hintStyle
-decl_stmt|;
 block|}
 struct|;
 end_struct
