@@ -813,6 +813,10 @@ return|return
 name|d
 operator|->
 name|finished
+operator|||
+name|d
+operator|->
+name|isInFinish
 return|;
 block|}
 end_function
@@ -847,6 +851,11 @@ return|return
 name|d
 operator|->
 name|running
+operator|&&
+operator|!
+name|d
+operator|->
+name|isInFinish
 return|;
 block|}
 end_function
