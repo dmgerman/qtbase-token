@@ -147,7 +147,7 @@ name|QFuture
 operator|<
 name|T
 operator|>
-name|future
+name|theFuture
 operator|=
 name|this
 operator|->
@@ -168,7 +168,7 @@ literal|0
 argument_list|)
 block|;
 return|return
-name|future
+name|theFuture
 return|;
 block|}
 name|void
