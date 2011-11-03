@@ -1911,11 +1911,12 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|thread
 operator|.
-name|isRunning
-argument_list|()
+name|wait
+argument_list|(
+literal|3000
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QVERIFY
