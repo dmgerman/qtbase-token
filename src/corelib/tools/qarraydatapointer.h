@@ -94,6 +94,20 @@ name|ptr
 argument_list|)
 block|;     }
 name|QArrayDataPointer
+argument_list|(
+name|QArrayDataPointerRef
+operator|<
+name|T
+operator|>
+name|ref
+argument_list|)
+operator|:
+name|d
+argument_list|(
+argument|ref.ptr
+argument_list|)
+block|{     }
+name|QArrayDataPointer
 operator|&
 name|operator
 operator|=

@@ -653,6 +653,29 @@ index|]
 block|; }
 expr_stmt|;
 end_expr_stmt
+begin_comment
+comment|// Support for returning QArrayDataPointer<T> from functions
+end_comment
+begin_expr_stmt
+name|template
+operator|<
+name|class
+name|T
+operator|>
+expr|struct
+DECL|struct|QArrayDataPointerRef
+name|QArrayDataPointerRef
+block|{
+DECL|member|ptr
+name|QTypedArrayData
+operator|<
+name|T
+operator|>
+operator|*
+name|ptr
+block|; }
+expr_stmt|;
+end_expr_stmt
 begin_define
 DECL|macro|Q_STATIC_ARRAY_DATA_HEADER_INITIALIZER
 define|#
