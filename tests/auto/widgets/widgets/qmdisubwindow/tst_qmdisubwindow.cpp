@@ -11461,6 +11461,11 @@ operator|::
 name|setFont
 parameter_list|()
 block|{
+name|QSKIP
+argument_list|(
+literal|"This test function is unstable in CI, please see QTBUG-22544"
+argument_list|)
+expr_stmt|;
 name|QMdiArea
 name|mdiArea
 decl_stmt|;
