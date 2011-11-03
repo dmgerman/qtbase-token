@@ -47,22 +47,9 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QDirModel
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QDirModel
-parameter_list|()
-destructor_decl|;
 public|public
 name|slots
 public|:
-name|void
-name|initTestCase
-parameter_list|()
-function_decl|;
 name|void
 name|cleanupTestCase
 parameter_list|()
@@ -76,10 +63,6 @@ parameter_list|()
 function_decl|;
 endif|#
 directive|endif
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
 private|private
 name|slots
 private|:
@@ -342,32 +325,6 @@ argument_list|(
 argument|QModelIndexList
 argument_list|)
 end_macro
-begin_constructor
-DECL|function|tst_QDirModel
-name|tst_QDirModel
-operator|::
-name|tst_QDirModel
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QDirModel
-name|tst_QDirModel
-operator|::
-name|~
-name|tst_QDirModel
-parameter_list|()
-block|{ }
-end_destructor
-begin_function
-DECL|function|initTestCase
-name|void
-name|tst_QDirModel
-operator|::
-name|initTestCase
-parameter_list|()
-block|{ }
-end_function
 begin_function
 DECL|function|cleanupTestCase
 name|void
@@ -457,15 +414,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QDirModel
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
-end_function
 begin_comment
 comment|/*   tests */
 end_comment
