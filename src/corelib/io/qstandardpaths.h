@@ -65,6 +65,8 @@ operator|,
 name|RuntimeLocation
 operator|,
 name|ConfigLocation
+operator|,
+name|DownloadLocation
 block|}
 end_function
 begin_empty_stmt

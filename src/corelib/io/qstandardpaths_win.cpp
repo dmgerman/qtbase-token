@@ -415,6 +415,10 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+name|DownloadLocation
+case|:
+comment|// TODO implement with SHGetKnownFolderPath(FOLDERID_Downloads) (starting from Vista)
+case|case
 name|DocumentsLocation
 case|:
 if|if

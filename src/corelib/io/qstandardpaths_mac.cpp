@@ -69,6 +69,13 @@ return|;
 case|case
 name|QStandardPaths
 operator|::
+name|DownloadLocation
+case|:
+comment|// needs NSSearchPathForDirectoriesInDomains with NSDownloadsDirectory
+comment|// which needs an objective-C *.mm file...
+case|case
+name|QStandardPaths
+operator|::
 name|DocumentsLocation
 case|:
 return|return

@@ -1411,6 +1411,17 @@ name|QStandardPaths
 operator|::
 name|DataLocation
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"DownloadLocation"
+argument_list|)
+operator|<<
+name|QStandardPaths
+operator|::
+name|DownloadLocation
+expr_stmt|;
 block|}
 end_function
 begin_function
