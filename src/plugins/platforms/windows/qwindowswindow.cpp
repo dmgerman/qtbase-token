@@ -675,9 +675,6 @@ end_comment
 begin_comment
 comment|// if there is one.
 end_comment
-begin_comment
-comment|// Note: This has been observed to return invalid sizes for child windows.
-end_comment
 begin_function
 DECL|function|frameGeometry
 specifier|static
@@ -687,6 +684,9 @@ name|frameGeometry
 parameter_list|(
 name|HWND
 name|hwnd
+parameter_list|,
+name|bool
+name|topLevel
 parameter_list|)
 block|{
 name|RECT
@@ -711,8 +711,6 @@ name|rect
 argument_list|)
 expr_stmt|;
 comment|// Screen coordinates.
-if|if
-condition|(
 specifier|const
 name|HWND
 name|parent
@@ -721,8 +719,39 @@ name|GetParent
 argument_list|(
 name|hwnd
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|parent
+operator|&&
+operator|!
+name|topLevel
 condition|)
 block|{
+specifier|const
+name|int
+name|width
+init|=
+name|rect
+operator|.
+name|right
+operator|-
+name|rect
+operator|.
+name|left
+decl_stmt|;
+specifier|const
+name|int
+name|height
+init|=
+name|rect
+operator|.
+name|bottom
+operator|-
+name|rect
+operator|.
+name|top
+decl_stmt|;
 name|POINT
 name|leftTop
 init|=
@@ -759,6 +788,26 @@ operator|=
 name|leftTop
 operator|.
 name|y
+expr_stmt|;
+name|rect
+operator|.
+name|right
+operator|=
+name|leftTop
+operator|.
+name|x
+operator|+
+name|width
+expr_stmt|;
+name|rect
+operator|.
+name|bottom
+operator|=
+name|leftTop
+operator|.
+name|y
+operator|+
+name|height
 expr_stmt|;
 block|}
 return|return
@@ -1675,6 +1724,8 @@ argument_list|(
 name|result
 operator|.
 name|hwnd
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -4698,10 +4749,6 @@ parameter_list|()
 specifier|const
 block|{
 comment|// Warning: Returns bogus values when minimized.
-comment|// Note: Using frameGeometry (based on GetWindowRect)
-comment|// has been observed to return a size based on a standard top level
-comment|// frame for WS_CHILD windows (whose frame is zero), thus, use the real
-comment|// client size instead.
 name|QRect
 name|result
 init|=
@@ -4710,37 +4757,17 @@ argument_list|(
 name|m_data
 operator|.
 name|hwnd
-argument_list|)
-operator|-
-name|frameMargins
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|.
-name|isValid
-argument_list|()
-operator|&&
-operator|!
+argument_list|,
 name|window
 argument_list|()
 operator|->
 name|isTopLevel
 argument_list|()
-condition|)
-name|result
-operator|.
-name|setSize
-argument_list|(
-name|clientSize
-argument_list|(
-name|m_data
-operator|.
-name|hwnd
 argument_list|)
-argument_list|)
-expr_stmt|;
+operator|-
+name|frameMargins
+argument_list|()
+decl_stmt|;
 return|return
 name|result
 return|;
