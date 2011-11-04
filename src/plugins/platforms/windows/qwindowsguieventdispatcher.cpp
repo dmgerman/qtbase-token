@@ -435,6 +435,14 @@ literal|true
 block|}
 block|,
 block|{
+name|WM_ENTERIDLE
+block|,
+literal|"WM_ENTERIDLE"
+block|,
+literal|false
+block|}
+block|,
+block|{
 name|WM_GETICON
 block|,
 literal|"WM_GETICON"
