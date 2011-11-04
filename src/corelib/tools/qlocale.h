@@ -764,7 +764,7 @@ name|Sindhi
 init|=
 literal|105
 block|,
-name|Sinhalese
+name|Singhalese
 init|=
 literal|106
 block|,
@@ -912,7 +912,7 @@ name|Bosnian
 init|=
 literal|142
 block|,
-name|Dhivehi
+name|Divehi
 init|=
 literal|143
 block|,
