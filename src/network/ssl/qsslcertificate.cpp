@@ -4773,6 +4773,16 @@ block|,
 literal|"DigiNotar Root CA"
 block|,
 comment|// DigiNotar intermediate cross-signed by Entrust
+literal|"120001705"
+block|,
+literal|"Digisign Server ID (Enrich)"
+block|,
+comment|// (Malaysian) Digicert Sdn. Bhd. cross-signed by Verizon CyberTrust
+literal|"1276011370"
+block|,
+literal|"Digisign Server ID - (Enrich)"
+block|,
+comment|// (Malaysian) Digicert Sdn. Bhd. cross-signed by Entrust
 literal|0
 block|}
 decl_stmt|;
