@@ -235,6 +235,11 @@ argument_list|)
 expr_stmt|;
 name|QTextOption
 name|option
+init|=
+name|m_textLayout
+operator|.
+name|textOption
+argument_list|()
 decl_stmt|;
 name|option
 operator|.
