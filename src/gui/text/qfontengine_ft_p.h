@@ -108,6 +108,12 @@ name|class
 name|QFontEngineFTRawFont
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QFontconfigDatabase
+name|class
+name|QFontconfigDatabase
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/*  * This struct represents one font file on disk (like Arial.ttf) and is shared between all the font engines  * that show this font file (at different pixel sizes).  */
 end_comment
@@ -566,11 +572,6 @@ block|;
 name|FT_Matrix
 name|transformationMatrix
 block|;
-name|unsigned
-name|long
-name|id
-block|;
-comment|// server sided id, GlyphSet for X11
 name|bool
 name|outline_drawing
 block|;
@@ -1676,6 +1677,12 @@ begin_decl_stmt
 name|friend
 name|class
 name|QFontEngineFTRawFont
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|friend
+name|class
+name|QFontconfigDatabase
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
