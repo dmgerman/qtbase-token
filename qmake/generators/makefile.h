@@ -1278,25 +1278,8 @@ operator|::
 name|HOST_WIN_MODE
 return|;
 block|}
-name|virtual
-name|bool
-name|isForSymbianSbsv2
-argument_list|()
-specifier|const
-block|{
-return|return
-name|false
-return|;
-block|}
-comment|// FIXME: killme - i'm ugly!
-comment|/* The next one is to avoid having SymbianCommonGenerator as a virtually        inherited class of this class. Instead it is without a base class        (avoiding the virtual inheritance problem), and is allowed to use        functions defined in here.         To illustrate:                                +-------------------+                                | MakefileGenerator |                                +-------------------+                                  ^            ^                                  |            |                                  |            X<-- Avoid this inheritance                                  |            |               +------------------------+  +------------------------+               | UnixMakefileGenerator  |  | SymbianCommonGenerator |               |         or             |  |                        |               | NmakeMakefileGenerator |  |                        |               +------------------------+  +------------------------+                                  ^            ^                                  |            |                                  |            |                                  |            |                            +-----------------------------+                            | SymbianMakefileTemplate<>   |                            +-----------------------------+         We want to avoid the famous diamond problem, because if we have that, we need        virtual inheritance, which not all compilers like. Therefore, we break the        link as illustrated. Instead, we have a pointer to MakefileGenerator inside        SymbianCommonGenerator, and allows full access by making it a friend here.     */
-name|friend
-name|class
-name|SymbianCommonGenerator
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_expr_stmt
+expr|}
+block|;
 DECL|function|setNoIO
 specifier|inline
 name|void
@@ -1324,8 +1307,6 @@ return|return
 name|no_io
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 DECL|function|defaultInstall
 specifier|inline
 name|QString
@@ -1343,8 +1324,6 @@ literal|""
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 DECL|function|findLibraries
 specifier|inline
 name|bool
@@ -1357,8 +1336,6 @@ return|return
 name|true
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 DECL|function|~MakefileGenerator
 specifier|inline
 name|MakefileGenerator
@@ -1368,7 +1345,7 @@ name|MakefileGenerator
 argument_list|()
 block|{ }
 name|QT_END_NAMESPACE
-end_expr_stmt
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif

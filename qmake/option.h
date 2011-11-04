@@ -657,10 +657,7 @@ name|TARG_WIN_MODE
 block|,
 name|TARG_MACX_MODE
 block|,
-DECL|enumerator|TARG_SYMBIAN_MODE
 DECL|enumerator|TARG_INTEGRITY_MODE
-name|TARG_SYMBIAN_MODE
-block|,
 name|TARG_INTEGRITY_MODE
 block|}
 enum|;

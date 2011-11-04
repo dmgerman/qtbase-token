@@ -2218,16 +2218,6 @@ argument_list|)
 operator|.
 name|isEmpty
 argument_list|()
-operator|&&
-name|project
-operator|->
-name|values
-argument_list|(
-literal|"QMAKE_SYMBIAN_SHLIB"
-argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 name|project
 operator|->

@@ -4052,22 +4052,6 @@ name|extens
 operator|<<
 name|extn
 expr_stmt|;
-elseif|else
-if|if
-condition|(
-operator|!
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_SYMBIAN_SHLIB"
-argument_list|)
-condition|)
-comment|// In Symbian you link to the stub .lib file, but run with the .dll file.
-name|extens
-operator|<<
-literal|"lib"
-expr_stmt|;
 else|else
 name|extens
 operator|<<
