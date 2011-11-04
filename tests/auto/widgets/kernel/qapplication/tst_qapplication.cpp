@@ -10204,6 +10204,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|pressedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|qt_translateRawTouchEvent
@@ -10216,6 +10218,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|releasedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -10258,6 +10262,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|pressedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|qt_translateRawTouchEvent
@@ -10270,6 +10276,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|releasedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -10308,6 +10316,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|pressedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|qt_translateRawTouchEvent
@@ -10320,6 +10330,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|releasedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -10374,6 +10386,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|pressedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|qt_translateRawTouchEvent
@@ -10386,6 +10400,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|releasedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -10449,6 +10465,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|pressedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|qt_translateRawTouchEvent
@@ -10461,6 +10479,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|releasedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -10520,6 +10540,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|pressedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|qt_translateRawTouchEvent
@@ -10532,6 +10554,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|releasedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -10591,6 +10615,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|pressedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|qt_translateRawTouchEvent
@@ -10603,6 +10629,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|releasedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -10676,6 +10704,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|pressedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|qt_translateRawTouchEvent
@@ -10688,6 +10718,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|releasedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -10747,6 +10779,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|pressedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|qt_translateRawTouchEvent
@@ -10759,6 +10793,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|releasedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -10825,6 +10861,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|pressedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|qt_translateRawTouchEvent
@@ -10837,6 +10875,8 @@ operator|::
 name|TouchScreen
 argument_list|,
 name|releasedTouchPoints
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|QVERIFY

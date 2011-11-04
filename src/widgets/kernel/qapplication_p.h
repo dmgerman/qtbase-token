@@ -2365,6 +2365,8 @@ argument_list|,
 argument|QTouchEvent::DeviceType deviceType
 argument_list|,
 argument|const QList<QTouchEvent::TouchPoint>&touchPoints
+argument_list|,
+argument|ulong timestamp
 argument_list|)
 block|;
 if|#

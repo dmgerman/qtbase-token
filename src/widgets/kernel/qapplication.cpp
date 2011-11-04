@@ -18421,6 +18421,9 @@ name|TouchPoint
 argument_list|>
 modifier|&
 name|touchPoints
+parameter_list|,
+name|ulong
+name|timestamp
 parameter_list|)
 block|{
 name|QApplicationPrivate
@@ -19332,6 +19335,13 @@ operator|&
 name|touchEvent
 argument_list|)
 expr_stmt|;
+name|touchEvent
+operator|.
+name|setTimestamp
+argument_list|(
+name|timestamp
+argument_list|)
+expr_stmt|;
 switch|switch
 condition|(
 name|touchEvent
@@ -19450,6 +19460,9 @@ name|TouchPoint
 argument_list|>
 modifier|&
 name|touchPoints
+parameter_list|,
+name|ulong
+name|timestamp
 parameter_list|)
 block|{
 name|QApplicationPrivate
@@ -19461,6 +19474,8 @@ argument_list|,
 name|deviceType
 argument_list|,
 name|touchPoints
+argument_list|,
+name|timestamp
 argument_list|)
 expr_stmt|;
 block|}

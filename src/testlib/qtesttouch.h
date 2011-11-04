@@ -103,6 +103,9 @@ name|TouchPoint
 operator|>
 operator|&
 name|touchPoints
+argument_list|,
+name|ulong
+name|timestamp
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -559,6 +562,8 @@ name|points
 operator|.
 name|values
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
