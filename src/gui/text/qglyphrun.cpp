@@ -1101,6 +1101,16 @@ name|maxX
 decl_stmt|,
 name|maxY
 decl_stmt|;
+name|minX
+operator|=
+name|minY
+operator|=
+name|maxX
+operator|=
+name|maxY
+operator|=
+literal|0
+expr_stmt|;
 for|for
 control|(
 name|int
