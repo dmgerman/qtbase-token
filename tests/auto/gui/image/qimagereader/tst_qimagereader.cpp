@@ -67,11 +67,6 @@ include|#
 directive|include
 file|<QTimer>
 end_include
-begin_include
-include|#
-directive|include
-file|"../../../platformquirks.h"
-end_include
 begin_typedef
 DECL|typedef|QStringMap
 typedef|typedef
@@ -1485,10 +1480,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|PlatformQuirks
-operator|::
-name|isImageLoaderImprecise
-argument_list|()
+name|image1
+operator|!=
+name|image2
 condition|)
 block|{
 comment|// first, do some obvious tests
@@ -1543,7 +1537,8 @@ operator|::
 name|Format_RGB32
 argument_list|)
 expr_stmt|;
-comment|// compare all the pixels with a slack of 3. This ignores rounding errors in libjpeg/libpng
+comment|// compare all the pixels with a slack of 3. This ignores rounding errors
+comment|// in libjpeg/libpng, where some versions sacrifice accuracy for speed.
 for|for
 control|(
 name|int
@@ -1676,16 +1671,6 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-block|}
-else|else
-block|{
-name|QCOMPARE
-argument_list|(
-name|image1
-argument_list|,
-name|image2
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_function
