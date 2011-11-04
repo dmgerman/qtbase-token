@@ -16789,7 +16789,7 @@ block|{
 name|QFixed
 name|subPixelPosition
 init|=
-name|cache
+name|fontEngine
 operator|->
 name|subPixelPositionForX
 argument_list|(
@@ -16847,8 +16847,6 @@ name|i
 index|]
 operator|.
 name|x
-operator|+
-name|offs
 argument_list|)
 operator|+
 name|c

@@ -3969,6 +3969,10 @@ argument_list|()
 operator|==
 literal|0
 expr_stmt|;
+name|m_subPixelPositionCount
+operator|=
+literal|4
+expr_stmt|;
 block|}
 end_constructor
 begin_destructor

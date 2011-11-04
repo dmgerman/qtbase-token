@@ -913,6 +913,10 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
+name|m_subPixelPositionCount
+operator|=
+literal|0
+expr_stmt|;
 block|}
 end_constructor
 begin_destructor
@@ -4334,20 +4338,21 @@ parameter_list|(
 name|QFixed
 name|x
 parameter_list|)
+specifier|const
 block|{
-name|int
-name|m_subPixelPositionCount
-init|=
-literal|4
-decl_stmt|;
 if|if
 condition|(
+name|m_subPixelPositionCount
+operator|<=
+literal|1
+operator|||
 operator|!
 name|supportsSubPixelPositions
 argument_list|()
 condition|)
 return|return
-literal|0
+name|QFixed
+argument_list|()
 return|;
 name|QFixed
 name|subPixelPosition
@@ -4387,6 +4392,8 @@ operator|.
 name|floor
 argument_list|()
 decl_stmt|;
+comment|// Compensate for precision loss in fixed point to make sure we are always drawing at a subpixel position over
+comment|// the lower boundary for the selected rasterization by adding 1/64.
 name|subPixelPosition
 operator|=
 name|fraction
@@ -4394,6 +4401,13 @@ operator|/
 name|QFixed
 argument_list|(
 name|m_subPixelPositionCount
+argument_list|)
+operator|+
+name|QFixed
+operator|::
+name|fromReal
+argument_list|(
+literal|0.015625
 argument_list|)
 expr_stmt|;
 block|}

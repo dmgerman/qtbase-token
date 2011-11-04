@@ -356,11 +356,13 @@ return|return
 name|false
 return|;
 block|}
+name|virtual
 name|QFixed
 name|subPixelPositionForX
 argument_list|(
 argument|QFixed x
 argument_list|)
+specifier|const
 block|;
 name|virtual
 name|QFixed
@@ -947,6 +949,10 @@ block|;
 name|QImage
 name|currentlyLockedAlphaMap
 block|;
+name|int
+name|m_subPixelPositionCount
+block|;
+comment|// Number of positions within a single pixel for this cache
 name|protected
 operator|:
 specifier|static

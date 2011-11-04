@@ -180,11 +180,6 @@ name|m_currentRowHeight
 argument_list|(
 literal|0
 argument_list|)
-block|,
-name|m_subPixelPositionCount
-argument_list|(
-literal|0
-argument_list|)
 block|{ }
 name|virtual
 operator|~
@@ -449,13 +444,6 @@ argument|QFixed subPixelPosition
 argument_list|)
 specifier|const
 block|;
-name|QFixed
-name|subPixelPositionForX
-argument_list|(
-argument|QFixed x
-argument_list|)
-specifier|const
-block|;
 name|protected
 operator|:
 name|int
@@ -497,10 +485,6 @@ name|int
 name|m_currentRowHeight
 block|;
 comment|// Height of last row
-name|int
-name|m_subPixelPositionCount
-block|;
-comment|// Number of positions within a single pixel for this cache
 block|}
 block|;
 DECL|function|qHash

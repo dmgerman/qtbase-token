@@ -9343,7 +9343,10 @@ name|supportsSubPixelPositions
 condition|)
 name|subPixelPosition
 operator|=
-name|cache
+name|staticTextItem
+operator|->
+name|fontEngine
+argument_list|()
 operator|->
 name|subPixelPositionForX
 argument_list|(
