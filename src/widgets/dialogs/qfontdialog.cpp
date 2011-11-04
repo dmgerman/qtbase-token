@@ -4202,9 +4202,6 @@ operator|!=
 name|visible
 condition|)
 return|return;
-ifdef|#
-directive|ifdef
-name|Q_WS_MAC
 name|Q_D
 argument_list|(
 name|QFontDialog
@@ -4217,23 +4214,35 @@ operator|->
 name|canBeNativeDialog
 argument_list|()
 condition|)
-block|{
 if|if
 condition|(
+name|QPlatformDialogHelper
+modifier|*
+name|helper
+init|=
 name|d
+operator|->
+name|platformHelper
+argument_list|()
+condition|)
+name|d
+operator|->
+name|nativeDialogInUse
+operator|=
+name|helper
 operator|->
 name|setVisible_sys
 argument_list|(
 name|visible
 argument_list|)
-condition|)
-block|{
+expr_stmt|;
+if|if
+condition|(
 name|d
 operator|->
 name|nativeDialogInUse
-operator|=
-literal|true
-expr_stmt|;
+condition|)
+block|{
 comment|// Set WA_DontShowOnScreen so that QDialog::setVisible(visible) below
 comment|// updates the state correctly, but skips showing the non-native version:
 name|setAttribute
@@ -4264,10 +4273,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-endif|#
-directive|endif
-comment|// Q_WS_MAC
 name|QDialog
 operator|::
 name|setVisible
@@ -4400,11 +4405,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_WS_MAC
-end_ifdef
 begin_function
 DECL|function|canBeNativeDialog
 name|bool
@@ -4482,13 +4482,6 @@ operator|)
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// Q_WS_MAC
-end_comment
 begin_comment
 comment|/*!     \fn QFont QFontDialog::getFont(bool *ok, const QFont&initial, QWidget* parent, const char* name)     \since 4.5      Call getFont(\a ok, \a initial, \a parent) instead.      \warning Do not delete \a parent during the execution of the dialog.              If you want to do this, you should create the dialog              yourself using one of the QFontDialog constructors.      The \a name parameter is ignored. */
 end_comment

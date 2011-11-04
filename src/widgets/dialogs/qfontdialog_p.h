@@ -342,6 +342,14 @@ block|;
 name|QByteArray
 name|memberToDisconnectOnClose
 block|;
+name|bool
+name|canBeNativeDialog
+argument_list|()
+block|;
+name|void
+name|_q_runNativeAppModalPanel
+argument_list|()
+block|;
 ifdef|#
 directive|ifdef
 name|Q_WS_MAC
@@ -394,13 +402,6 @@ name|closeCocoaFontPanel
 argument_list|()
 block|;
 name|bool
-name|nativeDialogInUse
-block|;
-name|bool
-name|canBeNativeDialog
-argument_list|()
-block|;
-name|bool
 name|setVisible_sys
 argument_list|(
 argument|bool visible
@@ -408,14 +409,6 @@ argument_list|)
 block|;
 name|void
 name|createNSFontPanelDelegate
-argument_list|()
-block|;
-name|void
-name|_q_macRunNativeAppModalPanel
-argument_list|()
-block|;
-name|void
-name|mac_nativeDialogModalHelp
 argument_list|()
 block|;
 name|bool

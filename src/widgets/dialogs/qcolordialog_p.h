@@ -197,6 +197,10 @@ name|_q_addCustom
 argument_list|()
 block|;
 name|void
+name|_q_platformRunNativeAppModalPanel
+argument_list|()
+block|;
+name|void
 name|_q_newHsv
 argument_list|(
 argument|int h
@@ -298,9 +302,6 @@ name|receiverToDisconnectOnClose
 block|;
 name|QByteArray
 name|memberToDisconnectOnClose
-block|;
-name|bool
-name|nativeDialogInUse
 block|;
 ifdef|#
 directive|ifdef
