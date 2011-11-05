@@ -3943,21 +3943,23 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Detaches all internal data. */
+comment|/*! \internal */
 end_comment
 begin_function
-DECL|function|detach
-name|void
+DECL|function|d_func
+name|QFileInfoPrivate
+modifier|*
 name|QFileInfo
 operator|::
-name|detach
+name|d_func
 parameter_list|()
 block|{
+return|return
 name|d_ptr
 operator|.
-name|detach
+name|data
 argument_list|()
-expr_stmt|;
+return|;
 block|}
 end_function
 begin_comment
