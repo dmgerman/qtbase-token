@@ -33,15 +33,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QParallelAnimationGroup
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QParallelAnimationGroup
-parameter_list|()
-destructor_decl|;
 public|public
 name|Q_SLOTS
 public|:
@@ -123,23 +114,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QParallelAnimationGroup
-name|tst_QParallelAnimationGroup
-operator|::
-name|tst_QParallelAnimationGroup
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QParallelAnimationGroup
-name|tst_QParallelAnimationGroup
-operator|::
-name|~
-name|tst_QParallelAnimationGroup
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|initTestCase
 name|void

@@ -41,17 +41,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-DECL|function|tst_QVarLengthArray
-name|tst_QVarLengthArray
-parameter_list|()
-block|{}
-DECL|function|~tst_QVarLengthArray
-specifier|virtual
-name|~
-name|tst_QVarLengthArray
-parameter_list|()
-block|{}
 private|private
 name|slots
 private|:

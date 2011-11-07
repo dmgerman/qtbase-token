@@ -162,17 +162,13 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QFileInfo
-parameter_list|()
-constructor_decl|;
-name|~
-name|tst_QFileInfo
-parameter_list|()
-destructor_decl|;
 private|private
 name|slots
 private|:
+name|void
+name|cleanupTestCase
+parameter_list|()
+function_decl|;
 name|void
 name|getSetCheck
 parameter_list|()
@@ -498,20 +494,12 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QFileInfo
+begin_function
+DECL|function|cleanupTestCase
+name|void
 name|tst_QFileInfo
 operator|::
-name|tst_QFileInfo
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QFileInfo
-name|tst_QFileInfo
-operator|::
-name|~
-name|tst_QFileInfo
+name|cleanupTestCase
 parameter_list|()
 block|{
 name|QFile
@@ -663,7 +651,7 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_destructor
+end_function
 begin_comment
 comment|// Testing get/set functions
 end_comment

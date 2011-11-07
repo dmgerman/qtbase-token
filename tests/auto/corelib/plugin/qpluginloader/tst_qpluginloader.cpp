@@ -364,15 +364,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QPluginLoader
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QPluginLoader
-parameter_list|()
-destructor_decl|;
 private|private
 name|slots
 private|:
@@ -403,23 +394,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QPluginLoader
-name|tst_QPluginLoader
-operator|::
-name|tst_QPluginLoader
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QPluginLoader
-name|tst_QPluginLoader
-operator|::
-name|~
-name|tst_QPluginLoader
-parameter_list|()
-block|{ }
-end_destructor
 begin_comment
 comment|//#define SHOW_ERRORS 1
 end_comment

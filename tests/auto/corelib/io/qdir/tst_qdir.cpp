@@ -121,15 +121,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QDir
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QDir
-parameter_list|()
-destructor_decl|;
 private|private
 name|slots
 private|:
@@ -644,23 +635,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_constructor
-DECL|function|tst_QDir
-name|tst_QDir
-operator|::
-name|tst_QDir
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QDir
-name|tst_QDir
-operator|::
-name|~
-name|tst_QDir
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|construction
 name|void

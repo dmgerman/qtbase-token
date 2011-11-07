@@ -43,24 +43,11 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QAnimationGroup
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QAnimationGroup
-parameter_list|()
-destructor_decl|;
 public|public
 name|Q_SLOTS
 public|:
 name|void
 name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
 parameter_list|()
 function_decl|;
 private|private
@@ -76,10 +63,6 @@ parameter_list|()
 function_decl|;
 name|void
 name|setCurrentTime
-parameter_list|()
-function_decl|;
-name|void
-name|statesAndSignals
 parameter_list|()
 function_decl|;
 name|void
@@ -101,23 +84,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QAnimationGroup
-name|tst_QAnimationGroup
-operator|::
-name|tst_QAnimationGroup
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QAnimationGroup
-name|tst_QAnimationGroup
-operator|::
-name|~
-name|tst_QAnimationGroup
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|init
 name|void
@@ -137,15 +103,6 @@ literal|"QAbstractAnimation::State"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QAnimationGroup
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|construction
@@ -1573,15 +1530,6 @@ name|a2_s_o1
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|statesAndSignals
-name|void
-name|tst_QAnimationGroup
-operator|::
-name|statesAndSignals
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|setParentAutoAdd

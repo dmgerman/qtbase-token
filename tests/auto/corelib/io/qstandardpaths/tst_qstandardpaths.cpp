@@ -80,17 +80,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-DECL|function|tst_qstandardpaths
-name|tst_qstandardpaths
-parameter_list|()
-block|{     }
-DECL|function|~tst_qstandardpaths
-specifier|virtual
-name|~
-name|tst_qstandardpaths
-parameter_list|()
-block|{     }
 private|private
 name|slots
 private|:

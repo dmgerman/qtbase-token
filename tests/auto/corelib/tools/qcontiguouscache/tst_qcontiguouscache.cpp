@@ -41,17 +41,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-DECL|function|tst_QContiguousCache
-name|tst_QContiguousCache
-parameter_list|()
-block|{}
-DECL|function|~tst_QContiguousCache
-specifier|virtual
-name|~
-name|tst_QContiguousCache
-parameter_list|()
-block|{}
 private|private
 name|slots
 private|:

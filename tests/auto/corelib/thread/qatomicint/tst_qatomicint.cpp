@@ -37,14 +37,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QAtomicInt
-parameter_list|()
-constructor_decl|;
-name|~
-name|tst_QAtomicInt
-parameter_list|()
-destructor_decl|;
 private|private
 name|slots
 private|:
@@ -203,23 +195,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QAtomicInt
-name|tst_QAtomicInt
-operator|::
-name|tst_QAtomicInt
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QAtomicInt
-name|tst_QAtomicInt
-operator|::
-name|~
-name|tst_QAtomicInt
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|warningFreeHelper
 name|void

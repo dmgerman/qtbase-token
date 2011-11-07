@@ -36,26 +36,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QRegExp
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QRegExp
-parameter_list|()
-destructor_decl|;
-public|public
-name|slots
-public|:
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
 private|private
 name|slots
 private|:
@@ -300,23 +280,6 @@ name|email
 index|[]
 decl_stmt|;
 end_decl_stmt
-begin_constructor
-DECL|function|tst_QRegExp
-name|tst_QRegExp
-operator|::
-name|tst_QRegExp
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QRegExp
-name|tst_QRegExp
-operator|::
-name|~
-name|tst_QRegExp
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|lastIndexIn_data
 name|void
@@ -4753,24 +4716,6 @@ name|QStringList
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|init
-name|void
-name|tst_QRegExp
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QRegExp
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
 end_function
 begin_comment
 comment|/* void tst_QRegExp::isEmpty() { }  void tst_QRegExp::isValid() { }  void tst_QRegExp::pattern() { }  void tst_QRegExp::setPattern() { }  void tst_QRegExp::caseSensitive() { }  void tst_QRegExp::setCaseSensitive() { }  void tst_QRegExp::minimal() { }  void tst_QRegExp::setMinimal() { } */

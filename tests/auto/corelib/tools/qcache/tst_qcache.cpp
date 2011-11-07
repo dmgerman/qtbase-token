@@ -27,15 +27,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QCache
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QCache
-parameter_list|()
-destructor_decl|;
 public|public
 name|slots
 public|:
@@ -169,23 +160,6 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
-begin_constructor
-DECL|function|tst_QCache
-name|tst_QCache
-operator|::
-name|tst_QCache
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QCache
-name|tst_QCache
-operator|::
-name|~
-name|tst_QCache
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|initTestCase
 name|void

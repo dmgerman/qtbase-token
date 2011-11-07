@@ -37,24 +37,11 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QTextBoundaryFinder
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QTextBoundaryFinder
-parameter_list|()
-destructor_decl|;
 public|public
 name|slots
 public|:
 name|void
 name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
 parameter_list|()
 function_decl|;
 private|private
@@ -103,23 +90,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QTextBoundaryFinder
-name|tst_QTextBoundaryFinder
-operator|::
-name|tst_QTextBoundaryFinder
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QTextBoundaryFinder
-name|tst_QTextBoundaryFinder
-operator|::
-name|~
-name|tst_QTextBoundaryFinder
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|init
 name|void
@@ -141,15 +111,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QTextBoundaryFinder
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|graphemeBoundaries

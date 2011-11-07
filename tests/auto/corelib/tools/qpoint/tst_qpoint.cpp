@@ -37,15 +37,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QPoint
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QPoint
-parameter_list|()
-destructor_decl|;
 private|private
 name|slots
 private|:
@@ -64,23 +55,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QPoint
-name|tst_QPoint
-operator|::
-name|tst_QPoint
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QPoint
-name|tst_QPoint
-operator|::
-name|~
-name|tst_QPoint
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|manhattanLength
 name|void

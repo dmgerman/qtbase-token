@@ -152,15 +152,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QPauseAnimation
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QPauseAnimation
-parameter_list|()
-destructor_decl|;
 public|public
 name|Q_SLOTS
 public|:
@@ -214,23 +205,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QPauseAnimation
-name|tst_QPauseAnimation
-operator|::
-name|tst_QPauseAnimation
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QPauseAnimation
-name|tst_QPauseAnimation
-operator|::
-name|~
-name|tst_QPauseAnimation
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|initTestCase
 name|void

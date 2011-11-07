@@ -41,22 +41,6 @@ public|public:
 name|tst_QTranslator
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QTranslator
-parameter_list|()
-destructor_decl|;
-public|public
-name|slots
-public|:
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
 protected|protected:
 name|bool
 name|event
@@ -129,33 +113,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_constructor
-begin_destructor
-DECL|function|~tst_QTranslator
-name|tst_QTranslator
-operator|::
-name|~
-name|tst_QTranslator
-parameter_list|()
-block|{ }
-end_destructor
-begin_function
-DECL|function|init
-name|void
-name|tst_QTranslator
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QTranslator
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
-end_function
 begin_function
 DECL|function|event
 name|bool

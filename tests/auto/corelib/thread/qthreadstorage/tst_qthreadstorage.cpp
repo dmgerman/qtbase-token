@@ -89,10 +89,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QThreadStorage
-parameter_list|()
-constructor_decl|;
 private|private
 name|slots
 private|:
@@ -186,14 +182,6 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
-begin_constructor
-DECL|function|tst_QThreadStorage
-name|tst_QThreadStorage
-operator|::
-name|tst_QThreadStorage
-parameter_list|()
-block|{ }
-end_constructor
 begin_function
 DECL|function|hasLocalData
 name|void

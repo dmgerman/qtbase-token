@@ -93,13 +93,6 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-name|tst_QMutexLocker
-parameter_list|()
-constructor_decl|;
-name|~
-name|tst_QMutexLocker
-parameter_list|()
-destructor_decl|;
 DECL|member|thread
 name|tst_QMutexLockerThread
 modifier|*
@@ -149,23 +142,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QMutexLocker
-name|tst_QMutexLocker
-operator|::
-name|tst_QMutexLocker
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QMutexLocker
-name|tst_QMutexLocker
-operator|::
-name|~
-name|tst_QMutexLocker
-parameter_list|()
-block|{ }
-end_destructor
 begin_function
 DECL|function|scopeTest
 name|void

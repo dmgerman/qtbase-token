@@ -544,25 +544,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QEventLoop
-parameter_list|()
-constructor_decl|;
-name|~
-name|tst_QEventLoop
-parameter_list|()
-destructor_decl|;
-public|public
-name|slots
-public|:
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
 private|private
 name|slots
 private|:
@@ -639,41 +620,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QEventLoop
-name|tst_QEventLoop
-operator|::
-name|tst_QEventLoop
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QEventLoop
-name|tst_QEventLoop
-operator|::
-name|~
-name|tst_QEventLoop
-parameter_list|()
-block|{ }
-end_destructor
-begin_function
-DECL|function|init
-name|void
-name|tst_QEventLoop
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QEventLoop
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
-end_function
 begin_function
 DECL|function|processEvents
 name|void

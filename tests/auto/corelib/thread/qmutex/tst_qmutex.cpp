@@ -52,15 +52,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QMutex
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QMutex
-parameter_list|()
-destructor_decl|;
 private|private
 name|slots
 private|:
@@ -101,23 +92,6 @@ init|=
 literal|100
 decl_stmt|;
 end_decl_stmt
-begin_constructor
-DECL|function|tst_QMutex
-name|tst_QMutex
-operator|::
-name|tst_QMutex
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QMutex
-name|tst_QMutex
-operator|::
-name|~
-name|tst_QMutex
-parameter_list|()
-block|{ }
-end_destructor
 begin_decl_stmt
 name|QAtomicInt
 name|lockCount

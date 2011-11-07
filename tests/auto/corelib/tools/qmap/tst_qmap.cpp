@@ -38,10 +38,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QMap
-parameter_list|()
-constructor_decl|;
 public|public
 name|slots
 public|:
@@ -123,14 +119,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QMap
-name|tst_QMap
-operator|::
-name|tst_QMap
-parameter_list|()
-block|{ }
-end_constructor
 begin_typedef
 DECL|typedef|StringMap
 typedef|typedef

@@ -35,7 +35,7 @@ argument|QModelIndex
 argument_list|)
 end_macro
 begin_comment
-comment|/*!     Note that this doesn't test models, but any functionality that QAbstractItemModel shoudl provide  */
+comment|/*!     Note that this doesn't test models, but any functionality that QAbstractItemModel should provide  */
 end_comment
 begin_class
 DECL|class|tst_QAbstractItemModel
@@ -46,15 +46,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QAbstractItemModel
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QAbstractItemModel
-parameter_list|()
-destructor_decl|;
 public|public
 name|slots
 public|:
@@ -63,15 +54,7 @@ name|initTestCase
 parameter_list|()
 function_decl|;
 name|void
-name|cleanupTestCase
-parameter_list|()
-function_decl|;
-name|void
 name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
 parameter_list|()
 function_decl|;
 private|private
@@ -219,7 +202,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     Test model that impliments the pure vitual functions and anything else that is     needed.      It is a table implimented as a vector of vectors of strings.  */
+comment|/*!     Test model that impliments the pure vitual functions and anything else that is     needed.      It is a table implemented as a vector of vectors of strings.  */
 end_comment
 begin_class
 DECL|class|QtTestModel
@@ -1282,23 +1265,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_constructor
-DECL|function|tst_QAbstractItemModel
-name|tst_QAbstractItemModel
-operator|::
-name|tst_QAbstractItemModel
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QAbstractItemModel
-name|tst_QAbstractItemModel
-operator|::
-name|~
-name|tst_QAbstractItemModel
-parameter_list|()
-block|{ }
-end_destructor
 begin_comment
 comment|/**  * The source Model *must* be initialized before the _data function, since the _data function uses QModelIndexes to reference the items in the tables.  * Therefore, we must initialize it globally.  */
 end_comment
@@ -1319,15 +1285,6 @@ literal|"QModelIndex"
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|cleanupTestCase
-name|void
-name|tst_QAbstractItemModel
-operator|::
-name|cleanupTestCase
-parameter_list|()
-block|{  }
 end_function
 begin_function
 DECL|function|init
@@ -1433,15 +1390,6 @@ name|doCommand
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QAbstractItemModel
-operator|::
-name|cleanup
-parameter_list|()
-block|{  }
 end_function
 begin_comment
 comment|/*   tests */

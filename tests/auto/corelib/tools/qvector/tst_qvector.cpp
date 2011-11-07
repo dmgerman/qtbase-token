@@ -27,17 +27,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-DECL|function|tst_QVector
-name|tst_QVector
-parameter_list|()
-block|{}
-DECL|function|~tst_QVector
-specifier|virtual
-name|~
-name|tst_QVector
-parameter_list|()
-block|{}
 private|private
 name|slots
 private|:

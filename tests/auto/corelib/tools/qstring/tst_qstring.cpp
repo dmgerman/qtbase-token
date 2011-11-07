@@ -88,18 +88,9 @@ public|public:
 name|tst_QString
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QString
-parameter_list|()
-destructor_decl|;
 public|public
 name|slots
 public|:
-name|void
-name|init
-parameter_list|()
-function_decl|;
 name|void
 name|cleanup
 parameter_list|()
@@ -1292,24 +1283,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
-begin_destructor
-DECL|function|~tst_QString
-name|tst_QString
-operator|::
-name|~
-name|tst_QString
-parameter_list|()
-block|{ }
-end_destructor
-begin_function
-DECL|function|init
-name|void
-name|tst_QString
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
 begin_function
 DECL|function|cleanup
 name|void

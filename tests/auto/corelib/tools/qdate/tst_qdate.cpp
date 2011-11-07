@@ -32,26 +32,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QDate
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QDate
-parameter_list|()
-destructor_decl|;
-public|public
-name|slots
-public|:
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
 private|private
 name|slots
 private|:
@@ -240,47 +220,6 @@ argument_list|(
 argument|QDate
 argument_list|)
 end_macro
-begin_constructor
-DECL|function|tst_QDate
-name|tst_QDate
-operator|::
-name|tst_QDate
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QDate
-name|tst_QDate
-operator|::
-name|~
-name|tst_QDate
-parameter_list|()
-block|{  }
-end_destructor
-begin_function
-DECL|function|init
-name|void
-name|tst_QDate
-operator|::
-name|init
-parameter_list|()
-block|{
-comment|// This will be executed immediately before each test is run.
-comment|// TODO: Add initialization code here.
-block|}
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QDate
-operator|::
-name|cleanup
-parameter_list|()
-block|{
-comment|// This will be executed immediately after each test is run.
-comment|// TODO: Add cleanup code here.
-block|}
-end_function
 begin_function
 DECL|function|isValid_data
 name|void

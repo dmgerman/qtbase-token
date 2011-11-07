@@ -32,10 +32,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QBuffer
-parameter_list|()
-constructor_decl|;
 private|private
 name|slots
 private|:
@@ -213,14 +209,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_constructor
-DECL|function|tst_QBuffer
-name|tst_QBuffer
-operator|::
-name|tst_QBuffer
-parameter_list|()
-block|{ }
-end_constructor
 begin_function
 DECL|function|open
 name|void

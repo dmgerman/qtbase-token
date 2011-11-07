@@ -27,34 +27,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QTime
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QTime
-parameter_list|()
-destructor_decl|;
-public|public
-name|slots
-public|:
-name|void
-name|initTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|cleanupTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
 private|private
 name|slots
 private|:
@@ -183,75 +155,6 @@ argument_list|(
 argument|QTime
 argument_list|)
 end_macro
-begin_constructor
-DECL|function|tst_QTime
-name|tst_QTime
-operator|::
-name|tst_QTime
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QTime
-name|tst_QTime
-operator|::
-name|~
-name|tst_QTime
-parameter_list|()
-block|{  }
-end_destructor
-begin_comment
-comment|// initTestCase will be executed once before the first testfunction is executed.
-end_comment
-begin_function
-DECL|function|initTestCase
-name|void
-name|tst_QTime
-operator|::
-name|initTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_comment
-comment|// cleanupTestCase will be executed once after the last testfunction is executed.
-end_comment
-begin_function
-DECL|function|cleanupTestCase
-name|void
-name|tst_QTime
-operator|::
-name|cleanupTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_comment
-comment|// init() will be executed immediately before each testfunction is run.
-end_comment
-begin_function
-DECL|function|init
-name|void
-name|tst_QTime
-operator|::
-name|init
-parameter_list|()
-block|{
-comment|// TODO: Add testfunction specific initialization code here.
-block|}
-end_function
-begin_comment
-comment|// cleanup() will be executed immediately after each testfunction is run.
-end_comment
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QTime
-operator|::
-name|cleanup
-parameter_list|()
-block|{
-comment|// TODO: Add testfunction specific cleanup code here.
-block|}
-end_function
 begin_function
 DECL|function|addSecs_data
 name|void

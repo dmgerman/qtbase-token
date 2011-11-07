@@ -21,11 +21,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-DECL|function|tst_QMimeData
-name|tst_QMimeData
-parameter_list|()
-block|{     }
 private|private
 name|slots
 private|:

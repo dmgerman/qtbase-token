@@ -48,10 +48,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QLine
-parameter_list|()
-constructor_decl|;
 private|private
 name|slots
 private|:
@@ -155,14 +151,6 @@ else|:
 literal|1e-4
 decl_stmt|;
 end_decl_stmt
-begin_constructor
-DECL|function|tst_QLine
-name|tst_QLine
-operator|::
-name|tst_QLine
-parameter_list|()
-block|{ }
-end_constructor
 begin_function
 DECL|function|testSet
 name|void

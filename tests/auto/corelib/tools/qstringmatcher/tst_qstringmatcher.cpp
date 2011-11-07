@@ -25,10 +25,6 @@ private|private
 name|slots
 private|:
 name|void
-name|qstringmatcher_data
-parameter_list|()
-function_decl|;
-name|void
 name|qstringmatcher
 parameter_list|()
 function_decl|;
@@ -74,15 +70,6 @@ public|public:
 block|}
 class|;
 end_class
-begin_function
-DECL|function|qstringmatcher_data
-name|void
-name|tst_QStringMatcher
-operator|::
-name|qstringmatcher_data
-parameter_list|()
-block|{ }
-end_function
 begin_function
 DECL|function|qstringmatcher
 name|void

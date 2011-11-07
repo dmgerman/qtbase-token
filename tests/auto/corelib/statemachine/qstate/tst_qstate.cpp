@@ -57,11 +57,6 @@ public|public:
 name|tst_QState
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QState
-parameter_list|()
-destructor_decl|;
 private|private
 name|slots
 private|:
@@ -102,15 +97,6 @@ literal|false
 argument_list|)
 block|{ }
 end_constructor
-begin_destructor
-DECL|function|~tst_QState
-name|tst_QState
-operator|::
-name|~
-name|tst_QState
-parameter_list|()
-block|{ }
-end_destructor
 begin_class
 DECL|class|TestClass
 class|class

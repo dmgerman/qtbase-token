@@ -49,10 +49,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QWaitCondition
-parameter_list|()
-constructor_decl|;
 private|private
 name|slots
 private|:
@@ -140,14 +136,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_constructor
-DECL|function|tst_QWaitCondition
-name|tst_QWaitCondition
-operator|::
-name|tst_QWaitCondition
-parameter_list|()
-block|{ }
-end_constructor
 begin_class
 DECL|class|wait_QMutex_Thread_1
 class|class

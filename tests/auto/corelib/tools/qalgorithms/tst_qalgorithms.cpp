@@ -72,25 +72,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QAlgorithms
-parameter_list|()
-constructor_decl|;
-name|~
-name|tst_QAlgorithms
-parameter_list|()
-destructor_decl|;
-public|public
-name|slots
-public|:
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
 private|private
 name|slots
 private|:
@@ -186,41 +167,6 @@ directive|endif
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QAlgorithms
-name|tst_QAlgorithms
-operator|::
-name|tst_QAlgorithms
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QAlgorithms
-name|tst_QAlgorithms
-operator|::
-name|~
-name|tst_QAlgorithms
-parameter_list|()
-block|{ }
-end_destructor
-begin_function
-DECL|function|init
-name|void
-name|tst_QAlgorithms
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QAlgorithms
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
-end_function
 begin_class
 DECL|class|TestInt
 class|class

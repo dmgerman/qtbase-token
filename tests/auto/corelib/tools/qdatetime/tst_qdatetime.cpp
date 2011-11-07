@@ -64,11 +64,6 @@ public|public:
 name|tst_QDateTime
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QDateTime
-parameter_list|()
-destructor_decl|;
 specifier|static
 name|QString
 name|str
@@ -107,10 +102,6 @@ name|slots
 public|:
 name|void
 name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
 parameter_list|()
 function_decl|;
 private|private
@@ -561,15 +552,6 @@ operator|)
 expr_stmt|;
 block|}
 end_constructor
-begin_destructor
-DECL|function|~tst_QDateTime
-name|tst_QDateTime
-operator|::
-name|~
-name|tst_QDateTime
-parameter_list|()
-block|{  }
-end_destructor
 begin_function
 DECL|function|init
 name|void
@@ -623,15 +605,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QDateTime
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|str

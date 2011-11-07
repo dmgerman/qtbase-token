@@ -160,14 +160,6 @@ block|,
 name|RandomQPoint
 block|}
 enum|;
-name|tst_QRect
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QRect
-parameter_list|()
-destructor_decl|;
 specifier|static
 name|QRect
 name|getQRectCase
@@ -191,17 +183,6 @@ parameter_list|(
 name|QPointCases
 name|p
 parameter_list|)
-function_decl|;
-public|public
-name|slots
-public|:
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
 function_decl|;
 private|private
 name|slots
@@ -663,41 +644,6 @@ operator|-
 name|LARGE
 return|;
 block|}
-end_function
-begin_constructor
-DECL|function|tst_QRect
-name|tst_QRect
-operator|::
-name|tst_QRect
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QRect
-name|tst_QRect
-operator|::
-name|~
-name|tst_QRect
-parameter_list|()
-block|{ }
-end_destructor
-begin_function
-DECL|function|init
-name|void
-name|tst_QRect
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QRect
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|getQRectCase

@@ -37,14 +37,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QSemaphore
-parameter_list|()
-constructor_decl|;
-name|~
-name|tst_QSemaphore
-parameter_list|()
-destructor_decl|;
 private|private
 name|slots
 private|:
@@ -85,23 +77,6 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
-begin_constructor
-DECL|function|tst_QSemaphore
-name|tst_QSemaphore
-operator|::
-name|tst_QSemaphore
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QSemaphore
-name|tst_QSemaphore
-operator|::
-name|~
-name|tst_QSemaphore
-parameter_list|()
-block|{ }
-end_destructor
 begin_class
 DECL|class|ThreadOne
 class|class

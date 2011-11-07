@@ -32,15 +32,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QGetPutEnv
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QGetPutEnv
-parameter_list|()
-destructor_decl|;
 private|private
 name|slots
 private|:
@@ -48,7 +39,6 @@ name|void
 name|getSetCheck
 parameter_list|()
 function_decl|;
-private|private:
 block|}
 class|;
 end_class
@@ -120,23 +110,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_constructor
-DECL|function|tst_QGetPutEnv
-name|tst_QGetPutEnv
-operator|::
-name|tst_QGetPutEnv
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QGetPutEnv
-name|tst_QGetPutEnv
-operator|::
-name|~
-name|tst_QGetPutEnv
-parameter_list|()
-block|{ }
-end_destructor
 begin_macro
 name|QTEST_MAIN
 argument_list|(

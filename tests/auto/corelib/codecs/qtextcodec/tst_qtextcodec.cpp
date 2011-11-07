@@ -125,11 +125,6 @@ parameter_list|()
 specifier|const
 function_decl|;
 name|void
-name|codecForIndex
-parameter_list|()
-specifier|const
-function_decl|;
-name|void
 name|aliasForUTF16
 parameter_list|()
 specifier|const
@@ -2669,16 +2664,6 @@ name|input
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|codecForIndex
-name|void
-name|tst_QTextCodec
-operator|::
-name|codecForIndex
-parameter_list|()
-specifier|const
-block|{ }
 end_function
 begin_function
 DECL|function|aliasForUTF16

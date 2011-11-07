@@ -40,14 +40,6 @@ name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-name|tst_QDataStream
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QDataStream
-parameter_list|()
-destructor_decl|;
 name|void
 name|stream_data
 parameter_list|(
@@ -59,11 +51,7 @@ public|public
 name|slots
 public|:
 name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
+name|cleanupTestCase
 parameter_list|()
 function_decl|;
 private|private
@@ -1107,20 +1095,12 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_constructor
-DECL|function|tst_QDataStream
+begin_function
+DECL|function|cleanupTestCase
+name|void
 name|tst_QDataStream
 operator|::
-name|tst_QDataStream
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QDataStream
-name|tst_QDataStream
-operator|::
-name|~
-name|tst_QDataStream
+name|cleanupTestCase
 parameter_list|()
 block|{
 name|QFile
@@ -1134,24 +1114,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_destructor
-begin_function
-DECL|function|init
-name|void
-name|tst_QDataStream
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QDataStream
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|dataIndex
