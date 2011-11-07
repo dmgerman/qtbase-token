@@ -81,14 +81,6 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<symbian/epocroot_p.h>
-end_include
-begin_comment
-comment|// from tools/shared
-end_comment
-begin_include
-include|#
-directive|include
 file|<windows/registry_p.h>
 end_include
 begin_comment
@@ -2568,22 +2560,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|result
-return|;
-block|}
-end_function
-begin_function
-DECL|function|symbianEpocRoot
-name|QString
-name|Environment
-operator|::
-name|symbianEpocRoot
-parameter_list|()
-block|{
-comment|// Call function defined in tools/shared/symbian/epocroot_p.h
-return|return
-operator|::
-name|qt_epocRoot
-argument_list|()
 return|;
 block|}
 end_function

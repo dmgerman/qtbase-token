@@ -144,11 +144,6 @@ modifier|&
 name|name
 parameter_list|)
 function_decl|;
-specifier|static
-name|QString
-name|symbianEpocRoot
-parameter_list|()
-function_decl|;
 name|private
 label|:
 specifier|static
