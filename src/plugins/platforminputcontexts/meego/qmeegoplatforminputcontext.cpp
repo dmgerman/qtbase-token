@@ -69,7 +69,7 @@ name|enum
 type|{
 name|debug
 init|=
-literal|1
+literal|0
 end_decl_stmt
 begin_enum
 DECL|enum|InputPanelVisibility
