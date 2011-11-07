@@ -135,6 +135,13 @@ name|RXERR_LOOKAHEAD
 value|QT_TRANSLATE_NOOP("QRegExp", "bad lookahead syntax")
 end_define
 begin_define
+DECL|macro|RXERR_LOOKBEHIND
+define|#
+directive|define
+name|RXERR_LOOKBEHIND
+value|QT_TRANSLATE_NOOP("QRegExp", "lookbehinds not supported, see QTBUG-2371")
+end_define
+begin_define
 DECL|macro|RXERR_REPETITION
 define|#
 directive|define
@@ -15552,6 +15559,17 @@ directive|endif
 case|case
 literal|':'
 case|:
+return|return
+name|Tok_MagicLeftParen
+return|;
+case|case
+literal|'<'
+case|:
+name|error
+argument_list|(
+name|RXERR_LOOKBEHIND
+argument_list|)
+expr_stmt|;
 return|return
 name|Tok_MagicLeftParen
 return|;
