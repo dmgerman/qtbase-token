@@ -457,6 +457,11 @@ operator|&
 name|other
 argument_list|)
 operator|:
+name|QPainterPathPrivate
+argument_list|(
+name|other
+argument_list|)
+block|,
 name|cStart
 argument_list|(
 name|other
