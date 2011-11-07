@@ -1675,8 +1675,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"^(m*)(d?c{0,3}|c[dm])(1?x{0,3}|x[lc])(v?i{0"
-literal|",3}|i[vx])$"
+literal|"^(m*)(d?c{0,3}|c[dm])(1?x{0,3}|x[lc])(v?i{0,3}|i[vx])$"
 argument_list|)
 operator|<<
 name|QString

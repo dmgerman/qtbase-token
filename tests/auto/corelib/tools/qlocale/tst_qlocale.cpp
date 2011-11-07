@@ -539,7 +539,7 @@ parameter_list|,
 name|exp_country
 parameter_list|)
 define|\
-value|{ \     	QLocale l(QLocale::req_lang, QLocale::req_country); \ 	QCOMPARE(l.language(), exp_lang); \ 	QCOMPARE(l.country(), exp_country); \     }
+value|{ \         QLocale l(QLocale::req_lang, QLocale::req_country); \         QCOMPARE(l.language(), exp_lang); \         QCOMPARE(l.country(), exp_country); \     }
 block|{
 name|QLocale
 name|l
@@ -1284,7 +1284,7 @@ parameter_list|,
 name|exp_country
 parameter_list|)
 define|\
-value|{ \ 	QLocale l(req_lc); \ 	QVERIFY2(l.language() == QLocale::exp_lang \&& l.country() == QLocale::exp_country, \ 		QString("requested: \"" + QString(req_lc) + "\", got: " \ 		+ QLocale::languageToString(l.language()) \ 		+ "/" + QLocale::countryToString(l.country())).toLatin1().constData()); \     }
+value|{ \         QLocale l(req_lc); \         QVERIFY2(l.language() == QLocale::exp_lang \&& l.country() == QLocale::exp_country, \                 QString("requested: \"" + QString(req_lc) + "\", got: " \                 + QLocale::languageToString(l.language()) \                 + "/" + QLocale::countryToString(l.country())).toLatin1().constData()); \     }
 name|QLocale
 operator|::
 name|setDefault
@@ -2106,7 +2106,7 @@ parameter_list|,
 name|exp_name
 parameter_list|)
 define|\
-value|{ \     	QLocale l(QLocale::req_lang, QLocale::req_country); \ 	QCOMPARE(l.name(), QString(exp_name)); \     }
+value|{ \         QLocale l(QLocale::req_lang, QLocale::req_country); \         QCOMPARE(l.name(), QString(exp_name)); \     }
 name|QLocale
 operator|::
 name|setDefault
