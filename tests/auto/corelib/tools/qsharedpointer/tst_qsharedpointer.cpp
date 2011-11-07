@@ -8517,8 +8517,11 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|counter
-operator|=
+operator|.
+name|store
+argument_list|(
 literal|0
+argument_list|)
 expr_stmt|;
 comment|// set the pointers
 for|for
