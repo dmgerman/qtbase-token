@@ -5876,10 +5876,26 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
+comment|//add this line to make sure closeSubpath() also calls detach() and detached properly
+name|QPainterPath
+name|copied
+init|=
+name|triangle
+decl_stmt|;
 name|triangle
 operator|.
 name|closeSubpath
 argument_list|()
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|copied
+operator|.
+name|elementCount
+argument_list|()
+argument_list|,
+literal|3
+argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
