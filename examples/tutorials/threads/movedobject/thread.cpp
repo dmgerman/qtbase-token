@@ -119,6 +119,8 @@ modifier|*
 name|worker
 parameter_list|)
 block|{
+name|this
+operator|->
 name|worker
 operator|=
 name|worker
