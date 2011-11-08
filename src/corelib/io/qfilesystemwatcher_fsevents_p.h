@@ -142,7 +142,7 @@ operator|>=
 name|MAC_OS_X_VERSION_10_5
 end_if
 begin_comment
-comment|// Yes, I use a stat64 element here. QFileInfo requires too much knowledge about implementation
+comment|// Yes, I use a stat element here. QFileInfo requires too much knowledge about implementation
 end_comment
 begin_comment
 comment|// details to be used as a long-standing record. Since I'm going to have to store this information, I can
@@ -190,7 +190,7 @@ name|absolutePath
 decl_stmt|;
 comment|// The path we need to stat.
 DECL|member|savedInfo
-struct_decl|struct ::stat64 savedInfo;
+struct_decl|struct ::stat savedInfo;
 comment|// All the info for the path so we can compare it.
 block|}
 struct|;
