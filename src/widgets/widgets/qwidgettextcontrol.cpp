@@ -11220,6 +11220,9 @@ directive|endif
 block|}
 else|else
 block|{
+name|commitPreedit
+argument_list|()
+expr_stmt|;
 name|setBlinkingCursorEnabled
 argument_list|(
 literal|false

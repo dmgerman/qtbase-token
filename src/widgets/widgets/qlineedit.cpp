@@ -5342,6 +5342,13 @@ argument_list|()
 expr_stmt|;
 name|d
 operator|->
+name|control
+operator|->
+name|commitPreedit
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
 name|setCursorVisible
 argument_list|(
 literal|false

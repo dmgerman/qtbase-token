@@ -10855,7 +10855,7 @@ operator|->
 name|inputPanel
 argument_list|()
 operator|->
-name|commit
+name|reset
 argument_list|()
 expr_stmt|;
 name|qApp
@@ -35831,7 +35831,7 @@ operator|->
 name|inputPanel
 argument_list|()
 operator|->
-name|commit
+name|reset
 argument_list|()
 expr_stmt|;
 name|qApp
@@ -36114,7 +36114,7 @@ operator|->
 name|inputPanel
 argument_list|()
 operator|->
-name|commit
+name|reset
 argument_list|()
 expr_stmt|;
 name|qApp
