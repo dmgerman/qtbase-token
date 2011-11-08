@@ -35804,9 +35804,6 @@ operator|::
 name|connectManyArguments
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_COMPILER_VARIADIC_TEMPLATES
 name|ManyArgumentObject
 name|ob
 decl_stmt|;
@@ -36412,8 +36409,6 @@ argument_list|,
 literal|6
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_class
