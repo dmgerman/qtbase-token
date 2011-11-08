@@ -6548,7 +6548,17 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"    %s _t0;\n"
+literal|"    %s _t0 = %s();\n"
+argument_list|,
+name|noRef
+argument_list|(
+name|def
+operator|->
+name|normalizedType
+argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|noRef
 argument_list|(
