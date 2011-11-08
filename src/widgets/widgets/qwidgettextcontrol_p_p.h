@@ -548,6 +548,10 @@ argument_list|()
 specifier|const
 block|;
 name|void
+name|commitPreedit
+argument_list|()
+block|;
+name|void
 name|append
 argument_list|(
 argument|const QString&text
