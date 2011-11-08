@@ -5518,10 +5518,6 @@ name|ellipsis
 operator|+
 name|rightHalf
 expr_stmt|;
-name|width
-operator|=
-name|width
-expr_stmt|;
 break|break;
 block|}
 name|rightHalf
@@ -5563,10 +5559,6 @@ operator|+
 name|ellipsis
 operator|+
 name|rightHalf
-expr_stmt|;
-name|width
-operator|=
-name|width
 expr_stmt|;
 break|break;
 block|}
