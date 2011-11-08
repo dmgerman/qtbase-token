@@ -26,7 +26,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QDBusServer     \inmodule QtDBus     \internal      \brief The QDBusServer class provides peer-to-peer communication     between processes on the same computer. */
+comment|/*!     \class QDBusServer     \inmodule QtDBus      \brief The QDBusServer class provides peer-to-peer communication     between processes on the same computer. */
 end_comment
 begin_comment
 comment|/*!     Constructs a QDBusServer with the given \a address, and the given     \a parent. */
