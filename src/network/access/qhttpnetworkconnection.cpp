@@ -2141,6 +2141,35 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+elseif|else
+if|if
+condition|(
+name|priv
+operator|->
+name|phase
+operator|==
+name|QAuthenticatorPrivate
+operator|::
+name|Start
+condition|)
+block|{
+comment|// If the url's authenticator has a 'user' set we will end up here (phase is only set to 'Done' by
+comment|// parseHttpResponse above if 'user' is empty). So if credentials were supplied with the request,
+comment|// such as in the case of an XMLHttpRequest, this is our only opportunity to cache them.
+emit|emit
+name|reply
+operator|->
+name|cacheCredentials
+argument_list|(
+name|reply
+operator|->
+name|request
+argument_list|()
+argument_list|,
+name|auth
+argument_list|)
+emit|;
+block|}
 comment|// - Changing values in QAuthenticator will reset the 'phase'. Therefore if it is still "Done"
 comment|//   then nothing was filled in by the user or the cache
 comment|// - If withCredentials has been set to false (e.g. by QtWebKit for a cross-origin XMLHttpRequest) then

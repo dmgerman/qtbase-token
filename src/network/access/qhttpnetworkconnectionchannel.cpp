@@ -802,17 +802,6 @@ name|password
 argument_list|()
 argument_list|)
 expr_stmt|;
-emit|emit
-name|reply
-operator|->
-name|cacheCredentials
-argument_list|(
-name|request
-argument_list|,
-operator|&
-name|auth
-argument_list|)
-emit|;
 name|connection
 operator|->
 name|d_func
