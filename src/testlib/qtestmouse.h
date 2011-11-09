@@ -306,6 +306,8 @@ name|pos
 argument_list|)
 argument_list|,
 name|button
+argument_list|,
+name|stateKey
 argument_list|)
 expr_stmt|;
 name|lastButton
@@ -334,6 +336,8 @@ argument_list|,
 name|Qt
 operator|::
 name|NoButton
+argument_list|,
+name|stateKey
 argument_list|)
 expr_stmt|;
 name|lastButton
@@ -362,6 +366,8 @@ name|pos
 argument_list|)
 argument_list|,
 name|button
+argument_list|,
+name|stateKey
 argument_list|)
 expr_stmt|;
 name|qWait
@@ -387,6 +393,8 @@ argument_list|,
 name|Qt
 operator|::
 name|NoButton
+argument_list|,
+name|stateKey
 argument_list|)
 expr_stmt|;
 name|qWait
@@ -410,6 +418,8 @@ name|pos
 argument_list|)
 argument_list|,
 name|button
+argument_list|,
+name|stateKey
 argument_list|)
 expr_stmt|;
 name|qWait
@@ -435,6 +445,8 @@ argument_list|,
 name|Qt
 operator|::
 name|NoButton
+argument_list|,
+name|stateKey
 argument_list|)
 expr_stmt|;
 break|break;
@@ -457,6 +469,8 @@ name|pos
 argument_list|)
 argument_list|,
 name|lastButton
+argument_list|,
+name|stateKey
 argument_list|)
 expr_stmt|;
 comment|//QCursor::setPos(window->mapToGlobal(pos));
