@@ -261,8 +261,8 @@ condition|(
 name|t
 operator|.
 name|tv_usec
-operator|>
-literal|1000000l
+operator|>=
+literal|1000000
 condition|)
 block|{
 operator|++
@@ -274,7 +274,7 @@ name|t
 operator|.
 name|tv_usec
 operator|-=
-literal|1000000l
+literal|1000000
 expr_stmt|;
 block|}
 while|while
@@ -283,7 +283,7 @@ name|t
 operator|.
 name|tv_usec
 operator|<
-literal|0l
+literal|0
 condition|)
 block|{
 operator|--
@@ -295,7 +295,7 @@ name|t
 operator|.
 name|tv_usec
 operator|+=
-literal|1000000l
+literal|1000000
 expr_stmt|;
 block|}
 return|return
