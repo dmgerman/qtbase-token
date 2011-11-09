@@ -1451,15 +1451,12 @@ argument_list|(
 argument|const T*
 argument_list|)
 block|{
+return|return
 name|CallIsNull
 operator|<
 name|T
 operator|>
-name|null
-block|;
-return|return
-name|null
-operator|.
+operator|::
 name|isNull
 argument_list|(
 name|m_d
