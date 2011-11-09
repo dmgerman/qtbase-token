@@ -6600,6 +6600,15 @@ modifier|*
 name|dataTag
 parameter_list|)
 block|{
+name|QTEST_ASSERT_X
+argument_list|(
+name|dataTag
+argument_list|,
+literal|"QTest::newRow()"
+argument_list|,
+literal|"Data tag can not be null"
+argument_list|)
+expr_stmt|;
 name|QTestTable
 modifier|*
 name|tbl
