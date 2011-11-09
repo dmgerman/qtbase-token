@@ -2198,6 +2198,20 @@ argument_list|(
 literal|"This type of widget is not currently strongly exception safe"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|tag
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"QWidget"
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"QTBUG-18927"
+argument_list|)
+expr_stmt|;
 name|QFETCH
 argument_list|(
 name|AbstractTester
