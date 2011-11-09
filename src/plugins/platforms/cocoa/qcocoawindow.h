@@ -38,11 +38,35 @@ include|#
 directive|include
 file|"qnsview.h"
 end_include
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
+expr|@
+name|interface
+name|QNSWindow
+operator|:
+name|NSWindow
+block|{  }
+operator|-
+operator|(
+name|BOOL
+operator|)
+name|canBecomeKeyWindow
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+unit|@
+name|end
+expr|@
+name|interface
+name|QNSPanel
+operator|:
+name|QNSWindow
+block|{  }
+expr|@
+name|end
 name|class
 name|QCocoaWindow
-range|:
+operator|:
 name|public
 name|QPlatformWindow
 block|{
@@ -94,6 +118,18 @@ block|;
 name|void
 name|propagateSizeHints
 argument_list|()
+block|;
+name|bool
+name|setKeyboardGrabEnabled
+argument_list|(
+argument|bool grab
+argument_list|)
+block|;
+name|bool
+name|setMouseGrabEnabled
+argument_list|(
+argument|bool grab
+argument_list|)
 block|;
 name|WId
 name|winId
@@ -178,8 +214,8 @@ name|QCocoaGLContext
 operator|*
 name|m_glContext
 block|; }
-decl_stmt|;
-end_decl_stmt
+expr_stmt|;
+end_expr_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
