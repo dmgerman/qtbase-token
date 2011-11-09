@@ -284,11 +284,6 @@ parameter_list|,
 name|EGLDisplay
 name|display
 parameter_list|,
-name|EGLint
-name|eglClientVersion
-init|=
-literal|2
-parameter_list|,
 name|EGLenum
 name|eglApi
 init|=
@@ -302,8 +297,6 @@ argument_list|,
 name|share
 argument_list|,
 name|display
-argument_list|,
-name|eglClientVersion
 argument_list|,
 name|eglApi
 argument_list|)
