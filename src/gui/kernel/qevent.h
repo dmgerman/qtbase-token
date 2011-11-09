@@ -2108,15 +2108,15 @@ block|}
 name|void
 name|setValue
 argument_list|(
-argument|Qt::InputMethodQuery q
+argument|Qt::InputMethodQuery query
 argument_list|,
-argument|const QVariant&v
+argument|const QVariant&value
 argument_list|)
 block|;
 name|QVariant
 name|value
 argument_list|(
-argument|Qt::InputMethodQuery q
+argument|Qt::InputMethodQuery query
 argument_list|)
 specifier|const
 block|;

@@ -2365,7 +2365,13 @@ begin_comment
 comment|/*!     \fn const QString&tentativeCommitString() const      Returns the text as which preedit string is expected to be committed as.     The string can be used within the editor to trigger code that reacts on text changes such as validators.      \sa setTentativeCommitString() */
 end_comment
 begin_comment
-comment|/*! \class QInputMethodQueryEvent      This event is sent by the input context to input objects.      It is used by the     input method to query a set of properties of the object to be     able to support complex input method operations as support for     surrounding text and reconversions.      query() specifies which property is queried.      The object should call setValue() on the event to fill in the requested     data before calling accept(). */
+comment|/*! \class QInputMethodQueryEvent      This event is sent by the input context to input objects.      It is used by the     input method to query a set of properties of the object to be     able to support complex input method operations as support for     surrounding text and reconversions.      queries() specifies which properties are queried.      The object should call setValue() on the event to fill in the requested     data before calling accept(). */
+end_comment
+begin_comment
+comment|/*!     \fn Qt::InputMethodQueries QInputMethodQueryEvent::queries() const      Returns the properties queried by the event.  */
+end_comment
+begin_comment
+comment|/*!     Constructs a query event for properties given by \a queries.  */
 end_comment
 begin_constructor
 DECL|function|QInputMethodQueryEvent
@@ -2390,6 +2396,9 @@ name|queries
 argument_list|)
 block|{ }
 end_constructor
+begin_comment
+comment|/*!     \internal  */
+end_comment
 begin_destructor
 DECL|function|~QInputMethodQueryEvent
 name|QInputMethodQueryEvent
@@ -2399,6 +2408,9 @@ name|QInputMethodQueryEvent
 parameter_list|()
 block|{ }
 end_destructor
+begin_comment
+comment|/*!     Sets query property to given value.  */
+end_comment
 begin_function
 DECL|function|setValue
 name|void
@@ -2409,12 +2421,12 @@ parameter_list|(
 name|Qt
 operator|::
 name|InputMethodQuery
-name|q
+name|query
 parameter_list|,
 specifier|const
 name|QVariant
 modifier|&
-name|v
+name|value
 parameter_list|)
 block|{
 for|for
@@ -2446,7 +2458,7 @@ argument_list|)
 operator|.
 name|query
 operator|==
-name|q
+name|query
 condition|)
 block|{
 name|m_values
@@ -2456,7 +2468,7 @@ index|]
 operator|.
 name|value
 operator|=
-name|v
+name|value
 expr_stmt|;
 return|return;
 block|}
@@ -2465,9 +2477,9 @@ name|QueryPair
 name|pair
 init|=
 block|{
-name|q
+name|query
 block|,
-name|v
+name|value
 block|}
 decl_stmt|;
 name|m_values
@@ -2479,6 +2491,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns value of a query property.  */
+end_comment
 begin_function
 DECL|function|value
 name|QVariant
@@ -2489,7 +2504,7 @@ parameter_list|(
 name|Qt
 operator|::
 name|InputMethodQuery
-name|q
+name|query
 parameter_list|)
 specifier|const
 block|{
@@ -2521,7 +2536,7 @@ argument_list|)
 operator|.
 name|query
 operator|==
-name|q
+name|query
 condition|)
 return|return
 name|m_values
