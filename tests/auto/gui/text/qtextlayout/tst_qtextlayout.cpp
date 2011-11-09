@@ -8731,8 +8731,6 @@ argument_list|)
 name|QSKIP
 argument_list|(
 literal|"This test can not be run on Mac"
-argument_list|,
-name|SkipAll
 argument_list|)
 expr_stmt|;
 endif|#
