@@ -399,7 +399,10 @@ if|if
 condition|(
 name|d
 operator|->
-name|targetValue
+name|target
+operator|.
+name|data
+argument_list|()
 operator|==
 name|target
 condition|)
