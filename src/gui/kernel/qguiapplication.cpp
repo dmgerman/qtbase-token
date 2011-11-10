@@ -1486,7 +1486,7 @@ expr_stmt|;
 name|qDebug
 argument_list|()
 operator|<<
-literal|"	created"
+literal|"   created"
 operator|<<
 name|plugin
 expr_stmt|;
@@ -2929,7 +2929,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// check to see if a new button has been pressed/released
+comment|// Check to see if a new button has been pressed/released.
 for|for
 control|(
 name|int
@@ -2943,7 +2943,7 @@ name|check
 operator|<=
 name|Qt
 operator|::
-name|XButton2
+name|MaxMouseButton
 condition|;
 name|check
 operator|=
@@ -2980,7 +2980,7 @@ operator|::
 name|NoButton
 condition|)
 block|{
-comment|// Ignore mouse events that don't change the current state
+comment|// Ignore mouse events that don't change the current state.
 return|return;
 block|}
 name|buttons
