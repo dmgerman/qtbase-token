@@ -11765,14 +11765,14 @@ operator|!
 name|c
 condition|)
 block|{
-name|qDebug
+name|qWarning
 argument_list|()
 operator|<<
-literal|"WARNING "
+literal|"WARNING"
 operator|<<
 name|codecName
 operator|<<
-literal|" not found? "
+literal|"not found?"
 expr_stmt|;
 return|return
 name|QByteArray
@@ -11838,14 +11838,14 @@ operator|!
 name|c
 condition|)
 block|{
-name|qDebug
+name|qWarning
 argument_list|()
 operator|<<
-literal|"WARNING "
+literal|"WARNING"
 operator|<<
 name|mib
 operator|<<
-literal|" not found? "
+literal|"not found?"
 expr_stmt|;
 return|return
 literal|0
