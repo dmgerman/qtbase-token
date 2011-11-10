@@ -146,28 +146,6 @@ specifier|const
 name|QVectorData
 name|shared_null
 decl_stmt|;
-comment|// ### Qt 5: rename to 'allocate()'. The current name causes problems for
-comment|// some debugges when the QVector is member of a class within an unnamed namespace.
-comment|// ### Qt 5: can be removed completely. (Ralf)
-specifier|static
-name|QVectorData
-modifier|*
-name|malloc
-parameter_list|(
-name|int
-name|sizeofTypedData
-parameter_list|,
-name|int
-name|size
-parameter_list|,
-name|int
-name|sizeofT
-parameter_list|,
-name|QVectorData
-modifier|*
-name|init
-parameter_list|)
-function_decl|;
 specifier|static
 name|QVectorData
 modifier|*
