@@ -862,7 +862,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"QTBUG-22562"
+literal|"QTBUG-22562, QTBUG-22296"
 argument_list|,
 name|Abort
 argument_list|)
@@ -3708,7 +3708,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"QTBUG-22562"
+literal|"QTBUG-22562, QTBUG-22296"
 argument_list|,
 name|Abort
 argument_list|)
@@ -5964,7 +5964,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"QTBUG-22562"
+literal|"QTBUG-22562, QTBUG-22296"
 argument_list|,
 name|Abort
 argument_list|)
@@ -6723,7 +6723,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"QTBUG-22562"
+literal|"QTBUG-22562, QTBUG-22296"
 argument_list|,
 name|Abort
 argument_list|)
@@ -7025,7 +7025,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"QTBUG-22562"
+literal|"QTBUG-22562, QTBUG-22296"
 argument_list|,
 name|Abort
 argument_list|)
