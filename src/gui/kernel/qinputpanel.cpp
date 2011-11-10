@@ -15,6 +15,9 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_comment
+comment|/*!     \internal */
+end_comment
 begin_constructor
 DECL|function|QInputPanel
 name|QInputPanel
@@ -30,6 +33,9 @@ name|QInputPanelPrivate
 argument_list|)
 block|{ }
 end_constructor
+begin_comment
+comment|/*!     \internal */
+end_comment
 begin_destructor
 DECL|function|~QInputPanel
 name|QInputPanel
@@ -39,6 +45,12 @@ name|QInputPanel
 parameter_list|()
 block|{ }
 end_destructor
+begin_comment
+comment|/*!     \class QInputPanel     \brief The QInputPanel class provides access to the active text input method.      QInputPanel is used by the text editors for integrating to the platform text input     methods and more commonly by application views for querying various text input method-related     information like virtual keyboard visibility and keyboard dimensions.      Qt Quick also provides access to QInputPanel in QML through \l{QmlGlobalQtObject}{Qt global object}     as \c Qt.application.inputPanel property. */
+end_comment
+begin_comment
+comment|/*!     \property QInputPanel::inputItem     \brief Focused item that accepts text input      Input item is set and unset by the focused window. In QML Scene Graph this is done by     QQuickCanvas and the input item is either TextInput or TextEdit element. Any QObject can     behave as an input item as long as it responds to QInputMethodQueryEvent and QInputMethodEvent     events sent by the input methods.      \sa inputItemTransform, inputWindow, QInputMethodQueryEvent, QInputMethodEvent */
+end_comment
 begin_function
 DECL|function|inputItem
 name|QObject
@@ -106,6 +118,9 @@ argument_list|()
 emit|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the currently focused window containing the input item. */
+end_comment
 begin_function
 DECL|function|inputWindow
 name|QWindow
@@ -124,6 +139,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the transformation from input item coordinates to the window coordinates. */
+end_comment
 begin_function
 DECL|function|inputItemTransform
 name|QTransform
@@ -146,6 +164,9 @@ name|inputItemTransform
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Sets the transformation from input item coordinates to the window coordinates.     Item transform needs to be updated by the focused window like QQuickCanvas whenever     item is moved inside the scene. */
+end_comment
 begin_function
 DECL|function|setInputItemTransform
 name|void
@@ -185,6 +206,9 @@ argument_list|()
 emit|;
 block|}
 end_function
+begin_comment
+comment|/*!     \property QInputPanel::cursorRectangle     \brief Input item's cursor rectangle in window coordinates.      Cursor rectangle is often used by various text editing controls     like text prediction popups for following the text being typed. */
+end_comment
 begin_function
 DECL|function|cursorRectangle
 name|QRectF
@@ -273,6 +297,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \property QInputPanel::keyboardRectangle     \brief Virtual keyboard's geometry in window coordinates. */
+end_comment
 begin_function
 DECL|function|keyboardRectangle
 name|QRectF
@@ -311,6 +338,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Requests virtual keyboard to open. If the platform     doesn't provide virtual keyboard the visibility     remains false.      Normally applications should not need to call this     function, keyboard should automatically open when     the text editor gains focus. */
+end_comment
 begin_function
 DECL|function|show
 name|void
@@ -369,6 +399,9 @@ emit|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!     Requests virtual keyboard to close.      Normally applications should not need to call this function,     keyboard should automatically close when the text editor loses     focus, for example when the parent view is closed. */
+end_comment
 begin_function
 DECL|function|hide
 name|void
@@ -426,6 +459,9 @@ emit|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!     \property QInputPanel::visible     \brief Virtual keyboard's visibility on the screen      Input panel visibility remains false for devices     with no virtual keyboards.      \sa show(), hide() */
+end_comment
 begin_function
 DECL|function|visible
 name|bool
@@ -476,6 +512,9 @@ literal|false
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Controls the keyboard visibility. Equivalent     to calling show() and hide() functions.      \sa show(), hide() */
+end_comment
 begin_function
 DECL|function|setVisible
 name|void
@@ -497,6 +536,9 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \property QInputPanel::animating     \brief True when the virtual keyboard is being opened or closed.      Animating is false when keyboard is fully open or closed.     When \c animating is \c true and \c visibility is \c true keyboard     is being opened. When \c animating is \c true and \c visibility is     false keyboard is being closed. */
+end_comment
 begin_function
 DECL|function|isAnimating
 name|bool
@@ -536,6 +578,9 @@ literal|false
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Called by the input item to inform the platform input methods when there has been     state changes in editor's input method query attributes. When calling the function     \a queries parameter has to be used to tell what has changes, which input method     can use to make queries for attributes it's interested with QInputMethodQueryEvent.      In particular calling update whenever the cursor position changes is important as     that often causes other query attributes like surrounding text and text selection     to change as well. The attributes that often change together with cursor position     have been grouped in Qt::ImQueryInput value for convenience. */
+end_comment
 begin_function
 DECL|function|update
 name|void
@@ -596,6 +641,9 @@ argument_list|()
 emit|;
 block|}
 end_function
+begin_comment
+comment|/*!     Resets the input method state. For example, a text editor normally calls     this method before inserting a text to make widget ready to accept a text.      Input method resets automatically when the focused editor changes. */
+end_comment
 begin_function
 DECL|function|reset
 name|void
@@ -629,6 +677,9 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     Commits the word user is currently composing to the editor. The function is     mostly needed by the input methods with text prediction features and by the     methods where the script used for typing characters is different from the     script that actually gets appended to the editor. Any kind of action that     interrupts the text composing needs to flush the composing state by calling the     commit() function, for example when the cursor is moved elsewhere. */
+end_comment
 begin_function
 DECL|function|commit
 name|void
@@ -662,6 +713,9 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     Called by the input item when the word currently being composed is tapped by     the user. Input methods often use this information to offer more word     suggestions to the user. */
+end_comment
 begin_function
 DECL|function|invokeAction
 name|void
