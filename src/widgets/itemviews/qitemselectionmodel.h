@@ -1030,6 +1030,11 @@ name|void
 name|clearSelection
 argument_list|()
 block|;
+name|virtual
+name|void
+name|clearCurrentIndex
+argument_list|()
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
