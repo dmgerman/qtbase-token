@@ -2304,6 +2304,20 @@ name|x
 operator|.
 name|e
 block|;
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|x
+operator|.
+name|d
+operator|->
+name|ref
+operator|.
+name|deref
+argument_list|()
+argument_list|)
+block|;
+comment|// Don't trigger assert in free
 name|free
 argument_list|(
 name|x
@@ -2398,15 +2412,20 @@ name|y
 operator|->
 name|n
 block|;
-if|if
-condition|(
+name|Q_ASSERT
+argument_list|(
 name|x
 operator|->
 name|ref
+operator|.
+name|atomic
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
-condition|)
-block|{
+argument_list|)
+block|;
 while|while
 condition|(
 name|i
@@ -2435,8 +2454,7 @@ name|x
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-unit|} }
-name|template
+unit|}  template
 operator|<
 name|typename
 name|T
