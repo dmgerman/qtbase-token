@@ -176,6 +176,25 @@ block|{
 name|delete
 name|m_platformHelper
 block|; }
+name|QWindow
+operator|*
+name|parentWindow
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|setNativeDialogVisible
+argument_list|(
+argument|bool visible
+argument_list|)
+block|;
+name|QVariant
+name|styleHint
+argument_list|(
+argument|QPlatformDialogHelper::StyleHint hint
+argument_list|)
+specifier|const
+block|;
 name|QPointer
 operator|<
 name|QPushButton
@@ -274,6 +293,13 @@ specifier|const
 block|;
 name|private
 operator|:
+name|virtual
+name|void
+name|initHelper
+argument_list|(
+argument|QPlatformDialogHelper *
+argument_list|)
+block|{}
 name|mutable
 name|QPlatformDialogHelper
 operator|*

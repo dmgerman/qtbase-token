@@ -40,7 +40,7 @@ name|class
 name|QCocoaFileDialogHelper
 range|:
 name|public
-name|QPlatformDialogHelper
+name|QPlatformFileDialogHelper
 block|{
 name|public
 operator|:
@@ -74,12 +74,18 @@ name|deleteNativeDialog_sys
 argument_list|()
 block|;
 name|bool
-name|setVisible_sys
+name|show_sys
 argument_list|(
-argument|bool visible
+name|QWindow
+operator|*
+name|parent
 argument_list|)
 block|;
-name|QDialog
+name|void
+name|hide_sys
+argument_list|()
+block|;
+name|QPlatformFileDialogHelper
 operator|::
 name|DialogCode
 name|dialogResultCode_sys

@@ -61,6 +61,11 @@ include|#
 directive|include
 file|"qfontdialog.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qplatformdialoghelper_qpa.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -137,6 +142,24 @@ argument_list|(
 argument|QFontDatabase::Any
 argument_list|)
 block|{ }
+name|QPlatformFontDialogHelper
+operator|*
+name|platformFontDialogHelper
+argument_list|()
+specifier|const
+block|{
+return|return
+name|static_cast
+operator|<
+name|QPlatformFontDialogHelper
+operator|*
+operator|>
+operator|(
+name|platformHelper
+argument_list|()
+operator|)
+return|;
+block|}
 name|void
 name|updateFamilies
 argument_list|()
@@ -425,7 +448,16 @@ name|sharedFontPanelAvailable
 block|;
 endif|#
 directive|endif
-block|}
+name|private
+operator|:
+name|virtual
+name|void
+name|initHelper
+argument_list|(
+name|QPlatformDialogHelper
+operator|*
+argument_list|)
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_endif

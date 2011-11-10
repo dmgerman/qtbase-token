@@ -2283,18 +2283,12 @@ if|if
 condition|(
 name|d
 operator|->
-name|setVisible_sys
+name|setNativeDialogVisible
 argument_list|(
 name|visible
 argument_list|)
 condition|)
 block|{
-name|d
-operator|->
-name|nativeDialogInUse
-operator|=
-literal|true
-expr_stmt|;
 comment|// Set WA_DontShowOnScreen so that QDialog::setVisible(visible) below
 comment|// updates the state correctly, but skips showing the non-native version:
 name|setAttribute
@@ -2322,12 +2316,6 @@ directive|endif
 block|}
 else|else
 block|{
-name|d
-operator|->
-name|nativeDialogInUse
-operator|=
-literal|false
-expr_stmt|;
 name|setAttribute
 argument_list|(
 name|Qt
@@ -8562,11 +8550,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|QPlatformDialogHelper
+name|QPlatformFileDialogHelper
 modifier|*
 name|helper
 init|=
-name|platformHelper
+name|platformFileDialogHelper
 argument_list|()
 condition|)
 name|model

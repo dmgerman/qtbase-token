@@ -1377,7 +1377,7 @@ parameter_list|)
 specifier|const
 block|{
 return|return
-name|QWindowsDialogHelperBase
+name|QWindowsDialogs
 operator|::
 name|useHelper
 argument_list|(
@@ -1401,9 +1401,9 @@ parameter_list|)
 specifier|const
 block|{
 return|return
-name|QWindowsDialogHelperBase
+name|QWindowsDialogs
 operator|::
-name|create
+name|createHelper
 argument_list|(
 name|dialog
 argument_list|)
