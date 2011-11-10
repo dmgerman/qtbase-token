@@ -2431,11 +2431,14 @@ operator|==
 name|PP_DEFINED
 condition|)
 block|{
+name|bool
+name|braces
+init|=
 name|test
 argument_list|(
 name|PP_LPAREN
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|next
 argument_list|(
 name|PP_IDENTIFIER
@@ -2466,6 +2469,10 @@ name|substituted
 operator|+=
 name|definedOrNotDefined
 expr_stmt|;
+if|if
+condition|(
+name|braces
+condition|)
 name|test
 argument_list|(
 name|PP_RPAREN
