@@ -60,13 +60,21 @@ expr|@
 name|interface
 name|QNSPanel
 operator|:
-name|QNSWindow
+name|NSPanel
 block|{  }
-expr|@
+operator|-
+operator|(
+name|BOOL
+operator|)
+name|canBecomeKeyWindow
+expr_stmt|;
+end_expr_stmt
+begin_decl_stmt
+unit|@
 name|end
 name|class
 name|QCocoaWindow
-operator|:
+range|:
 name|public
 name|QPlatformWindow
 block|{
@@ -214,8 +222,8 @@ name|QCocoaGLContext
 operator|*
 name|m_glContext
 block|; }
-expr_stmt|;
-end_expr_stmt
+decl_stmt|;
+end_decl_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
