@@ -872,7 +872,7 @@ name|a
 parameter_list|,
 name|b
 parameter_list|)
-value|{int e = a; if (a<b) qDebug()<< #a<< "="<< e<< " !>= "<< #b<< "="<< b; QVERIFY(e>=b);}
+value|QVERIFY2(a>= b, qPrintable(QString("%1 = %2 !>= %3 = %4").arg(#a).arg(a).arg(#b).arg(b)));
 DECL|macro|QVERIFYLE
 define|#
 directive|define
@@ -882,7 +882,7 @@ name|a
 parameter_list|,
 name|b
 parameter_list|)
-value|{int e = a; if (b<a) qDebug()<< #a<< "="<< e<< " !<= "<< #b<< "="<< b; QVERIFY(e<=b);}
+value|QVERIFY2(a<= b, qPrintable(QString("%1 = %2 !<= %3 = %4").arg(#a).arg(a).arg(#b).arg(b)));
 name|QCOMPARE
 argument_list|(
 name|semaphore
@@ -1410,6 +1410,14 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+DECL|macro|QVERIFYGE
+undef|#
+directive|undef
+name|QVERIFYGE
+DECL|macro|QVERIFYLE
+undef|#
+directive|undef
+name|QVERIFYLE
 block|}
 end_function
 begin_function
