@@ -405,7 +405,7 @@ comment|//no luck
 block|}
 end_function
 begin_comment
-comment|/*!     \class QLibraryInfo     \brief The QLibraryInfo class provides information about the Qt library.      Many pieces of information are established when Qt is configured.     Installation paths, license information, and even a unique build     key. This class provides an abstraction for accessing this     information.      \table     \header \o Function           \o Return value     \row    \o buildKey()         \o A string that identifies the Qt version and                                      the configuration. This key is used to ensure                                      that \l{plugins} link against the same version                                      of Qt as the application.     \row    \o location()         \o The path to a certain Qt                                      component (e.g., documentation, header files).     \row    \o licensee(),                licensedProducts() \o Licensing information.     \endtable      You can also use a \c qt.conf file to override the hard-coded paths     that are compiled into the Qt library. For more information, see     the \l {Using qt.conf} documentation.      \sa QSysInfo, {Using qt.conf} */
+comment|/*!     \class QLibraryInfo     \brief The QLibraryInfo class provides information about the Qt library.      Many pieces of information are established when Qt is configured and built.     This class provides an abstraction for accessing that information.     By using the static functions of this class, an application can obtain     information about the instance of the Qt library which the application     is using at run-time.      You can also use a \c qt.conf file to override the hard-coded paths     that are compiled into the Qt library. For more information, see     the \l {Using qt.conf} documentation.      \sa QSysInfo, {Using qt.conf} */
 end_comment
 begin_comment
 comment|/*! \internal     You cannot create a QLibraryInfo, instead only the static functions are available to query    information. */
@@ -518,6 +518,30 @@ end_endif
 begin_comment
 comment|//QT_NO_DATESTRING
 end_comment
+begin_comment
+comment|/*!     \since 5.0     Returns true if this build of Qt was built with debugging enabled, or     false if it was built in release mode. */
+end_comment
+begin_function
+name|bool
+DECL|function|isDebugBuild
+name|QLibraryInfo
+operator|::
+name|isDebugBuild
+parameter_list|()
+block|{
+ifdef|#
+directive|ifdef
+name|QT_DEBUG
+return|return
+literal|true
+return|;
+endif|#
+directive|endif
+return|return
+literal|false
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!   Returns the location specified by \a loc.  */
 end_comment

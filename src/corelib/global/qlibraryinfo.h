@@ -69,6 +69,13 @@ end_endif
 begin_comment
 comment|//QT_NO_DATESTRING
 end_comment
+begin_function_decl
+specifier|static
+name|bool
+name|isDebugBuild
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_enum
 enum|enum
 name|LibraryLocation
