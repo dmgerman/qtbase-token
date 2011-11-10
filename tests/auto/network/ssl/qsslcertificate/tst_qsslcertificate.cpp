@@ -4657,10 +4657,8 @@ name|serialNumber
 argument_list|()
 argument_list|,
 name|QByteArray
-operator|::
-name|number
 argument_list|(
-literal|17
+literal|"11"
 argument_list|)
 argument_list|)
 expr_stmt|;

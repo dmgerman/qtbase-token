@@ -497,7 +497,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the certificate's serial number string in decimal format.     In case the serial number cannot be converted to decimal format     (i.e. if it is bigger than 4294967295, which means it does not fit into 4 bytes),     its hexadecimal version is returned. */
+comment|/*!     Returns the certificate's serial number string in hexadecimal format. */
 end_comment
 begin_function
 DECL|function|serialNumber
@@ -534,16 +534,6 @@ name|cert_info
 operator|->
 name|serialNumber
 decl_stmt|;
-comment|// if we cannot convert to a long, just output the hexadecimal number
-if|if
-condition|(
-name|serialNumber
-operator|->
-name|length
-operator|>
-literal|4
-condition|)
-block|{
 name|QByteArray
 name|hexString
 decl_stmt|;
@@ -616,27 +606,6 @@ name|serialNumberString
 operator|=
 name|hexString
 expr_stmt|;
-block|}
-else|else
-block|{
-name|d
-operator|->
-name|serialNumberString
-operator|=
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|qlonglong
-argument_list|(
-name|q_ASN1_INTEGER_get
-argument_list|(
-name|serialNumber
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 return|return
 name|d
