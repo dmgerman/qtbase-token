@@ -989,6 +989,7 @@ block|;
 name|public
 name|Q_SLOTS
 operator|:
+name|virtual
 name|void
 name|setCurrentIndex
 argument_list|(
