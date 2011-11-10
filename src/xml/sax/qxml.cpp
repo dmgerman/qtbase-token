@@ -4149,6 +4149,13 @@ name|inputDevice
 operator|=
 name|dev
 expr_stmt|;
+if|if
+condition|(
+name|dev
+operator|->
+name|isOpen
+argument_list|()
+condition|)
 name|d
 operator|->
 name|inputDevice
