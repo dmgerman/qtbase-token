@@ -23,20 +23,6 @@ include|#
 directive|include
 file|<QtCore/qatomic.h>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_DATASTREAM
-end_ifndef
-begin_include
-include|#
-directive|include
-file|<QtCore/qdatastream.h>
-end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
@@ -59,7 +45,6 @@ end_endif
 begin_function
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
 name|QT_MODULE
 parameter_list|(
 name|Core
@@ -95,6 +80,9 @@ name|F
 parameter_list|)
 define|\
 value|F(ULong, -1, ulong, "unsigned long") \     F(UInt, -1, uint, "unsigned int") \     F(UShort, -1, ushort, "unsigned short") \     F(UChar, -1, uchar, "unsigned char") \     F(LongLong, -1, qlonglong, "long long") \     F(ULongLong, -1, qulonglong, "unsigned long long") \     F(Char, -1, char, "qint8") \     F(Char, -1, char, "signed char") \     F(UChar, -1, uchar, "quint8") \     F(Short, -1, short, "qint16") \     F(UShort, -1, ushort, "quint16") \     F(Int, -1, int, "qint32") \     F(UInt, -1, uint, "quint32") \     F(LongLong, -1, qlonglong, "qint64") \     F(ULongLong, -1, qulonglong, "quint64") \     F(QVariantList, -1, QVariantList, "QList<QVariant>") \     F(QVariantMap, -1, QVariantMap, "QMap<QString,QVariant>") \     F(QVariantHash, -1, QVariantHash, "QHash<QString,QVariant>") \  #define QT_FOR_EACH_STATIC_TYPE(F)\     QT_FOR_EACH_STATIC_PRIMITIVE_TYPE(F)\     QT_FOR_EACH_STATIC_PRIMITIVE_POINTER(F)\     QT_FOR_EACH_STATIC_CORE_CLASS(F)\     QT_FOR_EACH_STATIC_CORE_POINTER(F)\     QT_FOR_EACH_STATIC_CORE_TEMPLATE(F)\     QT_FOR_EACH_STATIC_GUI_CLASS(F)\     QT_FOR_EACH_STATIC_WIDGETS_CLASS(F)\  #define QT_DEFINE_METATYPE_ID(TypeName, Id, Name) \     TypeName = Id,
+name|class
+name|QDataStream
+decl_stmt|;
 name|class
 name|Q_CORE_EXPORT
 name|QMetaType
