@@ -445,11 +445,6 @@ argument_list|(
 name|list2
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-name|list1
-expr_stmt|;
 name|listTotal
 operator|.
 name|append

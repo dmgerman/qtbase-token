@@ -1432,7 +1432,6 @@ literal|"OUTPUT"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//qDebug()<< "Running test case:"<< id;
 if|if
 condition|(
 name|index

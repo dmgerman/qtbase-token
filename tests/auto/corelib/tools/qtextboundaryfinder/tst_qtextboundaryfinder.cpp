@@ -1314,7 +1314,6 @@ operator|.
 name|boundaryReasons
 argument_list|()
 decl_stmt|;
-comment|// qDebug()<< i<< r;
 name|QCOMPARE
 argument_list|(
 operator|(
@@ -1573,7 +1572,6 @@ index|]
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//    qDebug()<< "text = "<< text<< ", length = "<< text.length();
 name|QTextBoundaryFinder
 name|finder
 argument_list|(

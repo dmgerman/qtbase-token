@@ -8106,12 +8106,6 @@ argument_list|)
 expr_stmt|;
 comment|//     ################ Bug : ref and orig has ff in alpha; readback has 0
 comment|//     ### (Was like this in 1.44 as well)
-comment|//
-comment|//    for(int i = 0; i< d12.height(); i++)
-comment|//        for(int j = 0; j< d12.width(); j++)
-comment|//            if (d12.pixel(j, i) != ref.pixel(j, i))
-comment|//                qDebug("Feil %i %i", j, i);
-comment|//
 block|}
 end_function
 begin_comment

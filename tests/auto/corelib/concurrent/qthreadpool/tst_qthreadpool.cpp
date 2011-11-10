@@ -2950,7 +2950,6 @@ operator|++
 name|i
 control|)
 block|{
-comment|//        qDebug()<< "iteration"<< i;
 name|int
 name|count
 init|=

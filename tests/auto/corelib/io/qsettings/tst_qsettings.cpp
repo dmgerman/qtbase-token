@@ -17538,9 +17538,7 @@ parameter_list|,
 name|escStrList
 parameter_list|)
 define|\
-value|{ \         QStringList plainList(plainStrList); \         QByteArray escList(escStrList); \         QCOMPARE(iniEscapedStringList(plainList), escList); \         QCOMPARE(iniUnescapedStringList(escList), plainList); \     } \   #define testUnescapedStringList(escStrList, plainStrList, reescStrList) \     { \         QStringList plainList(plainStrList); \         QByteArray escList(escStrList); \         QByteArray reescList(reescStrList); \         QCOMPARE(iniUnescapedStringList(escList), plainList); \         QCOMPARE(iniEscapedStringList(plainList), reescList); \         QCOMPARE(iniUnescapedStringList(reescList), plainList); \     } \   #define testVariant(val, escStr, func) \     { \         QVariant v(val); \         QString s = QSettingsPrivate::variantToString(v); \
-comment|/*qDebug()<< QString("testVariant(): reference=\"%1\" result=\"%2\"").arg(escStr).arg(s); */
-value|\         QCOMPARE(s, escStr); \         QCOMPARE(QVariant(QSettingsPrivate::stringToVariant(escStr)), v); \         QVERIFY(val == v.func()); \     }
+value|{ \         QStringList plainList(plainStrList); \         QByteArray escList(escStrList); \         QCOMPARE(iniEscapedStringList(plainList), escList); \         QCOMPARE(iniUnescapedStringList(escList), plainList); \     } \   #define testUnescapedStringList(escStrList, plainStrList, reescStrList) \     { \         QStringList plainList(plainStrList); \         QByteArray escList(escStrList); \         QByteArray reescList(reescStrList); \         QCOMPARE(iniUnescapedStringList(escList), plainList); \         QCOMPARE(iniEscapedStringList(plainList), reescList); \         QCOMPARE(iniUnescapedStringList(reescList), plainList); \     } \   #define testVariant(val, escStr, func) \     { \         QVariant v(val); \         QString s = QSettingsPrivate::variantToString(v); \         QCOMPARE(s, escStr); \         QCOMPARE(QVariant(QSettingsPrivate::stringToVariant(escStr)), v); \         QVERIFY(val == v.func()); \     }
 DECL|macro|testBadEscape
 define|#
 directive|define

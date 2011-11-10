@@ -513,7 +513,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// qDebug()<< "waiting max 5 seconds for notification for file modification to trigger(1)";
+comment|// waiting max 5 seconds for notification for file modification to trigger
 name|timer
 operator|.
 name|start
@@ -623,7 +623,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// qDebug()<< "waiting max 5 seconds for notification for file modification to trigger (2)";
+comment|// waiting max 5 seconds for notification for file modification to trigger
 name|timer
 operator|.
 name|start
@@ -753,7 +753,7 @@ operator|::
 name|ReadOwner
 argument_list|)
 expr_stmt|;
-comment|// qDebug()<< "waiting max 5 seconds for notification for file permission modification to trigger(1)";
+comment|// waiting max 5 seconds for notification for file permission modification to trigger
 name|timer
 operator|.
 name|start
@@ -851,7 +851,7 @@ operator|::
 name|ExeOther
 argument_list|)
 expr_stmt|;
-comment|// qDebug()<< "waiting max 5 seconds for notification for file modification to trigger (2)";
+comment|// waiting max 5 seconds for notification for file modification to trigger
 name|timer
 operator|.
 name|start
@@ -894,7 +894,7 @@ name|remove
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// qDebug()<< "waiting max 5 seconds for notification for file removal to trigger";
+comment|// waiting max 5 seconds for notification for file removal to trigger
 name|timer
 operator|.
 name|start
@@ -1004,7 +1004,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// qDebug()<< "waiting max 5 seconds for notification for file recreation to trigger";
+comment|// waiting max 5 seconds for notification for file recreation to trigger
 name|timer
 operator|.
 name|start
@@ -1212,7 +1212,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-comment|// qDebug()<< "waiting max 5 seconds for notification for file recreationg to trigger";
+comment|// waiting max 5 seconds for notification for file recreationg to trigger
 name|timer
 operator|.
 name|start
@@ -1278,7 +1278,7 @@ literal|"testDir"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// qDebug()<< "waiting max 5 seconds for notification for directory removal to trigger";
+comment|// waiting max 5 seconds for notification for directory removal to trigger
 name|timer
 operator|.
 name|start
@@ -1421,7 +1421,7 @@ argument_list|(
 literal|"Failed to recreate directory, skipping final test."
 argument_list|)
 expr_stmt|;
-comment|// qDebug()<< "waiting max 5 seconds for notification for dir recreation to trigger";
+comment|// waiting max 5 seconds for notification for dir recreation to trigger
 name|timer
 operator|.
 name|start

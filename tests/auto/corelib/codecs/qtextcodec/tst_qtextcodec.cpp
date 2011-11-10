@@ -11099,7 +11099,6 @@ name|currentDataTag
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|/*for (int i = 0; i< encoded.length(); ++i)         qDebug()<< hex<< "    "<< (uint)(uchar)encoded.at(i);*/
 if|if
 condition|(
 name|toUnicode
@@ -11126,7 +11125,6 @@ operator|&
 name|state
 argument_list|)
 decl_stmt|;
-comment|/*for (int i = 0; i< result.length(); ++i)             qDebug()<< hex<< "    "<< (uint)result.at(i).unicode();*/
 name|QCOMPARE
 argument_list|(
 name|result

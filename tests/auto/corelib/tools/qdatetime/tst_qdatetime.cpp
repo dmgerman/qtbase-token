@@ -4415,11 +4415,6 @@ operator|::
 name|LocalDate
 argument_list|)
 decl_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-name|str3
-expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!

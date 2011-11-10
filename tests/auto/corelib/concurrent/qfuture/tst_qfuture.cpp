@@ -6325,7 +6325,6 @@ name|void
 name|finished
 parameter_list|()
 block|{
-comment|//        qDebug()<< "finished called";
 name|finishedCalled
 operator|=
 literal|true
@@ -6336,7 +6335,6 @@ name|void
 name|canceled
 parameter_list|()
 block|{
-comment|//        qDebug()<< "canceled called";
 name|canceledCalled
 operator|=
 literal|true
@@ -6350,7 +6348,6 @@ name|int
 name|index
 parameter_list|)
 block|{
-comment|//        qDebug()<< "result"<< index<< "ready";
 name|results
 operator|.
 name|insert
@@ -6370,7 +6367,6 @@ name|int
 name|end
 parameter_list|)
 block|{
-comment|//        qDebug()<< "progress range"<< begin<< end;
 name|rangeBegin
 operator|=
 name|begin
@@ -6388,7 +6384,6 @@ name|int
 name|progress
 parameter_list|)
 block|{
-comment|//        qDebug()<< "progress"<< progress;
 name|reportedProgress
 operator|.
 name|insert

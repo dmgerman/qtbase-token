@@ -134,7 +134,6 @@ argument_list|(
 name|SRCDIR
 argument_list|)
 expr_stmt|;
-comment|//qDebug()<< m_thisDir;
 name|m_thisDir
 operator|.
 name|chop
@@ -606,7 +605,6 @@ operator|::
 name|LocateDirectory
 argument_list|)
 decl_stmt|;
-comment|//qDebug()<< appsDirs;
 foreach|foreach
 control|(
 specifier|const

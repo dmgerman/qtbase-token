@@ -1379,7 +1379,6 @@ operator|+
 name|M
 argument_list|)
 expr_stmt|;
-comment|/*         for (int k = 0; k< N; ++k)         qDebug("%*s%d", k, "", a.at(k)); */
 for|for
 control|(
 name|j

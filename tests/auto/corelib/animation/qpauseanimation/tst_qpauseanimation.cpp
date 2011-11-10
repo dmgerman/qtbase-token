@@ -76,7 +76,6 @@ name|int
 name|currentTime
 parameter_list|)
 block|{
-comment|//qDebug()<< this<< "update current time: "<< currentTime;
 name|QPauseAnimation
 operator|::
 name|updateCurrentTime

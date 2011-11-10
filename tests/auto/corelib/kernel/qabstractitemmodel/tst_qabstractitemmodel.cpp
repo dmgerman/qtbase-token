@@ -4587,9 +4587,6 @@ argument_list|(
 name|res_table
 argument_list|)
 decl_stmt|;
-comment|//     qDebug()<< "src"<< src.rowCount(QModelIndex())<< src.columnCount(QModelIndex());
-comment|//     qDebug()<< "dst"<< dst.rowCount(QModelIndex())<< dst.columnCount(QModelIndex());
-comment|//     qDebug()<< "res"<< res.rowCount(QModelIndex())<< res.columnCount(QModelIndex());
 comment|// get the mimeData from the "selected" indexes
 name|QModelIndexList
 name|selectedIndexes
@@ -4817,8 +4814,6 @@ argument_list|(
 name|res_idx
 argument_list|)
 decl_stmt|;
-comment|//if(dst_data != res_data)
-comment|//    qDebug()<< r<< c<< dst_data.value(0).toString()<< res_data.value(0).toString();
 name|QCOMPARE
 argument_list|(
 name|dst_data

@@ -40,7 +40,7 @@ begin_comment
 comment|//TESTED_FILES=gui/itemviews/qstandarditemmodel.h gui/itemviews/qstandarditemmodel.cpp
 end_comment
 begin_comment
-comment|/*!     See modelstotest.cpp for instructions on how to have your model tested with these tests.      Each test such as rowCount have a _data() function which populate the QTest data with     the tests specified by modelstotest.cpp and any extra data needed for that particular test.      setupWithNoTestData() fills the QTest data with just the tests and is used by most tests.      There are some basic qDebug statements sprikled about that might be helpfull for fixing     your issues.  */
+comment|/*!     See modelstotest.cpp for instructions on how to have your model tested with these tests.      Each test such as rowCount have a _data() function which populate the QTest data with     the tests specified by modelstotest.cpp and any extra data needed for that particular test.      setupWithNoTestData() fills the QTest data with just the tests and is used by most tests.  */
 end_comment
 begin_class
 DECL|class|tst_QItemModel
@@ -1719,8 +1719,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|//qDebug()<< "parent:"<< currentModel->data(parent).toString()<< "rows:"<< rows
-comment|//<< "columns:"<< columns<< "parent column:"<< parent.column();
 name|QCOMPARE
 argument_list|(
 name|currentModel
@@ -1993,7 +1991,6 @@ operator|<
 literal|5
 condition|)
 block|{
-comment|//qDebug()<< r<< c<< "has children"<< currentModel->rowCount(index);
 name|checkChildren
 argument_list|(
 name|currentModel
@@ -4561,7 +4558,6 @@ literal|"model test area doesn't have any rows or columns, can't fully test remo
 expr_stmt|;
 return|return;
 block|}
-comment|//qDebug()<< "remove start:"<< start<< "count:"<< count<< "rowCount:"<< currentModel->rowCount(parentOfRemoved);
 comment|// When a row or column is removed there should be two signals.
 comment|// Watch to make sure they are emitted and get the row/column count when they do get emitted by connecting them to a slot
 name|qRegisterMetaType
@@ -5128,7 +5124,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// The row count should only change *after* rowsAboutToBeRemoved has been emitted
-comment|//qDebug()<< beforeRemoveRowCount<< afterAboutToRemoveRowCount<< afterRemoveRowCount<< currentModel->rowCount(parentOfRemoved);
 if|if
 condition|(
 name|shouldSucceed
@@ -5963,7 +5958,6 @@ operator|==
 name|parent
 argument_list|)
 expr_stmt|;
-comment|//qDebug()<< "slot_rowsAboutToRemove"<< currentModel->rowCount(parent);
 name|afterAboutToRemoveRowCount
 operator|=
 name|currentModel
@@ -6030,7 +6024,6 @@ argument_list|,
 name|recursiveCount
 argument_list|)
 expr_stmt|;
-comment|//qDebug()<< recursiveRow<< recursiveCount;
 name|removeRecursively
 operator|=
 literal|false
@@ -6074,7 +6067,6 @@ operator|==
 name|parent
 argument_list|)
 expr_stmt|;
-comment|//qDebug()<< "slot_rowsRemoved"<< currentModel->rowCount(parent);
 name|afterRemoveRowCount
 operator|=
 name|currentModel
@@ -7161,7 +7153,6 @@ literal|"model test area doesn't have any rows, can't fully test insert(). Skipp
 expr_stmt|;
 return|return;
 block|}
-comment|//qDebug()<< "insert start:"<< start<< "count:"<< count<< "rowCount:"<< currentModel->rowCount(parentOfInserted);
 comment|// When a row or column is inserted there should be two signals.
 comment|// Watch to make sure they are emitted and get the row/column count when they do get emitted by connecting them to a slot
 name|qRegisterMetaType
@@ -7689,7 +7680,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// The row count should only change *after* rowsAboutToBeInserted has been emitted
-comment|//qDebug()<< beforeInsertRowCount<< afterAboutToInsertRowCount<< afterInsertRowCount<< currentModel->rowCount(parentOfInserted);
 if|if
 condition|(
 name|shouldSucceed
@@ -8414,7 +8404,6 @@ operator|==
 name|parent
 argument_list|)
 expr_stmt|;
-comment|//qDebug()<< "slot_rowsAboutToInsert"<< currentModel->rowCount(parent);
 name|afterAboutToInsertRowCount
 operator|=
 name|currentModel
@@ -8487,7 +8476,6 @@ argument_list|,
 name|recursiveCount
 argument_list|)
 expr_stmt|;
-comment|//qDebug()<< recursiveRow<< recursiveCount;
 name|insertRecursively
 operator|=
 literal|false

@@ -961,7 +961,7 @@ expr_stmt|;
 name|qDebug
 argument_list|()
 operator|<<
-literal|"Available cpu cores:"
+literal|"Ideal thread count:"
 operator|<<
 name|QThread
 operator|::

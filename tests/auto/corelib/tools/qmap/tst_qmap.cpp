@@ -144,7 +144,6 @@ block|{
 operator|++
 name|count
 expr_stmt|;
-comment|//        qDebug("creating MyClass count=%d", count);
 block|}
 DECL|function|MyClass
 name|MyClass
@@ -162,7 +161,6 @@ name|str
 operator|=
 name|c
 expr_stmt|;
-comment|//        qDebug("creating MyClass '%s' count = %d", str.latin1(), count);
 block|}
 DECL|function|~MyClass
 name|~
@@ -172,7 +170,6 @@ block|{
 name|count
 operator|--
 expr_stmt|;
-comment|//        qDebug("deleting MyClass '%s' count = %d", str.latin1(), count);
 block|}
 DECL|function|MyClass
 name|MyClass
@@ -192,7 +189,6 @@ name|c
 operator|.
 name|str
 expr_stmt|;
-comment|//        qDebug("creating MyClass '%s' count = %d", str.latin1(), count);
 block|}
 DECL|function|operator =
 name|MyClass
@@ -206,7 +202,6 @@ modifier|&
 name|o
 parameter_list|)
 block|{
-comment|//        qDebug("copying MyClass '%s'", o.str.latin1());
 name|str
 operator|=
 name|o

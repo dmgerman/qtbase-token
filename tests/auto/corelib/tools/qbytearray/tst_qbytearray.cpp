@@ -614,7 +614,6 @@ argument_list|(
 name|ba
 argument_list|)
 decl_stmt|;
-comment|//qDebug( "size uncompressed: %d    size compressed: %d", ba.size(), compressed.size() );
 name|QTEST
 argument_list|(
 operator|::

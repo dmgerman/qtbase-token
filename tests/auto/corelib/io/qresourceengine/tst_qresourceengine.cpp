@@ -1907,11 +1907,6 @@ operator|::
 name|Name
 argument_list|)
 decl_stmt|;
-comment|//           for(int i = 0; i< list.size(); ++i)
-comment|//               qDebug()<< "one"<< i<< list.at(i).fileName();
-comment|//           for(int i = 0; i< containedDirs.size(); ++i)
-comment|//               qDebug()<< "two"<< i<< containedDirs.at(i);
-comment|//           qDebug()<< "one"<< list.size()<< containedDirs.size();
 name|QCOMPARE
 argument_list|(
 name|list
@@ -1925,7 +1920,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//         qDebug()<< "two";
 name|int
 name|i
 decl_stmt|;

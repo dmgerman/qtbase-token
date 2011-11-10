@@ -15946,7 +15946,6 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-comment|//    qDebug()<< "map   "<< QThread::currentThread();
 return|return
 name|in
 return|;
@@ -15978,7 +15977,6 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-comment|//    qDebug()<< "reduce"<< QThread::currentThread();
 operator|++
 name|result
 expr_stmt|;
@@ -16096,22 +16094,6 @@ argument_list|,
 name|itemcount
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-operator|(
-name|int
-operator|)
-name|currentInstanceCount
-expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-operator|(
-name|int
-operator|)
-name|peakInstanceCount
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|int
@@ -16208,22 +16190,6 @@ name|results
 argument_list|,
 name|itemcount
 argument_list|)
-expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-operator|(
-name|int
-operator|)
-name|currentInstanceCount
-expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-operator|(
-name|int
-operator|)
-name|peakInstanceCount
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
