@@ -377,9 +377,11 @@ argument_list|)
 decl_stmt|;
 name|QVERIFY
 argument_list|(
+operator|!
 name|ok
 argument_list|)
 expr_stmt|;
+comment|// our dummy callback do not return a valid QMetaObject::Connection
 name|QCOMPARE
 argument_list|(
 operator|&

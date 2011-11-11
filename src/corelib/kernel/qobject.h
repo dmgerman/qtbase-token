@@ -897,7 +897,9 @@ modifier|*
 parameter_list|)
 function_decl|;
 specifier|static
-name|bool
+name|QMetaObject
+operator|::
+name|Connection
 name|connect
 argument_list|(
 specifier|const
@@ -928,71 +930,40 @@ name|Qt
 operator|::
 name|AutoConnection
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 specifier|static
-name|bool
+name|QMetaObject
+operator|::
+name|Connection
 name|connect
 argument_list|(
-specifier|const
-name|QObject
-operator|*
-name|sender
+argument|const QObject *sender
 argument_list|,
-specifier|const
-name|QMetaMethod
-operator|&
-name|signal
+argument|const QMetaMethod&signal
 argument_list|,
-specifier|const
-name|QObject
-operator|*
-name|receiver
+argument|const QObject *receiver
 argument_list|,
-specifier|const
-name|QMetaMethod
-operator|&
-name|method
+argument|const QMetaMethod&method
 argument_list|,
-name|Qt
-operator|::
-name|ConnectionType
-name|type
-operator|=
-name|Qt
-operator|::
-name|AutoConnection
+argument|Qt::ConnectionType type = Qt::AutoConnection
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 specifier|inline
-name|bool
+name|QMetaObject
+operator|::
+name|Connection
 name|connect
 argument_list|(
-specifier|const
-name|QObject
-operator|*
-name|sender
+argument|const QObject *sender
 argument_list|,
-specifier|const
-name|char
-operator|*
-name|signal
+argument|const char *signal
 argument_list|,
-specifier|const
-name|char
-operator|*
-name|member
+argument|const char *member
 argument_list|,
-name|Qt
-operator|::
-name|ConnectionType
-name|type
-operator|=
-name|Qt
-operator|::
-name|AutoConnection
+argument|Qt::ConnectionType type = Qt::AutoConnection
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+expr_stmt|;
 specifier|static
 name|bool
 name|disconnect
@@ -1112,6 +1083,17 @@ name|member
 argument_list|)
 return|;
 block|}
+specifier|static
+name|bool
+name|disconnect
+argument_list|(
+specifier|const
+name|QMetaObject
+operator|::
+name|Connection
+operator|&
+argument_list|)
+decl_stmt|;
 name|void
 name|dumpObjectTree
 parameter_list|()
@@ -1394,7 +1376,9 @@ end_empty_stmt
 begin_expr_stmt
 DECL|function|connect
 specifier|inline
-name|bool
+name|QMetaObject
+operator|::
+name|Connection
 name|QObject
 operator|::
 name|connect

@@ -441,44 +441,30 @@ name|methodIndex
 parameter_list|)
 function_decl|;
 specifier|static
-name|bool
+name|QObjectPrivate
+operator|::
+name|Connection
+operator|*
 name|connect
-parameter_list|(
-specifier|const
-name|QObject
-modifier|*
-name|sender
-parameter_list|,
-name|int
-name|signal_index
-parameter_list|,
-specifier|const
-name|QObject
-modifier|*
-name|receiver
-parameter_list|,
-name|int
-name|method_index_relative
-parameter_list|,
-specifier|const
-name|QMetaObject
-modifier|*
-name|rmeta
-init|=
+argument_list|(
+argument|const QObject *sender
+argument_list|,
+argument|int signal_index
+argument_list|,
+argument|const QObject *receiver
+argument_list|,
+argument|int method_index_relative
+argument_list|,
+argument|const QMetaObject *rmeta =
 literal|0
-parameter_list|,
-name|int
-name|type
-init|=
+argument_list|,
+argument|int type =
 literal|0
-parameter_list|,
-name|int
-modifier|*
-name|types
-init|=
+argument_list|,
+argument|int *types =
 literal|0
-parameter_list|)
-function_decl|;
+argument_list|)
+expr_stmt|;
 specifier|static
 name|bool
 name|disconnect
