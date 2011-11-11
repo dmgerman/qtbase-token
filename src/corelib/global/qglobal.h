@@ -4157,17 +4157,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_CC_INTEL
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
 name|Q_CC_RVCT
 argument_list|)
 end_if
