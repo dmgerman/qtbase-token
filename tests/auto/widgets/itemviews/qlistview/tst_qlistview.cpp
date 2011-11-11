@@ -11268,15 +11268,6 @@ name|maximum
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"LeftToRight"
-argument_list|,
-literal|"QTBUG-21833"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|bar

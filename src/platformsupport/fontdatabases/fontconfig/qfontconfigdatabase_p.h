@@ -80,6 +80,11 @@ argument_list|(
 argument|const QString&family
 argument_list|)
 specifier|const
+block|;
+name|QFont
+name|defaultFont
+argument_list|()
+specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt
