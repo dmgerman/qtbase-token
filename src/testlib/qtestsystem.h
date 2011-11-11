@@ -100,6 +100,17 @@ argument_list|,
 name|ms
 argument_list|)
 expr_stmt|;
+name|QCoreApplication
+operator|::
+name|sendPostedEvents
+argument_list|(
+literal|0
+argument_list|,
+name|QEvent
+operator|::
+name|DeferredDelete
+argument_list|)
+expr_stmt|;
 name|QTest
 operator|::
 name|qSleep
