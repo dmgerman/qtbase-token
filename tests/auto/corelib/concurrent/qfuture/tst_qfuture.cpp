@@ -6670,7 +6670,6 @@ name|reportFinished
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*     QFutureInterface<int> *Interface = new QFutureInterface<int>();     Interface.reportStarted();     QFuture<int> f =  QFuture<int>(Interface);      ResultObject object;     f.connectTo(ThrottledResultReadyAtSignal,&object, SLOT(resultReady(int)), Qt::DirectConnection);      for (int i = 0; i< 100; ++i)         Interface.reportResult(&i);      QVERIFY(Interface.isPaused() == true);      // read the results, this should resume the task.     for (int i = 0; i< 100; ++i)         f.throttledResult(i);      QVERIFY(Interface.isPaused() == false);     Interface.reportFinished(); */
 block|}
 end_function
 begin_function
