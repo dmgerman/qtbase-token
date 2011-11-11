@@ -7490,11 +7490,20 @@ argument_list|(
 name|Q_ASSERT
 argument_list|)
 end_if
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|QT_NO_DEBUG
-end_ifndef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_FORCE_ASSERTS
+argument_list|)
+end_if
 begin_define
 DECL|macro|Q_ASSERT
 define|#
@@ -7503,7 +7512,7 @@ name|Q_ASSERT
 parameter_list|(
 name|cond
 parameter_list|)
-value|((!(cond)) ? qt_assert(#cond,__FILE__,__LINE__) : qt_noop())
+value|qt_noop()
 end_define
 begin_else
 else|#
@@ -7517,7 +7526,7 @@ name|Q_ASSERT
 parameter_list|(
 name|cond
 parameter_list|)
-value|qt_noop()
+value|((!(cond)) ? qt_assert(#cond,__FILE__,__LINE__) : qt_noop())
 end_define
 begin_endif
 endif|#
