@@ -566,6 +566,8 @@ name|input
 argument_list|,
 operator|&
 name|ok
+argument_list|,
+literal|10
 argument_list|)
 expr_stmt|;
 return|return
