@@ -6849,6 +6849,11 @@ modifier|*
 name|dialog
 parameter_list|)
 block|{
+if|if
+condition|(
+name|dialog
+condition|)
+block|{
 switch|switch
 condition|(
 name|QWindowsDialogs
@@ -6892,6 +6897,7 @@ name|UnknownType
 case|:
 break|break;
 block|}
+block|}
 return|return
 literal|false
 return|;
@@ -6929,6 +6935,14 @@ name|className
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|dialog
+condition|)
+return|return
+literal|0
+return|;
 switch|switch
 condition|(
 name|QWindowsDialogs

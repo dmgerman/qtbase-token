@@ -175,41 +175,6 @@ name|fontDatabase
 argument_list|()
 specifier|const
 block|;
-name|QPlatformMenu
-operator|*
-name|createPlatformMenu
-argument_list|(
-argument|QMenu *menu =
-literal|0
-argument_list|)
-specifier|const
-block|;
-name|QPlatformMenuBar
-operator|*
-name|createPlatformMenuBar
-argument_list|(
-argument|QMenuBar *menuBar =
-literal|0
-argument_list|)
-specifier|const
-block|;
-name|bool
-name|usePlatformNativeDialog
-argument_list|(
-argument|QDialog *dialog =
-literal|0
-argument_list|)
-specifier|const
-block|;
-name|QPlatformDialogHelper
-operator|*
-name|createPlatformDialogHelper
-argument_list|(
-argument|QDialog *dialog =
-literal|0
-argument_list|)
-specifier|const
-block|;
 name|QPlatformNativeInterface
 operator|*
 name|nativeInterface
@@ -219,6 +184,12 @@ block|;
 name|QPlatformAccessibility
 operator|*
 name|accessibility
+argument_list|()
+specifier|const
+block|;
+name|QPlatformTheme
+operator|*
+name|platformTheme
 argument_list|()
 specifier|const
 block|;
@@ -239,6 +210,10 @@ block|;
 name|QPlatformAccessibility
 operator|*
 name|mAccessibility
+block|;
+name|QPlatformTheme
+operator|*
+name|mPlatformTheme
 block|; }
 decl_stmt|;
 end_decl_stmt

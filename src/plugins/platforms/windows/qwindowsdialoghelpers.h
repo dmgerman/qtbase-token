@@ -88,6 +88,8 @@ specifier|const
 name|QDialog
 modifier|*
 name|dialog
+init|=
+literal|0
 parameter_list|)
 function_decl|;
 name|QPlatformDialogHelper
@@ -97,6 +99,8 @@ parameter_list|(
 name|QDialog
 modifier|*
 name|dialog
+init|=
+literal|0
 parameter_list|)
 function_decl|;
 block|}

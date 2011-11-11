@@ -105,6 +105,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/qplatformtheme_qpa.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QWindowSystemInterface>
 end_include
 begin_include
@@ -131,6 +136,11 @@ begin_include
 include|#
 directive|include
 file|"private/qdnd_p.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<private/qplatformthemefactory_qpa_p.h>
 end_include
 begin_ifndef
 ifndef|#
@@ -222,6 +232,17 @@ modifier|*
 name|QGuiApplicationPrivate
 operator|::
 name|platform_integration
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|member|platform_theme
+name|QPlatformTheme
+modifier|*
+name|QGuiApplicationPrivate
+operator|::
+name|platform_theme
 init|=
 literal|0
 decl_stmt|;
@@ -1093,6 +1114,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// Create the platform integration.
 name|QGuiApplicationPrivate
 operator|::
 name|platform_integration
@@ -1177,6 +1199,59 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// Create the platform theme:
+comment|// 1) Ask the platform integration to create a platform theme
+name|QGuiApplicationPrivate
+operator|::
+name|platform_theme
+operator|=
+name|QGuiApplicationPrivate
+operator|::
+name|platform_integration
+operator|->
+name|platformTheme
+argument_list|()
+expr_stmt|;
+comment|// 2) If none found, look for a theme plugin. Theme plugins are located in the
+comment|// same directory as platform plugins.
+if|if
+condition|(
+operator|!
+name|QGuiApplicationPrivate
+operator|::
+name|platform_theme
+condition|)
+block|{
+name|QGuiApplicationPrivate
+operator|::
+name|platform_theme
+operator|=
+name|QPlatformThemeFactory
+operator|::
+name|create
+argument_list|(
+name|name
+argument_list|,
+name|platformPluginPath
+argument_list|)
+expr_stmt|;
+comment|// No error message; not having a theme plugin is allowed.
+block|}
+comment|// 3) Fall back on the built-in "null" platform theme.
+if|if
+condition|(
+operator|!
+name|QGuiApplicationPrivate
+operator|::
+name|platform_theme
+condition|)
+name|QGuiApplicationPrivate
+operator|::
+name|platform_theme
+operator|=
+operator|new
+name|QPlatformTheme
+expr_stmt|;
 comment|// Set arguments as dynamic properties on the native interface as
 comment|// boolean 'foo' or strings: 'foo=bar'
 if|if

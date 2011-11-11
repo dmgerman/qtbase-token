@@ -116,7 +116,7 @@ name|m_platformHelper
 operator|=
 name|QGuiApplicationPrivate
 operator|::
-name|platformIntegration
+name|platformTheme
 argument_list|()
 operator|->
 name|createPlatformDialogHelper
