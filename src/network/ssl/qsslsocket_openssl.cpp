@@ -1478,10 +1478,14 @@ comment|// add expired certs later, so that the
 comment|// valid ones are used before the expired ones
 if|if
 condition|(
-operator|!
 name|caCertificate
 operator|.
-name|isValid
+name|expiryDate
+argument_list|()
+operator|>
+name|QDateTime
+operator|::
+name|currentDateTime
 argument_list|()
 condition|)
 block|{
@@ -7434,10 +7438,14 @@ comment|// add expired certs later, so that the
 comment|// valid ones are used before the expired ones
 if|if
 condition|(
-operator|!
 name|caCertificate
 operator|.
-name|isValid
+name|expiryDate
+argument_list|()
+operator|>
+name|QDateTime
+operator|::
+name|currentDateTime
 argument_list|()
 condition|)
 block|{

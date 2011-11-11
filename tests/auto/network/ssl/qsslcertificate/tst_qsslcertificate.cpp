@@ -755,7 +755,7 @@ argument_list|(
 operator|!
 name|certificate
 operator|.
-name|isValid
+name|isBlacklisted
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1118,12 +1118,12 @@ name|QCOMPARE
 argument_list|(
 name|cert1
 operator|.
-name|isValid
+name|isBlacklisted
 argument_list|()
 argument_list|,
 name|cert2
 operator|.
-name|isValid
+name|isBlacklisted
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4809,10 +4809,14 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|cert
 operator|.
-name|isValid
+name|expiryDate
+argument_list|()
+operator|<
+name|QDateTime
+operator|::
+name|currentDateTime
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5560,7 +5564,6 @@ control|)
 block|{
 name|QVERIFY
 argument_list|(
-operator|!
 name|blacklistedCerts
 operator|.
 name|at
@@ -5568,7 +5571,7 @@ argument_list|(
 name|a
 argument_list|)
 operator|.
-name|isValid
+name|isBlacklisted
 argument_list|()
 argument_list|)
 expr_stmt|;
