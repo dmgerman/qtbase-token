@@ -17462,6 +17462,11 @@ name|~
 name|QWindowsVistaStylePrivate
 parameter_list|()
 block|{
+name|qDeleteAll
+argument_list|(
+name|animations
+argument_list|)
+expr_stmt|;
 operator|delete
 name|m_treeViewHelper
 expr_stmt|;
