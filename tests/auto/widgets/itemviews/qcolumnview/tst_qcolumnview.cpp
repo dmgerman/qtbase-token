@@ -6117,6 +6117,26 @@ argument_list|,
 name|second
 argument_list|)
 expr_stmt|;
+comment|// The next two lines should be removed when QTBUG-22707 is resolved.
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-22707"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|view
+operator|.
+name|createdColumns
+index|[
+literal|2
+index|]
+argument_list|)
+expr_stmt|;
 name|QTRY_COMPARE
 argument_list|(
 name|view
