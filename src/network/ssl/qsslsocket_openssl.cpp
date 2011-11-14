@@ -715,7 +715,7 @@ name|protocol
 operator|=
 name|QSsl
 operator|::
-name|TlsV1
+name|TlsV1_0
 expr_stmt|;
 if|if
 condition|(
@@ -977,7 +977,7 @@ argument_list|(
 name|QSslSocket
 argument_list|)
 expr_stmt|;
-comment|// Create and initialize SSL context. Accept SSLv2, SSLv3 and TLSv1.
+comment|// Create and initialize SSL context. Accept SSLv2, SSLv3 and TLSv1_0.
 name|bool
 name|client
 init|=
@@ -1076,7 +1076,7 @@ break|break;
 case|case
 name|QSsl
 operator|::
-name|TlsV1
+name|TlsV1_0
 case|:
 name|ctx
 operator|=
@@ -2060,7 +2060,7 @@ name|protocol
 operator|==
 name|QSsl
 operator|::
-name|TlsV1
+name|TlsV1_0
 operator|||
 name|configuration
 operator|.

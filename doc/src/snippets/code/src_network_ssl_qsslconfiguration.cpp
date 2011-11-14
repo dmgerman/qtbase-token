@@ -23,7 +23,7 @@ name|setProtocol
 argument_list|(
 name|QSsl
 operator|::
-name|TlsV1
+name|TlsV1_0
 argument_list|)
 expr_stmt|;
 end_expr_stmt

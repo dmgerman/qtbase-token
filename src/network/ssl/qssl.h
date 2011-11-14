@@ -103,9 +103,22 @@ name|SslV3
 block|,
 name|SslV2
 block|,
-name|TlsV1
+name|TlsV1_0
 block|,
-comment|// ### Qt 5: rename to TlsV1_0 or so
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+name|TlsV1
+init|=
+name|TlsV1_0
+block|,
+endif|#
+directive|endif
 name|AnyProtocol
 block|,
 name|TlsV1SslV3

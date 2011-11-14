@@ -765,7 +765,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets this network request's SSL configuration to be \a config. The     settings that apply are the private key, the local certificate,     the SSL protocol (SSLv2, SSLv3, TLSv1 where applicable), the CA     certificates and the ciphers that the SSL backend is allowed to     use.      By default, no SSL configuration is set, which allows the backends     to choose freely what configuration is best for them.      \sa sslConfiguration(), QSslConfiguration::defaultConfiguration() */
+comment|/*!     Sets this network request's SSL configuration to be \a config. The     settings that apply are the private key, the local certificate,     the SSL protocol (SSLv2, SSLv3, TLSv1.0 where applicable), the CA     certificates and the ciphers that the SSL backend is allowed to     use.      By default, no SSL configuration is set, which allows the backends     to choose freely what configuration is best for them.      \sa sslConfiguration(), QSslConfiguration::defaultConfiguration() */
 end_comment
 begin_function
 DECL|function|setSslConfiguration
