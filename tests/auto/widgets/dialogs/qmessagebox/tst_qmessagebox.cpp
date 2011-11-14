@@ -3482,6 +3482,11 @@ name|btn
 operator|->
 name|text
 argument_list|()
+operator|.
+name|remove
+argument_list|(
+literal|"&"
+argument_list|)
 operator|!=
 name|QMessageBox
 operator|::
