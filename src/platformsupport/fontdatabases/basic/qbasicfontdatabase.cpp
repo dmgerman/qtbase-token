@@ -682,11 +682,6 @@ operator|::
 name|populateFontDatabase
 parameter_list|()
 block|{
-name|QPlatformFontDatabase
-operator|::
-name|populateFontDatabase
-argument_list|()
-expr_stmt|;
 name|QString
 name|fontpath
 init|=
