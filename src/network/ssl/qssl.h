@@ -138,6 +138,10 @@ block|,
 name|SslOptionDisableServerNameIndication
 init|=
 literal|0x08
+block|,
+name|SslOptionDisableLegacyRenegotiation
+init|=
+literal|0x10
 block|}
 enum|;
 end_enum

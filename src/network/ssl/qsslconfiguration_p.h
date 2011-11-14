@@ -102,6 +102,11 @@ name|peerVerifyDepth
 argument_list|(
 literal|0
 argument_list|)
+block|,
+name|sslOptions
+argument_list|(
+argument|QSsl::SslOptionDisableEmptyFragments|QSsl::SslOptionDisableLegacyRenegotiation
+argument_list|)
 block|{ }
 name|QSslCertificate
 name|peerCertificate

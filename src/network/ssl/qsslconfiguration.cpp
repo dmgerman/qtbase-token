@@ -350,7 +350,13 @@ name|d
 operator|->
 name|sslOptions
 operator|==
-literal|0
+name|QSsl
+operator|::
+name|SslOptionDisableEmptyFragments
+operator||
+name|QSsl
+operator|::
+name|SslOptionDisableLegacyRenegotiation
 operator|)
 return|;
 block|}
