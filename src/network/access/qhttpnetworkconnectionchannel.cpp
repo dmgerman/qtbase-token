@@ -3167,6 +3167,17 @@ argument_list|(
 literal|"WebLogic"
 argument_list|)
 operator|)
+operator|&&
+operator|(
+operator|!
+name|serverHeaderField
+operator|.
+name|startsWith
+argument_list|(
+literal|"Rocket"
+argument_list|)
+operator|)
+comment|// a Python Web Server, see Web2py.com
 condition|)
 block|{
 name|pipeliningSupported
