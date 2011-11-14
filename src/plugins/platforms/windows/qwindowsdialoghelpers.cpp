@@ -5610,6 +5610,9 @@ name|dialog
 parameter_list|)
 member_init_list|:
 name|QWindowsDialogHelperBase
+argument_list|<
+name|QPlatformFileDialogHelper
+argument_list|>
 argument_list|(
 name|dialog
 argument_list|)
@@ -6741,6 +6744,9 @@ name|dialog
 parameter_list|)
 member_init_list|:
 name|QWindowsDialogHelperBase
+argument_list|<
+name|QPlatformColorDialogHelper
+argument_list|>
 argument_list|(
 name|dialog
 argument_list|)
