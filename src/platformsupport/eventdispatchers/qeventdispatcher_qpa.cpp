@@ -119,13 +119,6 @@ name|flags
 argument_list|)
 condition|)
 block|{
-name|QEventDispatcherUNIX
-operator|::
-name|processEvents
-argument_list|(
-name|flags
-argument_list|)
-expr_stmt|;
 return|return
 literal|true
 return|;
