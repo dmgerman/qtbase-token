@@ -142,41 +142,10 @@ name|void
 name|fontPrecedence
 parameter_list|()
 function_decl|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WIN32
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|||
-operator|(
-name|defined
-argument_list|(
-name|Q_OS_LINUX
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|Q_CC_GNU
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_CC_INTEL
-argument_list|)
-operator|)
 name|void
 name|focusColors
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|hoverColors
 parameter_list|()
@@ -4594,25 +4563,34 @@ literal|false
 return|;
 block|}
 end_function
-begin_comment
-comment|// This is a fragile test which fails on many esoteric platforms
-end_comment
-begin_comment
-comment|// because of focus problems.  Test only on Windows, Mac, and Linux/gcc.
-end_comment
-begin_if
+begin_function
+DECL|function|focusColors
+name|void
+name|tst_QStyleSheetStyle
+operator|::
+name|focusColors
+parameter_list|()
+block|{
+comment|// Tests if colors can be changed by altering the focus of the widget.
+comment|// To avoid messy pixel-by-pixel comparison, we assume that the goal
+comment|// is reached if at least ten pixels of the right color can be found in
+comment|// the image.
+comment|// For this reason, we use unusual and extremely ugly colors! :-)
 if|#
 directive|if
+operator|!
 name|defined
 argument_list|(
 name|Q_OS_WIN32
 argument_list|)
-operator|||
+operator|&&
+operator|!
 name|defined
 argument_list|(
 name|Q_OS_MAC
 argument_list|)
-operator|||
+operator|&&
+operator|!
 operator|(
 name|defined
 argument_list|(
@@ -4630,20 +4608,14 @@ argument_list|(
 name|Q_CC_INTEL
 argument_list|)
 operator|)
-end_if
-begin_function
-DECL|function|focusColors
-name|void
-name|tst_QStyleSheetStyle
-operator|::
-name|focusColors
-parameter_list|()
-block|{
-comment|// Tests if colors can be changed by altering the focus of the widget.
-comment|// To avoid messy pixel-by-pixel comparison, we assume that the goal
-comment|// is reached if at least ten pixels of the right color can be found in
-comment|// the image.
-comment|// For this reason, we use unusual and extremely ugly colors! :-)
+name|QSKIP
+argument_list|(
+literal|"This is a fragile test which fails on many esoteric platforms because of focus problems. "
+literal|"That doesn't mean that the feature doesn't work in practice."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QList
 argument_list|<
 name|QWidget
@@ -4991,10 +4963,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|hoverColors
 name|void

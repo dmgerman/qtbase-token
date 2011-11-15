@@ -556,25 +556,10 @@ name|void
 name|exec
 parameter_list|()
 function_decl|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_EXCEPTIONS
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WINCE_WM
-argument_list|)
 name|void
 name|throwInExec
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|reexec
 parameter_list|()
@@ -1162,33 +1147,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_comment
-comment|// This test needs exceptions to be enabled.
-end_comment
-begin_comment
-comment|// Windows Mobile cannot handle cross library exceptions
-end_comment
-begin_comment
-comment|// qobject.cpp will try to rethrow the exception after handling
-end_comment
-begin_comment
-comment|// which causes gwes.exe to crash
-end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_EXCEPTIONS
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WINCE_WM
-argument_list|)
-end_if
 begin_function
 DECL|function|throwInExec
 name|void
@@ -1199,6 +1157,36 @@ parameter_list|()
 block|{
 if|#
 directive|if
+name|defined
+argument_list|(
+name|QT_NO_EXCEPTIONS
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|NO_EVENTLOOP_EXCEPTIONS
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Exceptions are disabled"
+argument_list|)
+expr_stmt|;
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_WINCE_WM
+argument_list|)
+comment|// Windows Mobile cannot handle cross library exceptions
+comment|// qobject.cpp will try to rethrow the exception after handling
+comment|// which causes gwes.exe to crash
+name|QSKIP
+argument_list|(
+literal|"This platform doesn't support propagating exceptions through the event loop"
+argument_list|)
+expr_stmt|;
+elif|#
+directive|elif
 name|defined
 argument_list|(
 name|Q_OS_LINUX
@@ -1352,10 +1340,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|reexec
 name|void

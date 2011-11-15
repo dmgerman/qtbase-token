@@ -878,11 +878,6 @@ name|void
 name|scrollAreaTest
 parameter_list|()
 function_decl|;
-comment|// Accessible table1 interface is no longer supported on X11,
-comment|// where it has been replaced by table2 interface.
-ifndef|#
-directive|ifndef
-name|Q_OS_UNIX
 name|void
 name|listViewTest
 parameter_list|()
@@ -899,8 +894,6 @@ name|void
 name|tableViewTest
 parameter_list|()
 function_decl|;
-else|#
-directive|else
 name|void
 name|table2ListTest
 parameter_list|()
@@ -913,8 +906,6 @@ name|void
 name|table2TableTest
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|calendarWidgetTest
 parameter_list|()
@@ -16734,17 +16725,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|// Accessible table1 interface is no longer supported on X11,
-end_comment
-begin_comment
-comment|// where it has been replaced by table2 interface.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_UNIX
-end_ifndef
 begin_function
 DECL|function|listViewTest
 name|void
@@ -16753,6 +16733,19 @@ operator|::
 name|listViewTest
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Accessible table1 interface is no longer supported on X11."
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 block|{
 name|QListView
 name|listView
@@ -17315,6 +17308,8 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -17325,6 +17320,19 @@ operator|::
 name|treeWidgetTest
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Accessible table1 interface is no longer supported on X11."
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QWidget
 modifier|*
 name|w
@@ -17716,6 +17724,8 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -17726,6 +17736,19 @@ operator|::
 name|tableWidgetTest
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Accessible table1 interface is no longer supported on X11."
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 block|{
 name|QWidget
 modifier|*
@@ -18015,6 +18038,8 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_class
@@ -18386,6 +18411,19 @@ operator|::
 name|tableViewTest
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Accessible table1 interface is no longer supported on X11."
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 block|{
 name|QtTestTableModel
 modifier|*
@@ -19068,15 +19106,10 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
-begin_else
-else|#
-directive|else
-end_else
-begin_comment
-comment|// Test accessible table2 interface on unix
-end_comment
 begin_function
 DECL|function|table2ListTest
 name|void
@@ -19085,6 +19118,20 @@ operator|::
 name|table2ListTest
 parameter_list|()
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Accessible table2 interface is currently only supported on X11."
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QListWidget
 modifier|*
 name|listView
@@ -19710,6 +19757,8 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -19720,6 +19769,20 @@ operator|::
 name|table2TreeTest
 parameter_list|()
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Accessible table2 interface is currently only supported on X11."
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QTreeWidget
 modifier|*
 name|treeView
@@ -20589,6 +20652,8 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -20599,6 +20664,20 @@ operator|::
 name|table2TableTest
 parameter_list|()
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Accessible table2 interface is currently only supported on X11."
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QTableWidget
 modifier|*
 name|tableView
@@ -21417,12 +21496,10 @@ operator|::
 name|clearEvents
 argument_list|()
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_function
 DECL|function|calendarWidgetTest
 name|void

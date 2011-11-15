@@ -54,15 +54,10 @@ name|void
 name|cleanupTestCase
 parameter_list|()
 function_decl|;
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
 name|void
 name|init
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 private|private
 name|slots
 private|:
@@ -70,15 +65,10 @@ name|void
 name|getSetCheck
 parameter_list|()
 function_decl|;
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
 name|void
 name|unreadable
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 comment|/*     void construct();     void rowCount();     void columnCount();     void t_data();     void setData();     void hasChildren();     void isEditable();     void isDragEnabled();     void isDropEnabled();     void sort();     */
 name|bool
 name|rowsAboutToBeRemoved_init
@@ -131,15 +121,10 @@ name|void
 name|filePath
 parameter_list|()
 function_decl|;
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
 name|void
 name|hidden
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|fileName
 parameter_list|()
@@ -345,11 +330,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
-end_ifdef
 begin_function
 DECL|function|init
 name|void
@@ -358,6 +338,9 @@ operator|::
 name|init
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_UNIX
 if|if
 condition|(
 name|QTest
@@ -408,12 +391,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_comment
 comment|/*   tests */
 end_comment
@@ -1676,11 +1657,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
-end_ifdef
 begin_function
 DECL|function|hidden
 name|void
@@ -1689,6 +1665,16 @@ operator|::
 name|hidden
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_UNIX
+name|QSKIP
+argument_list|(
+literal|"Test not implemented on non-Unixes"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QDir
 name|current
 decl_stmt|;
@@ -1787,12 +1773,10 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_function
 DECL|function|fileName_data
 name|void
@@ -1881,11 +1865,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
-end_ifdef
 begin_function
 DECL|function|unreadable
 name|void
@@ -1894,6 +1873,16 @@ operator|::
 name|unreadable
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_UNIX
+name|QSKIP
+argument_list|(
+literal|"Test not implemented on non-Unixes"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 comment|// Create an empty file which has no read permissions (file will be removed by cleanup()).
 name|QFile
 name|unreadableFile
@@ -2032,12 +2021,10 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_function
 DECL|function|filePath
 name|void

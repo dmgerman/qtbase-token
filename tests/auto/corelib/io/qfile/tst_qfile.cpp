@@ -352,19 +352,6 @@ name|void
 name|readAllBuffer
 parameter_list|()
 function_decl|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
 name|void
 name|readAllStdin
 parameter_list|()
@@ -377,8 +364,6 @@ name|void
 name|readLineStdin_lineByLine
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|text
 parameter_list|()
@@ -476,12 +461,7 @@ name|void
 name|writeTextFile
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|Q_OS_SOLARIS
 comment|/* void largeFileSupport(); */
-endif|#
-directive|endif
 if|#
 directive|if
 name|defined
@@ -512,15 +492,10 @@ name|void
 name|bufferedRead
 parameter_list|()
 function_decl|;
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
 name|void
 name|isSequential
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|encodeName
 parameter_list|()
@@ -743,24 +718,14 @@ DECL|enumerator|NumberOfFileTypes
 name|NumberOfFileTypes
 block|}
 enum|;
-ifndef|#
-directive|ifndef
-name|Q_WS_WINCE
 name|void
 name|openStandardStreamsFileDescriptors
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
 name|void
 name|openStandardStreamsBufferedStreams
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 DECL|function|openFd
 name|bool
 name|openFd
@@ -4308,24 +4273,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|// Currently no stdin/out supported for Windows CE.
-end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
-end_if
 begin_function
 DECL|function|readAllStdin
 name|void
@@ -4334,6 +4281,32 @@ operator|::
 name|readAllStdin
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Currently no stdin/out supported for Windows CE"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_NO_PROCESS
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Qt was compiled with QT_NO_PROCESS"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QByteArray
 name|lotsOfData
 argument_list|(
@@ -4438,30 +4411,10 @@ operator|*
 literal|5
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
-comment|// Currently no stdin/out supported for Windows CE.
-end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
-end_if
+block|}
+end_function
 begin_function
 DECL|function|readLineStdin
 name|void
@@ -4470,6 +4423,32 @@ operator|::
 name|readLineStdin
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Currently no stdin/out supported for Windows CE"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_NO_PROCESS
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Qt was compiled with QT_NO_PROCESS"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QByteArray
 name|lotsOfData
 argument_list|(
@@ -4722,30 +4701,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
-comment|// Currently no stdin/out supported for Windows CE.
-end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_PROCESS
-argument_list|)
-end_if
+block|}
+end_function
 begin_function
 DECL|function|readLineStdin_lineByLine
 name|void
@@ -4754,6 +4713,32 @@ operator|::
 name|readLineStdin_lineByLine
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Currently no stdin/out supported for Windows CE"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_NO_PROCESS
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Qt was compiled with QT_NO_PROCESS"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 for|for
 control|(
 name|int
@@ -4906,12 +4891,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_function
 DECL|function|text
 name|void
@@ -9110,11 +9093,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
-end_ifdef
 begin_function
 DECL|function|isSequential
 name|void
@@ -9123,6 +9101,16 @@ operator|::
 name|isSequential
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_UNIX
+name|QSKIP
+argument_list|(
+literal|"Unix only test."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFile
 name|zero
 argument_list|(
@@ -9151,10 +9139,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|encodeName
 name|void
@@ -10358,7 +10342,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/* #include<qglobal.h> #define BUFFSIZE 1 #define FILESIZE   0x10000000f  // Solaris does not support statfs. #ifndef Q_OS_SOLARIS void tst_QFile::largeFileSupport() {     qlonglong sizeNeeded = 2147483647;     sizeNeeded *= 2;     sizeNeeded += 1024;     qlonglong freespace = qlonglong(0); #ifdef Q_OS_WIN     _ULARGE_INTEGER free;     if (::GetDiskFreeSpaceEx((wchar_t*)QDir::currentPath().utf16(),&free, 0, 0))         freespace = free.QuadPart;     if (freespace != 0) { #elif defined(Q_OS_IRIX)     struct statfs info;     if (statfs(QDir::currentPath().local8Bit(),&info, sizeof(struct statfs), 0) == 0) {         freespace = qlonglong(info.f_bfree * info.f_bsize); #else     struct statfs info;     if (statfs(const_cast<char *>(QDir::currentPath().toLocal8Bit().constData()),&info) == 0) {         freespace = qlonglong(info.f_bavail * info.f_bsize); #endif         if (freespace> sizeNeeded) {             QFile bigFile("bigfile");             if (bigFile.open(QFile::ReadWrite)) {                 char c[BUFFSIZE] = {'a'};                 QVERIFY(bigFile.write(c, BUFFSIZE) == BUFFSIZE);                 qlonglong oldPos = bigFile.pos();                 QVERIFY(bigFile.resize(sizeNeeded));                 QCOMPARE(oldPos, bigFile.pos());                 QVERIFY(bigFile.seek(sizeNeeded - BUFFSIZE));                 QVERIFY(bigFile.write(c, BUFFSIZE) == BUFFSIZE);                  bigFile.close();                 if (bigFile.open(QFile::ReadOnly)) {                     QVERIFY(bigFile.read(c, BUFFSIZE) == BUFFSIZE);                     int i = 0;                     for (i=0; i<BUFFSIZE; i++)                         QCOMPARE(c[i], 'a');                     QVERIFY(bigFile.seek(sizeNeeded - BUFFSIZE));                     QVERIFY(bigFile.read(c, BUFFSIZE) == BUFFSIZE);                     for (i=0; i<BUFFSIZE; i++)                         QCOMPARE(c[i], 'a');                     bigFile.close();                     QVERIFY(bigFile.remove());                 } else {                     QVERIFY(bigFile.remove());                     QFAIL("Could not reopen file");                 }             } else {                 QFAIL("Could not open file");             }         } else {             QSKIP("Not enough space to run test");         }     } else {         QFAIL("Could not determin disk space");     } } #endif */
+comment|/* #include<qglobal.h> #define BUFFSIZE 1 #define FILESIZE   0x10000000f void tst_QFile::largeFileSupport() { #ifdef Q_OS_SOLARIS     QSKIP("Solaris does not support statfs"); #else     qlonglong sizeNeeded = 2147483647;     sizeNeeded *= 2;     sizeNeeded += 1024;     qlonglong freespace = qlonglong(0); #ifdef Q_OS_WIN     _ULARGE_INTEGER free;     if (::GetDiskFreeSpaceEx((wchar_t*)QDir::currentPath().utf16(),&free, 0, 0))         freespace = free.QuadPart;     if (freespace != 0) { #elif defined(Q_OS_IRIX)     struct statfs info;     if (statfs(QDir::currentPath().local8Bit(),&info, sizeof(struct statfs), 0) == 0) {         freespace = qlonglong(info.f_bfree * info.f_bsize); #else     struct statfs info;     if (statfs(const_cast<char *>(QDir::currentPath().toLocal8Bit().constData()),&info) == 0) {         freespace = qlonglong(info.f_bavail * info.f_bsize); #endif         if (freespace> sizeNeeded) {             QFile bigFile("bigfile");             if (bigFile.open(QFile::ReadWrite)) {                 char c[BUFFSIZE] = {'a'};                 QVERIFY(bigFile.write(c, BUFFSIZE) == BUFFSIZE);                 qlonglong oldPos = bigFile.pos();                 QVERIFY(bigFile.resize(sizeNeeded));                 QCOMPARE(oldPos, bigFile.pos());                 QVERIFY(bigFile.seek(sizeNeeded - BUFFSIZE));                 QVERIFY(bigFile.write(c, BUFFSIZE) == BUFFSIZE);                  bigFile.close();                 if (bigFile.open(QFile::ReadOnly)) {                     QVERIFY(bigFile.read(c, BUFFSIZE) == BUFFSIZE);                     int i = 0;                     for (i=0; i<BUFFSIZE; i++)                         QCOMPARE(c[i], 'a');                     QVERIFY(bigFile.seek(sizeNeeded - BUFFSIZE));                     QVERIFY(bigFile.read(c, BUFFSIZE) == BUFFSIZE);                     for (i=0; i<BUFFSIZE; i++)                         QCOMPARE(c[i], 'a');                     bigFile.close();                     QVERIFY(bigFile.remove());                 } else {                     QVERIFY(bigFile.remove());                     QFAIL("Could not reopen file");                 }             } else {                 QFAIL("Could not open file");             }         } else {             QSKIP("Not enough space to run test");         }     } else {         QFAIL("Could not determin disk space");     } #endif } */
 end_comment
 begin_function
 DECL|function|i18nFileName_data
@@ -17349,20 +17333,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|// Although Windows CE (not mobile!) has functions that allow redirecting
-end_comment
-begin_comment
-comment|// the standard file descriptors to a file (see SetStdioPathW/GetStdioPathW)
-end_comment
-begin_comment
-comment|// it does not have functions to simply open them like below.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_WS_WINCE
-end_ifndef
 begin_function
 DECL|function|openStandardStreamsFileDescriptors
 name|void
@@ -17371,6 +17341,19 @@ operator|::
 name|openStandardStreamsFileDescriptors
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WINCE
+comment|//allthough Windows CE (not mobile!) has functions that allow redirecting
+comment|//the standard file descriptors to a file (see SetStdioPathW/GetStdioPathW)
+comment|//it does not have functions to simply open them like below .
+name|QSKIP
+argument_list|(
+literal|"Opening standard streams on Windows CE via descriptor not implemented"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|// Using file descriptors
 block|{
 name|QFile
@@ -17524,15 +17507,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
-end_ifdef
 begin_function
 DECL|function|openStandardStreamsBufferedStreams
 name|void
@@ -17541,6 +17515,16 @@ operator|::
 name|openStandardStreamsBufferedStreams
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_UNIX
+name|QSKIP
+argument_list|(
+literal|"Unix only test."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|// Using streams
 block|{
 name|QFile
@@ -17694,10 +17678,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|openStandardStreams
 name|void
@@ -17706,22 +17686,12 @@ operator|::
 name|openStandardStreams
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|Q_WS_WINCE
 name|openStandardStreamsFileDescriptors
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
 name|openStandardStreamsBufferedStreams
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function

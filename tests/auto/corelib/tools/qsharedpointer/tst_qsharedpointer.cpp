@@ -104,15 +104,10 @@ name|void
 name|swap
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|Q_CC_SUN
 name|void
 name|forwardDeclaration1
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|forwardDeclaration2
 parameter_list|()
@@ -222,9 +217,6 @@ name|void
 name|validConstructs
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|QTEST_CROSS_COMPILED
 name|void
 name|invalidConstructs_data
 parameter_list|()
@@ -233,8 +225,6 @@ name|void
 name|invalidConstructs
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 public|public
 name|slots
 public|:
@@ -1651,14 +1641,6 @@ name|int
 name|forwardDeclaredDestructorRunCount
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|// This type of forward declaration is not valid with SunCC.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_CC_SUN
-end_ifndef
 begin_function
 DECL|function|forwardDeclaration1
 name|void
@@ -1667,6 +1649,29 @@ operator|::
 name|forwardDeclaration1
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_SUN
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_CC_WINSCW
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_CC_RVCT
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"This type of forward declaration is not valid with this compiler"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|externalForwardDeclaration
 argument_list|()
 expr_stmt|;
@@ -1721,12 +1726,10 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_include
 include|#
 directive|include
@@ -9307,14 +9310,6 @@ argument_list|(
 argument|TestFunction
 argument_list|)
 end_macro
-begin_comment
-comment|// This test does not work on cross compiled systems.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QTEST_CROSS_COMPILED
-end_ifndef
 begin_function
 DECL|function|invalidConstructs_data
 name|void
@@ -9846,6 +9841,16 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|QTEST_CROSS_COMPILED
+name|QSKIP
+argument_list|(
+literal|"This test does not work on cross compiled systems"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QTest
 operator|::
 name|QExternalTest
@@ -10101,10 +10106,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_namespace
 DECL|namespace|QTBUG11730
 namespace|namespace

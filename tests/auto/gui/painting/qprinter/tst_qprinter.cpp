@@ -113,15 +113,10 @@ name|getSetCheck
 parameter_list|()
 function_decl|;
 comment|// Add your testfunctions and testdata create functions here
-ifdef|#
-directive|ifdef
-name|Q_WS_WIN
 name|void
 name|testPageSize
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|testPageRectAndPaperRect
 parameter_list|()
@@ -142,16 +137,10 @@ name|void
 name|testMargins
 parameter_list|()
 function_decl|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
 name|void
 name|testNonExistentPrinter
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
-comment|// Q_OS_WIN
 name|void
 name|testPageSetupDialog
 parameter_list|()
@@ -1047,14 +1036,6 @@ decl_stmt|;
 block|}
 block|}
 end_function
-begin_comment
-comment|// QPrinter::winPageSize() does not exist for non-Windows platforms.
-end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_WS_WIN
-end_ifdef
 begin_function
 DECL|function|testPageSize
 name|void
@@ -1063,6 +1044,16 @@ operator|::
 name|testPageSize
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
+name|QSKIP
+argument_list|(
+literal|"QPrinter::winPageSize() does not exist for non-Windows platforms"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QPrinter
 name|prn
 decl_stmt|;
@@ -1186,12 +1177,10 @@ operator|::
 name|A4
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_function
 DECL|function|testPageRectAndPaperRect_data
 name|void
@@ -2656,11 +2645,6 @@ name|painter
 expr_stmt|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-end_ifdef
 begin_function
 DECL|function|testNonExistentPrinter
 name|void
@@ -2669,6 +2653,16 @@ operator|::
 name|testNonExistentPrinter
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
+name|QSKIP
+argument_list|(
+literal|"QPrinter::testNonExistentPrinter() is not relevant for this platform"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QPrinter
 name|printer
 decl_stmt|;
@@ -2918,15 +2912,10 @@ name|printer
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
-comment|// Q_OS_WIN
-end_comment
+block|}
+end_function
 begin_function
 DECL|function|testMulitpleSets_data
 name|void

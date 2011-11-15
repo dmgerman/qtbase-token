@@ -262,15 +262,10 @@ name|void
 name|checkReason_ShiftTab
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN32
 name|void
 name|checkReason_BackTab
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|checkReason_Popup
 parameter_list|()
@@ -794,14 +789,6 @@ end_function
 begin_comment
 comment|/*!     In this test we verify that the Qt::KeyBacktab key is handled in a qfocusevent */
 end_comment
-begin_comment
-comment|// Backtab is not supported on Windows.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN32
-end_ifndef
 begin_function
 DECL|function|checkReason_BackTab
 name|void
@@ -810,6 +797,17 @@ operator|::
 name|checkReason_BackTab
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN32
+comment|// key is not supported on Windows
+name|QSKIP
+argument_list|(
+literal|"Backtab is not supported on Windows"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|initWidget
 argument_list|()
 expr_stmt|;
@@ -904,12 +902,10 @@ name|BacktabFocusReason
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_function
 DECL|function|checkReason_Popup
 name|void

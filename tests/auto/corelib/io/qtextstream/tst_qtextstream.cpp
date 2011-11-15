@@ -510,15 +510,10 @@ name|void
 name|ws_manipulator
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
 name|void
 name|stillOpenWhenAtEnd
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|readNewlines_data
 parameter_list|()
@@ -543,9 +538,6 @@ name|void
 name|pos3LargeFile
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
 name|void
 name|readStdin
 parameter_list|()
@@ -558,8 +550,6 @@ name|void
 name|readLineFromStdin
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|read
 parameter_list|()
@@ -5976,14 +5966,6 @@ end_function
 begin_comment
 comment|// ------------------------------------------------------------------------------
 end_comment
-begin_comment
-comment|// Qt/CE: Cannot test network on emulator.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
-end_ifndef
 begin_function
 DECL|function|stillOpenWhenAtEnd
 name|void
@@ -6058,6 +6040,16 @@ name|isOpen
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WINCE
+name|QSKIP
+argument_list|(
+literal|"Qt/CE: Cannot test network on emulator"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QTcpSocket
 name|socket
 decl_stmt|;
@@ -6112,10 +6104,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// ------------------------------------------------------------------------------
 end_comment
@@ -7905,14 +7893,6 @@ end_function
 begin_comment
 comment|// ------------------------------------------------------------------------------
 end_comment
-begin_comment
-comment|// Qt/CE has no stdin/out support for processes.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
-end_ifndef
 begin_function
 DECL|function|readStdin
 name|void
@@ -7921,6 +7901,19 @@ operator|::
 name|readStdin
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Qt/CE has no stdin/out support for processes"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QProcess
 name|stdinProcess
 decl_stmt|;
@@ -8018,21 +8011,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// ------------------------------------------------------------------------------
 end_comment
-begin_comment
-comment|// Qt/CE has no stdin/out support for processes.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
-end_ifndef
 begin_function
 DECL|function|readAllFromStdin
 name|void
@@ -8041,6 +8022,19 @@ operator|::
 name|readAllFromStdin
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Qt/CE has no stdin/out support for processes"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QProcess
 name|stdinProcess
 decl_stmt|;
@@ -8136,21 +8130,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// ------------------------------------------------------------------------------
 end_comment
-begin_comment
-comment|// Qt/CE has no stdin/out support for processes.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
-end_ifndef
 begin_function
 DECL|function|readLineFromStdin
 name|void
@@ -8159,6 +8141,19 @@ operator|::
 name|readLineFromStdin
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Qt/CE has no stdin/out support for processes"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QProcess
 name|stdinProcess
 decl_stmt|;
@@ -8269,10 +8264,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// ------------------------------------------------------------------------------
 end_comment

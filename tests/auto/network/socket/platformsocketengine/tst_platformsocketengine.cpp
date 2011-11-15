@@ -150,15 +150,10 @@ name|void
 name|udpIPv6LoopbackTest
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|Q_OS_AIX
 name|void
 name|broadcastTest
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|serverTest
 parameter_list|()
@@ -195,15 +190,10 @@ name|void
 name|receiveUrgentData
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
 name|void
 name|tooManySockets
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 block|}
 class|;
 end_class
@@ -1356,11 +1346,6 @@ end_function
 begin_comment
 comment|//---------------------------------------------------------------------------
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_AIX
-end_ifndef
 begin_function
 DECL|function|broadcastTest
 name|void
@@ -1369,6 +1354,16 @@ operator|::
 name|broadcastTest
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_AIX
+name|QSKIP
+argument_list|(
+literal|"Broadcast does not work on darko"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|PLATFORMSOCKETENGINE
 name|broadcastSocket
 decl_stmt|;
@@ -1558,10 +1553,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|//---------------------------------------------------------------------------
 end_comment
@@ -2629,14 +2620,6 @@ end_function
 begin_comment
 comment|//---------------------------------------------------------------------------
 end_comment
-begin_comment
-comment|// Certain windows machines suffocate and spend too much time in this test.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
-end_ifndef
 begin_function
 DECL|function|tooManySockets
 name|void
@@ -2645,6 +2628,17 @@ operator|::
 name|tooManySockets
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+name|Q_OS_WIN
+name|QSKIP
+argument_list|(
+literal|"Certain windows machines suffocate and spend too much time in this test."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QList
 argument_list|<
 name|PLATFORMSOCKETENGINE
@@ -2713,10 +2707,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|//---------------------------------------------------------------------------
 end_comment

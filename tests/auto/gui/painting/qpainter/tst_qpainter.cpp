@@ -208,9 +208,6 @@ name|void
 name|getSetCheck
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|Q_WS_MAC
 name|void
 name|drawPixmap_comp_data
 parameter_list|()
@@ -219,8 +216,6 @@ name|void
 name|drawPixmap_comp
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|saveAndRestore_data
 parameter_list|()
@@ -475,9 +470,6 @@ name|void
 name|monoImages
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|Q_WS_QWS
 name|void
 name|linearGradientSymmetry_data
 parameter_list|()
@@ -486,8 +478,6 @@ name|void
 name|linearGradientSymmetry
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|gradientInterpolation
 parameter_list|()
@@ -576,18 +566,10 @@ name|void
 name|drawRect_task247505
 parameter_list|()
 function_decl|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
 name|void
 name|drawText_subPixelPositionsInRaster_qtbug5053
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|drawImage_data
 parameter_list|()
@@ -1571,14 +1553,6 @@ literal|"...ddddddddddddd"
 block|}
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|// Mac has other ideas about alpha composition
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_WS_MAC
-end_ifndef
 begin_function
 DECL|function|drawPixmap_comp_data
 name|void
@@ -1975,6 +1949,16 @@ operator|::
 name|drawPixmap_comp
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_WS_MAC
+name|QSKIP
+argument_list|(
+literal|"Mac has other ideas about alpha composition"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH
 argument_list|(
 name|uint
@@ -2393,10 +2377,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|saveAndRestore_data
 name|void
@@ -23561,14 +23541,6 @@ name|g2
 return|;
 block|}
 end_function
-begin_comment
-comment|// QWS has limited resolution in the gradient color table
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_WS_QWS
-end_ifndef
 begin_function
 DECL|function|linearGradientSymmetry_data
 name|void
@@ -23824,6 +23796,16 @@ operator|::
 name|linearGradientSymmetry
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_WS_QWS
+name|QSKIP
+argument_list|(
+literal|"QWS has limited resolution in the gradient color table"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QFETCH
 argument_list|(
 name|QGradientStops
@@ -23969,12 +23951,10 @@ argument_list|,
 name|b
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_function
 DECL|function|gradientInterpolation
 name|void
@@ -28680,14 +28660,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//Only Mac/Cocoa supports sub pixel positions in raster engine currently
-end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-end_ifdef
 begin_function
 DECL|function|drawText_subPixelPositionsInRaster_qtbug5053
 name|void
@@ -28696,6 +28668,20 @@ operator|::
 name|drawText_subPixelPositionsInRaster_qtbug5053
 parameter_list|()
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"Only Mac supports sub pixel positions in raster engine currently"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFontMetricsF
 name|fm
 argument_list|(
@@ -28863,10 +28849,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|drawPointScaled
 name|void

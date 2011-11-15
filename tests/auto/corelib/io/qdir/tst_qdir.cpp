@@ -304,15 +304,10 @@ name|void
 name|operator_eq
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
 name|void
 name|dotAndDotDot
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|homePath
 parameter_list|()
@@ -8575,14 +8570,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|// WinCE does not have . nor ..
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
-end_ifndef
 begin_function
 DECL|function|dotAndDotDot
 name|void
@@ -8591,6 +8578,19 @@ operator|::
 name|dotAndDotDot
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"WinCE does not have . nor .."
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|QDir
 name|dir
 argument_list|(
@@ -8674,12 +8674,10 @@ literal|"spaces"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-end_function
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_function
 begin_function
 DECL|function|homePath
 name|void

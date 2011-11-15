@@ -686,15 +686,10 @@ name|void
 name|taskQTBUG_7395_readOnlyShortcut
 parameter_list|()
 function_decl|;
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
 name|void
 name|QTBUG697_paletteCurrentColorGroup
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|QTBUG13520_textNotVisible
 parameter_list|()
@@ -21471,11 +21466,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
-end_ifdef
 begin_function
 DECL|function|QTBUG697_paletteCurrentColorGroup
 name|void
@@ -21484,6 +21474,16 @@ operator|::
 name|QTBUG697_paletteCurrentColorGroup
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_WS_X11
+name|QSKIP
+argument_list|(
+literal|"Only tested on X11"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QLineEdit
 name|le
 decl_stmt|;
@@ -21674,10 +21674,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|QTBUG13520_textNotVisible
 name|void

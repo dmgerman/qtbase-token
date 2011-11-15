@@ -491,9 +491,6 @@ name|void
 name|taskQTBUG_10169_sizeHintForRow
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
 name|void
 name|mouseWheel_data
 parameter_list|()
@@ -502,8 +499,6 @@ name|void
 name|mouseWheel
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|addColumnWhileEditing
 parameter_list|()
@@ -21750,14 +21745,6 @@ block|}
 block|}
 block|}
 end_function
-begin_comment
-comment|// Since different Windows CE versions sport different taskbars, we skip this test.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
-end_ifndef
 begin_function
 DECL|function|mouseWheel_data
 name|void
@@ -21912,6 +21899,16 @@ operator|::
 name|mouseWheel
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WINCE
+name|QSKIP
+argument_list|(
+literal|"Since different Windows CE versions sport different taskbars, we skip this test"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH
 argument_list|(
 name|int
@@ -22188,10 +22185,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|addColumnWhileEditing
 name|void
