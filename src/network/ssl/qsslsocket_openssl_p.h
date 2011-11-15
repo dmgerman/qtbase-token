@@ -305,6 +305,16 @@ name|sessionCipher
 argument_list|()
 specifier|const
 block|;
+name|Q_AUTOTEST_EXPORT
+specifier|static
+name|long
+name|setupOpenSslOptions
+argument_list|(
+argument|QSsl::SslProtocol protocol
+argument_list|,
+argument|QSsl::SslOptions sslOptions
+argument_list|)
+block|;
 specifier|static
 name|QSslCipher
 name|QSslCipher_from_SSL_CIPHER
