@@ -89,11 +89,20 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|__GLIBC__
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|__UCLIBC__
+argument_list|)
+end_if
 begin_comment
 comment|/* Use glibc's memory allocation hooks */
 end_comment
@@ -692,6 +701,18 @@ DECL|variable|crtDebugRegistrator
 name|crtDebugRegistrator
 struct|;
 end_struct
+begin_else
+else|#
+directive|else
+end_else
+begin_function
+DECL|function|disableHooks
+specifier|static
+name|void
+name|disableHooks
+parameter_list|()
+block|{ }
+end_function
 begin_endif
 endif|#
 directive|endif
