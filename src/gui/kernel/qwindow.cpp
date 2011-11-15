@@ -110,6 +110,15 @@ operator|::
 name|primaryScreen
 argument_list|()
 expr_stmt|;
+comment|//if your applications aborts here, then chances are your creating a QWindow before the
+comment|//screen list is populated.
+name|Q_ASSERT
+argument_list|(
+name|d
+operator|->
+name|screen
+argument_list|)
+expr_stmt|;
 name|QGuiApplicationPrivate
 operator|::
 name|window_list
