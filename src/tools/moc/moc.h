@@ -914,16 +914,6 @@ operator|*
 name|out
 argument_list|)
 block|;
-name|QList
-operator|<
-name|QMetaObject
-operator|*
-operator|>
-name|generate
-argument_list|(
-argument|bool ignoreProperties
-argument_list|)
-block|;
 name|bool
 name|parseClassHead
 argument_list|(
