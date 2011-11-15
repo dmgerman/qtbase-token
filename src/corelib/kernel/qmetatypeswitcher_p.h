@@ -49,6 +49,7 @@ begin_comment
 comment|//
 end_comment
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QMetaTypeSwitcher
 block|{
@@ -249,6 +250,7 @@ directive|undef
 name|QT_METATYPE_SWICHER_CASE_POINTER
 end_undef
 begin_endif
+unit|QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif
