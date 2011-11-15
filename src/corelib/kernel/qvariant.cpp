@@ -146,7 +146,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_struct
+begin_namespace
+namespace|namespace
+block|{
 template|template
 parameter_list|<
 name|typename
@@ -166,16 +168,10 @@ literal|true
 decl_stmt|;
 block|}
 struct|;
-end_struct
-begin_comment
 comment|// Ignore these types, as incomplete
-end_comment
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_BOOTSTRAPPED
-end_ifdef
-begin_struct
 DECL|struct|TypeDefiniton
 DECL|member|IsAvailable
 template|template
@@ -195,17 +191,11 @@ literal|false
 decl_stmt|;
 block|}
 struct|;
-end_struct
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_NO_GEOM_VARIANT
-end_ifdef
-begin_struct
 DECL|struct|TypeDefiniton
 DECL|member|IsAvailable
 template|template
@@ -225,8 +215,6 @@ literal|false
 decl_stmt|;
 block|}
 struct|;
-end_struct
-begin_struct
 DECL|struct|TypeDefiniton
 DECL|member|IsAvailable
 template|template
@@ -246,8 +234,6 @@ literal|false
 decl_stmt|;
 block|}
 struct|;
-end_struct
-begin_struct
 DECL|struct|TypeDefiniton
 DECL|member|IsAvailable
 template|template
@@ -267,8 +253,6 @@ literal|false
 decl_stmt|;
 block|}
 struct|;
-end_struct
-begin_struct
 DECL|struct|TypeDefiniton
 DECL|member|IsAvailable
 template|template
@@ -288,8 +272,6 @@ literal|false
 decl_stmt|;
 block|}
 struct|;
-end_struct
-begin_struct
 DECL|struct|TypeDefiniton
 DECL|member|IsAvailable
 template|template
@@ -309,8 +291,6 @@ literal|false
 decl_stmt|;
 block|}
 struct|;
-end_struct
-begin_struct
 DECL|struct|TypeDefiniton
 DECL|member|IsAvailable
 template|template
@@ -330,8 +310,6 @@ literal|false
 decl_stmt|;
 block|}
 struct|;
-end_struct
-begin_struct
 DECL|struct|TypeDefiniton
 DECL|member|IsAvailable
 template|template
@@ -351,8 +329,6 @@ literal|false
 decl_stmt|;
 block|}
 struct|;
-end_struct
-begin_struct
 DECL|struct|TypeDefiniton
 DECL|member|IsAvailable
 template|template
@@ -372,12 +348,8 @@ literal|false
 decl_stmt|;
 block|}
 struct|;
-end_struct
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_struct
 DECL|struct|CoreTypesFilter
 struct|struct
 name|CoreTypesFilter
@@ -415,7 +387,11 @@ block|}
 struct|;
 block|}
 struct|;
-end_struct
+block|}
+end_namespace
+begin_comment
+comment|// namspace
+end_comment
 begin_function
 DECL|function|construct
 specifier|static
