@@ -142,7 +142,7 @@ name|int
 name|slotIdx
 decl_stmt|;
 DECL|member|metaTypes
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>
@@ -187,7 +187,7 @@ argument|QObject *sender
 argument_list|,
 argument|const QDBusMessage&msg
 argument_list|,
-argument|const QList<int>&types
+argument|const QVector<int>&types
 argument_list|,
 argument|int f =
 literal|0
@@ -263,7 +263,7 @@ comment|// just for refcounting
 name|QDBusMessage
 name|message
 block|;
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>

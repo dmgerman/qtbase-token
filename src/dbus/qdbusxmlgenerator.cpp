@@ -831,7 +831,7 @@ operator|.
 name|parameterNames
 argument_list|()
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>

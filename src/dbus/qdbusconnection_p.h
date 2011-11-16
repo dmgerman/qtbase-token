@@ -380,7 +380,7 @@ block|;
 name|int
 name|midx
 block|;
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>
@@ -1299,7 +1299,7 @@ operator|&
 name|msg
 argument_list|,
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>
@@ -1690,7 +1690,7 @@ name|QByteArray
 operator|&
 name|normalizedName
 argument_list|,
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>
@@ -1821,7 +1821,7 @@ name|int
 name|idx
 argument_list|,
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>
@@ -1921,7 +1921,7 @@ name|QMetaMethod
 operator|&
 name|mm
 argument_list|,
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>

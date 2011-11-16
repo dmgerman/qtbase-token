@@ -534,7 +534,7 @@ name|QMetaMethod
 modifier|&
 name|mm
 parameter_list|,
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>

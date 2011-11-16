@@ -1049,7 +1049,7 @@ name|parent
 argument_list|()
 expr_stmt|;
 comment|// break down the parameter list
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>

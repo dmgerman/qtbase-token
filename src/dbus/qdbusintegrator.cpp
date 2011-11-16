@@ -3407,7 +3407,7 @@ name|QString
 modifier|&
 name|signature_
 parameter_list|,
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -3923,7 +3923,7 @@ name|int
 name|idx
 parameter_list|,
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -4665,7 +4665,7 @@ modifier|&
 name|msg
 parameter_list|,
 specifier|const
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -6763,7 +6763,7 @@ name|QByteArray
 modifier|&
 name|normalizedName
 parameter_list|,
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>
