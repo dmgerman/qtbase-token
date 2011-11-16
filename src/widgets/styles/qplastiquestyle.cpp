@@ -30197,7 +30197,7 @@ name|fill
 argument_list|(
 name|Qt
 operator|::
-name|white
+name|transparent
 argument_list|)
 expr_stmt|;
 name|QRect
@@ -30225,20 +30225,6 @@ operator|&
 name|cache
 argument_list|)
 decl_stmt|;
-name|handlePainter
-operator|.
-name|fillRect
-argument_list|(
-name|pixmapRect
-argument_list|,
-name|option
-operator|->
-name|palette
-operator|.
-name|background
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// draw handle
 if|if
 condition|(
