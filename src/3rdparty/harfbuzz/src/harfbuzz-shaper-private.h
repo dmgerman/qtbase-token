@@ -453,6 +453,17 @@ function_decl|;
 end_function_decl
 begin_function_decl
 specifier|extern
+name|HB_Bool
+name|HB_ThaiShape
+parameter_list|(
+name|HB_ShaperItem
+modifier|*
+name|shaper_item
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+specifier|extern
 name|void
 name|HB_TibetanAttributes
 parameter_list|(
