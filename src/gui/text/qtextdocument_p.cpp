@@ -1053,6 +1053,9 @@ name|op
 parameter_list|)
 block|{
 comment|// ##### optimize when only appending to the fragment!
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 name|Q_ASSERT
 argument_list|(
 name|noBlockInString
@@ -1068,6 +1071,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|split
 argument_list|(
 name|pos
@@ -2155,6 +2160,9 @@ operator|==
 literal|0
 condition|)
 return|return;
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 name|Q_ASSERT
 argument_list|(
 name|noBlockInString
@@ -2163,6 +2171,8 @@ name|str
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|int
 name|strPos
 init|=
@@ -2306,6 +2316,9 @@ operator|==
 name|length
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 name|Q_ASSERT
 argument_list|(
 name|noBlockInString
@@ -2328,6 +2341,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|blocks
 operator|.
 name|setSize
@@ -3338,6 +3353,9 @@ argument_list|)
 condition|)
 block|{
 comment|//	    qDebug("remove_string from %d length %d", key, X->size_array[0]);
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
 name|Q_ASSERT
 argument_list|(
 name|noBlockInString
@@ -3360,6 +3378,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|w
 operator|=
 name|remove_string
