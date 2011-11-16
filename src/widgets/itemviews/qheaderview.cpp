@@ -13938,9 +13938,18 @@ name|start_section
 init|=
 literal|0
 decl_stmt|;
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_DEBUG
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|QT_FORCE_ASSERTS
+argument_list|)
 name|int
 name|initial_section_count
 init|=
@@ -14095,9 +14104,6 @@ argument_list|(
 name|spansToRemove
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_DEBUG
 name|Q_ASSERT
 argument_list|(
 name|initial_section_count
@@ -14106,8 +14112,6 @@ name|headerSectionCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 return|return;
 block|}
 elseif|else
@@ -14153,9 +14157,6 @@ operator|.
 name|resizeMode
 condition|)
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_DEBUG
 name|Q_ASSERT
 argument_list|(
 name|initial_section_count
@@ -14164,8 +14165,6 @@ name|headerSectionCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 return|return;
 block|}
 comment|// the new span is in the middle of the old span, so we have to split it
@@ -14271,9 +14270,18 @@ operator|+=
 name|first_span_size
 expr_stmt|;
 comment|// middle span (the new span)
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|QT_NO_DEBUG
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|QT_FORCE_ASSERTS
+argument_list|)
 name|int
 name|mid_span_count
 init|=
@@ -14342,9 +14350,6 @@ name|length
 operator|+=
 name|last_span_size
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_DEBUG
 name|Q_ASSERT
 argument_list|(
 name|span_count
@@ -14356,16 +14361,11 @@ operator|+
 name|last_span_count
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|removeSpans
 argument_list|(
 name|spansToRemove
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_DEBUG
 name|Q_ASSERT
 argument_list|(
 name|initial_section_count
@@ -14374,8 +14374,6 @@ name|headerSectionCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 return|return;
 block|}
 elseif|else
@@ -14503,9 +14501,6 @@ argument_list|(
 name|spansToRemove
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_DEBUG
 name|Q_ASSERT
 argument_list|(
 name|initial_section_count
@@ -14514,8 +14509,6 @@ name|headerSectionCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 return|return;
 block|}
 block|}
@@ -14635,9 +14628,6 @@ argument_list|(
 name|spansToRemove
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_DEBUG
 name|Q_ASSERT
 argument_list|(
 name|initial_section_count
@@ -14646,8 +14636,6 @@ name|headerSectionCount
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 return|return;
 block|}
 name|start_section
