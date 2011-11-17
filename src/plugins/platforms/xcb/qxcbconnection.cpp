@@ -633,11 +633,14 @@ expr_stmt|;
 endif|#
 directive|endif
 name|m_wmSupport
-operator|=
+operator|.
+name|reset
+argument_list|(
 operator|new
 name|QXcbWMSupport
 argument_list|(
 name|this
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|m_keyboard
