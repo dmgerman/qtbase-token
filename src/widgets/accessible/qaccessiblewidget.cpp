@@ -3944,7 +3944,7 @@ parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|actionName
+comment|/* actionName */
 parameter_list|)
 specifier|const
 block|{

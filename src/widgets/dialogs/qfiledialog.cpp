@@ -3306,6 +3306,10 @@ name|files
 operator|<<
 name|editText
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|q
+argument_list|)
 endif|#
 directive|endif
 block|}

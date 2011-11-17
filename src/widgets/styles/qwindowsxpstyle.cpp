@@ -15750,13 +15750,6 @@ operator|->
 name|save
 argument_list|()
 expr_stmt|;
-name|QRect
-name|r
-init|=
-name|option
-operator|->
-name|rect
-decl_stmt|;
 name|p
 operator|->
 name|setPen

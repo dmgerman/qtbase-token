@@ -347,6 +347,10 @@ modifier|*
 name|widget
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|widget
+argument_list|)
 comment|// nothing to be done here, as we use a weak pointer in the input panel
 block|}
 end_function

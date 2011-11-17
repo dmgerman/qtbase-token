@@ -2941,9 +2941,12 @@ name|LeftButton
 init|;
 name|check
 operator|<=
+name|int
+argument_list|(
 name|Qt
 operator|::
 name|MaxMouseButton
+argument_list|)
 condition|;
 name|check
 operator|=

@@ -555,7 +555,7 @@ comment|// 4 high-order bits remain available for future use (0x08000000 through
 name|MouseButtonMask
 init|=
 literal|0xffffffff
-block|,     }
+block|}
 enum|;
 end_enum
 begin_expr_stmt

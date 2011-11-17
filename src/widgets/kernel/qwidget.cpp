@@ -1433,11 +1433,6 @@ operator|::
 name|inputContext
 parameter_list|()
 block|{
-name|Q_D
-argument_list|(
-name|QWidget
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!

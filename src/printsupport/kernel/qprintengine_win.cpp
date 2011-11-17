@@ -9554,14 +9554,6 @@ modifier|&
 name|topLeft
 parameter_list|)
 block|{
-name|QFontEngine
-modifier|*
-name|fe
-init|=
-name|ti
-operator|.
-name|fontEngine
-decl_stmt|;
 name|QPointF
 name|baseline_pos
 init|=

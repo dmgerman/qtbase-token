@@ -1851,9 +1851,6 @@ operator|->
 name|ptd
 condition|)
 block|{
-name|LPVOID
-name|pout
-decl_stmt|;
 name|LPMALLOC
 name|pmalloc
 decl_stmt|;
@@ -1872,11 +1869,6 @@ condition|)
 return|return
 literal|false
 return|;
-name|pout
-operator|=
-operator|(
-name|LPVOID
-operator|)
 name|pmalloc
 operator|->
 name|Alloc
