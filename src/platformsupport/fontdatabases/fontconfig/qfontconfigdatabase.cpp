@@ -102,6 +102,7 @@ name|KoreanCsbBit
 value|21
 end_define
 begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|requiresOpenType
 specifier|static
 specifier|inline
@@ -3651,4 +3652,7 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit
