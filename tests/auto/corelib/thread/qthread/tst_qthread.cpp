@@ -6507,6 +6507,17 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_function_decl
+name|QT_BEGIN_NAMESPACE
+name|Q_CORE_EXPORT
+name|uint
+name|qGlobalPostedEventsCount
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_class
 DECL|class|DummyEventDispatcher
 class|class
@@ -6559,12 +6570,6 @@ name|bool
 name|hasPendingEvents
 parameter_list|()
 block|{
-specifier|extern
-name|uint
-name|qGlobalPostedEventsCount
-argument_list|()
-decl_stmt|;
-comment|// from qapplication.cpp
 return|return
 name|qGlobalPostedEventsCount
 argument_list|()

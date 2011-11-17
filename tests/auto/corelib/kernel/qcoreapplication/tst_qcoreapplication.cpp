@@ -3304,12 +3304,6 @@ name|bool
 name|hasPendingEvents
 parameter_list|()
 block|{
-specifier|extern
-name|uint
-name|qGlobalPostedEventsCount
-argument_list|()
-decl_stmt|;
-comment|// from qapplication.cpp
 return|return
 name|qGlobalPostedEventsCount
 argument_list|()
