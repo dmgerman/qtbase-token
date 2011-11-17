@@ -1468,7 +1468,7 @@ operator|==
 name|DBUS_TYPE_INVALID
 condition|)
 return|return
-literal|false
+literal|0
 return|;
 comment|// is it one of the one-letter types?
 if|if

@@ -2932,7 +2932,7 @@ name|path
 argument_list|)
 condition|)
 return|return
-literal|false
+literal|0
 return|;
 name|QStringList
 name|pathComponents
