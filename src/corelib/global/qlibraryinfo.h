@@ -101,6 +101,8 @@ block|,
 name|ExamplesPath
 block|,
 name|ImportsPath
+block|,
+name|TestsPath
 block|}
 enum|;
 end_enum

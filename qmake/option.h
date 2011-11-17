@@ -879,6 +879,8 @@ block|,
 name|ExamplesPath
 block|,
 name|ImportsPath
+block|,
+name|TestsPath
 block|}
 enum|;
 specifier|static
