@@ -548,8 +548,6 @@ operator|::
 name|readBlock
 parameter_list|()
 block|{
-comment|//    QTest::ignoreMessage(QtWarningMsg, "QIODevice::read: File not open");
-comment|//    QTest::ignoreMessage(QtWarningMsg, "QIODevice::read: Read operation not permitted");
 specifier|const
 name|int
 name|arraySize
