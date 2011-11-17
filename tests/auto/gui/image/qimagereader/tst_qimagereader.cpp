@@ -5350,14 +5350,11 @@ operator|+
 name|fileName
 argument_list|)
 decl_stmt|;
-name|QSize
-name|size
-init|=
 name|reader
 operator|.
 name|size
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|formatB
 operator|=
 name|reader

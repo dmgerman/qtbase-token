@@ -16009,10 +16009,6 @@ name|cache
 parameter_list|()
 block|{
 block|{
-name|CacheFoo
-modifier|*
-name|cf
-decl_stmt|;
 name|QCache
 argument_list|<
 name|int
@@ -16041,8 +16037,6 @@ name|i
 operator|++
 control|)
 block|{
-name|cf
-operator|=
 name|cache
 operator|.
 name|object
@@ -20514,6 +20508,10 @@ operator|.
 name|constEnd
 argument_list|()
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|constIt
+argument_list|)
 endif|#
 directive|endif
 name|container
@@ -20610,6 +20608,10 @@ operator|.
 name|end
 argument_list|()
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|it
+argument_list|)
 endif|#
 directive|endif
 comment|// QSet lacks count(T).

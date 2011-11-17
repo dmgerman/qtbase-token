@@ -2729,6 +2729,9 @@ operator|*
 literal|9
 operator|+
 name|lockCount
+operator|.
+name|load
+argument_list|()
 operator|*
 literal|13
 operator|)
@@ -2751,6 +2754,9 @@ name|sentinel
 index|[
 name|nb
 index|]
+operator|.
+name|load
+argument_list|()
 condition|)
 name|errorCount
 operator|.
@@ -2800,6 +2806,9 @@ name|sentinel
 index|[
 name|nb
 index|]
+operator|.
+name|load
+argument_list|()
 condition|)
 name|errorCount
 operator|.
@@ -2823,6 +2832,9 @@ operator|*
 literal|5
 operator|+
 name|lockCount
+operator|.
+name|load
+argument_list|()
 operator|*
 literal|3
 operator|)
@@ -2846,6 +2858,9 @@ name|sentinel
 index|[
 name|nb
 index|]
+operator|.
+name|load
+argument_list|()
 condition|)
 name|errorCount
 operator|.
@@ -2895,6 +2910,9 @@ name|sentinel
 index|[
 name|nb
 index|]
+operator|.
+name|load
+argument_list|()
 condition|)
 name|errorCount
 operator|.
@@ -2927,6 +2945,9 @@ operator|*
 literal|47
 operator|+
 name|lockCount
+operator|.
+name|load
+argument_list|()
 operator|*
 literal|31
 operator|)
@@ -2952,6 +2973,9 @@ name|sentinel
 index|[
 name|nb
 index|]
+operator|.
+name|load
+argument_list|()
 condition|)
 name|errorCount
 operator|.
@@ -3001,6 +3025,9 @@ name|sentinel
 index|[
 name|nb
 index|]
+operator|.
+name|load
+argument_list|()
 condition|)
 name|errorCount
 operator|.

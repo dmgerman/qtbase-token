@@ -2905,11 +2905,6 @@ argument_list|(
 name|input
 argument_list|)
 expr_stmt|;
-name|bool
-name|inputStartsWithRootPath
-init|=
-literal|false
-decl_stmt|;
 if|if
 condition|(
 name|input
@@ -2931,10 +2926,6 @@ name|input
 operator|.
 name|clear
 argument_list|()
-expr_stmt|;
-name|inputStartsWithRootPath
-operator|=
-literal|true
 expr_stmt|;
 block|}
 name|QFileInfo

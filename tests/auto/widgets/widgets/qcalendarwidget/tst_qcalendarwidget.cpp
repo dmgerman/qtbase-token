@@ -857,14 +857,6 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
-name|QRect
-name|rect
-init|=
-name|object
-operator|.
-name|geometry
-argument_list|()
-decl_stmt|;
 name|QDate
 name|selectedDate
 argument_list|(

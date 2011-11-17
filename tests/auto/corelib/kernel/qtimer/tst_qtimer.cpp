@@ -1865,14 +1865,6 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|QTime
-name|now
-init|=
-name|QTime
-operator|::
-name|currentTime
-argument_list|()
-decl_stmt|;
 name|int
 name|elapsed
 init|=

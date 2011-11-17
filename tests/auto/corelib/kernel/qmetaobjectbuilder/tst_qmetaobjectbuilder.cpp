@@ -7186,18 +7186,15 @@ block|{
 name|QMetaObjectBuilder
 name|builder
 decl_stmt|;
-name|QMetaMethodBuilder
-name|method1
-init|=
 name|builder
 operator|.
 name|addSignal
 argument_list|(
 literal|"foo(const QString&, int)"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|QMetaMethodBuilder
-name|method2
+name|method
 init|=
 name|builder
 operator|.
@@ -7223,7 +7220,7 @@ name|prop
 operator|.
 name|setNotifySignal
 argument_list|(
-name|method2
+name|method
 argument_list|)
 expr_stmt|;
 name|QVERIFY

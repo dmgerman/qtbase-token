@@ -5503,17 +5503,6 @@ argument_list|)
 decl_stmt|;
 specifier|const
 name|QSize
-name|defaultIconSize
-init|=
-name|QSize
-argument_list|(
-name|metric
-argument_list|,
-name|metric
-argument_list|)
-decl_stmt|;
-specifier|const
-name|QSize
 name|smallIconSize
 init|=
 name|QSize

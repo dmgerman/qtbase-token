@@ -600,8 +600,6 @@ expr_stmt|;
 name|QStringList
 name|res3
 decl_stmt|;
-name|res3
-expr_stmt|;
 name|QTest
 operator|::
 name|newRow

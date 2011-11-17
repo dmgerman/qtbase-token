@@ -10162,6 +10162,11 @@ operator|::
 name|SequentialReduce
 operator|)
 decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|opt
+argument_list|)
+expr_stmt|;
 comment|// functor-functor
 block|{
 name|int

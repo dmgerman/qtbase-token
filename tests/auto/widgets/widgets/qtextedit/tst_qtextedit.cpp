@@ -12212,26 +12212,6 @@ argument_list|,
 literal|"fullWidthSelection/nowrap_long.png"
 argument_list|)
 expr_stmt|;
-name|QTextLine
-name|line
-init|=
-name|widget
-operator|.
-name|document
-argument_list|()
-operator|->
-name|begin
-argument_list|()
-operator|.
-name|layout
-argument_list|()
-operator|->
-name|lineAt
-argument_list|(
-literal|0
-argument_list|)
-decl_stmt|;
-comment|// qDebug()<< line.width();
 block|}
 end_function
 begin_function

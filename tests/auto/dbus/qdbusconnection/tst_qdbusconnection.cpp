@@ -6096,7 +6096,7 @@ parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|path
+comment|/* path */
 parameter_list|)
 specifier|const
 block|{

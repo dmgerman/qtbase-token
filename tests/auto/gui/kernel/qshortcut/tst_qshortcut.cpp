@@ -7875,10 +7875,6 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
-name|QShortcut
-modifier|*
-name|cut1
-init|=
 name|setupShortcut
 argument_list|(
 operator|&
@@ -7890,11 +7886,7 @@ name|TriggerSlot1
 argument_list|,
 literal|"M"
 argument_list|)
-decl_stmt|;
-name|QShortcut
-modifier|*
-name|cut2
-init|=
+expr_stmt|;
 name|setupShortcut
 argument_list|(
 operator|&
@@ -7906,7 +7898,7 @@ name|TriggerSlot2
 argument_list|,
 literal|"M"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|currentResult
 operator|=
 name|NoResult
@@ -7991,14 +7983,6 @@ expr_stmt|;
 name|clearAllShortcuts
 argument_list|()
 expr_stmt|;
-name|cut1
-operator|=
-literal|0
-expr_stmt|;
-name|cut2
-operator|=
-literal|0
-expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -8079,10 +8063,6 @@ name|Key_M
 argument_list|)
 decl_stmt|;
 comment|// non-Unicode
-name|QShortcut
-modifier|*
-name|cut1
-init|=
 name|setupShortcut
 argument_list|(
 operator|&
@@ -8094,11 +8074,7 @@ name|TriggerSlot1
 argument_list|,
 name|ks1
 argument_list|)
-decl_stmt|;
-name|QShortcut
-modifier|*
-name|cut2
-init|=
+expr_stmt|;
 name|setupShortcut
 argument_list|(
 operator|&
@@ -8110,7 +8086,7 @@ name|TriggerSlot2
 argument_list|,
 name|ks2
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|currentResult
 operator|=
 name|NoResult
@@ -8156,14 +8132,6 @@ argument_list|)
 expr_stmt|;
 name|clearAllShortcuts
 argument_list|()
-expr_stmt|;
-name|cut1
-operator|=
-literal|0
-expr_stmt|;
-name|cut2
-operator|=
-literal|0
 expr_stmt|;
 block|}
 end_function

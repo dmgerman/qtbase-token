@@ -415,9 +415,6 @@ operator|::
 name|TcpSocket
 argument_list|)
 expr_stmt|;
-name|bool
-name|b
-init|=
 name|readEnd1
 operator|.
 name|connectToHost
@@ -432,7 +429,7 @@ operator|.
 name|serverPort
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|readEnd1
@@ -441,8 +438,6 @@ name|waitForWrite
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//    while (!b&& readEnd1.state() != QAbstractSocket::ConnectedState)
-comment|//        b = readEnd1.connectToHost(server.serverAddress(), server.serverPort());
 name|QVERIFY
 argument_list|(
 name|readEnd1
@@ -491,8 +486,6 @@ operator|::
 name|TcpSocket
 argument_list|)
 expr_stmt|;
-name|b
-operator|=
 name|readEnd2
 operator|.
 name|connectToHost
@@ -516,8 +509,6 @@ name|waitForWrite
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//    while (!b)
-comment|//        b = readEnd2.connectToHost(server.serverAddress(), server.serverPort());
 name|QVERIFY
 argument_list|(
 name|readEnd2

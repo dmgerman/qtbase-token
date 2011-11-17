@@ -189,12 +189,6 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|Local
-argument_list|<
-name|String
-argument_list|>
-name|str
-init|=
 name|String
 operator|::
 name|NewExternal
@@ -202,7 +196,7 @@ argument_list|(
 operator|new
 name|MyStringResource
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|Local
 argument_list|<
 name|FunctionTemplate

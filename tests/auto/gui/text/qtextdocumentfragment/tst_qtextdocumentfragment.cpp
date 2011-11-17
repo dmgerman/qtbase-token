@@ -20347,11 +20347,6 @@ operator|.
 name|block
 argument_list|()
 expr_stmt|;
-name|QTextBlock
-name|hr
-init|=
-name|block
-decl_stmt|;
 name|QVERIFY
 argument_list|(
 name|qMax

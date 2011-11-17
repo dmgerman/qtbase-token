@@ -2848,6 +2848,11 @@ name|QMessageBox
 operator|::
 name|FlagMask
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|button
+argument_list|)
+expr_stmt|;
 specifier|const
 name|QString
 name|text

@@ -194,14 +194,6 @@ name|int
 argument_list|>
 name|store
 decl_stmt|;
-name|ResultIteratorBase
-name|it
-init|=
-name|store
-operator|.
-name|begin
-argument_list|()
-decl_stmt|;
 name|QVERIFY
 argument_list|(
 name|store

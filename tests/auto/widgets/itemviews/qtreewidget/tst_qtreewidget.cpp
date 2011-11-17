@@ -23863,17 +23863,6 @@ name|tree
 argument_list|)
 decl_stmt|;
 name|QRect
-name|itemRect
-init|=
-name|tree
-operator|.
-name|visualItemRect
-argument_list|(
-operator|&
-name|item
-argument_list|)
-decl_stmt|;
-name|QRect
 name|rectCol0
 init|=
 name|tree

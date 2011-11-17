@@ -37811,11 +37811,6 @@ operator|-
 name|INFINITY
 argument_list|)
 expr_stmt|;
-name|long
-name|l
-decl_stmt|;
-name|l
-operator|=
 name|QString
 argument_list|(
 literal|"INF"
@@ -37833,8 +37828,6 @@ operator|!
 name|ok
 argument_list|)
 expr_stmt|;
-name|l
-operator|=
 name|QString
 argument_list|(
 literal|"INF"
@@ -37853,8 +37846,6 @@ argument_list|(
 name|ok
 argument_list|)
 expr_stmt|;
-name|l
-operator|=
 name|QString
 argument_list|(
 literal|"INF0"
@@ -37873,8 +37864,6 @@ argument_list|(
 name|ok
 argument_list|)
 expr_stmt|;
-name|l
-operator|=
 name|QString
 argument_list|(
 literal|"0INF0"
