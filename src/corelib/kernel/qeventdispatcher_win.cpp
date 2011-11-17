@@ -2367,6 +2367,23 @@ operator|&
 name|wc
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WINCE
+name|HWND
+name|parent
+init|=
+literal|0
+decl_stmt|;
+else|#
+directive|else
+name|HWND
+name|parent
+init|=
+name|HWND_MESSAGE
+decl_stmt|;
+endif|#
+directive|endif
 name|HWND
 name|wnd
 init|=
@@ -2394,7 +2411,7 @@ argument_list|,
 literal|0
 argument_list|,
 comment|// geometry
-literal|0
+name|parent
 argument_list|,
 comment|// parent
 literal|0
