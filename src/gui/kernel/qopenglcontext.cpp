@@ -2251,6 +2251,11 @@ endif|#
 directive|endif
 name|value
 operator|->
+name|invalidateResource
+argument_list|()
+expr_stmt|;
+name|value
+operator|->
 name|free
 argument_list|()
 expr_stmt|;
