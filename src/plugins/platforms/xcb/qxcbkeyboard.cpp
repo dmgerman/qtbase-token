@@ -1361,10 +1361,9 @@ directive|define
 name|QTOPIAXK_Flip
 value|0x11000610
 end_define
-begin_comment
-comment|// keyboard mapping table
-end_comment
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
+comment|// keyboard mapping table
 DECL|variable|KeyTbl
 specifier|static
 specifier|const
@@ -7046,4 +7045,7 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

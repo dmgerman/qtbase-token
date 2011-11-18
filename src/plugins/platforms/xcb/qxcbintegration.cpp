@@ -158,6 +158,9 @@ include|#
 directive|include
 file|<QtGui/QPlatformAccessibility>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_constructor
 DECL|function|QXcbIntegration
 name|QXcbIntegration
@@ -896,4 +899,7 @@ name|m_accessibility
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

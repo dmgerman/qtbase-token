@@ -37,6 +37,9 @@ include|#
 directive|include
 file|<X11/Xatom.h>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_comment
 comment|// Define it here to work around XLib defining Bool and stuff.
 end_comment
@@ -1509,6 +1512,9 @@ block|}
 block|}
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

@@ -18,7 +18,13 @@ include|#
 directive|include
 file|<QtGui/QPlatformOpenGLContext>
 end_include
+begin_struct_decl
+struct_decl|struct
+name|xcb_dri2_dri2_buffer_t
+struct_decl|;
+end_struct_decl
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QXcbWindow
 name|class
 name|QXcbWindow
@@ -30,11 +36,6 @@ name|class
 name|QDri2ContextPrivate
 decl_stmt|;
 end_decl_stmt
-begin_struct_decl
-struct_decl|struct
-name|xcb_dri2_dri2_buffer_t
-struct_decl|;
-end_struct_decl
 begin_decl_stmt
 name|class
 name|QDri2Context
@@ -124,6 +125,9 @@ argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

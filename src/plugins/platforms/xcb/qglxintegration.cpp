@@ -74,6 +74,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_constructor
 DECL|function|QGLXContext
 name|QGLXContext
@@ -547,4 +550,7 @@ name|m_format
 return|;
 block|}
 end_expr_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

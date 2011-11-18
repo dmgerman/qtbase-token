@@ -67,6 +67,9 @@ include|#
 directive|include
 file|<qscreen.h>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_class
 DECL|class|QXcbShmImage
 class|class
@@ -1477,4 +1480,7 @@ literal|true
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit
