@@ -3628,7 +3628,7 @@ argument_list|<
 name|QString
 argument_list|>
 argument_list|(
-literal|"relsolvedUrl"
+literal|"resolvedUrl"
 argument_list|)
 expr_stmt|;
 comment|// 5.4.1 Normal Examples (http://www.ietf.org/rfc/rfc3986.txt)
@@ -5086,7 +5086,7 @@ name|QFETCH
 argument_list|(
 name|QString
 argument_list|,
-name|relsolvedUrl
+name|resolvedUrl
 argument_list|)
 expr_stmt|;
 name|QUrl
@@ -5107,7 +5107,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|relsolvedUrl
+name|resolvedUrl
 argument_list|)
 expr_stmt|;
 block|}
