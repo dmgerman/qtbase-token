@@ -3148,7 +3148,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|/*     lib1.setLoadHints(QLibrary::ResolveAllSymbolsHint);     lib2.setLoadHints(QLibrary::ExportExternalSymbolHint); */
 block|}
 end_function
 begin_macro
