@@ -4747,6 +4747,9 @@ name|abort
 argument_list|()
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_SSL2
 block|{
 comment|// Fluke allows SSLV2.
 name|socket
@@ -4874,6 +4877,8 @@ name|abort
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|{
 comment|// Fluke allows SSLV3, so it allows AnyProtocol.
 name|socket
@@ -5496,6 +5501,9 @@ argument_list|(
 literal|"works"
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_SSL2
 name|QTest
 operator|::
 name|newRow
@@ -5514,6 +5522,8 @@ operator|<<
 literal|false
 expr_stmt|;
 comment|// no idea why it does not work, but we don't care about SSL 2
+endif|#
+directive|endif
 name|QTest
 operator|::
 name|newRow
@@ -5599,6 +5609,9 @@ name|SecureProtocols
 operator|<<
 literal|true
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_SSL2
 name|QTest
 operator|::
 name|newRow
@@ -5685,6 +5698,11 @@ operator|<<
 literal|false
 expr_stmt|;
 comment|// no idea why it does not work, but we don't care about SSL 2
+endif|#
+directive|endif
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_SSL2
 name|QTest
 operator|::
 name|newRow
@@ -5702,6 +5720,8 @@ name|SslV2
 operator|<<
 literal|false
 expr_stmt|;
+endif|#
+directive|endif
 name|QTest
 operator|::
 name|newRow
@@ -5772,6 +5792,9 @@ literal|false
 expr_stmt|;
 comment|// we wont set a SNI header here because we connect to a
 comment|// numerical IP, so OpenSSL will send a SSL 2 handshake
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_SSL2
 name|QTest
 operator|::
 name|newRow
@@ -5789,6 +5812,8 @@ name|SslV2
 operator|<<
 literal|false
 expr_stmt|;
+endif|#
+directive|endif
 name|QTest
 operator|::
 name|newRow
@@ -5859,6 +5884,9 @@ literal|false
 expr_stmt|;
 comment|// we wont set a SNI header here because we connect to a
 comment|// numerical IP, so OpenSSL will send a SSL 2 handshake
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_SSL2
 name|QTest
 operator|::
 name|newRow
@@ -5876,6 +5904,8 @@ name|SslV2
 operator|<<
 literal|false
 expr_stmt|;
+endif|#
+directive|endif
 name|QTest
 operator|::
 name|newRow
@@ -5944,6 +5974,9 @@ name|AnyProtocol
 operator|<<
 literal|true
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_SSL2
 name|QTest
 operator|::
 name|newRow
@@ -5961,6 +5994,8 @@ name|SslV2
 operator|<<
 literal|false
 expr_stmt|;
+endif|#
+directive|endif
 name|QTest
 operator|::
 name|newRow
@@ -6029,6 +6064,9 @@ name|AnyProtocol
 operator|<<
 literal|true
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_SSL2
 name|QTest
 operator|::
 name|newRow
@@ -6047,6 +6085,8 @@ operator|<<
 literal|false
 expr_stmt|;
 comment|// no idea why it does not work, but we don't care about SSL 2
+endif|#
+directive|endif
 name|QTest
 operator|::
 name|newRow
