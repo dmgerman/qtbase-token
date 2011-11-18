@@ -800,37 +800,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_WIN
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_WINCE
-argument_list|)
-if|if
-condition|(
-name|QSysInfo
-operator|::
-name|WindowsVersion
-operator|<
-name|QSysInfo
-operator|::
-name|WV_XP
-condition|)
-name|QEXPECT_FAIL
-argument_list|(
-literal|"non-zero timer"
-argument_list|,
-literal|"Multimedia timers are not available on Windows 2000"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|Q_OS_WINCE
 argument_list|)
 name|QEXPECT_FAIL
