@@ -257,6 +257,36 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!    Factory function for QPlatformSharedGraphicsCache. This function will return 0 if the platform    integration does not support any shared graphics cache mechanism for the given \a cacheId. */
+end_comment
+begin_function
+DECL|function|createPlatformSharedGraphicsCache
+name|QPlatformSharedGraphicsCache
+modifier|*
+name|QPlatformIntegration
+operator|::
+name|createPlatformSharedGraphicsCache
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|cacheId
+parameter_list|)
+specifier|const
+block|{
+name|qWarning
+argument_list|(
+literal|"This plugin does not support createPlatformSharedGraphicsBuffer for cacheId: %s!"
+argument_list|,
+name|cacheId
+argument_list|)
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!   Returns the platforms input context.    The default implementation returns 0, implying no input method support. */
 end_comment
 begin_function

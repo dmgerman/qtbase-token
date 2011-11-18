@@ -144,6 +144,22 @@ name|accessibility
 argument_list|()
 specifier|const
 block|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_USE_XCB_SHARED_GRAPHICS_CACHE
+argument_list|)
+name|QPlatformSharedGraphicsCache
+operator|*
+name|createPlatformSharedGraphicsCache
+argument_list|(
+argument|const char *cacheId
+argument_list|)
+specifier|const
+block|;
+endif|#
+directive|endif
 name|private
 operator|:
 name|QList
@@ -180,7 +196,22 @@ operator|<
 name|QPlatformAccessibility
 operator|>
 name|m_accessibility
-block|; }
+block|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_USE_XCB_SHARED_GRAPHICS_CACHE
+argument_list|)
+name|QScopedPointer
+operator|<
+name|QPlatformSharedGraphicsCache
+operator|>
+name|m_sharedGraphicsCache
+block|;
+endif|#
+directive|endif
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro
