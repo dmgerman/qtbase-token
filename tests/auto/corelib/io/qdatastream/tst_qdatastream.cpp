@@ -8094,8 +8094,6 @@ name|hasAlphaChannel
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//     ################ Bug : ref and orig has ff in alpha; readback has 0
-comment|//     ### (Was like this in 1.44 as well)
 block|}
 end_function
 begin_comment
