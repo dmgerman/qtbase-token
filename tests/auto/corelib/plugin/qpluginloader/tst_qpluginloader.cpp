@@ -1365,7 +1365,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QVERIFY2
 argument_list|(
 name|lib1
 operator|.
@@ -1375,6 +1375,14 @@ operator|.
 name|contains
 argument_list|(
 literal|"not a valid Qt plugin"
+argument_list|)
+argument_list|,
+name|qPrintable
+argument_list|(
+name|lib1
+operator|.
+name|errorString
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1395,7 +1403,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QVERIFY2
 argument_list|(
 name|lib2
 operator|.
@@ -1405,6 +1413,14 @@ operator|.
 name|contains
 argument_list|(
 literal|"not a valid Qt plugin"
+argument_list|)
+argument_list|,
+name|qPrintable
+argument_list|(
+name|lib2
+operator|.
+name|errorString
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1425,7 +1441,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QVERIFY2
 argument_list|(
 name|lib3
 operator|.
@@ -1435,6 +1451,14 @@ operator|.
 name|contains
 argument_list|(
 literal|"not a valid Qt plugin"
+argument_list|)
+argument_list|,
+name|qPrintable
+argument_list|(
+name|lib3
+operator|.
+name|errorString
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1468,7 +1492,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QVERIFY2
 argument_list|(
 name|libW
 operator|.
@@ -1478,6 +1502,14 @@ operator|.
 name|contains
 argument_list|(
 literal|"architecture"
+argument_list|)
+argument_list|,
+name|qPrintable
+argument_list|(
+name|libW
+operator|.
+name|errorString
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
