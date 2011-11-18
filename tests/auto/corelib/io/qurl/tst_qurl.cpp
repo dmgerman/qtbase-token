@@ -5722,7 +5722,6 @@ argument_list|(
 literal|"http://andreas:hemmelig@www.vg.no/?my=query&your=query#yougotfragged"
 argument_list|)
 expr_stmt|;
-comment|/*     QTest::newRow("data19")<< QString::fromLatin1("http://andreas:hemmelig@www.vg.no/a/../?my=query&your=query#yougotfragged")<< uint(QUrl::None)<< QString::fromLatin1("http://andreas:hemmelig@www.vg.no/?my=query&your=query#yougotfragged");     */
 name|QTest
 operator|::
 name|newRow
@@ -23015,6 +23014,34 @@ operator|::
 name|fromEncoded
 argument_list|(
 literal|"http://www.foo.com:8080/newfile.html"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"Resolve with relative path"
+argument_list|)
+operator|<<
+name|QUrl
+operator|::
+name|fromEncoded
+argument_list|(
+literal|"http://example.com/"
+argument_list|)
+operator|<<
+name|QUrl
+operator|::
+name|fromEncoded
+argument_list|(
+literal|"http://andreas:hemmelig@www.vg.no/a/../?my=query&your=query#yougotfragged"
+argument_list|)
+operator|<<
+name|QUrl
+operator|::
+name|fromEncoded
+argument_list|(
+literal|"http://andreas:hemmelig@www.vg.no/?my=query&your=query#yougotfragged"
 argument_list|)
 expr_stmt|;
 block|}
