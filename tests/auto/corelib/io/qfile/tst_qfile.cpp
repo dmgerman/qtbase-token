@@ -5973,7 +5973,6 @@ argument_list|)
 operator|<<
 literal|true
 expr_stmt|;
-comment|//    QTest::newRow("data2")<< "tst_qfile.cpp"<< int(QFile::WriteUser)<< false;
 name|QTest
 operator|::
 name|newRow
