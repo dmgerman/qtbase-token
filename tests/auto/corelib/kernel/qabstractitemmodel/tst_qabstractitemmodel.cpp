@@ -73,7 +73,7 @@ name|hasChildren
 parameter_list|()
 function_decl|;
 name|void
-name|_data
+name|data
 parameter_list|()
 function_decl|;
 name|void
@@ -1533,11 +1533,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|_data
+DECL|function|data
 name|void
 name|tst_QAbstractItemModel
 operator|::
-name|_data
+name|data
 parameter_list|()
 block|{
 name|QtTestModel
