@@ -8471,7 +8471,6 @@ operator|::
 name|stream_QPen
 parameter_list|()
 block|{
-comment|/*     edba:     data6 fails because the width is clipped to a byte (max 255) in the datastream.     This limitation is not documented.     */
 name|STREAM_IMPL
 argument_list|(
 name|QPen
