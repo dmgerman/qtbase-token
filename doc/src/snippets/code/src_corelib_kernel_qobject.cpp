@@ -1788,6 +1788,40 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|//! [46]
+comment|//! [47]
+name|disconnect
+argument_list|(
+argument|myObject
+argument_list|,
+argument|&MyObject::mySignal()
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+empty_stmt|;
+comment|//! [47]
+comment|//! [48]
+name|QObject
+operator|::
+name|disconnect
+argument_list|(
+name|lineEdit
+argument_list|,
+operator|&
+name|QLineEdit
+operator|::
+name|textChanged
+argument_list|,
+name|label
+argument_list|,
+operator|&
+name|QLabel
+operator|::
+name|setText
+argument_list|)
+expr_stmt|;
+comment|//! [48]
 comment|//! [meta data]
 comment|//: This is a comment for the translator.
 comment|//= qtn_foo_bar
