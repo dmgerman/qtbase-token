@@ -2866,7 +2866,7 @@ name|justRegister
 condition|)
 name|menu
 operator|->
-name|hide
+name|close
 argument_list|()
 expr_stmt|;
 block|}
