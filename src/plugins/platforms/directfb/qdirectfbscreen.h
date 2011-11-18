@@ -87,6 +87,13 @@ return|return
 name|m_physicalSize
 return|;
 block|}
+comment|// DirectFb helpers
+name|IDirectFBDisplayLayer
+operator|*
+name|dfbLayer
+argument_list|()
+specifier|const
+block|;
 name|public
 operator|:
 name|QRect

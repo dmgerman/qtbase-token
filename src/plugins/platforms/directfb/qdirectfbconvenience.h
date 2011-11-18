@@ -39,6 +39,12 @@ directive|include
 file|<directfb.h>
 end_include
 begin_decl_stmt
+DECL|variable|QDirectFbScreen
+name|class
+name|QDirectFbScreen
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|DFBInputDeviceKeySymbol
 name|class
 name|QDirectFbKeyMap
@@ -292,8 +298,22 @@ name|d
 return|;
 block|}
 end_expr_stmt
-begin_endif
+begin_comment
 unit|};
+comment|// Helper conversions from internal to DFB types
+end_comment
+begin_function_decl
+name|QDirectFbScreen
+modifier|*
+name|toDfbScreen
+parameter_list|(
+name|QWindow
+modifier|*
+name|window
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_endif
 endif|#
 directive|endif
 end_endif
