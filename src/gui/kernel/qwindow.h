@@ -107,12 +107,6 @@ name|QKeyEvent
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QInputMethodEvent
-name|class
-name|QInputMethodEvent
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QMouseEvent
 name|class
 name|QMouseEvent
@@ -982,14 +976,6 @@ name|void
 name|keyReleaseEvent
 parameter_list|(
 name|QKeyEvent
-modifier|*
-parameter_list|)
-function_decl|;
-name|virtual
-name|void
-name|inputMethodEvent
-parameter_list|(
-name|QInputMethodEvent
 modifier|*
 parameter_list|)
 function_decl|;

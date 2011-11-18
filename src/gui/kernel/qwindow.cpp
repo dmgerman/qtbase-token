@@ -3244,18 +3244,6 @@ parameter_list|)
 block|{ }
 end_function
 begin_function
-DECL|function|inputMethodEvent
-name|void
-name|QWindow
-operator|::
-name|inputMethodEvent
-parameter_list|(
-name|QInputMethodEvent
-modifier|*
-parameter_list|)
-block|{ }
-end_function
-begin_function
 DECL|function|mousePressEvent
 name|void
 name|QWindow
