@@ -12387,16 +12387,6 @@ operator|<<
 literal|false
 expr_stmt|;
 typedef|typedef
-name|QList
-argument_list|<
-name|QVariant
-argument_list|>
-name|variantsList
-typedef|;
-comment|//     variantsList valuelist;
-comment|//     valuelist<< QVariant( 1 )<< QVariant( QString("Two") )<< QVariant( 3.45 );
-comment|//     QTest::newRow( "list_valid" )<< QVariant( valuelist )<< false;
-typedef|typedef
 name|QMap
 argument_list|<
 name|QString
