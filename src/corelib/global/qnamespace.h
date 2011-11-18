@@ -197,21 +197,27 @@ argument|WindowType WindowState WindowModality WidgetAttribute ApplicationAttrib
 argument_list|)
 end_macro
 begin_macro
-name|Q_ENUMS
+name|Q_FLAGS
 argument_list|(
-argument|ScreenOrientation
+argument|WindowFlags WindowStates
 argument_list|)
 end_macro
 begin_macro
 name|Q_ENUMS
 argument_list|(
-argument|InputMethodHint
+argument|InputMethodHint InputMethodQuery
 argument_list|)
 end_macro
 begin_macro
 name|Q_FLAGS
 argument_list|(
-argument|WindowFlags WindowStates InputMethodHints
+argument|InputMethodHints InputMethodQueries
+argument_list|)
+end_macro
+begin_macro
+name|Q_ENUMS
+argument_list|(
+argument|ScreenOrientation
 argument_list|)
 end_macro
 begin_macro
