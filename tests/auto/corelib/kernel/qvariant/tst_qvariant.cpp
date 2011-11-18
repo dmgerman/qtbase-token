@@ -5420,7 +5420,6 @@ index|]
 operator|=
 literal|'t'
 expr_stmt|;
-comment|//    bytearray[4] = '\0';
 name|QTest
 operator|::
 name|newRow
@@ -5512,7 +5511,6 @@ argument_list|,
 name|valueOK
 argument_list|)
 expr_stmt|;
-comment|//    QEXPECT_FAIL("QByteArray", "Expected to not yet be able to convert QByteArray to int", Abort);
 name|QVERIFY
 argument_list|(
 name|value
