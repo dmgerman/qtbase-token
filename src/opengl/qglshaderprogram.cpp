@@ -3261,6 +3261,10 @@ condition|(
 name|d
 operator|->
 name|programGuard
+operator|&&
+name|d
+operator|->
+name|programGuard
 operator|->
 name|group
 argument_list|()
