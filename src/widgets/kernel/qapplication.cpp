@@ -1786,7 +1786,7 @@ modifier|*
 name|argv
 parameter_list|)
 member_init_list|:
-name|QApplicationBase
+name|QGuiApplication
 argument_list|(
 operator|*
 operator|new
@@ -1833,7 +1833,7 @@ name|int
 name|_internal
 parameter_list|)
 member_init_list|:
-name|QApplicationBase
+name|QGuiApplication
 argument_list|(
 operator|*
 operator|new
@@ -1883,7 +1883,7 @@ name|bool
 name|GUIenabled
 parameter_list|)
 member_init_list|:
-name|QApplicationBase
+name|QGuiApplication
 argument_list|(
 operator|*
 operator|new
@@ -1937,7 +1937,7 @@ name|int
 name|_internal
 parameter_list|)
 member_init_list|:
-name|QApplicationBase
+name|QGuiApplication
 argument_list|(
 operator|*
 operator|new
@@ -1991,7 +1991,7 @@ name|Type
 name|type
 parameter_list|)
 member_init_list|:
-name|QApplicationBase
+name|QGuiApplication
 argument_list|(
 operator|*
 operator|new
@@ -2041,7 +2041,7 @@ name|int
 name|_internal
 parameter_list|)
 member_init_list|:
-name|QApplicationBase
+name|QGuiApplication
 argument_list|(
 operator|*
 operator|new
@@ -2382,7 +2382,7 @@ name|HANDLE
 name|colormap
 parameter_list|)
 member_init_list|:
-name|QApplicationBase
+name|QGuiApplication
 argument_list|(
 operator|*
 operator|new
@@ -2450,7 +2450,7 @@ name|int
 name|_internal
 parameter_list|)
 member_init_list|:
-name|QApplicationBase
+name|QGuiApplication
 argument_list|(
 operator|*
 operator|new
@@ -2533,7 +2533,7 @@ name|HANDLE
 name|colormap
 parameter_list|)
 member_init_list|:
-name|QApplicationBase
+name|QGuiApplication
 argument_list|(
 operator|*
 operator|new
@@ -2610,7 +2610,7 @@ name|int
 name|_internal
 parameter_list|)
 member_init_list|:
-name|QApplicationBase
+name|QGuiApplication
 argument_list|(
 operator|*
 operator|new
@@ -3929,7 +3929,7 @@ literal|false
 return|;
 block|}
 return|return
-name|QApplicationBase
+name|QGuiApplication
 operator|::
 name|compressEvent
 argument_list|(
@@ -7966,7 +7966,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|QApplicationBase
+name|QGuiApplication
 operator|::
 name|event
 argument_list|(
@@ -12324,7 +12324,7 @@ expr_stmt|;
 endif|#
 directive|endif
 return|return
-name|QApplicationBase
+name|QGuiApplication
 operator|::
 name|exec
 argument_list|()
@@ -17886,7 +17886,7 @@ name|event
 parameter_list|)
 block|{
 return|return
-name|QApplicationBase
+name|QGuiApplication
 operator|::
 name|sendSpontaneousEvent
 argument_list|(

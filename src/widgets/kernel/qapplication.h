@@ -158,20 +158,13 @@ directive|define
 name|qApp
 value|(static_cast<QApplication *>(QCoreApplication::instance()))
 end_define
-begin_define
-DECL|macro|QApplicationBase
-define|#
-directive|define
-name|QApplicationBase
-value|QGuiApplication
-end_define
 begin_decl_stmt
 name|class
 name|Q_WIDGETS_EXPORT
 name|QApplication
 range|:
 name|public
-name|QApplicationBase
+name|QGuiApplication
 block|{
 name|Q_OBJECT
 name|Q_PROPERTY
