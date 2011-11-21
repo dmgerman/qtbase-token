@@ -70,7 +70,7 @@ operator|!=
 name|DFB_OK
 condition|)
 block|{
-name|DirectFBError
+name|DirectFBErrorFatal
 argument_list|(
 literal|"QDirectFBConvenience: error creating DirectFB interface"
 argument_list|,
@@ -130,8 +130,7 @@ name|result
 operator|!=
 name|DFB_OK
 condition|)
-block|{
-name|DirectFBError
+name|DirectFBErrorFatal
 argument_list|(
 literal|"QDirectFbConvenience: "
 literal|"Unable to get primary display layer!"
@@ -139,7 +138,6 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|layer
 return|;
