@@ -107,6 +107,12 @@ name|winId
 argument_list|()
 specifier|const
 block|;
+name|IDirectFBWindow
+operator|*
+name|dfbWindow
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QDirectFBPointer
