@@ -53,7 +53,7 @@ name|QDirectFBCursor
 argument_list|(
 name|QPlatformScreen
 operator|*
-name|screem
+name|screen
 argument_list|)
 block|;
 name|void
