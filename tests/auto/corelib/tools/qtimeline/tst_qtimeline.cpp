@@ -74,7 +74,6 @@ name|void
 name|toggleDirection
 parameter_list|()
 function_decl|;
-comment|//void reset(); ### todo
 name|void
 name|frameChanged
 parameter_list|()
@@ -2123,7 +2122,6 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|// ### todo reset?
 name|timeLine
 operator|.
 name|setCurrentTime
@@ -2131,7 +2129,6 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// ### todo reset?
 comment|// linear
 name|timeLine
 operator|.
@@ -2911,9 +2908,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/* void tst_QTimeLine::reset() {     QTimeLine timeLine;     timeLine.setFrameRange(10,100);      timeLine.setLoopCount(-1);     QSignalSpy spy(&timeLine, SIGNAL(frameChanged(int)));     QCOMPARE(timeLine.state(), QTimeLine::NotRunning);     timeLine.start();     QCOMPARE(timeLine.state(), QTimeLine::Running);     int wait = timeLine.duration()*5/3;     QTest::qWait(wait);     QVERIFY(spy.count()>= 1 );     QCOMPARE(timeLine.state(), QTimeLine::Running);     timeLine.setDirection(QTimeLine::Backward);     QVERIFY(timeLine.currentFrame() != 10);     QVERIFY(timeLine.currentTime() != 0);     QVERIFY(timeLine.state() != QTimeLine::Forward);     QVERIFY(timeLine.loopCount() != 0);      timeLine.reset();     QCOMPARE(timeLine.state(), QTimeLine::NotRunning);     QCOMPARE(timeLine.currentFrame(), timeLine.startFrame());     QCOMPARE(timeLine.currentTime(), 0);     timeLine.setDirection(QTimeLine::Backward);     QCOMPARE(timeLine.loopCount(), 1);     QCOMPARE(timeLine.startFrame(), 10);     QCOMPARE(timeLine.endFrame(), 100); } */
-end_comment
 begin_function
 DECL|function|frameChanged
 name|void
@@ -3003,7 +2997,6 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-comment|//timeLine.reset(); ### todo
 name|timeLine
 operator|.
 name|setUpdateInterval
@@ -3158,14 +3151,11 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-comment|// timeLine.reset(); ### todo
 name|spy
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|//int currentFrame = timeLine.currentFrame();
-comment|//int currentCurrentTime = timeLine.currentTime();
 name|timeLine
 operator|.
 name|start
@@ -3186,8 +3176,6 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-comment|//QCOMPARE(timeLine.currentFrame(), currentFrame); ### Behavioral change
-comment|//QCOMPARE(timeLine.currentTime(), currentCurrentTime);
 name|timeLine
 operator|.
 name|setDirection
