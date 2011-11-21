@@ -5784,9 +5784,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/* void tst_QLocale::languageToString() { }  void tst_QLocale::setDefault() { } */
-end_comment
 begin_function
 DECL|function|testInfAndNan
 name|void
