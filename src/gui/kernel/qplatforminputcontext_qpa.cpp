@@ -299,23 +299,6 @@ argument_list|()
 emit|;
 block|}
 end_function
-begin_comment
-comment|//  temporary function added to retain compatibility to old functionality, will be deprecated
-end_comment
-begin_function
-DECL|function|handlesInputPanelVisibility
-name|bool
-name|QPlatformInputContext
-operator|::
-name|handlesInputPanelVisibility
-parameter_list|()
-specifier|const
-block|{
-return|return
-literal|false
-return|;
-block|}
-end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

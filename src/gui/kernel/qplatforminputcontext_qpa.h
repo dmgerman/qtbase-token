@@ -137,13 +137,6 @@ block|;
 name|void
 name|emitInputPanelVisibleChanged
 argument_list|()
-block|;
-comment|// temporary function added to retain compatibility to old functionality, will be deprecated
-name|virtual
-name|bool
-name|handlesInputPanelVisibility
-argument_list|()
-specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt

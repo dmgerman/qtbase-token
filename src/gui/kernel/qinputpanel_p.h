@@ -58,11 +58,6 @@ specifier|inline
 name|QInputPanelPrivate
 argument_list|()
 operator|:
-name|visible
-argument_list|(
-name|false
-argument_list|)
-block|,
 name|testContext
 argument_list|(
 literal|0
@@ -112,9 +107,6 @@ operator|<
 name|QObject
 operator|>
 name|inputItem
-block|;
-name|bool
-name|visible
 block|;
 name|QPlatformInputContext
 operator|*

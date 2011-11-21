@@ -93,12 +93,6 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
-name|bool
-name|handlesInputPanelVisibility
-argument_list|()
-specifier|const
-block|;
-name|virtual
 name|void
 name|showInputPanel
 argument_list|()

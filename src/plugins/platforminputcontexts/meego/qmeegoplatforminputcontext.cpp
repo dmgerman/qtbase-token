@@ -2123,23 +2123,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|// temporary function added to retain compatibility to old functionality, will be deprecated
-end_comment
-begin_function
-DECL|function|handlesInputPanelVisibility
-name|bool
-name|QMeeGoPlatformInputContext
-operator|::
-name|handlesInputPanelVisibility
-parameter_list|()
-specifier|const
-block|{
-return|return
-literal|true
-return|;
-block|}
-end_function
 begin_function
 DECL|function|showInputPanel
 name|void

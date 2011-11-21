@@ -90,12 +90,6 @@ argument_list|,
 argument|bool press
 argument_list|)
 block|;
-name|virtual
-name|bool
-name|handlesInputPanelVisibility
-argument_list|()
-specifier|const
-block|;
 name|public
 name|Q_SLOTS
 operator|:
