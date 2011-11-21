@@ -59,15 +59,21 @@ block|;
 name|void
 name|addWindow
 argument_list|(
-argument|DFBWindowID id
+name|IDirectFBWindow
+operator|*
+name|window
 argument_list|,
-argument|QWindow *window
+name|QWindow
+operator|*
+name|platformWindow
 argument_list|)
 block|;
 name|void
 name|removeWindow
 argument_list|(
-argument|WId wId
+name|IDirectFBWindow
+operator|*
+name|window
 argument_list|)
 block|;
 name|void
