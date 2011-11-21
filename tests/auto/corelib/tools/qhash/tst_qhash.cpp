@@ -3579,7 +3579,21 @@ name|count
 init|=
 literal|0
 decl_stmt|;
-comment|//QVERIFY(map1.find(1) == map1.end());
+name|QVERIFY
+argument_list|(
+name|map1
+operator|.
+name|find
+argument_list|(
+literal|1
+argument_list|)
+operator|==
+name|map1
+operator|.
+name|end
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|map1
 operator|.
 name|insert
