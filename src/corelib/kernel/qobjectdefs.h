@@ -623,7 +623,7 @@ DECL|macro|QLOCATION
 define|#
 directive|define
 name|QLOCATION
-value|"\0"__FILE__":"QTOSTRING(__LINE__)
+value|"\0" __FILE__ ":" QTOSTRING(__LINE__)
 end_define
 begin_ifndef
 ifndef|#
