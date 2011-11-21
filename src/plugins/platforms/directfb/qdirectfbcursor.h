@@ -70,12 +70,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|QDirectFBPointer
-operator|<
-name|IDirectFBDisplayLayer
-operator|>
-name|m_layer
-block|;
 name|QScopedPointer
 operator|<
 name|QPlatformCursorImage
