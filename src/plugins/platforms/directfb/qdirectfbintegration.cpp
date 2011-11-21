@@ -262,7 +262,17 @@ name|reset
 argument_list|(
 operator|new
 name|QDirectFbInput
+argument_list|(
+name|m_dfb
+operator|.
+name|data
 argument_list|()
+argument_list|,
+name|m_primaryScreen
+operator|->
+name|dfbLayer
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|m_input
