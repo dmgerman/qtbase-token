@@ -116,7 +116,6 @@ name|void
 name|operator_eq
 parameter_list|()
 function_decl|;
-comment|/*     void isValid();     void pattern();     void setPattern();     void caseSensitive();     void setCaseSensitive();     void minimal();     void setMinimal(); */
 name|void
 name|exactMatch
 parameter_list|()
@@ -125,7 +124,6 @@ name|void
 name|capturedTexts
 parameter_list|()
 function_decl|;
-comment|/*     void cap();     void pos();     void errorString();     void escape(); */
 name|void
 name|staticRegExp
 parameter_list|()
@@ -4716,9 +4714,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/* void tst_QRegExp::isEmpty() { }  void tst_QRegExp::isValid() { }  void tst_QRegExp::pattern() { }  void tst_QRegExp::setPattern() { }  void tst_QRegExp::caseSensitive() { }  void tst_QRegExp::setCaseSensitive() { }  void tst_QRegExp::minimal() { }  void tst_QRegExp::setMinimal() { } */
-end_comment
 begin_function
 DECL|function|exactMatch
 name|void
@@ -5430,9 +5425,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/* void tst_QRegExp::cap() { }  void tst_QRegExp::pos() { }  void tst_QRegExp::errorString() { }  void tst_QRegExp::escape() { } */
-end_comment
 begin_function
 DECL|function|indexIn
 name|void
