@@ -100,11 +100,11 @@ argument|int depth READ depth CONSTANT
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QSize size READ size CONSTANT
+argument|QSize size READ size NOTIFY sizeChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QRect geometry READ geometry CONSTANT
+argument|QRect geometry READ geometry NOTIFY geometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -112,35 +112,35 @@ argument|QSizeF physicalSize READ physicalSize CONSTANT
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|qreal physicalDotsPerInchX READ physicalDotsPerInchX CONSTANT
+argument|qreal physicalDotsPerInchX READ physicalDotsPerInchX NOTIFY physicalDotsPerInchXChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|qreal physicalDotsPerInchY READ physicalDotsPerInchY CONSTANT
+argument|qreal physicalDotsPerInchY READ physicalDotsPerInchY NOTIFY physicalDotsPerInchYChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|qreal logicalDotsPerInchX READ logicalDotsPerInchX CONSTANT
+argument|qreal physicalDotsPerInch READ physicalDotsPerInch NOTIFY physicalDotsPerInchChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|qreal logicalDotsPerInchY READ logicalDotsPerInchY CONSTANT
+argument|qreal logicalDotsPerInchX READ logicalDotsPerInchX NOTIFY logicalDotsPerInchXChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QSize availableSize READ availableSize CONSTANT
+argument|qreal logicalDotsPerInchY READ logicalDotsPerInchY NOTIFY logicalDotsPerInchYChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QRect availableGeometry READ availableGeometry CONSTANT
+argument|qreal logicalDotsPerInch READ logicalDotsPerInch NOTIFY logicalDotsPerInchChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QSize virtualSize READ virtualSize CONSTANT
+argument|QSize availableSize READ availableSize NOTIFY availableSizeChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|QRect availableVirtualGeometry READ availableVirtualGeometry CONSTANT
+argument|QRect availableGeometry READ availableGeometry NOTIFY availableGeometryChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -194,12 +194,22 @@ argument_list|()
 specifier|const
 block|;
 name|qreal
+name|physicalDotsPerInch
+argument_list|()
+specifier|const
+block|;
+name|qreal
 name|logicalDotsPerInchX
 argument_list|()
 specifier|const
 block|;
 name|qreal
 name|logicalDotsPerInchY
+argument_list|()
+specifier|const
+block|;
+name|qreal
+name|logicalDotsPerInch
 argument_list|()
 specifier|const
 block|;
@@ -289,6 +299,78 @@ argument_list|)
 block|;
 name|Q_SIGNALS
 operator|:
+name|void
+name|sizeChanged
+argument_list|(
+specifier|const
+name|QSize
+operator|&
+name|size
+argument_list|)
+block|;
+name|void
+name|geometryChanged
+argument_list|(
+specifier|const
+name|QRect
+operator|&
+name|geometry
+argument_list|)
+block|;
+name|void
+name|physicalDotsPerInchXChanged
+argument_list|(
+argument|qreal dpi
+argument_list|)
+block|;
+name|void
+name|physicalDotsPerInchYChanged
+argument_list|(
+argument|qreal dpi
+argument_list|)
+block|;
+name|void
+name|physicalDotsPerInchChanged
+argument_list|(
+argument|qreal dpi
+argument_list|)
+block|;
+name|void
+name|logicalDotsPerInchXChanged
+argument_list|(
+argument|qreal dpi
+argument_list|)
+block|;
+name|void
+name|logicalDotsPerInchYChanged
+argument_list|(
+argument|qreal dpi
+argument_list|)
+block|;
+name|void
+name|logicalDotsPerInchChanged
+argument_list|(
+argument|qreal dpi
+argument_list|)
+block|;
+name|void
+name|availableSizeChanged
+argument_list|(
+specifier|const
+name|QSize
+operator|&
+name|size
+argument_list|)
+block|;
+name|void
+name|availableGeometryChanged
+argument_list|(
+specifier|const
+name|QRect
+operator|&
+name|rect
+argument_list|)
+block|;
 name|void
 name|currentOrientationChanged
 argument_list|(
