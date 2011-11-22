@@ -1270,10 +1270,10 @@ condition|(
 name|engine
 condition|)
 block|{
-name|qDebug
-argument_list|()
-operator|<<
+name|FM_DEBUG
+argument_list|(
 literal|"Cache hit level 1"
+argument_list|)
 expr_stmt|;
 return|return
 name|engine
