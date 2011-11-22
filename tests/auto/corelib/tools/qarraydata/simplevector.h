@@ -684,7 +684,14 @@ name|allocate
 argument_list|(
 name|n
 argument_list|,
-name|true
+name|d
+operator|->
+name|detachFlags
+argument_list|()
+operator||
+name|Data
+operator|::
+name|CapacityReserved
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -804,7 +811,8 @@ argument_list|)
 argument_list|,
 name|d
 operator|->
-name|capacityReserved
+name|detachFlags
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -922,7 +930,8 @@ argument_list|)
 argument_list|,
 name|d
 operator|->
-name|capacityReserved
+name|detachFlags
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1139,7 +1148,8 @@ argument_list|)
 argument_list|,
 name|d
 operator|->
-name|capacityReserved
+name|detachFlags
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
