@@ -55,6 +55,8 @@ name|ScreenGeometry
 block|,
 name|ScreenAvailableGeometry
 block|,
+name|ScreenLogicalDotsPerInch
+block|,
 name|Map
 block|,
 name|Unmap
@@ -859,6 +861,38 @@ operator|:
 name|WindowSystemEvent
 argument_list|(
 name|ScreenAvailableGeometry
+argument_list|)
+block|,
+name|screen
+argument_list|(
+argument|s
+argument_list|)
+block|{ }
+name|QWeakPointer
+operator|<
+name|QScreen
+operator|>
+name|screen
+block|;     }
+decl_stmt|;
+name|class
+name|ScreenLogicalDotsPerInchEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|ScreenLogicalDotsPerInchEvent
+argument_list|(
+name|QScreen
+operator|*
+name|s
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|ScreenLogicalDotsPerInch
 argument_list|)
 block|,
 name|screen

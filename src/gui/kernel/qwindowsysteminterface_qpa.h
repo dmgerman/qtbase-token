@@ -709,6 +709,15 @@ modifier|*
 name|screen
 parameter_list|)
 function_decl|;
+specifier|static
+name|void
+name|handleScreenLogicalDotsPerInchChange
+parameter_list|(
+name|QScreen
+modifier|*
+name|screen
+parameter_list|)
+function_decl|;
 comment|// For event dispatcher implementations
 specifier|static
 name|bool

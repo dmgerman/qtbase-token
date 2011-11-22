@@ -381,6 +381,17 @@ argument_list|)
 block|;
 specifier|static
 name|void
+name|reportLogicalDotsPerInchChange
+argument_list|(
+name|QWindowSystemInterfacePrivate
+operator|::
+name|ScreenLogicalDotsPerInchEvent
+operator|*
+name|e
+argument_list|)
+block|;
+specifier|static
+name|void
 name|processMapEvent
 argument_list|(
 name|QWindowSystemInterfacePrivate
