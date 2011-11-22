@@ -1374,7 +1374,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"not a valid Qt plugin"
+literal|"not an ELF object"
 argument_list|)
 argument_list|,
 name|qPrintable
@@ -1412,7 +1412,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"not a valid Qt plugin"
+literal|"invalid"
 argument_list|)
 argument_list|,
 name|qPrintable
@@ -1450,7 +1450,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"not a valid Qt plugin"
+literal|"invalid"
 argument_list|)
 argument_list|,
 name|qPrintable
