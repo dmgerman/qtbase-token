@@ -758,6 +758,10 @@ block|;
 name|QStringList
 name|toStringListUnchecked
 argument_list|()
+block|;
+name|QByteArray
+name|toByteArrayUnchecked
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
