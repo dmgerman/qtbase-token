@@ -666,14 +666,6 @@ block|;
 endif|#
 directive|endif
 specifier|static
-name|void
-name|clearGuards
-argument_list|(
-name|QObject
-operator|*
-argument_list|)
-block|;
-specifier|static
 name|QObjectPrivate
 operator|*
 name|get

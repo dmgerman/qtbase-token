@@ -324,12 +324,6 @@ range|:
 literal|1
 decl_stmt|;
 name|uint
-name|hasGuards
-range|:
-literal|1
-decl_stmt|;
-comment|//true iff there is one or more QPointer attached to this object
-name|uint
 name|isWindow
 range|:
 literal|1
@@ -338,7 +332,7 @@ comment|//for QWindow
 name|uint
 name|unused
 range|:
-literal|21
+literal|22
 decl_stmt|;
 name|int
 name|postedEvents

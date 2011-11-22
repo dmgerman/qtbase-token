@@ -4222,20 +4222,6 @@ name|needsFlush
 operator|=
 literal|0
 expr_stmt|;
-comment|// set all QPointers for this object to zero
-if|if
-condition|(
-name|d
-operator|->
-name|hasGuards
-condition|)
-name|QObjectPrivate
-operator|::
-name|clearGuards
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|d
