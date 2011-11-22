@@ -1224,7 +1224,8 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|virtual
-name|int
+name|QAccessibleInterface
+modifier|*
 name|childAt
 argument_list|(
 name|int

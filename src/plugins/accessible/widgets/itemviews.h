@@ -122,7 +122,8 @@ name|rect
 argument_list|()
 specifier|const
 expr_stmt|;
-name|int
+name|QAccessibleInterface
+modifier|*
 name|childAt
 argument_list|(
 name|int
@@ -650,7 +651,8 @@ operator|~
 name|QAccessibleTree
 argument_list|()
 block|{}
-name|int
+name|QAccessibleInterface
+operator|*
 name|childAt
 argument_list|(
 argument|int x
@@ -807,7 +809,8 @@ name|isValid
 argument_list|()
 specifier|const
 expr_stmt|;
-name|int
+name|QAccessibleInterface
+modifier|*
 name|childAt
 argument_list|(
 name|int
@@ -1084,7 +1087,8 @@ name|isValid
 argument_list|()
 specifier|const
 block|;
-name|int
+name|QAccessibleInterface
+operator|*
 name|childAt
 argument_list|(
 argument|int
@@ -1276,7 +1280,8 @@ return|return
 name|true
 return|;
 block|}
-name|int
+name|QAccessibleInterface
+operator|*
 name|childAt
 argument_list|(
 argument|int

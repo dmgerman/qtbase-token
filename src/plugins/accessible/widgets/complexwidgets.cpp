@@ -913,7 +913,8 @@ return|;
 block|}
 comment|// (!m_parent.isNull())&& m_parent->count()> m_index; }
 DECL|function|childAt
-name|int
+name|QAccessibleInterface
+modifier|*
 name|childAt
 parameter_list|(
 name|int
@@ -1829,7 +1830,8 @@ block|}
 end_function
 begin_function
 DECL|function|childAt
-name|int
+name|QAccessibleInterface
+modifier|*
 name|QAccessibleComboBox
 operator|::
 name|childAt
@@ -1867,7 +1869,10 @@ name|y
 argument_list|)
 condition|)
 return|return
+name|child
+argument_list|(
 literal|1
+argument_list|)
 return|;
 return|return
 literal|0
@@ -2968,81 +2973,113 @@ literal|1
 return|;
 block|}
 end_function
-begin_comment
-comment|//int QAccessibleAbstractScrollArea::childAt(int x, int y) const
-end_comment
-begin_comment
-comment|//{
-end_comment
-begin_comment
-comment|//    if (!abstractScrollArea()->isVisible())
-end_comment
-begin_comment
-comment|//        return -1;
-end_comment
-begin_comment
-comment|//#if 0
-end_comment
-begin_comment
-comment|//    const QRect globalSelfGeometry = rect(Self);
-end_comment
-begin_comment
-comment|//    if (!globalSelfGeometry.isValid() || !globalSelfGeometry.contains(QPoint(x, y)))
-end_comment
-begin_comment
-comment|//        return -1;
-end_comment
-begin_comment
-comment|//    const QWidgetList children = accessibleChildren();
-end_comment
-begin_comment
-comment|//    for (int i = 0; i< children.count(); ++i) {
-end_comment
-begin_comment
-comment|//        const QWidget *child = children.at(i);
-end_comment
-begin_comment
-comment|//        const QRect globalChildGeometry = QRect(child->mapToGlobal(QPoint(0, 0)), child->size());
-end_comment
-begin_comment
-comment|//        if (globalChildGeometry.contains(QPoint(x, y))) {
-end_comment
-begin_comment
-comment|//            return ++i;
-end_comment
-begin_comment
-comment|//        }
-end_comment
-begin_comment
-comment|//    }
-end_comment
-begin_comment
-comment|//    return 0;
-end_comment
-begin_comment
-comment|//#else
-end_comment
-begin_comment
-comment|//    for (int i = childCount(); i>= 0; --i) {
-end_comment
-begin_comment
-comment|//        if (rect().contains(x, y))
-end_comment
-begin_comment
-comment|//            return i;
-end_comment
-begin_comment
-comment|//    }
-end_comment
-begin_comment
-comment|//    return -1;
-end_comment
-begin_comment
-comment|//#endif
-end_comment
-begin_comment
-comment|//}
-end_comment
+begin_function
+DECL|function|childAt
+name|QAccessibleInterface
+modifier|*
+name|QAccessibleAbstractScrollArea
+operator|::
+name|childAt
+parameter_list|(
+name|int
+name|x
+parameter_list|,
+name|int
+name|y
+parameter_list|)
+specifier|const
+block|{
+if|if
+condition|(
+operator|!
+name|abstractScrollArea
+argument_list|()
+operator|->
+name|isVisible
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|childCount
+argument_list|()
+condition|;
+operator|++
+name|i
+control|)
+block|{
+name|QPoint
+name|wpos
+init|=
+name|accessibleChildren
+argument_list|()
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|->
+name|mapToGlobal
+argument_list|(
+name|QPoint
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|QRect
+name|rect
+init|=
+name|QRect
+argument_list|(
+name|wpos
+argument_list|,
+name|accessibleChildren
+argument_list|()
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|->
+name|size
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|rect
+operator|.
+name|contains
+argument_list|(
+name|x
+argument_list|,
+name|y
+argument_list|)
+condition|)
+return|return
+name|child
+argument_list|(
+name|i
+argument_list|)
+return|;
+block|}
+return|return
+literal|0
+return|;
+block|}
+end_function
 begin_function
 DECL|function|abstractScrollArea
 name|QAbstractScrollArea

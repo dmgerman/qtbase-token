@@ -594,13 +594,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"other update"
-operator|<<
-name|object
-expr_stmt|;
+comment|//        qDebug()<< "other update"<< object;
 block|}
 block|}
 end_function
@@ -1075,7 +1069,7 @@ name|interface
 operator|->
 name|text
 argument_list|(
-name|QAccessibleInterface
+name|QAccessible
 operator|::
 name|Name
 argument_list|)

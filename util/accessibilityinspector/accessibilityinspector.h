@@ -113,9 +113,6 @@ argument_list|()
 block|;
 name|signals
 operator|:
-name|public
-name|slots
-operator|:
 name|private
 operator|:
 name|OptionsWidget

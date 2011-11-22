@@ -101,17 +101,6 @@ argument|const QAccessibleInterface *other
 argument_list|)
 specifier|const
 expr_stmt|;
-name|int
-name|childAt
-argument_list|(
-name|int
-name|x
-argument_list|,
-name|int
-name|y
-argument_list|)
-decl|const
-decl_stmt|;
 name|QRect
 name|rect
 argument_list|()

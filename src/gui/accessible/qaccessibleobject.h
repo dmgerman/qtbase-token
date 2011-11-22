@@ -86,6 +86,16 @@ argument_list|,
 argument|const QString&text
 argument_list|)
 block|;
+name|QAccessibleInterface
+operator|*
+name|childAt
+argument_list|(
+argument|int x
+argument_list|,
+argument|int y
+argument_list|)
+specifier|const
+block|;
 name|protected
 operator|:
 name|virtual
@@ -152,15 +162,6 @@ name|QAccessibleInterface
 operator|*
 name|parent
 argument_list|()
-specifier|const
-block|;
-name|int
-name|childAt
-argument_list|(
-argument|int x
-argument_list|,
-argument|int y
-argument_list|)
 specifier|const
 block|;
 name|QAccessibleInterface

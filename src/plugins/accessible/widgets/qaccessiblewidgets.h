@@ -506,7 +506,8 @@ argument_list|,
 argument|const QVariantList&params
 argument_list|)
 block|;
-name|int
+name|QAccessibleInterface
+operator|*
 name|childAt
 argument_list|(
 argument|int x
@@ -708,15 +709,6 @@ block|;
 name|QRect
 name|rect
 argument_list|()
-specifier|const
-block|;
-name|int
-name|childAt
-argument_list|(
-argument|int x
-argument_list|,
-argument|int y
-argument_list|)
 specifier|const
 block|;
 name|protected
@@ -1077,6 +1069,16 @@ argument|const QAccessibleInterface *other
 argument_list|)
 specifier|const
 block|;
+name|QAccessibleInterface
+operator|*
+name|childAt
+argument_list|(
+argument|int x
+argument_list|,
+argument|int y
+argument_list|)
+specifier|const
+block|;
 name|void
 name|setText
 argument_list|(
@@ -1109,15 +1111,6 @@ operator|::
 name|State
 name|state
 argument_list|()
-specifier|const
-block|;
-name|int
-name|childAt
-argument_list|(
-argument|int x
-argument_list|,
-argument|int y
-argument_list|)
 specifier|const
 block|;
 name|QObject
@@ -1200,7 +1193,8 @@ argument|const QAccessibleInterface *iface
 argument_list|)
 specifier|const
 block|;
-name|int
+name|QAccessibleInterface
+operator|*
 name|childAt
 argument_list|(
 argument|int x

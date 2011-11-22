@@ -65,7 +65,8 @@ name|childCount
 argument_list|()
 specifier|const
 block|;
-name|int
+name|QAccessibleInterface
+operator|*
 name|childAt
 argument_list|(
 argument|int x
@@ -225,7 +226,6 @@ modifier|*
 name|w
 parameter_list|)
 function_decl|;
-name|virtual
 operator|~
 name|QAccessibleMenuItem
 argument_list|()
@@ -241,6 +241,12 @@ name|t
 argument_list|)
 decl_stmt|;
 name|int
+name|childCount
+argument_list|()
+specifier|const
+expr_stmt|;
+name|QAccessibleInterface
+modifier|*
 name|childAt
 argument_list|(
 name|int
@@ -251,8 +257,8 @@ name|y
 argument_list|)
 decl|const
 decl_stmt|;
-name|int
-name|childCount
+name|bool
+name|isValid
 argument_list|()
 specifier|const
 expr_stmt|;
@@ -266,11 +272,6 @@ name|child
 argument_list|)
 decl|const
 decl_stmt|;
-name|bool
-name|isValid
-argument_list|()
-specifier|const
-expr_stmt|;
 name|QAccessibleInterface
 operator|*
 name|parent

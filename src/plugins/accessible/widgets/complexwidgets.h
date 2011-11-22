@@ -162,7 +162,16 @@ argument|QAccessibleInterface **target
 argument_list|)
 specifier|const
 block|;
-comment|//    int childAt(int x, int y) const;
+name|QAccessibleInterface
+operator|*
+name|childAt
+argument_list|(
+argument|int x
+argument_list|,
+argument|int y
+argument_list|)
+specifier|const
+block|;
 comment|//protected:
 name|QAbstractScrollArea
 operator|*
@@ -362,7 +371,8 @@ name|childCount
 argument_list|()
 specifier|const
 block|;
-name|int
+name|QAccessibleInterface
+operator|*
 name|childAt
 argument_list|(
 argument|int x
