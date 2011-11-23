@@ -4349,6 +4349,13 @@ operator|||
 operator|!
 name|doDepends
 argument_list|()
+operator|||
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"GNUmake"
+argument_list|)
 condition|)
 name|QMakeSourceFileInfo
 operator|::

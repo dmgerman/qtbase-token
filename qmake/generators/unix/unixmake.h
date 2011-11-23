@@ -83,9 +83,6 @@ specifier|const
 block|{
 return|return
 operator|!
-name|include_deps
-operator|&&
-operator|!
 name|Option
 operator|::
 name|mkfile
