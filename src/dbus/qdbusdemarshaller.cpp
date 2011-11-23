@@ -35,15 +35,45 @@ modifier|*
 name|it
 parameter_list|)
 block|{
+comment|// Use a union of expected and largest type q_dbus_message_iter_get_basic
+comment|// will return to ensure reading the wrong basic type does not result in
+comment|// stack overwrite
+union|union
+block|{
+comment|// The value to be extracted
 name|T
 name|t
 decl_stmt|;
+comment|// Largest type that q_dbus_message_iter_get_basic will return
+comment|// according to dbus_message_iter_get_basic API documentation
+name|dbus_uint64_t
+name|maxValue
+decl_stmt|;
+comment|// A pointer to ensure no stack overwrite in case there is a platform
+comment|// where sizeof(void*)> sizeof(dbus_uint64_t)
+name|void
+modifier|*
+name|ptr
+decl_stmt|;
+block|}
+name|value
+union|;
+comment|// Initialize the value in case a narrower type is extracted to it.
+comment|// Note that the result of extracting a narrower type in place of a wider
+comment|// one and vice-versa will be platform-dependent.
+name|value
+operator|.
+name|t
+operator|=
+name|T
+argument_list|()
+expr_stmt|;
 name|q_dbus_message_iter_get_basic
 argument_list|(
 name|it
 argument_list|,
 operator|&
-name|t
+name|value
 argument_list|)
 expr_stmt|;
 name|q_dbus_message_iter_next
@@ -52,6 +82,8 @@ name|it
 argument_list|)
 expr_stmt|;
 return|return
+name|value
+operator|.
 name|t
 return|;
 block|}
