@@ -4684,32 +4684,32 @@ block|,
 literal|"DigiNotar Qualified CA"
 block|,
 comment|// DigiNotar intermediate signed by DigiNotar Root
-literal|"1184640176"
+literal|"46:9c:2c:b0"
 block|,
 literal|"DigiNotar Services 1024 CA"
 block|,
 comment|// DigiNotar intermediate cross-signed by Entrust
-literal|"120000525"
+literal|"07:27:10:0d"
 block|,
 literal|"DigiNotar Cyber CA"
 block|,
 comment|// DigiNotar intermediate cross-signed by CyberTrust
-literal|"120000505"
+literal|"07:27:0f:f9"
 block|,
 literal|"DigiNotar Cyber CA"
 block|,
 comment|// DigiNotar intermediate cross-signed by CyberTrust
-literal|"120000515"
+literal|"07:27:10:03"
 block|,
 literal|"DigiNotar Cyber CA"
 block|,
 comment|// DigiNotar intermediate cross-signed by CyberTrust
-literal|"20015536"
+literal|"01:31:69:b0"
 block|,
 literal|"DigiNotar PKIoverheid CA Overheid en Bedrijven"
 block|,
 comment|// DigiNotar intermediate cross-signed by the Dutch government
-literal|"20001983"
+literal|"01:31:34:bf"
 block|,
 literal|"DigiNotar PKIoverheid CA Organisatie - G2"
 block|,
@@ -4727,22 +4727,22 @@ comment|// DigiNotar intermediate
 comment|//    "(has not been seen in the wild so far)", "DigiNotar Public CA - G2", // DigiNotar intermediate
 comment|//    "(has not been seen in the wild so far)", "Koninklijke Notariele Beroepsorganisatie CA", // compromised during DigiNotar breach
 comment|//    "(has not been seen in the wild so far)", "Stichting TTP Infos CA," // compromised during DigiNotar breach
-literal|"1184640175"
+literal|"46:9c:2c:af"
 block|,
 literal|"DigiNotar Root CA"
 block|,
 comment|// DigiNotar intermediate cross-signed by Entrust
-literal|"1184644297"
+literal|"46:9c:3c:c9"
 block|,
 literal|"DigiNotar Root CA"
 block|,
 comment|// DigiNotar intermediate cross-signed by Entrust
-literal|"120001705"
+literal|"07:27:14:a9"
 block|,
 literal|"Digisign Server ID (Enrich)"
 block|,
 comment|// (Malaysian) Digicert Sdn. Bhd. cross-signed by Verizon CyberTrust
-literal|"1276011370"
+literal|"4c:0e:63:6a"
 block|,
 literal|"Digisign Server ID - (Enrich)"
 block|,
