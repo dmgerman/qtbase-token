@@ -167,6 +167,10 @@ block|;
 name|friend
 name|class
 name|ModelResetCommandFixed
+block|;
+name|friend
+name|class
+name|ModelChangeChildrenLayoutsCommand
 block|;  }
 decl_stmt|;
 end_decl_stmt
@@ -512,6 +516,60 @@ name|void
 name|emitPostSignal
 argument_list|()
 block|;  }
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
+name|ModelChangeChildrenLayoutsCommand
+range|:
+name|public
+name|ModelChangeCommand
+block|{
+name|Q_OBJECT
+name|public
+operator|:
+name|ModelChangeChildrenLayoutsCommand
+argument_list|(
+name|DynamicTreeModel
+operator|*
+name|model
+argument_list|,
+name|QObject
+operator|*
+name|parent
+argument_list|)
+block|;
+name|virtual
+operator|~
+name|ModelChangeChildrenLayoutsCommand
+argument_list|()
+block|{}
+name|virtual
+name|void
+name|doCommand
+argument_list|()
+block|;
+name|void
+name|setSecondAncestorRowNumbers
+argument_list|(
+argument|QList<int> rows
+argument_list|)
+block|{
+name|m_secondRowNumbers
+operator|=
+name|rows
+block|; }
+name|protected
+operator|:
+name|QList
+operator|<
+name|int
+operator|>
+name|m_secondRowNumbers
+block|;
+name|int
+name|m_destRow
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_endif
