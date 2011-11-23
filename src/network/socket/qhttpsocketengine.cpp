@@ -2205,6 +2205,30 @@ expr_stmt|;
 name|data
 operator|+=
 literal|"Proxy-Connection: keep-alive\r\n"
+expr_stmt|;
+name|data
+operator|+=
+literal|"Host: "
+operator|+
+name|peerAddress
+operator|+
+literal|"\r\n"
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|proxy
+operator|.
+name|hasRawHeader
+argument_list|(
+literal|"User-Agent"
+argument_list|)
+condition|)
+block|{
+name|data
+operator|+=
 literal|"User-Agent: "
 expr_stmt|;
 name|QVariant
@@ -2237,12 +2261,41 @@ expr_stmt|;
 name|data
 operator|+=
 literal|"\r\n"
-literal|"Host: "
+expr_stmt|;
+block|}
+foreach|foreach
+control|(
+specifier|const
+name|QByteArray
+modifier|&
+name|header
+decl|,
+name|d
+operator|->
+name|proxy
+operator|.
+name|rawHeaderList
+argument_list|()
+control|)
+block|{
+name|data
+operator|+=
+name|header
 operator|+
-name|peerAddress
+literal|": "
+operator|+
+name|d
+operator|->
+name|proxy
+operator|.
+name|rawHeader
+argument_list|(
+name|header
+argument_list|)
 operator|+
 literal|"\r\n"
 expr_stmt|;
+block|}
 name|QAuthenticatorPrivate
 modifier|*
 name|priv
