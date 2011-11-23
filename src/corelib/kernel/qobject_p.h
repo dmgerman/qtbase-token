@@ -356,8 +356,17 @@ name|QObject
 operator|*
 name|receiver
 block|;
+expr|union
+block|{
 name|StaticMetaCallFunction
 name|callFunction
+block|;
+name|QObject
+operator|::
+name|QSlotObjectBase
+operator|*
+name|slotObj
+block|;         }
 block|;
 comment|// The next pointer for the singly-linked ConnectionList
 name|Connection
@@ -376,6 +385,7 @@ name|prev
 block|;
 name|QAtomicPointer
 operator|<
+specifier|const
 name|int
 operator|>
 name|argumentTypes
@@ -395,6 +405,16 @@ operator|:
 literal|3
 block|;
 comment|// 0 == auto, 1 == direct, 2 == queued, 4 == blocking
+name|ushort
+name|isSlotObject
+operator|:
+literal|1
+block|;
+name|ushort
+name|ownArgumentTypes
+operator|:
+literal|1
+block|;
 name|Connection
 argument_list|()
 operator|:
@@ -406,6 +426,11 @@ block|,
 name|ref_
 argument_list|(
 literal|2
+argument_list|)
+block|,
+name|ownArgumentTypes
+argument_list|(
+argument|true
 argument_list|)
 block|{
 comment|//ref_ is 2 for the use in the internal lists, and for the use in QMetaObject::Connection

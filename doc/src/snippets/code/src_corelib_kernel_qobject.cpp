@@ -1668,6 +1668,126 @@ name|FindDirectChildOnly
 argument_list|)
 decl_stmt|;
 comment|//! [43]
+comment|//! [44]
+DECL|member|label
+name|QLabel
+modifier|*
+name|label
+init|=
+operator|new
+name|QLabel
+decl_stmt|;
+DECL|member|lineEdit
+name|QLineEdit
+modifier|*
+name|lineEdit
+init|=
+operator|new
+name|QLineEdit
+decl_stmt|;
+name|QObject
+operator|::
+name|connect
+argument_list|(
+name|lineEdit
+argument_list|,
+operator|&
+name|QLineEdit
+operator|::
+name|textChanged
+argument_list|,
+name|label
+argument_list|,
+operator|&
+name|QLabel
+operator|::
+name|setText
+argument_list|)
+expr_stmt|;
+comment|//! [44]
+comment|//! [45]
+name|void
+name|someFunction
+parameter_list|()
+function_decl|;
+DECL|member|button
+name|QPushButton
+modifier|*
+name|button
+init|=
+operator|new
+name|QPushButton
+decl_stmt|;
+name|QObject
+operator|::
+name|connect
+argument_list|(
+name|button
+argument_list|,
+operator|&
+name|QPushButton
+operator|::
+name|clicked
+argument_list|,
+name|someFunction
+argument_list|)
+expr_stmt|;
+comment|//! [45]
+comment|//! [46]
+DECL|member|page
+name|QByteArray
+name|page
+init|=
+operator|...
+decl_stmt|;
+DECL|member|socket
+name|QTcpSocket
+modifier|*
+name|socket
+init|=
+operator|new
+name|QTcpSocket
+decl_stmt|;
+name|socket
+operator|->
+name|connectToHost
+argument_list|(
+literal|"qt-project.org"
+argument_list|,
+literal|80
+argument_list|)
+expr_stmt|;
+name|QObject
+operator|::
+name|connect
+argument_list|(
+name|socket
+argument_list|,
+operator|&
+name|QTcpSocket
+operator|::
+name|connected
+argument_list|,
+capture|[
+modifier|=
+capture|]
+parameter_list|()
+block|{
+name|socket
+operator|->
+name|write
+argument_list|(
+literal|"GET "
+operator|+
+name|page
+operator|+
+literal|"\r\n"
+argument_list|)
+expr_stmt|;
+block|}
+argument_list|)
+expr_stmt|;
+comment|//! [46]
 comment|//! [meta data]
 comment|//: This is a comment for the translator.
 comment|//= qtn_foo_bar

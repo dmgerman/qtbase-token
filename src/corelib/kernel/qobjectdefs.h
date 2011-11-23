@@ -91,7 +91,7 @@ DECL|macro|signals
 define|#
 directive|define
 name|signals
-value|protected
+value|public
 end_define
 begin_endif
 endif|#
@@ -108,7 +108,7 @@ DECL|macro|Q_SIGNALS
 define|#
 directive|define
 name|Q_SIGNALS
-value|protected
+value|public
 end_define
 begin_define
 DECL|macro|Q_PRIVATE_SLOT
