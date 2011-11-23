@@ -295,6 +295,12 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QDialog
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_platformRunNativeAppModalPanel()
+argument_list|)
 ifdef|#
 directive|ifdef
 name|Q_WS_WINCE_WM

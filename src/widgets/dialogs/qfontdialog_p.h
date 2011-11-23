@@ -66,6 +66,11 @@ include|#
 directive|include
 file|"qplatformdialoghelper_qpa.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qsharedpointer.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -139,7 +144,14 @@ argument_list|()
 operator|:
 name|writingSystem
 argument_list|(
-argument|QFontDatabase::Any
+name|QFontDatabase
+operator|::
+name|Any
+argument_list|)
+block|,
+name|options
+argument_list|(
+argument|new QFontDialogOptions
 argument_list|)
 block|{ }
 name|QPlatformFontDialogHelper
@@ -351,10 +363,11 @@ block|;
 name|QFont
 name|selectedFont
 block|;
-name|QFontDialog
-operator|::
-name|FontDialogOptions
-name|opts
+name|QSharedPointer
+operator|<
+name|QFontDialogOptions
+operator|>
+name|options
 block|;
 name|QPointer
 operator|<
@@ -453,6 +466,14 @@ operator|:
 name|virtual
 name|void
 name|initHelper
+argument_list|(
+name|QPlatformDialogHelper
+operator|*
+argument_list|)
+block|;
+name|virtual
+name|void
+name|helperPrepareShow
 argument_list|(
 name|QPlatformDialogHelper
 operator|*

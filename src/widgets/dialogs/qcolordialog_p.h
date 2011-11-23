@@ -56,6 +56,11 @@ include|#
 directive|include
 file|"qcolordialog.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qsharedpointer.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -123,6 +128,14 @@ argument|QColorDialog
 argument_list|)
 name|public
 operator|:
+name|QColorDialogPrivate
+argument_list|()
+operator|:
+name|options
+argument_list|(
+argument|new QColorDialogOptions
+argument_list|)
+block|{}
 name|QPlatformColorDialogHelper
 operator|*
 name|platformColorDialogHelper
@@ -215,10 +228,6 @@ name|_q_addCustom
 argument_list|()
 block|;
 name|void
-name|_q_platformRunNativeAppModalPanel
-argument_list|()
-block|;
-name|void
 name|_q_newHsv
 argument_list|(
 argument|int h
@@ -307,10 +316,11 @@ block|;
 name|bool
 name|smallDisplay
 block|;
-name|QColorDialog
-operator|::
-name|ColorDialogOptions
-name|opts
+name|QSharedPointer
+operator|<
+name|QColorDialogOptions
+operator|>
+name|options
 block|;
 name|QPointer
 operator|<
@@ -402,6 +412,15 @@ operator|:
 name|virtual
 name|void
 name|initHelper
+argument_list|(
+name|QPlatformDialogHelper
+operator|*
+name|h
+argument_list|)
+block|;
+name|virtual
+name|void
+name|helperPrepareShow
 argument_list|(
 name|QPlatformDialogHelper
 operator|*

@@ -77,9 +77,11 @@ block|;
 name|bool
 name|show_sys
 argument_list|(
-name|QWindow
-operator|*
-name|parent
+argument|ShowFlags flags
+argument_list|,
+argument|Qt::WindowFlags windowFlags
+argument_list|,
+argument|QWindow *parent
 argument_list|)
 block|;
 name|void
@@ -125,15 +127,6 @@ name|setFilter_sys
 argument_list|()
 block|;
 name|void
-name|setNameFilters_sys
-argument_list|(
-specifier|const
-name|QStringList
-operator|&
-name|filters
-argument_list|)
-block|;
-name|void
 name|selectNameFilter_sys
 argument_list|(
 specifier|const
@@ -151,7 +144,11 @@ name|public
 operator|:
 name|bool
 name|showCocoaFilePanel
-argument_list|()
+argument_list|(
+name|QWindow
+operator|*
+name|parent
+argument_list|)
 block|;
 name|bool
 name|hideCocoaFilePanel

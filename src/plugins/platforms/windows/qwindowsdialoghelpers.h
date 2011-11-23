@@ -141,9 +141,11 @@ name|virtual
 name|bool
 name|show_sys
 argument_list|(
-name|QWindow
-operator|*
-name|parent
+argument|QPlatformDialogHelper::ShowFlags flags
+argument_list|,
+argument|Qt::WindowFlags windowFlags
+argument_list|,
+argument|QWindow *parent
 argument_list|)
 block|;
 name|virtual
@@ -178,13 +180,8 @@ return|;
 block|}
 name|protected
 operator|:
-name|explicit
 name|QWindowsDialogHelperBase
-argument_list|(
-name|QDialog
-operator|*
-name|dialog
-argument_list|)
+argument_list|()
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -217,12 +214,6 @@ name|ensureNativeDialog
 parameter_list|()
 function_decl|;
 end_function_decl
-begin_decl_stmt
-name|QDialog
-modifier|*
-name|m_dialog
-decl_stmt|;
-end_decl_stmt
 begin_decl_stmt
 name|QWindowsNativeDialogBase
 modifier|*

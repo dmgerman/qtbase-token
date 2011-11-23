@@ -176,6 +176,10 @@ block|{
 name|delete
 name|m_platformHelper
 block|; }
+name|void
+name|_q_platformRunNativeAppModalPanel
+argument_list|()
+block|;
 name|QWindow
 operator|*
 name|parentWindow
@@ -297,6 +301,22 @@ name|virtual
 name|void
 name|initHelper
 argument_list|(
+argument|QPlatformDialogHelper *
+argument_list|)
+block|{}
+name|virtual
+name|void
+name|helperPrepareShow
+argument_list|(
+argument|QPlatformDialogHelper *
+argument_list|)
+block|{}
+name|virtual
+name|void
+name|helperDone
+argument_list|(
+argument|QDialog::DialogCode
+argument_list|,
 argument|QPlatformDialogHelper *
 argument_list|)
 block|{}
