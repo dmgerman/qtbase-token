@@ -42,9 +42,6 @@ include|#
 directive|include
 file|<QtCore/QMetaType>
 end_include
-begin_comment
-comment|// Network test unnecessary?
-end_comment
 begin_include
 include|#
 directive|include
