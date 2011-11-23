@@ -992,6 +992,27 @@ argument|QSemaphore *semaphore =
 literal|0
 argument_list|)
 block|;
+name|QMetaCallEvent
+argument_list|(
+argument|QObject::QSlotObjectBase *slotObj
+argument_list|,
+argument|const QObject *sender
+argument_list|,
+argument|int signalId
+argument_list|,
+argument|int nargs =
+literal|0
+argument_list|,
+argument|int *types =
+literal|0
+argument_list|,
+argument|void **args =
+literal|0
+argument_list|,
+argument|QSemaphore *semaphore =
+literal|0
+argument_list|)
+block|;
 operator|~
 name|QMetaCallEvent
 argument_list|()
@@ -1053,6 +1074,12 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|QObject
+operator|::
+name|QSlotObjectBase
+operator|*
+name|slotObj_
+block|;
 specifier|const
 name|QObject
 operator|*
