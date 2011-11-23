@@ -76,9 +76,9 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-literal|640
-argument_list|,
 literal|480
+argument_list|,
+literal|640
 argument_list|)
 decl_stmt|;
 name|PaintedWindow
