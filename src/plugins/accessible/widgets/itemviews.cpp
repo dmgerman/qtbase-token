@@ -4499,6 +4499,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
+operator|(
 name|m_index
 operator|.
 name|flags
@@ -4507,6 +4508,7 @@ operator|&
 name|Qt
 operator|::
 name|ItemIsEditable
+operator|)
 condition|)
 return|return;
 name|view
