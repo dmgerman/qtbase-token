@@ -1087,6 +1087,11 @@ name|target
 parameter_list|)
 specifier|const
 block|{
+operator|*
+name|target
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|entry
@@ -1094,11 +1099,6 @@ operator|<
 literal|0
 condition|)
 block|{
-operator|*
-name|target
-operator|=
-literal|0
-expr_stmt|;
 return|return
 operator|-
 literal|1
