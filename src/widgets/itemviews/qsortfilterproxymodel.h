@@ -656,6 +656,18 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
+argument|void _q_sourceRowsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_sourceRowsMoved(QModelIndex,int,int,QModelIndex,int)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
 argument|void _q_sourceColumnsAboutToBeInserted(const QModelIndex&source_parent, int start, int end)
 argument_list|)
 name|Q_PRIVATE_SLOT
@@ -675,6 +687,18 @@ argument_list|(
 argument|d_func()
 argument_list|,
 argument|void _q_sourceColumnsRemoved(const QModelIndex&source_parent, int start, int end)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_sourceColumnsAboutToBeMoved(QModelIndex,int,int,QModelIndex,int)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_sourceColumnsMoved(QModelIndex,int,int,QModelIndex,int)
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(
