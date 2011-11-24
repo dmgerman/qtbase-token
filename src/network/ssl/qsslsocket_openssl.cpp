@@ -1136,6 +1136,9 @@ name|QSsl
 operator|::
 name|SslV2
 case|:
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_SSL2
 name|ctx
 operator|=
 name|q_SSL_CTX_new
@@ -1149,6 +1152,15 @@ name|q_SSLv2_server_method
 argument_list|()
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|ctx
+operator|=
+literal|0
+expr_stmt|;
+comment|// SSL 2 not supported by the system, but chosen deliberately -> error
+endif|#
+directive|endif
 break|break;
 case|case
 name|QSsl
