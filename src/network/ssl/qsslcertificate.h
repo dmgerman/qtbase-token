@@ -53,18 +53,6 @@ include|#
 directive|include
 file|<QtNetwork/qssl.h>
 end_include
-begin_typedef
-DECL|typedef|X509
-typedef|typedef
-name|struct
-name|x509_st
-name|X509
-typedef|;
-end_typedef
-begin_comment
-DECL|typedef|X509
-comment|// ### check if this works
-end_comment
 begin_function
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
