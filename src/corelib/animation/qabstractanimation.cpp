@@ -1426,11 +1426,13 @@ name|QUnifiedTimer
 operator|::
 name|instance
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|timer
+operator|&&
 name|timer
 operator|->
 name|canUninstallAnimationDriver
