@@ -886,7 +886,7 @@ begin_comment
 comment|/*!     \fn void QAccessibleEvent::setValue(const QString&text)      Set the description or help text for the given child() to \a     text, thereby answering the request.      \sa value() */
 end_comment
 begin_comment
-comment|/*!     Returns the window associated with the underlying object.     For instance, QAccessibleWidget reimplements this and returns     the windowHandle() of the QWidget.      The default implementation returns the window() of the parent interface.      It is used on some platforms to be able to notify the AT client about     state changes.     \preliminary   */
+comment|/*!     Returns the window associated with the underlying object.     For instance, QAccessibleWidget reimplements this and returns     the windowHandle() of the QWidget.      It is used on some platforms to be able to notify the AT client about     state changes.     The backend will traverse up all ancestors until it finds a window.     (This means that at least one interface among the ancestors should     return a valid QWindow pointer).      The default implementation of this returns 0.     \preliminary   */
 end_comment
 begin_function
 DECL|function|window
@@ -898,31 +898,8 @@ name|window
 parameter_list|()
 specifier|const
 block|{
-name|QAccessibleInterface
-modifier|*
-name|par
-init|=
-name|parent
-argument_list|()
-decl_stmt|;
-name|QWindow
-modifier|*
-name|w
-init|=
-name|par
-condition|?
-name|par
-operator|->
-name|window
-argument_list|()
-else|:
-literal|0
-decl_stmt|;
-operator|delete
-name|par
-expr_stmt|;
 return|return
-name|w
+literal|0
 return|;
 block|}
 end_function
