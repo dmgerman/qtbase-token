@@ -691,6 +691,10 @@ block|,
 name|CompilerRemoveNoExist
 operator|=
 literal|0x04
+block|,
+name|CompilerAddInputsAsMakefileDeps
+operator|=
+literal|0x08
 block|}
 block|;
 name|uint
