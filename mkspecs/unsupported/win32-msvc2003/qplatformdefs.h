@@ -427,7 +427,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|"../common/c89/qplatformdefs.h"
+file|"../../common/c89/qplatformdefs.h"
 end_include
 begin_ifdef
 ifdef|#
