@@ -3911,7 +3911,7 @@ name|window
 operator|->
 name|widthChanged
 argument_list|(
-name|cr
+name|newRect
 operator|.
 name|width
 argument_list|()
@@ -3933,7 +3933,7 @@ name|window
 operator|->
 name|heightChanged
 argument_list|(
-name|cr
+name|newRect
 operator|.
 name|height
 argument_list|()
@@ -3986,7 +3986,7 @@ name|window
 operator|->
 name|xChanged
 argument_list|(
-name|cr
+name|newRect
 operator|.
 name|x
 argument_list|()
@@ -4008,7 +4008,7 @@ name|window
 operator|->
 name|yChanged
 argument_list|(
-name|cr
+name|newRect
 operator|.
 name|y
 argument_list|()
