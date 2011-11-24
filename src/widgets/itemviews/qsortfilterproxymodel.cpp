@@ -6544,12 +6544,29 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// Re-sort the rows
+comment|// Re-sort the rows of this level
+name|QList
+argument_list|<
+name|QPersistentModelIndex
+argument_list|>
+name|parents
+decl_stmt|;
+name|parents
+operator|<<
+name|q
+operator|->
+name|mapFromSource
+argument_list|(
+name|source_parent
+argument_list|)
+expr_stmt|;
 emit|emit
 name|q
 operator|->
 name|layoutAboutToBeChanged
-argument_list|()
+argument_list|(
+name|parents
+argument_list|)
 emit|;
 name|QModelIndexPairList
 name|source_indexes
@@ -6615,7 +6632,9 @@ emit|emit
 name|q
 operator|->
 name|layoutChanged
-argument_list|()
+argument_list|(
+name|parents
+argument_list|)
 emit|;
 comment|// Make sure we also emit dataChanged for the rows
 name|source_rows_change
