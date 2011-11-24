@@ -2527,9 +2527,12 @@ argument_list|()
 condition|)
 name|socket
 operator|->
-name|setProperty
+name|proxy
+argument_list|()
+operator|.
+name|setRawHeader
 argument_list|(
-literal|"_q_user-agent"
+literal|"User-Agent"
 argument_list|,
 name|value
 argument_list|)

@@ -835,26 +835,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-ifndef|#
-directive|ifndef
-name|QT_NO_NETWORKPROXY
-comment|//copy user agent to socket engine (if it has been set)
-name|socketEngine
-operator|->
-name|setProperty
-argument_list|(
-literal|"_q_user-agent"
-argument_list|,
-name|q
-operator|->
-name|property
-argument_list|(
-literal|"_q_user-agent"
-argument_list|)
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
