@@ -349,7 +349,7 @@ argument_list|(
 name|Q_OS_WIN
 argument_list|)
 name|void
-name|qtbug_13249
+name|consistentRegistryStorage
 parameter_list|()
 function_decl|;
 endif|#
@@ -22032,12 +22032,18 @@ literal|0
 return|;
 block|}
 end_function
+begin_comment
+comment|// This is a regression test for QTBUG-13249, where QSettings was storing
+end_comment
+begin_comment
+comment|// signed integers as numeric values and unsigned integers as strings.
+end_comment
 begin_function
-DECL|function|qtbug_13249
+DECL|function|consistentRegistryStorage
 name|void
 name|tst_QSettings
 operator|::
-name|qtbug_13249
+name|consistentRegistryStorage
 parameter_list|()
 block|{
 name|QSettings
@@ -22061,7 +22067,7 @@ name|settings1
 operator|.
 name|setValue
 argument_list|(
-literal|"qtbug_13249_a"
+literal|"qint32_value"
 argument_list|,
 operator|(
 name|qint32
@@ -22075,7 +22081,7 @@ name|settings1
 operator|.
 name|value
 argument_list|(
-literal|"qtbug_13249_a"
+literal|"qint32_value"
 argument_list|)
 operator|.
 name|toInt
@@ -22091,7 +22097,7 @@ name|settings1
 operator|.
 name|setValue
 argument_list|(
-literal|"qtbug_13249_b"
+literal|"quint32_value"
 argument_list|,
 operator|(
 name|quint32
@@ -22105,7 +22111,7 @@ name|settings1
 operator|.
 name|value
 argument_list|(
-literal|"qtbug_13249_b"
+literal|"quint32_value"
 argument_list|)
 operator|.
 name|toUInt
@@ -22121,7 +22127,7 @@ name|settings1
 operator|.
 name|setValue
 argument_list|(
-literal|"qtbug_13249_c"
+literal|"qint64_value"
 argument_list|,
 operator|(
 name|qint64
@@ -22135,7 +22141,7 @@ name|settings1
 operator|.
 name|value
 argument_list|(
-literal|"qtbug_13249_c"
+literal|"qint64_value"
 argument_list|)
 operator|.
 name|toLongLong
@@ -22151,7 +22157,7 @@ name|settings1
 operator|.
 name|setValue
 argument_list|(
-literal|"qtbug_13249_d"
+literal|"quint64_value"
 argument_list|,
 operator|(
 name|quint64
@@ -22165,7 +22171,7 @@ name|settings1
 operator|.
 name|value
 argument_list|(
-literal|"qtbug_13249_d"
+literal|"quint64_value"
 argument_list|)
 operator|.
 name|toULongLong
@@ -22238,7 +22244,7 @@ name|handle
 argument_list|,
 name|QString
 argument_list|(
-literal|"qtbug_13249_a"
+literal|"qint32_value"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -22271,7 +22277,7 @@ name|handle
 argument_list|,
 name|QString
 argument_list|(
-literal|"qtbug_13249_b"
+literal|"quint32_value"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -22304,7 +22310,7 @@ name|handle
 argument_list|,
 name|QString
 argument_list|(
-literal|"qtbug_13249_c"
+literal|"qint64_value"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -22337,7 +22343,7 @@ name|handle
 argument_list|,
 name|QString
 argument_list|(
-literal|"qtbug_13249_d"
+literal|"quint64_value"
 argument_list|)
 argument_list|)
 expr_stmt|;

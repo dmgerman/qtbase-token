@@ -185,15 +185,15 @@ name|outOfMemory
 parameter_list|()
 function_decl|;
 name|void
-name|QTBUG6416_reserve
+name|reserve
 parameter_list|()
 function_decl|;
 name|void
-name|QTBUG11763_data
+name|reallocAfterCopy_data
 parameter_list|()
 function_decl|;
 name|void
-name|QTBUG11763
+name|reallocAfterCopy
 parameter_list|()
 function_decl|;
 name|void
@@ -4638,11 +4638,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|QTBUG6416_reserve
+DECL|function|reserve
 name|void
 name|tst_QVector
 operator|::
-name|QTBUG6416_reserve
+name|reserve
 parameter_list|()
 block|{
 name|fooCtor
@@ -4693,12 +4693,18 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// This is a regression test for QTBUG-11763, where memory would be reallocated
+end_comment
+begin_comment
+comment|// soon after copying a QVector.
+end_comment
 begin_function
-DECL|function|QTBUG11763_data
+DECL|function|reallocAfterCopy_data
 name|void
 name|tst_QVector
 operator|::
-name|QTBUG11763_data
+name|reallocAfterCopy_data
 parameter_list|()
 block|{
 name|QTest
@@ -4947,7 +4953,7 @@ name|qPrintable
 argument_list|(
 name|QString
 argument_list|(
-literal|"QTBUG11763:%1,%2"
+literal|"reallocAfterCopy:%1,%2"
 argument_list|)
 operator|.
 name|arg
@@ -4981,11 +4987,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|QTBUG11763
+DECL|function|reallocAfterCopy
 name|void
 name|tst_QVector
 operator|::
-name|QTBUG11763
+name|reallocAfterCopy
 parameter_list|()
 block|{
 name|QFETCH

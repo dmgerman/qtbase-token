@@ -174,7 +174,7 @@ name|exceptions
 parameter_list|()
 function_decl|;
 name|void
-name|exceptions_QTBUG18149
+name|nestedExceptions
 parameter_list|()
 function_decl|;
 endif|#
@@ -7279,12 +7279,21 @@ init|=
 literal|false
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// This is a regression test for QTBUG-18149. where QFuture did not throw
+end_comment
+begin_comment
+comment|// exceptions if called from destructors when the stack was already unwinding
+end_comment
+begin_comment
+comment|// due to an exception having been thrown.
+end_comment
 begin_function
-DECL|function|exceptions_QTBUG18149
+DECL|function|nestedExceptions
 name|void
 name|tst_QFuture
 operator|::
-name|exceptions_QTBUG18149
+name|nestedExceptions
 parameter_list|()
 block|{
 try|try

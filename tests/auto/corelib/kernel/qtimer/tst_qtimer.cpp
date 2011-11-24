@@ -124,7 +124,7 @@ name|recurseOnTimeoutAndStopTimer
 parameter_list|()
 function_decl|;
 name|void
-name|QTBUG13633_dontBlockEvents
+name|dontBlockEvents
 parameter_list|()
 function_decl|;
 name|void
@@ -2744,7 +2744,7 @@ name|total
 operator|=
 literal|0
 expr_stmt|;
-comment|//QTBUG-13633 need few unrelated timer running to reproduce the bug.
+comment|// need a few unrelated timers running to reproduce the bug.
 operator|(
 operator|new
 name|QTimer
@@ -2917,12 +2917,18 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// This is a regression test for QTBUG-13633, where a timer with a zero
+end_comment
+begin_comment
+comment|// timeout that was restarted by the event handler could starve other timers.
+end_comment
 begin_function
-DECL|function|QTBUG13633_dontBlockEvents
+DECL|function|dontBlockEvents
 name|void
 name|tst_QTimer
 operator|::
-name|QTBUG13633_dontBlockEvents
+name|dontBlockEvents
 parameter_list|()
 block|{
 name|DontBlockEvents

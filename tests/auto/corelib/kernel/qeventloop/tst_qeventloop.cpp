@@ -585,7 +585,7 @@ name|processEventsExcludeTimers
 parameter_list|()
 function_decl|;
 name|void
-name|deliverInDefinedOrder_QTBUG19637
+name|deliverInDefinedOrder
 parameter_list|()
 function_decl|;
 comment|// keep this test last:
@@ -2337,9 +2337,9 @@ argument|QThread*
 argument_list|)
 end_macro
 begin_namespace
-DECL|namespace|DeliverInDefinedOrder_QTBUG19637
+DECL|namespace|DeliverInDefinedOrder
 namespace|namespace
-name|DeliverInDefinedOrder_QTBUG19637
+name|DeliverInDefinedOrder
 block|{
 DECL|enumerator|NbThread
 DECL|enumerator|NbObject
@@ -2565,12 +2565,12 @@ begin_function
 name|void
 name|tst_QEventLoop
 operator|::
-name|deliverInDefinedOrder_QTBUG19637
+name|deliverInDefinedOrder
 parameter_list|()
 block|{
 using|using
 namespace|namespace
-name|DeliverInDefinedOrder_QTBUG19637
+name|DeliverInDefinedOrder
 namespace|;
 name|qMetaTypeId
 argument_list|<

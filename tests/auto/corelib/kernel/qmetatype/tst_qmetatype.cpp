@@ -197,7 +197,7 @@ name|unregisterType
 parameter_list|()
 function_decl|;
 name|void
-name|QTBUG11316_registerStreamBuiltin
+name|registerStreamBuiltin
 parameter_list|()
 function_decl|;
 block|}
@@ -4859,11 +4859,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|QTBUG11316_registerStreamBuiltin
+DECL|function|registerStreamBuiltin
 name|void
 name|tst_QMetaType
 operator|::
-name|QTBUG11316_registerStreamBuiltin
+name|registerStreamBuiltin
 parameter_list|()
 block|{
 comment|//should not crash;

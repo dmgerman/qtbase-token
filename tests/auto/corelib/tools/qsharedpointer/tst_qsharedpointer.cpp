@@ -10107,9 +10107,9 @@ block|}
 block|}
 end_function
 begin_namespace
-DECL|namespace|QTBUG11730
+DECL|namespace|ReentrancyWhileDestructing
 namespace|namespace
-name|QTBUG11730
+name|ReentrancyWhileDestructing
 block|{
 DECL|struct|IB
 struct|struct
@@ -10244,6 +10244,18 @@ block|}
 struct|;
 block|}
 end_namespace
+begin_comment
+comment|// This is a regression test for QTBUG-11730, where there would be a crash if
+end_comment
+begin_comment
+comment|// the destructor of a QSharedPointer object being deleted recursed back into
+end_comment
+begin_comment
+comment|// the same QSharedPointer object.  There are no explicit verification steps
+end_comment
+begin_comment
+comment|// in this test -- it is sufficient that the code does not crash.
+end_comment
 begin_function
 DECL|function|reentrancyWhileDestructing
 name|void
@@ -10252,12 +10264,7 @@ operator|::
 name|reentrancyWhileDestructing
 parameter_list|()
 block|{
-comment|// this bug is about recursing back into QSharedPointer::clear()
-comment|// from inside it
-comment|// that is, the destructor of the object being deleted recurses
-comment|// into the same QSharedPointer object.
-comment|// First reported as QTBUG-11730
-name|QTBUG11730
+name|ReentrancyWhileDestructing
 operator|::
 name|A
 name|obj

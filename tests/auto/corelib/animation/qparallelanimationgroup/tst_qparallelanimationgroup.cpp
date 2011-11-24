@@ -108,7 +108,7 @@ name|pauseResume
 parameter_list|()
 function_decl|;
 name|void
-name|QTBUG8910_crashWhenRemovingUncontrolledAnimation
+name|crashWhenRemovingUncontrolledAnimation
 parameter_list|()
 function_decl|;
 block|}
@@ -7569,12 +7569,18 @@ expr_stmt|;
 comment|//this shouldn't have changed
 block|}
 end_function
+begin_comment
+comment|// This is a regression test for QTBUG-8910, where a crash occurred when the
+end_comment
+begin_comment
+comment|// last animation was removed from a group.
+end_comment
 begin_function
-DECL|function|QTBUG8910_crashWhenRemovingUncontrolledAnimation
+DECL|function|crashWhenRemovingUncontrolledAnimation
 name|void
 name|tst_QParallelAnimationGroup
 operator|::
-name|QTBUG8910_crashWhenRemovingUncontrolledAnimation
+name|crashWhenRemovingUncontrolledAnimation
 parameter_list|()
 block|{
 name|QParallelAnimationGroup

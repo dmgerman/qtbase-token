@@ -2411,7 +2411,7 @@ parameter_list|()
 specifier|const
 function_decl|;
 name|void
-name|qtbug9196_crash
+name|crashInXmlStreamReader
 parameter_list|()
 specifier|const
 function_decl|;
@@ -7547,16 +7547,21 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// This is a regression test for QTBUG-9196, where the series of tags used
+end_comment
+begin_comment
+comment|// in the test caused a crash in the XML stream reader.
+end_comment
 begin_function
-DECL|function|qtbug9196_crash
+DECL|function|crashInXmlStreamReader
 name|void
 name|tst_QXmlStream
 operator|::
-name|qtbug9196_crash
+name|crashInXmlStreamReader
 parameter_list|()
 specifier|const
 block|{
-comment|// the following input used to produce a crash in the stream reader
 name|QByteArray
 name|ba
 argument_list|(

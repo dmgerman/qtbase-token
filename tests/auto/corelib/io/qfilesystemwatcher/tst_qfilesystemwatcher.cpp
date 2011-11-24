@@ -134,7 +134,7 @@ name|cleanup
 parameter_list|()
 function_decl|;
 name|void
-name|QTBUG15255_deadlock
+name|destroyAfterQCoreApplication
 parameter_list|()
 function_decl|;
 private|private:
@@ -2523,12 +2523,24 @@ argument_list|,
 argument|someSingleton
 argument_list|)
 end_macro
+begin_comment
+comment|// This is a regression test for QTBUG-15255, where a deadlock occurred if a
+end_comment
+begin_comment
+comment|// QFileSystemWatcher was destroyed after the QCoreApplication instance had
+end_comment
+begin_comment
+comment|// been destroyed.  There are no explicit verification steps in this test --
+end_comment
+begin_comment
+comment|// it is sufficient that the test terminates.
+end_comment
 begin_function
-DECL|function|QTBUG15255_deadlock
+DECL|function|destroyAfterQCoreApplication
 name|void
 name|tst_QFileSystemWatcher
 operator|::
-name|QTBUG15255_deadlock
+name|destroyAfterQCoreApplication
 parameter_list|()
 block|{
 name|someSingleton
@@ -2537,7 +2549,6 @@ operator|->
 name|bla
 argument_list|()
 expr_stmt|;
-comment|//the test must still finish
 name|QTest
 operator|::
 name|qWait

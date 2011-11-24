@@ -145,11 +145,11 @@ name|threadsafeEngineCache
 parameter_list|()
 function_decl|;
 name|void
-name|QTBUG_7049_data
+name|posAndCapConsistency_data
 parameter_list|()
 function_decl|;
 name|void
-name|QTBUG_7049
+name|posAndCapConsistency
 parameter_list|()
 function_decl|;
 name|void
@@ -9356,11 +9356,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|function|QTBUG_7049_data
+comment|// This test aims to ensure that the values returned by pos() and cap()
+comment|// are consistent.
+DECL|function|posAndCapConsistency_data
 name|void
 name|tst_QRegExp
 operator|::
-name|QTBUG_7049_data
+name|posAndCapConsistency_data
 parameter_list|()
 block|{
 name|QTest
@@ -9956,11 +9958,11 @@ name|QString
 argument_list|()
 expr_stmt|;
 block|}
-DECL|function|QTBUG_7049
+DECL|function|posAndCapConsistency
 name|void
 name|tst_QRegExp
 operator|::
-name|QTBUG_7049
+name|posAndCapConsistency
 parameter_list|()
 block|{
 name|QFETCH

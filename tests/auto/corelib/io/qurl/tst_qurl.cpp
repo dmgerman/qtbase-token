@@ -603,19 +603,19 @@ name|fromUserInput
 parameter_list|()
 function_decl|;
 name|void
-name|task_199967
+name|isEmptyForEncodedUrl
 parameter_list|()
 function_decl|;
 name|void
-name|task_240612
+name|toEncodedNotUsingUninitializedPath
 parameter_list|()
 function_decl|;
 name|void
-name|taskQTBUG_6962
+name|emptyAuthorityRemovesExistingAuthority
 parameter_list|()
 function_decl|;
 name|void
-name|taskQTBUG_8701
+name|acceptEmptyAuthoritySegments
 parameter_list|()
 function_decl|;
 name|void
@@ -22621,12 +22621,21 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// This is a regression test for a previously fixed bug where isEmpty didn't
+end_comment
+begin_comment
+comment|// work for an encoded URL that was yet to be decoded.  The test checks that
+end_comment
+begin_comment
+comment|// isEmpty works for an encoded URL both after and before decoding.
+end_comment
 begin_function
-DECL|function|task_199967
+DECL|function|isEmptyForEncodedUrl
 name|void
 name|tst_QUrl
 operator|::
-name|task_199967
+name|isEmptyForEncodedUrl
 parameter_list|()
 block|{
 block|{
@@ -22723,12 +22732,18 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|// This test verifies that the QUrl::toEncoded() does not rely on the
+end_comment
+begin_comment
+comment|// potentially uninitialized unencoded path.
+end_comment
 begin_function
-DECL|function|task_240612
+DECL|function|toEncodedNotUsingUninitializedPath
 name|void
 name|tst_QUrl
 operator|::
-name|task_240612
+name|toEncodedNotUsingUninitializedPath
 parameter_list|()
 block|{
 name|QUrl
@@ -23047,14 +23062,13 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|taskQTBUG_6962
+DECL|function|emptyAuthorityRemovesExistingAuthority
 name|void
 name|tst_QUrl
 operator|::
-name|taskQTBUG_6962
+name|emptyAuthorityRemovesExistingAuthority
 parameter_list|()
 block|{
-comment|//bug 6962: empty authority ignored by setAuthority
 name|QUrl
 name|url
 argument_list|(
@@ -23083,14 +23097,14 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|taskQTBUG_8701
+DECL|function|acceptEmptyAuthoritySegments
 name|void
 name|tst_QUrl
 operator|::
-name|taskQTBUG_8701
+name|acceptEmptyAuthoritySegments
 parameter_list|()
 block|{
-comment|//bug 8701: foo:///bar mangled to foo:/bar
+comment|// Verify that foo:///bar is not mangled to foo:/bar
 name|QString
 name|foo_triple_bar
 argument_list|(
@@ -23145,7 +23159,6 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// fails
 name|QCOMPARE
 argument_list|(
 name|foo_uni_bar
