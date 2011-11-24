@@ -550,8 +550,10 @@ name|file
 operator|.
 name|setFileName
 argument_list|(
-name|SRCDIR
+name|QFINDTESTDATA
+argument_list|(
 literal|"tst_qiodevice.cpp"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -743,8 +745,10 @@ block|{
 name|QFile
 name|f
 argument_list|(
-name|SRCDIR
+name|QFINDTESTDATA
+argument_list|(
 literal|"tst_qiodevice.cpp"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|f

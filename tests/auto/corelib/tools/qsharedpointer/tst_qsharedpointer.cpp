@@ -9874,8 +9874,10 @@ argument_list|(
 name|QStringList
 argument_list|()
 operator|<<
-name|SRCDIR
+name|QFINDTESTDATA
+argument_list|(
 literal|"forwarddeclared.cpp"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|test

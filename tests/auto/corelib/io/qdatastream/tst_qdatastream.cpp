@@ -19769,8 +19769,10 @@ name|file
 operator|.
 name|setFileName
 argument_list|(
-name|SRCDIR
+name|QFINDTESTDATA
+argument_list|(
 literal|"datastream.q42"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

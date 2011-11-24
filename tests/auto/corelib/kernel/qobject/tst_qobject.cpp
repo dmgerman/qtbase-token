@@ -21567,11 +21567,17 @@ block|{
 name|QProcess
 name|proc
 block|;
+comment|// signalbug helper app should always be next to this test binary
 name|proc
 operator|.
 name|start
 argument_list|(
-literal|"./signalbug"
+name|QCoreApplication
+operator|::
+name|applicationDirPath
+argument_list|()
+operator|+
+literal|"/signalbug"
 argument_list|)
 block|;
 name|QVERIFY

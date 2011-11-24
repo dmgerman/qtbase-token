@@ -73,7 +73,6 @@ modifier|*
 specifier|const
 name|catalogFile
 init|=
-name|SRCDIR
 literal|"XML-Test-Suite/xmlconf/finalCatalog.xml"
 decl_stmt|;
 end_decl_stmt
@@ -2224,7 +2223,7 @@ name|QUrl
 operator|::
 name|fromLocalFile
 argument_list|(
-name|QLatin1String
+name|QFINDTESTDATA
 argument_list|(
 name|catalogFile
 argument_list|)
@@ -2449,9 +2448,7 @@ block|{
 name|QFile
 name|file
 argument_list|(
-name|QString
-operator|::
-name|fromLatin1
+name|QFINDTESTDATA
 argument_list|(
 name|catalogFile
 argument_list|)
@@ -4110,8 +4107,10 @@ name|dir
 operator|.
 name|cd
 argument_list|(
-name|SRCDIR
+name|QFINDTESTDATA
+argument_list|(
 literal|"data/"
+argument_list|)
 argument_list|)
 expr_stmt|;
 foreach|foreach
@@ -5788,9 +5787,8 @@ name|QUrl
 operator|::
 name|fromLocalFile
 argument_list|(
-name|QLatin1String
+name|QFINDTESTDATA
 argument_list|(
-name|SRCDIR
 literal|"data/051reduced.xml"
 argument_list|)
 argument_list|)

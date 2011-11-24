@@ -2112,8 +2112,13 @@ operator|=
 operator|::
 name|open
 argument_list|(
-name|SRCDIR
+name|qPrintable
+argument_list|(
+name|QFINDTESTDATA
+argument_list|(
 literal|"tst_qtemporaryfile.cpp"
+argument_list|)
+argument_list|)
 argument_list|,
 name|O_RDONLY
 argument_list|)

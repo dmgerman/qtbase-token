@@ -542,8 +542,10 @@ directive|endif
 name|QFile
 name|file
 argument_list|(
-name|SRCDIR
+name|QFINDTESTDATA
+argument_list|(
 literal|"rfc3252.txt"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|QVERIFY

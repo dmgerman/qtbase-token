@@ -250,8 +250,10 @@ argument_list|(
 literal|"korean-eucKR"
 argument_list|)
 operator|<<
-name|SRCDIR
+name|QFINDTESTDATA
+argument_list|(
 literal|"korean.txt"
+argument_list|)
 operator|<<
 literal|"eucKR"
 expr_stmt|;
@@ -262,8 +264,10 @@ argument_list|(
 literal|"UTF-8"
 argument_list|)
 operator|<<
-name|SRCDIR
+name|QFINDTESTDATA
+argument_list|(
 literal|"utf8.txt"
+argument_list|)
 operator|<<
 literal|"UTF-8"
 expr_stmt|;
@@ -1531,9 +1535,8 @@ block|{
 name|QFile
 name|file
 argument_list|(
-name|QString
+name|QFINDTESTDATA
 argument_list|(
-name|SRCDIR
 literal|"QT4-crashtest.txt"
 argument_list|)
 argument_list|)

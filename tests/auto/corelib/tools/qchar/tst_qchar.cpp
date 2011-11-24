@@ -4862,8 +4862,10 @@ decl_stmt|;
 name|QFile
 name|f
 argument_list|(
-name|SRCDIR
+name|QFINDTESTDATA
+argument_list|(
 literal|"NormalizationTest.txt"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|QVERIFY

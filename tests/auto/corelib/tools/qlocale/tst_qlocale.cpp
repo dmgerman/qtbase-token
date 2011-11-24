@@ -1790,7 +1790,7 @@ value|{ \
 comment|/* Test constructor without arguments. Needs separate process */
 value|\
 comment|/* because of caching of the system locale. */
-value|\     QProcess process; \     process.setEnvironment(QStringList(env)<< QString("LANG=%1").arg(req_lc)); \     process.start("syslocaleapp/syslocaleapp"); \     process.waitForReadyRead(); \     QString ret = QString(process.readAll()); \     process.waitForFinished(); \     QVERIFY2(!ret.isEmpty(), "Cannot launch external process"); \     QVERIFY2(QString(exp_str) == ret, QString("Expected: " + QString(exp_str) + ", got: " \             + ret + ". Requested: " + QString(req_lc)).toLatin1().constData()); \     }
+value|\     QProcess process; \     process.setEnvironment(QStringList(env)<< QString("LANG=%1").arg(req_lc)); \     process.start(syslocaleapp_dir + "syslocaleapp"); \     process.waitForReadyRead(); \     QString ret = QString(process.readAll()); \     process.waitForFinished(); \     QVERIFY2(!ret.isEmpty(), "Cannot launch external process"); \     QVERIFY2(QString(exp_str) == ret, QString("Expected: " + QString(exp_str) + ", got: " \             + ret + ". Requested: " + QString(req_lc)).toLatin1().constData()); \     }
 comment|// Get an environment free of any locale-related variables
 name|QStringList
 name|env
@@ -1830,6 +1830,14 @@ operator|<<
 name|entry
 expr_stmt|;
 block|}
+name|QString
+name|syslocaleapp_dir
+init|=
+name|QFINDTESTDATA
+argument_list|(
+literal|"syslocaleapp/"
+argument_list|)
+decl_stmt|;
 comment|// Get default locale.
 name|QProcess
 name|p
@@ -1845,7 +1853,9 @@ name|p
 operator|.
 name|start
 argument_list|(
-literal|"syslocaleapp/syslocaleapp"
+name|syslocaleapp_dir
+operator|+
+literal|"syslocaleapp"
 argument_list|)
 expr_stmt|;
 name|p

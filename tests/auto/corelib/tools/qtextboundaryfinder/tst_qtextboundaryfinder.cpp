@@ -101,11 +101,36 @@ block|{
 ifndef|#
 directive|ifndef
 name|Q_OS_IRIX
+comment|// chdir into the top-level data dir, then refer to our testdata using relative paths
+name|QString
+name|testdata_dir
+init|=
+name|QFileInfo
+argument_list|(
+name|QFINDTESTDATA
+argument_list|(
+literal|"data"
+argument_list|)
+argument_list|)
+operator|.
+name|absolutePath
+argument_list|()
+decl_stmt|;
+name|QVERIFY2
+argument_list|(
 name|QDir
 operator|::
 name|setCurrent
 argument_list|(
-name|SRCDIR
+name|testdata_dir
+argument_list|)
+argument_list|,
+name|qPrintable
+argument_list|(
+literal|"Could not chdir to "
+operator|+
+name|testdata_dir
+argument_list|)
 argument_list|)
 expr_stmt|;
 endif|#
