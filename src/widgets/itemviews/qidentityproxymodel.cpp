@@ -46,7 +46,7 @@ name|ignoreNextLayoutChanged
 argument_list|(
 literal|false
 argument_list|)
-block|{    }
+block|{      }
 name|Q_DECLARE_PUBLIC
 parameter_list|(
 name|QIdentityProxyModel
