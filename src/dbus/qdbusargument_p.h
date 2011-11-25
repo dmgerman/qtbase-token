@@ -724,6 +724,10 @@ name|ElementType
 name|currentType
 argument_list|()
 block|;
+name|bool
+name|isCurrentTypeStringLike
+argument_list|()
+block|;
 name|public
 operator|:
 name|DBusMessageIter
@@ -739,7 +743,18 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QDBusDemarshaller
 argument_list|)
-block|}
+name|QString
+name|toStringUnchecked
+argument_list|()
+block|;
+name|QDBusObjectPath
+name|toObjectPathUnchecked
+argument_list|()
+block|;
+name|QDBusSignature
+name|toSignatureUnchecked
+argument_list|()
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
