@@ -406,12 +406,11 @@ operator|<
 name|typename
 name|T
 operator|>
+name|explicit
 name|QMetaTypeInterface
 argument_list|(
 name|T
 operator|*
-operator|=
-literal|0
 argument_list|)
 operator|:
 name|creator
