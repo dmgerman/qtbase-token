@@ -766,7 +766,7 @@ parameter_list|,
 name|expectedValue
 parameter_list|)
 define|\
-value|QT_INTERLOCKED_FUNCTION( CompareExchangePointer )( \             reinterpret_cast<void * QT_INTERLOCKED_VOLATILE *>( QT_INTERLOCKED_REMOVE_VOLATILE( value ) ), \             newValue, \             expectedValue )
+value|QT_INTERLOCKED_FUNCTION( CompareExchangePointer )( \             (void * QT_INTERLOCKED_VOLATILE *)( QT_INTERLOCKED_REMOVE_VOLATILE(value) ), \             newValue, \             expectedValue )
 end_define
 begin_define
 DECL|macro|QT_INTERLOCKED_EXCHANGE_POINTER
@@ -779,7 +779,7 @@ parameter_list|,
 name|newValue
 parameter_list|)
 define|\
-value|QT_INTERLOCKED_FUNCTION( ExchangePointer )( \             reinterpret_cast<void * QT_INTERLOCKED_VOLATILE *>( QT_INTERLOCKED_REMOVE_VOLATILE( value ) ), \             newValue )
+value|QT_INTERLOCKED_FUNCTION( ExchangePointer )( \             (void * QT_INTERLOCKED_VOLATILE *)( QT_INTERLOCKED_REMOVE_VOLATILE(value) ), \             newValue )
 end_define
 begin_define
 DECL|macro|QT_INTERLOCKED_EXCHANGE_ADD_POINTER
@@ -1317,8 +1317,16 @@ argument_list|(
 operator|&
 name|_q_value
 argument_list|,
+operator|(
+name|void
+operator|*
+operator|)
 name|newValue
 argument_list|,
+operator|(
+name|void
+operator|*
+operator|)
 name|expectedValue
 argument_list|)
 operator|==
@@ -1358,6 +1366,10 @@ argument_list|(
 operator|&
 name|_q_value
 argument_list|,
+operator|(
+name|void
+operator|*
+operator|)
 name|newValue
 argument_list|)
 operator|)
