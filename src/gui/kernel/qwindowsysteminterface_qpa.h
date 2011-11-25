@@ -560,6 +560,15 @@ parameter_list|)
 function_decl|;
 specifier|static
 name|void
+name|handleSynchronousCloseEvent
+parameter_list|(
+name|QWindow
+modifier|*
+name|w
+parameter_list|)
+function_decl|;
+specifier|static
+name|void
 name|handleEnterEvent
 parameter_list|(
 name|QWindow
