@@ -126,6 +126,10 @@ name|initTestCase_data
 parameter_list|()
 function_decl|;
 name|void
+name|initTestCase
+parameter_list|()
+function_decl|;
+name|void
 name|init
 parameter_list|()
 function_decl|;
@@ -332,6 +336,24 @@ argument_list|)
 expr_stmt|;
 comment|// uncomment the line below when NTLM works
 comment|//    QTest::newRow("WithHttpProxyNtlmAuth")<< true<< int(HttpProxy | AuthNtlm);
+block|}
+end_function
+begin_function
+DECL|function|initTestCase
+name|void
+name|tst_QSslSocket_onDemandCertificates_member
+operator|::
+name|initTestCase
+parameter_list|()
+block|{
+name|QVERIFY
+argument_list|(
+name|QtNetworkSettings
+operator|::
+name|verifyTestNetworkSettings
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function

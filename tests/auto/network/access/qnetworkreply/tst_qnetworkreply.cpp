@@ -5659,6 +5659,14 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
+name|QVERIFY
+argument_list|(
+name|QtNetworkSettings
+operator|::
+name|verifyTestNetworkSettings
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|#
 directive|if
 operator|!

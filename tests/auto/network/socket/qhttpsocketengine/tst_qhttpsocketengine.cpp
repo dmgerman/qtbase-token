@@ -89,6 +89,10 @@ public|public
 name|slots
 public|:
 name|void
+name|initTestCase
+parameter_list|()
+function_decl|;
+name|void
 name|init
 parameter_list|()
 function_decl|;
@@ -428,6 +432,24 @@ name|tst_QHttpSocketEngine
 parameter_list|()
 block|{ }
 end_destructor
+begin_function
+DECL|function|initTestCase
+name|void
+name|tst_QHttpSocketEngine
+operator|::
+name|initTestCase
+parameter_list|()
+block|{
+name|QVERIFY
+argument_list|(
+name|QtNetworkSettings
+operator|::
+name|verifyTestNetworkSettings
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_function
 DECL|function|init
 name|void

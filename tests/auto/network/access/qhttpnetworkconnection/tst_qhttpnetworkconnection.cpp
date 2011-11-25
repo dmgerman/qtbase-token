@@ -286,7 +286,16 @@ name|tst_QHttpNetworkConnection
 operator|::
 name|initTestCase
 parameter_list|()
-block|{ }
+block|{
+name|QVERIFY
+argument_list|(
+name|QtNetworkSettings
+operator|::
+name|verifyTestNetworkSettings
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|cleanupTestCase

@@ -55,7 +55,7 @@ public|public
 name|slots
 public|:
 name|void
-name|initTestCase_data
+name|initTestCase
 parameter_list|()
 function_decl|;
 name|void
@@ -98,13 +98,22 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_function
-DECL|function|initTestCase_data
+DECL|function|initTestCase
 name|void
 name|tst_QSslSocket
 operator|::
-name|initTestCase_data
+name|initTestCase
 parameter_list|()
-block|{ }
+block|{
+name|QVERIFY
+argument_list|(
+name|QtNetworkSettings
+operator|::
+name|verifyTestNetworkSettings
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|init

@@ -161,6 +161,10 @@ public|public
 name|slots
 public|:
 name|void
+name|initTestCase
+parameter_list|()
+function_decl|;
+name|void
 name|cleanup
 parameter_list|()
 function_decl|;
@@ -701,6 +705,24 @@ function_decl|;
 block|}
 class|;
 end_class
+begin_function
+DECL|function|initTestCase
+name|void
+name|tst_QTextStream
+operator|::
+name|initTestCase
+parameter_list|()
+block|{
+name|QVERIFY
+argument_list|(
+name|QtNetworkSettings
+operator|::
+name|verifyTestNetworkSettings
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_comment
 comment|// Testing get/set functions
 end_comment
