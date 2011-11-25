@@ -620,13 +620,13 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_sourceLayoutAboutToBeChanged()
+argument|void _q_sourceLayoutAboutToBeChanged(const QList<QPersistentModelIndex>&sourceParents)
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_sourceLayoutChanged()
+argument|void _q_sourceLayoutChanged(const QList<QPersistentModelIndex>&sourceParents)
 argument_list|)
 name|Q_PRIVATE_SLOT
 argument_list|(
