@@ -1104,6 +1104,8 @@ argument|reinterpret_cast<void **>(&signal)
 argument_list|,
 argument|receiver
 argument_list|,
+argument|reinterpret_cast<void **>(&slot)
+argument_list|,
 argument|new QSlotObject<Func2
 argument_list|,
 argument|typename QtPrivate::List_Left<typename SignalType::Arguments
@@ -1253,6 +1255,8 @@ argument|reinterpret_cast<void **>(&signal)
 argument_list|,
 argument|sender
 argument_list|,
+literal|0
+argument_list|,
 argument|new QStaticSlotObject<Func2
 argument_list|,
 argument|typename QtPrivate::List_Left<typename SignalType::Arguments
@@ -1335,6 +1339,8 @@ argument_list|,
 argument|reinterpret_cast<void **>(&signal)
 argument_list|,
 argument|sender
+argument_list|,
+literal|0
 argument_list|,
 argument|new QFunctorSlotObject<Func2
 argument_list|,
@@ -2424,6 +2430,8 @@ argument_list|,
 argument|void **signal
 argument_list|,
 argument|const QObject *receiver
+argument_list|,
+argument|void **slotPtr
 argument_list|,
 argument|QSlotObjectBase *slot
 argument_list|,
