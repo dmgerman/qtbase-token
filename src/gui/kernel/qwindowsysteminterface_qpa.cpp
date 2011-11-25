@@ -294,13 +294,7 @@ block|{
 name|QWindowSystemInterfacePrivate
 operator|::
 name|GeometryChangeEvent
-modifier|*
 name|e
-init|=
-operator|new
-name|QWindowSystemInterfacePrivate
-operator|::
-name|GeometryChangeEvent
 argument_list|(
 name|tlw
 argument_list|,
@@ -311,6 +305,7 @@ name|QGuiApplicationPrivate
 operator|::
 name|processWindowSystemEvent
 argument_list|(
+operator|&
 name|e
 argument_list|)
 expr_stmt|;
@@ -1575,13 +1570,7 @@ block|{
 name|QWindowSystemInterfacePrivate
 operator|::
 name|ExposeEvent
-modifier|*
 name|e
-init|=
-operator|new
-name|QWindowSystemInterfacePrivate
-operator|::
-name|ExposeEvent
 argument_list|(
 name|tlw
 argument_list|,
@@ -1592,6 +1581,7 @@ name|QGuiApplicationPrivate
 operator|::
 name|processWindowSystemEvent
 argument_list|(
+operator|&
 name|e
 argument_list|)
 expr_stmt|;
