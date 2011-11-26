@@ -46,144 +46,8 @@ name|QT_MODULE
 parameter_list|(
 name|Core
 parameter_list|)
-comment|// QXmlStream* was originally in the QtXml module
-comment|// since we've moved it to QtCore in Qt 4.4.0, we need to
-comment|// keep binary compatibility
-comment|//
-comment|// The list of supported platforms is in:
-comment|//   http://qt.nokia.com/doc/supported_platforms.html
-comment|//
-comment|// These platforms do not support symbol moving nor duplication
-comment|// (because duplicate symbols cause warnings when linking):
-comment|//   Apple MacOS X (Mach-O executable format)
-comment|//       special case: 64-bit on Mac wasn't supported before 4.5.0
-comment|//   IBM AIX (XCOFF executable format)
-comment|//
-comment|// These platforms do not support symbol moving but allow it to be duplicated:
-comment|//   Microsoft Windows (COFF PE executable format)
-comment|//      special case: Windows CE wasn't supported before 4.4.0
-comment|//
-comment|// These platforms support symbol moving:
-comment|//   HP HP-UX (PA-RISC2.0 shared executables)
-comment|//   HP HP-UXi (ELF executable format)
-comment|//   FreeBSD (ELF executable format)
-comment|//   Linux (ELF executable format)
-comment|//   SGI IRIX (ELF executable format)
-comment|//   Sun Solaris (ELF executable format)
-comment|//
-comment|// Other platforms are supported through community contributions only.
-comment|// We are taking the optimist scenario here to avoid creating more
-comment|// symbols to be supported.
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_MAC32
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_AIX
-argument_list|)
-if|#
-directive|if
-operator|!
-name|defined
-name|QT_BUILD_XML_LIB
-DECL|macro|Q_XMLSTREAM_RENAME_SYMBOLS
-define|#
-directive|define
-name|Q_XMLSTREAM_RENAME_SYMBOLS
-endif|#
-directive|endif
-endif|#
-directive|endif
-if|#
-directive|if
-name|defined
-name|QT_BUILD_XML_LIB
-DECL|macro|Q_XMLSTREAM_EXPORT
-define|#
-directive|define
-name|Q_XMLSTREAM_EXPORT
-value|Q_XML_EXPORT
-else|#
-directive|else
-define|#
-directive|define
-name|Q_XMLSTREAM_EXPORT
-value|Q_CORE_EXPORT
-endif|#
-directive|endif
-if|#
-directive|if
-name|defined
-name|Q_XMLSTREAM_RENAME_SYMBOLS
-comment|// don't worry, we'll undef and change to typedef at the bottom of the file
-DECL|macro|QXmlStreamAttribute
-define|#
-directive|define
-name|QXmlStreamAttribute
-value|QCoreXmlStreamAttribute
-DECL|macro|QXmlStreamAttributes
-define|#
-directive|define
-name|QXmlStreamAttributes
-value|QCoreXmlStreamAttributes
-DECL|macro|QXmlStreamEntityDeclaration
-define|#
-directive|define
-name|QXmlStreamEntityDeclaration
-value|QCoreXmlStreamEntityDeclaration
-DECL|macro|QXmlStreamEntityDeclarations
-define|#
-directive|define
-name|QXmlStreamEntityDeclarations
-value|QCoreXmlStreamEntityDeclarations
-DECL|macro|QXmlStreamEntityResolver
-define|#
-directive|define
-name|QXmlStreamEntityResolver
-value|QCoreXmlStreamEntityResolver
-DECL|macro|QXmlStreamNamespaceDeclaration
-define|#
-directive|define
-name|QXmlStreamNamespaceDeclaration
-value|QCoreXmlStreamNamespaceDeclaration
-DECL|macro|QXmlStreamNamespaceDeclarations
-define|#
-directive|define
-name|QXmlStreamNamespaceDeclarations
-value|QCoreXmlStreamNamespaceDeclarations
-DECL|macro|QXmlStreamNotationDeclaration
-define|#
-directive|define
-name|QXmlStreamNotationDeclaration
-value|QCoreXmlStreamNotationDeclaration
-DECL|macro|QXmlStreamNotationDeclarations
-define|#
-directive|define
-name|QXmlStreamNotationDeclarations
-value|QCoreXmlStreamNotationDeclarations
-DECL|macro|QXmlStreamReader
-define|#
-directive|define
-name|QXmlStreamReader
-value|QCoreXmlStreamReader
-DECL|macro|QXmlStreamStringRef
-define|#
-directive|define
-name|QXmlStreamStringRef
-value|QCoreXmlStreamStringRef
-DECL|macro|QXmlStreamWriter
-define|#
-directive|define
-name|QXmlStreamWriter
-value|QCoreXmlStreamWriter
-endif|#
-directive|endif
 name|class
-name|Q_XMLSTREAM_EXPORT
+name|Q_CORE_EXPORT
 name|QXmlStreamStringRef
 decl_stmt|{     QString m_string;
 end_function
@@ -370,7 +234,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_XMLSTREAM_EXPORT
+name|Q_CORE_EXPORT
 name|QXmlStreamAttribute
 block|{
 name|QXmlStreamStringRef
@@ -641,7 +505,7 @@ expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
 name|class
-name|Q_XMLSTREAM_EXPORT
+name|Q_CORE_EXPORT
 name|QXmlStreamAttributes
 range|:
 name|public
@@ -832,7 +696,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_XMLSTREAM_EXPORT
+name|Q_CORE_EXPORT
 name|QXmlStreamNamespaceDeclaration
 block|{
 name|QXmlStreamStringRef
@@ -986,7 +850,7 @@ expr_stmt|;
 end_typedef
 begin_decl_stmt
 name|class
-name|Q_XMLSTREAM_EXPORT
+name|Q_CORE_EXPORT
 name|QXmlStreamNotationDeclaration
 block|{
 name|QXmlStreamStringRef
@@ -1147,7 +1011,7 @@ expr_stmt|;
 end_typedef
 begin_decl_stmt
 name|class
-name|Q_XMLSTREAM_EXPORT
+name|Q_CORE_EXPORT
 name|QXmlStreamEntityDeclaration
 block|{
 name|QXmlStreamStringRef
@@ -1348,7 +1212,7 @@ expr_stmt|;
 end_typedef
 begin_decl_stmt
 name|class
-name|Q_XMLSTREAM_EXPORT
+name|Q_CORE_EXPORT
 name|QXmlStreamEntityResolver
 block|{
 name|public
@@ -1395,7 +1259,7 @@ name|QT_NO_XMLSTREAMREADER
 end_ifndef
 begin_decl_stmt
 name|class
-name|Q_XMLSTREAM_EXPORT
+name|Q_CORE_EXPORT
 name|QXmlStreamReader
 block|{
 name|QDOC_PROPERTY
@@ -1923,7 +1787,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_XMLSTREAM_EXPORT
+name|Q_CORE_EXPORT
 name|QXmlStreamWriter
 block|{
 name|QDOC_PROPERTY
