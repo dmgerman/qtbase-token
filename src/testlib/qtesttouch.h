@@ -912,7 +912,7 @@ name|TouchPoint
 operator|>
 name|newList
 block|;
-name|foreach
+name|Q_FOREACH
 argument_list|(
 argument|QTouchEvent::TouchPoint p
 argument_list|,
