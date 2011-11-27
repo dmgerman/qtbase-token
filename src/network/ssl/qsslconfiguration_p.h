@@ -105,7 +105,7 @@ argument_list|)
 block|,
 name|sslOptions
 argument_list|(
-argument|QSsl::SslOptionDisableEmptyFragments|QSsl::SslOptionDisableLegacyRenegotiation
+argument|QSslConfigurationPrivate::defaultSslOptions
 argument_list|)
 block|{ }
 name|QSslCertificate
@@ -155,6 +155,14 @@ name|QSsl
 operator|::
 name|SslOptions
 name|sslOptions
+block|;
+name|Q_AUTOTEST_EXPORT
+specifier|static
+specifier|const
+name|QSsl
+operator|::
+name|SslOptions
+name|defaultSslOptions
 block|;
 comment|// in qsslsocket.cpp:
 specifier|static
