@@ -1321,7 +1321,7 @@ name|m_widget
 argument_list|,
 name|event
 operator|->
-name|deviceType
+name|device
 argument_list|()
 argument_list|,
 name|event

@@ -21,6 +21,12 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QTouchDevice
+name|class
+name|QTouchDevice
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QTouchEventSenderQPA
 range|:
@@ -76,6 +82,10 @@ name|hw_range_y_min
 block|;
 name|int
 name|hw_range_y_max
+block|;
+name|QTouchDevice
+operator|*
+name|m_device
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -41,6 +41,12 @@ name|QWindow
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QTouchDevice
+name|class
+name|QTouchDevice
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QWindowsMouseHandler
 block|{
@@ -167,6 +173,10 @@ name|int
 operator|>
 name|m_touchInputIDToTouchPointID
 expr_stmt|;
+name|QTouchDevice
+modifier|*
+name|m_touchDevice
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
