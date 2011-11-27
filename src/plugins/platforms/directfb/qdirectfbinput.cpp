@@ -42,6 +42,9 @@ include|#
 directive|include
 file|<directfb.h>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_constructor
 DECL|function|QDirectFbInput
 name|QDirectFbInput
@@ -999,4 +1002,7 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

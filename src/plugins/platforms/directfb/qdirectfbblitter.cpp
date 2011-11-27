@@ -33,6 +33,7 @@ directive|include
 file|<directfb.h>
 end_include
 begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|dfb_blitter_capabilities
 specifier|static
 name|QBlittable
@@ -1388,4 +1389,7 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

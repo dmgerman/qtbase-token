@@ -39,6 +39,7 @@ directive|include
 file|<directfb.h>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QDirectFbScreen
 name|class
 name|QDirectFbScreen
@@ -358,6 +359,9 @@ name|QDFB_PRETTY
 define|\
 value|(__FILE__ ":" QDFB_TOSTRING(__LINE__))
 end_define
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

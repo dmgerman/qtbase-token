@@ -12,6 +12,9 @@ include|#
 directive|include
 file|"qdirectfbconvenience.h"
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_constructor
 DECL|function|QDirectFBCursor
 name|QDirectFBCursor
@@ -247,4 +250,7 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

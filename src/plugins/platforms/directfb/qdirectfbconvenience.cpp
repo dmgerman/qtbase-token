@@ -33,6 +33,7 @@ directive|include
 file|<QtGui/QScreen>
 end_include
 begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|dfbInterface
 name|IDirectFB
 modifier|*
@@ -2267,4 +2268,7 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit
