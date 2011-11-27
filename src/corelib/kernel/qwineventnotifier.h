@@ -5,44 +5,31 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QWINEVENTNOTIFIER_P_H
+name|QWINEVENTNOTIFIER_H
 end_ifndef
 begin_define
-DECL|macro|QWINEVENTNOTIFIER_P_H
+DECL|macro|QWINEVENTNOTIFIER_H
 define|#
 directive|define
-name|QWINEVENTNOTIFIER_P_H
+name|QWINEVENTNOTIFIER_H
 end_define
+begin_if
+if|#
+directive|if
+literal|0
+end_if
 begin_comment
-comment|//
+comment|// inform syncqt
 end_comment
-begin_comment
-comment|//  W A R N I N G
-end_comment
-begin_comment
-comment|//  -------------
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// This file is not part of the Qt API.  It exists for the convenience
-end_comment
-begin_comment
-comment|// of other Qt classes.  This header file may change from version to
-end_comment
-begin_comment
-comment|// version without notice, or even be removed.
-end_comment
-begin_comment
-comment|//
-end_comment
-begin_comment
-comment|// We mean it.
-end_comment
-begin_comment
-comment|//
-end_comment
+begin_pragma
+pragma|#
+directive|pragma
+name|qt_no_master_include
+end_pragma
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -54,7 +41,13 @@ directive|include
 file|"QtCore/qt_windows.h"
 end_include
 begin_decl_stmt
+name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
+DECL|function|QT_MODULE
+name|QT_MODULE
+argument_list|(
+name|Core
+argument_list|)
 name|class
 name|Q_CORE_EXPORT
 name|QWinEventNotifier
@@ -149,14 +142,15 @@ name|enabled
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_macro
+begin_expr_stmt
 name|QT_END_NAMESPACE
-end_macro
+name|QT_END_HEADER
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QWINEVENTNOTIFIER_P_H
+comment|// QWINEVENTNOTIFIER_H
 end_comment
 end_unit

@@ -45,7 +45,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwineventnotifier_p.h"
+file|"qwineventnotifier.h"
 end_include
 begin_include
 include|#

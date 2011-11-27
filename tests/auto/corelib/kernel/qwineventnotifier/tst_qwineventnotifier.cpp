@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qwineventnotifier_p.h>
+file|<qwineventnotifier.h>
 end_include
 begin_include
 include|#

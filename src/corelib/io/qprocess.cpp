@@ -227,7 +227,7 @@ directive|ifdef
 name|Q_OS_WIN
 include|#
 directive|include
-file|<private/qwineventnotifier_p.h>
+file|<qwineventnotifier.h>
 endif|#
 directive|endif
 ifdef|#

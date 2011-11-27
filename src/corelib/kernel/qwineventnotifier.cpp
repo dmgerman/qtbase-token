@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qwineventnotifier_p.h"
+file|"qwineventnotifier.h"
 end_include
 begin_include
 include|#
@@ -26,7 +26,13 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*     \class QWinEventNotifier     \brief The QWinEventNotifier class provides support for the Windows Wait functions.      The QWinEventNotifier class makes it possible to use the wait     functions on windows in a asynchronous manner. With this class     you can register a HANDLE to an event and get notification when     that event becomes signalled. The state of the event is not modified     in the process so if it is a manual reset event you will need to     reset it after the notification. */
+comment|/*     \class QWinEventNotifier     \brief The QWinEventNotifier class provides support for the Windows Wait functions.      The QWinEventNotifier class makes it possible to use the wait     functions on windows in a asynchronous manner. With this class     you can register a HANDLE to an event and get notification when     that event becomes signalled. The state of the event is not modified     in the process so if it is a manual reset event you will need to     reset it after the notification.      Once you have created a event object using Windows API such as     CreateEvent() or OpenEvent(), you can create an event notifier to     monitor the event handle. If the event notifier is enabled, it will     emit the activated() signal whenever the corresponding event object     is signalled.      The setEnabled() function allows you to disable as well as enable the     event notifier. It is generally advisable to explicitly enable or     disable the event notifier. A disabled notifier does nothing when the     event object is signalled(the same effect as not creating the     event notifier).  Use the isEnabled() function to determine the     notifier's current status.      Finally, you can use the setHandle() function to register a new event     object, and the handle() function to retrieve the event handle.      \bold{Further information:}     Although the class is called QWinEventNotifier, it can be used for     certain other objects which are so-called synchronization     objects, such as Processes, Threads, Waitable timers.      \warning This Class is only available on Windows. */
+end_comment
+begin_comment
+comment|/*!     \fn void QWinEventNotifier::activated(HANDLE hEvent)      This signal is emitted whenever the event notifier is enabled and     the corresponding HANDLE is signalled.      The state of the event is not modified in the process, so if it is a     manual reset event, you will need to reset it after the notification.      The object is passed in the \a hEvent parameter.      \sa handle() */
+end_comment
+begin_comment
+comment|/*!     Constructs an event notifier with the given \a parent. */
 end_comment
 begin_constructor
 DECL|function|QWinEventNotifier
@@ -55,6 +61,9 @@ literal|false
 argument_list|)
 block|{}
 end_constructor
+begin_comment
+comment|/*!     Constructs an event notifier with the given \a parent. It enables     the \a notifier, and watches for the event \a hEvent.      The notifier is enabled by default, i.e. it emits the activated() signal     whenever the corresponding event is signalled. However, it is generally     advisable to explicitly enable or disable the event notifier.      \sa setEnabled(), isEnabled() */
+end_comment
 begin_constructor
 DECL|function|QWinEventNotifier
 name|QWinEventNotifier
@@ -128,6 +137,9 @@ literal|true
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Destroys this notifier. */
+end_comment
 begin_destructor
 DECL|function|~QWinEventNotifier
 name|QWinEventNotifier
@@ -143,6 +155,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_destructor
+begin_comment
+comment|/*!     Register the HANDLE \a hEvent. The old HANDLE will be automatically     unregistered.      \bold Note: The notifier will be disabled as a side effect and needs     to be re-enabled.      \sa handle(), setEnabled() */
+end_comment
 begin_function
 DECL|function|setHandle
 name|void
@@ -165,6 +180,9 @@ name|hEvent
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the HANDLE that has been registered in the notifier.      \sa setHandle() */
+end_comment
 begin_function
 DECL|function|handle
 name|HANDLE
@@ -179,6 +197,9 @@ name|handleToEvent
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns true if the notifier is enabled; otherwise returns false.      \sa setEnabled() */
+end_comment
 begin_function
 DECL|function|isEnabled
 name|bool
@@ -193,6 +214,9 @@ name|enabled
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     If \a enable is true, the notifier is enabled; otherwise the notifier     is disabled.      \sa isEnabled(), activated() */
+end_comment
 begin_function
 DECL|function|setEnabled
 name|void
@@ -266,6 +290,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!\reimp */
+end_comment
 begin_function
 DECL|function|event
 name|bool
