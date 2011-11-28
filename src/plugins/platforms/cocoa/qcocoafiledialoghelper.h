@@ -24,6 +24,7 @@ directive|include
 file|<qplatformdialoghelper_qpa.h>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QFileDialog
 name|class
 name|QFileDialog
@@ -202,6 +203,9 @@ name|mDelegate
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

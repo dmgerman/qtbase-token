@@ -35,6 +35,7 @@ name|NSMenuItem
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QCocoaMenuAction
 range|:
@@ -416,4 +417,7 @@ name|qtMenuBar
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

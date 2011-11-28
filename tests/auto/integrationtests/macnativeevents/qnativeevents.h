@@ -19,6 +19,7 @@ directive|include
 file|<QtCore>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|namespace
 name|Qt
 block|{
@@ -36,19 +37,12 @@ enum|;
 block|}
 block|}
 end_decl_stmt
-begin_comment
-comment|// ----------------------------------------------------------------------------
-end_comment
-begin_comment
-comment|// Declare a set of native events that can be used to communicate with
-end_comment
-begin_comment
-comment|// client applications in an platform independent way
-end_comment
-begin_comment
-comment|// ----------------------------------------------------------------------------
-end_comment
 begin_decl_stmt
+name|QT_END_NAMESPACE
+comment|// ----------------------------------------------------------------------------
+comment|// Declare a set of native events that can be used to communicate with
+comment|// client applications in an platform independent way
+comment|// ----------------------------------------------------------------------------
 name|class
 name|QNativeEvent
 block|{

@@ -59,6 +59,7 @@ directive|include
 file|<QtGui/qscreen.h>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QPixmap
 name|class
 name|QPixmap
@@ -459,6 +460,9 @@ name|window
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

@@ -38,12 +38,11 @@ include|#
 directive|include
 file|"qnsview.h"
 end_include
-begin_expr_stmt
-name|QT_BEGIN_NAMESPACE
-expr|@
+begin_decl_stmt
+unit|@
 name|interface
 name|QNSWindow
-operator|:
+range|:
 name|NSWindow
 block|{  }
 operator|-
@@ -51,8 +50,8 @@ operator|(
 name|BOOL
 operator|)
 name|canBecomeKeyWindow
-expr_stmt|;
-end_expr_stmt
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 unit|@
 name|end
@@ -72,6 +71,7 @@ end_expr_stmt
 begin_decl_stmt
 unit|@
 name|end
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QCocoaWindow
 range|:
