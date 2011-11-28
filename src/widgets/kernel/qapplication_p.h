@@ -2090,7 +2090,7 @@ name|pickMouseReceiver
 argument_list|(
 argument|QWidget *candidate
 argument_list|,
-argument|const QPoint&globalPos
+argument|const QPoint&windowPos
 argument_list|,
 argument|QPoint *pos
 argument_list|,

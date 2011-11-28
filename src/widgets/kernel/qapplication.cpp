@@ -10867,7 +10867,7 @@ parameter_list|,
 specifier|const
 name|QPoint
 modifier|&
-name|globalPos
+name|windowPos
 parameter_list|,
 name|QPoint
 modifier|*
@@ -10997,9 +10997,11 @@ name|pos
 operator|=
 name|receiver
 operator|->
-name|mapFromGlobal
+name|mapFrom
 argument_list|(
-name|globalPos
+name|candidate
+argument_list|,
+name|windowPos
 argument_list|)
 expr_stmt|;
 ifdef|#

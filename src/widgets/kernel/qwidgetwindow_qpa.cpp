@@ -1129,7 +1129,10 @@ name|m_widget
 argument_list|,
 name|event
 operator|->
-name|globalPos
+name|windowPos
+argument_list|()
+operator|.
+name|toPoint
 argument_list|()
 argument_list|,
 operator|&
