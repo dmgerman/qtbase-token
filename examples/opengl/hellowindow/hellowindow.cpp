@@ -119,6 +119,10 @@ name|Window
 operator||
 name|Qt
 operator|::
+name|WindowSystemMenuHint
+operator||
+name|Qt
+operator|::
 name|WindowTitleHint
 operator||
 name|Qt
