@@ -1871,6 +1871,7 @@ comment|// internal base class (interface) containing functions required to call
 end_comment
 begin_struct
 struct|struct
+name|Q_CORE_EXPORT
 name|QSlotObjectBase
 block|{
 name|QAtomicInt
@@ -1960,9 +1961,6 @@ end_macro
 begin_block
 block|{}
 end_block
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_function
 name|virtual
 name|void
