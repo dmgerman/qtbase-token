@@ -48,6 +48,11 @@ include|#
 directive|include
 file|<QStaticText>
 end_include
+begin_include
+include|#
+directive|include
+file|<QPainter>
+end_include
 begin_decl_stmt
 name|class
 name|Benchmark

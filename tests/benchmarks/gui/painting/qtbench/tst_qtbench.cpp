@@ -10,7 +10,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui>
+file|<QtCore/qmath.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtWidgets/QWidget>
 end_include
 begin_include
 include|#
