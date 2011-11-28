@@ -1336,12 +1336,16 @@ name|entry
 condition|;
 control|)
 block|{
+specifier|const
 name|int
 name|entryLen
 init|=
+name|int
+argument_list|(
 name|wcslen
 argument_list|(
 name|entry
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if

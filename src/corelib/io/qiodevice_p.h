@@ -583,7 +583,8 @@ name|newCapacity
 operator|*=
 literal|2
 expr_stmt|;
-name|int
+specifier|const
+name|size_t
 name|moveOffset
 init|=
 operator|(
@@ -596,7 +597,10 @@ literal|0
 else|:
 name|newCapacity
 operator|-
+name|size_t
+argument_list|(
 name|len
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

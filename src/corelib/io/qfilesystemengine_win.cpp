@@ -3512,13 +3512,6 @@ name|MetaDataFlags
 name|what
 parameter_list|)
 block|{
-name|QAbstractFileEngine
-operator|::
-name|FileFlags
-name|ret
-init|=
-literal|0
-decl_stmt|;
 if|#
 directive|if
 operator|!
