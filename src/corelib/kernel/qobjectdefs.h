@@ -255,16 +255,13 @@ end_ifndef
 begin_comment
 comment|// full set of tr functions
 end_comment
-begin_comment
-comment|// ### Qt 5: merge overloads
-end_comment
 begin_define
 DECL|macro|QT_TR_FUNCTIONS
 define|#
 directive|define
 name|QT_TR_FUNCTIONS
 define|\
-value|static inline QString tr(const char *s, const char *c = 0) \         { return staticMetaObject.tr(s, c); } \     static inline QString trUtf8(const char *s, const char *c = 0) \         { return staticMetaObject.trUtf8(s, c); } \     static inline QString tr(const char *s, const char *c, int n) \         { return staticMetaObject.tr(s, c, n); } \     static inline QString trUtf8(const char *s, const char *c, int n) \         { return staticMetaObject.trUtf8(s, c, n); }
+value|static inline QString tr(const char *s, const char *c = 0, int n = -1) \         { return staticMetaObject.tr(s, c, n); } \     static inline QString trUtf8(const char *s, const char *c = 0, int n = -1) \         { return staticMetaObject.trUtf8(s, c, n); }
 end_define
 begin_else
 else|#
@@ -273,16 +270,13 @@ end_else
 begin_comment
 comment|// no QTextCodec, no utf8
 end_comment
-begin_comment
-comment|// ### Qt 5: merge overloads
-end_comment
 begin_define
 DECL|macro|QT_TR_FUNCTIONS
 define|#
 directive|define
 name|QT_TR_FUNCTIONS
 define|\
-value|static inline QString tr(const char *s, const char *c = 0) \         { return staticMetaObject.tr(s, c); } \     static inline QString tr(const char *s, const char *c, int n) \         { return staticMetaObject.tr(s, c, n); }
+value|static inline QString tr(const char *s, const char *c = 0, int n = -1) \         { return staticMetaObject.tr(s, c, n); }
 end_define
 begin_endif
 endif|#
@@ -1074,37 +1068,6 @@ decl_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_TRANSLATION
-comment|// ### Qt 4: Merge overloads
-name|QString
-name|tr
-argument_list|(
-specifier|const
-name|char
-operator|*
-name|s
-argument_list|,
-specifier|const
-name|char
-operator|*
-name|c
-argument_list|)
-decl|const
-decl_stmt|;
-name|QString
-name|trUtf8
-argument_list|(
-specifier|const
-name|char
-operator|*
-name|s
-argument_list|,
-specifier|const
-name|char
-operator|*
-name|c
-argument_list|)
-decl|const
-decl_stmt|;
 name|QString
 name|tr
 argument_list|(
@@ -1120,6 +1083,9 @@ name|c
 argument_list|,
 name|int
 name|n
+operator|=
+operator|-
+literal|1
 argument_list|)
 decl|const
 decl_stmt|;
@@ -1138,6 +1104,9 @@ name|c
 argument_list|,
 name|int
 name|n
+operator|=
+operator|-
+literal|1
 argument_list|)
 decl|const
 decl_stmt|;

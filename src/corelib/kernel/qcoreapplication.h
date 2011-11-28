@@ -497,7 +497,6 @@ operator|=
 name|CodecForTr
 block|}
 block|;
-comment|// ### Qt 5: merge
 specifier|static
 name|QString
 name|translate
@@ -510,21 +509,9 @@ argument|const char * disambiguation =
 literal|0
 argument_list|,
 argument|Encoding encoding = CodecForTr
-argument_list|)
-block|;
-specifier|static
-name|QString
-name|translate
-argument_list|(
-argument|const char * context
 argument_list|,
-argument|const char * key
-argument_list|,
-argument|const char * disambiguation
-argument_list|,
-argument|Encoding encoding
-argument_list|,
-argument|int n
+argument|int n = -
+literal|1
 argument_list|)
 block|;
 specifier|static
@@ -1052,9 +1039,6 @@ unit|}
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|// ### merge the four functions into two (using "int n = -1")
-end_comment
 begin_define
 DECL|macro|Q_DECLARE_TR_FUNCTIONS
 define|#
@@ -1064,7 +1048,7 @@ parameter_list|(
 name|context
 parameter_list|)
 define|\
-value|public: \     static inline QString tr(const char *sourceText, const char *disambiguation = 0) \         { return QCoreApplication::translate(#context, sourceText, disambiguation); } \     static inline QString trUtf8(const char *sourceText, const char *disambiguation = 0) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, \                                              QCoreApplication::UnicodeUTF8); } \     static inline QString tr(const char *sourceText, const char *disambiguation, int n) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, \                                              QCoreApplication::CodecForTr, n); } \     static inline QString trUtf8(const char *sourceText, const char *disambiguation, int n) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, \                                              QCoreApplication::UnicodeUTF8, n); } \ private:
+value|public: \     static inline QString tr(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, \                                              QCoreApplication::CodecForTr, n); } \     static inline QString trUtf8(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, \                                              QCoreApplication::UnicodeUTF8, n); } \ private:
 end_define
 begin_function_decl
 unit|typedef
