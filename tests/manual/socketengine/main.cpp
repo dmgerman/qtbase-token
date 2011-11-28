@@ -35,11 +35,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../auto/network-settings.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<QtNetwork>
 end_include
 begin_include

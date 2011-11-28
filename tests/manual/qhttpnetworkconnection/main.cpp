@@ -35,11 +35,6 @@ include|#
 directive|include
 file|<QtNetwork/qnetworkaccessmanager.h>
 end_include
-begin_include
-include|#
-directive|include
-file|"../../auto/network-settings.h"
-end_include
 begin_class
 DECL|class|tst_qhttpnetworkconnection
 class|class
