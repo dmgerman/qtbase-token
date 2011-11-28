@@ -37,7 +37,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 end_if
 begin_define
@@ -62,6 +62,16 @@ include|#
 directive|include
 file|<objbase.h>
 end_include
+begin_function_decl
+name|Q_GUI_EXPORT
+name|QPixmap
+name|qt_pixmapFromWinHICON
+parameter_list|(
+name|HICON
+name|icon
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_elif
 elif|#
 directive|elif
@@ -175,7 +185,7 @@ specifier|const
 function_decl|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|QIcon
 name|getWinIcon
 parameter_list|(
@@ -821,7 +831,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 end_ifdef
 begin_function
 DECL|function|getWinIcon
@@ -1186,9 +1196,7 @@ directive|ifndef
 name|Q_OS_WINCE
 name|pixmap
 operator|=
-name|QPixmap
-operator|::
-name|fromWinHICON
+name|qt_pixmapFromWinHICON
 argument_list|(
 name|info
 operator|.
@@ -1405,9 +1413,7 @@ directive|ifndef
 name|Q_OS_WINCE
 name|pixmap
 operator|=
-name|QPixmap
-operator|::
-name|fromWinHICON
+name|qt_pixmapFromWinHICON
 argument_list|(
 name|info
 operator|.
@@ -2043,7 +2049,7 @@ return|;
 elif|#
 directive|elif
 name|defined
-name|Q_WS_WIN
+name|Q_OS_WIN
 name|QIcon
 name|icon
 init|=
@@ -2078,7 +2084,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 operator|&&
 operator|!
@@ -2401,7 +2407,7 @@ argument_list|()
 condition|)
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 return|return
 name|QApplication
 operator|::

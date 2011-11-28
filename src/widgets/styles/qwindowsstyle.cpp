@@ -184,7 +184,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 name|QT_BEGIN_INCLUDE_NAMESPACE
 include|#
@@ -299,12 +299,33 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
+begin_function_decl
+name|Q_GUI_EXPORT
+name|HICON
+name|qt_pixmapToWinHICON
+parameter_list|(
+specifier|const
+name|QPixmap
+modifier|&
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|Q_GUI_EXPORT
+name|QPixmap
+name|qt_pixmapFromWinHICON
+parameter_list|(
+name|HICON
+name|icon
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//Q_WS_WIN
+comment|//Q_OS_WIN
 end_comment
 begin_decl_stmt
 name|QT_BEGIN_INCLUDE_NAMESPACE
@@ -369,7 +390,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 operator|&&
 operator|!
@@ -1169,7 +1190,7 @@ end_destructor
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 end_ifdef
 begin_function
 DECL|function|colorref2qrgb
@@ -1345,7 +1366,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 comment|//fetch native title bar colors
 if|if
@@ -1696,7 +1717,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 block|{
 name|HDC
@@ -2101,7 +2122,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 case|case
 name|PM_TitleBarHeight
@@ -2241,7 +2262,7 @@ block|}
 break|break;
 endif|#
 directive|endif
-comment|// Q_WS_WIN
+comment|// Q_OS_WIN
 case|case
 name|PM_SplitterWidth
 case|:
@@ -2265,7 +2286,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 case|case
 name|PM_MdiSubWindowFrameWidth
@@ -3268,7 +3289,7 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 end_ifdef
 begin_function
 DECL|function|loadIconFromShell32
@@ -3345,9 +3366,7 @@ block|{
 name|QPixmap
 name|iconpixmap
 init|=
-name|QPixmap
-operator|::
-name|fromWinHICON
+name|qt_pixmapFromWinHICON
 argument_list|(
 name|iconHandle
 argument_list|)
@@ -3401,7 +3420,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 operator|&&
 operator|!
@@ -3710,9 +3729,7 @@ argument_list|)
 decl_stmt|;
 name|desktopIcon
 operator|=
-name|QPixmap
-operator|::
-name|fromWinHICON
+name|qt_pixmapFromWinHICON
 argument_list|(
 name|iconHandle
 argument_list|)
@@ -3740,9 +3757,7 @@ argument_list|)
 decl_stmt|;
 name|desktopIcon
 operator|=
-name|QPixmap
-operator|::
-name|fromWinHICON
+name|qt_pixmapFromWinHICON
 argument_list|(
 name|iconHandle
 argument_list|)
@@ -3770,9 +3785,7 @@ argument_list|)
 decl_stmt|;
 name|desktopIcon
 operator|=
-name|QPixmap
-operator|::
-name|fromWinHICON
+name|qt_pixmapFromWinHICON
 argument_list|(
 name|iconHandle
 argument_list|)
@@ -3800,9 +3813,7 @@ argument_list|)
 decl_stmt|;
 name|desktopIcon
 operator|=
-name|QPixmap
-operator|::
-name|fromWinHICON
+name|qt_pixmapFromWinHICON
 argument_list|(
 name|iconHandle
 argument_list|)
@@ -3886,9 +3897,7 @@ condition|)
 block|{
 name|pixmap
 operator|=
-name|QPixmap
-operator|::
-name|fromWinHICON
+name|qt_pixmapFromWinHICON
 argument_list|(
 name|iconInfo
 operator|.
@@ -4194,7 +4203,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 case|case
 name|SH_UnderlineShortcut
@@ -4477,7 +4486,7 @@ case|:
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 if|if
 condition|(
 name|widget
@@ -20312,7 +20321,7 @@ name|pixmap
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 switch|switch
 condition|(
 name|standardIcon
@@ -21108,9 +21117,7 @@ name|icon
 operator|.
 name|addPixmap
 argument_list|(
-name|QPixmap
-operator|::
-name|fromWinHICON
+name|qt_pixmapFromWinHICON
 argument_list|(
 name|iconInfo
 operator|.
