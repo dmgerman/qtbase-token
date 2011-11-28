@@ -198,7 +198,7 @@ end_function
 begin_function
 DECL|function|qRegisterGuiGetInterpolator
 specifier|static
-name|int
+name|void
 name|qRegisterGuiGetInterpolator
 parameter_list|()
 block|{
@@ -257,9 +257,6 @@ name|QQuaternion
 argument_list|>
 argument_list|)
 expr_stmt|;
-return|return
-literal|1
-return|;
 block|}
 end_function
 begin_macro
@@ -271,7 +268,7 @@ end_macro
 begin_function
 DECL|function|qUnregisterGuiGetInterpolator
 specifier|static
-name|int
+name|void
 name|qUnregisterGuiGetInterpolator
 parameter_list|()
 block|{
@@ -401,9 +398,6 @@ operator|)
 literal|0
 argument_list|)
 expr_stmt|;
-return|return
-literal|1
-return|;
 block|}
 end_function
 begin_macro

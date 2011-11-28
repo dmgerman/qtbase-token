@@ -1145,54 +1145,6 @@ directive|endif
 endif|#
 directive|endif
 comment|/*    The compiler, must be one of: (Q_CC_x)       SYM      - Digital Mars C/C++ (used to be Symantec C++)      MWERKS   - Metrowerks CodeWarrior      MSVC     - Microsoft Visual C/C++, Intel C++ for Windows      BOR      - Borland/Turbo C++      WAT      - Watcom C++      GNU      - GNU C++      COMEAU   - Comeau C++      EDG      - Edison Design Group C++      OC       - CenterLine C++      SUN      - Forte Developer, or Sun Studio C++      MIPS     - MIPSpro C++      DEC      - DEC C++      HPACC    - HP aC++      USLC     - SCO OUDK and UDK      CDS      - Reliant C++      KAI      - KAI C++      INTEL    - Intel C++ for Linux, Intel C++ for Windows      HIGHC    - MetaWare High C/C++      PGI      - Portland Group C++      GHS      - Green Hills Optimizing C++ Compilers      GCCE     - GCCE (Symbian GCCE builds)      RVCT     - ARM Realview Compiler Suite      NOKIAX86 - Nokia x86 (Symbian WINSCW builds)      CLANG    - C++ front-end for the LLVM compiler      Should be sorted most to least authoritative. */
-if|#
-directive|if
-name|defined
-argument_list|(
-name|__ghs
-argument_list|)
-DECL|macro|Q_OUTOFLINE_TEMPLATE
-define|#
-directive|define
-name|Q_OUTOFLINE_TEMPLATE
-value|inline
-comment|/* the following are necessary because the GHS C++ name mangling relies on __*/
-DECL|macro|Q_CONSTRUCTOR_FUNCTION0
-define|#
-directive|define
-name|Q_CONSTRUCTOR_FUNCTION0
-parameter_list|(
-name|AFUNC
-parameter_list|)
-define|\
-value|static const int AFUNC ## _init_variable_ = AFUNC();
-DECL|macro|Q_CONSTRUCTOR_FUNCTION
-define|#
-directive|define
-name|Q_CONSTRUCTOR_FUNCTION
-parameter_list|(
-name|AFUNC
-parameter_list|)
-value|Q_CONSTRUCTOR_FUNCTION0(AFUNC)
-DECL|macro|Q_DESTRUCTOR_FUNCTION0
-define|#
-directive|define
-name|Q_DESTRUCTOR_FUNCTION0
-parameter_list|(
-name|AFUNC
-parameter_list|)
-define|\
-value|class AFUNC ## _dest_class_ { \     public: \        inline AFUNC ## _dest_class_() { } \        inline ~ AFUNC ## _dest_class_() { AFUNC(); } \     } AFUNC ## _dest_instance_;
-DECL|macro|Q_DESTRUCTOR_FUNCTION
-define|#
-directive|define
-name|Q_DESTRUCTOR_FUNCTION
-parameter_list|(
-name|AFUNC
-parameter_list|)
-value|Q_DESTRUCTOR_FUNCTION0(AFUNC)
-endif|#
-directive|endif
 comment|/* Symantec C++ is now Digital Mars */
 if|#
 directive|if
@@ -2642,7 +2594,7 @@ parameter_list|(
 name|AFUNC
 parameter_list|)
 define|\
-value|static const int AFUNC ## __init_variable__ = AFUNC();
+value|namespace { \     static const struct AFUNC ## _ctor_class_ { \         inline AFUNC ## _ctor_class_() { AFUNC(); } \     } AFUNC ## _ctor_instance_; \     }
 DECL|macro|Q_CONSTRUCTOR_FUNCTION
 define|#
 directive|define
@@ -2664,7 +2616,7 @@ parameter_list|(
 name|AFUNC
 parameter_list|)
 define|\
-value|class AFUNC ## __dest_class__ { \     public: \        inline AFUNC ## __dest_class__() { } \        inline ~ AFUNC ## __dest_class__() { AFUNC(); } \     } AFUNC ## __dest_instance__;
+value|namespace { \     static const struct AFUNC ## _dtor_class_ { \         inline AFUNC ## _dtor_class_() { } \         inline ~ AFUNC ## _dtor_class_() { AFUNC(); } \     } AFUNC ## _dtor_instance_; \     }
 DECL|macro|Q_DESTRUCTOR_FUNCTION
 define|#
 directive|define

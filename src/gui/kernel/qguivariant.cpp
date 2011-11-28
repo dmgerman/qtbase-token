@@ -2782,7 +2782,7 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 DECL|function|qRegisterGuiVariant
-name|int
+name|void
 name|qRegisterGuiVariant
 parameter_list|()
 block|{
@@ -2803,9 +2803,6 @@ name|qMetaTypeGuiHelper
 operator|=
 name|qVariantGuiHelper
 expr_stmt|;
-return|return
-literal|1
-return|;
 block|}
 end_function
 begin_macro
@@ -2816,7 +2813,7 @@ argument_list|)
 end_macro
 begin_function
 DECL|function|qUnregisterGuiVariant
-name|int
+name|void
 name|qUnregisterGuiVariant
 parameter_list|()
 block|{
@@ -2830,9 +2827,6 @@ name|qMetaTypeGuiHelper
 operator|=
 literal|0
 expr_stmt|;
-return|return
-literal|1
-return|;
 block|}
 end_function
 begin_macro

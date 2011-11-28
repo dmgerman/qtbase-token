@@ -445,7 +445,7 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 DECL|function|qRegisterWidgetsVariant
-name|int
+name|void
 name|qRegisterWidgetsVariant
 parameter_list|()
 block|{
@@ -458,9 +458,6 @@ name|qMetaTypeWidgetsHelper
 operator|=
 name|qVariantWidgetsHelper
 expr_stmt|;
-return|return
-literal|1
-return|;
 block|}
 end_function
 begin_macro
@@ -471,7 +468,7 @@ argument_list|)
 end_macro
 begin_function
 DECL|function|qUnregisterWidgetsVariant
-name|int
+name|void
 name|qUnregisterWidgetsVariant
 parameter_list|()
 block|{
@@ -483,9 +480,6 @@ name|qMetaTypeWidgetsHelper
 operator|=
 literal|0
 expr_stmt|;
-return|return
-literal|1
-return|;
 block|}
 end_function
 begin_macro

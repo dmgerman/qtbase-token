@@ -1847,12 +1847,12 @@ operator|*
 argument_list|)
 decl_stmt|;
 name|friend
-name|int
+name|void
 name|qRegisterGuiVariant
 parameter_list|()
 function_decl|;
 name|friend
-name|int
+name|void
 name|qUnregisterGuiVariant
 parameter_list|()
 function_decl|;

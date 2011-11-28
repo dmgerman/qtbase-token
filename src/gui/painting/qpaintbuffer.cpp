@@ -14517,7 +14517,7 @@ name|bits
 argument_list|; }
 decl|static
 DECL|function|qRegisterPaintBufferMetaTypes
-name|int
+name|void
 name|qRegisterPaintBufferMetaTypes
 argument_list|()
 argument_list|{
@@ -14548,11 +14548,7 @@ argument_list|>
 argument_list|(
 literal|"QPaintBufferCacheEntryV2"
 argument_list|)
-argument_list|;      return
-literal|0
-argument_list|;
-comment|// something
-argument_list|}
+argument_list|; }
 name|Q_CONSTRUCTOR_FUNCTION
 argument_list|(
 name|qRegisterPaintBufferMetaTypes

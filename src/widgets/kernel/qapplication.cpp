@@ -2673,15 +2673,13 @@ directive|ifndef
 name|QT_NO_STATEMACHINE
 end_ifndef
 begin_function_decl
-specifier|extern
-name|int
+name|void
 name|qRegisterGuiStateMachine
 parameter_list|()
 function_decl|;
 end_function_decl
 begin_function_decl
-specifier|extern
-name|int
+name|void
 name|qUnregisterGuiStateMachine
 parameter_list|()
 function_decl|;

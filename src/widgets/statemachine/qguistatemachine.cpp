@@ -2795,7 +2795,7 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 DECL|function|qRegisterGuiStateMachine
-name|int
+name|void
 name|qRegisterGuiStateMachine
 parameter_list|()
 block|{
@@ -2812,9 +2812,6 @@ operator|=
 operator|&
 name|qt_gui_statemachine_handler
 expr_stmt|;
-return|return
-literal|1
-return|;
 block|}
 end_function
 begin_macro
@@ -2825,7 +2822,7 @@ argument_list|)
 end_macro
 begin_function
 DECL|function|qUnregisterGuiStateMachine
-name|int
+name|void
 name|qUnregisterGuiStateMachine
 parameter_list|()
 block|{
@@ -2835,9 +2832,6 @@ name|handler
 operator|=
 name|qt_guistatemachine_last_handler
 expr_stmt|;
-return|return
-literal|1
-return|;
 block|}
 end_function
 begin_macro
