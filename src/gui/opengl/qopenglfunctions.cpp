@@ -8090,6 +8090,7 @@ name|QOpenGLContext
 modifier|*
 parameter_list|)
 block|{
+comment|/* Assign a pointer to an above defined static function      * which on first call resolves the function from the current      * context, assigns it to the member variable and executes it      * (see Resolver template) */
 ifndef|#
 directive|ifndef
 name|QT_OPENGL_ES_2
