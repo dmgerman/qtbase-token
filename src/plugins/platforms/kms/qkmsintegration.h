@@ -84,12 +84,6 @@ name|fontDatabase
 argument_list|()
 specifier|const
 block|;
-name|QPlatformPrinterSupport
-operator|*
-name|printerSupport
-argument_list|()
-specifier|const
-block|;
 name|QAbstractEventDispatcher
 operator|*
 name|guiThreadEventDispatcher
@@ -127,10 +121,6 @@ block|;
 name|QPlatformFontDatabase
 operator|*
 name|m_fontDatabase
-block|;
-name|QPlatformPrinterSupport
-operator|*
-name|m_printerSupport
 block|;
 name|QAbstractEventDispatcher
 operator|*
