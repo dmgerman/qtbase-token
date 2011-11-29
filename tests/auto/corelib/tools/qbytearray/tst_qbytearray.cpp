@@ -6652,7 +6652,6 @@ operator|<<
 operator|-
 literal|1
 expr_stmt|;
-comment|// task 203692
 specifier|static
 specifier|const
 name|char
@@ -7764,7 +7763,6 @@ operator|<<
 operator|-
 literal|1
 expr_stmt|;
-comment|// task 203692
 specifier|static
 specifier|const
 name|char

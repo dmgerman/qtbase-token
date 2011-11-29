@@ -12103,7 +12103,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"parallel root state is not supported (task 256587)"
+literal|"parallel root state is not supported (QTBUG-22931)"
 argument_list|,
 name|Continue
 argument_list|)

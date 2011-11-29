@@ -4515,7 +4515,6 @@ operator|::
 name|testFalsePrematureError
 parameter_list|()
 specifier|const
-comment|// task 179320
 block|{
 specifier|const
 name|char
@@ -4723,7 +4722,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!  See task 188737. Crash due to using empty QStack.  */
+comment|// Regression test for crash due to using empty QStack.
 end_comment
 begin_function
 DECL|function|writerHangs
@@ -4809,9 +4808,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!   Task 189611 */
-end_comment
 begin_function
 DECL|function|writerAutoFormattingWithComments
 name|void
@@ -4886,9 +4882,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!   Task 206782 */
-end_comment
 begin_function
 DECL|function|writerAutoFormattingWithTabs
 name|void
@@ -5077,9 +5070,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!   Task 204822 */
-end_comment
 begin_function
 DECL|function|writeAttributesWithSpace
 name|void
@@ -5180,9 +5170,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!   Task 209340 */
-end_comment
 begin_function
 DECL|function|writerAutoEmptyTags
 name|void
@@ -7198,7 +7185,6 @@ operator|::
 name|clear
 parameter_list|()
 specifier|const
-comment|// task 228768
 block|{
 name|QString
 name|xml
@@ -7453,7 +7439,6 @@ operator|::
 name|checkCommentIndentation
 parameter_list|()
 specifier|const
-comment|// task 256468
 block|{
 name|QFETCH
 argument_list|(

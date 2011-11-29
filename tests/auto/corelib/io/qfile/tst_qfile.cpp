@@ -13488,7 +13488,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!  \since 4.5   Some special files have QFile::atEnd() returning true, even though there is  more data available. True for corner cases, as well as some mounts on OS X.   Here, we reproduce that condition by having a QFile sub-class with this  peculiar atEnd() behavior.   See task 231583.  */
+comment|/*!  \since 4.5   Some special files have QFile::atEnd() returning true, even though there is  more data available. True for corner cases, as well as some mounts on OS X.   Here, we reproduce that condition by having a QFile sub-class with this  peculiar atEnd() behavior. */
 end_comment
 begin_function
 DECL|function|renameWithAtEndSpecialFile

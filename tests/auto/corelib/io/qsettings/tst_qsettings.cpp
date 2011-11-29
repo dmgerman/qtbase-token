@@ -12607,7 +12607,6 @@ name|endGroup
 argument_list|()
 expr_stmt|;
 block|{
-comment|// task 53792
 name|QSettings
 name|settings2
 argument_list|(

@@ -2134,7 +2134,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Task80908"
+literal|"ZeroWidth"
 argument_list|)
 operator|<<
 name|QRect
@@ -2165,7 +2165,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Task85023"
+literal|"NegativeHeight"
 argument_list|)
 operator|<<
 name|QRect
@@ -2207,7 +2207,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Task85023.1"
+literal|"ZeroHeight1"
 argument_list|)
 operator|<<
 name|QRect
@@ -2248,7 +2248,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Task188109"
+literal|"ZeroHeight2"
 argument_list|)
 operator|<<
 name|QRect
@@ -2309,23 +2309,11 @@ argument_list|,
 name|nr
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|QTest
-operator|::
-name|currentDataTag
-argument_list|()
-operator|==
-name|QString
-argument_list|(
-literal|"Task85023.1"
-argument_list|)
-condition|)
 name|QEXPECT_FAIL
 argument_list|(
-literal|""
+literal|"ZeroHeight1"
 argument_list|,
-literal|"due to broken QRect definition (not possible to change)"
+literal|"due to broken QRect definition (not possible to change, see QTBUG-22934)"
 argument_list|,
 name|Continue
 argument_list|)

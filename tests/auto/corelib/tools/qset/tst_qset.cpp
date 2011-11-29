@@ -445,7 +445,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
-comment|// Task 102658
 name|QSet
 argument_list|<
 name|QString

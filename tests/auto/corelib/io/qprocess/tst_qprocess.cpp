@@ -10061,7 +10061,6 @@ operator|::
 name|waitForReadyReadForNonexistantProcess
 parameter_list|()
 block|{
-comment|// This comes from task 108968
 comment|// Start a program that doesn't exist, process events and then try to waitForReadyRead
 name|qRegisterMetaType
 argument_list|<

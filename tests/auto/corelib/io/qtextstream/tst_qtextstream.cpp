@@ -9495,9 +9495,6 @@ literal|"037"
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|// From Task 125496
-end_comment
 begin_function
 DECL|function|numeralCase
 name|void

@@ -2320,7 +2320,7 @@ argument_list|(
 literal|"X:"
 argument_list|)
 decl_stmt|;
-comment|// Make sure drive-relative paths return correct absolute paths (task 255326)
+comment|// Make sure drive-relative paths return correct absolute paths.
 name|QTest
 operator|::
 name|newRow
@@ -2445,7 +2445,6 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-comment|// see task 102898
 name|QTest
 operator|::
 name|newRow
@@ -2676,7 +2675,7 @@ literal|"c:\\home\\andy\\tmp.txt"
 operator|<<
 literal|"C:/home/andy/tmp.txt"
 expr_stmt|;
-comment|// Make sure drive-relative paths return correct absolute paths (task 255326)
+comment|// Make sure drive-relative paths return correct absolute paths.
 name|drivePrefix
 operator|=
 name|QDir
@@ -5155,7 +5154,6 @@ operator|.
 name|permissions
 argument_list|()
 expr_stmt|;
-comment|// see task 104198
 name|QTEST
 argument_list|(
 name|int
@@ -5212,7 +5210,6 @@ name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// task 167099
 name|QVERIFY
 argument_list|(
 name|fi
@@ -5223,7 +5220,6 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// task 189202
 name|QVERIFY
 argument_list|(
 name|fi

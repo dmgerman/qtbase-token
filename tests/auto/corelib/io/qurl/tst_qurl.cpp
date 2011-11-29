@@ -5726,7 +5726,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"nopath_task31320"
+literal|"nopath"
 argument_list|)
 operator|<<
 name|QString
@@ -5754,7 +5754,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"underscore_QTBUG-7434"
+literal|"underscore"
 argument_list|)
 operator|<<
 name|QString
@@ -8218,7 +8218,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"task31280"
+literal|"nopath"
 argument_list|)
 operator|<<
 name|QString
@@ -13667,7 +13667,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
-comment|// task 243557
 name|QByteArray
 name|tsdgeos
 argument_list|(
@@ -13703,7 +13702,6 @@ argument_list|(
 literal|"http://google.com/c?c=Translation+%C2%BB+trunk%7C"
 argument_list|)
 decl_stmt|;
-comment|//QCOMPARE(tsdgeosQUrl.toEncoded(), tsdgeosExpected); // unusable output from qtestlib...
 name|QCOMPARE
 argument_list|(
 name|QString

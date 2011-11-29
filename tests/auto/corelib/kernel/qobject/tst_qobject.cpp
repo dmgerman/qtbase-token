@@ -24783,8 +24783,8 @@ operator|::
 name|deleteQObjectWhenDeletingEvent
 parameter_list|()
 block|{
-comment|//this is related to task 259514
-comment|//before the fix this used to dead lock when the QObject from the event was destroyed
+comment|// This is a regression test for an old bug that used to deadlock
+comment|// when the QObject from the event was destroyed.
 struct|struct
 name|MyEvent
 super|:

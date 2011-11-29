@@ -4534,7 +4534,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
-comment|// task 102658
 name|QHash
 argument_list|<
 name|QString

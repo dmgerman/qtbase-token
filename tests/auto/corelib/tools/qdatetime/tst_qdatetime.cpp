@@ -8309,7 +8309,6 @@ literal|"Not tested with timezone other than Central European (CET/CST)"
 argument_list|)
 expr_stmt|;
 block|}
-comment|// To make sure bug 72713 never happens again
 name|QDateTime
 name|dt
 init|=
@@ -11240,7 +11239,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"task27910"
+literal|"text date"
 argument_list|)
 operator|<<
 name|QString
@@ -11280,7 +11279,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"task77042"
+literal|"ISO date"
 argument_list|)
 operator|<<
 name|QString
@@ -11320,7 +11319,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"task77042-2"
+literal|"ISO date with comma 1"
 argument_list|)
 operator|<<
 name|QString
@@ -11360,7 +11359,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"task77042-3"
+literal|"ISO date with comma 2"
 argument_list|)
 operator|<<
 name|QString
@@ -11400,7 +11399,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"task77042-4"
+literal|"ISO date with comma 3"
 argument_list|)
 operator|<<
 name|QString
@@ -11440,7 +11439,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"task77042-5"
+literal|"ISO date with comma 4"
 argument_list|)
 operator|<<
 name|QString
@@ -11480,7 +11479,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"task77042-6"
+literal|"ISO date with comma 5"
 argument_list|)
 operator|<<
 name|QString

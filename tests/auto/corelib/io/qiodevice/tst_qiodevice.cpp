@@ -3728,7 +3728,10 @@ block|}
 class|;
 end_class
 begin_comment
-comment|// This is a testcase for the bug fixed with bd287865
+comment|// This is a regression test for an old bug where peeking at
+end_comment
+begin_comment
+comment|// more than one character failed to put them back.
 end_comment
 begin_function
 DECL|function|peekBug

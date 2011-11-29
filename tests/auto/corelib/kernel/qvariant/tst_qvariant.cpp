@@ -13228,7 +13228,6 @@ operator|::
 name|writeToReadFromDataStream
 parameter_list|()
 block|{
-comment|// See #15831 for more information on the bug
 name|QFETCH
 argument_list|(
 name|QVariant
@@ -13657,7 +13656,6 @@ operator|::
 name|checkDataStream
 parameter_list|()
 block|{
-comment|// test fix for task 215610
 specifier|const
 name|QByteArray
 name|settingsHex
@@ -15406,7 +15404,7 @@ name|QEXPECT_FAIL
 argument_list|(
 literal|"nullint"
 argument_list|,
-literal|"See task 118496"
+literal|"See QTBUG-22933"
 argument_list|,
 name|Continue
 argument_list|)
@@ -16713,8 +16711,6 @@ operator|::
 name|streamInvalidVariant
 parameter_list|()
 block|{
-comment|// I wasn't sure where this test belonged, so it's here
-comment|// See #17423 for more details
 name|int
 name|writeX
 init|=
@@ -19837,7 +19833,6 @@ name|convertToQUint8
 parameter_list|()
 specifier|const
 block|{
-comment|// See task 158470.
 comment|/* qint8. */
 block|{
 specifier|const
@@ -21900,7 +21895,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   We verify that:     1. Converting the string "9.9" to int fails. This is the behavior of        toLongLong() and hence also QVariant, since it uses it.     2. Converting the QVariant containing the double 9.9 to int works.    Rationale: "9.9" is not a valid int. However, doubles are by definition not   ints and therefore it makes more sense to perform conversion for those.    See task 237252.  */
+comment|/*!   We verify that:     1. Converting the string "9.9" to int fails. This is the behavior of        toLongLong() and hence also QVariant, since it uses it.     2. Converting the QVariant containing the double 9.9 to int works.    Rationale: "9.9" is not a valid int. However, doubles are by definition not   ints and therefore it makes more sense to perform conversion for those. */
 end_comment
 begin_function
 DECL|function|toIntFromQString
@@ -21991,7 +21986,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   We verify that:     1. Conversion from (64 bit) double to int works (no overflow).     2. Same conversion works for QVariant::convert.    Rationale: if 2147483630 is set in float and then converted to int,   there will be overflow and the result will be -2147483648.    See task 250267.  */
+comment|/*!   We verify that:     1. Conversion from (64 bit) double to int works (no overflow).     2. Same conversion works for QVariant::convert.    Rationale: if 2147483630 is set in float and then converted to int,   there will be overflow and the result will be -2147483648. */
 end_comment
 begin_function
 DECL|function|toIntFromDouble

@@ -815,7 +815,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"task 241464"
+literal|"long vertical"
 argument_list|)
 operator|<<
 literal|100.1599256468623

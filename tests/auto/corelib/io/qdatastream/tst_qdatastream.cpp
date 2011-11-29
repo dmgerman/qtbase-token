@@ -20878,7 +20878,6 @@ operator|::
 name|Qt_3_3
 argument_list|)
 expr_stmt|;
-comment|//task 196100
 name|quint32
 name|type
 decl_stmt|;
@@ -20911,7 +20910,6 @@ argument_list|,
 name|ba
 argument_list|)
 expr_stmt|;
-comment|//task196415
 name|quint32
 name|color
 decl_stmt|;

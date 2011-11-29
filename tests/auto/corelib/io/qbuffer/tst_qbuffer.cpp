@@ -1401,7 +1401,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Special case 2: seeking to an arbitrary position beyond the buffer auto-expands it
-comment|// (see Task 184730)
 block|{
 name|char
 name|c

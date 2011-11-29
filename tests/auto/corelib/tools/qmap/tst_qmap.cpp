@@ -2674,7 +2674,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
-comment|// task 102658
 name|QMap
 argument_list|<
 name|QString
