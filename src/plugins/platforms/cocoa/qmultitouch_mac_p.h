@@ -43,6 +43,11 @@ define|#
 directive|define
 name|QMULTITOUCH_MAC_P_H
 end_define
+begin_include
+include|#
+directive|include
+file|<QtCore/qglobal.h>
+end_include
 begin_empty
 empty|#import<Cocoa/Cocoa.h>
 end_empty
