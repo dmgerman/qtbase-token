@@ -936,12 +936,9 @@ begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QAccessibleTable2CellInterface
-range|:
-name|public
-name|QAccessibleInterface
 block|{
 name|public
-operator|:
+label|:
 comment|//            Returns the number of columns occupied by this cell accessible.
 name|virtual
 name|int
@@ -950,7 +947,7 @@ argument_list|()
 specifier|const
 operator|=
 literal|0
-block|;
+expr_stmt|;
 comment|//            Returns the column headers as an array of cell accessibles.
 name|virtual
 name|QList
@@ -963,7 +960,7 @@ argument_list|()
 specifier|const
 operator|=
 literal|0
-block|;
+expr_stmt|;
 comment|//            Translates this cell accessible into the corresponding column index.
 name|virtual
 name|int
@@ -972,7 +969,7 @@ argument_list|()
 specifier|const
 operator|=
 literal|0
-block|;
+expr_stmt|;
 comment|//            Returns the number of rows occupied by this cell accessible.
 name|virtual
 name|int
@@ -981,7 +978,7 @@ argument_list|()
 specifier|const
 operator|=
 literal|0
-block|;
+expr_stmt|;
 comment|//            Returns the row headers as an array of cell accessibles.
 name|virtual
 name|QList
@@ -994,7 +991,7 @@ argument_list|()
 specifier|const
 operator|=
 literal|0
-block|;
+expr_stmt|;
 comment|//            Translates this cell accessible into the corresponding row index.
 name|virtual
 name|int
@@ -1003,7 +1000,7 @@ argument_list|()
 specifier|const
 operator|=
 literal|0
-block|;
+expr_stmt|;
 comment|//            Returns a boolean value indicating whether this cell is selected.
 name|virtual
 name|bool
@@ -1012,36 +1009,46 @@ argument_list|()
 specifier|const
 operator|=
 literal|0
-block|;
+expr_stmt|;
 comment|//            Gets the row and column indexes and extents of this cell accessible and whether or not it is selected.
 name|virtual
 name|void
 name|rowColumnExtents
 argument_list|(
-argument|int *row
+name|int
+operator|*
+name|row
 argument_list|,
-argument|int *column
+name|int
+operator|*
+name|column
 argument_list|,
-argument|int *rowExtents
+name|int
+operator|*
+name|rowExtents
 argument_list|,
-argument|int *columnExtents
+name|int
+operator|*
+name|columnExtents
 argument_list|,
-argument|bool *selected
+name|bool
+operator|*
+name|selected
 argument_list|)
-specifier|const
-operator|=
+decl|const
+init|=
 literal|0
-block|;
+decl_stmt|;
 comment|//            Returns a reference to the accessbile of the containing table.
 name|virtual
-name|QAccessibleTable2Interface
+name|QAccessibleInterface
 operator|*
 name|table
 argument_list|()
 specifier|const
 operator|=
 literal|0
-block|;
+expr_stmt|;
 comment|// #### Qt5 this should not be here but part of the state
 name|virtual
 name|bool
@@ -1050,9 +1057,12 @@ argument_list|()
 specifier|const
 operator|=
 literal|0
-block|; }
-decl_stmt|;
+expr_stmt|;
+block|}
 end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
@@ -1062,7 +1072,7 @@ name|public
 label|:
 comment|// Returns the cell at the specified row and column in the table.
 name|virtual
-name|QAccessibleTable2CellInterface
+name|QAccessibleInterface
 modifier|*
 name|cellAt
 argument_list|(
@@ -1159,7 +1169,7 @@ comment|// Returns a list of accessibles currently selected.
 name|virtual
 name|QList
 operator|<
-name|QAccessibleTable2CellInterface
+name|QAccessibleInterface
 operator|*
 operator|>
 name|selectedCells
