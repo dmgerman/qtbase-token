@@ -1606,9 +1606,9 @@ condition|(
 name|len
 operator|>=
 operator|(
-literal|1
+literal|1u
 operator|<<
-literal|31
+literal|31u
 operator|)
 operator|-
 sizeof|sizeof
@@ -1751,9 +1751,9 @@ condition|(
 name|len
 operator|>=
 operator|(
-literal|1
+literal|1u
 operator|<<
-literal|31
+literal|31u
 operator|)
 operator|-
 sizeof|sizeof
