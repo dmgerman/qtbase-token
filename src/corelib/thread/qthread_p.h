@@ -804,12 +804,6 @@ name|void
 name|init
 argument_list|()
 block|;
-specifier|static
-name|QThread
-operator|*
-name|createThreadForAdoption
-argument_list|()
-block|;
 name|private
 operator|:
 name|void
