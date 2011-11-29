@@ -55,7 +55,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 end_ifdef
 begin_include
 include|#
@@ -1044,12 +1044,12 @@ operator|::
 name|testPageSize
 parameter_list|()
 block|{
-ifndef|#
-directive|ifndef
-name|Q_OS_WIN
+if|#
+directive|if
+literal|1
 name|QSKIP
 argument_list|(
-literal|"QPrinter::winPageSize() does not exist for non-Windows platforms"
+literal|"QPrinter::winPageSize(): Windows only and currently not implemented / QTBUG-22927"
 argument_list|)
 expr_stmt|;
 else|#
