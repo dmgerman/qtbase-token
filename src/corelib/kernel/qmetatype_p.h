@@ -50,27 +50,85 @@ file|"qmetatype.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-name|enum
-type|{
-comment|/* TYPEMODULEINFO flags */
-DECL|enumerator|Q_CORE_TYPE
-name|Q_CORE_TYPE
-init|=
-literal|1
-decl_stmt|,
-DECL|enumerator|Q_GUI_TYPE
-name|Q_GUI_TYPE
-init|=
-literal|2
-decl_stmt|,
-DECL|enumerator|Q_WIDGET_TYPE
-name|Q_WIDGET_TYPE
-init|=
-literal|3
+name|namespace
+name|QModulesPrivate
+block|{
+enum|enum
+name|Names
+block|{
+name|Core
+block|,
+name|Gui
+block|,
+name|Widgets
+block|,
+name|Unknown
+block|,
+name|ModulesCount
+comment|/* ModulesCount has to be at the end */
+block|}
+enum|;
+specifier|static
+specifier|inline
+name|int
+name|moduleForType
+parameter_list|(
+specifier|const
+name|int
+name|typeId
+parameter_list|)
+block|{
+if|if
+condition|(
+name|typeId
+operator|<=
+name|QMetaType
+operator|::
+name|LastCoreType
+condition|)
+return|return
+name|Core
+return|;
+if|if
+condition|(
+name|typeId
+operator|<=
+name|QMetaType
+operator|::
+name|LastGuiType
+condition|)
+return|return
+name|Gui
+return|;
+if|if
+condition|(
+name|typeId
+operator|<=
+name|QMetaType
+operator|::
+name|LastWidgetsType
+condition|)
+return|return
+name|Widgets
+return|;
+if|if
+condition|(
+name|typeId
+operator|<=
+name|QMetaType
+operator|::
+name|LastCoreExtType
+condition|)
+return|return
+name|Core
+return|;
+return|return
+name|Unknown
+return|;
+block|}
+block|}
 end_decl_stmt
 begin_expr_stmt
-DECL|enumerator|Q_WIDGET_TYPE
-unit|};
 name|template
 operator|<
 name|typename
@@ -108,25 +166,11 @@ operator|=
 operator|!
 name|IsCore
 block|}
-block|;
-specifier|static
-specifier|inline
-name|int
-name|module
-argument_list|()
-block|{
-return|return
-name|IsCore
-operator|?
-name|Q_CORE_TYPE
-operator|:
-literal|0
-return|;
-block|}
+block|; }
+expr_stmt|;
 end_expr_stmt
 begin_define
 DECL|macro|QT_ASSIGN_TYPE_TO_MODULE
-unit|};
 define|#
 directive|define
 name|QT_ASSIGN_TYPE_TO_MODULE
@@ -136,7 +180,7 @@ parameter_list|,
 name|MODULE
 parameter_list|)
 define|\
-value|template<> \ class QTypeModuleInfo<TYPE> \ { \ public: \     enum Module { \         IsCore = (((MODULE) == (Q_CORE_TYPE))), \         IsWidget = (((MODULE) == (Q_WIDGET_TYPE))), \         IsGui = (((MODULE) == (Q_GUI_TYPE))), \         IsUnknown = !(IsCore || IsWidget || IsGui) \     }; \     static inline int module() { return MODULE; } \     Q_STATIC_ASSERT((IsUnknown&& !(IsCore || IsWidget || IsGui)) \                  || (IsCore&& !(IsUnknown || IsWidget || IsGui)) \                  || (IsWidget&& !(IsUnknown || IsCore || IsGui)) \                  || (IsGui&& !(IsUnknown || IsCore || IsWidget))); \ };
+value|template<> \ class QTypeModuleInfo<TYPE> \ { \ public: \     enum Module { \         IsCore = (((MODULE) == (QModulesPrivate::Core))), \         IsWidget = (((MODULE) == (QModulesPrivate::Widgets))), \         IsGui = (((MODULE) == (QModulesPrivate::Gui))), \         IsUnknown = !(IsCore || IsWidget || IsGui) \     }; \     static inline int module() { return MODULE; } \     Q_STATIC_ASSERT((IsUnknown&& !(IsCore || IsWidget || IsGui)) \                  || (IsCore&& !(IsUnknown || IsWidget || IsGui)) \                  || (IsWidget&& !(IsUnknown || IsCore || IsGui)) \                  || (IsGui&& !(IsUnknown || IsCore || IsWidget))); \ };
 end_define
 begin_define
 DECL|macro|QT_DECLARE_CORE_MODULE_TYPES_ITER
@@ -151,7 +195,7 @@ parameter_list|,
 name|Name
 parameter_list|)
 define|\
-value|QT_ASSIGN_TYPE_TO_MODULE(Name, Q_CORE_TYPE);
+value|QT_ASSIGN_TYPE_TO_MODULE(Name, QModulesPrivate::Core);
 end_define
 begin_define
 DECL|macro|QT_DECLARE_GUI_MODULE_TYPES_ITER
@@ -166,7 +210,7 @@ parameter_list|,
 name|Name
 parameter_list|)
 define|\
-value|QT_ASSIGN_TYPE_TO_MODULE(Name, Q_GUI_TYPE);
+value|QT_ASSIGN_TYPE_TO_MODULE(Name, QModulesPrivate::Gui);
 end_define
 begin_define
 DECL|macro|QT_DECLARE_WIDGETS_MODULE_TYPES_ITER
@@ -181,7 +225,7 @@ parameter_list|,
 name|Name
 parameter_list|)
 define|\
-value|QT_ASSIGN_TYPE_TO_MODULE(Name, Q_WIDGET_TYPE);
+value|QT_ASSIGN_TYPE_TO_MODULE(Name, QModulesPrivate::Widgets);
 end_define
 begin_macro
 DECL|function|QT_FOR_EACH_STATIC_CORE_CLASS
