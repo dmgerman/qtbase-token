@@ -1033,6 +1033,14 @@ name|iface
 operator|<<
 name|dec
 expr_stmt|;
+if|if
+condition|(
+name|iface
+operator|->
+name|isValid
+argument_list|()
+condition|)
+block|{
 name|d
 operator|<<
 literal|" name="
@@ -1127,6 +1135,14 @@ name|iface
 operator|->
 name|rect
 argument_list|()
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|d
+operator|<<
+literal|" invalid"
 expr_stmt|;
 block|}
 name|d
