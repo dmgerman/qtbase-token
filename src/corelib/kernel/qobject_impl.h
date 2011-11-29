@@ -529,6 +529,12 @@ operator|&
 name|container
 operator|)
 block|{
+if|if
+condition|(
+name|container
+operator|.
+name|data
+condition|)
 operator|*
 name|reinterpret_cast
 operator|<
@@ -542,10 +548,15 @@ name|data
 operator|)
 operator|=
 name|value
-block|;     }
+expr_stmt|;
+block|}
+end_expr_stmt
+begin_ifdef
 ifdef|#
 directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
+end_ifdef
+begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -571,6 +582,12 @@ operator|&
 name|container
 operator|)
 block|{
+if|if
+condition|(
+name|container
+operator|.
+name|data
+condition|)
 operator|*
 name|reinterpret_cast
 operator|<
@@ -584,9 +601,14 @@ name|data
 operator|)
 operator|=
 name|value
-block|;     }
+expr_stmt|;
+block|}
+end_expr_stmt
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_expr_stmt
 name|template
 operator|<
 name|typename
