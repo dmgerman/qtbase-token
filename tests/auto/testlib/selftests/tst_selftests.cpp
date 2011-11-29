@@ -1452,6 +1452,8 @@ literal|"strcmp"
 operator|<<
 literal|"subtest"
 operator|<<
+literal|"findtestdata"
+operator|<<
 literal|"warnings"
 operator|<<
 literal|"xunit"

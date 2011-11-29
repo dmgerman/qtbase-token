@@ -702,6 +702,39 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|//! [25]
+comment|//! [26]
+comment|// Source: /home/user/sources/myxmlparser/tests/tst_myxmlparser/tst_myxmlparser.cpp
+comment|// Build:  /home/user/build/myxmlparser/tests/tst_myxmlparser
+comment|// Qt:     /usr/local/Qt-5.0.0
+name|void
+name|tst_MyXmlParser
+operator|::
+name|parse
+parameter_list|()
+block|{
+name|MyXmlParser
+name|parser
+decl_stmt|;
+name|QString
+name|input
+init|=
+name|QFINDTESTDATA
+argument_list|(
+literal|"testxml/simple1.xml"
+argument_list|)
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|parser
+operator|.
+name|parse
+argument_list|(
+name|input
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|//! [26]
 block|}
 end_function
 end_unit
