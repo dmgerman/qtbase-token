@@ -2287,6 +2287,15 @@ expr_stmt|;
 name|XEvent
 name|dummy
 decl_stmt|;
+name|event
+operator|->
+name|sequence
+operator|=
+name|LastKnownRequestProcessed
+argument_list|(
+name|m_xlib_display
+argument_list|)
+expr_stmt|;
 name|proc
 argument_list|(
 operator|(
