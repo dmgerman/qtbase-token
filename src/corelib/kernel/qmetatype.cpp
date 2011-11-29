@@ -7171,6 +7171,7 @@ init|=
 name|customTypes
 argument_list|()
 decl_stmt|;
+block|{
 name|QReadLocker
 name|locker
 argument_list|(
@@ -7218,6 +7219,7 @@ argument_list|)
 operator|.
 name|constructor
 expr_stmt|;
+block|}
 return|return
 name|ctor
 condition|?
@@ -7614,6 +7616,7 @@ init|=
 name|customTypes
 argument_list|()
 decl_stmt|;
+block|{
 name|QReadLocker
 name|locker
 argument_list|(
@@ -7659,6 +7662,7 @@ argument_list|)
 operator|.
 name|destructor
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
