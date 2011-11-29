@@ -488,7 +488,7 @@ name|goToStateFromSourceWithTransition
 parameter_list|()
 function_decl|;
 name|void
-name|task260403_clonedSignals
+name|clonedSignals
 parameter_list|()
 function_decl|;
 name|void
@@ -25585,11 +25585,11 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|task260403_clonedSignals
+DECL|function|clonedSignals
 name|void
 name|tst_QStateMachine
 operator|::
-name|task260403_clonedSignals
+name|clonedSignals
 parameter_list|()
 block|{
 name|SignalEmitter

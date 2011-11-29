@@ -646,13 +646,13 @@ name|void
 name|readBomSeekBackReadBomAgain
 parameter_list|()
 function_decl|;
-comment|// task-specific tests
+comment|// Regression tests for old bugs
 name|void
-name|task180679_alignAccountingStyle
+name|alignAccountingStyle
 parameter_list|()
 function_decl|;
 name|void
-name|task178772_setCodec
+name|setCodec
 parameter_list|()
 function_decl|;
 private|private:
@@ -17711,11 +17711,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|task180679_alignAccountingStyle
+DECL|function|alignAccountingStyle
 name|void
 name|tst_QTextStream
 operator|::
-name|task180679_alignAccountingStyle
+name|alignAccountingStyle
 parameter_list|()
 block|{
 block|{
@@ -17919,11 +17919,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|task178772_setCodec
+DECL|function|setCodec
 name|void
 name|tst_QTextStream
 operator|::
-name|task178772_setCodec
+name|setCodec
 parameter_list|()
 block|{
 name|QByteArray

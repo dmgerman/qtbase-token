@@ -144,7 +144,7 @@ name|toTime_t
 parameter_list|()
 function_decl|;
 name|void
-name|task_137698
+name|daylightSavingsTimeChange
 parameter_list|()
 function_decl|;
 name|void
@@ -10171,20 +10171,21 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|task_137698
+DECL|function|daylightSavingsTimeChange
 name|void
 name|tst_QDateTime
 operator|::
-name|task_137698
+name|daylightSavingsTimeChange
 parameter_list|()
 block|{
-comment|// This bug is caused by QDateTime knowing more than it lets show
-comment|// Internally, if it knows, QDateTime stores a flag indicating if the time is
-comment|// DST or not. If it doesn't, it sets to "LocalUnknown"
+comment|// This is a regression test for an old bug where starting with a date in
+comment|// DST and then moving to a date outside it (or vice-versa) caused 1-hour
+comment|// jumps in time when addSecs() was called.
 comment|//
-comment|// The problem happens if you start with a date in DST and then move to a date
-comment|// outside it (or vice-versa). Some functions did not reset the flag, which caused
-comment|// weird 1-hour jumps in time when addSecs() was called.
+comment|// The bug was caused by QDateTime knowing more than it lets show.
+comment|// Internally, if it knows, QDateTime stores a flag indicating if the time is
+comment|// DST or not. If it doesn't, it sets to "LocalUnknown".  The problem happened
+comment|// because some functions did not reset the flag when moving in or out of DST.
 comment|// WARNING: This test only works if there's a Daylight Savings Time change
 comment|// in the current locale between 2006-11-06 and 2006-10-16
 comment|// This is true for Central European Time

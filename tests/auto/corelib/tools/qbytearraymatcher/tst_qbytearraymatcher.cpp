@@ -55,7 +55,7 @@ name|interface
 parameter_list|()
 function_decl|;
 name|void
-name|task251958
+name|indexIn
 parameter_list|()
 function_decl|;
 block|}
@@ -428,11 +428,11 @@ name|matcher
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|task251958
+DECL|function|indexIn
 name|void
 name|tst_QByteArrayMatcher
 operator|::
-name|task251958
+name|indexIn
 parameter_list|()
 block|{
 specifier|const

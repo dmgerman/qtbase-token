@@ -695,9 +695,8 @@ name|void
 name|autocloseHandle
 parameter_list|()
 function_decl|;
-comment|// --- Task related tests below this line
 name|void
-name|task167217
+name|posAfterFailedStat
 parameter_list|()
 function_decl|;
 name|void
@@ -15631,15 +15630,15 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|task167217
+DECL|function|posAfterFailedStat
 name|void
 name|tst_QFile
 operator|::
-name|task167217
+name|posAfterFailedStat
 parameter_list|()
 block|{
-comment|// Regression introduced in 4.3.0; after a failed stat, pos() could no
-comment|// longer be calculated correctly.
+comment|// Regression test for a bug introduced in 4.3.0; after a failed stat,
+comment|// pos() could no longer be calculated correctly.
 name|QFile
 operator|::
 name|remove

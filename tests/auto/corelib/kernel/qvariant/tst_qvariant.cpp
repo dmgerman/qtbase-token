@@ -654,7 +654,7 @@ name|loadBrokenUserType
 parameter_list|()
 function_decl|;
 name|void
-name|task172061_invalidDate
+name|invalidDate
 parameter_list|()
 specifier|const
 function_decl|;
@@ -704,7 +704,7 @@ parameter_list|()
 specifier|const
 function_decl|;
 name|void
-name|task256984_setValue
+name|setValue
 parameter_list|()
 function_decl|;
 name|void
@@ -21168,11 +21168,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|task172061_invalidDate
+DECL|function|invalidDate
 name|void
 name|tst_QVariant
 operator|::
-name|task172061_invalidDate
+name|invalidDate
 parameter_list|()
 specifier|const
 block|{
@@ -22067,11 +22067,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|task256984_setValue
+DECL|function|setValue
 name|void
 name|tst_QVariant
 operator|::
-name|task256984_setValue
+name|setValue
 parameter_list|()
 block|{
 name|QTransform

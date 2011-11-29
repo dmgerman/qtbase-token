@@ -57,7 +57,7 @@ name|oldTests
 parameter_list|()
 function_decl|;
 name|void
-name|task214223
+name|appendCausingRealloc
 parameter_list|()
 function_decl|;
 name|void
@@ -1428,16 +1428,16 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|task214223
+DECL|function|appendCausingRealloc
 name|void
 name|tst_QVarLengthArray
 operator|::
-name|task214223
+name|appendCausingRealloc
 parameter_list|()
 block|{
-comment|//creating a QVarLengthArray of the same size as the prealloc size
-comment|// will make the next call to append(const T&) corrupt the memory
-comment|// you should get a segfault pretty soon after that :-)
+comment|// This is a regression test for an old bug where creating a
+comment|// QVarLengthArray of the same size as the prealloc size would make
+comment|// the next call to append(const T&) corrupt the memory.
 name|QVarLengthArray
 argument_list|<
 name|float

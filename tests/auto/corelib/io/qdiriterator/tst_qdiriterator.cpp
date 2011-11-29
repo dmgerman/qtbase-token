@@ -300,7 +300,7 @@ name|longPath
 parameter_list|()
 function_decl|;
 name|void
-name|task185502_dirorder
+name|dirorder
 parameter_list|()
 function_decl|;
 name|void
@@ -2637,11 +2637,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|task185502_dirorder
+DECL|function|dirorder
 name|void
 name|tst_QDirIterator
 operator|::
-name|task185502_dirorder
+name|dirorder
 parameter_list|()
 block|{
 name|QDirIterator
