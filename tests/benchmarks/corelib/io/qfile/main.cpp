@@ -47,11 +47,6 @@ include|#
 directive|include
 file|<windows.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<atlbase.h>
-end_include
 begin_endif
 endif|#
 directive|endif
