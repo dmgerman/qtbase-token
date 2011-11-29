@@ -6452,9 +6452,12 @@ name|pow
 argument_list|(
 name|f
 argument_list|,
+name|float
+argument_list|(
 literal|1.0
 operator|/
 literal|3.0
+argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|const
