@@ -1630,8 +1630,6 @@ argument_list|)
 operator|->
 name|touch_point
 argument_list|(
-name|m_state
-argument_list|,
 name|m_touchPoints
 argument_list|)
 expr_stmt|;

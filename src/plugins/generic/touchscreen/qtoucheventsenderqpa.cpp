@@ -142,11 +142,6 @@ name|QTouchEventSenderQPA
 operator|::
 name|touch_point
 parameter_list|(
-name|QEvent
-operator|::
-name|Type
-name|state
-parameter_list|,
 specifier|const
 name|QList
 argument_list|<
@@ -431,8 +426,6 @@ operator|::
 name|handleTouchEvent
 argument_list|(
 literal|0
-argument_list|,
-name|state
 argument_list|,
 name|m_device
 argument_list|,

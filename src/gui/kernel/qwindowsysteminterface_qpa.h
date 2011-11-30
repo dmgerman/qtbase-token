@@ -520,11 +520,6 @@ name|QWindow
 operator|*
 name|w
 argument_list|,
-name|QEvent
-operator|::
-name|Type
-name|type
-argument_list|,
 name|QTouchDevice
 operator|*
 name|device
@@ -558,11 +553,6 @@ name|w
 argument_list|,
 name|ulong
 name|timestamp
-argument_list|,
-name|QEvent
-operator|::
-name|Type
-name|type
 argument_list|,
 name|QTouchDevice
 operator|*

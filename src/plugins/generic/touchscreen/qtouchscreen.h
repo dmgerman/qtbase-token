@@ -81,11 +81,6 @@ name|virtual
 name|void
 name|touch_point
 argument_list|(
-name|QEvent
-operator|::
-name|Type
-name|state
-argument_list|,
 specifier|const
 name|QList
 operator|<

@@ -61,9 +61,15 @@ block|;
 name|void
 name|touch_point
 argument_list|(
-argument|QEvent::Type state
-argument_list|,
-argument|const QList<QWindowSystemInterface::TouchPoint>&points
+specifier|const
+name|QList
+operator|<
+name|QWindowSystemInterface
+operator|::
+name|TouchPoint
+operator|>
+operator|&
+name|points
 argument_list|)
 block|;
 name|private

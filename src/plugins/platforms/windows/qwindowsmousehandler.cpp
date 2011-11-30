@@ -1262,6 +1262,7 @@ operator|=
 operator|new
 name|QTouchDevice
 expr_stmt|;
+comment|// TODO: Device used to be hardcoded to screen in previous code.
 name|m_touchDevice
 operator|->
 name|setType
@@ -1296,17 +1297,11 @@ name|m_touchDevice
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: Device used to be hardcoded to screen in previous code.
-comment|// What is the correct event type? Which parts of translateRawTouchEvent() are required?
 name|QWindowSystemInterface
 operator|::
 name|handleTouchEvent
 argument_list|(
 name|window
-argument_list|,
-name|QEvent
-operator|::
-name|TouchBegin
 argument_list|,
 name|m_touchDevice
 argument_list|,

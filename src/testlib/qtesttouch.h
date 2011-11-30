@@ -519,10 +519,6 @@ name|handleTouchEvent
 argument_list|(
 name|targetWindow
 argument_list|,
-name|QEvent
-operator|::
-name|None
-argument_list|,
 name|device
 argument_list|,
 name|touchPointList

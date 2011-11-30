@@ -1539,14 +1539,6 @@ name|xideviceevent
 operator|->
 name|time
 argument_list|,
-operator|(
-name|QEvent
-operator|::
-name|Type
-operator|)
-literal|0
-comment|/*None*/
-argument_list|,
 name|dev
 argument_list|,
 name|touchPoints
