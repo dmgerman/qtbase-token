@@ -8222,16 +8222,6 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
-argument|QSound
-argument_list|,
-argument|QtWidgets
-argument_list|,
-argument|qsound.h
-argument_list|)
-end_macro
-begin_macro
-name|QT_CLASS_LIB
-argument_list|(
 argument|QStackedLayout
 argument_list|,
 argument|QtWidgets
