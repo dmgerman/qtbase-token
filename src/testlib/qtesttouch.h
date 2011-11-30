@@ -844,11 +844,11 @@ argument_list|()
 block|;
 name|p
 operator|.
-name|isPrimary
+name|flags
 operator|=
 name|pt
 operator|.
-name|isPrimary
+name|flags
 argument_list|()
 block|;
 name|p

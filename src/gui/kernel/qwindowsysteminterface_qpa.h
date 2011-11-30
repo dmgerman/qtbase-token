@@ -435,11 +435,6 @@ argument_list|(
 literal|0
 argument_list|)
 operator|,
-name|isPrimary
-argument_list|(
-name|false
-argument_list|)
-operator|,
 name|pressure
 argument_list|(
 literal|0
@@ -460,10 +455,6 @@ block|{ }
 name|int
 name|id
 expr_stmt|;
-comment|// for application use
-name|bool
-name|isPrimary
-decl_stmt|;
 comment|// for application use
 name|QPointF
 name|normalPosition

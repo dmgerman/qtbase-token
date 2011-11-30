@@ -412,7 +412,7 @@ name|id
 operator|<<
 name|tp
 operator|.
-name|isPrimary
+name|flags
 operator|<<
 name|tp
 operator|.

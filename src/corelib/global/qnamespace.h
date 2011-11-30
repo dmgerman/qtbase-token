@@ -4806,14 +4806,6 @@ block|,
 name|TouchPointReleased
 init|=
 literal|0x08
-block|,
-name|TouchPointStateMask
-init|=
-literal|0x0f
-block|,
-name|TouchPointPrimary
-init|=
-literal|0x10
 block|}
 enum|;
 end_enum

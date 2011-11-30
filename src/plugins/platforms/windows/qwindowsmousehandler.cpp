@@ -981,10 +981,8 @@ name|pressure
 operator|=
 literal|1.0
 expr_stmt|;
-name|touchPoint
-operator|.
-name|isPrimary
-operator|=
+if|if
+condition|(
 operator|(
 name|winTouchInput
 operator|.
@@ -994,6 +992,16 @@ name|TOUCHEVENTF_PRIMARY
 operator|)
 operator|!=
 literal|0
+condition|)
+name|touchPoint
+operator|.
+name|flags
+operator||=
+name|QTouchEvent
+operator|::
+name|TouchPoint
+operator|::
+name|Primary
 expr_stmt|;
 name|touchPoint
 operator|.
@@ -1234,13 +1242,7 @@ expr_stmt|;
 comment|// all touch points released, forget the ids we've seen, they may not be reused
 if|if
 condition|(
-operator|(
 name|allStates
-operator|&
-name|Qt
-operator|::
-name|TouchPointStateMask
-operator|)
 operator|==
 name|Qt
 operator|::

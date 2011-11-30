@@ -3165,9 +3165,13 @@ operator|:
 expr|enum
 name|InfoFlag
 block|{
-name|Pen
+name|Primary
 operator|=
 literal|0x0001
+block|,
+name|Pen
+operator|=
+literal|0x0002
 block|}
 block|;
 name|Q_DECLARE_FLAGS
