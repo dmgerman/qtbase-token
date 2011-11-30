@@ -81,7 +81,7 @@ block|;
 name|void
 name|setText
 argument_list|(
-argument|Text t
+argument|QAccessible::Text t
 argument_list|,
 argument|const QString&text
 argument_list|)
@@ -138,6 +138,8 @@ argument|const QAccessibleInterface*
 argument_list|)
 specifier|const
 block|;
+name|QAccessible
+operator|::
 name|Relation
 name|relationTo
 argument_list|(
@@ -172,7 +174,7 @@ block|;
 name|int
 name|navigate
 argument_list|(
-argument|RelationFlag
+argument|QAccessible::RelationFlag
 argument_list|,
 argument|int
 argument_list|,
@@ -184,15 +186,19 @@ comment|// properties and state
 name|QString
 name|text
 argument_list|(
-argument|Text t
+argument|QAccessible::Text t
 argument_list|)
 specifier|const
 block|;
+name|QAccessible
+operator|::
 name|Role
 name|role
 argument_list|()
 specifier|const
 block|;
+name|QAccessible
+operator|::
 name|State
 name|state
 argument_list|()

@@ -99,6 +99,8 @@ function_decl|;
 name|QString
 name|text
 argument_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 argument_list|)
@@ -197,7 +199,7 @@ block|;
 name|QString
 name|text
 argument_list|(
-argument|Text t
+argument|QAccessible::Text t
 argument_list|)
 specifier|const
 block|;
@@ -233,17 +235,21 @@ name|public
 label|:
 name|explicit
 name|QAccessibleAbstractSlider
-parameter_list|(
+argument_list|(
 name|QWidget
-modifier|*
+operator|*
 name|w
-parameter_list|,
+argument_list|,
+name|QAccessible
+operator|::
 name|Role
 name|r
-init|=
+operator|=
+name|QAccessible
+operator|::
 name|Slider
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
 name|void
 modifier|*
 name|interface_cast
@@ -314,7 +320,7 @@ block|;
 name|QString
 name|text
 argument_list|(
-argument|Text t
+argument|QAccessible::Text t
 argument_list|)
 specifier|const
 block|;
@@ -360,7 +366,7 @@ block|;
 name|QString
 name|text
 argument_list|(
-argument|Text t
+argument|QAccessible::Text t
 argument_list|)
 specifier|const
 block|;
@@ -406,7 +412,7 @@ block|;
 name|QString
 name|text
 argument_list|(
-argument|Text textType
+argument|QAccessible::Text textType
 argument_list|)
 specifier|const
 block|;

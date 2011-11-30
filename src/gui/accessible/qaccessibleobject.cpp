@@ -352,6 +352,8 @@ name|QAccessibleObject
 operator|::
 name|setText
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 parameter_list|,
 specifier|const
@@ -713,6 +715,8 @@ operator|!
 name|o
 condition|)
 return|return
+name|QAccessible
+operator|::
 name|Unrelated
 return|;
 if|if
@@ -724,10 +728,14 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|QAccessible
+operator|::
 name|Self
 return|;
 block|}
 return|return
+name|QAccessible
+operator|::
 name|Unrelated
 return|;
 block|}
@@ -809,6 +817,8 @@ name|QAccessibleApplication
 operator|::
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|relation
 parameter_list|,
@@ -847,6 +857,8 @@ name|relation
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Self
 case|:
 name|targetObject
@@ -856,6 +868,8 @@ argument_list|()
 expr_stmt|;
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|FocusChild
 case|:
 if|if
@@ -884,6 +898,8 @@ return|;
 block|}
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Ancestor
 case|:
 operator|*
@@ -929,6 +945,8 @@ name|QAccessibleApplication
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -940,6 +958,8 @@ name|t
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Name
 case|:
 return|return
@@ -949,6 +969,8 @@ name|applicationName
 argument_list|()
 return|;
 case|case
+name|QAccessible
+operator|::
 name|Description
 case|:
 return|return
@@ -981,6 +1003,8 @@ parameter_list|()
 specifier|const
 block|{
 return|return
+name|QAccessible
+operator|::
 name|Application
 return|;
 block|}
@@ -1005,8 +1029,12 @@ operator|::
 name|activeWindow
 argument_list|()
 condition|?
+name|QAccessible
+operator|::
 name|Focused
 else|:
+name|QAccessible
+operator|::
 name|Normal
 return|;
 block|}

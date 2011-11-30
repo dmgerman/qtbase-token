@@ -77,10 +77,12 @@ block|;
 name|QString
 name|text
 argument_list|(
-argument|Text t
+argument|QAccessible::Text t
 argument_list|)
 specifier|const
 block|;
+name|QAccessible
+operator|::
 name|Role
 name|role
 argument_list|()
@@ -103,7 +105,7 @@ block|;
 name|int
 name|navigate
 argument_list|(
-argument|RelationFlag relation
+argument|QAccessible::RelationFlag relation
 argument_list|,
 argument|int entry
 argument_list|,
@@ -166,7 +168,7 @@ block|;
 name|int
 name|navigate
 argument_list|(
-argument|RelationFlag relation
+argument|QAccessible::RelationFlag relation
 argument_list|,
 argument|int entry
 argument_list|,

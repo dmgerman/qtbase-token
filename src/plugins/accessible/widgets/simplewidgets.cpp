@@ -245,6 +245,8 @@ name|QWidget
 modifier|*
 name|w
 parameter_list|,
+name|QAccessible
+operator|::
 name|Role
 name|role
 parameter_list|)
@@ -325,6 +327,8 @@ name|QAccessibleButton
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -339,6 +343,8 @@ name|t
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Accelerator
 case|:
 block|{
@@ -403,6 +409,8 @@ expr_stmt|;
 block|}
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Name
 case|:
 name|str
@@ -467,6 +475,8 @@ name|state
 parameter_list|()
 specifier|const
 block|{
+name|QAccessible
+operator|::
 name|State
 name|state
 init|=
@@ -504,6 +514,8 @@ argument_list|()
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Checked
 expr_stmt|;
 elseif|else
@@ -522,6 +534,8 @@ name|PartiallyChecked
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Mixed
 expr_stmt|;
 if|if
@@ -533,6 +547,8 @@ argument_list|()
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Pressed
 expr_stmt|;
 name|QPushButton
@@ -562,6 +578,8 @@ argument_list|()
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|DefaultButton
 expr_stmt|;
 ifndef|#
@@ -576,6 +594,8 @@ argument_list|()
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|HasPopup
 expr_stmt|;
 endif|#
@@ -614,6 +634,8 @@ argument_list|()
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|ButtonMenu
 case|:
 name|names
@@ -623,6 +645,8 @@ argument_list|()
 expr_stmt|;
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|RadioButton
 case|:
 name|names
@@ -646,6 +670,8 @@ condition|(
 name|state
 argument_list|()
 operator|&
+name|QAccessible
+operator|::
 name|Checked
 condition|)
 block|{
@@ -883,6 +909,8 @@ name|QWidget
 modifier|*
 name|w
 parameter_list|,
+name|QAccessible
+operator|::
 name|Role
 name|role
 parameter_list|)
@@ -1000,6 +1028,8 @@ argument_list|()
 condition|)
 name|st
 operator||=
+name|QAccessible
+operator|::
 name|HotTracked
 expr_stmt|;
 ifndef|#
@@ -1015,6 +1045,8 @@ argument_list|()
 condition|)
 name|st
 operator||=
+name|QAccessible
+operator|::
 name|HasPopup
 expr_stmt|;
 endif|#
@@ -1073,6 +1105,8 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|QAccessible
+operator|::
 name|queryAccessibleInterface
 argument_list|(
 name|toolButton
@@ -1100,6 +1134,8 @@ name|QAccessibleToolButton
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -1114,6 +1150,8 @@ name|t
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Name
 case|:
 name|str
@@ -1345,6 +1383,8 @@ name|QWidget
 modifier|*
 name|w
 parameter_list|,
+name|QAccessible
+operator|::
 name|Role
 name|role
 parameter_list|)
@@ -1395,6 +1435,8 @@ name|pixmap
 argument_list|()
 condition|)
 return|return
+name|QAccessible
+operator|::
 name|Graphic
 return|;
 ifndef|#
@@ -1408,6 +1450,8 @@ name|picture
 argument_list|()
 condition|)
 return|return
+name|QAccessible
+operator|::
 name|Graphic
 return|;
 endif|#
@@ -1423,6 +1467,8 @@ name|movie
 argument_list|()
 condition|)
 return|return
+name|QAccessible
+operator|::
 name|Animation
 return|;
 endif|#
@@ -1446,6 +1492,8 @@ argument_list|)
 condition|)
 block|{
 return|return
+name|QAccessible
+operator|::
 name|ProgressBar
 return|;
 endif|#
@@ -1466,6 +1514,8 @@ name|QAccessibleDisplay
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -1480,6 +1530,8 @@ name|t
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Name
 case|:
 name|str
@@ -1631,6 +1683,8 @@ block|}
 block|}
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Value
 case|:
 ifndef|#
@@ -1714,6 +1768,8 @@ name|other
 parameter_list|)
 specifier|const
 block|{
+name|QAccessible
+operator|::
 name|Relation
 name|relation
 init|=
@@ -1766,6 +1822,8 @@ argument_list|()
 condition|)
 name|relation
 operator||=
+name|QAccessible
+operator|::
 name|Label
 expr_stmt|;
 endif|#
@@ -1817,6 +1875,8 @@ argument_list|)
 condition|)
 name|relation
 operator||=
+name|QAccessible
+operator|::
 name|Label
 expr_stmt|;
 endif|#
@@ -1834,6 +1894,8 @@ name|QAccessibleDisplay
 operator|::
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|rel
 parameter_list|,
@@ -1856,6 +1918,8 @@ if|if
 condition|(
 name|rel
 operator|==
+name|QAccessible
+operator|::
 name|Labelled
 condition|)
 block|{
@@ -1937,6 +2001,8 @@ argument_list|()
 condition|)
 name|rel
 operator|=
+name|QAccessible
+operator|::
 name|Child
 expr_stmt|;
 endif|#
@@ -2246,6 +2312,8 @@ name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|,
+name|QAccessible
+operator|::
 name|EditableText
 argument_list|,
 name|name
@@ -2307,6 +2375,8 @@ name|QAccessibleLineEdit
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -2321,6 +2391,8 @@ name|t
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Value
 case|:
 if|if
@@ -2379,6 +2451,8 @@ name|QAccessibleLineEdit
 operator|::
 name|setText
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|,
@@ -2392,6 +2466,8 @@ if|if
 condition|(
 name|t
 operator|!=
+name|QAccessible
+operator|::
 name|Value
 condition|)
 block|{
@@ -2467,6 +2543,8 @@ name|state
 parameter_list|()
 specifier|const
 block|{
+name|QAccessible
+operator|::
 name|State
 name|state
 init|=
@@ -2491,6 +2569,8 @@ argument_list|()
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|ReadOnly
 expr_stmt|;
 if|if
@@ -2506,10 +2586,14 @@ name|Normal
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Protected
 expr_stmt|;
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Selectable
 expr_stmt|;
 if|if
@@ -2521,6 +2605,8 @@ argument_list|()
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Selected
 expr_stmt|;
 if|if
@@ -2545,6 +2631,8 @@ name|PreventContextMenu
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|HasPopup
 expr_stmt|;
 return|return
@@ -2576,6 +2664,8 @@ name|method
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|ListSupportedMethods
 case|:
 block|{
@@ -2589,10 +2679,16 @@ name|set
 decl_stmt|;
 name|set
 operator|<<
+name|QAccessible
+operator|::
 name|ListSupportedMethods
 operator|<<
+name|QAccessible
+operator|::
 name|SetCursorPosition
 operator|<<
+name|QAccessible
+operator|::
 name|GetCursorPosition
 expr_stmt|;
 return|return
@@ -2625,6 +2721,8 @@ argument_list|)
 return|;
 block|}
 case|case
+name|QAccessible
+operator|::
 name|SetCursorPosition
 case|:
 name|setCursorPosition
@@ -2644,6 +2742,8 @@ return|return
 literal|true
 return|;
 case|case
+name|QAccessible
+operator|::
 name|GetCursorPosition
 case|:
 return|return

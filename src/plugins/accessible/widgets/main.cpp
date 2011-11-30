@@ -810,9 +810,13 @@ literal|"QToolButton"
 argument_list|)
 condition|)
 block|{
+name|QAccessible
+operator|::
 name|Role
 name|role
 init|=
+name|QAccessible
+operator|::
 name|NoRole
 decl_stmt|;
 ifndef|#
@@ -846,8 +850,12 @@ operator|->
 name|isCheckable
 argument_list|()
 condition|?
+name|QAccessible
+operator|::
 name|CheckBox
 else|:
+name|QAccessible
+operator|::
 name|PushButton
 expr_stmt|;
 elseif|else
@@ -865,6 +873,8 @@ name|DelayedPopup
 condition|)
 name|role
 operator|=
+name|QAccessible
+operator|::
 name|ButtonDropDown
 expr_stmt|;
 else|else
@@ -872,6 +882,8 @@ endif|#
 directive|endif
 name|role
 operator|=
+name|QAccessible
+operator|::
 name|ButtonMenu
 expr_stmt|;
 name|iface
@@ -906,6 +918,8 @@ name|QAccessibleButton
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|CheckBox
 argument_list|)
 expr_stmt|;
@@ -928,6 +942,8 @@ name|QAccessibleButton
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|RadioButton
 argument_list|)
 expr_stmt|;
@@ -943,9 +959,13 @@ literal|"QPushButton"
 argument_list|)
 condition|)
 block|{
+name|QAccessible
+operator|::
 name|Role
 name|role
 init|=
+name|QAccessible
+operator|::
 name|NoRole
 decl_stmt|;
 name|QPushButton
@@ -973,6 +993,8 @@ argument_list|()
 condition|)
 name|role
 operator|=
+name|QAccessible
+operator|::
 name|ButtonMenu
 expr_stmt|;
 elseif|else
@@ -987,11 +1009,15 @@ argument_list|()
 condition|)
 name|role
 operator|=
+name|QAccessible
+operator|::
 name|CheckBox
 expr_stmt|;
 else|else
 name|role
 operator|=
+name|QAccessible
+operator|::
 name|PushButton
 expr_stmt|;
 name|iface
@@ -1023,6 +1049,8 @@ name|QAccessibleButton
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|PushButton
 argument_list|)
 expr_stmt|;
@@ -1045,6 +1073,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|Dialog
 argument_list|)
 expr_stmt|;
@@ -1067,6 +1097,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|AlertMessage
 argument_list|)
 expr_stmt|;
@@ -1141,6 +1173,8 @@ name|QAccessibleDisplay
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|Grouping
 argument_list|)
 expr_stmt|;
@@ -1163,6 +1197,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|StatusBar
 argument_list|)
 expr_stmt|;
@@ -1210,6 +1246,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|ToolBar
 argument_list|,
 name|widget
@@ -1459,6 +1497,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|Window
 argument_list|)
 expr_stmt|;
@@ -1481,6 +1521,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|Grip
 argument_list|)
 expr_stmt|;
@@ -1506,6 +1548,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|Splitter
 argument_list|)
 expr_stmt|;
@@ -1528,6 +1572,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|Grip
 argument_list|)
 expr_stmt|;
@@ -1577,6 +1623,8 @@ name|QAccessibleDisplay
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|ToolTip
 argument_list|)
 expr_stmt|;
@@ -1599,6 +1647,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|Border
 argument_list|)
 expr_stmt|;

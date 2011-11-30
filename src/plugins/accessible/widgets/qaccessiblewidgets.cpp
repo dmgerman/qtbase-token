@@ -1085,6 +1085,8 @@ name|QAccessibleWidget
 argument_list|(
 name|o
 argument_list|,
+name|QAccessible
+operator|::
 name|EditableText
 argument_list|)
 block|{
@@ -1134,6 +1136,8 @@ name|QAccessibleTextEdit
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -1143,6 +1147,8 @@ if|if
 condition|(
 name|t
 operator|==
+name|QAccessible
+operator|::
 name|Value
 condition|)
 return|return
@@ -1169,6 +1175,8 @@ name|QAccessibleTextEdit
 operator|::
 name|setText
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|,
@@ -1182,6 +1190,8 @@ if|if
 condition|(
 name|t
 operator|!=
+name|QAccessible
+operator|::
 name|Value
 condition|)
 block|{
@@ -1239,6 +1249,8 @@ name|method
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|ListSupportedMethods
 case|:
 block|{
@@ -1252,10 +1264,16 @@ name|set
 decl_stmt|;
 name|set
 operator|<<
+name|QAccessible
+operator|::
 name|ListSupportedMethods
 operator|<<
+name|QAccessible
+operator|::
 name|SetCursorPosition
 operator|<<
+name|QAccessible
+operator|::
 name|GetCursorPosition
 expr_stmt|;
 return|return
@@ -1288,6 +1306,8 @@ argument_list|)
 return|;
 block|}
 case|case
+name|QAccessible
+operator|::
 name|SetCursorPosition
 case|:
 name|setCursorPosition
@@ -1307,6 +1327,8 @@ return|return
 literal|true
 return|;
 case|case
+name|QAccessible
+operator|::
 name|GetCursorPosition
 case|:
 return|return
@@ -3685,6 +3707,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|LayeredPane
 argument_list|)
 block|{
@@ -3948,6 +3972,8 @@ name|QAccessibleStackedWidget
 operator|::
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|relation
 parameter_list|,
@@ -3967,6 +3993,8 @@ name|relation
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Child
 case|:
 operator|*
@@ -4057,6 +4085,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|LayeredPane
 argument_list|)
 block|{
@@ -4127,6 +4157,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|LayeredPane
 argument_list|)
 block|{
@@ -4261,6 +4293,8 @@ name|QAccessibleMdiArea
 operator|::
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|relation
 parameter_list|,
@@ -4304,6 +4338,8 @@ name|relation
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Child
 case|:
 if|if
@@ -4342,15 +4378,23 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Up
 case|:
 case|case
+name|QAccessible
+operator|::
 name|Down
 case|:
 case|case
+name|QAccessible
+operator|::
 name|Left
 case|:
 case|case
+name|QAccessible
+operator|::
 name|Right
 case|:
 name|targetObject
@@ -4468,6 +4512,8 @@ name|QAccessibleMdiSubWindow
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|textType
 parameter_list|)
@@ -4527,6 +4573,8 @@ name|QAccessibleMdiSubWindow
 operator|::
 name|setText
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|textType
 parameter_list|,
@@ -4773,6 +4821,8 @@ name|QAccessibleMdiSubWindow
 operator|::
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|relation
 parameter_list|,
@@ -4831,6 +4881,8 @@ name|relation
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Child
 case|:
 if|if
@@ -4858,15 +4910,23 @@ argument_list|()
 expr_stmt|;
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Up
 case|:
 case|case
+name|QAccessible
+operator|::
 name|Down
 case|:
 case|case
+name|QAccessible
+operator|::
 name|Left
 case|:
 case|case
+name|QAccessible
+operator|::
 name|Right
 case|:
 block|{
@@ -5272,6 +5332,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|LayeredPane
 argument_list|)
 block|{
@@ -5406,6 +5468,8 @@ name|QAccessibleWorkspace
 operator|::
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|relation
 parameter_list|,
@@ -5445,6 +5509,8 @@ name|relation
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Child
 case|:
 if|if
@@ -5483,15 +5549,23 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Up
 case|:
 case|case
+name|QAccessible
+operator|::
 name|Down
 case|:
 case|case
+name|QAccessible
+operator|::
 name|Left
 case|:
 case|case
+name|QAccessible
+operator|::
 name|Right
 case|:
 name|targetObject
@@ -5592,6 +5666,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|Grouping
 argument_list|)
 block|{
@@ -5723,6 +5799,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|Table
 argument_list|)
 block|{
@@ -5882,6 +5960,8 @@ operator|==
 literal|0
 condition|)
 return|return
+name|QAccessible
+operator|::
 name|queryAccessibleInterface
 argument_list|(
 name|navigationBar
@@ -5889,6 +5969,8 @@ argument_list|()
 argument_list|)
 return|;
 return|return
+name|QAccessible
+operator|::
 name|queryAccessibleInterface
 argument_list|(
 name|calendarView
@@ -5904,6 +5986,8 @@ name|QAccessibleCalendarWidget
 operator|::
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|relation
 parameter_list|,
@@ -5957,6 +6041,8 @@ name|relation
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Child
 case|:
 operator|*
@@ -5979,6 +6065,8 @@ operator|-
 literal|1
 return|;
 case|case
+name|QAccessible
+operator|::
 name|Up
 case|:
 if|if
@@ -5994,6 +6082,8 @@ argument_list|()
 expr_stmt|;
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Down
 case|:
 if|if
@@ -6030,6 +6120,8 @@ block|}
 operator|*
 name|target
 operator|=
+name|QAccessible
+operator|::
 name|queryAccessibleInterface
 argument_list|(
 name|targetWidget
@@ -6198,6 +6290,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|Window
 argument_list|)
 block|{  }
@@ -6311,6 +6405,8 @@ operator|->
 name|role
 argument_list|()
 operator|==
+name|QAccessible
+operator|::
 name|TitleBar
 condition|)
 block|{
@@ -6344,6 +6440,8 @@ parameter_list|()
 specifier|const
 block|{
 return|return
+name|QAccessible
+operator|::
 name|Window
 return|;
 block|}
@@ -6591,6 +6689,8 @@ name|QAccessibleTitleBar
 operator|::
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|relation
 parameter_list|,
@@ -6610,6 +6710,8 @@ name|relation
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Child
 case|:
 operator|*
@@ -6632,6 +6734,8 @@ operator|-
 literal|1
 return|;
 case|case
+name|QAccessible
+operator|::
 name|FocusChild
 case|:
 comment|// ###
@@ -6731,6 +6835,8 @@ return|;
 block|}
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Ancestor
 case|:
 operator|*
@@ -6778,6 +6884,8 @@ parameter_list|)
 specifier|const
 block|{
 return|return
+name|QAccessible
+operator|::
 name|Unrelated
 return|;
 comment|//###
@@ -6884,6 +6992,8 @@ name|QAccessibleTitleBar
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -6893,10 +7003,14 @@ if|if
 condition|(
 name|t
 operator|==
+name|QAccessible
+operator|::
 name|Name
 operator|||
 name|t
 operator|==
+name|QAccessible
+operator|::
 name|Value
 condition|)
 block|{
@@ -6933,6 +7047,8 @@ operator|::
 name|State
 name|state
 init|=
+name|QAccessible
+operator|::
 name|Normal
 decl_stmt|;
 name|QDockWidget
@@ -6957,6 +7073,8 @@ literal|false
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Invisible
 expr_stmt|;
 if|if
@@ -6977,6 +7095,8 @@ argument_list|()
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Focusable
 expr_stmt|;
 if|if
@@ -6988,6 +7108,8 @@ argument_list|()
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Focused
 expr_stmt|;
 if|if
@@ -7000,6 +7122,8 @@ argument_list|()
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Unavailable
 expr_stmt|;
 return|return
@@ -7417,6 +7541,8 @@ parameter_list|()
 specifier|const
 block|{
 return|return
+name|QAccessible
+operator|::
 name|TitleBar
 return|;
 block|}
@@ -7428,6 +7554,8 @@ name|QAccessibleTitleBar
 operator|::
 name|setText
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 comment|/*t*/
 parameter_list|,
@@ -7480,6 +7608,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|Window
 argument_list|)
 block|{ }

@@ -145,6 +145,8 @@ function_decl|;
 name|QString
 name|text
 argument_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 argument_list|)
@@ -152,16 +154,18 @@ decl|const
 decl_stmt|;
 name|void
 name|setText
-parameter_list|(
+argument_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
-parameter_list|,
+argument_list|,
 specifier|const
 name|QString
-modifier|&
+operator|&
 name|text
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
 name|QVariant
 name|invokeMethod
 argument_list|(
@@ -536,7 +540,7 @@ block|;
 name|int
 name|navigate
 argument_list|(
-argument|RelationFlag relation
+argument|QAccessible::RelationFlag relation
 argument_list|,
 argument|int entry
 argument_list|,
@@ -623,7 +627,7 @@ block|;
 name|int
 name|navigate
 argument_list|(
-argument|RelationFlag relation
+argument|QAccessible::RelationFlag relation
 argument_list|,
 argument|int entry
 argument_list|,
@@ -661,18 +665,20 @@ block|;
 name|QString
 name|text
 argument_list|(
-argument|Text textType
+argument|QAccessible::Text textType
 argument_list|)
 specifier|const
 block|;
 name|void
 name|setText
 argument_list|(
-argument|Text textType
+argument|QAccessible::Text textType
 argument_list|,
 argument|const QString&text
 argument_list|)
 block|;
+name|QAccessible
+operator|::
 name|State
 name|state
 argument_list|()
@@ -693,7 +699,7 @@ block|;
 name|int
 name|navigate
 argument_list|(
-argument|RelationFlag relation
+argument|QAccessible::RelationFlag relation
 argument_list|,
 argument|int entry
 argument_list|,
@@ -769,7 +775,7 @@ block|;
 name|int
 name|navigate
 argument_list|(
-argument|RelationFlag relation
+argument|QAccessible::RelationFlag relation
 argument_list|,
 argument|int entry
 argument_list|,
@@ -842,6 +848,8 @@ operator|*
 name|widget
 argument_list|)
 block|;
+name|QAccessible
+operator|::
 name|Role
 name|role
 argument_list|()
@@ -893,7 +901,7 @@ block|;
 name|int
 name|navigate
 argument_list|(
-argument|RelationFlag relation
+argument|QAccessible::RelationFlag relation
 argument_list|,
 argument|int entry
 argument_list|,
@@ -997,6 +1005,8 @@ name|rect
 argument_list|()
 specifier|const
 block|;
+name|QAccessible
+operator|::
 name|Role
 name|role
 argument_list|()
@@ -1044,7 +1054,7 @@ block|;
 name|int
 name|navigate
 argument_list|(
-argument|RelationFlag relation
+argument|QAccessible::RelationFlag relation
 argument_list|,
 argument|int entry
 argument_list|,
@@ -1064,6 +1074,8 @@ name|childCount
 argument_list|()
 specifier|const
 block|;
+name|QAccessible
+operator|::
 name|Relation
 name|relationTo
 argument_list|(
@@ -1074,7 +1086,7 @@ block|;
 name|void
 name|setText
 argument_list|(
-argument|Text t
+argument|QAccessible::Text t
 argument_list|,
 argument|const QString&text
 argument_list|)
@@ -1082,10 +1094,12 @@ block|;
 name|QString
 name|text
 argument_list|(
-argument|Text t
+argument|QAccessible::Text t
 argument_list|)
 specifier|const
 block|;
+name|QAccessible
+operator|::
 name|Role
 name|role
 argument_list|()
@@ -1096,6 +1110,8 @@ name|rect
 argument_list|()
 specifier|const
 block|;
+name|QAccessible
+operator|::
 name|State
 name|state
 argument_list|()

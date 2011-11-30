@@ -146,6 +146,8 @@ name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|,
+name|QAccessible
+operator|::
 name|SpinBox
 argument_list|)
 block|{
@@ -190,6 +192,8 @@ name|QAccessibleAbstractSpinBox
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -550,6 +554,8 @@ name|QAccessibleDoubleSpinBox
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|textType
 parameter_list|)
@@ -559,6 +565,8 @@ if|if
 condition|(
 name|textType
 operator|==
+name|QAccessible
+operator|::
 name|Value
 condition|)
 return|return
@@ -617,6 +625,8 @@ name|QAccessibleAbstractSlider
 argument_list|(
 name|w
 argument_list|,
+name|QAccessible
+operator|::
 name|ScrollBar
 argument_list|)
 block|{
@@ -669,6 +679,8 @@ name|QAccessibleScrollBar
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -678,6 +690,8 @@ if|if
 condition|(
 name|t
 operator|==
+name|QAccessible
+operator|::
 name|Value
 condition|)
 return|return
@@ -785,6 +799,8 @@ name|QAccessibleSlider
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -794,6 +810,8 @@ if|if
 condition|(
 name|t
 operator|==
+name|QAccessible
+operator|::
 name|Value
 condition|)
 return|return
@@ -828,6 +846,8 @@ name|QWidget
 modifier|*
 name|w
 parameter_list|,
+name|QAccessible
+operator|::
 name|Role
 name|r
 parameter_list|)
@@ -1025,6 +1045,8 @@ name|QAccessibleAbstractSlider
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|Dial
 argument_list|)
 block|{
@@ -1057,6 +1079,8 @@ name|QAccessibleDial
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|textType
 parameter_list|)
@@ -1066,6 +1090,8 @@ if|if
 condition|(
 name|textType
 operator|==
+name|QAccessible
+operator|::
 name|Value
 condition|)
 return|return

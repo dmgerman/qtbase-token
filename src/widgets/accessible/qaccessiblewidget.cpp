@@ -592,6 +592,8 @@ name|QWidget
 modifier|*
 name|w
 parameter_list|,
+name|QAccessible
+operator|::
 name|Role
 name|role
 parameter_list|,
@@ -1277,9 +1279,13 @@ name|other
 parameter_list|)
 specifier|const
 block|{
+name|QAccessible
+operator|::
 name|Relation
 name|relation
 init|=
+name|QAccessible
+operator|::
 name|Unrelated
 decl_stmt|;
 if|if
@@ -1341,6 +1347,8 @@ argument_list|)
 condition|)
 name|relation
 operator||=
+name|QAccessible
+operator|::
 name|FocusChild
 expr_stmt|;
 name|QACConnectionObject
@@ -1398,6 +1406,8 @@ condition|)
 block|{
 name|relation
 operator||=
+name|QAccessible
+operator|::
 name|Controller
 expr_stmt|;
 break|break;
@@ -1431,20 +1441,28 @@ if|if
 condition|(
 name|inverse
 operator|&
+name|QAccessible
+operator|::
 name|Controller
 condition|)
 name|relation
 operator||=
+name|QAccessible
+operator|::
 name|Controlled
 expr_stmt|;
 if|if
 condition|(
 name|inverse
 operator|&
+name|QAccessible
+operator|::
 name|Label
 condition|)
 name|relation
 operator||=
+name|QAccessible
+operator|::
 name|Labelled
 expr_stmt|;
 if|if
@@ -1458,6 +1476,8 @@ block|{
 return|return
 name|relation
 operator||
+name|QAccessible
+operator|::
 name|Self
 return|;
 block|}
@@ -1480,6 +1500,8 @@ condition|)
 return|return
 name|relation
 operator||
+name|QAccessible
+operator|::
 name|Child
 return|;
 if|if
@@ -1494,6 +1516,8 @@ condition|)
 block|{
 name|relation
 operator||=
+name|QAccessible
+operator|::
 name|Sibling
 expr_stmt|;
 name|QAccessibleInterface
@@ -1565,6 +1589,8 @@ name|state
 argument_list|()
 operator|)
 operator|&
+name|QAccessible
+operator|::
 name|Invisible
 operator|)
 condition|)
@@ -1726,6 +1752,8 @@ condition|)
 return|return
 name|relation
 operator||
+name|QAccessible
+operator|::
 name|Descendent
 return|;
 if|if
@@ -1741,6 +1769,8 @@ condition|)
 return|return
 name|relation
 operator||
+name|QAccessible
+operator|::
 name|Ancestor
 return|;
 return|return
@@ -1850,6 +1880,8 @@ name|QAccessibleWidget
 operator|::
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|relation
 parameter_list|,
@@ -1890,6 +1922,8 @@ condition|)
 block|{
 comment|// Hierarchical
 case|case
+name|QAccessible
+operator|::
 name|Self
 case|:
 name|targetObject
@@ -1899,6 +1933,8 @@ argument_list|()
 expr_stmt|;
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Child
 case|:
 name|qWarning
@@ -1935,6 +1971,8 @@ operator|-
 literal|1
 return|;
 case|case
+name|QAccessible
+operator|::
 name|Ancestor
 case|:
 name|qWarning
@@ -1967,6 +2005,8 @@ operator|-
 literal|1
 return|;
 case|case
+name|QAccessible
+operator|::
 name|Sibling
 case|:
 block|{
@@ -2133,6 +2173,8 @@ argument_list|(
 name|sibling
 argument_list|)
 operator|&
+name|QAccessible
+operator|::
 name|Self
 operator|)
 operator|||
@@ -2568,6 +2610,8 @@ return|;
 block|}
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Covers
 case|:
 if|if
@@ -2664,6 +2708,8 @@ operator|->
 name|state
 argument_list|()
 operator|&
+name|QAccessible
+operator|::
 name|Invisible
 operator|)
 condition|)
@@ -2725,6 +2771,8 @@ return|;
 block|}
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Covered
 case|:
 if|if
@@ -2821,6 +2869,8 @@ operator|->
 name|state
 argument_list|()
 operator|&
+name|QAccessible
+operator|::
 name|Invisible
 operator|)
 condition|)
@@ -2883,6 +2933,8 @@ block|}
 break|break;
 comment|// Logical
 case|case
+name|QAccessible
+operator|::
 name|FocusChild
 case|:
 block|{
@@ -2944,6 +2996,8 @@ comment|/* ###             QWidget *parent = fw;             while (parent&& !ta
 block|}
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Label
 case|:
 if|if
@@ -3031,6 +3085,8 @@ argument_list|(
 name|this
 argument_list|)
 operator|&
+name|QAccessible
+operator|::
 name|Label
 condition|)
 operator|--
@@ -3065,6 +3121,8 @@ argument_list|(
 name|this
 argument_list|)
 operator|&
+name|QAccessible
+operator|::
 name|Label
 condition|)
 operator|--
@@ -3105,11 +3163,15 @@ return|;
 block|}
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Labelled
 case|:
 comment|// only implemented in subclasses
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Controller
 case|:
 if|if
@@ -3198,6 +3260,8 @@ argument_list|(
 name|this
 argument_list|)
 operator|&
+name|QAccessible
+operator|::
 name|Controller
 condition|)
 name|senders
@@ -3231,6 +3295,8 @@ expr_stmt|;
 block|}
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Controlled
 case|:
 if|if
@@ -3463,6 +3529,8 @@ name|QAccessibleWidget
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -3477,6 +3545,8 @@ name|t
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Name
 case|:
 if|if
@@ -3584,6 +3654,8 @@ expr_stmt|;
 block|}
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Description
 case|:
 if|if
@@ -3639,6 +3711,8 @@ endif|#
 directive|endif
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Help
 case|:
 if|if
@@ -3673,6 +3747,8 @@ endif|#
 directive|endif
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Accelerator
 case|:
 if|if
@@ -3705,6 +3781,8 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Value
 case|:
 name|str
@@ -3880,6 +3958,8 @@ operator|::
 name|State
 name|state
 init|=
+name|QAccessible
+operator|::
 name|Normal
 decl_stmt|;
 name|QWidget
@@ -3904,6 +3984,8 @@ literal|false
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Invisible
 expr_stmt|;
 if|if
@@ -3924,6 +4006,8 @@ argument_list|()
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Focusable
 expr_stmt|;
 if|if
@@ -3935,6 +4019,8 @@ argument_list|()
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Focused
 expr_stmt|;
 if|if
@@ -3947,6 +4033,8 @@ argument_list|()
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Unavailable
 expr_stmt|;
 if|if
@@ -3970,6 +4058,8 @@ name|WindowSystemMenuHint
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Movable
 expr_stmt|;
 if|if
@@ -3986,6 +4076,8 @@ argument_list|()
 condition|)
 name|state
 operator||=
+name|QAccessible
+operator|::
 name|Sizeable
 expr_stmt|;
 block|}

@@ -179,7 +179,7 @@ unit|QRect re;                     int logicalRow = row.row();                  
 comment|// for one-column views (i.e. QListView)
 end_comment
 begin_ifndef
-unit|if (children().count()>= 1)                 child = 1;             else                 return QString();         }         if (verticalHeader()) {             if (child == 1) {                 int logical = row.row();                 value = view->model()->headerData(logical, Qt::Vertical, Qt::AccessibleTextRole).toString();                 if (value.isEmpty())                     value = view->model()->headerData(logical, Qt::Vertical).toString();                 return value;             } else {                 --child;             }         }     }     if (value.isEmpty()) {         QModelIndex idx = childIndex(child);         if (idx.isValid()) {             value = idx.model()->data(idx, Qt::AccessibleTextRole).toString();             if (value.isEmpty())                 value = idx.model()->data(idx, Qt::DisplayRole).toString();         }     }     return value; }  QString QAccessibleItemRow::text(Text t, int child) const {     QString value;     if (t == Name) {         value = text_helper(child);     } else if (t == Value) {
+unit|if (children().count()>= 1)                 child = 1;             else                 return QString();         }         if (verticalHeader()) {             if (child == 1) {                 int logical = row.row();                 value = view->model()->headerData(logical, Qt::Vertical, Qt::AccessibleTextRole).toString();                 if (value.isEmpty())                     value = view->model()->headerData(logical, Qt::Vertical).toString();                 return value;             } else {                 --child;             }         }     }     if (value.isEmpty()) {         QModelIndex idx = childIndex(child);         if (idx.isValid()) {             value = idx.model()->data(idx, Qt::AccessibleTextRole).toString();             if (value.isEmpty())                 value = idx.model()->data(idx, Qt::DisplayRole).toString();         }     }     return value; }  QString QAccessibleItemRow::text(QAccessible::Text t, int child) const {     QString value;     if (t == Name) {         value = text_helper(child);     } else if (t == Value) {
 ifndef|#
 directive|ifndef
 name|QT_NO_TREEVIEW
@@ -243,7 +243,7 @@ begin_comment
 comment|// QT_NO_TREEVIEW
 end_comment
 begin_comment
-unit|{             if (!m_header) {                 if (child == 0&& children().count()>= 1)                     child = 1;                 if (verticalHeader()) {                     if (child == 1) {                         value = view->model()->headerData(row.row(), Qt::Vertical).toString();                     }                     --child;                 }                 if (child) {                     QModelIndex idx = childIndex(child);                     value = idx.model()->data(idx, Qt::AccessibleDescriptionRole).toString();                 }              }         }     }     return value; }  void QAccessibleItemRow::setText(Text t, int child, const QString&text) {     if (m_header) {         if (child)             view->model()->setHeaderData(child - 1, Qt::Horizontal, text);
+unit|{             if (!m_header) {                 if (child == 0&& children().count()>= 1)                     child = 1;                 if (verticalHeader()) {                     if (child == 1) {                         value = view->model()->headerData(row.row(), Qt::Vertical).toString();                     }                     --child;                 }                 if (child) {                     QModelIndex idx = childIndex(child);                     value = idx.model()->data(idx, Qt::AccessibleDescriptionRole).toString();                 }              }         }     }     return value; }  void QAccessibleItemRow::setText(QAccessible::Text t, int child, const QString&text) {     if (m_header) {         if (child)             view->model()->setHeaderData(child - 1, Qt::Horizontal, text);
 comment|// child == 0 means the cell to the left of the horizontal header, which is empty!?
 end_comment
 begin_ifndef
@@ -543,7 +543,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-unit|}     return entry; }  int QAccessibleItemView::childCount() const {     if (atViewport()) {         if (itemView()->model() == 0)             return 0;         QAbstractItemModel *m = itemView()->model();         QModelIndex idx = m->index(0,0);         if (!idx.isValid())             return 0;         ModelIndexIterator it(itemView());         int count = 1;         while (it.next()) {             ++count;         }         if (horizontalHeader())             ++count;          return count;     } else {         return QAccessibleAbstractScrollArea::childCount();     } }  QString QAccessibleItemView::text(Text t, int child) const {     if (atViewport()) {         if (!child)             return QAccessibleAbstractScrollArea::text(t, child);          QAccessibleItemRow item(itemView(), childIndex(child));         if (item.isValid()) {             return item.text(t, 1);         } else {             return QString();         }     } else {         return QAccessibleAbstractScrollArea::text(t, child);     } }  void QAccessibleItemView::setText(Text t, int child, const QString&text) {     if (atViewport()) {         if (!child) {             QAccessibleAbstractScrollArea::setText(t, child, text);             return;         }          QAccessibleItemRow item(itemView(), childIndex(child));         item.setText(t, 1, text);     } else {         QAccessibleAbstractScrollArea::setText(t, child, text);     } }  QRect QAccessibleItemView::rect(int childIndex) const {     if (atViewport()) {         QRect r;         if (!childIndex) {
+unit|}     return entry; }  int QAccessibleItemView::childCount() const {     if (atViewport()) {         if (itemView()->model() == 0)             return 0;         QAbstractItemModel *m = itemView()->model();         QModelIndex idx = m->index(0,0);         if (!idx.isValid())             return 0;         ModelIndexIterator it(itemView());         int count = 1;         while (it.next()) {             ++count;         }         if (horizontalHeader())             ++count;          return count;     } else {         return QAccessibleAbstractScrollArea::childCount();     } }  QString QAccessibleItemView::text(QAccessible::Text t, int child) const {     if (atViewport()) {         if (!child)             return QAccessibleAbstractScrollArea::text(t, child);          QAccessibleItemRow item(itemView(), childIndex(child));         if (item.isValid()) {             return item.text(t, 1);         } else {             return QString();         }     } else {         return QAccessibleAbstractScrollArea::text(t, child);     } }  void QAccessibleItemView::setText(QAccessible::Text t, int child, const QString&text) {     if (atViewport()) {         if (!child) {             QAccessibleAbstractScrollArea::setText(t, child, text);             return;         }          QAccessibleItemRow item(itemView(), childIndex(child));         item.setText(t, 1, text);     } else {         QAccessibleAbstractScrollArea::setText(t, child, text);     } }  QRect QAccessibleItemView::rect(int childIndex) const {     if (atViewport()) {         QRect r;         if (!childIndex) {
 comment|// Make sure that the rect *include* the vertical and horizontal headers, while
 end_comment
 begin_comment
@@ -674,7 +674,7 @@ unit|QAccessibleHeader::QAccessibleHeader(QWidget *w) : QAccessibleWidget(w) {  
 comment|/*! Returns the QHeaderView. */
 end_comment
 begin_endif
-unit|QHeaderView *QAccessibleHeader::header() const {     return qobject_cast<QHeaderView*>(object()); }  QRect QAccessibleHeader::rect(int child) const {     if (!child)         return QAccessibleWidget::rect(0);      QHeaderView *h = header();     QPoint zero = h->mapToGlobal(QPoint(0, 0));     int sectionSize = h->sectionSize(child - 1);     int sectionPos = h->sectionPosition(child - 1);     return h->orientation() == Qt::Horizontal         ? QRect(zero.x() + sectionPos, zero.y(), sectionSize, h->height())         : QRect(zero.x(), zero.y() + sectionPos, h->width(), sectionSize); }  int QAccessibleHeader::childCount() const {     return header()->count(); }  QString QAccessibleHeader::text(Text t, int child) const {     QString str;      if (child> 0&& child<= childCount()) {         switch (t) {         case Name:             str = header()->model()->headerData(child - 1, header()->orientation()).toString();             break;         case Description: {             QAccessibleEvent event(QEvent::AccessibilityDescription, child);             if (QApplication::sendEvent(widget(),&event))                 str = event.value();             break; }         case Help: {             QAccessibleEvent event(QEvent::AccessibilityHelp, child);             if (QApplication::sendEvent(widget(),&event))                 str = event.value();             break; }         default:             break;         }     }     if (str.isEmpty())         str = QAccessibleWidget::text(t, child);     return str; }  QAccessible::Role QAccessibleHeader::role(int) const {     return (header()->orientation() == Qt::Horizontal) ? ColumnHeader : RowHeader; }  QAccessible::State QAccessibleHeader::state(int child) const {     State state = QAccessibleWidget::state(child);      if (child) {         int section = child - 1;         if (header()->isSectionHidden(section))             state |= Invisible;         if (header()->resizeMode(section) != QHeaderView::Custom)             state |= Sizeable;     } else {         if (header()->isMovable())             state |= Movable;     }     if (!header()->isClickable())         state |= Unavailable;     return state; }
+unit|QHeaderView *QAccessibleHeader::header() const {     return qobject_cast<QHeaderView*>(object()); }  QRect QAccessibleHeader::rect(int child) const {     if (!child)         return QAccessibleWidget::rect(0);      QHeaderView *h = header();     QPoint zero = h->mapToGlobal(QPoint(0, 0));     int sectionSize = h->sectionSize(child - 1);     int sectionPos = h->sectionPosition(child - 1);     return h->orientation() == Qt::Horizontal         ? QRect(zero.x() + sectionPos, zero.y(), sectionSize, h->height())         : QRect(zero.x(), zero.y() + sectionPos, h->width(), sectionSize); }  int QAccessibleHeader::childCount() const {     return header()->count(); }  QString QAccessibleHeader::text(QAccessible::Text t, int child) const {     QString str;      if (child> 0&& child<= childCount()) {         switch (t) {         case Name:             str = header()->model()->headerData(child - 1, header()->orientation()).toString();             break;         case Description: {             QAccessibleEvent event(QEvent::AccessibilityDescription, child);             if (QApplication::sendEvent(widget(),&event))                 str = event.value();             break; }         case Help: {             QAccessibleEvent event(QEvent::AccessibilityHelp, child);             if (QApplication::sendEvent(widget(),&event))                 str = event.value();             break; }         default:             break;         }     }     if (str.isEmpty())         str = QAccessibleWidget::text(t, child);     return str; }  QAccessible::Role QAccessibleHeader::role(int) const {     return (header()->orientation() == Qt::Horizontal) ? ColumnHeader : RowHeader; }  QAccessible::State QAccessibleHeader::state(int child) const {     State state = QAccessibleWidget::state(child);      if (child) {         int section = child - 1;         if (header()->isSectionHidden(section))             state |= Invisible;         if (header()->resizeMode(section) != QHeaderView::Custom)             state |= Sizeable;     } else {         if (header()->isMovable())             state |= Movable;     }     if (!header()->isClickable())         state |= Unavailable;     return state; }
 endif|#
 directive|endif
 end_endif
@@ -776,6 +776,8 @@ literal|0
 return|;
 block|}
 DECL|function|role
+name|QAccessible
+operator|::
 name|Role
 name|role
 parameter_list|()
@@ -788,6 +790,8 @@ name|PageTab
 return|;
 block|}
 DECL|function|state
+name|QAccessible
+operator|::
 name|State
 name|state
 parameter_list|()
@@ -800,6 +804,8 @@ init|=
 name|parent
 argument_list|()
 decl_stmt|;
+name|QAccessible
+operator|::
 name|State
 name|state
 init|=
@@ -949,6 +955,8 @@ DECL|function|text
 name|QString
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 parameter_list|)
 specifier|const
@@ -969,6 +977,8 @@ DECL|function|setText
 name|void
 name|setText
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 parameter_list|,
 specifier|const
@@ -1009,6 +1019,8 @@ DECL|function|navigate
 name|int
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|relation
 parameter_list|,
@@ -1051,6 +1063,8 @@ literal|1
 return|;
 block|}
 DECL|function|relationTo
+name|QAccessible
+operator|::
 name|Relation
 name|relationTo
 parameter_list|(
@@ -1154,6 +1168,8 @@ name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|,
+name|QAccessible
+operator|::
 name|PageTabList
 argument_list|)
 block|{
@@ -1198,6 +1214,8 @@ name|QAccessibleTabBar
 operator|::
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|rel
 parameter_list|,
@@ -1484,6 +1502,8 @@ name|QAccessibleTabBar
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -1673,6 +1693,8 @@ name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|,
+name|QAccessible
+operator|::
 name|ComboBox
 argument_list|)
 block|{
@@ -1920,6 +1942,8 @@ name|QAccessibleComboBox
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -1934,6 +1958,8 @@ name|t
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Name
 case|:
 ifndef|#
@@ -1953,6 +1979,8 @@ break|break;
 endif|#
 directive|endif
 case|case
+name|QAccessible
+operator|::
 name|Value
 case|:
 if|if
@@ -1988,6 +2016,8 @@ ifndef|#
 directive|ifndef
 name|QT_NO_SHORTCUT
 case|case
+name|QAccessible
+operator|::
 name|Accelerator
 case|:
 name|str
@@ -2254,6 +2284,8 @@ name|QAccessibleWidget
 argument_list|(
 name|widget
 argument_list|,
+name|QAccessible
+operator|::
 name|Client
 argument_list|)
 block|{
@@ -2443,6 +2475,8 @@ name|QAccessibleAbstractScrollArea
 operator|::
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|relation
 parameter_list|,
@@ -2486,22 +2520,32 @@ if|if
 condition|(
 name|relation
 operator|==
+name|QAccessible
+operator|::
 name|Child
 operator|||
 name|relation
 operator|==
+name|QAccessible
+operator|::
 name|Left
 operator|||
 name|relation
 operator|==
+name|QAccessible
+operator|::
 name|Up
 operator|||
 name|relation
 operator|==
+name|QAccessible
+operator|::
 name|Right
 operator|||
 name|relation
 operator|==
+name|QAccessible
+operator|::
 name|Down
 condition|)
 block|{
@@ -2569,6 +2613,8 @@ name|relation
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Child
 case|:
 if|if
@@ -2599,6 +2645,8 @@ literal|1
 return|;
 block|}
 case|case
+name|QAccessible
+operator|::
 name|Left
 case|:
 if|if
@@ -2688,6 +2736,8 @@ break|break;
 block|}
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Right
 case|:
 if|if
@@ -2772,6 +2822,8 @@ break|break;
 block|}
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Up
 case|:
 if|if
@@ -2815,6 +2867,8 @@ break|break;
 block|}
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Down
 case|:
 if|if
