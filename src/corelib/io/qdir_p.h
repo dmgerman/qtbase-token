@@ -108,7 +108,6 @@ argument|QChar sep =
 literal|0
 argument_list|)
 block|;
-specifier|inline
 name|void
 name|setPath
 argument_list|(
@@ -118,12 +117,10 @@ operator|&
 name|path
 argument_list|)
 block|;
-specifier|inline
 name|void
 name|clearFileLists
 argument_list|()
 block|;
-specifier|inline
 name|void
 name|resolveAbsoluteEntry
 argument_list|()
