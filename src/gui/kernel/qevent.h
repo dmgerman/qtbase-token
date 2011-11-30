@@ -3559,17 +3559,6 @@ name|QTouchEvent
 argument_list|()
 block|;
 specifier|inline
-name|QWidget
-operator|*
-name|widget
-argument_list|()
-specifier|const
-block|{
-return|return
-name|_widget
-return|;
-block|}
-specifier|inline
 name|QWindow
 operator|*
 name|window
@@ -3578,6 +3567,17 @@ specifier|const
 block|{
 return|return
 name|_window
+return|;
+block|}
+specifier|inline
+name|QObject
+operator|*
+name|target
+argument_list|()
+specifier|const
+block|{
+return|return
+name|_target
 return|;
 block|}
 name|QT_DEPRECATED
@@ -3648,17 +3648,6 @@ block|}
 comment|// internal
 specifier|inline
 name|void
-name|setWidget
-argument_list|(
-argument|QWidget *awidget
-argument_list|)
-block|{
-name|_widget
-operator|=
-name|awidget
-block|; }
-specifier|inline
-name|void
 name|setWindow
 argument_list|(
 argument|QWindow *awindow
@@ -3667,6 +3656,17 @@ block|{
 name|_window
 operator|=
 name|awindow
+block|; }
+specifier|inline
+name|void
+name|setTarget
+argument_list|(
+argument|QObject *atarget
+argument_list|)
+block|{
+name|_target
+operator|=
+name|atarget
 block|; }
 specifier|inline
 name|void
@@ -3703,13 +3703,13 @@ name|device
 block|; }
 name|protected
 operator|:
-name|QWidget
-operator|*
-name|_widget
-block|;
 name|QWindow
 operator|*
 name|_window
+block|;
+name|QObject
+operator|*
+name|_target
 block|;
 name|QTouchDevice
 operator|*

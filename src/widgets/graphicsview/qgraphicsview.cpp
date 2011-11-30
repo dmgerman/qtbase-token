@@ -10679,7 +10679,7 @@ argument_list|)
 decl_stmt|;
 name|touchEvent
 operator|->
-name|setWidget
+name|setTarget
 argument_list|(
 name|viewport
 argument_list|()

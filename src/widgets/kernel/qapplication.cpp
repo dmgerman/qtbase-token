@@ -15416,7 +15416,7 @@ argument_list|)
 decl_stmt|;
 name|touchEvent
 operator|->
-name|setWidget
+name|setTarget
 argument_list|(
 name|widget
 argument_list|)
@@ -15595,7 +15595,7 @@ argument_list|()
 expr_stmt|;
 name|touchEvent
 operator|->
-name|setWidget
+name|setTarget
 argument_list|(
 name|widget
 argument_list|)
@@ -19355,6 +19355,13 @@ name|window
 operator|->
 name|windowHandle
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|touchEvent
+operator|.
+name|setTarget
+argument_list|(
+name|window
 argument_list|)
 expr_stmt|;
 switch|switch

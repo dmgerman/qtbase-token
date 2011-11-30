@@ -5245,7 +5245,12 @@ argument_list|,
 name|modifiers
 argument_list|)
 member_init_list|,
-name|_widget
+name|_window
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
+name|_target
 argument_list|(
 literal|0
 argument_list|)
@@ -5279,10 +5284,10 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*! \fn QWidget *QTouchEvent::widget() const      Returns the widget on which the event occurred. */
+comment|/*! \fn QWindow *QTouchEvent::window() const      Returns the window on which the event occurred. Useful for doing     global-local mapping on data like rawScreenPositions() which,     for performance reasons, only stores the global positions in the     touch event. */
 end_comment
 begin_comment
-comment|/*! \fn QWindow *QTouchEvent::window() const      Returns the window on which the event occurred. Useful for doing     global-local mapping on data like rawScreenPositions() which,     for performance reasons, only stores the global positions in the     touch event. */
+comment|/*! \fn QObject *QTouchEvent::target() const      Returns the target object within the window on which the event occurred.     This is typically a QWidget or a QQuickItem. May be 0 when no specific target is available. */
 end_comment
 begin_comment
 comment|/*! \fn QTouchEvent::DeviceType QTouchEvent::deviceType() const      Returns the touch device Type, which is of type \l {QTouchEvent::DeviceType} {DeviceType}.      This function has been deprecated. Use QTouchDevice::type() instead.      \sa QTouchDevice::type(), QTouchEvent::device() */
@@ -5300,10 +5305,10 @@ begin_comment
 comment|/*! \fn QTouchDevice* QTouchEvent::device() const      Returns the touch device from which this touch event originates. */
 end_comment
 begin_comment
-comment|/*! \fn void QTouchEvent::setWidget(QWidget *widget)      \internal      Sets the widget for this event. */
+comment|/*! \fn void QTouchEvent::setWindow(QWindow *window)      \internal      Sets the window for this event. */
 end_comment
 begin_comment
-comment|/*! \fn void QTouchEvent::setWindow(QWindow *window)      \internal      Sets the window for this event. */
+comment|/*! \fn void QTouchEvent::setTarget(QObject *target)      \internal      Sets the target within the window (typically a widget) for this event. */
 end_comment
 begin_comment
 comment|/*! \fn void QTouchEvent::setTouchPointStates(Qt::TouchPointStates touchPointStates)      \internal      Sets a bitwise OR of all the touch point states for this event. */
