@@ -925,7 +925,7 @@ begin_typedef
 typedef|typedef
 name|QMap
 operator|<
-name|Key
+name|QFontDef
 operator|,
 name|QFontEngineData
 operator|*
@@ -944,9 +944,9 @@ modifier|*
 name|findEngineData
 argument_list|(
 specifier|const
-name|Key
+name|QFontDef
 operator|&
-name|key
+name|def
 argument_list|)
 decl|const
 decl_stmt|;
@@ -956,9 +956,9 @@ name|void
 name|insertEngineData
 parameter_list|(
 specifier|const
-name|Key
+name|QFontDef
 modifier|&
-name|key
+name|def
 parameter_list|,
 name|QFontEngineData
 modifier|*

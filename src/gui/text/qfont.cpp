@@ -8018,9 +8018,9 @@ operator|::
 name|findEngineData
 parameter_list|(
 specifier|const
-name|Key
+name|QFontDef
 modifier|&
-name|key
+name|def
 parameter_list|)
 specifier|const
 block|{
@@ -8033,7 +8033,7 @@ name|engineDataCache
 operator|.
 name|find
 argument_list|(
-name|key
+name|def
 argument_list|)
 decl_stmt|,
 name|end
@@ -8069,9 +8069,9 @@ operator|::
 name|insertEngineData
 parameter_list|(
 specifier|const
-name|Key
+name|QFontDef
 modifier|&
-name|key
+name|def
 parameter_list|,
 name|QFontEngineData
 modifier|*
@@ -8089,7 +8089,7 @@ name|engineDataCache
 operator|.
 name|insert
 argument_list|(
-name|key
+name|def
 argument_list|,
 name|engineData
 argument_list|)

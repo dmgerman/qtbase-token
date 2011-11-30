@@ -3967,11 +3967,9 @@ modifier|*
 name|d
 parameter_list|,
 specifier|const
-name|QFontCache
-operator|::
-name|Key
+name|QFontDef
 modifier|&
-name|key
+name|def
 parameter_list|)
 block|{
 comment|// look for the requested font in the engine data cache
@@ -3986,7 +3984,7 @@ argument_list|()
 operator|->
 name|findEngineData
 argument_list|(
-name|key
+name|def
 argument_list|)
 expr_stmt|;
 if|if
@@ -4012,7 +4010,7 @@ argument_list|()
 operator|->
 name|insertEngineData
 argument_list|(
-name|key
+name|def
 argument_list|,
 name|d
 operator|->
