@@ -114,7 +114,6 @@ range|:
 name|public
 name|QAccessibleObject
 block|{
-name|Q_ACCESSIBLE_OBJECT
 name|public
 operator|:
 name|QAccessibleApplication

@@ -132,17 +132,16 @@ decl_stmt|,
 name|public
 name|QAccessibleEditableTextInterface
 block|{
-name|Q_ACCESSIBLE_OBJECT
 name|public
-range|:
+label|:
 name|explicit
 name|QAccessibleTextEdit
-argument_list|(
+parameter_list|(
 name|QWidget
-operator|*
+modifier|*
 name|o
-argument_list|)
-decl_stmt|;
+parameter_list|)
+function_decl|;
 name|QString
 name|text
 argument_list|(
@@ -175,6 +174,16 @@ specifier|const
 name|QVariantList
 operator|&
 name|params
+argument_list|)
+decl_stmt|;
+name|void
+modifier|*
+name|interface_cast
+argument_list|(
+name|QAccessible
+operator|::
+name|InterfaceType
+name|t
 argument_list|)
 decl_stmt|;
 comment|// QAccessibleTextInterface
@@ -475,7 +484,6 @@ range|:
 name|public
 name|QAccessibleWidget
 block|{
-name|Q_ACCESSIBLE_OBJECT
 name|public
 operator|:
 name|explicit
@@ -553,7 +561,6 @@ range|:
 name|public
 name|QAccessibleWidget
 block|{
-name|Q_ACCESSIBLE_OBJECT
 name|public
 operator|:
 name|explicit

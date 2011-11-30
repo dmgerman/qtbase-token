@@ -86,17 +86,16 @@ name|public
 name|QAccessibleValueInterface
 comment|// TODO, public QAccessibleActionInterface
 block|{
-name|Q_ACCESSIBLE_OBJECT
 name|public
-range|:
+label|:
 name|explicit
 name|QAccessibleAbstractSpinBox
-argument_list|(
+parameter_list|(
 name|QWidget
-operator|*
+modifier|*
 name|w
-argument_list|)
-decl_stmt|;
+parameter_list|)
+function_decl|;
 name|QString
 name|text
 argument_list|(
@@ -104,6 +103,16 @@ name|Text
 name|t
 argument_list|)
 decl|const
+decl_stmt|;
+name|void
+modifier|*
+name|interface_cast
+argument_list|(
+name|QAccessible
+operator|::
+name|InterfaceType
+name|t
+argument_list|)
 decl_stmt|;
 comment|// QAccessibleValueInterface
 name|QVariant
@@ -220,15 +229,29 @@ decl_stmt|,
 name|public
 name|QAccessibleValueInterface
 block|{
-name|Q_ACCESSIBLE_OBJECT
 name|public
-range|:
+label|:
 name|explicit
 name|QAccessibleAbstractSlider
+parameter_list|(
+name|QWidget
+modifier|*
+name|w
+parameter_list|,
+name|Role
+name|r
+init|=
+name|Slider
+parameter_list|)
+function_decl|;
+name|void
+modifier|*
+name|interface_cast
 argument_list|(
-argument|QWidget *w
-argument_list|,
-argument|Role r = Slider
+name|QAccessible
+operator|::
+name|InterfaceType
+name|t
 argument_list|)
 decl_stmt|;
 comment|// QAccessibleValueInterface

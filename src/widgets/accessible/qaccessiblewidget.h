@@ -44,19 +44,29 @@ decl_stmt|,
 name|public
 name|QAccessibleActionInterface
 block|{
-name|Q_ACCESSIBLE_OBJECT
 name|public
-range|:
+label|:
 name|explicit
 name|QAccessibleWidget
-argument_list|(
-argument|QWidget *o
-argument_list|,
-argument|Role r = Client
-argument_list|,
-argument|const QString& name = QString()
-argument_list|)
-decl_stmt|;
+parameter_list|(
+name|QWidget
+modifier|*
+name|o
+parameter_list|,
+name|Role
+name|r
+init|=
+name|Client
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|name
+init|=
+name|QString
+argument_list|()
+parameter_list|)
+function_decl|;
 name|QWindow
 operator|*
 name|window
@@ -163,6 +173,16 @@ name|backgroundColor
 argument_list|()
 specifier|const
 expr_stmt|;
+name|void
+modifier|*
+name|interface_cast
+argument_list|(
+name|QAccessible
+operator|::
+name|InterfaceType
+name|t
+argument_list|)
+decl_stmt|;
 comment|// QAccessibleActionInterface
 name|QStringList
 name|actionNames
