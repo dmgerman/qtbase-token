@@ -896,14 +896,6 @@ block|{
 name|ListSupportedMethods
 operator|=
 literal|0
-block|,
-name|SetCursorPosition
-operator|=
-literal|1
-block|,
-name|GetCursorPosition
-operator|=
-literal|2
 block|}
 block|;      enum
 name|InterfaceType
