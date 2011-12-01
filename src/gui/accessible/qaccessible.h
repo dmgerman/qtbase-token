@@ -880,14 +880,6 @@ block|,
 name|GetCursorPosition
 operator|=
 literal|2
-block|,
-name|ForegroundColor
-operator|=
-literal|3
-block|,
-name|BackgroundColor
-operator|=
-literal|4
 block|}
 expr_stmt|;
 end_expr_stmt
