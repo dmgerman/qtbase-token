@@ -1330,7 +1330,7 @@ block|{
 name|iface
 operator|=
 operator|new
-name|QAccessibleTable2
+name|QAccessibleTable
 argument_list|(
 name|widget
 argument_list|)
@@ -1403,7 +1403,7 @@ block|{
 name|iface
 operator|=
 operator|new
-name|QAccessibleTable2
+name|QAccessibleTable
 argument_list|(
 name|widget
 operator|->

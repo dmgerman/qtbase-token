@@ -638,10 +638,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|friend
-name|class
-name|QAccessibleItemView
-block|;
 name|int
 name|visualIndex
 argument_list|(

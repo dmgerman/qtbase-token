@@ -1408,10 +1408,6 @@ block|;
 comment|// needed to compile with MSVC
 name|friend
 name|class
-name|QAccessibleItemRow
-block|;
-name|friend
-name|class
 name|QListModeViewBase
 block|;
 name|friend

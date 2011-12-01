@@ -46,24 +46,24 @@ name|QT_NO_ACCESSIBILITY
 ifndef|#
 directive|ifndef
 name|QT_NO_ITEMVIEWS
-DECL|variable|QAccessibleTable2Cell
+DECL|variable|QAccessibleTableCell
 name|class
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QAccessibleTable2HeaderCell
+DECL|variable|QAccessibleTableHeaderCell
 name|class
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QAccessibleTable2Interface
+DECL|variable|QAccessibleTableInterface
 name|class
-name|QAccessibleTable2
+name|QAccessibleTable
 range|:
 name|public
-name|QAccessibleTable2Interface
+name|QAccessibleTableInterface
 decl_stmt|,
 name|public
 name|QAccessibleObject
@@ -71,7 +71,7 @@ block|{
 name|public
 label|:
 name|explicit
-name|QAccessibleTable2
+name|QAccessibleTable
 parameter_list|(
 name|QWidget
 modifier|*
@@ -80,7 +80,7 @@ parameter_list|)
 function_decl|;
 name|virtual
 operator|~
-name|QAccessibleTable2
+name|QAccessibleTable
 argument_list|()
 expr_stmt|;
 name|QObject
@@ -207,7 +207,7 @@ name|InterfaceType
 name|t
 argument_list|)
 decl_stmt|;
-comment|// table2 interface
+comment|// table interface
 name|virtual
 name|QAccessibleInterface
 modifier|*
@@ -501,7 +501,7 @@ name|TableModelChange
 name|lastChange
 expr_stmt|;
 specifier|inline
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 modifier|*
 name|cell
 argument_list|(
@@ -619,7 +619,7 @@ name|class
 name|QAccessibleTree
 range|:
 name|public
-name|QAccessibleTable2
+name|QAccessibleTable
 block|{
 name|public
 operator|:
@@ -631,7 +631,7 @@ operator|*
 name|w
 argument_list|)
 operator|:
-name|QAccessibleTable2
+name|QAccessibleTable
 argument_list|(
 argument|w
 argument_list|)
@@ -685,7 +685,7 @@ argument|const QAccessibleInterface *other
 argument_list|)
 specifier|const
 block|;
-comment|// table2 interface
+comment|// table interface
 name|QAccessibleInterface
 operator|*
 name|cellAt
@@ -733,17 +733,17 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|QAccessibleInterface
 name|class
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 range|:
 name|public
 name|QAccessibleInterface
 decl_stmt|,
 name|public
-name|QAccessibleTable2CellInterface
+name|QAccessibleTableCellInterface
 block|{
 name|public
 label|:
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 argument_list|(
 argument|QAbstractItemView *view
 argument_list|,
@@ -1005,7 +1005,7 @@ name|m_role
 expr_stmt|;
 name|friend
 name|class
-name|QAccessibleTable2
+name|QAccessibleTable
 decl_stmt|;
 name|friend
 name|class
@@ -1018,7 +1018,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 range|:
 name|public
 name|QAccessibleInterface
@@ -1026,7 +1026,7 @@ block|{
 name|public
 operator|:
 comment|// For header cells, pass the header view in addition
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 argument_list|(
 argument|QAbstractItemView *view
 argument_list|,
@@ -1166,7 +1166,7 @@ name|orientation
 block|;
 name|friend
 name|class
-name|QAccessibleTable2
+name|QAccessibleTable
 block|;
 name|friend
 name|class
@@ -1185,14 +1185,14 @@ comment|// For now it is ignored.
 end_comment
 begin_decl_stmt
 name|class
-name|QAccessibleTable2CornerButton
+name|QAccessibleTableCornerButton
 range|:
 name|public
 name|QAccessibleInterface
 block|{
 name|public
 operator|:
-name|QAccessibleTable2CornerButton
+name|QAccessibleTableCornerButton
 argument_list|(
 name|QAbstractItemView
 operator|*

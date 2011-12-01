@@ -820,10 +820,9 @@ argument_list|)
 block|;
 name|private
 operator|:
-comment|//friend class QAccessibleItemView;
 name|friend
 name|class
-name|QAccessibleTable2
+name|QAccessibleTable
 block|;
 name|friend
 name|class
@@ -831,7 +830,7 @@ name|QAccessibleTree
 block|;
 name|friend
 name|class
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 block|;
 name|int
 name|visualIndex

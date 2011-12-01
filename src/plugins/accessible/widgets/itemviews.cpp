@@ -71,7 +71,7 @@ end_comment
 begin_function
 DECL|function|logicalIndex
 name|int
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|logicalIndex
 parameter_list|(
@@ -154,7 +154,7 @@ begin_function
 DECL|function|childFromLogical
 name|QAccessibleInterface
 modifier|*
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|childFromLogical
 parameter_list|(
@@ -235,7 +235,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|QAccessibleTable2CornerButton
+name|QAccessibleTableCornerButton
 argument_list|(
 name|view
 argument_list|)
@@ -243,7 +243,7 @@ return|;
 block|}
 return|return
 operator|new
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 argument_list|(
 name|view
 argument_list|,
@@ -275,7 +275,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 argument_list|(
 name|view
 argument_list|,
@@ -293,7 +293,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 argument_list|(
 name|view
 argument_list|,
@@ -316,10 +316,10 @@ return|;
 block|}
 end_function
 begin_constructor
-DECL|function|QAccessibleTable2
-name|QAccessibleTable2
+DECL|function|QAccessibleTable
+name|QAccessibleTable
 operator|::
-name|QAccessibleTable2
+name|QAccessibleTable
 parameter_list|(
 name|QWidget
 modifier|*
@@ -422,11 +422,11 @@ block|}
 block|}
 end_constructor
 begin_destructor
-DECL|function|~QAccessibleTable2
-name|QAccessibleTable2
+DECL|function|~QAccessibleTable
+name|QAccessibleTable
 operator|::
 name|~
-name|QAccessibleTable2
+name|QAccessibleTable
 parameter_list|()
 block|{ }
 end_destructor
@@ -434,7 +434,7 @@ begin_function
 DECL|function|horizontalHeader
 name|QHeaderView
 modifier|*
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|horizontalHeader
 parameter_list|()
@@ -525,7 +525,7 @@ begin_function
 DECL|function|verticalHeader
 name|QHeaderView
 modifier|*
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|verticalHeader
 parameter_list|()
@@ -583,7 +583,7 @@ end_function
 begin_function
 DECL|function|modelReset
 name|void
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|modelReset
 parameter_list|()
@@ -592,7 +592,7 @@ end_function
 begin_function
 DECL|function|rowsInserted
 name|void
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|rowsInserted
 parameter_list|(
@@ -644,7 +644,7 @@ end_function
 begin_function
 DECL|function|rowsRemoved
 name|void
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|rowsRemoved
 parameter_list|(
@@ -696,7 +696,7 @@ end_function
 begin_function
 DECL|function|columnsInserted
 name|void
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|columnsInserted
 parameter_list|(
@@ -748,7 +748,7 @@ end_function
 begin_function
 DECL|function|columnsRemoved
 name|void
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|columnsRemoved
 parameter_list|(
@@ -800,7 +800,7 @@ end_function
 begin_function
 DECL|function|rowsMoved
 name|void
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|rowsMoved
 parameter_list|(
@@ -856,7 +856,7 @@ end_function
 begin_function
 DECL|function|columnsMoved
 name|void
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|columnsMoved
 parameter_list|(
@@ -911,9 +911,9 @@ block|}
 end_function
 begin_function
 DECL|function|cell
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 modifier|*
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|cell
 parameter_list|(
@@ -933,7 +933,7 @@ argument_list|()
 condition|)
 return|return
 operator|new
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 argument_list|(
 name|view
 argument_list|,
@@ -952,7 +952,7 @@ begin_function
 DECL|function|cellAt
 name|QAccessibleInterface
 modifier|*
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|cellAt
 parameter_list|(
@@ -1002,7 +1002,7 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"QAccessibleTable2::cellAt: invalid index: "
+literal|"QAccessibleTable::cellAt: invalid index: "
 operator|<<
 name|index
 operator|<<
@@ -1026,7 +1026,7 @@ begin_function
 DECL|function|caption
 name|QAccessibleInterface
 modifier|*
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|caption
 parameter_list|()
@@ -1040,7 +1040,7 @@ end_function
 begin_function
 DECL|function|columnDescription
 name|QString
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|columnDescription
 parameter_list|(
@@ -1072,7 +1072,7 @@ end_function
 begin_function
 DECL|function|columnCount
 name|int
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|columnCount
 parameter_list|()
@@ -1092,7 +1092,7 @@ end_function
 begin_function
 DECL|function|rowCount
 name|int
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|rowCount
 parameter_list|()
@@ -1112,7 +1112,7 @@ end_function
 begin_function
 DECL|function|selectedCellCount
 name|int
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|selectedCellCount
 parameter_list|()
@@ -1135,7 +1135,7 @@ end_function
 begin_function
 DECL|function|selectedColumnCount
 name|int
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|selectedColumnCount
 parameter_list|()
@@ -1158,7 +1158,7 @@ end_function
 begin_function
 DECL|function|selectedRowCount
 name|int
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|selectedRowCount
 parameter_list|()
@@ -1181,7 +1181,7 @@ end_function
 begin_function
 DECL|function|rowDescription
 name|QString
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|rowDescription
 parameter_list|(
@@ -1217,7 +1217,7 @@ argument_list|<
 name|QAccessibleInterface
 modifier|*
 argument_list|>
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|selectedCells
 parameter_list|()
@@ -1259,7 +1259,7 @@ name|QList
 argument_list|<
 name|int
 argument_list|>
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|selectedColumns
 parameter_list|()
@@ -1300,7 +1300,7 @@ name|QList
 argument_list|<
 name|int
 argument_list|>
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|selectedRows
 parameter_list|()
@@ -1339,7 +1339,7 @@ begin_function
 DECL|function|summary
 name|QAccessibleInterface
 modifier|*
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|summary
 parameter_list|()
@@ -1353,7 +1353,7 @@ end_function
 begin_function
 DECL|function|isColumnSelected
 name|bool
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|isColumnSelected
 parameter_list|(
@@ -1381,7 +1381,7 @@ end_function
 begin_function
 DECL|function|isRowSelected
 name|bool
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|isRowSelected
 parameter_list|(
@@ -1409,7 +1409,7 @@ end_function
 begin_function
 DECL|function|selectRow
 name|bool
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|selectRow
 parameter_list|(
@@ -1474,7 +1474,7 @@ end_function
 begin_function
 DECL|function|selectColumn
 name|bool
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|selectColumn
 parameter_list|(
@@ -1539,7 +1539,7 @@ end_function
 begin_function
 DECL|function|unselectRow
 name|bool
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|unselectRow
 parameter_list|(
@@ -1604,7 +1604,7 @@ end_function
 begin_function
 DECL|function|unselectColumn
 name|bool
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|unselectColumn
 parameter_list|(
@@ -1675,7 +1675,7 @@ DECL|function|modelChange
 name|QAccessible2
 operator|::
 name|TableModelChange
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|modelChange
 parameter_list|()
@@ -1697,7 +1697,7 @@ DECL|function|role
 name|QAccessible
 operator|::
 name|Role
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|role
 parameter_list|()
@@ -1713,7 +1713,7 @@ DECL|function|state
 name|QAccessible
 operator|::
 name|State
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|state
 parameter_list|()
@@ -1729,7 +1729,7 @@ end_function
 begin_function
 DECL|function|childAt
 name|int
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|childAt
 parameter_list|(
@@ -1813,7 +1813,7 @@ end_function
 begin_function
 DECL|function|childCount
 name|int
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|childCount
 parameter_list|()
@@ -1880,7 +1880,7 @@ end_function
 begin_function
 DECL|function|indexOfChild
 name|int
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|indexOfChild
 parameter_list|(
@@ -1926,14 +1926,14 @@ name|ListItem
 condition|)
 block|{
 specifier|const
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 modifier|*
 name|cell
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|*
 argument_list|>
 argument_list|(
@@ -1963,14 +1963,14 @@ name|ColumnHeader
 condition|)
 block|{
 specifier|const
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 modifier|*
 name|cell
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 operator|*
 argument_list|>
 argument_list|(
@@ -2008,14 +2008,14 @@ name|RowHeader
 condition|)
 block|{
 specifier|const
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 modifier|*
 name|cell
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 operator|*
 argument_list|>
 argument_list|(
@@ -2069,7 +2069,7 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"WARNING QAccessibleTable2::indexOfChild Fix my children..."
+literal|"WARNING QAccessibleTable::indexOfChild Fix my children..."
 operator|<<
 name|iface
 operator|->
@@ -2096,7 +2096,7 @@ end_function
 begin_function
 DECL|function|text
 name|QString
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|text
 parameter_list|(
@@ -2130,7 +2130,7 @@ end_function
 begin_function
 DECL|function|rect
 name|QRect
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|rect
 parameter_list|()
@@ -2193,7 +2193,7 @@ begin_function
 DECL|function|parent
 name|QAccessibleInterface
 modifier|*
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|parent
 parameter_list|()
@@ -2264,7 +2264,7 @@ begin_function
 DECL|function|child
 name|QAccessibleInterface
 modifier|*
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|child
 parameter_list|(
@@ -2287,7 +2287,7 @@ end_function
 begin_function
 DECL|function|navigate
 name|int
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|navigate
 parameter_list|(
@@ -2383,7 +2383,7 @@ DECL|function|relationTo
 name|QAccessible
 operator|::
 name|Relation
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|relationTo
 parameter_list|(
@@ -2404,7 +2404,7 @@ begin_function
 DECL|function|interface_cast
 name|void
 modifier|*
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|interface_cast
 parameter_list|(
@@ -2420,12 +2420,12 @@ name|t
 operator|==
 name|QAccessible
 operator|::
-name|Table2Interface
+name|TableInterface
 condition|)
 return|return
 cast|static_cast
 argument_list|<
-name|QAccessibleTable2Interface
+name|QAccessibleTableInterface
 operator|*
 argument_list|>
 argument_list|(
@@ -2825,14 +2825,14 @@ name|TreeItem
 condition|)
 block|{
 specifier|const
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 modifier|*
 name|cell
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|*
 argument_list|>
 argument_list|(
@@ -2942,14 +2942,14 @@ name|ColumnHeader
 condition|)
 block|{
 specifier|const
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 modifier|*
 name|cell
 init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 operator|*
 argument_list|>
 argument_list|(
@@ -2970,7 +2970,7 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"WARNING QAccessibleTable2::indexOfChild invalid child"
+literal|"WARNING QAccessibleTable::indexOfChild invalid child"
 operator|<<
 name|iface
 operator|->
@@ -3067,7 +3067,7 @@ operator|*
 name|iface
 operator|=
 operator|new
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 argument_list|(
 name|view
 argument_list|,
@@ -3161,7 +3161,7 @@ default|default:
 break|break;
 block|}
 return|return
-name|QAccessibleTable2
+name|QAccessibleTable
 operator|::
 name|navigate
 argument_list|(
@@ -3246,7 +3246,7 @@ return|;
 block|}
 return|return
 operator|new
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 argument_list|(
 name|view
 argument_list|,
@@ -3379,10 +3379,10 @@ begin_comment
 comment|// TABLE CELL
 end_comment
 begin_constructor
-DECL|function|QAccessibleTable2Cell
-name|QAccessibleTable2Cell
+DECL|function|QAccessibleTableCell
+name|QAccessibleTableCell
 operator|::
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 parameter_list|(
 name|QAbstractItemView
 modifier|*
@@ -3429,7 +3429,7 @@ begin_function
 DECL|function|interface_cast
 name|void
 modifier|*
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|interface_cast
 parameter_list|(
@@ -3445,12 +3445,12 @@ name|t
 operator|==
 name|QAccessible
 operator|::
-name|Table2CellInterface
+name|TableCellInterface
 condition|)
 return|return
 cast|static_cast
 argument_list|<
-name|QAccessibleTable2CellInterface
+name|QAccessibleTableCellInterface
 operator|*
 argument_list|>
 argument_list|(
@@ -3465,7 +3465,7 @@ end_function
 begin_function
 DECL|function|columnExtent
 name|int
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|columnExtent
 parameter_list|()
@@ -3479,7 +3479,7 @@ end_function
 begin_function
 DECL|function|rowExtent
 name|int
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|rowExtent
 parameter_list|()
@@ -3497,7 +3497,7 @@ argument_list|<
 name|QAccessibleInterface
 modifier|*
 argument_list|>
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|rowHeaderCells
 parameter_list|()
@@ -3521,7 +3521,7 @@ operator|.
 name|append
 argument_list|(
 operator|new
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 argument_list|(
 name|view
 argument_list|,
@@ -3549,7 +3549,7 @@ argument_list|<
 name|QAccessibleInterface
 modifier|*
 argument_list|>
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|columnHeaderCells
 parameter_list|()
@@ -3573,7 +3573,7 @@ operator|.
 name|append
 argument_list|(
 operator|new
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 argument_list|(
 name|view
 argument_list|,
@@ -3598,7 +3598,7 @@ begin_function
 DECL|function|horizontalHeader
 name|QHeaderView
 modifier|*
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|horizontalHeader
 parameter_list|()
@@ -3689,7 +3689,7 @@ begin_function
 DECL|function|verticalHeader
 name|QHeaderView
 modifier|*
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|verticalHeader
 parameter_list|()
@@ -3738,7 +3738,7 @@ end_function
 begin_function
 DECL|function|columnIndex
 name|int
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|columnIndex
 parameter_list|()
@@ -3755,7 +3755,7 @@ end_function
 begin_function
 DECL|function|rowIndex
 name|int
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|rowIndex
 parameter_list|()
@@ -3819,7 +3819,7 @@ end_function
 begin_function
 DECL|function|isSelected
 name|bool
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|isSelected
 parameter_list|()
@@ -3841,7 +3841,7 @@ end_function
 begin_function
 DECL|function|rowColumnExtents
 name|void
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|rowColumnExtents
 parameter_list|(
@@ -3905,7 +3905,7 @@ begin_function
 DECL|function|table
 name|QAccessibleInterface
 modifier|*
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|table
 parameter_list|()
@@ -3926,7 +3926,7 @@ DECL|function|role
 name|QAccessible
 operator|::
 name|Role
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|role
 parameter_list|()
@@ -3942,7 +3942,7 @@ DECL|function|state
 name|QAccessible
 operator|::
 name|State
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|state
 parameter_list|()
@@ -4156,7 +4156,7 @@ end_function
 begin_function
 DECL|function|isExpandable
 name|bool
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|isExpandable
 parameter_list|()
@@ -4178,7 +4178,7 @@ end_function
 begin_function
 DECL|function|rect
 name|QRect
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|rect
 parameter_list|()
@@ -4251,7 +4251,7 @@ end_function
 begin_function
 DECL|function|text
 name|QString
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|text
 parameter_list|(
@@ -4360,7 +4360,7 @@ end_function
 begin_function
 DECL|function|setText
 name|void
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|setText
 parameter_list|(
@@ -4405,7 +4405,7 @@ end_function
 begin_function
 DECL|function|isValid
 name|bool
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|isValid
 parameter_list|()
@@ -4438,7 +4438,7 @@ begin_function
 DECL|function|parent
 name|QAccessibleInterface
 modifier|*
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|parent
 parameter_list|()
@@ -4461,7 +4461,7 @@ argument_list|)
 return|;
 return|return
 operator|new
-name|QAccessibleTable2
+name|QAccessibleTable
 argument_list|(
 name|view
 argument_list|)
@@ -4472,7 +4472,7 @@ begin_function
 DECL|function|child
 name|QAccessibleInterface
 modifier|*
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|child
 parameter_list|(
@@ -4488,7 +4488,7 @@ end_function
 begin_function
 DECL|function|navigate
 name|int
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|navigate
 parameter_list|(
@@ -4639,7 +4639,7 @@ DECL|function|relationTo
 name|QAccessible
 operator|::
 name|Relation
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|::
 name|relationTo
 parameter_list|(
@@ -4675,7 +4675,7 @@ init|=
 cast|static_cast
 argument_list|<
 specifier|const
-name|QAccessibleTable2Cell
+name|QAccessibleTableCell
 operator|*
 argument_list|>
 argument_list|(
@@ -4723,10 +4723,10 @@ return|;
 block|}
 end_function
 begin_constructor
-DECL|function|QAccessibleTable2HeaderCell
-name|QAccessibleTable2HeaderCell
+DECL|function|QAccessibleTableHeaderCell
+name|QAccessibleTableHeaderCell
 operator|::
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 parameter_list|(
 name|QAbstractItemView
 modifier|*
@@ -4770,7 +4770,7 @@ DECL|function|role
 name|QAccessible
 operator|::
 name|Role
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 operator|::
 name|role
 parameter_list|()
@@ -4801,7 +4801,7 @@ DECL|function|state
 name|QAccessible
 operator|::
 name|State
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 operator|::
 name|state
 parameter_list|()
@@ -4817,7 +4817,7 @@ end_function
 begin_function
 DECL|function|rect
 name|QRect
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 operator|::
 name|rect
 parameter_list|()
@@ -5010,7 +5010,7 @@ end_function
 begin_function
 DECL|function|text
 name|QString
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 operator|::
 name|text
 parameter_list|(
@@ -5125,7 +5125,7 @@ end_function
 begin_function
 DECL|function|setText
 name|void
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 operator|::
 name|setText
 parameter_list|(
@@ -5142,7 +5142,7 @@ end_function
 begin_function
 DECL|function|isValid
 name|bool
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 operator|::
 name|isValid
 parameter_list|()
@@ -5157,7 +5157,7 @@ begin_function
 DECL|function|parent
 name|QAccessibleInterface
 modifier|*
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 operator|::
 name|parent
 parameter_list|()
@@ -5200,7 +5200,7 @@ else|else
 block|{
 return|return
 operator|new
-name|QAccessibleTable2
+name|QAccessibleTable
 argument_list|(
 name|view
 argument_list|)
@@ -5212,7 +5212,7 @@ begin_function
 DECL|function|child
 name|QAccessibleInterface
 modifier|*
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 operator|::
 name|child
 parameter_list|(
@@ -5228,7 +5228,7 @@ end_function
 begin_function
 DECL|function|navigate
 name|int
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 operator|::
 name|navigate
 parameter_list|(
@@ -5290,7 +5290,7 @@ DECL|function|relationTo
 name|QAccessible
 operator|::
 name|Relation
-name|QAccessibleTable2HeaderCell
+name|QAccessibleTableHeaderCell
 operator|::
 name|relationTo
 parameter_list|(
