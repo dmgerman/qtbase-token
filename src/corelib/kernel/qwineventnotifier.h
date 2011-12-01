@@ -130,10 +130,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|Q_DISABLE_COPY
-argument_list|(
-argument|QWinEventNotifier
-argument_list|)
 name|HANDLE
 name|handleToEvent
 block|;
