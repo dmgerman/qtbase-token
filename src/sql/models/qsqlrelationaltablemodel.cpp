@@ -1153,7 +1153,7 @@ name|index
 operator|.
 name|column
 argument_list|()
-operator|>
+operator|>=
 literal|0
 operator|&&
 name|index
