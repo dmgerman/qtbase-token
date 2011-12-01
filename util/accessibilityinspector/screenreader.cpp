@@ -362,8 +362,6 @@ argument_list|(
 name|QAccessible
 operator|::
 name|Name
-argument_list|,
-literal|0
 argument_list|)
 comment|/*+ "," + translateRole(m_selectedInterface->role(0)) */
 argument_list|)
@@ -395,13 +393,15 @@ condition|)
 block|{
 name|m_selectedInterface
 operator|->
+name|actionInterface
+argument_list|()
+operator|->
 name|doAction
 argument_list|(
-name|QAccessible
+name|QAccessibleActionInterface
 operator|::
-name|Press
-argument_list|,
-literal|0
+name|pressAction
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

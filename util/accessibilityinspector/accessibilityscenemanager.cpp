@@ -77,8 +77,6 @@ name|populateAccessibilityScene
 argument_list|(
 name|rootInterface
 argument_list|,
-literal|0
-argument_list|,
 name|m_scene
 argument_list|)
 expr_stmt|;
@@ -177,12 +175,17 @@ condition|(
 operator|!
 name|rootInterface
 condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QWindow::accessibleRoot returned 0"
+argument_list|)
+expr_stmt|;
 return|return;
+block|}
 name|populateAccessibilityTreeScene
 argument_list|(
 name|rootInterface
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -231,8 +234,6 @@ argument_list|(
 name|QAccessible
 operator|::
 name|Name
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 if|if
@@ -248,8 +249,6 @@ comment|//      qDebug()<< "ObjectCreated"<< object<< name;
 name|populateAccessibilityScene
 argument_list|(
 name|interface
-argument_list|,
-literal|0
 argument_list|,
 name|m_scene
 argument_list|)
@@ -297,9 +296,7 @@ operator|<<
 name|interface
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|updateItem
 argument_list|(
@@ -844,9 +841,7 @@ init|=
 name|interface
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|item
 operator|->
@@ -944,9 +939,7 @@ condition|(
 name|interface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -972,9 +965,7 @@ condition|(
 name|interface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::
@@ -1047,9 +1038,6 @@ name|QAccessibleInterface
 modifier|*
 name|interface
 parameter_list|,
-name|int
-name|child
-parameter_list|,
 name|QGraphicsScene
 modifier|*
 name|scene
@@ -1090,8 +1078,6 @@ argument_list|(
 name|QAccessibleInterface
 operator|::
 name|Name
-argument_list|,
-name|child
 argument_list|)
 decl_stmt|;
 name|QString
@@ -1106,9 +1092,7 @@ argument_list|(
 name|interface
 operator|->
 name|role
-argument_list|(
-name|child
-argument_list|)
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|int
@@ -1261,9 +1245,6 @@ name|QAccessibleInterface
 modifier|*
 name|interface
 parameter_list|,
-name|int
-name|child
-parameter_list|,
 name|QGraphicsScene
 modifier|*
 name|scene
@@ -1282,8 +1263,6 @@ init|=
 name|processInterface
 argument_list|(
 name|interface
-argument_list|,
-name|child
 argument_list|,
 name|scene
 argument_list|)
@@ -1312,14 +1291,6 @@ name|item
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Possibly process children
-if|if
-condition|(
-name|child
-operator|!=
-literal|0
-condition|)
-return|return;
 for|for
 control|(
 name|int
@@ -1360,8 +1331,6 @@ expr_stmt|;
 name|populateAccessibilityScene
 argument_list|(
 name|child
-argument_list|,
-literal|0
 argument_list|,
 name|scene
 argument_list|)
@@ -1511,11 +1480,9 @@ argument_list|(
 name|QAccessible
 operator|::
 name|Name
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
-comment|//currentLevel.description += interface->text(QAccessible::DebugDescription, 0);
+comment|//currentLevel.description += interface->text(QAccessible::DebugDescription);
 name|currentLevel
 operator|.
 name|role
@@ -1525,9 +1492,7 @@ argument_list|(
 name|interface
 operator|->
 name|role
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|currentLevel
@@ -1537,9 +1502,7 @@ operator|=
 name|interface
 operator|->
 name|rect
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|currentLevel
 operator|.
@@ -1548,9 +1511,7 @@ operator|=
 name|interface
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|currentLevel
 operator|.
@@ -1576,9 +1537,6 @@ parameter_list|(
 name|QAccessibleInterface
 modifier|*
 name|interface
-parameter_list|,
-name|int
-name|child
 parameter_list|)
 block|{
 if|if
@@ -2224,9 +2182,7 @@ condition|(
 name|current
 operator|->
 name|state
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 operator|&
 name|QAccessible
 operator|::

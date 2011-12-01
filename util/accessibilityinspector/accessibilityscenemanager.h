@@ -189,22 +189,26 @@ block|;
 name|void
 name|populateAccessibilityScene
 argument_list|(
-argument|QAccessibleInterface * interface
+name|QAccessibleInterface
+operator|*
+name|interface
 argument_list|,
-argument|int child
-argument_list|,
-argument|QGraphicsScene *scene
+name|QGraphicsScene
+operator|*
+name|scene
 argument_list|)
 block|;
 name|QGraphicsRectItem
 operator|*
 name|processInterface
 argument_list|(
-argument|QAccessibleInterface * interface
+name|QAccessibleInterface
+operator|*
+name|interface
 argument_list|,
-argument|int child
-argument_list|,
-argument|QGraphicsScene *scene
+name|QGraphicsScene
+operator|*
+name|scene
 argument_list|)
 block|;      struct
 name|TreeItem
@@ -220,9 +224,9 @@ block|;
 name|void
 name|populateAccessibilityTreeScene
 argument_list|(
-argument|QAccessibleInterface * interface
-argument_list|,
-argument|int child
+name|QAccessibleInterface
+operator|*
+name|interface
 argument_list|)
 block|;
 name|void

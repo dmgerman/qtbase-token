@@ -140,7 +140,7 @@ condition|(
 operator|!
 name|qobject_cast
 argument_list|<
-name|QSGItem
+name|QQuickItem
 operator|*
 argument_list|>
 argument_list|(
