@@ -65,6 +65,10 @@ name|void
 name|typedData
 parameter_list|()
 function_decl|;
+name|void
+name|gccBug43247
+parameter_list|()
+function_decl|;
 block|}
 class|;
 end_class
@@ -3115,6 +3119,125 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+end_function
+begin_function
+DECL|function|gccBug43247
+name|void
+name|tst_QArrayData
+operator|::
+name|gccBug43247
+parameter_list|()
+block|{
+comment|// This test tries to verify QArrayData is not affected by GCC optimizer
+comment|// bug #43247.
+comment|// Reported on GCC 4.4.3, Linux, affects QVector
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|"GCC Optimization bug #43247 not triggered (3)"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|"GCC Optimization bug #43247 not triggered (4)"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|"GCC Optimization bug #43247 not triggered (5)"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|"GCC Optimization bug #43247 not triggered (6)"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|"GCC Optimization bug #43247 not triggered (7)"
+argument_list|)
+expr_stmt|;
+name|SimpleVector
+argument_list|<
+name|int
+argument_list|>
+name|array
+argument_list|(
+literal|10
+argument_list|,
+literal|0
+argument_list|)
+decl_stmt|;
+comment|// QVector<int> vector(10, 0);
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+literal|10
+condition|;
+operator|++
+name|i
+control|)
+block|{
+if|if
+condition|(
+name|i
+operator|>=
+literal|3
+operator|&&
+name|i
+operator|<
+literal|8
+condition|)
+name|qDebug
+argument_list|(
+literal|"GCC Optimization bug #43247 not triggered (%i)"
+argument_list|,
+name|i
+argument_list|)
+expr_stmt|;
+comment|// When access to data is implemented through an array of size 1, this
+comment|// line lets the compiler assume i == 0, and the conditional above is
+comment|// skipped.
+name|QVERIFY
+argument_list|(
+name|array
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// QVERIFY(vector.at(i) == 0);
 block|}
 block|}
 end_function
