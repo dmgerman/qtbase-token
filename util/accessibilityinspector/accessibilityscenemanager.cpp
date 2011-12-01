@@ -1482,7 +1482,19 @@ operator|::
 name|Name
 argument_list|)
 expr_stmt|;
-comment|//currentLevel.description += interface->text(QAccessible::DebugDescription);
+name|currentLevel
+operator|.
+name|description
+operator|+=
+name|interface
+operator|->
+name|text
+argument_list|(
+name|QAccessible
+operator|::
+name|DebugDescription
+argument_list|)
+expr_stmt|;
 name|currentLevel
 operator|.
 name|role

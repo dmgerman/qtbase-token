@@ -767,6 +767,8 @@ name|Help
 block|,
 name|Accelerator
 block|,
+name|DebugDescription
+block|,
 name|UserText
 init|=
 literal|0x0000ffff
