@@ -2558,6 +2558,10 @@ operator|)
 name|sock
 argument_list|)
 expr_stmt|;
+name|qt_qhostinfo_clear_cache
+argument_list|()
+expr_stmt|;
+comment|//avoid the HostLookupState being skipped due to address being in cache from previous test.
 name|socket
 operator|->
 name|connectToHost
