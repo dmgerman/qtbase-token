@@ -712,6 +712,12 @@ argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
+begin_function_decl
+name|bool
+name|removeRecursively
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_expr_stmt
 name|bool
 name|isReadable
