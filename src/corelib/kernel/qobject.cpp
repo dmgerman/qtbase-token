@@ -3980,15 +3980,19 @@ argument_list|(
 name|QObject
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+name|bool
+name|objectNameChanged
+init|=
+name|d
+operator|->
+name|declarativeData
+operator|&&
 name|d
 operator|->
 name|objectName
 operator|!=
 name|name
-condition|)
-block|{
+decl_stmt|;
 name|d
 operator|->
 name|objectName
@@ -3997,9 +4001,7 @@ name|name
 expr_stmt|;
 if|if
 condition|(
-name|d
-operator|->
-name|declarativeData
+name|objectNameChanged
 condition|)
 name|d
 operator|->
@@ -4014,20 +4016,8 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-emit|emit
-name|objectNameChanged
-argument_list|(
-name|d
-operator|->
-name|objectName
-argument_list|)
-emit|;
-block|}
 block|}
 end_function
-begin_comment
-comment|/*! \fn void QObject::objectNameChanged(const QString&objectName)      This signal is emitted after the object's name has been changed. The new object name is passed as \a objectName.      \sa QObject::objectName */
-end_comment
 begin_comment
 comment|/*!     \fn bool QObject::isWidgetType() const      Returns true if the object is a widget; otherwise returns false.      Calling this function is equivalent to calling     inherits("QWidget"), except that it is much faster. */
 end_comment

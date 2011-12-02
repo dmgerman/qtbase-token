@@ -5483,7 +5483,7 @@ operator|.
 name|methodCount
 argument_list|()
 argument_list|,
-literal|6
+literal|5
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -5492,7 +5492,7 @@ name|mobj
 operator|.
 name|method
 argument_list|(
-literal|5
+literal|4
 argument_list|)
 operator|.
 name|signature
@@ -5522,7 +5522,7 @@ operator|.
 name|methodCount
 argument_list|()
 argument_list|,
-literal|7
+literal|6
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -5531,7 +5531,7 @@ name|mobj
 operator|.
 name|method
 argument_list|(
-literal|5
+literal|4
 argument_list|)
 operator|.
 name|signature
@@ -5549,7 +5549,7 @@ name|mobj
 operator|.
 name|method
 argument_list|(
-literal|6
+literal|5
 argument_list|)
 operator|.
 name|signature
@@ -5589,7 +5589,7 @@ operator|.
 name|methodCount
 argument_list|()
 argument_list|,
-literal|7
+literal|6
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -5598,7 +5598,7 @@ name|mobj
 operator|.
 name|method
 argument_list|(
-literal|5
+literal|4
 argument_list|)
 operator|.
 name|signature
@@ -5616,7 +5616,7 @@ name|mobj
 operator|.
 name|method
 argument_list|(
-literal|6
+literal|5
 argument_list|)
 operator|.
 name|signature
@@ -5646,7 +5646,7 @@ operator|.
 name|methodCount
 argument_list|()
 argument_list|,
-literal|7
+literal|6
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -5655,7 +5655,7 @@ name|mobj
 operator|.
 name|method
 argument_list|(
-literal|5
+literal|4
 argument_list|)
 operator|.
 name|signature
@@ -5673,7 +5673,7 @@ name|mobj
 operator|.
 name|method
 argument_list|(
-literal|6
+literal|5
 argument_list|)
 operator|.
 name|signature
@@ -5703,7 +5703,7 @@ operator|.
 name|methodCount
 argument_list|()
 argument_list|,
-literal|7
+literal|6
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -5712,7 +5712,7 @@ name|mobj
 operator|.
 name|method
 argument_list|(
-literal|5
+literal|4
 argument_list|)
 operator|.
 name|signature
@@ -5730,7 +5730,7 @@ name|mobj
 operator|.
 name|method
 argument_list|(
-literal|6
+literal|5
 argument_list|)
 operator|.
 name|signature
