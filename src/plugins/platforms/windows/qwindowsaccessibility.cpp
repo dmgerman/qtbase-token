@@ -1454,8 +1454,6 @@ specifier|public
 name|IAccessible
 super|,
 name|IOleWindow
-super|,
-name|QAccessible
 block|{
 public|public:
 DECL|function|QWindowsAccessible
@@ -3540,6 +3538,8 @@ name|accessible
 operator|->
 name|navigate
 argument_list|(
+name|QAccessible
+operator|::
 name|Child
 argument_list|,
 name|control
@@ -3861,6 +3861,8 @@ name|accessible
 operator|->
 name|navigate
 argument_list|(
+name|QAccessible
+operator|::
 name|Child
 argument_list|,
 literal|1
@@ -3879,6 +3881,8 @@ name|accessible
 operator|->
 name|navigate
 argument_list|(
+name|QAccessible
+operator|::
 name|Child
 argument_list|,
 name|accessible
@@ -3961,6 +3965,8 @@ name|parent
 operator|->
 name|navigate
 argument_list|(
+name|QAccessible
+operator|::
 name|Child
 argument_list|,
 name|index
@@ -4015,6 +4021,8 @@ name|accessible
 operator|->
 name|navigate
 argument_list|(
+name|QAccessible
+operator|::
 name|Child
 argument_list|,
 name|index
@@ -4034,6 +4042,8 @@ name|accessible
 operator|->
 name|navigate
 argument_list|(
+name|QAccessible
+operator|::
 name|Up
 argument_list|,
 name|varStart
@@ -4054,6 +4064,8 @@ name|accessible
 operator|->
 name|navigate
 argument_list|(
+name|QAccessible
+operator|::
 name|Down
 argument_list|,
 name|varStart
@@ -4074,6 +4086,8 @@ name|accessible
 operator|->
 name|navigate
 argument_list|(
+name|QAccessible
+operator|::
 name|Left
 argument_list|,
 name|varStart
@@ -4094,6 +4108,8 @@ name|accessible
 operator|->
 name|navigate
 argument_list|(
+name|QAccessible
+operator|::
 name|Right
 argument_list|,
 name|varStart
@@ -4336,6 +4352,8 @@ condition|)
 block|{
 name|acc
 operator|=
+name|QAccessible
+operator|::
 name|queryAccessibleInterface
 argument_list|(
 name|ref
@@ -4370,6 +4388,8 @@ name|acc
 operator|->
 name|navigate
 argument_list|(
+name|QAccessible
+operator|::
 name|Child
 argument_list|,
 name|ref
@@ -4403,13 +4423,19 @@ block|}
 block|}
 else|else
 block|{
+name|QAccessible
+operator|::
 name|RelationFlag
 name|rel
 init|=
 name|childIndex
 condition|?
+name|QAccessible
+operator|::
 name|Child
 else|:
+name|QAccessible
+operator|::
 name|Self
 decl_stmt|;
 name|accessible
@@ -4860,6 +4886,8 @@ name|child
 operator|->
 name|text
 argument_list|(
+name|QAccessible
+operator|::
 name|Description
 argument_list|)
 expr_stmt|;
@@ -4872,6 +4900,8 @@ name|accessible
 operator|->
 name|text
 argument_list|(
+name|QAccessible
+operator|::
 name|Description
 argument_list|)
 expr_stmt|;
@@ -4972,6 +5002,8 @@ name|child
 operator|->
 name|text
 argument_list|(
+name|QAccessible
+operator|::
 name|Help
 argument_list|)
 expr_stmt|;
@@ -4984,6 +5016,8 @@ name|accessible
 operator|->
 name|text
 argument_list|(
+name|QAccessible
+operator|::
 name|Help
 argument_list|)
 expr_stmt|;
@@ -5110,7 +5144,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|// I CRASH YOU
 if|if
 condition|(
 operator|!
@@ -5233,6 +5266,8 @@ name|child
 operator|->
 name|text
 argument_list|(
+name|QAccessible
+operator|::
 name|Name
 argument_list|)
 expr_stmt|;
@@ -5245,6 +5280,8 @@ name|accessible
 operator|->
 name|text
 argument_list|(
+name|QAccessible
+operator|::
 name|Name
 argument_list|)
 expr_stmt|;
@@ -5341,6 +5378,8 @@ condition|)
 return|return
 name|E_FAIL
 return|;
+name|QAccessible
+operator|::
 name|Role
 name|role
 decl_stmt|;
@@ -5389,6 +5428,8 @@ if|if
 condition|(
 name|role
 operator|!=
+name|QAccessible
+operator|::
 name|NoRole
 condition|)
 block|{
@@ -5396,6 +5437,8 @@ if|if
 condition|(
 name|role
 operator|==
+name|QAccessible
+operator|::
 name|LayeredPane
 condition|)
 name|role
@@ -5477,6 +5520,8 @@ condition|)
 return|return
 name|E_FAIL
 return|;
+name|QAccessible
+operator|::
 name|State
 name|state
 decl_stmt|;
@@ -5626,6 +5671,8 @@ name|accessible
 operator|->
 name|text
 argument_list|(
+name|QAccessible
+operator|::
 name|Value
 argument_list|)
 expr_stmt|;
@@ -5784,6 +5831,8 @@ name|accessible
 operator|->
 name|navigate
 argument_list|(
+name|QAccessible
+operator|::
 name|FocusChild
 argument_list|,
 literal|1
@@ -6023,6 +6072,8 @@ operator|->
 name|state
 argument_list|()
 operator|&
+name|QAccessible
+operator|::
 name|Selected
 expr_stmt|;
 operator|delete
