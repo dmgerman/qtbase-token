@@ -3442,6 +3442,21 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+if|if
+condition|(
+name|state
+argument_list|()
+operator|!=
+name|ConnectedState
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QSslSocket::startClientEncryption: cannot start handshake when not connected"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 ifdef|#
 directive|ifdef
 name|QSSLSOCKET_DEBUG
