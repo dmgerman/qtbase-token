@@ -482,6 +482,13 @@ name|transparent
 parameter_list|)
 function_decl|;
 name|void
+name|updateDoesNotAcceptFocus
+parameter_list|(
+name|bool
+name|doesNotAcceptFocus
+parameter_list|)
+function_decl|;
+name|void
 name|create
 parameter_list|()
 function_decl|;
