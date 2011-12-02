@@ -415,7 +415,7 @@ argument_list|)
 expr_stmt|;
 comment|//! [17]
 comment|//! [18]
-name|MyFirstTestObject
+name|MyTestObject
 name|test1
 decl_stmt|;
 name|QTest
@@ -424,17 +424,6 @@ name|qExec
 argument_list|(
 operator|&
 name|test1
-argument_list|)
-expr_stmt|;
-name|MySecondTestObject
-name|test2
-decl_stmt|;
-name|QTest
-operator|::
-name|qExec
-argument_list|(
-operator|&
-name|test2
 argument_list|)
 expr_stmt|;
 comment|//! [18]
