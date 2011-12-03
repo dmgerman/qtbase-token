@@ -6903,11 +6903,6 @@ argument_list|(
 name|QGraphicsItem
 operator|*
 argument_list|)
-name|Q_DECLARE_METATYPE
-argument_list|(
-name|QGraphicsScene
-operator|*
-argument_list|)
 name|QT_BEGIN_NAMESPACE
 endif|#
 directive|endif
