@@ -37,12 +37,6 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
-begin_comment
-comment|//TESTED CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_typedef
 DECL|typedef|IntList
 typedef|typedef

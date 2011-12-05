@@ -58,12 +58,6 @@ argument_list|(
 argument|qlonglong
 argument_list|)
 end_macro
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_define
 DECL|macro|CREATE_REF
 define|#

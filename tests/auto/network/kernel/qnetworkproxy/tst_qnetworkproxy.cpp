@@ -22,12 +22,6 @@ include|#
 directive|include
 file|<qnetworkproxy.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_QNetworkProxy
 class|class

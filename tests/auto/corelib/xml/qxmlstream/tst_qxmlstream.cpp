@@ -52,12 +52,6 @@ include|#
 directive|include
 file|"qc14n.h"
 end_include
-begin_comment
-comment|//TESTED_CLASS=QXmlStreamReader QXmlStreamWriter
-end_comment
-begin_comment
-comment|//TESTED_FILES=corelib/xml/stream/qxmlutils.cpp corelib/xml/stream/qxmlstream.cpp corelib/xml/stream/qxmlstream_p.h
-end_comment
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(

@@ -298,12 +298,6 @@ include|#
 directive|include
 file|<qwidget.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/styles/qstyle.h gui/styles/qstyle.cpp gui/styles/qplastiquestyle.cpp gui/styles/qwindowsstyle.cpp gui/styles/qwindowsxpstyle.cpp gui/styles/qwindowsvistastyle.cpp gui/styles/qmotifstyle.cpp
-end_comment
 begin_class
 DECL|class|tst_QStyle
 class|class

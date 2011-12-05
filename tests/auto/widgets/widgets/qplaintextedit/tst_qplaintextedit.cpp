@@ -148,12 +148,6 @@ argument_list|(
 argument|QPlainTextEdit
 argument_list|)
 end_macro
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/widgets/qtextedit.h gui/widgets/qtextedit.cpp
-end_comment
 begin_class
 DECL|class|tst_QPlainTextEdit
 class|class

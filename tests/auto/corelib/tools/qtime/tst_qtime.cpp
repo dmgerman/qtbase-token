@@ -12,12 +12,6 @@ include|#
 directive|include
 file|"qdatetime.h"
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=corelib/thread/qthreadstorage.h corelib/thread/qthreadstorage.cpp
-end_comment
 begin_class
 DECL|class|tst_QTime
 class|class

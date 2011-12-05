@@ -32,12 +32,6 @@ include|#
 directive|include
 file|<qdialog.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/painting/qpolygon.h gui/painting/qpolygon.cpp
-end_comment
 begin_class
 DECL|class|tst_QPolygon
 class|class

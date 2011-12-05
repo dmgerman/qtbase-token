@@ -60,9 +60,6 @@ namespace|namespace
 name|std
 namespace|;
 end_using
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_QAlgorithms
 class|class

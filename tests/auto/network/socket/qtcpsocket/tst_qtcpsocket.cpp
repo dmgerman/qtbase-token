@@ -261,12 +261,6 @@ argument_list|(
 argument|QList<QNetworkProxy>
 argument_list|)
 end_macro
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_macro
 name|QT_FORWARD_DECLARE_CLASS
 argument_list|(

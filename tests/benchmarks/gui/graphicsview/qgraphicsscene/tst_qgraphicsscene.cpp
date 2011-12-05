@@ -22,9 +22,6 @@ include|#
 directive|include
 file|<QGraphicsView>
 end_include
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_QGraphicsScene
 class|class

@@ -12,12 +12,6 @@ include|#
 directive|include
 file|<qstandarditemmodel.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/itemviews/qstandarditemmodel.h gui/itemviews/qstandarditemmodel.cpp
-end_comment
 begin_class
 DECL|class|tst_QStandardItem
 class|class

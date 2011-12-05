@@ -99,9 +99,6 @@ include|#
 directive|include
 file|"../../../network-settings.h"
 end_include
-begin_comment
-comment|//TESTED_FILES=network/qnativesocketengine.cpp network/qnativesocketengine_p.h network/qnativesocketengine_unix.cpp
-end_comment
 begin_class
 DECL|class|tst_PlatformSocketEngine
 class|class

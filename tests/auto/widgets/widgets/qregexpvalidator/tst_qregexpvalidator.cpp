@@ -17,12 +17,6 @@ include|#
 directive|include
 file|<qvalidator.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=corelib/tools/qregexp.h corelib/tools/qregexp.cpp
-end_comment
 begin_class
 DECL|class|tst_QRegExpValidator
 class|class

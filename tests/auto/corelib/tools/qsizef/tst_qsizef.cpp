@@ -18,12 +18,6 @@ argument_list|(
 argument|QSizeF
 argument_list|)
 end_macro
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=corelib/tools/qsize.h corelib/tools/qsize.cpp
-end_comment
 begin_class
 DECL|class|tst_QSizeF
 class|class

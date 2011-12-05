@@ -37,9 +37,6 @@ include|#
 directive|include
 file|"../../../network-settings.h"
 end_include
-begin_comment
-comment|//TESTED_FILES=qnetworkinterface.cpp qnetworkinterface.h qnetworkinterface_unix.cpp qnetworkinterface_win.cpp
-end_comment
 begin_class
 DECL|class|tst_QNetworkInterface
 class|class

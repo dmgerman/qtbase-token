@@ -740,12 +740,6 @@ name|hb_getFontMetric
 block|}
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES= gui/text/qscriptengine.cpp
-end_comment
 begin_class
 DECL|class|tst_QScriptEngine
 class|class

@@ -12,9 +12,6 @@ include|#
 directive|include
 file|<QQuaternion>
 end_include
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_QQuaternion
 class|class

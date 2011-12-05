@@ -17,12 +17,6 @@ include|#
 directive|include
 file|<qlocale.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=corelib/tools/qdatetime.h corelib/tools/qdatetime.cpp
-end_comment
 begin_class
 DECL|class|tst_QDate
 class|class

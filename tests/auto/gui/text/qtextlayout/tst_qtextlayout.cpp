@@ -32,12 +32,6 @@ directive|define
 name|TESTFONT_SIZE
 value|12
 end_define
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_QTextLayout
 class|class

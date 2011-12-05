@@ -27,12 +27,6 @@ include|#
 directive|include
 file|<private/qabstractanimation_p.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=QPauseAnimation
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef

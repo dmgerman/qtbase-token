@@ -39,12 +39,6 @@ include|#
 directive|include
 file|<QtGui/QFontMetrics>
 end_include
-begin_comment
-comment|//TESTED_CLASS=QCss
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/text/qcssparser.cpp gui/text/qcssparser_p.h
-end_comment
 begin_include
 include|#
 directive|include

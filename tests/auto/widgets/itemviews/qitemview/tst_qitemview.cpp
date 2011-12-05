@@ -224,12 +224,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/itemviews/qtreeview.h gui/itemviews/qtreeview.cpp
-end_comment
-begin_comment
 comment|/*!     See viewstotest.cpp for instructions on how to have your view tested with these tests.      Each test such as visualRect have a _data() function which populate the QTest data with     tests specified by viewstotest.cpp and any extra data needed for that particular test.      setupWithNoTestData() fills QTest data with only the tests it is used by most tests.      There are some basic qDebug statements sprikled about that might be helpfull for     fixing your issues.  */
 end_comment
 begin_class

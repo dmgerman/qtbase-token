@@ -13,12 +13,6 @@ directive|include
 file|<QList>
 end_include
 begin_comment
-comment|//TESTED_CLASS=QList
-end_comment
-begin_comment
-comment|//TESTED_FILES=corelib/tools/qlist.h corelib/tools/qlist.cpp
-end_comment
-begin_comment
 comment|/*!   \class tst_QVector   \internal   \since 4.5   \brief Test Qt's class QList.  */
 end_comment
 begin_class

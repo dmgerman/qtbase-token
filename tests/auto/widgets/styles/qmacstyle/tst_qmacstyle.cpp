@@ -26,12 +26,6 @@ init|=
 literal|1
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/styles/qmacstyle_mac.h gui/styles/qmacstyle_mac.cpp
-end_comment
 begin_enum
 DECL|enum|Size
 DECL|enumerator|Normal

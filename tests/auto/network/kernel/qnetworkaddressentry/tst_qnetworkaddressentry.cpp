@@ -17,9 +17,6 @@ include|#
 directive|include
 file|<qnetworkinterface.h>
 end_include
-begin_comment
-comment|// TESTED_FILES=qnetworkinterface.cpp qnetworkinterface.h
-end_comment
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(

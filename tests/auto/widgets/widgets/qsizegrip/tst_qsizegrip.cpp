@@ -140,12 +140,6 @@ name|TopRightCorner
 return|;
 block|}
 end_function
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_expr_stmt
 DECL|variable|WindowType
 name|Q_DECLARE_METATYPE

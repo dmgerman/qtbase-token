@@ -67,12 +67,6 @@ include|#
 directive|include
 file|"private/qstatemachine_p.h"
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_decl_stmt
 DECL|variable|globalTick
 specifier|static

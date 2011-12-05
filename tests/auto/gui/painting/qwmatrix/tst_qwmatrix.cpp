@@ -28,12 +28,6 @@ argument_list|(
 argument|QRect
 argument_list|)
 end_macro
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/painting/qmatrix.h gui/painting/qmatrix.cpp
-end_comment
 begin_class
 DECL|class|tst_QWMatrix
 class|class

@@ -60,9 +60,6 @@ include|#
 directive|include
 file|"../qtextdocument/common.h"
 end_include
-begin_comment
-comment|//TESTED_FILES=gui/text/qtextdocument_p.cpp gui/text/qtextdocument_p.h
-end_comment
 begin_class
 DECL|class|tst_QTextPieceTable
 class|class

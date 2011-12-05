@@ -31,9 +31,6 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_QSqlQuery
 class|class

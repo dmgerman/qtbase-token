@@ -22,12 +22,6 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/text/qtextlayout.h corelib/tools/qtextboundaryfinder.cpp
-end_comment
 begin_class
 DECL|class|tst_QTextBoundaryFinder
 class|class

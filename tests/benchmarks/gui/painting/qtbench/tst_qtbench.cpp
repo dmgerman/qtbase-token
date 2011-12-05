@@ -22,9 +22,6 @@ include|#
 directive|include
 file|"benchmarktests.h"
 end_include
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|BenchWidget
 class|class

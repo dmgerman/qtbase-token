@@ -34,12 +34,6 @@ argument|QModelIndex
 argument_list|)
 end_macro
 begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/itemviews/qstandarditemmodel.h gui/itemviews/qstandarditemmodel.cpp
-end_comment
-begin_comment
 comment|/*!     See modelstotest.cpp for instructions on how to have your model tested with these tests.      Each test such as rowCount have a _data() function which populate the QTest data with     the tests specified by modelstotest.cpp and any extra data needed for that particular test.      setupWithNoTestData() fills the QTest data with just the tests and is used by most tests.  */
 end_comment
 begin_class

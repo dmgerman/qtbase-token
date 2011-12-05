@@ -32,12 +32,6 @@ include|#
 directive|include
 file|<QtWidgets/qboxlayout.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_if
 if|#
 directive|if

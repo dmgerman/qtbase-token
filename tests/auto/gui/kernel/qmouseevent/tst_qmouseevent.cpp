@@ -37,12 +37,6 @@ include|#
 directive|include
 file|<qwidget.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/widgets/qmenubar.h gui/widgets/qmenubar.cpp
-end_comment
 begin_class
 DECL|class|MouseEventWidget
 class|class

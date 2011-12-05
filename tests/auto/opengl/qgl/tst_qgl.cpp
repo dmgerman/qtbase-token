@@ -86,12 +86,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_QGL
 class|class

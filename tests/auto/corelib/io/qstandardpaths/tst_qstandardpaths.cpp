@@ -65,12 +65,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//TESTED_CLASS=QStandardPaths
-end_comment
-begin_comment
-comment|//TESTED_FILES=qstandardpaths.cpp
-end_comment
 begin_class
 DECL|class|tst_qstandardpaths
 class|class

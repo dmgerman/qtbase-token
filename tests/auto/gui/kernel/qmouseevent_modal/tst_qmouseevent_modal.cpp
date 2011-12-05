@@ -37,12 +37,6 @@ include|#
 directive|include
 file|<qdialog.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/widgets/qmenubar.h gui/widgets/qmenubar.cpp
-end_comment
 begin_class_decl
 class_decl|class
 name|TstWidget

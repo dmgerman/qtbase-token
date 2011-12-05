@@ -355,9 +355,6 @@ name|int
 argument_list|>
 class_decl|;
 end_class_decl
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_Collections
 class|class

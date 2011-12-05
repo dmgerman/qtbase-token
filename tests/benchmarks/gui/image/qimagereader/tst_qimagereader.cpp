@@ -131,9 +131,6 @@ argument_list|(
 argument|QIODevice *
 argument_list|)
 end_macro
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_QImageReader
 class|class

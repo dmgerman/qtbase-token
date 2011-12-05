@@ -27,9 +27,6 @@ include|#
 directive|include
 file|<QGraphicsWidget>
 end_include
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_QGraphicsWidget
 class|class

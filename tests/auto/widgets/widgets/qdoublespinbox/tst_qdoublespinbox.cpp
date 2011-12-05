@@ -47,12 +47,6 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/widgets/qspinbox.h gui/widgets/qspinbox.cpp gui/widgets/qabstractspinbox.cpp gui/widgets/qabstractspinbox_p.h gui/widgets/qabstractspinbox.h
-end_comment
 begin_class
 DECL|class|DoubleSpinBox
 class|class

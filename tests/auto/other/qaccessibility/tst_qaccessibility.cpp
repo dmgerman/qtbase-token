@@ -753,9 +753,6 @@ name|rect
 return|;
 block|}
 end_function
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_QAccessibility
 class|class

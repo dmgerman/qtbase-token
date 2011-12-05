@@ -56,12 +56,6 @@ include|#
 directive|include
 file|<QtGlobal>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_define
 DECL|macro|WAITTIME
 define|#

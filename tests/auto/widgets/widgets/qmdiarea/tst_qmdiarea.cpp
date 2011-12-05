@@ -155,12 +155,6 @@ argument_list|(
 argument|QTabWidget::TabPosition
 argument_list|)
 end_macro
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_function
 DECL|function|tabBetweenSubWindowsIn
 specifier|static

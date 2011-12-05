@@ -67,12 +67,6 @@ include|#
 directive|include
 file|<QTreeWidget>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_function
 DECL|function|grabWidget
 specifier|static

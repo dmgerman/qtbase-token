@@ -28,12 +28,6 @@ argument_list|(
 argument|QSize
 argument_list|)
 end_macro
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_QIcon
 class|class

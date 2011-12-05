@@ -44,12 +44,6 @@ include|#
 directive|include
 file|<QtTest/QtTest>
 end_include
-begin_comment
-comment|//TESTED_CLASS=QStringBuilder
-end_comment
-begin_comment
-comment|//TESTED_FILES=qstringbuilder.cpp
-end_comment
 begin_define
 DECL|macro|LITERAL
 define|#

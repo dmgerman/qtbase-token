@@ -115,9 +115,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_macro
 name|QT_FORWARD_DECLARE_CLASS
 argument_list|(

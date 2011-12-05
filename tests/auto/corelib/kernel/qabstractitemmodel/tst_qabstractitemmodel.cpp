@@ -22,12 +22,6 @@ include|#
 directive|include
 file|<QtWidgets/QStringListModel>
 end_include
-begin_comment
-comment|//TESTED_CLASS=QAbstractListModel QAbstractTableModel
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_include
 include|#
 directive|include

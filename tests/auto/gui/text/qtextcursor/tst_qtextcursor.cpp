@@ -47,9 +47,6 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
-begin_comment
-comment|//TESTED_FILES=gui/text/qtextcursor.cpp gui/text/qtextcursor_p.h
-end_comment
 begin_macro
 name|QT_FORWARD_DECLARE_CLASS
 argument_list|(

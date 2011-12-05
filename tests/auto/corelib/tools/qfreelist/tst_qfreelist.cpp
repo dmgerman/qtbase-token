@@ -32,12 +32,6 @@ include|#
 directive|include
 file|<QtTest/QtTest>
 end_include
-begin_comment
-comment|//TESTED_CLASS=QFreeList
-end_comment
-begin_comment
-comment|//TESTED_FILES=corelib/tools/qfreelist_p.h
-end_comment
 begin_class
 DECL|class|tst_QFreeList
 class|class

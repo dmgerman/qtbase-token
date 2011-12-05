@@ -48,12 +48,6 @@ argument_list|(
 argument|QTextDocument
 argument_list|)
 end_macro
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/text/qtextdocumentfragment.h gui/text/qtextdocumentfragment.cpp gui/text/qtexthtmlparser.cpp gui/text/qtexthtmlparser_p.h
-end_comment
 begin_class
 DECL|class|tst_QTextDocumentFragment
 class|class

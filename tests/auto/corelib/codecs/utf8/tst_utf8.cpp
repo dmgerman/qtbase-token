@@ -17,12 +17,6 @@ include|#
 directive|include
 file|<qsharedpointer.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_decl_stmt
 DECL|variable|utf8bom
 specifier|static

@@ -51,12 +51,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//TESTED_CLASS=QTemporaryDir
-end_comment
-begin_comment
-comment|//TESTED_FILES=qtemporarydir.cpp
-end_comment
 begin_class
 DECL|class|tst_QTemporaryDir
 class|class

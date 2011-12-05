@@ -17,12 +17,6 @@ include|#
 directive|include
 file|<QtWidgets>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_QBoxLayout
 class|class

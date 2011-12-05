@@ -34,12 +34,6 @@ directive|define
 name|COND_WAIT_TIME
 value|1
 end_define
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_QWaitCondition
 class|class

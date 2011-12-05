@@ -17,12 +17,6 @@ include|#
 directive|include
 file|<qglobal.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=corelib/global/qglobal.h corelib/global/qglobal.cpp
-end_comment
 begin_class
 DECL|class|tst_QGetPutEnv
 class|class

@@ -32,12 +32,6 @@ include|#
 directive|include
 file|<QPushButton>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=gui/kernel/qlayout.cpp gui/kernel/qlayout.h
-end_comment
 begin_class
 DECL|class|tst_QStackedLayout
 class|class

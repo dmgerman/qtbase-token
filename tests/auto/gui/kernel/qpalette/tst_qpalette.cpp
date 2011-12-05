@@ -17,12 +17,6 @@ include|#
 directive|include
 file|<qapplication.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=QPalette
-end_comment
-begin_comment
-comment|//TESTED_FILES=qpalette.h qpalette.cpp
-end_comment
 begin_class
 DECL|class|tst_QPalette
 class|class

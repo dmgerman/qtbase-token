@@ -17,12 +17,6 @@ include|#
 directive|include
 file|<QtWidgets/QColorDialog>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_macro
 name|QT_FORWARD_DECLARE_CLASS
 argument_list|(

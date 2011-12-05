@@ -62,12 +62,6 @@ include|#
 directive|include
 file|<private/qcolumnview_p.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_define
 DECL|macro|ANIMATION_DELAY
 define|#

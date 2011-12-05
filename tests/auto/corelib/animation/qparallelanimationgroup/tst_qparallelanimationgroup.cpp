@@ -12,12 +12,6 @@ include|#
 directive|include
 file|<QtCore/qparallelanimationgroup.h>
 end_include
-begin_comment
-comment|//TESTED_CLASS=QParallelAnimationGroup
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(

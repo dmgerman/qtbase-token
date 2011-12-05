@@ -24,12 +24,6 @@ argument_list|(
 argument|qint64
 argument_list|)
 end_macro
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
-begin_comment
-comment|//TESTED_FILES=
-end_comment
 begin_class
 DECL|class|tst_QDataStream
 class|class

@@ -17,9 +17,6 @@ include|#
 directive|include
 file|<QDebug>
 end_include
-begin_comment
-comment|//TESTED_CLASS=
-end_comment
 begin_class
 DECL|class|tst_QDesktopWidget
 class|class
