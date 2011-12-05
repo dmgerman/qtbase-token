@@ -754,6 +754,10 @@ block|;
 name|QDBusSignature
 name|toSignatureUnchecked
 argument_list|()
+block|;
+name|QStringList
+name|toStringListUnchecked
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
