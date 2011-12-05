@@ -2941,6 +2941,45 @@ modifier|*
 name|event
 parameter_list|)
 block|{
+comment|// Make it possible for QtScript to hook into events even
+comment|// though QApplication is subclassed...
+name|bool
+name|result
+init|=
+literal|false
+decl_stmt|;
+name|void
+modifier|*
+name|cbdata
+index|[]
+init|=
+block|{
+name|receiver
+block|,
+name|event
+block|,
+operator|&
+name|result
+block|}
+decl_stmt|;
+if|if
+condition|(
+name|QInternal
+operator|::
+name|activateCallbacks
+argument_list|(
+name|QInternal
+operator|::
+name|EventNotifyCallback
+argument_list|,
+name|cbdata
+argument_list|)
+condition|)
+block|{
+return|return
+name|result
+return|;
+block|}
 comment|// Qt enforces the rule that events can only be sent to objects in
 comment|// the current thread, so receiver->d_func()->threadData is
 comment|// equivalent to QThreadData::current(), just without the function
