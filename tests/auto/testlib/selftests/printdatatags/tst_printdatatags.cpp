@@ -8,9 +8,9 @@ directive|include
 file|<QtTest/QtTest>
 end_include
 begin_class
-DECL|class|tst_MyTestCase
+DECL|class|tst_PrintDataTags
 class|class
-name|tst_MyTestCase
+name|tst_PrintDataTags
 super|:
 specifier|public
 name|QObject
@@ -50,7 +50,7 @@ end_class
 begin_function
 DECL|function|a_data
 name|void
-name|tst_MyTestCase
+name|tst_PrintDataTags
 operator|::
 name|a_data
 parameter_list|()
@@ -103,7 +103,7 @@ end_function
 begin_function
 DECL|function|a
 name|void
-name|tst_MyTestCase
+name|tst_PrintDataTags
 operator|::
 name|a
 parameter_list|()
@@ -113,7 +113,7 @@ end_function
 begin_function
 DECL|function|b
 name|void
-name|tst_MyTestCase
+name|tst_PrintDataTags
 operator|::
 name|b
 parameter_list|()
@@ -123,7 +123,7 @@ end_function
 begin_function
 DECL|function|c_data
 name|void
-name|tst_MyTestCase
+name|tst_PrintDataTags
 operator|::
 name|c_data
 parameter_list|()
@@ -171,7 +171,7 @@ end_function
 begin_function
 DECL|function|c
 name|void
-name|tst_MyTestCase
+name|tst_PrintDataTags
 operator|::
 name|c
 parameter_list|()
@@ -181,7 +181,7 @@ end_function
 begin_macro
 name|QTEST_MAIN
 argument_list|(
-argument|tst_MyTestCase
+argument|tst_PrintDataTags
 argument_list|)
 end_macro
 begin_include
