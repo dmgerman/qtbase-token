@@ -499,7 +499,7 @@ name|imageFormat
 init|=
 name|QImage
 operator|::
-name|Format_ARGB32
+name|Format_RGB32
 decl_stmt|;
 if|if
 condition|(
@@ -511,7 +511,7 @@ name|imageFormat
 operator|=
 name|QImage
 operator|::
-name|Format_RGB32
+name|Format_ARGB32
 expr_stmt|;
 elseif|else
 if|if
