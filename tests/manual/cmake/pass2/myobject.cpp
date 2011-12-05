@@ -46,6 +46,12 @@ block|{
 name|MyObject
 name|myObject
 decl_stmt|;
+comment|// Compile error if the resource file was not created.
+name|Q_INIT_RESOURCE
+argument_list|(
+name|pass2
+argument_list|)
+expr_stmt|;
 return|return
 literal|0
 return|;
