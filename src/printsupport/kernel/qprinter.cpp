@@ -3853,7 +3853,7 @@ name|toRect
 argument_list|()
 return|;
 block|}
-comment|/*!     \since 4.4      This function sets the \a left, \a top, \a right and \a bottom     page margins for this printer. The unit of the margins are     specified with the \a unit parameter. */
+comment|/*!     \since 4.4      This function sets the \a left, \a top, \a right and \a bottom     page margins for this printer. The unit of the margins are     specified with the \a unit parameter.      \sa getPageMargins */
 DECL|function|setPageMargins
 name|void
 name|QPrinter
@@ -4016,7 +4016,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/*!     \since 4.4      Returns the page margins for this printer in \a left, \a top, \a     right, \a bottom. The unit of the returned margins are specified     with the \a unit parameter. */
+comment|/*!     \since 4.4      Returns the page margins for this printer in \a left, \a top, \a     right, \a bottom. The unit of the returned margins are specified     with the \a unit parameter.      \sa setPageMargins */
 DECL|function|getPageMargins
 name|void
 name|QPrinter
