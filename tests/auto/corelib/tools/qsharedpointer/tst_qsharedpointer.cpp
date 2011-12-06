@@ -9451,6 +9451,20 @@ name|newRow
 argument_list|(
 literal|"forward-declaration"
 argument_list|)
+ifdef|#
+directive|ifdef
+name|Q_CC_CLANG
+comment|// Deleting a forward declaration is undefined, which results in a linker error with clang
+operator|<<
+operator|&
+name|QTest
+operator|::
+name|QExternalTest
+operator|::
+name|tryLinkFail
+else|#
+directive|else
+comment|// Other compilers accept the code, but do not call the destructor at run-time
 operator|<<
 operator|&
 name|QTest
@@ -9458,6 +9472,8 @@ operator|::
 name|QExternalTest
 operator|::
 name|tryRun
+endif|#
+directive|endif
 operator|<<
 literal|"forwardDeclaredDestructorRunCount = 0;\n"
 literal|"{ QSharedPointer<ForwardDeclared> ptr = QSharedPointer<ForwardDeclared>(forwardPointer()); }\n"
