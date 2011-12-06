@@ -195,38 +195,18 @@ argument_list|(
 argument|bool visible
 argument_list|)
 block|;
-comment|// ### Qt 5: merge overloads with title = QString()
 specifier|static
 name|QColor
 name|getColor
 argument_list|(
-argument|const QColor&initial
+argument|const QColor&initial = Qt::white
 argument_list|,
-argument|QWidget *parent
+argument|QWidget *parent =
+literal|0
 argument_list|,
-argument|const QString&title
+argument|const QString&title = QString()
 argument_list|,
 argument|ColorDialogOptions options =
-literal|0
-argument_list|)
-block|;
-specifier|static
-name|QColor
-name|getColor
-argument_list|(
-specifier|const
-name|QColor
-operator|&
-name|initial
-operator|=
-name|Qt
-operator|::
-name|white
-argument_list|,
-name|QWidget
-operator|*
-name|parent
-operator|=
 literal|0
 argument_list|)
 block|;
