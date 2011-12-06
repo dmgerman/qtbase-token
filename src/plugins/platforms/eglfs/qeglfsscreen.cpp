@@ -636,7 +636,14 @@ name|platformFormat
 operator|.
 name|setDepthBufferSize
 argument_list|(
-literal|32
+literal|24
+argument_list|)
+expr_stmt|;
+name|platformFormat
+operator|.
+name|setStencilBufferSize
+argument_list|(
+literal|8
 argument_list|)
 expr_stmt|;
 name|platformFormat
