@@ -1551,6 +1551,35 @@ literal|"QT_QPA_PLATFORM_PLUGIN_PATH"
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// On Mac, look inside the application bundle for the platform plugin.
+comment|// TODO (msorvig): Create proper cross-platform solution for loading
+comment|// deployed platform plugins
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+if|if
+condition|(
+name|platformPluginPath
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|platformPluginPath
+operator|=
+name|QCoreApplication
+operator|::
+name|applicationDirPath
+argument_list|()
+operator|+
+name|QLatin1String
+argument_list|(
+literal|"../Plugins/"
+argument_list|)
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 name|QByteArray
 name|platformName
 decl_stmt|;
