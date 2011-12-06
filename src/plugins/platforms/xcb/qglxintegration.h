@@ -111,6 +111,16 @@ name|format
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|isSharing
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|isValid
+argument_list|()
+specifier|const
+block|;
 name|GLXContext
 name|glxContext
 argument_list|()
@@ -128,6 +138,9 @@ name|m_screen
 block|;
 name|GLXContext
 name|m_context
+block|;
+name|GLXContext
+name|m_shareContext
 block|;
 name|QSurfaceFormat
 name|m_format
