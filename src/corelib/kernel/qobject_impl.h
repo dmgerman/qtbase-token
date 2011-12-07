@@ -491,12 +491,12 @@ name|ApplyReturnValue
 argument_list|(
 name|void
 operator|*
-name|data
+name|data_
 argument_list|)
 operator|:
 name|data
 argument_list|(
-argument|data
+argument|data_
 argument_list|)
 block|{}
 block|}
