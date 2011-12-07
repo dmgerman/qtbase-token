@@ -2549,12 +2549,8 @@ name|event
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-unit|}  QList
+unit|}  QXcbEventArray
 DECL|function|lock
-operator|<
-name|xcb_generic_event_t
-operator|*
-operator|>
 operator|*
 name|QXcbEventReader
 operator|::
@@ -2728,11 +2724,7 @@ name|processXcbEvents
 operator|(
 operator|)
 block|{
-name|QList
-argument_list|<
-name|xcb_generic_event_t
-operator|*
-argument_list|>
+name|QXcbEventArray
 operator|*
 name|eventqueue
 operator|=
@@ -3060,11 +3052,7 @@ name|int
 name|type
 operator|)
 block|{
-name|QList
-argument_list|<
-name|xcb_generic_event_t
-operator|*
-argument_list|>
+name|QXcbEventArray
 operator|*
 name|eventqueue
 operator|=
