@@ -139,13 +139,6 @@ specifier|static
 name|QMapData
 modifier|*
 name|createData
-parameter_list|()
-function_decl|;
-comment|// ### Qt5 remove me
-specifier|static
-name|QMapData
-modifier|*
-name|createData
 parameter_list|(
 name|int
 name|alignment
@@ -158,20 +151,6 @@ name|int
 name|offset
 parameter_list|)
 function_decl|;
-name|Node
-modifier|*
-name|node_create
-parameter_list|(
-name|Node
-modifier|*
-name|update
-index|[]
-parameter_list|,
-name|int
-name|offset
-parameter_list|)
-function_decl|;
-comment|// ### Qt5 remove me
 name|Node
 modifier|*
 name|node_create
