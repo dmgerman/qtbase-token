@@ -184,6 +184,9 @@ directive|endif
 end_endif
 begin_function
 name|QT_BEGIN_NAMESPACE
+ifdef|#
+directive|ifdef
+name|XCB_USE_XLIB
 DECL|function|nullErrorHandler
 specifier|static
 name|int
@@ -201,6 +204,10 @@ literal|0
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_constructor
 DECL|function|QXcbConnection
 name|QXcbConnection
