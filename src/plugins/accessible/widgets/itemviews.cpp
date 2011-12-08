@@ -989,7 +989,6 @@ argument_list|,
 name|column
 argument_list|)
 decl_stmt|;
-comment|//Q_ASSERT(index.isValid());
 if|if
 condition|(
 operator|!
@@ -3423,13 +3422,20 @@ argument_list|(
 name|role_
 argument_list|)
 block|{
-name|Q_ASSERT
-argument_list|(
+if|if
+condition|(
+operator|!
 name|index_
 operator|.
 name|isValid
 argument_list|()
-argument_list|)
+condition|)
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QAccessibleTableCell::QAccessibleTableCell with invalid index: "
+operator|<<
+name|index_
 expr_stmt|;
 block|}
 end_constructor
@@ -4441,21 +4447,6 @@ name|isValid
 parameter_list|()
 specifier|const
 block|{
-if|if
-condition|(
-operator|!
-name|m_index
-operator|.
-name|isValid
-argument_list|()
-condition|)
-block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Interface is not valid"
-expr_stmt|;
-block|}
 return|return
 name|m_index
 operator|.
