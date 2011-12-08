@@ -21153,6 +21153,9 @@ operator|::
 name|QTBUG_16967
 parameter_list|()
 block|{
+name|QSqlQuery
+name|q2
+decl_stmt|;
 name|QFETCH
 argument_list|(
 name|QString
@@ -21219,6 +21222,10 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
+name|q2
+operator|=
+name|q
+expr_stmt|;
 name|q
 operator|.
 name|prepare
@@ -21269,14 +21276,18 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
+name|q2
+operator|=
 name|q
+expr_stmt|;
+name|q2
 operator|.
 name|prepare
 argument_list|(
 literal|"CREATE TABLE t1 (id INTEGER PRIMARY KEY, str TEXT);"
 argument_list|)
 expr_stmt|;
-name|q
+name|q2
 operator|.
 name|exec
 argument_list|()
@@ -21324,6 +21335,10 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
+name|q2
+operator|=
+name|q
+expr_stmt|;
 name|q
 operator|.
 name|exec
@@ -21374,6 +21389,10 @@ argument_list|(
 name|db
 argument_list|)
 decl_stmt|;
+name|q2
+operator|=
+name|q
+expr_stmt|;
 name|q
 operator|.
 name|exec
