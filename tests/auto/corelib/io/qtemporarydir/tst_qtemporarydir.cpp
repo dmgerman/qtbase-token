@@ -438,8 +438,10 @@ argument_list|)
 operator|<<
 literal|"qt_XXXXXXXXXX"
 operator|<<
-literal|"qt_XXXX"
+literal|"qt_"
 expr_stmt|;
+comment|// When more than 6 X are present at the end, linux and windows will only replace the last 6,
+comment|// while Mac OS will actually replace all of them so we can only expect "qt_" (and check isValid).
 name|QTest
 operator|::
 name|newRow
@@ -460,7 +462,7 @@ argument_list|)
 operator|<<
 literal|"qt_XXXX"
 operator|<<
-literal|"qt_XXXX"
+literal|"qt_"
 expr_stmt|;
 name|QTest
 operator|::
@@ -471,7 +473,7 @@ argument_list|)
 operator|<<
 literal|"qt_XXXXX"
 operator|<<
-literal|"qt_XXXXX"
+literal|"qt_"
 expr_stmt|;
 block|}
 end_function
@@ -1763,6 +1765,7 @@ name|tst_QTemporaryDir
 operator|::
 name|QTBUG_4796
 parameter_list|()
+comment|// unicode support
 block|{
 name|QVERIFY
 argument_list|(
@@ -2118,7 +2121,7 @@ name|fileName1
 operator|.
 name|startsWith
 argument_list|(
-name|fileTemplate1
+name|prefix
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2128,7 +2131,7 @@ name|fileName2
 operator|.
 name|startsWith
 argument_list|(
-name|fileTemplate2
+name|prefix
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2140,7 +2143,7 @@ name|startsWith
 argument_list|(
 literal|"test-XXXXXX/"
 operator|+
-name|fileTemplate1
+name|prefix
 argument_list|)
 argument_list|)
 expr_stmt|;
