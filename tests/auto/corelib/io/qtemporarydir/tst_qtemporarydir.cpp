@@ -1006,14 +1006,11 @@ name|QDir
 operator|::
 name|setCurrent
 argument_list|(
-literal|"/"
+literal|"/home"
 argument_list|)
 expr_stmt|;
 comment|// QTemporaryDir("tempXXXXXX") is probably a bad idea in any app
 comment|// where the current dir could anything...
-name|QString
-name|fileName
-decl_stmt|;
 name|QTemporaryDir
 name|dir
 argument_list|(
@@ -1036,12 +1033,16 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|fileName
-operator|=
+name|QVERIFY
+argument_list|(
 name|dir
 operator|.
 name|path
 argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
