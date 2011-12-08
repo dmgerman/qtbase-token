@@ -6400,6 +6400,16 @@ operator|::
 name|ReadWrite
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|socket
+operator|->
+name|waitForDisconnected
+argument_list|(
+literal|5000
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 comment|// let anything queued happen
 name|QEventLoop
