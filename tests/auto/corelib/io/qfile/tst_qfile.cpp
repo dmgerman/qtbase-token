@@ -17474,7 +17474,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Using file descriptors
+comment|/* in/out/err.isSequential() are only true when run in a console (CI);      * it is false when they are redirected from/to files.      * Prevent failures in case someone runs tests with stdout/stderr redirected. */
 block|{
 name|QFile
 name|in
@@ -17490,6 +17490,19 @@ operator|::
 name|ReadOnly
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|in
+operator|.
+name|isSequential
+argument_list|()
+condition|)
+name|QSKIP
+argument_list|(
+literal|"Standard input redirected."
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|in
@@ -17516,19 +17529,13 @@ operator|)
 literal|0
 argument_list|)
 expr_stmt|;
-name|QVERIFY
-argument_list|(
-name|in
-operator|.
-name|isSequential
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|{
 name|QFile
 name|out
 decl_stmt|;
+name|QVERIFY
+argument_list|(
 name|out
 operator|.
 name|open
@@ -17539,6 +17546,20 @@ name|QIODevice
 operator|::
 name|WriteOnly
 argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|out
+operator|.
+name|isSequential
+argument_list|()
+condition|)
+name|QSKIP
+argument_list|(
+literal|"Standard output redirected."
+argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
@@ -17564,14 +17585,6 @@ operator|(
 name|qint64
 operator|)
 literal|0
-argument_list|)
-expr_stmt|;
-name|QVERIFY
-argument_list|(
-name|out
-operator|.
-name|isSequential
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -17590,6 +17603,19 @@ operator|::
 name|WriteOnly
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|err
+operator|.
+name|isSequential
+argument_list|()
+condition|)
+name|QSKIP
+argument_list|(
+literal|"Standard error redirected."
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|err
@@ -17614,14 +17640,6 @@ operator|(
 name|qint64
 operator|)
 literal|0
-argument_list|)
-expr_stmt|;
-name|QVERIFY
-argument_list|(
-name|err
-operator|.
-name|isSequential
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
