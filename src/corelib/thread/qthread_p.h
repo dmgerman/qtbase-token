@@ -161,6 +161,15 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QPostEvent
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 DECL|function|operator
 specifier|inline
 name|bool
@@ -221,7 +230,7 @@ name|class
 name|QPostEventList
 range|:
 name|public
-name|QList
+name|QVector
 operator|<
 name|QPostEvent
 operator|>
@@ -247,7 +256,7 @@ specifier|inline
 name|QPostEventList
 argument_list|()
 operator|:
-name|QList
+name|QVector
 operator|<
 name|QPostEvent
 operator|>
@@ -293,6 +302,14 @@ operator|.
 name|priority
 operator|>=
 name|priority
+operator|||
+name|begin
+argument_list|()
+operator|+
+name|insertionOffset
+operator|>=
+name|end
+argument_list|()
 condition|)
 block|{
 comment|// optimization: we can simply append if the last event in
@@ -339,7 +356,7 @@ name|private
 operator|:
 comment|//hides because they do not keep that list sorted. addEvent must be used
 name|using
-name|QList
+name|QVector
 operator|<
 name|QPostEvent
 operator|>
@@ -347,7 +364,7 @@ operator|::
 name|append
 block|;
 name|using
-name|QList
+name|QVector
 operator|<
 name|QPostEvent
 operator|>

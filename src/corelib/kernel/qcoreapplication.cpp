@@ -5028,16 +5028,17 @@ operator|!
 name|receiver
 condition|)
 block|{
-comment|// don't lose the event
-name|data
-operator|->
-name|postEventList
-operator|.
-name|addEvent
-argument_list|(
+comment|// we must copy it first; we want to re-post the event
+comment|// with the event pointer intact, but we can't delay
+comment|// nulling the event ptr until after re-posting, as
+comment|// addEvent may invalidate pe.
+name|QPostEvent
+name|pe_copy
+init|=
 name|pe
-argument_list|)
-expr_stmt|;
+decl_stmt|;
+comment|// null out the event so if sendPostedEvents recurses, it
+comment|// will ignore this one, as it's been re-posted.
 cast|const_cast
 argument_list|<
 name|QPostEvent
@@ -5050,6 +5051,16 @@ operator|.
 name|event
 operator|=
 literal|0
+expr_stmt|;
+comment|// re-post the copied event so it isn't lost
+name|data
+operator|->
+name|postEventList
+operator|.
+name|addEvent
+argument_list|(
+name|pe_copy
+argument_list|)
 expr_stmt|;
 block|}
 continue|continue;
@@ -5421,15 +5432,21 @@ name|i
 operator|!=
 name|j
 condition|)
+name|qSwap
+argument_list|(
 name|data
 operator|->
 name|postEventList
-operator|.
-name|swap
-argument_list|(
+index|[
 name|i
+index|]
 argument_list|,
+name|data
+operator|->
+name|postEventList
+index|[
 name|j
+index|]
 argument_list|)
 expr_stmt|;
 operator|++
