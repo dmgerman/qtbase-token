@@ -1436,6 +1436,8 @@ literal|"printdatatags"
 operator|<<
 literal|"printdatatagswithglobaltags"
 operator|<<
+literal|"qexecstringlist"
+operator|<<
 literal|"singleskip"
 operator|<<
 literal|"skip"
@@ -1657,6 +1659,15 @@ condition|(
 name|subtest
 operator|==
 literal|"multiexec"
+condition|)
+block|{
+continue|continue;
+block|}
+if|if
+condition|(
+name|subtest
+operator|==
+literal|"qexecstringlist"
 condition|)
 block|{
 continue|continue;
