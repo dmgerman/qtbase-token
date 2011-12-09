@@ -62,6 +62,7 @@ name|virtual
 name|QPoint
 name|pos
 argument_list|()
+specifier|const
 block|;
 name|virtual
 name|void
