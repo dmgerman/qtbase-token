@@ -340,6 +340,7 @@ range|:
 name|public
 name|QObject
 block|{
+name|Q_OBJECT
 name|private
 operator|:
 name|QUnifiedTimer
@@ -500,6 +501,17 @@ operator|*
 argument_list|)
 block|;
 name|private
+name|Q_SLOTS
+operator|:
+name|void
+name|startAnimations
+argument_list|()
+block|;
+name|void
+name|stopTimer
+argument_list|()
+block|;
+name|private
 operator|:
 name|friend
 name|class
@@ -543,6 +555,12 @@ name|consistentTiming
 block|;
 name|bool
 name|slowMode
+block|;
+name|bool
+name|startAnimationPending
+block|;
+name|bool
+name|stopTimerPending
 block|;
 comment|// This factor will be used to divide the DEFAULT_TIMER_INTERVAL at each tick
 comment|// when slowMode is enabled. Setting it to 0 or higher than DEFAULT_TIMER_INTERVAL (16)
