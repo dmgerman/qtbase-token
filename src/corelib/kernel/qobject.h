@@ -293,6 +293,11 @@ range|:
 literal|1
 decl_stmt|;
 name|uint
+name|isDeletingChildren
+range|:
+literal|1
+decl_stmt|;
+name|uint
 name|ownObjectName
 range|:
 literal|1

@@ -682,6 +682,11 @@ operator|=
 literal|false
 expr_stmt|;
 comment|// double-delete catcher
+name|isDeletingChildren
+operator|=
+literal|false
+expr_stmt|;
+comment|// set by deleteChildren()
 name|sendChildEvents
 operator|=
 literal|true
@@ -5610,13 +5615,17 @@ operator|::
 name|deleteChildren
 parameter_list|()
 block|{
-specifier|const
-name|bool
-name|reallyWasDeleted
-init|=
-name|wasDeleted
-decl_stmt|;
-name|wasDeleted
+name|Q_ASSERT_X
+argument_list|(
+operator|!
+name|isDeletingChildren
+argument_list|,
+literal|"QObjectPrivate::deleteChildren()"
+argument_list|,
+literal|"isDeletingChildren already set, did this function recurse?"
+argument_list|)
+expr_stmt|;
+name|isDeletingChildren
 operator|=
 literal|true
 expr_stmt|;
@@ -5670,9 +5679,9 @@ name|currentChildBeingDeleted
 operator|=
 literal|0
 expr_stmt|;
-name|wasDeleted
+name|isDeletingChildren
 operator|=
-name|reallyWasDeleted
+literal|false
 expr_stmt|;
 block|}
 end_function
@@ -5718,7 +5727,7 @@ if|if
 condition|(
 name|parentD
 operator|->
-name|wasDeleted
+name|isDeletingChildren
 operator|&&
 name|wasDeleted
 operator|&&
@@ -5751,7 +5760,7 @@ if|if
 condition|(
 name|parentD
 operator|->
-name|wasDeleted
+name|isDeletingChildren
 condition|)
 block|{
 name|parentD
@@ -5897,7 +5906,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|wasDeleted
+name|isDeletingChildren
 operator|&&
 name|declarativeData
 condition|)
