@@ -125,7 +125,7 @@ name|qsidebar
 decl_stmt|;
 name|qsidebar
 operator|.
-name|init
+name|setModelAndUrls
 argument_list|(
 operator|&
 name|fsmodel
@@ -276,7 +276,7 @@ name|qsidebar
 decl_stmt|;
 name|qsidebar
 operator|.
-name|init
+name|setModelAndUrls
 argument_list|(
 operator|&
 name|fsmodel
@@ -347,7 +347,7 @@ name|qsidebar
 decl_stmt|;
 name|qsidebar
 operator|.
-name|init
+name|setModelAndUrls
 argument_list|(
 operator|&
 name|fsmodel
@@ -1038,7 +1038,7 @@ name|qsidebar
 decl_stmt|;
 name|qsidebar
 operator|.
-name|init
+name|setModelAndUrls
 argument_list|(
 operator|&
 name|fsmodel

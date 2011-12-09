@@ -370,7 +370,7 @@ literal|0
 argument_list|)
 block|;
 name|void
-name|init
+name|setModelAndUrls
 argument_list|(
 name|QFileSystemModel
 operator|*

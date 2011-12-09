@@ -2033,11 +2033,11 @@ argument_list|(
 name|parent
 argument_list|)
 block|{ }
-DECL|function|init
+DECL|function|setModelAndUrls
 name|void
 name|QSidebar
 operator|::
-name|init
+name|setModelAndUrls
 parameter_list|(
 name|QFileSystemModel
 modifier|*

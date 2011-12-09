@@ -8772,7 +8772,7 @@ name|qFileDialogUi
 operator|->
 name|sidebar
 operator|->
-name|init
+name|setModelAndUrls
 argument_list|(
 name|model
 argument_list|,
@@ -8856,7 +8856,7 @@ name|qFileDialogUi
 operator|->
 name|lookInCombo
 operator|->
-name|init
+name|setFileDialogPrivate
 argument_list|(
 name|this
 argument_list|)
@@ -8913,7 +8913,7 @@ name|qFileDialogUi
 operator|->
 name|fileNameEdit
 operator|->
-name|init
+name|setFileDialogPrivate
 argument_list|(
 name|this
 argument_list|)
@@ -9128,7 +9128,7 @@ name|qFileDialogUi
 operator|->
 name|listView
 operator|->
-name|init
+name|setFileDialogPrivate
 argument_list|(
 name|this
 argument_list|)
@@ -9251,7 +9251,7 @@ name|qFileDialogUi
 operator|->
 name|treeView
 operator|->
-name|init
+name|setFileDialogPrivate
 argument_list|(
 name|this
 argument_list|)
@@ -14453,11 +14453,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|init
+DECL|function|setFileDialogPrivate
 name|void
 name|QFileDialogComboBox
 operator|::
-name|init
+name|setFileDialogPrivate
 parameter_list|(
 name|QFileDialogPrivate
 modifier|*
@@ -14992,11 +14992,11 @@ argument_list|)
 block|{ }
 end_constructor
 begin_function
-DECL|function|init
+DECL|function|setFileDialogPrivate
 name|void
 name|QFileDialogListView
 operator|::
-name|init
+name|setFileDialogPrivate
 parameter_list|(
 name|QFileDialogPrivate
 modifier|*
@@ -15177,11 +15177,11 @@ argument_list|)
 block|{ }
 end_constructor
 begin_function
-DECL|function|init
+DECL|function|setFileDialogPrivate
 name|void
 name|QFileDialogTreeView
 operator|::
-name|init
+name|setFileDialogPrivate
 parameter_list|(
 name|QFileDialogPrivate
 modifier|*

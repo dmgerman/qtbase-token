@@ -1415,7 +1415,7 @@ literal|0
 argument_list|)
 block|{}
 name|void
-name|init
+name|setFileDialogPrivate
 argument_list|(
 argument|QFileDialogPrivate *d_pointer
 argument_list|)
@@ -1472,7 +1472,7 @@ literal|0
 argument_list|)
 block|{}
 name|void
-name|init
+name|setFileDialogPrivate
 argument_list|(
 name|QFileDialogPrivate
 operator|*
@@ -1542,7 +1542,7 @@ literal|0
 argument_list|)
 block|;
 name|void
-name|init
+name|setFileDialogPrivate
 argument_list|(
 name|QFileDialogPrivate
 operator|*
@@ -1589,7 +1589,7 @@ name|parent
 argument_list|)
 block|;
 name|void
-name|init
+name|setFileDialogPrivate
 argument_list|(
 name|QFileDialogPrivate
 operator|*

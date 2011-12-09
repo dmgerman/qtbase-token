@@ -5939,7 +5939,7 @@ name|mySideBar
 decl_stmt|;
 name|mySideBar
 operator|.
-name|init
+name|setModelAndUrls
 argument_list|(
 name|model
 argument_list|,
