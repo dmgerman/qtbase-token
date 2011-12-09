@@ -5197,10 +5197,10 @@ begin_comment
 comment|/*! \enum Qt::TouchPointState     \since 4.6      This enum represents the state of a touch point at the time the     QTouchEvent occurred.      \value TouchPointPressed The touch point is now pressed.     \value TouchPointMoved The touch point moved.     \value TouchPointStationary The touch point did not move.     \value TouchPointReleased The touch point was released.      \omitvalue TouchPointStateMask     \omitvalue TouchPointPrimary */
 end_comment
 begin_comment
-comment|/*! \enum QTouchEvent::DeviceType      This enum represents the type of device that generated a QTouchEvent.      \value TouchScreen In this type of device, the touch surface and display are integrated. This                        means the surface and display typically have the same size, such that there                        is a direct relationship between the touch points' physical positions and the                        coordinate reported by QTouchEvent::TouchPoint. As a result, Qt allows the                        user to interact directly with multiple QWidgets and QGraphicsItems at the                        same time.      \value TouchPad In this type of device, the touch surface is separate from the display. There                     is not a direct relationship between the physical touch location and the                     on-screen coordinates. Instead, they are calculated relative to the current                     mouse position, and the user must use the touch-pad to move this reference                     point. Unlike touch-screens, Qt allows users to only interact with a single                     QWidget or QGraphicsItem at a time. */
+comment|/*! \enum QTouchEvent::DeviceType      This enum represents the type of device that generated a QTouchEvent.      This enum has been deprecated. Use QTouchDevice::DeviceType instead.      \sa QTouchDevice::DeviceType, QTouchDevice::type(), QTouchEvent::device() */
 end_comment
 begin_comment
-comment|/*!     Constructs a QTouchEvent with the given \a eventType, \a deviceType, and \a touchPoints.     The \a touchPointStates and \a modifiers are the current touch point states and keyboard     modifiers at the time of the event. */
+comment|/*!     Constructs a QTouchEvent with the given \a eventType, \a deviceType, \a     touchPoints and \a device. The \a touchPointStates and \a modifiers     are the current touch point states and keyboard modifiers at the time of     the event. */
 end_comment
 begin_constructor
 DECL|function|QTouchEvent
@@ -5213,10 +5213,9 @@ operator|::
 name|Type
 name|eventType
 parameter_list|,
-name|QTouchEvent
-operator|::
-name|DeviceType
-name|deviceType
+name|QTouchDevice
+modifier|*
+name|device
 parameter_list|,
 name|Qt
 operator|::
@@ -5251,9 +5250,9 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|_deviceType
+name|_device
 argument_list|(
-name|deviceType
+name|device
 argument_list|)
 member_init_list|,
 name|_touchPointStates
@@ -5283,6 +5282,12 @@ begin_comment
 comment|/*! \fn QWidget *QTouchEvent::widget() const      Returns the widget on which the event occurred. */
 end_comment
 begin_comment
+comment|/*! \fn QWindow *QTouchEvent::window() const      Returns the window on which the event occurred. Useful for doing     global-local mapping on data like rawScreenPositions() which,     for performance reasons, only stores the global positions in the     touch event. */
+end_comment
+begin_comment
+comment|/*! \fn QTouchEvent::DeviceType QTouchEvent::deviceType() const      Returns the touch device Type, which is of type \l {QTouchEvent::DeviceType} {DeviceType}.      This function has been deprecated. Use QTouchDevice::type() instead.      \sa QTouchDevice::type(), QTouchEvent::device() */
+end_comment
+begin_comment
 comment|/*! \fn Qt::TouchPointStates QTouchEvent::touchPointStates() const      Returns a bitwise OR of all the touch point states for this event. */
 end_comment
 begin_comment
@@ -5292,7 +5297,13 @@ begin_comment
 comment|/*! \fn QTouchEvent::DeviceType QTouchEvent::deviceType() const      Returns the touch device Type, which is of type \l {QTouchEvent::DeviceType} {DeviceType}. */
 end_comment
 begin_comment
+comment|/*! \fn QTouchDevice* QTouchEvent::device() const      Returns the touch device from which this touch event originates. */
+end_comment
+begin_comment
 comment|/*! \fn void QTouchEvent::setWidget(QWidget *widget)      \internal      Sets the widget for this event. */
+end_comment
+begin_comment
+comment|/*! \fn void QTouchEvent::setWindow(QWindow *window)      \internal      Sets the window for this event. */
 end_comment
 begin_comment
 comment|/*! \fn void QTouchEvent::setTouchPointStates(Qt::TouchPointStates touchPointStates)      \internal      Sets a bitwise OR of all the touch point states for this event. */
@@ -5304,7 +5315,13 @@ begin_comment
 comment|/*! \fn void QTouchEvent::setDeviceType(DeviceType deviceType)      \internal      Sets the device type to \a deviceType, which is of type \l {QTouchEvent::DeviceType}     {DeviceType}. */
 end_comment
 begin_comment
+comment|/*! \fn void QTouchEvent::setTouchDevice(QTouchDevice *device)      \internal      Sets the touch event's device to the given one. */
+end_comment
+begin_comment
 comment|/*! \class QTouchEvent::TouchPoint     \brief The TouchPoint class provides information about a touch point in a QTouchEvent.     \since 4.6 */
+end_comment
+begin_comment
+comment|/*! \enum QTouchEvent::TouchPoint::InfoFlags      The values of this enum describe additional information about a touch point.      \value Pen Indicates that the contact has been made by a designated pointing device (e.g. a pen) instead of a finger. */
 end_comment
 begin_comment
 comment|/*! \internal      Constructs a QTouchEvent::TouchPoint for use in a QTouchEvent. */
@@ -5821,6 +5838,76 @@ return|return
 name|d
 operator|->
 name|pressure
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns a velocity vector for this touch point.     The vector is in the screen's coordinate system, using pixels per seconds for the magnitude.      \note The returned vector is only valid if the touch device's capabilities include QTouchDevice::Velocity.      \sa QTouchDevice::capabilities(), device() */
+end_comment
+begin_function
+DECL|function|velocity
+name|QVector2D
+name|QTouchEvent
+operator|::
+name|TouchPoint
+operator|::
+name|velocity
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|d
+operator|->
+name|velocity
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!   Returns additional information about the touch point.    \sa QTouchEvent::TouchPoint::InfoFlags   */
+end_comment
+begin_function
+DECL|function|flags
+name|QTouchEvent
+operator|::
+name|TouchPoint
+operator|::
+name|InfoFlags
+name|QTouchEvent
+operator|::
+name|TouchPoint
+operator|::
+name|flags
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|d
+operator|->
+name|flags
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!   Returns the raw, unfiltered positions for the touch point. The positions are in screen coordinates.   To get local coordinates you can use mapFromGlobal() of the QWindow returned by QTouchEvent::window().    \note Returns an empty list if the touch device's capabilities do not include QTouchDevice::RawPositions.    \sa QTouchDevice::capabilities(), device(), window()   */
+end_comment
+begin_function
+DECL|function|rawScreenPositions
+name|QList
+argument_list|<
+name|QPointF
+argument_list|>
+name|QTouchEvent
+operator|::
+name|TouchPoint
+operator|::
+name|rawScreenPositions
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|d
+operator|->
+name|rawScreenPositions
 return|;
 block|}
 end_function
@@ -6618,6 +6705,139 @@ operator|->
 name|pressure
 operator|=
 name|pressure
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*! \internal */
+end_comment
+begin_function
+DECL|function|setVelocity
+name|void
+name|QTouchEvent
+operator|::
+name|TouchPoint
+operator|::
+name|setVelocity
+parameter_list|(
+specifier|const
+name|QVector2D
+modifier|&
+name|v
+parameter_list|)
+block|{
+if|if
+condition|(
+name|d
+operator|->
+name|ref
+operator|.
+name|load
+argument_list|()
+operator|!=
+literal|1
+condition|)
+name|d
+operator|=
+name|d
+operator|->
+name|detach
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|velocity
+operator|=
+name|v
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*! \internal */
+end_comment
+begin_function
+DECL|function|setRawScreenPositions
+name|void
+name|QTouchEvent
+operator|::
+name|TouchPoint
+operator|::
+name|setRawScreenPositions
+parameter_list|(
+specifier|const
+name|QList
+argument_list|<
+name|QPointF
+argument_list|>
+modifier|&
+name|positions
+parameter_list|)
+block|{
+if|if
+condition|(
+name|d
+operator|->
+name|ref
+operator|.
+name|load
+argument_list|()
+operator|!=
+literal|1
+condition|)
+name|d
+operator|=
+name|d
+operator|->
+name|detach
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|rawScreenPositions
+operator|=
+name|positions
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/* \internal */
+end_comment
+begin_function
+DECL|function|setFlags
+name|void
+name|QTouchEvent
+operator|::
+name|TouchPoint
+operator|::
+name|setFlags
+parameter_list|(
+name|InfoFlags
+name|flags
+parameter_list|)
+block|{
+if|if
+condition|(
+name|d
+operator|->
+name|ref
+operator|.
+name|load
+argument_list|()
+operator|!=
+literal|1
+condition|)
+name|d
+operator|=
+name|d
+operator|->
+name|detach
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|flags
+operator|=
+name|flags
 expr_stmt|;
 block|}
 end_function

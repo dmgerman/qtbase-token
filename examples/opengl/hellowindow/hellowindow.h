@@ -57,6 +57,12 @@ operator|*
 name|share
 operator|=
 literal|0
+argument_list|,
+name|QScreen
+operator|*
+name|screen
+operator|=
+literal|0
 argument_list|)
 block|;
 name|QSurfaceFormat

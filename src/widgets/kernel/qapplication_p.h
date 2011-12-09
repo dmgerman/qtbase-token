@@ -183,6 +183,12 @@ name|class
 name|QSocketNotifier
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QTouchDevice
+name|class
+name|QTouchDevice
+decl_stmt|;
+end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -2303,7 +2309,7 @@ name|translateRawTouchEvent
 argument_list|(
 argument|QWidget *widget
 argument_list|,
-argument|QTouchEvent::DeviceType deviceType
+argument|QTouchDevice *device
 argument_list|,
 argument|const QList<QTouchEvent::TouchPoint>&touchPoints
 argument_list|,
@@ -2539,10 +2545,9 @@ name|QWidget
 operator|*
 name|window
 argument_list|,
-name|QTouchEvent
-operator|::
-name|DeviceType
-name|deviceType
+name|QTouchDevice
+operator|*
+name|device
 argument_list|,
 specifier|const
 name|QList
@@ -2553,6 +2558,9 @@ name|TouchPoint
 operator|>
 operator|&
 name|touchPoints
+argument_list|,
+name|ulong
+name|timestamp
 argument_list|)
 decl_stmt|;
 end_decl_stmt

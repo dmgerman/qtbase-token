@@ -727,7 +727,7 @@ argument|ulong time
 argument_list|,
 argument|QEvent::Type t
 argument_list|,
-argument|QTouchEvent::DeviceType d
+argument|QTouchDevice *dev
 argument_list|,
 argument|const QList<QTouchEvent::TouchPoint>&p
 argument_list|,
@@ -745,9 +745,9 @@ argument_list|,
 name|mods
 argument_list|)
 block|,
-name|devType
+name|device
 argument_list|(
-name|d
+name|dev
 argument_list|)
 block|,
 name|points
@@ -760,10 +760,9 @@ argument_list|(
 argument|t
 argument_list|)
 block|{ }
-name|QTouchEvent
-operator|::
-name|DeviceType
-name|devType
+name|QTouchDevice
+operator|*
+name|device
 block|;
 name|QList
 operator|<
@@ -777,7 +776,7 @@ name|QEvent
 operator|::
 name|Type
 name|touchType
-block|;      }
+block|;     }
 decl_stmt|;
 name|class
 name|ScreenOrientationEvent

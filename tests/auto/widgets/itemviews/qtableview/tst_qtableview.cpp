@@ -27,25 +27,6 @@ include|#
 directive|include
 file|"private/qapplication_p.h"
 end_include
-begin_comment
-comment|// Will try to wait for the condition while allowing event processing
-end_comment
-begin_comment
-comment|// for a maximum of 2 seconds.
-end_comment
-begin_define
-DECL|macro|WAIT_FOR_CONDITION
-define|#
-directive|define
-name|WAIT_FOR_CONDITION
-parameter_list|(
-name|expr
-parameter_list|,
-name|expected
-parameter_list|)
-define|\
-value|do { \         const int step = 100; \         for (int i = 0; i< 2000&& expr != expected; i+=step) { \             QTest::qWait(step); \         } \     } while(0)
-end_define
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -20112,35 +20093,8 @@ operator|.
 name|activateWindow
 argument_list|()
 expr_stmt|;
-name|QTest
-operator|::
-name|qWait
-argument_list|(
-literal|100
-argument_list|)
-expr_stmt|;
-name|qApp
-operator|->
-name|processEvents
-argument_list|()
-expr_stmt|;
-name|WAIT_FOR_CONDITION
-argument_list|(
-name|window
-operator|.
-name|hasFocus
-argument_list|()
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-name|qApp
-operator|->
-name|processEvents
-argument_list|()
-expr_stmt|;
 comment|// window
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 name|window
 operator|.

@@ -202,6 +202,8 @@ name|QAccessibleMenu
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -232,6 +234,8 @@ if|if
 condition|(
 name|t
 operator|==
+name|QAccessible
+operator|::
 name|Name
 condition|)
 return|return
@@ -258,6 +262,8 @@ parameter_list|()
 specifier|const
 block|{
 return|return
+name|QAccessible
+operator|::
 name|PopupMenu
 return|;
 block|}
@@ -376,6 +382,8 @@ name|QAccessibleMenu
 operator|::
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|relation
 parameter_list|,
@@ -402,6 +410,8 @@ name|relation
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Child
 case|:
 operator|*
@@ -424,6 +434,8 @@ operator|-
 literal|1
 return|;
 case|case
+name|QAccessible
+operator|::
 name|Ancestor
 case|:
 operator|*
@@ -477,6 +489,8 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+name|QAccessible
+operator|::
 name|Role
 name|r
 init|=
@@ -490,10 +504,14 @@ condition|(
 operator|(
 name|r
 operator|==
+name|QAccessible
+operator|::
 name|MenuItem
 operator|||
 name|r
 operator|==
+name|QAccessible
+operator|::
 name|Separator
 operator|)
 operator|&&
@@ -560,6 +578,8 @@ name|QAccessibleWidget
 argument_list|(
 name|w
 argument_list|,
+name|QAccessible
+operator|::
 name|MenuBar
 argument_list|)
 block|{
@@ -666,6 +686,8 @@ name|QAccessibleMenuBar
 operator|::
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|relation
 parameter_list|,
@@ -683,6 +705,8 @@ if|if
 condition|(
 name|relation
 operator|==
+name|QAccessible
+operator|::
 name|Child
 condition|)
 block|{
@@ -740,6 +764,8 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+name|QAccessible
+operator|::
 name|Role
 name|r
 init|=
@@ -753,10 +779,14 @@ condition|(
 operator|(
 name|r
 operator|==
+name|QAccessible
+operator|::
 name|MenuItem
 operator|||
 name|r
 operator|==
+name|QAccessible
+operator|::
 name|Separator
 operator|)
 operator|&&
@@ -966,6 +996,8 @@ operator|->
 name|role
 argument_list|()
 operator|==
+name|QAccessible
+operator|::
 name|PopupMenu
 operator|&&
 name|child
@@ -1074,6 +1106,8 @@ name|QAccessibleMenuItem
 operator|::
 name|navigate
 parameter_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 name|relation
 parameter_list|,
@@ -1110,6 +1144,8 @@ name|relation
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Child
 case|:
 operator|*
@@ -1124,6 +1160,8 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Ancestor
 case|:
 operator|*
@@ -1134,9 +1172,13 @@ argument_list|()
 expr_stmt|;
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Up
 case|:
 case|case
+name|QAccessible
+operator|::
 name|Down
 case|:
 block|{
@@ -1175,6 +1217,8 @@ operator|+=
 operator|(
 name|relation
 operator|==
+name|QAccessible
+operator|::
 name|Down
 condition|?
 operator|+
@@ -1204,6 +1248,8 @@ expr_stmt|;
 break|break;
 block|}
 case|case
+name|QAccessible
+operator|::
 name|Sibling
 case|:
 block|{
@@ -1460,6 +1506,8 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|QAccessible
+operator|::
 name|Child
 return|;
 block|}
@@ -1469,6 +1517,8 @@ argument|other
 argument_list|)
 comment|// ###
 return|return
+name|QAccessible
+operator|::
 name|Unrelated
 return|;
 block|}
@@ -1490,8 +1540,12 @@ operator|->
 name|isSeparator
 argument_list|()
 condition|?
+name|QAccessible
+operator|::
 name|Separator
 else|:
+name|QAccessible
+operator|::
 name|MenuItem
 return|;
 block|}
@@ -1503,6 +1557,8 @@ name|QAccessibleMenuItem
 operator|::
 name|setText
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 comment|/*t*/
 parameter_list|,
@@ -1529,6 +1585,8 @@ operator|::
 name|State
 name|s
 init|=
+name|QAccessible
+operator|::
 name|Normal
 decl_stmt|;
 name|QWidget
@@ -1561,6 +1619,8 @@ condition|)
 block|{
 name|s
 operator||=
+name|QAccessible
+operator|::
 name|Invisible
 expr_stmt|;
 block|}
@@ -1591,6 +1651,8 @@ name|m_action
 condition|)
 name|s
 operator||=
+name|QAccessible
+operator|::
 name|Focused
 expr_stmt|;
 ifndef|#
@@ -1625,6 +1687,8 @@ name|m_action
 condition|)
 name|s
 operator||=
+name|QAccessible
+operator|::
 name|Focused
 expr_stmt|;
 endif|#
@@ -1646,6 +1710,8 @@ argument_list|)
 condition|)
 name|s
 operator||=
+name|QAccessible
+operator|::
 name|HotTracked
 expr_stmt|;
 if|if
@@ -1663,6 +1729,8 @@ argument_list|()
 condition|)
 name|s
 operator||=
+name|QAccessible
+operator|::
 name|Unavailable
 expr_stmt|;
 if|if
@@ -1674,6 +1742,8 @@ argument_list|()
 condition|)
 name|s
 operator||=
+name|QAccessible
+operator|::
 name|Checked
 expr_stmt|;
 return|return
@@ -1688,6 +1758,8 @@ name|QAccessibleMenuItem
 operator|::
 name|text
 parameter_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 parameter_list|)
@@ -1702,6 +1774,8 @@ name|t
 condition|)
 block|{
 case|case
+name|QAccessible
+operator|::
 name|Name
 case|:
 name|str
@@ -1720,6 +1794,8 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+name|QAccessible
+operator|::
 name|Accelerator
 case|:
 block|{

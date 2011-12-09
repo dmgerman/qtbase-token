@@ -2322,10 +2322,13 @@ if|if
 condition|(
 name|te
 operator|->
-name|deviceType
+name|device
+argument_list|()
+operator|->
+name|type
 argument_list|()
 operator|==
-name|QTouchEvent
+name|QTouchDevice
 operator|::
 name|TouchPad
 condition|)

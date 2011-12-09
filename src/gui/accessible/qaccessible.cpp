@@ -744,6 +744,8 @@ parameter_list|)
 specifier|const
 block|{
 return|return
+name|QAccessible
+operator|::
 name|Unrelated
 return|;
 block|}
@@ -779,6 +781,8 @@ argument_list|<
 name|QAccessibleInterface
 operator|*
 argument_list|,
+name|QAccessible
+operator|::
 name|Relation
 argument_list|>
 argument_list|>
@@ -913,6 +917,8 @@ name|QAccessibleInterface
 operator|::
 name|invokeMethod
 parameter_list|(
+name|QAccessible
+operator|::
 name|Method
 name|method
 parameter_list|,

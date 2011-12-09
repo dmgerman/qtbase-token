@@ -407,6 +407,36 @@ name|void
 name|_q_layoutChanged
 argument_list|()
 block|;
+name|virtual
+name|void
+name|_q_rowsMoved
+argument_list|(
+argument|const QModelIndex&source
+argument_list|,
+argument|int sourceStart
+argument_list|,
+argument|int sourceEnd
+argument_list|,
+argument|const QModelIndex&destination
+argument_list|,
+argument|int destinationStart
+argument_list|)
+block|;
+name|virtual
+name|void
+name|_q_columnsMoved
+argument_list|(
+argument|const QModelIndex&source
+argument_list|,
+argument|int sourceStart
+argument_list|,
+argument|int sourceEnd
+argument_list|,
+argument|const QModelIndex&destination
+argument_list|,
+argument|int destinationStart
+argument_list|)
+block|;
 name|void
 name|_q_headerDataChanged
 argument_list|()

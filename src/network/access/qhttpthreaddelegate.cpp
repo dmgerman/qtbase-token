@@ -2168,10 +2168,23 @@ operator|->
 name|supportsUserProvidedDownloadBuffer
 argument_list|()
 operator|&&
+operator|(
 name|downloadBufferMaximumSize
 operator|>
 literal|0
+operator|)
+operator|&&
+operator|(
+name|httpReply
+operator|->
+name|contentLength
+argument_list|()
+operator|<=
+name|downloadBufferMaximumSize
+operator|)
 condition|)
+block|{
+name|QT_TRY
 block|{
 name|char
 modifier|*
@@ -2211,6 +2224,14 @@ argument_list|(
 name|buf
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+name|QT_CATCH
+argument_list|(
+argument|const std::bad_alloc&
+argument_list|)
+block|{
+comment|// in out of memory situations, don't use downloadbuffer.
 block|}
 block|}
 comment|// We fetch this into our own

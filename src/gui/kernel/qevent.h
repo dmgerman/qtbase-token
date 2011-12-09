@@ -73,6 +73,16 @@ include|#
 directive|include
 file|<QtCore/qfile.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/qvector2d.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/qtouchdevice.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -3152,6 +3162,20 @@ name|TouchPoint
 block|{
 name|public
 operator|:
+expr|enum
+name|InfoFlag
+block|{
+name|Pen
+operator|=
+literal|0x0001
+block|}
+block|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|InfoFlags
+argument_list|,
+argument|InfoFlag
+argument_list|)
 name|TouchPoint
 argument_list|(
 argument|int id = -
@@ -3266,6 +3290,24 @@ specifier|const
 block|;
 name|qreal
 name|pressure
+argument_list|()
+specifier|const
+block|;
+name|QVector2D
+name|velocity
+argument_list|()
+specifier|const
+block|;
+name|InfoFlags
+name|flags
+argument_list|()
+specifier|const
+block|;
+name|QList
+operator|<
+name|QPointF
+operator|>
+name|rawScreenPositions
 argument_list|()
 specifier|const
 block|;
@@ -3423,6 +3465,33 @@ argument_list|(
 argument|qreal pressure
 argument_list|)
 block|;
+name|void
+name|setVelocity
+argument_list|(
+specifier|const
+name|QVector2D
+operator|&
+name|v
+argument_list|)
+block|;
+name|void
+name|setFlags
+argument_list|(
+argument|InfoFlags flags
+argument_list|)
+block|;
+name|void
+name|setRawScreenPositions
+argument_list|(
+specifier|const
+name|QList
+operator|<
+name|QPointF
+operator|>
+operator|&
+name|positions
+argument_list|)
+block|;
 name|QTouchEvent
 operator|::
 name|TouchPoint
@@ -3460,7 +3529,9 @@ name|friend
 name|class
 name|QApplicationPrivate
 block|;     }
-block|;      enum
+block|;
+name|QT_DEPRECATED
+expr|enum
 name|DeviceType
 block|{
 name|TouchScreen
@@ -3472,7 +3543,8 @@ name|QTouchEvent
 argument_list|(
 argument|QEvent::Type eventType
 argument_list|,
-argument|QTouchEvent::DeviceType deviceType = TouchScreen
+argument|QTouchDevice *device =
+literal|0
 argument_list|,
 argument|Qt::KeyboardModifiers modifiers = Qt::NoModifier
 argument_list|,
@@ -3498,6 +3570,18 @@ name|_widget
 return|;
 block|}
 specifier|inline
+name|QWindow
+operator|*
+name|window
+argument_list|()
+specifier|const
+block|{
+return|return
+name|_window
+return|;
+block|}
+name|QT_DEPRECATED
+specifier|inline
 name|QTouchEvent
 operator|::
 name|DeviceType
@@ -3506,7 +3590,19 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|_deviceType
+name|static_cast
+operator|<
+name|DeviceType
+operator|>
+operator|(
+name|int
+argument_list|(
+name|_device
+operator|->
+name|type
+argument_list|()
+argument_list|)
+operator|)
 return|;
 block|}
 specifier|inline
@@ -3538,6 +3634,17 @@ return|return
 name|_touchPoints
 return|;
 block|}
+specifier|inline
+name|QTouchDevice
+operator|*
+name|device
+argument_list|()
+specifier|const
+block|{
+return|return
+name|_device
+return|;
+block|}
 comment|// internal
 specifier|inline
 name|void
@@ -3552,14 +3659,14 @@ name|awidget
 block|; }
 specifier|inline
 name|void
-name|setDeviceType
+name|setWindow
 argument_list|(
-argument|DeviceType adeviceType
+argument|QWindow *awindow
 argument_list|)
 block|{
-name|_deviceType
+name|_window
 operator|=
-name|adeviceType
+name|awindow
 block|; }
 specifier|inline
 name|void
@@ -3583,16 +3690,30 @@ name|_touchPoints
 operator|=
 name|atouchPoints
 block|; }
+specifier|inline
+name|void
+name|setDevice
+argument_list|(
+argument|QTouchDevice *device
+argument_list|)
+block|{
+name|_device
+operator|=
+name|device
+block|; }
 name|protected
 operator|:
 name|QWidget
 operator|*
 name|_widget
 block|;
-name|QTouchEvent
-operator|::
-name|DeviceType
-name|_deviceType
+name|QWindow
+operator|*
+name|_window
+block|;
+name|QTouchDevice
+operator|*
+name|_device
 block|;
 name|Qt
 operator|::
@@ -3624,6 +3745,10 @@ name|class
 name|QApplicationPrivate
 block|; }
 block|;
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QTouchEvent::TouchPoint::InfoFlags
+argument_list|)
 DECL|variable|QScrollPrepareEventPrivate
 name|class
 name|QScrollPrepareEventPrivate

@@ -750,8 +750,18 @@ name|m_proxy
 argument_list|,
 name|SIGNAL
 argument_list|(
-name|layoutAboutToBeChanged
-argument_list|()
+name|rowsAboutToBeMoved
+argument_list|(
+name|QModelIndex
+argument_list|,
+name|int
+argument_list|,
+name|int
+argument_list|,
+name|QModelIndex
+argument_list|,
+name|int
+argument_list|)
 argument_list|)
 argument_list|,
 name|SLOT
@@ -767,8 +777,18 @@ name|m_proxy
 argument_list|,
 name|SIGNAL
 argument_list|(
-name|layoutChanged
-argument_list|()
+name|rowsMoved
+argument_list|(
+name|QModelIndex
+argument_list|,
+name|int
+argument_list|,
+name|int
+argument_list|,
+name|QModelIndex
+argument_list|,
+name|int
+argument_list|)
 argument_list|)
 argument_list|,
 name|SLOT
@@ -911,7 +931,7 @@ name|void
 name|storePersistent
 parameter_list|()
 block|{
-comment|// This method is called from layoutAboutToBeChanged. Persistent indexes should be valid
+comment|// This method is called from rowsAboutToBeMoved. Persistent indexes should be valid
 foreach|foreach
 control|(
 specifier|const

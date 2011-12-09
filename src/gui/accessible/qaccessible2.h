@@ -747,15 +747,6 @@ specifier|const
 operator|=
 literal|0
 expr_stmt|;
-comment|// #### Qt5 this should not be here but part of the state
-name|virtual
-name|bool
-name|isExpandable
-argument_list|()
-specifier|const
-operator|=
-literal|0
-expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

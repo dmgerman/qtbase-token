@@ -1376,6 +1376,18 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
+argument|void _q_columnsMoved(const QModelIndex&, int, int, const QModelIndex&, int)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_rowsMoved(const QModelIndex&, int, int, const QModelIndex&, int)
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
 argument|void _q_modelDestroyed()
 argument_list|)
 name|Q_PRIVATE_SLOT

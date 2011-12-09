@@ -203,10 +203,6 @@ name|QAbstractEventDispatcher
 operator|*
 name|mEventDispatcher
 block|;
-name|QCocoaAutoReleasePool
-operator|*
-name|mPool
-block|;
 name|QPlatformAccessibility
 operator|*
 name|mAccessibility

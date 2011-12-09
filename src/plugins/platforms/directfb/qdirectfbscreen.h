@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qdirectfbcursor.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QPlatformIntegration>
 end_include
 begin_include
@@ -30,12 +35,6 @@ file|<directfb.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QDirectFBCursor
-name|class
-name|QDirectFBCursor
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QDirectFbScreen
 range|:

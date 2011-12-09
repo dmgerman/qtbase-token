@@ -73,16 +73,18 @@ name|QAccessibleButton
 argument_list|(
 argument|QWidget *w
 argument_list|,
-argument|Role r
+argument|QAccessible::Role r
 argument_list|)
 block|;
 name|QString
 name|text
 argument_list|(
-argument|Text t
+argument|QAccessible::Text t
 argument_list|)
 specifier|const
 block|;
+name|QAccessible
+operator|::
 name|State
 name|state
 argument_list|()
@@ -137,9 +139,11 @@ name|QAccessibleToolButton
 argument_list|(
 argument|QWidget *w
 argument_list|,
-argument|Role role
+argument|QAccessible::Role role
 argument_list|)
 block|;
+name|QAccessible
+operator|::
 name|State
 name|state
 argument_list|()
@@ -161,7 +165,7 @@ block|;
 name|QString
 name|text
 argument_list|(
-argument|Text t
+argument|QAccessible::Text t
 argument_list|)
 specifier|const
 block|;
@@ -217,43 +221,52 @@ name|public
 label|:
 name|explicit
 name|QAccessibleDisplay
-parameter_list|(
+argument_list|(
 name|QWidget
-modifier|*
+operator|*
 name|w
-parameter_list|,
+argument_list|,
+name|QAccessible
+operator|::
 name|Role
 name|role
-init|=
+operator|=
+name|QAccessible
+operator|::
 name|StaticText
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
 name|QString
 name|text
 argument_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 argument_list|)
 decl|const
 decl_stmt|;
+name|QAccessible
+operator|::
 name|Role
 name|role
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QAccessible
+operator|::
 name|Relation
 name|relationTo
 argument_list|(
-specifier|const
-name|QAccessibleInterface
-operator|*
-name|other
+argument|const QAccessibleInterface *other
 argument_list|)
-decl|const
-decl_stmt|;
+specifier|const
+expr_stmt|;
 name|int
 name|navigate
 argument_list|(
+name|QAccessible
+operator|::
 name|RelationFlag
 argument_list|,
 name|int
@@ -340,6 +353,8 @@ function_decl|;
 name|QString
 name|text
 argument_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
 argument_list|)
@@ -347,16 +362,20 @@ decl|const
 decl_stmt|;
 name|void
 name|setText
-parameter_list|(
+argument_list|(
+name|QAccessible
+operator|::
 name|Text
 name|t
-parameter_list|,
+argument_list|,
 specifier|const
 name|QString
-modifier|&
+operator|&
 name|text
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
+name|QAccessible
+operator|::
 name|State
 name|state
 argument_list|()

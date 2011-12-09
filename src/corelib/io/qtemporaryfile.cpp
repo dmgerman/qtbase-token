@@ -1545,11 +1545,6 @@ name|~
 name|QTemporaryFilePrivate
 parameter_list|()
 destructor_decl|;
-name|QString
-name|defaultTemplateName
-parameter_list|()
-specifier|const
-function_decl|;
 DECL|member|autoRemove
 name|bool
 name|autoRemove
@@ -1585,12 +1580,10 @@ block|{ }
 end_destructor
 begin_function
 DECL|function|defaultTemplateName
+specifier|static
 name|QString
-name|QTemporaryFilePrivate
-operator|::
 name|defaultTemplateName
 parameter_list|()
-specifier|const
 block|{
 name|QString
 name|baseName
@@ -1678,8 +1671,6 @@ name|d
 operator|->
 name|templateName
 operator|=
-name|d
-operator|->
 name|defaultTemplateName
 argument_list|()
 expr_stmt|;
@@ -1749,8 +1740,6 @@ name|d
 operator|->
 name|templateName
 operator|=
-name|d
-operator|->
 name|defaultTemplateName
 argument_list|()
 expr_stmt|;
@@ -1825,8 +1814,6 @@ name|d
 operator|->
 name|templateName
 operator|=
-name|d
-operator|->
 name|defaultTemplateName
 argument_list|()
 expr_stmt|;
