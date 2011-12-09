@@ -1890,6 +1890,9 @@ argument_list|(
 name|kl
 operator|.
 name|key
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 end_expr_stmt
@@ -1918,6 +1921,9 @@ argument_list|(
 name|kl
 operator|.
 name|lang
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 end_if
