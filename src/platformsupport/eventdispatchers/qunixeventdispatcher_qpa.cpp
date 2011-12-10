@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qeventdispatcher_qpa_p.h"
+file|"qunixeventdispatcher_qpa_p.h"
 end_include
 begin_include
 include|#
@@ -59,10 +59,10 @@ begin_macro
 name|QT_USE_NAMESPACE
 end_macro
 begin_constructor
-DECL|function|QEventDispatcherQPA
-name|QEventDispatcherQPA
+DECL|function|QUnixEventDispatcherQPA
+name|QUnixEventDispatcherQPA
 operator|::
-name|QEventDispatcherQPA
+name|QUnixEventDispatcherQPA
 parameter_list|(
 name|QObject
 modifier|*
@@ -76,18 +76,18 @@ argument_list|)
 block|{ }
 end_constructor
 begin_destructor
-DECL|function|~QEventDispatcherQPA
-name|QEventDispatcherQPA
+DECL|function|~QUnixEventDispatcherQPA
+name|QUnixEventDispatcherQPA
 operator|::
 name|~
-name|QEventDispatcherQPA
+name|QUnixEventDispatcherQPA
 parameter_list|()
 block|{ }
 end_destructor
 begin_function
 DECL|function|processEvents
 name|bool
-name|QEventDispatcherQPA
+name|QUnixEventDispatcherQPA
 operator|::
 name|processEvents
 parameter_list|(
@@ -131,7 +131,7 @@ end_function
 begin_function
 DECL|function|hasPendingEvents
 name|bool
-name|QEventDispatcherQPA
+name|QUnixEventDispatcherQPA
 operator|::
 name|hasPendingEvents
 parameter_list|()
@@ -156,7 +156,7 @@ end_function
 begin_function
 DECL|function|flush
 name|void
-name|QEventDispatcherQPA
+name|QUnixEventDispatcherQPA
 operator|::
 name|flush
 parameter_list|()

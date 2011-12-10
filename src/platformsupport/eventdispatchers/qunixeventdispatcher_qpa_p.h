@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QEVENTDISPATCHER_QPA_H
+name|QUNIXEVENTDISPATCHER_QPA_H
 end_ifndef
 begin_define
-DECL|macro|QEVENTDISPATCHER_QPA_H
+DECL|macro|QUNIXEVENTDISPATCHER_QPA_H
 define|#
 directive|define
-name|QEVENTDISPATCHER_QPA_H
+name|QUNIXEVENTDISPATCHER_QPA_H
 end_define
 begin_comment
 comment|//
@@ -55,15 +55,15 @@ file|<QtCore/private/qeventdispatcher_unix_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QEventDispatcherQPAPrivate
+DECL|variable|QUnixEventDispatcherQPAPrivate
 name|class
-name|QEventDispatcherQPAPrivate
+name|QUnixEventDispatcherQPAPrivate
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
 name|Q_PLATFORMSUPPORT_EXPORT
-name|QEventDispatcherQPA
+name|QUnixEventDispatcherQPA
 range|:
 name|public
 name|QEventDispatcherUNIX
@@ -71,12 +71,12 @@ block|{
 name|Q_OBJECT
 name|Q_DECLARE_PRIVATE
 argument_list|(
-argument|QEventDispatcherQPA
+argument|QUnixEventDispatcherQPA
 argument_list|)
 name|public
 operator|:
 name|explicit
-name|QEventDispatcherQPA
+name|QUnixEventDispatcherQPA
 argument_list|(
 name|QObject
 operator|*
@@ -86,7 +86,7 @@ literal|0
 argument_list|)
 block|;
 operator|~
-name|QEventDispatcherQPA
+name|QUnixEventDispatcherQPA
 argument_list|()
 block|;
 name|bool
@@ -113,6 +113,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QEVENTDISPATCHER_QPA_H
+comment|// QUNIXEVENTDISPATCHER_QPA_H
 end_comment
 end_unit

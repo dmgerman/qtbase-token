@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qeventdispatcher_qpa_p.h"
+file|"qunixeventdispatcher_qpa_p.h"
 end_include
 begin_include
 include|#
@@ -64,7 +64,7 @@ endif|#
 directive|endif
 return|return
 operator|new
-name|QEventDispatcherQPA
+name|QUnixEventDispatcherQPA
 argument_list|()
 return|;
 block|}
