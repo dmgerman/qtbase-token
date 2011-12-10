@@ -5,51 +5,47 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QABSTRACTPROXYMODEL_H
+name|QSTRINGLISTMODEL_H
 end_ifndef
 begin_define
-DECL|macro|QABSTRACTPROXYMODEL_H
+DECL|macro|QSTRINGLISTMODEL_H
 define|#
 directive|define
-name|QABSTRACTPROXYMODEL_H
+name|QSTRINGLISTMODEL_H
 end_define
 begin_include
 include|#
 directive|include
 file|<QtCore/qabstractitemmodel.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qstringlist.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
+DECL|function|QT_MODULE
 name|QT_MODULE
 argument_list|(
-name|Gui
+name|Core
 argument_list|)
 ifndef|#
 directive|ifndef
-name|QT_NO_PROXYMODEL
+name|QT_NO_STRINGLISTMODEL
 name|class
-name|QAbstractProxyModelPrivate
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QItemSelection
-name|class
-name|QItemSelection
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
-name|Q_WIDGETS_EXPORT
-name|QAbstractProxyModel
+name|Q_CORE_EXPORT
+name|QStringListModel
 range|:
 name|public
-name|QAbstractItemModel
+name|QAbstractListModel
 block|{
 name|Q_OBJECT
 name|public
 operator|:
-name|QAbstractProxyModel
+name|explicit
+name|QStringListModel
 argument_list|(
 name|QObject
 operator|*
@@ -58,107 +54,33 @@ operator|=
 literal|0
 argument_list|)
 block|;
-operator|~
-name|QAbstractProxyModel
-argument_list|()
-block|;
-name|virtual
-name|void
-name|setSourceModel
+name|QStringListModel
 argument_list|(
-name|QAbstractItemModel
-operator|*
-name|sourceModel
-argument_list|)
-block|;
-name|QAbstractItemModel
-operator|*
-name|sourceModel
-argument_list|()
 specifier|const
-block|;
-name|virtual
-name|QModelIndex
-name|mapToSource
-argument_list|(
-argument|const QModelIndex&proxyIndex
-argument_list|)
-specifier|const
+name|QStringList
+operator|&
+name|strings
+argument_list|,
+name|QObject
+operator|*
+name|parent
 operator|=
 literal|0
+argument_list|)
 block|;
-name|virtual
-name|QModelIndex
-name|mapFromSource
+name|int
+name|rowCount
 argument_list|(
-argument|const QModelIndex&sourceIndex
+argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 specifier|const
-operator|=
-literal|0
-block|;
-name|virtual
-name|QItemSelection
-name|mapSelectionToSource
-argument_list|(
-argument|const QItemSelection&selection
-argument_list|)
-specifier|const
-block|;
-name|virtual
-name|QItemSelection
-name|mapSelectionFromSource
-argument_list|(
-argument|const QItemSelection&selection
-argument_list|)
-specifier|const
-block|;
-name|bool
-name|submit
-argument_list|()
-block|;
-name|void
-name|revert
-argument_list|()
 block|;
 name|QVariant
 name|data
 argument_list|(
-argument|const QModelIndex&proxyIndex
-argument_list|,
-argument|int role = Qt::DisplayRole
-argument_list|)
-specifier|const
-block|;
-name|QVariant
-name|headerData
-argument_list|(
-argument|int section
-argument_list|,
-argument|Qt::Orientation orientation
+argument|const QModelIndex&index
 argument_list|,
 argument|int role
-argument_list|)
-specifier|const
-block|;
-name|QMap
-operator|<
-name|int
-block|,
-name|QVariant
-operator|>
-name|itemData
-argument_list|(
-argument|const QModelIndex&index
-argument_list|)
-specifier|const
-block|;
-name|Qt
-operator|::
-name|ItemFlags
-name|flags
-argument_list|(
-argument|const QModelIndex&index
 argument_list|)
 specifier|const
 block|;
@@ -172,58 +94,33 @@ argument_list|,
 argument|int role = Qt::EditRole
 argument_list|)
 block|;
-name|bool
-name|setItemData
-argument_list|(
-specifier|const
-name|QModelIndex
-operator|&
-name|index
-argument_list|,
-specifier|const
-name|QMap
-operator|<
-name|int
-argument_list|,
-name|QVariant
-operator|>
-operator|&
-name|roles
-argument_list|)
-block|;
-name|bool
-name|setHeaderData
-argument_list|(
-argument|int section
-argument_list|,
-argument|Qt::Orientation orientation
-argument_list|,
-argument|const QVariant&value
-argument_list|,
-argument|int role = Qt::EditRole
-argument_list|)
-block|;
-name|QModelIndex
-name|buddy
+name|Qt
+operator|::
+name|ItemFlags
+name|flags
 argument_list|(
 argument|const QModelIndex&index
 argument_list|)
 specifier|const
 block|;
 name|bool
-name|canFetchMore
+name|insertRows
 argument_list|(
-argument|const QModelIndex&parent
+argument|int row
+argument_list|,
+argument|int count
+argument_list|,
+argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
-specifier|const
 block|;
-name|void
-name|fetchMore
+name|bool
+name|removeRows
 argument_list|(
-specifier|const
-name|QModelIndex
-operator|&
-name|parent
+argument|int row
+argument_list|,
+argument|int count
+argument_list|,
+argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 block|;
 name|void
@@ -234,32 +131,19 @@ argument_list|,
 argument|Qt::SortOrder order = Qt::AscendingOrder
 argument_list|)
 block|;
-name|QSize
-name|span
-argument_list|(
-argument|const QModelIndex&index
-argument_list|)
-specifier|const
-block|;
-name|bool
-name|hasChildren
-argument_list|(
-argument|const QModelIndex&parent = QModelIndex()
-argument_list|)
-specifier|const
-block|;
-name|QMimeData
-operator|*
-name|mimeData
-argument_list|(
-argument|const QModelIndexList&indexes
-argument_list|)
-specifier|const
-block|;
 name|QStringList
-name|mimeTypes
+name|stringList
 argument_list|()
 specifier|const
+block|;
+name|void
+name|setStringList
+argument_list|(
+specifier|const
+name|QStringList
+operator|&
+name|strings
+argument_list|)
 block|;
 name|Qt
 operator|::
@@ -268,35 +152,15 @@ name|supportedDropActions
 argument_list|()
 specifier|const
 block|;
-name|protected
-operator|:
-name|QAbstractProxyModel
-argument_list|(
-name|QAbstractProxyModelPrivate
-operator|&
-argument_list|,
-name|QObject
-operator|*
-name|parent
-argument_list|)
-block|;
 name|private
 operator|:
-name|Q_DECLARE_PRIVATE
-argument_list|(
-argument|QAbstractProxyModel
-argument_list|)
 name|Q_DISABLE_COPY
 argument_list|(
-argument|QAbstractProxyModel
+argument|QStringListModel
 argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_sourceModelDestroyed()
-argument_list|)
-block|}
+name|QStringList
+name|lst
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_endif
@@ -304,7 +168,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_PROXYMODEL
+comment|// QT_NO_STRINGLISTMODEL
 end_comment
 begin_expr_stmt
 name|QT_END_NAMESPACE
@@ -315,6 +179,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QABSTRACTPROXYMODEL_H
+comment|// QSTRINGLISTMODEL_H
 end_comment
 end_unit

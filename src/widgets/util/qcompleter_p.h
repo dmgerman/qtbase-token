@@ -61,7 +61,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtWidgets/qabstractproxymodel.h"
+file|"QtCore/qabstractproxymodel.h"
 end_include
 begin_include
 include|#

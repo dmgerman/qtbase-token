@@ -26,7 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qitemselectionmodel.h>
+file|<QtCore/qitemselectionmodel.h>
 end_include
 begin_include
 include|#

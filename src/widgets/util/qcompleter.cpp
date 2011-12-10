@@ -23,7 +23,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtWidgets/qstringlistmodel.h"
+file|"QtCore/qstringlistmodel.h"
 end_include
 begin_include
 include|#

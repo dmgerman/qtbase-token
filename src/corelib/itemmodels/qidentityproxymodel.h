@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qabstractproxymodel.h>
+file|<QtCore/qabstractproxymodel.h>
 end_include
 begin_ifndef
 ifndef|#
@@ -28,7 +28,7 @@ name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|QT_MODULE
 argument_list|(
-name|Gui
+name|Core
 argument_list|)
 name|class
 name|QIdentityProxyModelPrivate
@@ -36,7 +36,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_CORE_EXPORT
 name|QIdentityProxyModel
 range|:
 name|public

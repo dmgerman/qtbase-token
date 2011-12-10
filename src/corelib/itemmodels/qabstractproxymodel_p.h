@@ -59,6 +59,7 @@ end_ifndef
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
+name|Q_CORE_EXPORT
 name|QAbstractProxyModelPrivate
 range|:
 name|public

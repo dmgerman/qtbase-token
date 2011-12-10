@@ -15,12 +15,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QSortFilterProxyModel>
+file|<QtCore/QSortFilterProxyModel>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QStringListModel>
+file|<QtCore/QStringListModel>
 end_include
 begin_include
 include|#
