@@ -46,10 +46,6 @@ name|public
 name|GadgetWithNoEnums
 block|{
 name|Q_GADGET
-name|Q_ENUMS
-argument_list|(
-argument|FooEnum
-argument_list|)
 name|public
 operator|:
 expr|enum
@@ -58,6 +54,10 @@ block|{
 name|FooValue
 block|}
 block|;
+name|Q_ENUM
+argument_list|(
+argument|FooEnum
+argument_list|)
 name|DerivedGadgetWithEnums
 argument_list|()
 block|{}

@@ -29,10 +29,6 @@ name|public
 name|QObject
 block|{
 name|Q_OBJECT
-name|Q_FLAGS
-argument_list|(
-argument|Flags
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|Flags flags READ flags WRITE setFlags
@@ -74,6 +70,10 @@ argument_list|(
 argument|Flags
 argument_list|,
 argument|Flag
+argument_list|)
+name|Q_FLAG
+argument_list|(
+argument|Flags
 argument_list|)
 name|void
 name|setFlags

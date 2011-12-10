@@ -17694,7 +17694,7 @@ name|CHARACTER
 block|}
 block|,
 block|{
-name|CHARACTER
+name|Q_ENUM_TOKEN
 block|,
 literal|0
 block|,
@@ -17754,7 +17754,7 @@ name|CHARACTER
 block|}
 block|,
 block|{
-name|CHARACTER
+name|Q_FLAG_TOKEN
 block|,
 literal|0
 block|,

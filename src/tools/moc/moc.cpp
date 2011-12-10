@@ -3522,6 +3522,9 @@ break|break;
 case|case
 name|Q_ENUMS_TOKEN
 case|:
+case|case
+name|Q_ENUM_TOKEN
+case|:
 name|parseEnumOrFlag
 argument_list|(
 operator|&
@@ -3533,6 +3536,9 @@ expr_stmt|;
 break|break;
 case|case
 name|Q_FLAGS_TOKEN
+case|:
+case|case
+name|Q_FLAG_TOKEN
 case|:
 name|parseEnumOrFlag
 argument_list|(

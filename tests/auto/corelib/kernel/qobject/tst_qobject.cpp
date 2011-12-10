@@ -11593,11 +11593,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-name|Q_ENUMS
-argument_list|(
-name|Alpha
-name|Priority
-argument_list|)
 name|Q_PROPERTY
 argument_list|(
 name|Alpha
@@ -11995,6 +11990,14 @@ DECL|member|m_customString
 name|CustomString
 name|m_customString
 decl_stmt|;
+name|Q_ENUM
+argument_list|(
+argument|Alpha
+argument_list|)
+name|Q_ENUM
+argument_list|(
+argument|Priority
+argument_list|)
 block|}
 class|;
 end_class
