@@ -10,6 +10,11 @@ include|#
 directive|include
 file|"qstringlistmodel.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qvector.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef

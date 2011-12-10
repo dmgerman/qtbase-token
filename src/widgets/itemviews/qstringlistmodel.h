@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/qstringlist.h>
+file|<QtCore/qabstractitemmodel.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qabstractitemview.h>
+file|<QtCore/qstringlist.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
