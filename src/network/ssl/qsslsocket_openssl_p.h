@@ -256,14 +256,6 @@ name|SSL_SESSION
 operator|*
 name|session
 block|;
-name|X509_STORE
-operator|*
-name|certificateStore
-block|;
-name|X509_STORE_CTX
-operator|*
-name|certificateStoreCtx
-block|;
 name|QList
 operator|<
 name|QPair
