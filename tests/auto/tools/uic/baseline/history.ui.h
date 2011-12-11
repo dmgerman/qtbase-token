@@ -143,9 +143,7 @@ name|HistoryDialog
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"HistoryDialog"
 argument_list|)
@@ -172,9 +170,7 @@ name|gridLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"gridLayout"
 argument_list|)
@@ -225,9 +221,7 @@ name|search
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"search"
 argument_list|)
@@ -260,9 +254,7 @@ name|tree
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"tree"
 argument_list|)
@@ -293,9 +285,7 @@ name|hboxLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"hboxLayout"
 argument_list|)
@@ -313,9 +303,7 @@ name|removeButton
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"removeButton"
 argument_list|)
@@ -340,9 +328,7 @@ name|removeAllButton
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"removeAllButton"
 argument_list|)
@@ -392,9 +378,7 @@ name|buttonBox
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"buttonBox"
 argument_list|)

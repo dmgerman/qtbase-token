@@ -135,9 +135,7 @@ name|Form
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"Form"
 argument_list|)
@@ -194,9 +192,7 @@ name|vboxLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"vboxLayout"
 argument_list|)
@@ -242,9 +238,7 @@ name|gridLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"gridLayout"
 argument_list|)
@@ -262,9 +256,7 @@ name|lineEdit
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"lineEdit"
 argument_list|)
@@ -297,9 +289,7 @@ name|searchLabel
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"searchLabel"
 argument_list|)
@@ -332,9 +322,7 @@ name|findButton
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"findButton"
 argument_list|)
@@ -374,9 +362,7 @@ name|textEdit
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"textEdit"
 argument_list|)

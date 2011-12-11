@@ -130,9 +130,7 @@ name|DownloadDialog
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"DownloadDialog"
 argument_list|)
@@ -179,9 +177,7 @@ name|gridLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"gridLayout"
 argument_list|)
@@ -199,9 +195,7 @@ name|downloadsView
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"downloadsView"
 argument_list|)
@@ -232,9 +226,7 @@ name|horizontalLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"horizontalLayout"
 argument_list|)
@@ -252,9 +244,7 @@ name|cleanupButton
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"cleanupButton"
 argument_list|)
@@ -326,9 +316,7 @@ name|itemCount
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"itemCount"
 argument_list|)

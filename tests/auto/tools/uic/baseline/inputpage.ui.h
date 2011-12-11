@@ -130,9 +130,7 @@ name|InputPage
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"InputPage"
 argument_list|)
@@ -159,9 +157,7 @@ name|gridLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"gridLayout"
 argument_list|)
@@ -212,9 +208,7 @@ name|label
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"label"
 argument_list|)
@@ -298,9 +292,7 @@ name|hboxLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"hboxLayout"
 argument_list|)
@@ -318,9 +310,7 @@ name|fileLineEdit
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"fileLineEdit"
 argument_list|)
@@ -345,9 +335,7 @@ name|browseButton
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"browseButton"
 argument_list|)

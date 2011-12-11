@@ -133,9 +133,7 @@ name|IdentifierPage
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"IdentifierPage"
 argument_list|)
@@ -162,9 +160,7 @@ name|gridLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"gridLayout"
 argument_list|)
@@ -215,9 +211,7 @@ name|identifierCheckBox
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"identifierCheckBox"
 argument_list|)
@@ -316,9 +310,7 @@ name|globalButton
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"globalButton"
 argument_list|)
@@ -365,9 +357,7 @@ name|prefixLineEdit
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"prefixLineEdit"
 argument_list|)
@@ -407,9 +397,7 @@ name|fileNameButton
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"fileNameButton"
 argument_list|)

@@ -3702,7 +3702,7 @@ name|varConn
 operator|<<
 literal|" = QSqlDatabase::database("
 operator|<<
-name|fixString
+name|writeString
 argument_list|(
 name|connection
 argument_list|,
@@ -8026,9 +8026,9 @@ name|i
 control|)
 name|str
 operator|<<
-literal|"<< QString::fromUtf8("
+literal|"<< "
 operator|<<
-name|fixString
+name|writeString
 argument_list|(
 name|values
 operator|.
@@ -8039,8 +8039,6 @@ argument_list|)
 argument_list|,
 name|m_dindent
 argument_list|)
-operator|<<
-literal|')'
 expr_stmt|;
 block|}
 return|return
@@ -8142,9 +8140,9 @@ name|m_indent
 operator|<<
 name|varName
 operator|<<
-literal|"->setControl(QString::fromUtf8("
+literal|"->setControl("
 operator|<<
-name|fixString
+name|writeString
 argument_list|(
 name|toString
 argument_list|(
@@ -8157,7 +8155,7 @@ argument_list|,
 name|m_dindent
 argument_list|)
 operator|<<
-literal|"));\n"
+literal|");\n"
 expr_stmt|;
 block|}
 block|}
@@ -8207,16 +8205,16 @@ name|indent
 operator|<<
 name|varName
 operator|<<
-literal|"->setObjectName(QString::fromUtf8("
+literal|"->setObjectName("
 operator|<<
-name|fixString
+name|writeString
 argument_list|(
 name|varName
 argument_list|,
 name|m_dindent
 argument_list|)
 operator|<<
-literal|"));\n"
+literal|");\n"
 expr_stmt|;
 name|int
 name|leftMargin
@@ -10153,12 +10151,12 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"QUrl(QString::fromUtf8(%1))"
+literal|"QUrl(%1)"
 argument_list|)
 operator|.
 name|arg
 argument_list|(
-name|fixString
+name|writeString
 argument_list|(
 name|u
 operator|->
@@ -10726,9 +10724,9 @@ name|m_indent
 operator|<<
 name|fontName
 operator|<<
-literal|".setFamily(QString::fromUtf8("
+literal|".setFamily("
 operator|<<
-name|fixString
+name|writeString
 argument_list|(
 name|f
 operator|->
@@ -10738,7 +10736,7 @@ argument_list|,
 name|m_dindent
 argument_list|)
 operator|<<
-literal|"));\n"
+literal|");\n"
 expr_stmt|;
 block|}
 if|if
@@ -11052,9 +11050,9 @@ name|indent
 operator|<<
 name|iconName
 operator|<<
-literal|".addFile(QString::fromUtf8("
+literal|".addFile("
 operator|<<
-name|fixString
+name|writeString
 argument_list|(
 name|i
 operator|->
@@ -11067,7 +11065,7 @@ argument_list|,
 name|indent
 argument_list|)
 operator|<<
-literal|"), QSize(), QIcon::Normal, QIcon::Off);\n"
+literal|", QSize(), QIcon::Normal, QIcon::Off);\n"
 expr_stmt|;
 if|if
 condition|(
@@ -11082,9 +11080,9 @@ name|indent
 operator|<<
 name|iconName
 operator|<<
-literal|".addFile(QString::fromUtf8("
+literal|".addFile("
 operator|<<
-name|fixString
+name|writeString
 argument_list|(
 name|i
 operator|->
@@ -11097,7 +11095,7 @@ argument_list|,
 name|indent
 argument_list|)
 operator|<<
-literal|"), QSize(), QIcon::Normal, QIcon::On);\n"
+literal|", QSize(), QIcon::Normal, QIcon::On);\n"
 expr_stmt|;
 if|if
 condition|(
@@ -11112,9 +11110,9 @@ name|indent
 operator|<<
 name|iconName
 operator|<<
-literal|".addFile(QString::fromUtf8("
+literal|".addFile("
 operator|<<
-name|fixString
+name|writeString
 argument_list|(
 name|i
 operator|->
@@ -11127,7 +11125,7 @@ argument_list|,
 name|indent
 argument_list|)
 operator|<<
-literal|"), QSize(), QIcon::Disabled, QIcon::Off);\n"
+literal|", QSize(), QIcon::Disabled, QIcon::Off);\n"
 expr_stmt|;
 if|if
 condition|(
@@ -11142,9 +11140,9 @@ name|indent
 operator|<<
 name|iconName
 operator|<<
-literal|".addFile(QString::fromUtf8("
+literal|".addFile("
 operator|<<
-name|fixString
+name|writeString
 argument_list|(
 name|i
 operator|->
@@ -11157,7 +11155,7 @@ argument_list|,
 name|indent
 argument_list|)
 operator|<<
-literal|"), QSize(), QIcon::Disabled, QIcon::On);\n"
+literal|", QSize(), QIcon::Disabled, QIcon::On);\n"
 expr_stmt|;
 if|if
 condition|(
@@ -11172,9 +11170,9 @@ name|indent
 operator|<<
 name|iconName
 operator|<<
-literal|".addFile(QString::fromUtf8("
+literal|".addFile("
 operator|<<
-name|fixString
+name|writeString
 argument_list|(
 name|i
 operator|->
@@ -11187,7 +11185,7 @@ argument_list|,
 name|indent
 argument_list|)
 operator|<<
-literal|"), QSize(), QIcon::Active, QIcon::Off);\n"
+literal|", QSize(), QIcon::Active, QIcon::Off);\n"
 expr_stmt|;
 if|if
 condition|(
@@ -11202,9 +11200,9 @@ name|indent
 operator|<<
 name|iconName
 operator|<<
-literal|".addFile(QString::fromUtf8("
+literal|".addFile("
 operator|<<
-name|fixString
+name|writeString
 argument_list|(
 name|i
 operator|->
@@ -11217,7 +11215,7 @@ argument_list|,
 name|indent
 argument_list|)
 operator|<<
-literal|"), QSize(), QIcon::Active, QIcon::On);\n"
+literal|", QSize(), QIcon::Active, QIcon::On);\n"
 expr_stmt|;
 if|if
 condition|(
@@ -11232,9 +11230,9 @@ name|indent
 operator|<<
 name|iconName
 operator|<<
-literal|".addFile(QString::fromUtf8("
+literal|".addFile("
 operator|<<
-name|fixString
+name|writeString
 argument_list|(
 name|i
 operator|->
@@ -11247,7 +11245,7 @@ argument_list|,
 name|indent
 argument_list|)
 operator|<<
-literal|"), QSize(), QIcon::Selected, QIcon::Off);\n"
+literal|", QSize(), QIcon::Selected, QIcon::Off);\n"
 expr_stmt|;
 if|if
 condition|(
@@ -11262,9 +11260,9 @@ name|indent
 operator|<<
 name|iconName
 operator|<<
-literal|".addFile(QString::fromUtf8("
+literal|".addFile("
 operator|<<
-name|fixString
+name|writeString
 argument_list|(
 name|i
 operator|->
@@ -11277,7 +11275,7 @@ argument_list|,
 name|indent
 argument_list|)
 operator|<<
-literal|"), QSize(), QIcon::Selected, QIcon::On);\n"
+literal|", QSize(), QIcon::Selected, QIcon::On);\n"
 expr_stmt|;
 block|}
 DECL|function|writeIconProperties
@@ -11406,7 +11404,7 @@ specifier|const
 name|QString
 name|themeIconName
 init|=
-name|fixString
+name|writeString
 argument_list|(
 name|i
 operator|->
@@ -11468,11 +11466,11 @@ name|m_output
 operator|<<
 name|themeNameStringVariableC
 operator|<<
-literal|" = QString::fromUtf8("
+literal|" = "
 operator|<<
 name|themeIconName
 operator|<<
-literal|");\n"
+literal|";\n"
 expr_stmt|;
 name|m_output
 operator|<<
@@ -11527,11 +11525,11 @@ literal|"QIcon "
 operator|<<
 name|iconName
 operator|<<
-literal|"(QIcon::fromTheme(QString::fromUtf8("
+literal|"(QIcon::fromTheme("
 operator|<<
 name|themeIconName
 operator|<<
-literal|")));\n"
+literal|"));\n"
 expr_stmt|;
 block|}
 comment|// Theme, but not state
@@ -15980,32 +15978,13 @@ operator|->
 name|text
 argument_list|()
 expr_stmt|;
-name|QString
-name|ret
-init|=
-name|QLatin1String
-argument_list|(
-literal|"QString::fromUtf8("
-argument_list|)
-decl_stmt|;
-name|ret
-operator|+=
-name|fixString
+return|return
+name|writeString
 argument_list|(
 name|value
 argument_list|,
 name|m_dindent
 argument_list|)
-expr_stmt|;
-name|ret
-operator|+=
-name|QLatin1Char
-argument_list|(
-literal|')'
-argument_list|)
-expr_stmt|;
-return|return
-name|ret
 return|;
 block|}
 DECL|function|autoTrCall
@@ -16663,16 +16642,16 @@ name|m_output
 operator|<<
 name|m_indent
 operator|<<
-literal|"scriptContext.run(QString::fromUtf8("
+literal|"scriptContext.run("
 operator|<<
-name|fixString
+name|writeString
 argument_list|(
 name|script
 argument_list|,
 name|m_dindent
 argument_list|)
 operator|<<
-literal|"), "
+literal|", "
 operator|<<
 name|m_driver
 operator|->

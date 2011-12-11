@@ -120,9 +120,7 @@ name|OutputPage
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"OutputPage"
 argument_list|)
@@ -149,9 +147,7 @@ name|gridLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"gridLayout"
 argument_list|)
@@ -202,9 +198,7 @@ name|label
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"label"
 argument_list|)
@@ -283,9 +277,7 @@ name|projectLineEdit
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"projectLineEdit"
 argument_list|)
@@ -364,9 +356,7 @@ name|label_2
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"label_2"
 argument_list|)
@@ -419,9 +409,7 @@ name|collectionLineEdit
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"collectionLineEdit"
 argument_list|)

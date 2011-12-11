@@ -120,9 +120,7 @@ name|GeneralPage
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"GeneralPage"
 argument_list|)
@@ -149,9 +147,7 @@ name|gridLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"gridLayout"
 argument_list|)
@@ -169,9 +165,7 @@ name|label
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"label"
 argument_list|)
@@ -204,9 +198,7 @@ name|namespaceLineEdit
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"namespaceLineEdit"
 argument_list|)
@@ -239,9 +231,7 @@ name|label_2
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"label_2"
 argument_list|)
@@ -274,9 +264,7 @@ name|folderLineEdit
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"folderLineEdit"
 argument_list|)

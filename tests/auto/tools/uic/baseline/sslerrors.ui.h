@@ -134,9 +134,7 @@ name|SslErrors
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"SslErrors"
 argument_list|)
@@ -163,9 +161,7 @@ name|vboxLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"vboxLayout"
 argument_list|)
@@ -183,9 +179,7 @@ name|label
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"label"
 argument_list|)
@@ -217,9 +211,7 @@ name|sslErrorList
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"sslErrorList"
 argument_list|)
@@ -242,9 +234,7 @@ name|hboxLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"hboxLayout"
 argument_list|)
@@ -262,9 +252,7 @@ name|certificateChainButton
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"certificateChainButton"
 argument_list|)
@@ -321,9 +309,7 @@ name|pushButton
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"pushButton"
 argument_list|)
@@ -348,9 +334,7 @@ name|pushButton_2
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"pushButton_2"
 argument_list|)

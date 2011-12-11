@@ -138,9 +138,7 @@ name|NewForm
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"NewForm"
 argument_list|)
@@ -197,9 +195,7 @@ name|vboxLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"vboxLayout"
 argument_list|)
@@ -240,9 +236,7 @@ name|hboxLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"hboxLayout"
 argument_list|)
@@ -260,9 +254,7 @@ name|treeWidget
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"treeWidget"
 argument_list|)
@@ -313,9 +305,7 @@ name|lblPreview
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"lblPreview"
 argument_list|)
@@ -428,9 +418,7 @@ name|horizontalLine
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"horizontalLine"
 argument_list|)
@@ -473,9 +461,7 @@ name|chkShowOnStartup
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"chkShowOnStartup"
 argument_list|)
@@ -500,9 +486,7 @@ name|buttonBox
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"buttonBox"
 argument_list|)

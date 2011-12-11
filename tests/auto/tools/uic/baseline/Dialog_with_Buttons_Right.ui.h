@@ -81,9 +81,7 @@ name|Dialog
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"Dialog"
 argument_list|)
@@ -110,9 +108,7 @@ name|buttonBox
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"buttonBox"
 argument_list|)
