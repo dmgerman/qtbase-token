@@ -542,14 +542,6 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|member|keyVerbose
-specifier|static
-name|int
-name|keyVerbose
-init|=
-operator|-
-literal|1
-decl_stmt|;
 if|#
 directive|if
 name|defined
@@ -694,41 +686,6 @@ name|DirectConnection
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-DECL|function|defaultKeyVerbose
-name|bool
-name|Q_TESTLIB_EXPORT
-name|defaultKeyVerbose
-parameter_list|()
-block|{
-if|if
-condition|(
-name|keyVerbose
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-name|keyVerbose
-operator|=
-name|qgetenv
-argument_list|(
-literal|"QTEST_KEYEVENT_VERBOSE"
-argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
-condition|?
-literal|0
-else|:
-literal|1
-expr_stmt|;
-block|}
-return|return
-name|keyVerbose
-operator|==
-literal|1
-return|;
 block|}
 DECL|function|defaultEventDelay
 name|int
@@ -1666,7 +1623,6 @@ literal|"                       A global data tag is preceded by ' __global__ '.
 literal|" -eventdelay ms      : Set default delay for mouse and keyboard simulation to ms milliseconds\n"
 literal|" -keydelay ms        : Set default delay for keyboard simulation to ms milliseconds\n"
 literal|" -mousedelay ms      : Set default delay for mouse simulation to ms milliseconds\n"
-literal|" -keyevent-verbose   : Turn on verbose messages for keyboard simulation\n"
 literal|" -maxwarnings n      : Sets the maximum amount of messages to output.\n"
 literal|"                       0 means unlimited, default: 2000\n"
 if|#
@@ -2552,29 +2508,6 @@ literal|true
 expr_stmt|;
 endif|#
 directive|endif
-block|}
-elseif|else
-if|if
-condition|(
-name|strcmp
-argument_list|(
-name|argv
-index|[
-name|i
-index|]
-argument_list|,
-literal|"-keyevent-verbose"
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
-name|QTest
-operator|::
-name|keyVerbose
-operator|=
-literal|1
-expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QTESTLIB_USE_VALGRIND
