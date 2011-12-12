@@ -245,6 +245,11 @@ argument_list|(
 name|stream
 argument_list|)
 expr_stmt|;
+name|QTEST_ASSERT
+argument_list|(
+name|msg
+argument_list|)
+expr_stmt|;
 name|char
 modifier|*
 name|filtered
