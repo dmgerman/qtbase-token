@@ -131,27 +131,6 @@ end_function
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_function_decl
-name|int
-name|Q_TESTLIB_EXPORT
-name|qt_snprintf
-parameter_list|(
-name|char
-modifier|*
-name|str
-parameter_list|,
-name|int
-name|size
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|format
-parameter_list|,
-modifier|...
-parameter_list|)
-function_decl|;
-end_function_decl
 begin_macro
 unit|}  QT_END_NAMESPACE
 name|QT_END_HEADER
