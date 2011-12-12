@@ -1179,8 +1179,11 @@ argument_list|(
 literal|"This platform doesn't support propagating exceptions through the event loop"
 argument_list|)
 expr_stmt|;
-elif|#
-directive|elif
+else|#
+directive|else
+comment|// exceptions compiled in, runtime tests follow.
+if|#
+directive|if
 name|defined
 argument_list|(
 name|Q_OS_LINUX
@@ -1332,6 +1335,8 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
