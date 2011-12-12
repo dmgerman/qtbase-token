@@ -308,6 +308,13 @@ return|return
 name|m_dragBeingCancelled
 return|;
 block|}
+name|QPixmap
+name|defaultCursor
+argument_list|(
+argument|Qt::DropAction action
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|QWindowsDropMimeData
@@ -319,6 +326,22 @@ name|m_dropDataObject
 block|;
 name|bool
 name|m_dragBeingCancelled
+block|;
+name|mutable
+name|QPixmap
+name|m_copyDragCursor
+block|;
+name|mutable
+name|QPixmap
+name|m_moveDragCursor
+block|;
+name|mutable
+name|QPixmap
+name|m_linkDragCursor
+block|;
+name|mutable
+name|QPixmap
+name|m_ignoreDragCursor
 block|; }
 decl_stmt|;
 end_decl_stmt
