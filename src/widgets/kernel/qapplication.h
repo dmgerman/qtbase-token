@@ -232,16 +232,6 @@ argument|bool autoSipEnabled READ autoSipEnabled WRITE setAutoSipEnabled
 argument_list|)
 name|public
 operator|:
-expr|enum
-name|Type
-block|{
-name|Tty
-block|,
-name|GuiClient
-block|,
-name|GuiServer
-block|}
-block|;
 ifndef|#
 directive|ifndef
 name|qdoc

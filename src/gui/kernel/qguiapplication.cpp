@@ -731,6 +731,12 @@ name|self
 operator|=
 name|this
 expr_stmt|;
+name|application_type
+operator|=
+name|QCoreApplication
+operator|::
+name|GuiClient
+expr_stmt|;
 block|}
 end_constructor
 begin_function

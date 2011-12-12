@@ -139,6 +139,16 @@ name|ApplicationFlags
 operator|=
 name|QT_VERSION
 block|}
+block|;      enum
+name|Type
+block|{
+name|Tty
+block|,
+name|GuiClient
+block|,
+name|GuiServer
+comment|// # deprecated
+block|}
 block|;
 name|QCoreApplication
 argument_list|(

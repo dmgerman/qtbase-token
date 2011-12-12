@@ -409,18 +409,6 @@ parameter_list|()
 function_decl|;
 end_function_decl
 begin_decl_stmt
-DECL|variable|qt_appType
-name|QApplication
-operator|::
-name|Type
-name|qt_appType
-init|=
-name|QApplication
-operator|::
-name|Tty
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|member|self
 name|QApplicationPrivate
 modifier|*
@@ -530,10 +518,6 @@ name|flags
 argument_list|)
 block|{
 name|application_type
-operator|=
-name|type
-expr_stmt|;
-name|qt_appType
 operator|=
 name|type
 expr_stmt|;
@@ -652,9 +636,6 @@ block|}
 end_destructor
 begin_comment
 comment|/*!     \class QApplication     \brief The QApplication class manages the GUI application's control     flow and main settings.      \inmodule QtWidgets      QApplication contains the main event loop, where all events from the window     system and other sources are processed and dispatched. It also handles the     application's initialization, finalization, and provides session     management. In addition, QApplication handles most of the system-wide and     application-wide settings.      For any GUI application using Qt, there is precisely \bold one QApplication     object, no matter whether the application has 0, 1, 2 or more windows at     any given time. For non-GUI Qt applications, use QCoreApplication instead,     as it does not depend on the \l QtGui library.      The QApplication object is accessible through the instance() function that     returns a pointer equivalent to the global qApp pointer.      QApplication's main areas of responsibility are:         \list             \o  It initializes the application with the user's desktop settings                 such as palette(), font() and doubleClickInterval(). It keeps                 track of these properties in case the user changes the desktop                 globally, for example through some kind of control panel.              \o  It performs event handling, meaning that it receives events                 from the underlying window system and dispatches them to the                 relevant widgets. By using sendEvent() and postEvent() you can                 send your own events to widgets.              \o  It parses common command line arguments and sets its internal                 state accordingly. See the \l{QApplication::QApplication()}                 {constructor documentation} below for more details.              \o  It defines the application's look and feel, which is                 encapsulated in a QStyle object. This can be changed at runtime                 with setStyle().              \o  It specifies how the application is to allocate colors. See                 setColorSpec() for details.              \o  It provides localization of strings that are visible to the                 user via translate().              \o  It provides some magical objects like the desktop() and the                 clipboard().              \o  It knows about the application's windows. You can ask which                 widget is at a certain position using widgetAt(), get a list of                 topLevelWidgets() and closeAllWindows(), etc.              \o  It manages the application's mouse cursor handling, see                 setOverrideCursor()              \o  On the X window system, it provides functions to flush and sync                 the communication stream, see flushX() and syncX().              \o  It provides support for sophisticated \l{Session Management}                 {session management}. This makes it possible for applications                 to terminate gracefully when the user logs out, to cancel a                 shutdown process if termination isn't possible and even to                 preserve the entire application's state for a future session.                 See isSessionRestored(), sessionId() and commitData() and                 saveState() for details.         \endlist      Since the QApplication object does so much initialization, it \e{must} be     created before any other objects related to the user interface are created.     QApplication also deals with common command line arguments. Hence, it is     usually a good idea to create it \e before any interpretation or     modification of \c argv is done in the application itself.      \table     \header         \o{2,1} Groups of functions          \row         \o  System settings         \o  desktopSettingsAware(),             setDesktopSettingsAware(),             cursorFlashTime(),             setCursorFlashTime(),             doubleClickInterval(),             setDoubleClickInterval(),             setKeyboardInputInterval(),             wheelScrollLines(),             setWheelScrollLines(),             palette(),             setPalette(),             font(),             setFont(),             fontMetrics().          \row         \o  Event handling         \o  exec(),             processEvents(),             exit(),             quit().             sendEvent(),             postEvent(),             sendPostedEvents(),             removePostedEvents(),             hasPendingEvents(),             notify(),             macEventFilter(),             qwsEventFilter(),             x11EventFilter(),             x11ProcessEvent(),             winEventFilter().          \row         \o  GUI Styles         \o  style(),             setStyle().          \row         \o  Color usage         \o  colorSpec(),             setColorSpec(),             qwsSetCustomColors().          \row         \o  Text handling         \o  installTranslator(),             removeTranslator()             translate().          \row         \o  Widgets         \o  allWidgets(),             topLevelWidgets(),             desktop(),             activePopupWidget(),             activeModalWidget(),             clipboard(),             focusWidget(),             activeWindow(),             widgetAt().          \row         \o  Advanced cursor handling         \o  overrideCursor(),             setOverrideCursor(),             restoreOverrideCursor().          \row         \o  X Window System synchronization         \o  flushX(),             syncX().          \row         \o  Session management         \o  isSessionRestored(),             sessionId(),             commitData(),             saveState().          \row         \o  Miscellaneous         \o  closeAllWindows(),             startingUp(),             closingDown(),             type().     \endtable      \sa QCoreApplication, QAbstractEventDispatcher, QEventLoop, QSettings */
-end_comment
-begin_comment
-comment|/*!     \enum QApplication::Type      \value Tty a console application     \value GuiClient a GUI client application     \value GuiServer a GUI server application (for Qt for Embedded Linux) */
 end_comment
 begin_comment
 comment|/*!     \enum QApplication::ColorSpec      \value NormalColor the default color allocation policy     \value CustomColor the same as NormalColor for X11; allocates colors     to a palette on demand under Windows     \value ManyColor the right choice for applications that use thousands of     colors      See setColorSpec() for full details. */
@@ -2169,7 +2150,7 @@ expr_stmt|;
 name|qt_is_gui_used
 operator|=
 operator|(
-name|qt_appType
+name|application_type
 operator|!=
 name|QApplication
 operator|::
@@ -2184,7 +2165,7 @@ name|qt_init
 argument_list|(
 name|this
 argument_list|,
-name|qt_appType
+name|application_type
 ifdef|#
 directive|ifdef
 name|Q_WS_X11
@@ -2715,7 +2696,7 @@ name|QWidgetSet
 expr_stmt|;
 if|if
 condition|(
-name|qt_appType
+name|application_type
 operator|!=
 name|QApplication
 operator|::
@@ -2854,8 +2835,28 @@ operator|::
 name|type
 parameter_list|()
 block|{
+if|if
+condition|(
+name|QApplicationPrivate
+operator|::
+name|instance
+argument_list|()
+condition|)
 return|return
-name|qt_appType
+operator|(
+name|QCoreApplication
+operator|::
+name|Type
+operator|)
+name|QApplicationPrivate
+operator|::
+name|instance
+argument_list|()
+operator|->
+name|application_type
+return|;
+return|return
+name|Tty
 return|;
 block|}
 end_function
@@ -4188,8 +4189,14 @@ name|app_style
 return|;
 if|if
 condition|(
-operator|!
-name|qt_is_gui_used
+name|qApp
+operator|->
+name|type
+argument_list|()
+operator|==
+name|QApplication
+operator|::
+name|Tty
 condition|)
 block|{
 name|Q_ASSERT
