@@ -128,6 +128,12 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
+DECL|variable|QTouchEvent
+name|class
+name|QTouchEvent
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QPlatformSurface
 name|class
 name|QPlatformSurface
@@ -1284,6 +1290,14 @@ parameter_list|)
 function_decl|;
 endif|#
 directive|endif
+name|virtual
+name|void
+name|touchEvent
+parameter_list|(
+name|QTouchEvent
+modifier|*
+parameter_list|)
+function_decl|;
 name|QWindow
 argument_list|(
 name|QWindowPrivate
