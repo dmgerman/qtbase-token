@@ -1200,6 +1200,17 @@ condition|)
 return|return
 literal|0
 return|;
+if|if
+condition|(
+name|ownsClipboard
+argument_list|()
+condition|)
+return|return
+name|m_data
+operator|->
+name|mimeData
+argument_list|()
+return|;
 return|return
 operator|&
 name|m_retrievalData
@@ -1297,7 +1308,23 @@ condition|)
 block|{
 name|qErrnoWarning
 argument_list|(
-literal|"OleSetClipboard: Failed to set data on clipboard: %s"
+literal|"OleSetClipboard: Failed to set mime data (%s) on clipboard: %s"
+argument_list|,
+name|qPrintable
+argument_list|(
+name|mimeData
+operator|->
+name|formats
+argument_list|()
+operator|.
+name|join
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|", "
+argument_list|)
+argument_list|)
+argument_list|)
 argument_list|,
 name|QWindowsContext
 operator|::
