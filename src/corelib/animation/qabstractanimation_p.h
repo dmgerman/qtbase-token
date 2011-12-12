@@ -529,7 +529,7 @@ name|QDefaultAnimationDriver
 name|defaultDriver
 block|;
 name|QBasicTimer
-name|animationTimer
+name|pauseTimer
 block|;
 comment|// timer used to delay the check if we should start/stop the animation timer
 name|QBasicTimer
@@ -567,10 +567,6 @@ comment|// when slowMode is enabled. Setting it to 0 or higher than DEFAULT_TIME
 comment|// stops all animations.
 name|qreal
 name|slowdownFactor
-block|;
-comment|// bool to indicate that only pause animations are active
-name|bool
-name|isPauseTimerActive
 block|;
 name|QList
 operator|<
