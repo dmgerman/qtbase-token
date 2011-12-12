@@ -3441,7 +3441,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-name|ensureState
+name|ensureRasterState
 argument_list|()
 expr_stmt|;
 comment|// needed because of tx_noshear...
@@ -3752,11 +3752,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|updateState
+DECL|function|updateRasterState
 name|void
 name|QRasterPaintEngine
 operator|::
-name|updateState
+name|updateRasterState
 parameter_list|()
 block|{
 name|QRasterPaintEngineState
@@ -7310,7 +7310,7 @@ argument_list|(
 name|QRasterPaintEngine
 argument_list|)
 expr_stmt|;
-name|ensureState
+name|ensureRasterState
 argument_list|()
 expr_stmt|;
 name|QRasterPaintEngineState
@@ -7630,7 +7630,7 @@ argument_list|(
 name|QRasterPaintEngine
 argument_list|)
 expr_stmt|;
-name|ensureState
+name|ensureRasterState
 argument_list|()
 expr_stmt|;
 name|QRasterPaintEngineState
@@ -8750,7 +8750,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|ensureState
+name|ensureRasterState
 argument_list|()
 expr_stmt|;
 if|if
@@ -9147,7 +9147,7 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-name|ensureState
+name|ensureRasterState
 argument_list|()
 expr_stmt|;
 if|if
@@ -13673,7 +13673,7 @@ block|}
 ifdef|#
 directive|ifdef
 name|QT_FAST_SPANS
-name|ensureState
+name|ensureRasterState
 argument_list|()
 expr_stmt|;
 if|if
@@ -14558,7 +14558,7 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_FAST_SPANS
-name|ensureState
+name|ensureRasterState
 argument_list|()
 expr_stmt|;
 if|if
@@ -17607,7 +17607,7 @@ block|{
 name|ensurePen
 argument_list|()
 expr_stmt|;
-name|ensureState
+name|ensureRasterState
 argument_list|()
 expr_stmt|;
 name|QFontEngine
@@ -17762,7 +17762,7 @@ directive|endif
 name|ensurePen
 argument_list|()
 expr_stmt|;
-name|ensureState
+name|ensureRasterState
 argument_list|()
 expr_stmt|;
 if|if

@@ -1034,12 +1034,12 @@ name|ensureOutlineMapper
 argument_list|()
 block|;
 name|void
-name|updateState
+name|updateRasterState
 argument_list|()
 block|;
 specifier|inline
 name|void
-name|ensureState
+name|ensureRasterState
 argument_list|()
 block|{
 if|if
@@ -1049,7 +1049,7 @@ argument_list|()
 operator|->
 name|dirty
 condition|)
-name|updateState
+name|updateRasterState
 argument_list|()
 expr_stmt|;
 block|}
