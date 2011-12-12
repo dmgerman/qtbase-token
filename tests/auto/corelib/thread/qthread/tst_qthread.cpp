@@ -5727,16 +5727,33 @@ operator|.
 name|elapsed
 argument_list|()
 decl_stmt|;
-name|QVERIFY
+comment|// On Windows, we sometimes get (WaitTime - 1).
+name|QVERIFY2
 argument_list|(
 name|elapsed
 operator|>=
 name|Waiting_Thread
 operator|::
 name|WaitTime
+operator|-
+literal|1
+argument_list|,
+name|qPrintable
+argument_list|(
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"elapsed: %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|elapsed
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//QVERIFY(elapsed< Waiting_Thread::WaitTime * 1.4);
 name|timer
 operator|.
 name|start
@@ -5766,16 +5783,33 @@ operator|.
 name|elapsed
 argument_list|()
 expr_stmt|;
-name|QVERIFY
+name|QVERIFY2
 argument_list|(
 name|elapsed
-operator|>=
+operator|-
 name|Waiting_Thread
 operator|::
 name|WaitTime
+operator|>=
+operator|-
+literal|1
+argument_list|,
+name|qPrintable
+argument_list|(
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"elapsed: %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|elapsed
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//QVERIFY(elapsed< Waiting_Thread::WaitTime * 1.4);
 block|}
 end_function
 begin_class
@@ -5911,16 +5945,32 @@ operator|.
 name|elapsed
 argument_list|()
 decl_stmt|;
-name|QVERIFY
+name|QVERIFY2
 argument_list|(
 name|elapsed
 operator|>=
 name|Waiting_Thread
 operator|::
 name|WaitTime
+operator|-
+literal|1
+argument_list|,
+name|qPrintable
+argument_list|(
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"elapsed: %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|elapsed
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//QVERIFY(elapsed< Waiting_Thread::WaitTime * 1.4);
 name|slow
 operator|.
 name|cond
