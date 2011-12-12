@@ -215,6 +215,15 @@ parameter_list|)
 function_decl|;
 name|protected
 label|:
+name|void
+name|filterUnprintable
+argument_list|(
+name|char
+operator|*
+name|str
+argument_list|)
+decl|const
+decl_stmt|;
 name|FILE
 modifier|*
 name|stream
