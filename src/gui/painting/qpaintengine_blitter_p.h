@@ -369,7 +369,7 @@ specifier|inline
 specifier|const
 name|QClipData
 operator|*
-name|clip
+name|clipData
 argument_list|()
 block|{
 return|return

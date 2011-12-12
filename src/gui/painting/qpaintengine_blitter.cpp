@@ -899,9 +899,10 @@ name|clipData
 init|=
 name|q
 operator|->
-name|clip
+name|clipData
 argument_list|()
 decl_stmt|;
+empty_stmt|;
 if|if
 condition|(
 name|clipData
@@ -1296,7 +1297,7 @@ name|clip
 init|=
 name|q
 operator|->
-name|clip
+name|clipData
 argument_list|()
 decl_stmt|;
 name|bool
@@ -2021,7 +2022,9 @@ name|QClipData
 modifier|*
 name|clipData
 init|=
-name|clip
+name|this
+operator|->
+name|clipData
 argument_list|()
 decl_stmt|;
 if|if
@@ -3199,7 +3202,9 @@ name|QClipData
 modifier|*
 name|clipData
 init|=
-name|clip
+name|this
+operator|->
+name|clipData
 argument_list|()
 decl_stmt|;
 if|if
