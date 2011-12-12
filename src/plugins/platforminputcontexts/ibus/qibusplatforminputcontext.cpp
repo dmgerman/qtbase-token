@@ -519,6 +519,12 @@ operator|->
 name|inputWindow
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|inputWindow
+condition|)
+return|return;
 name|r
 operator|.
 name|moveTopLeft
