@@ -1055,7 +1055,7 @@ name|count
 argument_list|()
 condition|)
 block|{
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|msg
 argument_list|,
@@ -1138,7 +1138,7 @@ name|i
 argument_list|)
 condition|)
 block|{
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|msg
 argument_list|,

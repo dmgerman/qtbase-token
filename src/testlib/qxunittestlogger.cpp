@@ -189,9 +189,7 @@ name|currentTestObjectName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|buf
 argument_list|,
@@ -216,9 +214,7 @@ argument_list|,
 name|buf
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|buf
 argument_list|,
@@ -243,9 +239,7 @@ argument_list|,
 name|buf
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|buf
 argument_list|,
@@ -649,9 +643,7 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|buf
 argument_list|,
@@ -868,9 +860,7 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|buf
 argument_list|,
@@ -1018,9 +1008,7 @@ index|[
 literal|100
 index|]
 decl_stmt|;
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|buf
 argument_list|,
@@ -1372,9 +1360,7 @@ index|[
 literal|100
 index|]
 decl_stmt|;
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|buf
 argument_list|,

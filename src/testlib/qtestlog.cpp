@@ -1000,9 +1000,7 @@ condition|(
 name|list
 condition|)
 block|{
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|msg
 argument_list|,

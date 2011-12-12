@@ -835,7 +835,7 @@ operator|.
 name|constData
 argument_list|()
 argument_list|,
-comment|//no 64-bit qt_snprintf support
+comment|//no 64-bit qsnprintf support
 name|result
 operator|.
 name|iterations

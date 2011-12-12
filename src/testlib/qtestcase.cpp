@@ -1266,9 +1266,7 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|member
 operator|.
@@ -3270,9 +3268,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|buf
 argument_list|,
@@ -3294,9 +3290,7 @@ index|]
 argument_list|)
 expr_stmt|;
 comment|// copy text before the ':' into buf
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|buf
 operator|+
@@ -4030,9 +4024,7 @@ operator|::
 name|DataFunc
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|member
 argument_list|,
@@ -7381,7 +7373,7 @@ parameter_list|,
 name|FORMAT
 parameter_list|)
 define|\
-value|template<> Q_TESTLIB_EXPORT char *QTest::toString<TYPE>(const TYPE&t) \ { \     char *msg = new char[128]; \     qt_snprintf(msg, 128, #FORMAT, t); \     return msg; \ }
+value|template<> Q_TESTLIB_EXPORT char *QTest::toString<TYPE>(const TYPE&t) \ { \     char *msg = new char[128]; \     qsnprintf(msg, 128, #FORMAT, t); \     return msg; \ }
 end_define
 begin_macro
 name|TO_STRING_IMPL
@@ -7588,7 +7580,7 @@ index|[
 literal|128
 index|]
 decl_stmt|;
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|msg
 argument_list|,

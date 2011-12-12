@@ -955,9 +955,7 @@ operator|>=
 literal|2
 condition|)
 block|{
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|msg
 argument_list|,
@@ -980,9 +978,7 @@ name|line
 argument_list|)
 expr_stmt|;
 block|}
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|msg
 argument_list|,
@@ -1147,9 +1143,7 @@ index|[
 literal|1024
 index|]
 decl_stmt|;
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|buf
 argument_list|,
