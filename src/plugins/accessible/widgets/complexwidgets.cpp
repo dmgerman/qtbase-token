@@ -2314,8 +2314,6 @@ name|QAccessible
 operator|::
 name|Method
 parameter_list|,
-name|int
-parameter_list|,
 specifier|const
 name|QVariantList
 modifier|&

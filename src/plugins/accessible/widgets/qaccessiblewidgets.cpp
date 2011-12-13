@@ -3737,11 +3737,10 @@ name|QAccessible
 operator|::
 name|Method
 parameter_list|,
-name|int
-parameter_list|,
 specifier|const
 name|QVariantList
 modifier|&
+name|params
 parameter_list|)
 block|{
 return|return
@@ -5696,8 +5695,6 @@ name|QAccessible
 operator|::
 name|Method
 parameter_list|,
-name|int
-parameter_list|,
 specifier|const
 name|QVariantList
 modifier|&
@@ -5828,8 +5825,6 @@ parameter_list|(
 name|QAccessible
 operator|::
 name|Method
-parameter_list|,
-name|int
 parameter_list|,
 specifier|const
 name|QVariantList
@@ -7625,9 +7620,6 @@ name|QAccessible
 operator|::
 name|Method
 comment|/*method*/
-parameter_list|,
-name|int
-comment|/*child*/
 parameter_list|,
 specifier|const
 name|QVariantList

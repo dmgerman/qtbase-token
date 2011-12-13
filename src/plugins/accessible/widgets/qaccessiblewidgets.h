@@ -503,8 +503,6 @@ name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,
-argument|int child
-argument_list|,
 argument|const QVariantList&params
 argument_list|)
 block|;
@@ -819,8 +817,6 @@ name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,
-argument|int child
-argument_list|,
 argument|const QVariantList&params
 argument_list|)
 block|; }
@@ -921,8 +917,6 @@ name|QVariant
 name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
-argument_list|,
-argument|int child
 argument_list|,
 argument|const QVariantList&params
 argument_list|)
@@ -1225,8 +1219,6 @@ name|QVariant
 name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
-argument_list|,
-argument|int child
 argument_list|,
 argument|const QVariantList&params
 argument_list|)

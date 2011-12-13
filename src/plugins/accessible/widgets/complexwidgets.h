@@ -131,8 +131,6 @@ name|invokeMethod
 argument_list|(
 argument|QAccessible::Method method
 argument_list|,
-argument|int
-argument_list|,
 argument|const QVariantList&params
 argument_list|)
 block|;

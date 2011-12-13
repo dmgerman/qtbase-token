@@ -1163,11 +1163,7 @@ operator|::
 name|Relation
 name|relationTo
 argument_list|(
-argument|int child
-argument_list|,
 argument|const QAccessibleInterface *other
-argument_list|,
-argument|int otherChild
 argument_list|)
 specifier|const
 block|;
@@ -1407,11 +1403,7 @@ operator|::
 name|Relation
 name|relationTo
 argument_list|(
-argument|int
-argument_list|,
 argument|const QAccessibleInterface *
-argument_list|,
-argument|int
 argument_list|)
 specifier|const
 block|{

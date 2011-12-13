@@ -5331,13 +5331,9 @@ name|QAccessibleTableHeaderCell
 operator|::
 name|relationTo
 parameter_list|(
-name|int
-parameter_list|,
 specifier|const
 name|QAccessibleInterface
 modifier|*
-parameter_list|,
-name|int
 parameter_list|)
 specifier|const
 block|{
