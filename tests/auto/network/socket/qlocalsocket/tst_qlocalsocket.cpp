@@ -4179,6 +4179,13 @@ operator|.
 name|mutex
 argument_list|)
 expr_stmt|;
+name|server
+operator|.
+name|mutex
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
 name|QList
 argument_list|<
 name|Client
