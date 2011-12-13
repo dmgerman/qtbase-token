@@ -452,6 +452,14 @@ name|int
 name|size
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|quint32
+name|flags
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// same as QMetaType::TypeFlags
+end_comment
 begin_ifndef
 unit|};
 ifndef|#
@@ -508,7 +516,9 @@ value|(reinterpret_cast<QMetaType::Constructor>(QMetaTypeInterface::Impl<Type>::
 comment|/*destructor*/
 value|(reinterpret_cast<QMetaType::Destructor>(QMetaTypeInterface::Impl<Type>::destructor)), \
 comment|/*size*/
-value|(sizeof(Type)) \ }
+value|(sizeof(Type)), \
+comment|/*flags*/
+value|(!QTypeInfo<Type>::isStatic * QMetaType::MovableType) \             | (QTypeInfo<Type>::isComplex * QMetaType::NeedsConstruction) \             | (QTypeInfo<Type>::isComplex * QMetaType::NeedsDestruction) \ }
 end_define
 begin_macro
 name|QT_END_NAMESPACE
