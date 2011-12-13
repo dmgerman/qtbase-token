@@ -332,7 +332,7 @@ comment|//for QWindow
 name|uint
 name|unused
 range|:
-literal|22
+literal|21
 decl_stmt|;
 name|int
 name|postedEvents
