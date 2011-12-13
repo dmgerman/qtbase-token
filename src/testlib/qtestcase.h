@@ -673,12 +673,12 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|expected
+name|actual
 parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|actual
+name|expected
 parameter_list|,
 specifier|const
 name|char
