@@ -4392,7 +4392,12 @@ name|process
 operator|.
 name|start
 argument_list|(
-literal|"stdinprocess/stdinprocess all"
+name|QFINDTESTDATA
+argument_list|(
+literal|"stdinprocess/stdinprocess"
+argument_list|)
+operator|+
+literal|" all"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -4600,15 +4605,22 @@ name|process
 operator|.
 name|start
 argument_list|(
+operator|(
+name|QFINDTESTDATA
+argument_list|(
+literal|"stdinprocess/stdinprocess"
+argument_list|)
+operator|+
 name|QString
 argument_list|(
-literal|"stdinprocess/stdinprocess line %1"
+literal|" line %1"
 argument_list|)
 operator|.
 name|arg
 argument_list|(
 name|i
 argument_list|)
+operator|)
 argument_list|,
 name|QIODevice
 operator|::
@@ -4830,9 +4842,14 @@ name|process
 operator|.
 name|start
 argument_list|(
+name|QFINDTESTDATA
+argument_list|(
+literal|"stdinprocess/stdinprocess"
+argument_list|)
+operator|+
 name|QString
 argument_list|(
-literal|"stdinprocess/stdinprocess line %1"
+literal|" line %1"
 argument_list|)
 operator|.
 name|arg
