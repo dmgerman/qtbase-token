@@ -298,11 +298,6 @@ range|:
 literal|1
 decl_stmt|;
 name|uint
-name|ownObjectName
-range|:
-literal|1
-decl_stmt|;
-name|uint
 name|sendChildEvents
 range|:
 literal|1
@@ -326,7 +321,7 @@ comment|//for QWindow
 name|uint
 name|unused
 range|:
-literal|22
+literal|23
 decl_stmt|;
 name|int
 name|postedEvents
