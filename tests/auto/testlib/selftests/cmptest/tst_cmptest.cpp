@@ -509,7 +509,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"last item different"
 argument_list|)
 operator|<<
 name|opA
@@ -591,7 +591,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"second-last item different"
 argument_list|)
 operator|<<
 name|opA
@@ -640,7 +640,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"prefix"
 argument_list|)
 operator|<<
 name|opA
@@ -789,7 +789,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"short list second"
 argument_list|)
 operator|<<
 name|opA
@@ -800,7 +800,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"short list first"
 argument_list|)
 operator|<<
 name|opB
