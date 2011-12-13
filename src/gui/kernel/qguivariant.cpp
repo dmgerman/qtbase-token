@@ -2743,7 +2743,7 @@ parameter_list|,
 name|RealName
 parameter_list|)
 define|\
-value|QMetaTypeInterface(static_cast<RealName*>(0)),
+value|QT_METATYPE_INTERFACE_INIT(RealName),
 end_define
 begin_decl_stmt
 DECL|variable|qVariantGuiHelper
