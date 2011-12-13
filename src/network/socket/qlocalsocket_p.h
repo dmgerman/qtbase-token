@@ -352,10 +352,6 @@ name|void
 name|_q_pipeClosed
 argument_list|()
 block|;
-name|void
-name|_q_emitReadyRead
-argument_list|()
-block|;
 name|DWORD
 name|checkPipeState
 argument_list|()
@@ -403,8 +399,9 @@ block|;
 name|bool
 name|readSequenceStarted
 block|;
-name|bool
-name|pendingReadyRead
+name|QTimer
+operator|*
+name|emitReadyReadTimer
 block|;
 name|bool
 name|pipeClosed
