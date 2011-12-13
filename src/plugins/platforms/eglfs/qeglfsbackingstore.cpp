@@ -170,7 +170,10 @@ literal|"QEglBackingStore %p, %p"
 argument_list|,
 name|window
 argument_list|,
+name|window
+operator|->
 name|screen
+argument_list|()
 argument_list|)
 expr_stmt|;
 endif|#
@@ -207,7 +210,7 @@ name|flush
 parameter_list|(
 name|QWindow
 modifier|*
-name|widget
+name|window
 parameter_list|,
 specifier|const
 name|QRegion
@@ -222,7 +225,7 @@ parameter_list|)
 block|{
 name|Q_UNUSED
 argument_list|(
-name|widget
+name|window
 argument_list|)
 expr_stmt|;
 name|Q_UNUSED
@@ -242,7 +245,7 @@ name|qWarning
 argument_list|(
 literal|"QEglBackingStore::flush %p"
 argument_list|,
-name|widget
+name|window
 argument_list|)
 expr_stmt|;
 endif|#

@@ -206,7 +206,7 @@ name|qWarning
 argument_list|(
 literal|"QEglIntegration::createWindowSurface %p\n"
 argument_list|,
-name|widget
+name|window
 argument_list|)
 expr_stmt|;
 endif|#
