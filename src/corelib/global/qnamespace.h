@@ -49,17 +49,10 @@ endif|#
 directive|endif
 if|#
 directive|if
-operator|(
 name|defined
 argument_list|(
 name|Q_MOC_RUN
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_JAMBI_RUN
-argument_list|)
-operator|)
 comment|// NOTE: Generally, do not add Q_ENUMS if a corresponding Q_FLAGS exists.
 decl_stmt|Q_ENUMS(ScrollBarPolicy FocusPolicy ContextMenuPolicy
 end_function
@@ -264,7 +257,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// (defined(Q_MOC_RUN) || defined(QT_JAMBI_RUN))
+comment|// defined(Q_MOC_RUN)
 end_comment
 begin_if
 if|#

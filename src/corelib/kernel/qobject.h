@@ -313,12 +313,6 @@ range|:
 literal|1
 decl_stmt|;
 name|uint
-name|inEventHandler
-range|:
-literal|1
-decl_stmt|;
-comment|//only used if QT_JAMBI_BUILD
-name|uint
 name|inThreadChangeEvent
 range|:
 literal|1
@@ -332,7 +326,7 @@ comment|//for QWindow
 name|uint
 name|unused
 range|:
-literal|21
+literal|22
 decl_stmt|;
 name|int
 name|postedEvents

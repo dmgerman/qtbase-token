@@ -635,36 +635,6 @@ operator|*
 name|previousSender
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT_JAMBI_BUILD
-specifier|static
-name|int
-operator|*
-name|setDeleteWatch
-argument_list|(
-name|QObjectPrivate
-operator|*
-name|d
-argument_list|,
-name|int
-operator|*
-name|newWatch
-argument_list|)
-block|;
-specifier|static
-name|void
-name|resetDeleteWatch
-argument_list|(
-argument|QObjectPrivate *d
-argument_list|,
-argument|int *oldWatch
-argument_list|,
-argument|int deleteWatch
-argument_list|)
-block|;
-endif|#
-directive|endif
 specifier|static
 name|QObjectPrivate
 operator|*
@@ -762,17 +732,7 @@ operator|::
 name|ExternalRefCountData
 operator|>
 name|sharedRefcount
-block|;
-ifdef|#
-directive|ifdef
-name|QT_JAMBI_BUILD
-name|int
-operator|*
-name|deleteWatch
-block|;
-endif|#
-directive|endif
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_comment
