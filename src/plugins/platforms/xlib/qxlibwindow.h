@@ -353,7 +353,7 @@ argument_list|(
 specifier|const
 name|QPlatformWindow
 operator|*
-name|window
+name|parent
 argument_list|)
 block|;
 name|void
