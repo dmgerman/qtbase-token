@@ -686,6 +686,21 @@ name|startAnimationPending
 operator|=
 literal|false
 expr_stmt|;
+comment|//force timer to update, which prevents large deltas for our newly added animations
+if|if
+condition|(
+operator|!
+name|animations
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|updateAnimationsTime
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
 comment|//we transfer the waiting animations into the "really running" state
 name|animations
 operator|+=
