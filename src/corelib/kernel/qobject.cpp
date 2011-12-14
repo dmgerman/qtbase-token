@@ -5705,7 +5705,7 @@ name|QSLOT_CODE
 condition|)
 name|qWarning
 argument_list|(
-literal|"Object::%s: Attempt to %s non-signal %s::%s"
+literal|"QObject::%s: Attempt to %s non-signal %s::%s"
 argument_list|,
 name|func
 argument_list|,
@@ -5727,7 +5727,7 @@ expr_stmt|;
 else|else
 name|qWarning
 argument_list|(
-literal|"Object::%s: Use the SIGNAL macro to %s %s::%s"
+literal|"QObject::%s: Use the SIGNAL macro to %s %s::%s"
 argument_list|,
 name|func
 argument_list|,
@@ -5791,7 +5791,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Object::%s: Use the SLOT or SIGNAL macro to "
+literal|"QObject::%s: Use the SLOT or SIGNAL macro to "
 literal|"%s %s::%s"
 argument_list|,
 name|func
@@ -5896,7 +5896,7 @@ condition|)
 comment|// common typing mistake
 name|qWarning
 argument_list|(
-literal|"Object::%s: Parentheses expected, %s %s::%s%s%s"
+literal|"QObject::%s: Parentheses expected, %s %s::%s%s%s"
 argument_list|,
 name|func
 argument_list|,
@@ -5930,7 +5930,7 @@ expr_stmt|;
 else|else
 name|qWarning
 argument_list|(
-literal|"Object::%s: No such %s %s::%s%s%s"
+literal|"QObject::%s: No such %s %s::%s%s%s"
 argument_list|,
 name|func
 argument_list|,
@@ -6021,7 +6021,7 @@ argument_list|()
 condition|)
 name|qWarning
 argument_list|(
-literal|"Object::%s:  (sender name:   '%s')"
+literal|"QObject::%s:  (sender name:   '%s')"
 argument_list|,
 name|func
 argument_list|,
@@ -6044,7 +6044,7 @@ argument_list|()
 condition|)
 name|qWarning
 argument_list|(
-literal|"Object::%s:  (receiver name: '%s')"
+literal|"QObject::%s:  (receiver name: '%s')"
 argument_list|,
 name|func
 argument_list|,
@@ -8064,7 +8064,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Object::disconnect: Unexpected null parameter"
+literal|"QObject::disconnect: Unexpected null parameter"
 argument_list|)
 expr_stmt|;
 return|return
@@ -8630,7 +8630,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Object::disconnect: Unexpected null parameter"
+literal|"QObject::disconnect: Unexpected null parameter"
 argument_list|)
 expr_stmt|;
 return|return
@@ -8658,7 +8658,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Object::%s: Attempt to %s non-signal %s::%s"
+literal|"QObject::%s: Attempt to %s non-signal %s::%s"
 argument_list|,
 literal|"disconnect"
 argument_list|,
@@ -14018,7 +14018,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Object::disconnect: Unexpected null parameter"
+literal|"QObject::disconnect: Unexpected null parameter"
 argument_list|)
 expr_stmt|;
 return|return

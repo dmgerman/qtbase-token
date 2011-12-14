@@ -29878,7 +29878,7 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"Object::disconnect: Attempt to unbind non-signal SenderObject::aPublicSlot()"
+literal|"QObject::disconnect: Attempt to unbind non-signal SenderObject::aPublicSlot()"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
