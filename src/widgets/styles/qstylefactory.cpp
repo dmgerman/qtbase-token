@@ -166,7 +166,7 @@ argument_list|)
 operator|&&
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 name|QT_BEGIN_INCLUDE_NAMESPACE
 include|#

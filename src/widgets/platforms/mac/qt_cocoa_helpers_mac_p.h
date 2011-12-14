@@ -247,17 +247,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
-name|bool
-name|macWindowIsTextured
-parameter_list|(
-name|void
-modifier|*
-comment|/*OSWindowRef*/
-name|window
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
 name|void
 name|macWindowToolbarShow
 parameter_list|(
@@ -390,19 +379,6 @@ name|window
 parameter_list|,
 name|bool
 name|show
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_function_decl
-name|void
-modifier|*
-comment|/*NSImage */
-name|qt_mac_create_nsimage
-parameter_list|(
-specifier|const
-name|QPixmap
-modifier|&
-name|pm
 parameter_list|)
 function_decl|;
 end_function_decl
