@@ -7560,10 +7560,10 @@ modifier|&
 name|sourceParent
 parameter_list|,
 name|int
-name|sourceStart
+comment|/* sourceStart */
 parameter_list|,
 name|int
-name|sourceEnd
+comment|/* sourceEnd */
 parameter_list|,
 specifier|const
 name|QModelIndex
@@ -7571,7 +7571,7 @@ modifier|&
 name|destParent
 parameter_list|,
 name|int
-name|dest
+comment|/* dest */
 parameter_list|)
 block|{
 name|Q_Q
@@ -7657,10 +7657,10 @@ modifier|&
 name|sourceParent
 parameter_list|,
 name|int
-name|sourceStart
+comment|/* sourceStart */
 parameter_list|,
 name|int
-name|sourceEnd
+comment|/* sourceEnd */
 parameter_list|,
 specifier|const
 name|QModelIndex
@@ -7668,7 +7668,7 @@ modifier|&
 name|destParent
 parameter_list|,
 name|int
-name|dest
+comment|/* dest */
 parameter_list|)
 block|{
 name|Q_Q
@@ -8055,10 +8055,10 @@ modifier|&
 name|sourceParent
 parameter_list|,
 name|int
-name|sourceStart
+comment|/* sourceStart */
 parameter_list|,
 name|int
-name|sourceEnd
+comment|/* sourceEnd */
 parameter_list|,
 specifier|const
 name|QModelIndex
@@ -8066,7 +8066,7 @@ modifier|&
 name|destParent
 parameter_list|,
 name|int
-name|dest
+comment|/* dest */
 parameter_list|)
 block|{
 name|Q_Q
@@ -8147,10 +8147,10 @@ modifier|&
 name|sourceParent
 parameter_list|,
 name|int
-name|sourceStart
+comment|/* sourceStart */
 parameter_list|,
 name|int
-name|sourceEnd
+comment|/* sourceEnd */
 parameter_list|,
 specifier|const
 name|QModelIndex
@@ -8158,7 +8158,7 @@ modifier|&
 name|destParent
 parameter_list|,
 name|int
-name|dest
+comment|/* dest */
 parameter_list|)
 block|{
 name|Q_Q
