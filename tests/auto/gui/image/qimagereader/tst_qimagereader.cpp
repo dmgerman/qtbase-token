@@ -443,6 +443,10 @@ name|preserveTexts
 parameter_list|()
 function_decl|;
 private|private:
+DECL|member|prefix
+name|QString
+name|prefix
+decl_stmt|;
 DECL|member|m_temporaryDir
 name|QTemporaryDir
 name|m_temporaryDir
@@ -450,17 +454,6 @@ decl_stmt|;
 block|}
 class|;
 end_class
-begin_decl_stmt
-specifier|static
-specifier|const
-name|QLatin1String
-name|prefix
-argument_list|(
-name|SRCDIR
-literal|"/images/"
-argument_list|)
-decl_stmt|;
-end_decl_stmt
 begin_comment
 comment|// helper to skip an autotest when the given image format is not supported
 end_comment
@@ -590,6 +583,13 @@ operator|::
 name|init
 parameter_list|()
 block|{
+name|prefix
+operator|=
+name|QFINDTESTDATA
+argument_list|(
+literal|"images/"
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|m_temporaryDir

@@ -507,7 +507,10 @@ expr_stmt|;
 name|QMovie
 name|movie
 argument_list|(
+name|QFINDTESTDATA
+argument_list|(
 name|fileName
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
