@@ -7552,6 +7552,8 @@ argument_list|,
 name|d
 operator|->
 name|sectionCount
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 if|if
