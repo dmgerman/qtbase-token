@@ -117,6 +117,16 @@ name|domain
 operator|.
 name|isNull
 argument_list|()
+operator|&&
+name|user
+operator|.
+name|isNull
+argument_list|()
+operator|&&
+name|password
+operator|.
+name|isNull
+argument_list|()
 return|;
 block|}
 block|}

@@ -574,6 +574,18 @@ name|user
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// don't cache null passwords, empty password may be valid though
+if|if
+condition|(
+name|authenticator
+operator|->
+name|password
+argument_list|()
+operator|.
+name|isNull
+argument_list|()
+condition|)
+return|return;
 comment|// Set two credentials: one with the username and one without
 do|do
 block|{
