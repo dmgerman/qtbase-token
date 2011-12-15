@@ -2031,6 +2031,14 @@ specifier|const
 name|QModelIndex
 modifier|&
 name|bottomRight
+parameter_list|,
+specifier|const
+name|QSet
+argument_list|<
+name|int
+argument_list|>
+modifier|&
+name|roles
 parameter_list|)
 block|{
 name|Q_D
@@ -2289,6 +2297,8 @@ argument_list|(
 name|topLeft
 argument_list|,
 name|bottomRight
+argument_list|,
+name|roles
 argument_list|)
 expr_stmt|;
 block|}

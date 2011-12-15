@@ -12070,6 +12070,13 @@ specifier|const
 name|QModelIndex
 modifier|&
 name|bottomRight
+parameter_list|,
+specifier|const
+name|QSet
+argument_list|<
+name|int
+argument_list|>
+modifier|&
 parameter_list|)
 block|{
 name|Q_D
