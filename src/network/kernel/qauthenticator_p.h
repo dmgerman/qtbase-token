@@ -127,6 +127,10 @@ decl_stmt|;
 name|QByteArray
 name|challenge
 decl_stmt|;
+name|bool
+name|hasFailed
+decl_stmt|;
+comment|//credentials have been tried but rejected by server.
 enum|enum
 name|Phase
 block|{

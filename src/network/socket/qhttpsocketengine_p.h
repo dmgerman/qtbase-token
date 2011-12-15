@@ -541,6 +541,9 @@ block|;
 name|bool
 name|connectionNotificationPending
 block|;
+name|bool
+name|credentialsSent
+block|;
 name|uint
 name|pendingResponseData
 block|; }

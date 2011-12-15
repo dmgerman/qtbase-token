@@ -286,6 +286,12 @@ block|;
 name|QAuthenticator
 name|proxyAuthenticator
 block|;
+name|bool
+name|authenticationCredentialsSent
+block|;
+name|bool
+name|proxyCredentialsSent
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_OPENSSL

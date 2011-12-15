@@ -752,6 +752,11 @@ argument_list|(
 name|None
 argument_list|)
 member_init_list|,
+name|hasFailed
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
 name|phase
 argument_list|(
 name|Start

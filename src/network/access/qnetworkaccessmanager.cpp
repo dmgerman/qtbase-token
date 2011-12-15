@@ -95,7 +95,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtNetwork/qauthenticator.h"
+file|"QtNetwork/private/qauthenticator_p.h"
 end_include
 begin_include
 include|#
@@ -2650,19 +2650,34 @@ argument_list|(
 name|QNetworkAccessManager
 argument_list|)
 expr_stmt|;
-comment|// ### FIXME Tracking of successful authentications
-comment|// This code is a bit broken right now for SOCKS authentication
-comment|// first request: proxyAuthenticationRequired gets emitted, credentials gets saved
-comment|// second request: (proxy != backend->reply->lastProxyAuthentication) does not evaluate to true,
-comment|//      proxyAuthenticationRequired gets emitted again
-comment|// possible solution: some tracking inside the authenticator
-comment|//      or a new function proxyAuthenticationSucceeded(true|false)
+name|QAuthenticatorPrivate
+modifier|*
+name|priv
+init|=
+name|QAuthenticatorPrivate
+operator|::
+name|getPrivate
+argument_list|(
+operator|*
+name|authenticator
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|proxy
 operator|!=
 operator|*
 name|lastProxyAuthentication
+operator|&&
+operator|(
+operator|!
+name|priv
+operator|||
+operator|!
+name|priv
+operator|->
+name|hasFailed
+operator|)
 condition|)
 block|{
 name|QNetworkAuthenticationCredential
