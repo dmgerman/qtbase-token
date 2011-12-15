@@ -213,9 +213,7 @@ argument_list|,
 argument|const QString&text
 argument_list|)
 block|;
-name|public
-name|Q_SLOTS
-operator|:
+name|virtual
 name|bool
 name|helpEvent
 argument_list|(
