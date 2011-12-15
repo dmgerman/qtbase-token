@@ -1501,27 +1501,13 @@ name|WA_MergeSoftkeysRecursively
 operator|=
 literal|125
 block|,
-if|#
-directive|if
-literal|0
-comment|// these values are reserved for Maemo5 - do not re-use them
-block|WA_Maemo5NonComposited = 126,         WA_Maemo5StackedWindow = 127,
-endif|#
-directive|endif
-if|#
-directive|if
-literal|0
-comment|// these values are reserved for Maemo5 - do not re-use them
-block|WA_Maemo5PortraitOrientation = WA_LockPortraitOrientation,         WA_Maemo5LandscapeOrientation = WA_LockLandscapeOrientation,         WA_Maemo5AutoOrientation = WA_AutoOrientation,         WA_Maemo5ShowProgressIndicator = 131,
-endif|#
-directive|endif
 name|WA_X11DoNotAcceptFocus
 operator|=
-literal|132
+literal|126
 block|,
 name|WA_MacNoShadow
 operator|=
-literal|134
+literal|127
 block|,
 comment|// Add new attributes before this line
 name|WA_AttributeCount
