@@ -815,6 +815,18 @@ begin_comment
 comment|/*!     \class QSupportedWritingSystems     \brief The QSupportedWritingSystems class is used when registering fonts with the internal Qt     fontdatabase     \ingroup painting      Its to provide an easy to use interface for indicating what writing systems a specific font     supports.  */
 end_comment
 begin_comment
+comment|/*!     \internal  */
+end_comment
+begin_destructor
+DECL|function|~QPlatformFontDatabase
+name|QPlatformFontDatabase
+operator|::
+name|~
+name|QPlatformFontDatabase
+parameter_list|()
+block|{ }
+end_destructor
+begin_comment
 comment|/*!   This function is called once at startup by Qt's internal font database.   Reimplement this function in a subclass for a convenient place to initialize   the internal font database.    The default implementation looks in the fontDir() location and registers all   QPF2 fonts. */
 end_comment
 begin_function

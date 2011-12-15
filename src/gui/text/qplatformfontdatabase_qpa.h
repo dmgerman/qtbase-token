@@ -219,6 +219,11 @@ block|{
 name|public
 label|:
 name|virtual
+operator|~
+name|QPlatformFontDatabase
+argument_list|()
+expr_stmt|;
+name|virtual
 name|void
 name|populateFontDatabase
 parameter_list|()
