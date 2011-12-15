@@ -141,6 +141,16 @@ specifier|const
 block|;
 name|virtual
 name|void
+name|destroyEditor
+argument_list|(
+argument|QWidget *editor
+argument_list|,
+argument|const QModelIndex&index
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|void
 name|setEditorData
 argument_list|(
 argument|QWidget *editor

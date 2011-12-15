@@ -140,7 +140,7 @@ begin_comment
 comment|/*!     \fn QSize QAbstractItemDelegate::sizeHint(const QStyleOptionViewItem&option, const QModelIndex&index) const = 0      This pure abstract function must be reimplemented if you want to     provide custom rendering. The options are specified by \a option     and the model item by \a index.      If you reimplement this you must also reimplement paint(). */
 end_comment
 begin_comment
-comment|/*!     Returns the editor to be used for editing the data item with the     given \a index. Note that the index contains information about the     model being used. The editor's parent widget is specified by \a parent,     and the item options by \a option.      The base implementation returns 0. If you want custom editing you     will need to reimplement this function.      The returned editor widget should have Qt::StrongFocus;     otherwise, \l{QMouseEvent}s received by the widget will propagate     to the view. The view's background will shine through unless the     editor paints its own background (e.g., with     \l{QWidget::}{setAutoFillBackground()}).      \sa setModelData() setEditorData() */
+comment|/*!     Returns the editor to be used for editing the data item with the     given \a index. Note that the index contains information about the     model being used. The editor's parent widget is specified by \a parent,     and the item options by \a option.      The base implementation returns 0. If you want custom editing you     will need to reimplement this function.      The returned editor widget should have Qt::StrongFocus;     otherwise, \l{QMouseEvent}s received by the widget will propagate     to the view. The view's background will shine through unless the     editor paints its own background (e.g., with     \l{QWidget::}{setAutoFillBackground()}).      \sa destroyEditor() setModelData() setEditorData() */
 end_comment
 begin_function
 DECL|function|createEditor
@@ -166,6 +166,33 @@ block|{
 return|return
 literal|0
 return|;
+block|}
+end_function
+begin_comment
+comment|/*!     A function called when the editor is no longer needed and should be     destroyed. The default behavior is a call to deleteLater on the editor.     It possible e.g. to avoid this delete by reimplementing this function.      \sa createEditor() */
+end_comment
+begin_function
+DECL|function|destroyEditor
+name|void
+name|QAbstractItemDelegate
+operator|::
+name|destroyEditor
+parameter_list|(
+name|QWidget
+modifier|*
+name|editor
+parameter_list|,
+specifier|const
+name|QModelIndex
+modifier|&
+parameter_list|)
+specifier|const
+block|{
+name|editor
+operator|->
+name|deleteLater
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_comment

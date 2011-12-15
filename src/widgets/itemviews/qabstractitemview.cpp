@@ -3713,6 +3713,18 @@ name|widget
 operator|.
 name|data
 argument_list|()
+argument_list|,
+name|d
+operator|->
+name|indexForEditor
+argument_list|(
+name|info
+operator|.
+name|widget
+operator|.
+name|data
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -11017,6 +11029,8 @@ operator|->
 name|releaseEditor
 argument_list|(
 name|editor
+argument_list|,
+name|index
 argument_list|)
 expr_stmt|;
 block|}
@@ -12508,6 +12522,8 @@ operator|->
 name|releaseEditor
 argument_list|(
 name|editor
+argument_list|,
+name|index
 argument_list|)
 expr_stmt|;
 block|}
@@ -13426,6 +13442,8 @@ operator|->
 name|releaseEditor
 argument_list|(
 name|editor
+argument_list|,
+name|index
 argument_list|)
 expr_stmt|;
 block|}
@@ -13850,6 +13868,8 @@ condition|)
 name|releaseEditor
 argument_list|(
 name|editor
+argument_list|,
+name|index
 argument_list|)
 expr_stmt|;
 block|}

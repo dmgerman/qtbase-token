@@ -944,6 +944,8 @@ name|void
 name|releaseEditor
 argument_list|(
 argument|QWidget *editor
+argument_list|,
+argument|const QModelIndex&index = QModelIndex()
 argument_list|)
 specifier|const
 block|{
@@ -992,6 +994,29 @@ operator|->
 name|hide
 argument_list|()
 expr_stmt|;
+name|QAbstractItemDelegate
+modifier|*
+name|delegate
+init|=
+name|delegateForIndex
+argument_list|(
+name|index
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|delegate
+condition|)
+name|delegate
+operator|->
+name|destroyEditor
+argument_list|(
+name|editor
+argument_list|,
+name|index
+argument_list|)
+expr_stmt|;
+else|else
 name|editor
 operator|->
 name|deleteLater
