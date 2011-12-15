@@ -2007,6 +2007,16 @@ elseif|else
 if|if
 condition|(
 name|callFunction_
+operator|&&
+name|method_offset_
+operator|<=
+name|object
+operator|->
+name|metaObject
+argument_list|()
+operator|->
+name|methodOffset
+argument_list|()
 condition|)
 block|{
 name|callFunction_
