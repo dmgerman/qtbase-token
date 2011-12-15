@@ -3138,12 +3138,6 @@ name|lastSectionSize
 operator|=
 name|size
 expr_stmt|;
-if|if
-condition|(
-name|size
-operator|!=
-name|oldSize
-condition|)
 name|d
 operator|->
 name|createSectionSpan
