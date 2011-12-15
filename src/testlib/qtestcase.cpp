@@ -5673,6 +5673,11 @@ name|currentTestObject
 operator|=
 literal|0
 expr_stmt|;
+name|QSignalDumper
+operator|::
+name|endDump
+argument_list|()
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_WS_MAC
