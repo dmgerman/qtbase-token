@@ -49,9 +49,6 @@ name|class
 name|QVariant
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|/* ### Qt5: change the class to use regular BC mechanisms, such that we can  * implement things like suggested in task 160192. */
-end_comment
 begin_decl_stmt
 DECL|variable|QObject
 name|class
