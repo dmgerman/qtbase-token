@@ -6888,7 +6888,7 @@ name|QTEST_ASSERT_X
 argument_list|(
 name|tbl
 argument_list|,
-literal|"QTest::addColumn()"
+literal|"QTest::newRow()"
 argument_list|,
 literal|"Cannot add testdata outside of a _data slot."
 argument_list|)
