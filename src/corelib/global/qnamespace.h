@@ -1508,18 +1508,6 @@ comment|// these values are reserved for Maemo5 - do not re-use them
 block|WA_Maemo5NonComposited = 126,         WA_Maemo5StackedWindow = 127,
 endif|#
 directive|endif
-name|WA_LockPortraitOrientation
-operator|=
-literal|128
-block|,
-name|WA_LockLandscapeOrientation
-operator|=
-literal|129
-block|,
-name|WA_AutoOrientation
-operator|=
-literal|130
-block|,
 if|#
 directive|if
 literal|0
@@ -1530,10 +1518,6 @@ directive|endif
 name|WA_X11DoNotAcceptFocus
 operator|=
 literal|132
-block|,
-name|WA_SymbianNoSystemRotation
-operator|=
-literal|133
 block|,
 name|WA_MacNoShadow
 operator|=
