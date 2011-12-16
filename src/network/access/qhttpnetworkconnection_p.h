@@ -86,6 +86,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qtimer.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qhttpnetworkheader_p.h>
 end_include
 begin_include
@@ -381,6 +386,12 @@ argument|d_func()
 argument_list|,
 argument|void _q_hostLookupFinished(QHostInfo)
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_connectIPv4Channel()
+argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -609,6 +620,10 @@ argument|QHostInfo info
 argument_list|)
 block|;
 name|void
+name|_q_connectIPv4Channel
+argument_list|()
+block|;
+name|void
 name|createAuthorization
 argument_list|(
 name|QAbstractSocket
@@ -650,6 +665,9 @@ block|;
 specifier|const
 name|int
 name|channelCount
+block|;
+name|QTimer
+name|ipv4ConnectTimer
 block|;
 name|QHttpNetworkConnectionChannel
 operator|*
