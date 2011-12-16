@@ -16242,6 +16242,10 @@ decl_stmt|;
 comment|// Jump to the next charStop
 while|while
 condition|(
+name|pos
+operator|<
+name|end
+operator|&&
 operator|!
 name|attrs
 index|[
@@ -16249,10 +16253,6 @@ name|pos
 index|]
 operator|.
 name|charStop
-operator|&&
-name|pos
-operator|<
-name|end
 condition|)
 name|pos
 operator|++
