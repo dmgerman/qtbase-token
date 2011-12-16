@@ -573,6 +573,10 @@ name|friend
 name|class
 name|QFontEngineMultiQPA
 decl_stmt|;
+name|friend
+name|class
+name|QTextEngine
+decl_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_BUILD_INTERNAL
