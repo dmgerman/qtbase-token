@@ -3770,8 +3770,9 @@ block|;
 name|d
 operator|->
 name|ref
-operator|=
-literal|1
+operator|.
+name|initializeOwned
+argument_list|()
 block|;
 name|d
 operator|->
@@ -3888,8 +3889,9 @@ block|;
 name|d
 operator|->
 name|ref
-operator|=
-literal|1
+operator|.
+name|initializeOwned
+argument_list|()
 block|;
 name|d
 operator|->
@@ -3981,8 +3983,9 @@ block|;
 name|d
 operator|->
 name|ref
-operator|=
-literal|1
+operator|.
+name|initializeOwned
+argument_list|()
 block|;
 name|d
 operator|->
@@ -4519,8 +4522,9 @@ operator|.
 name|d
 operator|->
 name|ref
-operator|=
-literal|1
+operator|.
+name|initializeOwned
+argument_list|()
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt

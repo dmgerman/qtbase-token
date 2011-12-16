@@ -197,8 +197,9 @@ decl_stmt|;
 name|header
 operator|->
 name|ref
-operator|=
-literal|1
+operator|.
+name|initializeOwned
+argument_list|()
 expr_stmt|;
 name|header
 operator|->

@@ -160,8 +160,9 @@ expr_stmt|;
 name|d
 operator|->
 name|ref
-operator|=
-literal|1
+operator|.
+name|initializeOwned
+argument_list|()
 expr_stmt|;
 name|d
 operator|->

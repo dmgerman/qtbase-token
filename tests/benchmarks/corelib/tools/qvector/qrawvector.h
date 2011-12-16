@@ -2472,8 +2472,9 @@ block|;
 name|d
 operator|->
 name|ref
-operator|=
-literal|1
+operator|.
+name|initializeOwned
+argument_list|()
 block|;
 name|d
 operator|->
