@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/QPointer>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QImage>
 end_include
 begin_include
