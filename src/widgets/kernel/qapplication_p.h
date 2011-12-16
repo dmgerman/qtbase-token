@@ -206,6 +206,7 @@ directive|endif
 end_endif
 begin_decl_stmt
 specifier|extern
+name|Q_GUI_EXPORT
 name|bool
 name|qt_is_gui_used
 decl_stmt|;

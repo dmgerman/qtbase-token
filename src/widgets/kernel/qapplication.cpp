@@ -961,12 +961,6 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
-DECL|variable|qt_is_gui_used
-name|bool
-name|qt_is_gui_used
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|qt_tab_all_widgets
 name|bool
 name|Q_WIDGETS_EXPORT
