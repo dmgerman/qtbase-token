@@ -505,7 +505,7 @@ name|type
 parameter_list|,
 name|size
 parameter_list|)
-value|{ \     Q_REFCOUNT_INITIALIZER(-1), size, 0, 0, \     (sizeof(QArrayData) + (Q_ALIGNOF(type) - 1)) \& ~(Q_ALIGNOF(type) - 1) }
+value|{ \     Q_REFCOUNT_INITIALIZE_STATIC, size, 0, 0, \     (sizeof(QArrayData) + (Q_ALIGNOF(type) - 1)) \& ~(Q_ALIGNOF(type) - 1) }
 end_define
 begin_comment
 unit|\

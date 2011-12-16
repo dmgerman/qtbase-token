@@ -2003,11 +2003,7 @@ name|shared_null
 init|=
 block|{
 block|{
-name|Q_REFCOUNT_INITIALIZER
-argument_list|(
-operator|-
-literal|1
-argument_list|)
+name|Q_REFCOUNT_INITIALIZE_STATIC
 block|,
 literal|0
 block|,
@@ -2039,11 +2035,7 @@ name|shared_empty
 init|=
 block|{
 block|{
-name|Q_REFCOUNT_INITIALIZER
-argument_list|(
-operator|-
-literal|1
-argument_list|)
+name|Q_REFCOUNT_INITIALIZE_STATIC
 block|,
 literal|0
 block|,

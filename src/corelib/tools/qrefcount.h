@@ -164,18 +164,16 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_define
-DECL|macro|Q_REFCOUNT_INITIALIZER
+DECL|macro|Q_REFCOUNT_INITIALIZE_STATIC
+unit|}
 define|#
 directive|define
-name|Q_REFCOUNT_INITIALIZER
-parameter_list|(
-name|a
-parameter_list|)
-value|{ Q_BASIC_ATOMIC_INITIALIZER(a) }
+name|Q_REFCOUNT_INITIALIZE_STATIC
+value|{ Q_BASIC_ATOMIC_INITIALIZER(-1) }
 end_define
 begin_macro
-DECL|macro|Q_REFCOUNT_INITIALIZER
-unit|}  QT_END_NAMESPACE
+DECL|macro|Q_REFCOUNT_INITIALIZE_STATIC
+unit|QT_END_NAMESPACE
 name|QT_END_HEADER
 end_macro
 begin_endif

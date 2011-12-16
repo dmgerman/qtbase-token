@@ -493,7 +493,7 @@ name|QStringLiteral
 parameter_list|(
 name|str
 parameter_list|)
-value|([]() -> QConstStringDataPtr<sizeof(QT_UNICODE_LITERAL(str))/2 - 1> { \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size, 0, 0, { 0 } }, QT_UNICODE_LITERAL(str) }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \     return holder; }())
+value|([]() -> QConstStringDataPtr<sizeof(QT_UNICODE_LITERAL(str))/2 - 1> { \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, { 0 } }, QT_UNICODE_LITERAL(str) }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \     return holder; }())
 end_define
 begin_elif
 elif|#
@@ -521,7 +521,7 @@ parameter_list|(
 name|str
 parameter_list|)
 define|\
-value|__extension__ ({ \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size, 0, 0, { 0 } }, QT_UNICODE_LITERAL(str) }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \         holder; })
+value|__extension__ ({ \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, { 0 } }, QT_UNICODE_LITERAL(str) }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \         holder; })
 end_define
 begin_endif
 endif|#

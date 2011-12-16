@@ -638,7 +638,7 @@ name|QByteArrayLiteral
 parameter_list|(
 name|str
 parameter_list|)
-value|([]() -> QConstByteArrayDataPtr<sizeof(str) - 1> { \         enum { Size = sizeof(str) - 1 }; \         static const QConstByteArrayData<Size> qbytearray_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size, 0, 0, { 0 } }, str }; \         QConstByteArrayDataPtr<Size> holder = {&qbytearray_literal }; \     return holder; }())
+value|([]() -> QConstByteArrayDataPtr<sizeof(str) - 1> { \         enum { Size = sizeof(str) - 1 }; \         static const QConstByteArrayData<Size> qbytearray_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, { 0 } }, str }; \         QConstByteArrayDataPtr<Size> holder = {&qbytearray_literal }; \     return holder; }())
 end_define
 begin_elif
 elif|#
@@ -666,7 +666,7 @@ parameter_list|(
 name|str
 parameter_list|)
 define|\
-value|__extension__ ({ \         enum { Size = sizeof(str) - 1 }; \         static const QConstByteArrayData<Size> qbytearray_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size, 0, 0, { 0 } }, str }; \         QConstByteArrayDataPtr<Size> holder = {&qbytearray_literal }; \         holder; })
+value|__extension__ ({ \         enum { Size = sizeof(str) - 1 }; \         static const QConstByteArrayData<Size> qbytearray_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, { 0 } }, str }; \         QConstByteArrayDataPtr<Size> holder = {&qbytearray_literal }; \         holder; })
 end_define
 begin_endif
 endif|#
