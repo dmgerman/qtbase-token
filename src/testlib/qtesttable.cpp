@@ -135,7 +135,7 @@ modifier|*
 name|dataList
 decl_stmt|;
 name|void
-name|append
+name|addColumn
 parameter_list|(
 name|int
 name|elemType
@@ -147,7 +147,7 @@ name|elemName
 parameter_list|)
 function_decl|;
 name|void
-name|append
+name|addRow
 parameter_list|(
 name|QTestData
 modifier|*
@@ -391,11 +391,11 @@ block|}
 block|}
 end_destructor
 begin_function
-DECL|function|append
+DECL|function|addColumn
 name|void
 name|QTestTablePrivate
 operator|::
-name|append
+name|addColumn
 parameter_list|(
 name|int
 name|elemType
@@ -466,11 +466,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|append
+DECL|function|addRow
 name|void
 name|QTestTablePrivate
 operator|::
-name|append
+name|addRow
 parameter_list|(
 name|QTestData
 modifier|*
@@ -558,7 +558,7 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|->
-name|append
+name|addColumn
 argument_list|(
 name|type
 argument_list|,
@@ -700,7 +700,7 @@ argument_list|)
 decl_stmt|;
 name|d
 operator|->
-name|append
+name|addRow
 argument_list|(
 name|dt
 argument_list|)
