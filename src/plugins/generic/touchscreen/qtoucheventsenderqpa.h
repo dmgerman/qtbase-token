@@ -56,6 +56,12 @@ argument_list|,
 argument|int y_min
 argument_list|,
 argument|int y_max
+argument_list|,
+argument|int pressure_min
+argument_list|,
+argument|int pressure_max
+argument_list|,
+argument|const QString&dev_name
 argument_list|)
 block|;
 name|void
@@ -88,6 +94,15 @@ name|hw_range_y_min
 block|;
 name|int
 name|hw_range_y_max
+block|;
+name|int
+name|hw_pressure_min
+block|;
+name|int
+name|hw_pressure_max
+block|;
+name|QString
+name|hw_dev_name
 block|;
 name|QTouchDevice
 operator|*

@@ -73,6 +73,17 @@ name|y_min
 parameter_list|,
 name|int
 name|y_max
+parameter_list|,
+name|int
+name|pressure_min
+parameter_list|,
+name|int
+name|pressure_max
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|dev_name
 parameter_list|)
 init|=
 literal|0
