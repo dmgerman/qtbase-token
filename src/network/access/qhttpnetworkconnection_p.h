@@ -390,7 +390,7 @@ name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
-argument|void _q_connectIPv4Channel()
+argument|void _q_connectDelayedChannel()
 argument_list|)
 block|}
 decl_stmt|;
@@ -620,7 +620,7 @@ argument|QHostInfo info
 argument_list|)
 block|;
 name|void
-name|_q_connectIPv4Channel
+name|_q_connectDelayedChannel
 argument_list|()
 block|;
 name|void
@@ -662,12 +662,15 @@ block|;
 name|bool
 name|encrypt
 block|;
+name|bool
+name|delayIpv4
+block|;
 specifier|const
 name|int
 name|channelCount
 block|;
 name|QTimer
-name|ipv4ConnectTimer
+name|delayedConnectionTimer
 block|;
 name|QHttpNetworkConnectionChannel
 operator|*

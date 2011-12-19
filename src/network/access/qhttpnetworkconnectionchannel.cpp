@@ -4172,7 +4172,7 @@ operator|->
 name|d_func
 argument_list|()
 operator|->
-name|ipv4ConnectTimer
+name|delayedConnectionTimer
 operator|.
 name|isActive
 argument_list|()
@@ -4182,7 +4182,7 @@ operator|->
 name|d_func
 argument_list|()
 operator|->
-name|ipv4ConnectTimer
+name|delayedConnectionTimer
 operator|.
 name|stop
 argument_list|()
