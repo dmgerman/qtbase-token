@@ -3698,12 +3698,12 @@ specifier|inline
 name|void
 name|setDevice
 argument_list|(
-argument|QTouchDevice *device
+argument|QTouchDevice *adevice
 argument_list|)
 block|{
 name|_device
 operator|=
-name|device
+name|adevice
 block|; }
 name|protected
 operator|:
