@@ -4463,7 +4463,7 @@ block|,
 comment|// Reserved
 name|UserRole
 init|=
-literal|32
+literal|0x0100
 block|}
 enum|;
 end_enum
