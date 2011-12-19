@@ -1779,7 +1779,11 @@ block|}
 else|else
 block|{
 name|listen
-argument_list|()
+argument_list|(
+name|QHostAddress
+operator|::
+name|AnyIPv4
+argument_list|)
 expr_stmt|;
 block|}
 if|if
