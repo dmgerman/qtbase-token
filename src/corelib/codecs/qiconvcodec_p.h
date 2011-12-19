@@ -179,6 +179,9 @@ operator|~
 name|IconvState
 argument_list|()
 block|;
+name|ConverterState
+name|internalState
+block|;
 name|char
 operator|*
 name|buffer
