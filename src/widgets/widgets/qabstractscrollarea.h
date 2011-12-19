@@ -192,9 +192,7 @@ name|sizeHint
 argument_list|()
 specifier|const
 block|;
-name|protected
-name|Q_SLOTS
-operator|:
+name|virtual
 name|void
 name|setupViewport
 argument_list|(
