@@ -4690,6 +4690,12 @@ name|fi
 operator|.
 name|isDir
 argument_list|()
+operator|&&
+operator|!
+name|fi
+operator|.
+name|isSymLink
+argument_list|()
 condition|)
 name|ok
 operator|=
