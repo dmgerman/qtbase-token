@@ -361,6 +361,12 @@ operator|==
 name|QLocalSocket
 operator|::
 name|UnconnectedState
+operator|&&
+name|currentState
+operator|!=
+name|QLocalSocket
+operator|::
+name|ConnectingState
 condition|)
 name|q
 operator|->
