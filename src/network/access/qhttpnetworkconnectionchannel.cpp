@@ -3487,6 +3487,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+comment|//authentication cancelled, close the channel.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{

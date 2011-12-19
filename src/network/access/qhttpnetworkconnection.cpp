@@ -2436,11 +2436,6 @@ name|errorString
 argument_list|)
 emit|;
 comment|// ### at this point the reply could be deleted
-name|socket
-operator|->
-name|close
-argument_list|()
-expr_stmt|;
 return|return
 literal|true
 return|;
