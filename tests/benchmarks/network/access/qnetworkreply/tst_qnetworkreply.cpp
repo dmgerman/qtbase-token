@@ -1322,7 +1322,6 @@ specifier|virtual
 name|bool
 name|reset
 parameter_list|()
-specifier|const
 block|{
 return|return
 literal|false
