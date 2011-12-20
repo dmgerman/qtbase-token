@@ -11085,7 +11085,9 @@ DECL|function|open
 name|bool
 name|open
 parameter_list|(
-name|int
+name|QIODevice
+operator|::
+name|OpenMode
 parameter_list|)
 block|{
 return|return
