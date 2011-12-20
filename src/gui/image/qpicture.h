@@ -360,10 +360,6 @@ argument_list|,
 argument|int i
 argument_list|)
 block|;
-name|void
-name|detach_helper
-argument_list|()
-block|;
 name|QExplicitlySharedDataPointer
 operator|<
 name|QPicturePrivate
