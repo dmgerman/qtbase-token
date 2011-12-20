@@ -46,7 +46,9 @@ block|;
 name|void
 name|updateState
 argument_list|(
-argument|State state
+argument|State newstate
+argument_list|,
+argument|State oldstate
 argument_list|)
 block|;
 name|private
