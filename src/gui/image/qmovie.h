@@ -342,11 +342,6 @@ argument_list|(
 argument|CacheMode mode
 argument_list|)
 block|;
-name|CacheMode
-name|cacheMode
-argument_list|()
-block|;
-comment|// ### Qt 5: remove me
 name|Q_SIGNALS
 operator|:
 name|void
