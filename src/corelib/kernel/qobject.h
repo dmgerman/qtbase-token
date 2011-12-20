@@ -350,6 +350,8 @@ name|READ
 name|objectName
 name|WRITE
 name|setObjectName
+name|NOTIFY
+name|objectNameChanged
 argument_list|)
 name|Q_DECLARE_PRIVATE
 argument_list|(
@@ -1835,6 +1837,17 @@ name|QObject
 modifier|*
 init|=
 literal|0
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
+name|objectNameChanged
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|objectName
 parameter_list|)
 function_decl|;
 end_function_decl
