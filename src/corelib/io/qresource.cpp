@@ -7318,18 +7318,6 @@ literal|true
 return|;
 block|}
 end_function
-begin_function
-DECL|function|qInitResourceIO
-name|Q_CORE_EXPORT
-name|void
-name|qInitResourceIO
-parameter_list|()
-block|{ }
-end_function
-begin_comment
-DECL|function|qInitResourceIO
-comment|// ### Qt 5: remove
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
