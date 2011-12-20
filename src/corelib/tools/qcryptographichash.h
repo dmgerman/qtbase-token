@@ -28,6 +28,10 @@ parameter_list|)
 name|class
 name|QCryptographicHashPrivate
 decl_stmt|;
+DECL|variable|QIODevice
+name|class
+name|QIODevice
+decl_stmt|;
 name|class
 name|Q_CORE_EXPORT
 name|QCryptographicHash
@@ -86,6 +90,16 @@ specifier|const
 name|QByteArray
 modifier|&
 name|data
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|bool
+name|addData
+parameter_list|(
+name|QIODevice
+modifier|*
+name|device
 parameter_list|)
 function_decl|;
 end_function_decl
