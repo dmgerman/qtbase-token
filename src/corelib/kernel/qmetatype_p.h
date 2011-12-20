@@ -312,9 +312,6 @@ name|delete
 name|t
 decl_stmt|;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_DATASTREAM
 specifier|static
 name|void
 name|saver
@@ -354,9 +351,6 @@ operator|*
 name|t
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// QT_NO_DATASTREAM
 specifier|static
 name|void
 name|destructor
@@ -443,11 +437,6 @@ name|Deleter
 name|deleter
 expr_stmt|;
 end_expr_stmt
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_DATASTREAM
-end_ifndef
 begin_expr_stmt
 name|QMetaType
 operator|::
@@ -462,10 +451,6 @@ name|LoadOperator
 name|loadOp
 expr_stmt|;
 end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
 name|QMetaType
 operator|::
@@ -525,9 +510,6 @@ argument_list|(
 argument|void *
 argument_list|)
 block|{}
-ifndef|#
-directive|ifndef
-name|QT_NO_DATASTREAM
 specifier|static
 name|void
 name|saver
@@ -546,9 +528,6 @@ argument_list|,
 argument|void *
 argument_list|)
 block|{}
-endif|#
-directive|endif
-comment|// QT_NO_DATASTREAM
 specifier|static
 name|void
 name|destructor
@@ -591,10 +570,38 @@ value|(reinterpret_cast<QMetaType::SaveOperator>(QMetaTypeInterface::Impl<Type>:
 comment|/*loadOp*/
 value|(reinterpret_cast<QMetaType::LoadOperator>(QMetaTypeInterface::Impl<Type>::loader)),
 end_define
+begin_define
+DECL|macro|QT_METATYPE_INTERFACE_INIT_EMPTY_DATASTREAM_IMPL
+define|#
+directive|define
+name|QT_METATYPE_INTERFACE_INIT_EMPTY_DATASTREAM_IMPL
+parameter_list|(
+name|Type
+parameter_list|)
+define|\
+comment|/*saveOp*/
+value|0, \
+comment|/*loadOp*/
+value|0,
+end_define
 begin_else
 else|#
 directive|else
 end_else
+begin_define
+DECL|macro|QT_METATYPE_INTERFACE_INIT_EMPTY_DATASTREAM_IMPL
+define|#
+directive|define
+name|QT_METATYPE_INTERFACE_INIT_EMPTY_DATASTREAM_IMPL
+parameter_list|(
+name|Type
+parameter_list|)
+define|\
+comment|/*saveOp*/
+value|0, \
+comment|/*loadOp*/
+value|0,
+end_define
 begin_define
 DECL|macro|QT_METATYPE_INTERFACE_INIT_DATASTREAM_IMPL
 define|#
@@ -603,25 +610,29 @@ name|QT_METATYPE_INTERFACE_INIT_DATASTREAM_IMPL
 parameter_list|(
 name|Type
 parameter_list|)
+define|\
+value|QT_METATYPE_INTERFACE_INIT_EMPTY_DATASTREAM_IMPL(Type)
 end_define
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_define
-DECL|macro|QT_METATYPE_INTERFACE_INIT
+DECL|macro|QT_METATYPE_INTERFACE_INIT_IMPL
 define|#
 directive|define
-name|QT_METATYPE_INTERFACE_INIT
+name|QT_METATYPE_INTERFACE_INIT_IMPL
 parameter_list|(
 name|Type
+parameter_list|,
+name|DATASTREAM_DELEGATE
 parameter_list|)
 define|\
 value|{ \
 comment|/*creator*/
 value|(reinterpret_cast<QMetaType::Creator>(QMetaTypeInterface::Impl<Type>::creator)), \
 comment|/*deleter*/
-value|(reinterpret_cast<QMetaType::Deleter>(QMetaTypeInterface::Impl<Type>::deleter)), \     QT_METATYPE_INTERFACE_INIT_DATASTREAM_IMPL(Type) \
+value|(reinterpret_cast<QMetaType::Deleter>(QMetaTypeInterface::Impl<Type>::deleter)), \     DATASTREAM_DELEGATE(Type) \
 comment|/*constructor*/
 value|(reinterpret_cast<QMetaType::Constructor>(QMetaTypeInterface::Impl<Type>::constructor)), \
 comment|/*destructor*/
@@ -630,6 +641,50 @@ comment|/*size*/
 value|(QTypeInfo<Type>::sizeOf), \
 comment|/*flags*/
 value|(!QTypeInfo<Type>::isStatic * QMetaType::MovableType) \             | (QTypeInfo<Type>::isComplex * QMetaType::NeedsConstruction) \             | (QTypeInfo<Type>::isComplex * QMetaType::NeedsDestruction) \ }
+end_define
+begin_comment
+comment|/* These  QT_METATYPE_INTERFACE_INIT* macros are used to initialize QMetaTypeInterface instance.   - QT_METATYPE_INTERFACE_INIT(Type) -> It takes Type argument and creates all necessary wrapper functions for the Type,    it detects if QT_NO_DATASTREAM was defined. Probably it is the macro that you want to use.   - QT_METATYPE_INTERFACE_INIT_EMPTY() -> It initializes an empty QMetaTypeInterface instance.   - QT_METATYPE_INTERFACE_INIT_NO_DATASTREAM(Type) -> Temporary workaround for missing auto-detection of data stream    operators. It creates same instance as QT_METATYPE_INTERFACE_INIT(Type) but with null stream operators callbacks.  */
+end_comment
+begin_define
+DECL|macro|QT_METATYPE_INTERFACE_INIT
+define|#
+directive|define
+name|QT_METATYPE_INTERFACE_INIT
+parameter_list|(
+name|Type
+parameter_list|)
+value|QT_METATYPE_INTERFACE_INIT_IMPL(Type, QT_METATYPE_INTERFACE_INIT_DATASTREAM_IMPL)
+end_define
+begin_define
+DECL|macro|QT_METATYPE_INTERFACE_INIT_NO_DATASTREAM
+define|#
+directive|define
+name|QT_METATYPE_INTERFACE_INIT_NO_DATASTREAM
+parameter_list|(
+name|Type
+parameter_list|)
+value|QT_METATYPE_INTERFACE_INIT_IMPL(Type, QT_METATYPE_INTERFACE_INIT_EMPTY_DATASTREAM_IMPL)
+end_define
+begin_define
+DECL|macro|QT_METATYPE_INTERFACE_INIT_EMPTY
+define|#
+directive|define
+name|QT_METATYPE_INTERFACE_INIT_EMPTY
+parameter_list|()
+define|\
+value|{ \
+comment|/*creator*/
+value|0, \
+comment|/*deleter*/
+value|0, \     QT_METATYPE_INTERFACE_INIT_EMPTY_DATASTREAM_IMPL() \
+comment|/*constructor*/
+value|0, \
+comment|/*destructor*/
+value|0, \
+comment|/*size*/
+value|0, \
+comment|/*flags*/
+value|0 \ }
 end_define
 begin_macro
 name|QT_END_NAMESPACE
