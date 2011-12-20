@@ -222,6 +222,8 @@ block|,
 name|MulticastTtlOption
 block|,
 name|MulticastLoopbackOption
+block|,
+name|TypeOfServiceOption
 block|}
 block|;
 name|virtual

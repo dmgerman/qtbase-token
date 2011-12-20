@@ -195,7 +195,10 @@ name|MulticastTtlOption
 block|,
 comment|// IP_MULTICAST_TTL
 name|MulticastLoopbackOption
+block|,
 comment|// IP_MULTICAST_LOOPBACK
+name|TypeOfServiceOption
+comment|//IP_TOS
 block|}
 block|;     enum
 name|BindFlag
