@@ -390,7 +390,9 @@ block|}
 DECL|function|sourceChanged
 name|void
 name|sourceChanged
-parameter_list|()
+parameter_list|(
+name|ChangeFlags
+parameter_list|)
 block|{
 name|m_sourceChanged
 operator|=
