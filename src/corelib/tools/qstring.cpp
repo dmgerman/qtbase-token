@@ -12401,39 +12401,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QString initialized with the first \a size characters     of the Latin-1 string \a str.      If \a size is -1 (default), it is taken to be qstrlen(\a     str).      \sa toLatin1(), fromAscii(), fromUtf8(), fromLocal8Bit() */
+comment|/*! \fn QString QString::fromLatin1(const char *str, int size)     Returns a QString initialized with the first \a size characters     of the Latin-1 string \a str.      If \a size is -1 (default), it is taken to be qstrlen(\a     str).      \sa toLatin1(), fromAscii(), fromUtf8(), fromLocal8Bit() */
 end_comment
-begin_function
-DECL|function|fromLatin1
-name|QString
-name|QString
-operator|::
-name|fromLatin1
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|str
-parameter_list|,
-name|int
-name|size
-parameter_list|)
-block|{
-return|return
-name|QString
-argument_list|(
-name|fromLatin1_helper
-argument_list|(
-name|str
-argument_list|,
-name|size
-argument_list|)
-argument_list|,
-literal|0
-argument_list|)
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     Returns a QString initialized with the first \a size characters     of the 8-bit string \a str.      If \a size is -1 (default), it is taken to be qstrlen(\a     str).      QTextCodec::codecForLocale() is used to perform the conversion.      \sa toLocal8Bit(), fromAscii(), fromLatin1(), fromUtf8() */
 end_comment
