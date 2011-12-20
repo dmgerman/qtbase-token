@@ -1560,27 +1560,6 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|// ### Qt 5: remove
-end_comment
-begin_comment
-comment|/*!     \internal  */
-end_comment
-begin_function
-DECL|function|reason
-name|Qt
-operator|::
-name|FocusReason
-name|QFocusEvent
-operator|::
-name|reason
-parameter_list|()
-block|{
-return|return
-name|m_reason
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!     Returns the reason for this focus event.  */
 end_comment
 begin_function
@@ -5058,28 +5037,10 @@ begin_comment
 comment|/*!     \fn const QKeySequence&QShortcutEvent::key() const      Returns the key sequence that triggered the event. */
 end_comment
 begin_comment
-comment|// ### Qt 5: remove
-end_comment
-begin_comment
-comment|/*!     \fn const QKeySequence&QShortcutEvent::key()      \internal */
-end_comment
-begin_comment
 comment|/*!     \fn int QShortcutEvent::shortcutId() const      Returns the ID of the QShortcut object for which this event was     generated.      \sa QShortcut::id() */
 end_comment
 begin_comment
-comment|// ### Qt 5: remove
-end_comment
-begin_comment
-comment|/*!     \fn int QShortcutEvent::shortcutId()     \overload      \internal */
-end_comment
-begin_comment
 comment|/*!     \fn bool QShortcutEvent::isAmbiguous() const      Returns true if the key sequence that triggered the event is     ambiguous.      \sa QShortcut::activatedAmbiguously() */
-end_comment
-begin_comment
-comment|// ### Qt 5: remove
-end_comment
-begin_comment
-comment|/*!     \fn bool QShortcutEvent::isAmbiguous()      \internal */
 end_comment
 begin_comment
 comment|/*!     \class QWindowStateChangeEvent     \ingroup events      \brief The QWindowStateChangeEvent class provides the window state before a     window state change. */
