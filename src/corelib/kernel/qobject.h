@@ -278,11 +278,6 @@ range|:
 literal|1
 decl_stmt|;
 name|uint
-name|pendTimer
-range|:
-literal|1
-decl_stmt|;
-name|uint
 name|blockSig
 range|:
 literal|1
@@ -308,11 +303,6 @@ range|:
 literal|1
 decl_stmt|;
 name|uint
-name|inThreadChangeEvent
-range|:
-literal|1
-decl_stmt|;
-name|uint
 name|isWindow
 range|:
 literal|1
@@ -321,7 +311,7 @@ comment|//for QWindow
 name|uint
 name|unused
 range|:
-literal|23
+literal|25
 decl_stmt|;
 name|int
 name|postedEvents

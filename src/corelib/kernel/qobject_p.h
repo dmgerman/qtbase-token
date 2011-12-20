@@ -701,6 +701,12 @@ index|[
 literal|2
 index|]
 block|;
+name|QVector
+operator|<
+name|int
+operator|>
+name|runningTimers
+block|;
 name|QList
 operator|<
 name|QPointer

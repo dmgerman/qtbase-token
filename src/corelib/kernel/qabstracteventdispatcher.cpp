@@ -226,8 +226,18 @@ name|int
 name|timerId
 parameter_list|)
 block|{
+comment|// this function may be called by a global destructor after
+comment|// timerIdFreeList() has been destructed
+if|if
+condition|(
+name|QtTimerIdFreeList
+modifier|*
+name|fl
+init|=
 name|timerIdFreeList
 argument_list|()
+condition|)
+name|fl
 operator|->
 name|release
 argument_list|(

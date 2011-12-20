@@ -483,9 +483,9 @@ block|;
 name|void
 name|unregisterTimer
 argument_list|(
-argument|WinTimerInfo *t
-argument_list|,
-argument|bool closingDown = false
+name|WinTimerInfo
+operator|*
+name|t
 argument_list|)
 block|;
 name|void
