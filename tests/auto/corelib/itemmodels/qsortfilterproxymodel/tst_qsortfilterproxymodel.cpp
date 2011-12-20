@@ -14888,6 +14888,13 @@ name|proxy1
 decl_stmt|;
 name|proxy1
 operator|.
+name|setDynamicSortFilter
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|proxy1
+operator|.
 name|sort
 argument_list|(
 literal|0
@@ -15245,13 +15252,6 @@ comment|//set up the sorting before seting the model up
 name|QSortFilterProxyModel
 name|proxy2
 decl_stmt|;
-name|proxy2
-operator|.
-name|setDynamicSortFilter
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|proxy2
 operator|.
 name|sort

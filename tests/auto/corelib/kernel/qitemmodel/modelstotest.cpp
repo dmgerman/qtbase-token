@@ -567,7 +567,7 @@ name|setFilterRegExp
 argument_list|(
 name|QRegExp
 argument_list|(
-literal|"(^$|0.*)"
+literal|"(^$|I.*)"
 argument_list|)
 argument_list|)
 expr_stmt|;

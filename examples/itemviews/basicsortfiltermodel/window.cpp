@@ -24,13 +24,6 @@ operator|=
 operator|new
 name|QSortFilterProxyModel
 expr_stmt|;
-name|proxyModel
-operator|->
-name|setDynamicSortFilter
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|sourceView
 operator|=
 operator|new

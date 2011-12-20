@@ -777,13 +777,6 @@ argument_list|(
 name|table
 argument_list|)
 expr_stmt|;
-name|proxyModel
-operator|->
-name|setDynamicSortFilter
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|QTableView
 modifier|*
 name|tableView

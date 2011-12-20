@@ -35,13 +35,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|proxyModel
-operator|->
-name|setDynamicSortFilter
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 comment|//! [0]
 comment|//! [1]
 name|sourceView
