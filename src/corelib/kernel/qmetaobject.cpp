@@ -3598,7 +3598,7 @@ operator|(
 name|char
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|len
 operator|+
@@ -3691,7 +3691,7 @@ if|if
 condition|(
 name|scope_buffer
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|scope_buffer
 argument_list|)
@@ -6331,7 +6331,7 @@ name|void
 operator|*
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|paramCount
 operator|*
@@ -6355,7 +6355,7 @@ operator|(
 name|int
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|paramCount
 operator|*
@@ -6509,12 +6509,12 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|qFree
+name|free
 argument_list|(
 name|types
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|args
 argument_list|)

@@ -177,7 +177,7 @@ operator|*
 operator|*
 argument_list|>
 argument_list|(
-name|qRealloc
+name|realloc
 argument_list|(
 name|actualptr
 argument_list|,
@@ -222,7 +222,7 @@ operator|+
 literal|1
 return|;
 block|}
-comment|// qMalloc returns pointers aligned at least at sizeof(size_t) boundaries
+comment|// malloc returns pointers aligned at least at sizeof(size_t) boundaries
 comment|// but usually more (8- or 16-byte boundaries).
 comment|// So we overallocate by alignment-sizeof(size_t) bytes, so we're guaranteed to find a
 comment|// somewhere within the first alignment-sizeof(size_t) that is properly aligned.
@@ -232,7 +232,7 @@ name|void
 modifier|*
 name|real
 init|=
-name|qRealloc
+name|realloc
 argument_list|(
 name|actualptr
 argument_list|,

@@ -3448,7 +3448,7 @@ operator|(
 name|char
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|uploadSize
 argument_list|)
@@ -3467,7 +3467,7 @@ operator|==
 name|uploadSize
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|replyData
 argument_list|)
@@ -3491,7 +3491,7 @@ operator|(
 name|char
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|uploadSize
 argument_list|)
@@ -3510,7 +3510,7 @@ operator|==
 name|uploadSize
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|replyData
 argument_list|)

@@ -6799,7 +6799,7 @@ name|staticMetaObject
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|meta
 argument_list|)
@@ -6829,7 +6829,7 @@ name|staticMetaObject
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|meta
 argument_list|)
@@ -6863,7 +6863,7 @@ name|staticMetaObject
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|meta
 argument_list|)
@@ -7001,12 +7001,12 @@ name|meta2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|meta
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|meta2
 argument_list|)

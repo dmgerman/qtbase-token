@@ -1644,7 +1644,8 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qRealloc
+operator|::
+name|realloc
 argument_list|(
 name|d
 operator|.
@@ -1789,7 +1790,8 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qRealloc
+operator|::
+name|realloc
 argument_list|(
 name|d
 operator|.
@@ -2143,7 +2145,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|d
 argument_list|)
@@ -2321,7 +2323,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|d
 argument_list|)
@@ -2560,7 +2562,7 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -2698,7 +2700,7 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -2819,7 +2821,7 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -2917,7 +2919,7 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -3066,7 +3068,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|d
 argument_list|)
@@ -3112,7 +3114,7 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -3355,7 +3357,7 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -3452,7 +3454,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|d
 argument_list|)
@@ -3474,7 +3476,8 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qRealloc
+operator|::
+name|realloc
 argument_list|(
 name|d
 argument_list|,
@@ -8066,7 +8069,7 @@ operator|.
 name|deref
 argument_list|()
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|d
 argument_list|)
@@ -10440,7 +10443,7 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(

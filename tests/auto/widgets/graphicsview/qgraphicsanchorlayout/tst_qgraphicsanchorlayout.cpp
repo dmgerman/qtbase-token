@@ -11066,8 +11066,8 @@ comment|// In case we need to "scramble" the heap allocator to provoke this bug.
 comment|//static const int primes[] = {2, 3, 5, 13, 89, 233, 1597, 28657, 514229}; // fibo primes
 comment|//const int primeCount = sizeof(primes)/sizeof(int);
 comment|//int alloc = primes[pass % primeCount] + pass;
-comment|//void *mem = qMalloc(alloc);
-comment|//qFree(mem);
+comment|//void *mem = malloc(alloc);
+comment|//free(mem);
 name|QGraphicsAnchorLayout
 modifier|*
 name|l

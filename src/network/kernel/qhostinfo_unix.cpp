@@ -1689,7 +1689,7 @@ name|state
 init|=
 name|res_state_ptr
 argument_list|(
-name|qMalloc
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -1760,7 +1760,7 @@ argument_list|(
 name|state
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|state
 argument_list|)

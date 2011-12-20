@@ -407,7 +407,7 @@ operator|(
 name|IP_ADAPTER_INFO
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|bufSize
 argument_list|)
@@ -434,7 +434,7 @@ operator|!=
 name|ERROR_SUCCESS
 condition|)
 block|{
-name|qFree
+name|free
 argument_list|(
 name|pAdapter
 argument_list|)
@@ -534,7 +534,7 @@ name|pAdapter
 operator|!=
 name|staticBuf
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|pAdapter
 argument_list|)
@@ -635,7 +635,7 @@ operator|(
 name|IP_ADAPTER_ADDRESSES
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|bufSize
 argument_list|)
@@ -668,7 +668,7 @@ operator|!=
 name|ERROR_SUCCESS
 condition|)
 block|{
-name|qFree
+name|free
 argument_list|(
 name|pAdapter
 argument_list|)
@@ -1016,7 +1016,7 @@ name|pAdapter
 operator|!=
 name|staticBuf
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|pAdapter
 argument_list|)
@@ -1087,7 +1087,7 @@ operator|(
 name|IP_ADAPTER_INFO
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|bufSize
 argument_list|)
@@ -1114,7 +1114,7 @@ operator|!=
 name|ERROR_SUCCESS
 condition|)
 block|{
-name|qFree
+name|free
 argument_list|(
 name|pAdapter
 argument_list|)
@@ -1311,7 +1311,7 @@ name|pAdapter
 operator|!=
 name|staticBuf
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|pAdapter
 argument_list|)
@@ -1443,7 +1443,7 @@ operator|(
 name|FIXED_INFO
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|bufSize
 argument_list|)
@@ -1471,7 +1471,7 @@ operator|!=
 name|ERROR_SUCCESS
 condition|)
 block|{
-name|qFree
+name|free
 argument_list|(
 name|pinfo
 argument_list|)
@@ -1502,7 +1502,7 @@ operator|!=
 operator|&
 name|info
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|pinfo
 argument_list|)

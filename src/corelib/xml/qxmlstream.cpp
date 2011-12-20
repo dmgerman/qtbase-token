@@ -1853,7 +1853,7 @@ name|Value
 operator|*
 argument_list|>
 argument_list|(
-name|qRealloc
+name|realloc
 argument_list|(
 name|sym_stack
 argument_list|,
@@ -1879,7 +1879,7 @@ name|int
 operator|*
 argument_list|>
 argument_list|(
-name|qRealloc
+name|realloc
 argument_list|(
 name|state_stack
 argument_list|,
@@ -1915,12 +1915,12 @@ name|decoder
 expr_stmt|;
 endif|#
 directive|endif
-name|qFree
+name|free
 argument_list|(
 name|sym_stack
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|state_stack
 argument_list|)

@@ -624,7 +624,7 @@ argument_list|,
 name|nodeAlign
 argument_list|)
 else|:
-name|qMalloc
+name|malloc
 argument_list|(
 name|nodeSize
 argument_list|)
@@ -661,7 +661,7 @@ name|node
 argument_list|)
 expr_stmt|;
 else|else
-name|qFree
+name|free
 argument_list|(
 name|node
 argument_list|)

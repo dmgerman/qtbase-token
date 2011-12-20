@@ -1379,7 +1379,7 @@ operator|(
 name|REPARSE_DATA_BUFFER
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|bufsize
 argument_list|)
@@ -1598,7 +1598,7 @@ literal|4
 argument_list|)
 expr_stmt|;
 block|}
-name|qFree
+name|free
 argument_list|(
 name|rdb
 argument_list|)

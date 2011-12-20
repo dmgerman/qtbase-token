@@ -17,6 +17,11 @@ include|#
 directive|include
 file|<string.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<stdlib.h>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|alignmentThreshold
@@ -96,7 +101,8 @@ operator|(
 name|QVectorData
 operator|*
 operator|)
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 name|sizeofTypedData
 operator|+
@@ -178,7 +184,8 @@ argument_list|,
 name|alignment
 argument_list|)
 else|:
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 name|size
 argument_list|)
@@ -241,7 +248,7 @@ name|QVectorData
 operator|*
 argument_list|>
 argument_list|(
-name|qRealloc
+name|realloc
 argument_list|(
 name|x
 argument_list|,
@@ -279,7 +286,8 @@ name|x
 argument_list|)
 expr_stmt|;
 else|else
-name|qFree
+operator|::
+name|free
 argument_list|(
 name|x
 argument_list|)

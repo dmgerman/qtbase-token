@@ -434,7 +434,7 @@ operator|(
 name|uint8_t
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|segmentSize
 argument_list|)
@@ -578,7 +578,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qFree
+name|free
 argument_list|(
 name|m_xcb_image
 operator|->

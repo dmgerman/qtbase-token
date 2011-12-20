@@ -4161,7 +4161,7 @@ if|if
 condition|(
 name|d
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|d
 argument_list|)

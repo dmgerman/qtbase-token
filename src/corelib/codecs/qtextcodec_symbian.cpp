@@ -1195,7 +1195,7 @@ operator|->
 name|remainingChars
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|state
 operator|->
@@ -1648,7 +1648,7 @@ operator|(
 name|void
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|remainingChars
 argument_list|)

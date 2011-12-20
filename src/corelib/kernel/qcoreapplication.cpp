@@ -492,7 +492,7 @@ name|char
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+name|malloc
 argument_list|(
 name|tailLen
 operator|+

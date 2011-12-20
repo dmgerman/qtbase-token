@@ -2077,7 +2077,8 @@ operator|(
 name|Data
 operator|*
 operator|)
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -2248,7 +2249,8 @@ operator|(
 name|Data
 operator|*
 operator|)
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -2382,7 +2384,8 @@ operator|(
 name|Data
 operator|*
 operator|)
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -2516,7 +2519,8 @@ operator|(
 name|Data
 operator|*
 operator|)
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -2607,7 +2611,8 @@ operator|(
 name|Data
 operator|*
 operator|)
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -2721,7 +2726,8 @@ modifier|*
 name|d
 parameter_list|)
 block|{
-name|qFree
+operator|::
+name|free
 argument_list|(
 name|d
 argument_list|)
@@ -2959,7 +2965,8 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -3095,7 +3102,8 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qRealloc
+operator|::
+name|realloc
 argument_list|(
 name|d
 argument_list|,
@@ -3574,7 +3582,8 @@ name|ushort
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 name|size
 operator|*
@@ -3621,7 +3630,8 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
-name|qFree
+operator|::
+name|free
 argument_list|(
 name|tmp
 argument_list|)
@@ -4819,7 +4829,8 @@ name|QChar
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 name|alen
 operator|*
@@ -5256,7 +5267,8 @@ name|afterBuffer
 operator|!=
 name|after
 condition|)
-name|qFree
+operator|::
+name|free
 argument_list|(
 name|afterBuffer
 argument_list|)
@@ -5270,7 +5282,8 @@ name|afterBuffer
 operator|!=
 name|after
 condition|)
-name|qFree
+operator|::
+name|free
 argument_list|(
 name|afterBuffer
 argument_list|)
@@ -12029,7 +12042,8 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -22320,7 +22334,8 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(

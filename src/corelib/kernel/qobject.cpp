@@ -1961,12 +1961,12 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|qFree
+name|free
 argument_list|(
 name|types_
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|args_
 argument_list|)
@@ -10607,7 +10607,7 @@ operator|(
 name|int
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|nargs
 operator|*
@@ -10632,7 +10632,7 @@ name|void
 operator|*
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|nargs
 operator|*

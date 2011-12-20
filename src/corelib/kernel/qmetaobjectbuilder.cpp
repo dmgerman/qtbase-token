@@ -6300,7 +6300,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts this meta object builder into a concrete QMetaObject.     The return value should be deallocated using qFree() once it     is no longer needed.      The returned meta object is a snapshot of the state of the     QMetaObjectBuilder.  Any further modifications to the QMetaObjectBuilder     will not be reflected in previous meta objects returned by     this method. */
+comment|/*!     Converts this meta object builder into a concrete QMetaObject.     The return value should be deallocated using free() once it     is no longer needed.      The returned meta object is a snapshot of the state of the     QMetaObjectBuilder.  Any further modifications to the QMetaObjectBuilder     will not be reflected in previous meta objects returned by     this method. */
 end_comment
 begin_function
 DECL|function|toMetaObject
@@ -6334,7 +6334,7 @@ name|char
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+name|malloc
 argument_list|(
 name|size
 argument_list|)

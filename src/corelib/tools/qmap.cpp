@@ -290,7 +290,7 @@ name|offset
 argument_list|)
 expr_stmt|;
 else|else
-name|qFree
+name|free
 argument_list|(
 cast|reinterpret_cast
 argument_list|<
@@ -459,7 +459,7 @@ argument_list|,
 name|alignment
 argument_list|)
 else|:
-name|qMalloc
+name|malloc
 argument_list|(
 name|offset
 operator|+
@@ -690,7 +690,7 @@ name|offset
 argument_list|)
 expr_stmt|;
 else|else
-name|qFree
+name|free
 argument_list|(
 cast|reinterpret_cast
 argument_list|<
