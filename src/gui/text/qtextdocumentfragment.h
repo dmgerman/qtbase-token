@@ -119,13 +119,6 @@ ifndef|#
 directive|ifndef
 name|QT_NO_TEXTHTMLPARSER
 end_ifndef
-begin_expr_stmt
-name|QString
-name|toHtml
-argument_list|()
-specifier|const
-expr_stmt|;
-end_expr_stmt
 begin_decl_stmt
 name|QString
 name|toHtml
@@ -134,6 +127,9 @@ specifier|const
 name|QByteArray
 operator|&
 name|encoding
+operator|=
+name|QByteArray
+argument_list|()
 argument_list|)
 decl|const
 decl_stmt|;

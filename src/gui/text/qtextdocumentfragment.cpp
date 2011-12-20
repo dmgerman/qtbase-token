@@ -1711,35 +1711,11 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_comment
-comment|// #### Qt 5: merge with other overload
-end_comment
-begin_comment
-comment|/*!     \overload */
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_TEXTHTMLPARSER
 end_ifndef
-begin_function
-DECL|function|toHtml
-name|QString
-name|QTextDocumentFragment
-operator|::
-name|toHtml
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|toHtml
-argument_list|(
-name|QByteArray
-argument_list|()
-argument_list|)
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     \since 4.2      Returns the contents of the document fragment as HTML,     using the specified \a encoding (e.g., "UTF-8", "ISO 8859-1").      \sa toPlainText(), QTextDocument::toHtml(), QTextCodec */
 end_comment
