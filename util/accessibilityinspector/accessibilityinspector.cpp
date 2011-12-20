@@ -268,9 +268,9 @@ name|accessibilityView
 operator|->
 name|resize
 argument_list|(
-literal|1024
+literal|640
 argument_list|,
-literal|768
+literal|480
 argument_list|)
 expr_stmt|;
 name|accessibilityView
@@ -305,9 +305,9 @@ name|accessibilityTreeView
 operator|->
 name|resize
 argument_list|(
-literal|1024
+literal|640
 argument_list|,
-literal|768
+literal|480
 argument_list|)
 expr_stmt|;
 name|sceneManager

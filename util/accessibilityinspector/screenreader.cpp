@@ -220,7 +220,7 @@ literal|40
 decl_stmt|;
 while|while
 condition|(
-name|hit
+name|currentInterface
 operator|!=
 literal|0
 condition|)
@@ -243,7 +243,35 @@ expr_stmt|;
 return|return;
 comment|// outside
 block|}
-comment|/*         hit = currentInterface->childAt(m_currentTouchPoint.x(), m_currentTouchPoint.y());         //qDebug()<< "hit"<< hit;         if (hit == -1) {             return; // outside         } else if (hit == 0) {             break; // found it.         } else {             QAccessibleInterface *childInterface = 0;             int child = currentInterface->navigate(QAccessible::Child, hit,&childInterface);             if (childInterface == 0) {                 return; // navigation error             }              if (currentInterface != m_rootInterface)                 delete currentInterface;             currentInterface = childInterface;         } */
+name|QAccessibleInterface
+modifier|*
+name|hit
+init|=
+name|currentInterface
+operator|->
+name|childAt
+argument_list|(
+name|m_currentTouchPoint
+operator|.
+name|x
+argument_list|()
+argument_list|,
+name|m_currentTouchPoint
+operator|.
+name|y
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|hit
+condition|)
+break|break;
+name|currentInterface
+operator|=
+name|hit
+expr_stmt|;
 block|}
 name|m_selectedInterface
 operator|=
