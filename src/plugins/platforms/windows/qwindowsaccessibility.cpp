@@ -6653,10 +6653,14 @@ name|QWindow
 modifier|*
 name|window
 init|=
+name|iface
+condition|?
 name|window_helper
 argument_list|(
 name|iface
 argument_list|)
+else|:
+literal|0
 decl_stmt|;
 if|if
 condition|(
