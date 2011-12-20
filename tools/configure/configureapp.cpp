@@ -1692,13 +1692,6 @@ literal|"yes"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"QT3SUPPORT"
-index|]
-operator|=
-literal|"no"
-expr_stmt|;
-name|dictionary
-index|[
 literal|"ACCESSIBILITY"
 index|]
 operator|=
@@ -4084,26 +4077,6 @@ condition|)
 name|dictionary
 index|[
 literal|"STYLE_CDE"
-index|]
-operator|=
-literal|"no"
-expr_stmt|;
-comment|// Qt 3 Support ---------------------------------------------
-elseif|else
-if|if
-condition|(
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
-literal|"-no-qt3support"
-condition|)
-name|dictionary
-index|[
-literal|"QT3SUPPORT"
 index|]
 operator|=
 literal|"no"
@@ -9318,13 +9291,6 @@ literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"QT3SUPPORT"
-index|]
-operator|=
-literal|"no"
-expr_stmt|;
-name|dictionary
-index|[
 literal|"OPENGL"
 index|]
 operator|=
@@ -9532,13 +9498,6 @@ literal|"MOUSE_DRIVERS"
 index|]
 operator|=
 literal|"pc linuxtp"
-expr_stmt|;
-name|dictionary
-index|[
-literal|"QT3SUPPORT"
-index|]
-operator|=
-literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
@@ -9930,7 +9889,7 @@ literal|"[-saveconfig<config>] [-loadconfig<config>]\n"
 literal|"[-qt-zlib] [-system-zlib] [-no-gif] [-no-libpng]\n"
 literal|"[-qt-libpng] [-system-libpng] [-no-libtiff] [-qt-libtiff]\n"
 literal|"[-system-libtiff] [-no-libjpeg] [-qt-libjpeg] [-system-libjpeg]\n"
-literal|"[-no-libmng] [-qt-libmng] [-system-libmng] [-no-qt3support] [-mmx]\n"
+literal|"[-no-libmng] [-qt-libmng] [-system-libmng] [-mmx]\n"
 literal|"[-no-mmx] [-3dnow] [-no-3dnow] [-sse] [-no-sse] [-sse2] [-no-sse2]\n"
 literal|"[-no-iwmmxt] [-iwmmxt] [-openssl] [-openssl-linked]\n"
 literal|"[-no-openssl] [-no-dbus] [-dbus] [-dbus-linked] [-platform<spec>]\n"
@@ -10330,17 +10289,6 @@ argument_list|(
 literal|"-system-sqlite"
 argument_list|,
 literal|"Use sqlite from the operating system.\n"
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
-literal|"QT3SUPPORT"
-argument_list|,
-literal|"no"
-argument_list|,
-literal|"-no-qt3support"
-argument_list|,
-literal|"Disables the Qt 3 support functionality.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -15870,19 +15818,6 @@ if|if
 condition|(
 name|dictionary
 index|[
-literal|"QT3SUPPORT"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|qtConfig
-operator|+=
-literal|"gui-qt3support"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
 literal|"OPENGL"
 index|]
 operator|==
@@ -21396,17 +21331,6 @@ operator|<<
 name|dictionary
 index|[
 literal|"SCRIPTTOOLS"
-index|]
-operator|<<
-name|endl
-expr_stmt|;
-name|cout
-operator|<<
-literal|"Qt3 compatibility..........."
-operator|<<
-name|dictionary
-index|[
-literal|"QT3SUPPORT"
 index|]
 operator|<<
 name|endl

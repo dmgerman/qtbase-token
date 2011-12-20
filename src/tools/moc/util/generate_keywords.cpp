@@ -1203,12 +1203,6 @@ literal|"Q_MOC_COMPAT_TOKEN"
 block|}
 block|,
 block|{
-literal|"QT3_SUPPORT"
-block|,
-literal|"Q_QT3_SUPPORT_TOKEN"
-block|}
-block|,
-block|{
 literal|"Q_INVOKABLE"
 block|,
 literal|"Q_INVOKABLE_TOKEN"

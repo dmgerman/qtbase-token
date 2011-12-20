@@ -670,9 +670,6 @@ case|case
 name|Q_MOC_COMPAT_TOKEN
 case|:
 case|case
-name|Q_QT3_SUPPORT_TOKEN
-case|:
-case|case
 name|Q_INVOKABLE_TOKEN
 case|:
 case|case
@@ -1542,9 +1539,6 @@ condition|)
 block|{
 case|case
 name|Q_MOC_COMPAT_TOKEN
-case|:
-case|case
-name|Q_QT3_SUPPORT_TOKEN
 case|:
 name|def
 operator|->

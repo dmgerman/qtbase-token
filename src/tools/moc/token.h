@@ -431,9 +431,6 @@ operator|,
 DECL|enumerator|Q_MOC_COMPAT_TOKEN
 name|Q_MOC_COMPAT_TOKEN
 operator|,
-DECL|enumerator|Q_QT3_SUPPORT_TOKEN
-name|Q_QT3_SUPPORT_TOKEN
-operator|,
 DECL|enumerator|Q_INVOKABLE_TOKEN
 name|Q_INVOKABLE_TOKEN
 operator|,

@@ -1027,12 +1027,6 @@ return|return
 literal|"Q_MOC_COMPAT_TOKEN"
 return|;
 case|case
-name|Q_QT3_SUPPORT_TOKEN
-case|:
-return|return
-literal|"Q_QT3_SUPPORT_TOKEN"
-return|;
-case|case
 name|Q_INVOKABLE_TOKEN
 case|:
 return|return

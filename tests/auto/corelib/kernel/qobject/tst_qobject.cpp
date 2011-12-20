@@ -229,7 +229,7 @@ name|blockingQueuedConnection
 parameter_list|()
 function_decl|;
 name|void
-name|compatibilityChildInsertedEvents
+name|childEvents
 parameter_list|()
 function_decl|;
 name|void
@@ -21935,11 +21935,11 @@ argument_list|; }
 decl_stmt|;
 end_decl_stmt
 begin_function
-DECL|function|compatibilityChildInsertedEvents
+DECL|function|childEvents
 name|void
 name|tst_QObject
 operator|::
-name|compatibilityChildInsertedEvents
+name|childEvents
 parameter_list|()
 block|{
 name|EventSpy
@@ -22027,7 +22027,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
-comment|// 2 children, so we expect 2 ChildAdded and 2 ChildInserted events
+comment|// 2 children, so we expect 2 ChildAdded events
 name|QObject
 name|object
 decl_stmt|;
@@ -22207,7 +22207,7 @@ expr_stmt|;
 block|}
 block|{
 comment|// 2 children, but one is reparented away, so we expect:
-comment|// 2 ChildAdded, 1 ChildRemoved, and 1 ChildInserted
+comment|// 2 ChildAdded, 1 ChildRemoved
 name|QObject
 name|object
 decl_stmt|;

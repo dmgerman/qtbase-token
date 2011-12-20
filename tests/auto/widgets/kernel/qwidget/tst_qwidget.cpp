@@ -1046,7 +1046,7 @@ function_decl|;
 endif|#
 directive|endif
 name|void
-name|compatibilityChildInsertedEvents
+name|childEvents
 parameter_list|()
 function_decl|;
 name|void
@@ -36534,11 +36534,11 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|compatibilityChildInsertedEvents
+DECL|function|childEvents
 name|void
 name|tst_QWidget
 operator|::
-name|compatibilityChildInsertedEvents
+name|childEvents
 parameter_list|()
 block|{
 name|EventRecorder
