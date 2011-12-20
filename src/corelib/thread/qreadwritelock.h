@@ -53,15 +53,15 @@ block|,
 name|Recursive
 block|}
 enum|;
+name|explicit
 name|QReadWriteLock
-argument_list|()
-expr_stmt|;
-comment|// ### Qt 5: merge with below
-name|QReadWriteLock
-argument_list|(
-argument|RecursionMode recursionMode
-argument_list|)
-empty_stmt|;
+parameter_list|(
+name|RecursionMode
+name|recursionMode
+init|=
+name|NonRecursive
+parameter_list|)
+function_decl|;
 operator|~
 name|QReadWriteLock
 argument_list|()

@@ -47,27 +47,7 @@ begin_comment
 comment|/*!      \enum QReadWriteLock::RecursionMode     \since 4.4      \value Recursive In this mode, a thread can lock the same     QReadWriteLock multiple times and the mutex won't be unlocked     until a corresponding number of unlock() calls have been made.      \value NonRecursive In this mode, a thread may only lock a     QReadWriteLock once.      \sa QReadWriteLock() */
 end_comment
 begin_comment
-comment|/*!     Constructs a QReadWriteLock object in NonRecursive mode.      \sa lockForRead(), lockForWrite() */
-end_comment
-begin_constructor
-DECL|function|QReadWriteLock
-name|QReadWriteLock
-operator|::
-name|QReadWriteLock
-parameter_list|()
-member_init_list|:
-name|d
-argument_list|(
-operator|new
-name|QReadWriteLockPrivate
-argument_list|(
-name|NonRecursive
-argument_list|)
-argument_list|)
-block|{ }
-end_constructor
-begin_comment
-comment|/*!     \since 4.4      Constructs a QReadWriteLock object in the given \a recursionMode.      \sa lockForRead(), lockForWrite(), RecursionMode */
+comment|/*!     \since 4.4      Constructs a QReadWriteLock object in the given \a recursionMode.      The default recursion mode is NonRecursive.      \sa lockForRead(), lockForWrite(), RecursionMode */
 end_comment
 begin_constructor
 DECL|function|QReadWriteLock
