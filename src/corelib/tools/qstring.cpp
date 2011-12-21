@@ -12401,17 +12401,17 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn QString QString::fromLatin1(const char *str, int size)     Returns a QString initialized with the first \a size characters     of the Latin-1 string \a str.      If \a size is -1 (default), it is taken to be qstrlen(\a     str).      \sa toLatin1(), fromAscii(), fromUtf8(), fromLocal8Bit() */
+comment|/*! \fn QString QString::fromLatin1(const char *str, int size)     Returns a QString initialized with the first \a size characters     of the Latin-1 string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      \sa toLatin1(), fromAscii(), fromUtf8(), fromLocal8Bit() */
 end_comment
 begin_comment
-comment|/*!     Returns a QString initialized with the first \a size characters     of the 8-bit string \a str.      If \a size is -1 (default), it is taken to be qstrlen(\a     str).      QTextCodec::codecForLocale() is used to perform the conversion.      \sa toLocal8Bit(), fromAscii(), fromLatin1(), fromUtf8() */
+comment|/*! \fn QString QString::fromLocal8Bit(const char *str, int size)     Returns a QString initialized with the first \a size characters     of the 8-bit string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      QTextCodec::codecForLocale() is used to perform the conversion.      \sa toLocal8Bit(), fromAscii(), fromLatin1(), fromUtf8() */
 end_comment
 begin_function
-DECL|function|fromLocal8Bit
+DECL|function|fromLocal8Bit_helper
 name|QString
 name|QString
 operator|::
-name|fromLocal8Bit
+name|fromLocal8Bit_helper
 parameter_list|(
 specifier|const
 name|char
@@ -12510,48 +12510,17 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QString initialized with the first \a size characters     from the string \a str.      If \a size is -1 (default), it is taken to be qstrlen(\a     str).      Note that, despite the name, this function actually uses the codec     defined by QTextCodec::setCodecForCStrings() to convert \a str to     Unicode. Depending on the codec, it may not accept valid US-ASCII (ANSI     X3.4-1986) input. If no codec has been set, this function does the same     as fromLatin1().      \sa toAscii(), fromLatin1(), fromUtf8(), fromLocal8Bit() */
+comment|/*! \fn QString QString::fromAscii(const char *, int size);     Returns a QString initialized with the first \a size characters     from the string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      Note that, despite the name, this function actually uses the codec     defined by QTextCodec::setCodecForCStrings() to convert \a str to     Unicode. Depending on the codec, it may not accept valid US-ASCII (ANSI     X3.4-1986) input. If no codec has been set, this function does the same     as fromLatin1().      \sa toAscii(), fromLatin1(), fromUtf8(), fromLocal8Bit() */
 end_comment
-begin_function
-DECL|function|fromAscii
-name|QString
-name|QString
-operator|::
-name|fromAscii
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|str
-parameter_list|,
-name|int
-name|size
-parameter_list|)
-block|{
-return|return
-name|QString
-argument_list|(
-name|fromAscii_helper
-argument_list|(
-name|str
-argument_list|,
-name|size
-argument_list|)
-argument_list|,
-literal|0
-argument_list|)
-return|;
-block|}
-end_function
 begin_comment
-comment|/*!     Returns a QString initialized with the first \a size bytes     of the UTF-8 string \a str.      If \a size is -1 (default), it is taken to be qstrlen(\a     str).      UTF-8 is a Unicode codec and can represent all characters in a Unicode     string like QString. However, invalid sequences are possible with UTF-8     and, if any such are found, they will be replaced with one or more     "replacement characters", or suppressed. These include non-Unicode     sequences, non-characters, overlong sequences or surrogate codepoints     encoded into UTF-8.      Non-characters are codepoints that the Unicode standard reserves and must     not be used in text interchange. They are the last two codepoints in each     Unicode Plane (U+FFFE, U+FFFF, U+1FFFE, U+1FFFF, U+2FFFE, etc.), as well     as 16 codepoints in the range U+FDD0..U+FDDF, inclusive.      \sa toUtf8(), fromAscii(), fromLatin1(), fromLocal8Bit() */
+comment|/*! \fn QString QString::fromUtf8(const char *str, int size)     Returns a QString initialized with the first \a size bytes     of the UTF-8 string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      UTF-8 is a Unicode codec and can represent all characters in a Unicode     string like QString. However, invalid sequences are possible with UTF-8     and, if any such are found, they will be replaced with one or more     "replacement characters", or suppressed. These include non-Unicode     sequences, non-characters, overlong sequences or surrogate codepoints     encoded into UTF-8.      Non-characters are codepoints that the Unicode standard reserves and must     not be used in text interchange. They are the last two codepoints in each     Unicode Plane (U+FFFE, U+FFFF, U+1FFFE, U+1FFFF, U+2FFFE, etc.), as well     as 16 codepoints in the range U+FDD0..U+FDDF, inclusive.      \sa toUtf8(), fromAscii(), fromLatin1(), fromLocal8Bit() */
 end_comment
 begin_function
-DECL|function|fromUtf8
+DECL|function|fromUtf8_helper
 name|QString
 name|QString
 operator|::
-name|fromUtf8
+name|fromUtf8_helper
 parameter_list|(
 specifier|const
 name|char
@@ -12571,17 +12540,12 @@ return|return
 name|QString
 argument_list|()
 return|;
-if|if
-condition|(
-name|size
-operator|<
-literal|0
-condition|)
-name|size
-operator|=
-name|qstrlen
+name|Q_ASSERT
 argument_list|(
-name|str
+name|size
+operator|!=
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 return|return
