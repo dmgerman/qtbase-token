@@ -1444,9 +1444,6 @@ literal|95
 define|#
 directive|define
 name|Q_NO_USING_KEYWORD
-define|#
-directive|define
-name|QT_NO_STL_WCHAR
 endif|#
 directive|endif
 if|#

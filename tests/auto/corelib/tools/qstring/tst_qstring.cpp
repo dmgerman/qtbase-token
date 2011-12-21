@@ -6432,16 +6432,6 @@ operator|::
 name|STL
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_CC_HPACC
-name|QSKIP
-argument_list|(
-literal|"This test crashes on HP-UX with aCC"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_STL
@@ -6584,22 +6574,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Skip the rest of the test if glibc is not compiled with wide character support
-if|#
-directive|if
-operator|!
-operator|(
-name|defined
-name|Q_CC_GNU
-operator|&&
-operator|!
-name|defined
-name|_GLIBCPP_USE_WCHAR_T
-operator|)
-operator|&&
-operator|!
-name|defined
-name|QT_NO_STL_WCHAR
 specifier|const
 name|wchar_t
 name|arr
@@ -6619,7 +6593,9 @@ block|,
 literal|0
 block|}
 decl_stmt|;
-name|QStdWString
+name|std
+operator|::
+name|wstring
 name|stlStr
 init|=
 name|arr
@@ -6656,8 +6632,6 @@ name|toStdWString
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 else|#
 directive|else
 name|QSKIP
