@@ -72,6 +72,11 @@ name|int
 name|id
 decl_stmt|;
 comment|// - timer identifier
+DECL|member|interval
+name|int
+name|interval
+decl_stmt|;
+comment|// - timer interval in milliseconds
 DECL|member|timerType
 name|Qt
 operator|::
@@ -79,11 +84,6 @@ name|TimerType
 name|timerType
 expr_stmt|;
 comment|// - timer type
-DECL|member|interval
-name|timeval
-name|interval
-decl_stmt|;
-comment|// - timer interval
 DECL|member|timeout
 name|timeval
 name|timeout
