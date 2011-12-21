@@ -6639,6 +6639,10 @@ name|int
 parameter_list|,
 name|int
 parameter_list|,
+name|Qt
+operator|::
+name|TimerType
+parameter_list|,
 name|QObject
 modifier|*
 parameter_list|)

@@ -268,6 +268,8 @@ argument|int timerId
 argument_list|,
 argument|int interval
 argument_list|,
+argument|Qt::TimerType timerType
+argument_list|,
 argument|QObject *object
 argument_list|)
 block|;

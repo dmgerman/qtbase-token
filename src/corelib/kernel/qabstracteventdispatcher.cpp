@@ -355,7 +355,13 @@ begin_comment
 comment|/*! \fn void QAbstractEventDispatcher::unregisterSocketNotifier(QSocketNotifier *notifier)      Unregisters \a notifier from the event dispatcher. Subclasses must     reimplement this method to tie a socket notifier into another     event loop. Reimplementations must call the base     implementation. */
 end_comment
 begin_comment
-comment|/*!     \fn int QAbstractEventDispatcher::registerTimer(int interval, QObject *object)      Registers a timer with the specified \a interval for the given \a object. */
+comment|/*!     \obsolete      \fn int QAbstractEventDispatcher::registerTimer(int interval, QObject *object)      Registers a timer with the specified \a interval for the given \a object     and returns the timer id. */
+end_comment
+begin_comment
+comment|/*!     \obsolete      \fn void QAbstractEventDispatcher::registerTimer(int timerId, int interval, QObject *object)      Register a timer with the specified \a timerId and \a interval for the     given \a object. */
+end_comment
+begin_comment
+comment|/*!     Registers a timer with the specified \a interval and \a timerType for the     given \a object and returns the timer id. */
 end_comment
 begin_function
 DECL|function|registerTimer
@@ -366,6 +372,11 @@ name|registerTimer
 parameter_list|(
 name|int
 name|interval
+parameter_list|,
+name|Qt
+operator|::
+name|TimerType
+name|timerType
 parameter_list|,
 name|QObject
 modifier|*
@@ -386,6 +397,8 @@ name|id
 argument_list|,
 name|interval
 argument_list|,
+name|timerType
+argument_list|,
 name|object
 argument_list|)
 expr_stmt|;
@@ -395,7 +408,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QAbstractEventDispatcher::registerTimer(int timerId, int interval, QObject *object)      Register a timer with the specified \a timerId and \a interval for     the given \a object. */
+comment|/*!     \fn void QAbstractEventDispatcher::registerTimer(int timerId, int interval, Qt::TimerType timerType, QObject *object)      Register a timer with the specified \a timerId, \a interval, and \a     timerType for the given \a object. */
 end_comment
 begin_comment
 comment|/*!     \fn bool QAbstractEventDispatcher::unregisterTimer(int timerId)      Unregisters the timer with the given \a timerId.     Returns true if successful; otherwise returns false.      \sa registerTimer(), unregisterTimers() */
@@ -404,7 +417,7 @@ begin_comment
 comment|/*!     \fn bool QAbstractEventDispatcher::unregisterTimers(QObject *object)      Unregisters all the timers associated with the given \a object.     Returns true if all timers were successful removed; otherwise returns false.      \sa unregisterTimer(), registeredTimers() */
 end_comment
 begin_comment
-comment|/*!     \fn QList<TimerInfo> QAbstractEventDispatcher::registeredTimers(QObject *object) const      Returns a list of registered timers for \a object. The timer ID     is the first member in each pair; the interval is the second. */
+comment|/*!     \fn QList<TimerInfo> QAbstractEventDispatcher::registeredTimers(QObject *object) const      Returns a list of registered timers for \a object. The TimerInfo struct has     \c timerId, \c interval, and \c timerType members.      \sa Qt::TimerType */
 end_comment
 begin_comment
 comment|/*! \fn void QAbstractEventDispatcher::wakeUp()     \threadsafe      Wakes up the event loop.      \sa awake() */

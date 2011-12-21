@@ -190,6 +190,8 @@ argument|int timerId
 argument_list|,
 argument|int interval
 argument_list|,
+argument|Qt::TimerType timerType
+argument_list|,
 argument|QObject *object
 argument_list|)
 block|;
@@ -247,6 +249,12 @@ DECL|member|interval
 name|int
 name|interval
 decl_stmt|;
+DECL|member|timerType
+name|Qt
+operator|::
+name|TimerType
+name|timerType
+expr_stmt|;
 DECL|member|obj
 name|QObject
 modifier|*

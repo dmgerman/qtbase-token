@@ -4546,6 +4546,11 @@ parameter_list|,
 name|int
 name|interval
 parameter_list|,
+name|Qt
+operator|::
+name|TimerType
+name|timerType
+parameter_list|,
 name|QObject
 modifier|*
 name|object
@@ -4629,6 +4634,12 @@ operator|->
 name|interval
 operator|=
 name|interval
+expr_stmt|;
+name|t
+operator|->
+name|timerType
+operator|=
+name|timerType
 expr_stmt|;
 name|t
 operator|->
@@ -5081,6 +5092,10 @@ argument_list|,
 name|t
 operator|->
 name|interval
+argument_list|,
+name|t
+operator|->
+name|timerType
 argument_list|)
 expr_stmt|;
 block|}

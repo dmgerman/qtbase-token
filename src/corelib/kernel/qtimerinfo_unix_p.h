@@ -46,17 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<qobject.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qlist.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qpair.h>
+file|"qabstracteventdispatcher.h"
 end_include
 begin_include
 include|#
@@ -82,6 +72,13 @@ name|int
 name|id
 decl_stmt|;
 comment|// - timer identifier
+DECL|member|timerType
+name|Qt
+operator|::
+name|TimerType
+name|timerType
+expr_stmt|;
+comment|// - timer type
 DECL|member|interval
 name|timeval
 name|interval
@@ -214,6 +211,8 @@ argument|int timerId
 argument_list|,
 argument|int interval
 argument_list|,
+argument|Qt::TimerType timerType
+argument_list|,
 argument|QObject *object
 argument_list|)
 block|;
@@ -233,13 +232,10 @@ argument_list|)
 block|;
 name|QList
 operator|<
-name|QPair
-operator|<
-name|int
-block|,
-name|int
+name|QAbstractEventDispatcher
+operator|::
+name|TimerInfo
 operator|>
-expr|>
 name|registeredTimers
 argument_list|(
 argument|QObject *object

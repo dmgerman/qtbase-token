@@ -1580,6 +1580,11 @@ parameter_list|,
 name|int
 name|interval
 parameter_list|,
+name|Qt
+operator|::
+name|TimerType
+name|timerType
+parameter_list|,
 name|QObject
 modifier|*
 name|obj
@@ -1652,6 +1657,8 @@ argument_list|(
 name|timerId
 argument_list|,
 name|interval
+argument_list|,
+name|timerType
 argument_list|,
 name|obj
 argument_list|)
