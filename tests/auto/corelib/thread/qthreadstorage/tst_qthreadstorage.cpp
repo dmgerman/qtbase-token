@@ -2113,7 +2113,7 @@ name|t2
 operator|.
 name|someString
 operator|=
-literal|"trolltech"
+literal|"australia"
 expr_stmt|;
 name|t3
 operator|.
