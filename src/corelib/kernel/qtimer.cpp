@@ -471,13 +471,24 @@ modifier|*
 name|member
 parameter_list|)
 block|{
+comment|// coarse timers are worst in their first firing
+comment|// so we prefer a high precision timer for something that happens only once
+comment|// unless the timeout is too big, in which case we go for coarse anyway
 name|singleShot
 argument_list|(
 name|msec
 argument_list|,
+name|msec
+operator|>=
+literal|2000
+condition|?
 name|Qt
 operator|::
 name|CoarseTimer
+else|:
+name|Qt
+operator|::
+name|PreciseTimer
 argument_list|,
 name|receiver
 argument_list|,
