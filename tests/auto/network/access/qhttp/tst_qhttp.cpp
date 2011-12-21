@@ -1131,7 +1131,7 @@ operator|.
 name|setFileName
 argument_list|(
 name|SRCDIR
-literal|"trolltech"
+literal|"testhtml"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1147,7 +1147,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|QByteArray
-name|trolltech
+name|testhtml
 init|=
 name|file
 operator|.
@@ -1498,7 +1498,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// qt.nokia.com/doc uses transfer-encoding=chunked
-comment|/* qt.nokia.com/doc no longer seams to be using chuncked encodig.     QTest::newRow( QString("chunked_01_%1").arg(i).toLatin1() )<< QString("test.troll.no")<< 80u<< QString("/")<< 1<< 200<< trolltech<< (bool)(i==1);     */
+comment|/* qt.nokia.com/doc no longer seams to be using chuncked encodig.     QTest::newRow( QString("chunked_01_%1").arg(i).toLatin1() )<< QString("test.troll.no")<< 80u<< QString("/")<< 1<< 200<< testhtml<< (bool)(i==1);     */
 name|QTest
 operator|::
 name|newRow
