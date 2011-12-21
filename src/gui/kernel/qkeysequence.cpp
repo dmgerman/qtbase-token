@@ -8361,6 +8361,11 @@ operator|>
 literal|1
 condition|)
 block|{
+name|bool
+name|validModifier
+init|=
+literal|false
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -8406,10 +8411,27 @@ name|mkf
 operator|.
 name|qt_key
 expr_stmt|;
+name|validModifier
+operator|=
+literal|true
+expr_stmt|;
 break|break;
 comment|// Shortcut, since if we find an other it would/should just be a dup
 block|}
 block|}
+comment|// We couldn't match the string with a modifier. This is only
+comment|// possible if this part is the key. The key is never followed by a
+comment|// '+'. And if the key is '+' the if() above would have skipped it.
+if|if
+condition|(
+operator|!
+name|validModifier
+condition|)
+return|return
+name|Qt
+operator|::
+name|Key_unknown
+return|;
 block|}
 name|lastI
 operator|=
