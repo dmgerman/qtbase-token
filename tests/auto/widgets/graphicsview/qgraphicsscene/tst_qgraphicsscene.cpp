@@ -26547,7 +26547,7 @@ name|scene
 operator|.
 name|addText
 argument_list|(
-literal|"Trolltech rocks!"
+literal|"Qt rocks!"
 argument_list|)
 decl_stmt|;
 name|item2
