@@ -43,6 +43,9 @@ end_comment
 begin_comment
 comment|//
 end_comment
+begin_comment
+comment|// #define QTIMERINFO_DEBUG
+end_comment
 begin_include
 include|#
 directive|include
@@ -84,11 +87,16 @@ name|TimerType
 name|timerType
 expr_stmt|;
 comment|// - timer type
+DECL|member|expected
+name|timeval
+name|expected
+decl_stmt|;
+comment|// when timer is expected to fire
 DECL|member|timeout
 name|timeval
 name|timeout
 decl_stmt|;
-comment|// - when to sent event
+comment|// - when to actually fire
 DECL|member|obj
 name|QObject
 modifier|*
@@ -102,6 +110,19 @@ modifier|*
 name|activateRef
 decl_stmt|;
 comment|// - ref from activateTimers
+ifdef|#
+directive|ifdef
+name|QTIMERINFO_DEBUG
+DECL|member|cumulativeError
+name|float
+name|cumulativeError
+decl_stmt|;
+DECL|member|count
+name|uint
+name|count
+decl_stmt|;
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct
