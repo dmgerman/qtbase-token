@@ -926,7 +926,7 @@ argument_list|)
 operator|<<
 name|currDir
 operator|+
-literal|"/system.trolltech.test.mylib.dll"
+literal|"/system.qt.test.mylib.dll"
 operator|<<
 literal|true
 expr_stmt|;
@@ -970,7 +970,7 @@ argument_list|)
 operator|<<
 name|currDir
 operator|+
-literal|"/system.trolltech.test.mylib.so"
+literal|"/system.qt.test.mylib.so"
 operator|<<
 literal|true
 expr_stmt|;
@@ -1808,7 +1808,7 @@ argument_list|(
 literal|"good (with many dots)"
 argument_list|)
 operator|<<
-literal|"/system.trolltech.test.mylib.dll"
+literal|"/system.qt.test.mylib.dll"
 operator|<<
 literal|true
 expr_stmt|;
@@ -2497,7 +2497,7 @@ argument_list|)
 operator|<<
 name|currDir
 operator|+
-literal|"/system.trolltech.test.mylib.dll"
+literal|"/system.qt.test.mylib.dll"
 operator|<<
 name|int
 argument_list|(
@@ -2556,7 +2556,7 @@ argument_list|)
 operator|<<
 name|currDir
 operator|+
-literal|"/system.trolltech.test.mylib.so"
+literal|"/system.qt.test.mylib.so"
 operator|<<
 name|int
 argument_list|(
