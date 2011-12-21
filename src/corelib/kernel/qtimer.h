@@ -57,6 +57,10 @@ argument|int interval READ interval WRITE setInterval
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
+argument|Qt::TimerType timerType READ timerType WRITE setTimerType
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
 argument|bool active READ isActive
 argument_list|)
 name|public
@@ -111,6 +115,34 @@ return|return
 name|inter
 return|;
 block|}
+name|void
+name|setTimerType
+argument_list|(
+argument|Qt::TimerType type
+argument_list|)
+block|{
+name|this
+operator|->
+name|type
+operator|=
+name|type
+block|; }
+name|Qt
+operator|::
+name|TimerType
+name|timerType
+argument_list|()
+specifier|const
+block|{
+return|return
+name|Qt
+operator|::
+name|TimerType
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
 specifier|inline
 name|void
 name|setSingleShot
@@ -133,6 +165,19 @@ name|void
 name|singleShot
 argument_list|(
 argument|int msec
+argument_list|,
+argument|QObject *receiver
+argument_list|,
+argument|const char *member
+argument_list|)
+block|;
+specifier|static
+name|void
+name|singleShot
+argument_list|(
+argument|int msec
+argument_list|,
+argument|Qt::TimerType timerType
 argument_list|,
 argument|QObject *receiver
 argument_list|,
@@ -212,7 +257,14 @@ name|uint
 name|nulltimer
 operator|:
 literal|1
-block|; }
+block|;
+name|uint
+name|type
+operator|:
+literal|2
+block|;
+comment|// reserved : 28
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt

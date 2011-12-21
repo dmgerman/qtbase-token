@@ -4297,7 +4297,7 @@ begin_comment
 comment|//
 end_comment
 begin_comment
-comment|/*!     Starts a timer and returns a timer identifier, or returns zero if     it could not start a timer.      A timer event will occur every \a interval milliseconds until     killTimer() is called. If \a interval is 0, then the timer event     occurs once every time there are no more window system events to     process.      The virtual timerEvent() function is called with the QTimerEvent     event parameter class when a timer event occurs. Reimplement this     function to get timer events.      If multiple timers are running, the QTimerEvent::timerId() can be     used to find out which timer was activated.      Example:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 8      Note that QTimer's accuracy depends on the underlying operating     system and hardware. Most platforms support an accuracy of 20     milliseconds; some provide more. If Qt is unable to deliver the     requested number of timer events, it will silently discard some.      The QTimer class provides a high-level programming interface with     single-shot timers and timer signals instead of events. There is     also a QBasicTimer class that is more lightweight than QTimer and     less clumsy than using timer IDs directly.      \sa timerEvent(), killTimer(), QTimer::singleShot() */
+comment|/*!     Starts a timer and returns a timer identifier, or returns zero if     it could not start a timer.      A timer event will occur every \a interval milliseconds until     killTimer() is called. If \a interval is 0, then the timer event     occurs once every time there are no more window system events to     process.      The virtual timerEvent() function is called with the QTimerEvent     event parameter class when a timer event occurs. Reimplement this     function to get timer events.      If multiple timers are running, the QTimerEvent::timerId() can be     used to find out which timer was activated.      Example:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 8      Note that QTimer's accuracy depends on the underlying operating system and     hardware. The \a timerType argument allows you to customize the accuracy of     the timer. See Qt::TimerType for information on the different timer types.     Most platforms support an accuracy of 20 milliseconds; some provide more.     If Qt is unable to deliver the requested number of timer events, it will     silently discard some.      The QTimer class provides a high-level programming interface with     single-shot timers and timer signals instead of events. There is     also a QBasicTimer class that is more lightweight than QTimer and     less clumsy than using timer IDs directly.      \sa timerEvent(), killTimer(), QTimer::singleShot() */
 end_comment
 begin_function
 DECL|function|startTimer
@@ -4308,6 +4308,11 @@ name|startTimer
 parameter_list|(
 name|int
 name|interval
+parameter_list|,
+name|Qt
+operator|::
+name|TimerType
+name|timerType
 parameter_list|)
 block|{
 name|Q_D
