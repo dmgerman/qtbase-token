@@ -2957,7 +2957,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"troll1@trolltech.com"
+literal|"email123@example.com"
 argument_list|)
 operator|<<
 literal|0
@@ -6327,7 +6327,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"Trolltech"
+literal|"Qt Rocks!"
 argument_list|)
 operator|<<
 literal|0
