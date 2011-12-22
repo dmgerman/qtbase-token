@@ -1151,13 +1151,6 @@ block|{
 case|case
 name|Basic
 case|:
-if|if
-condition|(
-name|realm
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
 name|this
 operator|->
 name|options
@@ -1208,13 +1201,6 @@ case|case
 name|DigestMd5
 case|:
 block|{
-if|if
-condition|(
-name|realm
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
 name|this
 operator|->
 name|options
