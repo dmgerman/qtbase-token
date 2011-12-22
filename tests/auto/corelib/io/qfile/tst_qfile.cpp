@@ -8771,7 +8771,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|QSignalSpy
-name|readSignal
+name|readSignalSpy
 argument_list|(
 operator|&
 name|tailFile
@@ -8783,6 +8783,14 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|readSignalSpy
+operator|.
+name|isValid
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|file
 operator|.
 name|write
@@ -8816,7 +8824,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|readSignal
+name|readSignalSpy
 operator|.
 name|count
 argument_list|()

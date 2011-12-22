@@ -389,6 +389,14 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|groupStateChangedSpy
+operator|.
+name|isValid
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|group
