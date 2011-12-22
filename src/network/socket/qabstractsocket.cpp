@@ -2214,7 +2214,9 @@ else|else
 block|{
 foreach|foreach
 control|(
+specifier|const
 name|QHostAddress
+modifier|&
 name|address
 decl|,
 name|hostInfo

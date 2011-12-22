@@ -4949,7 +4949,9 @@ literal|false
 decl_stmt|;
 foreach|foreach
 control|(
+specifier|const
 name|QHostAddress
+modifier|&
 name|address
 decl|,
 name|info
