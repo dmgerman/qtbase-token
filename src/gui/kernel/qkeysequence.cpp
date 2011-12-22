@@ -8833,6 +8833,23 @@ decl_stmt|;
 name|QString
 name|s
 decl_stmt|;
+comment|// Handle -1 (Invalid Key) and Qt::Key_unknown gracefully
+if|if
+condition|(
+name|key
+operator|==
+operator|-
+literal|1
+operator|||
+name|key
+operator|==
+name|Qt
+operator|::
+name|Key_unknown
+condition|)
+return|return
+name|s
+return|;
 if|#
 directive|if
 name|defined
