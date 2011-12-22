@@ -67,12 +67,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_define
-DECL|macro|Q_XCB_DEBUG
-define|#
-directive|define
-name|Q_XCB_DEBUG
-end_define
+begin_comment
+comment|//#define Q_XCB_DEBUG
+end_comment
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QXcbScreen
