@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qhttp.h"
+file|"private/qhttpheader_p.h"
 end_include
 begin_include
 include|#

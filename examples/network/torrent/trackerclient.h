@@ -36,7 +36,17 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QHttp>
+file|<QNetworkAccessManager>
+end_include
+begin_include
+include|#
+directive|include
+file|<QNetworkReply>
+end_include
+begin_include
+include|#
+directive|include
+file|<QAuthenticator>
 end_include
 begin_include
 include|#
@@ -99,7 +109,7 @@ operator|:
 name|void
 name|connectionError
 argument_list|(
-argument|QHttp::Error error
+argument|QNetworkReply::NetworkError error
 argument_list|)
 block|;
 name|void
@@ -168,7 +178,21 @@ block|;
 name|void
 name|httpRequestDone
 argument_list|(
-argument|bool error
+name|QNetworkReply
+operator|*
+name|reply
+argument_list|)
+block|;
+name|void
+name|provideAuthentication
+argument_list|(
+name|QNetworkReply
+operator|*
+name|reply
+argument_list|,
+name|QAuthenticator
+operator|*
+name|auth
 argument_list|)
 block|;
 name|private
@@ -183,7 +207,7 @@ block|;
 name|int
 name|requestIntervalTimer
 block|;
-name|QHttp
+name|QNetworkAccessManager
 name|http
 block|;
 name|MetaInfo
@@ -206,6 +230,12 @@ name|downloadedBytes
 block|;
 name|qint64
 name|length
+block|;
+name|QString
+name|uname
+block|;
+name|QString
+name|pwd
 block|;
 name|bool
 name|firstTrackerRequest

@@ -55,11 +55,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qhttp.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qauthenticator.h>
 end_include
 begin_include
