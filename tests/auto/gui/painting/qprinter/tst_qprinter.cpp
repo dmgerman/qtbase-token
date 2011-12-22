@@ -7156,8 +7156,9 @@ name|printer
 decl_stmt|;
 comment|// This string is just the UTF-8 encoding of the string: \()f&oslash; hiragana o
 specifier|const
+name|unsigned
 name|char
-name|title
+name|titleBuf
 index|[]
 init|=
 block|{
@@ -7181,6 +7182,21 @@ literal|0x8a
 block|,
 literal|0x00
 block|}
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|title
+init|=
+cast|reinterpret_cast
+argument_list|<
+specifier|const
+name|char
+operator|*
+argument_list|>
+argument_list|(
+name|titleBuf
+argument_list|)
 decl_stmt|;
 name|printer
 operator|.
@@ -7237,8 +7253,9 @@ comment|// The we expect the title to appear in the PDF as:
 comment|// ASCII('\title (') UTF16(\\\(\)f&oslash; hiragana o) ASCII(')').
 comment|// which has the following binary representation
 specifier|const
+name|unsigned
 name|char
-name|expected
+name|expectedBuf
 index|[]
 init|=
 block|{
@@ -7294,6 +7311,21 @@ literal|0x4a
 block|,
 literal|0x29
 block|}
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|expected
+init|=
+cast|reinterpret_cast
+argument_list|<
+specifier|const
+name|char
+operator|*
+argument_list|>
+argument_list|(
+name|expectedBuf
+argument_list|)
 decl_stmt|;
 name|QVERIFY
 argument_list|(
