@@ -1450,19 +1450,17 @@ argument_list|(
 name|QT_NO_EXCEPTIONS
 argument_list|)
 operator|&&
-operator|(
 operator|!
 name|defined
 argument_list|(
 name|Q_CC_INTEL
 argument_list|)
-operator|||
+operator|&&
 operator|!
 name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-operator|)
 comment|// Disable this test on Windows and for intel compiler, as the run-times
 comment|// will popup dialogs with warnings that uncaught exceptions were thrown
 operator|<<
@@ -1475,8 +1473,18 @@ operator|<<
 literal|"failinit"
 operator|<<
 literal|"failinitdata"
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WIN
+argument_list|)
+comment|// Disable this test on Windows, as the run-time will popup dialogs with warnings
 operator|<<
 literal|"fetchbogus"
+endif|#
+directive|endif
 operator|<<
 literal|"float"
 operator|<<
