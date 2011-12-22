@@ -454,6 +454,11 @@ name|void
 name|selectAll
 argument_list|()
 block|;
+name|QSize
+name|viewportSizeHint
+argument_list|()
+specifier|const
+block|;
 name|Q_SIGNALS
 operator|:
 name|void

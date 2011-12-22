@@ -137,6 +137,12 @@ name|sizeHint
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setVisible
+argument_list|(
+argument|bool v
+argument_list|)
+block|;
 name|int
 name|sectionSizeHint
 argument_list|(

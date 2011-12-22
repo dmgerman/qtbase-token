@@ -49,6 +49,10 @@ name|public
 name|QFrame
 block|{
 name|Q_OBJECT
+name|Q_ENUMS
+argument_list|(
+argument|SizeAdjustPolicy
+argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|Qt::ScrollBarPolicy verticalScrollBarPolicy READ verticalScrollBarPolicy WRITE setVerticalScrollBarPolicy
@@ -56,6 +60,10 @@ argument_list|)
 name|Q_PROPERTY
 argument_list|(
 argument|Qt::ScrollBarPolicy horizontalScrollBarPolicy READ horizontalScrollBarPolicy WRITE setHorizontalScrollBarPolicy
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|SizeAdjustPolicy sizeAdjustPolicy READ sizeAdjustPolicy WRITE setSizeAdjustPolicy
 argument_list|)
 name|public
 operator|:
@@ -72,6 +80,15 @@ block|;
 operator|~
 name|QAbstractScrollArea
 argument_list|()
+block|;      enum
+name|SizeAdjustPolicy
+block|{
+name|AdjustIgnored
+block|,
+name|AdjustToContentsOnFirstShow
+block|,
+name|AdjustToContents
+block|}
 block|;
 name|Qt
 operator|::
@@ -195,6 +212,17 @@ argument_list|(
 name|QWidget
 operator|*
 name|viewport
+argument_list|)
+block|;
+name|SizeAdjustPolicy
+name|sizeAdjustPolicy
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setSizeAdjustPolicy
+argument_list|(
+argument|SizeAdjustPolicy policy
 argument_list|)
 block|;
 name|protected

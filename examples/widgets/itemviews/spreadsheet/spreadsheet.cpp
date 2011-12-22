@@ -131,6 +131,15 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+name|table
+operator|->
+name|setSizeAdjustPolicy
+argument_list|(
+name|QTableWidget
+operator|::
+name|AdjustToContents
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int

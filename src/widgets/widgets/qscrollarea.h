@@ -96,6 +96,11 @@ name|sizeHint
 argument_list|()
 specifier|const
 block|;
+name|QSize
+name|viewportSizeHint
+argument_list|()
+specifier|const
+block|;
 name|bool
 name|focusNextPrevChild
 argument_list|(

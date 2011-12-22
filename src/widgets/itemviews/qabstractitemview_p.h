@@ -485,6 +485,10 @@ argument_list|()
 specifier|const
 block|;
 name|void
+name|updateGeometry
+argument_list|()
+block|;
+name|void
 name|startAutoScroll
 argument_list|()
 block|{
