@@ -37,11 +37,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|void
-name|threadCount
-parameter_list|()
-function_decl|;
 private|private
 name|slots
 private|:
@@ -63,6 +58,10 @@ parameter_list|()
 function_decl|;
 name|void
 name|throttle
+parameter_list|()
+function_decl|;
+name|void
+name|threadCount
 parameter_list|()
 function_decl|;
 name|void
@@ -868,6 +867,11 @@ operator|::
 name|threadCount
 parameter_list|()
 block|{
+name|QSKIP
+argument_list|(
+literal|"QTBUG-23333: This test is unstable"
+argument_list|)
+expr_stmt|;
 specifier|const
 name|int
 name|repeats
