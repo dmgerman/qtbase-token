@@ -1672,8 +1672,8 @@ argument|void **zero
 argument_list|)
 block|{
 comment|// This is the overload for when one wish to disconnect a signal from any slot. (slot=0)
-comment|// Since the function template parametter cannot be deduced from '0', we use a
-comment|// dummy void ** parametter that must be equal to 0
+comment|// Since the function template parameter cannot be deduced from '0', we use a
+comment|// dummy void ** parameter that must be equal to 0
 name|Q_ASSERT
 argument_list|(
 operator|!
