@@ -106,11 +106,6 @@ public|public:
 name|tst_QSortFilterProxyModel
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QSortFilterProxyModel
-parameter_list|()
-destructor_decl|;
 public|public
 name|slots
 public|:
@@ -120,10 +115,6 @@ parameter_list|()
 function_decl|;
 name|void
 name|cleanupTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|init
 parameter_list|()
 function_decl|;
 name|void
@@ -165,8 +156,6 @@ name|void
 name|prependRow
 parameter_list|()
 function_decl|;
-comment|//     void insertColumns_data();
-comment|//     void insertColumns();
 name|void
 name|removeRows_data
 parameter_list|()
@@ -530,15 +519,6 @@ literal|0
 argument_list|)
 block|{  }
 end_constructor
-begin_destructor
-DECL|function|~tst_QSortFilterProxyModel
-name|tst_QSortFilterProxyModel
-operator|::
-name|~
-name|tst_QSortFilterProxyModel
-parameter_list|()
-block|{  }
-end_destructor
 begin_function
 DECL|function|initTestCase
 name|void
@@ -619,15 +599,6 @@ operator|delete
 name|m_model
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|init
-name|void
-name|tst_QSortFilterProxyModel
-operator|::
-name|init
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|cleanup
@@ -2796,9 +2767,6 @@ expr_stmt|;
 comment|//only the "root" item is there
 block|}
 end_function
-begin_comment
-comment|/* void tst_QSortFilterProxyModel::insertColumns_data() {  }  void tst_QSortFilterProxyModel::insertColumns() {  } */
-end_comment
 begin_function
 DECL|function|removeRows_data
 name|void

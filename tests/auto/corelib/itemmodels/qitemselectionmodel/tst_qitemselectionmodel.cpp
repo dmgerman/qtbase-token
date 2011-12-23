@@ -30,11 +30,6 @@ public|public:
 name|tst_QItemSelectionModel
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QItemSelectionModel
-parameter_list|()
-destructor_decl|;
 public|public
 name|slots
 public|:
@@ -742,15 +737,6 @@ literal|0
 argument_list|)
 block|{ }
 end_constructor
-begin_destructor
-DECL|function|~tst_QItemSelectionModel
-name|tst_QItemSelectionModel
-operator|::
-name|~
-name|tst_QItemSelectionModel
-parameter_list|()
-block|{ }
-end_destructor
 begin_comment
 comment|/*   This test usually uses a model with a 5x5 table   -------------------------------------------   |  0,0  |  0,1    |  0,2  |  0,3    |  0,4  |   -------------------------------------------   |  1,0  |  1,1    |  1,2  |  1,3    |  1,4  |   -------------------------------------------   |  2,0  |  2,1    |  2,2  |  2,3    |  2,4  |   -------------------------------------------   |  3,0  |  3,1    |  3,2  |  3,3    |  3,4  |   -------------------------------------------   |  4,0  |  4,1    |  4,2  |  4,3    |  4,4  |   -------------------------------------------    ...that for each row has a children in a new 5x5 table ad infinitum.  */
 end_comment

@@ -31,32 +31,9 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public
-name|slots
-public|:
-name|void
-name|initTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|cleanupTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
 private|private
 name|slots
 private|:
-name|void
-name|qabstractproxymodel_data
-parameter_list|()
-function_decl|;
 name|void
 name|qabstractproxymodel
 parameter_list|()
@@ -126,15 +103,7 @@ name|mapToSource
 parameter_list|()
 function_decl|;
 name|void
-name|revert_data
-parameter_list|()
-function_decl|;
-name|void
 name|revert
-parameter_list|()
-function_decl|;
-name|void
-name|setSourceModel_data
 parameter_list|()
 function_decl|;
 name|void
@@ -277,69 +246,6 @@ block|}
 block|}
 class|;
 end_class
-begin_comment
-comment|// This will be called before the first test function is executed.
-end_comment
-begin_comment
-comment|// It is only called once.
-end_comment
-begin_function
-DECL|function|initTestCase
-name|void
-name|tst_QAbstractProxyModel
-operator|::
-name|initTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_comment
-comment|// This will be called after the last test function is executed.
-end_comment
-begin_comment
-comment|// It is only called once.
-end_comment
-begin_function
-DECL|function|cleanupTestCase
-name|void
-name|tst_QAbstractProxyModel
-operator|::
-name|cleanupTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_comment
-comment|// This will be called before each test function is executed.
-end_comment
-begin_function
-DECL|function|init
-name|void
-name|tst_QAbstractProxyModel
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_comment
-comment|// This will be called after every test function.
-end_comment
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QAbstractProxyModel
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|qabstractproxymodel_data
-name|void
-name|tst_QAbstractProxyModel
-operator|::
-name|qabstractproxymodel_data
-parameter_list|()
-block|{ }
-end_function
 begin_function
 DECL|function|qabstractproxymodel
 name|void
@@ -1303,18 +1209,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_function
-DECL|function|revert_data
-name|void
-name|tst_QAbstractProxyModel
-operator|::
-name|revert_data
-parameter_list|()
-block|{
-comment|//QTest::addColumn<int>("foo");
-comment|//QTest::newRow("null")<< 0;
-block|}
-end_function
 begin_comment
 comment|// public void revert()
 end_comment
@@ -1326,7 +1220,6 @@ operator|::
 name|revert
 parameter_list|()
 block|{
-comment|//QFETCH(int, foo);
 name|SubQAbstractProxyModel
 name|model
 decl_stmt|;
@@ -1335,18 +1228,6 @@ operator|.
 name|revert
 argument_list|()
 expr_stmt|;
-block|}
-end_function
-begin_function
-DECL|function|setSourceModel_data
-name|void
-name|tst_QAbstractProxyModel
-operator|::
-name|setSourceModel_data
-parameter_list|()
-block|{
-comment|//QTest::addColumn<int>("sourceModelCount");
-comment|//QTest::newRow("null")<< 0;
 block|}
 end_function
 begin_comment
@@ -1360,7 +1241,6 @@ operator|::
 name|setSourceModel
 parameter_list|()
 block|{
-comment|//QFETCH(int, sourceModelCount);
 name|SubQAbstractProxyModel
 name|model
 decl_stmt|;

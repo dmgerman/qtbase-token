@@ -51,11 +51,6 @@ public|public:
 name|tst_QIdentityProxyModel
 parameter_list|()
 constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QIdentityProxyModel
-parameter_list|()
-destructor_decl|;
 public|public
 name|slots
 public|:
@@ -65,10 +60,6 @@ parameter_list|()
 function_decl|;
 name|void
 name|cleanupTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|init
 parameter_list|()
 function_decl|;
 name|void
@@ -143,15 +134,6 @@ literal|0
 argument_list|)
 block|{  }
 end_constructor
-begin_destructor
-DECL|function|~tst_QIdentityProxyModel
-name|tst_QIdentityProxyModel
-operator|::
-name|~
-name|tst_QIdentityProxyModel
-parameter_list|()
-block|{  }
-end_destructor
 begin_function
 DECL|function|initTestCase
 name|void
@@ -201,15 +183,6 @@ operator|delete
 name|m_model
 expr_stmt|;
 block|}
-end_function
-begin_function
-DECL|function|init
-name|void
-name|tst_QIdentityProxyModel
-operator|::
-name|init
-parameter_list|()
-block|{ }
 end_function
 begin_function
 DECL|function|cleanup

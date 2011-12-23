@@ -241,34 +241,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QStringListModel
-parameter_list|()
-constructor_decl|;
-specifier|virtual
-name|~
-name|tst_QStringListModel
-parameter_list|()
-destructor_decl|;
-public|public
-name|slots
-public|:
-name|void
-name|initTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|cleanupTestCase
-parameter_list|()
-function_decl|;
-name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
-name|cleanup
-parameter_list|()
-function_decl|;
 private|private
 name|slots
 private|:
@@ -291,62 +263,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_constructor
-DECL|function|tst_QStringListModel
-name|tst_QStringListModel
-operator|::
-name|tst_QStringListModel
-parameter_list|()
-block|{ }
-end_constructor
-begin_destructor
-DECL|function|~tst_QStringListModel
-name|tst_QStringListModel
-operator|::
-name|~
-name|tst_QStringListModel
-parameter_list|()
-block|{ }
-end_destructor
-begin_function
-DECL|function|initTestCase
-name|void
-name|tst_QStringListModel
-operator|::
-name|initTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanupTestCase
-name|void
-name|tst_QStringListModel
-operator|::
-name|cleanupTestCase
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|init
-name|void
-name|tst_QStringListModel
-operator|::
-name|init
-parameter_list|()
-block|{ }
-end_function
-begin_function
-DECL|function|cleanup
-name|void
-name|tst_QStringListModel
-operator|::
-name|cleanup
-parameter_list|()
-block|{ }
-end_function
-begin_comment
-comment|/*   tests */
-end_comment
 begin_function
 DECL|function|rowsAboutToBeRemoved_rowsRemoved_data
 name|void
