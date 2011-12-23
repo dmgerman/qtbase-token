@@ -83,17 +83,6 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-DECL|function|tst_QSet
-name|tst_QSet
-parameter_list|()
-block|{}
-DECL|function|~tst_QSet
-specifier|virtual
-name|~
-name|tst_QSet
-parameter_list|()
-block|{}
 private|private
 name|slots
 private|:
