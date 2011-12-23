@@ -784,8 +784,24 @@ name|bool
 name|enable
 parameter_list|)
 function_decl|;
+name|Q_CORE_EXPORT
+name|void
+name|checkQObjectShared
+parameter_list|(
+specifier|const
+name|QObject
+modifier|*
+parameter_list|)
+function_decl|;
 endif|#
 directive|endif
+specifier|inline
+name|void
+name|checkQObjectShared
+parameter_list|(
+modifier|...
+parameter_list|)
+block|{ }
 specifier|inline
 name|void
 name|setQObjectShared
@@ -2043,6 +2059,7 @@ name|tmp
 operator|>
 literal|0
 condition|)
+block|{
 name|o
 operator|->
 name|weakref
@@ -2050,11 +2067,21 @@ operator|.
 name|ref
 argument_list|()
 expr_stmt|;
+block|}
 else|else
+block|{
+name|o
+operator|->
+name|checkQObjectShared
+argument_list|(
+name|actual
+argument_list|)
+expr_stmt|;
 name|o
 operator|=
 literal|0
 expr_stmt|;
+block|}
 end_if
 begin_expr_stmt
 unit|}              qSwap
