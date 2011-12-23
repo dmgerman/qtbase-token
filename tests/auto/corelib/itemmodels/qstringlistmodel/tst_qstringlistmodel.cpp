@@ -212,7 +212,6 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-comment|//qDebug()<< "index: "<< i<< " start: "<< start<< "end: "<< end;
 name|QCOMPARE
 argument_list|(
 name|str

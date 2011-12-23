@@ -8664,11 +8664,6 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// debug output
-comment|//     for (int i=0; i<selectedList.count(); ++i)
-comment|//         qDebug(QString("selected (%1, %2)")
-comment|//                .arg(selectedList.at(i).row())
-comment|//                .arg(selectedList.at(i).column()));
 comment|// test that the number of indices are as expected
 name|QVERIFY2
 argument_list|(
