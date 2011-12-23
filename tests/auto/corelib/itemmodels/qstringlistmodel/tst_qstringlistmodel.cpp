@@ -66,13 +66,11 @@ name|int
 name|end
 parameter_list|)
 block|{
-name|int
-name|i
-decl_stmt|;
 for|for
 control|(
+name|int
 name|i
-operator|=
+init|=
 literal|0
 init|;
 name|start
@@ -155,9 +153,6 @@ parameter_list|,
 name|int
 parameter_list|)
 block|{
-name|int
-name|i
-decl_stmt|;
 comment|// Can the rows that *are* removed be iterated now ?
 comment|// What about rowsAboutToBeInserted - what will the indices be?
 comment|// will insertRow() overwrite existing, or insert (and conseq. grow the model?)
@@ -165,8 +160,9 @@ comment|// What will the item then contain? empty data?
 comment|// RemoveColumn. Does that also fire the rowsRemoved-family signals?
 for|for
 control|(
+name|int
 name|i
-operator|=
+init|=
 literal|0
 init|;
 name|i

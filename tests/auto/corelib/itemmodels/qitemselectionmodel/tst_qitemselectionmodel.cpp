@@ -8352,7 +8352,7 @@ argument_list|,
 name|QModelIndex
 argument_list|()
 argument_list|)
-comment|/*<< model->index(2, 0, QModelIndex())<< model->index(2, 1, QModelIndex())<< model->index(2, 2, QModelIndex())<< model->index(2, 3, QModelIndex())<< model->index(2, 4, QModelIndex()) 	  */
+comment|/*<< model->index(2, 0, QModelIndex())<< model->index(2, 1, QModelIndex())<< model->index(2, 2, QModelIndex())<< model->index(2, 3, QModelIndex())<< model->index(2, 4, QModelIndex())           */
 operator|<<
 name|model
 operator|->
@@ -14542,7 +14542,7 @@ name|column_count
 argument_list|(
 name|columns
 argument_list|)
-block|{}
+block|{     }
 DECL|function|rowCount
 name|int
 name|rowCount
@@ -19411,7 +19411,7 @@ name|m_target
 argument_list|(
 name|target
 argument_list|)
-block|{    }
+block|{     }
 DECL|function|select
 name|void
 name|select

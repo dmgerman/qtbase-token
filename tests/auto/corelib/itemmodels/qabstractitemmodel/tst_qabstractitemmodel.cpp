@@ -12787,13 +12787,11 @@ argument_list|(
 name|idx
 argument_list|)
 condition|)
-block|{
 name|fillIndexStores
 argument_list|(
 name|idx
 argument_list|)
 expr_stmt|;
-block|}
 operator|++
 name|row
 expr_stmt|;
@@ -13154,7 +13152,7 @@ literal|"c"
 argument_list|,
 name|parent
 argument_list|)
-block|{      }
+block|{     }
 DECL|function|emitSignals
 name|void
 name|emitSignals

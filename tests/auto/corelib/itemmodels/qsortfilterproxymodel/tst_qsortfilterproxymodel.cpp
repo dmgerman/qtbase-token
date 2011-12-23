@@ -517,7 +517,7 @@ name|m_proxy
 argument_list|(
 literal|0
 argument_list|)
-block|{  }
+block|{ }
 end_constructor
 begin_function
 DECL|function|initTestCase
@@ -15374,7 +15374,7 @@ name|wrongIndex
 argument_list|(
 literal|false
 argument_list|)
-block|{  }
+block|{     }
 DECL|function|canFetchMore
 name|bool
 name|canFetchMore
@@ -18691,7 +18691,7 @@ name|QSortFilterProxyModel
 argument_list|(
 name|parent
 argument_list|)
-block|{    }
+block|{     }
 protected|protected:
 DECL|function|filterAcceptsColumn
 name|bool

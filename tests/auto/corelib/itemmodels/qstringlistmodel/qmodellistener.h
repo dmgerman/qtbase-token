@@ -115,7 +115,7 @@ argument|int start
 argument_list|,
 argument|int end
 argument_list|)
-block|;  }
+block|; }
 decl_stmt|;
 end_decl_stmt
 end_unit

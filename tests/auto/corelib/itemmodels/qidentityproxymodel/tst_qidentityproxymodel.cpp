@@ -132,7 +132,7 @@ name|m_proxy
 argument_list|(
 literal|0
 argument_list|)
-block|{  }
+block|{ }
 end_constructor
 begin_function
 DECL|function|initTestCase
