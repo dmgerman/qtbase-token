@@ -20310,6 +20310,11 @@ argument_list|,
 name|mainWindow
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isValid
+argument_list|()
+condition|)
 name|fitLayout
 argument_list|()
 expr_stmt|;
