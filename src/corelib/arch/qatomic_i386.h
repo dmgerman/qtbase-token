@@ -646,7 +646,7 @@ name|asm
 specifier|volatile
 operator|(
 literal|"lock\n"
-literal|"incb %0\n"
+literal|"addb $1, %0\n"
 literal|"setne %1"
 operator|:
 literal|"+m"
@@ -754,7 +754,7 @@ name|asm
 specifier|volatile
 operator|(
 literal|"lock\n"
-literal|"incl %0\n"
+literal|"addl $1, %0\n"
 literal|"setne %1"
 operator|:
 literal|"+m"
@@ -808,7 +808,7 @@ name|asm
 specifier|volatile
 operator|(
 literal|"lock\n"
-literal|"decb %0\n"
+literal|"subb $1, %0\n"
 literal|"setne %1"
 operator|:
 literal|"+m"
@@ -916,7 +916,7 @@ name|asm
 specifier|volatile
 operator|(
 literal|"lock\n"
-literal|"decl %0\n"
+literal|"subl $1, %0\n"
 literal|"setne %1"
 operator|:
 literal|"+m"
