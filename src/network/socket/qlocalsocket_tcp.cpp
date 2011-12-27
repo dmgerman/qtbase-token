@@ -705,6 +705,26 @@ break|break;
 case|case
 name|QLocalSocket
 operator|::
+name|OperationError
+case|:
+name|errorString
+operator|=
+name|QLocalSocket
+operator|::
+name|tr
+argument_list|(
+literal|"%1: Operation not permitted when socket is in this state"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|function
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|QLocalSocket
+operator|::
 name|UnknownSocketError
 case|:
 default|default:

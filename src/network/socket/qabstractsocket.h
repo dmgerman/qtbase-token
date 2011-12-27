@@ -160,6 +160,8 @@ name|ProxyNotFoundError
 block|,
 name|ProxyProtocolError
 block|,
+name|OperationError
+block|,
 name|UnknownSocketError
 operator|=
 operator|-

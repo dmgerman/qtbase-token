@@ -33,7 +33,7 @@ begin_comment
 comment|/*!     \enum QAbstractSocket::SocketType      This enum describes the transport layer protocol.      \value TcpSocket TCP     \value UdpSocket UDP     \value UnknownSocketType Other than TCP and UDP      \sa QAbstractSocket::socketType() */
 end_comment
 begin_comment
-comment|/*!     \enum QAbstractSocket::SocketError      This enum describes the socket errors that can occur.      \value ConnectionRefusedError The connection was refused by the            peer (or timed out).     \value RemoteHostClosedError The remote host closed the            connection. Note that the client socket (i.e., this socket)            will be closed after the remote close notification has            been sent.     \value HostNotFoundError The host address was not found.     \value SocketAccessError The socket operation failed because the            application lacked the required privileges.     \value SocketResourceError The local system ran out of resources            (e.g., too many sockets).     \value SocketTimeoutError The socket operation timed out.     \value DatagramTooLargeError The datagram was larger than the            operating system's limit (which can be as low as 8192            bytes).     \value NetworkError An error occurred with the network (e.g., the            network cable was accidentally plugged out).     \value AddressInUseError The address specified to QAbstractSocket::bind() is            already in use and was set to be exclusive.     \value SocketAddressNotAvailableError The address specified to            QAbstractSocket::bind() does not belong to the host.     \value UnsupportedSocketOperationError The requested socket operation is            not supported by the local operating system (e.g., lack of            IPv6 support).     \value ProxyAuthenticationRequiredError The socket is using a proxy, and            the proxy requires authentication.     \value SslHandshakeFailedError The SSL/TLS handshake failed, so            the connection was closed (only used in QSslSocket)     \value UnfinishedSocketOperationError Used by QAbstractSocketEngine only,            The last operation attempted has not finished yet (still in progress in             the background).     \value ProxyConnectionRefusedError Could not contact the proxy server because            the connection to that server was denied     \value ProxyConnectionClosedError The connection to the proxy server was closed            unexpectedly (before the connection to the final peer was established)     \value ProxyConnectionTimeoutError The connection to the proxy server timed out            or the proxy server stopped responding in the authentication phase.     \value ProxyNotFoundError The proxy address set with setProxy() (or the application            proxy) was not found.     \value ProxyProtocolError The connection negotiation with the proxy server            because the response from the proxy server could not be understood.      \value UnknownSocketError An unidentified error occurred.     \sa QAbstractSocket::error() */
+comment|/*!     \enum QAbstractSocket::SocketError      This enum describes the socket errors that can occur.      \value ConnectionRefusedError The connection was refused by the            peer (or timed out).     \value RemoteHostClosedError The remote host closed the            connection. Note that the client socket (i.e., this socket)            will be closed after the remote close notification has            been sent.     \value HostNotFoundError The host address was not found.     \value SocketAccessError The socket operation failed because the            application lacked the required privileges.     \value SocketResourceError The local system ran out of resources            (e.g., too many sockets).     \value SocketTimeoutError The socket operation timed out.     \value DatagramTooLargeError The datagram was larger than the            operating system's limit (which can be as low as 8192            bytes).     \value NetworkError An error occurred with the network (e.g., the            network cable was accidentally plugged out).     \value AddressInUseError The address specified to QAbstractSocket::bind() is            already in use and was set to be exclusive.     \value SocketAddressNotAvailableError The address specified to            QAbstractSocket::bind() does not belong to the host.     \value UnsupportedSocketOperationError The requested socket operation is            not supported by the local operating system (e.g., lack of            IPv6 support).     \value ProxyAuthenticationRequiredError The socket is using a proxy, and            the proxy requires authentication.     \value SslHandshakeFailedError The SSL/TLS handshake failed, so            the connection was closed (only used in QSslSocket)     \value UnfinishedSocketOperationError Used by QAbstractSocketEngine only,            The last operation attempted has not finished yet (still in progress in             the background).     \value ProxyConnectionRefusedError Could not contact the proxy server because            the connection to that server was denied     \value ProxyConnectionClosedError The connection to the proxy server was closed            unexpectedly (before the connection to the final peer was established)     \value ProxyConnectionTimeoutError The connection to the proxy server timed out            or the proxy server stopped responding in the authentication phase.     \value ProxyNotFoundError The proxy address set with setProxy() (or the application            proxy) was not found.     \value ProxyProtocolError The connection negotiation with the proxy server            because the response from the proxy server could not be understood.     \value OperationError An operation was attempted while the socket was in a state that            did not permit it.      \value UnknownSocketError An unidentified error occurred.     \sa QAbstractSocket::error() */
 end_comment
 begin_comment
 comment|/*!     \enum QAbstractSocket::SocketState      This enum describes the different states in which a socket can be.      \value UnconnectedState The socket is not connected.     \value HostLookupState The socket is performing a host name lookup.     \value ConnectingState The socket has started establishing a connection.     \value ConnectedState A connection is established.     \value BoundState The socket is bound to an address and port.     \value ClosingState The socket is about to close (data may still     be waiting to be written).     \value ListeningState For internal use only.     \omitvalue Idle     \omitvalue HostLookup     \omitvalue Connecting     \omitvalue Connected     \omitvalue Closing     \omitvalue Connection      \sa QAbstractSocket::state() */
@@ -4325,6 +4325,32 @@ name|hostName
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|socketError
+operator|=
+name|QAbstractSocket
+operator|::
+name|OperationError
+expr_stmt|;
+name|setErrorString
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|tr
+argument_list|(
+literal|"Trying to connect while connection is in progress"
+argument_list|)
+argument_list|)
+expr_stmt|;
+emit|emit
+name|error
+argument_list|(
+name|d
+operator|->
+name|socketError
+argument_list|)
+emit|;
 return|return;
 block|}
 name|d

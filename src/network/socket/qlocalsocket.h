@@ -114,6 +114,12 @@ operator|=
 name|QAbstractSocket
 operator|::
 name|UnknownSocketError
+block|,
+name|OperationError
+operator|=
+name|QAbstractSocket
+operator|::
+name|OperationError
 block|}
 block|;      enum
 name|LocalSocketState
