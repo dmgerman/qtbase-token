@@ -1638,6 +1638,9 @@ literal|403
 comment|/* C++0x features supported in GCC 4.3: */
 define|#
 directive|define
+name|Q_COMPILER_VARIADIC_MACROS
+define|#
+directive|define
 name|Q_COMPILER_RVALUE_REFS
 define|#
 directive|define
