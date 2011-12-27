@@ -76,7 +76,7 @@ operator|~
 name|QFileSystemWatcher
 argument_list|()
 block|;
-name|void
+name|bool
 name|addPath
 argument_list|(
 specifier|const
@@ -85,7 +85,7 @@ operator|&
 name|file
 argument_list|)
 block|;
-name|void
+name|QStringList
 name|addPaths
 argument_list|(
 specifier|const
@@ -94,7 +94,7 @@ operator|&
 name|files
 argument_list|)
 block|;
-name|void
+name|bool
 name|removePath
 argument_list|(
 specifier|const
@@ -103,7 +103,7 @@ operator|&
 name|file
 argument_list|)
 block|;
-name|void
+name|QStringList
 name|removePaths
 argument_list|(
 specifier|const

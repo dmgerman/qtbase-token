@@ -269,16 +269,8 @@ operator|+
 name|backend
 argument_list|)
 expr_stmt|;
-name|watcher
-operator|.
-name|removePath
+name|QVERIFY
 argument_list|(
-name|testFile
-operator|.
-name|fileName
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|watcher
 operator|.
 name|addPath
@@ -287,6 +279,7 @@ name|testFile
 operator|.
 name|fileName
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QSignalSpy
@@ -455,6 +448,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 comment|// remove the watch and modify the file, should not get a signal from the watcher
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|removePath
@@ -463,6 +458,7 @@ name|testFile
 operator|.
 name|fileName
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|testFile
@@ -517,6 +513,8 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// readd the file watch with a relative path
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|addPath
@@ -529,6 +527,7 @@ operator|.
 name|prepend
 argument_list|(
 literal|"./"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -570,6 +569,8 @@ operator|>
 literal|0
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|removePath
@@ -584,6 +585,7 @@ argument_list|(
 literal|"./"
 argument_list|)
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|changedSpy
 operator|.
@@ -591,6 +593,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 comment|// readd the file watch
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|addPath
@@ -599,6 +603,7 @@ name|testFile
 operator|.
 name|fileName
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// change the permissions, should get a signal from the watcher
@@ -670,6 +675,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 comment|// remove the watch and modify file permissions, should not get a signal from the watcher
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|removePath
@@ -678,6 +685,7 @@ name|testFile
 operator|.
 name|fileName
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|testFile
@@ -721,6 +729,8 @@ literal|0
 argument_list|)
 expr_stmt|;
 comment|// readd the file watch
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|addPath
@@ -729,6 +739,7 @@ name|testFile
 operator|.
 name|fileName
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// remove the file, should get a signal from the watcher
@@ -933,6 +944,8 @@ operator|+
 name|backend
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|addPath
@@ -941,6 +954,7 @@ name|testDir
 operator|.
 name|dirName
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QSignalSpy
@@ -1015,6 +1029,8 @@ name|QString
 name|fileName
 decl_stmt|;
 comment|// remove the watch, should not get notification of a new file
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|removePath
@@ -1023,6 +1039,7 @@ name|testDir
 operator|.
 name|dirName
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1069,6 +1086,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|addPath
@@ -1077,6 +1096,7 @@ name|testDir
 operator|.
 name|dirName
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// remove the file again, should get a signal from the watcher
@@ -1298,11 +1318,14 @@ operator|::
 name|homePath
 argument_list|()
 decl_stmt|;
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|addPath
 argument_list|(
 name|home
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1331,11 +1354,16 @@ argument_list|,
 name|home
 argument_list|)
 expr_stmt|;
+comment|// second watch on an already-watched path should fail
+name|QVERIFY
+argument_list|(
+operator|!
 name|watcher
 operator|.
 name|addPath
 argument_list|(
 name|home
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1361,12 +1389,15 @@ argument_list|,
 literal|"QFileSystemWatcher::addPath: path is empty"
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|addPath
 argument_list|(
 name|QString
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1390,18 +1421,24 @@ operator|::
 name|homePath
 argument_list|()
 decl_stmt|;
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|addPath
 argument_list|(
 name|home
 argument_list|)
+argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|removePath
 argument_list|(
 name|home
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1417,11 +1454,15 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
 name|watcher
 operator|.
 name|removePath
 argument_list|(
 name|home
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1447,12 +1488,15 @@ argument_list|,
 literal|"QFileSystemWatcher::removePath: path is empty"
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|removePath
 argument_list|(
 name|QString
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1483,11 +1527,17 @@ operator|::
 name|currentPath
 argument_list|()
 expr_stmt|;
+name|QCOMPARE
+argument_list|(
 name|watcher
 operator|.
 name|addPaths
 argument_list|(
 name|paths
+argument_list|)
+argument_list|,
+name|QStringList
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1518,11 +1568,17 @@ argument_list|,
 literal|"QFileSystemWatcher::addPaths: list is empty"
 argument_list|)
 expr_stmt|;
+name|QCOMPARE
+argument_list|(
 name|watcher
 operator|.
 name|addPaths
 argument_list|(
 name|paths
+argument_list|)
+argument_list|,
+name|QStringList
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1553,11 +1609,17 @@ operator|::
 name|currentPath
 argument_list|()
 expr_stmt|;
+name|QCOMPARE
+argument_list|(
 name|watcher
 operator|.
 name|addPaths
 argument_list|(
 name|paths
+argument_list|)
+argument_list|,
+name|QStringList
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1573,11 +1635,17 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
+name|QCOMPARE
+argument_list|(
 name|watcher
 operator|.
 name|removePaths
 argument_list|(
 name|paths
+argument_list|)
+argument_list|,
+name|QStringList
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1743,6 +1811,8 @@ operator|+
 name|backend
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|addPath
@@ -1752,12 +1822,16 @@ operator|.
 name|dirName
 argument_list|()
 argument_list|)
+argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|addPath
 argument_list|(
 name|testFileName
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QSignalSpy
@@ -2034,11 +2108,16 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+comment|// removing a deleted file should fail
+name|QVERIFY
+argument_list|(
+operator|!
 name|watcher
 operator|.
 name|removePath
 argument_list|(
 name|testFileName
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QFile
@@ -2163,16 +2242,70 @@ comment|// Don't crash...
 name|QFileSystemWatcher
 name|watcher
 decl_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
 name|watcher
 operator|.
 name|addPath
 argument_list|(
 literal|"file_that_does_not_exist.txt"
 argument_list|)
+argument_list|)
 expr_stmt|;
-name|QVERIFY
+comment|// Test that the paths returned in error aren't messed with
+name|QCOMPARE
 argument_list|(
-literal|true
+name|watcher
+operator|.
+name|addPaths
+argument_list|(
+name|QStringList
+argument_list|()
+operator|<<
+literal|"../..//./does-not-exist"
+argument_list|)
+argument_list|,
+name|QStringList
+argument_list|()
+operator|<<
+literal|"../..//./does-not-exist"
+argument_list|)
+expr_stmt|;
+comment|// empty path is not actually a failure
+name|QCOMPARE
+argument_list|(
+name|watcher
+operator|.
+name|addPaths
+argument_list|(
+name|QStringList
+argument_list|()
+operator|<<
+name|QString
+argument_list|()
+argument_list|)
+argument_list|,
+name|QStringList
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// empty path is not actually a failure
+name|QCOMPARE
+argument_list|(
+name|watcher
+operator|.
+name|removePaths
+argument_list|(
+name|QStringList
+argument_list|()
+operator|<<
+name|QString
+argument_list|()
+argument_list|)
+argument_list|,
+name|QStringList
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2219,11 +2352,14 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|addPath
 argument_list|(
 name|filename
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QFile
@@ -2233,11 +2369,14 @@ argument_list|(
 name|filename
 argument_list|)
 expr_stmt|;
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|removePath
 argument_list|(
 name|filename
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|{
@@ -2262,11 +2401,14 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+name|QVERIFY
+argument_list|(
 name|watcher
 operator|.
 name|addPath
 argument_list|(
 name|filename
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
