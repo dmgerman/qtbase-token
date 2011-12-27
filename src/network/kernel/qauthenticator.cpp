@@ -357,7 +357,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the \a user used for authentication. */
+comment|/*!   Sets the \a user used for authentication.    \sa QNetworkAccessManager::authenticationRequired() */
 end_comment
 begin_function
 DECL|function|setUser
@@ -524,7 +524,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the \a password used for authentication. */
+comment|/*!   Sets the \a password used for authentication.    \sa QNetworkAccessManager::authenticationRequired() */
 end_comment
 begin_function
 DECL|function|setPassword
