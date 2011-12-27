@@ -5800,14 +5800,17 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Sets the model's role names to \a roleNames.      This function allows mapping of role identifiers to role property names in     Declarative UI.  This function must be called before the model is used.     Modifying the role names after the model has been set may result in     undefined behaviour.      \sa roleNames() */
+comment|/*!     \since 4.6     \obsolete      Sets the model's role names to \a roleNames.      This function allows mapping of role identifiers to role property names in     Declarative UI.  This function must be called before the model is used.     Modifying the role names after the model has been set may result in     undefined behaviour.      \sa roleNames() */
+end_comment
+begin_comment
+comment|/*!     \internal  */
 end_comment
 begin_function
-DECL|function|setRoleNames
+DECL|function|doSetRoleNames
 name|void
 name|QAbstractItemModel
 operator|::
-name|setRoleNames
+name|doSetRoleNames
 parameter_list|(
 specifier|const
 name|QHash
@@ -5838,14 +5841,12 @@ comment|/*!     \since 4.6      Returns the model's role names.      \sa setRole
 end_comment
 begin_function
 DECL|function|roleNames
-specifier|const
 name|QHash
 argument_list|<
 name|int
 argument_list|,
 name|QByteArray
 argument_list|>
-modifier|&
 name|QAbstractItemModel
 operator|::
 name|roleNames
