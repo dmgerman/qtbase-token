@@ -3018,11 +3018,6 @@ name|dsa
 parameter_list|)
 value|q_EVP_PKEY_assign((pkey),EVP_PKEY_DSA,\ 					(char *)(dsa))
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|OPENSSL_LOAD_CONF
-end_ifdef
 begin_define
 DECL|macro|q_OpenSSL_add_all_algorithms
 define|#
@@ -3031,22 +3026,6 @@ name|q_OpenSSL_add_all_algorithms
 parameter_list|()
 value|q_OPENSSL_add_all_algorithms_conf()
 end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|q_OpenSSL_add_all_algorithms
-define|#
-directive|define
-name|q_OpenSSL_add_all_algorithms
-parameter_list|()
-value|q_OPENSSL_add_all_algorithms_noconf()
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function_decl
 name|void
 name|q_OPENSSL_add_all_algorithms_noconf
