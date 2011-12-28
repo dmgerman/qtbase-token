@@ -41,7 +41,7 @@ public|public
 name|Q_SLOTS
 public|:
 name|void
-name|init
+name|initTestCase
 parameter_list|()
 function_decl|;
 private|private
@@ -79,11 +79,11 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|init
+DECL|function|initTestCase
 name|void
 name|tst_QAnimationGroup
 operator|::
-name|init
+name|initTestCase
 parameter_list|()
 block|{
 name|qRegisterMetaType
