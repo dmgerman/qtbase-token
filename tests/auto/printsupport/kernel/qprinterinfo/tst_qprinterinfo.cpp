@@ -1141,19 +1141,7 @@ operator|::
 name|availablePrinters
 argument_list|()
 decl_stmt|;
-name|QCOMPARE
-argument_list|(
-name|printers
-operator|.
-name|size
-argument_list|()
-argument_list|,
-name|sysPrinters
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//    QCOMPARE(printers.size(), sysPrinters.size());
 name|QHash
 argument_list|<
 name|QString
