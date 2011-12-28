@@ -1305,7 +1305,7 @@ name|ret
 operator|=
 name|d
 operator|->
-name|paperSize
+name|printerPaperSize
 expr_stmt|;
 break|break;
 case|case
