@@ -624,21 +624,11 @@ name|TestTask
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Hang if task is not runned.
-while|while
-condition|(
-name|ran
-operator|==
-literal|false
-condition|)
-name|QTest
-operator|::
-name|qSleep
+name|QTRY_VERIFY
 argument_list|(
-literal|100
+name|ran
 argument_list|)
 expr_stmt|;
-comment|// no busy loop - this doesn't work with FIFO schedulers
 block|}
 end_function
 begin_comment
@@ -668,20 +658,11 @@ name|TestTask
 argument_list|()
 argument_list|)
 expr_stmt|;
-while|while
-condition|(
-name|ran
-operator|==
-literal|false
-condition|)
-name|QTest
-operator|::
-name|qSleep
+name|QTRY_VERIFY
 argument_list|(
-literal|100
+name|ran
 argument_list|)
 expr_stmt|;
-comment|// no busy loop - this doesn't work with FIFO schedulers
 block|}
 end_function
 begin_decl_stmt
