@@ -24,6 +24,10 @@ file|<private/qpaintengine_raster_p.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|QDRAWHELPER_AVX
+comment|// in AVX mode, we'll use the SSSE3 code
 DECL|function|qt_blend_argb32_on_argb32_sse2
 name|void
 name|qt_blend_argb32_on_argb32_sse2
@@ -342,6 +346,10 @@ block|}
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|// qblendfunctions.cpp
 end_comment
@@ -2074,6 +2082,11 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QDRAWHELPER_AVX
+end_ifndef
 begin_decl_stmt
 DECL|variable|qt_functionForModeSolid_SSE2
 name|CompositionFunctionSolid
@@ -2228,6 +2241,10 @@ name|rasterop_SourceAndNotDestination
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|qt_memfill16_sse2
 name|void
