@@ -776,7 +776,10 @@ block|{
 name|QMovie
 name|movie
 argument_list|(
+name|QFINDTESTDATA
+argument_list|(
 literal|"animations/comicsecard.gif"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|movie
@@ -793,7 +796,10 @@ name|movie
 operator|.
 name|setFileName
 argument_list|(
+name|QFINDTESTDATA
+argument_list|(
 literal|"animations/trolltech.gif"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QVERIFY
