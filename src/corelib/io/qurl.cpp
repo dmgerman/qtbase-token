@@ -4422,7 +4422,7 @@ operator|)
 operator|)
 operator|||
 name|uc
-operator|<
+operator|<=
 literal|0x20
 operator|||
 name|strchr
