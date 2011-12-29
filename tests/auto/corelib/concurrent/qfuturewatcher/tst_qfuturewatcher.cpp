@@ -105,7 +105,7 @@ name|disconnectRunningFuture
 parameter_list|()
 function_decl|;
 name|void
-name|toMuchProgress
+name|tooMuchProgress
 parameter_list|()
 function_decl|;
 name|void
@@ -145,7 +145,7 @@ name|incrementalFilterResults
 parameter_list|()
 function_decl|;
 name|void
-name|qfutureSynchornizer
+name|qfutureSynchronizer
 parameter_list|()
 function_decl|;
 name|void
@@ -2595,11 +2595,11 @@ block|}
 class|;
 end_class
 begin_function
-DECL|function|toMuchProgress
+DECL|function|tooMuchProgress
 name|void
 name|tst_QFutureWatcher
 operator|::
-name|toMuchProgress
+name|tooMuchProgress
 parameter_list|()
 block|{
 name|progressValues
@@ -5044,11 +5044,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|qfutureSynchornizer
+DECL|function|qfutureSynchronizer
 name|void
 name|tst_QFutureWatcher
 operator|::
-name|qfutureSynchornizer
+name|qfutureSynchronizer
 parameter_list|()
 block|{
 name|int
