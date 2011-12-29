@@ -117,6 +117,20 @@ define|#
 directive|define
 name|Q_STATIC_INLINE_FUNCTION
 value|static __forceinline
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_CC_GNU
+argument_list|)
+define|#
+directive|define
+name|Q_STATIC_TEMPLATE_FUNCTION
+value|static __attribute__((always_inline))
+define|#
+directive|define
+name|Q_STATIC_INLINE_FUNCTION
+value|static inline __attribute__((always_inline))
 else|#
 directive|else
 define|#
