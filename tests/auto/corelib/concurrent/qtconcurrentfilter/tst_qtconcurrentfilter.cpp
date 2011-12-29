@@ -74,7 +74,7 @@ name|incrementalResults
 parameter_list|()
 function_decl|;
 name|void
-name|noDetatch
+name|noDetach
 parameter_list|()
 function_decl|;
 ifndef|#
@@ -8901,11 +8901,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|noDetatch
+DECL|function|noDetach
 name|void
 name|tst_QtConcurrentFilter
 operator|::
-name|noDetatch
+name|noDetach
 parameter_list|()
 block|{
 block|{
