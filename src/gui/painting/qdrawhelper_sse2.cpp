@@ -2075,9 +2075,9 @@ block|}
 block|}
 end_function
 begin_decl_stmt
-DECL|variable|qt_functionForModeSolid_onlySSE2
+DECL|variable|qt_functionForModeSolid_SSE2
 name|CompositionFunctionSolid
-name|qt_functionForModeSolid_onlySSE2
+name|qt_functionForModeSolid_SSE2
 index|[
 name|numCompositionFunctions
 index|]
@@ -2152,9 +2152,9 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|qt_functionForMode_onlySSE2
+DECL|variable|qt_functionForMode_SSE2
 name|CompositionFunction
-name|qt_functionForMode_onlySSE2
+name|qt_functionForMode_SSE2
 index|[
 name|numCompositionFunctions
 index|]
