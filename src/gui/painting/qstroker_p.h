@@ -1197,6 +1197,10 @@ operator|*
 name|stroker
 argument_list|)
 block|;
+operator|~
+name|QDashStroker
+argument_list|()
+block|;
 name|QStroker
 operator|*
 name|stroker
