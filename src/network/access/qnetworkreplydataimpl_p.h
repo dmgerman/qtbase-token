@@ -153,14 +153,6 @@ operator|~
 name|QNetworkReplyDataImplPrivate
 argument_list|()
 block|;
-name|QPair
-operator|<
-name|QString
-block|,
-name|QByteArray
-operator|>
-name|decodeDataUrlResult
-block|;
 name|QBuffer
 name|decodedData
 block|;
