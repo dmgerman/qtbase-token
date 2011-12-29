@@ -1885,18 +1885,13 @@ condition|)
 break|break;
 block|}
 block|}
+comment|// Only run the rest of the test if we could find a codec that is not
+comment|// already the codecForLocale().
 if|if
 condition|(
-operator|!
 name|codec2
 condition|)
 block|{
-name|QSKIP
-argument_list|(
-literal|"Could not find a codec that is not already the codecForLocale()"
-argument_list|)
-expr_stmt|;
-block|}
 comment|// set it, codecForLocale() should return it now
 name|QTextCodec
 operator|::
@@ -1933,6 +1928,7 @@ argument_list|,
 name|codec
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 block|}
