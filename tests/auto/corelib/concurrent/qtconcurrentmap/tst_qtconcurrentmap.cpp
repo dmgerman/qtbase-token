@@ -164,7 +164,7 @@ name|incrementalResults
 parameter_list|()
 function_decl|;
 name|void
-name|noDetatch
+name|noDetach
 parameter_list|()
 function_decl|;
 ifndef|#
@@ -16505,11 +16505,11 @@ begin_comment
 comment|/*     Test that mapped does not cause deep copies when holding     references to Qt containers. */
 end_comment
 begin_function
-DECL|function|noDetatch
+DECL|function|noDetach
 name|void
 name|tst_QtConcurrentMap
 operator|::
-name|noDetatch
+name|noDetach
 parameter_list|()
 block|{
 block|{
