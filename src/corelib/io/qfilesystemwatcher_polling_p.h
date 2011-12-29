@@ -66,6 +66,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qtimer.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"qfilesystemwatcher_p.h"
 end_include
 begin_decl_stmt
@@ -282,10 +287,6 @@ operator|:
 name|QPollingFileSystemWatcherEngine
 argument_list|()
 block|;
-name|void
-name|run
-argument_list|()
-block|;
 name|QStringList
 name|addPaths
 argument_list|(
@@ -320,16 +321,17 @@ operator|*
 name|directories
 argument_list|)
 block|;
-name|void
-name|stop
-argument_list|()
-block|;
 name|private
 name|Q_SLOTS
 operator|:
 name|void
 name|timeout
 argument_list|()
+block|;
+name|private
+operator|:
+name|QTimer
+name|timer
 block|; }
 decl_stmt|;
 end_decl_stmt

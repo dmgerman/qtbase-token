@@ -66,6 +66,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qthread.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qfile.h>
 end_include
 begin_include
@@ -117,9 +122,6 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-name|QWindowsFileSystemWatcherEngine
-argument_list|()
-block|;
 operator|~
 name|QWindowsFileSystemWatcherEngine
 argument_list|()
@@ -157,10 +159,6 @@ name|QStringList
 operator|*
 name|directories
 argument_list|)
-block|;
-name|void
-name|stop
-argument_list|()
 block|;
 name|class
 name|Handle

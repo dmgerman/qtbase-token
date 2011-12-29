@@ -56,12 +56,17 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|<qhash.h>
+file|<QtCore/qhash.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<qmutex.h>
+file|<QtCore/qmutex.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qsocketnotifier.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -82,10 +87,6 @@ specifier|static
 name|QInotifyFileSystemWatcherEngine
 operator|*
 name|create
-argument_list|()
-block|;
-name|void
-name|run
 argument_list|()
 block|;
 name|QStringList
@@ -122,10 +123,6 @@ operator|*
 name|directories
 argument_list|)
 block|;
-name|void
-name|stop
-argument_list|()
-block|;
 name|private
 name|Q_SLOTS
 operator|:
@@ -161,6 +158,9 @@ block|,
 name|QString
 operator|>
 name|idToPath
+block|;
+name|QSocketNotifier
+name|notifier
 block|; }
 decl_stmt|;
 end_decl_stmt

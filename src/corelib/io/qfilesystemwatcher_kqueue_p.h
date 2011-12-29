@@ -68,6 +68,11 @@ include|#
 directive|include
 file|<QtCore/qvector.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qsocketnotifier.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -133,8 +138,11 @@ operator|*
 name|directories
 argument_list|)
 block|;
+name|private
+name|Q_SLOTS
+operator|:
 name|void
-name|stop
+name|readFromKqueue
 argument_list|()
 block|;
 name|private
@@ -144,18 +152,8 @@ argument_list|(
 argument|int kqfd
 argument_list|)
 block|;
-name|void
-name|run
-argument_list|()
-block|;
 name|int
 name|kqfd
-block|;
-name|int
-name|kqpipe
-index|[
-literal|2
-index|]
 block|;
 name|QMutex
 name|mutex
@@ -175,6 +173,9 @@ block|,
 name|QString
 operator|>
 name|idToPath
+block|;
+name|QSocketNotifier
+name|notifier
 block|; }
 decl_stmt|;
 end_decl_stmt

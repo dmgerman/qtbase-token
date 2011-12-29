@@ -63,38 +63,21 @@ include|#
 directive|include
 file|<QtCore/qstringlist.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<QtCore/qthread.h>
-end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
 name|QFileSystemWatcherEngine
 range|:
 name|public
-name|QThread
+name|QObject
 block|{
 name|Q_OBJECT
 name|protected
 operator|:
 specifier|inline
 name|QFileSystemWatcherEngine
-argument_list|(
-argument|bool move = true
-argument_list|)
-block|{
-if|if
-condition|(
-name|move
-condition|)
-name|moveToThread
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-block|}
+argument_list|()
+block|{     }
 name|public
 operator|:
 comment|// fills \a files and \a directories with the \a paths it could
@@ -139,13 +122,6 @@ name|QStringList
 operator|*
 name|directories
 argument_list|)
-operator|=
-literal|0
-block|;
-name|virtual
-name|void
-name|stop
-argument_list|()
 operator|=
 literal|0
 block|;
