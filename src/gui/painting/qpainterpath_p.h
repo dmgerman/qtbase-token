@@ -1156,7 +1156,7 @@ unit|}
 define|#
 directive|define
 name|KAPPA
-value|0.5522847498
+value|qreal(0.5522847498)
 end_define
 begin_endif
 unit|QT_END_NAMESPACE
