@@ -1629,13 +1629,10 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-name|caught
-condition|)
-name|QFAIL
+name|QVERIFY2
 argument_list|(
+name|caught
+argument_list|,
 literal|"did not get exception"
 argument_list|)
 expr_stmt|;
@@ -1677,13 +1674,10 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-name|caught
-condition|)
-name|QFAIL
+name|QVERIFY2
 argument_list|(
+name|caught
+argument_list|,
 literal|"did not get exception"
 argument_list|)
 expr_stmt|;
@@ -1721,13 +1715,10 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-name|caught
-condition|)
-name|QFAIL
+name|QVERIFY2
 argument_list|(
+name|caught
+argument_list|,
 literal|"did not get exception"
 argument_list|)
 expr_stmt|;
@@ -1780,13 +1771,10 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-name|caught
-condition|)
-name|QFAIL
+name|QVERIFY2
 argument_list|(
+name|caught
+argument_list|,
 literal|"did not get exception"
 argument_list|)
 expr_stmt|;
@@ -1830,13 +1818,10 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-name|caught
-condition|)
-name|QFAIL
+name|QVERIFY2
 argument_list|(
+name|caught
+argument_list|,
 literal|"did not get exception"
 argument_list|)
 expr_stmt|;
@@ -1876,13 +1861,10 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-name|caught
-condition|)
-name|QFAIL
+name|QVERIFY2
 argument_list|(
+name|caught
+argument_list|,
 literal|"did not get exception"
 argument_list|)
 expr_stmt|;
