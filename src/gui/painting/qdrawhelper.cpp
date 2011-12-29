@@ -5678,7 +5678,6 @@ end_function_decl
 begin_function
 template|template
 parameter_list|<>
-name|Q_STATIC_TEMPLATE_SPECIALIZATION
 DECL|function|fetchTransformedBilinear_pixelBounds
 specifier|inline
 name|void
@@ -5760,7 +5759,6 @@ end_function
 begin_function
 template|template
 parameter_list|<>
-name|Q_STATIC_TEMPLATE_SPECIALIZATION
 DECL|function|fetchTransformedBilinear_pixelBounds
 specifier|inline
 name|void
