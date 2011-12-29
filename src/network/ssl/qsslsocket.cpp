@@ -3611,11 +3611,11 @@ begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
-DECL|function|connectToHostImplementation
+DECL|function|connectToHost
 name|void
 name|QSslSocket
 operator|::
-name|connectToHostImplementation
+name|connectToHost
 parameter_list|(
 specifier|const
 name|QString
@@ -3627,12 +3627,21 @@ name|port
 parameter_list|,
 name|OpenMode
 name|openMode
+parameter_list|,
+name|NetworkLayerProtocol
+name|protocol
 parameter_list|)
 block|{
 name|Q_D
 argument_list|(
 name|QSslSocket
 argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|preferredNetworkLayerProtocol
+operator|=
+name|protocol
 expr_stmt|;
 if|if
 condition|(
@@ -3658,7 +3667,7 @@ name|QSSLSOCKET_DEBUG
 name|qDebug
 argument_list|()
 operator|<<
-literal|"QSslSocket::connectToHostImplementation("
+literal|"QSslSocket::connectToHost("
 operator|<<
 name|hostName
 operator|<<
@@ -3756,11 +3765,11 @@ begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
-DECL|function|disconnectFromHostImplementation
+DECL|function|disconnectFromHost
 name|void
 name|QSslSocket
 operator|::
-name|disconnectFromHostImplementation
+name|disconnectFromHost
 parameter_list|()
 block|{
 name|Q_D
@@ -3774,7 +3783,7 @@ name|QSSLSOCKET_DEBUG
 name|qDebug
 argument_list|()
 operator|<<
-literal|"QSslSocket::disconnectFromHostImplementation()"
+literal|"QSslSocket::disconnectFromHost()"
 expr_stmt|;
 endif|#
 directive|endif

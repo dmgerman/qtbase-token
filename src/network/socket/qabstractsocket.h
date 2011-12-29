@@ -260,7 +260,7 @@ argument_list|,
 argument|BindMode mode = DefaultForPlatform
 argument_list|)
 block|;
-comment|// ### Qt 5: Make connectToHost() and disconnectFromHost() virtual.
+name|virtual
 name|void
 name|connectToHost
 argument_list|(
@@ -273,6 +273,7 @@ argument_list|,
 argument|NetworkLayerProtocol protocol = AnyIPProtocol
 argument_list|)
 block|;
+name|virtual
 name|void
 name|connectToHost
 argument_list|(
@@ -283,6 +284,7 @@ argument_list|,
 argument|OpenMode mode = ReadWrite
 argument_list|)
 block|;
+name|virtual
 name|void
 name|disconnectFromHost
 argument_list|()
@@ -510,23 +512,6 @@ argument_list|)
 block|;
 endif|#
 directive|endif
-name|protected
-name|Q_SLOTS
-operator|:
-name|void
-name|connectToHostImplementation
-argument_list|(
-argument|const QString&hostName
-argument_list|,
-argument|quint16 port
-argument_list|,
-argument|OpenMode mode = ReadWrite
-argument_list|)
-block|;
-name|void
-name|disconnectFromHostImplementation
-argument_list|()
-block|;
 name|protected
 operator|:
 name|qint64

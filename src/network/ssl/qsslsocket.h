@@ -162,6 +162,22 @@ argument_list|,
 argument|OpenMode openMode = ReadWrite
 argument_list|)
 block|;
+name|void
+name|connectToHost
+argument_list|(
+argument|const QString&hostName
+argument_list|,
+argument|quint16 port
+argument_list|,
+argument|OpenMode openMode = ReadWrite
+argument_list|,
+argument|NetworkLayerProtocol protocol = AnyIPProtocol
+argument_list|)
+block|;
+name|void
+name|disconnectFromHost
+argument_list|()
+block|;
 comment|// ### Qt 5: Make virtual
 name|void
 name|setSocketOption
@@ -669,23 +685,6 @@ name|encryptedBytesWritten
 argument_list|(
 argument|qint64 totalBytes
 argument_list|)
-block|;
-name|protected
-name|Q_SLOTS
-operator|:
-name|void
-name|connectToHostImplementation
-argument_list|(
-argument|const QString&hostName
-argument_list|,
-argument|quint16 port
-argument_list|,
-argument|OpenMode openMode
-argument_list|)
-block|;
-name|void
-name|disconnectFromHostImplementation
-argument_list|()
 block|;
 name|protected
 operator|:
