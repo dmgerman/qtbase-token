@@ -117,6 +117,10 @@ define|#
 directive|define
 name|Q_STATIC_INLINE_FUNCTION
 value|static __forceinline
+DECL|macro|Q_DECL_RESTRICT
+define|#
+directive|define
+name|Q_DECL_RESTRICT
 elif|#
 directive|elif
 name|defined
@@ -131,6 +135,10 @@ define|#
 directive|define
 name|Q_STATIC_INLINE_FUNCTION
 value|static inline __attribute__((always_inline))
+define|#
+directive|define
+name|Q_DECL_RESTRICT
+value|__restrict__
 else|#
 directive|else
 define|#
@@ -141,6 +149,9 @@ define|#
 directive|define
 name|Q_STATIC_INLINE_FUNCTION
 value|static inline
+define|#
+directive|define
+name|Q_DECL_RESTRICT
 endif|#
 directive|endif
 DECL|variable|AMASK
@@ -707,11 +718,13 @@ function_decl|)
 parameter_list|(
 name|uint
 modifier|*
+name|Q_DECL_RESTRICT
 name|dest
 parameter_list|,
 specifier|const
 name|uint
 modifier|*
+name|Q_DECL_RESTRICT
 name|src
 parameter_list|,
 name|int
