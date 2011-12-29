@@ -112,11 +112,11 @@ DECL|macro|Q_STATIC_TEMPLATE_FUNCTION
 define|#
 directive|define
 name|Q_STATIC_TEMPLATE_FUNCTION
-DECL|macro|Q_STATIC_INLINE_FUNCTION
+DECL|macro|Q_ALWAYS_INLINE
 define|#
 directive|define
-name|Q_STATIC_INLINE_FUNCTION
-value|static __forceinline
+name|Q_ALWAYS_INLINE
+value|__forceinline
 DECL|macro|Q_DECL_RESTRICT
 define|#
 directive|define
@@ -130,11 +130,11 @@ argument_list|)
 define|#
 directive|define
 name|Q_STATIC_TEMPLATE_FUNCTION
-value|static __attribute__((always_inline))
+value|static
 define|#
 directive|define
-name|Q_STATIC_INLINE_FUNCTION
-value|static inline __attribute__((always_inline))
+name|Q_ALWAYS_INLINE
+value|inline __attribute__((always_inline))
 define|#
 directive|define
 name|Q_DECL_RESTRICT
@@ -147,8 +147,8 @@ name|Q_STATIC_TEMPLATE_FUNCTION
 value|static
 define|#
 directive|define
-name|Q_STATIC_INLINE_FUNCTION
-value|static inline
+name|Q_ALWAYS_INLINE
+value|inline
 define|#
 directive|define
 name|Q_DECL_RESTRICT
@@ -2995,7 +2995,8 @@ directive|endif
 end_endif
 begin_function
 DECL|function|INTERPOLATE_PIXEL_255
-name|Q_STATIC_INLINE_FUNCTION
+specifier|static
+name|Q_ALWAYS_INLINE
 name|uint
 name|INTERPOLATE_PIXEL_255
 parameter_list|(
@@ -3141,7 +3142,8 @@ comment|// 64-bit versions
 end_comment
 begin_function
 DECL|function|INTERPOLATE_PIXEL_256
-name|Q_STATIC_INLINE_FUNCTION
+specifier|static
+name|Q_ALWAYS_INLINE
 name|uint
 name|INTERPOLATE_PIXEL_256
 parameter_list|(
@@ -3244,7 +3246,8 @@ block|}
 end_function
 begin_function
 DECL|function|BYTE_MUL
-name|Q_STATIC_INLINE_FUNCTION
+specifier|static
+name|Q_ALWAYS_INLINE
 name|uint
 name|BYTE_MUL
 parameter_list|(
@@ -3329,7 +3332,8 @@ block|}
 end_function
 begin_function
 DECL|function|PREMUL
-name|Q_STATIC_INLINE_FUNCTION
+specifier|static
+name|Q_ALWAYS_INLINE
 name|uint
 name|PREMUL
 parameter_list|(
@@ -3431,7 +3435,8 @@ comment|// 32-bit versions
 end_comment
 begin_function
 DECL|function|INTERPOLATE_PIXEL_256
-name|Q_STATIC_INLINE_FUNCTION
+specifier|static
+name|Q_ALWAYS_INLINE
 name|uint
 name|INTERPOLATE_PIXEL_256
 parameter_list|(
@@ -3538,7 +3543,8 @@ directive|endif
 end_endif
 begin_function
 DECL|function|BYTE_MUL
-name|Q_STATIC_INLINE_FUNCTION
+specifier|static
+name|Q_ALWAYS_INLINE
 name|uint
 name|BYTE_MUL
 parameter_list|(
@@ -3648,7 +3654,8 @@ directive|endif
 end_endif
 begin_function
 DECL|function|PREMUL
-name|Q_STATIC_INLINE_FUNCTION
+specifier|static
+name|Q_ALWAYS_INLINE
 name|uint
 name|PREMUL
 parameter_list|(
@@ -3755,7 +3762,8 @@ directive|endif
 end_endif
 begin_function
 DECL|function|BYTE_MUL_RGB16
-name|Q_STATIC_INLINE_FUNCTION
+specifier|static
+name|Q_ALWAYS_INLINE
 name|uint
 name|BYTE_MUL_RGB16
 parameter_list|(
@@ -3818,7 +3826,8 @@ block|}
 end_function
 begin_function
 DECL|function|BYTE_MUL_RGB16_32
-name|Q_STATIC_INLINE_FUNCTION
+specifier|static
+name|Q_ALWAYS_INLINE
 name|uint
 name|BYTE_MUL_RGB16_32
 parameter_list|(
@@ -4457,8 +4466,9 @@ endif|#
 directive|endif
 end_endif
 begin_function
-unit|Q_STATIC_INLINE_FUNCTION
+unit|static
 DECL|function|qt_div_255
+name|Q_ALWAYS_INLINE
 name|int
 name|qt_div_255
 parameter_list|(
