@@ -1773,6 +1773,7 @@ operator|<
 name|class
 name|RadialFetchFunc
 operator|>
+name|Q_STATIC_TEMPLATE_FUNCTION
 DECL|function|qt_fetch_radial_gradient_template
 specifier|const
 name|uint
@@ -3993,6 +3994,7 @@ operator|<
 name|class
 name|T
 operator|>
+name|Q_STATIC_TEMPLATE_FUNCTION
 name|void
 name|qt_memfill
 argument_list|(
@@ -4245,6 +4247,7 @@ operator|<
 name|class
 name|T
 operator|>
+name|Q_STATIC_TEMPLATE_FUNCTION
 DECL|function|qt_rectfill
 specifier|inline
 name|void
