@@ -218,40 +218,6 @@ name|features
 operator|=
 literal|0
 expr_stmt|;
-if|#
-directive|if
-name|defined
-name|QT_HAVE_MMX
-if|if
-condition|(
-name|IsProcessorFeaturePresent
-argument_list|(
-name|PF_MMX_INSTRUCTIONS_AVAILABLE
-argument_list|)
-condition|)
-name|features
-operator||=
-name|MMX
-expr_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-name|defined
-name|QT_HAVE_3DNOW
-if|if
-condition|(
-name|IsProcessorFeaturePresent
-argument_list|(
-name|PF_3DNOW_INSTRUCTIONS_AVAILABLE
-argument_list|)
-condition|)
-name|features
-operator||=
-name|MMX3DNOW
-expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|features
 return|;
@@ -679,90 +645,6 @@ operator|&
 operator|(
 literal|1u
 operator|<<
-literal|15
-operator|)
-condition|)
-name|features
-operator||=
-name|CMOV
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|&
-operator|(
-literal|1u
-operator|<<
-literal|23
-operator|)
-condition|)
-name|features
-operator||=
-name|MMX
-expr_stmt|;
-if|if
-condition|(
-name|extended_result
-operator|&
-operator|(
-literal|1u
-operator|<<
-literal|22
-operator|)
-condition|)
-name|features
-operator||=
-name|MMXEXT
-expr_stmt|;
-if|if
-condition|(
-name|extended_result
-operator|&
-operator|(
-literal|1u
-operator|<<
-literal|31
-operator|)
-condition|)
-name|features
-operator||=
-name|MMX3DNOW
-expr_stmt|;
-if|if
-condition|(
-name|extended_result
-operator|&
-operator|(
-literal|1u
-operator|<<
-literal|30
-operator|)
-condition|)
-name|features
-operator||=
-name|MMX3DNOWEXT
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|&
-operator|(
-literal|1u
-operator|<<
-literal|25
-operator|)
-condition|)
-name|features
-operator||=
-name|SSE
-expr_stmt|;
-if|if
-condition|(
-name|result
-operator|&
-operator|(
-literal|1u
-operator|<<
 literal|26
 operator|)
 condition|)
@@ -866,13 +748,7 @@ block|{
 name|uint
 name|features
 init|=
-name|MMX
-operator||
-name|SSE
-operator||
 name|SSE2
-operator||
-name|CMOV
 decl_stmt|;
 name|uint
 name|feature_result
@@ -1013,7 +889,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*  * Use kdesdk/scripts/generate_string_table.pl to update the table below.  * Here's the data (don't forget the ONE leading space):  mmx  mmxext  mmx3dnow  mmx3dnowext  sse  sse2  cmov  iwmmxt  neon  sse3  ssse3  sse4.1  sse4.2  avx   */
+comment|/*  * Use kdesdk/scripts/generate_string_table.pl to update the table below.  * Here's the data (don't forget the ONE leading space):  iwmmxt  neon  sse2  sse3  ssse3  sse4.1  sse4.2  avx   */
 end_comment
 begin_comment
 comment|// begin generated
@@ -1026,15 +902,9 @@ name|char
 name|features_string
 index|[]
 init|=
-literal|" mmx\0"
-literal|" mmxext\0"
-literal|" mmx3dnow\0"
-literal|" mmx3dnowext\0"
-literal|" sse\0"
-literal|" sse2\0"
-literal|" cmov\0"
 literal|" iwmmxt\0"
 literal|" neon\0"
+literal|" sse2\0"
 literal|" sse3\0"
 literal|" ssse3\0"
 literal|" sse4.1\0"
@@ -1054,31 +924,19 @@ init|=
 block|{
 literal|0
 block|,
-literal|5
+literal|8
 block|,
-literal|13
+literal|14
 block|,
-literal|23
+literal|20
 block|,
-literal|36
+literal|26
+block|,
+literal|33
 block|,
 literal|41
 block|,
-literal|47
-block|,
-literal|53
-block|,
-literal|61
-block|,
-literal|67
-block|,
-literal|73
-block|,
-literal|80
-block|,
-literal|88
-block|,
-literal|96
+literal|49
 block|,
 operator|-
 literal|1
