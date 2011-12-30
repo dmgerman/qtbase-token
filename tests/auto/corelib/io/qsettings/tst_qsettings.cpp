@@ -22378,7 +22378,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* // Not tested at the moment. void tst_QSettings::oldSubkeyList() {     QVERIFY( TRUE ); } */
+comment|/* // Not tested at the moment. void tst_QSettings::oldSubkeyList() {     QVERIFY( true ); } */
 end_comment
 begin_macro
 name|QTEST_MAIN

@@ -571,10 +571,7 @@ argument_list|,
 literal|50
 argument_list|)
 operator|<<
-operator|(
-name|bool
-operator|)
-name|FALSE
+literal|false
 operator|<<
 name|QSize
 argument_list|(
@@ -604,10 +601,7 @@ argument_list|,
 literal|50
 argument_list|)
 operator|<<
-operator|(
-name|bool
-operator|)
-name|FALSE
+literal|false
 operator|<<
 name|QSize
 argument_list|(
@@ -637,10 +631,7 @@ argument_list|,
 literal|50
 argument_list|)
 operator|<<
-operator|(
-name|bool
-operator|)
-name|TRUE
+literal|true
 operator|<<
 name|QSize
 argument_list|(
@@ -670,10 +661,7 @@ argument_list|,
 literal|120
 argument_list|)
 operator|<<
-operator|(
-name|bool
-operator|)
-name|TRUE
+literal|true
 operator|<<
 name|QSize
 argument_list|(
@@ -789,7 +777,7 @@ operator|)
 operator|->
 name|showExtension
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 comment|//     while ( testWidget->size() == dlgSize )
@@ -825,7 +813,7 @@ operator|)
 operator|->
 name|showExtension
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -905,7 +893,7 @@ name|pushThree
 operator|->
 name|setAutoDefault
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 comment|//we need to show the buttons. Otherwise they won't get the focus
@@ -928,7 +916,7 @@ name|push
 operator|->
 name|setDefault
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -982,7 +970,7 @@ name|pushTwo
 operator|->
 name|setDefault
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY

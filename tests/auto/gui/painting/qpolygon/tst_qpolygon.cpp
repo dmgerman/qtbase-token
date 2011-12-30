@@ -128,7 +128,7 @@ comment|// make sure that all points are R+-1 away from the center
 name|bool
 name|err
 init|=
-name|FALSE
+literal|false
 decl_stmt|;
 for|for
 control|(

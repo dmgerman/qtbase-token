@@ -1850,7 +1850,7 @@ index|[
 name|x
 index|]
 operator|=
-name|FALSE
+literal|false
 expr_stmt|;
 name|thread
 index|[
@@ -2030,7 +2030,7 @@ index|[
 name|y
 index|]
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 operator|++
 name|exited
@@ -2123,7 +2123,7 @@ index|[
 name|x
 index|]
 operator|=
-name|FALSE
+literal|false
 expr_stmt|;
 name|rwthread
 index|[
@@ -2303,7 +2303,7 @@ index|[
 name|y
 index|]
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 operator|++
 name|exited
@@ -2422,7 +2422,7 @@ index|[
 name|x
 index|]
 operator|=
-name|FALSE
+literal|false
 expr_stmt|;
 name|thread
 index|[
@@ -2629,7 +2629,7 @@ index|[
 name|y
 index|]
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 operator|++
 name|exited
@@ -2722,7 +2722,7 @@ index|[
 name|x
 index|]
 operator|=
-name|FALSE
+literal|false
 expr_stmt|;
 name|rwthread
 index|[
@@ -2929,7 +2929,7 @@ index|[
 name|y
 index|]
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 operator|++
 name|exited

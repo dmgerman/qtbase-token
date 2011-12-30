@@ -10281,13 +10281,6 @@ block|{
 name|clearAllShortcuts
 argument_list|()
 expr_stmt|;
-name|QCOMPARE
-argument_list|(
-name|TRUE
-argument_list|,
-name|TRUE
-argument_list|)
-expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -10310,13 +10303,6 @@ argument_list|,
 name|k3
 argument_list|,
 name|k4
-argument_list|)
-expr_stmt|;
-name|QCOMPARE
-argument_list|(
-name|TRUE
-argument_list|,
-name|TRUE
 argument_list|)
 expr_stmt|;
 block|}

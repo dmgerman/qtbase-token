@@ -1377,7 +1377,7 @@ parameter_list|()
 block|{
 name|accelPressed
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 block|}
 end_function

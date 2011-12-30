@@ -141,7 +141,7 @@ argument_list|()
 expr_stmt|;
 name|mousePressEventRecieved
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 name|e
 operator|->
@@ -188,7 +188,7 @@ argument_list|()
 expr_stmt|;
 name|mouseReleaseEventRecieved
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 name|e
 operator|->
@@ -329,13 +329,13 @@ name|testMouseWidget
 operator|->
 name|mousePressEventRecieved
 operator|=
-name|FALSE
+literal|false
 expr_stmt|;
 name|testMouseWidget
 operator|->
 name|mouseReleaseEventRecieved
 operator|=
-name|FALSE
+literal|false
 expr_stmt|;
 name|testMouseWidget
 operator|->

@@ -4024,7 +4024,7 @@ comment|// I'm temporarily shutting up this testcase.
 comment|// Seems like the behaviour i'm expecting isn't ok.
 name|QVERIFY
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 return|return;
@@ -4274,7 +4274,7 @@ comment|// I'm temporarily silenting this testcase.
 comment|// Seems like the behaviour i'm expecting isn't ok.
 name|QVERIFY
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 return|return;

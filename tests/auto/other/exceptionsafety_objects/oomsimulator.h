@@ -644,7 +644,7 @@ operator|==
 name|_CRT_BLOCK
 condition|)
 return|return
-name|TRUE
+name|true
 return|;
 comment|// ignore allocations from the C library
 switch|switch
@@ -671,12 +671,12 @@ operator|<
 literal|0
 condition|)
 return|return
-name|FALSE
+name|false
 return|;
 comment|// simulate OOM
 block|}
 return|return
-name|TRUE
+name|true
 return|;
 block|}
 end_function

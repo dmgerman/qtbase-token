@@ -655,21 +655,21 @@ name|testWidget
 operator|->
 name|setEnabled
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|testWidget
 operator|->
 name|setAutoRepeat
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QKeySequence
@@ -939,7 +939,7 @@ name|testWidget
 operator|->
 name|setAutoRepeat
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -954,7 +954,7 @@ name|testWidget
 operator|->
 name|setAutoRepeat
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -975,14 +975,14 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|testWidget
 operator|->
 name|setAutoRepeat
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -1152,19 +1152,19 @@ break|break;
 case|case
 literal|4
 case|:
-comment|// check that pressing ENTER has no effect when autorepeat is FALSE
+comment|// check that pressing ENTER has no effect when autorepeat is false
 name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|testWidget
 operator|->
 name|setAutoRepeat
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -1244,19 +1244,19 @@ break|break;
 case|case
 literal|5
 case|:
-comment|// check that pressing ENTER has no effect when autorepeat is TRUE
+comment|// check that pressing ENTER has no effect when autorepeat is true
 name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|testWidget
 operator|->
 name|setAutoRepeat
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -1790,7 +1790,7 @@ name|testWidget
 operator|->
 name|setEnabled
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1807,7 +1807,7 @@ name|testWidget
 operator|->
 name|setEnabled
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1852,7 +1852,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1868,7 +1868,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -1890,7 +1890,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// add some debugging stuff
@@ -1974,7 +1974,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1990,7 +1990,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -2006,7 +2006,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|testWidget

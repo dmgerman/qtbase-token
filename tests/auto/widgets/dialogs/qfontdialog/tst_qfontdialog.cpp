@@ -267,7 +267,7 @@ block|{
 name|bool
 name|ok
 init|=
-name|FALSE
+literal|false
 decl_stmt|;
 name|QTimer
 operator|::
@@ -295,8 +295,6 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|ok
-operator|==
-name|TRUE
 argument_list|)
 expr_stmt|;
 block|}
@@ -313,7 +311,7 @@ comment|/* The font should be the same before as it is after if nothing changed 
 name|bool
 name|ok
 init|=
-name|FALSE
+literal|false
 decl_stmt|;
 if|#
 directive|if

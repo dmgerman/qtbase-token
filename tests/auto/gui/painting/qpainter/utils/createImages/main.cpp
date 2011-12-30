@@ -511,7 +511,7 @@ name|totalSize
 argument_list|,
 name|totalSize
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 decl_stmt|;
 name|QPainter
@@ -789,7 +789,7 @@ literal|32
 argument_list|,
 literal|48
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 decl_stmt|;
 block|{

@@ -276,21 +276,21 @@ name|testWidget
 operator|->
 name|setTristate
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|testWidget
 operator|->
 name|setChecked
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|testWidget
 operator|->
 name|setAutoRepeat
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -455,7 +455,7 @@ name|testWidget
 operator|->
 name|setChecked
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -490,7 +490,7 @@ name|testWidget
 operator|->
 name|setChecked
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -527,7 +527,7 @@ name|testWidget
 operator|->
 name|setChecked
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -579,7 +579,7 @@ name|testWidget
 operator|->
 name|setTristate
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -627,7 +627,7 @@ name|testWidget
 operator|->
 name|setChecked
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -654,7 +654,7 @@ name|testWidget
 operator|->
 name|setChecked
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -703,7 +703,7 @@ name|testWidget
 operator|->
 name|setTristate
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -740,7 +740,7 @@ name|testWidget
 operator|->
 name|setChecked
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -759,7 +759,7 @@ name|testWidget
 operator|->
 name|setChecked
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -969,7 +969,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -984,7 +984,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1154,7 +1154,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1416,7 +1416,7 @@ name|testWidget
 operator|->
 name|setChecked
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|qApp
@@ -1443,7 +1443,7 @@ name|testWidget
 operator|->
 name|setChecked
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|qApp

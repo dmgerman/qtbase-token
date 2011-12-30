@@ -1262,7 +1262,7 @@ operator|->
 name|currentIndex
 argument_list|()
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1298,7 +1298,7 @@ argument_list|(
 name|lastItem
 argument_list|)
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1328,7 +1328,7 @@ operator|->
 name|currentIndex
 argument_list|()
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1352,7 +1352,7 @@ operator|->
 name|currentIndex
 argument_list|()
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -1369,7 +1369,7 @@ name|setItemEnabled
 argument_list|(
 literal|1
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

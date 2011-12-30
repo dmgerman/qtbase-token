@@ -6605,7 +6605,7 @@ name|tristate
 operator|.
 name|setTristate
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// radiobutton

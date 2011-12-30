@@ -1071,7 +1071,7 @@ literal|1234567890
 expr_stmt|;
 name|inFileDirExistsFunction
 operator|=
-name|FALSE
+literal|false
 expr_stmt|;
 if|#
 directive|if
@@ -2132,10 +2132,7 @@ operator|<<
 name|QString
 argument_list|()
 operator|<<
-operator|(
-name|bool
-operator|)
-name|TRUE
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2162,10 +2159,7 @@ operator|<<
 name|QString
 argument_list|()
 operator|<<
-operator|(
-name|bool
-operator|)
-name|TRUE
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2194,10 +2188,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 operator|<<
-operator|(
-name|bool
-operator|)
-name|TRUE
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2226,10 +2217,7 @@ argument_list|(
 literal|"password"
 argument_list|)
 operator|<<
-operator|(
-name|bool
-operator|)
-name|TRUE
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
@@ -2258,10 +2246,7 @@ argument_list|(
 literal|""
 argument_list|)
 operator|<<
-operator|(
-name|bool
-operator|)
-name|FALSE
+literal|false
 expr_stmt|;
 block|}
 end_function
@@ -12914,7 +12899,7 @@ literal|"ftp->currentId() != 0"
 argument_list|)
 expr_stmt|;
 return|return
-name|FALSE
+literal|false
 return|;
 block|}
 if|if
@@ -12935,7 +12920,7 @@ literal|"ftp->state() != QFtp::Unconnected"
 argument_list|)
 expr_stmt|;
 return|return
-name|FALSE
+literal|false
 return|;
 block|}
 name|addCommand
@@ -13020,7 +13005,7 @@ argument_list|)
 expr_stmt|;
 name|inFileDirExistsFunction
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 name|QTestEventLoop
 operator|::
@@ -13057,12 +13042,12 @@ literal|"tst_QFtp::fileExists: Network operation timed out"
 argument_list|)
 expr_stmt|;
 return|return
-name|FALSE
+literal|false
 return|;
 block|}
 name|inFileDirExistsFunction
 operator|=
-name|FALSE
+literal|false
 expr_stmt|;
 name|ResMapIt
 name|it
@@ -13093,7 +13078,7 @@ literal|"it != resultMap.end()"
 argument_list|)
 expr_stmt|;
 return|return
-name|FALSE
+literal|false
 return|;
 block|}
 if|if
@@ -13115,7 +13100,7 @@ literal|"it.value().success != -1"
 argument_list|)
 expr_stmt|;
 return|return
-name|FALSE
+literal|false
 return|;
 block|}
 if|if
@@ -13176,14 +13161,14 @@ name|fileName
 argument_list|()
 condition|)
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 block|}
 comment|//this is not a good warning considering sometime this function is used to test that a file does not exist
 comment|//qWarning("file doesn't exist");
 return|return
-name|FALSE
+literal|false
 return|;
 block|}
 end_function
@@ -13322,7 +13307,7 @@ argument_list|)
 expr_stmt|;
 name|inFileDirExistsFunction
 operator|=
-name|TRUE
+literal|true
 expr_stmt|;
 name|QTestEventLoop
 operator|::
@@ -13360,12 +13345,12 @@ literal|"tst_QFtp::dirExists: Network operation timed out"
 argument_list|)
 expr_stmt|;
 return|return
-name|FALSE
+literal|false
 return|;
 block|}
 name|inFileDirExistsFunction
 operator|=
-name|FALSE
+literal|false
 expr_stmt|;
 name|ResMapIt
 name|it

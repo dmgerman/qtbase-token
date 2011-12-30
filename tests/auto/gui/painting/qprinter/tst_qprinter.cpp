@@ -2002,7 +2002,7 @@ operator|::
 name|PrintToFile
 argument_list|)
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2016,7 +2016,7 @@ operator|::
 name|PrintSelection
 argument_list|)
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2030,7 +2030,7 @@ operator|::
 name|PrintPageRange
 argument_list|)
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|dlg
@@ -2053,7 +2053,7 @@ operator|::
 name|PrintToFile
 argument_list|)
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2067,7 +2067,7 @@ operator|::
 name|PrintSelection
 argument_list|)
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2081,7 +2081,7 @@ operator|::
 name|PrintPageRange
 argument_list|)
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|dlg
@@ -2115,7 +2115,7 @@ operator|::
 name|PrintToFile
 argument_list|)
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2129,7 +2129,7 @@ operator|::
 name|PrintSelection
 argument_list|)
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2143,7 +2143,7 @@ operator|::
 name|PrintPageRange
 argument_list|)
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|dlg
@@ -2166,7 +2166,7 @@ operator|::
 name|PrintToFile
 argument_list|)
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2180,7 +2180,7 @@ operator|::
 name|PrintSelection
 argument_list|)
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2194,7 +2194,7 @@ operator|::
 name|PrintPageRange
 argument_list|)
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

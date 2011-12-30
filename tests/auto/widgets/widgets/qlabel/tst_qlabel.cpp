@@ -551,7 +551,7 @@ name|testWidget
 operator|->
 name|setScaledContents
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 block|}

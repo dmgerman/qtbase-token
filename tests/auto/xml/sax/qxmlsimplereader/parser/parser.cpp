@@ -477,7 +477,7 @@ operator|++
 name|m_nest
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -502,7 +502,7 @@ operator|+=
 literal|"endDocument()\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -575,7 +575,7 @@ operator|++
 name|m_nest
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -837,7 +837,7 @@ operator|+
 literal|"\")\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -871,7 +871,7 @@ operator|+
 literal|"\")\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -967,7 +967,7 @@ operator|++
 name|m_nest
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1004,7 +1004,7 @@ operator|+
 literal|"\")\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1038,7 +1038,7 @@ operator|+
 literal|"\")\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1084,7 +1084,7 @@ operator|+
 literal|"\")\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1118,7 +1118,7 @@ operator|+
 literal|"\")\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1230,7 +1230,7 @@ operator|+
 literal|"\"})\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1342,7 +1342,7 @@ operator|+
 literal|"\"})\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1454,7 +1454,7 @@ operator|+
 literal|"\"})\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1512,7 +1512,7 @@ operator|+
 literal|"\")\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1582,7 +1582,7 @@ operator|+
 literal|"\")\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1632,7 +1632,7 @@ operator|+
 literal|"\", ret={})\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1693,7 +1693,7 @@ operator|++
 name|m_nest
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1718,7 +1718,7 @@ operator|+=
 literal|"endDTD()\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1755,7 +1755,7 @@ operator|++
 name|m_nest
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1792,7 +1792,7 @@ operator|+
 literal|"\")\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1817,7 +1817,7 @@ operator|++
 name|m_nest
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1842,7 +1842,7 @@ operator|+=
 literal|"endCDATA()\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1876,7 +1876,7 @@ operator|+
 literal|"\")\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -1958,7 +1958,7 @@ operator|+
 literal|"\")\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -2004,7 +2004,7 @@ operator|+
 literal|"\")\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
@@ -2062,7 +2062,7 @@ operator|+
 literal|"\")\n"
 expr_stmt|;
 return|return
-name|TRUE
+literal|true
 return|;
 block|}
 end_function
