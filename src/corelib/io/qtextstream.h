@@ -1055,6 +1055,28 @@ DECL|typedef|QTSMFC
 comment|// manipulator w/QChar argument
 end_comment
 begin_decl_stmt
+name|namespace
+name|QtPrivate
+block|{
+name|template
+operator|<
+operator|>
+expr|struct
+name|IsPointerToTypeDerivedFromQObject
+operator|<
+name|QTextStreamFunction
+operator|>
+block|{     enum
+block|{
+name|Value
+operator|=
+name|false
+block|}
+block|; }
+expr_stmt|;
+block|}
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
 name|QTextStreamManipulator
