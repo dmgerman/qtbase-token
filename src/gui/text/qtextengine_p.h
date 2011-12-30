@@ -2234,7 +2234,7 @@ block|,
 name|InLayout
 block|,
 name|LayoutFailed
-block|,     }
+block|}
 enum|;
 struct|struct
 name|Q_GUI_EXPORT
