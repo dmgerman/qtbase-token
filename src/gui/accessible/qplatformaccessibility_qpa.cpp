@@ -331,27 +331,6 @@ end_expr_stmt
 begin_comment
 comment|// ### not atomic
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_UNIX
-end_ifdef
-begin_if
-if|if
-condition|(
-name|qgetenv
-argument_list|(
-literal|"QT_ACCESSIBILITY"
-argument_list|)
-operator|!=
-literal|"1"
-condition|)
-return|return;
-end_if
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
