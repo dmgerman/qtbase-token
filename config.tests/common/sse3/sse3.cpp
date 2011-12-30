@@ -19,7 +19,6 @@ modifier|*
 modifier|*
 parameter_list|)
 block|{
-specifier|volatile
 name|__m128d
 name|a
 init|=
@@ -28,7 +27,6 @@ argument_list|(
 literal|6.28
 argument_list|)
 decl_stmt|;
-specifier|volatile
 name|__m128d
 name|b
 init|=
@@ -37,7 +35,6 @@ argument_list|(
 literal|3.14
 argument_list|)
 decl_stmt|;
-specifier|volatile
 name|__m128d
 name|result
 init|=

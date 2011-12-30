@@ -124,6 +124,12 @@ specifier|const
 name|QString
 modifier|&
 name|command
+parameter_list|,
+name|int
+modifier|*
+name|returnCode
+init|=
+literal|0
 parameter_list|)
 function_decl|;
 specifier|static

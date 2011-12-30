@@ -19,14 +19,12 @@ modifier|*
 modifier|*
 parameter_list|)
 block|{
-specifier|volatile
 name|__m256d
 name|a
 init|=
 name|_mm256_setzero_pd
 argument_list|()
 decl_stmt|;
-specifier|volatile
 name|__m256d
 name|b
 init|=
@@ -35,7 +33,6 @@ argument_list|(
 literal|42.42
 argument_list|)
 decl_stmt|;
-specifier|volatile
 name|__m256d
 name|result
 init|=

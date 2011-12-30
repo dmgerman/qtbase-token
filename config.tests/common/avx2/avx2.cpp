@@ -23,7 +23,6 @@ comment|/* AVX */
 name|_mm256_zeroall
 argument_list|()
 expr_stmt|;
-specifier|volatile
 name|__m256i
 name|a
 init|=
@@ -31,7 +30,6 @@ name|_mm256_setzero_si256
 argument_list|()
 decl_stmt|;
 comment|/* AVX2 */
-specifier|volatile
 name|__m256i
 name|b
 init|=
@@ -42,7 +40,6 @@ argument_list|,
 name|a
 argument_list|)
 decl_stmt|;
-specifier|volatile
 name|__m256i
 name|result
 init|=

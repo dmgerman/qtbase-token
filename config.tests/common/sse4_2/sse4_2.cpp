@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<smmintrin.h>
+file|<nmmintrin.h>
 end_include
 begin_function
 DECL|function|main
@@ -19,14 +19,12 @@ modifier|*
 modifier|*
 parameter_list|)
 block|{
-specifier|volatile
 name|__m128i
 name|a
 init|=
 name|_mm_setzero_si128
 argument_list|()
 decl_stmt|;
-specifier|volatile
 name|__m128i
 name|b
 init|=
@@ -35,7 +33,6 @@ argument_list|(
 literal|42
 argument_list|)
 decl_stmt|;
-specifier|volatile
 name|__m128i
 name|result
 init|=

@@ -19,7 +19,6 @@ modifier|*
 modifier|*
 parameter_list|)
 block|{
-specifier|volatile
 name|__m128i
 name|a
 init|=
@@ -33,7 +32,6 @@ argument_list|(
 name|a
 argument_list|)
 expr_stmt|;
-specifier|volatile
 name|__m128i
 name|result
 init|=
