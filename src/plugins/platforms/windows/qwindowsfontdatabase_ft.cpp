@@ -47,6 +47,11 @@ include|#
 directive|include
 file|<QtGui/QFontDatabase>
 end_include
+begin_include
+include|#
+directive|include
+file|<wchar.h>
+end_include
 begin_function
 DECL|function|writingSystemFromScript
 specifier|static

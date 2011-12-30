@@ -47,6 +47,11 @@ include|#
 directive|include
 file|<QtCore/QDebug>
 end_include
+begin_include
+include|#
+directive|include
+file|<wchar.h>
+end_include
 begin_if
 if|#
 directive|if
