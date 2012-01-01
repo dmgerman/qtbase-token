@@ -108,6 +108,7 @@ name|bool
 name|end
 argument_list|()
 block|;
+comment|// Call down into QBlittable
 name|virtual
 name|void
 name|fill
@@ -137,73 +138,6 @@ name|QPen
 operator|&
 name|pen
 argument_list|)
-block|;
-name|virtual
-name|void
-name|clip
-argument_list|(
-argument|const QVectorPath&path
-argument_list|,
-argument|Qt::ClipOperation op
-argument_list|)
-block|;
-name|virtual
-name|void
-name|clip
-argument_list|(
-argument|const QRect&rect
-argument_list|,
-argument|Qt::ClipOperation op
-argument_list|)
-block|;
-name|virtual
-name|void
-name|clip
-argument_list|(
-argument|const QRegion&region
-argument_list|,
-argument|Qt::ClipOperation op
-argument_list|)
-block|;
-name|virtual
-name|void
-name|clipEnabledChanged
-argument_list|()
-block|;
-name|virtual
-name|void
-name|penChanged
-argument_list|()
-block|;
-name|virtual
-name|void
-name|brushChanged
-argument_list|()
-block|;
-name|virtual
-name|void
-name|brushOriginChanged
-argument_list|()
-block|;
-name|virtual
-name|void
-name|opacityChanged
-argument_list|()
-block|;
-name|virtual
-name|void
-name|compositionModeChanged
-argument_list|()
-block|;
-name|virtual
-name|void
-name|renderHintsChanged
-argument_list|()
-block|;
-name|virtual
-name|void
-name|transformChanged
-argument_list|()
 block|;
 name|virtual
 name|void
@@ -271,6 +205,74 @@ specifier|const
 name|QRectF
 operator|&
 name|sr
+argument_list|)
+block|;
+name|virtual
+name|void
+name|clipEnabledChanged
+argument_list|()
+block|;
+name|virtual
+name|void
+name|penChanged
+argument_list|()
+block|;
+name|virtual
+name|void
+name|brushChanged
+argument_list|()
+block|;
+name|virtual
+name|void
+name|brushOriginChanged
+argument_list|()
+block|;
+name|virtual
+name|void
+name|opacityChanged
+argument_list|()
+block|;
+name|virtual
+name|void
+name|compositionModeChanged
+argument_list|()
+block|;
+name|virtual
+name|void
+name|renderHintsChanged
+argument_list|()
+block|;
+name|virtual
+name|void
+name|transformChanged
+argument_list|()
+block|;
+comment|// Override to lock the QBlittable before using raster
+name|virtual
+name|void
+name|clip
+argument_list|(
+argument|const QVectorPath&path
+argument_list|,
+argument|Qt::ClipOperation op
+argument_list|)
+block|;
+name|virtual
+name|void
+name|clip
+argument_list|(
+argument|const QRect&rect
+argument_list|,
+argument|Qt::ClipOperation op
+argument_list|)
+block|;
+name|virtual
+name|void
+name|clip
+argument_list|(
+argument|const QRegion&region
+argument_list|,
+argument|Qt::ClipOperation op
 argument_list|)
 block|;
 name|virtual
