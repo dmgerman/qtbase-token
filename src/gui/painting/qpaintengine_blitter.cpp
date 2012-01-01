@@ -205,11 +205,9 @@ name|QBlittable
 operator|::
 name|SolidRectCapability
 condition|)
-block|{
 name|setFillRectMask
 argument_list|()
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|capabilities
@@ -218,11 +216,9 @@ name|QBlittable
 operator|::
 name|SourcePixmapCapability
 condition|)
-block|{
 name|setSourcePixmapMask
 argument_list|()
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|capabilities
@@ -231,11 +227,9 @@ name|QBlittable
 operator|::
 name|SourceOverPixmapCapability
 condition|)
-block|{
 name|setSourceOverPixmapMask
 argument_list|()
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|capabilities
@@ -244,11 +238,9 @@ name|QBlittable
 operator|::
 name|SourceOverScaledPixmapCapability
 condition|)
-block|{
 name|setSourceOverScaledPixmapMask
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 DECL|function|canBlitterFillRect
 specifier|inline
@@ -357,7 +349,6 @@ operator|.
 name|size
 argument_list|()
 condition|)
-block|{
 return|return
 name|m_capabilities
 operator|&
@@ -365,9 +356,7 @@ name|QBlittable
 operator|::
 name|SourceOverScaledPixmapCapability
 return|;
-block|}
 else|else
-block|{
 return|return
 name|m_capabilities
 operator|&
@@ -375,7 +364,6 @@ name|QBlittable
 operator|::
 name|SourceOverPixmapCapability
 return|;
-block|}
 block|}
 if|if
 condition|(
@@ -403,7 +391,6 @@ operator|.
 name|hasAlphaChannel
 argument_list|()
 condition|)
-block|{
 return|return
 name|m_capabilities
 operator|&
@@ -411,7 +398,6 @@ name|QBlittable
 operator|::
 name|SourcePixmapCapability
 return|;
-block|}
 block|}
 return|return
 literal|false
@@ -876,7 +862,6 @@ if|if
 condition|(
 name|hasXForm
 condition|)
-block|{
 name|targetRect
 operator|=
 name|q
@@ -891,7 +876,6 @@ argument_list|(
 name|rect
 argument_list|)
 expr_stmt|;
-block|}
 specifier|const
 name|QClipData
 modifier|*
@@ -970,8 +954,8 @@ operator|.
 name|size
 argument_list|()
 condition|;
-name|i
 operator|++
+name|i
 control|)
 block|{
 name|QRect
@@ -1392,7 +1376,7 @@ name|p
 argument_list|)
 operator|)
 argument_list|)
-block|{ }
+block|{}
 end_constructor
 begin_destructor
 DECL|function|~QBlitterPaintEngine
@@ -1401,7 +1385,7 @@ operator|::
 name|~
 name|QBlitterPaintEngine
 parameter_list|()
-block|{ }
+block|{}
 end_destructor
 begin_function
 DECL|function|createState
@@ -2189,8 +2173,8 @@ operator|.
 name|size
 argument_list|()
 condition|;
-name|i
 operator|++
+name|i
 control|)
 block|{
 name|QRect
@@ -2986,7 +2970,6 @@ condition|;
 operator|++
 name|i
 control|)
-block|{
 name|d
 operator|->
 name|fillRect
@@ -3005,7 +2988,6 @@ name|brush
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -3077,7 +3059,6 @@ condition|;
 operator|++
 name|i
 control|)
-block|{
 name|d
 operator|->
 name|fillRect
@@ -3096,7 +3077,6 @@ name|brush
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -3183,7 +3163,6 @@ name|d
 operator|->
 name|hasXForm
 condition|)
-block|{
 name|targetRect
 operator|=
 name|state
@@ -3196,7 +3175,6 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-block|}
 specifier|const
 name|QClipData
 modifier|*
@@ -3270,10 +3248,9 @@ operator|.
 name|size
 argument_list|()
 condition|;
-name|i
 operator|++
+name|i
 control|)
-block|{
 name|d
 operator|->
 name|clipAndDrawPixmap
@@ -3292,7 +3269,6 @@ argument_list|,
 name|sr
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 else|else
