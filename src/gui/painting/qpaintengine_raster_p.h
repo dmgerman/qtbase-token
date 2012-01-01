@@ -560,7 +560,7 @@ argument|const QImage&pm
 argument_list|,
 argument|const QRectF&sr
 argument_list|,
-argument|Qt::ImageConversionFlags falgs = Qt::AutoColor
+argument|Qt::ImageConversionFlags flags = Qt::AutoColor
 argument_list|)
 block|;
 name|void
