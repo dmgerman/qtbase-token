@@ -1071,8 +1071,10 @@ modifier|*
 name|s
 parameter_list|)
 block|{
-name|bool
-name|solid
+name|Qt
+operator|::
+name|BrushStyle
+name|style
 init|=
 name|qbrush_style
 argument_list|(
@@ -1080,10 +1082,6 @@ name|s
 operator|->
 name|brush
 argument_list|)
-operator|==
-name|Qt
-operator|::
-name|SolidPattern
 decl_stmt|;
 name|caps
 operator|.
@@ -1091,8 +1089,11 @@ name|updateState
 argument_list|(
 name|STATE_BRUSH_PATTERN
 argument_list|,
-operator|!
-name|solid
+name|style
+operator|>
+name|Qt
+operator|::
+name|SolidPattern
 argument_list|)
 expr_stmt|;
 name|caps
