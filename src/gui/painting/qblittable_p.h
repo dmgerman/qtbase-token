@@ -155,6 +155,11 @@ name|void
 name|unlock
 parameter_list|()
 function_decl|;
+name|bool
+name|isLocked
+argument_list|()
+specifier|const
+expr_stmt|;
 name|protected
 label|:
 name|virtual
