@@ -16,11 +16,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|"private/qpaintengineex_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"private/qpaintengine_raster_p.h"
 end_include
 begin_ifndef
@@ -53,7 +48,7 @@ name|Q_GUI_EXPORT
 name|QBlitterPaintEngine
 range|:
 name|public
-name|QPaintEngineEx
+name|QRasterPaintEngine
 block|{
 name|Q_DECLARE_PRIVATE
 argument_list|(
@@ -68,19 +63,6 @@ name|QBlittablePlatformPixmap
 operator|*
 name|p
 argument_list|)
-block|;
-operator|~
-name|QBlitterPaintEngine
-argument_list|()
-block|;
-name|virtual
-name|QPainterState
-operator|*
-name|createState
-argument_list|(
-argument|QPainterState *orig
-argument_list|)
-specifier|const
 block|;
 name|virtual
 name|QPaintEngine
@@ -122,21 +104,6 @@ specifier|const
 name|QBrush
 operator|&
 name|brush
-argument_list|)
-block|;
-name|virtual
-name|void
-name|stroke
-argument_list|(
-specifier|const
-name|QVectorPath
-operator|&
-name|path
-argument_list|,
-specifier|const
-name|QPen
-operator|&
-name|pen
 argument_list|)
 block|;
 name|virtual
@@ -187,7 +154,20 @@ argument_list|,
 argument|int rectCount
 argument_list|)
 block|;
-name|virtual
+name|void
+name|drawPixmap
+argument_list|(
+specifier|const
+name|QPointF
+operator|&
+name|p
+argument_list|,
+specifier|const
+name|QPixmap
+operator|&
+name|pm
+argument_list|)
+block|;
 name|void
 name|drawPixmap
 argument_list|(
@@ -207,6 +187,15 @@ operator|&
 name|sr
 argument_list|)
 block|;
+comment|// State tracking
+name|void
+name|setState
+argument_list|(
+name|QPainterState
+operator|*
+name|s
+argument_list|)
+block|;
 name|virtual
 name|void
 name|clipEnabledChanged
@@ -220,11 +209,6 @@ block|;
 name|virtual
 name|void
 name|brushChanged
-argument_list|()
-block|;
-name|virtual
-name|void
-name|brushOriginChanged
 argument_list|()
 block|;
 name|virtual
@@ -248,34 +232,72 @@ name|transformChanged
 argument_list|()
 block|;
 comment|// Override to lock the QBlittable before using raster
-name|virtual
 name|void
-name|clip
+name|drawPolygon
 argument_list|(
-argument|const QVectorPath&path
+argument|const QPointF *points
 argument_list|,
-argument|Qt::ClipOperation op
+argument|int pointCount
+argument_list|,
+argument|PolygonDrawMode mode
 argument_list|)
 block|;
-name|virtual
 name|void
-name|clip
+name|drawPolygon
 argument_list|(
-argument|const QRect&rect
+argument|const QPoint *points
 argument_list|,
-argument|Qt::ClipOperation op
+argument|int pointCount
+argument_list|,
+argument|PolygonDrawMode mode
 argument_list|)
 block|;
-name|virtual
 name|void
-name|clip
+name|fillPath
 argument_list|(
-argument|const QRegion&region
+specifier|const
+name|QPainterPath
+operator|&
+name|path
 argument_list|,
-argument|Qt::ClipOperation op
+name|QSpanData
+operator|*
+name|fillData
 argument_list|)
 block|;
-name|virtual
+name|void
+name|fillPolygon
+argument_list|(
+argument|const QPointF *points
+argument_list|,
+argument|int pointCount
+argument_list|,
+argument|PolygonDrawMode mode
+argument_list|)
+block|;
+name|void
+name|drawEllipse
+argument_list|(
+specifier|const
+name|QRectF
+operator|&
+name|rect
+argument_list|)
+block|;
+name|void
+name|drawImage
+argument_list|(
+specifier|const
+name|QPointF
+operator|&
+name|p
+argument_list|,
+specifier|const
+name|QImage
+operator|&
+name|img
+argument_list|)
+block|;
 name|void
 name|drawImage
 argument_list|(
@@ -285,113 +307,78 @@ argument|const QImage&pm
 argument_list|,
 argument|const QRectF&sr
 argument_list|,
-argument|Qt::ImageConversionFlags flags
+argument|Qt::ImageConversionFlags flags = Qt::AutoColor
 argument_list|)
 block|;
-name|virtual
+name|void
+name|drawTiledPixmap
+argument_list|(
+specifier|const
+name|QRectF
+operator|&
+name|r
+argument_list|,
+specifier|const
+name|QPixmap
+operator|&
+name|pm
+argument_list|,
+specifier|const
+name|QPointF
+operator|&
+name|sr
+argument_list|)
+block|;
 name|void
 name|drawTextItem
 argument_list|(
 specifier|const
 name|QPointF
 operator|&
-name|pos
+name|p
 argument_list|,
 specifier|const
 name|QTextItem
 operator|&
-name|ti
+name|textItem
 argument_list|)
 block|;
-name|virtual
+name|void
+name|drawPoints
+argument_list|(
+argument|const QPointF *points
+argument_list|,
+argument|int pointCount
+argument_list|)
+block|;
+name|void
+name|drawPoints
+argument_list|(
+argument|const QPoint *points
+argument_list|,
+argument|int pointCount
+argument_list|)
+block|;
+name|void
+name|stroke
+argument_list|(
+specifier|const
+name|QVectorPath
+operator|&
+name|path
+argument_list|,
+specifier|const
+name|QPen
+operator|&
+name|pen
+argument_list|)
+block|;
 name|void
 name|drawStaticTextItem
 argument_list|(
 name|QStaticTextItem
 operator|*
 argument_list|)
-block|;
-name|virtual
-name|void
-name|drawEllipse
-argument_list|(
-specifier|const
-name|QRectF
-operator|&
-name|r
-argument_list|)
-block|;
-name|virtual
-name|void
-name|setState
-argument_list|(
-name|QPainterState
-operator|*
-name|s
-argument_list|)
-block|;
-specifier|inline
-name|QPainterState
-operator|*
-name|state
-argument_list|()
-block|{
-return|return
-name|raster
-argument_list|()
-operator|->
-name|state
-argument_list|()
-return|;
-block|}
-specifier|inline
-specifier|const
-name|QPainterState
-operator|*
-name|state
-argument_list|()
-specifier|const
-block|{
-specifier|const
-name|QPainterState
-operator|*
-name|state
-operator|=
-name|raster
-argument_list|()
-operator|->
-name|state
-argument_list|()
-block|;
-return|return
-name|state
-return|;
-block|}
-specifier|inline
-specifier|const
-name|QClipData
-operator|*
-name|clipData
-argument_list|()
-block|{
-return|return
-name|raster
-argument_list|()
-operator|->
-name|d_func
-argument_list|()
-operator|->
-name|clip
-argument_list|()
-return|;
-block|}
-name|private
-operator|:
-name|QRasterPaintEngine
-operator|*
-name|raster
-argument_list|()
-specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt

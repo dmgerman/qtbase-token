@@ -158,6 +158,14 @@ block|;
 name|void
 name|markRasterOverlay
 argument_list|(
+specifier|const
+name|QPainterPath
+operator|&
+argument_list|)
+block|;
+name|void
+name|markRasterOverlay
+argument_list|(
 argument|const QRect *rects
 argument_list|,
 argument|int rectCount
@@ -169,6 +177,22 @@ argument_list|(
 argument|const QRectF *rects
 argument_list|,
 argument|int rectCount
+argument_list|)
+block|;
+name|void
+name|markRasterOverlay
+argument_list|(
+argument|const QPointF *points
+argument_list|,
+argument|int pointCount
+argument_list|)
+block|;
+name|void
+name|markRasterOverlay
+argument_list|(
+argument|const QPoint *points
+argument_list|,
+argument|int pointCount
 argument_list|)
 block|;
 name|void
@@ -492,7 +516,99 @@ directive|endif
 end_endif
 begin_expr_stmt
 unit|}  inline
+DECL|function|markRasterOverlay
+name|void
+name|QBlittablePlatformPixmap
+operator|::
+name|markRasterOverlay
+argument_list|(
+argument|const QPointF *points
+argument_list|,
+argument|int pointCount
+argument_list|)
+block|{
+ifdef|#
+directive|ifdef
+name|QT_BLITTER_RASTEROVERLAY
+error|#
+directive|error
+literal|"not ported yet"
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|points
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
+name|pointCount
+argument_list|)
+block|;
+endif|#
+directive|endif
+block|}
+DECL|function|markRasterOverlay
+specifier|inline
+name|void
+name|QBlittablePlatformPixmap
+operator|::
+name|markRasterOverlay
+argument_list|(
+argument|const QPoint *points
+argument_list|,
+argument|int pointCount
+argument_list|)
+block|{
+ifdef|#
+directive|ifdef
+name|QT_BLITTER_RASTEROVERLAY
+error|#
+directive|error
+literal|"not ported yet"
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|points
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
+name|pointCount
+argument_list|)
+block|;
+endif|#
+directive|endif
+block|}
+DECL|function|markRasterOverlay
+specifier|inline
+name|void
+name|QBlittablePlatformPixmap
+operator|::
+name|markRasterOverlay
+argument_list|(
+argument|const QPainterPath& path
+argument_list|)
+block|{
+ifdef|#
+directive|ifdef
+name|QT_BLITTER_RASTEROVERLAY
+error|#
+directive|error
+literal|"not ported yet"
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|path
+argument_list|)
+block|;
+endif|#
+directive|endif
+block|}
 DECL|function|unmarkRasterOverlay
+specifier|inline
 name|void
 name|QBlittablePlatformPixmap
 operator|::
