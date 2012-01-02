@@ -188,6 +188,11 @@ include|#
 directive|include
 file|"qlocale.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"quuid.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef

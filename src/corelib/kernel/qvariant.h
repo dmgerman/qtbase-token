@@ -428,6 +428,12 @@ name|QMetaType
 operator|::
 name|QEasingCurve
 block|,
+name|Uuid
+init|=
+name|QMetaType
+operator|::
+name|QUuid
+block|,
 name|LastCoreType
 init|=
 name|QMetaType
