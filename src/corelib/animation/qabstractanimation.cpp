@@ -79,6 +79,13 @@ directive|define
 name|STARTSTOP_TIMER_DELAY
 value|0
 end_define
+begin_define
+DECL|macro|PAUSE_TIMER_COARSE_THRESHOLD
+define|#
+directive|define
+name|PAUSE_TIMER_COARSE_THRESHOLD
+value|2000
+end_define
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
@@ -591,11 +598,31 @@ operator|->
 name|stop
 argument_list|()
 expr_stmt|;
+comment|// use a precise timer if the pause will be short
+name|Qt
+operator|::
+name|TimerType
+name|timerType
+init|=
+name|closestTimeToFinish
+operator|<
+name|PAUSE_TIMER_COARSE_THRESHOLD
+condition|?
+name|Qt
+operator|::
+name|PreciseTimer
+else|:
+name|Qt
+operator|::
+name|CoarseTimer
+decl_stmt|;
 name|pauseTimer
 operator|.
 name|start
 argument_list|(
 name|closestTimeToFinish
+argument_list|,
+name|timerType
 argument_list|,
 name|this
 argument_list|)
@@ -1848,6 +1875,7 @@ operator|::
 name|startTimer
 parameter_list|()
 block|{
+comment|// always use a precise timer to drive animations
 name|m_timer
 operator|.
 name|start
@@ -1855,6 +1883,10 @@ argument_list|(
 name|m_unified_timer
 operator|->
 name|timingInterval
+argument_list|,
+name|Qt
+operator|::
+name|PreciseTimer
 argument_list|,
 name|this
 argument_list|)
