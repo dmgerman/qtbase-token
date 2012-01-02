@@ -95,6 +95,9 @@ return|;
 case|case
 name|CacheLocation
 case|:
+case|case
+name|GenericCacheLocation
+case|:
 block|{
 comment|// http://standards.freedesktop.org/basedir-spec/basedir-spec-0.6.html
 name|QString
@@ -131,6 +134,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|type
+operator|==
+name|QStandardPaths
+operator|::
+name|CacheLocation
+condition|)
+block|{
+if|if
+condition|(
 operator|!
 name|QCoreApplication
 operator|::
@@ -175,6 +187,7 @@ operator|::
 name|applicationName
 argument_list|()
 expr_stmt|;
+block|}
 return|return
 name|xdgCacheHome
 return|;

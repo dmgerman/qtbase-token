@@ -152,6 +152,11 @@ return|;
 case|case
 name|QStandardPaths
 operator|::
+name|GenericCacheLocation
+case|:
+case|case
+name|QStandardPaths
+operator|::
 name|CacheLocation
 case|:
 return|return
@@ -396,6 +401,9 @@ case|case
 name|DataLocation
 case|:
 case|case
+name|GenericCacheLocation
+case|:
+case|case
 name|CacheLocation
 case|:
 case|case
@@ -444,6 +452,10 @@ operator|||
 name|type
 operator|==
 name|DataLocation
+operator|||
+name|type
+operator|==
+name|GenericCacheLocation
 operator|||
 name|type
 operator|==

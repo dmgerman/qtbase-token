@@ -67,6 +67,8 @@ operator|,
 name|ConfigLocation
 operator|,
 name|DownloadLocation
+operator|,
+name|GenericCacheLocation
 block|}
 end_function
 begin_empty_stmt
