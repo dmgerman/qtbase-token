@@ -4210,10 +4210,6 @@ name|ImhTime
 operator|=
 literal|0x100
 block|,
-name|ImhMultiLine
-operator|=
-literal|0x200
-block|,
 name|ImhDigitsOnly
 operator|=
 literal|0x10000
