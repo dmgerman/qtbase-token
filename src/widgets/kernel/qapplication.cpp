@@ -17716,66 +17716,63 @@ begin_comment
 comment|// ************************************************************************
 end_comment
 begin_comment
-comment|/*!     This function replaces the QInputContext instance used by the application     with \a inputContext.      Qt takes ownership of the given \a inputContext.      \sa inputContext() */
+comment|/*     This function replaces the QInputContext instance used by the application     with \a inputContext.      Qt takes ownership of the given \a inputContext. */
 end_comment
 begin_function
 DECL|function|setInputContext
 name|void
-name|QApplication
+name|QApplicationPrivate
 operator|::
 name|setInputContext
 parameter_list|(
 name|QInputContext
 modifier|*
-name|inputContext
+name|newInputContext
 parameter_list|)
 block|{
+name|Q_Q
+argument_list|(
+name|QApplication
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
-name|inputContext
+name|newInputContext
 operator|==
-name|QApplicationPrivate
-operator|::
 name|inputContext
 condition|)
 return|return;
 if|if
 condition|(
 operator|!
-name|inputContext
+name|newInputContext
 condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QApplication::setInputContext: called with 0 input context"
+literal|"QApplicationPrivate::setInputContext: called with 0 input context"
 argument_list|)
 expr_stmt|;
 return|return;
 block|}
 operator|delete
-name|QApplicationPrivate
-operator|::
 name|inputContext
 expr_stmt|;
-name|QApplicationPrivate
-operator|::
 name|inputContext
 operator|=
-name|inputContext
+name|newInputContext
 expr_stmt|;
-name|QApplicationPrivate
-operator|::
 name|inputContext
 operator|->
 name|setParent
 argument_list|(
-name|this
+name|q
 argument_list|)
 expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the QInputContext instance used by the application.      \sa setInputContext() */
+comment|/*!     Returns the QInputContext instance used by the application. */
 end_comment
 begin_function
 DECL|function|inputContext

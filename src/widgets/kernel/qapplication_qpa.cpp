@@ -1533,6 +1533,7 @@ name|qt_init
 parameter_list|(
 name|QApplicationPrivate
 modifier|*
+name|priv
 parameter_list|,
 name|int
 name|type
@@ -1567,7 +1568,7 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_QWS_INPUTMETHODS
-name|qApp
+name|priv
 operator|->
 name|setInputContext
 argument_list|(

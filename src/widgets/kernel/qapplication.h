@@ -953,13 +953,6 @@ directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_IM
-name|void
-name|setInputContext
-argument_list|(
-name|QInputContext
-operator|*
-argument_list|)
-block|;
 name|QInputContext
 operator|*
 name|inputContext
