@@ -1166,9 +1166,6 @@ directive|ifndef
 name|QT_NO_QUUID_STRING
 end_ifndef
 begin_comment
-comment|/*!     \fn QUuid::operator QString() const     \obsolete      Returns the string representation of the uuid.      \sa toString() */
-end_comment
-begin_comment
 comment|/*!     Returns the string representation of this QUuid. The string is     formatted as five hex fields separated by '-' and enclosed in     curly braces, i.e., "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}" where     'x' is a hex digit.  From left to right, the five hex fields are     obtained from the four public data members in QUuid as follows:      \table     \header     \o Field #     \o Source          \row     \o 1     \o data1          \row     \o 2     \o data2          \row     \o 3     \o data3          \row     \o 4     \o data4[0] .. data4[1]          \row     \o 5     \o data4[2] .. data4[7]      \endtable */
 end_comment
 begin_macro
