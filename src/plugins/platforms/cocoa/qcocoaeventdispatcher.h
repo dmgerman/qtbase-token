@@ -49,6 +49,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<QtCore/qabstracteventdispatcher.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qhash.h>
 end_include
 begin_include
@@ -64,7 +69,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/private/qeventdispatcher_unix_p.h>
+file|<QtCore/private/qabstracteventdispatcher_p.h>
 end_include
 begin_include
 include|#
@@ -121,7 +126,7 @@ name|class
 name|QCocoaEventDispatcher
 range|:
 name|public
-name|QEventDispatcherUNIX
+name|QAbstractEventDispatcher
 block|{
 name|Q_OBJECT
 name|Q_DECLARE_PRIVATE
@@ -225,6 +230,10 @@ argument_list|()
 block|;
 name|void
 name|interrupt
+argument_list|()
+block|;
+name|void
+name|flush
 argument_list|()
 block|;
 name|private
@@ -373,7 +382,7 @@ name|class
 name|QCocoaEventDispatcherPrivate
 range|:
 name|public
-name|QEventDispatcherUNIXPrivate
+name|QAbstractEventDispatcherPrivate
 block|{
 name|Q_DECLARE_PUBLIC
 argument_list|(
