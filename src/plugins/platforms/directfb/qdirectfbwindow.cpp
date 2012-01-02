@@ -250,7 +250,7 @@ condition|)
 block|{
 name|DirectFBError
 argument_list|(
-literal|"QDirectFbGraphicsSystemScreen: failed to create window"
+literal|"QDirectFbWindow: failed to create window"
 argument_list|,
 name|result
 argument_list|)
