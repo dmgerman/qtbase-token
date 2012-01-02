@@ -1208,6 +1208,23 @@ name|process
 decl_stmt|;
 comment|// crashOnExit is always expected to be in the same directory
 comment|// as this test binary
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|process
+operator|.
+name|start
+argument_list|(
+name|QCoreApplication
+operator|::
+name|applicationDirPath
+argument_list|()
+operator|+
+literal|"/../../../crashOnExit"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|process
 operator|.
 name|start
@@ -1220,6 +1237,8 @@ operator|+
 literal|"/crashOnExit"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 name|process
