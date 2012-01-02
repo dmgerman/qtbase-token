@@ -875,6 +875,10 @@ operator||
 name|Qt
 operator|::
 name|ImhNoPredictiveText
+operator||
+name|Qt
+operator|::
+name|ImhSensitiveData
 operator|)
 expr_stmt|;
 block|}
@@ -891,6 +895,10 @@ operator||
 name|Qt
 operator|::
 name|ImhNoPredictiveText
+operator||
+name|Qt
+operator|::
+name|ImhSensitiveData
 operator|)
 expr_stmt|;
 block|}
