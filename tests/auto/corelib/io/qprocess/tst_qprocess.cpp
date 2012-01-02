@@ -10233,6 +10233,16 @@ comment|// Check that QProcess doesn't cause a lock up at this program's
 comment|// exit if a thread was started and we tried to run a program that
 comment|// doesn't exist. Before Qt 4.2, this used to lock up on Unix due
 comment|// to calling ::exit instead of ::_exit if execve failed.
+name|QObject
+modifier|*
+name|dummy
+init|=
+operator|new
+name|QObject
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
 name|QHostInfo
 operator|::
 name|lookupHost
@@ -10242,9 +10252,13 @@ argument_list|(
 literal|"something.invalid"
 argument_list|)
 argument_list|,
-literal|0
+name|dummy
 argument_list|,
-literal|0
+name|SLOT
+argument_list|(
+name|deleteLater
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QProcess
