@@ -1645,6 +1645,33 @@ break|break;
 case|case
 name|QTextFormat
 operator|::
+name|FontAbsoluteLetterSpacing
+case|:
+name|f
+operator|.
+name|setLetterSpacing
+argument_list|(
+name|QFont
+operator|::
+name|AbsoluteSpacing
+argument_list|,
+name|props
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|.
+name|value
+operator|.
+name|toReal
+argument_list|()
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|QTextFormat
+operator|::
 name|FontLetterSpacing
 case|:
 name|f
@@ -1763,6 +1790,29 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
+case|case
+name|QTextFormat
+operator|::
+name|FontStretch
+case|:
+name|f
+operator|.
+name|setStretch
+argument_list|(
+name|props
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|.
+name|value
+operator|.
+name|toInt
+argument_list|()
+argument_list|)
+expr_stmt|;
+break|break;
 case|case
 name|QTextFormat
 operator|::
@@ -2050,7 +2100,7 @@ begin_comment
 comment|/*!     \enum QTextFormat::FormatType      This enum describes the text item a QTextFormat object is formatting.      \value InvalidFormat An invalid format as created by the default                          constructor     \value BlockFormat The object formats a text block     \value CharFormat The object formats a single character     \value ListFormat The object formats a list     \value TableFormat The object formats a table     \value FrameFormat The object formats a frame      \value UserFormat      \sa QTextCharFormat, QTextBlockFormat, QTextListFormat,     QTextTableFormat, type() */
 end_comment
 begin_comment
-comment|/*!     \enum QTextFormat::Property      This enum describes the different properties a format can have.      \value ObjectIndex The index of the formatted object. See objectIndex().      Paragraph and character properties      \value CssFloat How a frame is located relative to the surrounding text     \value LayoutDirection  The layout direction of the text in the document                             (Qt::LayoutDirection).      \value OutlinePen     \value ForegroundBrush     \value BackgroundBrush     \value BackgroundImageUrl      Paragraph properties      \value BlockAlignment     \value BlockTopMargin     \value BlockBottomMargin     \value BlockLeftMargin     \value BlockRightMargin     \value TextIndent     \value TabPositions     Specifies the tab positions.  The tab positions are structs of QTextOption::Tab which are stored in                             a QList (internally, in a QList<QVariant>).     \value BlockIndent     \value LineHeight     \value LineHeightType     \value BlockNonBreakableLines     \value BlockTrailingHorizontalRulerWidth The width of a horizontal ruler element.      Character properties      \value FontFamily     \value FontPointSize     \value FontPixelSize     \value FontSizeAdjustment       Specifies the change in size given to the fontsize already set using                                     FontPointSize or FontPixelSize.     \value FontFixedPitch     \omitvalue FontSizeIncrement     \value FontWeight     \value FontItalic     \value FontUnderline \e{This property has been deprecated.} Use QTextFormat::TextUnderlineStyle instead.     \value FontOverline     \value FontStrikeOut     \value FontCapitalization Specifies the capitalization type that is to be applied to the text.     \value FontLetterSpacing Changes the default spacing between individual letters in the font. The value is                                                 specified in percentage, with 100 as the default value.     \value FontWordSpacing  Changes the default spacing between individual words. A positive value increases the word spacing                                                  by the corresponding pixels; a negative value decreases the spacing.     \value FontStyleHint        Corresponds to the QFont::StyleHint property     \value FontStyleStrategy    Corresponds to the QFont::StyleStrategy property     \value FontKerning          Specifies whether the font has kerning turned on.     \value FontHintingPreference Controls the use of hinting according to values                                  of the QFont::HintingPreference enum.      \omitvalue FirstFontProperty     \omitvalue LastFontProperty      \value TextUnderlineColor     \value TextVerticalAlignment     \value TextOutline     \value TextUnderlineStyle     \value TextToolTip Specifies the (optional) tool tip to be displayed for a fragment of text.      \value IsAnchor     \value AnchorHref     \value AnchorName     \value ObjectType      List properties      \value ListStyle        Specifies the style used for the items in a list,                             described by values of the QTextListFormat::Style enum.     \value ListIndent       Specifies the amount of indentation used for a list.     \value ListNumberPrefix Defines the text which is prepended to item numbers in                             numeric lists.     \value ListNumberSuffix Defines the text which is appended to item numbers in                             numeric lists.      Table and frame properties      \value FrameBorder     \value FrameBorderBrush     \value FrameBorderStyle See the \l{QTextFrameFormat::BorderStyle}{BorderStyle} enum.     \value FrameBottomMargin     \value FrameHeight     \value FrameLeftMargin     \value FrameMargin     \value FramePadding     \value FrameRightMargin     \value FrameTopMargin     \value FrameWidth     \value TableCellSpacing     \value TableCellPadding     \value TableColumns     \value TableColumnWidthConstraints     \value TableHeaderRowCount      Table cell properties      \value TableCellRowSpan     \value TableCellColumnSpan     \value TableCellLeftPadding     \value TableCellRightPadding     \value TableCellTopPadding     \value TableCellBottomPadding      Image properties      \value ImageName     \value ImageWidth     \value ImageHeight      Selection properties      \value FullWidthSelection When set on the characterFormat of a selection,                               the whole width of the text will be shown selected.      Page break properties      \value PageBreakPolicy Specifies how pages are broken. See the PageBreakFlag enum.      \value UserProperty      \sa property(), setProperty() */
+comment|/*!     \enum QTextFormat::Property      This enum describes the different properties a format can have.      \value ObjectIndex The index of the formatted object. See objectIndex().      Paragraph and character properties      \value CssFloat How a frame is located relative to the surrounding text     \value LayoutDirection  The layout direction of the text in the document                             (Qt::LayoutDirection).      \value OutlinePen     \value ForegroundBrush     \value BackgroundBrush     \value BackgroundImageUrl      Paragraph properties      \value BlockAlignment     \value BlockTopMargin     \value BlockBottomMargin     \value BlockLeftMargin     \value BlockRightMargin     \value TextIndent     \value TabPositions     Specifies the tab positions.  The tab positions are structs of QTextOption::Tab which are stored in                             a QList (internally, in a QList<QVariant>).     \value BlockIndent     \value LineHeight     \value LineHeightType     \value BlockNonBreakableLines     \value BlockTrailingHorizontalRulerWidth The width of a horizontal ruler element.      Character properties      \value FontFamily     \value FontPointSize     \value FontPixelSize     \value FontSizeAdjustment       Specifies the change in size given to the fontsize already set using                                     FontPointSize or FontPixelSize.     \value FontFixedPitch     \omitvalue FontSizeIncrement     \value FontWeight     \value FontItalic     \value FontUnderline \e{This property has been deprecated.} Use QTextFormat::TextUnderlineStyle instead.     \value FontOverline     \value FontStrikeOut     \value FontCapitalization Specifies the capitalization type that is to be applied to the text.     \value FontAbsoluteLetterSpacing If true FontLetterSpacing is absolute     \value FontLetterSpacing Changes the default spacing between individual letters in the font. The value is                                                 specified in percentage, with 100 as the default value.     \value FontWordSpacing  Changes the default spacing between individual words. A positive value increases the word spacing                                                  by the corresponding pixels; a negative value decreases the spacing.     \value FontStretch          Corresponds to the QFont::Stretch property     \value FontStyleHint        Corresponds to the QFont::StyleHint property     \value FontStyleStrategy    Corresponds to the QFont::StyleStrategy property     \value FontKerning          Specifies whether the font has kerning turned on.     \value FontHintingPreference Controls the use of hinting according to values                                  of the QFont::HintingPreference enum.      \omitvalue FirstFontProperty     \omitvalue LastFontProperty      \value TextUnderlineColor     \value TextVerticalAlignment     \value TextOutline     \value TextUnderlineStyle     \value TextToolTip Specifies the (optional) tool tip to be displayed for a fragment of text.      \value IsAnchor     \value AnchorHref     \value AnchorName     \value ObjectType      List properties      \value ListStyle        Specifies the style used for the items in a list,                             described by values of the QTextListFormat::Style enum.     \value ListIndent       Specifies the amount of indentation used for a list.     \value ListNumberPrefix Defines the text which is prepended to item numbers in                             numeric lists.     \value ListNumberSuffix Defines the text which is appended to item numbers in                             numeric lists.      Table and frame properties      \value FrameBorder     \value FrameBorderBrush     \value FrameBorderStyle See the \l{QTextFrameFormat::BorderStyle}{BorderStyle} enum.     \value FrameBottomMargin     \value FrameHeight     \value FrameLeftMargin     \value FrameMargin     \value FramePadding     \value FrameRightMargin     \value FrameTopMargin     \value FrameWidth     \value TableCellSpacing     \value TableCellPadding     \value TableColumns     \value TableColumnWidthConstraints     \value TableHeaderRowCount      Table cell properties      \value TableCellRowSpan     \value TableCellColumnSpan     \value TableCellLeftPadding     \value TableCellRightPadding     \value TableCellTopPadding     \value TableCellBottomPadding      Image properties      \value ImageName     \value ImageWidth     \value ImageHeight      Selection properties      \value FullWidthSelection When set on the characterFormat of a selection,                               the whole width of the text will be shown selected.      Page break properties      \value PageBreakPolicy Specifies how pages are broken. See the PageBreakFlag enum.      \value UserProperty      \sa property(), setProperty() */
 end_comment
 begin_comment
 comment|/*!     \enum QTextFormat::ObjectTypes      This enum describes what kind of QTextObject this format is associated with.      \value NoObject     \value ImageObject     \value TableObject     \value TableCellObject     \value UserObject The first object that can be used for application-specific purposes.      \sa QTextObject, QTextTable, QTextObject::format() */
@@ -4228,13 +4278,34 @@ argument_list|()
 operator|==
 name|QFont
 operator|::
-name|PercentageSpacing
+name|AbsoluteSpacing
 condition|)
+block|{
+name|setFontAbsoluteLetterSpacing
+argument_list|(
+name|font
+operator|.
+name|letterSpacing
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|setFontLetterSpacing
 argument_list|(
 name|font
 operator|.
 name|letterSpacing
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|setFontStretch
+argument_list|(
+name|font
+operator|.
+name|stretch
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5178,7 +5249,13 @@ begin_comment
 comment|/*!     \fn Capitalization QTextCharFormat::fontCapitalization() const     \since 4.4      Returns the current capitalization type of the font. */
 end_comment
 begin_comment
-comment|/*!     \fn void QTextCharFormat::setFontLetterSpacing(qreal spacing)     \since 4.4      Sets the letter spacing of this format to the given \a spacing, in percent.     A value of 100 indicates default spacing; a value of 200 doubles the amount     of space a letter takes.      \sa fontLetterSpacing() */
+comment|/*!     \fn void QTextCharFormat::setFontAbsoluteLetterSpacing(bool absolute)     \since 5.0      Sets the letter spacing type of this format to absolute.     \sa fontAbsoluteLetterSpacing()     \sa setFontLetterSpacing()     \sa fontLetterSpacing() */
+end_comment
+begin_comment
+comment|/*!     \fn bool QTextCharFormat::fontAbsoluteLetterSpacing() const     \since 5.0      Returns if the current letter spacing is absolute (or percentage).     \sa setFontAbsoluteLetterSpacing()     \sa setFontLetterSpacing()     \sa fontLetterSpacing() */
+end_comment
+begin_comment
+comment|/*!     \fn void QTextCharFormat::setFontLetterSpacing(qreal spacing)     \since 4.4      Sets the letter spacing of this format to the given \a spacing.     Depending on fontAbsoluteLetterSpacing the value is given in absolutes or in percent.     For percent a value of 100 indicates default spacing; a value of 200 doubles the amount     of space a letter takes.      \sa fontLetterSpacing()     \sa setFontAbsoluteLetterSpacing()     \sa fontAbsoluteLetterSpacing() */
 end_comment
 begin_comment
 comment|/*!     \fn qreal QTextCharFormat::fontLetterSpacing() const     \since 4.4      Returns the current letter spacing percentage. */
@@ -5188,6 +5265,12 @@ comment|/*!     \fn void QTextCharFormat::setFontWordSpacing(qreal spacing)     
 end_comment
 begin_comment
 comment|/*!     \fn qreal QTextCharFormat::fontWordSpacing() const     \since 4.4      Returns the current word spacing value. */
+end_comment
+begin_comment
+comment|/*!     \fn void QTextCharFormat::setFontStretch(int factor)     \since 5.0      Sets the stretch factor for the font.      The stretch factor changes the width of all characters in the font by factor percent. For example, setting factor to 150 results in all characters in the font being 1.5 times (ie. 150%) wider. The default stretch factor is 100. The minimum stretch factor is 1, and the maximum stretch factor is 4000.      The stretch factor is only applied to outline fonts. The stretch factor is ignored for bitmap fonts.      NOTE: QFont cannot stretch XLFD fonts. When loading XLFD fonts on X11, the stretch factor is matched against a predefined set of values for the SETWIDTH_NAME field of the XLFD.     \sa fontStretch() */
+end_comment
+begin_comment
+comment|/*!     \fn int QTextCharFormat::fontStretch() const     \since 5.0      Returns the current font stretching.     \sa setFontStretch() */
 end_comment
 begin_comment
 comment|/*!    \fn qreal QTextTableCellFormat::topPadding() const     \since 4.4     Gets the top padding of the table cell.     \sa setTopPadding(), leftPadding(), rightPadding(), bottomPadding() */
