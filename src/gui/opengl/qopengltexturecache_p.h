@@ -116,6 +116,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
+name|Q_GUI_EXPORT
 name|QOpenGLTextureCache
 range|:
 name|public
