@@ -4210,6 +4210,10 @@ name|ImhTime
 operator|=
 literal|0x100
 block|,
+name|ImhPreferLatin
+operator|=
+literal|0x200
+block|,
 name|ImhDigitsOnly
 operator|=
 literal|0x10000
@@ -4237,6 +4241,10 @@ block|,
 name|ImhUrlCharactersOnly
 operator|=
 literal|0x400000
+block|,
+name|ImhLatinOnly
+operator|=
+literal|0x800000
 block|,
 name|ImhExclusiveInputMask
 operator|=
