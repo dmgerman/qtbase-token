@@ -42,7 +42,7 @@ name|Network
 argument_list|)
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|template
 decl|<
 name|typename
@@ -289,7 +289,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_OPENSSL
+comment|// QT_NO_SSL
 end_comment
 begin_expr_stmt
 name|QT_END_NAMESPACE

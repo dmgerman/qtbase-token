@@ -18955,10 +18955,16 @@ index|]
 operator|==
 literal|"no"
 condition|)
+block|{
 name|qconfigList
 operator|+=
 literal|"QT_NO_OPENSSL"
 expr_stmt|;
+name|qconfigList
+operator|+=
+literal|"QT_NO_SSL"
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|dictionary

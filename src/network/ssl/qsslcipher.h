@@ -37,7 +37,7 @@ name|Network
 parameter_list|)
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|class
 name|QSslCipherPrivate
 decl_stmt|;
@@ -246,7 +246,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_OPENSSL
+comment|// QT_NO_SSL
 end_comment
 begin_expr_stmt
 name|QT_END_NAMESPACE
