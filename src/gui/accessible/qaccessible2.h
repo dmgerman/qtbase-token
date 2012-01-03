@@ -637,6 +637,11 @@ name|QAccessibleTableCellInterface
 block|{
 name|public
 label|:
+name|virtual
+operator|~
+name|QAccessibleTableCellInterface
+argument_list|()
+block|{}
 comment|//            Returns the number of columns occupied by this cell accessible.
 name|virtual
 name|int
@@ -759,22 +764,25 @@ name|QAccessibleTableInterface
 block|{
 name|public
 label|:
+name|virtual
+operator|~
+name|QAccessibleTableInterface
+argument_list|()
+block|{}
 comment|// Returns the cell at the specified row and column in the table.
 name|virtual
 name|QAccessibleInterface
-modifier|*
+operator|*
 name|cellAt
 argument_list|(
-name|int
-name|row
+argument|int row
 argument_list|,
-name|int
-name|column
+argument|int column
 argument_list|)
-decl|const
-init|=
+specifier|const
+operator|=
 literal|0
-decl_stmt|;
+expr_stmt|;
 comment|// Returns the caption for the table.
 name|virtual
 name|QAccessibleInterface
@@ -1139,6 +1147,11 @@ argument_list|)
 name|public
 label|:
 name|virtual
+operator|~
+name|QAccessibleActionInterface
+argument_list|()
+block|{}
+name|virtual
 name|QStringList
 name|actionNames
 argument_list|()
@@ -1255,12 +1268,17 @@ block|{
 name|public
 label|:
 name|virtual
+operator|~
+name|QAccessibleImageInterface
+argument_list|()
+block|{}
+name|virtual
 name|QString
 name|imageDescription
-parameter_list|()
-init|=
+argument_list|()
+operator|=
 literal|0
-function_decl|;
+expr_stmt|;
 name|virtual
 name|QSize
 name|imageSize
