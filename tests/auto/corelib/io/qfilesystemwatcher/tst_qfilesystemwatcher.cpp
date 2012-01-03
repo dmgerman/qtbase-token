@@ -152,7 +152,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"native"
+literal|"native backend"
 argument_list|)
 operator|<<
 literal|"native"
@@ -161,7 +161,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"poller"
+literal|"poller backend"
 argument_list|)
 operator|<<
 literal|"poller"
@@ -182,15 +182,6 @@ name|QString
 argument_list|,
 name|backend
 argument_list|)
-expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Testing"
-operator|<<
-name|backend
-operator|<<
-literal|"engine"
 expr_stmt|;
 comment|// create test file
 name|QFile
@@ -895,15 +886,6 @@ name|QString
 argument_list|,
 name|backend
 argument_list|)
-expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Testing"
-operator|<<
-name|backend
-operator|<<
-literal|"engine"
 expr_stmt|;
 name|QDir
 argument_list|()
