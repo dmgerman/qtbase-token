@@ -227,11 +227,11 @@ DECL|member|updateLayeredWindow
 name|UpdateLayeredWindow
 name|updateLayeredWindow
 decl_stmt|;
+comment|// Functions missing in older versions of Windows
 DECL|member|updateLayeredWindowIndirect
 name|UpdateLayeredWindowIndirect
 name|updateLayeredWindowIndirect
 decl_stmt|;
-comment|// Functions missing in older versions of Windows
 DECL|member|isHungAppWindow
 name|IsHungAppWindow
 name|isHungAppWindow

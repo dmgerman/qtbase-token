@@ -657,6 +657,19 @@ literal|"UpdateLayeredWindow"
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|setLayeredWindowAttributes
+operator|||
+operator|!
+name|updateLayeredWindow
+condition|)
+name|qFatal
+argument_list|(
+literal|"This version of Windows is not supported (User32.dll is missing the symbols 'SetLayeredWindowAttributes', 'UpdateLayeredWindow')."
+argument_list|)
+expr_stmt|;
 name|updateLayeredWindowIndirect
 operator|=
 call|(
@@ -669,15 +682,6 @@ name|resolve
 argument_list|(
 literal|"UpdateLayeredWindowIndirect"
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|setLayeredWindowAttributes
-operator|&&
-name|updateLayeredWindow
-operator|&&
-name|updateLayeredWindowIndirect
 argument_list|)
 expr_stmt|;
 name|isHungAppWindow
