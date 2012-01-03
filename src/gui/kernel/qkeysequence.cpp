@@ -8709,6 +8709,17 @@ name|found
 condition|)
 break|break;
 block|}
+comment|// We couldn't translate the key.
+if|if
+condition|(
+operator|!
+name|found
+condition|)
+return|return
+name|Qt
+operator|::
+name|Key_unknown
+return|;
 block|}
 return|return
 name|ret
