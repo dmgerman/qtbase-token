@@ -149,12 +149,6 @@ name|payload
 argument_list|)
 condition|)
 block|{
-name|QString
-modifier|&
-name|mimeType
-init|=
-name|mimeType
-decl_stmt|;
 name|qint64
 name|size
 init|=
