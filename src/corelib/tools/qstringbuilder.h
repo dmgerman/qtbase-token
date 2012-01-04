@@ -1451,7 +1451,7 @@ operator|>
 expr|struct
 name|QConcatenable
 operator|<
-name|QConstStringDataPtr
+name|QStaticStringDataPtr
 operator|<
 name|N
 operator|>
@@ -1462,7 +1462,7 @@ name|QAbstractConcatenable
 block|{
 DECL|typedef|type
 typedef|typedef
-name|QConstStringDataPtr
+name|QStaticStringDataPtr
 operator|<
 name|N
 operator|>
@@ -2343,7 +2343,7 @@ operator|>
 expr|struct
 name|QConcatenable
 operator|<
-name|QConstByteArrayDataPtr
+name|QStaticByteArrayDataPtr
 operator|<
 name|N
 operator|>
@@ -2354,7 +2354,7 @@ name|QAbstractConcatenable
 block|{
 DECL|typedef|type
 typedef|typedef
-name|QConstByteArrayDataPtr
+name|QStaticByteArrayDataPtr
 operator|<
 name|N
 operator|>

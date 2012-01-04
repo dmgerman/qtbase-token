@@ -1730,7 +1730,7 @@ end_comment
 begin_decl_stmt
 DECL|member|shared_null
 specifier|const
-name|QConstStringData
+name|QStaticStringData
 argument_list|<
 literal|1
 argument_list|>
@@ -1762,7 +1762,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|member|shared_empty
 specifier|const
-name|QConstStringData
+name|QStaticStringData
 argument_list|<
 literal|1
 argument_list|>

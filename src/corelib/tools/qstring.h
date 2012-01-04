@@ -257,22 +257,22 @@ name|int
 name|N
 operator|>
 expr|struct
-name|QConstStringData
+name|QStaticStringData
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-DECL|struct|QConstStringDataPtr
+DECL|struct|QStaticStringDataPtr
 name|template
 operator|<
 name|int
 name|N
 operator|>
 expr|struct
-name|QConstStringDataPtr
+name|QStaticStringDataPtr
 block|{
 DECL|member|ptr
 specifier|const
-name|QConstStringData
+name|QStaticStringData
 operator|<
 name|N
 operator|>
@@ -290,22 +290,20 @@ name|Q_COMPILER_UNICODE_STRINGS
 argument_list|)
 end_if
 begin_expr_stmt
-DECL|struct|QConstStringData
+DECL|struct|QStaticStringData
 name|template
 operator|<
 name|int
 name|N
 operator|>
 expr|struct
-name|QConstStringData
+name|QStaticStringData
 block|{
 DECL|member|str
-specifier|const
 name|QStringData
 name|str
 block|;
 DECL|member|data
-specifier|const
 name|char16_t
 name|data
 index|[
@@ -362,22 +360,20 @@ begin_comment
 comment|// wchar_t is 2 bytes
 end_comment
 begin_expr_stmt
-DECL|struct|QConstStringData
+DECL|struct|QStaticStringData
 name|template
 operator|<
 name|int
 name|N
 operator|>
 expr|struct
-name|QConstStringData
+name|QStaticStringData
 block|{
 DECL|member|str
-specifier|const
 name|QStringData
 name|str
 block|;
 DECL|member|data
-specifier|const
 name|wchar_t
 name|data
 index|[
@@ -429,22 +425,20 @@ else|#
 directive|else
 end_else
 begin_expr_stmt
-DECL|struct|QConstStringData
+DECL|struct|QStaticStringData
 name|template
 operator|<
 name|int
 name|N
 operator|>
 expr|struct
-name|QConstStringData
+name|QStaticStringData
 block|{
 DECL|member|str
-specifier|const
 name|QStringData
 name|str
 block|;
 DECL|member|data
-specifier|const
 name|ushort
 name|data
 index|[
@@ -493,7 +487,7 @@ name|QStringLiteral
 parameter_list|(
 name|str
 parameter_list|)
-value|([]() -> QConstStringDataPtr<sizeof(QT_UNICODE_LITERAL(str))/2 - 1> { \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, { 0 } }, QT_UNICODE_LITERAL(str) }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \     return holder; }())
+value|([]() -> QStaticStringDataPtr<sizeof(QT_UNICODE_LITERAL(str))/2 - 1> { \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QStaticStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, { 0 } }, QT_UNICODE_LITERAL(str) }; \         QStaticStringDataPtr<Size> holder = {&qstring_literal }; \     return holder; }())
 end_define
 begin_elif
 elif|#
@@ -521,7 +515,7 @@ parameter_list|(
 name|str
 parameter_list|)
 define|\
-value|__extension__ ({ \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QConstStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, { 0 } }, QT_UNICODE_LITERAL(str) }; \         QConstStringDataPtr<Size> holder = {&qstring_literal }; \         holder; })
+value|__extension__ ({ \         enum { Size = sizeof(QT_UNICODE_LITERAL(str))/2 - 1 }; \         static const QStaticStringData<Size> qstring_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, { 0 } }, QT_UNICODE_LITERAL(str) }; \         QStaticStringDataPtr<Size> holder = {&qstring_literal }; \         holder; })
 end_define
 begin_endif
 endif|#
@@ -5524,7 +5518,7 @@ specifier|inline
 name|QString
 argument_list|(
 specifier|const
-name|QConstStringData
+name|QStaticStringData
 operator|<
 name|n
 operator|>
@@ -5546,7 +5540,7 @@ name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QString
 argument_list|(
-name|QConstStringDataPtr
+name|QStaticStringDataPtr
 operator|<
 name|N
 operator|>
@@ -5650,7 +5644,7 @@ end_endif
 begin_expr_stmt
 specifier|static
 specifier|const
-name|QConstStringData
+name|QStaticStringData
 operator|<
 literal|1
 operator|>
@@ -5660,7 +5654,7 @@ end_expr_stmt
 begin_expr_stmt
 specifier|static
 specifier|const
-name|QConstStringData
+name|QStaticStringData
 operator|<
 literal|1
 operator|>

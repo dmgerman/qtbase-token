@@ -1993,7 +1993,7 @@ end_function
 begin_decl_stmt
 DECL|member|shared_null
 specifier|const
-name|QConstByteArrayData
+name|QStaticByteArrayData
 argument_list|<
 literal|1
 argument_list|>
@@ -2025,7 +2025,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|member|shared_empty
 specifier|const
-name|QConstByteArrayData
+name|QStaticByteArrayData
 argument_list|<
 literal|1
 argument_list|>
