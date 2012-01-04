@@ -5009,6 +5009,12 @@ end_macro
 begin_macro
 name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(
+argument|Qt::InputMethodQueries
+argument_list|)
+end_macro
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
 argument|Qt::InputMethodHints
 argument_list|)
 end_macro
