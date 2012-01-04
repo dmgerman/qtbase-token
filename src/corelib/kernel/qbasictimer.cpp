@@ -53,7 +53,14 @@ condition|(
 operator|!
 name|eventDispatcher
 condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QBasicTimer::start: QBasicTimer can only be used with threads started with QThread"
+argument_list|)
+expr_stmt|;
 return|return;
+block|}
 if|if
 condition|(
 name|id
@@ -136,7 +143,14 @@ condition|(
 operator|!
 name|eventDispatcher
 condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QBasicTimer::start: QBasicTimer can only be used with threads started with QThread"
+argument_list|)
+expr_stmt|;
 return|return;
+block|}
 if|if
 condition|(
 name|id
