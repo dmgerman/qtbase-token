@@ -235,13 +235,6 @@ block|;
 name|void
 name|flush
 argument_list|()
-block|;
-name|private
-operator|:
-comment|//friend void qt_mac_select_timer_callbk(__EventLoopTimer*, void*);
-name|friend
-name|class
-name|QApplicationPrivate
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -250,6 +243,11 @@ DECL|struct|MacTimerInfo
 struct|struct
 name|MacTimerInfo
 block|{
+DECL|member|d_ptr
+name|QCocoaEventDispatcherPrivate
+modifier|*
+name|d_ptr
+decl_stmt|;
 DECL|member|id
 name|int
 name|id
@@ -393,7 +391,6 @@ operator|:
 name|QCocoaEventDispatcherPrivate
 argument_list|()
 block|;
-specifier|static
 name|MacTimerHash
 name|macTimerHash
 block|;
@@ -401,50 +398,40 @@ comment|// Set 'blockSendPostedEvents' to true if you _really_ need
 comment|// to make sure that qt events are not posted while calling
 comment|// low-level cocoa functions (like beginModalForWindow). And
 comment|// use a QBoolBlocker to be safe:
-specifier|static
 name|bool
 name|blockSendPostedEvents
 block|;
 comment|// The following variables help organizing modal sessions:
-specifier|static
 name|QStack
 operator|<
 name|QCocoaModalSessionInfo
 operator|>
 name|cocoaModalSessionStack
 block|;
-specifier|static
 name|bool
 name|currentExecIsNSAppRun
 block|;
-specifier|static
 name|bool
 name|nsAppRunCalledByQt
 block|;
-specifier|static
 name|bool
 name|cleanupModalSessionsNeeded
 block|;
-specifier|static
 name|NSModalSession
 name|currentModalSessionCached
 block|;
-specifier|static
 name|NSModalSession
 name|currentModalSession
 argument_list|()
 block|;
-specifier|static
 name|void
 name|updateChildrenWorksWhenModal
 argument_list|()
 block|;
-specifier|static
 name|void
 name|temporarilyStopAllModalSessions
 argument_list|()
 block|;
-specifier|static
 name|void
 name|beginModalSession
 argument_list|(
@@ -453,7 +440,6 @@ operator|*
 name|widget
 argument_list|)
 block|;
-specifier|static
 name|void
 name|endModalSession
 argument_list|(
@@ -462,17 +448,14 @@ operator|*
 name|widget
 argument_list|)
 block|;
-specifier|static
 name|void
 name|cancelWaitForMoreEvents
 argument_list|()
 block|;
-specifier|static
 name|void
 name|cleanupModalSessions
 argument_list|()
 block|;
-specifier|static
 name|void
 name|ensureNSAppInitialized
 argument_list|()
@@ -503,12 +486,9 @@ block|;
 name|int
 name|lastSerial
 block|;
-specifier|static
 name|bool
 name|interrupt
 block|;
-name|private
-operator|:
 specifier|static
 name|Boolean
 name|postedEventSourceEqualCallback
@@ -566,14 +546,9 @@ argument_list|,
 argument|void *info
 argument_list|)
 block|;
-name|friend
 name|void
 name|processPostedEvents
-argument_list|(
-argument|QCocoaEventDispatcherPrivate *const d
-argument_list|,
-argument|const bool blockSendPostedEvents
-argument_list|)
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
