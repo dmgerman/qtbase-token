@@ -24,7 +24,7 @@ comment|/*!     \fn QBasicTimer::QBasicTimer()      Contructs a basic timer.    
 comment|/*!     \fn QBasicTimer::~QBasicTimer()      Destroys the basic timer. */
 comment|/*!     \fn bool QBasicTimer::isActive() const      Returns true if the timer is running and has not been stopped; otherwise     returns false.      \sa start() stop() */
 comment|/*!     \fn int QBasicTimer::timerId() const      Returns the timer's ID.      \sa QTimerEvent::timerId() */
-comment|/*!     \fn void QBasicTimer::start(int msec, QObject *object)      Starts (or restarts) the timer with a \a msec milliseconds     timeout.      The given \a object will receive timer events.      \sa stop() isActive() QObject::timerEvent()  */
+comment|/*!     \fn void QBasicTimer::start(int msec, QObject *object)      Starts (or restarts) the timer with a \a msec milliseconds timeout. The     timer will be a Qt::CoarseTimer. See Qt::TimerType for information on the     different timer types.      The given \a object will receive timer events.      \sa stop() isActive() QObject::timerEvent() Qt::CoarseTimer  */
 DECL|function|start
 name|void
 name|QBasicTimer
