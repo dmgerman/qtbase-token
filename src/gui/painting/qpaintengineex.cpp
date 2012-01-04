@@ -7217,7 +7217,7 @@ name|s
 operator|->
 name|pen
 operator|.
-name|color
+name|brush
 argument_list|()
 argument_list|)
 expr_stmt|;
