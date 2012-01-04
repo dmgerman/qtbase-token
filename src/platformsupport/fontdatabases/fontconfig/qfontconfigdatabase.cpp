@@ -3593,6 +3593,8 @@ expr_stmt|;
 name|FcChar8
 modifier|*
 name|familyAfterSubstitution
+init|=
+literal|0
 decl_stmt|;
 name|FcPatternGetString
 argument_list|(
