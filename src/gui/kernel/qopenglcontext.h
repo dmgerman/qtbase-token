@@ -292,6 +292,12 @@ name|functions
 argument_list|()
 specifier|const
 block|;
+name|Q_SIGNALS
+operator|:
+name|void
+name|aboutToBeDestroyed
+argument_list|()
+block|;
 name|private
 operator|:
 name|friend

@@ -534,6 +534,16 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|d
+operator|->
+name|platformGLContext
+condition|)
+emit|emit
+name|aboutToBeDestroyed
+argument_list|()
+emit|;
+if|if
+condition|(
 name|QOpenGLContext
 operator|::
 name|currentContext
@@ -592,6 +602,9 @@ literal|0
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QOpenGLContext::aboutToBeDestroyed()      This signal is emitted before the underlying native OpenGL context is     destroyed, such that users may clean up OpenGL resources that might otherwise     be left dangling in the case of shared OpenGL contexts.      If you wish to make the context current in order to do clean-up, make sure to     only connect to the signal using a direct connection. */
+end_comment
 begin_comment
 comment|/*!   If this is the current context for the thread, doneCurrent is called */
 end_comment
