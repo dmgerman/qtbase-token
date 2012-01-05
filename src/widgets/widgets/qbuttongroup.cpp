@@ -59,10 +59,4 @@ end_comment
 begin_comment
 comment|/*!     \fn int QButtonGroup::checkedId() const;     \since 4.1      Returns the id of the checkedButton(), or -1 if no button is checked.      \sa setId() */
 end_comment
-begin_comment
-comment|/*! \fn void QButtonGroup::insert(QAbstractButton *b)      Use addButton() instead. */
-end_comment
-begin_comment
-comment|/*! \fn void QButtonGroup::remove(QAbstractButton *b)      Use removeButton() instead. */
-end_comment
 end_unit

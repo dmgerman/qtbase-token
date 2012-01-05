@@ -3823,21 +3823,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QSpinBox::setLineStep(int step)      Use setSingleStep() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QSpinBox::setMaxValue(int value)      Use setMaximum() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QSpinBox::setMinValue(int value)      Use setMinimum() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QSpinBox::maxValue() const      Use maximum() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QSpinBox::minValue() const      Use minimum() instead. */
-end_comment
-begin_comment
 comment|/*! \reimp */
 end_comment
 begin_function
