@@ -292,12 +292,14 @@ decl_stmt|;
 comment|// QAccessibleImageInterface
 name|QString
 name|imageDescription
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QSize
 name|imageSize
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QRect
 name|imagePosition
 argument_list|(
@@ -306,6 +308,7 @@ operator|::
 name|CoordinateType
 name|coordType
 argument_list|)
+decl|const
 decl_stmt|;
 block|}
 end_decl_stmt

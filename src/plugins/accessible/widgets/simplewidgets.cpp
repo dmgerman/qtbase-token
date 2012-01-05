@@ -2093,6 +2093,7 @@ name|QAccessibleDisplay
 operator|::
 name|imageDescription
 parameter_list|()
+specifier|const
 block|{
 ifndef|#
 directive|ifndef
@@ -2125,6 +2126,7 @@ name|QAccessibleDisplay
 operator|::
 name|imageSize
 parameter_list|()
+specifier|const
 block|{
 name|QLabel
 modifier|*
@@ -2191,6 +2193,7 @@ operator|::
 name|CoordinateType
 name|coordType
 parameter_list|)
+specifier|const
 block|{
 name|QLabel
 modifier|*
