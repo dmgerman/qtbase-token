@@ -179,6 +179,14 @@ operator|*
 name|delta
 argument_list|)
 block|;
+name|void
+name|timerRepair
+argument_list|(
+specifier|const
+name|timeval
+operator|&
+argument_list|)
+block|;
 endif|#
 directive|endif
 comment|// state variables used by activateTimers()
@@ -215,14 +223,6 @@ name|timerInsert
 argument_list|(
 name|QTimerInfo
 operator|*
-argument_list|)
-block|;
-name|void
-name|timerRepair
-argument_list|(
-specifier|const
-name|timeval
-operator|&
 argument_list|)
 block|;
 name|void
