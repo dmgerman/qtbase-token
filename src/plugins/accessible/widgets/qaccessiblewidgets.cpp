@@ -1329,6 +1329,7 @@ name|int
 modifier|*
 name|endOffset
 parameter_list|)
+specifier|const
 block|{
 comment|/* The list of attributes can be found at:      http://linuxfoundation.org/collaborate/workgroups/accessibility/iaccessible2/textattributes     */
 if|if
@@ -2068,6 +2069,7 @@ name|QAccessibleTextEdit
 operator|::
 name|cursorPosition
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|textEdit
@@ -2094,6 +2096,7 @@ parameter_list|,
 name|CoordinateType
 name|coordType
 parameter_list|)
+specifier|const
 block|{
 name|QTextEdit
 modifier|*
@@ -2263,6 +2266,7 @@ name|QAccessibleTextEdit
 operator|::
 name|selectionCount
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|textEdit
@@ -2295,6 +2299,7 @@ parameter_list|,
 name|CoordinateType
 name|coordType
 parameter_list|)
+specifier|const
 block|{
 name|QTextEdit
 modifier|*
@@ -2386,6 +2391,7 @@ name|int
 modifier|*
 name|endOffset
 parameter_list|)
+specifier|const
 block|{
 operator|*
 name|startOffset
@@ -2448,6 +2454,7 @@ parameter_list|,
 name|int
 name|endOffset
 parameter_list|)
+specifier|const
 block|{
 name|QTextCursor
 name|cursor
@@ -2510,6 +2517,7 @@ name|int
 modifier|*
 name|endOffset
 parameter_list|)
+specifier|const
 block|{
 comment|// TODO - what exactly is before?
 name|Q_UNUSED
@@ -2559,6 +2567,7 @@ name|int
 modifier|*
 name|endOffset
 parameter_list|)
+specifier|const
 block|{
 comment|// TODO - what exactly is after?
 name|Q_UNUSED
@@ -2608,6 +2617,7 @@ name|int
 modifier|*
 name|endOffset
 parameter_list|)
+specifier|const
 block|{
 name|Q_ASSERT
 argument_list|(
@@ -3048,6 +3058,7 @@ name|QAccessibleTextEdit
 operator|::
 name|characterCount
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|textEdit
@@ -3254,6 +3265,7 @@ parameter_list|,
 name|int
 name|endOffset
 parameter_list|)
+specifier|const
 block|{
 name|QTextCursor
 name|cursor

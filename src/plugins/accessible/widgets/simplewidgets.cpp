@@ -2747,6 +2747,7 @@ name|int
 modifier|*
 name|endOffset
 parameter_list|)
+specifier|const
 block|{
 comment|// QLineEdit doesn't have text attributes
 operator|*
@@ -2770,6 +2771,7 @@ name|QAccessibleLineEdit
 operator|::
 name|cursorPosition
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|lineEdit
@@ -2793,6 +2795,7 @@ parameter_list|,
 name|CoordinateType
 comment|/*coordType*/
 parameter_list|)
+specifier|const
 block|{
 comment|// QLineEdit doesn't hand out character rects
 return|return
@@ -2808,6 +2811,7 @@ name|QAccessibleLineEdit
 operator|::
 name|selectionCount
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|lineEdit
@@ -2837,6 +2841,7 @@ parameter_list|,
 name|CoordinateType
 name|coordType
 parameter_list|)
+specifier|const
 block|{
 name|QPoint
 name|p
@@ -2888,6 +2893,7 @@ name|int
 modifier|*
 name|endOffset
 parameter_list|)
+specifier|const
 block|{
 operator|*
 name|startOffset
@@ -2943,6 +2949,7 @@ parameter_list|,
 name|int
 name|endOffset
 parameter_list|)
+specifier|const
 block|{
 if|if
 condition|(
@@ -3009,6 +3016,7 @@ name|int
 modifier|*
 name|endOffset
 parameter_list|)
+specifier|const
 block|{
 if|if
 condition|(
@@ -3078,6 +3086,7 @@ name|int
 modifier|*
 name|endOffset
 parameter_list|)
+specifier|const
 block|{
 if|if
 condition|(
@@ -3147,6 +3156,7 @@ name|int
 modifier|*
 name|endOffset
 parameter_list|)
+specifier|const
 block|{
 if|if
 condition|(
@@ -3287,6 +3297,7 @@ name|QAccessibleLineEdit
 operator|::
 name|characterCount
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|lineEdit
@@ -3417,6 +3428,7 @@ name|QAccessibleProgressBar
 operator|::
 name|currentValue
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|progressBar
@@ -3434,6 +3446,7 @@ name|QAccessibleProgressBar
 operator|::
 name|maximumValue
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|progressBar
@@ -3451,6 +3464,7 @@ name|QAccessibleProgressBar
 operator|::
 name|minimumValue
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|progressBar

@@ -273,6 +273,7 @@ name|QAccessibleAbstractSpinBox
 operator|::
 name|currentValue
 parameter_list|()
+specifier|const
 block|{
 name|QVariant
 name|result
@@ -369,6 +370,7 @@ name|QAccessibleAbstractSpinBox
 operator|::
 name|maximumValue
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|abstractSpinBox
@@ -388,6 +390,7 @@ name|QAccessibleAbstractSpinBox
 operator|::
 name|minimumValue
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|abstractSpinBox
@@ -922,6 +925,7 @@ name|QAccessibleAbstractSlider
 operator|::
 name|currentValue
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|abstractSlider
@@ -965,6 +969,7 @@ name|QAccessibleAbstractSlider
 operator|::
 name|maximumValue
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|abstractSlider
@@ -982,6 +987,7 @@ name|QAccessibleAbstractSlider
 operator|::
 name|minimumValue
 parameter_list|()
+specifier|const
 block|{
 return|return
 name|abstractSlider

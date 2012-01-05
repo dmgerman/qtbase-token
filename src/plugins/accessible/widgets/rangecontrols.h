@@ -119,8 +119,9 @@ decl_stmt|;
 comment|// QAccessibleValueInterface
 name|QVariant
 name|currentValue
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|void
 name|setCurrentValue
 parameter_list|(
@@ -132,12 +133,14 @@ parameter_list|)
 function_decl|;
 name|QVariant
 name|maximumValue
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QVariant
 name|minimumValue
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 comment|// FIXME Action interface
 name|protected
 label|:
@@ -263,8 +266,9 @@ decl_stmt|;
 comment|// QAccessibleValueInterface
 name|QVariant
 name|currentValue
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|void
 name|setCurrentValue
 parameter_list|(
@@ -276,12 +280,14 @@ parameter_list|)
 function_decl|;
 name|QVariant
 name|maximumValue
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QVariant
 name|minimumValue
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|protected
 label|:
 name|QAbstractSlider

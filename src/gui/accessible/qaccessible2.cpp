@@ -1067,6 +1067,7 @@ parameter_list|,
 name|int
 name|endOffset
 parameter_list|)
+specifier|const
 block|{
 ifdef|#
 directive|ifdef
