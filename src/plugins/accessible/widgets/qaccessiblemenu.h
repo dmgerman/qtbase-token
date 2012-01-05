@@ -104,17 +104,6 @@ argument_list|()
 specifier|const
 block|;
 name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
-argument_list|)
-specifier|const
-block|;
-name|int
 name|indexOfChild
 argument_list|(
 argument|const QAccessibleInterface *child
@@ -164,17 +153,6 @@ block|;
 name|int
 name|childCount
 argument_list|()
-specifier|const
-block|;
-name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
-argument_list|)
 specifier|const
 block|;
 name|int
@@ -314,15 +292,6 @@ expr_stmt|;
 name|QRect
 name|rect
 argument_list|()
-specifier|const
-expr_stmt|;
-name|QAccessible
-operator|::
-name|Relation
-name|relationTo
-argument_list|(
-argument|const QAccessibleInterface *other
-argument_list|)
 specifier|const
 expr_stmt|;
 name|QAccessible

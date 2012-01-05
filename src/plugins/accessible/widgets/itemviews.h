@@ -666,6 +666,14 @@ name|childCount
 argument_list|()
 specifier|const
 block|;
+name|QAccessibleInterface
+operator|*
+name|child
+argument_list|(
+argument|int index
+argument_list|)
+specifier|const
+block|;
 name|int
 name|indexOfChild
 argument_list|(
@@ -676,17 +684,6 @@ block|;
 name|int
 name|rowCount
 argument_list|()
-specifier|const
-block|;
-name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int index
-argument_list|,
-argument|QAccessibleInterface **iface
-argument_list|)
 specifier|const
 block|;
 name|QAccessible
@@ -902,15 +899,6 @@ name|iface
 argument_list|)
 decl|const
 decl_stmt|;
-name|QAccessible
-operator|::
-name|Relation
-name|relationTo
-argument_list|(
-argument|const QAccessibleInterface *other
-argument_list|)
-specifier|const
-expr_stmt|;
 comment|// cell interface
 name|virtual
 name|int
@@ -1373,31 +1361,16 @@ argument|QAccessibleInterface **iface
 argument_list|)
 specifier|const
 block|{
-if|if
-condition|(
+name|Q_UNUSED
+argument_list|(
 name|relation
-operator|==
-name|QAccessible
-operator|::
-name|Ancestor
-condition|)
-block|{
-operator|*
+argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
 name|iface
-operator|=
-name|parent
-argument_list|()
-expr_stmt|;
-return|return
-operator|*
-name|iface
-condition|?
-literal|0
-else|:
-operator|-
-literal|1
-return|;
-block|}
+argument_list|)
+block|;
 return|return
 operator|-
 literal|1
