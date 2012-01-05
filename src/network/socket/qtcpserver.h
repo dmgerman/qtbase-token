@@ -125,7 +125,7 @@ name|serverAddress
 argument_list|()
 specifier|const
 block|;
-name|int
+name|qintptr
 name|socketDescriptor
 argument_list|()
 specifier|const
@@ -133,7 +133,7 @@ block|;
 name|bool
 name|setSocketDescriptor
 argument_list|(
-argument|int socketDescriptor
+argument|qintptr socketDescriptor
 argument_list|)
 block|;
 name|bool
@@ -195,7 +195,7 @@ name|virtual
 name|void
 name|incomingConnection
 argument_list|(
-argument|int handle
+argument|qintptr handle
 argument_list|)
 block|;
 name|void

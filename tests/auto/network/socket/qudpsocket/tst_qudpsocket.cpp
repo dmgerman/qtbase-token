@@ -659,6 +659,9 @@ operator|.
 name|socketDescriptor
 argument_list|()
 argument_list|,
+operator|(
+name|qintptr
+operator|)
 operator|-
 literal|1
 argument_list|)

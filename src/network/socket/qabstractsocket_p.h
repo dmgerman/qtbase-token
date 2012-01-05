@@ -269,7 +269,7 @@ name|QAbstractSocketEngine
 modifier|*
 name|socketEngine
 decl_stmt|;
-name|int
+name|qintptr
 name|cachedSocketDescriptor
 decl_stmt|;
 ifndef|#

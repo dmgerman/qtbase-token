@@ -649,6 +649,9 @@ operator|.
 name|socketDescriptor
 argument_list|()
 argument_list|,
+operator|(
+name|qintptr
+operator|)
 operator|-
 literal|1
 argument_list|)
@@ -2316,7 +2319,7 @@ DECL|function|incomingConnection
 name|void
 name|incomingConnection
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|)
 block|{

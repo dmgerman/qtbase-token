@@ -185,7 +185,7 @@ name|QAbstractSocketEngine
 operator|*
 name|createSocketEngine
 argument_list|(
-argument|int socketDescripter
+argument|qintptr socketDescriptor
 argument_list|,
 argument|QObject *parent
 argument_list|)
@@ -241,7 +241,7 @@ name|virtual
 name|bool
 name|initialize
 argument_list|(
-argument|int socketDescriptor
+argument|qintptr socketDescriptor
 argument_list|,
 argument|QAbstractSocket::SocketState socketState = QAbstractSocket::ConnectedState
 argument_list|)
@@ -249,7 +249,7 @@ operator|=
 literal|0
 block|;
 name|virtual
-name|int
+name|qintptr
 name|socketDescriptor
 argument_list|()
 specifier|const
@@ -878,8 +878,8 @@ name|QAbstractSocketEngine
 modifier|*
 name|createSocketEngine
 parameter_list|(
-name|int
-name|socketDescripter
+name|qintptr
+name|socketDescriptor
 parameter_list|,
 name|QObject
 modifier|*

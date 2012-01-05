@@ -301,12 +301,12 @@ block|;
 name|bool
 name|initialize
 argument_list|(
-argument|int socketDescriptor
+argument|qintptr socketDescriptor
 argument_list|,
 argument|QAbstractSocket::SocketState socketState = QAbstractSocket::ConnectedState
 argument_list|)
 block|;
-name|int
+name|qintptr
 name|socketDescriptor
 argument_list|()
 specifier|const
@@ -646,7 +646,7 @@ operator|~
 name|QNativeSocketEnginePrivate
 argument_list|()
 block|;
-name|int
+name|qintptr
 name|socketDescriptor
 block|;
 name|QSocketNotifier

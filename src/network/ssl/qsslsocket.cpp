@@ -463,7 +463,7 @@ name|QSslSocket
 operator|::
 name|setSocketDescriptor
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|,
 name|SocketState

@@ -1062,7 +1062,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|//QCOMPARE(socket.socketDescriptor(), -1);
+comment|//QCOMPARE(socket.socketDescriptor(), (qintptr)-1);
 name|QCOMPARE
 argument_list|(
 name|socket
@@ -3690,7 +3690,7 @@ block|{
 name|LocalSocket
 name|socket
 decl_stmt|;
-name|quintptr
+name|qintptr
 name|minusOne
 init|=
 operator|-

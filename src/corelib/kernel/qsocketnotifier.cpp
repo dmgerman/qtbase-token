@@ -50,7 +50,7 @@ name|QSocketNotifier
 operator|::
 name|QSocketNotifier
 parameter_list|(
-name|int
+name|qintptr
 name|socket
 parameter_list|,
 name|Type

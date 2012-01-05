@@ -52,7 +52,7 @@ block|}
 block|;
 name|QSocketNotifier
 argument_list|(
-argument|int socket
+argument|qintptr socket
 argument_list|,
 argument|Type
 argument_list|,
@@ -126,7 +126,7 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QSocketNotifier
 argument_list|)
-name|int
+name|qintptr
 name|sockfd
 block|;
 name|Type

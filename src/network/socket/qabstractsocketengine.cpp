@@ -372,7 +372,7 @@ name|QAbstractSocketEngine
 operator|::
 name|createSocketEngine
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescripter
 parameter_list|,
 name|QObject

@@ -1122,7 +1122,7 @@ name|QNativeSocketEngine
 operator|::
 name|initialize
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|,
 name|QAbstractSocket
@@ -1324,7 +1324,7 @@ comment|/*!     Returns the native socket descriptor. Any use of this descriptor
 end_comment
 begin_function
 DECL|function|socketDescriptor
-name|int
+name|qintptr
 name|QNativeSocketEngine
 operator|::
 name|socketDescriptor
@@ -3802,7 +3802,7 @@ public|public:
 DECL|function|QReadNotifier
 name|QReadNotifier
 parameter_list|(
-name|int
+name|qintptr
 name|fd
 parameter_list|,
 name|QNativeSocketEngine

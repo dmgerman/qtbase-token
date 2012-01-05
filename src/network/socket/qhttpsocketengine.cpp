@@ -363,7 +363,7 @@ name|QHttpSocketEngine
 operator|::
 name|initialize
 parameter_list|(
-name|int
+name|qintptr
 parameter_list|,
 name|QAbstractSocket
 operator|::
@@ -453,7 +453,7 @@ block|}
 end_function
 begin_function
 DECL|function|socketDescriptor
-name|int
+name|qintptr
 name|QHttpSocketEngine
 operator|::
 name|socketDescriptor
@@ -3902,7 +3902,7 @@ name|QHttpSocketEngineHandler
 operator|::
 name|createSocketEngine
 parameter_list|(
-name|int
+name|qintptr
 parameter_list|,
 name|QObject
 modifier|*

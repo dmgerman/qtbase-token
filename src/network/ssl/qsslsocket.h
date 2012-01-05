@@ -155,7 +155,7 @@ block|;
 name|bool
 name|setSocketDescriptor
 argument_list|(
-argument|int socketDescriptor
+argument|qintptr socketDescriptor
 argument_list|,
 argument|SocketState state = ConnectedState
 argument_list|,

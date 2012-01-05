@@ -1061,7 +1061,7 @@ comment|/*!     Returns the native socket descriptor the server uses to listen  
 end_comment
 begin_function
 DECL|function|socketDescriptor
-name|int
+name|qintptr
 name|QTcpServer
 operator|::
 name|socketDescriptor
@@ -1100,7 +1100,7 @@ name|QTcpServer
 operator|::
 name|setSocketDescriptor
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|)
 block|{
@@ -1596,7 +1596,7 @@ name|QTcpServer
 operator|::
 name|incomingConnection
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|)
 block|{

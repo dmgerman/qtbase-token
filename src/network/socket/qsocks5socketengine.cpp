@@ -1547,7 +1547,7 @@ destructor_decl|;
 name|void
 name|add
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|,
 name|QSocks5BindData
@@ -1558,7 +1558,7 @@ function_decl|;
 name|bool
 name|contains
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|)
 function_decl|;
@@ -1566,7 +1566,7 @@ name|QSocks5BindData
 modifier|*
 name|retrieve
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|)
 function_decl|;
@@ -1676,7 +1676,7 @@ name|QSocks5BindStore
 operator|::
 name|add
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|,
 name|QSocks5BindData
@@ -1743,7 +1743,7 @@ name|QSocks5BindStore
 operator|::
 name|contains
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|)
 block|{
@@ -1772,7 +1772,7 @@ name|QSocks5BindStore
 operator|::
 name|retrieve
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|)
 block|{
@@ -4966,7 +4966,7 @@ name|QSocks5SocketEngine
 operator|::
 name|initialize
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|,
 name|QAbstractSocket
@@ -5406,7 +5406,7 @@ block|}
 end_function
 begin_function
 DECL|function|socketDescriptor
-name|int
+name|qintptr
 name|QSocks5SocketEngine
 operator|::
 name|socketDescriptor
@@ -7223,7 +7223,7 @@ name|d
 operator|->
 name|localPort
 expr_stmt|;
-name|int
+name|qintptr
 name|sd
 init|=
 name|d
@@ -9822,7 +9822,7 @@ name|QSocks5SocketEngineHandler
 operator|::
 name|createSocketEngine
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|,
 name|QObject

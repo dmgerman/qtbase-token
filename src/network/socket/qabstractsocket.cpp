@@ -5172,7 +5172,7 @@ comment|/*!     Returns the native socket descriptor of the QAbstractSocket obje
 end_comment
 begin_function
 DECL|function|socketDescriptor
-name|int
+name|qintptr
 name|QAbstractSocket
 operator|::
 name|socketDescriptor
@@ -5202,7 +5202,7 @@ name|QAbstractSocket
 operator|::
 name|setSocketDescriptor
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|,
 name|SocketState

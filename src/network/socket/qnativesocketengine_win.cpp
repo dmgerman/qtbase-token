@@ -1178,7 +1178,7 @@ operator|::
 name|SocketType
 name|qt_socket_getType
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|)
 block|{
@@ -1270,7 +1270,7 @@ specifier|inline
 name|int
 name|qt_socket_getMaxMsgSize
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|)
 block|{

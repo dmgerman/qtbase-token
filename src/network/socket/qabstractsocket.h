@@ -349,7 +349,7 @@ name|abort
 argument_list|()
 block|;
 comment|// ### Qt 5: Make socketDescriptor() and setSocketDescriptor() virtual.
-name|int
+name|qintptr
 name|socketDescriptor
 argument_list|()
 specifier|const
@@ -357,7 +357,7 @@ block|;
 name|bool
 name|setSocketDescriptor
 argument_list|(
-argument|int socketDescriptor
+argument|qintptr socketDescriptor
 argument_list|,
 argument|SocketState state = ConnectedState
 argument_list|,

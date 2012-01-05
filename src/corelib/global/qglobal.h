@@ -3196,6 +3196,13 @@ name|Signed
 name|qptrdiff
 expr_stmt|;
 end_typedef
+begin_typedef
+DECL|typedef|qintptr
+typedef|typedef
+name|qptrdiff
+name|qintptr
+typedef|;
+end_typedef
 begin_comment
 comment|/*    Useful type definitions for Qt */
 end_comment
