@@ -949,16 +949,6 @@ condition|)
 return|return
 literal|0
 return|;
-operator|::
-name|fcntl
-argument_list|(
-name|fd
-argument_list|,
-name|F_SETFD
-argument_list|,
-name|FD_CLOEXEC
-argument_list|)
-expr_stmt|;
 block|}
 return|return
 operator|new
