@@ -137,6 +137,30 @@ block|;
 name|void
 name|emitInputPanelVisibleChanged
 argument_list|()
+block|;
+name|virtual
+name|QLocale
+name|locale
+argument_list|()
+specifier|const
+block|;
+name|void
+name|emitLocaleChanged
+argument_list|()
+block|;
+name|virtual
+name|Qt
+operator|::
+name|LayoutDirection
+name|inputDirection
+argument_list|()
+specifier|const
+block|;
+name|void
+name|emitInputDirectionChanged
+argument_list|(
+argument|Qt::LayoutDirection newDirection
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
