@@ -87,11 +87,6 @@ name|TimerType
 name|timerType
 expr_stmt|;
 comment|// - timer type
-DECL|member|expected
-name|timeval
-name|expected
-decl_stmt|;
-comment|// when timer is expected to fire
 DECL|member|timeout
 name|timeval
 name|timeout
@@ -113,6 +108,11 @@ comment|// - ref from activateTimers
 ifdef|#
 directive|ifdef
 name|QTIMERINFO_DEBUG
+DECL|member|expected
+name|timeval
+name|expected
+decl_stmt|;
+comment|// when timer is expected to fire
 DECL|member|cumulativeError
 name|float
 name|cumulativeError
