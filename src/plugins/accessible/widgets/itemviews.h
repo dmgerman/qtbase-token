@@ -1246,7 +1246,8 @@ block|{
 return|return
 name|QAccessible
 operator|::
-name|Normal
+name|State
+argument_list|()
 return|;
 block|}
 name|QRect
