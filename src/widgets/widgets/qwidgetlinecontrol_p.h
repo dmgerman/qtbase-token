@@ -86,6 +86,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtGui/qinputpanel.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"QtCore/qpoint.h"
 end_include
 begin_include
@@ -1916,9 +1921,12 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return
-name|QApplication
-operator|::
-name|keyboardInputDirection
+name|qApp
+operator|->
+name|inputPanel
+argument_list|()
+operator|->
+name|inputDirection
 argument_list|()
 return|;
 return|return

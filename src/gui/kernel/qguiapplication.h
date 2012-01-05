@@ -345,12 +345,13 @@ operator|::
 name|LeftToRight
 return|;
 block|}
-comment|// ### move to QInputPanel
+name|QT_DEPRECATED
 specifier|static
 name|QLocale
 name|keyboardInputLocale
 argument_list|()
 block|;
+name|QT_DEPRECATED
 specifier|static
 name|Qt
 operator|::

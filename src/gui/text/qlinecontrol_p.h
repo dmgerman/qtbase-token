@@ -1678,9 +1678,12 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return
-name|QGuiApplication
-operator|::
-name|keyboardInputDirection
+name|qApp
+operator|->
+name|inputPanel
+argument_list|()
+operator|->
+name|inputDirection
 argument_list|()
 return|;
 return|return

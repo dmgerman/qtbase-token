@@ -80,6 +80,14 @@ name|Q_PROPERTY
 argument_list|(
 argument|bool animating READ isAnimating NOTIFY animatingChanged
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|QLocale locale READ locale NOTIFY localeChanged
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|Qt::LayoutDirection inputDirection READ inputDirection NOTIFY inputDirectionChanged
+argument_list|)
 name|Q_ENUMS
 argument_list|(
 argument|Action
@@ -156,6 +164,18 @@ name|isAnimating
 argument_list|()
 specifier|const
 block|;
+name|QLocale
+name|locale
+argument_list|()
+specifier|const
+block|;
+name|Qt
+operator|::
+name|LayoutDirection
+name|inputDirection
+argument_list|()
+specifier|const
+block|;
 name|public
 name|Q_SLOTS
 operator|:
@@ -210,6 +230,16 @@ block|;
 name|void
 name|animatingChanged
 argument_list|()
+block|;
+name|void
+name|localeChanged
+argument_list|()
+block|;
+name|void
+name|inputDirectionChanged
+argument_list|(
+argument|Qt::LayoutDirection newDirection
+argument_list|)
 block|;
 name|private
 operator|:
