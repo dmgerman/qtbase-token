@@ -2056,7 +2056,7 @@ name|QVERIFY
 argument_list|(
 name|s1
 operator|.
-name|unavailable
+name|disabled
 operator|==
 literal|0
 argument_list|)
@@ -10855,7 +10855,7 @@ operator|->
 name|state
 argument_list|()
 operator|.
-name|unavailable
+name|disabled
 argument_list|)
 expr_stmt|;
 name|testWindow

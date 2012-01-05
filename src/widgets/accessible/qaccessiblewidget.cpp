@@ -3032,7 +3032,7 @@ argument_list|()
 condition|)
 name|state
 operator|.
-name|unavailable
+name|disabled
 operator|=
 literal|true
 expr_stmt|;

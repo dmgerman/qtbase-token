@@ -379,13 +379,20 @@ comment|// which makes using a bit field a sensible alternative
 block|struct
 name|State
 block|{
+comment|// http://msdn.microsoft.com/en-us/library/ms697270.aspx
 name|quint64
-name|unavailable
+name|disabled
+operator|:
+literal|1
+block|;
+comment|// used to be Unavailable
+name|quint64
+name|selected
 operator|:
 literal|1
 block|;
 name|quint64
-name|selected
+name|focusable
 operator|:
 literal|1
 block|;
@@ -400,15 +407,21 @@ operator|:
 literal|1
 block|;
 name|quint64
+name|checkable
+operator|:
+literal|1
+block|;
+name|quint64
 name|checked
 operator|:
 literal|1
 block|;
 name|quint64
-name|mixed
+name|checkStateMixed
 operator|:
 literal|1
 block|;
+comment|// used to be Mixed
 name|quint64
 name|readOnly
 operator|:
@@ -439,7 +452,6 @@ name|busy
 operator|:
 literal|1
 block|;
-comment|//       quint64 Floating : 1;
 name|quint64
 name|expandable
 operator|:
@@ -481,11 +493,6 @@ operator|:
 literal|1
 block|;
 name|quint64
-name|focusable
-operator|:
-literal|1
-block|;
-name|quint64
 name|selectable
 operator|:
 literal|1
@@ -510,14 +517,12 @@ name|extSelectable
 operator|:
 literal|1
 block|;
-comment|//       quint64 alertLow : 1;
-comment|//       quint64 alertMedium : 1;
-comment|//       quint64 alertHigh : 1;
 name|quint64
 name|passwordEdit
 operator|:
 literal|1
 block|;
+comment|// used to be Protected
 name|quint64
 name|hasPopup
 operator|:
@@ -528,6 +533,57 @@ name|modal
 operator|:
 literal|1
 block|;
+comment|// IA2 - we chose to not add some IA2 states for now
+comment|// Below the ones that seem helpful
+name|quint64
+name|active
+operator|:
+literal|1
+block|;
+name|quint64
+name|invalid
+operator|:
+literal|1
+block|;
+comment|// = defunct
+name|quint64
+name|editable
+operator|:
+literal|1
+block|;
+name|quint64
+name|multiLine
+operator|:
+literal|1
+block|;
+name|quint64
+name|selectableText
+operator|:
+literal|1
+block|;
+name|quint64
+name|supportsAutoCompletion
+operator|:
+literal|1
+block|;
+comment|// quint64 horizontal : 1;
+comment|// quint64 vertical : 1;
+comment|// quint64 invalidEntry : 1;
+comment|// quint64 managesDescendants : 1;
+comment|// quint64 singleLine : 1; // we have multi line, this is redundant.
+comment|// quint64 stale : 1;
+comment|// quint64 transient : 1;
+comment|// quint64 pinned : 1;
+comment|// Apple - see http://mattgemmell.com/2010/12/19/accessibility-for-iphone-and-ipad-apps/
+comment|// quint64 playsSound : 1;
+comment|// quint64 summaryElement : 1;
+comment|// quint64 updatesFrequently : 1;
+comment|// quint64 adjustable : 1;
+comment|// more and not included here: http://developer.apple.com/library/mac/#documentation/UserExperience/Reference/Accessibility_RoleAttribute_Ref/Attributes.html
+comment|// MSAA
+comment|// quint64 alertLow : 1;
+comment|// quint64 alertMedium : 1;
+comment|// quint64 alertHigh : 1;
 name|State
 argument_list|()
 block|{
@@ -544,7 +600,7 @@ argument_list|)
 argument_list|)
 block|;         }
 block|}
-block|;      enum
+block|;          enum
 name|Role
 block|{
 name|NoRole

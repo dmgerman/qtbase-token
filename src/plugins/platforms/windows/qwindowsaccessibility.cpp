@@ -5475,7 +5475,7 @@ if|if
 condition|(
 name|state
 operator|.
-name|mixed
+name|checkStateMixed
 condition|)
 name|st
 operator||=

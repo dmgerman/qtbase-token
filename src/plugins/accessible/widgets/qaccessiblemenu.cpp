@@ -1329,7 +1329,7 @@ argument_list|()
 condition|)
 name|s
 operator|.
-name|unavailable
+name|disabled
 operator|=
 literal|true
 expr_stmt|;

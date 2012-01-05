@@ -534,7 +534,7 @@ name|PartiallyChecked
 condition|)
 name|state
 operator|.
-name|mixed
+name|checkStateMixed
 operator|=
 literal|true
 expr_stmt|;
