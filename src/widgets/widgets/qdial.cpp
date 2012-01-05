@@ -1492,15 +1492,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn void QDial::dialPressed();      Use QAbstractSlider::sliderPressed() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QDial::dialMoved(int value);      Use QAbstractSlider::sliderMoved() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QDial::dialReleased();      Use QAbstractSlider::sliderReleased() instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

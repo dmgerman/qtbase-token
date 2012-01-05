@@ -37827,9 +37827,6 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!     \enum QWidget::BackgroundOrigin      \compat      \value WidgetOrigin     \value ParentOrigin     \value WindowOrigin     \value AncestorOrigin  */
-comment|/*!     \fn void QWidget::drawText(const QPoint&p, const QString&s)      Drawing may only take place in a QPaintEvent. Overload     paintEvent() to do your drawing and call update() to schedule a     replaint whenever necessary. See also QPainter. */
-comment|/*!     \fn void QWidget::drawText(int x, int y, const QString&s)      Drawing may only take place in a QPaintEvent. Overload     paintEvent() to do your drawing and call update() to schedule a     replaint whenever necessary. See also QPainter. */
 comment|/*!     \fn bool QWidget::isTopLevel() const     \obsolete      Use isWindow() instead. */
 comment|/*!     \fn bool QWidget::isRightToLeft() const     \internal */
 comment|/*!     \fn bool QWidget::isLeftToRight() const     \internal */
