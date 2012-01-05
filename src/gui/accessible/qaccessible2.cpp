@@ -61,7 +61,7 @@ begin_comment
 comment|/*!     \fn QString QAccessibleActionInterface::localizedActionDescription(const QString&name) const      Returns a localized action description of \a name.      This is what should be presented to the user. The actionNames should always     be untranslated to make them consistent for screen readers.      \sa actionNames(), localizedActionName() */
 end_comment
 begin_comment
-comment|/*!     \fn void QAccessibleActionInterface::doAction(const QString&actionName) const      Invokes the action specified by \a actionName      \sa actionNames() */
+comment|/*!     \fn void QAccessibleActionInterface::doAction(const QString&actionName)      Invokes the action specified by \a actionName      \sa actionNames() */
 end_comment
 begin_comment
 comment|/*!     \fn QStringList QAccessibleActionInterface::keyBindingsForAction(const QString&actionName) const      Returns a list of the keyboard shortcuts available for invoking the action named \a actionName      \sa actionNames() */
