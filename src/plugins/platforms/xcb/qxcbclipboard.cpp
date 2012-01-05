@@ -916,7 +916,7 @@ name|m_owner
 argument_list|,
 name|XCB_SELECTION_NOTIFY
 argument_list|,
-literal|5000
+name|clipboard_timeout
 argument_list|,
 literal|true
 argument_list|)
