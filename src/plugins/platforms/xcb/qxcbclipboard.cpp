@@ -930,6 +930,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|free
+argument_list|(
+name|reply
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_destructor
@@ -3083,6 +3088,11 @@ operator|==
 name|XCB_NONE
 condition|)
 block|{
+name|free
+argument_list|(
+name|reply
+argument_list|)
+expr_stmt|;
 name|buffer
 operator|->
 name|resize
