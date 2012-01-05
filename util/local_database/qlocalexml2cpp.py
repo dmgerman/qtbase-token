@@ -5,7 +5,7 @@ comment|'#######################################################################
 nl|'\n'
 comment|'##'
 nl|'\n'
-comment|'## Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).'
+comment|'## Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies).'
 nl|'\n'
 comment|'## All rights reserved.'
 nl|'\n'
