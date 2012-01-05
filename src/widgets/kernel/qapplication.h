@@ -1030,10 +1030,6 @@ directive|endif
 name|Q_SIGNALS
 operator|:
 name|void
-name|lastWindowClosed
-argument_list|()
-block|;
-name|void
 name|focusChanged
 argument_list|(
 name|QWidget
