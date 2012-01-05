@@ -261,6 +261,11 @@ name|type
 parameter_list|,
 name|int
 name|timeout
+parameter_list|,
+name|bool
+name|needsManager
+init|=
+name|false
 parameter_list|)
 function_decl|;
 name|xcb_atom_t
