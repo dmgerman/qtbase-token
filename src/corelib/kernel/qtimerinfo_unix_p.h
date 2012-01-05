@@ -128,6 +128,7 @@ struct|;
 end_struct
 begin_decl_stmt
 name|class
+name|Q_CORE_EXPORT
 name|QTimerInfoList
 range|:
 name|public
