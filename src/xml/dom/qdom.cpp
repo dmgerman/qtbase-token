@@ -24232,6 +24232,14 @@ argument_list|,
 name|notationName
 argument_list|)
 decl_stmt|;
+comment|// keep the refcount balanced: appendChild() does a ref anyway.
+name|e
+operator|->
+name|ref
+operator|.
+name|deref
+argument_list|()
+expr_stmt|;
 name|doc
 operator|->
 name|doctype
