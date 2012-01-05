@@ -37828,61 +37828,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*!     \enum QWidget::BackgroundOrigin      \compat      \value WidgetOrigin     \value ParentOrigin     \value WindowOrigin     \value AncestorOrigin  */
-comment|/*!     \fn bool QWidget::isVisibleToTLW() const      Use isVisible() instead. */
-comment|/*!     \fn void QWidget::iconify()      Use showMinimized() instead. */
-comment|/*!     \fn void QWidget::constPolish() const      Use ensurePolished() instead. */
-comment|/*!     \fn void QWidget::reparent(QWidget *parent, Qt::WindowFlags f, const QPoint&p, bool showIt)      Use setParent() to change the parent or the widget's widget flags;     use move() to move the widget, and use show() to show the widget. */
-comment|/*!     \fn void QWidget::reparent(QWidget *parent, const QPoint&p, bool showIt)      Use setParent() to change the parent; use move() to move the     widget, and use show() to show the widget. */
-comment|/*!     \fn void QWidget::recreate(QWidget *parent, Qt::WindowFlags f, const QPoint& p, bool showIt)      Use setParent() to change the parent or the widget's widget flags;     use move() to move the widget, and use show() to show the widget. */
-comment|/*!     \fn bool QWidget::hasMouse() const      Use testAttribute(Qt::WA_UnderMouse) instead. */
-comment|/*!     \fn bool QWidget::ownCursor() const      Use testAttribute(Qt::WA_SetCursor) instead. */
-comment|/*!     \fn bool QWidget::ownFont() const      Use testAttribute(Qt::WA_SetFont) instead. */
-comment|/*!     \fn void QWidget::unsetFont()      Use setFont(QFont()) instead. */
-comment|/*!     \fn bool QWidget::ownPalette() const      Use testAttribute(Qt::WA_SetPalette) instead. */
-comment|/*!     \fn void QWidget::unsetPalette()      Use setPalette(QPalette()) instead. */
-comment|/*!     \fn void QWidget::setEraseColor(const QColor&color)      Use the palette instead.      \oldcode     widget->setEraseColor(color);     \newcode     QPalette palette;     palette.setColor(widget->backgroundRole(), color);     widget->setPalette(palette);     \endcode */
-comment|/*!     \fn void QWidget::setErasePixmap(const QPixmap&pixmap)      Use the palette instead.      \oldcode     widget->setErasePixmap(pixmap);     \newcode     QPalette palette;     palette.setBrush(widget->backgroundRole(), QBrush(pixmap));     widget->setPalette(palette);     \endcode */
-comment|/*!     \fn void QWidget::setPaletteForegroundColor(const QColor&color)      Use the palette directly.      \oldcode     widget->setPaletteForegroundColor(color);     \newcode     QPalette palette;     palette.setColor(widget->foregroundRole(), color);     widget->setPalette(palette);     \endcode */
-comment|/*!     \fn void QWidget::setPaletteBackgroundColor(const QColor&color)      Use the palette directly.      \oldcode     widget->setPaletteBackgroundColor(color);     \newcode     QPalette palette;     palette.setColor(widget->backgroundRole(), color);     widget->setPalette(palette);     \endcode */
-comment|/*!     \fn void QWidget::setPaletteBackgroundPixmap(const QPixmap&pixmap)      Use the palette directly.      \oldcode     widget->setPaletteBackgroundPixmap(pixmap);     \newcode     QPalette palette;     palette.setBrush(widget->backgroundRole(), QBrush(pixmap));     widget->setPalette(palette);     \endcode */
-comment|/*!     \fn void QWidget::setBackgroundPixmap(const QPixmap&pixmap)      Use the palette instead.      \oldcode     widget->setBackgroundPixmap(pixmap);     \newcode     QPalette palette;     palette.setBrush(widget->backgroundRole(), QBrush(pixmap));     widget->setPalette(palette);     \endcode */
-comment|/*!     \fn void QWidget::setBackgroundColor(const QColor&color)      Use the palette instead.      \oldcode     widget->setBackgroundColor(color);     \newcode     QPalette palette;     palette.setColor(widget->backgroundRole(), color);     widget->setPalette(palette);     \endcode */
-comment|/*!     \fn QWidget *QWidget::parentWidget(bool sameWindow) const      Use the no-argument overload instead. */
-comment|/*!     \fn void QWidget::setKeyCompression(bool b)      Use setAttribute(Qt::WA_KeyCompression, b) instead. */
-comment|/*!     \fn void QWidget::setFont(const QFont&f, bool b)      Use the single-argument overload instead. */
-comment|/*!     \fn void QWidget::setPalette(const QPalette&p, bool b)      Use the single-argument overload instead. */
-comment|/*!     \fn void QWidget::setBackgroundOrigin(BackgroundOrigin background)      \obsolete */
-comment|/*!     \fn BackgroundOrigin QWidget::backgroundOrigin() const      \obsolete      Always returns \c WindowOrigin. */
-comment|/*!     \fn QPoint QWidget::backgroundOffset() const      \obsolete      Always returns QPoint(). */
-comment|/*!     \fn void QWidget::repaint(bool b)      The boolean parameter \a b is ignored. Use the no-argument overload instead. */
-comment|/*!     \fn void QWidget::repaint(int x, int y, int w, int h, bool b)      The boolean parameter \a b is ignored. Use the four-argument overload instead. */
-comment|/*!     \fn void QWidget::repaint(const QRect&r, bool b)      The boolean parameter \a b is ignored. Use the single rect-argument overload instead. */
-comment|/*!     \fn void QWidget::repaint(const QRegion&rgn, bool b)      The boolean parameter \a b is ignored. Use the single region-argument overload instead. */
-comment|/*!     \fn void QWidget::erase()      Drawing may only take place in a QPaintEvent. Overload     paintEvent() to do your erasing and call update() to schedule a     replaint whenever necessary. See also QPainter. */
-comment|/*!     \fn void QWidget::erase(int x, int y, int w, int h)      Drawing may only take place in a QPaintEvent. Overload     paintEvent() to do your erasing and call update() to schedule a     replaint whenever necessary. See also QPainter. */
-comment|/*!     \fn void QWidget::erase(const QRect&rect)      Drawing may only take place in a QPaintEvent. Overload     paintEvent() to do your erasing and call update() to schedule a     replaint whenever necessary. See also QPainter. */
 comment|/*!     \fn void QWidget::drawText(const QPoint&p, const QString&s)      Drawing may only take place in a QPaintEvent. Overload     paintEvent() to do your drawing and call update() to schedule a     replaint whenever necessary. See also QPainter. */
 comment|/*!     \fn void QWidget::drawText(int x, int y, const QString&s)      Drawing may only take place in a QPaintEvent. Overload     paintEvent() to do your drawing and call update() to schedule a     replaint whenever necessary. See also QPainter. */
-comment|/*!     \fn QWidget *QWidget::childAt(const QPoint&p, bool includeThis) const      Use the single point argument overload instead. */
-comment|/*!     \fn void QWidget::setCaption(const QString&c)      Use setWindowTitle() instead. */
-comment|/*!     \fn void QWidget::setIcon(const QPixmap&i)      Use setWindowIcon() instead. */
-comment|/*!     \fn void QWidget::setIconText(const QString&it)      Use setWindowIconText() instead. */
-comment|/*!     \fn QString QWidget::caption() const      Use windowTitle() instead. */
-comment|/*!     \fn QString QWidget::iconText() const      Use windowIconText() instead. */
 comment|/*!     \fn bool QWidget::isTopLevel() const     \obsolete      Use isWindow() instead. */
 comment|/*!     \fn bool QWidget::isRightToLeft() const     \internal */
 comment|/*!     \fn bool QWidget::isLeftToRight() const     \internal */
-comment|/*!     \fn void QWidget::setInputMethodEnabled(bool enabled)      Use setAttribute(Qt::WA_InputMethodEnabled, \a enabled) instead. */
-comment|/*!     \fn bool QWidget::isInputMethodEnabled() const      Use testAttribute(Qt::WA_InputMethodEnabled) instead. */
-comment|/*!     \fn void QWidget::setActiveWindow()      Use activateWindow() instead. */
-comment|/*!     \fn bool QWidget::isShown() const      Use !isHidden() instead (notice the exclamation mark), or use isVisible() to check whether the widget is visible. */
-comment|/*!     \fn bool QWidget::isDialog() const      Use windowType() == Qt::Dialog instead. */
-comment|/*!     \fn bool QWidget::isPopup() const      Use windowType() == Qt::Popup instead. */
-comment|/*!     \fn bool QWidget::isDesktop() const      Use windowType() == Qt::Desktop instead. */
-comment|/*!     \fn void QWidget::polish()      Use ensurePolished() instead. */
-comment|/*!     \fn QWidget *QWidget::childAt(int x, int y, bool includeThis) const      Use the childAt() overload that doesn't have an \a includeThis parameter.      \oldcode         return widget->childAt(x, y, true);     \newcode         QWidget *child = widget->childAt(x, y, true);         if (child)             return child;         if (widget->rect().contains(x, y))             return widget;     \endcode */
-comment|/*!     \fn void QWidget::setSizePolicy(QSizePolicy::Policy hor, QSizePolicy::Policy ver, bool hfw)     \compat      Use the \l sizePolicy property and heightForWidth() function instead. */
-comment|/*!     \fn bool QWidget::isUpdatesEnabled() const     \compat      Use the \l updatesEnabled property instead. */
 comment|/*!      \macro QWIDGETSIZE_MAX      \relates QWidget       Defines the maximum size for a QWidget object.       The largest allowed size for a widget is QSize(QWIDGETSIZE_MAX,      QWIDGETSIZE_MAX), i.e. QSize (16777215,16777215).       \sa QWidget::setMaximumSize() */
 comment|/*!     \fn QWidget::setupUi(QWidget *widget)      Sets up the user interface for the specified \a widget.      \note This function is available with widgets that derive from user     interface descriptions created using \l{uic}.      \sa {Using a Designer UI File in Your Application} */
 DECL|function|frameStrut
