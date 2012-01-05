@@ -30,12 +30,11 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|member|shared_empty
+DECL|variable|qt_array_empty
+specifier|static
 specifier|const
 name|QArrayData
-name|QArrayData
-operator|::
-name|shared_empty
+name|qt_array_empty
 init|=
 block|{
 name|Q_REFCOUNT_INITIALIZE_STATIC
@@ -51,12 +50,11 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|member|unsharable_empty
+DECL|variable|qt_array_unsharable_empty
+specifier|static
 specifier|const
 name|QArrayData
-name|QArrayData
-operator|::
-name|unsharable_empty
+name|qt_array_unsharable_empty
 init|=
 block|{
 block|{
@@ -138,7 +136,7 @@ operator|*
 argument_list|>
 argument_list|(
 operator|&
-name|shared_empty
+name|qt_array_empty
 argument_list|)
 else|:
 cast|const_cast
@@ -148,7 +146,7 @@ operator|*
 argument_list|>
 argument_list|(
 operator|&
-name|unsharable_empty
+name|qt_array_unsharable_empty
 argument_list|)
 return|;
 comment|// Allocate extra (alignment - Q_ALIGNOF(QArrayData)) padding bytes so we
@@ -330,7 +328,7 @@ condition|(
 name|data
 operator|==
 operator|&
-name|unsharable_empty
+name|qt_array_unsharable_empty
 condition|)
 return|return;
 name|qFree
