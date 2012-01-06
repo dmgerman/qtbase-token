@@ -333,7 +333,7 @@ modifier|&
 name|value
 parameter_list|)
 block|{
-name|Q_TYPENAME
+typename|typename
 name|Storage
 operator|::
 name|iterator

@@ -868,7 +868,7 @@ name|typename
 name|T
 parameter_list|>
 DECL|function|qAverage
-name|Q_TYPENAME
+typename|typename
 name|T
 operator|::
 name|value_type
@@ -880,7 +880,7 @@ modifier|&
 name|container
 parameter_list|)
 block|{
-name|Q_TYPENAME
+typename|typename
 name|T
 operator|::
 name|const_iterator
@@ -891,7 +891,7 @@ operator|.
 name|constBegin
 argument_list|()
 decl_stmt|;
-name|Q_TYPENAME
+typename|typename
 name|T
 operator|::
 name|const_iterator
@@ -902,13 +902,13 @@ operator|.
 name|constEnd
 argument_list|()
 decl_stmt|;
-name|Q_TYPENAME
+typename|typename
 name|T
 operator|::
 name|value_type
 name|acc
 init|=
-name|Q_TYPENAME
+typename|typename
 name|T
 operator|::
 name|value_type

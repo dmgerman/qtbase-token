@@ -1210,7 +1210,7 @@ literal|'('
 block|;
 for|for
 control|(
-name|Q_TYPENAME
+name|typename
 name|QList
 operator|<
 name|T

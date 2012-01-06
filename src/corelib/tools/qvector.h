@@ -5049,7 +5049,7 @@ operator|<
 name|typename
 name|T
 operator|>
-name|Q_TYPENAME
+name|typename
 name|QVector
 operator|<
 name|T
@@ -5336,7 +5336,7 @@ operator|<
 name|typename
 name|T
 operator|>
-name|Q_TYPENAME
+name|typename
 name|QVector
 operator|<
 name|T

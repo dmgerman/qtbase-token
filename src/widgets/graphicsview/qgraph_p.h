@@ -394,7 +394,7 @@ name|g
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
-name|Q_TYPENAME
+name|typename
 name|QHash
 operator|<
 name|Vertex
@@ -416,7 +416,7 @@ name|row
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_TYPENAME
+name|typename
 name|QHash
 operator|<
 name|Vertex
@@ -1038,7 +1038,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|Q_TYPENAME
+name|typename
 name|QSet
 operator|<
 name|Vertex

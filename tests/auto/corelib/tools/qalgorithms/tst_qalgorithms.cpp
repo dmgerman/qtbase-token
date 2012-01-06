@@ -729,9 +729,16 @@ block|{
 return|return
 name|isSorted
 argument_list|(
-argument|container
+name|container
 argument_list|,
-argument|qLess<Q_TYPENAME ContainerType::value_type>()
+name|qLess
+argument_list|<
+typename|typename
+name|ContainerType
+operator|::
+name|value_type
+argument_list|>
+argument_list|()
 argument_list|)
 return|;
 block|}

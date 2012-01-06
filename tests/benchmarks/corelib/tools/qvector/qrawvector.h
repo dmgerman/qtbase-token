@@ -4099,7 +4099,7 @@ operator|<
 name|typename
 name|T
 operator|>
-name|Q_TYPENAME
+name|typename
 name|QRawVector
 operator|<
 name|T
@@ -4350,7 +4350,7 @@ operator|<
 name|typename
 name|T
 operator|>
-name|Q_TYPENAME
+name|typename
 name|QRawVector
 operator|<
 name|T
