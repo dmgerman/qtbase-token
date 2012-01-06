@@ -42,11 +42,12 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_struct_decl
-struct_decl|struct
+begin_decl_stmt
+DECL|variable|QUuid
+name|class
 name|QUuid
-struct_decl|;
-end_struct_decl
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|class
 name|VcprojGenerator
