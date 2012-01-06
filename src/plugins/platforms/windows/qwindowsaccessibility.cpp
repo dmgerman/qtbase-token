@@ -5480,6 +5480,16 @@ name|VARIANT
 name|varID
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|flagsSelect
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|varID
+argument_list|)
+expr_stmt|;
 name|showDebug
 argument_list|(
 name|__FUNCTION__
