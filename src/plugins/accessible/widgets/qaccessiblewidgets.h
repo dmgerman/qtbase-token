@@ -618,17 +618,6 @@ argument|const QAccessibleInterface *child
 argument_list|)
 specifier|const
 block|;
-name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
-argument_list|)
-specifier|const
-block|;
 name|protected
 operator|:
 name|QMdiArea
@@ -698,17 +687,6 @@ argument|const QAccessibleInterface *child
 argument_list|)
 specifier|const
 block|;
-name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
-argument_list|)
-specifier|const
-block|;
 name|QRect
 name|rect
 argument_list|()
@@ -770,17 +748,6 @@ name|int
 name|indexOfChild
 argument_list|(
 argument|const QAccessibleInterface *child
-argument_list|)
-specifier|const
-block|;
-name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
 argument_list|)
 specifier|const
 block|;
@@ -894,17 +861,6 @@ name|int
 name|indexOfChild
 argument_list|(
 argument|const QAccessibleInterface *child
-argument_list|)
-specifier|const
-block|;
-name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
 argument_list|)
 specifier|const
 block|;

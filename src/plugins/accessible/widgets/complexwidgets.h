@@ -151,17 +151,6 @@ name|isValid
 argument_list|()
 specifier|const
 block|;
-name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
-argument_list|)
-specifier|const
-block|;
 name|QAccessibleInterface
 operator|*
 name|childAt
