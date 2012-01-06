@@ -3286,11 +3286,6 @@ argument_list|,
 name|count
 argument_list|)
 return|;
-specifier|extern
-name|FT_Library
-name|qt_getFreetype
-argument_list|()
-decl_stmt|;
 name|FT_Library
 name|lib
 init|=
