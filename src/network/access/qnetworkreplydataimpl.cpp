@@ -192,9 +192,8 @@ name|d
 operator|->
 name|decodedData
 operator|.
-name|setBuffer
+name|setData
 argument_list|(
-operator|&
 name|payload
 argument_list|)
 expr_stmt|;
