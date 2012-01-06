@@ -12239,7 +12239,11 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
+argument_list|(
+name|QMetaType
+operator|::
+name|Type
 argument_list|(
 name|mo
 operator|->
@@ -12250,10 +12254,11 @@ argument_list|)
 operator|.
 name|type
 argument_list|()
-operator|==
-name|QVariant
+argument_list|)
+argument_list|,
+name|QMetaType
 operator|::
-name|LastType
+name|QVariant
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

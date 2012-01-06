@@ -8031,19 +8031,6 @@ decl_stmt|;
 if|if
 condition|(
 name|type
-operator|==
-literal|0xff
-condition|)
-comment|// special value for QVariant
-name|type
-operator|=
-name|QVariant
-operator|::
-name|LastType
-expr_stmt|;
-if|if
-condition|(
-name|type
 condition|)
 return|return
 name|QVariant
@@ -8519,19 +8506,6 @@ if|if
 condition|(
 name|t
 operator|==
-literal|0xff
-condition|)
-comment|// special value for QVariant
-name|t
-operator|=
-name|QVariant
-operator|::
-name|LastType
-expr_stmt|;
-if|if
-condition|(
-name|t
-operator|==
 name|QVariant
 operator|::
 name|Invalid
@@ -8639,9 +8613,9 @@ if|if
 condition|(
 name|t
 operator|==
-name|QVariant
+name|QMetaType
 operator|::
-name|LastType
+name|QVariant
 condition|)
 block|{
 name|argv
@@ -8720,9 +8694,9 @@ if|if
 condition|(
 name|t
 operator|!=
-name|QVariant
+name|QMetaType
 operator|::
-name|LastType
+name|QVariant
 operator|&&
 name|argv
 index|[
@@ -9008,19 +8982,6 @@ if|if
 condition|(
 name|t
 operator|==
-literal|0xff
-condition|)
-comment|// special value for QVariant
-name|t
-operator|=
-name|QVariant
-operator|::
-name|LastType
-expr_stmt|;
-if|if
-condition|(
-name|t
-operator|==
 name|QVariant
 operator|::
 name|Invalid
@@ -9104,9 +9065,9 @@ if|if
 condition|(
 name|t
 operator|!=
-name|QVariant
+name|QMetaType
 operator|::
-name|LastType
+name|QVariant
 operator|&&
 name|t
 operator|!=
@@ -9183,9 +9144,9 @@ if|if
 condition|(
 name|t
 operator|==
-name|QVariant
+name|QMetaType
 operator|::
-name|LastType
+name|QVariant
 condition|)
 name|argv
 index|[
