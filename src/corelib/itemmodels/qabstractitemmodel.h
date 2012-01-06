@@ -1119,6 +1119,7 @@ name|supportedDropActions
 argument_list|()
 specifier|const
 block|;
+name|virtual
 name|Qt
 operator|::
 name|DropActions
@@ -1126,14 +1127,27 @@ name|supportedDragActions
 argument_list|()
 specifier|const
 block|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
 name|void
 name|setSupportedDragActions
 argument_list|(
-name|Qt
-operator|::
-name|DropActions
+argument|Qt::DropActions actions
 argument_list|)
-block|;
+block|{
+name|doSetSupportedDragActions
+argument_list|(
+name|actions
+argument_list|)
+block|;     }
+endif|#
+directive|endif
 name|virtual
 name|bool
 name|insertRows
@@ -1823,6 +1837,12 @@ name|QByteArray
 operator|>
 operator|&
 name|roleNames
+argument_list|)
+block|;
+name|void
+name|doSetSupportedDragActions
+argument_list|(
+argument|Qt::DropActions actions
 argument_list|)
 block|;
 name|Q_DECLARE_PRIVATE
