@@ -6005,6 +6005,25 @@ name|vcProject
 operator|.
 name|Configuration
 decl_stmt|;
+if|if
+condition|(
+name|conf
+operator|.
+name|CompilerVersion
+operator|>=
+name|NET2010
+condition|)
+block|{
+comment|// adjust compiler tool defaults for VS 2010 and above
+name|conf
+operator|.
+name|compiler
+operator|.
+name|Optimization
+operator|=
+name|optimizeDisabled
+expr_stmt|;
+block|}
 name|conf
 operator|.
 name|compiler
