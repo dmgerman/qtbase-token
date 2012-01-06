@@ -1510,7 +1510,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Constructs a new DBus message representing a method call.     A method call always informs its destination address     (\a service, \a path, \a interface and \a method).      The DBus bus allows calling a method on a given remote object without specifying the     destination interface, if the method name is unique. However, if two interfaces on the     remote object export the same method name, the result is undefined (one of the two may be     called or an error may be returned).      When using DBus in a peer-to-peer context (i.e., not on a bus), the \a service parameter is     optional.      The QDBusObject and QDBusInterface classes provide a simpler abstraction to synchronous     method calling.      This function returns a QDBusMessage object that can be sent with     QDBusConnection::call(). */
+comment|/*!     Constructs a new DBus message representing a method call.     A method call always informs its destination address     (\a service, \a path, \a interface and \a method).      The DBus bus allows calling a method on a given remote object without specifying the     destination interface, if the method name is unique. However, if two interfaces on the     remote object export the same method name, the result is undefined (one of the two may be     called or an error may be returned).      When using DBus in a peer-to-peer context (i.e., not on a bus), the \a service parameter is     optional.      The QDBusInterface class provides a simpler abstraction to synchronous     method calling.      This function returns a QDBusMessage object that can be sent with     QDBusConnection::call(). */
 end_comment
 begin_function
 DECL|function|createMethodCall
