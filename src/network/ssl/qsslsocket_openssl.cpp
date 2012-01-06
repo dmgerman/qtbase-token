@@ -1481,7 +1481,7 @@ name|caCertificate
 operator|.
 name|expiryDate
 argument_list|()
-operator|>
+operator|<
 name|QDateTime
 operator|::
 name|currentDateTime
@@ -6581,7 +6581,7 @@ name|caCertificate
 operator|.
 name|expiryDate
 argument_list|()
-operator|>
+operator|<
 name|QDateTime
 operator|::
 name|currentDateTime
