@@ -5386,6 +5386,11 @@ name|QT_NO_BEARERMANAGEMENT
 if|if
 condition|(
 name|networkSession
+condition|)
+block|{
+if|if
+condition|(
+name|networkSession
 operator|->
 name|configuration
 argument_list|()
@@ -5458,6 +5463,7 @@ name|timeout
 operator|=
 literal|400
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 name|delayedConnectionTimer
