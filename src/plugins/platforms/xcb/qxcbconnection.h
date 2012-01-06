@@ -809,7 +809,6 @@ name|xcb_generic_event_t
 operator|*
 name|checkEvent
 argument_list|(
-specifier|const
 name|T
 operator|&
 name|checker
@@ -1279,7 +1278,7 @@ name|QXcbConnection
 operator|::
 name|checkEvent
 argument_list|(
-argument|const T&checker
+argument|T&checker
 argument_list|)
 block|{
 name|QXcbEventArray

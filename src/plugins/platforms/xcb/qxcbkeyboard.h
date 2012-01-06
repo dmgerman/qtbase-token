@@ -187,6 +187,9 @@ block|;
 name|xcb_key_symbols_t
 operator|*
 name|m_key_symbols
+block|;
+name|xcb_keycode_t
+name|m_autorepeat_code
 block|; }
 decl_stmt|;
 end_decl_stmt
