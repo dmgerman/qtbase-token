@@ -55,21 +55,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_comment
-comment|// Subclass that exposes the protected functions.
-end_comment
-begin_class
-DECL|class|SubQStringMatcher
-class|class
-name|SubQStringMatcher
-super|:
-specifier|public
-name|QStringMatcher
-block|{
-public|public:
-block|}
-class|;
-end_class
 begin_function
 DECL|function|qstringmatcher
 name|void
@@ -78,7 +63,7 @@ operator|::
 name|qstringmatcher
 parameter_list|()
 block|{
-name|SubQStringMatcher
+name|QStringMatcher
 name|matcher
 decl_stmt|;
 name|QCOMPARE
@@ -131,7 +116,7 @@ operator|::
 name|caseSensitivity
 parameter_list|()
 block|{
-name|SubQStringMatcher
+name|QStringMatcher
 name|matcher
 decl_stmt|;
 name|matcher
@@ -451,7 +436,7 @@ argument_list|,
 name|indexIn
 argument_list|)
 expr_stmt|;
-name|SubQStringMatcher
+name|QStringMatcher
 name|matcher
 decl_stmt|;
 name|matcher
@@ -665,7 +650,7 @@ argument_list|,
 name|cs
 argument_list|)
 expr_stmt|;
-name|SubQStringMatcher
+name|QStringMatcher
 name|matcher
 decl_stmt|;
 name|matcher
