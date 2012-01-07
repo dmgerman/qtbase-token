@@ -3662,45 +3662,6 @@ begin_comment
 comment|/*!     \enum QAction::ActionEvent      This enum type is used when calling QAction::activate()      \value Trigger this will cause the QAction::triggered() signal to be emitted.      \value Hover this will cause the QAction::hovered() signal to be emitted. */
 end_comment
 begin_comment
-comment|/*!     \fn void QAction::setMenuText(const QString&text)      Use setText() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QAction::menuText() const      Use text() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QAction::isOn() const      Use isChecked() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QAction::setOn(bool b)      Use setChecked() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QAction::isToggleAction() const      Use isCheckable() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QAction::setToggleAction(bool b)      Use setCheckable() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QAction::setIconSet(const QIcon&i)      Use setIcon() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QAction::addTo(QWidget *w)      Use QWidget::addAction() instead.      \oldcode     action->addTo(widget);     \newcode     widget->addAction(action);     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn bool QAction::removeFrom(QWidget *w)      Use QWidget::removeAction() instead.      \oldcode     action->removeFrom(widget);     \newcode     widget->removeAction(action);     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn void QAction::setAccel(const QKeySequence&shortcut)      Use setShortcut() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QIcon QAction::iconSet() const      Use icon() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QKeySequence QAction::accel() const      Use shortcut() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QAction::activated(int i);      Use triggered() instead. */
-end_comment
-begin_comment
 comment|/*!     \property QAction::menuRole     \brief the action's menu role     \since 4.2      This indicates what role the action serves in the application menu on Mac     OS X. By default all action have the TextHeuristicRole, which means that     the action is added based on its text (see QMenuBar for more information).      The menu role can only be changed before the actions are put into the menu     bar in Mac OS X (usually just before the first application window is     shown). */
 end_comment
 begin_function

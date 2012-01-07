@@ -2599,17 +2599,6 @@ name|e
 argument_list|)
 return|;
 block|}
-comment|/*! \fn int QAbstractSlider::minValue() const      Use minimum() instead. */
-comment|/*! \fn int QAbstractSlider::maxValue() const      Use maximum() instead. */
-comment|/*! \fn int QAbstractSlider::lineStep() const      Use singleStep() instead. */
-comment|/*! \fn void QAbstractSlider::setMinValue(int v)      Use setMinimum() instead. */
-comment|/*! \fn void QAbstractSlider::setMaxValue(int v)      Use setMaximum() instead. */
-comment|/*! \fn void QAbstractSlider::setLineStep(int v)      Use setSingleStep() instead. */
-comment|/*! \fn void QAbstractSlider::addPage()      Use triggerAction(QAbstractSlider::SliderPageStepAdd) instead. */
-comment|/*! \fn void QAbstractSlider::subtractPage()      Use triggerAction(QAbstractSlider::SliderPageStepSub) instead. */
-comment|/*! \fn void QAbstractSlider::addLine()      Use triggerAction(QAbstractSlider::SliderSingleStepAdd) instead. */
-comment|/*! \fn void QAbstractSlider::subtractLine()      Use triggerAction(QAbstractSlider::SliderSingleStepSub) instead. */
-comment|/*! \fn void QAbstractSlider::setSteps(int single, int page)      Use setSingleStep(\a single) followed by setPageStep(\a page)     instead. */
 name|QT_END_NAMESPACE
 end_constructor
 end_unit
