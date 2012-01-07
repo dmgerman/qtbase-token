@@ -3643,6 +3643,11 @@ literal|"QXcbConnection::atomName: bad Atom"
 operator|<<
 name|atom
 expr_stmt|;
+name|free
+argument_list|(
+name|error
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
