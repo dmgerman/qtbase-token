@@ -665,12 +665,6 @@ name|NoButton
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_comment
-comment|// ### Qt 5: Replace Ok with Yes|No in question() function.
-end_comment
-begin_comment
-comment|//     Also consider if Ok == Yes and Cancel == No.
-end_comment
 begin_function_decl
 specifier|static
 name|StandardButton
@@ -693,7 +687,12 @@ parameter_list|,
 name|StandardButtons
 name|buttons
 init|=
-name|Ok
+name|StandardButtons
+argument_list|(
+name|Yes
+operator||
+name|No
+argument_list|)
 parameter_list|,
 name|StandardButton
 name|defaultButton
