@@ -31,25 +31,31 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \namespace QAccessible2     \ingroup accessibility     \internal     \preliminary      \brief The QAccessible2 namespace defines constants relating to     IAccessible2-based interfaces      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
+comment|/*!     \namespace QAccessible2     \ingroup accessibility      \brief The QAccessible2 namespace defines constants relating to     IAccessible2-based interfaces      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleTextInterface      \ingroup accessibility     \internal     \preliminary      \brief The QAccessibleTextInterface class implements support for     the IAccessibleText interface.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
+comment|/*!     \class QAccessibleTextInterface      \ingroup accessibility      \brief The QAccessibleTextInterface class implements support for     the IAccessibleText interface.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleEditableTextInterface     \ingroup accessibility     \internal     \preliminary      \brief The QAccessibleEditableTextInterface class implements support for     the IAccessibleEditableText interface.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
+comment|/*!     \class QAccessibleEditableTextInterface     \ingroup accessibility      \brief The QAccessibleEditableTextInterface class implements support for     the IAccessibleEditableText interface.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleSimpleEditableTextInterface     \ingroup accessibility     \internal     \preliminary      \brief The QAccessibleSimpleEditableTextInterface class is a convenience class for     text-based widgets.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
+comment|/*!     \class QAccessibleSimpleEditableTextInterface     \ingroup accessibility      \brief The QAccessibleSimpleEditableTextInterface class is a convenience class for     text-based widgets.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleValueInterface     \ingroup accessibility     \internal     \preliminary      \brief The QAccessibleValueInterface class implements support for     the IAccessibleValue interface.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
+comment|/*!     \class QAccessibleValueInterface     \ingroup accessibility      \brief The QAccessibleValueInterface class implements support for     the IAccessibleValue interface.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 end_comment
 begin_comment
 comment|/*!     \class QAccessibleImageInterface     \ingroup accessibility     \internal     \preliminary      \brief The QAccessibleImageInterface class implements support for     the IAccessibleImage interface.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleActionInterface     \ingroup accessibility     \internal     \preliminary      \brief The QAccessibleActionInterface class implements support for     invocable actions in the interface.      Each accessible should implement the action interface if it supports any actions.     The supported actions should adhere to the naming scheme inside the QAccessible2 namespace.     Custom actions can be added.      When subclassing QAccessibleActionInterface you need to provide a list of actionNames which     is the primary means to discover the available actions. Action names are never localized.     In order to present actions to the user there are two functions that need to return localized versions     of the name and give a description of the action.      In order to invoke the action, doAction is called with an action name.      Most widgets will simply implement the PressAction. This is what happens when the widget is activated by     being clicked on, space pressed or similar.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
+comment|/*!     \class QAccessibleTableCellInterface     \ingroup accessibility      \brief The QAccessibleTableCellInterface class implements support for     the IAccessibleTable2 Cell interface.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
+end_comment
+begin_comment
+comment|/*!     \class QAccessibleTableInterface     \ingroup accessibility      \brief The QAccessibleTableInterface class implements support for     the IAccessibleTable2 interface.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
+end_comment
+begin_comment
+comment|/*!     \class QAccessibleActionInterface     \ingroup accessibility      \brief The QAccessibleActionInterface class implements support for     invocable actions in the interface.      Each accessible should implement the action interface if it supports any actions.     The supported actions should adhere to the naming scheme inside the QAccessible2 namespace.     Custom actions can be added.      When subclassing QAccessibleActionInterface you need to provide a list of actionNames which     is the primary means to discover the available actions. Action names are never localized.     In order to present actions to the user there are two functions that need to return localized versions     of the name and give a description of the action.      In order to invoke the action, doAction is called with an action name.      Most widgets will simply implement the PressAction. This is what happens when the widget is activated by     being clicked on, space pressed or similar.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 end_comment
 begin_comment
 comment|/*!     \fn QStringList QAccessibleActionInterface::actionNames() const      Returns a list of valid actions. The actions returned should be in preferred order,     i.e. the action that the user most likely wants to trigger should be returned first,     while the least likely action should be returned last.      The list does only contain actions that *can* be invoked. Therefore it,     won't return disabled actions, or actions associated with disabled UI     controls.      The list can also be empty.      \sa localizedActionName(), doAction() */
