@@ -1525,10 +1525,17 @@ name|reg
 parameter_list|)
 endif|#
 directive|endif
-name|unsigned
-name|char
-name|ret
+name|quint32
+name|highExpectedValue
+operator|=
+name|quint32
+argument_list|(
+name|newValue
+operator|>>
+literal|32
+argument_list|)
 block|;
+comment|// ECX
 name|asm
 specifier|volatile
 operator|(
@@ -1542,19 +1549,19 @@ name|EBX_load
 argument_list|(
 literal|"%3"
 argument_list|)
-literal|"sete %1\n"
+literal|"sete %%cl\n"
 operator|:
 literal|"+m"
 operator|(
 name|_q_value
 operator|)
 operator|,
-literal|"=qm"
+literal|"+c"
 operator|(
-name|ret
+name|highExpectedValue
 operator|)
 operator|,
-literal|"+A"
+literal|"+&A"
 operator|(
 name|expectedValue
 operator|)
@@ -1568,22 +1575,16 @@ operator|&
 literal|0xffffffff
 argument_list|)
 argument_list|)
-operator|,
-literal|"c"
-operator|(
-name|quint32
-argument_list|(
-name|newValue
-operator|>>
-literal|32
-argument_list|)
-operator|)
 operator|:
 literal|"memory"
 operator|)
 block|;
+comment|// if the comparison failed, expectedValue here contains the current value
 return|return
-name|ret
+name|quint8
+argument_list|(
+name|highExpectedValue
+argument_list|)
 operator|!=
 literal|0
 return|;
