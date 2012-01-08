@@ -1967,9 +1967,11 @@ name|QShortcut
 operator|::
 name|context
 parameter_list|()
+specifier|const
 block|{
 name|Q_D
 argument_list|(
+specifier|const
 name|QShortcut
 argument_list|)
 expr_stmt|;

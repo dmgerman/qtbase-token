@@ -135,6 +135,7 @@ operator|::
 name|ShortcutContext
 name|context
 argument_list|()
+specifier|const
 block|;
 name|void
 name|setWhatsThis
