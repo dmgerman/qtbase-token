@@ -1940,12 +1940,8 @@ name|QVariant
 argument_list|(
 argument|void *
 argument_list|)
-block|{
-name|Q_ASSERT
-argument_list|(
-name|false
-argument_list|)
-block|; }
+name|Q_DECL_EQ_DELETE
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_NO_CAST_FROM_ASCII
@@ -1955,16 +1951,12 @@ name|QVariant
 argument_list|(
 argument|const char *
 argument_list|)
-block|{
-name|Q_ASSERT
-argument_list|(
-name|false
-argument_list|)
-block|; }
+name|Q_DECL_EQ_DELETE
+expr_stmt|;
 endif|#
 directive|endif
 name|public
-operator|:
+label|:
 typedef|typedef
 name|Private
 name|DataPtr
