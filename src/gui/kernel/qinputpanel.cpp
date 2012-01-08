@@ -312,9 +312,11 @@ name|QInputPanel
 operator|::
 name|keyboardRectangle
 parameter_list|()
+specifier|const
 block|{
 name|Q_D
 argument_list|(
+specifier|const
 name|QInputPanel
 argument_list|)
 expr_stmt|;

@@ -140,6 +140,7 @@ comment|// keyboard geometry in window coords
 name|QRectF
 name|keyboardRectangle
 argument_list|()
+specifier|const
 block|;      enum
 name|Action
 block|{
