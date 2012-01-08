@@ -8587,7 +8587,7 @@ parameter_list|,
 specifier|const
 name|HandlersManager
 modifier|&
-name|handler
+name|handlerManager
 parameter_list|)
 block|{
 if|if
@@ -8612,7 +8612,7 @@ return|;
 name|T
 name|ret
 decl_stmt|;
-name|handler
+name|handlerManager
 index|[
 name|d
 operator|.
@@ -9282,7 +9282,7 @@ parameter_list|,
 specifier|const
 name|HandlersManager
 modifier|&
-name|handler
+name|handlerManager
 parameter_list|,
 name|bool
 modifier|*
@@ -9331,7 +9331,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|handler
+name|handlerManager
 index|[
 name|d
 operator|.
