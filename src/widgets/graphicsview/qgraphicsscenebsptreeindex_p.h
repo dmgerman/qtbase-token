@@ -181,6 +181,7 @@ block|;
 name|int
 name|bspTreeDepth
 argument_list|()
+specifier|const
 block|;
 name|void
 name|setBspTreeDepth

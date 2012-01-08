@@ -2557,6 +2557,7 @@ name|QGraphicsSceneBspTreeIndex
 operator|::
 name|bspTreeDepth
 parameter_list|()
+specifier|const
 block|{
 name|Q_D
 argument_list|(
