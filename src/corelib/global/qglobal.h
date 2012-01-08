@@ -4002,6 +4002,31 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
+name|Q_COMPILER_DEFAULT_DELETE_MEMBERS
+end_ifdef
+begin_define
+DECL|macro|Q_DECL_EQ_DELETE
+define|#
+directive|define
+name|Q_DECL_EQ_DELETE
+value|= delete
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+define|#
+directive|define
+name|Q_DECL_EQ_DELETE
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
 name|Q_COMPILER_CONSTEXPR
 end_ifdef
 begin_define
@@ -11114,11 +11139,6 @@ end_endif
 begin_comment
 comment|/*    Some classes do not permit copies to be made of an object. These    classes contains a private copy constructor and assignment    operator to disable copying (the compiler gives an error message). */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_COMPILER_DEFAULT_DELETE_MEMBERS
-end_ifdef
 begin_define
 DECL|macro|Q_DISABLE_COPY
 define|#
@@ -11128,27 +11148,8 @@ parameter_list|(
 name|Class
 parameter_list|)
 define|\
-value|Class(const Class&) = delete;\     Class&operator=(const Class&) = delete;
+value|Class(const Class&) Q_DECL_EQ_DELETE;\     Class&operator=(const Class&) Q_DECL_EQ_DELETE;
 end_define
-begin_else
-else|#
-directive|else
-end_else
-begin_define
-DECL|macro|Q_DISABLE_COPY
-define|#
-directive|define
-name|Q_DISABLE_COPY
-parameter_list|(
-name|Class
-parameter_list|)
-define|\
-value|Class(const Class&); \     Class&operator=(const Class&);
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 DECL|variable|QByteArray
 name|class
