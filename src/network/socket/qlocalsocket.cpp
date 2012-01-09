@@ -30,10 +30,10 @@ begin_comment
 comment|/*!     \fn void QLocalSocket::connected()      This signal is emitted after connectToServer() has been called and     a connection has been successfully established.      \sa connectToServer(), disconnected() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QLocalSocket::setSocketDescriptor(quintptr socketDescriptor,         LocalSocketState socketState, OpenMode openMode)      Initializes QLocalSocket with the native socket descriptor     \a socketDescriptor. Returns true if socketDescriptor is accepted     as a valid socket descriptor; otherwise returns false. The socket is     opened in the mode specified by \a openMode, and enters the socket state     specified by \a socketState.      \note It is not possible to initialize two local sockets with the same     native socket descriptor.      \sa socketDescriptor(), state(), openMode() */
+comment|/*!     \fn bool QLocalSocket::setSocketDescriptor(qintptr socketDescriptor,         LocalSocketState socketState, OpenMode openMode)      Initializes QLocalSocket with the native socket descriptor     \a socketDescriptor. Returns true if socketDescriptor is accepted     as a valid socket descriptor; otherwise returns false. The socket is     opened in the mode specified by \a openMode, and enters the socket state     specified by \a socketState.      \note It is not possible to initialize two local sockets with the same     native socket descriptor.      \sa socketDescriptor(), state(), openMode() */
 end_comment
 begin_comment
-comment|/*!     \fn quintptr QLocalSocket::socketDescriptor() const      Returns the native socket descriptor of the QLocalSocket object if     this is available; otherwise returns -1.      The socket descriptor is not available when QLocalSocket     is in UnconnectedState.      \sa setSocketDescriptor() */
+comment|/*!     \fn qintptr QLocalSocket::socketDescriptor() const      Returns the native socket descriptor of the QLocalSocket object if     this is available; otherwise returns -1.      The socket descriptor is not available when QLocalSocket     is in UnconnectedState.      \sa setSocketDescriptor() */
 end_comment
 begin_comment
 comment|/*!     \fn qint64 QLocalSocket::readData(char *data, qint64 c)     \reimp */

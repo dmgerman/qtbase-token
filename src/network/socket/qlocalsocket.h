@@ -245,14 +245,14 @@ block|;
 name|bool
 name|setSocketDescriptor
 argument_list|(
-argument|quintptr socketDescriptor
+argument|qintptr socketDescriptor
 argument_list|,
 argument|LocalSocketState socketState = ConnectedState
 argument_list|,
 argument|OpenMode openMode = ReadWrite
 argument_list|)
 block|;
-name|quintptr
+name|qintptr
 name|socketDescriptor
 argument_list|()
 specifier|const

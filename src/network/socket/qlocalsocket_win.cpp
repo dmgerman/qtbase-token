@@ -787,7 +787,7 @@ condition|(
 name|setSocketDescriptor
 argument_list|(
 operator|(
-name|quintptr
+name|qintptr
 operator|)
 name|localSocket
 argument_list|,
@@ -1416,7 +1416,7 @@ name|QLocalSocket
 operator|::
 name|setSocketDescriptor
 parameter_list|(
-name|quintptr
+name|qintptr
 name|socketDescriptor
 parameter_list|,
 name|LocalSocketState
@@ -1541,7 +1541,7 @@ block|}
 end_function
 begin_function
 DECL|function|socketDescriptor
-name|quintptr
+name|qintptr
 name|QLocalSocket
 operator|::
 name|socketDescriptor
@@ -1556,7 +1556,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|(
-name|quintptr
+name|qintptr
 operator|)
 name|d
 operator|->

@@ -1199,7 +1199,7 @@ name|QLocalSocket
 operator|::
 name|setSocketDescriptor
 parameter_list|(
-name|quintptr
+name|qintptr
 name|socketDescriptor
 parameter_list|,
 name|LocalSocketState
@@ -1379,7 +1379,7 @@ block|}
 end_function
 begin_function
 DECL|function|socketDescriptor
-name|quintptr
+name|qintptr
 name|QLocalSocket
 operator|::
 name|socketDescriptor
