@@ -23792,6 +23792,13 @@ name|value
 operator|=
 name|ch
 expr_stmt|;
+name|e
+operator|->
+name|ref
+operator|.
+name|deref
+argument_list|()
+expr_stmt|;
 name|doc
 operator|->
 name|doctype

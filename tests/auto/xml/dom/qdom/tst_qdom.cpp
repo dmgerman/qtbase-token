@@ -553,7 +553,173 @@ argument_list|(
 literal|"res"
 argument_list|)
 expr_stmt|;
-comment|/*    QTest::newRow( "01" )<< doc01<< QStringList()<< QString("http://trolltech.com/xml/features/report-whitespace-only-CharData").split(' ')<< QString("<!DOCTYPE a1>\n"                                    "<a1>\n"                                    "<b1>\n"                                    "<c1>foo</c1>\n"                                    "<c2>bar</c2>\n"                                    "<c3>foo&amp; bar</c3>\n"                                    "<c4>foo and bar</c4>\n"                                    "</b1>\n"                                    "<b2/>\n"                                    "<b3>\n"                                    "<c1/>\n"                                    "</b3>\n"                                    "</a1>\n");      QTest::newRow( "02" )<< doc01<< QString("http://trolltech.com/xml/features/report-whitespace-only-CharData").split(' ')<< QStringList()<< QString("<!DOCTYPE a1>\n"                                    "<a1>\n"                                    "<b1>\n"                                    "<c1>foo</c1>\n"                                    "<c2>bar</c2>\n"                                    "<c3>foo&amp; bar</c3>\n"                                    "<c4>foo and bar</c4>\n"                                    "</b1>\n"                                    "<b2></b2>\n"                                    "<b3>\n"                                    "<c1/>\n"                                    "</b3>\n"                                    "</a1>\n");      QTest::newRow( "03" )<< doc01<< QString("http://trolltech.com/xml/features/report-start-end-entity").split(' ')<< QString("http://trolltech.com/xml/features/report-whitespace-only-CharData").split(' ')<< QString("<!DOCTYPE a1 [\n"                                    "<!ENTITY blubber \"and\">\n"                                    "]>\n"                                    "<a1>\n"                                    "<b1>\n"                                    "<c1>foo</c1>\n"                                    "<c2>bar</c2>\n"                                    "<c3>foo&amp; bar</c3>\n"                                    "<c4>foo&blubber; bar</c4>\n"                                    "</b1>\n"                                    "<b2/>\n"                                    "<b3>\n"                                    "<c1/>\n"                                    "</b3>\n"                                    "</a1>\n");      QTest::newRow( "04" )<< doc01<< QString("http://trolltech.com/xml/features/report-whitespace-only-CharData http://trolltech.com/xml/features/report-start-end-entity").split(' ')<< QStringList()<< QString("<!DOCTYPE a1 [\n"                                    "<!ENTITY blubber \"and\">\n"                                    "]>\n"                                    "<a1>\n"                                    "<b1>\n"                                    "<c1>foo</c1>\n"                                    "<c2>bar</c2>\n"                                    "<c3>foo&amp; bar</c3>\n"                                    "<c4>foo&blubber; bar</c4>\n"                                    "</b1>\n"                                    "<b2></b2>\n"                                    "<b3>\n"                                    "<c1/>\n"                                    "</b3>\n"                                    "</a1>\n");    */
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"01"
+argument_list|)
+operator|<<
+name|doc01
+operator|<<
+name|QStringList
+argument_list|()
+operator|<<
+name|QString
+argument_list|(
+literal|"http://trolltech.com/xml/features/report-whitespace-only-CharData"
+argument_list|)
+operator|.
+name|split
+argument_list|(
+literal|' '
+argument_list|)
+operator|<<
+name|QString
+argument_list|(
+literal|"<!DOCTYPE a1>\n"
+literal|"<a1>\n"
+literal|"<b1>\n"
+literal|"<c1>foo</c1>\n"
+literal|"<c2>bar</c2>\n"
+literal|"<c3>foo&amp; bar</c3>\n"
+literal|"<c4>foo and bar</c4>\n"
+literal|"</b1>\n"
+literal|"<b2/>\n"
+literal|"<b3>\n"
+literal|"<c1/>\n"
+literal|"</b3>\n"
+literal|"</a1>\n"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"02"
+argument_list|)
+operator|<<
+name|doc01
+operator|<<
+name|QString
+argument_list|(
+literal|"http://trolltech.com/xml/features/report-whitespace-only-CharData"
+argument_list|)
+operator|.
+name|split
+argument_list|(
+literal|' '
+argument_list|)
+operator|<<
+name|QStringList
+argument_list|()
+operator|<<
+name|QString
+argument_list|(
+literal|"<!DOCTYPE a1>\n"
+literal|"<a1>\n"
+literal|"<b1>\n"
+literal|"<c1>foo</c1>\n"
+literal|"<c2>bar</c2>\n"
+literal|"<c3>foo&amp; bar</c3>\n"
+literal|"<c4>foo and bar</c4>\n"
+literal|"</b1>\n"
+literal|"<b2></b2>\n"
+literal|"<b3>\n"
+literal|"<c1/>\n"
+literal|"</b3>\n"
+literal|"</a1>\n"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"03"
+argument_list|)
+operator|<<
+name|doc01
+operator|<<
+name|QString
+argument_list|(
+literal|"http://trolltech.com/xml/features/report-start-end-entity"
+argument_list|)
+operator|.
+name|split
+argument_list|(
+literal|' '
+argument_list|)
+operator|<<
+name|QString
+argument_list|(
+literal|"http://trolltech.com/xml/features/report-whitespace-only-CharData"
+argument_list|)
+operator|.
+name|split
+argument_list|(
+literal|' '
+argument_list|)
+operator|<<
+name|QString
+argument_list|(
+literal|"<!DOCTYPE a1 [\n"
+literal|"<!ENTITY blubber \"and\">\n"
+literal|"]>\n"
+literal|"<a1>\n"
+literal|"<b1>\n"
+literal|"<c1>foo</c1>\n"
+literal|"<c2>bar</c2>\n"
+literal|"<c3>foo&amp; bar</c3>\n"
+literal|"<c4>foo&blubber; bar</c4>\n"
+literal|"</b1>\n"
+literal|"<b2/>\n"
+literal|"<b3>\n"
+literal|"<c1/>\n"
+literal|"</b3>\n"
+literal|"</a1>\n"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"04"
+argument_list|)
+operator|<<
+name|doc01
+operator|<<
+name|QString
+argument_list|(
+literal|"http://trolltech.com/xml/features/report-whitespace-only-CharData http://trolltech.com/xml/features/report-start-end-entity"
+argument_list|)
+operator|.
+name|split
+argument_list|(
+literal|' '
+argument_list|)
+operator|<<
+name|QStringList
+argument_list|()
+operator|<<
+name|QString
+argument_list|(
+literal|"<!DOCTYPE a1 [\n"
+literal|"<!ENTITY blubber \"and\">\n"
+literal|"]>\n"
+literal|"<a1>\n"
+literal|"<b1>\n"
+literal|"<c1>foo</c1>\n"
+literal|"<c2>bar</c2>\n"
+literal|"<c3>foo&amp; bar</c3>\n"
+literal|"<c4>foo&blubber; bar</c4>\n"
+literal|"</b1>\n"
+literal|"<b2></b2>\n"
+literal|"<b3>\n"
+literal|"<c1/>\n"
+literal|"</b3>\n"
+literal|"</a1>\n"
+argument_list|)
+expr_stmt|;
 name|QTest
 operator|::
 name|newRow
