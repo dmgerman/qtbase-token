@@ -143,7 +143,7 @@ parameter_list|()
 function_decl|;
 private|private:
 name|void
-name|check
+name|runTest
 parameter_list|()
 function_decl|;
 name|void
@@ -633,7 +633,7 @@ operator|::
 name|expires
 parameter_list|()
 block|{
-name|check
+name|runTest
 argument_list|()
 expr_stmt|;
 block|}
@@ -834,7 +834,7 @@ operator|::
 name|lastModified
 parameter_list|()
 block|{
-name|check
+name|runTest
 argument_list|()
 expr_stmt|;
 block|}
@@ -1037,7 +1037,7 @@ operator|::
 name|etag
 parameter_list|()
 block|{
-name|check
+name|runTest
 argument_list|()
 expr_stmt|;
 block|}
@@ -1317,7 +1317,7 @@ operator|::
 name|cacheControl
 parameter_list|()
 block|{
-name|check
+name|runTest
 argument_list|()
 expr_stmt|;
 block|}
@@ -1351,11 +1351,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|check
+DECL|function|runTest
 name|void
 name|tst_QAbstractNetworkCache
 operator|::
-name|check
+name|runTest
 parameter_list|()
 block|{
 name|QFETCH
