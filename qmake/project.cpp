@@ -65,11 +65,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qhash.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qdebug.h>
 end_include
 begin_ifdef
@@ -249,7 +244,7 @@ decl_stmt|;
 end_decl_stmt
 begin_function
 DECL|function|qmake_expandFunctions
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -259,7 +254,7 @@ name|qmake_expandFunctions
 parameter_list|()
 block|{
 specifier|static
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -279,7 +274,7 @@ block|{
 name|qmake_expand_functions
 operator|=
 operator|new
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -290,7 +285,7 @@ name|qmakeAddCacheClear
 argument_list|(
 name|qmakeDeleteCacheClear
 argument_list|<
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -652,7 +647,7 @@ enum|;
 end_enum
 begin_function
 DECL|function|qmake_testFunctions
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -662,7 +657,7 @@ name|qmake_testFunctions
 parameter_list|()
 block|{
 specifier|static
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -682,7 +677,7 @@ block|{
 name|qmake_test_functions
 operator|=
 operator|new
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -2106,7 +2101,7 @@ name|QMakeProject
 modifier|*
 name|p
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -2130,7 +2125,7 @@ name|QMakeProject
 modifier|*
 name|p
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -2280,7 +2275,7 @@ literal|false
 argument_list|)
 block|{ }
 DECL|member|vars
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -2289,7 +2284,7 @@ argument_list|>
 name|vars
 decl_stmt|;
 DECL|member|calling_place
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -2325,7 +2320,7 @@ name|QMakeProject
 modifier|*
 name|p
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -2372,7 +2367,7 @@ name|QMakeProject
 modifier|*
 name|proj
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -2649,7 +2644,7 @@ name|QMakeProject
 modifier|*
 name|p
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -2687,7 +2682,7 @@ name|QMakeProject
 modifier|*
 name|p
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -3765,7 +3760,7 @@ name|prop
 expr_stmt|;
 for|for
 control|(
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -3817,7 +3812,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -3881,7 +3876,7 @@ modifier|*
 name|p
 parameter_list|,
 specifier|const
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -3947,7 +3942,7 @@ modifier|*
 name|p
 parameter_list|,
 specifier|const
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -3977,7 +3972,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -4034,7 +4029,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -4139,7 +4134,7 @@ name|QString
 modifier|&
 name|t
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -6103,7 +6098,7 @@ return|return
 literal|false
 return|;
 block|}
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -7970,7 +7965,7 @@ name|QTextStream
 modifier|&
 name|file
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -8243,7 +8238,7 @@ name|QString
 modifier|&
 name|file
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -10294,7 +10289,7 @@ parameter_list|,
 name|bool
 name|regex
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -10834,7 +10829,7 @@ parameter_list|(
 name|QString
 name|str
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -11022,7 +11017,7 @@ name|QString
 modifier|&
 name|params
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -11062,7 +11057,7 @@ parameter_list|,
 name|uchar
 name|flags
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -12039,7 +12034,7 @@ name|QString
 modifier|&
 name|params
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -12077,7 +12072,7 @@ parameter_list|,
 name|QStringList
 name|args
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -12212,7 +12207,7 @@ name|QStringList
 modifier|&
 name|rootSet
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -12344,7 +12339,7 @@ name|QStringList
 argument_list|>
 name|args_list
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -13288,7 +13283,7 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -13438,7 +13433,7 @@ block|}
 else|else
 block|{
 specifier|const
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -13577,7 +13572,7 @@ operator|(
 operator|*
 operator|(
 operator|(
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -16003,7 +15998,7 @@ parameter_list|,
 name|QStringList
 name|args
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -16112,7 +16107,7 @@ name|QStringList
 argument_list|>
 name|args_list
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -18323,7 +18318,7 @@ name|ret
 init|=
 literal|false
 decl_stmt|;
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -19077,7 +19072,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -19105,7 +19100,7 @@ operator|==
 name|IncludeSuccess
 condition|)
 block|{
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -19115,7 +19110,7 @@ name|out_place
 decl_stmt|;
 for|for
 control|(
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -19181,7 +19176,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -19741,7 +19736,7 @@ name|QStringList
 modifier|&
 name|deps
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -19867,7 +19862,7 @@ modifier|&
 name|v
 parameter_list|)
 block|{
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -19908,7 +19903,7 @@ modifier|&
 name|args
 parameter_list|)
 block|{
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -19946,7 +19941,7 @@ block|{
 name|bool
 name|ok
 decl_stmt|;
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -20030,7 +20025,7 @@ name|from_file
 operator|=
 literal|false
 expr_stmt|;
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -20099,7 +20094,7 @@ modifier|&
 name|args
 parameter_list|)
 block|{
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -20132,7 +20127,7 @@ name|QString
 modifier|&
 name|str
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -20184,7 +20179,7 @@ name|QString
 modifier|&
 name|str
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -21380,7 +21375,7 @@ name|QString
 modifier|&
 name|_var
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -22649,7 +22644,7 @@ modifier|&
 name|v
 parameter_list|)
 block|{
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,

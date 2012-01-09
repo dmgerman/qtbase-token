@@ -36,7 +36,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qmap.h>
+file|<qhash.h>
 end_include
 begin_include
 include|#
@@ -172,7 +172,7 @@ name|FunctionBlock
 modifier|*
 name|function
 decl_stmt|;
-name|QMap
+name|QHash
 operator|<
 name|QString
 operator|,
@@ -205,7 +205,7 @@ name|void
 name|reset
 parameter_list|()
 function_decl|;
-name|QMap
+name|QHash
 operator|<
 name|QString
 operator|,
@@ -225,7 +225,7 @@ name|QString
 operator|&
 name|text
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -283,7 +283,7 @@ argument_list|,
 name|uchar
 name|flags
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -301,7 +301,7 @@ name|QStringList
 operator|&
 name|deps
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -318,7 +318,7 @@ name|QString
 operator|&
 name|str
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -336,7 +336,7 @@ name|QString
 operator|&
 name|str
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -359,7 +359,7 @@ name|QMakeProperty
 operator|*
 argument_list|,
 specifier|const
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -377,7 +377,7 @@ name|QString
 operator|&
 name|v
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -424,7 +424,7 @@ operator|*
 name|p
 argument_list|,
 specifier|const
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -438,7 +438,7 @@ argument_list|)
 expr_stmt|;
 name|QMakeProject
 argument_list|(
-argument|const QMap<QString
+argument|const QHash<QString
 argument_list|,
 argument|QStringList>&nvars
 argument_list|)
@@ -456,7 +456,7 @@ name|QMakeProject
 argument_list|(
 argument|QMakeProperty *p
 argument_list|,
-argument|const QMap<QString
+argument|const QHash<QString
 argument_list|,
 argument|QStringList>&nvars
 argument_list|)
@@ -589,7 +589,7 @@ argument_list|(
 name|QString
 name|str
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -610,7 +610,7 @@ name|QString
 operator|&
 name|params
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -629,7 +629,7 @@ argument_list|,
 name|QStringList
 name|args
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -651,7 +651,7 @@ name|QStringList
 operator|>
 name|args
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -672,7 +672,7 @@ name|QString
 operator|&
 name|params
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -691,7 +691,7 @@ argument_list|,
 name|QStringList
 name|args
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -713,7 +713,7 @@ name|QStringList
 operator|>
 name|args
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -805,7 +805,7 @@ name|regex
 operator|=
 name|false
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -858,7 +858,7 @@ name|v
 parameter_list|)
 function_decl|;
 comment|// ditto
-name|QMap
+name|QHash
 operator|<
 name|QString
 operator|,
@@ -892,7 +892,7 @@ name|QString
 operator|&
 name|file
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -909,7 +909,7 @@ name|QTextStream
 operator|&
 name|file
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 argument_list|,
@@ -1046,7 +1046,7 @@ begin_expr_stmt
 unit|}  inline
 DECL|variable|QString
 DECL|function|variables
-name|QMap
+name|QHash
 operator|<
 name|QString
 operator|,

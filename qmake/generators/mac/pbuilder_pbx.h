@@ -62,7 +62,7 @@ name|QString
 name|pbxbuild
 argument_list|()
 block|;
-name|QMap
+name|QHash
 operator|<
 name|QString
 block|,

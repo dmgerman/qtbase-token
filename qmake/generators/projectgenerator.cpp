@@ -194,7 +194,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,

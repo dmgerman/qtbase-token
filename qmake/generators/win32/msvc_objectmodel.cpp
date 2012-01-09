@@ -11819,7 +11819,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Make sure that all deps are only once
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -11881,6 +11881,13 @@ operator|=
 name|uniqDeps
 operator|.
 name|keys
+argument_list|()
+expr_stmt|;
+name|CustomBuildTool
+operator|.
+name|AdditionalDependencies
+operator|.
+name|sort
 argument_list|()
 expr_stmt|;
 block|}

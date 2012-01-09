@@ -127,7 +127,7 @@ operator|&
 name|file
 argument_list|)
 block|;
-name|QMap
+name|QHash
 operator|<
 name|QString
 block|,
@@ -135,7 +135,7 @@ name|QStringList
 operator|>
 name|extraCompilerSources
 block|;
-name|QMap
+name|QHash
 operator|<
 name|QString
 block|,

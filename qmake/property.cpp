@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qmap.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qsettings.h>
 end_include
 begin_include

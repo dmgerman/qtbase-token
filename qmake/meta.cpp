@@ -25,11 +25,11 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|member|cache_vars
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -609,7 +609,7 @@ name|Option
 operator|::
 name|dir_sep
 expr_stmt|;
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -625,7 +625,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,

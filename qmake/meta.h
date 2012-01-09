@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<qmap.h>
+file|<qhash.h>
 end_include
 begin_include
 include|#
@@ -51,7 +51,7 @@ modifier|&
 name|f
 parameter_list|)
 function_decl|;
-name|QMap
+name|QHash
 operator|<
 name|QString
 operator|,
@@ -63,11 +63,11 @@ name|QString
 name|meta_type
 decl_stmt|;
 specifier|static
-name|QMap
+name|QHash
 operator|<
 name|QString
 operator|,
-name|QMap
+name|QHash
 operator|<
 name|QString
 operator|,
@@ -141,7 +141,7 @@ modifier|&
 name|v
 parameter_list|)
 function_decl|;
-name|QMap
+name|QHash
 operator|<
 name|QString
 operator|,
@@ -307,7 +307,7 @@ begin_expr_stmt
 unit|}  inline
 DECL|variable|QString
 DECL|function|variables
-name|QMap
+name|QHash
 operator|<
 name|QString
 operator|,

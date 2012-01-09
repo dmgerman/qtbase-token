@@ -1039,7 +1039,7 @@ argument_list|,
 literal|"Dumping all variables:"
 argument_list|)
 expr_stmt|;
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -1055,7 +1055,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -1191,7 +1191,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//initialize the base
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
