@@ -37,6 +37,14 @@ operator|::
 name|Role
 argument_list|)
 decl_stmt|;
+name|bool
+name|shouldBeIgnrored
+parameter_list|(
+name|QAccessibleInterface
+modifier|*
+name|interface
+parameter_list|)
+function_decl|;
 name|NSString
 modifier|*
 name|getTranslatedAction
