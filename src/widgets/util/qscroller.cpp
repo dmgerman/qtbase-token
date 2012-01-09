@@ -7590,33 +7590,9 @@ name|deltaPixel
 expr_stmt|;
 comment|//    }
 comment|//qScrollerDebug()<< "######################"<< deltaPixel<< position.y()<< lastPosition.y();
-if|if
-condition|(
-name|canScrollX
-condition|)
 name|lastPosition
-operator|.
-name|setX
-argument_list|(
+operator|=
 name|position
-operator|.
-name|x
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|canScrollY
-condition|)
-name|lastPosition
-operator|.
-name|setY
-argument_list|(
-name|position
-operator|.
-name|y
-argument_list|()
-argument_list|)
 expr_stmt|;
 name|lastTimestamp
 operator|=
