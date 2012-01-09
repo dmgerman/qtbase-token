@@ -88,13 +88,37 @@ begin_comment
 comment|/*!     \fn void QAccessibleTextInterface::scrollToSubstring(int startIndex, int endIndex)      Ensures that the text between \a startIndex and \a endIndex is visible. */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleEditableTextInterface     \ingroup accessibility      \brief The QAccessibleEditableTextInterface class implements support for objects with editable text.      When implementing this interface you will almost certainly also want to implement \l QAccessibleTextInterface.      Since this interface can be implemented by means of the normal \l QAccessibleTextInterface,     \l QAccessibleSimpleEditableTextInterface provides a convenience implementation of this interface.     Consider inheriting \l QAccessibleSimpleEditableTextInterface instead.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
+comment|/*!     \class QAccessibleEditableTextInterface     \ingroup accessibility      \brief The QAccessibleEditableTextInterface class implements support for objects with editable text.      When implementing this interface you will almost certainly also want to implement \l QAccessibleTextInterface.      Since this interface can be implemented by means of the normal \l QAccessibleTextInterface,     \l QAccessibleSimpleEditableTextInterface provides a convenience implementation of this interface.     Consider inheriting \l QAccessibleSimpleEditableTextInterface instead.      \sa QAccessibleInterface      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleSimpleEditableTextInterface     \ingroup accessibility      \brief The QAccessibleSimpleEditableTextInterface class is a convenience class for     text-based widgets.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
+comment|/*!     \fn QAccessibleEditableTextInterface::~QAccessibleEditableTextInterface()   */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleValueInterface     \ingroup accessibility      \brief The QAccessibleValueInterface class implements support for objects that manipulate a value.      This interface should be implemented by accessible objects that represent a value.     Examples are spinner, slider, dial and scroll bar.      Instead of forcing the user to deal with the individual parts of the widgets, this interface     gives an easier approach to the kind of widget it represents.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
+comment|/*!     \fn void QAccessibleEditableTextInterface::copyText(int startOffset, int endOffset) const      Copies the text from \a startOffset to \a endOffset to the system clip board.     The \a startOffset is the first character that will be copied.     The \a endOffset is the first character that will not be copied. */
+end_comment
+begin_comment
+comment|/*!     \fn void QAccessibleEditableTextInterface::deleteText(int startOffset, int endOffset)      Deletes the text from \a startOffset to \a endOffset. */
+end_comment
+begin_comment
+comment|/*!     \fn void QAccessibleEditableTextInterface::insertText(int offset, const QString&text)      Inserts \a text at position \a offset. */
+end_comment
+begin_comment
+comment|/*!     \fn void QAccessibleEditableTextInterface::cutText(int startOffset, int endOffset)      Removes the text from \a startOffset to \a endOffset and puts it in the system clip board. */
+end_comment
+begin_comment
+comment|/*!     \fn void QAccessibleEditableTextInterface::pasteText(int offset)      Pastes text from the system clip board at the position \a offset. */
+end_comment
+begin_comment
+comment|/*!     \fn void QAccessibleEditableTextInterface::replaceText(int startOffset, int endOffset, const QString&text)      Removes the text from \a startOffset to \a endOffset and instead inserts \a text. */
+end_comment
+begin_comment
+comment|/*!     \fn void QAccessibleEditableTextInterface::setAttributes(int startOffset, int endOffset, const QString&attributes)      \sa QAccessibleTextInterface::attributes() */
+end_comment
+begin_comment
+comment|/*!     \class QAccessibleSimpleEditableTextInterface     \ingroup accessibility      \brief The QAccessibleSimpleEditableTextInterface class is a convenience class for     text-based widgets. It can be inherited instead of \l QAccessibleEditableTextInterface.      \sa QAccessibleInterface, QAccessibleEditableTextInterface      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
+end_comment
+begin_comment
+comment|/*!     \class QAccessibleValueInterface     \ingroup accessibility      \brief The QAccessibleValueInterface class implements support for objects that manipulate a value.      This interface should be implemented by accessible objects that represent a value.     Examples are spinner, slider, dial and scroll bar.      Instead of forcing the user to deal with the individual parts of the widgets, this interface     gives an easier approach to the kind of widget it represents.      Usually this interface is implemented by classes that also implement \l QAccessibleInterface.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 end_comment
 begin_comment
 comment|/*!     \fn QAccessibleValueInterface::~QAccessibleValueInterface()     Destructor. */
@@ -121,7 +145,7 @@ begin_comment
 comment|/*!     \class QAccessibleTableInterface     \ingroup accessibility      \brief The QAccessibleTableInterface class implements support for     the IAccessibleTable2 interface.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleActionInterface     \ingroup accessibility      \brief The QAccessibleActionInterface class implements support for     invocable actions in the interface.      Each accessible should implement the action interface if it supports any actions.     The supported actions should use the predefined actions offered in this class unless they do not     fit a predefined action. In that case a custom action can be added.      When subclassing QAccessibleActionInterface you need to provide a list of actionNames which     is the primary means to discover the available actions. Action names are never localized.     In order to present actions to the user there are two functions that need to return localized versions     of the name and give a description of the action. For the predefined action names use     \l QAccessibleActionInterface::localizedActionName() and \l QAccessibleActionInterface::localizedActionDescription()     to return their localized counterparts.      In general you should use one of the predefined action names, unless describing an action that does not fit these:     \table     \header \o Action name         \o Description     \row    \o \l checkAction()    \o checks the item (checkbox, radio button, ...)     \row    \o \l decreaseAction() \o decrease the value of the accessible (e.g. spinbox)     \row    \o \l increaseAction() \o increase the value of the accessible (e.g. spinbox)     \row    \o \l pressAction()    \o press or click or activate the accessible (should correspont to clicking the object with the mouse)     \row    \o \l setFocusAction() \o set the focus to this accessible     \row    \o \l showMenuAction() \o show a context menu, corresponds to right-clicks     \row    \o \l uncheckAction()  \o uncheck the item (checkbox, radio button, ...)     \endtable      In order to invoke the action, \l doAction() is called with an action name.      Most widgets will simply implement \l pressAction(). This is what happens when the widget is activated by     being clicked, space pressed or similar.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
+comment|/*!     \class QAccessibleActionInterface     \ingroup accessibility      \brief The QAccessibleActionInterface class implements support for     invocable actions in the interface.      Accessible objects should implement the action interface if they support user interaction.     Usually this interface is implemented by classes that also implement \l QAccessibleInterface.      The supported actions should use the predefined actions offered in this class unless they do not     fit a predefined action. In that case a custom action can be added.      When subclassing QAccessibleActionInterface you need to provide a list of actionNames which     is the primary means to discover the available actions. Action names are never localized.     In order to present actions to the user there are two functions that need to return localized versions     of the name and give a description of the action. For the predefined action names use     \l QAccessibleActionInterface::localizedActionName() and \l QAccessibleActionInterface::localizedActionDescription()     to return their localized counterparts.      In general you should use one of the predefined action names, unless describing an action that does not fit these:     \table     \header \o Action name         \o Description     \row    \o \l checkAction()    \o checks the item (checkbox, radio button, ...)     \row    \o \l decreaseAction() \o decrease the value of the accessible (e.g. spinbox)     \row    \o \l increaseAction() \o increase the value of the accessible (e.g. spinbox)     \row    \o \l pressAction()    \o press or click or activate the accessible (should correspont to clicking the object with the mouse)     \row    \o \l setFocusAction() \o set the focus to this accessible     \row    \o \l showMenuAction() \o show a context menu, corresponds to right-clicks     \row    \o \l uncheckAction()  \o uncheck the item (checkbox, radio button, ...)     \endtable      In order to invoke the action, \l doAction() is called with an action name.      Most widgets will simply implement \l pressAction(). This is what happens when the widget is activated by     being clicked, space pressed or similar.      \link http://www.linux-foundation.org/en/Accessibility/IAccessible2 IAccessible2 Specification \endlink */
 end_comment
 begin_comment
 comment|/*!     \fn QStringList QAccessibleActionInterface::actionNames() const      Returns the list of actions supported by this accessible object.     The actions returned should be in preferred order,     i.e. the action that the user most likely wants to trigger should be returned first,     while the least likely action should be returned last.      The list does only contain actions that can be invoked.     It won't return disabled actions, or actions associated with disabled UI controls.      The list can be empty.      Note that this list is not localized. For a localized representation re-implement \l localizedActionName()     and \l localizedActionDescription()      \sa doAction(), localizedActionName(), localizedActionDescription() */
@@ -1147,6 +1171,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|copyText
 name|void
@@ -1198,6 +1225,9 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|deleteText
 name|void
@@ -1248,6 +1278,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|insertText
 name|void
@@ -1298,6 +1331,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|cutText
 name|void
@@ -1360,6 +1396,9 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|pasteText
 name|void
@@ -1423,6 +1462,9 @@ endif|#
 directive|endif
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|replaceText
 name|void
