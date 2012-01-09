@@ -7112,30 +7112,6 @@ value|(void)x;
 endif|#
 directive|endif
 comment|/*    Debugging and error handling */
-comment|/*    On Symbian we do not know beforehand whether we are compiling in    release or debug mode, so check the Symbian build define here,    and set the QT_NO_DEBUG define appropriately. */
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|NDEBUG
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_DEBUG
-argument_list|)
-DECL|macro|QT_NO_DEBUG
-define|#
-directive|define
-name|QT_NO_DEBUG
-endif|#
-directive|endif
 if|#
 directive|if
 operator|!
