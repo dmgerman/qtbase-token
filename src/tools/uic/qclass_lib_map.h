@@ -6002,16 +6002,6 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
-argument|QAccessibleEvent
-argument_list|,
-argument|QtWidgets
-argument_list|,
-argument|qaccessible.h
-argument_list|)
-end_macro
-begin_macro
-name|QT_CLASS_LIB
-argument_list|(
 argument|QAccessible2Interface
 argument_list|,
 argument|QtWidgets

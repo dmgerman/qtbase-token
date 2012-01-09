@@ -12645,16 +12645,6 @@ case|:
 case|case
 name|QEvent
 operator|::
-name|AccessibilityHelp
-case|:
-case|case
-name|QEvent
-operator|::
-name|AccessibilityDescription
-case|:
-case|case
-name|QEvent
-operator|::
 name|GraphicsSceneDragEnter
 case|:
 case|case

@@ -1574,36 +1574,6 @@ name|e
 argument_list|)
 argument_list|)
 return|;
-case|case
-name|QEvent
-operator|::
-name|AccessibilityHelp
-case|:
-name|Q_ASSERT_X
-argument_list|(
-literal|false
-argument_list|,
-literal|"cloneEvent()"
-argument_list|,
-literal|"not implemented"
-argument_list|)
-expr_stmt|;
-break|break;
-case|case
-name|QEvent
-operator|::
-name|AccessibilityDescription
-case|:
-name|Q_ASSERT_X
-argument_list|(
-literal|false
-argument_list|,
-literal|"cloneEvent()"
-argument_list|,
-literal|"not implemented"
-argument_list|)
-expr_stmt|;
-break|break;
 ifdef|#
 directive|ifdef
 name|QT_KEYPAD_NAVIGATION

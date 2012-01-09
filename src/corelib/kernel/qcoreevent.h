@@ -570,16 +570,6 @@ init|=
 literal|129
 block|,
 comment|// mouse cursor move inside a hover widget
-name|AccessibilityHelp
-init|=
-literal|119
-block|,
-comment|// accessibility help text request
-name|AccessibilityDescription
-init|=
-literal|130
-block|,
-comment|// accessibility description text request
 comment|// last event id used = 132
 ifdef|#
 directive|ifdef
