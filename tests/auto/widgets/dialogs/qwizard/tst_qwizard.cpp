@@ -6443,9 +6443,9 @@ name|validatePage
 argument_list|()
 return|;
 block|}
-DECL|function|check
+DECL|function|sanityCheck
 name|bool
-name|check
+name|sanityCheck
 parameter_list|(
 name|int
 name|init
@@ -6522,7 +6522,7 @@ parameter_list|,
 name|c2
 parameter_list|)
 define|\
-value|QVERIFY(page0->check((i0), (c0))); \     QVERIFY(page1->check((i1), (c1))); \     QVERIFY(page2->check((i2), (c2)));
+value|QVERIFY(page0->sanityCheck((i0), (c0))); \     QVERIFY(page1->sanityCheck((i1), (c1))); \     QVERIFY(page2->sanityCheck((i2), (c2)));
 end_define
 begin_function
 DECL|function|setOption_IndependentPages
