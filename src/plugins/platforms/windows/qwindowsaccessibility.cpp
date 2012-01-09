@@ -3294,11 +3294,11 @@ expr_stmt|;
 if|if
 condition|(
 name|index
-operator|>
+operator|>=
 literal|0
 operator|&&
 name|index
-operator|<=
+operator|<
 name|parent
 operator|->
 name|childCount
@@ -3311,8 +3311,6 @@ operator|->
 name|child
 argument_list|(
 name|index
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 operator|delete

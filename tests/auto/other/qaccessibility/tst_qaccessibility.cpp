@@ -307,8 +307,6 @@ operator|->
 name|child
 argument_list|(
 name|index
-operator|-
-literal|1
 argument_list|)
 decl_stmt|;
 if|if
@@ -14534,7 +14532,7 @@ name|viewport
 argument_list|,
 name|interface
 argument_list|,
-literal|1
+literal|0
 argument_list|,
 name|globalGeometry
 argument_list|)
@@ -14586,7 +14584,7 @@ name|horizontalScrollBarContainer
 argument_list|,
 name|interface
 argument_list|,
-literal|2
+literal|1
 argument_list|,
 name|globalGeometry
 argument_list|)
@@ -14775,7 +14773,7 @@ name|verticalScrollBarContainer
 argument_list|,
 name|interface
 argument_list|,
-literal|3
+literal|2
 argument_list|,
 name|globalGeometry
 argument_list|)
@@ -14960,7 +14958,7 @@ name|cornerWidget
 argument_list|,
 name|interface
 argument_list|,
-literal|4
+literal|3
 argument_list|,
 name|globalGeometry
 argument_list|)
@@ -15077,6 +15075,8 @@ operator|::
 name|Down
 argument_list|,
 name|viewportIndex
+operator|+
+literal|1
 argument_list|,
 operator|&
 name|target
@@ -15126,6 +15126,8 @@ operator|::
 name|Left
 argument_list|,
 name|horizontalScrollBarContainerIndex
+operator|+
+literal|1
 argument_list|,
 operator|&
 name|target
@@ -15161,6 +15163,8 @@ operator|::
 name|Down
 argument_list|,
 name|horizontalScrollBarContainerIndex
+operator|+
+literal|1
 argument_list|,
 operator|&
 name|target
@@ -15207,6 +15211,8 @@ operator|::
 name|Right
 argument_list|,
 name|horizontalScrollBarContainerIndex
+operator|+
+literal|1
 argument_list|,
 operator|&
 name|target
@@ -15256,6 +15262,8 @@ operator|::
 name|Down
 argument_list|,
 name|cornerWidgetIndex
+operator|+
+literal|1
 argument_list|,
 operator|&
 name|target
@@ -15291,6 +15299,8 @@ operator|::
 name|Right
 argument_list|,
 name|cornerWidgetIndex
+operator|+
+literal|1
 argument_list|,
 operator|&
 name|target
@@ -15337,6 +15347,8 @@ operator|::
 name|Up
 argument_list|,
 name|cornerWidgetIndex
+operator|+
+literal|1
 argument_list|,
 operator|&
 name|target
@@ -15386,6 +15398,8 @@ operator|::
 name|Right
 argument_list|,
 name|verticalScrollBarContainerIndex
+operator|+
+literal|1
 argument_list|,
 operator|&
 name|target
@@ -15413,6 +15427,8 @@ operator|::
 name|Up
 argument_list|,
 name|verticalScrollBarContainerIndex
+operator|+
+literal|1
 argument_list|,
 operator|&
 name|target
@@ -15440,6 +15456,8 @@ operator|::
 name|Left
 argument_list|,
 name|verticalScrollBarContainerIndex
+operator|+
+literal|1
 argument_list|,
 operator|&
 name|target
@@ -15730,7 +15748,7 @@ name|data
 argument_list|()
 argument_list|)
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -15792,7 +15810,7 @@ name|data
 argument_list|()
 argument_list|)
 argument_list|,
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -15842,7 +15860,7 @@ name|data
 argument_list|()
 argument_list|)
 argument_list|,
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -16729,7 +16747,7 @@ argument_list|(
 name|header1
 argument_list|)
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -16793,7 +16811,7 @@ argument_list|(
 name|child1
 argument_list|)
 argument_list|,
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -16870,7 +16888,7 @@ argument_list|(
 name|child2
 argument_list|)
 argument_list|,
-literal|5
+literal|4
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -17060,7 +17078,7 @@ argument_list|(
 name|cell2
 argument_list|)
 argument_list|,
-literal|5
+literal|4
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -17172,10 +17190,10 @@ argument_list|(
 name|cell1
 argument_list|)
 argument_list|,
-literal|5
+literal|4
 argument_list|)
 expr_stmt|;
-comment|// 1 based + 2 header + 2 for root item
+comment|// 2 header + 2 for root item
 name|cell2
 operator|=
 name|table2
@@ -17264,7 +17282,7 @@ argument_list|(
 name|cell2
 argument_list|)
 argument_list|,
-literal|11
+literal|10
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -17552,7 +17570,7 @@ argument_list|(
 name|cornerButton
 argument_list|)
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -17595,7 +17613,7 @@ argument_list|(
 name|child1
 argument_list|)
 argument_list|,
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -17668,7 +17686,7 @@ argument_list|(
 name|child2
 argument_list|)
 argument_list|,
-literal|11
+literal|10
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -17740,7 +17758,7 @@ argument_list|(
 name|child3
 argument_list|)
 argument_list|,
-literal|12
+literal|11
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -17847,7 +17865,7 @@ argument_list|(
 name|cell1
 argument_list|)
 argument_list|,
-literal|6
+literal|5
 argument_list|)
 expr_stmt|;
 name|QAccessibleInterface
@@ -17932,7 +17950,7 @@ argument_list|(
 name|cell2
 argument_list|)
 argument_list|,
-literal|7
+literal|6
 argument_list|)
 expr_stmt|;
 operator|delete
@@ -18020,7 +18038,7 @@ argument_list|(
 name|cell3
 argument_list|)
 argument_list|,
-literal|12
+literal|11
 argument_list|)
 expr_stmt|;
 operator|delete
@@ -18343,7 +18361,7 @@ name|navigationBar
 argument_list|,
 name|interface
 argument_list|,
-literal|1
+literal|0
 argument_list|,
 name|globalGeometry
 argument_list|)
@@ -18407,7 +18425,7 @@ name|calendarView
 argument_list|,
 name|interface
 argument_list|,
-literal|2
+literal|1
 argument_list|,
 name|globalGeometry
 argument_list|)
@@ -18448,7 +18466,7 @@ name|calendarView
 argument_list|,
 name|interface
 argument_list|,
-literal|1
+literal|0
 argument_list|,
 name|globalGeometry
 argument_list|)
@@ -19091,8 +19109,6 @@ operator|->
 name|child
 argument_list|(
 name|index
-operator|-
-literal|1
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
@@ -19116,7 +19132,7 @@ argument_list|(
 name|accTitleBar
 argument_list|)
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|QAccessibleInterface

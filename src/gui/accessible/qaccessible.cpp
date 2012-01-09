@@ -711,7 +711,7 @@ begin_comment
 comment|/*!     \fn int QAccessibleInterface::childCount() const      Returns the number of children that belong to this object. A child     can provide accessibility information on its own (e.g. a child     widget), or be a sub-element of this accessible object.      All objects provide this information.      \sa indexOfChild() */
 end_comment
 begin_comment
-comment|/*!     \fn int QAccessibleInterface::indexOfChild(const QAccessibleInterface *child) const      Returns the 1-based index of the object \a child in this object's     children list, or -1 if \a child is not a child of this object. 0     is not a possible return value.      All objects provide this information about their children.      \sa childCount() */
+comment|/*!     \fn int QAccessibleInterface::indexOfChild(const QAccessibleInterface *child) const      Returns the 0-based index of the object \a child in this object's     children list, or -1 if \a child is not a child of this object.      All objects provide this information about their children.      \sa childCount() */
 end_comment
 begin_comment
 comment|/*!     \fn QAccessible::Relation QAccessibleInterface::relationTo(const QAccessibleInterface *other) const      Returns the relationship between this object and the \a     other object.      The returned value indicates the relation of the called object to     the \a other object, e.g. if this object is a label for \a other     the return value will be \c Label.      Usually parent-child relations are not returned.      The return value is a combination of the bit flags in the     QAccessible::Relation enumeration.      All objects provide this information.      \sa relations(), indexOfChild(), navigate() */

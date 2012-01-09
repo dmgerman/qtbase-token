@@ -1642,13 +1642,8 @@ name|QAccessibleInterface
 modifier|*
 name|pIface
 init|=
-name|QAccessible
-operator|::
-name|queryAccessibleInterface
-argument_list|(
-name|parentObject
+name|parent
 argument_list|()
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -1679,6 +1674,8 @@ name|sibling
 init|=
 literal|0
 decl_stmt|;
+comment|// FIXME: this code looks very suspicious
+comment|// why start at this index?
 for|for
 control|(
 name|int
@@ -1691,7 +1688,7 @@ argument_list|(
 name|this
 argument_list|)
 operator|+
-literal|1
+literal|2
 init|;
 name|i
 operator|<=
@@ -1840,12 +1837,13 @@ name|sibling
 init|=
 literal|0
 decl_stmt|;
+comment|// FIXME: why end at index?
 for|for
 control|(
 name|int
 name|i
 init|=
-literal|1
+literal|0
 init|;
 name|i
 operator|<
@@ -1864,8 +1862,6 @@ operator|->
 name|child
 argument_list|(
 name|i
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 name|Q_ASSERT
@@ -2479,9 +2475,7 @@ name|widget
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|int
-name|index
-init|=
+return|return
 name|cl
 operator|.
 name|indexOf
@@ -2498,19 +2492,6 @@ name|object
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|index
-operator|!=
-operator|-
-literal|1
-condition|)
-operator|++
-name|index
-expr_stmt|;
-return|return
-name|index
 return|;
 block|}
 end_function

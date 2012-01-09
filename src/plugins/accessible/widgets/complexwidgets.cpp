@@ -751,6 +751,7 @@ name|child
 parameter_list|)
 specifier|const
 block|{
+comment|// FIXME this looks broken
 if|if
 condition|(
 name|child
@@ -777,10 +778,7 @@ argument_list|()
 operator|->
 name|count
 argument_list|()
-operator|+
-literal|1
 return|;
-comment|// fixme - one based
 if|if
 condition|(
 name|child
@@ -808,11 +806,11 @@ operator|->
 name|count
 argument_list|()
 operator|+
-literal|2
+literal|1
 return|;
-comment|// fixme - one based
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 block|}
 end_function
@@ -1747,9 +1745,7 @@ return|return
 operator|-
 literal|1
 return|;
-name|int
-name|index
-init|=
+return|return
 name|accessibleChildren
 argument_list|()
 operator|.
@@ -1767,20 +1763,6 @@ name|object
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|index
-operator|>=
-literal|0
-condition|)
-return|return
-operator|++
-name|index
-return|;
-return|return
-operator|-
-literal|1
 return|;
 block|}
 end_function

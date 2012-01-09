@@ -1950,6 +1950,8 @@ name|cell
 operator|->
 name|m_index
 argument_list|)
+operator|-
+literal|1
 return|;
 block|}
 elseif|else
@@ -1993,8 +1995,6 @@ literal|1
 else|:
 literal|0
 operator|)
-operator|+
-literal|1
 return|;
 block|}
 elseif|else
@@ -2045,8 +2045,6 @@ argument_list|()
 operator|+
 literal|1
 operator|)
-operator|+
-literal|1
 return|;
 block|}
 elseif|else
@@ -2063,7 +2061,7 @@ name|Pane
 condition|)
 block|{
 return|return
-literal|1
+literal|0
 return|;
 comment|// corner button
 block|}
@@ -2998,14 +2996,12 @@ name|columnCount
 argument_list|()
 operator|+
 name|column
-operator|+
-literal|1
 decl_stmt|;
 comment|//qDebug()<< "QAccessibleTree::indexOfChild r "<< row<< " c "<< column<< "index "<< index;
 name|Q_ASSERT
 argument_list|(
 name|index
-operator|>
+operator|>=
 name|treeView
 operator|->
 name|model
@@ -3052,8 +3048,6 @@ return|return
 name|cell
 operator|->
 name|index
-operator|+
-literal|1
 return|;
 block|}
 else|else
