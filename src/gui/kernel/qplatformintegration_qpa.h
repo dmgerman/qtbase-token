@@ -284,6 +284,8 @@ block|,
 name|StartDragDistance
 block|,
 name|StartDragTime
+block|,
+name|KeyboardAutoRepeatRate
 block|}
 enum|;
 end_enum

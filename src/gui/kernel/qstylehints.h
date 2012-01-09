@@ -61,6 +61,11 @@ argument_list|()
 specifier|const
 block|;
 name|int
+name|keyboardAutoRepeatRate
+argument_list|()
+specifier|const
+block|;
+name|int
 name|cursorFlashTime
 argument_list|()
 specifier|const

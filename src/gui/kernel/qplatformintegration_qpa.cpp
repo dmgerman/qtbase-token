@@ -317,6 +317,12 @@ return|return
 literal|400
 return|;
 case|case
+name|KeyboardAutoRepeatRate
+case|:
+return|return
+literal|30
+return|;
+case|case
 name|MouseDoubleClickInterval
 case|:
 return|return
