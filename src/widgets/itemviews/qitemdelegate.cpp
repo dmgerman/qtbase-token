@@ -1520,7 +1520,7 @@ argument_list|)
 expr_stmt|;
 name|checkRect
 operator|=
-name|check
+name|doCheck
 argument_list|(
 name|opt
 argument_list|,
@@ -2299,7 +2299,7 @@ decl_stmt|;
 name|QRect
 name|checkRect
 init|=
-name|check
+name|doCheck
 argument_list|(
 name|option
 argument_list|,
@@ -5476,7 +5476,7 @@ operator|::
 name|CheckStateRole
 condition|)
 return|return
-name|check
+name|doCheck
 argument_list|(
 name|option
 argument_list|,
@@ -5739,14 +5739,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \internal    Note that on Mac, if /usr/include/AssertMacros.h is included prior   to QItemDelegate, and the application is building in debug mode, the   check(assertion) will conflict with QItemDelegate::check.    To avoid this problem, add    #ifdef check 	#undef check   #endif    after including AssertMacros.h */
+comment|/*!   \internal */
 end_comment
 begin_function
-DECL|function|check
+DECL|function|doCheck
 name|QRect
 name|QItemDelegate
 operator|::
-name|check
+name|doCheck
 parameter_list|(
 specifier|const
 name|QStyleOptionViewItem
@@ -6584,7 +6584,7 @@ block|{
 name|QRect
 name|checkRect
 init|=
-name|check
+name|doCheck
 argument_list|(
 name|option
 argument_list|,

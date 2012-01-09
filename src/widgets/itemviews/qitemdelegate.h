@@ -331,7 +331,7 @@ argument_list|)
 specifier|const
 block|;
 name|QRect
-name|check
+name|doCheck
 argument_list|(
 argument|const QStyleOptionViewItem&option
 argument_list|,
