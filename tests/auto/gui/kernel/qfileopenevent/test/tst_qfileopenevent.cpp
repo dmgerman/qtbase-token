@@ -675,12 +675,12 @@ argument_list|()
 expr_stmt|;
 comment|// check the content
 name|QFile
-name|check
+name|checkContent
 argument_list|(
 literal|"testHandleLifetime"
 argument_list|)
 decl_stmt|;
-name|check
+name|checkContent
 operator|.
 name|open
 argument_list|(
@@ -692,7 +692,7 @@ expr_stmt|;
 name|QString
 name|content
 argument_list|(
-name|check
+name|checkContent
 operator|.
 name|readAll
 argument_list|()
@@ -708,7 +708,7 @@ literal|"test content+closed original handles"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|check
+name|checkContent
 operator|.
 name|close
 argument_list|()
@@ -1007,14 +1007,14 @@ argument_list|()
 expr_stmt|;
 comment|// check the content
 name|QFile
-name|check
+name|checkContent
 argument_list|(
 literal|"testSendAndReceive"
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
 argument_list|(
-name|check
+name|checkContent
 operator|.
 name|open
 argument_list|(
@@ -1029,7 +1029,7 @@ expr_stmt|;
 name|QString
 name|content
 argument_list|(
-name|check
+name|checkContent
 operator|.
 name|readAll
 argument_list|()
@@ -1045,7 +1045,7 @@ literal|"sending+received"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|check
+name|checkContent
 operator|.
 name|close
 argument_list|()
