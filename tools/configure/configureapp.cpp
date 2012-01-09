@@ -6582,7 +6582,7 @@ name|argCount
 condition|)
 break|break;
 name|QFileInfo
-name|check
+name|checkDirectory
 argument_list|(
 name|configCmdLine
 operator|.
@@ -6595,7 +6595,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|check
+name|checkDirectory
 operator|.
 name|isDir
 argument_list|()
