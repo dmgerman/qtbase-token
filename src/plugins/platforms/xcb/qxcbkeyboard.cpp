@@ -6315,9 +6315,9 @@ argument_list|(
 literal|true
 argument_list|)
 block|{     }
-DECL|function|check
+DECL|function|checkEvent
 name|bool
-name|check
+name|checkEvent
 parameter_list|(
 name|xcb_generic_event_t
 modifier|*

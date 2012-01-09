@@ -1323,7 +1323,7 @@ if|if
 condition|(
 name|checker
 operator|.
-name|check
+name|checkEvent
 argument_list|(
 name|event
 argument_list|)

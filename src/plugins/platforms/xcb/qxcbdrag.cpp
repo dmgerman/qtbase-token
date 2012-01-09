@@ -4140,9 +4140,9 @@ DECL|member|atom
 name|xcb_atom_t
 name|atom
 decl_stmt|;
-DECL|function|check
+DECL|function|checkEvent
 name|bool
-name|check
+name|checkEvent
 parameter_list|(
 name|xcb_generic_event_t
 modifier|*

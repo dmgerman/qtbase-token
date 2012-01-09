@@ -3500,9 +3500,9 @@ DECL|member|type
 name|int
 name|type
 decl_stmt|;
-DECL|function|check
+DECL|function|checkEvent
 name|bool
-name|check
+name|checkEvent
 parameter_list|(
 name|xcb_generic_event_t
 modifier|*
@@ -3628,9 +3628,9 @@ DECL|member|clipboard
 name|xcb_atom_t
 name|clipboard
 decl_stmt|;
-DECL|function|check
+DECL|function|checkEvent
 name|bool
-name|check
+name|checkEvent
 parameter_list|(
 name|xcb_generic_event_t
 modifier|*
