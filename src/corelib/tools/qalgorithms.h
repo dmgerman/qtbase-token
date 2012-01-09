@@ -18,34 +18,37 @@ include|#
 directive|include
 file|<QtCore/qglobal.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 comment|/*     Warning: The contents of QAlgorithmsPrivate is not a part of the public Qt API     and may be changed from version to version or even be completely removed. */
 name|namespace
 name|QAlgorithmsPrivate
-decl_stmt|{  template<typename RandomAccessIterator
+block|{
+name|template
+operator|<
+name|typename
+name|RandomAccessIterator
 operator|,
-decl_stmt|typename T
+name|typename
+name|T
 operator|,
-decl_stmt|typename LessThan> Q_OUTOFLINE_TEMPLATE void qSortHelper(RandomAccessIterator start
-operator|,
-decl_stmt|RandomAccessIterator end
-operator|,
-decl_stmt|const T&t
-operator|,
-decl_stmt|LessThan lessThan
-end_function
-begin_empty_stmt
-unit|)
-empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
+name|typename
+name|LessThan
+operator|>
+name|Q_OUTOFLINE_TEMPLATE
+name|void
+name|qSortHelper
+argument_list|(
+argument|RandomAccessIterator start
+argument_list|,
+argument|RandomAccessIterator end
+argument_list|,
+argument|const T&t
+argument_list|,
+argument|LessThan lessThan
+argument_list|)
+expr_stmt|;
 name|template
 operator|<
 name|typename
@@ -65,8 +68,6 @@ argument_list|,
 argument|const T&dummy
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -91,8 +92,6 @@ argument_list|,
 argument|LessThan lessThan
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -114,8 +113,6 @@ name|T
 operator|&
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -140,8 +137,6 @@ argument_list|,
 argument|LessThan lessThan
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -166,8 +161,6 @@ argument_list|,
 argument|LessThan lessThan
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -192,10 +185,11 @@ argument_list|,
 argument|LessThan lessThan
 argument_list|)
 expr_stmt|;
-end_expr_stmt
+block|}
+end_decl_stmt
 begin_expr_stmt
-unit|}  template
 DECL|variable|InputIterator
+name|template
 operator|<
 name|typename
 name|InputIterator

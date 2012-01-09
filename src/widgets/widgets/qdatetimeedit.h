@@ -31,13 +31,10 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_DATETIMEEDIT
+DECL|variable|QDateTimeEditPrivate
 name|class
 name|QDateTimeEditPrivate
 decl_stmt|;

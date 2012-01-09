@@ -63,18 +63,15 @@ include|#
 directive|include
 file|<QtCore/qcontiguouscache.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 name|class
 name|Q_CORE_EXPORT
 name|QDebug
-decl_stmt|{     struct Stream
+block|{
+struct|struct
+name|Stream
 block|{
 name|Stream
 argument_list|(
@@ -198,17 +195,11 @@ name|bool
 name|message_output
 decl_stmt|;
 block|}
-end_function
-begin_expr_stmt
-operator|*
+modifier|*
 name|stream
-expr_stmt|;
-end_expr_stmt
-begin_label
+struct|;
 name|public
 label|:
-end_label
-begin_expr_stmt
 specifier|inline
 name|QDebug
 argument_list|(
@@ -277,8 +268,6 @@ operator|&
 name|other
 operator|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 operator|~
 name|QDebug
@@ -327,14 +316,14 @@ argument_list|)
 block|{
 comment|/* We're out of memory - give up. */
 block|}
-end_expr_stmt
-begin_expr_stmt
-unit|}             delete
+block|}
+name|delete
 name|stream
-expr_stmt|;
-end_expr_stmt
+decl_stmt|;
+block|}
+block|}
+end_decl_stmt
 begin_function
-unit|}     }
 specifier|inline
 name|QDebug
 modifier|&

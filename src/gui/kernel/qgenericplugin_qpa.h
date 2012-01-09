@@ -23,22 +23,18 @@ include|#
 directive|include
 file|<QtCore/qfactoryinterface.h>
 end_include
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_LIBRARY
 comment|//class QGenericObject; ?????
-decl|struct
+expr|struct
+DECL|struct|QFactoryInterface
 name|Q_GUI_EXPORT
 name|QGenericPluginFactoryInterface
-range|:
+operator|:
 name|public
 name|QFactoryInterface
 block|{
@@ -60,8 +56,8 @@ argument_list|)
 operator|=
 literal|0
 block|; }
-decl_stmt|;
-end_decl_stmt
+expr_stmt|;
+end_expr_stmt
 begin_define
 DECL|macro|QGenericPluginFactoryInterface_iid
 define|#

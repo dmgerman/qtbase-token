@@ -38,26 +38,28 @@ include|#
 directive|include
 file|<QtCore/qthreadpool.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 ifndef|#
 directive|ifndef
 name|qdoc
 name|namespace
 name|QtConcurrent
-decl_stmt|{  template<typename T> struct SelectSpecialization
+block|{
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+expr|struct
+name|SelectSpecialization
 block|{
 name|template
 operator|<
 name|class
 name|Normal
-operator|,
+block|,
 name|class
 name|Void
 operator|>
@@ -69,13 +71,8 @@ name|Normal
 name|type
 typedef|;
 block|}
-empty_stmt|;
-block|}
-end_function
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
+block|; }
+expr_stmt|;
 name|template
 operator|<
 operator|>
@@ -101,10 +98,8 @@ name|Void
 name|type
 typedef|;
 block|}
+block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-unit|};
 name|template
 operator|<
 name|typename
@@ -181,10 +176,8 @@ name|runFunctor
 argument_list|()
 operator|=
 literal|0
+block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-unit|};
 name|template
 operator|<
 name|typename
@@ -231,7 +224,7 @@ name|this
 operator|->
 name|runFunctor
 argument_list|()
-block|;
+expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_EXCEPTIONS
@@ -250,7 +243,8 @@ name|reportException
 argument_list|(
 name|e
 argument_list|)
-block|;         }
+expr_stmt|;
+block|}
 name|catch
 argument_list|(
 argument|...
@@ -268,7 +262,8 @@ operator|::
 name|UnhandledException
 argument_list|()
 argument_list|)
-block|;         }
+expr_stmt|;
+block|}
 endif|#
 directive|endif
 name|this
@@ -277,7 +272,7 @@ name|reportResult
 argument_list|(
 name|result
 argument_list|)
-block|;
+expr_stmt|;
 name|this
 operator|->
 name|reportFinished
@@ -286,9 +281,12 @@ block|;     }
 name|T
 name|result
 expr_stmt|;
-end_expr_stmt
+block|}
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_expr_stmt
-unit|};
 name|template
 operator|<
 operator|>

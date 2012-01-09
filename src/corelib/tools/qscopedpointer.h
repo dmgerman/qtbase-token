@@ -18,30 +18,26 @@ include|#
 directive|include
 file|<QtCore/qglobal.h>
 end_include
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
 name|template
-decl|<
+operator|<
 name|typename
 name|T
-decl|> struct
+operator|>
+expr|struct
+DECL|struct|QScopedPointerDeleter
 name|QScopedPointerDeleter
 block|{
+DECL|function|cleanup
 specifier|static
 specifier|inline
 name|void
 name|cleanup
-parameter_list|(
-name|T
-modifier|*
-name|pointer
-parameter_list|)
+argument_list|(
+argument|T *pointer
+argument_list|)
 block|{
 comment|// Enforce a complete type.
 comment|// If you get a compile error here, read the section on forward declared
@@ -54,9 +50,9 @@ sizeof|sizeof
 argument_list|(
 name|T
 argument_list|)
-condition|?
+operator|?
 literal|1
-else|:
+operator|:
 operator|-
 literal|1
 index|]
@@ -68,17 +64,13 @@ sizeof|sizeof
 argument_list|(
 name|IsIncompleteType
 argument_list|)
-expr_stmt|;
+block|;
 name|delete
 name|pointer
-decl_stmt|;
-block|}
-block|}
-end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
+block|;     }
+end_expr_stmt
 begin_expr_stmt
+unit|};
 name|template
 operator|<
 name|typename

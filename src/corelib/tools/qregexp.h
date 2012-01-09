@@ -23,15 +23,13 @@ include|#
 directive|include
 file|<QtCore/qstring.h>
 end_include
-begin_function
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
-function|struct QRegExpPrivate;
-end_function
+expr|struct
+name|QRegExpPrivate
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 DECL|variable|QStringList
 name|class

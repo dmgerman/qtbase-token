@@ -18,20 +18,18 @@ include|#
 directive|include
 file|<QtCore/qglobal.h>
 end_include
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
-decl|typedef
+end_expr_stmt
+begin_typedef
 DECL|typedef|QRgb
+typedef|typedef
 name|unsigned
 name|int
 name|QRgb
-decl_stmt|;
-end_decl_stmt
+typedef|;
+end_typedef
 begin_comment
 DECL|typedef|QRgb
 comment|// RGB triplet

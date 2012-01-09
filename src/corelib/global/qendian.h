@@ -40,30 +40,27 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_decl_stmt
+begin_function
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
 comment|/*  * ENDIAN FUNCTIONS */
+DECL|function|qbswap_helper
 specifier|inline
-namespace|void
+name|void
 name|qbswap_helper
-namespace|(const
+parameter_list|(
+specifier|const
 name|uchar
 modifier|*
 name|src
-operator|,
+parameter_list|,
 name|uchar
 modifier|*
 name|dest
-operator|,
+parameter_list|,
 name|int
 name|size
-decl_stmt|)
+parameter_list|)
 block|{
 for|for
 control|(
@@ -94,7 +91,7 @@ name|i
 index|]
 expr_stmt|;
 block|}
-end_decl_stmt
+end_function
 begin_comment
 comment|/*  * qbswap(const T src, const uchar *dest);  * Changes the byte order of \a src from big endian to little endian or vice versa  * and stores the result in \a dest.  * There is no alignment requirements for \a dest. */
 end_comment

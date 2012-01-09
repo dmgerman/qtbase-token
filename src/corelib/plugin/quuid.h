@@ -91,48 +91,43 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 name|class
 name|Q_CORE_EXPORT
 name|QUuid
-decl_stmt|{ public:     enum Variant
+block|{
+name|public
+label|:
+enum|enum
+name|Variant
 block|{
 name|VarUnknown
-operator|=
+init|=
 operator|-
 literal|1
-operator|,
+block|,
 name|NCS
-operator|=
+init|=
 literal|0
-operator|,
+block|,
 comment|// 0 - -
 name|DCE
-operator|=
+init|=
 literal|2
-operator|,
+block|,
 comment|// 1 0 -
 name|Microsoft
-operator|=
+init|=
 literal|6
-operator|,
+block|,
 comment|// 1 1 0
 name|Reserved
-operator|=
+init|=
 literal|7
 comment|// 1 1 1
 block|}
-end_function
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-begin_enum
+enum|;
 enum|enum
 name|Version
 block|{
@@ -171,12 +166,8 @@ literal|5
 comment|// 0 1 0 1
 block|}
 enum|;
-end_enum
-begin_macro
 name|QUuid
 argument_list|()
-end_macro
-begin_block
 block|{
 name|data1
 operator|=
@@ -212,8 +203,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-end_block
-begin_macro
 name|QUuid
 argument_list|(
 argument|uint l
@@ -238,8 +227,6 @@ argument|uchar b7
 argument_list|,
 argument|uchar b8
 argument_list|)
-end_macro
-begin_block
 block|{
 name|data1
 operator|=
@@ -310,13 +297,9 @@ operator|=
 name|b8
 expr_stmt|;
 block|}
-end_block
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_QUUID_STRING
-end_ifndef
-begin_expr_stmt
 name|QUuid
 argument_list|(
 specifier|const
@@ -324,8 +307,6 @@ name|QString
 operator|&
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|QUuid
 argument_list|(
 specifier|const
@@ -333,14 +314,10 @@ name|char
 operator|*
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_function_decl
 name|QString
 name|toString
 parameter_list|()
 function_decl|const;
-end_function_decl
-begin_expr_stmt
 name|QUuid
 argument_list|(
 specifier|const
@@ -348,26 +325,18 @@ name|QByteArray
 operator|&
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|QByteArray
 name|toByteArray
 argument_list|()
 specifier|const
 expr_stmt|;
-end_expr_stmt
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_expr_stmt
 name|QByteArray
 name|toRfc4122
 argument_list|()
 specifier|const
 expr_stmt|;
-end_expr_stmt
-begin_function_decl
 specifier|static
 name|QUuid
 name|fromRfc4122
@@ -377,15 +346,11 @@ name|QByteArray
 modifier|&
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_expr_stmt
 name|bool
 name|isNull
 argument_list|()
 specifier|const
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|bool
 name|operator
 operator|==
@@ -423,8 +388,6 @@ condition|)
 return|return
 name|false
 return|;
-end_expr_stmt
-begin_for
 for|for
 control|(
 name|i
@@ -455,14 +418,13 @@ condition|)
 return|return
 name|false
 return|;
-end_for
-begin_return
 return|return
 name|true
 return|;
-end_return
+block|}
+end_decl_stmt
 begin_expr_stmt
-unit|}      bool
+name|bool
 name|operator
 operator|!=
 operator|(

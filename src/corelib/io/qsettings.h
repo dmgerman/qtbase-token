@@ -31,10 +31,6 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
 name|QT_END_NAMESPACE
 ifndef|#
 directive|ifndef
@@ -53,6 +49,7 @@ directive|undef
 name|Status
 endif|#
 directive|endif
+DECL|variable|QIODevice
 name|class
 name|QIODevice
 decl_stmt|;

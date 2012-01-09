@@ -28,24 +28,20 @@ include|#
 directive|include
 file|<QtWidgets/qicon.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Gui
-parameter_list|)
 name|class
 name|Q_WIDGETS_EXPORT
 name|QIconEngine
-decl_stmt|{ public:     virtual ~QIconEngine(
-end_function
-begin_empty_stmt
-unit|)
-empty_stmt|;
-end_empty_stmt
-begin_decl_stmt
+block|{
+name|public
+label|:
+name|virtual
+operator|~
+name|QIconEngine
+argument_list|()
+expr_stmt|;
 name|virtual
 name|void
 name|paint
@@ -72,8 +68,6 @@ argument_list|)
 init|=
 literal|0
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|virtual
 name|QSize
 name|actualSize
@@ -94,8 +88,6 @@ name|State
 name|state
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|virtual
 name|QPixmap
 name|pixmap
@@ -116,8 +108,6 @@ name|State
 name|state
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|virtual
 name|void
 name|addPixmap
@@ -138,8 +128,6 @@ name|State
 name|state
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|virtual
 name|void
 name|addFile
@@ -165,19 +153,18 @@ name|State
 name|state
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_if
 if|#
 directive|if
 literal|0
-end_if
-begin_endif
-unit|virtual int frameCount(QIcon::Mode fromMode, QIcon::State fromState, QIcon::Mode toMode, QIcon::State toState);     virtual void paintFrame(QPainter *painter, const QRect&rect, int frameNumber, QIcon::Mode fromMode, QIcon::State fromState, QIcon::Mode toMode, QIcon::State toState);
+block|virtual int frameCount(QIcon::Mode fromMode, QIcon::State fromState, QIcon::Mode toMode, QIcon::State toState);     virtual void paintFrame(QPainter *painter, const QRect&rect, int frameNumber, QIcon::Mode fromMode, QIcon::State fromState, QIcon::Mode toMode, QIcon::State toState);
 endif|#
 directive|endif
-end_endif
+block|}
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_comment
-unit|};
 comment|// ### Qt 5: move the below into QIconEngine
 end_comment
 begin_decl_stmt

@@ -26,13 +26,10 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Network
-argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_UDPSOCKET
+DECL|variable|QNetworkInterface
 name|class
 name|QNetworkInterface
 decl_stmt|;

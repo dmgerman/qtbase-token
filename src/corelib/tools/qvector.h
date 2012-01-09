@@ -76,29 +76,28 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
-decl|struct
+expr|struct
+DECL|struct|QVectorData
 name|Q_CORE_EXPORT
 name|QVectorData
 block|{
+DECL|member|ref
 name|QtPrivate
 operator|::
 name|RefCount
 name|ref
-expr_stmt|;
+block|;
+DECL|member|alloc
 name|int
 name|alloc
-decl_stmt|;
+block|;
+DECL|member|size
 name|int
 name|size
-decl_stmt|;
+block|;
 if|#
 directive|if
 name|defined
@@ -121,126 +120,111 @@ argument_list|(
 name|QT_BOOTSTRAPPED
 argument_list|)
 comment|// workaround for bug in gcc 3.4.2
+DECL|member|sharable
 name|uint
 name|sharable
-decl_stmt|;
+block|;
+DECL|member|capacity
 name|uint
 name|capacity
-decl_stmt|;
+block|;
+DECL|member|reserved
 name|uint
 name|reserved
-decl_stmt|;
+block|;
 else|#
 directive|else
+DECL|member|sharable
 name|uint
 name|sharable
-range|:
+operator|:
 literal|1
-decl_stmt|;
+block|;
+DECL|member|capacity
 name|uint
 name|capacity
-range|:
+operator|:
 literal|1
-decl_stmt|;
+block|;
+DECL|member|reserved
 name|uint
 name|reserved
-range|:
+operator|:
 literal|30
-decl_stmt|;
+block|;
 endif|#
 directive|endif
+DECL|member|shared_null
 specifier|static
 specifier|const
 name|QVectorData
 name|shared_null
-decl_stmt|;
+block|;
 comment|// ### Qt 5: rename to 'allocate()'. The current name causes problems for
 comment|// some debugges when the QVector is member of a class within an unnamed namespace.
 comment|// ### Qt 5: can be removed completely. (Ralf)
 specifier|static
 name|QVectorData
-modifier|*
+operator|*
 name|malloc
-parameter_list|(
-name|int
-name|sizeofTypedData
-parameter_list|,
-name|int
-name|size
-parameter_list|,
-name|int
-name|sizeofT
-parameter_list|,
-name|QVectorData
-modifier|*
-name|init
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|int sizeofTypedData
+argument_list|,
+argument|int size
+argument_list|,
+argument|int sizeofT
+argument_list|,
+argument|QVectorData *init
+argument_list|)
+block|;
 specifier|static
 name|QVectorData
-modifier|*
+operator|*
 name|allocate
-parameter_list|(
-name|int
-name|size
-parameter_list|,
-name|int
-name|alignment
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|int size
+argument_list|,
+argument|int alignment
+argument_list|)
+block|;
 specifier|static
 name|QVectorData
-modifier|*
+operator|*
 name|reallocate
-parameter_list|(
-name|QVectorData
-modifier|*
-name|old
-parameter_list|,
-name|int
-name|newsize
-parameter_list|,
-name|int
-name|oldsize
-parameter_list|,
-name|int
-name|alignment
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|QVectorData *old
+argument_list|,
+argument|int newsize
+argument_list|,
+argument|int oldsize
+argument_list|,
+argument|int alignment
+argument_list|)
+block|;
 specifier|static
 name|void
 name|free
-parameter_list|(
-name|QVectorData
-modifier|*
-name|data
-parameter_list|,
-name|int
-name|alignment
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|QVectorData *data
+argument_list|,
+argument|int alignment
+argument_list|)
+block|;
 specifier|static
 name|int
 name|grow
-parameter_list|(
-name|int
-name|sizeofTypedData
-parameter_list|,
-name|int
-name|size
-parameter_list|,
-name|int
-name|sizeofT
-parameter_list|,
-name|bool
-name|excessive
-parameter_list|)
-function_decl|;
-block|}
-end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
+argument_list|(
+argument|int sizeofTypedData
+argument_list|,
+argument|int size
+argument_list|,
+argument|int sizeofT
+argument_list|,
+argument|bool excessive
+argument_list|)
+block|; }
+expr_stmt|;
+end_expr_stmt
 begin_expr_stmt
 name|template
 operator|<

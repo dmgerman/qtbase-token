@@ -13,33 +13,44 @@ define|#
 directive|define
 name|QATOMIC_ARMV7_H
 end_define
-begin_expr_stmt
-name|QT_BEGIN_HEADER
+begin_comment
 comment|// use the DMB instruction when compiling for ARMv7, ...
+end_comment
+begin_ifndef
 ifndef|#
 directive|ifndef
 name|Q_CC_RCVT
+end_ifndef
+begin_define
 DECL|macro|Q_DATA_MEMORY_BARRIER
 define|#
 directive|define
 name|Q_DATA_MEMORY_BARRIER
 value|asm volatile("dmb\n":::"memory")
+end_define
+begin_else
 else|#
 directive|else
+end_else
+begin_define
+DECL|macro|Q_DATA_MEMORY_BARRIER
 define|#
 directive|define
 name|Q_DATA_MEMORY_BARRIER
 value|do{__asm { dmb } __schedule_barrier();}while(0)
+end_define
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_comment
 comment|// ... but the implementation is otherwise identical to that for ARMv6
-name|QT_BEGIN_INCLUDE_HEADER
+end_comment
+begin_include
 include|#
 directive|include
 file|"QtCore/qatomic_armv6.h"
-name|QT_END_INCLUDE_HEADER
-name|QT_END_HEADER
-end_expr_stmt
+end_include
 begin_endif
 endif|#
 directive|endif

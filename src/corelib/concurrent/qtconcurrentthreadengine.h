@@ -58,24 +58,20 @@ include|#
 directive|include
 file|<QtCore/qsemaphore.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 ifndef|#
 directive|ifndef
 name|qdoc
 name|namespace
 name|QtConcurrent
-decl_stmt|{
+block|{
 comment|// The ThreadEngineBarrier counts worker threads, and allows one
 comment|// thread to wait for all others to finish. Tested for its use in
 comment|// QtConcurrent, requires more testing for use as a general class.
-decl_stmt|class ThreadEngineBarrier
+name|class
+name|ThreadEngineBarrier
 block|{
 name|private
 label|:
@@ -119,11 +115,7 @@ name|releaseUnlessLast
 parameter_list|()
 function_decl|;
 block|}
-end_function
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_enum
 enum|enum
 name|ThreadFunctionResult
 block|{
@@ -132,20 +124,10 @@ block|,
 name|ThreadFinished
 block|}
 enum|;
-end_enum
-begin_comment
 comment|// The ThreadEngine controls the threads used in the computation.
-end_comment
-begin_comment
 comment|// Can be run in three modes: single threaded, multi-threaded blocking
-end_comment
-begin_comment
 comment|// and multi-threaded asynchronous.
-end_comment
-begin_comment
 comment|// The code for the single threaded mode is
-end_comment
-begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
 name|ThreadEngineBase
@@ -327,8 +309,6 @@ name|ExceptionStore
 name|exceptionStore
 block|; }
 decl_stmt|;
-end_decl_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -519,8 +499,6 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_decl_stmt
 name|void
 name|reportResults
 argument_list|(
@@ -562,9 +540,12 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_comment
-unit|};
 comment|// The ThreadEngineStarter class ecapsulates the return type
 end_comment
 begin_comment

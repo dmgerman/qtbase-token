@@ -56,14 +56,6 @@ name|defined
 argument_list|(
 name|QT_NO_GRAPHICSVIEW
 argument_list|)
-operator|||
-operator|(
-name|QT_EDITION
-operator|&
-name|QT_MODULE_GRAPHICSVIEW
-operator|)
-operator|!=
-name|QT_MODULE_GRAPHICSVIEW
 end_if
 begin_include
 include|#
@@ -88,11 +80,6 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
 name|class
 name|Q_AUTOTEST_EXPORT
 name|QGraphicsSceneLinearIndex

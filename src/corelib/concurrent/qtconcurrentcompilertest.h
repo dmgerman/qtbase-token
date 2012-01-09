@@ -23,14 +23,9 @@ ifndef|#
 directive|ifndef
 name|QT_NO_CONCURRENT
 end_ifndef
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 if|#
 directive|if
 name|defined
@@ -57,7 +52,14 @@ endif|#
 directive|endif
 name|namespace
 name|QtPrivate
-decl_stmt|{  template<class T> class HasResultType
+block|{
+name|template
+operator|<
+name|class
+name|T
+operator|>
+name|class
+name|HasResultType
 block|{
 typedef|typedef
 name|char
@@ -121,7 +123,7 @@ operator|)
 block|}
 enum|;
 block|}
-end_function
+end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt

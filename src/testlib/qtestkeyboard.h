@@ -94,29 +94,22 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Test
-parameter_list|)
 name|namespace
 name|QTest
-decl_stmt|{     enum KeyAction
+block|{
+enum|enum
+name|KeyAction
 block|{
 name|Press
-operator|,
+block|,
 name|Release
-operator|,
+block|,
 name|Click
 block|}
-end_function
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-begin_decl_stmt
+enum|;
 specifier|static
 name|void
 name|simulateEvent
@@ -205,8 +198,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|static
 name|void
 name|sendKeyEvent
@@ -636,11 +627,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_decl_stmt
-begin_comment
 comment|// Convenience function
-end_comment
-begin_decl_stmt
 specifier|static
 name|void
 name|sendKeyEvent
@@ -707,8 +694,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -759,8 +744,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -813,8 +796,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -859,8 +840,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -903,8 +882,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -947,8 +924,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -993,8 +968,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -1037,8 +1010,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -1083,13 +1054,9 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|QT_WIDGETS_LIB
-end_ifdef
-begin_decl_stmt
 specifier|static
 name|void
 name|simulateEvent
@@ -1214,8 +1181,6 @@ literal|"Keyboard event not accepted by receiving widget"
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|static
 name|void
 name|sendKeyEvent
@@ -1747,11 +1712,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_decl_stmt
-begin_comment
 comment|// Convenience function
-end_comment
-begin_decl_stmt
 specifier|static
 name|void
 name|sendKeyEvent
@@ -1818,8 +1779,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -1870,8 +1829,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -1924,8 +1881,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -1995,8 +1950,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -2039,8 +1992,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -2083,8 +2034,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -2127,8 +2076,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -2173,8 +2120,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -2219,8 +2164,6 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 specifier|static
 name|void
@@ -2265,18 +2208,15 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
-end_decl_stmt
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// QT_WIDGETS_LIB
-end_comment
-begin_macro
-unit|}  QT_END_NAMESPACE
+block|}
+end_decl_stmt
+begin_expr_stmt
+name|QT_END_NAMESPACE
 name|QT_END_HEADER
-end_macro
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

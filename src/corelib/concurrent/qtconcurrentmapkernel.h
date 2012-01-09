@@ -33,32 +33,40 @@ include|#
 directive|include
 file|<QtCore/qtconcurrentreducekernel.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 ifndef|#
 directive|ifndef
 name|qdoc
 name|namespace
 name|QtConcurrent
-decl_stmt|{
+block|{
 comment|// map kernel, works with both parallel-for and parallel-while
-decl_stmt|template<typename Iterator
+name|template
+operator|<
+name|typename
+name|Iterator
 operator|,
-decl_stmt|typename MapFunctor> class MapKernel : public IterateKernel<Iterator
+name|typename
+name|MapFunctor
+operator|>
+name|class
+name|MapKernel
+operator|:
+name|public
+name|IterateKernel
+operator|<
+name|Iterator
 operator|,
-decl_stmt|void>
+name|void
+operator|>
 block|{
 name|MapFunctor
 name|map
-decl_stmt|;
+block|;
 name|public
-label|:
+operator|:
 typedef|typedef
 name|void
 name|ReturnType
@@ -71,7 +79,7 @@ argument|Iterator end
 argument_list|,
 argument|MapFunctor _map
 argument_list|)
-block|:
+operator|:
 name|IterateKernel
 operator|<
 name|Iterator
@@ -174,7 +182,7 @@ name|false
 return|;
 block|}
 block|}
-end_function
+end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt

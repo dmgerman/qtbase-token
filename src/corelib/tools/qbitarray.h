@@ -18,28 +18,34 @@ include|#
 directive|include
 file|<QtCore/qbytearray.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
+DECL|variable|QBitRef
 name|class
 name|QBitRef
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
 name|QBitArray
-decl_stmt|{     friend Q_CORE_EXPORT QDataStream&operator<<(QDataStream&
+block|{
+name|friend
+name|Q_CORE_EXPORT
+name|QDataStream
+operator|&
+name|operator
+operator|<<
+operator|(
+name|QDataStream
+operator|&
 operator|,
-decl_stmt|const QBitArray&
-end_function
-begin_empty_stmt
-unit|)
-empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
+specifier|const
+name|QBitArray
+operator|&
+operator|)
+expr_stmt|;
 name|friend
 name|Q_CORE_EXPORT
 name|QDataStream
@@ -54,8 +60,6 @@ name|QBitArray
 operator|&
 operator|)
 expr_stmt|;
-end_expr_stmt
-begin_function_decl
 name|friend
 name|Q_CORE_EXPORT
 name|uint
@@ -67,17 +71,11 @@ modifier|&
 name|key
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_decl_stmt
 name|QByteArray
 name|d
 decl_stmt|;
-end_decl_stmt
-begin_label
 name|public
 label|:
-end_label
-begin_expr_stmt
 specifier|inline
 name|QBitArray
 argument_list|()
@@ -90,8 +88,6 @@ argument_list|,
 argument|bool val = false
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|QBitArray
 argument_list|(
 specifier|const
@@ -128,13 +124,9 @@ operator|*
 name|this
 return|;
 block|}
-end_expr_stmt
-begin_ifdef
 ifdef|#
 directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
-end_ifdef
-begin_decl_stmt
 specifier|inline
 name|QBitArray
 modifier|&
@@ -160,12 +152,8 @@ operator|*
 name|this
 return|;
 block|}
-end_decl_stmt
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_function
 specifier|inline
 name|void
 name|swap
@@ -185,8 +173,6 @@ name|d
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_expr_stmt
 specifier|inline
 name|int
 name|size
@@ -210,8 +196,6 @@ name|constData
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|count
@@ -235,8 +219,6 @@ name|constData
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_decl_stmt
 name|int
 name|count
 argument_list|(
@@ -245,11 +227,7 @@ name|on
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|// ### Qt 5: Store the number of set bits separately
-end_comment
-begin_expr_stmt
 specifier|inline
 name|bool
 name|isEmpty
@@ -263,8 +241,6 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|isNull
@@ -278,8 +254,6 @@ name|isNull
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_function_decl
 name|void
 name|resize
 parameter_list|(
@@ -287,8 +261,6 @@ name|int
 name|size
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_function
 specifier|inline
 name|void
 name|detach
@@ -300,8 +272,6 @@ name|detach
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_expr_stmt
 specifier|inline
 name|bool
 name|isDetached
@@ -315,8 +285,6 @@ name|isDetached
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_function
 specifier|inline
 name|void
 name|clear
@@ -328,8 +296,6 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-end_function
-begin_decl_stmt
 name|bool
 name|testBit
 argument_list|(
@@ -338,8 +304,6 @@ name|i
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_function_decl
 name|void
 name|setBit
 parameter_list|(
@@ -347,8 +311,6 @@ name|int
 name|i
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_function_decl
 name|void
 name|setBit
 parameter_list|(
@@ -359,8 +321,6 @@ name|bool
 name|val
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_function_decl
 name|void
 name|clearBit
 parameter_list|(
@@ -368,8 +328,6 @@ name|int
 name|i
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_function_decl
 name|bool
 name|toggleBit
 parameter_list|(
@@ -377,8 +335,6 @@ name|int
 name|i
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_decl_stmt
 name|bool
 name|at
 argument_list|(
@@ -387,8 +343,6 @@ name|i
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_function_decl
 name|QBitRef
 name|operator
 function_decl|[]
@@ -397,8 +351,6 @@ name|int
 name|i
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_decl_stmt
 name|bool
 name|operator
 index|[]
@@ -408,8 +360,6 @@ name|i
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_function_decl
 name|QBitRef
 name|operator
 function_decl|[]
@@ -418,8 +368,6 @@ name|uint
 name|i
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_decl_stmt
 name|bool
 name|operator
 index|[]
@@ -429,8 +377,6 @@ name|i
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_expr_stmt
 name|QBitArray
 operator|&
 name|operator
@@ -441,8 +387,6 @@ name|QBitArray
 operator|&
 operator|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|QBitArray
 operator|&
 name|operator
@@ -453,8 +397,6 @@ name|QBitArray
 operator|&
 operator|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|QBitArray
 operator|&
 name|operator
@@ -465,8 +407,6 @@ name|QBitArray
 operator|&
 operator|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|QBitArray
 name|operator
 operator|~
@@ -474,8 +414,6 @@ operator|(
 operator|)
 specifier|const
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|operator
@@ -496,8 +434,6 @@ operator|.
 name|d
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|operator
@@ -518,8 +454,6 @@ operator|.
 name|d
 return|;
 block|}
-end_expr_stmt
-begin_function_decl
 specifier|inline
 name|bool
 name|fill
@@ -534,8 +468,6 @@ operator|-
 literal|1
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_function_decl
 name|void
 name|fill
 parameter_list|(
@@ -549,8 +481,6 @@ name|int
 name|last
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_function
 specifier|inline
 name|void
 name|truncate
@@ -572,20 +502,14 @@ name|pos
 argument_list|)
 expr_stmt|;
 block|}
-end_function
-begin_label
 name|public
 label|:
-end_label
-begin_typedef
 typedef|typedef
 name|QByteArray
 operator|::
 name|DataPtr
 name|DataPtr
 expr_stmt|;
-end_typedef
-begin_function
 specifier|inline
 name|DataPtr
 modifier|&
@@ -599,9 +523,12 @@ name|data_ptr
 argument_list|()
 return|;
 block|}
-end_function
+block|}
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_expr_stmt
-unit|};
 DECL|function|fill
 specifier|inline
 name|bool

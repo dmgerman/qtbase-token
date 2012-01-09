@@ -31,27 +31,21 @@ end_include
 begin_comment
 comment|//#include<QtWidgets/qitemselectionmodel.h>
 end_comment
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Gui
-parameter_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_TABLEWIDGET
 name|class
 name|Q_WIDGETS_EXPORT
 name|QTableWidgetSelectionRange
-decl_stmt|{ public:     QTableWidgetSelectionRange(
-end_function
-begin_empty_stmt
-unit|)
-empty_stmt|;
-end_empty_stmt
-begin_macro
+block|{
+name|public
+label|:
+name|QTableWidgetSelectionRange
+argument_list|()
+expr_stmt|;
 name|QTableWidgetSelectionRange
 argument_list|(
 argument|int top
@@ -62,11 +56,7 @@ argument|int bottom
 argument_list|,
 argument|int right
 argument_list|)
-end_macro
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|QTableWidgetSelectionRange
 argument_list|(
 specifier|const
@@ -75,14 +65,10 @@ operator|&
 name|other
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 operator|~
 name|QTableWidgetSelectionRange
 argument_list|()
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|topRow
@@ -93,8 +79,6 @@ return|return
 name|top
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|bottomRow
@@ -105,8 +89,6 @@ return|return
 name|bottom
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|leftColumn
@@ -117,8 +99,6 @@ return|return
 name|left
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|rightColumn
@@ -129,8 +109,6 @@ return|return
 name|right
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|rowCount
@@ -145,8 +123,6 @@ operator|+
 literal|1
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|columnCount
@@ -161,12 +137,8 @@ operator|+
 literal|1
 return|;
 block|}
-end_expr_stmt
-begin_label
 name|private
 label|:
-end_label
-begin_decl_stmt
 name|int
 name|top
 decl_stmt|,
@@ -176,9 +148,12 @@ name|bottom
 decl_stmt|,
 name|right
 decl_stmt|;
+block|}
 end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_decl_stmt
-unit|};
 DECL|variable|QTableWidget
 name|class
 name|QTableWidget

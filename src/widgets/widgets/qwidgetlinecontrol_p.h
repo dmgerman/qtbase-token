@@ -125,11 +125,6 @@ name|DrawText
 endif|#
 directive|endif
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
 name|class
 name|Q_WIDGETS_EXPORT
 name|QWidgetLineControl

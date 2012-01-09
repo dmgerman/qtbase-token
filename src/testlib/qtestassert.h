@@ -18,13 +18,9 @@ include|#
 directive|include
 file|<QtCore/qglobal.h>
 end_include
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Test
-argument_list|)
 DECL|macro|QTEST_ASSERT
 define|#
 directive|define
@@ -47,7 +43,7 @@ parameter_list|)
 value|do { if (!(cond)) qt_assert_x(where, what,__FILE__,__LINE__); } while (0)
 name|QT_END_NAMESPACE
 name|QT_END_HEADER
-end_decl_stmt
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

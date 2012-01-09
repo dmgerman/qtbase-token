@@ -26,10 +26,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Network
-argument_list|)
+DECL|variable|QNetworkCookie
 name|class
 name|QNetworkCookie
 decl_stmt|;

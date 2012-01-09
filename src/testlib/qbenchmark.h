@@ -23,17 +23,12 @@ include|#
 directive|include
 file|<QtTest/qbenchmarkmetric.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Test
-parameter_list|)
 name|namespace
 name|QTest
-decl_stmt|{
+block|{
 comment|//
 comment|//  W A R N I N G
 comment|//  -------------
@@ -42,7 +37,9 @@ comment|// The QBenchmarkIterationController class is not a part of the
 comment|// QTestlib API. It exists purely as an implementation detail.
 comment|//
 comment|//
-decl_stmt|class Q_TESTLIB_EXPORT QBenchmarkIterationController
+name|class
+name|Q_TESTLIB_EXPORT
+name|QBenchmarkIterationController
 block|{
 name|public
 label|:
@@ -78,12 +75,10 @@ name|int
 name|i
 decl_stmt|;
 block|}
-end_function
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
+block|}
+end_decl_stmt
 begin_comment
-unit|}
 comment|// --- BEGIN public API ---
 end_comment
 begin_define
@@ -102,11 +97,9 @@ name|QBENCHMARK_ONCE
 define|\
 value|for (QTest::QBenchmarkIterationController __iteration_controller(QTest::QBenchmarkIterationController::RunOnce); \             __iteration_controller.isDone() == false; __iteration_controller.next())
 end_define
-begin_macro
-unit|namespace
+begin_decl_stmt
+name|namespace
 name|QTest
-end_macro
-begin_block
 block|{
 name|void
 name|Q_TESTLIB_EXPORT
@@ -120,7 +113,7 @@ name|metric
 parameter_list|)
 function_decl|;
 block|}
-end_block
+end_decl_stmt
 begin_comment
 comment|// --- END public API ---
 end_comment

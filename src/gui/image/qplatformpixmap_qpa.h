@@ -53,32 +53,31 @@ include|#
 directive|include
 file|<QtCore/qatomic.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-parameter_list|(
-name|Gui
-parameter_list|)
+DECL|variable|QImageReader
 name|class
 name|QImageReader
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QPlatformPixmap
-decl_stmt|{ public:     enum PixelType
+block|{
+name|public
+label|:
+enum|enum
+name|PixelType
 block|{
 comment|// WARNING: Do not change the first two
 comment|// Must match QPixmap::Type
 name|PixmapType
-operator|,
+block|,
 name|BitmapType
 block|}
-end_function
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-begin_enum
+enum|;
 enum|enum
 name|ClassId
 block|{
@@ -93,26 +92,18 @@ init|=
 literal|1024
 block|}
 enum|;
-end_enum
-begin_macro
 name|QPlatformPixmap
 argument_list|(
 argument|PixelType pixelType
 argument_list|,
 argument|int classId
 argument_list|)
-end_macro
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|virtual
 operator|~
 name|QPlatformPixmap
 argument_list|()
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|virtual
 name|QPlatformPixmap
 operator|*
@@ -120,8 +111,6 @@ name|createCompatiblePlatformPixmap
 argument_list|()
 specifier|const
 expr_stmt|;
-end_expr_stmt
-begin_function_decl
 name|virtual
 name|void
 name|resize
@@ -135,8 +124,6 @@ parameter_list|)
 init|=
 literal|0
 function_decl|;
-end_function_decl
-begin_decl_stmt
 name|virtual
 name|void
 name|fromImage
@@ -154,8 +141,6 @@ argument_list|)
 init|=
 literal|0
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|virtual
 name|void
 name|fromImageReader
@@ -170,8 +155,6 @@ name|ImageConversionFlags
 name|flags
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|virtual
 name|bool
 name|fromFile
@@ -192,8 +175,6 @@ name|ImageConversionFlags
 name|flags
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|virtual
 name|bool
 name|fromData
@@ -217,8 +198,6 @@ name|ImageConversionFlags
 name|flags
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_function_decl
 name|virtual
 name|void
 name|copy
@@ -234,8 +213,6 @@ modifier|&
 name|rect
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_function_decl
 name|virtual
 name|bool
 name|scroll
@@ -252,8 +229,6 @@ modifier|&
 name|rect
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_decl_stmt
 name|virtual
 name|int
 name|metric
@@ -267,8 +242,6 @@ decl|const
 init|=
 literal|0
 decl_stmt|;
-end_decl_stmt
-begin_function_decl
 name|virtual
 name|void
 name|fill
@@ -281,8 +254,6 @@ parameter_list|)
 init|=
 literal|0
 function_decl|;
-end_function_decl
-begin_expr_stmt
 name|virtual
 name|bool
 name|hasAlphaChannel
@@ -291,8 +262,6 @@ specifier|const
 operator|=
 literal|0
 expr_stmt|;
-end_expr_stmt
-begin_decl_stmt
 name|virtual
 name|QPixmap
 name|transformed
@@ -309,8 +278,6 @@ name|mode
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_expr_stmt
 name|virtual
 name|QImage
 name|toImage
@@ -319,8 +286,6 @@ specifier|const
 operator|=
 literal|0
 expr_stmt|;
-end_expr_stmt
-begin_decl_stmt
 name|virtual
 name|QImage
 name|toImage
@@ -332,8 +297,6 @@ name|rect
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_expr_stmt
 name|virtual
 name|QPaintEngine
 operator|*
@@ -343,8 +306,6 @@ specifier|const
 operator|=
 literal|0
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|serialNumber
@@ -355,8 +316,6 @@ return|return
 name|ser_no
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|PixelType
 name|pixelType
@@ -367,8 +326,6 @@ return|return
 name|type
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|ClassId
 name|classId
@@ -385,16 +342,12 @@ name|id
 operator|)
 return|;
 block|}
-end_expr_stmt
-begin_function_decl
 name|virtual
 name|QImage
 modifier|*
 name|buffer
 parameter_list|()
 function_decl|;
-end_function_decl
-begin_expr_stmt
 specifier|inline
 name|int
 name|width
@@ -405,8 +358,6 @@ return|return
 name|w
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|height
@@ -417,8 +368,6 @@ return|return
 name|h
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|colorCount
@@ -434,8 +383,6 @@ name|PdmNumColors
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|depth
@@ -446,8 +393,6 @@ return|return
 name|d
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|isNull
@@ -458,8 +403,6 @@ return|return
 name|is_null
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|qint64
 name|cacheKey
@@ -486,8 +429,6 @@ operator|>>
 literal|10
 operator|)
 expr_stmt|;
-end_expr_stmt
-begin_return
 return|return
 operator|(
 operator|(
@@ -520,9 +461,10 @@ name|detach_no
 operator|)
 operator|)
 return|;
-end_return
+block|}
+end_decl_stmt
 begin_function_decl
-unit|}      static
+specifier|static
 name|QPlatformPixmap
 modifier|*
 name|create

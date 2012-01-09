@@ -39,7 +39,7 @@ begin_comment
 comment|// classes found in qsharedpointer.h
 end_comment
 begin_pragma
-unit|QT_BEGIN_HEADER QT_BEGIN_NAMESPACE QT_MODULE(Core) QT_END_NAMESPACE QT_END_HEADER
+unit|QT_BEGIN_HEADER QT_BEGIN_NAMESPACE QT_END_NAMESPACE QT_END_HEADER
 pragma|#
 directive|pragma
 name|qt_sync_stop_processing
@@ -66,13 +66,9 @@ end_include
 begin_comment
 comment|// for qobject_cast
 end_comment
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
 comment|// Macro QSHAREDPOINTER_VERIFY_AUTO_CAST
 comment|//  generates a compiler error if the following construct isn't valid:
 comment|//    T *ptr1;
@@ -94,20 +90,17 @@ value|qt_noop()
 else|#
 directive|else
 name|template
-decl|<
+operator|<
 name|typename
 name|T
-decl|>
+operator|>
 specifier|inline
-namespace|void
+name|void
 name|qt_sharedpointer_cast_check
-namespace|(
-name|T
-modifier|*
-decl_stmt|)
+argument_list|(
+argument|T *
+argument_list|)
 block|{ }
-end_decl_stmt
-begin_define
 define|#
 directive|define
 name|QSHAREDPOINTER_VERIFY_AUTO_CAST
@@ -118,21 +111,12 @@ name|X
 parameter_list|)
 define|\
 value|qt_sharedpointer_cast_check<T>(static_cast<X *>(0))
-end_define
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|//
-end_comment
-begin_comment
 comment|// forward declarations
-end_comment
-begin_comment
 comment|//
-end_comment
-begin_expr_stmt
+DECL|variable|QWeakPointer
 name|template
 operator|<
 name|class

@@ -31,22 +31,31 @@ include|#
 directive|include
 file|<QtCore/qtconcurrentrunbase.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 ifndef|#
 directive|ifndef
 name|qdoc
 name|namespace
 name|QtConcurrent
-decl_stmt|{ template<typename T
+block|{
+name|template
+operator|<
+name|typename
+name|T
 operator|,
-decl_stmt|typename FunctionPointer> struct StoredFunctorCall0: public RunFunctionTask<T>
+name|typename
+name|FunctionPointer
+operator|>
+expr|struct
+name|StoredFunctorCall0
+operator|:
+name|public
+name|RunFunctionTask
+operator|<
+name|T
+operator|>
 block|{
 specifier|inline
 name|StoredFunctorCall0
@@ -72,13 +81,8 @@ argument_list|()
 block|; }
 name|FunctionPointer
 name|function
+block|;  }
 expr_stmt|;
-block|}
-end_function
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -120,8 +124,6 @@ name|FunctionPointer
 name|function
 block|;  }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -171,8 +173,6 @@ operator|*
 name|function
 block|;  }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -218,8 +218,6 @@ operator|*
 name|function
 block|;  }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -260,11 +258,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -342,8 +336,6 @@ name|Class
 name|object
 block|;  }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -417,8 +409,6 @@ name|Class
 name|object
 block|;  }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -459,11 +449,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -540,8 +526,6 @@ name|Class
 name|object
 block|;  }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -614,8 +598,6 @@ name|Class
 name|object
 block|;  }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -656,11 +638,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -738,8 +716,6 @@ operator|*
 name|object
 block|;  }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -813,8 +789,6 @@ operator|*
 name|object
 block|;  }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -855,11 +829,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -937,8 +907,6 @@ operator|*
 name|object
 block|;  }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -1012,8 +980,6 @@ operator|*
 name|object
 block|;  }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -1054,11 +1020,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -1117,8 +1079,6 @@ name|Arg1
 name|arg1
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -1177,8 +1137,6 @@ name|Arg1
 name|arg1
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -1246,8 +1204,6 @@ name|Arg1
 name|arg1
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -1311,8 +1267,6 @@ name|Arg1
 name|arg1
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -1360,11 +1314,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -1466,8 +1416,6 @@ name|Arg1
 name|arg1
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -1565,8 +1513,6 @@ name|Arg1
 name|arg1
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -1621,11 +1567,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -1724,8 +1666,6 @@ name|Arg1
 name|arg1
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -1820,8 +1760,6 @@ name|Arg1
 name|arg1
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -1876,11 +1814,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -1982,8 +1916,6 @@ name|Arg1
 name|arg1
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -2081,8 +2013,6 @@ name|Arg1
 name|arg1
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -2137,11 +2067,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -2241,8 +2167,6 @@ name|Arg1
 name|arg1
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -2338,8 +2262,6 @@ name|Arg1
 name|arg1
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -2394,11 +2316,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -2472,8 +2390,6 @@ name|Arg2
 name|arg2
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -2549,8 +2465,6 @@ name|Arg2
 name|arg2
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -2636,8 +2550,6 @@ name|Arg2
 name|arg2
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -2719,8 +2631,6 @@ name|Arg2
 name|arg2
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -2775,11 +2685,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -2906,8 +2812,6 @@ name|Arg2
 name|arg2
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -3030,8 +2934,6 @@ name|Arg2
 name|arg2
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -3100,11 +3002,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -3228,8 +3126,6 @@ name|Arg2
 name|arg2
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -3349,8 +3245,6 @@ name|Arg2
 name|arg2
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -3419,11 +3313,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -3550,8 +3440,6 @@ name|Arg2
 name|arg2
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -3674,8 +3562,6 @@ name|Arg2
 name|arg2
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -3744,11 +3630,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -3873,8 +3755,6 @@ name|Arg2
 name|arg2
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -3995,8 +3875,6 @@ name|Arg2
 name|arg2
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -4065,11 +3943,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -4158,8 +4032,6 @@ name|Arg3
 name|arg3
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -4252,8 +4124,6 @@ name|Arg3
 name|arg3
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -4357,8 +4227,6 @@ name|Arg3
 name|arg3
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -4458,8 +4326,6 @@ name|Arg3
 name|arg3
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -4521,11 +4387,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -4677,8 +4539,6 @@ name|Arg3
 name|arg3
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -4826,8 +4686,6 @@ name|Arg3
 name|arg3
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -4910,11 +4768,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -5063,8 +4917,6 @@ name|Arg3
 name|arg3
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -5209,8 +5061,6 @@ name|Arg3
 name|arg3
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -5293,11 +5143,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -5449,8 +5295,6 @@ name|Arg3
 name|arg3
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -5598,8 +5442,6 @@ name|Arg3
 name|arg3
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -5682,11 +5524,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -5836,8 +5674,6 @@ name|Arg3
 name|arg3
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -5983,8 +5819,6 @@ name|Arg3
 name|arg3
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -6067,11 +5901,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -6175,8 +6005,6 @@ name|Arg4
 name|arg4
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -6286,8 +6114,6 @@ name|Arg4
 name|arg4
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -6409,8 +6235,6 @@ name|Arg4
 name|arg4
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -6528,8 +6352,6 @@ name|Arg4
 name|arg4
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -6598,11 +6420,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -6779,8 +6597,6 @@ name|Arg4
 name|arg4
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -6953,8 +6769,6 @@ name|Arg4
 name|arg4
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -7051,11 +6865,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -7229,8 +7039,6 @@ name|Arg4
 name|arg4
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -7400,8 +7208,6 @@ name|Arg4
 name|arg4
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -7498,11 +7304,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -7679,8 +7481,6 @@ name|Arg4
 name|arg4
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -7853,8 +7653,6 @@ name|Arg4
 name|arg4
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -7951,11 +7749,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -8130,8 +7924,6 @@ name|Arg4
 name|arg4
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -8302,8 +8094,6 @@ name|Arg4
 name|arg4
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -8400,11 +8190,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -8523,8 +8309,6 @@ name|Arg5
 name|arg5
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -8651,8 +8435,6 @@ name|Arg5
 name|arg5
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -8792,8 +8574,6 @@ name|Arg5
 name|arg5
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -8929,8 +8709,6 @@ name|Arg5
 name|arg5
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -9006,11 +8784,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -9212,8 +8986,6 @@ name|Arg5
 name|arg5
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -9411,8 +9183,6 @@ name|Arg5
 name|arg5
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -9523,11 +9293,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -9726,8 +9492,6 @@ name|Arg5
 name|arg5
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -9922,8 +9686,6 @@ name|Arg5
 name|arg5
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -10034,11 +9796,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -10240,8 +9998,6 @@ name|Arg5
 name|arg5
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -10439,8 +10195,6 @@ name|Arg5
 name|arg5
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -10551,11 +10305,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -10755,8 +10505,6 @@ name|Arg5
 name|arg5
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -10952,8 +10700,6 @@ name|Arg5
 name|arg5
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -11064,11 +10810,7 @@ name|type
 name|type
 expr_stmt|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -11118,8 +10860,6 @@ name|Functor
 name|functor
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -11167,9 +10907,9 @@ name|Functor
 name|functor
 block|; }
 expr_stmt|;
-end_expr_stmt
+block|}
+end_decl_stmt
 begin_comment
-unit|}
 comment|//namespace QtConcurrent
 end_comment
 begin_endif
@@ -11179,10 +10919,10 @@ end_endif
 begin_comment
 comment|// qdoc
 end_comment
-begin_macro
-unit|QT_END_NAMESPACE
+begin_expr_stmt
+name|QT_END_NAMESPACE
 name|QT_END_HEADER
-end_macro
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

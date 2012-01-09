@@ -99,14 +99,6 @@ name|defined
 argument_list|(
 name|QT_NO_GRAPHICSVIEW
 argument_list|)
-operator|||
-operator|(
-name|QT_EDITION
-operator|&
-name|QT_MODULE_GRAPHICSVIEW
-operator|)
-operator|!=
-name|QT_MODULE_GRAPHICSVIEW
 end_if
 begin_decl_stmt
 name|class
@@ -862,9 +854,6 @@ unit|};
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|//!defined(QT_NO_GRAPHICSVIEW) || (QT_EDITION& QT_MODULE_GRAPHICSVIEW) != QT_MODULE_GRAPHICSVIEW
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

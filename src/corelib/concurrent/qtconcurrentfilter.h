@@ -33,28 +33,26 @@ include|#
 directive|include
 file|<QtCore/qtconcurrentfunctionwrappers.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 ifdef|#
 directive|ifdef
 name|qdoc
 name|namespace
 name|QtConcurrent
-decl_stmt|{      QFuture<void> filter(Sequence&sequence
-operator|,
-decl_stmt|FilterFunction filterFunction
-end_function
-begin_empty_stmt
-unit|)
-empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
+block|{
+name|QFuture
+operator|<
+name|void
+operator|>
+name|filter
+argument_list|(
+argument|Sequence&sequence
+argument_list|,
+argument|FilterFunction filterFunction
+argument_list|)
+expr_stmt|;
 name|template
 operator|<
 name|typename
@@ -71,8 +69,6 @@ argument_list|,
 argument|FilterFunction filterFunction
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -91,8 +87,6 @@ argument_list|,
 argument|FilterFunction filterFunction
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -113,8 +107,6 @@ argument_list|,
 argument|QtConcurrent::ReduceOptions reduceOptions = UnorderedReduce | SequentialReduce
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -137,8 +129,6 @@ argument_list|,
 argument|QtConcurrent::ReduceOptions reduceOptions = UnorderedReduce | SequentialReduce
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_function_decl
 name|void
 name|blockingFilter
 parameter_list|(
@@ -150,8 +140,6 @@ name|FilterFunction
 name|filterFunction
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -165,8 +153,6 @@ argument_list|,
 argument|FilterFunction filterFunction
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -182,8 +168,6 @@ argument_list|,
 argument|FilterFunction filterFunction
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -201,8 +185,6 @@ argument_list|,
 argument|QtConcurrent::ReduceOptions reduceOptions = UnorderedReduce | SequentialReduce
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -222,20 +204,18 @@ argument_list|,
 argument|QtConcurrent::ReduceOptions reduceOptions = UnorderedReduce | SequentialReduce
 argument_list|)
 expr_stmt|;
-end_expr_stmt
+block|}
+end_decl_stmt
 begin_comment
-unit|}
 comment|// namespace QtConcurrent
 end_comment
 begin_else
 else|#
 directive|else
 end_else
-begin_macro
-unit|namespace
+begin_decl_stmt
+name|namespace
 name|QtConcurrent
-end_macro
-begin_block
 block|{
 name|template
 operator|<
@@ -286,7 +266,7 @@ argument|new KernelType(sequence, keep, reduce)
 argument_list|)
 return|;
 block|}
-end_block
+end_decl_stmt
 begin_comment
 comment|// filter() on sequences
 end_comment

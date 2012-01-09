@@ -26,18 +26,16 @@ end_include
 begin_comment
 comment|// ### Qt 5: remove
 end_comment
-begin_function
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_THREAD
-function|struct QReadWriteLockPrivate;
-end_function
+expr|struct
+name|QReadWriteLockPrivate
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT

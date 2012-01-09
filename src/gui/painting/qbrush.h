@@ -106,15 +106,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_function
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-parameter_list|(
-name|Gui
-parameter_list|)
-function|struct QBrushData;
-end_function
+expr|struct
+name|QBrushData
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 DECL|variable|QPixmap
 name|class

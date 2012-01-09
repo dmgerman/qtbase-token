@@ -68,10 +68,7 @@ operator|::
 name|GestureType
 argument_list|)
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
+DECL|variable|QGesturePrivate
 name|class
 name|QGesturePrivate
 decl_stmt|;

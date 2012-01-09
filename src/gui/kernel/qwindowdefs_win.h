@@ -21,11 +21,7 @@ end_include
 begin_function_decl
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-parameter_list|(
-name|Gui
-parameter_list|)
-function_decl|QT_END_NAMESPACE
+name|QT_END_NAMESPACE
 if|#
 directive|if
 operator|!
@@ -99,7 +95,7 @@ directive|endif
 ifndef|#
 directive|ifndef
 name|HINSTANCE
-function_decl|Q_DECLARE_HANDLE
+name|Q_DECLARE_HANDLE
 parameter_list|(
 name|HINSTANCE
 parameter_list|)
@@ -115,7 +111,7 @@ directive|ifndef
 name|HDC
 end_ifndef
 begin_expr_stmt
-DECL|variable|Q_DECLARE_HANDLE
+DECL|variable|HDC
 name|Q_DECLARE_HANDLE
 argument_list|(
 name|HDC

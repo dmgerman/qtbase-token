@@ -47,43 +47,40 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 name|namespace
 name|QtConcurrent
-decl_stmt|{
+block|{
 ifndef|#
 directive|ifndef
 name|QT_NO_EXCEPTIONS
-decl_stmt|class Q_CORE_EXPORT Exception : public std::exception
+name|class
+name|Q_CORE_EXPORT
+name|Exception
+range|:
+name|public
+name|std
+operator|::
+name|exception
 block|{
 name|public
-label|:
+operator|:
 name|virtual
 name|void
 name|raise
 argument_list|()
 specifier|const
-expr_stmt|;
+block|;
 name|virtual
 name|Exception
 operator|*
 name|clone
 argument_list|()
 specifier|const
-expr_stmt|;
-block|}
-end_function
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-begin_decl_stmt
+block|; }
+decl_stmt|;
 name|class
 name|Q_CORE_EXPORT
 name|UnhandledException
@@ -105,8 +102,6 @@ argument_list|()
 specifier|const
 block|; }
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|namespace
 name|internal
 block|{
@@ -202,18 +197,10 @@ decl_stmt|;
 block|}
 empty_stmt|;
 block|}
-end_decl_stmt
-begin_comment
 comment|// namespace internal
-end_comment
-begin_else
 else|#
 directive|else
-end_else
-begin_comment
 comment|// QT_NO_EXCEPTIONS
-end_comment
-begin_decl_stmt
 name|namespace
 name|internal
 block|{
@@ -235,22 +222,18 @@ block|{}
 block|}
 empty_stmt|;
 block|}
-end_decl_stmt
-begin_comment
 comment|// namespace internal
-end_comment
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_decl_stmt
 begin_comment
-unit|}
 comment|// namespace QtConcurrent
 end_comment
-begin_macro
-unit|QT_END_NAMESPACE
+begin_expr_stmt
+name|QT_END_NAMESPACE
 name|QT_END_HEADER
-end_macro
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

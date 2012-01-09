@@ -51,15 +51,12 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|OpenGL
-argument_list|)
-decl|static const
 DECL|variable|qglslMainVertexShader
+specifier|static
+specifier|const
 name|char
 modifier|*
-decl|const
+specifier|const
 name|qglslMainVertexShader
 init|=
 literal|"\n\     void setPosition(); \n\     void main(void) \n\     { \n\         setPosition(); \n\     }\n"

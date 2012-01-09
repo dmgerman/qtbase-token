@@ -36,10 +36,6 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
 if|#
 directive|if
 operator|!
@@ -47,6 +43,7 @@ name|defined
 argument_list|(
 name|QT_NO_STYLE_GTK
 argument_list|)
+DECL|variable|QPainterPath
 name|class
 name|QPainterPath
 decl_stmt|;

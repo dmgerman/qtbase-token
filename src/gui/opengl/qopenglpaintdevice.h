@@ -66,10 +66,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
+DECL|variable|QOpenGLPaintDevicePrivate
 name|class
 name|QOpenGLPaintDevicePrivate
 decl_stmt|;

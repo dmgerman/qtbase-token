@@ -21,10 +21,6 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
 if|#
 directive|if
 name|defined
@@ -37,6 +33,7 @@ name|defined
 argument_list|(
 name|QT_NO_STYLE_MAC
 argument_list|)
+DECL|variable|QPalette
 name|class
 name|QPalette
 decl_stmt|;
@@ -60,6 +57,7 @@ else|#
 directive|else
 end_else
 begin_define
+DECL|macro|Q_WIDGETS_EXPORT_STYLE_MAC
 define|#
 directive|define
 name|Q_WIDGETS_EXPORT_STYLE_MAC

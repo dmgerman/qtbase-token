@@ -26,10 +26,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|OpenGL
-argument_list|)
+DECL|variable|QGLPixelBufferPrivate
 name|class
 name|QGLPixelBufferPrivate
 decl_stmt|;

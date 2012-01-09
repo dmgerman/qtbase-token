@@ -38,20 +38,22 @@ include|#
 directive|include
 file|<QtCore/qtconcurrentreducekernel.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 ifndef|#
 directive|ifndef
 name|qdoc
 name|namespace
 name|QtConcurrent
-decl_stmt|{  template<typename T> struct qValueType
+block|{
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+expr|struct
+name|qValueType
 block|{
 typedef|typedef
 name|typename
@@ -61,11 +63,7 @@ name|value_type
 name|value_type
 expr_stmt|;
 block|}
-end_function
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -84,11 +82,7 @@ name|T
 name|value_type
 typedef|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -106,14 +100,8 @@ name|T
 name|value_type
 typedef|;
 block|}
-end_expr_stmt
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_comment
 comment|// Implementation of filter
-end_comment
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -153,8 +141,6 @@ name|value_type
 operator|>
 name|Reducer
 expr_stmt|;
-end_expr_stmt
-begin_typedef
 typedef|typedef
 name|IterateKernel
 operator|<
@@ -167,8 +153,6 @@ name|void
 operator|>
 name|IterateKernelType
 expr_stmt|;
-end_typedef
-begin_typedef
 typedef|typedef
 name|typename
 name|ReduceFunctor
@@ -176,38 +160,24 @@ operator|::
 name|result_type
 name|T
 expr_stmt|;
-end_typedef
-begin_decl_stmt
 name|Sequence
 name|reducedResult
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|Sequence
 modifier|&
 name|sequence
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|KeepFunctor
 name|keep
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|ReduceFunctor
 name|reduce
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|Reducer
 name|reducer
 decl_stmt|;
-end_decl_stmt
-begin_label
 name|public
 label|:
-end_label
-begin_macro
 name|FilterKernel
 argument_list|(
 argument|Sequence&_sequence
@@ -216,9 +186,7 @@ argument|KeepFunctor _keep
 argument_list|,
 argument|ReduceFunctor _reduce
 argument_list|)
-end_macro
-begin_expr_stmt
-unit|:
+block|:
 name|IterateKernelType
 argument_list|(
 name|const_cast
@@ -333,26 +301,30 @@ argument_list|,
 name|results
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_return
 return|return
 name|false
 return|;
-end_return
-begin_macro
-unit|}      bool
+block|}
+end_decl_stmt
+begin_decl_stmt
+name|bool
 name|runIterations
 argument_list|(
-argument|typename Sequence::const_iterator sequenceBeginIterator
+name|typename
+name|Sequence
+operator|::
+name|const_iterator
+name|sequenceBeginIterator
 argument_list|,
-argument|int begin
+name|int
+name|begin
 argument_list|,
-argument|int end
+name|int
+name|end
 argument_list|,
-argument|T *
+name|T
+operator|*
 argument_list|)
-end_macro
-begin_block
 block|{
 name|IntermediateResults
 operator|<
@@ -457,7 +429,7 @@ return|return
 name|false
 return|;
 block|}
-end_block
+end_decl_stmt
 begin_function
 name|void
 name|finish

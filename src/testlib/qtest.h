@@ -83,27 +83,22 @@ include|#
 directive|include
 file|<QtCore/qrect.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Test
-parameter_list|)
 name|namespace
 name|QTest
-decl_stmt|{  template<>
+block|{
+name|template
+operator|<
+operator|>
 specifier|inline
-namespace|char *
+name|char
+operator|*
 name|toString
-namespace|(const
-name|QLatin1String
-namespace|&
-name|str
-end_function
-begin_block
-unit|)
+argument_list|(
+argument|const QLatin1String&str
+argument_list|)
 block|{
 return|return
 name|qstrdup
@@ -115,8 +110,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_block
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -141,8 +134,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -171,8 +162,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -215,8 +204,6 @@ literal|"Invalid QTime"
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -259,8 +246,6 @@ literal|"Invalid QDate"
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -326,8 +311,6 @@ literal|"Invalid QDateTime"
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -383,8 +366,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -430,8 +411,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -477,8 +456,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -556,8 +533,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -603,8 +578,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -650,8 +623,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -729,8 +700,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -755,8 +724,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -819,8 +786,6 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_if
 if|if
 condition|(
 operator|!
@@ -877,17 +842,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_if
-begin_expr_stmt
-unit|}     vstring
+block|}
+name|vstring
 operator|.
 name|append
 argument_list|(
 literal|')'
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_return
 return|return
 name|qstrdup
 argument_list|(
@@ -897,15 +859,15 @@ name|constData
 argument_list|()
 argument_list|)
 return|;
-end_return
+block|}
+end_decl_stmt
 begin_ifndef
-unit|}
 ifndef|#
 directive|ifndef
 name|QTEST_NO_SPECIALIZATIONS
 end_ifndef
 begin_expr_stmt
-unit|template
+name|template
 operator|<
 operator|>
 endif|#

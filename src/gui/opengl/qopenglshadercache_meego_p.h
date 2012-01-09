@@ -1330,14 +1330,8 @@ begin_comment
 unit|}
 comment|// namespace
 end_comment
-begin_macro
-unit|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-argument|Gui
-argument_list|)
-end_macro
 begin_decl_stmt
+unit|QT_BEGIN_NAMESPACE
 name|class
 name|CachedShader
 block|{

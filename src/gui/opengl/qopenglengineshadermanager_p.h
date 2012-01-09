@@ -74,13 +74,10 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
 comment|/* struct QOpenGLEngineCachedShaderProg {     QOpenGLEngineCachedShaderProg(QOpenGLEngineShaderManager::ShaderName vertexMain,                               QOpenGLEngineShaderManager::ShaderName vertexPosition,                               QOpenGLEngineShaderManager::ShaderName fragMain,                               QOpenGLEngineShaderManager::ShaderName pixelSrc,                               QOpenGLEngineShaderManager::ShaderName mask,                               QOpenGLEngineShaderManager::ShaderName composition);      int cacheKey;     QOpenGLShaderProgram* program; } */
-decl|static const
 DECL|variable|QT_VERTEX_COORDS_ATTR
+specifier|static
+specifier|const
 name|GLuint
 name|QT_VERTEX_COORDS_ATTR
 init|=

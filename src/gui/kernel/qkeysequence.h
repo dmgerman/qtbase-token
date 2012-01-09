@@ -26,10 +26,6 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_SHORTCUT
@@ -37,12 +33,12 @@ comment|/***********************************************************************
 ifndef|#
 directive|ifndef
 name|QT_NO_DATASTREAM
+DECL|variable|QKeySequence
 name|class
 name|QKeySequence
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
-DECL|variable|operator
 name|Q_GUI_EXPORT
 name|QDataStream
 operator|&

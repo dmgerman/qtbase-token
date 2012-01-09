@@ -28,545 +28,546 @@ include|#
 directive|include
 file|<QtCore/qobjectdefs.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
+DECL|variable|QEventPrivate
 name|class
 name|QEventPrivate
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
 name|QEvent
 comment|// event base class
-decl_stmt|{     Q_GADGET     QDOC_PROPERTY(bool accepted READ isAccepted WRITE setAccepted
-end_function
-begin_macro
-unit|)
+block|{
+name|Q_GADGET
+name|QDOC_PROPERTY
+argument_list|(
+name|bool
+name|accepted
+name|READ
+name|isAccepted
+name|WRITE
+name|setAccepted
+argument_list|)
 name|Q_ENUMS
 argument_list|(
-argument|Type
+name|Type
 argument_list|)
-end_macro
-begin_label
 name|public
-label|:
-end_label
-begin_enum
-enum|enum
+range|:     enum
 name|Type
 block|{
 comment|/*           If you get a strange compiler error on the line with None,           it's probably because you're also including X11 headers,           which #define the symbol None. Put the X11 includes after           the Qt includes to solve this problem.         */
 name|None
-init|=
+operator|=
 literal|0
 block|,
 comment|// invalid event
 name|Timer
-init|=
+operator|=
 literal|1
 block|,
 comment|// timer event
 name|MouseButtonPress
-init|=
+operator|=
 literal|2
 block|,
 comment|// mouse button pressed
 name|MouseButtonRelease
-init|=
+operator|=
 literal|3
 block|,
 comment|// mouse button released
 name|MouseButtonDblClick
-init|=
+operator|=
 literal|4
 block|,
 comment|// mouse button double click
 name|MouseMove
-init|=
+operator|=
 literal|5
 block|,
 comment|// mouse move
 name|KeyPress
-init|=
+operator|=
 literal|6
 block|,
 comment|// key pressed
 name|KeyRelease
-init|=
+operator|=
 literal|7
 block|,
 comment|// key released
 name|FocusIn
-init|=
+operator|=
 literal|8
 block|,
 comment|// keyboard focus received
 name|FocusOut
-init|=
+operator|=
 literal|9
 block|,
 comment|// keyboard focus lost
 name|Enter
-init|=
+operator|=
 literal|10
 block|,
 comment|// mouse enters widget
 name|Leave
-init|=
+operator|=
 literal|11
 block|,
 comment|// mouse leaves widget
 name|Paint
-init|=
+operator|=
 literal|12
 block|,
 comment|// paint widget
 name|Move
-init|=
+operator|=
 literal|13
 block|,
 comment|// move widget
 name|Resize
-init|=
+operator|=
 literal|14
 block|,
 comment|// resize widget
 name|Create
-init|=
+operator|=
 literal|15
 block|,
 comment|// after widget creation
 name|Destroy
-init|=
+operator|=
 literal|16
 block|,
 comment|// during widget destruction
 name|Show
-init|=
+operator|=
 literal|17
 block|,
 comment|// widget is shown
 name|Hide
-init|=
+operator|=
 literal|18
 block|,
 comment|// widget is hidden
 name|Close
-init|=
+operator|=
 literal|19
 block|,
 comment|// request to close widget
 name|Quit
-init|=
+operator|=
 literal|20
 block|,
 comment|// request to quit application
 name|ParentChange
-init|=
+operator|=
 literal|21
 block|,
 comment|// widget has been reparented
 name|ParentAboutToChange
-init|=
+operator|=
 literal|131
 block|,
 comment|// sent just before the parent change is done
 name|ThreadChange
-init|=
+operator|=
 literal|22
 block|,
 comment|// object has changed threads
 name|WindowActivate
-init|=
+operator|=
 literal|24
 block|,
 comment|// window was activated
 name|WindowDeactivate
-init|=
+operator|=
 literal|25
 block|,
 comment|// window was deactivated
 name|ShowToParent
-init|=
+operator|=
 literal|26
 block|,
 comment|// widget is shown to parent
 name|HideToParent
-init|=
+operator|=
 literal|27
 block|,
 comment|// widget is hidden to parent
 name|Wheel
-init|=
+operator|=
 literal|31
 block|,
 comment|// wheel event
 name|WindowTitleChange
-init|=
+operator|=
 literal|33
 block|,
 comment|// window title changed
 name|WindowIconChange
-init|=
+operator|=
 literal|34
 block|,
 comment|// icon changed
 name|ApplicationWindowIconChange
-init|=
+operator|=
 literal|35
 block|,
 comment|// application icon changed
 name|ApplicationFontChange
-init|=
+operator|=
 literal|36
 block|,
 comment|// application font changed
 name|ApplicationLayoutDirectionChange
-init|=
+operator|=
 literal|37
 block|,
 comment|// application layout direction changed
 name|ApplicationPaletteChange
-init|=
+operator|=
 literal|38
 block|,
 comment|// application palette changed
 name|PaletteChange
-init|=
+operator|=
 literal|39
 block|,
 comment|// widget palette changed
 name|Clipboard
-init|=
+operator|=
 literal|40
 block|,
 comment|// internal clipboard event
 name|Speech
-init|=
+operator|=
 literal|42
 block|,
 comment|// reserved for speech input
 name|MetaCall
-init|=
+operator|=
 literal|43
 block|,
 comment|// meta call event
 name|SockAct
-init|=
+operator|=
 literal|50
 block|,
 comment|// socket activation
 name|WinEventAct
-init|=
+operator|=
 literal|132
 block|,
 comment|// win event activation
 name|DeferredDelete
-init|=
+operator|=
 literal|52
 block|,
 comment|// deferred delete event
 name|DragEnter
-init|=
+operator|=
 literal|60
 block|,
 comment|// drag moves into widget
 name|DragMove
-init|=
+operator|=
 literal|61
 block|,
 comment|// drag moves in widget
 name|DragLeave
-init|=
+operator|=
 literal|62
 block|,
 comment|// drag leaves or is cancelled
 name|Drop
-init|=
+operator|=
 literal|63
 block|,
 comment|// actual drop
 name|DragResponse
-init|=
+operator|=
 literal|64
 block|,
 comment|// drag accepted/rejected
 name|ChildAdded
-init|=
+operator|=
 literal|68
 block|,
 comment|// new child widget
 name|ChildPolished
-init|=
+operator|=
 literal|69
 block|,
 comment|// polished child widget
 name|ChildRemoved
-init|=
+operator|=
 literal|71
 block|,
 comment|// deleted child widget
 name|ShowWindowRequest
-init|=
+operator|=
 literal|73
 block|,
 comment|// widget's window should be mapped
 name|PolishRequest
-init|=
+operator|=
 literal|74
 block|,
 comment|// widget should be polished
 name|Polish
-init|=
+operator|=
 literal|75
 block|,
 comment|// widget is polished
 name|LayoutRequest
-init|=
+operator|=
 literal|76
 block|,
 comment|// widget should be relayouted
 name|UpdateRequest
-init|=
+operator|=
 literal|77
 block|,
 comment|// widget should be repainted
 name|UpdateLater
-init|=
+operator|=
 literal|78
 block|,
 comment|// request update() later
 name|EmbeddingControl
-init|=
+operator|=
 literal|79
 block|,
 comment|// ActiveX embedding
 name|ActivateControl
-init|=
+operator|=
 literal|80
 block|,
 comment|// ActiveX activation
 name|DeactivateControl
-init|=
+operator|=
 literal|81
 block|,
 comment|// ActiveX deactivation
 name|ContextMenu
-init|=
+operator|=
 literal|82
 block|,
 comment|// context popup menu
 name|InputMethod
-init|=
+operator|=
 literal|83
 block|,
 comment|// input method
 name|AccessibilityPrepare
-init|=
+operator|=
 literal|86
 block|,
 comment|// accessibility information is requested
 name|TabletMove
-init|=
+operator|=
 literal|87
 block|,
 comment|// Wacom tablet event
 name|LocaleChange
-init|=
+operator|=
 literal|88
 block|,
 comment|// the system locale changed
 name|LanguageChange
-init|=
+operator|=
 literal|89
 block|,
 comment|// the application language changed
 name|LayoutDirectionChange
-init|=
+operator|=
 literal|90
 block|,
 comment|// the layout direction changed
 name|Style
-init|=
+operator|=
 literal|91
 block|,
 comment|// internal style event
 name|TabletPress
-init|=
+operator|=
 literal|92
 block|,
 comment|// tablet press
 name|TabletRelease
-init|=
+operator|=
 literal|93
 block|,
 comment|// tablet release
 name|OkRequest
-init|=
+operator|=
 literal|94
 block|,
 comment|// CE (Ok) button pressed
 name|HelpRequest
-init|=
+operator|=
 literal|95
 block|,
 comment|// CE (?)  button pressed
 name|IconDrag
-init|=
+operator|=
 literal|96
 block|,
 comment|// proxy icon dragged
 name|FontChange
-init|=
+operator|=
 literal|97
 block|,
 comment|// font has changed
 name|EnabledChange
-init|=
+operator|=
 literal|98
 block|,
 comment|// enabled state has changed
 name|ActivationChange
-init|=
+operator|=
 literal|99
 block|,
 comment|// window activation has changed
 name|StyleChange
-init|=
+operator|=
 literal|100
 block|,
 comment|// style has changed
 name|IconTextChange
-init|=
+operator|=
 literal|101
 block|,
 comment|// icon text has changed
 name|ModifiedChange
-init|=
+operator|=
 literal|102
 block|,
 comment|// modified state has changed
 name|MouseTrackingChange
-init|=
+operator|=
 literal|109
 block|,
 comment|// mouse tracking state has changed
 name|WindowBlocked
-init|=
+operator|=
 literal|103
 block|,
 comment|// window is about to be blocked modally
 name|WindowUnblocked
-init|=
+operator|=
 literal|104
 block|,
 comment|// windows modal blocking has ended
 name|WindowStateChange
-init|=
+operator|=
 literal|105
 block|,
 name|ToolTip
-init|=
+operator|=
 literal|110
 block|,
 name|WhatsThis
-init|=
+operator|=
 literal|111
 block|,
 name|StatusTip
-init|=
+operator|=
 literal|112
 block|,
 name|ActionChanged
-init|=
+operator|=
 literal|113
 block|,
 name|ActionAdded
-init|=
+operator|=
 literal|114
 block|,
 name|ActionRemoved
-init|=
+operator|=
 literal|115
 block|,
 name|FileOpen
-init|=
+operator|=
 literal|116
 block|,
 comment|// file open request
 name|Shortcut
-init|=
+operator|=
 literal|117
 block|,
 comment|// shortcut triggered
 name|ShortcutOverride
-init|=
+operator|=
 literal|51
 block|,
 comment|// shortcut override request
 name|WhatsThisClicked
-init|=
+operator|=
 literal|118
 block|,
 name|ToolBarChange
-init|=
+operator|=
 literal|120
 block|,
 comment|// toolbar visibility toggled
 name|ApplicationActivate
-init|=
+operator|=
 literal|121
 block|,
 comment|// application has been changed to active
 name|ApplicationActivated
-init|=
+operator|=
 name|ApplicationActivate
 block|,
 comment|// deprecated
 name|ApplicationDeactivate
-init|=
+operator|=
 literal|122
 block|,
 comment|// application has been changed to inactive
 name|ApplicationDeactivated
-init|=
+operator|=
 name|ApplicationDeactivate
 block|,
 comment|// deprecated
 name|QueryWhatsThis
-init|=
+operator|=
 literal|123
 block|,
 comment|// query what's this widget help
 name|EnterWhatsThisMode
-init|=
+operator|=
 literal|124
 block|,
 name|LeaveWhatsThisMode
-init|=
+operator|=
 literal|125
 block|,
 name|ZOrderChange
-init|=
+operator|=
 literal|126
 block|,
 comment|// child widget has had its z-order changed
 name|HoverEnter
-init|=
+operator|=
 literal|127
 block|,
 comment|// mouse cursor enters a hover widget
 name|HoverLeave
-init|=
+operator|=
 literal|128
 block|,
 comment|// mouse cursor leaves a hover widget
 name|HoverMove
-init|=
+operator|=
 literal|129
 block|,
 comment|// mouse cursor move inside a hover widget
@@ -575,304 +576,296 @@ ifdef|#
 directive|ifdef
 name|QT_KEYPAD_NAVIGATION
 name|EnterEditFocus
-init|=
+operator|=
 literal|150
 block|,
 comment|// enter edit mode in keypad navigation
 name|LeaveEditFocus
-init|=
+operator|=
 literal|151
 block|,
 comment|// enter edit mode in keypad navigation
 endif|#
 directive|endif
 name|AcceptDropsChange
-init|=
+operator|=
 literal|152
 block|,
 name|MenubarUpdated
-init|=
+operator|=
 literal|153
 block|,
 comment|// Support event for Q3MainWindow, which needs to
 comment|// knwow when QMenubar is updated.
 name|ZeroTimerEvent
-init|=
+operator|=
 literal|154
 block|,
 comment|// Used for Windows Zero timer events
 name|GraphicsSceneMouseMove
-init|=
+operator|=
 literal|155
 block|,
 comment|// GraphicsView
 name|GraphicsSceneMousePress
-init|=
+operator|=
 literal|156
 block|,
 name|GraphicsSceneMouseRelease
-init|=
+operator|=
 literal|157
 block|,
 name|GraphicsSceneMouseDoubleClick
-init|=
+operator|=
 literal|158
 block|,
 name|GraphicsSceneContextMenu
-init|=
+operator|=
 literal|159
 block|,
 name|GraphicsSceneHoverEnter
-init|=
+operator|=
 literal|160
 block|,
 name|GraphicsSceneHoverMove
-init|=
+operator|=
 literal|161
 block|,
 name|GraphicsSceneHoverLeave
-init|=
+operator|=
 literal|162
 block|,
 name|GraphicsSceneHelp
-init|=
+operator|=
 literal|163
 block|,
 name|GraphicsSceneDragEnter
-init|=
+operator|=
 literal|164
 block|,
 name|GraphicsSceneDragMove
-init|=
+operator|=
 literal|165
 block|,
 name|GraphicsSceneDragLeave
-init|=
+operator|=
 literal|166
 block|,
 name|GraphicsSceneDrop
-init|=
+operator|=
 literal|167
 block|,
 name|GraphicsSceneWheel
-init|=
+operator|=
 literal|168
 block|,
 name|KeyboardLayoutChange
-init|=
+operator|=
 literal|169
 block|,
 comment|// keyboard layout changed
 name|DynamicPropertyChange
-init|=
+operator|=
 literal|170
 block|,
 comment|// A dynamic property was changed through setProperty/property
 name|TabletEnterProximity
-init|=
+operator|=
 literal|171
 block|,
 name|TabletLeaveProximity
-init|=
+operator|=
 literal|172
 block|,
 name|NonClientAreaMouseMove
-init|=
+operator|=
 literal|173
 block|,
 name|NonClientAreaMouseButtonPress
-init|=
+operator|=
 literal|174
 block|,
 name|NonClientAreaMouseButtonRelease
-init|=
+operator|=
 literal|175
 block|,
 name|NonClientAreaMouseButtonDblClick
-init|=
+operator|=
 literal|176
 block|,
 name|MacSizeChange
-init|=
+operator|=
 literal|177
 block|,
 comment|// when the Qt::WA_Mac{Normal,Small,Mini}Size changes
 name|ContentsRectChange
-init|=
+operator|=
 literal|178
 block|,
 comment|// sent by QWidget::setContentsMargins (internal)
 name|MacGLWindowChange
-init|=
+operator|=
 literal|179
 block|,
 comment|// Internal! the window of the GLWidget has changed
 name|FutureCallOut
-init|=
+operator|=
 literal|180
 block|,
 name|GraphicsSceneResize
-init|=
+operator|=
 literal|181
 block|,
 name|GraphicsSceneMove
-init|=
+operator|=
 literal|182
 block|,
 name|CursorChange
-init|=
+operator|=
 literal|183
 block|,
 name|ToolTipChange
-init|=
+operator|=
 literal|184
 block|,
 name|NetworkReplyUpdated
-init|=
+operator|=
 literal|185
 block|,
 comment|// Internal for QNetworkReply
 name|GrabMouse
-init|=
+operator|=
 literal|186
 block|,
 name|UngrabMouse
-init|=
+operator|=
 literal|187
 block|,
 name|GrabKeyboard
-init|=
+operator|=
 literal|188
 block|,
 name|UngrabKeyboard
-init|=
+operator|=
 literal|189
 block|,
 name|MacGLClearDrawable
-init|=
+operator|=
 literal|191
 block|,
 comment|// Internal Cocoa, the window has changed, so we must clear
 name|StateMachineSignal
-init|=
+operator|=
 literal|192
 block|,
 name|StateMachineWrapped
-init|=
+operator|=
 literal|193
 block|,
 name|TouchBegin
-init|=
+operator|=
 literal|194
 block|,
 name|TouchUpdate
-init|=
+operator|=
 literal|195
 block|,
 name|TouchEnd
-init|=
+operator|=
 literal|196
 block|,
 ifndef|#
 directive|ifndef
 name|QT_NO_GESTURES
 name|NativeGesture
-init|=
+operator|=
 literal|197
 block|,
 comment|// Internal for platform gesture support
 endif|#
 directive|endif
 name|RequestSoftwareInputPanel
-init|=
+operator|=
 literal|199
 block|,
 name|CloseSoftwareInputPanel
-init|=
+operator|=
 literal|200
 block|,
 name|UpdateSoftKeys
-init|=
+operator|=
 literal|201
 block|,
 comment|// Internal for compressing soft key updates
 name|WinIdChange
-init|=
+operator|=
 literal|203
 block|,
 ifndef|#
 directive|ifndef
 name|QT_NO_GESTURES
 name|Gesture
-init|=
+operator|=
 literal|198
 block|,
 name|GestureOverride
-init|=
+operator|=
 literal|202
 block|,
 endif|#
 directive|endif
 name|ScrollPrepare
-init|=
+operator|=
 literal|204
 block|,
 name|Scroll
-init|=
+operator|=
 literal|205
 block|,
 name|Map
-init|=
+operator|=
 literal|206
 block|,
 name|Unmap
-init|=
+operator|=
 literal|207
 block|,
 name|Expose
-init|=
+operator|=
 literal|208
 block|,
 name|InputMethodQuery
-init|=
+operator|=
 literal|209
 block|,
 name|OrientationChange
-init|=
+operator|=
 literal|210
 block|,
 comment|// Screen orientation has changed
 comment|// 512 reserved for Qt Jambi's MetaCall event
 comment|// 513 reserved for Qt Jambi's DeleteOnMainThread event
 name|User
-init|=
+operator|=
 literal|1000
 block|,
 comment|// first user event id
 name|MaxUser
-init|=
+operator|=
 literal|65535
 comment|// last user event id
 block|}
-enum|;
-end_enum
-begin_macro
+decl_stmt|;
 name|QEvent
 argument_list|(
 argument|Type type
 argument_list|)
-end_macro
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
 name|virtual
 operator|~
 name|QEvent
 argument_list|()
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|Type
 name|type
@@ -889,8 +882,6 @@ name|t
 operator|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|spontaneous
@@ -901,8 +892,6 @@ return|return
 name|spont
 return|;
 block|}
-end_expr_stmt
-begin_function
 specifier|inline
 name|void
 name|setAccepted
@@ -916,8 +905,6 @@ operator|=
 name|accepted
 expr_stmt|;
 block|}
-end_function
-begin_expr_stmt
 specifier|inline
 name|bool
 name|isAccepted
@@ -928,8 +915,6 @@ return|return
 name|m_accept
 return|;
 block|}
-end_expr_stmt
-begin_function
 specifier|inline
 name|void
 name|accept
@@ -940,8 +925,6 @@ operator|=
 name|true
 expr_stmt|;
 block|}
-end_function
-begin_function
 specifier|inline
 name|void
 name|ignore
@@ -952,8 +935,6 @@ operator|=
 name|false
 expr_stmt|;
 block|}
-end_function
-begin_function_decl
 specifier|static
 name|int
 name|registerEventType
@@ -965,137 +946,96 @@ operator|-
 literal|1
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_label
 name|protected
 label|:
-end_label
-begin_decl_stmt
 name|QEventPrivate
 modifier|*
 name|d
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|ushort
 name|t
 decl_stmt|;
-end_decl_stmt
-begin_label
 name|private
 label|:
-end_label
-begin_decl_stmt
 name|ushort
 name|posted
 range|:
 literal|1
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|ushort
 name|spont
 range|:
 literal|1
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|ushort
 name|m_accept
 range|:
 literal|1
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|ushort
 name|reserved
 range|:
 literal|13
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|friend
 name|class
 name|QCoreApplication
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|friend
 name|class
 name|QCoreApplicationPrivate
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|friend
 name|class
 name|QThreadData
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|friend
 name|class
 name|QApplication
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|friend
 name|class
 name|QApplicationPrivate
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|friend
 name|class
 name|QShortcutMap
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|friend
 name|class
 name|QETWidget
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|friend
 name|class
 name|QGraphicsView
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|friend
 name|class
 name|QGraphicsViewPrivate
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|friend
 name|class
 name|QGraphicsScene
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|friend
 name|class
 name|QGraphicsScenePrivate
 decl_stmt|;
-end_decl_stmt
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_GESTURES
-end_ifndef
-begin_decl_stmt
 name|friend
 name|class
 name|QGestureManager
 decl_stmt|;
-end_decl_stmt
-begin_endif
 endif|#
 directive|endif
-end_endif
+block|}
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_decl_stmt
-unit|};
 name|class
 name|Q_CORE_EXPORT
 name|QTimerEvent

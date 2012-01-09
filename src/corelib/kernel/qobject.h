@@ -70,10 +70,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
+DECL|variable|QEvent
 name|class
 name|QEvent
 decl_stmt|;

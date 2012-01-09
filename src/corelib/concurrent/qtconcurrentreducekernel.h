@@ -58,45 +58,30 @@ include|#
 directive|include
 file|<QtCore/qvector.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 name|namespace
 name|QtConcurrent
-decl_stmt|{
+block|{
 ifndef|#
 directive|ifndef
 name|qdoc
 comment|/*     The ReduceQueueStartLimit and ReduceQueueThrottleLimit constants     limit the reduce queue size for MapReduce. When the number of     reduce blocks in the queue exceeds ReduceQueueStartLimit,     MapReduce won't start any new threads, and when it exceeds     ReduceQueueThrottleLimit running threads will be stopped. */
-decl_stmt|enum
+enum|enum
 block|{
 name|ReduceQueueStartLimit
-operator|=
+init|=
 literal|20
-operator|,
+block|,
 name|ReduceQueueThrottleLimit
-operator|=
+init|=
 literal|30
 block|}
-end_function
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
-begin_comment
+enum|;
 comment|// IntermediateResults holds a block of intermediate results from a
-end_comment
-begin_comment
 comment|// map or filter functor. The begin/end offsets indicates the origin
-end_comment
-begin_comment
 comment|// and range of the block.
-end_comment
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -119,15 +104,9 @@ operator|>
 name|vector
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_endif
 endif|#
 directive|endif
-end_endif
-begin_comment
 comment|// qdoc
-end_comment
-begin_enum
 enum|enum
 name|ReduceOption
 block|{
@@ -145,30 +124,20 @@ literal|0x4
 comment|// ParallelReduce = 0x8
 block|}
 enum|;
-end_enum
-begin_macro
 name|Q_DECLARE_FLAGS
 argument_list|(
 argument|ReduceOptions
 argument_list|,
 argument|ReduceOption
 argument_list|)
-end_macro
-begin_macro
 name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(
 argument|ReduceOptions
 argument_list|)
-end_macro
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|qdoc
-end_ifndef
-begin_comment
 comment|// supports both ordered and out-of-order reduction
-end_comment
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -199,13 +168,9 @@ specifier|const
 name|ReduceOptions
 name|reduceOptions
 expr_stmt|;
-end_expr_stmt
-begin_decl_stmt
 name|QMutex
 name|mutex
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|int
 name|progress
 decl_stmt|,
@@ -213,13 +178,9 @@ name|resultsMapSize
 decl_stmt|,
 name|threadCount
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|ResultsMap
 name|resultsMap
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|bool
 name|canReduce
 argument_list|(
@@ -256,8 +217,6 @@ operator|)
 operator|)
 return|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 name|void
 name|reduceResult
 argument_list|(
@@ -314,8 +273,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_decl_stmt
-begin_function
 name|void
 name|reduceResults
 parameter_list|(
@@ -370,19 +327,13 @@ name|it
 expr_stmt|;
 block|}
 block|}
-end_function
-begin_label
 name|public
 label|:
-end_label
-begin_macro
 name|ReduceKernel
 argument_list|(
 argument|ReduceOptions _reduceOptions
 argument_list|)
-end_macro
-begin_expr_stmt
-unit|:
+block|:
 name|reduceOptions
 argument_list|(
 name|_reduceOptions
@@ -447,8 +398,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-end_expr_stmt
-begin_if
 if|if
 condition|(
 name|reduceOptions
@@ -653,21 +602,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_if
-begin_comment
-unit|}
+block|}
 comment|// final reduction
-end_comment
-begin_macro
-unit|void
+name|void
 name|finish
 argument_list|(
 argument|ReduceFunctor&reduce
 argument_list|,
 argument|ReduceResultType&r
 argument_list|)
-end_macro
-begin_block
 block|{
 name|reduceResults
 argument_list|(
@@ -677,14 +620,11 @@ name|r
 argument_list|,
 name|resultsMap
 argument_list|)
-expr_stmt|;
-block|}
-end_block
-begin_function
+block|;     }
 specifier|inline
 name|bool
 name|shouldThrottle
-parameter_list|()
+argument_list|()
 block|{
 return|return
 operator|(
@@ -698,8 +638,6 @@ operator|)
 operator|)
 return|;
 block|}
-end_function
-begin_function
 specifier|inline
 name|bool
 name|shouldStartThread
@@ -717,9 +655,12 @@ operator|)
 operator|)
 return|;
 block|}
-end_function
+block|}
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_expr_stmt
-unit|};
 name|template
 operator|<
 name|typename

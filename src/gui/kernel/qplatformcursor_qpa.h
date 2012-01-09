@@ -48,32 +48,30 @@ include|#
 directive|include
 file|<QtGui/QCursor>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Gui
-parameter_list|)
 comment|// Cursor graphics management
 name|class
 name|Q_GUI_EXPORT
 name|QPlatformCursorImage
-decl_stmt|{ public:     QPlatformCursorImage(const uchar *data
-operator|,
-decl_stmt|const uchar *mask
-operator|,
-decl_stmt|int width
-operator|,
-decl_stmt|int height
-operator|,
-decl_stmt|int hotX
-operator|,
-decl_stmt|int hotY
-end_function
-begin_block
-unit|)
+block|{
+name|public
+label|:
+name|QPlatformCursorImage
+argument_list|(
+argument|const uchar *data
+argument_list|,
+argument|const uchar *mask
+argument_list|,
+argument|int width
+argument_list|,
+argument|int height
+argument_list|,
+argument|int hotX
+argument_list|,
+argument|int hotY
+argument_list|)
 block|{
 name|set
 argument_list|(
@@ -91,8 +89,6 @@ name|hotY
 argument_list|)
 expr_stmt|;
 block|}
-end_block
-begin_function
 name|QImage
 modifier|*
 name|image
@@ -103,8 +99,6 @@ operator|&
 name|cursorImage
 return|;
 block|}
-end_function
-begin_function
 name|QPoint
 name|hotspot
 parameter_list|()
@@ -113,8 +107,6 @@ return|return
 name|hot
 return|;
 block|}
-end_function
-begin_function_decl
 name|void
 name|set
 parameter_list|(
@@ -141,8 +133,6 @@ name|int
 name|hotY
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_function_decl
 name|void
 name|set
 parameter_list|(
@@ -158,8 +148,6 @@ name|int
 name|hy
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_decl_stmt
 name|void
 name|set
 argument_list|(
@@ -168,12 +156,8 @@ operator|::
 name|CursorShape
 argument_list|)
 decl_stmt|;
-end_decl_stmt
-begin_label
 name|private
 label|:
-end_label
-begin_function_decl
 specifier|static
 name|void
 name|createSystemCursor
@@ -182,19 +166,18 @@ name|int
 name|id
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_decl_stmt
 name|QImage
 name|cursorImage
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|QPoint
 name|hot
 decl_stmt|;
+block|}
 end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_decl_stmt
-unit|};
 DECL|variable|QPlatformCursor
 name|class
 name|QPlatformCursor

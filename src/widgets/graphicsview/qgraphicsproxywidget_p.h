@@ -61,14 +61,6 @@ name|defined
 argument_list|(
 name|QT_NO_GRAPHICSVIEW
 argument_list|)
-operator|||
-operator|(
-name|QT_EDITION
-operator|&
-name|QT_MODULE_GRAPHICSVIEW
-operator|)
-operator|!=
-name|QT_MODULE_GRAPHICSVIEW
 end_if
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

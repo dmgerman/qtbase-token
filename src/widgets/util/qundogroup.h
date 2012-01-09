@@ -43,13 +43,6 @@ name|class
 name|QAction
 decl_stmt|;
 end_decl_stmt
-begin_macro
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-argument|Gui
-argument_list|)
-end_macro
 begin_ifndef
 ifndef|#
 directive|ifndef

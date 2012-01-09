@@ -41,11 +41,6 @@ end_ifndef
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|DBus
-argument_list|)
 name|class
 name|Q_DBUS_EXPORT
 name|QDBusPendingReplyData

@@ -76,10 +76,6 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
 if|#
 directive|if
 operator|!
@@ -87,14 +83,7 @@ name|defined
 argument_list|(
 name|QT_NO_GRAPHICSVIEW
 argument_list|)
-operator|||
-operator|(
-name|QT_EDITION
-operator|&
-name|QT_MODULE_GRAPHICSVIEW
-operator|)
-operator|!=
-name|QT_MODULE_GRAPHICSVIEW
+DECL|variable|QGraphicsSceneIndexIntersector
 name|class
 name|QGraphicsSceneIndexIntersector
 decl_stmt|;

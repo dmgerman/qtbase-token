@@ -31,11 +31,6 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
 DECL|macro|QWINDOWSIZE_MAX
 define|#
 directive|define

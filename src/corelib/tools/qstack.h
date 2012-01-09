@@ -18,22 +18,17 @@ include|#
 directive|include
 file|<QtCore/qvector.h>
 end_include
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
 name|template
-decl|<
+operator|<
 name|class
 name|T
-decl|>
+operator|>
 name|class
 name|QStack
-range|:
+operator|:
 name|public
 name|QVector
 operator|<
@@ -102,8 +97,8 @@ name|top
 argument_list|()
 specifier|const
 block|; }
-decl_stmt|;
-end_decl_stmt
+expr_stmt|;
+end_expr_stmt
 begin_expr_stmt
 name|template
 operator|<

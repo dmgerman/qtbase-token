@@ -43,28 +43,26 @@ include|#
 directive|include
 file|<QtCore/qstringlist.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 ifdef|#
 directive|ifdef
 name|qdoc
 name|namespace
 name|QtConcurrent
-decl_stmt|{      QFuture<void> map(Sequence&sequence
-operator|,
-decl_stmt|MapFunction function
-end_function
-begin_empty_stmt
-unit|)
-empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
+block|{
+name|QFuture
+operator|<
+name|void
+operator|>
+name|map
+argument_list|(
+argument|Sequence&sequence
+argument_list|,
+argument|MapFunction function
+argument_list|)
+expr_stmt|;
 name|QFuture
 operator|<
 name|void
@@ -78,8 +76,6 @@ argument_list|,
 argument|MapFunction function
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -96,8 +92,6 @@ argument_list|,
 argument|MapFunction function
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -116,8 +110,6 @@ argument_list|,
 argument|MapFunction function
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -138,8 +130,6 @@ argument_list|,
 argument|QtConcurrent::ReduceOptions options = UnorderedReduce | SequentialReduce
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -162,8 +152,6 @@ argument_list|,
 argument|QtConcurrent::ReduceOptions options = UnorderedReduce | SequentialReduce
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_function_decl
 name|void
 name|blockingMap
 parameter_list|(
@@ -175,8 +163,6 @@ name|MapFunction
 name|function
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_function_decl
 name|void
 name|blockingMap
 parameter_list|(
@@ -190,8 +176,6 @@ name|MapFunction
 name|function
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -205,8 +189,6 @@ argument_list|,
 argument|MapFunction function
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -222,8 +204,6 @@ argument_list|,
 argument|MapFunction function
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -241,8 +221,6 @@ argument_list|,
 argument|QtConcurrent::ReduceOptions options = UnorderedReduce | SequentialReduce
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -262,20 +240,18 @@ argument_list|,
 argument|QtConcurrent::ReduceOptions options = UnorderedReduce | SequentialReduce
 argument_list|)
 expr_stmt|;
-end_expr_stmt
+block|}
+end_decl_stmt
 begin_comment
-unit|}
 comment|// namespace QtConcurrent
 end_comment
 begin_else
 else|#
 directive|else
 end_else
-begin_macro
-unit|namespace
+begin_decl_stmt
+name|namespace
 name|QtConcurrent
-end_macro
-begin_block
 block|{
 comment|// map() on sequences
 name|template
@@ -1279,7 +1255,7 @@ name|OrderedReduce
 operator|)
 return|;
 block|}
-end_block
+end_decl_stmt
 begin_comment
 comment|// mapped()  for iterator ranges
 end_comment

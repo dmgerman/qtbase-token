@@ -63,18 +63,14 @@ ifndef|#
 directive|ifndef
 name|QT_NO_BEARERMANAGEMENT
 end_ifndef
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Network
-argument_list|)
-decl|struct
+expr|struct
+DECL|struct|QFactoryInterface
 name|Q_NETWORK_EXPORT
 name|QBearerEngineFactoryInterface
-range|:
+operator|:
 name|public
 name|QFactoryInterface
 block|{
@@ -89,8 +85,8 @@ specifier|const
 operator|=
 literal|0
 block|; }
-decl_stmt|;
-end_decl_stmt
+expr_stmt|;
+end_expr_stmt
 begin_define
 DECL|macro|QBearerEngineFactoryInterface_iid
 define|#

@@ -41,13 +41,10 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_ANIMATION
+DECL|variable|QVariantAnimationPrivate
 name|class
 name|QVariantAnimationPrivate
 decl_stmt|;

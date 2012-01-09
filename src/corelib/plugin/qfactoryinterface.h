@@ -23,18 +23,15 @@ include|#
 directive|include
 file|<QtCore/qstringlist.h>
 end_include
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
-decl|struct
+expr|struct
+DECL|struct|QFactoryInterface
 name|Q_CORE_EXPORT
 name|QFactoryInterface
 block|{
+DECL|function|~QFactoryInterface
 name|virtual
 operator|~
 name|QFactoryInterface
@@ -47,12 +44,9 @@ argument_list|()
 specifier|const
 operator|=
 literal|0
+block|; }
 expr_stmt|;
-block|}
-end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
+end_expr_stmt
 begin_macro
 name|Q_DECLARE_INTERFACE
 argument_list|(

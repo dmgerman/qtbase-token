@@ -72,10 +72,7 @@ include|#
 directive|include
 file|<QtCore/qshareddata.h>
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Network
-argument_list|)
+DECL|variable|QNetworkSessionPrivate
 name|class
 name|QNetworkSessionPrivate
 decl_stmt|;

@@ -53,22 +53,17 @@ include|#
 directive|include
 file|<QtTest/private/qtestelementattribute_p.h>
 end_include
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Test
-argument_list|)
 name|template
-decl|<
+operator|<
 name|class
 name|ElementType
-decl|>
+operator|>
 name|class
 name|QTestCoreElement
-range|:
+operator|:
 name|public
 name|QTestCoreList
 operator|<
@@ -154,8 +149,8 @@ operator|::
 name|LogElementType
 name|type
 block|; }
-decl_stmt|;
-end_decl_stmt
+expr_stmt|;
+end_expr_stmt
 begin_expr_stmt
 name|template
 operator|<

@@ -68,14 +68,9 @@ include|#
 directive|include
 file|<qt_windows.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_THREAD
@@ -91,10 +86,14 @@ name|SLEEPMAX
 value|500
 name|class
 name|QIncrementalSleepTimer
-decl_stmt|{  public:     QIncrementalSleepTimer(int msecs
-end_function
-begin_expr_stmt
-unit|)         :
+block|{
+name|public
+label|:
+name|QIncrementalSleepTimer
+argument_list|(
+argument|int msecs
+argument_list|)
+block|:
 name|totalTimeOut
 argument_list|(
 name|msecs
@@ -121,13 +120,12 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-end_expr_stmt
-begin_macro
-unit|}      int
+block|}
+end_decl_stmt
+begin_function
+name|int
 name|nextSleepTime
-argument_list|()
-end_macro
-begin_block
+parameter_list|()
 block|{
 name|int
 name|tmp
@@ -155,7 +153,7 @@ return|return
 name|tmp
 return|;
 block|}
-end_block
+end_function
 begin_expr_stmt
 name|int
 name|timeLeft

@@ -18,17 +18,14 @@ include|#
 directive|include
 file|<QtCore/qatomic.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 name|namespace
 name|QtPrivate
-decl_stmt|{  class RefCount
+block|{
+name|class
+name|RefCount
 block|{
 name|public
 label|:
@@ -198,11 +195,7 @@ name|QBasicAtomicInt
 name|atomic
 decl_stmt|;
 block|}
-end_function
-begin_empty_stmt
 empty_stmt|;
-end_empty_stmt
-begin_define
 DECL|macro|Q_REFCOUNT_INITIALIZER
 define|#
 directive|define
@@ -211,12 +204,12 @@ parameter_list|(
 name|a
 parameter_list|)
 value|{ Q_BASIC_ATOMIC_INITIALIZER(a) }
-end_define
-begin_macro
-DECL|macro|Q_REFCOUNT_INITIALIZER
-unit|}  QT_END_NAMESPACE
+block|}
+end_decl_stmt
+begin_expr_stmt
+name|QT_END_NAMESPACE
 name|QT_END_HEADER
-end_macro
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
