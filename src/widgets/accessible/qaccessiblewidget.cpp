@@ -640,6 +640,9 @@ literal|0
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|window
 name|QWindow
@@ -1475,6 +1478,9 @@ name|relation
 return|;
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|parent
 name|QAccessibleInterface
@@ -1514,6 +1520,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|child
 name|QAccessibleInterface
@@ -2804,6 +2813,9 @@ name|str
 return|;
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|actionNames
 name|QStringList
@@ -2848,6 +2860,9 @@ name|names
 return|;
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|doAction
 name|void
@@ -2902,6 +2917,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|keyBindingsForAction
 name|QStringList
@@ -3086,6 +3104,9 @@ name|state
 return|;
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|foregroundColor
 name|QColor
@@ -3113,6 +3134,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|backgroundColor
 name|QColor
@@ -3140,6 +3164,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|interface_cast
 name|void

@@ -1036,9 +1036,10 @@ name|updateAccessibility
 parameter_list|(
 name|QObject
 modifier|*
+name|object
 parameter_list|,
 name|int
-name|who
+name|child
 parameter_list|,
 name|Event
 name|reason
@@ -1059,6 +1060,7 @@ name|setRootObject
 parameter_list|(
 name|QObject
 modifier|*
+name|object
 parameter_list|)
 function_decl|;
 end_function_decl
