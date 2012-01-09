@@ -8728,6 +8728,14 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|QHash
+argument_list|<
+name|QString
+argument_list|,
+name|QStringList
+argument_list|>
+name|cache
+decl_stmt|;
 if|if
 condition|(
 name|read

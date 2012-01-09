@@ -214,8 +214,6 @@ operator|>
 name|vars
 operator|,
 name|base_vars
-operator|,
-name|cache
 expr_stmt|;
 name|bool
 name|parse
