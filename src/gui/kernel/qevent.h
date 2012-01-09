@@ -574,20 +574,83 @@ argument_list|,
 argument|Qt::Orientation orient = Qt::Vertical
 argument_list|)
 block|;
+name|QWheelEvent
+argument_list|(
+argument|const QPointF&pos
+argument_list|,
+argument|const QPointF& globalPos
+argument_list|,
+argument|QPoint pixelDelta
+argument_list|,
+argument|QPoint angleDelta
+argument_list|,
+argument|int qt4Delta
+argument_list|,
+argument|Qt::Orientation qt4Orientation
+argument_list|,
+argument|Qt::MouseButtons buttons
+argument_list|,
+argument|Qt::KeyboardModifiers modifiers
+argument_list|)
+block|;
 operator|~
 name|QWheelEvent
 argument_list|()
 block|;
 specifier|inline
+name|QPoint
+name|pixelDelta
+argument_list|()
+specifier|const
+block|{
+return|return
+name|pixelD
+return|;
+block|}
+specifier|inline
+name|QPoint
+name|angleDelta
+argument_list|()
+specifier|const
+block|{
+return|return
+name|angleD
+return|;
+block|}
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+specifier|inline
+name|QT_DEPRECATED
 name|int
 name|delta
 argument_list|()
 specifier|const
 block|{
 return|return
-name|d
+name|qt4D
 return|;
 block|}
+specifier|inline
+name|QT_DEPRECATED
+name|Qt
+operator|::
+name|Orientation
+name|orientation
+argument_list|()
+specifier|const
+block|{
+return|return
+name|qt4O
+return|;
+block|}
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_INTEGER_EVENT_COORDINATES
@@ -707,17 +770,6 @@ return|return
 name|mouseState
 return|;
 block|}
-name|Qt
-operator|::
-name|Orientation
-name|orientation
-argument_list|()
-specifier|const
-block|{
-return|return
-name|o
-return|;
-block|}
 name|protected
 operator|:
 name|QPointF
@@ -726,18 +778,27 @@ block|;
 name|QPointF
 name|g
 block|;
+name|QPoint
+name|pixelD
+block|;
+name|QPoint
+name|angleD
+block|;
 name|int
-name|d
+name|qt4D
+block|;
+name|Qt
+operator|::
+name|Orientation
+name|qt4O
 block|;
 name|Qt
 operator|::
 name|MouseButtons
 name|mouseState
 block|;
-name|Qt
-operator|::
-name|Orientation
-name|o
+name|int
+name|reserved
 block|; }
 decl_stmt|;
 end_decl_stmt

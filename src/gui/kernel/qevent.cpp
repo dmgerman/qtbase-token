@@ -442,7 +442,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \class QWheelEvent     \brief The QWheelEvent class contains parameters that describe a wheel event.      \ingroup events      Wheel events are sent to the widget under the mouse cursor, but     if that widget does not handle the event they are sent to the     focus widget. The rotation distance is provided by delta().     The functions pos() and globalPos() return the mouse cursor's     location at the time of the event.      A wheel event contains a special accept flag that indicates     whether the receiver wants the event. You should call ignore() if     you do not handle the wheel event; this ensures that it will be     sent to the parent widget.      The QWidget::setEnabled() function can be used to enable or     disable mouse and keyboard events for a widget.      The event handler QWidget::wheelEvent() receives wheel events.      \sa QMouseEvent QWidget::grabMouse() */
+comment|/*!     \class QWheelEvent     \brief The QWheelEvent class contains parameters that describe a wheel event.      \ingroup events      Wheel events are sent to the widget under the mouse cursor, but     if that widget does not handle the event they are sent to the     focus widget. Wheel events are generated for both mouse wheels     and trackpad scroll gestures. There are two ways to read the     wheel event delta: angleDelta() returns the delta in wheel     degrees. This value is always provided. pixelDelta() returns     the delta in screen pixels and is available on platforms that     have high-resolution trackpads, such as Mac OS X.      The functions pos() and globalPos() return the mouse cursor's     location at the time of the event.      A wheel event contains a special accept flag that indicates     whether the receiver wants the event. You should call ignore() if     you do not handle the wheel event; this ensures that it will be     sent to the parent widget.      The QWidget::setEnabled() function can be used to enable or     disable mouse and keyboard events for a widget.      The event handler QWidget::wheelEvent() receives wheel events.      \sa QMouseEvent QWidget::grabMouse() */
 end_comment
 begin_comment
 comment|/*!     \fn Qt::MouseButtons QWheelEvent::buttons() const      Returns the mouse state when the event occurred. */
@@ -451,7 +451,7 @@ begin_comment
 comment|/*!     \fn Qt::Orientation QWheelEvent::orientation() const      Returns the wheel's orientation. */
 end_comment
 begin_comment
-comment|/*!     Constructs a wheel event object.      The position, \a pos, is the location of the mouse cursor within     the widget. The globalPos() is initialized to QCursor::pos()     which is usually, but not always, correct.     Use the other constructor if you need to specify the global     position explicitly.      The \a buttons describe the state of the mouse buttons at the time     of the event, \a delta contains the rotation distance,     \a modifiers holds the keyboard modifier flags at the time of the     event, and \a orient holds the wheel's orientation.      \sa pos() delta() state() */
+comment|/*!     \obsolete     Constructs a wheel event object.      Use the QPoint-based constructor instead.      The position, \a pos, is the location of the mouse cursor within     the widget. The globalPos() is initialized to QCursor::pos()     which is usually, but not always, correct.     Use the other constructor if you need to specify the global     position explicitly.      The \a buttons describe the state of the mouse buttons at the time     of the event, \a delta contains the rotation distance,     \a modifiers holds the keyboard modifier flags at the time of the     event, and \a orient holds the wheel's orientation.      \sa pos() pixelDelta() angleDelta() state() */
 end_comment
 begin_ifndef
 ifndef|#
@@ -500,19 +500,19 @@ argument_list|(
 name|pos
 argument_list|)
 member_init_list|,
-name|d
+name|qt4D
 argument_list|(
 name|delta
+argument_list|)
+member_init_list|,
+name|qt4O
+argument_list|(
+name|orient
 argument_list|)
 member_init_list|,
 name|mouseState
 argument_list|(
 name|buttons
-argument_list|)
-member_init_list|,
-name|o
-argument_list|(
-name|orient
 argument_list|)
 block|{
 name|g
@@ -537,7 +537,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Constructs a wheel event object.      The \a pos provides the location of the mouse cursor     within the widget. The position in global coordinates is specified     by \a globalPos. \a delta contains the rotation distance, \a modifiers     holds the keyboard modifier flags at the time of the event, and     \a orient holds the wheel's orientation.      \sa pos() globalPos() delta() state() */
+comment|/*!     \obsolete     Constructs a wheel event object.      Use the QPoint-based constructor instead.      The \a pos provides the location of the mouse cursor     within the widget. The position in global coordinates is specified     by \a globalPos. \a delta contains the rotation distance, \a modifiers     holds the keyboard modifier flags at the time of the event, and     \a orient holds the wheel's orientation.       \sa pos() pixelDelta() angleDelta() state() */
 end_comment
 begin_constructor
 DECL|function|QWheelEvent
@@ -591,19 +591,106 @@ argument_list|(
 name|globalPos
 argument_list|)
 member_init_list|,
-name|d
+name|qt4D
 argument_list|(
 name|delta
+argument_list|)
+member_init_list|,
+name|qt4O
+argument_list|(
+name|orient
 argument_list|)
 member_init_list|,
 name|mouseState
 argument_list|(
 name|buttons
 argument_list|)
-member_init_list|,
-name|o
+block|{}
+end_constructor
+begin_comment
+comment|/*!     Constructs a wheel event object.      The \a pos provides the location of the mouse cursor     within the window. The position in global coordinates is specified     by \a globalPos. \pixelDelta contains the scrolling distance     in pixels on screen, \a angleDelta contains the wheel rotation distance.     \pixelDelta is optional and can be null.      \a modifiers holds the keyboard modifier flags at the time of the event.      \a pixelDelta contains the scrolling delta in pixels,     \a angleDelta contains the rotation distance, and     \a orient holds the wheel's orientation.      \sa pos() globalPos() delta() state() */
+end_comment
+begin_constructor
+DECL|function|QWheelEvent
+name|QWheelEvent
+operator|::
+name|QWheelEvent
+parameter_list|(
+specifier|const
+name|QPointF
+modifier|&
+name|pos
+parameter_list|,
+specifier|const
+name|QPointF
+modifier|&
+name|globalPos
+parameter_list|,
+name|QPoint
+name|pixelDelta
+parameter_list|,
+name|QPoint
+name|angleDelta
+parameter_list|,
+name|int
+name|qt4Delta
+parameter_list|,
+name|Qt
+operator|::
+name|Orientation
+name|qt4Orientation
+parameter_list|,
+name|Qt
+operator|::
+name|MouseButtons
+name|buttons
+parameter_list|,
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|modifiers
+parameter_list|)
+member_init_list|:
+name|QInputEvent
 argument_list|(
-name|orient
+name|Wheel
+argument_list|,
+name|modifiers
+argument_list|)
+member_init_list|,
+name|p
+argument_list|(
+name|pos
+argument_list|)
+member_init_list|,
+name|g
+argument_list|(
+name|globalPos
+argument_list|)
+member_init_list|,
+name|pixelD
+argument_list|(
+name|pixelDelta
+argument_list|)
+member_init_list|,
+name|angleD
+argument_list|(
+name|angleDelta
+argument_list|)
+member_init_list|,
+name|qt4D
+argument_list|(
+name|qt4Delta
+argument_list|)
+member_init_list|,
+name|qt4O
+argument_list|(
+name|qt4Orientation
+argument_list|)
+member_init_list|,
+name|mouseState
+argument_list|(
+name|buttons
 argument_list|)
 block|{}
 end_constructor
@@ -615,7 +702,13 @@ begin_comment
 comment|// QT_NO_WHEELEVENT
 end_comment
 begin_comment
-comment|/*!     \fn int QWheelEvent::delta() const      Returns the distance that the wheel is rotated, in eighths of a     degree. A positive value indicates that the wheel was rotated     forwards away from the user; a negative value indicates that the     wheel was rotated backwards toward the user.      Most mouse types work in steps of 15 degrees, in which case the     delta value is a multiple of 120; i.e., 120 units * 1/8 = 15 degrees.      However, some mice have finer-resolution wheels and send delta values     that are less than 120 units (less than 15 degrees). To support this     possibility, you can either cumulatively add the delta values from events     until the value of 120 is reached, then scroll the widget, or you can     partially scroll the widget in response to each wheel event.      Example:      \snippet doc/src/snippets/code/src_gui_kernel_qevent.cpp 0 */
+comment|/*!     \fn QPoint QWheelEvent::pixelDelta() const      Returns the scrolling distance in pixels on screen. This value is     provided on platforms that support high-resolution pixel-based     delta values, such as Mac OS X. The value should be used directly     to scroll content on screen.      Example:      \snippet doc/src/snippets/code/src_gui_kernel_qevent.cpp 0 */
+end_comment
+begin_comment
+comment|/*!     \fn QPoint QWheelEvent::angleDelta() const      Returns the distance that the wheel is rotated, in eighths of a     degree. A positive value indicates that the wheel was rotated     forwards away from the user; a negative value indicates that the     wheel was rotated backwards toward the user.      Most mouse types work in steps of 15 degrees, in which case the     delta value is a multiple of 120; i.e., 120 units * 1/8 = 15 degrees.      However, some mice have finer-resolution wheels and send delta values     that are less than 120 units (less than 15 degrees). To support this     possibility, you can either cumulatively add the delta values from events     until the value of 120 is reached, then scroll the widget, or you can     partially scroll the widget in response to each wheel event.      Example:      \snippet doc/src/snippets/code/src_gui_kernel_qevent.cpp 0 */
+end_comment
+begin_comment
+comment|/*!     \fn int QWheelEvent::delta() const      This function has been deprecated, use pixelDelta() or angleDelta() instead. */
 end_comment
 begin_comment
 comment|/*!     \fn const QPoint&QWheelEvent::pos() const      Returns the position of the mouse cursor relative to the widget     that received the event.      If you move your widgets around in response to mouse events,     use globalPos() instead of this function.      \sa x() y() globalPos() */
