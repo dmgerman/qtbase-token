@@ -135,7 +135,7 @@ block|}
 name|private
 operator|:
 name|void
-name|check
+name|doCheck
 argument_list|()
 block|; }
 decl_stmt|;
@@ -158,7 +158,7 @@ argument_list|(
 argument|QString::fromLatin1(objectPath)
 argument_list|)
 block|{
-name|check
+name|doCheck
 argument_list|()
 block|; }
 DECL|function|QDBusObjectPath
@@ -178,7 +178,7 @@ argument_list|(
 argument|objectPath
 argument_list|)
 block|{
-name|check
+name|doCheck
 argument_list|()
 block|; }
 DECL|function|QDBusObjectPath
@@ -198,7 +198,7 @@ argument_list|(
 argument|objectPath
 argument_list|)
 block|{
-name|check
+name|doCheck
 argument_list|()
 block|; }
 DECL|member|operator
@@ -224,7 +224,7 @@ operator|(
 name|_path
 operator|)
 block|;
-name|check
+name|doCheck
 argument_list|()
 block|;
 return|return
@@ -251,7 +251,7 @@ operator|(
 name|objectPath
 operator|)
 block|;
-name|check
+name|doCheck
 argument_list|()
 block|; }
 specifier|inline
@@ -445,7 +445,7 @@ block|}
 name|private
 operator|:
 name|void
-name|check
+name|doCheck
 argument_list|()
 block|; }
 decl_stmt|;
@@ -468,7 +468,7 @@ argument_list|(
 argument|QString::fromAscii(dBusSignature)
 argument_list|)
 block|{
-name|check
+name|doCheck
 argument_list|()
 block|; }
 DECL|function|QDBusSignature
@@ -488,7 +488,7 @@ argument_list|(
 argument|dBusSignature
 argument_list|)
 block|{
-name|check
+name|doCheck
 argument_list|()
 block|; }
 DECL|function|QDBusSignature
@@ -508,7 +508,7 @@ argument_list|(
 argument|dBusSignature
 argument_list|)
 block|{
-name|check
+name|doCheck
 argument_list|()
 block|; }
 DECL|member|operator
@@ -534,7 +534,7 @@ operator|(
 name|dbusSignature
 operator|)
 block|;
-name|check
+name|doCheck
 argument_list|()
 block|;
 return|return
@@ -561,7 +561,7 @@ operator|(
 name|dBusSignature
 operator|)
 block|;
-name|check
+name|doCheck
 argument_list|()
 block|; }
 specifier|inline

@@ -19,11 +19,11 @@ name|QT_NO_DBUS
 end_ifndef
 begin_function
 name|QT_BEGIN_NAMESPACE
-DECL|function|check
+DECL|function|doCheck
 name|void
 name|QDBusObjectPath
 operator|::
-name|check
+name|doCheck
 parameter_list|()
 block|{
 if|if
@@ -56,11 +56,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|check
+DECL|function|doCheck
 name|void
 name|QDBusSignature
 operator|::
-name|check
+name|doCheck
 parameter_list|()
 block|{
 if|if
