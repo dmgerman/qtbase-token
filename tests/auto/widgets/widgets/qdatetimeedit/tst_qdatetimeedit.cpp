@@ -8390,6 +8390,10 @@ literal|9
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Current behaviour is that pressing the Enter key in a QDateTimeEdit
+comment|// causes the dateChanged() signal to be emitted, even if the date
+comment|// wasn't actually changed.  While this behaviour is questionable,
+comment|// we include this test so a change to the behaviour can't go unnoticed.
 name|QSignalSpy
 name|enterSpy
 argument_list|(
@@ -8427,12 +8431,36 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
+name|QVariantList
+name|list
+init|=
+name|enterSpy
+operator|.
+name|takeFirst
+argument_list|()
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|list
+operator|.
+name|at
+argument_list|(
 literal|0
-block|QVariantList list = enterSpy.takeFirst();     QCOMPARE(list.at(0).toDate(), QDate(2004, 9, 15));
-endif|#
-directive|endif
+argument_list|)
+operator|.
+name|toDate
+argument_list|()
+argument_list|,
+name|QDate
+argument_list|(
+literal|2004
+argument_list|,
+literal|5
+argument_list|,
+literal|9
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
