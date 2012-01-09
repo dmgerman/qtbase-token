@@ -49,6 +49,14 @@ argument|QDialog *dialog =
 literal|0
 argument_list|)
 specifier|const
+block|;
+name|virtual
+name|QVariant
+name|themeHint
+argument_list|(
+argument|ThemeHint
+argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt
