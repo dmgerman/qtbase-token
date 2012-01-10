@@ -15249,7 +15249,7 @@ if|if
 condition|(
 name|tab
 operator|<
-literal|0
+name|x
 condition|)
 comment|// default to tab taking no space
 return|return
