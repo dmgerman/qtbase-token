@@ -1294,13 +1294,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|deleteOnClose
-condition|)
-operator|delete
-name|this
-expr_stmt|;
-if|if
-condition|(
 name|d
 operator|->
 name|nativeDialogInUse
@@ -1324,6 +1317,13 @@ operator|->
 name|platformHelper
 argument_list|()
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|deleteOnClose
+condition|)
+operator|delete
+name|this
 expr_stmt|;
 return|return
 name|res
