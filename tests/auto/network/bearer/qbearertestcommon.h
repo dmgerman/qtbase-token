@@ -13,6 +13,21 @@ define|#
 directive|define
 name|QBEARERTESTCOMMON_H
 end_define
+begin_include
+include|#
+directive|include
+file|<QtTest/qtestcase.h>
+end_include
+begin_enum
+DECL|enumerator|TestTimeOut
+enum|enum
+block|{
+name|TestTimeOut
+init|=
+literal|90000
+block|}
+enum|;
+end_enum
 begin_comment
 comment|// Wait for __expr to happen, while still allowing events to be processed.
 end_comment
@@ -26,20 +41,6 @@ name|__expr
 parameter_list|)
 define|\
 value|do { \         const int __step = 50; \         const int __timeout = 15000; \         if (!(__expr)) { \             QTest::qWait(0); \         } \         for (int __i = 0; __i< __timeout&& !(__expr); __i+=__step) { \             QTest::qWait(__step); \         } \     } while(0)
-end_define
-begin_comment
-comment|// Will try to wait for the condition while allowing event processing
-end_comment
-begin_define
-DECL|macro|QTRY_VERIFY
-define|#
-directive|define
-name|QTRY_VERIFY
-parameter_list|(
-name|__expr
-parameter_list|)
-define|\
-value|do { \         const int __step = 50; \         const int __timeout = 90000; \         if (!(__expr)) { \             QTest::qWait(0); \         } \         for (int __i = 0; __i< __timeout&& !(__expr); __i+=__step) { \             QTest::qWait(__step); \         } \         QVERIFY(__expr); \     } while(0)
 end_define
 begin_endif
 endif|#

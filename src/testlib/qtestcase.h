@@ -86,6 +86,17 @@ parameter_list|)
 define|\
 value|do {\     if (!QTest::qCompare(actual, expected, #actual, #expected, __FILE__, __LINE__))\         return;\ } while (0)
 comment|// Will try to wait for the expression to become true while allowing event processing
+DECL|macro|QTRY_VERIFY_WITH_TIMEOUT
+define|#
+directive|define
+name|QTRY_VERIFY_WITH_TIMEOUT
+parameter_list|(
+name|__expr
+parameter_list|,
+name|__timeout
+parameter_list|)
+define|\
+value|do { \     const int __step = 50; \     const int __timeoutValue = __timeout; \     if (!(__expr)) { \         QTest::qWait(0); \     } \     for (int __i = 0; __i< __timeoutValue&& !(__expr); __i+=__step) { \         QTest::qWait(__step); \     } \     QVERIFY(__expr); \ } while (0)
 DECL|macro|QTRY_VERIFY
 define|#
 directive|define
@@ -93,9 +104,21 @@ name|QTRY_VERIFY
 parameter_list|(
 name|__expr
 parameter_list|)
-define|\
-value|do { \     const int __step = 50; \     const int __timeout = 5000; \     if (!(__expr)) { \         QTest::qWait(0); \     } \     for (int __i = 0; __i< __timeout&& !(__expr); __i+=__step) { \         QTest::qWait(__step); \     } \     QVERIFY(__expr); \ } while (0)
+value|QTRY_VERIFY_WITH_TIMEOUT(__expr, 5000)
 comment|// Will try to wait for the comparison to become successful while allowing event processing
+DECL|macro|QTRY_COMPARE_WITH_TIMEOUT
+define|#
+directive|define
+name|QTRY_COMPARE_WITH_TIMEOUT
+parameter_list|(
+name|__expr
+parameter_list|,
+name|__expected
+parameter_list|,
+name|__timeout
+parameter_list|)
+define|\
+value|do { \     const int __step = 50; \     const int __timeoutValue = __timeout; \     if ((__expr) != (__expected)) { \         QTest::qWait(0); \     } \     for (int __i = 0; __i< __timeoutValue&& ((__expr) != (__expected)); __i+=__step) { \         QTest::qWait(__step); \     } \     QCOMPARE(__expr, __expected); \ } while (0)
 DECL|macro|QTRY_COMPARE
 define|#
 directive|define
@@ -105,8 +128,7 @@ name|__expr
 parameter_list|,
 name|__expected
 parameter_list|)
-define|\
-value|do { \     const int __step = 50; \     const int __timeout = 5000; \     if ((__expr) != (__expected)) { \         QTest::qWait(0); \     } \     for (int __i = 0; __i< __timeout&& ((__expr) != (__expected)); __i+=__step) { \         QTest::qWait(__step); \     } \     QCOMPARE(__expr, __expected); \ } while (0)
+value|QTRY_COMPARE_WITH_TIMEOUT(__expr, __expected, 5000)
 ifdef|#
 directive|ifdef
 name|Q_CC_MSVC

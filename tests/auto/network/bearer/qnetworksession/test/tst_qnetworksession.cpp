@@ -248,7 +248,7 @@ operator|.
 name|updateConfigurations
 argument_list|()
 expr_stmt|;
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|spy
 operator|.
@@ -256,6 +256,8 @@ name|count
 argument_list|()
 operator|==
 literal|1
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 block|}
@@ -573,7 +575,7 @@ argument_list|()
 expr_stmt|;
 comment|// Sooner or later session must end in Disconnected state,
 comment|// no matter what the phase was.
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|session
 operator|.
@@ -583,6 +585,8 @@ operator|==
 name|QNetworkSession
 operator|::
 name|Disconnected
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -2061,13 +2065,15 @@ if|if
 condition|(
 name|expectStateChange
 condition|)
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 operator|!
 name|stateChangedSpy
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -2673,7 +2679,7 @@ argument_list|()
 expr_stmt|;
 comment|// Wait until the configuration is uptodate as well, it may be signaled 'connected'
 comment|// bit later than the session
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|configuration
 operator|.
@@ -2683,6 +2689,8 @@ operator|==
 name|QNetworkConfiguration
 operator|::
 name|Active
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 if|if
@@ -2880,7 +2888,7 @@ condition|(
 name|expectStateChange
 condition|)
 block|{
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|stateChangedSpy
 operator|.
@@ -2888,6 +2896,8 @@ name|count
 argument_list|()
 operator|>=
 literal|2
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 name|QNetworkSession
@@ -3130,7 +3140,7 @@ operator|.
 name|open
 argument_list|()
 expr_stmt|;
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 operator|!
 name|sessionOpenedSpy2
@@ -3143,6 +3153,8 @@ name|errorSpy2
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 if|if
@@ -3300,7 +3312,7 @@ argument_list|()
 expr_stmt|;
 comment|// QNetworkSession::stop() must result either closed() signal
 comment|// or error() signal
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 operator|!
 name|sessionClosedSpy2
@@ -3313,6 +3325,8 @@ name|errorSpy2
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -3335,13 +3349,15 @@ condition|)
 block|{
 comment|// QNetworkSession::stop() resulted error() signal for session2
 comment|// => also session should emit error() signal
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 operator|!
 name|errorSpy
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 comment|// check for SessionAbortedError
@@ -3473,7 +3489,7 @@ if|if
 condition|(
 name|expectStateChange
 condition|)
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|stateChangedSpy2
 operator|.
@@ -3487,6 +3503,8 @@ name|errorSpy2
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 if|if
@@ -3869,7 +3887,7 @@ literal|"Unexpected amount of state changes when roaming."
 argument_list|)
 expr_stmt|;
 block|}
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|session
 operator|.
@@ -3897,9 +3915,11 @@ operator|==
 name|QNetworkSession
 operator|::
 name|Disconnected
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|stateChangedSpy
 operator|.
@@ -3907,6 +3927,8 @@ name|count
 argument_list|()
 operator|>
 literal|0
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 name|state
@@ -4001,7 +4023,7 @@ operator|::
 name|Roaming
 condition|)
 block|{
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|session
 operator|.
@@ -4011,9 +4033,11 @@ operator|==
 name|QNetworkSession
 operator|::
 name|Connected
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|session2
 operator|.
@@ -4023,6 +4047,8 @@ operator|==
 name|QNetworkSession
 operator|::
 name|Connected
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 name|roamedSuccessfully
@@ -4040,7 +4066,7 @@ operator|::
 name|Closing
 condition|)
 block|{
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|session2
 operator|.
@@ -4050,9 +4076,11 @@ operator|==
 name|QNetworkSession
 operator|::
 name|Disconnected
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|session
 operator|.
@@ -4071,6 +4099,8 @@ operator|==
 name|QNetworkSession
 operator|::
 name|Disconnected
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 name|roamedSuccessfully
@@ -4088,16 +4118,18 @@ operator|::
 name|Disconnected
 condition|)
 block|{
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 operator|!
 name|errorSpy
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|session2
 operator|.
@@ -4107,6 +4139,8 @@ operator|==
 name|QNetworkSession
 operator|::
 name|Disconnected
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 block|}
@@ -4120,12 +4154,14 @@ operator|::
 name|Connected
 condition|)
 block|{
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|errorSpy
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 if|if
@@ -4290,7 +4326,7 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|session
 operator|.
@@ -4300,6 +4336,8 @@ operator|==
 name|QNetworkSession
 operator|::
 name|Disconnected
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 block|}
@@ -4513,16 +4551,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 operator|!
 name|sessionClosedSpy
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|session
 operator|.
@@ -4532,6 +4572,8 @@ operator|==
 name|QNetworkSession
 operator|::
 name|Disconnected
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 block|}
@@ -4616,13 +4658,15 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 operator|!
 name|sessionClosedSpy2
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -4772,7 +4816,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 operator|!
 name|sessionClosedSpy
@@ -4785,6 +4829,8 @@ name|errorSpy
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -4800,7 +4846,7 @@ if|if
 condition|(
 name|expectStateChange
 condition|)
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 operator|!
 name|stateChangedSpy
@@ -4813,6 +4859,8 @@ name|errorSpy
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 if|if
@@ -4974,7 +5022,7 @@ if|if
 condition|(
 name|expectStateChange
 condition|)
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|session
 operator|.
@@ -4984,6 +5032,8 @@ operator|==
 name|QNetworkSession
 operator|::
 name|Disconnected
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 operator|++
@@ -5248,13 +5298,15 @@ name|changed
 decl_stmt|;
 do|do
 block|{
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 operator|!
 name|spy
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 name|changed
@@ -5359,13 +5411,15 @@ argument_list|()
 expr_stmt|;
 do|do
 block|{
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 operator|!
 name|spy
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 name|changed
@@ -6909,13 +6963,15 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 operator|!
 name|closeSpy
 operator|.
 name|isEmpty
 argument_list|()
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

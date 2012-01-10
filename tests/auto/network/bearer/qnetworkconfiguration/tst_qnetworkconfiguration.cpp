@@ -500,7 +500,7 @@ name|updateConfigurations
 argument_list|()
 expr_stmt|;
 comment|//initiate scans
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|spy
 operator|.
@@ -508,6 +508,8 @@ name|count
 argument_list|()
 operator|==
 literal|1
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 comment|//wait for scan to complete
@@ -824,7 +826,7 @@ name|updateConfigurations
 argument_list|()
 expr_stmt|;
 comment|//initiate scans
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|spy
 operator|.
@@ -832,6 +834,8 @@ name|count
 argument_list|()
 operator|==
 literal|1
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 comment|//wait for scan to complete

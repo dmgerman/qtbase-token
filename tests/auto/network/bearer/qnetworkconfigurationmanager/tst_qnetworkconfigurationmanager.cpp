@@ -184,7 +184,7 @@ name|updateConfigurations
 argument_list|()
 expr_stmt|;
 comment|//initiate scans
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|spy
 operator|.
@@ -192,6 +192,8 @@ name|count
 argument_list|()
 operator|==
 literal|1
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 comment|//wait for scan to complete
@@ -683,7 +685,7 @@ name|updateConfigurations
 argument_list|()
 expr_stmt|;
 comment|//initiate scans
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|spy
 operator|.
@@ -691,6 +693,8 @@ name|count
 argument_list|()
 operator|==
 literal|1
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 comment|//wait for scan to complete
@@ -885,7 +889,7 @@ name|updateConfigurations
 argument_list|()
 expr_stmt|;
 comment|//initiate scans
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|spy
 operator|.
@@ -893,6 +897,8 @@ name|count
 argument_list|()
 operator|==
 literal|1
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 comment|//wait for scan to complete
@@ -1045,7 +1051,7 @@ name|updateConfigurations
 argument_list|()
 expr_stmt|;
 comment|//initiate scans
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|spy
 operator|.
@@ -1053,6 +1059,8 @@ name|count
 argument_list|()
 operator|==
 literal|1
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 comment|//wait for scan to complete
@@ -1152,7 +1160,7 @@ argument_list|(
 literal|100
 argument_list|)
 expr_stmt|;
-comment|//QTRY_VERIFY could take ~90 seconds to time out in the thread
+comment|//QTRY_VERIFY_WITH_TIMEOUT could take ~90 seconds to time out in the thread
 name|QVERIFY
 argument_list|(
 operator|!
@@ -1222,7 +1230,7 @@ name|updateConfigurations
 argument_list|()
 expr_stmt|;
 comment|//initiate scans
-name|QTRY_VERIFY
+name|QTRY_VERIFY_WITH_TIMEOUT
 argument_list|(
 name|spy
 operator|.
@@ -1230,6 +1238,8 @@ name|count
 argument_list|()
 operator|==
 literal|1
+argument_list|,
+name|TestTimeOut
 argument_list|)
 expr_stmt|;
 comment|//wait for scan to complete
