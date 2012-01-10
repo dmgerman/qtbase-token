@@ -434,6 +434,12 @@ name|QMetaType
 operator|::
 name|QUuid
 block|,
+name|ModelIndex
+init|=
+name|QMetaType
+operator|::
+name|QModelIndex
+block|,
 name|LastCoreType
 init|=
 name|QMetaType
