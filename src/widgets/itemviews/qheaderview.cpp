@@ -3192,6 +3192,10 @@ name|logical
 operator|>=
 name|count
 argument_list|()
+operator|||
+name|size
+operator|<
+literal|0
 condition|)
 return|return;
 if|if
