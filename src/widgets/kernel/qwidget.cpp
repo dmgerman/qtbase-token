@@ -23662,6 +23662,14 @@ operator|<<
 name|newFramePosition
 operator|<<
 name|newNormalPosition
+else|#
+directive|else
+operator|<<
+name|frameGeometry
+argument_list|()
+operator|<<
+name|normalGeometry
+argument_list|()
 endif|#
 directive|endif
 comment|// Q_WS_MAC
