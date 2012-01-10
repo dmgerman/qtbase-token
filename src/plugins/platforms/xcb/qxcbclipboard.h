@@ -263,7 +263,7 @@ name|int
 name|timeout
 parameter_list|,
 name|bool
-name|needsManager
+name|checkManager
 init|=
 name|false
 parameter_list|)
