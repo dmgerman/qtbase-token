@@ -5,17 +5,17 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtCore>
+file|<QtCore/QCoreApplication>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QDateTime>
 end_include
 begin_include
 include|#
 directive|include
 file|<QtTest/QtTest>
-end_include
-begin_include
-include|#
-directive|include
-file|<QDateTime>
 end_include
 begin_comment
 comment|/*!   \internal  */

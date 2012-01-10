@@ -23,7 +23,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<QtCore>
+file|<QtCore/QCoreApplication>
 end_include
 begin_include
 include|#
