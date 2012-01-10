@@ -548,6 +548,10 @@ argument|QHttpNetworkReply
 argument_list|)
 name|friend
 name|class
+name|QHttpSocketEngine
+decl_stmt|;
+name|friend
+name|class
 name|QHttpNetworkConnection
 decl_stmt|;
 name|friend

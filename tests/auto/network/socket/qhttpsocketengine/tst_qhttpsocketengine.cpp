@@ -797,7 +797,7 @@ name|int
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|ProxyConnectionClosedError
+name|ProxyProtocolError
 argument_list|)
 expr_stmt|;
 name|QTest

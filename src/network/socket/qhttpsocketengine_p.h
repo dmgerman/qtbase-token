@@ -84,6 +84,12 @@ name|QTcpSocket
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QHttpNetworkReply
+name|class
+name|QHttpNetworkReply
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QHttpSocketEnginePrivate
 name|class
 name|QHttpSocketEnginePrivate
@@ -505,8 +511,9 @@ name|QTcpSocket
 operator|*
 name|socket
 block|;
-name|QByteArray
-name|readBuffer
+name|QHttpNetworkReply
+operator|*
+name|reply
 block|;
 comment|// only used for parsing the proxy response
 name|QHttpSocketEngine
