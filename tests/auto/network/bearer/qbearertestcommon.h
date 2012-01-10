@@ -41,22 +41,6 @@ parameter_list|)
 define|\
 value|do { \         const int __step = 50; \         const int __timeout = 90000; \         if (!(__expr)) { \             QTest::qWait(0); \         } \         for (int __i = 0; __i< __timeout&& !(__expr); __i+=__step) { \             QTest::qWait(__step); \         } \         QVERIFY(__expr); \     } while(0)
 end_define
-begin_comment
-comment|// Will try to wait for the condition while allowing event processing
-end_comment
-begin_define
-DECL|macro|QTRY_COMPARE
-define|#
-directive|define
-name|QTRY_COMPARE
-parameter_list|(
-name|__expr
-parameter_list|,
-name|__expected
-parameter_list|)
-define|\
-value|do { \         const int __step = 50; \         const int __timeout = 90000; \         if ((__expr) != (__expected)) { \             QTest::qWait(0); \         } \         for (int __i = 0; __i< __timeout&& ((__expr) != (__expected)); __i+=__step) { \             QTest::qWait(__step); \         } \         QCOMPARE(__expr, __expected); \     } while(0)
-end_define
 begin_endif
 endif|#
 directive|endif
