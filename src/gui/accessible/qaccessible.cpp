@@ -898,58 +898,24 @@ end_function
 begin_comment
 comment|/*!     \since 4.2      Invokes a \a method on \a child with the given parameters \a params     and returns the result of the operation as QVariant.      Note that the type of the returned QVariant depends on the action.      Returns an invalid QVariant if the object doesn't support the action. */
 end_comment
-begin_function
-DECL|function|invokeMethod
-name|QVariant
-name|QAccessibleInterface
-operator|::
-name|invokeMethod
-parameter_list|(
-name|QAccessible
-operator|::
-name|Method
-name|method
-parameter_list|,
-specifier|const
-name|QVariantList
-modifier|&
-name|params
-parameter_list|)
-block|{
-name|Q_UNUSED
-argument_list|(
-argument|method
-argument_list|)
-name|Q_UNUSED
-argument_list|(
-argument|params
-argument_list|)
-return|return
-name|QVariant
-argument_list|()
-return|;
-block|}
-end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \internal     Method to allow extending this class without breaking binary compatibility.     The actual behavior and format of \a data depends on \a id argument     which must be defined if the class is to be extended with another virtual     function.     Currently, this is unused. */
 end_comment
 begin_function
 DECL|function|virtual_hook
-name|QVariant
+name|void
 name|QAccessibleInterface
 operator|::
 name|virtual_hook
 parameter_list|(
-specifier|const
-name|QVariant
-modifier|&
+name|int
+comment|/*id*/
+parameter_list|,
+name|void
+modifier|*
+comment|/*data*/
 parameter_list|)
-block|{
-return|return
-name|QVariant
-argument_list|()
-return|;
-block|}
+block|{ }
 end_function
 begin_comment
 comment|/*!     \fn void *QAccessibleInterface::interface_cast(QAccessible::InterfaceType type)      \brief Returns a specialized accessibility interface \a type from the generic QAccessibleInterface.      This function must be reimplemented when providing more information about a widget or object through the     specialized interfaces. For example a line edit should implement the QAccessibleTextInterface and QAccessibleEditableTextInterface.      Qt's QLineEdit for example has its accessibility support implemented in QAccessibleLineEdit.     \code void *QAccessibleLineEdit::interface_cast(QAccessible::InterfaceType t) {     if (t == QAccessible::TextInterface)         return static_cast<QAccessibleTextInterface*>(this);     else if (t == QAccessible::EditableTextInterface)         return static_cast<QAccessibleEditableTextInterface*>(this);     return QAccessibleWidget::interface_cast(t); }     \endcode      \sa QAccessible::InterfaceType, QAccessibleTextInterface, QAccessibleEditableTextInterface, QAccessibleValueInterface, QAccessibleActionInterface, QAccessibleTableInterface, QAccessibleTableCellInterface   */

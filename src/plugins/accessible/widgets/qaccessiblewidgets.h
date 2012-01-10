@@ -496,14 +496,6 @@ operator|*
 name|widget
 argument_list|)
 block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-block|;
 name|QAccessibleInterface
 operator|*
 name|childAt
@@ -781,14 +773,6 @@ name|QWidget
 operator|*
 name|widget
 argument_list|)
-block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -871,14 +855,6 @@ argument_list|(
 argument|int index
 argument_list|)
 specifier|const
-block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
 block|;
 name|protected
 operator|:
@@ -1175,15 +1151,7 @@ operator|*
 name|mainWindow
 argument_list|()
 specifier|const
-block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-block|; }
+block|;  }
 decl_stmt|;
 end_decl_stmt
 begin_endif
