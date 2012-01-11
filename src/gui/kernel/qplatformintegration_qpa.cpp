@@ -340,6 +340,12 @@ case|:
 return|return
 literal|500
 return|;
+case|case
+name|ShowIsFullScreen
+case|:
+return|return
+literal|false
+return|;
 block|}
 return|return
 literal|0

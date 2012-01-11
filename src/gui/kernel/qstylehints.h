@@ -70,6 +70,11 @@ name|cursorFlashTime
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|showIsFullScreen
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|friend

@@ -286,6 +286,8 @@ block|,
 name|StartDragTime
 block|,
 name|KeyboardAutoRepeatRate
+block|,
+name|ShowIsFullScreen
 block|}
 enum|;
 end_enum

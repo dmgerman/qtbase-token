@@ -85,6 +85,13 @@ name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
 block|;
+name|QVariant
+name|styleHint
+argument_list|(
+argument|QPlatformIntegration::StyleHint hint
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|QPlatformFontDatabase
