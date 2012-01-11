@@ -238,6 +238,8 @@ name|bool
 name|sharable
 parameter_list|)
 block|{
+comment|// Can't call setSharable on static read-only data, like shared_null
+comment|// and the internal shared-empties.
 if|if
 condition|(
 name|d
@@ -337,6 +339,12 @@ parameter_list|()
 block|{
 if|if
 condition|(
+operator|!
+name|d
+operator|->
+name|isMutable
+argument_list|()
+operator|||
 name|d
 operator|->
 name|ref

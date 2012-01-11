@@ -121,6 +121,13 @@ comment|// Don't allocate empty headers
 if|if
 condition|(
 operator|!
+operator|(
+name|options
+operator|&
+name|RawData
+operator|)
+operator|&&
+operator|!
 name|capacity
 condition|)
 return|return
@@ -151,9 +158,6 @@ operator|&
 name|qt_array_unsharable_empty
 argument_list|)
 return|;
-comment|// Allocate extra (alignment - Q_ALIGNOF(QArrayData)) padding bytes so we
-comment|// can properly align the data array. This assumes malloc is able to
-comment|// provide appropriate alignment for the header -- as it should!
 name|size_t
 name|allocSize
 init|=
@@ -165,7 +169,22 @@ operator|+
 name|objectSize
 operator|*
 name|capacity
-operator|+
+decl_stmt|;
+comment|// Allocate extra (alignment - Q_ALIGNOF(QArrayData)) padding bytes so we
+comment|// can properly align the data array. This assumes malloc is able to
+comment|// provide appropriate alignment for the header -- as it should!
+comment|// Padding is skipped when allocating a header for RawData.
+if|if
+condition|(
+operator|!
+operator|(
+name|options
+operator|&
+name|RawData
+operator|)
+condition|)
+name|allocSize
+operator|+=
 operator|(
 name|alignment
 operator|-
@@ -174,7 +193,7 @@ argument_list|(
 name|QArrayData
 argument_list|)
 operator|)
-decl_stmt|;
+expr_stmt|;
 name|QArrayData
 modifier|*
 name|header
