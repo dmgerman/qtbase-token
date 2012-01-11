@@ -4927,7 +4927,7 @@ name|subjectAlternativeNames
 argument_list|()
 ifndef|#
 directive|ifndef
-name|QT_NO_TEXTSTREAM
+name|QT_NO_DATESTRING
 operator|<<
 literal|','
 operator|<<

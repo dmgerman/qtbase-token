@@ -375,11 +375,6 @@ name|QSplitterHandle
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_TEXTSTREAM
-end_ifndef
 begin_expr_stmt
 name|Q_WIDGETS_EXPORT
 name|QTextStream
@@ -411,10 +406,6 @@ operator|&
 operator|)
 expr_stmt|;
 end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 DECL|variable|QSplitterHandlePrivate
 name|class

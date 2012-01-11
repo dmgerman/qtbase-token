@@ -492,12 +492,6 @@ begin_comment
 comment|//#define QT_NO_TEXTHTMLPARSER
 end_comment
 begin_comment
-comment|// QTextStream
-end_comment
-begin_comment
-comment|//#define QT_NO_TEXTSTREAM
-end_comment
-begin_comment
 comment|// QToolTip
 end_comment
 begin_comment
@@ -743,64 +737,6 @@ DECL|macro|QT_NO_FILESYSTEMMODEL
 define|#
 directive|define
 name|QT_NO_FILESYSTEMMODEL
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QHostInfo
-end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_HOSTINFO
-argument_list|)
-operator|&&
-operator|(
-name|defined
-argument_list|(
-name|QT_NO_TEXTSTREAM
-argument_list|)
-operator|)
-end_if
-begin_define
-DECL|macro|QT_NO_HOSTINFO
-define|#
-directive|define
-name|QT_NO_HOSTINFO
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// XPM Image Format
-end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_IMAGEFORMAT_XPM
-argument_list|)
-operator|&&
-operator|(
-name|defined
-argument_list|(
-name|QT_NO_TEXTSTREAM
-argument_list|)
-operator|)
-end_if
-begin_define
-DECL|macro|QT_NO_IMAGEFORMAT_XPM
-define|#
-directive|define
-name|QT_NO_IMAGEFORMAT_XPM
 end_define
 begin_endif
 endif|#
@@ -2205,11 +2141,6 @@ name|QT_NO_PRINTER
 argument_list|)
 operator|&&
 operator|(
-name|defined
-argument_list|(
-name|QT_NO_TEXTSTREAM
-argument_list|)
-operator|||
 name|defined
 argument_list|(
 name|QT_NO_PICTURE

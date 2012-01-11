@@ -1000,13 +1000,6 @@ operator|~
 name|QNoDebug
 argument_list|()
 block|{}
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_TEXTSTREAM
-argument_list|)
 specifier|inline
 name|QNoDebug
 operator|&
@@ -1035,8 +1028,6 @@ operator|*
 name|this
 return|;
 block|}
-endif|#
-directive|endif
 specifier|inline
 name|QNoDebug
 modifier|&
