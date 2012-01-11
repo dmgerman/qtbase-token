@@ -3992,16 +3992,6 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
-argument|QFtp
-argument_list|,
-argument|QtNetwork
-argument_list|,
-argument|qftp.h
-argument_list|)
-end_macro
-begin_macro
-name|QT_CLASS_LIB
-argument_list|(
 argument|QHttpHeader
 argument_list|,
 argument|QtNetwork

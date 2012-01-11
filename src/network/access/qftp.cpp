@@ -11,7 +11,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qftp.h"
+file|"private/qftp_p.h"
 end_include
 begin_include
 include|#
@@ -4025,7 +4025,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*   Sends the sequence of commands \a cmds to the FTP server. When the commands   are all done the finished() signal is emitted. When an error occurs, the   error() signal is emitted.    If there are pending commands in the queue this functions returns false and   the \a cmds are not added to the queue; otherwise it returns true. */
+comment|/*   \internal    Sends the sequence of commands \a cmds to the FTP server. When the commands   are all done the finished() signal is emitted. When an error occurs, the   error() signal is emitted.    If there are pending commands in the queue this functions returns false and   the \a cmds are not added to the queue; otherwise it returns true. */
 end_comment
 begin_function
 DECL|function|sendCommands
@@ -4757,7 +4757,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*   Process a reply from the FTP server.    Returns true if the reply was processed or false if the reply has to be   processed at a later point. */
+comment|/*   \internal    Process a reply from the FTP server.    Returns true if the reply was processed or false if the reply has to be   processed at a later point. */
 end_comment
 begin_function
 DECL|function|processReply
@@ -5680,7 +5680,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*   Starts next pending command. Returns false if there are no pending commands,   otherwise it returns true. */
+comment|/*   \internal    Starts next pending command. Returns false if there are no pending commands,   otherwise it returns true. */
 end_comment
 begin_function
 DECL|function|startNextCmd
@@ -6485,10 +6485,10 @@ begin_comment
 comment|/**********************************************************************  *  * QFtp implementation  *  *********************************************************************/
 end_comment
 begin_comment
-comment|/*!     \class QFtp     \brief The QFtp class provides an implementation of the client side of FTP protocol.      \ingroup network     \inmodule QtNetwork       This class provides a direct interface to FTP that allows you to     have more control over the requests. However, for new     applications, it is recommended to use QNetworkAccessManager and     QNetworkReply, as those classes possess a simpler, yet more     powerful API.      The class works asynchronously, so there are no blocking     functions. If an operation cannot be executed immediately, the     function will still return straight away and the operation will be     scheduled for later execution. The results of scheduled operations     are reported via signals. This approach depends on the event loop     being in operation.      The operations that can be scheduled (they are called "commands"     in the rest of the documentation) are the following:     connectToHost(), login(), close(), list(), cd(), get(), put(),     remove(), mkdir(), rmdir(), rename() and rawCommand().      All of these commands return a unique identifier that allows you     to keep track of the command that is currently being executed.     When the execution of a command starts, the commandStarted()     signal with the command's identifier is emitted. When the command     is finished, the commandFinished() signal is emitted with the     command's identifier and a bool that indicates whether the command     finished with an error.      In some cases, you might want to execute a sequence of commands,     e.g. if you want to connect and login to a FTP server. This is     simply achieved:      \snippet doc/src/snippets/code/src_network_access_qftp.cpp 0      In this case two FTP commands have been scheduled. When the last     scheduled command has finished, a done() signal is emitted with     a bool argument that tells you whether the sequence finished with     an error.      If an error occurs during the execution of one of the commands in     a sequence of commands, all the pending commands (i.e. scheduled,     but not yet executed commands) are cleared and no signals are     emitted for them.      Some commands, e.g. list(), emit additional signals to report     their results.      Example: If you want to download the INSTALL file from the Qt     FTP server, you would write this:      \snippet doc/src/snippets/code/src_network_access_qftp.cpp 1      For this example the following sequence of signals is emitted     (with small variations, depending on network traffic, etc.):      \snippet doc/src/snippets/code/src_network_access_qftp.cpp 2      The dataTransferProgress() signal in the above example is useful     if you want to show a \link QProgressBar progress bar \endlink to     inform the user about the progress of the download. The     readyRead() signal tells you that there is data ready to be read.     The amount of data can be queried then with the bytesAvailable()     function and it can be read with the read() or readAll()     function.      If the login fails for the above example, the signals would look     like this:      \snippet doc/src/snippets/code/src_network_access_qftp.cpp 3      You can then get details about the error with the error() and     errorString() functions.      For file transfer, QFtp can use both active or passive mode, and     it uses passive file transfer mode by default; see the     documentation for setTransferMode() for more details about this.      Call setProxy() to make QFtp connect via an FTP proxy server.      The functions currentId() and currentCommand() provide more     information about the currently executing command.      The functions hasPendingCommands() and clearPendingCommands()     allow you to query and clear the list of pending commands.      If you are an experienced network programmer and want to have     complete control you can use rawCommand() to execute arbitrary FTP     commands.      \warning The current version of QFtp doesn't fully support     non-Unix FTP servers.      \sa QNetworkAccessManager, QNetworkRequest, QNetworkReply,         {FTP Example} */
+comment|/*!     \internal     \class QFtp     \brief The QFtp class provides an implementation of the client side of FTP protocol.      \ingroup network     \inmodule QtNetwork       This class provides a direct interface to FTP that allows you to     have more control over the requests. However, for new     applications, it is recommended to use QNetworkAccessManager and     QNetworkReply, as those classes possess a simpler, yet more     powerful API.      The class works asynchronously, so there are no blocking     functions. If an operation cannot be executed immediately, the     function will still return straight away and the operation will be     scheduled for later execution. The results of scheduled operations     are reported via signals. This approach depends on the event loop     being in operation.      The operations that can be scheduled (they are called "commands"     in the rest of the documentation) are the following:     connectToHost(), login(), close(), list(), cd(), get(), put(),     remove(), mkdir(), rmdir(), rename() and rawCommand().      All of these commands return a unique identifier that allows you     to keep track of the command that is currently being executed.     When the execution of a command starts, the commandStarted()     signal with the command's identifier is emitted. When the command     is finished, the commandFinished() signal is emitted with the     command's identifier and a bool that indicates whether the command     finished with an error.      In some cases, you might want to execute a sequence of commands,     e.g. if you want to connect and login to a FTP server. This is     simply achieved:      \snippet doc/src/snippets/code/src_network_access_qftp.cpp 0      In this case two FTP commands have been scheduled. When the last     scheduled command has finished, a done() signal is emitted with     a bool argument that tells you whether the sequence finished with     an error.      If an error occurs during the execution of one of the commands in     a sequence of commands, all the pending commands (i.e. scheduled,     but not yet executed commands) are cleared and no signals are     emitted for them.      Some commands, e.g. list(), emit additional signals to report     their results.      Example: If you want to download the INSTALL file from the Qt     FTP server, you would write this:      \snippet doc/src/snippets/code/src_network_access_qftp.cpp 1      For this example the following sequence of signals is emitted     (with small variations, depending on network traffic, etc.):      \snippet doc/src/snippets/code/src_network_access_qftp.cpp 2      The dataTransferProgress() signal in the above example is useful     if you want to show a \link QProgressBar progress bar \endlink to     inform the user about the progress of the download. The     readyRead() signal tells you that there is data ready to be read.     The amount of data can be queried then with the bytesAvailable()     function and it can be read with the read() or readAll()     function.      If the login fails for the above example, the signals would look     like this:      \snippet doc/src/snippets/code/src_network_access_qftp.cpp 3      You can then get details about the error with the error() and     errorString() functions.      For file transfer, QFtp can use both active or passive mode, and     it uses passive file transfer mode by default; see the     documentation for setTransferMode() for more details about this.      Call setProxy() to make QFtp connect via an FTP proxy server.      The functions currentId() and currentCommand() provide more     information about the currently executing command.      The functions hasPendingCommands() and clearPendingCommands()     allow you to query and clear the list of pending commands.      If you are an experienced network programmer and want to have     complete control you can use rawCommand() to execute arbitrary FTP     commands.      \warning The current version of QFtp doesn't fully support     non-Unix FTP servers.      \sa QNetworkAccessManager, QNetworkRequest, QNetworkReply,         {FTP Example} */
 end_comment
 begin_comment
-comment|/*!     Constructs a QFtp object with the given \a parent. */
+comment|/*!     \internal     Constructs a QFtp object with the given \a parent. */
 end_comment
 begin_constructor
 DECL|function|QFtp
@@ -6709,46 +6709,46 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     \enum QFtp::State      This enum defines the connection state:      \value Unconnected There is no connection to the host.     \value HostLookup A host name lookup is in progress.     \value Connecting An attempt to connect to the host is in progress.     \value Connected Connection to the host has been achieved.     \value LoggedIn Connection and user login have been achieved.     \value Closing The connection is closing down, but it is not yet     closed. (The state will be \c Unconnected when the connection is     closed.)      \sa stateChanged() state() */
+comment|/*!     \internal     \enum QFtp::State      This enum defines the connection state:      \value Unconnected There is no connection to the host.     \value HostLookup A host name lookup is in progress.     \value Connecting An attempt to connect to the host is in progress.     \value Connected Connection to the host has been achieved.     \value LoggedIn Connection and user login have been achieved.     \value Closing The connection is closing down, but it is not yet     closed. (The state will be \c Unconnected when the connection is     closed.)      \sa stateChanged() state() */
 end_comment
 begin_comment
-comment|/*!     \enum QFtp::TransferMode      FTP works with two socket connections; one for commands and     another for transmitting data. While the command connection is     always initiated by the client, the second connection can be     initiated by either the client or the server.      This enum defines whether the client (Passive mode) or the server     (Active mode) should set up the data connection.      \value Passive The client connects to the server to transmit its     data.      \value Active The server connects to the client to transmit its     data. */
+comment|/*!     \internal     \enum QFtp::TransferMode      FTP works with two socket connections; one for commands and     another for transmitting data. While the command connection is     always initiated by the client, the second connection can be     initiated by either the client or the server.      This enum defines whether the client (Passive mode) or the server     (Active mode) should set up the data connection.      \value Passive The client connects to the server to transmit its     data.      \value Active The server connects to the client to transmit its     data. */
 end_comment
 begin_comment
-comment|/*!     \enum QFtp::TransferType      This enum identifies the data transfer type used with get and     put commands.      \value Binary The data will be transferred in Binary mode.      \value Ascii The data will be transferred in Ascii mode and new line     characters will be converted to the local format. */
+comment|/*!     \internal     \enum QFtp::TransferType      This enum identifies the data transfer type used with get and     put commands.      \value Binary The data will be transferred in Binary mode.      \value Ascii The data will be transferred in Ascii mode and new line     characters will be converted to the local format. */
 end_comment
 begin_comment
-comment|/*!     \enum QFtp::Error      This enum identifies the error that occurred.      \value NoError No error occurred.     \value HostNotFound The host name lookup failed.     \value ConnectionRefused The server refused the connection.     \value NotConnected Tried to send a command, but there is no connection to     a server.     \value UnknownError An error other than those specified above     occurred.      \sa error() */
+comment|/*!     \internal     \enum QFtp::Error      This enum identifies the error that occurred.      \value NoError No error occurred.     \value HostNotFound The host name lookup failed.     \value ConnectionRefused The server refused the connection.     \value NotConnected Tried to send a command, but there is no connection to     a server.     \value UnknownError An error other than those specified above     occurred.      \sa error() */
 end_comment
 begin_comment
-comment|/*!     \enum QFtp::Command      This enum is used as the return value for the currentCommand() function.     This allows you to perform specific actions for particular     commands, e.g. in a FTP client, you might want to clear the     directory view when a list() command is started; in this case you     can simply check in the slot connected to the start() signal if     the currentCommand() is \c List.      \value None No command is being executed.     \value SetTransferMode set the \link TransferMode transfer\endlink mode.     \value SetProxy switch proxying on or off.     \value ConnectToHost connectToHost() is being executed.     \value Login login() is being executed.     \value Close close() is being executed.     \value List list() is being executed.     \value Cd cd() is being executed.     \value Get get() is being executed.     \value Put put() is being executed.     \value Remove remove() is being executed.     \value Mkdir mkdir() is being executed.     \value Rmdir rmdir() is being executed.     \value Rename rename() is being executed.     \value RawCommand rawCommand() is being executed.      \sa currentCommand() */
+comment|/*!     \internal     \enum QFtp::Command      This enum is used as the return value for the currentCommand() function.     This allows you to perform specific actions for particular     commands, e.g. in a FTP client, you might want to clear the     directory view when a list() command is started; in this case you     can simply check in the slot connected to the start() signal if     the currentCommand() is \c List.      \value None No command is being executed.     \value SetTransferMode set the \link TransferMode transfer\endlink mode.     \value SetProxy switch proxying on or off.     \value ConnectToHost connectToHost() is being executed.     \value Login login() is being executed.     \value Close close() is being executed.     \value List list() is being executed.     \value Cd cd() is being executed.     \value Get get() is being executed.     \value Put put() is being executed.     \value Remove remove() is being executed.     \value Mkdir mkdir() is being executed.     \value Rmdir rmdir() is being executed.     \value Rename rename() is being executed.     \value RawCommand rawCommand() is being executed.      \sa currentCommand() */
 end_comment
 begin_comment
-comment|/*!     \fn void QFtp::stateChanged(int state)      This signal is emitted when the state of the connection changes.     The argument \a state is the new state of the connection; it is     one of the \l State values.      It is usually emitted in response to a connectToHost() or close()     command, but it can also be emitted "spontaneously", e.g. when the     server closes the connection unexpectedly.      \sa connectToHost() close() state() State */
+comment|/*!     \internal     \fn void QFtp::stateChanged(int state)      This signal is emitted when the state of the connection changes.     The argument \a state is the new state of the connection; it is     one of the \l State values.      It is usually emitted in response to a connectToHost() or close()     command, but it can also be emitted "spontaneously", e.g. when the     server closes the connection unexpectedly.      \sa connectToHost() close() state() State */
 end_comment
 begin_comment
-comment|/*!     \fn void QFtp::listInfo(const QUrlInfo&i);      This signal is emitted for each directory entry the list() command     finds. The details of the entry are stored in \a i.      \sa list() */
+comment|/*!     \internal     \fn void QFtp::listInfo(const QUrlInfo&i);      This signal is emitted for each directory entry the list() command     finds. The details of the entry are stored in \a i.      \sa list() */
 end_comment
 begin_comment
-comment|/*!     \fn void QFtp::commandStarted(int id)      This signal is emitted when processing the command identified by     \a id starts.      \sa commandFinished() done() */
+comment|/*!     \internal     \fn void QFtp::commandStarted(int id)      This signal is emitted when processing the command identified by     \a id starts.      \sa commandFinished() done() */
 end_comment
 begin_comment
-comment|/*!     \fn void QFtp::commandFinished(int id, bool error)      This signal is emitted when processing the command identified by     \a id has finished. \a error is true if an error occurred during     the processing; otherwise \a error is false.      \sa commandStarted() done() error() errorString() */
+comment|/*!     \internal     \fn void QFtp::commandFinished(int id, bool error)      This signal is emitted when processing the command identified by     \a id has finished. \a error is true if an error occurred during     the processing; otherwise \a error is false.      \sa commandStarted() done() error() errorString() */
 end_comment
 begin_comment
-comment|/*!     \fn void QFtp::done(bool error)      This signal is emitted when the last pending command has finished;     (it is emitted after the last command's commandFinished() signal).     \a error is true if an error occurred during the processing;     otherwise \a error is false.      \sa commandFinished() error() errorString() */
+comment|/*!     \internal     \fn void QFtp::done(bool error)      This signal is emitted when the last pending command has finished;     (it is emitted after the last command's commandFinished() signal).     \a error is true if an error occurred during the processing;     otherwise \a error is false.      \sa commandFinished() error() errorString() */
 end_comment
 begin_comment
-comment|/*!     \fn void QFtp::readyRead()      This signal is emitted in response to a get() command when there     is new data to read.      If you specify a device as the second argument in the get()     command, this signal is \e not emitted; instead the data is     written directly to the device.      You can read the data with the readAll() or read() functions.      This signal is useful if you want to process the data in chunks as     soon as it becomes available. If you are only interested in the     complete data, just connect to the commandFinished() signal and     read the data then instead.      \sa get() read() readAll() bytesAvailable() */
+comment|/*!     \internal     \fn void QFtp::readyRead()      This signal is emitted in response to a get() command when there     is new data to read.      If you specify a device as the second argument in the get()     command, this signal is \e not emitted; instead the data is     written directly to the device.      You can read the data with the readAll() or read() functions.      This signal is useful if you want to process the data in chunks as     soon as it becomes available. If you are only interested in the     complete data, just connect to the commandFinished() signal and     read the data then instead.      \sa get() read() readAll() bytesAvailable() */
 end_comment
 begin_comment
-comment|/*!     \fn void QFtp::dataTransferProgress(qint64 done, qint64 total)      This signal is emitted in response to a get() or put() request to     indicate the current progress of the download or upload.      \a done is the amount of data that has already been transferred     and \a total is the total amount of data to be read or written. It     is possible that the QFtp class is not able to determine the total     amount of data that should be transferred, in which case \a total     is 0. (If you connect this signal to a QProgressBar, the progress     bar shows a busy indicator if the total is 0).      \warning \a done and \a total are not necessarily the size in     bytes, since for large files these values might need to be     "scaled" to avoid overflow.      \sa get(), put(), QProgressBar */
+comment|/*!     \internal     \fn void QFtp::dataTransferProgress(qint64 done, qint64 total)      This signal is emitted in response to a get() or put() request to     indicate the current progress of the download or upload.      \a done is the amount of data that has already been transferred     and \a total is the total amount of data to be read or written. It     is possible that the QFtp class is not able to determine the total     amount of data that should be transferred, in which case \a total     is 0. (If you connect this signal to a QProgressBar, the progress     bar shows a busy indicator if the total is 0).      \warning \a done and \a total are not necessarily the size in     bytes, since for large files these values might need to be     "scaled" to avoid overflow.      \sa get(), put(), QProgressBar */
 end_comment
 begin_comment
-comment|/*!     \fn void QFtp::rawCommandReply(int replyCode, const QString&detail);      This signal is emitted in response to the rawCommand() function.     \a replyCode is the 3 digit reply code and \a detail is the text     that follows the reply code.      \sa rawCommand() */
+comment|/*!     \internal     \fn void QFtp::rawCommandReply(int replyCode, const QString&detail);      This signal is emitted in response to the rawCommand() function.     \a replyCode is the 3 digit reply code and \a detail is the text     that follows the reply code.      \sa rawCommand() */
 end_comment
 begin_comment
-comment|/*!     Connects to the FTP server \a host using port \a port.      The stateChanged() signal is emitted when the state of the     connecting process changes, e.g. to \c HostLookup, then \c     Connecting, then \c Connected.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa stateChanged() commandStarted() commandFinished() */
+comment|/*!     \internal     Connects to the FTP server \a host using port \a port.      The stateChanged() signal is emitted when the state of the     connecting process changes, e.g. to \c HostLookup, then \c     Connecting, then \c Connected.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa stateChanged() commandStarted() commandFinished() */
 end_comment
 begin_function
 DECL|function|connectToHost
@@ -6817,7 +6817,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Logs in to the FTP server with the username \a user and the     password \a password.      The stateChanged() signal is emitted when the state of the     connecting process changes, e.g. to \c LoggedIn.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa commandStarted() commandFinished() */
+comment|/*!     \internal     Logs in to the FTP server with the username \a user and the     password \a password.      The stateChanged() signal is emitted when the state of the     connecting process changes, e.g. to \c LoggedIn.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa commandStarted() commandFinished() */
 end_comment
 begin_function
 DECL|function|login
@@ -6914,7 +6914,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Closes the connection to the FTP server.      The stateChanged() signal is emitted when the state of the     connecting process changes, e.g. to \c Closing, then \c     Unconnected.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa stateChanged() commandStarted() commandFinished() */
+comment|/*!     \internal     Closes the connection to the FTP server.      The stateChanged() signal is emitted when the state of the     connecting process changes, e.g. to \c Closing, then \c     Unconnected.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa stateChanged() commandStarted() commandFinished() */
 end_comment
 begin_function
 DECL|function|close
@@ -6948,7 +6948,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the current FTP transfer mode to \a mode. The default is QFtp::Passive.      \sa QFtp::TransferMode */
+comment|/*!     \internal     Sets the current FTP transfer mode to \a mode. The default is QFtp::Passive.      \sa QFtp::TransferMode */
 end_comment
 begin_function
 DECL|function|setTransferMode
@@ -7001,7 +7001,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Enables use of the FTP proxy on host \a host and port \a     port. Calling this function with \a host empty disables proxying.      QFtp does not support FTP-over-HTTP proxy servers. Use     QNetworkAccessManager for this. */
+comment|/*!     \internal     Enables use of the FTP proxy on host \a host and port \a     port. Calling this function with \a host empty disables proxying.      QFtp does not support FTP-over-HTTP proxy servers. Use     QNetworkAccessManager for this. */
 end_comment
 begin_function
 DECL|function|setProxy
@@ -7051,7 +7051,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Lists the contents of directory \a dir on the FTP server. If \a     dir is empty, it lists the contents of the current directory.      The listInfo() signal is emitted for each directory entry found.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa listInfo() commandStarted() commandFinished() */
+comment|/*!     \internal     Lists the contents of directory \a dir on the FTP server. If \a     dir is empty, it lists the contents of the current directory.      The listInfo() signal is emitted for each directory entry found.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa listInfo() commandStarted() commandFinished() */
 end_comment
 begin_function
 DECL|function|list
@@ -7141,7 +7141,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Changes the working directory of the server to \a dir.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa commandStarted() commandFinished() */
+comment|/*!     \internal     Changes the working directory of the server to \a dir.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa commandStarted() commandFinished() */
 end_comment
 begin_function
 DECL|function|cd
@@ -7187,7 +7187,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Downloads the file \a file from the server.      If \a dev is 0, then the readyRead() signal is emitted when there     is data available to read. You can then read the data with the     read() or readAll() functions.      If \a dev is not 0, the data is written directly to the device \a     dev. Make sure that the \a dev pointer is valid for the duration     of the operation (it is safe to delete it when the     commandFinished() signal is emitted). In this case the readyRead()     signal is \e not emitted and you cannot read data with the     read() or readAll() functions.      If you don't read the data immediately it becomes available, i.e.     when the readyRead() signal is emitted, it is still available     until the next command is started.      For example, if you want to present the data to the user as soon     as there is something available, connect to the readyRead() signal     and read the data immediately. On the other hand, if you only want     to work with the complete data, you can connect to the     commandFinished() signal and read the data when the get() command     is finished.      The data is transferred as Binary or Ascii depending on the value     of \a type.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa readyRead() dataTransferProgress() commandStarted()     commandFinished() */
+comment|/*!     \internal     Downloads the file \a file from the server.      If \a dev is 0, then the readyRead() signal is emitted when there     is data available to read. You can then read the data with the     read() or readAll() functions.      If \a dev is not 0, the data is written directly to the device \a     dev. Make sure that the \a dev pointer is valid for the duration     of the operation (it is safe to delete it when the     commandFinished() signal is emitted). In this case the readyRead()     signal is \e not emitted and you cannot read data with the     read() or readAll() functions.      If you don't read the data immediately it becomes available, i.e.     when the readyRead() signal is emitted, it is still available     until the next command is started.      For example, if you want to present the data to the user as soon     as there is something available, connect to the readyRead() signal     and read the data immediately. On the other hand, if you only want     to work with the complete data, you can connect to the     commandFinished() signal and read the data when the get() command     is finished.      The data is transferred as Binary or Ascii depending on the value     of \a type.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa readyRead() dataTransferProgress() commandStarted()     commandFinished() */
 end_comment
 begin_function
 DECL|function|get
@@ -7297,7 +7297,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Writes a copy of the given \a data to the file called \a file on     the server. The progress of the upload is reported by the     dataTransferProgress() signal.      The data is transferred as Binary or Ascii depending on the value     of \a type.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      Since this function takes a copy of the \a data, you can discard     your own copy when this function returns.      \sa dataTransferProgress() commandStarted() commandFinished() */
+comment|/*!     \internal     \overload      Writes a copy of the given \a data to the file called \a file on     the server. The progress of the upload is reported by the     dataTransferProgress() signal.      The data is transferred as Binary or Ascii depending on the value     of \a type.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      Since this function takes a copy of the \a data, you can discard     your own copy when this function returns.      \sa dataTransferProgress() commandStarted() commandFinished() */
 end_comment
 begin_function
 DECL|function|put
@@ -7416,7 +7416,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reads the data from the IO device \a dev, and writes it to the     file called \a file on the server. The data is read in chunks from     the IO device, so this overload allows you to transmit large     amounts of data without the need to read all the data into memory     at once.      The data is transferred as Binary or Ascii depending on the value     of \a type.      Make sure that the \a dev pointer is valid for the duration of the     operation (it is safe to delete it when the commandFinished() is     emitted). */
+comment|/*!     \internal     Reads the data from the IO device \a dev, and writes it to the     file called \a file on the server. The data is read in chunks from     the IO device, so this overload allows you to transmit large     amounts of data without the need to read all the data into memory     at once.      The data is transferred as Binary or Ascii depending on the value     of \a type.      Make sure that the \a dev pointer is valid for the duration of the     operation (it is safe to delete it when the commandFinished() is     emitted). */
 end_comment
 begin_function
 DECL|function|put
@@ -7542,7 +7542,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Deletes the file called \a file from the server.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa commandStarted() commandFinished() */
+comment|/*!     \internal     Deletes the file called \a file from the server.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa commandStarted() commandFinished() */
 end_comment
 begin_function
 DECL|function|remove
@@ -7588,7 +7588,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Creates a directory called \a dir on the server.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa commandStarted() commandFinished() */
+comment|/*!     \internal     Creates a directory called \a dir on the server.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa commandStarted() commandFinished() */
 end_comment
 begin_function
 DECL|function|mkdir
@@ -7634,7 +7634,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the directory called \a dir from the server.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa commandStarted() commandFinished() */
+comment|/*!     \internal     Removes the directory called \a dir from the server.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa commandStarted() commandFinished() */
 end_comment
 begin_function
 DECL|function|rmdir
@@ -7680,7 +7680,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Renames the file called \a oldname to \a newname on the server.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa commandStarted() commandFinished() */
+comment|/*!     \internal     Renames the file called \a oldname to \a newname on the server.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa commandStarted() commandFinished() */
 end_comment
 begin_function
 DECL|function|rename
@@ -7749,7 +7749,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sends the raw FTP command \a command to the FTP server. This is     useful for low-level FTP access. If the operation you wish to     perform has an equivalent QFtp function, we recommend using the     function instead of raw FTP commands since the functions are     easier and safer.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa rawCommandReply() commandStarted() commandFinished() */
+comment|/*!     \internal     Sends the raw FTP command \a command to the FTP server. This is     useful for low-level FTP access. If the operation you wish to     perform has an equivalent QFtp function, we recommend using the     function instead of raw FTP commands since the functions are     easier and safer.      The function does not block and returns immediately. The command     is scheduled, and its execution is performed asynchronously. The     function returns a unique identifier which is passed by     commandStarted() and commandFinished().      When the command is started the commandStarted() signal is     emitted. When it is finished the commandFinished() signal is     emitted.      \sa rawCommandReply() commandStarted() commandFinished() */
 end_comment
 begin_function
 DECL|function|rawCommand
@@ -7798,7 +7798,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of bytes that can be read from the data socket     at the moment.      \sa get() readyRead() read() readAll() */
+comment|/*!     \internal     Returns the number of bytes that can be read from the data socket     at the moment.      \sa get() readyRead() read() readAll() */
 end_comment
 begin_function
 DECL|function|bytesAvailable
@@ -7823,7 +7823,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reads \a maxlen bytes from the data socket into \a data and     returns the number of bytes read. Returns -1 if an error occurred.      \sa get() readyRead() bytesAvailable() readAll() */
+comment|/*!     \internal     Reads \a maxlen bytes from the data socket into \a data and     returns the number of bytes read. Returns -1 if an error occurred.      \sa get() readyRead() bytesAvailable() readAll() */
 end_comment
 begin_function
 DECL|function|read
@@ -7858,7 +7858,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reads all the bytes available from the data socket and returns     them.      \sa get() readyRead() bytesAvailable() read() */
+comment|/*!     \internal     Reads all the bytes available from the data socket and returns     them.      \sa get() readyRead() bytesAvailable() read() */
 end_comment
 begin_function
 DECL|function|readAll
@@ -7882,7 +7882,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Aborts the current command and deletes all scheduled commands.      If there is an unfinished command (i.e. a command for which the     commandStarted() signal has been emitted, but for which the     commandFinished() signal has not been emitted), this function     sends an \c ABORT command to the server. When the server replies     that the command is aborted, the commandFinished() signal with the     \c error argument set to \c true is emitted for the command. Due     to timing issues, it is possible that the command had already     finished before the abort request reached the server, in which     case, the commandFinished() signal is emitted with the \c error     argument set to \c false.      For all other commands that are affected by the abort(), no     signals are emitted.      If you don't start further FTP commands directly after the     abort(), there won't be any scheduled commands and the done()     signal is emitted.      \warning Some FTP servers, for example the BSD FTP daemon (version     0.3), wrongly return a positive reply even when an abort has     occurred. For these servers the commandFinished() signal has its     error flag set to \c false, even though the command did not     complete successfully.      \sa clearPendingCommands() */
+comment|/*!     \internal     Aborts the current command and deletes all scheduled commands.      If there is an unfinished command (i.e. a command for which the     commandStarted() signal has been emitted, but for which the     commandFinished() signal has not been emitted), this function     sends an \c ABORT command to the server. When the server replies     that the command is aborted, the commandFinished() signal with the     \c error argument set to \c true is emitted for the command. Due     to timing issues, it is possible that the command had already     finished before the abort request reached the server, in which     case, the commandFinished() signal is emitted with the \c error     argument set to \c false.      For all other commands that are affected by the abort(), no     signals are emitted.      If you don't start further FTP commands directly after the     abort(), there won't be any scheduled commands and the done()     signal is emitted.      \warning Some FTP servers, for example the BSD FTP daemon (version     0.3), wrongly return a positive reply even when an abort has     occurred. For these servers the commandFinished() signal has its     error flag set to \c false, even though the command did not     complete successfully.      \sa clearPendingCommands() */
 end_comment
 begin_function
 DECL|function|abort
@@ -7917,7 +7917,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the identifier of the FTP command that is being executed     or 0 if there is no command being executed.      \sa currentCommand() */
+comment|/*!     \internal     Returns the identifier of the FTP command that is being executed     or 0 if there is no command being executed.      \sa currentCommand() */
 end_comment
 begin_function
 DECL|function|currentId
@@ -7955,7 +7955,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the command type of the FTP command being executed or \c     None if there is no command being executed.      \sa currentId() */
+comment|/*!     \internal     Returns the command type of the FTP command being executed or \c     None if there is no command being executed.      \sa currentId() */
 end_comment
 begin_function
 DECL|function|currentCommand
@@ -7995,7 +7995,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the QIODevice pointer that is used by the FTP command to read data     from or store data to. If there is no current FTP command being executed or     if the command does not use an IO device, this function returns 0.      This function can be used to delete the QIODevice in the slot connected to     the commandFinished() signal.      \sa get() put() */
+comment|/*!     \internal     Returns the QIODevice pointer that is used by the FTP command to read data     from or store data to. If there is no current FTP command being executed or     if the command does not use an IO device, this function returns 0.      This function can be used to delete the QIODevice in the slot connected to     the commandFinished() signal.      \sa get() put() */
 end_comment
 begin_function
 DECL|function|currentDevice
@@ -8051,7 +8051,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there are any commands scheduled that have not yet     been executed; otherwise returns false.      The command that is being executed is \e not considered as a     scheduled command.      \sa clearPendingCommands() currentId() currentCommand() */
+comment|/*!     \internal     Returns true if there are any commands scheduled that have not yet     been executed; otherwise returns false.      The command that is being executed is \e not considered as a     scheduled command.      \sa clearPendingCommands() currentId() currentCommand() */
 end_comment
 begin_function
 DECL|function|hasPendingCommands
@@ -8076,7 +8076,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Deletes all pending commands from the list of scheduled commands.     This does not affect the command that is being executed. If you     want to stop this as well, use abort().      \sa hasPendingCommands() abort() */
+comment|/*!     \internal     Deletes all pending commands from the list of scheduled commands.     This does not affect the command that is being executed. If you     want to stop this as well, use abort().      \sa hasPendingCommands() abort() */
 end_comment
 begin_function
 DECL|function|clearPendingCommands
@@ -8111,7 +8111,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the current state of the object. When the state changes,     the stateChanged() signal is emitted.      \sa State stateChanged() */
+comment|/*!     \internal     Returns the current state of the object. When the state changes,     the stateChanged() signal is emitted.      \sa State stateChanged() */
 end_comment
 begin_function
 DECL|function|state
@@ -8133,7 +8133,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the last error that occurred. This is useful to find out     what went wrong when receiving a commandFinished() or a done()     signal with the \c error argument set to \c true.      If you start a new command, the error status is reset to \c NoError. */
+comment|/*!     \internal     Returns the last error that occurred. This is useful to find out     what went wrong when receiving a commandFinished() or a done()     signal with the \c error argument set to \c true.      If you start a new command, the error status is reset to \c NoError. */
 end_comment
 begin_function
 DECL|function|error
@@ -8155,7 +8155,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a human-readable description of the last error that     occurred. This is useful for presenting a error message to the     user when receiving a commandFinished() or a done() signal with     the \c error argument set to \c true.      The error string is often (but not always) the reply from the     server, so it is not always possible to translate the string. If     the message comes from Qt, the string has already passed through     tr(). */
+comment|/*!     \internal     Returns a human-readable description of the last error that     occurred. This is useful for presenting a error message to the     user when receiving a commandFinished() or a done() signal with     the \c error argument set to \c true.      The error string is often (but not always) the reply from the     server, so it is not always possible to translate the string. If     the message comes from Qt, the string has already passed through     tr(). */
 end_comment
 begin_function
 DECL|function|errorString
@@ -9410,7 +9410,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Destructor. */
+comment|/*!     \internal     Destructor. */
 end_comment
 begin_destructor
 DECL|function|~QFtp
@@ -9439,7 +9439,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"moc_qftp.cpp"
+file|"moc_qftp_p.cpp"
 end_include
 begin_endif
 endif|#

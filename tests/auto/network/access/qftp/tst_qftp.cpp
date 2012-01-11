@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qftp.h"
+file|"private/qftp_p.h"
 end_include
 begin_include
 include|#

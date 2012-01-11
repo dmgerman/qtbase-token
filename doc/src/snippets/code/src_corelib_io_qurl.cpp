@@ -93,13 +93,13 @@ begin_comment
 comment|//! [3]
 end_comment
 begin_decl_stmt
-DECL|variable|ftp
-name|QFtp
-name|ftp
+DECL|variable|sock
+name|QTcpSocket
+name|sock
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
-name|ftp
+name|sock
 operator|.
 name|connectToHost
 argument_list|(
@@ -112,7 +112,7 @@ name|url
 operator|.
 name|port
 argument_list|(
-literal|21
+literal|80
 argument_list|)
 argument_list|)
 expr_stmt|;
