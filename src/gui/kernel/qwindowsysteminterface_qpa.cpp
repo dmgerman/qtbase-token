@@ -1488,6 +1488,11 @@ parameter_list|(
 name|QScreen
 modifier|*
 name|screen
+parameter_list|,
+name|Qt
+operator|::
+name|ScreenOrientation
+name|orientation
 parameter_list|)
 block|{
 name|QWindowSystemInterfacePrivate
@@ -1502,6 +1507,8 @@ operator|::
 name|ScreenOrientationEvent
 argument_list|(
 name|screen
+argument_list|,
+name|orientation
 argument_list|)
 decl_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -1523,6 +1530,11 @@ parameter_list|(
 name|QScreen
 modifier|*
 name|screen
+parameter_list|,
+specifier|const
+name|QRect
+modifier|&
+name|geometry
 parameter_list|)
 block|{
 name|QWindowSystemInterfacePrivate
@@ -1537,6 +1549,8 @@ operator|::
 name|ScreenGeometryEvent
 argument_list|(
 name|screen
+argument_list|,
+name|geometry
 argument_list|)
 decl_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -1558,6 +1572,11 @@ parameter_list|(
 name|QScreen
 modifier|*
 name|screen
+parameter_list|,
+specifier|const
+name|QRect
+modifier|&
+name|availableGeometry
 parameter_list|)
 block|{
 name|QWindowSystemInterfacePrivate
@@ -1572,6 +1591,8 @@ operator|::
 name|ScreenAvailableGeometryEvent
 argument_list|(
 name|screen
+argument_list|,
+name|availableGeometry
 argument_list|)
 decl_stmt|;
 name|QWindowSystemInterfacePrivate
@@ -1593,6 +1614,12 @@ parameter_list|(
 name|QScreen
 modifier|*
 name|screen
+parameter_list|,
+name|qreal
+name|dpiX
+parameter_list|,
+name|qreal
+name|dpiY
 parameter_list|)
 block|{
 name|QWindowSystemInterfacePrivate
@@ -1607,6 +1634,10 @@ operator|::
 name|ScreenLogicalDotsPerInchEvent
 argument_list|(
 name|screen
+argument_list|,
+name|dpiX
+argument_list|,
+name|dpiY
 argument_list|)
 decl_stmt|;
 name|QWindowSystemInterfacePrivate

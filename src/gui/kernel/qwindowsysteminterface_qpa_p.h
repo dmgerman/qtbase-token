@@ -788,9 +788,9 @@ name|public
 operator|:
 name|ScreenOrientationEvent
 argument_list|(
-name|QScreen
-operator|*
-name|s
+argument|QScreen *s
+argument_list|,
+argument|Qt::ScreenOrientation o
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -800,7 +800,12 @@ argument_list|)
 block|,
 name|screen
 argument_list|(
-argument|s
+name|s
+argument_list|)
+block|,
+name|orientation
+argument_list|(
+argument|o
 argument_list|)
 block|{ }
 name|QWeakPointer
@@ -808,6 +813,11 @@ operator|<
 name|QScreen
 operator|>
 name|screen
+block|;
+name|Qt
+operator|::
+name|ScreenOrientation
+name|orientation
 block|;     }
 decl_stmt|;
 name|class
@@ -823,6 +833,11 @@ argument_list|(
 name|QScreen
 operator|*
 name|s
+argument_list|,
+specifier|const
+name|QRect
+operator|&
+name|g
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -832,7 +847,12 @@ argument_list|)
 block|,
 name|screen
 argument_list|(
-argument|s
+name|s
+argument_list|)
+block|,
+name|geometry
+argument_list|(
+argument|g
 argument_list|)
 block|{ }
 name|QWeakPointer
@@ -840,6 +860,9 @@ operator|<
 name|QScreen
 operator|>
 name|screen
+block|;
+name|QRect
+name|geometry
 block|;     }
 decl_stmt|;
 name|class
@@ -855,6 +878,11 @@ argument_list|(
 name|QScreen
 operator|*
 name|s
+argument_list|,
+specifier|const
+name|QRect
+operator|&
+name|g
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -864,7 +892,12 @@ argument_list|)
 block|,
 name|screen
 argument_list|(
-argument|s
+name|s
+argument_list|)
+block|,
+name|availableGeometry
+argument_list|(
+argument|g
 argument_list|)
 block|{ }
 name|QWeakPointer
@@ -872,6 +905,9 @@ operator|<
 name|QScreen
 operator|>
 name|screen
+block|;
+name|QRect
+name|availableGeometry
 block|;     }
 decl_stmt|;
 name|class
@@ -884,9 +920,11 @@ name|public
 operator|:
 name|ScreenLogicalDotsPerInchEvent
 argument_list|(
-name|QScreen
-operator|*
-name|s
+argument|QScreen *s
+argument_list|,
+argument|qreal dx
+argument_list|,
+argument|qreal dy
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -896,7 +934,17 @@ argument_list|)
 block|,
 name|screen
 argument_list|(
-argument|s
+name|s
+argument_list|)
+block|,
+name|dpiX
+argument_list|(
+name|dx
+argument_list|)
+block|,
+name|dpiY
+argument_list|(
+argument|dy
 argument_list|)
 block|{ }
 name|QWeakPointer
@@ -904,6 +952,12 @@ operator|<
 name|QScreen
 operator|>
 name|screen
+block|;
+name|qreal
+name|dpiX
+block|;
+name|qreal
+name|dpiY
 block|;     }
 decl_stmt|;
 name|class

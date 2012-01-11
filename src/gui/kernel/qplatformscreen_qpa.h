@@ -337,6 +337,10 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QPlatformScreen
 argument_list|)
+name|friend
+name|class
+name|QPlatformIntegration
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

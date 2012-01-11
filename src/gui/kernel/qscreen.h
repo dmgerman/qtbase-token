@@ -396,6 +396,10 @@ name|QGuiApplicationPrivate
 block|;
 name|friend
 name|class
+name|QPlatformIntegration
+block|;
+name|friend
+name|class
 name|QPlatformScreen
 block|; }
 decl_stmt|;
