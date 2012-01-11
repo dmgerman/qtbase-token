@@ -121,9 +121,12 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|qDebug
+comment|// If we get here the test did not correctly abort on the previous QVERIFY.
+name|QVERIFY2
 argument_list|(
-literal|"this should not be reached"
+literal|false
+argument_list|,
+literal|"This should not be reached"
 argument_list|)
 expr_stmt|;
 block|}
