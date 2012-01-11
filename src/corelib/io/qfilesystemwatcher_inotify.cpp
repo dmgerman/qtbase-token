@@ -1024,6 +1024,13 @@ name|~
 name|QInotifyFileSystemWatcherEngine
 parameter_list|()
 block|{
+name|notifier
+operator|.
+name|setEnabled
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 foreach|foreach
 control|(
 name|int

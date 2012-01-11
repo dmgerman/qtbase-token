@@ -189,6 +189,13 @@ name|~
 name|QKqueueFileSystemWatcherEngine
 parameter_list|()
 block|{
+name|notifier
+operator|.
+name|setEnabled
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|close
 argument_list|(
 name|kqfd
