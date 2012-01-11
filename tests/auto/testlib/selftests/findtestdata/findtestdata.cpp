@@ -76,6 +76,13 @@ name|QString
 name|install_path
 init|=
 name|app_path
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+operator|+
+literal|"/Contents"
+endif|#
+directive|endif
 operator|+
 literal|"/tests"
 decl_stmt|;
@@ -345,6 +352,13 @@ name|QString
 name|testfile_path2
 init|=
 name|app_path
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+operator|+
+literal|"/Contents"
+endif|#
+directive|endif
 operator|+
 literal|"/tests/findtestdata/"
 name|TESTFILE
