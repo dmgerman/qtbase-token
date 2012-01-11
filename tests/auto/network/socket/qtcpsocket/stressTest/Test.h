@@ -95,7 +95,7 @@ operator|:
 name|void
 name|incomingConnection
 argument_list|(
-argument|int socket
+argument|qintptr socket
 argument_list|)
 block|;
 name|private

@@ -320,7 +320,7 @@ name|My4Server
 operator|::
 name|incomingConnection
 parameter_list|(
-name|int
+name|qintptr
 name|socketId
 parameter_list|)
 block|{

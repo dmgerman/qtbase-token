@@ -1885,7 +1885,7 @@ DECL|function|incomingConnection
 name|void
 name|incomingConnection
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|)
 block|{
@@ -3327,7 +3327,7 @@ specifier|virtual
 name|void
 name|incomingConnection
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|)
 block|{
@@ -27387,7 +27387,7 @@ DECL|function|incomingConnection
 name|void
 name|incomingConnection
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|)
 block|{

@@ -70,7 +70,7 @@ operator|:
 name|void
 name|incomingConnection
 argument_list|(
-argument|int socketDescriptor
+argument|qintptr socketDescriptor
 argument_list|)
 block|;
 name|private

@@ -49,7 +49,7 @@ name|Server
 operator|::
 name|incomingConnection
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|)
 block|{
