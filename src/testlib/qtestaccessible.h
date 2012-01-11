@@ -384,11 +384,7 @@ specifier|static
 name|void
 name|updateHandler
 argument_list|(
-argument|QObject *o
-argument_list|,
-argument|int c
-argument_list|,
-argument|QAccessible::Event e
+argument|const QAccessibleEvent&event
 argument_list|)
 block|{
 comment|//    qDebug("updateHandler called: %p %d %d", o, c, (int)e);
@@ -399,14 +395,23 @@ name|append
 argument_list|(
 name|QTestAccessibilityEvent
 argument_list|(
-name|o
+name|event
+operator|.
+name|object
+argument_list|()
 argument_list|,
-name|c
+name|event
+operator|.
+name|child
+argument_list|()
 argument_list|,
 operator|(
 name|int
 operator|)
-name|e
+name|event
+operator|.
+name|type
+argument_list|()
 argument_list|)
 argument_list|)
 block|;     }

@@ -52,14 +52,13 @@ name|virtual
 name|void
 name|notifyAccessibilityUpdate
 argument_list|(
-argument|QObject *o
-argument_list|,
-argument|int who
-argument_list|,
-argument|QAccessible::Event reason
+specifier|const
+name|QAccessibleEvent
+operator|&
+name|event
 argument_list|)
 block|;
-comment|/*     virtual void setRootObject(QObject *o);     virtual void initialize();     virtual void cleanup(); */
+comment|/*     virtual void setRootObject(QObject *o);     virtual void initialize();     virtual void cleanup();     */
 block|}
 decl_stmt|;
 end_decl_stmt
