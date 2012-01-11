@@ -268,10 +268,6 @@ return|;
 block|}
 expr|}
 block|;
-name|mutable
-name|QMutex
-name|mutex
-block|;
 name|QHash
 operator|<
 name|QString

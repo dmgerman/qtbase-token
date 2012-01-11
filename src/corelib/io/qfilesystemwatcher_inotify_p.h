@@ -140,9 +140,6 @@ block|;
 name|int
 name|inotifyFd
 block|;
-name|QMutex
-name|mutex
-block|;
 name|QHash
 operator|<
 name|QString

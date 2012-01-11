@@ -155,9 +155,6 @@ block|;
 name|int
 name|kqfd
 block|;
-name|QMutex
-name|mutex
-block|;
 name|QHash
 operator|<
 name|QString

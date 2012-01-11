@@ -1081,13 +1081,6 @@ modifier|*
 name|directories
 parameter_list|)
 block|{
-name|QMutexLocker
-name|locker
-argument_list|(
-operator|&
-name|mutex
-argument_list|)
-decl_stmt|;
 name|QStringList
 name|p
 init|=
@@ -1307,13 +1300,6 @@ modifier|*
 name|directories
 parameter_list|)
 block|{
-name|QMutexLocker
-name|locker
-argument_list|(
-operator|&
-name|mutex
-argument_list|)
-decl_stmt|;
 name|QStringList
 name|p
 init|=
@@ -1440,13 +1426,6 @@ operator|::
 name|readFromInotify
 parameter_list|()
 block|{
-name|QMutexLocker
-name|locker
-argument_list|(
-operator|&
-name|mutex
-argument_list|)
-decl_stmt|;
 comment|// qDebug()<< "QInotifyFileSystemWatcherEngine::readFromInotify";
 name|int
 name|buffSize
