@@ -502,7 +502,10 @@ condition|)
 block|{
 name|setErrorString
 argument_list|(
+name|tr
+argument_list|(
 literal|"Trying to connect while connection is in progress"
+argument_list|)
 argument_list|)
 expr_stmt|;
 emit|emit
