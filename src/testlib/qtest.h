@@ -1352,7 +1352,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     QApplication app(argc, argv); \     QTEST_DISABLE_KEYPAD_NAVIGATION \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
+value|int main(int argc, char *argv[]) \ { \     QApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     QTEST_DISABLE_KEYPAD_NAVIGATION \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_elif
 elif|#
@@ -1375,7 +1375,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     QGuiApplication app(argc, argv); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
+value|int main(int argc, char *argv[]) \ { \     QGuiApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_else
 else|#
@@ -1389,7 +1389,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
+value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_endif
 endif|#
@@ -1407,7 +1407,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
+value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_macro
 name|QT_END_HEADER

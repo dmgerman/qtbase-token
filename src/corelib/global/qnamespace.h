@@ -1557,13 +1557,9 @@ name|AA_MacDontSwapCtrlAndMeta
 init|=
 literal|7
 block|,
-name|AA_S60DontConstructApplicationPanes
+name|AA_Use96Dpi
 init|=
 literal|8
-block|,
-name|AA_S60DisablePartialScreenInputMode
-init|=
-literal|9
 block|,
 name|AA_X11InitThreads
 init|=
