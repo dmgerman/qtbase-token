@@ -231,8 +231,10 @@ operator|&
 name|QByteArray
 operator|::
 name|split
+argument_list|,
+literal|','
 argument_list|)
-decl_stmt|, ',');
+decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
 operator|...
@@ -277,6 +279,7 @@ name|QtConcurrent
 operator|::
 name|run
 argument_list|(
+operator|&
 name|image
 argument_list|,
 operator|&

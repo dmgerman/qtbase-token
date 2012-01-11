@@ -5975,7 +5975,7 @@ directive|endif
 end_endif
 begin_function
 name|QT_END_INCLUDE_NAMESPACE
-comment|/*!     \since 4.1      Returns the environment of the calling process as a list of     key=value pairs. Example:      \snippet doc/src/snippets/code/src_corelib_io_qprocess.cpp 8      This function does not cache the system environment. Therefore, it's     possible to obtain an updated version of the environment if low-level C     library functions like \tt setenv ot \tt putenv have been called.      However, note that repeated calls to this function will recreate the     list of environment variables, which is a non-trivial operation.      \note For new code, it is recommended to use QProcessEvironment::systemEnvironment()      \sa QProcessEnvironment::systemEnvironment(), environment(), setEnvironment() */
+comment|/*!     \since 4.1      Returns the environment of the calling process as a list of     key=value pairs. Example:      \snippet doc/src/snippets/code/src_corelib_io_qprocess.cpp 8      This function does not cache the system environment. Therefore, it's     possible to obtain an updated version of the environment if low-level C     library functions like \tt setenv ot \tt putenv have been called.      However, note that repeated calls to this function will recreate the     list of environment variables, which is a non-trivial operation.      \note For new code, it is recommended to use QProcessEnvironment::systemEnvironment()      \sa QProcessEnvironment::systemEnvironment(), environment(), setEnvironment() */
 DECL|function|systemEnvironment
 name|QStringList
 name|QProcess
