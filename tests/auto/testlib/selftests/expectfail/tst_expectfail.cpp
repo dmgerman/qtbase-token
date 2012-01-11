@@ -46,6 +46,11 @@ parameter_list|()
 specifier|const
 function_decl|;
 name|void
+name|xpass
+parameter_list|()
+specifier|const
+function_decl|;
+name|void
 name|dataDrivenTest_data
 parameter_list|()
 specifier|const
@@ -205,6 +210,40 @@ expr_stmt|;
 name|QVERIFY
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|xpass
+name|void
+name|tst_ExpectFail
+operator|::
+name|xpass
+parameter_list|()
+specifier|const
+block|{
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"This test should xpass"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// If we get here the test did not correctly abort on the previous
+comment|// unexpected pass.
+name|QVERIFY2
+argument_list|(
+literal|false
+argument_list|,
+literal|"This should not be reached"
 argument_list|)
 expr_stmt|;
 block|}
