@@ -1335,24 +1335,6 @@ operator|.
 name|count
 argument_list|()
 expr_stmt|;
-comment|// Mark the first point as primary.
-if|if
-condition|(
-name|m_contacts
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|m_currentData
-operator|.
-name|flags
-operator||=
-name|QTouchEvent
-operator|::
-name|TouchPoint
-operator|::
-name|Primary
-expr_stmt|;
 name|m_contacts
 operator|.
 name|insert
