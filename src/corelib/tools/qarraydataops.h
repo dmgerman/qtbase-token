@@ -223,6 +223,11 @@ argument_list|(
 name|this
 operator|->
 name|ref
+operator|.
+name|atomic
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 argument_list|)
@@ -582,6 +587,11 @@ argument_list|(
 name|this
 operator|->
 name|ref
+operator|.
+name|atomic
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
 argument_list|)
