@@ -578,9 +578,6 @@ name|sourceCodeBuffer
 argument_list|)
 expr_stmt|;
 block|}
-name|QString
-name|log
-decl_stmt|;
 if|if
 condition|(
 name|logBuffer
