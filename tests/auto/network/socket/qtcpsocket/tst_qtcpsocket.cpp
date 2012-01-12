@@ -12027,6 +12027,28 @@ literal|20000
 argument_list|)
 expr_stmt|;
 comment|// Check that both exited normally.
+if|#
+directive|if
+name|defined
+argument_list|(
+name|UBUNTU_ONEIRIC
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|__x86_64__
+argument_list|)
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"Fails on this platform"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|clientProcess
