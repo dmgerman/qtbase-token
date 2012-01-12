@@ -12055,9 +12055,9 @@ name|data_ptr
 argument_list|()
 operator|->
 name|ref
-operator|==
-operator|-
-literal|1
+operator|.
+name|isStatic
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QVERIFY

@@ -2669,8 +2669,9 @@ condition|(
 name|d
 operator|->
 name|ref
-operator|!=
-literal|1
+operator|.
+name|isShared
+argument_list|()
 operator|||
 name|d
 operator|->
@@ -6876,8 +6877,9 @@ condition|(
 name|d
 operator|->
 name|ref
-operator|!=
-literal|1
+operator|.
+name|isShared
+argument_list|()
 operator|||
 name|d
 operator|->
@@ -6899,11 +6901,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+operator|!
 name|d
 operator|->
 name|ref
-operator|==
-literal|1
+operator|.
+name|isShared
+argument_list|()
 return|;
 block|}
 end_expr_stmt
@@ -9016,8 +9020,9 @@ condition|(
 name|d
 operator|->
 name|ref
-operator|!=
-literal|1
+operator|.
+name|isShared
+argument_list|()
 operator|||
 name|asize
 operator|>
@@ -9066,8 +9071,9 @@ condition|(
 name|d
 operator|->
 name|ref
-operator|>
-literal|1
+operator|.
+name|isShared
+argument_list|()
 operator|||
 name|d
 operator|->
@@ -9092,7 +9098,8 @@ operator|->
 name|capacityReserved
 condition|)
 block|{
-comment|// cannot set unconditionally, since d could be the shared_null/shared_empty (which is const)
+comment|// cannot set unconditionally, since d could be shared_null or
+comment|// otherwise static.
 name|d
 operator|->
 name|capacityReserved

@@ -868,8 +868,9 @@ condition|(
 name|d
 operator|->
 name|ref
-operator|!=
-literal|1
+operator|.
+name|isShared
+argument_list|()
 condition|)
 name|detach_helper
 argument_list|()
@@ -884,11 +885,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+operator|!
 name|d
 operator|->
 name|ref
-operator|==
-literal|1
+operator|.
+name|isShared
+argument_list|()
 return|;
 block|}
 end_expr_stmt
