@@ -3557,7 +3557,7 @@ end_macro
 begin_macro
 name|Q_DECLARE_METATYPE
 argument_list|(
-argument|QArrayData::AllocateOptions
+argument|QArrayData::AllocationOptions
 argument_list|)
 end_macro
 begin_function
@@ -3594,7 +3594,7 @@ name|addColumn
 argument_list|<
 name|QArrayData
 operator|::
-name|AllocateOptions
+name|AllocationOptions
 argument_list|>
 argument_list|(
 literal|"allocateOptions"
@@ -3753,7 +3753,7 @@ name|description
 decl_stmt|;
 name|QArrayData
 operator|::
-name|AllocateOptions
+name|AllocationOptions
 name|allocateOptions
 decl_stmt|;
 name|bool
@@ -3986,7 +3986,7 @@ name|QFETCH
 argument_list|(
 name|QArrayData
 operator|::
-name|AllocateOptions
+name|AllocationOptions
 argument_list|,
 name|allocateOptions
 argument_list|)
@@ -4044,7 +4044,7 @@ literal|0
 argument_list|,
 name|QArrayData
 operator|::
-name|AllocateOptions
+name|AllocationOptions
 argument_list|(
 name|allocateOptions
 argument_list|)
@@ -4102,7 +4102,7 @@ name|capacity
 argument_list|,
 name|QArrayData
 operator|::
-name|AllocateOptions
+name|AllocationOptions
 argument_list|(
 name|allocateOptions
 argument_list|)

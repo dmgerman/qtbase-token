@@ -395,7 +395,7 @@ name|clone
 argument_list|(
 name|QArrayData
 operator|::
-name|AllocateOptions
+name|AllocationOptions
 name|options
 argument_list|)
 decl|const

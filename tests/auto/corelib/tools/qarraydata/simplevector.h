@@ -1389,7 +1389,7 @@ name|size
 argument_list|,
 name|QArrayData
 operator|::
-name|AllocateOptions
+name|AllocationOptions
 name|options
 operator|=
 name|Data

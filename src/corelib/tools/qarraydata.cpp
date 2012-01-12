@@ -91,7 +91,7 @@ parameter_list|,
 name|size_t
 name|capacity
 parameter_list|,
-name|AllocateOptions
+name|AllocationOptions
 name|options
 parameter_list|)
 block|{
