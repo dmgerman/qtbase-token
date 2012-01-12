@@ -288,6 +288,16 @@ name|palette
 argument_list|()
 block|;
 specifier|static
+name|void
+name|setPalette
+argument_list|(
+specifier|const
+name|QPalette
+operator|&
+name|pal
+argument_list|)
+block|;
+specifier|static
 name|Qt
 operator|::
 name|KeyboardModifiers
