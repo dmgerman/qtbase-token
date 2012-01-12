@@ -40,7 +40,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|<private/qt_mac_p.h>
+file|<ApplicationServices/ApplicationServices.h>
 end_include
 begin_endif
 endif|#

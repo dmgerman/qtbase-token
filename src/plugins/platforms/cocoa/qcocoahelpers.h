@@ -46,7 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<private/qt_mac_p.h>
+file|"qt_mac_p.h"
 end_include
 begin_include
 include|#
