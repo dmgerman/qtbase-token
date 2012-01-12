@@ -76,7 +76,16 @@ name|protected
 operator|:
 specifier|inline
 name|QFileSystemWatcherEngine
-argument_list|()
+argument_list|(
+name|QObject
+operator|*
+name|parent
+argument_list|)
+operator|:
+name|QObject
+argument_list|(
+argument|parent
+argument_list|)
 block|{     }
 name|public
 operator|:
@@ -160,7 +169,11 @@ specifier|static
 name|QFileSystemWatcherEngine
 operator|*
 name|createNativeEngine
-argument_list|()
+argument_list|(
+name|QObject
+operator|*
+name|parent
+argument_list|)
 block|;
 name|public
 operator|:

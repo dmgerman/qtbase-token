@@ -281,7 +281,11 @@ block|;
 name|public
 operator|:
 name|QPollingFileSystemWatcherEngine
-argument_list|()
+argument_list|(
+name|QObject
+operator|*
+name|parent
+argument_list|)
 block|;
 name|QStringList
 name|addPaths

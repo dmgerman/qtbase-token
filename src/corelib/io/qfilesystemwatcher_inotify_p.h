@@ -87,7 +87,11 @@ specifier|static
 name|QInotifyFileSystemWatcherEngine
 operator|*
 name|create
-argument_list|()
+argument_list|(
+name|QObject
+operator|*
+name|parent
+argument_list|)
 block|;
 name|QStringList
 name|addPaths
@@ -135,6 +139,8 @@ operator|:
 name|QInotifyFileSystemWatcherEngine
 argument_list|(
 argument|int fd
+argument_list|,
+argument|QObject *parent
 argument_list|)
 block|;
 name|int

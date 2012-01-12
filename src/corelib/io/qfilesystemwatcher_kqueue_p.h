@@ -102,7 +102,11 @@ specifier|static
 name|QKqueueFileSystemWatcherEngine
 operator|*
 name|create
-argument_list|()
+argument_list|(
+name|QObject
+operator|*
+name|parent
+argument_list|)
 block|;
 name|QStringList
 name|addPaths
@@ -150,6 +154,8 @@ operator|:
 name|QKqueueFileSystemWatcherEngine
 argument_list|(
 argument|int kqfd
+argument_list|,
+argument|QObject *parent
 argument_list|)
 block|;
 name|int

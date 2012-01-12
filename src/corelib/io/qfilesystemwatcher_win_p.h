@@ -122,6 +122,19 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+specifier|inline
+name|QWindowsFileSystemWatcherEngine
+argument_list|(
+name|QObject
+operator|*
+name|parent
+argument_list|)
+operator|:
+name|QFileSystemWatcherEngine
+argument_list|(
+argument|parent
+argument_list|)
+block|{ }
 operator|~
 name|QWindowsFileSystemWatcherEngine
 argument_list|()
