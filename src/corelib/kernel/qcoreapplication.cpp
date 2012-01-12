@@ -1287,6 +1287,14 @@ name|uint
 name|QCoreApplicationPrivate
 operator|::
 name|attribs
+init|=
+operator|(
+literal|1
+operator|<<
+name|Qt
+operator|::
+name|AA_SynthesizeMouseForUnhandledTouchEvents
+operator|)
 decl_stmt|;
 end_decl_stmt
 begin_ifdef

@@ -3130,13 +3130,9 @@ operator|:
 expr|enum
 name|InfoFlag
 block|{
-name|Primary
-operator|=
-literal|0x0001
-block|,
 name|Pen
 operator|=
-literal|0x0002
+literal|0x0001
 block|}
 block|;
 name|Q_DECLARE_FLAGS
@@ -3174,11 +3170,6 @@ name|Qt
 operator|::
 name|TouchPointState
 name|state
-argument_list|()
-specifier|const
-block|;
-name|bool
-name|isPrimary
 argument_list|()
 specifier|const
 block|;

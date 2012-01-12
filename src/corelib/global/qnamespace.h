@@ -1565,6 +1565,14 @@ name|AA_X11InitThreads
 init|=
 literal|10
 block|,
+name|AA_SynthesizeTouchForUnhandledMouseEvents
+init|=
+literal|11
+block|,
+name|AA_SynthesizeMouseForUnhandledTouchEvents
+init|=
+literal|12
+block|,
 comment|// Add new attributes before this line
 name|AA_AttributeCount
 block|}

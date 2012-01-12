@@ -3142,8 +3142,15 @@ name|exposeEvent
 parameter_list|(
 name|QExposeEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|moveEvent
@@ -3154,8 +3161,15 @@ name|moveEvent
 parameter_list|(
 name|QMoveEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|resizeEvent
@@ -3166,8 +3180,15 @@ name|resizeEvent
 parameter_list|(
 name|QResizeEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|showEvent
@@ -3178,8 +3199,15 @@ name|showEvent
 parameter_list|(
 name|QShowEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|hideEvent
@@ -3190,8 +3218,15 @@ name|hideEvent
 parameter_list|(
 name|QHideEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|event
@@ -3202,12 +3237,12 @@ name|event
 parameter_list|(
 name|QEvent
 modifier|*
-name|event
+name|ev
 parameter_list|)
 block|{
 switch|switch
 condition|(
-name|event
+name|ev
 operator|->
 name|type
 argument_list|()
@@ -3226,7 +3261,7 @@ name|QMouseEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3244,7 +3279,7 @@ name|QMouseEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3262,7 +3297,7 @@ name|QMouseEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3280,7 +3315,7 @@ name|QMouseEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3308,7 +3343,7 @@ name|QTouchEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3326,7 +3361,7 @@ name|QMoveEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3344,7 +3379,7 @@ name|QResizeEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3362,7 +3397,7 @@ name|QKeyEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3380,7 +3415,7 @@ name|QKeyEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3398,7 +3433,7 @@ name|QFocusEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3416,7 +3451,7 @@ name|QFocusEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3437,7 +3472,7 @@ name|QWheelEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3488,7 +3523,7 @@ name|QExposeEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3506,7 +3541,7 @@ name|QShowEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3524,7 +3559,7 @@ name|QHideEvent
 operator|*
 argument_list|>
 argument_list|(
-name|event
+name|ev
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3535,7 +3570,7 @@ name|QObject
 operator|::
 name|event
 argument_list|(
-name|event
+name|ev
 argument_list|)
 return|;
 block|}
@@ -3553,8 +3588,15 @@ name|keyPressEvent
 parameter_list|(
 name|QKeyEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|keyReleaseEvent
@@ -3565,8 +3607,15 @@ name|keyReleaseEvent
 parameter_list|(
 name|QKeyEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|focusInEvent
@@ -3577,8 +3626,15 @@ name|focusInEvent
 parameter_list|(
 name|QFocusEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|focusOutEvent
@@ -3589,8 +3645,15 @@ name|focusOutEvent
 parameter_list|(
 name|QFocusEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|mousePressEvent
@@ -3601,8 +3664,15 @@ name|mousePressEvent
 parameter_list|(
 name|QMouseEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|mouseReleaseEvent
@@ -3613,8 +3683,15 @@ name|mouseReleaseEvent
 parameter_list|(
 name|QMouseEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|mouseDoubleClickEvent
@@ -3625,8 +3702,15 @@ name|mouseDoubleClickEvent
 parameter_list|(
 name|QMouseEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|mouseMoveEvent
@@ -3637,8 +3721,15 @@ name|mouseMoveEvent
 parameter_list|(
 name|QMouseEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_ifndef
 ifndef|#
@@ -3654,8 +3745,15 @@ name|wheelEvent
 parameter_list|(
 name|QWheelEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_endif
 endif|#
@@ -3673,8 +3771,15 @@ name|touchEvent
 parameter_list|(
 name|QTouchEvent
 modifier|*
+name|ev
 parameter_list|)
-block|{ }
+block|{
+name|ev
+operator|->
+name|ignore
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_comment
 comment|/*!     \fn QPoint QWindow::mapToGlobal(const QPoint&pos) const      Translates the window coordinate \a pos to global screen     coordinates. For example, \c{mapToGlobal(QPoint(0,0))} would give     the global coordinates of the top-left pixel of the window.      \sa mapFromGlobal() */

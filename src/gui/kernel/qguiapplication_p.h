@@ -828,6 +828,13 @@ name|self
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+specifier|static
+name|QTouchDevice
+modifier|*
+name|m_fakeTouchDevice
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 unit|};
 name|Q_GUI_EXPORT
 name|uint
