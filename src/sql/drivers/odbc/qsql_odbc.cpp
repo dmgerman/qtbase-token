@@ -259,16 +259,14 @@ expr_stmt|;
 break|break;
 default|default:
 name|qCritical
-argument_list|()
-operator|<<
-literal|"sizeof(SQLTCHAR) is "
-operator|<<
+argument_list|(
+literal|"sizeof(SQLTCHAR) is %d. Don't know how to handle this."
+argument_list|,
 sizeof|sizeof
 argument_list|(
 name|SQLTCHAR
 argument_list|)
-operator|<<
-literal|"Don't know how to handle this"
+argument_list|)
 expr_stmt|;
 block|}
 return|return
@@ -394,16 +392,14 @@ expr_stmt|;
 break|break;
 default|default:
 name|qCritical
-argument_list|()
-operator|<<
-literal|"sizeof(SQLTCHAR) is "
-operator|<<
+argument_list|(
+literal|"sizeof(SQLTCHAR) is %d. Don't know how to handle this."
+argument_list|,
 sizeof|sizeof
 argument_list|(
 name|SQLTCHAR
 argument_list|)
-operator|<<
-literal|"Don't know how to handle this"
+argument_list|)
 expr_stmt|;
 block|}
 name|result

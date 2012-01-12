@@ -3181,9 +3181,9 @@ name|NoError
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QNetworkReplyImplPrivate::error: Internal problem, this method must only be called once."
+argument_list|)
 expr_stmt|;
 return|return;
 block|}

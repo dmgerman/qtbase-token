@@ -1598,9 +1598,9 @@ name|httpReply
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QHttpThreadDelegate::finishedSlot: HTTP reply had already been deleted, internal problem. Please report."
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -1934,9 +1934,9 @@ name|httpReply
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QHttpThreadDelegate::finishedWithErrorSlot: HTTP reply had already been deleted, internal problem. Please report."
+argument_list|)
 expr_stmt|;
 return|return;
 block|}

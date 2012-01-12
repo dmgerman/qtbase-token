@@ -1053,14 +1053,17 @@ block|}
 else|else
 block|{
 name|qCritical
-argument_list|()
-operator|<<
-literal|"Errors linking simple shader:"
-operator|<<
+argument_list|(
+literal|"Errors linking simple shader: %s"
+argument_list|,
+name|qPrintable
+argument_list|(
 name|simpleShaderProg
 operator|->
 name|log
 argument_list|()
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 comment|// Compile the blit shader:
@@ -1272,14 +1275,17 @@ block|}
 else|else
 block|{
 name|qCritical
-argument_list|()
-operator|<<
-literal|"Errors linking blit shader:"
-operator|<<
+argument_list|(
+literal|"Errors linking blit shader: %s"
+argument_list|,
+name|qPrintable
+argument_list|(
 name|blitShaderProg
 operator|->
 name|log
 argument_list|()
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 ifdef|#
