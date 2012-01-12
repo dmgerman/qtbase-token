@@ -10,11 +10,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qdialog.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtGui/qevent.h>
 end_include
 begin_include
