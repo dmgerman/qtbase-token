@@ -220,6 +220,11 @@ modifier|*
 name|displayName
 parameter_list|)
 member_init_list|:
+name|m_connection
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|m_displayName
 argument_list|(
 name|displayName
@@ -294,6 +299,11 @@ name|constData
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|dpy
+condition|)
+block|{
 name|m_primaryScreen
 operator|=
 name|DefaultScreen
@@ -365,6 +375,7 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|//XCB_USE_EGL
+block|}
 else|#
 directive|else
 name|m_connection
@@ -385,11 +396,12 @@ directive|endif
 comment|//XCB_USE_XLIB
 if|if
 condition|(
+operator|!
 name|m_connection
 condition|)
-name|qDebug
+name|qFatal
 argument_list|(
-literal|"Successfully connected to display %s"
+literal|"Could not connect to display %s"
 argument_list|,
 name|m_displayName
 operator|.
