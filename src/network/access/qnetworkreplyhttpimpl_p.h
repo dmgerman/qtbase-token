@@ -555,15 +555,6 @@ name|QNetworkAccessManagerPrivate
 operator|*
 name|managerPrivate
 block|;
-name|QNetworkRequest
-name|request
-block|;
-name|QNetworkAccessManager
-operator|::
-name|Operation
-name|operation
-block|;
-comment|// FIXME already in replyprivate?
 name|QHttpNetworkRequest
 name|httpRequest
 block|;
