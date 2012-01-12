@@ -120,6 +120,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtNetwork/QNetworkCookieJar>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtNetwork/QHttpPart>
 end_include
 begin_include

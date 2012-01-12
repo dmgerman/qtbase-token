@@ -374,10 +374,6 @@ directive|endif
 end_endif
 begin_decl_stmt
 name|QT_END_NAMESPACE
-comment|// ### Qt5 remove this include
-include|#
-directive|include
-file|<QtNetwork/QNetworkCookieJar>
 name|Q_DECLARE_METATYPE
 argument_list|(
 name|QNetworkCookie

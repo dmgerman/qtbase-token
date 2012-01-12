@@ -23,14 +23,6 @@ include|#
 directive|include
 file|<QtCore/QUrl>
 end_include
-begin_comment
-comment|// ### Qt5 remove this include
-end_comment
-begin_include
-include|#
-directive|include
-file|<QtNetwork/QNetworkCookie>
-end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -38,6 +30,12 @@ name|QT_MODULE
 argument_list|(
 name|Network
 argument_list|)
+name|class
+name|QNetworkCookie
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QNetworkCookieJarPrivate
 name|class
 name|QNetworkCookieJarPrivate
 decl_stmt|;

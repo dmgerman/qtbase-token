@@ -43,6 +43,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qnetworkcookie.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qnetworkcookie_p.h"
 end_include
 begin_include

@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtNetwork/QNetworkCookie>
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qtldurl_p.h"
 end_include
 begin_class

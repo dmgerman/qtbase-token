@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qnetworkcookiejar.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qabstractnetworkcache.h"
 end_include
 begin_include
