@@ -1417,11 +1417,6 @@ name|h
 argument_list|)
 expr_stmt|;
 block|}
-name|moveToThread
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 end_expr_stmt
 begin_destructor
 unit|}   QWindowsFileSystemWatcherEngineThread
