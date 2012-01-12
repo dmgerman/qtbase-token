@@ -63,9 +63,6 @@ name|numSimpleCodecs
 index|]
 operator|=
 block|{
-ifndef|#
-directive|ifndef
-name|Q_OS_SYMBIAN
 comment|// from RFC 1489, ftp://ftp.isi.edu/in-notes/rfc1489.txt
 block|{
 literal|"KOI8-R"
@@ -3636,8 +3633,6 @@ literal|0x00FF
 block|}
 block|}
 block|,
-endif|#
-directive|endif
 block|{
 literal|"ISO-8859-16"
 block|,
@@ -3912,9 +3907,6 @@ block|}
 block|,
 comment|// next bits generated again from tables on the Unicode 3.0 CD.
 comment|// $ for a in CP* ; do (awk '/^0x[89ABCDEF]/{ print $1, $2 }'< $a) | sort | sed -e 's/#UNDEF.*$/0xFFFD/' | cut -c6- | paste '-d ' - - - - - - - - | sed -e 's/ /, /g' -e 's/$/,/' -e '$ s/,$/} },/' -e '1 s/^/{ /'> ~/tmp/$a ; done
-ifndef|#
-directive|ifndef
-name|Q_OS_SYMBIAN
 block|{
 literal|"IBM850"
 block|,
@@ -4459,9 +4451,6 @@ literal|0xFFFD
 block|}
 block|}
 block|,
-endif|#
-directive|endif
-comment|//Q_OS_SYMBIAN
 block|{
 literal|"IBM866"
 block|,
@@ -4734,9 +4723,6 @@ literal|0x00A0
 block|}
 block|}
 block|,
-ifndef|#
-directive|ifndef
-name|Q_OS_SYMBIAN
 block|{
 literal|"windows-1250"
 block|,
@@ -7167,8 +7153,6 @@ literal|0x00FF
 block|}
 block|}
 block|,
-endif|#
-directive|endif
 block|{
 literal|"Apple Roman"
 block|,
@@ -7716,9 +7700,6 @@ literal|0x00FF
 block|}
 block|}
 block|,
-ifndef|#
-directive|ifndef
-name|Q_OS_SYMBIAN
 comment|// this one is generated from the charmap file located in /usr/share/i18n/charmaps
 comment|// on most Linux distributions. The thai character set tis620 is byte by byte equivalent
 comment|// to iso8859-11, so we name it 8859-11 here, but recognise the name tis620 too.
@@ -7994,8 +7975,6 @@ literal|0xFFFD
 block|}
 block|}
 block|,
-endif|#
-directive|endif
 comment|/*       Name: hp-roman8                                  [HP-PCL5,RFC1345,KXS2]       MIBenum: 2004       Source: LaserJet IIP Printer User's Manual,       HP part no 33471-90901, Hewlet-Packard, June 1989.       Alias: roman8       Alias: r8       Alias: csHPRoman8     */
 block|{
 literal|"roman8"

@@ -111,12 +111,6 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
 name|Q_OS_INTEGRITY
 argument_list|)
 end_if
@@ -207,7 +201,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_SYMBIAN
+comment|// !Q_OS_INTEGRITY
 end_comment
 begin_endif
 endif|#
@@ -289,20 +283,6 @@ define|#
 directive|define
 name|QT_NO_SETLOCALE
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_include
-include|#
-directive|include
-file|"qtextcodec_symbian.cpp"
-end_include
 begin_endif
 endif|#
 directive|endif
@@ -966,29 +946,9 @@ operator|::
 name|validCodecs
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// If we don't have a trap handler, we're outside of the main() function,
-comment|// ie. in global constructors or destructors. Don't use codecs in this
-comment|// case as it would lead to crashes because we don't have a cleanup stack on Symbian
-return|return
-operator|(
-name|User
-operator|::
-name|TrapHandler
-argument_list|()
-operator|!=
-name|NULL
-operator|)
-return|;
-else|#
-directive|else
 return|return
 literal|true
 return|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_if
@@ -2969,22 +2929,6 @@ name|void
 name|setupLocaleMapper
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|localeMapper
-operator|=
-name|QSymbianTextCodec
-operator|::
-name|localeMapper
-expr_stmt|;
-if|if
-condition|(
-name|localeMapper
-condition|)
-return|return;
-endif|#
-directive|endif
 if|#
 directive|if
 name|defined
@@ -3697,24 +3641,6 @@ condition|)
 return|return;
 ifdef|#
 directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// If we don't have a trap handler, we're outside of the main() function,
-comment|// ie. in global constructors or destructors. Don't create codecs in this
-comment|// case as it would lead to crashes because of a missing cleanup stack on Symbian
-if|if
-condition|(
-name|User
-operator|::
-name|TrapHandler
-argument_list|()
-operator|==
-name|NULL
-condition|)
-return|return;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
 name|Q_DEBUG_TEXTCODEC
 if|if
 condition|(
@@ -3800,18 +3726,6 @@ argument_list|(
 name|i
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|localeMapper
-operator|=
-name|QSymbianTextCodec
-operator|::
-name|init
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 if|#
 directive|if
 name|defined
@@ -3897,12 +3811,6 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
 name|Q_OS_INTEGRITY
 argument_list|)
 if|#
@@ -3983,7 +3891,7 @@ directive|endif
 comment|// QT_NO_ICONV&& !QT_BOOTSTRAPPED
 endif|#
 directive|endif
-comment|//Q_OS_SYMBIAN
+comment|// !Q_OS_INTEGRITY
 endif|#
 directive|endif
 comment|// QT_NO_CODECS
@@ -4043,17 +3951,12 @@ operator|)
 operator|new
 name|QUtf32LECodec
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_SYMBIAN
 operator|(
 name|void
 operator|)
 operator|new
 name|QLatin15Codec
 expr_stmt|;
-endif|#
-directive|endif
 operator|(
 name|void
 operator|)
@@ -4068,12 +3971,6 @@ name|QUtf8Codec
 expr_stmt|;
 if|#
 directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|&&
 operator|!
 name|defined
 argument_list|(
