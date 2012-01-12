@@ -1732,68 +1732,6 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"#ifdef Q_NO_DATA_RELOCATION\n"
-argument_list|)
-expr_stmt|;
-name|fprintf
-argument_list|(
-name|out
-argument_list|,
-literal|"static const QMetaObjectAccessor qt_meta_extradata_%s[] = {\n    "
-argument_list|,
-name|qualifiedClassNameIdentifier
-operator|.
-name|constData
-argument_list|()
-argument_list|)
-expr_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|extraList
-operator|.
-name|count
-argument_list|()
-condition|;
-operator|++
-name|i
-control|)
-block|{
-name|fprintf
-argument_list|(
-name|out
-argument_list|,
-literal|"    %s::getStaticMetaObject,\n"
-argument_list|,
-name|extraList
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|.
-name|constData
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-name|fprintf
-argument_list|(
-name|out
-argument_list|,
-literal|"#else\n"
-argument_list|)
-expr_stmt|;
-name|fprintf
-argument_list|(
-name|out
-argument_list|,
 literal|"static const QMetaObject *qt_meta_extradata_%s[] = {\n    "
 argument_list|,
 name|qualifiedClassNameIdentifier
@@ -1838,13 +1776,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|fprintf
-argument_list|(
-name|out
-argument_list|,
-literal|"#endif //Q_NO_DATA_RELOCATION\n"
-argument_list|)
-expr_stmt|;
 name|fprintf
 argument_list|(
 name|out
@@ -2068,37 +1999,6 @@ condition|(
 name|isQt
 condition|)
 return|return;
-comment|//
-comment|// Generate static meta object accessor (needed for symbian, because DLLs do not support data imports.
-comment|//
-name|fprintf
-argument_list|(
-name|out
-argument_list|,
-literal|"\n#ifdef Q_NO_DATA_RELOCATION\n"
-argument_list|)
-expr_stmt|;
-name|fprintf
-argument_list|(
-name|out
-argument_list|,
-literal|"const QMetaObject&%s::getStaticMetaObject() { return staticMetaObject; }\n"
-argument_list|,
-name|cdef
-operator|->
-name|qualified
-operator|.
-name|constData
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|fprintf
-argument_list|(
-name|out
-argument_list|,
-literal|"#endif //Q_NO_DATA_RELOCATION\n"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!

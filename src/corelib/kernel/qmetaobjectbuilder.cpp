@@ -889,18 +889,6 @@ name|QMetaEnumBuilderPrivate
 argument_list|>
 name|enumerators
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_NO_DATA_RELOCATION
-DECL|member|relatedMetaObjects
-name|QList
-argument_list|<
-name|QMetaObjectAccessor
-argument_list|>
-name|relatedMetaObjects
-decl_stmt|;
-else|#
-directive|else
 DECL|member|relatedMetaObjects
 name|QList
 argument_list|<
@@ -910,8 +898,6 @@ modifier|*
 argument_list|>
 name|relatedMetaObjects
 decl_stmt|;
-endif|#
-directive|endif
 DECL|member|flags
 name|int
 name|flags
@@ -2269,53 +2255,34 @@ end_function
 begin_comment
 comment|/*!     Adds \a meta to this class as a related meta object.  Returns     the index of the new related meta object entry.      Related meta objects are used when resolving the enumerated type     associated with a property, where the enumerated type is in a     different class from the property.      \sa relatedMetaObjectCount(), relatedMetaObject()     \sa removeRelatedMetaObject() */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_NO_DATA_RELOCATION
-end_ifdef
-begin_decl_stmt
+begin_function
 DECL|function|addRelatedMetaObject
 name|int
 name|QMetaObjectBuilder
 operator|::
 name|addRelatedMetaObject
-argument_list|(
-specifier|const
-name|QMetaObjectAccessor
-operator|&
-name|meta
-argument_list|)
-else|#
-directive|else
-name|int
-name|QMetaObjectBuilder
-operator|::
-name|addRelatedMetaObject
-argument_list|(
+parameter_list|(
 specifier|const
 name|QMetaObject
-operator|*
+modifier|*
 name|meta
-argument_list|)
-endif|#
-directive|endif
-argument_list|{
+parameter_list|)
+block|{
 name|Q_ASSERT
 argument_list|(
 name|meta
 argument_list|)
-argument_list|;
+expr_stmt|;
 name|int
 name|index
-operator|=
+init|=
 name|d
 operator|->
 name|relatedMetaObjects
 operator|.
 name|size
 argument_list|()
-argument_list|;
+decl_stmt|;
 name|d
 operator|->
 name|relatedMetaObjects
@@ -2324,36 +2291,43 @@ name|append
 argument_list|(
 name|meta
 argument_list|)
-argument_list|;     return
+expr_stmt|;
+return|return
 name|index
-argument_list|; }
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Adds the contents of \a prototype to this meta object builder.     This function is useful for cloning the contents of an existing QMetaObject.      The \a members parameter indicates which members of \a prototype     should be added.  The default is AllMembers. */
+end_comment
+begin_function
 DECL|function|addMetaObject
 name|void
 name|QMetaObjectBuilder
 operator|::
 name|addMetaObject
-argument_list|(
+parameter_list|(
 specifier|const
 name|QMetaObject
-operator|*
+modifier|*
 name|prototype
-argument_list|,
+parameter_list|,
 name|QMetaObjectBuilder
 operator|::
 name|AddMembers
 name|members
-argument_list|)
-argument_list|{
+parameter_list|)
+block|{
 name|Q_ASSERT
 argument_list|(
 name|prototype
 argument_list|)
-argument_list|;
+expr_stmt|;
 name|int
 name|index
-argument_list|;      if
-operator|(
+decl_stmt|;
+if|if
+condition|(
 operator|(
 name|members
 operator|&
@@ -2361,7 +2335,7 @@ name|ClassName
 operator|)
 operator|!=
 literal|0
-operator|)
+condition|)
 name|d
 operator|->
 name|className
@@ -2370,8 +2344,9 @@ name|prototype
 operator|->
 name|className
 argument_list|()
-argument_list|;      if
-operator|(
+expr_stmt|;
+if|if
+condition|(
 operator|(
 name|members
 operator|&
@@ -2379,7 +2354,7 @@ name|SuperClass
 operator|)
 operator|!=
 literal|0
-operator|)
+condition|)
 name|d
 operator|->
 name|superClass
@@ -2388,8 +2363,9 @@ name|prototype
 operator|->
 name|superClass
 argument_list|()
-argument_list|;      if
-operator|(
+expr_stmt|;
+if|if
+condition|(
 operator|(
 name|members
 operator|&
@@ -2403,7 +2379,7 @@ operator|)
 operator|)
 operator|!=
 literal|0
-operator|)
+condition|)
 block|{
 for|for
 control|(
@@ -2427,14 +2403,14 @@ control|)
 block|{
 name|QMetaMethod
 name|method
-operator|=
+init|=
 name|prototype
 operator|->
 name|method
 argument_list|(
 name|index
 argument_list|)
-block|;
+decl_stmt|;
 if|if
 condition|(
 name|method
@@ -2532,7 +2508,8 @@ name|addMethod
 argument_list|(
 name|method
 argument_list|)
-block|;             }
+expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -2558,7 +2535,8 @@ name|addMethod
 argument_list|(
 name|method
 argument_list|)
-block|;             }
+expr_stmt|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -2584,10 +2562,10 @@ name|addMethod
 argument_list|(
 name|method
 argument_list|)
-block|;             }
-expr|}     }
-end_decl_stmt
-begin_if
+expr_stmt|;
+block|}
+block|}
+block|}
 if|if
 condition|(
 operator|(
@@ -2626,8 +2604,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_if
-begin_if
 if|if
 condition|(
 operator|(
@@ -2669,8 +2645,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_if
-begin_if
 if|if
 condition|(
 operator|(
@@ -2712,8 +2686,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-end_if
-begin_if
 if|if
 condition|(
 operator|(
@@ -2770,8 +2742,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_if
-begin_if
 if|if
 condition|(
 operator|(
@@ -2783,18 +2753,6 @@ operator|!=
 literal|0
 condition|)
 block|{
-ifdef|#
-directive|ifdef
-name|Q_NO_DATA_RELOCATION
-specifier|const
-name|QMetaObjectAccessor
-modifier|*
-name|objects
-init|=
-literal|0
-decl_stmt|;
-else|#
-directive|else
 specifier|const
 name|QMetaObject
 modifier|*
@@ -2835,8 +2793,6 @@ operator|)
 expr_stmt|;
 block|}
 else|else
-endif|#
-directive|endif
 block|{
 specifier|const
 name|QMetaObjectExtraData
@@ -2897,8 +2853,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-end_if
-begin_if
 if|if
 condition|(
 operator|(
@@ -2961,24 +2915,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_if
+block|}
+end_function
 begin_comment
-unit|}
 comment|/*!     Returns the method at \a index in this class.      \sa methodCount(), addMethod(), removeMethod(), indexOfMethod() */
 end_comment
-begin_macro
-unit|QMetaMethodBuilder
+begin_function
 DECL|function|method
+name|QMetaMethodBuilder
 name|QMetaObjectBuilder
-end_macro
-begin_expr_stmt
-DECL|function|method
 operator|::
 name|method
-operator|(
+parameter_list|(
 name|int
 name|index
-operator|)
+parameter_list|)
 specifier|const
 block|{
 if|if
@@ -3010,7 +2961,7 @@ name|QMetaMethodBuilder
 argument_list|()
 return|;
 block|}
-end_expr_stmt
+end_function
 begin_comment
 comment|/*!     Returns the constructor at \a index in this class.      \sa methodCount(), addMethod(), removeMethod(), indexOfConstructor() */
 end_comment
@@ -3183,29 +3134,6 @@ operator|.
 name|size
 argument_list|()
 condition|)
-ifdef|#
-directive|ifdef
-name|Q_NO_DATA_RELOCATION
-return|return
-operator|&
-operator|(
-operator|(
-operator|*
-operator|(
-name|d
-operator|->
-name|relatedMetaObjects
-index|[
-name|index
-index|]
-operator|)
-operator|)
-operator|(
-operator|)
-operator|)
-return|;
-else|#
-directive|else
 return|return
 name|d
 operator|->
@@ -3214,8 +3142,6 @@ index|[
 name|index
 index|]
 return|;
-endif|#
-directive|endif
 else|else
 return|return
 literal|0
@@ -6119,26 +6045,6 @@ name|QMetaObject
 operator|*
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_NO_DATA_RELOCATION
-name|QMetaObjectAccessor
-modifier|*
-name|objects
-init|=
-cast|reinterpret_cast
-argument_list|<
-name|QMetaObjectAccessor
-operator|*
-argument_list|>
-argument_list|(
-name|buf
-operator|+
-name|size
-argument_list|)
-decl_stmt|;
-else|#
-directive|else
 specifier|const
 name|QMetaObject
 modifier|*
@@ -6158,8 +6064,6 @@ operator|+
 name|size
 argument_list|)
 decl_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|buf
@@ -7039,12 +6943,6 @@ name|attributes
 expr_stmt|;
 block|}
 comment|// Write the related meta objects.
-ifdef|#
-directive|ifdef
-name|Q_NO_DATA_RELOCATION
-comment|//### What do we do here?
-else|#
-directive|else
 for|for
 control|(
 name|index
@@ -7087,8 +6985,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 comment|// Add an extra empty QByteArray for additional data in future versions.
 comment|// This should help maintain backwards compatibility, allowing older
 comment|// versions to read newer data.
@@ -7891,12 +7787,6 @@ return|return;
 block|}
 block|}
 comment|// Read the related meta objects.
-ifdef|#
-directive|ifdef
-name|Q_NO_DATA_RELOCATION
-comment|//### What do we do here
-else|#
-directive|else
 for|for
 control|(
 name|index
@@ -7959,8 +7849,6 @@ name|cl
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 comment|// Read the extra data block, which is reserved for future use.
 name|stream
 operator|>>
