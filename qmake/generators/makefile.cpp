@@ -9774,7 +9774,10 @@ argument_list|)
 operator|+
 literal|" "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|dst_file
+argument_list|)
 operator|+
 literal|"\n"
 expr_stmt|;
@@ -9833,6 +9836,8 @@ argument_list|)
 operator|+
 literal|" "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|filePrefixRoot
 argument_list|(
 name|root
@@ -9846,6 +9851,7 @@ argument_list|,
 name|FileFixifyAbsolute
 argument_list|,
 literal|false
+argument_list|)
 argument_list|)
 argument_list|)
 operator|+
@@ -9874,6 +9880,8 @@ name|rm_dir_contents
 operator|+
 literal|" "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|filePrefixRoot
 argument_list|(
 name|root
@@ -9887,6 +9895,7 @@ argument_list|,
 name|FileFixifyAbsolute
 argument_list|,
 literal|false
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -10089,11 +10098,17 @@ name|cmd
 operator|+=
 literal|" "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|wild
+argument_list|)
 operator|+
 literal|" "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|dst_file
+argument_list|)
 operator|+
 literal|"\n"
 expr_stmt|;
@@ -10124,6 +10139,8 @@ name|rm_dir_contents
 operator|+
 literal|" "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|filePrefixRoot
 argument_list|(
 name|root
@@ -10137,6 +10154,7 @@ argument_list|,
 name|FileFixifyAbsolute
 argument_list|,
 literal|false
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -10203,6 +10221,8 @@ name|rm_dir_contents
 operator|+
 literal|" "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|filePrefixRoot
 argument_list|(
 name|root
@@ -10216,6 +10236,7 @@ argument_list|,
 name|FileFixifyAbsolute
 argument_list|,
 literal|false
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -10318,13 +10339,19 @@ argument_list|)
 operator|+
 literal|" "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|dirstr
 operator|+
 name|file
+argument_list|)
 operator|+
 literal|" "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|dst_file
+argument_list|)
 operator|+
 literal|"\n"
 decl_stmt|;
@@ -10383,6 +10410,8 @@ argument_list|)
 operator|+
 literal|" "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|filePrefixRoot
 argument_list|(
 name|root
@@ -10396,6 +10425,7 @@ argument_list|,
 name|FileFixifyAbsolute
 argument_list|,
 literal|false
+argument_list|)
 argument_list|)
 argument_list|)
 operator|+
