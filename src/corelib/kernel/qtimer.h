@@ -118,14 +118,14 @@ block|}
 name|void
 name|setTimerType
 argument_list|(
-argument|Qt::TimerType type
+argument|Qt::TimerType atype
 argument_list|)
 block|{
 name|this
 operator|->
 name|type
 operator|=
-name|type
+name|atype
 block|; }
 name|Qt
 operator|::

@@ -1813,12 +1813,12 @@ name|setRoleNames
 argument_list|(
 argument|const QHash<int
 argument_list|,
-argument|QByteArray>&roleNames
+argument|QByteArray>&theRoleNames
 argument_list|)
 block|{
 name|doSetRoleNames
 argument_list|(
-name|roleNames
+name|theRoleNames
 argument_list|)
 block|;     }
 endif|#
