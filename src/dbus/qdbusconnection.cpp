@@ -337,12 +337,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QDBusConnection&QDBusConnection::sessionBus()      Returns a QDBusConnection object opened with the session bus. The object     reference returned by this function is valid until the application terminates,     at which point the connection will be closed and the object deleted. */
-end_comment
-begin_comment
-comment|/*!     \fn QDBusConnection&QDBusConnection::systemBus()      Returns a QDBusConnection object opened with the system bus. The object reference returned     by this function is valid until the QCoreApplication's destructor is run, when the     connection will be closed and the object, deleted. */
-end_comment
-begin_comment
 comment|/*!     \class QDBusConnection     \inmodule QtDBus     \since 4.2      \brief The QDBusConnection class represents a connection to the D-Bus bus daemon.      This class is the initial point in a D-Bus session. Using it, you     can get access to remote objects, interfaces; connect remote     signals to your object's slots; register objects, etc.      D-Bus connections are created using the connectToBus() function,     which opens a connection to the server daemon and does the initial     handshaking, associating that connection with a name. Further     attempts to connect using the same name will return the same     connection.      The connection is then torn down using the disconnectFromBus()     function.      Once disconnected, calling connectToBus() will not reestablish a     connection, you must create a new QDBusConnection instance.      As a convenience for the two most common connection types, the     sessionBus() and systemBus() functions return open connections to     the session server daemon and the system server daemon,     respectively. Those connections are opened when first used and are     closed when the QCoreApplication destructor is run.      D-Bus also supports peer-to-peer connections, without the need for     a bus server daemon. Using this facility, two applications can     talk to each other and exchange messages. This can be achieved by     passing an address to connectToBus() function, which was opened by     another D-Bus application using QDBusServer. */
 end_comment
 begin_comment
@@ -3557,6 +3551,9 @@ argument_list|,
 argument|(QDBusConnection::SystemBus, _q_systemBusName)
 argument_list|)
 end_macro
+begin_comment
+comment|/*!     \fn QDBusConnection QDBusConnection::sessionBus()      Returns a QDBusConnection object opened with the session bus. The object     reference returned by this function is valid until the application terminates,     at which point the connection will be closed and the object deleted. */
+end_comment
 begin_function
 DECL|function|sessionBus
 name|QDBusConnection
@@ -3572,6 +3569,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn QDBusConnection QDBusConnection::systemBus()      Returns a QDBusConnection object opened with the system bus. The object reference returned     by this function is valid until the QCoreApplication's destructor is run, when the     connection will be closed and the object, deleted. */
+end_comment
 begin_function
 DECL|function|systemBus
 name|QDBusConnection
