@@ -4762,6 +4762,9 @@ end_comment
 begin_comment
 comment|/*!     \macro Q_DECL_IMPORT     \relates<QtGlobal>      This macro declares a symbol to be an import from a shared library (see     \l{sharedlibrary.html}{Creating Shared Libraries}).      \sa Q_DECL_EXPORT */
 end_comment
+begin_comment
+comment|/*!     \macro Q_DECL_CONSTEXPR     \relates<QtGlobal>      This macro can be used to declare variable that should be constructed at compile-time,     or an inline function that can be computed at compile-time.      It expands to "constexpr" if your compiler supports that C++11 keyword, or to nothing     otherwise. */
+end_comment
 begin_if
 if|#
 directive|if
