@@ -5,6 +5,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<QtCore/QCoreApplication>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtTest/QtTest>
 end_include
 begin_class
@@ -50,11 +55,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_include
-include|#
-directive|include
-file|<QtCore>
-end_include
 begin_function
 DECL|function|repeated_result_data
 name|void

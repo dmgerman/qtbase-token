@@ -15,7 +15,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore>
+file|<QtCore/QCoreApplication>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QTextCodec>
 end_include
 begin_function
 DECL|function|main

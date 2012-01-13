@@ -5,7 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtCore/QtCore>
+file|<QtCore/QCoreApplication>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QThreadStorage>
 end_include
 begin_class
 DECL|class|Class

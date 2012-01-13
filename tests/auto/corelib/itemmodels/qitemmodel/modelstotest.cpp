@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QtCore>
+file|<QtCore/QCoreApplication>
 end_include
 begin_include
 include|#
@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QSortFilterProxyModel>
+file|<QtCore/QSortFilterProxyModel>
 end_include
 begin_comment
 comment|/*     To add a model to be tested add the header file to the includes     and impliment what is needed in the four functions below.      You can add more then one model, several Qt models and included as examples.      In tst_qitemmodel.cpp a new ModelsToTest object is created for each test.      When you have errors fix the first ones first.  Later tests depend upon them working */
