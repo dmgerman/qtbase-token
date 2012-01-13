@@ -2579,7 +2579,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \brief Convenience to create a non-visible dummy window     for example used as clipboard watcher or for GL. */
+comment|/*!     \brief Convenience to create a non-visible, message-only dummy     window for example used as clipboard watcher or for GL. */
 end_comment
 begin_function
 DECL|function|createDummyWindow
@@ -2650,7 +2650,7 @@ name|CW_USEDEFAULT
 argument_list|,
 name|CW_USEDEFAULT
 argument_list|,
-literal|0
+name|HWND_MESSAGE
 argument_list|,
 name|NULL
 argument_list|,
