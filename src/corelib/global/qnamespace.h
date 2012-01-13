@@ -1008,7 +1008,7 @@ argument_list|)
 expr|enum
 name|ScreenOrientation
 block|{
-name|UnknownOrientation
+name|PrimaryOrientation
 operator|=
 literal|0x00000000
 block|,

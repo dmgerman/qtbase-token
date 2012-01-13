@@ -2091,7 +2091,7 @@ operator|->
 name|screen
 argument_list|()
 operator|->
-name|currentOrientation
+name|orientation
 argument_list|()
 argument_list|)
 argument_list|)

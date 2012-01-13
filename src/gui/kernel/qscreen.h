@@ -144,11 +144,11 @@ argument|QRect availableGeometry READ availableGeometry NOTIFY availableGeometry
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|Qt::ScreenOrientation primaryOrientation READ primaryOrientation CONSTANT
+argument|Qt::ScreenOrientation primaryOrientation READ orientation NOTIFY primaryOrientationChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|Qt::ScreenOrientation currentOrientation READ currentOrientation NOTIFY currentOrientationChanged
+argument|Qt::ScreenOrientation orientation READ orientation NOTIFY orientationChanged
 argument_list|)
 name|public
 operator|:
@@ -262,11 +262,10 @@ block|;
 name|Qt
 operator|::
 name|ScreenOrientation
-name|currentOrientation
+name|orientation
 argument_list|()
 specifier|const
 block|;
-specifier|static
 name|int
 name|angleBetween
 argument_list|(
@@ -275,7 +274,6 @@ argument_list|,
 argument|Qt::ScreenOrientation b
 argument_list|)
 block|;
-specifier|static
 name|QTransform
 name|transformBetween
 argument_list|(
@@ -286,7 +284,6 @@ argument_list|,
 argument|const QRect&target
 argument_list|)
 block|;
-specifier|static
 name|QRect
 name|mapBetween
 argument_list|(
@@ -295,6 +292,18 @@ argument_list|,
 argument|Qt::ScreenOrientation b
 argument_list|,
 argument|const QRect&rect
+argument_list|)
+block|;
+name|bool
+name|isPortrait
+argument_list|(
+argument|Qt::ScreenOrientation orientation
+argument_list|)
+block|;
+name|bool
+name|isLandscape
+argument_list|(
+argument|Qt::ScreenOrientation orientation
 argument_list|)
 block|;
 name|Q_SIGNALS
@@ -372,7 +381,13 @@ name|rect
 argument_list|)
 block|;
 name|void
-name|currentOrientationChanged
+name|primaryOrientationChanged
+argument_list|(
+argument|Qt::ScreenOrientation orientation
+argument_list|)
+block|;
+name|void
+name|orientationChanged
 argument_list|(
 argument|Qt::ScreenOrientation orientation
 argument_list|)

@@ -228,7 +228,16 @@ argument_list|()
 block|;
 name|virtual
 name|void
-name|setOrientation
+name|handleContentOrientationChange
+argument_list|(
+argument|Qt::ScreenOrientation orientation
+argument_list|)
+block|;
+name|virtual
+name|Qt
+operator|::
+name|ScreenOrientation
+name|requestWindowOrientation
 argument_list|(
 argument|Qt::ScreenOrientation orientation
 argument_list|)
