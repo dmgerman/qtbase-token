@@ -185,7 +185,7 @@ parameter_list|)
 function_decl|;
 specifier|static
 name|void
-name|addIgnoreMessage
+name|ignoreMessage
 parameter_list|(
 name|QtMsgType
 name|type

@@ -1431,7 +1431,7 @@ parameter_list|)
 block|{
 name|QTestLog
 operator|::
-name|addIgnoreMessage
+name|ignoreMessage
 argument_list|(
 name|type
 argument_list|,

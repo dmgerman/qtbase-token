@@ -1662,11 +1662,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|addIgnoreMessage
+DECL|function|ignoreMessage
 name|void
 name|QTestLog
 operator|::
-name|addIgnoreMessage
+name|ignoreMessage
 parameter_list|(
 name|QtMsgType
 name|type
