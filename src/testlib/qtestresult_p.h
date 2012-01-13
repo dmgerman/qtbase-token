@@ -105,11 +105,6 @@ name|currentTestFailed
 parameter_list|()
 function_decl|;
 specifier|static
-name|bool
-name|allDataPassed
-parameter_list|()
-function_decl|;
-specifier|static
 name|QTestData
 modifier|*
 name|currentTestData
