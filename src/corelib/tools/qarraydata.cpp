@@ -7,6 +7,11 @@ include|#
 directive|include
 file|<QtCore/qarraydata.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<stdlib.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|member|shared_null
@@ -204,7 +209,8 @@ name|QArrayData
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 name|allocSize
 argument_list|)
@@ -361,7 +367,8 @@ operator|&
 name|qt_array_unsharable_empty
 condition|)
 return|return;
-name|qFree
+operator|::
+name|free
 argument_list|(
 name|data
 argument_list|)
