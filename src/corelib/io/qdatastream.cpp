@@ -107,7 +107,7 @@ name|DefaultStreamVersion
 init|=
 name|QDataStream
 operator|::
-name|Qt_4_6
+name|Qt_5_0
 end_decl_stmt
 begin_comment
 unit|};

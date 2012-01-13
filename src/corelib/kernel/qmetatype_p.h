@@ -111,17 +111,6 @@ condition|)
 return|return
 name|Widgets
 return|;
-if|if
-condition|(
-name|typeId
-operator|<=
-name|QMetaType
-operator|::
-name|LastCoreExtType
-condition|)
-return|return
-name|Core
-return|;
 return|return
 name|Unknown
 return|;

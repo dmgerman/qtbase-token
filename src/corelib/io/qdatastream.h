@@ -226,7 +226,7 @@ name|Qt_4_8
 block|,
 name|Qt_5_0
 init|=
-name|Qt_4_8
+literal|13
 if|#
 directive|if
 name|QT_VERSION
