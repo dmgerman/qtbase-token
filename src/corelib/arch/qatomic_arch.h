@@ -215,7 +215,7 @@ name|QT_ARCH_NACL
 argument_list|)
 include|#
 directive|include
-file|"QtCore/qatomic_generic.h"
+file|"QtCore/qatomic_nacl.h"
 else|#
 directive|else
 error|#
