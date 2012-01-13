@@ -22,6 +22,11 @@ include|#
 directive|include
 file|<qtcpsocket.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -32,6 +37,10 @@ include|#
 directive|include
 file|<QNetworkSession>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -93,7 +102,7 @@ function_decl|;
 private|private:
 ifndef|#
 directive|ifndef
-name|QT_NO_BEARER_MANAGEMENT
+name|QT_NO_BEARERMANAGEMENT
 DECL|member|netConfMan
 name|QNetworkConfigurationManager
 modifier|*

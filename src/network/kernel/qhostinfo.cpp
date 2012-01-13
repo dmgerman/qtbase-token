@@ -597,6 +597,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
+end_ifndef
 begin_function
 DECL|function|fromName
 name|QHostInfo
@@ -625,6 +630,10 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!     \enum QHostInfo::HostInfoError      This enum describes the various errors that can occur when trying     to resolve a host name.      \value NoError The lookup was successful.     \value HostNotFound No IP addresses were found for the host.     \value UnknownError An unknown error occurred.      \sa error(), setError() */
 end_comment

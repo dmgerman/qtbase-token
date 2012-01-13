@@ -189,6 +189,9 @@ operator|&
 name|hostName
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 specifier|static
 name|QHostInfo
 name|fromName
@@ -204,7 +207,10 @@ name|QNetworkSession
 operator|>
 name|networkSession
 argument_list|)
-block|; }
+block|;
+endif|#
+directive|endif
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

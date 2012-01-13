@@ -5883,6 +5883,9 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 if|if
 condition|(
 name|networkSession
@@ -5899,6 +5902,8 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

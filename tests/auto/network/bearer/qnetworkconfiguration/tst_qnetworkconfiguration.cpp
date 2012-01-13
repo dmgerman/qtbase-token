@@ -12,6 +12,11 @@ include|#
 directive|include
 file|"../qbearertestcommon.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -22,6 +27,10 @@ include|#
 directive|include
 file|<QtNetwork/qnetworkconfigmanager.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*   Although this unit test doesn't use QNetworkAccessManager   this include is used to ensure that bearer continues to compile against   Qt 4.7+ which has a QNetworkConfiguration enabled QNetworkAccessManager */
 end_comment
@@ -45,6 +54,9 @@ name|Q_OBJECT
 private|private
 name|slots
 private|:
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 name|void
 name|invalidPoint
 parameter_list|()
@@ -61,9 +73,16 @@ name|void
 name|isRoamingAvailable
 parameter_list|()
 function_decl|;
+endif|#
+directive|endif
 block|}
 class|;
 end_class
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
+end_ifndef
 begin_function
 DECL|function|invalidPoint
 name|void
@@ -959,6 +978,10 @@ block|}
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(

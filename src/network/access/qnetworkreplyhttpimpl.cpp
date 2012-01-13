@@ -6651,6 +6651,9 @@ operator|::
 name|start
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 if|if
 condition|(
 operator|!
@@ -6666,6 +6669,8 @@ return|return
 literal|true
 return|;
 block|}
+endif|#
+directive|endif
 comment|// This is not ideal.
 specifier|const
 name|QString
@@ -6702,6 +6707,9 @@ return|return
 literal|true
 return|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 if|if
 condition|(
 name|managerPrivate
@@ -6730,6 +6738,8 @@ return|return
 literal|true
 return|;
 block|}
+endif|#
+directive|endif
 return|return
 literal|false
 return|;

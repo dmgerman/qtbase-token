@@ -27,6 +27,11 @@ include|#
 directive|include
 file|"../../qbearertestcommon.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -37,10 +42,17 @@ include|#
 directive|include
 file|<QtNetwork/qnetworksession.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|QT_USE_NAMESPACE
 comment|// Can be used to configure tests that require manual attention (such as roaming)
 comment|//#define QNETWORKSESSION_MANUAL_TESTS 1
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 name|Q_DECLARE_METATYPE
 argument_list|(
 name|QNetworkConfiguration
@@ -51,6 +63,8 @@ name|QNetworkConfiguration
 operator|::
 name|Type
 argument_list|)
+endif|#
+directive|endif
 DECL|class|tst_QNetworkSession
 name|class
 name|tst_QNetworkSession
@@ -59,6 +73,9 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 specifier|public
 name|slots
 operator|:
@@ -142,9 +159,17 @@ block|;
 DECL|member|inProcessSessionManagementCount
 name|int
 name|inProcessSessionManagementCount
-block|; }
+block|;
+endif|#
+directive|endif
+block|}
 decl_stmt|;
 end_decl_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
+end_ifndef
 begin_comment
 comment|// Helper functions
 end_comment
@@ -7038,6 +7063,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(

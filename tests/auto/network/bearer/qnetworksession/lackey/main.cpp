@@ -17,6 +17,11 @@ include|#
 directive|include
 file|<QLocalSocket>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -32,6 +37,10 @@ include|#
 directive|include
 file|<QtNetwork/qnetworksession.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -80,6 +89,9 @@ argument_list|,
 name|argv
 argument_list|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 comment|// Update configurations so that everything is up to date for this process too.
 comment|// Event loop is used to wait for awhile.
 name|QNetworkConfigurationManager
@@ -465,6 +477,8 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 literal|0
 return|;
