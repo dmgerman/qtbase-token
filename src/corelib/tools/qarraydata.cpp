@@ -216,11 +216,6 @@ name|allocSize
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Q_CHECK_PTR
-argument_list|(
-name|header
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|header

@@ -87,7 +87,12 @@ name|d
 argument_list|(
 argument|ptr
 argument_list|)
-block|{     }
+block|{
+name|Q_CHECK_PTR
+argument_list|(
+name|ptr
+argument_list|)
+block|;     }
 name|QArrayDataPointer
 operator|&
 name|operator
