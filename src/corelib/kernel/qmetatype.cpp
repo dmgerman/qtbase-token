@@ -2168,6 +2168,11 @@ name|QMetaType
 operator|::
 name|QWidgetStar
 case|:
+case|case
+name|QMetaType
+operator|::
+name|QModelIndex
+case|:
 return|return
 literal|false
 return|;
@@ -3307,6 +3312,11 @@ case|case
 name|QMetaType
 operator|::
 name|QWidgetStar
+case|:
+case|case
+name|QMetaType
+operator|::
+name|QModelIndex
 case|:
 return|return
 literal|false
