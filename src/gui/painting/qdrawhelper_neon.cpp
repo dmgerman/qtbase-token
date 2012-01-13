@@ -810,14 +810,9 @@ index|]
 operator|=
 name|INTERPOLATE_PIXEL_255
 argument_list|(
-name|qt_colorConvert
+name|qConvertRgb16To32
 argument_list|(
 name|src
-index|[
-name|x
-index|]
-argument_list|,
-name|dst
 index|[
 name|x
 index|]

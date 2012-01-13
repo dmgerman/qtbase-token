@@ -2743,16 +2743,9 @@ specifier|const
 name|quint16
 name|c
 init|=
-name|qt_colorConvert
-argument_list|<
-name|quint16
-argument_list|,
-name|quint32
-argument_list|>
+name|qConvertRgb32To16
 argument_list|(
 name|color
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 name|quint16
