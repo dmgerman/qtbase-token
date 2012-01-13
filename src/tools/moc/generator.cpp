@@ -2198,102 +2198,6 @@ literal|"    0\n};\n\n"
 argument_list|)
 expr_stmt|;
 block|}
-name|bool
-name|hasExtraData
-init|=
-operator|(
-name|cdef
-operator|->
-name|hasQObject
-operator|&&
-operator|!
-name|isQt
-operator|)
-operator|||
-operator|!
-name|extraList
-operator|.
-name|isEmpty
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|hasExtraData
-condition|)
-block|{
-name|fprintf
-argument_list|(
-name|out
-argument_list|,
-literal|"const QMetaObjectExtraData %s::staticMetaObjectExtraData = {\n    "
-argument_list|,
-name|cdef
-operator|->
-name|qualified
-operator|.
-name|constData
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|extraList
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|fprintf
-argument_list|(
-name|out
-argument_list|,
-literal|"0, "
-argument_list|)
-expr_stmt|;
-else|else
-name|fprintf
-argument_list|(
-name|out
-argument_list|,
-literal|"qt_meta_extradata_%s, "
-argument_list|,
-name|qualifiedClassNameIdentifier
-operator|.
-name|constData
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|cdef
-operator|->
-name|hasQObject
-operator|&&
-operator|!
-name|isQt
-condition|)
-name|fprintf
-argument_list|(
-name|out
-argument_list|,
-literal|" qt_static_metacall"
-argument_list|)
-expr_stmt|;
-else|else
-name|fprintf
-argument_list|(
-name|out
-argument_list|,
-literal|" 0"
-argument_list|)
-expr_stmt|;
-name|fprintf
-argument_list|(
-name|out
-argument_list|,
-literal|" \n};\n\n"
-argument_list|)
-expr_stmt|;
-block|}
 comment|//
 comment|// Finally create and initialize the static meta object
 comment|//
@@ -2384,14 +2288,18 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|cdef
+operator|->
+name|hasQObject
+operator|&&
 operator|!
-name|hasExtraData
+name|isQt
 condition|)
 name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"0 }\n"
+literal|" qt_static_metacall, "
 argument_list|)
 expr_stmt|;
 else|else
@@ -2399,14 +2307,41 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"&staticMetaObjectExtraData }\n"
+literal|" 0, "
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|extraList
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"0, "
+argument_list|)
+expr_stmt|;
+else|else
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"qt_meta_extradata_%s, "
+argument_list|,
+name|qualifiedClassNameIdentifier
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"};\n"
+literal|"0}\n};\n\n"
 argument_list|)
 expr_stmt|;
 if|if
