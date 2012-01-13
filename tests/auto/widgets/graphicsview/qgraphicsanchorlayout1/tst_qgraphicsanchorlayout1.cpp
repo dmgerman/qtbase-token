@@ -2879,9 +2879,13 @@ parameter_list|()
 block|{
 comment|// One widget, setLayout before defining layouts
 block|{
-ifdef|#
-directive|ifdef
-name|QT_DEBUG
+if|if
+condition|(
+name|QLibraryInfo
+operator|::
+name|isDebugBuild
+argument_list|()
+condition|)
 name|QTest
 operator|::
 name|ignoreMessage
@@ -2892,8 +2896,6 @@ literal|"QGraphicsLayout::addChildLayoutItem: QGraphicsWidget \"\""
 literal|" in wrong parent; moved to correct parent"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QGraphicsWidget
 modifier|*
 name|widget
@@ -3044,9 +3046,13 @@ expr_stmt|;
 block|}
 comment|// One widget, layout inside layout, layout inside layout inside layout
 block|{
-ifdef|#
-directive|ifdef
-name|QT_DEBUG
+if|if
+condition|(
+name|QLibraryInfo
+operator|::
+name|isDebugBuild
+argument_list|()
+condition|)
 name|QTest
 operator|::
 name|ignoreMessage
@@ -3057,8 +3063,6 @@ literal|"QGraphicsLayout::addChildLayoutItem: QGraphicsWidget \"\""
 literal|" in wrong parent; moved to correct parent"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QGraphicsWidget
 modifier|*
 name|widget
