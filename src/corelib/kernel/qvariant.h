@@ -1895,7 +1895,7 @@ name|QVariant
 operator|&
 argument_list|)
 expr_stmt|;
-name|private
+name|protected
 label|:
 else|#
 directive|else
