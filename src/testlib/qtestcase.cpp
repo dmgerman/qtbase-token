@@ -6135,7 +6135,7 @@ modifier|*
 name|message
 parameter_list|)
 block|{
-name|QTestResult
+name|QTestLog
 operator|::
 name|ignoreMessage
 argument_list|(
