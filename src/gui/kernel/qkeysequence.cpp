@@ -7161,7 +7161,7 @@ comment|/*!     Returns the number of keys in the key sequence.     The maximum 
 end_comment
 begin_function
 DECL|function|count
-name|uint
+name|int
 name|QKeySequence
 operator|::
 name|count
@@ -9692,29 +9692,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Use toString() instead.           Returns the key sequence as a QString. This is equivalent to      calling toString(QKeySequence::NativeText). Note that the     result is not platform independent. */
+comment|/*! \fn QKeySequence::operator QString() const      \obsolete      Use toString() instead.           Returns the key sequence as a QString. This is equivalent to      calling toString(QKeySequence::NativeText). Note that the     result is not platform independent. */
 end_comment
-begin_function
-DECL|function|operator QString
-name|QKeySequence
-operator|::
-name|operator
-name|QString
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|QKeySequence
-operator|::
-name|toString
-argument_list|(
-name|QKeySequence
-operator|::
-name|NativeText
-argument_list|)
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!    Returns the key sequence as a QVariant */
 end_comment
@@ -9740,37 +9719,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete     For backward compatibility: returns the first keycode     as integer. If the key sequence is empty, 0 is returned.  */
+comment|/*! \fn QKeySequence::operator int () const      \obsolete     For backward compatibility: returns the first keycode     as integer. If the key sequence is empty, 0 is returned.  */
 end_comment
-begin_function
-DECL|function|operator int
-name|QKeySequence
-operator|::
-name|operator
-name|int
-parameter_list|()
-specifier|const
-block|{
-if|if
-condition|(
-literal|1
-operator|<=
-name|count
-argument_list|()
-condition|)
-return|return
-name|d
-operator|->
-name|key
-index|[
-literal|0
-index|]
-return|;
-return|return
-literal|0
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     Returns a reference to the element at position \a index in the key     sequence. This can only be used to read an element.  */
 end_comment
