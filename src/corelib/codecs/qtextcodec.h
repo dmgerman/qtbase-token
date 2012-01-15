@@ -468,17 +468,6 @@ argument_list|)
 return|;
 block|}
 end_decl_stmt
-begin_comment
-comment|// ### Qt 5: merge these functions.
-end_comment
-begin_expr_stmt
-name|QTextDecoder
-operator|*
-name|makeDecoder
-argument_list|()
-specifier|const
-expr_stmt|;
-end_expr_stmt
 begin_decl_stmt
 name|QTextDecoder
 modifier|*
@@ -486,18 +475,12 @@ name|makeDecoder
 argument_list|(
 name|ConversionFlags
 name|flags
+operator|=
+name|DefaultConversion
 argument_list|)
 decl|const
 decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
-name|QTextEncoder
-operator|*
-name|makeEncoder
-argument_list|()
-specifier|const
-expr_stmt|;
-end_expr_stmt
 begin_decl_stmt
 name|QTextEncoder
 modifier|*
@@ -505,6 +488,8 @@ name|makeEncoder
 argument_list|(
 name|ConversionFlags
 name|flags
+operator|=
+name|DefaultConversion
 argument_list|)
 decl|const
 decl_stmt|;

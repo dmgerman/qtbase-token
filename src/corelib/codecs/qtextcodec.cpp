@@ -5111,28 +5111,6 @@ begin_comment
 comment|/*!     \fn QByteArray QTextCodec::convertFromUnicode(const QChar *input, int number,                                                   ConverterState *state) const      QTextCodec subclasses must reimplement this function.      Converts the first \a number of characters from the \a input array     from Unicode to the encoding of the subclass, and returns the result     in a QByteArray.      \a state can be 0 in which case the conversion is stateless and     default conversion rules should be used. If state is not 0, the     codec should save the state after the conversion in \a state, and     adjust the remainingChars and invalidChars members of the struct. */
 end_comment
 begin_comment
-comment|/*!     Creates a QTextDecoder which stores enough state to decode chunks     of \c{char *} data to create chunks of Unicode data.      The caller is responsible for deleting the returned object. */
-end_comment
-begin_function
-DECL|function|makeDecoder
-name|QTextDecoder
-modifier|*
-name|QTextCodec
-operator|::
-name|makeDecoder
-parameter_list|()
-specifier|const
-block|{
-return|return
-operator|new
-name|QTextDecoder
-argument_list|(
-name|this
-argument_list|)
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!     Creates a QTextDecoder with a specified \a flags to decode chunks     of \c{char *} data to create chunks of Unicode data.      The caller is responsible for deleting the returned object.      \since 4.7 */
 end_comment
 begin_function
@@ -5157,28 +5135,6 @@ argument_list|(
 name|this
 argument_list|,
 name|flags
-argument_list|)
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     Creates a QTextEncoder which stores enough state to encode chunks     of Unicode data as \c{char *} data.      The caller is responsible for deleting the returned object. */
-end_comment
-begin_function
-DECL|function|makeEncoder
-name|QTextEncoder
-modifier|*
-name|QTextCodec
-operator|::
-name|makeEncoder
-parameter_list|()
-specifier|const
-block|{
-return|return
-operator|new
-name|QTextEncoder
-argument_list|(
-name|this
 argument_list|)
 return|;
 block|}
