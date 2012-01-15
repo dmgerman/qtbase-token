@@ -118,11 +118,6 @@ name|Node
 operator|>
 name|hash
 expr_stmt|;
-name|void
-modifier|*
-name|unused
-decl_stmt|;
-comment|// ### Qt5: remove
 name|int
 name|mx
 decl_stmt|,
@@ -601,11 +596,6 @@ literal|0
 argument_list|)
 operator|,
 name|l
-argument_list|(
-literal|0
-argument_list|)
-operator|,
-name|unused
 argument_list|(
 literal|0
 argument_list|)
