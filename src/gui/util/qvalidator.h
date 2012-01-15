@@ -556,7 +556,6 @@ return|return
 name|r
 return|;
 block|}
-comment|// ### make inline for 5.0
 name|Q_SIGNALS
 operator|:
 name|void
