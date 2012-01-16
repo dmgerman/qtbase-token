@@ -181,15 +181,6 @@ name|iface
 argument_list|)
 decl|const
 decl_stmt|;
-name|QAccessible
-operator|::
-name|Relation
-name|relationTo
-argument_list|(
-argument|const QAccessibleInterface *other
-argument_list|)
-specifier|const
-expr_stmt|;
 name|void
 modifier|*
 name|interface_cast
@@ -669,15 +660,6 @@ name|rowCount
 argument_list|()
 specifier|const
 block|;
-name|QAccessible
-operator|::
-name|Relation
-name|relationTo
-argument_list|(
-argument|const QAccessibleInterface *other
-argument_list|)
-specifier|const
-block|;
 comment|// table interface
 name|QAccessibleInterface
 operator|*
@@ -1133,15 +1115,6 @@ argument|QAccessibleInterface **iface
 argument_list|)
 specifier|const
 block|;
-name|QAccessible
-operator|::
-name|Relation
-name|relationTo
-argument_list|(
-argument|const QAccessibleInterface *other
-argument_list|)
-specifier|const
-block|;
 name|private
 operator|:
 name|QAbstractItemView
@@ -1358,21 +1331,6 @@ block|;
 return|return
 operator|-
 literal|1
-return|;
-block|}
-name|QAccessible
-operator|::
-name|Relation
-name|relationTo
-argument_list|(
-argument|const QAccessibleInterface *
-argument_list|)
-specifier|const
-block|{
-return|return
-name|QAccessible
-operator|::
-name|Unrelated
 return|;
 block|}
 name|private
