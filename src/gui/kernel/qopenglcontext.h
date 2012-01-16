@@ -236,9 +236,7 @@ operator|*
 name|surface
 argument_list|)
 block|;
-name|void
-argument_list|(
-operator|*
+name|QFunctionPointer
 name|getProcAddress
 argument_list|(
 specifier|const
@@ -246,8 +244,6 @@ name|QByteArray
 operator|&
 name|procName
 argument_list|)
-argument_list|)
-argument_list|()
 block|;
 name|QSurface
 operator|*
