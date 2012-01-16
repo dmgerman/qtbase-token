@@ -10995,7 +10995,7 @@ operator|.
 name|position
 argument_list|()
 argument_list|,
-literal|5
+literal|4
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -11029,7 +11029,7 @@ operator|.
 name|position
 argument_list|()
 argument_list|,
-literal|6
+literal|5
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
