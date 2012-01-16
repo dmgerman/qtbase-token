@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -655,21 +655,21 @@ name|testWidget
 operator|->
 name|setEnabled
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|testWidget
 operator|->
 name|setAutoRepeat
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QKeySequence
@@ -939,7 +939,7 @@ name|testWidget
 operator|->
 name|setAutoRepeat
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -954,7 +954,7 @@ name|testWidget
 operator|->
 name|setAutoRepeat
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -975,14 +975,14 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|testWidget
 operator|->
 name|setAutoRepeat
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -1152,19 +1152,19 @@ break|break;
 case|case
 literal|4
 case|:
-comment|// check that pressing ENTER has no effect when autorepeat is FALSE
+comment|// check that pressing ENTER has no effect when autorepeat is false
 name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|testWidget
 operator|->
 name|setAutoRepeat
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -1244,19 +1244,19 @@ break|break;
 case|case
 literal|5
 case|:
-comment|// check that pressing ENTER has no effect when autorepeat is TRUE
+comment|// check that pressing ENTER has no effect when autorepeat is true
 name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|testWidget
 operator|->
 name|setAutoRepeat
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -1790,7 +1790,7 @@ name|testWidget
 operator|->
 name|setEnabled
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1807,7 +1807,7 @@ name|testWidget
 operator|->
 name|setEnabled
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1852,7 +1852,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1868,7 +1868,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -1890,7 +1890,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// add some debugging stuff
@@ -1974,7 +1974,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1990,7 +1990,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -2006,7 +2006,7 @@ name|testWidget
 operator|->
 name|setDown
 argument_list|(
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|testWidget

@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -492,7 +492,7 @@ name|char
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+name|malloc
 argument_list|(
 name|tailLen
 operator|+
@@ -1287,6 +1287,14 @@ name|uint
 name|QCoreApplicationPrivate
 operator|::
 name|attribs
+init|=
+operator|(
+literal|1
+operator|<<
+name|Qt
+operator|::
+name|AA_SynthesizeMouseForUnhandledTouchEvents
+operator|)
 decl_stmt|;
 end_decl_stmt
 begin_ifdef
@@ -3007,87 +3015,13 @@ argument_list|(
 name|threadData
 argument_list|)
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_JAMBI_BUILD
-name|int
-name|deleteWatch
-init|=
-literal|0
-decl_stmt|;
-name|int
-modifier|*
-name|oldDeleteWatch
-init|=
-name|QObjectPrivate
-operator|::
-name|setDeleteWatch
-argument_list|(
-name|d
-argument_list|,
-operator|&
-name|deleteWatch
-argument_list|)
-decl_stmt|;
-name|bool
-name|inEvent
-init|=
-name|d
-operator|->
-name|inEventHandler
-decl_stmt|;
-name|d
-operator|->
-name|inEventHandler
-operator|=
-literal|true
-expr_stmt|;
-endif|#
-directive|endif
-name|bool
-name|returnValue
-decl_stmt|;
-name|returnValue
-operator|=
+return|return
 name|notify
 argument_list|(
 name|receiver
 argument_list|,
 name|event
 argument_list|)
-expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_JAMBI_BUILD
-comment|// Restore the previous state if the object was not deleted..
-if|if
-condition|(
-operator|!
-name|deleteWatch
-condition|)
-block|{
-name|d
-operator|->
-name|inEventHandler
-operator|=
-name|inEvent
-expr_stmt|;
-block|}
-name|QObjectPrivate
-operator|::
-name|resetDeleteWatch
-argument_list|(
-name|d
-argument_list|,
-name|oldDeleteWatch
-argument_list|,
-name|deleteWatch
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-return|return
-name|returnValue
 return|;
 block|}
 end_function
@@ -5102,16 +5036,17 @@ operator|!
 name|receiver
 condition|)
 block|{
-comment|// don't lose the event
-name|data
-operator|->
-name|postEventList
-operator|.
-name|addEvent
-argument_list|(
+comment|// we must copy it first; we want to re-post the event
+comment|// with the event pointer intact, but we can't delay
+comment|// nulling the event ptr until after re-posting, as
+comment|// addEvent may invalidate pe.
+name|QPostEvent
+name|pe_copy
+init|=
 name|pe
-argument_list|)
-expr_stmt|;
+decl_stmt|;
+comment|// null out the event so if sendPostedEvents recurses, it
+comment|// will ignore this one, as it's been re-posted.
 cast|const_cast
 argument_list|<
 name|QPostEvent
@@ -5124,6 +5059,16 @@ operator|.
 name|event
 operator|=
 literal|0
+expr_stmt|;
+comment|// re-post the copied event so it isn't lost
+name|data
+operator|->
+name|postEventList
+operator|.
+name|addEvent
+argument_list|(
+name|pe_copy
+argument_list|)
 expr_stmt|;
 block|}
 continue|continue;
@@ -5495,15 +5440,21 @@ name|i
 operator|!=
 name|j
 condition|)
+name|qSwap
+argument_list|(
 name|data
 operator|->
 name|postEventList
-operator|.
-name|swap
-argument_list|(
+index|[
 name|i
+index|]
 argument_list|,
+name|data
+operator|->
+name|postEventList
+index|[
 name|j
+index|]
 argument_list|)
 expr_stmt|;
 operator|++
@@ -6489,7 +6440,7 @@ begin_comment
 comment|//QT_NO_TRANSLATE
 end_comment
 begin_comment
-comment|/*!     Returns the directory that contains the application executable.      For example, if you have installed Qt in the \c{C:\Trolltech\Qt}     directory, and you run the \c{regexp} example, this function will     return "C:/Trolltech/Qt/examples/tools/regexp".      On Mac OS X this will point to the directory actually containing the     executable, which may be inside of an application bundle (if the     application is bundled).      \warning On Linux, this function will try to get the path from the     \c {/proc} file system. If that fails, it assumes that \c     {argv[0]} contains the absolute file name of the executable. The     function also assumes that the current directory has not been     changed by the application.      In Symbian this function will return the application private directory,     not the path to executable itself, as those are always in \c {/sys/bin}.     If the application is in a read only drive, i.e. ROM, then the private path     on the system drive will be returned.      \sa applicationFilePath() */
+comment|/*!     Returns the directory that contains the application executable.      For example, if you have installed Qt in the \c{C:\Qt}     directory, and you run the \c{regexp} example, this function will     return "C:/Qt/examples/tools/regexp".      On Mac OS X this will point to the directory actually containing the     executable, which may be inside of an application bundle (if the     application is bundled).      \warning On Linux, this function will try to get the path from the     \c {/proc} file system. If that fails, it assumes that \c     {argv[0]} contains the absolute file name of the executable. The     function also assumes that the current directory has not been     changed by the application.      In Symbian this function will return the application private directory,     not the path to executable itself, as those are always in \c {/sys/bin}.     If the application is in a read only drive, i.e. ROM, then the private path     on the system drive will be returned.      \sa applicationFilePath() */
 end_comment
 begin_function
 DECL|function|applicationDirPath
@@ -8642,6 +8593,9 @@ comment|/*!     \fn void qAddPostRoutine(QtCleanUpFunction ptr)     \relates QCo
 end_comment
 begin_comment
 comment|/*!     \macro Q_DECLARE_TR_FUNCTIONS(context)     \relates QCoreApplication      The Q_DECLARE_TR_FUNCTIONS() macro declares and implements two     translation functions, \c tr() and \c trUtf8(), with these     signatures:      \snippet doc/src/snippets/code/src_corelib_kernel_qcoreapplication.cpp 6      This macro is useful if you want to use QObject::tr() or     QObject::trUtf8() in classes that don't inherit from QObject.      Q_DECLARE_TR_FUNCTIONS() must appear at the very top of the     class definition (before the first \c{public:} or \c{protected:}).     For example:      \snippet doc/src/snippets/code/src_corelib_kernel_qcoreapplication.cpp 7      The \a context parameter is normally the class name, but it can     be any string.      \sa Q_OBJECT, QObject::tr(), QObject::trUtf8() */
+end_comment
+begin_comment
+comment|/*!     \enum QCoreApplication::Type      \value Tty a console application     \value GuiClient a GUI application     \value GuiServer \e{Deprecated.} this value is only left for compatibility. */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

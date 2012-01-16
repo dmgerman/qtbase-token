@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the qmake application of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the qmake application of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -2666,7 +2666,7 @@ argument_list|,
 literal|"Dumping all variables:"
 argument_list|)
 expr_stmt|;
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -2682,7 +2682,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|QMap
+name|QHash
 argument_list|<
 name|QString
 argument_list|,
@@ -6005,6 +6005,25 @@ name|vcProject
 operator|.
 name|Configuration
 decl_stmt|;
+if|if
+condition|(
+name|conf
+operator|.
+name|CompilerVersion
+operator|>=
+name|NET2010
+condition|)
+block|{
+comment|// adjust compiler tool defaults for VS 2010 and above
+name|conf
+operator|.
+name|compiler
+operator|.
+name|Optimization
+operator|=
+name|optimizeDisabled
+expr_stmt|;
+block|}
 name|conf
 operator|.
 name|compiler
@@ -10241,7 +10260,7 @@ block|{
 if|#
 directive|if
 literal|0
-block|qDebug("Generator: MSVC.NET: List of current variables:");     for(QMap<QString, QStringList>::ConstIterator it = project->variables().begin(); it != project->variables().end(); ++it)         qDebug("Generator: MSVC.NET: %s => %s", qPrintable(it.key()), qPrintable(it.value().join(" | ")));
+block|qDebug("Generator: MSVC.NET: List of current variables:");     for(QHash<QString, QStringList>::ConstIterator it = project->variables().begin(); it != project->variables().end(); ++it)         qDebug("Generator: MSVC.NET: %s => %s", qPrintable(it.key()), qPrintable(it.value().join(" | ")));
 endif|#
 directive|endif
 block|}

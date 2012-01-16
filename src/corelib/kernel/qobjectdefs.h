@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -378,29 +378,13 @@ block|{}
 endif|#
 directive|endif
 comment|// QT_NO_QOBJECT_CHECK
-ifdef|#
-directive|ifdef
-name|Q_NO_DATA_RELOCATION
-DECL|macro|Q_OBJECT_GETSTATICMETAOBJECT
-define|#
-directive|define
-name|Q_OBJECT_GETSTATICMETAOBJECT
-value|static const QMetaObject&getStaticMetaObject();
-else|#
-directive|else
-DECL|macro|Q_OBJECT_GETSTATICMETAOBJECT
-define|#
-directive|define
-name|Q_OBJECT_GETSTATICMETAOBJECT
-endif|#
-directive|endif
 comment|/* tmake ignore Q_OBJECT */
 DECL|macro|Q_OBJECT
 define|#
 directive|define
 name|Q_OBJECT
 define|\
-value|public: \     Q_OBJECT_CHECK \     static const QMetaObject staticMetaObject; \     Q_OBJECT_GETSTATICMETAOBJECT \     virtual const QMetaObject *metaObject() const; \     virtual void *qt_metacast(const char *); \     QT_TR_FUNCTIONS \     virtual int qt_metacall(QMetaObject::Call, int, void **); \ private: \     Q_DECL_HIDDEN static const QMetaObjectExtraData staticMetaObjectExtraData; \     Q_DECL_HIDDEN static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **);
+value|public: \     Q_OBJECT_CHECK \     static const QMetaObject staticMetaObject; \     virtual const QMetaObject *metaObject() const; \     virtual void *qt_metacast(const char *); \     QT_TR_FUNCTIONS \     virtual int qt_metacall(QMetaObject::Call, int, void **); \ private: \     Q_DECL_HIDDEN static const QMetaObjectExtraData staticMetaObjectExtraData; \     Q_DECL_HIDDEN static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **);
 comment|/* tmake ignore Q_OBJECT */
 DECL|macro|Q_OBJECT_FAKE
 define|#
@@ -413,7 +397,7 @@ define|#
 directive|define
 name|Q_GADGET
 define|\
-value|public: \     static const QMetaObject staticMetaObject; \     Q_OBJECT_GETSTATICMETAOBJECT \ private:
+value|public: \     static const QMetaObject staticMetaObject; \ private:
 else|#
 directive|else
 comment|// Q_MOC_RUN
@@ -1433,41 +1417,6 @@ modifier|*
 name|argv
 parameter_list|)
 function_decl|;
-comment|// internal guarded pointers
-specifier|static
-name|void
-name|addGuard
-parameter_list|(
-name|QObject
-modifier|*
-modifier|*
-name|ptr
-parameter_list|)
-function_decl|;
-specifier|static
-name|void
-name|removeGuard
-parameter_list|(
-name|QObject
-modifier|*
-modifier|*
-name|ptr
-parameter_list|)
-function_decl|;
-specifier|static
-name|void
-name|changeGuard
-parameter_list|(
-name|QObject
-modifier|*
-modifier|*
-name|ptr
-parameter_list|,
-name|QObject
-modifier|*
-name|o
-parameter_list|)
-function_decl|;
 specifier|static
 name|bool
 name|invokeMethod
@@ -2235,25 +2184,13 @@ DECL|struct|QMetaObjectExtraData
 struct|struct
 name|QMetaObjectExtraData
 block|{
-ifdef|#
-directive|ifdef
-name|Q_NO_DATA_RELOCATION
 DECL|member|objects
-specifier|const
-name|QMetaObjectAccessor
-modifier|*
-name|objects
-decl_stmt|;
-else|#
-directive|else
 specifier|const
 name|QMetaObject
 modifier|*
 modifier|*
 name|objects
 decl_stmt|;
-endif|#
-directive|endif
 DECL|typedef|StaticMetacallFunction
 typedef|typedef
 name|void

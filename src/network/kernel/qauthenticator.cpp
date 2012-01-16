@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qhttp.h>
+file|<private/qhttpheader_p.h>
 end_include
 begin_include
 include|#
@@ -357,7 +357,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the \a user used for authentication. */
+comment|/*!   Sets the \a user used for authentication.    \sa QNetworkAccessManager::authenticationRequired() */
 end_comment
 begin_function
 DECL|function|setUser
@@ -451,66 +451,6 @@ operator|=
 name|user
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-operator|(
-name|separatorPosn
-operator|=
-name|user
-operator|.
-name|indexOf
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"@"
-argument_list|)
-argument_list|)
-operator|)
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-comment|//domain name is present
-name|d
-operator|->
-name|realm
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|d
-operator|->
-name|userDomain
-operator|=
-name|user
-operator|.
-name|mid
-argument_list|(
-name|separatorPosn
-operator|+
-literal|1
-argument_list|)
-expr_stmt|;
-name|d
-operator|->
-name|extractedUser
-operator|=
-name|user
-operator|.
-name|left
-argument_list|(
-name|separatorPosn
-argument_list|)
-expr_stmt|;
-name|d
-operator|->
-name|user
-operator|=
-name|user
-expr_stmt|;
-block|}
 else|else
 block|{
 name|d
@@ -584,7 +524,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the \a password used for authentication. */
+comment|/*!   Sets the \a password used for authentication.    \sa QNetworkAccessManager::authenticationRequired() */
 end_comment
 begin_function
 DECL|function|setPassword
@@ -810,6 +750,11 @@ member_init_list|,
 name|method
 argument_list|(
 name|None
+argument_list|)
+member_init_list|,
+name|hasFailed
+argument_list|(
+literal|false
 argument_list|)
 member_init_list|,
 name|phase
@@ -1206,13 +1151,6 @@ block|{
 case|case
 name|Basic
 case|:
-if|if
-condition|(
-name|realm
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
 name|this
 operator|->
 name|options
@@ -1263,13 +1201,6 @@ case|case
 name|DigestMd5
 case|:
 block|{
-if|if
-condition|(
-name|realm
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
 name|this
 operator|->
 name|options
@@ -5895,6 +5826,7 @@ name|QNtlmPhase3BlockBase
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// for kerberos style user@domain logins, NTLM domain string should be left empty
 if|if
 condition|(
 name|ctx
@@ -5903,6 +5835,19 @@ name|userDomain
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+operator|!
+name|ctx
+operator|->
+name|extractedUser
+operator|.
+name|contains
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'@'
+argument_list|)
+argument_list|)
 condition|)
 block|{
 name|offset

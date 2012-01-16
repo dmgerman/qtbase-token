@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -47,27 +47,7 @@ begin_comment
 comment|/*!      \enum QReadWriteLock::RecursionMode     \since 4.4      \value Recursive In this mode, a thread can lock the same     QReadWriteLock multiple times and the mutex won't be unlocked     until a corresponding number of unlock() calls have been made.      \value NonRecursive In this mode, a thread may only lock a     QReadWriteLock once.      \sa QReadWriteLock() */
 end_comment
 begin_comment
-comment|/*!     Constructs a QReadWriteLock object in NonRecursive mode.      \sa lockForRead(), lockForWrite() */
-end_comment
-begin_constructor
-DECL|function|QReadWriteLock
-name|QReadWriteLock
-operator|::
-name|QReadWriteLock
-parameter_list|()
-member_init_list|:
-name|d
-argument_list|(
-operator|new
-name|QReadWriteLockPrivate
-argument_list|(
-name|NonRecursive
-argument_list|)
-argument_list|)
-block|{ }
-end_constructor
-begin_comment
-comment|/*!     \since 4.4      Constructs a QReadWriteLock object in the given \a recursionMode.      \sa lockForRead(), lockForWrite(), RecursionMode */
+comment|/*!     \since 4.4      Constructs a QReadWriteLock object in the given \a recursionMode.      The default recursion mode is NonRecursive.      \sa lockForRead(), lockForWrite(), RecursionMode */
 end_comment
 begin_constructor
 DECL|function|QReadWriteLock
@@ -1272,7 +1252,7 @@ begin_comment
 comment|/*!     \fn QReadWriteLock *QReadLocker::readWriteLock() const      Returns a pointer to the read-write lock that was passed     to the constructor. */
 end_comment
 begin_comment
-comment|/*!     \class QWriteLocker     \brief The QWriteLocker class is a convenience class that     simplifies locking and unlocking read-write locks for write access.      \threadsafe      \ingroup thread      The purpose of QWriteLocker (and QReadLocker is to simplify     QReadWriteLock locking and unlocking. Locking and unlocking     statements or in exception handling code is error-prone and     difficult to debug. QWriteLocker can be used in such situations     to ensure that the state of the lock is always well-defined.      Here's an example that uses QWriteLocker to lock and unlock a     read-write lock for writing:      \snippet doc/src/snippets/code/src_corelib_thread_qreadwritelock.cpp 3      It is equivalent to the following code:      \snippet doc/src/snippets/code/src_corelib_thread_qreadwritelock.cpp 4      The QMutexLocker documentation shows examples where the use of a     locker object greatly simplifies programming.      \sa QReadLocker, QReadWriteLock */
+comment|/*!     \class QWriteLocker     \brief The QWriteLocker class is a convenience class that     simplifies locking and unlocking read-write locks for write access.      \threadsafe      \ingroup thread      The purpose of QWriteLocker (and QReadLocker) is to simplify     QReadWriteLock locking and unlocking. Locking and unlocking     statements or in exception handling code is error-prone and     difficult to debug. QWriteLocker can be used in such situations     to ensure that the state of the lock is always well-defined.      Here's an example that uses QWriteLocker to lock and unlock a     read-write lock for writing:      \snippet doc/src/snippets/code/src_corelib_thread_qreadwritelock.cpp 3      It is equivalent to the following code:      \snippet doc/src/snippets/code/src_corelib_thread_qreadwritelock.cpp 4      The QMutexLocker documentation shows examples where the use of a     locker object greatly simplifies programming.      \sa QReadLocker, QReadWriteLock */
 end_comment
 begin_comment
 comment|/*!     \fn QWriteLocker::QWriteLocker(QReadWriteLock *lock)      Constructs a QWriteLocker and locks \a lock for writing. The lock     will be unlocked when the QWriteLocker is destroyed. If \c lock is     zero, QWriteLocker does nothing.      \sa QReadWriteLock::lockForWrite() */

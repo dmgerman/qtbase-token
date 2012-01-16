@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -166,20 +166,6 @@ operator|&
 name|text
 argument_list|)
 decl_stmt|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-name|QAccessible
-operator|::
-name|Method
-name|method
-argument_list|,
-specifier|const
-name|QVariantList
-operator|&
-name|params
-argument_list|)
-decl_stmt|;
 name|void
 modifier|*
 name|interface_cast
@@ -203,23 +189,25 @@ parameter_list|)
 function_decl|;
 name|QString
 name|attributes
-parameter_list|(
+argument_list|(
 name|int
 name|offset
-parameter_list|,
+argument_list|,
 name|int
-modifier|*
+operator|*
 name|startOffset
-parameter_list|,
+argument_list|,
 name|int
-modifier|*
+operator|*
 name|endOffset
-parameter_list|)
-function_decl|;
+argument_list|)
+decl|const
+decl_stmt|;
 name|int
 name|cursorPosition
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QRect
 name|characterRect
 argument_list|(
@@ -231,11 +219,13 @@ operator|::
 name|CoordinateType
 name|coordType
 argument_list|)
+decl|const
 decl_stmt|;
 name|int
 name|selectionCount
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|int
 name|offsetAtPoint
 argument_list|(
@@ -249,32 +239,35 @@ operator|::
 name|CoordinateType
 name|coordType
 argument_list|)
+decl|const
 decl_stmt|;
 name|void
 name|selection
-parameter_list|(
+argument_list|(
 name|int
 name|selectionIndex
-parameter_list|,
+argument_list|,
 name|int
-modifier|*
+operator|*
 name|startOffset
-parameter_list|,
+argument_list|,
 name|int
-modifier|*
+operator|*
 name|endOffset
-parameter_list|)
-function_decl|;
+argument_list|)
+decl|const
+decl_stmt|;
 name|QString
 name|text
-parameter_list|(
+argument_list|(
 name|int
 name|startOffset
-parameter_list|,
+argument_list|,
 name|int
 name|endOffset
-parameter_list|)
-function_decl|;
+argument_list|)
+decl|const
+decl_stmt|;
 name|QString
 name|textBeforeOffset
 argument_list|(
@@ -294,6 +287,7 @@ name|int
 operator|*
 name|endOffset
 argument_list|)
+decl|const
 decl_stmt|;
 name|QString
 name|textAfterOffset
@@ -314,6 +308,7 @@ name|int
 operator|*
 name|endOffset
 argument_list|)
+decl|const
 decl_stmt|;
 name|QString
 name|textAtOffset
@@ -334,6 +329,7 @@ name|int
 operator|*
 name|endOffset
 argument_list|)
+decl|const
 decl_stmt|;
 name|void
 name|removeSelection
@@ -364,8 +360,9 @@ parameter_list|)
 function_decl|;
 name|int
 name|characterCount
-parameter_list|()
-function_decl|;
+argument_list|()
+specifier|const
+expr_stmt|;
 name|void
 name|scrollToSubstring
 parameter_list|(
@@ -379,14 +376,15 @@ function_decl|;
 comment|// QAccessibleEditableTextInterface
 name|void
 name|copyText
-parameter_list|(
+argument_list|(
 name|int
 name|startOffset
-parameter_list|,
+argument_list|,
 name|int
 name|endOffset
-parameter_list|)
-function_decl|;
+argument_list|)
+decl|const
+decl_stmt|;
 name|void
 name|deleteText
 parameter_list|(
@@ -498,17 +496,8 @@ operator|*
 name|widget
 argument_list|)
 block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-block|;
-name|int
+name|QAccessibleInterface
+operator|*
 name|childAt
 argument_list|(
 argument|int x
@@ -534,17 +523,6 @@ operator|*
 name|child
 argument_list|(
 argument|int index
-argument_list|)
-specifier|const
-block|;
-name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
 argument_list|)
 specifier|const
 block|;
@@ -617,21 +595,18 @@ name|childCount
 argument_list|()
 specifier|const
 block|;
-name|int
-name|indexOfChild
+name|QAccessibleInterface
+operator|*
+name|child
 argument_list|(
-argument|const QAccessibleInterface *child
+argument|int index
 argument_list|)
 specifier|const
 block|;
 name|int
-name|navigate
+name|indexOfChild
 argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
+argument|const QAccessibleInterface *child
 argument_list|)
 specifier|const
 block|;
@@ -689,6 +664,14 @@ name|childCount
 argument_list|()
 specifier|const
 block|;
+name|QAccessibleInterface
+operator|*
+name|child
+argument_list|(
+argument|int index
+argument_list|)
+specifier|const
+block|;
 name|int
 name|indexOfChild
 argument_list|(
@@ -696,29 +679,9 @@ argument|const QAccessibleInterface *child
 argument_list|)
 specifier|const
 block|;
-name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
-argument_list|)
-specifier|const
-block|;
 name|QRect
 name|rect
 argument_list|()
-specifier|const
-block|;
-name|int
-name|childAt
-argument_list|(
-argument|int x
-argument_list|,
-argument|int y
-argument_list|)
 specifier|const
 block|;
 name|protected
@@ -765,21 +728,18 @@ name|childCount
 argument_list|()
 specifier|const
 block|;
-name|int
-name|indexOfChild
+name|QAccessibleInterface
+operator|*
+name|child
 argument_list|(
-argument|const QAccessibleInterface *child
+argument|int index
 argument_list|)
 specifier|const
 block|;
 name|int
-name|navigate
+name|indexOfChild
 argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
+argument|const QAccessibleInterface *child
 argument_list|)
 specifier|const
 block|;
@@ -812,16 +772,6 @@ argument_list|(
 name|QWidget
 operator|*
 name|widget
-argument_list|)
-block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
 argument_list|)
 block|; }
 decl_stmt|;
@@ -898,17 +848,6 @@ argument|const QAccessibleInterface *child
 argument_list|)
 specifier|const
 block|;
-name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **target
-argument_list|)
-specifier|const
-block|;
 name|QAccessibleInterface
 operator|*
 name|child
@@ -916,16 +855,6 @@ argument_list|(
 argument|int index
 argument_list|)
 specifier|const
-block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
 block|;
 name|protected
 operator|:
@@ -1074,12 +1003,13 @@ name|childCount
 argument_list|()
 specifier|const
 block|;
-name|QAccessible
-operator|::
-name|Relation
-name|relationTo
+name|QAccessibleInterface
+operator|*
+name|childAt
 argument_list|(
-argument|const QAccessibleInterface *other
+argument|int x
+argument_list|,
+argument|int y
 argument_list|)
 specifier|const
 block|;
@@ -1115,15 +1045,6 @@ operator|::
 name|State
 name|state
 argument_list|()
-specifier|const
-block|;
-name|int
-name|childAt
-argument_list|(
-argument|int x
-argument_list|,
-argument|int y
-argument_list|)
 specifier|const
 block|;
 name|QObject
@@ -1206,7 +1127,8 @@ argument|const QAccessibleInterface *iface
 argument_list|)
 specifier|const
 block|;
-name|int
+name|QAccessibleInterface
+operator|*
 name|childAt
 argument_list|(
 argument|int x
@@ -1220,17 +1142,7 @@ operator|*
 name|mainWindow
 argument_list|()
 specifier|const
-block|;
-name|QVariant
-name|invokeMethod
-argument_list|(
-argument|QAccessible::Method method
-argument_list|,
-argument|int child
-argument_list|,
-argument|const QVariantList&params
-argument_list|)
-block|; }
+block|;  }
 decl_stmt|;
 end_decl_stmt
 begin_endif

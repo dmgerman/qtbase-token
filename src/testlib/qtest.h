@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtTest module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtTest module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -1042,24 +1042,39 @@ name|isOk
 operator|=
 name|true
 block|;
-if|if
-condition|(
+specifier|const
+name|int
+name|actualSize
+operator|=
 name|t1
 operator|.
 name|count
 argument_list|()
-operator|!=
+block|;
+specifier|const
+name|int
+name|expectedSize
+operator|=
 name|t2
 operator|.
 name|count
 argument_list|()
+block|;
+if|if
+condition|(
+name|actualSize
+operator|!=
+name|expectedSize
 condition|)
 block|{
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|msg
 argument_list|,
-literal|1024
+sizeof|sizeof
+argument_list|(
+name|msg
+argument_list|)
 argument_list|,
 literal|"Compared QStringLists have different sizes.\n"
 literal|"   Actual (%s) size  : '%d'\n"
@@ -1067,17 +1082,11 @@ literal|"   Expected (%s) size: '%d'"
 argument_list|,
 name|actual
 argument_list|,
-name|t1
-operator|.
-name|count
-argument_list|()
+name|actualSize
 argument_list|,
 name|expected
 argument_list|,
-name|t2
-operator|.
-name|count
-argument_list|()
+name|expectedSize
 argument_list|)
 expr_stmt|;
 name|isOk
@@ -1085,23 +1094,6 @@ operator|=
 name|false
 expr_stmt|;
 block|}
-specifier|const
-name|int
-name|min
-operator|=
-name|qMin
-argument_list|(
-name|t1
-operator|.
-name|count
-argument_list|()
-argument_list|,
-name|t2
-operator|.
-name|count
-argument_list|()
-argument_list|)
-expr_stmt|;
 end_expr_stmt
 begin_for
 for|for
@@ -1115,7 +1107,7 @@ name|isOk
 operator|&&
 name|i
 operator|<
-name|min
+name|actualSize
 condition|;
 operator|++
 name|i
@@ -1138,11 +1130,14 @@ name|i
 argument_list|)
 condition|)
 block|{
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|msg
 argument_list|,
-literal|1024
+sizeof|sizeof
+argument_list|(
+name|msg
+argument_list|)
 argument_list|,
 literal|"Compared QStringLists differ at index %d.\n"
 literal|"   Actual (%s) : '%s'\n"
@@ -1357,7 +1352,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     QApplication app(argc, argv); \     QTEST_DISABLE_KEYPAD_NAVIGATION \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
+value|int main(int argc, char *argv[]) \ { \     QApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     QTEST_DISABLE_KEYPAD_NAVIGATION \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_elif
 elif|#
@@ -1380,7 +1375,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     QGuiApplication app(argc, argv); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
+value|int main(int argc, char *argv[]) \ { \     QGuiApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_else
 else|#
@@ -1394,7 +1389,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
+value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_endif
 endif|#
@@ -1412,7 +1407,7 @@ parameter_list|(
 name|TestObject
 parameter_list|)
 define|\
-value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
+value|int main(int argc, char *argv[]) \ { \     QCoreApplication app(argc, argv); \     app.setAttribute(Qt::AA_Use96Dpi, true); \     TestObject tc; \     return QTest::qExec(&tc, argc, argv); \ }
 end_define
 begin_macro
 name|QT_END_HEADER

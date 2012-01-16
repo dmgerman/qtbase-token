@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -136,13 +136,13 @@ specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
-public|public:
-name|tst_QSettings
-parameter_list|()
-constructor_decl|;
 public|public
 name|slots
 public|:
+name|void
+name|initTestCase
+parameter_list|()
+function_decl|;
 name|void
 name|init
 parameter_list|()
@@ -1095,11 +1095,12 @@ name|CustomFormat2
 expr_stmt|;
 block|}
 end_function
-begin_constructor
-DECL|function|tst_QSettings
+begin_function
+DECL|function|initTestCase
+name|void
 name|tst_QSettings
 operator|::
-name|tst_QSettings
+name|initTestCase
 parameter_list|()
 block|{
 name|QSettings
@@ -1162,7 +1163,7 @@ name|CustomFormat2
 argument_list|)
 expr_stmt|;
 block|}
-end_constructor
+end_function
 begin_function
 DECL|function|init
 name|void
@@ -12954,6 +12955,12 @@ init|=
 literal|4
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|numThreadSafetyFailures
+name|int
+name|numThreadSafetyFailures
+decl_stmt|;
+end_decl_stmt
 begin_class
 DECL|class|SettingsThread
 class|class
@@ -13049,7 +13056,28 @@ operator|.
 name|sync
 argument_list|()
 expr_stmt|;
-name|QCOMPARE
+if|if
+condition|(
+name|settings
+operator|.
+name|status
+argument_list|()
+operator|!=
+name|QSettings
+operator|::
+name|NoError
+condition|)
+block|{
+name|QWARN
+argument_list|(
+name|qPrintable
+argument_list|(
+name|QString
+argument_list|(
+literal|"Unexpected QSettings status %1"
+argument_list|)
+operator|.
+name|arg
 argument_list|(
 operator|(
 name|int
@@ -13058,15 +13086,14 @@ name|settings
 operator|.
 name|status
 argument_list|()
-argument_list|,
-operator|(
-name|int
-operator|)
-name|QSettings
-operator|::
-name|NoError
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
+operator|++
+name|numThreadSafetyFailures
+expr_stmt|;
+block|}
 block|}
 block|}
 end_function
@@ -13089,6 +13116,10 @@ name|i
 decl_stmt|,
 name|j
 decl_stmt|;
+name|numThreadSafetyFailures
+operator|=
+literal|0
+expr_stmt|;
 for|for
 control|(
 name|i
@@ -13206,6 +13237,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|QCOMPARE
+argument_list|(
+name|numThreadSafetyFailures
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -22377,7 +22415,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* // Not tested at the moment. void tst_QSettings::oldSubkeyList() {     QVERIFY( TRUE ); } */
+comment|/* // Not tested at the moment. void tst_QSettings::oldSubkeyList() {     QVERIFY( true ); } */
 end_comment
 begin_macro
 name|QTEST_MAIN

@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -73,6 +73,11 @@ include|#
 directive|include
 file|"QtCore/qvarlengtharray.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"private/qtimerinfo_unix_p.h"
+end_include
 begin_if
 if|#
 directive|if
@@ -133,189 +138,6 @@ end_endif
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
-begin_comment
-comment|// internal timer info
-end_comment
-begin_struct
-DECL|struct|QTimerInfo
-struct|struct
-name|QTimerInfo
-block|{
-DECL|member|id
-name|int
-name|id
-decl_stmt|;
-comment|// - timer identifier
-DECL|member|interval
-name|timeval
-name|interval
-decl_stmt|;
-comment|// - timer interval
-DECL|member|timeout
-name|timeval
-name|timeout
-decl_stmt|;
-comment|// - when to sent event
-DECL|member|obj
-name|QObject
-modifier|*
-name|obj
-decl_stmt|;
-comment|// - object to receive event
-DECL|member|activateRef
-name|QTimerInfo
-modifier|*
-modifier|*
-name|activateRef
-decl_stmt|;
-comment|// - ref from activateTimers
-block|}
-struct|;
-end_struct
-begin_decl_stmt
-name|class
-name|QTimerInfoList
-range|:
-name|public
-name|QList
-operator|<
-name|QTimerInfo
-operator|*
-operator|>
-block|{
-if|#
-directive|if
-operator|(
-operator|(
-name|_POSIX_MONOTONIC_CLOCK
-operator|-
-literal|0
-operator|<=
-literal|0
-operator|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|)
-operator|||
-name|defined
-argument_list|(
-name|QT_BOOTSTRAPPED
-argument_list|)
-name|timeval
-name|previousTime
-block|;
-name|clock_t
-name|previousTicks
-block|;
-name|int
-name|ticksPerSecond
-block|;
-name|int
-name|msPerTick
-block|;
-name|bool
-name|timeChanged
-argument_list|(
-name|timeval
-operator|*
-name|delta
-argument_list|)
-block|;
-endif|#
-directive|endif
-comment|// state variables used by activateTimers()
-name|QTimerInfo
-operator|*
-name|firstTimerInfo
-block|;
-name|public
-operator|:
-name|QTimerInfoList
-argument_list|()
-block|;
-name|timeval
-name|currentTime
-block|;
-name|timeval
-name|updateCurrentTime
-argument_list|()
-block|;
-comment|// must call updateCurrentTime() first!
-name|void
-name|repairTimersIfNeeded
-argument_list|()
-block|;
-name|bool
-name|timerWait
-argument_list|(
-name|timeval
-operator|&
-argument_list|)
-block|;
-name|void
-name|timerInsert
-argument_list|(
-name|QTimerInfo
-operator|*
-argument_list|)
-block|;
-name|void
-name|timerRepair
-argument_list|(
-specifier|const
-name|timeval
-operator|&
-argument_list|)
-block|;
-name|void
-name|registerTimer
-argument_list|(
-argument|int timerId
-argument_list|,
-argument|int interval
-argument_list|,
-argument|QObject *object
-argument_list|)
-block|;
-name|bool
-name|unregisterTimer
-argument_list|(
-argument|int timerId
-argument_list|)
-block|;
-name|bool
-name|unregisterTimers
-argument_list|(
-name|QObject
-operator|*
-name|object
-argument_list|)
-block|;
-name|QList
-operator|<
-name|QPair
-operator|<
-name|int
-block|,
-name|int
-operator|>
-expr|>
-name|registeredTimers
-argument_list|(
-argument|QObject *object
-argument_list|)
-specifier|const
-block|;
-name|int
-name|activateTimers
-argument_list|()
-block|; }
-decl_stmt|;
-end_decl_stmt
 begin_struct
 DECL|struct|QSockNot
 struct|struct
@@ -445,6 +267,8 @@ argument_list|(
 argument|int timerId
 argument_list|,
 argument|int interval
+argument_list|,
+argument|Qt::TimerType timerType
 argument_list|,
 argument|QObject *object
 argument_list|)

@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -31,6 +31,11 @@ begin_include
 include|#
 directive|include
 file|"qnetworkcookie.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"qnetworkcookiejar.h"
 end_include
 begin_include
 include|#
@@ -95,7 +100,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtNetwork/qauthenticator.h"
+file|"QtNetwork/private/qauthenticator_p.h"
 end_include
 begin_include
 include|#
@@ -200,7 +205,7 @@ comment|/*!     \property QNetworkAccessManager::networkAccessible     \brief wh
 comment|/*!     \fn void QNetworkAccessManager::networkAccessibleChanged(QNetworkAccessManager::NetworkAccessibility accessible)      This signal is emitted when the value of the \l networkAccessible property changes.     \a accessible is the new network accessibility. */
 comment|/*!     \fn void QNetworkAccessManager::networkSessionConnected()      \since 4.7      \internal      This signal is emitted when the status of the network session changes into a usable (Connected)     state. It is used to signal to QNetworkReplys to start or migrate their network operation once     the network session has been opened or finished roaming. */
 comment|/*!     \fn void QNetworkAccessManager::proxyAuthenticationRequired(const QNetworkProxy&proxy, QAuthenticator *authenticator)      This signal is emitted whenever a proxy requests authentication     and QNetworkAccessManager cannot find a valid, cached     credential. The slot connected to this signal should fill in the     credentials for the proxy \a proxy in the \a authenticator object.      QNetworkAccessManager will cache the credentials internally. The     next time the proxy requests authentication, QNetworkAccessManager     will automatically send the same credential without emitting the     proxyAuthenticationRequired signal again.      If the proxy rejects the credentials, QNetworkAccessManager will     emit the signal again.      \sa proxy(), setProxy(), authenticationRequired() */
-comment|/*!     \fn void QNetworkAccessManager::authenticationRequired(QNetworkReply *reply, QAuthenticator *authenticator)      This signal is emitted whenever a final server requests     authentication before it delivers the requested contents. The slot     connected to this signal should fill the credentials for the     contents (which can be determined by inspecting the \a reply     object) in the \a authenticator object.      QNetworkAccessManager will cache the credentials internally and     will send the same values if the server requires authentication     again, without emitting the authenticationRequired() signal. If it     rejects the credentials, this signal will be emitted again.      \note It is not possible to use a QueuedConnection to connect to     this signal, as the connection will fail if the authenticator has     not been filled in with new information when the signal returns.      \sa proxyAuthenticationRequired() */
+comment|/*!     \fn void QNetworkAccessManager::authenticationRequired(QNetworkReply *reply, QAuthenticator *authenticator)      This signal is emitted whenever a final server requests     authentication before it delivers the requested contents. The slot     connected to this signal should fill the credentials for the     contents (which can be determined by inspecting the \a reply     object) in the \a authenticator object.      QNetworkAccessManager will cache the credentials internally and     will send the same values if the server requires authentication     again, without emitting the authenticationRequired() signal. If it     rejects the credentials, this signal will be emitted again.      \note To have the request not send credentials you must not call     setUser() or setPassword() on the \a authenticator object. This     will result in the the \l finished() signal being emitted with a     \l QNetworkReply with error \l AuthenticationRequiredError.      \note It is not possible to use a QueuedConnection to connect to     this signal, as the connection will fail if the authenticator has     not been filled in with new information when the signal returns.      \sa proxyAuthenticationRequired(), QAuthenticator::setUser(), QAuthenticator::setPassword() */
 comment|/*!     \fn void QNetworkAccessManager::finished(QNetworkReply *reply)      This signal is emitted whenever a pending network reply is     finished. The \a reply parameter will contain a pointer to the     reply that has just finished. This signal is emitted in tandem     with the QNetworkReply::finished() signal.      See QNetworkReply::finished() for information on the status that     the object will be in.      \note Do not delete the \a reply object in the slot connected to this     signal. Use deleteLater().      \sa QNetworkReply::finished(), QNetworkReply::error() */
 comment|/*!     \fn void QNetworkAccessManager::sslErrors(QNetworkReply *reply, const QList<QSslError>&errors)      This signal is emitted if the SSL/TLS session encountered errors     during the set up, including certificate verification errors. The     \a errors parameter contains the list of errors and \a reply is     the QNetworkReply that is encountering these errors.      To indicate that the errors are not fatal and that the connection     should proceed, the QNetworkReply::ignoreSslErrors() function should be called     from the slot connected to this signal. If it is not called, the     SSL session will be torn down before any data is exchanged     (including the URL).      This signal can be used to display an error message to the user     indicating that security may be compromised and display the     SSL settings (see sslConfiguration() to obtain it). If the user     decides to proceed after analyzing the remote certificate, the     slot should call ignoreSslErrors().      \sa QSslSocket::sslErrors(), QNetworkReply::sslErrors(),     QNetworkReply::sslConfiguration(), QNetworkReply::ignoreSslErrors() */
 comment|/*!     Constructs a QNetworkAccessManager object that is the center of     the Network Access API and sets \a parent as the parent object. */
@@ -2650,19 +2655,34 @@ argument_list|(
 name|QNetworkAccessManager
 argument_list|)
 expr_stmt|;
-comment|// ### FIXME Tracking of successful authentications
-comment|// This code is a bit broken right now for SOCKS authentication
-comment|// first request: proxyAuthenticationRequired gets emitted, credentials gets saved
-comment|// second request: (proxy != backend->reply->lastProxyAuthentication) does not evaluate to true,
-comment|//      proxyAuthenticationRequired gets emitted again
-comment|// possible solution: some tracking inside the authenticator
-comment|//      or a new function proxyAuthenticationSucceeded(true|false)
+name|QAuthenticatorPrivate
+modifier|*
+name|priv
+init|=
+name|QAuthenticatorPrivate
+operator|::
+name|getPrivate
+argument_list|(
+operator|*
+name|authenticator
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|proxy
 operator|!=
 operator|*
 name|lastProxyAuthentication
+operator|&&
+operator|(
+operator|!
+name|priv
+operator|||
+operator|!
+name|priv
+operator|->
+name|hasFailed
+operator|)
 condition|)
 block|{
 name|QNetworkAuthenticationCredential

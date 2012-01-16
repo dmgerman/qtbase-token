@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -49,17 +49,10 @@ endif|#
 directive|endif
 if|#
 directive|if
-operator|(
 name|defined
 argument_list|(
 name|Q_MOC_RUN
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_JAMBI_RUN
-argument_list|)
-operator|)
 comment|// NOTE: Generally, do not add Q_ENUMS if a corresponding Q_FLAGS exists.
 decl_stmt|Q_ENUMS(ScrollBarPolicy FocusPolicy ContextMenuPolicy
 end_function
@@ -259,12 +252,18 @@ argument_list|(
 argument|CursorMoveStyle
 argument_list|)
 end_macro
+begin_macro
+name|Q_ENUMS
+argument_list|(
+argument|TimerType
+argument_list|)
+end_macro
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// (defined(Q_MOC_RUN) || defined(QT_JAMBI_RUN))
+comment|// defined(Q_MOC_RUN)
 end_comment
 begin_if
 if|#
@@ -1508,43 +1507,13 @@ name|WA_MergeSoftkeysRecursively
 operator|=
 literal|125
 block|,
-if|#
-directive|if
-literal|0
-comment|// these values are reserved for Maemo5 - do not re-use them
-block|WA_Maemo5NonComposited = 126,         WA_Maemo5StackedWindow = 127,
-endif|#
-directive|endif
-name|WA_LockPortraitOrientation
-operator|=
-literal|128
-block|,
-name|WA_LockLandscapeOrientation
-operator|=
-literal|129
-block|,
-name|WA_AutoOrientation
-operator|=
-literal|130
-block|,
-if|#
-directive|if
-literal|0
-comment|// these values are reserved for Maemo5 - do not re-use them
-block|WA_Maemo5PortraitOrientation = WA_LockPortraitOrientation,         WA_Maemo5LandscapeOrientation = WA_LockLandscapeOrientation,         WA_Maemo5AutoOrientation = WA_AutoOrientation,         WA_Maemo5ShowProgressIndicator = 131,
-endif|#
-directive|endif
 name|WA_X11DoNotAcceptFocus
 operator|=
-literal|132
-block|,
-name|WA_SymbianNoSystemRotation
-operator|=
-literal|133
+literal|126
 block|,
 name|WA_MacNoShadow
 operator|=
-literal|134
+literal|127
 block|,
 comment|// Add new attributes before this line
 name|WA_AttributeCount
@@ -1588,17 +1557,21 @@ name|AA_MacDontSwapCtrlAndMeta
 init|=
 literal|7
 block|,
-name|AA_S60DontConstructApplicationPanes
+name|AA_Use96Dpi
 init|=
 literal|8
-block|,
-name|AA_S60DisablePartialScreenInputMode
-init|=
-literal|9
 block|,
 name|AA_X11InitThreads
 init|=
 literal|10
+block|,
+name|AA_SynthesizeTouchForUnhandledMouseEvents
+init|=
+literal|11
+block|,
+name|AA_SynthesizeMouseForUnhandledTouchEvents
+init|=
+literal|12
 block|,
 comment|// Add new attributes before this line
 name|AA_AttributeCount
@@ -4241,7 +4214,7 @@ name|ImhTime
 operator|=
 literal|0x100
 block|,
-name|ImhMultiLine
+name|ImhPreferLatin
 operator|=
 literal|0x200
 block|,
@@ -4272,6 +4245,10 @@ block|,
 name|ImhUrlCharactersOnly
 operator|=
 literal|0x400000
+block|,
+name|ImhLatinOnly
+operator|=
+literal|0x800000
 block|,
 name|ImhExclusiveInputMask
 operator|=
@@ -4500,7 +4477,7 @@ block|,
 comment|// Reserved
 name|UserRole
 init|=
-literal|32
+literal|0x0100
 block|}
 enum|;
 end_enum
@@ -4806,14 +4783,6 @@ block|,
 name|TouchPointReleased
 init|=
 literal|0x08
-block|,
-name|TouchPointStateMask
-init|=
-literal|0x0f
-block|,
-name|TouchPointPrimary
-init|=
-literal|0x10
 block|}
 enum|;
 end_enum
@@ -4938,6 +4907,18 @@ name|VisualMoveStyle
 block|}
 enum|;
 end_enum
+begin_enum
+enum|enum
+name|TimerType
+block|{
+name|PreciseTimer
+block|,
+name|CoarseTimer
+block|,
+name|VeryCoarseTimer
+block|}
+enum|;
+end_enum
 begin_ifdef
 unit|}
 ifdef|#
@@ -5031,6 +5012,12 @@ begin_macro
 name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(
 argument|Qt::TextInteractionFlags
+argument_list|)
+end_macro
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|Qt::InputMethodQueries
 argument_list|)
 end_macro
 begin_macro

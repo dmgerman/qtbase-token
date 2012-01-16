@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
 comment|/**************************************************************************** ** ** Copyright (c) 2007-2008, Apple, Inc. ** ** All rights reserved. ** ** Redistribution and use in source and binary forms, with or without ** modification, are permitted provided that the following conditions are met: ** **   * Redistributions of source code must retain the above copyright notice, **     this list of conditions and the following disclaimer. ** **   * Redistributions in binary form must reproduce the above copyright notice, **     this list of conditions and the following disclaimer in the documentation **     and/or other materials provided with the distribution. ** **   * Neither the name of Apple, Inc. nor the names of its contributors **     may be used to endorse or promote products derived from this software **     without specific prior written permission. ** ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ** "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR ** CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, ** EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, ** PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR ** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF ** LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING ** NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS ** SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ** ****************************************************************************/
@@ -49,6 +49,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<QtCore/qabstracteventdispatcher.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qhash.h>
 end_include
 begin_include
@@ -64,7 +69,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/private/qeventdispatcher_unix_p.h>
+file|<QtCore/private/qabstracteventdispatcher_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/private/qtimerinfo_unix_p.h>
 end_include
 begin_include
 include|#
@@ -121,7 +131,7 @@ name|class
 name|QCocoaEventDispatcher
 range|:
 name|public
-name|QEventDispatcherUNIX
+name|QAbstractEventDispatcher
 block|{
 name|Q_OBJECT
 name|Q_DECLARE_PRIVATE
@@ -190,6 +200,8 @@ argument|int timerId
 argument_list|,
 argument|int interval
 argument_list|,
+argument|Qt::TimerType timerType
+argument_list|,
 argument|QObject *object
 argument_list|)
 block|;
@@ -225,78 +237,12 @@ name|void
 name|interrupt
 argument_list|()
 block|;
-name|private
-operator|:
-comment|//friend void qt_mac_select_timer_callbk(__EventLoopTimer*, void*);
-name|friend
-name|class
-name|QApplicationPrivate
+name|void
+name|flush
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_struct
-DECL|struct|MacTimerInfo
-struct|struct
-name|MacTimerInfo
-block|{
-DECL|member|id
-name|int
-name|id
-decl_stmt|;
-DECL|member|interval
-name|int
-name|interval
-decl_stmt|;
-DECL|member|obj
-name|QObject
-modifier|*
-name|obj
-decl_stmt|;
-DECL|member|pending
-name|bool
-name|pending
-decl_stmt|;
-DECL|member|runLoopTimer
-name|CFRunLoopTimerRef
-name|runLoopTimer
-decl_stmt|;
-DECL|function|operator
-name|bool
-name|operator
-operator|==
-operator|(
-specifier|const
-name|MacTimerInfo
-operator|&
-name|other
-operator|)
-block|{
-return|return
-operator|(
-name|id
-operator|==
-name|other
-operator|.
-name|id
-operator|)
-return|;
-block|}
-block|}
-struct|;
-end_struct
-begin_typedef
-DECL|typedef|MacTimerHash
-typedef|typedef
-name|QHash
-operator|<
-name|int
-operator|,
-name|MacTimerInfo
-operator|*
-operator|>
-name|MacTimerHash
-expr_stmt|;
-end_typedef
 begin_struct
 DECL|struct|MacSocketInfo
 struct|struct
@@ -365,7 +311,7 @@ name|class
 name|QCocoaEventDispatcherPrivate
 range|:
 name|public
-name|QEventDispatcherUNIXPrivate
+name|QAbstractEventDispatcherPrivate
 block|{
 name|Q_DECLARE_PUBLIC
 argument_list|(
@@ -376,58 +322,70 @@ operator|:
 name|QCocoaEventDispatcherPrivate
 argument_list|()
 block|;
+comment|// timer handling
+name|QTimerInfoList
+name|timerInfoList
+block|;
+name|CFRunLoopTimerRef
+name|runLoopTimerRef
+block|;
+name|void
+name|maybeStartCFRunLoopTimer
+argument_list|()
+block|;
+name|void
+name|maybeStopCFRunLoopTimer
+argument_list|()
+block|;
 specifier|static
-name|MacTimerHash
-name|macTimerHash
+name|void
+name|activateTimer
+argument_list|(
+name|CFRunLoopTimerRef
+argument_list|,
+name|void
+operator|*
+name|info
+argument_list|)
 block|;
 comment|// Set 'blockSendPostedEvents' to true if you _really_ need
 comment|// to make sure that qt events are not posted while calling
 comment|// low-level cocoa functions (like beginModalForWindow). And
 comment|// use a QBoolBlocker to be safe:
-specifier|static
 name|bool
 name|blockSendPostedEvents
 block|;
 comment|// The following variables help organizing modal sessions:
-specifier|static
 name|QStack
 operator|<
 name|QCocoaModalSessionInfo
 operator|>
 name|cocoaModalSessionStack
 block|;
-specifier|static
 name|bool
 name|currentExecIsNSAppRun
 block|;
-specifier|static
 name|bool
 name|nsAppRunCalledByQt
 block|;
-specifier|static
 name|bool
 name|cleanupModalSessionsNeeded
 block|;
-specifier|static
 name|NSModalSession
 name|currentModalSessionCached
 block|;
-specifier|static
 name|NSModalSession
 name|currentModalSession
 argument_list|()
 block|;
-specifier|static
 name|void
 name|updateChildrenWorksWhenModal
 argument_list|()
 block|;
-specifier|static
 name|void
 name|temporarilyStopAllModalSessions
 argument_list|()
 block|;
-specifier|static
 name|void
 name|beginModalSession
 argument_list|(
@@ -436,7 +394,6 @@ operator|*
 name|widget
 argument_list|)
 block|;
-specifier|static
 name|void
 name|endModalSession
 argument_list|(
@@ -445,17 +402,14 @@ operator|*
 name|widget
 argument_list|)
 block|;
-specifier|static
 name|void
 name|cancelWaitForMoreEvents
 argument_list|()
 block|;
-specifier|static
 name|void
 name|cleanupModalSessions
 argument_list|()
 block|;
-specifier|static
 name|void
 name|ensureNSAppInitialized
 argument_list|()
@@ -486,12 +440,9 @@ block|;
 name|int
 name|lastSerial
 block|;
-specifier|static
 name|bool
 name|interrupt
 block|;
-name|private
-operator|:
 specifier|static
 name|Boolean
 name|postedEventSourceEqualCallback
@@ -511,17 +462,6 @@ specifier|static
 name|void
 name|postedEventsSourcePerformCallback
 argument_list|(
-name|void
-operator|*
-name|info
-argument_list|)
-block|;
-specifier|static
-name|void
-name|activateTimer
-argument_list|(
-name|CFRunLoopTimerRef
-argument_list|,
 name|void
 operator|*
 name|info
@@ -549,14 +489,9 @@ argument_list|,
 argument|void *info
 argument_list|)
 block|;
-name|friend
 name|void
 name|processPostedEvents
-argument_list|(
-argument|QCocoaEventDispatcherPrivate *const d
-argument_list|,
-argument|const bool blockSendPostedEvents
-argument_list|)
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt

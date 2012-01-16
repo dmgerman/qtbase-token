@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
 comment|//#define QNETWORKACCESSHTTPBACKEND_DEBUG
@@ -39,6 +39,11 @@ begin_include
 include|#
 directive|include
 file|"qnetworkrequest_p.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"qnetworkcookie.h"
 end_include
 begin_include
 include|#
@@ -1603,11 +1608,15 @@ block|}
 end_function
 begin_function
 DECL|function|sslConfigurationImplementation
-name|QSslConfiguration
+name|void
 name|QNetworkReplyHttpImpl
 operator|::
 name|sslConfigurationImplementation
-parameter_list|()
+parameter_list|(
+name|QSslConfiguration
+modifier|&
+name|configuration
+parameter_list|)
 specifier|const
 block|{
 name|Q_D
@@ -1616,11 +1625,12 @@ specifier|const
 name|QNetworkReplyHttpImpl
 argument_list|)
 expr_stmt|;
-return|return
+name|configuration
+operator|=
 name|d
 operator|->
 name|sslConfiguration
-return|;
+expr_stmt|;
 block|}
 end_function
 begin_endif
@@ -6641,6 +6651,9 @@ operator|::
 name|start
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 if|if
 condition|(
 operator|!
@@ -6656,6 +6669,8 @@ return|return
 literal|true
 return|;
 block|}
+endif|#
+directive|endif
 comment|// This is not ideal.
 specifier|const
 name|QString
@@ -6692,6 +6707,9 @@ return|return
 literal|true
 return|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 if|if
 condition|(
 name|managerPrivate
@@ -6720,6 +6738,8 @@ return|return
 literal|true
 return|;
 block|}
+endif|#
+directive|endif
 return|return
 literal|false
 return|;
@@ -8051,9 +8071,9 @@ name|NoError
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
+argument_list|(
 literal|"QNetworkReplyImplPrivate::error: Internal problem, this method must only be called once."
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -8425,11 +8445,11 @@ name|bytesDownloaded
 condition|)
 block|{
 name|qDebug
-argument_list|()
-operator|<<
-literal|"x"
-operator|<<
+argument_list|(
+literal|"setCachingEnabled: %d bytesDownloaded"
+argument_list|,
 name|bytesDownloaded
+argument_list|)
 expr_stmt|;
 comment|// refuse to enable in this case
 name|qCritical

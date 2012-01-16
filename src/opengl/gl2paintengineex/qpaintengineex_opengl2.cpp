@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtOpenGL module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtOpenGL module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
 comment|/*     When the active program changes, we need to update it's uniforms.     We could track state for each program and only update stale uniforms         - Could lead to lots of overhead if there's a lot of programs     We could update all the uniforms when the program changes         - Could end up updating lots of uniforms which don't need updating      Updating uniforms should be cheap, so the overhead of updating up-to-date     uniforms should be minimal. It's also less complex.      Things which _may_ cause a different program to be used:         - Change in brush/pen style         - Change in painter opacity         - Change in composition mode      Whenever we set a mode on the shader manager - it needs to tell us if it had     to switch to a different program.      The shader manager should only switch when we tell it to. E.g. if we set a new     brush style and then switch to transparent painter, we only want it to compile     and use the correct program when we really need it. */
@@ -3690,14 +3690,14 @@ argument_list|(
 name|engine
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|c
 operator|->
 name|vertices
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|c
 operator|->
@@ -3949,7 +3949,7 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-name|qFree
+name|free
 argument_list|(
 name|cache
 operator|->
@@ -4124,7 +4124,7 @@ operator|(
 name|float
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|floatSizeInBytes
 argument_list|)
@@ -4417,14 +4417,14 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-name|qFree
+name|free
 argument_list|(
 name|cache
 operator|->
 name|vertices
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|cache
 operator|->
@@ -4738,7 +4738,7 @@ operator|(
 name|float
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -4775,7 +4775,7 @@ operator|(
 name|quint32
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -4827,7 +4827,7 @@ operator|(
 name|quint16
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(

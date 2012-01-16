@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -839,15 +839,6 @@ name|QPrinter
 operator|::
 name|Letter
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-22562, QTBUG-22296"
-argument_list|,
-name|Abort
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -2011,7 +2002,7 @@ operator|::
 name|PrintToFile
 argument_list|)
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2025,7 +2016,7 @@ operator|::
 name|PrintSelection
 argument_list|)
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2039,7 +2030,7 @@ operator|::
 name|PrintPageRange
 argument_list|)
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|dlg
@@ -2062,7 +2053,7 @@ operator|::
 name|PrintToFile
 argument_list|)
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2076,7 +2067,7 @@ operator|::
 name|PrintSelection
 argument_list|)
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2090,7 +2081,7 @@ operator|::
 name|PrintPageRange
 argument_list|)
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|dlg
@@ -2124,7 +2115,7 @@ operator|::
 name|PrintToFile
 argument_list|)
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2138,7 +2129,7 @@ operator|::
 name|PrintSelection
 argument_list|)
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2152,7 +2143,7 @@ operator|::
 name|PrintPageRange
 argument_list|)
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|dlg
@@ -2175,7 +2166,7 @@ operator|::
 name|PrintToFile
 argument_list|)
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2189,7 +2180,7 @@ operator|::
 name|PrintSelection
 argument_list|)
 argument_list|,
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 name|MYCOMPARE
@@ -2203,7 +2194,7 @@ operator|::
 name|PrintPageRange
 argument_list|)
 argument_list|,
-name|FALSE
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -3685,15 +3676,6 @@ argument_list|,
 name|QPrinter
 operator|::
 name|Millimeter
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-22562, QTBUG-22296"
-argument_list|,
-name|Abort
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -5943,15 +5925,6 @@ argument_list|(
 name|newFormat
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-22562, QTBUG-22296"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|printer
@@ -6702,15 +6675,6 @@ operator|::
 name|Inch
 argument_list|)
 decl_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-22562, QTBUG-22296"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|paperSize
@@ -7156,8 +7120,9 @@ name|printer
 decl_stmt|;
 comment|// This string is just the UTF-8 encoding of the string: \()f&oslash; hiragana o
 specifier|const
+name|unsigned
 name|char
-name|title
+name|titleBuf
 index|[]
 init|=
 block|{
@@ -7181,6 +7146,21 @@ literal|0x8a
 block|,
 literal|0x00
 block|}
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|title
+init|=
+cast|reinterpret_cast
+argument_list|<
+specifier|const
+name|char
+operator|*
+argument_list|>
+argument_list|(
+name|titleBuf
+argument_list|)
 decl_stmt|;
 name|printer
 operator|.
@@ -7237,8 +7217,9 @@ comment|// The we expect the title to appear in the PDF as:
 comment|// ASCII('\title (') UTF16(\\\(\)f&oslash; hiragana o) ASCII(')').
 comment|// which has the following binary representation
 specifier|const
+name|unsigned
 name|char
-name|expected
+name|expectedBuf
 index|[]
 init|=
 block|{
@@ -7294,6 +7275,21 @@ literal|0x4a
 block|,
 literal|0x29
 block|}
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|expected
+init|=
+cast|reinterpret_cast
+argument_list|<
+specifier|const
+name|char
+operator|*
+argument_list|>
+argument_list|(
+name|expectedBuf
+argument_list|)
 decl_stmt|;
 name|QVERIFY
 argument_list|(

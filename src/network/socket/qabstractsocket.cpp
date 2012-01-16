@@ -1,12 +1,12 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
 comment|//#define QABSTRACTSOCKET_DEBUG
 end_comment
 begin_comment
-comment|/*!     \class QAbstractSocket      \brief The QAbstractSocket class provides the base functionality     common to all socket types.      \reentrant     \ingroup network     \inmodule QtNetwork      QAbstractSocket is the base class for QTcpSocket and QUdpSocket     and contains all common functionality of these two classes. If     you need a socket, you have two options:      \list     \i  Instantiate QTcpSocket or QUdpSocket.     \i  Create a native socket descriptor, instantiate         QAbstractSocket, and call setSocketDescriptor() to wrap the         native socket.     \endlist      TCP (Transmission Control Protocol) is a reliable,     stream-oriented, connection-oriented transport protocol. UDP     (User Datagram Protocol) is an unreliable, datagram-oriented,     connectionless protocol. In practice, this means that TCP is     better suited for continuous transmission of data, whereas the     more lightweight UDP can be used when reliability isn't     important.      QAbstractSocket's API unifies most of the differences between the     two protocols. For example, although UDP is connectionless,     connectToHost() establishes a virtual connection for UDP sockets,     enabling you to use QAbstractSocket in more or less the same way     regardless of the underlying protocol. Internally,     QAbstractSocket remembers the address and port passed to     connectToHost(), and functions like read() and write() use these     values.      At any time, QAbstractSocket has a state (returned by     state()). The initial state is UnconnectedState. After     calling connectToHost(), the socket first enters     HostLookupState. If the host is found, QAbstractSocket enters     ConnectingState and emits the hostFound() signal. When the     connection has been established, it enters ConnectedState and     emits connected(). If an error occurs at any stage, error() is     emitted. Whenever the state changes, stateChanged() is emitted.     For convenience, isValid() returns true if the socket is ready for     reading and writing, but note that the socket's state must be     ConnectedState before reading and writing can occur.      Read or write data by calling read() or write(), or use the     convenience functions readLine() and readAll(). QAbstractSocket     also inherits getChar(), putChar(), and ungetChar() from     QIODevice, which work on single bytes. The bytesWritten() signal     is emitted when data has been written to the socket (i.e., when     the client has read the data). Note that Qt does not limit the     write buffer size. You can monitor its size by listening to this     signal.      The readyRead() signal is emitted every time a new chunk of data     has arrived. bytesAvailable() then returns the number of bytes     that are available for reading. Typically, you would connect the     readyRead() signal to a slot and read all available data there.     If you don't read all the data at once, the remaining data will     still be available later, and any new incoming data will be     appended to QAbstractSocket's internal read buffer. To limit the     size of the read buffer, call setReadBufferSize().      To close the socket, call disconnectFromHost(). QAbstractSocket enters     QAbstractSocket::ClosingState. After all pending data has been written to     the socket, QAbstractSocket actually closes the socket, enters     QAbstractSocket::ClosedState, and emits disconnected(). If you want to     abort a connection immediately, discarding all pending data, call abort()     instead. If the remote host closes the connection, QAbstractSocket will     emit error(QAbstractSocket::RemoteHostClosedError), during which the socket     state will still be ConnectedState, and then the disconnected() signal     will be emitted.      The port and address of the connected peer is fetched by calling     peerPort() and peerAddress(). peerName() returns the host name of     the peer, as passed to connectToHost(). localPort() and     localAddress() return the port and address of the local socket.      QAbstractSocket provides a set of functions that suspend the     calling thread until certain signals are emitted. These functions     can be used to implement blocking sockets:      \list     \o waitForConnected() blocks until a connection has been established.      \o waitForReadyRead() blocks until new data is available for     reading.      \o waitForBytesWritten() blocks until one payload of data has been     written to the socket.      \o waitForDisconnected() blocks until the connection has closed.     \endlist      We show an example:      \snippet doc/src/snippets/network/tcpwait.cpp 0      If \l{QIODevice::}{waitForReadyRead()} returns false, the     connection has been closed or an error has occurred.      Programming with a blocking socket is radically different from     programming with a non-blocking socket. A blocking socket doesn't     require an event loop and typically leads to simpler code.     However, in a GUI application, blocking sockets should only be     used in non-GUI threads, to avoid freezing the user interface.     See the \l network/fortuneclient and \l network/blockingfortuneclient     examples for an overview of both approaches.      \note We discourage the use of the blocking functions together     with signals. One of the two possibilities should be used.      QAbstractSocket can be used with QTextStream and QDataStream's     stream operators (operator<<() and operator>>()). There is one     issue to be aware of, though: You must make sure that enough data     is available before attempting to read it using operator>>().      \sa QFtp, QNetworkAccessManager, QTcpServer */
+comment|/*!     \class QAbstractSocket      \brief The QAbstractSocket class provides the base functionality     common to all socket types.      \reentrant     \ingroup network     \inmodule QtNetwork      QAbstractSocket is the base class for QTcpSocket and QUdpSocket     and contains all common functionality of these two classes. If     you need a socket, you have two options:      \list     \i  Instantiate QTcpSocket or QUdpSocket.     \i  Create a native socket descriptor, instantiate         QAbstractSocket, and call setSocketDescriptor() to wrap the         native socket.     \endlist      TCP (Transmission Control Protocol) is a reliable,     stream-oriented, connection-oriented transport protocol. UDP     (User Datagram Protocol) is an unreliable, datagram-oriented,     connectionless protocol. In practice, this means that TCP is     better suited for continuous transmission of data, whereas the     more lightweight UDP can be used when reliability isn't     important.      QAbstractSocket's API unifies most of the differences between the     two protocols. For example, although UDP is connectionless,     connectToHost() establishes a virtual connection for UDP sockets,     enabling you to use QAbstractSocket in more or less the same way     regardless of the underlying protocol. Internally,     QAbstractSocket remembers the address and port passed to     connectToHost(), and functions like read() and write() use these     values.      At any time, QAbstractSocket has a state (returned by     state()). The initial state is UnconnectedState. After     calling connectToHost(), the socket first enters     HostLookupState. If the host is found, QAbstractSocket enters     ConnectingState and emits the hostFound() signal. When the     connection has been established, it enters ConnectedState and     emits connected(). If an error occurs at any stage, error() is     emitted. Whenever the state changes, stateChanged() is emitted.     For convenience, isValid() returns true if the socket is ready for     reading and writing, but note that the socket's state must be     ConnectedState before reading and writing can occur.      Read or write data by calling read() or write(), or use the     convenience functions readLine() and readAll(). QAbstractSocket     also inherits getChar(), putChar(), and ungetChar() from     QIODevice, which work on single bytes. The bytesWritten() signal     is emitted when data has been written to the socket (i.e., when     the client has read the data). Note that Qt does not limit the     write buffer size. You can monitor its size by listening to this     signal.      The readyRead() signal is emitted every time a new chunk of data     has arrived. bytesAvailable() then returns the number of bytes     that are available for reading. Typically, you would connect the     readyRead() signal to a slot and read all available data there.     If you don't read all the data at once, the remaining data will     still be available later, and any new incoming data will be     appended to QAbstractSocket's internal read buffer. To limit the     size of the read buffer, call setReadBufferSize().      To close the socket, call disconnectFromHost(). QAbstractSocket enters     QAbstractSocket::ClosingState. After all pending data has been written to     the socket, QAbstractSocket actually closes the socket, enters     QAbstractSocket::ClosedState, and emits disconnected(). If you want to     abort a connection immediately, discarding all pending data, call abort()     instead. If the remote host closes the connection, QAbstractSocket will     emit error(QAbstractSocket::RemoteHostClosedError), during which the socket     state will still be ConnectedState, and then the disconnected() signal     will be emitted.      The port and address of the connected peer is fetched by calling     peerPort() and peerAddress(). peerName() returns the host name of     the peer, as passed to connectToHost(). localPort() and     localAddress() return the port and address of the local socket.      QAbstractSocket provides a set of functions that suspend the     calling thread until certain signals are emitted. These functions     can be used to implement blocking sockets:      \list     \o waitForConnected() blocks until a connection has been established.      \o waitForReadyRead() blocks until new data is available for     reading.      \o waitForBytesWritten() blocks until one payload of data has been     written to the socket.      \o waitForDisconnected() blocks until the connection has closed.     \endlist      We show an example:      \snippet doc/src/snippets/network/tcpwait.cpp 0      If \l{QIODevice::}{waitForReadyRead()} returns false, the     connection has been closed or an error has occurred.      Programming with a blocking socket is radically different from     programming with a non-blocking socket. A blocking socket doesn't     require an event loop and typically leads to simpler code.     However, in a GUI application, blocking sockets should only be     used in non-GUI threads, to avoid freezing the user interface.     See the \l network/fortuneclient and \l network/blockingfortuneclient     examples for an overview of both approaches.      \note We discourage the use of the blocking functions together     with signals. One of the two possibilities should be used.      QAbstractSocket can be used with QTextStream and QDataStream's     stream operators (operator<<() and operator>>()). There is one     issue to be aware of, though: You must make sure that enough data     is available before attempting to read it using operator>>().      \sa QNetworkAccessManager, QTcpServer */
 end_comment
 begin_comment
 comment|/*!     \fn void QAbstractSocket::hostFound()      This signal is emitted after connectToHost() has been called and     the host lookup has succeeded.      \note Since Qt 4.6.3 QAbstractSocket may emit hostFound()     directly from the connectToHost() call since a DNS result could have been     cached.      \sa connected() */
@@ -33,13 +33,13 @@ begin_comment
 comment|/*!     \enum QAbstractSocket::SocketType      This enum describes the transport layer protocol.      \value TcpSocket TCP     \value UdpSocket UDP     \value UnknownSocketType Other than TCP and UDP      \sa QAbstractSocket::socketType() */
 end_comment
 begin_comment
-comment|/*!     \enum QAbstractSocket::SocketError      This enum describes the socket errors that can occur.      \value ConnectionRefusedError The connection was refused by the            peer (or timed out).     \value RemoteHostClosedError The remote host closed the            connection. Note that the client socket (i.e., this socket)            will be closed after the remote close notification has            been sent.     \value HostNotFoundError The host address was not found.     \value SocketAccessError The socket operation failed because the            application lacked the required privileges.     \value SocketResourceError The local system ran out of resources            (e.g., too many sockets).     \value SocketTimeoutError The socket operation timed out.     \value DatagramTooLargeError The datagram was larger than the            operating system's limit (which can be as low as 8192            bytes).     \value NetworkError An error occurred with the network (e.g., the            network cable was accidentally plugged out).     \value AddressInUseError The address specified to QAbstractSocket::bind() is            already in use and was set to be exclusive.     \value SocketAddressNotAvailableError The address specified to            QAbstractSocket::bind() does not belong to the host.     \value UnsupportedSocketOperationError The requested socket operation is            not supported by the local operating system (e.g., lack of            IPv6 support).     \value ProxyAuthenticationRequiredError The socket is using a proxy, and            the proxy requires authentication.     \value SslHandshakeFailedError The SSL/TLS handshake failed, so            the connection was closed (only used in QSslSocket)     \value UnfinishedSocketOperationError Used by QAbstractSocketEngine only,            The last operation attempted has not finished yet (still in progress in             the background).     \value ProxyConnectionRefusedError Could not contact the proxy server because            the connection to that server was denied     \value ProxyConnectionClosedError The connection to the proxy server was closed            unexpectedly (before the connection to the final peer was established)     \value ProxyConnectionTimeoutError The connection to the proxy server timed out            or the proxy server stopped responding in the authentication phase.     \value ProxyNotFoundError The proxy address set with setProxy() (or the application            proxy) was not found.     \value ProxyProtocolError The connection negotiation with the proxy server            because the response from the proxy server could not be understood.      \value UnknownSocketError An unidentified error occurred.     \sa QAbstractSocket::error() */
+comment|/*!     \enum QAbstractSocket::SocketError      This enum describes the socket errors that can occur.      \value ConnectionRefusedError The connection was refused by the            peer (or timed out).     \value RemoteHostClosedError The remote host closed the            connection. Note that the client socket (i.e., this socket)            will be closed after the remote close notification has            been sent.     \value HostNotFoundError The host address was not found.     \value SocketAccessError The socket operation failed because the            application lacked the required privileges.     \value SocketResourceError The local system ran out of resources            (e.g., too many sockets).     \value SocketTimeoutError The socket operation timed out.     \value DatagramTooLargeError The datagram was larger than the            operating system's limit (which can be as low as 8192            bytes).     \value NetworkError An error occurred with the network (e.g., the            network cable was accidentally plugged out).     \value AddressInUseError The address specified to QAbstractSocket::bind() is            already in use and was set to be exclusive.     \value SocketAddressNotAvailableError The address specified to            QAbstractSocket::bind() does not belong to the host.     \value UnsupportedSocketOperationError The requested socket operation is            not supported by the local operating system (e.g., lack of            IPv6 support).     \value ProxyAuthenticationRequiredError The socket is using a proxy, and            the proxy requires authentication.     \value SslHandshakeFailedError The SSL/TLS handshake failed, so            the connection was closed (only used in QSslSocket)     \value UnfinishedSocketOperationError Used by QAbstractSocketEngine only,            The last operation attempted has not finished yet (still in progress in             the background).     \value ProxyConnectionRefusedError Could not contact the proxy server because            the connection to that server was denied     \value ProxyConnectionClosedError The connection to the proxy server was closed            unexpectedly (before the connection to the final peer was established)     \value ProxyConnectionTimeoutError The connection to the proxy server timed out            or the proxy server stopped responding in the authentication phase.     \value ProxyNotFoundError The proxy address set with setProxy() (or the application            proxy) was not found.     \value ProxyProtocolError The connection negotiation with the proxy server            because the response from the proxy server could not be understood.     \value OperationError An operation was attempted while the socket was in a state that            did not permit it.      \value UnknownSocketError An unidentified error occurred.     \sa QAbstractSocket::error() */
 end_comment
 begin_comment
 comment|/*!     \enum QAbstractSocket::SocketState      This enum describes the different states in which a socket can be.      \value UnconnectedState The socket is not connected.     \value HostLookupState The socket is performing a host name lookup.     \value ConnectingState The socket has started establishing a connection.     \value ConnectedState A connection is established.     \value BoundState The socket is bound to an address and port.     \value ClosingState The socket is about to close (data may still     be waiting to be written).     \value ListeningState For internal use only.     \omitvalue Idle     \omitvalue HostLookup     \omitvalue Connecting     \omitvalue Connected     \omitvalue Closing     \omitvalue Connection      \sa QAbstractSocket::state() */
 end_comment
 begin_comment
-comment|/*!     \enum QAbstractSocket::SocketOption     \since 4.6      This enum represents the options that can be set on a socket.     If desired, they can be set after having received the connected() signal from     the socket or after having received a new socket from a QTcpServer.      \value LowDelayOption Try to optimize the socket for low latency. For a QTcpSocket     this would set the TCP_NODELAY option and disable Nagle's algorithm. Set this to 1     to enable.     \value KeepAliveOption Set this to 1 to enable the SO_KEEPALIVE socket option      \value MulticastTtlOption Set this to an integer value to set IP_MULTICAST_TTL (TTL for multicast datagrams) socket option.      \value MulticastLoopbackOption Set this to 1 to enable the IP_MULTICAST_LOOP (multicast loopback) socket option.      \sa QAbstractSocket::setSocketOption(), QAbstractSocket::socketOption() */
+comment|/*!     \enum QAbstractSocket::SocketOption     \since 4.6      This enum represents the options that can be set on a socket.  If     desired, they can be set after having received the connected()     signal from the socket or after having received a new socket from     a QTcpServer.      \value LowDelayOption Try to optimize the socket for low     latency. For a QTcpSocket this would set the TCP_NODELAY option     and disable Nagle's algorithm. Set this to 1 to enable.      \value KeepAliveOption Set this to 1 to enable the SO_KEEPALIVE     socket option      \value MulticastTtlOption Set this to an integer value to set     IP_MULTICAST_TTL (TTL for multicast datagrams) socket option.      \value MulticastLoopbackOption Set this to 1 to enable the     IP_MULTICAST_LOOP (multicast loopback) socket option.      \value TypeOfServiceOption This option is not supported on     Windows. This maps to to the IP_TOS socket option.      Possible values for the \e{TypeOfServiceOption} are:      \table     \header \o Value \o Description     \row \o 224 \o Network control     \row \o 192 \o Internetwork control     \row \o 160 \o CRITIC/ECP     \row \o 128 \o Flash override     \row \o 96 \o Flash     \row \o 64 \o Immediate     \row \o 32 \o Priority     \row \o 0 \o Routine     \endtable      \sa QAbstractSocket::setSocketOption(), QAbstractSocket::socketOption() */
 end_comment
 begin_comment
 comment|/*! \enum QAbstractSocket::BindFlag     \since 5.0      This enum describes the different flags you can pass to modify the     behavior of QAbstractSocket::bind().      \value ShareAddress Allow other services to bind to the same address     and port. This is useful when multiple processes share     the load of a single service by listening to the same address and port     (e.g., a web server with several pre-forked listeners can greatly     improve response time). However, because any service is allowed to     rebind, this option is subject to certain security considerations.     Note that by combining this option with ReuseAddressHint, you will     also allow your service to rebind an existing shared address. On     Unix, this is equivalent to the SO_REUSEADDR socket option. On Windows,     this option is ignored.      \value DontShareAddress Bind the address and port exclusively, so that     no other services are allowed to rebind. By passing this option to     QAbstractSocket::bind(), you are guaranteed that on successs, your service     is the only one that listens to the address and port. No services are     allowed to rebind, even if they pass ReuseAddressHint. This option     provides more security than ShareAddress, but on certain operating     systems, it requires you to run the server with administrator privileges.     On Unix and Mac OS X, not sharing is the default behavior for binding     an address and port, so this option is ignored. On Windows, this     option uses the SO_EXCLUSIVEADDRUSE socket option.      \value ReuseAddressHint Provides a hint to QAbstractSocket that it should try     to rebind the service even if the address and port are already bound by     another socket. On Windows, this is equivalent to the SO_REUSEADDR     socket option. On Unix, this option is ignored.      \value DefaultForPlatform The default option for the current platform.     On Unix and Mac OS X, this is equivalent to (DontShareAddress     + ReuseAddressHint), and on Windows, its equivalent to ShareAddress. */
@@ -2214,7 +2214,9 @@ else|else
 block|{
 foreach|foreach
 control|(
+specifier|const
 name|QHostAddress
+modifier|&
 name|address
 decl|,
 name|hostInfo
@@ -4192,75 +4194,6 @@ argument_list|(
 name|QAbstractSocket
 argument_list|)
 expr_stmt|;
-name|d
-operator|->
-name|preferredNetworkLayerProtocol
-operator|=
-name|protocol
-expr_stmt|;
-name|QMetaObject
-operator|::
-name|invokeMethod
-argument_list|(
-name|this
-argument_list|,
-literal|"connectToHostImplementation"
-argument_list|,
-name|Qt
-operator|::
-name|DirectConnection
-argument_list|,
-name|Q_ARG
-argument_list|(
-name|QString
-argument_list|,
-name|hostName
-argument_list|)
-argument_list|,
-name|Q_ARG
-argument_list|(
-name|quint16
-argument_list|,
-name|port
-argument_list|)
-argument_list|,
-name|Q_ARG
-argument_list|(
-name|OpenMode
-argument_list|,
-name|openMode
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     \since 4.1      Contains the implementation of connectToHost().      Attempts to make a connection to \a hostName on the given \a     port. The socket is opened in the given \a openMode. */
-end_comment
-begin_function
-DECL|function|connectToHostImplementation
-name|void
-name|QAbstractSocket
-operator|::
-name|connectToHostImplementation
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|hostName
-parameter_list|,
-name|quint16
-name|port
-parameter_list|,
-name|OpenMode
-name|openMode
-parameter_list|)
-block|{
-name|Q_D
-argument_list|(
-name|QAbstractSocket
-argument_list|)
-expr_stmt|;
 if|#
 directive|if
 name|defined
@@ -4323,8 +4256,40 @@ name|hostName
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|socketError
+operator|=
+name|QAbstractSocket
+operator|::
+name|OperationError
+expr_stmt|;
+name|setErrorString
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|tr
+argument_list|(
+literal|"Trying to connect while connection is in progress"
+argument_list|)
+argument_list|)
+expr_stmt|;
+emit|emit
+name|error
+argument_list|(
+name|d
+operator|->
+name|socketError
+argument_list|)
+emit|;
 return|return;
 block|}
+name|d
+operator|->
+name|preferredNetworkLayerProtocol
+operator|=
+name|protocol
+expr_stmt|;
 name|d
 operator|->
 name|hostName
@@ -5144,7 +5109,7 @@ comment|/*!     Returns the native socket descriptor of the QAbstractSocket obje
 end_comment
 begin_function
 DECL|function|socketDescriptor
-name|int
+name|qintptr
 name|QAbstractSocket
 operator|::
 name|socketDescriptor
@@ -5174,7 +5139,7 @@ name|QAbstractSocket
 operator|::
 name|setSocketDescriptor
 parameter_list|(
-name|int
+name|qintptr
 name|socketDescriptor
 parameter_list|,
 name|SocketState
@@ -5599,6 +5564,27 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 break|break;
+case|case
+name|TypeOfServiceOption
+case|:
+name|d_func
+argument_list|()
+operator|->
+name|socketEngine
+operator|->
+name|setOption
+argument_list|(
+name|QAbstractSocketEngine
+operator|::
+name|TypeOfServiceOption
+argument_list|,
+name|value
+operator|.
+name|toInt
+argument_list|()
+argument_list|)
+expr_stmt|;
+break|break;
 block|}
 block|}
 end_function
@@ -5740,6 +5726,24 @@ argument_list|(
 name|QAbstractSocketEngine
 operator|::
 name|MulticastLoopbackOption
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|TypeOfServiceOption
+case|:
+name|ret
+operator|=
+name|d_func
+argument_list|()
+operator|->
+name|socketEngine
+operator|->
+name|option
+argument_list|(
+name|QAbstractSocketEngine
+operator|::
+name|TypeOfServiceOption
 argument_list|)
 expr_stmt|;
 break|break;
@@ -8749,32 +8753,6 @@ name|void
 name|QAbstractSocket
 operator|::
 name|disconnectFromHost
-parameter_list|()
-block|{
-name|QMetaObject
-operator|::
-name|invokeMethod
-argument_list|(
-name|this
-argument_list|,
-literal|"disconnectFromHostImplementation"
-argument_list|,
-name|Qt
-operator|::
-name|DirectConnection
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     \since 4.1      Contains the implementation of disconnectFromHost(). */
-end_comment
-begin_function
-DECL|function|disconnectFromHostImplementation
-name|void
-name|QAbstractSocket
-operator|::
-name|disconnectFromHostImplementation
 parameter_list|()
 block|{
 name|Q_D

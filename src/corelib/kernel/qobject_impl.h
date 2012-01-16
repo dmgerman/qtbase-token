@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -4291,40 +4291,8 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*        Logic that check if the arguments of the slot matches the argument of the signal.        To be used like this:        CheckCompatibleArguments<FunctionPointer<Signal>::Arguments, FunctionPointer<Slot>::Arguments>::IncompatibleSignalSlotArguments        The IncompatibleSignalSlotArguments type do not exist if the argument are incompatible and can        then produce error message.     */
+comment|/*        Logic that check if the arguments of the slot matches the argument of the signal.        To be used like this:        Q_STATIC_ASSERT(CheckCompatibleArguments<FunctionPointer<Signal>::Arguments, FunctionPointer<Slot>::Arguments>::value)     */
 end_comment
-begin_expr_stmt
-name|template
-operator|<
-name|typename
-name|T
-operator|,
-name|bool
-name|B
-operator|>
-expr|struct
-name|CheckCompatibleArgumentsHelper
-block|{}
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|template
-operator|<
-name|typename
-name|T
-operator|>
-expr|struct
-name|CheckCompatibleArgumentsHelper
-operator|<
-name|T
-operator|,
-name|true
-operator|>
-operator|:
-name|T
-block|{}
-expr_stmt|;
-end_expr_stmt
 begin_expr_stmt
 name|template
 operator|<
@@ -4352,7 +4320,7 @@ operator|...
 argument_list|)
 block|;
 specifier|static
-name|A2
+name|A1
 name|dummy
 argument_list|()
 block|;         enum
@@ -4426,6 +4394,73 @@ block|}
 block|; }
 expr_stmt|;
 end_expr_stmt
+begin_comment
+comment|// void as a return value
+end_comment
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|A
+operator|>
+expr|struct
+name|AreArgumentsCompatible
+operator|<
+name|void
+operator|,
+name|A
+operator|>
+block|{ enum
+block|{
+name|value
+operator|=
+name|true
+block|}
+block|; }
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|A
+operator|>
+expr|struct
+name|AreArgumentsCompatible
+operator|<
+name|A
+operator|,
+name|void
+operator|>
+block|{ enum
+block|{
+name|value
+operator|=
+name|true
+block|}
+block|; }
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+operator|>
+expr|struct
+name|AreArgumentsCompatible
+operator|<
+name|void
+operator|,
+name|void
+operator|>
+block|{ enum
+block|{
+name|value
+operator|=
+name|true
+block|}
+block|; }
+expr_stmt|;
+end_expr_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -4442,7 +4477,13 @@ name|List2
 operator|>
 expr|struct
 name|CheckCompatibleArguments
-block|{}
+block|{ enum
+block|{
+name|value
+operator|=
+name|false
+block|}
+block|; }
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -4456,16 +4497,15 @@ name|void
 operator|,
 name|void
 operator|>
+block|{ enum
 block|{
-typedef|typedef
-name|bool
-name|IncompatibleSignalSlotArguments
-typedef|;
+name|value
+operator|=
+name|true
 block|}
+block|; }
+expr_stmt|;
 end_expr_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_expr_stmt
 name|template
 operator|<
@@ -4479,16 +4519,15 @@ name|List1
 operator|,
 name|void
 operator|>
+block|{ enum
 block|{
-typedef|typedef
-name|bool
-name|IncompatibleSignalSlotArguments
-typedef|;
+name|value
+operator|=
+name|true
 block|}
+block|; }
+expr_stmt|;
 end_expr_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_expr_stmt
 name|template
 operator|<
@@ -4521,16 +4560,10 @@ operator|,
 name|Tail2
 operator|>
 expr|>
-operator|:
-name|CheckCompatibleArgumentsHelper
-operator|<
-name|CheckCompatibleArguments
-operator|<
-name|Tail1
-operator|,
-name|Tail2
-operator|>
-operator|,
+block|{         enum
+block|{
+name|value
+operator|=
 name|AreArgumentsCompatible
 operator|<
 name|typename
@@ -4540,7 +4573,7 @@ name|Arg1
 operator|>
 operator|::
 name|Type
-operator|,
+block|,
 name|typename
 name|RemoveConstRef
 operator|<
@@ -4551,8 +4584,17 @@ name|Type
 operator|>
 operator|::
 name|value
+operator|&&
+name|CheckCompatibleArguments
+operator|<
+name|Tail1
+block|,
+name|Tail2
 operator|>
-block|{}
+operator|::
+name|value
+block|}
+block|;     }
 expr_stmt|;
 end_expr_stmt
 begin_else
@@ -4570,7 +4612,13 @@ name|List2
 operator|>
 expr|struct
 name|CheckCompatibleArguments
-block|{}
+block|{ enum
+block|{
+name|value
+operator|=
+name|false
+block|}
+block|; }
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
@@ -4587,16 +4635,15 @@ operator|,
 name|List
 operator|<
 operator|>>
+block|{ enum
 block|{
-typedef|typedef
-name|bool
-name|IncompatibleSignalSlotArguments
-typedef|;
+name|value
+operator|=
+name|true
 block|}
+block|; }
+expr_stmt|;
 end_expr_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_expr_stmt
 name|template
 operator|<
@@ -4611,16 +4658,15 @@ operator|,
 name|List
 operator|<
 operator|>>
+block|{ enum
 block|{
-typedef|typedef
-name|bool
-name|IncompatibleSignalSlotArguments
-typedef|;
+name|value
+operator|=
+name|true
 block|}
+block|; }
+expr_stmt|;
 end_expr_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_expr_stmt
 name|template
 operator|<
@@ -4656,23 +4702,10 @@ operator|,
 name|Tail2
 operator|...
 operator|>>
-operator|:
-name|CheckCompatibleArgumentsHelper
-operator|<
-name|CheckCompatibleArguments
-operator|<
-name|List
-operator|<
-name|Tail1
-operator|...
-operator|>
-operator|,
-name|List
-operator|<
-name|Tail2
-operator|...
-operator|>>
-operator|,
+block|{         enum
+block|{
+name|value
+operator|=
 name|AreArgumentsCompatible
 operator|<
 name|typename
@@ -4682,7 +4715,7 @@ name|Arg1
 operator|>
 operator|::
 name|Type
-operator|,
+block|,
 name|typename
 name|RemoveConstRef
 operator|<
@@ -4693,8 +4726,24 @@ name|Type
 operator|>
 operator|::
 name|value
+operator|&&
+name|CheckCompatibleArguments
+operator|<
+name|List
+operator|<
+name|Tail1
+operator|...
 operator|>
-block|{}
+block|,
+name|List
+operator|<
+name|Tail2
+operator|...
+operator|>>
+operator|::
+name|value
+block|}
+block|;     }
 expr_stmt|;
 end_expr_stmt
 begin_endif

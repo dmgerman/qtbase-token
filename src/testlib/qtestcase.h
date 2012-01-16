@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtTest module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtTest module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -86,6 +86,17 @@ parameter_list|)
 define|\
 value|do {\     if (!QTest::qCompare(actual, expected, #actual, #expected, __FILE__, __LINE__))\         return;\ } while (0)
 comment|// Will try to wait for the expression to become true while allowing event processing
+DECL|macro|QTRY_VERIFY_WITH_TIMEOUT
+define|#
+directive|define
+name|QTRY_VERIFY_WITH_TIMEOUT
+parameter_list|(
+name|__expr
+parameter_list|,
+name|__timeout
+parameter_list|)
+define|\
+value|do { \     const int __step = 50; \     const int __timeoutValue = __timeout; \     if (!(__expr)) { \         QTest::qWait(0); \     } \     for (int __i = 0; __i< __timeoutValue&& !(__expr); __i+=__step) { \         QTest::qWait(__step); \     } \     QVERIFY(__expr); \ } while (0)
 DECL|macro|QTRY_VERIFY
 define|#
 directive|define
@@ -93,9 +104,21 @@ name|QTRY_VERIFY
 parameter_list|(
 name|__expr
 parameter_list|)
-define|\
-value|do { \     const int __step = 50; \     const int __timeout = 5000; \     if (!(__expr)) { \         QTest::qWait(0); \     } \     for (int __i = 0; __i< __timeout&& !(__expr); __i+=__step) { \         QTest::qWait(__step); \     } \     QVERIFY(__expr); \ } while (0)
+value|QTRY_VERIFY_WITH_TIMEOUT(__expr, 5000)
 comment|// Will try to wait for the comparison to become successful while allowing event processing
+DECL|macro|QTRY_COMPARE_WITH_TIMEOUT
+define|#
+directive|define
+name|QTRY_COMPARE_WITH_TIMEOUT
+parameter_list|(
+name|__expr
+parameter_list|,
+name|__expected
+parameter_list|,
+name|__timeout
+parameter_list|)
+define|\
+value|do { \     const int __step = 50; \     const int __timeoutValue = __timeout; \     if ((__expr) != (__expected)) { \         QTest::qWait(0); \     } \     for (int __i = 0; __i< __timeoutValue&& ((__expr) != (__expected)); __i+=__step) { \         QTest::qWait(__step); \     } \     QCOMPARE(__expr, __expected); \ } while (0)
 DECL|macro|QTRY_COMPARE
 define|#
 directive|define
@@ -105,8 +128,7 @@ name|__expr
 parameter_list|,
 name|__expected
 parameter_list|)
-define|\
-value|do { \     const int __step = 50; \     const int __timeout = 5000; \     if ((__expr) != (__expected)) { \         QTest::qWait(0); \     } \     for (int __i = 0; __i< __timeout&& ((__expr) != (__expected)); __i+=__step) { \         QTest::qWait(__step); \     } \     QCOMPARE(__expr, __expected); \ } while (0)
+value|QTRY_COMPARE_WITH_TIMEOUT(__expr, __expected, 5000)
 ifdef|#
 directive|ifdef
 name|Q_CC_MSVC
@@ -306,6 +328,22 @@ modifier|*
 name|argv
 init|=
 literal|0
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|Q_TESTLIB_EXPORT
+name|int
+name|qExec
+parameter_list|(
+name|QObject
+modifier|*
+name|testObject
+parameter_list|,
+specifier|const
+name|QStringList
+modifier|&
+name|arguments
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -657,12 +695,12 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|expected
+name|actual
 parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|actual
+name|expected
 parameter_list|,
 specifier|const
 name|char

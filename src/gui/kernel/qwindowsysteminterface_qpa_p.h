@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -77,11 +77,19 @@ argument_list|)
 block|:
 name|type
 argument_list|(
-argument|t
+name|t
+argument_list|)
+operator|,
+name|synthetic
+argument_list|(
+argument|false
 argument_list|)
 block|{ }
 name|EventType
 name|type
+expr_stmt|;
+name|bool
+name|synthetic
 decl_stmt|;
 block|}
 empty_stmt|;
@@ -788,9 +796,9 @@ name|public
 operator|:
 name|ScreenOrientationEvent
 argument_list|(
-name|QScreen
-operator|*
-name|s
+argument|QScreen *s
+argument_list|,
+argument|Qt::ScreenOrientation o
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -800,7 +808,12 @@ argument_list|)
 block|,
 name|screen
 argument_list|(
-argument|s
+name|s
+argument_list|)
+block|,
+name|orientation
+argument_list|(
+argument|o
 argument_list|)
 block|{ }
 name|QWeakPointer
@@ -808,6 +821,11 @@ operator|<
 name|QScreen
 operator|>
 name|screen
+block|;
+name|Qt
+operator|::
+name|ScreenOrientation
+name|orientation
 block|;     }
 decl_stmt|;
 name|class
@@ -823,6 +841,11 @@ argument_list|(
 name|QScreen
 operator|*
 name|s
+argument_list|,
+specifier|const
+name|QRect
+operator|&
+name|g
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -832,7 +855,12 @@ argument_list|)
 block|,
 name|screen
 argument_list|(
-argument|s
+name|s
+argument_list|)
+block|,
+name|geometry
+argument_list|(
+argument|g
 argument_list|)
 block|{ }
 name|QWeakPointer
@@ -840,6 +868,9 @@ operator|<
 name|QScreen
 operator|>
 name|screen
+block|;
+name|QRect
+name|geometry
 block|;     }
 decl_stmt|;
 name|class
@@ -855,6 +886,11 @@ argument_list|(
 name|QScreen
 operator|*
 name|s
+argument_list|,
+specifier|const
+name|QRect
+operator|&
+name|g
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -864,7 +900,12 @@ argument_list|)
 block|,
 name|screen
 argument_list|(
-argument|s
+name|s
+argument_list|)
+block|,
+name|availableGeometry
+argument_list|(
+argument|g
 argument_list|)
 block|{ }
 name|QWeakPointer
@@ -872,6 +913,9 @@ operator|<
 name|QScreen
 operator|>
 name|screen
+block|;
+name|QRect
+name|availableGeometry
 block|;     }
 decl_stmt|;
 name|class
@@ -884,9 +928,11 @@ name|public
 operator|:
 name|ScreenLogicalDotsPerInchEvent
 argument_list|(
-name|QScreen
-operator|*
-name|s
+argument|QScreen *s
+argument_list|,
+argument|qreal dx
+argument_list|,
+argument|qreal dy
 argument_list|)
 operator|:
 name|WindowSystemEvent
@@ -896,7 +942,17 @@ argument_list|)
 block|,
 name|screen
 argument_list|(
-argument|s
+name|s
+argument_list|)
+block|,
+name|dpiX
+argument_list|(
+name|dx
+argument_list|)
+block|,
+name|dpiY
+argument_list|(
+argument|dy
 argument_list|)
 block|{ }
 name|QWeakPointer
@@ -904,6 +960,12 @@ operator|<
 name|QScreen
 operator|>
 name|screen
+block|;
+name|qreal
+name|dpiX
+block|;
+name|qreal
+name|dpiY
 block|;     }
 decl_stmt|;
 name|class
@@ -1051,6 +1113,32 @@ specifier|static
 name|QTime
 name|eventTime
 decl_stmt|;
+specifier|static
+name|QList
+operator|<
+name|QTouchEvent
+operator|::
+name|TouchPoint
+operator|>
+name|convertTouchPoints
+argument_list|(
+specifier|const
+name|QList
+operator|<
+name|QWindowSystemInterface
+operator|::
+name|TouchPoint
+operator|>
+operator|&
+name|points
+argument_list|,
+name|QEvent
+operator|::
+name|Type
+operator|*
+name|type
+argument_list|)
+expr_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

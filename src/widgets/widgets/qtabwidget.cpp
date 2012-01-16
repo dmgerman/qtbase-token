@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -88,9 +88,6 @@ comment|/*!     \enum QTabWidget::TabPosition      This enum type defines where 
 end_comment
 begin_comment
 comment|/*!     \enum QTabWidget::TabShape      This enum type defines the shape of the tabs:     \value Rounded  The tabs are drawn with a rounded look. This is the default                     shape.     \value Triangular  The tabs are drawn with a triangular look. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTabWidget::selected(const QString&tabLabel)      This signal is emitted whenever a tab is selected (raised),     including during the first show().      You can normally use currentChanged() instead. */
 end_comment
 begin_comment
 comment|/*!     \fn void QTabWidget::currentChanged(int index)      This signal is emitted whenever the current page index changes.     The parameter is the new current page \a index position, or -1     if there isn't a new one (for example, if there are no widgets     in the QTabWidget)      \sa currentWidget() currentIndex */
@@ -4815,75 +4812,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn void QTabWidget::insertTab(QWidget *widget, const QString&label, int index)      Use insertTab(index, widget, label) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTabWidget::insertTab(QWidget *widget, const QIcon& icon, const QString&label, int index)      Use insertTab(index, widget, icon, label) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTabWidget::changeTab(QWidget *widget, const QString&label)      Use setTabText() instead.  */
-end_comment
-begin_comment
-comment|/*!     \fn void QTabWidget::changeTab(QWidget *widget, const QIcon& icon, const QString&label)      Use setTabText() and setTabIcon() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QTabWidget::isTabEnabled( QWidget *widget) const      Use isTabEnabled(tabWidget->indexOf(widget)) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTabWidget::setTabEnabled(QWidget *widget, bool b)      Use setTabEnabled(tabWidget->indexOf(widget), b) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QTabWidget::tabLabel(QWidget *widget) const      Use tabText(tabWidget->indexOf(widget)) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTabWidget::setTabLabel(QWidget *widget, const QString&label)      Use setTabText(tabWidget->indexOf(widget), label) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QIcon QTabWidget::tabIconSet(QWidget * widget) const      Use tabIcon(tabWidget->indexOf(widget)) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTabWidget::setTabIconSet(QWidget * widget, const QIcon& icon)      Use setTabIcon(tabWidget->indexOf(widget), icon) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTabWidget::removeTabToolTip(QWidget * widget)      Use setTabToolTip(tabWidget->indexOf(widget), QString()) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTabWidget::setTabToolTip(QWidget * widget, const QString& tip)      Use setTabToolTip(tabWidget->indexOf(widget), tip) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QTabWidget::tabToolTip(QWidget * widget) const      Use tabToolTip(tabWidget->indexOf(widget)) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QWidget * QTabWidget::currentPage() const      Use currentWidget() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QWidget *QTabWidget::page(int index) const      Use widget() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QTabWidget::label(int index) const      Use tabText() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QTabWidget::currentPageIndex() const      Use currentIndex() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn int QTabWidget::margin() const      This function is kept only to make old code compile.     This functionality is no longer supported by QTabWidget.      \sa contentsRect(), setContentsMargins() */
-end_comment
-begin_comment
-comment|/*!     \fn void QTabWidget::setMargin(int margin)      This function is kept only to make old code compile.     This functionality is no longer supported by QTabWidget.      \sa contentsRect(), setContentsMargins() */
-end_comment
-begin_comment
-comment|/*!     \fn void QTabWidget::setCurrentPage(int index)      Use setCurrentIndex() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTabWidget::showPage(QWidget *widget)      Use setCurrentIndex(indexOf(widget)) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTabWidget::removePage(QWidget *widget)      Use removeTab(indexOf(widget)) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QTabWidget::currentChanged(QWidget *widget)      Use currentChanged(int) instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

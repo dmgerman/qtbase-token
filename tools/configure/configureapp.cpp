@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the tools applications of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the tools applications of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -1601,13 +1601,6 @@ literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"BUILDNOKIA"
-index|]
-operator|=
-literal|"no"
-expr_stmt|;
-name|dictionary
-index|[
 literal|"SHARED"
 index|]
 operator|=
@@ -1689,13 +1682,6 @@ literal|"FREETYPE"
 index|]
 operator|=
 literal|"yes"
-expr_stmt|;
-name|dictionary
-index|[
-literal|"QT3SUPPORT"
-index|]
-operator|=
-literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
@@ -1871,13 +1857,6 @@ literal|"SQL_IBASE"
 index|]
 operator|=
 literal|"no"
-expr_stmt|;
-name|dictionary
-index|[
-literal|"GRAPHICS_SYSTEM"
-index|]
-operator|=
-literal|"raster"
 expr_stmt|;
 name|QString
 name|tmp
@@ -2736,59 +2715,6 @@ index|]
 operator|=
 literal|"yes"
 expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
-literal|"-nokia-developer"
-condition|)
-block|{
-name|cout
-operator|<<
-literal|"Detected -nokia-developer option"
-operator|<<
-name|endl
-expr_stmt|;
-name|cout
-operator|<<
-literal|"Nokia employees and agents are allowed to use this software under"
-operator|<<
-name|endl
-expr_stmt|;
-name|cout
-operator|<<
-literal|"the authority of Nokia Corporation and/or its subsidiary(-ies)"
-operator|<<
-name|endl
-expr_stmt|;
-name|dictionary
-index|[
-literal|"BUILDNOKIA"
-index|]
-operator|=
-literal|"yes"
-expr_stmt|;
-name|dictionary
-index|[
-literal|"BUILDDEV"
-index|]
-operator|=
-literal|"yes"
-expr_stmt|;
-name|dictionary
-index|[
-literal|"LICENSE_CONFIRMED"
-index|]
-operator|=
-literal|"yes"
-expr_stmt|;
-block|}
 elseif|else
 if|if
 condition|(
@@ -4091,26 +4017,6 @@ condition|)
 name|dictionary
 index|[
 literal|"STYLE_CDE"
-index|]
-operator|=
-literal|"no"
-expr_stmt|;
-comment|// Qt 3 Support ---------------------------------------------
-elseif|else
-if|if
-condition|(
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
-literal|"-no-qt3support"
-condition|)
-name|dictionary
-index|[
-literal|"QT3SUPPORT"
 index|]
 operator|=
 literal|"no"
@@ -6676,7 +6582,7 @@ name|argCount
 condition|)
 break|break;
 name|QFileInfo
-name|check
+name|checkDirectory
 argument_list|(
 name|configCmdLine
 operator|.
@@ -6689,7 +6595,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|check
+name|checkDirectory
 operator|.
 name|isDir
 argument_list|()
@@ -7488,118 +7394,6 @@ break|break;
 name|dictionary
 index|[
 literal|"MAKE"
-index|]
-operator|=
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
-literal|"-graphicssystem"
-condition|)
-block|{
-operator|++
-name|i
-expr_stmt|;
-if|if
-condition|(
-name|i
-operator|==
-name|argCount
-condition|)
-break|break;
-name|QString
-name|system
-init|=
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|system
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"raster"
-argument_list|)
-operator|||
-name|system
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"opengl"
-argument_list|)
-operator|||
-name|system
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"openvg"
-argument_list|)
-operator|||
-name|system
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"runtime"
-argument_list|)
-condition|)
-name|dictionary
-index|[
-literal|"GRAPHICS_SYSTEM"
-index|]
-operator|=
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
-literal|"-runtimegraphicssystem"
-condition|)
-block|{
-operator|++
-name|i
-expr_stmt|;
-if|if
-condition|(
-name|i
-operator|==
-name|argCount
-condition|)
-break|break;
-name|dictionary
-index|[
-literal|"RUNTIME_SYSTEM"
 index|]
 operator|=
 name|configCmdLine
@@ -9437,13 +9231,6 @@ literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"QT3SUPPORT"
-index|]
-operator|=
-literal|"no"
-expr_stmt|;
-name|dictionary
-index|[
 literal|"OPENGL"
 index|]
 operator|=
@@ -9651,13 +9438,6 @@ literal|"MOUSE_DRIVERS"
 index|]
 operator|=
 literal|"pc linuxtp"
-expr_stmt|;
-name|dictionary
-index|[
-literal|"QT3SUPPORT"
-index|]
-operator|=
-literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
@@ -10049,7 +9829,7 @@ literal|"[-saveconfig<config>] [-loadconfig<config>]\n"
 literal|"[-qt-zlib] [-system-zlib] [-no-gif] [-no-libpng]\n"
 literal|"[-qt-libpng] [-system-libpng] [-no-libtiff] [-qt-libtiff]\n"
 literal|"[-system-libtiff] [-no-libjpeg] [-qt-libjpeg] [-system-libjpeg]\n"
-literal|"[-no-libmng] [-qt-libmng] [-system-libmng] [-no-qt3support] [-mmx]\n"
+literal|"[-no-libmng] [-qt-libmng] [-system-libmng] [-mmx]\n"
 literal|"[-no-mmx] [-3dnow] [-no-3dnow] [-sse] [-no-sse] [-sse2] [-no-sse2]\n"
 literal|"[-no-iwmmxt] [-iwmmxt] [-openssl] [-openssl-linked]\n"
 literal|"[-no-openssl] [-no-dbus] [-dbus] [-dbus-linked] [-platform<spec>]\n"
@@ -10058,7 +9838,6 @@ literal|"[-phonon] [-no-phonon-backend] [-phonon-backend]\n"
 literal|"[-no-multimedia] [-multimedia] [-no-audio-backend] [-audio-backend]\n"
 literal|"[-no-script] [-script] [-no-scripttools] [-scripttools]\n"
 literal|"[-no-webkit] [-webkit] [-webkit-debug]\n"
-literal|"[-graphicssystem raster|opengl|openvg]\n"
 literal|"[-no-directwrite] [-directwrite] [-qpa]\n\n"
 argument_list|,
 literal|0
@@ -10454,17 +10233,6 @@ argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
-literal|"QT3SUPPORT"
-argument_list|,
-literal|"no"
-argument_list|,
-literal|"-no-qt3support"
-argument_list|,
-literal|"Disables the Qt 3 support functionality.\n"
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
 literal|"OPENGL"
 argument_list|,
 literal|"no"
@@ -10654,53 +10422,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|desc
-argument_list|(
-literal|"-graphicssystem<sys>"
-argument_list|,
-literal|"Specify which graphicssystem should be used.\n"
-literal|"Available values for<sys>:"
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
-literal|"GRAPHICS_SYSTEM"
-argument_list|,
-literal|"raster"
-argument_list|,
-literal|""
-argument_list|,
-literal|"  raster - Software rasterizer"
-argument_list|,
-literal|' '
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
-literal|"GRAPHICS_SYSTEM"
-argument_list|,
-literal|"opengl"
-argument_list|,
-literal|""
-argument_list|,
-literal|"  opengl - Using OpenGL acceleration, experimental!"
-argument_list|,
-literal|' '
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
-literal|"GRAPHICS_SYSTEM"
-argument_list|,
-literal|"openvg"
-argument_list|,
-literal|""
-argument_list|,
-literal|"  openvg - Using OpenVG acceleration, experimental!\n"
-argument_list|,
-literal|' '
-argument_list|)
-expr_stmt|;
 name|desc
 argument_list|(
 literal|"-help, -h, -?"
@@ -16037,19 +15758,6 @@ if|if
 condition|(
 name|dictionary
 index|[
-literal|"QT3SUPPORT"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|qtConfig
-operator|+=
-literal|"gui-qt3support"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
 literal|"OPENGL"
 index|]
 operator|==
@@ -17440,7 +17148,7 @@ argument_list|(
 literal|" "
 argument_list|)
 operator|<<
-literal|" incremental msvc_mp create_prl link_prl depend_includepath no_private_qt_headers_warning QTDIR_build"
+literal|" incremental msvc_mp depend_includepath no_private_qt_headers_warning QTDIR_build"
 operator|<<
 name|endl
 expr_stmt|;
@@ -18025,6 +17733,14 @@ name|dictionary
 index|[
 literal|"QMAKE_RPATHDIR"
 index|]
+operator|<<
+name|endl
+expr_stmt|;
+name|moduleStream
+operator|<<
+literal|"CONFIG += create_prl link_prl"
+operator|<<
+name|endl
 expr_stmt|;
 name|moduleStream
 operator|.
@@ -18936,35 +18652,6 @@ argument_list|()
 operator|<<
 name|endl
 expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"GRAPHICS_SYSTEM"
-index|]
-operator|==
-literal|"runtime"
-operator|&&
-name|dictionary
-index|[
-literal|"RUNTIME_SYSTEM"
-index|]
-operator|!=
-literal|"runtime"
-condition|)
-name|tmpStream
-operator|<<
-literal|"#define QT_DEFAULT_RUNTIME_SYSTEM \""
-operator|<<
-name|dictionary
-index|[
-literal|"RUNTIME_SYSTEM"
-index|]
-operator|<<
-literal|"\""
-operator|<<
-name|endl
-expr_stmt|;
 name|QStringList
 name|qconfigList
 decl_stmt|;
@@ -19268,10 +18955,16 @@ index|]
 operator|==
 literal|"no"
 condition|)
+block|{
 name|qconfigList
 operator|+=
 literal|"QT_NO_OPENSSL"
 expr_stmt|;
+name|qconfigList
+operator|+=
+literal|"QT_NO_SSL"
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|dictionary
@@ -19630,58 +19323,6 @@ condition|)
 name|qconfigList
 operator|+=
 literal|"QT_SQL_IBASE"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"GRAPHICS_SYSTEM"
-index|]
-operator|==
-literal|"openvg"
-condition|)
-name|qconfigList
-operator|+=
-literal|"QT_GRAPHICSSYSTEM_OPENVG"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"GRAPHICS_SYSTEM"
-index|]
-operator|==
-literal|"opengl"
-condition|)
-name|qconfigList
-operator|+=
-literal|"QT_GRAPHICSSYSTEM_OPENGL"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"GRAPHICS_SYSTEM"
-index|]
-operator|==
-literal|"raster"
-condition|)
-name|qconfigList
-operator|+=
-literal|"QT_GRAPHICSSYSTEM_RASTER"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"GRAPHICS_SYSTEM"
-index|]
-operator|==
-literal|"runtime"
-condition|)
-name|qconfigList
-operator|+=
-literal|"QT_GRAPHICSSYSTEM_RUNTIME"
 expr_stmt|;
 name|qconfigList
 operator|.
@@ -21636,28 +21277,6 @@ operator|<<
 name|dictionary
 index|[
 literal|"SCRIPTTOOLS"
-index|]
-operator|<<
-name|endl
-expr_stmt|;
-name|cout
-operator|<<
-literal|"Graphics System............."
-operator|<<
-name|dictionary
-index|[
-literal|"GRAPHICS_SYSTEM"
-index|]
-operator|<<
-name|endl
-expr_stmt|;
-name|cout
-operator|<<
-literal|"Qt3 compatibility..........."
-operator|<<
-name|dictionary
-index|[
-literal|"QT3SUPPORT"
 index|]
 operator|<<
 name|endl
@@ -25350,13 +24969,6 @@ if|if
 condition|(
 name|dictionary
 index|[
-literal|"BUILDNOKIA"
-index|]
-operator|==
-literal|"yes"
-operator|||
-name|dictionary
-index|[
 literal|"BUILDTYPE"
 index|]
 operator|==
@@ -25576,13 +25188,6 @@ literal|"DONE"
 index|]
 operator|!=
 literal|"error"
-operator|&&
-name|dictionary
-index|[
-literal|"BUILDNOKIA"
-index|]
-operator|!=
-literal|"yes"
 condition|)
 block|{
 comment|// give the user some feedback, and prompt for license acceptance

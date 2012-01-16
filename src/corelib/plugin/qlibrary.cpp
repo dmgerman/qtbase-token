@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -147,7 +147,7 @@ name|QMutex
 argument_list|,
 name|qt_library_mutex
 argument_list|)
-comment|/*!     \class QLibrary     \reentrant     \brief The QLibrary class loads shared libraries at runtime.       \ingroup plugins      An instance of a QLibrary object operates on a single shared     object file (which we call a "library", but is also known as a     "DLL"). A QLibrary provides access to the functionality in the     library in a platform independent way. You can either pass a file     name in the constructor, or set it explicitly with setFileName().     When loading the library, QLibrary searches in all the     system-specific library locations (e.g. \c LD_LIBRARY_PATH on     Unix), unless the file name has an absolute path. If the file     cannot be found, QLibrary tries the name with different     platform-specific file suffixes, like ".so" on Unix, ".dylib" on     the Mac, or ".dll" on Windows and Symbian. This makes it possible     to specify shared libraries that are only identified by their     basename (i.e. without their suffix), so the same code will work     on different operating systems.      The most important functions are load() to dynamically load the     library file, isLoaded() to check whether loading was successful,     and resolve() to resolve a symbol in the library. The resolve()     function implicitly tries to load the library if it has not been     loaded yet. Multiple instances of QLibrary can be used to access     the same physical library. Once loaded, libraries remain in memory     until the application terminates. You can attempt to unload a     library using unload(), but if other instances of QLibrary are     using the same library, the call will fail, and unloading will     only happen when every instance has called unload().      A typical use of QLibrary is to resolve an exported symbol in a     library, and to call the C function that this symbol represents.     This is called "explicit linking" in contrast to "implicit     linking", which is done by the link step in the build process when     linking an executable against a library.      Note: In Symbian resolving symbols using their names is supported     only if the library is built as STDDLL. Otherwise ordinals must     be used. Also, in Symbian the path of the library is ignored and     system default library location is always used.      The following code snippet loads a library, resolves the symbol     "mysymbol", and calls the function if everything succeeded. If     something goes wrong, e.g. the library file does not exist or the     symbol is not defined, the function pointer will be 0 and won't be     called.      \snippet doc/src/snippets/code/src_corelib_plugin_qlibrary.cpp 0      The symbol must be exported as a C function from the library for     resolve() to work. This means that the function must be wrapped in     an \c{extern "C"} block if the library is compiled with a C++     compiler. On Windows, this also requires the use of a \c dllexport     macro; see resolve() for the details of how this is done. For     convenience, there is a static resolve() function which you can     use if you just want to call a function in a library without     explicitly loading the library first:      \snippet doc/src/snippets/code/src_corelib_plugin_qlibrary.cpp 1      \sa QPluginLoader */
+comment|/*!     \class QLibrary     \reentrant     \brief The QLibrary class loads shared libraries at runtime.       \ingroup plugins      An instance of a QLibrary object operates on a single shared     object file (which we call a "library", but is also known as a     "DLL"). A QLibrary provides access to the functionality in the     library in a platform independent way. You can either pass a file     name in the constructor, or set it explicitly with setFileName().     When loading the library, QLibrary searches in all the     system-specific library locations (e.g. \c LD_LIBRARY_PATH on     Unix), unless the file name has an absolute path. If the file     cannot be found, QLibrary tries the name with different     platform-specific file suffixes, like ".so" on Unix, ".dylib" on     the Mac, or ".dll" on Windows. This makes it possible     to specify shared libraries that are only identified by their     basename (i.e. without their suffix), so the same code will work     on different operating systems.      The most important functions are load() to dynamically load the     library file, isLoaded() to check whether loading was successful,     and resolve() to resolve a symbol in the library. The resolve()     function implicitly tries to load the library if it has not been     loaded yet. Multiple instances of QLibrary can be used to access     the same physical library. Once loaded, libraries remain in memory     until the application terminates. You can attempt to unload a     library using unload(), but if other instances of QLibrary are     using the same library, the call will fail, and unloading will     only happen when every instance has called unload().      A typical use of QLibrary is to resolve an exported symbol in a     library, and to call the C function that this symbol represents.     This is called "explicit linking" in contrast to "implicit     linking", which is done by the link step in the build process when     linking an executable against a library.      The following code snippet loads a library, resolves the symbol     "mysymbol", and calls the function if everything succeeded. If     something goes wrong, e.g. the library file does not exist or the     symbol is not defined, the function pointer will be 0 and won't be     called.      \snippet doc/src/snippets/code/src_corelib_plugin_qlibrary.cpp 0      The symbol must be exported as a C function from the library for     resolve() to work. This means that the function must be wrapped in     an \c{extern "C"} block if the library is compiled with a C++     compiler. On Windows, this also requires the use of a \c dllexport     macro; see resolve() for the details of how this is done. For     convenience, there is a static resolve() function which you can     use if you just want to call a function in a library without     explicitly loading the library first:      \snippet doc/src/snippets/code/src_corelib_plugin_qlibrary.cpp 1      \sa QPluginLoader */
 comment|/*!     \enum QLibrary::LoadHint      This enum describes the possible hints that can be used to change the way     libraries are handled when they are loaded. These values indicate how     symbols are resolved when libraries are loaded, and are specified using     the setLoadHints() function.      \value ResolveAllSymbolsHint     Causes all symbols in a library to be resolved when it is loaded, not     simply when resolve() is called.     \value ExportExternalSymbolsHint     Exports unresolved and external symbols in the library so that they can be     resolved in other dynamically-loaded libraries loaded later.     \value LoadArchiveMemberHint     Allows the file name of the library to specify a particular object file     within an archive file.     If this hint is given, the filename of the library consists of     a path, which is a reference to an archive file, followed by     a reference to the archive member.      \sa loadHints */
 ifndef|#
 directive|ifndef
@@ -783,12 +783,6 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
 name|QT_NO_PLUGIN_CHECK
 argument_list|)
 end_if
@@ -1347,7 +1341,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_OS_UNIX&& !Q_OS_MAC&& !defined(Q_OS_SYMBIAN)&& !defined(QT_NO_PLUGIN_CHECK)
+comment|// Q_OS_UNIX&& !Q_OS_MAC&& !defined(QT_NO_PLUGIN_CHECK)
 end_comment
 begin_function
 DECL|function|installCoverageTool
@@ -1424,56 +1418,6 @@ name|ret
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|#
-directive|else
-name|Q_UNUSED
-argument_list|(
-name|libPrivate
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-block|}
-end_function
-begin_function
-DECL|function|releaseCoverageTool
-specifier|static
-name|void
-name|releaseCoverageTool
-parameter_list|(
-name|QLibraryPrivate
-modifier|*
-name|libPrivate
-parameter_list|)
-block|{
-ifdef|#
-directive|ifdef
-name|__COVERAGESCANNER__
-comment|/*       __COVERAGESCANNER__ is defined when Qt has been instrumented for code       coverage by TestCocoon.       Here is the code to save the execution data.       See comments about initialization in QLibraryPrivate::load().     */
-if|if
-condition|(
-name|libPrivate
-operator|->
-name|pHnd
-condition|)
-block|{
-name|__coveragescanner_save
-argument_list|()
-expr_stmt|;
-name|__coveragescanner_clear
-argument_list|()
-expr_stmt|;
-name|__coveragescanner_unregister_library
-argument_list|(
-name|libPrivate
-operator|->
-name|fileName
-operator|.
-name|toLocal8Bit
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 else|#
 directive|else
@@ -1940,11 +1884,6 @@ operator|::
 name|release
 parameter_list|()
 block|{
-name|releaseCoverageTool
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 name|QMutexLocker
 name|locker
 argument_list|(
@@ -2012,34 +1951,6 @@ argument_list|(
 literal|"qt_plugin_instance"
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-if|if
-condition|(
-operator|!
-name|instance
-condition|)
-block|{
-comment|// If resolving with function name failed (i.e. not STDDLL),
-comment|// try resolving using known ordinal, which for
-comment|// qt_plugin_instance function is always "2".
-name|instance
-operator|=
-operator|(
-name|QtPluginInstanceFunction
-operator|)
-name|resolve
-argument_list|(
-literal|"2"
-argument_list|)
-expr_stmt|;
-block|}
-endif|#
-directive|endif
 return|return
 name|instance
 return|;
@@ -2070,7 +1981,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a fileName has a valid suffix for a loadable     library; otherwise returns false.      \table     \header \i Platform \i Valid suffixes     \row \i Windows     \i \c .dll, \c .DLL     \row \i Unix/Linux  \i \c .so     \row \i AIX  \i \c .a     \row \i HP-UX       \i \c .sl, \c .so (HP-UXi)     \row \i Mac OS X    \i \c .dylib, \c .bundle, \c .so     \row \i Symbian     \i \c .dll     \endtable      Trailing versioning numbers on Unix are ignored.  */
+comment|/*!     Returns true if \a fileName has a valid suffix for a loadable     library; otherwise returns false.      \table     \header \i Platform \i Valid suffixes     \row \i Windows     \i \c .dll, \c .DLL     \row \i Unix/Linux  \i \c .so     \row \i AIX  \i \c .a     \row \i HP-UX       \i \c .sl, \c .so (HP-UXi)     \row \i Mac OS X    \i \c .dylib, \c .bundle, \c .so     \endtable      Trailing versioning numbers on Unix are ignored.  */
 end_comment
 begin_function
 DECL|function|isLibrary
@@ -2110,36 +2021,6 @@ name|Qt
 operator|::
 name|CaseInsensitive
 argument_list|)
-return|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-comment|// Plugin stubs are also considered libraries in Symbian.
-return|return
-operator|(
-name|fileName
-operator|.
-name|endsWith
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|".dll"
-argument_list|)
-argument_list|)
-operator|||
-name|fileName
-operator|.
-name|endsWith
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|".qtplugin"
-argument_list|)
-argument_list|)
-operator|)
 return|;
 else|#
 directive|else
@@ -2749,12 +2630,6 @@ name|defined
 argument_list|(
 name|Q_OS_MAC
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 if|if
 condition|(
 operator|!
@@ -2867,22 +2742,6 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-comment|//Guard against accidentally trying to load non-plugin libraries by making sure the stub exists
-if|if
-condition|(
-name|fileinfo
-operator|.
-name|exists
-argument_list|()
-condition|)
-endif|#
-directive|endif
 name|temporary_load
 operator|=
 name|load_sys
@@ -2939,17 +2798,6 @@ name|qtPluginQueryVerificationDataFunction
 init|=
 name|NULL
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-if|if
-condition|(
-name|temporary_load
-condition|)
-block|{
 name|qtPluginQueryVerificationDataFunction
 operator|=
 operator|(
@@ -2960,37 +2808,6 @@ argument_list|(
 literal|"qt_plugin_query_verification_data"
 argument_list|)
 expr_stmt|;
-comment|// If resolving with function name failed (i.e. not STDDLL), try resolving using known ordinal
-if|if
-condition|(
-operator|!
-name|qtPluginQueryVerificationDataFunction
-condition|)
-name|qtPluginQueryVerificationDataFunction
-operator|=
-operator|(
-name|QtPluginQueryVerificationDataFunction
-operator|)
-name|resolve
-argument_list|(
-literal|"1"
-argument_list|)
-expr_stmt|;
-block|}
-else|#
-directive|else
-name|qtPluginQueryVerificationDataFunction
-operator|=
-operator|(
-name|QtPluginQueryVerificationDataFunction
-operator|)
-name|resolve
-argument_list|(
-literal|"qt_plugin_query_verification_data"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 name|bool
@@ -3481,7 +3298,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Constructs a library object with the given \a parent that will     load the library specified by \a fileName.      We recommend omitting the file's suffix in \a fileName, since     QLibrary will automatically look for the file with the appropriate     suffix in accordance with the platform, e.g. ".so" on Unix,     ".dylib" on Mac OS X, and ".dll" on Windows. (See \l{fileName}.)      Note: In Symbian the path portion of the \a fileName is ignored.  */
+comment|/*!     Constructs a library object with the given \a parent that will     load the library specified by \a fileName.      We recommend omitting the file's suffix in \a fileName, since     QLibrary will automatically look for the file with the appropriate     suffix in accordance with the platform, e.g. ".so" on Unix,     ".dylib" on Mac OS X, and ".dll" on Windows. (See \l{fileName}.)  */
 end_comment
 begin_constructor
 DECL|function|QLibrary
@@ -3522,7 +3339,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a library object with the given \a parent that will     load the library specified by \a fileName and major version number \a verNum.     Currently, the version number is ignored on Windows and Symbian.      We recommend omitting the file's suffix in \a fileName, since     QLibrary will automatically look for the file with the appropriate     suffix in accordance with the platform, e.g. ".so" on Unix,     ".dylib" on Mac OS X, and ".dll" on Windows. (See \l{fileName}.)      Note: In Symbian the path portion of the \a fileName is ignored. */
+comment|/*!     Constructs a library object with the given \a parent that will     load the library specified by \a fileName and major version number \a verNum.     Currently, the version number is ignored on Windows.      We recommend omitting the file's suffix in \a fileName, since     QLibrary will automatically look for the file with the appropriate     suffix in accordance with the platform, e.g. ".so" on Unix,     ".dylib" on Mac OS X, and ".dll" on Windows. (See \l{fileName}.) */
 end_comment
 begin_constructor
 DECL|function|QLibrary
@@ -3568,7 +3385,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a library object with the given \a parent that will     load the library specified by \a fileName and full version number \a version.     Currently, the version number is ignored on Windows and Symbian.      We recommend omitting the file's suffix in \a fileName, since     QLibrary will automatically look for the file with the appropriate     suffix in accordance with the platform, e.g. ".so" on Unix,     ".dylib" on Mac OS X, and ".dll" on Windows. (See \l{fileName}.)      Note: In Symbian the path portion of the \a fileName is ignored.  */
+comment|/*!     Constructs a library object with the given \a parent that will     load the library specified by \a fileName and full version number \a version.     Currently, the version number is ignored on Windows.      We recommend omitting the file's suffix in \a fileName, since     QLibrary will automatically look for the file with the appropriate     suffix in accordance with the platform, e.g. ".so" on Unix,     ".dylib" on Mac OS X, and ".dll" on Windows. (See \l{fileName}.)  */
 end_comment
 begin_constructor
 DECL|function|QLibrary
@@ -3638,7 +3455,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     \property QLibrary::fileName     \brief the file name of the library      We recommend omitting the file's suffix in the file name, since     QLibrary will automatically look for the file with the appropriate     suffix (see isLibrary()).      When loading the library, QLibrary searches in all system-specific     library locations (e.g. \c LD_LIBRARY_PATH on Unix), unless the     file name has an absolute path. After loading the library     successfully, fileName() returns the fully-qualified file name of     the library, including the full path to the library if one was given     in the constructor or passed to setFileName().      For example, after successfully loading the "GL" library on Unix     platforms, fileName() will return "libGL.so". If the file name was     originally passed as "/usr/lib/libGL", fileName() will return     "/usr/lib/libGL.so".      Note: In Symbian the path portion of the \a fileName is ignored. */
+comment|/*!     \property QLibrary::fileName     \brief the file name of the library      We recommend omitting the file's suffix in the file name, since     QLibrary will automatically look for the file with the appropriate     suffix (see isLibrary()).      When loading the library, QLibrary searches in all system-specific     library locations (e.g. \c LD_LIBRARY_PATH on Unix), unless the     file name has an absolute path. After loading the library     successfully, fileName() returns the fully-qualified file name of     the library, including the full path to the library if one was given     in the constructor or passed to setFileName().      For example, after successfully loading the "GL" library on Unix     platforms, fileName() will return "libGL.so". If the file name was     originally passed as "/usr/lib/libGL", fileName() will return     "/usr/lib/libGL.so". */
 end_comment
 begin_function
 DECL|function|setFileName
@@ -3736,7 +3553,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QLibrary::setFileNameAndVersion(const QString&fileName, int versionNumber)      Sets the fileName property and major version number to \a fileName     and \a versionNumber respectively.     The \a versionNumber is ignored on Windows and Symbian.      Note: In Symbian the path portion of the \a fileName is ignored.      \sa setFileName() */
+comment|/*!     \fn void QLibrary::setFileNameAndVersion(const QString&fileName, int versionNumber)      Sets the fileName property and major version number to \a fileName     and \a versionNumber respectively.     The \a versionNumber is ignored on Windows.      \sa setFileName() */
 end_comment
 begin_function
 DECL|function|setFileNameAndVersion
@@ -3816,7 +3633,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Sets the fileName property and full version number to \a fileName     and \a version respectively.     The \a version parameter is ignored on Windows and Symbian.      Note: In Symbian the path portion of the \a fileName is ignored.      \sa setFileName() */
+comment|/*!     \since 4.4      Sets the fileName property and full version number to \a fileName     and \a version respectively.     The \a version parameter is ignored on Windows.      \sa setFileName() */
 end_comment
 begin_function
 DECL|function|setFileNameAndVersion
@@ -3886,7 +3703,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the address of the exported symbol \a symbol. The library is     loaded if necessary. The function returns 0 if the symbol could     not be resolved or if the library could not be loaded.      Example:     \snippet doc/src/snippets/code/src_corelib_plugin_qlibrary.cpp 2      The symbol must be exported as a C function from the library. This     means that the function must be wrapped in an \c{extern "C"} if     the library is compiled with a C++ compiler. On Windows you must     also explicitly export the function from the DLL using the     \c{__declspec(dllexport)} compiler directive, for example:      \snippet doc/src/snippets/code/src_corelib_plugin_qlibrary.cpp 3      with \c MY_EXPORT defined as      \snippet doc/src/snippets/code/src_corelib_plugin_qlibrary.cpp 4      Note: In Symbian resolving with symbol names works only if the loaded     library was built as STDDLL. Otherwise, the ordinals must be used. */
+comment|/*!     Returns the address of the exported symbol \a symbol. The library is     loaded if necessary. The function returns 0 if the symbol could     not be resolved or if the library could not be loaded.      Example:     \snippet doc/src/snippets/code/src_corelib_plugin_qlibrary.cpp 2      The symbol must be exported as a C function from the library. This     means that the function must be wrapped in an \c{extern "C"} if     the library is compiled with a C++ compiler. On Windows you must     also explicitly export the function from the DLL using the     \c{__declspec(dllexport)} compiler directive, for example:      \snippet doc/src/snippets/code/src_corelib_plugin_qlibrary.cpp 3      with \c MY_EXPORT defined as      \snippet doc/src/snippets/code/src_corelib_plugin_qlibrary.cpp 4 */
 end_comment
 begin_function
 DECL|function|resolve
@@ -3925,7 +3742,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Loads the library \a fileName and returns the address of the     exported symbol \a symbol. Note that \a fileName should not     include the platform-specific file suffix; (see \l{fileName}). The     library remains loaded until the application exits.      The function returns 0 if the symbol could not be resolved or if     the library could not be loaded.      Note: In Symbian resolving with symbol names works only if the loaded     library was built as STDDLL. Otherwise, the ordinals must be used.      \sa resolve() */
+comment|/*!     \overload      Loads the library \a fileName and returns the address of the     exported symbol \a symbol. Note that \a fileName should not     include the platform-specific file suffix; (see \l{fileName}). The     library remains loaded until the application exits.      The function returns 0 if the symbol could not be resolved or if     the library could not be loaded.      \sa resolve() */
 end_comment
 begin_function
 DECL|function|resolve
@@ -3962,7 +3779,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Loads the library \a fileName with major version number \a verNum and     returns the address of the exported symbol \a symbol.     Note that \a fileName should not include the platform-specific file suffix;     (see \l{fileName}). The library remains loaded until the application exits.     \a verNum is ignored on Windows.      The function returns 0 if the symbol could not be resolved or if     the library could not be loaded.      Note: In Symbian resolving with symbol names works only if the loaded     library was built as STDDLL. Otherwise, the ordinals must be used.      \sa resolve() */
+comment|/*!     \overload      Loads the library \a fileName with major version number \a verNum and     returns the address of the exported symbol \a symbol.     Note that \a fileName should not include the platform-specific file suffix;     (see \l{fileName}). The library remains loaded until the application exits.     \a verNum is ignored on Windows.      The function returns 0 if the symbol could not be resolved or if     the library could not be loaded.      \sa resolve() */
 end_comment
 begin_function
 DECL|function|resolve
@@ -4004,7 +3821,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload     \since 4.4      Loads the library \a fileName with full version number \a version and     returns the address of the exported symbol \a symbol.     Note that \a fileName should not include the platform-specific file suffix;     (see \l{fileName}). The library remains loaded until the application exits.     \a version is ignored on Windows.      The function returns 0 if the symbol could not be resolved or if     the library could not be loaded.      Note: In Symbian resolving with symbol names works only if the loaded     library was built as STDDLL. Otherwise, the ordinals must be used.      \sa resolve() */
+comment|/*!     \overload     \since 4.4      Loads the library \a fileName with full version number \a version and     returns the address of the exported symbol \a symbol.     Note that \a fileName should not include the platform-specific file suffix;     (see \l{fileName}). The library remains loaded until the application exits.     \a version is ignored on Windows.      The function returns 0 if the symbol could not be resolved or if     the library could not be loaded.      \sa resolve() */
 end_comment
 begin_function
 DECL|function|resolve

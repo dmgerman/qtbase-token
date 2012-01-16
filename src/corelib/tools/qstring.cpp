@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -2069,7 +2069,8 @@ operator|(
 name|Data
 operator|*
 operator|)
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -2241,7 +2242,8 @@ operator|(
 name|Data
 operator|*
 operator|)
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -2376,7 +2378,8 @@ operator|(
 name|Data
 operator|*
 operator|)
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -2511,7 +2514,8 @@ operator|(
 name|Data
 operator|*
 operator|)
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -2603,7 +2607,8 @@ operator|(
 name|Data
 operator|*
 operator|)
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -2718,7 +2723,8 @@ modifier|*
 name|d
 parameter_list|)
 block|{
-name|qFree
+operator|::
+name|free
 argument_list|(
 name|d
 argument_list|)
@@ -2956,7 +2962,8 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -3093,7 +3100,8 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qRealloc
+operator|::
+name|realloc
 argument_list|(
 name|d
 argument_list|,
@@ -3572,7 +3580,8 @@ name|ushort
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 name|size
 operator|*
@@ -3619,7 +3628,8 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
-name|qFree
+operator|::
+name|free
 argument_list|(
 name|tmp
 argument_list|)
@@ -4817,7 +4827,8 @@ name|QChar
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 name|alen
 operator|*
@@ -5254,7 +5265,8 @@ name|afterBuffer
 operator|!=
 name|after
 condition|)
-name|qFree
+operator|::
+name|free
 argument_list|(
 name|afterBuffer
 argument_list|)
@@ -5268,7 +5280,8 @@ name|afterBuffer
 operator|!=
 name|after
 condition|)
-name|qFree
+operator|::
+name|free
 argument_list|(
 name|afterBuffer
 argument_list|)
@@ -12027,7 +12040,8 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -12400,48 +12414,17 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QString initialized with the first \a size characters     of the Latin-1 string \a str.      If \a size is -1 (default), it is taken to be qstrlen(\a     str).      \sa toLatin1(), fromAscii(), fromUtf8(), fromLocal8Bit() */
+comment|/*! \fn QString QString::fromLatin1(const char *str, int size)     Returns a QString initialized with the first \a size characters     of the Latin-1 string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      \sa toLatin1(), fromAscii(), fromUtf8(), fromLocal8Bit() */
 end_comment
-begin_function
-DECL|function|fromLatin1
-name|QString
-name|QString
-operator|::
-name|fromLatin1
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|str
-parameter_list|,
-name|int
-name|size
-parameter_list|)
-block|{
-return|return
-name|QString
-argument_list|(
-name|fromLatin1_helper
-argument_list|(
-name|str
-argument_list|,
-name|size
-argument_list|)
-argument_list|,
-literal|0
-argument_list|)
-return|;
-block|}
-end_function
 begin_comment
-comment|/*!     Returns a QString initialized with the first \a size characters     of the 8-bit string \a str.      If \a size is -1 (default), it is taken to be qstrlen(\a     str).      QTextCodec::codecForLocale() is used to perform the conversion.      \sa toLocal8Bit(), fromAscii(), fromLatin1(), fromUtf8() */
+comment|/*! \fn QString QString::fromLocal8Bit(const char *str, int size)     Returns a QString initialized with the first \a size characters     of the 8-bit string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      QTextCodec::codecForLocale() is used to perform the conversion.      \sa toLocal8Bit(), fromAscii(), fromLatin1(), fromUtf8() */
 end_comment
 begin_function
-DECL|function|fromLocal8Bit
+DECL|function|fromLocal8Bit_helper
 name|QString
 name|QString
 operator|::
-name|fromLocal8Bit
+name|fromLocal8Bit_helper
 parameter_list|(
 specifier|const
 name|char
@@ -12540,48 +12523,17 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QString initialized with the first \a size characters     from the string \a str.      If \a size is -1 (default), it is taken to be qstrlen(\a     str).      Note that, despite the name, this function actually uses the codec     defined by QTextCodec::setCodecForCStrings() to convert \a str to     Unicode. Depending on the codec, it may not accept valid US-ASCII (ANSI     X3.4-1986) input. If no codec has been set, this function does the same     as fromLatin1().      \sa toAscii(), fromLatin1(), fromUtf8(), fromLocal8Bit() */
+comment|/*! \fn QString QString::fromAscii(const char *, int size);     Returns a QString initialized with the first \a size characters     from the string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      Note that, despite the name, this function actually uses the codec     defined by QTextCodec::setCodecForCStrings() to convert \a str to     Unicode. Depending on the codec, it may not accept valid US-ASCII (ANSI     X3.4-1986) input. If no codec has been set, this function does the same     as fromLatin1().      \sa toAscii(), fromLatin1(), fromUtf8(), fromLocal8Bit() */
 end_comment
-begin_function
-DECL|function|fromAscii
-name|QString
-name|QString
-operator|::
-name|fromAscii
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|str
-parameter_list|,
-name|int
-name|size
-parameter_list|)
-block|{
-return|return
-name|QString
-argument_list|(
-name|fromAscii_helper
-argument_list|(
-name|str
-argument_list|,
-name|size
-argument_list|)
-argument_list|,
-literal|0
-argument_list|)
-return|;
-block|}
-end_function
 begin_comment
-comment|/*!     Returns a QString initialized with the first \a size bytes     of the UTF-8 string \a str.      If \a size is -1 (default), it is taken to be qstrlen(\a     str).      UTF-8 is a Unicode codec and can represent all characters in a Unicode     string like QString. However, invalid sequences are possible with UTF-8     and, if any such are found, they will be replaced with one or more     "replacement characters", or suppressed. These include non-Unicode     sequences, non-characters, overlong sequences or surrogate codepoints     encoded into UTF-8.      Non-characters are codepoints that the Unicode standard reserves and must     not be used in text interchange. They are the last two codepoints in each     Unicode Plane (U+FFFE, U+FFFF, U+1FFFE, U+1FFFF, U+2FFFE, etc.), as well     as 16 codepoints in the range U+FDD0..U+FDDF, inclusive.      \sa toUtf8(), fromAscii(), fromLatin1(), fromLocal8Bit() */
+comment|/*! \fn QString QString::fromUtf8(const char *str, int size)     Returns a QString initialized with the first \a size bytes     of the UTF-8 string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      UTF-8 is a Unicode codec and can represent all characters in a Unicode     string like QString. However, invalid sequences are possible with UTF-8     and, if any such are found, they will be replaced with one or more     "replacement characters", or suppressed. These include non-Unicode     sequences, non-characters, overlong sequences or surrogate codepoints     encoded into UTF-8.      Non-characters are codepoints that the Unicode standard reserves and must     not be used in text interchange. They are the last two codepoints in each     Unicode Plane (U+FFFE, U+FFFF, U+1FFFE, U+1FFFF, U+2FFFE, etc.), as well     as 16 codepoints in the range U+FDD0..U+FDDF, inclusive.      \sa toUtf8(), fromAscii(), fromLatin1(), fromLocal8Bit() */
 end_comment
 begin_function
-DECL|function|fromUtf8
+DECL|function|fromUtf8_helper
 name|QString
 name|QString
 operator|::
-name|fromUtf8
+name|fromUtf8_helper
 parameter_list|(
 specifier|const
 name|char
@@ -12601,17 +12553,12 @@ return|return
 name|QString
 argument_list|()
 return|;
-if|if
-condition|(
-name|size
-operator|<
-literal|0
-condition|)
-name|size
-operator|=
-name|qstrlen
+name|Q_ASSERT
 argument_list|(
-name|str
+name|size
+operator|!=
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 return|return
@@ -22386,7 +22333,8 @@ name|Data
 operator|*
 argument_list|>
 argument_list|(
-name|qMalloc
+operator|::
+name|malloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
@@ -26983,7 +26931,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \macro QStringLiteral(str)   \relates QString    The macro generates the data for a QString out of \a str at compile time if the compiler supports it.   Creating a QString from it is free in this case, and the generated string data is stored in   the read-only segment of the compiled object file.    Using QStringLiteral instead of a double quoted ascii literal can significantly speed up creation   of QString's from data known at compile time.    If the compiler is c++0x enabled the string \a str can actually contain unicode data.    For compilers not supporting the creation of compile time strings, QStringLiteral will fall back to   QLatin1String. */
+comment|/*!   \macro QStringLiteral(str)   \relates QString    The macro generates the data for a QString out of \a str at compile time if the compiler supports it.   Creating a QString from it is free in this case, and the generated string data is stored in   the read-only segment of the compiled object file.    For compilers not supporting the creation of compile time strings, QStringLiteral will fall back to   QLatin1String.    The result of the QStringLiteral expression can be cast into a QString.    If you have code looking like:   \code   if (node.hasAttribute("http-contents-length")) //...   \endcode   One temporary QString will be created to be passed as the hasAttribute function parameter.   This can be quite expensive, as it involves a memory allocation and the copy and the conversion   of the data into QString's internal encoding.    This can be avoided by doing   \code   if (node.hasAttribute(QStringLiteral("http-contents-length"))) //...   \endcode   Then the QString's internal data will be generated at compile time and no conversion or allocation   will occur at runtime    Using QStringLiteral instead of a double quoted ascii literal can significantly speed up creation   of QString's from data known at compile time.    If the compiler is C++11 enabled the string \a str can actually contain unicode data.    \note There are still a few cases in which QLatin1String is more efficient than QStringLiteral:   If it is passed to a function that has an overload that takes the QLatin1String directly, without   conversion to QString. For instance, this is the case of QString::operator==   \code   if (attribute.name() == QLatin1String("http-contents-length")) //...   \endcode */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

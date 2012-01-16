@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -3544,20 +3544,14 @@ operator|==
 name|Trigger
 condition|)
 block|{
+name|QWeakPointer
+argument_list|<
 name|QObject
-modifier|*
+argument_list|>
 name|guard
 init|=
 name|this
 decl_stmt|;
-name|QMetaObject
-operator|::
-name|addGuard
-argument_list|(
-operator|&
-name|guard
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|d
@@ -3597,7 +3591,11 @@ condition|)
 block|{
 if|if
 condition|(
+operator|!
 name|guard
+operator|.
+name|isNull
+argument_list|()
 condition|)
 emit|emit
 name|triggered
@@ -3605,14 +3603,6 @@ argument_list|(
 literal|true
 argument_list|)
 emit|;
-name|QMetaObject
-operator|::
-name|removeGuard
-argument_list|(
-operator|&
-name|guard
-argument_list|)
-expr_stmt|;
 return|return;
 block|}
 name|setChecked
@@ -3626,7 +3616,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
 name|guard
+operator|.
+name|isNull
+argument_list|()
 condition|)
 emit|emit
 name|triggered
@@ -3636,14 +3630,6 @@ operator|->
 name|checked
 argument_list|)
 emit|;
-name|QMetaObject
-operator|::
-name|removeGuard
-argument_list|(
-operator|&
-name|guard
-argument_list|)
-expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -3674,45 +3660,6 @@ comment|/*!     \fn void QAction::changed()      This signal is emitted when an 
 end_comment
 begin_comment
 comment|/*!     \enum QAction::ActionEvent      This enum type is used when calling QAction::activate()      \value Trigger this will cause the QAction::triggered() signal to be emitted.      \value Hover this will cause the QAction::hovered() signal to be emitted. */
-end_comment
-begin_comment
-comment|/*!     \fn void QAction::setMenuText(const QString&text)      Use setText() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QAction::menuText() const      Use text() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QAction::isOn() const      Use isChecked() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QAction::setOn(bool b)      Use setChecked() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QAction::isToggleAction() const      Use isCheckable() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QAction::setToggleAction(bool b)      Use setCheckable() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QAction::setIconSet(const QIcon&i)      Use setIcon() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn bool QAction::addTo(QWidget *w)      Use QWidget::addAction() instead.      \oldcode     action->addTo(widget);     \newcode     widget->addAction(action);     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn bool QAction::removeFrom(QWidget *w)      Use QWidget::removeAction() instead.      \oldcode     action->removeFrom(widget);     \newcode     widget->removeAction(action);     \endcode */
-end_comment
-begin_comment
-comment|/*!     \fn void QAction::setAccel(const QKeySequence&shortcut)      Use setShortcut() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QIcon QAction::iconSet() const      Use icon() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QKeySequence QAction::accel() const      Use shortcut() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn void QAction::activated(int i);      Use triggered() instead. */
 end_comment
 begin_comment
 comment|/*!     \property QAction::menuRole     \brief the action's menu role     \since 4.2      This indicates what role the action serves in the application menu on Mac     OS X. By default all action have the TextHeuristicRole, which means that     the action is added based on its text (see QMenuBar for more information).      The menu role can only be changed before the actions are put into the menu     bar in Mac OS X (usually just before the first application window is     shown). */

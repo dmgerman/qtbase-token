@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtTest module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtTest module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -201,9 +201,11 @@ name|QT_BEGIN_NAMESPACE
 comment|/*!    \namespace QTest    \inmodule QtTest     \brief The QTest namespace contains all the functions and    declarations that are related to the QTestLib tool.     Please refer to the \l{QTestLib Manual} documentation for information on    how to write unit tests. */
 comment|/*! \macro QVERIFY(condition)     \relates QTest     The QVERIFY() macro checks whether the \a condition is true or not. If it is    true, execution continues. If not, a failure is recorded in the test log    and the test won't be executed further.     \bold {Note:} This macro can only be used in a test function that is invoked    by the test framework.     Example:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 0     \sa QCOMPARE(), QTRY_VERIFY() */
 comment|/*! \macro QVERIFY2(condition, message)      \relates QTest      The QVERIFY2() macro behaves exactly like QVERIFY(), except that it outputs     a verbose \a message when \a condition is false. The \a message is a plain     C string.      Example:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 1      \sa QVERIFY(), QCOMPARE() */
-comment|/*! \macro QCOMPARE(actual, expected)     \relates QTest     The QCOMPARE macro compares an \a actual value to an \a expected value using    the equals operator. If \a actual and \a expected are identical, execution    continues. If not, a failure is recorded in the test log and the test    won't be executed further.     In the case of comparing floats and doubles, qFuzzyCompare() is used for    comparing. This means that comparing to 0 will likely fail. One solution    to this is to compare to 1, and add 1 to the produced output.     QCOMPARE tries to output the contents of the values if the comparison fails,    so it is visible from the test log why the comparison failed.     QCOMPARE is very strict on the data types. Both \a actual and \a expected    have to be of the same type, otherwise the test won't compile. This prohibits    unspecified behavior from being introduced; that is behavior that usually    occurs when the compiler implicitly casts the argument.     If you use QCOMPARE() to compare two QStringList objects, it will start    comparing the objects from the end of the lists.     For your own classes, you can use \l QTest::toString() to format values for    outputting into the test log.     \note This macro can only be used in a test function that is invoked    by the test framework.     Example:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 2     \sa QVERIFY(), QTRY_COMPARE(), QTest::toString() */
-comment|/*! \macro QTRY_VERIFY(condition)     \relates QTest     The QTRY_VERIFY() macro is similar to QVERIFY(), but checks the \a condition    repeatedly, until either the condition becomes true or a maximum timeout is    reached.  Between each evaluation, events will be processed.  If the timeout    is reached, a failure is recorded in the test log and the test won't be    executed further.     The timeout is fixed at five seconds.     \note This macro can only be used in a test function that is invoked    by the test framework.     \sa QVERIFY(), QCOMPARE(), QTRY_COMPARE() */
-comment|/*! \macro QTRY_COMPARE(actual, expected)     \relates QTest     The QTRY_COMPARE() macro is similar to QCOMPARE(), but performs the comparison    of the \a actual and \a expected values repeatedly, until either the two values    are equal or a maximum timeout is reached.  Between each comparison, events    will be processed.  If the timeout is reached, a failure is recorded in the    test log and the test won't be executed further.     The timeout is fixed at five seconds.     \note This macro can only be used in a test function that is invoked    by the test framework.     \sa QCOMPARE(), QVERIFY(), QTRY_VERIFY() */
+comment|/*! \macro QCOMPARE(actual, expected)     \relates QTest     The QCOMPARE macro compares an \a actual value to an \a expected value using    the equals operator. If \a actual and \a expected are identical, execution    continues. If not, a failure is recorded in the test log and the test    won't be executed further.     In the case of comparing floats and doubles, qFuzzyCompare() is used for    comparing. This means that comparing to 0 will likely fail. One solution    to this is to compare to 1, and add 1 to the produced output.     QCOMPARE tries to output the contents of the values if the comparison fails,    so it is visible from the test log why the comparison failed.     QCOMPARE is very strict on the data types. Both \a actual and \a expected    have to be of the same type, otherwise the test won't compile. This prohibits    unspecified behavior from being introduced; that is behavior that usually    occurs when the compiler implicitly casts the argument.     For your own classes, you can use \l QTest::toString() to format values for    outputting into the test log.     \note This macro can only be used in a test function that is invoked    by the test framework.     Example:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 2     \sa QVERIFY(), QTRY_COMPARE(), QTest::toString() */
+comment|/*! \macro QTRY_VERIFY_WITH_TIMEOUT(condition, timeout)     \relates QTest     The QTRY_VERIFY_WITH_TIMEOUT() macro is similar to QVERIFY(), but checks the \a condition    repeatedly, until either the condition becomes true or the \a timeout is    reached.  Between each evaluation, events will be processed.  If the timeout    is reached, a failure is recorded in the test log and the test won't be    executed further.     \note This macro can only be used in a test function that is invoked    by the test framework.     \sa QTRY_VERIFY(), QVERIFY(), QCOMPARE(), QTRY_COMPARE() */
+comment|/*! \macro QTRY_VERIFY(condition)     \relates QTest     Invokes QTRY_VERIFY_WITH_TIMEOUT() with a timeout of five seconds.     \note This macro can only be used in a test function that is invoked    by the test framework.     \sa QTRY_VERIFY_WITH_TIMEOUT(), QVERIFY(), QCOMPARE(), QTRY_COMPARE() */
+comment|/*! \macro QTRY_COMPARE_WITH_TIMEOUT(actual, expected, timeout)     \relates QTest     The QTRY_COMPARE_WITH_TIMEOUT() macro is similar to QCOMPARE(), but performs the comparison    of the \a actual and \a expected values repeatedly, until either the two values    are equal or the \a timeout is reached.  Between each comparison, events    will be processed.  If the timeout is reached, a failure is recorded in the    test log and the test won't be executed further.     \note This macro can only be used in a test function that is invoked    by the test framework.     \sa QTRY_COMPARE(), QCOMPARE(), QVERIFY(), QTRY_VERIFY() */
+comment|/*! \macro QTRY_COMPARE(actual, expected)     \relates QTest     Invokes QTRY_COMPARE_WITH_TIMEOUT() with a timeout of five seconds.     \note This macro can only be used in a test function that is invoked    by the test framework.     \sa QTRY_COMPARE_WITH_TIMEOUT(), QCOMPARE(), QVERIFY(), QTRY_VERIFY() */
 comment|/*! \macro QFETCH(type, name)     \relates QTest     The fetch macro creates a local variable named \a name with the type \a type    on the stack. \a name has to match the element name from the test's data.    If no such element exists, the test will assert.     Assuming a test has the following data:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 3     The test data has two elements, a QString called \c aString and an integer    called \c expected. To fetch these values in the actual test:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 4     \c aString and \c expected are variables on the stack that are initialized with    the current test data.     \bold {Note:} This macro can only be used in a test function that is invoked    by the test framework. The test function must have a _data function. */
 comment|/*! \macro QWARN(message)     \relates QTest    \threadsafe     Appends \a message as a warning to the test log. This macro can be used anywhere    in your tests. */
 comment|/*! \macro QFAIL(message)     \relates QTest     This macro can be used to force a test failure. The test stops    executing and the failure \a message is appended to the test log.     \bold {Note:} This macro can only be used in a test function that is invoked    by the test framework.     Example:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 5 */
@@ -211,7 +213,7 @@ comment|/*! \macro QTEST(actual, testElement)     \relates QTest     QTEST() is 
 comment|/*! \macro QSKIP(description)     \relates QTest     If called from a test function, the QSKIP() macro stops execution of the test    without adding a failure to the test log. You can use it to skip tests that    wouldn't make sense in the current configuration. The text \a description is    appended to the test log and should contain an explanation of why the test    couldn't be executed.     If the test is data-driven, each call to QSKIP() will skip only the current    row of test data, so an unconditional call to QSKIP will produce one skip    message in the test log for each row of test data.     If called from an _data function, the QSKIP() macro will stop execution of    the _data function and will prevent execution of the associated test    function.     If called from initTestCase() or initTestCase_data(), the QSKIP() macro will    skip all test and _data functions.     \bold {Note:} This macro can only be used in a test function or _data    function that is invoked by the test framework.     Example:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 8 */
 comment|/*! \macro QEXPECT_FAIL(dataIndex, comment, mode)     \relates QTest     The QEXPECT_FAIL() macro marks the next \l QCOMPARE() or \l QVERIFY() as an    expected failure. Instead of adding a failure to the test log, an expected    failure will be reported.     If a \l QVERIFY() or \l QCOMPARE() is marked as an expected failure,    but passes instead, an unexpected pass (XPASS) is written to the test log.     The parameter \a dataIndex describes for which entry in the test data the    failure is expected. Pass an empty string (\c{""}) if the failure    is expected for all entries or if no test data exists.     \a comment will be appended to the test log for the expected failure.     \a mode is a \l QTest::TestFailMode and sets whether the test should    continue to execute or not.     \bold {Note:} This macro can only be used in a test function that is invoked    by the test framework.     Example 1:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 9     In the example above, an expected fail will be written into the test output    if the variable \c i is not 42. If the variable \c i is 42, an unexpected pass    is written instead. The QEXPECT_FAIL() has no influence on the second QCOMPARE()    statement in the example.     Example 2:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 10     The above testfunction will not continue executing for the test data    entry \c{data27}.     \sa QTest::TestFailMode, QVERIFY(), QCOMPARE() */
 comment|/*! \macro QFINDTESTDATA(filename)     \relates QTest     Returns a QString for the testdata file referred to by \a filename, or an    empty QString if the testdata file could not be found.     This macro allows the test to load data from an external file without    hardcoding an absolute filename into the test, or using relative paths    which may be error prone.     The returned path will be the first path from the following list which    resolves to an existing file or directory:     \list    \o \a filename relative to QCoreApplication::applicationDirPath()       (only if a QCoreApplication or QApplication object has been created).    \o \a filename relative to the test's standard install directory       (QLibraryInfo::TestsPath with the lowercased testcase name appended).    \o \a filename relative to the directory containing the source file from which       QFINDTESTDATA is invoked.    \endlist     If the named file/directory does not exist at any of these locations,    a warning is printed to the test log.     For example, in this code:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 26     The testdata file will be resolved as the first existing file from:     \list    \o \c{/home/user/build/myxmlparser/tests/tst_myxmlparser/testxml/simple1.xml}    \o \c{/usr/local/Qt-5.0.0/tests/tst_myxmlparser/testxml/simple1.xml}    \o \c{/home/user/sources/myxmlparser/tests/tst_myxmlparser/testxml/simple1.xml}    \endlist     This allows the test to find its testdata regardless of whether the    test has been installed, and regardless of whether the test's build tree    is equal to the test's source tree.     \bold {Note:} reliable detection of testdata from the source directory requires    either that qmake is used, or the \c{QT_TESTCASE_BUILDDIR} macro is defined to    point to the working directory from which the compiler is invoked, or only    absolute paths to the source files are passed to the compiler. Otherwise, the    absolute path of the source directory cannot be determined. */
-comment|/*! \macro QTEST_MAIN(TestClass)      \relates QTest      Implements a main() function that instantiates an application object and     the \a TestClass, and executes all tests in the order they were defined.     Use this macro to build stand-alone executables.      If \c QT_GUI_LIB is defined, the application object will be a QApplication,     otherwise it will be a QCoreApplication.  If qmake is used and the configuration     includes \c{QT += gui}, then \c QT_GUI_LIB will be defined automatically.      \bold {Note:} On platforms that have keypad navigation enabled by default (eg: Symbian),     this macro will forcfully disable it to simplify the usage of key events when writing     autotests. If you wish to write a test case that uses keypad navigation, you should     enable it either in the \c {initTestCase()} or \c {init()} functions of your test case.      Example:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 11      \sa QTEST_APPLESS_MAIN(), QTEST_GUILESS_MAIN(), QTest::qExec(),     QApplication::setNavigationMode() */
+comment|/*! \macro QTEST_MAIN(TestClass)      \relates QTest      Implements a main() function that instantiates an application object and     the \a TestClass, and executes all tests in the order they were defined.     Use this macro to build stand-alone executables.      If \c QT_WIDGETS_LIB is defined, the application object will be a QApplication,     if \c QT_GUI_LIB is defined, the application object will be a QGuiApplication,     otherwise it will be a QCoreApplication.  If qmake is used and the configuration     includes \c{QT += widgets}, then \c QT_WIDGETS_LIB will be defined automatically.     Similarly, if qmake is used and the configuration includes \c{QT += gui}, then     \c QT_GUI_LIB will be defined automatically.      \bold {Note:} On platforms that have keypad navigation enabled by default,     this macro will forcefully disable it if \c QT_WIDGETS_LIB is defined.  This is done     to simplify the usage of key events when writing autotests. If you wish to write a     test case that uses keypad navigation, you should enable it either in the     \c {initTestCase()} or \c {init()} functions of your test case by calling     \l {QApplication::setNavigationMode()}.      Example:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 11      \sa QTEST_APPLESS_MAIN(), QTEST_GUILESS_MAIN(), QTest::qExec(),     QApplication::setNavigationMode() */
 comment|/*! \macro QTEST_APPLESS_MAIN(TestClass)      \relates QTest      Implements a main() function that executes all tests in \a TestClass.      Behaves like \l QTEST_MAIN(), but doesn't instantiate a QApplication     object. Use this macro for really simple stand-alone non-GUI tests.      \sa QTEST_MAIN() */
 comment|/*! \macro QTEST_GUILESS_MAIN(TestClass)      \relates QTest      Implements a main() function that instantiates a QCoreApplication object     and the \a TestClass, and executes all tests in the order they were     defined.  Use this macro to build stand-alone executables.      Behaves like \l QTEST_MAIN(), but instantiates a QCoreApplication instead     of the QApplication object. Use this macro if your test case doesn't need     functionality offered by QApplication, but the event loop is still necessary.      \sa QTEST_MAIN() */
 comment|/*!     \macro QBENCHMARK      \relates QTest      This macro is used to measure the performance of code within a test.     The code to be benchmarked is contained within a code block following     this macro.      For example:      \snippet examples/qtestlib/tutorial5/benchmarking.cpp 0      \sa {QTestLib Manual#Creating a Benchmark}{Creating a Benchmark},         {Chapter 5: Writing a Benchmark}{Writing a Benchmark} */
@@ -219,14 +221,14 @@ comment|/*!     \macro QBENCHMARK_ONCE     \since 4.6      \relates QTest      \
 comment|/*! \enum QTest::TestFailMode      This enum describes the modes for handling an expected failure of the     \l QVERIFY() or \l QCOMPARE() macros.      \value Abort Aborts the execution of the test. Use this mode when it            doesn't make sense to execute the test any further after the            expected failure.      \value Continue Continues execution of the test after the expected failure.      \sa QEXPECT_FAIL() */
 comment|/*! \enum QTest::KeyAction      This enum describes possible actions for key handling.      \value Press    The key is pressed.     \value Release  The key is released.     \value Click    The key is clicked (pressed and released). */
 comment|/*! \enum QTest::MouseAction      This enum describes possible actions for mouse handling.      \value MousePress    A mouse button is pressed.     \value MouseRelease  A mouse button is released.     \value MouseClick    A mouse button is clicked (pressed and released).     \value MouseDClick   A mouse button is double clicked (pressed and released twice).     \value MouseMove     The mouse pointer has moved. */
-comment|/*! \fn void QTest::keyClick(QWidget *widget, char key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      \overload      Simulates clicking of \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds.      Example:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 13      The example above simulates clicking \c a on \c myWidget without     any keyboard modifiers and without delay of the test.      \sa QTest::keyClicks() */
-comment|/*! \fn void QTest::keyClick(QWidget *widget, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      Simulates clicking of \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds.      Examples:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 14      The first example above simulates clicking the \c escape key on \c     myWidget without any keyboard modifiers and without delay. The     second example simulates clicking \c shift-escape on \c myWidget     with a following 200 ms delay of the test.      \sa QTest::keyClicks() */
+comment|/*! \fn void QTest::keyClick(QWidget *widget, char key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      \overload      Simulates clicking of \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before clicking the key.      Example:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 13      The example above simulates clicking \c a on \c myWidget without     any keyboard modifiers and without delay of the test.      \sa QTest::keyClicks() */
+comment|/*! \fn void QTest::keyClick(QWidget *widget, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      Simulates clicking of \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before clicking the key.      Examples:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 14      The first example above simulates clicking the \c escape key on \c     myWidget without any keyboard modifiers and without delay. The     second example simulates clicking \c shift-escape on \c myWidget     following a 200 ms delay of the test.      \sa QTest::keyClicks() */
 comment|/*! \fn void QTest::keyEvent(KeyAction action, QWidget *widget, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      Sends a Qt key event to \a widget with the given \a key and an associated \a action.     Optionally, a keyboard \a modifier can be specified, as well as a \a delay     (in milliseconds) of the test before sending the event. */
 comment|/*! \fn void QTest::keyEvent(KeyAction action, QWidget *widget, char ascii, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      \overload      Sends a Qt key event to \a widget with the given key \a ascii and an associated \a action.     Optionally, a keyboard \a modifier can be specified, as well as a \a delay     (in milliseconds) of the test before sending the event.  */
-comment|/*! \fn void QTest::keyPress(QWidget *widget, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      Simulates pressing a \a key with an optional \a modifier on a \a widget. If \a delay     is larger than 0, the test will wait for \a delay milliseconds.      \bold {Note:} At some point you should release the key using \l keyRelease().      \sa QTest::keyRelease(), QTest::keyClick() */
-comment|/*! \fn void QTest::keyPress(QWidget *widget, char key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      \overload      Simulates pressing a \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds.      \bold {Note:} At some point you should release the key using \l keyRelease().      \sa QTest::keyRelease(), QTest::keyClick() */
-comment|/*! \fn void QTest::keyRelease(QWidget *widget, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      Simulates releasing a \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds.      \sa QTest::keyPress(), QTest::keyClick() */
-comment|/*! \fn void QTest::keyRelease(QWidget *widget, char key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      \overload      Simulates releasing a \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds.      \sa QTest::keyClick() */
+comment|/*! \fn void QTest::keyPress(QWidget *widget, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      Simulates pressing a \a key with an optional \a modifier on a \a widget. If \a delay     is larger than 0, the test will wait for \a delay milliseconds before pressing the key.      \bold {Note:} At some point you should release the key using \l keyRelease().      \sa QTest::keyRelease(), QTest::keyClick() */
+comment|/*! \fn void QTest::keyPress(QWidget *widget, char key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      \overload      Simulates pressing a \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before pressing the key.      \bold {Note:} At some point you should release the key using \l keyRelease().      \sa QTest::keyRelease(), QTest::keyClick() */
+comment|/*! \fn void QTest::keyRelease(QWidget *widget, Qt::Key key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      Simulates releasing a \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before releasing the key.      \sa QTest::keyPress(), QTest::keyClick() */
+comment|/*! \fn void QTest::keyRelease(QWidget *widget, char key, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      \overload      Simulates releasing a \a key with an optional \a modifier on a \a widget.     If \a delay is larger than 0, the test will wait for \a delay milliseconds     before releasing the key.      \sa QTest::keyClick() */
 comment|/*! \fn void QTest::keyClicks(QWidget *widget, const QString&sequence, Qt::KeyboardModifiers modifier = Qt::NoModifier, int delay=-1)      Simulates clicking a \a sequence of keys on a \a     widget. Optionally, a keyboard \a modifier can be specified as     well as a \a delay (in milliseconds) of the test before each key     click.      Example:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 15      The example above simulates clicking the sequence of keys     representing "hello world" on \c myWidget without any keyboard     modifiers and without delay of the test.      \sa QTest::keyClick() */
 comment|/*! \fn void QTest::mousePress(QWidget *widget, Qt::MouseButton button, Qt::KeyboardModifiers modifier = 0, QPoint pos = QPoint(), int delay=-1)      Simulates pressing a mouse \a button with an optional \a modifier     on a \a widget.  The position is defined by \a pos; the default     position is the center of the widget. If \a delay is specified,     the test will wait for the specified amount of milliseconds before     the press.      \sa QTest::mouseRelease(), QTest::mouseClick() */
 comment|/*! \fn void QTest::mouseRelease(QWidget *widget, Qt::MouseButton button, Qt::KeyboardModifiers modifier = 0, QPoint pos = QPoint(), int delay=-1)      Simulates releasing a mouse \a button with an optional \a modifier     on a \a widget.  The position of the release is defined by \a pos;     the default position is the center of the widget. If \a delay is     specified, the test will wait for the specified amount of     milliseconds before releasing the button.      \sa QTest::mousePress(), QTest::mouseClick() */
@@ -542,14 +544,6 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|member|keyVerbose
-specifier|static
-name|int
-name|keyVerbose
-init|=
-operator|-
-literal|1
-decl_stmt|;
 if|#
 directive|if
 name|defined
@@ -565,132 +559,6 @@ literal|false
 decl_stmt|;
 endif|#
 directive|endif
-DECL|function|filter_unprintable
-name|void
-name|filter_unprintable
-parameter_list|(
-name|char
-modifier|*
-name|str
-parameter_list|)
-block|{
-name|char
-modifier|*
-name|idx
-init|=
-name|str
-decl_stmt|;
-while|while
-condition|(
-operator|*
-name|idx
-condition|)
-block|{
-if|if
-condition|(
-operator|(
-operator|(
-operator|*
-name|idx
-operator|<
-literal|0x20
-operator|&&
-operator|*
-name|idx
-operator|!=
-literal|'\n'
-operator|&&
-operator|*
-name|idx
-operator|!=
-literal|'\t'
-operator|)
-operator|||
-operator|*
-name|idx
-operator|>
-literal|0x7e
-operator|)
-condition|)
-operator|*
-name|idx
-operator|=
-literal|'?'
-expr_stmt|;
-operator|++
-name|idx
-expr_stmt|;
-block|}
-block|}
-comment|/*! \internal  */
-DECL|function|qt_snprintf
-name|int
-name|qt_snprintf
-parameter_list|(
-name|char
-modifier|*
-name|str
-parameter_list|,
-name|int
-name|size
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|format
-parameter_list|,
-modifier|...
-parameter_list|)
-block|{
-name|va_list
-name|ap
-decl_stmt|;
-name|int
-name|res
-init|=
-literal|0
-decl_stmt|;
-name|va_start
-argument_list|(
-name|ap
-argument_list|,
-name|format
-argument_list|)
-expr_stmt|;
-name|qvsnprintf
-argument_list|(
-name|str
-argument_list|,
-name|size
-argument_list|,
-name|format
-argument_list|,
-name|ap
-argument_list|)
-expr_stmt|;
-name|va_end
-argument_list|(
-name|ap
-argument_list|)
-expr_stmt|;
-name|str
-index|[
-name|size
-operator|-
-literal|1
-index|]
-operator|=
-literal|'\0'
-expr_stmt|;
-name|filter_unprintable
-argument_list|(
-name|str
-argument_list|)
-expr_stmt|;
-return|return
-name|res
-return|;
-block|}
 comment|/*! \internal     Invoke a method of the object without generating warning if the method does not exist  */
 DECL|function|invokeMethod
 specifier|static
@@ -756,41 +624,6 @@ name|DirectConnection
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-DECL|function|defaultKeyVerbose
-name|bool
-name|Q_TESTLIB_EXPORT
-name|defaultKeyVerbose
-parameter_list|()
-block|{
-if|if
-condition|(
-name|keyVerbose
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-name|keyVerbose
-operator|=
-name|qgetenv
-argument_list|(
-literal|"QTEST_KEYEVENT_VERBOSE"
-argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
-condition|?
-literal|0
-else|:
-literal|1
-expr_stmt|;
-block|}
-return|return
-name|keyVerbose
-operator|==
-literal|1
-return|;
 block|}
 DECL|function|defaultEventDelay
 name|int
@@ -1328,9 +1161,7 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|member
 operator|.
@@ -1730,7 +1561,6 @@ literal|"                       A global data tag is preceded by ' __global__ '.
 literal|" -eventdelay ms      : Set default delay for mouse and keyboard simulation to ms milliseconds\n"
 literal|" -keydelay ms        : Set default delay for keyboard simulation to ms milliseconds\n"
 literal|" -mousedelay ms      : Set default delay for mouse simulation to ms milliseconds\n"
-literal|" -keyevent-verbose   : Turn on verbose messages for keyboard simulation\n"
 literal|" -maxwarnings n      : Sets the maximum amount of messages to output.\n"
 literal|"                       0 means unlimited, default: 2000\n"
 if|#
@@ -2616,29 +2446,6 @@ literal|true
 expr_stmt|;
 endif|#
 directive|endif
-block|}
-elseif|else
-if|if
-condition|(
-name|strcmp
-argument_list|(
-name|argv
-index|[
-name|i
-index|]
-argument_list|,
-literal|"-keyevent-verbose"
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
-name|QTest
-operator|::
-name|keyVerbose
-operator|=
-literal|1
-expr_stmt|;
 ifdef|#
 directive|ifdef
 name|QTESTLIB_USE_VALGRIND
@@ -3332,9 +3139,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|buf
 argument_list|,
@@ -3356,9 +3161,7 @@ index|]
 argument_list|)
 expr_stmt|;
 comment|// copy text before the ':' into buf
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|buf
 operator|+
@@ -3864,11 +3667,21 @@ operator|-
 literal|1
 condition|)
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"warmup stage result      :"
-operator|<<
+name|QTestLog
+operator|::
+name|info
+argument_list|(
+name|qPrintable
+argument_list|(
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"warmup stage result      : %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
 name|QBenchmarkTestMethodData
 operator|::
 name|current
@@ -3876,15 +3689,32 @@ operator|->
 name|result
 operator|.
 name|value
+argument_list|)
+argument_list|)
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"accumulation stage result:"
-operator|<<
+name|QTestLog
+operator|::
+name|info
+argument_list|(
+name|qPrintable
+argument_list|(
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"accumulation stage result: %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
 name|QBenchmarkTestMethodData
 operator|::
 name|current
@@ -3892,6 +3722,13 @@ operator|->
 name|result
 operator|.
 name|value
+argument_list|)
+argument_list|)
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -4092,9 +3929,7 @@ operator|::
 name|DataFunc
 argument_list|)
 expr_stmt|;
-name|QTest
-operator|::
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|member
 argument_list|,
@@ -5487,7 +5322,7 @@ begin_comment
 comment|// namespace
 end_comment
 begin_comment
-comment|/*!     Executes tests declared in \a testObject. In addition, the private slots     \c{initTestCase()}, \c{cleanupTestCase()}, \c{init()} and \c{cleanup()}     are executed if they exist. See \l{Creating a Test} for more details.      Optionally, the command line arguments \a argc and \a argv can be provided.     For a list of recognized arguments, read \l {QTestLib Command Line Arguments}.      The following example will run all tests in \c MyTestObject:      \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 18      This function returns 0 if no tests failed, or a value other than 0 if one     or more tests failed or in case of unhandled exceptions.  (Skipped tests do     not influence the return value.)      For stand-alone test applications, the convenience macro \l QTEST_MAIN() can     be used to declare a main() function that parses the command line arguments     and executes the tests, avoiding the need to call this function explicitly.      The return value from this function is also the exit code of the test     application when the \l QTEST_MAIN() macro is used.      For stand-alone test applications, this function should not be called more     than once, as command-line options for logging test output to files and     executing individual test functions will not behave correctly.      Note: This function is not reentrant, only one test can run at a time. A     test that was executed with qExec() can't run another test via qExec() and     threads are not allowed to call qExec() simultaneously.      \sa QTEST_MAIN() */
+comment|/*!     Executes tests declared in \a testObject. In addition, the private slots     \c{initTestCase()}, \c{cleanupTestCase()}, \c{init()} and \c{cleanup()}     are executed if they exist. See \l{Creating a Test} for more details.      Optionally, the command line arguments \a argc and \a argv can be provided.     For a list of recognized arguments, read \l {QTestLib Command Line Arguments}.      The following example will run all tests in \c MyTestObject:      \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 18      This function returns 0 if no tests failed, or a value other than 0 if one     or more tests failed or in case of unhandled exceptions.  (Skipped tests do     not influence the return value.)      For stand-alone test applications, the convenience macro \l QTEST_MAIN() can     be used to declare a main() function that parses the command line arguments     and executes the tests, avoiding the need to call this function explicitly.      The return value from this function is also the exit code of the test     application when the \l QTEST_MAIN() macro is used.      For stand-alone test applications, this function should not be called more     than once, as command-line options for logging test output to files and     executing individual test functions will not behave correctly.      Note: This function is not reentrant, only one test can run at a time. A     test that was executed with qExec() can't run another test via qExec() and     threads are not allowed to call qExec() simultaneously.      If you have programatically created the arguments, as opposed to getting them     from the arguments in \c main(), it is likely of interest to use     QTest::qExec(QObject *, const QStringList&) since it is Unicode safe.      \sa QTEST_MAIN() */
 end_comment
 begin_function
 DECL|function|qExec
@@ -5874,6 +5709,11 @@ name|currentTestObject
 operator|=
 literal|0
 expr_stmt|;
+name|QSignalDumper
+operator|::
+name|endDump
+argument_list|()
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_WS_MAC
@@ -5935,6 +5775,120 @@ name|failCount
 argument_list|()
 argument_list|,
 literal|127
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!   \overload   \since 4.4    Behaves identically to qExec(QObject *, int, char**) but takes a   QStringList of \a arguments instead of a \c char** list.  */
+end_comment
+begin_function
+DECL|function|qExec
+name|int
+name|QTest
+operator|::
+name|qExec
+parameter_list|(
+name|QObject
+modifier|*
+name|testObject
+parameter_list|,
+specifier|const
+name|QStringList
+modifier|&
+name|arguments
+parameter_list|)
+block|{
+specifier|const
+name|int
+name|argc
+init|=
+name|arguments
+operator|.
+name|count
+argument_list|()
+decl_stmt|;
+name|QVarLengthArray
+argument_list|<
+name|char
+modifier|*
+argument_list|>
+name|argv
+argument_list|(
+name|argc
+argument_list|)
+decl_stmt|;
+name|QVector
+argument_list|<
+name|QByteArray
+argument_list|>
+name|args
+decl_stmt|;
+name|args
+operator|.
+name|reserve
+argument_list|(
+name|argc
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|argc
+condition|;
+operator|++
+name|i
+control|)
+block|{
+name|args
+operator|.
+name|append
+argument_list|(
+name|arguments
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|.
+name|toLocal8Bit
+argument_list|()
+operator|.
+name|constData
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|argv
+index|[
+name|i
+index|]
+operator|=
+name|args
+operator|.
+name|last
+argument_list|()
+operator|.
+name|data
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|qExec
+argument_list|(
+name|testObject
+argument_list|,
+name|argc
+argument_list|,
+name|argv
+operator|.
+name|data
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -6195,6 +6149,63 @@ end_function
 begin_comment
 comment|/*! \internal  */
 end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
+begin_function
+DECL|function|isWindowsBuildDirectory
+specifier|static
+specifier|inline
+name|bool
+name|isWindowsBuildDirectory
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|dirName
+parameter_list|)
+block|{
+return|return
+name|dirName
+operator|.
+name|compare
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"Debug"
+argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|CaseInsensitive
+argument_list|)
+operator|==
+literal|0
+operator|||
+name|dirName
+operator|.
+name|compare
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"Release"
+argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|CaseInsensitive
+argument_list|)
+operator|==
+literal|0
+return|;
+block|}
+end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|qFindTestData
 name|QString
@@ -6231,50 +6242,77 @@ condition|(
 name|qApp
 condition|)
 block|{
-name|QString
-name|binpath
-init|=
+name|QDir
+name|binDirectory
+argument_list|(
 name|QCoreApplication
 operator|::
 name|applicationDirPath
 argument_list|()
-decl_stmt|;
-name|QString
-name|candidate
-init|=
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-literal|"%1/%2"
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|binpath
-argument_list|)
-operator|.
-name|arg
-argument_list|(
-name|base
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|QFileInfo
-argument_list|(
-name|candidate
-argument_list|)
+name|binDirectory
 operator|.
 name|exists
-argument_list|()
+argument_list|(
+name|base
+argument_list|)
 condition|)
 block|{
 name|found
 operator|=
-name|candidate
+name|binDirectory
+operator|.
+name|absoluteFilePath
+argument_list|(
+name|base
+argument_list|)
 expr_stmt|;
 block|}
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+comment|// Windows: The executable is typically located in one of the
+comment|// 'Release' or 'Debug' directories.
+elseif|else
+if|if
+condition|(
+name|isWindowsBuildDirectory
+argument_list|(
+name|binDirectory
+operator|.
+name|dirName
+argument_list|()
+argument_list|)
+operator|&&
+name|binDirectory
+operator|.
+name|cdUp
+argument_list|()
+operator|&&
+name|binDirectory
+operator|.
+name|exists
+argument_list|(
+name|base
+argument_list|)
+condition|)
+block|{
+name|found
+operator|=
+name|binDirectory
+operator|.
+name|absoluteFilePath
+argument_list|(
+name|base
+argument_list|)
+expr_stmt|;
+block|}
+endif|#
+directive|endif
+comment|// Q_OS_WIN
 elseif|else
 if|if
 condition|(
@@ -6286,6 +6324,27 @@ operator|>=
 literal|2
 condition|)
 block|{
+specifier|const
+name|QString
+name|candidate
+init|=
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
+name|QCoreApplication
+operator|::
+name|applicationDirPath
+argument_list|()
+operator|+
+name|QLatin1Char
+argument_list|(
+literal|'/'
+argument_list|)
+operator|+
+name|base
+argument_list|)
+decl_stmt|;
 name|QTestLog
 operator|::
 name|info
@@ -6303,10 +6362,7 @@ operator|.
 name|arg
 argument_list|(
 name|base
-argument_list|)
-operator|.
-name|arg
-argument_list|(
+argument_list|,
 name|candidate
 argument_list|)
 argument_list|)
@@ -6367,10 +6423,7 @@ operator|.
 name|arg
 argument_list|(
 name|testsPath
-argument_list|)
-operator|.
-name|arg
-argument_list|(
+argument_list|,
 name|QFile
 operator|::
 name|decodeName
@@ -6380,10 +6433,7 @@ argument_list|)
 operator|.
 name|toLower
 argument_list|()
-argument_list|)
-operator|.
-name|arg
-argument_list|(
+argument_list|,
 name|base
 argument_list|)
 decl_stmt|;
@@ -6431,11 +6481,13 @@ operator|.
 name|arg
 argument_list|(
 name|base
-argument_list|)
-operator|.
-name|arg
+argument_list|,
+name|QDir
+operator|::
+name|toNativeSeparators
 argument_list|(
 name|candidate
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
@@ -6525,10 +6577,7 @@ name|srcdir
 operator|.
 name|canonicalFilePath
 argument_list|()
-argument_list|)
-operator|.
-name|arg
-argument_list|(
+argument_list|,
 name|base
 argument_list|)
 decl_stmt|;
@@ -6575,11 +6624,13 @@ operator|.
 name|arg
 argument_list|(
 name|base
-argument_list|)
-operator|.
-name|arg
+argument_list|,
+name|QDir
+operator|::
+name|toNativeSeparators
 argument_list|(
 name|candidate
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
@@ -6650,11 +6701,13 @@ operator|.
 name|arg
 argument_list|(
 name|base
-argument_list|)
-operator|.
-name|arg
+argument_list|,
+name|QDir
+operator|::
+name|toNativeSeparators
 argument_list|(
 name|found
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
@@ -6975,7 +7028,7 @@ name|QTEST_ASSERT_X
 argument_list|(
 name|tbl
 argument_list|,
-literal|"QTest::addColumn()"
+literal|"QTest::newRow()"
 argument_list|,
 literal|"Cannot add testdata outside of a _data slot."
 argument_list|)
@@ -7443,7 +7496,7 @@ parameter_list|,
 name|FORMAT
 parameter_list|)
 define|\
-value|template<> Q_TESTLIB_EXPORT char *QTest::toString<TYPE>(const TYPE&t) \ { \     char *msg = new char[128]; \     qt_snprintf(msg, 128, #FORMAT, t); \     return msg; \ }
+value|template<> Q_TESTLIB_EXPORT char *QTest::toString<TYPE>(const TYPE&t) \ { \     char *msg = new char[128]; \     qsnprintf(msg, 128, #FORMAT, t); \     return msg; \ }
 end_define
 begin_macro
 name|TO_STRING_IMPL
@@ -7650,7 +7703,7 @@ index|[
 literal|128
 index|]
 decl_stmt|;
-name|qt_snprintf
+name|qsnprintf
 argument_list|(
 name|msg
 argument_list|,

@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -278,11 +278,6 @@ range|:
 literal|1
 decl_stmt|;
 name|uint
-name|pendTimer
-range|:
-literal|1
-decl_stmt|;
-name|uint
 name|blockSig
 range|:
 literal|1
@@ -293,7 +288,7 @@ range|:
 literal|1
 decl_stmt|;
 name|uint
-name|ownObjectName
+name|isDeletingChildren
 range|:
 literal|1
 decl_stmt|;
@@ -308,23 +303,6 @@ range|:
 literal|1
 decl_stmt|;
 name|uint
-name|inEventHandler
-range|:
-literal|1
-decl_stmt|;
-comment|//only used if QT_JAMBI_BUILD
-name|uint
-name|inThreadChangeEvent
-range|:
-literal|1
-decl_stmt|;
-name|uint
-name|hasGuards
-range|:
-literal|1
-decl_stmt|;
-comment|//true iff there is one or more QPointer attached to this object
-name|uint
 name|isWindow
 range|:
 literal|1
@@ -333,7 +311,7 @@ comment|//for QWindow
 name|uint
 name|unused
 range|:
-literal|21
+literal|25
 decl_stmt|;
 name|int
 name|postedEvents
@@ -362,6 +340,8 @@ name|READ
 name|objectName
 name|WRITE
 name|setObjectName
+name|NOTIFY
+name|objectNameChanged
 argument_list|)
 name|Q_DECLARE_PRIVATE
 argument_list|(
@@ -612,11 +592,20 @@ parameter_list|)
 function_decl|;
 name|int
 name|startTimer
-parameter_list|(
+argument_list|(
 name|int
 name|interval
-parameter_list|)
-function_decl|;
+argument_list|,
+name|Qt
+operator|::
+name|TimerType
+name|timerType
+operator|=
+name|Qt
+operator|::
+name|CoarseTimer
+argument_list|)
+decl_stmt|;
 name|void
 name|killTimer
 parameter_list|(
@@ -999,8 +988,28 @@ argument|)
 argument_list|)
 expr_stmt|;
 comment|//compilation error if the arguments does not match.
-typedef|typedef
-name|typename
+name|Q_STATIC_ASSERT_X
+argument_list|(
+name|int
+argument_list|(
+name|SignalType
+operator|::
+name|ArgumentCount
+argument_list|)
+operator|>=
+name|int
+argument_list|(
+name|SlotType
+operator|::
+name|ArgumentCount
+argument_list|)
+argument_list|,
+literal|"The slot requires more arguments than the signal provides."
+argument_list|)
+expr_stmt|;
+name|Q_STATIC_ASSERT_X
+argument_list|(
+operator|(
 name|QtPrivate
 operator|::
 name|CheckCompatibleArguments
@@ -1016,8 +1025,35 @@ operator|::
 name|Arguments
 operator|>
 operator|::
-name|IncompatibleSignalSlotArguments
-name|EnsureCompatibleArguments
+name|value
+operator|)
+argument_list|,
+literal|"Signal and slot arguments are not compatible."
+argument_list|)
+expr_stmt|;
+name|Q_STATIC_ASSERT_X
+argument_list|(
+operator|(
+name|QtPrivate
+operator|::
+name|AreArgumentsCompatible
+operator|<
+name|typename
+name|SlotType
+operator|::
+name|ReturnType
+operator|,
+name|typename
+name|SignalType
+operator|::
+name|ReturnType
+operator|>
+operator|::
+name|value
+operator|)
+argument_list|,
+literal|"Return type of the slot is not compatible with the return type of the signal."
+argument_list|)
 expr_stmt|;
 specifier|const
 name|int
@@ -1155,9 +1191,31 @@ end_typedef
 begin_comment
 comment|//compilation error if the arguments does not match.
 end_comment
-begin_typedef
-typedef|typedef
-name|typename
+begin_expr_stmt
+name|Q_STATIC_ASSERT_X
+argument_list|(
+name|int
+argument_list|(
+name|SignalType
+operator|::
+name|ArgumentCount
+argument_list|)
+operator|>=
+name|int
+argument_list|(
+name|SlotType
+operator|::
+name|ArgumentCount
+argument_list|)
+argument_list|,
+literal|"The slot requires more arguments than the signal provides."
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|Q_STATIC_ASSERT_X
+argument_list|(
+operator|(
 name|QtPrivate
 operator|::
 name|CheckCompatibleArguments
@@ -1173,38 +1231,39 @@ operator|::
 name|Arguments
 operator|>
 operator|::
-name|IncompatibleSignalSlotArguments
-name|EnsureCompatibleArguments
+name|value
+operator|)
+argument_list|,
+literal|"Signal and slot arguments are not compatible."
+argument_list|)
 expr_stmt|;
-end_typedef
-begin_typedef
-typedef|typedef
-name|typename
+end_expr_stmt
+begin_expr_stmt
+name|Q_STATIC_ASSERT_X
+argument_list|(
+operator|(
 name|QtPrivate
 operator|::
-name|QEnableIf
+name|AreArgumentsCompatible
 operator|<
-operator|(
-name|int
-argument_list|(
-name|SignalType
-operator|::
-name|ArgumentCount
-argument_list|)
-operator|>=
-name|int
-argument_list|(
+name|typename
 name|SlotType
 operator|::
-name|ArgumentCount
-argument_list|)
-operator|)
+name|ReturnType
+operator|,
+name|typename
+name|SignalType
+operator|::
+name|ReturnType
 operator|>
 operator|::
-name|Type
-name|EnsureArgumentsCount
+name|value
+operator|)
+argument_list|,
+literal|"Return type of the slot is not compatible with the return type of the signal."
+argument_list|)
 expr_stmt|;
-end_typedef
+end_expr_stmt
 begin_return
 return|return
 name|connectImpl
@@ -1526,9 +1585,10 @@ end_expr_stmt
 begin_comment
 comment|//compilation error if the arguments does not match.
 end_comment
-begin_typedef
-typedef|typedef
-name|typename
+begin_expr_stmt
+name|Q_STATIC_ASSERT_X
+argument_list|(
+operator|(
 name|QtPrivate
 operator|::
 name|CheckCompatibleArguments
@@ -1544,10 +1604,13 @@ operator|::
 name|Arguments
 operator|>
 operator|::
-name|IncompatibleSignalSlotArguments
-name|EnsureCompatibleArguments
+name|value
+operator|)
+argument_list|,
+literal|"Signal and slot arguments are not compatible."
+argument_list|)
 expr_stmt|;
-end_typedef
+end_expr_stmt
 begin_return
 return|return
 name|disconnectImpl
@@ -1608,8 +1671,8 @@ argument|void **zero
 argument_list|)
 block|{
 comment|// This is the overload for when one wish to disconnect a signal from any slot. (slot=0)
-comment|// Since the function template parametter cannot be deduced from '0', we use a
-comment|// dummy void ** parametter that must be equal to 0
+comment|// Since the function template parameter cannot be deduced from '0', we use a
+comment|// dummy void ** parameter that must be equal to 0
 name|Q_ASSERT
 argument_list|(
 operator|!
@@ -1773,6 +1836,17 @@ name|QObject
 modifier|*
 init|=
 literal|0
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
+name|objectNameChanged
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|objectName
 parameter_list|)
 function_decl|;
 end_function_decl

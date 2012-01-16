@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qhttp.h"
+file|"private/qhttpheader_p.h"
 end_include
 begin_include
 include|#
@@ -363,7 +363,7 @@ name|QHttpSocketEngine
 operator|::
 name|initialize
 parameter_list|(
-name|int
+name|qintptr
 parameter_list|,
 name|QAbstractSocket
 operator|::
@@ -453,7 +453,7 @@ block|}
 end_function
 begin_function
 DECL|function|socketDescriptor
-name|int
+name|qintptr
 name|QHttpSocketEngine
 operator|::
 name|socketDescriptor
@@ -516,6 +516,12 @@ name|Q_D
 argument_list|(
 name|QHttpSocketEngine
 argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|credentialsSent
+operator|=
+literal|false
 expr_stmt|;
 comment|// If the handshake is done, enter ConnectedState state and return true.
 if|if
@@ -2290,6 +2296,12 @@ operator|::
 name|None
 condition|)
 block|{
+name|d
+operator|->
+name|credentialsSent
+operator|=
+literal|true
+expr_stmt|;
 name|data
 operator|+=
 literal|"Proxy-Authorization: "
@@ -2645,6 +2657,12 @@ operator|.
 name|statusCode
 argument_list|()
 decl_stmt|;
+name|QAuthenticatorPrivate
+modifier|*
+name|priv
+init|=
+literal|0
+decl_stmt|;
 if|if
 condition|(
 name|statusCode
@@ -2685,6 +2703,30 @@ operator|::
 name|ConnectedState
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|authenticator
+operator|.
+name|detach
+argument_list|()
+expr_stmt|;
+name|priv
+operator|=
+name|QAuthenticatorPrivate
+operator|::
+name|getPrivate
+argument_list|(
+name|d
+operator|->
+name|authenticator
+argument_list|)
+expr_stmt|;
+name|priv
+operator|->
+name|hasFailed
+operator|=
+literal|false
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -2694,6 +2736,48 @@ operator|==
 literal|407
 condition|)
 block|{
+if|if
+condition|(
+name|d
+operator|->
+name|credentialsSent
+condition|)
+block|{
+comment|//407 response again means the provided username/password were invalid.
+name|d
+operator|->
+name|authenticator
+operator|=
+name|QAuthenticator
+argument_list|()
+expr_stmt|;
+comment|//this is needed otherwise parseHttpResponse won't set the state, and then signal isn't emitted.
+name|d
+operator|->
+name|authenticator
+operator|.
+name|detach
+argument_list|()
+expr_stmt|;
+name|priv
+operator|=
+name|QAuthenticatorPrivate
+operator|::
+name|getPrivate
+argument_list|(
+name|d
+operator|->
+name|authenticator
+argument_list|)
+expr_stmt|;
+name|priv
+operator|->
+name|hasFailed
+operator|=
+literal|true
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|d
@@ -2710,10 +2794,8 @@ operator|.
 name|detach
 argument_list|()
 expr_stmt|;
-name|QAuthenticatorPrivate
-modifier|*
 name|priv
-init|=
+operator|=
 name|QAuthenticatorPrivate
 operator|::
 name|getPrivate
@@ -2722,7 +2804,7 @@ name|d
 operator|->
 name|authenticator
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|priv
 operator|->
 name|parseHttpResponse
@@ -3694,6 +3776,11 @@ argument_list|(
 literal|false
 argument_list|)
 member_init_list|,
+name|credentialsSent
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
 name|pendingResponseData
 argument_list|(
 literal|0
@@ -3815,7 +3902,7 @@ name|QHttpSocketEngineHandler
 operator|::
 name|createSocketEngine
 parameter_list|(
-name|int
+name|qintptr
 parameter_list|,
 name|QObject
 modifier|*

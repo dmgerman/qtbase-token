@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -325,13 +325,69 @@ name|running
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_typedef
-DECL|typedef|ElapsedTimer
-typedef|typedef
-name|QElapsedTimer
-name|ElapsedTimer
-typedef|;
-end_typedef
+begin_decl_stmt
+name|class
+name|Q_CORE_EXPORT
+name|QAbstractAnimationTimer
+range|:
+name|public
+name|QObject
+block|{
+name|Q_OBJECT
+name|public
+operator|:
+name|QAbstractAnimationTimer
+argument_list|()
+operator|:
+name|isRegistered
+argument_list|(
+name|false
+argument_list|)
+block|,
+name|isPaused
+argument_list|(
+name|false
+argument_list|)
+block|,
+name|pauseDuration
+argument_list|(
+literal|0
+argument_list|)
+block|{}
+name|virtual
+name|void
+name|updateAnimationsTime
+argument_list|(
+argument|qint64 delta
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|restartAnimationTimer
+argument_list|()
+operator|=
+literal|0
+block|;
+name|virtual
+name|int
+name|runningAnimationCount
+argument_list|()
+operator|=
+literal|0
+block|;
+name|bool
+name|isRegistered
+block|;
+name|bool
+name|isPaused
+block|;
+name|int
+name|pauseDuration
+block|; }
+decl_stmt|;
+end_decl_stmt
 begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
@@ -340,6 +396,7 @@ range|:
 name|public
 name|QObject
 block|{
+name|Q_OBJECT
 name|private
 operator|:
 name|QUnifiedTimer
@@ -347,7 +404,6 @@ argument_list|()
 block|;
 name|public
 operator|:
-comment|//XXX this is needed by dui
 specifier|static
 name|QUnifiedTimer
 operator|*
@@ -364,20 +420,38 @@ argument_list|)
 block|;
 specifier|static
 name|void
-name|registerAnimation
+name|startAnimationTimer
 argument_list|(
-argument|QAbstractAnimation *animation
-argument_list|,
-argument|bool isTopLevel
+name|QAbstractAnimationTimer
+operator|*
+name|timer
 argument_list|)
 block|;
 specifier|static
 name|void
-name|unregisterAnimation
+name|stopAnimationTimer
 argument_list|(
-name|QAbstractAnimation
+name|QAbstractAnimationTimer
 operator|*
-name|animation
+name|timer
+argument_list|)
+block|;
+specifier|static
+name|void
+name|pauseAnimationTimer
+argument_list|(
+argument|QAbstractAnimationTimer *timer
+argument_list|,
+argument|int duration
+argument_list|)
+block|;
+specifier|static
+name|void
+name|resumeAnimationTimer
+argument_list|(
+name|QAbstractAnimationTimer
+operator|*
+name|timer
 argument_list|)
 block|;
 comment|//defines the timing interval. Default is DEFAULT_TIMER_INTERVAL
@@ -419,18 +493,6 @@ name|slowdownFactor
 operator|=
 name|factor
 block|; }
-comment|/*         this is used for updating the currentTime of all animations in case the pause         timer is active or, otherwise, only of the animation passed as parameter.     */
-specifier|static
-name|void
-name|ensureTimerUpdate
-argument_list|()
-block|;
-comment|/*         this will evaluate the need of restarting the pause timer in case there is still         some pause animations running.     */
-specifier|static
-name|void
-name|updateAnimationTimer
-argument_list|()
-block|;
 name|void
 name|installAnimationDriver
 argument_list|(
@@ -456,27 +518,20 @@ name|driver
 argument_list|)
 block|;
 name|void
-name|restartAnimationTimer
+name|restart
 argument_list|()
 block|;
 name|void
-name|updateAnimationsTime
+name|updateAnimationTimers
 argument_list|(
-argument|qint64 timeStep
+argument|qint64 currentTick
 argument_list|)
 block|;
 comment|//useful for profiling/debugging
 name|int
 name|runningAnimationCount
 argument_list|()
-block|{
-return|return
-name|animations
-operator|.
-name|count
-argument_list|()
-return|;
-block|}
+block|;
 name|void
 name|registerProfilerCallback
 argument_list|(
@@ -500,6 +555,17 @@ operator|*
 argument_list|)
 block|;
 name|private
+name|Q_SLOTS
+operator|:
+name|void
+name|startTimers
+argument_list|()
+block|;
+name|void
+name|stopTimer
+argument_list|()
+block|;
+name|private
 operator|:
 name|friend
 name|class
@@ -517,13 +583,9 @@ name|QDefaultAnimationDriver
 name|defaultDriver
 block|;
 name|QBasicTimer
-name|animationTimer
+name|pauseTimer
 block|;
-comment|// timer used to delay the check if we should start/stop the animation timer
-name|QBasicTimer
-name|startStopAnimationTimer
-block|;
-name|ElapsedTimer
+name|QElapsedTimer
 name|time
 block|;
 name|qint64
@@ -539,10 +601,19 @@ name|bool
 name|insideTick
 block|;
 name|bool
+name|insideRestart
+block|;
+name|bool
 name|consistentTiming
 block|;
 name|bool
 name|slowMode
+block|;
+name|bool
+name|startTimersPending
+block|;
+name|bool
+name|stopTimerPending
 block|;
 comment|// This factor will be used to divide the DEFAULT_TIMER_INTERVAL at each tick
 comment|// when slowMode is enabled. Setting it to 0 or higher than DEFAULT_TIMER_INTERVAL (16)
@@ -550,9 +621,149 @@ comment|// stops all animations.
 name|qreal
 name|slowdownFactor
 block|;
-comment|// bool to indicate that only pause animations are active
+name|QList
+operator|<
+name|QAbstractAnimationTimer
+operator|*
+operator|>
+name|animationTimers
+block|,
+name|animationTimersToStart
+block|;
+name|QList
+operator|<
+name|QAbstractAnimationTimer
+operator|*
+operator|>
+name|pausedAnimationTimers
+block|;
+name|void
+name|localRestart
+argument_list|()
+block|;
+name|int
+name|closestPausedAnimationTimerTimeToFinish
+argument_list|()
+block|;
+name|void
+argument_list|(
+operator|*
+name|profilerCallback
+argument_list|)
+argument_list|(
+name|qint64
+argument_list|)
+block|; }
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|class
+name|QAnimationTimer
+range|:
+name|public
+name|QAbstractAnimationTimer
+block|{
+name|Q_OBJECT
+name|private
+operator|:
+name|QAnimationTimer
+argument_list|()
+block|;
+name|public
+operator|:
+specifier|static
+name|QAnimationTimer
+operator|*
+name|instance
+argument_list|()
+block|;
+specifier|static
+name|QAnimationTimer
+operator|*
+name|instance
+argument_list|(
+argument|bool create
+argument_list|)
+block|;
+specifier|static
+name|void
+name|registerAnimation
+argument_list|(
+argument|QAbstractAnimation *animation
+argument_list|,
+argument|bool isTopLevel
+argument_list|)
+block|;
+specifier|static
+name|void
+name|unregisterAnimation
+argument_list|(
+name|QAbstractAnimation
+operator|*
+name|animation
+argument_list|)
+block|;
+comment|/*         this is used for updating the currentTime of all animations in case the pause         timer is active or, otherwise, only of the animation passed as parameter.     */
+specifier|static
+name|void
+name|ensureTimerUpdate
+argument_list|()
+block|;
+comment|/*         this will evaluate the need of restarting the pause timer in case there is still         some pause animations running.     */
+specifier|static
+name|void
+name|updateAnimationTimer
+argument_list|()
+block|;
+name|void
+name|restartAnimationTimer
+argument_list|()
+block|;
+name|void
+name|updateAnimationsTime
+argument_list|(
+argument|qint64 delta
+argument_list|)
+block|;
+comment|//useful for profiling/debugging
+name|int
+name|runningAnimationCount
+argument_list|()
+block|{
+return|return
+name|animations
+operator|.
+name|count
+argument_list|()
+return|;
+block|}
+name|private
+name|Q_SLOTS
+operator|:
+name|void
+name|startAnimations
+argument_list|()
+block|;
+name|void
+name|stopTimer
+argument_list|()
+block|;
+name|private
+operator|:
+name|qint64
+name|lastTick
+block|;
+name|int
+name|currentAnimationIdx
+block|;
 name|bool
-name|isPauseTimerActive
+name|insideTick
+block|;
+name|bool
+name|startAnimationPending
+block|;
+name|bool
+name|stopTimerPending
 block|;
 name|QList
 operator|<
@@ -593,15 +804,6 @@ block|;
 name|int
 name|closestPauseAnimationTimeToFinish
 argument_list|()
-block|;
-name|void
-argument_list|(
-operator|*
-name|profilerCallback
-argument_list|)
-argument_list|(
-name|qint64
-argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
