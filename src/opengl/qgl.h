@@ -1264,8 +1264,7 @@ name|int
 name|textureCacheLimit
 parameter_list|()
 function_decl|;
-name|void
-modifier|*
+name|QFunctionPointer
 name|getProcAddress
 argument_list|(
 specifier|const

@@ -11,8 +11,7 @@ begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|qt_gl_getProcAddress_search
 specifier|static
-name|void
-modifier|*
+name|QFunctionPointer
 name|qt_gl_getProcAddress_search
 parameter_list|(
 name|QGLContext
@@ -40,12 +39,9 @@ modifier|*
 name|name4
 parameter_list|)
 block|{
-name|void
-modifier|*
+name|QFunctionPointer
 name|addr
-decl_stmt|;
-name|addr
-operator|=
+init|=
 name|ctx
 operator|->
 name|getProcAddress
@@ -55,7 +51,7 @@ argument_list|(
 name|name1
 argument_list|)
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|addr

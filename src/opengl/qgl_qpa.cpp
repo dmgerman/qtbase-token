@@ -1161,8 +1161,7 @@ block|}
 end_function
 begin_function
 DECL|function|getProcAddress
-name|void
-modifier|*
+name|QFunctionPointer
 name|QGLContext
 operator|::
 name|getProcAddress
@@ -1181,10 +1180,6 @@ name|QGLContext
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|void
-operator|*
-operator|)
 name|d
 operator|->
 name|guiGlContext

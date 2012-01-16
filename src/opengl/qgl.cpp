@@ -10560,7 +10560,7 @@ begin_comment
 comment|/*!     \fn bool QGLWidget::autoBufferSwap() const      Returns true if the widget is doing automatic GL buffer swapping;     otherwise returns false.      \sa setAutoBufferSwap() */
 end_comment
 begin_comment
-comment|/*!     \fn void *QGLContext::getProcAddress(const QString&proc) const      Returns a function pointer to the GL extension function passed in     \a proc. 0 is returned if a pointer to the function could not be     obtained. */
+comment|/*!     \fn QFunctionPointer QGLContext::getProcAddress() const      Returns a function pointer to the GL extension function passed in     \a proc. 0 is returned if a pointer to the function could not be     obtained. */
 end_comment
 begin_comment
 comment|/*!     \fn bool QGLWidget::isValid() const      Returns true if the widget has a valid GL rendering context;     otherwise returns false. A widget will be invalid if the system     has no \link QGLFormat::hasOpenGL() OpenGL support\endlink. */
