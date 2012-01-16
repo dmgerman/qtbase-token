@@ -20712,12 +20712,10 @@ name|src
 init|=
 name|QImage
 argument_list|(
-name|QString
+name|QFINDTESTDATA
 argument_list|(
-name|SRCDIR
+literal|"task217400.png"
 argument_list|)
-operator|+
-literal|"/task217400.png"
 argument_list|)
 operator|.
 name|convertToFormat
