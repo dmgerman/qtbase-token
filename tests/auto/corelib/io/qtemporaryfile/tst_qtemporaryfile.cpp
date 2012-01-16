@@ -1220,6 +1220,19 @@ block|{
 ifdef|#
 directive|ifdef
 name|Q_OS_UNIX
+if|if
+condition|(
+operator|::
+name|geteuid
+argument_list|()
+operator|==
+literal|0
+condition|)
+name|QSKIP
+argument_list|(
+literal|"not valid running this test as root"
+argument_list|)
+expr_stmt|;
 struct|struct
 name|ChdirOnReturn
 block|{
