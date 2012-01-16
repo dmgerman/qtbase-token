@@ -72,7 +72,7 @@ parameter_list|()
 function_decl|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|void
 name|trickyFonts_data
 parameter_list|()
@@ -363,7 +363,7 @@ literal|true
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QTest
 operator|::
 name|newRow
@@ -546,7 +546,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_function
 DECL|function|trickyFonts_data
@@ -981,7 +981,7 @@ expr_stmt|;
 comment|// addApplicationFont is supported on Mac, don't skip the test if it breaks.
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 name|id

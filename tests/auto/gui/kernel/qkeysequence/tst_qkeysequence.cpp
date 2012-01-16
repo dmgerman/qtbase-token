@@ -35,7 +35,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_include
 include|#
@@ -507,7 +507,7 @@ name|qtTranslator
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 DECL|member|MacCtrl
 specifier|static
 specifier|const
@@ -540,7 +540,7 @@ end_class
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_decl_stmt
 DECL|member|MacCtrl
@@ -815,7 +815,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QTest
 operator|::
 name|newRow
@@ -2235,7 +2235,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 name|QTest
 operator|::
@@ -2593,7 +2593,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 name|expected
 operator|<<
@@ -2935,7 +2935,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"mnemonics are not used on Mac OS X"
@@ -3070,7 +3070,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QTest
 operator|::
 name|newRow
@@ -4542,7 +4542,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"No need to translate modifiers on Mac OS X"

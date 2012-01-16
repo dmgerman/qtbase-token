@@ -172,7 +172,7 @@ comment|// Modify the format of the printer name to match Qt, lpstat returns
 comment|// foo___domain_no, Qt returns foo @ domain.no
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|printerName
 operator|->
 name|replace

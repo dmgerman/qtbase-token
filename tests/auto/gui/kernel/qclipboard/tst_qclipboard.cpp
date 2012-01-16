@@ -35,7 +35,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_include
 include|#
@@ -146,7 +146,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|PasteboardRef
 name|pasteboard
 decl_stmt|;
@@ -1519,7 +1519,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 name|QCOMPARE
 argument_list|(
@@ -1756,7 +1756,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 name|QCOMPARE
 argument_list|(
