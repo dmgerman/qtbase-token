@@ -5858,6 +5858,14 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
 block|{
 name|QDate
 name|dt
@@ -5904,6 +5912,8 @@ literal|3
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|{
 name|QDate
 name|dt

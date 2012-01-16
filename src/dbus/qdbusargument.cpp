@@ -3062,7 +3062,7 @@ literal|0
 condition|)
 name|date
 operator|.
-name|setYMD
+name|setDate
 argument_list|(
 name|y
 argument_list|,

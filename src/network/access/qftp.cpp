@@ -1879,7 +1879,7 @@ argument_list|()
 decl_stmt|;
 name|d
 operator|.
-name|setYMD
+name|setDate
 argument_list|(
 name|d
 operator|.
