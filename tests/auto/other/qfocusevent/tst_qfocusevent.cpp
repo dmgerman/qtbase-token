@@ -388,7 +388,7 @@ expr_stmt|;
 comment|// Applications don't get focus when launched from the command line on Mac.
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|testFocusWidget
 operator|->
 name|raise
@@ -1070,7 +1070,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_function_decl
 name|QT_BEGIN_NAMESPACE
@@ -1098,7 +1098,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|qt_set_sequence_auto_mnemonic
 argument_list|(
 literal|true
@@ -1306,7 +1306,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|qt_set_sequence_auto_mnemonic
 argument_list|(
 literal|false

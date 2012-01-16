@@ -14,7 +14,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 end_if
 begin_include
@@ -1218,6 +1218,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_WS_MAC
+comment|// Q_OS_MAC
 end_comment
 end_unit

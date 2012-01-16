@@ -7229,7 +7229,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 ifdef|#
 directive|ifdef
 name|Q_OS_WINCE
@@ -17840,7 +17840,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 name|QTest
 operator|::
