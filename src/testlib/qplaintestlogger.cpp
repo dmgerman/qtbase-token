@@ -1659,17 +1659,17 @@ argument_list|)
 argument_list|,
 literal|"Totals: %d passed, %d failed, %d skipped\n"
 argument_list|,
-name|QTestResult
+name|QTestLog
 operator|::
 name|passCount
 argument_list|()
 argument_list|,
-name|QTestResult
+name|QTestLog
 operator|::
 name|failCount
 argument_list|()
 argument_list|,
-name|QTestResult
+name|QTestLog
 operator|::
 name|skipCount
 argument_list|()
@@ -1690,17 +1690,17 @@ argument_list|,
 literal|"Totals: %d passed, %d failed, %d skipped\n"
 literal|"********* Finished testing of %s *********\n"
 argument_list|,
-name|QTestResult
+name|QTestLog
 operator|::
 name|passCount
 argument_list|()
 argument_list|,
-name|QTestResult
+name|QTestLog
 operator|::
 name|failCount
 argument_list|()
 argument_list|,
-name|QTestResult
+name|QTestLog
 operator|::
 name|skipCount
 argument_list|()

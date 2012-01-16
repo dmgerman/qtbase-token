@@ -5737,7 +5737,7 @@ index|[
 literal|0
 index|]
 argument_list|,
-name|QTestResult
+name|QTestLog
 operator|::
 name|failCount
 argument_list|()
@@ -5769,7 +5769,7 @@ comment|// since that could wrap and indicate 0 test fails
 return|return
 name|qMin
 argument_list|(
-name|QTestResult
+name|QTestLog
 operator|::
 name|failCount
 argument_list|()
