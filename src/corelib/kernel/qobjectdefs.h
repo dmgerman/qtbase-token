@@ -62,6 +62,11 @@ ifndef|#
 directive|ifndef
 name|Q_MOC_RUN
 end_ifndef
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_META_MACROS
+end_ifndef
 begin_if
 if|#
 directive|if
@@ -299,6 +304,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_META_MACROS
+end_comment
 begin_if
 if|#
 directive|if
@@ -391,6 +403,9 @@ define|#
 directive|define
 name|Q_OBJECT_FAKE
 value|Q_OBJECT
+ifndef|#
+directive|ifndef
+name|QT_NO_META_MACROS
 comment|/* tmake ignore Q_GADGET */
 DECL|macro|Q_GADGET
 define|#
@@ -398,6 +413,9 @@ directive|define
 name|Q_GADGET
 define|\
 value|public: \     static const QMetaObject staticMetaObject; \ private:
+endif|#
+directive|endif
+comment|// QT_NO_META_MACROS
 else|#
 directive|else
 comment|// Q_MOC_RUN
@@ -530,6 +548,9 @@ value|Q_SLOT
 endif|#
 directive|endif
 comment|//Q_MOC_RUN
+ifndef|#
+directive|ifndef
+name|QT_NO_META_MACROS
 comment|// macro for onaming members
 ifdef|#
 directive|ifdef
@@ -558,6 +579,9 @@ directive|undef
 name|SIGNAL
 endif|#
 directive|endif
+endif|#
+directive|endif
+comment|// QT_NO_META_MACROS
 name|Q_CORE_EXPORT
 specifier|const
 name|char
@@ -571,6 +595,11 @@ name|method
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_META_MACROS
+end_ifndef
 begin_define
 DECL|macro|QTOSTRING_HELPER
 define|#
@@ -714,6 +743,13 @@ directive|define
 name|QSIGNAL_CODE
 value|2
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_META_MACROS
+end_comment
 begin_define
 DECL|macro|Q_ARG
 define|#
