@@ -1151,13 +1151,23 @@ specifier|const
 name|QString
 name|prefix
 init|=
-name|QLatin1String
+name|QFINDTESTDATA
 argument_list|(
-name|SRCDIR
+literal|"images/"
 argument_list|)
-operator|+
-literal|"/images/"
 decl_stmt|;
+if|if
+condition|(
+name|prefix
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|QFAIL
+argument_list|(
+literal|"can not find images directory!"
+argument_list|)
+expr_stmt|;
 comment|// add a new line here when a file is added
 name|QTest
 operator|::
