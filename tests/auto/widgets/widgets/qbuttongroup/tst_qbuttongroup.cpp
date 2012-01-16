@@ -60,7 +60,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_include
 include|#

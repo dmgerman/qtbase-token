@@ -291,7 +291,7 @@ parameter_list|()
 function_decl|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|void
 name|fastScroll
 parameter_list|()
@@ -10094,7 +10094,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifndef
 begin_class
 DECL|class|MyListWidget
@@ -10342,7 +10342,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_WS_MAC
+comment|// Q_OS_MAC
 end_comment
 begin_function
 DECL|function|insertUnchanged

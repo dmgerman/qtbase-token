@@ -43,7 +43,7 @@ parameter_list|()
 destructor_decl|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 public|public
 name|slots
 public|:
@@ -266,7 +266,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifndef
 begin_comment
 comment|//copied from QFontDialogTest

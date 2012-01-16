@@ -914,7 +914,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QEXPECT_FAIL
 argument_list|(
 literal|""

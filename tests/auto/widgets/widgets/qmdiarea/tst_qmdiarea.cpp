@@ -314,7 +314,7 @@ name|key
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|key
 operator|=
 name|Qt
@@ -959,7 +959,7 @@ argument_list|)
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// ### Remove this after the mac style has been fixed
 if|if
 condition|(
@@ -2263,7 +2263,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_include
 include|#
@@ -2674,7 +2674,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 if|if
 condition|(
@@ -3451,7 +3451,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -3518,7 +3518,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -3620,7 +3620,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -3762,7 +3762,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -3827,7 +3827,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|||
 name|defined
@@ -3889,7 +3889,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -4193,7 +4193,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -4266,7 +4266,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -4335,7 +4335,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -5900,7 +5900,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -6376,7 +6376,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -12668,7 +12668,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!

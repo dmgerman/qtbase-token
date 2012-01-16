@@ -680,7 +680,7 @@ argument_list|()
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// Animated scroll bars get paint events all the time
 ifdef|#
 directive|ifdef

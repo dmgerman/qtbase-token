@@ -1100,7 +1100,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|||
 name|defined
@@ -1178,7 +1178,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|||
 name|defined
@@ -2776,7 +2776,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|||
 name|defined
@@ -3420,7 +3420,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|||
 name|defined
@@ -3636,7 +3636,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|||
 name|defined
@@ -3848,7 +3848,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|||
 name|defined
@@ -4471,7 +4471,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|||
 name|defined
@@ -4952,7 +4952,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -5191,7 +5191,7 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
-comment|//Q_WS_MAC
+comment|//Q_OS_MAC
 block|}
 end_function
 begin_function
@@ -5297,7 +5297,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|||
 name|defined
@@ -5426,7 +5426,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"Qt/Mac does not use the native popups/menubar"
@@ -7062,7 +7062,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"On Mac, do not test the menubar with escape key"

@@ -2583,7 +2583,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"Resizing a QGraphicsWidget to effectiveSizeHint(Qt::MaximumSize) is currently not supported on mac"
@@ -3460,7 +3460,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"Resizing a QGraphicsWidget to effectiveSizeHint(Qt::MaximumSize) is currently not supported on mac"

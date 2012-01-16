@@ -57,7 +57,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -1801,7 +1801,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"shortcuts are not used on MAC OS X"
@@ -1894,7 +1894,7 @@ comment|// On Mac, about and aboutQt are not modal, so we need to
 comment|// explicitly run the event loop
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QTRY_COMPARE
 argument_list|(
 name|keyToSend
@@ -1952,7 +1952,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QTRY_COMPARE
 argument_list|(
 name|keyToSend
@@ -2031,7 +2031,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -2611,7 +2611,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// mnemonics are not used on Mac OS X
 name|QCOMPARE
 argument_list|(

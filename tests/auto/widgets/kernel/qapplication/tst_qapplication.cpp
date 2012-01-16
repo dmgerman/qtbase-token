@@ -7935,7 +7935,7 @@ literal|true
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// Mac has two modes, one where you tab to everything, one where you can
 comment|// only tab to input controls, here's what we get. Determine which ones we
 comment|// should get.

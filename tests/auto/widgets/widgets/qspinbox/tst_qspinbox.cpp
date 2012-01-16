@@ -1750,7 +1750,7 @@ name|texts2
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|keys
 operator|.
 name|addKeyClick
@@ -5240,7 +5240,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QTest
 operator|::
 name|keyClick
@@ -5275,7 +5275,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QTest
 operator|::
 name|keyClick
@@ -5380,7 +5380,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QTest
 operator|::
 name|keyClick

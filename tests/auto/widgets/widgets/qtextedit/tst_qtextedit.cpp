@@ -167,7 +167,7 @@ end_expr_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_include
 include|#
@@ -186,7 +186,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|PasteboardRef
 name|pasteboard
 decl_stmt|;
@@ -689,7 +689,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|PasteboardRef
 name|pasteboard
 decl_stmt|;
@@ -2154,7 +2154,7 @@ expr_stmt|;
 comment|/* go to start */
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QTest
 operator|::
 name|keyClick
@@ -2201,7 +2201,7 @@ expr_stmt|;
 comment|/* select until end of text */
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QTest
 operator|::
 name|keyClick
@@ -7860,7 +7860,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QSKIP
 argument_list|(
 literal|"QTBUG-22283: copyAvailable has never passed on Mac"

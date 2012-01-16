@@ -166,28 +166,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|// I *MUST* have QtTest afterwards or this test won't work with newer headers
-end_comment
 begin_if
 if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 end_if
-begin_include
-include|#
-directive|include
-file|<private/qt_mac_p.h>
-end_include
-begin_undef
-DECL|macro|verify
-undef|#
-directive|undef
-name|verify
-end_undef
 begin_include
 include|#
 directive|include
@@ -523,7 +509,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_include
 include|#
@@ -818,7 +804,7 @@ parameter_list|()
 function_decl|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|void
 name|sheetOpacity
 parameter_list|()
@@ -907,7 +893,7 @@ parameter_list|()
 function_decl|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|void
 name|scroll
 parameter_list|()
@@ -1191,9 +1177,6 @@ parameter_list|()
 function_decl|;
 endif|#
 directive|endif
-ifndef|#
-directive|ifndef
-name|Q_WS_MAC
 name|void
 name|resizeInPaintEvent
 parameter_list|()
@@ -1202,8 +1185,6 @@ name|void
 name|opaqueChildren
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|setMaskInResizeEvent
 parameter_list|()
@@ -1411,7 +1392,7 @@ parameter_list|()
 function_decl|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|void
 name|childAt_unifiedToolBar
 parameter_list|()
@@ -15473,7 +15454,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 operator|!
@@ -15503,7 +15484,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 operator|!
@@ -17950,7 +17931,7 @@ parameter_list|()
 block|{
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|UpdateWidget
 name|widget
 decl_stmt|;
@@ -19214,7 +19195,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 if|if
 condition|(
@@ -19467,7 +19448,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QEXPECT_FAIL
 argument_list|(
 literal|0
@@ -22970,7 +22951,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_function
 DECL|function|sheetOpacity
@@ -24121,7 +24102,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|||
 name|defined
@@ -27522,7 +27503,7 @@ parameter_list|()
 block|{
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QWidget
 name|w
 decl_stmt|;
@@ -27965,7 +27946,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifndef
 begin_comment
 comment|/*     Test that scrolling of a widget invalidates the correct regions */
@@ -30362,7 +30343,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 if|if
 condition|(
@@ -30846,7 +30827,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 if|if
 condition|(
@@ -31550,7 +31531,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 comment|// should be scrolled in backingstore
 name|QCOMPARE
@@ -41208,7 +41189,7 @@ comment|// rrrrrrrrrr
 comment|// ...
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 for|for
 control|(
 name|int
@@ -47727,24 +47708,6 @@ operator|::
 name|sendUpdateRequestImmediately
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_MAC
-if|if
-condition|(
-operator|!
-name|QApplicationPrivate
-operator|::
-name|graphicsSystem
-argument_list|()
-condition|)
-name|QSKIP
-argument_list|(
-literal|"We only send update requests on the Mac when passing -graphicssystem"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|UpdateWidget
 name|updateWidget
 decl_stmt|;
@@ -47830,7 +47793,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 if|if
 condition|(
@@ -47969,14 +47932,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_WS_MAC
-end_ifndef
-begin_comment
-comment|// This test only makes sense on the Mac when passing -graphicssystem.
-end_comment
 begin_function
 DECL|function|resizeInPaintEvent
 name|void
@@ -48322,10 +48277,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_class
 DECL|class|MaskSetWidget
 class|class
@@ -51574,7 +51525,7 @@ expr_stmt|;
 comment|// and ensure that the child widget doesn't get any update.
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// Mac always issues a full update when calling setMask, and we cannot force it to not do so.
 if|if
 condition|(
@@ -51689,7 +51640,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// Mac always issues a full update when calling setMask, and we cannot force it to not do so.
 if|if
 condition|(
@@ -51760,7 +51711,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// Mac always issues a full update when calling setMask, and we cannot force it to not do so.
 if|if
 condition|(
@@ -51815,7 +51766,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// Mac always issues a full update when calling setMask, and we cannot force it to not do so.
 if|if
 condition|(
@@ -51999,7 +51950,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// Mac always issues a full update when calling setMask, and we cannot force it to not do so.
 if|if
 condition|(
@@ -52074,7 +52025,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// Mac always issues a full update when calling setMask, and we cannot force it to not do so.
 if|if
 condition|(
@@ -56994,7 +56945,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_function
 DECL|function|childAt_unifiedToolBar

@@ -2348,7 +2348,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -2397,7 +2397,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 operator|!
@@ -2653,7 +2653,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!

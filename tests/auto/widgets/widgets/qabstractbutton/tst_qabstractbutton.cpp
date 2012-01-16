@@ -377,7 +377,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|p
 operator|.
 name|setPen
@@ -1502,7 +1502,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// no mneonics on Mac.
 name|QCOMPARE
 argument_list|(
@@ -1541,7 +1541,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// no mneonics on Mac.
 name|QCOMPARE
 argument_list|(
@@ -1580,7 +1580,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// no mneonics on Mac.
 name|QCOMPARE
 argument_list|(

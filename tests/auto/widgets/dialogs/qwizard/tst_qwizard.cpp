@@ -2807,7 +2807,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 name|QSysInfo
@@ -2918,7 +2918,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 name|QSysInfo

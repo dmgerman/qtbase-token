@@ -5849,7 +5849,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|||
 name|defined
@@ -8390,7 +8390,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QTest
 operator|::
 name|keyClick
@@ -8500,7 +8500,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QTest
 operator|::
 name|keyClick

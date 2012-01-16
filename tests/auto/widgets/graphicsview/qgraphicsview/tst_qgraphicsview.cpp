@@ -212,7 +212,7 @@ end_macro
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_comment
 comment|//On mac we get full update. So check that the expected region is contained inside the actual
@@ -19614,7 +19614,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// Repaint on Mac OS X actually does require spinning the event loop.
 name|QTest
 operator|::

@@ -59,7 +59,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 end_ifdef
 begin_include
 include|#
@@ -6812,7 +6812,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|PasteboardRef
 name|pasteboard
 decl_stmt|;
@@ -9817,7 +9817,7 @@ parameter_list|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 specifier|static
 name|bool
 name|tst_lineedit_randomized
@@ -11156,7 +11156,7 @@ operator|<<
 name|keys
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 operator|<<
 literal|0
 operator|<<
@@ -11178,7 +11178,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|keys
 operator|.
 name|addKeyClick
@@ -11372,7 +11372,7 @@ operator|<<
 literal|7
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 operator|<<
 literal|4
 expr_stmt|;
@@ -11390,7 +11390,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|keys
 operator|.
 name|addKeyClick
@@ -15615,7 +15615,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 block|{
 name|PasteboardRef
 name|pasteboard
@@ -17862,7 +17862,7 @@ name|ControlModifier
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|keyboardModifiers
 operator||=
 name|Qt

@@ -564,7 +564,7 @@ expr_stmt|;
 comment|// Check that the action was triggered once.
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QEXPECT_FAIL
 argument_list|(
 literal|""

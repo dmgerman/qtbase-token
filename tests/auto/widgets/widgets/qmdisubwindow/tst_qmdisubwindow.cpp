@@ -92,7 +92,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -921,7 +921,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 name|void
 name|defaultSizeGrip
@@ -954,7 +954,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -2032,7 +2032,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -2377,7 +2377,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -2567,7 +2567,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -2610,7 +2610,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|||
 name|defined
@@ -3695,7 +3695,7 @@ literal|0
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 name|qobject_cast
@@ -4789,7 +4789,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 comment|// ### Remove this after mac style has been fixed
 name|height
@@ -6711,7 +6711,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -6966,7 +6966,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -9167,7 +9167,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 end_if
 begin_function
@@ -9403,7 +9403,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -9494,7 +9494,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -9623,7 +9623,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -9728,7 +9728,7 @@ argument_list|()
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|QCOMPARE
 argument_list|(
 name|menuBar
@@ -9794,7 +9794,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -9885,7 +9885,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -10691,7 +10691,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -10900,7 +10900,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
@@ -11930,7 +11930,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!

@@ -3662,7 +3662,7 @@ argument_list|)
 comment|// orientation of wheel
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 operator|<<
 literal|1
 comment|// expected position after
@@ -3733,7 +3733,7 @@ argument_list|)
 comment|// orientation of wheel
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 operator|<<
 literal|1
 comment|// expected position after
@@ -3804,7 +3804,7 @@ argument_list|)
 comment|// orientation of wheel
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 operator|<<
 literal|1
 comment|// expected position after

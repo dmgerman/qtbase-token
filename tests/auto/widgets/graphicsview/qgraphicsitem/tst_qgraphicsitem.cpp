@@ -197,7 +197,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 end_if
 begin_comment
@@ -46467,7 +46467,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|||
 literal|1
@@ -61196,7 +61196,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 comment|// There's no difference between repaint and update on the Mac,
 comment|// so we have to process events here to make sure we get the event.
@@ -61497,7 +61497,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// There's no difference between update() and repaint() on the Mac,
 comment|// so we have to process events here to make sure we get the event.
 name|QTest

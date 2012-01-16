@@ -6583,7 +6583,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 specifier|extern
 name|void
 name|qt_set_sequence_auto_mnemonic
@@ -6722,7 +6722,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|qt_set_sequence_auto_mnemonic
 argument_list|(
 literal|false
