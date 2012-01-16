@@ -131,22 +131,7 @@ name|tst_QIcoImageFormat
 operator|::
 name|tst_QIcoImageFormat
 parameter_list|()
-block|{
-name|m_IconPath
-operator|=
-name|QLatin1String
-argument_list|(
-name|SRCDIR
-argument_list|)
-operator|+
-literal|"/icons"
-expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-name|m_IconPath
-expr_stmt|;
-block|}
+block|{ }
 end_constructor
 begin_destructor
 DECL|function|~tst_QIcoImageFormat
@@ -182,7 +167,27 @@ name|tst_QIcoImageFormat
 operator|::
 name|initTestCase
 parameter_list|()
-block|{  }
+block|{
+name|m_IconPath
+operator|=
+name|QFINDTESTDATA
+argument_list|(
+literal|"icons"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|m_IconPath
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|QFAIL
+argument_list|(
+literal|"Cannot find icons directory containing testdata!"
+argument_list|)
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|cleanupTestCase
