@@ -106,6 +106,11 @@ name|function
 argument_list|(
 literal|0
 argument_list|)
+operator|,
+name|category
+argument_list|(
+literal|0
+argument_list|)
 block|{}
 name|Q_DECL_CONSTEXPR
 name|QMessageLogContext
@@ -115,6 +120,8 @@ argument_list|,
 argument|int lineNumber
 argument_list|,
 argument|const char *functionName
+argument_list|,
+argument|const char *categoryName
 argument_list|)
 operator|:
 name|version
@@ -134,12 +141,26 @@ argument_list|)
 operator|,
 name|function
 argument_list|(
-argument|functionName
+name|functionName
+argument_list|)
+operator|,
+name|category
+argument_list|(
+argument|categoryName
 argument_list|)
 block|{}
+name|void
+name|copy
+argument_list|(
+specifier|const
+name|QMessageLogContext
+operator|&
+name|logContext
+argument_list|)
+expr_stmt|;
 name|int
 name|version
-expr_stmt|;
+decl_stmt|;
 name|int
 name|line
 decl_stmt|;
@@ -152,6 +173,11 @@ specifier|const
 name|char
 modifier|*
 name|function
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
+name|category
 decl_stmt|;
 name|private
 label|:
@@ -202,6 +228,31 @@ argument_list|,
 argument|line
 argument_list|,
 argument|function
+argument_list|,
+literal|"default"
+argument_list|)
+block|{}
+name|Q_DECL_CONSTEXPR
+name|QMessageLogger
+argument_list|(
+argument|const char *file
+argument_list|,
+argument|int line
+argument_list|,
+argument|const char *function
+argument_list|,
+argument|const char *category
+argument_list|)
+operator|:
+name|context
+argument_list|(
+argument|file
+argument_list|,
+argument|line
+argument_list|,
+argument|function
+argument_list|,
+argument|category
 argument_list|)
 block|{}
 name|void
