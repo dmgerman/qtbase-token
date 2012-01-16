@@ -76,7 +76,7 @@ argument_list|(
 name|Core
 argument_list|)
 name|class
-name|QWinEventNotifier
+name|QWinOverlappedIoNotifier
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -177,9 +177,14 @@ name|startAsyncRead
 argument_list|()
 block|;
 name|bool
-name|completeAsyncRead
+name|isReadOperationActive
 argument_list|()
-block|;
+specifier|const
+block|{
+return|return
+name|readSequenceStarted
+return|;
+block|}
 name|Q_SIGNALS
 operator|:
 name|void
@@ -203,12 +208,24 @@ block|;
 name|private
 name|Q_SLOTS
 operator|:
-name|bool
-name|readEventSignalled
-argument_list|()
+name|void
+name|notified
+argument_list|(
+argument|DWORD numberOfBytesRead
+argument_list|,
+argument|DWORD errorCode
+argument_list|)
 block|;
 name|private
 operator|:
+name|bool
+name|completeAsyncRead
+argument_list|(
+argument|DWORD bytesRead
+argument_list|,
+argument|DWORD errorCode
+argument_list|)
+block|;
 name|DWORD
 name|checkPipeState
 argument_list|()
@@ -221,7 +238,7 @@ block|;
 name|OVERLAPPED
 name|overlapped
 block|;
-name|QWinEventNotifier
+name|QWinOverlappedIoNotifier
 operator|*
 name|dataReadNotifier
 block|;
@@ -244,10 +261,13 @@ block|;
 name|bool
 name|pipeBroken
 block|;
+name|bool
+name|readyReadEmitted
+block|;
 specifier|static
 specifier|const
-name|qint64
-name|initialReadBufferSize
+name|DWORD
+name|minReadBufferSize
 operator|=
 literal|4096
 block|; }
