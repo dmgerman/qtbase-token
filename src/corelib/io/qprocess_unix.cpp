@@ -1349,6 +1349,27 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_function
+DECL|function|destroyChannel
+name|void
+name|QProcessPrivate
+operator|::
+name|destroyChannel
+parameter_list|(
+name|Channel
+modifier|*
+name|channel
+parameter_list|)
+block|{
+name|destroyPipe
+argument_list|(
+name|channel
+operator|->
+name|pipe
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_comment
 comment|/*     Create the pipes to a QProcessPrivate::Channel.      This function must be called in order: stdin, stdout, stderr */
 end_comment
