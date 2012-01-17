@@ -24990,20 +24990,6 @@ argument_list|,
 name|a
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"This will fail with Cocoa because paint events are not send in the order expected by graphicsview"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|COMPARE_REGIONS
 argument_list|(
 name|view
@@ -31118,6 +31104,9 @@ condition|)
 block|{
 comment|//                qDebug()<< event->region();
 comment|//                qDebug()<< updateRegion;
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
@@ -31127,6 +31116,8 @@ argument_list|,
 name|Continue
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|event
