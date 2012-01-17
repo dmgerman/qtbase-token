@@ -137,19 +137,6 @@ operator|.
 name|clear
 argument_list|()
 block|;     }
-name|virtual
-name|QString
-name|bearerTypeName
-argument_list|()
-specifier|const
-block|{
-return|return
-name|QLatin1String
-argument_list|(
-literal|"Unknown"
-argument_list|)
-return|;
-block|}
 name|QMap
 operator|<
 name|unsigned
