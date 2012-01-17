@@ -29,7 +29,7 @@ directive|include
 file|<QAccessibleBridge>
 end_include
 begin_comment
-comment|/*     A Simple screen reader for touch-based user interfaces.      Requires a text-to-speach backend. Currently implemented on     Mac OS X and using festival on unix. */
+comment|/*     A Simple screen reader for touch-based user interfaces.      Requires a text-to-speach backend. Currently implemented     using festival on unix. */
 end_comment
 begin_decl_stmt
 DECL|variable|OptionsWidget
