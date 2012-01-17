@@ -5977,6 +5977,16 @@ operator|::
 name|QTBUG_10735_crashWithDialog
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"Test currently hangs on Mac OS X, see QTBUG-23677"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|MyMenu
 name|menu
 decl_stmt|;
