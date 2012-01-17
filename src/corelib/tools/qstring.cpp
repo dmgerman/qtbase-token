@@ -22530,6 +22530,9 @@ begin_comment
 comment|/*! \fn QLatin1String::QLatin1String(const char *str)      Constructs a QLatin1String object that stores \a str. Note that if     \a str is 0, an empty string is created; this case is handled by     QString.      The string data is \e not copied. The caller must be able to     guarantee that \a str will not be deleted or modified as long as     the QLatin1String object exists.      \sa latin1() */
 end_comment
 begin_comment
+comment|/*! \fn QLatin1String::QLatin1String(const char *str, int size)      Constructs a QLatin1String object that stores \a str with \a size.     Note that if \a str is 0, an empty string is created; this case     is handled by QString.      The string data is \e not copied. The caller must be able to     guarantee that \a str will not be deleted or modified as long as     the QLatin1String object exists.      \sa latin1() */
+end_comment
+begin_comment
 comment|/*! \fn const char *QLatin1String::latin1() const      Returns the Latin-1 string stored in this object. */
 end_comment
 begin_comment

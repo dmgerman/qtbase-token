@@ -6187,6 +6187,26 @@ argument_list|(
 argument|s
 argument_list|)
 block|{}
+name|Q_DECL_CONSTEXPR
+specifier|inline
+name|explicit
+name|QLatin1String
+argument_list|(
+argument|const char *s
+argument_list|,
+argument|int size
+argument_list|)
+operator|:
+name|m_size
+argument_list|(
+name|size
+argument_list|)
+operator|,
+name|m_data
+argument_list|(
+argument|s
+argument_list|)
+block|{}
 specifier|inline
 specifier|const
 name|char
