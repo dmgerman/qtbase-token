@@ -2258,6 +2258,20 @@ condition|(
 name|expected_activated
 condition|)
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QEXPECT_FAIL
+argument_list|(
+literal|"shortcut0"
+argument_list|,
+literal|"Shortcut navication fails, see QTBUG-23684"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|activated
@@ -2268,6 +2282,9 @@ name|expected_action
 index|]
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 name|QEXPECT_FAIL
 argument_list|(
 literal|"shortcut0"
@@ -2277,6 +2294,8 @@ argument_list|,
 name|Abort
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|menus
@@ -3550,6 +3569,9 @@ argument_list|(
 literal|100
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
@@ -3559,6 +3581,8 @@ argument_list|,
 name|Abort
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 name|menu
