@@ -58,6 +58,11 @@ include|#
 directive|include
 file|<qglshaderprogram.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qglframebufferobject.h>
+end_include
 begin_comment
 comment|// #define QT_GL_TEXTURE_GLYPH_CACHE_DEBUG
 end_comment
@@ -96,6 +101,11 @@ name|shareGroup
 argument_list|()
 argument_list|)
 block|,
+name|m_fbo
+argument_list|(
+literal|0
+argument_list|)
+block|,
 name|m_width
 argument_list|(
 literal|0
@@ -109,6 +119,11 @@ block|{
 if|if
 condition|(
 name|ctx
+operator|&&
+name|QGLFramebufferObject
+operator|::
+name|hasOpenGLFramebufferObjects
+argument_list|()
 operator|&&
 operator|!
 name|ctx
@@ -175,12 +190,7 @@ endif|#
 directive|endif
 if|if
 condition|(
-operator|!
-name|ctx
-operator|->
-name|d_ptr
-operator|->
-name|workaround_brokenFBOReadBack
+name|m_fbo
 condition|)
 name|glDeleteFramebuffers
 argument_list|(

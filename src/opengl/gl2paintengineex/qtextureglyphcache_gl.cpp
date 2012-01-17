@@ -287,11 +287,19 @@ comment|// only to create the initial image and does not preserve the content,
 comment|// so we don't call when this function is called from resize.
 if|if
 condition|(
+operator|(
+operator|!
+name|QGLFramebufferObject
+operator|::
+name|hasOpenGLFramebufferObjects
+argument_list|()
+operator|||
 name|ctx
 operator|->
 name|d_ptr
 operator|->
 name|workaround_brokenFBOReadBack
+operator|)
 operator|&&
 name|image
 argument_list|()
@@ -657,6 +665,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|QGLFramebufferObject
+operator|::
+name|hasOpenGLFramebufferObjects
+argument_list|()
+operator|||
 name|ctx
 operator|->
 name|d_ptr
@@ -1317,6 +1331,12 @@ return|return;
 block|}
 if|if
 condition|(
+operator|!
+name|QGLFramebufferObject
+operator|::
+name|hasOpenGLFramebufferObjects
+argument_list|()
+operator|||
 name|ctx
 operator|->
 name|d_ptr
