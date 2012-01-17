@@ -2777,6 +2777,22 @@ argument_list|,
 name|stylename
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+if|if
+condition|(
+name|stylename
+operator|==
+literal|"mac"
+condition|)
+name|QSKIP
+argument_list|(
+literal|"QStyleFactory cannot create the Mac style, see QTBUG-23680"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QStyle
 modifier|*
 name|style
