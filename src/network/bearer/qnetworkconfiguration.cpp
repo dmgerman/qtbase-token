@@ -547,9 +547,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString QNetworkConfiguration::bearerName() const     \deprecated      This function is deprecated.  It is equivalent to calling bearerTypeName(), however     bearerType() should be used in preference. */
-end_comment
-begin_comment
 comment|/*!     Returns the type of bearer used by this network configuration.      If the bearer type is \l {QNetworkConfiguration::BearerUnknown}{unknown} the bearerTypeName()     function can be used to retrieve a textural type name for the bearer.      An invalid network configuration always returns the BearerUnknown value. */
 end_comment
 begin_function
