@@ -986,6 +986,29 @@ argument_list|(
 name|filePath
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QEXPECT_FAIL
+argument_list|(
+literal|"never Set Title, yes AppName"
+argument_list|,
+literal|"QTBUG-23682"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+name|QEXPECT_FAIL
+argument_list|(
+literal|"set title after only, yes AppName"
+argument_list|,
+literal|"QTBUG-23682"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|finalTitleBefore
@@ -1019,6 +1042,20 @@ name|indyWindowTitle
 argument_list|)
 expr_stmt|;
 block|}
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QEXPECT_FAIL
+argument_list|(
+literal|"never Set Title, yes AppName"
+argument_list|,
+literal|"QTBUG-23682"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|finalTitleAfter
