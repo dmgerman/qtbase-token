@@ -492,15 +492,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|control
-operator|->
-name|text
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-operator|&&
 name|control
 operator|->
 name|preeditAreaText
