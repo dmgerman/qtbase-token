@@ -388,6 +388,13 @@ name|AbsMTTrackingID
 block|,
 name|MaxContacts
 block|,
+if|#
+directive|if
+name|XCB_USE_MAEMO_WINDOW_PROPERTIES
+name|MeegoTouchOrientationAngle
+block|,
+endif|#
+directive|endif
 name|NPredefinedAtoms
 block|,
 name|_QT_SETTINGS_TIMESTAMP

@@ -3267,6 +3267,12 @@ literal|"Abs MT Touch Minor\0"
 literal|"Abs MT Pressure\0"
 literal|"Abs MT Tracking ID\0"
 literal|"Max Contacts\0"
+if|#
+directive|if
+name|XCB_USE_MAEMO_WINDOW_PROPERTIES
+literal|"_MEEGOTOUCH_ORIENTATION_ANGLE\0"
+endif|#
+directive|endif
 block|}
 decl_stmt|;
 end_decl_stmt
