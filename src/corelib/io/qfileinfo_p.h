@@ -341,6 +341,18 @@ argument_list|(
 name|data
 argument_list|)
 block|,
+name|fileEngine
+argument_list|(
+name|QFileSystemEngine
+operator|::
+name|resolveEntryAndCreateLegacyEngine
+argument_list|(
+name|fileEntry
+argument_list|,
+name|metaData
+argument_list|)
+argument_list|)
+block|,
 name|cachedFlags
 argument_list|(
 literal|0
@@ -365,7 +377,19 @@ name|fileSize
 argument_list|(
 literal|0
 argument_list|)
-block|{     }
+block|{
+comment|//If the file engine is not null, this maybe a "mount point" for a custom file engine
+comment|//in which case we can't trust the metadata
+if|if
+condition|(
+name|fileEngine
+condition|)
+name|metaData
+operator|=
+name|QFileSystemMetaData
+argument_list|()
+expr_stmt|;
+block|}
 specifier|inline
 name|void
 name|clearFlags
