@@ -318,6 +318,10 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QNetworkSession
+argument_list|)
 name|friend
 name|class
 name|QNetworkSessionPrivate

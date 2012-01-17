@@ -183,7 +183,14 @@ block|;
 name|void
 name|updateCompleted
 argument_list|()
-block|; }
+block|;
+name|private
+operator|:
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QNetworkConfigurationManager
+argument_list|)
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_macro
