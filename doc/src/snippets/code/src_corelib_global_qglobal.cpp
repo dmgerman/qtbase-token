@@ -836,6 +836,11 @@ name|QtMsgType
 name|type
 parameter_list|,
 specifier|const
+name|QMessageLogContext
+modifier|&
+name|context
+parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|msg
@@ -853,9 +858,21 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Debug: %s\n"
+literal|"Debug: %s (%s:%u, %s)\n"
 argument_list|,
 name|msg
+argument_list|,
+name|context
+operator|.
+name|file
+argument_list|,
+name|context
+operator|.
+name|line
+argument_list|,
+name|context
+operator|.
+name|function
 argument_list|)
 expr_stmt|;
 break|break;
@@ -866,9 +883,21 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Warning: %s\n"
+literal|"Warning: %s (%s:%u, %s)\n"
 argument_list|,
 name|msg
+argument_list|,
+name|context
+operator|.
+name|file
+argument_list|,
+name|context
+operator|.
+name|line
+argument_list|,
+name|context
+operator|.
+name|function
 argument_list|)
 expr_stmt|;
 break|break;
@@ -879,9 +908,21 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Critical: %s\n"
+literal|"Critical: %s (%s:%u, %s)\n"
 argument_list|,
 name|msg
+argument_list|,
+name|context
+operator|.
+name|file
+argument_list|,
+name|context
+operator|.
+name|line
+argument_list|,
+name|context
+operator|.
+name|function
 argument_list|)
 expr_stmt|;
 break|break;
@@ -892,9 +933,21 @@ name|fprintf
 argument_list|(
 name|stderr
 argument_list|,
-literal|"Fatal: %s\n"
+literal|"Fatal: %s (%s:%u, %s)\n"
 argument_list|,
 name|msg
+argument_list|,
+name|context
+operator|.
+name|file
+argument_list|,
+name|context
+operator|.
+name|line
+argument_list|,
+name|context
+operator|.
+name|function
 argument_list|)
 expr_stmt|;
 name|abort
@@ -917,7 +970,7 @@ modifier|*
 name|argv
 parameter_list|)
 block|{
-name|qInstallMsgHandler
+name|qInstallMessageHandler
 argument_list|(
 name|myMessageOutput
 argument_list|)
@@ -1825,6 +1878,28 @@ function_decl|;
 end_function_decl
 begin_comment
 comment|//! [47]
+end_comment
+begin_comment
+comment|//! [49]
+end_comment
+begin_function_decl
+name|void
+name|myMessageHandler
+parameter_list|(
+name|QtMsgType
+parameter_list|,
+specifier|const
+name|QMessageLogContext
+modifier|&
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_comment
+comment|//! [49]
 end_comment
 begin_comment
 comment|//! [qlikely]
