@@ -68,9 +68,12 @@ name|template
 decl|<
 name|typename
 name|T
-decl|> struct
+decl|>
+name|class
 name|QBasicAtomicInteger
 block|{
+name|public
+label|:
 typedef|typedef
 name|QAtomicOps
 operator|<
@@ -607,11 +610,11 @@ operator|<
 name|typename
 name|X
 operator|>
-expr|struct
-DECL|struct|QBasicAtomicPointer
+name|class
 name|QBasicAtomicPointer
 block|{
-DECL|typedef|Type
+name|public
+operator|:
 typedef|typedef
 name|X
 modifier|*
@@ -619,7 +622,6 @@ name|Type
 typedef|;
 end_expr_stmt
 begin_typedef
-DECL|typedef|Ops
 typedef|typedef
 name|QAtomicOps
 operator|<
@@ -629,7 +631,6 @@ name|Ops
 expr_stmt|;
 end_typedef
 begin_typedef
-DECL|typedef|AtomicType
 typedef|typedef
 name|typename
 name|Ops
@@ -639,7 +640,6 @@ name|AtomicType
 expr_stmt|;
 end_typedef
 begin_decl_stmt
-DECL|member|_q_value
 name|AtomicType
 name|_q_value
 decl_stmt|;
@@ -648,7 +648,6 @@ begin_comment
 comment|// Non-atomic API
 end_comment
 begin_expr_stmt
-DECL|function|load
 name|Type
 name|load
 argument_list|()
@@ -660,7 +659,6 @@ return|;
 block|}
 end_expr_stmt
 begin_function
-DECL|function|store
 name|void
 name|store
 parameter_list|(
@@ -678,7 +676,6 @@ begin_comment
 comment|// Atomic API, implemented in qatomic_XXX.h
 end_comment
 begin_function
-DECL|function|loadAcquire
 name|Type
 name|loadAcquire
 parameter_list|()
@@ -694,7 +691,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|storeRelease
 name|void
 name|storeRelease
 parameter_list|(
@@ -714,7 +710,6 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|isTestAndSetNative
 specifier|static
 name|bool
 name|isTestAndSetNative
@@ -729,7 +724,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isTestAndSetWaitFree
 specifier|static
 name|bool
 name|isTestAndSetWaitFree
@@ -744,7 +738,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|testAndSetRelaxed
 name|bool
 name|testAndSetRelaxed
 parameter_list|(
@@ -770,7 +763,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|testAndSetAcquire
 name|bool
 name|testAndSetAcquire
 parameter_list|(
@@ -796,7 +788,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|testAndSetRelease
 name|bool
 name|testAndSetRelease
 parameter_list|(
@@ -822,7 +813,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|testAndSetOrdered
 name|bool
 name|testAndSetOrdered
 parameter_list|(
@@ -848,7 +838,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isFetchAndStoreNative
 specifier|static
 name|bool
 name|isFetchAndStoreNative
@@ -863,7 +852,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isFetchAndStoreWaitFree
 specifier|static
 name|bool
 name|isFetchAndStoreWaitFree
@@ -878,7 +866,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndStoreRelaxed
 name|Type
 name|fetchAndStoreRelaxed
 parameter_list|(
@@ -899,7 +886,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndStoreAcquire
 name|Type
 name|fetchAndStoreAcquire
 parameter_list|(
@@ -920,7 +906,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndStoreRelease
 name|Type
 name|fetchAndStoreRelease
 parameter_list|(
@@ -941,7 +926,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndStoreOrdered
 name|Type
 name|fetchAndStoreOrdered
 parameter_list|(
@@ -962,7 +946,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isFetchAndAddNative
 specifier|static
 name|bool
 name|isFetchAndAddNative
@@ -977,7 +960,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isFetchAndAddWaitFree
 specifier|static
 name|bool
 name|isFetchAndAddWaitFree
@@ -992,7 +974,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndAddRelaxed
 name|Type
 name|fetchAndAddRelaxed
 parameter_list|(
@@ -1013,7 +994,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndAddAcquire
 name|Type
 name|fetchAndAddAcquire
 parameter_list|(
@@ -1034,7 +1014,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndAddRelease
 name|Type
 name|fetchAndAddRelease
 parameter_list|(
@@ -1055,7 +1034,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|fetchAndAddOrdered
 name|Type
 name|fetchAndAddOrdered
 parameter_list|(
@@ -1096,18 +1074,15 @@ expr|default
 expr_stmt|;
 end_expr_stmt
 begin_macro
-DECL|function|QBasicAtomicPointer
 name|constexpr
 end_macro
 begin_macro
-DECL|function|QBasicAtomicPointer
 name|QBasicAtomicPointer
 argument_list|(
 argument|Type value
 argument_list|)
 end_macro
 begin_macro
-DECL|function|QBasicAtomicPointer
 unit|:
 name|_q_value
 argument_list|(
@@ -1115,7 +1090,6 @@ argument|value
 argument_list|)
 end_macro
 begin_block
-DECL|function|QBasicAtomicPointer
 block|{}
 end_block
 begin_expr_stmt
@@ -1130,7 +1104,6 @@ name|delete
 expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
-DECL|member|operator
 name|QBasicAtomicPointer
 modifier|&
 name|operator
@@ -1145,7 +1118,6 @@ name|delete
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|member|operator
 name|QBasicAtomicPointer
 modifier|&
 name|operator
