@@ -76,7 +76,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qdbusmacros.h>
+file|"qdbusmacros.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -445,26 +445,11 @@ block|;
 name|QString
 name|path
 block|;
-name|QString
-name|introspection
-block|;
 name|QStringList
 name|interfaces
 block|;
 name|QStringList
 name|childObjects
-block|;     }
-block|;      struct
-name|ObjectTree
-operator|:
-name|public
-name|Object
-block|{
-name|Interfaces
-name|interfaceData
-block|;
-name|Objects
-name|childObjectData
 block|;     }
 block|;
 name|public
@@ -513,26 +498,6 @@ name|path
 operator|=
 name|QString
 argument_list|()
-argument_list|)
-block|;
-specifier|static
-name|ObjectTree
-name|parseObjectTree
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|xml
-argument_list|,
-specifier|const
-name|QString
-operator|&
-name|service
-argument_list|,
-specifier|const
-name|QString
-operator|&
-name|path
 argument_list|)
 block|;
 name|private

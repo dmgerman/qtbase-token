@@ -33,6 +33,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qdebug.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"../qdbusmarshall/common.h"
 end_include
 begin_include
