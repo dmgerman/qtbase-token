@@ -597,7 +597,7 @@ argument|T newValue
 argument_list|)
 block|{
 comment|// implement fetchAndStore on top of testAndSet
-name|forever
+name|Q_FOREVER
 block|{
 specifier|register
 name|T
@@ -781,7 +781,7 @@ argument|typename QAtomicAdditiveType<T>::AdditiveT valueToAdd
 argument_list|)
 block|{
 comment|// implement fetchAndAdd on top of testAndSet
-name|forever
+name|Q_FOREVER
 block|{
 specifier|register
 name|T
