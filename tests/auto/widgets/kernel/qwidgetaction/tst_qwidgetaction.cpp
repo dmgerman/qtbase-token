@@ -1558,7 +1558,7 @@ name|QTimer
 operator|::
 name|singleShot
 argument_list|(
-literal|0
+literal|100
 argument_list|,
 operator|&
 name|menu
