@@ -177,9 +177,6 @@ expr|>
 name|class
 name|QScopedPointer
 block|{
-ifndef|#
-directive|ifndef
-name|Q_CC_NOKIAX86
 typedef|typedef
 name|T
 operator|*
@@ -188,8 +185,6 @@ operator|::
 operator|*
 name|RestrictedBool
 expr_stmt|;
-endif|#
-directive|endif
 name|public
 operator|:
 name|explicit
@@ -294,11 +289,6 @@ end_expr_stmt
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_CC_NOKIAX86
-argument_list|)
-operator|||
 name|defined
 argument_list|(
 name|Q_QDOC

@@ -1454,8 +1454,6 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-comment|// The reason we express it like this instead of with anonymous, temporary
-comment|// variables, is to workaround a compiler crash with Q_CC_NOKIAX86.
 name|QString
 name|rootPath
 init|=
