@@ -37,6 +37,12 @@ name|QAbstractEventDispatcher
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QXcbNativeInterface
+name|class
+name|QXcbNativeInterface
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QXcbIntegration
 range|:
@@ -155,7 +161,7 @@ name|m_fontDatabase
 block|;
 name|QScopedPointer
 operator|<
-name|QPlatformNativeInterface
+name|QXcbNativeInterface
 operator|>
 name|m_nativeInterface
 block|;

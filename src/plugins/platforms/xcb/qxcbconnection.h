@@ -107,6 +107,12 @@ name|class
 name|QXcbWMSupport
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QXcbNativeInterface
+name|class
+name|QXcbNativeInterface
+decl_stmt|;
+end_decl_stmt
 begin_typedef
 DECL|typedef|xcb_window_t
 DECL|typedef|WindowMapper
@@ -512,6 +518,10 @@ name|public
 operator|:
 name|QXcbConnection
 argument_list|(
+name|QXcbNativeInterface
+operator|*
+name|nativeInterface
+argument_list|,
 specifier|const
 name|char
 operator|*
@@ -1067,6 +1077,12 @@ operator|>
 name|m_wmSupport
 expr_stmt|;
 end_expr_stmt
+begin_decl_stmt
+name|QXcbNativeInterface
+modifier|*
+name|m_nativeInterface
+decl_stmt|;
+end_decl_stmt
 begin_if
 if|#
 directive|if
