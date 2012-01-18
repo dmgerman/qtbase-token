@@ -616,20 +616,6 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|__MWERKS__
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|__INTEL__
-argument_list|)
-define|#
-directive|define
-name|Q_OS_WIN32
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|__sun
 argument_list|)
 operator|||
@@ -1121,7 +1107,7 @@ endif|#
 directive|endif
 endif|#
 directive|endif
-comment|/*    The compiler, must be one of: (Q_CC_x)       SYM      - Digital Mars C/C++ (used to be Symantec C++)      MWERKS   - Metrowerks CodeWarrior      MSVC     - Microsoft Visual C/C++, Intel C++ for Windows      BOR      - Borland/Turbo C++      WAT      - Watcom C++      GNU      - GNU C++      COMEAU   - Comeau C++      EDG      - Edison Design Group C++      OC       - CenterLine C++      SUN      - Forte Developer, or Sun Studio C++      MIPS     - MIPSpro C++      DEC      - DEC C++      HPACC    - HP aC++      USLC     - SCO OUDK and UDK      CDS      - Reliant C++      KAI      - KAI C++      INTEL    - Intel C++ for Linux, Intel C++ for Windows      HIGHC    - MetaWare High C/C++      PGI      - Portland Group C++      GHS      - Green Hills Optimizing C++ Compilers      GCCE     - GCCE (Symbian GCCE builds)      RVCT     - ARM Realview Compiler Suite      NOKIAX86 - Nokia x86 (Symbian WINSCW builds)      CLANG    - C++ front-end for the LLVM compiler      Should be sorted most to least authoritative. */
+comment|/*    The compiler, must be one of: (Q_CC_x)       SYM      - Digital Mars C/C++ (used to be Symantec C++)      MSVC     - Microsoft Visual C/C++, Intel C++ for Windows      BOR      - Borland/Turbo C++      WAT      - Watcom C++      GNU      - GNU C++      COMEAU   - Comeau C++      EDG      - Edison Design Group C++      OC       - CenterLine C++      SUN      - Forte Developer, or Sun Studio C++      MIPS     - MIPSpro C++      DEC      - DEC C++      HPACC    - HP aC++      USLC     - SCO OUDK and UDK      CDS      - Reliant C++      KAI      - KAI C++      INTEL    - Intel C++ for Linux, Intel C++ for Windows      HIGHC    - MetaWare High C/C++      PGI      - Portland Group C++      GHS      - Green Hills Optimizing C++ Compilers      GCCE     - GCCE (Symbian GCCE builds)      RVCT     - ARM Realview Compiler Suite      NOKIAX86 - Nokia x86 (Symbian WINSCW builds)      CLANG    - C++ front-end for the LLVM compiler      Should be sorted most to least authoritative. */
 comment|/* Symantec C++ is now Digital Mars */
 if|#
 directive|if
@@ -1159,27 +1145,6 @@ DECL|macro|Q_NO_USING_KEYWORD
 define|#
 directive|define
 name|Q_NO_USING_KEYWORD
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|__MWERKS__
-argument_list|)
-define|#
-directive|define
-name|Q_CC_MWERKS
-if|#
-directive|if
-name|defined
-argument_list|(
-name|__EMU_SYMBIAN_OS__
-argument_list|)
-define|#
-directive|define
-name|Q_CC_NOKIAX86
-endif|#
-directive|endif
-comment|/* "explicit" recognized since 4.0d1 */
 elif|#
 directive|elif
 name|defined
@@ -2943,12 +2908,6 @@ operator|!
 name|defined
 argument_list|(
 name|Q_CC_GNU
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_CC_MWERKS
 argument_list|)
 end_if
 begin_define

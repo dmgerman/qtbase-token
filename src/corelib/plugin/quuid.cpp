@@ -2413,12 +2413,6 @@ name|defined
 argument_list|(
 name|Q_OS_WIN32
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_CC_MWERKS
-argument_list|)
 end_if
 begin_function
 name|QT_BEGIN_INCLUDE_NAMESPACE

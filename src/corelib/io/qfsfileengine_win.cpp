@@ -2661,12 +2661,6 @@ name|defined
 argument_list|(
 name|QT_NO_LIBRARY
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_CC_MWERKS
-argument_list|)
 name|bool
 name|ret
 init|=
