@@ -5849,18 +5849,13 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MAC
-argument_list|)
-operator|||
-name|defined
-argument_list|(
 name|Q_WS_WIN
 argument_list|)
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"This test does not work on Mac or Windows"
+literal|"This test does not work on Windows"
 argument_list|,
 name|Abort
 argument_list|)
