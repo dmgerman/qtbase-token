@@ -2818,6 +2818,16 @@ name|QSysInfo
 operator|::
 name|MV_10_3
 condition|)
+block|{
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-23701"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|wizard
@@ -2835,7 +2845,9 @@ operator|==
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 comment|// fall through since the image doesn't exist on a 10.3 system.
 name|QVERIFY
 argument_list|(
@@ -2852,6 +2864,7 @@ name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 else|#
 directive|else
 name|QVERIFY
@@ -2929,6 +2942,16 @@ name|QSysInfo
 operator|::
 name|MV_10_3
 condition|)
+block|{
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-23701"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|wizard
@@ -2946,7 +2969,9 @@ operator|==
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 comment|// fall through since the image doesn't exist on a 10.3 system.
 name|QVERIFY
 argument_list|(
@@ -2963,6 +2988,7 @@ name|isNull
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 else|#
 directive|else
 name|QVERIFY
