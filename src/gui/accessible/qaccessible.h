@@ -900,10 +900,6 @@ name|Unrelated
 operator|=
 literal|0x00000000
 block|,
-name|Self
-operator|=
-literal|0x00000001
-block|,
 name|FocusChild
 operator|=
 literal|0x00010000
