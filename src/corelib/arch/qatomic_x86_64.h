@@ -1331,6 +1331,8 @@ operator|)
 operator|:
 literal|"0"
 operator|(
+name|T
+argument_list|(
 name|valueToAdd
 operator|*
 name|QAtomicAdditiveType
@@ -1339,6 +1341,7 @@ name|T
 operator|>
 operator|::
 name|AddScale
+argument_list|)
 operator|)
 operator|:
 literal|"memory"
@@ -1394,6 +1397,8 @@ operator|)
 operator|:
 literal|"0"
 operator|(
+name|T
+argument_list|(
 name|valueToAdd
 operator|*
 name|QAtomicAdditiveType
@@ -1402,6 +1407,7 @@ name|T
 operator|>
 operator|::
 name|AddScale
+argument_list|)
 operator|)
 operator|:
 literal|"memory"
