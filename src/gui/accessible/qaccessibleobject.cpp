@@ -824,17 +824,6 @@ block|{
 case|case
 name|QAccessible
 operator|::
-name|Self
-case|:
-name|targetObject
-operator|=
-name|object
-argument_list|()
-expr_stmt|;
-break|break;
-case|case
-name|QAccessible
-operator|::
 name|FocusChild
 case|:
 if|if
