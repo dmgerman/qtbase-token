@@ -115,6 +115,12 @@ argument|QString&
 argument_list|)
 specifier|const
 block|;
+name|Q_SIGNALS
+operator|:
+name|void
+name|changed
+argument_list|()
+block|;
 name|protected
 operator|:
 name|QValidator

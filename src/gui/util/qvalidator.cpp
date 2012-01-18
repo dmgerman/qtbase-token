@@ -47,6 +47,9 @@ begin_comment
 comment|/*!     \enum QValidator::State      This enum type defines the states in which a validated string can     exist.      \value Invalid       The string is \e clearly invalid.     \value Intermediate  The string is a plausible intermediate value.     \value Acceptable    The string is acceptable as a final result;                          i.e. it is valid.      \omitvalue Valid */
 end_comment
 begin_comment
+comment|/*!     \fn void QValidator::changed()      This signal is emitted when any property that may affect the validity of     a string has changed. */
+end_comment
+begin_comment
 comment|/*!     \fn void QIntValidator::topChanged(int top)      This signal is emitted after the top property changed.      \sa QIntValidator::top(), QIntValidator::setTop(), QIntValidator::bottom(), QIntValidator::setBottom()     \internal */
 end_comment
 begin_comment
@@ -177,12 +180,26 @@ argument_list|(
 name|QValidator
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|locale
+operator|!=
+name|locale
+condition|)
+block|{
 name|d
 operator|->
 name|locale
 operator|=
 name|locale
 expr_stmt|;
+emit|emit
+name|changed
+argument_list|()
+emit|;
+block|}
 block|}
 end_function
 begin_comment
@@ -753,6 +770,11 @@ name|int
 name|top
 parameter_list|)
 block|{
+name|bool
+name|rangeChanged
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|b
@@ -763,6 +785,10 @@ block|{
 name|b
 operator|=
 name|bottom
+expr_stmt|;
+name|rangeChanged
+operator|=
+literal|true
 expr_stmt|;
 emit|emit
 name|bottomChanged
@@ -782,6 +808,10 @@ name|t
 operator|=
 name|top
 expr_stmt|;
+name|rangeChanged
+operator|=
+literal|true
+expr_stmt|;
 emit|emit
 name|topChanged
 argument_list|(
@@ -789,6 +819,14 @@ name|t
 argument_list|)
 emit|;
 block|}
+if|if
+condition|(
+name|rangeChanged
+condition|)
+emit|emit
+name|changed
+argument_list|()
+emit|;
 block|}
 end_function
 begin_comment
@@ -1469,6 +1507,11 @@ name|int
 name|decimals
 parameter_list|)
 block|{
+name|bool
+name|rangeChanged
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|b
@@ -1479,6 +1522,10 @@ block|{
 name|b
 operator|=
 name|minimum
+expr_stmt|;
+name|rangeChanged
+operator|=
+literal|true
 expr_stmt|;
 emit|emit
 name|bottomChanged
@@ -1498,6 +1545,10 @@ name|t
 operator|=
 name|maximum
 expr_stmt|;
+name|rangeChanged
+operator|=
+literal|true
+expr_stmt|;
 emit|emit
 name|topChanged
 argument_list|(
@@ -1516,6 +1567,10 @@ name|dec
 operator|=
 name|decimals
 expr_stmt|;
+name|rangeChanged
+operator|=
+literal|true
+expr_stmt|;
 emit|emit
 name|decimalsChanged
 argument_list|(
@@ -1523,6 +1578,14 @@ name|dec
 argument_list|)
 emit|;
 block|}
+if|if
+condition|(
+name|rangeChanged
+condition|)
+emit|emit
+name|changed
+argument_list|()
+emit|;
 block|}
 end_function
 begin_comment
@@ -1647,6 +1710,10 @@ name|d
 operator|->
 name|notation
 argument_list|)
+emit|;
+emit|emit
+name|changed
+argument_list|()
 emit|;
 block|}
 block|}
@@ -1860,6 +1927,10 @@ name|regExpChanged
 argument_list|(
 name|r
 argument_list|)
+emit|;
+emit|emit
+name|changed
+argument_list|()
 emit|;
 block|}
 block|}
