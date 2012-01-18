@@ -106,12 +106,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<ShlObj.h>
+file|<shlobj.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<Shlwapi.h>
+file|<shlwapi.h>
 end_include
 begin_comment
 comment|// #define USE_NATIVE_COLOR_DIALOG /* Testing purposes only */

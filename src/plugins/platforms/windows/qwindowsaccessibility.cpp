@@ -90,7 +90,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<OleAcc.h>
+file|<oleacc.h>
 end_include
 begin_comment
 comment|//#include<uiautomationcoreapi.h>

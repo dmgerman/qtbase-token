@@ -40,12 +40,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<WinGDI.h>
+file|<wingdi.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<GL/Gl.h>
+file|<GL/gl.h>
 end_include
 begin_comment
 comment|// #define DEBUG_GL
