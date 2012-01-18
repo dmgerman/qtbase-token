@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qbig5codec.h"
+file|"qbig5codec_p.h"
 end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE

@@ -20,7 +20,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qeucjpcodec.h"
+file|"qeucjpcodec_p.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

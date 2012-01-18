@@ -17,7 +17,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qjiscodec.h"
+file|"qjiscodec_p.h"
 end_include
 begin_include
 include|#

@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qfontjpcodec.h"
+file|"qfontjpcodec_p.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"qjpunicode.h"
+file|"qjpunicode_p.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE

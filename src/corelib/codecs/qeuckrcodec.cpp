@@ -20,12 +20,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qeuckrcodec.h"
+file|"qeuckrcodec_p.h"
 end_include
 begin_include
 include|#
 directive|include
-file|"cp949codetbl.h"
+file|"cp949codetbl_p.h"
 end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE

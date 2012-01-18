@@ -8,7 +8,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qgb18030codec.h"
+file|"qgb18030codec_p.h"
 end_include
 begin_ifndef
 ifndef|#

@@ -8,7 +8,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qjpunicode.h"
+file|"qjpunicode_p.h"
 end_include
 begin_include
 include|#
