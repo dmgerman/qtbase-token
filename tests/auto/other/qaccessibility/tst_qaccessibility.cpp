@@ -10375,9 +10375,7 @@ operator|.
 name|movable
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
-argument_list|(
-name|bool
+name|QVERIFY
 argument_list|(
 name|iface
 operator|->
@@ -10385,12 +10383,6 @@ name|state
 argument_list|()
 operator|.
 name|focusable
-argument_list|)
-argument_list|,
-name|le
-operator|->
-name|isActiveWindow
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -10671,9 +10663,7 @@ name|movable
 operator|)
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
-argument_list|(
-name|bool
+name|QVERIFY
 argument_list|(
 name|iface
 operator|->
@@ -10681,12 +10671,6 @@ name|state
 argument_list|()
 operator|.
 name|focusable
-argument_list|)
-argument_list|,
-name|le
-operator|->
-name|isActiveWindow
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|QVERIFY

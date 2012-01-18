@@ -2506,11 +2506,6 @@ operator|!=
 name|Qt
 operator|::
 name|NoFocus
-operator|&&
-name|w
-operator|->
-name|isActiveWindow
-argument_list|()
 condition|)
 name|state
 operator|.
