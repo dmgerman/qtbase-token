@@ -64,7 +64,7 @@ DECL|macro|QSqlDriverFactoryInterface_iid
 define|#
 directive|define
 name|QSqlDriverFactoryInterface_iid
-value|"com.trolltech.Qt.QSqlDriverFactoryInterface"
+value|"org.qt-project.Qt.QSqlDriverFactoryInterface"
 end_define
 begin_macro
 DECL|function|Q_DECLARE_INTERFACE

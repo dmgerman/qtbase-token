@@ -469,7 +469,7 @@ name|Q_DECLARE_INTERFACE
 argument_list|(
 argument|QTextObjectInterface
 argument_list|,
-literal|"com.trolltech.Qt.QTextObjectInterface"
+literal|"org.qt-project.Qt.QTextObjectInterface"
 argument_list|)
 end_macro
 begin_expr_stmt

@@ -3263,7 +3263,7 @@ name|Q_DECLARE_INTERFACE
 argument_list|(
 argument|QGraphicsItem
 argument_list|,
-literal|"com.trolltech.Qt.QGraphicsItem"
+literal|"org.qt-project.Qt.QGraphicsItem"
 argument_list|)
 end_macro
 begin_expr_stmt

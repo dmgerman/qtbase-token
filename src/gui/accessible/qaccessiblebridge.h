@@ -103,7 +103,7 @@ DECL|macro|QAccessibleBridgeFactoryInterface_iid
 define|#
 directive|define
 name|QAccessibleBridgeFactoryInterface_iid
-value|"com.trolltech.Qt.QAccessibleBridgeFactoryInterface"
+value|"org.qt-project.Qt.QAccessibleBridgeFactoryInterface"
 end_define
 begin_macro
 DECL|function|Q_DECLARE_INTERFACE

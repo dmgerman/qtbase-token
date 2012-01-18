@@ -64,7 +64,7 @@ DECL|macro|QStyleFactoryInterface_iid
 define|#
 directive|define
 name|QStyleFactoryInterface_iid
-value|"com.trolltech.Qt.QStyleFactoryInterface"
+value|"org.qt-project.Qt.QStyleFactoryInterface"
 end_define
 begin_macro
 DECL|function|Q_DECLARE_INTERFACE

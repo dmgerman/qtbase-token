@@ -133,7 +133,7 @@ DECL|macro|QPictureFormatInterface_iid
 define|#
 directive|define
 name|QPictureFormatInterface_iid
-value|"com.trolltech.Qt.QPictureFormatInterface"
+value|"org.qt-project.Qt.QPictureFormatInterface"
 end_define
 begin_macro
 DECL|function|Q_DECLARE_INTERFACE

@@ -361,7 +361,7 @@ DECL|macro|QImageIOHandlerFactoryInterface_iid
 define|#
 directive|define
 name|QImageIOHandlerFactoryInterface_iid
-value|"com.trolltech.Qt.QImageIOHandlerFactoryInterface"
+value|"org.qt-project.Qt.QImageIOHandlerFactoryInterface"
 end_define
 begin_macro
 DECL|function|Q_DECLARE_INTERFACE

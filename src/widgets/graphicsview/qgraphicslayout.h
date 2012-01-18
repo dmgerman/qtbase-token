@@ -212,7 +212,7 @@ name|Q_DECLARE_INTERFACE
 argument_list|(
 argument|QGraphicsLayout
 argument_list|,
-literal|"com.trolltech.Qt.QGraphicsLayout"
+literal|"org.qt-project.Qt.QGraphicsLayout"
 argument_list|)
 end_macro
 begin_endif

@@ -534,7 +534,7 @@ name|Q_DECLARE_INTERFACE
 argument_list|(
 argument|QGraphicsLayoutItem
 argument_list|,
-literal|"com.trolltech.Qt.QGraphicsLayoutItem"
+literal|"org.qt-project.Qt.QGraphicsLayoutItem"
 argument_list|)
 end_macro
 begin_expr_stmt

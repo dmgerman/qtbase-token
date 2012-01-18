@@ -96,7 +96,7 @@ DECL|macro|QBearerEngineFactoryInterface_iid
 define|#
 directive|define
 name|QBearerEngineFactoryInterface_iid
-value|"com.trolltech.Qt.QBearerEngineFactoryInterface"
+value|"org.qt-project.Qt.QBearerEngineFactoryInterface"
 end_define
 begin_macro
 DECL|function|Q_DECLARE_INTERFACE

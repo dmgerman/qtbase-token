@@ -1597,7 +1597,7 @@ DECL|macro|QAccessibleInterface_iid
 define|#
 directive|define
 name|QAccessibleInterface_iid
-value|"com.trolltech.Qt.QAccessibleInterface"
+value|"org.qt-project.Qt.QAccessibleInterface"
 end_define
 begin_macro
 name|Q_DECLARE_INTERFACE

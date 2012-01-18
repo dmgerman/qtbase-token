@@ -71,7 +71,7 @@ define|#
 directive|define
 name|QIconEngineFactoryInterface_iid
 define|\
-value|"com.trolltech.Qt.QIconEngineFactoryInterface"
+value|"org.qt-project.Qt.QIconEngineFactoryInterface"
 end_define
 begin_macro
 DECL|function|Q_DECLARE_INTERFACE
@@ -177,7 +177,7 @@ define|#
 directive|define
 name|QIconEngineFactoryInterfaceV2_iid
 define|\
-value|"com.trolltech.Qt.QIconEngineFactoryInterfaceV2"
+value|"org.qt-project.Qt.QIconEngineFactoryInterfaceV2"
 end_define
 begin_macro
 DECL|function|Q_DECLARE_INTERFACE

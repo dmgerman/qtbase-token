@@ -76,7 +76,7 @@ DECL|macro|QAccessibleFactoryInterface_iid
 define|#
 directive|define
 name|QAccessibleFactoryInterface_iid
-value|"com.trolltech.Qt.QAccessibleFactoryInterface"
+value|"org.qt-project.Qt.QAccessibleFactoryInterface"
 end_define
 begin_macro
 DECL|function|Q_DECLARE_INTERFACE

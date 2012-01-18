@@ -67,7 +67,7 @@ DECL|macro|QGenericPluginFactoryInterface_iid
 define|#
 directive|define
 name|QGenericPluginFactoryInterface_iid
-value|"com.trolltech.Qt.QGenericPluginFactoryInterface"
+value|"org.qt-project.Qt.QGenericPluginFactoryInterface"
 end_define
 begin_macro
 DECL|function|Q_DECLARE_INTERFACE
