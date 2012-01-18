@@ -1533,6 +1533,16 @@ specifier|const
 name|QHeaderView
 argument_list|)
 expr_stmt|;
+name|d
+operator|->
+name|executePostedLayout
+argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|executePostedResize
+argument_list|()
+expr_stmt|;
 comment|//Q_ASSERT(d->headerLength() == d->length);
 return|return
 name|d
