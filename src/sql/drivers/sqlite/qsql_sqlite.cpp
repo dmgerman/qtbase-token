@@ -321,6 +321,13 @@ literal|"float"
 argument_list|)
 operator|||
 name|typeName
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"real"
+argument_list|)
+operator|||
+name|typeName
 operator|.
 name|startsWith
 argument_list|(

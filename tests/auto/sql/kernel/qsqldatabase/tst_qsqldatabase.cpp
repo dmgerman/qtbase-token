@@ -6457,7 +6457,7 @@ literal|"real"
 argument_list|,
 name|QVariant
 operator|::
-name|String
+name|Double
 argument_list|,
 name|QVariant
 argument_list|(
