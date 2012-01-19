@@ -8446,7 +8446,7 @@ condition|)
 block|{
 name|qDebug
 argument_list|(
-literal|"setCachingEnabled: %d bytesDownloaded"
+literal|"setCachingEnabled: %lld bytesDownloaded"
 argument_list|,
 name|bytesDownloaded
 argument_list|)
