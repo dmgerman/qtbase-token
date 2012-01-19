@@ -334,12 +334,12 @@ name|peerName
 argument_list|()
 specifier|const
 block|;
-comment|// ### Qt 5: Make setReadBufferSize() virtual
 name|qint64
 name|readBufferSize
 argument_list|()
 specifier|const
 block|;
+name|virtual
 name|void
 name|setReadBufferSize
 argument_list|(
@@ -350,12 +350,13 @@ name|void
 name|abort
 argument_list|()
 block|;
-comment|// ### Qt 5: Make socketDescriptor() and setSocketDescriptor() virtual.
+name|virtual
 name|qintptr
 name|socketDescriptor
 argument_list|()
 specifier|const
 block|;
+name|virtual
 name|bool
 name|setSocketDescriptor
 argument_list|(
@@ -366,7 +367,7 @@ argument_list|,
 argument|OpenMode openMode = ReadWrite
 argument_list|)
 block|;
-comment|// ### Qt 5: Make virtual?
+name|virtual
 name|void
 name|setSocketOption
 argument_list|(
@@ -375,6 +376,7 @@ argument_list|,
 argument|const QVariant&value
 argument_list|)
 block|;
+name|virtual
 name|QVariant
 name|socketOption
 argument_list|(
@@ -416,7 +418,7 @@ name|flush
 argument_list|()
 block|;
 comment|// for synchronous access
-comment|// ### Qt 5: Make waitForConnected() and waitForDisconnected() virtual.
+name|virtual
 name|bool
 name|waitForConnected
 argument_list|(
@@ -438,6 +440,7 @@ argument|int msecs =
 literal|30000
 argument_list|)
 block|;
+name|virtual
 name|bool
 name|waitForDisconnected
 argument_list|(
