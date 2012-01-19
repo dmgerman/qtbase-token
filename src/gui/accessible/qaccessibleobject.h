@@ -148,15 +148,6 @@ argument|const QAccessibleInterface*
 argument_list|)
 specifier|const
 block|;
-name|QAccessible
-operator|::
-name|Relation
-name|relationTo
-argument_list|(
-argument|const QAccessibleInterface *other
-argument_list|)
-specifier|const
-block|;
 comment|// navigation
 name|QAccessibleInterface
 operator|*
