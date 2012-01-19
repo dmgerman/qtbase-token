@@ -907,10 +907,6 @@ name|Unrelated
 operator|=
 literal|0x00000000
 block|,
-name|FocusChild
-operator|=
-literal|0x00010000
-block|,
 name|Label
 operator|=
 literal|0x00020000
@@ -1273,6 +1269,13 @@ specifier|const
 expr_stmt|;
 name|virtual
 name|QAccessibleInterface
+operator|*
+name|focusChild
+argument_list|()
+specifier|const
+expr_stmt|;
+name|virtual
+name|QAccessibleInterface
 modifier|*
 name|childAt
 argument_list|(
@@ -1346,8 +1349,6 @@ operator|*
 name|iface
 argument_list|)
 decl|const
-init|=
-literal|0
 decl_stmt|;
 comment|// properties and state
 name|virtual

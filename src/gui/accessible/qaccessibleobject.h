@@ -145,6 +145,12 @@ argument|const QAccessibleInterface*
 argument_list|)
 specifier|const
 block|;
+name|QAccessibleInterface
+operator|*
+name|focusChild
+argument_list|()
+specifier|const
+block|;
 comment|// navigation
 name|QAccessibleInterface
 operator|*
@@ -157,17 +163,6 @@ operator|*
 name|child
 argument_list|(
 argument|int index
-argument_list|)
-specifier|const
-block|;
-name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag
-argument_list|,
-argument|int
-argument_list|,
-argument|QAccessibleInterface **
 argument_list|)
 specifier|const
 block|;

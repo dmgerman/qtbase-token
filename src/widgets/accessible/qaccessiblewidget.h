@@ -98,6 +98,12 @@ argument|const QAccessibleInterface *other
 argument_list|)
 specifier|const
 expr_stmt|;
+name|QAccessibleInterface
+operator|*
+name|focusChild
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QRect
 name|rect
 argument_list|()
