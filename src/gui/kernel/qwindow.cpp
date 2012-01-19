@@ -61,7 +61,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QWindow     \brief The QWindow class encapsulates an independent windw in a Windowing System.      A window that is supplied a parent become a native child window of     their parent window.      Windows can potentially use a lot of memory. A usual measurement is     width * height * depth. A window might also include multiple buffers     to support double and triple buffering. To release a windows memory     resources, the destroy() function.   */
+comment|/*!     \class QWindow     \brief The QWindow class encapsulates an independent window in a Windowing System.      A window that is supplied a parent become a native child window of     their parent window.      Windows can potentially use a lot of memory. A usual measurement is     width * height * depth. A window might also include multiple buffers     to support double and triple buffering. To release a windows memory     resources, the destroy() function.   */
 end_comment
 begin_constructor
 DECL|function|QWindow
