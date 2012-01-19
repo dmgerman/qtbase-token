@@ -22339,7 +22339,7 @@ literal|"BUILD_PATH = "
 operator|<<
 name|QDir
 operator|::
-name|convertSeparators
+name|toNativeSeparators
 argument_list|(
 name|buildPath
 argument_list|)
@@ -22350,7 +22350,7 @@ literal|"SOURCE_PATH = "
 operator|<<
 name|QDir
 operator|::
-name|convertSeparators
+name|toNativeSeparators
 argument_list|(
 name|sourcePath
 argument_list|)

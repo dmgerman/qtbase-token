@@ -2152,7 +2152,7 @@ name|setText
 argument_list|(
 name|QDir
 operator|::
-name|convertSeparators
+name|toNativeSeparators
 argument_list|(
 name|QDir
 operator|::
