@@ -2033,11 +2033,6 @@ condition|)
 name|createPlatformIntegration
 argument_list|()
 expr_stmt|;
-name|init_plugins
-argument_list|(
-name|pluginList
-argument_list|)
-expr_stmt|;
 comment|// Set up which span functions should be used in raster engine...
 name|qInitDrawhelperAsm
 argument_list|()
@@ -2068,6 +2063,24 @@ expr_stmt|;
 name|is_app_running
 operator|=
 literal|true
+expr_stmt|;
+name|init_plugins
+argument_list|(
+name|pluginList
+argument_list|)
+expr_stmt|;
+name|QWindowSystemInterface
+operator|::
+name|sendWindowSystemEvents
+argument_list|(
+name|QCoreApplicationPrivate
+operator|::
+name|eventDispatcher
+argument_list|,
+name|QEventLoop
+operator|::
+name|AllEvents
+argument_list|)
 expr_stmt|;
 block|}
 end_function
