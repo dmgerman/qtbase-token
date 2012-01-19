@@ -10,13 +10,25 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_comment
+comment|/*!     \class QSurface     \brief The QSurface class is an abstraction of renderable surfaces in Qt.      The size of the surface is accessible with the size() function. The rendering     specific attributes of the surface are accessible through the format() function.  */
+end_comment
+begin_comment
+comment|/*!     \enum QSurface::SurfaceClass      The SurfaceClass enum describes the actual subclass of the surface.      \value Window The surface is an instance of QWindow.  */
+end_comment
+begin_comment
+comment|/*!     \enum QSurface::SurfaceType      The SurfaceType enum describes what type of surface the.      \value RasterSurface The surface is is composed of pixels and can be rendered to using     a software rasterizer like Qt's raster paint engine.     \value OpenGLSurface The surface is an OpenGL compatible surface and can be used     in conjunction with QOpenGLContext.  */
+end_comment
+begin_comment
+comment|/*!     QSize QSurface::size() const      Returns the size of the surface in pixels.  */
+end_comment
 begin_constructor
 DECL|function|QSurface
 name|QSurface
 operator|::
 name|QSurface
 parameter_list|(
-name|SurfaceType
+name|SurfaceClass
 name|type
 parameter_list|)
 member_init_list|:
@@ -24,16 +36,21 @@ name|m_type
 argument_list|(
 name|type
 argument_list|)
+member_init_list|,
+name|m_reserved
+argument_list|(
+literal|0
+argument_list|)
 block|{ }
 end_constructor
 begin_function
-DECL|function|surfaceType
+DECL|function|surfaceClass
 name|QSurface
 operator|::
-name|SurfaceType
+name|SurfaceClass
 name|QSurface
 operator|::
-name|surfaceType
+name|surfaceClass
 parameter_list|()
 specifier|const
 block|{

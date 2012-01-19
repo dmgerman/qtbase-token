@@ -892,6 +892,27 @@ literal|false
 return|;
 if|if
 condition|(
+name|surface
+operator|->
+name|surfaceType
+argument_list|()
+operator|!=
+name|QSurface
+operator|::
+name|OpenGLSurface
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QOpenGLContext::makeBuffers() called with non-opengl surface"
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
 name|d
 operator|->
 name|platformGLContext
@@ -1082,6 +1103,25 @@ name|qWarning
 argument_list|()
 operator|<<
 literal|"QOpenGLContext::swapBuffers() called with null argument"
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+name|surface
+operator|->
+name|surfaceType
+argument_list|()
+operator|!=
+name|QSurface
+operator|::
+name|OpenGLSurface
+condition|)
+block|{
+name|qWarning
+argument_list|()
+operator|<<
+literal|"QOpenGLContext::swapBuffers() called with non-opengl surface"
 expr_stmt|;
 return|return;
 block|}

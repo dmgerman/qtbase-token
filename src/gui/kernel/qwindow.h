@@ -255,14 +255,7 @@ name|NOTIFY
 name|contentOrientationChanged
 argument_list|)
 name|public
-range|:     enum
-name|SurfaceType
-block|{
-name|RasterSurface
-block|,
-name|OpenGLSurface
-block|}
-decl_stmt|;
+range|:
 name|QWindow
 argument_list|(
 name|QScreen
@@ -271,7 +264,7 @@ name|screen
 operator|=
 literal|0
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|QWindow
 argument_list|(
 name|QWindow

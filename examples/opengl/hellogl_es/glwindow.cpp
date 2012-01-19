@@ -165,6 +165,11 @@ operator|::
 name|GLWindow
 parameter_list|()
 block|{
+name|setSurfaceType
+argument_list|(
+name|OpenGLSurface
+argument_list|)
+expr_stmt|;
 name|qtLogo
 operator|=
 literal|true

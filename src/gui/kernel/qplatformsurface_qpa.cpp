@@ -9,13 +9,13 @@ file|"qplatformsurface_qpa.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-DECL|function|surfaceType
+DECL|function|surfaceClass
 name|QSurface
 operator|::
-name|SurfaceType
+name|SurfaceClass
 name|QPlatformSurface
 operator|::
-name|surfaceType
+name|surfaceClass
 parameter_list|()
 specifier|const
 block|{
@@ -32,7 +32,7 @@ name|QPlatformSurface
 parameter_list|(
 name|QSurface
 operator|::
-name|SurfaceType
+name|SurfaceClass
 name|type
 parameter_list|)
 member_init_list|:

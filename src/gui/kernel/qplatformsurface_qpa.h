@@ -47,8 +47,8 @@ literal|0
 expr_stmt|;
 name|QSurface
 operator|::
-name|SurfaceType
-name|surfaceType
+name|SurfaceClass
+name|surfaceClass
 argument_list|()
 specifier|const
 expr_stmt|;
@@ -56,12 +56,12 @@ name|private
 label|:
 name|QPlatformSurface
 argument_list|(
-argument|QSurface::SurfaceType type
+argument|QSurface::SurfaceClass type
 argument_list|)
 empty_stmt|;
 name|QSurface
 operator|::
-name|SurfaceType
+name|SurfaceClass
 name|m_type
 expr_stmt|;
 name|friend
