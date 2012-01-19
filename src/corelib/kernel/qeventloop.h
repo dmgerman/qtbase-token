@@ -79,15 +79,6 @@ block|,
 name|X11ExcludeTimers
 operator|=
 literal|0x08
-ifdef|#
-directive|ifdef
-name|QT_DEPRECATED
-block|,
-name|DeferredDeletion
-operator|=
-literal|0x10
-endif|#
-directive|endif
 block|,
 name|EventLoopExec
 operator|=

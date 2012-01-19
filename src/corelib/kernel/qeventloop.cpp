@@ -88,7 +88,7 @@ begin_comment
 comment|/*!     \class QEventLoop     \brief The QEventLoop class provides a means of entering and leaving an event loop.      At any time, you can create a QEventLoop object and call exec()     on it to start a local event loop. From within the event loop,     calling exit() will force exec() to return.      \sa QAbstractEventDispatcher */
 end_comment
 begin_comment
-comment|/*!     \enum QEventLoop::ProcessEventsFlag      This enum controls the types of events processed by the     processEvents() functions.      \value AllEvents All events. Note that     \l{QEvent::DeferredDelete}{DeferredDelete} events are processed     specially. See QObject::deleteLater() for more details.      \value ExcludeUserInputEvents Do not process user input events,     such as ButtonPress and KeyPress. Note that the events are not     discarded; they will be delivered the next time processEvents() is     called without the ExcludeUserInputEvents flag.      \value ExcludeSocketNotifiers Do not process socket notifier     events. Note that the events are not discarded; they will be     delivered the next time processEvents() is called without the     ExcludeSocketNotifiers flag.      \value WaitForMoreEvents Wait for events if no pending events are     available.      \omitvalue X11ExcludeTimers     \omitvalue ExcludeUserInput     \omitvalue WaitForMore     \omitvalue EventLoopExec     \omitvalue DialogExec     \value DeferredDeletion deprecated - do not use.      \sa processEvents() */
+comment|/*!     \enum QEventLoop::ProcessEventsFlag      This enum controls the types of events processed by the     processEvents() functions.      \value AllEvents All events. Note that     \l{QEvent::DeferredDelete}{DeferredDelete} events are processed     specially. See QObject::deleteLater() for more details.      \value ExcludeUserInputEvents Do not process user input events,     such as ButtonPress and KeyPress. Note that the events are not     discarded; they will be delivered the next time processEvents() is     called without the ExcludeUserInputEvents flag.      \value ExcludeSocketNotifiers Do not process socket notifier     events. Note that the events are not discarded; they will be     delivered the next time processEvents() is called without the     ExcludeSocketNotifiers flag.      \value WaitForMoreEvents Wait for events if no pending events are     available.      \omitvalue X11ExcludeTimers     \omitvalue EventLoopExec     \omitvalue DialogExec      \sa processEvents() */
 end_comment
 begin_comment
 comment|/*!     Constructs an event loop object with the given \a parent. */
@@ -199,23 +199,6 @@ condition|)
 return|return
 literal|false
 return|;
-if|if
-condition|(
-name|flags
-operator|&
-name|DeferredDeletion
-condition|)
-name|QCoreApplication
-operator|::
-name|sendPostedEvents
-argument_list|(
-literal|0
-argument_list|,
-name|QEvent
-operator|::
-name|DeferredDelete
-argument_list|)
-expr_stmt|;
 return|return
 name|d
 operator|->
@@ -566,23 +549,6 @@ operator|.
 name|start
 parameter_list|()
 constructor_decl|;
-if|if
-condition|(
-name|flags
-operator|&
-name|DeferredDeletion
-condition|)
-name|QCoreApplication
-operator|::
-name|sendPostedEvents
-argument_list|(
-literal|0
-argument_list|,
-name|QEvent
-operator|::
-name|DeferredDelete
-argument_list|)
-expr_stmt|;
 while|while
 condition|(
 name|processEvents
@@ -604,23 +570,6 @@ operator|>
 name|maxTime
 condition|)
 break|break;
-if|if
-condition|(
-name|flags
-operator|&
-name|DeferredDeletion
-condition|)
-name|QCoreApplication
-operator|::
-name|sendPostedEvents
-argument_list|(
-literal|0
-argument_list|,
-name|QEvent
-operator|::
-name|DeferredDelete
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_function
