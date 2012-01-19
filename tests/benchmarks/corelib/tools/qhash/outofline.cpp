@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qhash_string.h"
+file|"main.h"
 end_include
 begin_function
 DECL|function|doHash

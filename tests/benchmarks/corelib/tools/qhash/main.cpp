@@ -8,7 +8,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qhash_string.h"
+file|"main.h"
 end_include
 begin_include
 include|#
@@ -374,6 +374,6 @@ end_macro
 begin_include
 include|#
 directive|include
-file|"qhash_string.moc"
+file|"main.moc"
 end_include
 end_unit
