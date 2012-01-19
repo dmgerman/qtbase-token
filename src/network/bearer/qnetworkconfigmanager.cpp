@@ -105,11 +105,10 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|connManager
-specifier|static
+DECL|function|qNetworkConfigurationManagerPrivate
 name|QNetworkConfigurationManagerPrivate
 modifier|*
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 parameter_list|()
 block|{
 name|QNetworkConfigurationManagerPrivate
@@ -245,19 +244,6 @@ block|}
 block|}
 return|return
 name|ptr
-return|;
-block|}
-end_function
-begin_function
-DECL|function|qNetworkConfigurationManagerPrivate
-name|QNetworkConfigurationManagerPrivate
-modifier|*
-name|qNetworkConfigurationManagerPrivate
-parameter_list|()
-block|{
-return|return
-name|connManager
-argument_list|()
 return|;
 block|}
 end_function
@@ -441,7 +427,7 @@ name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|priv
 init|=
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 argument_list|()
 decl_stmt|;
 if|if
@@ -471,7 +457,7 @@ name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|priv
 init|=
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 argument_list|()
 decl_stmt|;
 if|if
@@ -514,7 +500,7 @@ name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|priv
 init|=
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 argument_list|()
 decl_stmt|;
 if|if
@@ -559,7 +545,7 @@ name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|priv
 init|=
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 argument_list|()
 decl_stmt|;
 if|if
@@ -596,7 +582,7 @@ name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|priv
 init|=
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 argument_list|()
 decl_stmt|;
 if|if
@@ -632,7 +618,7 @@ name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|priv
 init|=
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 argument_list|()
 decl_stmt|;
 if|if
@@ -670,7 +656,7 @@ name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|priv
 init|=
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 argument_list|()
 decl_stmt|;
 if|if
