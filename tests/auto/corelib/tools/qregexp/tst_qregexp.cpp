@@ -6692,6 +6692,19 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"[] escaped"
+argument_list|)
+operator|<<
+literal|"\\[\\]"
+operator|<<
+literal|"[]"
+operator|<<
+literal|true
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"case [[]"
 argument_list|)
 operator|<<
@@ -6864,9 +6877,9 @@ argument_list|(
 literal|"a '\\' at the end"
 argument_list|)
 operator|<<
-literal|"\\\\Qt;"
+literal|"\\\\Qt;\\"
 operator|<<
-literal|"\\\\Qt;"
+literal|"\\\\Qt;\\"
 operator|<<
 literal|true
 expr_stmt|;

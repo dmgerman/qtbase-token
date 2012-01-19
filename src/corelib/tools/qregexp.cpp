@@ -739,8 +739,6 @@ comment|// we insert the \\ later if necessary
 if|if
 condition|(
 name|i
-operator|+
-literal|1
 operator|==
 name|wclen
 condition|)
