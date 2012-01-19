@@ -8348,19 +8348,53 @@ operator|+
 literal|1
 argument_list|)
 decl_stmt|;
-comment|// Just shortcut the check here if we only have one character.
-comment|// Rational: A modifier will contain the name AND +, so longer than 1, a length of 1 is just
-comment|// the remaining part of the shortcut (ei. The 'C' in "Ctrl+C"), so no need to check that.
+comment|// If we get here the shortcuts contains at least one '+'. We break up
+comment|// along the following strategy:
+comment|//      Meta+Ctrl++   ( "Meta+", "Ctrl+", "+" )
+comment|//      Super+Shift+A ( "Super+", "Shift+" )
+comment|//      4+3+2=1       ( "4+", "3+" )
+comment|// In other words, everything we try to handle HAS to be a modifier
+comment|// except for a single '+' at the end of the string.
+comment|// Only '+' can have length 1.
 if|if
 condition|(
 name|sub
 operator|.
 name|length
 argument_list|()
-operator|>
+operator|==
 literal|1
 condition|)
 block|{
+comment|// Make sure we only encounter a single '+' at the end of the accel
+if|if
+condition|(
+name|accel
+operator|.
+name|lastIndexOf
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'+'
+argument_list|)
+argument_list|)
+operator|!=
+name|accel
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
+condition|)
+return|return
+name|Qt
+operator|::
+name|Key_unknown
+return|;
+block|}
+else|else
+block|{
+comment|// Identify the modifier
 name|bool
 name|validModifier
 init|=
@@ -8419,9 +8453,6 @@ break|break;
 comment|// Shortcut, since if we find an other it would/should just be a dup
 block|}
 block|}
-comment|// We couldn't match the string with a modifier. This is only
-comment|// possible if this part is the key. The key is never followed by a
-comment|// '+'. And if the key is '+' the if() above would have skipped it.
 if|if
 condition|(
 operator|!
