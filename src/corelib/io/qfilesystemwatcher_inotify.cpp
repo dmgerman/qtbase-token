@@ -1219,7 +1219,7 @@ decl_stmt|;
 if|if
 condition|(
 name|wd
-operator|<=
+operator|<
 literal|0
 condition|)
 block|{
