@@ -91,12 +91,14 @@ argument|Action
 argument_list|)
 name|public
 operator|:
+name|QT_DEPRECATED
 name|QObject
 operator|*
 name|inputItem
 argument_list|()
 specifier|const
 block|;
+name|QT_DEPRECATED
 name|void
 name|setInputItem
 argument_list|(
@@ -106,6 +108,7 @@ name|inputItemChanged
 argument_list|)
 block|;
 comment|// the window containing the editor
+name|QT_DEPRECATED
 name|QWindow
 operator|*
 name|inputWindow
@@ -259,6 +262,20 @@ block|;
 operator|~
 name|QInputPanel
 argument_list|()
+block|;
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void q_connectFocusObject()
+argument_list|)
+block|;
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void q_checkFocusObject(QObject* object)
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt

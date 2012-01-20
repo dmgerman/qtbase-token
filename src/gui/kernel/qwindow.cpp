@@ -3058,6 +3058,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn QWindow::focusObjectChanged(QObject *focusObject)      This signal is emitted when final receiver of events tied to focus is changed.     \sa focusObject() */
+end_comment
+begin_comment
 comment|/*!   Returns the QObject that will be the final receiver of events tied focus, such   as key events. */
 end_comment
 begin_function

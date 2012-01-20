@@ -206,6 +206,12 @@ name|focusWindow
 argument_list|()
 block|;
 specifier|static
+name|QObject
+operator|*
+name|focusObject
+argument_list|()
+block|;
+specifier|static
 name|QScreen
 operator|*
 name|primaryScreen
@@ -414,6 +420,14 @@ block|;
 name|void
 name|lastWindowClosed
 argument_list|()
+block|;
+name|void
+name|focusObjectChanged
+argument_list|(
+name|QObject
+operator|*
+name|focusObject
+argument_list|)
 block|;
 name|protected
 operator|:

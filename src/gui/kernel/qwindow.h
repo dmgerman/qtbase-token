@@ -1151,6 +1151,14 @@ name|ScreenOrientation
 name|orientation
 argument_list|)
 decl_stmt|;
+name|void
+name|focusObjectChanged
+parameter_list|(
+name|QObject
+modifier|*
+name|object
+parameter_list|)
+function_decl|;
 name|private
 name|Q_SLOTS
 range|:
