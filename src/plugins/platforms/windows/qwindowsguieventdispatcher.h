@@ -101,6 +101,13 @@ name|flags
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+begin_function_decl
+name|virtual
+name|void
+name|sendPostedEvents
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_macro
 unit|};
 name|QT_END_NAMESPACE

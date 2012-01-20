@@ -256,6 +256,11 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|virtual
+name|void
+name|sendPostedEvents
+argument_list|()
+block|;
 name|private
 operator|:
 name|friend
