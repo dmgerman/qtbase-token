@@ -159,6 +159,18 @@ operator|*
 name|instance
 argument_list|()
 block|;
+specifier|inline
+name|void
+name|emitScreenAdded
+argument_list|(
+argument|QPlatformScreen *s
+argument_list|)
+block|{
+name|screenAdded
+argument_list|(
+name|s
+argument_list|)
+block|; }
 name|private
 operator|:
 name|QScopedPointer

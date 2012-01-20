@@ -1013,6 +1013,12 @@ name|WM_IME_REQUEST
 block|,
 literal|"WM_IME_REQUEST"
 block|}
+block|,
+block|{
+name|WM_DISPLAYCHANGE
+block|,
+literal|"WM_DISPLAYCHANGE"
+block|}
 block|}
 decl_stmt|;
 end_decl_stmt

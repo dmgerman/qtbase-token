@@ -47,6 +47,12 @@ name|QPlatformScreen
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QWindowsScreenManager
+name|class
+name|QWindowsScreenManager
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QWindowsWindow
 name|class
 name|QWindowsWindow
@@ -572,6 +578,11 @@ name|mimeConverter
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QWindowsScreenManager
+modifier|&
+name|screenManager
+parameter_list|()
+function_decl|;
 specifier|static
 name|QWindowsUser32DLL
 name|user32dll
