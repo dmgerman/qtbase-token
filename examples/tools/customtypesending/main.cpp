@@ -52,7 +52,7 @@ name|headers
 operator|<<
 literal|"Subject: Hello World"
 operator|<<
-literal|"From: qt-info@nokia.com"
+literal|"From: address@example.com"
 expr_stmt|;
 name|QString
 name|body

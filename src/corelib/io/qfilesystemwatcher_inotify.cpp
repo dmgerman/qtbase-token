@@ -598,7 +598,7 @@ end_else
 begin_error
 error|#
 directive|error
-literal|"This architecture is not supported. Please talk to qt-info@nokia.com"
+literal|"This architecture is not supported. Please see http://www.qt-project.org/"
 end_error
 begin_endif
 endif|#
