@@ -178,9 +178,7 @@ name|Accept
 block|,
 name|Reject
 block|}
-block|;
-comment|// ### Rename to FileDialogOption and FileDialogOptions for Qt 5.0
-block|enum
+block|;      enum
 name|Option
 block|{
 name|ShowDirsOnly
