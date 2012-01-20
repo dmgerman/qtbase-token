@@ -206,22 +206,6 @@ argument_list|(
 argument|bool visible
 argument_list|)
 block|;
-comment|// ### Qt 5: merge overloads
-specifier|static
-name|QFont
-name|getFont
-argument_list|(
-argument|bool *ok
-argument_list|,
-argument|const QFont&initial
-argument_list|,
-argument|QWidget *parent
-argument_list|,
-argument|const QString&title
-argument_list|,
-argument|FontDialogOptions options
-argument_list|)
-block|;
 specifier|static
 name|QFont
 name|getFont
@@ -229,34 +213,6 @@ argument_list|(
 name|bool
 operator|*
 name|ok
-argument_list|,
-specifier|const
-name|QFont
-operator|&
-name|initial
-argument_list|,
-name|QWidget
-operator|*
-name|parent
-argument_list|,
-specifier|const
-name|QString
-operator|&
-name|title
-argument_list|)
-block|;
-specifier|static
-name|QFont
-name|getFont
-argument_list|(
-name|bool
-operator|*
-name|ok
-argument_list|,
-specifier|const
-name|QFont
-operator|&
-name|initial
 argument_list|,
 name|QWidget
 operator|*
@@ -269,14 +225,16 @@ specifier|static
 name|QFont
 name|getFont
 argument_list|(
-name|bool
-operator|*
-name|ok
+argument|bool *ok
 argument_list|,
-name|QWidget
-operator|*
-name|parent
-operator|=
+argument|const QFont&initial
+argument_list|,
+argument|QWidget *parent =
+literal|0
+argument_list|,
+argument|const QString&title = QString()
+argument_list|,
+argument|FontDialogOptions options =
 literal|0
 argument_list|)
 block|;
