@@ -221,10 +221,18 @@ block|}
 block|;
 name|Q_DECLARE_FLAGS
 argument_list|(
-argument|BindMode
+name|BindMode
 argument_list|,
-argument|BindFlag
+name|BindFlag
 argument_list|)
+expr|enum
+name|PauseMode
+block|{
+name|PauseNever
+block|,
+name|PauseOnNotify
+block|}
+block|;
 name|QAbstractSocket
 argument_list|(
 argument|SocketType socketType
@@ -236,6 +244,23 @@ name|virtual
 operator|~
 name|QAbstractSocket
 argument_list|()
+block|;
+name|virtual
+name|void
+name|resume
+argument_list|()
+block|;
+comment|// to continue after proxy authentication required, SSL errors etc.
+name|PauseMode
+name|pauseMode
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setPauseMode
+argument_list|(
+argument|PauseMode pauseMode
+argument_list|)
 block|;
 name|bool
 name|bind

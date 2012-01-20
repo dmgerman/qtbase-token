@@ -297,6 +297,10 @@ name|sessionCipher
 argument_list|()
 specifier|const
 block|;
+name|void
+name|continueHandshake
+argument_list|()
+block|;
 name|Q_AUTOTEST_EXPORT
 specifier|static
 name|long

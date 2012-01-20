@@ -235,6 +235,11 @@ decl_stmt|;
 name|bool
 name|pendingClose
 decl_stmt|;
+name|QAbstractSocket
+operator|::
+name|PauseMode
+name|pauseMode
+expr_stmt|;
 name|QString
 name|hostName
 decl_stmt|;

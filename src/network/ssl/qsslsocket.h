@@ -122,6 +122,11 @@ operator|~
 name|QSslSocket
 argument_list|()
 block|;
+name|void
+name|resume
+argument_list|()
+block|;
+comment|// to continue after proxy authentication required, SSL errors etc.
 comment|// Autostarting the SSL client handshake.
 name|void
 name|connectToHostEncrypted
@@ -764,6 +769,12 @@ argument_list|(
 argument|d_func()
 argument_list|,
 argument|void _q_flushReadBuffer()
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_resumeImplementation()
 argument_list|)
 name|friend
 name|class

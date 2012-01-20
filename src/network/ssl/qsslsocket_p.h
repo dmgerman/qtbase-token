@@ -539,6 +539,11 @@ name|QSslSocket
 operator|*
 argument_list|)
 block|;
+name|bool
+name|isPaused
+argument_list|()
+specifier|const
+block|;
 name|void
 name|_q_connectedSlot
 argument_list|()
@@ -585,6 +590,10 @@ name|void
 name|_q_flushReadBuffer
 argument_list|()
 block|;
+name|void
+name|_q_resumeImplementation
+argument_list|()
+block|;
 comment|// Platform specific functions
 name|virtual
 name|void
@@ -629,6 +638,13 @@ specifier|const
 operator|=
 literal|0
 block|;
+name|virtual
+name|void
+name|continueHandshake
+argument_list|()
+operator|=
+literal|0
+block|;
 name|private
 operator|:
 specifier|static
@@ -651,6 +667,10 @@ name|s_loadedCiphersAndCerts
 block|;
 name|protected
 operator|:
+name|bool
+name|verifyErrorsHaveBeenIgnored
+argument_list|()
+block|;
 specifier|static
 name|bool
 name|s_loadRootCertsOnDemand
@@ -662,6 +682,9 @@ name|QByteArray
 operator|>
 name|unixRootCertDirectories
 argument_list|()
+block|;
+name|bool
+name|paused
 block|; }
 decl_stmt|;
 end_decl_stmt
