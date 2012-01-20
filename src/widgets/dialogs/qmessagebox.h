@@ -65,7 +65,6 @@ name|Q_PROPERTY
 argument_list|(
 argument|QString text READ text WRITE setText
 argument_list|)
-comment|// ### Qt 5: Rename 'icon' 'standardIcon' and 'iconPixmap' 'icon' (and use QIcon?)
 name|Q_PROPERTY
 argument_list|(
 argument|Icon icon READ icon WRITE setIcon
