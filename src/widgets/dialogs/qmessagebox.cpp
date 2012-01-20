@@ -6201,27 +6201,6 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     \internal */
-end_comment
-begin_function
-DECL|function|sizeHint
-name|QSize
-name|QMessageBox
-operator|::
-name|sizeHint
-parameter_list|()
-specifier|const
-block|{
-comment|// ### Qt 5: remove
-return|return
-name|QDialog
-operator|::
-name|sizeHint
-argument_list|()
-return|;
-block|}
-end_function
-begin_comment
 comment|/////////////////////////////////////////////////////////////////////////////////////////
 end_comment
 begin_comment

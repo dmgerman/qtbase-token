@@ -803,12 +803,6 @@ argument_list|()
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_function_decl
-name|QSize
-name|sizeHint
-parameter_list|()
-function_decl|const;
-end_function_decl
 begin_comment
 comment|// the following functions are obsolete:
 end_comment
