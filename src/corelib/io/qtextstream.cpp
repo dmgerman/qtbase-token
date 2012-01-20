@@ -8187,33 +8187,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     \overload */
-end_comment
-begin_function
-DECL|function|operator <<
-name|QTextStream
-modifier|&
-name|QTextStream
-operator|::
-name|operator
-name|<<
-parameter_list|(
-name|QBool
-name|b
-parameter_list|)
-block|{
-return|return
-operator|*
-name|this
-operator|<<
-name|bool
-argument_list|(
-name|b
-argument_list|)
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!     Writes the character \a c to the stream, then returns a reference     to the QTextStream.      \sa setFieldWidth() */
 end_comment
 begin_function

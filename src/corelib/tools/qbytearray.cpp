@@ -2396,13 +2396,13 @@ begin_comment
 comment|/*! \fn char QByteArray::operator[](uint i) const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QBool QByteArray::contains(const QByteArray&ba) const      Returns true if the byte array contains an occurrence of the byte     array \a ba; otherwise returns false.      \sa indexOf(), count() */
+comment|/*! \fn bool QByteArray::contains(const QByteArray&ba) const      Returns true if the byte array contains an occurrence of the byte     array \a ba; otherwise returns false.      \sa indexOf(), count() */
 end_comment
 begin_comment
-comment|/*! \fn QBool QByteArray::contains(const char *str) const      \overload      Returns true if the byte array contains the string \a str;     otherwise returns false. */
+comment|/*! \fn bool QByteArray::contains(const char *str) const      \overload      Returns true if the byte array contains the string \a str;     otherwise returns false. */
 end_comment
 begin_comment
-comment|/*! \fn QBool QByteArray::contains(char ch) const      \overload      Returns true if the byte array contains the character \a ch;     otherwise returns false. */
+comment|/*! \fn bool QByteArray::contains(char ch) const      \overload      Returns true if the byte array contains the character \a ch;     otherwise returns false. */
 end_comment
 begin_comment
 comment|/*!      Truncates the byte array at index position \a pos.      If \a pos is beyond the end of the array, nothing happens.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 10      \sa chop(), resize(), left() */

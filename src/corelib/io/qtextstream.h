@@ -785,17 +785,6 @@ operator|&
 name|operator
 operator|<<
 operator|(
-name|QBool
-name|b
-operator|)
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-name|QTextStream
-operator|&
-name|operator
-operator|<<
-operator|(
 name|QChar
 name|ch
 operator|)

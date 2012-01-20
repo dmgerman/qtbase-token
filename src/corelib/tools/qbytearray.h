@@ -1075,7 +1075,7 @@ literal|1
 argument_list|)
 decl|const
 decl_stmt|;
-name|QBool
+name|bool
 name|contains
 argument_list|(
 name|char
@@ -1083,7 +1083,7 @@ name|c
 argument_list|)
 decl|const
 decl_stmt|;
-name|QBool
+name|bool
 name|contains
 argument_list|(
 specifier|const
@@ -1093,7 +1093,7 @@ name|a
 argument_list|)
 decl|const
 decl_stmt|;
-name|QBool
+name|bool
 name|contains
 argument_list|(
 specifier|const
@@ -3738,7 +3738,7 @@ name|a
 argument_list|)
 block|; }
 specifier|inline
-name|QBool
+name|bool
 name|QByteArray
 operator|::
 name|contains
@@ -3748,8 +3748,6 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|QBool
-argument_list|(
 name|indexOf
 argument_list|(
 name|a
@@ -3757,13 +3755,12 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
-argument_list|)
 return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
 specifier|inline
-name|QBool
+name|bool
 name|QByteArray
 operator|::
 name|contains
@@ -3773,8 +3770,6 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|QBool
-argument_list|(
 name|indexOf
 argument_list|(
 name|c
@@ -3782,7 +3777,6 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
-argument_list|)
 return|;
 block|}
 end_expr_stmt
@@ -4518,7 +4512,7 @@ comment|// QT_USE_QSTRINGBUILDER
 end_comment
 begin_expr_stmt
 specifier|inline
-name|QBool
+name|bool
 name|QByteArray
 operator|::
 name|contains
@@ -4528,8 +4522,6 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|QBool
-argument_list|(
 name|indexOf
 argument_list|(
 name|c
@@ -4537,7 +4529,6 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
-argument_list|)
 return|;
 block|}
 end_expr_stmt

@@ -74,9 +74,6 @@ begin_comment
 comment|/*!     \fn QDebug&QDebug::operator<<(QChar t)      Writes the character, \a t, to the stream and returns a reference to the     stream. */
 end_comment
 begin_comment
-comment|/*!     \fn QDebug&QDebug::operator<<(QBool t)     \internal      Writes the boolean value, \a t, to the stream and returns a reference to the     stream. */
-end_comment
-begin_comment
 comment|/*!     \fn QDebug&QDebug::operator<<(bool t)      Writes the boolean value, \a t, to the stream and returns a reference to the     stream. */
 end_comment
 begin_comment

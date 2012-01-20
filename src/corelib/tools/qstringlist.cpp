@@ -127,11 +127,11 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QBool QStringList::contains(const QString&str, Qt::CaseSensitivity cs) const      Returns true if the list contains the string \a str; otherwise     returns false. The search is case insensitive if \a cs is     Qt::CaseInsensitive; the search is case sensitive by default.      \sa indexOf(), lastIndexOf(), QString::contains()  */
+comment|/*!     \fn bool QStringList::contains(const QString&str, Qt::CaseSensitivity cs) const      Returns true if the list contains the string \a str; otherwise     returns false. The search is case insensitive if \a cs is     Qt::CaseInsensitive; the search is case sensitive by default.      \sa indexOf(), lastIndexOf(), QString::contains()  */
 end_comment
 begin_function
 DECL|function|QStringList_contains
-name|QBool
+name|bool
 name|QtPrivate
 operator|::
 name|QStringList_contains
@@ -206,17 +206,11 @@ operator|==
 literal|0
 condition|)
 return|return
-name|QBool
-argument_list|(
 literal|true
-argument_list|)
 return|;
 block|}
 return|return
-name|QBool
-argument_list|(
 literal|false
-argument_list|)
 return|;
 block|}
 end_function

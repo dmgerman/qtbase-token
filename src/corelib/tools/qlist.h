@@ -1068,7 +1068,7 @@ decl|const
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-name|QBool
+name|bool
 name|contains
 argument_list|(
 specifier|const
@@ -6878,7 +6878,7 @@ name|typename
 name|T
 operator|>
 name|Q_OUTOFLINE_TEMPLATE
-name|QBool
+name|bool
 name|QList
 operator|<
 name|T
@@ -6939,18 +6939,12 @@ operator|==
 name|t
 condition|)
 return|return
-name|QBool
-argument_list|(
 name|true
-argument_list|)
 return|;
 end_expr_stmt
 begin_return
 return|return
-name|QBool
-argument_list|(
 name|false
-argument_list|)
 return|;
 end_return
 begin_expr_stmt

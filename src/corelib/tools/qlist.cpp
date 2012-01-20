@@ -1910,7 +1910,7 @@ begin_comment
 comment|/*! \fn int QList::lastIndexOf(const T&value, int from = -1) const      Returns the index position of the last occurrence of \a value in     the list, searching backward from index position \a from. If \a     from is -1 (the default), the search starts at the last item.     Returns -1 if no item matched.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qlistdata.cpp 14      This function requires the value type to have an implementation of     \c operator==().      Note that QList uses 0-based indexes, just like C++ arrays. Negative     indexes are not supported with the exception of the value mentioned     above.      \sa indexOf() */
 end_comment
 begin_comment
-comment|/*! \fn QBool QList::contains(const T&value) const      Returns true if the list contains an occurrence of \a value;     otherwise returns false.      This function requires the value type to have an implementation of     \c operator==().      \sa indexOf(), count() */
+comment|/*! \fn bool QList::contains(const T&value) const      Returns true if the list contains an occurrence of \a value;     otherwise returns false.      This function requires the value type to have an implementation of     \c operator==().      \sa indexOf(), count() */
 end_comment
 begin_comment
 comment|/*! \fn int QList::count(const T&value) const      Returns the number of occurrences of \a value in the list.      This function requires the value type to have an implementation of     \c operator==().      \sa contains(), indexOf() */

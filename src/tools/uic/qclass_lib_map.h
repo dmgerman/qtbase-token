@@ -562,16 +562,6 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
-argument|QBool
-argument_list|,
-argument|QtCore
-argument_list|,
-argument|qglobal.h
-argument_list|)
-end_macro
-begin_macro
-name|QT_CLASS_LIB
-argument_list|(
 argument|QTypeInfo
 argument_list|,
 argument|QtCore

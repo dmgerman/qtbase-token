@@ -1755,7 +1755,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 specifier|inline
-name|QBool
+name|bool
 name|contains
 argument_list|(
 name|QChar
@@ -1775,7 +1775,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 specifier|inline
-name|QBool
+name|bool
 name|contains
 argument_list|(
 specifier|const
@@ -1797,7 +1797,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 specifier|inline
-name|QBool
+name|bool
 name|contains
 argument_list|(
 specifier|const
@@ -1918,7 +1918,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 specifier|inline
-name|QBool
+name|bool
 name|contains
 argument_list|(
 specifier|const
@@ -1929,8 +1929,6 @@ argument_list|)
 decl|const
 block|{
 return|return
-name|QBool
-argument_list|(
 name|indexOf
 argument_list|(
 name|rx
@@ -1938,7 +1936,6 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
-argument_list|)
 return|;
 block|}
 end_decl_stmt
@@ -1986,7 +1983,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 specifier|inline
-name|QBool
+name|bool
 name|contains
 argument_list|(
 name|QRegExp
@@ -1996,8 +1993,6 @@ argument_list|)
 decl|const
 block|{
 return|return
-name|QBool
-argument_list|(
 name|indexOf
 argument_list|(
 name|rx
@@ -2005,7 +2000,6 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
-argument_list|)
 return|;
 block|}
 end_decl_stmt
@@ -9399,7 +9393,7 @@ end_expr_stmt
 begin_expr_stmt
 DECL|function|contains
 specifier|inline
-name|QBool
+name|bool
 name|QString
 operator|::
 name|contains
@@ -9411,8 +9405,6 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|QBool
-argument_list|(
 name|indexOf
 argument_list|(
 name|s
@@ -9424,14 +9416,13 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
-argument_list|)
 return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|contains
 specifier|inline
-name|QBool
+name|bool
 name|QString
 operator|::
 name|contains
@@ -9443,8 +9434,6 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|QBool
-argument_list|(
 name|indexOf
 argument_list|(
 name|s
@@ -9456,14 +9445,13 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
-argument_list|)
 return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|contains
 specifier|inline
-name|QBool
+name|bool
 name|QString
 operator|::
 name|contains
@@ -9475,8 +9463,6 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|QBool
-argument_list|(
 name|indexOf
 argument_list|(
 name|c
@@ -9488,7 +9474,6 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
-argument_list|)
 return|;
 block|}
 end_expr_stmt
@@ -12145,7 +12130,7 @@ argument_list|)
 decl|const
 decl_stmt|;
 specifier|inline
-name|QBool
+name|bool
 name|contains
 argument_list|(
 specifier|const
@@ -12165,7 +12150,7 @@ argument_list|)
 decl|const
 decl_stmt|;
 specifier|inline
-name|QBool
+name|bool
 name|contains
 argument_list|(
 name|QChar
@@ -12183,7 +12168,7 @@ argument_list|)
 decl|const
 decl_stmt|;
 specifier|inline
-name|QBool
+name|bool
 name|contains
 argument_list|(
 name|QLatin1String
@@ -12201,7 +12186,7 @@ argument_list|)
 decl|const
 decl_stmt|;
 specifier|inline
-name|QBool
+name|bool
 name|contains
 argument_list|(
 specifier|const
@@ -13992,7 +13977,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 specifier|inline
-name|QBool
+name|bool
 name|QStringRef
 operator|::
 name|contains
@@ -14004,8 +13989,6 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|QBool
-argument_list|(
 name|indexOf
 argument_list|(
 name|s
@@ -14017,13 +14000,12 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
-argument_list|)
 return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
 specifier|inline
-name|QBool
+name|bool
 name|QStringRef
 operator|::
 name|contains
@@ -14035,8 +14017,6 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|QBool
-argument_list|(
 name|indexOf
 argument_list|(
 name|s
@@ -14048,13 +14028,12 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
-argument_list|)
 return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
 specifier|inline
-name|QBool
+name|bool
 name|QStringRef
 operator|::
 name|contains
@@ -14066,8 +14045,6 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|QBool
-argument_list|(
 name|indexOf
 argument_list|(
 name|c
@@ -14079,13 +14056,12 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
-argument_list|)
 return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
 specifier|inline
-name|QBool
+name|bool
 name|QStringRef
 operator|::
 name|contains
@@ -14097,8 +14073,6 @@ argument_list|)
 specifier|const
 block|{
 return|return
-name|QBool
-argument_list|(
 name|indexOf
 argument_list|(
 name|s
@@ -14110,7 +14084,6 @@ argument_list|)
 operator|!=
 operator|-
 literal|1
-argument_list|)
 return|;
 block|}
 end_expr_stmt

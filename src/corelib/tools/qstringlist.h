@@ -193,7 +193,7 @@ argument_list|)
 specifier|const
 block|;
 specifier|inline
-name|QBool
+name|bool
 name|contains
 argument_list|(
 argument|const QString&str
@@ -483,7 +483,7 @@ argument_list|,
 argument|Qt::CaseSensitivity cs
 argument_list|)
 block|;
-name|QBool
+name|bool
 name|Q_CORE_EXPORT
 name|QStringList_contains
 argument_list|(
@@ -673,7 +673,7 @@ return|;
 block|}
 DECL|function|contains
 specifier|inline
-name|QBool
+name|bool
 name|QStringList
 operator|::
 name|contains
