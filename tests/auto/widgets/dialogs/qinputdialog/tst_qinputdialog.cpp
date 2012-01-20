@@ -75,7 +75,7 @@ parameter_list|)
 function_decl|;
 specifier|static
 name|void
-name|testFuncGetInteger
+name|testFuncGetInt
 parameter_list|(
 name|QInputDialog
 modifier|*
@@ -121,11 +121,11 @@ private|private
 name|slots
 private|:
 name|void
-name|getInteger_data
+name|getInt_data
 parameter_list|()
 function_decl|;
 name|void
-name|getInteger
+name|getInt
 parameter_list|()
 function_decl|;
 name|void
@@ -1240,11 +1240,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|testFuncGetInteger
+DECL|function|testFuncGetInt
 name|void
 name|tst_QInputDialog
 operator|::
-name|testFuncGetInteger
+name|testFuncGetInt
 parameter_list|(
 name|QInputDialog
 modifier|*
@@ -1385,11 +1385,11 @@ comment|// cause static function call to return
 block|}
 end_function
 begin_function
-DECL|function|getInteger_data
+DECL|function|getInt_data
 name|void
 name|tst_QInputDialog
 operator|::
-name|getInteger_data
+name|getInt_data
 parameter_list|()
 block|{
 name|QTest
@@ -1416,7 +1416,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"getInteger() - -"
+literal|"getInt() - -"
 argument_list|)
 operator|<<
 operator|-
@@ -1429,7 +1429,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"getInteger() - 0"
+literal|"getInt() - 0"
 argument_list|)
 operator|<<
 operator|-
@@ -1441,7 +1441,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"getInteger() - +"
+literal|"getInt() - +"
 argument_list|)
 operator|<<
 operator|-
@@ -1453,7 +1453,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"getInteger() 0 +"
+literal|"getInt() 0 +"
 argument_list|)
 operator|<<
 literal|0
@@ -1464,7 +1464,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"getInteger() + +"
+literal|"getInt() + +"
 argument_list|)
 operator|<<
 literal|10
@@ -1474,11 +1474,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|getInteger
+DECL|function|getInt
 name|void
 name|tst_QInputDialog
 operator|::
-name|getInteger
+name|getInt
 parameter_list|()
 block|{
 name|QFETCH
@@ -1518,7 +1518,7 @@ operator|=
 operator|&
 name|tst_QInputDialog
 operator|::
-name|testFuncGetInteger
+name|testFuncGetInt
 expr_stmt|;
 name|startTimer
 argument_list|(
@@ -1550,7 +1550,7 @@ name|result
 init|=
 name|QInputDialog
 operator|::
-name|getInteger
+name|getInt
 argument_list|(
 name|parent
 argument_list|,

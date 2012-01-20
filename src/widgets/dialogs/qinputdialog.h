@@ -564,8 +564,17 @@ argument|Qt::WindowFlags flags =
 literal|0
 argument_list|)
 block|;
-comment|// obsolete
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+name|QT_DEPRECATED
 specifier|static
+specifier|inline
 name|int
 name|getInteger
 argument_list|(
@@ -593,7 +602,32 @@ argument_list|,
 argument|Qt::WindowFlags flags =
 literal|0
 argument_list|)
-block|;
+block|{
+return|return
+name|getInt
+argument_list|(
+name|parent
+argument_list|,
+name|title
+argument_list|,
+name|label
+argument_list|,
+name|value
+argument_list|,
+name|minValue
+argument_list|,
+name|maxValue
+argument_list|,
+name|step
+argument_list|,
+name|ok
+argument_list|,
+name|flags
+argument_list|)
+return|;
+block|}
+endif|#
+directive|endif
 name|Q_SIGNALS
 operator|:
 comment|// ### emit signals!
