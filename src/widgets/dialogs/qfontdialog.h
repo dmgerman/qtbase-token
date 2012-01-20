@@ -316,9 +316,6 @@ argument_list|(
 argument|int result
 argument_list|)
 block|;
-name|private
-operator|:
-comment|// ### Qt 5: make protected
 name|bool
 name|eventFilter
 argument_list|(
@@ -331,6 +328,8 @@ operator|*
 name|event
 argument_list|)
 block|;
+name|private
+operator|:
 name|Q_DISABLE_COPY
 argument_list|(
 argument|QFontDialog
