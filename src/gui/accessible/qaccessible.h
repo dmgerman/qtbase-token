@@ -871,6 +871,10 @@ name|LayeredPane
 operator|=
 literal|0x0000003F
 block|,
+name|Terminal
+operator|=
+literal|0x00000040
+block|,
 name|UserRole
 operator|=
 literal|0x0000ffff
