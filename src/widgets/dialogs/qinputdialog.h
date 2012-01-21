@@ -457,9 +457,6 @@ argument_list|(
 argument|bool visible
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|Q_QDOC
 specifier|static
 name|QString
 name|getText
@@ -509,99 +506,6 @@ argument_list|,
 argument|Qt::InputMethodHints inputMethodHints = Qt::ImhNone
 argument_list|)
 block|;
-else|#
-directive|else
-specifier|static
-name|QString
-name|getText
-argument_list|(
-argument|QWidget *parent
-argument_list|,
-argument|const QString&title
-argument_list|,
-argument|const QString&label
-argument_list|,
-argument|QLineEdit::EchoMode echo = QLineEdit::Normal
-argument_list|,
-argument|const QString&text = QString()
-argument_list|,
-argument|bool *ok =
-literal|0
-argument_list|,
-argument|Qt::WindowFlags flags =
-literal|0
-argument_list|)
-block|;
-specifier|static
-name|QString
-name|getItem
-argument_list|(
-argument|QWidget *parent
-argument_list|,
-argument|const QString&title
-argument_list|,
-argument|const QString&label
-argument_list|,
-argument|const QStringList&items
-argument_list|,
-argument|int current =
-literal|0
-argument_list|,
-argument|bool editable = true
-argument_list|,
-argument|bool *ok =
-literal|0
-argument_list|,
-argument|Qt::WindowFlags flags =
-literal|0
-argument_list|)
-block|;
-specifier|static
-name|QString
-name|getText
-argument_list|(
-argument|QWidget *parent
-argument_list|,
-argument|const QString&title
-argument_list|,
-argument|const QString&label
-argument_list|,
-argument|QLineEdit::EchoMode echo
-argument_list|,
-argument|const QString&text
-argument_list|,
-argument|bool *ok
-argument_list|,
-argument|Qt::WindowFlags flags
-argument_list|,
-argument|Qt::InputMethodHints inputMethodHints
-argument_list|)
-block|;
-specifier|static
-name|QString
-name|getItem
-argument_list|(
-argument|QWidget *parent
-argument_list|,
-argument|const QString&title
-argument_list|,
-argument|const QString&label
-argument_list|,
-argument|const QStringList&items
-argument_list|,
-argument|int current
-argument_list|,
-argument|bool editable
-argument_list|,
-argument|bool *ok
-argument_list|,
-argument|Qt::WindowFlags flags
-argument_list|,
-argument|Qt::InputMethodHints inputMethodHints
-argument_list|)
-block|;
-endif|#
-directive|endif
 specifier|static
 name|int
 name|getInt
