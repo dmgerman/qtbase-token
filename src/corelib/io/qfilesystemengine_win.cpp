@@ -752,7 +752,7 @@ name|~
 name|SidCleanup
 parameter_list|()
 block|{
-name|qFree
+name|free
 argument_list|(
 name|currentUserSID
 argument_list|)
@@ -980,7 +980,7 @@ name|void
 modifier|*
 name|tokenBuffer
 init|=
-name|qMalloc
+name|malloc
 argument_list|(
 name|retsize
 argument_list|)
@@ -1034,7 +1034,7 @@ argument_list|<
 name|PSID
 argument_list|>
 argument_list|(
-name|qMalloc
+name|malloc
 argument_list|(
 name|sidLen
 argument_list|)
@@ -1061,7 +1061,7 @@ name|currentUserSID
 argument_list|)
 expr_stmt|;
 block|}
-name|qFree
+name|free
 argument_list|(
 name|tokenBuffer
 argument_list|)
