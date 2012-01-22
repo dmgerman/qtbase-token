@@ -681,7 +681,6 @@ argument_list|(
 argument|int result
 argument_list|)
 block|;
-comment|// ### Qt 5: Make protected.
 name|private
 operator|:
 name|Q_DISABLE_COPY
