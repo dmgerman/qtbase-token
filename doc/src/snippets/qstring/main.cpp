@@ -2706,16 +2706,7 @@ argument_list|)
 expr_stmt|;
 comment|// ok == true, d == 12.3456
 comment|//! [67]
-comment|//! [68] //! [69]
-name|QLocale
-operator|::
-name|setDefault
-argument_list|(
-name|QLocale
-operator|::
-name|C
-argument_list|)
-expr_stmt|;
+comment|//! [68]
 name|d
 operator|=
 name|QString
@@ -2730,69 +2721,22 @@ name|ok
 argument_list|)
 expr_stmt|;
 comment|// ok == false
+name|d
+operator|=
+name|QString
+argument_list|(
+literal|"1234.56"
+argument_list|)
+operator|.
+name|toDouble
+argument_list|(
+operator|&
+name|ok
+argument_list|)
+expr_stmt|;
+comment|// ok == true, d == 1234.56
 comment|//! [68]
-name|d
-operator|=
-name|QString
-argument_list|(
-literal|"1234.56"
-argument_list|)
-operator|.
-name|toDouble
-argument_list|(
-operator|&
-name|ok
-argument_list|)
-expr_stmt|;
-comment|// ok == true, d == 1234.56
-comment|//! [69] //! [70]
-name|QLocale
-operator|::
-name|setDefault
-argument_list|(
-name|QLocale
-operator|::
-name|German
-argument_list|)
-expr_stmt|;
-name|d
-operator|=
-name|QString
-argument_list|(
-literal|"1234,56"
-argument_list|)
-operator|.
-name|toDouble
-argument_list|(
-operator|&
-name|ok
-argument_list|)
-expr_stmt|;
-comment|// ok == true, d == 1234.56
-name|d
-operator|=
-name|QString
-argument_list|(
-literal|"1234.56"
-argument_list|)
-operator|.
-name|toDouble
-argument_list|(
-operator|&
-name|ok
-argument_list|)
-expr_stmt|;
-comment|// ok == true, d == 1234.56
-comment|//! [70]
-name|QLocale
-operator|::
-name|setDefault
-argument_list|(
-name|QLocale
-operator|::
-name|C
-argument_list|)
-expr_stmt|;
+comment|//! [69]
 name|d
 operator|=
 name|QString
@@ -2807,6 +2751,21 @@ name|ok
 argument_list|)
 expr_stmt|;
 comment|// ok == false
+name|d
+operator|=
+name|QString
+argument_list|(
+literal|"1234567.89"
+argument_list|)
+operator|.
+name|toDouble
+argument_list|(
+operator|&
+name|ok
+argument_list|)
+expr_stmt|;
+comment|// ok == true
+comment|//! [69]
 block|}
 end_function
 begin_function

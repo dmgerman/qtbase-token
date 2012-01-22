@@ -17360,7 +17360,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to a \c{long long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      Example:      \snippet doc/src/snippets/qstring/main.cpp 74      \sa number(), toULongLong(), toInt() */
+comment|/*!     Returns the string converted to a \c{long long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toLongLong()      Example:      \snippet doc/src/snippets/qstring/main.cpp 74      \sa number(), toULongLong(), toInt(), QLocale::toLongLong() */
 end_comment
 begin_function
 DECL|function|toLongLong
@@ -17415,55 +17415,6 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-name|bool
-name|my_ok
-decl_stmt|;
-name|QLocale
-name|def_locale
-decl_stmt|;
-name|qint64
-name|result
-init|=
-name|def_locale
-operator|.
-name|d
-argument_list|()
-operator|->
-name|stringToLongLong
-argument_list|(
-operator|*
-name|this
-argument_list|,
-name|base
-argument_list|,
-operator|&
-name|my_ok
-argument_list|,
-name|QLocalePrivate
-operator|::
-name|FailOnGroupSeparators
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|my_ok
-condition|)
-block|{
-if|if
-condition|(
-name|ok
-operator|!=
-literal|0
-condition|)
-operator|*
-name|ok
-operator|=
-literal|true
-expr_stmt|;
-return|return
-name|result
-return|;
-block|}
 name|QLocale
 name|c_locale
 argument_list|(
@@ -17495,7 +17446,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to an \c{unsigned long long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      Example:      \snippet doc/src/snippets/qstring/main.cpp 79      \sa number(), toLongLong() */
+comment|/*!     Returns the string converted to an \c{unsigned long long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toULongLong()      Example:      \snippet doc/src/snippets/qstring/main.cpp 79      \sa number(), toLongLong(), QLocale::toULongLong() */
 end_comment
 begin_function
 DECL|function|toULongLong
@@ -17550,55 +17501,6 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-name|bool
-name|my_ok
-decl_stmt|;
-name|QLocale
-name|def_locale
-decl_stmt|;
-name|quint64
-name|result
-init|=
-name|def_locale
-operator|.
-name|d
-argument_list|()
-operator|->
-name|stringToUnsLongLong
-argument_list|(
-operator|*
-name|this
-argument_list|,
-name|base
-argument_list|,
-operator|&
-name|my_ok
-argument_list|,
-name|QLocalePrivate
-operator|::
-name|FailOnGroupSeparators
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|my_ok
-condition|)
-block|{
-if|if
-condition|(
-name|ok
-operator|!=
-literal|0
-condition|)
-operator|*
-name|ok
-operator|=
-literal|true
-expr_stmt|;
-return|return
-name|result
-return|;
-block|}
 name|QLocale
 name|c_locale
 argument_list|(
@@ -17630,7 +17532,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn long QString::toLong(bool *ok, int base) const      Returns the string converted to a \c long using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      Example:      \snippet doc/src/snippets/qstring/main.cpp 73      \sa number(), toULong(), toInt() */
+comment|/*!     \fn long QString::toLong(bool *ok, int base) const      Returns the string converted to a \c long using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toLong()      Example:      \snippet doc/src/snippets/qstring/main.cpp 73      \sa number(), toULong(), toInt(), QLocale::toLong() */
 end_comment
 begin_function
 DECL|function|toLong
@@ -17692,7 +17594,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn ulong QString::toULong(bool *ok, int base) const      Returns the string converted to an \c{unsigned long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      Example:      \snippet doc/src/snippets/qstring/main.cpp 78      \sa number() */
+comment|/*!     \fn ulong QString::toULong(bool *ok, int base) const      Returns the string converted to an \c{unsigned long} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toULong()      Example:      \snippet doc/src/snippets/qstring/main.cpp 78      \sa number(), QLocale::toULong() */
 end_comment
 begin_function
 DECL|function|toULong
@@ -17750,7 +17652,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to an \c int using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      Example:      \snippet doc/src/snippets/qstring/main.cpp 72      \sa number(), toUInt(), toDouble() */
+comment|/*!     Returns the string converted to an \c int using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toInt()      Example:      \snippet doc/src/snippets/qstring/main.cpp 72      \sa number(), toUInt(), toDouble(), QLocale::toInt() */
 end_comment
 begin_function
 DECL|function|toInt
@@ -17809,7 +17711,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to an \c{unsigned int} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      Example:      \snippet doc/src/snippets/qstring/main.cpp 77      \sa number(), toInt() */
+comment|/*!     Returns the string converted to an \c{unsigned int} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toUInt()      Example:      \snippet doc/src/snippets/qstring/main.cpp 77      \sa number(), toInt(), QLocale::toUInt() */
 end_comment
 begin_function
 DECL|function|toUInt
@@ -17867,7 +17769,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to a \c short using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      Example:      \snippet doc/src/snippets/qstring/main.cpp 76      \sa number(), toUShort(), toInt() */
+comment|/*!     Returns the string converted to a \c short using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toShort()      Example:      \snippet doc/src/snippets/qstring/main.cpp 76      \sa number(), toUShort(), toInt(), QLocale::toShort() */
 end_comment
 begin_function
 DECL|function|toShort
@@ -17929,7 +17831,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to an \c{unsigned short} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      Example:      \snippet doc/src/snippets/qstring/main.cpp 80      \sa number(), toShort() */
+comment|/*!     Returns the string converted to an \c{unsigned short} using base \a     base, which is 10 by default and must be between 2 and 36, or 0.     Returns 0 if the conversion fails.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true.      If \a base is 0, the C language convention is used: If the string     begins with "0x", base 16 is used; if the string begins with "0",     base 8 is used; otherwise, base 10 is used.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toUShort()      Example:      \snippet doc/src/snippets/qstring/main.cpp 80      \sa number(), toShort(), QLocale::toUShort() */
 end_comment
 begin_function
 DECL|function|toUShort
@@ -17987,7 +17889,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to a \c double value.      Returns 0.0 if the conversion fails.      If a conversion error occurs, \c{*}\a{ok} is set to false;     otherwise \c{*}\a{ok} is set to true.      \snippet doc/src/snippets/qstring/main.cpp 66      Various string formats for floating point numbers can be converted     to double values:      \snippet doc/src/snippets/qstring/main.cpp 67      This function tries to interpret the string according to the     current locale. The current locale is determined from the     system at application startup and can be changed by calling     QLocale::setDefault(). If the string cannot be interpreted     according to the current locale, this function falls back     on the "C" locale.      \snippet doc/src/snippets/qstring/main.cpp 69     \snippet doc/src/snippets/qstring/main.cpp 70      Due to the ambiguity between the decimal point and thousands group     separator in various locales, this function does not handle     thousands group separators. If you need to convert such numbers,     see QLocale::toDouble().      \snippet doc/src/snippets/qstring/main.cpp 68      \sa number() QLocale::setDefault() QLocale::toDouble() trimmed() */
+comment|/*!     Returns the string converted to a \c double value.      Returns 0.0 if the conversion fails.      If a conversion error occurs, \c{*}\a{ok} is set to false;     otherwise \c{*}\a{ok} is set to true.      \snippet doc/src/snippets/qstring/main.cpp 66      Various string formats for floating point numbers can be converted     to double values:      \snippet doc/src/snippets/qstring/main.cpp 67      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toDouble()      \snippet doc/src/snippets/qstring/main.cpp 68      For historic reasons, this function does not handle     thousands group separators. If you need to convert such numbers,     use QLocale::toDouble().      \snippet doc/src/snippets/qstring/main.cpp 69      \sa number() QLocale::setDefault() QLocale::toDouble() trimmed() */
 end_comment
 begin_function
 DECL|function|toDouble
@@ -18002,53 +17904,6 @@ name|ok
 parameter_list|)
 specifier|const
 block|{
-name|bool
-name|my_ok
-decl_stmt|;
-name|QLocale
-name|def_locale
-decl_stmt|;
-name|double
-name|result
-init|=
-name|def_locale
-operator|.
-name|d
-argument_list|()
-operator|->
-name|stringToDouble
-argument_list|(
-operator|*
-name|this
-argument_list|,
-operator|&
-name|my_ok
-argument_list|,
-name|QLocalePrivate
-operator|::
-name|FailOnGroupSeparators
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|my_ok
-condition|)
-block|{
-if|if
-condition|(
-name|ok
-operator|!=
-literal|0
-condition|)
-operator|*
-name|ok
-operator|=
-literal|true
-expr_stmt|;
-return|return
-name|result
-return|;
-block|}
 name|QLocale
 name|c_locale
 argument_list|(
@@ -18078,7 +17933,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the string converted to a \c float value.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true. Returns 0.0 if the conversion fails.      Example:      \snippet doc/src/snippets/qstring/main.cpp 71      \sa number(), toDouble(), toInt() */
+comment|/*!     Returns the string converted to a \c float value.      If a conversion error occurs, *\a{ok} is set to false; otherwise     *\a{ok} is set to true. Returns 0.0 if the conversion fails.      The string conversion will always happen in the 'C' locale. For locale     dependent conversion use QLocale::toFloat()      Example:      \snippet doc/src/snippets/qstring/main.cpp 71      \sa number(), toDouble(), toInt(), QLocale::toFloat() */
 end_comment
 begin_define
 DECL|macro|QT_MAX_FLOAT
@@ -18342,7 +18197,7 @@ begin_comment
 comment|/*! \fn QString&QString::setNum(ushort n, int base)      \overload */
 end_comment
 begin_comment
-comment|/*!     \fn QString&QString::setNum(double n, char format, int precision)     \overload      Sets the string to the printed value of \a n, formatted according     to the given \a format and \a precision, and returns a reference     to the string.      The \a format can be 'f', 'F', 'e', 'E', 'g' or 'G' (see the     arg() function documentation for an explanation of the formats).      Unlike QLocale::toString(), this function doesn't honor the     user's locale settings. */
+comment|/*!     \fn QString&QString::setNum(double n, char format, int precision)     \overload      Sets the string to the printed value of \a n, formatted according     to the given \a format and \a precision, and returns a reference     to the string.      The \a format can be 'f', 'F', 'e', 'E', 'g' or 'G' (see the     arg() function documentation for an explanation of the formats).      The formatting always uses QLocale::C, i.e., English/UnitedStates.     To get a localized string representation of a number, use     QLocale::toString() with the appropriate locale. */
 end_comment
 begin_function
 DECL|function|setNum
@@ -18486,10 +18341,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString&QString::setNum(float n, char format, int precision)     \overload      Sets the string to the printed value of \a n, formatted according     to the given \a format and \a precision, and returns a reference     to the string. */
+comment|/*!     \fn QString&QString::setNum(float n, char format, int precision)     \overload      Sets the string to the printed value of \a n, formatted according     to the given \a format and \a precision, and returns a reference     to the string.      The formatting always uses QLocale::C, i.e., English/UnitedStates.     To get a localized string representation of a number, use     QLocale::toString() with the appropriate locale. */
 end_comment
 begin_comment
-comment|/*!     \fn QString QString::number(long n, int base)      Returns a string equivalent of the number \a n according to the     specified \a base.      The base is 10 by default and must be between 2     and 36. For bases other than 10, \a n is treated as an     unsigned integer.      \snippet doc/src/snippets/qstring/main.cpp 35      \sa setNum() */
+comment|/*!     \fn QString QString::number(long n, int base)      Returns a string equivalent of the number \a n according to the     specified \a base.      The base is 10 by default and must be between 2     and 36. For bases other than 10, \a n is treated as an     unsigned integer.      The formatting always uses QLocale::C, i.e., English/UnitedStates.     To get a localized string representation of a number, use     QLocale::toString() with the appropriate locale.      \snippet doc/src/snippets/qstring/main.cpp 35      \sa setNum() */
 end_comment
 begin_function
 DECL|function|number
