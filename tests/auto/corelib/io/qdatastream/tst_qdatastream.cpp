@@ -1094,6 +1094,16 @@ literal|"qdatastream.out"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QFile
+operator|::
+name|remove
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"datastream.tmp"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_function
