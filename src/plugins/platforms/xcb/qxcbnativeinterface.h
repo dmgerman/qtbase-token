@@ -55,6 +55,16 @@ name|GraphicsDevice
 block|,
 name|EglContext
 block|}
+block|;      enum
+name|EventFilterType
+block|{
+name|GenericEventFilter
+block|,
+name|EventFilterCount
+block|}
+block|;
+name|QXcbNativeInterface
+argument_list|()
 block|;
 name|void
 operator|*
@@ -93,12 +103,19 @@ argument|EventFilter filter
 argument_list|)
 block|;
 name|EventFilter
-name|eventFilterForEventType
+name|eventFilter
 argument_list|(
-argument|const QByteArray& eventType
+argument|EventFilterType type
 argument_list|)
 specifier|const
-block|;
+block|{
+return|return
+name|m_eventFilters
+index|[
+name|type
+index|]
+return|;
+block|}
 name|void
 operator|*
 name|displayForWindow
@@ -155,13 +172,11 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|QHash
-operator|<
-name|QByteArray
-block|,
 name|EventFilter
-operator|>
 name|m_eventFilters
+index|[
+name|EventFilterCount
+index|]
 block|;
 specifier|static
 name|QXcbScreen

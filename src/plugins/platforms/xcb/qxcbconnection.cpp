@@ -1920,12 +1920,11 @@ name|filter
 init|=
 name|m_nativeInterface
 operator|->
-name|eventFilterForEventType
+name|eventFilter
 argument_list|(
-name|QByteArrayLiteral
-argument_list|(
-literal|"xcb_generic_event_t"
-argument_list|)
+name|QXcbNativeInterface
+operator|::
+name|GenericEventFilter
 argument_list|)
 condition|)
 name|handled
