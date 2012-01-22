@@ -17381,19 +17381,6 @@ literal|"            "
 block|}
 decl_stmt|;
 end_decl_stmt
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_comment
-comment|// ### not used???
-end_comment
-begin_endif
-unit|static const char * const qt_normalize_xpm[] = {     "12 12 2 1",     "       s None  c None",     ".      c black",     "            ",     "            ",     "  .         ",     "  ..        ",     "  ...       ",     "  ....      ",     "  .....     ",     "  ......    ",     "  .......   ",     "            ",     "            ",     "            "};
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 DECL|variable|qt_normalizeup_xpm
 specifier|static
