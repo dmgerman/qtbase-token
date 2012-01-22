@@ -7,25 +7,6 @@ include|#
 directive|include
 file|<qcryptographichash.h>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_define
-DECL|macro|_MD5_H_
-define|#
-directive|define
-name|_MD5_H_
-end_define
-begin_comment
-DECL|macro|_MD5_H_
-comment|// Needed to disable system header
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include

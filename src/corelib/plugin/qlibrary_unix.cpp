@@ -205,54 +205,6 @@ argument_list|(
 name|fileName
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-name|QString
-name|path
-decl_stmt|;
-comment|// In Symbian, always resolve with just the filename
-name|QString
-name|name
-decl_stmt|;
-comment|// Replace possible ".qtplugin" suffix with ".dll"
-if|if
-condition|(
-name|fi
-operator|.
-name|suffix
-argument_list|()
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"qtplugin"
-argument_list|)
-condition|)
-name|name
-operator|=
-name|fi
-operator|.
-name|completeBaseName
-argument_list|()
-operator|+
-name|QLatin1String
-argument_list|(
-literal|".dll"
-argument_list|)
-expr_stmt|;
-else|else
-name|name
-operator|=
-name|fi
-operator|.
-name|fileName
-argument_list|()
-expr_stmt|;
-else|#
-directive|else
 name|QString
 name|path
 init|=
@@ -299,8 +251,6 @@ argument_list|(
 literal|'/'
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 comment|// The first filename we want to attempt to load is the filename as the callee specified.
 comment|// Thus, the first attempt we do must be with an empty prefix and empty suffix.
 name|QStringList
@@ -327,13 +277,6 @@ operator|!=
 name|IsAPlugin
 condition|)
 block|{
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|prefixes
 operator|<<
 name|QLatin1String
@@ -341,8 +284,6 @@ argument_list|(
 literal|"lib"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 if|#
 directive|if
 name|defined
@@ -457,19 +398,6 @@ argument_list|)
 name|suffixes
 operator|<<
 literal|".a"
-expr_stmt|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-name|suffixes
-operator|<<
-name|QLatin1String
-argument_list|(
-literal|".dll"
-argument_list|)
 expr_stmt|;
 else|#
 directive|else
@@ -939,20 +867,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-comment|// Never try again in symbian, dlopen already handles the library search logic,
-comment|// and there is only one possible suffix.
-name|retry
-operator|=
-literal|false
-expr_stmt|;
-else|#
-directive|else
 if|if
 condition|(
 operator|!
@@ -985,8 +899,6 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 block|}
 ifdef|#
