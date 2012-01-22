@@ -3098,18 +3098,6 @@ name|QXmlLocator
 modifier|*
 name|locator
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// Workaround crash in elf2e32 under Wine.
-DECL|function|dummy
-specifier|virtual
-name|void
-name|dummy
-parameter_list|()
-block|{}
-endif|#
-directive|endif
 block|}
 class|;
 end_class
