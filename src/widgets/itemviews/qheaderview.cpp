@@ -1403,7 +1403,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2     Sets the offset to the start of the section at the given \a visualIndex.      \sa setOffset(), sectionPosition() */
+comment|/*!     \since 4.2     Sets the offset to the start of the section at the given \a visualSectionNumber.     \a visualSectionNumber is the actual visible section when hiddenSections are     not considered. That is not always the same as \a visualIndex.      \sa setOffset(), sectionPosition() */
 end_comment
 begin_function
 DECL|function|setOffsetToSectionPosition
@@ -1413,7 +1413,7 @@ operator|::
 name|setOffsetToSectionPosition
 parameter_list|(
 name|int
-name|visualIndex
+name|visualSectionNumber
 parameter_list|)
 block|{
 name|Q_D
@@ -1423,12 +1423,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|visualIndex
+name|visualSectionNumber
 operator|>
 operator|-
 literal|1
 operator|&&
-name|visualIndex
+name|visualSectionNumber
 operator|<
 name|d
 operator|->
@@ -1446,7 +1446,7 @@ name|d
 operator|->
 name|adjustedVisualIndex
 argument_list|(
-name|visualIndex
+name|visualSectionNumber
 argument_list|)
 argument_list|)
 decl_stmt|;
