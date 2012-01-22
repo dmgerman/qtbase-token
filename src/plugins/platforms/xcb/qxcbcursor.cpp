@@ -4877,6 +4877,15 @@ operator|.
 name|toImage
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|image
+operator|.
+name|isNull
+argument_list|()
+condition|)
+block|{
 name|xcb_pixmap_t
 name|pm
 init|=
@@ -4934,6 +4943,7 @@ argument_list|,
 literal|8
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|cursor
