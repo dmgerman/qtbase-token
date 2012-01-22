@@ -1784,7 +1784,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Constructs a font object with the specified \a family, \a     pointSize, \a weight and \a italic settings.      If \a pointSize is zero or negative, the point size of the font     is set to a system-dependent default value. Generally, this is     12 points, except on Symbian where it is 7 points.      The \a family name may optionally also include a foundry name,     e.g. "Helvetica [Cronyx]". If the \a family is     available from more than one foundry and the foundry isn't     specified, an arbitrary foundry is chosen. If the family isn't     available a family will be set using the \l{QFont}{font matching}     algorithm.      \sa Weight, setFamily(), setPointSize(), setWeight(), setItalic(),     setStyleHint() QGuiApplication::font() */
+comment|/*!     Constructs a font object with the specified \a family, \a     pointSize, \a weight and \a italic settings.      If \a pointSize is zero or negative, the point size of the font     is set to a system-dependent default value. Generally, this is     12 points.      The \a family name may optionally also include a foundry name,     e.g. "Helvetica [Cronyx]". If the \a family is     available from more than one foundry and the foundry isn't     specified, an arbitrary foundry is chosen. If the family isn't     available a family will be set using the \l{QFont}{font matching}     algorithm.      \sa Weight, setFamily(), setPointSize(), setWeight(), setItalic(),     setStyleHint() QGuiApplication::font() */
 end_comment
 begin_constructor
 DECL|function|QFont

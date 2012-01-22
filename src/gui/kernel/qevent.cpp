@@ -3492,7 +3492,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \class QFileOpenEvent     \brief The QFileOpenEvent class provides an event that will be     sent when there is a request to open a file or a URL.      \ingroup events      File open events will be sent to the QApplication::instance()     when the operating system requests that a file or URL should be opened.     This is a high-level event that can be caused by different user actions     depending on the user's desktop environment; for example, double     clicking on an file icon in the Finder on Mac OS X.      This event is only used to notify the application of a request.     It may be safely ignored.      \note This class is currently supported for Mac OS X and Symbian only. */
+comment|/*!     \class QFileOpenEvent     \brief The QFileOpenEvent class provides an event that will be     sent when there is a request to open a file or a URL.      \ingroup events      File open events will be sent to the QApplication::instance()     when the operating system requests that a file or URL should be opened.     This is a high-level event that can be caused by different user actions     depending on the user's desktop environment; for example, double     clicking on an file icon in the Finder on Mac OS X.      This event is only used to notify the application of a request.     It may be safely ignored.      \note This class is currently supported for Mac OS X only. */
 end_comment
 begin_destructor
 DECL|function|~QFileOpenEventPrivate
@@ -3648,7 +3648,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QFileOpenEvent::openFile(QFile&file, QIODevice::OpenMode flags) const      Opens a QFile on the \a file referenced by this event in the mode specified     by \a flags. Returns true if successful; otherwise returns false.      This is necessary as some files cannot be opened by name, but require specific     information stored in this event.     For example, if this QFileOpenEvent contains a request to open a Symbian data caged file,     the QFile could only be opened from the Symbian RFile used in the construction of this event.      \since 4.8 */
+comment|/*!     \fn bool QFileOpenEvent::openFile(QFile&file, QIODevice::OpenMode flags) const      Opens a QFile on the \a file referenced by this event in the mode specified     by \a flags. Returns true if successful; otherwise returns false.      This is necessary as some files cannot be opened by name, but require specific     information stored in this event.      \since 4.8 */
 end_comment
 begin_function
 DECL|function|openFile

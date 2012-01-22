@@ -2814,24 +2814,6 @@ name|FONTSIGNATURE
 argument_list|>
 name|signatures
 decl_stmt|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-DECL|member|temporaryFileName
-name|QString
-name|temporaryFileName
-decl_stmt|;
-DECL|member|screenDeviceFontFileId
-name|TInt
-name|screenDeviceFontFileId
-decl_stmt|;
-DECL|member|fontStoreFontFileUid
-name|TUid
-name|fontStoreFontFileUid
-decl_stmt|;
 endif|#
 directive|endif
 DECL|member|families
@@ -10857,7 +10839,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Loads the font from the file specified by \a fileName and makes it available to     the application. An ID is returned that can be used to remove the font again     with removeApplicationFont() or to retrieve the list of family names contained     in the font.      The function returns -1 if the font could not be loaded.      Currently only TrueType fonts, TrueType font collections, and OpenType fonts are     supported.      \note Adding application fonts on Unix/X11 platforms without fontconfig is     currently not supported.      \note On Symbian, the font family names get truncated to a length of 20 characters.      \sa addApplicationFontFromData(), applicationFontFamilies(), removeApplicationFont() */
+comment|/*!     \since 4.2      Loads the font from the file specified by \a fileName and makes it available to     the application. An ID is returned that can be used to remove the font again     with removeApplicationFont() or to retrieve the list of family names contained     in the font.      The function returns -1 if the font could not be loaded.      Currently only TrueType fonts, TrueType font collections, and OpenType fonts are     supported.      \note Adding application fonts on Unix/X11 platforms without fontconfig is     currently not supported.      \sa addApplicationFontFromData(), applicationFontFamilies(), removeApplicationFont() */
 end_comment
 begin_function
 DECL|function|addApplicationFont
@@ -10948,7 +10930,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Loads the font from binary data specified by \a fontData and makes it available to     the application. An ID is returned that can be used to remove the font again     with removeApplicationFont() or to retrieve the list of family names contained     in the font.      The function returns -1 if the font could not be loaded.      Currently only TrueType fonts and TrueType font collections are supported.      \bold{Note:} Adding application fonts on Unix/X11 platforms without fontconfig is     currently not supported.      \note On Symbian, the font family names get truncated to a length of 20 characters.      \sa addApplicationFont(), applicationFontFamilies(), removeApplicationFont() */
+comment|/*!     \since 4.2      Loads the font from binary data specified by \a fontData and makes it available to     the application. An ID is returned that can be used to remove the font again     with removeApplicationFont() or to retrieve the list of family names contained     in the font.      The function returns -1 if the font could not be loaded.      Currently only TrueType fonts and TrueType font collections are supported.      \bold{Note:} Adding application fonts on Unix/X11 platforms without fontconfig is     currently not supported.      \sa addApplicationFont(), applicationFontFamilies(), removeApplicationFont() */
 end_comment
 begin_function
 DECL|function|addApplicationFontFromData
