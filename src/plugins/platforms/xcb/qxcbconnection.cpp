@@ -417,6 +417,11 @@ if|if
 condition|(
 operator|!
 name|m_connection
+operator|||
+name|xcb_connection_has_error
+argument_list|(
+name|m_connection
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
