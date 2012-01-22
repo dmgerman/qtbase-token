@@ -462,17 +462,6 @@ name|ScreenOrientation
 name|orientation
 parameter_list|)
 block|{
-comment|//#if defined(Q_OS_SYMBIAN)
-comment|//    // If the version of Qt on the device is< 4.7.2, that attribute won't work
-comment|//    if (orientation != ScreenOrientationAuto) {
-comment|//        const QStringList v = QString::fromAscii(qVersion()).split(QLatin1Char('.'));
-comment|//        if (v.count() == 3&& (v.at(0).toInt()<< 16 | v.at(1).toInt()<< 8 | v.at(2).toInt())< 0x040702) {
-comment|//            qWarning("Screen orientation locking only supported with Qt 4.7.2 and above");
-comment|//            return;
-comment|//        }
-comment|//    }
-comment|//#endif // Q_OS_SYMBIAN
-comment|//
 comment|//    Qt::WidgetAttribute attribute;
 comment|//    switch (orientation) {
 comment|//#if QT_VERSION< 0x040702
@@ -511,33 +500,9 @@ operator|::
 name|showExpanded
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|showFullScreen
-argument_list|()
-expr_stmt|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_WS_MAEMO_5
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_WS_MAEMO_6
-argument_list|)
-name|showMaximized
-argument_list|()
-expr_stmt|;
-else|#
-directive|else
 name|show
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 end_unit
