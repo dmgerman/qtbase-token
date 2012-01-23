@@ -186,10 +186,6 @@ name|KB_CDE
 operator|=
 literal|32
 block|,
-name|KB_S60
-operator|=
-literal|64
-block|,
 name|KB_All
 operator|=
 literal|0xffff

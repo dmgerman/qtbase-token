@@ -315,9 +315,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Try to get some info to debug the symbian build failues:
-end_comment
-begin_comment
 comment|// Declare/define the bits of EGL_KHR_image_base we need:
 end_comment
 begin_if

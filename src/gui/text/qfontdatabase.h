@@ -571,10 +571,6 @@ name|QFontEngineMultiQWS
 decl_stmt|;
 name|friend
 name|class
-name|QFontEngineMultiS60
-decl_stmt|;
-name|friend
-name|class
 name|QFontEngineMultiQPA
 decl_stmt|;
 ifdef|#

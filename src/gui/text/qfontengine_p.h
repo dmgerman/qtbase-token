@@ -166,10 +166,6 @@ name|QPF2
 block|,
 name|Proxy
 block|,
-comment|// S60 types
-name|S60FontEngine
-block|,
-comment|// Cannot be simply called "S60". Reason is qt_s60Data.h
 name|DirectWrite
 block|,
 name|TestFontEngine
