@@ -566,15 +566,6 @@ argument_list|(
 name|__WIN32__
 argument_list|)
 end_if
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|__SYMBIAN32__
-argument_list|)
-end_if
 begin_include
 include|#
 directive|include
@@ -583,10 +574,6 @@ end_include
 begin_comment
 comment|/* defines _WINDOWS_ macro */
 end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif
