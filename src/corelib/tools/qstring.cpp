@@ -10535,7 +10535,7 @@ operator|.
 name|str
 operator|||
 name|position
-operator|>=
+operator|>
 name|d
 operator|->
 name|size
@@ -23774,7 +23774,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Returns a substring reference to \a n characters of this string,     starting at the specified \a position.      If the \a position exceeds the length of the string, an empty     reference is returned.      If there are less than \a n characters available in the string,     starting at the given \a position, or if \a n is -1 (default), the     function returns all characters from the specified \a position     onwards.      Example:      \snippet doc/src/snippets/qstring/main.cpp midRef      \sa mid(), leftRef(), rightRef() */
+comment|/*!     \since 4.4      Returns a substring reference to \a n characters of this string,     starting at the specified \a position.      If the \a position exceeds the length of the string, a null     reference is returned.      If there are less than \a n characters available in the string,     starting at the given \a position, or if \a n is -1 (default), the     function returns all characters from the specified \a position     onwards.      Example:      \snippet doc/src/snippets/qstring/main.cpp midRef      \sa mid(), leftRef(), rightRef() */
 end_comment
 begin_function
 DECL|function|midRef
@@ -23801,7 +23801,7 @@ operator|.
 name|str
 operator|||
 name|position
-operator|>=
+operator|>
 name|d
 operator|->
 name|size

@@ -7818,7 +7818,7 @@ operator|.
 name|ba
 operator|||
 name|pos
-operator|>=
+operator|>
 name|d
 operator|->
 name|size
