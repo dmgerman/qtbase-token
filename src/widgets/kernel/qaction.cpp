@@ -2164,7 +2164,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QAction::icon     \brief the action's icon      In toolbars, the icon is used as the tool button icon; in menus,     it is displayed to the left of the menu text. There is no default     icon.      On Symbian the icons which are passed to softkeys, i.e. to actions with     softkey role, need to have pixmap alpha channel correctly set otherwise     drawing artifacts will appear when softkey is pressed down.      If a null icon (QIcon::isNull() is passed into this function,     the icon of the action is cleared. */
+comment|/*!     \property QAction::icon     \brief the action's icon      In toolbars, the icon is used as the tool button icon; in menus,     it is displayed to the left of the menu text. There is no default     icon.      If a null icon (QIcon::isNull() is passed into this function,     the icon of the action is cleared. */
 end_comment
 begin_function
 DECL|function|setIcon

@@ -104,22 +104,7 @@ name|initialSoftKeySource
 block|;
 name|bool
 name|pendingUpdate
-block|;
-ifdef|#
-directive|ifdef
-name|SYMBIAN_VERSION_SYMBIAN3
-name|QHash
-operator|<
-name|QAction
-operator|*
-block|,
-name|int
-operator|>
-name|softKeyCommandActions
-block|;
-endif|#
-directive|endif
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt

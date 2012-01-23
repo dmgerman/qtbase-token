@@ -290,14 +290,6 @@ name|inherits
 argument_list|(
 literal|"QGtkStyle"
 argument_list|)
-operator|||
-name|baseStyle
-argument_list|()
-operator|->
-name|inherits
-argument_list|(
-literal|"QS60Style"
-argument_list|)
 decl_stmt|;
 comment|/*QLineEdit {         -qt-background-role: base;         border: native;         -qt-style-features: background-color;     }*/
 block|{

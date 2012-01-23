@@ -2082,7 +2082,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the pixel per meter metric for the scrolled widget.      The value is reported for both the x and y axis separately by using a QPointF.      \note Please note that this value should be physically correct. The actual DPI settings     that Qt returns for the display may be reported wrongly on purpose by the underlying     windowing system, for example on Mac OS X or Maemo 5. */
+comment|/*!     Returns the pixel per meter metric for the scrolled widget.      The value is reported for both the x and y axis separately by using a QPointF.      \note Please note that this value should be physically correct. The actual DPI settings     that Qt returns for the display may be reported wrongly on purpose by the underlying     windowing system, for example on Mac OS X. */
 end_comment
 begin_function
 DECL|function|pixelPerMeter
@@ -4345,28 +4345,8 @@ name|int
 name|screen
 parameter_list|)
 block|{
-ifdef|#
-directive|ifdef
-name|Q_WS_MAEMO_5
-name|Q_UNUSED
-argument_list|(
-name|screen
-argument_list|)
-expr_stmt|;
-comment|// The DPI value is hardcoded to 96 on Maemo5:
-comment|// https://projects.maemo.org/bugzilla/show_bug.cgi?id=152525
-comment|// This value (260) is only correct for the N900 though, but
-comment|// there's no way to get the real DPI at run time.
-return|return
-name|QPointF
-argument_list|(
-literal|260
-argument_list|,
-literal|260
-argument_list|)
-return|;
-elif|#
-directive|elif
+if|#
+directive|if
 name|defined
 argument_list|(
 name|Q_WS_X11

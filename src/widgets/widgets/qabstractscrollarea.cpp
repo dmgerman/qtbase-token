@@ -1224,17 +1224,6 @@ endif|#
 directive|endif
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
-name|Q_WS_MAEMO_5
-ifndef|#
-directive|ifndef
-name|QT_NO_GESTURES
-comment|// viewport->grabGesture(Qt::TouchFlickGesture);
-endif|#
-directive|endif
-endif|#
-directive|endif
 block|}
 end_function
 begin_ifdef
@@ -2706,17 +2695,6 @@ operator|::
 name|PanGesture
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
-name|Q_WS_MAEMO_5
-ifndef|#
-directive|ifndef
-name|QT_NO_GESTURES
-comment|//        d->viewport->grabGesture(Qt::TouchFlickGesture);
 endif|#
 directive|endif
 endif|#

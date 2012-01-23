@@ -3942,7 +3942,7 @@ begin_comment
 comment|/*!     \property QApplication::autoMaximizeThreshold     \since 4.4     \brief defines a threshold for auto maximizing widgets      \bold{The auto maximize threshold is only available as part of Qt for     Windows CE.}      This property defines a threshold for the size of a window as a percentage     of the screen size. If the minimum size hint of a window exceeds the     threshold, calling show() will cause the window to be maximized     automatically.      Setting the threshold to 100 or greater means that the widget will always     be maximized. Alternatively, setting the threshold to 50 means that the     widget will be maximized only if the vertical minimum size hint is at least     50% of the vertical screen size.      Setting the threshold to -1 disables the feature.      On Windows CE the default is -1 (i.e., it is disabled).     On Windows Mobile the default is 40. */
 end_comment
 begin_comment
-comment|/*!     \property QApplication::autoSipEnabled     \since 4.5     \brief toggles automatic SIP (software input panel) visibility      Set this property to \c true to automatically display the SIP when entering     widgets that accept keyboard input. This property only affects widgets with     the WA_InputMethodEnabled attribute set, and is typically used to launch     a virtual keyboard on devices which have very few or no keys.      \bold{ The property only has an effect on platforms which use software input     panels, such as Windows CE and Symbian.}      The default is platform dependent. */
+comment|/*!     \property QApplication::autoSipEnabled     \since 4.5     \brief toggles automatic SIP (software input panel) visibility      Set this property to \c true to automatically display the SIP when entering     widgets that accept keyboard input. This property only affects widgets with     the WA_InputMethodEnabled attribute set, and is typically used to launch     a virtual keyboard on devices which have very few or no keys.      \bold{ The property only has an effect on platforms which use software input     panels, such as Windows CE.}      The default is platform dependent. */
 end_comment
 begin_ifdef
 ifdef|#
@@ -17383,7 +17383,7 @@ directive|ifdef
 name|QT_KEYPAD_NAVIGATION
 end_ifdef
 begin_comment
-comment|/*!     Sets the kind of focus navigation Qt should use to \a mode.      This feature is available in Qt for Embedded Linux, Symbian and Windows CE     only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \note On Symbian, setting the mode to Qt::NavigationModeCursorAuto will enable a           virtual mouse cursor on non touchscreen devices, which is controlled           by the cursor keys if there is no analog pointer device.           On other platforms and on touchscreen devices, it has the same           meaning as Qt::NavigationModeNone.      \since 4.6      \sa keypadNavigationEnabled() */
+comment|/*!     Sets the kind of focus navigation Qt should use to \a mode.      This feature is available in Qt for Embedded Linux, and Windows CE     only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \since 4.6      \sa keypadNavigationEnabled() */
 end_comment
 begin_function
 DECL|function|setNavigationMode
@@ -17407,7 +17407,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns what kind of focus navigation Qt is using.      This feature is available in Qt for Embedded Linux, Symbian and Windows CE     only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \note On Symbian, the default mode is Qt::NavigationModeNone for touch           devices, and Qt::NavigationModeKeypadDirectional.      \since 4.6      \sa keypadNavigationEnabled() */
+comment|/*!     Returns what kind of focus navigation Qt is using.      This feature is available in Qt for Embedded Linux, and Windows CE only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \since 4.6      \sa keypadNavigationEnabled() */
 end_comment
 begin_function
 DECL|function|navigationMode
@@ -17427,7 +17427,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets whether Qt should use focus navigation suitable for use with a     minimal keypad.      This feature is available in Qt for Embedded Linux, Symbian and Windows CE     only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \deprecated      \sa setNavigationMode() */
+comment|/*!     Sets whether Qt should use focus navigation suitable for use with a     minimal keypad.      This feature is available in Qt for Embedded Linux, and Windows CE only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \deprecated      \sa setNavigationMode() */
 end_comment
 begin_function
 DECL|function|setKeypadNavigationEnabled
@@ -17470,7 +17470,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if Qt is set to use keypad navigation; otherwise returns     false.  The default value is true on Symbian, but false on other platforms.      This feature is available in Qt for Embedded Linux, Symbian and Windows CE     only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \deprecated      \sa navigationMode() */
+comment|/*!     Returns true if Qt is set to use keypad navigation; otherwise returns     false.  The default value is false.      This feature is available in Qt for Embedded Linux, and Windows CE only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \deprecated      \sa navigationMode() */
 end_comment
 begin_function
 DECL|function|keypadNavigationEnabled

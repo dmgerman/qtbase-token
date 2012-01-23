@@ -736,9 +736,6 @@ name|QStyle
 operator|::
 name|State_DownArrow
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_WS_S60
 name|p
 operator|.
 name|eraseRect
@@ -747,8 +744,6 @@ name|rect
 argument_list|()
 argument_list|)
 block|;
-endif|#
-directive|endif
 name|style
 argument_list|()
 operator|->
@@ -1052,9 +1047,6 @@ argument_list|,
 name|index
 argument_list|)
 block|;
-ifndef|#
-directive|ifndef
-name|Q_WS_S60
 name|painter
 operator|->
 name|fillRect
@@ -1071,8 +1063,6 @@ name|background
 argument_list|()
 argument_list|)
 block|;
-endif|#
-directive|endif
 name|mCombo
 operator|->
 name|style

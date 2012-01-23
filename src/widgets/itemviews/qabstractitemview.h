@@ -1433,13 +1433,7 @@ comment|// needed to compile with MSVC
 name|friend
 name|class
 name|QListModeViewBase
-block|;
-name|friend
-name|class
-name|QListViewPrivate
-block|;
-comment|// needed to compile for Symbian emulator
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro

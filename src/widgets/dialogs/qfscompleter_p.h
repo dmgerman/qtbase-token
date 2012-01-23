@@ -104,11 +104,6 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|setCaseSensitivity
 argument_list|(
 name|Qt
