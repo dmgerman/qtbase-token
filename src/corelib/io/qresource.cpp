@@ -4656,12 +4656,6 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
 name|Q_OS_NACL
 argument_list|)
 operator|&&

@@ -18,20 +18,6 @@ include|#
 directive|include
 file|<QtCore/qabstractfileengine.h>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_include
-include|#
-directive|include
-file|<f32file.h>
-end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -333,21 +319,6 @@ argument_list|,
 argument|QFile::FileHandleFlags handleFlags
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|bool
-name|open
-argument_list|(
-argument|QIODevice::OpenMode flags
-argument_list|,
-argument|const RFile&f
-argument_list|,
-argument|QFile::FileHandleFlags handleFlags
-argument_list|)
-block|;
-endif|#
-directive|endif
 specifier|static
 name|bool
 name|setCurrentPath

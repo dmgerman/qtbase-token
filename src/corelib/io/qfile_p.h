@@ -99,21 +99,6 @@ argument_list|,
 argument|QFile::FileHandleFlags handleFlags
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|bool
-name|openExternalFile
-argument_list|(
-argument|int flags
-argument_list|,
-argument|const RFile& f
-argument_list|,
-argument|QFile::FileHandleFlags handleFlags
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|QString
 name|fileName
 block|;

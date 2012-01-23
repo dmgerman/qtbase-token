@@ -88,12 +88,6 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
 name|Q_OS_INTEGRITY
 argument_list|)
 end_if
@@ -1712,12 +1706,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_UNIX
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 for|for
 control|(

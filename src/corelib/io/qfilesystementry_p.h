@@ -60,11 +60,6 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 end_if
 begin_define
 DECL|macro|QFILESYSTEMENTRY_NATIVE_PATH_IS_UTF16
@@ -205,11 +200,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_WIN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 name|bool
 name|isDriveRoot

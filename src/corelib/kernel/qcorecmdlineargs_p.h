@@ -66,11 +66,6 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|QT_BEGIN_INCLUDE_NAMESPACE
 include|#
 directive|include
@@ -632,7 +627,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|// !Q_OS_WIN || !Q_OS_SYMBIAN
+comment|// !Q_OS_WIN
 end_comment
 begin_function
 specifier|static
@@ -688,7 +683,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_OS_WIN || Q_OS_SYMBIAN
+comment|// Q_OS_WIN
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

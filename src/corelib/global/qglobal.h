@@ -440,7 +440,7 @@ directive|define
 name|QT_END_HEADER
 endif|#
 directive|endif
-comment|/*    The operating system, must be one of: (Q_OS_x)       DARWIN   - Darwin OS (synonym for Q_OS_MAC)      SYMBIAN  - Symbian      MSDOS    - MS-DOS and Windows      OS2      - OS/2      OS2EMX   - XFree86 on OS/2 (not PM)      WIN32    - Win32 (Windows 2000/XP/Vista/7 and Windows Server 2003/2008)      WINCE    - WinCE (Windows CE 5.0)      CYGWIN   - Cygwin      SOLARIS  - Sun Solaris      HPUX     - HP-UX      ULTRIX   - DEC Ultrix      LINUX    - Linux      FREEBSD  - FreeBSD      NETBSD   - NetBSD      OPENBSD  - OpenBSD      BSDI     - BSD/OS      IRIX     - SGI Irix      OSF      - HP Tru64 UNIX      SCO      - SCO OpenServer 5      UNIXWARE - UnixWare 7, Open UNIX 8      AIX      - AIX      HURD     - GNU Hurd      DGUX     - DG/UX      RELIANT  - Reliant UNIX      DYNIX    - DYNIX/ptx      QNX      - QNX      QNX6     - QNX RTP 6.1      LYNX     - LynxOS      BSD4     - Any BSD 4.4 system      UNIX     - Any UNIX BSD/SYSV system */
+comment|/*    The operating system, must be one of: (Q_OS_x)       DARWIN   - Darwin OS (synonym for Q_OS_MAC)      MSDOS    - MS-DOS and Windows      OS2      - OS/2      OS2EMX   - XFree86 on OS/2 (not PM)      WIN32    - Win32 (Windows 2000/XP/Vista/7 and Windows Server 2003/2008)      WINCE    - WinCE (Windows CE 5.0)      CYGWIN   - Cygwin      SOLARIS  - Sun Solaris      HPUX     - HP-UX      ULTRIX   - DEC Ultrix      LINUX    - Linux      FREEBSD  - FreeBSD      NETBSD   - NetBSD      OPENBSD  - OpenBSD      BSDI     - BSD/OS      IRIX     - SGI Irix      OSF      - HP Tru64 UNIX      SCO      - SCO OpenServer 5      UNIXWARE - UnixWare 7, Open UNIX 8      AIX      - AIX      HURD     - GNU Hurd      DGUX     - DG/UX      RELIANT  - Reliant UNIX      DYNIX    - DYNIX/ptx      QNX      - QNX      QNX6     - QNX RTP 6.1      LYNX     - LynxOS      BSD4     - Any BSD 4.4 system      UNIX     - Any UNIX BSD/SYSV system */
 if|#
 directive|if
 name|defined
@@ -486,26 +486,6 @@ directive|define
 name|Q_OS_DARWIN32
 endif|#
 directive|endif
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|__SYMBIAN32__
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|SYMBIAN
-argument_list|)
-define|#
-directive|define
-name|Q_OS_SYMBIAN
-define|#
-directive|define
-name|Q_NO_POSIX_SIGNALS
-define|#
-directive|define
-name|QT_NO_GETIFADDRS
 elif|#
 directive|elif
 name|defined
@@ -1090,7 +1070,7 @@ endif|#
 directive|endif
 endif|#
 directive|endif
-comment|/*    The compiler, must be one of: (Q_CC_x)       SYM      - Digital Mars C/C++ (used to be Symantec C++)      MSVC     - Microsoft Visual C/C++, Intel C++ for Windows      BOR      - Borland/Turbo C++      WAT      - Watcom C++      GNU      - GNU C++      COMEAU   - Comeau C++      EDG      - Edison Design Group C++      OC       - CenterLine C++      SUN      - Forte Developer, or Sun Studio C++      MIPS     - MIPSpro C++      DEC      - DEC C++      HPACC    - HP aC++      USLC     - SCO OUDK and UDK      CDS      - Reliant C++      KAI      - KAI C++      INTEL    - Intel C++ for Linux, Intel C++ for Windows      HIGHC    - MetaWare High C/C++      PGI      - Portland Group C++      GHS      - Green Hills Optimizing C++ Compilers      GCCE     - GCCE (Symbian GCCE builds)      RVCT     - ARM Realview Compiler Suite      NOKIAX86 - Nokia x86 (Symbian WINSCW builds)      CLANG    - C++ front-end for the LLVM compiler      Should be sorted most to least authoritative. */
+comment|/*    The compiler, must be one of: (Q_CC_x)       SYM      - Digital Mars C/C++ (used to be Symantec C++)      MSVC     - Microsoft Visual C/C++, Intel C++ for Windows      BOR      - Borland/Turbo C++      WAT      - Watcom C++      GNU      - GNU C++      COMEAU   - Comeau C++      EDG      - Edison Design Group C++      OC       - CenterLine C++      SUN      - Forte Developer, or Sun Studio C++      MIPS     - MIPSpro C++      DEC      - DEC C++      HPACC    - HP aC++      USLC     - SCO OUDK and UDK      CDS      - Reliant C++      KAI      - KAI C++      INTEL    - Intel C++ for Linux, Intel C++ for Windows      HIGHC    - MetaWare High C/C++      PGI      - Portland Group C++      GHS      - Green Hills Optimizing C++ Compilers      RVCT     - ARM Realview Compiler Suite      CLANG    - C++ front-end for the LLVM compiler      Should be sorted most to least authoritative. */
 comment|/* Symantec C++ is now Digital Mars */
 if|#
 directive|if
@@ -1272,40 +1252,6 @@ argument_list|)
 define|#
 directive|define
 name|Q_CC_WAT
-comment|/* Symbian GCCE */
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|__GCCE__
-argument_list|)
-define|#
-directive|define
-name|Q_CC_GCCE
-define|#
-directive|define
-name|QT_VISIBILITY_AVAILABLE
-if|#
-directive|if
-name|defined
-argument_list|(
-name|__ARM_ARCH_6__
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|__ARM_ARCH_7__
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|__ARM_ARCH_7A__
-argument_list|)
-define|#
-directive|define
-name|QT_HAVE_ARMV6
-endif|#
-directive|endif
 comment|/* ARM Realview Compiler Suite    RVCT compiler also defines __EDG__ and __GNUC__ (if --gnu flag is given),    so check for it before that */
 elif|#
 directive|elif
@@ -3081,11 +3027,6 @@ operator|||
 name|defined
 argument_list|(
 name|Q_OS_WINCE
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 end_elif
 begin_define

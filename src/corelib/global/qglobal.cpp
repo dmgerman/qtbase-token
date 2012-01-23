@@ -438,9 +438,6 @@ begin_comment
 comment|/*!   \macro Q_OS_MAC   \relates<QtGlobal>    Defined on MAC OS (synonym for Darwin).  */
 end_comment
 begin_comment
-comment|/*!   \macro Q_OS_SYMBIAN   \relates<QtGlobal>    Defined on Symbian.  */
-end_comment
-begin_comment
 comment|/*!   \macro QT_DISABLE_DEPRECATED_BEFORE   \relates<QtGlobal>    This macro can be defined in the project file to disable functions deprecated in   a specified version of Qt or any earlier version. The default version number is 5.0,   meaning that functions deprecated in or before Qt 5.0 will not be included.    Examples:   When using a future release of Qt 5, set QT_DISABLE_DEPRECATED_BEFORE=0x050100 to   disable functions deprecated in Qt 5.1 and earlier. In any release, set   QT_DISABLE_DEPRECATED_BEFORE=0x000000 to enable any functions, including the ones   deprecated in Qt 5.0  */
 end_comment
 begin_if

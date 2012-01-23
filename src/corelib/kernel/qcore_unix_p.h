@@ -1297,20 +1297,11 @@ name|QT_CLOSE
 value|qt_safe_close
 end_define
 begin_comment
-comment|// - Open C does not (yet?) implement these on Symbian OS
-end_comment
-begin_comment
 comment|// - VxWorks doesn't have processes
 end_comment
 begin_if
 if|#
 directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-operator|&&
 operator|!
 name|defined
 argument_list|(
@@ -1445,18 +1436,6 @@ name|ret
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_VXWORKS
-end_ifndef
-begin_comment
-comment|// no processes on VxWorks
-end_comment
 begin_function
 specifier|static
 specifier|inline

@@ -139,11 +139,6 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 if|if
 condition|(
 name|path
@@ -732,11 +727,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_WIN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 operator|&&
 operator|(
@@ -2470,24 +2460,6 @@ argument_list|)
 argument_list|)
 operator|)
 condition|)
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-if|if
-condition|(
-name|fileDrive
-operator|.
-name|toLower
-argument_list|()
-operator|!=
-name|dirDrive
-operator|.
-name|toLower
-argument_list|()
-condition|)
 else|#
 directive|else
 if|if
@@ -2593,11 +2565,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_WIN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 name|dirElts
 operator|.
@@ -2748,11 +2715,6 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|int
 name|i
 operator|=
@@ -2879,11 +2841,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_WIN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 name|int
 name|i
@@ -5680,11 +5637,6 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 return|return
 name|QLatin1Char
 argument_list|(
@@ -5761,7 +5713,7 @@ begin_comment
 comment|/*!     \fn QDir QDir::home()      Returns the user's home directory.      The directory is constructed using the absolute path of the home directory,     ensuring that its path() will be the same as its absolutePath().      See homePath() for details.      \sa drives(), current(), root(), temp() */
 end_comment
 begin_comment
-comment|/*!     Returns the absolute path of the user's home directory.      Under Windows this function will return the directory of the     current user's profile. Typically, this is:      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 12      Use the toNativeSeparators() function to convert the separators to     the ones that are appropriate for the underlying operating system.      If the directory of the current user's profile does not exist or     cannot be retrieved, the following alternatives will be checked (in     the given order) until an existing and available path is found:      \list 1     \o The path specified by the \c USERPROFILE environment variable.     \o The path formed by concatenating the \c HOMEDRIVE and \c HOMEPATH     environment variables.     \o The path specified by the \c HOME environment variable.     \o The path returned by the rootPath() function (which uses the \c SystemDrive     environment variable)     \o  The \c{C:/} directory.     \endlist      Under non-Windows operating systems the \c HOME environment     variable is used if it exists, otherwise the path returned by the     rootPath(). On Symbian always the same as the path returned by the rootPath().      \sa home(), currentPath(), rootPath(), tempPath() */
+comment|/*!     Returns the absolute path of the user's home directory.      Under Windows this function will return the directory of the     current user's profile. Typically, this is:      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 12      Use the toNativeSeparators() function to convert the separators to     the ones that are appropriate for the underlying operating system.      If the directory of the current user's profile does not exist or     cannot be retrieved, the following alternatives will be checked (in     the given order) until an existing and available path is found:      \list 1     \o The path specified by the \c USERPROFILE environment variable.     \o The path formed by concatenating the \c HOMEDRIVE and \c HOMEPATH     environment variables.     \o The path specified by the \c HOME environment variable.     \o The path returned by the rootPath() function (which uses the \c SystemDrive     environment variable)     \o  The \c{C:/} directory.     \endlist      Under non-Windows operating systems the \c HOME environment     variable is used if it exists, otherwise the path returned by the     rootPath().      \sa home(), currentPath(), rootPath(), tempPath() */
 end_comment
 begin_function
 DECL|function|homePath
@@ -5805,7 +5757,7 @@ begin_comment
 comment|/*!     \fn QDir QDir::root()      Returns the root directory.      The directory is constructed using the absolute path of the root directory,     ensuring that its path() will be the same as its absolutePath().      See rootPath() for details.      \sa drives(), current(), home(), temp() */
 end_comment
 begin_comment
-comment|/*!     Returns the absolute path of the root directory.      For Unix operating systems this returns "/". For Windows file     systems this normally returns "c:/". On Symbian this typically returns     "c:/data", i.e. the same as native PathInfo::PhoneMemoryRootPath().      \sa root(), drives(), currentPath(), homePath(), tempPath() */
+comment|/*!     Returns the absolute path of the root directory.      For Unix operating systems this returns "/". For Windows file     systems this normally returns "c:/".      \sa root(), drives(), currentPath(), homePath(), tempPath() */
 end_comment
 begin_function
 DECL|function|rootPath
@@ -6507,11 +6459,6 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|eaten
 operator|=
 operator|(
@@ -6734,11 +6681,6 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_WIN
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 if|if
 condition|(

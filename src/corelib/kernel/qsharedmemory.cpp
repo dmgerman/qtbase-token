@@ -27,20 +27,6 @@ include|#
 directive|include
 file|<qcryptographichash.h>
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-end_ifdef
-begin_include
-include|#
-directive|include
-file|<e32const.h>
-end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
@@ -62,7 +48,7 @@ argument_list|(
 name|QT_NO_SYSTEMSEMAPHORE
 argument_list|)
 operator|)
-comment|/*!     \internal      Generate a string from the key which can be any unicode string into     the subset that the win/unix kernel allows.      On Unix this will be a file name     On Symbian key will be truncated to 80 characters   */
+comment|/*!     \internal      Generate a string from the key which can be any unicode string into     the subset that the win/unix kernel allows.      On Unix this will be a file name   */
 name|QString
 DECL|function|makePlatformSafeKey
 name|QSharedMemoryPrivate
@@ -160,20 +146,6 @@ name|Q_OS_WIN
 return|return
 name|result
 return|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-return|return
-name|result
-operator|.
-name|left
-argument_list|(
-name|KMaxKernelName
-argument_list|)
-return|;
 else|#
 directive|else
 return|return
@@ -206,7 +178,7 @@ directive|ifndef
 name|QT_NO_SHAREDMEMORY
 end_ifndef
 begin_comment
-comment|/*!   \class QSharedMemory   \since 4.4    \brief The QSharedMemory class provides access to a shared memory segment.    QSharedMemory provides access to a shared memory segment by multiple   threads and processes. It also provides a way for a single thread or   process to lock the memory for exclusive access.    When using this class, be aware of the following platform   differences:    \list    \o Windows: QSharedMemory does not "own" the shared memory segment.   When all threads or processes that have an instance of QSharedMemory   attached to a particular shared memory segment have either destroyed   their instance of QSharedMemory or exited, the Windows kernel   releases the shared memory segment automatically.    \o Unix: QSharedMemory "owns" the shared memory segment. When the   last thread or process that has an instance of QSharedMemory   attached to a particular shared memory segment detaches from the   segment by destroying its instance of QSharedMemory, the Unix kernel   release the shared memory segment. But if that last thread or   process crashes without running the QSharedMemory destructor, the   shared memory segment survives the crash.    \o HP-UX: Only one attach to a shared memory segment is allowed per   process. This means that QSharedMemory should not be used across   multiple threads in the same process in HP-UX.    \o Symbian: QSharedMemory does not "own" the shared memory segment.   When all threads or processes that have an instance of QSharedMemory   attached to a particular shared memory segment have either destroyed   their instance of QSharedMemory or exited, the Symbian kernel   releases the shared memory segment automatically.   Also, access to a shared memory segment cannot be limited to read-only   in Symbian.    \endlist    Remember to lock the shared memory with lock() before reading from   or writing to the shared memory, and remember to release the lock   with unlock() after you are done.    Unlike QtSharedMemory, QSharedMemory automatically destroys the   shared memory segment when the last instance of QSharedMemory is   detached from the segment, and no references to the segment   remain. Do not mix using QtSharedMemory and QSharedMemory. Port   everything to QSharedMemory.    \warning QSharedMemory changes the key in a Qt-specific way, unless otherwise   specified. Interoperation with non-Qt applications is achieved by first creating   a default shared memory with QSharedMemory() and then setting a native key with   setNativeKey(). When using native keys, shared memory is not protected against   multiple accesses on it (e.g. unable to lock()) and a user-defined mechanism   should be used to achieve a such protection.  */
+comment|/*!   \class QSharedMemory   \since 4.4    \brief The QSharedMemory class provides access to a shared memory segment.    QSharedMemory provides access to a shared memory segment by multiple   threads and processes. It also provides a way for a single thread or   process to lock the memory for exclusive access.    When using this class, be aware of the following platform   differences:    \list    \o Windows: QSharedMemory does not "own" the shared memory segment.   When all threads or processes that have an instance of QSharedMemory   attached to a particular shared memory segment have either destroyed   their instance of QSharedMemory or exited, the Windows kernel   releases the shared memory segment automatically.    \o Unix: QSharedMemory "owns" the shared memory segment. When the   last thread or process that has an instance of QSharedMemory   attached to a particular shared memory segment detaches from the   segment by destroying its instance of QSharedMemory, the Unix kernel   release the shared memory segment. But if that last thread or   process crashes without running the QSharedMemory destructor, the   shared memory segment survives the crash.    \o HP-UX: Only one attach to a shared memory segment is allowed per   process. This means that QSharedMemory should not be used across   multiple threads in the same process in HP-UX.    \endlist    Remember to lock the shared memory with lock() before reading from   or writing to the shared memory, and remember to release the lock   with unlock() after you are done.    Unlike QtSharedMemory, QSharedMemory automatically destroys the   shared memory segment when the last instance of QSharedMemory is   detached from the segment, and no references to the segment   remain. Do not mix using QtSharedMemory and QSharedMemory. Port   everything to QSharedMemory.    \warning QSharedMemory changes the key in a Qt-specific way, unless otherwise   specified. Interoperation with non-Qt applications is achieved by first creating   a default shared memory with QSharedMemory() and then setting a native key with   setNativeKey(). When using native keys, shared memory is not protected against   multiple accesses on it (e.g. unable to lock()) and a user-defined mechanism   should be used to achieve a such protection.  */
 end_comment
 begin_comment
 comment|/*!   \overload QSharedMemory()    Constructs a shared memory object with the given \a parent.  The   shared memory object's key is not set by the constructor, so the   shared memory object does not have an underlying shared memory   segment attached. The key must be set with setKey() or setNativeKey()   before create() or attach() can be used.    \sa setKey()  */

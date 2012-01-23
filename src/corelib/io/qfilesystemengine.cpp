@@ -241,20 +241,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// Symbian doesn't support directory symlinks, so do not check for link unless we
-comment|// are handling the last path element. This not only slightly improves performance,
-comment|// but also saves us from lot of unnecessary platform security check failures
-comment|// when dealing with files under *:/private directories.
-name|separatorPos
-operator|==
-operator|-
-literal|1
-operator|&&
-endif|#
-directive|endif
 operator|!
 name|nonSymlinks
 operator|.
@@ -1159,20 +1145,6 @@ block|}
 endif|#
 directive|endif
 comment|// Times
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|modificationTime_
-operator|=
-name|qt_symbian_time_t_To_TTime
-argument_list|(
-name|statBuffer
-operator|.
-name|st_mtime
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|creationTime_
 operator|=
 name|statBuffer
@@ -1211,8 +1183,6 @@ name|statBuffer
 operator|.
 name|st_gid
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -1238,11 +1208,6 @@ operator|||
 name|defined
 argument_list|(
 name|Q_OS_BSD4
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 comment|// BSD4 includes Mac OS X
 comment|// ### This will clear all entry flags and knownFlagsMask
@@ -1445,26 +1410,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-name|Q_UNUSED
-argument_list|(
-name|entry
-argument_list|)
-expr_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|metaData
-argument_list|)
-expr_stmt|;
-return|return
-name|QString
-argument_list|()
-return|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|Q_OS_WIN
 argument_list|)
 name|Q_UNUSED
@@ -1547,26 +1492,6 @@ parameter_list|)
 block|{
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-name|Q_UNUSED
-argument_list|(
-name|entry
-argument_list|)
-expr_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|metaData
-argument_list|)
-expr_stmt|;
-return|return
-name|QString
-argument_list|()
-return|;
-elif|#
-directive|elif
 name|defined
 argument_list|(
 name|Q_OS_WIN

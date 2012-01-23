@@ -269,15 +269,6 @@ name|tv_nsec
 return|;
 else|#
 directive|else
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-return|return
-name|clock
-argument_list|()
-return|;
-else|#
-directive|else
 comment|// no clock_gettime(), fall back to wall time
 name|struct
 name|timeval
@@ -304,8 +295,6 @@ name|tv
 operator|.
 name|tv_usec
 return|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 block|}

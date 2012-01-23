@@ -152,11 +152,6 @@ name|defined
 argument_list|(
 name|QT_ARCH_WINDOWSCE
 argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_ARCH_SYMBIAN
-argument_list|)
 name|QReal
 init|=
 name|Float
