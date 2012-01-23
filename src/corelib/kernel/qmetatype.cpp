@@ -7681,6 +7681,7 @@ name|destructor
 expr_stmt|;
 block|}
 else|else
+block|{
 name|customTypeDestructor
 argument_list|(
 name|type
@@ -7688,6 +7689,8 @@ argument_list|,
 name|where
 argument_list|)
 expr_stmt|;
+return|return;
+block|}
 name|dtor
 argument_list|(
 name|where
