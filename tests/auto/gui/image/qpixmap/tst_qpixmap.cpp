@@ -135,6 +135,10 @@ name|void
 name|cleanup
 parameter_list|()
 function_decl|;
+name|void
+name|cleanupTestCase
+parameter_list|()
+function_decl|;
 private|private
 name|slots
 private|:
@@ -709,6 +713,26 @@ operator|::
 name|cleanup
 parameter_list|()
 block|{ }
+end_function
+begin_function
+DECL|function|cleanupTestCase
+name|void
+name|tst_QPixmap
+operator|::
+name|cleanupTestCase
+parameter_list|()
+block|{
+name|QFile
+operator|::
+name|remove
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"temp_image.png"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 end_function
 begin_function
 DECL|function|swap
