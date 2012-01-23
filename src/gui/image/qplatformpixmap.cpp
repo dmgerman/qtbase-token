@@ -523,6 +523,16 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|image
+operator|.
+name|isNull
+argument_list|()
+condition|)
+return|return
+literal|false
+return|;
 name|fromImage
 argument_list|(
 name|makeBitmapCompliantIfNeeded
