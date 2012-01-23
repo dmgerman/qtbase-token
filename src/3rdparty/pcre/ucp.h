@@ -1,0 +1,487 @@
+begin_unit
+begin_comment
+comment|/************************************************* *          Unicode Property Table handler        * *************************************************/
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|_UCP_H
+end_ifndef
+begin_define
+DECL|macro|_UCP_H
+define|#
+directive|define
+name|_UCP_H
+end_define
+begin_comment
+comment|/* This file contains definitions of the property values that are returned by the UCD access macros. New values that are added for new releases of Unicode should always be at the end of each enum, for backwards compatibility. */
+end_comment
+begin_comment
+comment|/* These are the general character categories. */
+end_comment
+begin_enum
+enum|enum
+block|{
+DECL|enumerator|ucp_C
+name|ucp_C
+block|,
+comment|/* Other */
+DECL|enumerator|ucp_L
+name|ucp_L
+block|,
+comment|/* Letter */
+DECL|enumerator|ucp_M
+name|ucp_M
+block|,
+comment|/* Mark */
+DECL|enumerator|ucp_N
+name|ucp_N
+block|,
+comment|/* Number */
+DECL|enumerator|ucp_P
+name|ucp_P
+block|,
+comment|/* Punctuation */
+DECL|enumerator|ucp_S
+name|ucp_S
+block|,
+comment|/* Symbol */
+DECL|enumerator|ucp_Z
+name|ucp_Z
+comment|/* Separator */
+block|}
+enum|;
+end_enum
+begin_comment
+comment|/* These are the particular character types. */
+end_comment
+begin_enum
+enum|enum
+block|{
+DECL|enumerator|ucp_Cc
+name|ucp_Cc
+block|,
+comment|/* Control */
+DECL|enumerator|ucp_Cf
+name|ucp_Cf
+block|,
+comment|/* Format */
+DECL|enumerator|ucp_Cn
+name|ucp_Cn
+block|,
+comment|/* Unassigned */
+DECL|enumerator|ucp_Co
+name|ucp_Co
+block|,
+comment|/* Private use */
+DECL|enumerator|ucp_Cs
+name|ucp_Cs
+block|,
+comment|/* Surrogate */
+DECL|enumerator|ucp_Ll
+name|ucp_Ll
+block|,
+comment|/* Lower case letter */
+DECL|enumerator|ucp_Lm
+name|ucp_Lm
+block|,
+comment|/* Modifier letter */
+DECL|enumerator|ucp_Lo
+name|ucp_Lo
+block|,
+comment|/* Other letter */
+DECL|enumerator|ucp_Lt
+name|ucp_Lt
+block|,
+comment|/* Title case letter */
+DECL|enumerator|ucp_Lu
+name|ucp_Lu
+block|,
+comment|/* Upper case letter */
+DECL|enumerator|ucp_Mc
+name|ucp_Mc
+block|,
+comment|/* Spacing mark */
+DECL|enumerator|ucp_Me
+name|ucp_Me
+block|,
+comment|/* Enclosing mark */
+DECL|enumerator|ucp_Mn
+name|ucp_Mn
+block|,
+comment|/* Non-spacing mark */
+DECL|enumerator|ucp_Nd
+name|ucp_Nd
+block|,
+comment|/* Decimal number */
+DECL|enumerator|ucp_Nl
+name|ucp_Nl
+block|,
+comment|/* Letter number */
+DECL|enumerator|ucp_No
+name|ucp_No
+block|,
+comment|/* Other number */
+DECL|enumerator|ucp_Pc
+name|ucp_Pc
+block|,
+comment|/* Connector punctuation */
+DECL|enumerator|ucp_Pd
+name|ucp_Pd
+block|,
+comment|/* Dash punctuation */
+DECL|enumerator|ucp_Pe
+name|ucp_Pe
+block|,
+comment|/* Close punctuation */
+DECL|enumerator|ucp_Pf
+name|ucp_Pf
+block|,
+comment|/* Final punctuation */
+DECL|enumerator|ucp_Pi
+name|ucp_Pi
+block|,
+comment|/* Initial punctuation */
+DECL|enumerator|ucp_Po
+name|ucp_Po
+block|,
+comment|/* Other punctuation */
+DECL|enumerator|ucp_Ps
+name|ucp_Ps
+block|,
+comment|/* Open punctuation */
+DECL|enumerator|ucp_Sc
+name|ucp_Sc
+block|,
+comment|/* Currency symbol */
+DECL|enumerator|ucp_Sk
+name|ucp_Sk
+block|,
+comment|/* Modifier symbol */
+DECL|enumerator|ucp_Sm
+name|ucp_Sm
+block|,
+comment|/* Mathematical symbol */
+DECL|enumerator|ucp_So
+name|ucp_So
+block|,
+comment|/* Other symbol */
+DECL|enumerator|ucp_Zl
+name|ucp_Zl
+block|,
+comment|/* Line separator */
+DECL|enumerator|ucp_Zp
+name|ucp_Zp
+block|,
+comment|/* Paragraph separator */
+DECL|enumerator|ucp_Zs
+name|ucp_Zs
+comment|/* Space separator */
+block|}
+enum|;
+end_enum
+begin_comment
+comment|/* These are the script identifications. */
+end_comment
+begin_enum
+enum|enum
+block|{
+DECL|enumerator|ucp_Arabic
+name|ucp_Arabic
+block|,
+DECL|enumerator|ucp_Armenian
+name|ucp_Armenian
+block|,
+DECL|enumerator|ucp_Bengali
+name|ucp_Bengali
+block|,
+DECL|enumerator|ucp_Bopomofo
+name|ucp_Bopomofo
+block|,
+DECL|enumerator|ucp_Braille
+name|ucp_Braille
+block|,
+DECL|enumerator|ucp_Buginese
+name|ucp_Buginese
+block|,
+DECL|enumerator|ucp_Buhid
+name|ucp_Buhid
+block|,
+DECL|enumerator|ucp_Canadian_Aboriginal
+name|ucp_Canadian_Aboriginal
+block|,
+DECL|enumerator|ucp_Cherokee
+name|ucp_Cherokee
+block|,
+DECL|enumerator|ucp_Common
+name|ucp_Common
+block|,
+DECL|enumerator|ucp_Coptic
+name|ucp_Coptic
+block|,
+DECL|enumerator|ucp_Cypriot
+name|ucp_Cypriot
+block|,
+DECL|enumerator|ucp_Cyrillic
+name|ucp_Cyrillic
+block|,
+DECL|enumerator|ucp_Deseret
+name|ucp_Deseret
+block|,
+DECL|enumerator|ucp_Devanagari
+name|ucp_Devanagari
+block|,
+DECL|enumerator|ucp_Ethiopic
+name|ucp_Ethiopic
+block|,
+DECL|enumerator|ucp_Georgian
+name|ucp_Georgian
+block|,
+DECL|enumerator|ucp_Glagolitic
+name|ucp_Glagolitic
+block|,
+DECL|enumerator|ucp_Gothic
+name|ucp_Gothic
+block|,
+DECL|enumerator|ucp_Greek
+name|ucp_Greek
+block|,
+DECL|enumerator|ucp_Gujarati
+name|ucp_Gujarati
+block|,
+DECL|enumerator|ucp_Gurmukhi
+name|ucp_Gurmukhi
+block|,
+DECL|enumerator|ucp_Han
+name|ucp_Han
+block|,
+DECL|enumerator|ucp_Hangul
+name|ucp_Hangul
+block|,
+DECL|enumerator|ucp_Hanunoo
+name|ucp_Hanunoo
+block|,
+DECL|enumerator|ucp_Hebrew
+name|ucp_Hebrew
+block|,
+DECL|enumerator|ucp_Hiragana
+name|ucp_Hiragana
+block|,
+DECL|enumerator|ucp_Inherited
+name|ucp_Inherited
+block|,
+DECL|enumerator|ucp_Kannada
+name|ucp_Kannada
+block|,
+DECL|enumerator|ucp_Katakana
+name|ucp_Katakana
+block|,
+DECL|enumerator|ucp_Kharoshthi
+name|ucp_Kharoshthi
+block|,
+DECL|enumerator|ucp_Khmer
+name|ucp_Khmer
+block|,
+DECL|enumerator|ucp_Lao
+name|ucp_Lao
+block|,
+DECL|enumerator|ucp_Latin
+name|ucp_Latin
+block|,
+DECL|enumerator|ucp_Limbu
+name|ucp_Limbu
+block|,
+DECL|enumerator|ucp_Linear_B
+name|ucp_Linear_B
+block|,
+DECL|enumerator|ucp_Malayalam
+name|ucp_Malayalam
+block|,
+DECL|enumerator|ucp_Mongolian
+name|ucp_Mongolian
+block|,
+DECL|enumerator|ucp_Myanmar
+name|ucp_Myanmar
+block|,
+DECL|enumerator|ucp_New_Tai_Lue
+name|ucp_New_Tai_Lue
+block|,
+DECL|enumerator|ucp_Ogham
+name|ucp_Ogham
+block|,
+DECL|enumerator|ucp_Old_Italic
+name|ucp_Old_Italic
+block|,
+DECL|enumerator|ucp_Old_Persian
+name|ucp_Old_Persian
+block|,
+DECL|enumerator|ucp_Oriya
+name|ucp_Oriya
+block|,
+DECL|enumerator|ucp_Osmanya
+name|ucp_Osmanya
+block|,
+DECL|enumerator|ucp_Runic
+name|ucp_Runic
+block|,
+DECL|enumerator|ucp_Shavian
+name|ucp_Shavian
+block|,
+DECL|enumerator|ucp_Sinhala
+name|ucp_Sinhala
+block|,
+DECL|enumerator|ucp_Syloti_Nagri
+name|ucp_Syloti_Nagri
+block|,
+DECL|enumerator|ucp_Syriac
+name|ucp_Syriac
+block|,
+DECL|enumerator|ucp_Tagalog
+name|ucp_Tagalog
+block|,
+DECL|enumerator|ucp_Tagbanwa
+name|ucp_Tagbanwa
+block|,
+DECL|enumerator|ucp_Tai_Le
+name|ucp_Tai_Le
+block|,
+DECL|enumerator|ucp_Tamil
+name|ucp_Tamil
+block|,
+DECL|enumerator|ucp_Telugu
+name|ucp_Telugu
+block|,
+DECL|enumerator|ucp_Thaana
+name|ucp_Thaana
+block|,
+DECL|enumerator|ucp_Thai
+name|ucp_Thai
+block|,
+DECL|enumerator|ucp_Tibetan
+name|ucp_Tibetan
+block|,
+DECL|enumerator|ucp_Tifinagh
+name|ucp_Tifinagh
+block|,
+DECL|enumerator|ucp_Ugaritic
+name|ucp_Ugaritic
+block|,
+DECL|enumerator|ucp_Yi
+name|ucp_Yi
+block|,
+comment|/* New for Unicode 5.0: */
+DECL|enumerator|ucp_Balinese
+name|ucp_Balinese
+block|,
+DECL|enumerator|ucp_Cuneiform
+name|ucp_Cuneiform
+block|,
+DECL|enumerator|ucp_Nko
+name|ucp_Nko
+block|,
+DECL|enumerator|ucp_Phags_Pa
+name|ucp_Phags_Pa
+block|,
+DECL|enumerator|ucp_Phoenician
+name|ucp_Phoenician
+block|,
+comment|/* New for Unicode 5.1: */
+DECL|enumerator|ucp_Carian
+name|ucp_Carian
+block|,
+DECL|enumerator|ucp_Cham
+name|ucp_Cham
+block|,
+DECL|enumerator|ucp_Kayah_Li
+name|ucp_Kayah_Li
+block|,
+DECL|enumerator|ucp_Lepcha
+name|ucp_Lepcha
+block|,
+DECL|enumerator|ucp_Lycian
+name|ucp_Lycian
+block|,
+DECL|enumerator|ucp_Lydian
+name|ucp_Lydian
+block|,
+DECL|enumerator|ucp_Ol_Chiki
+name|ucp_Ol_Chiki
+block|,
+DECL|enumerator|ucp_Rejang
+name|ucp_Rejang
+block|,
+DECL|enumerator|ucp_Saurashtra
+name|ucp_Saurashtra
+block|,
+DECL|enumerator|ucp_Sundanese
+name|ucp_Sundanese
+block|,
+DECL|enumerator|ucp_Vai
+name|ucp_Vai
+block|,
+comment|/* New for Unicode 5.2: */
+DECL|enumerator|ucp_Avestan
+name|ucp_Avestan
+block|,
+DECL|enumerator|ucp_Bamum
+name|ucp_Bamum
+block|,
+DECL|enumerator|ucp_Egyptian_Hieroglyphs
+name|ucp_Egyptian_Hieroglyphs
+block|,
+DECL|enumerator|ucp_Imperial_Aramaic
+name|ucp_Imperial_Aramaic
+block|,
+DECL|enumerator|ucp_Inscriptional_Pahlavi
+name|ucp_Inscriptional_Pahlavi
+block|,
+DECL|enumerator|ucp_Inscriptional_Parthian
+name|ucp_Inscriptional_Parthian
+block|,
+DECL|enumerator|ucp_Javanese
+name|ucp_Javanese
+block|,
+DECL|enumerator|ucp_Kaithi
+name|ucp_Kaithi
+block|,
+DECL|enumerator|ucp_Lisu
+name|ucp_Lisu
+block|,
+DECL|enumerator|ucp_Meetei_Mayek
+name|ucp_Meetei_Mayek
+block|,
+DECL|enumerator|ucp_Old_South_Arabian
+name|ucp_Old_South_Arabian
+block|,
+DECL|enumerator|ucp_Old_Turkic
+name|ucp_Old_Turkic
+block|,
+DECL|enumerator|ucp_Samaritan
+name|ucp_Samaritan
+block|,
+DECL|enumerator|ucp_Tai_Tham
+name|ucp_Tai_Tham
+block|,
+DECL|enumerator|ucp_Tai_Viet
+name|ucp_Tai_Viet
+block|,
+comment|/* New for Unicode 6.0.0: */
+DECL|enumerator|ucp_Batak
+name|ucp_Batak
+block|,
+DECL|enumerator|ucp_Brahmi
+name|ucp_Brahmi
+block|,
+DECL|enumerator|ucp_Mandaic
+name|ucp_Mandaic
+block|}
+enum|;
+end_enum
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* End of ucp.h */
+end_comment
+end_unit
