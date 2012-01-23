@@ -889,7 +889,7 @@ argument_list|)
 operator|<<
 name|fixSeparators
 argument_list|(
-literal|"/bin/syncqt.bat -outdir \""
+literal|"/bin/syncqt.bat -qtdir \""
 argument_list|)
 operator|<<
 name|fixSeparators
@@ -897,14 +897,7 @@ argument_list|(
 name|buildPath
 argument_list|)
 operator|<<
-literal|"\" \""
-operator|<<
-name|fixSeparators
-argument_list|(
-name|sourcePath
-argument_list|)
-operator|<<
-literal|"\""
+literal|"\" %*"
 operator|<<
 name|endl
 expr_stmt|;
@@ -20526,6 +20519,10 @@ operator|+=
 name|buildPath
 operator|+
 literal|"/bin/syncqt.bat"
+expr_stmt|;
+name|args
+operator|+=
+name|sourcePath
 expr_stmt|;
 name|QStringList
 name|env
