@@ -6478,9 +6478,6 @@ name|glyph
 parameter_list|,
 name|QFixed
 parameter_list|,
-name|int
-name|margin
-parameter_list|,
 specifier|const
 name|QTransform
 modifier|&
@@ -6522,6 +6519,16 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|int
+name|margin
+init|=
+name|glyphMargin
+argument_list|(
+name|QFontEngineGlyphCache
+operator|::
+name|Raster_RGBMask
+argument_list|)
+decl_stmt|;
 name|QWindowsNativeImage
 modifier|*
 name|mask

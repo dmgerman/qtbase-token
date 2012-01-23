@@ -522,8 +522,6 @@ argument|glyph_t
 argument_list|,
 argument|QFixed subPixelPosition
 argument_list|,
-argument|int margin
-argument_list|,
 argument|const QTransform&t
 argument_list|)
 block|;
@@ -755,6 +753,25 @@ name|glyphCount
 argument_list|()
 specifier|const
 block|;
+name|virtual
+name|int
+name|glyphMargin
+argument_list|(
+argument|QFontEngineGlyphCache::Type type
+argument_list|)
+block|{
+return|return
+name|type
+operator|==
+name|QFontEngineGlyphCache
+operator|::
+name|Raster_RGBMask
+operator|?
+literal|2
+operator|:
+literal|0
+return|;
+block|}
 name|virtual
 name|QFontEngine
 operator|*
@@ -1482,8 +1499,6 @@ argument_list|(
 argument|glyph_t
 argument_list|,
 argument|QFixed subPixelPosition
-argument_list|,
-argument|int margin
 argument_list|,
 argument|const QTransform&t
 argument_list|)

@@ -315,16 +315,6 @@ literal|0
 block|;
 name|virtual
 name|int
-name|glyphMargin
-argument_list|()
-specifier|const
-block|{
-return|return
-literal|0
-return|;
-block|}
-name|virtual
-name|int
 name|glyphPadding
 argument_list|()
 specifier|const
@@ -542,12 +532,6 @@ argument_list|,
 argument|matrix
 argument_list|)
 block|{ }
-name|virtual
-name|int
-name|glyphMargin
-argument_list|()
-specifier|const
-block|;
 name|virtual
 name|void
 name|createTextureData

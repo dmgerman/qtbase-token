@@ -4177,9 +4177,6 @@ parameter_list|,
 name|QFixed
 comment|/*subPixelPosition*/
 parameter_list|,
-name|int
-comment|/* margin */
-parameter_list|,
 specifier|const
 name|QTransform
 modifier|&
@@ -4488,8 +4485,6 @@ argument_list|(
 name|glyph
 argument_list|,
 name|subPixelPosition
-argument_list|,
-literal|0
 argument_list|,
 name|t
 argument_list|)
@@ -11182,9 +11177,6 @@ parameter_list|,
 name|QFixed
 name|subPixelPosition
 parameter_list|,
-name|int
-name|margin
-parameter_list|,
 specifier|const
 name|QTransform
 modifier|&
@@ -11224,8 +11216,6 @@ name|glyph
 argument_list|)
 argument_list|,
 name|subPixelPosition
-argument_list|,
-name|margin
 argument_list|,
 name|t
 argument_list|)

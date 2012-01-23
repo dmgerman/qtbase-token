@@ -3087,9 +3087,6 @@ parameter_list|,
 name|QFixed
 name|subPixelPosition
 parameter_list|,
-name|int
-name|margin
-parameter_list|,
 specifier|const
 name|QTransform
 modifier|&
@@ -3105,7 +3102,12 @@ name|t
 argument_list|,
 name|subPixelPosition
 argument_list|,
-name|margin
+name|glyphMargin
+argument_list|(
+name|QFontEngineGlyphCache
+operator|::
+name|Raster_RGBMask
+argument_list|)
 argument_list|,
 name|xform
 argument_list|)

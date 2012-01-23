@@ -16745,10 +16745,12 @@ comment|// divide by 8
 name|int
 name|margin
 init|=
-name|cache
+name|fontEngine
 operator|->
 name|glyphMargin
-argument_list|()
+argument_list|(
+name|glyphType
+argument_list|)
 decl_stmt|;
 specifier|const
 name|QFixed

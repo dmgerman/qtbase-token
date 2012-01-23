@@ -8965,10 +8965,12 @@ expr_stmt|;
 name|int
 name|margin
 init|=
-name|cache
+name|fe
 operator|->
 name|glyphMargin
-argument_list|()
+argument_list|(
+name|glyphType
+argument_list|)
 decl_stmt|;
 name|GLfloat
 name|dx

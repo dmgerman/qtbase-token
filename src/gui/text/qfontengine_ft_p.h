@@ -938,8 +938,6 @@ argument|glyph_t
 argument_list|,
 argument|QFixed subPixelPosition
 argument_list|,
-argument|int margin
-argument_list|,
 argument|const QTransform&t
 argument_list|)
 block|;
@@ -994,6 +992,17 @@ argument_list|(
 argument|glyph_t glyph
 argument_list|)
 block|;
+name|virtual
+name|int
+name|glyphMargin
+argument_list|(
+argument|QFontEngineGlyphCache::Type type
+argument_list|)
+block|{
+return|return
+literal|0
+return|;
+block|}
 name|virtual
 name|int
 name|glyphCount

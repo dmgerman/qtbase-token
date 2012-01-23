@@ -243,8 +243,6 @@ argument|glyph_t t
 argument_list|,
 argument|QFixed subPixelPosition
 argument_list|,
-argument|int margin
-argument_list|,
 argument|const QTransform&xform
 argument_list|)
 block|;

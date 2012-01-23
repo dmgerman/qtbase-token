@@ -392,8 +392,6 @@ argument_list|,
 name|QFixed
 argument_list|()
 argument_list|,
-literal|0
-argument_list|,
 name|transform
 argument_list|)
 return|;
