@@ -1615,6 +1615,13 @@ literal|"auto"
 expr_stmt|;
 name|dictionary
 index|[
+literal|"PCRE"
+index|]
+operator|=
+literal|"auto"
+expr_stmt|;
+name|dictionary
+index|[
 literal|"GIF"
 index|]
 operator|=
@@ -3066,6 +3073,48 @@ block|{
 name|dictionary
 index|[
 literal|"ZLIB"
+index|]
+operator|=
+literal|"system"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-qt-pcre"
+condition|)
+block|{
+name|dictionary
+index|[
+literal|"PCRE"
+index|]
+operator|=
+literal|"qt"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-system-pcre"
+condition|)
+block|{
+name|dictionary
+index|[
+literal|"PCRE"
 index|]
 operator|=
 literal|"system"
@@ -9740,8 +9789,8 @@ literal|"[-help] [-no-dsp] [-dsp] [-no-vcproj] [-vcproj]\n"
 literal|"[-no-qmake] [-qmake] [-dont-process] [-process]\n"
 literal|"[-no-style-<style>] [-qt-style-<style>] [-redo]\n"
 literal|"[-saveconfig<config>] [-loadconfig<config>]\n"
-literal|"[-qt-zlib] [-system-zlib] [-no-gif] [-no-libpng]\n"
-literal|"[-qt-libpng] [-system-libpng] [-no-libtiff] [-qt-libtiff]\n"
+literal|"[-qt-zlib] [-system-zlib] [-qt-pcre] [-system-pcre] [-no-gif]\n"
+literal|"[-no-libpng] [-qt-libpng] [-system-libpng] [-no-libtiff] [-qt-libtiff]\n"
 literal|"[-system-libtiff] [-no-libjpeg] [-qt-libjpeg] [-system-libjpeg]\n"
 literal|"[-mmx] [-no-mmx] [-3dnow] [-no-3dnow] [-sse] [-no-sse] [-sse2] [-no-sse2]\n"
 literal|"[-no-iwmmxt] [-iwmmxt] [-openssl] [-openssl-linked]\n"
@@ -10375,6 +10424,28 @@ argument_list|,
 literal|"-system-zlib"
 argument_list|,
 literal|"Use zlib from the operating system.\nSee http://www.gzip.org/zlib\n"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"PCRE"
+argument_list|,
+literal|"qt"
+argument_list|,
+literal|"-qt-pcre"
+argument_list|,
+literal|"Use the PCRE library bundled with Qt."
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"PCRE"
+argument_list|,
+literal|"qt"
+argument_list|,
+literal|"-system-pcre"
+argument_list|,
+literal|"Use the PCRE library from the operating system.\nSee http://pcre.org/\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -12072,6 +12143,10 @@ literal|"ZLIB"
 operator|||
 name|option
 operator|==
+literal|"PCRE"
+operator|||
+name|option
+operator|==
 literal|"LIBJPEG"
 operator|||
 name|option
@@ -12269,6 +12344,20 @@ operator|=
 name|findFile
 argument_list|(
 literal|"zlib.h"
+argument_list|)
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|part
+operator|==
+literal|"PCRE"
+condition|)
+name|available
+operator|=
+name|findFile
+argument_list|(
+literal|"pcre.h"
 argument_list|)
 expr_stmt|;
 elseif|else
@@ -13340,6 +13429,33 @@ condition|?
 name|defaultTo
 argument_list|(
 literal|"ZLIB"
+argument_list|)
+else|:
+literal|"qt"
+expr_stmt|;
+comment|// PCRE detection
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"PCRE"
+index|]
+operator|==
+literal|"auto"
+condition|)
+name|dictionary
+index|[
+literal|"PCRE"
+index|]
+operator|=
+name|checkAvailability
+argument_list|(
+literal|"PCRE"
+argument_list|)
+condition|?
+name|defaultTo
+argument_list|(
+literal|"PCRE"
 argument_list|)
 else|:
 literal|"qt"
@@ -14813,6 +14929,20 @@ condition|)
 name|qtConfig
 operator|+=
 literal|"system-zlib"
+expr_stmt|;
+comment|// PCRE ---------------------------------------------------------
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"PCRE"
+index|]
+operator|==
+literal|"qt"
+condition|)
+name|qmakeConfig
+operator|+=
+literal|"pcre"
 expr_stmt|;
 comment|// Image formates -----------------------------------------------
 if|if
