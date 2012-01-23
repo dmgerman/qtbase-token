@@ -835,6 +835,12 @@ name|m_fakeTouchDevice
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+specifier|static
+name|int
+name|m_fakeMouseSourcePointId
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 unit|};
 name|Q_GUI_EXPORT
 name|uint
