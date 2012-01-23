@@ -7033,18 +7033,6 @@ argument_list|,
 literal|"Cannot add testdata outside of a _data slot."
 argument_list|)
 expr_stmt|;
-name|QTEST_ASSERT_X
-argument_list|(
-name|tbl
-operator|->
-name|elementCount
-argument_list|()
-argument_list|,
-literal|"QTest::newRow()"
-argument_list|,
-literal|"Must add columns before attempting to add rows."
-argument_list|)
-expr_stmt|;
 return|return
 operator|*
 name|tbl
