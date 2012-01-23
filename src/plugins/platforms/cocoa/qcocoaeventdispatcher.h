@@ -322,6 +322,9 @@ operator|:
 name|QCocoaEventDispatcherPrivate
 argument_list|()
 block|;
+name|uint
+name|processEventsFlags
+block|;
 comment|// timer handling
 name|QTimerInfoList
 name|timerInfoList
@@ -404,6 +407,10 @@ argument_list|)
 block|;
 name|void
 name|cancelWaitForMoreEvents
+argument_list|()
+block|;
+name|void
+name|maybeCancelWaitForMoreEvents
 argument_list|()
 block|;
 name|void
