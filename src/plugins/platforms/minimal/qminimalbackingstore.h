@@ -90,6 +90,9 @@ name|private
 operator|:
 name|QImage
 name|mImage
+block|;
+name|bool
+name|mDebug
 block|; }
 decl_stmt|;
 end_decl_stmt
