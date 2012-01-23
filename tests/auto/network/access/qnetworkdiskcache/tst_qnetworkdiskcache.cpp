@@ -640,7 +640,26 @@ name|tst_QNetworkDiskCache
 operator|::
 name|cleanupTestCase
 parameter_list|()
-block|{ }
+block|{
+name|QDir
+name|workingDir
+argument_list|(
+literal|"foo"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|workingDir
+operator|.
+name|exists
+argument_list|()
+condition|)
+name|workingDir
+operator|.
+name|removeRecursively
+argument_list|()
+expr_stmt|;
+block|}
 end_function
 begin_comment
 comment|// This will be called before each test function is executed.
