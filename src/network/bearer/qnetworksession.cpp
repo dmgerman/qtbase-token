@@ -939,8 +939,6 @@ operator|::
 name|ignore
 parameter_list|()
 block|{
-comment|// Needed on mobile platforms (was needed for Symbian/S60): the roaming must be explicitly
-comment|// ignore()'d or migrate()'d
 if|if
 condition|(
 name|d
