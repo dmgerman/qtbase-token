@@ -360,10 +360,6 @@ name|QWidgetTextControl
 block|;
 name|friend
 name|class
-name|QTextControl
-block|;
-name|friend
-name|class
 name|QTextDocument
 block|;
 name|friend
