@@ -413,6 +413,9 @@ end_comment
 begin_comment
 comment|/*!     \class QTemporaryDir     \reentrant     \brief The QTemporaryDir class creates a unique directory for temporary use.      \ingroup io       QTemporaryDir is used to create unique temporary dirs safely.     The dir itself is created by the constructor. The name of the     temporary directory is guaranteed to be unique (i.e., you are     guaranteed to not overwrite an existing dir), and the directory will     subsequently be removed upon destruction of the QTemporaryDir     object. The directory name is either auto-generated, or created based     on a template, which is passed to QTemporaryDir's constructor.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qtemporarydir.cpp 0      It is very important to test that the temporary directory could be     created, using isValid(). Do not use exists(), since a default-constructed     QDir represents the current directory, which exists.      The path to the temporary dir can be found by calling path().      A temporary directory will have some static part of the name and some     part that is calculated to be unique. The default path will be     determined from QCoreApplication::applicationName() (otherwise \c qt_temp) and will     be placed into the temporary path as returned by QDir::tempPath().     If you specify your own path, a relative path will not be placed in the     temporary directory by default, but be relative to the current working directory.     In all cases, a random string will be appended to the path in order to make it unique.      \sa QDir::tempPath(), QDir, QTemporaryFile */
 end_comment
+begin_comment
+comment|/*!     Constructs a QTemporaryDir using as template the application name     returned by QCoreApplication::applicationName() (otherwise \c qt_temp).     The directory is stored in the system's temporary directory, QDir::tempPath().      \sa QDir::tempPath() */
+end_comment
 begin_constructor
 DECL|function|QTemporaryDir
 name|QTemporaryDir
@@ -436,6 +439,9 @@ argument_list|)
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Constructs a QTemporaryFile with a template name of \a templateName.      If \a templateName is a relative path, the path will be relative to the     current working directory. You can use QDir::tempPath() to construct \a     templateName if you want use the system's temporary directory.      If the \a templateName ends with XXXXXX it will be used as the dynamic portion     of the directory name, otherwise it will be appended.     Unlike QTemporaryFile, XXXXXX in the middle of the template string is not supported.      \sa QDir::tempPath() */
+end_comment
 begin_constructor
 DECL|function|QTemporaryDir
 name|QTemporaryDir
