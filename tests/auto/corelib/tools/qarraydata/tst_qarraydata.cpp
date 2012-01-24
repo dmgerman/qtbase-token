@@ -4855,8 +4855,6 @@ operator|::
 name|allocate
 argument_list|(
 literal|10
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|keeper
@@ -4966,8 +4964,6 @@ operator|::
 name|allocate
 argument_list|(
 literal|10
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|keeper
@@ -5077,8 +5073,6 @@ operator|::
 name|allocate
 argument_list|(
 literal|10
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|keeper
