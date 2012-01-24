@@ -915,8 +915,10 @@ literal|"name"
 argument_list|)
 argument_list|,
 name|QString
+operator|::
+name|fromUtf8
 argument_list|(
-literal|"åge nissemannsen"
+literal|"Ã¥ge nissemannsen"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -930,8 +932,10 @@ literal|"ole&du"
 argument_list|)
 argument_list|,
 name|QString
+operator|::
+name|fromUtf8
 argument_list|(
-literal|"anne+jørgen=sant"
+literal|"anne+jÃ¸rgen=sant"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1066,10 +1070,10 @@ argument_list|()
 argument_list|,
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
-literal|"http://qt.nokia.com?type>login/name>åge nissemannsen"
-literal|"/ole&du>anne+jørgen=sant/prosent>%#top"
+literal|"http://qt.nokia.com?type>login/name>Ã¥ge nissemannsen"
+literal|"/ole&du>anne+jÃ¸rgen=sant/prosent>%#top"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3432,14 +3436,14 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"øl"
+literal|"Ã¸l"
 argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
-literal|"http://ole:passord@www.øl.no/index.html?ole=æsemann&ilder gud=hei#top"
+literal|"http://ole:passord@www.Ã¸l.no/index.html?ole=Ã¦semann&ilder gud=hei#top"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -3451,14 +3455,14 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"räksmörgås"
+literal|"rÃ¤ksmÃ¶rgÃ¥s"
 argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
-literal|"http://www.räksmörgås.no/"
+literal|"http://www.rÃ¤ksmÃ¶rgÃ¥s.no/"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -3470,14 +3474,14 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"bühler"
+literal|"bÃ¼hler"
 argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
-literal|"http://www.bühler.no/"
+literal|"http://www.bÃ¼hler.no/"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -9628,8 +9632,10 @@ literal|"Fran%C3%A7aise"
 argument_list|)
 operator|<<
 name|QString
+operator|::
+name|fromUtf8
 argument_list|(
-literal|"Française"
+literal|"FranÃ§aise"
 argument_list|)
 expr_stmt|;
 block|}
@@ -9809,9 +9815,9 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
-literal|"Française"
+literal|"FranÃ§aise"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -10015,9 +10021,9 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
-literal|"æss"
+literal|"Ã¦ss"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -10492,9 +10498,9 @@ name|url
 argument_list|(
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
-literal|"http://www.räksmörgås.se/pub?a=b&a=dø&a=f#vræl"
+literal|"http://www.rÃ¤ksmÃ¶rgÃ¥s.se/pub?a=b&a=dÃ¸&a=f#vrÃ¦l"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -10522,9 +10528,9 @@ argument_list|()
 argument_list|,
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
-literal|"www.räksmörgås.se"
+literal|"www.rÃ¤ksmÃ¶rgÃ¥s.se"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10582,14 +10588,13 @@ name|join
 argument_list|(
 literal|""
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
 argument_list|,
-literal|"bdøf"
+name|QString
+operator|::
+name|fromUtf8
+argument_list|(
+literal|"bdÃ¸f"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -10601,9 +10606,9 @@ argument_list|()
 argument_list|,
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
-literal|"vræl"
+literal|"vrÃ¦l"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11335,14 +11340,14 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"øl"
+literal|"Ã¸l"
 argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
-literal|"øl"
+literal|"Ã¸l"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -11354,14 +11359,14 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Bühler"
+literal|"BÃ¼hler"
 argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
-literal|"Bühler"
+literal|"BÃ¼hler"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -11373,14 +11378,14 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"räksmörgås"
+literal|"rÃ¤ksmÃ¶rgÃ¥s"
 argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
-literal|"räksmörgås"
+literal|"rÃ¤ksmÃ¶rgÃ¥s"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -19393,7 +19398,7 @@ argument_list|,
 name|tld
 argument_list|)
 expr_stmt|;
-comment|// www.brød.tld
+comment|// www.brÃ¸d.tld
 name|QByteArray
 name|ascii
 init|=
