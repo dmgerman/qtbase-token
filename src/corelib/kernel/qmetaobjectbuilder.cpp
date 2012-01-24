@@ -7,6 +7,11 @@ include|#
 directive|include
 file|"qmetaobjectbuilder_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<stdlib.h>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QMetaObjectBuilder     \internal     \brief The QMetaObjectBuilder class supports building QMetaObject objects at runtime.  */
