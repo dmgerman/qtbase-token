@@ -357,15 +357,15 @@ name|fileName
 parameter_list|)
 block|{
 name|QString
-name|currDir
+name|appDir
 init|=
-name|QDir
+name|QCoreApplication
 operator|::
-name|currentPath
+name|applicationDirPath
 argument_list|()
 decl_stmt|;
 return|return
-name|currDir
+name|appDir
 operator|+
 literal|"/"
 operator|+
@@ -686,17 +686,17 @@ argument_list|(
 name|Q_OS_WIN
 argument_list|)
 name|QString
-name|currDir
+name|appDir
 init|=
-name|QDir
+name|QCoreApplication
 operator|::
-name|currentPath
+name|applicationDirPath
 argument_list|()
 decl_stmt|;
 name|QLibrary
 name|library
 argument_list|(
-name|currDir
+name|appDir
 operator|+
 name|QLatin1Char
 argument_list|(
@@ -816,11 +816,11 @@ literal|"result"
 argument_list|)
 expr_stmt|;
 name|QString
-name|currDir
+name|appDir
 init|=
-name|QDir
+name|QCoreApplication
 operator|::
-name|currentPath
+name|applicationDirPath
 argument_list|()
 decl_stmt|;
 name|QTest
@@ -830,7 +830,7 @@ argument_list|(
 literal|"ok00"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/mylib"
 operator|<<
@@ -843,7 +843,7 @@ argument_list|(
 literal|"notexist"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/nolib"
 operator|<<
@@ -856,7 +856,7 @@ argument_list|(
 literal|"badlibrary"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/qlibrary.pro"
 operator|<<
@@ -872,7 +872,7 @@ argument_list|(
 literal|"ok (libmylib ver. 1)"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/libmylib"
 operator|<<
@@ -898,7 +898,7 @@ argument_list|(
 literal|"ok01 (with suffix)"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/mylib.dll"
 operator|<<
@@ -911,7 +911,7 @@ argument_list|(
 literal|"ok02 (with non-standard suffix)"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/mylib.dl2"
 operator|<<
@@ -924,7 +924,7 @@ argument_list|(
 literal|"ok03 (with many dots)"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/system.qt.test.mylib.dll"
 operator|<<
@@ -941,7 +941,7 @@ argument_list|(
 literal|"ok01 (with suffix)"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/libmylib"
 name|SUFFIX
@@ -955,7 +955,7 @@ argument_list|(
 literal|"ok02 (with non-standard suffix)"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/libmylib.so2"
 operator|<<
@@ -968,7 +968,7 @@ argument_list|(
 literal|"ok03 (with many dots)"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/system.qt.test.mylib.so"
 operator|<<
@@ -1090,11 +1090,11 @@ literal|"result"
 argument_list|)
 expr_stmt|;
 name|QString
-name|currDir
+name|appDir
 init|=
-name|QDir
+name|QCoreApplication
 operator|::
-name|currentPath
+name|applicationDirPath
 argument_list|()
 decl_stmt|;
 name|QTest
@@ -1104,7 +1104,7 @@ argument_list|(
 literal|"mylib"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/mylib"
 operator|<<
@@ -1141,7 +1141,7 @@ argument_list|(
 literal|"ok01"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/nolib"
 operator|<<
@@ -1317,11 +1317,11 @@ literal|"goodPointer"
 argument_list|)
 expr_stmt|;
 name|QString
-name|currDir
+name|appDir
 init|=
-name|QDir
+name|QCoreApplication
 operator|::
-name|currentPath
+name|applicationDirPath
 argument_list|()
 decl_stmt|;
 name|QTest
@@ -1331,7 +1331,7 @@ argument_list|(
 literal|"ok00"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/mylib"
 operator|<<
@@ -1349,7 +1349,7 @@ argument_list|(
 literal|"bad00"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/mylib"
 operator|<<
@@ -1367,7 +1367,7 @@ argument_list|(
 literal|"bad01"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/nolib"
 operator|<<
@@ -1901,11 +1901,11 @@ literal|"errorString"
 argument_list|)
 expr_stmt|;
 name|QString
-name|currDir
+name|appDir
 init|=
-name|QDir
+name|QCoreApplication
 operator|::
-name|currentPath
+name|applicationDirPath
 argument_list|()
 decl_stmt|;
 name|QTest
@@ -1973,7 +1973,7 @@ name|int
 operator|)
 name|Resolve
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/mylib"
 operator|<<
@@ -1998,7 +1998,7 @@ name|int
 operator|)
 name|Resolve
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/mylib"
 operator|<<
@@ -2023,7 +2023,7 @@ name|int
 operator|)
 name|Resolve
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/mylib"
 operator|<<
@@ -2428,11 +2428,11 @@ block|}
 endif|#
 directive|endif
 name|QString
-name|currDir
+name|appDir
 init|=
-name|QDir
+name|QCoreApplication
 operator|::
-name|currentPath
+name|applicationDirPath
 argument_list|()
 decl_stmt|;
 name|lh
@@ -2459,7 +2459,7 @@ argument_list|(
 literal|"ok01 (with suffix)"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/mylib.dll"
 operator|<<
@@ -2477,7 +2477,7 @@ argument_list|(
 literal|"ok02 (with non-standard suffix)"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/mylib.dl2"
 operator|<<
@@ -2495,7 +2495,7 @@ argument_list|(
 literal|"ok03 (with many dots)"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/system.qt.test.mylib.dll"
 operator|<<
@@ -2517,7 +2517,7 @@ argument_list|(
 literal|"ok01 (with suffix)"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/libmylib"
 name|SUFFIX
@@ -2536,7 +2536,7 @@ argument_list|(
 literal|"ok02 (with non-standard suffix)"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/libmylib.so2"
 operator|<<
@@ -2554,7 +2554,7 @@ argument_list|(
 literal|"ok03 (with many dots)"
 argument_list|)
 operator|<<
-name|currDir
+name|appDir
 operator|+
 literal|"/system.qt.test.mylib.so"
 operator|<<
@@ -2884,9 +2884,9 @@ block|{
 name|QString
 name|lib
 init|=
-name|QDir
+name|QCoreApplication
 operator|::
-name|currentPath
+name|applicationDirPath
 argument_list|()
 operator|+
 literal|"/mylib"
