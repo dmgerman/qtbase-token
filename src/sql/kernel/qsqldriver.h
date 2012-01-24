@@ -156,11 +156,11 @@ block|}
 block|;      enum
 name|NotificationSource
 block|{
-name|Unknown
+name|UnknownSource
 block|,
-name|Self
+name|SelfSource
 block|,
-name|Other
+name|OtherSource
 block|}
 block|;
 name|explicit
