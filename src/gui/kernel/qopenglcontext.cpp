@@ -488,6 +488,16 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|d
+operator|->
+name|platformGLContext
+condition|)
+return|return
+literal|false
+return|;
 name|d
 operator|->
 name|platformGLContext
