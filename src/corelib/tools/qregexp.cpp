@@ -18937,33 +18937,9 @@ ifndef|#
 directive|ifndef
 name|QT_NO_REGEXP_CAPTURE
 end_ifndef
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_DEPRECATED
-end_ifndef
 begin_comment
-comment|/*!   \obsolete   Returns the number of captures contained in the regular expression.    \sa captureCount()  */
+comment|/*!   \fn int QRegExp::numCaptures() const   \obsolete   Returns the number of captures contained in the regular expression.    \sa captureCount()  */
 end_comment
-begin_function
-DECL|function|numCaptures
-name|int
-name|QRegExp
-operator|::
-name|numCaptures
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|captureCount
-argument_list|()
-return|;
-block|}
-end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!   \since 4.6   Returns the number of captures contained in the regular expression.  */
 end_comment

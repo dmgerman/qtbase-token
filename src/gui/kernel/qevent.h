@@ -3547,6 +3547,14 @@ name|class
 name|QApplicationPrivate
 block|;     }
 block|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
 name|QT_DEPRECATED
 expr|enum
 name|DeviceType
@@ -3556,6 +3564,8 @@ block|,
 name|TouchPad
 block|}
 block|;
+endif|#
+directive|endif
 name|QTouchEvent
 argument_list|(
 argument|QEvent::Type eventType
@@ -3597,6 +3607,14 @@ return|return
 name|_target
 return|;
 block|}
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
 name|QT_DEPRECATED
 specifier|inline
 name|QTouchEvent
@@ -3622,6 +3640,8 @@ argument_list|)
 operator|)
 return|;
 block|}
+endif|#
+directive|endif
 specifier|inline
 name|Qt
 operator|::

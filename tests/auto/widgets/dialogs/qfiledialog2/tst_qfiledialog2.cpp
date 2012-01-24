@@ -1077,7 +1077,7 @@ literal|"Any files (*.*)"
 expr_stmt|;
 name|fd
 operator|.
-name|setFilters
+name|setNameFilters
 argument_list|(
 name|filterChoices
 argument_list|)

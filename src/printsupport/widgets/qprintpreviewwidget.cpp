@@ -2967,34 +2967,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete     Returns the number of pages in the preview.     \sa pageCount() */
-end_comment
-begin_function
-DECL|function|numPages
-name|int
-name|QPrintPreviewWidget
-operator|::
-name|numPages
-parameter_list|()
-specifier|const
-block|{
-name|Q_D
-argument_list|(
-specifier|const
-name|QPrintPreviewWidget
-argument_list|)
-expr_stmt|;
-return|return
-name|d
-operator|->
-name|pages
-operator|.
-name|size
-argument_list|()
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!     \since 4.6     Returns the number of pages in the preview. */
 end_comment
 begin_function

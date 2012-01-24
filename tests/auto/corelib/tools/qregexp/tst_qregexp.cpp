@@ -10045,7 +10045,7 @@ name|QCOMPARE
 argument_list|(
 name|re
 operator|.
-name|numCaptures
+name|captureCount
 argument_list|()
 argument_list|,
 literal|2

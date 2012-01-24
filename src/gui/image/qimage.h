@@ -148,7 +148,7 @@ argument_list|)
 end_if
 begin_decl_stmt
 name|class
-name|Q_GUI_EXPORT
+name|QT_DEPRECATED
 name|QImageTextKeyLang
 block|{
 name|public
@@ -1253,6 +1253,7 @@ literal|5
 operator|,
 literal|0
 argument_list|)
+name|QT_DEPRECATED
 specifier|inline
 name|QString
 name|text
@@ -1264,6 +1265,7 @@ literal|0
 argument_list|)
 specifier|const
 block|;
+name|QT_DEPRECATED
 specifier|inline
 name|QList
 operator|<
@@ -1273,12 +1275,14 @@ name|textList
 argument_list|()
 specifier|const
 block|;
+name|QT_DEPRECATED
 specifier|inline
 name|QStringList
 name|textLanguages
 argument_list|()
 specifier|const
 block|;
+name|QT_DEPRECATED
 specifier|inline
 name|QString
 name|text
@@ -1287,6 +1291,7 @@ argument|const QImageTextKeyLang&
 argument_list|)
 specifier|const
 block|;
+name|QT_DEPRECATED
 specifier|inline
 name|void
 name|setText

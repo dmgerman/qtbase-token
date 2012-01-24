@@ -1124,6 +1124,7 @@ literal|5
 operator|,
 literal|0
 argument_list|)
+name|QT_DEPRECATED
 name|void
 name|setSupportedDragActions
 argument_list|(
@@ -1134,7 +1135,7 @@ name|doSetSupportedDragActions
 argument_list|(
 name|actions
 argument_list|)
-block|;     }
+block|; }
 endif|#
 directive|endif
 name|virtual

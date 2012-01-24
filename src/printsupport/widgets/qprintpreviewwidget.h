@@ -123,17 +123,6 @@ name|currentPage
 argument_list|()
 specifier|const
 block|;
-ifdef|#
-directive|ifdef
-name|QT_DEPRECATED
-name|QT_DEPRECATED
-name|int
-name|numPages
-argument_list|()
-specifier|const
-block|;
-endif|#
-directive|endif
 name|int
 name|pageCount
 argument_list|()

@@ -4487,29 +4487,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \obsolete    Use setNameFilter() instead. */
-end_comment
-begin_function
-DECL|function|setFilter
-name|void
-name|QFileDialog
-operator|::
-name|setFilter
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|filter
-parameter_list|)
-block|{
-name|setNameFilter
-argument_list|(
-name|filter
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
 comment|/*!     \property QFileDialog::nameFilterDetailsVisible     \obsolete     \brief This property holds whether the filter details is shown or not.     \since 4.4      When this property is true (the default), the filter details are shown     in the combo box.  When the property is set to false, these are hidden.      Use setOption(HideNameFilterDetails, !\e enabled) or     !testOption(HideNameFilterDetails). */
 end_comment
 begin_function
@@ -4786,29 +4763,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Use setNameFilters() instead. */
-end_comment
-begin_function
-DECL|function|setFilters
-name|void
-name|QFileDialog
-operator|::
-name|setFilters
-parameter_list|(
-specifier|const
-name|QStringList
-modifier|&
-name|filters
-parameter_list|)
-block|{
-name|setNameFilters
-argument_list|(
-name|filters
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
 comment|/*!     \since 4.4      Returns the file type filters that are in operation on this file     dialog. */
 end_comment
 begin_function
@@ -4826,24 +4780,6 @@ argument_list|()
 operator|->
 name|options
 operator|->
-name|nameFilters
-argument_list|()
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     \obsolete      Use nameFilters() instead. */
-end_comment
-begin_function
-DECL|function|filters
-name|QStringList
-name|QFileDialog
-operator|::
-name|filters
-parameter_list|()
-specifier|const
-block|{
-return|return
 name|nameFilters
 argument_list|()
 return|;
@@ -4972,29 +4908,6 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Use selectNameFilter() instead. */
-end_comment
-begin_function
-DECL|function|selectFilter
-name|void
-name|QFileDialog
-operator|::
-name|selectFilter
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|filter
-parameter_list|)
-block|{
-name|selectNameFilter
-argument_list|(
-name|filter
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
 comment|/*!     \since 4.4      Returns the filter that the user selected in the file dialog.      \sa selectedFiles() */
 end_comment
 begin_function
@@ -5032,24 +4945,6 @@ operator|->
 name|fileTypeCombo
 operator|->
 name|currentText
-argument_list|()
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     \obsolete      Use selectedNameFilter() instead. */
-end_comment
-begin_function
-DECL|function|selectedFilter
-name|QString
-name|QFileDialog
-operator|::
-name|selectedFilter
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|selectedNameFilter
 argument_list|()
 return|;
 block|}
@@ -7104,7 +6999,7 @@ name|selectedFilter
 operator|=
 name|dialog
 operator|.
-name|selectedFilter
+name|selectedNameFilter
 argument_list|()
 expr_stmt|;
 return|return
@@ -7328,7 +7223,7 @@ name|selectedFilter
 operator|=
 name|dialog
 operator|.
-name|selectedFilter
+name|selectedNameFilter
 argument_list|()
 expr_stmt|;
 return|return
@@ -7554,7 +7449,7 @@ name|selectedFilter
 operator|=
 name|dialog
 operator|.
-name|selectedFilter
+name|selectedNameFilter
 argument_list|()
 expr_stmt|;
 return|return

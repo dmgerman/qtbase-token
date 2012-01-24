@@ -1671,27 +1671,6 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \deprecated     \property QLCDNumber::numDigits     \brief the current number of digits displayed     \sa digitCount */
-end_comment
-begin_function
-DECL|function|setNumDigits
-name|void
-name|QLCDNumber
-operator|::
-name|setNumDigits
-parameter_list|(
-name|int
-name|numDigits
-parameter_list|)
-block|{
-name|setDigitCount
-argument_list|(
-name|numDigits
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
 comment|/*!     \since 4.6     \property QLCDNumber::digitCount     \brief the current number of digits displayed      Corresponds to the current number of digits. If \l     QLCDNumber::smallDecimalPoint is false, the decimal point occupies     one digit position.      By default, this property contains a value of 5.      \sa smallDecimalPoint */
 end_comment
 begin_comment
@@ -2063,28 +2042,6 @@ name|update
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-end_function
-begin_function
-DECL|function|numDigits
-name|int
-name|QLCDNumber
-operator|::
-name|numDigits
-parameter_list|()
-specifier|const
-block|{
-name|Q_D
-argument_list|(
-specifier|const
-name|QLCDNumber
-argument_list|)
-expr_stmt|;
-return|return
-name|d
-operator|->
-name|ndigits
-return|;
 block|}
 end_function
 begin_comment

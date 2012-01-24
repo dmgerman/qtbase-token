@@ -252,24 +252,7 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
-block|{
-name|int
-name|argc
-init|=
-name|qApp
-operator|->
-name|argc
-argument_list|()
-decl_stmt|;
-name|QT_REQUIRE_VERSION
-argument_list|(
-argument|argc
-argument_list|,
-argument|qApp->argv()
-argument_list|,
-literal|"4.6.2"
-argument_list|)
-block|}
+block|{ }
 end_constructor
 begin_function
 DECL|function|exec

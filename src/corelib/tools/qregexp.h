@@ -322,17 +322,6 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_REGEXP_CAPTURE
-ifdef|#
-directive|ifdef
-name|QT_DEPRECATED
-name|QT_DEPRECATED
-name|int
-name|numCaptures
-argument_list|()
-specifier|const
-expr_stmt|;
-endif|#
-directive|endif
 name|int
 name|captureCount
 argument_list|()

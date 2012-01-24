@@ -669,9 +669,14 @@ argument|QRegion *exposed =
 literal|0
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QT_DEPRECATED
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
 name|QT_DEPRECATED
 name|int
 name|serialNumber

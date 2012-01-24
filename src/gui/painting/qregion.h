@@ -526,17 +526,6 @@ name|int
 name|num
 parameter_list|)
 function_decl|;
-ifdef|#
-directive|ifdef
-name|QT_DEPRECATED
-name|QT_DEPRECATED
-name|int
-name|numRects
-argument_list|()
-specifier|const
-expr_stmt|;
-endif|#
-directive|endif
 name|int
 name|rectCount
 argument_list|()

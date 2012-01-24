@@ -412,7 +412,10 @@ name|QCOMPARE
 argument_list|(
 name|app
 operator|.
-name|argc
+name|arguments
+argument_list|()
+operator|.
+name|count
 argument_list|()
 argument_list|,
 literal|1
@@ -459,7 +462,10 @@ name|QCOMPARE
 argument_list|(
 name|app
 operator|.
-name|argc
+name|arguments
+argument_list|()
+operator|.
+name|count
 argument_list|()
 argument_list|,
 literal|4
@@ -498,7 +504,10 @@ name|QCOMPARE
 argument_list|(
 name|app
 operator|.
-name|argc
+name|arguments
+argument_list|()
+operator|.
+name|count
 argument_list|()
 argument_list|,
 literal|0
@@ -541,7 +550,10 @@ name|QCOMPARE
 argument_list|(
 name|app
 operator|.
-name|argc
+name|arguments
+argument_list|()
+operator|.
+name|count
 argument_list|()
 argument_list|,
 literal|1

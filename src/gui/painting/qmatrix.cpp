@@ -2684,9 +2684,6 @@ begin_comment
 comment|/*!     \fn bool QMatrix::isInvertible() const      Returns true if the matrix is invertible, otherwise returns false.      \sa inverted() */
 end_comment
 begin_comment
-comment|/*!     \obsolete     \fn qreal QMatrix::det() const      Returns the matrix's determinant.      \sa determinant() */
-end_comment
-begin_comment
 comment|/*!     \since 4.6     \fn qreal QMatrix::determinant() const      Returns the matrix's determinant. */
 end_comment
 begin_comment

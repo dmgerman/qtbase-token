@@ -1545,7 +1545,7 @@ literal|"Any files (*.*)"
 expr_stmt|;
 name|fd
 operator|.
-name|setFilters
+name|setNameFilters
 argument_list|(
 name|filterChoices
 argument_list|)
@@ -1554,7 +1554,7 @@ name|QCOMPARE
 argument_list|(
 name|fd
 operator|.
-name|filters
+name|nameFilters
 argument_list|()
 argument_list|,
 name|filterChoices
@@ -1712,7 +1712,7 @@ name|QCOMPARE
 argument_list|(
 name|fd
 operator|.
-name|filters
+name|nameFilters
 argument_list|()
 argument_list|,
 name|QStringList
@@ -3842,7 +3842,7 @@ name|QCOMPARE
 argument_list|(
 name|fd
 operator|.
-name|filters
+name|nameFilters
 argument_list|()
 argument_list|,
 name|QStringList
@@ -3909,7 +3909,7 @@ literal|"Any files (*.*)"
 expr_stmt|;
 name|fd
 operator|.
-name|setFilters
+name|setNameFilters
 argument_list|(
 name|filters
 argument_list|)
@@ -3962,7 +3962,7 @@ name|QCOMPARE
 argument_list|(
 name|fd
 operator|.
-name|filters
+name|nameFilters
 argument_list|()
 argument_list|,
 name|filters
@@ -3970,7 +3970,7 @@ argument_list|)
 expr_stmt|;
 name|fd
 operator|.
-name|setFilter
+name|setNameFilter
 argument_list|(
 literal|"Image files (*.png *.xpm *.jpg);;Text files (*.txt);;Any files (*.*)"
 argument_list|)
@@ -3979,7 +3979,7 @@ name|QCOMPARE
 argument_list|(
 name|fd
 operator|.
-name|filters
+name|nameFilters
 argument_list|()
 argument_list|,
 name|filters
@@ -4095,7 +4095,7 @@ literal|"Any(*.*)"
 expr_stmt|;
 name|fd2
 operator|.
-name|setFilter
+name|setNameFilter
 argument_list|(
 literal|"C++ Source Files(*.cpp);;Any(*.*)"
 argument_list|)
@@ -4106,13 +4106,13 @@ name|expected
 argument_list|,
 name|fd2
 operator|.
-name|filters
+name|nameFilters
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|fd2
 operator|.
-name|setFilter
+name|setNameFilter
 argument_list|(
 literal|"C++ Source Files(*.cpp) ;;Any(*.*)"
 argument_list|)
@@ -4123,13 +4123,13 @@ name|expected
 argument_list|,
 name|fd2
 operator|.
-name|filters
+name|nameFilters
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|fd2
 operator|.
-name|setFilter
+name|setNameFilter
 argument_list|(
 literal|"C++ Source Files(*.cpp);; Any(*.*)"
 argument_list|)
@@ -4140,13 +4140,13 @@ name|expected
 argument_list|,
 name|fd2
 operator|.
-name|filters
+name|nameFilters
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|fd2
 operator|.
-name|setFilter
+name|setNameFilter
 argument_list|(
 literal|" C++ Source Files(*.cpp);; Any(*.*)"
 argument_list|)
@@ -4157,13 +4157,13 @@ name|expected
 argument_list|,
 name|fd2
 operator|.
-name|filters
+name|nameFilters
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|fd2
 operator|.
-name|setFilter
+name|setNameFilter
 argument_list|(
 literal|"C++ Source Files(*.cpp) ;; Any(*.*)"
 argument_list|)
@@ -4174,7 +4174,7 @@ name|expected
 argument_list|,
 name|fd2
 operator|.
-name|filters
+name|nameFilters
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4212,7 +4212,7 @@ name|QCOMPARE
 argument_list|(
 name|fd
 operator|.
-name|selectedFilter
+name|selectedNameFilter
 argument_list|()
 argument_list|,
 name|QString
@@ -4234,7 +4234,7 @@ literal|"Any files (*.*)"
 expr_stmt|;
 name|fd
 operator|.
-name|setFilters
+name|setNameFilters
 argument_list|(
 name|filters
 argument_list|)
@@ -4243,7 +4243,7 @@ name|QCOMPARE
 argument_list|(
 name|fd
 operator|.
-name|selectedFilter
+name|selectedNameFilter
 argument_list|()
 argument_list|,
 name|filters
@@ -4256,7 +4256,7 @@ argument_list|)
 expr_stmt|;
 name|fd
 operator|.
-name|selectFilter
+name|selectNameFilter
 argument_list|(
 name|filters
 operator|.
@@ -4270,7 +4270,7 @@ name|QCOMPARE
 argument_list|(
 name|fd
 operator|.
-name|selectedFilter
+name|selectedNameFilter
 argument_list|()
 argument_list|,
 name|filters
@@ -4283,7 +4283,7 @@ argument_list|)
 expr_stmt|;
 name|fd
 operator|.
-name|selectFilter
+name|selectNameFilter
 argument_list|(
 name|filters
 operator|.
@@ -4297,7 +4297,7 @@ name|QCOMPARE
 argument_list|(
 name|fd
 operator|.
-name|selectedFilter
+name|selectedNameFilter
 argument_list|()
 argument_list|,
 name|filters
@@ -4310,7 +4310,7 @@ argument_list|)
 expr_stmt|;
 name|fd
 operator|.
-name|selectFilter
+name|selectNameFilter
 argument_list|(
 literal|"bob"
 argument_list|)
@@ -4319,7 +4319,7 @@ name|QCOMPARE
 argument_list|(
 name|fd
 operator|.
-name|selectedFilter
+name|selectedNameFilter
 argument_list|()
 argument_list|,
 name|filters
@@ -4332,7 +4332,7 @@ argument_list|)
 expr_stmt|;
 name|fd
 operator|.
-name|selectFilter
+name|selectNameFilter
 argument_list|(
 literal|""
 argument_list|)
@@ -4341,7 +4341,7 @@ name|QCOMPARE
 argument_list|(
 name|fd
 operator|.
-name|selectedFilter
+name|selectedNameFilter
 argument_list|()
 argument_list|,
 name|filters
@@ -6610,7 +6610,7 @@ name|fd
 decl_stmt|;
 name|fd
 operator|.
-name|setFilter
+name|setNameFilter
 argument_list|(
 name|QString
 argument_list|()
@@ -6618,7 +6618,7 @@ argument_list|)
 expr_stmt|;
 name|fd
 operator|.
-name|setFilters
+name|setNameFilters
 argument_list|(
 name|QStringList
 argument_list|()

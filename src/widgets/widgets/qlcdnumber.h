@@ -54,7 +54,7 @@ argument|bool smallDecimalPoint READ smallDecimalPoint WRITE setSmallDecimalPoin
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|int numDigits READ numDigits WRITE setNumDigits
+argument|int numDigits READ digitCount WRITE setDigitCount
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -126,24 +126,6 @@ name|smallDecimalPoint
 argument_list|()
 specifier|const
 block|;
-ifdef|#
-directive|ifdef
-name|QT_DEPRECATED
-name|QT_DEPRECATED
-name|int
-name|numDigits
-argument_list|()
-specifier|const
-block|;
-name|QT_DEPRECATED
-name|void
-name|setNumDigits
-argument_list|(
-argument|int nDigits
-argument_list|)
-block|;
-endif|#
-directive|endif
 name|int
 name|digitCount
 argument_list|()
