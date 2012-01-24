@@ -493,6 +493,84 @@ end_decl_stmt
 begin_comment
 comment|// same as QMetaType::TypeFlags
 end_comment
+begin_expr_stmt
+unit|};
+name|template
+operator|<
+operator|>
+expr|struct
+name|QMetaTypeInterface
+operator|::
+name|Impl
+operator|<
+name|void
+operator|>
+block|{
+specifier|static
+name|void
+operator|*
+name|creator
+argument_list|(
+argument|const void *
+argument_list|)
+block|{
+return|return
+literal|0
+return|;
+block|}
+specifier|static
+name|void
+name|deleter
+argument_list|(
+argument|void *
+argument_list|)
+block|{}
+ifndef|#
+directive|ifndef
+name|QT_NO_DATASTREAM
+specifier|static
+name|void
+name|saver
+argument_list|(
+argument|QDataStream&
+argument_list|,
+argument|const void *
+argument_list|)
+block|{}
+specifier|static
+name|void
+name|loader
+argument_list|(
+argument|QDataStream&
+argument_list|,
+argument|void *
+argument_list|)
+block|{}
+endif|#
+directive|endif
+comment|// QT_NO_DATASTREAM
+specifier|static
+name|void
+name|destructor
+argument_list|(
+argument|void *
+argument_list|)
+block|{}
+specifier|static
+name|void
+operator|*
+name|constructor
+argument_list|(
+argument|void *
+argument_list|,
+argument|const void *
+argument_list|)
+block|{
+return|return
+literal|0
+return|;
+block|}
+end_expr_stmt
 begin_ifndef
 unit|};
 ifndef|#
@@ -549,7 +627,7 @@ value|(reinterpret_cast<QMetaType::Constructor>(QMetaTypeInterface::Impl<Type>::
 comment|/*destructor*/
 value|(reinterpret_cast<QMetaType::Destructor>(QMetaTypeInterface::Impl<Type>::destructor)), \
 comment|/*size*/
-value|(sizeof(Type)), \
+value|(QTypeInfo<Type>::sizeOf), \
 comment|/*flags*/
 value|(!QTypeInfo<Type>::isStatic * QMetaType::MovableType) \             | (QTypeInfo<Type>::isComplex * QMetaType::NeedsConstruction) \             | (QTypeInfo<Type>::isComplex * QMetaType::NeedsDestruction) \ }
 end_define
