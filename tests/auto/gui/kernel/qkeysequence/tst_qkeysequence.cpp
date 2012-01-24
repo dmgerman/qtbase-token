@@ -4101,7 +4101,7 @@ argument_list|(
 literal|"Meta+Ypsilon"
 argument_list|)
 operator|<<
-literal|"Meta+Period"
+literal|"Meta+Ypsilon"
 operator|<<
 name|QKeySequence
 argument_list|(
