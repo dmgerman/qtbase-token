@@ -67,7 +67,6 @@ name|QTPLUGIN
 operator|+=
 name|qjpeg
 name|qgif
-name|qmng
 operator|#
 name|image
 name|formats
