@@ -8232,10 +8232,10 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Resets the model to its original state in any attached views.      \note Use beginResetModel() and endResetModel() instead whenever possible.     Use this method only if there is no way to call beginResetModel() before invalidating the model.     Otherwise it could lead to unexpected behaviour, especially when used with proxy models. */
+comment|/*!     \obsolete      Resets the model to its original state in any attached views.      This function emits the signals modelAboutToBeReset() and modelReset().      \note Use beginResetModel() and endResetModel() instead whenever possible.     Use this method only if there is no way to call beginResetModel() before invalidating the model.     Otherwise it could lead to unexpected behaviour, especially when used with proxy models.      For example, in this code both signals modelAboutToBeReset() and modelReset()     are emitted \e after the data changes:      \snippet doc/src/snippets/code/src_corelib_kernel_qabstractitemmodel.cpp 10      Instead you should use:      \snippet doc/src/snippets/code/src_corelib_kernel_qabstractitemmodel.cpp 11 */
 end_comment
 begin_comment
-comment|/*!     Begins a model reset operation.      A reset operation resets the model to its current state in any attached views.      \note Any views attached to this model will be reset as well.      When a model is reset it means that any previous data reported from the     model is now invalid and has to be queried for again. This also means that     the current item and any selected items will become invalid.      When a model radically changes its data it can sometimes be easier to just     call this function rather than emit dataChanged() to inform other     components when the underlying data source, or its structure, has changed.      You must call this function before resetting any internal data structures in your model     or proxy model.      \sa modelAboutToBeReset(), modelReset(), endResetModel()     \since 4.6 */
+comment|/*!     Begins a model reset operation.      A reset operation resets the model to its current state in any attached views.      \note Any views attached to this model will be reset as well.      When a model is reset it means that any previous data reported from the     model is now invalid and has to be queried for again. This also means that     the current item and any selected items will become invalid.      When a model radically changes its data it can sometimes be easier to just     call this function rather than emit dataChanged() to inform other     components when the underlying data source, or its structure, has changed.      You must call this function before resetting any internal data structures in your model     or proxy model.      This function emits the signal modelAboutToBeReset().      \sa modelAboutToBeReset(), modelReset(), endResetModel()     \since 4.6 */
 end_comment
 begin_function
 DECL|function|beginResetModel
@@ -8252,7 +8252,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     Completes a model reset operation.      You must call this function after resetting any internal data structure in your model     or proxy model.      \sa beginResetModel()     \since 4.6 */
+comment|/*!     Completes a model reset operation.      You must call this function after resetting any internal data structure in your model     or proxy model.      This function emits the signal modelReset().      \sa beginResetModel()     \since 4.6 */
 end_comment
 begin_function
 DECL|function|endResetModel
@@ -9768,7 +9768,7 @@ begin_comment
 comment|/*!     \fn QAbstractItemModel::modelAboutToBeReset()     \since 4.2      This signal is emitted when reset() is called, before the model's internal     state (e.g. persistent model indexes) has been invalidated.      \sa beginResetModel(), modelReset() */
 end_comment
 begin_comment
-comment|/*!     \fn QAbstractItemModel::modelReset()     \since 4.1      This signal is emitted when reset() is called, after the model's internal     state (e.g. persistent model indexes) has been invalidated.      Note that if a model is reset it should be considered that all information     previously retrieved from it is invalid. This includes but is not limited     to the rowCount() and columnCount(), flags(), data retrieved through data(),     and roleNames().      \sa endResetModel(), modelAboutToBeReset() */
+comment|/*!     \fn QAbstractItemModel::modelReset()     \since 4.1      This signal is emitted when reset() or endResetModel() is called, after the     model's internal state (e.g. persistent model indexes) has been invalidated.      Note that if a model is reset it should be considered that all information     previously retrieved from it is invalid. This includes but is not limited     to the rowCount() and columnCount(), flags(), data retrieved through data(),     and roleNames().      \sa endResetModel(), modelAboutToBeReset() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QModelIndex::operator<(const QModelIndex&other) const     \since 4.1      Returns true if this model index is smaller than the \a other     model index; otherwise returns false. */

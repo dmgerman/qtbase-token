@@ -188,4 +188,45 @@ end_expr_stmt
 begin_comment
 comment|//! [9]
 end_comment
+begin_comment
+comment|//! [10]
+end_comment
+begin_expr_stmt
+name|myData
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|reset
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|//! [10]
+end_comment
+begin_comment
+comment|//! [11]
+end_comment
+begin_expr_stmt
+name|beginResetModel
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|myData
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|endResetModel
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+begin_comment
+comment|//! [11]
+end_comment
 end_unit
