@@ -4773,7 +4773,45 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Handles the \a data supplied by a drag and drop operation that ended with     the given \a action.      Returns true if the data and action can be handled by the model; otherwise     returns false.      The specified \a row, \a column and \a parent indicate the location of an     item in the model where the operation ended. It is the responsibility of     the model to complete the action at the correct location.      For instance, a drop action on an item in a QTreeView can result in new     items either being inserted as children of the item specified by \a row,     \a column, and \a parent, or as siblings of the item.      When \a row and \a column are -1 it means that the dropped data should be     considered as dropped directly on \a parent. Usually this will mean     appending the data as child items of \a parent. If \a row and column are     greater than or equal zero, it means that the drop occurred just before the     specified \a row and \a column in the specified \a parent.      \sa supportedDropActions(), {Using drag and drop with item views} */
+comment|/*!     Returns whether a model can accept a drop of data.      This can be used to indicate whether a drop of certain data is allowed, for example     by using a 'forbidden' emblem on a mouse cursor during a drag operation.      This method returns true by default.      \sa dropMimeData(), {Using drag and drop with item views}  */
+end_comment
+begin_function
+DECL|function|canDropMimeData
+name|bool
+name|QAbstractItemModel
+operator|::
+name|canDropMimeData
+parameter_list|(
+specifier|const
+name|QMimeData
+modifier|*
+name|data
+parameter_list|,
+name|Qt
+operator|::
+name|DropAction
+name|action
+parameter_list|,
+name|int
+name|row
+parameter_list|,
+name|int
+name|column
+parameter_list|,
+specifier|const
+name|QModelIndex
+modifier|&
+name|parent
+parameter_list|)
+specifier|const
+block|{
+return|return
+literal|true
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Handles the \a data supplied by a drag and drop operation that ended with     the given \a action.      Returns true if the data and action can be handled by the model; otherwise     returns false.      The specified \a row, \a column and \a parent indicate the location of an     item in the model where the operation ended. It is the responsibility of     the model to complete the action at the correct location.      For instance, a drop action on an item in a QTreeView can result in new     items either being inserted as children of the item specified by \a row,     \a column, and \a parent, or as siblings of the item.      When \a row and \a column are -1 it means that the dropped data should be     considered as dropped directly on \a parent. Usually this will mean     appending the data as child items of \a parent. If \a row and column are     greater than or equal zero, it means that the drop occurred just before the     specified \a row and \a column in the specified \a parent.      \sa supportedDropActions(), canDropMimeData(), {Using drag and drop with item views} */
 end_comment
 begin_function
 DECL|function|dropMimeData
