@@ -1810,10 +1810,27 @@ name|void
 name|endMoveColumns
 argument_list|()
 block|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+name|QT_DEPRECATED
 name|void
 name|reset
 argument_list|()
+block|{
+name|beginResetModel
+argument_list|()
 block|;
+name|endResetModel
+argument_list|()
+block|;     }
+endif|#
+directive|endif
 name|void
 name|beginResetModel
 argument_list|()

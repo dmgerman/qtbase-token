@@ -8232,36 +8232,8 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     Resets the model to its original state in any attached views.      \note Use beginResetModel() and endResetModel() instead whenever possible.     Use this method only if there is no way to call beginResetModel() before invalidating the model.     Otherwise it could lead to unexpected behaviour, especially when used with proxy models. */
+comment|/*!     \obsolete      Resets the model to its original state in any attached views.      \note Use beginResetModel() and endResetModel() instead whenever possible.     Use this method only if there is no way to call beginResetModel() before invalidating the model.     Otherwise it could lead to unexpected behaviour, especially when used with proxy models. */
 end_comment
-begin_function
-DECL|function|reset
-name|void
-name|QAbstractItemModel
-operator|::
-name|reset
-parameter_list|()
-block|{
-name|Q_D
-argument_list|(
-name|QAbstractItemModel
-argument_list|)
-expr_stmt|;
-emit|emit
-name|modelAboutToBeReset
-argument_list|()
-emit|;
-name|d
-operator|->
-name|invalidatePersistentIndexes
-argument_list|()
-expr_stmt|;
-emit|emit
-name|modelReset
-argument_list|()
-emit|;
-block|}
-end_function
 begin_comment
 comment|/*!     Begins a model reset operation.      A reset operation resets the model to its current state in any attached views.      \note Any views attached to this model will be reset as well.      When a model is reset it means that any previous data reported from the     model is now invalid and has to be queried for again. This also means that     the current item and any selected items will become invalid.      When a model radically changes its data it can sometimes be easier to just     call this function rather than emit dataChanged() to inform other     components when the underlying data source, or its structure, has changed.      You must call this function before resetting any internal data structures in your model     or proxy model.      \sa modelAboutToBeReset(), modelReset(), endResetModel()     \since 4.6 */
 end_comment
