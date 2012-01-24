@@ -32335,6 +32335,9 @@ argument_list|(
 operator|&
 name|s
 argument_list|)
+operator|.
+name|toLower
+argument_list|()
 expr_stmt|;
 block|}
 name|that
@@ -33248,17 +33251,6 @@ init|=
 operator|*
 name|this
 decl_stmt|;
-name|tmp
-operator|.
-name|scheme
-operator|=
-name|tmp
-operator|.
-name|scheme
-operator|.
-name|toLower
-argument_list|()
-expr_stmt|;
 name|tmp
 operator|.
 name|host
@@ -35147,11 +35139,14 @@ operator|->
 name|scheme
 operator|=
 name|scheme
+operator|.
+name|toLower
+argument_list|()
 expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the scheme of the URL. If an empty string is returned,     this means the scheme is undefined and the URL is then relative.      \sa setScheme(), isRelative() */
+comment|/*!     Returns the scheme of the URL. If an empty string is returned,     this means the scheme is undefined and the URL is then relative.      The returned scheme is always lowercase, for convenience.      \sa setScheme(), isRelative() */
 end_comment
 begin_function
 DECL|function|scheme

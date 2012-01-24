@@ -1676,7 +1676,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"hTTp"
+literal|"http"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1786,7 +1786,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"hTTp://www1.foo.bar"
+literal|"http://www1.foo.bar"
 argument_list|)
 argument_list|)
 expr_stmt|;
