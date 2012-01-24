@@ -283,6 +283,9 @@ begin_comment
 comment|/*!     \enum QSqlDriver::IdentifierType      This enum contains a list of SQL identifier types.      \value FieldName A SQL field name     \value TableName A SQL table name */
 end_comment
 begin_comment
+comment|/*!     \enum QSqlDriver::NotificationSource      This enum contains a list of SQL notification sources.      \value Unknown The notification source is unknown     \value Self The notification source is the own connection     \value Other The notification source is another connection */
+end_comment
+begin_comment
 comment|/*!     \fn bool QSqlDriver::hasFeature(DriverFeature feature) const      Returns true if the driver supports feature \a feature; otherwise     returns false.      Note that some databases need to be open() before this can be     determined.      \sa DriverFeature */
 end_comment
 begin_comment

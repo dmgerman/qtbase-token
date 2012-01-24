@@ -153,6 +153,15 @@ name|FieldName
 block|,
 name|TableName
 block|}
+block|;      enum
+name|NotificationSource
+block|{
+name|Unknown
+block|,
+name|Self
+block|,
+name|Other
+block|}
 block|;
 name|explicit
 name|QSqlDriver
@@ -377,6 +386,14 @@ specifier|const
 name|QString
 operator|&
 name|name
+argument_list|)
+block|;
+name|void
+name|notification
+argument_list|(
+argument|const QString&name
+argument_list|,
+argument|NotificationSource source
 argument_list|)
 block|;
 name|protected
