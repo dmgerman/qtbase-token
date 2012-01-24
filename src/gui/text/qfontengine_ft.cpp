@@ -12934,6 +12934,11 @@ specifier|const
 block|{
 name|QFontDef
 name|fontDef
+argument_list|(
+name|this
+operator|->
+name|fontDef
+argument_list|)
 decl_stmt|;
 name|fontDef
 operator|.
