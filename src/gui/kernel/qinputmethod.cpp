@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<qinputpanel.h>
+file|<qinputmethod.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<private/qinputpanel_p.h>
+file|<private/qinputmethod_p.h>
 end_include
 begin_include
 include|#
@@ -29,17 +29,17 @@ begin_comment
 comment|/*!     \internal */
 end_comment
 begin_constructor
-DECL|function|QInputPanel
-name|QInputPanel
+DECL|function|QInputMethod
+name|QInputMethod
 operator|::
-name|QInputPanel
+name|QInputMethod
 parameter_list|()
 member_init_list|:
 name|QObject
 argument_list|(
 operator|*
 operator|new
-name|QInputPanelPrivate
+name|QInputMethodPrivate
 argument_list|)
 block|{
 comment|// might be instantiated before QGuiApplication is fully done, need to connect later
@@ -64,25 +64,25 @@ begin_comment
 comment|/*!     \internal */
 end_comment
 begin_destructor
-DECL|function|~QInputPanel
-name|QInputPanel
+DECL|function|~QInputMethod
+name|QInputMethod
 operator|::
 name|~
-name|QInputPanel
+name|QInputMethod
 parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \class QInputPanel     \brief The QInputPanel class provides access to the active text input method.      QInputPanel is used by the text editors for integrating to the platform text input     methods and more commonly by application views for querying various text input method-related     information like virtual keyboard visibility and keyboard dimensions.      Qt Quick also provides access to QInputPanel in QML through \l{QmlGlobalQtObject}{Qt global object}     as \c Qt.application.inputPanel property. */
+comment|/*!     \class QInputMethod     \brief The QInputMethod class provides access to the active text input method.      QInputMethod is used by the text editors for integrating to the platform text input     methods and more commonly by application views for querying various text input method-related     information like virtual keyboard visibility and keyboard dimensions.      Qt Quick also provides access to QInputMethod in QML through \l{QmlGlobalQtObject}{Qt global object}     as \c Qt.application.inputPanel property. */
 end_comment
 begin_comment
-comment|/*!     \property QInputPanel::inputItem     \brief Focused item that accepts text input     \obsolete      Input item is set and unset by the focused window. In QML Scene Graph this is done by     QQuickCanvas and the input item is either TextInput or TextEdit element. Any QObject can     behave as an input item as long as it responds to QInputMethodQueryEvent and QInputMethodEvent     events sent by the input methods.      \sa inputItemTransform, inputWindow, QInputMethodQueryEvent, QInputMethodEvent */
+comment|/*!     \property QInputMethod::inputItem     \brief Focused item that accepts text input     \obsolete      Input item is set and unset by the focused window. In QML Scene Graph this is done by     QQuickCanvas and the input item is either TextInput or TextEdit element. Any QObject can     behave as an input item as long as it responds to QInputMethodQueryEvent and QInputMethodEvent     events sent by the input methods.      \sa inputItemTransform, inputWindow, QInputMethodQueryEvent, QInputMethodEvent */
 end_comment
 begin_function
 DECL|function|inputItem
 name|QObject
 modifier|*
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|inputItem
 parameter_list|()
@@ -91,7 +91,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 return|return
@@ -107,7 +107,7 @@ end_function
 begin_function
 DECL|function|setInputItem
 name|void
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|setInputItem
 parameter_list|(
@@ -118,7 +118,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 if|if
@@ -152,7 +152,7 @@ begin_function
 DECL|function|inputWindow
 name|QWindow
 modifier|*
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|inputWindow
 parameter_list|()
@@ -172,7 +172,7 @@ end_comment
 begin_function
 DECL|function|inputItemTransform
 name|QTransform
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|inputItemTransform
 parameter_list|()
@@ -181,7 +181,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 return|return
@@ -197,7 +197,7 @@ end_comment
 begin_function
 DECL|function|setInputItemTransform
 name|void
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|setInputItemTransform
 parameter_list|(
@@ -209,7 +209,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 if|if
@@ -234,12 +234,12 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QInputPanel::cursorRectangle     \brief Input item's cursor rectangle in window coordinates.      Cursor rectangle is often used by various text editing controls     like text prediction popups for following the text being typed. */
+comment|/*!     \property QInputMethod::cursorRectangle     \brief Input item's cursor rectangle in window coordinates.      Cursor rectangle is often used by various text editing controls     like text prediction popups for following the text being typed. */
 end_comment
 begin_function
 DECL|function|cursorRectangle
 name|QRectF
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|cursorRectangle
 parameter_list|()
@@ -248,7 +248,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 if|if
@@ -325,12 +325,12 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QInputPanel::keyboardRectangle     \brief Virtual keyboard's geometry in window coordinates. */
+comment|/*!     \property QInputMethod::keyboardRectangle     \brief Virtual keyboard's geometry in window coordinates. */
 end_comment
 begin_function
 DECL|function|keyboardRectangle
 name|QRectF
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|keyboardRectangle
 parameter_list|()
@@ -339,7 +339,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 name|QPlatformInputContext
@@ -373,14 +373,14 @@ end_comment
 begin_function
 DECL|function|show
 name|void
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|show
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 name|QPlatformInputContext
@@ -409,14 +409,14 @@ end_comment
 begin_function
 DECL|function|hide
 name|void
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|hide
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 name|QPlatformInputContext
@@ -440,12 +440,12 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QInputPanel::visible     \brief Virtual keyboard's visibility on the screen      Input panel visibility remains false for devices     with no virtual keyboards.      \sa show(), hide() */
+comment|/*!     \property QInputMethod::visible     \brief Virtual keyboard's visibility on the screen      Input method visibility remains false for devices     with no virtual keyboards.      \sa show(), hide() */
 end_comment
 begin_function
 DECL|function|visible
 name|bool
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|visible
 parameter_list|()
@@ -454,7 +454,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 name|QPlatformInputContext
@@ -487,7 +487,7 @@ end_comment
 begin_function
 DECL|function|setVisible
 name|void
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|setVisible
 parameter_list|(
@@ -506,12 +506,12 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QInputPanel::animating     \brief True when the virtual keyboard is being opened or closed.      Animating is false when keyboard is fully open or closed.     When \c animating is \c true and \c visibility is \c true keyboard     is being opened. When \c animating is \c true and \c visibility is     false keyboard is being closed. */
+comment|/*!     \property QInputMethod::animating     \brief True when the virtual keyboard is being opened or closed.      Animating is false when keyboard is fully open or closed.     When \c animating is \c true and \c visibility is \c true keyboard     is being opened. When \c animating is \c true and \c visibility is     false keyboard is being closed. */
 end_comment
 begin_function
 DECL|function|isAnimating
 name|bool
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|isAnimating
 parameter_list|()
@@ -520,7 +520,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 name|QPlatformInputContext
@@ -548,12 +548,12 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QInputPanel::locale     \brief Current input locale. */
+comment|/*!     \property QInputMethod::locale     \brief Current input locale. */
 end_comment
 begin_function
 DECL|function|locale
 name|QLocale
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|locale
 parameter_list|()
@@ -562,7 +562,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 name|QPlatformInputContext
@@ -593,14 +593,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QInputPanel::inputDirection     \brief Current input direction. */
+comment|/*!     \property QInputMethod::inputDirection     \brief Current input direction. */
 end_comment
 begin_function
 DECL|function|inputDirection
 name|Qt
 operator|::
 name|LayoutDirection
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|inputDirection
 parameter_list|()
@@ -609,7 +609,7 @@ block|{
 name|Q_D
 argument_list|(
 specifier|const
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 name|QPlatformInputContext
@@ -644,7 +644,7 @@ end_comment
 begin_function
 DECL|function|update
 name|void
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|update
 parameter_list|(
@@ -656,7 +656,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 if|if
@@ -717,14 +717,14 @@ end_comment
 begin_function
 DECL|function|reset
 name|void
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|reset
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 name|QPlatformInputContext
@@ -753,14 +753,14 @@ end_comment
 begin_function
 DECL|function|commit
 name|void
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|commit
 parameter_list|()
 block|{
 name|Q_D
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 name|QPlatformInputContext
@@ -789,7 +789,7 @@ end_comment
 begin_function
 DECL|function|invokeAction
 name|void
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|invokeAction
 parameter_list|(
@@ -802,7 +802,7 @@ parameter_list|)
 block|{
 name|Q_D
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 name|QPlatformInputContext
@@ -835,14 +835,14 @@ end_comment
 begin_function
 DECL|function|q_connectFocusObject
 name|void
-name|QInputPanelPrivate
+name|QInputMethodPrivate
 operator|::
 name|q_connectFocusObject
 parameter_list|()
 block|{
 name|Q_Q
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 name|QObject
@@ -885,7 +885,7 @@ end_function
 begin_function
 DECL|function|q_checkFocusObject
 name|void
-name|QInputPanelPrivate
+name|QInputMethodPrivate
 operator|::
 name|q_checkFocusObject
 parameter_list|(
@@ -896,7 +896,7 @@ parameter_list|)
 block|{
 name|Q_Q
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 argument_list|)
 expr_stmt|;
 name|bool
@@ -961,6 +961,6 @@ end_macro
 begin_include
 include|#
 directive|include
-file|"moc_qinputpanel.cpp"
+file|"moc_qinputmethod.cpp"
 end_include
 end_unit

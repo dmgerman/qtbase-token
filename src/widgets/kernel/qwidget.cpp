@@ -198,7 +198,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qinputpanel.h>
+file|<QtGui/qinputmethod.h>
 end_include
 begin_include
 include|#
@@ -1381,7 +1381,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|setInputItemTransform
@@ -10712,7 +10712,7 @@ argument_list|)
 condition|)
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|update
@@ -10727,7 +10727,7 @@ else|else
 block|{
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|reset
@@ -10735,7 +10735,7 @@ argument_list|()
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|update
@@ -31170,7 +31170,7 @@ name|hints
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|update
@@ -35394,7 +35394,7 @@ condition|)
 block|{
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|reset
@@ -35402,7 +35402,7 @@ argument_list|()
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|update
@@ -35498,7 +35498,7 @@ condition|)
 block|{
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|update
@@ -35639,7 +35639,7 @@ name|on
 condition|)
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|reset
@@ -35647,7 +35647,7 @@ argument_list|()
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|update
@@ -36824,7 +36824,7 @@ block|{
 comment|// updating everything since this is currently called for any kind of state change
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|update

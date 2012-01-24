@@ -252,7 +252,7 @@ name|bool
 argument_list|)
 block|;
 name|void
-name|resetInputPanel
+name|resetInputMethod
 argument_list|()
 block|;
 specifier|inline

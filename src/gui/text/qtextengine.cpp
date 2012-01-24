@@ -80,7 +80,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qinputpanel.h>
+file|<qinputmethod.h>
 end_include
 begin_include
 include|#
@@ -8147,7 +8147,7 @@ name|qApp
 condition|?
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputDirection

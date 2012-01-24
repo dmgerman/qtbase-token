@@ -46,7 +46,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qinputpanel.h>
+file|<QtGui/qinputmethod.h>
 end_include
 begin_include
 include|#
@@ -225,7 +225,7 @@ name|focus
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem
@@ -286,12 +286,12 @@ name|MouseButtonRelease
 condition|)
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|invokeAction
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|Click
 argument_list|,
@@ -361,7 +361,7 @@ parameter_list|()
 block|{
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|update
@@ -392,7 +392,7 @@ name|Q_UNUSED
 argument_list|(
 argument|widget
 argument_list|)
-comment|// nothing to be done here, as we use a weak pointer in the input panel
+comment|// nothing to be done here, as we use a weak pointer in the input method
 block|}
 end_function
 begin_comment
@@ -408,7 +408,7 @@ parameter_list|()
 block|{
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|reset

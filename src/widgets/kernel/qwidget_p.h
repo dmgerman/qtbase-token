@@ -76,7 +76,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qinputpanel.h"
+file|"QtGui/qinputmethod.h"
 end_include
 begin_include
 include|#
@@ -1715,7 +1715,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|// tells the input panel about the widgets transform
+comment|// tells the input method about the widgets transform
 end_comment
 begin_function_decl
 name|void
@@ -2732,7 +2732,7 @@ condition|)
 block|{
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|show

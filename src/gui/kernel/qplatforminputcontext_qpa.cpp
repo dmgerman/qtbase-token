@@ -24,7 +24,7 @@ file|"private/qkeymapper_p.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QPlatformInputContext     \brief The QPlatformInputContext class abstracts the input method dependent data and composing state.      An input method is responsible for inputting complex text that cannot     be inputted via simple keymap. It converts a sequence of input     events (typically key events) into a text string through the input     method specific converting process. The class of the processes are     widely ranging from simple finite state machine to complex text     translator that pools a whole paragraph of a text with text     editing capability to perform grammar and semantic analysis.      To abstract such different input method specific intermediate     information, Qt offers the QPlatformInputContext as base class. The     concept is well known as 'input context' in the input method     domain. An input context is created for a text widget in response     to a demand. It is ensured that an input context is prepared for     an input method before input to a text widget.      QPlatformInputContext provides an interface the actual input methods     can derive from by reimplementing methods.      \sa QInputPanel */
+comment|/*!     \class QPlatformInputContext     \brief The QPlatformInputContext class abstracts the input method dependent data and composing state.      An input method is responsible for inputting complex text that cannot     be inputted via simple keymap. It converts a sequence of input     events (typically key events) into a text string through the input     method specific converting process. The class of the processes are     widely ranging from simple finite state machine to complex text     translator that pools a whole paragraph of a text with text     editing capability to perform grammar and semantic analysis.      To abstract such different input method specific intermediate     information, Qt offers the QPlatformInputContext as base class. The     concept is well known as 'input context' in the input method     domain. An input context is created for a text widget in response     to a demand. It is ensured that an input context is prepared for     an input method before input to a text widget.      QPlatformInputContext provides an interface the actual input methods     can derive from by reimplementing methods.      \sa QInputMethod */
 comment|/*!     \internal  */
 DECL|function|QPlatformInputContext
 name|QPlatformInputContext
@@ -63,7 +63,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Method to be called when input method needs to be reset. Called by QInputPanel::reset().     No further QInputMethodEvents should be sent as response.  */
+comment|/*!     Method to be called when input method needs to be reset. Called by QInputMethod::reset().     No further QInputMethodEvents should be sent as response.  */
 end_comment
 begin_function
 DECL|function|reset
@@ -84,7 +84,7 @@ parameter_list|()
 block|{ }
 end_function
 begin_comment
-comment|/*!     Notification on editor updates. Called by QInputPanel::update().  */
+comment|/*!     Notification on editor updates. Called by QInputMethod::update().  */
 end_comment
 begin_function
 DECL|function|update
@@ -109,7 +109,7 @@ name|QPlatformInputContext
 operator|::
 name|invokeAction
 parameter_list|(
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|Action
 name|action
@@ -128,7 +128,7 @@ if|if
 condition|(
 name|action
 operator|==
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|Click
 condition|)
@@ -181,7 +181,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Active QPlatformInputContext is responsible for providing keyboardRectangle property to QInputPanel.     In addition of providing the value in keyboardRect function, it also needs to call this emit     function whenever the property changes.  */
+comment|/*!     Active QPlatformInputContext is responsible for providing keyboardRectangle property to QInputMethod.     In addition of providing the value in keyboardRect function, it also needs to call this emit     function whenever the property changes.  */
 end_comment
 begin_function
 DECL|function|emitKeyboardRectChanged
@@ -194,7 +194,7 @@ block|{
 emit|emit
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|keyboardRectangleChanged
@@ -203,7 +203,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function can be reimplemented to return true whenever input panel is animating     shown or hidden. Default implementation returns false.  */
+comment|/*!     This function can be reimplemented to return true whenever input method is animating     shown or hidden. Default implementation returns false.  */
 end_comment
 begin_function
 DECL|function|isAnimating
@@ -220,7 +220,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Active QPlatformInputContext is responsible for providing animating property to QInputPanel.     In addition of providing the value in isAnimation function, it also needs to call this emit     function whenever the property changes.  */
+comment|/*!     Active QPlatformInputContext is responsible for providing animating property to QInputMethod.     In addition of providing the value in isAnimation function, it also needs to call this emit     function whenever the property changes.  */
 end_comment
 begin_function
 DECL|function|emitAnimatingChanged
@@ -233,7 +233,7 @@ block|{
 emit|emit
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|animatingChanged
@@ -283,7 +283,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Active QPlatformInputContext is responsible for providing visible property to QInputPanel.     In addition of providing the value in isInputPanelVisible function, it also needs to call this emit     function whenever the property changes.  */
+comment|/*!     Active QPlatformInputContext is responsible for providing visible property to QInputMethod.     In addition of providing the value in isInputPanelVisible function, it also needs to call this emit     function whenever the property changes.  */
 end_comment
 begin_function
 DECL|function|emitInputPanelVisibleChanged
@@ -296,7 +296,7 @@ block|{
 emit|emit
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|visibleChanged
@@ -332,7 +332,7 @@ block|{
 emit|emit
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|localeChanged
@@ -375,7 +375,7 @@ block|{
 emit|emit
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputDirectionChanged

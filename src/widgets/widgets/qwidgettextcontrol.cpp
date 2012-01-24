@@ -170,7 +170,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qinputpanel.h>
+file|<qinputmethod.h>
 end_include
 begin_include
 include|#
@@ -9162,7 +9162,7 @@ name|contextWidget
 condition|)
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|update
@@ -9941,12 +9941,12 @@ name|MouseButtonRelease
 condition|)
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|invokeAction
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|Click
 argument_list|,
@@ -15183,7 +15183,7 @@ argument_list|()
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|reset

@@ -11649,7 +11649,7 @@ condition|)
 block|{
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|reset

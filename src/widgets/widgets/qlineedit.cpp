@@ -2719,7 +2719,7 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|->
-name|resetInputPanel
+name|resetInputMethod
 argument_list|()
 expr_stmt|;
 name|d
@@ -2749,7 +2749,7 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|->
-name|resetInputPanel
+name|resetInputMethod
 argument_list|()
 expr_stmt|;
 name|d
@@ -2779,7 +2779,7 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|->
-name|resetInputPanel
+name|resetInputMethod
 argument_list|()
 expr_stmt|;
 name|d

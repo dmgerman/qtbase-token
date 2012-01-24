@@ -54,7 +54,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"qinputpanel.h"
+file|"qinputmethod.h"
 end_include
 begin_include
 include|#
@@ -1261,11 +1261,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|resetInputPanel
+DECL|function|resetInputMethod
 name|void
 name|QLineEditPrivate
 operator|::
-name|resetInputPanel
+name|resetInputMethod
 parameter_list|()
 block|{
 name|Q_Q
@@ -1285,7 +1285,7 @@ condition|)
 block|{
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|reset
@@ -1295,7 +1295,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   This function is not intended as polymorphic usage. Just a shared code   fragment that calls QInputPanel::invokeAction for this   class. */
+comment|/*!   This function is not intended as polymorphic usage. Just a shared code   fragment that calls QInputMethod::invokeAction for this   class. */
 end_comment
 begin_function
 DECL|function|sendMouseEventToInputContext
@@ -1387,12 +1387,12 @@ name|MouseButtonRelease
 condition|)
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|invokeAction
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|Click
 argument_list|,

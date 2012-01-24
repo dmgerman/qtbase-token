@@ -206,13 +206,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|QInputPanel
+name|QInputMethod
 modifier|*
 name|p
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 decl_stmt|;
 name|connect
@@ -293,7 +293,7 @@ name|QIBusPlatformInputContext
 operator|::
 name|invokeAction
 parameter_list|(
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|Action
 name|a
@@ -314,7 +314,7 @@ if|if
 condition|(
 name|a
 operator|==
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|Click
 condition|)
@@ -387,7 +387,7 @@ name|input
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem
@@ -489,7 +489,7 @@ name|r
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|cursorRectangle
@@ -513,7 +513,7 @@ name|inputWindow
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputWindow
@@ -602,7 +602,7 @@ name|input
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem
@@ -659,7 +659,7 @@ name|input
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem
@@ -777,7 +777,7 @@ name|input
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem

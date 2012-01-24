@@ -149,7 +149,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qinputpanel.h>
+file|<QtGui/qinputmethod.h>
 end_include
 begin_include
 include|#
@@ -21899,7 +21899,7 @@ condition|)
 return|return;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|update
@@ -22003,7 +22003,7 @@ name|qApp
 condition|)
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|update
@@ -29920,7 +29920,7 @@ condition|)
 block|{
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|reset
@@ -29931,7 +29931,7 @@ else|else
 block|{
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|update

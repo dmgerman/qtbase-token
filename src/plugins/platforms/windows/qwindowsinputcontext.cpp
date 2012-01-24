@@ -335,7 +335,7 @@ name|connect
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 argument_list|,
 name|SIGNAL
@@ -394,7 +394,7 @@ name|fo
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem
@@ -516,19 +516,19 @@ name|hwnd
 condition|)
 return|return;
 specifier|const
-name|QInputPanel
+name|QInputMethod
 modifier|*
-name|inputPanel
+name|inputMethod
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 decl_stmt|;
 name|QRect
 name|cursorRectangle
 init|=
-name|inputPanel
+name|inputMethod
 operator|->
 name|cursorRectangle
 argument_list|()
@@ -757,7 +757,7 @@ name|QWindowsInputContext
 operator|::
 name|invokeAction
 parameter_list|(
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|Action
 name|action
@@ -770,7 +770,7 @@ if|if
 condition|(
 name|action
 operator|!=
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|Click
 operator|||
@@ -1231,7 +1231,7 @@ name|fo
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem
@@ -1252,7 +1252,7 @@ name|window
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputWindow
@@ -1591,7 +1591,7 @@ name|fo
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem
@@ -1974,7 +1974,7 @@ name|fo
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem
@@ -2258,7 +2258,7 @@ name|fo
 init|=
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem

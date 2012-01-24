@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qinputpanel_p.h>
+file|<private/qinputmethod_p.h>
 end_include
 begin_include
 include|#
@@ -79,7 +79,7 @@ argument_list|)
 member_init_list|,
 name|m_action
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|Click
 argument_list|)
@@ -162,7 +162,7 @@ specifier|virtual
 name|void
 name|invokeAction
 parameter_list|(
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|Action
 name|action
@@ -307,7 +307,7 @@ name|InputMethodQueries
 name|m_lastQueries
 decl_stmt|;
 DECL|member|m_action
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|Action
 name|m_action
@@ -457,23 +457,23 @@ block|}
 class|;
 end_class
 begin_class
-DECL|class|tst_qinputpanel
+DECL|class|tst_qinputmethod
 class|class
-name|tst_qinputpanel
+name|tst_qinputmethod
 super|:
 specifier|public
 name|QObject
 block|{
 name|Q_OBJECT
 public|public:
-DECL|function|tst_qinputpanel
-name|tst_qinputpanel
+DECL|function|tst_qinputmethod
+name|tst_qinputmethod
 parameter_list|()
 block|{}
-DECL|function|~tst_qinputpanel
+DECL|function|~tst_qinputmethod
 specifier|virtual
 name|~
-name|tst_qinputpanel
+name|tst_qinputmethod
 parameter_list|()
 block|{}
 private|private
@@ -546,26 +546,26 @@ end_class
 begin_function
 DECL|function|initTestCase
 name|void
-name|tst_qinputpanel
+name|tst_qinputmethod
 operator|::
 name|initTestCase
 parameter_list|()
 block|{
-name|QInputPanelPrivate
+name|QInputMethodPrivate
 modifier|*
-name|inputPanelPrivate
+name|inputMethodPrivate
 init|=
-name|QInputPanelPrivate
+name|QInputMethodPrivate
 operator|::
 name|get
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|inputPanelPrivate
+name|inputMethodPrivate
 operator|->
 name|testContext
 operator|=
@@ -577,7 +577,7 @@ end_function
 begin_function
 DECL|function|visible
 name|void
-name|tst_qinputpanel
+name|tst_qinputmethod
 operator|::
 name|visible
 parameter_list|()
@@ -586,7 +586,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|visible
@@ -597,7 +597,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|show
@@ -607,7 +607,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|visible
@@ -618,7 +618,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|hide
@@ -628,7 +628,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|visible
@@ -639,7 +639,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|setVisible
@@ -651,7 +651,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|visible
@@ -662,7 +662,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|setVisible
@@ -674,7 +674,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|visible
@@ -688,7 +688,7 @@ end_function
 begin_function
 DECL|function|animating
 name|void
-name|tst_qinputpanel
+name|tst_qinputmethod
 operator|::
 name|animating
 parameter_list|()
@@ -697,7 +697,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|isAnimating
@@ -716,7 +716,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|isAnimating
@@ -735,7 +735,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|isAnimating
@@ -749,7 +749,7 @@ name|spy
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 argument_list|,
 name|SIGNAL
@@ -779,7 +779,7 @@ end_function
 begin_function
 DECL|function|keyboarRectangle
 name|void
-name|tst_qinputpanel
+name|tst_qinputmethod
 operator|::
 name|keyboarRectangle
 parameter_list|()
@@ -788,7 +788,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|keyboardRectangle
@@ -817,7 +817,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|keyboardRectangle
@@ -840,7 +840,7 @@ name|spy
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 argument_list|,
 name|SIGNAL
@@ -870,7 +870,7 @@ end_function
 begin_function
 DECL|function|inputItem
 name|void
-name|tst_qinputpanel
+name|tst_qinputmethod
 operator|::
 name|inputItem
 parameter_list|()
@@ -880,7 +880,7 @@ argument_list|(
 operator|!
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem
@@ -892,7 +892,7 @@ name|spy
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 argument_list|,
 name|SIGNAL
@@ -904,7 +904,7 @@ argument_list|)
 decl_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|setInputItem
@@ -917,7 +917,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItem
@@ -940,7 +940,7 @@ expr_stmt|;
 comment|// reset
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|setInputItem
@@ -953,7 +953,7 @@ end_function
 begin_function
 DECL|function|inputItemTransform
 name|void
-name|tst_qinputpanel
+name|tst_qinputmethod
 operator|::
 name|inputItemTransform
 parameter_list|()
@@ -962,7 +962,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItemTransform
@@ -977,7 +977,7 @@ name|spy
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 argument_list|,
 name|SIGNAL
@@ -1019,7 +1019,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|setInputItemTransform
@@ -1031,7 +1031,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputItemTransform
@@ -1053,7 +1053,7 @@ expr_stmt|;
 comment|// reset
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|setInputItemTransform
@@ -1067,7 +1067,7 @@ end_function
 begin_function
 DECL|function|cursorRectangle
 name|void
-name|tst_qinputpanel
+name|tst_qinputmethod
 operator|::
 name|cursorRectangle
 parameter_list|()
@@ -1076,7 +1076,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|cursorRectangle
@@ -1118,7 +1118,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|setInputItemTransform
@@ -1128,7 +1128,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|setInputItem
@@ -1141,7 +1141,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|cursorRectangle
@@ -1167,7 +1167,7 @@ expr_stmt|;
 comment|// reset
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|setInputItem
@@ -1177,7 +1177,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|setInputItemTransform
@@ -1191,7 +1191,7 @@ end_function
 begin_function
 DECL|function|invokeAction
 name|void
-name|tst_qinputpanel
+name|tst_qinputmethod
 operator|::
 name|invokeAction
 parameter_list|()
@@ -1202,7 +1202,7 @@ name|m_platformInputContext
 operator|.
 name|m_action
 argument_list|,
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|Click
 argument_list|)
@@ -1218,12 +1218,12 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|invokeAction
 argument_list|(
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|ContextMenu
 argument_list|,
@@ -1236,7 +1236,7 @@ name|m_platformInputContext
 operator|.
 name|m_action
 argument_list|,
-name|QInputPanel
+name|QInputMethod
 operator|::
 name|ContextMenu
 argument_list|)
@@ -1255,7 +1255,7 @@ end_function
 begin_function
 DECL|function|reset
 name|void
-name|tst_qinputpanel
+name|tst_qinputmethod
 operator|::
 name|reset
 parameter_list|()
@@ -1271,7 +1271,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|reset
@@ -1288,7 +1288,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|reset
@@ -1308,7 +1308,7 @@ end_function
 begin_function
 DECL|function|commit
 name|void
-name|tst_qinputpanel
+name|tst_qinputmethod
 operator|::
 name|commit
 parameter_list|()
@@ -1324,7 +1324,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|commit
@@ -1341,7 +1341,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|commit
@@ -1361,14 +1361,14 @@ end_function
 begin_function
 DECL|function|update
 name|void
-name|tst_qinputpanel
+name|tst_qinputmethod
 operator|::
 name|update
 parameter_list|()
 block|{
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|setInputItem
@@ -1405,7 +1405,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|update
@@ -1443,7 +1443,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|update
@@ -1483,7 +1483,7 @@ name|QCOMPARE
 argument_list|(
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|keyboardRectangle
@@ -1504,7 +1504,7 @@ expr_stmt|;
 comment|// reset
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|setInputItem
@@ -1517,7 +1517,7 @@ end_function
 begin_function
 DECL|function|query
 name|void
-name|tst_qinputpanel
+name|tst_qinputmethod
 operator|::
 name|query
 parameter_list|()
@@ -1611,7 +1611,7 @@ end_function
 begin_function
 DECL|function|inputDirection
 name|void
-name|tst_qinputpanel
+name|tst_qinputmethod
 operator|::
 name|inputDirection
 parameter_list|()
@@ -1627,7 +1627,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputDirection
@@ -1653,7 +1653,7 @@ argument_list|)
 expr_stmt|;
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|locale
@@ -1673,12 +1673,12 @@ end_function
 begin_macro
 name|QTEST_MAIN
 argument_list|(
-argument|tst_qinputpanel
+argument|tst_qinputmethod
 argument_list|)
 end_macro
 begin_include
 include|#
 directive|include
-file|"tst_qinputpanel.moc"
+file|"tst_qinputmethod.moc"
 end_include
 end_unit

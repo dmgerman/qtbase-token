@@ -155,7 +155,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qinputpanel.h>
+file|<QtGui/qinputmethod.h>
 end_include
 begin_include
 include|#
@@ -6945,7 +6945,7 @@ condition|)
 block|{
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|reset
@@ -15557,7 +15557,7 @@ name|QEvent
 operator|::
 name|RequestSoftwareInputPanel
 case|:
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|show
@@ -15569,7 +15569,7 @@ name|QEvent
 operator|::
 name|CloseSoftwareInputPanel
 case|:
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|hide
@@ -17637,7 +17637,7 @@ begin_comment
 comment|// QT_NO_IM
 end_comment
 begin_comment
-comment|/*!     \since 4.2     \obsolete      Returns the current keyboard input locale. Replaced with QInputPanel::locale() */
+comment|/*!     \since 4.2     \obsolete      Returns the current keyboard input locale. Replaced with QInputMethod::locale() */
 end_comment
 begin_function
 DECL|function|keyboardInputLocale
@@ -17652,7 +17652,7 @@ name|qApp
 condition|?
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|locale
@@ -17666,7 +17666,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2     \obsolete      Returns the current keyboard input direction. Replaced with QInputPanel::inputDirection() */
+comment|/*!     \since 4.2     \obsolete      Returns the current keyboard input direction. Replaced with QInputMethod::inputDirection() */
 end_comment
 begin_function
 DECL|function|keyboardInputDirection
@@ -17683,7 +17683,7 @@ name|qApp
 condition|?
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|inputDirection
