@@ -8727,6 +8727,13 @@ block|,
 name|isDummy
 operator|=
 name|false
+block|,
+name|sizeOf
+operator|=
+expr|sizeof
+operator|(
+name|T
+operator|)
 block|}
 block|; }
 expr_stmt|;
@@ -8764,6 +8771,10 @@ block|,
 name|isDummy
 operator|=
 name|false
+block|,
+name|sizeOf
+operator|=
+literal|0
 block|}
 block|; }
 expr_stmt|;
@@ -8804,6 +8815,14 @@ block|,
 name|isDummy
 operator|=
 name|false
+block|,
+name|sizeOf
+operator|=
+expr|sizeof
+operator|(
+name|T
+operator|*
+operator|)
 block|}
 block|; }
 expr_stmt|;
@@ -8817,7 +8836,7 @@ parameter_list|(
 name|CONTAINER
 parameter_list|)
 define|\
-value|template<typename T> class CONTAINER; \ template<typename T> \ class QTypeInfo< CONTAINER<T>> \ { \ public: \     enum { \         isPointer = false, \         isComplex = true, \         isStatic = false, \         isLarge = (sizeof(CONTAINER<T>)> sizeof(void*)), \         isDummy = false \     }; \ };
+value|template<typename T> class CONTAINER; \ template<typename T> \ class QTypeInfo< CONTAINER<T>> \ { \ public: \     enum { \         isPointer = false, \         isComplex = true, \         isStatic = false, \         isLarge = (sizeof(CONTAINER<T>)> sizeof(void*)), \         isDummy = false, \         sizeOf = sizeof(CONTAINER<T>) \     }; \ };
 end_define
 begin_macro
 DECL|function|Q_DECLARE_MOVABLE_CONTAINER
@@ -8896,7 +8915,7 @@ parameter_list|,
 name|FLAGS
 parameter_list|)
 define|\
-value|class QTypeInfo<TYPE> \ { \ public: \     enum { \         isComplex = (((FLAGS)& Q_PRIMITIVE_TYPE) == 0), \         isStatic = (((FLAGS)& (Q_MOVABLE_TYPE | Q_PRIMITIVE_TYPE)) == 0), \         isLarge = (sizeof(TYPE)>sizeof(void*)), \         isPointer = false, \         isDummy = (((FLAGS)& Q_DUMMY_TYPE) != 0) \     }; \     static inline const char *name() { return #TYPE; } \ }
+value|class QTypeInfo<TYPE> \ { \ public: \     enum { \         isComplex = (((FLAGS)& Q_PRIMITIVE_TYPE) == 0), \         isStatic = (((FLAGS)& (Q_MOVABLE_TYPE | Q_PRIMITIVE_TYPE)) == 0), \         isLarge = (sizeof(TYPE)>sizeof(void*)), \         isPointer = false, \         isDummy = (((FLAGS)& Q_DUMMY_TYPE) != 0), \         sizeOf = sizeof(TYPE) \     }; \     static inline const char *name() { return #TYPE; } \ }
 end_define
 begin_define
 DECL|macro|Q_DECLARE_TYPEINFO
