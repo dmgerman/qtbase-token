@@ -3938,6 +3938,9 @@ parameter_list|(
 name|XPThemeData
 modifier|&
 name|themeData
+parameter_list|,
+name|bool
+name|forceFallback
 parameter_list|)
 block|{
 if|if
@@ -4104,9 +4107,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+specifier|const
 name|bool
 name|useFallback
 init|=
+name|forceFallback
+operator|||
 name|dc
 operator|==
 literal|0

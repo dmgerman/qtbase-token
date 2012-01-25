@@ -1367,9 +1367,9 @@ block|;
 name|void
 name|drawBackground
 argument_list|(
-name|XPThemeData
-operator|&
-name|themeData
+argument|XPThemeData&themeData
+argument_list|,
+argument|bool forceFallback = false
 argument_list|)
 block|;
 name|void
