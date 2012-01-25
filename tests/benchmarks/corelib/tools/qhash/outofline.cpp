@@ -289,6 +289,39 @@ name|h
 return|;
 block|}
 end_function
+begin_comment
+comment|// The Java's hashing algorithm for strings is a variation of D. J. Bernstein
+end_comment
+begin_comment
+comment|// hashing algorithm appeared here http://cr.yp.to/cdb/cdb.txt
+end_comment
+begin_comment
+comment|// and informally known as DJB33XX - DJB's 33 Times Xor.
+end_comment
+begin_comment
+comment|// Java uses DJB31XA, that is, 31 Times Add.
+end_comment
+begin_comment
+comment|// The original algorithm was a loop around  "(h<< 5) + h ^ c",
+end_comment
+begin_comment
+comment|// which is indeed "h * 33 ^ c"; it was then changed to
+end_comment
+begin_comment
+comment|// "(h<< 5) - h ^ c", so "h * 31 ^ c", and the XOR changed to a sum:
+end_comment
+begin_comment
+comment|// "(h<< 5) - h + c", which can save some assembly instructions.
+end_comment
+begin_comment
+comment|// Still, we can avoid writing the multiplication as "(h<< 5) - h"
+end_comment
+begin_comment
+comment|// -- the compiler will turn it into a shift and an addition anyway
+end_comment
+begin_comment
+comment|// (for instance, gcc 4.4 does that even at -O0).
+end_comment
 begin_function
 DECL|function|qHash
 name|uint
