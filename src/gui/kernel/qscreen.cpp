@@ -667,7 +667,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QScreen::orientation     \brief the screen orientation      The screen orientation represents the physical orientation     of the display. For example, the screen orientation of a mobile device     will change based on the device is being held, and a desktop display     might be rotated so that it's in portrait mode.      \sa primaryOrientation(), orientationChanged() */
+comment|/*!     \property QScreen::orientation     \brief the screen orientation      The screen orientation represents the physical orientation     of the display. For example, the screen orientation of a mobile device     will change based on the device is being held, and a desktop display     might be rotated so that it's in portrait mode.      Qt::PrimaryOrientation is never returned.      \sa primaryOrientation(), orientationChanged() */
 end_comment
 begin_function
 DECL|function|orientation

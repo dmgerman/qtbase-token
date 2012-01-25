@@ -241,6 +241,19 @@ name|setVisible
 name|NOTIFY
 name|visibleChanged
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+name|Qt
+operator|::
+name|ScreenOrientation
+name|contentOrientation
+name|READ
+name|contentOrientation
+name|WRITE
+name|reportContentOrientationChange
+name|NOTIFY
+name|contentOrientationChanged
+argument_list|)
 name|public
 range|:     enum
 name|SurfaceType
@@ -1129,6 +1142,15 @@ name|bool
 name|arg
 parameter_list|)
 function_decl|;
+name|void
+name|contentOrientationChanged
+argument_list|(
+name|Qt
+operator|::
+name|ScreenOrientation
+name|orientation
+argument_list|)
+decl_stmt|;
 name|private
 name|Q_SLOTS
 range|:

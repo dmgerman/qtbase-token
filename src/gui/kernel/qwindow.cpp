@@ -1415,6 +1415,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|d
+operator|->
+name|contentOrientation
+operator|==
+name|orientation
+condition|)
+return|return;
+if|if
+condition|(
 operator|!
 name|d
 operator|->
@@ -1445,10 +1454,16 @@ argument_list|(
 name|orientation
 argument_list|)
 expr_stmt|;
+emit|emit
+name|contentOrientationChanged
+argument_list|(
+name|orientation
+argument_list|)
+emit|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the actual content orientation.    This is the last value set with reportContentOrientationChange(),   except Qt::PrimaryOrientation gets converted to the screen's   primary orientation. */
+comment|/*!   Returns the actual content orientation.    This is the last value set with reportContentOrientationChange(). It defaults   to Qt::PrimaryOrientation. */
 end_comment
 begin_function
 DECL|function|contentOrientation
@@ -1468,20 +1483,6 @@ name|QWindow
 argument_list|)
 expr_stmt|;
 return|return
-name|d
-operator|->
-name|contentOrientation
-operator|==
-name|Qt
-operator|::
-name|PrimaryOrientation
-condition|?
-name|screen
-argument_list|()
-operator|->
-name|primaryOrientation
-argument_list|()
-else|:
 name|d
 operator|->
 name|contentOrientation
@@ -1549,7 +1550,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the actual window orientation.    \sa requestWindowOrientation() */
+comment|/*!   Returns the actual window orientation.    The default value is Qt::PrimaryOrientation.    \sa requestWindowOrientation() */
 end_comment
 begin_function
 DECL|function|windowOrientation
@@ -1569,20 +1570,6 @@ name|QWindow
 argument_list|)
 expr_stmt|;
 return|return
-name|d
-operator|->
-name|windowOrientation
-operator|==
-name|Qt
-operator|::
-name|PrimaryOrientation
-condition|?
-name|screen
-argument_list|()
-operator|->
-name|primaryOrientation
-argument_list|()
-else|:
 name|d
 operator|->
 name|windowOrientation
