@@ -443,20 +443,12 @@ operator|::
 name|Format_RGB16
 return|;
 default|default:
-break|break;
-block|}
-name|qFatal
-argument_list|(
-literal|"Unsupported display depth %d"
-argument_list|,
-name|depth
-argument_list|)
-expr_stmt|;
 return|return
 name|QImage
 operator|::
 name|Format_Invalid
 return|;
+block|}
 block|}
 end_function
 begin_constructor
@@ -863,6 +855,16 @@ name|format
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|visualInfo
+condition|)
+name|qFatal
+argument_list|(
+literal|"Could not initialize GLX"
+argument_list|)
+expr_stmt|;
 elif|#
 directive|elif
 name|defined
@@ -960,14 +962,19 @@ operator|&
 name|matchingCount
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|visualInfo
+condition|)
+name|qFatal
+argument_list|(
+literal|"Could not initialize EGL"
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 comment|//XCB_USE_GLX
-if|if
-condition|(
-name|visualInfo
-condition|)
-block|{
 name|m_depth
 operator|=
 name|visualInfo
@@ -1102,15 +1109,11 @@ operator|&
 name|a
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|qFatal
+name|XFree
 argument_list|(
-literal|"no window!"
+name|visualInfo
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 endif|#

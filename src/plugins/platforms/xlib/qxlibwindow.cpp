@@ -250,6 +250,16 @@ name|format
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|visualInfo
+condition|)
+name|qFatal
+argument_list|(
+literal|"Could not initialize GLX"
+argument_list|)
+expr_stmt|;
 else|#
 directive|else
 name|QPlatformWindowFormat
@@ -353,14 +363,19 @@ operator|&
 name|matchingCount
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|visualInfo
+condition|)
+name|qFatal
+argument_list|(
+literal|"Could not initialize EGL"
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 comment|//!defined(QT_OPENGL_ES_2)
-if|if
-condition|(
-name|visualInfo
-condition|)
-block|{
 name|mDepth
 operator|=
 name|visualInfo
@@ -510,15 +525,11 @@ operator|&
 name|a
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|qFatal
+name|XFree
 argument_list|(
-literal|"no window!"
+name|visualInfo
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 endif|#
