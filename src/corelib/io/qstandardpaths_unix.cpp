@@ -10,16 +10,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qprocess.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<qurl.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qdir.h>
 end_include
 begin_include
