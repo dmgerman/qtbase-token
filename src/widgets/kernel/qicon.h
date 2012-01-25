@@ -48,12 +48,6 @@ name|QIconEngine
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QIconEngineV2
-name|class
-name|QIconEngineV2
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|Q_WIDGETS_EXPORT
 name|QIcon
@@ -113,14 +107,6 @@ name|explicit
 name|QIcon
 parameter_list|(
 name|QIconEngine
-modifier|*
-name|engine
-parameter_list|)
-function_decl|;
-name|explicit
-name|QIcon
-parameter_list|(
-name|QIconEngineV2
 modifier|*
 name|engine
 parameter_list|)

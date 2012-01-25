@@ -278,7 +278,7 @@ name|class
 name|QIconLoaderEngine
 range|:
 name|public
-name|QIconEngineV2
+name|QIconEngine
 block|{
 name|public
 operator|:
@@ -329,7 +329,7 @@ argument_list|,
 argument|QIcon::State state
 argument_list|)
 block|;
-name|QIconEngineV2
+name|QIconEngine
 operator|*
 name|clone
 argument_list|()

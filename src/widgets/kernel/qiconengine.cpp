@@ -14,7 +14,7 @@ file|"qpainter.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!   \class QIconEngine    \brief The QIconEngine class provides an abstract base class for QIcon renderers.    \ingroup painting   \inmodule QtWidgets    \bold {Use QIconEngineV2 instead.}    An icon engine provides the rendering functions for a QIcon. Each icon has a   corresponding icon engine that is responsible for drawing the icon with a   requested size, mode and state.    The icon is rendered by the paint() function, and the icon can additionally be   obtained as a pixmap with the pixmap() function (the default implementation   simply uses paint() to achieve this). The addPixmap() function can be used to   add new pixmaps to the icon engine, and is used by QIcon to add specialized   custom pixmaps.    The paint(), pixmap(), and addPixmap() functions are all virtual, and can   therefore be reimplemented in subclasses of QIconEngine.    \sa QIconEngineV2, QIconEnginePlugin  */
+comment|/*!   \class QIconEngine    \brief The QIconEngine class provides an abstract base class for QIcon renderers.    \ingroup painting   \inmodule QtWidgets    An icon engine provides the rendering functions for a QIcon. Each icon has a   corresponding icon engine that is responsible for drawing the icon with a   requested size, mode and state.    The icon is rendered by the paint() function, and the icon can additionally be   obtained as a pixmap with the pixmap() function (the default implementation   simply uses paint() to achieve this). The addPixmap() function can be used to   add new pixmaps to the icon engine, and is used by QIcon to add specialized   custom pixmaps.    The paint(), pixmap(), and addPixmap() functions are all virtual, and can   therefore be reimplemented in subclasses of QIconEngine.    \sa QIconEnginePlugin  */
 comment|/*!   \fn virtual void QIconEngine::paint(QPainter *painter, const QRect&rect, QIcon::Mode mode, QIcon::State state) = 0;    Uses the given \a painter to paint the icon with the required \a mode and   \a state into the rectangle \a rect. */
 comment|/*!  Returns the actual size of the icon the engine provides for the   requested \a size, \a mode and \a state. The default implementation   returns the given \a size.  */
 DECL|function|actualSize
@@ -184,25 +184,19 @@ parameter_list|)
 block|{ }
 end_function
 begin_comment
-comment|// version 2 functions
+comment|/*!     \enum QIconEngine::IconEngineHook     \since 4.5      These enum values are used for virtual_hook() to allow additional     queries to icon engine without breaking binary compatibility.      \value AvailableSizesHook Allows to query the sizes of the     contained pixmaps for pixmap-based engines. The \a data argument     of the virtual_hook() function is a AvailableSizesArgument pointer     that should be filled with icon sizes. Engines that work in terms     of a scalable, vectorial format normally return an empty list.      \value IconNameHook Allows to query the name used to create the     icon, for example when instantiating an icon using     QIcon::fromTheme().      \sa virtual_hook()  */
 end_comment
 begin_comment
-comment|/*!     \class QIconEngineV2      \brief The QIconEngineV2 class provides an abstract base class for QIcon renderers.      \ingroup painting     \inmodule QtWidgets      \since 4.3      An icon engine renders \l{QIcon}s. With icon engines, you can     customize icons. Qt provides a default engine that makes icons     adhere to the current style by scaling the icons and providing a     disabled appearance.      An engine is installed on an icon either through a QIcon     constructor or through a QIconEnginePluginV2. The plugins are used     by Qt if a specific engine is not given when the icon is created.     See the QIconEngineV2 class description to learn how to create     icon engine plugins.      An icon engine provides the rendering functions for a QIcon. Each     icon has a corresponding icon engine that is responsible for drawing     the icon with a requested size, mode and state.      QIconEngineV2 extends the API of QIconEngine to allow streaming of     the icon engine contents, and should be used instead of QIconEngine     for implementing new icon engines.      \sa QIconEnginePluginV2  */
+comment|/*!     \class QIconEngine::AvailableSizesArgument     \since 4.5      \inmodule QtWidgets      This struct represents arguments to virtual_hook() function when     \a id parameter is QIconEngine::AvailableSizesHook.      \sa virtual_hook(), QIconEngine::IconEngineHook  */
 end_comment
 begin_comment
-comment|/*!     \enum QIconEngineV2::IconEngineHook     \since 4.5      These enum values are used for virtual_hook() to allow additional     queries to icon engine without breaking binary compatibility.      \value AvailableSizesHook Allows to query the sizes of the     contained pixmaps for pixmap-based engines. The \a data argument     of the virtual_hook() function is a AvailableSizesArgument pointer     that should be filled with icon sizes. Engines that work in terms     of a scalable, vectorial format normally return an empty list.      \value IconNameHook Allows to query the name used to create the     icon, for example when instantiating an icon using     QIcon::fromTheme().      \sa virtual_hook()  */
+comment|/*!     \variable QIconEngine::AvailableSizesArgument::mode     \brief the requested mode of an image.      \sa QIcon::Mode */
 end_comment
 begin_comment
-comment|/*!     \class QIconEngineV2::AvailableSizesArgument     \since 4.5      \inmodule QtWidgets      This struct represents arguments to virtual_hook() function when     \a id parameter is QIconEngineV2::AvailableSizesHook.      \sa virtual_hook(), QIconEngineV2::IconEngineHook  */
+comment|/*!     \variable QIconEngine::AvailableSizesArgument::state     \brief the requested state of an image.      \sa QIcon::State */
 end_comment
 begin_comment
-comment|/*!     \variable QIconEngineV2::AvailableSizesArgument::mode     \brief the requested mode of an image.      \sa QIcon::Mode */
-end_comment
-begin_comment
-comment|/*!     \variable QIconEngineV2::AvailableSizesArgument::state     \brief the requested state of an image.      \sa QIcon::State */
-end_comment
-begin_comment
-comment|/*!     \variable QIconEngineV2::AvailableSizesArgument::sizes      \brief image sizes that are available with specified \a mode and     \a state. This is an output parameter and is filled after call to     virtual_hook(). Engines that work in terms of a scalable,     vectorial format normally return an empty list. */
+comment|/*!     \variable QIconEngine::AvailableSizesArgument::sizes      \brief image sizes that are available with specified \a mode and     \a state. This is an output parameter and is filled after call to     virtual_hook(). Engines that work in terms of a scalable,     vectorial format normally return an empty list. */
 end_comment
 begin_comment
 comment|/*!     Returns a key that identifies this icon engine.  */
@@ -210,7 +204,7 @@ end_comment
 begin_function
 DECL|function|key
 name|QString
-name|QIconEngineV2
+name|QIconEngine
 operator|::
 name|key
 parameter_list|()
@@ -223,30 +217,15 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a clone of this icon engine.  */
+comment|/*! \fn QIconEngine *QIconEngine::clone() const      Reimplement this method to return a clone of this icon engine.  */
 end_comment
-begin_function
-DECL|function|clone
-name|QIconEngineV2
-modifier|*
-name|QIconEngineV2
-operator|::
-name|clone
-parameter_list|()
-specifier|const
-block|{
-return|return
-literal|0
-return|;
-block|}
-end_function
 begin_comment
-comment|/*!     Reads icon engine contents from the QDataStream \a in. Returns     true if the contents were read; otherwise returns false.      QIconEngineV2's default implementation always return false.  */
+comment|/*!     Reads icon engine contents from the QDataStream \a in. Returns     true if the contents were read; otherwise returns false.      QIconEngine's default implementation always return false.  */
 end_comment
 begin_function
 DECL|function|read
 name|bool
-name|QIconEngineV2
+name|QIconEngine
 operator|::
 name|read
 parameter_list|(
@@ -260,12 +239,12 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Writes the contents of this engine to the QDataStream \a out.     Returns true if the contents were written; otherwise returns false.      QIconEngineV2's default implementation always return false.  */
+comment|/*!     Writes the contents of this engine to the QDataStream \a out.     Returns true if the contents were written; otherwise returns false.      QIconEngine's default implementation always return false.  */
 end_comment
 begin_function
 DECL|function|write
 name|bool
-name|QIconEngineV2
+name|QIconEngine
 operator|::
 name|write
 parameter_list|(
@@ -280,12 +259,12 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Additional method to allow extending QIconEngineV2 without     adding new virtual methods (and without breaking binary compatibility).     The actual action and format of \a data depends on \a id argument     which is in fact a constant from IconEngineHook enum.      \sa IconEngineHook */
+comment|/*!     \since 4.5      Additional method to allow extending QIconEngine without     adding new virtual methods (and without breaking binary compatibility).     The actual action and format of \a data depends on \a id argument     which is in fact a constant from IconEngineHook enum.      \sa IconEngineHook */
 end_comment
 begin_function
 DECL|function|virtual_hook
 name|void
-name|QIconEngineV2
+name|QIconEngine
 operator|::
 name|virtual_hook
 parameter_list|(
@@ -303,12 +282,12 @@ name|id
 condition|)
 block|{
 case|case
-name|QIconEngineV2
+name|QIconEngine
 operator|::
 name|AvailableSizesHook
 case|:
 block|{
-name|QIconEngineV2
+name|QIconEngine
 operator|::
 name|AvailableSizesArgument
 modifier|&
@@ -317,7 +296,7 @@ init|=
 operator|*
 cast|reinterpret_cast
 argument_list|<
-name|QIconEngineV2
+name|QIconEngine
 operator|::
 name|AvailableSizesArgument
 operator|*
@@ -349,7 +328,7 @@ name|QList
 argument_list|<
 name|QSize
 argument_list|>
-name|QIconEngineV2
+name|QIconEngine
 operator|::
 name|availableSizes
 parameter_list|(
@@ -363,6 +342,7 @@ operator|::
 name|State
 name|state
 parameter_list|)
+specifier|const
 block|{
 name|AvailableSizesArgument
 name|arg
@@ -379,9 +359,18 @@ name|state
 operator|=
 name|state
 expr_stmt|;
+cast|const_cast
+argument_list|<
+name|QIconEngine
+operator|*
+argument_list|>
+argument_list|(
+name|this
+argument_list|)
+operator|->
 name|virtual_hook
 argument_list|(
-name|QIconEngineV2
+name|QIconEngine
 operator|::
 name|AvailableSizesHook
 argument_list|,
@@ -409,17 +398,27 @@ end_comment
 begin_function
 DECL|function|iconName
 name|QString
-name|QIconEngineV2
+name|QIconEngine
 operator|::
 name|iconName
 parameter_list|()
+specifier|const
 block|{
 name|QString
 name|name
 decl_stmt|;
+cast|const_cast
+argument_list|<
+name|QIconEngine
+operator|*
+argument_list|>
+argument_list|(
+name|this
+argument_list|)
+operator|->
 name|virtual_hook
 argument_list|(
-name|QIconEngineV2
+name|QIconEngine
 operator|::
 name|IconNameHook
 argument_list|,
