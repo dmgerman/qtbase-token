@@ -91,21 +91,6 @@ function_decl|;
 block|}
 class|;
 end_class
-begin_decl_stmt
-DECL|variable|N
-specifier|const
-name|int
-name|N
-init|=
-literal|1000000
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-specifier|extern
-name|double
-name|s
-decl_stmt|;
-end_decl_stmt
 begin_comment
 comment|///////////////////// QHash /////////////////////
 end_comment
