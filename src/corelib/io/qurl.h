@@ -140,16 +140,13 @@ specifier|const
 name|QString
 modifier|&
 name|url
+parameter_list|,
+name|ParsingMode
+name|mode
+init|=
+name|TolerantMode
 parameter_list|)
 function_decl|;
-name|QUrl
-argument_list|(
-argument|const QString&url
-argument_list|,
-argument|ParsingMode mode
-argument_list|)
-empty_stmt|;
-comment|// ### Qt 5: merge the two constructors, with mode = TolerantMode
 name|QUrl
 argument_list|(
 specifier|const
@@ -245,28 +242,11 @@ specifier|const
 name|QString
 modifier|&
 name|url
-parameter_list|)
-function_decl|;
-name|void
-name|setUrl
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|url
 parameter_list|,
 name|ParsingMode
 name|mode
-parameter_list|)
-function_decl|;
-comment|// ### Qt 5: merge the two setUrl() functions, with mode = TolerantMode
-name|void
-name|setEncodedUrl
-parameter_list|(
-specifier|const
-name|QByteArray
-modifier|&
-name|url
+init|=
+name|TolerantMode
 parameter_list|)
 function_decl|;
 name|void
@@ -279,9 +259,10 @@ name|url
 parameter_list|,
 name|ParsingMode
 name|mode
+init|=
+name|TolerantMode
 parameter_list|)
 function_decl|;
-comment|// ### Qt 5: merge the two setEncodedUrl() functions, with mode = TolerantMode
 name|bool
 name|isValid
 argument_list|()
@@ -431,18 +412,15 @@ parameter_list|)
 function_decl|;
 name|int
 name|port
-argument_list|()
-specifier|const
-expr_stmt|;
-name|int
-name|port
 argument_list|(
 name|int
 name|defaultPort
+operator|=
+operator|-
+literal|1
 argument_list|)
 decl|const
 decl_stmt|;
-comment|// ### Qt 5: merge the two port() functions, with defaultPort = -1
 name|void
 name|setPath
 parameter_list|(
@@ -810,22 +788,13 @@ specifier|const
 name|QByteArray
 modifier|&
 name|url
-parameter_list|)
-function_decl|;
-specifier|static
-name|QUrl
-name|fromEncoded
-parameter_list|(
-specifier|const
-name|QByteArray
-modifier|&
-name|url
 parameter_list|,
 name|ParsingMode
 name|mode
+init|=
+name|TolerantMode
 parameter_list|)
 function_decl|;
-comment|// ### Qt 5: merge the two fromEncoded() functions, with mode = TolerantMode
 specifier|static
 name|QUrl
 name|fromUserInput

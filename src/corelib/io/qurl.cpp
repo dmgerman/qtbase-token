@@ -33921,42 +33921,7 @@ begin_comment
 comment|/*!     \macro QT_NO_URL_CAST_FROM_STRING     \relates QUrl      Disables automatic conversions from QString (or char *) to QUrl.      Compiling your code with this define is useful when you have a lot of     code that uses QString for file names and you wish to convert it to     use QUrl for network transparency. In any code that uses QUrl, it can     help avoid missing QUrl::resolved() calls, and other misuses of     QString to QUrl conversions.      \oldcode         url = filename; // probably not what you want     \newcode         url = QUrl::fromLocalFile(filename);         url = baseurl.resolved(QUrl(filename));     \endcode      \sa QT_NO_CAST_FROM_ASCII */
 end_comment
 begin_comment
-comment|/*!     Constructs a URL by parsing \a url. \a url is assumed to be in human     readable representation, with no percent encoding. QUrl will automatically     percent encode all characters that are not allowed in a URL.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qurl.cpp 0      To construct a URL from an encoded string, call fromEncoded():      \snippet doc/src/snippets/code/src_corelib_io_qurl.cpp 1      \sa setUrl(), setEncodedUrl(), fromEncoded(), TolerantMode */
-end_comment
-begin_constructor
-DECL|function|QUrl
-name|QUrl
-operator|::
-name|QUrl
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|url
-parameter_list|)
-member_init_list|:
-name|d
-argument_list|(
-literal|0
-argument_list|)
-block|{
-if|if
-condition|(
-operator|!
-name|url
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|setUrl
-argument_list|(
-name|url
-argument_list|)
-expr_stmt|;
-block|}
-end_constructor
-begin_comment
-comment|/*!     \overload      Parses the \a url using the parser mode \a parsingMode.      \sa setUrl() */
+comment|/*!     Constructs a URL by parsing \a url. \a url is assumed to be in human     readable representation, with no percent encoding. QUrl will automatically     percent encode all characters that are not allowed in a URL.      The parsing mode \a parsingMode is used for parsing \a url.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qurl.cpp 0      To construct a URL from an encoded string, call fromEncoded():      \snippet doc/src/snippets/code/src_corelib_io_qurl.cpp 1      \sa setUrl(), setEncodedUrl(), fromEncoded(), TolerantMode */
 end_comment
 begin_constructor
 DECL|function|QUrl
@@ -34322,32 +34287,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Constructs a URL by parsing the contents of \a url.      \a url is assumed to be in unicode format, with no percent     encoding.      Calling isValid() will tell whether or not a valid URL was     constructed.      \sa setEncodedUrl() */
-end_comment
-begin_function
-DECL|function|setUrl
-name|void
-name|QUrl
-operator|::
-name|setUrl
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|url
-parameter_list|)
-block|{
-name|setUrl
-argument_list|(
-name|url
-argument_list|,
-name|TolerantMode
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     \overload      Parses \a url using the parsing mode \a parsingMode.      \sa setEncodedUrl() */
+comment|/*!     Constructs a URL by parsing the contents of \a url.      \a url is assumed to be in unicode format, with no percent     encoding.      The parsing mode \a parsingMode is used for parsing \a url.      Calling isValid() will tell whether or not a valid URL was     constructed.      \sa setEncodedUrl() */
 end_comment
 begin_function
 DECL|function|setUrl
@@ -34583,31 +34523,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     Constructs a URL by parsing the contents of \a encodedUrl.      \a encodedUrl is assumed to be a URL string in percent encoded     form, containing only ASCII characters.      Use isValid() to determine if a valid URL was constructed.      \sa setUrl() */
-end_comment
-begin_function
-DECL|function|setEncodedUrl
-name|void
-name|QUrl
-operator|::
-name|setEncodedUrl
-parameter_list|(
-specifier|const
-name|QByteArray
-modifier|&
-name|encodedUrl
-parameter_list|)
-block|{
-name|setEncodedUrl
-argument_list|(
-name|encodedUrl
-argument_list|,
-name|TolerantMode
-argument_list|)
-expr_stmt|;
-block|}
-end_function
 begin_function
 DECL|function|isHex
 specifier|inline
@@ -34675,7 +34590,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Constructs a URL by parsing the contents of \a encodedUrl using     the given \a parsingMode. */
+comment|/*!     Constructs a URL by parsing the contents of \a encodedUrl.      \a encodedUrl is assumed to be a URL string in percent encoded     form, containing only ASCII characters.      The parsing mode \a parsingMode is used for parsing \a encodedUrl.      Use isValid() to determine if a valid URL was constructed.      \sa setUrl() */
 end_comment
 begin_function
 DECL|function|setEncodedUrl
@@ -36283,73 +36198,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the port of the URL, or -1 if the port is unspecified. */
-end_comment
-begin_function
-DECL|function|port
-name|int
-name|QUrl
-operator|::
-name|port
-parameter_list|()
-specifier|const
-block|{
-if|if
-condition|(
-operator|!
-name|d
-condition|)
-return|return
-operator|-
-literal|1
-return|;
-if|if
-condition|(
-operator|!
-name|QURL_HASFLAG
-argument_list|(
-name|d
-operator|->
-name|stateFlags
-argument_list|,
-name|QUrlPrivate
-operator|::
-name|Parsed
-argument_list|)
-condition|)
-name|d
-operator|->
-name|parse
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|QURL_HASFLAG
-argument_list|(
-name|d
-operator|->
-name|stateFlags
-argument_list|,
-name|QUrlPrivate
-operator|::
-name|Validated
-argument_list|)
-condition|)
-name|d
-operator|->
-name|validate
-argument_list|()
-expr_stmt|;
-return|return
-name|d
-operator|->
-name|port
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     \overload     \since 4.1      Returns the port of the URL, or \a defaultPort if the port is     unspecified.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qurl.cpp 3 */
+comment|/*!     \since 4.1      Returns the port of the URL, or \a defaultPort if the port is     unspecified.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qurl.cpp 3 */
 end_comment
 begin_function
 DECL|function|port
@@ -39781,7 +39630,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the human-displayable string representation of the     URL. The output can be customized by passing flags with \a     options.      \sa FormattingOptions, toEncoded() */
+comment|/*!     Returns the human-displayable string representation of the     URL. The output can be customized by passing flags with \a     options.      The resulting QString can be passed back to a QUrl later on.      \sa FormattingOptions, toEncoded() */
 end_comment
 begin_function
 DECL|function|toString
@@ -40151,40 +40000,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Parses \a input and returns the corresponding QUrl. \a input is     assumed to be in encoded form, containing only ASCII characters.      The URL is parsed using TolerantMode.      \sa toEncoded(), setUrl() */
-end_comment
-begin_function
-DECL|function|fromEncoded
-name|QUrl
-name|QUrl
-operator|::
-name|fromEncoded
-parameter_list|(
-specifier|const
-name|QByteArray
-modifier|&
-name|input
-parameter_list|)
-block|{
-name|QUrl
-name|tmp
-decl_stmt|;
-name|tmp
-operator|.
-name|setEncodedUrl
-argument_list|(
-name|input
-argument_list|,
-name|TolerantMode
-argument_list|)
-expr_stmt|;
-return|return
-name|tmp
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     \overload      Parses the URL using \a parsingMode.      \sa toEncoded(), setUrl() */
+comment|/*!     Parses \a input and returns the corresponding QUrl. \a input is     assumed to be in encoded form, containing only ASCII characters.      The URL is parsed using \a parsingMode.      \sa toEncoded(), setUrl() */
 end_comment
 begin_function
 DECL|function|fromEncoded
