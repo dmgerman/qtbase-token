@@ -142,7 +142,6 @@ name|isNull
 argument_list|()
 specifier|const
 expr_stmt|;
-comment|// ### Qt 5: remove; who would need this?
 name|QSsl
 operator|::
 name|SslProtocol
