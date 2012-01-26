@@ -379,13 +379,10 @@ expr_stmt|;
 name|int
 name|typeId
 init|=
-name|qDBusNameToTypeId
-argument_list|(
 name|mp
 operator|.
-name|typeName
+name|userType
 argument_list|()
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -718,7 +715,9 @@ comment|// check the return type first
 name|int
 name|typeId
 init|=
-name|qDBusNameToTypeId
+name|QMetaType
+operator|::
+name|type
 argument_list|(
 name|mm
 operator|.

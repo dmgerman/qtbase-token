@@ -3533,7 +3533,9 @@ continue|continue;
 name|int
 name|returnType
 init|=
-name|qDBusNameToTypeId
+name|QMetaType
+operator|::
+name|type
 argument_list|(
 name|mm
 operator|.

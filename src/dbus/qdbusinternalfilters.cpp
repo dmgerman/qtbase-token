@@ -1552,38 +1552,16 @@ name|id
 init|=
 name|mp
 operator|.
-name|type
+name|userType
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|id
-operator|==
-name|QVariant
-operator|::
-name|UserType
 condition|)
 block|{
-comment|// dynamic type
-name|id
-operator|=
-name|qDBusNameToTypeId
-argument_list|(
-name|mp
-operator|.
-name|typeName
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|id
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-comment|// type not registered?
+comment|// type not registered or invalid / void?
 name|qWarning
 argument_list|(
 literal|"QDBusConnection: Unable to handle unregistered datatype '%s' for property '%s::%s'"
@@ -1608,12 +1586,13 @@ return|return
 name|PropertyWriteFailed
 return|;
 block|}
-block|}
 if|if
 condition|(
 name|id
 operator|!=
-literal|0xff
+name|QMetaType
+operator|::
+name|QVariant
 operator|&&
 name|value
 operator|.
@@ -2242,13 +2221,10 @@ comment|// is it a registered property?
 name|int
 name|typeId
 init|=
-name|qDBusNameToTypeId
-argument_list|(
 name|mp
 operator|.
-name|typeName
+name|userType
 argument_list|()
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
