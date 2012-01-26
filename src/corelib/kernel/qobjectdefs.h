@@ -244,6 +244,13 @@ define|#
 directive|define
 name|Q_SLOT
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_META_MACROS
+end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -301,13 +308,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_META_MACROS
-end_comment
 begin_if
 if|#
 directive|if
