@@ -246,6 +246,12 @@ argument_list|,
 argument|int height
 argument_list|)
 block|;
+name|void
+name|updateServerWindowOrientation
+argument_list|(
+argument|Qt::ScreenOrientation orientation
+argument_list|)
+block|;
 name|private
 operator|:
 name|QMeeGoPlatformInputContextPrivate
