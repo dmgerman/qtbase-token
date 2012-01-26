@@ -1188,7 +1188,7 @@ begin_comment
 comment|/*!     \fn void QOpenGLFunctions::glBindBuffer(GLenum target, GLuint buffer)      Convenience function that calls glBindBuffer(\a target, \a buffer).      For more information, see the OpenGL/ES 2.0 documentation for     \l{http://www.khronos.org/opengles/sdk/docs/man/glBindBuffer.xml}{glBindBuffer()}. */
 end_comment
 begin_comment
-comment|/*!     \fn void QOpenGLFunctions::glBindFramebuffer(GLenum target, GLuint framebuffer)      Convenience function that calls glBindFramebuffer(\a target, \a framebuffer).      For more information, see the OpenGL/ES 2.0 documentation for     \l{http://www.khronos.org/opengles/sdk/docs/man/glBindFramebuffer.xml}{glBindFramebuffer()}. */
+comment|/*!     \fn void QOpenGLFunctions::glBindFramebuffer(GLenum target, GLuint framebuffer)      Convenience function that calls glBindFramebuffer(\a target, \a framebuffer).      Note that Qt will translate a \a framebuffer argument of 0 to the currently     bound QOpenGLContext's defaultFramebufferObject().      For more information, see the OpenGL/ES 2.0 documentation for     \l{http://www.khronos.org/opengles/sdk/docs/man/glBindFramebuffer.xml}{glBindFramebuffer()}. */
 end_comment
 begin_comment
 comment|/*!     \fn void QOpenGLFunctions::glBindRenderbuffer(GLenum target, GLuint renderbuffer)      Convenience function that calls glBindRenderbuffer(\a target, \a renderbuffer).      For more information, see the OpenGL/ES 2.0 documentation for     \l{http://www.khronos.org/opengles/sdk/docs/man/glBindRenderbuffer.xml}{glBindRenderbuffer()}. */

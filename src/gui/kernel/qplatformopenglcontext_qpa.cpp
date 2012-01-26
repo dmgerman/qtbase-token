@@ -7,6 +7,11 @@ include|#
 directive|include
 file|"qplatformopenglcontext_qpa.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<QOpenGLFunctions>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -65,6 +70,26 @@ name|QPlatformOpenGLContext
 parameter_list|()
 block|{ }
 end_destructor
+begin_comment
+comment|/*!     Reimplement in subclass if your platform uses framebuffer objects for surfaces.      The default implementation returns 0. */
+end_comment
+begin_function
+DECL|function|defaultFramebufferObject
+name|GLuint
+name|QPlatformOpenGLContext
+operator|::
+name|defaultFramebufferObject
+parameter_list|(
+name|QPlatformSurface
+modifier|*
+parameter_list|)
+specifier|const
+block|{
+return|return
+literal|0
+return|;
+block|}
+end_function
 begin_function
 DECL|function|context
 name|QOpenGLContext

@@ -38,6 +38,30 @@ include|#
 directive|include
 file|<QtGui/QSurfaceFormat>
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__GLEW_H__
+end_ifdef
+begin_warning
+warning|#
+directive|warning
+warning|qopenglfunctions.h is not compatible with GLEW, GLEW defines will be undefined
+end_warning
+begin_warning
+warning|#
+directive|warning
+warning|To use GLEW with Qt, do not include<qopengl.h> or<QOpenGLFunctions> after glew.h
+end_warning
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_include
+include|#
+directive|include
+file|<QtGui/qopengl.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -215,6 +239,11 @@ block|;
 name|QScreen
 operator|*
 name|screen
+argument_list|()
+specifier|const
+block|;
+name|GLuint
+name|defaultFramebufferObject
 argument_list|()
 specifier|const
 block|;

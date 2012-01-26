@@ -2850,10 +2850,8 @@ name|current_fbo
 operator|=
 name|current
 operator|->
-name|d_func
+name|defaultFramebufferObject
 argument_list|()
-operator|->
-name|default_fbo
 expr_stmt|;
 name|d
 operator|->
@@ -2868,7 +2866,7 @@ operator|->
 name|d_func
 argument_list|()
 operator|->
-name|default_fbo
+name|current_fbo
 argument_list|)
 expr_stmt|;
 block|}
@@ -3532,10 +3530,8 @@ name|current_fbo
 operator|=
 name|ctx
 operator|->
-name|d_func
+name|defaultFramebufferObject
 argument_list|()
-operator|->
-name|default_fbo
 expr_stmt|;
 name|functions
 operator|.
@@ -3548,7 +3544,7 @@ operator|->
 name|d_func
 argument_list|()
 operator|->
-name|default_fbo
+name|current_fbo
 argument_list|)
 expr_stmt|;
 ifdef|#
