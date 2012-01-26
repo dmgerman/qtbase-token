@@ -1476,7 +1476,6 @@ goto|goto
 name|init_context
 goto|;
 block|}
-comment|// ### Bad error code
 name|q
 operator|->
 name|setErrorString
@@ -1501,7 +1500,7 @@ name|setSocketError
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 expr_stmt|;
 emit|emit
@@ -1511,7 +1510,7 @@ name|error
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 emit|;
 return|return
@@ -1625,7 +1624,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// ### Bad error code
 name|q
 operator|->
 name|setErrorString
@@ -1650,7 +1648,7 @@ name|setSocketError
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInvalidUserDataError
 argument_list|)
 expr_stmt|;
 emit|emit
@@ -1660,7 +1658,7 @@ name|error
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInvalidUserDataError
 argument_list|)
 emit|;
 return|return
@@ -1906,6 +1904,15 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|q
+operator|->
+name|setSocketError
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslInvalidUserDataError
+argument_list|)
+expr_stmt|;
 emit|emit
 name|q
 operator|->
@@ -1913,7 +1920,7 @@ name|error
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInvalidUserDataError
 argument_list|)
 emit|;
 return|return
@@ -1962,6 +1969,15 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|q
+operator|->
+name|setSocketError
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslInternalError
+argument_list|)
+expr_stmt|;
 emit|emit
 name|q
 operator|->
@@ -1969,7 +1985,7 @@ name|error
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 emit|;
 return|return
@@ -2100,6 +2116,15 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|q
+operator|->
+name|setSocketError
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslInternalError
+argument_list|)
+expr_stmt|;
 emit|emit
 name|q
 operator|->
@@ -2107,7 +2132,7 @@ name|error
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 emit|;
 return|return
@@ -2160,6 +2185,15 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|q
+operator|->
+name|setSocketError
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslInvalidUserDataError
+argument_list|)
+expr_stmt|;
 emit|emit
 name|q
 operator|->
@@ -2167,7 +2201,7 @@ name|error
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInvalidUserDataError
 argument_list|)
 emit|;
 return|return
@@ -2266,7 +2300,7 @@ name|setSocketError
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 expr_stmt|;
 emit|emit
@@ -2276,7 +2310,7 @@ name|error
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 emit|;
 return|return
@@ -2468,7 +2502,6 @@ operator|!
 name|writeBio
 condition|)
 block|{
-comment|// ### Bad error code
 name|q
 operator|->
 name|setErrorString
@@ -2493,7 +2526,7 @@ name|setSocketError
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 expr_stmt|;
 emit|emit
@@ -2503,7 +2536,7 @@ name|error
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 emit|;
 return|return
@@ -3991,6 +4024,11 @@ operator|::
 name|startClientEncryption
 parameter_list|()
 block|{
+name|Q_Q
+argument_list|(
+name|QSslSocket
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -3998,7 +4036,43 @@ name|initSslContext
 argument_list|()
 condition|)
 block|{
-comment|// ### report error: internal OpenSSL failure
+name|q
+operator|->
+name|setErrorString
+argument_list|(
+name|QSslSocket
+operator|::
+name|tr
+argument_list|(
+literal|"Unable to init Ssl Context: %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|getErrorsFromOpenSsl
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|q
+operator|->
+name|setSocketError
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslInternalError
+argument_list|)
+expr_stmt|;
+emit|emit
+name|q
+operator|->
+name|error
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslInternalError
+argument_list|)
+emit|;
 return|return;
 block|}
 comment|// Start connecting. This will place outgoing data in the BIO, so we
@@ -4019,6 +4093,11 @@ operator|::
 name|startServerEncryption
 parameter_list|()
 block|{
+name|Q_Q
+argument_list|(
+name|QSslSocket
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -4026,7 +4105,43 @@ name|initSslContext
 argument_list|()
 condition|)
 block|{
-comment|// ### report error: internal OpenSSL failure
+name|q
+operator|->
+name|setErrorString
+argument_list|(
+name|QSslSocket
+operator|::
+name|tr
+argument_list|(
+literal|"Unable to init Ssl Context: %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|getErrorsFromOpenSsl
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|q
+operator|->
+name|setSocketError
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslInternalError
+argument_list|)
+expr_stmt|;
+emit|emit
+name|q
+operator|->
+name|error
+argument_list|(
+name|QAbstractSocket
+operator|::
+name|SslInternalError
+argument_list|)
+emit|;
 return|return;
 block|}
 comment|// Start connecting. This will place outgoing data in the BIO, so we
@@ -4153,7 +4268,7 @@ name|setSocketError
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 expr_stmt|;
 emit|emit
@@ -4163,7 +4278,7 @@ name|error
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 emit|;
 return|return;
@@ -4508,7 +4623,7 @@ name|setSocketError
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 expr_stmt|;
 emit|emit
@@ -4518,7 +4633,7 @@ name|error
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 emit|;
 return|return;
@@ -4818,7 +4933,7 @@ name|setSocketError
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 expr_stmt|;
 emit|emit
@@ -4828,7 +4943,7 @@ name|error
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 emit|;
 return|return;
@@ -4862,7 +4977,7 @@ name|setSocketError
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 expr_stmt|;
 emit|emit
@@ -4872,7 +4987,7 @@ name|error
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|UnknownSocketError
+name|SslInternalError
 argument_list|)
 emit|;
 break|break;

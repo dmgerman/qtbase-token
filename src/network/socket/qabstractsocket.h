@@ -159,6 +159,11 @@ name|ProxyProtocolError
 block|,
 name|OperationError
 block|,
+name|SslInternalError
+block|,
+comment|/* 20 */
+name|SslInvalidUserDataError
+block|,
 name|UnknownSocketError
 operator|=
 operator|-
