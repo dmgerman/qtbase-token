@@ -7709,7 +7709,7 @@ name|Q_STATIC_ASSERT
 parameter_list|(
 name|Condition
 parameter_list|)
-value|static_assert(Condition, #Condition)
+value|static_assert(bool(Condition), #Condition)
 end_define
 begin_define
 DECL|macro|Q_STATIC_ASSERT_X
@@ -7721,7 +7721,7 @@ name|Condition
 parameter_list|,
 name|Message
 parameter_list|)
-value|static_assert(Condition, Message)
+value|static_assert(bool(Condition), Message)
 end_define
 begin_else
 else|#
