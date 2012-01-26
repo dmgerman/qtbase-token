@@ -203,10 +203,8 @@ name|QWindowsTheme
 operator|::
 name|usePlatformNativeDialog
 parameter_list|(
-specifier|const
-name|QDialog
-modifier|*
-name|dialog
+name|DialogType
+name|type
 parameter_list|)
 specifier|const
 block|{
@@ -215,7 +213,7 @@ name|QWindowsDialogs
 operator|::
 name|useHelper
 argument_list|(
-name|dialog
+name|type
 argument_list|)
 return|;
 block|}
@@ -228,9 +226,8 @@ name|QWindowsTheme
 operator|::
 name|createPlatformDialogHelper
 parameter_list|(
-name|QDialog
-modifier|*
-name|dialog
+name|DialogType
+name|type
 parameter_list|)
 specifier|const
 block|{
@@ -239,7 +236,7 @@ name|QWindowsDialogs
 operator|::
 name|createHelper
 argument_list|(
-name|dialog
+name|type
 argument_list|)
 return|;
 block|}

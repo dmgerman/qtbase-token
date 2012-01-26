@@ -46,11 +46,7 @@ block|{
 name|public
 operator|:
 name|QCocoaFileDialogHelper
-argument_list|(
-name|QFileDialog
-operator|*
-name|dialog
-argument_list|)
+argument_list|()
 block|;
 name|virtual
 operator|~
@@ -190,10 +186,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|QFileDialog
-operator|*
-name|qtFileDialog
-block|;
 name|void
 operator|*
 name|mDelegate

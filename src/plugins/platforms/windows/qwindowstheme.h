@@ -35,8 +35,7 @@ name|virtual
 name|bool
 name|usePlatformNativeDialog
 argument_list|(
-argument|const QDialog *dialog =
-literal|0
+argument|DialogType type
 argument_list|)
 specifier|const
 block|;
@@ -45,8 +44,7 @@ name|QPlatformDialogHelper
 operator|*
 name|createPlatformDialogHelper
 argument_list|(
-argument|QDialog *dialog =
-literal|0
+argument|DialogType type
 argument_list|)
 specifier|const
 block|;
