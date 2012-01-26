@@ -8178,6 +8178,24 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|qWarning
+argument_list|(
+literal|"QVariant::save: unable to save type '%s' (type id: %d).\n"
+argument_list|,
+name|QMetaType
+operator|::
+name|typeName
+argument_list|(
+name|d
+operator|.
+name|type
+argument_list|)
+argument_list|,
+name|d
+operator|.
+name|type
+argument_list|)
+expr_stmt|;
 name|Q_ASSERT_X
 argument_list|(
 literal|false
@@ -8185,15 +8203,6 @@ argument_list|,
 literal|"QVariant::save"
 argument_list|,
 literal|"Invalid type to save"
-argument_list|)
-expr_stmt|;
-name|qWarning
-argument_list|(
-literal|"QVariant::save: unable to save type %d."
-argument_list|,
-name|d
-operator|.
-name|type
 argument_list|)
 expr_stmt|;
 block|}
