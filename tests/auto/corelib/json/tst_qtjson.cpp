@@ -7479,6 +7479,7 @@ name|file
 argument_list|(
 name|QLatin1String
 argument_list|(
+name|SRCDIR
 literal|"test.json"
 argument_list|)
 argument_list|)
@@ -7544,6 +7545,7 @@ name|bfile
 argument_list|(
 name|QLatin1String
 argument_list|(
+name|SRCDIR
 literal|"test.bjson"
 argument_list|)
 argument_list|)
@@ -7635,6 +7637,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
+name|SRCDIR
 literal|"test.json"
 argument_list|)
 expr_stmt|;
@@ -7649,6 +7652,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
+name|SRCDIR
 literal|"test2.json"
 argument_list|)
 expr_stmt|;
@@ -8748,6 +8752,7 @@ name|file
 argument_list|(
 name|QLatin1String
 argument_list|(
+name|SRCDIR
 literal|"test.json"
 argument_list|)
 argument_list|)
@@ -9260,10 +9265,13 @@ name|file
 argument_list|(
 name|QLatin1String
 argument_list|(
+name|SRCDIR
 literal|"test.json"
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|QVERIFY
+argument_list|(
 name|file
 operator|.
 name|open
@@ -9271,6 +9279,7 @@ argument_list|(
 name|QFile
 operator|::
 name|ReadOnly
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QByteArray
@@ -9281,6 +9290,15 @@ operator|.
 name|readAll
 argument_list|()
 decl_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
+name|testJson
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QJsonDocument
 name|doc
 init|=
@@ -9359,10 +9377,12 @@ name|file2
 argument_list|(
 name|QLatin1String
 argument_list|(
+name|SRCDIR
 literal|"foo.json"
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|//    QVERIFY(file2.open(QFile::ReadOnly)); // ### the file is missing o_O
 name|file2
 operator|.
 name|open
@@ -9379,6 +9399,7 @@ operator|.
 name|readAll
 argument_list|()
 expr_stmt|;
+comment|//    QVERIFY(!testJson.isEmpty());
 name|doc
 operator|=
 name|QJsonDocument
