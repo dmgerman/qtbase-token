@@ -2719,7 +2719,10 @@ name|icon2
 operator|.
 name|addFile
 argument_list|(
+name|QFINDTESTDATA
+argument_list|(
 literal|"image.png"
+argument_list|)
 argument_list|,
 name|QSize
 argument_list|(
@@ -4541,7 +4544,10 @@ block|{
 name|QPixmap
 name|pm
 argument_list|(
+name|QFINDTESTDATA
+argument_list|(
 literal|"image.png"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|QIcon
