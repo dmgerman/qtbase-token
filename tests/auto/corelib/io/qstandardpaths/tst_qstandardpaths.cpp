@@ -655,6 +655,18 @@ argument_list|,
 literal|"qstandardpaths.pro"
 argument_list|)
 decl_stmt|;
+name|QVERIFY2
+argument_list|(
+name|allFiles
+operator|.
+name|count
+argument_list|()
+operator|>
+literal|0
+argument_list|,
+literal|"qstandardpaths.pro not found in config locations!"
+argument_list|)
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|allFiles
