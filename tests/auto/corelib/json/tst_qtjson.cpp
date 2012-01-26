@@ -9309,6 +9309,15 @@ argument_list|(
 name|testJson
 argument_list|)
 decl_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
+name|doc
+operator|.
+name|isNull
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QByteArray
 name|binary
 init|=
@@ -9378,11 +9387,10 @@ argument_list|(
 name|QLatin1String
 argument_list|(
 name|SRCDIR
-literal|"foo.json"
+literal|"test3.json"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//    QVERIFY(file2.open(QFile::ReadOnly)); // ### the file is missing o_O
 name|file2
 operator|.
 name|open
@@ -9399,7 +9407,15 @@ operator|.
 name|readAll
 argument_list|()
 expr_stmt|;
-comment|//    QVERIFY(!testJson.isEmpty());
+name|QVERIFY
+argument_list|(
+operator|!
+name|testJson
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|doc
 operator|=
 name|QJsonDocument
@@ -9407,6 +9423,15 @@ operator|::
 name|fromJson
 argument_list|(
 name|testJson
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+operator|!
+name|doc
+operator|.
+name|isNull
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|binary
