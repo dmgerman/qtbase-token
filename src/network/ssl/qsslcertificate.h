@@ -138,8 +138,7 @@ argument_list|)
 empty_stmt|;
 name|QSslCertificate
 argument_list|(
-comment|// ### s/encoded/data (to be consistent with signature in .cpp file) ?
-argument|const QByteArray&encoded = QByteArray()
+argument|const QByteArray&data = QByteArray()
 argument_list|,
 argument|QSsl::EncodingFormat format = QSsl::Pem
 argument_list|)
