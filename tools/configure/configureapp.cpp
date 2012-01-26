@@ -15938,6 +15938,11 @@ name|qtConfig
 operator|+=
 literal|"svg"
 expr_stmt|;
+comment|// We currently have no switch for QtConcurrent, so add it unconditionally.
+name|qtConfig
+operator|+=
+literal|"concurrent"
+expr_stmt|;
 if|if
 condition|(
 name|dictionary
