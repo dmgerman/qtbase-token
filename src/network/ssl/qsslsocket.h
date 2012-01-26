@@ -180,7 +180,7 @@ name|void
 name|disconnectFromHost
 argument_list|()
 block|;
-comment|// ### Qt 5: Make virtual
+name|virtual
 name|void
 name|setSocketOption
 argument_list|(
@@ -189,6 +189,7 @@ argument_list|,
 argument|const QVariant&value
 argument_list|)
 block|;
+name|virtual
 name|QVariant
 name|socketOption
 argument_list|(
