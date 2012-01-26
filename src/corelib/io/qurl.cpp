@@ -3,7 +3,7 @@ begin_comment
 comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
-comment|/*!     \class QUrl      \brief The QUrl class provides a convenient interface for working     with URLs.      \reentrant     \ingroup io     \ingroup network     \ingroup shared       It can parse and construct URLs in both encoded and unencoded     form. QUrl also has support for internationalized domain names     (IDNs).      The most common way to use QUrl is to initialize it via the     constructor by passing a QString. Otherwise, setUrl() and     setEncodedUrl() can also be used.      URLs can be represented in two forms: encoded or unencoded. The     unencoded representation is suitable for showing to users, but     the encoded representation is typically what you would send to     a web server. For example, the unencoded URL     "http://b\uuml\c{}hler.example.com" would be sent to the server as     "http://xn--bhler-kva.example.com/List%20of%20applicants.xml".      A URL can also be constructed piece by piece by calling     setScheme(), setUserName(), setPassword(), setHost(), setPort(),     setPath(), setEncodedQuery() and setFragment(). Some convenience     functions are also available: setAuthority() sets the user name,     password, host and port. setUserInfo() sets the user name and     password at once.      Call isValid() to check if the URL is valid. This can be done at     any point during the constructing of a URL.      Constructing a query is particularly convenient through the use     of setQueryItems(), addQueryItem() and removeQueryItem(). Use     setQueryDelimiters() to customize the delimiters used for     generating the query string.      For the convenience of generating encoded URL strings or query     strings, there are two static functions called     fromPercentEncoding() and toPercentEncoding() which deal with     percent encoding and decoding of QStrings.      Calling isRelative() will tell whether or not the URL is     relative. A relative URL can be resolved by passing it as argument     to resolved(), which returns an absolute URL. isParentOf() is used     for determining whether one URL is a parent of another.      fromLocalFile() constructs a QUrl by parsing a local     file path. toLocalFile() converts a URL to a local file path.      The human readable representation of the URL is fetched with     toString(). This representation is appropriate for displaying a     URL to a user in unencoded form. The encoded form however, as     returned by toEncoded(), is for internal use, passing to web     servers, mail clients and so on.      QUrl conforms to the URI specification from     \l{RFC 3986} (Uniform Resource Identifier: Generic Syntax), and includes     scheme extensions from \l{RFC 1738} (Uniform Resource Locators). Case     folding rules in QUrl conform to \l{RFC 3491} (Nameprep: A Stringprep     Profile for Internationalized Domain Names (IDN)).      \section2 Character Conversions      Follow these rules to avoid erroneous character conversion when     dealing with URLs and strings:      \list     \o When creating an QString to contain a URL from a QByteArray or a        char*, always use QString::fromUtf8().     \o Favor the use of QUrl::fromEncoded() and QUrl::toEncoded() instead of        QUrl(string) and QUrl::toString() when converting a QUrl to or from        a string.     \endlist      \sa QUrlInfo */
+comment|/*!     \class QUrl      \brief The QUrl class provides a convenient interface for working     with URLs.      \reentrant     \ingroup io     \ingroup network     \ingroup shared       It can parse and construct URLs in both encoded and unencoded     form. QUrl also has support for internationalized domain names     (IDNs).      The most common way to use QUrl is to initialize it via the     constructor by passing a QString. Otherwise, setUrl() and     setEncodedUrl() can also be used.      URLs can be represented in two forms: encoded or unencoded. The     unencoded representation is suitable for showing to users, but     the encoded representation is typically what you would send to     a web server. For example, the unencoded URL     "http://b\uuml\c{}hler.example.com" would be sent to the server as     "http://xn--bhler-kva.example.com/List%20of%20applicants.xml".      A URL can also be constructed piece by piece by calling     setScheme(), setUserName(), setPassword(), setHost(), setPort(),     setPath(), setEncodedQuery() and setFragment(). Some convenience     functions are also available: setAuthority() sets the user name,     password, host and port. setUserInfo() sets the user name and     password at once.      Call isValid() to check if the URL is valid. This can be done at     any point during the constructing of a URL.      Constructing a query is particularly convenient through the use     of setQueryItems(), addQueryItem() and removeQueryItem(). Use     setQueryDelimiters() to customize the delimiters used for     generating the query string.      For the convenience of generating encoded URL strings or query     strings, there are two static functions called     fromPercentEncoding() and toPercentEncoding() which deal with     percent encoding and decoding of QStrings.      Calling isRelative() will tell whether or not the URL is     relative. A relative URL can be resolved by passing it as argument     to resolved(), which returns an absolute URL. isParentOf() is used     for determining whether one URL is a parent of another.      fromLocalFile() constructs a QUrl by parsing a local     file path. toLocalFile() converts a URL to a local file path.      The human readable representation of the URL is fetched with     toString(). This representation is appropriate for displaying a     URL to a user in unencoded form. The encoded form however, as     returned by toEncoded(), is for internal use, passing to web     servers, mail clients and so on.      QUrl conforms to the URI specification from     \l{RFC 3986} (Uniform Resource Identifier: Generic Syntax), and includes     scheme extensions from \l{RFC 1738} (Uniform Resource Locators). Case     folding rules in QUrl conform to \l{RFC 3491} (Nameprep: A Stringprep     Profile for Internationalized Domain Names (IDN)).      \section2 Character Conversions      Follow these rules to avoid erroneous character conversion when     dealing with URLs and strings:      \list     \o When creating an QString to contain a URL from a QByteArray or a        char*, always use QString::fromUtf8().     \endlist      \sa QUrlInfo */
 end_comment
 begin_comment
 comment|/*!     \enum QUrl::ParsingMode      The parsing mode controls the way QUrl parses strings.      \value TolerantMode QUrl will try to correct some common errors in URLs.                         This mode is useful when processing URLs entered by                         users.      \value StrictMode Only valid URLs are accepted. This mode is useful for                       general URL validation.      In TolerantMode, the parser corrects the following invalid input:      \list      \o Spaces and "%20": If an encoded URL contains a space, this will be     replaced with "%20". If a decoded URL contains "%20", this will be     replaced with a single space before the URL is parsed.      \o Single "%" characters: Any occurrences of a percent character "%" not     followed by exactly two hexadecimal characters (e.g., "13% coverage.html")     will be replaced by "%25".      \o Reserved and unreserved characters: An encoded URL should only     contain a few characters as literals; all other characters should     be percent-encoded. In TolerantMode, these characters will be     automatically percent-encoded where they are not allowed:             space / double-quote / "<" / ">" / "[" / "\" /             "]" / "^" / "`" / "{" / "|" / "}"      \endlist */
@@ -745,6 +745,18 @@ specifier|const
 name|QUrlParseData
 modifier|*
 name|parseData
+parameter_list|)
+function_decl|;
+name|void
+name|setEncodedUrl
+parameter_list|(
+specifier|const
+name|QByteArray
+modifier|&
+parameter_list|,
+name|QUrl
+operator|::
+name|ParsingMode
 parameter_list|)
 function_decl|;
 name|QByteArray
@@ -33921,7 +33933,7 @@ begin_comment
 comment|/*!     \macro QT_NO_URL_CAST_FROM_STRING     \relates QUrl      Disables automatic conversions from QString (or char *) to QUrl.      Compiling your code with this define is useful when you have a lot of     code that uses QString for file names and you wish to convert it to     use QUrl for network transparency. In any code that uses QUrl, it can     help avoid missing QUrl::resolved() calls, and other misuses of     QString to QUrl conversions.      \oldcode         url = filename; // probably not what you want     \newcode         url = QUrl::fromLocalFile(filename);         url = baseurl.resolved(QUrl(filename));     \endcode      \sa QT_NO_CAST_FROM_ASCII */
 end_comment
 begin_comment
-comment|/*!     Constructs a URL by parsing \a url. \a url is assumed to be in human     readable representation, with no percent encoding. QUrl will automatically     percent encode all characters that are not allowed in a URL.      The parsing mode \a parsingMode is used for parsing \a url.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qurl.cpp 0      To construct a URL from an encoded string, call fromEncoded():      \snippet doc/src/snippets/code/src_corelib_io_qurl.cpp 1      \sa setUrl(), setEncodedUrl(), fromEncoded(), TolerantMode */
+comment|/*!     Constructs a URL by parsing \a url. \a url is assumed to be in human     readable representation, with no percent encoding. QUrl will automatically     percent encode all characters that are not allowed in a URL.      The parsing mode \a parsingMode is used for parsing \a url.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qurl.cpp 0      \sa setUrl(), TolerantMode */
 end_comment
 begin_constructor
 DECL|function|QUrl
@@ -34308,6 +34320,8 @@ block|{
 name|detach
 argument_list|()
 expr_stmt|;
+name|d
+operator|->
 name|setEncodedUrl
 argument_list|(
 name|url
@@ -34511,6 +34525,8 @@ name|ABNF_reserved
 argument_list|)
 expr_stmt|;
 block|}
+name|d
+operator|->
 name|setEncodedUrl
 argument_list|(
 name|encodedUrl
@@ -34587,12 +34603,12 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Constructs a URL by parsing the contents of \a encodedUrl.      \a encodedUrl is assumed to be a URL string in percent encoded     form, containing only ASCII characters.      The parsing mode \a parsingMode is used for parsing \a encodedUrl.      Use isValid() to determine if a valid URL was constructed.      \sa setUrl() */
+comment|/*!     \fn void QUrl::setEncodedUrl(const QByteArray&encodedUrl, ParsingMode parsingMode)     Constructs a URL by parsing the contents of \a encodedUrl.      \a encodedUrl is assumed to be a URL string in percent encoded     form, containing only ASCII characters.      The parsing mode \a parsingMode is used for parsing \a encodedUrl.      \obsolete Use setUrl(QString::fromUtf8(encodedUrl), parsingMode)      \sa setUrl() */
 end_comment
 begin_function
 DECL|function|setEncodedUrl
 name|void
-name|QUrl
+name|QUrlPrivate
 operator|::
 name|setEncodedUrl
 parameter_list|(
@@ -34601,6 +34617,8 @@ name|QByteArray
 modifier|&
 name|encodedUrl
 parameter_list|,
+name|QUrl
+operator|::
 name|ParsingMode
 name|parsingMode
 parameter_list|)
@@ -34610,32 +34628,19 @@ name|tmp
 init|=
 name|encodedUrl
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|d
-condition|)
-name|d
-operator|=
-operator|new
-name|QUrlPrivate
-expr_stmt|;
-else|else
-name|d
-operator|->
 name|clear
 argument_list|()
 expr_stmt|;
 if|if
 condition|(
 operator|(
-name|d
-operator|->
 name|parsingMode
 operator|=
 name|parsingMode
 operator|)
 operator|==
+name|QUrl
+operator|::
 name|TolerantMode
 condition|)
 block|{
@@ -34975,8 +34980,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|d
-operator|->
 name|encodedOriginal
 operator|=
 name|tmp
@@ -39812,7 +39815,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the human-displayable string representation of the     URL. The output can be customized by passing flags with \a     options.      The resulting QString can be passed back to a QUrl later on.      \sa FormattingOptions, toEncoded() */
+comment|/*!     Returns the human-displayable string representation of the     URL. The output can be customized by passing flags with \a     options.      The resulting QString can be passed back to a QUrl later on.      Synonym for url(options).      \sa FormattingOptions, toEncoded(), url() */
 end_comment
 begin_function
 DECL|function|toString
@@ -40159,6 +40162,29 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Returns the human-displayable string representation of the     URL. The output can be customized by passing flags with \a     options.      The resulting QString can be passed back to a QUrl later on.      Synonym for toString(options).      \sa FormattingOptions, toEncoded(), toString() */
+end_comment
+begin_function
+DECL|function|url
+name|QString
+name|QUrl
+operator|::
+name|url
+parameter_list|(
+name|FormattingOptions
+name|options
+parameter_list|)
+specifier|const
+block|{
+return|return
+name|toString
+argument_list|(
+name|options
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Returns the encoded representation of the URL if it's valid;     otherwise an empty QByteArray is returned. The output can be     customized by passing flags with \a options.      The user info, path and fragment are all converted to UTF-8, and     all non-ASCII characters are then percent encoded. The host name     is encoded using Punycode. */
 end_comment
 begin_function
@@ -40193,41 +40219,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Parses \a input and returns the corresponding QUrl. \a input is     assumed to be in encoded form, containing only ASCII characters.      The URL is parsed using \a parsingMode.      \sa toEncoded(), setUrl() */
+comment|/*!     \fn QUrl QUrl::fromEncoded(const QByteArray&input, ParsingMode parsingMode)     \obsolete      Parses \a input and returns the corresponding QUrl. \a input is     assumed to be in encoded form, containing only ASCII characters.      The URL is parsed using \a parsingMode.      Use QUrl(QString::fromUtf8(input), parsingMode) instead.      \sa toEncoded(), setUrl() */
 end_comment
-begin_function
-DECL|function|fromEncoded
-name|QUrl
-name|QUrl
-operator|::
-name|fromEncoded
-parameter_list|(
-specifier|const
-name|QByteArray
-modifier|&
-name|input
-parameter_list|,
-name|ParsingMode
-name|parsingMode
-parameter_list|)
-block|{
-name|QUrl
-name|tmp
-decl_stmt|;
-name|tmp
-operator|.
-name|setEncodedUrl
-argument_list|(
-name|input
-argument_list|,
-name|parsingMode
-argument_list|)
-expr_stmt|;
-return|return
-name|tmp
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     Returns a decoded copy of \a input. \a input is first decoded from     percent encoding, then converted from UTF-8 to unicode. */
 end_comment
@@ -41969,10 +41962,13 @@ expr_stmt|;
 name|url
 operator|=
 name|QUrl
+argument_list|(
+name|QString
 operator|::
-name|fromEncoded
+name|fromUtf8
 argument_list|(
 name|u
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -42126,15 +42122,8 @@ argument_list|)
 return|;
 name|QUrl
 name|url
-init|=
-name|QUrl
-operator|::
-name|fromEncoded
 argument_list|(
 name|trimmedString
-operator|.
-name|toUtf8
-argument_list|()
 argument_list|,
 name|QUrl
 operator|::
@@ -42143,17 +42132,15 @@ argument_list|)
 decl_stmt|;
 name|QUrl
 name|urlPrepended
-init|=
-name|QUrl
+argument_list|(
+name|QString
 operator|::
-name|fromEncoded
+name|fromLatin1
 argument_list|(
 literal|"http://"
+argument_list|)
 operator|+
 name|trimmedString
-operator|.
-name|toUtf8
-argument_list|()
 argument_list|,
 name|QUrl
 operator|::
