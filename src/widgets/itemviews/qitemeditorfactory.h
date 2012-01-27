@@ -248,7 +248,7 @@ name|QWidget
 operator|*
 name|createEditor
 argument_list|(
-argument|QVariant::Type type
+argument|int userType
 argument_list|,
 argument|QWidget *parent
 argument_list|)
@@ -258,14 +258,14 @@ name|virtual
 name|QByteArray
 name|valuePropertyName
 argument_list|(
-argument|QVariant::Type type
+argument|int userType
 argument_list|)
 specifier|const
 block|;
 name|void
 name|registerEditor
 argument_list|(
-argument|QVariant::Type type
+argument|int userType
 argument_list|,
 argument|QItemEditorCreatorBase *creator
 argument_list|)
@@ -290,9 +290,7 @@ name|private
 operator|:
 name|QHash
 operator|<
-name|QVariant
-operator|::
-name|Type
+name|int
 block|,
 name|QItemEditorCreatorBase
 operator|*
