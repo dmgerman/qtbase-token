@@ -1726,21 +1726,6 @@ literal|0
 argument_list|)
 block|{ }
 end_constructor
-begin_destructor
-DECL|function|~QWindowsScreenManager
-name|QWindowsScreenManager
-operator|::
-name|~
-name|QWindowsScreenManager
-parameter_list|()
-block|{
-name|qDeleteAll
-argument_list|(
-name|m_screens
-argument_list|)
-expr_stmt|;
-block|}
-end_destructor
 begin_comment
 comment|/*!     \brief Triggers synchronization of screens (WM_DISPLAYCHANGE).      Subsequent events are compressed since WM_DISPLAYCHANGE is sent to     each top level window. */
 end_comment

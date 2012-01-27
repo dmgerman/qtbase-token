@@ -1250,6 +1250,14 @@ condition|)
 name|OleUninitialize
 argument_list|()
 expr_stmt|;
+name|d
+operator|->
+name|m_screenManager
+operator|.
+name|clearScreens
+argument_list|()
+expr_stmt|;
+comment|// Order: Potentially calls back to the windows.
 name|m_instance
 operator|=
 literal|0
