@@ -1416,11 +1416,6 @@ parameter_list|(
 name|XPThemeData
 modifier|&
 name|themeData
-parameter_list|,
-name|bool
-name|forceFallback
-init|=
-name|false
 parameter_list|)
 function_decl|;
 end_function_decl

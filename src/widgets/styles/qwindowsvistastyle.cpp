@@ -6548,11 +6548,8 @@ operator|->
 name|drawBackground
 argument_list|(
 name|theme
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
-comment|// Do not draw on HDC of backing store.
 name|QPainter
 name|alternatePainter
 argument_list|(
@@ -6578,11 +6575,8 @@ operator|->
 name|drawBackground
 argument_list|(
 name|theme
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
-comment|// Do not draw on HDC of backing store.
 name|pulse
 operator|->
 name|setPrimaryImage
