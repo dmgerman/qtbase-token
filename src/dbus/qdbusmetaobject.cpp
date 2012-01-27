@@ -702,23 +702,6 @@ block|{
 comment|// type name found
 name|type
 operator|=
-name|QVariant
-operator|::
-name|nameToType
-argument_list|(
-name|typeName
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|type
-operator|==
-name|QVariant
-operator|::
-name|UserType
-condition|)
-name|type
-operator|=
 name|QMetaType
 operator|::
 name|type
