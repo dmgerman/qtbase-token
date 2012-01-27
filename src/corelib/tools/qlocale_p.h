@@ -63,9 +63,219 @@ include|#
 directive|include
 file|"qlocale.h"
 end_include
-begin_macro
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-end_macro
+ifndef|#
+directive|ifndef
+name|QT_NO_SYSTEMLOCALE
+name|class
+name|QSystemLocale
+block|{
+name|public
+label|:
+name|QSystemLocale
+argument_list|()
+expr_stmt|;
+name|virtual
+operator|~
+name|QSystemLocale
+argument_list|()
+expr_stmt|;
+struct|struct
+name|CurrencyToStringArgument
+block|{
+name|CurrencyToStringArgument
+argument_list|()
+block|{ }
+name|CurrencyToStringArgument
+argument_list|(
+specifier|const
+name|QVariant
+operator|&
+name|v
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|s
+argument_list|)
+operator|:
+name|value
+argument_list|(
+name|v
+argument_list|)
+operator|,
+name|symbol
+argument_list|(
+argument|s
+argument_list|)
+block|{ }
+name|QVariant
+name|value
+expr_stmt|;
+name|QString
+name|symbol
+decl_stmt|;
+block|}
+struct|;
+enum|enum
+name|QueryType
+block|{
+name|LanguageId
+block|,
+comment|// uint
+name|CountryId
+block|,
+comment|// uint
+name|DecimalPoint
+block|,
+comment|// QString
+name|GroupSeparator
+block|,
+comment|// QString
+name|ZeroDigit
+block|,
+comment|// QString
+name|NegativeSign
+block|,
+comment|// QString
+name|DateFormatLong
+block|,
+comment|// QString
+name|DateFormatShort
+block|,
+comment|// QString
+name|TimeFormatLong
+block|,
+comment|// QString
+name|TimeFormatShort
+block|,
+comment|// QString
+name|DayNameLong
+block|,
+comment|// QString, in: int
+name|DayNameShort
+block|,
+comment|// QString, in: int
+name|MonthNameLong
+block|,
+comment|// QString, in: int
+name|MonthNameShort
+block|,
+comment|// QString, in: int
+name|DateToStringLong
+block|,
+comment|// QString, in: QDate
+name|DateToStringShort
+block|,
+comment|// QString in: QDate
+name|TimeToStringLong
+block|,
+comment|// QString in: QTime
+name|TimeToStringShort
+block|,
+comment|// QString in: QTime
+name|DateTimeFormatLong
+block|,
+comment|// QString
+name|DateTimeFormatShort
+block|,
+comment|// QString
+name|DateTimeToStringLong
+block|,
+comment|// QString in: QDateTime
+name|DateTimeToStringShort
+block|,
+comment|// QString in: QDateTime
+name|MeasurementSystem
+block|,
+comment|// uint
+name|PositiveSign
+block|,
+comment|// QString
+name|AMText
+block|,
+comment|// QString
+name|PMText
+block|,
+comment|// QString
+name|FirstDayOfWeek
+block|,
+comment|// Qt::DayOfWeek
+name|Weekdays
+block|,
+comment|// QList<Qt::DayOfWeek>
+name|CurrencySymbol
+block|,
+comment|// QString in: CurrencyToStringArgument
+name|CurrencyToString
+block|,
+comment|// QString in: qlonglong, qulonglong or double
+name|UILanguages
+block|,
+comment|// QStringList
+name|StringToStandardQuotation
+block|,
+comment|// QString in: QStringRef to quote
+name|StringToAlternateQuotation
+block|,
+comment|// QString in: QStringRef to quote
+name|ScriptId
+block|,
+comment|// uint
+name|ListToSeparatedString
+block|,
+comment|// QString
+name|LocaleChanged
+block|,
+comment|// system locale changed
+name|NativeLanguageName
+block|,
+comment|// QString
+name|NativeCountryName
+comment|// QString
+block|}
+enum|;
+name|virtual
+name|QVariant
+name|query
+argument_list|(
+name|QueryType
+name|type
+argument_list|,
+name|QVariant
+name|in
+argument_list|)
+decl|const
+decl_stmt|;
+name|virtual
+name|QLocale
+name|fallbackLocale
+argument_list|()
+specifier|const
+expr_stmt|;
+name|private
+label|:
+name|QSystemLocale
+argument_list|(
+name|bool
+argument_list|)
+expr_stmt|;
+name|friend
+name|QSystemLocale
+modifier|*
+name|QSystemLocale_globalSystemLocale
+parameter_list|()
+function_decl|;
+block|}
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_struct
 DECL|struct|QLocalePrivate
 struct|struct
@@ -1373,7 +1583,20 @@ operator|::
 name|DayOfWeek
 operator|>
 argument_list|)
+ifndef|#
+directive|ifndef
+name|QT_NO_SYSTEMLOCALE
+name|Q_DECLARE_METATYPE
+argument_list|(
+name|QSystemLocale
+operator|::
+name|CurrencyToStringArgument
+argument_list|)
 end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
