@@ -764,8 +764,10 @@ expr_stmt|;
 name|QFile
 name|file
 argument_list|(
-name|SRCDIR
+name|QFINDTESTDATA
+argument_list|(
 literal|"setSizes3.dat"
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
