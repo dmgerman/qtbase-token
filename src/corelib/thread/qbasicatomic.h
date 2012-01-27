@@ -185,7 +185,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|"qoldbasicatomic.h"
+file|"QtCore/qoldbasicatomic.h"
 end_include
 begin_undef
 DECL|macro|QT_OLD_ATOMICS
