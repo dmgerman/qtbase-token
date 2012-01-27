@@ -1021,7 +1021,6 @@ modifier|*
 name|event
 parameter_list|)
 function_decl|;
-comment|//virtual bool macEvent(EventHandlerCallRef caller, EventRef event);
 comment|//virtual int metric(PaintDeviceMetric m ) const;
 name|virtual
 name|void
@@ -1037,7 +1036,6 @@ name|void
 name|polishEvent
 parameter_list|()
 function_decl|;
-comment|//virtual bool qwsEvent(QWSEvent *event);
 comment|//void resetInputContext ();
 name|virtual
 name|void
@@ -1058,8 +1056,6 @@ name|event
 parameter_list|)
 function_decl|;
 comment|//virtual void tabletEvent(QTabletEvent *event);
-comment|//virtual bool winEvent(MSG *message, long *result);
-comment|//virtual bool x11Event(XEvent *event);
 name|virtual
 name|void
 name|hoverMoveEvent

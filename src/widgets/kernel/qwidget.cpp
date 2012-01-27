@@ -31400,45 +31400,19 @@ name|QHideEvent
 modifier|*
 parameter_list|)
 block|{ }
-comment|/*     \fn QWidget::x11Event(MSG *)      This special event handler can be reimplemented in a subclass to receive     native X11 events.      In your reimplementation of this function, if you want to stop Qt from     handling the event, return true. If you return false, this native event     is passed back to Qt, which translates it into a Qt event and sends it to     the widget.      \note Events are only delivered to this event handler if the widget is     native.      \warning This function is not portable.      \sa QApplication::x11EventFilter(), QWidget::winId() */
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_MAC
-argument_list|)
-comment|/*!     \fn bool QWidget::macEvent(EventHandlerCallRef caller, EventRef event)      This special event handler can be reimplemented in a subclass to     receive native Macintosh events.      The parameters are a bit different depending if Qt is build against Carbon     or Cocoa.  In Carbon, \a caller and \a event are the corresponding     EventHandlerCallRef and EventRef that correspond to the Carbon event     handlers that are installed. In Cocoa, \a caller is always 0 and the     EventRef is the EventRef generated from the NSEvent.      In your reimplementation of this function, if you want to stop the     event being handled by Qt, return true. If you return false, this     native event is passed back to Qt, which translates the event into     a Qt event and sends it to the widget.      \warning This function is not portable.      \warning This function was not called inside of Qt until Qt 4.4.     If you need compatibility with earlier versions of Qt, consider QApplication::macEventFilter() instead.      \sa QApplication::macEventFilter() */
-DECL|function|macEvent
+comment|/*!     This special event handler can be reimplemented in a subclass to     receive native platform events identified by \a eventType     which are passed in the \a message parameter.      In your reimplementation of this function, if you want to stop the     event being handled by Qt, return true and set \a result.     If you return false, this native event is passed back to Qt,     which translates the event into a Qt event and sends it to the widget.      \note Events are only delivered to this event handler if the widget is     has a native Window handle.      \note This function superseedes the event filter functions     x11Event(), winEvent() and macEvent() of Qt 4.      \table     \header \i Platform \i Event Type Identifier \i Message Type \i Result Type     \row \i Windows \i "windows_generic_MSG" \i MSG * \i LRESULT     \endtable */
+DECL|function|nativeEvent
 name|bool
 name|QWidget
 operator|::
-name|macEvent
+name|nativeEvent
 parameter_list|(
-name|EventHandlerCallRef
+specifier|const
+name|QByteArray
+modifier|&
+name|eventType
 parameter_list|,
-name|EventRef
-parameter_list|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-endif|#
-directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_WIN
-argument_list|)
-comment|/*!     This special event handler can be reimplemented in a subclass to     receive native Windows events which are passed in the \a message     parameter.      In your reimplementation of this function, if you want to stop the     event being handled by Qt, return true and set \a result to the value     that the window procedure should return. If you return false, this     native event is passed back to Qt, which translates the event into     a Qt event and sends it to the widget.      \warning This function is not portable.      \sa QApplication::winEventFilter() */
-DECL|function|winEvent
-name|bool
-name|QWidget
-operator|::
-name|winEvent
-parameter_list|(
-name|MSG
+name|void
 modifier|*
 name|message
 parameter_list|,
@@ -31449,6 +31423,11 @@ parameter_list|)
 block|{
 name|Q_UNUSED
 argument_list|(
+name|eventType
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
@@ -31461,31 +31440,6 @@ return|return
 literal|false
 return|;
 block|}
-endif|#
-directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_X11
-argument_list|)
-comment|/*!     \fn bool QWidget::x11Event(XEvent *event)      This special event handler can be reimplemented in a subclass to receive     native X11 events passed in the \a event parameter.      In your reimplementation of this function, if you want to stop Qt from     handling the event, return true. If you return false, this native event     is passed back to Qt, which translates it into a Qt event and sends it to     the widget.      \note Events are only delivered to this event handler if the widget is     native.      \warning This function is not portable.      \sa QApplication::x11EventFilter(), QWidget::winId() */
-DECL|function|x11Event
-name|bool
-name|QWidget
-operator|::
-name|x11Event
-parameter_list|(
-name|XEvent
-modifier|*
-parameter_list|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-endif|#
-directive|endif
 comment|/*!     Ensures that the widget has been polished by QStyle (i.e., has a     proper font and palette).      QWidget calls this function after it has been fully constructed     but before it is shown the very first time. You can call this     function if you want to ensure that the widget is polished before     doing an operation, e.g., the correct font size might be needed in     the widget's sizeHint() reimplementation. Note that this function     \e is called from the default implementation of sizeHint().      Polishing is useful for final initialization that must happen after     all constructors (from base classes as well as from subclasses)     have been called.      If you need to change some settings when a widget is polished,     reimplement event() and handle the QEvent::Polish event type.      \bold{Note:} The function is declared const so that it can be called from     other const functions (e.g., sizeHint()).      \sa event() */
 DECL|function|ensurePolished
 name|void

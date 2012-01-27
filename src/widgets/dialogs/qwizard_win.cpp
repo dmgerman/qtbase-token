@@ -2191,67 +2191,13 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-case|case
-name|WM_NCCALCSIZE
-case|:
-block|{
-name|NCCALCSIZE_PARAMS
-modifier|*
-name|lpncsp
-init|=
-operator|(
-name|NCCALCSIZE_PARAMS
-operator|*
-operator|)
-name|msg
-operator|->
-name|lParam
-decl_stmt|;
-operator|*
-name|result
-operator|=
-name|DefWindowProc
-argument_list|(
-name|msg
-operator|->
-name|hwnd
-argument_list|,
-name|msg
-operator|->
-name|message
-argument_list|,
-name|msg
-operator|->
-name|wParam
-argument_list|,
-name|msg
-operator|->
-name|lParam
-argument_list|)
-expr_stmt|;
-name|lpncsp
-operator|->
-name|rgrc
-index|[
-literal|0
-index|]
-operator|.
-name|top
-operator|-=
-operator|(
-name|vistaState
-argument_list|()
-operator|==
-name|VistaAero
-condition|?
-name|titleBarSize
-argument_list|()
-else|:
-literal|0
-operator|)
-expr_stmt|;
-break|break;
-block|}
+comment|//    case WM_NCCALCSIZE: { #fixme: If the frame size is changed, it needs to be communicated to the QWindow.
+comment|//        NCCALCSIZE_PARAMS* lpncsp = (NCCALCSIZE_PARAMS*)msg->lParam;
+comment|//        *result = DefWindowProc(msg->hwnd, msg->message, msg->wParam, msg->lParam);
+comment|//        lpncsp->rgrc[0].top -= (vistaState() == VistaAero ? titleBarSize() : 0);
+comment|//
+comment|//        break;
+comment|//    }
 default|default:
 name|retval
 operator|=
@@ -2669,13 +2615,8 @@ operator|==
 name|WM_NCCALCSIZE
 condition|)
 block|{
-if|if
-condition|(
-name|status
-condition|)
-name|collapseTopFrameStrut
-argument_list|()
-expr_stmt|;
+comment|//          if (status) #fixme
+comment|//                collapseTopFrameStrut();
 block|}
 elseif|else
 if|if
