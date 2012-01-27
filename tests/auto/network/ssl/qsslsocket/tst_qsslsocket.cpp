@@ -8146,7 +8146,7 @@ operator|->
 name|peerCertificate
 argument_list|()
 decl_stmt|;
-name|QCOMPARE
+name|QVERIFY
 argument_list|(
 name|certificate
 operator|.
@@ -8156,7 +8156,9 @@ name|QSslCertificate
 operator|::
 name|CommonName
 argument_list|)
-argument_list|,
+operator|.
+name|contains
+argument_list|(
 name|QString
 argument_list|(
 name|QtNetworkSettings
@@ -8172,8 +8174,9 @@ name|serverDomainName
 argument_list|()
 argument_list|)
 argument_list|)
+argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QVERIFY
 argument_list|(
 name|certificate
 operator|.
@@ -8183,11 +8186,14 @@ name|QSslCertificate
 operator|::
 name|CommonName
 argument_list|)
-argument_list|,
+operator|.
+name|contains
+argument_list|(
 name|QtNetworkSettings
 operator|::
 name|serverName
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|socket
