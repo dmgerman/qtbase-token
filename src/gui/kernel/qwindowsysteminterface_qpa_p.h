@@ -85,6 +85,11 @@ argument_list|(
 argument|false
 argument_list|)
 block|{ }
+name|virtual
+operator|~
+name|WindowSystemEvent
+argument_list|()
+block|{ }
 name|EventType
 name|type
 expr_stmt|;
