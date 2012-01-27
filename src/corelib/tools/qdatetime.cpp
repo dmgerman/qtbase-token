@@ -16615,8 +16615,6 @@ name|digitsStr
 argument_list|,
 operator|&
 name|ok
-argument_list|,
-literal|10
 argument_list|)
 decl_stmt|;
 if|if

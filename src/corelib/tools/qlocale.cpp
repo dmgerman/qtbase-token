@@ -4771,7 +4771,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the short int represented by the localized string \a s,     using base \a base. If \a base is 0 the base is determined     automatically using the following rules: If the string begins with     "0x", it is assumed to be hexadecimal; if it begins with "0", it     is assumed to be octal; otherwise it is assumed to be decimal.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toUShort(), toString() */
+comment|/*!     Returns the short int represented by the localized string \a s.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toUShort(), toString() */
 end_comment
 begin_function
 DECL|function|toShort
@@ -4788,9 +4788,6 @@ parameter_list|,
 name|bool
 modifier|*
 name|ok
-parameter_list|,
-name|int
-name|base
 parameter_list|)
 specifier|const
 block|{
@@ -4802,8 +4799,6 @@ argument_list|(
 name|s
 argument_list|,
 name|ok
-argument_list|,
-name|base
 argument_list|)
 decl_stmt|;
 if|if
@@ -4841,7 +4836,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the unsigned short int represented by the localized string     \a s, using base \a base. If \a base is 0 the base is determined     automatically using the following rules: If the string begins with     "0x", it is assumed to be hexadecimal; if it begins with "0", it     is assumed to be octal; otherwise it is assumed to be decimal.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toShort(), toString() */
+comment|/*!     Returns the unsigned short int represented by the localized string \a s.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toShort(), toString() */
 end_comment
 begin_function
 DECL|function|toUShort
@@ -4858,9 +4853,6 @@ parameter_list|,
 name|bool
 modifier|*
 name|ok
-parameter_list|,
-name|int
-name|base
 parameter_list|)
 specifier|const
 block|{
@@ -4872,8 +4864,6 @@ argument_list|(
 name|s
 argument_list|,
 name|ok
-argument_list|,
-name|base
 argument_list|)
 decl_stmt|;
 if|if
@@ -4907,7 +4897,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the int represented by the localized string \a s, using     base \a base. If \a base is 0 the base is determined automatically     using the following rules: If the string begins with "0x", it is     assumed to be hexadecimal; if it begins with "0", it is assumed to     be octal; otherwise it is assumed to be decimal.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toUInt(), toString() */
+comment|/*!     Returns the int represented by the localized string \a s.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toUInt(), toString() */
 end_comment
 begin_function
 DECL|function|toInt
@@ -4924,9 +4914,6 @@ parameter_list|,
 name|bool
 modifier|*
 name|ok
-parameter_list|,
-name|int
-name|base
 parameter_list|)
 specifier|const
 block|{
@@ -4938,8 +4925,6 @@ argument_list|(
 name|s
 argument_list|,
 name|ok
-argument_list|,
-name|base
 argument_list|)
 decl_stmt|;
 if|if
@@ -4977,7 +4962,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the unsigned int represented by the localized string \a s,     using base \a base. If \a base is 0 the base is determined     automatically using the following rules: If the string begins with     "0x", it is assumed to be hexadecimal; if it begins with "0", it     is assumed to be octal; otherwise it is assumed to be decimal.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toInt(), toString() */
+comment|/*!     Returns the unsigned int represented by the localized string \a s.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toInt(), toString() */
 end_comment
 begin_function
 DECL|function|toUInt
@@ -4994,9 +4979,6 @@ parameter_list|,
 name|bool
 modifier|*
 name|ok
-parameter_list|,
-name|int
-name|base
 parameter_list|)
 specifier|const
 block|{
@@ -5008,8 +4990,6 @@ argument_list|(
 name|s
 argument_list|,
 name|ok
-argument_list|,
-name|base
 argument_list|)
 decl_stmt|;
 if|if
@@ -5043,7 +5023,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the long long int represented by the localized string \a     s, using base \a base. If \a base is 0 the base is determined     automatically using the following rules: If the string begins with     "0x", it is assumed to be hexadecimal; if it begins with "0", it     is assumed to be octal; otherwise it is assumed to be decimal.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toInt(), toULongLong(), toDouble(), toString() */
+comment|/*!     Returns the long long int represented by the localized string \a s.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toInt(), toULongLong(), toDouble(), toString() */
 end_comment
 begin_function
 DECL|function|toLongLong
@@ -5060,9 +5040,6 @@ parameter_list|,
 name|bool
 modifier|*
 name|ok
-parameter_list|,
-name|int
-name|base
 parameter_list|)
 specifier|const
 block|{
@@ -5093,7 +5070,7 @@ name|stringToLongLong
 argument_list|(
 name|s
 argument_list|,
-name|base
+literal|10
 argument_list|,
 name|ok
 argument_list|,
@@ -5106,7 +5083,7 @@ begin_comment
 comment|// ### Qt5: make the return type for toULongLong() qulonglong.
 end_comment
 begin_comment
-comment|/*!     Returns the unsigned long long int represented by the localized     string \a s, using base \a base. If \a base is 0 the base is     determined automatically using the following rules: If the string     begins with "0x", it is assumed to be hexadecimal; if it begins     with "0", it is assumed to be octal; otherwise it is assumed to be     decimal.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toLongLong(), toInt(), toDouble(), toString() */
+comment|/*!     Returns the unsigned long long int represented by the localized     string \a s.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toLongLong(), toInt(), toDouble(), toString() */
 end_comment
 begin_function
 DECL|function|toULongLong
@@ -5123,9 +5100,6 @@ parameter_list|,
 name|bool
 modifier|*
 name|ok
-parameter_list|,
-name|int
-name|base
 parameter_list|)
 specifier|const
 block|{
@@ -5156,7 +5130,7 @@ name|stringToUnsLongLong
 argument_list|(
 name|s
 argument_list|,
-name|base
+literal|10
 argument_list|,
 name|ok
 argument_list|,

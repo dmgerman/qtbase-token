@@ -2303,8 +2303,6 @@ name|copy
 argument_list|,
 operator|&
 name|ok
-argument_list|,
-literal|10
 argument_list|)
 expr_stmt|;
 if|if
@@ -2359,8 +2357,6 @@ name|copy2
 argument_list|,
 operator|&
 name|ok
-argument_list|,
-literal|10
 argument_list|)
 expr_stmt|;
 block|}
