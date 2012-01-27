@@ -168,6 +168,11 @@ argument_list|()
 block|;
 specifier|static
 name|QWindowList
+name|allWindows
+argument_list|()
+block|;
+specifier|static
+name|QWindowList
 name|topLevelWindows
 argument_list|()
 block|;
