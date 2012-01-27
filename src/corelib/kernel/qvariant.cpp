@@ -7449,7 +7449,7 @@ name|QVariant
 operator|::
 name|Palette
 block|,
-literal|63
+literal|0
 block|,
 comment|// ColorGroup
 name|QVariant
