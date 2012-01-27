@@ -2172,6 +2172,13 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+operator|delete
+name|app_font
+expr_stmt|;
+name|app_font
+operator|=
+literal|0
+expr_stmt|;
 name|QFont
 operator|::
 name|cleanup
