@@ -2122,8 +2122,10 @@ name|movie
 operator|->
 name|setFileName
 argument_list|(
-name|SRCDIR
+name|QFINDTESTDATA
+argument_list|(
 literal|"red.png"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|movie
@@ -2154,8 +2156,10 @@ name|movie
 operator|->
 name|setFileName
 argument_list|(
-name|SRCDIR
+name|QFINDTESTDATA
+argument_list|(
 literal|"green.png"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|movie
