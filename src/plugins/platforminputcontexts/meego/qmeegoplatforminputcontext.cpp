@@ -135,7 +135,7 @@ block|{
 case|case
 name|Qt
 operator|::
-name|UnknownOrientation
+name|PrimaryOrientation
 case|:
 comment|// Urgh.
 case|case

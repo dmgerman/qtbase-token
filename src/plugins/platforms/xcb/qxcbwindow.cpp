@@ -5926,7 +5926,7 @@ break|break;
 case|case
 name|Qt
 operator|::
-name|UnknownOrientation
+name|PrimaryOrientation
 case|:
 break|break;
 block|}

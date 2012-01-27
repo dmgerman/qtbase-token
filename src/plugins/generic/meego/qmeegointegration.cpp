@@ -123,7 +123,7 @@ name|orientation
 init|=
 name|Qt
 operator|::
-name|UnknownOrientation
+name|PrimaryOrientation
 decl_stmt|;
 comment|// ### FIXME: This isn't perfect. We should obey the video_route (tv connected) and
 comment|// the keyboard slider.
