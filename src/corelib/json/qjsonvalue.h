@@ -76,9 +76,6 @@ name|Entry
 decl_stmt|;
 block|}
 end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
 begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
