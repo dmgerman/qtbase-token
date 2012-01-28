@@ -3815,7 +3815,7 @@ begin_function
 DECL|function|pauseMode
 name|QAbstractSocket
 operator|::
-name|PauseMode
+name|PauseModes
 name|QAbstractSocket
 operator|::
 name|pauseMode
@@ -3840,7 +3840,7 @@ name|QAbstractSocket
 operator|::
 name|setPauseMode
 parameter_list|(
-name|PauseMode
+name|PauseModes
 name|pauseMode
 parameter_list|)
 block|{

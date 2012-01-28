@@ -237,7 +237,7 @@ name|pendingClose
 decl_stmt|;
 name|QAbstractSocket
 operator|::
-name|PauseMode
+name|PauseModes
 name|pauseMode
 expr_stmt|;
 name|QString

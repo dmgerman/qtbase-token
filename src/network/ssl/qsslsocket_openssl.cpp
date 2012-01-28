@@ -5892,7 +5892,7 @@ name|q
 operator|->
 name|pauseMode
 argument_list|()
-operator|==
+operator|&
 name|QAbstractSocket
 operator|::
 name|PauseOnNotify

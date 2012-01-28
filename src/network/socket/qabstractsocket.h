@@ -229,10 +229,20 @@ expr|enum
 name|PauseMode
 block|{
 name|PauseNever
+operator|=
+literal|0x0
 block|,
 name|PauseOnNotify
+operator|=
+literal|0x1
 block|}
 block|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|PauseModes
+argument_list|,
+argument|PauseMode
+argument_list|)
 name|QAbstractSocket
 argument_list|(
 argument|SocketType socketType
@@ -251,7 +261,7 @@ name|resume
 argument_list|()
 block|;
 comment|// to continue after proxy authentication required, SSL errors etc.
-name|PauseMode
+name|PauseModes
 name|pauseMode
 argument_list|()
 specifier|const
@@ -259,7 +269,7 @@ block|;
 name|void
 name|setPauseMode
 argument_list|(
-argument|PauseMode pauseMode
+argument|PauseModes pauseMode
 argument_list|)
 block|;
 name|bool
@@ -671,6 +681,12 @@ begin_macro
 name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(
 argument|QAbstractSocket::BindMode
+argument_list|)
+end_macro
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QAbstractSocket::PauseModes
 argument_list|)
 end_macro
 begin_ifndef
