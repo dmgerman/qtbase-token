@@ -4247,9 +4247,6 @@ end_function
 begin_comment
 comment|/*!     Creates a sub-directory called \a dirName.      Returns true on success; otherwise returns false.      If the directory already exists when this function is called, it will return false.      \sa rmdir() */
 end_comment
-begin_comment
-comment|// ### Qt5: behaviour when directory already exists should be made consistent for mkdir and mkpath
-end_comment
 begin_function
 DECL|function|mkdir
 name|bool
@@ -4425,9 +4422,6 @@ block|}
 end_function
 begin_comment
 comment|/*!     Creates the directory path \a dirPath.      The function will create all parent directories necessary to     create the directory.      Returns true if successful; otherwise returns false.      If the path already exists when this function is called, it will return true.      \sa rmpath() */
-end_comment
-begin_comment
-comment|// ### Qt5: behaviour when directory already exists should be made consistent for mkdir and mkpath
 end_comment
 begin_function
 DECL|function|mkpath
