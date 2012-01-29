@@ -6185,12 +6185,12 @@ name|QLatin1String
 argument_list|(
 argument|const char *s
 argument_list|,
-argument|int size
+argument|int sz
 argument_list|)
 operator|:
 name|m_size
 argument_list|(
-name|size
+name|sz
 argument_list|)
 operator|,
 name|m_data
