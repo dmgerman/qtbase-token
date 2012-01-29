@@ -509,14 +509,6 @@ decl_stmt|;
 block|}
 class|;
 end_class
-begin_macro
-name|Q_GLOBAL_STATIC
-argument_list|(
-argument|QMutex
-argument_list|,
-argument|processManagerGlobalMutex
-argument_list|)
-end_macro
 begin_decl_stmt
 DECL|variable|processManagerInstance
 specifier|static
@@ -537,17 +529,15 @@ parameter_list|()
 block|{
 comment|// The constructor of QProcessManager should be called only once
 comment|// so we cannot use Q_GLOBAL_STATIC directly for QProcessManager
-name|QMutex
-modifier|*
-name|mutex
-init|=
+specifier|static
+name|QBasicMutex
 name|processManagerGlobalMutex
-argument_list|()
 decl_stmt|;
 name|QMutexLocker
 name|locker
 argument_list|(
-name|mutex
+operator|&
+name|processManagerGlobalMutex
 argument_list|)
 decl_stmt|;
 if|if
@@ -2479,24 +2469,6 @@ endif|#
 directive|endif
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-end_ifdef
-begin_expr_stmt
-name|Q_GLOBAL_STATIC
-argument_list|(
-name|QMutex
-argument_list|,
-name|cfbundleMutex
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|startProcess
 name|void
@@ -2760,11 +2732,15 @@ decl_stmt|;
 block|{
 comment|// CFBundle is not reentrant, since CFBundleCreate might return a reference
 comment|// to a cached bundle object. Protect the bundle calls with a mutex lock.
+specifier|static
+name|QBasicMutex
+name|cfbundleMutex
+decl_stmt|;
 name|QMutexLocker
 name|lock
 argument_list|(
+operator|&
 name|cfbundleMutex
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|QCFType
