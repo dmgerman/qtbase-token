@@ -2307,6 +2307,8 @@ literal|"-o"
 operator|<<
 literal|"/dev/null"
 operator|<<
+literal|"-fPIE"
+operator|<<
 literal|"-"
 expr_stmt|;
 name|proc
@@ -2759,6 +2761,8 @@ operator|<<
 literal|"-o"
 operator|<<
 literal|"/dev/null"
+operator|<<
+literal|"-fPIE"
 operator|<<
 literal|"-"
 expr_stmt|;
