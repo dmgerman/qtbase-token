@@ -7338,7 +7338,7 @@ name|metaType
 operator|<=
 name|int
 argument_list|(
-name|LastGuiType
+name|UserType
 argument_list|)
 condition|?
 name|QVariant
@@ -7588,6 +7588,22 @@ operator|::
 name|Qt_5_0
 condition|)
 block|{
+if|if
+condition|(
+name|typeId
+operator|==
+literal|127
+comment|/* QVariant::UserType */
+condition|)
+block|{
+name|typeId
+operator|=
+name|QMetaType
+operator|::
+name|User
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|typeId
@@ -7933,6 +7949,22 @@ block|{
 if|if
 condition|(
 name|typeId
+operator|==
+name|QMetaType
+operator|::
+name|User
+condition|)
+block|{
+name|typeId
+operator|=
+literal|127
+expr_stmt|;
+comment|// QVariant::UserType had this value in Qt4
+block|}
+elseif|else
+if|if
+condition|(
+name|typeId
 operator|>=
 literal|128
 operator|-
@@ -8049,8 +8081,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|typeId
-operator|==
+name|d
+operator|.
+name|type
+operator|>=
 name|QVariant
 operator|::
 name|UserType

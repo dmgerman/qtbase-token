@@ -595,7 +595,9 @@ name|QSizePolicy
 block|,
 name|UserType
 init|=
-literal|127
+name|QMetaType
+operator|::
+name|User
 block|,
 name|LastType
 init|=

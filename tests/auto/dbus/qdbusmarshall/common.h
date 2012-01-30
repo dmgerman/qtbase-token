@@ -4253,25 +4253,6 @@ elseif|else
 if|if
 condition|(
 name|id
-operator|<
-name|int
-argument_list|(
-name|QVariant
-operator|::
-name|UserType
-argument_list|)
-condition|)
-comment|// yes, v1.type()
-comment|// QVariant can compare
-return|return
-name|v1
-operator|==
-name|v2
-return|;
-elseif|else
-if|if
-condition|(
-name|id
 operator|==
 name|QMetaType
 operator|::
@@ -5619,6 +5600,25 @@ operator|>
 operator|(
 name|v2
 operator|)
+return|;
+elseif|else
+if|if
+condition|(
+name|id
+operator|<
+name|int
+argument_list|(
+name|QVariant
+operator|::
+name|UserType
+argument_list|)
+condition|)
+comment|// yes, v1.type()
+comment|// QVariant can compare
+return|return
+name|v1
+operator|==
+name|v2
 return|;
 else|else
 block|{

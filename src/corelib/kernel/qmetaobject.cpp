@@ -8543,22 +8543,8 @@ operator|==
 name|QVariant
 operator|::
 name|Invalid
-operator|||
-name|t
-operator|==
-name|QVariant
-operator|::
-name|UserType
 condition|)
 block|{
-if|if
-condition|(
-name|t
-operator|==
-name|QVariant
-operator|::
-name|Invalid
-condition|)
 name|qWarning
 argument_list|(
 literal|"QMetaProperty::read: Unable to handle unregistered datatype '%s' for property '%s::%s'"

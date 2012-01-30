@@ -1681,35 +1681,6 @@ argument_list|(
 argument|const QMetaTypeSwitcher::UnknownType*
 argument_list|)
 block|{
-if|if
-condition|(
-name|m_x
-operator|->
-name|type
-operator|==
-name|QVariant
-operator|::
-name|UserType
-condition|)
-block|{
-comment|// TODO get rid of it
-comment|// And yes! we can support historical magic, unkonwn/unconstructed user type isn't that
-comment|// awesome? this QVariant::isValid will be true!
-name|m_x
-operator|->
-name|is_null
-operator|=
-operator|!
-name|m_copy
-expr_stmt|;
-name|m_x
-operator|->
-name|is_shared
-operator|=
-name|false
-expr_stmt|;
-return|return;
-block|}
 name|qWarning
 argument_list|(
 literal|"Trying to construct an instance of an invalid type, type id: %i"
@@ -1718,9 +1689,7 @@ name|m_x
 operator|->
 name|type
 argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
+block|;
 name|m_x
 operator|->
 name|type
@@ -1728,16 +1697,12 @@ operator|=
 name|QVariant
 operator|::
 name|Invalid
-expr_stmt|;
-end_expr_stmt
-begin_macro
-unit|}      void
+block|;     }
+name|void
 name|delegate
 argument_list|(
 argument|const void*
 argument_list|)
-end_macro
-begin_block
 block|{
 comment|// QMetaType::Void == QVariant::Invalid, creating an invalid value creates invalid QVariant
 comment|// TODO it might go away, check is needed
@@ -1746,21 +1711,16 @@ operator|->
 name|is_shared
 operator|=
 name|false
-expr_stmt|;
+block|;
 name|m_x
 operator|->
 name|is_null
 operator|=
 operator|!
 name|m_copy
-expr_stmt|;
-block|}
-end_block
-begin_label
+block|;     }
 name|private
-label|:
-end_label
-begin_expr_stmt
+operator|:
 name|QVariant
 operator|::
 name|Private
@@ -1909,17 +1869,6 @@ argument_list|(
 argument|const QMetaTypeSwitcher::UnknownType*
 argument_list|)
 block|{
-if|if
-condition|(
-name|m_d
-operator|->
-name|type
-operator|==
-name|QVariant
-operator|::
-name|UserType
-condition|)
-return|return;
 name|qWarning
 argument_list|(
 literal|"Trying to destruct an instance of an invalid type, type id: %i"
@@ -1943,10 +1892,10 @@ operator|::
 name|Private
 operator|*
 name|m_d
+block|; }
 expr_stmt|;
 end_expr_stmt
 begin_decl_stmt
-unit|};
 name|namespace
 name|QVariantPrivate
 block|{
@@ -2130,24 +2079,6 @@ argument_list|(
 argument|const QMetaTypeSwitcher::UnknownType*
 argument_list|)
 block|{
-if|if
-condition|(
-name|m_d
-operator|->
-name|type
-operator|==
-name|QVariant
-operator|::
-name|UserType
-condition|)
-name|m_debugStream
-operator|.
-name|nospace
-argument_list|()
-operator|<<
-literal|"QVariant::UserType"
-expr_stmt|;
-else|else
 name|qWarning
 argument_list|(
 literal|"Trying to stream an instance of an invalid type, type id: %i"
@@ -2156,8 +2087,7 @@ name|m_d
 operator|->
 name|type
 argument_list|)
-expr_stmt|;
-block|}
+block|;     }
 name|void
 name|delegate
 argument_list|(
@@ -2175,18 +2105,16 @@ name|private
 operator|:
 name|QDebug
 name|m_debugStream
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
+block|;
 name|QVariant
 operator|::
 name|Private
 operator|*
 name|m_d
+block|; }
 expr_stmt|;
 end_expr_stmt
 begin_endif
-unit|};
 endif|#
 directive|endif
 end_endif
