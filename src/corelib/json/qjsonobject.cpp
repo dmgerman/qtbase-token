@@ -337,6 +337,11 @@ block|{
 name|QVariantMap
 name|map
 decl_stmt|;
+if|if
+condition|(
+name|o
+condition|)
+block|{
 for|for
 control|(
 name|uint
@@ -391,6 +396,7 @@ name|toVariant
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|map
