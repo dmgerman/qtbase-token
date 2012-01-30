@@ -19300,6 +19300,8 @@ decl_stmt|;
 name|QString
 name|in
 init|=
+name|escapeFilePath
+argument_list|(
 name|fileFixify
 argument_list|(
 name|in_directory
@@ -19309,6 +19311,7 @@ operator|->
 name|profile
 argument_list|,
 name|FileFixifyAbsolute
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
