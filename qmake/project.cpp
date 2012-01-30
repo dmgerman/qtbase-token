@@ -9652,6 +9652,13 @@ name|orig_spec
 expr_stmt|;
 endif|#
 directive|endif
+name|vars
+index|[
+literal|"QMAKESPEC"
+index|]
+operator|<<
+name|real_spec
+expr_stmt|;
 name|short_spec
 operator|=
 name|QFileInfo
