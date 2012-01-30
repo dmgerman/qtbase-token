@@ -8544,9 +8544,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|(
 name|cmd
 operator|&
-name|ReadCache
+name|ReadSetup
+operator|)
 operator|&&
 name|Option
 operator|::
@@ -8803,7 +8805,7 @@ if|if
 condition|(
 name|cmd
 operator|&
-name|ReadConf
+name|ReadSetup
 condition|)
 block|{
 comment|// parse mkspec
@@ -9362,7 +9364,7 @@ if|if
 condition|(
 name|cmd
 operator|&
-name|ReadCmdLine
+name|ReadSetup
 condition|)
 block|{
 name|cfile
@@ -9464,9 +9466,11 @@ block|}
 comment|//commandline configs
 if|if
 condition|(
+operator|(
 name|cmd
 operator|&
-name|ReadConfigs
+name|ReadSetup
+operator|)
 operator|&&
 operator|!
 name|Option
@@ -9584,7 +9588,7 @@ if|if
 condition|(
 name|cmd
 operator|&
-name|ReadCmdLine
+name|ReadSetup
 condition|)
 block|{
 name|parser
@@ -9682,9 +9686,11 @@ block|}
 comment|//after configs (set in BUILDS)
 if|if
 condition|(
+operator|(
 name|cmd
 operator|&
-name|ReadConfigs
+name|ReadSetup
+operator|)
 operator|&&
 operator|!
 name|Option
@@ -9763,9 +9769,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|(
 name|cmd
 operator|&
-name|ReadConfigs
+name|ReadSetup
+operator|)
 operator|&&
 operator|!
 name|Option
