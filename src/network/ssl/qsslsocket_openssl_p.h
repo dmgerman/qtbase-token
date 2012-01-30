@@ -232,6 +232,10 @@ name|bool
 name|initSslContext
 argument_list|()
 block|;
+name|void
+name|destroySslContext
+argument_list|()
+block|;
 name|SSL
 operator|*
 name|ssl
