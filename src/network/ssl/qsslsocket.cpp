@@ -4556,7 +4556,6 @@ operator|::
 name|defaultCaCertificates
 parameter_list|()
 block|{
-comment|// ### Qt5: rename everything containing "caCertificates" to "rootCertificates" or similar
 name|QSslSocketPrivate
 operator|::
 name|ensureInitialized
