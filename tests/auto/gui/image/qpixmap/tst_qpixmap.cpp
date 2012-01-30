@@ -5532,6 +5532,7 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+name|QT_BEGIN_NAMESPACE
 name|Q_GUI_EXPORT
 name|HBITMAP
 name|qt_createIconMask
@@ -5605,6 +5606,7 @@ name|HICON
 name|icon
 argument_list|)
 decl_stmt|;
+name|QT_END_NAMESPACE
 DECL|function|toWinHBITMAP_data
 name|void
 name|tst_QPixmap
