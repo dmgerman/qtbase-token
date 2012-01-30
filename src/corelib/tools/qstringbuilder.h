@@ -118,29 +118,6 @@ argument_list|,
 argument|QChar *&out
 argument_list|)
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_TEXTCODEC
-if|if
-condition|(
-name|QString
-operator|::
-name|codecForCStrings
-condition|)
-operator|*
-name|out
-operator|++
-operator|=
-name|QChar
-operator|::
-name|fromAscii
-argument_list|(
-name|a
-argument_list|)
-expr_stmt|;
-else|else
-endif|#
-directive|endif
 operator|*
 name|out
 operator|++
@@ -149,8 +126,7 @@ name|QLatin1Char
 argument_list|(
 name|a
 argument_list|)
-expr_stmt|;
-block|}
+block|;     }
 DECL|function|convertToAscii
 specifier|static
 specifier|inline
@@ -162,52 +138,23 @@ argument_list|,
 argument|char *&out
 argument_list|)
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_TEXTCODEC
-if|if
-condition|(
-name|QString
-operator|::
-name|codecForCStrings
-condition|)
-operator|*
-name|out
-operator|++
-operator|=
-name|a
-operator|.
-name|toAscii
-argument_list|()
-expr_stmt|;
-comment|//###
-else|else
-endif|#
-directive|endif
 name|convertToLatin1
 argument_list|(
 name|a
 argument_list|,
 name|out
 argument_list|)
-expr_stmt|;
-block|}
-end_expr_stmt
-begin_function
+block|;     }
 DECL|function|convertToLatin1
 specifier|static
 specifier|inline
 name|void
 name|convertToLatin1
-parameter_list|(
-name|QChar
-name|a
-parameter_list|,
-name|char
-modifier|*
-modifier|&
-name|out
-parameter_list|)
+argument_list|(
+argument|QChar a
+argument_list|,
+argument|char *&out
+argument_list|)
 block|{
 operator|*
 name|out
@@ -219,9 +166,9 @@ name|unicode
 argument_list|()
 operator|>
 literal|0xff
-condition|?
+operator|?
 literal|'?'
-else|:
+operator|:
 name|char
 argument_list|(
 name|a
@@ -229,11 +176,11 @@ operator|.
 name|unicode
 argument_list|()
 argument_list|)
-expr_stmt|;
+block|;     }
 block|}
-end_function
+expr_stmt|;
+end_expr_stmt
 begin_expr_stmt
-unit|};
 DECL|struct|QConcatenable
 name|template
 operator|<
