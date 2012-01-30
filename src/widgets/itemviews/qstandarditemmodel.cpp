@@ -6783,6 +6783,40 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
+comment|/*!     Sets the item role names to \a roleNames. */
+end_comment
+begin_function
+DECL|function|setItemRoleNames
+name|void
+name|QStandardItemModel
+operator|::
+name|setItemRoleNames
+parameter_list|(
+specifier|const
+name|QHash
+argument_list|<
+name|int
+argument_list|,
+name|QByteArray
+argument_list|>
+modifier|&
+name|roleNames
+parameter_list|)
+block|{
+name|Q_D
+argument_list|(
+name|QStandardItemModel
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|roleNames
+operator|=
+name|roleNames
+expr_stmt|;
+block|}
+end_function
+begin_comment
 comment|/*!     Removes all items (including header items) from the model and sets the     number of rows and columns to zero.      \sa removeColumns(), removeRows() */
 end_comment
 begin_function
