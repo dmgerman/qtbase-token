@@ -1534,10 +1534,14 @@ name|qDebug
 argument_list|(
 literal|"QAbstractSocketPrivate::flush() nothing to do: valid ? %s, writeBuffer.isEmpty() ? %s"
 argument_list|,
+operator|(
+name|socketEngine
+operator|&&
 name|socketEngine
 operator|->
 name|isValid
 argument_list|()
+operator|)
 condition|?
 literal|"yes"
 else|:
