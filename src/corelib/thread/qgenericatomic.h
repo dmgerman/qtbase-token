@@ -220,10 +220,14 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|member|T
 name|template
 operator|<
 name|typename
 name|T
+operator|,
+name|typename
+name|X
 operator|>
 specifier|static
 specifier|inline
@@ -234,7 +238,7 @@ name|store
 argument_list|(
 argument|T&_q_value
 argument_list|,
-argument|T newValue
+argument|X newValue
 argument_list|)
 block|{
 name|_q_value
@@ -282,10 +286,14 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|member|T
 name|template
 operator|<
 name|typename
 name|T
+operator|,
+name|typename
+name|X
 operator|>
 specifier|static
 specifier|inline
@@ -296,7 +304,7 @@ name|storeRelease
 argument_list|(
 argument|T&_q_value
 argument_list|,
-argument|T newValue
+argument|X newValue
 argument_list|)
 block|{
 name|BaseClass
@@ -426,15 +434,19 @@ begin_comment
 comment|// Archictectures must implement them
 end_comment
 begin_endif
-unit|static inline bool isTestAndSetNative();     static inline bool isTestAndSetWaitFree();     template<typename T> static inline     bool testAndSetRelaxed(T&_q_value, T expectedValue, T newValue);
+unit|static inline bool isTestAndSetNative();     static inline bool isTestAndSetWaitFree();     template<typename T, typename X> static inline     bool testAndSetRelaxed(T&_q_value, X expectedValue, X newValue);
 endif|#
 directive|endif
 end_endif
 begin_expr_stmt
+DECL|member|T
 name|template
 operator|<
 name|typename
 name|T
+operator|,
+name|typename
+name|X
 operator|>
 specifier|static
 specifier|inline
@@ -445,9 +457,9 @@ name|testAndSetAcquire
 argument_list|(
 argument|T&_q_value
 argument_list|,
-argument|T expectedValue
+argument|X expectedValue
 argument_list|,
-argument|T newValue
+argument|X newValue
 argument_list|)
 block|{
 name|bool
@@ -475,10 +487,14 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|member|T
 name|template
 operator|<
 name|typename
 name|T
+operator|,
+name|typename
+name|X
 operator|>
 specifier|static
 specifier|inline
@@ -489,9 +505,9 @@ name|testAndSetRelease
 argument_list|(
 argument|T&_q_value
 argument_list|,
-argument|T expectedValue
+argument|X expectedValue
 argument_list|,
-argument|T newValue
+argument|X newValue
 argument_list|)
 block|{
 name|BaseClass
@@ -514,10 +530,14 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|member|T
 name|template
 operator|<
 name|typename
 name|T
+operator|,
+name|typename
+name|X
 operator|>
 specifier|static
 specifier|inline
@@ -528,9 +548,9 @@ name|testAndSetOrdered
 argument_list|(
 argument|T&_q_value
 argument_list|,
-argument|T expectedValue
+argument|X expectedValue
 argument_list|,
-argument|T newValue
+argument|X newValue
 argument_list|)
 block|{
 name|BaseClass
@@ -579,10 +599,14 @@ return|;
 block|}
 end_function
 begin_expr_stmt
+DECL|member|T
 name|template
 operator|<
 name|typename
 name|T
+operator|,
+name|typename
+name|X
 operator|>
 specifier|static
 specifier|inline
@@ -593,7 +617,7 @@ name|fetchAndStoreRelaxed
 argument_list|(
 argument|T&_q_value
 argument_list|,
-argument|T newValue
+argument|X newValue
 argument_list|)
 block|{
 comment|// implement fetchAndStore on top of testAndSet
@@ -628,9 +652,13 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 unit|}      template
+DECL|member|T
 operator|<
 name|typename
 name|T
+operator|,
+name|typename
+name|X
 operator|>
 specifier|static
 specifier|inline
@@ -641,7 +669,7 @@ name|fetchAndStoreAcquire
 argument_list|(
 argument|T&_q_value
 argument_list|,
-argument|T newValue
+argument|X newValue
 argument_list|)
 block|{
 name|T
@@ -667,10 +695,14 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|member|T
 name|template
 operator|<
 name|typename
 name|T
+operator|,
+name|typename
+name|X
 operator|>
 specifier|static
 specifier|inline
@@ -681,7 +713,7 @@ name|fetchAndStoreRelease
 argument_list|(
 argument|T&_q_value
 argument_list|,
-argument|T newValue
+argument|X newValue
 argument_list|)
 block|{
 name|BaseClass
@@ -702,10 +734,14 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+DECL|member|T
 name|template
 operator|<
 name|typename
 name|T
+operator|,
+name|typename
+name|X
 operator|>
 specifier|static
 specifier|inline
@@ -716,7 +752,7 @@ name|fetchAndStoreOrdered
 argument_list|(
 argument|T&_q_value
 argument_list|,
-argument|T newValue
+argument|X newValue
 argument_list|)
 block|{
 name|BaseClass
