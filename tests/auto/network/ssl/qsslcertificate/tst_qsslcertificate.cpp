@@ -5632,6 +5632,10 @@ argument_list|(
 name|QIODevice
 operator|::
 name|ReadOnly
+operator||
+name|QFile
+operator|::
+name|Text
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5659,6 +5663,10 @@ argument_list|(
 name|QIODevice
 operator|::
 name|ReadOnly
+operator||
+name|QFile
+operator|::
+name|Text
 argument_list|)
 argument_list|)
 expr_stmt|;
