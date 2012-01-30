@@ -8314,7 +8314,13 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|cfile
+operator|(
+name|cmd
+operator|&
+name|ReadSetup
+operator|)
+operator|&&
+name|base_vars
 operator|.
 name|isEmpty
 argument_list|()
@@ -8381,12 +8387,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|(
-name|cmd
-operator|&
-name|ReadSetup
-operator|)
-operator|&&
 name|Option
 operator|::
 name|mkfile
@@ -8438,12 +8438,6 @@ literal|'/'
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|cmd
-operator|&
-name|ReadSetup
-condition|)
 block|{
 comment|// parse mkspec
 name|QString
@@ -8715,10 +8709,6 @@ operator|&
 name|ReadSetup
 condition|)
 block|{
-name|cfile
-operator|=
-name|pfile
-expr_stmt|;
 name|parser
 operator|.
 name|file
