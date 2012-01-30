@@ -937,12 +937,10 @@ emit|;
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
-name|QAccessibleEvent
+name|QAccessibleValueChangeEvent
 name|event
 argument_list|(
-name|QAccessible
-operator|::
-name|ValueChanged
+name|value
 argument_list|,
 name|this
 argument_list|)
