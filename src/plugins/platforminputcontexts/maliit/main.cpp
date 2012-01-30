@@ -15,15 +15,15 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qmeegoplatforminputcontext.h"
+file|"qmaliitplatforminputcontext.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_class
-DECL|class|QMeeGoPlatformInputContextPlugin
+DECL|class|QMaliitPlatformInputContextPlugin
 class|class
-name|QMeeGoPlatformInputContextPlugin
+name|QMaliitPlatformInputContextPlugin
 super|:
 specifier|public
 name|QPlatformInputContextPlugin
@@ -53,7 +53,7 @@ end_class
 begin_function
 DECL|function|keys
 name|QStringList
-name|QMeeGoPlatformInputContextPlugin
+name|QMaliitPlatformInputContextPlugin
 operator|::
 name|keys
 parameter_list|()
@@ -64,7 +64,7 @@ name|QStringList
 argument_list|(
 name|QStringLiteral
 argument_list|(
-literal|"meego"
+literal|"maliit"
 argument_list|)
 argument_list|)
 return|;
@@ -74,7 +74,7 @@ begin_function
 DECL|function|create
 name|QPlatformInputContext
 modifier|*
-name|QMeeGoPlatformInputContextPlugin
+name|QMaliitPlatformInputContextPlugin
 operator|::
 name|create
 parameter_list|(
@@ -104,7 +104,7 @@ name|system
 argument_list|,
 name|QStringLiteral
 argument_list|(
-literal|"meego"
+literal|"maliit"
 argument_list|)
 argument_list|,
 name|Qt
@@ -116,7 +116,7 @@ literal|0
 condition|)
 return|return
 operator|new
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 return|;
 return|return
 literal|0
@@ -126,9 +126,9 @@ end_function
 begin_macro
 name|Q_EXPORT_PLUGIN2
 argument_list|(
-argument|meegoplatforminputcontextplugin
+argument|maliitplatforminputcontextplugin
 argument_list|,
-argument|QMeeGoPlatformInputContextPlugin
+argument|QMaliitPlatformInputContextPlugin
 argument_list|)
 end_macro
 begin_macro

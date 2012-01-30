@@ -45,7 +45,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qmeegoplatforminputcontext.h"
+file|"qmaliitplatforminputcontext.h"
 end_include
 begin_comment
 comment|/*  * Implementation of adaptor class Inputcontext1Adaptor  */
@@ -386,7 +386,7 @@ comment|// handle method call com.meego.inputmethod.inputcontext1.preeditRectang
 return|return
 cast|static_cast
 argument_list|<
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|*
 argument_list|>
 argument_list|(
@@ -423,7 +423,7 @@ comment|// handle method call com.meego.inputmethod.inputcontext1.selection
 return|return
 cast|static_cast
 argument_list|<
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|*
 argument_list|>
 argument_list|(

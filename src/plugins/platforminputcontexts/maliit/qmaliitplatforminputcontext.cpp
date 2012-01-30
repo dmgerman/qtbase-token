@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qmeegoplatforminputcontext.h"
+file|"qmaliitplatforminputcontext.h"
 end_include
 begin_include
 include|#
@@ -364,21 +364,21 @@ return|;
 block|}
 end_function
 begin_class
-DECL|class|QMeeGoPlatformInputContextPrivate
+DECL|class|QMaliitPlatformInputContextPrivate
 class|class
-name|QMeeGoPlatformInputContextPrivate
+name|QMaliitPlatformInputContextPrivate
 block|{
 public|public:
-name|QMeeGoPlatformInputContextPrivate
+name|QMaliitPlatformInputContextPrivate
 parameter_list|(
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 modifier|*
 name|qq
 parameter_list|)
 constructor_decl|;
-DECL|function|~QMeeGoPlatformInputContextPrivate
+DECL|function|~QMaliitPlatformInputContextPrivate
 name|~
-name|QMeeGoPlatformInputContextPrivate
+name|QMaliitPlatformInputContextPrivate
 parameter_list|()
 block|{
 operator|delete
@@ -452,7 +452,7 @@ argument_list|>
 name|window
 decl_stmt|;
 DECL|member|q
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 modifier|*
 name|q
 decl_stmt|;
@@ -460,16 +460,16 @@ block|}
 class|;
 end_class
 begin_constructor
-DECL|function|QMeeGoPlatformInputContext
-name|QMeeGoPlatformInputContext
+DECL|function|QMaliitPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 parameter_list|()
 member_init_list|:
 name|d
 argument_list|(
 operator|new
-name|QMeeGoPlatformInputContextPrivate
+name|QMaliitPlatformInputContextPrivate
 argument_list|(
 name|this
 argument_list|)
@@ -482,7 +482,7 @@ condition|)
 name|qDebug
 argument_list|()
 operator|<<
-literal|"QMeeGoPlatformInputContext::QMeeGoPlatformInputContext()"
+literal|"QMaliitPlatformInputContext::QMaliitPlatformInputContext()"
 expr_stmt|;
 name|QInputPanel
 modifier|*
@@ -515,11 +515,11 @@ expr_stmt|;
 block|}
 end_constructor
 begin_destructor
-DECL|function|~QMeeGoPlatformInputContext
-name|QMeeGoPlatformInputContext
+DECL|function|~QMaliitPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|~
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 parameter_list|(
 name|void
 parameter_list|)
@@ -532,7 +532,7 @@ end_destructor
 begin_function
 DECL|function|isValid
 name|bool
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|isValid
 parameter_list|()
@@ -548,7 +548,7 @@ end_function
 begin_function
 DECL|function|invokeAction
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|invokeAction
 parameter_list|(
@@ -662,7 +662,7 @@ end_function
 begin_function
 DECL|function|reset
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|reset
 parameter_list|()
@@ -756,7 +756,7 @@ end_function
 begin_function
 DECL|function|update
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|update
 parameter_list|(
@@ -1090,7 +1090,7 @@ end_function
 begin_function
 DECL|function|keyboardRect
 name|QRectF
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|keyboardRect
 parameter_list|()
@@ -1106,7 +1106,7 @@ end_function
 begin_function
 DECL|function|activationLostEvent
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|activationLostEvent
 parameter_list|()
@@ -1128,7 +1128,7 @@ end_function
 begin_function
 DECL|function|commitString
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|commitString
 parameter_list|(
@@ -1213,7 +1213,7 @@ end_function
 begin_function
 DECL|function|updatePreedit
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|updatePreedit
 parameter_list|(
@@ -1265,7 +1265,7 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"QMeeGoPlatformInputContext::updatePreedit: Received message from input method server with wrong parameters."
+literal|"QMaliitPlatformInputContext::updatePreedit: Received message from input method server with wrong parameters."
 expr_stmt|;
 return|return;
 block|}
@@ -1625,7 +1625,7 @@ end_function
 begin_function
 DECL|function|copy
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|copy
 parameter_list|()
@@ -1636,7 +1636,7 @@ end_function
 begin_function
 DECL|function|imInitiatedHide
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|imInitiatedHide
 parameter_list|()
@@ -1656,7 +1656,7 @@ end_function
 begin_function
 DECL|function|keyEvent
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|keyEvent
 parameter_list|(
@@ -1683,7 +1683,7 @@ end_function
 begin_function
 DECL|function|paste
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|paste
 parameter_list|()
@@ -1694,7 +1694,7 @@ end_function
 begin_function
 DECL|function|preeditRectangle
 name|bool
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|preeditRectangle
 parameter_list|(
@@ -1777,7 +1777,7 @@ end_function
 begin_function
 DECL|function|selection
 name|bool
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|selection
 parameter_list|(
@@ -1867,7 +1867,7 @@ end_function
 begin_function
 DECL|function|setDetectableAutoRepeat
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|setDetectableAutoRepeat
 parameter_list|(
@@ -1880,7 +1880,7 @@ end_function
 begin_function
 DECL|function|setGlobalCorrectionEnabled
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|setGlobalCorrectionEnabled
 parameter_list|(
@@ -1899,7 +1899,7 @@ end_function
 begin_function
 DECL|function|setLanguage
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|setLanguage
 parameter_list|(
@@ -1914,7 +1914,7 @@ end_function
 begin_function
 DECL|function|setRedirectKeys
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|setRedirectKeys
 parameter_list|(
@@ -1927,7 +1927,7 @@ end_function
 begin_function
 DECL|function|setSelection
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|setSelection
 parameter_list|(
@@ -2006,7 +2006,7 @@ end_function
 begin_function
 DECL|function|updateInputMethodArea
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|updateInputMethodArea
 parameter_list|(
@@ -2046,7 +2046,7 @@ end_function
 begin_function
 DECL|function|updateServerWindowOrientation
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|updateServerWindowOrientation
 parameter_list|(
@@ -2073,7 +2073,7 @@ end_function
 begin_function
 DECL|function|inputItemChanged
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|inputItemChanged
 parameter_list|()
@@ -2316,7 +2316,7 @@ end_function
 begin_function
 DECL|function|showInputPanel
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|showInputPanel
 parameter_list|()
@@ -2383,7 +2383,7 @@ end_function
 begin_function
 DECL|function|hideInputPanel
 name|void
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|hideInputPanel
 parameter_list|()
@@ -2409,7 +2409,7 @@ end_function
 begin_function
 DECL|function|isInputPanelVisible
 name|bool
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 operator|::
 name|isInputPanelVisible
 parameter_list|()
@@ -2425,12 +2425,12 @@ return|;
 block|}
 end_function
 begin_constructor
-DECL|function|QMeeGoPlatformInputContextPrivate
-name|QMeeGoPlatformInputContextPrivate
+DECL|function|QMaliitPlatformInputContextPrivate
+name|QMaliitPlatformInputContextPrivate
 operator|::
-name|QMeeGoPlatformInputContextPrivate
+name|QMaliitPlatformInputContextPrivate
 parameter_list|(
-name|QMeeGoPlatformInputContext
+name|QMaliitPlatformInputContext
 modifier|*
 name|qq
 parameter_list|)
@@ -2446,7 +2446,7 @@ argument_list|()
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"MeeGoIMProxy"
+literal|"MaliitIMProxy"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2497,7 +2497,7 @@ condition|)
 block|{
 name|qDebug
 argument_list|(
-literal|"QMeeGoPlatformInputContext: not connected."
+literal|"QMaliitPlatformInputContext: not connected."
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2573,7 +2573,7 @@ end_constructor
 begin_function
 DECL|function|sendStateUpdate
 name|void
-name|QMeeGoPlatformInputContextPrivate
+name|QMaliitPlatformInputContextPrivate
 operator|::
 name|sendStateUpdate
 parameter_list|(

@@ -5,116 +5,160 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QMEEGOPLATFORMINPUTCONTEXT_H
+name|CONTEXT_H_1318935171
 end_ifndef
 begin_define
-DECL|macro|QMEEGOPLATFORMINPUTCONTEXT_H
+DECL|macro|CONTEXT_H_1318935171
 define|#
 directive|define
-name|QMEEGOPLATFORMINPUTCONTEXT_H
+name|CONTEXT_H_1318935171
 end_define
 begin_include
 include|#
 directive|include
-file|<QPlatformInputContext>
+file|<QtCore/QObject>
 end_include
 begin_include
 include|#
 directive|include
-file|<QDBusArgument>
+file|<QtCore/QByteArray>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QList>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QMap>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QString>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QStringList>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QVariant>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtDBus/QtDBus>
+end_include
+begin_comment
+comment|/*  * Adaptor class for interface com.meego.inputmethod.inputcontext1  */
+end_comment
 begin_decl_stmt
-name|QT_BEGIN_NAMESPACE
-DECL|variable|QMeeGoPlatformInputContextPrivate
 name|class
-name|QMeeGoPlatformInputContextPrivate
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QDBusVariant
-name|class
-name|QDBusVariant
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|QDBusMessage
-name|class
-name|QDBusMessage
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
-name|QMeeGoPlatformInputContext
+name|Inputcontext1Adaptor
 range|:
 name|public
-name|QPlatformInputContext
+name|QDBusAbstractAdaptor
 block|{
 name|Q_OBJECT
+name|Q_CLASSINFO
+argument_list|(
+literal|"D-Bus Interface"
+argument_list|,
+literal|"com.meego.inputmethod.inputcontext1"
+argument_list|)
+name|Q_CLASSINFO
+argument_list|(
+literal|"D-Bus Introspection"
+argument_list|,
+literal|""
+literal|"<interface name=\"com.meego.inputmethod.inputcontext1\">\n"
+literal|"<method name=\"activationLostEvent\"/>\n"
+literal|"<method name=\"imInitiatedHide\"/>\n"
+literal|"<method name=\"commitString\">\n"
+literal|"<arg type=\"s\"/>\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"</method>\n"
+literal|"<method name=\"updatePreedit\">\n"
+literal|"<arg type=\"s\"/>\n"
+literal|"<arg type=\"a(iii)\"/>\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"</method>\n"
+literal|"<method name=\"keyEvent\">\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"<arg type=\"s\"/>\n"
+literal|"<arg type=\"b\"/>\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"<arg type=\"y\"/>\n"
+literal|"</method>\n"
+literal|"<method name=\"updateInputMethodArea\">\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"</method>\n"
+literal|"<method name=\"setGlobalCorrectionEnabled\">\n"
+literal|"<arg type=\"b\"/>\n"
+literal|"</method>\n"
+literal|"<method name=\"preeditRectangle\">\n"
+literal|"<arg direction=\"out\" type=\"b\"/>\n"
+literal|"<arg direction=\"out\" type=\"i\"/>\n"
+literal|"<arg direction=\"out\" type=\"i\"/>\n"
+literal|"<arg direction=\"out\" type=\"i\"/>\n"
+literal|"<arg direction=\"out\" type=\"i\"/>\n"
+literal|"</method>\n"
+literal|"<method name=\"copy\"/>\n"
+literal|"<method name=\"paste\"/>\n"
+literal|"<method name=\"setRedirectKeys\">\n"
+literal|"<arg type=\"b\"/>\n"
+literal|"</method>\n"
+literal|"<method name=\"setDetectableAutoRepeat\">\n"
+literal|"<arg type=\"b\"/>\n"
+literal|"</method>\n"
+literal|"<method name=\"setSelection\">\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"<arg type=\"i\"/>\n"
+literal|"</method>\n"
+literal|"<method name=\"selection\">\n"
+literal|"<arg direction=\"out\" type=\"b\"/>\n"
+literal|"<arg direction=\"out\" type=\"s\"/>\n"
+literal|"</method>\n"
+literal|"<method name=\"setLanguage\">\n"
+literal|"<arg type=\"s\"/>\n"
+literal|"</method>\n"
+literal|"</interface>\n"
+literal|""
+argument_list|)
 name|public
 operator|:
-name|QMeeGoPlatformInputContext
-argument_list|()
+name|Inputcontext1Adaptor
+argument_list|(
+name|QObject
+operator|*
+name|parent
+argument_list|)
 block|;
+name|virtual
 operator|~
-name|QMeeGoPlatformInputContext
+name|Inputcontext1Adaptor
 argument_list|()
 block|;
-name|bool
-name|isValid
-argument_list|()
-specifier|const
-block|;
-name|void
-name|invokeAction
-argument_list|(
-argument|QInputPanel::Action action
-argument_list|,
-argument|int x
-argument_list|)
-block|;
-name|void
-name|reset
-argument_list|(
-name|void
-argument_list|)
-block|;
-name|void
-name|update
-argument_list|(
-name|Qt
-operator|::
-name|InputMethodQueries
-argument_list|)
-block|;
-name|virtual
-name|QRectF
-name|keyboardRect
-argument_list|()
-specifier|const
-block|;
-name|virtual
-name|void
-name|showInputPanel
-argument_list|()
-block|;
-name|virtual
-name|void
-name|hideInputPanel
-argument_list|()
-block|;
-name|virtual
-name|bool
-name|isInputPanelVisible
-argument_list|()
-specifier|const
-block|;
+name|public
+operator|:
+comment|// PROPERTIES
 name|public
 name|Q_SLOTS
 operator|:
-name|void
-name|inputItemChanged
-argument_list|()
-block|;
+comment|// METHODS
 name|void
 name|activationLostEvent
 argument_list|()
@@ -151,21 +195,19 @@ block|;
 name|void
 name|keyEvent
 argument_list|(
-name|int
+argument|int in0
 argument_list|,
-name|int
+argument|int in1
 argument_list|,
-name|int
+argument|int in2
 argument_list|,
-specifier|const
-name|QString
-operator|&
+argument|const QString&in3
 argument_list|,
-name|bool
+argument|bool in4
 argument_list|,
-name|int
+argument|int in5
 argument_list|,
-name|uchar
+argument|uchar in6
 argument_list|)
 block|;
 name|void
@@ -177,19 +219,19 @@ name|preeditRectangle
 argument_list|(
 name|int
 operator|&
-name|x
+name|out1
 argument_list|,
 name|int
 operator|&
-name|y
+name|out2
 argument_list|,
 name|int
 operator|&
-name|width
+name|out3
 argument_list|,
 name|int
 operator|&
-name|height
+name|out4
 argument_list|)
 block|;
 name|bool
@@ -197,7 +239,7 @@ name|selection
 argument_list|(
 name|QString
 operator|&
-name|selection
+name|out1
 argument_list|)
 block|;
 name|void
@@ -209,7 +251,7 @@ block|;
 name|void
 name|setGlobalCorrectionEnabled
 argument_list|(
-argument|bool enable
+argument|bool in0
 argument_list|)
 block|;
 name|void
@@ -218,51 +260,41 @@ argument_list|(
 specifier|const
 name|QString
 operator|&
+name|in0
 argument_list|)
 block|;
 name|void
 name|setRedirectKeys
 argument_list|(
-name|bool
+argument|bool in0
 argument_list|)
 block|;
 name|void
 name|setSelection
 argument_list|(
-argument|int start
+argument|int in0
 argument_list|,
-argument|int length
+argument|int in1
 argument_list|)
 block|;
 name|void
 name|updateInputMethodArea
 argument_list|(
-argument|int x
+argument|int in0
 argument_list|,
-argument|int y
+argument|int in1
 argument_list|,
-argument|int width
+argument|int in2
 argument_list|,
-argument|int height
+argument|int in3
 argument_list|)
 block|;
-name|void
-name|updateServerWindowOrientation
-argument_list|(
-argument|Qt::ScreenOrientation orientation
-argument_list|)
-block|;
-name|private
+name|Q_SIGNALS
 operator|:
-name|QMeeGoPlatformInputContextPrivate
-operator|*
-name|d
-block|; }
+comment|// SIGNALS
+block|}
 decl_stmt|;
 end_decl_stmt
-begin_macro
-name|QT_END_NAMESPACE
-end_macro
 begin_endif
 endif|#
 directive|endif
