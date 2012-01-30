@@ -119,11 +119,6 @@ name|CaseSensitive
 init|=
 literal|0x800
 block|,
-name|NoDotAndDotDot
-init|=
-literal|0x1000
-block|,
-comment|// ### Qt5 NoDotAndDotDot = NoDot|NoDotDot
 name|NoDot
 init|=
 literal|0x2000
@@ -131,6 +126,12 @@ block|,
 name|NoDotDot
 init|=
 literal|0x4000
+block|,
+name|NoDotAndDotDot
+init|=
+name|NoDot
+operator||
+name|NoDotDot
 block|,
 name|NoFilter
 init|=

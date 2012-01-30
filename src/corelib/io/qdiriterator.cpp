@@ -1070,22 +1070,6 @@ condition|)
 return|return
 literal|false
 return|;
-if|if
-condition|(
-operator|(
-name|filters
-operator|&
-name|QDir
-operator|::
-name|NoDotAndDotDot
-operator|)
-operator|&&
-name|dotOrDotDot
-condition|)
-comment|// ### Qt5 remove (NoDotAndDotDot == NoDot|NoDotDot)
-return|return
-literal|false
-return|;
 comment|// name filter
 ifndef|#
 directive|ifndef

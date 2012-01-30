@@ -6972,22 +6972,6 @@ name|filters
 operator|&
 name|QDir
 operator|::
-name|NoDotAndDotDot
-condition|)
-name|flags
-operator|<<
-name|QLatin1String
-argument_list|(
-literal|"NoDotAndDotDot"
-argument_list|)
-expr_stmt|;
-comment|// ### Qt5: remove (because NoDotAndDotDot=NoDot|NoDotDot)
-if|if
-condition|(
-name|filters
-operator|&
-name|QDir
-operator|::
 name|NoDot
 condition|)
 name|flags

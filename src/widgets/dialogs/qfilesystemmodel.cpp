@@ -9761,16 +9761,7 @@ name|QDir
 operator|::
 name|NoDot
 operator|)
-operator|||
-operator|(
-name|filters
-operator|&
-name|QDir
-operator|::
-name|NoDotAndDotDot
-operator|)
 decl_stmt|;
-comment|// ### Qt5: simplify (because NoDotAndDotDot=NoDot|NoDotDot)
 specifier|const
 name|bool
 name|hideDotDot
@@ -9782,16 +9773,7 @@ name|QDir
 operator|::
 name|NoDotDot
 operator|)
-operator|||
-operator|(
-name|filters
-operator|&
-name|QDir
-operator|::
-name|NoDotAndDotDot
-operator|)
 decl_stmt|;
-comment|// ### Qt5: simplify (because NoDotAndDotDot=NoDot|NoDotDot)
 comment|// Note that we match the behavior of entryList and not QFileInfo on this and this
 comment|// incompatibility won't be fixed until Qt 5 at least
 name|bool
