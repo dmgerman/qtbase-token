@@ -6597,7 +6597,7 @@ condition|)
 block|{
 name|qDebug
 argument_list|(
-literal|"QNativeSocketEnginePrivate::nativeRead(%p \"%s\", %l) == %li"
+literal|"QNativeSocketEnginePrivate::nativeRead(%p \"%s\", %li) == %li"
 argument_list|,
 name|data
 argument_list|,
@@ -6640,7 +6640,7 @@ else|else
 block|{
 name|qDebug
 argument_list|(
-literal|"QNativeSocketEnginePrivate::nativeRead(%p, %l) == -2 (WOULD BLOCK)"
+literal|"QNativeSocketEnginePrivate::nativeRead(%p, %li) == -2 (WOULD BLOCK)"
 argument_list|,
 name|data
 argument_list|,
