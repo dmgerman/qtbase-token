@@ -19,6 +19,7 @@ directive|include
 file|<QPlatformFontDatabase>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QCoreTextFontDatabase
 range|:
@@ -118,6 +119,9 @@ name|fallbackLists
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif
