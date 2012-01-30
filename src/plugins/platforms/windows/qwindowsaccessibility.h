@@ -24,6 +24,8 @@ directive|include
 file|<QtGui/QPlatformAccessibility>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_HEADER
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QWindowsAccessibility
 range|:
@@ -62,6 +64,10 @@ comment|/*     virtual void setRootObject(QObject *o);     virtual void initiali
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|QT_END_NAMESPACE
+name|QT_END_HEADER
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

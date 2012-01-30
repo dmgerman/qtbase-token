@@ -28,6 +28,9 @@ include|#
 directive|include
 file|<QtCore/QString>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_struct
 DECL|struct|FontFile
 struct|struct
@@ -144,6 +147,9 @@ argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

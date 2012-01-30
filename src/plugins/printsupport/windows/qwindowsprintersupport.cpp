@@ -32,6 +32,9 @@ include|#
 directive|include
 file|<private/qprinterinfo_p.h>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_constructor
 DECL|function|QWindowsPrinterSupport
 name|QWindowsPrinterSupport
@@ -354,4 +357,7 @@ name|mPrinterList
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

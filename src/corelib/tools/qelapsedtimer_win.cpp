@@ -12,18 +12,6 @@ include|#
 directive|include
 file|<windows.h>
 end_include
-begin_comment
-comment|// Result of QueryPerformanceFrequency, 0 indicates that the high resolution timer is unavailable
-end_comment
-begin_decl_stmt
-DECL|variable|counterFrequency
-specifier|static
-name|quint64
-name|counterFrequency
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
 begin_typedef
 DECL|typedef|PtrGetTickCount64
 typedef|typedef
@@ -47,8 +35,18 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+comment|// Result of QueryPerformanceFrequency, 0 indicates that the high resolution timer is unavailable
+DECL|variable|counterFrequency
+specifier|static
+name|quint64
+name|counterFrequency
+init|=
+literal|0
+decl_stmt|;
+end_decl_stmt
+begin_function
 DECL|function|resolveLibs
 specifier|static
 name|void

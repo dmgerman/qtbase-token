@@ -776,6 +776,15 @@ name|HB_Err_Ok
 return|;
 block|}
 end_function
+begin_function_decl
+specifier|extern
+name|QByteArray
+name|qt_fontdata_from_index
+parameter_list|(
+name|int
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_comment
 comment|/*  * One font file can contain more than one font (bold/italic for example)  * find the right one and return it.  *  * Returns the freetype face or 0 in case of an empty file or any other problems  * (like not being able to open the file)  */
 end_comment
@@ -919,13 +928,6 @@ argument_list|)
 condition|)
 block|{
 comment|// from qfontdatabase.cpp
-specifier|extern
-name|QByteArray
-name|qt_fontdata_from_index
-argument_list|(
-name|int
-argument_list|)
-decl_stmt|;
 name|QByteArray
 name|idx
 init|=
