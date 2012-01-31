@@ -572,17 +572,6 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|member|cftr
-name|QTextCodec
-modifier|*
-name|QTextCodec
-operator|::
-name|cftr
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
 begin_class
 DECL|class|QTextCodecCleanup
 class|class
@@ -5288,12 +5277,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn QTextCodec* QTextCodec::codecForTr()      Returns the codec used by QObject::tr() on its argument. If this     function returns 0 (the default), tr() assumes Latin-1.      \sa setCodecForTr() */
-end_comment
-begin_comment
-comment|/*!     \fn void QTextCodec::setCodecForTr(QTextCodec *c)     \nonreentrant      Sets the codec used by QObject::tr() on its argument to \a c. If     \a c is 0 (the default), tr() assumes Latin-1.      If the literal quoted text in the program is not in the Latin-1     encoding, this function can be used to set the appropriate     encoding. For example, software developed by Korean programmers     might use eucKR for all the text in the program, in which case the     main() function might look like this:      \snippet doc/src/snippets/code/src_corelib_codecs_qtextcodec.cpp 3      Note that this is not the way to select the encoding that the \e     user has chosen. For example, to convert an application containing     literal English strings to Korean, all that is needed is for the     English strings to be passed through tr() and for translation     files to be loaded. For details of internationalization, see     \l{Internationalization with Qt}.      \sa codecForTr() */
-end_comment
 begin_comment
 comment|/*!     \since 4.4      Tries to detect the encoding of the provided snippet of HTML in     the given byte array, \a ba, by checking the BOM (Byte Order Mark)     and the content-type meta header and returns a QTextCodec instance     that is capable of decoding the html to unicode.  If the codec     cannot be detected from the content provided, \a defaultCodec is     returned.      \sa codecForUtfText() */
 end_comment

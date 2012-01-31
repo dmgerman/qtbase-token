@@ -957,7 +957,7 @@ name|c
 argument_list|,
 name|QCoreApplication
 operator|::
-name|CodecForTr
+name|DefaultCodec
 argument_list|,
 name|n
 argument_list|)
