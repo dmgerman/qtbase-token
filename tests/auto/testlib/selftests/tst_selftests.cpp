@@ -1486,6 +1486,8 @@ literal|"cmptest"
 operator|<<
 literal|"commandlinedata"
 operator|<<
+literal|"counting"
+operator|<<
 literal|"crashes"
 operator|<<
 literal|"datatable"
