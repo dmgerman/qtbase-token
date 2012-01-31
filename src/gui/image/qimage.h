@@ -280,6 +280,20 @@ end_endif
 begin_comment
 comment|//QT_NO_IMAGE_TEXT
 end_comment
+begin_typedef
+DECL|typedef|QImageCleanupFunction
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|QImageCleanupFunction
+function_decl|)
+parameter_list|(
+name|void
+modifier|*
+parameter_list|)
+function_decl|;
+end_typedef
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
@@ -375,6 +389,12 @@ argument_list|,
 argument|int height
 argument_list|,
 argument|Format format
+argument_list|,
+argument|QImageCleanupFunction cleanupFunction =
+literal|0
+argument_list|,
+argument|void *cleanupInfo =
+literal|0
 argument_list|)
 block|;
 name|QImage
@@ -386,6 +406,12 @@ argument_list|,
 argument|int height
 argument_list|,
 argument|Format format
+argument_list|,
+argument|QImageCleanupFunction cleanupFunction =
+literal|0
+argument_list|,
+argument|void *cleanupInfo =
+literal|0
 argument_list|)
 block|;
 name|QImage
@@ -399,6 +425,12 @@ argument_list|,
 argument|int bytesPerLine
 argument_list|,
 argument|Format format
+argument_list|,
+argument|QImageCleanupFunction cleanupFunction =
+literal|0
+argument_list|,
+argument|void *cleanupInfo =
+literal|0
 argument_list|)
 block|;
 name|QImage
@@ -412,6 +444,12 @@ argument_list|,
 argument|int bytesPerLine
 argument_list|,
 argument|Format format
+argument_list|,
+argument|QImageCleanupFunction cleanupFunction =
+literal|0
+argument_list|,
+argument|void *cleanupInfo =
+literal|0
 argument_list|)
 block|;
 ifndef|#
