@@ -535,14 +535,6 @@ specifier|inline
 name|QString
 argument_list|()
 expr_stmt|;
-name|QString
-argument_list|(
-argument|const QChar *unicode
-argument_list|,
-argument|int size
-argument_list|)
-empty_stmt|;
-comment|// Qt5: don't cap size< 0
 name|explicit
 name|QString
 parameter_list|(
@@ -550,9 +542,14 @@ specifier|const
 name|QChar
 modifier|*
 name|unicode
+parameter_list|,
+name|int
+name|size
+init|=
+operator|-
+literal|1
 parameter_list|)
 function_decl|;
-comment|// Qt5: merge with the above
 name|QString
 argument_list|(
 argument|QChar c

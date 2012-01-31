@@ -708,16 +708,10 @@ argument_list|()
 expr_stmt|;
 name|QByteArray
 argument_list|(
-specifier|const
-name|char
-operator|*
-argument_list|)
-expr_stmt|;
-name|QByteArray
-argument_list|(
 argument|const char *
 argument_list|,
-argument|int size
+argument|int size = -
+literal|1
 argument_list|)
 empty_stmt|;
 name|QByteArray
