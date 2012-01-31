@@ -1433,6 +1433,10 @@ comment|// needed to compile with MSVC
 name|friend
 name|class
 name|QListModeViewBase
+block|;
+name|friend
+name|class
+name|QListViewPrivate
 block|; }
 decl_stmt|;
 end_decl_stmt
