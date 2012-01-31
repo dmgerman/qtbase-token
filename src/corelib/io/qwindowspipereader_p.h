@@ -260,13 +260,6 @@ name|pipeBroken
 block|;
 name|bool
 name|readyReadEmitted
-block|;
-specifier|static
-specifier|const
-name|DWORD
-name|minReadBufferSize
-operator|=
-literal|4096
 block|; }
 decl_stmt|;
 end_decl_stmt

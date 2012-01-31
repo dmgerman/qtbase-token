@@ -78,6 +78,22 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
+name|PIPE_REJECT_REMOTE_CLIENTS
+end_ifndef
+begin_define
+DECL|macro|PIPE_REJECT_REMOTE_CLIENTS
+define|#
+directive|define
+name|PIPE_REJECT_REMOTE_CLIENTS
+value|0x08
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
 name|QT_NO_PROCESS
 end_ifndef
 begin_function
@@ -145,19 +161,9 @@ forever|forever
 block|{
 comment|// ### The user must make sure to call qsrand() to make the pipe names less predictable.
 comment|// ### Replace the call to qrand() with a secure version, once we have it in Qt.
-name|swprintf_s
+name|swprintf
 argument_list|(
 name|pipeName
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|pipeName
-argument_list|)
-operator|/
-sizeof|sizeof
-argument_list|(
-name|wchar_t
-argument_list|)
 argument_list|,
 literal|L"\\\\.\\pipe\\qt-%X"
 argument_list|,

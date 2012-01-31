@@ -154,12 +154,9 @@ condition|(
 name|readSequenceStarted
 condition|)
 block|{
-name|CancelIoEx
+name|CancelIo
 argument_list|(
 name|handle
-argument_list|,
-operator|&
-name|overlapped
 argument_list|)
 expr_stmt|;
 name|dataReadNotifier
@@ -552,6 +549,12 @@ operator|::
 name|startAsyncRead
 parameter_list|()
 block|{
+specifier|const
+name|DWORD
+name|minReadBufferSize
+init|=
+literal|4096
+decl_stmt|;
 name|DWORD
 name|bytesToRead
 init|=
