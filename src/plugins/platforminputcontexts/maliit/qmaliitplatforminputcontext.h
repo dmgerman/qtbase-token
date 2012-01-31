@@ -151,21 +151,19 @@ block|;
 name|void
 name|keyEvent
 argument_list|(
-name|int
+argument|int type
 argument_list|,
-name|int
+argument|int key
 argument_list|,
-name|int
+argument|int modifiers
 argument_list|,
-specifier|const
-name|QString
-operator|&
+argument|const QString&text
 argument_list|,
-name|bool
+argument|bool autoRepeat
 argument_list|,
-name|int
+argument|int count
 argument_list|,
-name|uchar
+argument|uchar requestType_
 argument_list|)
 block|;
 name|void
