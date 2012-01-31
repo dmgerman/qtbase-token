@@ -1770,6 +1770,21 @@ endif|#
 directive|endif
 end_endif
 begin_define
+DECL|macro|Q_DECLARE_OPAQUE_POINTER
+define|#
+directive|define
+name|Q_DECLARE_OPAQUE_POINTER
+parameter_list|(
+name|POINTER
+parameter_list|)
+define|\
+value|QT_BEGIN_NAMESPACE namespace QtPrivate {                            \         template<>                                                     \         struct IsPointerToTypeDerivedFromQObject<POINTER>              \         {                                                               \             enum { Value = false };                                     \         };                                                              \     } QT_END_NAMESPACE
+end_define
+begin_comment
+unit|\
+comment|/**/
+end_comment
+begin_define
 DECL|macro|Q_DECLARE_METATYPE
 define|#
 directive|define
