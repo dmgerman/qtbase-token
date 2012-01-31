@@ -145,6 +145,10 @@ block|,
 name|SharedGraphicsCache
 init|=
 literal|4
+block|,
+name|BufferQueueingOpenGL
+init|=
+literal|5
 block|}
 enum|;
 name|virtual
