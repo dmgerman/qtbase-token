@@ -201,10 +201,6 @@ name|Q_PROPERTY
 argument_list|(
 argument|int startDragDistance  READ startDragDistance WRITE setStartDragDistance
 argument_list|)
-name|Q_PROPERTY
-argument_list|(
-argument|bool quitOnLastWindowClosed  READ quitOnLastWindowClosed WRITE setQuitOnLastWindowClosed
-argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_STYLE_STYLESHEET
@@ -986,18 +982,6 @@ argument_list|,
 name|QEvent
 operator|*
 argument_list|)
-block|;
-specifier|static
-name|void
-name|setQuitOnLastWindowClosed
-argument_list|(
-argument|bool quit
-argument_list|)
-block|;
-specifier|static
-name|bool
-name|quitOnLastWindowClosed
-argument_list|()
 block|;
 ifdef|#
 directive|ifdef

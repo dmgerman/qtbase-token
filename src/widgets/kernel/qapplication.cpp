@@ -7356,9 +7356,6 @@ comment|// QT_NO_MESSAGEBOX
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QApplication::lastWindowClosed()      This signal is emitted from QApplication::exec() when the last visible     primary window (i.e. window with no parent) with the Qt::WA_QuitOnClose     attribute set is closed.      By default,      \list         \o  this attribute is set for all widgets except transient windows such             as splash screens, tool windows, and popup menus          \o  QApplication implicitly quits when this signal is emitted.     \endlist      This feature can be turned off by setting \l quitOnLastWindowClosed to     false.      \sa QWidget::close() */
-end_comment
-begin_comment
 comment|/*!     \since 4.1     \fn void QApplication::focusChanged(QWidget *old, QWidget *now)      This signal is emitted when the widget that has keyboard focus changed from     \a old to \a now, i.e., because the user pressed the tab-key, clicked into     a widget or changed the active window. Both \a old and \a now can be the     null-pointer.      The signal is emitted after both widget have been notified about the change     through QFocusEvent.      \sa QWidget::setFocus(), QWidget::clearFocus(), Qt::FocusReason */
 end_comment
 begin_comment
@@ -17263,45 +17260,6 @@ operator|::
 name|popupWidgets
 operator|!=
 literal|0
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     \property QApplication::quitOnLastWindowClosed      \brief whether the application implicitly quits when the last window is     closed.      The default is true.      If this property is true, the applications quits when the last visible     primary window (i.e. window with no parent) with the Qt::WA_QuitOnClose     attribute set is closed. By default this attribute is set for all widgets     except for sub-windows. Refer to \l{Qt::WindowType} for a detailed list of     Qt::Window objects.      \sa quit(), QWidget::close()  */
-end_comment
-begin_function
-DECL|function|setQuitOnLastWindowClosed
-name|void
-name|QApplication
-operator|::
-name|setQuitOnLastWindowClosed
-parameter_list|(
-name|bool
-name|quit
-parameter_list|)
-block|{
-name|QCoreApplication
-operator|::
-name|setQuitLockEnabled
-argument_list|(
-name|quit
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_function
-DECL|function|quitOnLastWindowClosed
-name|bool
-name|QApplication
-operator|::
-name|quitOnLastWindowClosed
-parameter_list|()
-block|{
-return|return
-name|QCoreApplication
-operator|::
-name|isQuitLockEnabled
-argument_list|()
 return|;
 block|}
 end_function
