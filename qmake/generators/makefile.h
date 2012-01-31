@@ -827,13 +827,10 @@ block|;
 name|QString
 name|specdir
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|outdir
-operator|=
-name|QString
-argument_list|()
+argument|const QString&outdir = QString()
+argument_list|,
+argument|int host_build = -
+literal|1
 argument_list|)
 block|;
 name|virtual

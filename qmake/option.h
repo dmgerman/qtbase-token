@@ -779,6 +779,11 @@ specifier|static
 name|QString
 name|qmakespec
 decl_stmt|;
+DECL|member|xqmakespec
+specifier|static
+name|QString
+name|xqmakespec
+decl_stmt|;
 DECL|member|do_cache
 specifier|static
 name|bool
@@ -828,6 +833,11 @@ DECL|member|qmakespec_commandline
 specifier|static
 name|QString
 name|qmakespec_commandline
+decl_stmt|;
+DECL|member|xqmakespec_commandline
+specifier|static
+name|QString
+name|xqmakespec_commandline
 decl_stmt|;
 block|}
 struct|;
