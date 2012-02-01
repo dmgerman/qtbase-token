@@ -6949,6 +6949,11 @@ name|s
 operator|.
 name|latin1
 argument_list|()
+argument_list|,
+name|s
+operator|.
+name|size
+argument_list|()
 argument_list|)
 block|;
 return|return
