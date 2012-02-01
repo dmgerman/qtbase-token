@@ -6662,15 +6662,18 @@ operator|->
 name|networkSession
 condition|)
 block|{
+endif|#
+directive|endif
 name|postRequest
 argument_list|()
 expr_stmt|;
 return|return
 literal|true
 return|;
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 block|}
-endif|#
-directive|endif
 comment|// This is not ideal.
 specifier|const
 name|QString
@@ -6707,9 +6710,6 @@ return|return
 literal|true
 return|;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_BEARERMANAGEMENT
 if|if
 condition|(
 name|managerPrivate
@@ -6738,11 +6738,11 @@ return|return
 literal|true
 return|;
 block|}
-endif|#
-directive|endif
 return|return
 literal|false
 return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -6772,9 +6772,6 @@ name|state
 operator|=
 name|Working
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_BEARERMANAGEMENT
 if|if
 condition|(
 operator|!
@@ -6782,7 +6779,9 @@ name|start
 argument_list|()
 condition|)
 block|{
-comment|// ### we should call that method even if bearer is not used
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 comment|// backend failed to start because the session state is not Connected.
 comment|// QNetworkAccessManager will call reply->backend->start() again for us when the session
 comment|// state changes.
@@ -6858,10 +6857,10 @@ literal|"Backend is waiting for QNetworkSession to connect, but there is none!"
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
-block|}
 endif|#
 directive|endif
+return|return;
+block|}
 if|if
 condition|(
 name|synchronous
