@@ -208,6 +208,11 @@ parameter_list|()
 function_decl|;
 specifier|static
 name|void
+name|clearIgnoreMessages
+parameter_list|()
+function_decl|;
+specifier|static
+name|void
 name|warn
 parameter_list|(
 specifier|const
