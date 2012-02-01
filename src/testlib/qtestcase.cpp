@@ -3505,6 +3505,11 @@ argument_list|)
 expr_stmt|;
 name|QTestResult
 operator|::
+name|finishedCurrentTestData
+argument_list|()
+expr_stmt|;
+name|QTestResult
+operator|::
 name|setCurrentTestLocation
 argument_list|(
 name|QTestResult

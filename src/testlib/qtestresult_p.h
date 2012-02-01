@@ -144,6 +144,11 @@ parameter_list|()
 function_decl|;
 specifier|static
 name|void
+name|finishedCurrentTestData
+parameter_list|()
+function_decl|;
+specifier|static
+name|void
 name|finishedCurrentTestFunction
 parameter_list|()
 function_decl|;
