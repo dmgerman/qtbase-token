@@ -34620,7 +34620,7 @@ parameter_list|,
 name|QUrl
 operator|::
 name|ParsingMode
-name|parsingMode
+name|mode
 parameter_list|)
 block|{
 name|QByteArray
@@ -34631,13 +34631,13 @@ decl_stmt|;
 name|clear
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-operator|(
 name|parsingMode
 operator|=
+name|mode
+expr_stmt|;
+if|if
+condition|(
 name|parsingMode
-operator|)
 operator|==
 name|QUrl
 operator|::
