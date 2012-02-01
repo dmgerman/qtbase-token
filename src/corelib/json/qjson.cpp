@@ -648,6 +648,8 @@ name|header
 operator|=
 name|h
 expr_stmt|;
+name|this
+operator|->
 name|alloc
 operator|=
 name|alloc

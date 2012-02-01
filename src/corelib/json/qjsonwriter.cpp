@@ -1282,6 +1282,9 @@ operator|+
 operator|(
 name|o
 condition|?
+operator|(
+name|int
+operator|)
 name|o
 operator|->
 name|size
@@ -1375,6 +1378,9 @@ operator|+
 operator|(
 name|a
 condition|?
+operator|(
+name|int
+operator|)
 name|a
 operator|->
 name|size
