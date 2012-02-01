@@ -25,12 +25,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qt_windows.h>
+file|<QScopedArrayPointer>
 end_include
 begin_include
 include|#
 directive|include
-file|<QScopedArrayPointer>
+file|<qt_windows.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

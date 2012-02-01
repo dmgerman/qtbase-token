@@ -66,7 +66,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|"qt_windows.h"
+file|<qt_windows.h>
 end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE

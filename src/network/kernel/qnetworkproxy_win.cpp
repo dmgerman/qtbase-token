@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qsystemlibrary_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<string.h>
 end_include
 begin_include
@@ -46,11 +51,6 @@ begin_include
 include|#
 directive|include
 file|<wininet.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<private/qsystemlibrary_p.h>
 end_include
 begin_comment
 comment|/*  * Information on the WinHTTP DLL:  *  http://msdn.microsoft.com/en-us/library/aa384122(VS.85).aspx example for WPAD  *  *  http://msdn.microsoft.com/en-us/library/aa384097(VS.85).aspx WinHttpGetProxyForUrl  *  http://msdn.microsoft.com/en-us/library/aa384096(VS.85).aspx WinHttpGetIEProxyConfigForCurrentUs  *  http://msdn.microsoft.com/en-us/library/aa384095(VS.85).aspx WinHttpGetDefaultProxyConfiguration  */

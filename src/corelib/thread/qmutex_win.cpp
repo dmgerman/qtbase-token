@@ -5,11 +5,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<qt_windows.h>
-end_include
-begin_include
-include|#
-directive|include
 file|"qmutex.h"
 end_include
 begin_include
@@ -21,6 +16,11 @@ begin_include
 include|#
 directive|include
 file|"qmutex_p.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<qt_windows.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE

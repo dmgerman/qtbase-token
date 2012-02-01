@@ -51,11 +51,6 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"qt_windows.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<QtGui/qpaintengine.h>
 end_include
 begin_include
@@ -72,6 +67,11 @@ begin_include
 include|#
 directive|include
 file|<private/qpaintengine_alpha_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qt_windows.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

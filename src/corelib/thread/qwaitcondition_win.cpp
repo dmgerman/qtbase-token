@@ -32,11 +32,6 @@ include|#
 directive|include
 file|"qalgorithms.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"qt_windows.h"
-end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -58,6 +53,11 @@ begin_include
 include|#
 directive|include
 file|<private/qreadwritelock_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<qt_windows.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

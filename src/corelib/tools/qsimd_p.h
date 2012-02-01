@@ -126,14 +126,6 @@ directive|undef
 name|posix_memalign
 else|#
 directive|else
-ifdef|#
-directive|ifdef
-name|Q_CC_MINGW
-include|#
-directive|include
-file|<windows.h>
-endif|#
-directive|endif
 include|#
 directive|include
 file|<emmintrin.h>

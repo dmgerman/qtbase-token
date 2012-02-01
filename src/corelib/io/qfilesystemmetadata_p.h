@@ -66,14 +66,16 @@ end_include
 begin_comment
 comment|// Platform-specific includes
 end_comment
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
+begin_ifdef
+ifdef|#
+directive|ifdef
 name|Q_OS_WIN
-argument_list|)
-end_if
+end_ifdef
+begin_include
+include|#
+directive|include
+file|<QtCore/qt_windows.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef

@@ -150,7 +150,7 @@ end_elif
 begin_include
 include|#
 directive|include
-file|<windows.h>
+file|<QtCore/qt_windows.h>
 end_include
 begin_include
 include|#

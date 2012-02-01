@@ -101,6 +101,23 @@ include|#
 directive|include
 file|"qwidgetwindow_qpa_p.h"
 end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
+begin_include
+include|#
+directive|include
+file|<QtCore/qt_windows.h>
+end_include
+begin_comment
+comment|// for qt_win_display_dc()
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|appName
@@ -1588,6 +1605,9 @@ ifdef|#
 directive|ifdef
 name|Q_OS_WIN
 end_ifdef
+begin_comment
+comment|// #fixme: Remove.
+end_comment
 begin_decl_stmt
 DECL|variable|displayDC
 specifier|static

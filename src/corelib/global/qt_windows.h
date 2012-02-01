@@ -94,6 +94,12 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_define
+DECL|macro|NOMINMAX
+define|#
+directive|define
+name|NOMINMAX
+end_define
 begin_include
 include|#
 directive|include

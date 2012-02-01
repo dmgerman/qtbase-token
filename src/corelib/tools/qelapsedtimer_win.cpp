@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<windows.h>
+file|<qt_windows.h>
 end_include
 begin_typedef
 DECL|typedef|PtrGetTickCount64

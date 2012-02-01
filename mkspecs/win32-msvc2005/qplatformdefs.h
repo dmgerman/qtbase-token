@@ -102,11 +102,6 @@ include|#
 directive|include
 file|<stdlib.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<windows.h>
-end_include
 begin_define
 DECL|macro|Q_FS_FAT
 define|#

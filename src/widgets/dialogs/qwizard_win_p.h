@@ -56,11 +56,6 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|<qt_windows.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qobject.h>
 end_include
 begin_include
@@ -82,6 +77,11 @@ begin_include
 include|#
 directive|include
 file|<QtWidgets/private/qstylehelper_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<qt_windows.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

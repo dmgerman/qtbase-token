@@ -237,6 +237,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+end_ifdef
+begin_include
+include|#
+directive|include
+file|<qt_windows.h>
+end_include
 begin_if
 if|#
 directive|if
@@ -251,6 +261,10 @@ define|#
 directive|define
 name|QT_NO_SETLOCALE
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif

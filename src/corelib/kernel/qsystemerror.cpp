@@ -77,7 +77,7 @@ end_ifdef
 begin_include
 include|#
 directive|include
-file|<windows.h>
+file|<qt_windows.h>
 end_include
 begin_endif
 endif|#

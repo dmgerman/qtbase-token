@@ -22,6 +22,11 @@ include|#
 directive|include
 file|<qdebug.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qt_windows.h>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro

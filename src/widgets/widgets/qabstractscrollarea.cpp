@@ -99,7 +99,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 end_ifdef
 begin_include
 include|#
@@ -109,7 +109,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<windows.h>
+file|<qt_windows.h>
 end_include
 begin_endif
 endif|#

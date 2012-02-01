@@ -56,11 +56,6 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|<qt_windows.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/qdatetime.h>
 end_include
 begin_include
@@ -178,6 +173,8 @@ name|Handle
 block|{
 name|public
 operator|:
+name|Qt
+operator|::
 name|HANDLE
 name|handle
 block|;
@@ -186,38 +183,7 @@ name|flags
 block|;
 name|Handle
 argument_list|()
-operator|:
-name|handle
-argument_list|(
-name|INVALID_HANDLE_VALUE
-argument_list|)
-block|,
-name|flags
-argument_list|(
-literal|0u
-argument_list|)
-block|{ }
-name|Handle
-argument_list|(
-specifier|const
-name|Handle
-operator|&
-name|other
-argument_list|)
-operator|:
-name|handle
-argument_list|(
-name|other
-operator|.
-name|handle
-argument_list|)
-block|,
-name|flags
-argument_list|(
-argument|other.flags
-argument_list|)
-block|{ }
-block|}
+block|;     }
 block|;
 name|class
 name|PathInfo
@@ -380,6 +346,8 @@ name|mutex
 block|;
 name|QVector
 operator|<
+name|Qt
+operator|::
 name|HANDLE
 operator|>
 name|handles
@@ -399,6 +367,8 @@ name|handleForDir
 block|;
 name|QHash
 operator|<
+name|Qt
+operator|::
 name|HANDLE
 block|,
 name|QHash
