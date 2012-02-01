@@ -344,10 +344,8 @@ name|d
 operator|=
 name|Data
 operator|::
-name|allocate
-argument_list|(
-literal|0
-argument_list|)
+name|sharedNull
+argument_list|()
 expr_stmt|;
 block|}
 end_function

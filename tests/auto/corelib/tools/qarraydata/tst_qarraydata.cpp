@@ -1375,7 +1375,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|v4
 operator|.
 name|isNull
@@ -1926,7 +1925,6 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-operator|!
 name|v1
 operator|.
 name|isSharedWith
