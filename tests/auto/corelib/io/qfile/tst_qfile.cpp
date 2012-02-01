@@ -1241,15 +1241,14 @@ operator|::
 name|initTestCase
 parameter_list|()
 block|{
-comment|// chdir to testdata directory and use relative paths.
 name|QString
-name|testdata_dir
+name|workingDir
 init|=
 name|QFileInfo
 argument_list|(
 name|QFINDTESTDATA
 argument_list|(
-literal|"testfile.txt"
+literal|"stdinprocess"
 argument_list|)
 argument_list|)
 operator|.
@@ -1258,18 +1257,32 @@ argument_list|()
 decl_stmt|;
 name|QVERIFY2
 argument_list|(
+operator|!
+name|workingDir
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|,
+name|qPrintable
+argument_list|(
+literal|"Could not find working directory!"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY2
+argument_list|(
 name|QDir
 operator|::
 name|setCurrent
 argument_list|(
-name|testdata_dir
+name|workingDir
 argument_list|)
 argument_list|,
 name|qPrintable
 argument_list|(
 literal|"Could not chdir to "
 operator|+
-name|testdata_dir
+name|workingDir
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4352,12 +4365,7 @@ name|process
 operator|.
 name|start
 argument_list|(
-name|QFINDTESTDATA
-argument_list|(
-literal|"stdinprocess/stdinprocess"
-argument_list|)
-operator|+
-literal|" all"
+literal|"stdinprocess/stdinprocess all"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -4566,14 +4574,9 @@ operator|.
 name|start
 argument_list|(
 operator|(
-name|QFINDTESTDATA
-argument_list|(
-literal|"stdinprocess/stdinprocess"
-argument_list|)
-operator|+
 name|QString
 argument_list|(
-literal|" line %1"
+literal|"stdinprocess/stdinprocess line %1"
 argument_list|)
 operator|.
 name|arg
@@ -4802,14 +4805,9 @@ name|process
 operator|.
 name|start
 argument_list|(
-name|QFINDTESTDATA
-argument_list|(
-literal|"stdinprocess/stdinprocess"
-argument_list|)
-operator|+
 name|QString
 argument_list|(
-literal|" line %1"
+literal|"stdinprocess/stdinprocess line %1"
 argument_list|)
 operator|.
 name|arg
