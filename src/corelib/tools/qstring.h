@@ -6614,7 +6614,7 @@ argument_list|)
 operator|:
 name|d
 argument_list|(
-argument|fromLatin1_helper(aLatin1.latin1())
+argument|fromLatin1_helper(aLatin1.latin1(), aLatin1.size())
 argument_list|)
 block|{ }
 DECL|function|length
