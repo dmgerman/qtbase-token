@@ -13,11 +13,6 @@ define|#
 directive|define
 name|QWINDOWSDIALOGHELPER_H
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_WIDGETS_LIB
-end_ifdef
 begin_include
 include|#
 directive|include
@@ -26,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qplatformdialoghelper_qpa.h>
+file|<QtGui/QPlatformDialogHelper>
 end_include
 begin_include
 include|#
@@ -210,13 +205,6 @@ begin_macro
 unit|};
 name|QT_END_NAMESPACE
 end_macro
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_WIDGETS_LIB
-end_comment
 begin_endif
 endif|#
 directive|endif

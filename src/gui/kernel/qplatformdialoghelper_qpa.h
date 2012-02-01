@@ -106,7 +106,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QPlatformDialogHelper
 range|:
 name|public
@@ -237,7 +237,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QColorDialogOptions
 block|{
 name|public
@@ -405,7 +405,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QPlatformColorDialogHelper
 range|:
 name|public
@@ -487,7 +487,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QFontDialogOptions
 block|{
 name|public
@@ -596,7 +596,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QPlatformFontDialogHelper
 range|:
 name|public
@@ -678,7 +678,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QFileDialogOptions
 block|{
 name|public
@@ -1033,7 +1033,7 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|class
-name|Q_WIDGETS_EXPORT
+name|Q_GUI_EXPORT
 name|QPlatformFileDialogHelper
 range|:
 name|public

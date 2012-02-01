@@ -7,11 +7,6 @@ include|#
 directive|include
 file|"qwindowsdialoghelpers.h"
 end_include
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_WIDGETS_LIB
-end_ifdef
 begin_include
 include|#
 directive|include
@@ -7224,11 +7219,4 @@ include|#
 directive|include
 file|"qwindowsdialoghelpers.moc"
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_WIDGETS_LIB
-end_comment
 end_unit

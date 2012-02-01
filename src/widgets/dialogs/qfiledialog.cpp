@@ -30,11 +30,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qplatformdialoghelper_qpa.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<private/qguiapplication_p.h>
 end_include
 begin_include
