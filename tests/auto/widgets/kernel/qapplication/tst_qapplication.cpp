@@ -63,11 +63,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QInputContext>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtWidgets/QStyleFactory>
 end_include
 begin_include

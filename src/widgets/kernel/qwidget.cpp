@@ -183,11 +183,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qinputcontext.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qfileinfo.h"
 end_include
 begin_include
@@ -1390,39 +1385,6 @@ name|t
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_function
-begin_comment
-comment|/*!     This function returns the QInputContext for this widget. By     default the input context is inherited from the widgets     parent. For toplevels it is inherited from QApplication.      You can override this and set a special input context for this     widget by using the setInputContext() method.      \sa setInputContext() */
-end_comment
-begin_function
-DECL|function|inputContext
-name|QInputContext
-modifier|*
-name|QWidget
-operator|::
-name|inputContext
-parameter_list|()
-block|{
-if|if
-condition|(
-operator|!
-name|testAttribute
-argument_list|(
-name|Qt
-operator|::
-name|WA_InputMethodEnabled
-argument_list|)
-condition|)
-return|return
-literal|0
-return|;
-return|return
-name|qApp
-operator|->
-name|inputContext
-argument_list|()
-return|;
 block|}
 end_function
 begin_ifdef
@@ -30997,7 +30959,7 @@ name|ignore
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*!     This method is only relevant for input widgets. It is used by the     input method to query a set of properties of the widget to be     able to support complex input method operations as support for     surrounding text and reconversions.      \a query specifies which property is queried.      \sa inputMethodEvent(), QInputMethodEvent, QInputContext, inputMethodHints */
+comment|/*!     This method is only relevant for input widgets. It is used by the     input method to query a set of properties of the widget to be     able to support complex input method operations as support for     surrounding text and reconversions.      \a query specifies which property is queried.      \sa inputMethodEvent(), QInputMethodEven, inputMethodHints */
 DECL|function|inputMethodQuery
 name|QVariant
 name|QWidget
@@ -31079,7 +31041,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/*!     \property QWidget::inputMethodHints     \brief What input method specific hints the widget has.      This is only relevant for input widgets. It is used by     the input method to retrieve hints as to how the input method     should operate. For example, if the Qt::ImhFormattedNumbersOnly flag     is set, the input method may change its visual components to reflect     that only numbers can be entered.      \note The flags are only hints, so the particular input method           implementation is free to ignore them. If you want to be           sure that a certain type of characters are entered,           you should also set a QValidator on the widget.      The default value is Qt::ImhNone.      \since 4.6      \sa inputMethodQuery(), QInputContext */
+comment|/*!     \property QWidget::inputMethodHints     \brief What input method specific hints the widget has.      This is only relevant for input widgets. It is used by     the input method to retrieve hints as to how the input method     should operate. For example, if the Qt::ImhFormattedNumbersOnly flag     is set, the input method may change its visual components to reflect     that only numbers can be entered.      \note The flags are only hints, so the particular input method           implementation is free to ignore them. If you want to be           sure that a certain type of characters are entered,           you should also set a QValidator on the widget.      The default value is Qt::ImhNone.      \since 4.6      \sa inputMethodQuery() */
 DECL|function|inputMethodHints
 name|Qt
 operator|::
@@ -36813,7 +36775,7 @@ block|}
 endif|#
 directive|endif
 comment|// QT_NO_SHORTCUT
-comment|/*!     Updates the widget's micro focus.      \sa QInputContext */
+comment|/*!     Updates the widget's micro focus. */
 DECL|function|updateMicroFocus
 name|void
 name|QWidget

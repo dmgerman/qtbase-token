@@ -21766,7 +21766,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     This method is only relevant for input items. It is used by the     input method to query a set of properties of the item to be able     to support complex input method operations, such as support for     surrounding text and reconversions. \a query specifies which     property is queried.      \sa inputMethodEvent(), QInputMethodEvent, QInputContext */
+comment|/*!     This method is only relevant for input items. It is used by the     input method to query a set of properties of the item to be able     to support complex input method operations, such as support for     surrounding text and reconversions. \a query specifies which     property is queried.      \sa inputMethodEvent(), QInputMethodEvent */
 end_comment
 begin_function
 DECL|function|inputMethodQuery
@@ -21812,7 +21812,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the current input method hints of this item.      Input method hints are only relevant for input items.     The hints are used by the input method to indicate how it should operate.     For example, if the Qt::ImhNumbersOnly flag is set, the input method may change     its visual components to reflect that only numbers can be entered.      The effect may vary between input method implementations.      \since 4.6      \sa setInputMethodHints(), inputMethodQuery(), QInputContext */
+comment|/*!     Returns the current input method hints of this item.      Input method hints are only relevant for input items.     The hints are used by the input method to indicate how it should operate.     For example, if the Qt::ImhNumbersOnly flag is set, the input method may change     its visual components to reflect that only numbers can be entered.      The effect may vary between input method implementations.      \since 4.6      \sa setInputMethodHints(), inputMethodQuery() */
 end_comment
 begin_function
 DECL|function|inputMethodHints
@@ -21839,7 +21839,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the current input method hints of this item to \a hints.      \since 4.6      \sa inputMethodHints(), inputMethodQuery(), QInputContext */
+comment|/*!     Sets the current input method hints of this item to \a hints.      \since 4.6      \sa inputMethodHints(), inputMethodQuery() */
 end_comment
 begin_function
 DECL|function|setInputMethodHints
@@ -21912,7 +21912,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Updates the item's micro focus.      \since 4.7      \sa QInputContext */
+comment|/*!     Updates the item's micro focus.      \since 4.7      \sa QInputMethod */
 end_comment
 begin_function
 DECL|function|updateMicroFocus
@@ -23098,7 +23098,7 @@ begin_comment
 comment|// QT_NO_GESTURES
 end_comment
 begin_comment
-comment|/*!     Updates the item's micro focus. This is slot for convenience.      \since 4.7      \sa QInputContext */
+comment|/*!     Updates the item's micro focus. This is slot for convenience.      \since 4.7      \sa QInputMethod */
 end_comment
 begin_function
 DECL|function|updateMicroFocus

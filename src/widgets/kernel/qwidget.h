@@ -245,12 +245,6 @@ name|QHideEvent
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QInputContext
-name|class
-name|QInputContext
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QIcon
 name|class
 name|QIcon
@@ -3011,11 +3005,6 @@ name|ensurePolished
 argument_list|()
 specifier|const
 expr_stmt|;
-name|QInputContext
-modifier|*
-name|inputContext
-parameter_list|()
-function_decl|;
 name|bool
 name|isAncestorOf
 argument_list|(
