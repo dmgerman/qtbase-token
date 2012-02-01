@@ -14349,6 +14349,19 @@ if|if
 condition|(
 name|dictionary
 index|[
+literal|"MSVC_MP"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|qmakeConfig
+operator|+=
+literal|"msvc_mp"
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
 literal|"SHARED"
 index|]
 operator|==
@@ -15784,7 +15797,7 @@ argument_list|(
 literal|" "
 argument_list|)
 operator|<<
-literal|" incremental msvc_mp depend_includepath no_private_qt_headers_warning QTDIR_build"
+literal|" incremental depend_includepath no_private_qt_headers_warning QTDIR_build"
 operator|<<
 name|endl
 expr_stmt|;
@@ -16466,19 +16479,6 @@ condition|)
 name|configStream
 operator|<<
 literal|" ltcg"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"MSVC_MP"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|configStream
-operator|<<
-literal|" msvc_mp"
 expr_stmt|;
 if|if
 condition|(
