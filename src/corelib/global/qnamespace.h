@@ -851,6 +851,10 @@ name|WindowTransparentForInput
 init|=
 literal|0x00080000
 block|,
+name|WindowOverridesSystemGestures
+init|=
+literal|0x00100000
+block|,
 name|CustomizeWindowHint
 init|=
 literal|0x02000000
