@@ -2055,14 +2055,6 @@ endif|#
 directive|endif
 comment|// QT_NO_HTTP
 comment|// first step: create the reply
-name|QUrl
-name|url
-init|=
-name|request
-operator|.
-name|url
-argument_list|()
-decl_stmt|;
 name|QNetworkReplyImpl
 modifier|*
 name|reply
