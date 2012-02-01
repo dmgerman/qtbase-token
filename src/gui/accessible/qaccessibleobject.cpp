@@ -563,10 +563,7 @@ name|list
 operator|.
 name|append
 argument_list|(
-name|w
-operator|->
-name|accessibleRoot
-argument_list|()
+name|root
 operator|->
 name|object
 argument_list|()
