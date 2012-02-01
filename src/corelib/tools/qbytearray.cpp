@@ -2661,7 +2661,7 @@ operator|*
 argument_list|>
 argument_list|(
 operator|&
-name|shared_null
+name|shared_empty
 operator|.
 name|ba
 argument_list|)

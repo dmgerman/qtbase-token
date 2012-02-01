@@ -161,11 +161,7 @@ name|QDBusCustomTypeInfo
 parameter_list|()
 member_init_list|:
 name|signature
-argument_list|(
-literal|0
-argument_list|,
-literal|'\0'
-argument_list|)
+argument_list|()
 member_init_list|,
 name|marshall
 argument_list|(
