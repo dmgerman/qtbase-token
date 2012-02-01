@@ -832,9 +832,6 @@ operator|<<
 literal|'\"'
 operator|<<
 name|t
-operator|.
-name|latin1
-argument_list|()
 operator|<<
 literal|'\"'
 block|;

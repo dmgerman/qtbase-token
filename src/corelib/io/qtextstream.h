@@ -777,6 +777,17 @@ name|operator
 operator|<<
 operator|(
 specifier|const
+name|QLatin1String
+operator|&
+name|s
+operator|)
+expr_stmt|;
+name|QTextStream
+operator|&
+name|operator
+operator|<<
+operator|(
+specifier|const
 name|QByteArray
 operator|&
 name|array
