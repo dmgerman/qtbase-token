@@ -272,14 +272,13 @@ argument|d_func()
 argument_list|,
 argument|void q_connectFocusObject()
 argument_list|)
-block|;
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
 argument_list|,
 argument|void q_checkFocusObject(QObject* object)
 argument_list|)
-block|; }
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
