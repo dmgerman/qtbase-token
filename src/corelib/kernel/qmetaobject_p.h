@@ -265,6 +265,15 @@ DECL|struct|QMetaObjectPrivate
 struct|struct
 name|QMetaObjectPrivate
 block|{
+DECL|enumerator|OutputRevision
+enum|enum
+block|{
+name|OutputRevision
+init|=
+literal|6
+block|}
+enum|;
+comment|// Used by moc and qmetaobjectbuilder
 DECL|member|revision
 name|int
 name|revision

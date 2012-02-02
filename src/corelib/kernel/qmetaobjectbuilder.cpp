@@ -4282,11 +4282,24 @@ condition|(
 name|buf
 condition|)
 block|{
+name|Q_STATIC_ASSERT_X
+argument_list|(
+name|QMetaObjectPrivate
+operator|::
+name|OutputRevision
+operator|==
+literal|6
+argument_list|,
+literal|"QMetaObjectBuilder should generate the same version as moc"
+argument_list|)
+expr_stmt|;
 name|pmeta
 operator|->
 name|revision
 operator|=
-literal|4
+name|QMetaObjectPrivate
+operator|::
+name|OutputRevision
 expr_stmt|;
 name|pmeta
 operator|->

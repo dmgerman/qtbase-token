@@ -683,7 +683,12 @@ name|out
 argument_list|,
 literal|"    %4d,       // revision\n"
 argument_list|,
-literal|6
+name|int
+argument_list|(
+name|QMetaObjectPrivate
+operator|::
+name|OutputRevision
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|fprintf
