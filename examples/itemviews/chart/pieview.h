@@ -123,6 +123,13 @@ specifier|const
 name|QModelIndex
 operator|&
 name|bottomRight
+argument_list|,
+specifier|const
+name|QSet
+operator|<
+name|int
+operator|>
+operator|&
 argument_list|)
 block|;
 name|void
