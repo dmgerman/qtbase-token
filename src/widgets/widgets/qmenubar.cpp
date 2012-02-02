@@ -8831,7 +8831,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QMenuBar::nativeMenuBar     \brief Whether or not a menubar will be used as a native menubar on platforms that support it     \since 4.6      This property specifies whether or not the menubar should be used as a native menubar on platforms     that support it. The currently supported platforms are Mac OS X and Windows CE. On these platforms     if this property is true, the menubar is used in the native menubar and is not in the window of     its parent, if false the menubar remains in the window. On other platforms the value of this     attribute has no effect.      The default is to follow whether the Qt::AA_DontUseNativeMenuBar attribute     is set for the application. Explicitly settings this property overrides     the presence (or abscence) of the attribute. */
+comment|/*!     \property QMenuBar::nativeMenuBar     \brief Whether or not a menubar will be used as a native menubar on platforms that support it     \since 4.6      This property specifies whether or not the menubar should be used as a native menubar on platforms     that support it. The currently supported platforms are Mac OS X and Windows CE. On these platforms     if this property is true, the menubar is used in the native menubar and is not in the window of     its parent, if false the menubar remains in the window. On other platforms the value of this     attribute has no effect.      The default is to follow whether the Qt::AA_DontUseNativeMenuBar attribute     is set for the application. Explicitly settings this property overrides     the presence (or abscence) of the attribute.      \sa void-qt-mac-set-native-menubar-bool-enable */
 end_comment
 begin_function
 DECL|function|setNativeMenuBar
@@ -9213,7 +9213,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \fn void QMenuBar::triggered(QAction *action)      This signal is emitted when an action in a menu belonging to this menubar     is triggered as a result of a mouse click; \a action is the action that     caused the signal to be emitted.      Normally, you connect each menu action to a single slot using     QAction::triggered(), but sometimes you will want to connect     several items to a single slot (most often if the user selects     from an array). This signal is useful in such cases.      \sa hovered(), QAction::triggered() */
+comment|/*!     \fn void QMenuBar::triggered(QAction *action)      This signal is emitted when an action in a menu belonging to this menubar     is triggered as a result of a mouse click; \a action is the action that     caused the signal to be emitted.      \note QMenuBar has to have ownership of the QMenu in order this signal to work.      Normally, you connect each menu action to a single slot using     QAction::triggered(), but sometimes you will want to connect     several items to a single slot (most often if the user selects     from an array). This signal is useful in such cases.      \sa hovered(), QAction::triggered() */
 end_comment
 begin_comment
 comment|/*!     \fn void QMenuBar::hovered(QAction *action)      This signal is emitted when a menu action is highlighted; \a action     is the action that caused the event to be sent.      Often this is used to update status information.      \sa triggered(), QAction::hovered() */

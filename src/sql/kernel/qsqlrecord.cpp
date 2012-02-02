@@ -505,7 +505,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the field at position \a index. If the position is out of     range, an empty field is returned.  */
+comment|/*!     Returns the field at position \a index. If the \a index     is out of range, function returns     a \l{default-constructed value}.  */
 end_comment
 begin_function
 DECL|function|field

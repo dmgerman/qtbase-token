@@ -1119,7 +1119,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the weekday (1 to 7) for this date.      Returns 0 if the date is invalid.      \sa day(), dayOfYear(), Qt::DayOfWeek */
+comment|/*!     Returns the weekday (1 = Monday to 7 = Sunday) for this date.      Returns 0 if the date is invalid.      \sa day(), dayOfYear(), Qt::DayOfWeek */
 end_comment
 begin_function
 DECL|function|dayOfWeek

@@ -45,7 +45,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this object was invalidated by a call to invalidate() and     has not been restarted since.      \sa invalidate(), start(), restart() */
+comment|/*!     Returns false if this object was invalidated by a call to invalidate() and     has not been restarted since.      \sa invalidate(), start(), restart() */
 end_comment
 begin_function
 DECL|function|isValid
