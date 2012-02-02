@@ -262,7 +262,7 @@ comment|/*!     \fn QTouchEventSequence&QTest::QTouchEventSequence::stationary(i
 comment|/*!     \fn QTouchEventSequence QTest::touchEvent(QWidget *widget, QTouchEvent::DeviceType deviceType)      Creates and returns a QTouchEventSequence for the device \a deviceType to     simulate events for \a widget.      When adding touch events to the sequence, \a widget will also be used to translate     the position provided to screen coordinates, unless another widget is provided in the     respective calls to press(), move() etc.      The touch events are committed to the event system when the destructor of the     QTouchEventSequence is called (ie when the object returned runs out of scope). */
 DECL|function|installCoverageTool
 specifier|static
-name|void
+name|bool
 name|installCoverageTool
 parameter_list|(
 specifier|const
@@ -279,6 +279,29 @@ block|{
 ifdef|#
 directive|ifdef
 name|__COVERAGESCANNER__
+if|if
+condition|(
+operator|!
+name|qgetenv
+argument_list|(
+literal|"QT_TESTCOCOON_ACTIVE"
+argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return
+literal|false
+return|;
+comment|// Set environment variable QT_TESTCOCOON_ACTIVE to prevent an eventual subtest from
+comment|// being considered as a stand-alone test regarding the coverage analysis.
+name|qputenv
+argument_list|(
+literal|"QT_TESTCOCOON_ACTIVE"
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
 comment|// Install Coverage Tool
 name|__coveragescanner_install
 argument_list|(
@@ -293,6 +316,9 @@ expr_stmt|;
 name|__coveragescanner_clear
 argument_list|()
 expr_stmt|;
+return|return
+literal|true
+return|;
 else|#
 directive|else
 name|Q_UNUSED
@@ -305,6 +331,9 @@ argument_list|(
 name|testname
 argument_list|)
 expr_stmt|;
+return|return
+literal|false
+return|;
 endif|#
 directive|endif
 block|}
@@ -5493,6 +5522,9 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|bool
+name|installedTestCoverage
+init|=
 name|installCoverageTool
 argument_list|(
 name|argv
@@ -5504,6 +5536,13 @@ name|metaObject
 operator|->
 name|className
 argument_list|()
+argument_list|)
+decl_stmt|;
+name|QTestLog
+operator|::
+name|setInstalledTestCoverage
+argument_list|(
+name|installedTestCoverage
 argument_list|)
 expr_stmt|;
 ifdef|#
