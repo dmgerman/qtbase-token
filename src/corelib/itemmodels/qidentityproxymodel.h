@@ -102,6 +102,17 @@ argument|const QModelIndex& parent = QModelIndex()
 argument_list|)
 specifier|const
 block|;
+name|QVariant
+name|headerData
+argument_list|(
+argument|int section
+argument_list|,
+argument|Qt::Orientation orientation
+argument_list|,
+argument|int role
+argument_list|)
+specifier|const
+block|;
 name|bool
 name|dropMimeData
 argument_list|(
