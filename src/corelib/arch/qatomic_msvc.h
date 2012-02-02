@@ -5,19 +5,14 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QATOMIC_WINDOWS_H
+name|QATOMIC_MSVC_H
 end_ifndef
 begin_define
-DECL|macro|QATOMIC_WINDOWS_H
+DECL|macro|QATOMIC_MSVC_H
 define|#
 directive|define
-name|QATOMIC_WINDOWS_H
+name|QATOMIC_MSVC_H
 end_define
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_CC_MSVC
-end_ifdef
 begin_include
 include|#
 directive|include
@@ -1485,13 +1480,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_CC_MSVC
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QATOMIC_WINDOWS_H
+comment|// QATOMIC_MSVC_H
 end_comment
 end_unit
