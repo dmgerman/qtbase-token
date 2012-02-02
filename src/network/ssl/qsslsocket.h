@@ -164,6 +164,11 @@ argument_list|,
 argument|OpenMode openMode = ReadWrite
 argument_list|)
 block|;
+name|using
+name|QAbstractSocket
+operator|::
+name|connectToHost
+block|;
 name|void
 name|connectToHost
 argument_list|(
