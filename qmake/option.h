@@ -679,14 +679,11 @@ name|recursive
 decl_stmt|;
 DECL|member|before_user_vars
 DECL|member|after_user_vars
-DECL|member|user_configs
 specifier|static
 name|QStringList
 name|before_user_vars
 decl_stmt|,
 name|after_user_vars
-decl_stmt|,
-name|user_configs
 decl_stmt|;
 DECL|enum|HOST_MODE
 DECL|enumerator|HOST_UNKNOWN_MODE

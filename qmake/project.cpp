@@ -8808,60 +8808,6 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-comment|//commandline configs
-if|if
-condition|(
-operator|(
-name|cmd
-operator|&
-name|ReadSetup
-operator|)
-operator|&&
-operator|!
-name|Option
-operator|::
-name|user_configs
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-name|parser
-operator|.
-name|file
-operator|=
-literal|"(configs)"
-expr_stmt|;
-name|parser
-operator|.
-name|from_file
-operator|=
-literal|false
-expr_stmt|;
-name|parser
-operator|.
-name|line_no
-operator|=
-literal|1
-expr_stmt|;
-comment|//really arg count now.. duh
-name|parse
-argument_list|(
-literal|"CONFIG += "
-operator|+
-name|Option
-operator|::
-name|user_configs
-operator|.
-name|join
-argument_list|(
-literal|" "
-argument_list|)
-argument_list|,
-name|vars
-argument_list|)
-expr_stmt|;
-block|}
 comment|// After user configs, to override them
 if|if
 condition|(

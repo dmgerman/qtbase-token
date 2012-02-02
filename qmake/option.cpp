@@ -358,14 +358,6 @@ name|after_user_vars
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|member|user_configs
-name|QStringList
-name|Option
-operator|::
-name|user_configs
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|member|user_template
 name|QString
 name|Option
@@ -983,6 +975,9 @@ name|int
 name|skip
 parameter_list|)
 block|{
+name|QStringList
+name|user_configs
+decl_stmt|;
 name|bool
 name|before
 init|=
@@ -1607,8 +1602,6 @@ operator|==
 literal|"config"
 condition|)
 block|{
-name|Option
-operator|::
 name|user_configs
 operator|+=
 name|argv
@@ -2125,6 +2118,27 @@ block|}
 block|}
 block|}
 block|}
+if|if
+condition|(
+operator|!
+name|user_configs
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|Option
+operator|::
+name|before_user_vars
+operator|+=
+literal|"CONFIG += "
+operator|+
+name|user_configs
+operator|.
+name|join
+argument_list|(
+literal|" "
+argument_list|)
+expr_stmt|;
 return|return
 name|Option
 operator|::
