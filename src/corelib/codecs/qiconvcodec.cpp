@@ -2248,6 +2248,23 @@ name|defined
 argument_list|(
 name|GNU_LIBICONV
 argument_list|)
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+comment|// on QNX the default locale is UTF-8, and an empty string will cause iconv_open to fail
+specifier|static
+specifier|const
+name|char
+name|empty_codeset
+index|[]
+init|=
+literal|"UTF-8"
+decl_stmt|;
+else|#
+directive|else
 comment|// both GLIBC and libgnuiconv will use the locale's encoding if from or to is an empty string
 specifier|static
 specifier|const
@@ -2257,6 +2274,8 @@ index|[]
 init|=
 literal|""
 decl_stmt|;
+endif|#
+directive|endif
 specifier|const
 name|char
 modifier|*
