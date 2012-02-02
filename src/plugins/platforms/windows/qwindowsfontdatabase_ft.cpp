@@ -401,7 +401,10 @@ name|familyName
 operator|.
 name|indexOf
 argument_list|(
+name|QStringLiteral
+argument_list|(
 literal|"::"
+argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|const
@@ -797,7 +800,10 @@ specifier|const
 name|QSettings
 name|fontRegistry
 argument_list|(
+name|QStringLiteral
+argument_list|(
 literal|"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts"
+argument_list|)
 argument_list|,
 name|QSettings
 operator|::
@@ -896,8 +902,6 @@ init|=
 name|key
 decl_stmt|;
 name|realKey
-operator|=
-name|realKey
 operator|.
 name|remove
 argument_list|(
@@ -951,7 +955,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|QByteArray
+name|QString
 name|value
 decl_stmt|;
 name|int
@@ -1048,7 +1052,7 @@ operator|.
 name|key
 argument_list|)
 operator|.
-name|toByteArray
+name|toString
 argument_list|()
 expr_stmt|;
 name|index
@@ -1089,15 +1093,21 @@ name|value
 argument_list|)
 condition|)
 name|value
-operator|=
+operator|.
+name|prepend
+argument_list|(
+name|QString
+operator|::
+name|fromLocal8Bit
+argument_list|(
 name|qgetenv
 argument_list|(
 literal|"windir"
 argument_list|)
 operator|+
 literal|"\\Fonts\\"
-operator|+
-name|value
+argument_list|)
+argument_list|)
 expr_stmt|;
 comment|// Pointer is deleted in QBasicFontDatabase::releaseHandle(void *handle)
 name|FontFile
@@ -1315,7 +1325,10 @@ operator|.
 name|lfFaceName
 argument_list|)
 operator|+
+name|QStringLiteral
+argument_list|(
 literal|"::"
+argument_list|)
 operator|+
 name|QString
 operator|::

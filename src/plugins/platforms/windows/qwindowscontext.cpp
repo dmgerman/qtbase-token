@@ -1485,7 +1485,10 @@ decl_stmt|;
 name|QString
 name|cname
 init|=
+name|QStringLiteral
+argument_list|(
 literal|"Qt5"
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
