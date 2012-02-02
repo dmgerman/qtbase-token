@@ -149,6 +149,11 @@ parameter_list|()
 function_decl|;
 specifier|static
 name|void
+name|finishedCurrentTestDataCleanup
+parameter_list|()
+function_decl|;
+specifier|static
+name|void
 name|finishedCurrentTestFunction
 parameter_list|()
 function_decl|;
@@ -352,11 +357,6 @@ parameter_list|,
 name|int
 name|line
 parameter_list|)
-function_decl|;
-specifier|static
-name|bool
-name|testFailed
-parameter_list|()
 function_decl|;
 specifier|static
 name|void

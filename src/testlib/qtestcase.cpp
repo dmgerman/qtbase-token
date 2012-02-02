@@ -3557,6 +3557,11 @@ argument_list|)
 expr_stmt|;
 name|QTestResult
 operator|::
+name|finishedCurrentTestDataCleanup
+argument_list|()
+expr_stmt|;
+name|QTestResult
+operator|::
 name|setCurrentTestLocation
 argument_list|(
 name|QTestResult
@@ -4651,16 +4656,26 @@ argument_list|,
 literal|"initTestCase()"
 argument_list|)
 expr_stmt|;
-comment|// finishedCurrentTestFunction() resets QTestResult::testFailed(), so use a local copy.
+comment|// finishedCurrentTestDataCleanup() resets QTestResult::currentTestFailed(), so use a local copy.
 specifier|const
 name|bool
 name|previousFailed
 init|=
 name|QTestResult
 operator|::
-name|testFailed
+name|currentTestFailed
 argument_list|()
 decl_stmt|;
+name|QTestResult
+operator|::
+name|finishedCurrentTestData
+argument_list|()
+expr_stmt|;
+name|QTestResult
+operator|::
+name|finishedCurrentTestDataCleanup
+argument_list|()
+expr_stmt|;
 name|QTestResult
 operator|::
 name|finishedCurrentTestFunction
@@ -4865,6 +4880,16 @@ name|testObject
 argument_list|,
 literal|"cleanupTestCase()"
 argument_list|)
+expr_stmt|;
+name|QTestResult
+operator|::
+name|finishedCurrentTestData
+argument_list|()
+expr_stmt|;
+name|QTestResult
+operator|::
+name|finishedCurrentTestDataCleanup
+argument_list|()
 expr_stmt|;
 block|}
 name|QTestResult
