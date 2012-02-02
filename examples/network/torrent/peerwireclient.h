@@ -361,7 +361,7 @@ block|}
 name|void
 name|setReadBufferSize
 argument_list|(
-argument|int size
+argument|qint64 size
 argument_list|)
 block|;
 name|signals

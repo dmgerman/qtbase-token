@@ -2065,7 +2065,7 @@ name|PeerWireClient
 operator|::
 name|setReadBufferSize
 parameter_list|(
-name|int
+name|qint64
 name|size
 parameter_list|)
 block|{
