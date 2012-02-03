@@ -23759,7 +23759,6 @@ literal|false
 expr_stmt|;
 comment|// Now Makefiles will be done
 block|}
-comment|// don't pass -spec - .qmake.cache has it already
 name|args
 operator|<<
 literal|"-r"
@@ -24022,14 +24021,6 @@ operator|<<
 name|it
 operator|->
 name|target
-expr_stmt|;
-name|args
-operator|<<
-literal|"-spec"
-expr_stmt|;
-name|args
-operator|<<
-name|spec
 expr_stmt|;
 if|if
 condition|(
