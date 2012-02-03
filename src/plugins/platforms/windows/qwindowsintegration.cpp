@@ -1297,6 +1297,11 @@ name|QPlatformIntegration
 operator|::
 name|KeyboardInputInterval
 case|:
+case|case
+name|QPlatformIntegration
+operator|::
+name|ShowIsFullScreen
+case|:
 break|break;
 comment|// Not implemented
 block|}

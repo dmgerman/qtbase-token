@@ -89,6 +89,13 @@ name|CLEARTYPE_QUALITY
 value|5
 end_define
 begin_define
+DECL|macro|SPI_GETDROPSHADOW
+define|#
+directive|define
+name|SPI_GETDROPSHADOW
+value|0x1024
+end_define
+begin_define
 DECL|macro|CF_DIBV5
 define|#
 directive|define
