@@ -1523,6 +1523,8 @@ directive|endif
 operator|<<
 literal|"expectfail"
 operator|<<
+literal|"failcleanup"
+operator|<<
 literal|"failinit"
 operator|<<
 literal|"failinitdata"
@@ -1558,6 +1560,8 @@ operator|<<
 literal|"singleskip"
 operator|<<
 literal|"skip"
+operator|<<
+literal|"skipcleanup"
 operator|<<
 literal|"skipinit"
 operator|<<
