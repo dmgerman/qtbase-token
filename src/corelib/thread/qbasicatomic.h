@@ -175,7 +175,7 @@ end_elif
 begin_include
 include|#
 directive|include
-file|<QtCore/qatomic_cxx0x.h>
+file|<QtCore/qatomic_cxx11.h>
 end_include
 begin_elif
 elif|#
