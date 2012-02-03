@@ -3706,6 +3706,9 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// Duplicate project. It is *not* allowed to call the complex read() functions on the copy.
+end_comment
 begin_constructor
 DECL|function|QMakeProject
 name|QMakeProject
@@ -3724,7 +3727,7 @@ argument_list|,
 name|QStringList
 argument_list|>
 modifier|*
-name|vars
+name|_vars
 parameter_list|)
 block|{
 name|init
@@ -3735,12 +3738,12 @@ name|properties
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|base_vars
-operator|=
 name|vars
+operator|=
+name|_vars
 condition|?
 operator|*
-name|vars
+name|_vars
 else|:
 name|p
 operator|->
