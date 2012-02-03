@@ -2151,13 +2151,6 @@ name|defined
 argument_list|(
 name|QT_NO_THREAD
 argument_list|)
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_CONCURRENT
-argument_list|)
 comment|// Synchronize and stop the global thread pool threads.
 name|QThreadPool
 modifier|*
@@ -2191,8 +2184,6 @@ operator|->
 name|waitForDone
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 name|QThread
 operator|::
 name|cleanup

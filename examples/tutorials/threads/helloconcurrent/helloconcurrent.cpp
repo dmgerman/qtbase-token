@@ -7,6 +7,11 @@ include|#
 directive|include
 file|<QtCore>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtConcurrent>
+end_include
 begin_comment
 comment|/*  says hello from main thread and secondary thread using QtConcurrent */
 end_comment

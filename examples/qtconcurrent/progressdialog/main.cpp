@@ -7,6 +7,11 @@ include|#
 directive|include
 file|<QtWidgets>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtConcurrent>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
