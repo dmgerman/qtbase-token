@@ -5451,7 +5451,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the line's height. This is equal to ascent() + descent() + 1     if leading is not included. If leading is included, this equals to     ascent() + descent() + leading() + 1.      \sa ascent(), descent(), leading(), setLeadingIncluded() */
+comment|/*!     Returns the line's height. This is equal to ascent() + descent()     if leading is not included. If leading is included, this equals to     ascent() + descent() + leading().      \sa ascent(), descent(), leading(), setLeadingIncluded() */
 end_comment
 begin_function
 DECL|function|height

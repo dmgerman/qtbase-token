@@ -453,8 +453,6 @@ name|fontmetrics
 operator|.
 name|descent
 argument_list|()
-operator|+
-literal|1
 argument_list|,
 name|fontmetrics
 operator|.
@@ -577,8 +575,6 @@ name|fontmetrics
 operator|.
 name|descent
 argument_list|()
-operator|+
-literal|1
 argument_list|,
 name|fontmetrics
 operator|.

@@ -1890,8 +1890,6 @@ return|return
 name|ascent
 operator|+
 name|descent
-operator|+
-literal|1
 return|;
 block|}
 block|}
@@ -2051,8 +2049,6 @@ operator|)
 operator|.
 name|ceil
 argument_list|()
-operator|+
-literal|1
 operator|+
 operator|(
 name|leadingIncluded

@@ -435,8 +435,6 @@ name|s
 operator|.
 name|height
 argument_list|()
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 name|item

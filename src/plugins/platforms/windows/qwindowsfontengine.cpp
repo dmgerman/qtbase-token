@@ -2862,14 +2862,10 @@ name|descent
 parameter_list|()
 specifier|const
 block|{
-comment|// ### we subtract 1 to even out the historical +1 in QFontMetrics'
-comment|// ### height=asc+desc+1 equation. Fix in Qt5.
 return|return
 name|tm
 operator|.
 name|tmDescent
-operator|-
-literal|1
 return|;
 block|}
 end_function

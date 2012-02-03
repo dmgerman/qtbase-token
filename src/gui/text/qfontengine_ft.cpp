@@ -7349,7 +7349,6 @@ name|descent
 parameter_list|()
 specifier|const
 block|{
-comment|// subtract a pixel to work around QFontMetrics's built-in + 1
 return|return
 name|QFixed
 operator|::
@@ -7359,8 +7358,6 @@ operator|-
 name|metrics
 operator|.
 name|descender
-operator|-
-literal|64
 argument_list|)
 return|;
 block|}
@@ -9898,8 +9895,6 @@ argument_list|()
 operator|+
 name|descent
 argument_list|()
-operator|+
-literal|1
 expr_stmt|;
 name|QFixed
 name|ymax

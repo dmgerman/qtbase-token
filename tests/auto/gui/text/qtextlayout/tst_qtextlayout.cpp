@@ -1919,8 +1919,6 @@ argument_list|,
 name|longestLine
 argument_list|,
 name|y
-operator|+
-literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2126,11 +2124,8 @@ name|testFont
 operator|.
 name|pixelSize
 argument_list|()
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
-comment|// + 1 baseline
 name|QCOMPARE
 argument_list|(
 name|line
@@ -2214,11 +2209,8 @@ name|testFont
 operator|.
 name|pixelSize
 argument_list|()
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
-comment|// + 1 baseline
 name|QCOMPARE
 argument_list|(
 name|line
@@ -2305,11 +2297,8 @@ name|testFont
 operator|.
 name|pixelSize
 argument_list|()
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
-comment|// + 1 baseline
 name|QCOMPARE
 argument_list|(
 name|line
@@ -2396,11 +2385,8 @@ name|testFont
 operator|.
 name|pixelSize
 argument_list|()
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
-comment|// + 1 baseline
 name|QCOMPARE
 argument_list|(
 name|line
