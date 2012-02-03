@@ -117,15 +117,6 @@ argument_list|)
 include|#
 directive|include
 file|"QtCore/qatomic_sh4a.h"
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|QT_ARCH_NACL
-argument_list|)
-include|#
-directive|include
-file|"QtCore/qatomic_nacl.h"
 else|#
 directive|else
 error|#
