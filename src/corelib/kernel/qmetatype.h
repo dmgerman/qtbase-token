@@ -507,16 +507,6 @@ modifier|*
 name|where
 parameter_list|)
 function_decl|;
-specifier|static
-name|void
-name|unregisterType
-parameter_list|(
-specifier|const
-name|char
-modifier|*
-name|typeName
-parameter_list|)
-function_decl|;
 ifndef|#
 directive|ifndef
 name|QT_NO_DATASTREAM
