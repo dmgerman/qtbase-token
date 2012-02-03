@@ -400,12 +400,12 @@ argument_list|(
 name|INVALID_HANDLE_VALUE
 argument_list|)
 member_init_list|,
-name|pipeReader
+name|pipeWriter
 argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|pipeWriter
+name|pipeReader
 argument_list|(
 literal|0
 argument_list|)

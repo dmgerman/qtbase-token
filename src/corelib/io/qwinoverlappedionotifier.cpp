@@ -73,7 +73,7 @@ name|INVALID_HANDLE_VALUE
 argument_list|,
 name|NULL
 argument_list|,
-name|NULL
+literal|0
 argument_list|,
 literal|0
 argument_list|)
@@ -107,7 +107,7 @@ name|hPort
 argument_list|,
 literal|0
 argument_list|,
-name|NULL
+literal|0
 argument_list|,
 name|NULL
 argument_list|)

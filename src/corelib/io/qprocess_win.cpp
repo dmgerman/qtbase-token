@@ -239,9 +239,6 @@ argument_list|(
 name|dwError
 argument_list|,
 literal|"QProcess: CreateNamedPipe failed."
-argument_list|,
-name|GetLastError
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return;
@@ -287,12 +284,9 @@ operator|==
 name|INVALID_HANDLE_VALUE
 condition|)
 block|{
-name|qWarning
+name|qErrnoWarning
 argument_list|(
-literal|"QProcess: CreateFile failed with error code %d.\n"
-argument_list|,
-name|GetLastError
-argument_list|()
+literal|"QProcess: CreateFile failed."
 argument_list|)
 expr_stmt|;
 name|CloseHandle
