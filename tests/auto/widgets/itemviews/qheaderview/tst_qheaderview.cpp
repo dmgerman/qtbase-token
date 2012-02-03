@@ -611,6 +611,10 @@ name|QTBUG14242_hideSectionAutoSize
 parameter_list|()
 function_decl|;
 name|void
+name|ensureNoIndexAtLength
+parameter_list|()
+function_decl|;
+name|void
 name|initialSortOrderRole
 parameter_list|()
 function_decl|;
@@ -13360,6 +13364,90 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|ensureNoIndexAtLength
+name|void
+name|tst_QHeaderView
+operator|::
+name|ensureNoIndexAtLength
+parameter_list|()
+block|{
+name|QTableView
+name|qtv
+decl_stmt|;
+name|QStandardItemModel
+name|amodel
+argument_list|(
+literal|4
+argument_list|,
+literal|4
+argument_list|)
+decl_stmt|;
+name|qtv
+operator|.
+name|setModel
+argument_list|(
+operator|&
+name|amodel
+argument_list|)
+expr_stmt|;
+name|QHeaderView
+modifier|*
+name|hv
+init|=
+name|qtv
+operator|.
+name|verticalHeader
+argument_list|()
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|hv
+operator|->
+name|visualIndexAt
+argument_list|(
+name|hv
+operator|->
+name|length
+argument_list|()
+argument_list|)
+operator|==
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+name|hv
+operator|->
+name|resizeSection
+argument_list|(
+name|hv
+operator|->
+name|count
+argument_list|()
+operator|-
+literal|1
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|hv
+operator|->
+name|visualIndexAt
+argument_list|(
+name|hv
+operator|->
+name|length
+argument_list|()
+argument_list|)
+operator|==
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|initialSortOrderRole
 name|void
 name|tst_QHeaderView
@@ -14878,7 +14966,6 @@ argument_list|,
 name|verifytext
 argument_list|)
 expr_stmt|;
-comment|// Here the semantic can change. See final note (*).
 name|QVERIFY2
 argument_list|(
 name|chk_lookup_logical
@@ -14891,7 +14978,6 @@ argument_list|,
 name|verifytext
 argument_list|)
 expr_stmt|;
-comment|// Here the semantic can change. See final note (*).
 name|QVERIFY2
 argument_list|(
 name|header_lenght
@@ -15486,7 +15572,6 @@ operator|==
 name|check1
 argument_list|)
 expr_stmt|;
-comment|// Here the semantic can change. See final note (*)
 name|QVERIFY
 argument_list|(
 name|precalced_check2
@@ -15494,7 +15579,6 @@ operator|==
 name|check2
 argument_list|)
 expr_stmt|;
-comment|// Here the semantic can change. See final note (*)
 specifier|const
 name|int
 name|precalced_results
@@ -15511,9 +15595,11 @@ literal|650981936
 block|,
 literal|372919464
 block|,
-literal|2139446944
+operator|-
+literal|1544372176
 block|,
-literal|854793816
+operator|-
+literal|426463328
 block|,
 literal|12124
 block|}
@@ -15652,7 +15738,6 @@ operator|==
 name|check1
 argument_list|)
 expr_stmt|;
-comment|// Here the semantic can change. See final note (*)
 name|QVERIFY
 argument_list|(
 name|precalced_check2
@@ -15660,7 +15745,6 @@ operator|==
 name|check2
 argument_list|)
 expr_stmt|;
-comment|// Here the semantic can change. See final note (*)
 specifier|const
 name|int
 name|precalced_results
@@ -15677,10 +15761,10 @@ literal|1457520212
 block|,
 literal|169223959
 block|,
-literal|726651072
+literal|557466160
 block|,
 operator|-
-literal|2105938696
+literal|324939600
 block|,
 literal|5453
 block|}
@@ -16551,9 +16635,11 @@ literal|543340640
 block|,
 literal|1
 block|,
-literal|703951756
+operator|-
+literal|1251526424
 block|,
-literal|250831536
+operator|-
+literal|568618976
 block|,
 literal|9250
 block|}
@@ -16792,12 +16878,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|// (*) Currently qheaderview position lookup acts a bit strange. It can return sections with size 0.
-end_comment
-begin_comment
-comment|// This could be changed in the future.
-end_comment
 begin_macro
 name|QTEST_MAIN
 argument_list|(

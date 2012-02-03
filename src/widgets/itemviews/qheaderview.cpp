@@ -16607,11 +16607,16 @@ condition|(
 name|position
 operator|==
 name|span_position
+operator|&&
+name|currentSection
+operator|.
+name|size
+operator|>
+literal|0
 condition|)
 return|return
 name|span_start_section
 return|;
-comment|// spans with no size
 if|if
 condition|(
 name|position
