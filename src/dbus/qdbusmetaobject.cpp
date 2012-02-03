@@ -1658,7 +1658,9 @@ name|mp
 operator|.
 name|flags
 operator||=
-literal|0xff
+name|QMetaType
+operator|::
+name|QVariant
 operator|<<
 literal|24
 expr_stmt|;
