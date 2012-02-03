@@ -49,15 +49,6 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|QT_ARCH_AVR32
-argument_list|)
-include|#
-directive|include
-file|"QtCore/qatomic_avr32.h"
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|QT_ARCH_BFIN
 argument_list|)
 include|#
