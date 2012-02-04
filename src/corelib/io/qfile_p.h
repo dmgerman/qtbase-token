@@ -60,6 +60,12 @@ file|"private/qringbuffer_p.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QTemporaryFile
+name|class
+name|QTemporaryFile
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QFilePrivate
 range|:
@@ -70,6 +76,10 @@ name|Q_DECLARE_PUBLIC
 argument_list|(
 argument|QFile
 argument_list|)
+name|friend
+name|class
+name|QTemporaryFile
+block|;
 name|protected
 operator|:
 name|QFilePrivate
@@ -98,6 +108,13 @@ argument|FILE *fh
 argument_list|,
 argument|QFile::FileHandleFlags handleFlags
 argument_list|)
+block|;
+name|virtual
+name|QAbstractFileEngine
+operator|*
+name|engine
+argument_list|()
+specifier|const
 block|;
 name|QString
 name|fileName
