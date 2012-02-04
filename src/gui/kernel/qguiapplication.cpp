@@ -2209,6 +2209,13 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_function_decl
+specifier|extern
+name|void
+name|qt_cleanupFontDatabase
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_destructor
 DECL|function|~QGuiApplicationPrivate
 name|QGuiApplicationPrivate
@@ -2291,6 +2298,9 @@ name|styleHints
 expr_stmt|;
 operator|delete
 name|inputMethod
+expr_stmt|;
+name|qt_cleanupFontDatabase
+argument_list|()
 expr_stmt|;
 operator|delete
 name|platform_integration

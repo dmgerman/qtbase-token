@@ -937,7 +937,6 @@ condition|(
 name|integration
 condition|)
 block|{
-comment|//on shut down there will be some that we don't release.
 name|integration
 operator|->
 name|fontDatabase
@@ -4214,6 +4213,33 @@ argument_list|,
 argument|(QMutex::Recursive)
 argument_list|)
 end_macro
+begin_comment
+comment|// used in qguiapplication.cpp
+end_comment
+begin_function
+DECL|function|qt_cleanupFontDatabase
+name|void
+name|qt_cleanupFontDatabase
+parameter_list|()
+block|{
+name|QFontDatabasePrivate
+modifier|*
+name|db
+init|=
+name|privateDb
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|db
+condition|)
+name|db
+operator|->
+name|free
+argument_list|()
+expr_stmt|;
+block|}
+end_function
 begin_comment
 comment|// used in qfontengine_x11.cpp
 end_comment
