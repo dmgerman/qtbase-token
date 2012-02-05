@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -179,6 +179,9 @@ begin_comment
 comment|/*!     \fn QPlatformBackingStore *QPlatformIntegration::createPlatformBackingStore(QWindow *window) const      Factory function for QPlatformBackingStore. The QWindow parameter is a pointer to the     top level widget(tlw) the window surface is created for. A QPlatformWindow is always created     before the QPlatformBackingStore for tlw where the widget also requires a backing store.      \sa QBackingStore     \sa createPlatformWindow(QWindow *window, WId winId = 0) const */
 end_comment
 begin_comment
+comment|/*!     \enum QPlatformIntegration::Capability      Capabilities are used to determing specific features of a platform integration      \value ThreadedPixmaps The platform uses a pixmap implementation that is reentrant     and can be used from multiple threads, like the raster paint engine and QImage based     pixmaps.      \value OpenGL The platform supports OpenGL      \value ThreadedOpenGL The platform supports using OpenGL outside the GUI thread.      \value SharedGraphicsCache The platform supports a shared graphics cache      \value BufferQueueingOpenGL The OpenGL implementation on the platform will queue     up buffers when swapBuffers() is called and block only when its buffer pipeline     is full, rather than block immediately.  */
+end_comment
+begin_comment
 comment|/*!      \fn QAbstractEventDispatcher *QPlatformIntegration::guiThreadEventDispatcher() const = 0      Accessor function for the event dispatcher. The platform plugin should create     an instance of the QAbstractEventDispatcher in its constructor and set it     on the application using QGuiApplicationPrivate::instance()->setEventDispatcher().     The event dispatcher is owned by QGuiApplication, the accessor should return     a flat pointer.     \sa QGuiApplicationPrivate */
 end_comment
 begin_function
@@ -249,6 +252,36 @@ expr_stmt|;
 name|qWarning
 argument_list|(
 literal|"This plugin does not support createPlatformOpenGLContext!"
+argument_list|)
+expr_stmt|;
+return|return
+literal|0
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!    Factory function for QPlatformSharedGraphicsCache. This function will return 0 if the platform    integration does not support any shared graphics cache mechanism for the given \a cacheId. */
+end_comment
+begin_function
+DECL|function|createPlatformSharedGraphicsCache
+name|QPlatformSharedGraphicsCache
+modifier|*
+name|QPlatformIntegration
+operator|::
+name|createPlatformSharedGraphicsCache
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|cacheId
+parameter_list|)
+specifier|const
+block|{
+name|qWarning
+argument_list|(
+literal|"This plugin does not support createPlatformSharedGraphicsBuffer for cacheId: %s!"
+argument_list|,
+name|cacheId
 argument_list|)
 expr_stmt|;
 return|return

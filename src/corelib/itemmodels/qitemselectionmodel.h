@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -33,29 +33,22 @@ include|#
 directive|include
 file|<QtCore/qabstractitemmodel.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_ITEMVIEWS
 name|class
 name|Q_CORE_EXPORT
 name|QItemSelectionRange
-decl_stmt|{  public:
+block|{
+name|public
+label|:
 specifier|inline
-namespace|QItemSelectionRange(
-end_function
-begin_block
-unit|)
+name|QItemSelectionRange
+argument_list|()
 block|{}
-end_block
-begin_expr_stmt
 specifier|inline
 name|QItemSelectionRange
 argument_list|(
@@ -91,8 +84,6 @@ operator|&
 name|bottomRight
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_function
 name|explicit
 specifier|inline
 name|QItemSelectionRange
@@ -112,8 +103,6 @@ operator|=
 name|tl
 expr_stmt|;
 block|}
-end_function
-begin_expr_stmt
 specifier|inline
 name|int
 name|top
@@ -127,8 +116,6 @@ name|row
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|left
@@ -142,8 +129,6 @@ name|column
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|bottom
@@ -157,8 +142,6 @@ name|row
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|right
@@ -172,8 +155,6 @@ name|column
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|width
@@ -194,8 +175,6 @@ operator|+
 literal|1
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|height
@@ -216,8 +195,6 @@ operator|+
 literal|1
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QModelIndex
 name|topLeft
@@ -231,8 +208,6 @@ name|tl
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QModelIndex
 name|bottomRight
@@ -246,8 +221,6 @@ name|br
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QModelIndex
 name|parent
@@ -261,8 +234,6 @@ name|parent
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 specifier|const
 name|QAbstractItemModel
@@ -278,8 +249,6 @@ name|model
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_decl_stmt
 specifier|inline
 name|bool
 name|contains
@@ -343,8 +312,6 @@ argument_list|()
 operator|)
 return|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 name|bool
 name|contains
@@ -399,8 +366,6 @@ name|column
 operator|)
 return|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 name|bool
 name|intersects
 argument_list|(
@@ -411,8 +376,6 @@ name|other
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|QItemSelectionRange
 name|intersect
 argument_list|(
@@ -423,11 +386,7 @@ name|other
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_comment
 comment|// ### Qt 5: make QT4_SUPPORT
-end_comment
-begin_decl_stmt
 specifier|inline
 name|QItemSelectionRange
 name|intersected
@@ -446,8 +405,6 @@ name|other
 argument_list|)
 return|;
 block|}
-end_decl_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|operator
@@ -476,8 +433,6 @@ name|br
 operator|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|operator
@@ -499,8 +454,6 @@ name|other
 operator|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|operator
@@ -617,8 +570,6 @@ name|column
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_return
 return|return
 name|br
 operator|.
@@ -632,9 +583,8 @@ operator|.
 name|row
 argument_list|()
 return|;
-end_return
-begin_expr_stmt
-unit|}                         return
+block|}
+return|return
 name|tl
 operator|.
 name|column
@@ -646,10 +596,9 @@ name|tl
 operator|.
 name|column
 argument_list|()
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-unit|}                     return
+return|;
+block|}
+return|return
 name|tl
 operator|.
 name|row
@@ -661,17 +610,15 @@ name|tl
 operator|.
 name|row
 argument_list|()
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-unit|}                 return
+return|;
+block|}
+return|return
 name|topLeftParent
 operator|<
 name|otherTopLeftParent
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-unit|}             return
+return|;
+block|}
+return|return
 name|tl
 operator|.
 name|model
@@ -683,10 +630,9 @@ name|tl
 operator|.
 name|model
 argument_list|()
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-unit|}      inline
+return|;
+block|}
+specifier|inline
 name|bool
 name|isValid
 argument_list|()
@@ -728,34 +674,29 @@ argument_list|()
 operator|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|bool
 name|isEmpty
 argument_list|()
 specifier|const
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|QModelIndexList
 name|indexes
 argument_list|()
 specifier|const
 expr_stmt|;
-end_expr_stmt
-begin_label
 name|private
 label|:
-end_label
-begin_decl_stmt
 name|QPersistentModelIndex
 name|tl
 decl_stmt|,
 name|br
 decl_stmt|;
+block|}
 end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_expr_stmt
-unit|};
 name|Q_DECLARE_TYPEINFO
 argument_list|(
 name|QItemSelectionRange

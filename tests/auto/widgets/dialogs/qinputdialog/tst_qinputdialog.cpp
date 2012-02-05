@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -75,7 +75,7 @@ parameter_list|)
 function_decl|;
 specifier|static
 name|void
-name|testFuncGetInteger
+name|testFuncGetInt
 parameter_list|(
 name|QInputDialog
 modifier|*
@@ -121,11 +121,11 @@ private|private
 name|slots
 private|:
 name|void
-name|getInteger_data
+name|getInt_data
 parameter_list|()
 function_decl|;
 name|void
-name|getInteger
+name|getInt
 parameter_list|()
 function_decl|;
 name|void
@@ -1240,11 +1240,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|testFuncGetInteger
+DECL|function|testFuncGetInt
 name|void
 name|tst_QInputDialog
 operator|::
-name|testFuncGetInteger
+name|testFuncGetInt
 parameter_list|(
 name|QInputDialog
 modifier|*
@@ -1385,11 +1385,11 @@ comment|// cause static function call to return
 block|}
 end_function
 begin_function
-DECL|function|getInteger_data
+DECL|function|getInt_data
 name|void
 name|tst_QInputDialog
 operator|::
-name|getInteger_data
+name|getInt_data
 parameter_list|()
 block|{
 name|QTest
@@ -1416,7 +1416,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"getInteger() - -"
+literal|"getInt() - -"
 argument_list|)
 operator|<<
 operator|-
@@ -1429,7 +1429,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"getInteger() - 0"
+literal|"getInt() - 0"
 argument_list|)
 operator|<<
 operator|-
@@ -1441,7 +1441,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"getInteger() - +"
+literal|"getInt() - +"
 argument_list|)
 operator|<<
 operator|-
@@ -1453,7 +1453,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"getInteger() 0 +"
+literal|"getInt() 0 +"
 argument_list|)
 operator|<<
 literal|0
@@ -1464,7 +1464,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"getInteger() + +"
+literal|"getInt() + +"
 argument_list|)
 operator|<<
 literal|10
@@ -1474,11 +1474,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|getInteger
+DECL|function|getInt
 name|void
 name|tst_QInputDialog
 operator|::
-name|getInteger
+name|getInt
 parameter_list|()
 block|{
 name|QFETCH
@@ -1518,7 +1518,7 @@ operator|=
 operator|&
 name|tst_QInputDialog
 operator|::
-name|testFuncGetInteger
+name|testFuncGetInt
 expr_stmt|;
 name|startTimer
 argument_list|(
@@ -1550,7 +1550,7 @@ name|result
 init|=
 name|QInputDialog
 operator|::
-name|getInteger
+name|getInt
 argument_list|(
 name|parent
 argument_list|,

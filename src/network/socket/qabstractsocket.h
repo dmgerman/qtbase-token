@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -40,10 +40,7 @@ end_endif
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Network
-argument_list|)
+DECL|variable|QHostAddress
 name|class
 name|QHostAddress
 decl_stmt|;
@@ -162,6 +159,11 @@ name|ProxyProtocolError
 block|,
 name|OperationError
 block|,
+name|SslInternalError
+block|,
+comment|/* 20 */
+name|SslInvalidUserDataError
+block|,
 name|UnknownSocketError
 operator|=
 operator|-
@@ -224,9 +226,27 @@ block|}
 block|;
 name|Q_DECLARE_FLAGS
 argument_list|(
-argument|BindMode
+name|BindMode
 argument_list|,
-argument|BindFlag
+name|BindFlag
+argument_list|)
+expr|enum
+name|PauseMode
+block|{
+name|PauseNever
+operator|=
+literal|0x0
+block|,
+name|PauseOnNotify
+operator|=
+literal|0x1
+block|}
+block|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|PauseModes
+argument_list|,
+argument|PauseMode
 argument_list|)
 name|QAbstractSocket
 argument_list|(
@@ -239,6 +259,23 @@ name|virtual
 operator|~
 name|QAbstractSocket
 argument_list|()
+block|;
+name|virtual
+name|void
+name|resume
+argument_list|()
+block|;
+comment|// to continue after proxy authentication required, SSL errors etc.
+name|PauseModes
+name|pauseMode
+argument_list|()
+specifier|const
+block|;
+name|void
+name|setPauseMode
+argument_list|(
+argument|PauseModes pauseMode
+argument_list|)
 block|;
 name|bool
 name|bind
@@ -334,12 +371,12 @@ name|peerName
 argument_list|()
 specifier|const
 block|;
-comment|// ### Qt 5: Make setReadBufferSize() virtual
 name|qint64
 name|readBufferSize
 argument_list|()
 specifier|const
 block|;
+name|virtual
 name|void
 name|setReadBufferSize
 argument_list|(
@@ -350,12 +387,13 @@ name|void
 name|abort
 argument_list|()
 block|;
-comment|// ### Qt 5: Make socketDescriptor() and setSocketDescriptor() virtual.
+name|virtual
 name|qintptr
 name|socketDescriptor
 argument_list|()
 specifier|const
 block|;
+name|virtual
 name|bool
 name|setSocketDescriptor
 argument_list|(
@@ -366,7 +404,7 @@ argument_list|,
 argument|OpenMode openMode = ReadWrite
 argument_list|)
 block|;
-comment|// ### Qt 5: Make virtual?
+name|virtual
 name|void
 name|setSocketOption
 argument_list|(
@@ -375,6 +413,7 @@ argument_list|,
 argument|const QVariant&value
 argument_list|)
 block|;
+name|virtual
 name|QVariant
 name|socketOption
 argument_list|(
@@ -416,7 +455,7 @@ name|flush
 argument_list|()
 block|;
 comment|// for synchronous access
-comment|// ### Qt 5: Make waitForConnected() and waitForDisconnected() virtual.
+name|virtual
 name|bool
 name|waitForConnected
 argument_list|(
@@ -438,6 +477,7 @@ argument|int msecs =
 literal|30000
 argument_list|)
 block|;
+name|virtual
 name|bool
 name|waitForDisconnected
 argument_list|(
@@ -646,6 +686,12 @@ begin_macro
 name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(
 argument|QAbstractSocket::BindMode
+argument_list|)
+end_macro
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QAbstractSocket::PauseModes
 argument_list|)
 end_macro
 begin_ifndef

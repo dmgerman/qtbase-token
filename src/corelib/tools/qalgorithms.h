@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -18,34 +18,37 @@ include|#
 directive|include
 file|<QtCore/qglobal.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 comment|/*     Warning: The contents of QAlgorithmsPrivate is not a part of the public Qt API     and may be changed from version to version or even be completely removed. */
 name|namespace
 name|QAlgorithmsPrivate
-decl_stmt|{  template<typename RandomAccessIterator
+block|{
+name|template
+operator|<
+name|typename
+name|RandomAccessIterator
 operator|,
-decl_stmt|typename T
+name|typename
+name|T
 operator|,
-decl_stmt|typename LessThan> Q_OUTOFLINE_TEMPLATE void qSortHelper(RandomAccessIterator start
-operator|,
-decl_stmt|RandomAccessIterator end
-operator|,
-decl_stmt|const T&t
-operator|,
-decl_stmt|LessThan lessThan
-end_function
-begin_empty_stmt
-unit|)
-empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
+name|typename
+name|LessThan
+operator|>
+name|Q_OUTOFLINE_TEMPLATE
+name|void
+name|qSortHelper
+argument_list|(
+argument|RandomAccessIterator start
+argument_list|,
+argument|RandomAccessIterator end
+argument_list|,
+argument|const T&t
+argument_list|,
+argument|LessThan lessThan
+argument_list|)
+expr_stmt|;
 name|template
 operator|<
 name|typename
@@ -65,8 +68,6 @@ argument_list|,
 argument|const T&dummy
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -91,8 +92,6 @@ argument_list|,
 argument|LessThan lessThan
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -114,8 +113,6 @@ name|T
 operator|&
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -140,8 +137,6 @@ argument_list|,
 argument|LessThan lessThan
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -166,8 +161,6 @@ argument_list|,
 argument|LessThan lessThan
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -192,10 +185,11 @@ argument_list|,
 argument|LessThan lessThan
 argument_list|)
 expr_stmt|;
-end_expr_stmt
+block|}
+end_decl_stmt
 begin_expr_stmt
-unit|}  template
 DECL|variable|InputIterator
+name|template
 operator|<
 name|typename
 name|InputIterator

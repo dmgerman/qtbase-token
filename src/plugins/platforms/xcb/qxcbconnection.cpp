@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -50,6 +50,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qxcbnativeinterface.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtAlgorithms>
 end_include
 begin_include
@@ -66,6 +71,11 @@ begin_include
 include|#
 directive|include
 file|<QTimer>
+end_include
+begin_include
+include|#
+directive|include
+file|<QByteArray>
 end_include
 begin_include
 include|#
@@ -214,6 +224,10 @@ name|QXcbConnection
 operator|::
 name|QXcbConnection
 parameter_list|(
+name|QXcbNativeInterface
+modifier|*
+name|nativeInterface
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -238,6 +252,11 @@ name|qgetenv
 argument_list|(
 literal|"DISPLAY"
 argument_list|)
+argument_list|)
+member_init_list|,
+name|m_nativeInterface
+argument_list|(
+name|nativeInterface
 argument_list|)
 ifdef|#
 directive|ifdef
@@ -398,6 +417,11 @@ if|if
 condition|(
 operator|!
 name|m_connection
+operator|||
+name|xcb_connection_has_error
+argument_list|(
+name|m_connection
+argument_list|)
 condition|)
 name|qFatal
 argument_list|(
@@ -1885,8 +1909,33 @@ directive|endif
 name|bool
 name|handled
 init|=
-literal|true
+literal|false
 decl_stmt|;
+if|if
+condition|(
+name|QPlatformNativeInterface
+operator|::
+name|EventFilter
+name|filter
+init|=
+name|m_nativeInterface
+operator|->
+name|eventFilter
+argument_list|(
+name|QXcbNativeInterface
+operator|::
+name|GenericEventFilter
+argument_list|)
+condition|)
+name|handled
+operator|=
+name|filter
+argument_list|(
+name|event
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 name|uint
 name|response_type
 init|=
@@ -1897,6 +1946,12 @@ operator|&
 operator|~
 literal|0x80
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|handled
+condition|)
+block|{
 switch|switch
 condition|(
 name|response_type
@@ -2220,6 +2275,7 @@ operator|=
 literal|false
 expr_stmt|;
 break|break;
+block|}
 block|}
 if|if
 condition|(
@@ -3267,6 +3323,12 @@ literal|"Abs MT Touch Minor\0"
 literal|"Abs MT Pressure\0"
 literal|"Abs MT Tracking ID\0"
 literal|"Max Contacts\0"
+if|#
+directive|if
+name|XCB_USE_MAEMO_WINDOW_PROPERTIES
+literal|"_MEEGOTOUCH_ORIENTATION_ANGLE\0"
+endif|#
+directive|endif
 block|}
 decl_stmt|;
 end_decl_stmt

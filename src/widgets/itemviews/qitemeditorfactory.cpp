@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -132,7 +132,7 @@ begin_comment
 comment|/*!     \fn QItemEditorFactory::QItemEditorFactory()      Constructs a new item editor factory. */
 end_comment
 begin_comment
-comment|/*!     Creates an editor widget with the given \a parent for the specified \a type of data,     and returns it as a QWidget.      \sa registerEditor() */
+comment|/*!     Creates an editor widget with the given \a parent for the specified \a userType of data,     and returns it as a QWidget.      \sa registerEditor() */
 end_comment
 begin_function
 DECL|function|createEditor
@@ -142,10 +142,8 @@ name|QItemEditorFactory
 operator|::
 name|createEditor
 parameter_list|(
-name|QVariant
-operator|::
-name|Type
-name|type
+name|int
+name|userType
 parameter_list|,
 name|QWidget
 modifier|*
@@ -161,7 +159,7 @@ name|creatorMap
 operator|.
 name|value
 argument_list|(
-name|type
+name|userType
 argument_list|,
 literal|0
 argument_list|)
@@ -191,7 +189,7 @@ name|dfactory
 operator|->
 name|createEditor
 argument_list|(
-name|type
+name|userType
 argument_list|,
 name|parent
 argument_list|)
@@ -208,7 +206,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the property name used to access data for the given \a type of data. */
+comment|/*!     Returns the property name used to access data for the given \a userType of data. */
 end_comment
 begin_function
 DECL|function|valuePropertyName
@@ -217,10 +215,8 @@ name|QItemEditorFactory
 operator|::
 name|valuePropertyName
 parameter_list|(
-name|QVariant
-operator|::
-name|Type
-name|type
+name|int
+name|userType
 parameter_list|)
 specifier|const
 block|{
@@ -232,7 +228,7 @@ name|creatorMap
 operator|.
 name|value
 argument_list|(
-name|type
+name|userType
 argument_list|,
 literal|0
 argument_list|)
@@ -263,7 +259,7 @@ name|dfactory
 operator|->
 name|valuePropertyName
 argument_list|(
-name|type
+name|userType
 argument_list|)
 return|;
 block|}
@@ -311,7 +307,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Registers an item editor creator specified by \a creator for the given \a type of data.      \bold{Note:} The factory takes ownership of the item editor creator and will destroy     it if a new creator for the same type is registered later.      \sa createEditor() */
+comment|/*!     Registers an item editor creator specified by \a creator for the given \a userType of data.      \bold{Note:} The factory takes ownership of the item editor creator and will destroy     it if a new creator for the same type is registered later.      \sa createEditor() */
 end_comment
 begin_function
 DECL|function|registerEditor
@@ -320,10 +316,8 @@ name|QItemEditorFactory
 operator|::
 name|registerEditor
 parameter_list|(
-name|QVariant
-operator|::
-name|Type
-name|type
+name|int
+name|userType
 parameter_list|,
 name|QItemEditorCreatorBase
 modifier|*
@@ -332,9 +326,7 @@ parameter_list|)
 block|{
 name|QHash
 argument_list|<
-name|QVariant
-operator|::
-name|Type
+name|int
 argument_list|,
 name|QItemEditorCreatorBase
 modifier|*
@@ -347,7 +339,7 @@ name|creatorMap
 operator|.
 name|find
 argument_list|(
-name|type
+name|userType
 argument_list|)
 decl_stmt|;
 if|if
@@ -401,7 +393,7 @@ comment|// if it is no more in use we can delete it
 block|}
 name|creatorMap
 index|[
-name|type
+name|userType
 index|]
 operator|=
 name|creator
@@ -426,10 +418,8 @@ name|QWidget
 modifier|*
 name|createEditor
 parameter_list|(
-name|QVariant
-operator|::
-name|Type
-name|type
+name|int
+name|userType
 parameter_list|,
 name|QWidget
 modifier|*
@@ -440,9 +430,7 @@ function_decl|;
 name|QByteArray
 name|valuePropertyName
 parameter_list|(
-name|QVariant
-operator|::
-name|Type
+name|int
 parameter_list|)
 specifier|const
 function_decl|;
@@ -457,10 +445,8 @@ name|QDefaultItemEditorFactory
 operator|::
 name|createEditor
 parameter_list|(
-name|QVariant
-operator|::
-name|Type
-name|type
+name|int
+name|userType
 parameter_list|,
 name|QWidget
 modifier|*
@@ -470,7 +456,7 @@ specifier|const
 block|{
 switch|switch
 condition|(
-name|type
+name|userType
 condition|)
 block|{
 ifndef|#
@@ -821,16 +807,14 @@ name|QDefaultItemEditorFactory
 operator|::
 name|valuePropertyName
 parameter_list|(
-name|QVariant
-operator|::
-name|Type
-name|type
+name|int
+name|userType
 parameter_list|)
 specifier|const
 block|{
 switch|switch
 condition|(
-name|type
+name|userType
 condition|)
 block|{
 ifndef|#

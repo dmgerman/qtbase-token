@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -257,6 +257,47 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     \typedef QPlatformNativeInterface::EventFilter     \since 5.0      A function with the following signature that can be used as an     event filter:      \code     bool myEventFilter(void *message, long *result);     \endcode      \sa setEventFilter() */
+end_comment
+begin_comment
+comment|/*!     \fn EventFilter QPlatformNativeInterface::setEventFilter(const QByteArray&eventType, EventFilter filter)     \since 5.0      Replaces the event filter function for the native interface with     \a filter and returns the pointer to the replaced event filter     function. Only the current event filter function is called. If you     want to use both filter functions, save the replaced EventFilter     in a place where you can call it from.      The event filter function set here is called for all messages     received from the platform if they are given type \eventType.     It is \i not called for messages that are not meant for Qt objects.      The type of event is specific to the platform plugin chosen at run-time.      The event filter function should return \c true if the message should     be filtered, (i.e. stopped). It should return \c false to allow     processing the message to continue.      By default, no event filter function is set. For example, this function     returns a null EventFilter the first time it is called.      \note The filter function here receives native messages,     for example, MSG or XEvent structs. It is called by the platform plugin. */
+end_comment
+begin_function
+DECL|function|setEventFilter
+name|QPlatformNativeInterface
+operator|::
+name|EventFilter
+name|QPlatformNativeInterface
+operator|::
+name|setEventFilter
+parameter_list|(
+specifier|const
+name|QByteArray
+modifier|&
+name|eventType
+parameter_list|,
+name|QPlatformNativeInterface
+operator|::
+name|EventFilter
+name|filter
+parameter_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|eventType
+argument_list|)
+expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+name|filter
+argument_list|)
+expr_stmt|;
+return|return
+literal|0
+return|;
 block|}
 end_function
 begin_macro

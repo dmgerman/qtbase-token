@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -1610,6 +1610,17 @@ name|value
 return|;
 block|}
 end_function
+begin_function_decl
+name|Q_GUI_EXPORT
+name|HICON
+name|qt_pixmapToWinHICON
+parameter_list|(
+specifier|const
+name|QPixmap
+modifier|&
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_function
 DECL|function|drawTitleBar
 name|void
@@ -1622,15 +1633,6 @@ modifier|*
 name|painter
 parameter_list|)
 block|{
-name|Q_GUI_EXPORT
-name|HICON
-name|qt_pixmapToWinHICON
-argument_list|(
-specifier|const
-name|QPixmap
-operator|&
-argument_list|)
-decl_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|backButton_
@@ -2191,67 +2193,13 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-case|case
-name|WM_NCCALCSIZE
-case|:
-block|{
-name|NCCALCSIZE_PARAMS
-modifier|*
-name|lpncsp
-init|=
-operator|(
-name|NCCALCSIZE_PARAMS
-operator|*
-operator|)
-name|msg
-operator|->
-name|lParam
-decl_stmt|;
-operator|*
-name|result
-operator|=
-name|DefWindowProc
-argument_list|(
-name|msg
-operator|->
-name|hwnd
-argument_list|,
-name|msg
-operator|->
-name|message
-argument_list|,
-name|msg
-operator|->
-name|wParam
-argument_list|,
-name|msg
-operator|->
-name|lParam
-argument_list|)
-expr_stmt|;
-name|lpncsp
-operator|->
-name|rgrc
-index|[
-literal|0
-index|]
-operator|.
-name|top
-operator|-=
-operator|(
-name|vistaState
-argument_list|()
-operator|==
-name|VistaAero
-condition|?
-name|titleBarSize
-argument_list|()
-else|:
-literal|0
-operator|)
-expr_stmt|;
-break|break;
-block|}
+comment|//    case WM_NCCALCSIZE: { #fixme: If the frame size is changed, it needs to be communicated to the QWindow.
+comment|//        NCCALCSIZE_PARAMS* lpncsp = (NCCALCSIZE_PARAMS*)msg->lParam;
+comment|//        *result = DefWindowProc(msg->hwnd, msg->message, msg->wParam, msg->lParam);
+comment|//        lpncsp->rgrc[0].top -= (vistaState() == VistaAero ? titleBarSize() : 0);
+comment|//
+comment|//        break;
+comment|//    }
 default|default:
 name|retval
 operator|=
@@ -2669,13 +2617,8 @@ operator|==
 name|WM_NCCALCSIZE
 condition|)
 block|{
-if|if
-condition|(
-name|status
-condition|)
-name|collapseTopFrameStrut
-argument_list|()
-expr_stmt|;
+comment|//          if (status) #fixme
+comment|//                collapseTopFrameStrut();
 block|}
 elseif|else
 if|if

@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -21,13 +21,10 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_MESSAGEBOX
+DECL|variable|QLabel
 name|class
 name|QLabel
 decl_stmt|;
@@ -65,7 +62,6 @@ name|Q_PROPERTY
 argument_list|(
 argument|QString text READ text WRITE setText
 argument_list|)
-comment|// ### Qt 5: Rename 'icon' 'standardIcon' and 'iconPixmap' 'icon' (and use QIcon?)
 name|Q_PROPERTY
 argument_list|(
 argument|Icon icon READ icon WRITE setIcon
@@ -665,12 +661,6 @@ name|NoButton
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_comment
-comment|// ### Qt 5: Replace Ok with Yes|No in question() function.
-end_comment
-begin_comment
-comment|//     Also consider if Ok == Yes and Cancel == No.
-end_comment
 begin_function_decl
 specifier|static
 name|StandardButton
@@ -693,7 +683,12 @@ parameter_list|,
 name|StandardButtons
 name|buttons
 init|=
-name|Ok
+name|StandardButtons
+argument_list|(
+name|Yes
+operator||
+name|No
+argument_list|)
 parameter_list|,
 name|StandardButton
 name|defaultButton
@@ -803,12 +798,6 @@ name|QString
 argument_list|()
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_function_decl
-name|QSize
-name|sizeHint
-parameter_list|()
-function_decl|const;
 end_function_decl
 begin_comment
 comment|// the following functions are obsolete:

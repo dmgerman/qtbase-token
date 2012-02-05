@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
 comment|//#define QTEXTSTREAM_DEBUG
@@ -8187,33 +8187,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     \overload */
-end_comment
-begin_function
-DECL|function|operator <<
-name|QTextStream
-modifier|&
-name|QTextStream
-operator|::
-name|operator
-name|<<
-parameter_list|(
-name|QBool
-name|b
-parameter_list|)
-block|{
-return|return
-operator|*
-name|this
-operator|<<
-name|bool
-argument_list|(
-name|b
-argument_list|)
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!     Writes the character \a c to the stream, then returns a reference     to the QTextStream.      \sa setFieldWidth() */
 end_comment
 begin_function
@@ -8948,6 +8921,51 @@ operator|->
 name|putString
 argument_list|(
 name|string
+argument_list|)
+expr_stmt|;
+return|return
+operator|*
+name|this
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \overload      Writes \a string to the stream, and returns a reference to the     QTextStream. The contents of \a string are converted with the     QString constructor that takes a QLatin1String as argument. */
+end_comment
+begin_function
+DECL|function|operator <<
+name|QTextStream
+modifier|&
+name|QTextStream
+operator|::
+name|operator
+name|<<
+parameter_list|(
+specifier|const
+name|QLatin1String
+modifier|&
+name|string
+parameter_list|)
+block|{
+name|Q_D
+argument_list|(
+name|QTextStream
+argument_list|)
+expr_stmt|;
+name|CHECK_VALID_STREAM
+argument_list|(
+operator|*
+name|this
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|putString
+argument_list|(
+name|QString
+argument_list|(
+name|string
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

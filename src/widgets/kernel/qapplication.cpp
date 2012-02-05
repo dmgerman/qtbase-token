@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -155,12 +155,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qinputpanel.h>
-end_include
-begin_include
-include|#
-directive|include
-file|"qinputcontext.h"
+file|<QtGui/qinputmethod.h>
 end_include
 begin_include
 include|#
@@ -419,27 +414,6 @@ init|=
 literal|0
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|member|inputContext
-name|QInputContext
-modifier|*
-name|QApplicationPrivate
-operator|::
-name|inputContext
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|member|quitOnLastWindowClosed
-name|bool
-name|QApplicationPrivate
-operator|::
-name|quitOnLastWindowClosed
-init|=
-literal|true
-decl_stmt|;
-end_decl_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -530,10 +504,6 @@ literal|false
 expr_stmt|;
 endif|#
 directive|endif
-name|quitOnLastWindowClosed
-operator|=
-literal|true
-expr_stmt|;
 if|#
 directive|if
 name|defined
@@ -3942,7 +3912,7 @@ begin_comment
 comment|/*!     \property QApplication::autoMaximizeThreshold     \since 4.4     \brief defines a threshold for auto maximizing widgets      \bold{The auto maximize threshold is only available as part of Qt for     Windows CE.}      This property defines a threshold for the size of a window as a percentage     of the screen size. If the minimum size hint of a window exceeds the     threshold, calling show() will cause the window to be maximized     automatically.      Setting the threshold to 100 or greater means that the widget will always     be maximized. Alternatively, setting the threshold to 50 means that the     widget will be maximized only if the vertical minimum size hint is at least     50% of the vertical screen size.      Setting the threshold to -1 disables the feature.      On Windows CE the default is -1 (i.e., it is disabled).     On Windows Mobile the default is 40. */
 end_comment
 begin_comment
-comment|/*!     \property QApplication::autoSipEnabled     \since 4.5     \brief toggles automatic SIP (software input panel) visibility      Set this property to \c true to automatically display the SIP when entering     widgets that accept keyboard input. This property only affects widgets with     the WA_InputMethodEnabled attribute set, and is typically used to launch     a virtual keyboard on devices which have very few or no keys.      \bold{ The property only has an effect on platforms which use software input     panels, such as Windows CE and Symbian.}      The default is platform dependent. */
+comment|/*!     \property QApplication::autoSipEnabled     \since 4.5     \brief toggles automatic SIP (software input panel) visibility      Set this property to \c true to automatically display the SIP when entering     widgets that accept keyboard input. This property only affects widgets with     the WA_InputMethodEnabled attribute set, and is typically used to launch     a virtual keyboard on devices which have very few or no keys.      \bold{ The property only has an effect on platforms which use software input     panels, such as Windows CE.}      The default is platform dependent. */
 end_comment
 begin_ifdef
 ifdef|#
@@ -6959,21 +6929,11 @@ condition|)
 block|{
 name|qApp
 operator|->
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|reset
 argument_list|()
-expr_stmt|;
-name|qApp
-operator|->
-name|inputPanel
-argument_list|()
-operator|->
-name|setInputItem
-argument_list|(
-literal|0
-argument_list|)
 expr_stmt|;
 block|}
 endif|#
@@ -7097,49 +7057,6 @@ operator|==
 name|focus
 condition|)
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_IM
-if|if
-condition|(
-name|focus
-operator|->
-name|testAttribute
-argument_list|(
-name|Qt
-operator|::
-name|WA_InputMethodEnabled
-argument_list|)
-operator|&&
-name|focus
-operator|->
-name|testAttribute
-argument_list|(
-name|Qt
-operator|::
-name|WA_WState_Created
-argument_list|)
-operator|&&
-name|focus
-operator|->
-name|isEnabled
-argument_list|()
-condition|)
-block|{
-name|qApp
-operator|->
-name|inputPanel
-argument_list|()
-operator|->
-name|setInputItem
-argument_list|(
-name|focus
-argument_list|)
-expr_stmt|;
-block|}
-endif|#
-directive|endif
-comment|//QT_NO_IM
 name|QFocusEvent
 name|in
 argument_list|(
@@ -7193,6 +7110,14 @@ name|focusChanged
 argument_list|(
 name|prev
 argument_list|,
+name|focus_widget
+argument_list|)
+emit|;
+emit|emit
+name|qApp
+operator|->
+name|focusObjectChanged
+argument_list|(
 name|focus_widget
 argument_list|)
 emit|;
@@ -7414,9 +7339,6 @@ directive|endif
 comment|// QT_NO_MESSAGEBOX
 block|}
 end_function
-begin_comment
-comment|/*!     \fn void QApplication::lastWindowClosed()      This signal is emitted from QApplication::exec() when the last visible     primary window (i.e. window with no parent) with the Qt::WA_QuitOnClose     attribute set is closed.      By default,      \list         \o  this attribute is set for all widgets except transient windows such             as splash screens, tool windows, and popup menus          \o  QApplication implicitly quits when this signal is emitted.     \endlist      This feature can be turned off by setting \l quitOnLastWindowClosed to     false.      \sa QWidget::close() */
-end_comment
 begin_comment
 comment|/*!     \since 4.1     \fn void QApplication::focusChanged(QWidget *old, QWidget *now)      This signal is emitted when the widget that has keyboard focus changed from     \a old to \a now, i.e., because the user pressed the tab-key, clicked into     a widget or changed the active window. Both \a old and \a now can be the     null-pointer.      The signal is emitted after both widget have been notified about the change     through QFocusEvent.      \sa QWidget::setFocus(), QWidget::clearFocus(), Qt::FocusReason */
 end_comment
@@ -14259,12 +14181,12 @@ argument_list|(
 name|e
 argument_list|)
 decl_stmt|;
-name|QPoint
+name|QPointF
 name|relpos
 init|=
 name|tablet
 operator|->
-name|pos
+name|posF
 argument_list|()
 decl_stmt|;
 name|bool
@@ -14292,12 +14214,7 @@ name|relpos
 argument_list|,
 name|tablet
 operator|->
-name|globalPos
-argument_list|()
-argument_list|,
-name|tablet
-operator|->
-name|hiResGlobalPos
+name|globalPosF
 argument_list|()
 argument_list|,
 name|tablet
@@ -14910,6 +14827,9 @@ argument_list|(
 name|dragEvent
 operator|->
 name|p
+operator|.
+name|toPoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|w
@@ -15165,6 +15085,9 @@ argument_list|(
 name|dragEvent
 operator|->
 name|p
+operator|.
+name|toPoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|origReciver
@@ -15618,7 +15541,7 @@ name|QEvent
 operator|::
 name|RequestSoftwareInputPanel
 case|:
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|show
@@ -15630,7 +15553,7 @@ name|QEvent
 operator|::
 name|CloseSoftwareInputPanel
 case|:
-name|inputPanel
+name|inputMethod
 argument_list|()
 operator|->
 name|hide
@@ -17325,97 +17248,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QApplication::quitOnLastWindowClosed      \brief whether the application implicitly quits when the last window is     closed.      The default is true.      If this property is true, the applications quits when the last visible     primary window (i.e. window with no parent) with the Qt::WA_QuitOnClose     attribute set is closed. By default this attribute is set for all widgets     except for sub-windows. Refer to \l{Qt::WindowType} for a detailed list of     Qt::Window objects.      \sa quit(), QWidget::close()  */
-end_comment
-begin_function
-DECL|function|setQuitOnLastWindowClosed
-name|void
-name|QApplication
-operator|::
-name|setQuitOnLastWindowClosed
-parameter_list|(
-name|bool
-name|quit
-parameter_list|)
-block|{
-name|QApplicationPrivate
-operator|::
-name|quitOnLastWindowClosed
-operator|=
-name|quit
-expr_stmt|;
-block|}
-end_function
-begin_function
-DECL|function|quitOnLastWindowClosed
-name|bool
-name|QApplication
-operator|::
-name|quitOnLastWindowClosed
-parameter_list|()
-block|{
-return|return
-name|QApplicationPrivate
-operator|::
-name|quitOnLastWindowClosed
-return|;
-block|}
-end_function
-begin_function
-DECL|function|emitLastWindowClosed
-name|void
-name|QApplicationPrivate
-operator|::
-name|emitLastWindowClosed
-parameter_list|()
-block|{
-if|if
-condition|(
-name|qApp
-operator|&&
-name|qApp
-operator|->
-name|d_func
-argument_list|()
-operator|->
-name|in_exec
-condition|)
-block|{
-if|if
-condition|(
-name|QApplicationPrivate
-operator|::
-name|quitOnLastWindowClosed
-condition|)
-block|{
-comment|// get ready to quit, this event might be removed if the
-comment|// event loop is re-entered, however
-name|QApplication
-operator|::
-name|postEvent
-argument_list|(
-name|qApp
-argument_list|,
-operator|new
-name|QEvent
-argument_list|(
-name|QEvent
-operator|::
-name|Quit
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-emit|emit
-name|qApp
-operator|->
-name|lastWindowClosed
-argument_list|()
-emit|;
-block|}
-block|}
-end_function
-begin_comment
 comment|/*! \variable QApplication::NormalColors     \compat      Use \l NormalColor instead. */
 end_comment
 begin_comment
@@ -17427,7 +17259,7 @@ directive|ifdef
 name|QT_KEYPAD_NAVIGATION
 end_ifdef
 begin_comment
-comment|/*!     Sets the kind of focus navigation Qt should use to \a mode.      This feature is available in Qt for Embedded Linux, Symbian and Windows CE     only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \note On Symbian, setting the mode to Qt::NavigationModeCursorAuto will enable a           virtual mouse cursor on non touchscreen devices, which is controlled           by the cursor keys if there is no analog pointer device.           On other platforms and on touchscreen devices, it has the same           meaning as Qt::NavigationModeNone.      \since 4.6      \sa keypadNavigationEnabled() */
+comment|/*!     Sets the kind of focus navigation Qt should use to \a mode.      This feature is available in Qt for Embedded Linux, and Windows CE     only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \since 4.6      \sa keypadNavigationEnabled() */
 end_comment
 begin_function
 DECL|function|setNavigationMode
@@ -17451,7 +17283,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns what kind of focus navigation Qt is using.      This feature is available in Qt for Embedded Linux, Symbian and Windows CE     only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \note On Symbian, the default mode is Qt::NavigationModeNone for touch           devices, and Qt::NavigationModeKeypadDirectional.      \since 4.6      \sa keypadNavigationEnabled() */
+comment|/*!     Returns what kind of focus navigation Qt is using.      This feature is available in Qt for Embedded Linux, and Windows CE only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \since 4.6      \sa keypadNavigationEnabled() */
 end_comment
 begin_function
 DECL|function|navigationMode
@@ -17471,7 +17303,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets whether Qt should use focus navigation suitable for use with a     minimal keypad.      This feature is available in Qt for Embedded Linux, Symbian and Windows CE     only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \deprecated      \sa setNavigationMode() */
+comment|/*!     Sets whether Qt should use focus navigation suitable for use with a     minimal keypad.      This feature is available in Qt for Embedded Linux, and Windows CE only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \deprecated      \sa setNavigationMode() */
 end_comment
 begin_function
 DECL|function|setKeypadNavigationEnabled
@@ -17514,7 +17346,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if Qt is set to use keypad navigation; otherwise returns     false.  The default value is true on Symbian, but false on other platforms.      This feature is available in Qt for Embedded Linux, Symbian and Windows CE     only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \deprecated      \sa navigationMode() */
+comment|/*!     Returns true if Qt is set to use keypad navigation; otherwise returns     false.  The default value is false.      This feature is available in Qt for Embedded Linux, and Windows CE only.      \note On Windows CE this feature is disabled by default for touch device           mkspecs. To enable keypad navigation, build Qt with           QT_KEYPAD_NAVIGATION defined.      \deprecated      \sa navigationMode() */
 end_comment
 begin_function
 DECL|function|keypadNavigationEnabled
@@ -17691,103 +17523,65 @@ end_comment
 begin_comment
 comment|/*!     \macro qApp     \relates QApplication      A global pointer referring to the unique application object. It is     equivalent to the pointer returned by the QCoreApplication::instance()     function except that, in GUI applications, it is a pointer to a     QApplication instance.      Only one application object can be created.      \sa QCoreApplication::instance() */
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_IM
-end_ifndef
 begin_comment
-comment|// ************************************************************************
-end_comment
-begin_comment
-comment|// Input Method support
-end_comment
-begin_comment
-comment|// ************************************************************************
-end_comment
-begin_comment
-comment|/*     This function replaces the QInputContext instance used by the application     with \a inputContext.      Qt takes ownership of the given \a inputContext. */
+comment|/*!     \since 4.2     \obsolete      Returns the current keyboard input locale. Replaced with QInputMethod::locale() */
 end_comment
 begin_function
-DECL|function|setInputContext
-name|void
-name|QApplicationPrivate
-operator|::
-name|setInputContext
-parameter_list|(
-name|QInputContext
-modifier|*
-name|newInputContext
-parameter_list|)
-block|{
-name|Q_Q
-argument_list|(
-name|QApplication
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|newInputContext
-operator|==
-name|inputContext
-condition|)
-return|return;
-if|if
-condition|(
-operator|!
-name|newInputContext
-condition|)
-block|{
-name|qWarning
-argument_list|(
-literal|"QApplicationPrivate::setInputContext: called with 0 input context"
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-operator|delete
-name|inputContext
-expr_stmt|;
-name|inputContext
-operator|=
-name|newInputContext
-expr_stmt|;
-name|inputContext
-operator|->
-name|setParent
-argument_list|(
-name|q
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     Returns the QInputContext instance used by the application. */
-end_comment
-begin_function
-DECL|function|inputContext
-name|QInputContext
-modifier|*
+DECL|function|keyboardInputLocale
+name|QLocale
 name|QApplication
 operator|::
-name|inputContext
+name|keyboardInputLocale
 parameter_list|()
-specifier|const
 block|{
 return|return
-name|QApplicationPrivate
+name|qApp
+condition|?
+name|qApp
+operator|->
+name|inputMethod
+argument_list|()
+operator|->
+name|locale
+argument_list|()
+else|:
+name|QLocale
 operator|::
-name|inputContext
+name|c
+argument_list|()
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
-comment|// QT_NO_IM
+comment|/*!     \since 4.2     \obsolete      Returns the current keyboard input direction. Replaced with QInputMethod::inputDirection() */
 end_comment
+begin_function
+DECL|function|keyboardInputDirection
+name|Qt
+operator|::
+name|LayoutDirection
+name|QApplication
+operator|::
+name|keyboardInputDirection
+parameter_list|()
+block|{
+return|return
+name|qApp
+condition|?
+name|qApp
+operator|->
+name|inputMethod
+argument_list|()
+operator|->
+name|inputDirection
+argument_list|()
+else|:
+name|Qt
+operator|::
+name|LeftToRight
+return|;
+block|}
+end_function
 begin_function
 DECL|function|qt_sendSpontaneousEvent
 name|bool

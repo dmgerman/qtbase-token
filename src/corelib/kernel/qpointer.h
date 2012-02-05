@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -18,14 +18,9 @@ include|#
 directive|include
 file|<QtCore/qsharedpointer.h>
 end_include
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
 if|#
 directive|if
 name|QT_DEPRECATED_SINCE
@@ -35,10 +30,10 @@ operator|,
 literal|0
 argument_list|)
 name|template
-decl|<
+operator|<
 name|class
 name|T
-decl|>
+operator|>
 name|class
 name|QT_DEPRECATED
 name|QPointer
@@ -48,9 +43,9 @@ operator|<
 name|T
 operator|>
 name|wp
-expr_stmt|;
+block|;
 name|public
-label|:
+operator|:
 specifier|inline
 name|QPointer
 argument_list|()
@@ -145,6 +140,8 @@ operator|*
 name|this
 return|;
 block|}
+end_expr_stmt
+begin_expr_stmt
 specifier|inline
 name|bool
 name|isNull
@@ -158,14 +155,18 @@ name|isNull
 argument_list|()
 return|;
 block|}
+end_expr_stmt
+begin_expr_stmt
 specifier|inline
 name|T
 operator|*
 name|operator
 operator|->
 expr|(
-block|)
-decl|const
+end_expr_stmt
+begin_expr_stmt
+unit|)
+specifier|const
 block|{
 return|return
 name|wp
@@ -174,7 +175,7 @@ name|data
 argument_list|()
 return|;
 block|}
-end_decl_stmt
+end_expr_stmt
 begin_expr_stmt
 specifier|inline
 name|T

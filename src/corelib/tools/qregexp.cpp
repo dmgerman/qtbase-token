@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -739,8 +739,6 @@ comment|// we insert the \\ later if necessary
 if|if
 condition|(
 name|i
-operator|+
-literal|1
 operator|==
 name|wclen
 condition|)
@@ -17583,14 +17581,13 @@ argument_list|,
 argument|globalEngineCache
 argument_list|)
 end_macro
-begin_macro
-name|Q_GLOBAL_STATIC
-argument_list|(
-argument|QMutex
-argument_list|,
-argument|mutex
-argument_list|)
-end_macro
+begin_decl_stmt
+DECL|variable|globalEngineCacheMutex
+specifier|static
+name|QBasicMutex
+name|globalEngineCacheMutex
+decl_stmt|;
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
@@ -17641,8 +17638,8 @@ block|{
 name|QMutexLocker
 name|locker
 argument_list|(
-name|mutex
-argument_list|()
+operator|&
+name|globalEngineCacheMutex
 argument_list|)
 decl_stmt|;
 name|QT_TRY
@@ -17741,8 +17738,8 @@ block|{
 name|QMutexLocker
 name|locker
 argument_list|(
-name|mutex
-argument_list|()
+operator|&
+name|globalEngineCacheMutex
 argument_list|)
 decl_stmt|;
 name|priv
@@ -18939,33 +18936,9 @@ ifndef|#
 directive|ifndef
 name|QT_NO_REGEXP_CAPTURE
 end_ifndef
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_DEPRECATED
-end_ifndef
 begin_comment
-comment|/*!   \obsolete   Returns the number of captures contained in the regular expression.    \sa captureCount()  */
+comment|/*!   \fn int QRegExp::numCaptures() const   \obsolete   Returns the number of captures contained in the regular expression.    \sa captureCount()  */
 end_comment
-begin_function
-DECL|function|numCaptures
-name|int
-name|QRegExp
-operator|::
-name|numCaptures
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|captureCount
-argument_list|()
-return|;
-block|}
-end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*!   \since 4.6   Returns the number of captures contained in the regular expression.  */
 end_comment

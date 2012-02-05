@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -31,13 +31,10 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_FONTDIALOG
+DECL|variable|QFontDialogPrivate
 name|class
 name|QFontDialogPrivate
 decl_stmt|;
@@ -206,22 +203,6 @@ argument_list|(
 argument|bool visible
 argument_list|)
 block|;
-comment|// ### Qt 5: merge overloads
-specifier|static
-name|QFont
-name|getFont
-argument_list|(
-argument|bool *ok
-argument_list|,
-argument|const QFont&initial
-argument_list|,
-argument|QWidget *parent
-argument_list|,
-argument|const QString&title
-argument_list|,
-argument|FontDialogOptions options
-argument_list|)
-block|;
 specifier|static
 name|QFont
 name|getFont
@@ -229,34 +210,6 @@ argument_list|(
 name|bool
 operator|*
 name|ok
-argument_list|,
-specifier|const
-name|QFont
-operator|&
-name|initial
-argument_list|,
-name|QWidget
-operator|*
-name|parent
-argument_list|,
-specifier|const
-name|QString
-operator|&
-name|title
-argument_list|)
-block|;
-specifier|static
-name|QFont
-name|getFont
-argument_list|(
-name|bool
-operator|*
-name|ok
-argument_list|,
-specifier|const
-name|QFont
-operator|&
-name|initial
 argument_list|,
 name|QWidget
 operator|*
@@ -269,14 +222,16 @@ specifier|static
 name|QFont
 name|getFont
 argument_list|(
-name|bool
-operator|*
-name|ok
+argument|bool *ok
 argument_list|,
-name|QWidget
-operator|*
-name|parent
-operator|=
+argument|const QFont&initial
+argument_list|,
+argument|QWidget *parent =
+literal|0
+argument_list|,
+argument|const QString&title = QString()
+argument_list|,
+argument|FontDialogOptions options =
 literal|0
 argument_list|)
 block|;
@@ -316,9 +271,6 @@ argument_list|(
 argument|int result
 argument_list|)
 block|;
-name|private
-operator|:
-comment|// ### Qt 5: make protected
 name|bool
 name|eventFilter
 argument_list|(
@@ -331,6 +283,8 @@ operator|*
 name|event
 argument_list|)
 block|;
+name|private
+operator|:
 name|Q_DISABLE_COPY
 argument_list|(
 argument|QFontDialog

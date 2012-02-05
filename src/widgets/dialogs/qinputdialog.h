@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -31,13 +31,10 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_INPUTDIALOG
+DECL|variable|QInputDialogPrivate
 name|class
 name|QInputDialogPrivate
 decl_stmt|;
@@ -457,9 +454,6 @@ argument_list|(
 argument|bool visible
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|Q_QDOC
 specifier|static
 name|QString
 name|getText
@@ -509,99 +503,6 @@ argument_list|,
 argument|Qt::InputMethodHints inputMethodHints = Qt::ImhNone
 argument_list|)
 block|;
-else|#
-directive|else
-specifier|static
-name|QString
-name|getText
-argument_list|(
-argument|QWidget *parent
-argument_list|,
-argument|const QString&title
-argument_list|,
-argument|const QString&label
-argument_list|,
-argument|QLineEdit::EchoMode echo = QLineEdit::Normal
-argument_list|,
-argument|const QString&text = QString()
-argument_list|,
-argument|bool *ok =
-literal|0
-argument_list|,
-argument|Qt::WindowFlags flags =
-literal|0
-argument_list|)
-block|;
-specifier|static
-name|QString
-name|getItem
-argument_list|(
-argument|QWidget *parent
-argument_list|,
-argument|const QString&title
-argument_list|,
-argument|const QString&label
-argument_list|,
-argument|const QStringList&items
-argument_list|,
-argument|int current =
-literal|0
-argument_list|,
-argument|bool editable = true
-argument_list|,
-argument|bool *ok =
-literal|0
-argument_list|,
-argument|Qt::WindowFlags flags =
-literal|0
-argument_list|)
-block|;
-specifier|static
-name|QString
-name|getText
-argument_list|(
-argument|QWidget *parent
-argument_list|,
-argument|const QString&title
-argument_list|,
-argument|const QString&label
-argument_list|,
-argument|QLineEdit::EchoMode echo
-argument_list|,
-argument|const QString&text
-argument_list|,
-argument|bool *ok
-argument_list|,
-argument|Qt::WindowFlags flags
-argument_list|,
-argument|Qt::InputMethodHints inputMethodHints
-argument_list|)
-block|;
-specifier|static
-name|QString
-name|getItem
-argument_list|(
-argument|QWidget *parent
-argument_list|,
-argument|const QString&title
-argument_list|,
-argument|const QString&label
-argument_list|,
-argument|const QStringList&items
-argument_list|,
-argument|int current
-argument_list|,
-argument|bool editable
-argument_list|,
-argument|bool *ok
-argument_list|,
-argument|Qt::WindowFlags flags
-argument_list|,
-argument|Qt::InputMethodHints inputMethodHints
-argument_list|)
-block|;
-endif|#
-directive|endif
 specifier|static
 name|int
 name|getInt
@@ -660,8 +561,17 @@ argument|Qt::WindowFlags flags =
 literal|0
 argument_list|)
 block|;
-comment|// obsolete
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+name|QT_DEPRECATED
 specifier|static
+specifier|inline
 name|int
 name|getInteger
 argument_list|(
@@ -689,7 +599,32 @@ argument_list|,
 argument|Qt::WindowFlags flags =
 literal|0
 argument_list|)
-block|;
+block|{
+return|return
+name|getInt
+argument_list|(
+name|parent
+argument_list|,
+name|title
+argument_list|,
+name|label
+argument_list|,
+name|value
+argument_list|,
+name|minValue
+argument_list|,
+name|maxValue
+argument_list|,
+name|step
+argument_list|,
+name|ok
+argument_list|,
+name|flags
+argument_list|)
+return|;
+block|}
+endif|#
+directive|endif
 name|Q_SIGNALS
 operator|:
 comment|// ### emit signals!
@@ -743,7 +678,6 @@ argument_list|(
 argument|int result
 argument_list|)
 block|;
-comment|// ### Qt 5: Make protected.
 name|private
 operator|:
 name|Q_DISABLE_COPY

@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -4773,7 +4773,65 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Handles the \a data supplied by a drag and drop operation that ended with     the given \a action.      Returns true if the data and action can be handled by the model; otherwise     returns false.      The specified \a row, \a column and \a parent indicate the location of an     item in the model where the operation ended. It is the responsibility of     the model to complete the action at the correct location.      For instance, a drop action on an item in a QTreeView can result in new     items either being inserted as children of the item specified by \a row,     \a column, and \a parent, or as siblings of the item.      When \a row and \a column are -1 it means that the dropped data should be     considered as dropped directly on \a parent. Usually this will mean     appending the data as child items of \a parent. If \a row and column are     greater than or equal zero, it means that the drop occurred just before the     specified \a row and \a column in the specified \a parent.      \sa supportedDropActions(), {Using drag and drop with item views} */
+comment|/*!     Returns whether a model can accept a drop of data.      This can be used to indicate whether a drop of certain data is allowed, for example     by using a 'forbidden' emblem on a mouse cursor during a drag operation.      This method returns true by default.      \sa dropMimeData(), {Using drag and drop with item views}  */
+end_comment
+begin_function
+DECL|function|canDropMimeData
+name|bool
+name|QAbstractItemModel
+operator|::
+name|canDropMimeData
+parameter_list|(
+specifier|const
+name|QMimeData
+modifier|*
+name|data
+parameter_list|,
+name|Qt
+operator|::
+name|DropAction
+name|action
+parameter_list|,
+name|int
+name|row
+parameter_list|,
+name|int
+name|column
+parameter_list|,
+specifier|const
+name|QModelIndex
+modifier|&
+name|parent
+parameter_list|)
+specifier|const
+block|{
+name|Q_UNUSED
+argument_list|(
+argument|data
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|action
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|row
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|column
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+argument|parent
+argument_list|)
+return|return
+literal|true
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Handles the \a data supplied by a drag and drop operation that ended with     the given \a action.      Returns true if the data and action can be handled by the model; otherwise     returns false.      The specified \a row, \a column and \a parent indicate the location of an     item in the model where the operation ended. It is the responsibility of     the model to complete the action at the correct location.      For instance, a drop action on an item in a QTreeView can result in new     items either being inserted as children of the item specified by \a row,     \a column, and \a parent, or as siblings of the item.      When \a row and \a column are -1 it means that the dropped data should be     considered as dropped directly on \a parent. Usually this will mean     appending the data as child items of \a parent. If \a row and column are     greater than or equal zero, it means that the drop occurred just before the     specified \a row and \a column in the specified \a parent.      \sa supportedDropActions(), canDropMimeData(), {Using drag and drop with item views} */
 end_comment
 begin_function
 DECL|function|dropMimeData
@@ -5036,7 +5094,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2     \obsolete      Sets the supported drag \a actions for the items in the model.      \sa supportedDragActions(), {Using drag and drop with item views} */
+comment|/*!     \since 4.2     \obsolete     \fn void QAbstractItemModel::setSupportedDragActions(Qt::DropActions actions)      Sets the supported drag \a actions for the items in the model.      \sa supportedDragActions(), {Using drag and drop with item views} */
 end_comment
 begin_comment
 comment|/*!     \note The base class implementation of this function does nothing and     returns false.      On models that support this, inserts \a count rows into the model before     the given \a row. Items in the new row will be children of the item     represented by the \a parent model index.      If \a row is 0, the rows are prepended to any existing rows in the parent.      If \a row is rowCount(), the rows are appended to any existing rows in the     parent.      If \a parent has no children, a single column with \a count rows is     inserted.      Returns true if the rows were successfully inserted; otherwise returns     false.      If you implement your own model, you can reimplement this function if you     want to support insertions. Alternatively, you can provide your own API for     altering the data. In either case, you will need to call     beginInsertRows() and endInsertRows() to notify other components that the     model has changed.      \sa insertColumns(), removeRows(), beginInsertRows(), endInsertRows() */
@@ -5127,6 +5185,66 @@ parameter_list|,
 specifier|const
 name|QModelIndex
 modifier|&
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     On models that support this, moves \a count rows starting with the given     \a sourceRow under parent \a sourceParent to row \a destinationChild under     \a parent \a destinationParent.      Returns true if the rows were successfully moved; otherwise returns     false.      The base class implementation does nothing and returns false.      If you implement your own model, you can reimplement this function if you     want to support moving. Alternatively, you can provide your own API for     altering the data.      \sa beginMoveRows(), endMoveRows() */
+end_comment
+begin_function
+DECL|function|moveRows
+name|bool
+name|QAbstractItemModel
+operator|::
+name|moveRows
+parameter_list|(
+specifier|const
+name|QModelIndex
+modifier|&
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+specifier|const
+name|QModelIndex
+modifier|&
+parameter_list|,
+name|int
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     On models that support this, moves \a count columns starting with the given     \a sourceColumn under parent \a sourceParent to column \a destinationChild under     \a parent \a destinationParent.      Returns true if the columns were successfully moved; otherwise returns     false.      The base class implementation does nothing and returns false.      If you implement your own model, you can reimplement this function if you     want to support moving. Alternatively, you can provide your own API for     altering the data.      \sa beginMoveColumns(), endMoveColumns() */
+end_comment
+begin_function
+DECL|function|moveColumns
+name|bool
+name|QAbstractItemModel
+operator|::
+name|moveColumns
+parameter_list|(
+specifier|const
+name|QModelIndex
+modifier|&
+parameter_list|,
+name|int
+parameter_list|,
+name|int
+parameter_list|,
+specifier|const
+name|QModelIndex
+modifier|&
+parameter_list|,
+name|int
 parameter_list|)
 block|{
 return|return
@@ -5802,7 +5920,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6     \obsolete      Sets the model's role names to \a roleNames.      This function allows mapping of role identifiers to role property names in     Declarative UI.  This function must be called before the model is used.     Modifying the role names after the model has been set may result in     undefined behaviour.      \sa roleNames() */
+comment|/*!     \since 4.6     \obsolete      Sets the model's role names to \a roleNames.      This function allows mapping of role identifiers to role property names in     scripting languages.      \sa roleNames() */
 end_comment
 begin_comment
 comment|/*!     \internal  */
@@ -8172,38 +8290,10 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     Resets the model to its original state in any attached views.      \note Use beginResetModel() and endResetModel() instead whenever possible.     Use this method only if there is no way to call beginResetModel() before invalidating the model.     Otherwise it could lead to unexpected behaviour, especially when used with proxy models. */
+comment|/*!     \obsolete      Resets the model to its original state in any attached views.      This function emits the signals modelAboutToBeReset() and modelReset().      \note Use beginResetModel() and endResetModel() instead whenever possible.     Use this method only if there is no way to call beginResetModel() before invalidating the model.     Otherwise it could lead to unexpected behaviour, especially when used with proxy models.      For example, in this code both signals modelAboutToBeReset() and modelReset()     are emitted \e after the data changes:      \snippet doc/src/snippets/code/src_corelib_kernel_qabstractitemmodel.cpp 10      Instead you should use:      \snippet doc/src/snippets/code/src_corelib_kernel_qabstractitemmodel.cpp 11 */
 end_comment
-begin_function
-DECL|function|reset
-name|void
-name|QAbstractItemModel
-operator|::
-name|reset
-parameter_list|()
-block|{
-name|Q_D
-argument_list|(
-name|QAbstractItemModel
-argument_list|)
-expr_stmt|;
-emit|emit
-name|modelAboutToBeReset
-argument_list|()
-emit|;
-name|d
-operator|->
-name|invalidatePersistentIndexes
-argument_list|()
-expr_stmt|;
-emit|emit
-name|modelReset
-argument_list|()
-emit|;
-block|}
-end_function
 begin_comment
-comment|/*!     Begins a model reset operation.      A reset operation resets the model to its current state in any attached views.      \note Any views attached to this model will be reset as well.      When a model is reset it means that any previous data reported from the     model is now invalid and has to be queried for again. This also means that     the current item and any selected items will become invalid.      When a model radically changes its data it can sometimes be easier to just     call this function rather than emit dataChanged() to inform other     components when the underlying data source, or its structure, has changed.      You must call this function before resetting any internal data structures in your model     or proxy model.      \sa modelAboutToBeReset(), modelReset(), endResetModel()     \since 4.6 */
+comment|/*!     Begins a model reset operation.      A reset operation resets the model to its current state in any attached views.      \note Any views attached to this model will be reset as well.      When a model is reset it means that any previous data reported from the     model is now invalid and has to be queried for again. This also means that     the current item and any selected items will become invalid.      When a model radically changes its data it can sometimes be easier to just     call this function rather than emit dataChanged() to inform other     components when the underlying data source, or its structure, has changed.      You must call this function before resetting any internal data structures in your model     or proxy model.      This function emits the signal modelAboutToBeReset().      \sa modelAboutToBeReset(), modelReset(), endResetModel()     \since 4.6 */
 end_comment
 begin_function
 DECL|function|beginResetModel
@@ -8220,7 +8310,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     Completes a model reset operation.      You must call this function after resetting any internal data structure in your model     or proxy model.      \sa beginResetModel()     \since 4.6 */
+comment|/*!     Completes a model reset operation.      You must call this function after resetting any internal data structure in your model     or proxy model.      This function emits the signal modelReset().      \sa beginResetModel()     \since 4.6 */
 end_comment
 begin_function
 DECL|function|endResetModel
@@ -9736,7 +9826,7 @@ begin_comment
 comment|/*!     \fn QAbstractItemModel::modelAboutToBeReset()     \since 4.2      This signal is emitted when reset() is called, before the model's internal     state (e.g. persistent model indexes) has been invalidated.      \sa beginResetModel(), modelReset() */
 end_comment
 begin_comment
-comment|/*!     \fn QAbstractItemModel::modelReset()     \since 4.1      This signal is emitted when reset() is called, after the model's internal     state (e.g. persistent model indexes) has been invalidated.      \sa endResetModel(), modelAboutToBeReset() */
+comment|/*!     \fn QAbstractItemModel::modelReset()     \since 4.1      This signal is emitted when reset() or endResetModel() is called, after the     model's internal state (e.g. persistent model indexes) has been invalidated.      Note that if a model is reset it should be considered that all information     previously retrieved from it is invalid. This includes but is not limited     to the rowCount() and columnCount(), flags(), data retrieved through data(),     and roleNames().      \sa endResetModel(), modelAboutToBeReset() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QModelIndex::operator<(const QModelIndex&other) const     \since 4.1      Returns true if this model index is smaller than the \a other     model index; otherwise returns false. */

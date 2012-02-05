@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -589,7 +589,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QKeySequence     \brief The QKeySequence class encapsulates a key sequence as used     by shortcuts.      \ingroup shared       In its most common form, a key sequence describes a combination of     keys that must be used together to perform some action. Key sequences     are used with QAction objects to specify which keyboard shortcuts can     be used to trigger actions.      Key sequences can be constructed for use as keyboard shortcuts in     three different ways:      \list     \o For standard shortcuts, a \l{QKeySequence::StandardKey}{standard key}        can be used to request the platform-specific key sequence associated        with each shortcut.     \o For custom shortcuts, human-readable strings such as "Ctrl+X" can        be used, and these can be translated into the appropriate shortcuts        for users of different languages. Translations are made in the        "QShortcut" context.     \o For hard-coded shortcuts, integer key codes can be specified with        a combination of values defined by the Qt::Key and Qt::Modifier enum        values. Each key code consists of a single Qt::Key value and zero or        more modifiers, such as Qt::SHIFT, Qt::CTRL, Qt::ALT and Qt::META.     \endlist      For example, \gui{Ctrl P} might be a sequence used as a shortcut for     printing a document, and can be specified in any of the following     ways:      \snippet doc/src/snippets/code/src_gui_kernel_qkeysequence.cpp 0      Note that, for letters, the case used in the specification string     does not matter. In the above examples, the user does not need to     hold down the \key{Shift} key to activate a shortcut specified     with "Ctrl+P". However, for other keys, the use of \key{Shift} as     an unspecified extra modifier key can lead to confusion for users     of an application whose keyboards have different layouts to those     used by the developers. See the \l{Keyboard Layout Issues} section     below for more details.      It is preferable to use standard shortcuts where possible.     When creating key sequences for non-standard shortcuts, you should use     human-readable strings in preference to hard-coded integer values.      QKeySequence objects can be cast to a QString to obtain a human-readable     translated version of the sequence. Similarly, the toString() function     produces human-readable strings for use in menus. On Mac OS X, the     appropriate symbols are used to describe keyboard shortcuts using special     keys on the Macintosh keyboard.      An alternative way to specify hard-coded key codes is to use the Unicode     code point of the character; for example, 'A' gives the same key sequence     as Qt::Key_A.      \bold{Note:} On Mac OS X, references to "Ctrl", Qt::CTRL, Qt::Control     and Qt::ControlModifier correspond to the \key Command keys on the     Macintosh keyboard, and references to "Meta", Qt::META, Qt::Meta and     Qt::MetaModifier correspond to the \key Control keys. Developers on     Mac OS X can use the same shortcut descriptions across all platforms,     and their applications will automatically work as expected on Mac OS X.      \section1 Standard Shortcuts      QKeySequence defines many \l{QKeySequence::StandardKey} {standard     keyboard shortcuts} to reduce the amount of effort required when     setting up actions in a typical application. The table below shows     some common key sequences that are often used for these standard     shortcuts by applications on four widely-used platforms.  Note     that on Mac OS X, the \key Ctrl value corresponds to the \key     Command keys on the Macintosh keyboard, and the \key Meta value     corresponds to the \key Control keys.      \table     \header \i StandardKey      \i Windows                              \i Mac OS X                 \i KDE          \i GNOME                                 \i S60     \row    \i HelpContents     \i F1                                   \i Ctrl+?                   \i F1           \i F1                                    \i F2     \row    \i WhatsThis        \i Shift+F1                             \i Shift+F1                 \i Shift+F1     \i Shift+F1                              \i Shift+F1     \row    \i Open             \i Ctrl+O                               \i Ctrl+O                   \i Ctrl+O       \i Ctrl+O                                \i (none)     \row    \i Close            \i Ctrl+F4, Ctrl+W                      \i Ctrl+W, Ctrl+F4          \i Ctrl+W       \i Ctrl+W                                \i (none)     \row    \i Save             \i Ctrl+S                               \i Ctrl+S                   \i Ctrl+S       \i Ctrl+S                                \i (none)     \row    \i Quit             \i                                      \i Ctrl+Q                   \i Qtrl+Q       \i Qtrl+Q                                \i (none)     \row    \i SaveAs           \i                                      \i Ctrl+Shift+S             \i              \i Ctrl+Shift+S                          \i (none)     \row    \i New              \i Ctrl+N                               \i Ctrl+N                   \i Ctrl+N       \i Ctrl+N                                \i (none)     \row    \i Delete           \i Del                                  \i Del, Meta+D              \i Del, Ctrl+D  \i Del, Ctrl+D                           \i Del     \row    \i Cut              \i Ctrl+X, Shift+Del                    \i Ctrl+X                   \i Ctrl+X, F20, Shift+Del \i Ctrl+X, F20, Shift+Del      \i Ctrl+X     \row    \i Copy             \i Ctrl+C, Ctrl+Ins                     \i Ctrl+C                   \i Ctrl+C, F16, Ctrl+Ins  \i Ctrl+C, F16, Ctrl+Ins       \i Ctrl+C     \row    \i Paste            \i Ctrl+V, Shift+Ins                    \i Ctrl+V                   \i Ctrl+V, F18, Shift+Ins \i Ctrl+V, F18, Shift+Ins      \i Ctrl+V     \row    \i Preferences      \i                                      \i Ctrl+,                   \i              \i                                       \i (none)     \row    \i Undo             \i Ctrl+Z, Alt+Backspace                \i Ctrl+Z                   \i Ctrl+Z, F14  \i Ctrl+Z, F14                           \i Ctrl+Z     \row    \i Redo             \i Ctrl+Y, Shift+Ctrl+Z, Alt+Shift+Backspace \i Ctrl+Shift+Z        \i Ctrl+Shift+Z \i Ctrl+Shift+Z                     \i (none)     \row    \i Back             \i Alt+Left, Backspace                  \i Ctrl+[                   \i Alt+Left     \i Alt+Left                              \i (none)     \row    \i Forward          \i Alt+Right, Shift+Backspace           \i Ctrl+]                   \i Alt+Right    \i Alt+Right                             \i (none)     \row    \i Refresh          \i F5                                   \i F5                       \i F5           \i Ctrl+R, F5                            \i (none)     \row    \i ZoomIn           \i Ctrl+Plus                            \i Ctrl+Plus                \i Ctrl+Plus    \i Ctrl+Plus                             \i (none)     \row    \i ZoomOut          \i Ctrl+Minus                           \i Ctrl+Minus               \i Ctrl+Minus   \i Ctrl+Minus                            \i (none)     \row    \i Print            \i Ctrl+P                               \i Ctrl+P                   \i Ctrl+P       \i Ctrl+P                                \i (none)     \row    \i AddTab           \i Ctrl+T                               \i Ctrl+T                   \i Ctrl+Shift+N, Ctrl+T \i Ctrl+T                        \i (none)     \row    \i NextChild        \i Ctrl+Tab, Forward, Ctrl+F6           \i Ctrl+}, Forward, Ctrl+Tab \i Ctrl+Tab, Forward, Ctrl+Comma \i Ctrl+Tab, Forward   \i (none)     \row    \i PreviousChild    \i Ctrl+Shift+Tab, Back, Ctrl+Shift+F6  \i Ctrl+{, Back, Ctrl+Shift+Tab \i Ctrl+Shift+Tab, Back, Ctrl+Period \i Ctrl+Shift+Tab, Back \i (none)     \row    \i Find             \i Ctrl+F                               \i Ctrl+F                   \i Ctrl+F         \i Ctrl+F                              \i (none)     \row    \i FindNext         \i F3, Ctrl+G                           \i Ctrl+G                   \i F3             \i Ctrl+G, F3                          \i (none)     \row    \i FindPrevious     \i Shift+F3, Ctrl+Shift+G               \i Ctrl+Shift+G             \i Shift+F3       \i Ctrl+Shift+G, Shift+F3              \i (none)     \row    \i Replace          \i Ctrl+H                               \i (none)                   \i Ctrl+R         \i Ctrl+H                              \i (none)     \row    \i SelectAll        \i Ctrl+A                               \i Ctrl+A                   \i Ctrl+A         \i Ctrl+A                              \i (none)     \row    \i Bold             \i Ctrl+B                               \i Ctrl+B                   \i Ctrl+B         \i Ctrl+B                              \i (none)     \row    \i Italic           \i Ctrl+I                               \i Ctrl+I                   \i Ctrl+I         \i Ctrl+I                              \i (none)     \row    \i Underline        \i Ctrl+U                               \i Ctrl+U                   \i Ctrl+U         \i Ctrl+U                              \i (none)     \row    \i MoveToNextChar       \i Right                            \i Right                    \i Right          \i Right                               \i Right     \row    \i MoveToPreviousChar   \i Left                             \i Left                     \i Left           \i Left                                \i Left     \row    \i MoveToNextWord       \i Ctrl+Right                       \i Alt+Right                \i Ctrl+Right     \i Ctrl+Right                          \i Ctrl+Right     \row    \i MoveToPreviousWord   \i Ctrl+Left                        \i Alt+Left                 \i Ctrl+Left      \i Ctrl+Left                           \i Ctrl+Left     \row    \i MoveToNextLine       \i Down                             \i Down                     \i Down           \i Down                                \i Down     \row    \i MoveToPreviousLine   \i Up                               \i Up                       \i Up             \i Up                                  \i Up     \row    \i MoveToNextPage       \i PgDown                           \i PgDown, Alt+PgDown, Meta+Down, Meta+PgDown\i PgDown \i PgDown                     \i PgDown     \row    \i MoveToPreviousPage   \i PgUp                             \i PgUp, Alt+PgUp, Meta+Up, Meta+PgUp        \i PgUp   \i PgUp                       \i PgUp     \row    \i MoveToStartOfLine    \i Home                             \i Ctrl+Left, Meta+Left   \i Home            \i Home                                 \i Home     \row    \i MoveToEndOfLine      \i End                              \i Ctrl+Right, Meta+Right \i End             \i End                                  \i End     \row    \i MoveToStartOfBlock   \i (none)                           \i Alt+Up, Meta+A         \i (none)          \i (none)                               \i (none)     \row    \i MoveToEndOfBlock     \i (none)                           \i Alt+Down, Meta+E       \i (none)          \i (none)                               \i (none)     \row    \i MoveToStartOfDocument\i Ctrl+Home                        \i Ctrl+Up, Home          \i Ctrl+Home       \i Ctrl+Home                            \i Ctrl+Home     \row    \i MoveToEndOfDocument  \i Ctrl+End                         \i Ctrl+Down, End         \i Ctrl+End        \i Ctrl+End                             \i Ctrl+End     \row    \i SelectNextChar       \i Shift+Right                      \i Shift+Right            \i Shift+Right     \i Shift+Right                          \i Shift+Right     \row    \i SelectPreviousChar   \i Shift+Left                       \i Shift+Left             \i Shift+Left      \i Shift+Left                           \i Shift+Left     \row    \i SelectNextWord       \i Ctrl+Shift+Right                 \i Alt+Shift+Right        \i Ctrl+Shift+Right \i Ctrl+Shift+Right                    \i Ctrl+Shift+Right     \row    \i SelectPreviousWord   \i Ctrl+Shift+Left                  \i Alt+Shift+Left         \i Ctrl+Shift+Left \i Ctrl+Shift+Left                      \i Ctrl+Shift+Left     \row    \i SelectNextLine       \i Shift+Down                       \i Shift+Down             \i Shift+Down     \i Shift+Down                            \i Shift+Down     \row    \i SelectPreviousLine   \i Shift+Up                         \i Shift+Up               \i Shift+Up       \i Shift+Up                              \i Shift+Up     \row    \i SelectNextPage       \i Shift+PgDown                     \i Shift+PgDown           \i Shift+PgDown   \i Shift+PgDown                          \i Shift+PgDown     \row    \i SelectPreviousPage   \i Shift+PgUp                       \i Shift+PgUp             \i Shift+PgUp     \i Shift+PgUp                            \i Shift+PgUp     \row    \i SelectStartOfLine    \i Shift+Home                       \i Ctrl+Shift+Left        \i Shift+Home     \i Shift+Home                            \i Shift+Home     \row    \i SelectEndOfLine      \i Shift+End                        \i Ctrl+Shift+Right       \i Shift+End      \i Shift+End                             \i Shift+End     \row    \i SelectStartOfBlock   \i (none)                           \i Alt+Shift+Up, Meta+Shift+A \i (none)     \i (none)                                \i (none)     \row    \i SelectEndOfBlock     \i (none)                           \i Alt+Shift+Down, Meta+Shift+E \i (none)   \i (none)                                \i (none)     \row    \i SelectStartOfDocument\i Ctrl+Shift+Home                  \i Ctrl+Shift+Up, Shift+Home          \i Ctrl+Shift+Home\i Ctrl+Shift+Home           \i Ctrl+Shift+Home     \row    \i SelectEndOfDocument  \i Ctrl+Shift+End                   \i Ctrl+Shift+Down, Shift+End        \i Ctrl+Shift+End \i Ctrl+Shift+End             \i Ctrl+Shift+End     \row    \i DeleteStartOfWord    \i Ctrl+Backspace                   \i Alt+Backspace          \i Ctrl+Backspace \i Ctrl+Backspace                        \i (none)     \row    \i DeleteEndOfWord      \i Ctrl+Del                         \i (none)                 \i Ctrl+Del       \i Ctrl+Del                              \i (none)     \row    \i DeleteEndOfLine      \i (none)                           \i (none)                 \i Ctrl+K         \i Ctrl+K                                \i (none)     \row    \i InsertParagraphSeparator     \i Enter                    \i Enter                  \i Enter          \i Enter                                 \i (none)     \row    \i InsertLineSeparator          \i Shift+Enter              \i Meta+Enter             \i Shift+Enter    \i Shift+Enter                           \i (none)     \endtable      Note that, since the key sequences used for the standard shortcuts differ     between platforms, you still need to test your shortcuts on each platform     to ensure that you do not unintentionally assign the same key sequence to     many actions.      \section1 Keyboard Layout Issues      Many key sequence specifications are chosen by developers based on the     layout of certain types of keyboard, rather than choosing keys that     represent the first letter of an action's name, such as \key{Ctrl S}     ("Ctrl+S") or \key{Ctrl C} ("Ctrl+C").     Additionally, because certain symbols can only be entered with the     help of modifier keys on certain keyboard layouts, key sequences intended     for use with one keyboard layout may map to a different key, map to no     keys at all, or require an additional modifier key to be used on     different keyboard layouts.      For example, the shortcuts, \key{Ctrl plus} and \key{Ctrl minus}, are often     used as shortcuts for zoom operations in graphics applications, and these     may be specified as "Ctrl++" and "Ctrl+-" respectively. However, the way     these shortcuts are specified and interpreted depends on the keyboard layout.     Users of Norwegian keyboards will note that the \key{+} and \key{-} keys     are not adjacent on the keyboard, but will still be able to activate both     shortcuts without needing to press the \key{Shift} key. However, users     with British keyboards will need to hold down the \key{Shift} key     to enter the \key{+} symbol, making the shortcut effectively the same as     "Ctrl+Shift+=".      Although some developers might resort to fully specifying all the modifiers     they use on their keyboards to activate a shortcut, this will also result     in unexpected behavior for users of different keyboard layouts.      For example, a developer using a British keyboard may decide to specify     "Ctrl+Shift+=" as the key sequence in order to create a shortcut that     coincidentally behaves in the same way as \key{Ctrl plus}. However, the     \key{=} key needs to be accessed using the \key{Shift} key on Norwegian     keyboard, making the required shortcut effectively \key{Ctrl Shift Shift =}     (an impossible key combination).      As a result, both human-readable strings and hard-coded key codes     can both be problematic to use when specifying a key sequence that     can be used on a variety of different keyboard layouts. Only the     use of \l{QKeySequence::StandardKey} {standard shortcuts}     guarantees that the user will be able to use the shortcuts that     the developer intended.      Despite this, we can address this issue by ensuring that human-readable     strings are used, making it possible for translations of key sequences to     be made for users of different languages. This approach will be successful     for users whose keyboards have the most typical layout for the language     they are using.      \section1 GNU Emacs Style Key Sequences      Key sequences similar to those used in \l{GNU Emacs}, allowing up to four     key codes, can be created by using the multiple argument constructor,     or by passing a human-readable string of comma-separated key sequences.      For example, the key sequence, \key{Ctrl X} followed by \key{Ctrl C}, can     be specified using either of the following ways:      \snippet doc/src/snippets/code/src_gui_kernel_qkeysequence.cpp 1      \warning A QApplication instance must have been constructed before a              QKeySequence is created; otherwise, your application may crash.      \sa QShortcut */
+comment|/*!     \class QKeySequence     \brief The QKeySequence class encapsulates a key sequence as used     by shortcuts.      \ingroup shared       In its most common form, a key sequence describes a combination of     keys that must be used together to perform some action. Key sequences     are used with QAction objects to specify which keyboard shortcuts can     be used to trigger actions.      Key sequences can be constructed for use as keyboard shortcuts in     three different ways:      \list     \o For standard shortcuts, a \l{QKeySequence::StandardKey}{standard key}        can be used to request the platform-specific key sequence associated        with each shortcut.     \o For custom shortcuts, human-readable strings such as "Ctrl+X" can        be used, and these can be translated into the appropriate shortcuts        for users of different languages. Translations are made in the        "QShortcut" context.     \o For hard-coded shortcuts, integer key codes can be specified with        a combination of values defined by the Qt::Key and Qt::Modifier enum        values. Each key code consists of a single Qt::Key value and zero or        more modifiers, such as Qt::SHIFT, Qt::CTRL, Qt::ALT and Qt::META.     \endlist      For example, \gui{Ctrl P} might be a sequence used as a shortcut for     printing a document, and can be specified in any of the following     ways:      \snippet doc/src/snippets/code/src_gui_kernel_qkeysequence.cpp 0      Note that, for letters, the case used in the specification string     does not matter. In the above examples, the user does not need to     hold down the \key{Shift} key to activate a shortcut specified     with "Ctrl+P". However, for other keys, the use of \key{Shift} as     an unspecified extra modifier key can lead to confusion for users     of an application whose keyboards have different layouts to those     used by the developers. See the \l{Keyboard Layout Issues} section     below for more details.      It is preferable to use standard shortcuts where possible.     When creating key sequences for non-standard shortcuts, you should use     human-readable strings in preference to hard-coded integer values.      QKeySequence objects can be cast to a QString to obtain a human-readable     translated version of the sequence. Similarly, the toString() function     produces human-readable strings for use in menus. On Mac OS X, the     appropriate symbols are used to describe keyboard shortcuts using special     keys on the Macintosh keyboard.      An alternative way to specify hard-coded key codes is to use the Unicode     code point of the character; for example, 'A' gives the same key sequence     as Qt::Key_A.      \bold{Note:} On Mac OS X, references to "Ctrl", Qt::CTRL, Qt::Control     and Qt::ControlModifier correspond to the \key Command keys on the     Macintosh keyboard, and references to "Meta", Qt::META, Qt::Meta and     Qt::MetaModifier correspond to the \key Control keys. Developers on     Mac OS X can use the same shortcut descriptions across all platforms,     and their applications will automatically work as expected on Mac OS X.      \section1 Standard Shortcuts      QKeySequence defines many \l{QKeySequence::StandardKey} {standard     keyboard shortcuts} to reduce the amount of effort required when     setting up actions in a typical application. The table below shows     some common key sequences that are often used for these standard     shortcuts by applications on four widely-used platforms.  Note     that on Mac OS X, the \key Ctrl value corresponds to the \key     Command keys on the Macintosh keyboard, and the \key Meta value     corresponds to the \key Control keys.      \table     \header \i StandardKey      \i Windows                              \i Mac OS X                 \i KDE          \i GNOME     \row    \i HelpContents     \i F1                                   \i Ctrl+?                   \i F1           \i F1     \row    \i WhatsThis        \i Shift+F1                             \i Shift+F1                 \i Shift+F1     \i Shift+F1     \row    \i Open             \i Ctrl+O                               \i Ctrl+O                   \i Ctrl+O       \i Ctrl+O     \row    \i Close            \i Ctrl+F4, Ctrl+W                      \i Ctrl+W, Ctrl+F4          \i Ctrl+W       \i Ctrl+W     \row    \i Save             \i Ctrl+S                               \i Ctrl+S                   \i Ctrl+S       \i Ctrl+S     \row    \i Quit             \i                                      \i Ctrl+Q                   \i Qtrl+Q       \i Qtrl+Q     \row    \i SaveAs           \i                                      \i Ctrl+Shift+S             \i              \i Ctrl+Shift+S     \row    \i New              \i Ctrl+N                               \i Ctrl+N                   \i Ctrl+N       \i Ctrl+N     \row    \i Delete           \i Del                                  \i Del, Meta+D              \i Del, Ctrl+D  \i Del, Ctrl+D     \row    \i Cut              \i Ctrl+X, Shift+Del                    \i Ctrl+X                   \i Ctrl+X, F20, Shift+Del \i Ctrl+X, F20, Shift+Del     \row    \i Copy             \i Ctrl+C, Ctrl+Ins                     \i Ctrl+C                   \i Ctrl+C, F16, Ctrl+Ins  \i Ctrl+C, F16, Ctrl+Ins     \row    \i Paste            \i Ctrl+V, Shift+Ins                    \i Ctrl+V                   \i Ctrl+V, F18, Shift+Ins \i Ctrl+V, F18, Shift+Ins     \row    \i Preferences      \i                                      \i Ctrl+,                   \i              \i     \row    \i Undo             \i Ctrl+Z, Alt+Backspace                \i Ctrl+Z                   \i Ctrl+Z, F14  \i Ctrl+Z, F14     \row    \i Redo             \i Ctrl+Y, Shift+Ctrl+Z, Alt+Shift+Backspace \i Ctrl+Shift+Z        \i Ctrl+Shift+Z \i Ctrl+Shift+Z     \row    \i Back             \i Alt+Left, Backspace                  \i Ctrl+[                   \i Alt+Left     \i Alt+Left     \row    \i Forward          \i Alt+Right, Shift+Backspace           \i Ctrl+]                   \i Alt+Right    \i Alt+Right     \row    \i Refresh          \i F5                                   \i F5                       \i F5           \i Ctrl+R, F5     \row    \i ZoomIn           \i Ctrl+Plus                            \i Ctrl+Plus                \i Ctrl+Plus    \i Ctrl+Plus     \row    \i ZoomOut          \i Ctrl+Minus                           \i Ctrl+Minus               \i Ctrl+Minus   \i Ctrl+Minus     \row    \i Print            \i Ctrl+P                               \i Ctrl+P                   \i Ctrl+P       \i Ctrl+P     \row    \i AddTab           \i Ctrl+T                               \i Ctrl+T                   \i Ctrl+Shift+N, Ctrl+T \i Ctrl+T     \row    \i NextChild        \i Ctrl+Tab, Forward, Ctrl+F6           \i Ctrl+}, Forward, Ctrl+Tab \i Ctrl+Tab, Forward, Ctrl+Comma \i Ctrl+Tab, Forward     \row    \i PreviousChild    \i Ctrl+Shift+Tab, Back, Ctrl+Shift+F6  \i Ctrl+{, Back, Ctrl+Shift+Tab \i Ctrl+Shift+Tab, Back, Ctrl+Period \i Ctrl+Shift+Tab, Back     \row    \i Find             \i Ctrl+F                               \i Ctrl+F                   \i Ctrl+F         \i Ctrl+F     \row    \i FindNext         \i F3, Ctrl+G                           \i Ctrl+G                   \i F3             \i Ctrl+G, F3     \row    \i FindPrevious     \i Shift+F3, Ctrl+Shift+G               \i Ctrl+Shift+G             \i Shift+F3       \i Ctrl+Shift+G, Shift+F3     \row    \i Replace          \i Ctrl+H                               \i (none)                   \i Ctrl+R         \i Ctrl+H     \row    \i SelectAll        \i Ctrl+A                               \i Ctrl+A                   \i Ctrl+A         \i Ctrl+A     \row    \i Bold             \i Ctrl+B                               \i Ctrl+B                   \i Ctrl+B         \i Ctrl+B     \row    \i Italic           \i Ctrl+I                               \i Ctrl+I                   \i Ctrl+I         \i Ctrl+I     \row    \i Underline        \i Ctrl+U                               \i Ctrl+U                   \i Ctrl+U         \i Ctrl+U     \row    \i MoveToNextChar       \i Right                            \i Right                    \i Right          \i Right     \row    \i MoveToPreviousChar   \i Left                             \i Left                     \i Left           \i Left     \row    \i MoveToNextWord       \i Ctrl+Right                       \i Alt+Right                \i Ctrl+Right     \i Ctrl+Right     \row    \i MoveToPreviousWord   \i Ctrl+Left                        \i Alt+Left                 \i Ctrl+Left      \i Ctrl+Left     \row    \i MoveToNextLine       \i Down                             \i Down                     \i Down           \i Down     \row    \i MoveToPreviousLine   \i Up                               \i Up                       \i Up             \i Up     \row    \i MoveToNextPage       \i PgDown                           \i PgDown, Alt+PgDown, Meta+Down, Meta+PgDown\i PgDown \i PgDown     \row    \i MoveToPreviousPage   \i PgUp                             \i PgUp, Alt+PgUp, Meta+Up, Meta+PgUp        \i PgUp   \i PgUp     \row    \i MoveToStartOfLine    \i Home                             \i Ctrl+Left, Meta+Left   \i Home            \i Home     \row    \i MoveToEndOfLine      \i End                              \i Ctrl+Right, Meta+Right \i End             \i End     \row    \i MoveToStartOfBlock   \i (none)                           \i Alt+Up, Meta+A         \i (none)          \i (none)     \row    \i MoveToEndOfBlock     \i (none)                           \i Alt+Down, Meta+E       \i (none)          \i (none)     \row    \i MoveToStartOfDocument\i Ctrl+Home                        \i Ctrl+Up, Home          \i Ctrl+Home       \i Ctrl+Home     \row    \i MoveToEndOfDocument  \i Ctrl+End                         \i Ctrl+Down, End         \i Ctrl+End        \i Ctrl+End     \row    \i SelectNextChar       \i Shift+Right                      \i Shift+Right            \i Shift+Right     \i Shift+Right     \row    \i SelectPreviousChar   \i Shift+Left                       \i Shift+Left             \i Shift+Left      \i Shift+Left     \row    \i SelectNextWord       \i Ctrl+Shift+Right                 \i Alt+Shift+Right        \i Ctrl+Shift+Right \i Ctrl+Shift+Right     \row    \i SelectPreviousWord   \i Ctrl+Shift+Left                  \i Alt+Shift+Left         \i Ctrl+Shift+Left \i Ctrl+Shift+Left     \row    \i SelectNextLine       \i Shift+Down                       \i Shift+Down             \i Shift+Down     \i Shift+Down     \row    \i SelectPreviousLine   \i Shift+Up                         \i Shift+Up               \i Shift+Up       \i Shift+Up     \row    \i SelectNextPage       \i Shift+PgDown                     \i Shift+PgDown           \i Shift+PgDown   \i Shift+PgDown     \row    \i SelectPreviousPage   \i Shift+PgUp                       \i Shift+PgUp             \i Shift+PgUp     \i Shift+PgUp     \row    \i SelectStartOfLine    \i Shift+Home                       \i Ctrl+Shift+Left        \i Shift+Home     \i Shift+Home     \row    \i SelectEndOfLine      \i Shift+End                        \i Ctrl+Shift+Right       \i Shift+End      \i Shift+End     \row    \i SelectStartOfBlock   \i (none)                           \i Alt+Shift+Up, Meta+Shift+A \i (none)     \i (none)     \row    \i SelectEndOfBlock     \i (none)                           \i Alt+Shift+Down, Meta+Shift+E \i (none)   \i (none)     \row    \i SelectStartOfDocument\i Ctrl+Shift+Home                  \i Ctrl+Shift+Up, Shift+Home          \i Ctrl+Shift+Home\i Ctrl+Shift+Home     \row    \i SelectEndOfDocument  \i Ctrl+Shift+End                   \i Ctrl+Shift+Down, Shift+End        \i Ctrl+Shift+End \i Ctrl+Shift+End     \row    \i DeleteStartOfWord    \i Ctrl+Backspace                   \i Alt+Backspace          \i Ctrl+Backspace \i Ctrl+Backspace     \row    \i DeleteEndOfWord      \i Ctrl+Del                         \i (none)                 \i Ctrl+Del       \i Ctrl+Del     \row    \i DeleteEndOfLine      \i (none)                           \i (none)                 \i Ctrl+K         \i Ctrl+K     \row    \i InsertParagraphSeparator     \i Enter                    \i Enter                  \i Enter          \i Enter     \row    \i InsertLineSeparator          \i Shift+Enter              \i Meta+Enter             \i Shift+Enter    \i Shift+Enter     \endtable      Note that, since the key sequences used for the standard shortcuts differ     between platforms, you still need to test your shortcuts on each platform     to ensure that you do not unintentionally assign the same key sequence to     many actions.      \section1 Keyboard Layout Issues      Many key sequence specifications are chosen by developers based on the     layout of certain types of keyboard, rather than choosing keys that     represent the first letter of an action's name, such as \key{Ctrl S}     ("Ctrl+S") or \key{Ctrl C} ("Ctrl+C").     Additionally, because certain symbols can only be entered with the     help of modifier keys on certain keyboard layouts, key sequences intended     for use with one keyboard layout may map to a different key, map to no     keys at all, or require an additional modifier key to be used on     different keyboard layouts.      For example, the shortcuts, \key{Ctrl plus} and \key{Ctrl minus}, are often     used as shortcuts for zoom operations in graphics applications, and these     may be specified as "Ctrl++" and "Ctrl+-" respectively. However, the way     these shortcuts are specified and interpreted depends on the keyboard layout.     Users of Norwegian keyboards will note that the \key{+} and \key{-} keys     are not adjacent on the keyboard, but will still be able to activate both     shortcuts without needing to press the \key{Shift} key. However, users     with British keyboards will need to hold down the \key{Shift} key     to enter the \key{+} symbol, making the shortcut effectively the same as     "Ctrl+Shift+=".      Although some developers might resort to fully specifying all the modifiers     they use on their keyboards to activate a shortcut, this will also result     in unexpected behavior for users of different keyboard layouts.      For example, a developer using a British keyboard may decide to specify     "Ctrl+Shift+=" as the key sequence in order to create a shortcut that     coincidentally behaves in the same way as \key{Ctrl plus}. However, the     \key{=} key needs to be accessed using the \key{Shift} key on Norwegian     keyboard, making the required shortcut effectively \key{Ctrl Shift Shift =}     (an impossible key combination).      As a result, both human-readable strings and hard-coded key codes     can both be problematic to use when specifying a key sequence that     can be used on a variety of different keyboard layouts. Only the     use of \l{QKeySequence::StandardKey} {standard shortcuts}     guarantees that the user will be able to use the shortcuts that     the developer intended.      Despite this, we can address this issue by ensuring that human-readable     strings are used, making it possible for translations of key sequences to     be made for users of different languages. This approach will be successful     for users whose keyboards have the most typical layout for the language     they are using.      \section1 GNU Emacs Style Key Sequences      Key sequences similar to those used in \l{GNU Emacs}, allowing up to four     key codes, can be created by using the multiple argument constructor,     or by passing a human-readable string of comma-separated key sequences.      For example, the key sequence, \key{Ctrl X} followed by \key{Ctrl C}, can     be specified using either of the following ways:      \snippet doc/src/snippets/code/src_gui_kernel_qkeysequence.cpp 1      \warning A QApplication instance must have been constructed before a              QKeySequence is created; otherwise, your application may crash.      \sa QShortcut */
 end_comment
 begin_comment
 comment|/*!     \enum QKeySequence::SequenceMatch      \value NoMatch The key sequences are different; not even partially     matching.     \value PartialMatch The key sequences match partially, but are not     the same.     \value ExactMatch The key sequences are the same.     \omitvalue Identical */
@@ -3519,10 +3519,6 @@ operator||
 name|QGuiApplicationPrivate
 operator|::
 name|KB_X11
-operator||
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -3559,10 +3555,6 @@ operator||
 name|QGuiApplicationPrivate
 operator|::
 name|KB_X11
-operator||
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -3695,22 +3687,6 @@ operator||
 name|QGuiApplicationPrivate
 operator|::
 name|KB_X11
-block|}
-block|,
-block|{
-name|QKeySequence
-operator|::
-name|HelpContents
-block|,
-literal|0
-block|,
-name|Qt
-operator|::
-name|Key_F2
-block|,
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -3888,26 +3864,6 @@ block|,
 block|{
 name|QKeySequence
 operator|::
-name|Delete
-block|,
-literal|0
-block|,
-name|Qt
-operator|::
-name|SHIFT
-operator||
-name|Qt
-operator|::
-name|Key_Backspace
-block|,
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
-block|}
-block|,
-block|{
-name|QKeySequence
-operator|::
 name|InsertLineSeparator
 block|,
 literal|0
@@ -4016,10 +3972,6 @@ operator||
 name|QGuiApplicationPrivate
 operator|::
 name|KB_X11
-operator||
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -4064,10 +4016,6 @@ operator||
 name|QGuiApplicationPrivate
 operator|::
 name|KB_X11
-operator||
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -4910,10 +4858,6 @@ block|,
 name|QGuiApplicationPrivate
 operator|::
 name|KB_Win
-operator||
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -5155,10 +5099,6 @@ operator||
 name|QGuiApplicationPrivate
 operator|::
 name|KB_X11
-operator||
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -5183,10 +5123,6 @@ operator||
 name|QGuiApplicationPrivate
 operator|::
 name|KB_X11
-operator||
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -5231,10 +5167,6 @@ operator||
 name|QGuiApplicationPrivate
 operator|::
 name|KB_X11
-operator||
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -5339,10 +5271,6 @@ operator||
 name|QGuiApplicationPrivate
 operator|::
 name|KB_X11
-operator||
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -5555,10 +5483,6 @@ operator||
 name|QGuiApplicationPrivate
 operator|::
 name|KB_X11
-operator||
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -5688,10 +5612,6 @@ operator||
 name|QGuiApplicationPrivate
 operator|::
 name|KB_X11
-operator||
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -5720,10 +5640,6 @@ operator||
 name|QGuiApplicationPrivate
 operator|::
 name|KB_X11
-operator||
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -5752,10 +5668,6 @@ operator||
 name|QGuiApplicationPrivate
 operator|::
 name|KB_X11
-operator||
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -5832,10 +5744,6 @@ operator||
 name|QGuiApplicationPrivate
 operator|::
 name|KB_X11
-operator||
-name|QGuiApplicationPrivate
-operator|::
-name|KB_S60
 block|}
 block|,
 block|{
@@ -7161,7 +7069,7 @@ comment|/*!     Returns the number of keys in the key sequence.     The maximum 
 end_comment
 begin_function
 DECL|function|count
-name|uint
+name|int
 name|QKeySequence
 operator|::
 name|count
@@ -8348,19 +8256,53 @@ operator|+
 literal|1
 argument_list|)
 decl_stmt|;
-comment|// Just shortcut the check here if we only have one character.
-comment|// Rational: A modifier will contain the name AND +, so longer than 1, a length of 1 is just
-comment|// the remaining part of the shortcut (ei. The 'C' in "Ctrl+C"), so no need to check that.
+comment|// If we get here the shortcuts contains at least one '+'. We break up
+comment|// along the following strategy:
+comment|//      Meta+Ctrl++   ( "Meta+", "Ctrl+", "+" )
+comment|//      Super+Shift+A ( "Super+", "Shift+" )
+comment|//      4+3+2=1       ( "4+", "3+" )
+comment|// In other words, everything we try to handle HAS to be a modifier
+comment|// except for a single '+' at the end of the string.
+comment|// Only '+' can have length 1.
 if|if
 condition|(
 name|sub
 operator|.
 name|length
 argument_list|()
-operator|>
+operator|==
 literal|1
 condition|)
 block|{
+comment|// Make sure we only encounter a single '+' at the end of the accel
+if|if
+condition|(
+name|accel
+operator|.
+name|lastIndexOf
+argument_list|(
+name|QLatin1Char
+argument_list|(
+literal|'+'
+argument_list|)
+argument_list|)
+operator|!=
+name|accel
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
+condition|)
+return|return
+name|Qt
+operator|::
+name|Key_unknown
+return|;
+block|}
+else|else
+block|{
+comment|// Identify the modifier
 name|bool
 name|validModifier
 init|=
@@ -8419,9 +8361,6 @@ break|break;
 comment|// Shortcut, since if we find an other it would/should just be a dup
 block|}
 block|}
-comment|// We couldn't match the string with a modifier. This is only
-comment|// possible if this part is the key. The key is never followed by a
-comment|// '+'. And if the key is '+' the if() above would have skipped it.
 if|if
 condition|(
 operator|!
@@ -9692,29 +9631,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Use toString() instead.           Returns the key sequence as a QString. This is equivalent to      calling toString(QKeySequence::NativeText). Note that the     result is not platform independent. */
+comment|/*! \fn QKeySequence::operator QString() const      \obsolete      Use toString() instead.           Returns the key sequence as a QString. This is equivalent to      calling toString(QKeySequence::NativeText). Note that the     result is not platform independent. */
 end_comment
-begin_function
-DECL|function|operator QString
-name|QKeySequence
-operator|::
-name|operator
-name|QString
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|QKeySequence
-operator|::
-name|toString
-argument_list|(
-name|QKeySequence
-operator|::
-name|NativeText
-argument_list|)
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!    Returns the key sequence as a QVariant */
 end_comment
@@ -9740,37 +9658,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete     For backward compatibility: returns the first keycode     as integer. If the key sequence is empty, 0 is returned.  */
+comment|/*! \fn QKeySequence::operator int () const      \obsolete     For backward compatibility: returns the first keycode     as integer. If the key sequence is empty, 0 is returned.  */
 end_comment
-begin_function
-DECL|function|operator int
-name|QKeySequence
-operator|::
-name|operator
-name|int
-parameter_list|()
-specifier|const
-block|{
-if|if
-condition|(
-literal|1
-operator|<=
-name|count
-argument_list|()
-condition|)
-return|return
-name|d
-operator|->
-name|key
-index|[
-literal|0
-index|]
-return|;
-return|return
-literal|0
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     Returns a reference to the element at position \a index in the key     sequence. This can only be used to read an element.  */
 end_comment

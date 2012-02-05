@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtTest module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtTest module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -83,27 +83,22 @@ include|#
 directive|include
 file|<QtCore/qrect.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Test
-parameter_list|)
 name|namespace
 name|QTest
-decl_stmt|{  template<>
+block|{
+name|template
+operator|<
+operator|>
 specifier|inline
-namespace|char *
+name|char
+operator|*
 name|toString
-namespace|(const
-name|QLatin1String
-namespace|&
-name|str
-end_function
-begin_block
-unit|)
+argument_list|(
+argument|const QLatin1String&str
+argument_list|)
 block|{
 return|return
 name|qstrdup
@@ -115,8 +110,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_block
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -141,8 +134,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -171,8 +162,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -215,8 +204,6 @@ literal|"Invalid QTime"
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -259,8 +246,6 @@ literal|"Invalid QDate"
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -326,8 +311,6 @@ literal|"Invalid QDateTime"
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -383,8 +366,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -430,8 +411,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -477,8 +456,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -556,8 +533,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -603,8 +578,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -650,8 +623,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -729,8 +700,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -755,8 +724,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 operator|>
@@ -819,8 +786,6 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_if
 if|if
 condition|(
 operator|!
@@ -877,17 +842,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_if
-begin_expr_stmt
-unit|}     vstring
+block|}
+name|vstring
 operator|.
 name|append
 argument_list|(
 literal|')'
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-begin_return
 return|return
 name|qstrdup
 argument_list|(
@@ -897,15 +859,15 @@ name|constData
 argument_list|()
 argument_list|)
 return|;
-end_return
+block|}
+end_decl_stmt
 begin_ifndef
-unit|}
 ifndef|#
 directive|ifndef
 name|QTEST_NO_SPECIALIZATIONS
 end_ifndef
 begin_expr_stmt
-unit|template
+name|template
 operator|<
 operator|>
 endif|#

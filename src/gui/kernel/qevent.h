@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -86,10 +86,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Gui
-argument_list|)
+DECL|variable|QAction
 name|class
 name|QAction
 decl_stmt|;
@@ -797,11 +794,9 @@ name|QTabletEvent
 argument_list|(
 argument|Type t
 argument_list|,
-argument|const QPoint&pos
+argument|const QPointF&pos
 argument_list|,
-argument|const QPoint&globalPos
-argument_list|,
-argument|const QPointF&hiResGlobalPos
+argument|const QPointF&globalPos
 argument_list|,
 argument|int device
 argument_list|,
@@ -831,27 +826,40 @@ block|;
 specifier|inline
 specifier|const
 name|QPoint
-operator|&
 name|pos
 argument_list|()
 specifier|const
 block|{
 return|return
 name|mPos
+operator|.
+name|toPoint
+argument_list|()
 return|;
 block|}
 specifier|inline
 specifier|const
 name|QPoint
-operator|&
 name|globalPos
 argument_list|()
 specifier|const
 block|{
 return|return
 name|mGPos
+operator|.
+name|toPoint
+argument_list|()
 return|;
 block|}
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+name|QT_DEPRECATED
 specifier|inline
 specifier|const
 name|QPointF
@@ -861,7 +869,33 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|mHiResGlobalPos
+name|mPos
+return|;
+block|}
+endif|#
+directive|endif
+specifier|inline
+specifier|const
+name|QPointF
+operator|&
+name|posF
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mPos
+return|;
+block|}
+specifier|inline
+specifier|const
+name|QPointF
+operator|&
+name|globalPosF
+argument_list|()
+specifier|const
+block|{
+return|return
+name|mGPos
 return|;
 block|}
 specifier|inline
@@ -871,10 +905,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|qRound
+argument_list|(
 name|mPos
 operator|.
 name|x
 argument_list|()
+argument_list|)
 return|;
 block|}
 specifier|inline
@@ -884,10 +921,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|qRound
+argument_list|(
 name|mPos
 operator|.
 name|y
 argument_list|()
+argument_list|)
 return|;
 block|}
 specifier|inline
@@ -897,10 +937,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|qRound
+argument_list|(
 name|mGPos
 operator|.
 name|x
 argument_list|()
+argument_list|)
 return|;
 block|}
 specifier|inline
@@ -910,10 +953,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+name|qRound
+argument_list|(
 name|mGPos
 operator|.
 name|y
 argument_list|()
+argument_list|)
 return|;
 block|}
 specifier|inline
@@ -923,7 +969,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|mHiResGlobalPos
+name|mGPos
 operator|.
 name|x
 argument_list|()
@@ -936,7 +982,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|mHiResGlobalPos
+name|mGPos
 operator|.
 name|y
 argument_list|()
@@ -1040,13 +1086,10 @@ return|;
 block|}
 name|protected
 operator|:
-name|QPoint
+name|QPointF
 name|mPos
 block|,
 name|mGPos
-block|;
-name|QPointF
-name|mHiResGlobalPos
 block|;
 name|int
 name|mDev
@@ -2180,7 +2223,7 @@ name|public
 operator|:
 name|QDropEvent
 argument_list|(
-argument|const QPoint& pos
+argument|const QPointF& pos
 argument_list|,
 argument|Qt::DropActions actions
 argument_list|,
@@ -2200,8 +2243,22 @@ block|;
 specifier|inline
 specifier|const
 name|QPoint
-operator|&
 name|pos
+argument_list|()
+specifier|const
+block|{
+return|return
+name|p
+operator|.
+name|toPoint
+argument_list|()
+return|;
+block|}
+specifier|inline
+specifier|const
+name|QPointF
+operator|&
+name|posF
 argument_list|()
 specifier|const
 block|{
@@ -2311,7 +2368,7 @@ name|friend
 name|class
 name|QApplication
 block|;
-name|QPoint
+name|QPointF
 name|p
 block|;
 name|Qt
@@ -3490,6 +3547,14 @@ name|class
 name|QApplicationPrivate
 block|;     }
 block|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
 name|QT_DEPRECATED
 expr|enum
 name|DeviceType
@@ -3499,6 +3564,8 @@ block|,
 name|TouchPad
 block|}
 block|;
+endif|#
+directive|endif
 name|QTouchEvent
 argument_list|(
 argument|QEvent::Type eventType
@@ -3540,6 +3607,14 @@ return|return
 name|_target
 return|;
 block|}
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
 name|QT_DEPRECATED
 specifier|inline
 name|QTouchEvent
@@ -3565,6 +3640,8 @@ argument_list|)
 operator|)
 return|;
 block|}
+endif|#
+directive|endif
 specifier|inline
 name|Qt
 operator|::

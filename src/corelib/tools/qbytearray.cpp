@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -2390,13 +2390,13 @@ begin_comment
 comment|/*! \fn char QByteArray::operator[](uint i) const      \overload */
 end_comment
 begin_comment
-comment|/*! \fn QBool QByteArray::contains(const QByteArray&ba) const      Returns true if the byte array contains an occurrence of the byte     array \a ba; otherwise returns false.      \sa indexOf(), count() */
+comment|/*! \fn bool QByteArray::contains(const QByteArray&ba) const      Returns true if the byte array contains an occurrence of the byte     array \a ba; otherwise returns false.      \sa indexOf(), count() */
 end_comment
 begin_comment
-comment|/*! \fn QBool QByteArray::contains(const char *str) const      \overload      Returns true if the byte array contains the string \a str;     otherwise returns false. */
+comment|/*! \fn bool QByteArray::contains(const char *str) const      \overload      Returns true if the byte array contains the string \a str;     otherwise returns false. */
 end_comment
 begin_comment
-comment|/*! \fn QBool QByteArray::contains(char ch) const      \overload      Returns true if the byte array contains the character \a ch;     otherwise returns false. */
+comment|/*! \fn bool QByteArray::contains(char ch) const      \overload      Returns true if the byte array contains the character \a ch;     otherwise returns false. */
 end_comment
 begin_comment
 comment|/*!      Truncates the byte array at index position \a pos.      If \a pos is beyond the end of the array, nothing happens.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 10      \sa chop(), resize(), left() */
@@ -7828,7 +7828,7 @@ operator|.
 name|ba
 operator|||
 name|pos
-operator|>=
+operator|>
 name|d
 operator|->
 name|size

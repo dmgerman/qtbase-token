@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -102,16 +102,12 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 ifdef|#
 directive|ifdef
 name|QT_BUILD_CORE_LIB
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
 endif|#
 directive|endif
 name|QT_END_NAMESPACE
@@ -139,7 +135,8 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|__cplusplus
-decl|extern "C"
+specifier|extern
+literal|"C"
 block|{
 endif|#
 directive|endif
@@ -151,10 +148,9 @@ DECL|function|isascii
 specifier|inline
 name|int
 name|isascii
-parameter_list|(
-name|int
-name|c
-parameter_list|)
+argument_list|(
+argument|int c
+argument_list|)
 block|{
 return|return
 operator|(
@@ -168,45 +164,31 @@ endif|#
 directive|endif
 comment|// no lfind() - used by the TIF image format
 name|void
-modifier|*
+operator|*
 name|lfind
-parameter_list|(
-specifier|const
-name|void
-modifier|*
-name|key
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-name|base
-parameter_list|,
-name|size_t
-modifier|*
-name|elements
-parameter_list|,
-name|size_t
-name|size
-parameter_list|,
-name|int
-function_decl|(
-modifier|*
-name|compare
-function_decl|)
-parameter_list|(
-specifier|const
-name|void
-modifier|*
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-parameter_list|)
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|const void* key
+argument_list|,
+argument|const void* base
+argument_list|,
+argument|size_t* elements
+argument_list|,
+argument|size_t size
+argument_list|,
+argument|int (*compare)(const void*, const void*)
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|// no rand_r(), but rand()
+end_comment
+begin_comment
 comment|// NOTE: this implementation is wrong for multi threaded applications,
+end_comment
+begin_comment
 comment|// but there is no way to get it right on VxWorks (in kernel mode)
+end_comment
+begin_function_decl
 name|int
 name|rand_r
 parameter_list|(
@@ -216,7 +198,11 @@ modifier|*
 comment|/*seedp*/
 parameter_list|)
 function_decl|;
+end_function_decl
+begin_comment
 comment|// no usleep() support
+end_comment
+begin_function_decl
 name|int
 name|usleep
 parameter_list|(
@@ -224,9 +210,17 @@ name|unsigned
 name|int
 parameter_list|)
 function_decl|;
+end_function_decl
+begin_comment
 comment|// gettimeofday() is declared, but is missing from the library.
+end_comment
+begin_comment
 comment|// It IS however defined in the Curtis-Wright X11 libraries, so
+end_comment
+begin_comment
 comment|// we have to make the symbol 'weak'
+end_comment
+begin_function_decl
 name|int
 name|gettimeofday
 parameter_list|(
@@ -242,9 +236,11 @@ parameter_list|)
 function_decl|__attribute__
 parameter_list|(
 function_decl|(weak
-block|)
-decl_stmt|);
-end_decl_stmt
+end_function_decl
+begin_empty_stmt
+unit|))
+empty_stmt|;
+end_empty_stmt
 begin_comment
 comment|// neither getpagesize() or sysconf(_SC_PAGESIZE) are available
 end_comment

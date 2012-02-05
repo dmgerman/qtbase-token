@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -197,7 +197,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 end_if
 begin_comment
@@ -6018,6 +6018,20 @@ argument_list|(
 name|foundView
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-23707"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 name|foundTipLabel
@@ -32440,7 +32454,7 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/* void tst_QGraphicsItem::textControlGetterSetter() {     QGraphicsTextItem *item = new QGraphicsTextItem;     QVERIFY(item->textControl()->parent() == item);     QPointer<QTextControl> control = item->textControl();     delete item;     QVERIFY(!control);      item = new QGraphicsTextItem;      QPointer<QTextControl> oldControl = control;     control = new QTextControl;      item->setTextControl(control);     QVERIFY(item->textControl() == control);     QVERIFY(!control->parent());     QVERIFY(!oldControl);      // set some text to give it a size, to test that     // setTextControl (re)connects signals     const QRectF oldBoundingRect = item->boundingRect();     QVERIFY(oldBoundingRect.isValid());     item->setPlainText("Some text");     item->adjustSize();     QVERIFY(item->boundingRect().isValid());     QVERIFY(item->boundingRect() != oldBoundingRect);      // test that on setting a control the item size     // is adjusted     oldControl = control;     control = new QTextControl;     control->setPlainText("foo!");     item->setTextControl(control);     QCOMPARE(item->boundingRect().size(), control->document()->documentLayout()->documentSize());      QVERIFY(oldControl);     delete oldControl;      delete item;     QVERIFY(control);     delete control; } */
+comment|/* void tst_QGraphicsItem::textControlGetterSetter() {     QGraphicsTextItem *item = new QGraphicsTextItem;     QVERIFY(item->textControl()->parent() == item);     QPointer<QWidgetTextControl> control = item->textControl();     delete item;     QVERIFY(!control);      item = new QGraphicsTextItem;      QPointer<QWidgetTextControl> oldControl = control;     control = new QWidgetTextControl;      item->setTextControl(control);     QVERIFY(item->textControl() == control);     QVERIFY(!control->parent());     QVERIFY(!oldControl);      // set some text to give it a size, to test that     // setTextControl (re)connects signals     const QRectF oldBoundingRect = item->boundingRect();     QVERIFY(oldBoundingRect.isValid());     item->setPlainText("Some text");     item->adjustSize();     QVERIFY(item->boundingRect().isValid());     QVERIFY(item->boundingRect() != oldBoundingRect);      // test that on setting a control the item size     // is adjusted     oldControl = control;     control = new QWidgetTextControl;     control->setPlainText("foo!");     item->setTextControl(control);     QCOMPARE(item->boundingRect().size(), control->document()->documentLayout()->documentSize());      QVERIFY(oldControl);     delete oldControl;      delete item;     QVERIFY(control);     delete control; } */
 end_comment
 begin_function
 DECL|function|defaultItemTest_QGraphicsLineItem
@@ -46453,7 +46467,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 operator|||
 literal|1
@@ -61182,7 +61196,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 comment|// There's no difference between repaint and update on the Mac,
 comment|// so we have to process events here to make sure we get the event.
@@ -61483,7 +61497,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// There's no difference between update() and repaint() on the Mac,
 comment|// so we have to process events here to make sure we get the event.
 name|QTest

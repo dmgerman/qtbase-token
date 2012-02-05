@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -33,36 +33,35 @@ include|#
 directive|include
 file|<QtCore/qset.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
+DECL|variable|QAbstractItemModel
 name|class
 name|QAbstractItemModel
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QPersistentModelIndex
 name|class
 name|QPersistentModelIndex
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
 name|QModelIndex
-decl_stmt|{     friend class QAbstractItemModel;
-end_function
-begin_decl_stmt
+block|{
+name|friend
+name|class
+name|QAbstractItemModel
+decl_stmt|;
 name|friend
 name|class
 name|QProxyModel
 decl_stmt|;
-end_decl_stmt
-begin_label
 name|public
 label|:
-end_label
-begin_expr_stmt
 specifier|inline
 name|QModelIndex
 argument_list|()
@@ -147,8 +146,6 @@ return|return
 name|r
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|int
 name|column
@@ -159,8 +156,6 @@ return|return
 name|c
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|void
 operator|*
@@ -172,8 +167,6 @@ return|return
 name|p
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|qint64
 name|internalId
@@ -190,16 +183,12 @@ name|p
 operator|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QModelIndex
 name|parent
 argument_list|()
 specifier|const
 expr_stmt|;
-end_expr_stmt
-begin_decl_stmt
 specifier|inline
 name|QModelIndex
 name|sibling
@@ -212,8 +201,6 @@ name|column
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 name|QModelIndex
 name|child
@@ -226,8 +213,6 @@ name|column
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 name|QVariant
 name|data
@@ -241,8 +226,6 @@ name|DisplayRole
 argument_list|)
 decl|const
 decl_stmt|;
-end_decl_stmt
-begin_expr_stmt
 specifier|inline
 name|Qt
 operator|::
@@ -251,8 +234,6 @@ name|flags
 argument_list|()
 specifier|const
 expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 specifier|const
 name|QAbstractItemModel
@@ -265,8 +246,6 @@ return|return
 name|m
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|isValid
@@ -293,8 +272,6 @@ literal|0
 operator|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|operator
@@ -341,8 +318,6 @@ name|m
 operator|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|operator
@@ -365,8 +340,6 @@ name|other
 operator|)
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|operator
@@ -390,8 +363,6 @@ condition|)
 return|return
 name|true
 return|;
-end_expr_stmt
-begin_if
 if|if
 condition|(
 name|r
@@ -449,14 +420,16 @@ name|m
 return|;
 block|}
 block|}
-end_if
-begin_return
 return|return
 name|false
 return|;
-end_return
+block|}
+end_decl_stmt
+begin_label
+name|private
+label|:
+end_label
 begin_expr_stmt
-unit|} private:
 specifier|inline
 name|QModelIndex
 argument_list|(
@@ -1098,6 +1071,22 @@ specifier|const
 block|;
 name|virtual
 name|bool
+name|canDropMimeData
+argument_list|(
+argument|const QMimeData *data
+argument_list|,
+argument|Qt::DropAction action
+argument_list|,
+argument|int row
+argument_list|,
+argument|int column
+argument_list|,
+argument|const QModelIndex&parent
+argument_list|)
+specifier|const
+block|;
+name|virtual
+name|bool
 name|dropMimeData
 argument_list|(
 argument|const QMimeData *data
@@ -1135,6 +1124,7 @@ literal|5
 operator|,
 literal|0
 argument_list|)
+name|QT_DEPRECATED
 name|void
 name|setSupportedDragActions
 argument_list|(
@@ -1145,7 +1135,7 @@ name|doSetSupportedDragActions
 argument_list|(
 name|actions
 argument_list|)
-block|;     }
+block|; }
 endif|#
 directive|endif
 name|virtual
@@ -1192,6 +1182,36 @@ argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
 argument_list|)
 block|;
+name|virtual
+name|bool
+name|moveRows
+argument_list|(
+argument|const QModelIndex&sourceParent
+argument_list|,
+argument|int sourceRow
+argument_list|,
+argument|int count
+argument_list|,
+argument|const QModelIndex&destinationParent
+argument_list|,
+argument|int destinationChild
+argument_list|)
+block|;
+name|virtual
+name|bool
+name|moveColumns
+argument_list|(
+argument|const QModelIndex&sourceParent
+argument_list|,
+argument|int sourceColumn
+argument_list|,
+argument|int count
+argument_list|,
+argument|const QModelIndex&destinationParent
+argument_list|,
+argument|int destinationChild
+argument_list|)
+block|;
 specifier|inline
 name|bool
 name|insertRow
@@ -1226,6 +1246,32 @@ argument_list|(
 argument|int column
 argument_list|,
 argument|const QModelIndex&parent = QModelIndex()
+argument_list|)
+block|;
+specifier|inline
+name|bool
+name|moveRow
+argument_list|(
+argument|const QModelIndex&sourceParent
+argument_list|,
+argument|int sourceRow
+argument_list|,
+argument|const QModelIndex&destinationParent
+argument_list|,
+argument|int destinationChild
+argument_list|)
+block|;
+specifier|inline
+name|bool
+name|moveColumn
+argument_list|(
+argument|const QModelIndex&sourceParent
+argument_list|,
+argument|int sourceColumn
+argument_list|,
+argument|const QModelIndex&destinationParent
+argument_list|,
+argument|int destinationChild
 argument_list|)
 block|;
 name|virtual
@@ -1754,10 +1800,27 @@ name|void
 name|endMoveColumns
 argument_list|()
 block|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+name|QT_DEPRECATED
 name|void
 name|reset
 argument_list|()
+block|{
+name|beginResetModel
+argument_list|()
 block|;
+name|endResetModel
+argument_list|()
+block|;     }
+endif|#
+directive|endif
 name|void
 name|beginResetModel
 argument_list|()
@@ -1952,6 +2015,72 @@ argument_list|,
 literal|1
 argument_list|,
 name|aparent
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+DECL|function|moveRow
+specifier|inline
+name|bool
+name|QAbstractItemModel
+operator|::
+name|moveRow
+argument_list|(
+argument|const QModelIndex&sourceParent
+argument_list|,
+argument|int sourceRow
+argument_list|,
+argument|const QModelIndex&destinationParent
+argument_list|,
+argument|int destinationChild
+argument_list|)
+block|{
+return|return
+name|moveRows
+argument_list|(
+name|sourceParent
+argument_list|,
+name|sourceRow
+argument_list|,
+literal|1
+argument_list|,
+name|destinationParent
+argument_list|,
+name|destinationChild
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+DECL|function|moveColumn
+specifier|inline
+name|bool
+name|QAbstractItemModel
+operator|::
+name|moveColumn
+argument_list|(
+argument|const QModelIndex&sourceParent
+argument_list|,
+argument|int sourceColumn
+argument_list|,
+argument|const QModelIndex&destinationParent
+argument_list|,
+argument|int destinationChild
+argument_list|)
+block|{
+return|return
+name|moveRows
+argument_list|(
+name|sourceParent
+argument_list|,
+name|sourceColumn
+argument_list|,
+literal|1
+argument_list|,
+name|destinationParent
+argument_list|,
+name|destinationChild
 argument_list|)
 return|;
 block|}

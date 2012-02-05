@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the plugins of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
 comment|// checksum 0x17fa version 0x3000a
@@ -462,17 +462,6 @@ name|ScreenOrientation
 name|orientation
 parameter_list|)
 block|{
-comment|//#if defined(Q_OS_SYMBIAN)
-comment|//    // If the version of Qt on the device is< 4.7.2, that attribute won't work
-comment|//    if (orientation != ScreenOrientationAuto) {
-comment|//        const QStringList v = QString::fromAscii(qVersion()).split(QLatin1Char('.'));
-comment|//        if (v.count() == 3&& (v.at(0).toInt()<< 16 | v.at(1).toInt()<< 8 | v.at(2).toInt())< 0x040702) {
-comment|//            qWarning("Screen orientation locking only supported with Qt 4.7.2 and above");
-comment|//            return;
-comment|//        }
-comment|//    }
-comment|//#endif // Q_OS_SYMBIAN
-comment|//
 comment|//    Qt::WidgetAttribute attribute;
 comment|//    switch (orientation) {
 comment|//#if QT_VERSION< 0x040702
@@ -511,33 +500,9 @@ operator|::
 name|showExpanded
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|showFullScreen
-argument_list|()
-expr_stmt|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_WS_MAEMO_5
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_WS_MAEMO_6
-argument_list|)
-name|showMaximized
-argument_list|()
-expr_stmt|;
-else|#
-directive|else
 name|show
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 end_unit

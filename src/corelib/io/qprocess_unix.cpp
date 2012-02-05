@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
 comment|//#define QPROCESS_DEBUG
@@ -509,14 +509,6 @@ decl_stmt|;
 block|}
 class|;
 end_class
-begin_macro
-name|Q_GLOBAL_STATIC
-argument_list|(
-argument|QMutex
-argument_list|,
-argument|processManagerGlobalMutex
-argument_list|)
-end_macro
 begin_decl_stmt
 DECL|variable|processManagerInstance
 specifier|static
@@ -537,17 +529,15 @@ parameter_list|()
 block|{
 comment|// The constructor of QProcessManager should be called only once
 comment|// so we cannot use Q_GLOBAL_STATIC directly for QProcessManager
-name|QMutex
-modifier|*
-name|mutex
-init|=
+specifier|static
+name|QBasicMutex
 name|processManagerGlobalMutex
-argument_list|()
 decl_stmt|;
 name|QMutexLocker
 name|locker
 argument_list|(
-name|mutex
+operator|&
+name|processManagerGlobalMutex
 argument_list|)
 decl_stmt|;
 if|if
@@ -1347,6 +1337,27 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+block|}
+end_function
+begin_function
+DECL|function|destroyChannel
+name|void
+name|QProcessPrivate
+operator|::
+name|destroyChannel
+parameter_list|(
+name|Channel
+modifier|*
+name|channel
+parameter_list|)
+block|{
+name|destroyPipe
+argument_list|(
+name|channel
+operator|->
+name|pipe
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -2458,24 +2469,6 @@ endif|#
 directive|endif
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-end_ifdef
-begin_expr_stmt
-name|Q_GLOBAL_STATIC
-argument_list|(
-name|QMutex
-argument_list|,
-name|cfbundleMutex
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|startProcess
 name|void
@@ -2739,11 +2732,15 @@ decl_stmt|;
 block|{
 comment|// CFBundle is not reentrant, since CFBundleCreate might return a reference
 comment|// to a cached bundle object. Protect the bundle calls with a mutex lock.
+specifier|static
+name|QBasicMutex
+name|cfbundleMutex
+decl_stmt|;
 name|QMutexLocker
 name|lock
 argument_list|(
+operator|&
 name|cfbundleMutex
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|QCFType

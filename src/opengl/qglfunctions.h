@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtOpenGL module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtOpenGL module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -37,20 +37,25 @@ include|#
 directive|include
 file|<QtOpenGL/qgl.h>
 end_include
-begin_decl_stmt
+begin_include
+include|#
+directive|include
+file|<QtGui/qopenglcontext.h>
+end_include
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|OpenGL
-argument_list|)
+end_expr_stmt
+begin_comment
 comment|// Types that aren't defined in all system's gl.h files.
-decl|typedef
+end_comment
+begin_typedef
 DECL|typedef|qgl_GLintptr
+typedef|typedef
 name|ptrdiff_t
 name|qgl_GLintptr
-decl_stmt|;
-end_decl_stmt
+typedef|;
+end_typedef
 begin_typedef
 DECL|typedef|qgl_GLsizeiptr
 typedef|typedef
@@ -3961,6 +3966,22 @@ argument_list|,
 argument|GLuint framebuffer
 argument_list|)
 block|{
+if|if
+condition|(
+name|framebuffer
+operator|==
+literal|0
+condition|)
+name|framebuffer
+operator|=
+name|QOpenGLContext
+operator|::
+name|currentContext
+argument_list|()
+operator|->
+name|defaultFramebufferObject
+argument_list|()
+expr_stmt|;
 if|#
 directive|if
 name|defined
@@ -3974,9 +3995,13 @@ name|target
 argument_list|,
 name|framebuffer
 argument_list|)
-block|;
+expr_stmt|;
+end_expr_stmt
+begin_else
 else|#
 directive|else
+end_else
+begin_expr_stmt
 name|Q_ASSERT
 argument_list|(
 name|QGLFunctions
@@ -3986,7 +4011,9 @@ argument_list|(
 name|d_ptr
 argument_list|)
 argument_list|)
-block|;
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
 name|d_ptr
 operator|->
 name|bindFramebuffer
@@ -3995,12 +4022,15 @@ name|target
 argument_list|,
 name|framebuffer
 argument_list|)
-block|;
+expr_stmt|;
+end_expr_stmt
+begin_endif
 endif|#
 directive|endif
-block|}
+end_endif
+begin_expr_stmt
+unit|}  inline
 DECL|function|glBindRenderbuffer
-specifier|inline
 name|void
 name|QGLFunctions
 operator|::

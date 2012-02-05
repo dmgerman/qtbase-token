@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -58,14 +58,6 @@ argument_list|>
 name|connManager_ptr
 decl_stmt|;
 end_decl_stmt
-begin_macro
-name|Q_GLOBAL_STATIC
-argument_list|(
-argument|QMutex
-argument_list|,
-argument|connManager_mutex
-argument_list|)
-end_macro
 begin_function
 DECL|function|connManager_cleanup
 specifier|static
@@ -74,18 +66,25 @@ name|connManager_cleanup
 parameter_list|()
 block|{
 comment|// this is not atomic or thread-safe!
-operator|delete
+name|QNetworkConfigurationManagerPrivate
+modifier|*
+name|cmp
+init|=
 name|connManager_ptr
 operator|.
-name|load
-argument_list|()
-expr_stmt|;
-name|connManager_ptr
-operator|.
-name|store
+name|fetchAndStoreAcquire
 argument_list|(
 literal|0
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|cmp
+condition|)
+name|cmp
+operator|->
+name|cleanup
+argument_list|()
 expr_stmt|;
 block|}
 end_function
@@ -105,11 +104,10 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|connManager
-specifier|static
+DECL|function|qNetworkConfigurationManagerPrivate
 name|QNetworkConfigurationManagerPrivate
 modifier|*
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 parameter_list|()
 block|{
 name|QNetworkConfigurationManagerPrivate
@@ -127,11 +125,15 @@ operator|!
 name|ptr
 condition|)
 block|{
+specifier|static
+name|QBasicMutex
+name|connManager_mutex
+decl_stmt|;
 name|QMutexLocker
 name|locker
 argument_list|(
+operator|&
 name|connManager_mutex
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -173,7 +175,7 @@ argument_list|()
 expr_stmt|;
 name|ptr
 operator|->
-name|updateConfigurations
+name|initialize
 argument_list|()
 expr_stmt|;
 block|}
@@ -214,10 +216,10 @@ argument_list|)
 expr_stmt|;
 name|ptr
 operator|->
-name|updateConfigurations
+name|initialize
 argument_list|()
 expr_stmt|;
-comment|// this moves us to the main thread
+comment|// this moves us to the right thread
 name|obj
 operator|->
 name|moveToThread
@@ -245,19 +247,6 @@ block|}
 block|}
 return|return
 name|ptr
-return|;
-block|}
-end_function
-begin_function
-DECL|function|qNetworkConfigurationManagerPrivate
-name|QNetworkConfigurationManagerPrivate
-modifier|*
-name|qNetworkConfigurationManagerPrivate
-parameter_list|()
-block|{
-return|return
-name|connManager
-argument_list|()
 return|;
 block|}
 end_function
@@ -441,7 +430,7 @@ name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|priv
 init|=
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 argument_list|()
 decl_stmt|;
 if|if
@@ -471,7 +460,7 @@ name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|priv
 init|=
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 argument_list|()
 decl_stmt|;
 if|if
@@ -514,7 +503,7 @@ name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|priv
 init|=
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 argument_list|()
 decl_stmt|;
 if|if
@@ -559,7 +548,7 @@ name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|priv
 init|=
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 argument_list|()
 decl_stmt|;
 if|if
@@ -596,7 +585,7 @@ name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|priv
 init|=
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 argument_list|()
 decl_stmt|;
 if|if
@@ -632,7 +621,7 @@ name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|priv
 init|=
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 argument_list|()
 decl_stmt|;
 if|if
@@ -670,7 +659,7 @@ name|QNetworkConfigurationManagerPrivate
 modifier|*
 name|priv
 init|=
-name|connManager
+name|qNetworkConfigurationManagerPrivate
 argument_list|()
 decl_stmt|;
 if|if

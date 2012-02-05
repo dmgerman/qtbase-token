@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtDBus module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtDBus module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -28,32 +28,30 @@ ifndef|#
 directive|ifndef
 name|QT_NO_DBUS
 end_ifndef
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|DBus
-parameter_list|)
 name|class
 name|Q_DBUS_EXPORT
 name|QDBusMetaType
-decl_stmt|{ public:     typedef void (*MarshallFunction
-end_function
-begin_expr_stmt
-unit|)
-operator|(
+block|{
+name|public
+label|:
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|MarshallFunction
+function_decl|)
+parameter_list|(
 name|QDBusArgument
-operator|&
-operator|,
+modifier|&
+parameter_list|,
 specifier|const
 name|void
-operator|*
-operator|)
-expr_stmt|;
-end_expr_stmt
-begin_typedef
+modifier|*
+parameter_list|)
+function_decl|;
 typedef|typedef
 name|void
 function_decl|(
@@ -69,8 +67,6 @@ name|void
 modifier|*
 parameter_list|)
 function_decl|;
-end_typedef
-begin_function_decl
 specifier|static
 name|void
 name|registerMarshallOperators
@@ -83,8 +79,6 @@ parameter_list|,
 name|DemarshallFunction
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_function_decl
 specifier|static
 name|bool
 name|marshall
@@ -101,8 +95,6 @@ modifier|*
 name|data
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_function_decl
 specifier|static
 name|bool
 name|demarshall
@@ -119,8 +111,6 @@ modifier|*
 name|data
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_function_decl
 specifier|static
 name|int
 name|signatureToType
@@ -131,8 +121,6 @@ modifier|*
 name|signature
 parameter_list|)
 function_decl|;
-end_function_decl
-begin_function_decl
 specifier|static
 specifier|const
 name|char
@@ -143,9 +131,12 @@ name|int
 name|type
 parameter_list|)
 function_decl|;
-end_function_decl
+block|}
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_expr_stmt
-unit|};
 name|template
 operator|<
 name|typename

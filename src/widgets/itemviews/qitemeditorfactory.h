@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -33,44 +33,40 @@ include|#
 directive|include
 file|<QtCore/qvariant.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-parameter_list|(
-name|Gui
-parameter_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_ITEMVIEWS
+DECL|variable|QWidget
 name|class
 name|QWidget
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_WIDGETS_EXPORT
 name|QItemEditorCreatorBase
-decl_stmt|{ public:     virtual ~QItemEditorCreatorBase(
-end_function
-begin_block
-unit|)
+block|{
+name|public
+label|:
+name|virtual
+operator|~
+name|QItemEditorCreatorBase
+argument_list|()
 block|{}
-end_block
-begin_decl_stmt
 name|virtual
 name|QWidget
-modifier|*
+operator|*
 name|createWidget
 argument_list|(
-name|QWidget
-operator|*
-name|parent
+argument|QWidget *parent
 argument_list|)
-decl|const
-init|=
+specifier|const
+operator|=
 literal|0
-decl_stmt|;
-end_decl_stmt
-begin_expr_stmt
+expr_stmt|;
 name|virtual
 name|QByteArray
 name|valuePropertyName
@@ -79,9 +75,12 @@ specifier|const
 operator|=
 literal|0
 expr_stmt|;
-end_expr_stmt
+block|}
+end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_expr_stmt
-unit|};
 name|template
 operator|<
 name|class
@@ -249,7 +248,7 @@ name|QWidget
 operator|*
 name|createEditor
 argument_list|(
-argument|QVariant::Type type
+argument|int userType
 argument_list|,
 argument|QWidget *parent
 argument_list|)
@@ -259,14 +258,14 @@ name|virtual
 name|QByteArray
 name|valuePropertyName
 argument_list|(
-argument|QVariant::Type type
+argument|int userType
 argument_list|)
 specifier|const
 block|;
 name|void
 name|registerEditor
 argument_list|(
-argument|QVariant::Type type
+argument|int userType
 argument_list|,
 argument|QItemEditorCreatorBase *creator
 argument_list|)
@@ -291,9 +290,7 @@ name|private
 operator|:
 name|QHash
 operator|<
-name|QVariant
-operator|::
-name|Type
+name|int
 block|,
 name|QItemEditorCreatorBase
 operator|*

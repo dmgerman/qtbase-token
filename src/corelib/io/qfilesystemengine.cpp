@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -241,20 +241,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-comment|// Symbian doesn't support directory symlinks, so do not check for link unless we
-comment|// are handling the last path element. This not only slightly improves performance,
-comment|// but also saves us from lot of unnecessary platform security check failures
-comment|// when dealing with files under *:/private directories.
-name|separatorPos
-operator|==
-operator|-
-literal|1
-operator|&&
-endif|#
-directive|endif
 operator|!
 name|nonSymlinks
 operator|.
@@ -1159,20 +1145,6 @@ block|}
 endif|#
 directive|endif
 comment|// Times
-ifdef|#
-directive|ifdef
-name|Q_OS_SYMBIAN
-name|modificationTime_
-operator|=
-name|qt_symbian_time_t_To_TTime
-argument_list|(
-name|statBuffer
-operator|.
-name|st_mtime
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 name|creationTime_
 operator|=
 name|statBuffer
@@ -1211,8 +1183,6 @@ name|statBuffer
 operator|.
 name|st_gid
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -1238,11 +1208,6 @@ operator|||
 name|defined
 argument_list|(
 name|Q_OS_BSD4
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
 argument_list|)
 comment|// BSD4 includes Mac OS X
 comment|// ### This will clear all entry flags and knownFlagsMask
@@ -1445,26 +1410,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-name|Q_UNUSED
-argument_list|(
-name|entry
-argument_list|)
-expr_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|metaData
-argument_list|)
-expr_stmt|;
-return|return
-name|QString
-argument_list|()
-return|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|Q_OS_WIN
 argument_list|)
 name|Q_UNUSED
@@ -1547,26 +1492,6 @@ parameter_list|)
 block|{
 if|#
 directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-name|Q_UNUSED
-argument_list|(
-name|entry
-argument_list|)
-expr_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|metaData
-argument_list|)
-expr_stmt|;
-return|return
-name|QString
-argument_list|()
-return|;
-elif|#
-directive|elif
 name|defined
 argument_list|(
 name|Q_OS_WIN

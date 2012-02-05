@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -28,268 +28,56 @@ include|#
 directive|include
 file|<QtCore/qobjectdefs.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
+DECL|variable|QDataStream
 name|class
 name|QDataStream
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QDate
 name|class
 name|QDate
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QDateTime
 name|class
 name|QDateTime
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QTime
 name|class
 name|QTime
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QVariant
 name|class
 name|QVariant
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QTextStream
 name|class
 name|QTextStream
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QTextStreamPrivate
 name|class
 name|QTextStreamPrivate
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QLocale
 name|class
 name|QLocale
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_SYSTEMLOCALE
-name|class
-name|Q_CORE_EXPORT
-name|QSystemLocale
-decl_stmt|{ public:     QSystemLocale(
-end_function
-begin_empty_stmt
-unit|)
-empty_stmt|;
-end_empty_stmt
-begin_expr_stmt
-name|virtual
-operator|~
-name|QSystemLocale
-argument_list|()
-expr_stmt|;
-end_expr_stmt
-begin_struct
-struct|struct
-name|CurrencyToStringArgument
-block|{
-name|CurrencyToStringArgument
-argument_list|()
-block|{ }
-name|CurrencyToStringArgument
-argument_list|(
-specifier|const
-name|QVariant
-operator|&
-name|v
-argument_list|,
-specifier|const
-name|QString
-operator|&
-name|s
-argument_list|)
-operator|:
-name|value
-argument_list|(
-name|v
-argument_list|)
-operator|,
-name|symbol
-argument_list|(
-argument|s
-argument_list|)
-block|{ }
-name|QVariant
-name|value
-expr_stmt|;
-name|QString
-name|symbol
-decl_stmt|;
-block|}
-struct|;
-end_struct
-begin_enum
-enum|enum
-name|QueryType
-block|{
-name|LanguageId
-block|,
-comment|// uint
-name|CountryId
-block|,
-comment|// uint
-name|DecimalPoint
-block|,
-comment|// QString
-name|GroupSeparator
-block|,
-comment|// QString
-name|ZeroDigit
-block|,
-comment|// QString
-name|NegativeSign
-block|,
-comment|// QString
-name|DateFormatLong
-block|,
-comment|// QString
-name|DateFormatShort
-block|,
-comment|// QString
-name|TimeFormatLong
-block|,
-comment|// QString
-name|TimeFormatShort
-block|,
-comment|// QString
-name|DayNameLong
-block|,
-comment|// QString, in: int
-name|DayNameShort
-block|,
-comment|// QString, in: int
-name|MonthNameLong
-block|,
-comment|// QString, in: int
-name|MonthNameShort
-block|,
-comment|// QString, in: int
-name|DateToStringLong
-block|,
-comment|// QString, in: QDate
-name|DateToStringShort
-block|,
-comment|// QString in: QDate
-name|TimeToStringLong
-block|,
-comment|// QString in: QTime
-name|TimeToStringShort
-block|,
-comment|// QString in: QTime
-name|DateTimeFormatLong
-block|,
-comment|// QString
-name|DateTimeFormatShort
-block|,
-comment|// QString
-name|DateTimeToStringLong
-block|,
-comment|// QString in: QDateTime
-name|DateTimeToStringShort
-block|,
-comment|// QString in: QDateTime
-name|MeasurementSystem
-block|,
-comment|// uint
-name|PositiveSign
-block|,
-comment|// QString
-name|AMText
-block|,
-comment|// QString
-name|PMText
-block|,
-comment|// QString
-name|FirstDayOfWeek
-block|,
-comment|// Qt::DayOfWeek
-name|Weekdays
-block|,
-comment|// QList<Qt::DayOfWeek>
-name|CurrencySymbol
-block|,
-comment|// QString in: CurrencyToStringArgument
-name|CurrencyToString
-block|,
-comment|// QString in: qlonglong, qulonglong or double
-name|UILanguages
-block|,
-comment|// QStringList
-name|StringToStandardQuotation
-block|,
-comment|// QString in: QStringRef to quote
-name|StringToAlternateQuotation
-block|,
-comment|// QString in: QStringRef to quote
-name|ScriptId
-block|,
-comment|// uint
-name|ListToSeparatedString
-block|,
-comment|// QString
-name|LocaleChanged
-block|,
-comment|// system locale changed
-name|NativeLanguageName
-block|,
-comment|// QString
-name|NativeCountryName
-comment|// QString
-block|}
-enum|;
-end_enum
-begin_decl_stmt
-name|virtual
-name|QVariant
-name|query
-argument_list|(
-name|QueryType
-name|type
-argument_list|,
-name|QVariant
-name|in
-argument_list|)
-decl|const
-decl_stmt|;
 end_decl_stmt
-begin_expr_stmt
-name|virtual
-name|QLocale
-name|fallbackLocale
-argument_list|()
-specifier|const
-expr_stmt|;
-end_expr_stmt
-begin_label
-name|private
-label|:
-end_label
-begin_expr_stmt
-name|QSystemLocale
-argument_list|(
-name|bool
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_function_decl
-name|friend
-name|QSystemLocale
-modifier|*
-name|QSystemLocale_globalSystemLocale
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_endif
-unit|};
-endif|#
-directive|endif
-end_endif
 begin_struct_decl
 struct_decl|struct
 name|QLocalePrivate
@@ -2406,11 +2194,6 @@ operator|*
 name|ok
 operator|=
 literal|0
-argument_list|,
-name|int
-name|base
-operator|=
-literal|0
 argument_list|)
 decl|const
 decl_stmt|;
@@ -2425,11 +2208,6 @@ argument_list|,
 name|bool
 operator|*
 name|ok
-operator|=
-literal|0
-argument_list|,
-name|int
-name|base
 operator|=
 literal|0
 argument_list|)
@@ -2448,11 +2226,6 @@ operator|*
 name|ok
 operator|=
 literal|0
-argument_list|,
-name|int
-name|base
-operator|=
-literal|0
 argument_list|)
 decl|const
 decl_stmt|;
@@ -2467,11 +2240,6 @@ argument_list|,
 name|bool
 operator|*
 name|ok
-operator|=
-literal|0
-argument_list|,
-name|int
-name|base
 operator|=
 literal|0
 argument_list|)
@@ -2490,11 +2258,6 @@ operator|*
 name|ok
 operator|=
 literal|0
-argument_list|,
-name|int
-name|base
-operator|=
-literal|0
 argument_list|)
 decl|const
 decl_stmt|;
@@ -2509,11 +2272,6 @@ argument_list|,
 name|bool
 operator|*
 name|ok
-operator|=
-literal|0
-argument_list|,
-name|int
-name|base
 operator|=
 literal|0
 argument_list|)
@@ -3672,21 +3430,10 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_decl_stmt
+begin_expr_stmt
 name|QT_END_NAMESPACE
-ifndef|#
-directive|ifndef
-name|QT_NO_SYSTEMLOCALE
-name|Q_DECLARE_METATYPE
-argument_list|(
-name|QSystemLocale
-operator|::
-name|CurrencyToStringArgument
-argument_list|)
-endif|#
-directive|endif
 name|QT_END_HEADER
-end_decl_stmt
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

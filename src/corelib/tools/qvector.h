@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -76,29 +76,28 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
-decl|struct
+expr|struct
+DECL|struct|QVectorData
 name|Q_CORE_EXPORT
 name|QVectorData
 block|{
+DECL|member|ref
 name|QtPrivate
 operator|::
 name|RefCount
 name|ref
-expr_stmt|;
+block|;
+DECL|member|alloc
 name|int
 name|alloc
-decl_stmt|;
+block|;
+DECL|member|size
 name|int
 name|size
-decl_stmt|;
+block|;
 if|#
 directive|if
 name|defined
@@ -121,96 +120,84 @@ argument_list|(
 name|QT_BOOTSTRAPPED
 argument_list|)
 comment|// workaround for bug in gcc 3.4.2
+DECL|member|capacity
 name|uint
 name|capacity
-decl_stmt|;
+block|;
+DECL|member|reserved
 name|uint
 name|reserved
-decl_stmt|;
+block|;
 else|#
 directive|else
+DECL|member|capacity
 name|uint
 name|capacity
-range|:
+operator|:
 literal|1
-decl_stmt|;
+block|;
+DECL|member|reserved
 name|uint
 name|reserved
-range|:
+operator|:
 literal|31
-decl_stmt|;
+block|;
 endif|#
 directive|endif
+DECL|member|shared_null
 specifier|static
 specifier|const
 name|QVectorData
 name|shared_null
-decl_stmt|;
+block|;
 specifier|static
 name|QVectorData
-modifier|*
+operator|*
 name|allocate
-parameter_list|(
-name|int
-name|size
-parameter_list|,
-name|int
-name|alignment
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|int size
+argument_list|,
+argument|int alignment
+argument_list|)
+block|;
 specifier|static
 name|QVectorData
-modifier|*
+operator|*
 name|reallocate
-parameter_list|(
-name|QVectorData
-modifier|*
-name|old
-parameter_list|,
-name|int
-name|newsize
-parameter_list|,
-name|int
-name|oldsize
-parameter_list|,
-name|int
-name|alignment
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|QVectorData *old
+argument_list|,
+argument|int newsize
+argument_list|,
+argument|int oldsize
+argument_list|,
+argument|int alignment
+argument_list|)
+block|;
 specifier|static
 name|void
 name|free
-parameter_list|(
-name|QVectorData
-modifier|*
-name|data
-parameter_list|,
-name|int
-name|alignment
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|QVectorData *data
+argument_list|,
+argument|int alignment
+argument_list|)
+block|;
 specifier|static
 name|int
 name|grow
-parameter_list|(
-name|int
-name|sizeofTypedData
-parameter_list|,
-name|int
-name|size
-parameter_list|,
-name|int
-name|sizeofT
-parameter_list|,
-name|bool
-name|excessive
-parameter_list|)
-function_decl|;
-block|}
-end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
+argument_list|(
+argument|int sizeofTypedData
+argument_list|,
+argument|int size
+argument_list|,
+argument|int sizeofT
+argument_list|,
+argument|bool excessive
+argument_list|)
+block|; }
+expr_stmt|;
+end_expr_stmt
 begin_expr_stmt
 name|template
 operator|<

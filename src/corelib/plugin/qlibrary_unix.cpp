@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -205,54 +205,6 @@ argument_list|(
 name|fileName
 argument_list|)
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-name|QString
-name|path
-decl_stmt|;
-comment|// In Symbian, always resolve with just the filename
-name|QString
-name|name
-decl_stmt|;
-comment|// Replace possible ".qtplugin" suffix with ".dll"
-if|if
-condition|(
-name|fi
-operator|.
-name|suffix
-argument_list|()
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"qtplugin"
-argument_list|)
-condition|)
-name|name
-operator|=
-name|fi
-operator|.
-name|completeBaseName
-argument_list|()
-operator|+
-name|QLatin1String
-argument_list|(
-literal|".dll"
-argument_list|)
-expr_stmt|;
-else|else
-name|name
-operator|=
-name|fi
-operator|.
-name|fileName
-argument_list|()
-expr_stmt|;
-else|#
-directive|else
 name|QString
 name|path
 init|=
@@ -299,8 +251,6 @@ argument_list|(
 literal|'/'
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 comment|// The first filename we want to attempt to load is the filename as the callee specified.
 comment|// Thus, the first attempt we do must be with an empty prefix and empty suffix.
 name|QStringList
@@ -327,13 +277,6 @@ operator|!=
 name|IsAPlugin
 condition|)
 block|{
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
 name|prefixes
 operator|<<
 name|QLatin1String
@@ -341,8 +284,6 @@ argument_list|(
 literal|"lib"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 if|#
 directive|if
 name|defined
@@ -457,19 +398,6 @@ argument_list|)
 name|suffixes
 operator|<<
 literal|".a"
-expr_stmt|;
-elif|#
-directive|elif
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-name|suffixes
-operator|<<
-name|QLatin1String
-argument_list|(
-literal|".dll"
-argument_list|)
 expr_stmt|;
 else|#
 directive|else
@@ -939,20 +867,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-comment|// Never try again in symbian, dlopen already handles the library search logic,
-comment|// and there is only one possible suffix.
-name|retry
-operator|=
-literal|false
-expr_stmt|;
-else|#
-directive|else
 if|if
 condition|(
 operator|!
@@ -985,8 +899,6 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 block|}
 ifdef|#

@@ -2008,7 +2008,6 @@ literal|0xdd
 comment|/*TH_BLANK_BASE_GLYPH*/
 condition|)
 block|{
-comment|//if ( !item->fixedPitch ) {
 name|glyphString
 index|[
 name|slen
@@ -2017,21 +2016,6 @@ index|]
 operator|=
 name|C_DOTTED_CIRCLE
 expr_stmt|;
-name|item
-operator|->
-name|attributes
-index|[
-name|slen
-operator|-
-literal|1
-index|]
-operator|.
-name|dontPrint
-operator|=
-name|true
-expr_stmt|;
-comment|// FIXME this will hide all dotted circle
-comment|//}
 block|}
 else|else
 block|{
@@ -2056,6 +2040,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/* Special case to handle U+0E33 (SARA AM, à¸³): SARA AM is normally written at the end of a          * word with a base character and an optional top character before it. For example, U+0E0B          * (base), U+0E49 (top), U+0E33 (SARA AM). The sequence should be converted to 4 glyphs:          * base, hilo (the little circle in the top left part of SARA AM, NIKHAHIT), top, then the          * right part of SARA AM (SARA AA).          *          * The painting process finds out the starting glyph and ending glyph of a character          * sequence by checking the logClusters array. In this case, logClusters array should          * ideally be [ 0, 1, 3 ] so that glyphsStart = 0 and glyphsEnd = 3 (slen - 1) to paint out          * all the glyphs generated.          *          * A special case in this special case is when we have no base character. When an isolated          * SARA AM is processed (cell_length = 1), libthai will produce 3 glyphs: dotted circle          * (indicates that the base is empty), NIKHAHIT then SARA AA. If logClusters[0] = 1, it will          * paint from the second glyph in the glyphs array. So in this case logClusters[0] should          * point to the first glyph it produces, aka. the dotted circle. */
 if|if
 condition|(
 name|haveSaraAm
@@ -2070,11 +2055,18 @@ operator|-
 literal|1
 index|]
 operator|=
+name|cell_length
+operator|==
+literal|1
+condition|?
+name|slen
+operator|-
+literal|3
+else|:
 name|slen
 operator|-
 literal|1
 expr_stmt|;
-comment|// Set logClusters before NIKAHIT
 if|if
 condition|(
 name|tis_cell
@@ -2083,6 +2075,15 @@ name|top
 operator|!=
 literal|0
 condition|)
+block|{
+if|if
+condition|(
+name|cell_length
+operator|>
+literal|1
+condition|)
+block|{
+comment|/* set the logClusters[top character] to slen - 2 as it points to the second to                      * lastglyph (slen - 2) */
 name|logClusters
 index|[
 name|i
@@ -2096,7 +2097,9 @@ name|slen
 operator|-
 literal|2
 expr_stmt|;
-comment|// Set logClusters before NIKAHIT when tis_cell has top
+block|}
+block|}
+comment|/* check for overflow */
 if|if
 condition|(
 name|logClusters

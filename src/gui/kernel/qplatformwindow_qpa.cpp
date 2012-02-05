@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -544,14 +544,14 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Set the orientation of the platform window's contents.    This is a hint to the window manager in case it needs to display   additional content like popups, dialogs, status bars, or similar   in relation to the window.    \sa QWindow::setOrientation() */
+comment|/*!   Handle changes to the orientation of the platform window's contents.    This is a hint to the window manager in case it needs to display   additional content like popups, dialogs, status bars, or similar   in relation to the window.    \sa QWindow::reportContentOrientationChange() */
 end_comment
 begin_function
-DECL|function|setOrientation
+DECL|function|handleContentOrientationChange
 name|void
 name|QPlatformWindow
 operator|::
-name|setOrientation
+name|handleContentOrientationChange
 parameter_list|(
 name|Qt
 operator|::
@@ -564,6 +564,36 @@ argument_list|(
 name|orientation
 argument_list|)
 expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!   Request a different orientation of the platform window.    This tells the window manager how the window wants to be rotated in order   to be displayed, and how input events should be translated.    As an example, a portrait compositor might rotate the window by 90 degrees,   if the window is in landscape. It will also rotate input coordinates from   portrait to landscape such that top right in portrait gets mapped to top   left in landscape.    If the implementation doesn't support the requested orientation it should   signal this by returning an actual supported orientation.    If the implementation doesn't support rotating the window at all it should   return Qt::PrimaryOrientation, this is also the default value.    \sa QWindow::requestWindowOrientation() */
+end_comment
+begin_function
+DECL|function|requestWindowOrientation
+name|Qt
+operator|::
+name|ScreenOrientation
+name|QPlatformWindow
+operator|::
+name|requestWindowOrientation
+parameter_list|(
+name|Qt
+operator|::
+name|ScreenOrientation
+name|orientation
+parameter_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|orientation
+argument_list|)
+expr_stmt|;
+return|return
+name|Qt
+operator|::
+name|PrimaryOrientation
+return|;
 block|}
 end_function
 begin_function

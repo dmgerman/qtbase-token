@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -31,12 +31,8 @@ name|random_access_iterator_tag
 struct_decl|;
 block|}
 end_decl_stmt
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
 DECL|macro|Q_DECLARE_SEQUENTIAL_ITERATOR
 define|#
 directive|define
@@ -75,7 +71,7 @@ define|\ \
 value|template<class Key, class T> \ class QMutable##C##Iterator \ { \     typedef typename Q##C<Key,T>::iterator iterator; \     typedef typename Q##C<Key,T>::const_iterator const_iterator; \     typedef iterator Item; \     Q##C<Key,T> *c; \     iterator i, n; \     inline bool item_exists() const { return const_iterator(n) != c->constEnd(); } \ public: \     inline QMutable##C##Iterator(Q##C<Key,T>&container) \         : c(&container) \     { c->setSharable(false); i = c->begin(); n = c->end(); } \     inline ~QMutable##C##Iterator() \     { c->setSharable(true); } \     inline QMutable##C##Iterator&operator=(Q##C<Key,T>&container) \     { c->setSharable(true); c =&container; c->setSharable(false); i = c->begin(); n = c->end(); return *this; } \     inline void toFront() { i = c->begin(); n = c->end(); } \     inline void toBack() { i = c->end(); n = c->end(); } \     inline bool hasNext() const { return const_iterator(i) != c->constEnd(); } \     inline Item next() { n = i++; return n; } \     inline Item peekNext() const { return i; } \     inline bool hasPrevious() const { return const_iterator(i) != c->constBegin(); } \     inline Item previous() { n = --i; return n; } \     inline Item peekPrevious() const { iterator p = i; return --p; } \     inline void remove() \     { if (const_iterator(n) != c->constEnd()) { i = c->erase(n); n = c->end(); } } \     inline void setValue(const T&t) { if (const_iterator(n) != c->constEnd()) *n = t; } \     inline T&value() { Q_ASSERT(item_exists()); return *n; } \     inline const T&value() const { Q_ASSERT(item_exists()); return *n; } \     inline const Key&key() const { Q_ASSERT(item_exists()); return n.key(); } \     inline bool findNext(const T&t) \     { while (const_iterator(n = i) != c->constEnd()) if (*i++ == t) return true; return false; } \     inline bool findPrevious(const T&t) \     { while (const_iterator(i) != c->constBegin()) if (*(n = --i) == t) return true; \       n = c->end(); return false; } \ };
 name|QT_END_NAMESPACE
 name|QT_END_HEADER
-end_decl_stmt
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif

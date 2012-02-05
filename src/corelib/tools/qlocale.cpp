@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_if
 if|#
@@ -56,7 +56,7 @@ name|QSystemLocale_globalSystemLocale
 parameter_list|()
 function_decl|;
 end_function_decl
-begin_function_decl
+begin_decl_stmt
 name|QT_END_NAMESPACE
 endif|#
 directive|endif
@@ -99,54 +99,27 @@ file|"qvariant.h"
 include|#
 directive|include
 file|"qstringbuilder.h"
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-include|#
-directive|include
-file|"qt_windows.h"
-include|#
-directive|include
-file|<time.h>
-endif|#
-directive|endif
 include|#
 directive|include
 file|"private/qnumeric_p.h"
 include|#
 directive|include
 file|"private/qsystemlibrary_p.h"
-name|QT_BEGIN_NAMESPACE
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-name|void
-name|qt_symbianUpdateSystemPrivate
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_function_decl
-name|void
-name|qt_symbianInitSystemLocale
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_endif
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+include|#
+directive|include
+file|<qt_windows.h>
+include|#
+directive|include
+file|<time.h>
 endif|#
 directive|endif
-end_endif
-begin_ifndef
+name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_SYSTEMLOCALE
-end_ifndef
-begin_decl_stmt
 DECL|variable|_systemLocale
 specifier|static
 name|QSystemLocale
@@ -2661,17 +2634,6 @@ condition|)
 return|return
 name|_systemLocale
 return|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-name|qt_symbianInitSystemLocale
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|QSystemLocale_globalSystemLocale
 argument_list|()
@@ -2729,17 +2691,6 @@ operator|.
 name|d
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_SYMBIAN
-argument_list|)
-name|qt_symbianUpdateSystemPrivate
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 name|QVariant
 name|res
 init|=
@@ -4820,7 +4771,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the short int represented by the localized string \a s,     using base \a base. If \a base is 0 the base is determined     automatically using the following rules: If the string begins with     "0x", it is assumed to be hexadecimal; if it begins with "0", it     is assumed to be octal; otherwise it is assumed to be decimal.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toUShort(), toString() */
+comment|/*!     Returns the short int represented by the localized string \a s.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toUShort(), toString() */
 end_comment
 begin_function
 DECL|function|toShort
@@ -4837,9 +4788,6 @@ parameter_list|,
 name|bool
 modifier|*
 name|ok
-parameter_list|,
-name|int
-name|base
 parameter_list|)
 specifier|const
 block|{
@@ -4851,8 +4799,6 @@ argument_list|(
 name|s
 argument_list|,
 name|ok
-argument_list|,
-name|base
 argument_list|)
 decl_stmt|;
 if|if
@@ -4890,7 +4836,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the unsigned short int represented by the localized string     \a s, using base \a base. If \a base is 0 the base is determined     automatically using the following rules: If the string begins with     "0x", it is assumed to be hexadecimal; if it begins with "0", it     is assumed to be octal; otherwise it is assumed to be decimal.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toShort(), toString() */
+comment|/*!     Returns the unsigned short int represented by the localized string \a s.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toShort(), toString() */
 end_comment
 begin_function
 DECL|function|toUShort
@@ -4907,9 +4853,6 @@ parameter_list|,
 name|bool
 modifier|*
 name|ok
-parameter_list|,
-name|int
-name|base
 parameter_list|)
 specifier|const
 block|{
@@ -4921,8 +4864,6 @@ argument_list|(
 name|s
 argument_list|,
 name|ok
-argument_list|,
-name|base
 argument_list|)
 decl_stmt|;
 if|if
@@ -4956,7 +4897,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the int represented by the localized string \a s, using     base \a base. If \a base is 0 the base is determined automatically     using the following rules: If the string begins with "0x", it is     assumed to be hexadecimal; if it begins with "0", it is assumed to     be octal; otherwise it is assumed to be decimal.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toUInt(), toString() */
+comment|/*!     Returns the int represented by the localized string \a s.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toUInt(), toString() */
 end_comment
 begin_function
 DECL|function|toInt
@@ -4973,9 +4914,6 @@ parameter_list|,
 name|bool
 modifier|*
 name|ok
-parameter_list|,
-name|int
-name|base
 parameter_list|)
 specifier|const
 block|{
@@ -4987,8 +4925,6 @@ argument_list|(
 name|s
 argument_list|,
 name|ok
-argument_list|,
-name|base
 argument_list|)
 decl_stmt|;
 if|if
@@ -5026,7 +4962,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the unsigned int represented by the localized string \a s,     using base \a base. If \a base is 0 the base is determined     automatically using the following rules: If the string begins with     "0x", it is assumed to be hexadecimal; if it begins with "0", it     is assumed to be octal; otherwise it is assumed to be decimal.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toInt(), toString() */
+comment|/*!     Returns the unsigned int represented by the localized string \a s.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toInt(), toString() */
 end_comment
 begin_function
 DECL|function|toUInt
@@ -5043,9 +4979,6 @@ parameter_list|,
 name|bool
 modifier|*
 name|ok
-parameter_list|,
-name|int
-name|base
 parameter_list|)
 specifier|const
 block|{
@@ -5057,8 +4990,6 @@ argument_list|(
 name|s
 argument_list|,
 name|ok
-argument_list|,
-name|base
 argument_list|)
 decl_stmt|;
 if|if
@@ -5092,7 +5023,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the long long int represented by the localized string \a     s, using base \a base. If \a base is 0 the base is determined     automatically using the following rules: If the string begins with     "0x", it is assumed to be hexadecimal; if it begins with "0", it     is assumed to be octal; otherwise it is assumed to be decimal.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toInt(), toULongLong(), toDouble(), toString() */
+comment|/*!     Returns the long long int represented by the localized string \a s.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toInt(), toULongLong(), toDouble(), toString() */
 end_comment
 begin_function
 DECL|function|toLongLong
@@ -5109,9 +5040,6 @@ parameter_list|,
 name|bool
 modifier|*
 name|ok
-parameter_list|,
-name|int
-name|base
 parameter_list|)
 specifier|const
 block|{
@@ -5142,7 +5070,7 @@ name|stringToLongLong
 argument_list|(
 name|s
 argument_list|,
-name|base
+literal|10
 argument_list|,
 name|ok
 argument_list|,
@@ -5155,7 +5083,7 @@ begin_comment
 comment|// ### Qt5: make the return type for toULongLong() qulonglong.
 end_comment
 begin_comment
-comment|/*!     Returns the unsigned long long int represented by the localized     string \a s, using base \a base. If \a base is 0 the base is     determined automatically using the following rules: If the string     begins with "0x", it is assumed to be hexadecimal; if it begins     with "0", it is assumed to be octal; otherwise it is assumed to be     decimal.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toLongLong(), toInt(), toDouble(), toString() */
+comment|/*!     Returns the unsigned long long int represented by the localized     string \a s.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toLongLong(), toInt(), toDouble(), toString() */
 end_comment
 begin_function
 DECL|function|toULongLong
@@ -5172,9 +5100,6 @@ parameter_list|,
 name|bool
 modifier|*
 name|ok
-parameter_list|,
-name|int
-name|base
 parameter_list|)
 specifier|const
 block|{
@@ -5205,7 +5130,7 @@ name|stringToUnsLongLong
 argument_list|(
 name|s
 argument_list|,
-name|base
+literal|10
 argument_list|,
 name|ok
 argument_list|,

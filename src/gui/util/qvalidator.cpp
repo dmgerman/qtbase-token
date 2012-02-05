@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -45,6 +45,9 @@ comment|/*!     \class QValidator     \brief The QValidator class provides valid
 end_comment
 begin_comment
 comment|/*!     \enum QValidator::State      This enum type defines the states in which a validated string can     exist.      \value Invalid       The string is \e clearly invalid.     \value Intermediate  The string is a plausible intermediate value.     \value Acceptable    The string is acceptable as a final result;                          i.e. it is valid.      \omitvalue Valid */
+end_comment
+begin_comment
+comment|/*!     \fn void QValidator::changed()      This signal is emitted when any property that may affect the validity of     a string has changed. */
 end_comment
 begin_comment
 comment|/*!     \fn void QIntValidator::topChanged(int top)      This signal is emitted after the top property changed.      \sa QIntValidator::top(), QIntValidator::setTop(), QIntValidator::bottom(), QIntValidator::setBottom()     \internal */
@@ -177,12 +180,26 @@ argument_list|(
 name|QValidator
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|locale
+operator|!=
+name|locale
+condition|)
+block|{
 name|d
 operator|->
 name|locale
 operator|=
 name|locale
 expr_stmt|;
+emit|emit
+name|changed
+argument_list|()
+emit|;
+block|}
 block|}
 end_function
 begin_comment
@@ -205,7 +222,7 @@ specifier|const
 block|{ }
 end_function
 begin_comment
-comment|/*!     \class QIntValidator     \brief The QIntValidator class provides a validator that ensures     a string contains a valid integer within a specified range.      Example of use:      \snippet doc/src/snippets/code/src_gui_widgets_qvalidator.cpp 0      Below we present some examples of validators. In practice they would     normally be associated with a widget as in the example above.      \snippet doc/src/snippets/code/src_gui_widgets_qvalidator.cpp 1      Notice that the value \c 999 returns Intermediate. Values     consisting of a number of digits equal to or less than the max     value are considered intermediate. This is intended because the     digit that prevents a number to be in range is not necessarily the     last digit typed. This also means that an intermediate number can     have leading zeros.      The minimum and maximum values are set in one call with setRange(),     or individually with setBottom() and setTop().      QIntValidator uses its locale() to interpret the number. For example,     in Arabic locales, QIntValidator will accept Arabic digits. In addition,     QIntValidator is always guaranteed to accept a number formatted according     to the "C" locale.      \sa QDoubleValidator, QRegExpValidator, {Line Edits Example} */
+comment|/*!     \class QIntValidator     \brief The QIntValidator class provides a validator that ensures     a string contains a valid integer within a specified range.      Example of use:      \snippet doc/src/snippets/code/src_gui_widgets_qvalidator.cpp 0      Below we present some examples of validators. In practice they would     normally be associated with a widget as in the example above.      \snippet doc/src/snippets/code/src_gui_widgets_qvalidator.cpp 1      Notice that the value \c 999 returns Intermediate. Values     consisting of a number of digits equal to or less than the max     value are considered intermediate. This is intended because the     digit that prevents a number to be in range is not necessarily the     last digit typed. This also means that an intermediate number can     have leading zeros.      The minimum and maximum values are set in one call with setRange(),     or individually with setBottom() and setTop().      QIntValidator uses its locale() to interpret the number. For example,     in Arabic locales, QIntValidator will accept Arabic digits.      \sa QDoubleValidator, QRegExpValidator, {Line Edits Example} */
 end_comment
 begin_comment
 comment|/*!     Constructs a validator with a \a parent object that     accepts all integers. */
@@ -404,34 +421,6 @@ name|buff
 argument_list|)
 condition|)
 block|{
-name|QLocale
-name|cl
-argument_list|(
-name|QLocale
-operator|::
-name|C
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|cl
-operator|.
-name|d
-argument_list|()
-operator|->
-name|validateChars
-argument_list|(
-name|input
-argument_list|,
-name|QLocalePrivate
-operator|::
-name|IntegerMode
-argument_list|,
-operator|&
-name|buff
-argument_list|)
-condition|)
 return|return
 name|Invalid
 return|;
@@ -566,8 +555,6 @@ name|input
 argument_list|,
 operator|&
 name|ok
-argument_list|,
-literal|10
 argument_list|)
 expr_stmt|;
 return|return
@@ -661,34 +648,6 @@ name|buff
 argument_list|)
 condition|)
 block|{
-name|QLocale
-name|cl
-argument_list|(
-name|QLocale
-operator|::
-name|C
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|cl
-operator|.
-name|d
-argument_list|()
-operator|->
-name|validateChars
-argument_list|(
-name|input
-argument_list|,
-name|QLocalePrivate
-operator|::
-name|IntegerMode
-argument_list|,
-operator|&
-name|buff
-argument_list|)
-condition|)
 return|return;
 block|}
 name|bool
@@ -753,6 +712,11 @@ name|int
 name|top
 parameter_list|)
 block|{
+name|bool
+name|rangeChanged
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|b
@@ -763,6 +727,10 @@ block|{
 name|b
 operator|=
 name|bottom
+expr_stmt|;
+name|rangeChanged
+operator|=
+literal|true
 expr_stmt|;
 emit|emit
 name|bottomChanged
@@ -782,6 +750,10 @@ name|t
 operator|=
 name|top
 expr_stmt|;
+name|rangeChanged
+operator|=
+literal|true
+expr_stmt|;
 emit|emit
 name|topChanged
 argument_list|(
@@ -789,6 +761,14 @@ name|t
 argument_list|)
 emit|;
 block|}
+if|if
+condition|(
+name|rangeChanged
+condition|)
+emit|emit
+name|changed
+argument_list|()
+emit|;
 block|}
 end_function
 begin_comment
@@ -955,7 +935,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     \class QDoubleValidator      \brief The QDoubleValidator class provides range checking of     floating-point numbers.      QDoubleValidator provides an upper bound, a lower bound, and a     limit on the number of digits after the decimal point. It does not     provide a fixup() function.      You can set the acceptable range in one call with setRange(), or     with setBottom() and setTop(). Set the number of decimal places     with setDecimals(). The validate() function returns the validation     state.      QDoubleValidator uses its locale() to interpret the number. For example,     in the German locale, "1,234" will be accepted as the fractional number     1.234. In Arabic locales, QDoubleValidator will accept Arabic digits.      In addition, QDoubleValidator is always guaranteed to accept a number     formatted according to the "C" locale. QDoubleValidator will not accept     numbers with thousand-separators.      \sa QIntValidator, QRegExpValidator, {Line Edits Example} */
+comment|/*!     \class QDoubleValidator      \brief The QDoubleValidator class provides range checking of     floating-point numbers.      QDoubleValidator provides an upper bound, a lower bound, and a     limit on the number of digits after the decimal point. It does not     provide a fixup() function.      You can set the acceptable range in one call with setRange(), or     with setBottom() and setTop(). Set the number of decimal places     with setDecimals(). The validate() function returns the validation     state.      QDoubleValidator uses its locale() to interpret the number. For example,     in the German locale, "1,234" will be accepted as the fractional number     1.234. In Arabic locales, QDoubleValidator will accept Arabic digits.      \sa QIntValidator, QRegExpValidator, {Line Edits Example} */
 end_comment
 begin_comment
 comment|/*!     \enum QDoubleValidator::Notation     \since 4.3     This enum defines the allowed notations for entering a double.      \value StandardNotation      The string is written as a standard number                                  (i.e. 0.015).     \value ScientificNotation    The string is written in scientific                                  form. It may have an exponent part(i.e. 1.5E-2). */
@@ -1136,9 +1116,7 @@ name|DoubleScientificMode
 expr_stmt|;
 break|break;
 block|}
-name|State
-name|currentLocaleValidation
-init|=
+return|return
 name|d
 operator|->
 name|validateWithLocale
@@ -1149,52 +1127,6 @@ name|numMode
 argument_list|,
 name|locale
 argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|currentLocaleValidation
-operator|==
-name|Acceptable
-operator|||
-name|locale
-argument_list|()
-operator|.
-name|language
-argument_list|()
-operator|==
-name|QLocale
-operator|::
-name|C
-condition|)
-return|return
-name|currentLocaleValidation
-return|;
-name|State
-name|cLocaleValidation
-init|=
-name|d
-operator|->
-name|validateWithLocale
-argument_list|(
-name|input
-argument_list|,
-name|numMode
-argument_list|,
-name|QLocale
-argument_list|(
-name|QLocale
-operator|::
-name|C
-argument_list|)
-argument_list|)
-decl_stmt|;
-return|return
-name|qMax
-argument_list|(
-name|currentLocaleValidation
-argument_list|,
-name|cLocaleValidation
 argument_list|)
 return|;
 block|}
@@ -1469,6 +1401,11 @@ name|int
 name|decimals
 parameter_list|)
 block|{
+name|bool
+name|rangeChanged
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|b
@@ -1479,6 +1416,10 @@ block|{
 name|b
 operator|=
 name|minimum
+expr_stmt|;
+name|rangeChanged
+operator|=
+literal|true
 expr_stmt|;
 emit|emit
 name|bottomChanged
@@ -1498,6 +1439,10 @@ name|t
 operator|=
 name|maximum
 expr_stmt|;
+name|rangeChanged
+operator|=
+literal|true
+expr_stmt|;
 emit|emit
 name|topChanged
 argument_list|(
@@ -1516,6 +1461,10 @@ name|dec
 operator|=
 name|decimals
 expr_stmt|;
+name|rangeChanged
+operator|=
+literal|true
+expr_stmt|;
 emit|emit
 name|decimalsChanged
 argument_list|(
@@ -1523,6 +1472,14 @@ name|dec
 argument_list|)
 emit|;
 block|}
+if|if
+condition|(
+name|rangeChanged
+condition|)
+emit|emit
+name|changed
+argument_list|()
+emit|;
 block|}
 end_function
 begin_comment
@@ -1647,6 +1604,10 @@ name|d
 operator|->
 name|notation
 argument_list|)
+emit|;
+emit|emit
+name|changed
+argument_list|()
 emit|;
 block|}
 block|}
@@ -1860,6 +1821,10 @@ name|regExpChanged
 argument_list|(
 name|r
 argument_list|)
+emit|;
+emit|emit
+name|changed
+argument_list|()
 emit|;
 block|}
 block|}

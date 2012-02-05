@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtCore module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -48,39 +48,49 @@ include|#
 directive|include
 file|<QtCore/qatomic.h>
 end_include
-begin_decl_stmt
+begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-argument_list|(
-name|Core
-argument_list|)
 comment|/*! \internal      Element in a QFreeList. ConstReferenceType and ReferenceType are used as     the return values for QFreeList::at() and QFreeList::operator[](). Contains     the real data storage (_t) and the id of the next free element (next).      Note: the t() functions should be used to access the data, not _t. */
 name|template
-decl|<
+operator|<
 name|typename
 name|T
-decl|> struct
+operator|>
+expr|struct
+DECL|struct|QFreeListElement
 name|QFreeListElement
 block|{
+DECL|typedef|ConstReferenceType
 typedef|typedef
 specifier|const
 name|T
 modifier|&
 name|ConstReferenceType
 typedef|;
+end_expr_stmt
+begin_typedef
+DECL|typedef|ReferenceType
 typedef|typedef
 name|T
 modifier|&
 name|ReferenceType
 typedef|;
+end_typedef
+begin_decl_stmt
+DECL|member|_t
 name|T
 name|_t
 decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|member|next
 name|int
 name|next
 decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
+DECL|function|t
 specifier|inline
 name|ConstReferenceType
 name|t
@@ -91,6 +101,9 @@ return|return
 name|_t
 return|;
 block|}
+end_expr_stmt
+begin_function
+DECL|function|t
 specifier|inline
 name|ReferenceType
 name|t
@@ -100,12 +113,9 @@ return|return
 name|_t
 return|;
 block|}
-block|}
-end_decl_stmt
-begin_empty_stmt
-empty_stmt|;
-end_empty_stmt
+end_function
 begin_comment
+unit|};
 comment|/*! \internal      Element in a QFreeList without a paylout. ConstReferenceType and     ReferenceType are void, the t() functions return void and are empty. */
 end_comment
 begin_expr_stmt

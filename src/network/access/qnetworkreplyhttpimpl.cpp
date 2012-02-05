@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtNetwork module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_comment
 comment|//#define QNETWORKACCESSHTTPBACKEND_DEBUG
@@ -6662,15 +6662,18 @@ operator|->
 name|networkSession
 condition|)
 block|{
+endif|#
+directive|endif
 name|postRequest
 argument_list|()
 expr_stmt|;
 return|return
 literal|true
 return|;
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 block|}
-endif|#
-directive|endif
 comment|// This is not ideal.
 specifier|const
 name|QString
@@ -6707,9 +6710,6 @@ return|return
 literal|true
 return|;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_BEARERMANAGEMENT
 if|if
 condition|(
 name|managerPrivate
@@ -6738,11 +6738,11 @@ return|return
 literal|true
 return|;
 block|}
-endif|#
-directive|endif
 return|return
 literal|false
 return|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -6772,9 +6772,6 @@ name|state
 operator|=
 name|Working
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_BEARERMANAGEMENT
 if|if
 condition|(
 operator|!
@@ -6782,7 +6779,9 @@ name|start
 argument_list|()
 condition|)
 block|{
-comment|// ### we should call that method even if bearer is not used
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
 comment|// backend failed to start because the session state is not Connected.
 comment|// QNetworkAccessManager will call reply->backend->start() again for us when the session
 comment|// state changes.
@@ -6858,10 +6857,10 @@ literal|"Backend is waiting for QNetworkSession to connect, but there is none!"
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
-block|}
 endif|#
 directive|endif
+return|return;
+block|}
 if|if
 condition|(
 name|synchronous
@@ -8446,7 +8445,7 @@ condition|)
 block|{
 name|qDebug
 argument_list|(
-literal|"setCachingEnabled: %d bytesDownloaded"
+literal|"setCachingEnabled: %lld bytesDownloaded"
 argument_list|,
 name|bytesDownloaded
 argument_list|)

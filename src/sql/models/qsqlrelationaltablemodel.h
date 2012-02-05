@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtSql module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtSql module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_ifndef
 ifndef|#
@@ -18,24 +18,18 @@ include|#
 directive|include
 file|<QtSql/qsqltablemodel.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Sql
-parameter_list|)
 name|class
 name|Q_SQL_EXPORT
 name|QSqlRelation
-decl_stmt|{ public:     QSqlRelation(
-end_function
-begin_block
-unit|)
+block|{
+name|public
+label|:
+name|QSqlRelation
+argument_list|()
 block|{}
-end_block
-begin_expr_stmt
 name|QSqlRelation
 argument_list|(
 specifier|const
@@ -79,8 +73,6 @@ return|return
 name|tName
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QString
 name|indexColumn
@@ -91,8 +83,6 @@ return|return
 name|iColumn
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|QString
 name|displayColumn
@@ -103,8 +93,6 @@ return|return
 name|dColumn
 return|;
 block|}
-end_expr_stmt
-begin_expr_stmt
 specifier|inline
 name|bool
 name|isValid
@@ -131,12 +119,8 @@ argument_list|()
 operator|)
 return|;
 block|}
-end_expr_stmt
-begin_label
 name|private
 label|:
-end_label
-begin_decl_stmt
 name|QString
 name|tName
 decl_stmt|,
@@ -144,9 +128,12 @@ name|iColumn
 decl_stmt|,
 name|dColumn
 decl_stmt|;
+block|}
 end_decl_stmt
+begin_empty_stmt
+empty_stmt|;
+end_empty_stmt
 begin_decl_stmt
-unit|};
 DECL|variable|QSqlRelationalTableModelPrivate
 name|class
 name|QSqlRelationalTableModelPrivate

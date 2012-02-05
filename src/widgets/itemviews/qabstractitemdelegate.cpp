@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** All rights reserved. ** Contact: Nokia Corporation (qt-info@nokia.com) ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the QtGui module of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -140,7 +140,7 @@ begin_comment
 comment|/*!     \fn QSize QAbstractItemDelegate::sizeHint(const QStyleOptionViewItem&option, const QModelIndex&index) const = 0      This pure abstract function must be reimplemented if you want to     provide custom rendering. The options are specified by \a option     and the model item by \a index.      If you reimplement this you must also reimplement paint(). */
 end_comment
 begin_comment
-comment|/*!     Returns the editor to be used for editing the data item with the     given \a index. Note that the index contains information about the     model being used. The editor's parent widget is specified by \a parent,     and the item options by \a option.      The base implementation returns 0. If you want custom editing you     will need to reimplement this function.      The returned editor widget should have Qt::StrongFocus;     otherwise, \l{QMouseEvent}s received by the widget will propagate     to the view. The view's background will shine through unless the     editor paints its own background (e.g., with     \l{QWidget::}{setAutoFillBackground()}).      \sa setModelData() setEditorData() */
+comment|/*!     Returns the editor to be used for editing the data item with the     given \a index. Note that the index contains information about the     model being used. The editor's parent widget is specified by \a parent,     and the item options by \a option.      The base implementation returns 0. If you want custom editing you     will need to reimplement this function.      The returned editor widget should have Qt::StrongFocus;     otherwise, \l{QMouseEvent}s received by the widget will propagate     to the view. The view's background will shine through unless the     editor paints its own background (e.g., with     \l{QWidget::}{setAutoFillBackground()}).      \sa destroyEditor() setModelData() setEditorData() */
 end_comment
 begin_function
 DECL|function|createEditor
@@ -166,6 +166,33 @@ block|{
 return|return
 literal|0
 return|;
+block|}
+end_function
+begin_comment
+comment|/*!     A function called when the editor is no longer needed and should be     destroyed. The default behavior is a call to deleteLater on the editor.     It possible e.g. to avoid this delete by reimplementing this function.      \sa createEditor() */
+end_comment
+begin_function
+DECL|function|destroyEditor
+name|void
+name|QAbstractItemDelegate
+operator|::
+name|destroyEditor
+parameter_list|(
+name|QWidget
+modifier|*
+name|editor
+parameter_list|,
+specifier|const
+name|QModelIndex
+modifier|&
+parameter_list|)
+specifier|const
+block|{
+name|editor
+operator|->
+name|deleteLater
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_comment
