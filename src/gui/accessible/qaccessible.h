@@ -875,6 +875,10 @@ name|Terminal
 operator|=
 literal|0x00000040
 block|,
+name|Desktop
+operator|=
+literal|0x00000041
+block|,
 name|UserRole
 operator|=
 literal|0x0000ffff
