@@ -94,6 +94,11 @@ include|#
 directive|include
 file|<QtCore/qcompilerdetection.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qprocessordetection.h>
+end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
