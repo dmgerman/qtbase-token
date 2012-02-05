@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/qglobal.h>
+file|<QtConcurrent/qtconcurrent_global.h>
 end_include
 begin_include
 include|#
