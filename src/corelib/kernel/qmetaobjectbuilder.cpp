@@ -4259,10 +4259,19 @@ name|char
 modifier|*
 name|buf
 parameter_list|,
+name|int
+name|expectedSize
+parameter_list|,
 name|bool
 name|relocatable
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|expectedSize
+argument_list|)
+expr_stmt|;
+comment|// Avoid warning in release mode
 name|int
 name|size
 init|=
@@ -4979,6 +4988,18 @@ literal|1
 argument_list|)
 decl_stmt|;
 comment|// Output the class infos,
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|buf
+operator|||
+name|dataIndex
+operator|==
+name|pmeta
+operator|->
+name|classInfoData
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|index
@@ -5070,6 +5091,18 @@ literal|2
 expr_stmt|;
 block|}
 comment|// Output the methods in the class.
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|buf
+operator|||
+name|dataIndex
+operator|==
+name|pmeta
+operator|->
+name|methodData
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|index
@@ -5327,6 +5360,18 @@ expr_stmt|;
 block|}
 block|}
 comment|// Output the properties in the class.
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|buf
+operator|||
+name|dataIndex
+operator|==
+name|pmeta
+operator|->
+name|propertyData
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|index
@@ -5603,6 +5648,18 @@ expr_stmt|;
 block|}
 block|}
 comment|// Output the enumerators in the class.
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|buf
+operator|||
+name|dataIndex
+operator|==
+name|pmeta
+operator|->
+name|enumeratorData
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|index
@@ -5799,6 +5856,18 @@ name|count
 expr_stmt|;
 block|}
 comment|// Output the constructors in the class.
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|buf
+operator|||
+name|dataIndex
+operator|==
+name|pmeta
+operator|->
+name|constructorData
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|index
@@ -6234,6 +6303,16 @@ name|void
 operator|*
 argument_list|)
 expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|buf
+operator|||
+name|size
+operator|==
+name|expectedSize
+argument_list|)
+expr_stmt|;
 return|return
 name|size
 return|;
@@ -6258,6 +6337,8 @@ init|=
 name|buildMetaObject
 argument_list|(
 name|d
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -6294,6 +6375,8 @@ argument_list|(
 name|d
 argument_list|,
 name|buf
+argument_list|,
+name|size
 argument_list|,
 literal|false
 argument_list|)
@@ -6332,6 +6415,8 @@ init|=
 name|buildMetaObject
 argument_list|(
 name|d
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|,
@@ -6393,6 +6478,8 @@ argument_list|(
 name|d
 argument_list|,
 name|buf
+argument_list|,
+name|size
 argument_list|,
 literal|true
 argument_list|)
