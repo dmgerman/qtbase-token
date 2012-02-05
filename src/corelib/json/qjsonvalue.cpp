@@ -1118,7 +1118,7 @@ argument_list|(
 operator|*
 operator|(
 specifier|const
-name|QConstStringData
+name|QStaticStringData
 argument_list|<
 literal|1
 argument_list|>
