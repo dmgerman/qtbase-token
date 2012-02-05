@@ -5,28 +5,23 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QLINUXINPUT_H
+name|QEVDEVMOUSE_H
 end_ifndef
 begin_define
-DECL|macro|QLINUXINPUT_H
+DECL|macro|QEVDEVMOUSE_H
 define|#
 directive|define
-name|QLINUXINPUT_H
+name|QEVDEVMOUSE_H
 end_define
 begin_include
 include|#
 directive|include
-file|<qobject.h>
+file|<QObject>
 end_include
 begin_include
 include|#
 directive|include
-file|<Qt>
-end_include
-begin_include
-include|#
-directive|include
-file|<termios.h>
+file|<QString>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
@@ -37,14 +32,8 @@ name|QSocketNotifier
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QLinuxInputMouseHandlerData
 name|class
-name|QLinuxInputMouseHandlerData
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|class
-name|QLinuxInputMouseHandler
+name|QEvdevMouseHandler
 range|:
 name|public
 name|QObject
@@ -52,7 +41,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-name|QLinuxInputMouseHandler
+name|QEvdevMouseHandler
 argument_list|(
 specifier|const
 name|QString
@@ -66,7 +55,7 @@ name|specification
 argument_list|)
 block|;
 operator|~
-name|QLinuxInputMouseHandler
+name|QEvdevMouseHandler
 argument_list|()
 block|;
 name|private
@@ -80,12 +69,14 @@ name|private
 operator|:
 name|void
 name|sendMouseEvent
+argument_list|()
+block|;
+name|void
+name|pathFromUdev
 argument_list|(
-argument|int x
-argument_list|,
-argument|int y
-argument_list|,
-argument|Qt::MouseButtons buttons
+name|QString
+operator|*
+name|path
 argument_list|)
 block|;
 name|QSocketNotifier
@@ -128,10 +119,6 @@ name|m_smooth
 block|;
 name|int
 name|m_jitterLimitSquared
-block|;
-name|QLinuxInputMouseHandlerData
-operator|*
-name|d
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -144,6 +131,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QLINUXINPUT_H
+comment|// QEVDEVMOUSE_H
 end_comment
 end_unit
