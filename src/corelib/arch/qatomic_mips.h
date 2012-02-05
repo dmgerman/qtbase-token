@@ -891,12 +891,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|_MIPS_ARCH_MIPS64
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|__mips64
+name|Q_PROCESSOR_MIPS_64
 argument_list|)
 end_if
 begin_define
