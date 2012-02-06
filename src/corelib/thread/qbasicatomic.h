@@ -235,6 +235,8 @@ argument_list|)
 if|#
 directive|if
 literal|0
+comment|// silence syncqt warnings
+decl|QT_END_NAMESPACE QT_END_HEADER
 pragma|#
 directive|pragma
 name|qt_no_master_include

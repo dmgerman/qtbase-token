@@ -51,6 +51,19 @@ include|#
 directive|include
 file|"QtCore/qatomic_armv6.h"
 end_include
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+begin_comment
+comment|// silence syncqt warnings
+end_comment
+begin_endif
+unit|QT_BEGIN_HEADER QT_BEGIN_NAMESPACE  QT_END_NAMESPACE QT_END_HEADER
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
