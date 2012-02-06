@@ -783,6 +783,14 @@ name|QList
 operator|<
 name|QByteArray
 operator|>
+name|parameterTypes
+argument_list|()
+specifier|const
+expr_stmt|;
+name|QList
+operator|<
+name|QByteArray
+operator|>
 name|parameterNames
 argument_list|()
 specifier|const
