@@ -28,31 +28,32 @@ include|#
 directive|include
 file|<string.h>
 end_include
-begin_function
+begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-DECL|function|QT_MODULE
-name|QT_MODULE
-parameter_list|(
-name|Core
-parameter_list|)
 name|namespace
 name|QtPrivate
-decl_stmt|{  template<class T> struct QPodArrayOps     : QTypedArrayData<T>
+block|{
+name|template
+operator|<
+name|class
+name|T
+operator|>
+expr|struct
+name|QPodArrayOps
+operator|:
+name|QTypedArrayData
+operator|<
+name|T
+operator|>
 block|{
 name|void
 name|copyAppend
-parameter_list|(
-specifier|const
-name|T
-modifier|*
-name|b
-parameter_list|,
-specifier|const
-name|T
-modifier|*
-name|e
-parameter_list|)
+argument_list|(
+argument|const T *b
+argument_list|,
+argument|const T *e
+argument_list|)
 block|{
 name|Q_ASSERT
 argument_list|(
@@ -64,14 +65,14 @@ operator|.
 name|isShared
 argument_list|()
 argument_list|)
-expr_stmt|;
+block|;
 name|Q_ASSERT
 argument_list|(
 name|b
 operator|<
 name|e
 argument_list|)
-expr_stmt|;
+block|;
 name|Q_ASSERT
 argument_list|(
 name|size_t
@@ -92,7 +93,7 @@ operator|->
 name|size
 argument_list|)
 argument_list|)
-expr_stmt|;
+block|;
 operator|::
 name|memcpy
 argument_list|(
@@ -114,7 +115,7 @@ argument_list|(
 name|T
 argument_list|)
 argument_list|)
-expr_stmt|;
+block|;
 name|this
 operator|->
 name|size
@@ -122,19 +123,14 @@ operator|+=
 name|e
 operator|-
 name|b
-expr_stmt|;
-block|}
+block|;     }
 name|void
 name|copyAppend
-parameter_list|(
-name|size_t
-name|n
-parameter_list|,
-specifier|const
-name|T
-modifier|&
-name|t
-parameter_list|)
+argument_list|(
+argument|size_t n
+argument_list|,
+argument|const T&t
+argument_list|)
 block|{
 name|Q_ASSERT
 argument_list|(
@@ -146,7 +142,7 @@ operator|.
 name|isShared
 argument_list|()
 argument_list|)
-expr_stmt|;
+block|;
 name|Q_ASSERT
 argument_list|(
 name|n
@@ -162,26 +158,26 @@ operator|->
 name|size
 argument_list|)
 argument_list|)
-expr_stmt|;
+block|;
 name|T
-modifier|*
+operator|*
 name|iter
-init|=
+operator|=
 name|this
 operator|->
 name|end
 argument_list|()
-decl_stmt|;
+block|;
 specifier|const
 name|T
-modifier|*
+operator|*
 specifier|const
 name|end
-init|=
+operator|=
 name|iter
 operator|+
 name|n
-decl_stmt|;
+block|;
 for|for
 control|(
 init|;
@@ -211,11 +207,10 @@ operator|->
 name|size
 operator|+=
 name|n
-expr_stmt|;
-block|}
+block|;     }
 name|void
 name|destroyAll
-parameter_list|()
+argument_list|()
 comment|// Call from destructors, ONLY!
 block|{
 name|Q_ASSERT
@@ -231,27 +226,19 @@ argument_list|()
 operator|==
 literal|0
 argument_list|)
-expr_stmt|;
+block|;
 comment|// As this is to be called only from destructor, it doesn't need to be
 comment|// exception safe; size not updated.
 block|}
 name|void
 name|insert
-parameter_list|(
-name|T
-modifier|*
-name|where
-parameter_list|,
-specifier|const
-name|T
-modifier|*
-name|b
-parameter_list|,
-specifier|const
-name|T
-modifier|*
-name|e
-parameter_list|)
+argument_list|(
+argument|T *where
+argument_list|,
+argument|const T *b
+argument_list|,
+argument|const T *e
+argument_list|)
 block|{
 name|Q_ASSERT
 argument_list|(
@@ -263,7 +250,7 @@ operator|.
 name|isShared
 argument_list|()
 argument_list|)
-expr_stmt|;
+block|;
 name|Q_ASSERT
 argument_list|(
 name|where
@@ -280,7 +267,7 @@ operator|->
 name|end
 argument_list|()
 argument_list|)
-expr_stmt|;
+block|;
 comment|// Use copyAppend at end
 name|Q_ASSERT
 argument_list|(
@@ -288,7 +275,7 @@ name|b
 operator|<
 name|e
 argument_list|)
-expr_stmt|;
+block|;
 name|Q_ASSERT
 argument_list|(
 name|e
@@ -302,7 +289,7 @@ operator|->
 name|end
 argument_list|()
 argument_list|)
-expr_stmt|;
+block|;
 comment|// No overlap
 name|Q_ASSERT
 argument_list|(
@@ -324,7 +311,7 @@ operator|->
 name|size
 argument_list|)
 argument_list|)
-expr_stmt|;
+block|;
 operator|::
 name|memmove
 argument_list|(
@@ -352,7 +339,7 @@ argument_list|(
 name|T
 argument_list|)
 argument_list|)
-expr_stmt|;
+block|;
 operator|::
 name|memcpy
 argument_list|(
@@ -371,7 +358,7 @@ argument_list|(
 name|T
 argument_list|)
 argument_list|)
-expr_stmt|;
+block|;
 name|this
 operator|->
 name|size
@@ -381,10 +368,9 @@ name|e
 operator|-
 name|b
 operator|)
-expr_stmt|;
+block|;     }
 block|}
-block|}
-end_function
+end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
