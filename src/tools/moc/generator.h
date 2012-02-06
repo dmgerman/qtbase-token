@@ -135,6 +135,10 @@ name|int
 name|index
 parameter_list|)
 function_decl|;
+name|void
+name|generatePluginMetaData
+parameter_list|()
+function_decl|;
 name|int
 name|strreg
 parameter_list|(

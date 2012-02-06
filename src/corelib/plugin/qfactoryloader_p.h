@@ -56,6 +56,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtCore/qjsonobject.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qlibrary_p.h"
 end_include
 begin_ifndef
@@ -113,16 +118,34 @@ operator|~
 name|QFactoryLoader
 argument_list|()
 block|;
+name|QT_DEPRECATED
 name|QStringList
 name|keys
 argument_list|()
+specifier|const
+block|;
+name|QList
+operator|<
+name|QJsonObject
+operator|>
+name|metaData
+argument_list|()
+specifier|const
+block|;
+name|QT_DEPRECATED
+name|QObject
+operator|*
+name|instance
+argument_list|(
+argument|const QString&key
+argument_list|)
 specifier|const
 block|;
 name|QObject
 operator|*
 name|instance
 argument_list|(
-argument|const QString&key
+argument|int index
 argument_list|)
 specifier|const
 block|;

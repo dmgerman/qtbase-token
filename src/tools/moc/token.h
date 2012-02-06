@@ -392,6 +392,9 @@ operator|,
 DECL|enumerator|Q_PROPERTY_TOKEN
 name|Q_PROPERTY_TOKEN
 operator|,
+DECL|enumerator|Q_PLUGIN_METADATA_TOKEN
+name|Q_PLUGIN_METADATA_TOKEN
+operator|,
 DECL|enumerator|Q_ENUMS_TOKEN
 name|Q_ENUMS_TOKEN
 operator|,

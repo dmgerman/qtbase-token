@@ -1113,6 +1113,12 @@ literal|"Q_PROPERTY_TOKEN"
 block|}
 block|,
 block|{
+literal|"Q_PLUGIN_METADATA"
+block|,
+literal|"Q_PLUGIN_METADATA_TOKEN"
+block|}
+block|,
+block|{
 literal|"Q_ENUMS"
 block|,
 literal|"Q_ENUMS_TOKEN"
