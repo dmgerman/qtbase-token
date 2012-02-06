@@ -542,6 +542,27 @@ directive|endif
 block|}
 struct|;
 end_struct
+begin_comment
+comment|// For meta-object generators
+end_comment
+begin_enum
+DECL|enumerator|MetaObjectPrivateFieldCount
+enum|enum
+block|{
+name|MetaObjectPrivateFieldCount
+init|=
+sizeof|sizeof
+argument_list|(
+name|QMetaObjectPrivate
+argument_list|)
+operator|/
+expr|sizeof
+operator|(
+name|int
+operator|)
+block|}
+enum|;
+end_enum
 begin_ifndef
 ifndef|#
 directive|ifndef

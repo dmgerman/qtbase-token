@@ -4410,9 +4410,8 @@ name|size
 decl_stmt|;
 name|dataIndex
 operator|=
-literal|14
+name|MetaObjectPrivateFieldCount
 expr_stmt|;
-comment|// Number of fields in the QMetaObjectPrivate.
 for|for
 control|(
 name|index
@@ -4941,7 +4940,7 @@ block|}
 comment|// Reset the current data position to just past the QMetaObjectPrivate.
 name|dataIndex
 operator|=
-literal|14
+name|MetaObjectPrivateFieldCount
 expr_stmt|;
 comment|// Add the class name to the string table.
 name|int

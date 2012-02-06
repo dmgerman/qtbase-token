@@ -681,7 +681,7 @@ expr_stmt|;
 name|int
 name|index
 init|=
-literal|14
+name|MetaObjectPrivateFieldCount
 decl_stmt|;
 name|fprintf
 argument_list|(
