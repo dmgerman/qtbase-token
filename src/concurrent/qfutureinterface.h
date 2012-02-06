@@ -76,7 +76,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_CORE_EXPORT
+name|Q_CONCURRENT_EXPORT
 name|QFutureInterfaceBase
 block|{
 name|public

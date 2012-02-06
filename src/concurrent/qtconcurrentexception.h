@@ -57,7 +57,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_EXCEPTIONS
 name|class
-name|Q_CORE_EXPORT
+name|Q_CONCURRENT_EXPORT
 name|Exception
 range|:
 name|public
@@ -82,7 +82,7 @@ specifier|const
 block|; }
 decl_stmt|;
 name|class
-name|Q_CORE_EXPORT
+name|Q_CONCURRENT_EXPORT
 name|UnhandledException
 range|:
 name|public
@@ -159,7 +159,7 @@ expr_stmt|;
 block|}
 empty_stmt|;
 name|class
-name|Q_CORE_EXPORT
+name|Q_CONCURRENT_EXPORT
 name|ExceptionStore
 block|{
 name|public
@@ -205,7 +205,7 @@ name|namespace
 name|internal
 block|{
 name|class
-name|Q_CORE_EXPORT
+name|Q_CONCURRENT_EXPORT
 name|ExceptionStore
 block|{
 name|public

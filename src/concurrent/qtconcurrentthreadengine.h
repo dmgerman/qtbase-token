@@ -129,7 +129,7 @@ comment|// Can be run in three modes: single threaded, multi-threaded blocking
 comment|// and multi-threaded asynchronous.
 comment|// The code for the single threaded mode is
 name|class
-name|Q_CORE_EXPORT
+name|Q_CONCURRENT_EXPORT
 name|ThreadEngineBase
 range|:
 name|public
