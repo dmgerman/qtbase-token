@@ -4977,7 +4977,7 @@ operator|==
 name|OnFieldChange
 condition|)
 return|return
-name|submitAll
+name|submit
 argument_list|()
 return|;
 elseif|else
