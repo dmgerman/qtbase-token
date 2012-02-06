@@ -4560,6 +4560,12 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+comment|// don't join empty subpaths
+if|if
+condition|(
+operator|!
+name|first
+condition|)
 name|stroker
 operator|->
 name|joinPoints
