@@ -9280,9 +9280,13 @@ argument_list|()
 decl_stmt|;
 name|qreal
 name|minY
+init|=
+literal|0
 decl_stmt|;
 name|qreal
 name|maxY
+init|=
+literal|0
 decl_stmt|;
 name|QVector
 argument_list|<
