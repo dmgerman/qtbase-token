@@ -3073,7 +3073,10 @@ operator|.
 name|count
 argument_list|()
 argument_list|,
-literal|2
+name|model
+operator|.
+name|columnCount
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -3102,7 +3105,7 @@ name|spy
 operator|.
 name|at
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 operator|.
 name|at
@@ -3132,7 +3135,7 @@ name|spy
 operator|.
 name|at
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 operator|.
 name|at

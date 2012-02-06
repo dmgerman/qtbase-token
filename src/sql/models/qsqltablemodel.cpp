@@ -4821,41 +4821,6 @@ argument_list|,
 name|idx
 argument_list|)
 decl_stmt|;
-comment|// historical bug: comparing EditRole with DisplayRole values here
-specifier|const
-name|QVariant
-name|oldValue
-init|=
-name|data
-argument_list|(
-name|cIndex
-argument_list|)
-decl_stmt|;
-specifier|const
-name|QVariant
-name|value
-init|=
-name|record
-operator|.
-name|value
-argument_list|(
-name|i
-argument_list|)
-decl_stmt|;
-comment|// historical bug: it's a bad idea to check for change here
-comment|// historical bug: should test oldValue.isNull() != value.isNull()
-if|if
-condition|(
-name|oldValue
-operator|.
-name|isNull
-argument_list|()
-operator|||
-name|oldValue
-operator|!=
-name|value
-condition|)
-block|{
 name|mrow
 operator|.
 name|setValue
@@ -4878,7 +4843,6 @@ argument_list|,
 name|cIndex
 argument_list|)
 emit|;
-block|}
 block|}
 else|else
 block|{
