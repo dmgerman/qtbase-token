@@ -8695,7 +8695,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qlogging.h"
+file|<QtCore/qlogging.h>
 end_include
 begin_endif
 endif|#
