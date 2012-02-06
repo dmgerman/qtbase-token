@@ -1202,9 +1202,6 @@ return|;
 return|return
 name|wid
 operator|->
-name|d_func
-argument_list|()
-operator|->
 name|hasHeightForWidth
 argument_list|()
 return|;

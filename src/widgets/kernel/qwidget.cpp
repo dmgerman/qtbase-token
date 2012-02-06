@@ -32176,23 +32176,35 @@ operator|-
 literal|1
 return|;
 block|}
-comment|/*!     \internal      *virtual private*      This is a bit hackish, but ideally we would have created a virtual function     in the public API (however, too late...) so that subclasses could reimplement      their own function.     Instead we add a virtual function to QWidgetPrivate.     ### Qt5: move to public class and make virtual */
+comment|/*!     Returns true if the widget's preferred height depends on its width; otherwise returns false. */
 DECL|function|hasHeightForWidth
 name|bool
-name|QWidgetPrivate
+name|QWidget
 operator|::
 name|hasHeightForWidth
 parameter_list|()
 specifier|const
 block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QWidget
+argument_list|)
+expr_stmt|;
 return|return
+name|d
+operator|->
 name|layout
 condition|?
+name|d
+operator|->
 name|layout
 operator|->
 name|hasHeightForWidth
 argument_list|()
 else|:
+name|d
+operator|->
 name|size_policy
 operator|.
 name|hasHeightForWidth

@@ -2109,14 +2109,6 @@ name|maxh
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_expr_stmt
-name|virtual
-name|bool
-name|hasHeightForWidth
-argument_list|()
-specifier|const
-expr_stmt|;
-end_expr_stmt
 begin_function_decl
 name|void
 name|setConstraints_sys

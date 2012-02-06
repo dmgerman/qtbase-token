@@ -1034,10 +1034,7 @@ name|WA_DontShowOnScreen
 argument_list|)
 operator|&&
 operator|!
-name|qt_widget_private
-argument_list|(
 name|tlw
-argument_list|)
 operator|->
 name|hasHeightForWidth
 argument_list|()
@@ -1272,10 +1269,7 @@ name|WA_DontShowOnScreen
 argument_list|)
 operator|&&
 operator|!
-name|qt_widget_private
-argument_list|(
 name|tlw
-argument_list|)
 operator|->
 name|hasHeightForWidth
 argument_list|()
@@ -1785,10 +1779,7 @@ name|WA_DontShowOnScreen
 argument_list|)
 operator|&&
 operator|!
-name|qt_widget_private
-argument_list|(
 name|tlw
-argument_list|)
 operator|->
 name|hasHeightForWidth
 argument_list|()
@@ -1822,10 +1813,7 @@ name|WA_DontShowOnScreen
 argument_list|)
 operator|&&
 operator|!
-name|qt_widget_private
-argument_list|(
 name|tlw
-argument_list|)
 operator|->
 name|hasHeightForWidth
 argument_list|()

@@ -2618,6 +2618,12 @@ name|int
 argument_list|)
 decl|const
 decl_stmt|;
+name|virtual
+name|bool
+name|hasHeightForWidth
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QRegion
 name|visibleRegion
 argument_list|()
