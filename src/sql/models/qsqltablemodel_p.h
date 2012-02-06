@@ -85,7 +85,14 @@ argument_list|)
 block|,
 name|strategy
 argument_list|(
-argument|QSqlTableModel::OnRowChange
+name|QSqlTableModel
+operator|::
+name|OnRowChange
+argument_list|)
+block|,
+name|busyInsertingRows
+argument_list|(
+argument|false
 argument_list|)
 block|{}
 name|void
@@ -163,6 +170,9 @@ name|QSqlTableModel
 operator|::
 name|EditStrategy
 name|strategy
+block|;
+name|bool
+name|busyInsertingRows
 block|;
 name|QSqlQuery
 name|editQuery

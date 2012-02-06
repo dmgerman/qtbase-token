@@ -916,7 +916,7 @@ begin_comment
 comment|/*!     \fn QSqlTableModel::beforeDelete(int row)      This signal is emitted by deleteRowFromTable() before the \a row     is deleted from the currently active database table. */
 end_comment
 begin_comment
-comment|/*!     \fn void QSqlTableModel::primeInsert(int row, QSqlRecord&record)      This signal is emitted by insertRows(), when an insertion is     initiated in the given \a row of the currently active database     table. The \a record parameter can be written to (since it is a     reference), for example to populate some fields with default     values. */
+comment|/*!     \fn void QSqlTableModel::primeInsert(int row, QSqlRecord&record)      This signal is emitted by insertRows(), when an insertion is     initiated in the given \a row of the currently active database     table. The \a record parameter can be written to (since it is a     reference), for example to populate some fields with default     values and set the generated flags of the fields. Do not try to     edit the record via other means such as setData() or setRecord()     while handling this signal. */
 end_comment
 begin_comment
 comment|/*!     \fn QSqlTableModel::beforeInsert(QSqlRecord&record)      This signal is emitted by insertRowIntoTable() before a new row is     inserted into the currently active database table. The values that     are about to be inserted are stored in \a record and can be     modified before they will be inserted. */
@@ -1827,6 +1827,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|d
+operator|->
+name|busyInsertingRows
+condition|)
+return|return
+literal|false
+return|;
+if|if
+condition|(
 name|role
 operator|!=
 name|Qt
@@ -2072,34 +2081,6 @@ name|select
 argument_list|()
 expr_stmt|;
 block|}
-comment|// historical bug: dataChanged() is suppressed for OnFieldChange and OnRowChange
-comment|// when operating on an "insert" record. This is to accomodate
-comment|// applications that call setData() while handling primeInsert().
-comment|// Otherwise dataChanged() would be emitted between beginInsert()
-comment|// and endInsert().
-comment|// The price of this workaround is that, although the view making
-comment|// the change will already display the new value, other views connected
-comment|// to the model probably will not.
-comment|// It's not clear why OnManualSubmit is excluded from this workaround.
-comment|// Calling setData() while handling primeInsert() is arguably very wrong anyway.
-comment|// primeInsert() provides a ref to the record for settings values.
-if|if
-condition|(
-name|d
-operator|->
-name|strategy
-operator|==
-name|OnManualSubmit
-operator|||
-name|row
-operator|.
-name|op
-argument_list|()
-operator|!=
-name|QSqlTableModelPrivate
-operator|::
-name|Insert
-condition|)
 emit|emit
 name|dataChanged
 argument_list|(
@@ -3926,6 +3907,12 @@ condition|)
 return|return
 literal|false
 return|;
+name|d
+operator|->
+name|busyInsertingRows
+operator|=
+literal|true
+expr_stmt|;
 name|beginInsertRows
 argument_list|(
 name|parent
@@ -4111,6 +4098,12 @@ emit|;
 block|}
 name|endInsertRows
 argument_list|()
+expr_stmt|;
+name|d
+operator|->
+name|busyInsertingRows
+operator|=
+literal|false
 expr_stmt|;
 return|return
 literal|true
@@ -4648,6 +4641,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|d
+operator|->
+name|busyInsertingRows
+condition|)
+return|return
+literal|false
+return|;
+if|if
+condition|(
 name|row
 operator|>=
 name|rowCount
@@ -4882,7 +4884,6 @@ operator|!=
 name|value
 condition|)
 block|{
-comment|// historical bug: dataChanged() is suppressed for Insert. See also setData().
 name|mrow
 operator|.
 name|setValue
@@ -4897,17 +4898,6 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|mrow
-operator|.
-name|op
-argument_list|()
-operator|!=
-name|QSqlTableModelPrivate
-operator|::
-name|Insert
-condition|)
 emit|emit
 name|dataChanged
 argument_list|(
