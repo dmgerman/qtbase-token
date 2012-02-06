@@ -71,6 +71,9 @@ argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|QPlatformOpenGLContext
 operator|*
 name|createPlatformOpenGLContext
@@ -79,6 +82,8 @@ argument|QOpenGLContext *context
 argument_list|)
 specifier|const
 block|;
+endif|#
+directive|endif
 name|QPlatformBackingStore
 operator|*
 name|createPlatformBackingStore

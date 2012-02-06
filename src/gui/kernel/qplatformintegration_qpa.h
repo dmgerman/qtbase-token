@@ -208,6 +208,9 @@ decl|const
 init|=
 literal|0
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|virtual
 name|QPlatformOpenGLContext
 modifier|*
@@ -219,6 +222,8 @@ name|context
 argument_list|)
 decl|const
 decl_stmt|;
+endif|#
+directive|endif
 name|virtual
 name|QPlatformSharedGraphicsCache
 modifier|*

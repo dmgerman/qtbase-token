@@ -245,6 +245,11 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
 begin_function
 DECL|function|createPlatformOpenGLContext
 name|QPlatformOpenGLContext
@@ -274,6 +279,10 @@ literal|0
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!    Factory function for QPlatformSharedGraphicsCache. This function will return 0 if the platform    integration does not support any shared graphics cache mechanism for the given \a cacheId. */
 end_comment
