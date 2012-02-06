@@ -29,6 +29,9 @@ begin_comment
 comment|/*!     \class QLocalServer     \since 4.4      \brief The QLocalServer class provides a local socket based server.      This class makes it possible to accept incoming local socket     connections.      Call listen() to have the server start listening     for incoming connections on a specified key.  The     newConnection() signal is then emitted each time a client     connects to the server.      Call nextPendingConnection() to accept the pending connection     as a connected QLocalSocket.  The function returns a pointer to a     QLocalSocket that can be used for communicating with the client.      If an error occurs, serverError() returns the type of error, and     errorString() can be called to get a human readable description     of what happened.      When listening for connections, the name which the server is     listening on is available through serverName().      Calling close() makes QLocalServer stop listening for incoming connections.      Although QLocalServer is designed for use with an event loop, it's possible     to use it without one. In that case, you must use waitForNewConnection(),     which blocks until either a connection is available or a timeout expires.      \sa QLocalSocket, QTcpServer */
 end_comment
 begin_comment
+comment|/*!     \enum QLocalServer::SocketOption      This enum describes the possible options that can be used to create the     socket. This changes the access permissions on platforms (Linux, Windows)     that support access permissions on the socket. Both GroupAccess and OtherAccess     may vary slightly in meanings depending on the platform.      \value UserAccess     Access is restricted to the same user as the process that created the socket.     \value GroupAccess     Access is restricted to the same group but not the user that created the socket on Linux.     \value OtherAccess     Access is available to everyone but the user and group that created the socket on Linux.     \value WorldAccess     No access restrictions.      \sa SocketOptions */
+end_comment
+begin_comment
 comment|/*!     Create a new local socket server with the given \a parent.      \sa listen()  */
 end_comment
 begin_constructor
@@ -84,6 +87,60 @@ argument_list|()
 expr_stmt|;
 block|}
 end_destructor
+begin_comment
+comment|/*!     \property QLocalServer::socketOptions     \since 5.0      The setSocketOptions method controls how the socket operates.     For example the socket may restrict access to what user ids can     connect to the socket.      These options must be set before listen() is called.      In some cases, such as with Unix domain sockets on Linux, the     access to the socket will be determined by file system permissions,     and are created based on the umask. Setting the access flags will     overide this and will restrict or permit access as specified.      Other Unix-based operating systems, such as Mac OS X, do not     honor file permissions for Unix domain sockets and by default     have WorldAccess and these permission flags will have no effect.      By default none of the flags are set, access permissions     are the platform default.      \sa listen() */
+end_comment
+begin_function
+DECL|function|setSocketOptions
+name|void
+name|QLocalServer
+operator|::
+name|setSocketOptions
+parameter_list|(
+name|SocketOptions
+name|options
+parameter_list|)
+block|{
+name|Q_D
+argument_list|(
+name|QLocalServer
+argument_list|)
+expr_stmt|;
+name|d
+operator|->
+name|socketOptions
+operator|=
+name|options
+expr_stmt|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns the socket options set on the socket.      \sa setSocketOptions()  */
+end_comment
+begin_function
+DECL|function|socketOptions
+name|QLocalServer
+operator|::
+name|SocketOptions
+name|QLocalServer
+operator|::
+name|socketOptions
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QLocalServer
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|socketOptions
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     Stop listening for incoming connections.  Existing connections are not     effected, but any new connections will be refused.      \sa isListening(), listen()  */
 end_comment
