@@ -9786,9 +9786,7 @@ argument_list|,
 name|SIGNAL
 argument_list|(
 name|finished
-argument_list|(
-name|bool
-argument_list|)
+argument_list|()
 argument_list|)
 argument_list|,
 operator|&
@@ -24549,9 +24547,7 @@ argument_list|,
 name|SIGNAL
 argument_list|(
 name|finished
-argument_list|(
-name|bool
-argument_list|)
+argument_list|()
 argument_list|)
 argument_list|,
 operator|&
