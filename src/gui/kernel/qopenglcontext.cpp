@@ -905,7 +905,7 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"QOpenGLContext::makeBuffers() called with non-opengl surface"
+literal|"QOpenGLContext::makeCurrent() called with non-opengl surface"
 expr_stmt|;
 return|return
 literal|false
