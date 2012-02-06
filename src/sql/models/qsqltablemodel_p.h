@@ -137,6 +137,13 @@ argument|const QString&name
 argument_list|)
 specifier|const
 block|;
+name|QString
+name|strippedFieldName
+argument_list|(
+argument|const QString&name
+argument_list|)
+specifier|const
+block|;
 name|void
 name|initRecordAndPrimaryIndex
 argument_list|()
