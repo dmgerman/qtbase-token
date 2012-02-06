@@ -43,12 +43,6 @@ end_comment
 begin_comment
 comment|//
 end_comment
-begin_comment
-comment|// takes a type, returns the internal void* pointer cast
-end_comment
-begin_comment
-comment|// to a pointer of the input type
-end_comment
 begin_include
 include|#
 directive|include
@@ -153,6 +147,12 @@ name|Q_CC_SUN
 end_ifdef
 begin_comment
 comment|// Sun CC picks the wrong overload, so introduce awful hack
+end_comment
+begin_comment
+comment|// takes a type, returns the internal void* pointer cast
+end_comment
+begin_comment
+comment|// to a pointer of the input type
 end_comment
 begin_expr_stmt
 name|template
