@@ -13,32 +13,6 @@ define|#
 directive|define
 name|QCOMPILERDETECTION_H
 end_define
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_comment
-comment|// header is automatically included in qglobal.h
-end_comment
-begin_pragma
-pragma|#
-directive|pragma
-name|qt_no_master_include
-end_pragma
-begin_comment
-comment|// silence syncqt warnings (QT_* macros are not yet defined)
-end_comment
-begin_pragma
-unit|QT_BEGIN_HEADER QT_BEGIN_NAMESPACE  QT_END_NAMESPACE QT_END_HEADER
-pragma|#
-directive|pragma
-name|qt_sync_stop_processing
-end_pragma
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*    The compiler, must be one of: (Q_CC_x)       SYM      - Digital Mars C/C++ (used to be Symantec C++)      MSVC     - Microsoft Visual C/C++, Intel C++ for Windows      BOR      - Borland/Turbo C++      WAT      - Watcom C++      GNU      - GNU C++      COMEAU   - Comeau C++      EDG      - Edison Design Group C++      OC       - CenterLine C++      SUN      - Forte Developer, or Sun Studio C++      MIPS     - MIPSpro C++      DEC      - DEC C++      HPACC    - HP aC++      USLC     - SCO OUDK and UDK      CDS      - Reliant C++      KAI      - KAI C++      INTEL    - Intel C++ for Linux, Intel C++ for Windows      HIGHC    - MetaWare High C/C++      PGI      - Portland Group C++      GHS      - Green Hills Optimizing C++ Compilers      RVCT     - ARM Realview Compiler Suite      CLANG    - C++ front-end for the LLVM compiler      Should be sorted most to least authoritative. */
 end_comment

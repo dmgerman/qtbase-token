@@ -13,32 +13,6 @@ define|#
 directive|define
 name|QSYSTEMDETECTION_H
 end_define
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-begin_comment
-comment|// header is automatically included in qglobal.h
-end_comment
-begin_pragma
-pragma|#
-directive|pragma
-name|qt_no_master_include
-end_pragma
-begin_comment
-comment|// silence syncqt warnings (QT_* macros are not yet defined)
-end_comment
-begin_pragma
-unit|QT_BEGIN_HEADER QT_BEGIN_NAMESPACE  QT_END_NAMESPACE QT_END_HEADER
-pragma|#
-directive|pragma
-name|qt_sync_stop_processing
-end_pragma
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*    The operating system, must be one of: (Q_OS_x)       DARWIN   - Darwin OS (synonym for Q_OS_MAC)      MSDOS    - MS-DOS and Windows      OS2      - OS/2      OS2EMX   - XFree86 on OS/2 (not PM)      WIN32    - Win32 (Windows 2000/XP/Vista/7 and Windows Server 2003/2008)      WINCE    - WinCE (Windows CE 5.0)      CYGWIN   - Cygwin      SOLARIS  - Sun Solaris      HPUX     - HP-UX      ULTRIX   - DEC Ultrix      LINUX    - Linux      FREEBSD  - FreeBSD      NETBSD   - NetBSD      OPENBSD  - OpenBSD      BSDI     - BSD/OS      IRIX     - SGI Irix      OSF      - HP Tru64 UNIX      SCO      - SCO OpenServer 5      UNIXWARE - UnixWare 7, Open UNIX 8      AIX      - AIX      HURD     - GNU Hurd      DGUX     - DG/UX      RELIANT  - Reliant UNIX      DYNIX    - DYNIX/ptx      QNX      - QNX      QNX6     - QNX RTP 6.1      LYNX     - LynxOS      BSD4     - Any BSD 4.4 system      UNIX     - Any UNIX BSD/SYSV system */
 end_comment
