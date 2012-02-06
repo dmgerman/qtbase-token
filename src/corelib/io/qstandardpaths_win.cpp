@@ -55,11 +55,6 @@ begin_else
 else|#
 directive|else
 end_else
-begin_include
-include|#
-directive|include
-file|<qguifunctions_wince.h>
-end_include
 begin_if
 if|#
 directive|if
