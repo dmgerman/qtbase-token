@@ -497,6 +497,10 @@ name|ExtraButton24
 init|=
 literal|0x04000000
 block|,
+name|AllButtons
+init|=
+literal|0x07ffffff
+block|,
 name|MaxMouseButton
 init|=
 name|ExtraButton24
