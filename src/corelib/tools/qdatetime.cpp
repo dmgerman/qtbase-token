@@ -2119,7 +2119,10 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|abs
+operator|(
+name|quint64
+operator|)
+name|qAbs
 argument_list|(
 name|ndays
 argument_list|)
