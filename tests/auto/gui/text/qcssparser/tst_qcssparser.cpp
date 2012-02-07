@@ -2027,15 +2027,6 @@ name|val
 expr_stmt|;
 name|QTest
 operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QCssParser::parseHexColor: Unknown color name '#cafebabe'"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
 name|newRow
 argument_list|(
 literal|"hexcolor_failure"
@@ -2191,6 +2182,29 @@ operator|::
 name|Value
 argument_list|,
 name|expectedValue
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|QTest
+operator|::
+name|currentDataTag
+argument_list|()
+argument_list|,
+literal|"hexcolor_failure"
+argument_list|)
+operator|==
+literal|0
+condition|)
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QCssParser::parseHexColor: Unknown color name '#cafebabe'"
 argument_list|)
 expr_stmt|;
 name|QCss
