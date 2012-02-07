@@ -110,11 +110,11 @@ block|{}
 name|Q_DECL_CONSTEXPR
 name|QMessageLogContext
 argument_list|(
-argument|const char *file
+argument|const char *fileName
 argument_list|,
-argument|int line
+argument|int lineNumber
 argument_list|,
-argument|const char *function
+argument|const char *functionName
 argument_list|)
 operator|:
 name|version
@@ -124,17 +124,17 @@ argument_list|)
 operator|,
 name|line
 argument_list|(
-name|line
+name|lineNumber
 argument_list|)
 operator|,
 name|file
 argument_list|(
-name|file
+name|fileName
 argument_list|)
 operator|,
 name|function
 argument_list|(
-argument|function
+argument|functionName
 argument_list|)
 block|{}
 name|int

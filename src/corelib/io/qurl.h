@@ -932,7 +932,7 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|url
+name|u
 parameter_list|,
 name|ParsingMode
 name|mode
@@ -946,12 +946,12 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-name|url
+name|u
 operator|.
 name|constData
 argument_list|()
 argument_list|,
-name|url
+name|u
 operator|.
 name|size
 argument_list|()
@@ -969,7 +969,7 @@ parameter_list|(
 specifier|const
 name|QByteArray
 modifier|&
-name|url
+name|u
 parameter_list|,
 name|ParsingMode
 name|mode
@@ -984,12 +984,12 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-name|url
+name|u
 operator|.
 name|constData
 argument_list|()
 argument_list|,
-name|url
+name|u
 operator|.
 name|size
 argument_list|()
