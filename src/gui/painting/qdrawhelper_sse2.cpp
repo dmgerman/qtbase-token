@@ -4079,13 +4079,7 @@ name|s
 init|=
 name|src
 index|[
-operator|(
 name|srcx
-operator|+
-name|x
-operator|*
-name|ix
-operator|)
 operator|>>
 literal|16
 index|]
@@ -4110,6 +4104,10 @@ operator|~
 name|s
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|srcx
+operator|+=
+name|ix
 expr_stmt|;
 block|}
 name|__m128i
@@ -4271,7 +4269,7 @@ init|=
 name|src
 index|[
 operator|(
-name|srcx
+name|basex
 operator|+
 name|x
 operator|*
