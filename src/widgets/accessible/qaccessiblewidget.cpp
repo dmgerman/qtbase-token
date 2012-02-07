@@ -1457,6 +1457,9 @@ argument_list|(
 name|fw
 argument_list|)
 return|;
+return|return
+literal|0
+return|;
 block|}
 end_function
 begin_comment
