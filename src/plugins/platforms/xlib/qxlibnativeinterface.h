@@ -62,6 +62,21 @@ operator|*
 name|window
 argument_list|)
 block|;
+name|EventFilter
+name|setEventFilter
+argument_list|(
+argument|const QByteArray&eventType
+argument_list|,
+argument|EventFilter filter
+argument_list|)
+block|;
+name|EventFilter
+name|eventFilterForEventType
+argument_list|(
+argument|const QByteArray& eventType
+argument_list|)
+specifier|const
+block|;
 name|void
 operator|*
 name|displayForWindow
@@ -118,6 +133,14 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|QHash
+operator|<
+name|QByteArray
+block|,
+name|EventFilter
+operator|>
+name|m_eventFilters
+block|;
 specifier|static
 name|QXlibScreen
 operator|*

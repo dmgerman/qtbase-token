@@ -49,6 +49,12 @@ name|QXlibScreen
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QXlibNativeInterface
+name|class
+name|QXlibNativeInterface
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QXlibIntegration
 range|:
@@ -164,7 +170,7 @@ name|QPlatformClipboard
 operator|*
 name|mClipboard
 block|;
-name|QPlatformNativeInterface
+name|QXlibNativeInterface
 operator|*
 name|mNativeInterface
 block|;

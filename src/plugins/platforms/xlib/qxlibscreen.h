@@ -57,7 +57,11 @@ name|Q_OBJECT
 name|public
 range|:
 name|QXlibScreen
-argument_list|()
+argument_list|(
+name|QXlibNativeInterface
+operator|*
+name|nativeInterface
+argument_list|)
 decl_stmt|;
 operator|~
 name|QXlibScreen
@@ -246,6 +250,10 @@ modifier|*
 name|event
 parameter_list|)
 function_decl|;
+name|QXlibNativeInterface
+modifier|*
+name|mNativeInterface
+decl_stmt|;
 name|QRect
 name|mGeometry
 decl_stmt|;
