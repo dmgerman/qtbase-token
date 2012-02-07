@@ -75,7 +75,7 @@ operator|<<
 literal|"QMinimalBackingStore::QMinimalBackingStore:"
 operator|<<
 operator|(
-name|long
+name|quintptr
 operator|)
 name|this
 expr_stmt|;

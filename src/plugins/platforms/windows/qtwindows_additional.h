@@ -133,6 +133,15 @@ name|type
 parameter_list|)
 value|STDMETHODIMP_(type)
 end_define
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|__MINGW64_VERSION_MAJOR
+argument_list|)
+end_if
 begin_typedef
 DECL|struct|tagUPDATELAYEREDWINDOWINFO
 typedef|typedef
@@ -198,6 +207,13 @@ typedef|*
 name|PUPDATELAYEREDWINDOWINFO
 typedef|;
 end_typedef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// if !defined(__MINGW64_VERSION_MAJOR)
+end_comment
 begin_comment
 comment|// OpenGL Pixelformat flags.
 end_comment

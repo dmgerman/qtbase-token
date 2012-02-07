@@ -49,12 +49,6 @@ name|defined
 argument_list|(
 name|Q_OS_WIN64
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_CC_GNU
-argument_list|)
 end_if
 begin_include
 include|#
