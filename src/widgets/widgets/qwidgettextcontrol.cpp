@@ -13461,6 +13461,9 @@ operator|->
 name|wordSelectionEnabled
 return|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
 DECL|function|print
 name|void
 name|QWidgetTextControl
@@ -13640,6 +13643,8 @@ operator|delete
 name|tempDoc
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 DECL|function|createMimeDataFromSelection
 name|QMimeData
 modifier|*
