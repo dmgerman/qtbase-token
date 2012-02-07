@@ -5267,7 +5267,7 @@ parameter_list|(
 name|Condition
 parameter_list|)
 define|\
-value|enum {Q_STATIC_ASSERT_PRIVATE_JOIN(q_static_assert_result, __LINE__) = sizeof(QStaticAssertFailure<(Condition)>)}
+value|enum {Q_STATIC_ASSERT_PRIVATE_JOIN(q_static_assert_result, __LINE__) = sizeof(QStaticAssertFailure<!!(Condition)>)}
 end_define
 begin_define
 DECL|macro|Q_STATIC_ASSERT_X
