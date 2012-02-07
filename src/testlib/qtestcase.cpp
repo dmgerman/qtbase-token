@@ -5357,6 +5357,13 @@ name|defined
 argument_list|(
 name|Q_OS_WINCE
 argument_list|)
+name|_CrtSetReportMode
+argument_list|(
+name|_CRT_ERROR
+argument_list|,
+name|_CRTDBG_MODE_DEBUG
+argument_list|)
+expr_stmt|;
 name|SetErrorMode
 argument_list|(
 name|SetErrorMode
