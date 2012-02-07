@@ -263,7 +263,7 @@ argument_list|()
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 name|void
 name|_q_doneAction
 argument_list|()

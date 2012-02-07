@@ -281,7 +281,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_include
 include|#
@@ -360,7 +360,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 name|Q_INIT_RESOURCE_EXTERN
 argument_list|(
@@ -417,7 +417,7 @@ end_decl_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_decl_stmt
 DECL|member|autoMaximizeThreshold
@@ -2735,7 +2735,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 ifdef|#
 directive|ifdef
 name|QT_AUTO_MAXIMIZE_THRESHOLD
@@ -2765,7 +2765,7 @@ directive|endif
 comment|//QT_AUTO_MAXIMIZE_THRESHOLD
 endif|#
 directive|endif
-comment|//Q_WS_WINCE
+comment|//Q_OS_WINCE
 ifndef|#
 directive|ifndef
 name|QT_NO_WHEELEVENT
@@ -3917,7 +3917,7 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_function
 DECL|function|setAutoMaximizeThreshold
@@ -16276,7 +16276,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 operator|||
 operator|(

@@ -213,7 +213,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 name|bool
 name|event
@@ -300,7 +300,7 @@ argument|void _q_platformRunNativeAppModalPanel()
 argument_list|)
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()

@@ -5421,7 +5421,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 ifdef|#
 directive|ifdef
 name|QT_SMALL_COLORDIALOG
@@ -7854,7 +7854,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 operator|||
 name|defined
@@ -8020,7 +8020,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 name|leftLay
 operator|->

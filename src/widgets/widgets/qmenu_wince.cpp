@@ -8,7 +8,7 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_include
 include|#
@@ -3669,6 +3669,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//Q_WS_WINCE
+comment|//Q_OS_WINCE
 end_comment
 end_unit

@@ -918,7 +918,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|f
 operator|.
 name|setPointSize
@@ -952,7 +952,7 @@ expr_stmt|;
 comment|// to maintain compat with windows
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 specifier|const
 name|int
 name|iconSize
@@ -1085,7 +1085,7 @@ name|QLabel
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|f
 operator|.
 name|setBold
@@ -1141,7 +1141,7 @@ expr_stmt|;
 comment|// smart size for the message label
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|int
 name|limit
 init|=
@@ -1277,7 +1277,7 @@ block|}
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 comment|// Make sure that the text isn't wrapped "somewhere" in the balloon widget
 comment|// in the case that we have a long title label.
 name|setMaximumWidth

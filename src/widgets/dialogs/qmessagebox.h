@@ -366,7 +366,7 @@ end_function_decl
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_function_decl
 name|void

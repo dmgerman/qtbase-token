@@ -2351,7 +2351,7 @@ name|Sheet
 condition|)
 ifndef|#
 directive|ifndef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|flags
 operator||=
 name|Qt
@@ -13642,7 +13642,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 operator|&&
 operator|!
@@ -27560,7 +27560,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 name|s
 operator|.

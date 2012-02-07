@@ -4534,7 +4534,7 @@ return|;
 break|break;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 case|case
 name|QEvent
 operator|::

@@ -64,7 +64,7 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_include
 include|#
@@ -158,7 +158,7 @@ literal|0
 argument_list|)
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 block|,
 name|wce_menubar
 argument_list|(
@@ -181,7 +181,7 @@ name|platformMenuBar
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|delete
 name|wce_menubar
 block|;
@@ -367,7 +367,7 @@ argument_list|()
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|void
 name|_q_updateDefaultAction
 argument_list|()
@@ -442,7 +442,7 @@ name|platformMenuBar
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|void
 name|wceCreateMenuBar
 argument_list|(

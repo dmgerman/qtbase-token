@@ -544,7 +544,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_WS_WINCE
+comment|// Q_OS_WINCE
 end_comment
 begin_endif
 endif|#

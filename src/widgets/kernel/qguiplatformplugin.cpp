@@ -55,7 +55,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_include
 include|#
@@ -327,7 +327,7 @@ argument_list|)
 operator|&&
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 if|if
 condition|(

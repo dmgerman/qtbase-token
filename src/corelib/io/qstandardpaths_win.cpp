@@ -621,7 +621,7 @@ decl_stmt|;
 comment|// type-specific handling goes here
 ifndef|#
 directive|ifndef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 specifier|static
 name|GetSpecialFolderPath
 name|SHGetSpecialFolderPath

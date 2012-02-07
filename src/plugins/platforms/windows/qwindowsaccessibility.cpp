@@ -130,7 +130,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 end_if
 begin_include
@@ -183,7 +183,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_include
 include|#
@@ -6533,7 +6533,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 comment|// ### TODO: check for NotifyWinEvent in CE 6.0
 comment|// There is no user32.lib nor NotifyWinEvent for CE
@@ -6725,7 +6725,7 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-comment|// Q_WS_WINCE
+comment|// Q_OS_WINCE
 block|}
 end_function
 begin_comment

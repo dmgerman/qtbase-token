@@ -819,7 +819,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 specifier|static
 name|int
 name|autoMaximizeThreshold

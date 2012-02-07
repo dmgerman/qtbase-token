@@ -2376,7 +2376,7 @@ expr_stmt|;
 block|}
 ifndef|#
 directive|ifndef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 specifier|inline
 name|void
 name|show

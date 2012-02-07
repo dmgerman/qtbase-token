@@ -7737,7 +7737,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 operator|&&
 name|qt_priv_ptr_valid

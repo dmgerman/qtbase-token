@@ -966,13 +966,13 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 end_if
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 end_ifdef
 begin_function
 DECL|function|_q_doneAction
@@ -1032,7 +1032,7 @@ argument_list|)
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 if|if
 condition|(
 name|e

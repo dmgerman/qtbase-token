@@ -206,7 +206,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|Q_PROPERTY
 argument_list|(
 argument|int autoMaximizeThreshold READ autoMaximizeThreshold WRITE setAutoMaximizeThreshold
@@ -1059,7 +1059,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|void
 name|setAutoMaximizeThreshold
 argument_list|(
