@@ -5224,7 +5224,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the tag associated with this method.      Tags are special macros recognized by \c moc that make it     possible to add extra information about a method. For the moment,     \c moc doesn't support any special tags. */
+comment|/*!     Returns the tag associated with this method.      Tags are special macros recognized by \c moc that make it     possible to add extra information about a method.      Tag information can be added in the following     way in the function declaration:      \code         #define THISISTESTTAG // tag text         ...         private slots:             THISISTESTTAG void testFunc();     \endcode      and the information can be accessed by using:      \code         MainWindow win;         win.show();          int functionIndex = win.metaObject()->indexOfSlot("testFunc()");         QMetaMethod mm = metaObject()->method(functionIndex);         qDebug()<< mm.tag(); // prints THISISTESTTAG     \endcode      For the moment,     \c moc doesn't support any special tags. */
 end_comment
 begin_function
 DECL|function|tag

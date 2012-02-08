@@ -112,7 +112,7 @@ begin_if
 if|if
 condition|(
 name|id
-operator|==
+operator|!=
 literal|0
 condition|)
 block|{

@@ -9641,7 +9641,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the last child element with tag name \a tagName if tagName is non-empty;     otherwise returns the first child element. Returns a null element if no     such child exists.      \sa firstChildElement() previousSiblingElement() nextSiblingElement() */
+comment|/*!     Returns the last child element with tag name \a tagName if tagName is non-empty;     otherwise returns the last child element. Returns a null element if no     such child exists.      \sa firstChildElement() previousSiblingElement() nextSiblingElement() */
 end_comment
 begin_function
 DECL|function|lastChildElement
