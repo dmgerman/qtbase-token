@@ -39815,7 +39815,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the human-displayable string representation of the     URL. The output can be customized by passing flags with \a     options.      The resulting QString can be passed back to a QUrl later on.      Synonym for url(options).      \sa FormattingOptions, toEncoded(), url() */
+comment|/*!     Returns a string representation of the URL.     The output can be customized by passing flags with \a options.      The resulting QString can be passed back to a QUrl later on.      Synonym for url(options).      \sa FormattingOptions, toEncoded(), url() */
 end_comment
 begin_function
 DECL|function|toString
@@ -40162,7 +40162,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the human-displayable string representation of the     URL. The output can be customized by passing flags with \a     options.      The resulting QString can be passed back to a QUrl later on.      Synonym for toString(options).      \sa FormattingOptions, toEncoded(), toString() */
+comment|/*!     Returns a string representation of the URL.     The output can be customized by passing flags with \a options.      The resulting QString can be passed back to a QUrl later on.      Synonym for toString(options).      \sa FormattingOptions, toEncoded(), toString() */
 end_comment
 begin_function
 DECL|function|url
@@ -40180,6 +40180,31 @@ return|return
 name|toString
 argument_list|(
 name|options
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns a human-displayable string representation of the URL.     The output can be customized by passing flags with \a options.     The option RemovePassword is always enabled, since passwords     should never be shown back to users.      The resulting QString can be passed back to a QUrl later on,     but any password that was present initially will be lost.      \sa FormattingOptions, toEncoded(), toString() */
+end_comment
+begin_function
+DECL|function|toDisplayString
+name|QString
+name|QUrl
+operator|::
+name|toDisplayString
+parameter_list|(
+name|FormattingOptions
+name|options
+parameter_list|)
+specifier|const
+block|{
+return|return
+name|toString
+argument_list|(
+name|options
+operator||
+name|RemovePassword
 argument_list|)
 return|;
 block|}

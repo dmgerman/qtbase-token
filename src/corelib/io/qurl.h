@@ -269,6 +269,16 @@ name|None
 argument_list|)
 decl|const
 decl_stmt|;
+name|QString
+name|toDisplayString
+argument_list|(
+name|FormattingOptions
+name|options
+operator|=
+name|None
+argument_list|)
+decl|const
+decl_stmt|;
 name|bool
 name|isValid
 argument_list|()
