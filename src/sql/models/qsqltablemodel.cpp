@@ -2040,11 +2040,6 @@ argument_list|,
 name|index
 argument_list|)
 emit|;
-name|bool
-name|isOk
-init|=
-literal|true
-decl_stmt|;
 if|if
 condition|(
 name|d
@@ -2062,35 +2057,12 @@ name|QSqlTableModelPrivate
 operator|::
 name|Insert
 condition|)
-block|{
-comment|// historical bug: bad style to call updateRowInTable.
-comment|// Should call submit(), but maybe the author wanted to avoid
-comment|// clearing the cache on failure.
-name|isOk
-operator|=
-name|updateRowInTable
-argument_list|(
-name|index
-operator|.
-name|row
-argument_list|()
-argument_list|,
-name|row
-operator|.
-name|rec
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|isOk
-condition|)
-name|select
-argument_list|()
-expr_stmt|;
-block|}
 return|return
-name|isOk
+name|submit
+argument_list|()
+return|;
+return|return
+literal|true
 return|;
 block|}
 end_function
