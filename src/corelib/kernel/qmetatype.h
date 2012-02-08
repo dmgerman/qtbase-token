@@ -1975,7 +1975,7 @@ parameter_list|(
 name|SINGLE_ARG_TEMPLATE
 parameter_list|)
 define|\
-value|template<typename T> \ struct QMetaTypeId< SINGLE_ARG_TEMPLATE<T>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (!metatype_id.load()) \             metatype_id.storeRelease(qRegisterMetaType< SINGLE_ARG_TEMPLATE<T>>( QByteArray(QByteArray(#SINGLE_ARG_TEMPLATE "<") + QMetaType::typeName(qMetaTypeId<T>()) + ">"), \                         reinterpret_cast< SINGLE_ARG_TEMPLATE<T> *>(quintptr(-1)))); \         return metatype_id.loadAcquire(); \     } \ };
+value|template<typename T> \ struct QMetaTypeId< SINGLE_ARG_TEMPLATE<T>> \ { \     enum { \         Defined = QMetaTypeId2<T>::Defined \     }; \     static int qt_metatype_id() \     { \         static QBasicAtomicInt metatype_id = Q_BASIC_ATOMIC_INITIALIZER(0); \         if (!metatype_id.load()) \             metatype_id.storeRelease(qRegisterMetaType< SINGLE_ARG_TEMPLATE<T>>( QByteArray(QByteArray(#SINGLE_ARG_TEMPLATE "<") + QMetaType::typeName(qMetaTypeId<T>()) + ">").constData(), \                         reinterpret_cast< SINGLE_ARG_TEMPLATE<T> *>(quintptr(-1)))); \         return metatype_id.loadAcquire(); \     } \ };
 end_define
 begin_macro
 name|Q_DECLARE_METATYPE_TEMPLATE_1ARG
