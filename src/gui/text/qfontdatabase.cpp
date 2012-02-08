@@ -3724,6 +3724,9 @@ parameter_list|,
 name|QFontDef
 modifier|*
 name|fontDef
+parameter_list|,
+name|bool
+name|multi
 parameter_list|)
 block|{
 name|fontDef
@@ -3860,6 +3863,11 @@ name|request
 operator|.
 name|styleStrategy
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|multi
+condition|)
 name|fontDef
 operator|->
 name|weight
@@ -3872,6 +3880,11 @@ name|key
 operator|.
 name|weight
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|multi
+condition|)
 name|fontDef
 operator|->
 name|style
