@@ -682,15 +682,6 @@ name|offset
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_function_decl
-name|QSize
-name|minimumTabSizeHint
-parameter_list|(
-name|int
-name|index
-parameter_list|)
-function_decl|;
-end_function_decl
 begin_decl_stmt
 name|QToolButton
 modifier|*

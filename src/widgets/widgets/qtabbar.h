@@ -536,6 +536,14 @@ argument_list|)
 specifier|const
 block|;
 name|virtual
+name|QSize
+name|minimumTabSizeHint
+argument_list|(
+argument|int index
+argument_list|)
+specifier|const
+block|;
+name|virtual
 name|void
 name|tabInserted
 argument_list|(
