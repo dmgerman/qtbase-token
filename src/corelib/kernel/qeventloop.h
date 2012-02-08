@@ -175,6 +175,14 @@ modifier|*
 name|loop
 parameter_list|)
 function_decl|;
+name|explicit
+name|QEventLoopLocker
+parameter_list|(
+name|QThread
+modifier|*
+name|thread
+parameter_list|)
+function_decl|;
 operator|~
 name|QEventLoopLocker
 argument_list|()

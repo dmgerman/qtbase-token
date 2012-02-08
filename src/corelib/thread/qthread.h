@@ -167,6 +167,14 @@ operator|*
 name|eventDispatcher
 argument_list|)
 block|;
+name|bool
+name|event
+argument_list|(
+name|QEvent
+operator|*
+name|event
+argument_list|)
+block|;
 name|public
 name|Q_SLOTS
 operator|:
