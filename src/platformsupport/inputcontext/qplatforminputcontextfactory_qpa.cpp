@@ -226,7 +226,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-name|getenv
+name|qgetenv
 argument_list|(
 literal|"QT_IM_MODULE"
 argument_list|)
