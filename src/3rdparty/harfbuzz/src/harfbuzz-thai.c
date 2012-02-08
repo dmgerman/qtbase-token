@@ -2410,7 +2410,7 @@ argument_list|,
 name|availableGlyphs
 argument_list|,
 comment|/*doLogClusters*/
-name|false
+name|true
 argument_list|)
 return|;
 block|}
