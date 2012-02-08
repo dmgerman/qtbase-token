@@ -12521,6 +12521,13 @@ argument_list|,
 literal|"CustomType*"
 argument_list|)
 expr_stmt|;
+name|qRegisterMetaType
+argument_list|<
+name|CustomType
+operator|*
+argument_list|>
+argument_list|()
+expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|property
