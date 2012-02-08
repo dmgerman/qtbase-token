@@ -435,6 +435,7 @@ index|[
 name|i
 index|]
 expr_stmt|;
+elseif|else
 if|if
 condition|(
 name|string
