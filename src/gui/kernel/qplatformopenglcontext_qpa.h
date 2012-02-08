@@ -13,6 +13,11 @@ define|#
 directive|define
 name|QPLATFORMGLCONTEXT_H
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -178,6 +183,13 @@ begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER
 end_expr_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_OPENGL
+end_comment
 begin_endif
 endif|#
 directive|endif
