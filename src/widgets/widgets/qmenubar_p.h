@@ -524,6 +524,16 @@ argument_list|(
 name|QAction
 operator|*
 argument_list|,
+name|QAction
+operator|*
+argument_list|)
+block|;
+name|void
+name|addAction
+argument_list|(
+name|QAction
+operator|*
+argument_list|,
 name|QWceMenuAction
 operator|*
 operator|=
