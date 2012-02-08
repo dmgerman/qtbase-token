@@ -77,14 +77,17 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+comment|/*         We deliberately dereference an invalid but non-zero address;         it should be non-zero because a few platforms may have special crash behavior         when dereferencing exactly 0 (e.g. some macs have been observed to generate SIGILL         rather than SIGSEGV).     */
 name|int
 modifier|*
 name|i
 init|=
 literal|0
 decl_stmt|;
-operator|*
 name|i
+index|[
+literal|1
+index|]
 operator|=
 literal|1
 expr_stmt|;
