@@ -313,24 +313,18 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
-operator|(
-operator|(
-operator|(
 name|quintptr
-operator|)
-name|validation
-operator|)
+argument_list|(
+name|data
+argument_list|)
 operator|&
-operator|~
 literal|3
-operator|)
 condition|)
 block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"QJsonDocumnt::fromRawData: data has to have 4 byte alignment"
+literal|"QJsonDocument::fromRawData: data has to have 4 byte alignment"
 expr_stmt|;
 return|return
 name|QJsonDocument
