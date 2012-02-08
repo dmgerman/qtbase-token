@@ -6195,6 +6195,14 @@ operator|+
 name|dataOffset
 argument_list|)
 expr_stmt|;
+name|output
+operator|->
+name|d
+operator|.
+name|extradata
+operator|=
+literal|0
+expr_stmt|;
 block|}
 end_function
 begin_comment
