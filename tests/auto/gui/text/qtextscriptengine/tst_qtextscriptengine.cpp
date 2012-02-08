@@ -7782,7 +7782,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"à¸£âà¸£âà¸£âà¸£â¦à¸£âà¸£\xA0à¸£æ¬à¸£"
+literal|"à¸£âà¸£â.à¸£.âà¸£â¦à¸£âà¸£\xA0à¸£æ¬à¸£"
 argument_list|)
 operator|+
 name|QChar
@@ -7867,7 +7867,7 @@ name|num_glyphs
 argument_list|,
 name|ushort
 argument_list|(
-literal|5
+literal|7
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8093,7 +8093,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|5
+literal|7
 condition|;
 name|i
 operator|++
@@ -8131,7 +8131,7 @@ name|logClusters
 index|[
 name|i
 operator|+
-literal|5
+literal|7
 index|]
 argument_list|,
 name|ushort
@@ -8144,7 +8144,7 @@ name|QCOMPARE
 argument_list|(
 name|logClusters
 index|[
-literal|15
+literal|17
 index|]
 argument_list|,
 name|ushort
@@ -8164,7 +8164,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|16
+literal|18
 condition|;
 name|i
 operator|++

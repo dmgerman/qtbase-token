@@ -385,18 +385,71 @@ operator|++
 name|i
 control|)
 block|{
+comment|// According to the unicode spec we should be treating characters in the Common script
+comment|// (punctuation, spaces, etc) as being the same script as the surrounding text for the
+comment|// purpose of splitting up text. This is important because, for example, a fullstop
+comment|// (0x2E) can be used to indicate an abbreviation and so must be treated as part of a
+comment|// word.  Thus it must be passed along with the word in languages that have to calculate
+comment|// word breaks.  For example the thai word "à¸à¸£à¸¡." has no word breaks but the word "à¸à¸£à¸¡"
+comment|// does.
+comment|// Unfortuntely because we split up the strings for both wordwrapping and for setting
+comment|// the font and because Japanese and Chinese are also aliases of the script "Common",
+comment|// doing this would break too many things.  So instead we only pass the full stop
+comment|// along, and nothing else.
 if|if
 condition|(
-operator|(
 name|m_analysis
 index|[
 name|i
 index|]
+operator|.
+name|bidiLevel
 operator|==
 name|m_analysis
 index|[
 name|start
 index|]
+operator|.
+name|bidiLevel
+operator|&&
+name|m_analysis
+index|[
+name|i
+index|]
+operator|.
+name|flags
+operator|==
+name|m_analysis
+index|[
+name|start
+index|]
+operator|.
+name|flags
+operator|&&
+operator|(
+name|m_analysis
+index|[
+name|i
+index|]
+operator|.
+name|script
+operator|==
+name|m_analysis
+index|[
+name|start
+index|]
+operator|.
+name|script
+operator|||
+name|m_string
+index|[
+name|i
+index|]
+operator|==
+name|QLatin1Char
+argument_list|(
+literal|'.'
+argument_list|)
 operator|)
 operator|&&
 name|m_analysis
