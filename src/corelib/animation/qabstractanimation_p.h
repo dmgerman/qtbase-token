@@ -508,6 +508,10 @@ name|restart
 argument_list|()
 block|;
 name|void
+name|maybeUpdateAnimationsToCurrentTime
+argument_list|()
+block|;
+name|void
 name|updateAnimationTimers
 argument_list|(
 argument|qint64 currentTick
