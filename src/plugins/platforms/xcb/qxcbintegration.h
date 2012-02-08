@@ -160,6 +160,12 @@ specifier|const
 block|;
 endif|#
 directive|endif
+name|QPlatformServices
+operator|*
+name|services
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QList
@@ -211,7 +217,12 @@ name|m_sharedGraphicsCache
 block|;
 endif|#
 directive|endif
-block|}
+name|QScopedPointer
+operator|<
+name|QPlatformServices
+operator|>
+name|m_services
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro

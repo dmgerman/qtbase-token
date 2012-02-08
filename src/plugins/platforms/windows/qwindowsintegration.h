@@ -145,6 +145,12 @@ name|platformTheme
 argument_list|()
 specifier|const
 block|;
+name|QPlatformServices
+operator|*
+name|services
+argument_list|()
+specifier|const
+block|;
 name|virtual
 name|QVariant
 name|styleHint

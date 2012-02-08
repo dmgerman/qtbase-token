@@ -121,6 +121,12 @@ name|QPlatformSharedGraphicsCache
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPlatformServices
+name|class
+name|QPlatformServices
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QPlatformIntegration
@@ -286,6 +292,13 @@ name|virtual
 name|QPlatformNativeInterface
 operator|*
 name|nativeInterface
+argument_list|()
+specifier|const
+expr_stmt|;
+name|virtual
+name|QPlatformServices
+operator|*
+name|services
 argument_list|()
 specifier|const
 expr_stmt|;

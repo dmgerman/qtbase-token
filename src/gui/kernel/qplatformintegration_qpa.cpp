@@ -166,6 +166,21 @@ literal|0
 return|;
 block|}
 end_function
+begin_function
+DECL|function|services
+name|QPlatformServices
+modifier|*
+name|QPlatformIntegration
+operator|::
+name|services
+parameter_list|()
+specifier|const
+block|{
+return|return
+literal|0
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     \class QPlatformIntegration     \since 4.8     \internal     \preliminary     \ingroup qpa     \brief The QPlatformIntegration class is the entry for WindowSystem specific functionality.      QPlatformIntegration is the single entry point for windowsystem specific functionality when     using the QPA platform. It has factory functions for creating platform specific pixmaps and     windows. The class also controls the font subsystem.      QPlatformIntegration is a singleton class which gets instantiated in the QGuiApplication     constructor. The QPlatformIntegration instance do not have ownership of objects it creates in     functions where the name starts with create. However, functions which don't have a name     starting with create acts as accessors to member variables.      It is not trivial to create or build a platform plugin outside of the Qt source tree. Therefore     the recommended approach for making new platform plugin is to copy an existing plugin inside     the QTSRCTREE/src/plugins/platform and develop the plugin inside the source tree.      The minimal platform integration is the smallest platform integration it is possible to make,     which makes it an ideal starting point for new plugins. For a slightly more advanced plugin,     consider reviewing the directfb plugin, or the testlite plugin. */
 end_comment
