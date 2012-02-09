@@ -470,6 +470,26 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|listen
+name|bool
+name|QLocalServerPrivate
+operator|::
+name|listen
+parameter_list|(
+name|qintptr
+parameter_list|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QLocalServer::listen(qintptr) is not supported on Windows QTBUG-24230"
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_function
 DECL|function|_q_onNewConnection
 name|void
 name|QLocalServerPrivate

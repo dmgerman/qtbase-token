@@ -136,6 +136,12 @@ operator|&
 name|name
 argument_list|)
 block|;
+name|bool
+name|listen
+argument_list|(
+argument|qintptr socketDescriptor
+argument_list|)
+block|;
 name|int
 name|maxPendingConnections
 argument_list|()
