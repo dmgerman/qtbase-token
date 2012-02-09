@@ -397,6 +397,16 @@ operator|::
 name|argc
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|QSKIP
+argument_list|(
+literal|"QCoreApplication::arguments() always parses arguments from actual command line in Windows, making this test invalid."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|{
 name|int
 name|argc

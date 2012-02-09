@@ -3673,6 +3673,10 @@ argument_list|,
 literal|"bubu"
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_CC_MSVC
+comment|// MSVC implementation of vsnprintf overwrites bytes after null terminator so this would fail.
 name|QCOMPARE
 argument_list|(
 name|buf
@@ -3686,6 +3690,8 @@ literal|42
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|qMemSet
 argument_list|(
 name|buf
