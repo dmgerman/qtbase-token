@@ -654,7 +654,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 argument_list|)
 name|QSKIP
 argument_list|(

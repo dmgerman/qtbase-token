@@ -2291,7 +2291,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 name|QSKIP
 argument_list|(
 literal|"WinCE WM: Fails on Windows Mobile w/o OpenGL"

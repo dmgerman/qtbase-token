@@ -7367,7 +7367,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 name|QSKIP
 argument_list|(
 literal|"With native menubar integration the menubar is not a child"
