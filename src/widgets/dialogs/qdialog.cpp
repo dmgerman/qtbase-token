@@ -1065,7 +1065,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!   Returns the modal dialog's result code, \c Accepted or \c Rejected.    Do not call this function if the dialog was constructed with the   Qt::WA_DeleteOnClose attribute. */
+comment|/*!   In general returns the modal dialog's result code, \c Accepted or   \c Rejected.    \note When called on a QMessageBox instance, the returned value is a   value of the \l QMessageBox::StandardButton enum.    Do not call this function if the dialog was constructed with the   Qt::WA_DeleteOnClose attribute. */
 end_comment
 begin_function
 DECL|function|result
