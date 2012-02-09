@@ -42037,7 +42037,7 @@ literal|"QUrl("
 operator|<<
 name|url
 operator|.
-name|toString
+name|toDisplayString
 argument_list|()
 operator|<<
 literal|')'
