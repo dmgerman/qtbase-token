@@ -1043,19 +1043,10 @@ begin_comment
 comment|/*!     \fn QAccessibleImageInterface *QAccessibleInterface::imageInterface()     \internal */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleEvent      \internal      \brief The QAccessibleEvent class is used to query addition     accessibility information about complex widgets.      The event can be of type QEvent::AccessibilityDescription or     QEvent::AccessibilityHelp.      Some QAccessibleInterface implementations send QAccessibleEvents     to the widget they wrap to obtain the description or help text of     a widget or of its children. The widget can answer by calling     setValue() with the requested information.      The default QWidget::event() implementation simply sets the text     to be the widget's \l{QWidget::toolTip}{tooltip} (for \l     AccessibilityDescription event) or its     \l{QWidget::whatsThis}{"What's This?" text} (for \l     AccessibilityHelp event).      \ingroup accessibility     \ingroup events     \inmodule QtWidgets */
+comment|/*!     \class QAccessibleEvent      \brief The QAccessibleEvent class is used to give detailed updates to the     accessibility framework. It is used together with \l QAccessible::updateAccessibility.      The event is one of the \l QAccessible::Event which depending on the type of event needs to use     one of the subclasses of QAccessibleEvent.      \ingroup accessibility     \inmodule QtGui */
 end_comment
 begin_comment
-comment|/*!     \fn QAccessibleEvent::QAccessibleEvent(Type type)      Constructs an accessibility event of the given \a type, which     must be QEvent::AccessibilityDescription or     QEvent::AccessibilityHelp. */
-end_comment
-begin_comment
-comment|/*!     \fn int QAccessibleEvent::child() const      Returns the (1-based) index of the child to which the request     applies. If the child is 0, the request is for the widget itself. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QAccessibleEvent::value() const      Returns the text set using setValue().      \sa setValue() */
-end_comment
-begin_comment
-comment|/*!     \fn void QAccessibleEvent::setValue(const QString&text)      Set the description or help text for the given child() to \a     text, thereby answering the request.      \sa value() */
+comment|/*!     \fn QAccessibleEvent::QAccessibleEvent(QAccessible::Event type, QObject *object, int child = -1)      Constructs an accessibility event of the given \a type.     It also requires an \a object as source of the event and optionally a \a child index,     if the event comes from a child of the object.      Using a \a child index maybe more efficient than creating the accessible interface for the child. */
 end_comment
 begin_comment
 comment|/*!     Returns the window associated with the underlying object.     For instance, QAccessibleWidget reimplements this and returns     the windowHandle() of the QWidget.      It is used on some platforms to be able to notify the AT client about     state changes.     The backend will traverse up all ancestors until it finds a window.     (This means that at least one interface among the ancestors should     return a valid QWindow pointer).      The default implementation of this returns 0.     \preliminary   */
