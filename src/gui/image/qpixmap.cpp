@@ -3915,8 +3915,60 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QPixmap QPixmap::grabWindow(WId window, int x, int y, int     width, int height)      Creates and returns a pixmap constructed by grabbing the contents     of the given \a window restricted by QRect(\a x, \a y, \a width,     \a height).      The arguments (\a{x}, \a{y}) specify the offset in the window,     whereas (\a{width}, \a{height}) specify the area to be copied.  If     \a width is negative, the function copies everything to the right     border of the window. If \a height is negative, the function     copies everything to the bottom of the window.      The window system identifier (\c WId) can be retrieved using the     QWidget::winId() function. The rationale for using a window     identifier and not a QWidget, is to enable grabbing of windows     that are not part of the application, window system frames, and so     on.      The grabWindow() function grabs pixels from the screen, not from     the window, i.e. if there is another window partially or entirely     over the one you grab, you get pixels from the overlying window,     too. The mouse cursor is generally not grabbed.      Note on X11 that if the given \a window doesn't have the same depth     as the root window, and another window partially or entirely     obscures the one you grab, you will \e not get pixels from the     overlying window.  The contents of the obscured areas in the     pixmap will be undefined and uninitialized.      On Windows Vista and above grabbing a layered window, which is     created by setting the Qt::WA_TranslucentBackground attribute, will     not work. Instead grabbing the desktop widget should work.      \warning In general, grabbing an area outside the screen is not     safe. This depends on the underlying window system.      \sa grabWidget(), {Screenshot Example} */
+comment|/*!     \fn QPixmap QPixmap::grabWindow(WId window, int x, int y, int     width, int height)      Creates and returns a pixmap constructed by grabbing the contents     of the given \a window restricted by QRect(\a x, \a y, \a width,     \a height).      The arguments (\a{x}, \a{y}) specify the offset in the window,     whereas (\a{width}, \a{height}) specify the area to be copied.  If     \a width is negative, the function copies everything to the right     border of the window. If \a height is negative, the function     copies everything to the bottom of the window.      The window system identifier (\c WId) can be retrieved using the     QWidget::winId() function. The rationale for using a window     identifier and not a QWidget, is to enable grabbing of windows     that are not part of the application, window system frames, and so     on.      The grabWindow() function grabs pixels from the screen, not from     the window, i.e. if there is another window partially or entirely     over the one you grab, you get pixels from the overlying window,     too. The mouse cursor is generally not grabbed.      Note on X11 that if the given \a window doesn't have the same depth     as the root window, and another window partially or entirely     obscures the one you grab, you will \e not get pixels from the     overlying window.  The contents of the obscured areas in the     pixmap will be undefined and uninitialized.      On Windows Vista and above grabbing a layered window, which is     created by setting the Qt::WA_TranslucentBackground attribute, will     not work. Instead grabbing the desktop widget should work.      \warning In general, grabbing an area outside the screen is not     safe. This depends on the underlying window system.      \warning The function is deprecated in Qt 5.0 since there might be     platform plugins in which window system identifiers (\c WId)     are local to a screen. Use QScreen::grabWindow() instead.      \sa grabWidget(), {Screenshot Example}     \sa QScreen     \deprecated */
 end_comment
+begin_function
+DECL|function|grabWindow
+name|QPixmap
+name|QPixmap
+operator|::
+name|grabWindow
+parameter_list|(
+name|WId
+name|window
+parameter_list|,
+name|int
+name|x
+parameter_list|,
+name|int
+name|y
+parameter_list|,
+name|int
+name|w
+parameter_list|,
+name|int
+name|h
+parameter_list|)
+block|{
+name|qWarning
+argument_list|(
+literal|"%s is deprecated, use QScreen::grabWindow() instead."
+literal|" Defaulting to primary screen."
+argument_list|,
+name|Q_FUNC_INFO
+argument_list|)
+expr_stmt|;
+return|return
+name|QGuiApplication
+operator|::
+name|primaryScreen
+argument_list|()
+operator|->
+name|grabWindow
+argument_list|(
+name|window
+argument_list|,
+name|x
+argument_list|,
+name|y
+argument_list|,
+name|w
+argument_list|,
+name|h
+argument_list|)
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!   \internal */
 end_comment
