@@ -903,10 +903,6 @@ block|}
 block|;      enum
 name|RelationFlag
 block|{
-name|Unrelated
-operator|=
-literal|0x00000000
-block|,
 name|Label
 operator|=
 literal|0x00020000
@@ -923,9 +919,9 @@ name|Controlled
 operator|=
 literal|0x00100000
 block|,
-name|LogicalMask
+name|AllRelations
 operator|=
-literal|0x00ff0000
+literal|0xffffffff
 block|}
 block|;
 name|Q_DECLARE_FLAGS
@@ -1264,7 +1260,9 @@ name|Relation
 operator|>
 expr|>
 name|relations
-argument_list|()
+argument_list|(
+argument|QAccessible::Relation match = QAccessible::AllRelations
+argument_list|)
 specifier|const
 expr_stmt|;
 name|virtual

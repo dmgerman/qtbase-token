@@ -853,15 +853,15 @@ block|{
 return|return
 name|QAccessible
 operator|::
-name|Unrelated
+name|Relation
+argument_list|()
 return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the meaningful relations to other widgets. Usually this will not return parent/child     relations, unless they are handled in a specific way such as in tree views.     It will typically return the labelled-by and label relations.      \sa relationTo(), navigate() */
+comment|/*!     Returns the meaningful relations to other widgets. Usually this will not return parent/child     relations, unless they are handled in a specific way such as in tree views.     It will typically return the labelled-by and label relations.     It should never return itself.      \sa relationTo(), navigate() */
 end_comment
 begin_function
-DECL|function|relations
 name|QVector
 argument_list|<
 name|QPair
@@ -874,10 +874,16 @@ operator|::
 name|Relation
 argument_list|>
 argument_list|>
+DECL|function|relations
 name|QAccessibleInterface
 operator|::
 name|relations
-parameter_list|()
+parameter_list|(
+name|QAccessible
+operator|::
+name|Relation
+comment|/*match = QAccessible::AllRelations*/
+parameter_list|)
 specifier|const
 block|{
 return|return
