@@ -70,12 +70,6 @@ name|QStyleOptionSlider
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QStyleOptionViewItemV4
-name|class
-name|QStyleOptionViewItemV4
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QWindowsMobileStylePrivate
 range|:
