@@ -152,6 +152,14 @@ argument|const QString&name
 argument_list|)
 specifier|const
 block|;
+name|int
+name|insertCount
+argument_list|(
+argument|int maxRow = -
+literal|1
+argument_list|)
+specifier|const
+block|;
 name|void
 name|initRecordAndPrimaryIndex
 argument_list|()
