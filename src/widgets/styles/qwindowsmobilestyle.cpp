@@ -171,11 +171,6 @@ include|#
 directive|include
 file|"qt_windows.h"
 end_include
-begin_include
-include|#
-directive|include
-file|"qguifunctions_wince.h"
-end_include
 begin_function_decl
 specifier|extern
 name|bool

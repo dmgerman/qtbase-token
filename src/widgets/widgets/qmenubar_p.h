@@ -61,20 +61,6 @@ end_include
 begin_comment
 comment|// Mac needs what in this file!
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
-end_ifdef
-begin_include
-include|#
-directive|include
-file|"qguifunctions_wince.h"
-end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#

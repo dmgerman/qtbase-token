@@ -57,11 +57,6 @@ ifdef|#
 directive|ifdef
 name|Q_OS_WINCE
 end_ifdef
-begin_include
-include|#
-directive|include
-file|"qguifunctions_wince.h"
-end_include
 begin_function_decl
 specifier|extern
 name|bool

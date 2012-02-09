@@ -99,11 +99,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_include
-include|#
-directive|include
-file|"qguifunctions_wince.h"
-end_include
 begin_ifndef
 ifndef|#
 directive|ifndef

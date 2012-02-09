@@ -117,11 +117,6 @@ end_function_decl
 begin_comment
 comment|//defined in qguifunctions_wince.cpp
 end_comment
-begin_include
-include|#
-directive|include
-file|"qguifunctions_wince.h"
-end_include
 begin_endif
 endif|#
 directive|endif
