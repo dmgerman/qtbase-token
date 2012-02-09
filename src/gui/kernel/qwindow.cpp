@@ -3674,6 +3674,11 @@ name|QEvent
 operator|::
 name|TouchEnd
 case|:
+case|case
+name|QEvent
+operator|::
+name|TouchCancel
+case|:
 name|touchEvent
 argument_list|(
 cast|static_cast

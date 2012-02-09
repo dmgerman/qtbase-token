@@ -28089,6 +28089,11 @@ case|:
 case|case
 name|QEvent
 operator|::
+name|TouchCancel
+case|:
+case|case
+name|QEvent
+operator|::
 name|ContextMenu
 case|:
 ifndef|#
@@ -30203,6 +30208,11 @@ case|case
 name|QEvent
 operator|::
 name|TouchEnd
+case|:
+case|case
+name|QEvent
+operator|::
+name|TouchCancel
 case|:
 block|{
 name|event
