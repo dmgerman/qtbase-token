@@ -25293,6 +25293,15 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|pkgConfiglibName
+operator|+=
+name|project
+operator|->
+name|first
+argument_list|(
+literal|"TARGET_VERSION_EXT"
+argument_list|)
+expr_stmt|;
 block|}
 name|t
 operator|<<
