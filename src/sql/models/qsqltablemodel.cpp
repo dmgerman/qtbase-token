@@ -1277,18 +1277,6 @@ return|return
 name|QVariant
 argument_list|()
 return|;
-comment|// Problem.. we need to use QSQM::indexInQuery to handle inserted columns
-comment|// but inserted rows we need to handle
-comment|// and indexInQuery is not virtual (grrr) so any values we pass to QSQM need
-comment|// to handle the insertedRows
-name|QModelIndex
-name|item
-init|=
-name|indexInQuery
-argument_list|(
-name|index
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|d
@@ -1349,14 +1337,14 @@ condition|)
 block|{
 if|if
 condition|(
-name|item
+name|index
 operator|.
 name|column
 argument_list|()
 operator|<
 literal|0
 operator|||
-name|item
+name|index
 operator|.
 name|column
 argument_list|()
@@ -1381,7 +1369,7 @@ argument_list|()
 operator|.
 name|value
 argument_list|(
-name|item
+name|index
 operator|.
 name|column
 argument_list|()
@@ -1410,7 +1398,7 @@ argument_list|()
 operator|.
 name|isGenerated
 argument_list|(
-name|item
+name|index
 operator|.
 name|column
 argument_list|()
@@ -1424,7 +1412,7 @@ argument_list|()
 operator|.
 name|value
 argument_list|(
-name|item
+name|index
 operator|.
 name|column
 argument_list|()
@@ -1463,7 +1451,7 @@ argument_list|()
 operator|.
 name|isGenerated
 argument_list|(
-name|item
+name|index
 operator|.
 name|column
 argument_list|()
@@ -1478,7 +1466,7 @@ argument_list|()
 operator|.
 name|value
 argument_list|(
-name|item
+name|index
 operator|.
 name|column
 argument_list|()
@@ -1487,26 +1475,12 @@ return|;
 break|break;
 block|}
 block|}
-comment|// We need to handle row mapping here, but not column mapping
 return|return
 name|QSqlQueryModel
 operator|::
 name|data
 argument_list|(
 name|index
-operator|.
-name|sibling
-argument_list|(
-name|item
-operator|.
-name|row
-argument_list|()
-argument_list|,
-name|index
-operator|.
-name|column
-argument_list|()
-argument_list|)
 argument_list|,
 name|role
 argument_list|)
@@ -4299,18 +4273,6 @@ specifier|const
 name|QSqlTableModel
 argument_list|)
 expr_stmt|;
-specifier|const
-name|QModelIndex
-name|it
-init|=
-name|QSqlQueryModel
-operator|::
-name|indexInQuery
-argument_list|(
-name|item
-argument_list|)
-decl_stmt|;
-comment|// this adjusts columns only
 name|int
 name|rowOffset
 init|=
@@ -4346,7 +4308,7 @@ operator|.
 name|key
 argument_list|()
 operator|<=
-name|it
+name|item
 operator|.
 name|row
 argument_list|()
@@ -4374,24 +4336,29 @@ name|i
 expr_stmt|;
 block|}
 return|return
+name|QSqlQueryModel
+operator|::
+name|indexInQuery
+argument_list|(
 name|createIndex
 argument_list|(
-name|it
+name|item
 operator|.
 name|row
 argument_list|()
 operator|-
 name|rowOffset
 argument_list|,
-name|it
+name|item
 operator|.
 name|column
 argument_list|()
 argument_list|,
-name|it
+name|item
 operator|.
 name|internalPointer
 argument_list|()
+argument_list|)
 argument_list|)
 return|;
 block|}
