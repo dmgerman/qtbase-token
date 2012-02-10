@@ -103,15 +103,6 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|QT_ARCH_SH
-argument_list|)
-include|#
-directive|include
-file|"QtCore/qatomic_sh.h"
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|QT_ARCH_SH4A
 argument_list|)
 include|#
