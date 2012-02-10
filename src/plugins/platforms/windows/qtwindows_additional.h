@@ -26,6 +26,22 @@ include|#
 directive|include
 file|<QtCore/qt_windows.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|WM_THEMECHANGED
+end_ifndef
+begin_define
+DECL|macro|WM_THEMECHANGED
+define|#
+directive|define
+name|WM_THEMECHANGED
+value|0x031A
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* Complement the definitions and declarations missing  * when using MinGW or older Windows SDKs. */
 end_comment

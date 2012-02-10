@@ -376,6 +376,10 @@ specifier|static
 name|int
 name|verboseDialogs
 decl_stmt|;
+specifier|static
+name|int
+name|verboseTheming
+decl_stmt|;
 name|explicit
 name|QWindowsContext
 parameter_list|()

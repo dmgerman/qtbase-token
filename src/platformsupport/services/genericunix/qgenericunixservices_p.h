@@ -46,6 +46,11 @@ block|}
 block|;
 name|QGenericUnixServices
 argument_list|()
+block|{}
+specifier|static
+name|DesktopEnvironment
+name|desktopEnvironment
+argument_list|()
 block|;
 name|virtual
 name|bool
@@ -69,10 +74,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-specifier|const
-name|DesktopEnvironment
-name|m_desktopEnvironment
-block|;
 name|QString
 name|m_webBrowser
 block|;
