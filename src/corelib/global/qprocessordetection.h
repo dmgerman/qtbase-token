@@ -503,15 +503,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*     PA-RISC family, no revisions or variants */
-end_comment
-begin_comment
-comment|// #elif defined(__parisc__)
-end_comment
-begin_comment
-comment|// #  define Q_PROCESSOR_PARISC
-end_comment
-begin_comment
 comment|/*     POWER family, optional variant: 64-bit      There are many more known variants/revisions that we do not handle/detect.     See http://en.wikipedia.org/wiki/Power_Architecture     and http://en.wikipedia.org/wiki/File:PowerISA-evolution.svg */
 end_comment
 begin_comment

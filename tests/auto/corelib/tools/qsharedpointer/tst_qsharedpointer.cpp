@@ -6283,21 +6283,6 @@ name|Data
 argument_list|>
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|Q_CC_HPACC
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|QT_ARCH_PARISC
-argument_list|)
-comment|// the aCC series 3 compiler we have on the PA-RISC
-comment|// machine crashes compiling this code
 name|QSharedPointer
 argument_list|<
 specifier|const
@@ -6363,8 +6348,6 @@ name|Data
 argument_list|>
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 name|safetyCheck
 argument_list|()
