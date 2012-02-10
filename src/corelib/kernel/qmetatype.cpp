@@ -6216,13 +6216,18 @@ specifier|const
 name|int
 comment|/* type */
 parameter_list|,
-name|T
+name|void
 modifier|*
 name|where
 parameter_list|)
 block|{
-operator|delete
+name|qMetaTypeDeleteHelper
+argument_list|<
+name|T
+argument_list|>
+argument_list|(
 name|where
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -6592,13 +6597,16 @@ modifier|*
 name|where
 parameter_list|,
 specifier|const
-name|T
+name|void
 modifier|*
 name|copy
 parameter_list|)
 block|{
 return|return
 name|qMetaTypeConstructHelper
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|where
 argument_list|,
@@ -6638,7 +6646,7 @@ modifier|*
 name|where
 parameter_list|,
 specifier|const
-name|T
+name|void
 modifier|*
 name|copy
 parameter_list|)
@@ -7021,12 +7029,15 @@ specifier|const
 name|int
 comment|/* type */
 parameter_list|,
-name|T
+name|void
 modifier|*
 name|where
 parameter_list|)
 block|{
 name|qMetaTypeDestructHelper
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|where
 argument_list|)
