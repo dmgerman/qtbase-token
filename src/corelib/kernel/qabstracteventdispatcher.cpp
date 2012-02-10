@@ -539,6 +539,17 @@ name|d
 operator|->
 name|event_filter
 condition|)
+block|{
+comment|// Raise the loopLevel so that deleteLater() calls in or triggered
+comment|// by event_filter() will be processed from the main event loop.
+name|QScopedLoopLevelCounter
+name|loopLevelCounter
+argument_list|(
+name|d
+operator|->
+name|threadData
+argument_list|)
+decl_stmt|;
 return|return
 name|d
 operator|->
@@ -547,6 +558,7 @@ argument_list|(
 name|message
 argument_list|)
 return|;
+block|}
 return|return
 literal|false
 return|;
