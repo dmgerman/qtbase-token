@@ -336,9 +336,7 @@ name|Private
 modifier|*
 name|d
 parameter_list|,
-name|QVariant
-operator|::
-name|Type
+name|int
 name|type
 parameter_list|,
 name|void
@@ -478,7 +476,7 @@ operator|.
 name|nospace
 argument_list|()
 operator|<<
-literal|"QVariant::Type("
+literal|"QMetaType::Type("
 operator|<<
 name|d
 operator|->

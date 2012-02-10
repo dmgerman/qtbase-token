@@ -1210,9 +1210,7 @@ name|Private
 modifier|*
 name|d
 parameter_list|,
-name|QVariant
-operator|::
-name|Type
+name|int
 name|t
 parameter_list|,
 name|void

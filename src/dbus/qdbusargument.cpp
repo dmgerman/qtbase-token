@@ -222,16 +222,11 @@ argument_list|(
 literal|"QDBusMarshaller: type `%s' produces invalid D-BUS signature `%s' "
 literal|"(Did you forget to call beginStructure() ?)"
 argument_list|,
-name|QVariant
+name|QMetaType
 operator|::
-name|typeToName
-argument_list|(
-name|QVariant
-operator|::
-name|Type
+name|typeName
 argument_list|(
 name|id
-argument_list|)
 argument_list|)
 argument_list|,
 name|signature
@@ -311,16 +306,11 @@ argument_list|(
 literal|"QDBusMarshaller: type `%s' attempts to redefine basic D-BUS type '%s' (%s) "
 literal|"(Did you forget to call beginStructure() ?)"
 argument_list|,
-name|QVariant
+name|QMetaType
 operator|::
-name|typeToName
-argument_list|(
-name|QVariant
-operator|::
-name|Type
+name|typeName
 argument_list|(
 name|id
-argument_list|)
 argument_list|)
 argument_list|,
 name|signature
@@ -328,20 +318,15 @@ operator|.
 name|constData
 argument_list|()
 argument_list|,
-name|QVariant
+name|QMetaType
 operator|::
-name|typeToName
-argument_list|(
-name|QVariant
-operator|::
-name|Type
+name|typeName
 argument_list|(
 name|QDBusMetaType
 operator|::
 name|signatureToType
 argument_list|(
 name|signature
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
