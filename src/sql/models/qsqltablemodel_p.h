@@ -226,7 +226,12 @@ argument_list|)
 block|,
 name|m_rec
 argument_list|(
-argument|r
+name|r
+argument_list|)
+block|,
+name|m_submitted
+argument_list|(
+argument|false
 argument_list|)
 block|{
 for|for
@@ -315,6 +320,27 @@ argument_list|,
 name|true
 argument_list|)
 block|;         }
+specifier|inline
+name|bool
+name|submitted
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_submitted
+return|;
+block|}
+specifier|inline
+name|void
+name|setSubmitted
+argument_list|(
+argument|bool b
+argument_list|)
+block|{
+name|m_submitted
+operator|=
+name|b
+block|; }
 name|private
 operator|:
 name|Op
@@ -322,6 +348,9 @@ name|m_op
 block|;
 name|QSqlRecord
 name|m_rec
+block|;
+name|bool
+name|m_submitted
 block|;     }
 block|;
 typedef|typedef
