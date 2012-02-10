@@ -2153,14 +2153,6 @@ if|if
 condition|(
 operator|!
 name|d
-condition|)
-return|return;
-end_expr_stmt
-begin_if
-if|if
-condition|(
-operator|!
-name|d
 operator|->
 name|ref
 operator|.
@@ -2172,9 +2164,10 @@ argument_list|(
 name|d
 argument_list|)
 expr_stmt|;
-end_if
+block|}
+end_expr_stmt
 begin_expr_stmt
-unit|}  template
+name|template
 operator|<
 name|typename
 name|T
