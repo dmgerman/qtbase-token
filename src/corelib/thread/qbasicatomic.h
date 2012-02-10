@@ -303,6 +303,22 @@ directive|include
 file|<QtCore/qatomic_gcc.h>
 end_include
 begin_comment
+comment|// Fallback operating system dependent implementation
+end_comment
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
+end_elif
+begin_include
+include|#
+directive|include
+file|<QtCore/qatomic_unix.h>
+end_include
+begin_comment
 comment|// No fallback
 end_comment
 begin_else
