@@ -771,7 +771,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_ARCH_WINDOWSCE
+name|Q_OS_WINCE
 argument_list|)
 comment|// due to rounding error in qRound when qreal==float
 comment|// we cannot use INT_MAX for this check

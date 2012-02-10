@@ -98,7 +98,7 @@ argument_list|)
 operator|&&
 name|defined
 argument_list|(
-name|QT_ARCH_ARMV6
+name|Q_PROCESSOR_ARM
 argument_list|)
 operator|)
 end_if

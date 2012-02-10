@@ -12924,7 +12924,7 @@ expr_stmt|;
 comment|// First once without setting the scene rect
 ifdef|#
 directive|ifdef
-name|QT_ARCH_ARM
+name|Q_PROCESSOR_ARM
 specifier|const
 name|int
 name|step

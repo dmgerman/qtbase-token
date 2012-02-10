@@ -1071,7 +1071,7 @@ operator|&&
 operator|(
 name|defined
 argument_list|(
-name|QT_ARCH_ARM
+name|Q_PROCESSOR_ARM
 argument_list|)
 operator|||
 name|defined
@@ -1081,7 +1081,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|QT_ARCH_WINDOWSCE
+name|Q_OS_WINCE
 argument_list|)
 operator|)
 name|template
@@ -1221,7 +1221,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|QT_ARCH_ARM
+name|Q_PROCESSOR_ARM
 argument_list|)
 operator|||
 name|defined
@@ -1231,7 +1231,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|QT_ARCH_WINDOWSCE
+name|Q_OS_WINCE
 argument_list|)
 name|template
 operator|<
