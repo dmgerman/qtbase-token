@@ -45,9 +45,8 @@ parameter_list|,
 name|int
 name|screen
 parameter_list|,
-specifier|const
 name|QSurfaceFormat
-modifier|&
+modifier|*
 name|format
 parameter_list|)
 function_decl|;
@@ -88,6 +87,8 @@ name|config
 parameter_list|,
 name|GLXContext
 name|context
+init|=
+literal|0
 parameter_list|)
 function_decl|;
 end_function_decl

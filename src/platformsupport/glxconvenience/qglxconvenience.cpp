@@ -746,6 +746,11 @@ name|configs
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|chosenConfig
+condition|)
 name|reducedFormat
 operator|=
 name|qglx_reduceSurfaceFormat
@@ -775,12 +780,16 @@ parameter_list|,
 name|int
 name|screen
 parameter_list|,
-specifier|const
 name|QSurfaceFormat
-modifier|&
+modifier|*
 name|format
 parameter_list|)
 block|{
+name|Q_ASSERT
+argument_list|(
+name|format
+argument_list|)
+expr_stmt|;
 name|XVisualInfo
 modifier|*
 name|visualInfo
@@ -796,6 +805,7 @@ name|display
 argument_list|,
 name|screen
 argument_list|,
+operator|*
 name|format
 argument_list|)
 decl_stmt|;
@@ -803,6 +813,7 @@ if|if
 condition|(
 name|config
 condition|)
+block|{
 name|visualInfo
 operator|=
 name|glXGetVisualFromFBConfig
@@ -812,6 +823,17 @@ argument_list|,
 name|config
 argument_list|)
 expr_stmt|;
+operator|*
+name|format
+operator|=
+name|qglx_surfaceFormatFromGLXFBConfig
+argument_list|(
+name|display
+argument_list|,
+name|config
+argument_list|)
+expr_stmt|;
+block|}
 comment|// attempt to fall back to glXChooseVisual
 name|bool
 name|reduced
@@ -821,6 +843,7 @@ decl_stmt|;
 name|QSurfaceFormat
 name|reducedFormat
 init|=
+operator|*
 name|format
 decl_stmt|;
 while|while
