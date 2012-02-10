@@ -597,6 +597,40 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+comment|// remove trailing '*', '&' that are part of the return argument
+while|while
+condition|(
+operator|(
+name|info
+operator|.
+name|at
+argument_list|(
+literal|0
+argument_list|)
+operator|==
+literal|'*'
+operator|)
+operator|||
+operator|(
+name|info
+operator|.
+name|at
+argument_list|(
+literal|0
+argument_list|)
+operator|==
+literal|'&'
+operator|)
+condition|)
+name|info
+operator|=
+name|info
+operator|.
+name|mid
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 comment|// we have the full function name now.
 comment|// clean up the templates
 while|while

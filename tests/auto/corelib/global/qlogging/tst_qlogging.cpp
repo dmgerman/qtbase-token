@@ -540,6 +540,10 @@ block|{
 name|foo
 block|}
 enum|;
+DECL|member|c
+name|char
+name|c
+decl_stmt|;
 DECL|function|func_void
 name|void
 name|func_void
@@ -666,6 +670,21 @@ argument_list|)
 expr_stmt|;
 return|return
 literal|0
+return|;
+block|}
+DECL|function|func_Rchar
+name|char
+modifier|&
+name|func_Rchar
+parameter_list|()
+block|{
+name|ADD
+argument_list|(
+literal|"TestClass1::func_Rchar"
+argument_list|)
+expr_stmt|;
+return|return
+name|c
 return|;
 block|}
 DECL|function|func_Pchar
@@ -1318,6 +1337,9 @@ name|func_schar
 argument_list|()
 expr_stmt|;
 name|func_uchar
+argument_list|()
+expr_stmt|;
+name|func_Rchar
 argument_list|()
 expr_stmt|;
 name|func_Pchar
@@ -2051,6 +2073,39 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"msvc_09a"
+argument_list|)
+operator|<<
+literal|"char&__thiscall TestClass1::func_Rchar(void)"
+operator|<<
+literal|"TestClass1::func_Rchar"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"gcc_09a"
+argument_list|)
+operator|<<
+literal|"char& TestClass1::func_Rchar()"
+operator|<<
+literal|"TestClass1::func_Rchar"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"clang_09a"
+argument_list|)
+operator|<<
+literal|"char&TestClass1::func_Rchar()"
+operator|<<
+literal|"TestClass1::func_Rchar"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"msvc_10"
 argument_list|)
 operator|<<
@@ -2066,6 +2121,17 @@ literal|"gcc_10"
 argument_list|)
 operator|<<
 literal|"char* TestClass1::func_Pchar()"
+operator|<<
+literal|"TestClass1::func_Pchar"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"clang_10"
+argument_list|)
+operator|<<
+literal|"char *TestClass1::func_Pchar()"
 operator|<<
 literal|"TestClass1::func_Pchar"
 expr_stmt|;
@@ -2701,6 +2767,7 @@ argument_list|,
 name|funcinfo
 argument_list|)
 expr_stmt|;
+comment|//    qDebug()<< funcinfo.toLatin1();
 name|QByteArray
 name|result
 init|=
