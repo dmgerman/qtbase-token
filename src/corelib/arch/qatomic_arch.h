@@ -58,15 +58,6 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|QT_ARCH_GENERIC
-argument_list|)
-include|#
-directive|include
-file|"QtCore/qatomic_generic.h"
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|QT_ARCH_POWERPC
 argument_list|)
 include|#
