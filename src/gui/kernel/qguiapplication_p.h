@@ -848,6 +848,10 @@ specifier|const
 name|QPointF
 operator|&
 name|sp
+argument_list|,
+name|QWindow
+operator|*
+name|w
 argument_list|)
 operator|:
 name|pos
@@ -857,7 +861,12 @@ argument_list|)
 operator|,
 name|screenPos
 argument_list|(
-argument|sp
+name|sp
+argument_list|)
+operator|,
+name|window
+argument_list|(
+argument|w
 argument_list|)
 block|{ }
 name|QPointF
@@ -866,6 +875,12 @@ expr_stmt|;
 name|QPointF
 name|screenPos
 decl_stmt|;
+name|QWeakPointer
+operator|<
+name|QWindow
+operator|>
+name|window
+expr_stmt|;
 block|}
 struct|;
 end_struct
