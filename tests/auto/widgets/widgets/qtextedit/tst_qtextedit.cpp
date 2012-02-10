@@ -15249,8 +15249,15 @@ name|NoWrap
 argument_list|)
 expr_stmt|;
 name|QString
-name|singeLongLine
+name|singleLongLine
 decl_stmt|;
+name|singleLongLine
+operator|.
+name|reserve
+argument_list|(
+literal|100000
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -15265,7 +15272,7 @@ condition|;
 operator|++
 name|i
 control|)
-name|singeLongLine
+name|singleLongLine
 operator|+=
 literal|"0123456789"
 expr_stmt|;
@@ -15273,7 +15280,7 @@ name|edit
 operator|.
 name|setPlainText
 argument_list|(
-name|singeLongLine
+name|singleLongLine
 argument_list|)
 expr_stmt|;
 class|class
