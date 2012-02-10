@@ -217,8 +217,6 @@ argument_list|(
 argument|Op o = None
 argument_list|,
 argument|const QSqlRecord&r = QSqlRecord()
-argument_list|,
-argument|const QSqlRecord&pVals = QSqlRecord()
 argument_list|)
 operator|:
 name|m_op
@@ -228,12 +226,7 @@ argument_list|)
 block|,
 name|m_rec
 argument_list|(
-name|r
-argument_list|)
-block|,
-name|m_primaryValues
-argument_list|(
-argument|pVals
+argument|r
 argument_list|)
 block|{
 for|for
@@ -296,16 +289,6 @@ name|m_rec
 return|;
 block|}
 specifier|inline
-name|QSqlRecord
-name|primaryValues
-argument_list|()
-specifier|const
-block|{
-return|return
-name|m_primaryValues
-return|;
-block|}
-specifier|inline
 name|void
 name|setValue
 argument_list|(
@@ -339,9 +322,6 @@ name|m_op
 block|;
 name|QSqlRecord
 name|m_rec
-block|;
-name|QSqlRecord
-name|m_primaryValues
 block|;     }
 block|;
 typedef|typedef
