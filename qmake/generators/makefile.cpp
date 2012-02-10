@@ -19363,7 +19363,10 @@ name|out_directory_cdin
 operator|<<
 literal|"$(QMAKE) "
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|in
+argument_list|)
 operator|<<
 name|buildArgs
 argument_list|(
@@ -19385,7 +19388,10 @@ name|t
 operator|<<
 literal|"$(QMAKE) "
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|in
+argument_list|)
 operator|<<
 name|buildArgs
 argument_list|(
@@ -19444,7 +19450,10 @@ name|out_directory_cdin
 operator|<<
 literal|"$(QMAKE) "
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|in
+argument_list|)
 operator|<<
 name|buildArgs
 argument_list|(
@@ -19466,7 +19475,10 @@ name|t
 operator|<<
 literal|"$(QMAKE) "
 operator|<<
+name|escapeFilePath
+argument_list|(
 name|in
+argument_list|)
 operator|<<
 name|buildArgs
 argument_list|(
