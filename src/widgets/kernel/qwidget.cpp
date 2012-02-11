@@ -26271,18 +26271,6 @@ name|isVisible
 argument_list|()
 condition|)
 block|{
-comment|// remove posted quit events when showing a new window
-name|QCoreApplication
-operator|::
-name|removePostedEvents
-argument_list|(
-name|qApp
-argument_list|,
-name|QEvent
-operator|::
-name|Quit
-argument_list|)
-expr_stmt|;
 name|d
 operator|->
 name|show_helper
