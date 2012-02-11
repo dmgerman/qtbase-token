@@ -771,6 +771,11 @@ name|QWindow
 operator|*
 argument_list|)
 block|;
+name|virtual
+name|bool
+name|shouldQuit
+argument_list|()
+block|;
 if|#
 directive|if
 name|defined

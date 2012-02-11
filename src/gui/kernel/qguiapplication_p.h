@@ -117,6 +117,11 @@ operator|*
 name|previous
 argument_list|)
 block|;
+name|virtual
+name|bool
+name|shouldQuit
+argument_list|()
+block|;
 specifier|static
 name|Qt
 operator|::
