@@ -2819,7 +2819,7 @@ name|environment
 operator|.
 name|prepend
 argument_list|(
-literal|"QT_MESSAGE_PATTERN=\"%{type} %{line} %{function} %{message}\""
+literal|"QT_MESSAGE_PATTERN=\"%{type} %{appname} %{line} %{function} %{message}\""
 argument_list|)
 expr_stmt|;
 name|process
@@ -2879,7 +2879,7 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"debug 45 T::T static constructor"
+literal|"debug  45 T::T static constructor"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2900,7 +2900,7 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"debug 51 main qDebug"
+literal|"debug tst_qlogging 54 main qDebug"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2910,7 +2910,7 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"warning 52 main qWarning"
+literal|"warning tst_qlogging 55 main qWarning"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2920,7 +2920,7 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"critical 53 main qCritical"
+literal|"critical tst_qlogging 56 main qCritical"
 argument_list|)
 argument_list|)
 expr_stmt|;
