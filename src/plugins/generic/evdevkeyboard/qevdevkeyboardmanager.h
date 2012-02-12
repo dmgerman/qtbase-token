@@ -148,6 +148,10 @@ name|m_udevSocketNotifier
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|QT_END_HEADER
+name|QT_END_NAMESPACE
+end_expr_stmt
 begin_endif
 endif|#
 directive|endif
