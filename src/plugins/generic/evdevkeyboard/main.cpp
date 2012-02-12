@@ -136,7 +136,7 @@ end_function
 begin_macro
 name|Q_EXPORT_PLUGIN2
 argument_list|(
-argument|qevdevkeyboarplugin
+argument|qevdevkeyboardplugin
 argument_list|,
 argument|QEvdevKeyboardPlugin
 argument_list|)
