@@ -11733,11 +11733,6 @@ case|:
 case|case
 name|QEvent
 operator|::
-name|AccessibilityPrepare
-case|:
-case|case
-name|QEvent
-operator|::
 name|LocaleChange
 case|:
 case|case
