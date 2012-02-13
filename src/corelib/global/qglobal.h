@@ -8654,6 +8654,12 @@ end_endif
 begin_if
 if|#
 directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_BOOTSTRAPPED
+argument_list|)
+operator|&&
 name|defined
 argument_list|(
 name|QT_REDUCE_RELOCATIONS
