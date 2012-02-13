@@ -786,6 +786,7 @@ parameter_list|(
 name|int
 name|row
 parameter_list|)
+specifier|const
 block|{
 name|QSqlRecord
 name|record
