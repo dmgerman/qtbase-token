@@ -6400,16 +6400,6 @@ end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
-begin_comment
-comment|// For private slots
-end_comment
-begin_define
-DECL|macro|d
-define|#
-directive|define
-name|d
-value|d_ptr
-end_define
 begin_include
 include|#
 directive|include
