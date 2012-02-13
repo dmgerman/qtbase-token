@@ -666,7 +666,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data1"
+literal|"ISO-8859-1"
 argument_list|)
 operator|<<
 literal|"ISO-8859-1"
@@ -677,7 +677,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data2"
+literal|"ISO-8859-2"
 argument_list|)
 operator|<<
 literal|"ISO-8859-2"
@@ -688,7 +688,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data3"
+literal|"ISO-8859-3"
 argument_list|)
 operator|<<
 literal|"ISO-8859-3"
@@ -699,7 +699,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data4"
+literal|"ISO-8859-4"
 argument_list|)
 operator|<<
 literal|"ISO-8859-4"
@@ -710,7 +710,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data5"
+literal|"ISO-8859-5"
 argument_list|)
 operator|<<
 literal|"ISO-8859-5"
@@ -721,7 +721,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data6"
+literal|"ISO-8859-6"
 argument_list|)
 operator|<<
 literal|"ISO-8859-6"
@@ -732,7 +732,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data7"
+literal|"ISO-8859-7"
 argument_list|)
 operator|<<
 literal|"ISO-8859-7"
@@ -743,7 +743,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data8"
+literal|"ISO-8859-8"
 argument_list|)
 operator|<<
 literal|"ISO-8859-8"
@@ -754,7 +754,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data9"
+literal|"ISO-8859-9"
 argument_list|)
 operator|<<
 literal|"ISO-8859-9"
@@ -765,7 +765,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data10"
+literal|"ISO-8859-10"
 argument_list|)
 operator|<<
 literal|"ISO-8859-10"
@@ -776,7 +776,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data13"
+literal|"ISO-8859-13"
 argument_list|)
 operator|<<
 literal|"ISO-8859-13"
@@ -787,7 +787,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data14"
+literal|"ISO-8859-14"
 argument_list|)
 operator|<<
 literal|"ISO-8859-14"
@@ -798,7 +798,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data15"
+literal|"ISO-8859-15"
 argument_list|)
 operator|<<
 literal|"ISO-8859-15"
@@ -809,7 +809,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data16"
+literal|"ISO-8859-16"
 argument_list|)
 operator|<<
 literal|"ISO-8859-16"
@@ -820,7 +820,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data18"
+literal|"IBM850"
 argument_list|)
 operator|<<
 literal|"IBM850"
@@ -831,7 +831,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data19"
+literal|"IBM874"
 argument_list|)
 operator|<<
 literal|"IBM874"
@@ -842,7 +842,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data20"
+literal|"IBM866"
 argument_list|)
 operator|<<
 literal|"IBM866"
@@ -853,7 +853,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data21"
+literal|"windows-1250"
 argument_list|)
 operator|<<
 literal|"windows-1250"
@@ -864,7 +864,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data22"
+literal|"windows-1251"
 argument_list|)
 operator|<<
 literal|"windows-1251"
@@ -875,7 +875,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data23"
+literal|"windows-1252"
 argument_list|)
 operator|<<
 literal|"windows-1252"
@@ -886,7 +886,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data24"
+literal|"windows-1253"
 argument_list|)
 operator|<<
 literal|"windows-1253"
@@ -897,7 +897,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data25"
+literal|"windows-1254"
 argument_list|)
 operator|<<
 literal|"windows-1254"
@@ -908,7 +908,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data26"
+literal|"windows-1255"
 argument_list|)
 operator|<<
 literal|"windows-1255"
@@ -919,7 +919,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data27"
+literal|"windows-1256"
 argument_list|)
 operator|<<
 literal|"windows-1256"
@@ -930,7 +930,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data28"
+literal|"windows-1257"
 argument_list|)
 operator|<<
 literal|"windows-1257"
@@ -941,7 +941,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data28"
+literal|"windows-1258"
 argument_list|)
 operator|<<
 literal|"windows-1258"
@@ -952,7 +952,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data29"
+literal|"Apple Roman"
 argument_list|)
 operator|<<
 literal|"Apple Roman"
@@ -963,7 +963,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data29"
+literal|"WINSAMI2"
 argument_list|)
 operator|<<
 literal|"WINSAMI2"
@@ -974,7 +974,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data30"
+literal|"TIS-620"
 argument_list|)
 operator|<<
 literal|"TIS-620"
@@ -985,7 +985,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data31"
+literal|"roman8"
 argument_list|)
 operator|<<
 literal|"roman8"
@@ -996,21 +996,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data32"
+literal|"SJIS"
 argument_list|)
 operator|<<
 literal|"SJIS"
-operator|<<
-literal|false
-expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"data33"
-argument_list|)
-operator|<<
-literal|"EUC-KR"
 operator|<<
 literal|false
 expr_stmt|;
@@ -1019,7 +1008,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc2"
+literal|"Big5"
 argument_list|)
 operator|<<
 literal|"Big5"
@@ -1030,7 +1019,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc3"
+literal|"Big5-HKSCS"
 argument_list|)
 operator|<<
 literal|"Big5-HKSCS"
@@ -1041,7 +1030,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc4"
+literal|"CP949"
 argument_list|)
 operator|<<
 literal|"CP949"
@@ -1052,7 +1041,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc5"
+literal|"EUC-JP"
 argument_list|)
 operator|<<
 literal|"EUC-JP"
@@ -1063,19 +1052,19 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc6"
+literal|"EUC-KR"
 argument_list|)
 operator|<<
 literal|"EUC-KR"
 operator|<<
 literal|false
 expr_stmt|;
-comment|//QTest::newRow("doc7")<< "GB18030-0"<< false; // only GB18030 works
+comment|//QTest::newRow("GB18030-0")<< "GB18030-0"<< false; // only GB18030 works
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc7-bis"
+literal|"GB18030"
 argument_list|)
 operator|<<
 literal|"GB18030"
@@ -1086,7 +1075,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc8"
+literal|"IBM 850"
 argument_list|)
 operator|<<
 literal|"IBM 850"
@@ -1097,7 +1086,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc9"
+literal|"IBM 866"
 argument_list|)
 operator|<<
 literal|"IBM 866"
@@ -1108,7 +1097,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc10"
+literal|"IBM 874"
 argument_list|)
 operator|<<
 literal|"IBM 874"
@@ -1119,7 +1108,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc11"
+literal|"ISO 2022-JP"
 argument_list|)
 operator|<<
 literal|"ISO 2022-JP"
@@ -1128,13 +1117,13 @@ literal|false
 expr_stmt|;
 comment|//ISO 8859-1 to 10 and  ISO 8859-13 to 16 tested previously
 comment|// Iscii-Bng, Dev, Gjr, Knd, Mlm, Ori, Pnj, Tlg, and Tml  tested in Iscii test
-comment|//QTest::newRow("doc12")<< "JIS X 0201"<< false; //actually not there
-comment|//QTest::newRow("doc13")<< "JIS X 0208"<< false; // actually not there
+comment|//QTest::newRow("JIS X 0201")<< "JIS X 0201"<< false; // actually not there
+comment|//QTest::newRow("JIS X 0208")<< "JIS X 0208"<< false; // actually not there
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc14"
+literal|"KOI8-R"
 argument_list|)
 operator|<<
 literal|"KOI8-R"
@@ -1145,19 +1134,19 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc15"
+literal|"KOI8-U"
 argument_list|)
 operator|<<
 literal|"KOI8-U"
 operator|<<
 literal|false
 expr_stmt|;
-comment|//QTest::newRow("doc16")<< "MuleLao-1"<< false; //only on x11
+comment|//QTest::newRow("MuleLao-1")<< "MuleLao-1"<< false; //only on x11
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc17"
+literal|"ROMAN8"
 argument_list|)
 operator|<<
 literal|"ROMAN8"
@@ -1168,7 +1157,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc18"
+literal|"Shift-JIS"
 argument_list|)
 operator|<<
 literal|"Shift-JIS"
@@ -1179,7 +1168,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc19"
+literal|"TIS-620"
 argument_list|)
 operator|<<
 literal|"TIS-620"
@@ -1190,7 +1179,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc20"
+literal|"TSCII"
 argument_list|)
 operator|<<
 literal|"TSCII"
@@ -1201,7 +1190,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc21"
+literal|"UTF-8"
 argument_list|)
 operator|<<
 literal|"UTF-8"
@@ -1212,7 +1201,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc22"
+literal|"UTF-16"
 argument_list|)
 operator|<<
 literal|"UTF-16"
@@ -1223,7 +1212,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc23"
+literal|"UTF-16BE"
 argument_list|)
 operator|<<
 literal|"UTF-16BE"
@@ -1234,7 +1223,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc24"
+literal|"UTF-16LE"
 argument_list|)
 operator|<<
 literal|"UTF-16LE"
@@ -1245,7 +1234,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc25"
+literal|"UTF-32"
 argument_list|)
 operator|<<
 literal|"UTF-32"
@@ -1256,7 +1245,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc26"
+literal|"UTF-32BE"
 argument_list|)
 operator|<<
 literal|"UTF-32BE"
@@ -1267,7 +1256,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc27"
+literal|"UTF-32LE"
 argument_list|)
 operator|<<
 literal|"UTF-32LE"
@@ -1275,17 +1264,6 @@ operator|<<
 literal|false
 expr_stmt|;
 comment|//Windows-1250 to 1258 tested previously
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"doc3"
-argument_list|)
-operator|<<
-literal|"WINSAMI2"
-operator|<<
-literal|false
-expr_stmt|;
 block|}
 end_function
 begin_function
