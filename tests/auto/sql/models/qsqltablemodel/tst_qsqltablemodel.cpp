@@ -6482,7 +6482,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// past end (causes a beforeDelete to be emitted)
+comment|// past end (DOESN'T causes a beforeDelete to be emitted)
 name|QVERIFY
 argument_list|(
 operator|!
