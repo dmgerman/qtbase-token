@@ -464,9 +464,19 @@ name|typeId
 operator|!=
 name|QMetaType
 operator|::
-name|Void
+name|UnknownType
 condition|)
 block|{
+name|Q_ASSERT
+argument_list|(
+name|typeId
+operator|!=
+name|QMetaType
+operator|::
+name|Void
+argument_list|)
+expr_stmt|;
+comment|// void parameter => metaobject is corrupt
 name|str
 operator|.
 name|append

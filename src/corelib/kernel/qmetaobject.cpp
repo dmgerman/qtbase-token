@@ -8054,7 +8054,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0      Returns the return type of this method.      The return value is one of the types that are registered     with QMetaType, or 0 if the type is not registered.      \sa parameterType(), QMetaType, typeName() */
+comment|/*!     \since 5.0      Returns the return type of this method.      The return value is one of the types that are registered     with QMetaType, or QMetaType::UnknownType if the type is not registered.      \sa parameterType(), QMetaType, typeName() */
 end_comment
 begin_function
 DECL|function|returnType
@@ -8071,7 +8071,9 @@ operator|!
 name|mobj
 condition|)
 return|return
-literal|0
+name|QMetaType
+operator|::
+name|UnknownType
 return|;
 return|return
 name|QMetaMethodPrivate
@@ -8120,7 +8122,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0      Returns the type of the parameter at the given \a index.      The return value is one of the types that are registered     with QMetaType, or 0 if the type is not registered.      \sa parameterCount(), returnType(), QMetaType */
+comment|/*!     \since 5.0      Returns the type of the parameter at the given \a index.      The return value is one of the types that are registered     with QMetaType, or QMetaType::UnknownType if the type is not registered.      \sa parameterCount(), returnType(), QMetaType */
 end_comment
 begin_function
 DECL|function|parameterType
@@ -8144,7 +8146,9 @@ operator|<
 literal|0
 condition|)
 return|return
-literal|0
+name|QMetaType
+operator|::
+name|UnknownType
 return|;
 if|if
 condition|(
@@ -8161,7 +8165,9 @@ name|parameterCount
 argument_list|()
 condition|)
 return|return
-literal|0
+name|QMetaType
+operator|::
+name|UnknownType
 return|;
 return|return
 name|QMetaMethodPrivate
@@ -9749,6 +9755,10 @@ name|types
 index|[
 name|i
 index|]
+operator|!=
+name|QMetaType
+operator|::
+name|UnknownType
 condition|)
 block|{
 name|args
@@ -11537,6 +11547,10 @@ block|}
 if|if
 condition|(
 name|type
+operator|!=
+name|QMetaType
+operator|::
+name|UnknownType
 condition|)
 return|return
 name|QVariant
@@ -11569,7 +11583,9 @@ if|if
 condition|(
 name|enumMetaTypeId
 operator|==
-literal|0
+name|QMetaType
+operator|::
+name|UnknownType
 condition|)
 return|return
 name|QVariant
@@ -11615,7 +11631,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns this property's user type. The return value is one     of the values that are registered with QMetaType, or 0 if     the type is not registered.      \sa type(), QMetaType, typeName()  */
+comment|/*!     \since 4.2      Returns this property's user type. The return value is one     of the values that are registered with QMetaType, or QMetaType::UnknownType if     the type is not registered.      \sa type(), QMetaType, typeName()  */
 end_comment
 begin_function
 DECL|function|userType
@@ -11632,7 +11648,9 @@ operator|!
 name|mobj
 condition|)
 return|return
-literal|0
+name|QMetaType
+operator|::
+name|UnknownType
 return|;
 if|if
 condition|(
@@ -11690,6 +11708,10 @@ decl_stmt|;
 if|if
 condition|(
 name|type
+operator|!=
+name|QMetaType
+operator|::
+name|UnknownType
 condition|)
 return|return
 name|type
@@ -11740,7 +11762,9 @@ if|if
 condition|(
 name|enumMetaTypeId
 operator|==
-literal|0
+name|QMetaType
+operator|::
+name|UnknownType
 condition|)
 return|return
 name|QVariant
@@ -12021,7 +12045,9 @@ if|if
 condition|(
 name|enumMetaTypeId
 operator|!=
-literal|0
+name|QMetaType
+operator|::
+name|UnknownType
 condition|)
 name|t
 operator|=
@@ -12150,9 +12176,9 @@ if|if
 condition|(
 name|t
 operator|==
-name|QVariant
+name|QMetaType
 operator|::
-name|Invalid
+name|UnknownType
 condition|)
 block|{
 name|typeName
@@ -12186,9 +12212,9 @@ if|if
 condition|(
 name|t
 operator|==
-name|QVariant
+name|QMetaType
 operator|::
-name|Invalid
+name|UnknownType
 condition|)
 name|t
 operator|=
@@ -12205,9 +12231,9 @@ if|if
 condition|(
 name|t
 operator|==
-name|QVariant
+name|QMetaType
 operator|::
-name|Invalid
+name|UnknownType
 condition|)
 block|{
 name|qWarning
@@ -12538,7 +12564,9 @@ condition|(
 operator|(
 name|enumMetaTypeId
 operator|==
-literal|0
+name|QMetaType
+operator|::
+name|UnknownType
 operator|)
 operator|||
 operator|(
@@ -12728,9 +12756,9 @@ if|if
 condition|(
 name|t
 operator|==
-name|QVariant
+name|QMetaType
 operator|::
-name|Invalid
+name|UnknownType
 condition|)
 block|{
 specifier|const

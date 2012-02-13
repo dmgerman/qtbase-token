@@ -124,10 +124,6 @@ name|QByteArray
 argument_list|>
 name|parameterNames
 decl_stmt|;
-DECL|member|typeName
-name|QByteArray
-name|typeName
-decl_stmt|;
 DECL|member|tag
 name|QByteArray
 name|tag
@@ -1079,21 +1075,9 @@ expr_stmt|;
 if|if
 condition|(
 name|i
-operator|==
+operator|!=
 literal|0
 condition|)
-block|{
-comment|// return value
-name|mm
-operator|.
-name|typeName
-operator|=
-name|type
-operator|.
-name|name
-expr_stmt|;
-block|}
-else|else
 block|{
 comment|// non-const ref parameter
 name|mm
@@ -2495,12 +2479,10 @@ block|}
 name|Q_ASSERT
 argument_list|(
 name|type
-operator|||
-operator|(
-name|i
-operator|<
-literal|0
-operator|)
+operator|!=
+name|QMetaType
+operator|::
+name|UnknownType
 argument_list|)
 expr_stmt|;
 name|int
@@ -2825,7 +2807,9 @@ name|mp
 operator|.
 name|type
 operator|!=
-literal|0
+name|QMetaType
+operator|::
+name|UnknownType
 argument_list|)
 expr_stmt|;
 name|idata

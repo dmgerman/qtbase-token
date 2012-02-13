@@ -26461,6 +26461,18 @@ name|toLatin1
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|id
+operator|==
+name|QMetaType
+operator|::
+name|Void
+condition|)
+block|{
+comment|// Void type is not supported by QVariant
+return|return;
+block|}
 name|QVariant
 name|constructedVariant
 argument_list|(
@@ -26595,6 +26607,18 @@ name|toLatin1
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|id
+operator|==
+name|QMetaType
+operator|::
+name|Void
+condition|)
+block|{
+comment|// Void type is not supported by QVariant
+return|return;
+block|}
 name|QBuffer
 name|buffer
 decl_stmt|;
@@ -26909,6 +26933,15 @@ operator|!
 name|tagName
 condition|)
 continue|continue;
+if|if
+condition|(
+name|id
+operator|!=
+name|QMetaType
+operator|::
+name|Void
+condition|)
+block|{
 name|QTest
 operator|::
 name|newRow
@@ -26931,6 +26964,7 @@ argument_list|)
 operator|<<
 name|id
 expr_stmt|;
+block|}
 block|}
 name|QTest
 operator|::

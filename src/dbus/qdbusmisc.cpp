@@ -752,7 +752,9 @@ if|if
 condition|(
 name|id
 operator|==
-literal|0
+name|QMetaType
+operator|::
+name|UnknownType
 condition|)
 block|{
 comment|//qWarning("Could not parse the method '%s'", mm.methodSignature().constData());

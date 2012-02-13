@@ -1301,7 +1301,7 @@ name|int
 argument_list|(
 name|QMetaType
 operator|::
-name|Void
+name|UnknownType
 argument_list|)
 operator|<<
 name|QByteArray
@@ -1576,7 +1576,7 @@ name|int
 argument_list|(
 name|QMetaType
 operator|::
-name|Void
+name|UnknownType
 argument_list|)
 operator|<<
 name|QByteArray
@@ -1865,7 +1865,7 @@ name|int
 argument_list|(
 name|QMetaType
 operator|::
-name|Void
+name|UnknownType
 argument_list|)
 operator|<<
 name|QByteArray
@@ -2156,7 +2156,7 @@ name|int
 argument_list|(
 name|QMetaType
 operator|::
-name|Void
+name|UnknownType
 argument_list|)
 operator|<<
 name|QByteArray
@@ -2445,7 +2445,7 @@ name|int
 argument_list|(
 name|QMetaType
 operator|::
-name|Void
+name|UnknownType
 argument_list|)
 operator|<<
 name|QByteArray
@@ -2721,7 +2721,7 @@ name|int
 argument_list|(
 name|QMetaType
 operator|::
-name|Void
+name|UnknownType
 argument_list|)
 operator|<<
 name|QByteArray
@@ -3668,7 +3668,7 @@ name|int
 argument_list|(
 name|QMetaType
 operator|::
-name|Void
+name|UnknownType
 argument_list|)
 operator|<<
 name|QByteArray
@@ -3977,7 +3977,7 @@ name|int
 argument_list|(
 name|QMetaType
 operator|::
-name|Void
+name|UnknownType
 argument_list|)
 operator|<<
 name|QByteArray
