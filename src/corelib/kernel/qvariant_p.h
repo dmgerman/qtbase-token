@@ -1678,7 +1678,7 @@ block|;     }
 name|void
 name|delegate
 argument_list|(
-argument|const QMetaTypeSwitcher::UnknownType*
+argument|const QMetaTypeSwitcher::NotBuiltinType*
 argument_list|)
 block|{
 name|qWarning
@@ -1866,7 +1866,7 @@ block|;     }
 name|void
 name|delegate
 argument_list|(
-argument|const QMetaTypeSwitcher::UnknownType*
+argument|const QMetaTypeSwitcher::NotBuiltinType*
 argument_list|)
 block|{
 name|qWarning
@@ -2070,7 +2070,7 @@ block|;     }
 name|void
 name|delegate
 argument_list|(
-argument|const QMetaTypeSwitcher::UnknownType*
+argument|const QMetaTypeSwitcher::NotBuiltinType*
 argument_list|)
 block|{
 name|qWarning

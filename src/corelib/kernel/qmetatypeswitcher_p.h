@@ -58,7 +58,7 @@ label|:
 typedef|typedef
 name|void
 modifier|*
-name|UnknownType
+name|NotBuiltinType
 typedef|;
 name|template
 operator|<
@@ -214,7 +214,7 @@ argument_list|(
 name|static_cast
 operator|<
 specifier|const
-name|UnknownType
+name|NotBuiltinType
 operator|*
 operator|>
 operator|(

@@ -6392,7 +6392,7 @@ parameter_list|(
 specifier|const
 name|QMetaTypeSwitcher
 operator|::
-name|UnknownType
+name|NotBuiltinType
 modifier|*
 name|where
 parameter_list|)
@@ -6794,7 +6794,7 @@ parameter_list|(
 specifier|const
 name|QMetaTypeSwitcher
 operator|::
-name|UnknownType
+name|NotBuiltinType
 modifier|*
 name|copy
 parameter_list|)
@@ -7199,7 +7199,7 @@ parameter_list|(
 specifier|const
 name|QMetaTypeSwitcher
 operator|::
-name|UnknownType
+name|NotBuiltinType
 modifier|*
 name|where
 parameter_list|)
@@ -7545,7 +7545,7 @@ parameter_list|(
 specifier|const
 name|QMetaTypeSwitcher
 operator|::
-name|UnknownType
+name|NotBuiltinType
 modifier|*
 parameter_list|)
 block|{
@@ -7937,7 +7937,7 @@ parameter_list|(
 specifier|const
 name|QMetaTypeSwitcher
 operator|::
-name|UnknownType
+name|NotBuiltinType
 modifier|*
 parameter_list|)
 block|{
@@ -8327,7 +8327,7 @@ parameter_list|(
 specifier|const
 name|QMetaTypeSwitcher
 operator|::
-name|UnknownType
+name|NotBuiltinType
 modifier|*
 parameter_list|)
 block|{
