@@ -32691,6 +32691,7 @@ block|}
 end_function
 begin_function
 DECL|function|blend_transformed_tiled_argb
+specifier|static
 name|void
 name|blend_transformed_tiled_argb
 parameter_list|(
@@ -33551,6 +33552,7 @@ block|}
 end_function
 begin_function
 DECL|function|blend_transformed_tiled_rgb565
+specifier|static
 name|void
 name|blend_transformed_tiled_rgb565
 parameter_list|(
