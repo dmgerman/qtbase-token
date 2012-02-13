@@ -13,6 +13,11 @@ define|#
 directive|define
 name|QATOMIC_S390_H
 end_define
+begin_include
+include|#
+directive|include
+file|<QtCore/qoldbasicatomic.h>
+end_include
 begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE

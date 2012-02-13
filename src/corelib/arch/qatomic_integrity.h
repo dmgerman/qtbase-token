@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<QtCore/qoldbasicatomic.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<INTEGRITY.h>
 end_include
 begin_expr_stmt

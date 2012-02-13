@@ -27,6 +27,9 @@ file|<QtCore/qatomic_powerpc.h>
 else|#
 directive|else
 comment|// generic implementation with taskLock()
+include|#
+directive|include
+file|<QtCore/qoldbasicatomic.h>
 if|#
 directive|if
 literal|0

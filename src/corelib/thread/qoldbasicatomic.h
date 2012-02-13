@@ -499,16 +499,11 @@ begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER
 end_expr_stmt
-begin_include
-include|#
-directive|include
-file|<QtCore/qatomic_arch.h>
-end_include
 begin_endif
 endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QBASIC_ATOMIC
+comment|// QOLDBASICATOMIC_H
 end_comment
 end_unit
