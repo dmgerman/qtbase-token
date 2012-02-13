@@ -125,9 +125,6 @@ parameter_list|,
 name|__expected
 parameter_list|)
 value|QTRY_COMPARE_WITH_TIMEOUT(__expr, __expected, 5000)
-ifdef|#
-directive|ifdef
-name|Q_CC_MSVC
 DECL|macro|QSKIP
 define|#
 directive|define
@@ -137,20 +134,6 @@ name|statement
 parameter_list|)
 define|\
 value|do {\     QTest::qSkip(statement, __FILE__, __LINE__);\     return;\ } while (0)
-else|#
-directive|else
-define|#
-directive|define
-name|QSKIP
-parameter_list|(
-name|statement
-parameter_list|,
-modifier|...
-parameter_list|)
-define|\
-value|do {\     if (strcmp(#__VA_ARGS__, "") != 0)\         QTest::qFail("The two argument version of QSKIP is no longer available. "\                      "Please update this test by removing the second argument in each QSKIP.", __FILE__, __LINE__);\     QTest::qSkip(statement, __FILE__, __LINE__);\     return;\ } while (0)
-endif|#
-directive|endif
 DECL|macro|QEXPECT_FAIL
 define|#
 directive|define
