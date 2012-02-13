@@ -2372,28 +2372,6 @@ name|index
 parameter_list|)
 function_decl|;
 end_typedef
-begin_typedef
-DECL|typedef|StorePixelFunc
-typedef|typedef
-name|void
-function_decl|(
-name|QT_FASTCALL
-modifier|*
-name|StorePixelFunc
-function_decl|)
-parameter_list|(
-name|uchar
-modifier|*
-name|dest
-parameter_list|,
-name|int
-name|index
-parameter_list|,
-name|uint
-name|pixel
-parameter_list|)
-function_decl|;
-end_typedef
 begin_decl_stmt
 DECL|variable|qFetchPixel
 name|FetchPixelFunc
@@ -2449,70 +2427,6 @@ argument_list|>
 block|,
 comment|// BPP24
 name|fetchPixel
-argument_list|<
-name|QPixelLayout
-operator|::
-name|BPP32
-argument_list|>
-comment|// BPP32
-block|}
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-DECL|variable|qStorePixel
-name|StorePixelFunc
-name|qStorePixel
-index|[
-name|QPixelLayout
-operator|::
-name|BPPCount
-index|]
-init|=
-block|{
-literal|0
-block|,
-comment|// BPPNone
-name|storePixel
-argument_list|<
-name|QPixelLayout
-operator|::
-name|BPP1MSB
-argument_list|>
-block|,
-comment|// BPP1MSB
-name|storePixel
-argument_list|<
-name|QPixelLayout
-operator|::
-name|BPP1LSB
-argument_list|>
-block|,
-comment|// BPP1LSB
-name|storePixel
-argument_list|<
-name|QPixelLayout
-operator|::
-name|BPP8
-argument_list|>
-block|,
-comment|// BPP8
-name|storePixel
-argument_list|<
-name|QPixelLayout
-operator|::
-name|BPP16
-argument_list|>
-block|,
-comment|// BPP16
-name|storePixel
-argument_list|<
-name|QPixelLayout
-operator|::
-name|BPP24
-argument_list|>
-block|,
-comment|// BPP24
-name|storePixel
 argument_list|<
 name|QPixelLayout
 operator|::
