@@ -7401,7 +7401,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"http://www.w3.org/2001/06/utf-8-wrong/UTF-8-test.html 3.5.1"
+literal|"http://www.w3.org/2001/06/utf-8-wrong/UTF-8-test.html 3.5.2"
 argument_list|)
 operator|<<
 name|utf8
@@ -7449,7 +7449,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"http://www.w3.org/2001/06/utf-8-wrong/UTF-8-test.html 3.5.1"
+literal|"http://www.w3.org/2001/06/utf-8-wrong/UTF-8-test.html 3.5.2-1"
 argument_list|)
 operator|<<
 name|utf8
