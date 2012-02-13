@@ -101,6 +101,10 @@ name|QT_FOR_EACH_STATIC_TYPE
 argument_list|(
 argument|QT_DEFINE_METATYPE_ID
 argument_list|)
+name|FirstCoreType
+init|=
+name|Void
+block|,
 name|LastCoreType
 init|=
 name|QModelIndex

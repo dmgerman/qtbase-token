@@ -26879,9 +26879,7 @@ control|(
 name|int
 name|id
 init|=
-name|QMetaType
-operator|::
-name|Void
+literal|0
 init|;
 name|id
 operator|<

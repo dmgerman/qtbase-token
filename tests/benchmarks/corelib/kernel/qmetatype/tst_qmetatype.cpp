@@ -944,7 +944,9 @@ control|(
 name|int
 name|i
 init|=
-literal|0
+name|QMetaType
+operator|::
+name|FirstCoreType
 init|;
 name|i
 operator|<=
