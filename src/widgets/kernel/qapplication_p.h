@@ -1159,10 +1159,6 @@ name|QIcon
 operator|*
 name|app_icon
 block|;
-specifier|static
-name|bool
-name|obey_desktop_settings
-block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_WHEELEVENT

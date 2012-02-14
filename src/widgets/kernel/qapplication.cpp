@@ -890,20 +890,6 @@ begin_comment
 DECL|member|active_window
 comment|// toplevel with keyboard focus
 end_comment
-begin_decl_stmt
-DECL|member|obey_desktop_settings
-name|bool
-name|QApplicationPrivate
-operator|::
-name|obey_desktop_settings
-init|=
-literal|true
-decl_stmt|;
-end_decl_stmt
-begin_comment
-DECL|member|obey_desktop_settings
-comment|// use winsys resources
-end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -11669,46 +11655,6 @@ expr_stmt|;
 block|}
 return|return
 name|qt_desktopWidget
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     Sets whether Qt should use the system's standard colors, fonts, etc., to     \a on. By default, this is true.      This function must be called before creating the QApplication object, like     this:      \snippet doc/src/snippets/code/src_gui_kernel_qapplication.cpp 6      \sa desktopSettingsAware() */
-end_comment
-begin_function
-DECL|function|setDesktopSettingsAware
-name|void
-name|QApplication
-operator|::
-name|setDesktopSettingsAware
-parameter_list|(
-name|bool
-name|on
-parameter_list|)
-block|{
-name|QApplicationPrivate
-operator|::
-name|obey_desktop_settings
-operator|=
-name|on
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     Returns true if Qt is set to use the system's standard colors, fonts, etc.;     otherwise returns false. The default is true.      \sa setDesktopSettingsAware() */
-end_comment
-begin_function
-DECL|function|desktopSettingsAware
-name|bool
-name|QApplication
-operator|::
-name|desktopSettingsAware
-parameter_list|()
-block|{
-return|return
-name|QApplicationPrivate
-operator|::
-name|obey_desktop_settings
 return|;
 block|}
 end_function
