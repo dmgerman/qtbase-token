@@ -194,11 +194,6 @@ end_endif
 begin_include
 include|#
 directive|include
-file|"qguiplatformplugin_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|<qthread.h>
 end_include
 begin_include
@@ -2239,14 +2234,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//make sure the plugin is loaded
-if|if
-condition|(
-name|qt_is_gui_used
-condition|)
-name|qt_guiPlatformPlugin
-argument_list|()
-expr_stmt|;
 endif|#
 directive|endif
 block|}
