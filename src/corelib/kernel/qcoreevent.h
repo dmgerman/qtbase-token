@@ -847,6 +847,10 @@ name|TouchCancel
 operator|=
 literal|211
 block|,
+name|ThemeChange
+operator|=
+literal|212
+block|,
 comment|// 512 reserved for Qt Jambi's MetaCall event
 comment|// 513 reserved for Qt Jambi's DeleteOnMainThread event
 name|User

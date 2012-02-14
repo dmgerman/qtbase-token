@@ -392,6 +392,17 @@ argument_list|)
 block|;
 specifier|static
 name|void
+name|processThemeChanged
+argument_list|(
+name|QWindowSystemInterfacePrivate
+operator|::
+name|ThemeChangeEvent
+operator|*
+name|tce
+argument_list|)
+block|;
+specifier|static
+name|void
 name|processMapEvent
 argument_list|(
 name|QWindowSystemInterfacePrivate

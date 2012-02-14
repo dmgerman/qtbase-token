@@ -57,6 +57,8 @@ name|ScreenAvailableGeometry
 block|,
 name|ScreenLogicalDotsPerInch
 block|,
+name|ThemeChange
+block|,
 name|Map
 block|,
 name|Unmap
@@ -971,6 +973,39 @@ name|dpiX
 block|;
 name|qreal
 name|dpiY
+block|;     }
+decl_stmt|;
+name|class
+name|ThemeChangeEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|explicit
+name|ThemeChangeEvent
+argument_list|(
+name|QWindow
+operator|*
+name|w
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|ThemeChange
+argument_list|)
+block|,
+name|window
+argument_list|(
+argument|w
+argument_list|)
+block|{ }
+name|QWeakPointer
+operator|<
+name|QWindow
+operator|>
+name|window
 block|;     }
 decl_stmt|;
 name|class
