@@ -56,7 +56,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QtGui>
+file|<QCache>
 end_include
 begin_include
 include|#
