@@ -244,6 +244,13 @@ name|attachment
 argument_list|()
 specifier|const
 expr_stmt|;
+name|void
+name|setAttachment
+parameter_list|(
+name|Attachment
+name|attachment
+parameter_list|)
+function_decl|;
 name|GLuint
 name|handle
 argument_list|()
