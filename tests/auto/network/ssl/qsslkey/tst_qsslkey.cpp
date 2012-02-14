@@ -1348,7 +1348,7 @@ name|testName
 init|=
 name|QString
 argument_list|(
-literal|"%1-%2-%3-%4"
+literal|"%1-%2-%3-%4-%5"
 argument_list|)
 operator|.
 name|arg
@@ -1404,6 +1404,11 @@ condition|?
 literal|"PEM"
 else|:
 literal|"DER"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|password
 argument_list|)
 decl_stmt|;
 name|QTest
