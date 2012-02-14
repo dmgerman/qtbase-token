@@ -194,6 +194,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_include
+include|#
+directive|include
+file|"qtwindows_additional.h"
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|//#define DEBUG_SHOW_ATCLIENT_COMMANDS
