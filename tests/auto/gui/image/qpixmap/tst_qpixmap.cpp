@@ -8373,7 +8373,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"designer_indexed8_with_alpha_animated"
+literal|"designer_indexed8_no_alpha_animated"
 argument_list|)
 operator|<<
 name|prefix

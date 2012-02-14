@@ -1429,7 +1429,18 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"inside_ellipse"
+name|qPrintable
+argument_list|(
+name|QString
+argument_list|(
+literal|"inside_ellipse %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
 argument_list|)
 operator|<<
 name|path
@@ -1495,7 +1506,18 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"outside_ellipse"
+name|qPrintable
+argument_list|(
+name|QString
+argument_list|(
+literal|"outside_ellipse %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
 argument_list|)
 operator|<<
 name|path
@@ -6829,7 +6851,23 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"test"
+name|qPrintable
+argument_list|(
+name|QString
+argument_list|(
+literal|"test %1 %2"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|domain
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
 argument_list|)
 operator|<<
 name|rects
@@ -6850,7 +6888,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"test"
+literal|"low angles 1"
 argument_list|)
 operator|<<
 name|rects
@@ -6869,7 +6907,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"test"
+literal|"low angles 2"
 argument_list|)
 operator|<<
 name|rects
