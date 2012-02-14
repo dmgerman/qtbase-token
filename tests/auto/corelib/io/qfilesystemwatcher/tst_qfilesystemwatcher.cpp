@@ -2141,6 +2141,19 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+comment|// wait again for the file's atime to be updated
+name|QTest
+operator|::
+name|qWait
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QTRY_VERIFY
 argument_list|(
 name|fileChangedSpy
