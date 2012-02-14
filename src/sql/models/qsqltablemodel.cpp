@@ -2780,9 +2780,7 @@ name|value
 argument_list|()
 operator|.
 name|setSubmitted
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 return|return

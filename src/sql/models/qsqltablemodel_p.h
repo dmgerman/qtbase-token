@@ -333,13 +333,11 @@ block|}
 specifier|inline
 name|void
 name|setSubmitted
-argument_list|(
-argument|bool b
-argument_list|)
+argument_list|()
 block|{
 name|m_submitted
 operator|=
-name|b
+name|true
 block|; }
 name|private
 operator|:
