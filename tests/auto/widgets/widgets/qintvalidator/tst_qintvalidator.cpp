@@ -205,7 +205,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data1b"
+literal|"data1c"
 argument_list|)
 operator|<<
 operator|-
@@ -224,7 +224,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data1c"
+literal|"data1d"
 argument_list|)
 operator|<<
 operator|-

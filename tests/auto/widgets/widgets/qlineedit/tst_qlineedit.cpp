@@ -2927,7 +2927,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"nul 1"
 argument_list|)
 operator|<<
 name|QString
@@ -2942,7 +2942,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"nul 2"
 argument_list|)
 operator|<<
 name|QString
@@ -2956,7 +2956,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"mask 1"
 argument_list|)
 operator|<<
 name|QString
@@ -2973,7 +2973,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"mask 2"
 argument_list|)
 operator|<<
 name|QString
@@ -2990,7 +2990,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"mask 3"
 argument_list|)
 operator|<<
 name|QString
@@ -3007,7 +3007,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"mask 4"
 argument_list|)
 operator|<<
 name|QString
@@ -3020,14 +3020,13 @@ argument_list|(
 literal|">abcdef<GHIJK; "
 argument_list|)
 expr_stmt|;
-comment|//    QTest::newRow("")<< QString()<< QString();
 comment|// set an invalid input mask...
 comment|// the current behaviour is that this exact (faulty) string is returned.
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"invalid"
 argument_list|)
 operator|<<
 name|QString
@@ -3045,7 +3044,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"unset"
 argument_list|)
 operator|<<
 name|QString
@@ -19963,7 +19962,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data1"
 argument_list|)
 operator|<<
 literal|4
@@ -19983,7 +19982,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data2"
 argument_list|)
 operator|<<
 literal|4
@@ -20003,7 +20002,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data3"
 argument_list|)
 operator|<<
 literal|4
@@ -20023,7 +20022,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data4"
 argument_list|)
 operator|<<
 literal|4
@@ -20043,7 +20042,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data5"
 argument_list|)
 operator|<<
 literal|4
@@ -20063,7 +20062,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data6"
 argument_list|)
 operator|<<
 literal|4
@@ -20083,7 +20082,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data7"
 argument_list|)
 operator|<<
 literal|4
@@ -20103,7 +20102,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data8"
 argument_list|)
 operator|<<
 literal|4
@@ -20123,7 +20122,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data9"
 argument_list|)
 operator|<<
 literal|4
@@ -20143,7 +20142,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data10"
 argument_list|)
 operator|<<
 literal|4
@@ -20164,7 +20163,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data11"
 argument_list|)
 operator|<<
 literal|4
@@ -20185,7 +20184,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data12"
 argument_list|)
 operator|<<
 literal|4
@@ -20206,7 +20205,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data13"
 argument_list|)
 operator|<<
 literal|4
@@ -20227,7 +20226,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data14"
 argument_list|)
 operator|<<
 literal|4
@@ -20248,7 +20247,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data15"
 argument_list|)
 operator|<<
 literal|4
@@ -20269,7 +20268,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data16"
 argument_list|)
 operator|<<
 literal|4
@@ -20289,7 +20288,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data17"
 argument_list|)
 operator|<<
 literal|4
@@ -20309,7 +20308,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data18"
 argument_list|)
 operator|<<
 literal|4
@@ -20329,7 +20328,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data19"
 argument_list|)
 operator|<<
 literal|4
@@ -20350,7 +20349,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data20"
 argument_list|)
 operator|<<
 literal|4
@@ -20371,7 +20370,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data21"
 argument_list|)
 operator|<<
 literal|4
@@ -20392,7 +20391,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data22"
 argument_list|)
 operator|<<
 literal|4
@@ -20413,7 +20412,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data23"
 argument_list|)
 operator|<<
 literal|4
@@ -20434,7 +20433,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data24"
 argument_list|)
 operator|<<
 literal|4

@@ -5797,7 +5797,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"select to the right, (on viewport)"
+literal|"select to the right 2, (on viewport)"
 argument_list|)
 operator|<<
 literal|40

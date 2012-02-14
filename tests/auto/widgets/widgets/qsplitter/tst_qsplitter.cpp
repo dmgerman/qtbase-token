@@ -3494,7 +3494,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"ok08"
+literal|"ok09"
 argument_list|)
 operator|<<
 name|int

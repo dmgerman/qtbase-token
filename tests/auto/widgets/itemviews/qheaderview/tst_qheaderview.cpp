@@ -15042,7 +15042,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"no_updates+normal"
+literal|"no_updates+normal+reset"
 argument_list|)
 operator|<<
 literal|false
@@ -15055,7 +15055,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"hasupdates+normal"
+literal|"hasupdates+normal+reset"
 argument_list|)
 operator|<<
 literal|true
@@ -15068,7 +15068,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"no_updates+special"
+literal|"no_updates+special+reset"
 argument_list|)
 operator|<<
 literal|false
@@ -15081,7 +15081,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"no_updates+special"
+literal|"hasupdates+special+reset"
 argument_list|)
 operator|<<
 literal|true
@@ -15134,7 +15134,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"no_updates+special"
+literal|"hasupdates+special"
 argument_list|)
 operator|<<
 literal|true

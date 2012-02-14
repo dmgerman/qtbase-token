@@ -2326,7 +2326,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Step down once"
+literal|"Step down once 1"
 argument_list|)
 operator|<<
 literal|10
@@ -2379,7 +2379,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Step down once"
+literal|"Step down once 2"
 argument_list|)
 operator|<<
 literal|10

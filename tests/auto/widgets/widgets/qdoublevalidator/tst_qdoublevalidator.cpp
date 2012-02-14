@@ -4370,7 +4370,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"5.1"
+literal|"5.1a"
 argument_list|)
 operator|<<
 literal|6.0
@@ -4388,7 +4388,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"5.1"
+literal|"5.1b"
 argument_list|)
 operator|<<
 literal|6.0
@@ -4424,7 +4424,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"5.3"
+literal|"5.3a"
 argument_list|)
 operator|<<
 literal|6.0
@@ -4442,7 +4442,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"5.3"
+literal|"5.3b"
 argument_list|)
 operator|<<
 literal|6.0

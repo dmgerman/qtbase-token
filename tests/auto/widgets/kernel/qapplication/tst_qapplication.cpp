@@ -1396,7 +1396,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"nonexistingfont"
+literal|"nonexistingfont after"
 argument_list|)
 operator|<<
 literal|"nosuchfont_probably_quiteunlikely"
@@ -1409,7 +1409,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"nonexistingfont"
+literal|"nonexistingfont before"
 argument_list|)
 operator|<<
 literal|"nosuchfont_probably_quiteunlikely"
@@ -1422,7 +1422,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"largescaleable"
+literal|"largescaleable after"
 argument_list|)
 operator|<<
 literal|"smoothtimes"
@@ -1435,7 +1435,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"largescaleable"
+literal|"largescaleable before"
 argument_list|)
 operator|<<
 literal|"smoothtimes"
@@ -1448,7 +1448,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"largeunscaleale"
+literal|"largeunscaleale after"
 argument_list|)
 operator|<<
 literal|"helvetica"
@@ -1461,7 +1461,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"largeunscaleale"
+literal|"largeunscaleale before"
 argument_list|)
 operator|<<
 literal|"helvetica"
