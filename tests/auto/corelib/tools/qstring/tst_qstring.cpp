@@ -2716,7 +2716,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"rep10"
+literal|"rep11"
 argument_list|)
 operator|<<
 name|QString
@@ -8860,7 +8860,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"BoyerMooreStressTest6"
+literal|"BoyerMooreStressTest7"
 argument_list|)
 operator|<<
 name|QString
@@ -10707,24 +10707,6 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"6"
-argument_list|)
-operator|<<
-name|a
-operator|<<
-literal|"B"
-operator|<<
-operator|-
-literal|1
-operator|<<
-literal|1
-operator|<<
-literal|true
-expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
 literal|"7"
 argument_list|)
 operator|<<
@@ -10732,6 +10714,7 @@ name|a
 operator|<<
 literal|"B"
 operator|<<
+operator|-
 literal|1
 operator|<<
 literal|1
@@ -10749,9 +10732,8 @@ name|a
 operator|<<
 literal|"B"
 operator|<<
-literal|0
+literal|1
 operator|<<
-operator|-
 literal|1
 operator|<<
 literal|true
@@ -10765,15 +10747,10 @@ argument_list|)
 operator|<<
 name|a
 operator|<<
-literal|"G"
+literal|"B"
 operator|<<
-operator|-
-literal|1
+literal|0
 operator|<<
-name|a
-operator|.
-name|size
-argument_list|()
 operator|-
 literal|1
 operator|<<
@@ -10790,10 +10767,6 @@ name|a
 operator|<<
 literal|"G"
 operator|<<
-name|a
-operator|.
-name|size
-argument_list|()
 operator|-
 literal|1
 operator|<<
@@ -10821,7 +10794,13 @@ name|a
 operator|.
 name|size
 argument_list|()
+operator|-
+literal|1
 operator|<<
+name|a
+operator|.
+name|size
+argument_list|()
 operator|-
 literal|1
 operator|<<
@@ -10832,6 +10811,27 @@ operator|::
 name|newRow
 argument_list|(
 literal|"12"
+argument_list|)
+operator|<<
+name|a
+operator|<<
+literal|"G"
+operator|<<
+name|a
+operator|.
+name|size
+argument_list|()
+operator|<<
+operator|-
+literal|1
+operator|<<
+literal|true
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"13"
 argument_list|)
 operator|<<
 name|a
@@ -10848,7 +10848,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"13"
+literal|"14"
 argument_list|)
 operator|<<
 name|a
@@ -39353,7 +39353,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data6"
+literal|"data7"
 argument_list|)
 operator|<<
 name|QString
@@ -39375,7 +39375,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data7"
+literal|"data8"
 argument_list|)
 operator|<<
 name|QString
@@ -39466,7 +39466,7 @@ literal|0
 expr_stmt|;
 comment|// embedded nulls
 comment|// These don't work as of now. It's OK that these don't work since \0 is not a valid unicode
-comment|/*QTest::newRow("data9")<< QString(QByteArray("\0", 1))<< QString(QByteArray("\0", 1))<< 0<< 0;     QTest::newRow("data10")<< QString(QByteArray("\0", 1))<< QString("")<< 1<< 1;     QTest::newRow("data11")<< QString("")<< QString(QByteArray("\0", 1))<< -1<< -1;     QTest::newRow("data12")<< QString("ab\0c")<< QString(QByteArray("ab\0c", 4))<< 0<< 0;     QTest::newRow("data13")<< QString(QByteArray("ab\0c", 4))<< QString("abc")<< -1<< -1;     QTest::newRow("data14")<< QString("abc")<< QString(QByteArray("ab\0c", 4))<< 1<< 1;*/
+comment|/*QTest::newRow("data10")<< QString(QByteArray("\0", 1))<< QString(QByteArray("\0", 1))<< 0<< 0;     QTest::newRow("data11")<< QString(QByteArray("\0", 1))<< QString("")<< 1<< 1;     QTest::newRow("data12")<< QString("")<< QString(QByteArray("\0", 1))<< -1<< -1;     QTest::newRow("data13")<< QString("ab\0c")<< QString(QByteArray("ab\0c", 4))<< 0<< 0;     QTest::newRow("data14")<< QString(QByteArray("ab\0c", 4))<< QString("abc")<< -1<< -1;     QTest::newRow("data15")<< QString("abc")<< QString(QByteArray("ab\0c", 4))<< 1<< 1;*/
 block|}
 end_function
 begin_function
@@ -41052,7 +41052,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data1"
 argument_list|)
 operator|<<
 name|QString
@@ -41067,7 +41067,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data2"
 argument_list|)
 operator|<<
 name|QString
@@ -41083,7 +41083,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data3"
 argument_list|)
 operator|<<
 name|QString
@@ -41098,7 +41098,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data4"
 argument_list|)
 operator|<<
 name|QString
@@ -41114,7 +41114,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data5"
 argument_list|)
 operator|<<
 name|QString
@@ -41135,7 +41135,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data6"
 argument_list|)
 operator|<<
 name|QString
@@ -41156,7 +41156,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data7"
 argument_list|)
 operator|<<
 name|QString
@@ -41176,7 +41176,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data8"
 argument_list|)
 operator|<<
 name|QString
@@ -41201,7 +41201,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data9"
 argument_list|)
 operator|<<
 name|QString
@@ -41226,7 +41226,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data10"
 argument_list|)
 operator|<<
 name|QString
@@ -41251,7 +41251,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data11"
 argument_list|)
 operator|<<
 name|QString

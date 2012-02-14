@@ -1813,7 +1813,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Line"
+literal|"data1"
 argument_list|)
 operator|<<
 name|QString
@@ -1848,7 +1848,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Line"
+literal|"data2"
 argument_list|)
 operator|<<
 name|QString
@@ -1891,7 +1891,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Line"
+literal|"data3"
 argument_list|)
 operator|<<
 name|QString
@@ -1934,7 +1934,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Line"
+literal|"data4"
 argument_list|)
 operator|<<
 name|QString
@@ -2124,7 +2124,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Line"
+literal|"data1"
 argument_list|)
 operator|<<
 name|QString
@@ -2158,7 +2158,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Line"
+literal|"data2"
 argument_list|)
 operator|<<
 name|QString
@@ -2200,7 +2200,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Line"
+literal|"data3"
 argument_list|)
 operator|<<
 name|QString
@@ -2242,7 +2242,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Line"
+literal|"data4"
 argument_list|)
 operator|<<
 name|QString

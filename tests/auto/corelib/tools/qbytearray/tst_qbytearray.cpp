@@ -6907,7 +6907,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"BoyerMooreStressTest6"
+literal|"BoyerMooreStressTest7"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -8289,7 +8289,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"base 16"
+literal|"base 16-1"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -8310,7 +8310,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"base 16"
+literal|"base 16-2"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -8373,7 +8373,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"base 0"
+literal|"base 0-1"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -8394,7 +8394,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"base 0"
+literal|"base 0-2"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -8415,7 +8415,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"base 0"
+literal|"base 0-3"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -8544,7 +8544,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"raw4"
+literal|"raw5"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -11566,7 +11566,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data1"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -11581,7 +11581,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data2"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -11597,7 +11597,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data3"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -11612,7 +11612,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data4"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -11628,7 +11628,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data5"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -11646,7 +11646,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data6"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -11664,7 +11664,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data7"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -11681,7 +11681,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data8"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -11700,7 +11700,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data9"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -11723,7 +11723,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data10"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -11746,7 +11746,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data11"
 argument_list|)
 operator|<<
 name|QByteArray

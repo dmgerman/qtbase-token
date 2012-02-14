@@ -215,7 +215,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"empty"
+literal|"empty-1"
 argument_list|)
 operator|<<
 name|QString
@@ -234,7 +234,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"empty"
+literal|"empty-2"
 argument_list|)
 operator|<<
 name|QString
@@ -254,7 +254,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"empty"
+literal|"empty-3"
 argument_list|)
 operator|<<
 name|QString
@@ -274,7 +274,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"simple"
+literal|"simple-1"
 argument_list|)
 operator|<<
 name|QString
@@ -296,7 +296,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"simple"
+literal|"simple-2"
 argument_list|)
 operator|<<
 name|QString
@@ -317,7 +317,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"harder"
+literal|"harder-1"
 argument_list|)
 operator|<<
 name|QString
@@ -338,7 +338,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"harder"
+literal|"harder-2"
 argument_list|)
 operator|<<
 name|QString
@@ -359,7 +359,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"harder"
+literal|"harder-3"
 argument_list|)
 operator|<<
 name|QString
@@ -380,7 +380,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"harder"
+literal|"harder-4"
 argument_list|)
 operator|<<
 name|QString

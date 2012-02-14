@@ -22642,7 +22642,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"port-1"
+literal|"port-2"
 argument_list|)
 operator|<<
 literal|"example.org:80/path"
@@ -22653,7 +22653,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"port-1"
+literal|"port-3"
 argument_list|)
 operator|<<
 literal|"http://example.org:80/path"

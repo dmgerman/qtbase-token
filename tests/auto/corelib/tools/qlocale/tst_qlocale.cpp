@@ -8316,7 +8316,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"27C"
+literal|"28C"
 argument_list|)
 operator|<<
 literal|"C"
@@ -8978,7 +8978,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"27no_NO"
+literal|"28no_NO"
 argument_list|)
 operator|<<
 literal|"no_NO"

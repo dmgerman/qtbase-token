@@ -18241,7 +18241,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"badsize 0a"
+literal|"badsize 0b"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -18265,7 +18265,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"badsize 0a"
+literal|"badsize 0c"
 argument_list|)
 operator|<<
 name|QByteArray

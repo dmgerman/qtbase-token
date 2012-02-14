@@ -1349,7 +1349,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"hidden1"
+literal|"hidden1-1"
 argument_list|)
 operator|<<
 literal|".ext1"
@@ -1360,7 +1360,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"hidden1"
+literal|"hidden1-2"
 argument_list|)
 operator|<<
 literal|".ext"
@@ -1371,7 +1371,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"hidden1"
+literal|"hidden1-3"
 argument_list|)
 operator|<<
 literal|".ex"
@@ -1382,7 +1382,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"hidden1"
+literal|"hidden1-4"
 argument_list|)
 operator|<<
 literal|".e"
@@ -1393,7 +1393,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"hidden2"
+literal|"hidden2-1"
 argument_list|)
 operator|<<
 literal|".ext1.ext2"
@@ -1404,7 +1404,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"hidden2"
+literal|"hidden2-2"
 argument_list|)
 operator|<<
 literal|".ext.ext2"
@@ -1415,7 +1415,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"hidden2"
+literal|"hidden2-3"
 argument_list|)
 operator|<<
 literal|".ex.ext2"
@@ -1426,7 +1426,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"hidden2"
+literal|"hidden2-4"
 argument_list|)
 operator|<<
 literal|".e.ext2"
@@ -1437,7 +1437,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"hidden2"
+literal|"hidden2-5"
 argument_list|)
 operator|<<
 literal|"..ext2"
