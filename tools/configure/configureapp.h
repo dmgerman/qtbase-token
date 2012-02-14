@@ -191,6 +191,14 @@ name|void
 name|generateConfigfiles
 parameter_list|()
 function_decl|;
+name|void
+name|detectArch
+parameter_list|()
+function_decl|;
+name|void
+name|generateQConfigPri
+parameter_list|()
+function_decl|;
 endif|#
 directive|endif
 name|void
