@@ -1887,7 +1887,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"two"
+literal|"two-1"
 argument_list|)
 operator|<<
 literal|"<property name=\"foo\" type=\"s\" access=\"readwrite\"/>"
@@ -1900,7 +1900,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"two"
+literal|"two-2"
 argument_list|)
 operator|<<
 literal|"<property name=\"bar\" type=\"i\" access=\"read\"/>"

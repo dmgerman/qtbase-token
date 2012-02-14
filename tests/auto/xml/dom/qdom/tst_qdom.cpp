@@ -2304,20 +2304,6 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"doc01.xml"
-argument_list|)
-operator|<<
-name|QString
-argument_list|(
-name|prefix
-operator|+
-literal|"/doc01.xml"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
 literal|"doc02.xml"
 argument_list|)
 operator|<<
@@ -10067,7 +10053,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data1"
 argument_list|)
 operator|<<
 name|QString
@@ -10083,7 +10069,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data2"
 argument_list|)
 operator|<<
 name|QString
@@ -10099,7 +10085,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data3"
 argument_list|)
 operator|<<
 name|QString
@@ -10115,7 +10101,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data4"
 argument_list|)
 operator|<<
 name|QString
@@ -10131,7 +10117,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data5"
 argument_list|)
 operator|<<
 name|QString
@@ -10147,7 +10133,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data6"
 argument_list|)
 operator|<<
 name|QString
@@ -10163,7 +10149,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data7"
 argument_list|)
 operator|<<
 name|QString
@@ -10179,7 +10165,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data8"
 argument_list|)
 operator|<<
 name|QString
@@ -10195,7 +10181,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data9"
 argument_list|)
 operator|<<
 name|QString
@@ -10211,7 +10197,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data10"
 argument_list|)
 operator|<<
 name|QString
@@ -10227,7 +10213,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data11"
 argument_list|)
 operator|<<
 name|QString
@@ -10243,7 +10229,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data12"
 argument_list|)
 operator|<<
 name|QString
@@ -10260,7 +10246,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data13"
 argument_list|)
 operator|<<
 name|QString
@@ -10276,7 +10262,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data14"
 argument_list|)
 operator|<<
 name|QString
@@ -10292,7 +10278,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data15"
 argument_list|)
 operator|<<
 name|QString
@@ -10308,7 +10294,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data16"
 argument_list|)
 operator|<<
 name|QString
@@ -10324,7 +10310,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data17"
 argument_list|)
 operator|<<
 name|QString
@@ -10340,7 +10326,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data18"
 argument_list|)
 operator|<<
 name|QString
@@ -10356,7 +10342,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data19"
 argument_list|)
 operator|<<
 name|QString
@@ -10372,7 +10358,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data20"
 argument_list|)
 operator|<<
 name|QString
@@ -10388,7 +10374,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data21"
 argument_list|)
 operator|<<
 name|QString
@@ -10404,7 +10390,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data22"
 argument_list|)
 operator|<<
 name|QString
@@ -10420,7 +10406,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data23"
 argument_list|)
 operator|<<
 name|QString
@@ -10436,7 +10422,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data24"
 argument_list|)
 operator|<<
 name|QString
@@ -10452,7 +10438,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"data25"
 argument_list|)
 operator|<<
 name|QString
