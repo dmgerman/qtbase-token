@@ -52,11 +52,19 @@ end_include
 begin_comment
 comment|// mkdtemp
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+operator|||
+name|defined
+argument_list|(
 name|Q_OS_WIN
-end_ifdef
+argument_list|)
+end_if
 begin_include
 include|#
 directive|include
