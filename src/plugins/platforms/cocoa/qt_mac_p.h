@@ -126,57 +126,6 @@ end_comment
 begin_comment
 comment|// internal Qt types
 end_comment
-begin_comment
-comment|// Event class for our own Carbon events.
-end_comment
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QT_NAMESPACE
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|QT_NAMESPACE_MAC_CRC
-argument_list|)
-end_if
-begin_comment
-comment|// Take the CRC we generated at configure time. This *may* result in a
-end_comment
-begin_comment
-comment|// collision with another value If that is the case, please change the value
-end_comment
-begin_comment
-comment|// here to something other than 'Cute'.
-end_comment
-begin_decl_stmt
-DECL|variable|kEventClassQt
-specifier|const
-name|UInt32
-name|kEventClassQt
-init|=
-name|QT_NAMESPACE_MAC_CRC
-decl_stmt|;
-end_decl_stmt
-begin_else
-else|#
-directive|else
-end_else
-begin_decl_stmt
-DECL|variable|kEventClassQt
-specifier|const
-name|UInt32
-name|kEventClassQt
-init|=
-literal|'Cute'
-decl_stmt|;
-end_decl_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_enum
 enum|enum
 block|{
