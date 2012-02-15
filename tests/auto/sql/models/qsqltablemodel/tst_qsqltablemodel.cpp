@@ -6806,7 +6806,7 @@ operator|.
 name|toInt
 argument_list|()
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -6826,7 +6826,7 @@ operator|.
 name|toInt
 argument_list|()
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -6846,7 +6846,7 @@ operator|.
 name|toInt
 argument_list|()
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -6866,7 +6866,7 @@ operator|.
 name|toInt
 argument_list|()
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
