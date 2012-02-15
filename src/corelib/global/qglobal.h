@@ -8456,15 +8456,6 @@ define|#
 directive|define
 name|QT_NO_SHAREDMEMORY
 end_define
-begin_comment
-comment|// QNX currently doesn't support forking in a thread, so disable QProcess
-end_comment
-begin_define
-DECL|macro|QT_NO_PROCESS
-define|#
-directive|define
-name|QT_NO_PROCESS
-end_define
 begin_endif
 endif|#
 directive|endif
