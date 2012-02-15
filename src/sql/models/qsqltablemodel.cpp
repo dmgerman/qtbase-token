@@ -2068,7 +2068,6 @@ name|QSqlTableModelPrivate
 operator|::
 name|None
 condition|)
-block|{
 name|row
 operator|=
 name|QSqlTableModelPrivate
@@ -2084,7 +2083,6 @@ operator|->
 name|rec
 argument_list|)
 expr_stmt|;
-block|}
 name|row
 operator|.
 name|setValue
