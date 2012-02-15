@@ -5218,17 +5218,20 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!      Returns the cubicBezierSpline that defines a custom easing curve.     If the easing curve does not have a custom bezier easing curve the list     is empty.  */
+comment|/*!     \fn QList<QPointF> QEasingCurve::cubicBezierSpline() const     \obsolete Use toCubicSpline() instead.  */
+end_comment
+begin_comment
+comment|/*!     \since 5.0      Returns the cubicBezierSpline that defines a custom easing curve.     If the easing curve does not have a custom bezier easing curve the list     is empty. */
 end_comment
 begin_function
-DECL|function|cubicBezierSpline
-name|QList
+DECL|function|toCubicSpline
+name|QVector
 argument_list|<
 name|QPointF
 argument_list|>
 name|QEasingCurve
 operator|::
-name|cubicBezierSpline
+name|toCubicSpline
 parameter_list|()
 specifier|const
 block|{
@@ -5242,11 +5245,8 @@ operator|->
 name|config
 operator|->
 name|_bezierCurves
-operator|.
-name|toList
-argument_list|()
 else|:
-name|QList
+name|QVector
 argument_list|<
 name|QPointF
 argument_list|>
