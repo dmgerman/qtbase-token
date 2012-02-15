@@ -1622,6 +1622,16 @@ name|at
 argument_list|)
 expr_stmt|;
 block|}
+name|virtual
+name|bool
+name|shouldLoadFontEngineForCharacter
+argument_list|(
+argument|int at
+argument_list|,
+argument|uint ucs4
+argument_list|)
+specifier|const
+block|;
 name|protected
 operator|:
 name|friend
@@ -1644,6 +1654,13 @@ argument|int at
 argument_list|)
 operator|=
 literal|0
+block|;
+name|virtual
+name|void
+name|unloadEngine
+argument_list|(
+argument|int at
+argument_list|)
 block|;
 name|QVector
 operator|<

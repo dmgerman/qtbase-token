@@ -5,97 +5,47 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QFONTCONFIGDATABASE_H
+name|QFONTENGINEMULTIFONTCONFIG_H
 end_ifndef
 begin_define
-DECL|macro|QFONTCONFIGDATABASE_H
+DECL|macro|QFONTENGINEMULTIFONTCONFIG_H
 define|#
 directive|define
-name|QFONTCONFIGDATABASE_H
+name|QFONTENGINEMULTIFONTCONFIG_H
 end_define
 begin_include
 include|#
 directive|include
-file|<QPlatformFontDatabase>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtPlatformSupport/private/qbasicfontdatabase_p.h>
+file|<QtGui/private/qfontengine_qpa_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
-name|QFontconfigDatabase
+name|QFontEngineMultiFontConfig
 range|:
 name|public
-name|QBasicFontDatabase
+name|QFontEngineMultiQPA
 block|{
+name|Q_OBJECT
 name|public
 operator|:
-name|void
-name|populateFontDatabase
-argument_list|()
-block|;
-name|QFontEngineMulti
-operator|*
-name|fontEngineMulti
+name|explicit
+name|QFontEngineMultiFontConfig
 argument_list|(
-argument|QFontEngine *fontEngine
+argument|QFontEngine *fe
 argument_list|,
-argument|QUnicodeTables::Script script
+argument|int script
 argument_list|,
 argument|const QStringList&fallbacks
 argument_list|)
 block|;
-name|QFontEngine
-operator|*
-name|fontEngine
+name|bool
+name|shouldLoadFontEngineForCharacter
 argument_list|(
-argument|const QFontDef&fontDef
+argument|int at
 argument_list|,
-argument|QUnicodeTables::Script script
-argument_list|,
-argument|void *handle
+argument|uint ucs4
 argument_list|)
-block|;
-name|QStringList
-name|fallbacksForFamily
-argument_list|(
-argument|const QString family
-argument_list|,
-argument|const QFont::Style&style
-argument_list|,
-argument|const QFont::StyleHint&styleHint
-argument_list|,
-argument|const QUnicodeTables::Script&script
-argument_list|)
-specifier|const
-block|;
-name|QStringList
-name|addApplicationFont
-argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|fontData
-argument_list|,
-specifier|const
-name|QString
-operator|&
-name|fileName
-argument_list|)
-block|;
-name|QString
-name|resolveFontFamilyAlias
-argument_list|(
-argument|const QString&family
-argument_list|)
-specifier|const
-block|;
-name|QFont
-name|defaultFont
-argument_list|()
 specifier|const
 block|; }
 decl_stmt|;
@@ -108,6 +58,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QFONTCONFIGDATABASE_H
+comment|// QFONTENGINEMULTIFONTCONFIG_H
 end_comment
 end_unit
