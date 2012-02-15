@@ -1634,18 +1634,6 @@ operator|::
 name|DisplayRole
 condition|)
 block|{
-if|if
-condition|(
-name|d
-operator|->
-name|cache
-operator|.
-name|contains
-argument_list|(
-name|section
-argument_list|)
-condition|)
-block|{
 specifier|const
 name|QSqlTableModelPrivate
 operator|::
@@ -1693,7 +1681,6 @@ argument_list|(
 literal|"!"
 argument_list|)
 return|;
-block|}
 block|}
 return|return
 name|QSqlQueryModel
