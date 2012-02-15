@@ -4599,7 +4599,7 @@ parameter_list|,
 specifier|const
 name|QSqlRecord
 modifier|&
-name|record
+name|values
 parameter_list|)
 block|{
 name|Q_D
@@ -4720,7 +4720,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|record
+name|values
 operator|.
 name|count
 argument_list|()
@@ -4731,7 +4731,7 @@ control|)
 block|{
 if|if
 condition|(
-name|record
+name|values
 operator|.
 name|isGenerated
 argument_list|(
@@ -4746,7 +4746,7 @@ name|d
 operator|->
 name|nameToIndex
 argument_list|(
-name|record
+name|values
 operator|.
 name|fieldName
 argument_list|(
@@ -4852,7 +4852,7 @@ operator|.
 name|value
 argument_list|()
 argument_list|,
-name|record
+name|values
 operator|.
 name|value
 argument_list|(
