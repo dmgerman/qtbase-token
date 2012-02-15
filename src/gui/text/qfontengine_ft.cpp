@@ -5143,15 +5143,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|(
 operator|!
 name|set
 operator|||
 name|set
 operator|->
 name|outline_drawing
-operator|)
-operator|&&
+operator|||
 name|fetchMetricsOnly
 condition|)
 return|return
