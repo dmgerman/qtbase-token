@@ -3199,6 +3199,17 @@ name|int
 name|flags
 operator|=
 literal|0
+argument_list|,
+name|int
+name|from
+operator|=
+literal|0
+argument_list|,
+name|int
+name|count
+operator|=
+operator|-
+literal|1
 argument_list|)
 decl|const
 decl_stmt|;
