@@ -2537,6 +2537,10 @@ operator|::
 name|quitOnLastWindowClosed
 parameter_list|()
 block|{
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
+comment|// Test hangs on Mac OS X, see QTBUG-24319
 block|{
 name|int
 name|argc
@@ -2610,6 +2614,8 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|{
 name|int
 name|argc
@@ -5865,6 +5871,16 @@ operator|::
 name|testDeleteLater
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"This test fails and then hangs on Mac OS X, see QTBUG-24318"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|int
 name|argc
 init|=
