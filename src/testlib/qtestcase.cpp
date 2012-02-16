@@ -3478,6 +3478,11 @@ name|QTestResult
 operator|::
 name|skipCurrentTest
 argument_list|()
+operator|||
+name|QTestResult
+operator|::
+name|currentTestFailed
+argument_list|()
 condition|)
 break|break;
 name|QBenchmarkTestMethodData
