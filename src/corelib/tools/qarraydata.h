@@ -185,6 +185,11 @@ name|RawData
 init|=
 literal|0x4
 block|,
+DECL|enumerator|Grow
+name|Grow
+init|=
+literal|0x8
+block|,
 DECL|enumerator|Default
 name|Default
 init|=

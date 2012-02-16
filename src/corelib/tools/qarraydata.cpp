@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/private/qtools_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<stdlib.h>
 end_include
 begin_decl_stmt
@@ -164,16 +169,12 @@ name|qt_array_unsharable_empty
 argument_list|)
 return|;
 name|size_t
-name|allocSize
+name|headerSize
 init|=
 sizeof|sizeof
 argument_list|(
 name|QArrayData
 argument_list|)
-operator|+
-name|objectSize
-operator|*
-name|capacity
 decl_stmt|;
 comment|// Allocate extra (alignment - Q_ALIGNOF(QArrayData)) padding bytes so we
 comment|// can properly align the data array. This assumes malloc is able to
@@ -188,7 +189,7 @@ operator|&
 name|RawData
 operator|)
 condition|)
-name|allocSize
+name|headerSize
 operator|+=
 operator|(
 name|alignment
@@ -199,6 +200,35 @@ name|QArrayData
 argument_list|)
 operator|)
 expr_stmt|;
+comment|// Allocate additional space if array is growing
+if|if
+condition|(
+name|options
+operator|&
+name|Grow
+condition|)
+name|capacity
+operator|=
+name|qAllocMore
+argument_list|(
+name|objectSize
+operator|*
+name|capacity
+argument_list|,
+name|headerSize
+argument_list|)
+operator|/
+name|objectSize
+expr_stmt|;
+name|size_t
+name|allocSize
+init|=
+name|headerSize
+operator|+
+name|objectSize
+operator|*
+name|capacity
+decl_stmt|;
 name|QArrayData
 modifier|*
 name|header

@@ -875,6 +875,10 @@ name|d
 operator|->
 name|detachFlags
 argument_list|()
+operator||
+name|Data
+operator|::
+name|Grow
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -995,6 +999,10 @@ name|d
 operator|->
 name|detachFlags
 argument_list|()
+operator||
+name|Data
+operator|::
+name|Grow
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1214,6 +1222,10 @@ name|d
 operator|->
 name|detachFlags
 argument_list|()
+operator||
+name|Data
+operator|::
+name|Grow
 argument_list|)
 argument_list|)
 decl_stmt|;
