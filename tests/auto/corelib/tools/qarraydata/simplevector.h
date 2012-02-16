@@ -733,7 +733,13 @@ name|Data
 operator|::
 name|allocate
 argument_list|(
+name|qMax
+argument_list|(
 name|n
+argument_list|,
+name|size
+argument_list|()
+argument_list|)
 argument_list|,
 name|d
 operator|->
@@ -746,6 +752,11 @@ name|CapacityReserved
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|size
+argument_list|()
+condition|)
 name|detached
 operator|.
 name|d
