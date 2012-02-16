@@ -6513,12 +6513,15 @@ operator|<<
 name|window
 argument_list|()
 expr_stmt|;
+comment|// 'Active' state handling is based in focus since it needs to work for
+comment|// child windows as well.
 if|if
 condition|(
 name|m_data
 operator|.
 name|hwnd
 condition|)
+block|{
 name|SetForegroundWindow
 argument_list|(
 name|m_data
@@ -6526,6 +6529,14 @@ operator|.
 name|hwnd
 argument_list|)
 expr_stmt|;
+name|SetFocus
+argument_list|(
+name|m_data
+operator|.
+name|hwnd
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
