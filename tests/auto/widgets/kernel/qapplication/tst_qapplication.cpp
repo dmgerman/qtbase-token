@@ -2537,6 +2537,16 @@ operator|::
 name|quitOnLastWindowClosed
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN32
+name|QSKIP
+argument_list|(
+literal|"This test crashes on Windows. Remove skip once the issue causing the crash is fixed (QTBUG-24300)."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|Q_OS_MAC
