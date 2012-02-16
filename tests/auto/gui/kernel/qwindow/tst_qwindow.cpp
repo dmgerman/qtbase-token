@@ -17,6 +17,15 @@ include|#
 directive|include
 file|<QEvent>
 end_include
+begin_comment
+comment|// For QSignalSpy slot connections.
+end_comment
+begin_macro
+name|Q_DECLARE_METATYPE
+argument_list|(
+argument|Qt::ScreenOrientation
+argument_list|)
+end_macro
 begin_class
 DECL|class|tst_QWindow
 class|class
