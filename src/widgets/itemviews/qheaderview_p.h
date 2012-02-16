@@ -1186,6 +1186,10 @@ name|mutable
 name|int
 name|calculated_startpos
 block|;
+name|mutable
+name|int
+name|tmpLogIdx
+block|;
 name|QHeaderView
 operator|::
 name|ResizeMode
