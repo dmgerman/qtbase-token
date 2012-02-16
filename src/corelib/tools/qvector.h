@@ -192,8 +192,6 @@ argument_list|,
 argument|int size
 argument_list|,
 argument|int sizeofT
-argument_list|,
-argument|bool excessive
 argument_list|)
 block|; }
 expr_stmt|;
@@ -3159,13 +3157,6 @@ sizeof|sizeof
 argument_list|(
 name|T
 argument_list|)
-argument_list|,
-name|QTypeInfo
-operator|<
-name|T
-operator|>
-operator|::
-name|isStatic
 argument_list|)
 operator|:
 name|d
@@ -4930,13 +4921,6 @@ sizeof|sizeof
 argument_list|(
 name|T
 argument_list|)
-argument_list|,
-name|QTypeInfo
-operator|<
-name|T
-operator|>
-operator|::
-name|isStatic
 argument_list|)
 else|:
 name|d
@@ -5110,13 +5094,6 @@ sizeof|sizeof
 argument_list|(
 name|T
 argument_list|)
-argument_list|,
-name|QTypeInfo
-operator|<
-name|T
-operator|>
-operator|::
-name|isStatic
 argument_list|)
 argument_list|)
 expr_stmt|;
