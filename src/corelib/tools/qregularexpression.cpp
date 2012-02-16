@@ -236,7 +236,8 @@ name|void
 name|getPatternInfo
 parameter_list|()
 function_decl|;
-name|void
+name|pcre16_extra
+modifier|*
 name|optimizePattern
 parameter_list|()
 function_decl|;
@@ -1046,11 +1047,12 @@ directive|endif
 block|}
 end_function
 begin_comment
-comment|/*!     \internal */
+comment|/*!     \internal      The purpose of the function is to call pcre16_study (which allows some     optimizations to be performed, including JIT-compiling the pattern), and     setting the studyData member variable to the result of the study. It gets     called by doMatch() every time a match is performed. As of now, the     optimizations on the pattern are performed after a certain number of usages     (i.e. the OPTIMIZE_AFTER_USE_COUNT constant).      Notice that although the method is protected by a mutex, one thread may     invoke this function and return immediately (i.e. not study the pattern,     leaving studyData to NULL); but before calling pcre16_exec to perform the     match, another thread performs the studying and sets studyData to something     else. Although the assignment to studyData is itself atomic, the release of     the memory pointed by studyData isn't. Therefore, the current studyData     value is returned and used by doMatch. */
 end_comment
 begin_function
 DECL|function|optimizePattern
-name|void
+name|pcre16_extra
+modifier|*
 name|QRegularExpressionPrivate
 operator|::
 name|optimizePattern
@@ -1079,7 +1081,9 @@ operator|!=
 name|OPTIMIZE_AFTER_USE_COUNT
 operator|)
 condition|)
-return|return;
+return|return
+name|studyData
+return|;
 specifier|static
 specifier|const
 name|bool
@@ -1132,6 +1136,9 @@ argument_list|,
 name|err
 argument_list|)
 expr_stmt|;
+return|return
+name|studyData
+return|;
 block|}
 end_function
 begin_comment
@@ -1325,6 +1332,11 @@ name|capturingCount
 argument_list|)
 decl_stmt|;
 comment|// this is mutex protected
+specifier|const
+name|pcre16_extra
+modifier|*
+name|currentStudyData
+init|=
 cast|const_cast
 argument_list|<
 name|QRegularExpressionPrivate
@@ -1336,7 +1348,7 @@ argument_list|)
 operator|->
 name|optimizePattern
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|int
 name|pcreOptions
 init|=
@@ -1468,7 +1480,7 @@ name|pcre16_exec
 argument_list|(
 name|compiledPattern
 argument_list|,
-name|studyData
+name|currentStudyData
 argument_list|,
 name|subjectUtf16
 argument_list|,
@@ -1492,7 +1504,7 @@ name|pcre16_exec
 argument_list|(
 name|compiledPattern
 argument_list|,
-name|studyData
+name|currentStudyData
 argument_list|,
 name|subjectUtf16
 argument_list|,
@@ -1584,7 +1596,7 @@ name|pcre16_exec
 argument_list|(
 name|compiledPattern
 argument_list|,
-name|studyData
+name|currentStudyData
 argument_list|,
 name|subjectUtf16
 argument_list|,
