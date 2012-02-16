@@ -834,10 +834,8 @@ return|return;
 if|if
 condition|(
 name|d
-operator|->
-name|ref
 operator|.
-name|isShared
+name|needsDetach
 argument_list|()
 operator|||
 name|newSize
@@ -1029,10 +1027,8 @@ decl_stmt|;
 if|if
 condition|(
 name|d
-operator|->
-name|ref
 operator|.
-name|isShared
+name|needsDetach
 argument_list|()
 operator|||
 name|capacity
@@ -1152,10 +1148,8 @@ return|return;
 if|if
 condition|(
 name|d
-operator|->
-name|ref
 operator|.
-name|isShared
+name|needsDetach
 argument_list|()
 operator|||
 name|capacity
@@ -1374,10 +1368,8 @@ decl_stmt|;
 if|if
 condition|(
 name|d
-operator|->
-name|ref
 operator|.
-name|isShared
+name|needsDetach
 argument_list|()
 operator|||
 name|capacity
