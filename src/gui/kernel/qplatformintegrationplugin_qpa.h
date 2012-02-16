@@ -94,7 +94,7 @@ DECL|macro|QPlatformIntegrationFactoryInterface_iid
 define|#
 directive|define
 name|QPlatformIntegrationFactoryInterface_iid
-value|"com.nokia.Qt.QPlatformIntegrationFactoryInterface"
+value|"org.qt-project.Qt.QPlatformIntegrationFactoryInterface"
 end_define
 begin_macro
 DECL|function|Q_DECLARE_INTERFACE
