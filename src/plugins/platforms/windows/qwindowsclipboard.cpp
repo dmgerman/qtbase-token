@@ -1281,6 +1281,10 @@ block|{
 name|releaseIData
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|mimeData
+condition|)
 name|m_data
 operator|=
 operator|new
@@ -1306,12 +1310,11 @@ operator|!=
 name|S_OK
 condition|)
 block|{
-name|qErrnoWarning
-argument_list|(
-literal|"OleSetClipboard: Failed to set mime data (%s) on clipboard: %s"
-argument_list|,
-name|qPrintable
-argument_list|(
+name|QString
+name|mimeDataFormats
+init|=
+name|mimeData
+condition|?
 name|mimeData
 operator|->
 name|formats
@@ -1324,6 +1327,22 @@ argument_list|(
 literal|", "
 argument_list|)
 argument_list|)
+else|:
+name|QString
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"NULL"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|qErrnoWarning
+argument_list|(
+literal|"OleSetClipboard: Failed to set mime data (%s) on clipboard: %s"
+argument_list|,
+name|qPrintable
+argument_list|(
+name|mimeDataFormats
 argument_list|)
 argument_list|,
 name|QWindowsContext
