@@ -3899,7 +3899,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts \a count empty rows at position \a row. Note that \a     parent must be invalid, since this model does not support     parent-child relations.      Only one row at a time can be inserted when using the     OnFieldChange or OnRowChange update strategies.      The primeInsert() signal will be emitted for each new row.     Connect to it if you want to initialize the new row with default     values.      Returns false if the parameters are out of bounds; otherwise     returns true.      \sa primeInsert(), insertRecord() */
+comment|/*!     Inserts \a count empty rows at position \a row. Note that \a     parent must be invalid, since this model does not support     parent-child relations.      Only one row at a time can be inserted when using the     OnFieldChange or OnRowChange update strategies.      The primeInsert() signal will be emitted for each new row.     Connect to it if you want to initialize the new row with default     values.      Returns false if the parameters are out of bounds; otherwise     returns true.      Does not submit rows, regardless of edit strategy, not even OnFieldChange.      \sa primeInsert(), insertRecord() */
 end_comment
 begin_function
 DECL|function|insertRows
@@ -4167,7 +4167,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts the \a record at position \a row. If \a row is negative,     the record will be appended to the end. Calls insertRows() and     setRecord() internally.      Only fields where the generated flag is true will be included.      Returns true if the record could be inserted, otherwise false.      \sa insertRows(), removeRows() */
+comment|/*!     Inserts the \a record at position \a row. If \a row is negative,     the record will be appended to the end. Calls insertRows() and     setRecord() internally.      Only fields where the generated flag is true will be included.      Returns true if the record could be inserted, otherwise false.      Changes are submitted immediately for OnFieldChange and     OnRowChange. Note the contrast with setRecord() in respect to     OnRowChange.      \sa insertRows(), removeRows(), setRecord() */
 end_comment
 begin_function
 DECL|function|insertRecord
@@ -4599,7 +4599,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the values at the specified \a row to the values of \a     record for fields where generated flag is true.      Returns true if all the values could be set; otherwise returns     false.      \sa record() */
+comment|/*!     Sets the values at the specified \a row to the values of \a     record for fields where generated flag is true.      Returns true if all the values could be set; otherwise returns     false.      The edit strategy affects automatic submitting.     With OnFieldChange, setRecord() commits its changed row.     With OnRowChange, setRecord() does not commit its changed row,     but making a change to another row causes previous changes to     be submitted.      \sa record(), editStrategy() */
 end_comment
 begin_function
 DECL|function|setRecord
