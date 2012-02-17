@@ -4814,6 +4814,9 @@ begin_comment
 comment|/*!     \enum QMetaMethod::Attributes      \internal      \value Compatibility     \value Cloned     \value Scriptable */
 end_comment
 begin_comment
+comment|/*!     \fn bool QMetaMethod::isValid() const     \since 5.0      Returns true if this method is valid (can be introspected and     invoked), otherwise returns false. */
+end_comment
+begin_comment
 comment|/*!     \fn const QMetaObject *QMetaMethod::enclosingMetaObject() const     \internal */
 end_comment
 begin_comment
