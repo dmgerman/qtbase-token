@@ -919,13 +919,26 @@ name|line
 argument_list|)
 expr_stmt|;
 block|}
+specifier|const
+name|char
+modifier|*
+name|format
+init|=
+name|QTest
+operator|::
+name|expectFailMode
+condition|?
+literal|"'%s' returned TRUE unexpectedly. (%s)"
+else|:
+literal|"'%s' returned FALSE. (%s)"
+decl_stmt|;
 name|qsnprintf
 argument_list|(
 name|msg
 argument_list|,
 literal|1024
 argument_list|,
-literal|"'%s' returned FALSE. (%s)"
+name|format
 argument_list|,
 name|statementStr
 argument_list|,
