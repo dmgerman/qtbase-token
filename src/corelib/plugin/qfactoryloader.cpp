@@ -543,9 +543,19 @@ name|compatPlugin
 condition|)
 block|{
 name|qWarning
-argument_list|()
-operator|<<
-literal|"Compat plugin, need to load for accessing meta data"
+argument_list|(
+literal|"Qt plugin loader: Compatibility plugin '%s', need to load for accessing meta data."
+argument_list|,
+name|qPrintable
+argument_list|(
+name|QDir
+operator|::
+name|toNativeSeparators
+argument_list|(
+name|fileName
+argument_list|)
+argument_list|)
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
