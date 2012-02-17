@@ -1328,6 +1328,43 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/*!     Returns if this window is exposed in the windowing system.      When the window is not exposed, it is shown by the application     but it is still not showing in the windowing system, so the application     should minimize rendering and other graphical activities.      An exposeEvent() is sent every time this value changes.  */
+end_comment
+begin_function
+DECL|function|isExposed
+name|bool
+name|QWindow
+operator|::
+name|isExposed
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QWindow
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|platformWindow
+condition|)
+return|return
+name|d
+operator|->
+name|platformWindow
+operator|->
+name|isExposed
+argument_list|()
+return|;
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Returns true if the window should appear active from a style perspective.      This is the case for the window that has input focus as well as windows     that are in the same parent / transient parent chain as the focus window.      To get the window that currently has focus, use QGuiApplication::focusWindow(). */
 end_comment
 begin_function
@@ -3383,6 +3420,9 @@ literal|true
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     The expose event is sent by the window system whenever the window's     exposure on screen changes.      If the window is moved off screen, is made totally obscured by another     window, iconified or similar, this function might be called and the     value of isExposed() might change to false. When this happens,     an application should stop its rendering as it is no longer visible     to the user.  */
+end_comment
 begin_function
 DECL|function|exposeEvent
 name|void

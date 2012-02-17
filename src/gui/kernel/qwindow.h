@@ -497,6 +497,11 @@ name|IncludeTransients
 argument_list|)
 decl|const
 decl_stmt|;
+name|bool
+name|isExposed
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QSize
 name|minimumSize
 argument_list|()
