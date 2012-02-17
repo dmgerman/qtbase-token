@@ -53,6 +53,7 @@ directive|include
 file|<wchar.h>
 end_include
 begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|writingSystemFromScript
 specifier|static
 specifier|inline
@@ -3829,4 +3830,7 @@ name|qFont
 return|;
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit
