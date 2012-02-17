@@ -225,7 +225,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function is called by Qt whenever a window is moved or the window is resized. The resize     can happen programatically(from ie. user application) or by the window manager. This means that     there is no need to call this function specifically from the window manager callback, instead     call QWindowSystemInterface::handleGeometryChange(QWindow *w, const QRect&newRect); */
+comment|/*!     This function is called by Qt whenever a window is moved or the window is resized. The resize     can happen programatically(from ie. user application) or by the window manager. This means that     there is no need to call this function specifically from the window manager callback, instead     call QWindowSystemInterface::handleGeometryChange(QWindow *w, const QRect&newRect);      The position(x, y) part of the rect might be inclusive or exclusive of the window frame     as returned by frameMargins(). You can detect this in the plugin by checking     qt_window_private(window())->positionPolicy. */
 end_comment
 begin_function
 DECL|function|setGeometry
