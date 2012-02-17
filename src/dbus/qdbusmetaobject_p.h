@@ -139,24 +139,6 @@ argument_list|)
 specifier|const
 block|;
 specifier|const
-name|char
-operator|*
-name|inputSignatureForMethod
-argument_list|(
-argument|int id
-argument_list|)
-specifier|const
-block|;
-specifier|const
-name|char
-operator|*
-name|outputSignatureForMethod
-argument_list|(
-argument|int id
-argument_list|)
-specifier|const
-block|;
-specifier|const
 name|int
 operator|*
 name|inputTypesForMethod
