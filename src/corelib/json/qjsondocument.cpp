@@ -963,6 +963,10 @@ specifier|const
 name|QByteArray
 modifier|&
 name|json
+parameter_list|,
+name|QJsonParseError
+modifier|*
+name|error
 parameter_list|)
 block|{
 name|QJsonPrivate
@@ -985,7 +989,9 @@ return|return
 name|parser
 operator|.
 name|parse
-argument_list|()
+argument_list|(
+name|error
+argument_list|)
 return|;
 block|}
 end_function
