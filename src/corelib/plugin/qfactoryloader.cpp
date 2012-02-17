@@ -1269,7 +1269,7 @@ name|iid
 argument_list|)
 condition|)
 name|keys
-operator|=
+operator|+=
 name|factory
 operator|->
 name|keys
