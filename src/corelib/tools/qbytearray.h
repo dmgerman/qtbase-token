@@ -511,25 +511,10 @@ name|capacityReserved
 range|:
 literal|1
 decl_stmt|;
-union|union
-block|{
 DECL|member|offset
 name|qptrdiff
 name|offset
 decl_stmt|;
-comment|// will always work as we add/subtract from a ushort ptr
-DECL|member|d
-name|char
-name|d
-index|[
-sizeof|sizeof
-argument_list|(
-name|qptrdiff
-argument_list|)
-index|]
-decl_stmt|;
-block|}
-union|;
 DECL|function|data
 specifier|inline
 name|char
@@ -538,12 +523,14 @@ name|data
 parameter_list|()
 block|{
 return|return
-name|d
-operator|+
-sizeof|sizeof
-argument_list|(
-name|qptrdiff
-argument_list|)
+name|reinterpret_cast
+operator|<
+name|char
+operator|*
+operator|>
+operator|(
+name|this
+operator|)
 operator|+
 name|offset
 return|;
@@ -558,12 +545,15 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|d
-operator|+
-sizeof|sizeof
-argument_list|(
-name|qptrdiff
-argument_list|)
+name|reinterpret_cast
+operator|<
+specifier|const
+name|char
+operator|*
+operator|>
+operator|(
+name|this
+operator|)
 operator|+
 name|offset
 return|;
@@ -633,7 +623,7 @@ name|QByteArrayLiteral
 parameter_list|(
 name|str
 parameter_list|)
-value|([]() -> QStaticByteArrayDataPtr<sizeof(str) - 1> { \         enum { Size = sizeof(str) - 1 }; \         static const QStaticByteArrayData<Size> qbytearray_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, { 0 } }, str }; \         QStaticByteArrayDataPtr<Size> holder = {&qbytearray_literal }; \     return holder; }())
+value|([]() -> QStaticByteArrayDataPtr<sizeof(str) - 1> { \         enum { Size = sizeof(str) - 1 }; \         static const QStaticByteArrayData<Size> qbytearray_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, sizeof(QByteArrayData) }, str }; \         QStaticByteArrayDataPtr<Size> holder = {&qbytearray_literal }; \     return holder; }())
 end_define
 begin_elif
 elif|#
@@ -661,7 +651,7 @@ parameter_list|(
 name|str
 parameter_list|)
 define|\
-value|__extension__ ({ \         enum { Size = sizeof(str) - 1 }; \         static const QStaticByteArrayData<Size> qbytearray_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, { 0 } }, str }; \         QStaticByteArrayDataPtr<Size> holder = {&qbytearray_literal }; \         holder; })
+value|__extension__ ({ \         enum { Size = sizeof(str) - 1 }; \         static const QStaticByteArrayData<Size> qbytearray_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, sizeof(QByteArrayData) }, str }; \         QStaticByteArrayDataPtr<Size> holder = {&qbytearray_literal }; \         holder; })
 end_define
 begin_endif
 endif|#
@@ -2863,9 +2853,16 @@ operator|.
 name|isShared
 argument_list|()
 operator|||
+operator|(
 name|d
 operator|->
 name|offset
+operator|!=
+sizeof|sizeof
+argument_list|(
+name|QByteArrayData
+argument_list|)
+operator|)
 condition|)
 name|realloc
 argument_list|(

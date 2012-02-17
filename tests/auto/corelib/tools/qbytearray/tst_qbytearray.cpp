@@ -12623,7 +12623,10 @@ argument_list|()
 operator|->
 name|offset
 operator|==
-literal|0
+sizeof|sizeof
+argument_list|(
+name|QByteArrayData
+argument_list|)
 argument_list|)
 expr_stmt|;
 specifier|const
