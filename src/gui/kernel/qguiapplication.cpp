@@ -7804,7 +7804,7 @@ if|if
 condition|(
 name|w
 operator|->
-name|visible
+name|isVisible
 argument_list|()
 condition|)
 return|return

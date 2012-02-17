@@ -235,7 +235,7 @@ argument_list|(
 name|bool
 name|visible
 name|READ
-name|visible
+name|isVisible
 name|WRITE
 name|setVisible
 name|NOTIFY
@@ -289,8 +289,14 @@ name|surfaceType
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QT_DEPRECATED
 name|bool
 name|visible
+argument_list|()
+specifier|const
+expr_stmt|;
+name|bool
+name|isVisible
 argument_list|()
 specifier|const
 expr_stmt|;
