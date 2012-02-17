@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QATOMIC_POWERPC_H
+name|QATOMIC_POWER_H
 end_ifndef
 begin_define
-DECL|macro|QATOMIC_POWERPC_H
+DECL|macro|QATOMIC_POWER_H
 define|#
 directive|define
-name|QATOMIC_POWERPC_H
+name|QATOMIC_POWER_H
 end_define
 begin_include
 include|#
@@ -312,44 +312,11 @@ argument_list|(
 name|Q_CC_GNU
 argument_list|)
 end_if
-begin_if
-if|#
-directive|if
-name|__GNUC__
-operator|<
-literal|4
-operator|||
-operator|(
-name|__GNUC__
-operator|==
-literal|4
-operator|&&
-name|__GNUC_MINOR__
-operator|<
-literal|2
-operator|)
-expr|\
-operator|||
-operator|(
-operator|!
-name|defined
-argument_list|(
-name|__64BIT__
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|__powerpc64__
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|__ppc64__
-argument_list|)
-operator|)
-end_if
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_PROCESSOR_POWER_32
+end_ifdef
 begin_define
 DECL|macro|_Q_VALUE
 define|#
@@ -376,7 +343,7 @@ else|#
 directive|else
 end_else
 begin_comment
-comment|// On 64-bit with gcc>= 4.2
+comment|// Q_PROCESSOR_POWER_64
 end_comment
 begin_define
 DECL|macro|_Q_VALUE
@@ -1121,24 +1088,11 @@ name|originalValue
 return|;
 block|}
 end_expr_stmt
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|__64BIT__
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|__powerpc64__
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|__ppc64__
-argument_list|)
-end_if
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_PROCESSOR_POWER_64
+end_ifdef
 begin_define
 DECL|macro|LPARX
 define|#
@@ -1917,7 +1871,7 @@ end_else
 begin_error
 error|#
 directive|error
-literal|"This compiler for PowerPC is not supported"
+literal|"This compiler for Power/PowerPC is not supported"
 end_error
 begin_endif
 endif|#
@@ -2080,6 +2034,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QATOMIC_POWERPC_H
+comment|// QATOMIC_POWER_H
 end_comment
 end_unit

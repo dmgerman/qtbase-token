@@ -195,13 +195,13 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|Q_PROCESSOR_POWERPC
+name|Q_PROCESSOR_POWER
 argument_list|)
 end_elif
 begin_include
 include|#
 directive|include
-file|"QtCore/qatomic_powerpc.h"
+file|"QtCore/qatomic_power.h"
 end_include
 begin_elif
 elif|#

@@ -23,7 +23,7 @@ name|__ppc
 argument_list|)
 include|#
 directive|include
-file|<QtCore/qatomic_powerpc.h>
+file|<QtCore/qatomic_power.h>
 else|#
 directive|else
 comment|// generic implementation with taskLock()

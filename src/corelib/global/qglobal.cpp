@@ -475,10 +475,13 @@ begin_comment
 comment|/*!     \macro Q_PROCESSOR_MIPS_64     \relates<QtGlobal>      Defined if the application is compiled for MIPS64 processors. The \l     Q_PROCESSOR_MIPS, \l Q_PROCESSOR_MIPS_I, \l Q_PROCESSOR_MIPS_II, \l     Q_PROCESSOR_MIPS_III, \l Q_PROCESSOR_MIPS_IV, and \l Q_PROCESSOR_MIPS_V     macros are also defined when Q_PROCESSOR_MIPS_64 is defined. */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_POWERPC     \relates<QtGlobal>      Defined if the application is compiled for PowerPC processors. Qt currently     supports one optional PowerPC variant: \l Q_PROCESSOR_POWERPC_64. */
+comment|/*!     \macro Q_PROCESSOR_POWER     \relates<QtGlobal>      Defined if the application is compiled for POWER processors. Qt currently     supports two Power variants: \l Q_PROCESSOR_POWER_32 and \l     Q_PROCESSOR_POWER_64. */
 end_comment
 begin_comment
-comment|/*!     \macro Q_PROCESSOR_POWERPC_64     \relates<QtGlobal>      Defined if the application is compiled for 64-bit PowerPC processors. The     \l Q_PROCESSOR_POWERPC macro is also defined when Q_PROCESSOR_POWERPC_64 is     defined. */
+comment|/*!     \macro Q_PROCESSOR_POWER_32     \relates<QtGlobal>      Defined if the application is compiled for 32-bit Power processors. The \l     Q_PROCESSOR_POWER macro is also defined when Q_PROCESSOR_POWER_32 is     defined. */
+end_comment
+begin_comment
+comment|/*!     \macro Q_PROCESSOR_POWER_64     \relates<QtGlobal>      Defined if the application is compiled for 64-bit Power processors. The \l     Q_PROCESSOR_POWER macro is also defined when Q_PROCESSOR_POWER_64 is     defined. */
 end_comment
 begin_comment
 comment|/*!     \macro Q_PROCESSOR_S390     \relates<QtGlobal>      Defined if the application is compiled for S/390 processors. Qt supports     one optional variant of S/390: Q_PROCESSOR_S390_X. */
