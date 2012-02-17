@@ -16,7 +16,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qabstractfileengine.h"
+file|"private/qabstractfileengine_p.h"
 end_include
 begin_include
 include|#

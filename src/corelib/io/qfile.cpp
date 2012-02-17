@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qfsfileengine.h"
+file|"qfsfileengine_p.h"
 end_include
 begin_include
 include|#
@@ -2946,7 +2946,7 @@ begin_comment
 comment|/*!     \enum QFile::MemoryMapFlags     \since 4.4      This enum describes special options that may be used by the map()     function.      \value NoOptions        No options. */
 end_comment
 begin_comment
-comment|/*!     \since 4.4     Maps \a size bytes of the file into memory starting at \a offset.  A file     should be open for a map to succeed but the file does not need to stay     open after the memory has been mapped.  When the QFile is destroyed     or a new file is opened with this object, any maps that have not been     unmapped will automatically be unmapped.      Any mapping options can be passed through \a flags.      Returns a pointer to the memory or 0 if there is an error.      \note On Windows CE 5.0 the file will be closed before mapping occurs.      \sa unmap(), QAbstractFileEngine::supportsExtension()  */
+comment|/*!     \since 4.4     Maps \a size bytes of the file into memory starting at \a offset.  A file     should be open for a map to succeed but the file does not need to stay     open after the memory has been mapped.  When the QFile is destroyed     or a new file is opened with this object, any maps that have not been     unmapped will automatically be unmapped.      Any mapping options can be passed through \a flags.      Returns a pointer to the memory or 0 if there is an error.      \note On Windows CE 5.0 the file will be closed before mapping occurs.      \sa unmap()  */
 end_comment
 begin_function
 DECL|function|map
@@ -3045,7 +3045,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4     Unmaps the memory \a address.      Returns true if the unmap succeeds; false otherwise.      \sa map(), QAbstractFileEngine::supportsExtension()  */
+comment|/*!     \since 4.4     Unmaps the memory \a address.      Returns true if the unmap succeeds; false otherwise.      \sa map()  */
 end_comment
 begin_function
 DECL|function|unmap

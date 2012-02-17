@@ -51,11 +51,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qabstractfileengine.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qdatetime.h"
 end_include
 begin_include
@@ -72,6 +67,11 @@ begin_include
 include|#
 directive|include
 file|"qfilesystemengine_p.h"
+end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/private/qabstractfileengine_p.h>
 end_include
 begin_include
 include|#

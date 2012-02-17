@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtCore/QAbstractFileEngine>
+file|<QtCore/private/qabstractfileengine_p.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QFSFileEngine>
+file|<QtCore/private/qfsfileengine_p.h>
 end_include
 begin_include
 include|#
