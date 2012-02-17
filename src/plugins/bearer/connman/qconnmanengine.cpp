@@ -1146,11 +1146,6 @@ if|if
 condition|(
 name|tx
 operator|.
-name|exists
-argument_list|()
-operator|&&
-name|tx
-operator|.
 name|open
 argument_list|(
 name|QIODevice
@@ -1231,11 +1226,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|rx
-operator|.
-name|exists
-argument_list|()
-operator|&&
 name|rx
 operator|.
 name|open

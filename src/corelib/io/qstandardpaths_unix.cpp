@@ -584,11 +584,6 @@ if|if
 condition|(
 name|file
 operator|.
-name|exists
-argument_list|()
-operator|&&
-name|file
-operator|.
 name|open
 argument_list|(
 name|QIODevice
