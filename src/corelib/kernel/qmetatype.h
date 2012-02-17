@@ -715,7 +715,7 @@ argument|Destructor destructor
 argument_list|,
 argument|uint sizeOf
 argument_list|,
-argument|uint typeFlags
+argument|uint theTypeFlags
 argument_list|,
 argument|int typeId
 argument_list|)
@@ -2377,7 +2377,7 @@ argument|Destructor destructor
 argument_list|,
 argument|uint size
 argument_list|,
-argument|uint typeFlags
+argument|uint theTypeFlags
 argument_list|,
 argument|int typeId
 argument_list|)
@@ -2419,7 +2419,7 @@ argument_list|)
 operator|,
 name|m_typeFlags
 argument_list|(
-name|typeFlags
+name|theTypeFlags
 argument_list|)
 operator|,
 name|m_extensionFlags

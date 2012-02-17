@@ -1616,32 +1616,32 @@ label|:
 specifier|inline
 name|QAccessibleEvent
 argument_list|(
-argument|QAccessible::Event type
+argument|QAccessible::Event typ
 argument_list|,
-argument|QObject *object
+argument|QObject *obj
 argument_list|,
-argument|int child = -
+argument|int chld = -
 literal|1
 argument_list|)
 operator|:
 name|m_type
 argument_list|(
-name|type
+name|typ
 argument_list|)
 operator|,
 name|m_object
 argument_list|(
-name|object
+name|obj
 argument_list|)
 operator|,
 name|m_child
 argument_list|(
-argument|child
+argument|chld
 argument_list|)
 block|{
 name|Q_ASSERT
 argument_list|(
-name|object
+name|obj
 argument_list|)
 block|;     }
 name|QAccessible
