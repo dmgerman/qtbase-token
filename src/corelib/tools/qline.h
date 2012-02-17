@@ -28,84 +28,100 @@ name|QLine
 block|{
 name|public
 label|:
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLine
-argument_list|()
-expr_stmt|;
+parameter_list|()
+function_decl|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLine
-argument_list|(
+parameter_list|(
 specifier|const
 name|QPoint
-operator|&
+modifier|&
 name|pt1
-argument_list|,
+parameter_list|,
 specifier|const
 name|QPoint
-operator|&
+modifier|&
 name|pt2
-argument_list|)
-expr_stmt|;
+parameter_list|)
+function_decl|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLine
-argument_list|(
-argument|int x1
-argument_list|,
-argument|int y1
-argument_list|,
-argument|int x2
-argument_list|,
-argument|int y2
-argument_list|)
-expr_stmt|;
+parameter_list|(
+name|int
+name|x1
+parameter_list|,
+name|int
+name|y1
+parameter_list|,
+name|int
+name|x2
+parameter_list|,
+name|int
+name|y2
+parameter_list|)
+function_decl|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isNull
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QPoint
 name|p1
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QPoint
 name|p2
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|x1
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|y1
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|x2
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|y2
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|dx
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|dy
@@ -133,6 +149,7 @@ name|int
 name|dy
 parameter_list|)
 function_decl|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLine
 name|translated
@@ -144,6 +161,7 @@ name|p
 argument_list|)
 decl|const
 decl_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLine
 name|translated
@@ -208,6 +226,7 @@ name|int
 name|y2
 parameter_list|)
 function_decl|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -220,6 +239,7 @@ name|d
 operator|)
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -268,6 +288,7 @@ comment|/***********************************************************************
 end_comment
 begin_expr_stmt
 DECL|function|QLine
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLine
 operator|::
@@ -275,6 +296,7 @@ name|QLine
 argument_list|()
 block|{ }
 DECL|function|QLine
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLine
 operator|::
@@ -302,6 +324,7 @@ argument|pt2_
 argument_list|)
 block|{ }
 DECL|function|QLine
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLine
 operator|::
@@ -332,6 +355,7 @@ argument|QPoint(x2pos, y2pos)
 argument_list|)
 block|{ }
 DECL|function|isNull
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|QLine
@@ -349,6 +373,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|x1
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|QLine
@@ -367,6 +392,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|y1
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|QLine
@@ -385,6 +411,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|x2
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|QLine
@@ -403,6 +430,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|y2
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|QLine
@@ -421,6 +449,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|p1
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QPoint
 name|QLine
@@ -436,6 +465,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|p2
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QPoint
 name|QLine
@@ -451,6 +481,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|dx
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|QLine
@@ -474,6 +505,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|dy
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|QLine
@@ -539,6 +571,7 @@ argument_list|)
 argument_list|)
 block|; }
 DECL|function|translated
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLine
 name|QLine
@@ -565,6 +598,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|translated
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLine
 name|QLine
@@ -674,6 +708,7 @@ name|aY2
 argument_list|)
 block|; }
 DECL|function|operator
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|QLine
@@ -788,36 +823,44 @@ block|,
 name|UnboundedIntersection
 block|}
 enum|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLineF
-argument_list|()
-expr_stmt|;
+parameter_list|()
+function_decl|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLineF
-argument_list|(
+parameter_list|(
 specifier|const
 name|QPointF
-operator|&
+modifier|&
 name|pt1
-argument_list|,
+parameter_list|,
 specifier|const
 name|QPointF
-operator|&
+modifier|&
 name|pt2
-argument_list|)
-expr_stmt|;
+parameter_list|)
+function_decl|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLineF
-argument_list|(
-argument|qreal x1
-argument_list|,
-argument|qreal y1
-argument_list|,
-argument|qreal x2
-argument_list|,
-argument|qreal y2
-argument_list|)
-expr_stmt|;
+parameter_list|(
+name|qreal
+name|x1
+parameter_list|,
+name|qreal
+name|y1
+parameter_list|,
+name|qreal
+name|x2
+parameter_list|,
+name|qreal
+name|y2
+parameter_list|)
+function_decl|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLineF
 argument_list|(
@@ -849,53 +892,62 @@ argument_list|,
 argument|qreal angle
 argument_list|)
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 name|bool
 name|isNull
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QPointF
 name|p1
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QPointF
 name|p2
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
 name|x1
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
 name|y1
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
 name|x2
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
 name|y2
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
 name|dx
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
 name|dy
@@ -941,6 +993,8 @@ name|unitVector
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
+specifier|inline
 name|QLineF
 name|normalVector
 argument_list|()
@@ -971,6 +1025,8 @@ name|l
 argument_list|)
 decl|const
 decl_stmt|;
+name|Q_DECL_CONSTEXPR
+specifier|inline
 name|QPointF
 name|pointAt
 argument_list|(
@@ -1000,6 +1056,7 @@ name|qreal
 name|dy
 parameter_list|)
 function_decl|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLineF
 name|translated
@@ -1011,6 +1068,7 @@ name|p
 argument_list|)
 decl|const
 decl_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLineF
 name|translated
@@ -1075,6 +1133,7 @@ name|qreal
 name|y2
 parameter_list|)
 function_decl|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1087,6 +1146,7 @@ name|d
 operator|)
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1109,6 +1169,7 @@ name|d
 operator|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 name|QLine
 name|toLine
 argument_list|()
@@ -1140,6 +1201,7 @@ comment|/***********************************************************************
 end_comment
 begin_expr_stmt
 DECL|function|QLineF
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLineF
 operator|::
@@ -1147,6 +1209,7 @@ name|QLineF
 argument_list|()
 block|{ }
 DECL|function|QLineF
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLineF
 operator|::
@@ -1174,6 +1237,7 @@ argument|apt2
 argument_list|)
 block|{ }
 DECL|function|QLineF
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLineF
 operator|::
@@ -1203,6 +1267,7 @@ argument|y2pos
 argument_list|)
 block|{ }
 DECL|function|x1
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
 name|QLineF
@@ -1221,6 +1286,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|y1
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
 name|QLineF
@@ -1239,6 +1305,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|x2
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
 name|QLineF
@@ -1257,6 +1324,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|y2
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
 name|QLineF
@@ -1275,6 +1343,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|isNull
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|QLineF
@@ -1314,6 +1383,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|p1
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QPointF
 name|QLineF
@@ -1329,6 +1399,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|p2
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QPointF
 name|QLineF
@@ -1344,6 +1415,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|dx
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
 name|QLineF
@@ -1367,6 +1439,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|dy
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
 name|QLineF
@@ -1390,6 +1463,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|normalVector
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLineF
 name|QLineF
@@ -1464,6 +1538,7 @@ argument_list|)
 argument_list|)
 block|; }
 DECL|function|translated
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLineF
 name|QLineF
@@ -1490,6 +1565,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|translated
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLineF
 name|QLineF
@@ -1571,8 +1647,9 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-unit|}  inline
+unit|}  Q_DECL_CONSTEXPR
 DECL|function|pointAt
+specifier|inline
 name|QPointF
 name|QLineF
 operator|::
@@ -1582,32 +1659,6 @@ argument|qreal t
 argument_list|)
 specifier|const
 block|{
-name|qreal
-name|vx
-operator|=
-name|pt2
-operator|.
-name|x
-argument_list|()
-operator|-
-name|pt1
-operator|.
-name|x
-argument_list|()
-block|;
-name|qreal
-name|vy
-operator|=
-name|pt2
-operator|.
-name|y
-argument_list|()
-operator|-
-name|pt1
-operator|.
-name|y
-argument_list|()
-block|;
 return|return
 name|QPointF
 argument_list|(
@@ -1616,7 +1667,17 @@ operator|.
 name|x
 argument_list|()
 operator|+
-name|vx
+operator|(
+name|pt2
+operator|.
+name|x
+argument_list|()
+operator|-
+name|pt1
+operator|.
+name|x
+argument_list|()
+operator|)
 operator|*
 name|t
 argument_list|,
@@ -1625,7 +1686,17 @@ operator|.
 name|y
 argument_list|()
 operator|+
-name|vy
+operator|(
+name|pt2
+operator|.
+name|y
+argument_list|()
+operator|-
+name|pt1
+operator|.
+name|y
+argument_list|()
+operator|)
 operator|*
 name|t
 argument_list|)
@@ -1634,6 +1705,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|toLine
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QLine
 name|QLineF
@@ -1742,6 +1814,7 @@ name|aY2
 argument_list|)
 block|; }
 DECL|function|operator
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|QLineF
