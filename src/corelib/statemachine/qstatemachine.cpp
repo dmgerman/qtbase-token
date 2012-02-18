@@ -9482,7 +9482,10 @@ argument_list|(
 name|signalIndex
 argument_list|)
 operator|.
-name|signature
+name|methodSignature
+argument_list|()
+operator|.
+name|constData
 argument_list|()
 operator|<<
 literal|')'

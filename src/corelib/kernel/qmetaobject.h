@@ -57,10 +57,8 @@ argument_list|(
 literal|0
 argument_list|)
 block|{}
-specifier|const
-name|char
-operator|*
-name|signature
+name|QByteArray
+name|methodSignature
 argument_list|()
 specifier|const
 expr_stmt|;
@@ -585,6 +583,31 @@ return|;
 block|}
 name|private
 label|:
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+comment|// signature() has been renamed to methodSignature() in Qt 5.
+comment|// Warning, that function returns a QByteArray; check the life time if
+comment|// you convert to char*.
+name|char
+modifier|*
+name|signature
+argument_list|(
+expr|struct
+name|renamedInQt5_warning_checkTheLifeTime
+operator|*
+operator|=
+literal|0
+argument_list|)
+name|Q_DECL_EQ_DELETE
+decl_stmt|;
+endif|#
+directive|endif
 specifier|const
 name|QMetaObject
 modifier|*

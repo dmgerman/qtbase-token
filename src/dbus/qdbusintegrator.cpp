@@ -3499,7 +3499,7 @@ name|slotname
 init|=
 name|mm
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 decl_stmt|;
 name|int
@@ -6450,7 +6450,7 @@ name|memberName
 init|=
 name|mm
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 decl_stmt|;
 name|memberName

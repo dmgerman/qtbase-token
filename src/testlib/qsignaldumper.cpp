@@ -116,7 +116,7 @@ name|ba
 init|=
 name|member
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 decl_stmt|;
 return|return
@@ -719,7 +719,7 @@ name|str
 operator|+=
 name|member
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 expr_stmt|;
 name|qPrintMessage

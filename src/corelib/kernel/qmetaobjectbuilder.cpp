@@ -1217,7 +1217,7 @@ name|addMethod
 argument_list|(
 name|prototype
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1239,7 +1239,7 @@ name|addSignal
 argument_list|(
 name|prototype
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1261,7 +1261,7 @@ name|addSlot
 argument_list|(
 name|prototype
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1283,7 +1283,7 @@ name|addConstructor
 argument_list|(
 name|prototype
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1555,7 +1555,7 @@ name|addConstructor
 argument_list|(
 name|prototype
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1860,7 +1860,7 @@ name|indexOfMethod
 argument_list|(
 name|method
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 argument_list|)
 decl_stmt|;

@@ -1606,7 +1606,10 @@ name|indexOfMethod
 argument_list|(
 name|expected
 operator|.
-name|signature
+name|methodSignature
+argument_list|()
+operator|.
+name|constData
 argument_list|()
 argument_list|)
 decl_stmt|;

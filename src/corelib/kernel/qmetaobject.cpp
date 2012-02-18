@@ -213,6 +213,38 @@ return|;
 block|}
 end_function
 begin_function
+DECL|function|toByteArray
+specifier|static
+specifier|inline
+name|QByteArray
+name|toByteArray
+parameter_list|(
+specifier|const
+name|QByteArrayData
+modifier|&
+name|d
+parameter_list|)
+block|{
+return|return
+name|QByteArray
+argument_list|(
+cast|reinterpret_cast
+argument_list|<
+specifier|const
+name|QStaticByteArrayData
+argument_list|<
+literal|0
+argument_list|>
+operator|&
+argument_list|>
+argument_list|(
+name|d
+argument_list|)
+argument_list|)
+return|;
+block|}
+end_function
+begin_function
 DECL|function|legacyString
 specifier|static
 specifier|inline
@@ -5120,7 +5152,7 @@ begin_comment
 comment|/*!     \fn bool QMetaObject::invokeMethod(QObject *obj, const char *member,                              QGenericArgument val0 = QGenericArgument(0),                              QGenericArgument val1 = QGenericArgument(),                              QGenericArgument val2 = QGenericArgument(),                              QGenericArgument val3 = QGenericArgument(),                              QGenericArgument val4 = QGenericArgument(),                              QGenericArgument val5 = QGenericArgument(),                              QGenericArgument val6 = QGenericArgument(),                              QGenericArgument val7 = QGenericArgument(),                              QGenericArgument val8 = QGenericArgument(),                              QGenericArgument val9 = QGenericArgument())      \overload invokeMethod()      This overload invokes the member using the connection type Qt::AutoConnection and     ignores return values. */
 end_comment
 begin_comment
-comment|/*!     \class QMetaMethod      \brief The QMetaMethod class provides meta-data about a member     function.      \ingroup objectmodel      A QMetaMethod has a methodType(), a signature(), a list of     parameterTypes() and parameterNames(), a return typeName(), a     tag(), and an access() specifier. You can use invoke() to invoke     the method on an arbitrary QObject.      \sa QMetaObject, QMetaEnum, QMetaProperty, {Qt's Property System} */
+comment|/*!     \class QMetaMethod      \brief The QMetaMethod class provides meta-data about a member     function.      \ingroup objectmodel      A QMetaMethod has a methodType(), a methodSignature(), a list of     parameterTypes() and parameterNames(), a return typeName(), a     tag(), and an access() specifier. You can use invoke() to invoke     the method on an arbitrary QObject.      \sa QMetaObject, QMetaEnum, QMetaProperty, {Qt's Property System} */
 end_comment
 begin_comment
 comment|/*!     \enum QMetaMethod::Attributes      \internal      \value Compatibility     \value Cloned     \value Scriptable */
@@ -5138,16 +5170,14 @@ begin_comment
 comment|/*!     \fn QMetaMethod::QMetaMethod()     \internal */
 end_comment
 begin_comment
-comment|/*!     Returns the signature of this method (e.g.,     \c{setValue(double)}).      \sa parameterTypes(), parameterNames() */
+comment|/*!     \since 5.0      Returns the signature of this method (e.g.,     \c{setValue(double)}).      \sa parameterTypes(), parameterNames() */
 end_comment
 begin_function
-DECL|function|signature
-specifier|const
-name|char
-modifier|*
+DECL|function|methodSignature
+name|QByteArray
 name|QMetaMethod
 operator|::
-name|signature
+name|methodSignature
 parameter_list|()
 specifier|const
 block|{
@@ -5157,10 +5187,13 @@ operator|!
 name|mobj
 condition|)
 return|return
-literal|0
+name|QByteArray
+argument_list|()
 return|;
 return|return
-name|rawStringData
+name|toByteArray
+argument_list|(
+name|stringData
 argument_list|(
 name|mobj
 argument_list|,
@@ -5173,11 +5206,12 @@ index|[
 name|handle
 index|]
 argument_list|)
+argument_list|)
 return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of parameter types.      \sa parameterNames(), signature() */
+comment|/*!     Returns a list of parameter types.      \sa parameterNames(), methodSignature() */
 end_comment
 begin_function
 DECL|function|parameterTypes
@@ -5226,7 +5260,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of parameter names.      \sa parameterTypes(), signature() */
+comment|/*!     Returns a list of parameter names.      \sa parameterTypes(), methodSignature() */
 end_comment
 begin_function
 DECL|function|parameterNames

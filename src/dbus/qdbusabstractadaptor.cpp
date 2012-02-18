@@ -471,7 +471,10 @@ name|normalizedSignature
 argument_list|(
 name|mm
 operator|.
-name|signature
+name|methodSignature
+argument_list|()
+operator|.
+name|constData
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1111,7 +1114,10 @@ argument_list|()
 argument_list|,
 name|mm
 operator|.
-name|signature
+name|methodSignature
+argument_list|()
+operator|.
+name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
