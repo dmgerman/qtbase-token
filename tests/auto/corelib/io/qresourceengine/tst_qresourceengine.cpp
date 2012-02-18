@@ -265,6 +265,11 @@ argument_list|)
 operator|<<
 name|QLatin1String
 argument_list|(
+literal|"qt-project.org"
+argument_list|)
+operator|<<
+name|QLatin1String
+argument_list|(
 literal|"runtime_resource"
 argument_list|)
 operator|<<
