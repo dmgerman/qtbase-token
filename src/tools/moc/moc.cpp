@@ -4255,6 +4255,14 @@ argument_list|,
 literal|"#include<QtCore/qobject.h>\n"
 argument_list|)
 expr_stmt|;
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|"#include<QtCore/qbytearray.h>\n"
+argument_list|)
+expr_stmt|;
+comment|// For QByteArrayData
 if|if
 condition|(
 name|mustIncludeQMetaTypeH

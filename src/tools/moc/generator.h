@@ -67,9 +67,25 @@ function_decl|;
 name|private
 label|:
 name|void
+name|registerClassInfoStrings
+parameter_list|()
+function_decl|;
+name|void
 name|generateClassInfos
 parameter_list|()
 function_decl|;
+name|void
+name|registerFunctionStrings
+argument_list|(
+specifier|const
+name|QList
+operator|<
+name|FunctionDef
+operator|>
+operator|&
+name|list
+argument_list|)
+decl_stmt|;
 name|void
 name|generateFunctions
 argument_list|(
@@ -108,11 +124,19 @@ name|functype
 argument_list|)
 decl_stmt|;
 name|void
+name|registerEnumStrings
+parameter_list|()
+function_decl|;
+name|void
 name|generateEnums
 parameter_list|(
 name|int
 name|index
 parameter_list|)
+function_decl|;
+name|void
+name|registerPropertyStrings
+parameter_list|()
 function_decl|;
 name|void
 name|generateProperties
@@ -141,7 +165,7 @@ name|void
 name|generatePluginMetaData
 parameter_list|()
 function_decl|;
-name|int
+name|void
 name|strreg
 parameter_list|(
 specifier|const
@@ -149,7 +173,16 @@ name|QByteArray
 modifier|&
 parameter_list|)
 function_decl|;
-comment|// registers a string and returns its id
+comment|// registers a string
+name|int
+name|stridx
+parameter_list|(
+specifier|const
+name|QByteArray
+modifier|&
+parameter_list|)
+function_decl|;
+comment|// returns a string's id
 name|QList
 operator|<
 name|QByteArray

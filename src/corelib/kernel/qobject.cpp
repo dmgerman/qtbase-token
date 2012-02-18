@@ -13708,12 +13708,12 @@ name|char
 modifier|*
 name|sig
 init|=
+name|QMetaObjectPrivate
+operator|::
+name|rawStringData
+argument_list|(
 name|senderMetaObject
-operator|->
-name|d
-operator|.
-name|stringdata
-operator|+
+argument_list|,
 name|senderMetaObject
 operator|->
 name|d
@@ -13744,6 +13744,7 @@ operator|-
 name|signalOffset
 operator|)
 index|]
+argument_list|)
 decl_stmt|;
 name|QVarLengthArray
 argument_list|<

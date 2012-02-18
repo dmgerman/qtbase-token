@@ -270,10 +270,10 @@ enum|enum
 block|{
 name|OutputRevision
 init|=
-literal|6
+literal|7
 block|}
 enum|;
-comment|// Used by moc and qmetaobjectbuilder
+comment|// Used by moc, qmetaobjectbuilder and qdbus
 DECL|member|revision
 name|int
 name|revision
@@ -330,6 +330,7 @@ decl_stmt|;
 comment|//since revision 4
 comment|// revision 5 introduces changes in normalized signatures, no new members
 comment|// revision 6 added qt_static_metacall as a member of each Q_OBJECT and inside QMetaObject itself
+comment|// revision 7 is Qt 5
 DECL|function|get
 specifier|static
 specifier|inline
@@ -360,6 +361,21 @@ name|data
 operator|)
 return|;
 block|}
+specifier|static
+specifier|const
+name|char
+modifier|*
+name|rawStringData
+parameter_list|(
+specifier|const
+name|QMetaObject
+modifier|*
+name|mo
+parameter_list|,
+name|int
+name|index
+parameter_list|)
+function_decl|;
 specifier|static
 name|int
 name|indexOfSignalRelative
