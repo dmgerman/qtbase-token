@@ -1329,25 +1329,6 @@ decl|const
 init|=
 literal|0
 decl_stmt|;
-name|virtual
-name|int
-name|navigate
-argument_list|(
-name|QAccessible
-operator|::
-name|RelationFlag
-name|relation
-argument_list|,
-name|int
-name|index
-argument_list|,
-name|QAccessibleInterface
-operator|*
-operator|*
-name|iface
-argument_list|)
-decl|const
-decl_stmt|;
 comment|// properties and state
 name|virtual
 name|QString
