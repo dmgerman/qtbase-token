@@ -4263,10 +4263,6 @@ literal|"#include<QtCore/qbytearray.h>\n"
 argument_list|)
 expr_stmt|;
 comment|// For QByteArrayData
-if|if
-condition|(
-name|mustIncludeQMetaTypeH
-condition|)
 name|fprintf
 argument_list|(
 name|out
@@ -4274,6 +4270,7 @@ argument_list|,
 literal|"#include<QtCore/qmetatype.h>\n"
 argument_list|)
 expr_stmt|;
+comment|// For QMetaType::Type
 if|if
 condition|(
 name|mustIncludeQPluginH
@@ -5018,17 +5015,6 @@ condition|)
 name|type
 operator|=
 literal|"qulonglong"
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|type
-operator|==
-literal|"qreal"
-condition|)
-name|mustIncludeQMetaTypeH
-operator|=
-literal|true
 expr_stmt|;
 name|propDef
 operator|.
