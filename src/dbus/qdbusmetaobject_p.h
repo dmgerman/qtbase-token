@@ -118,9 +118,17 @@ argument_list|()
 block|{
 name|delete
 index|[]
+name|reinterpret_cast
+operator|<
+specifier|const
+name|char
+operator|*
+operator|>
+operator|(
 name|d
 operator|.
 name|stringdata
+operator|)
 block|;
 name|delete
 index|[]

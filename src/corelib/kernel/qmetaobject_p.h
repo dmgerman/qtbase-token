@@ -608,6 +608,7 @@ name|data
 operator|)
 return|;
 block|}
+name|Q_CORE_EXPORT
 specifier|static
 specifier|const
 name|char
