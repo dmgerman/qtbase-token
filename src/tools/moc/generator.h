@@ -143,8 +143,8 @@ name|int
 name|strreg
 parameter_list|(
 specifier|const
-name|char
-modifier|*
+name|QByteArray
+modifier|&
 parameter_list|)
 function_decl|;
 comment|// registers a string and returns its id

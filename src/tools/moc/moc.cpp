@@ -59,9 +59,9 @@ name|QByteArray
 name|normalizeType
 parameter_list|(
 specifier|const
-name|char
-modifier|*
-name|s
+name|QByteArray
+modifier|&
+name|ba
 parameter_list|,
 name|bool
 name|fixScope
@@ -69,13 +69,23 @@ init|=
 literal|false
 parameter_list|)
 block|{
+specifier|const
+name|char
+modifier|*
+name|s
+init|=
+name|ba
+operator|.
+name|constData
+argument_list|()
+decl_stmt|;
 name|int
 name|len
 init|=
-name|qstrlen
-argument_list|(
-name|s
-argument_list|)
+name|ba
+operator|.
+name|size
+argument_list|()
 decl_stmt|;
 name|char
 name|stackbuf
@@ -4080,12 +4090,10 @@ argument_list|,
 literal|"/****************************************************************************\n"
 literal|"** Meta object code from reading C++ file '%s'\n**\n"
 argument_list|,
-operator|(
-specifier|const
-name|char
-operator|*
-operator|)
 name|fn
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|fprintf
@@ -4276,12 +4284,10 @@ argument_list|,
 literal|"#if !defined(Q_MOC_OUTPUT_REVISION)\n"
 literal|"#error \"The header file '%s' doesn't include<QObject>.\"\n"
 argument_list|,
-operator|(
-specifier|const
-name|char
-operator|*
-operator|)
 name|fn
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|fprintf
@@ -5711,6 +5717,9 @@ name|currentFilenames
 operator|.
 name|top
 argument_list|()
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -5722,6 +5731,9 @@ operator|::
 name|fromLocal8Bit
 argument_list|(
 name|metaDataFile
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
