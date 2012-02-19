@@ -896,17 +896,13 @@ name|DontSubtractOpaqueChildren
 operator|=
 literal|0x10
 block|,
-name|DontSetCompositionMode
+name|DontDrawOpaqueChildren
 operator|=
 literal|0x20
 block|,
-name|DontDrawOpaqueChildren
-operator|=
-literal|0x40
-block|,
 name|DontDrawNativeChildren
 operator|=
-literal|0x80
+literal|0x40
 block|}
 block|;      enum
 name|CloseMode
