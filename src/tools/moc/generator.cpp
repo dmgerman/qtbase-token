@@ -2436,6 +2436,7 @@ name|Generator
 operator|::
 name|generateFunctions
 parameter_list|(
+specifier|const
 name|QList
 argument_list|<
 name|FunctionDef
@@ -2755,6 +2756,7 @@ name|Generator
 operator|::
 name|generateFunctionRevisions
 parameter_list|(
+specifier|const
 name|QList
 argument_list|<
 name|FunctionDef

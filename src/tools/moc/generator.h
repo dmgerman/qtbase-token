@@ -73,6 +73,7 @@ function_decl|;
 name|void
 name|generateFunctions
 argument_list|(
+specifier|const
 name|QList
 operator|<
 name|FunctionDef
@@ -92,6 +93,7 @@ decl_stmt|;
 name|void
 name|generateFunctionRevisions
 argument_list|(
+specifier|const
 name|QList
 operator|<
 name|FunctionDef
