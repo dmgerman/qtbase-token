@@ -2794,28 +2794,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal   ### Qt5 - remove me. */
-end_comment
-begin_function
-DECL|function|deref
-name|void
-name|QPixmap
-operator|::
-name|deref
-parameter_list|()
-block|{
-name|Q_ASSERT_X
-argument_list|(
-literal|false
-argument_list|,
-literal|"QPixmap::deref()"
-argument_list|,
-literal|"Do not call this function anymore!"
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
 comment|/*!     Replaces this pixmap's data with the given \a image using the     specified \a flags to control the conversion.  The \a flags     argument is a bitwise-OR of the \l{Qt::ImageConversionFlags}.     Passing 0 for \a flags sets all the default options. Returns true     if the result is that this pixmap is not null.      Note: this function was part of Qt 3 support in Qt 4.6 and earlier.     It has been promoted to official API status in 4.7 to support updating     the pixmap's image without creating a new QPixmap as fromImage() would.      \sa fromImage()     \since 4.7 */
 end_comment
 begin_function
