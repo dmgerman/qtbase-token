@@ -1075,7 +1075,7 @@ return|;
 block|}
 comment|// Qt API consistency
 comment|// DOM read only attributes
-name|uint
+name|int
 name|length
 argument_list|()
 specifier|const
@@ -1802,7 +1802,7 @@ name|localName
 parameter_list|)
 function_decl|;
 comment|// DOM read only attributes
-name|uint
+name|int
 name|length
 argument_list|()
 specifier|const
@@ -2022,7 +2022,7 @@ argument|const QString& arg
 argument_list|)
 block|;
 comment|// DOM read only attributes
-name|uint
+name|int
 name|length
 argument_list|()
 specifier|const

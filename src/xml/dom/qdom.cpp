@@ -779,7 +779,7 @@ name|int
 name|index
 parameter_list|)
 function_decl|;
-name|uint
+name|int
 name|length
 parameter_list|()
 specifier|const
@@ -897,7 +897,7 @@ name|index
 parameter_list|)
 specifier|const
 function_decl|;
-name|uint
+name|int
 name|length
 parameter_list|()
 specifier|const
@@ -1294,7 +1294,7 @@ name|bool
 name|deep
 parameter_list|)
 constructor_decl|;
-name|uint
+name|int
 name|dataLength
 parameter_list|()
 specifier|const
@@ -5392,7 +5392,7 @@ block|}
 end_function
 begin_function
 DECL|function|length
-name|uint
+name|int
 name|QDomNodeListPrivate
 operator|::
 name|length
@@ -5743,7 +5743,7 @@ comment|/*!     Returns the number of nodes in the list. */
 end_comment
 begin_function
 DECL|function|length
-name|uint
+name|int
 name|QDomNodeList
 operator|::
 name|length
@@ -10507,9 +10507,6 @@ specifier|const
 block|{
 if|if
 condition|(
-operator|(
-name|uint
-operator|)
 name|index
 operator|>=
 name|length
@@ -10531,12 +10528,9 @@ operator|)
 return|;
 block|}
 end_function
-begin_comment
-comment|// ### Qt 5: convert all length/size() functions in QDom to use int instead of uint.
-end_comment
 begin_function
 DECL|function|length
-name|uint
+name|int
 name|QDomNamedNodeMapPrivate
 operator|::
 name|length
@@ -11165,7 +11159,7 @@ comment|/*!     Returns the number of nodes in the map.      \sa item() */
 end_comment
 begin_function
 DECL|function|length
-name|uint
+name|int
 name|QDomNamedNodeMap
 operator|::
 name|length
@@ -12733,7 +12727,7 @@ block|}
 end_function
 begin_function
 DECL|function|dataLength
-name|uint
+name|int
 name|QDomCharacterDataPrivate
 operator|::
 name|dataLength
@@ -13043,7 +13037,7 @@ comment|/*!     Returns the length of the stored string. */
 end_comment
 begin_function
 DECL|function|length
-name|uint
+name|int
 name|QDomCharacterData
 operator|::
 name|length
@@ -18439,7 +18433,7 @@ argument_list|(
 name|str
 argument_list|)
 decl_stmt|;
-name|uint
+name|int
 name|len
 init|=
 name|tmp
@@ -18447,7 +18441,7 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-name|uint
+name|int
 name|i
 init|=
 literal|0
