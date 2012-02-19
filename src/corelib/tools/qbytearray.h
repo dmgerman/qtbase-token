@@ -2430,7 +2430,7 @@ argument_list|)
 operator|:
 name|d
 argument_list|(
-argument|const_cast<QByteArrayData *>(&dd.str)
+argument|const_cast<QByteArrayData *>(&dd.ba)
 argument_list|)
 block|{}
 name|template
