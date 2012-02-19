@@ -57,11 +57,11 @@ name|file
 parameter_list|)
 block|{
 specifier|const
-name|int
+name|quintptr
 name|result
 init|=
 operator|(
-name|int
+name|quintptr
 operator|)
 name|ShellExecute
 argument_list|(
@@ -95,14 +95,22 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"ShellExecute '%s' failed (error %0x)."
+literal|"ShellExecute '%s' failed (error %s)."
 argument_list|,
 name|qPrintable
 argument_list|(
 name|file
 argument_list|)
 argument_list|,
+name|qPrintable
+argument_list|(
+name|QString
+operator|::
+name|number
+argument_list|(
 name|result
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -412,6 +420,14 @@ block|{
 name|qWarning
 argument_list|(
 literal|"Cannot launch '%s': There is no mail program installed."
+argument_list|,
+name|qPrintable
+argument_list|(
+name|url
+operator|.
+name|toString
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
