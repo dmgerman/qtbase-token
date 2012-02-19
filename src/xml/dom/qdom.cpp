@@ -9072,7 +9072,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Writes the XML representation of the node and all its children to     the stream \a str. This function uses \a indent as the amount of     space to indent the node.      If this node is a document node, the encoding of text stream \a str's encoding is     set by treating a processing instruction by name "xml" as an XML declaration, if such a one exists,     and otherwise defaults to UTF-8. XML declarations are not processing instructions, but this     behavior exists for historical reasons. If this node is not a document node,     the text stream's encoding is used.      If the document contains invalid XML characters or characters that cannot be     encoded in the given encoding, the result and behavior is undefined.  */
+comment|/*!     Writes the XML representation of the node and all its children to     the stream \a str. This function uses \a indent as the amount of     space to indent the node.      If the document contains invalid XML characters or characters that cannot be     encoded in the given encoding, the result and behavior is undefined.      If \a encodingPolicy is QDomNode::EncodingFromDocument and this node is a     document node, the encoding of text stream \a str's encoding is set by     treating a processing instruction by name "xml" as an XML declaration, if     one exists, and otherwise defaults to UTF-8. XML declarations are not     processing instructions, but this behavior exists for historical     reasons. If this node is not a document node, the text stream's encoding     is used.      If \a encodingPolicy is EncodingFromTextStream and this node is a document node, this     function behaves as save(QTextStream&str, int indent) with the exception that the encoding     specified in the text stream \a str is used.      If the document contains invalid XML characters or characters that cannot be     encoded in the given encoding, the result and behavior is undefined.      \since 4.2  */
 end_comment
 begin_function
 DECL|function|save
@@ -9083,39 +9083,7 @@ name|save
 parameter_list|(
 name|QTextStream
 modifier|&
-name|str
-parameter_list|,
-name|int
-name|indent
-parameter_list|)
-specifier|const
-block|{
-name|save
-argument_list|(
-name|str
-argument_list|,
-name|indent
-argument_list|,
-name|QDomNode
-operator|::
-name|EncodingFromDocument
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     If \a encodingPolicy is QDomNode::EncodingFromDocument, this function behaves as save(QTextStream&str, int indent).      If \a encodingPolicy is EncodingFromTextStream and this node is a document node, this     function behaves as save(QTextStream&str, int indent) with the exception that the encoding     specified in the text stream \a str is used.      If the document contains invalid XML characters or characters that cannot be     encoded in the given encoding, the result and behavior is undefined.      \since 4.2  */
-end_comment
-begin_function
-DECL|function|save
-name|void
-name|QDomNode
-operator|::
-name|save
-parameter_list|(
-name|QTextStream
-modifier|&
-name|str
+name|stream
 parameter_list|,
 name|int
 name|indent
@@ -9148,7 +9116,7 @@ argument_list|)
 operator|->
 name|saveDocument
 argument_list|(
-name|str
+name|stream
 argument_list|,
 name|indent
 argument_list|,
@@ -9160,7 +9128,7 @@ name|IMPL
 operator|->
 name|save
 argument_list|(
-name|str
+name|stream
 argument_list|,
 literal|1
 argument_list|,
