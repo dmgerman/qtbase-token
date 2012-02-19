@@ -308,47 +308,22 @@ specifier|static
 name|void
 name|postEvent
 argument_list|(
-name|QObject
-operator|*
-name|receiver
-argument_list|,
-name|QEvent
-operator|*
-name|event
-argument_list|)
-block|;
-specifier|static
-name|void
-name|postEvent
-argument_list|(
 argument|QObject *receiver
 argument_list|,
 argument|QEvent *event
 argument_list|,
-argument|int priority
+argument|int priority = Qt::NormalEventPriority
 argument_list|)
 block|;
 specifier|static
 name|void
 name|sendPostedEvents
 argument_list|(
-argument|QObject *receiver
+argument|QObject *receiver =
+literal|0
 argument_list|,
-argument|int event_type
-argument_list|)
-block|;
-specifier|static
-name|void
-name|sendPostedEvents
-argument_list|()
-block|;
-specifier|static
-name|void
-name|removePostedEvents
-argument_list|(
-name|QObject
-operator|*
-name|receiver
+argument|int event_type =
+literal|0
 argument_list|)
 block|;
 specifier|static
@@ -357,7 +332,8 @@ name|removePostedEvents
 argument_list|(
 argument|QObject *receiver
 argument_list|,
-argument|int eventType
+argument|int eventType =
+literal|0
 argument_list|)
 block|;
 specifier|static
@@ -902,28 +878,18 @@ else|:
 name|false
 return|;
 end_return
-begin_expr_stmt
-unit|}  inline
-DECL|function|sendPostedEvents
-name|void
-name|QCoreApplication
-operator|::
-name|sendPostedEvents
-argument_list|()
-block|{
-name|sendPostedEvents
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-block|; }
+begin_ifdef
+unit|}
 ifdef|#
 directive|ifdef
 name|QT_NO_TRANSLATION
+end_ifdef
+begin_comment
 comment|// Simple versions
+end_comment
+begin_expr_stmt
+unit|inline
 DECL|function|translate
-specifier|inline
 name|QString
 name|QCoreApplication
 operator|::

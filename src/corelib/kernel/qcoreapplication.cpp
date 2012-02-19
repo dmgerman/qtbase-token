@@ -3230,39 +3230,7 @@ begin_comment
 comment|/*!     \fn bool QCoreApplication::sendEvent(QObject *receiver, QEvent *event)      Sends event \a event directly to receiver \a receiver, using the     notify() function. Returns the value that was returned from the     event handler.      The event is \e not deleted when the event has been sent. The normal     approach is to create the event on the stack, for example:      \snippet doc/src/snippets/code/src_corelib_kernel_qcoreapplication.cpp 0      \sa postEvent(), notify() */
 end_comment
 begin_comment
-comment|/*!     Adds the event \a event, with the object \a receiver as the     receiver of the event, to an event queue and returns immediately.      The event must be allocated on the heap since the post event queue     will take ownership of the event and delete it once it has been     posted.  It is \e {not safe} to access the event after     it has been posted.      When control returns to the main event loop, all events that are     stored in the queue will be sent using the notify() function.      Events are processed in the order posted. For more control over     the processing order, use the postEvent() overload below, which     takes a priority argument. This function posts all event with a     Qt::NormalEventPriority.      \threadsafe      \sa sendEvent(), notify(), sendPostedEvents() */
-end_comment
-begin_function
-DECL|function|postEvent
-name|void
-name|QCoreApplication
-operator|::
-name|postEvent
-parameter_list|(
-name|QObject
-modifier|*
-name|receiver
-parameter_list|,
-name|QEvent
-modifier|*
-name|event
-parameter_list|)
-block|{
-name|postEvent
-argument_list|(
-name|receiver
-argument_list|,
-name|event
-argument_list|,
-name|Qt
-operator|::
-name|NormalEventPriority
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     \overload postEvent()     \since 4.3      Adds the event \a event, with the object \a receiver as the     receiver of the event, to an event queue and returns immediately.      The event must be allocated on the heap since the post event queue     will take ownership of the event and delete it once it has been     posted.  It is \e {not safe} to access the event after     it has been posted.      When control returns to the main event loop, all events that are     stored in the queue will be sent using the notify() function.      Events are sorted in descending \a priority order, i.e. events     with a high \a priority are queued before events with a lower \a     priority. The \a priority can be any integer value, i.e. between     INT_MAX and INT_MIN, inclusive; see Qt::EventPriority for more     details. Events with equal \a priority will be processed in the     order posted.      \threadsafe      \sa sendEvent(), notify(), sendPostedEvents(), Qt::EventPriority */
+comment|/*!     \since 4.3      Adds the event \a event, with the object \a receiver as the     receiver of the event, to an event queue and returns immediately.      The event must be allocated on the heap since the post event queue     will take ownership of the event and delete it once it has been     posted.  It is \e {not safe} to access the event after     it has been posted.      When control returns to the main event loop, all events that are     stored in the queue will be sent using the notify() function.      Events are sorted in descending \a priority order, i.e. events     with a high \a priority are queued before events with a lower \a     priority. The \a priority can be any integer value, i.e. between     INT_MAX and INT_MIN, inclusive; see Qt::EventPriority for more     details. Events with equal \a priority will be processed in the     order posted.      \threadsafe      \sa sendEvent(), notify(), sendPostedEvents(), Qt::EventPriority */
 end_comment
 begin_function
 DECL|function|postEvent
@@ -3801,9 +3769,6 @@ literal|false
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!   \fn void QCoreApplication::sendPostedEvents()   \overload sendPostedEvents()      Dispatches all posted events, i.e. empties the event queue. */
-end_comment
 begin_comment
 comment|/*!   Immediately dispatches all events which have been previously queued   with QCoreApplication::postEvent() and which are for the object \a receiver   and have the event type \a event_type.    Events from the window system are \e not dispatched by this   function, but by processEvents().    If \a receiver is null, the events of \a event_type are sent for all   objects. If \a event_type is 0, all the events are sent for \a receiver.    \note This method must be called from the same thread as its QObject parameter, \a receiver.    \sa flush(), postEvent() */
 end_comment
@@ -4566,31 +4531,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Removes all events posted using postEvent() for \a receiver.    The events are \e not dispatched, instead they are removed from the   queue. You should never need to call this function. If you do call it,   be aware that killing events may cause \a receiver to break one or   more invariants.    \threadsafe */
-end_comment
-begin_function
-DECL|function|removePostedEvents
-name|void
-name|QCoreApplication
-operator|::
-name|removePostedEvents
-parameter_list|(
-name|QObject
-modifier|*
-name|receiver
-parameter_list|)
-block|{
-name|removePostedEvents
-argument_list|(
-name|receiver
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     \overload removePostedEvents()     \since 4.3      Removes all events of the given \a eventType that were posted     using postEvent() for \a receiver.      The events are \e not dispatched, instead they are removed from     the queue. You should never need to call this function. If you do     call it, be aware that killing events may cause \a receiver to     break one or more invariants.      If \a receiver is null, the events of \a eventType are removed for     all objects. If \a eventType is 0, all the events are removed for     \a receiver.      \threadsafe */
+comment|/*!     \since 4.3      Removes all events of the given \a eventType that were posted     using postEvent() for \a receiver.      The events are \e not dispatched, instead they are removed from     the queue. You should never need to call this function. If you do     call it, be aware that killing events may cause \a receiver to     break one or more invariants.      If \a receiver is null, the events of \a eventType are removed for     all objects. If \a eventType is 0, all the events are removed for     \a receiver. You should never call this function with \a eventType     of 0. If you do call it in this way, be aware that killing events     may cause \a receiver to break one or more invariants.      \threadsafe */
 end_comment
 begin_function
 DECL|function|removePostedEvents
