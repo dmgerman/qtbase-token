@@ -2219,6 +2219,36 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/*!     Returns the number of capturing groups inside the pattern string,     or -1 if the regular expression is not valid.      \sa isValid() */
+end_comment
+begin_function
+DECL|function|captureCount
+name|int
+name|QRegularExpression
+operator|::
+name|captureCount
+parameter_list|()
+specifier|const
+block|{
+if|if
+condition|(
+operator|!
+name|isValid
+argument_list|()
+condition|)
+comment|// will compile the pattern
+return|return
+operator|-
+literal|1
+return|;
+return|return
+name|d
+operator|->
+name|capturingCount
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Returns true if the regular expression is a valid regular expression (that     is, it contains no syntax errors, etc.), or false otherwise. Use     errorString() to obtain a textual description of the error.      \sa errorString(), patternErrorOffset() */
 end_comment
 begin_function

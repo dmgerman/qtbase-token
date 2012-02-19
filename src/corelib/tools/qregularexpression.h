@@ -230,6 +230,11 @@ name|errorString
 argument_list|()
 specifier|const
 expr_stmt|;
+name|int
+name|captureCount
+argument_list|()
+specifier|const
+expr_stmt|;
 enum|enum
 name|MatchType
 block|{
