@@ -104,7 +104,7 @@ name|NormalPriority
 argument_list|)
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 member_init_list|,
 name|sslConfiguration
 argument_list|(
@@ -127,7 +127,7 @@ parameter_list|()
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 operator|delete
 name|sslConfiguration
 expr_stmt|;
@@ -167,7 +167,7 @@ name|priority
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|sslConfiguration
 operator|=
 literal|0
@@ -244,7 +244,7 @@ name|priority
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 DECL|member|sslConfiguration
 specifier|mutable
 name|QSslConfiguration
@@ -722,7 +722,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_comment
 comment|/*!     Returns this network request's SSL configuration. By default, no     SSL settings are specified.      \sa setSslConfiguration() */

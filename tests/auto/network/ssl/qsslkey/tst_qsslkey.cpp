@@ -140,7 +140,7 @@ parameter_list|()
 function_decl|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 private|private
 name|slots
 private|:
@@ -428,7 +428,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|emptyConstructor

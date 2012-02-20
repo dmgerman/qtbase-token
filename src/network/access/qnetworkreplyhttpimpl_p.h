@@ -101,7 +101,7 @@ end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_include
 include|#
@@ -304,7 +304,7 @@ argument|void httpError(QNetworkReply::NetworkError, const QString&)
 argument_list|)
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
@@ -351,7 +351,7 @@ argument|void emitReplyUploadProgress(qint64, qint64)
 argument_list|)
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|protected
 operator|:
 name|void
@@ -754,7 +754,7 @@ name|pendingDownloadProgressEmissions
 block|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QSslConfiguration
 name|sslConfiguration
 block|;
@@ -872,7 +872,7 @@ argument_list|)
 block|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|void
 name|replySslErrors
 argument_list|(

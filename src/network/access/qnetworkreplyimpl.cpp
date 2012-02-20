@@ -3378,7 +3378,7 @@ parameter_list|)
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|Q_Q
 argument_list|(
 name|QNetworkReplyImpl
@@ -3871,7 +3871,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|sslConfigurationImplementation
@@ -4021,7 +4021,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_OPENSSL
+comment|// QT_NO_SSL
 end_comment
 begin_comment
 comment|/*!     \internal */

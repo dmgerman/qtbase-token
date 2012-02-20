@@ -254,7 +254,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|qRegisterMetaType
 argument_list|<
 name|QList
@@ -2160,7 +2160,7 @@ expr_stmt|;
 block|}
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|reply
 operator|->
 name|setSslConfiguration
@@ -2306,7 +2306,7 @@ parameter_list|)
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|Q_Q
 argument_list|(
 name|QNetworkAccessManager
@@ -2401,7 +2401,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 comment|/* In case we're compiled without SSL support, we don't have this signal and we need to      * avoid getting a connection error. */
 name|q
 operator|->

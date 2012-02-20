@@ -76,7 +76,7 @@ parameter_list|)
 function_decl|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|void
 name|sslErrors
 parameter_list|(
@@ -204,7 +204,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|void
 name|ignoresslerror_data
 parameter_list|()
@@ -217,7 +217,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|void
 name|nossl_data
 parameter_list|()
@@ -3869,7 +3869,7 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|sslErrors
@@ -4392,7 +4392,7 @@ end_endif
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifdef
 begin_macro
 name|Q_DECLARE_METATYPE

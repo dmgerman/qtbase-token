@@ -138,7 +138,7 @@ parameter_list|()
 function_decl|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|void
 name|httpsServer
 parameter_list|()
@@ -626,7 +626,7 @@ parameter_list|)
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QSslSocket
 modifier|*
 name|sslSocket
@@ -662,7 +662,7 @@ operator|==
 literal|0
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 operator|&&
 name|sslSocket
 operator|->
@@ -738,7 +738,7 @@ parameter_list|)
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QSslSocket
 name|socket
 decl_stmt|;
@@ -1462,7 +1462,7 @@ name|StartEncryption
 case|:
 ifdef|#
 directive|ifdef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QFAIL
 argument_list|(
 literal|"Internal error: SSL required for this test"
@@ -3753,7 +3753,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|httpsServer
@@ -5040,7 +5040,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QFAIL
 argument_list|(
 literal|"SSL not compiled in"

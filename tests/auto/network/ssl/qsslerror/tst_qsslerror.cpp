@@ -122,7 +122,7 @@ parameter_list|()
 function_decl|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 private|private
 name|slots
 private|:
@@ -198,7 +198,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|constructing
@@ -218,7 +218,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_OPENSSL
+comment|// QT_NO_SSL
 end_comment
 begin_macro
 name|QTEST_MAIN

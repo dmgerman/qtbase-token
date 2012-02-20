@@ -140,7 +140,7 @@ end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_include
 include|#
@@ -270,7 +270,7 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_macro
 name|Q_DECLARE_METATYPE
@@ -553,7 +553,7 @@ name|cookieJar
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 DECL|member|storedSslConfiguration
 name|QSslConfiguration
 name|storedSslConfiguration
@@ -712,7 +712,7 @@ parameter_list|()
 function_decl|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|void
 name|sslErrors
 parameter_list|(
@@ -1012,7 +1012,7 @@ parameter_list|()
 function_decl|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|void
 name|ioGetFromHttpsWithSslErrors
 parameter_list|()
@@ -1302,7 +1302,7 @@ parameter_list|()
 function_decl|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|void
 name|ioPostToHttpsUploadProgress
 parameter_list|()
@@ -1419,7 +1419,7 @@ parameter_list|()
 function_decl|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|void
 name|synchronousRequestSslFailure
 parameter_list|()
@@ -1688,7 +1688,7 @@ define|\
 value|do {                                        \         QString errorMsg = call;                \         if (!errorMsg.isEmpty())                \             QFAIL(qPrintable(errorMsg));        \     } while (0);
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 DECL|function|setupSslServer
 specifier|static
 name|void
@@ -1971,7 +1971,7 @@ else|else
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QSslSocket
 modifier|*
 name|serverSocket
@@ -2182,7 +2182,7 @@ name|slots
 private|:
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 DECL|function|slotSslErrors
 name|void
 name|slotSslErrors
@@ -3388,7 +3388,7 @@ parameter_list|)
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 if|if
 condition|(
 name|doSsl
@@ -3477,7 +3477,7 @@ name|slots
 private|:
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 DECL|function|slotSslErrors
 name|void
 name|slotSslErrors
@@ -4705,7 +4705,7 @@ argument_list|()
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|qRegisterMetaType
 argument_list|<
 name|QList
@@ -4984,7 +4984,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|sslErrors
@@ -6081,7 +6081,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QSslSocket
 operator|::
 name|defaultCaCertificates
@@ -18516,7 +18516,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|ioGetFromHttpsWithSslErrors
@@ -21596,7 +21596,7 @@ name|NoError
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 comment|// HTTPS with HTTP transparent proxy
 name|proxyList
 operator|.
@@ -21859,7 +21859,7 @@ name|ProxyNotFoundError
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 comment|// HTTPS with HTTP caching proxy
 name|proxyList
 operator|.
@@ -22352,7 +22352,7 @@ name|NoError
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 comment|// HTTPS request with HTTP Caching + HTTP transparent
 name|proxyList
 operator|.
@@ -22660,7 +22660,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|connect
 argument_list|(
 operator|&
@@ -22738,7 +22738,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|manager
 operator|.
 name|disconnect
@@ -26851,7 +26851,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_class
 DECL|class|SslServer
@@ -27580,7 +27580,7 @@ literal|4096
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QTest
 operator|::
 name|newRow
@@ -32079,7 +32079,7 @@ literal|"GET http://0.0.0.0:4443/http-request HTTP/1."
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QTest
 operator|::
 name|newRow
@@ -34329,7 +34329,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|ignoreSslErrorsList_data
@@ -35013,7 +35013,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_OPENSSL
+comment|// QT_NO_SSL
 end_comment
 begin_function
 DECL|function|getAndThenDeleteObject_data
@@ -37717,7 +37717,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QTest
 operator|::
 name|newRow
@@ -37940,7 +37940,7 @@ name|manager
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|connect
 argument_list|(
 operator|&
@@ -38847,7 +38847,7 @@ name|manager
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|connect
 argument_list|(
 operator|&
@@ -40198,7 +40198,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QTest
 operator|::
 name|newRow
@@ -40345,7 +40345,7 @@ argument_list|)
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 comment|// workaround for HTTPS requests: add self-signed server cert to list of CA certs,
 comment|// since we cannot react to the sslErrors() signal
 comment|// to fix this properly we would need to have an ignoreSslErrors() method in the
@@ -40624,7 +40624,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|synchronousRequestSslFailure

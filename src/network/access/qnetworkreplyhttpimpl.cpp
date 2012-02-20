@@ -647,7 +647,7 @@ argument_list|()
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|d
 operator|->
 name|sslConfiguration
@@ -1530,7 +1530,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|ignoreSslErrors
@@ -1760,7 +1760,7 @@ argument_list|()
 argument_list|)
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 member_init_list|,
 name|pendingIgnoreAllSslErrors
 argument_list|(
@@ -3043,7 +3043,7 @@ name|ssl
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 if|if
 condition|(
 name|ssl
@@ -3339,7 +3339,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QObject
 operator|::
 name|connect
@@ -3449,7 +3449,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QObject
 operator|::
 name|connect
@@ -5274,7 +5274,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|replySslErrors

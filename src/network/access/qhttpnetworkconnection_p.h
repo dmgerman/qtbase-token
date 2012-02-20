@@ -116,7 +116,7 @@ end_ifndef
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_include
 include|#
@@ -324,7 +324,7 @@ specifier|const
 block|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|void
 name|setSslConfiguration
 argument_list|(

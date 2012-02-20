@@ -340,7 +340,7 @@ parameter_list|)
 function_decl|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QSslConfiguration
 name|sslConfiguration
 argument_list|()

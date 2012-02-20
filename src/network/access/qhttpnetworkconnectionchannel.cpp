@@ -35,7 +35,7 @@ end_ifndef
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_include
 include|#
@@ -158,7 +158,7 @@ literal|false
 argument_list|)
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 member_init_list|,
 name|ignoreAllSslErrors
 argument_list|(
@@ -198,7 +198,7 @@ parameter_list|()
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 if|if
 condition|(
 name|connection
@@ -462,7 +462,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QSslSocket
 modifier|*
 name|sslSocket
@@ -1072,7 +1072,7 @@ literal|1024
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QSslSocket
 modifier|*
 name|sslSocket
@@ -2621,7 +2621,7 @@ condition|)
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QSslSocket
 modifier|*
 name|sslSocket
@@ -4914,7 +4914,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|_q_encrypted

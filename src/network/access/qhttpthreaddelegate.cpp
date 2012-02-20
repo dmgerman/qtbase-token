@@ -997,7 +997,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 comment|// Set the QSslConfiguration from this QNetworkRequest.
 if|if
 condition|(
@@ -1333,7 +1333,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|connect
 argument_list|(
 name|httpReply
@@ -1654,7 +1654,7 @@ emit|;
 block|}
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 if|if
 condition|(
 name|ssl
@@ -1963,7 +1963,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 if|if
 condition|(
 name|ssl
@@ -2144,7 +2144,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 if|if
 condition|(
 name|ssl
@@ -2424,7 +2424,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|sslErrorsSlot

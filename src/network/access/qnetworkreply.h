@@ -308,7 +308,7 @@ end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_expr_stmt
 name|QSslConfiguration
@@ -385,7 +385,7 @@ end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_decl_stmt
 name|void
