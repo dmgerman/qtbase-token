@@ -27,7 +27,7 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_VSNPRINTF
-comment|/*!     \relates QByteArray      A portable \c vsnprintf() function. Will call \c ::vsnprintf(), \c     ::_vsnprintf(), or \c ::vsnprintf_s depending on the system, or     fall back to an internal version.      \a fmt is the \c printf() format string. The result is put into     \a str, which is a buffer of at least \a n bytes.      The caller is responsible to call \c va_end() on \a ap.      \warning Since vsnprintf() shows different behavior on certain     platforms, you should not rely on the return value or on the fact     that you will always get a 0 terminated string back.      Ideally, you should never call this function but use QString::sprintf()     instead.      \sa qsnprintf(), QString::sprintf() */
+comment|/*!     \relates QByteArray      A portable \c vsnprintf() function. Will call \c ::vsnprintf(), \c     ::_vsnprintf(), or \c ::vsnprintf_s depending on the system, or     fall back to an internal version.      \a fmt is the \c printf() format string. The result is put into     \a str, which is a buffer of at least \a n bytes.      The caller is responsible to call \c va_end() on \a ap.      \warning Since vsnprintf() shows different behavior on certain     platforms, you should not rely on the return value or on the fact     that you will always get a 0 terminated string back.      Ideally, you should never call this function but use QString::asprintf()     instead.      \sa qsnprintf(), QString::asprintf() */
 DECL|function|qvsnprintf
 name|int
 name|qvsnprintf
@@ -185,7 +185,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \target bytearray-qsnprintf     \relates QByteArray      A portable snprintf() function, calls qvsnprintf.      \a fmt is the \c printf() format string. The result is put into     \a str, which is a buffer of at least \a n bytes.      \warning Call this function only when you know what you are doing     since it shows different behavior on certain platforms.     Use QString::sprintf() to format a string instead.      \sa qvsnprintf(), QString::sprintf() */
+comment|/*!     \target bytearray-qsnprintf     \relates QByteArray      A portable snprintf() function, calls qvsnprintf.      \a fmt is the \c printf() format string. The result is put into     \a str, which is a buffer of at least \a n bytes.      \warning Call this function only when you know what you are doing     since it shows different behavior on certain platforms.     Use QString::asprintf() to format a string instead.      \sa qvsnprintf(), QString::asprintf() */
 end_comment
 begin_function
 DECL|function|qsnprintf

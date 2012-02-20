@@ -4833,7 +4833,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// hacky but faster version of "QString::sprintf("%d-%d", i, enabled)"
+comment|// hacky but faster version of "QString::asprintf("%d-%d", i, enabled)"
 end_comment
 begin_function
 DECL|function|qPixmapSerial

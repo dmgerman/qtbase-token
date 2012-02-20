@@ -17506,10 +17506,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// ### Qt 6: Consider whether this function shouldn't be removed See task 202871.
-end_comment
-begin_comment
-comment|/*!     Safely builds a formatted string from the format string \a cformat     and an arbitrary list of arguments.      The format string supports the conversion specifiers, length modifiers,     and flags provided by printf() in the standard C++ library. The \a cformat     string and \c{%s} arguments must be UTF-8 encoded.      \note The \c{%lc} escape sequence expects a unicode character of type     \c char16_t, or \c ushort (as returned by QChar::unicode()).     The \c{%ls} escape sequence expects a pointer to a zero-terminated array     of unicode characters of type \c char16_t, or ushort (as returned by     QString::utf16()). This is at odds with the printf() in the standard C++     library, which defines \c {%lc} to print a wchar_t and \c{%ls} to print     a \c{wchar_t*}, and might also produce compiler warnings on platforms     where the size of \c {wchar_t} is not 16 bits.      \warning We do not recommend using QString::sprintf() in new Qt     code. Instead, consider using QTextStream or arg(), both of     which support Unicode strings seamlessly and are type-safe.     Here's an example that uses QTextStream:      \snippet qstring/main.cpp 64      For \l {QObject::tr()}{translations}, especially if the strings     contains more than one escape sequence, you should consider using     the arg() function instead. This allows the order of the     replacements to be controlled by the translator.      \sa arg() */
+comment|/*!     \obsolete Use asprintf(), arg() or QTextStream instead. */
 end_comment
 begin_function
 DECL|function|sprintf
@@ -17537,11 +17534,63 @@ argument_list|,
 name|cformat
 argument_list|)
 expr_stmt|;
+operator|*
+name|this
+operator|=
+name|vasprintf
+argument_list|(
+name|cformat
+argument_list|,
+name|ap
+argument_list|)
+expr_stmt|;
+name|va_end
+argument_list|(
+name|ap
+argument_list|)
+expr_stmt|;
+return|return
+operator|*
+name|this
+return|;
+block|}
+end_function
+begin_comment
+comment|// ### Qt 6: Consider whether this function shouldn't be removed See task 202871.
+end_comment
+begin_comment
+comment|/*!     \since 5.5      Safely builds a formatted string from the format string \a cformat     and an arbitrary list of arguments.      The format string supports the conversion specifiers, length modifiers,     and flags provided by printf() in the standard C++ library. The \a cformat     string and \c{%s} arguments must be UTF-8 encoded.      \note The \c{%lc} escape sequence expects a unicode character of type     \c char16_t, or \c ushort (as returned by QChar::unicode()).     The \c{%ls} escape sequence expects a pointer to a zero-terminated array     of unicode characters of type \c char16_t, or ushort (as returned by     QString::utf16()). This is at odds with the printf() in the standard C++     library, which defines \c {%lc} to print a wchar_t and \c{%ls} to print     a \c{wchar_t*}, and might also produce compiler warnings on platforms     where the size of \c {wchar_t} is not 16 bits.      \warning We do not recommend using QString::asprintf() in new Qt     code. Instead, consider using QTextStream or arg(), both of     which support Unicode strings seamlessly and are type-safe.     Here's an example that uses QTextStream:      \snippet qstring/main.cpp 64      For \l {QObject::tr()}{translations}, especially if the strings     contains more than one escape sequence, you should consider using     the arg() function instead. This allows the order of the     replacements to be controlled by the translator.      \sa arg() */
+end_comment
+begin_function
+DECL|function|asprintf
 name|QString
-modifier|&
+name|QString
+operator|::
+name|asprintf
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|cformat
+parameter_list|,
+modifier|...
+parameter_list|)
+block|{
+name|va_list
+name|ap
+decl_stmt|;
+name|va_start
+argument_list|(
+name|ap
+argument_list|,
+name|cformat
+argument_list|)
+expr_stmt|;
+specifier|const
+name|QString
 name|s
 init|=
-name|vsprintf
+name|vasprintf
 argument_list|(
 name|cformat
 argument_list|,
@@ -17559,7 +17608,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Equivalent method to sprintf(), but takes a va_list \a ap     instead a list of variable arguments. See the sprintf()     documentation for an explanation of \a cformat.      This method does not call the va_end macro, the caller     is responsible to call va_end on \a ap.      \sa sprintf() */
+comment|/*!     \obsolete Use vasprintf(), arg() or QTextStream instead. */
 end_comment
 begin_function
 DECL|function|vsprintf
@@ -17568,6 +17617,38 @@ modifier|&
 name|QString
 operator|::
 name|vsprintf
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|cformat
+parameter_list|,
+name|va_list
+name|ap
+parameter_list|)
+block|{
+return|return
+operator|*
+name|this
+operator|=
+name|vasprintf
+argument_list|(
+name|cformat
+argument_list|,
+name|ap
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \fn QString::vasprintf(const char *cformat, va_list ap)     \since 5.5      Equivalent method to asprintf(), but takes a va_list \a ap     instead a list of variable arguments. See the asprintf()     documentation for an explanation of \a cformat.      This method does not call the va_end macro, the caller     is responsible to call va_end on \a ap.      \sa asprintf() */
+end_comment
+begin_function
+DECL|function|vasprintf
+name|QString
+name|QString
+operator|::
+name|vasprintf
 parameter_list|(
 specifier|const
 name|char
@@ -17589,17 +17670,11 @@ name|cformat
 condition|)
 block|{
 comment|// Qt 1.x compat
-operator|*
-name|this
-operator|=
+return|return
 name|fromLatin1
 argument_list|(
 literal|""
 argument_list|)
-expr_stmt|;
-return|return
-operator|*
-name|this
 return|;
 block|}
 comment|// Parse cformat
@@ -19164,14 +19239,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-operator|*
-name|this
-operator|=
-name|result
-expr_stmt|;
 return|return
-operator|*
-name|this
+name|result
 return|;
 block|}
 end_function
@@ -22910,7 +22979,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns a copy of this string with the lowest numbered place marker   replaced by string \a a, i.e., \c %1, \c %2, ..., \c %99.    \a fieldWidth specifies the minimum amount of space that argument \a   a shall occupy. If \a a requires less space than \a fieldWidth, it   is padded to \a fieldWidth with character \a fillChar.  A positive   \a fieldWidth produces right-aligned text. A negative \a fieldWidth   produces left-aligned text.    This example shows how we might create a \c status string for   reporting progress while processing a list of files:    \snippet qstring/main.cpp 11    First, \c arg(i) replaces \c %1. Then \c arg(total) replaces \c   %2. Finally, \c arg(fileName) replaces \c %3.    One advantage of using arg() over sprintf() is that the order of the   numbered place markers can change, if the application's strings are   translated into other languages, but each arg() will still replace   the lowest numbered unreplaced place marker, no matter where it   appears. Also, if place marker \c %i appears more than once in the   string, the arg() replaces all of them.    If there is no unreplaced place marker remaining, a warning message   is output and the result is undefined. Place marker numbers must be   in the range 1 to 99. */
+comment|/*!   Returns a copy of this string with the lowest numbered place marker   replaced by string \a a, i.e., \c %1, \c %2, ..., \c %99.    \a fieldWidth specifies the minimum amount of space that argument \a   a shall occupy. If \a a requires less space than \a fieldWidth, it   is padded to \a fieldWidth with character \a fillChar.  A positive   \a fieldWidth produces right-aligned text. A negative \a fieldWidth   produces left-aligned text.    This example shows how we might create a \c status string for   reporting progress while processing a list of files:    \snippet qstring/main.cpp 11    First, \c arg(i) replaces \c %1. Then \c arg(total) replaces \c   %2. Finally, \c arg(fileName) replaces \c %3.    One advantage of using arg() over asprintf() is that the order of the   numbered place markers can change, if the application's strings are   translated into other languages, but each arg() will still replace   the lowest numbered unreplaced place marker, no matter where it   appears. Also, if place marker \c %i appears more than once in the   string, the arg() replaces all of them.    If there is no unreplaced place marker remaining, a warning message   is output and the result is undefined. Place marker numbers must be   in the range 1 to 99. */
 end_comment
 begin_function
 DECL|function|arg
