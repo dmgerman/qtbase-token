@@ -1182,14 +1182,26 @@ block|{
 name|int
 name|size
 block|;
+expr|union
+block|{
+comment|// This union is made in order to save space and ensure good vector performance (on remove)
 name|mutable
 name|int
 name|calculated_startpos
 block|;
+comment|//<- this is the primary used member.
 name|mutable
 name|int
 name|tmpLogIdx
 block|;
+comment|// When one of these 'tmp'-members has been used we call
+name|int
+name|tmpDataStreamSectionCount
+block|;
+comment|// recalcSectionStartPos() or set sectionStartposRecalc to true
+block|}
+block|;
+comment|// to ensure that calculated_startpos will be calculated afterwards.
 name|QHeaderView
 operator|::
 name|ResizeMode
@@ -1258,9 +1270,6 @@ block|}
 ifndef|#
 directive|ifndef
 name|QT_NO_DATASTREAM
-name|int
-name|tmpDataStreamSectionCount
-block|;
 specifier|inline
 name|void
 name|write
@@ -1317,7 +1326,7 @@ name|m
 block|; }
 endif|#
 directive|endif
-block|}
+expr|}
 block|;
 name|QVector
 operator|<
@@ -1425,19 +1434,11 @@ return|return
 name|len
 return|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 name|void
 name|removeSpans
 argument_list|(
-specifier|const
-name|QList
-operator|<
-name|int
-operator|>
-operator|&
-name|spans
+argument|const QList<int>&spans
 argument_list|)
 block|{
 for|for
@@ -1490,16 +1491,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_decl_stmt
-begin_decl_stmt
 specifier|inline
 name|int
 name|sectionSpanIndex
 argument_list|(
-name|int
-name|visual
+argument|int visual
 argument_list|)
-decl|const
+specifier|const
 block|{
 if|if
 condition|(
@@ -1524,55 +1522,36 @@ operator|-
 literal|1
 return|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 name|int
 name|headerSectionSize
 argument_list|(
-name|int
-name|visual
+argument|int visual
 argument_list|)
-decl|const
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
+specifier|const
+block|;
 name|int
 name|headerSectionPosition
 argument_list|(
-name|int
-name|visual
+argument|int visual
 argument_list|)
-decl|const
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
+specifier|const
+block|;
 name|int
 name|headerVisualIndexAt
 argument_list|(
-name|int
-name|position
+argument|int position
 argument_list|)
-decl|const
-decl_stmt|;
-end_decl_stmt
-begin_comment
+specifier|const
+block|;
 comment|// resize mode
-end_comment
-begin_decl_stmt
 name|void
 name|setHeaderSectionResizeMode
 argument_list|(
-name|int
-name|visual
+argument|int visual
 argument_list|,
-name|QHeaderView
-operator|::
-name|ResizeMode
-name|mode
+argument|QHeaderView::ResizeMode mode
 argument_list|)
-decl_stmt|;
-end_decl_stmt
-begin_expr_stmt
+block|;
 name|QHeaderView
 operator|::
 name|ResizeMode
@@ -1581,74 +1560,52 @@ argument_list|(
 argument|int visual
 argument_list|)
 specifier|const
-expr_stmt|;
-end_expr_stmt
-begin_decl_stmt
+block|;
 name|void
 name|setGlobalHeaderResizeMode
 argument_list|(
-name|QHeaderView
-operator|::
-name|ResizeMode
-name|mode
+argument|QHeaderView::ResizeMode mode
 argument_list|)
-decl_stmt|;
-end_decl_stmt
-begin_comment
+block|;
 comment|// other
-end_comment
-begin_decl_stmt
 name|int
 name|viewSectionSizeHint
 argument_list|(
-name|int
-name|logical
+argument|int logical
 argument_list|)
-decl|const
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
+specifier|const
+block|;
 name|int
 name|adjustedVisualIndex
 argument_list|(
-name|int
-name|visualIndex
+argument|int visualIndex
 argument_list|)
-decl|const
-decl_stmt|;
-end_decl_stmt
-begin_ifndef
+specifier|const
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_DATASTREAM
-end_ifndef
-begin_decl_stmt
 name|void
 name|write
 argument_list|(
-name|QDataStream
-operator|&
-name|out
+argument|QDataStream&out
 argument_list|)
-decl|const
-decl_stmt|;
-end_decl_stmt
-begin_function_decl
+specifier|const
+block|;
 name|bool
 name|read
-parameter_list|(
+argument_list|(
 name|QDataStream
-modifier|&
+operator|&
 name|in
-parameter_list|)
-function_decl|;
-end_function_decl
-begin_endif
+argument_list|)
+block|;
 endif|#
 directive|endif
-end_endif
+block|}
+decl_stmt|;
+end_decl_stmt
 begin_macro
-unit|};
 name|QT_END_NAMESPACE
 end_macro
 begin_endif
