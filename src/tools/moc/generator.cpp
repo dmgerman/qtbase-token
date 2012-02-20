@@ -554,11 +554,6 @@ decl_stmt|;
 comment|//
 comment|// build the data array
 comment|//
-name|int
-name|i
-init|=
-literal|0
-decl_stmt|;
 comment|// filter out undeclared enumerators and sets
 block|{
 name|QList
@@ -569,8 +564,9 @@ name|enumList
 decl_stmt|;
 for|for
 control|(
+name|int
 name|i
-operator|=
+init|=
 literal|0
 init|;
 name|i
@@ -919,8 +915,9 @@ name|index
 decl_stmt|;
 for|for
 control|(
+name|int
 name|i
-operator|=
+init|=
 literal|0
 init|;
 name|i
@@ -1166,8 +1163,9 @@ literal|0
 decl_stmt|;
 for|for
 control|(
+name|int
 name|i
-operator|=
+init|=
 literal|0
 init|;
 name|i
