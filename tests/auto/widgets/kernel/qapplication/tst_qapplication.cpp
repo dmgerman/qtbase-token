@@ -114,6 +114,20 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
+specifier|extern
+name|bool
+name|Q_GUI_EXPORT
+name|qt_tab_all_widgets
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// from qapplication.cpp
+end_comment
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_class
 DECL|class|tst_QApplication
 class|class
@@ -7695,8 +7709,33 @@ operator|&
 literal|0x2
 operator|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|tabAllControls
+condition|)
+block|{
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-24372 Mac tab key \"Text boxes and lists only\" vs "
+literal|"\"All controls\" setting is not respected in Qt5"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+block|}
 endif|#
 directive|endif
+comment|// make sure Qt's idea of tabbing between widgets matches what we think it should
+name|QCOMPARE
+argument_list|(
+name|qt_tab_all_widgets
+argument_list|,
+name|tabAllControls
+argument_list|)
+expr_stmt|;
 name|tab
 operator|.
 name|simulate
