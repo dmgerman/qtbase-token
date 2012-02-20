@@ -1237,16 +1237,6 @@ specifier|const
 expr_stmt|;
 comment|// relations
 name|virtual
-name|QAccessible
-operator|::
-name|Relation
-name|relationTo
-argument_list|(
-argument|const QAccessibleInterface *other
-argument_list|)
-specifier|const
-expr_stmt|;
-name|virtual
 name|QVector
 operator|<
 name|QPair
