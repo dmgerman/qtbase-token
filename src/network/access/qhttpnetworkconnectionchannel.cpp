@@ -2680,6 +2680,22 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
+comment|// Need to dequeue the request so that we can emit the error.
+if|if
+condition|(
+operator|!
+name|reply
+condition|)
+name|connection
+operator|->
+name|d_func
+argument_list|()
+operator|->
+name|dequeueRequest
+argument_list|(
+name|socket
+argument_list|)
+expr_stmt|;
 name|connection
 operator|->
 name|d_func

@@ -1998,6 +1998,9 @@ name|QLatin1String
 argument_list|(
 literal|"http"
 argument_list|)
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
 operator|||
 name|scheme
 operator|==
@@ -2005,6 +2008,8 @@ name|QLatin1String
 argument_list|(
 literal|"https"
 argument_list|)
+endif|#
+directive|endif
 condition|)
 block|{
 name|QNetworkReplyHttpImpl
