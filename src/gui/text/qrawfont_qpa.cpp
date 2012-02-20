@@ -24,6 +24,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qplatformintegration_qpa.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qplatformfontdatabase_qpa.h>
 end_include
 begin_include

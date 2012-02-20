@@ -52,6 +52,11 @@ include|#
 directive|include
 file|<qplatforminputcontext_qpa.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qplatformintegration_qpa.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef

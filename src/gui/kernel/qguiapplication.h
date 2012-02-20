@@ -58,6 +58,12 @@ name|QPlatformNativeInterface
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPlatformIntegration
+name|class
+name|QPlatformIntegration
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QPalette
 name|class
 name|QPalette

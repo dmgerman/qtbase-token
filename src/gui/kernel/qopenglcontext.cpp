@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qplatformintegration_qpa.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qopenglcontext.h"
 end_include
 begin_include

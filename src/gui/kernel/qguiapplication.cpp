@@ -50,6 +50,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qplatformintegration_qpa.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QAbstractEventDispatcher>
 end_include
 begin_include
