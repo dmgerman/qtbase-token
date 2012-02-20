@@ -23515,6 +23515,65 @@ operator|&
 name|b
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_DEBUG
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|"OBJECT QObject::unnamed"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|"  SIGNALS OUT"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|"        signal: destroyed(QObject*)"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|"<Disconnected receiver>"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|"  SIGNALS IN"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtDebugMsg
+argument_list|,
+literal|"<None>"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|a
 operator|.
 name|dumpObjectInfo
@@ -28540,6 +28599,20 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QMetaObject::indexOfSignal: signal aPublicSlot() from SenderObject redefined in ConfusingObject"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 name|connect
@@ -28596,6 +28669,20 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QMetaObject::indexOfSignal: signal aPublicSlot() from SenderObject redefined in ConfusingObject"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QVERIFY
 argument_list|(
 name|connect
