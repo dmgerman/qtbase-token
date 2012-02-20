@@ -94,7 +94,7 @@ DECL|macro|QPlatformInputContextFactoryInterface_iid
 define|#
 directive|define
 name|QPlatformInputContextFactoryInterface_iid
-value|"com.nokia.Qt.QPlatformInputContextFactoryInterface"
+value|"org.qt-project.Qt.QPlatformInputContextFactoryInterface"
 end_define
 begin_macro
 DECL|function|Q_DECLARE_INTERFACE
