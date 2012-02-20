@@ -579,7 +579,9 @@ name|QString
 operator|::
 name|number
 argument_list|(
-name|qMacVersion
+name|QSysInfo
+operator|::
+name|macVersion
 argument_list|()
 argument_list|)
 argument_list|)
