@@ -2645,7 +2645,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Submits all pending changes and returns true on success.     Returns false on error, detailed error information can be     obtained with lastError().      On success the model will be repopulated. Any views      presenting it will lose their selections.      Note: In OnManualSubmit mode, already submitted changes won't     be cleared from the cache when submitAll() fails. This allows     transactions to be rolled back and resubmitted again without     losing data.      \sa revertAll(), lastError() */
+comment|/*!     Submits all pending changes and returns true on success.     Returns false on error, detailed error information can be     obtained with lastError().      On success the model will be repopulated. Any views      presenting it will lose their selections.      Note: In OnManualSubmit mode, already submitted changes won't     be cleared from the cache when submitAll() fails. This allows     transactions to be rolled back and resubmitted without     losing data.      \sa revertAll(), lastError() */
 end_comment
 begin_function
 DECL|function|submitAll
