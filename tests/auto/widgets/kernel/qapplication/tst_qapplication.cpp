@@ -11007,6 +11007,7 @@ block|{
 name|Q_OBJECT
 public|public:
 DECL|function|NoQuitOnHideWidget
+specifier|explicit
 name|NoQuitOnHideWidget
 parameter_list|(
 name|QWidget
@@ -11098,9 +11099,6 @@ name|window1
 init|=
 operator|new
 name|NoQuitOnHideWidget
-argument_list|(
-literal|false
-argument_list|)
 decl_stmt|;
 name|window1
 operator|->
