@@ -4552,7 +4552,7 @@ end_function
 begin_function
 DECL|function|runUpdateMimeDatabase
 specifier|static
-name|void
+name|bool
 name|runUpdateMimeDatabase
 parameter_list|(
 specifier|const
@@ -4585,11 +4585,9 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-name|QSKIP
-argument_list|(
-literal|"shared-mime-info not found, skipping mime.cache test"
-argument_list|)
-expr_stmt|;
+return|return
+literal|false
+return|;
 name|QProcess
 name|proc
 decl_stmt|;
@@ -4621,12 +4619,15 @@ name|waitForFinished
 argument_list|()
 expr_stmt|;
 comment|//qDebug()<< "runUpdateMimeDatabase"<< path;
+return|return
+literal|true
+return|;
 block|}
 end_function
 begin_function
 DECL|function|waitAndRunUpdateMimeDatabase
 specifier|static
-name|void
+name|bool
 name|waitAndRunUpdateMimeDatabase
 parameter_list|(
 specifier|const
@@ -4684,11 +4685,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
 name|runUpdateMimeDatabase
 argument_list|(
 name|path
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 end_function
 begin_function
@@ -4888,9 +4890,17 @@ name|destFile
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
 name|waitAndRunUpdateMimeDatabase
 argument_list|(
 name|mimeDir
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"shared-mime-info not found, skipping mime.cache test"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -4949,9 +4959,17 @@ argument_list|(
 name|destFile
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
 name|waitAndRunUpdateMimeDatabase
 argument_list|(
 name|mimeDir
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"shared-mime-info not found, skipping mime.cache test"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -5111,11 +5129,20 @@ name|destFile
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
 name|runUpdateMimeDatabase
 argument_list|(
 name|mimeDir
 argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"shared-mime-info not found, skipping mime.cache test"
+argument_list|)
 expr_stmt|;
+empty_stmt|;
 name|QCOMPARE
 argument_list|(
 name|db
@@ -5172,9 +5199,17 @@ argument_list|(
 name|destFile
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
 name|waitAndRunUpdateMimeDatabase
 argument_list|(
 name|mimeDir
+argument_list|)
+condition|)
+name|QSKIP
+argument_list|(
+literal|"shared-mime-info not found, skipping mime.cache test"
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
