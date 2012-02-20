@@ -558,6 +558,12 @@ operator|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \class QGuiApplication     \brief The QGuiApplication class manages the GUI application's control     flow and main settings.      \inmodule QtGui      QGuiApplication contains the main event loop, where all events from the window     system and other sources are processed and dispatched. It also handles the     application's initialization and finalization. In addition, QGuiApplication handles     most of the system-wide and application-wide settings.      For any GUI application using Qt, there is precisely \bold one QGuiApplication     object no matter whether the application has 0, 1, 2 or more windows at     any given time. For non-GUI Qt applications, use QCoreApplication instead,     as it does not depend on the \l QtGui library.      The QGuiApplication object is accessible through the instance() function, which     returns a pointer equivalent to the global \l qApp pointer.      QGuiApplication's main areas of responsibility are:         \list             \o  It initializes the application with the user's desktop settings,                 such as palette(), font() and styleHints(). It keeps                 track of these properties in case the user changes the desktop                 globally, for example, through some kind of control panel.              \o  It performs event handling, meaning that it receives events                 from the underlying window system and dispatches them to the                 relevant widgets. You can send your own events to windows by                 using sendEvent() and postEvent().              \o  It parses common command line arguments and sets its internal                 state accordingly. See the \l{QGuiApplication::QGuiApplication()}                 {constructor documentation} below for more details.              \o  It provides localization of strings that are visible to the                 user via translate().              \o  It provides some magical objects like the clipboard().              \o  It knows about the application's windows. You can ask which                 window is at a certain position using topLevelAt(), get a list of                 topLevelWindows(), etc.              \o  It manages the application's mouse cursor handling, see                 setOverrideCursor()         \endlist      Since the QGuiApplication object does so much initialization, it \e{must} be     created before any other objects related to the user interface are created.     QGuiApplication also deals with common command line arguments. Hence, it is     usually a good idea to create it \e before any interpretation or     modification of \c argv is done in the application itself.      \table     \header         \o{2,1} Groups of functions          \row         \o  System settings         \o  desktopSettingsAware(),             setDesktopSettingsAware(),             styleHints(),             palette(),             setPalette(),             font(),             setFont().          \row         \o  Event handling         \o  exec(),             processEvents(),             exit(),             quit().             sendEvent(),             postEvent(),             sendPostedEvents(),             removePostedEvents(),             hasPendingEvents(),             notify().          \row         \o  Windows         \o  allWindows(),             topLevelWindows(),             focusWindow(),             clipboard(),             topLevelAt().          \row         \o  Advanced cursor handling         \o  overrideCursor(),             setOverrideCursor(),             restoreOverrideCursor().          \row         \o  Miscellaneous         \o  startingUp(),             closingDown(),             type().     \endtable      \sa QCoreApplication, QAbstractEventDispatcher, QEventLoop */
+end_comment
+begin_comment
+comment|/*!     Initializes the window system and constructs an application object with     \a argc command line arguments in \a argv.      \warning The data referred to by \a argc and \a argv must stay valid for     the entire lifetime of the QGuiApplication object. In addition, \a argc must     be greater than zero and \a argv must contain at least one valid character     string.      The global \c qApp pointer refers to this application object. Only one     application object should be created.      This application object must be constructed before any \l{QPaintDevice}     {paint devices} (including pixmaps, bitmaps etc.).      \note \a argc and \a argv might be changed as Qt removes command line     arguments that it recognizes.      All Qt programs automatically support the following command line options:     \list         \o  -reverse, sets the application's layout direction to             Qt::RightToLeft         \o  -qmljsdebugger=, activates the QML/JS debugger with a specified port.             The value must be of format port:1234[,block], where block is optional             and will make the application wait until a debugger connects to it.     \endlist      \sa arguments() */
+end_comment
 begin_constructor
 DECL|function|QGuiApplication
 name|QGuiApplication
@@ -630,6 +636,9 @@ argument_list|()
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Destructs the application. */
+end_comment
 begin_destructor
 DECL|function|~QGuiApplication
 name|QGuiApplication
@@ -781,6 +790,9 @@ name|GuiClient
 expr_stmt|;
 block|}
 end_constructor
+begin_comment
+comment|/*!     Returns the QWindow that receives events tied to focus,     such as key events. */
+end_comment
 begin_function
 DECL|function|focusWindow
 name|QWindow
@@ -801,7 +813,7 @@ begin_comment
 comment|/*!     \fn QGuiApplication::focusObjectChanged(QObject *focusObject)      This signal is emitted when final receiver of events tied to focus is changed.     \sa focusObject() */
 end_comment
 begin_comment
-comment|/*!     Returns the QObject in currently active window that will be final receiver of events     tied focus, such as key events.  */
+comment|/*!     Returns the QObject in currently active window that will be final receiver of events     tied to focus, such as key events.  */
 end_comment
 begin_function
 DECL|function|focusObject
@@ -919,6 +931,9 @@ name|topLevelWindows
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the primary (or default) screen of the application.      This will be the screen where QWindows are shown, unless otherwise specified. */
+end_comment
 begin_function
 DECL|function|primaryScreen
 name|QScreen
@@ -952,6 +967,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns a list of all the screens associated with the     windowing system the application is connected to. */
+end_comment
 begin_function
 DECL|function|screens
 name|QList
@@ -971,6 +989,9 @@ name|screen_list
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the top level window at the given position, if any. */
+end_comment
 begin_function
 DECL|function|topLevelAt
 name|QWindow
@@ -2368,6 +2389,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|/*!     Returns the currently held keyboard modifiers. */
+end_comment
 begin_function
 DECL|function|keyboardModifiers
 name|Qt
@@ -2385,6 +2409,9 @@ name|modifier_buttons
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the currently held mouse buttons. */
+end_comment
 begin_function
 DECL|function|mouseButtons
 name|Qt
@@ -2402,6 +2429,9 @@ name|mouse_buttons
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the platform's native interface, for platform specific     functionality. */
+end_comment
 begin_function
 DECL|function|platformNativeInterface
 name|QPlatformNativeInterface
@@ -2428,6 +2458,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Enters the main event loop and waits until exit() is called, and then     returns the value that was set to exit() (which is 0 if exit() is called     via quit()).      It is necessary to call this function to start event handling. The main     event loop receives events from the window system and dispatches these to     the application widgets.      Generally, no user interaction can take place before calling exec().      To make your application perform idle processing, e.g., executing a special     function whenever there are no pending events, use a QTimer with 0 timeout.     More advanced idle processing schemes can be achieved using processEvents().      We recommend that you connect clean-up code to the     \l{QCoreApplication::}{aboutToQuit()} signal, instead of putting it in your     application's \c{main()} function. This is because, on some platforms, the     QApplication::exec() call may not return.      \sa quitOnLastWindowClosed, quit(), exit(), processEvents(),         QCoreApplication::exec() */
+end_comment
 begin_function
 DECL|function|exec
 name|int
@@ -2444,6 +2477,9 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|notify
 name|bool
@@ -2552,6 +2588,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*! \reimp */
+end_comment
 begin_function
 DECL|function|event
 name|bool
@@ -2601,6 +2640,9 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \internal */
+end_comment
 begin_function
 DECL|function|compressEvent
 name|bool
@@ -7385,6 +7427,9 @@ ifndef|#
 directive|ifndef
 name|QT_NO_CLIPBOARD
 end_ifndef
+begin_comment
+comment|/*!     Returns the object for interacting with the clipboard. */
+end_comment
 begin_function
 DECL|function|clipboard
 name|QClipboard
@@ -7441,7 +7486,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     Returns the application palette.      \sa setPalette(), QWidget::palette() */
+comment|/*!     Returns the default application palette.      \sa setPalette() */
 end_comment
 begin_function
 DECL|function|palette
@@ -7511,6 +7556,9 @@ name|app_pal
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Changes the default application palette to \a palette.      \sa palette() */
+end_comment
 begin_function
 DECL|function|setPalette
 name|void
@@ -7568,6 +7616,9 @@ name|pal
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the default application font.      \sa setFont() */
+end_comment
 begin_function
 DECL|function|font
 name|QFont
@@ -7617,6 +7668,9 @@ name|app_font
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Changes the default application font to \a font.      \sa font() */
+end_comment
 begin_function
 DECL|function|setFont
 name|void
@@ -8258,7 +8312,7 @@ begin_comment
 comment|// QT_NO_CURSOR
 end_comment
 begin_comment
-comment|/*!   \since 5.0    returns the style hints.    The style hints encapsulate a set of platform dependent properties   such as double click intervals, full width selection and others.    The hints can be used to integrate tighter with the underlying platform.    \sa QStyleHints   */
+comment|/*!   \since 5.0    Returns the application's style hints.    The style hints encapsulate a set of platform dependent properties   such as double click intervals, full width selection and others.    The hints can be used to integrate tighter with the underlying platform.    \sa QStyleHints   */
 end_comment
 begin_function
 DECL|function|styleHints
@@ -8345,9 +8399,6 @@ name|obey_desktop_settings
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!   \since 5.0    returns the input panel.    The input panel returns properties about the state and position of   the virtual keyboard. It also provides information about the position of the   current focused input element.    \sa QInputPanel   */
-end_comment
 begin_function
 DECL|function|inputMethod
 name|QInputMethod
@@ -8393,6 +8444,9 @@ name|inputMethod
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!   \since 5.0    returns the input panel.    The input panel returns properties about the state and position of   the virtual keyboard. It also provides information about the position of the   current focused input element.    \sa QInputPanel   */
+end_comment
 begin_function
 DECL|function|inputPanel
 name|QInputPanel
