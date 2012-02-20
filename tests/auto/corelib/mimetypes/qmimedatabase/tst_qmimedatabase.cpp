@@ -40,6 +40,13 @@ parameter_list|()
 block|{
 name|qputenv
 argument_list|(
+literal|"LC_ALL"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|qputenv
+argument_list|(
 literal|"LANG"
 argument_list|,
 literal|"en_US"
