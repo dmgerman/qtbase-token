@@ -1936,12 +1936,6 @@ name|defined
 argument_list|(
 name|QT_NO_DEBUG_STREAM
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_BROKEN_DEBUG_STREAM
-argument_list|)
 end_if
 begin_expr_stmt
 name|template
