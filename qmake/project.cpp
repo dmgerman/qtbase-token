@@ -10913,10 +10913,7 @@ comment|// possible to use "place" everywhere. Instead just set variables and gr
 name|QMakeProject
 name|proj
 argument_list|(
-name|this
-argument_list|,
-operator|&
-name|place
+name|prop
 argument_list|)
 decl_stmt|;
 if|if
