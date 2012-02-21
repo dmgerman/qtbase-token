@@ -1224,6 +1224,14 @@ argument_list|(
 literal|"swap"
 argument_list|)
 expr_stmt|;
+DECL|macro|ROWNAME
+define|#
+directive|define
+name|ROWNAME
+parameter_list|(
+name|name
+parameter_list|)
+value|(qPrintable(QString("prefix=%1, postfix=%2, num=%3, i=%4, test=%5").arg(prefix).arg(postfix).arg(num).arg(i).arg(name)))
 for|for
 control|(
 name|int
@@ -1338,7 +1346,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+name|ROWNAME
+argument_list|(
 literal|"basic"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1367,7 +1378,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+name|ROWNAME
+argument_list|(
 literal|"just text"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1395,7 +1409,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+name|ROWNAME
+argument_list|(
 literal|"just numbers"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1423,7 +1440,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+name|ROWNAME
+argument_list|(
 literal|"zero"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1453,7 +1473,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+name|ROWNAME
+argument_list|(
 literal|"space b"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1482,9 +1505,12 @@ expr_stmt|;
 name|QTest
 operator|::
 name|newRow
+argument_list|(
+name|ROWNAME
 argument_list|(
 literal|"space a"
 argument_list|)
+argument_list|)
 operator|<<
 name|prefix
 operator|+
@@ -1513,7 +1539,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+name|ROWNAME
+argument_list|(
 literal|"tab b"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1543,7 +1572,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+name|ROWNAME
+argument_list|(
 literal|"tab a"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1573,7 +1605,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+name|ROWNAME
+argument_list|(
 literal|"10 vs 2"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1601,7 +1636,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+name|ROWNAME
+argument_list|(
 literal|"diff len"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1631,7 +1669,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+name|ROWNAME
+argument_list|(
 literal|"01 before 1"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1661,7 +1702,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"mul nums 2nd"
+name|ROWNAME
+argument_list|(
+literal|"mul nums 2nd 1"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1693,7 +1737,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"mul nums 2nd"
+name|ROWNAME
+argument_list|(
+literal|"mul nums 2nd 2"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1723,7 +1770,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"mul nums 2nd"
+name|ROWNAME
+argument_list|(
+literal|"mul nums 2nd 3"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1753,7 +1803,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"mul nums 2nd"
+name|ROWNAME
+argument_list|(
+literal|"mul nums 2nd 4"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1783,7 +1836,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"mul nums big"
+name|ROWNAME
+argument_list|(
+literal|"mul nums big 1"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1813,7 +1869,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"mul nums big"
+name|ROWNAME
+argument_list|(
+literal|"mul nums big 2"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1843,7 +1902,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"mul alphabet"
+name|ROWNAME
+argument_list|(
+literal|"mul alphabet 1"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1875,7 +1937,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"mul alphabet2"
+name|ROWNAME
+argument_list|(
+literal|"mul alphabet 2"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1907,7 +1972,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+name|ROWNAME
+argument_list|(
 literal|"mul nums w\\0"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1943,7 +2011,10 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+name|ROWNAME
+argument_list|(
 literal|"num first"
+argument_list|)
 argument_list|)
 operator|<<
 name|prefix
@@ -1970,6 +2041,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|macro|ROWNAME
+undef|#
+directive|undef
+name|ROWNAME
 block|}
 end_function
 begin_function

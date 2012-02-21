@@ -1201,6 +1201,27 @@ operator|::
 name|testCustomRuntimeDirectory
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_UNIX
+argument_list|)
+if|if
+condition|(
+operator|::
+name|getuid
+argument_list|()
+operator|==
+literal|0
+condition|)
+name|QSKIP
+argument_list|(
+literal|"Running this test as root doesn't make sense"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|Q_XDG_PLATFORM

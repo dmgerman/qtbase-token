@@ -891,22 +891,15 @@ name|QTextStream
 operator|&
 argument_list|,
 name|int
-argument_list|)
-decl|const
-decl_stmt|;
-name|void
-name|save
-argument_list|(
-name|QTextStream
-operator|&
-argument_list|,
-name|int
 argument_list|,
 name|EncodingPolicy
+operator|=
+name|QDomNode
+operator|::
+name|EncodingFromDocument
 argument_list|)
 decl|const
 decl_stmt|;
-comment|// ### Qt 5: Merge overload(if we at all keep this)
 name|QDomElement
 name|firstChildElement
 argument_list|(
@@ -1082,7 +1075,7 @@ return|;
 block|}
 comment|// Qt API consistency
 comment|// DOM read only attributes
-name|uint
+name|int
 name|length
 argument_list|()
 specifier|const
@@ -1809,7 +1802,7 @@ name|localName
 parameter_list|)
 function_decl|;
 comment|// DOM read only attributes
-name|uint
+name|int
 name|length
 argument_list|()
 specifier|const
@@ -2029,7 +2022,7 @@ argument|const QString& arg
 argument_list|)
 block|;
 comment|// DOM read only attributes
-name|uint
+name|int
 name|length
 argument_list|()
 specifier|const

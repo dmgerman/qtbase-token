@@ -2669,7 +2669,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 argument_list|)
 comment|// Show some mercy for non-desktop platform/s
 enum|enum
@@ -3099,7 +3099,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 argument_list|)
 comment|// Show some mercy to non-desktop platform/s
 enum|enum
@@ -3607,7 +3607,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 argument_list|)
 comment|// Show some mercy to non-desktop platform/s
 enum|enum

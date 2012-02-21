@@ -267,6 +267,31 @@ argument_list|(
 literal|true
 argument_list|)
 argument_list|; }
+DECL|function|maybeUpdateAnimationsToCurrentTime
+name|void
+name|QUnifiedTimer
+operator|::
+name|maybeUpdateAnimationsToCurrentTime
+argument_list|()
+argument_list|{     if
+operator|(
+name|time
+operator|.
+name|elapsed
+argument_list|()
+operator|-
+name|lastTick
+operator|>
+literal|50
+operator|)
+name|updateAnimationTimers
+argument_list|(
+name|driver
+operator|->
+name|elapsed
+argument_list|()
+argument_list|)
+argument_list|; }
 DECL|function|updateAnimationTimers
 name|void
 name|QUnifiedTimer
@@ -1863,11 +1888,8 @@ operator|::
 name|instance
 argument_list|()
 operator|->
-name|updateAnimationTimers
-argument_list|(
-operator|-
-literal|1
-argument_list|)
+name|maybeUpdateAnimationsToCurrentTime
+argument_list|()
 expr_stmt|;
 comment|//we transfer the waiting animations into the "really running" state
 name|animations

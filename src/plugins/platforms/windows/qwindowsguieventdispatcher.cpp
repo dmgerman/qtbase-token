@@ -1019,6 +1019,12 @@ name|WM_DISPLAYCHANGE
 block|,
 literal|"WM_DISPLAYCHANGE"
 block|}
+block|,
+block|{
+name|WM_THEMECHANGED
+block|,
+literal|"WM_THEMECHANGED"
+block|}
 block|}
 decl_stmt|;
 end_decl_stmt

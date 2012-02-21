@@ -185,13 +185,6 @@ operator|&
 name|file
 argument_list|)
 block|;
-name|virtual
-name|QAbstractFileEngine
-operator|*
-name|fileEngine
-argument_list|()
-specifier|const
-block|;
 name|protected
 operator|:
 name|bool

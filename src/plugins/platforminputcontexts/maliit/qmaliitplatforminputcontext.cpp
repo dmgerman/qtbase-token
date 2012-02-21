@@ -1166,7 +1166,7 @@ name|int
 name|replacementLength
 parameter_list|,
 name|int
-name|cursorPos
+comment|/* cursorPos */
 parameter_list|)
 block|{
 name|QObject

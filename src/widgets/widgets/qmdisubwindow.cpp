@@ -8482,7 +8482,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 argument_list|)
 return|return
 literal|true

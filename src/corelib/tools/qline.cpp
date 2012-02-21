@@ -226,52 +226,8 @@ begin_comment
 comment|/*!     \fn QLineF::QLineF(const QLine&line)      Construct a QLineF object from the given integer-based \a line.      \sa toLine() */
 end_comment
 begin_comment
-comment|/*!     Returns true if the line is not set up with valid start and end point;     otherwise returns false. */
+comment|/*!     \fn bool QLineF::isNull() const      Returns true if the line is not set up with valid start and end point;     otherwise returns false. */
 end_comment
-begin_function
-DECL|function|isNull
-name|bool
-name|QLineF
-operator|::
-name|isNull
-parameter_list|()
-specifier|const
-block|{
-return|return
-operator|(
-name|qFuzzyCompare
-argument_list|(
-name|pt1
-operator|.
-name|x
-argument_list|()
-argument_list|,
-name|pt2
-operator|.
-name|x
-argument_list|()
-argument_list|)
-operator|&&
-name|qFuzzyCompare
-argument_list|(
-name|pt1
-operator|.
-name|y
-argument_list|()
-argument_list|,
-name|pt2
-operator|.
-name|y
-argument_list|()
-argument_list|)
-operator|)
-condition|?
-literal|true
-else|:
-literal|false
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     \fn QPointF QLineF::p1() const      Returns the line's start point.      \sa x1(), y1(), p2() */
 end_comment

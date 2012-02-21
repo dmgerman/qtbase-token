@@ -1510,7 +1510,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"rich text4"
+literal|"rich text5"
 argument_list|)
 operator|<<
 name|QString

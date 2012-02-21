@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/qglobal.h>
+file|<QtConcurrent/qtconcurrent_global.h>
 end_include
 begin_ifndef
 ifndef|#
@@ -150,7 +150,7 @@ comment|// if count is 0 it's a result, otherwise it's a vector.
 block|}
 empty_stmt|;
 name|class
-name|Q_CORE_EXPORT
+name|Q_CONCURRENT_EXPORT
 name|ResultIteratorBase
 block|{
 name|public
@@ -346,7 +346,7 @@ block|}
 expr|}
 block|;
 name|class
-name|Q_CORE_EXPORT
+name|Q_CONCURRENT_EXPORT
 name|ResultStoreBase
 block|{
 name|public

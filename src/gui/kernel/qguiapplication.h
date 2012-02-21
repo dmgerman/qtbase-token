@@ -58,6 +58,12 @@ name|QPlatformNativeInterface
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPlatformIntegration
+name|class
+name|QPlatformIntegration
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QPalette
 name|class
 name|QPalette
@@ -367,6 +373,18 @@ operator|*
 name|styleHints
 argument_list|()
 specifier|const
+block|;
+specifier|static
+name|void
+name|setDesktopSettingsAware
+argument_list|(
+argument|bool on
+argument_list|)
+block|;
+specifier|static
+name|bool
+name|desktopSettingsAware
+argument_list|()
 block|;
 name|QT_DEPRECATED
 name|QInputPanel

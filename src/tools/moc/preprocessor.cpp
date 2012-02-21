@@ -73,6 +73,9 @@ modifier|*
 name|data
 init|=
 name|input
+operator|.
+name|constData
+argument_list|()
 decl_stmt|;
 name|char
 modifier|*
@@ -586,6 +589,9 @@ modifier|*
 name|begin
 init|=
 name|input
+operator|.
+name|constData
+argument_list|()
 decl_stmt|;
 specifier|const
 name|char
@@ -3462,6 +3468,9 @@ operator|::
 name|fromLocal8Bit
 argument_list|(
 name|filename
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -3473,6 +3482,9 @@ operator|::
 name|fromLocal8Bit
 argument_list|(
 name|include
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3577,6 +3589,9 @@ literal|'/'
 operator|+
 name|frameworkCandidate
 argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 argument_list|,
 name|QString
@@ -3591,6 +3606,9 @@ name|slashPos
 operator|+
 literal|1
 argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3608,6 +3626,9 @@ argument_list|(
 name|p
 operator|.
 name|path
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 argument_list|,
 name|QString
@@ -3615,6 +3636,9 @@ operator|::
 name|fromLocal8Bit
 argument_list|(
 name|include
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3690,6 +3714,9 @@ operator|::
 name|fromLocal8Bit
 argument_list|(
 name|include
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;

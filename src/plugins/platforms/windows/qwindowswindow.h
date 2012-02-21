@@ -777,6 +777,12 @@ specifier|const
 block|;
 specifier|inline
 name|QRect
+name|frameGeometry_sys
+argument_list|()
+specifier|const
+block|;
+specifier|inline
+name|QRect
 name|geometry_sys
 argument_list|()
 specifier|const
@@ -872,6 +878,12 @@ block|;
 name|QWindowsOleDropTarget
 operator|*
 name|m_dropTarget
+block|;
+name|unsigned
+name|m_savedStyle
+block|;
+name|QRect
+name|m_savedFrameGeometry
 block|; }
 decl_stmt|;
 end_decl_stmt

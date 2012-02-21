@@ -2288,49 +2288,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|navigate
-name|int
-name|QAccessibleTable
-operator|::
-name|navigate
-parameter_list|(
-name|QAccessible
-operator|::
-name|RelationFlag
-name|relation
-parameter_list|,
-name|int
-name|index
-parameter_list|,
-name|QAccessibleInterface
-modifier|*
-modifier|*
-name|iface
-parameter_list|)
-specifier|const
-block|{
-name|Q_UNUSED
-argument_list|(
-name|relation
-argument_list|)
-expr_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|index
-argument_list|)
-expr_stmt|;
-operator|*
-name|iface
-operator|=
-literal|0
-expr_stmt|;
-return|return
-operator|-
-literal|1
-return|;
-block|}
-end_function
-begin_function
 DECL|function|interface_cast
 name|void
 modifier|*
@@ -4356,74 +4313,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_function
-DECL|function|navigate
-name|int
-name|QAccessibleTableCell
-operator|::
-name|navigate
-parameter_list|(
-name|QAccessible
-operator|::
-name|RelationFlag
-name|relation
-parameter_list|,
-name|int
-name|index
-parameter_list|,
-name|QAccessibleInterface
-modifier|*
-modifier|*
-name|iface
-parameter_list|)
-specifier|const
-block|{
-name|Q_UNUSED
-argument_list|(
-name|index
-argument_list|)
-expr_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|relation
-argument_list|)
-expr_stmt|;
-comment|//  switch (relation) {
-comment|// From table1 implementation:
-comment|//    case Up:
-comment|//    case Down:
-comment|//    case Left:
-comment|//    case Right: {
-comment|//        // This is in the "not so nice" category. In order to find out which item
-comment|//        // is geometrically around, we have to set the current index, navigate
-comment|//        // and restore the index as well as the old selection
-comment|//        view->setUpdatesEnabled(false);
-comment|//        const QModelIndex oldIdx = view->currentIndex();
-comment|//        QList<QModelIndex> kids = children();
-comment|//        const QModelIndex currentIndex = index ? kids.at(index - 1) : QModelIndex(row);
-comment|//        const QItemSelection oldSelection = view->selectionModel()->selection();
-comment|//        view->setCurrentIndex(currentIndex);
-comment|//        const QModelIndex idx = view->moveCursor(toCursorAction(relation), Qt::NoModifier);
-comment|//        view->setCurrentIndex(oldIdx);
-comment|//        view->selectionModel()->select(oldSelection, QItemSelectionModel::ClearAndSelect);
-comment|//        view->setUpdatesEnabled(true);
-comment|//        if (!idx.isValid())
-comment|//            return -1;
-comment|//        if (idx.parent() != row.parent() || idx.row() != row.row())
-comment|//            *iface = cell(idx);
-comment|//        return index ? kids.indexOf(idx) + 1 : 0; }
-comment|//    }
-operator|*
-name|iface
-operator|=
-literal|0
-expr_stmt|;
-return|return
-operator|-
-literal|1
-return|;
-block|}
-end_function
 begin_constructor
 DECL|function|QAccessibleTableHeaderCell
 name|QAccessibleTableHeaderCell
@@ -4929,49 +4818,6 @@ specifier|const
 block|{
 return|return
 literal|0
-return|;
-block|}
-end_function
-begin_function
-DECL|function|navigate
-name|int
-name|QAccessibleTableHeaderCell
-operator|::
-name|navigate
-parameter_list|(
-name|QAccessible
-operator|::
-name|RelationFlag
-name|relation
-parameter_list|,
-name|int
-name|index
-parameter_list|,
-name|QAccessibleInterface
-modifier|*
-modifier|*
-name|iface
-parameter_list|)
-specifier|const
-block|{
-name|Q_UNUSED
-argument_list|(
-name|relation
-argument_list|)
-expr_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|index
-argument_list|)
-expr_stmt|;
-name|Q_UNUSED
-argument_list|(
-name|iface
-argument_list|)
-expr_stmt|;
-return|return
-operator|-
-literal|1
 return|;
 block|}
 end_function

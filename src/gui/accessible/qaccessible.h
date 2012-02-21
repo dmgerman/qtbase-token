@@ -871,6 +871,10 @@ name|LayeredPane
 operator|=
 literal|0x0000003F
 block|,
+name|Terminal
+operator|=
+literal|0x00000040
+block|,
 name|UserRole
 operator|=
 literal|0x0000ffff
@@ -899,14 +903,6 @@ block|}
 block|;      enum
 name|RelationFlag
 block|{
-name|Unrelated
-operator|=
-literal|0x00000000
-block|,
-name|FocusChild
-operator|=
-literal|0x00010000
-block|,
 name|Label
 operator|=
 literal|0x00020000
@@ -923,9 +919,9 @@ name|Controlled
 operator|=
 literal|0x00100000
 block|,
-name|LogicalMask
+name|AllRelations
 operator|=
-literal|0x00ff0000
+literal|0xffffffff
 block|}
 block|;
 name|Q_DECLARE_FLAGS
@@ -1241,16 +1237,6 @@ specifier|const
 expr_stmt|;
 comment|// relations
 name|virtual
-name|QAccessible
-operator|::
-name|Relation
-name|relationTo
-argument_list|(
-argument|const QAccessibleInterface *other
-argument_list|)
-specifier|const
-expr_stmt|;
-name|virtual
 name|QVector
 operator|<
 name|QPair
@@ -1264,6 +1250,15 @@ name|Relation
 operator|>
 expr|>
 name|relations
+argument_list|(
+argument|QAccessible::Relation match = QAccessible::AllRelations
+argument_list|)
+specifier|const
+expr_stmt|;
+name|virtual
+name|QAccessibleInterface
+operator|*
+name|focusChild
 argument_list|()
 specifier|const
 expr_stmt|;
@@ -1319,27 +1314,6 @@ argument_list|(
 specifier|const
 name|QAccessibleInterface
 operator|*
-argument_list|)
-decl|const
-init|=
-literal|0
-decl_stmt|;
-name|virtual
-name|int
-name|navigate
-argument_list|(
-name|QAccessible
-operator|::
-name|RelationFlag
-name|relation
-argument_list|,
-name|int
-name|index
-argument_list|,
-name|QAccessibleInterface
-operator|*
-operator|*
-name|iface
 argument_list|)
 decl|const
 init|=
@@ -1613,32 +1587,32 @@ label|:
 specifier|inline
 name|QAccessibleEvent
 argument_list|(
-argument|QAccessible::Event type
+argument|QAccessible::Event typ
 argument_list|,
-argument|QObject *object
+argument|QObject *obj
 argument_list|,
-argument|int child = -
+argument|int chld = -
 literal|1
 argument_list|)
 operator|:
 name|m_type
 argument_list|(
-name|type
+name|typ
 argument_list|)
 operator|,
 name|m_object
 argument_list|(
-name|object
+name|obj
 argument_list|)
 operator|,
 name|m_child
 argument_list|(
-argument|child
+argument|chld
 argument_list|)
 block|{
 name|Q_ASSERT
 argument_list|(
-name|object
+name|obj
 argument_list|)
 block|;     }
 name|QAccessible

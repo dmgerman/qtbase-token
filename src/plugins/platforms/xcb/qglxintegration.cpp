@@ -109,6 +109,11 @@ name|m_context
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|m_format
+argument_list|(
+name|format
+argument_list|)
 block|{
 name|m_shareContext
 operator|=
@@ -243,7 +248,8 @@ operator|->
 name|screenNumber
 argument_list|()
 argument_list|,
-name|format
+operator|&
+name|m_format
 argument_list|)
 decl_stmt|;
 if|if

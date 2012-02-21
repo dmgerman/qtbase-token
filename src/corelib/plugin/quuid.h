@@ -18,11 +18,6 @@ include|#
 directive|include
 file|<QtCore/qstring.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<QtCore/qcryptographichash.h>
-end_include
 begin_macro
 name|QT_BEGIN_HEADER
 end_macro
@@ -687,6 +682,11 @@ name|createUuid
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+end_ifndef
 begin_function_decl
 specifier|static
 name|QUuid
@@ -790,6 +790,10 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif

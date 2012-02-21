@@ -2066,6 +2066,16 @@ name|style
 argument_list|()
 argument_list|)
 condition|)
+block|{
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"Special handling of QMessageBox::information buttons for Cleanlooks not implemented yet, QTBUG-24315"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
 name|expectedButton
 operator|=
 name|int
@@ -2075,6 +2085,7 @@ operator|::
 name|No
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 name|QCOMPARE

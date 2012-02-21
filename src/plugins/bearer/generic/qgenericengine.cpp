@@ -852,7 +852,7 @@ argument_list|()
 operator|&
 name|QNetworkInterface
 operator|::
-name|IsUp
+name|IsRunning
 operator|)
 operator|&&
 operator|!

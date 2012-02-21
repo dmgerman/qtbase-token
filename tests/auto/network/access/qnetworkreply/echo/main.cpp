@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtCore>
+file|<QtCore/QFile>
 end_include
 begin_function
 DECL|function|main

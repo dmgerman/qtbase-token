@@ -1292,6 +1292,10 @@ name|friend
 name|class
 name|QFontconfigDatabase
 block|;
+name|friend
+name|class
+name|QFontEngineMultiFontConfig
+block|;
 name|int
 name|loadFlags
 argument_list|(

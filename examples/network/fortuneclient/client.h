@@ -25,6 +25,12 @@ file|<QTcpSocket>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QComboBox
+name|class
+name|QComboBox
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QDialogButtonBox
 name|class
 name|QDialogButtonBox
@@ -116,9 +122,9 @@ name|QLabel
 operator|*
 name|portLabel
 block|;
-name|QLineEdit
+name|QComboBox
 operator|*
-name|hostLineEdit
+name|hostCombo
 block|;
 name|QLineEdit
 operator|*

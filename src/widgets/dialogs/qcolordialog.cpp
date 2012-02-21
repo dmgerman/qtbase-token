@@ -5421,7 +5421,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 ifdef|#
 directive|ifdef
 name|QT_SMALL_COLORDIALOG
@@ -7805,7 +7805,12 @@ argument_list|)
 expr_stmt|;
 name|nativeDialogInUse
 operator|=
-literal|false
+operator|(
+name|platformColorDialogHelper
+argument_list|()
+operator|!=
+literal|0
+operator|)
 expr_stmt|;
 name|nextCust
 operator|=
@@ -7854,7 +7859,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 operator|||
 name|defined
@@ -8020,7 +8025,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 name|leftLay
 operator|->
@@ -9113,25 +9118,6 @@ name|alpha
 argument_list|()
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_WS_MAC
-name|d
-operator|->
-name|setCurrentQColor
-argument_list|(
-name|color
-argument_list|)
-expr_stmt|;
-name|d
-operator|->
-name|setCocoaPanelColor
-argument_list|(
-name|color
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 comment|// ### fixme: Call helper
 if|if
 condition|(

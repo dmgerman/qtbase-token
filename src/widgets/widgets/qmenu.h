@@ -41,7 +41,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_include
 include|#
@@ -517,7 +517,7 @@ argument_list|()
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|HMENU
 name|wceMenu
 argument_list|()
@@ -681,7 +681,7 @@ specifier|const
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|QAction
 operator|*
 name|wceCommands

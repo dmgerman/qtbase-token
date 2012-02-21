@@ -26,6 +26,22 @@ include|#
 directive|include
 file|<QtCore/qt_windows.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|WM_THEMECHANGED
+end_ifndef
+begin_define
+DECL|macro|WM_THEMECHANGED
+define|#
+directive|define
+name|WM_THEMECHANGED
+value|0x031A
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* Complement the definitions and declarations missing  * when using MinGW or older Windows SDKs. */
 end_comment
@@ -133,6 +149,29 @@ name|type
 parameter_list|)
 value|STDMETHODIMP_(type)
 end_define
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|__MINGW64_VERSION_MAJOR
+argument_list|)
+end_if
+begin_define
+DECL|macro|STATE_SYSTEM_HASPOPUP
+define|#
+directive|define
+name|STATE_SYSTEM_HASPOPUP
+value|0x40000000
+end_define
+begin_define
+DECL|macro|STATE_SYSTEM_PROTECTED
+define|#
+directive|define
+name|STATE_SYSTEM_PROTECTED
+value|0x20000000
+end_define
 begin_typedef
 DECL|struct|tagUPDATELAYEREDWINDOWINFO
 typedef|typedef
@@ -198,6 +237,13 @@ typedef|*
 name|PUPDATELAYEREDWINDOWINFO
 typedef|;
 end_typedef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// if !defined(__MINGW64_VERSION_MAJOR)
+end_comment
 begin_comment
 comment|// OpenGL Pixelformat flags.
 end_comment

@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<errno.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<iostream>
 end_include
 begin_include

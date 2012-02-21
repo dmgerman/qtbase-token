@@ -48,6 +48,14 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QLocalServer
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|SocketOptions socketOptions READ socketOptions WRITE setSocketOptions
+argument_list|)
+name|Q_FLAGS
+argument_list|(
+argument|SocketOption SocketOptions
+argument_list|)
 name|Q_SIGNALS
 operator|:
 name|void
@@ -56,6 +64,36 @@ argument_list|()
 block|;
 name|public
 operator|:
+expr|enum
+name|SocketOption
+block|{
+name|NoOptions
+operator|=
+literal|0x0
+block|,
+name|UserAccessOption
+operator|=
+literal|0x01
+block|,
+name|GroupAccessOption
+operator|=
+literal|0x2
+block|,
+name|OtherAccessOption
+operator|=
+literal|0x4
+block|,
+name|WorldAccessOption
+operator|=
+literal|0x7
+block|}
+block|;
+name|Q_DECLARE_FLAGS
+argument_list|(
+argument|SocketOptions
+argument_list|,
+argument|SocketOption
+argument_list|)
 name|QLocalServer
 argument_list|(
 name|QObject
@@ -96,6 +134,12 @@ specifier|const
 name|QString
 operator|&
 name|name
+argument_list|)
+block|;
+name|bool
+name|listen
+argument_list|(
+argument|qintptr socketDescriptor
 argument_list|)
 block|;
 name|int
@@ -152,6 +196,17 @@ argument|bool *timedOut =
 literal|0
 argument_list|)
 block|;
+name|void
+name|setSocketOptions
+argument_list|(
+argument|SocketOptions options
+argument_list|)
+block|;
+name|SocketOptions
+name|socketOptions
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 name|virtual
@@ -176,6 +231,12 @@ argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|Q_DECLARE_OPERATORS_FOR_FLAGS
+argument_list|(
+argument|QLocalServer::SocketOptions
+argument_list|)
+end_macro
 begin_endif
 endif|#
 directive|endif

@@ -2307,6 +2307,8 @@ literal|"-o"
 operator|<<
 literal|"/dev/null"
 operator|<<
+literal|"-fPIE"
+operator|<<
 literal|"-"
 expr_stmt|;
 name|proc
@@ -2759,6 +2761,8 @@ operator|<<
 literal|"-o"
 operator|<<
 literal|"/dev/null"
+operator|<<
+literal|"-fPIE"
 operator|<<
 literal|"-"
 expr_stmt|;
@@ -9095,7 +9099,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Invalid property warning"
+literal|"Invalid property warning with -nn"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -9127,7 +9131,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Invalid property warning"
+literal|"Invalid property warning with -nw"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -9213,7 +9217,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Does not inherit QObject with -nn"
+literal|"Does not inherit QObject with -nw"
 argument_list|)
 operator|<<
 name|QByteArray

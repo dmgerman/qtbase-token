@@ -41,6 +41,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qplatformintegration_qpa.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qguiapplication_p.h>
 end_include
 begin_decl_stmt

@@ -1249,11 +1249,28 @@ argument_list|(
 name|access
 argument_list|)
 expr_stmt|;
+specifier|static
+name|bool
+name|warned
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|warned
+condition|)
+block|{
 name|qWarning
 argument_list|(
 literal|"QOpenGLBuffer::map(): pending implementation"
 argument_list|)
 expr_stmt|;
+name|warned
+operator|=
+literal|true
+expr_stmt|;
+block|}
 return|return
 literal|0
 return|;
@@ -1315,11 +1332,28 @@ literal|0
 block|if (!glUnmapBufferARB)         return false;     return glUnmapBufferARB(d->type) == GL_TRUE;
 endif|#
 directive|endif
+specifier|static
+name|bool
+name|warned
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|warned
+condition|)
+block|{
 name|qWarning
 argument_list|(
 literal|"QOpenGLBuffer::map(): pending implementation"
 argument_list|)
 expr_stmt|;
+name|warned
+operator|=
+literal|true
+expr_stmt|;
+block|}
 return|return
 literal|0
 return|;

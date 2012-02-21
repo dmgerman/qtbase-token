@@ -1082,6 +1082,14 @@ return|;
 case|case
 name|WM_DRAWCLIPBOARD
 case|:
+block|{
+specifier|const
+name|bool
+name|owned
+init|=
+name|ownsClipboard
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|QWindowsContext
@@ -1090,9 +1098,17 @@ name|verboseOLE
 condition|)
 name|qDebug
 argument_list|(
-literal|"Clipboard changed"
+literal|"Clipboard changed owned %d"
+argument_list|,
+name|owned
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|owned
+condition|)
+comment|// changed is emitted by QClipboard in that case.
 name|emitChanged
 argument_list|(
 name|QClipboard
@@ -1104,8 +1120,7 @@ comment|// clean up the clipboard object if we no longer own the clipboard
 if|if
 condition|(
 operator|!
-name|ownsClipboard
-argument_list|()
+name|owned
 operator|&&
 name|m_data
 condition|)
@@ -1121,6 +1136,7 @@ argument_list|,
 name|lParam
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
@@ -1281,6 +1297,10 @@ block|{
 name|releaseIData
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|mimeData
+condition|)
 name|m_data
 operator|=
 operator|new
@@ -1306,12 +1326,11 @@ operator|!=
 name|S_OK
 condition|)
 block|{
-name|qErrnoWarning
-argument_list|(
-literal|"OleSetClipboard: Failed to set mime data (%s) on clipboard: %s"
-argument_list|,
-name|qPrintable
-argument_list|(
+name|QString
+name|mimeDataFormats
+init|=
+name|mimeData
+condition|?
 name|mimeData
 operator|->
 name|formats
@@ -1324,6 +1343,22 @@ argument_list|(
 literal|", "
 argument_list|)
 argument_list|)
+else|:
+name|QString
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"NULL"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|qErrnoWarning
+argument_list|(
+literal|"OleSetClipboard: Failed to set mime data (%s) on clipboard: %s"
+argument_list|,
+name|qPrintable
+argument_list|(
+name|mimeDataFormats
 argument_list|)
 argument_list|,
 name|QWindowsContext

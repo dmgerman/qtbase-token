@@ -3768,6 +3768,20 @@ expr_stmt|;
 name|QSettings
 name|settings
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QEXPECT_FAIL
+argument_list|(
+literal|"native"
+argument_list|,
+literal|"Default settings on Mac are valid, despite organization domain, name, and app name being null"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|settings
@@ -3871,6 +3885,20 @@ argument_list|,
 literal|""
 argument_list|)
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QEXPECT_FAIL
+argument_list|(
+literal|"native"
+argument_list|,
+literal|"Default settings on Mac are valid, despite organization domain, name, and app name being null"
+argument_list|,
+name|Continue
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|settings

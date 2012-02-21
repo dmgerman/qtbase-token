@@ -652,7 +652,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"century leap"
+literal|"century leap 1900"
 argument_list|)
 operator|<<
 literal|1900
@@ -669,7 +669,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"century leap"
+literal|"century leap 2100"
 argument_list|)
 operator|<<
 literal|2100
@@ -686,7 +686,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"400-years leap"
+literal|"400-years leap 2000"
 argument_list|)
 operator|<<
 literal|2000
@@ -706,7 +706,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"400-years leap 2"
+literal|"400-years leap 2400"
 argument_list|)
 operator|<<
 literal|2400
@@ -726,7 +726,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"400-years leap 3"
+literal|"400-years leap 1600"
 argument_list|)
 operator|<<
 literal|1600
@@ -1832,7 +1832,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data12"
+literal|"data11"
 argument_list|)
 operator|<<
 operator|-
@@ -4741,29 +4741,6 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"data14"
-argument_list|)
-operator|<<
-literal|1
-operator|<<
-literal|1
-operator|<<
-literal|1
-operator|<<
-operator|-
-literal|1
-operator|<<
-operator|-
-literal|1
-operator|<<
-literal|12
-operator|<<
-literal|1
-expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
 literal|"data15"
 argument_list|)
 operator|<<
@@ -4774,12 +4751,12 @@ operator|<<
 literal|1
 operator|<<
 operator|-
-literal|12
+literal|1
 operator|<<
 operator|-
 literal|1
 operator|<<
-literal|1
+literal|12
 operator|<<
 literal|1
 expr_stmt|;
@@ -4790,15 +4767,16 @@ argument_list|(
 literal|"data16"
 argument_list|)
 operator|<<
-operator|-
 literal|1
 operator|<<
+literal|1
+operator|<<
+literal|1
+operator|<<
+operator|-
 literal|12
 operator|<<
-literal|1
-operator|<<
-literal|1
-operator|<<
+operator|-
 literal|1
 operator|<<
 literal|1
@@ -4810,6 +4788,28 @@ operator|::
 name|newRow
 argument_list|(
 literal|"data17"
+argument_list|)
+operator|<<
+operator|-
+literal|1
+operator|<<
+literal|12
+operator|<<
+literal|1
+operator|<<
+literal|1
+operator|<<
+literal|1
+operator|<<
+literal|1
+operator|<<
+literal|1
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"data18"
 argument_list|)
 operator|<<
 operator|-

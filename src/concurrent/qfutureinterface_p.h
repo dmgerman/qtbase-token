@@ -46,6 +46,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<QtConcurrent/qtconcurrent_global.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qelapsedtimer.h>
 end_include
 begin_include

@@ -12528,87 +12528,6 @@ argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor edges of different orientations"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor edges of different orientations"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor edges of different orientations"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
 name|newRow
 argument_list|(
 literal|"center, basic with invalid"
@@ -13665,24 +13584,6 @@ argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
 name|newRow
 argument_list|(
 literal|"center, three"
@@ -14370,6 +14271,138 @@ operator|::
 name|testCenterAnchors
 parameter_list|()
 block|{
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|QTest
+operator|::
+name|currentDataTag
+argument_list|()
+argument_list|,
+literal|"center, basic with invalid"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor edges of different orientations"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor edges of different orientations"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor edges of different orientations"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|QTest
+operator|::
+name|currentDataTag
+argument_list|()
+argument_list|,
+literal|"center, three"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// use the same frame
 name|testBasicLayout
 argument_list|()
@@ -15114,42 +15147,6 @@ argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
 name|newRow
 argument_list|(
 literal|"remove, center, three"
@@ -15451,24 +15448,6 @@ argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
-name|ignoreMessage
-argument_list|(
-name|QtWarningMsg
-argument_list|,
-literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
-argument_list|)
-expr_stmt|;
-name|QTest
-operator|::
 name|newRow
 argument_list|(
 literal|"remove, center, basic 2"
@@ -15498,6 +15477,93 @@ operator|::
 name|testRemoveCenterAnchor
 parameter_list|()
 block|{
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|QTest
+operator|::
+name|currentDataTag
+argument_list|()
+argument_list|,
+literal|"remove, center, three"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|QTest
+operator|::
+name|currentDataTag
+argument_list|()
+argument_list|,
+literal|"remove, center, basic 2"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QGraphicsAnchorLayout::addAnchor(): Cannot anchor the item to itself"
+argument_list|)
+expr_stmt|;
+block|}
 name|QFETCH
 argument_list|(
 name|QSizeF

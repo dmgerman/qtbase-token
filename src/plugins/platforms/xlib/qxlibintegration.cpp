@@ -127,7 +127,9 @@ name|mPrimaryScreen
 operator|=
 operator|new
 name|QXlibScreen
-argument_list|()
+argument_list|(
+name|mNativeInterface
+argument_list|)
 expr_stmt|;
 name|mScreens
 operator|.

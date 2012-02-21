@@ -187,7 +187,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"empty urls"
 argument_list|)
 operator|<<
 name|QUrl
@@ -200,7 +200,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"empty rhs"
 argument_list|)
 operator|<<
 name|QUrl
@@ -218,7 +218,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"empty lhs"
 argument_list|)
 operator|<<
 name|QUrl
@@ -236,7 +236,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"same urls"
 argument_list|)
 operator|<<
 name|QUrl

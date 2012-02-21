@@ -1311,7 +1311,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"null"
+literal|"non-null"
 argument_list|)
 operator|<<
 name|metaData

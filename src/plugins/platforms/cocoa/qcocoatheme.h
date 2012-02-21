@@ -72,6 +72,13 @@ argument_list|(
 argument|DialogType dialogType
 argument_list|)
 specifier|const
+block|;
+name|QVariant
+name|themeHint
+argument_list|(
+argument|ThemeHint hint
+argument_list|)
+specifier|const
 block|; }
 decl_stmt|;
 end_decl_stmt

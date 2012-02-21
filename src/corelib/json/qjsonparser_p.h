@@ -72,7 +72,11 @@ argument_list|)
 empty_stmt|;
 name|QJsonDocument
 name|parse
-parameter_list|()
+parameter_list|(
+name|QJsonParseError
+modifier|*
+name|error
+parameter_list|)
 function_decl|;
 name|class
 name|ParsedObject
@@ -214,6 +218,11 @@ decl_stmt|;
 specifier|const
 name|char
 modifier|*
+name|head
+decl_stmt|;
+specifier|const
+name|char
+modifier|*
 name|json
 decl_stmt|;
 specifier|const
@@ -231,6 +240,11 @@ decl_stmt|;
 name|int
 name|current
 decl_stmt|;
+name|QJsonParseError
+operator|::
+name|ParseError
+name|lastError
+expr_stmt|;
 specifier|inline
 name|int
 name|reserveSpace

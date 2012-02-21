@@ -164,17 +164,12 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_include
 include|#
 directive|include
 file|"qt_windows.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qguifunctions_wince.h"
 end_include
 begin_function_decl
 specifier|extern
@@ -211,7 +206,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q_WS_WINCE
+comment|// Q_OS_WINCE
 end_comment
 begin_include
 include|#
@@ -1702,7 +1697,7 @@ end_decl_stmt
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 end_ifdef
 begin_decl_stmt
 DECL|variable|sbhandleup_xpm
@@ -9227,7 +9222,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//Q_WS_WINCE_WM
+comment|//Q_OS_WINCE_WM
 end_comment
 begin_enum
 DECL|enum|QSliderDirection
@@ -9251,7 +9246,7 @@ end_enum
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 end_ifdef
 begin_function
 DECL|function|tintImagesButton
@@ -9589,7 +9584,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//Q_WS_WINCE_WM
+comment|//Q_OS_WINCE_WM
 end_comment
 begin_function
 DECL|function|setupWindowsMobileStyle65
@@ -9601,7 +9596,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 name|wm65
 operator|=
 name|qt_wince_is_windows_mobile_65
@@ -9736,7 +9731,7 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-comment|//Q_WS_WINCE_WM
+comment|//Q_OS_WINCE_WM
 block|}
 end_function
 begin_function
@@ -9761,7 +9756,7 @@ directive|ifndef
 name|QT_NO_TABBAR
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 if|if
 condition|(
 name|wm65
@@ -10023,7 +10018,7 @@ return|return;
 block|}
 endif|#
 directive|endif
-comment|//Q_WS_WINCE_WM
+comment|//Q_OS_WINCE_WM
 name|painter
 operator|->
 name|save
@@ -10630,7 +10625,7 @@ parameter_list|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 if|if
 condition|(
 name|wm65
@@ -10979,7 +10974,7 @@ return|return;
 block|}
 endif|#
 directive|endif
-comment|//Q_WS_WINCE_WM
+comment|//Q_OS_WINCE_WM
 name|QPalette
 operator|::
 name|ColorGroup
@@ -11079,7 +11074,7 @@ parameter_list|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 if|if
 condition|(
 name|wm65
@@ -11894,7 +11889,7 @@ parameter_list|)
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 if|if
 condition|(
 name|wm65
@@ -12030,7 +12025,7 @@ return|return ;
 block|}
 endif|#
 directive|endif
-comment|//Q_WS_WINCE_WM
+comment|//Q_OS_WINCE_WM
 name|QBrush
 name|fill
 init|=
@@ -12376,7 +12371,7 @@ directive|ifndef
 name|QT_NO_SCROLLBAR
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 if|if
 condition|(
 name|wm65
@@ -12512,7 +12507,7 @@ return|return ;
 block|}
 endif|#
 directive|endif
-comment|//Q_WS_WINCE_WM
+comment|//Q_OS_WINCE_WM
 name|QBrush
 name|fill
 init|=
@@ -13149,7 +13144,7 @@ argument_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|doubleControls
 operator|=
 name|qt_wince_is_high_dpi
@@ -13172,7 +13167,7 @@ literal|false
 expr_stmt|;
 endif|#
 directive|endif
-comment|//Q_WS_WINCE
+comment|//Q_OS_WINCE
 ifndef|#
 directive|ifndef
 name|QT_NO_IMAGEFORMAT_XPM
@@ -19283,7 +19278,7 @@ name|RoundedNorth
 case|:
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 if|if
 condition|(
 operator|!
@@ -19354,7 +19349,7 @@ name|RoundedSouth
 case|:
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 if|if
 condition|(
 operator|!
@@ -19411,7 +19406,7 @@ name|RoundedEast
 case|:
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 if|if
 condition|(
 operator|!
@@ -19444,7 +19439,7 @@ name|RoundedWest
 case|:
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 if|if
 condition|(
 operator|!
@@ -29743,7 +29738,7 @@ directive|ifndef
 name|QT_NO_ITEMVIEWS
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 case|case
 name|CT_ItemViewItem
 case|:
@@ -29779,7 +29774,7 @@ expr_stmt|;
 break|break;
 endif|#
 directive|endif
-comment|//Q_WS_WINCE_WM
+comment|//Q_OS_WINCE_WM
 endif|#
 directive|endif
 comment|//QT_NO_ITEMVIEWS
@@ -29997,7 +29992,7 @@ name|SE_ItemViewItemFocusRect
 case|:
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 if|if
 condition|(
 name|d
@@ -30135,7 +30130,7 @@ argument_list|)
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 if|if
 condition|(
 name|d
@@ -30164,7 +30159,7 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
-comment|//Q_WS_WINCE_WM
+comment|//Q_OS_WINCE_WM
 name|int
 name|sliderlen
 decl_stmt|;
@@ -33704,7 +33699,7 @@ name|PM_ScrollBarSliderMin
 case|:
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 if|if
 condition|(
 name|d
@@ -33778,7 +33773,7 @@ literal|13
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 if|if
 condition|(
 name|d
@@ -34453,7 +34448,7 @@ case|:
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 if|if
 condition|(
 name|d_func
@@ -34466,7 +34461,7 @@ name|pixmap
 return|;
 endif|#
 directive|endif
-comment|//Q_WS_WINCE_WM
+comment|//Q_OS_WINCE_WM
 name|QImage
 name|img
 init|=

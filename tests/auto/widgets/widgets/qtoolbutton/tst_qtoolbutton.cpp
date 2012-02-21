@@ -525,6 +525,16 @@ argument_list|,
 name|def
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"QTBUG-24374 - This test hangs here on Mac OSX"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|w
 operator|=
 name|menu

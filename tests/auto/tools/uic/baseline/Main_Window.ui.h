@@ -99,9 +99,7 @@ name|MainWindow
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"MainWindow"
 argument_list|)
@@ -128,9 +126,7 @@ name|menubar
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"menubar"
 argument_list|)
@@ -155,9 +151,7 @@ name|centralwidget
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"centralwidget"
 argument_list|)
@@ -182,9 +176,7 @@ name|statusbar
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"statusbar"
 argument_list|)

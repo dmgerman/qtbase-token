@@ -269,7 +269,7 @@ specifier|const
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|void
 name|setDefaultAction
 argument_list|(
@@ -489,7 +489,7 @@ argument|void _q_updateLayout()
 argument_list|)
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()

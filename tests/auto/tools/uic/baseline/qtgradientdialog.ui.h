@@ -102,9 +102,7 @@ name|QtGradientDialog
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"QtGradientDialog"
 argument_list|)
@@ -131,9 +129,7 @@ name|vboxLayout
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"vboxLayout"
 argument_list|)
@@ -151,9 +147,7 @@ name|gradientEditor
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"gradientEditor"
 argument_list|)
@@ -224,9 +218,7 @@ name|buttonBox
 operator|->
 name|setObjectName
 argument_list|(
-name|QString
-operator|::
-name|fromUtf8
+name|QStringLiteral
 argument_list|(
 literal|"buttonBox"
 argument_list|)

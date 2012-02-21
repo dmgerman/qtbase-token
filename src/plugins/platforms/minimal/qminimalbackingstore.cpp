@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/QPlatformScreen>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qguiapplication_p.h>
 end_include
 begin_macro
@@ -75,7 +80,7 @@ operator|<<
 literal|"QMinimalBackingStore::QMinimalBackingStore:"
 operator|<<
 operator|(
-name|long
+name|quintptr
 operator|)
 name|this
 expr_stmt|;

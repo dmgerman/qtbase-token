@@ -156,6 +156,15 @@ name|value
 parameter_list|)
 end_define
 begin_define
+DECL|macro|Q_PLUGIN_METADATA
+define|#
+directive|define
+name|Q_PLUGIN_METADATA
+parameter_list|(
+name|x
+parameter_list|)
+end_define
+begin_define
 DECL|macro|Q_INTERFACES
 define|#
 directive|define

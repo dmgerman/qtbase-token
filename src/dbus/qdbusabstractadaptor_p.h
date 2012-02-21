@@ -363,6 +363,13 @@ name|bool
 name|waitingForPolish
 operator|:
 literal|1
+block|;
+name|private
+operator|:
+specifier|static
+name|int
+name|relaySlotMethodIndex
+argument_list|()
 block|; }
 decl_stmt|;
 end_decl_stmt

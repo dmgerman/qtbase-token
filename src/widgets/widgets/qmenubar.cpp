@@ -79,6 +79,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qplatformtheme_qpa.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qguiapplication_p.h"
 end_include
 begin_ifndef
@@ -104,7 +109,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_function_decl
 specifier|extern
@@ -3325,7 +3330,7 @@ argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 if|if
 condition|(
 name|qt_wince_is_mobile
@@ -3679,12 +3684,7 @@ literal|0
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
-name|Q_D
-argument_list|(
-name|QMenuBar
-argument_list|)
-expr_stmt|;
+name|Q_OS_WINCE
 if|if
 condition|(
 name|qt_wince_is_mobile
@@ -5840,6 +5840,13 @@ operator|->
 name|platformMenuBar
 condition|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
 name|QPlatformMenuBar
 modifier|*
 name|nativeMenuBar
@@ -5848,12 +5855,8 @@ name|d
 operator|->
 name|platformMenuBar
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_WINCE
-argument_list|)
+else|#
+directive|else
 name|QMenuBarPrivate
 operator|::
 name|QWceMenuBarPrivate
@@ -6303,7 +6306,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 if|if
 condition|(
 name|qt_wince_is_mobile
@@ -7243,7 +7246,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 specifier|const
 name|bool
@@ -7724,7 +7727,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 specifier|const
 name|bool
@@ -8206,7 +8209,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 specifier|const
 name|bool
@@ -9016,7 +9019,7 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_function
 DECL|function|setDefaultAction
@@ -9046,7 +9049,7 @@ condition|)
 return|return;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 if|if
 condition|(
 name|qt_wince_is_mobile
@@ -9112,7 +9115,7 @@ name|act
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 if|if
 condition|(
 name|qt_wince_is_mobile

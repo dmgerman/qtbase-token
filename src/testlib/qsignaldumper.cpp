@@ -195,7 +195,7 @@ name|Q_ASSERT
 argument_list|(
 name|member
 operator|.
-name|signature
+name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -606,7 +606,7 @@ condition|(
 operator|!
 name|member
 operator|.
-name|signature
+name|isValid
 argument_list|()
 condition|)
 return|return;

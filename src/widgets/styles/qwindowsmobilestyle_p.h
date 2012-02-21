@@ -70,12 +70,6 @@ name|QStyleOptionSlider
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QStyleOptionViewItemV4
-name|class
-name|QStyleOptionViewItemV4
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QWindowsMobileStylePrivate
 range|:
@@ -99,7 +93,7 @@ name|smartphone
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 name|bool
 name|wm65
 block|;
@@ -162,7 +156,7 @@ argument_list|()
 block|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 comment|//Windows Mobile 6.5 images
 name|QImage
 name|imageScrollbarHandleUp
@@ -232,7 +226,7 @@ argument_list|)
 block|;
 endif|#
 directive|endif
-comment|//Q_WS_WINCE_WM
+comment|//Q_OS_WINCE_WM
 name|void
 name|drawScrollbarHandleUp
 argument_list|(

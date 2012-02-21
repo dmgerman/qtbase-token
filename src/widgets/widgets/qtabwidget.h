@@ -368,6 +368,11 @@ argument|int width
 argument_list|)
 specifier|const
 block|;
+name|bool
+name|hasHeightForWidth
+argument_list|()
+specifier|const
+block|;
 name|void
 name|setCornerWidget
 argument_list|(

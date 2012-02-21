@@ -2962,6 +2962,20 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+name|qPrintable
+argument_list|(
+name|QString
+argument_list|(
+literal|"%1. %2"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|i
+argument_list|)
+operator|.
+name|arg
+argument_list|(
 name|m_handler
 operator|.
 name|successes
@@ -2970,12 +2984,8 @@ name|at
 argument_list|(
 name|i
 argument_list|)
-operator|.
-name|toLatin1
-argument_list|()
-operator|.
-name|constData
-argument_list|()
+argument_list|)
+argument_list|)
 argument_list|)
 operator|<<
 literal|false

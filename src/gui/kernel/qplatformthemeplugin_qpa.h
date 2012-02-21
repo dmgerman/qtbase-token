@@ -94,7 +94,7 @@ DECL|macro|QPlatformThemeFactoryInterface_iid
 define|#
 directive|define
 name|QPlatformThemeFactoryInterface_iid
-value|"com.nokia.Qt.QPlatformThemeFactoryInterface"
+value|"org.qt-project.Qt.QPlatformThemeFactoryInterface"
 end_define
 begin_macro
 DECL|function|Q_DECLARE_INTERFACE

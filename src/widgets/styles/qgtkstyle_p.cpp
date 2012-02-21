@@ -4613,11 +4613,6 @@ if|if
 condition|(
 name|rcFile
 operator|.
-name|exists
-argument_list|()
-operator|&&
-name|rcFile
-operator|.
 name|open
 argument_list|(
 name|QIODevice

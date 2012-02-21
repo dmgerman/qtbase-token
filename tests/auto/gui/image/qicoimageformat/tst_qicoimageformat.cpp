@@ -342,7 +342,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"16px16c, 32px32c, 32px256c"
+literal|"16px16c, 32px32c, 32px256c 1"
 argument_list|)
 operator|<<
 literal|"valid/WORLD.ico"
@@ -353,7 +353,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"16px16c, 32px32c, 32px256c"
+literal|"16px16c, 32px32c, 32px256c 2"
 argument_list|)
 operator|<<
 literal|"valid/WORLDH.ico"
@@ -755,7 +755,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"16px16c, 32px32c, 32px256c"
+literal|"16px16c, 32px32c, 32px256c 1"
 argument_list|)
 operator|<<
 literal|"valid/WORLD.ico"
@@ -766,7 +766,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"16px16c, 32px32c, 32px256c"
+literal|"16px16c, 32px32c, 32px256c 2"
 argument_list|)
 operator|<<
 literal|"valid/WORLDH.ico"
@@ -950,7 +950,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"16px16c, 32px32c, 32px256c"
+literal|"16px16c, 32px32c, 32px256c 1"
 argument_list|)
 operator|<<
 literal|"valid/WORLD.ico"
@@ -961,7 +961,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"16px16c, 32px32c, 32px256c"
+literal|"16px16c, 32px32c, 32px256c 2"
 argument_list|)
 operator|<<
 literal|"valid/WORLDH.ico"
@@ -1253,7 +1253,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"16px16c, 32px32c, 32px256c"
+literal|"16px16c, 32px32c, 32px256c 1"
 argument_list|)
 operator|<<
 literal|"valid/WORLD.ico"
@@ -1264,7 +1264,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"16px16c, 32px32c, 32px256c"
+literal|"16px16c, 32px32c, 32px256c 2"
 argument_list|)
 operator|<<
 literal|"valid/WORLDH.ico"

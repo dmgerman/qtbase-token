@@ -60,6 +60,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qplatformintegration_qpa.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qguiapplication_p.h>
 end_include
 begin_include
@@ -8373,7 +8378,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"designer_indexed8_with_alpha_animated"
+literal|"designer_indexed8_no_alpha_animated"
 argument_list|)
 operator|<<
 name|prefix

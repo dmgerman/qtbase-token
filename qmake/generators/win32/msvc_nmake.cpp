@@ -757,9 +757,12 @@ name|precompH
 operator|<<
 literal|" "
 operator|<<
+name|escapeDependencyPaths
+argument_list|(
 name|findDependencies
 argument_list|(
 name|precompH
+argument_list|)
 argument_list|)
 operator|.
 name|join

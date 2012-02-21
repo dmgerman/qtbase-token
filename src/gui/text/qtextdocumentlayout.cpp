@@ -20195,8 +20195,6 @@ name|height
 argument_list|()
 operator|/
 literal|2
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 break|break;
@@ -20228,8 +20226,6 @@ name|m
 operator|.
 name|descent
 argument_list|()
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 break|break;
@@ -20249,8 +20245,6 @@ name|inlineSize
 operator|.
 name|height
 argument_list|()
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 block|}

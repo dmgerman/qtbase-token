@@ -249,6 +249,16 @@ operator|::
 name|defaultOkButton
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"Test hangs on Mac OS X, see QTBUG-24321"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|bool
 name|ok
 init|=
@@ -292,6 +302,16 @@ operator|::
 name|setFont
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"Test hangs on Mac OS X, see QTBUG-24321"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|/* The font should be the same before as it is after if nothing changed               while the font dialog was open. 	      Task #27662     */
 name|bool
 name|ok
@@ -438,6 +458,16 @@ operator|::
 name|task256466_wrongStyle
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"Test crashes on Mac OS X, see QTBUG-24321"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFontDatabase
 name|fdb
 decl_stmt|;

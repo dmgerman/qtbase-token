@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/qglobal.h>
+file|<QtConcurrent/qtconcurrent_global.h>
 end_include
 begin_include
 include|#
@@ -76,7 +76,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|Q_CORE_EXPORT
+name|Q_CONCURRENT_EXPORT
 name|QFutureInterfaceBase
 block|{
 name|public

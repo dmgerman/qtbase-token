@@ -807,6 +807,7 @@ literal|2
 operator|+
 literal|0.5
 decl_stmt|;
+specifier|const
 name|int
 name|ns
 init|=
@@ -814,6 +815,15 @@ name|dial
 operator|->
 name|tickInterval
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|ns
+condition|)
+comment|// Invalid values may be set by Qt Designer.
+return|return
+name|poly
+return|;
 name|int
 name|notches
 init|=

@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qfontenginemultifontconfig_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QList>
 end_include
 begin_include
@@ -36,6 +41,11 @@ begin_include
 include|#
 directive|include
 file|<QtGui/private/qfontengine_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/private/qfontengine_qpa_p.h>
 end_include
 begin_include
 include|#
@@ -2115,6 +2125,42 @@ comment|//    const FcDefaultFont *s = defaults;
 comment|//    QFont font("Sans Serif");
 comment|//    font.setPointSize(9);
 comment|//    QApplication::setFont(font);
+block|}
+end_function
+begin_function
+DECL|function|fontEngineMulti
+name|QFontEngineMulti
+modifier|*
+name|QFontconfigDatabase
+operator|::
+name|fontEngineMulti
+parameter_list|(
+name|QFontEngine
+modifier|*
+name|fontEngine
+parameter_list|,
+name|QUnicodeTables
+operator|::
+name|Script
+name|script
+parameter_list|,
+specifier|const
+name|QStringList
+modifier|&
+name|fallbacks
+parameter_list|)
+block|{
+return|return
+operator|new
+name|QFontEngineMultiFontConfig
+argument_list|(
+name|fontEngine
+argument_list|,
+name|script
+argument_list|,
+name|fallbacks
+argument_list|)
+return|;
 block|}
 end_function
 begin_function

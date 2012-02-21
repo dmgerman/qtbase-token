@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qplatformintegration_qpa.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qopenglcontext.h"
 end_include
 begin_include
@@ -905,7 +910,7 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"QOpenGLContext::makeBuffers() called with non-opengl surface"
+literal|"QOpenGLContext::makeCurrent() called with non-opengl surface"
 expr_stmt|;
 return|return
 literal|false

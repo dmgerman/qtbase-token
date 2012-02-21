@@ -124,7 +124,30 @@ name|httpSocketEngineHandler
 argument_list|(
 literal|0
 argument_list|)
-block|{     }
+block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_SOCKS5
+name|socks5SocketEngineHandler
+operator|=
+operator|new
+name|QSocks5SocketEngineHandler
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
+ifndef|#
+directive|ifndef
+name|QT_NO_HTTP
+name|httpSocketEngineHandler
+operator|=
+operator|new
+name|QHttpSocketEngineHandler
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
+block|}
 DECL|function|~QGlobalNetworkProxy
 name|~
 name|QGlobalNetworkProxy
@@ -142,51 +165,6 @@ expr_stmt|;
 operator|delete
 name|httpSocketEngineHandler
 expr_stmt|;
-block|}
-DECL|function|init
-name|void
-name|init
-parameter_list|()
-block|{
-name|QMutexLocker
-name|lock
-argument_list|(
-operator|&
-name|mutex
-argument_list|)
-decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_SOCKS5
-if|if
-condition|(
-operator|!
-name|socks5SocketEngineHandler
-condition|)
-name|socks5SocketEngineHandler
-operator|=
-operator|new
-name|QSocks5SocketEngineHandler
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
-name|QT_NO_HTTP
-if|if
-condition|(
-operator|!
-name|httpSocketEngineHandler
-condition|)
-name|httpSocketEngineHandler
-operator|=
-operator|new
-name|QHttpSocketEngineHandler
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 DECL|function|setApplicationProxy
 name|void
@@ -979,22 +957,7 @@ name|d
 argument_list|(
 literal|0
 argument_list|)
-block|{
-if|if
-condition|(
-name|QGlobalNetworkProxy
-modifier|*
-name|globalProxy
-init|=
-name|globalNetworkProxy
-argument_list|()
-condition|)
-name|globalProxy
-operator|->
-name|init
-argument_list|()
-expr_stmt|;
-block|}
+block|{ }
 end_constructor
 begin_comment
 comment|/*!     Constructs a QNetworkProxy with \a type, \a hostName, \a port,     \a user and \a password.      The default capabilities for proxy type \a type are set automatically.      \sa capabilities() */
@@ -1043,22 +1006,7 @@ argument_list|,
 name|password
 argument_list|)
 argument_list|)
-block|{
-if|if
-condition|(
-name|QGlobalNetworkProxy
-modifier|*
-name|globalProxy
-init|=
-name|globalNetworkProxy
-argument_list|()
-condition|)
-name|globalProxy
-operator|->
-name|init
-argument_list|()
-expr_stmt|;
-block|}
+block|{ }
 end_constructor
 begin_comment
 comment|/*!     Constructs a copy of \a other. */
@@ -2086,7 +2034,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QNetworkProxyQuery     \since 4.5     \inmodule QtNetwork     \brief The QNetworkProxyQuery class is used to query the proxy     settings for a socket      QNetworkProxyQuery holds the details of a socket being created or     request being made. It is used by QNetworkProxy and     QNetworkProxyFactory to allow applications to have a more     fine-grained control over which proxy servers are used, depending     on the details of the query. This allows an application to apply     different settings, according to the protocol or destination     hostname, for instance.      QNetworkProxyQuery supports the following criteria for selecting     the proxy:      \list       \o the type of query       \o the local port number to use       \o the destination host name       \o the destination port number       \o the protocol name, such as "http" or "ftp"       \o the URL being requested     \endlist      The destination host name is the host in the connection in the     case of outgoing connection sockets. It is the \c hostName     parameter passed to QTcpSocket::connectToHost() or the host     component of a URL requested with QNetworkRequest.      The destination port number is the requested port to connect to in     the case of outgoing sockets, while the local port number is the     port the socket wishes to use locally before attempting the     external connection. In most cases, the local port number is used     by listening sockets only (QTcpSocket) or by datagram sockets     (QUdpSocket).      The protocol name is an arbitrary string that indicates the type     of connection being attempted. For example, it can match the     scheme of a URL, like "http", "https" and "ftp". In most cases,     the proxy selection will not change depending on the protocol, but     this information is provided in case a better choice can be made,     like choosing an caching HTTP proxy for HTTP-based connections,     but a more powerful SOCKSv5 proxy for all others.      The network configuration specifies which configuration to use,     when bearer management is used. For example on a mobile phone     the proxy settings are likely to be different for the cellular     network vs WLAN.      Some of the criteria may not make sense in all of the types of     query. The following table lists the criteria that are most     commonly used, according to the type of query.      \table     \header       \o Query type       \o Description      \row       \o TcpSocket       \o Normal sockets requesting a connection to a remote server,          like QTcpSocket. The peer hostname and peer port match the          values passed to QTcpSocket::connectToHost(). The local port          is usually -1, indicating the socket has no preference in          which port should be used. The URL component is not used.      \row       \o UdpSocket       \o Datagram-based sockets, which can both send and          receive. The local port, remote host or remote port fields          can all be used or be left unused, depending on the          characteristics of the socket. The URL component is not used.      \row       \o TcpServer       \o Passive server sockets that listen on a port and await          incoming connections from the network. Normally, only the          local port is used, but the remote address could be used in          specific circumstances, for example to indicate which remote          host a connection is expected from. The URL component is not used.      \row       \o UrlRequest       \o A more high-level request, such as those coming from          QNetworkAccessManager. These requests will inevitably use an          outgoing TCP socket, but the this query type is provided to          indicate that more detailed information is present in the URL          component. For ease of implementation, the URL's host and          port are set as the destination address.     \endtable      It should be noted that any of the criteria may be missing or     unknown (an empty QString for the hostname or protocol name, -1     for the port numbers). If that happens, the functions executing     the query should make their best guess or apply some     implementation-defined default values.      \sa QNetworkProxy, QNetworkProxyFactory, QNetworkAccessManager,         QAbstractSocket::setProxy() */
+comment|/*!     \class QNetworkProxyQuery     \since 4.5     \inmodule QtNetwork     \brief The QNetworkProxyQuery class is used to query the proxy     settings for a socket.      QNetworkProxyQuery holds the details of a socket being created or     request being made. It is used by QNetworkProxy and     QNetworkProxyFactory to allow applications to have a more     fine-grained control over which proxy servers are used, depending     on the details of the query. This allows an application to apply     different settings, according to the protocol or destination     hostname, for instance.      QNetworkProxyQuery supports the following criteria for selecting     the proxy:      \list       \o the type of query       \o the local port number to use       \o the destination host name       \o the destination port number       \o the protocol name, such as "http" or "ftp"       \o the URL being requested     \endlist      The destination host name is the host in the connection in the     case of outgoing connection sockets. It is the \c hostName     parameter passed to QTcpSocket::connectToHost() or the host     component of a URL requested with QNetworkRequest.      The destination port number is the requested port to connect to in     the case of outgoing sockets, while the local port number is the     port the socket wishes to use locally before attempting the     external connection. In most cases, the local port number is used     by listening sockets only (QTcpSocket) or by datagram sockets     (QUdpSocket).      The protocol name is an arbitrary string that indicates the type     of connection being attempted. For example, it can match the     scheme of a URL, like "http", "https" and "ftp". In most cases,     the proxy selection will not change depending on the protocol, but     this information is provided in case a better choice can be made,     like choosing an caching HTTP proxy for HTTP-based connections,     but a more powerful SOCKSv5 proxy for all others.      The network configuration specifies which configuration to use,     when bearer management is used. For example on a mobile phone     the proxy settings are likely to be different for the cellular     network vs WLAN.      Some of the criteria may not make sense in all of the types of     query. The following table lists the criteria that are most     commonly used, according to the type of query.      \table     \header       \o Query type       \o Description      \row       \o TcpSocket       \o Normal sockets requesting a connection to a remote server,          like QTcpSocket. The peer hostname and peer port match the          values passed to QTcpSocket::connectToHost(). The local port          is usually -1, indicating the socket has no preference in          which port should be used. The URL component is not used.      \row       \o UdpSocket       \o Datagram-based sockets, which can both send and          receive. The local port, remote host or remote port fields          can all be used or be left unused, depending on the          characteristics of the socket. The URL component is not used.      \row       \o TcpServer       \o Passive server sockets that listen on a port and await          incoming connections from the network. Normally, only the          local port is used, but the remote address could be used in          specific circumstances, for example to indicate which remote          host a connection is expected from. The URL component is not used.      \row       \o UrlRequest       \o A more high-level request, such as those coming from          QNetworkAccessManager. These requests will inevitably use an          outgoing TCP socket, but the this query type is provided to          indicate that more detailed information is present in the URL          component. For ease of implementation, the URL's host and          port are set as the destination address.     \endtable      It should be noted that any of the criteria may be missing or     unknown (an empty QString for the hostname or protocol name, -1     for the port numbers). If that happens, the functions executing     the query should make their best guess or apply some     implementation-defined default values.      \sa QNetworkProxy, QNetworkProxyFactory, QNetworkAccessManager,         QAbstractSocket::setProxy() */
 end_comment
 begin_comment
 comment|/*!     \enum QNetworkProxyQuery::QueryType      Describes the type of one QNetworkProxyQuery query.      \value TcpSocket    a normal, outgoing TCP socket     \value UdpSocket    a datagram-based UDP socket, which could send                         to multiple destinations     \value TcpServer    a TCP server that listens for incoming                         connections from the network     \value UrlRequest   a more complex request which involves loading                         of a URL      \sa queryType(), setQueryType() */
@@ -2982,13 +2930,13 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QList<QNetworkProxy> QNetworkProxyFactory::queryProxy(const QNetworkProxyQuery&query)      This function examines takes the query request, \a query,     examines the details of the type of socket or request and returns     a list of QNetworkProxy objects that indicate the proxy servers to     be used, in order of preference.      When reimplementing this class, take care to return at least one     element.      If you cannot determine a better proxy alternative, use     QNetworkProxy::DefaultProxy, which tells the code querying for a     proxy to use a higher alternative. For example, if this factory is     set to a QNetworkAccessManager object, DefaultProxy will tell it     to query the application-level proxy settings.      If this factory is set as the application proxy factory,     DefaultProxy and NoProxy will have the same meaning. */
+comment|/*!     \fn QList<QNetworkProxy> QNetworkProxyFactory::queryProxy(const QNetworkProxyQuery&query)      This function takes the query request, \a query,     examines the details of the type of socket or request and returns     a list of QNetworkProxy objects that indicate the proxy servers to     be used, in order of preference.      When reimplementing this class, take care to return at least one     element.      If you cannot determine a better proxy alternative, use     QNetworkProxy::DefaultProxy, which tells the code querying for a     proxy to use a higher alternative. For example, if this factory is     set to a QNetworkAccessManager object, DefaultProxy will tell it     to query the application-level proxy settings.      If this factory is set as the application proxy factory,     DefaultProxy and NoProxy will have the same meaning. */
 end_comment
 begin_comment
-comment|/*!     \fn QList<QNetworkProxy> QNetworkProxyFactory::systemProxyForQuery(const QNetworkProxyQuery&query)      This function examines takes the query request, \a query,     examines the details of the type of socket or request and returns     a list of QNetworkProxy objects that indicate the proxy servers to     be used, in order of preference.      This function can be used to determine the platform-specific proxy     settings. This function will use the libraries provided by the     operating system to determine the proxy for a given connection, if     such libraries exist. If they don't, this function will just return a     QNetworkProxy of type QNetworkProxy::NoProxy.      On Windows, this function will use the WinHTTP DLL functions. Despite     its name, Microsoft suggests using it for all applications that     require network connections, not just HTTP. This will respect the     proxy settings set on the registry with the proxycfg.exe tool. If     those settings are not found, this function will attempt to obtain     Internet Explorer's settings and use them.      On MacOS X, this function will obtain the proxy settings using the     SystemConfiguration framework from Apple. It will apply the FTP,     HTTP and HTTPS proxy configurations for queries that contain the     protocol tag "ftp", "http" and "https", respectively. If the SOCKS     proxy is enabled in that configuration, this function will use the     SOCKS server for all queries. If SOCKS isn't enabled, it will use     the HTTPS proxy for all TcpSocket and UrlRequest queries.      On other systems, this function will pick up proxy settings from     the "http_proxy" environment variable. This variable must be a URL     using one of the following schemes: "http", "socks5" or "socks5h".      \section1 Limitations      These are the limitations for the current version of this     function. Future versions of Qt may lift some of the limitations     listed here.      \list     \o On MacOS X, this function will ignore the Proxy Auto Configuration     settings, since it cannot execute the associated ECMAScript code.      \o On Windows platforms, this function may take several seconds to     execute depending on the configuration of the user's system.     \endlist */
+comment|/*!     \fn QList<QNetworkProxy> QNetworkProxyFactory::systemProxyForQuery(const QNetworkProxyQuery&query)      This function takes the query request, \a query,     examines the details of the type of socket or request and returns     a list of QNetworkProxy objects that indicate the proxy servers to     be used, in order of preference.      This function can be used to determine the platform-specific proxy     settings. This function will use the libraries provided by the     operating system to determine the proxy for a given connection, if     such libraries exist. If they don't, this function will just return a     QNetworkProxy of type QNetworkProxy::NoProxy.      On Windows, this function will use the WinHTTP DLL functions. Despite     its name, Microsoft suggests using it for all applications that     require network connections, not just HTTP. This will respect the     proxy settings set on the registry with the proxycfg.exe tool. If     those settings are not found, this function will attempt to obtain     Internet Explorer's settings and use them.      On MacOS X, this function will obtain the proxy settings using the     SystemConfiguration framework from Apple. It will apply the FTP,     HTTP and HTTPS proxy configurations for queries that contain the     protocol tag "ftp", "http" and "https", respectively. If the SOCKS     proxy is enabled in that configuration, this function will use the     SOCKS server for all queries. If SOCKS isn't enabled, it will use     the HTTPS proxy for all TcpSocket and UrlRequest queries.      On other systems, this function will pick up proxy settings from     the "http_proxy" environment variable. This variable must be a URL     using one of the following schemes: "http", "socks5" or "socks5h".      \section1 Limitations      These are the limitations for the current version of this     function. Future versions of Qt may lift some of the limitations     listed here.      \list     \o On MacOS X, this function will ignore the Proxy Auto Configuration     settings, since it cannot execute the associated ECMAScript code.      \o On Windows platforms, this function may take several seconds to     execute depending on the configuration of the user's system.     \endlist */
 end_comment
 begin_comment
-comment|/*!     This function examines takes the query request, \a query,     examines the details of the type of socket or request and returns     a list of QNetworkProxy objects that indicate the proxy servers to     be used, in order of preference. */
+comment|/*!     This function takes the query request, \a query,     examines the details of the type of socket or request and returns     a list of QNetworkProxy objects that indicate the proxy servers to     be used, in order of preference. */
 end_comment
 begin_function
 DECL|function|proxyForQuery

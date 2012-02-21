@@ -27,6 +27,11 @@ include|#
 directive|include
 file|"qplatformclipboard_qpa.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qplatformintegration_qpa.h"
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 name|QT_USE_NAMESPACE

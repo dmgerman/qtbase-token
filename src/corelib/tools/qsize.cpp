@@ -30,7 +30,7 @@ comment|/*!     \fn int QSize::width() const      Returns the width.      \sa he
 comment|/*!     \fn int QSize::height() const      Returns the height.      \sa width(), setHeight() */
 comment|/*!     \fn void QSize::setWidth(int width)      Sets the width to the given \a width.      \sa rwidth(), width(), setHeight() */
 comment|/*!     \fn void QSize::setHeight(int height)      Sets the height to the given \a height.      \sa rheight(), height(), setWidth() */
-comment|/*!     Swaps the width and height values.      \sa setWidth(), setHeight() */
+comment|/*!     Swaps the width and height values.      \sa setWidth(), setHeight(), transposed() */
 DECL|function|transpose
 name|void
 name|QSize
@@ -54,17 +54,26 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn void QSize::scale(int width, int height, Qt::AspectRatioMode mode)      Scales the size to a rectangle with the given \a width and \a     height, according to the specified \a mode:      \list     \i If \a mode is Qt::IgnoreAspectRatio, the size is set to (\a width, \a height).     \i If \a mode is Qt::KeepAspectRatio, the current size is scaled to a rectangle        as large as possible inside (\a width, \a height), preserving the aspect ratio.     \i If \a mode is Qt::KeepAspectRatioByExpanding, the current size is scaled to a rectangle        as small as possible outside (\a width, \a height), preserving the aspect ratio.     \endlist      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qsize.cpp 0      \sa setWidth(), setHeight() */
+comment|/*!   \fn QSize QSize::transposed() const   \since 5.0    Returns a QSize with width and height swapped.    \sa transpose() */
+end_comment
+begin_comment
+comment|/*!   \fn void QSize::scale(int width, int height, Qt::AspectRatioMode mode)      Scales the size to a rectangle with the given \a width and \a     height, according to the specified \a mode:      \list     \i If \a mode is Qt::IgnoreAspectRatio, the size is set to (\a width, \a height).     \i If \a mode is Qt::KeepAspectRatio, the current size is scaled to a rectangle        as large as possible inside (\a width, \a height), preserving the aspect ratio.     \i If \a mode is Qt::KeepAspectRatioByExpanding, the current size is scaled to a rectangle        as small as possible outside (\a width, \a height), preserving the aspect ratio.     \endlist      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qsize.cpp 0      \sa setWidth(), setHeight(), scaled() */
 end_comment
 begin_comment
 comment|/*!     \fn void QSize::scale(const QSize&size, Qt::AspectRatioMode mode)     \overload      Scales the size to a rectangle with the given \a size, according to     the specified \a mode. */
 end_comment
+begin_comment
+comment|/*!     \fn QSize QSize::scaled(int width, int height, Qt::AspectRatioMode mode) const     \since 5.0      Return a size scaled to a rectangle with the given \a width and \a     height, according to the specified \a mode.      \sa scale() */
+end_comment
+begin_comment
+comment|/*!   \overload   \since 5.0 */
+end_comment
 begin_function
-DECL|function|scale
-name|void
+DECL|function|scaled
+name|QSize
 name|QSize
 operator|::
-name|scale
+name|scaled
 parameter_list|(
 specifier|const
 name|QSize
@@ -76,6 +85,7 @@ operator|::
 name|AspectRatioMode
 name|mode
 parameter_list|)
+specifier|const
 block|{
 if|if
 condition|(
@@ -94,18 +104,9 @@ operator|==
 literal|0
 condition|)
 block|{
-name|wd
-operator|=
+return|return
 name|s
-operator|.
-name|wd
-expr_stmt|;
-name|ht
-operator|=
-name|s
-operator|.
-name|ht
-expr_stmt|;
+return|;
 block|}
 else|else
 block|{
@@ -171,21 +172,26 @@ condition|(
 name|useHeight
 condition|)
 block|{
-name|wd
-operator|=
+return|return
+name|QSize
+argument_list|(
 name|rw
-expr_stmt|;
-name|ht
-operator|=
+argument_list|,
 name|s
 operator|.
 name|ht
-expr_stmt|;
+argument_list|)
+return|;
 block|}
 else|else
 block|{
-name|ht
-operator|=
+return|return
+name|QSize
+argument_list|(
+name|s
+operator|.
+name|wd
+argument_list|,
 name|qint32
 argument_list|(
 name|qint64
@@ -205,13 +211,8 @@ argument_list|(
 name|wd
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|wd
-operator|=
-name|s
-operator|.
-name|wd
-expr_stmt|;
+argument_list|)
+return|;
 block|}
 block|}
 block|}
@@ -532,7 +533,7 @@ begin_comment
 comment|/*!     \fn QSize QSizeF::toSize() const      Returns an integer based copy of this size.      Note that the coordinates in the returned size will be rounded to     the nearest integer.      \sa QSizeF() */
 end_comment
 begin_comment
-comment|/*!     Swaps the width and height values.      \sa setWidth(), setHeight() */
+comment|/*!     Swaps the width and height values.      \sa setWidth(), setHeight(), transposed() */
 end_comment
 begin_function
 DECL|function|transpose
@@ -558,17 +559,26 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \fn void QSizeF::scale(qreal width, qreal height, Qt::AspectRatioMode mode)      Scales the size to a rectangle with the given \a width and \a     height, according to the specified \a mode.      \list     \i If \a mode is Qt::IgnoreAspectRatio, the size is set to (\a width, \a height).     \i If \a mode is Qt::KeepAspectRatio, the current size is scaled to a rectangle        as large as possible inside (\a width, \a height), preserving the aspect ratio.     \i If \a mode is Qt::KeepAspectRatioByExpanding, the current size is scaled to a rectangle        as small as possible outside (\a width, \a height), preserving the aspect ratio.     \endlist      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qsize.cpp 5      \sa setWidth(), setHeight() */
+comment|/*!     \fn QSizeF QSizeF::transposed() const     \since 5.0      Returns the size with width and height values swapped.      \sa transpose() */
+end_comment
+begin_comment
+comment|/*!   \fn void QSizeF::scale(qreal width, qreal height, Qt::AspectRatioMode mode)      Scales the size to a rectangle with the given \a width and \a     height, according to the specified \a mode.      \list     \i If \a mode is Qt::IgnoreAspectRatio, the size is set to (\a width, \a height).     \i If \a mode is Qt::KeepAspectRatio, the current size is scaled to a rectangle        as large as possible inside (\a width, \a height), preserving the aspect ratio.     \i If \a mode is Qt::KeepAspectRatioByExpanding, the current size is scaled to a rectangle        as small as possible outside (\a width, \a height), preserving the aspect ratio.     \endlist      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qsize.cpp 5      \sa setWidth(), setHeight(), scaled() */
 end_comment
 begin_comment
 comment|/*!     \fn void QSizeF::scale(const QSizeF&size, Qt::AspectRatioMode mode)     \overload      Scales the size to a rectangle with the given \a size, according to     the specified \a mode. */
 end_comment
+begin_comment
+comment|/*!     \fn QSizeF QSizeF::scaled(int width, int height, Qt::AspectRatioMode mode) const     \since 5.0      Returns a size scaled to a rectangle with the given \a width and     \a height, according to the specified \mode.      \sa scale() */
+end_comment
+begin_comment
+comment|/*!   \overload   \since 5.0 */
+end_comment
 begin_function
-DECL|function|scale
-name|void
+DECL|function|scaled
+name|QSizeF
 name|QSizeF
 operator|::
-name|scale
+name|scaled
 parameter_list|(
 specifier|const
 name|QSizeF
@@ -580,6 +590,7 @@ operator|::
 name|AspectRatioMode
 name|mode
 parameter_list|)
+specifier|const
 block|{
 if|if
 condition|(
@@ -600,18 +611,9 @@ name|ht
 argument_list|)
 condition|)
 block|{
-name|wd
-operator|=
+return|return
 name|s
-operator|.
-name|wd
-expr_stmt|;
-name|ht
-operator|=
-name|s
-operator|.
-name|ht
-expr_stmt|;
+return|;
 block|}
 else|else
 block|{
@@ -668,21 +670,26 @@ condition|(
 name|useHeight
 condition|)
 block|{
-name|wd
-operator|=
+return|return
+name|QSizeF
+argument_list|(
 name|rw
-expr_stmt|;
-name|ht
-operator|=
+argument_list|,
 name|s
 operator|.
 name|ht
-expr_stmt|;
+argument_list|)
+return|;
 block|}
 else|else
 block|{
-name|ht
-operator|=
+return|return
+name|QSizeF
+argument_list|(
+name|s
+operator|.
+name|wd
+argument_list|,
 name|s
 operator|.
 name|wd
@@ -690,13 +697,8 @@ operator|*
 name|ht
 operator|/
 name|wd
-expr_stmt|;
-name|wd
-operator|=
-name|s
-operator|.
-name|wd
-expr_stmt|;
+argument_list|)
+return|;
 block|}
 block|}
 block|}

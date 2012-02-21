@@ -1250,7 +1250,18 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"enum"
+name|qPrintable
+argument_list|(
+name|QString
+argument_list|(
+literal|"enum %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|i
+argument_list|)
+argument_list|)
 argument_list|)
 operator|<<
 operator|(

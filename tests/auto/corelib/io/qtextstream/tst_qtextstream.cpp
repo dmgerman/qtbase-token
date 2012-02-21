@@ -18255,7 +18255,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"nan"
+literal|"NAN"
 argument_list|)
 operator|<<
 name|qQNaN

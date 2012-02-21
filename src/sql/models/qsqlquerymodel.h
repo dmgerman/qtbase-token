@@ -224,6 +224,7 @@ name|void
 name|queryChange
 argument_list|()
 block|;
+name|virtual
 name|QModelIndex
 name|indexInQuery
 argument_list|(

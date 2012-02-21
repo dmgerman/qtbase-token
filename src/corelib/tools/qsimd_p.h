@@ -85,6 +85,14 @@ directive|undef
 name|QT_HAVE_MMX
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|__MINGW64_VERSION_MAJOR
+include|#
+directive|include
+file|<intrin.h>
+endif|#
+directive|endif
 comment|// SSE intrinsics
 if|#
 directive|if

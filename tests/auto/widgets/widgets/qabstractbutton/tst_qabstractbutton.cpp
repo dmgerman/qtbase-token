@@ -812,7 +812,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"mode 0"
 argument_list|)
 operator|<<
 literal|0
@@ -821,7 +821,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"mode 1"
 argument_list|)
 operator|<<
 literal|1
@@ -830,7 +830,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"mode 2"
 argument_list|)
 operator|<<
 literal|2
@@ -839,7 +839,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"mode 3"
 argument_list|)
 operator|<<
 literal|3
@@ -848,7 +848,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"mode 4"
 argument_list|)
 operator|<<
 literal|4
@@ -857,7 +857,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"mode 5"
 argument_list|)
 operator|<<
 literal|5
@@ -866,7 +866,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|""
+literal|"mode 6"
 argument_list|)
 operator|<<
 literal|6

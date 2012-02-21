@@ -19171,7 +19171,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"pre2"
+literal|"pre3"
 argument_list|)
 operator|<<
 name|QString

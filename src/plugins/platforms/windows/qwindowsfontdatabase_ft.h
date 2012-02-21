@@ -29,6 +29,7 @@ directive|include
 file|"qtwindows_additional.h"
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QWindowsFontDatabaseFT
 range|:
@@ -150,6 +151,9 @@ name|m_families
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

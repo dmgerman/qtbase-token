@@ -1194,7 +1194,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"non-unicode-3"
+literal|"non-unicode-4"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -1352,7 +1352,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"overlong-2-4"
+literal|"overlong-2-5"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -1365,7 +1365,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"overlong-2-4"
+literal|"overlong-2-6"
 argument_list|)
 operator|<<
 name|QByteArray

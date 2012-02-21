@@ -117,7 +117,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"should SUCCEED"
+literal|"should SUCCEED 1"
 argument_list|)
 operator|<<
 name|float
@@ -134,7 +134,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"should FAIL"
+literal|"should FAIL 1"
 argument_list|)
 operator|<<
 name|float
@@ -151,7 +151,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"should FAIL"
+literal|"should FAIL 2"
 argument_list|)
 operator|<<
 name|float
@@ -164,11 +164,32 @@ argument_list|(
 literal|3.00000e-7f
 argument_list|)
 expr_stmt|;
+comment|// QCOMPARE for floats uses qFuzzyCompare(), which succeeds if the numbers
+comment|// differ by no more than 1/100,000th of the smaller value.  Thus
+comment|// QCOMPARE(99998, 99999) should fail, while QCOMPARE(100001, 100002)
+comment|// should pass.
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"should FAIL"
+literal|"should FAIL 3"
+argument_list|)
+operator|<<
+name|float
+argument_list|(
+literal|99998
+argument_list|)
+operator|<<
+name|float
+argument_list|(
+literal|99999
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"should SUCCEED 2"
 argument_list|)
 operator|<<
 name|float

@@ -188,6 +188,16 @@ operator|::
 name|native_activeModalWidget
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"Test hangs on Mac OS X, see QTBUG-24320"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|// Check that QApplication::activeModalWidget retruns the
 comment|// color dialog when it is executing, even when using a native
 comment|// dialog:
@@ -441,6 +451,20 @@ name|alpha
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"Fails on Mac OS X, see QTBUG-24320"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|alpha

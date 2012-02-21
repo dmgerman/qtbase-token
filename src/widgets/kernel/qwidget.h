@@ -2374,9 +2374,6 @@ name|hidden
 argument_list|)
 expr_stmt|;
 block|}
-ifndef|#
-directive|ifndef
-name|Q_WS_WINCE
 specifier|inline
 name|void
 name|show
@@ -2388,14 +2385,6 @@ name|true
 argument_list|)
 expr_stmt|;
 block|}
-else|#
-directive|else
-name|void
-name|show
-parameter_list|()
-function_decl|;
-endif|#
-directive|endif
 specifier|inline
 name|void
 name|hide
@@ -2629,6 +2618,12 @@ name|int
 argument_list|)
 decl|const
 decl_stmt|;
+name|virtual
+name|bool
+name|hasHeightForWidth
+argument_list|()
+specifier|const
+expr_stmt|;
 name|QRegion
 name|visibleRegion
 argument_list|()

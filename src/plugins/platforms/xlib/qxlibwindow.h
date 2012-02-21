@@ -472,6 +472,9 @@ name|Visual
 operator|*
 name|mVisual
 block|;
+name|QSurfaceFormat
+name|mSurfaceFormat
+block|;
 name|GC
 name|createGC
 argument_list|()

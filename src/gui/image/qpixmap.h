@@ -793,10 +793,6 @@ argument_list|,
 name|int
 argument_list|)
 block|;
-name|void
-name|deref
-argument_list|()
-block|;
 name|Q_DUMMY_COMPARISON_OPERATOR
 argument_list|(
 argument|QPixmap

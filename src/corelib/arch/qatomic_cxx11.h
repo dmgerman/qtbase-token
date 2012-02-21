@@ -29,6 +29,8 @@ name|QT_BEGIN_NAMESPACE
 if|#
 directive|if
 literal|0
+comment|// silence syncqt warnings
+expr|QT_END_NAMESPACE QT_END_HEADER
 pragma|#
 directive|pragma
 name|qt_sync_stop_processing

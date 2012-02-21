@@ -981,17 +981,6 @@ argument_list|)
 specifier|const
 block|;
 name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int entry
-argument_list|,
-argument|QAccessibleInterface **iface
-argument_list|)
-specifier|const
-block|;
-name|int
 name|indexOfChild
 argument_list|(
 argument|const QAccessibleInterface *child

@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<QtCore/qglobal.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qobjectdefs.h>
 end_include
 begin_include
@@ -269,10 +274,12 @@ end_comment
 begin_typedef
 DECL|typedef|WId
 typedef|typedef
-name|unsigned
-name|long
+name|QT_PREPEND_NAMESPACE
+argument_list|(
+argument|quintptr
+argument_list|)
 name|WId
-typedef|;
+expr_stmt|;
 end_typedef
 begin_expr_stmt
 name|QT_BEGIN_HEADER

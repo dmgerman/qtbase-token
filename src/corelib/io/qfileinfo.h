@@ -324,6 +324,11 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|bool
+name|isNativePath
+argument_list|()
+specifier|const
+expr_stmt|;
+name|bool
 name|isRelative
 argument_list|()
 specifier|const

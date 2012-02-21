@@ -162,7 +162,14 @@ argument_list|)
 block|,
 name|error
 argument_list|(
-argument|QAbstractSocket::UnknownSocketError
+name|QAbstractSocket
+operator|::
+name|UnknownSocketError
+argument_list|)
+block|,
+name|socketOptions
+argument_list|(
+argument|QLocalServer::NoOptions
 argument_list|)
 block|{     }
 name|void
@@ -176,6 +183,12 @@ specifier|const
 name|QString
 operator|&
 name|name
+argument_list|)
+block|;
+name|bool
+name|listen
+argument_list|(
+argument|qintptr socketDescriptor
 argument_list|)
 block|;
 specifier|static
@@ -310,6 +323,11 @@ name|QAbstractSocket
 operator|::
 name|SocketError
 name|error
+block|;
+name|QLocalServer
+operator|::
+name|SocketOptions
+name|socketOptions
 block|; }
 decl_stmt|;
 end_decl_stmt

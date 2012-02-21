@@ -220,32 +220,8 @@ begin_comment
 comment|// QT_NO_DATASTREAM
 end_comment
 begin_comment
-comment|/*!     Returns the sum of the absolute values of x() and y(),     traditionally known as the "Manhattan length" of the vector from     the origin to the point. For example:      \snippet doc/src/snippets/code/src_corelib_tools_qpoint.cpp 7      This is a useful, and quick to calculate, approximation to the     true length:      \snippet doc/src/snippets/code/src_corelib_tools_qpoint.cpp 8      The tradition of "Manhattan length" arises because such distances     apply to travelers who can only travel on a rectangular grid, like     the streets of Manhattan. */
+comment|/*!     \fn int QPoint::manhattanLength() const      Returns the sum of the absolute values of x() and y(),     traditionally known as the "Manhattan length" of the vector from     the origin to the point. For example:      \snippet doc/src/snippets/code/src_corelib_tools_qpoint.cpp 7      This is a useful, and quick to calculate, approximation to the     true length:      \snippet doc/src/snippets/code/src_corelib_tools_qpoint.cpp 8      The tradition of "Manhattan length" arises because such distances     apply to travelers who can only travel on a rectangular grid, like     the streets of Manhattan. */
 end_comment
-begin_function
-DECL|function|manhattanLength
-name|int
-name|QPoint
-operator|::
-name|manhattanLength
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|qAbs
-argument_list|(
-name|x
-argument_list|()
-argument_list|)
-operator|+
-name|qAbs
-argument_list|(
-name|y
-argument_list|()
-argument_list|)
-return|;
-block|}
-end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -359,32 +335,8 @@ begin_comment
 comment|/*!     \fn bool QPointF::isNull() const      Returns true if both the x and y coordinates are set to +0.0;     otherwise returns false.      \note Since this function treats +0.0 and -0.0 differently, points     with zero-valued coordinates where either or both values have a     negative sign are not defined to be null points. */
 end_comment
 begin_comment
-comment|/*!     \since 4.6      Returns the sum of the absolute values of x() and y(),     traditionally known as the "Manhattan length" of the vector from     the origin to the point.      \sa QPoint::manhattanLength() */
+comment|/*!     \fn qreal QPointF::manhattanLength() const     \since 4.6      Returns the sum of the absolute values of x() and y(),     traditionally known as the "Manhattan length" of the vector from     the origin to the point.      \sa QPoint::manhattanLength() */
 end_comment
-begin_function
-DECL|function|manhattanLength
-name|qreal
-name|QPointF
-operator|::
-name|manhattanLength
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|qAbs
-argument_list|(
-name|x
-argument_list|()
-argument_list|)
-operator|+
-name|qAbs
-argument_list|(
-name|y
-argument_list|()
-argument_list|)
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     \fn qreal QPointF::x() const      Returns the x-coordinate of this point.      \sa setX(), rx() */
 end_comment

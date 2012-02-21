@@ -10,6 +10,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/QPlatformIntegration>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/QPlatformFontDatabase>
 end_include
 begin_function

@@ -65,6 +65,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qplatformtheme_qpa.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qdialog_p.h"
 end_include
 begin_include
@@ -966,13 +971,13 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 end_if
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE_WM
+name|Q_OS_WINCE_WM
 end_ifdef
 begin_function
 DECL|function|_q_doneAction
@@ -1032,7 +1037,7 @@ argument_list|)
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 if|if
 condition|(
 name|e
@@ -1065,7 +1070,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!   Returns the modal dialog's result code, \c Accepted or \c Rejected.    Do not call this function if the dialog was constructed with the   Qt::WA_DeleteOnClose attribute. */
+comment|/*!   In general returns the modal dialog's result code, \c Accepted or   \c Rejected.    \note When called on a QMessageBox instance, the returned value is a   value of the \l QMessageBox::StandardButton enum.    Do not call this function if the dialog was constructed with the   Qt::WA_DeleteOnClose attribute. */
 end_comment
 begin_function
 DECL|function|result

@@ -73,6 +73,7 @@ function_decl|;
 name|void
 name|generateFunctions
 argument_list|(
+specifier|const
 name|QList
 operator|<
 name|FunctionDef
@@ -92,6 +93,7 @@ decl_stmt|;
 name|void
 name|generateFunctionRevisions
 argument_list|(
+specifier|const
 name|QList
 operator|<
 name|FunctionDef
@@ -135,12 +137,16 @@ name|int
 name|index
 parameter_list|)
 function_decl|;
+name|void
+name|generatePluginMetaData
+parameter_list|()
+function_decl|;
 name|int
 name|strreg
 parameter_list|(
 specifier|const
-name|char
-modifier|*
+name|QByteArray
+modifier|&
 parameter_list|)
 function_decl|;
 comment|// registers a string and returns its id

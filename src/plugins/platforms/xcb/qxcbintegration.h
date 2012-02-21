@@ -71,6 +71,9 @@ argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|QPlatformOpenGLContext
 operator|*
 name|createPlatformOpenGLContext
@@ -79,6 +82,8 @@ argument|QOpenGLContext *context
 argument_list|)
 specifier|const
 block|;
+endif|#
+directive|endif
 name|QPlatformBackingStore
 operator|*
 name|createPlatformBackingStore
@@ -160,6 +165,18 @@ specifier|const
 block|;
 endif|#
 directive|endif
+name|QPlatformServices
+operator|*
+name|services
+argument_list|()
+specifier|const
+block|;
+name|QPlatformTheme
+operator|*
+name|platformTheme
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QList
@@ -211,7 +228,18 @@ name|m_sharedGraphicsCache
 block|;
 endif|#
 directive|endif
-block|}
+name|QScopedPointer
+operator|<
+name|QPlatformServices
+operator|>
+name|m_services
+block|;
+name|QScopedPointer
+operator|<
+name|QPlatformTheme
+operator|>
+name|m_theme
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro

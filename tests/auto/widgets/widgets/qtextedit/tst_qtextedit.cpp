@@ -1193,7 +1193,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_ARCH_WINDOWSCE
+name|Q_OS_WINCE
 argument_list|)
 comment|// due to rounding error in qRound when qreal==float
 comment|// we cannot use INT_MAX for this check
@@ -10995,7 +10995,7 @@ operator|.
 name|position
 argument_list|()
 argument_list|,
-literal|5
+literal|4
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -11029,7 +11029,7 @@ operator|.
 name|position
 argument_list|()
 argument_list|,
-literal|6
+literal|5
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

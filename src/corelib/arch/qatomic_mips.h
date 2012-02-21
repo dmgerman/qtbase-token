@@ -24,6 +24,8 @@ name|QT_BEGIN_NAMESPACE
 if|#
 directive|if
 literal|0
+comment|// silence syncqt warnings
+expr|QT_END_NAMESPACE QT_END_HEADER
 pragma|#
 directive|pragma
 name|qt_sync_stop_processing
@@ -889,12 +891,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|_MIPS_ARCH_MIPS64
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|__mips64
+name|Q_PROCESSOR_MIPS_64
 argument_list|)
 end_if
 begin_define

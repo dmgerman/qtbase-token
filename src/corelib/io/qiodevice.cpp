@@ -354,6 +354,11 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
+name|seqDumpPos
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|pPos
 argument_list|(
 operator|&
@@ -1054,6 +1059,12 @@ expr_stmt|;
 name|d
 operator|->
 name|pos
+operator|=
+literal|0
+expr_stmt|;
+name|d
+operator|->
+name|seqDumpPos
 operator|=
 literal|0
 expr_stmt|;

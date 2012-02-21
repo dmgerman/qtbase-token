@@ -206,7 +206,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|Q_PROPERTY
 argument_list|(
 argument|int autoMaximizeThreshold READ autoMaximizeThreshold WRITE setAutoMaximizeThreshold
@@ -637,18 +637,6 @@ argument_list|()
 block|;
 specifier|static
 name|void
-name|setDesktopSettingsAware
-argument_list|(
-name|bool
-argument_list|)
-block|;
-specifier|static
-name|bool
-name|desktopSettingsAware
-argument_list|()
-block|;
-specifier|static
-name|void
 name|setCursorFlashTime
 argument_list|(
 name|int
@@ -1059,7 +1047,7 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|void
 name|setAutoMaximizeThreshold
 argument_list|(

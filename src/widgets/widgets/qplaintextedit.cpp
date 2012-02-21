@@ -11377,6 +11377,11 @@ end_function
 begin_comment
 comment|/*!     Convenience function to print the text edit's document to the given \a printer. This     is equivalent to calling the print method on the document directly except that this     function also supports QPrinter::Selection as print range.      \sa QTextDocument::print() */
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_PRINTER
+end_ifndef
 begin_function
 DECL|function|print
 name|void
@@ -11407,6 +11412,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*! \property QPlainTextEdit::tabChangesFocus   \brief whether \gui Tab changes focus or is accepted as input    In some occasions text edits should not allow the user to input   tabulators or change indentation using the \gui Tab key, as this breaks   the focus chain. The default is false.  */
 end_comment

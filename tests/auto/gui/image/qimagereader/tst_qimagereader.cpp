@@ -4722,20 +4722,6 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"PPM: teapot"
-argument_list|)
-operator|<<
-name|QString
-argument_list|(
-literal|"teapot.ppm"
-argument_list|)
-operator|<<
-literal|false
-expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
 literal|"PPM: runners"
 argument_list|)
 operator|<<

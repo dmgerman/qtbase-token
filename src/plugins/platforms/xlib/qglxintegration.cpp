@@ -129,6 +129,11 @@ name|m_context
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|m_windowFormat
+argument_list|(
+name|format
+argument_list|)
 block|{
 name|GLXContext
 name|shareGlxContext
@@ -228,7 +233,8 @@ operator|->
 name|xScreenNumber
 argument_list|()
 argument_list|,
-name|format
+operator|&
+name|m_windowFormat
 argument_list|)
 decl_stmt|;
 if|if

@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qwindowspipewriter_p.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<qdir.h>
 end_include
 begin_include
@@ -41,6 +46,11 @@ begin_include
 include|#
 directive|include
 file|<qdebug.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<private/qthread_p.h>
 end_include
 begin_ifndef
 ifndef|#

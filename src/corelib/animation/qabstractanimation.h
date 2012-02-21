@@ -365,6 +365,7 @@ name|isRunning
 argument_list|()
 specifier|const
 block|;
+name|virtual
 name|qint64
 name|elapsed
 argument_list|()

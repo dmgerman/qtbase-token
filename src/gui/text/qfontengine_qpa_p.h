@@ -810,6 +810,7 @@ struct|;
 end_struct
 begin_decl_stmt
 name|class
+name|Q_GUI_EXPORT
 name|QFontEngineMultiQPA
 range|:
 name|public
@@ -832,6 +833,34 @@ argument_list|(
 argument|int at
 argument_list|)
 block|;
+name|int
+name|fallbackFamilyCount
+argument_list|()
+specifier|const
+block|{
+return|return
+name|fallbackFamilies
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
+name|QString
+name|fallbackFamilyAt
+argument_list|(
+argument|int at
+argument_list|)
+specifier|const
+block|{
+return|return
+name|fallbackFamilies
+operator|.
+name|at
+argument_list|(
+name|at
+argument_list|)
+return|;
+block|}
 name|private
 operator|:
 name|QStringList

@@ -910,7 +910,7 @@ parameter_list|()
 function_decl|;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|void
 name|hideSpecial
 parameter_list|()
@@ -1698,7 +1698,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 comment|// the width of the screen, less the window border.
 name|int
@@ -1803,7 +1803,7 @@ directive|else
 comment|// note: ideally on windows, hard and soft limits but it breaks compat
 ifndef|#
 directive|ifndef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 name|int
 name|softLimit
 init|=
@@ -1840,7 +1840,7 @@ argument_list|)
 decl_stmt|;
 endif|#
 directive|endif
-comment|//Q_WS_WINCE
+comment|//Q_OS_WINCE
 endif|#
 directive|endif
 if|if
@@ -2198,7 +2198,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_comment
 comment|/*!   \internal   Hides special buttons which are rather shown in the title bar   on WinCE, to conserve screen space. */
@@ -4085,7 +4085,7 @@ expr_stmt|;
 break|break;
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 case|case
 name|QEvent
 operator|::
@@ -4865,7 +4865,7 @@ end_function
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_comment
 comment|/*!     \reimp */
@@ -5109,7 +5109,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 name|d
 operator|->
@@ -6046,7 +6046,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 name|msgBox
 operator|->
@@ -8466,7 +8466,7 @@ begin_comment
 comment|/*!     \fn int QMessageBox::information(QWidget *parent, const QString&title,                                      const QString& text, StandardButton button0,                                      StandardButton button1)     \fn int QMessageBox::warning(QWidget *parent, const QString&title,                                  const QString& text, StandardButton button0,                                  StandardButton button1)     \fn int QMessageBox::critical(QWidget *parent, const QString&title,                                   const QString& text, StandardButton button0,                                   StandardButton button1)     \fn int QMessageBox::question(QWidget *parent, const QString&title,                                   const QString& text, StandardButton button0,                                   StandardButton button1)     \internal      ### Needed for Qt 4 source compatibility */
 end_comment
 begin_comment
-comment|/*!   \fn int QMessageBox::exec()    Shows the message box as a \l{QDialog#Modal Dialogs}{modal dialog},   blocking until the user closes it.    When using a QMessageBox with standard buttons, this functions returns a   \l StandardButton value indicating the standard button that was clicked.   When using QMessageBox with custom buttons, this function returns an   opaque value; use clickedButton() to determine which button was clicked.    Users cannot interact with any other window in the same   application until they close the dialog, either by clicking a   button or by using a mechanism provided by the window system.    \sa show(), result() */
+comment|/*!   \fn int QMessageBox::exec()    Shows the message box as a \l{QDialog#Modal Dialogs}{modal dialog},   blocking until the user closes it.    When using a QMessageBox with standard buttons, this functions returns a   \l StandardButton value indicating the standard button that was clicked.   When using QMessageBox with custom buttons, this function returns an   opaque value; use clickedButton() to determine which button was clicked.    \note The result() function returns also \l StandardButton value instead   of \l QDialog::DialogCode.    Users cannot interact with any other window in the same   application until they close the dialog, either by clicking a   button or by using a mechanism provided by the window system.    \sa show(), result() */
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

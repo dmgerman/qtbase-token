@@ -270,7 +270,7 @@ block|}
 name|QRegExp
 name|defaultReg
 argument_list|(
-literal|"default.*: *([a-zA-Z0-9_]+)"
+literal|"default.*: *([a-zA-Z0-9_-]+)"
 argument_list|)
 decl_stmt|;
 name|defaultReg
@@ -875,7 +875,11 @@ name|defSysPrinter
 operator|==
 literal|""
 condition|)
-return|return;
+name|QSKIP
+argument_list|(
+literal|"No default printer available"
+argument_list|)
+expr_stmt|;
 name|QList
 argument_list|<
 name|QPrinterInfo

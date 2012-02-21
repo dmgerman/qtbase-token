@@ -446,8 +446,6 @@ operator|->
 name|descent
 argument_list|()
 argument_list|)
-operator|+
-literal|1
 return|;
 block|}
 end_function
@@ -550,8 +548,6 @@ operator|->
 name|descent
 argument_list|()
 argument_list|)
-operator|+
-literal|1
 return|;
 block|}
 end_function
@@ -3206,8 +3202,6 @@ name|engine
 operator|->
 name|descent
 argument_list|()
-operator|+
-literal|1
 operator|)
 operator|.
 name|toReal
@@ -3306,8 +3300,6 @@ name|engine
 operator|->
 name|descent
 argument_list|()
-operator|+
-literal|1
 operator|)
 operator|.
 name|toReal

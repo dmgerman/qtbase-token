@@ -1478,7 +1478,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 name|q
 operator|->
@@ -1502,7 +1502,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// Q_WS_WINCE
+comment|// Q_OS_WINCE
 name|sizeEdit
 operator|->
 name|installEventFilter

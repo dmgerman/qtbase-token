@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/qglobal.h>
+file|<QtConcurrent/qtconcurrent_global.h>
 end_include
 begin_ifndef
 ifndef|#
@@ -95,7 +95,7 @@ endif|#
 directive|endif
 comment|/*     The BlockSizeManager class manages how many iterations a thread should     reserve and process at a time. This is done by measuring the time spent     in the user code versus the control part code, and then increasing     the block size if the ratio between them is to small. The block size     management is done on the basis of the median of several timing measuremens,     and it is done induvidualy for each thread. */
 name|class
-name|Q_CORE_EXPORT
+name|Q_CONCURRENT_EXPORT
 name|BlockSizeManager
 block|{
 name|public

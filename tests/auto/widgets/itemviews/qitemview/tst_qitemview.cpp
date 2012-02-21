@@ -1347,7 +1347,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_ARCH_ARM
+name|Q_PROCESSOR_ARM
 argument_list|)
 specifier|const
 name|int

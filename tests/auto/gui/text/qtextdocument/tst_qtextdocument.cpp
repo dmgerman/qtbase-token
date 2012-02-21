@@ -5615,7 +5615,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"image-malign"
+literal|"image-align-middle"
 argument_list|)
 operator|<<
 name|QTextDocumentFragment
@@ -5664,7 +5664,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"image-malign"
+literal|"image-align-top"
 argument_list|)
 operator|<<
 name|QTextDocumentFragment

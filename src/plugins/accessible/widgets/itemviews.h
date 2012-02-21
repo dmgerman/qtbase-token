@@ -163,24 +163,6 @@ name|index
 argument_list|)
 decl|const
 decl_stmt|;
-name|int
-name|navigate
-argument_list|(
-name|QAccessible
-operator|::
-name|RelationFlag
-name|relation
-argument_list|,
-name|int
-name|index
-argument_list|,
-name|QAccessibleInterface
-operator|*
-operator|*
-name|iface
-argument_list|)
-decl|const
-decl_stmt|;
 name|void
 modifier|*
 name|interface_cast
@@ -846,24 +828,6 @@ name|int
 argument_list|)
 decl|const
 decl_stmt|;
-name|int
-name|navigate
-argument_list|(
-name|QAccessible
-operator|::
-name|RelationFlag
-name|relation
-argument_list|,
-name|int
-name|m_index
-argument_list|,
-name|QAccessibleInterface
-operator|*
-operator|*
-name|iface
-argument_list|)
-decl|const
-decl_stmt|;
 comment|// cell interface
 name|virtual
 name|int
@@ -1104,17 +1068,6 @@ argument|int index
 argument_list|)
 specifier|const
 block|;
-name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int index
-argument_list|,
-argument|QAccessibleInterface **iface
-argument_list|)
-specifier|const
-block|;
 name|private
 operator|:
 name|QAbstractItemView
@@ -1305,32 +1258,6 @@ specifier|const
 block|{
 return|return
 literal|0
-return|;
-block|}
-name|int
-name|navigate
-argument_list|(
-argument|QAccessible::RelationFlag relation
-argument_list|,
-argument|int
-argument_list|,
-argument|QAccessibleInterface **iface
-argument_list|)
-specifier|const
-block|{
-name|Q_UNUSED
-argument_list|(
-name|relation
-argument_list|)
-block|;
-name|Q_UNUSED
-argument_list|(
-name|iface
-argument_list|)
-block|;
-return|return
-operator|-
-literal|1
 return|;
 block|}
 name|private

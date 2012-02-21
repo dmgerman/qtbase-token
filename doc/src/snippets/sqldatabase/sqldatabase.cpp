@@ -1001,14 +1001,6 @@ argument_list|()
 expr_stmt|;
 name|model
 operator|->
-name|removeColumn
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// don't show the ID
-name|model
-operator|->
 name|setHeaderData
 argument_list|(
 literal|0
@@ -1053,6 +1045,14 @@ argument_list|(
 name|model
 argument_list|)
 expr_stmt|;
+name|view
+operator|->
+name|hideColumn
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// don't show the ID
 name|view
 operator|->
 name|show

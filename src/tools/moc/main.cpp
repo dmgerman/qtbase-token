@@ -61,13 +61,13 @@ name|QByteArray
 name|combinePath
 parameter_list|(
 specifier|const
-name|char
-modifier|*
+name|QByteArray
+modifier|&
 name|infile
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|QByteArray
+modifier|&
 name|outfile
 parameter_list|)
 block|{
@@ -1742,12 +1742,10 @@ name|stderr
 argument_list|,
 literal|"moc: %s: No such file\n"
 argument_list|,
-operator|(
-specifier|const
-name|char
-operator|*
-operator|)
 name|filename
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -1870,12 +1868,10 @@ name|stderr
 argument_list|,
 literal|"moc: Cannot create %s\n"
 argument_list|,
-operator|(
-specifier|const
-name|char
-operator|*
-operator|)
 name|output
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

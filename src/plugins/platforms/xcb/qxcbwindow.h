@@ -533,7 +533,7 @@ name|xcb_window_t
 name|m_netWmUserTimeWindow
 decl_stmt|;
 name|QSurfaceFormat
-name|m_requestedFormat
+name|m_format
 decl_stmt|;
 name|mutable
 name|bool

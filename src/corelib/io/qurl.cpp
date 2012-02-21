@@ -33933,7 +33933,7 @@ begin_comment
 comment|/*!     \macro QT_NO_URL_CAST_FROM_STRING     \relates QUrl      Disables automatic conversions from QString (or char *) to QUrl.      Compiling your code with this define is useful when you have a lot of     code that uses QString for file names and you wish to convert it to     use QUrl for network transparency. In any code that uses QUrl, it can     help avoid missing QUrl::resolved() calls, and other misuses of     QString to QUrl conversions.      \oldcode         url = filename; // probably not what you want     \newcode         url = QUrl::fromLocalFile(filename);         url = baseurl.resolved(QUrl(filename));     \endcode      \sa QT_NO_CAST_FROM_ASCII */
 end_comment
 begin_comment
-comment|/*!     Constructs a URL by parsing \a url. \a url is assumed to be in human     readable representation, with no percent encoding. QUrl will automatically     percent encode all characters that are not allowed in a URL.      The parsing mode \a parsingMode is used for parsing \a url.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qurl.cpp 0      \sa setUrl(), TolerantMode */
+comment|/*!     Constructs a URL by parsing \a url. \a url is assumed to be in human     readable representation, with no percent encoding. QUrl will automatically     percent encode all characters that are not allowed in a URL.     The default parsing mode is TolerantMode.      The parsing mode \a parsingMode is used for parsing \a url.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qurl.cpp 0      \sa setUrl(), TolerantMode */
 end_comment
 begin_constructor
 DECL|function|QUrl
@@ -39815,7 +39815,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the human-displayable string representation of the     URL. The output can be customized by passing flags with \a     options.      The resulting QString can be passed back to a QUrl later on.      Synonym for url(options).      \sa FormattingOptions, toEncoded(), url() */
+comment|/*!     Returns a string representation of the URL.     The output can be customized by passing flags with \a options.      The resulting QString can be passed back to a QUrl later on.      Synonym for url(options).      \sa FormattingOptions, toEncoded(), url() */
 end_comment
 begin_function
 DECL|function|toString
@@ -40162,7 +40162,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the human-displayable string representation of the     URL. The output can be customized by passing flags with \a     options.      The resulting QString can be passed back to a QUrl later on.      Synonym for toString(options).      \sa FormattingOptions, toEncoded(), toString() */
+comment|/*!     Returns a string representation of the URL.     The output can be customized by passing flags with \a options.      The resulting QString can be passed back to a QUrl later on.      Synonym for toString(options).      \sa FormattingOptions, toEncoded(), toString() */
 end_comment
 begin_function
 DECL|function|url
@@ -40180,6 +40180,31 @@ return|return
 name|toString
 argument_list|(
 name|options
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns a human-displayable string representation of the URL.     The output can be customized by passing flags with \a options.     The option RemovePassword is always enabled, since passwords     should never be shown back to users.      The resulting QString can be passed back to a QUrl later on,     but any password that was present initially will be lost.      \sa FormattingOptions, toEncoded(), toString() */
+end_comment
+begin_function
+DECL|function|toDisplayString
+name|QString
+name|QUrl
+operator|::
+name|toDisplayString
+parameter_list|(
+name|FormattingOptions
+name|options
+parameter_list|)
+specifier|const
+block|{
+return|return
+name|toString
+argument_list|(
+name|options
+operator||
+name|RemovePassword
 argument_list|)
 return|;
 block|}
@@ -42012,7 +42037,7 @@ literal|"QUrl("
 operator|<<
 name|url
 operator|.
-name|toString
+name|toDisplayString
 argument_list|()
 operator|<<
 literal|')'

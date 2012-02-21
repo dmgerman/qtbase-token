@@ -2282,8 +2282,6 @@ name|ForceIntegerMetrics
 condition|?
 operator|(
 name|m_descent
-operator|-
-literal|1
 operator|)
 operator|.
 name|round
@@ -2291,8 +2289,6 @@ argument_list|()
 else|:
 operator|(
 name|m_descent
-operator|-
-literal|1
 operator|)
 return|;
 block|}

@@ -55,11 +55,6 @@ begin_else
 else|#
 directive|else
 end_else
-begin_include
-include|#
-directive|include
-file|<qguifunctions_wince.h>
-end_include
 begin_if
 if|#
 directive|if
@@ -621,7 +616,7 @@ decl_stmt|;
 comment|// type-specific handling goes here
 ifndef|#
 directive|ifndef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 specifier|static
 name|GetSpecialFolderPath
 name|SHGetSpecialFolderPath

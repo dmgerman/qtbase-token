@@ -5239,7 +5239,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"-=0"
+literal|"0-=0"
 argument_list|)
 operator|<<
 literal|0
@@ -5262,7 +5262,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"-=1"
+literal|"2-=1"
 argument_list|)
 operator|<<
 literal|2
@@ -5285,7 +5285,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"-=2"
+literal|"4-=2"
 argument_list|)
 operator|<<
 literal|4
@@ -5308,7 +5308,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"-=(-1)"
+literal|"0-=(-1)"
 argument_list|)
 operator|<<
 literal|0
@@ -5332,7 +5332,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"-=(-2)"
+literal|"0-=(-2)"
 argument_list|)
 operator|<<
 literal|0
@@ -5356,7 +5356,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"-=1)"
+literal|"18-=1"
 argument_list|)
 operator|<<
 literal|18
@@ -5379,7 +5379,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"-=1)"
+literal|"1-=1"
 argument_list|)
 operator|<<
 literal|1

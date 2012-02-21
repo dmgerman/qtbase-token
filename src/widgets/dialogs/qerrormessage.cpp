@@ -95,7 +95,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 end_ifdef
 begin_function_decl
 specifier|extern
@@ -117,11 +117,6 @@ end_function_decl
 begin_comment
 comment|//defined in qguifunctions_wince.cpp
 end_comment
-begin_include
-include|#
-directive|include
-file|"qguifunctions_wince.h"
-end_include
 begin_endif
 endif|#
 directive|endif
@@ -289,7 +284,7 @@ specifier|const
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 if|if
 condition|(
 name|qt_wince_is_mobile
@@ -351,7 +346,7 @@ specifier|const
 block|{
 ifdef|#
 directive|ifdef
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 if|if
 condition|(
 name|qt_wince_is_mobile
@@ -400,7 +395,7 @@ argument_list|)
 return|;
 endif|#
 directive|endif
-comment|//Q_WS_WINCE
+comment|//Q_OS_WINCE
 block|}
 end_function
 begin_comment
@@ -858,7 +853,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WINCE
+name|Q_OS_WINCE
 argument_list|)
 name|d
 operator|->

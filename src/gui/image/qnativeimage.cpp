@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qplatformscreen_qpa.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qguiapplication_p.h"
 end_include
 begin_include

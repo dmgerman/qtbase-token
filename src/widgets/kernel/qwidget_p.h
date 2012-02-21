@@ -896,17 +896,13 @@ name|DontSubtractOpaqueChildren
 operator|=
 literal|0x10
 block|,
-name|DontSetCompositionMode
+name|DontDrawOpaqueChildren
 operator|=
 literal|0x20
 block|,
-name|DontDrawOpaqueChildren
-operator|=
-literal|0x40
-block|,
 name|DontDrawNativeChildren
 operator|=
-literal|0x80
+literal|0x40
 block|}
 block|;      enum
 name|CloseMode
@@ -2109,14 +2105,6 @@ name|maxh
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_expr_stmt
-name|virtual
-name|bool
-name|hasHeightForWidth
-argument_list|()
-specifier|const
-expr_stmt|;
-end_expr_stmt
 begin_function_decl
 name|void
 name|setConstraints_sys

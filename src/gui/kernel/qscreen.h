@@ -75,6 +75,12 @@ name|QRect
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPixmap
+name|class
+name|QPixmap
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QScreen
@@ -302,6 +308,21 @@ name|isLandscape
 argument_list|(
 argument|Qt::ScreenOrientation orientation
 argument_list|)
+block|;
+name|QPixmap
+name|grabWindow
+argument_list|(
+argument|WId window
+argument_list|,
+argument|int x
+argument_list|,
+argument|int y
+argument_list|,
+argument|int w
+argument_list|,
+argument|int h
+argument_list|)
+specifier|const
 block|;
 name|Q_SIGNALS
 operator|:

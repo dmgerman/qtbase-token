@@ -102,7 +102,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QT_ARCH_SPARC
+name|Q_PROCESSOR_SPARC
 argument_list|)
 operator|&&
 name|defined

@@ -66,6 +66,11 @@ include|#
 directive|include
 file|"qdebug.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qdrawutil.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|windowsItemFrame

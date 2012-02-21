@@ -6836,7 +6836,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"Last column disabled. Task QTBUG-3878"
+literal|"Last column disabled 2. Task QTBUG-3878"
 argument_list|)
 operator|<<
 operator|-

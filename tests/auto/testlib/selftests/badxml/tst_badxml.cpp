@@ -242,6 +242,17 @@ argument_list|)
 expr_stmt|;
 name|QBENCHMARK
 block|{     }
+name|QFETCH
+argument_list|(
+name|bool
+argument_list|,
+name|shouldFail
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|shouldFail
+condition|)
 name|QFAIL
 argument_list|(
 literal|"a failure"
@@ -262,10 +273,10 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
-name|int
+name|bool
 argument_list|>
 argument_list|(
-literal|"dummy"
+literal|"shouldFail"
 argument_list|)
 expr_stmt|;
 foreach|foreach
@@ -283,10 +294,41 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+name|qPrintable
+argument_list|(
+name|QString
+argument_list|(
+literal|"fail %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
 name|str
 argument_list|)
+argument_list|)
+argument_list|)
 operator|<<
-literal|0
+literal|true
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+name|qPrintable
+argument_list|(
+name|QString
+argument_list|(
+literal|"pass %1"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|str
+argument_list|)
+argument_list|)
+argument_list|)
+operator|<<
+literal|false
 expr_stmt|;
 block|}
 block|}

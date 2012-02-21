@@ -1215,7 +1215,7 @@ argument_list|()
 operator|.
 name|enterLoop
 argument_list|(
-literal|5
+literal|30
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -1711,7 +1711,7 @@ name|socketDevice
 operator|.
 name|waitForWrite
 argument_list|(
-literal|15000
+literal|30000
 argument_list|)
 condition|)
 block|{
@@ -1756,7 +1756,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/* //--------------------------------------------------------------------------- void tst_QHttpSocketEngine::tcpLoopbackPerformance() {     QTcpServer server;      // Bind to any port on all interfaces     QVERIFY(server.bind(QHostAddress("0.0.0.0"), 0));     QVERIFY(server.state() == QAbstractSocket::BoundState);     quint16 port = server.localPort();      // Listen for incoming connections     QVERIFY(server.listen());     QVERIFY(server.state() == QAbstractSocket::ListeningState);      // Initialize a Tcp socket     QHttpSocketEngine client;     QVERIFY(client.initialize(QAbstractSocket::TcpSocket));      client.setProxy(QHostAddress("80.232.37.158"), 1081);      // Connect to our server     if (!client.connectToHost(QHostAddress("127.0.0.1"), port)) {         QVERIFY(client.waitForWrite());         QVERIFY(client.connectToHost(QHostAddress("127.0.0.1"), port));     }      // The server accepts the connectio     int socketDescriptor = server.accept();     QVERIFY(socketDescriptor> 0);      // A socket device is initialized on the server side, passing the     // socket descriptor from accept(). It's pre-connected.     QSocketLayer serverSocket;     QVERIFY(serverSocket.initialize(socketDescriptor));     QVERIFY(serverSocket.state() == QAbstractSocket::ConnectedState);      const int messageSize = 1024 * 256;     QByteArray message1(messageSize, '@');     QByteArray answer(messageSize, '@');      QTime timer;     timer.start();     qlonglong readBytes = 0;     while (timer.elapsed()< 5000) {         qlonglong written = serverSocket.write(message1.data(), message1.size());         while (written> 0) {             client.waitForRead();             if (client.bytesAvailable()> 0) {                 qlonglong readNow = client.read(answer.data(), answer.size());                 written -= readNow;                 readBytes += readNow;             }         }     }      qDebug("\t\t%.1fMB/%.1fs: %.1fMB/s",            readBytes / (1024.0 * 1024.0),            timer.elapsed() / 1024.0,            (readBytes / (timer.elapsed() / 1000.0)) / (1024 * 1024)); } */
+comment|/* //--------------------------------------------------------------------------- void tst_QHttpSocketEngine::tcpLoopbackPerformance() {     QTcpServer server;      // Bind to any port on all interfaces     QVERIFY(server.bind(QHostAddress("0.0.0.0"), 0));     QVERIFY(server.state() == QAbstractSocket::BoundState);     quint16 port = server.localPort();      // Listen for incoming connections     QVERIFY(server.listen());     QVERIFY(server.state() == QAbstractSocket::ListeningState);      // Initialize a Tcp socket     QHttpSocketEngine client;     QVERIFY(client.initialize(QAbstractSocket::TcpSocket));      client.setProxy(QHostAddress("80.232.37.158"), 1081);      // Connect to our server     if (!client.connectToHost(QHostAddress("127.0.0.1"), port)) {         QVERIFY(client.waitForWrite());         QVERIFY(client.connectToHost(QHostAddress("127.0.0.1"), port));     }      // The server accepts the connectio     int socketDescriptor = server.accept();     QVERIFY(socketDescriptor> 0);      // A socket device is initialized on the server side, passing the     // socket descriptor from accept(). It's pre-connected.     QSocketLayer serverSocket;     QVERIFY(serverSocket.initialize(socketDescriptor));     QVERIFY(serverSocket.state() == QAbstractSocket::ConnectedState);      const int messageSize = 1024 * 256;     QByteArray message1(messageSize, '@');     QByteArray answer(messageSize, '@');      QTime timer;     timer.start();     qlonglong readBytes = 0;     while (timer.elapsed()< 30000) {         qlonglong written = serverSocket.write(message1.data(), message1.size());         while (written> 0) {             client.waitForRead();             if (client.bytesAvailable()> 0) {                 qlonglong readNow = client.read(answer.data(), answer.size());                 written -= readNow;                 readBytes += readNow;             }         }     }      qDebug("\t\t%.1fMB/%.1fs: %.1fMB/s",            readBytes / (1024.0 * 1024.0),            timer.elapsed() / 1024.0,            (readBytes / (timer.elapsed() / 1000.0)) / (1024 * 1024)); } */
 end_comment
 begin_function
 DECL|function|tcpSocketBlockingTest
@@ -1812,7 +1812,7 @@ name|socket
 operator|.
 name|waitForReadyRead
 argument_list|(
-literal|5000
+literal|30000
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1874,7 +1874,7 @@ name|socket
 operator|.
 name|waitForReadyRead
 argument_list|(
-literal|5000
+literal|30000
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1931,7 +1931,7 @@ name|socket
 operator|.
 name|waitForReadyRead
 argument_list|(
-literal|5000
+literal|30000
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1970,7 +1970,7 @@ name|socket
 operator|.
 name|waitForReadyRead
 argument_list|(
-literal|5000
+literal|30000
 argument_list|)
 argument_list|)
 expr_stmt|;

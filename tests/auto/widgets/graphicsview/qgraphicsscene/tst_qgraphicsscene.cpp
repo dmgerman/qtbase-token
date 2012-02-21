@@ -2932,7 +2932,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|QT_ARCH_ARM
+name|Q_PROCESSOR_ARM
 specifier|const
 name|int
 name|minY
@@ -3379,7 +3379,7 @@ parameter_list|()
 block|{
 ifdef|#
 directive|ifdef
-name|QT_ARCH_ARM
+name|Q_PROCESSOR_ARM
 specifier|const
 name|int
 name|minY

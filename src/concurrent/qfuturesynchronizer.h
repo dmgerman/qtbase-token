@@ -16,6 +16,11 @@ end_define
 begin_include
 include|#
 directive|include
+file|<QtConcurrent/qtconcurrent_global.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtConcurrent/qfuture.h>
 end_include
 begin_ifndef

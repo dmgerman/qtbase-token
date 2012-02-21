@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtCore/qjsonvalue.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/qiterator.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE

@@ -1231,7 +1231,12 @@ block|{
 name|QLibrary
 name|library
 argument_list|(
-literal|"./mylib"
+name|QCoreApplication
+operator|::
+name|applicationDirPath
+argument_list|()
+operator|+
+literal|"/mylib"
 argument_list|)
 decl_stmt|;
 name|QFunctionPointer
