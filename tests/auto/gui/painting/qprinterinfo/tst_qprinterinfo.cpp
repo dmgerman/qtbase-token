@@ -875,7 +875,11 @@ name|defSysPrinter
 operator|==
 literal|""
 condition|)
-return|return;
+name|QSKIP
+argument_list|(
+literal|"No default printer available"
+argument_list|)
+expr_stmt|;
 name|QList
 argument_list|<
 name|QPrinterInfo
