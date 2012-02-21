@@ -9949,10 +9949,7 @@ operator|.
 name|length
 argument_list|()
 argument_list|,
-name|uint
-argument_list|(
 literal|1
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
