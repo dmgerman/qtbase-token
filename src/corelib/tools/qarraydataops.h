@@ -768,18 +768,18 @@ argument_list|(
 name|T
 operator|*
 operator|&
-name|iter
+name|it
 argument_list|)
 operator|:
 name|iter
 argument_list|(
 operator|&
-name|iter
+name|it
 argument_list|)
 operator|,
 name|end
 argument_list|(
-argument|iter
+argument|it
 argument_list|)
 block|{             }
 name|void
@@ -1047,26 +1047,26 @@ name|ReversibleDisplace
 block|{
 name|ReversibleDisplace
 argument_list|(
-argument|T *begin
+argument|T *start
 argument_list|,
-argument|T *end
+argument|T *finish
 argument_list|,
-argument|size_t displace
+argument|size_t diff
 argument_list|)
 operator|:
 name|begin
 argument_list|(
-name|begin
+name|start
 argument_list|)
 block|,
 name|end
 argument_list|(
-name|end
+name|finish
 argument_list|)
 block|,
 name|displace
 argument_list|(
-argument|displace
+argument|diff
 argument_list|)
 block|{
 operator|::
@@ -1164,12 +1164,12 @@ name|CopyConstructor
 argument_list|(
 name|T
 operator|*
-name|where
+name|w
 argument_list|)
 operator|:
 name|where
 argument_list|(
-argument|where
+argument|w
 argument_list|)
 block|{}
 name|void
