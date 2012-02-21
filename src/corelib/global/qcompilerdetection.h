@@ -89,12 +89,6 @@ directive|define
 name|Q_CC_MSVC_NET
 end_define
 begin_define
-DECL|macro|Q_CANNOT_DELETE_CONSTANT
-define|#
-directive|define
-name|Q_CANNOT_DELETE_CONSTANT
-end_define
-begin_define
 DECL|macro|Q_OUTOFLINE_TEMPLATE
 define|#
 directive|define
@@ -976,12 +970,6 @@ DECL|macro|Q_BROKEN_TEMPLATE_SPECIALIZATION
 define|#
 directive|define
 name|Q_BROKEN_TEMPLATE_SPECIALIZATION
-end_define
-begin_define
-DECL|macro|Q_CANNOT_DELETE_CONSTANT
-define|#
-directive|define
-name|Q_CANNOT_DELETE_CONSTANT
 end_define
 begin_endif
 endif|#
