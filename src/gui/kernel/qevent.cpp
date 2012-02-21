@@ -1255,12 +1255,13 @@ name|KeypadModifier
 operator|)
 decl_stmt|;
 comment|//The keypad modifier should not make a difference
+specifier|const
 name|uint
 name|platform
 init|=
-name|QGuiApplicationPrivate
+name|QKeySequencePrivate
 operator|::
-name|currentKeyPlatform
+name|currentKeyPlatforms
 argument_list|()
 decl_stmt|;
 name|uint
