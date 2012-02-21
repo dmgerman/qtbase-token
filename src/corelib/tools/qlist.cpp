@@ -48,8 +48,6 @@ literal|0
 block|,
 literal|0
 block|,
-literal|true
-block|,
 block|{
 literal|0
 block|}
@@ -186,12 +184,6 @@ name|ref
 operator|.
 name|initializeOwned
 argument_list|()
-expr_stmt|;
-name|t
-operator|->
-name|sharable
-operator|=
-literal|true
 expr_stmt|;
 name|t
 operator|->
@@ -364,12 +356,6 @@ name|ref
 operator|.
 name|initializeOwned
 argument_list|()
-expr_stmt|;
-name|t
-operator|->
-name|sharable
-operator|=
-literal|true
 expr_stmt|;
 name|t
 operator|->
