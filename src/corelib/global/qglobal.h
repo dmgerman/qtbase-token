@@ -1125,23 +1125,6 @@ end_typedef
 begin_macro
 name|QT_END_INCLUDE_NAMESPACE
 end_macro
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_NO_BOOL_TYPE
-argument_list|)
-end_if
-begin_error
-error|#
-directive|error
-literal|"Compiler doesn't support the bool type"
-end_error
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|/*    Constant bool values */
 end_comment
