@@ -429,7 +429,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the \a screen the GL context should be valid for. You need to call     create() before it takes effect. */
+comment|/*!     Sets the \a screen the OpenGL context should be valid for. You need to call     create() before it takes effect. */
 end_comment
 begin_function
 DECL|function|setScreen
