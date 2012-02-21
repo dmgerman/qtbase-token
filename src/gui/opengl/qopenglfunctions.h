@@ -11237,6 +11237,16 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
+name|GL_BGR
+DECL|macro|GL_BGR
+define|#
+directive|define
+name|GL_BGR
+value|0x80E0
+endif|#
+directive|endif
+ifndef|#
+directive|ifndef
 name|GL_BGRA
 DECL|macro|GL_BGRA
 define|#
