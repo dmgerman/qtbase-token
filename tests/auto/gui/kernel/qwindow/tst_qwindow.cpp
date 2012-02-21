@@ -3524,6 +3524,16 @@ operator|::
 name|orientation
 parameter_list|()
 block|{
+name|qRegisterMetaType
+argument_list|<
+name|Qt
+operator|::
+name|ScreenOrientation
+argument_list|>
+argument_list|(
+literal|"Qt::ScreenOrientation"
+argument_list|)
+expr_stmt|;
 name|QWindow
 name|window
 decl_stmt|;
