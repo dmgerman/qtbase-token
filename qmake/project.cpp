@@ -8837,6 +8837,50 @@ name|vars
 argument_list|)
 expr_stmt|;
 block|}
+comment|// After user configs, to override them
+if|if
+condition|(
+operator|!
+name|extra_configs
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|parser
+operator|.
+name|file
+operator|=
+literal|"(extra configs)"
+expr_stmt|;
+name|parser
+operator|.
+name|from_file
+operator|=
+literal|false
+expr_stmt|;
+name|parser
+operator|.
+name|line_no
+operator|=
+literal|1
+expr_stmt|;
+comment|//really arg count now.. duh
+name|parse
+argument_list|(
+literal|"CONFIG += "
+operator|+
+name|extra_configs
+operator|.
+name|join
+argument_list|(
+literal|" "
+argument_list|)
+argument_list|,
+name|vars
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|cmd
@@ -9003,19 +9047,13 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-comment|//after configs (set in BUILDS)
+comment|// Again, to ensure the project does not mess with us.
+comment|// Specifically, do not allow a project to override debug/release within a
+comment|// debug_and_release build pass - it's too late for that at this point anyway.
 if|if
 condition|(
-operator|(
-name|cmd
-operator|&
-name|ReadSetup
-operator|)
-operator|&&
 operator|!
-name|Option
-operator|::
-name|after_user_configs
+name|extra_configs
 operator|.
 name|isEmpty
 argument_list|()
@@ -9025,7 +9063,7 @@ name|parser
 operator|.
 name|file
 operator|=
-literal|"(configs)"
+literal|"(extra configs)"
 expr_stmt|;
 name|parser
 operator|.
@@ -9044,9 +9082,7 @@ name|parse
 argument_list|(
 literal|"CONFIG += "
 operator|+
-name|Option
-operator|::
-name|after_user_configs
+name|extra_configs
 operator|.
 name|join
 argument_list|(

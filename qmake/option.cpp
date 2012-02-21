@@ -366,14 +366,6 @@ name|user_configs
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|member|after_user_configs
-name|QStringList
-name|Option
-operator|::
-name|after_user_configs
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|member|user_template
 name|QString
 name|Option
