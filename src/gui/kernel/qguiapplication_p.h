@@ -883,6 +883,17 @@ name|synthesizedMousePoints
 expr_stmt|;
 end_expr_stmt
 begin_label
+name|protected
+label|:
+end_label
+begin_function_decl
+name|virtual
+name|void
+name|notifyThemeChanged
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_label
 name|private
 label|:
 end_label

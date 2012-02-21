@@ -62,6 +62,11 @@ include|#
 directive|include
 file|<QtGui/QGuiApplication>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QWindowSystemInterface>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|operator <<
@@ -1748,13 +1753,19 @@ name|windowsThemeChanged
 parameter_list|(
 name|QWindow
 modifier|*
-comment|/* window */
+name|window
 parameter_list|)
 block|{
 name|refresh
 argument_list|()
 expr_stmt|;
-comment|// QWindowSystemInterface::handleThemeChange(window);
+name|QWindowSystemInterface
+operator|::
+name|handleThemeChange
+argument_list|(
+name|window
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_macro
