@@ -48,6 +48,11 @@ include|#
 directive|include
 file|"private/qshortcutmap_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qplatformdrag_qpa.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -405,43 +410,29 @@ name|e
 argument_list|)
 block|;
 specifier|static
-name|Qt
-operator|::
-name|DropAction
+name|QPlatformDragQtResponse
 name|processDrag
 argument_list|(
-name|QWindow
-operator|*
-name|w
+argument|QWindow *w
 argument_list|,
-name|QMimeData
-operator|*
-name|dropData
+argument|const QMimeData *dropData
 argument_list|,
-specifier|const
-name|QPoint
-operator|&
-name|p
+argument|const QPoint&p
+argument_list|,
+argument|Qt::DropActions supportedActions
 argument_list|)
 block|;
 specifier|static
-name|Qt
-operator|::
-name|DropAction
+name|QPlatformDropQtResponse
 name|processDrop
 argument_list|(
-name|QWindow
-operator|*
-name|w
+argument|QWindow *w
 argument_list|,
-name|QMimeData
-operator|*
-name|dropData
+argument|const QMimeData *dropData
 argument_list|,
-specifier|const
-name|QPoint
-operator|&
-name|p
+argument|const QPoint&p
+argument_list|,
+argument|Qt::DropActions supportedActions
 argument_list|)
 block|;
 specifier|static

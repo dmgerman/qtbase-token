@@ -3029,8 +3029,6 @@ operator|->
 name|handleStatus
 argument_list|(
 name|event
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -3055,8 +3053,6 @@ operator|->
 name|handleFinished
 argument_list|(
 name|event
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

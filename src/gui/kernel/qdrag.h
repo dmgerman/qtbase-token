@@ -167,6 +167,27 @@ argument_list|,
 argument|Qt::DropAction action
 argument_list|)
 block|;
+name|QPixmap
+name|dragCursor
+argument_list|(
+argument|Qt::DropAction action
+argument_list|)
+specifier|const
+block|;
+name|Qt
+operator|::
+name|DropActions
+name|supportedActions
+argument_list|()
+specifier|const
+block|;
+name|Qt
+operator|::
+name|DropAction
+name|defaultAction
+argument_list|()
+specifier|const
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
