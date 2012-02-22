@@ -7475,12 +7475,6 @@ begin_comment
 comment|// shared fonts and QSystemSemaphore + QSharedMemory are not available
 end_comment
 begin_define
-DECL|macro|QT_NO_QWS_SHARE_FONTS
-define|#
-directive|define
-name|QT_NO_QWS_SHARE_FONTS
-end_define
-begin_define
 DECL|macro|QT_NO_SYSTEMSEMAPHORE
 define|#
 directive|define
