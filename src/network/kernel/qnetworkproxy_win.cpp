@@ -1824,6 +1824,20 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|proxyInfo
+operator|.
+name|dwAccessType
+operator|==
+name|WINHTTP_ACCESS_TYPE_NO_PROXY
+condition|)
+return|return
+name|sp
+operator|->
+name|defaultResult
+return|;
+comment|//i.e. the PAC file result was "DIRECT"
+if|if
+condition|(
 name|isBypassed
 argument_list|(
 name|query
