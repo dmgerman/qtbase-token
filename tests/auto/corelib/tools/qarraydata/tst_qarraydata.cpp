@@ -8063,7 +8063,7 @@ name|isSharable
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|v
 operator|.
@@ -8074,7 +8074,7 @@ name|v
 operator|.
 name|size
 argument_list|()
-operator|==
+argument_list|,
 name|v
 operator|.
 name|constEnd
