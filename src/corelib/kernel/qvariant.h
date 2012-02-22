@@ -868,7 +868,7 @@ block|; }
 ifndef|#
 directive|ifndef
 name|QT_NO_CAST_FROM_ASCII
-name|QT_ASCII_CAST_WARN_CONSTRUCTOR
+name|QT_ASCII_CAST_WARN
 name|QVariant
 argument_list|(
 specifier|const

@@ -4619,7 +4619,7 @@ name|QT_NO_CAST_FROM_ASCII
 end_ifndef
 begin_expr_stmt
 specifier|inline
-name|QT_ASCII_CAST_WARN_CONSTRUCTOR
+name|QT_ASCII_CAST_WARN
 name|QString
 argument_list|(
 specifier|const
@@ -4636,7 +4636,7 @@ argument|)
 argument_list|)
 block|{}
 specifier|inline
-name|QT_ASCII_CAST_WARN_CONSTRUCTOR
+name|QT_ASCII_CAST_WARN
 name|QString
 argument_list|(
 specifier|const

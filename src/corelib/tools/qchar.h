@@ -229,7 +229,7 @@ comment|// implicit
 ifndef|#
 directive|ifndef
 name|QT_NO_CAST_FROM_ASCII
-name|QT_ASCII_CAST_WARN_CONSTRUCTOR
+name|QT_ASCII_CAST_WARN
 name|Q_DECL_CONSTEXPR
 name|explicit
 name|QChar
@@ -242,7 +242,7 @@ argument_list|(
 argument|uchar(c)
 argument_list|)
 block|{ }
-name|QT_ASCII_CAST_WARN_CONSTRUCTOR
+name|QT_ASCII_CAST_WARN
 name|Q_DECL_CONSTEXPR
 name|explicit
 name|QChar
