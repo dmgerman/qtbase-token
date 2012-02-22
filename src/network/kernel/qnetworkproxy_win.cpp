@@ -221,6 +221,13 @@ name|ERROR_WINHTTP_LOGIN_FAILURE
 value|(WINHTTP_ERROR_BASE + 15)
 end_define
 begin_define
+DECL|macro|ERROR_WINHTTP_UNABLE_TO_DOWNLOAD_SCRIPT
+define|#
+directive|define
+name|ERROR_WINHTTP_UNABLE_TO_DOWNLOAD_SCRIPT
+value|(WINHTTP_ERROR_BASE + 167)
+end_define
+begin_define
 DECL|macro|ERROR_WINHTTP_AUTODETECTION_FAILED
 define|#
 directive|define
@@ -1948,6 +1955,9 @@ name|fAutoLogonIfChallenged
 operator|=
 literal|false
 expr_stmt|;
+comment|//Although it is possible to specify dwFlags = WINHTTP_AUTOPROXY_AUTO_DETECT | WINHTTP_AUTOPROXY_CONFIG_URL
+comment|//this has poor performance (WPAD is attempted for every url, taking 2.5 seconds per interface,
+comment|//before the configured pac file is used)
 if|if
 condition|(
 name|ieProxyConfig
@@ -2184,6 +2194,100 @@ operator|!
 name|getProxySucceeded
 operator|&&
 operator|(
+name|ERROR_WINHTTP_AUTODETECTION_FAILED
+operator|==
+name|getProxyError
+operator|)
+condition|)
+block|{
+comment|// WPAD failed
+if|if
+condition|(
+name|sp
+operator|->
+name|autoConfigUrl
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|//No config file could be retrieved on the network.
+comment|//Don't search for it next time again.
+name|sp
+operator|->
+name|isAutoConfig
+operator|=
+literal|false
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|//pac file URL is specified as well, try using that
+name|sp
+operator|->
+name|autoProxyOptions
+operator|.
+name|dwFlags
+operator|=
+name|WINHTTP_AUTOPROXY_CONFIG_URL
+expr_stmt|;
+name|sp
+operator|->
+name|autoProxyOptions
+operator|.
+name|lpszAutoConfigUrl
+operator|=
+operator|(
+name|LPCWSTR
+operator|)
+name|sp
+operator|->
+name|autoConfigUrl
+operator|.
+name|utf16
+argument_list|()
+expr_stmt|;
+name|getProxySucceeded
+operator|=
+name|ptrWinHttpGetProxyForUrl
+argument_list|(
+name|sp
+operator|->
+name|hHttpSession
+argument_list|,
+operator|(
+name|LPCWSTR
+operator|)
+name|url
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|utf16
+argument_list|()
+argument_list|,
+operator|&
+name|sp
+operator|->
+name|autoProxyOptions
+argument_list|,
+operator|&
+name|proxyInfo
+argument_list|)
+expr_stmt|;
+name|getProxyError
+operator|=
+name|GetLastError
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+operator|!
+name|getProxySucceeded
+operator|&&
+operator|(
 name|ERROR_WINHTTP_LOGIN_FAILURE
 operator|==
 name|getProxyError
@@ -2232,6 +2336,27 @@ name|getProxyError
 operator|=
 name|GetLastError
 argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|getProxySucceeded
+operator|&&
+operator|(
+name|ERROR_WINHTTP_UNABLE_TO_DOWNLOAD_SCRIPT
+operator|==
+name|getProxyError
+operator|)
+condition|)
+block|{
+comment|// PAC file url is not connectable, or server returned error (e.g. http 404)
+comment|//Don't search for it next time again.
+name|sp
+operator|->
+name|isAutoConfig
+operator|=
+literal|false
 expr_stmt|;
 block|}
 if|if
@@ -2336,23 +2461,7 @@ name|proxyServerList
 argument_list|)
 return|;
 block|}
-comment|// GetProxyForUrl failed
-if|if
-condition|(
-name|ERROR_WINHTTP_AUTODETECTION_FAILED
-operator|==
-name|getProxyError
-condition|)
-block|{
-comment|//No config file could be retrieved on the network.
-comment|//Don't search for it next time again.
-name|sp
-operator|->
-name|isAutoConfig
-operator|=
-literal|false
-expr_stmt|;
-block|}
+comment|// GetProxyForUrl failed, fall back to static configuration
 block|}
 comment|// static configuration
 if|if
