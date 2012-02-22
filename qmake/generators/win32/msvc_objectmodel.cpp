@@ -8370,6 +8370,9 @@ index|]
 operator|.
 name|toLatin1
 argument_list|()
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 condition|)
 block|{

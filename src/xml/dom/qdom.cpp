@@ -18395,7 +18395,7 @@ name|d
 init|=
 name|tmp
 operator|.
-name|data
+name|constData
 argument_list|()
 decl_stmt|;
 while|while
@@ -18429,6 +18429,9 @@ expr_stmt|;
 name|d
 operator|=
 name|tmp
+operator|.
+name|constData
+argument_list|()
 expr_stmt|;
 name|len
 operator|+=
@@ -18464,6 +18467,9 @@ expr_stmt|;
 name|d
 operator|=
 name|tmp
+operator|.
+name|constData
+argument_list|()
 expr_stmt|;
 name|len
 operator|+=
@@ -18516,6 +18522,9 @@ expr_stmt|;
 name|d
 operator|=
 name|tmp
+operator|.
+name|constData
+argument_list|()
 expr_stmt|;
 name|len
 operator|+=

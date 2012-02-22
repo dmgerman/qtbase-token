@@ -9469,6 +9469,9 @@ condition|(
 name|qstricmp
 argument_list|(
 name|iniSection
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 literal|"general"
 argument_list|)
@@ -9489,6 +9492,9 @@ condition|(
 name|qstricmp
 argument_list|(
 name|iniSection
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 literal|"%general"
 argument_list|)
@@ -10348,6 +10354,9 @@ condition|(
 name|qstricmp
 argument_list|(
 name|realSection
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 literal|"general"
 argument_list|)

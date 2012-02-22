@@ -360,7 +360,9 @@ expr_stmt|;
 return|return
 name|QLocale
 argument_list|(
-name|QLatin1String
+name|QString
+operator|::
+name|fromLatin1
 argument_list|(
 name|lang
 argument_list|)

@@ -2697,6 +2697,7 @@ condition|(
 name|slash
 condition|)
 block|{
+specifier|const
 name|QByteArray
 name|chunk
 init|=
@@ -2720,6 +2721,9 @@ condition|(
 name|QT_STAT
 argument_list|(
 name|chunk
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 operator|&
 name|st
@@ -2751,6 +2755,9 @@ condition|(
 name|QT_MKDIR
 argument_list|(
 name|chunk
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 literal|0777
 argument_list|)
@@ -2806,6 +2813,9 @@ name|encodeName
 argument_list|(
 name|dirName
 argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 literal|0777
 argument_list|)
@@ -2875,6 +2885,7 @@ operator|=
 name|slash
 control|)
 block|{
+specifier|const
 name|QByteArray
 name|chunk
 init|=
@@ -2898,6 +2909,9 @@ condition|(
 name|QT_STAT
 argument_list|(
 name|chunk
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 operator|&
 name|st
@@ -2928,6 +2942,9 @@ operator|::
 name|rmdir
 argument_list|(
 name|chunk
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 operator|!=
 literal|0
@@ -2977,6 +2994,9 @@ operator|.
 name|filePath
 argument_list|()
 argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 operator|==
 literal|0
@@ -3622,6 +3642,9 @@ argument_list|(
 name|path
 operator|.
 name|nativeFilePath
+argument_list|()
+operator|.
+name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;

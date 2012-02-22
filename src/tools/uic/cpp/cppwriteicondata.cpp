@@ -803,6 +803,7 @@ modifier|*
 name|image
 parameter_list|)
 block|{
+specifier|const
 name|QByteArray
 name|array
 init|=
@@ -822,6 +823,9 @@ operator|.
 name|write
 argument_list|(
 name|array
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|array
 operator|.

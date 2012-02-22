@@ -14325,6 +14325,9 @@ name|data1
 argument_list|,
 name|length1
 argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|toLocal8Bit_helper
 argument_list|(
@@ -14332,6 +14335,9 @@ name|data2
 argument_list|,
 name|length2
 argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

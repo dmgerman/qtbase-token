@@ -971,6 +971,7 @@ name|bool
 name|own_file
 parameter_list|)
 block|{
+specifier|const
 name|QByteArray
 name|ba
 init|=
@@ -992,6 +993,9 @@ condition|)
 name|k
 operator|=
 name|ba
+operator|.
+name|constData
+argument_list|()
 expr_stmt|;
 name|int
 name|h

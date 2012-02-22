@@ -973,8 +973,14 @@ init|=
 name|memcmp
 argument_list|(
 name|str1
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|str2
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|qMin
 argument_list|(
@@ -2357,7 +2363,7 @@ begin_comment
 comment|/*! \fn void QByteArray::squeeze()      Releases any memory not required to store the array's data.      The sole purpose of this function is to provide a means of fine     tuning QByteArray's memory usage. In general, you will rarely     ever need to call this function.      \sa reserve(), capacity() */
 end_comment
 begin_comment
-comment|/*! \fn QByteArray::operator const char *() const     \fn QByteArray::operator const void *() const      Returns a pointer to the data stored in the byte array. The     pointer can be used to access the bytes that compose the array.     The data is '\\0'-terminated. The pointer remains valid as long     as the array isn't reallocated or destroyed.      This operator is mostly useful to pass a byte array to a function     that accepts a \c{const char *}.      You can disable this operator by defining \c     QT_NO_CAST_FROM_BYTEARRAY when you compile your applications.      Note: A QByteArray can store any byte values including '\\0's,     but most functions that take \c{char *} arguments assume that the     data ends at the first '\\0' they encounter.      \sa constData() */
+comment|/*! \fn QByteArray::operator const char *() const     \fn QByteArray::operator const void *() const      \obsolete Use constData() instead.      Returns a pointer to the data stored in the byte array. The     pointer can be used to access the bytes that compose the array.     The data is '\\0'-terminated. The pointer remains valid as long     as the array isn't reallocated or destroyed.      This operator is mostly useful to pass a byte array to a function     that accepts a \c{const char *}.      You can disable this operator by defining \c     QT_NO_CAST_FROM_BYTEARRAY when you compile your applications.      Note: A QByteArray can store any byte values including '\\0's,     but most functions that take \c{char *} arguments assume that the     data ends at the first '\\0' they encounter.      \sa constData() */
 end_comment
 begin_comment
 comment|/*!   \macro QT_NO_CAST_FROM_BYTEARRAY   \relates QByteArray    Disables automatic conversions from QByteArray to   const char * or const void *.    \sa QT_NO_CAST_TO_ASCII, QT_NO_CAST_FROM_ASCII */
@@ -8171,6 +8177,9 @@ operator|.
 name|writeBytes
 argument_list|(
 name|ba
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|ba
 operator|.
