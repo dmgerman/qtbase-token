@@ -69,6 +69,7 @@ block|{
 DECL|member|private
 name|private
 label|:
+name|Q_DECL_CONSTEXPR
 name|QFixed
 argument_list|(
 argument|int val
@@ -84,6 +85,7 @@ block|{}
 comment|// 2nd int is just a dummy for disambiguation
 name|public
 label|:
+name|Q_DECL_CONSTEXPR
 name|QFixed
 argument_list|()
 operator|:
@@ -92,6 +94,7 @@ argument_list|(
 literal|0
 argument_list|)
 block|{}
+name|Q_DECL_CONSTEXPR
 name|QFixed
 argument_list|(
 argument|int i
@@ -103,6 +106,7 @@ argument|i<<
 literal|6
 argument_list|)
 block|{}
+name|Q_DECL_CONSTEXPR
 name|QFixed
 argument_list|(
 argument|long i
@@ -159,6 +163,7 @@ operator|*
 name|this
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|static
 name|QFixed
 name|fromReal
@@ -184,6 +189,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|static
 name|QFixed
 name|fromFixed
@@ -202,6 +208,7 @@ argument_list|)
 return|;
 block|}
 comment|// uses private ctor
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|value
@@ -225,6 +232,7 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|toInt
@@ -248,6 +256,7 @@ operator|>>
 literal|6
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|qreal
 name|toReal
@@ -268,6 +277,7 @@ operator|)
 literal|64
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|truncate
@@ -280,6 +290,7 @@ operator|>>
 literal|6
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|round
@@ -302,6 +313,7 @@ literal|64
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|floor
@@ -320,6 +332,7 @@ literal|64
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|ceil
@@ -340,6 +353,7 @@ literal|64
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|operator
@@ -365,6 +379,7 @@ operator|)
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|operator
@@ -390,6 +405,7 @@ operator|)
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|operator
@@ -484,6 +500,7 @@ operator|*
 name|this
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|operator
@@ -509,6 +526,7 @@ operator|)
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|operator
@@ -534,6 +552,7 @@ operator|)
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|operator
@@ -628,6 +647,7 @@ operator|*
 name|this
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|operator
@@ -644,6 +664,7 @@ name|val
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -664,6 +685,7 @@ operator|.
 name|val
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -684,6 +706,7 @@ operator|.
 name|val
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -704,6 +727,7 @@ operator|.
 name|val
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -724,6 +748,7 @@ operator|.
 name|val
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -744,6 +769,7 @@ operator|.
 name|val
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -764,6 +790,7 @@ operator|.
 name|val
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -917,6 +944,7 @@ operator|*
 name|this
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 namespace|QFixed
 name|operator
@@ -1110,6 +1138,7 @@ operator|*
 name|this
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 namespace|QFixed
 name|operator
@@ -1129,6 +1158,7 @@ name|i
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 namespace|QFixed
 name|operator
@@ -1175,6 +1205,7 @@ return|;
 block|}
 name|private
 range|:
+name|Q_DECL_CONSTEXPR
 name|QFixed
 argument_list|(
 argument|qreal i
@@ -1215,6 +1246,7 @@ operator|*
 name|this
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 namespace|QFixed
 name|operator
@@ -1269,6 +1301,7 @@ operator|*
 name|this
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 namespace|QFixed
 name|operator
@@ -1347,6 +1380,7 @@ operator|*
 name|this
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 namespace|QFixed
 name|operator
@@ -1394,6 +1428,7 @@ operator|*
 name|this
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 namespace|QFixed
 name|operator
@@ -1439,6 +1474,7 @@ name|QFIXED_MAX
 value|(INT_MAX/256)
 end_define
 begin_function
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|qRound
@@ -1458,6 +1494,7 @@ return|;
 block|}
 end_function
 begin_function
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|qFloor
@@ -1480,6 +1517,7 @@ return|;
 block|}
 end_function
 begin_function
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|operator
@@ -1502,6 +1540,7 @@ return|;
 block|}
 end_function
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|operator
@@ -1524,6 +1563,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|operator
@@ -1549,6 +1589,7 @@ return|;
 block|}
 end_expr_stmt
 begin_function
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|operator
@@ -1571,6 +1612,7 @@ return|;
 block|}
 end_function
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|operator
@@ -1593,6 +1635,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixed
 name|operator
@@ -1618,9 +1661,10 @@ return|;
 block|}
 end_expr_stmt
 begin_comment
-comment|// inline QFixed operator*(qreal d, const QFixed&d2) { return d2*d; }
+comment|// Q_DECL_CONSTEXPR inline QFixed operator*(qreal d, const QFixed&d2) { return d2*d; }
 end_comment
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1650,6 +1694,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1679,6 +1724,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1708,6 +1754,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1737,6 +1784,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1766,6 +1814,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1795,6 +1844,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1824,6 +1874,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1853,6 +1904,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1882,6 +1934,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1911,6 +1964,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -1940,6 +1994,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -2014,10 +2069,12 @@ decl_stmt|;
 name|QFixed
 name|y
 decl_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixedPoint
-argument_list|()
+parameter_list|()
 block|{}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixedPoint
 argument_list|(
@@ -2042,6 +2099,7 @@ argument_list|(
 argument|_y
 argument_list|)
 block|{}
+name|Q_DECL_CONSTEXPR
 name|QPointF
 name|toPointF
 argument_list|()
@@ -2062,6 +2120,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|static
 name|QFixedPoint
 name|fromPointF
@@ -2110,6 +2169,7 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixedPoint
 name|operator
@@ -2149,6 +2209,7 @@ return|;
 block|}
 end_expr_stmt
 begin_expr_stmt
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QFixedPoint
 name|operator
@@ -2197,9 +2258,11 @@ decl_stmt|;
 name|QFixed
 name|height
 decl_stmt|;
+name|Q_DECL_CONSTEXPR
 name|QFixedSize
-argument_list|()
+parameter_list|()
 block|{}
+name|Q_DECL_CONSTEXPR
 name|QFixedSize
 argument_list|(
 argument|QFixed _width
@@ -2217,6 +2280,7 @@ argument_list|(
 argument|_height
 argument_list|)
 block|{}
+name|Q_DECL_CONSTEXPR
 name|QSizeF
 name|toSizeF
 argument_list|()
@@ -2237,6 +2301,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|static
 name|QFixedSize
 name|fromSizeF
