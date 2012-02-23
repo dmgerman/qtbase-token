@@ -568,6 +568,16 @@ name|cshape
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+begin_function_decl
+name|void
+name|q_updateFocusObject
+parameter_list|(
+name|QObject
+modifier|*
+name|object
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_function
 specifier|static
 name|QGuiApplicationPrivate

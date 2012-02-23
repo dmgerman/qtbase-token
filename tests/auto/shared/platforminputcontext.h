@@ -75,7 +75,14 @@ argument_list|)
 block|,
 name|m_lastEventType
 argument_list|(
-argument|QEvent::None
+name|QEvent
+operator|::
+name|None
+argument_list|)
+block|,
+name|m_setFocusObjectCallCount
+argument_list|(
+literal|0
 argument_list|)
 block|{}
 name|virtual
@@ -271,6 +278,21 @@ operator|::
 name|LeftToRight
 return|;
 block|}
+name|virtual
+name|void
+name|setFocusObject
+argument_list|(
+argument|QObject *object
+argument_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|object
+argument_list|)
+block|;
+name|m_setFocusObjectCallCount
+operator|++
+block|;     }
 name|bool
 name|m_animating
 block|;
@@ -315,6 +337,9 @@ name|m_lastEventType
 block|;
 name|QRectF
 name|m_keyboardRect
+block|;
+name|int
+name|m_setFocusObjectCallCount
 block|; }
 decl_stmt|;
 end_decl_stmt

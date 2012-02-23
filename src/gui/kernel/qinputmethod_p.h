@@ -120,6 +120,14 @@ operator|*
 name|object
 argument_list|)
 block|;
+name|bool
+name|objectAcceptsInputMethod
+argument_list|(
+name|QObject
+operator|*
+name|object
+argument_list|)
+block|;
 name|QTransform
 name|inputItemTransform
 block|;

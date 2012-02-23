@@ -54,6 +54,14 @@ argument_list|()
 specifier|const
 block|;
 name|void
+name|setFocusObject
+argument_list|(
+name|QObject
+operator|*
+name|object
+argument_list|)
+block|;
+name|void
 name|invokeAction
 argument_list|(
 argument|QInputMethod::Action a
@@ -111,10 +119,6 @@ argument|uint cursor_pos
 argument_list|,
 argument|bool visible
 argument_list|)
-block|;
-name|void
-name|inputItemChanged
-argument_list|()
 block|;
 name|void
 name|cursorRectChanged
