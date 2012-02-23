@@ -10296,12 +10296,21 @@ index|]
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|spec_org
 operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
+comment|// try again the next time around
+operator|*
+name|spec
+operator|=
+name|QString
+argument_list|()
+expr_stmt|;
+block|}
+else|else
 block|{
 operator|*
 name|spec
@@ -10339,6 +10348,8 @@ name|spec
 operator|->
 name|remove
 argument_list|(
+literal|0
+argument_list|,
 name|lastSlash
 operator|+
 literal|1
