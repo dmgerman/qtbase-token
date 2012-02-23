@@ -285,7 +285,7 @@ operator|&
 name|query
 argument_list|)
 expr_stmt|;
-name|QRect
+name|QRectF
 name|r
 init|=
 name|query
@@ -297,7 +297,7 @@ operator|::
 name|ImCursorRectangle
 argument_list|)
 operator|.
-name|toRect
+name|toRectF
 argument_list|()
 decl_stmt|;
 if|if
@@ -309,7 +309,7 @@ name|isValid
 argument_list|()
 condition|)
 return|return
-name|QRect
+name|QRectF
 argument_list|()
 return|;
 return|return
