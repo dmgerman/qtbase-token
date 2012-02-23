@@ -16,7 +16,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QAccessibleBridge     \brief The QAccessibleBridge class is the base class for     accessibility back-ends.      \ingroup accessibility     \inmodule QtWidgets      Qt supports Microsoft Active Accessibility (MSAA), Mac OS X     Accessibility, and the Unix/X11 AT-SPI standard. By subclassing     QAccessibleBridge, you can support other backends than the     predefined ones.      Currently, custom bridges are only supported on Unix. We might     add support for them on other platforms as well if there is     enough demand.      \sa QAccessible, QAccessibleBridgePlugin */
+comment|/*!     \class QAccessibleBridge     \brief The QAccessibleBridge class is the base class for     accessibility back-ends.     \internal      \ingroup accessibility     \inmodule QtWidgets      Qt supports Microsoft Active Accessibility (MSAA), Mac OS X     Accessibility, and the Unix/X11 AT-SPI standard. By subclassing     QAccessibleBridge, you can support other backends than the     predefined ones.      Currently, custom bridges are only supported on Unix. We might     add support for them on other platforms as well if there is     enough demand.      \sa QAccessible, QAccessibleBridgePlugin */
 end_comment
 begin_comment
 comment|/*!     \fn QAccessibleBridge::~QAccessibleBridge()      Destroys the accessibility bridge object. */
@@ -28,7 +28,7 @@ begin_comment
 comment|/*!     \fn void QAccessibleBridge::notifyAccessibilityUpdate(int reason, QAccessibleInterface *interface, int child)      This function is called by Qt to notify the bridge about a change     in the accessibility information for object wrapped by the given     \a interface.      \a reason specifies the cause of the change. It can take values     of type QAccessible::Event.      \a child is the (1-based) index of the child element that has     changed. When \a child is 0, the object itself has changed.      \sa QAccessible::updateAccessibility() */
 end_comment
 begin_comment
-comment|/*!     \class QAccessibleBridgePlugin     \brief The QAccessibleBridgePlugin class provides an abstract     base for accessibility bridge plugins.      \ingroup plugins     \ingroup accessibility     \inmodule QtWidgets      Writing an accessibility bridge plugin is achieved by subclassing     this base class, reimplementing the pure virtual functions keys()     and create(), and exporting the class with the     Q_EXPORT_PLUGIN2() macro.      \sa QAccessibleBridge, QAccessiblePlugin, {How to Create Qt Plugins} */
+comment|/*!     \class QAccessibleBridgePlugin     \brief The QAccessibleBridgePlugin class provides an abstract     base for accessibility bridge plugins.     \internal      \ingroup plugins     \ingroup accessibility     \inmodule QtWidgets      Writing an accessibility bridge plugin is achieved by subclassing     this base class, reimplementing the pure virtual functions keys()     and create(), and exporting the class with the     Q_EXPORT_PLUGIN2() macro.      \sa QAccessibleBridge, QAccessiblePlugin, {How to Create Qt Plugins} */
 end_comment
 begin_comment
 comment|/*!     Constructs an accessibility bridge plugin with the given \a     parent. This is invoked automatically by the Q_EXPORT_PLUGIN2()     macro. */

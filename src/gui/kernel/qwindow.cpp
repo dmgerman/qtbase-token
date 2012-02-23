@@ -3340,7 +3340,7 @@ begin_comment
 comment|/*!     \fn QWindow::screenChanged(QScreen *screen)      This signal is emitted when a window's screen changes, either     by being set explicitly with setScreen(), or automatically when     the window's screen is removed. */
 end_comment
 begin_comment
-comment|/*!   Returns the accessibility interface for the object that the window represents   \preliminary   \sa QAccessible   */
+comment|/*!   Returns the accessibility interface for the object that the window represents   \internal   \sa QAccessible   */
 end_comment
 begin_function
 DECL|function|accessibleRoot
