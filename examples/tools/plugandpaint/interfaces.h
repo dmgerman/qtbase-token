@@ -264,25 +264,40 @@ end_comment
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|//! [3] //! [4]
+DECL|macro|BrushInterface_iid
+define|#
+directive|define
+name|BrushInterface_iid
+value|"org.qt-project.Qt.Examples.PlugAndPaint.BrushInterface"
 name|Q_DECLARE_INTERFACE
 argument_list|(
 name|BrushInterface
 argument_list|,
-literal|"com.trolltech.PlugAndPaint.BrushInterface/1.0"
+name|BrushInterface_iid
 argument_list|)
 comment|//! [3]
+DECL|macro|ShapeInterface_iid
+define|#
+directive|define
+name|ShapeInterface_iid
+value|"org.qt-project.Qt.Examples.PlugAndPaint.ShapeInterface"
 name|Q_DECLARE_INTERFACE
 argument_list|(
 name|ShapeInterface
 argument_list|,
-literal|"com.trolltech.PlugAndPaint.ShapeInterface/1.0"
+name|ShapeInterface_iid
 argument_list|)
 comment|//! [5]
+DECL|macro|FilterInterface_iid
+define|#
+directive|define
+name|FilterInterface_iid
+value|"org.qt-project.Qt.Examples.PlugAndPaint.FilterInterface"
 name|Q_DECLARE_INTERFACE
 argument_list|(
 name|FilterInterface
 argument_list|,
-literal|"com.trolltech.PlugAndPaint.FilterInterface/1.0"
+name|FilterInterface_iid
 argument_list|)
 comment|//! [4] //! [5]
 name|QT_END_NAMESPACE

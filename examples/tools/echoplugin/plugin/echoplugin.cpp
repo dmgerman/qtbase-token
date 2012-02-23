@@ -36,19 +36,4 @@ end_function
 begin_comment
 comment|//! [0]
 end_comment
-begin_comment
-comment|//! [1]
-end_comment
-begin_expr_stmt
-name|Q_EXPORT_PLUGIN2
-argument_list|(
-name|echoplugin
-argument_list|,
-name|EchoPlugin
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_comment
-comment|//! [1]
-end_comment
 end_unit
