@@ -316,6 +316,9 @@ operator|.
 name|setCodec
 argument_list|(
 name|codecName
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|out
