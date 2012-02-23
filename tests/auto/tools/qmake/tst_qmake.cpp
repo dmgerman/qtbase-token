@@ -389,6 +389,11 @@ argument_list|()
 expr_stmt|;
 name|test_compiler
 operator|.
+name|resetEnvironment
+argument_list|()
+expr_stmt|;
+name|test_compiler
+operator|.
 name|clearCommandOutput
 argument_list|()
 expr_stmt|;
@@ -1505,11 +1510,6 @@ argument_list|,
 literal|"foo"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|test_compiler
-operator|.
-name|resetEnvironment
-argument_list|()
 expr_stmt|;
 block|}
 end_function
