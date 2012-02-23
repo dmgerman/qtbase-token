@@ -4843,7 +4843,7 @@ expr_stmt|;
 block|}
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
+name|Q_OS_WIN
 if|if
 condition|(
 operator|(
@@ -9047,9 +9047,6 @@ operator|==
 name|act
 condition|)
 return|return;
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
 if|if
 condition|(
 name|qt_wince_is_mobile
@@ -9105,17 +9102,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 name|d
 operator|->
 name|defaultAction
 operator|=
 name|act
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WINCE
 if|if
 condition|(
 name|qt_wince_is_mobile
@@ -9186,8 +9178,6 @@ name|rebuild
 argument_list|()
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment
