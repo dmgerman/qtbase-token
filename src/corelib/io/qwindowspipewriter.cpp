@@ -135,7 +135,7 @@ condition|(
 operator|!
 name|wait
 argument_list|(
-literal|100
+literal|30000
 argument_list|)
 condition|)
 name|terminate
