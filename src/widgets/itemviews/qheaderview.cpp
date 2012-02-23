@@ -6760,6 +6760,16 @@ argument_list|(
 name|l
 argument_list|)
 decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|sectionCount
+operator|==
+name|logicalIndices
+operator|.
+name|count
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -6775,17 +6785,6 @@ operator|++
 name|v
 control|)
 block|{
-if|if
-condition|(
-name|v
-operator|>=
-name|logicalIndices
-operator|.
-name|count
-argument_list|()
-condition|)
-continue|continue;
-comment|// the section doesn't exist
 if|if
 condition|(
 name|v
