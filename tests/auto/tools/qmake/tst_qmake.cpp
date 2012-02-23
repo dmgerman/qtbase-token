@@ -2579,7 +2579,6 @@ expr_stmt|;
 comment|// Make fails: no rule to make "non-existing file"
 name|QVERIFY
 argument_list|(
-operator|!
 name|test_compiler
 operator|.
 name|make
@@ -2588,6 +2587,8 @@ name|workDir
 argument_list|,
 name|QString
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
