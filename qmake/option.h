@@ -336,6 +336,11 @@ name|applyHostMode
 parameter_list|()
 function_decl|;
 specifier|static
+name|QStringList
+name|mkspecPaths
+parameter_list|()
+function_decl|;
+specifier|static
 name|bool
 name|prepareProject
 parameter_list|(
@@ -868,6 +873,15 @@ parameter_list|,
 name|int
 init|=
 literal|0
+parameter_list|)
+function_decl|;
+specifier|static
+name|bool
+name|resolveSpec
+parameter_list|(
+name|QString
+modifier|*
+name|spec
 parameter_list|)
 function_decl|;
 block|}
