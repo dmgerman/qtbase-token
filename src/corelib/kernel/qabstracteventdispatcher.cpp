@@ -430,6 +430,9 @@ begin_comment
 comment|/*!     \fn QList<TimerInfo> QAbstractEventDispatcher::registeredTimers(QObject *object) const      Returns a list of registered timers for \a object. The TimerInfo struct has     \c timerId, \c interval, and \c timerType members.      \sa Qt::TimerType */
 end_comment
 begin_comment
+comment|/*!     \fn int QAbstractEventDispatcher::remainingTime(int timerId)      Returns the remaining time in milliseconds with the given \a timerId.     If the timer is inactive, the returned value will be -1. If the timer is     overdue, the returned value will be 0.      \sa Qt::TimerType */
+end_comment
+begin_comment
 comment|/*! \fn void QAbstractEventDispatcher::wakeUp()     \threadsafe      Wakes up the event loop.      \sa awake() */
 end_comment
 begin_comment

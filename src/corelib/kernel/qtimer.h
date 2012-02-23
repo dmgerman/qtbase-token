@@ -52,6 +52,10 @@ argument|int interval READ interval WRITE setInterval
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
+argument|int remainingTime READ remainingTime
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
 argument|Qt::TimerType timerType READ timerType WRITE setTimerType
 argument_list|)
 name|Q_PROPERTY
@@ -110,6 +114,11 @@ return|return
 name|inter
 return|;
 block|}
+name|int
+name|remainingTime
+argument_list|()
+specifier|const
+block|;
 name|void
 name|setTimerType
 argument_list|(
