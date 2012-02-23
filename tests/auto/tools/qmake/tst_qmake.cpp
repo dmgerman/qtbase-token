@@ -52,10 +52,6 @@ name|cleanupTestCase
 parameter_list|()
 function_decl|;
 name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
 name|cleanup
 parameter_list|()
 function_decl|;
@@ -358,21 +354,6 @@ operator|::
 name|cleanupTestCase
 parameter_list|()
 block|{ }
-end_function
-begin_function
-DECL|function|init
-name|void
-name|tst_qmake
-operator|::
-name|init
-parameter_list|()
-block|{
-name|test_compiler
-operator|.
-name|clearCommandOutput
-argument_list|()
-expr_stmt|;
-block|}
 end_function
 begin_function
 DECL|function|cleanup
