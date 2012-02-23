@@ -730,13 +730,16 @@ modifier|&
 name|match
 parameter_list|)
 block|{
-name|QVERIFY
-argument_list|(
+if|if
+condition|(
 name|match
 operator|.
 name|isValid
 argument_list|()
-operator|==
+condition|)
+block|{
+name|QVERIFY
+argument_list|(
 name|match
 operator|.
 name|regularExpression
@@ -746,14 +749,6 @@ name|isValid
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|match
-operator|.
-name|isValid
-argument_list|()
-condition|)
-block|{
 name|QVERIFY
 argument_list|(
 operator|!
@@ -1304,6 +1299,15 @@ name|hasNext
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QRegularExpressionMatchIterator::peekNext() called on an iterator already at end"
+argument_list|)
+expr_stmt|;
 name|QRegularExpressionMatch
 name|peeked
 init|=
@@ -1312,6 +1316,15 @@ operator|.
 name|peekNext
 argument_list|()
 decl_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QRegularExpressionMatchIterator::next() called on an iterator already at end"
+argument_list|)
+expr_stmt|;
 name|QRegularExpressionMatch
 name|match
 init|=
