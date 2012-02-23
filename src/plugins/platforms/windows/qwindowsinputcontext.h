@@ -88,7 +88,7 @@ name|virtual
 name|void
 name|invokeAction
 argument_list|(
-argument|QInputPanel::Action
+argument|QInputMethod::Action
 argument_list|,
 argument|int cursorPosition
 argument_list|)
