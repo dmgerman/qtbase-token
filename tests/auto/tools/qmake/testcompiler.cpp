@@ -533,6 +533,50 @@ expr_stmt|;
 block|}
 end_function
 begin_function
+DECL|function|resetArguments
+name|void
+name|TestCompiler
+operator|::
+name|resetArguments
+parameter_list|()
+block|{
+name|makeArgs_
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|qmakeArgs_
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_function
+DECL|function|setArguments
+name|void
+name|TestCompiler
+operator|::
+name|setArguments
+parameter_list|(
+name|QString
+name|makeArgs
+parameter_list|,
+name|QString
+name|qmakeArgs
+parameter_list|)
+block|{
+name|makeArgs_
+operator|=
+name|makeArgs
+expr_stmt|;
+name|qmakeArgs_
+operator|=
+name|qmakeArgs
+expr_stmt|;
+block|}
+end_function
+begin_function
 DECL|function|resetEnvironment
 name|void
 name|TestCompiler
@@ -828,6 +872,10 @@ name|qmakeCmd_
 operator|+
 literal|" "
 operator|+
+name|qmakeArgs_
+operator|+
+literal|" "
+operator|+
 name|projectFile
 operator|+
 literal|" -o "
@@ -869,6 +917,10 @@ name|QString
 name|cmdline
 init|=
 name|makeCmd_
+operator|+
+literal|" "
+operator|+
+name|makeArgs_
 decl_stmt|;
 if|if
 condition|(

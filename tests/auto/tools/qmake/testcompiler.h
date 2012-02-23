@@ -69,6 +69,18 @@ argument|QString qmakeCmd
 argument_list|)
 block|;
 name|void
+name|resetArguments
+argument_list|()
+block|;
+name|void
+name|setArguments
+argument_list|(
+argument|QString makeArgs
+argument_list|,
+argument|QString qmakeArgs
+argument_list|)
+block|;
+name|void
 name|resetEnvironment
 argument_list|()
 block|;
@@ -183,9 +195,13 @@ argument_list|)
 block|;
 name|QString
 name|makeCmd_
+block|,
+name|makeArgs_
 block|;
 name|QString
 name|qmakeCmd_
+block|,
+name|qmakeArgs_
 block|;
 name|QStringList
 name|environment_
