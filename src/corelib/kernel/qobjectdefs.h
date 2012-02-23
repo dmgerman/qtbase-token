@@ -651,7 +651,7 @@ name|METHOD
 parameter_list|(
 name|a
 parameter_list|)
-value|qFlagLocation("0"#a QLOCATION)
+value|qFlagLocation("0" QTOSTRING(a) QLOCATION)
 end_define
 begin_endif
 endif|#
@@ -665,7 +665,7 @@ name|SLOT
 parameter_list|(
 name|a
 parameter_list|)
-value|qFlagLocation("1"#a QLOCATION)
+value|qFlagLocation("1" QTOSTRING(a) QLOCATION)
 end_define
 begin_define
 DECL|macro|SIGNAL
@@ -675,7 +675,7 @@ name|SIGNAL
 parameter_list|(
 name|a
 parameter_list|)
-value|qFlagLocation("2"#a QLOCATION)
+value|qFlagLocation("2" QTOSTRING(a) QLOCATION)
 end_define
 begin_else
 else|#
@@ -694,7 +694,7 @@ name|METHOD
 parameter_list|(
 name|a
 parameter_list|)
-value|"0"#a
+value|"0" QTOSTRING(a)
 end_define
 begin_endif
 endif|#
@@ -708,7 +708,7 @@ name|SLOT
 parameter_list|(
 name|a
 parameter_list|)
-value|"1"#a
+value|"1" QTOSTRING(a)
 end_define
 begin_define
 DECL|macro|SIGNAL
@@ -718,7 +718,7 @@ name|SIGNAL
 parameter_list|(
 name|a
 parameter_list|)
-value|"2"#a
+value|"2" QTOSTRING(a)
 end_define
 begin_endif
 endif|#

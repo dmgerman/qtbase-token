@@ -508,6 +508,9 @@ name|pp
 decl_stmt|;
 name|Moc
 name|moc
+argument_list|(
+name|pp
+argument_list|)
 decl_stmt|;
 name|pp
 operator|.
