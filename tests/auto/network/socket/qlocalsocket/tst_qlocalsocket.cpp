@@ -42,6 +42,14 @@ include|#
 directive|include
 file|<sys/un.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<unistd.h>
+end_include
+begin_comment
+comment|// for unlink()
+end_comment
 begin_endif
 endif|#
 directive|endif
