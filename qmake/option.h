@@ -338,7 +338,12 @@ function_decl|;
 specifier|static
 name|bool
 name|prepareProject
-parameter_list|()
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|pfile
+parameter_list|)
 function_decl|;
 specifier|static
 name|bool
@@ -814,6 +819,11 @@ DECL|member|do_stub_makefile
 specifier|static
 name|bool
 name|do_stub_makefile
+decl_stmt|;
+DECL|member|project_root
+specifier|static
+name|QString
+name|project_root
 decl_stmt|;
 DECL|member|project_build_root
 specifier|static
