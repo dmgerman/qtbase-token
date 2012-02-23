@@ -121,6 +121,14 @@ name|void
 name|captureCount
 argument_list|()
 block|;
+name|void
+name|pcreJitStackUsage_data
+argument_list|()
+block|;
+name|void
+name|pcreJitStackUsage
+argument_list|()
+block|;
 name|private
 operator|:
 name|void
