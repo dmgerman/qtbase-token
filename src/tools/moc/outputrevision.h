@@ -22,7 +22,7 @@ enum|enum
 block|{
 name|mocOutputRevision
 init|=
-literal|63
+literal|64
 block|}
 enum|;
 end_enum
