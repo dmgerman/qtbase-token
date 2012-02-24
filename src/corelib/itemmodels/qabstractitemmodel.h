@@ -58,6 +58,7 @@ name|QAbstractItemModel
 decl_stmt|;
 name|public
 label|:
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QModelIndex
 argument_list|()
@@ -85,6 +86,7 @@ literal|0
 argument_list|)
 block|{}
 comment|// compiler-generated copy/move ctors/assignment operators are fine!
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|row
@@ -95,6 +97,7 @@ return|return
 name|r
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|int
 name|column
@@ -105,6 +108,7 @@ return|return
 name|c
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|quintptr
 name|internalId
@@ -184,6 +188,7 @@ name|flags
 argument_list|()
 specifier|const
 expr_stmt|;
+name|Q_DECL_CONSTEXPR
 specifier|inline
 specifier|const
 name|QAbstractItemModel
@@ -196,6 +201,7 @@ return|return
 name|m
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|isValid
@@ -222,6 +228,7 @@ literal|0
 operator|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -268,6 +275,7 @@ name|m
 operator|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -290,6 +298,7 @@ name|other
 operator|)
 return|;
 block|}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|bool
 name|operator
@@ -396,6 +405,7 @@ argument_list|(
 argument|amodel
 argument_list|)
 block|{}
+name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QModelIndex
 argument_list|(
