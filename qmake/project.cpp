@@ -3532,6 +3532,11 @@ name|concat_it
 operator|)
 operator|)
 expr_stmt|;
+name|feature_roots
+operator|.
+name|removeDuplicates
+argument_list|()
+expr_stmt|;
 return|return
 name|feature_roots
 return|;

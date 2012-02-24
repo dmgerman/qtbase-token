@@ -3561,6 +3561,11 @@ argument_list|)
 operator|+
 name|concat
 expr_stmt|;
+name|ret
+operator|.
+name|removeDuplicates
+argument_list|()
+expr_stmt|;
 return|return
 name|ret
 return|;
