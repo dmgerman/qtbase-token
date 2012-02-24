@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<private/qsystemerror_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qt_windows.h>
 end_include
 begin_include
@@ -186,10 +191,17 @@ name|reply
 operator|->
 name|errorString
 operator|=
-name|tr
+name|QSystemError
 argument_list|(
-literal|"Invalid reply received"
+name|status
+argument_list|,
+name|QSystemError
+operator|::
+name|NativeError
 argument_list|)
+operator|.
+name|toString
+argument_list|()
 expr_stmt|;
 return|return;
 block|}
