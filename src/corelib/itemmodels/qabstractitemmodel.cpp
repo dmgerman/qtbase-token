@@ -851,11 +851,11 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void *QPersistentModelIndex::internalId() const      \internal      Returns a \c{qint64} used by the model to associate the index with     the internal data structure. */
+comment|/*!     \fn quintptr QPersistentModelIndex::internalId() const      \internal      Returns a \c{quintptr} used by the model to associate the index with     the internal data structure. */
 end_comment
 begin_function
 DECL|function|internalId
-name|qint64
+name|quintptr
 name|QPersistentModelIndex
 operator|::
 name|internalId
@@ -6155,10 +6155,7 @@ begin_comment
 comment|/*!     \fn QModelIndex QAbstractItemModel::createIndex(int row, int column, void *ptr) const      Creates a model index for the given \a row and \a column with the internal     pointer \a ptr.      When using a QSortFilterProxyModel, its indexes have their own internal     pointer. It is not advisable to access this internal pointer outside of the     model. Use the data() function instead.      This function provides a consistent interface that model subclasses must     use to create model indexes. */
 end_comment
 begin_comment
-comment|/*!     \fn QModelIndex QAbstractItemModel::createIndex(int row, int column, int id) const     \obsolete      Use QModelIndex     QAbstractItemModel::createIndex(int row, int column, quint32 id) instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QModelIndex QAbstractItemModel::createIndex(int row, int column, quint32 id) const      Creates a model index for the given \a row and \a column with the internal     identifier, \a id.      This function provides a consistent interface that model subclasses must     use to create model indexes.      \sa QModelIndex::internalId() */
+comment|/*!     \fn QModelIndex QAbstractItemModel::createIndex(int row, int column, quintptr id) const      Creates a model index for the given \a row and \a column with the internal     identifier, \a id.      This function provides a consistent interface that model subclasses must     use to create model indexes.      \sa QModelIndex::internalId() */
 end_comment
 begin_comment
 comment|/*!   \internal */
@@ -8954,8 +8951,6 @@ argument_list|(
 name|row
 argument_list|,
 name|column
-argument_list|,
-literal|0
 argument_list|)
 else|:
 name|QModelIndex
@@ -9133,8 +9128,6 @@ argument_list|(
 name|row
 argument_list|,
 name|column
-argument_list|,
-literal|0
 argument_list|)
 else|:
 name|QModelIndex

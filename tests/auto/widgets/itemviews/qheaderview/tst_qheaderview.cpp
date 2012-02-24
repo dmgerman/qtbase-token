@@ -9112,8 +9112,6 @@ argument_list|(
 name|row
 argument_list|,
 name|column
-argument_list|,
-literal|0
 argument_list|)
 else|:
 name|QModelIndex

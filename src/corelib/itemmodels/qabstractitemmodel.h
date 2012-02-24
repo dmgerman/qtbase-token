@@ -117,19 +117,16 @@ name|p
 return|;
 block|}
 specifier|inline
-name|qint64
+name|quintptr
 name|internalId
 argument_list|()
 specifier|const
 block|{
 return|return
-name|reinterpret_cast
-operator|<
-name|qint64
-operator|>
-operator|(
+name|quintptr
+argument_list|(
 name|p
-operator|)
+argument_list|)
 return|;
 block|}
 specifier|inline
@@ -382,23 +379,80 @@ begin_expr_stmt
 specifier|inline
 name|QModelIndex
 argument_list|(
-argument|int row
+argument|int arow
 argument_list|,
-argument|int column
+argument|int acolumn
 argument_list|,
 argument|void *ptr
 argument_list|,
-argument|const QAbstractItemModel *model
+argument|const QAbstractItemModel *amodel
 argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_decl_stmt
+operator|:
+name|r
+argument_list|(
+name|arow
+argument_list|)
+operator|,
+name|c
+argument_list|(
+name|acolumn
+argument_list|)
+operator|,
+name|p
+argument_list|(
+name|ptr
+argument_list|)
+operator|,
+name|m
+argument_list|(
+argument|amodel
+argument_list|)
+block|{}
+specifier|inline
+name|QModelIndex
+argument_list|(
+argument|int arow
+argument_list|,
+argument|int acolumn
+argument_list|,
+argument|quintptr id
+argument_list|,
+argument|const QAbstractItemModel *amodel
+argument_list|)
+operator|:
+name|r
+argument_list|(
+name|arow
+argument_list|)
+operator|,
+name|c
+argument_list|(
+name|acolumn
+argument_list|)
+operator|,
+name|p
+argument_list|(
+name|reinterpret_cast
+operator|<
+name|void
+operator|*
+operator|>
+operator|(
+name|id
+operator|)
+argument_list|)
+operator|,
+name|m
+argument_list|(
+argument|amodel
+argument_list|)
+block|{}
 name|int
 name|r
-decl_stmt|,
+operator|,
 name|c
-decl_stmt|;
-end_decl_stmt
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|void
 modifier|*
@@ -611,7 +665,7 @@ name|internalPointer
 argument_list|()
 specifier|const
 expr_stmt|;
-name|qint64
+name|quintptr
 name|internalId
 argument_list|()
 specifier|const
@@ -1768,19 +1822,7 @@ argument|int row
 argument_list|,
 argument|int column
 argument_list|,
-argument|int id
-argument_list|)
-specifier|const
-block|;
-specifier|inline
-name|QModelIndex
-name|createIndex
-argument_list|(
-argument|int row
-argument_list|,
-argument|int column
-argument_list|,
-argument|quint32 id
+argument|quintptr id
 argument_list|)
 specifier|const
 block|;
@@ -2224,32 +2266,9 @@ argument|int arow
 argument_list|,
 argument|int acolumn
 argument_list|,
-argument|int aid
+argument|quintptr aid
 argument_list|)
 specifier|const
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_CC_MSVC
-argument_list|)
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|push
-name|)
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|disable
-name|:
-name|4312
-name|)
-comment|// avoid conversion warning on 64-bit
-endif|#
-directive|endif
 block|{
 return|return
 name|QModelIndex
@@ -2258,120 +2277,13 @@ name|arow
 argument_list|,
 name|acolumn
 argument_list|,
-name|reinterpret_cast
-operator|<
-name|void
-operator|*
-operator|>
-operator|(
 name|aid
-operator|)
 argument_list|,
 name|this
 argument_list|)
 return|;
 block|}
 end_expr_stmt
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_CC_MSVC
-argument_list|)
-end_if
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|pop
-name|)
-end_pragma
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_expr_stmt
-DECL|function|createIndex
-specifier|inline
-name|QModelIndex
-name|QAbstractItemModel
-operator|::
-name|createIndex
-argument_list|(
-argument|int arow
-argument_list|,
-argument|int acolumn
-argument_list|,
-argument|quint32 aid
-argument_list|)
-specifier|const
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_CC_MSVC
-argument_list|)
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|push
-name|)
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|disable
-name|:
-name|4312
-name|)
-comment|// avoid conversion warning on 64-bit
-endif|#
-directive|endif
-block|{
-return|return
-name|QModelIndex
-argument_list|(
-name|arow
-argument_list|,
-name|acolumn
-argument_list|,
-name|reinterpret_cast
-operator|<
-name|void
-operator|*
-operator|>
-operator|(
-name|aid
-operator|)
-argument_list|,
-name|this
-argument_list|)
-return|;
-block|}
-end_expr_stmt
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_CC_MSVC
-argument_list|)
-end_if
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|pop
-name|)
-end_pragma
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
@@ -2554,41 +2466,6 @@ begin_comment
 comment|// inline implementations
 end_comment
 begin_expr_stmt
-DECL|function|QModelIndex
-specifier|inline
-name|QModelIndex
-operator|::
-name|QModelIndex
-argument_list|(
-argument|int arow
-argument_list|,
-argument|int acolumn
-argument_list|,
-argument|void *adata
-argument_list|,
-argument|const QAbstractItemModel *amodel
-argument_list|)
-operator|:
-name|r
-argument_list|(
-name|arow
-argument_list|)
-operator|,
-name|c
-argument_list|(
-name|acolumn
-argument_list|)
-operator|,
-name|p
-argument_list|(
-name|adata
-argument_list|)
-operator|,
-name|m
-argument_list|(
-argument|amodel
-argument_list|)
-block|{}
 DECL|function|parent
 specifier|inline
 name|QModelIndex

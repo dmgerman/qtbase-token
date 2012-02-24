@@ -3076,8 +3076,6 @@ argument_list|(
 name|r
 argument_list|,
 name|c
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3090,8 +3088,6 @@ argument_list|(
 name|i
 argument_list|,
 name|c
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
