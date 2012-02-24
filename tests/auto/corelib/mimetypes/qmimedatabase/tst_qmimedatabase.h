@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtCore/QObject>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QTemporaryDir>
+end_include
 begin_decl_stmt
 name|class
 name|tst_QMimeDatabase
@@ -36,10 +41,6 @@ name|slots
 operator|:
 name|void
 name|initTestCase
-argument_list|()
-block|;
-name|void
-name|cleanupTestCase
 argument_list|()
 block|;
 name|void
@@ -158,8 +159,25 @@ argument_list|()
 block|;
 name|private
 operator|:
+name|void
+name|init
+argument_list|()
+block|;
+comment|// test-specific
 name|QString
-name|m_dataHome
+name|m_globalXdgDir
+block|;
+name|QString
+name|m_localXdgDir
+block|;
+name|QString
+name|m_yastMimeTypes
+block|;
+name|QTemporaryDir
+name|m_temporaryDir
+block|;
+name|QString
+name|m_testSuite
 block|; }
 decl_stmt|;
 end_decl_stmt
