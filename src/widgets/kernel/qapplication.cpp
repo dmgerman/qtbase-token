@@ -397,6 +397,7 @@ operator|->
 name|palette
 argument_list|()
 condition|)
+block|{
 name|QApplicationPrivate
 operator|::
 name|setSystemPalette
@@ -405,6 +406,12 @@ operator|*
 name|themePalette
 argument_list|)
 expr_stmt|;
+name|QApplicationPrivate
+operator|::
+name|initializeWidgetPaletteHash
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
