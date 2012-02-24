@@ -17437,30 +17437,6 @@ operator|<<
 name|endl
 expr_stmt|;
 block|}
-name|tmpStream
-operator|<<
-literal|"/* Machine byte-order */"
-operator|<<
-name|endl
-expr_stmt|;
-name|tmpStream
-operator|<<
-literal|"#define Q_BIG_ENDIAN 4321"
-operator|<<
-name|endl
-expr_stmt|;
-name|tmpStream
-operator|<<
-literal|"#define Q_LITTLE_ENDIAN 1234"
-operator|<<
-name|endl
-expr_stmt|;
-name|tmpStream
-operator|<<
-literal|"#define Q_BYTE_ORDER Q_LITTLE_ENDIAN"
-operator|<<
-name|endl
-expr_stmt|;
 if|if
 condition|(
 name|dictionary
