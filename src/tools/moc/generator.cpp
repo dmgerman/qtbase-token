@@ -5829,7 +5829,36 @@ name|fprintf
 argument_list|(
 name|out
 argument_list|,
-literal|"    } else if (_c == QMetaObject::IndexOfMethod) {\n"
+literal|"    }"
+argument_list|)
+expr_stmt|;
+name|needElse
+operator|=
+literal|true
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|cdef
+operator|->
+name|signalList
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|Q_ASSERT
+argument_list|(
+name|needElse
+argument_list|)
+expr_stmt|;
+comment|// if there is signal, there was method.
+name|fprintf
+argument_list|(
+name|out
+argument_list|,
+literal|" else if (_c == QMetaObject::IndexOfMethod) {\n"
 argument_list|)
 expr_stmt|;
 name|fprintf
@@ -5860,7 +5889,9 @@ literal|0
 init|;
 name|methodindex
 operator|<
-name|methodList
+name|cdef
+operator|->
+name|signalList
 operator|.
 name|size
 argument_list|()
@@ -5874,7 +5905,9 @@ name|FunctionDef
 modifier|&
 name|f
 init|=
-name|methodList
+name|cdef
+operator|->
+name|signalList
 operator|.
 name|at
 argument_list|(
