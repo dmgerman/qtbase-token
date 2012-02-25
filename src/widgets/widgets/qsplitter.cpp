@@ -557,7 +557,7 @@ specifier|const
 name|QSplitterHandle
 argument_list|)
 expr_stmt|;
-comment|// When splitters are only 1 pixel large we increase the
+comment|// When splitters are only 1 or 0 pixel large we increase the
 comment|// actual grab area to five pixels
 comment|// Note that QSplitter uses contentsRect for layouting
 comment|// and ensures that handles are drawn on top of widgets
@@ -573,7 +573,7 @@ name|s
 operator|->
 name|handleWidth
 argument_list|()
-operator|==
+operator|<=
 literal|1
 operator|)
 decl_stmt|;
@@ -6771,7 +6771,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QSplitter::handleWidth     \brief the width of the splitter handles      By default, this property contains a value that depends on the user's platform     and style preferences.      If you set handleWidth to 1, the actual grab area will grow to overlap a     few pixels of it's respective widgets. */
+comment|/*!     \property QSplitter::handleWidth     \brief the width of the splitter handles      By default, this property contains a value that depends on the user's platform     and style preferences.      If you set handleWidth to 1 or 0, the actual grab area will grow to overlap a     few pixels of it's respective widgets. */
 end_comment
 begin_function
 DECL|function|handleWidth
@@ -6793,7 +6793,7 @@ condition|(
 name|d
 operator|->
 name|handleWidth
-operator|>
+operator|>=
 literal|0
 condition|)
 block|{

@@ -227,7 +227,8 @@ argument_list|)
 block|,
 name|handleWidth
 argument_list|(
-literal|0
+operator|-
+literal|1
 argument_list|)
 block|,
 name|blockChildAdd
