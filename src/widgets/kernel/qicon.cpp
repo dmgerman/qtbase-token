@@ -2780,28 +2780,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \obsolete      Returns a number that identifies the contents of this     QIcon object. Distinct QIcon objects can have     the same serial number if they refer to the same contents     (but they don't have to). Also, the serial number of     a QIcon object may change during its lifetime.      Use cacheKey() instead.      A null icon always has a serial number of 0.      Serial numbers are mostly useful in conjunction with caching.      \sa QPixmap::serialNumber() */
+comment|/*! \fn int QIcon::serialNumber() const     \obsolete      Returns a number that identifies the contents of this     QIcon object. Distinct QIcon objects can have     the same serial number if they refer to the same contents     (but they don't have to). Also, the serial number of     a QIcon object may change during its lifetime.      Use cacheKey() instead.      A null icon always has a serial number of 0.      Serial numbers are mostly useful in conjunction with caching.      \sa QPixmap::serialNumber() */
 end_comment
-begin_function
-DECL|function|serialNumber
-name|int
-name|QIcon
-operator|::
-name|serialNumber
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|d
-condition|?
-name|d
-operator|->
-name|serialNum
-else|:
-literal|0
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     Returns a number that identifies the contents of this QIcon     object. Distinct QIcon objects can have the same key if     they refer to the same contents.     \since 4.3      The cacheKey() will change when the icon is altered via     addPixmap() or addFile().      Cache keys are mostly useful in conjunction with caching.      \sa QPixmap::cacheKey() */
 end_comment

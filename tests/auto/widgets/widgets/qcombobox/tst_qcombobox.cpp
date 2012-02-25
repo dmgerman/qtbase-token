@@ -8224,13 +8224,13 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|icon
 operator|.
-name|serialNumber
+name|cacheKey
 argument_list|()
-operator|==
+argument_list|,
 name|icons
 operator|.
 name|at
@@ -8238,7 +8238,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|serialNumber
+name|cacheKey
 argument_list|()
 argument_list|)
 expr_stmt|;

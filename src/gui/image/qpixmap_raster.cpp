@@ -359,8 +359,10 @@ name|setSerialNumber
 argument_list|(
 name|image
 operator|.
-name|serialNumber
+name|cacheKey
 argument_list|()
+operator|>>
+literal|32
 argument_list|)
 expr_stmt|;
 block|}
@@ -1700,8 +1702,10 @@ name|setSerialNumber
 argument_list|(
 name|image
 operator|.
-name|serialNumber
+name|cacheKey
 argument_list|()
+operator|>>
+literal|32
 argument_list|)
 expr_stmt|;
 block|}

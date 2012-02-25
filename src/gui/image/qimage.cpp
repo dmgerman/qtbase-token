@@ -22415,33 +22415,8 @@ directive|undef
 name|IWX_PIX
 end_undef
 begin_comment
-comment|/*! \obsolete     Returns a number that identifies the contents of this     QImage object. Distinct QImage objects can only have the same     serial number if they refer to the same contents (but they don't     have to).      Use cacheKey() instead.      \warning The serial number doesn't necessarily change when the     image is altered. This means that it may be dangerous to use     it as a cache key.      \sa operator==() */
+comment|/*! \fn int QImage::serialNumber() const     \obsolete     Returns a number that identifies the contents of this     QImage object. Distinct QImage objects can only have the same     serial number if they refer to the same contents (but they don't     have to).      Use cacheKey() instead.      \warning The serial number doesn't necessarily change when the     image is altered. This means that it may be dangerous to use     it as a cache key.      \sa operator==() */
 end_comment
-begin_function
-DECL|function|serialNumber
-name|int
-name|QImage
-operator|::
-name|serialNumber
-parameter_list|()
-specifier|const
-block|{
-if|if
-condition|(
-operator|!
-name|d
-condition|)
-return|return
-literal|0
-return|;
-else|else
-return|return
-name|d
-operator|->
-name|ser_no
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     Returns a number that identifies the contents of this QImage     object. Distinct QImage objects can only have the same key if they     refer to the same contents.      The key will change when the image is altered. */
 end_comment

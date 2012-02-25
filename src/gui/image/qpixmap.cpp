@@ -2503,33 +2503,8 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \obsolete     Returns a number that identifies the contents of this QPixmap     object. Distinct QPixmap objects can only have the same serial     number if they refer to the same contents (but they don't have     to).      Use cacheKey() instead.      \warning The serial number doesn't necessarily change when     the pixmap is altered. This means that it may be dangerous to use     it as a cache key. For caching pixmaps, we recommend using the     QPixmapCache class whenever possible. */
+comment|/*! \fn int QPixmap::serialNumber() const     \obsolete     Returns a number that identifies the contents of this QPixmap     object. Distinct QPixmap objects can only have the same serial     number if they refer to the same contents (but they don't have     to).      Use cacheKey() instead.      \warning The serial number doesn't necessarily change when     the pixmap is altered. This means that it may be dangerous to use     it as a cache key. For caching pixmaps, we recommend using the     QPixmapCache class whenever possible. */
 end_comment
-begin_function
-DECL|function|serialNumber
-name|int
-name|QPixmap
-operator|::
-name|serialNumber
-parameter_list|()
-specifier|const
-block|{
-if|if
-condition|(
-name|isNull
-argument_list|()
-condition|)
-return|return
-literal|0
-return|;
-return|return
-name|data
-operator|->
-name|serialNumber
-argument_list|()
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     Returns a number that identifies this QPixmap. Distinct QPixmap     objects can only have the same cache key if they refer to the same     contents.      The cacheKey() will change when the pixmap is altered. */
 end_comment

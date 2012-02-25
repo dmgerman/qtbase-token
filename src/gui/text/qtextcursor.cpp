@@ -9424,7 +9424,7 @@ name|number
 argument_list|(
 name|image
 operator|.
-name|serialNumber
+name|cacheKey
 argument_list|()
 argument_list|)
 expr_stmt|;
