@@ -94,10 +94,15 @@ file|"private/qscopedpointer_p.h"
 end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
 DECL|macro|QT_QSETTINGS_ALWAYS_CASE_SENSITIVE_AND_FORGET_ORIGINAL_KEY_ORDER
 define|#
 directive|define
 name|QT_QSETTINGS_ALWAYS_CASE_SENSITIVE_AND_FORGET_ORIGINAL_KEY_ORDER
+endif|#
+directive|endif
 comment|// used in testing framework
 DECL|macro|QSETTINGS_P_H_VERSION
 define|#
