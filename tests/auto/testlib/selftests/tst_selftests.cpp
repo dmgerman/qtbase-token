@@ -653,9 +653,12 @@ argument_list|)
 condition|?
 literal|""
 else|:
+name|QString
+argument_list|(
 literal|"test_output."
 operator|+
 name|logger
+argument_list|)
 operator|)
 return|;
 block|}
