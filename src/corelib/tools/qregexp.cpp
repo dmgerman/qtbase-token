@@ -17966,6 +17966,11 @@ operator|=
 operator|new
 name|QRegExpPrivate
 expr_stmt|;
+name|prepareEngine
+argument_list|(
+name|priv
+argument_list|)
+expr_stmt|;
 block|}
 end_constructor
 begin_comment
@@ -18004,6 +18009,11 @@ name|syntax
 argument_list|,
 name|cs
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|prepareEngine
+argument_list|(
+name|priv
 argument_list|)
 expr_stmt|;
 block|}
