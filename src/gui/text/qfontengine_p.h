@@ -968,16 +968,6 @@ block|;
 comment|// Number of positions within a single pixel for this cache
 name|protected
 operator|:
-specifier|static
-specifier|const
-name|QVector
-operator|<
-name|QRgb
-operator|>
-operator|&
-name|grayPalette
-argument_list|()
-block|;
 name|QFixed
 name|lastRightBearing
 argument_list|(
