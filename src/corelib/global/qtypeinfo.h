@@ -288,6 +288,37 @@ define|\
 value|template<> \ Q_DECLARE_TYPEINFO_BODY(TYPE, FLAGS)
 end_define
 begin_comment
+comment|/* Specialize QTypeInfo for QFlags<T> */
+end_comment
+begin_expr_stmt
+DECL|variable|QFlags
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+name|class
+name|QFlags
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+name|Q_DECLARE_TYPEINFO_BODY
+argument_list|(
+name|QFlags
+operator|<
+name|T
+operator|>
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|/*    Specialize a shared type with:       Q_DECLARE_SHARED(type);     where 'type' is the name of the type to specialize.  NOTE: shared    types must declare a 'bool isDetached(void) const;' member for this    to work. */
 end_comment
 begin_ifdef
