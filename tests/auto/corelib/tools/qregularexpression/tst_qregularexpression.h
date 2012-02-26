@@ -129,6 +129,14 @@ name|void
 name|pcreJitStackUsage
 argument_list|()
 block|;
+name|void
+name|regularExpressionMatch_data
+argument_list|()
+block|;
+name|void
+name|regularExpressionMatch
+argument_list|()
+block|;
 name|private
 operator|:
 name|void

@@ -1320,6 +1320,15 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|compiledPattern
+condition|)
+return|return
+operator|-
+literal|1
+return|;
 name|int
 name|index
 init|=
