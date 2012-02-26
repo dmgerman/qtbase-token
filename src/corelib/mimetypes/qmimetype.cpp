@@ -86,22 +86,6 @@ name|QMimeTypePrivate
 operator|::
 name|QMimeTypePrivate
 parameter_list|()
-member_init_list|:
-name|name
-argument_list|()
-comment|//, comment()
-member_init_list|,
-name|localeComments
-argument_list|()
-member_init_list|,
-name|genericIconName
-argument_list|()
-member_init_list|,
-name|iconName
-argument_list|()
-member_init_list|,
-name|globPatterns
-argument_list|()
 block|{}
 end_constructor
 begin_constructor
