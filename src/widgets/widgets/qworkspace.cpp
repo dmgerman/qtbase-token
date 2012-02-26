@@ -18369,7 +18369,7 @@ name|r
 operator|=
 name|r
 operator|.
-name|unite
+name|united
 argument_list|(
 name|child
 operator|->
