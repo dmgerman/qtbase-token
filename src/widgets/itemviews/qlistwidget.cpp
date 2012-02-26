@@ -139,6 +139,9 @@ operator|::
 name|clear
 parameter_list|()
 block|{
+name|beginResetModel
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -207,7 +210,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|reset
+name|endResetModel
 argument_list|()
 expr_stmt|;
 block|}

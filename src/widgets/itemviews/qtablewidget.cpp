@@ -4543,6 +4543,9 @@ operator|::
 name|clearContents
 parameter_list|()
 block|{
+name|beginResetModel
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -4599,7 +4602,7 @@ literal|0
 expr_stmt|;
 block|}
 block|}
-name|reset
+name|endResetModel
 argument_list|()
 expr_stmt|;
 block|}
