@@ -108,8 +108,8 @@ name|d
 operator|->
 name|name
 argument_list|)
-comment|//, comment(other.d->comment)
 member_init_list|,
+comment|// comment(other.d->comment),
 name|localeComments
 argument_list|(
 name|other
