@@ -109,7 +109,6 @@ operator|->
 name|name
 argument_list|)
 member_init_list|,
-comment|// comment(other.d->comment),
 name|localeComments
 argument_list|(
 name|other
@@ -160,7 +159,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|//comment.clear();
 name|localeComments
 operator|.
 name|clear
@@ -212,7 +210,6 @@ name|other
 operator|.
 name|name
 operator|&&
-comment|//comment == other.comment&&
 name|localeComments
 operator|==
 name|other
