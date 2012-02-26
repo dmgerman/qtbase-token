@@ -5377,9 +5377,6 @@ argument_list|(
 literal|'\t'
 argument_list|)
 operator|+
-operator|(
-name|QString
-operator|)
 name|QKeySequence
 argument_list|(
 name|Qt
@@ -5389,6 +5386,13 @@ operator|+
 name|Qt
 operator|::
 name|Key_F4
+argument_list|)
+operator|.
+name|toString
+argument_list|(
+name|QKeySequence
+operator|::
+name|NativeText
 argument_list|)
 endif|#
 directive|endif
