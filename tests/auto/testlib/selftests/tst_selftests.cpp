@@ -1562,6 +1562,8 @@ literal|"printdatatagswithglobaltags"
 operator|<<
 literal|"qexecstringlist"
 operator|<<
+literal|"silent"
+operator|<<
 literal|"singleskip"
 operator|<<
 literal|"skip"
@@ -1765,6 +1767,19 @@ operator|<<
 literal|"-datatags"
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|subtest
+operator|==
+literal|"silent"
+condition|)
+block|{
+name|arguments
+operator|<<
+literal|"-silent"
+expr_stmt|;
+block|}
 comment|// These tests don't work right unless logging plain text to
 comment|// standard output, either because they execute multiple test
 comment|// objects or because they internally supply arguments to
@@ -1834,6 +1849,15 @@ condition|(
 name|subtest
 operator|==
 literal|"printdatatagswithglobaltags"
+condition|)
+block|{
+continue|continue;
+block|}
+if|if
+condition|(
+name|subtest
+operator|==
+literal|"silent"
 condition|)
 block|{
 continue|continue;

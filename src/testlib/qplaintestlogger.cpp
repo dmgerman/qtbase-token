@@ -1790,14 +1790,22 @@ name|int
 name|line
 parameter_list|)
 block|{
-comment|// suppress PASS in silent mode
+comment|// suppress PASS and XFAIL in silent mode
 if|if
 condition|(
+operator|(
 name|type
 operator|==
 name|QAbstractTestLogger
 operator|::
 name|Pass
+operator|||
+name|type
+operator|==
+name|QAbstractTestLogger
+operator|::
+name|XFail
+operator|)
 operator|&&
 name|QTestLog
 operator|::
@@ -1838,6 +1846,17 @@ modifier|&
 name|result
 parameter_list|)
 block|{
+comment|// suppress benchmark results in silent mode
+if|if
+condition|(
+name|QTestLog
+operator|::
+name|verboseLevel
+argument_list|()
+operator|<
+literal|0
+condition|)
+return|return;
 name|printBenchmarkResult
 argument_list|(
 name|result
@@ -1869,22 +1888,14 @@ name|int
 name|line
 parameter_list|)
 block|{
-comment|// suppress PASS in silent mode
+comment|// suppress non-fatal messages in silent mode
 if|if
 condition|(
-operator|(
 name|type
-operator|==
+operator|!=
 name|QAbstractTestLogger
 operator|::
-name|Skip
-operator|||
-name|type
-operator|==
-name|QAbstractTestLogger
-operator|::
-name|Info
-operator|)
+name|QFatal
 operator|&&
 name|QTestLog
 operator|::
