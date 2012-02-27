@@ -56,6 +56,11 @@ end_include
 begin_comment
 comment|// Mac needs what in this file!
 end_comment
+begin_include
+include|#
+directive|include
+file|<qpa/qplatformmenu.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#
@@ -421,6 +426,27 @@ name|QPlatformMenuBar
 operator|*
 name|platformMenuBar
 block|;
+specifier|inline
+name|int
+name|indexOf
+argument_list|(
+argument|QAction *act
+argument_list|)
+specifier|const
+block|{
+return|return
+name|q_func
+argument_list|()
+operator|->
+name|actions
+argument_list|()
+operator|.
+name|indexOf
+argument_list|(
+name|act
+argument_list|)
+return|;
+block|}
 ifdef|#
 directive|ifdef
 name|Q_OS_WINCE

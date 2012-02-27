@@ -171,10 +171,13 @@ argument|Priority priority READ priority WRITE setPriority
 argument_list|)
 name|public
 operator|:
+comment|// note this is copied into qplatformmenu.h, which must stay in sync
 expr|enum
 name|MenuRole
 block|{
 name|NoRole
+operator|=
+literal|0
 block|,
 name|TextHeuristicRole
 block|,
