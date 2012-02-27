@@ -548,6 +548,18 @@ name|productPath
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|detectedCompiler
+operator|!=
+name|compiler_info
+index|[
+name|i
+index|]
+operator|.
+name|compiler
+condition|)
+block|{
 operator|++
 name|installed
 expr_stmt|;
@@ -560,6 +572,8 @@ index|]
 operator|.
 name|compiler
 expr_stmt|;
+block|}
+comment|/* else {                          We detected the same compiler again, which happens when                         configure is build with the 64-bit compiler. Skip the                         duplicate so that we don't think it's installed twice.                      }                     */
 break|break;
 block|}
 block|}
@@ -621,6 +635,18 @@ name|executable
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|detectedCompiler
+operator|!=
+name|compiler_info
+index|[
+name|i
+index|]
+operator|.
+name|compiler
+condition|)
+block|{
 operator|++
 name|installed
 expr_stmt|;
@@ -633,6 +659,8 @@ index|]
 operator|.
 name|compiler
 expr_stmt|;
+block|}
+comment|/* else {                      We detected the same compiler again, which happens when                     configure is build with the 64-bit compiler. Skip the                     duplicate so that we don't think it's installed twice.                  }                 */
 break|break;
 block|}
 block|}
