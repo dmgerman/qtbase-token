@@ -56,7 +56,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtCore/qmetatype.h"
+file|"QtCore/qvariant.h"
 end_include
 begin_include
 include|#
