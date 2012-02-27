@@ -1057,9 +1057,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|//void QPlainTestLogger::printBenchmarkResult(const char *bmtag, int value, int iterations)
-end_comment
 begin_function
 DECL|function|printBenchmarkResult
 name|void
@@ -1841,7 +1838,6 @@ modifier|&
 name|result
 parameter_list|)
 block|{
-comment|//    printBenchmarkResult(QTest::benchmarkResult2String(), value, iterations);
 name|printBenchmarkResult
 argument_list|(
 name|result
