@@ -21425,6 +21425,24 @@ operator|::
 name|taskQTBUG_7395_readOnlyShortcut
 parameter_list|()
 block|{
+if|#
+directive|if
+name|defined
+argument_list|(
+name|UBUNTU_ONEIRIC
+argument_list|)
+operator|&&
+name|defined
+argument_list|(
+name|__x86_64__
+argument_list|)
+name|QSKIP
+argument_list|(
+literal|"QTBUG-24518 - Unstable test for Ubuntu 11.10"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|//ReadOnly QLineEdit should not intercept shortcut.
 name|QLineEdit
 name|le
