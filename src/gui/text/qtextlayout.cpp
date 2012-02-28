@@ -1149,7 +1149,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the additional formats supported by the text layout to \a formatList.      \sa additionalFormats(), clearAdditionalFormats() */
+comment|/*!     Sets the additional formats supported by the text layout to \a formatList.     The formats are applied with preedit area text in place.      \sa additionalFormats(), clearAdditionalFormats() */
 end_comment
 begin_function
 DECL|function|setAdditionalFormats
@@ -13234,7 +13234,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn int QTextLine::xToCursor(qreal x, CursorPosition cpos) const      Converts the x-coordinate \a x, to the nearest matching cursor     position, depending on the cursor position type, \a cpos.      \sa cursorToX() */
+comment|/*!     \fn int QTextLine::xToCursor(qreal x, CursorPosition cpos) const      Converts the x-coordinate \a x, to the nearest matching cursor     position, depending on the cursor position type, \a cpos.     Note that result cursor position includes possible preedit area text.      \sa cursorToX() */
 end_comment
 begin_function
 DECL|function|xToCursor
