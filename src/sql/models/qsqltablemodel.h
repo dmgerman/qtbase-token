@@ -156,6 +156,11 @@ specifier|const
 block|;
 name|bool
 name|isDirty
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|isDirty
 argument_list|(
 argument|const QModelIndex&index
 argument_list|)
