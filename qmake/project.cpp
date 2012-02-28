@@ -3555,7 +3555,7 @@ name|location
 argument_list|(
 name|QLibraryInfo
 operator|::
-name|DataPath
+name|HostDataPath
 argument_list|)
 operator|+
 name|mkspecs_concat
@@ -3662,7 +3662,7 @@ name|location
 argument_list|(
 name|QLibraryInfo
 operator|::
-name|DataPath
+name|HostDataPath
 argument_list|)
 operator|+
 name|concat
@@ -21986,7 +21986,7 @@ name|location
 argument_list|(
 name|QLibraryInfo
 operator|::
-name|BinariesPath
+name|HostBinariesPath
 argument_list|)
 operator|+
 literal|"/qmake"

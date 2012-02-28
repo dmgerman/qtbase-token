@@ -24502,7 +24502,7 @@ return|;
 return|return
 name|QLibraryInfo
 operator|::
-name|location
+name|rawLocation
 argument_list|(
 name|QLibraryInfo
 operator|::

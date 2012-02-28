@@ -88,6 +88,25 @@ name|ExamplesPath
 block|,
 name|TestsPath
 block|,
+comment|// Insert new values above this line
+ifdef|#
+directive|ifdef
+name|QT_BUILD_QMAKE
+comment|// These are not subject to binary compatibility constraints
+name|SysrootPath
+block|,
+name|HostPrefixPath
+block|,
+name|HostBinariesPath
+block|,
+name|HostDataPath
+block|,
+name|LastHostPath
+init|=
+name|HostDataPath
+block|,
+endif|#
+directive|endif
 name|SettingsPath
 init|=
 literal|100
@@ -101,6 +120,18 @@ name|LibraryLocation
 parameter_list|)
 function_decl|;
 comment|// ### Qt 5: consider renaming it to path()
+ifdef|#
+directive|ifdef
+name|QT_BUILD_QMAKE
+specifier|static
+name|QString
+name|rawLocation
+parameter_list|(
+name|LibraryLocation
+parameter_list|)
+function_decl|;
+endif|#
+directive|endif
 name|private
 label|:
 name|QLibraryInfo
