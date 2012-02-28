@@ -60,6 +60,7 @@ name|QRingBuffer
 block|{
 name|public
 label|:
+name|explicit
 specifier|inline
 name|QRingBuffer
 argument_list|(
