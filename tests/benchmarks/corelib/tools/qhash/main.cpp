@@ -99,6 +99,11 @@ end_class
 begin_comment
 comment|///////////////////// QHash /////////////////////
 end_comment
+begin_include
+include|#
+directive|include
+file|<QDebug>
+end_include
 begin_function
 DECL|function|data
 name|void
@@ -257,6 +262,112 @@ literal|"uuids-list"
 argument_list|)
 operator|<<
 name|uuids
+expr_stmt|;
+block|}
+block|{
+comment|// lots of strings with alphabetical characters, vaguely reminiscent of
+comment|// a dictionary.
+comment|//
+comment|// this programatically generates a series like:
+comment|//  AAAAAA
+comment|//  AAAAAB
+comment|//  AAAAAC
+comment|//  ...
+comment|//  AAAAAZ
+comment|//  AAAABZ
+comment|//  ...
+comment|//  AAAAZZ
+comment|//  AAABZZ
+name|QByteArray
+name|id
+argument_list|(
+literal|"AAAAAAA"
+argument_list|)
+decl_stmt|;
+specifier|static
+name|QStringList
+name|dict
+decl_stmt|;
+if|if
+condition|(
+name|dict
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+for|for
+control|(
+name|int
+name|i
+init|=
+name|id
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
+init|;
+name|i
+operator|>
+literal|0
+condition|;
+control|)
+block|{
+name|dict
+operator|.
+name|append
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
+name|char
+name|c
+init|=
+name|id
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
+name|id
+index|[
+name|i
+index|]
+operator|=
+operator|++
+name|c
+expr_stmt|;
+if|if
+condition|(
+name|c
+operator|==
+literal|'Z'
+condition|)
+block|{
+comment|// wrap to next digit
+name|i
+operator|--
+expr_stmt|;
+name|id
+index|[
+name|i
+index|]
+operator|=
+literal|'A'
+expr_stmt|;
+block|}
+block|}
+block|}
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"dictionary"
+argument_list|)
+operator|<<
+name|dict
 expr_stmt|;
 block|}
 block|}
