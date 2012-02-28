@@ -53,15 +53,10 @@ name|QPair
 argument_list|()
 operator|:
 name|first
-argument_list|(
-name|T1
 argument_list|()
-argument_list|)
 operator|,
 name|second
-argument_list|(
-argument|T2()
-argument_list|)
+argument_list|()
 block|{}
 DECL|function|QPair
 name|QPair
