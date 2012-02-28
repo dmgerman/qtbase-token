@@ -2076,6 +2076,7 @@ argument|int replaceLength =
 literal|0
 argument_list|)
 block|;
+name|QT_DEPRECATED
 name|void
 name|setTentativeCommitString
 argument_list|(
@@ -2144,6 +2145,7 @@ return|return
 name|replace_length
 return|;
 block|}
+name|QT_DEPRECATED
 specifier|inline
 specifier|const
 name|QString

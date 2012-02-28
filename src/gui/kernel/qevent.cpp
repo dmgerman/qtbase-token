@@ -2398,7 +2398,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the tentative commit string to \a tentativeCommitString.      The tentative commit string is what the preedit string is expected to be committed as.     The string can be used within the editor to trigger code that reacts on text changes such as validators. */
+comment|/*!     Sets the tentative commit string to \a tentativeCommitString.      The tentative commit string is what the preedit string is expected to be committed as.     The string can be used within the editor to trigger code that reacts on text changes such as validators.     \deprecated */
 end_comment
 begin_function
 DECL|function|setTentativeCommitString
@@ -2435,7 +2435,7 @@ begin_comment
 comment|/*!     \fn int QInputMethodEvent::replacementLength() const      Returns the number of characters to be replaced in the preedit     string.      \sa replacementStart(), setCommitString() */
 end_comment
 begin_comment
-comment|/*!     \fn const QString&tentativeCommitString() const      Returns the text as which preedit string is expected to be committed as.     The string can be used within the editor to trigger code that reacts on text changes such as validators.      \sa setTentativeCommitString() */
+comment|/*!     \fn const QString&tentativeCommitString() const      Returns the text as which preedit string is expected to be committed as.     The string can be used within the editor to trigger code that reacts on text changes such as validators.     \deprecated      \sa setTentativeCommitString() */
 end_comment
 begin_comment
 comment|/*!     \class QInputMethodQueryEvent     \since 5.0      \brief This event is sent by the input context to input objects.      It is used by the     input method to query a set of properties of the object to be     able to support complex input method operations as support for     surrounding text and reconversions.      queries() specifies which properties are queried.      The object should call setValue() on the event to fill in the requested     data before calling accept(). */
