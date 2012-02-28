@@ -1546,7 +1546,10 @@ operator|==
 literal|0
 condition|)
 block|{
-name|reset
+name|beginResetModel
+argument_list|()
+expr_stmt|;
+name|endResetModel
 argument_list|()
 expr_stmt|;
 return|return;

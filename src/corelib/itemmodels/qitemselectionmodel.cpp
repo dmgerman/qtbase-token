@@ -7650,9 +7650,6 @@ modifier|&
 name|range
 parameter_list|)
 block|{
-ifndef|#
-directive|ifndef
-name|Q_BROKEN_DEBUG_STREAM
 name|dbg
 operator|.
 name|nospace
@@ -7680,23 +7677,6 @@ operator|.
 name|space
 argument_list|()
 return|;
-else|#
-directive|else
-name|qWarning
-argument_list|(
-literal|"This compiler doesn't support streaming QItemSelectionRange to QDebug"
-argument_list|)
-expr_stmt|;
-return|return
-name|dbg
-return|;
-name|Q_UNUSED
-argument_list|(
-name|range
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_endif

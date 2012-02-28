@@ -964,9 +964,7 @@ specifier|inline
 name|char
 name|digitToCLocale
 argument_list|(
-specifier|const
 name|QChar
-operator|&
 name|c
 argument_list|)
 decl|const
@@ -1330,7 +1328,7 @@ name|QLocalePrivate
 operator|::
 name|digitToCLocale
 argument_list|(
-argument|const QChar&in
+argument|QChar in
 argument_list|)
 specifier|const
 block|{

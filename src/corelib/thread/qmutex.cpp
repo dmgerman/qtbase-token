@@ -45,7 +45,7 @@ end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|Q_MUTEX_LINUX
+name|QT_LINUX_FUTEX
 end_ifndef
 begin_include
 include|#
@@ -140,7 +140,7 @@ condition|)
 block|{
 ifndef|#
 directive|ifndef
-name|Q_MUTEX_LINUX
+name|QT_LINUX_FUTEX
 if|if
 condition|(
 name|d
@@ -253,7 +253,7 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|Q_MUTEX_LINUX
+name|QT_LINUX_FUTEX
 end_ifndef
 begin_comment
 comment|//linux implementation is in qmutex_linux.cpp

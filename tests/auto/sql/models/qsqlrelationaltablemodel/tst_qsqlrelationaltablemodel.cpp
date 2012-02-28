@@ -13256,8 +13256,15 @@ argument_list|,
 literal|7
 argument_list|)
 expr_stmt|;
-comment|//TODO: For some reson setting a record using manual submit fails
-comment|//model.setEditStrategy(QSqlTableModel::OnManualSubmit);
+name|model
+operator|.
+name|setEditStrategy
+argument_list|(
+name|QSqlTableModel
+operator|::
+name|OnManualSubmit
+argument_list|)
+expr_stmt|;
 name|QSqlRecord
 name|recNew
 decl_stmt|;

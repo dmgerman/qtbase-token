@@ -135,7 +135,7 @@ end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_include
 include|#
@@ -1239,7 +1239,7 @@ expr_stmt|;
 comment|//    QTest::newRow("WithHttpProxyNtlmAuth")<< true<< int(HttpProxy | AuthNtlm)<< false;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QTest
 operator|::
 name|newRow
@@ -1578,7 +1578,7 @@ name|socket
 decl_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool
@@ -8489,7 +8489,7 @@ parameter_list|()
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool
@@ -9927,7 +9927,7 @@ literal|0
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool

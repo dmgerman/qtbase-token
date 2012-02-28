@@ -156,6 +156,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
 name|connect
 argument_list|(
 operator|&
@@ -196,6 +199,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_constructor
 begin_destructor
@@ -471,6 +476,11 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
+end_ifndef
 begin_function
 DECL|function|sslErrors
 name|void
@@ -528,6 +538,10 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_constructor
 DECL|function|DownloadItem
 name|DownloadItem

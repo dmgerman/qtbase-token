@@ -34,12 +34,4 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_macro
-name|Q_EXPORT_PLUGIN2
-argument_list|(
-argument|theplugin
-argument_list|,
-argument|ThePlugin
-argument_list|)
-end_macro
 end_unit

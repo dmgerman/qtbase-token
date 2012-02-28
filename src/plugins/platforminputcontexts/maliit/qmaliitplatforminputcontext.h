@@ -67,7 +67,7 @@ block|;
 name|void
 name|invokeAction
 argument_list|(
-argument|QInputPanel::Action action
+argument|QInputMethod::Action action
 argument_list|,
 argument|int x
 argument_list|)

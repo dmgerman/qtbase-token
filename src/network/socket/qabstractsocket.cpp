@@ -110,7 +110,7 @@ end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_include
 include|#
@@ -7085,7 +7085,7 @@ condition|)
 return|return;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 if|if
 condition|(
 name|QSslSocket
@@ -7227,7 +7227,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 comment|// Manual polymorphism; flush() isn't virtual, but QSslSocket overloads
 comment|// it.
 if|if

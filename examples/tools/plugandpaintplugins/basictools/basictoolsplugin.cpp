@@ -1024,16 +1024,4 @@ end_function
 begin_comment
 comment|//! [8]
 end_comment
-begin_decl_stmt
-name|QT_BEGIN_NAMESPACE
-comment|//! [9]
-name|Q_EXPORT_PLUGIN2
-argument_list|(
-name|pnp_basictools
-argument_list|,
-name|BasicToolsPlugin
-argument_list|)
-comment|//! [9]
-name|QT_END_NAMESPACE
-end_decl_stmt
 end_unit

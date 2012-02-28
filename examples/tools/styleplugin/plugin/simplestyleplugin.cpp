@@ -78,14 +78,4 @@ end_function
 begin_comment
 comment|//! [1]
 end_comment
-begin_decl_stmt
-name|QT_BEGIN_NAMESPACE
-name|Q_EXPORT_PLUGIN2
-argument_list|(
-name|simplestyleplugin
-argument_list|,
-name|SimpleStylePlugin
-argument_list|)
-name|QT_END_NAMESPACE
-end_decl_stmt
 end_unit

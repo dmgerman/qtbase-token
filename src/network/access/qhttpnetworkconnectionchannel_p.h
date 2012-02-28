@@ -106,7 +106,7 @@ end_ifndef
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_include
 include|#
@@ -294,7 +294,7 @@ name|proxyCredentialsSent
 block|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|bool
 name|ignoreAllSslErrors
 block|;
@@ -508,7 +508,7 @@ argument_list|()
 block|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|void
 name|_q_encrypted
 argument_list|()

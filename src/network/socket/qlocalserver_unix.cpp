@@ -868,8 +868,13 @@ operator|::
 name|sockaddr_un
 name|addr
 decl_stmt|;
-name|socklen_t
+name|QT_SOCKLEN_T
 name|len
+init|=
+sizeof|sizeof
+argument_list|(
+name|addr
+argument_list|)
 decl_stmt|;
 name|memset
 argument_list|(

@@ -793,12 +793,6 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_QWS_MULTIPROCESS
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
 name|QT_NO_SHAREDMEMORY
 argument_list|)
 name|QSharedMemory

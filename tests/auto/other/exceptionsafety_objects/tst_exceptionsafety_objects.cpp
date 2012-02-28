@@ -547,11 +547,6 @@ argument_list|)
 expr_stmt|;
 name|NEWROW
 argument_list|(
-name|QFSFileEngine
-argument_list|)
-expr_stmt|;
-name|NEWROW
-argument_list|(
 name|QProcess
 argument_list|)
 expr_stmt|;

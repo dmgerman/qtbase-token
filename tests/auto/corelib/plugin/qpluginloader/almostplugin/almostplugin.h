@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtPlugin>
+end_include
+begin_include
+include|#
+directive|include
 file|"../theplugin/plugininterface.h"
 end_include
 begin_decl_stmt
@@ -35,6 +40,13 @@ name|public
 name|PluginInterface
 block|{
 name|Q_OBJECT
+name|Q_PLUGIN_METADATA
+argument_list|(
+name|IID
+literal|"org.qt-project.Qt.autotests.plugininterface"
+name|FILE
+literal|"../empty.json"
+argument_list|)
 name|Q_INTERFACES
 argument_list|(
 name|PluginInterface

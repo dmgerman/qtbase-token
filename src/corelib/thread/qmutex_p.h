@@ -101,10 +101,10 @@ begin_comment
 comment|// use Linux mutexes everywhere except for LSB builds
 end_comment
 begin_define
-DECL|macro|Q_MUTEX_LINUX
+DECL|macro|QT_LINUX_FUTEX
 define|#
 directive|define
-name|Q_MUTEX_LINUX
+name|QT_LINUX_FUTEX
 end_define
 begin_endif
 endif|#
@@ -141,7 +141,7 @@ directive|if
 operator|!
 name|defined
 argument_list|(
-name|Q_MUTEX_LINUX
+name|QT_LINUX_FUTEX
 argument_list|)
 end_if
 begin_decl_stmt
@@ -393,7 +393,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//Q_MUTEX_LINUX
+comment|//QT_LINUX_FUTEX
 end_comment
 begin_decl_stmt
 name|class

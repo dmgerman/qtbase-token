@@ -20,7 +20,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qabstractfileengine.h"
+file|"qabstractfileengine_p.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"qfsfileengine_p.h"
 end_include
 begin_ifndef
 ifndef|#
@@ -40,11 +45,6 @@ begin_include
 include|#
 directive|include
 file|"qdiriterator.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qfsfileengine.h"
 end_include
 begin_include
 include|#

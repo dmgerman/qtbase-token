@@ -70,7 +70,7 @@ end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_include
 include|#
@@ -111,7 +111,7 @@ end_macro
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_macro
 name|Q_DECLARE_METATYPE
@@ -187,7 +187,7 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_class
 DECL|class|QSslSocketPtr
@@ -302,7 +302,7 @@ return|;
 block|}
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QSslSocketPtr
 name|newSocket
 parameter_list|()
@@ -342,7 +342,7 @@ parameter_list|)
 function_decl|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 private|private
 name|slots
 private|:
@@ -751,7 +751,7 @@ name|storedExpectedSslErrors
 decl_stmt|;
 endif|#
 directive|endif
-comment|// QT_NO_OPENSSL
+comment|// QT_NO_SSL
 private|private:
 DECL|member|loopLevel
 specifier|static
@@ -780,7 +780,7 @@ parameter_list|()
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|qRegisterMetaType
 argument_list|<
 name|QList
@@ -1197,7 +1197,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|newSocket
@@ -1299,7 +1299,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|constructing
@@ -13425,7 +13425,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QT_NO_OPENSSL
+comment|// QT_NO_SSL
 end_comment
 begin_macro
 name|QTEST_MAIN

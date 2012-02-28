@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QRegExp>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/QFileInfo>
 end_include
 begin_include
@@ -958,9 +953,7 @@ specifier|static
 name|bool
 name|isAnsiCCharacter
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|c
 parameter_list|)
 block|{

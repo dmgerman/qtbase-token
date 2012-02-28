@@ -2093,7 +2093,7 @@ decl_stmt|;
 return|return
 name|firstRegion
 operator|.
-name|unite
+name|united
 argument_list|(
 name|lastRegion
 argument_list|)

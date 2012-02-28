@@ -337,6 +337,11 @@ parameter_list|()
 function_decl|;
 specifier|static
 name|bool
+name|prepareProject
+parameter_list|()
+function_decl|;
+specifier|static
+name|bool
 name|postProcessProject
 parameter_list|(
 name|QMakeProject
@@ -809,6 +814,11 @@ DECL|member|do_stub_makefile
 specifier|static
 name|bool
 name|do_stub_makefile
+decl_stmt|;
+DECL|member|project_build_root
+specifier|static
+name|QString
+name|project_build_root
 decl_stmt|;
 DECL|member|cachefile
 specifier|static

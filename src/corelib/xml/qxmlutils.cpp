@@ -2910,7 +2910,6 @@ control|)
 block|{
 specifier|const
 name|QChar
-modifier|&
 name|at
 init|=
 name|ncName

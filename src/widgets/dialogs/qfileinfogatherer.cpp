@@ -15,11 +15,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qfsfileengine.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<qdiriterator.h>
 end_include
 begin_ifndef

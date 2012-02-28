@@ -172,11 +172,6 @@ argument_list|,
 name|mode
 argument_list|)
 expr_stmt|;
-name|emitChanged
-argument_list|(
-name|mode
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_function

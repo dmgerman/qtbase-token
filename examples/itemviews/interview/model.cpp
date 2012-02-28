@@ -343,6 +343,8 @@ operator|::
 name|DisplayRole
 condition|)
 return|return
+name|QVariant
+argument_list|(
 literal|"Item "
 operator|+
 name|QString
@@ -365,6 +367,7 @@ name|index
 operator|.
 name|column
 argument_list|()
+argument_list|)
 argument_list|)
 return|;
 if|if

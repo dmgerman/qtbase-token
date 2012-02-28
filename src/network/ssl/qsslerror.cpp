@@ -28,13 +28,13 @@ include|#
 directive|include
 file|<QtCore/qdebug.h>
 end_include
-begin_macro
-name|QT_BEGIN_NAMESPACE
-end_macro
 begin_endif
 endif|#
 directive|endif
 end_endif
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_class
 DECL|class|QSslErrorPrivate
 class|class

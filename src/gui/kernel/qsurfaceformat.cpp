@@ -303,6 +303,21 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_comment
+comment|/*!     \class QSurfaceFormat     \brief The QSurfaceFormat class represents the format of a QSurface.      The format includes the size of the color buffers, red, green, and blue;     the size of the alpha buffer; the size of the depth and stencil buffers;     and number of samples per pixel for multisampling. In addition, the format     contains surface configuration parameters such as OpenGL profile and     version for rendering, whether or not enable stereo buffers, and swap     behaviour. */
+end_comment
+begin_comment
+comment|/*!     \enum QSurfaceFormat::FormatOption      This enum contains format options for use with QSurfaceFormat.      \value StereoBuffers Used to request stereo buffers in the surface format.     \value DebugContext Used to request a debug context with extra debugging information.         This requires OpenGL version 3.0 or higher.     \value DeprecatedFunctions Used to request that deprecated functions be included         in the OpenGL context profile. If not specified, you should get a forward compatible context         without support functionality marked as deprecated. This requires OpenGL version 3.0 or higher. */
+end_comment
+begin_comment
+comment|/*!     \enum QSurfaceFormat::SwapBehavior      This enum is used by QSurfaceFormat to specify the swap behaviour of a surface. The swap behaviour     is mostly transparent to the application, but it affects factors such as rendering latency and     throughput.      \value DefaultSwapBehavior The default, unspecified swap behaviour of the platform.     \value SingleBuffer Used to request single buffering, which might result in flickering         when OpenGL rendering is done directly to screen without an intermediate offscreen         buffer.     \value DoubleBuffer This is typically the default swap behaviour on desktop platforms,         consisting of one back buffer and one front buffer. Rendering is done to the back         buffer, and then the back buffer and front buffer are swapped, or the contents of         the back buffer are copied to the front buffer, depending on the implementation.     \value TripleBuffer This swap behaviour is sometimes used in order to decrease the         risk of skipping a frame when the rendering rate is just barely keeping up with         the screen refresh rate. Depending on the platform it might also lead to slightly         more efficient use of the GPU due to improved pipelining behaviour. Triple buffering         comes at the cost of an extra frame of memory usage and latency, and might not be         supported depending on the underlying platform. */
+end_comment
+begin_comment
+comment|/*!     \enum QSurfaceFormat::OpenGLContextProfile      This enum is used to specify the OpenGL context profile, in     conjunction with QSurfaceFormat::setMajorVersion() and     QSurfaceFormat::setMinorVersion().      Profiles are exposed in OpenGL 3.2 and above, and are used     to choose between a restricted core profile, and a compatibility     profile which might contain deprecated support functionality.      Note that the core profile might still contain functionality that     is deprecated and scheduled for removal in a higher version. To     get access to the deprecated functionality for the core profile     in the set OpenGL version you can use the QSurfaceFormat format option     QSurfaceFormat::DeprecatedFunctions.      \value NoProfile            OpenGL version is lower than 3.2.     \value CoreProfile          Functionality deprecated in OpenGL version 3.0 is not available.     \value CompatibilityProfile Functionality from earlier OpenGL versions is available. */
+end_comment
+begin_comment
+comment|/*!     Constructs a default initialized QSurfaceFormat. */
+end_comment
 begin_constructor
 DECL|function|QSurfaceFormat
 name|QSurfaceFormat
@@ -317,6 +332,9 @@ name|QSurfaceFormatPrivate
 argument_list|)
 block|{ }
 end_constructor
+begin_comment
+comment|/*!     Constructs a QSurfaceFormat with the given format \a options. */
+end_comment
 begin_constructor
 DECL|function|QSurfaceFormat
 name|QSurfaceFormat
@@ -586,7 +604,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of samples per pixel when multisampling is     enabled. By default, the highest number of samples that is     available is used.      \sa setSampleBuffers(), sampleBuffers(), setSamples() */
+comment|/*!     Returns the number of samples per pixel when multisampling is     enabled. By default, multisampling is disabled.      \sa setSampleBuffers(), sampleBuffers(), setSamples() */
 end_comment
 begin_function
 DECL|function|samples
@@ -605,7 +623,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set the preferred number of samples per pixel when multisampling     is enabled to \a numSamples. By default, the highest number of     samples available is used.      \sa setSampleBuffers(), sampleBuffers(), samples() */
+comment|/*!     Set the preferred number of samples per pixel when multisampling     is enabled to \a numSamples. By default, multisampling is disabled.      \sa setSampleBuffers(), sampleBuffers(), samples() */
 end_comment
 begin_function
 DECL|function|setSamples
@@ -774,6 +792,9 @@ name|depthSize
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Set the swap behaviour of the surface.      The swap behaviour specifies whether single, double, or triple     buffering is desired. The default, SwapBehavior::DefaultSwapBehavior,     gives the default swap behavior of the platform. */
+end_comment
 begin_function
 DECL|function|setSwapBehavior
 name|void
@@ -806,6 +827,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!     Returns the configured swap behaviour.      \sa setSwapBehavior() */
+end_comment
 begin_function
 DECL|function|swapBehavior
 name|QSurfaceFormat
@@ -824,6 +848,9 @@ name|swapBehavior
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns true if the alpha buffer size is greater than zero.      This means that the surface might be used with per pixel     translucency effects. */
+end_comment
 begin_function
 DECL|function|hasAlpha
 name|bool
@@ -843,7 +870,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set the preferred stencil buffer size to \a size.      \sa stencilBufferSize(), setStencil(), stencil() */
+comment|/*!     Set the preferred stencil buffer size to \a size bits.      \sa stencilBufferSize(), setStencil(), stencil() */
 end_comment
 begin_function
 DECL|function|setStencilBufferSize
@@ -878,7 +905,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the stencil buffer size.      \sa stencil(), setStencil(), setStencilBufferSize() */
+comment|/*!     Returns the stencil buffer size in bits.      \sa stencil(), setStencil(), setStencilBufferSize() */
 end_comment
 begin_function
 DECL|function|stencilBufferSize
@@ -896,6 +923,9 @@ name|stencilSize
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Get the size in bits of the red channel of the color buffer. */
+end_comment
 begin_function
 DECL|function|redBufferSize
 name|int
@@ -912,6 +942,9 @@ name|redBufferSize
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Get the size in bits of the green channel of the color buffer. */
+end_comment
 begin_function
 DECL|function|greenBufferSize
 name|int
@@ -928,6 +961,9 @@ name|greenBufferSize
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Get the size in bits of the blue channel of the color buffer. */
+end_comment
 begin_function
 DECL|function|blueBufferSize
 name|int
@@ -944,6 +980,9 @@ name|blueBufferSize
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Get the size in bits of the alpha channel of the color buffer. */
+end_comment
 begin_function
 DECL|function|alphaBufferSize
 name|int
@@ -960,6 +999,9 @@ name|alphaBufferSize
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Set the desired size in bits of the red channel of the color buffer. */
+end_comment
 begin_function
 DECL|function|setRedBufferSize
 name|void
@@ -992,6 +1034,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!     Set the desired size in bits of the green channel of the color buffer. */
+end_comment
 begin_function
 DECL|function|setGreenBufferSize
 name|void
@@ -1024,6 +1069,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!     Set the desired size in bits of the blue channel of the color buffer. */
+end_comment
 begin_function
 DECL|function|setBlueBufferSize
 name|void
@@ -1056,6 +1104,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!     Set the desired size in bits of the alpha channel of the color buffer. */
+end_comment
 begin_function
 DECL|function|setAlphaBufferSize
 name|void
@@ -1089,7 +1140,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!    Sets the desired OpenGL context profile.     This setting is ignored if the requested OpenGL version is    less than 3.2. */
+comment|/*!     Sets the desired OpenGL context profile.      This setting is ignored if the requested OpenGL version is     less than 3.2. */
 end_comment
 begin_function
 DECL|function|setProfile
@@ -1123,6 +1174,9 @@ expr_stmt|;
 block|}
 block|}
 end_function
+begin_comment
+comment|/*!     Get the configured OpenGL context profile.      This setting is ignored if the requested OpenGL version is     less than 3.2. */
+end_comment
 begin_function
 DECL|function|profile
 name|QSurfaceFormat
@@ -1249,6 +1303,9 @@ name|minor
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     Returns true if all the options of the two QSurfaceFormat objects     are equal.      \relates QSurfaceFormat */
+end_comment
 begin_function
 DECL|function|operator ==
 name|bool

@@ -1353,7 +1353,7 @@ parameter_list|)
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|reply
 operator|->
 name|sslErrors

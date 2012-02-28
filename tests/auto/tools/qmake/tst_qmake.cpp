@@ -52,10 +52,6 @@ name|cleanupTestCase
 parameter_list|()
 function_decl|;
 name|void
-name|init
-parameter_list|()
-function_decl|;
-name|void
 name|cleanup
 parameter_list|()
 function_decl|;
@@ -360,21 +356,6 @@ parameter_list|()
 block|{ }
 end_function
 begin_function
-DECL|function|init
-name|void
-name|tst_qmake
-operator|::
-name|init
-parameter_list|()
-block|{
-name|test_compiler
-operator|.
-name|clearCommandOutput
-argument_list|()
-expr_stmt|;
-block|}
-end_function
-begin_function
 DECL|function|cleanup
 name|void
 name|tst_qmake
@@ -382,6 +363,16 @@ operator|::
 name|cleanup
 parameter_list|()
 block|{
+name|test_compiler
+operator|.
+name|resetArguments
+argument_list|()
+expr_stmt|;
+name|test_compiler
+operator|.
+name|resetEnvironment
+argument_list|()
+expr_stmt|;
 name|test_compiler
 operator|.
 name|clearCommandOutput
@@ -1501,11 +1492,6 @@ literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|test_compiler
-operator|.
-name|resetEnvironment
-argument_list|()
-expr_stmt|;
 block|}
 end_function
 begin_function
@@ -2530,24 +2516,21 @@ name|base_path
 operator|+
 literal|"/testdata/bundle-spaces"
 decl_stmt|;
-comment|// We set up alternate commands here, to make sure we're testing Mac
+comment|// We set up alternate arguments here, to make sure we're testing Mac
 comment|// Bundles and since this might be the wrong output we rely on dry-running
 comment|// make (-n).
-name|TestCompiler
-name|local_tc
-decl_stmt|;
-name|local_tc
+name|test_compiler
 operator|.
-name|setBaseCommands
+name|setArguments
 argument_list|(
-literal|"make -n"
+literal|"-n"
 argument_list|,
-literal|"qmake -macx -spec macx-g++"
+literal|"-spec macx-g++"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-name|local_tc
+name|test_compiler
 operator|.
 name|qmake
 argument_list|(
@@ -2577,12 +2560,16 @@ expr_stmt|;
 comment|// Make fails: no rule to make "non-existing file"
 name|QVERIFY
 argument_list|(
-operator|!
-name|local_tc
+name|test_compiler
 operator|.
 name|make
 argument_list|(
 name|workDir
+argument_list|,
+name|QString
+argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2609,7 +2596,7 @@ expr_stmt|;
 comment|// Aha!
 name|QVERIFY
 argument_list|(
-name|local_tc
+name|test_compiler
 operator|.
 name|make
 argument_list|(
@@ -2637,7 +2624,7 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-name|local_tc
+name|test_compiler
 operator|.
 name|removeMakefile
 argument_list|(

@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qfsfileengine.h"
+file|"qfsfileengine_p.h"
 end_include
 begin_include
 include|#
@@ -2586,39 +2586,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Opens the existing file handle \a fh in the given \a mode.     Returns true if successful; otherwise returns false.      Example:     \snippet doc/src/snippets/code/src_corelib_io_qfile.cpp 3      When a QFile is opened using this function, close() does not actually     close the file, but only flushes it.      \bold{Warning:}     \list 1         \o If \a fh does not refer to a regular file, e.g., it is \c stdin,            \c stdout, or \c stderr, you may not be able to seek(). size()            returns \c 0 in those cases. See QIODevice::isSequential() for            more information.         \o Since this function opens the file without specifying the file name,            you cannot use this QFile with a QFileInfo.     \endlist      \note For Windows CE you may not be able to call resize().      \sa close(), {qmake Variable Reference#CONFIG}{qmake Variable Reference}      \bold{Note for the Windows Platform}      \a fh must be opened in binary mode (i.e., the mode string must contain     'b', as in "rb" or "wb") when accessing files and other random-access     devices. Qt will translate the end-of-line characters if you pass     QIODevice::Text to \a mode. Sequential devices, such as stdin and stdout,     are unaffected by this limitation.      You need to enable support for console applications in order to use the     stdin, stdout and stderr streams at the console. To do this, add the     following declaration to your application's project file:      \snippet doc/src/snippets/code/src_corelib_io_qfile.cpp 4 */
-end_comment
-begin_comment
-comment|// ### Qt5: merge this into new overload with a default parameter
-end_comment
-begin_function
-DECL|function|open
-name|bool
-name|QFile
-operator|::
-name|open
-parameter_list|(
-name|FILE
-modifier|*
-name|fh
-parameter_list|,
-name|OpenMode
-name|mode
-parameter_list|)
-block|{
-return|return
-name|open
-argument_list|(
-name|fh
-argument_list|,
-name|mode
-argument_list|,
-name|DontCloseHandle
-argument_list|)
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!     \overload      Opens the existing file handle \a fh in the given \a mode.     Returns true if successful; otherwise returns false.      Example:     \snippet doc/src/snippets/code/src_corelib_io_qfile.cpp 3      When a QFile is opened using this function, behaviour of close() is     controlled by the AutoCloseHandle flag.     If AutoCloseHandle is specified, and this function succeeds,     then calling close() closes the adopted handle.     Otherwise, close() does not actually close the file, but only flushes it.      \bold{Warning:}     \list 1         \o If \a fh does not refer to a regular file, e.g., it is \c stdin,            \c stdout, or \c stderr, you may not be able to seek(). size()            returns \c 0 in those cases. See QIODevice::isSequential() for            more information.         \o Since this function opens the file without specifying the file name,            you cannot use this QFile with a QFileInfo.     \endlist      \note For Windows CE you may not be able to call resize().      \sa close(), {qmake Variable Reference#CONFIG}{qmake Variable Reference}      \bold{Note for the Windows Platform}      \a fh must be opened in binary mode (i.e., the mode string must contain     'b', as in "rb" or "wb") when accessing files and other random-access     devices. Qt will translate the end-of-line characters if you pass     QIODevice::Text to \a mode. Sequential devices, such as stdin and stdout,     are unaffected by this limitation.      You need to enable support for console applications in order to use the     stdin, stdout and stderr streams at the console. To do this, add the     following declaration to your application's project file:      \snippet doc/src/snippets/code/src_corelib_io_qfile.cpp 4 */
 end_comment
 begin_function
@@ -2769,38 +2736,6 @@ return|;
 block|}
 return|return
 literal|false
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!     \overload      Opens the existing file descriptor \a fd in the given \a mode.     Returns true if successful; otherwise returns false.      When a QFile is opened using this function, close() does not     actually close the file.      The QFile that is opened using this function is automatically set     to be in raw mode; this means that the file input/output functions     are slow. If you run into performance issues, you should try to     use one of the other open functions.      \warning If \a fd is not a regular file, e.g, it is 0 (\c stdin),     1 (\c stdout), or 2 (\c stderr), you may not be able to seek(). In     those cases, size() returns \c 0.  See QIODevice::isSequential()     for more information.      \warning For Windows CE you may not be able to call seek(), setSize(),     fileTime(). size() returns \c 0.      \warning Since this function opens the file without specifying the file name,              you cannot use this QFile with a QFileInfo.      \sa close() */
-end_comment
-begin_comment
-comment|// ### Qt5: merge this into new overload with a default parameter
-end_comment
-begin_function
-DECL|function|open
-name|bool
-name|QFile
-operator|::
-name|open
-parameter_list|(
-name|int
-name|fd
-parameter_list|,
-name|OpenMode
-name|mode
-parameter_list|)
-block|{
-return|return
-name|open
-argument_list|(
-name|fd
-argument_list|,
-name|mode
-argument_list|,
-name|DontCloseHandle
-argument_list|)
 return|;
 block|}
 end_function
@@ -3011,7 +2946,7 @@ begin_comment
 comment|/*!     \enum QFile::MemoryMapFlags     \since 4.4      This enum describes special options that may be used by the map()     function.      \value NoOptions        No options. */
 end_comment
 begin_comment
-comment|/*!     \since 4.4     Maps \a size bytes of the file into memory starting at \a offset.  A file     should be open for a map to succeed but the file does not need to stay     open after the memory has been mapped.  When the QFile is destroyed     or a new file is opened with this object, any maps that have not been     unmapped will automatically be unmapped.      Any mapping options can be passed through \a flags.      Returns a pointer to the memory or 0 if there is an error.      \note On Windows CE 5.0 the file will be closed before mapping occurs.      \sa unmap(), QAbstractFileEngine::supportsExtension()  */
+comment|/*!     \since 4.4     Maps \a size bytes of the file into memory starting at \a offset.  A file     should be open for a map to succeed but the file does not need to stay     open after the memory has been mapped.  When the QFile is destroyed     or a new file is opened with this object, any maps that have not been     unmapped will automatically be unmapped.      Any mapping options can be passed through \a flags.      Returns a pointer to the memory or 0 if there is an error.      \note On Windows CE 5.0 the file will be closed before mapping occurs.      \sa unmap()  */
 end_comment
 begin_function
 DECL|function|map
@@ -3110,7 +3045,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4     Unmaps the memory \a address.      Returns true if the unmap succeeds; false otherwise.      \sa map(), QAbstractFileEngine::supportsExtension()  */
+comment|/*!     \since 4.4     Unmaps the memory \a address.      Returns true if the unmap succeeds; false otherwise.      \sa map()  */
 end_comment
 begin_function
 DECL|function|unmap

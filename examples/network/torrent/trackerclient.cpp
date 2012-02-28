@@ -359,7 +359,7 @@ operator|->
 name|infoHash
 argument_list|()
 decl_stmt|;
-name|QString
+name|QByteArray
 name|encodedSum
 decl_stmt|;
 for|for
@@ -386,7 +386,7 @@ literal|'%'
 expr_stmt|;
 name|encodedSum
 operator|+=
-name|QString
+name|QByteArray
 operator|::
 name|number
 argument_list|(

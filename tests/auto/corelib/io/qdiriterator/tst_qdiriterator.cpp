@@ -32,6 +32,11 @@ include|#
 directive|include
 file|<qstringlist.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/private/qfsfileengine_p.h>
+end_include
 begin_if
 if|#
 directive|if
@@ -2194,6 +2199,11 @@ expr_stmt|;
 comment|// The goal of this test is only to ensure that the test above don't malfunction
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_class
 DECL|class|EngineWithNoIterator
 class|class
@@ -2270,6 +2280,10 @@ block|}
 block|}
 class|;
 end_class
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|engineWithNoIterator
 name|void
@@ -2278,6 +2292,9 @@ operator|::
 name|engineWithNoIterator
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|EngineWithNoIteratorHandler
 name|handler
 decl_stmt|;
@@ -2295,6 +2312,15 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// test that the above line doesn't crash
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"This test requires -developer-build."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

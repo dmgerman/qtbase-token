@@ -15,16 +15,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QAbstractFileEngine>
-end_include
-begin_include
-include|#
-directive|include
-file|<QFSFileEngine>
-end_include
-begin_include
-include|#
-directive|include
 file|<QCoreApplication>
 end_include
 begin_include
@@ -46,6 +36,16 @@ begin_include
 include|#
 directive|include
 file|<QFileInfo>
+end_include
+begin_include
+include|#
+directive|include
+file|<private/qabstractfileengine_p.h>
+end_include
+begin_include
+include|#
+directive|include
+file|<private/qfsfileengine_p.h>
 end_include
 begin_if
 if|#
@@ -164,11 +164,6 @@ begin_include
 include|#
 directive|include
 file|<qplatformdefs.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<private/qfsfileengine_p.h>
 end_include
 begin_endif
 endif|#
@@ -11087,6 +11082,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_class
 DECL|class|MyEngine
 class|class
@@ -11508,6 +11508,10 @@ block|}
 block|}
 class|;
 end_class
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|fileEngineHandler
 name|void
@@ -11543,6 +11547,9 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 comment|// Instantiating our handler will enable the new engine.
 name|MyHandler
 name|handler
@@ -11591,8 +11598,15 @@ literal|125
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
+end_ifdef
 begin_class
 DECL|class|MyRecursiveHandler
 class|class
@@ -11665,6 +11679,10 @@ block|}
 block|}
 class|;
 end_class
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|useQFileInAFileHandler
 name|void
@@ -11673,6 +11691,9 @@ operator|::
 name|useQFileInAFileHandler
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 comment|// This test should not dead-lock
 name|MyRecursiveHandler
 name|handler
@@ -11691,6 +11712,15 @@ name|exists
 argument_list|()
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|QSKIP
+argument_list|(
+literal|"This test requires -developer-build."
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function

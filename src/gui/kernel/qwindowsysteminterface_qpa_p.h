@@ -490,9 +490,13 @@ argument|const QPointF& local
 argument_list|,
 argument|const QPointF& global
 argument_list|,
-argument|int d
+argument|QPoint pixelD
 argument_list|,
-argument|Qt::Orientation o
+argument|QPoint angleD
+argument_list|,
+argument|int qt4D
+argument_list|,
+argument|Qt::Orientation qt4O
 argument_list|,
 argument|Qt::KeyboardModifiers mods
 argument_list|)
@@ -508,9 +512,24 @@ argument_list|,
 name|mods
 argument_list|)
 block|,
-name|delta
+name|pixelDelta
 argument_list|(
-name|d
+name|pixelD
+argument_list|)
+block|,
+name|angleDelta
+argument_list|(
+name|angleD
+argument_list|)
+block|,
+name|qt4Delta
+argument_list|(
+name|qt4D
+argument_list|)
+block|,
+name|qt4Orientation
+argument_list|(
+name|qt4O
 argument_list|)
 block|,
 name|localPos
@@ -520,27 +539,28 @@ argument_list|)
 block|,
 name|globalPos
 argument_list|(
-name|global
-argument_list|)
-block|,
-name|orient
-argument_list|(
-argument|o
+argument|global
 argument_list|)
 block|{ }
+name|QPoint
+name|pixelDelta
+block|;
+name|QPoint
+name|angleDelta
+block|;
 name|int
-name|delta
+name|qt4Delta
+block|;
+name|Qt
+operator|::
+name|Orientation
+name|qt4Orientation
 block|;
 name|QPointF
 name|localPos
 block|;
 name|QPointF
 name|globalPos
-block|;
-name|Qt
-operator|::
-name|Orientation
-name|orient
 block|;     }
 decl_stmt|;
 name|class

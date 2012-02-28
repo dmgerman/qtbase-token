@@ -19422,10 +19422,7 @@ name|out_directory_cdin
 operator|<<
 literal|"$(QMAKE) "
 operator|<<
-name|escapeFilePath
-argument_list|(
 name|in
-argument_list|)
 operator|<<
 name|buildArgs
 argument_list|(
@@ -19447,10 +19444,7 @@ name|t
 operator|<<
 literal|"$(QMAKE) "
 operator|<<
-name|escapeFilePath
-argument_list|(
 name|in
-argument_list|)
 operator|<<
 name|buildArgs
 argument_list|(
@@ -19509,10 +19503,7 @@ name|out_directory_cdin
 operator|<<
 literal|"$(QMAKE) "
 operator|<<
-name|escapeFilePath
-argument_list|(
 name|in
-argument_list|)
 operator|<<
 name|buildArgs
 argument_list|(
@@ -19534,10 +19525,7 @@ name|t
 operator|<<
 literal|"$(QMAKE) "
 operator|<<
-name|escapeFilePath
-argument_list|(
 name|in
-argument_list|)
 operator|<<
 name|buildArgs
 argument_list|(
@@ -25303,6 +25291,15 @@ name|libtool_ext
 operator|.
 name|length
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|pkgConfiglibName
+operator|+=
+name|project
+operator|->
+name|first
+argument_list|(
+literal|"TARGET_VERSION_EXT"
 argument_list|)
 expr_stmt|;
 block|}

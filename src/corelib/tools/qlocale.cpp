@@ -12044,7 +12044,6 @@ condition|)
 block|{
 specifier|const
 name|QChar
-modifier|&
 name|in
 init|=
 name|uc

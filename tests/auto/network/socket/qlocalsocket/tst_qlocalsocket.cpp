@@ -42,6 +42,14 @@ include|#
 directive|include
 file|<sys/un.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<unistd.h>
+end_include
+begin_comment
+comment|// for unlink()
+end_comment
 begin_endif
 endif|#
 directive|endif
@@ -6606,16 +6614,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|QVERIFY2
+name|QCOMPARE
 argument_list|(
 name|server
 operator|.
 name|fullServerName
 argument_list|()
-operator|==
-name|path
 argument_list|,
-literal|"full server path doesn't match patch provided"
+name|path
 argument_list|)
 expr_stmt|;
 if|if
@@ -6767,6 +6773,9 @@ literal|false
 operator|<<
 literal|true
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_LINUX
 name|QTest
 operator|::
 name|newRow
@@ -6803,6 +6812,8 @@ literal|true
 operator|<<
 literal|true
 expr_stmt|;
+endif|#
+directive|endif
 name|QTest
 operator|::
 name|newRow

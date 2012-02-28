@@ -229,26 +229,36 @@ comment|// implicit
 ifndef|#
 directive|ifndef
 name|QT_NO_CAST_FROM_ASCII
-comment|// these two constructors are NOT inline const_expr!
-name|QT_ASCII_CAST_WARN_CONSTRUCTOR
+name|QT_ASCII_CAST_WARN
+name|Q_DECL_CONSTEXPR
 name|explicit
 name|QChar
 argument_list|(
 argument|char c
 argument_list|)
-expr_stmt|;
-name|QT_ASCII_CAST_WARN_CONSTRUCTOR
+operator|:
+name|ucs
+argument_list|(
+argument|uchar(c)
+argument_list|)
+block|{ }
+name|QT_ASCII_CAST_WARN
+name|Q_DECL_CONSTEXPR
 name|explicit
 name|QChar
-parameter_list|(
-name|uchar
-name|c
-parameter_list|)
-function_decl|;
+argument_list|(
+argument|uchar c
+argument_list|)
+operator|:
+name|ucs
+argument_list|(
+argument|c
+argument_list|)
+block|{ }
 endif|#
 directive|endif
 comment|// Unicode information
-enum|enum
+expr|enum
 name|Category
 block|{
 name|Mark_NonSpacing
@@ -341,7 +351,7 @@ comment|//   Sk
 name|Symbol_Other
 comment|//   So
 block|}
-enum|;
+expr_stmt|;
 enum|enum
 name|Direction
 block|{
@@ -613,6 +623,7 @@ name|unicodeVersion
 argument_list|()
 specifier|const
 expr_stmt|;
+specifier|inline
 name|char
 name|toAscii
 argument_list|()
@@ -645,6 +656,7 @@ name|ucs
 return|;
 block|}
 specifier|static
+specifier|inline
 name|QChar
 name|fromAscii
 parameter_list|(
@@ -653,6 +665,7 @@ name|c
 parameter_list|)
 function_decl|;
 specifier|static
+specifier|inline
 name|QChar
 name|fromLatin1
 parameter_list|(
@@ -1472,6 +1485,29 @@ specifier|inline
 name|char
 name|QChar
 operator|::
+name|toAscii
+argument_list|()
+specifier|const
+block|{
+return|return
+name|ucs
+operator|>
+literal|0xff
+operator|?
+literal|0
+operator|:
+name|char
+argument_list|(
+name|ucs
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+specifier|inline
+name|char
+name|QChar
+operator|::
 name|toLatin1
 argument_list|()
 specifier|const
@@ -1496,6 +1532,30 @@ name|QChar
 name|QChar
 operator|::
 name|fromLatin1
+argument_list|(
+argument|char c
+argument_list|)
+block|{
+return|return
+name|QChar
+argument_list|(
+name|ushort
+argument_list|(
+name|uchar
+argument_list|(
+name|c
+argument_list|)
+argument_list|)
+argument_list|)
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+specifier|inline
+name|QChar
+name|QChar
+operator|::
+name|fromAscii
 argument_list|(
 argument|char c
 argument_list|)

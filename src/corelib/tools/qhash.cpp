@@ -1801,6 +1801,8 @@ expr_stmt|;
 block|}
 name|qDebug
 argument_list|(
+literal|"%s"
+argument_list|,
 name|qPrintable
 argument_list|(
 name|line

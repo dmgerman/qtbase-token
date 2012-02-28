@@ -31,13 +31,13 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QOpenGLBuffer     \brief The QOpenGLBuffer class provides functions for creating and managing GL buffer objects.     \since 5.0     \ingroup painting-3D      Buffer objects are created in the GL server so that the     client application can avoid uploading vertices, indices,     texture image data, etc every time they are needed.      QOpenGLBuffer objects can be copied around as a reference to the     underlying GL buffer object:      \code     QOpenGLBuffer buffer1(QOpenGLBuffer::IndexBuffer);     buffer1.create();      QOpenGLBuffer buffer2 = buffer1;     \endcode      QOpenGLBuffer performs a shallow copy when objects are copied in this     manner, but does not implement copy-on-write semantics.  The original     object will be affected whenever the copy is modified. */
+comment|/*!     \class QOpenGLBuffer     \brief The QOpenGLBuffer class provides functions for creating and managing OpenGL buffer objects.     \since 5.0     \ingroup painting-3D      Buffer objects are created in the OpenGL server so that the     client application can avoid uploading vertices, indices,     texture image data, etc every time they are needed.      QOpenGLBuffer objects can be copied around as a reference to the     underlying OpenGL buffer object:      \code     QOpenGLBuffer buffer1(QOpenGLBuffer::IndexBuffer);     buffer1.create();      QOpenGLBuffer buffer2 = buffer1;     \endcode      QOpenGLBuffer performs a shallow copy when objects are copied in this     manner, but does not implement copy-on-write semantics.  The original     object will be affected whenever the copy is modified. */
 end_comment
 begin_comment
-comment|/*!     \enum QOpenGLBuffer::Type     This enum defines the type of GL buffer object to create with QOpenGLBuffer.      \value VertexBuffer Vertex buffer object for use when specifying            vertex arrays.     \value IndexBuffer Index buffer object for use with \c{glDrawElements()}.     \value PixelPackBuffer Pixel pack buffer object for reading pixel            data from the GL server (for example, with \c{glReadPixels()}).            Not supported under OpenGL/ES.     \value PixelUnpackBuffer Pixel unpack buffer object for writing pixel            data to the GL server (for example, with \c{glTexImage2D()}).            Not supported under OpenGL/ES. */
+comment|/*!     \enum QOpenGLBuffer::Type     This enum defines the type of OpenGL buffer object to create with QOpenGLBuffer.      \value VertexBuffer Vertex buffer object for use when specifying            vertex arrays.     \value IndexBuffer Index buffer object for use with \c{glDrawElements()}.     \value PixelPackBuffer Pixel pack buffer object for reading pixel            data from the OpenGL server (for example, with \c{glReadPixels()}).            Not supported under OpenGL/ES.     \value PixelUnpackBuffer Pixel unpack buffer object for writing pixel            data to the OpenGL server (for example, with \c{glTexImage2D()}).            Not supported under OpenGL/ES. */
 end_comment
 begin_comment
-comment|/*!     \enum QOpenGLBuffer::UsagePattern     This enum defines the usage pattern of a QOpenGLBuffer object.      \value StreamDraw The data will be set once and used a few times            for drawing operations.  Under OpenGL/ES 1.1 this is identical            to StaticDraw.     \value StreamRead The data will be set once and used a few times            for reading data back from the GL server.  Not supported            under OpenGL/ES.     \value StreamCopy The data will be set once and used a few times            for reading data back from the GL server for use in further            drawing operations.  Not supported under OpenGL/ES.     \value StaticDraw The data will be set once and used many times            for drawing operations.     \value StaticRead The data will be set once and used many times            for reading data back from the GL server.  Not supported            under OpenGL/ES.     \value StaticCopy The data will be set once and used many times            for reading data back from the GL server for use in further            drawing operations.  Not supported under OpenGL/ES.     \value DynamicDraw The data will be modified repeatedly and used            many times for drawing operations.     \value DynamicRead The data will be modified repeatedly and used            many times for reading data back from the GL server.            Not supported under OpenGL/ES.     \value DynamicCopy The data will be modified repeatedly and used            many times for reading data back from the GL server for            use in further drawing operations.  Not supported under OpenGL/ES. */
+comment|/*!     \enum QOpenGLBuffer::UsagePattern     This enum defines the usage pattern of a QOpenGLBuffer object.      \value StreamDraw The data will be set once and used a few times            for drawing operations.  Under OpenGL/ES 1.1 this is identical            to StaticDraw.     \value StreamRead The data will be set once and used a few times            for reading data back from the OpenGL server.  Not supported            under OpenGL/ES.     \value StreamCopy The data will be set once and used a few times            for reading data back from the OpenGL server for use in further            drawing operations.  Not supported under OpenGL/ES.     \value StaticDraw The data will be set once and used many times            for drawing operations.     \value StaticRead The data will be set once and used many times            for reading data back from the OpenGL server.  Not supported            under OpenGL/ES.     \value StaticCopy The data will be set once and used many times            for reading data back from the OpenGL server for use in further            drawing operations.  Not supported under OpenGL/ES.     \value DynamicDraw The data will be modified repeatedly and used            many times for drawing operations.     \value DynamicRead The data will be modified repeatedly and used            many times for reading data back from the OpenGL server.            Not supported under OpenGL/ES.     \value DynamicCopy The data will be modified repeatedly and used            many times for reading data back from the OpenGL server for            use in further drawing operations.  Not supported under OpenGL/ES. */
 end_comment
 begin_comment
 comment|/*!     \enum QOpenGLBuffer::Access     This enum defines the access mode for QOpenGLBuffer::map().      \value ReadOnly The buffer will be mapped for reading only.     \value WriteOnly The buffer will be mapped for writing only.     \value ReadWrite The buffer will be mapped for reading and writing. */
@@ -127,7 +127,7 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     Constructs a new buffer object of type QOpenGLBuffer::VertexBuffer.      Note: this constructor just creates the QOpenGLBuffer instance.  The actual     buffer object in the GL server is not created until create() is called.      \sa create() */
+comment|/*!     Constructs a new buffer object of type QOpenGLBuffer::VertexBuffer.      Note: this constructor just creates the QOpenGLBuffer instance.  The actual     buffer object in the OpenGL server is not created until create() is called.      \sa create() */
 end_comment
 begin_constructor
 DECL|function|QOpenGLBuffer
@@ -149,7 +149,7 @@ argument_list|)
 block|{ }
 end_constructor
 begin_comment
-comment|/*!     Constructs a new buffer object of \a type.      Note: this constructor just creates the QOpenGLBuffer instance.  The actual     buffer object in the GL server is not created until create() is called.      \sa create() */
+comment|/*!     Constructs a new buffer object of \a type.      Note: this constructor just creates the QOpenGLBuffer instance.  The actual     buffer object in the OpenGL server is not created until create() is called.      \sa create() */
 end_comment
 begin_constructor
 DECL|function|QOpenGLBuffer
@@ -205,7 +205,7 @@ constructor_decl|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Destroys this buffer object, including the storage being     used in the GL server. */
+comment|/*!     Destroys this buffer object, including the storage being     used in the OpenGL server. */
 end_comment
 begin_destructor
 DECL|function|~QOpenGLBuffer
@@ -413,7 +413,7 @@ block|}
 block|}
 end_namespace
 begin_comment
-comment|/*!     Creates the buffer object in the GL server.  Returns true if     the object was created; false otherwise.      This function must be called with a current QOpenGLContext.     The buffer will be bound to and can only be used in     that context (or any other context that is shared with it).      This function will return false if the GL implementation     does not support buffers, or there is no current QOpenGLContext.      \sa isCreated(), allocate(), write(), destroy() */
+comment|/*!     Creates the buffer object in the OpenGL server.  Returns true if     the object was created; false otherwise.      This function must be called with a current QOpenGLContext.     The buffer will be bound to and can only be used in     that context (or any other context that is shared with it).      This function will return false if the OpenGL implementation     does not support buffers, or there is no current QOpenGLContext.      \sa isCreated(), allocate(), write(), destroy() */
 end_comment
 begin_function
 DECL|function|create
@@ -565,7 +565,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Destroys this buffer object, including the storage being     used in the GL server.  All references to the buffer will     become invalid. */
+comment|/*!     Destroys this buffer object, including the storage being     used in the OpenGL server.  All references to the buffer will     become invalid. */
 end_comment
 begin_function
 DECL|function|destroy
@@ -870,7 +870,7 @@ begin_comment
 comment|/*!     \fn void QOpenGLBuffer::allocate(int count)     \overload      Allocates \a count bytes of space to the buffer.  Any previous     contents will be removed.      It is assumed that create() has been called on this buffer and that     it has been bound to the current context.      \sa create(), write() */
 end_comment
 begin_comment
-comment|/*!     Binds the buffer associated with this object to the current     GL context.  Returns false if binding was not possible, usually because     type() is not supported on this GL implementation.      The buffer must be bound to the same QOpenGLContext current when create()     was called, or to another QOpenGLContext that is sharing with it.     Otherwise, false will be returned from this function.      \sa release(), create() */
+comment|/*!     Binds the buffer associated with this object to the current     OpenGL context.  Returns false if binding was not possible, usually because     type() is not supported on this OpenGL implementation.      The buffer must be bound to the same QOpenGLContext current when create()     was called, or to another QOpenGLContext that is sharing with it.     Otherwise, false will be returned from this function.      \sa release(), create() */
 end_comment
 begin_function
 DECL|function|bind
@@ -978,7 +978,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Releases the buffer associated with this object from the     current GL context.      This function must be called with the same QOpenGLContext current     as when bind() was called on the buffer.      \sa bind() */
+comment|/*!     Releases the buffer associated with this object from the     current OpenGL context.      This function must be called with the same QOpenGLContext current     as when bind() was called on the buffer.      \sa bind() */
 end_comment
 begin_function
 DECL|function|release
@@ -1085,7 +1085,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the GL identifier associated with this buffer; zero if     the buffer has not been created.      \sa isCreated() */
+comment|/*!     Returns the OpenGL identifier associated with this buffer; zero if     the buffer has not been created.      \sa isCreated() */
 end_comment
 begin_function
 DECL|function|bufferId

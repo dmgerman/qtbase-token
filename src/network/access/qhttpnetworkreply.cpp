@@ -25,7 +25,7 @@ end_ifndef
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_include
 include|#
@@ -3833,7 +3833,7 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|sslConfiguration
@@ -4001,7 +4001,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//QT_NO_OPENSSL
+comment|//QT_NO_SSL
 end_comment
 begin_macro
 name|QT_END_NAMESPACE

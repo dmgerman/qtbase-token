@@ -57,7 +57,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../shared/platforminputcontext.h"
+file|"../../../shared/platforminputcontext.h"
 end_include
 begin_include
 include|#

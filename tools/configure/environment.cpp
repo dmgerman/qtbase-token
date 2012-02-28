@@ -171,11 +171,33 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
+name|CC_NET2003
+block|,
+literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2003 (7.1)"
+block|,
+literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\7.1\\Setup\\VC\\ProductDir"
+block|,
+literal|"cl.exe"
+block|}
+block|,
+comment|// link.exe, lib.exe
+block|{
 name|CC_NET2005
 block|,
 literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2005 (8.0)"
 block|,
 literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\8.0"
+block|,
+literal|"cl.exe"
+block|}
+block|,
+comment|// link.exe, lib.exe
+block|{
+name|CC_NET2005
+block|,
+literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2005 (8.0)"
+block|,
+literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\8.0"
 block|,
 literal|"cl.exe"
 block|}
@@ -193,11 +215,33 @@ block|}
 block|,
 comment|// link.exe, lib.exe
 block|{
+name|CC_NET2008
+block|,
+literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2008 (9.0)"
+block|,
+literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\9.0"
+block|,
+literal|"cl.exe"
+block|}
+block|,
+comment|// link.exe, lib.exe
+block|{
 name|CC_NET2010
 block|,
 literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2010 (10.0)"
 block|,
 literal|"Software\\Microsoft\\VisualStudio\\SxS\\VC7\\10.0"
+block|,
+literal|"cl.exe"
+block|}
+block|,
+comment|// link.exe, lib.exe
+block|{
+name|CC_NET2010
+block|,
+literal|"Microsoft (R) 32-bit C/C++ Optimizing Compiler.NET 2010 (10.0)"
+block|,
+literal|"Software\\Wow6432Node\\Microsoft\\VisualStudio\\SxS\\VC7\\10.0"
 block|,
 literal|"cl.exe"
 block|}
@@ -504,6 +548,18 @@ name|productPath
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|detectedCompiler
+operator|!=
+name|compiler_info
+index|[
+name|i
+index|]
+operator|.
+name|compiler
+condition|)
+block|{
 operator|++
 name|installed
 expr_stmt|;
@@ -516,6 +572,8 @@ index|]
 operator|.
 name|compiler
 expr_stmt|;
+block|}
+comment|/* else {                          We detected the same compiler again, which happens when                         configure is build with the 64-bit compiler. Skip the                         duplicate so that we don't think it's installed twice.                      }                     */
 break|break;
 block|}
 block|}
@@ -577,6 +635,18 @@ name|executable
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|detectedCompiler
+operator|!=
+name|compiler_info
+index|[
+name|i
+index|]
+operator|.
+name|compiler
+condition|)
+block|{
 operator|++
 name|installed
 expr_stmt|;
@@ -589,6 +659,8 @@ index|]
 operator|.
 name|compiler
 expr_stmt|;
+block|}
+comment|/* else {                      We detected the same compiler again, which happens when                     configure is build with the 64-bit compiler. Skip the                     duplicate so that we don't think it's installed twice.                  }                 */
 break|break;
 block|}
 block|}

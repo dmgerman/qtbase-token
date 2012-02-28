@@ -21,6 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtPlugin>
+end_include
+begin_include
+include|#
+directive|include
 file|"echoplugin.h"
 end_include
 begin_include
@@ -42,6 +47,13 @@ decl_stmt|,
 name|EchoInterface
 block|{
 name|Q_OBJECT
+name|Q_PLUGIN_METADATA
+argument_list|(
+name|IID
+literal|"org.qt-project.Qt.Examples.EchoInterface"
+name|FILE
+literal|"echoplugin.json"
+argument_list|)
 name|Q_INTERFACES
 argument_list|(
 name|EchoInterface

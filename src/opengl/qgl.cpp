@@ -13745,10 +13745,11 @@ end_function
 begin_typedef
 DECL|typedef|qt_glGetStringi
 typedef|typedef
+specifier|const
 name|GLubyte
 modifier|*
 function_decl|(
-modifier|*
+name|QGLF_APIENTRYP
 name|qt_glGetStringi
 function_decl|)
 parameter_list|(

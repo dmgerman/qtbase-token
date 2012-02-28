@@ -47,6 +47,14 @@ block|,
 name|Md5
 block|,
 name|Sha1
+block|,
+name|Sha224
+block|,
+name|Sha256
+block|,
+name|Sha384
+block|,
+name|Sha512
 block|}
 enum|;
 name|QCryptographicHash

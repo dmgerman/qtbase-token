@@ -56,6 +56,11 @@ end_if
 begin_include
 include|#
 directive|include
+file|<QtCore/private/qfsfileengine_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"../../../network-settings.h"
 end_include
 begin_endif
@@ -2363,6 +2368,9 @@ operator|<<
 literal|true
 expr_stmt|;
 comment|// find a non-existing drive and check if it does not exist
+ifdef|#
+directive|ifdef
+name|QT_BUILD_INTERNAL
 name|QFileInfoList
 name|drives
 init|=
@@ -2470,6 +2478,8 @@ operator|<<
 literal|false
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 endif|#
 directive|endif
 block|}

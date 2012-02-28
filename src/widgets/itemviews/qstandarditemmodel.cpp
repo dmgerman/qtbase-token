@@ -6832,6 +6832,9 @@ argument_list|(
 name|QStandardItemModel
 argument_list|)
 expr_stmt|;
+name|beginResetModel
+argument_list|()
+expr_stmt|;
 name|d
 operator|->
 name|root
@@ -6882,7 +6885,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|reset
+name|endResetModel
 argument_list|()
 expr_stmt|;
 block|}

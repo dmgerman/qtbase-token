@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qfsfileengine.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qfile.h"
 end_include
 begin_include
@@ -3761,7 +3756,7 @@ argument_list|()
 condition|)
 name|qWarning
 argument_list|(
-literal|"QFSFileEngine::currentPath: getcwd() failed"
+literal|"QFileSystemEngine::currentPath: getcwd() failed"
 argument_list|)
 expr_stmt|;
 endif|#
@@ -3779,7 +3774,7 @@ name|QT_DEBUG
 argument_list|)
 name|qWarning
 argument_list|(
-literal|"QFSFileEngine::currentPath: stat(\".\") failed"
+literal|"QFileSystemEngine::currentPath: stat(\".\") failed"
 argument_list|)
 expr_stmt|;
 endif|#

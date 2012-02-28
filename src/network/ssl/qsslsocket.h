@@ -799,7 +799,7 @@ begin_decl_stmt
 name|QT_END_NAMESPACE
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|Q_DECLARE_METATYPE
 argument_list|(
 name|QList

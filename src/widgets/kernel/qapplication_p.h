@@ -1125,8 +1125,12 @@ name|QPalette
 operator|*
 name|set_pal
 block|;
-name|private
+name|protected
 operator|:
+name|void
+name|notifyThemeChanged
+argument_list|()
+block|;
 name|public
 operator|:
 specifier|static

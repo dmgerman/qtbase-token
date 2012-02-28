@@ -231,6 +231,11 @@ specifier|const
 name|uint
 name|numberOfKeyBindings
 decl_stmt|;
+specifier|static
+name|unsigned
+name|currentKeyPlatforms
+parameter_list|()
+function_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt

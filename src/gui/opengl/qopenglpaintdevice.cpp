@@ -54,7 +54,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QOpenGLPaintDevice     \brief The QOpenGLPaintDevice class enables painting to an OpenGL context using QPainter.     \since 5.0      \ingroup painting-3D      When painting to a QOpenGLPaintDevice using QPainter, the state of     the current GL context will be altered by the paint engine to reflect     its needs.  Applications should not rely upon the GL state being reset     to its original conditions, particularly the current shader program,     GL viewport, texture units, and drawing modes. */
+comment|/*!     \class QOpenGLPaintDevice     \brief The QOpenGLPaintDevice class enables painting to an OpenGL context using QPainter.     \since 5.0      \ingroup painting-3D      When painting to a QOpenGLPaintDevice using QPainter, the state of     the current OpenGL context will be altered by the paint engine to reflect     its needs.  Applications should not rely upon the OpenGL state being reset     to its original conditions, particularly the current shader program,     OpenGL viewport, texture units, and drawing modes. */
 end_comment
 begin_class
 DECL|class|QOpenGLPaintDevicePrivate

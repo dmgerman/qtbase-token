@@ -601,7 +601,7 @@ end_function
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_comment
 comment|/*!     Returns the SSL configuration and state associated with this     reply, if SSL was used. It will contain the remote server's     certificate, its certificate chain leading to the Certificate     Authority as well as the encryption ciphers in use.      The peer's certificate and its certificate chain will be known by     the time sslErrors() is emitted, if it's emitted. */

@@ -3381,9 +3381,6 @@ name|isEmpty
 argument_list|()
 condition|)
 return|return;
-name|QString
-name|tmp
-decl_stmt|;
 for|for
 control|(
 name|int

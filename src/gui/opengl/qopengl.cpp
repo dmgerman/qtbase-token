@@ -12,6 +12,11 @@ include|#
 directive|include
 file|"qopenglcontext.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qopenglfunctions.h"
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|QOpenGLExtensionMatcher
@@ -35,10 +40,11 @@ end_function
 begin_typedef
 DECL|typedef|qt_glGetStringi
 typedef|typedef
+specifier|const
 name|GLubyte
 modifier|*
 function_decl|(
-modifier|*
+name|QOPENGLF_APIENTRYP
 name|qt_glGetStringi
 function_decl|)
 parameter_list|(

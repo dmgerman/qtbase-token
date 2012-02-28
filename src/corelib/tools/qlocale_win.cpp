@@ -2853,6 +2853,7 @@ block|{
 typedef|typedef
 name|BOOL
 function_decl|(
+name|WINAPI
 modifier|*
 name|GetUserPreferredUILanguagesFunc
 function_decl|)

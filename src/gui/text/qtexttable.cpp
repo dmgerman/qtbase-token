@@ -1250,9 +1250,7 @@ name|QTextTablePrivate
 operator|::
 name|fragmentAdded
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|type
 parameter_list|,
 name|uint
@@ -1386,9 +1384,7 @@ name|QTextTablePrivate
 operator|::
 name|fragmentRemoved
 parameter_list|(
-specifier|const
 name|QChar
-modifier|&
 name|type
 parameter_list|,
 name|uint

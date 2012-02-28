@@ -739,12 +739,4 @@ name|result
 return|;
 block|}
 end_function
-begin_macro
-name|Q_EXPORT_PLUGIN2
-argument_list|(
-argument|pnp_extrafilters
-argument_list|,
-argument|ExtraFiltersPlugin
-argument_list|)
-end_macro
 end_unit

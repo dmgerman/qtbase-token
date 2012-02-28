@@ -3393,12 +3393,16 @@ name|qWarning
 argument_list|(
 literal|"QAction::eventFilter: Ambiguous shortcut overload: %s"
 argument_list|,
-name|QString
-argument_list|(
 name|se
 operator|->
 name|key
 argument_list|()
+operator|.
+name|toString
+argument_list|(
+name|QKeySequence
+operator|::
+name|NativeText
 argument_list|)
 operator|.
 name|toLatin1

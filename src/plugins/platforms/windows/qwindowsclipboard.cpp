@@ -1103,12 +1103,6 @@ argument_list|,
 name|owned
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|owned
-condition|)
-comment|// changed is emitted by QClipboard in that case.
 name|emitChanged
 argument_list|(
 name|QClipboard

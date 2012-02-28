@@ -26,6 +26,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtPlugin>
+end_include
+begin_include
+include|#
+directive|include
 file|<QStringList>
 end_include
 begin_include
@@ -69,6 +74,13 @@ name|public
 name|FilterInterface
 block|{
 name|Q_OBJECT
+name|Q_PLUGIN_METADATA
+argument_list|(
+name|IID
+literal|"org.qt-project.Qt.Examples.PlugAndPaint.BrushInterface"
+name|FILE
+literal|"basictools.json"
+argument_list|)
 name|Q_INTERFACES
 argument_list|(
 name|BrushInterface

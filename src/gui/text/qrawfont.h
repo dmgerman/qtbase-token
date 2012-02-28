@@ -392,9 +392,7 @@ decl_stmt|;
 name|bool
 name|supportsCharacter
 argument_list|(
-specifier|const
 name|QChar
-operator|&
 name|character
 argument_list|)
 decl|const

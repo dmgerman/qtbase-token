@@ -342,6 +342,9 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
+name|beginResetModel
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -401,7 +404,7 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|reset
+name|endResetModel
 argument_list|()
 expr_stmt|;
 block|}

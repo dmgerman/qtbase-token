@@ -80,7 +80,7 @@ end_ifndef
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_include
 include|#
@@ -496,7 +496,7 @@ control|)
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 if|if
 condition|(
 name|encrypt
@@ -568,7 +568,7 @@ control|)
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 if|if
 condition|(
 name|encrypt
@@ -6141,7 +6141,7 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 end_ifndef
 begin_function
 DECL|function|setSslConfiguration
@@ -6460,7 +6460,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//QT_NO_OPENSSL
+comment|//QT_NO_SSL
 end_comment
 begin_ifndef
 ifndef|#

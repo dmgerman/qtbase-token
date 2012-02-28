@@ -336,9 +336,7 @@ name|Private
 modifier|*
 name|d
 parameter_list|,
-name|QVariant
-operator|::
-name|Type
+name|int
 name|type
 parameter_list|,
 name|void
@@ -384,12 +382,6 @@ operator|!
 name|defined
 argument_list|(
 name|QT_NO_DEBUG_STREAM
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_BROKEN_DEBUG_STREAM
 argument_list|)
 DECL|function|streamDebug
 specifier|static
@@ -484,7 +476,7 @@ operator|.
 name|nospace
 argument_list|()
 operator|<<
-literal|"QVariant::Type("
+literal|"QMetaType::Type("
 operator|<<
 name|d
 operator|->
@@ -532,12 +524,6 @@ operator|!
 name|defined
 argument_list|(
 name|QT_NO_DEBUG_STREAM
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_BROKEN_DEBUG_STREAM
 argument_list|)
 name|streamDebug
 else|#

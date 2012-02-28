@@ -174,7 +174,7 @@ name|ssl
 block|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|QSslConfiguration
 name|incomingSslConfiguration
 block|;
@@ -323,7 +323,7 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|void
 name|sslErrors
 argument_list|(
@@ -489,7 +489,7 @@ argument_list|)
 block|;
 ifndef|#
 directive|ifndef
-name|QT_NO_OPENSSL
+name|QT_NO_SSL
 name|void
 name|sslErrorsSlot
 argument_list|(

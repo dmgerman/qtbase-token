@@ -859,6 +859,10 @@ name|WindowOverridesSystemGestures
 init|=
 literal|0x00100000
 block|,
+name|WindowDoesNotAcceptFocus
+init|=
+literal|0x00200000
+block|,
 name|CustomizeWindowHint
 init|=
 literal|0x02000000

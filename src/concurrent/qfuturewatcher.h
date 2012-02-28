@@ -62,6 +62,7 @@ argument|QFutureWatcherBase
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QFutureWatcherBase
 argument_list|(
 name|QObject
@@ -286,6 +287,7 @@ name|QFutureWatcherBase
 block|{
 name|public
 operator|:
+name|explicit
 name|QFutureWatcher
 argument_list|(
 name|QObject
@@ -671,6 +673,7 @@ name|QFutureWatcherBase
 block|{
 name|public
 operator|:
+name|explicit
 name|QFutureWatcher
 argument_list|(
 name|QObject

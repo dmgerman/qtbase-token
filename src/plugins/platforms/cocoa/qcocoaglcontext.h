@@ -125,6 +125,16 @@ name|nsOpenGLContext
 argument_list|()
 specifier|const
 block|;
+name|bool
+name|isSharing
+argument_list|()
+specifier|const
+block|;
+name|bool
+name|isValid
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|void
@@ -138,6 +148,10 @@ block|;
 name|NSOpenGLContext
 operator|*
 name|m_context
+block|;
+name|NSOpenGLContext
+operator|*
+name|m_shareContext
 block|;
 name|QSurfaceFormat
 name|m_format

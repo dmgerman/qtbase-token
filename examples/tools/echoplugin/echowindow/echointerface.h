@@ -51,17 +51,19 @@ empty_stmt|;
 end_empty_stmt
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|macro|EchoInterface_iid
+define|#
+directive|define
+name|EchoInterface_iid
+value|"org.qt-project.Qt.Examples.EchoInterface"
 name|Q_DECLARE_INTERFACE
 argument_list|(
 name|EchoInterface
 argument_list|,
-literal|"com.trolltech.Plugin.EchoInterface/1.0"
+name|EchoInterface_iid
 argument_list|)
-decl_stmt|;
-end_decl_stmt
-begin_macro
 name|QT_END_NAMESPACE
-end_macro
+end_decl_stmt
 begin_comment
 comment|//! [0]
 end_comment

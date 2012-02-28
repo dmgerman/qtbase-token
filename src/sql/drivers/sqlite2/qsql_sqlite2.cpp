@@ -67,7 +67,7 @@ if|#
 directive|if
 operator|!
 name|defined
-name|Q_WS_WIN32
+name|Q_OS_WIN
 end_if
 begin_include
 include|#
@@ -857,7 +857,7 @@ comment|// sleep instead requesting result again immidiately.
 if|#
 directive|if
 name|defined
-name|Q_WS_WIN32
+name|Q_OS_WIN
 name|Sleep
 argument_list|(
 literal|1000

@@ -3237,7 +3237,6 @@ else|else
 block|{
 specifier|const
 name|QChar
-modifier|&
 name|last
 init|=
 name|copy
@@ -3251,7 +3250,6 @@ argument_list|)
 decl_stmt|;
 specifier|const
 name|QChar
-modifier|&
 name|secondLast
 init|=
 name|copy

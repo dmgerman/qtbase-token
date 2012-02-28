@@ -226,7 +226,6 @@ comment|/*! \fn qint64 qRound64(qreal value)     \relates<QtGlobal>      Rounds 
 comment|/*! \fn const T&qMin(const T&value1, const T&value2)     \relates<QtGlobal>      Returns the minimum of \a value1 and \a value2.      Example:      \snippet doc/src/snippets/code/src_corelib_global_qglobal.cpp 13      \sa qMax(), qBound() */
 comment|/*! \fn const T&qMax(const T&value1, const T&value2)     \relates<QtGlobal>      Returns the maximum of \a value1 and \a value2.      Example:      \snippet doc/src/snippets/code/src_corelib_global_qglobal.cpp 14      \sa qMin(), qBound() */
 comment|/*! \fn const T&qBound(const T&min, const T&value, const T&max)     \relates<QtGlobal>      Returns \a value bounded by \a min and \a max. This is equivalent     to qMax(\a min, qMin(\a value, \a max)).      Example:      \snippet doc/src/snippets/code/src_corelib_global_qglobal.cpp 15      \sa qMin(), qMax() */
-comment|/*!     \fn int qMacVersion()     \relates<QtGlobal>      Use QSysInfo::MacintoshVersion instead.      \sa QSysInfo */
 comment|/*!     \macro QT_VERSION_CHECK     \relates<QtGlobal>      Turns the major, minor and patch numbers of a version into an     integer, 0xMMNNPP (MM = major, NN = minor, PP = patch). This can     be compared with another similarly processed version id.      \sa QT_VERSION */
 comment|/*!     \macro QT_VERSION     \relates<QtGlobal>      This macro expands a numeric value of the form 0xMMNNPP (MM =     major, NN = minor, PP = patch) that specifies Qt's version     number. For example, if you compile your application against Qt     4.1.2, the QT_VERSION macro will expand to 0x040102.      You can use QT_VERSION to use the latest Qt features where     available.      Example:      \snippet doc/src/snippets/code/src_corelib_global_qglobal.cpp 16      \sa QT_VERSION_STR, qVersion() */
 comment|/*!     \macro QT_VERSION_STR     \relates<QtGlobal>      This macro expands to a string that specifies Qt's version number     (for example, "4.1.2"). This is the version against which the     application is compiled.      \sa qVersion(), QT_VERSION */
@@ -281,6 +280,9 @@ comment|/*!     \fn QSysInfo::WindowsVersion QSysInfo::windowsVersion()     \sin
 end_comment
 begin_comment
 comment|/*!     \variable QSysInfo::MacintoshVersion     \brief the version of the Macintosh operating system on which            the application is run (Mac only). */
+end_comment
+begin_comment
+comment|/*!     \fn QSysInfo::MacVersion QSysInfo::macVersion()      Returns the version of Mac OS X on which the application is run (Mac OS X     Only). */
 end_comment
 begin_comment
 comment|/*!     \enum QSysInfo::Endian      \value BigEndian  Big-endian byte order (also called Network byte order)     \value LittleEndian  Little-endian byte order     \value ByteOrder  Equals BigEndian or LittleEndian, depending on                       the platform's byte order. */
@@ -728,10 +730,11 @@ argument_list|)
 end_if
 begin_function
 DECL|function|macVersion
-specifier|static
 name|QSysInfo
 operator|::
 name|MacVersion
+name|QSysInfo
+operator|::
 name|macVersion
 parameter_list|()
 block|{
@@ -792,6 +795,8 @@ name|QSysInfo
 operator|::
 name|MacintoshVersion
 init|=
+name|QSysInfo
+operator|::
 name|macVersion
 argument_list|()
 decl_stmt|;
