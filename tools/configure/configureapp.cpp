@@ -18559,7 +18559,11 @@ name|endl
 expr_stmt|;
 name|tmpStream
 operator|<<
-literal|"static const char qt_configure_prefix_path_str       [512 + 12] = \"qt_prfxpath="
+literal|"static const char qt_configure_prefix_path_strs[][12 + 512] = {"
+operator|<<
+name|endl
+operator|<<
+literal|"    \"qt_prfxpath="
 operator|<<
 name|escapeSeparators
 argument_list|(
@@ -18569,11 +18573,11 @@ literal|"QT_INSTALL_PREFIX"
 index|]
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_documentation_path_str[512 + 12] = \"qt_docspath="
+literal|"    \"qt_docspath="
 operator|<<
 name|escapeSeparators
 argument_list|(
@@ -18583,11 +18587,11 @@ literal|"QT_INSTALL_DOCS"
 index|]
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_headers_path_str      [512 + 12] = \"qt_hdrspath="
+literal|"    \"qt_hdrspath="
 operator|<<
 name|escapeSeparators
 argument_list|(
@@ -18597,11 +18601,11 @@ literal|"QT_INSTALL_HEADERS"
 index|]
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_libraries_path_str    [512 + 12] = \"qt_libspath="
+literal|"    \"qt_libspath="
 operator|<<
 name|escapeSeparators
 argument_list|(
@@ -18611,11 +18615,11 @@ literal|"QT_INSTALL_LIBS"
 index|]
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_binaries_path_str     [512 + 12] = \"qt_binspath="
+literal|"    \"qt_binspath="
 operator|<<
 name|escapeSeparators
 argument_list|(
@@ -18625,11 +18629,11 @@ literal|"QT_INSTALL_BINS"
 index|]
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_plugins_path_str      [512 + 12] = \"qt_plugpath="
+literal|"    \"qt_plugpath="
 operator|<<
 name|escapeSeparators
 argument_list|(
@@ -18639,11 +18643,11 @@ literal|"QT_INSTALL_PLUGINS"
 index|]
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_imports_path_str      [512 + 12] = \"qt_impspath="
+literal|"    \"qt_impspath="
 operator|<<
 name|escapeSeparators
 argument_list|(
@@ -18653,11 +18657,11 @@ literal|"QT_INSTALL_IMPORTS"
 index|]
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_data_path_str         [512 + 12] = \"qt_datapath="
+literal|"    \"qt_datapath="
 operator|<<
 name|escapeSeparators
 argument_list|(
@@ -18667,11 +18671,11 @@ literal|"QT_INSTALL_DATA"
 index|]
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_translations_path_str [512 + 12] = \"qt_trnspath="
+literal|"    \"qt_trnspath="
 operator|<<
 name|escapeSeparators
 argument_list|(
@@ -18681,11 +18685,11 @@ literal|"QT_INSTALL_TRANSLATIONS"
 index|]
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_examples_path_str     [512 + 12] = \"qt_xmplpath="
+literal|"    \"qt_xmplpath="
 operator|<<
 name|escapeSeparators
 argument_list|(
@@ -18695,11 +18699,11 @@ literal|"QT_INSTALL_EXAMPLES"
 index|]
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_tests_path_str        [512 + 12] = \"qt_tstspath="
+literal|"    \"qt_tstspath="
 operator|<<
 name|escapeSeparators
 argument_list|(
@@ -18709,7 +18713,11 @@ literal|"QT_INSTALL_TESTS"
 index|]
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
+operator|<<
+name|endl
+operator|<<
+literal|"};"
 operator|<<
 name|endl
 comment|//<< "static const char qt_configure_settings_path_str [256] = \"qt_stngpath="<< escapeSeparators(dictionary["QT_INSTALL_SETTINGS"])<< "\";"<< endl
@@ -18732,7 +18740,11 @@ literal|"#else"
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_prefix_path_str       [512 + 12] = \"qt_prfxpath="
+literal|"static const char qt_configure_prefix_path_strs[][12 + 512] = {"
+operator|<<
+name|endl
+operator|<<
+literal|"    \"qt_prfxpath="
 operator|<<
 name|escapeSeparators
 argument_list|(
@@ -18746,7 +18758,7 @@ literal|"\";"
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_documentation_path_str[512 + 12] = \"qt_docspath="
+literal|"    \"qt_docspath="
 operator|<<
 name|fixSeparators
 argument_list|(
@@ -18760,11 +18772,11 @@ argument_list|,
 literal|true
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_headers_path_str      [512 + 12] = \"qt_hdrspath="
+literal|"    \"qt_hdrspath="
 operator|<<
 name|fixSeparators
 argument_list|(
@@ -18778,11 +18790,11 @@ argument_list|,
 literal|true
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_libraries_path_str    [512 + 12] = \"qt_libspath="
+literal|"    \"qt_libspath="
 operator|<<
 name|fixSeparators
 argument_list|(
@@ -18796,11 +18808,11 @@ argument_list|,
 literal|true
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_binaries_path_str     [512 + 12] = \"qt_binspath="
+literal|"    \"qt_binspath="
 operator|<<
 name|fixSeparators
 argument_list|(
@@ -18814,11 +18826,11 @@ argument_list|,
 literal|true
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_plugins_path_str      [512 + 12] = \"qt_plugpath="
+literal|"    \"qt_plugpath="
 operator|<<
 name|fixSeparators
 argument_list|(
@@ -18832,11 +18844,11 @@ argument_list|,
 literal|true
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_imports_path_str      [512 + 12] = \"qt_impspath="
+literal|"    \"qt_impspath="
 operator|<<
 name|fixSeparators
 argument_list|(
@@ -18850,11 +18862,11 @@ argument_list|,
 literal|true
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_data_path_str         [512 + 12] = \"qt_datapath="
+literal|"    \"qt_datapath="
 operator|<<
 name|fixSeparators
 argument_list|(
@@ -18866,11 +18878,11 @@ argument_list|,
 literal|true
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_translations_path_str [512 + 12] = \"qt_trnspath="
+literal|"    \"qt_trnspath="
 operator|<<
 name|fixSeparators
 argument_list|(
@@ -18884,11 +18896,11 @@ argument_list|,
 literal|true
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_examples_path_str     [512 + 12] = \"qt_xmplpath="
+literal|"    \"qt_xmplpath="
 operator|<<
 name|fixSeparators
 argument_list|(
@@ -18902,11 +18914,11 @@ argument_list|,
 literal|true
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
 operator|<<
 name|endl
 operator|<<
-literal|"static const char qt_configure_tests_path_str        [512 + 12] = \"qt_tstspath="
+literal|"    \"qt_tstspath="
 operator|<<
 name|fixSeparators
 argument_list|(
@@ -18920,7 +18932,11 @@ argument_list|,
 literal|true
 argument_list|)
 operator|<<
-literal|"\";"
+literal|"\","
+operator|<<
+name|endl
+operator|<<
+literal|"};"
 operator|<<
 name|endl
 operator|<<
@@ -18940,50 +18956,6 @@ operator|<<
 name|endl
 operator|<<
 literal|"#define QT_CONFIGURE_LICENSED_PRODUCTS qt_configure_licensed_products_str + 12;"
-operator|<<
-name|endl
-operator|<<
-literal|"#define QT_CONFIGURE_PREFIX_PATH qt_configure_prefix_path_str + 12;"
-operator|<<
-name|endl
-operator|<<
-literal|"#define QT_CONFIGURE_DOCUMENTATION_PATH qt_configure_documentation_path_str + 12;"
-operator|<<
-name|endl
-operator|<<
-literal|"#define QT_CONFIGURE_HEADERS_PATH qt_configure_headers_path_str + 12;"
-operator|<<
-name|endl
-operator|<<
-literal|"#define QT_CONFIGURE_LIBRARIES_PATH qt_configure_libraries_path_str + 12;"
-operator|<<
-name|endl
-operator|<<
-literal|"#define QT_CONFIGURE_BINARIES_PATH qt_configure_binaries_path_str + 12;"
-operator|<<
-name|endl
-operator|<<
-literal|"#define QT_CONFIGURE_PLUGINS_PATH qt_configure_plugins_path_str + 12;"
-operator|<<
-name|endl
-operator|<<
-literal|"#define QT_CONFIGURE_IMPORTS_PATH qt_configure_imports_path_str + 12;"
-operator|<<
-name|endl
-operator|<<
-literal|"#define QT_CONFIGURE_DATA_PATH qt_configure_data_path_str + 12;"
-operator|<<
-name|endl
-operator|<<
-literal|"#define QT_CONFIGURE_TRANSLATIONS_PATH qt_configure_translations_path_str + 12;"
-operator|<<
-name|endl
-operator|<<
-literal|"#define QT_CONFIGURE_EXAMPLES_PATH qt_configure_examples_path_str + 12;"
-operator|<<
-name|endl
-operator|<<
-literal|"#define QT_CONFIGURE_TESTS_PATH qt_configure_tests_path_str + 12;"
 operator|<<
 name|endl
 comment|//<< "#define QT_CONFIGURE_SETTINGS_PATH qt_configure_settings_path_str + 12;"<< endl
