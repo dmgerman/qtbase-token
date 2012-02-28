@@ -22,11 +22,12 @@ end_define
 begin_comment
 comment|/*  *  Description:  *      This file implements the Secure Hash Algorithms  *      as defined in the U.S. National Institute of Standards  *      and Technology Federal Information Processing Standards  *      Publication (FIPS PUB) 180-3 published in October 2008  *      and formerly defined in its predecessors, FIPS PUB 180-1  *      and FIP PUB 180-2.  *  *      A combined document showing all algorithms is available at  *              http://csrc.nist.gov/publications/fips/  *                     fips180-3/fips180-3_final.pdf  *  *      The five hashes are defined in these sizes:  *              SHA-1           20 byte / 160 bit  *              SHA-224         28 byte / 224 bit  *              SHA-256         32 byte / 256 bit  *              SHA-384         48 byte / 384 bit  *              SHA-512         64 byte / 512 bit  *  *  Compilation Note:  *    These files may be compiled with two options:  *        USE_32BIT_ONLY - use 32-bit arithmetic only, for systems  *                         without 64-bit integers  *  *        USE_MODIFIED_MACROS - use alternate form of the SHA_Ch()  *                         and SHA_Maj() macros that are equivalent  *                         and potentially faster on many systems  *  */
 end_comment
-begin_include
-include|#
-directive|include
-file|<stdint.h>
-end_include
+begin_comment
+comment|// stdint.h include commented out by Nokia, it is not available on all platforms.
+end_comment
+begin_comment
+comment|// #include<stdint.h>
+end_comment
 begin_comment
 comment|/*  * If you do not have the ISO standard stdint.h header file, then you  * must typedef the following:  *    name              meaning  *  uint64_t         unsigned 64-bit integer  *  uint32_t         unsigned 32-bit integer  *  uint8_t          unsigned 8-bit integer (i.e., unsigned char)  *  int_least16_t    integer of>= 16 bits  *  * See stdint-example.h  */
 end_comment

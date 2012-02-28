@@ -33,16 +33,62 @@ directive|include
 file|"../../3rdparty/sha1/sha1.cpp"
 end_include
 begin_comment
-comment|/*     These 2 functions replace macros of the same name in sha224-256.c and     sha384-512.c. Originally, these macros relied on a global static 'addTemp'     variable. We do not want this for 2 reasons:      1. since we are including the sources directly, the declaration of the 2 conflict      2. static variables are not thread-safe, we do not want multiple threads     computing a hash to corrupt one another */
+comment|/*     These typedefs are needed by the RFC6234 code. Normally they would come     from from stdint.h, but since this header is not available on all platforms     (MSVC 2008, for example), we need to define them ourselves. */
+end_comment
+begin_typedef
+DECL|typedef|uint64_t
+typedef|typedef
+name|QT_PREPEND_NAMESPACE
+argument_list|(
+argument|quint64
+argument_list|)
+name|uint64_t
+expr_stmt|;
+end_typedef
+begin_typedef
+DECL|typedef|uint32_t
+typedef|typedef
+name|QT_PREPEND_NAMESPACE
+argument_list|(
+argument|quint32
+argument_list|)
+name|uint32_t
+expr_stmt|;
+end_typedef
+begin_typedef
+DECL|typedef|uint8_t
+typedef|typedef
+name|QT_PREPEND_NAMESPACE
+argument_list|(
+argument|quint8
+argument_list|)
+name|uint8_t
+expr_stmt|;
+end_typedef
+begin_typedef
+DECL|typedef|int_least16_t
+typedef|typedef
+name|QT_PREPEND_NAMESPACE
+argument_list|(
+argument|qint16
+argument_list|)
+name|int_least16_t
+expr_stmt|;
+end_typedef
+begin_comment
+comment|// Header from rfc6234 with 1 modification:
 end_comment
 begin_comment
-comment|// Header from rfc6234 without modifications
+comment|// sha1.h - commented out '#include<stdint.h>' on line 74
 end_comment
 begin_include
 include|#
 directive|include
 file|"../../3rdparty/rfc6234/sha.h"
 end_include
+begin_comment
+comment|/*     These 2 functions replace macros of the same name in sha224-256.c and     sha384-512.c. Originally, these macros relied on a global static 'addTemp'     variable. We do not want this for 2 reasons:      1. since we are including the sources directly, the declaration of the 2 conflict      2. static variables are not thread-safe, we do not want multiple threads     computing a hash to corrupt one another */
+end_comment
 begin_function_decl
 specifier|static
 name|int
