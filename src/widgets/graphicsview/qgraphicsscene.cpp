@@ -2936,9 +2936,6 @@ name|QT_NO_IM
 if|if
 condition|(
 name|lastFocusItem
-operator|&&
-operator|(
-name|lastFocusItem
 operator|->
 name|flags
 argument_list|()
@@ -2946,7 +2943,6 @@ operator|&
 name|QGraphicsItem
 operator|::
 name|ItemAcceptsInputMethod
-operator|)
 condition|)
 block|{
 comment|// Close any external input method panel. This happens
@@ -2962,10 +2958,13 @@ operator|->
 name|inputMethod
 argument_list|()
 operator|->
-name|reset
+name|commit
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|//QT_NO_IM
 name|focusItem
 operator|=
 literal|0
@@ -2988,9 +2987,6 @@ operator|&
 name|event
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
-comment|//QT_NO_IM
 block|}
 comment|// This handles the case that the item has been removed from the
 comment|// scene in response to the FocusOut event.

@@ -10692,7 +10692,7 @@ operator|->
 name|inputMethod
 argument_list|()
 operator|->
-name|reset
+name|commit
 argument_list|()
 expr_stmt|;
 name|qApp
@@ -21203,7 +21203,7 @@ operator|->
 name|inputMethod
 argument_list|()
 operator|->
-name|reset
+name|commit
 argument_list|()
 expr_stmt|;
 block|}
@@ -21690,7 +21690,7 @@ operator|->
 name|inputMethod
 argument_list|()
 operator|->
-name|reset
+name|commit
 argument_list|()
 expr_stmt|;
 name|QFocusEvent
@@ -35771,7 +35771,7 @@ operator|->
 name|inputMethod
 argument_list|()
 operator|->
-name|reset
+name|commit
 argument_list|()
 expr_stmt|;
 name|qApp
@@ -36016,7 +36016,7 @@ operator|->
 name|inputMethod
 argument_list|()
 operator|->
-name|reset
+name|commit
 argument_list|()
 expr_stmt|;
 name|qApp

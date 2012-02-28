@@ -113,7 +113,54 @@ argument_list|()
 block|{
 name|m_commitCallCount
 operator|++
-block|; }
+block|;
+name|QInputMethodEvent
+name|commitEvent
+block|;
+name|commitEvent
+operator|.
+name|setCommitString
+argument_list|(
+name|m_commitString
+argument_list|)
+block|;
+if|if
+condition|(
+name|qGuiApp
+operator|->
+name|focusObject
+argument_list|()
+condition|)
+name|qGuiApp
+operator|->
+name|sendEvent
+argument_list|(
+name|qGuiApp
+operator|->
+name|focusObject
+argument_list|()
+argument_list|,
+operator|&
+name|commitEvent
+argument_list|)
+expr_stmt|;
+else|else
+name|qWarning
+argument_list|(
+literal|"Test input context to commit without focused object"
+argument_list|)
+expr_stmt|;
+block|}
+name|void
+name|setCommitString
+argument_list|(
+argument|const QString&commitString
+argument_list|)
+block|{
+name|m_commitString
+operator|=
+name|commitString
+block|;     }
 name|virtual
 name|void
 name|update
@@ -238,6 +285,9 @@ name|m_resetCallCount
 block|;
 name|int
 name|m_commitCallCount
+block|;
+name|QString
+name|m_commitString
 block|;
 name|mutable
 name|int

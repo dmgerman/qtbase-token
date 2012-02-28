@@ -7383,7 +7383,7 @@ operator|->
 name|inputMethod
 argument_list|()
 operator|->
-name|reset
+name|commit
 argument_list|()
 expr_stmt|;
 name|QFocusEvent
