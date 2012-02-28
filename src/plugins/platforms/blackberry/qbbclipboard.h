@@ -23,11 +23,6 @@ include|#
 directive|include
 file|<QtGui/QPlatformClipboard>
 end_include
-begin_include
-include|#
-directive|include
-file|<QMimeData>
-end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -65,18 +60,12 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|QMimeData
+name|class
+name|MimeData
+block|;
+name|MimeData
 operator|*
 name|m_mimeData
-block|;
-name|void
-name|readClipboardBuff
-argument_list|(
-specifier|const
-name|char
-operator|*
-name|type
-argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
