@@ -31,6 +31,7 @@ name|QScopedValueRollback
 block|{
 name|public
 operator|:
+name|explicit
 name|QScopedValueRollback
 argument_list|(
 name|T
