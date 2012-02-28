@@ -1373,9 +1373,7 @@ name|Private
 modifier|*
 name|d
 parameter_list|,
-name|QVariant
-operator|::
-name|Type
+name|int
 name|t
 parameter_list|,
 name|void
@@ -4168,12 +4166,6 @@ name|defined
 argument_list|(
 name|QT_NO_DEBUG_STREAM
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_BROKEN_DEBUG_STREAM
-argument_list|)
 DECL|function|streamDebug
 specifier|static
 name|void
@@ -4274,12 +4266,6 @@ operator|!
 name|defined
 argument_list|(
 name|QT_NO_DEBUG_STREAM
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_BROKEN_DEBUG_STREAM
 argument_list|)
 name|streamDebug
 else|#
@@ -4405,9 +4391,7 @@ operator|::
 name|Private
 modifier|*
 parameter_list|,
-name|QVariant
-operator|::
-name|Type
+name|int
 parameter_list|,
 name|void
 modifier|*
@@ -4435,12 +4419,6 @@ operator|!
 name|defined
 argument_list|(
 name|QT_NO_DEBUG_STREAM
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_BROKEN_DEBUG_STREAM
 argument_list|)
 DECL|function|dummyStreamDebug
 specifier|static
@@ -4501,12 +4479,6 @@ operator|!
 name|defined
 argument_list|(
 name|QT_NO_DEBUG_STREAM
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_BROKEN_DEBUG_STREAM
 argument_list|)
 name|dummyStreamDebug
 else|#
@@ -4941,9 +4913,7 @@ operator|::
 name|Private
 modifier|*
 parameter_list|,
-name|QVariant
-operator|::
-name|Type
+name|int
 parameter_list|,
 name|void
 modifier|*
@@ -4972,12 +4942,6 @@ operator|!
 name|defined
 argument_list|(
 name|QT_NO_DEBUG_STREAM
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_BROKEN_DEBUG_STREAM
 argument_list|)
 DECL|function|customStreamDebug
 specifier|static
@@ -5028,12 +4992,6 @@ operator|!
 name|defined
 argument_list|(
 name|QT_NO_DEBUG_STREAM
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_BROKEN_DEBUG_STREAM
 argument_list|)
 name|customStreamDebug
 else|#
@@ -5221,7 +5179,7 @@ begin_comment
 comment|/*!     \fn QVariant::QVariant()      Constructs an invalid variant. */
 end_comment
 begin_comment
-comment|/*!     \fn QVariant::QVariant(int typeOrUserType, const void *copy)      Constructs variant of type \a typeOrUserType, and initializes with     \a copy if \a copy is not 0.      Note that you have to pass the address of the variable you want stored.      Usually, you never have to use this constructor, use QVariant::fromValue()     instead to construct variants from the pointer types represented by     \c QMetaType::VoidStar, \c QMetaType::QObjectStar and     \c QMetaType::QWidgetStar.      \sa QVariant::fromValue(), Type */
+comment|/*!     \fn QVariant::QVariant(int typeId, const void *copy)      Constructs variant of type \a typeId, and initializes with     \a copy if \a copy is not 0.      Note that you have to pass the address of the variable you want stored.      Usually, you never have to use this constructor, use QVariant::fromValue()     instead to construct variants from the pointer types represented by     \c QMetaType::VoidStar, \c QMetaType::QObjectStar and     \c QMetaType::QWidgetStar.      \sa QVariant::fromValue(), Type */
 end_comment
 begin_comment
 comment|/*!     \fn QVariant::QVariant(Type type)      Constructs a null variant of type \a type. */
@@ -5455,7 +5413,7 @@ begin_comment
 comment|/*!   \fn QVariant::QVariant(const QLatin1String&val)      Constructs a new variant with a string value, \a val. */
 end_comment
 begin_comment
-comment|/*!   \fn QVariant::QVariant(const char *val)      Constructs a new variant with a string value of \a val.     The variant creates a deep copy of \a val, using the encoding     set by QTextCodec::setCodecForCStrings().      Note that \a val is converted to a QString for storing in the     variant and QVariant::type() will return QMetaType::QString for     the variant.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications.      \sa QTextCodec::setCodecForCStrings() */
+comment|/*!   \fn QVariant::QVariant(const char *val)      Constructs a new variant with a string value of \a val.     The variant creates a deep copy of \a val into a QString assuming     UTF-8 encoding on the input \a val.      Note that \a val is converted to a QString for storing in the     variant and QVariant::userType() will return QMetaType::QString for     the variant.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. */
 end_comment
 begin_ifndef
 ifndef|#
@@ -5614,7 +5572,7 @@ operator|::
 name|QVariant
 parameter_list|(
 name|int
-name|typeOrUserType
+name|typeId
 parameter_list|,
 specifier|const
 name|void
@@ -5624,7 +5582,7 @@ parameter_list|)
 block|{
 name|create
 argument_list|(
-name|typeOrUserType
+name|typeId
 argument_list|,
 name|copy
 argument_list|)
@@ -5647,7 +5605,7 @@ operator|::
 name|QVariant
 parameter_list|(
 name|int
-name|typeOrUserType
+name|typeId
 parameter_list|,
 specifier|const
 name|void
@@ -5668,7 +5626,7 @@ name|d
 operator|.
 name|type
 operator|=
-name|typeOrUserType
+name|typeId
 expr_stmt|;
 name|d
 operator|.
@@ -5693,7 +5651,7 @@ else|else
 block|{
 name|create
 argument_list|(
-name|typeOrUserType
+name|typeId
 argument_list|,
 name|copy
 argument_list|)
@@ -7162,12 +7120,9 @@ block|{
 return|return
 name|typeToName
 argument_list|(
-name|Type
-argument_list|(
 name|d
 operator|.
 name|type
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -7250,7 +7205,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the enum representation of the storage type, \a typ, to     its string representation.      Returns a null pointer if the type is QVariant::Invalid or doesn't exist. */
+comment|/*!     Converts the int representation of the storage type, \a typeId, to     its string representation.      Returns a null pointer if the type is QVariant::Invalid or doesn't exist. */
 end_comment
 begin_function
 DECL|function|typeToName
@@ -7261,13 +7216,13 @@ name|QVariant
 operator|::
 name|typeToName
 parameter_list|(
-name|Type
-name|typ
+name|int
+name|typeId
 parameter_list|)
 block|{
 if|if
 condition|(
-name|typ
+name|typeId
 operator|==
 name|Invalid
 condition|)
@@ -7279,7 +7234,7 @@ name|QMetaType
 operator|::
 name|typeName
 argument_list|(
-name|typ
+name|typeId
 argument_list|)
 return|;
 block|}
@@ -8333,25 +8288,14 @@ name|handlerManager
 parameter_list|)
 block|{
 specifier|const
-name|QVariant
-operator|::
-name|Type
+name|uint
 name|targetType
 init|=
-cast|static_cast
-argument_list|<
-specifier|const
-name|QVariant
-operator|::
-name|Type
-argument_list|>
-argument_list|(
 name|qMetaTypeId
 argument_list|<
 name|T
 argument_list|>
 argument_list|()
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -9062,12 +9006,7 @@ argument_list|(
 operator|&
 name|d
 argument_list|,
-name|QVariant
-operator|::
-name|Type
-argument_list|(
 name|t
-argument_list|)
 argument_list|,
 operator|&
 name|ret
@@ -10037,7 +9976,7 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!     Returns true if the variant's type can be cast to the requested     type, \a t. Such casting is done automatically when calling the     toInt(), toBool(), ... methods.      The following casts are done automatically:      \table     \header \o Type \o Automatically Cast To     \row \o \l Bool \o \l Char, \l Double, \l Int, \l LongLong, \l String, \l UInt, \l ULongLong     \row \o \l ByteArray \o \l Double, \l Int, \l LongLong, \l String, \l UInt, \l ULongLong     \row \o \l Char \o \l Bool, \l Int, \l UInt, \l LongLong, \l ULongLong     \row \o \l Color \o \l String     \row \o \l Date \o \l DateTime, \l String     \row \o \l DateTime \o \l Date, \l String, \l Time     \row \o \l Double \o \l Bool, \l Int, \l LongLong, \l String, \l UInt, \l ULongLong     \row \o \l Font \o \l String     \row \o \l Int \o \l Bool, \l Char, \l Double, \l LongLong, \l String, \l UInt, \l ULongLong     \row \o \l KeySequence \o \l Int, \l String     \row \o \l List \o \l StringList (if the list's items can be converted to strings)     \row \o \l LongLong \o \l Bool, \l ByteArray, \l Char, \l Double, \l Int, \l String, \l UInt, \l ULongLong     \row \o \l Point \o PointF     \row \o \l Rect \o RectF     \row \o \l String \o \l Bool, \l ByteArray, \l Char, \l Color, \l Date, \l DateTime, \l Double,                          \l Font, \l Int, \l KeySequence, \l LongLong, \l StringList, \l Time, \l UInt,                          \l ULongLong     \row \o \l StringList \o \l List, \l String (if the list contains exactly one item)     \row \o \l Time \o \l String     \row \o \l UInt \o \l Bool, \l Char, \l Double, \l Int, \l LongLong, \l String, \l ULongLong     \row \o \l ULongLong \o \l Bool, \l Char, \l Double, \l Int, \l LongLong, \l String, \l UInt     \endtable      \sa convert() */
+comment|/*!     Returns true if the variant's type can be cast to the requested     type, \a targetTypeId. Such casting is done automatically when calling the     toInt(), toBool(), ... methods.      The following casts are done automatically:      \table     \header \o Type \o Automatically Cast To     \row \o \l Bool \o \l Char, \l Double, \l Int, \l LongLong, \l String, \l UInt, \l ULongLong     \row \o \l ByteArray \o \l Double, \l Int, \l LongLong, \l String, \l UInt, \l ULongLong     \row \o \l Char \o \l Bool, \l Int, \l UInt, \l LongLong, \l ULongLong     \row \o \l Color \o \l String     \row \o \l Date \o \l DateTime, \l String     \row \o \l DateTime \o \l Date, \l String, \l Time     \row \o \l Double \o \l Bool, \l Int, \l LongLong, \l String, \l UInt, \l ULongLong     \row \o \l Font \o \l String     \row \o \l Int \o \l Bool, \l Char, \l Double, \l LongLong, \l String, \l UInt, \l ULongLong     \row \o \l KeySequence \o \l Int, \l String     \row \o \l List \o \l StringList (if the list's items can be converted to strings)     \row \o \l LongLong \o \l Bool, \l ByteArray, \l Char, \l Double, \l Int, \l String, \l UInt, \l ULongLong     \row \o \l Point \o PointF     \row \o \l Rect \o RectF     \row \o \l String \o \l Bool, \l ByteArray, \l Char, \l Color, \l Date, \l DateTime, \l Double,                          \l Font, \l Int, \l KeySequence, \l LongLong, \l StringList, \l Time, \l UInt,                          \l ULongLong     \row \o \l StringList \o \l List, \l String (if the list contains exactly one item)     \row \o \l Time \o \l String     \row \o \l UInt \o \l Bool, \l Char, \l Double, \l Int, \l LongLong, \l String, \l ULongLong     \row \o \l ULongLong \o \l Bool, \l Char, \l Double, \l Int, \l LongLong, \l String, \l UInt     \endtable      \sa convert() */
 end_comment
 begin_function
 DECL|function|canConvert
@@ -10046,8 +9985,8 @@ name|QVariant
 operator|::
 name|canConvert
 parameter_list|(
-name|Type
-name|t
+name|int
+name|targetTypeId
 parameter_list|)
 specifier|const
 block|{
@@ -10080,7 +10019,7 @@ if|if
 condition|(
 name|uint
 argument_list|(
-name|t
+name|targetTypeId
 argument_list|)
 operator|==
 name|uint
@@ -10090,7 +10029,7 @@ operator|::
 name|Float
 argument_list|)
 condition|)
-name|t
+name|targetTypeId
 operator|=
 name|QVariant
 operator|::
@@ -10102,7 +10041,7 @@ name|currentType
 operator|==
 name|uint
 argument_list|(
-name|t
+name|targetTypeId
 argument_list|)
 condition|)
 return|return
@@ -10113,22 +10052,28 @@ if|if
 condition|(
 name|currentType
 operator|>
-name|QVariant
+name|int
+argument_list|(
+name|QMetaType
 operator|::
-name|Uuid
+name|QUuid
+argument_list|)
 operator|||
-name|t
+name|targetTypeId
 operator|>
-name|QVariant
+name|int
+argument_list|(
+name|QMetaType
 operator|::
-name|Uuid
+name|QUuid
+argument_list|)
 condition|)
 block|{
 switch|switch
 condition|(
 name|uint
 argument_list|(
-name|t
+name|targetTypeId
 argument_list|)
 condition|)
 block|{
@@ -10406,7 +10351,7 @@ block|}
 block|}
 if|if
 condition|(
-name|t
+name|targetTypeId
 operator|==
 name|String
 operator|&&
@@ -10433,7 +10378,7 @@ else|else
 return|return
 name|qCanConvertMatrix
 index|[
-name|t
+name|targetTypeId
 index|]
 operator|&
 operator|(
@@ -10445,7 +10390,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Casts the variant to the requested type, \a t. If the cast cannot be     done, the variant is cleared. Returns true if the current type of     the variant was successfully cast; otherwise returns false.      \warning For historical reasons, converting a null QVariant results     in a null value of the desired type (e.g., an empty string for     QString) and a result of false.      \sa canConvert(), clear() */
+comment|/*!     Casts the variant to the requested type, \a targetTypeId. If the cast cannot be     done, the variant is cleared. Returns true if the current type of     the variant was successfully cast; otherwise returns false.      \warning For historical reasons, converting a null QVariant results     in a null value of the desired type (e.g., an empty string for     QString) and a result of false.      \sa canConvert(), clear() */
 end_comment
 begin_function
 DECL|function|convert
@@ -10454,8 +10399,8 @@ name|QVariant
 operator|::
 name|convert
 parameter_list|(
-name|Type
-name|t
+name|int
+name|targetTypeId
 parameter_list|)
 block|{
 if|if
@@ -10466,7 +10411,7 @@ name|type
 operator|==
 name|uint
 argument_list|(
-name|t
+name|targetTypeId
 argument_list|)
 condition|)
 return|return
@@ -10488,7 +10433,7 @@ name|oldValue
 operator|.
 name|canConvert
 argument_list|(
-name|t
+name|targetTypeId
 argument_list|)
 condition|)
 return|return
@@ -10496,7 +10441,7 @@ literal|false
 return|;
 name|create
 argument_list|(
-name|t
+name|targetTypeId
 argument_list|,
 literal|0
 argument_list|)
@@ -10533,7 +10478,7 @@ name|oldValue
 operator|.
 name|d
 argument_list|,
-name|t
+name|targetTypeId
 argument_list|,
 name|data
 argument_list|()
@@ -10601,12 +10546,7 @@ argument_list|(
 operator|&
 name|d
 argument_list|,
-name|QVariant
-operator|::
-name|Type
-argument_list|(
 name|type
-argument_list|)
 argument_list|,
 name|ptr
 argument_list|,
@@ -10795,12 +10735,9 @@ name|v2
 operator|.
 name|canConvert
 argument_list|(
-name|Type
-argument_list|(
 name|d
 operator|.
 name|type
-argument_list|)
 argument_list|)
 operator|||
 operator|!
@@ -10808,12 +10745,9 @@ name|v2
 operator|.
 name|convert
 argument_list|(
-name|Type
-argument_list|(
 name|d
 operator|.
 name|type
-argument_list|)
 argument_list|)
 condition|)
 return|return
@@ -10964,9 +10898,6 @@ modifier|&
 name|v
 parameter_list|)
 block|{
-ifndef|#
-directive|ifndef
-name|Q_BROKEN_DEBUG_STREAM
 name|dbg
 operator|.
 name|nospace
@@ -11015,23 +10946,6 @@ operator|.
 name|space
 argument_list|()
 return|;
-else|#
-directive|else
-name|qWarning
-argument_list|(
-literal|"This compiler doesn't support streaming QVariant to QDebug"
-argument_list|)
-expr_stmt|;
-return|return
-name|dbg
-return|;
-name|Q_UNUSED
-argument_list|(
-name|v
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -11050,9 +10964,6 @@ name|Type
 name|p
 parameter_list|)
 block|{
-ifndef|#
-directive|ifndef
-name|Q_BROKEN_DEBUG_STREAM
 name|dbg
 operator|.
 name|nospace
@@ -11073,23 +10984,6 @@ operator|.
 name|space
 argument_list|()
 return|;
-else|#
-directive|else
-name|qWarning
-argument_list|(
-literal|"This compiler doesn't support streaming QVariant::Type to QDebug"
-argument_list|)
-expr_stmt|;
-return|return
-name|dbg
-return|;
-name|Q_UNUSED
-argument_list|(
-name|p
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_endif

@@ -2594,6 +2594,16 @@ operator|::
 name|task227930_correctNavigationKeyboardBehavior
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"This test currently fails on Mac OS X, see QTBUG-23602"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QDir
 name|current
 init|=
@@ -2836,20 +2846,6 @@ argument_list|(
 literal|200
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"This test currently fails on Mac OS X, see QTBUG-23602"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|fd

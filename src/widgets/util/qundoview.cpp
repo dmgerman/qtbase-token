@@ -551,7 +551,10 @@ operator|::
 name|stackChanged
 parameter_list|()
 block|{
-name|reset
+name|beginResetModel
+argument_list|()
+expr_stmt|;
+name|endResetModel
 argument_list|()
 expr_stmt|;
 name|m_sel_model

@@ -306,6 +306,11 @@ literal|0
 argument_list|)
 endif|#
 directive|endif
+block|,
+name|m_keyboardScheme
+argument_list|(
+literal|0
+argument_list|)
 block|{
 name|init
 argument_list|(
@@ -3118,6 +3123,15 @@ name|_q_deleteSelected
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_label
+name|private
+label|:
+end_label
+begin_decl_stmt
+name|int
+name|m_keyboardScheme
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 unit|};
 name|QT_END_NAMESPACE

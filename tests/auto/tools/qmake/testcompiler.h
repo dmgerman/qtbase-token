@@ -69,6 +69,18 @@ argument|QString qmakeCmd
 argument_list|)
 block|;
 name|void
+name|resetArguments
+argument_list|()
+block|;
+name|void
+name|setArguments
+argument_list|(
+argument|QString makeArgs
+argument_list|,
+argument|QString qmakeArgs
+argument_list|)
+block|;
+name|void
 name|resetEnvironment
 argument_list|()
 block|;
@@ -125,18 +137,11 @@ comment|// executes a make in the specified workPath, with an optional target (e
 name|bool
 name|make
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|workPath
+argument|const QString&workPath
 argument_list|,
-specifier|const
-name|QString
-operator|&
-name|target
-operator|=
-name|QString
-argument_list|()
+argument|const QString&target = QString()
+argument_list|,
+argument|bool expectFail = false
 argument_list|)
 block|;
 comment|// checks if the executable exists in destDir
@@ -179,18 +184,27 @@ name|bool
 name|runCommand
 argument_list|(
 argument|QString cmdLine
+argument_list|,
+argument|bool expectFail = false
 argument_list|)
+block|;
+name|bool
+name|errorOut
+argument_list|()
 block|;
 name|QString
 name|makeCmd_
+block|,
+name|makeArgs_
 block|;
 name|QString
 name|qmakeCmd_
+block|,
+name|qmakeArgs_
 block|;
 name|QStringList
 name|environment_
 block|;
-comment|// need to make this available somewhere
 name|QStringList
 name|testOutput_
 block|; }

@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QString>
 end_include
+begin_include
+include|#
+directive|include
+file|<QObject>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|enum|QUDeviceType

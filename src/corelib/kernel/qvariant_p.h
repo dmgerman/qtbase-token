@@ -854,6 +854,22 @@ name|true
 return|;
 block|}
 end_function
+begin_decl_stmt
+name|bool
+name|delegate
+argument_list|(
+specifier|const
+name|QMetaTypeSwitcher
+operator|::
+name|NotBuiltinType
+operator|*
+argument_list|)
+block|{
+return|return
+name|false
+return|;
+block|}
+end_decl_stmt
 begin_label
 name|protected
 label|:
@@ -1343,6 +1359,24 @@ name|is_null
 return|;
 block|}
 end_function
+begin_decl_stmt
+name|bool
+name|delegate
+argument_list|(
+specifier|const
+name|QMetaTypeSwitcher
+operator|::
+name|NotBuiltinType
+operator|*
+argument_list|)
+block|{
+return|return
+name|m_d
+operator|->
+name|is_null
+return|;
+block|}
+end_decl_stmt
 begin_label
 name|protected
 label|:
@@ -1678,7 +1712,7 @@ block|;     }
 name|void
 name|delegate
 argument_list|(
-argument|const QMetaTypeSwitcher::UnknownType*
+argument|const QMetaTypeSwitcher::NotBuiltinType*
 argument_list|)
 block|{
 name|qWarning
@@ -1866,7 +1900,7 @@ block|;     }
 name|void
 name|delegate
 argument_list|(
-argument|const QMetaTypeSwitcher::UnknownType*
+argument|const QMetaTypeSwitcher::NotBuiltinType*
 argument_list|)
 block|{
 name|qWarning
@@ -1935,12 +1969,6 @@ operator|!
 name|defined
 argument_list|(
 name|QT_NO_DEBUG_STREAM
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_BROKEN_DEBUG_STREAM
 argument_list|)
 end_if
 begin_expr_stmt
@@ -2076,7 +2104,7 @@ block|;     }
 name|void
 name|delegate
 argument_list|(
-argument|const QMetaTypeSwitcher::UnknownType*
+argument|const QMetaTypeSwitcher::NotBuiltinType*
 argument_list|)
 block|{
 name|qWarning

@@ -774,14 +774,14 @@ argument_list|)
 block|;
 name|QVariant
 argument_list|(
-argument|int typeOrUserType
+argument|int typeId
 argument_list|,
 argument|const void *copy
 argument_list|)
 block|;
 name|QVariant
 argument_list|(
-argument|int typeOrUserType
+argument|int typeId
 argument_list|,
 argument|const void *copy
 argument_list|,
@@ -868,7 +868,7 @@ block|; }
 ifndef|#
 directive|ifndef
 name|QT_NO_CAST_FROM_ASCII
-name|QT_ASCII_CAST_WARN_CONSTRUCTOR
+name|QT_ASCII_CAST_WARN
 name|QVariant
 argument_list|(
 specifier|const
@@ -1178,14 +1178,14 @@ block|;
 name|bool
 name|canConvert
 argument_list|(
-argument|Type t
+argument|int targetTypeId
 argument_list|)
 specifier|const
 block|;
 name|bool
 name|convert
 argument_list|(
-argument|Type t
+argument|int targetTypeId
 argument_list|)
 block|;
 specifier|inline
@@ -1443,7 +1443,7 @@ name|char
 operator|*
 name|typeToName
 argument_list|(
-argument|Type type
+argument|int typeId
 argument_list|)
 block|;
 specifier|static
@@ -1551,15 +1551,12 @@ block|{
 return|return
 name|canConvert
 argument_list|(
-name|Type
-argument_list|(
 name|qMetaTypeId
 operator|<
 name|T
 operator|>
 operator|(
 operator|)
-argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1837,7 +1834,7 @@ name|Private
 operator|*
 name|d
 operator|,
-name|Type
+name|int
 name|t
 operator|,
 name|void
@@ -1860,7 +1857,7 @@ name|Private
 operator|*
 name|d
 operator|,
-name|Type
+name|int
 name|t
 operator|)
 expr_stmt|;
@@ -2804,12 +2801,7 @@ name|v
 operator|.
 name|convert
 argument_list|(
-name|QVariant
-operator|::
-name|Type
-argument_list|(
 name|vid
-argument_list|)
 argument_list|,
 operator|&
 name|t

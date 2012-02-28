@@ -3703,9 +3703,8 @@ parameter_list|)
 block|{
 specifier|const
 name|char
-modifier|*
-specifier|const
 name|digits
+index|[]
 init|=
 literal|"0123456789abcdef"
 decl_stmt|;

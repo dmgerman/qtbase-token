@@ -83,11 +83,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtCore/QRegExp>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/QTextStream>
 end_include
 begin_include

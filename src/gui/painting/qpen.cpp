@@ -2411,9 +2411,6 @@ modifier|&
 name|p
 parameter_list|)
 block|{
-ifndef|#
-directive|ifndef
-name|Q_BROKEN_DEBUG_STREAM
 specifier|const
 name|char
 modifier|*
@@ -2514,23 +2511,6 @@ operator|.
 name|space
 argument_list|()
 return|;
-else|#
-directive|else
-name|qWarning
-argument_list|(
-literal|"This compiler doesn't support streaming QPen to QDebug"
-argument_list|)
-expr_stmt|;
-return|return
-name|dbg
-return|;
-name|Q_UNUSED
-argument_list|(
-name|p
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_endif

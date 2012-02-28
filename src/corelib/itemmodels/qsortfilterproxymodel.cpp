@@ -4979,11 +4979,6 @@ argument_list|(
 literal|"QSortFilterProxyModel: inconsistent changes reported by source model"
 argument_list|)
 expr_stmt|;
-name|remove_from_mapping
-argument_list|(
-name|source_parent
-argument_list|)
-expr_stmt|;
 name|Q_Q
 argument_list|(
 name|QSortFilterProxyModel
@@ -4991,7 +4986,17 @@ argument_list|)
 expr_stmt|;
 name|q
 operator|->
-name|reset
+name|beginResetModel
+argument_list|()
+expr_stmt|;
+name|remove_from_mapping
+argument_list|(
+name|source_parent
+argument_list|)
+expr_stmt|;
+name|q
+operator|->
+name|endResetModel
 argument_list|()
 expr_stmt|;
 return|return;

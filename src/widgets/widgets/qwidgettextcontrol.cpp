@@ -215,7 +215,7 @@ name|ACCEL_KEY
 parameter_list|(
 name|k
 parameter_list|)
-value|(!qApp->d_func()->shortcutMap.hasShortcutForKeySequence(k) ? QLatin1Char('\t') + QString(QKeySequence(k)) : QString())
+value|(!qApp->d_func()->shortcutMap.hasShortcutForKeySequence(k) ? \                       QLatin1Char('\t') + QKeySequence(k).toString(QKeySequence::NativeText) : QString())
 end_define
 begin_else
 else|#

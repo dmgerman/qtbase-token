@@ -27,6 +27,28 @@ include|#
 directive|include
 file|"qjsondocument.h"
 end_include
+begin_define
+DECL|macro|INVALID_UNICODE
+define|#
+directive|define
+name|INVALID_UNICODE
+value|"\357\277\277"
+end_define
+begin_comment
+DECL|macro|INVALID_UNICODE
+comment|// "\uffff"
+end_comment
+begin_define
+DECL|macro|UNICODE_DJE
+define|#
+directive|define
+name|UNICODE_DJE
+value|"\320\202"
+end_define
+begin_comment
+DECL|macro|UNICODE_DJE
+comment|// Character from the Serbian Cyrillic alphabet
+end_comment
 begin_class
 DECL|class|TestQtJson
 class|class
@@ -8532,7 +8554,9 @@ decl_stmt|;
 name|QByteArray
 name|json
 init|=
-literal|"[\n    \"foo\uffffbar\"]"
+literal|"[\n    \"foo"
+name|INVALID_UNICODE
+literal|"bar\"]"
 decl_stmt|;
 name|QJsonDocument
 name|doc
@@ -8634,7 +8658,9 @@ decl_stmt|;
 name|QByteArray
 name|json
 init|=
-literal|"[\n    \"cÐa\\u12\"]"
+literal|"[\n    \"c"
+name|UNICODE_DJE
+literal|"a\\u12\"]"
 decl_stmt|;
 name|QJsonDocument
 name|doc
@@ -8685,7 +8711,11 @@ decl_stmt|;
 name|QByteArray
 name|json
 init|=
-literal|"[\n    \"cÐa\uffffbar\"]"
+literal|"[\n    \"c"
+name|UNICODE_DJE
+literal|"a"
+name|INVALID_UNICODE
+literal|"bar\"]"
 decl_stmt|;
 name|QJsonDocument
 name|doc
@@ -8736,7 +8766,9 @@ decl_stmt|;
 name|QByteArray
 name|json
 init|=
-literal|"[\n    \"cÐa ]"
+literal|"[\n    \"c"
+name|UNICODE_DJE
+literal|"a ]"
 decl_stmt|;
 name|QJsonDocument
 name|doc
@@ -9596,7 +9628,9 @@ literal|"abc\\tabc"
 block|,
 literal|"abc\\u0019abc"
 block|,
-literal|"abcÐabc"
+literal|"abc"
+name|UNICODE_DJE
+literal|"abc"
 block|,     }
 decl_stmt|;
 name|int
@@ -9764,7 +9798,9 @@ block|,
 block|{
 literal|"abc\\u0402abc"
 block|,
-literal|"abcÐabc"
+literal|"abc"
+name|UNICODE_DJE
+literal|"abc"
 block|}
 block|,
 block|{
@@ -10656,7 +10692,10 @@ index|[
 name|i
 index|]
 operator|=
+name|char
+argument_list|(
 literal|0xff
+argument_list|)
 expr_stmt|;
 name|QJsonDocument
 name|doc
@@ -10771,7 +10810,10 @@ index|[
 name|i
 index|]
 operator|=
+name|char
+argument_list|(
 literal|0xff
+argument_list|)
 expr_stmt|;
 name|QJsonDocument
 name|doc
