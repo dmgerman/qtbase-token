@@ -818,6 +818,7 @@ block|;
 name|void
 name|setGlyphCache
 argument_list|(
+specifier|const
 name|void
 operator|*
 name|key
@@ -831,7 +832,7 @@ name|QFontEngineGlyphCache
 operator|*
 name|glyphCache
 argument_list|(
-argument|void *key
+argument|const void *key
 argument_list|,
 argument|QFontEngineGlyphCache::Type type
 argument_list|,
@@ -987,6 +988,7 @@ operator|:
 expr|struct
 name|GlyphCacheEntry
 block|{
+specifier|const
 name|void
 operator|*
 name|context

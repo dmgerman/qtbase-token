@@ -507,7 +507,7 @@ block|;
 name|bool
 name|supportsTransformations
 argument_list|(
-argument|qreal
+argument|QFontEngine *
 argument_list|,
 argument|const QTransform&
 argument_list|)

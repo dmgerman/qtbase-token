@@ -5245,6 +5245,7 @@ name|QFontEngine
 operator|::
 name|setGlyphCache
 parameter_list|(
+specifier|const
 name|void
 modifier|*
 name|key
@@ -5317,6 +5318,7 @@ name|QFontEngine
 operator|::
 name|glyphCache
 parameter_list|(
+specifier|const
 name|void
 modifier|*
 name|key

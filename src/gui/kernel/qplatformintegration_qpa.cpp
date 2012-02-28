@@ -314,6 +314,28 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!    Factory function for QPaintEngine. This function will return 0 if the platform    integration does not support creating any paint engine the given \a paintDevice. */
+end_comment
+begin_function
+DECL|function|createImagePaintEngine
+name|QPaintEngine
+modifier|*
+name|QPlatformIntegration
+operator|::
+name|createImagePaintEngine
+parameter_list|(
+name|QPaintDevice
+modifier|*
+name|paintDevice
+parameter_list|)
+specifier|const
+block|{
+return|return
+literal|0
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!   Returns the platforms input context.    The default implementation returns 0, implying no input method support. */
 end_comment
 begin_function

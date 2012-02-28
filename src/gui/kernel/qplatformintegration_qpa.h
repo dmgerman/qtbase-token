@@ -236,6 +236,17 @@ name|cacheId
 argument_list|)
 decl|const
 decl_stmt|;
+name|virtual
+name|QPaintEngine
+modifier|*
+name|createImagePaintEngine
+argument_list|(
+name|QPaintDevice
+operator|*
+name|paintDevice
+argument_list|)
+decl|const
+decl_stmt|;
 comment|// Event dispatcher:
 name|virtual
 name|QAbstractEventDispatcher

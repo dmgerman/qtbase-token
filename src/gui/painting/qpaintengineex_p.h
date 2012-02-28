@@ -1042,7 +1042,7 @@ name|virtual
 name|bool
 name|supportsTransformations
 argument_list|(
-argument|qreal pixelSize
+argument|QFontEngine *fontEngine
 argument_list|,
 argument|const QTransform&m
 argument_list|)
@@ -1052,7 +1052,7 @@ name|virtual
 name|bool
 name|shouldDrawCachedGlyphs
 argument_list|(
-argument|qreal pixelSize
+argument|QFontEngine *fontEngine
 argument_list|,
 argument|const QTransform&m
 argument_list|)
