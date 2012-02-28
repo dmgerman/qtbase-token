@@ -133,6 +133,7 @@ argument|-
 literal|1
 argument_list|)
 block|{ }
+name|explicit
 name|QFutureCallOutEvent
 argument_list|(
 argument|CallOutType callOutType

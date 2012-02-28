@@ -48,9 +48,10 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|ThemeEvent
 argument_list|(
-argument|QString newTheme
+argument|const QString&newTheme
 argument_list|,
 argument|QEvent::Type type = ThemeEventType
 argument_list|)

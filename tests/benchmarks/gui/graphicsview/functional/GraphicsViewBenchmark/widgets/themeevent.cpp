@@ -13,7 +13,9 @@ name|ThemeEvent
 operator|::
 name|ThemeEvent
 parameter_list|(
+specifier|const
 name|QString
+modifier|&
 name|newTheme
 parameter_list|,
 name|Type

@@ -39,6 +39,7 @@ literal|422
 block|}
 enum|;
 DECL|function|QTestAliveEvent
+specifier|explicit
 specifier|inline
 name|QTestAliveEvent
 parameter_list|(

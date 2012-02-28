@@ -377,6 +377,7 @@ name|QTimerEvent
 block|{
 name|public
 operator|:
+name|explicit
 specifier|inline
 name|QZeroTimerEvent
 argument_list|(
