@@ -3886,6 +3886,8 @@ name|setDefaultProperty
 argument_list|(
 literal|"QLineEdit"
 argument_list|,
+name|QByteArray
+argument_list|(
 literal|"x"
 operator|+
 name|QByteArray
@@ -3894,6 +3896,10 @@ name|number
 argument_list|(
 name|i
 argument_list|)
+argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)
@@ -3904,6 +3910,8 @@ name|setDefaultProperty
 argument_list|(
 literal|"QLabel"
 argument_list|,
+name|QByteArray
+argument_list|(
 literal|"y"
 operator|+
 name|QByteArray
@@ -3912,6 +3920,10 @@ name|number
 argument_list|(
 name|i
 argument_list|)
+argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 literal|0
 argument_list|)
