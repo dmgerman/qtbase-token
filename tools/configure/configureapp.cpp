@@ -14984,10 +14984,19 @@ literal|"XQMAKESPEC"
 index|]
 operator|)
 condition|)
+block|{
 name|qmakeConfig
 operator|+=
 literal|"cross_compile"
 expr_stmt|;
+name|dictionary
+index|[
+literal|"CROSS_COMPILE"
+index|]
+operator|=
+literal|"yes"
+expr_stmt|;
+block|}
 comment|// Directories and settings for .qmake.cache --------------------
 comment|// if QT_INSTALL_* have not been specified on commandline, define them now from QT_INSTALL_PREFIX
 comment|// if prefix is empty (WINCE), make all of them empty, if they aren't set
@@ -16861,6 +16870,19 @@ condition|)
 name|configStream
 operator|<<
 literal|" qpa"
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"CROSS_COMPILE"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|configStream
+operator|<<
+literal|" cross_compile"
 expr_stmt|;
 if|if
 condition|(
