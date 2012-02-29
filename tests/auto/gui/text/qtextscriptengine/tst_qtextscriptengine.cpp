@@ -7775,6 +7775,16 @@ operator|::
 name|thaiWithZWJ
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|QSKIP
+argument_list|(
+literal|"This test currently fails on Windows - QTBUG-24565"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QString
 name|s
 argument_list|(
