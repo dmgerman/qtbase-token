@@ -140,6 +140,11 @@ name|CdeKeyboardScheme
 block|}
 enum|;
 name|virtual
+operator|~
+name|QPlatformTheme
+argument_list|()
+expr_stmt|;
+name|virtual
 name|QPlatformMenu
 modifier|*
 name|createPlatformMenu
