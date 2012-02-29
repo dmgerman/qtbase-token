@@ -3978,7 +3978,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts \a count empty rows at position \a row. Note that \a     parent must be invalid, since this model does not support     parent-child relations.      Only one row at a time can be inserted when using the     OnFieldChange or OnRowChange update strategies.      The primeInsert() signal will be emitted for each new row.     Connect to it if you want to initialize the new row with default     values.      Returns false if the parameters are out of bounds; otherwise     returns true.      Does not submit rows, regardless of edit strategy, not even OnFieldChange.      \sa primeInsert(), insertRecord() */
+comment|/*!     Inserts \a count empty rows at position \a row. Note that \a     parent must be invalid, since this model does not support     parent-child relations.      For edit strategies OnFieldChange and OnRowChange, only one row     may be inserted at a time and the model may not contain other     cached changes.      The primeInsert() signal will be emitted for each new row.     Connect to it if you want to initialize the new row with default     values.      Does not submit rows, regardless of edit strategy.      Returns false if the parameters are out of bounds or the row cannot be     inserted; otherwise returns true.      \sa primeInsert(), insertRecord() */
 end_comment
 begin_function
 DECL|function|insertRows
@@ -4034,10 +4034,15 @@ operator|->
 name|strategy
 operator|!=
 name|OnManualSubmit
-operator|&&
+condition|)
+if|if
+condition|(
 name|count
 operator|!=
 literal|1
+operator|||
+name|isDirty
+argument_list|()
 condition|)
 return|return
 literal|false
