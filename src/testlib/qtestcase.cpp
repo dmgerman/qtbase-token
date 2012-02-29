@@ -7314,6 +7314,32 @@ name|int
 name|line
 parameter_list|)
 block|{
+specifier|static
+name|bool
+name|warned
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|warned
+condition|)
+block|{
+name|warned
+operator|=
+literal|true
+expr_stmt|;
+name|QTest
+operator|::
+name|qWarn
+argument_list|(
+literal|"QTest::compare_helper(bool, const char *, const char *, int) is obsolete "
+literal|"and will soon be removed. Please update your code to use the other "
+literal|"version of this function."
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|QTestResult
 operator|::
@@ -7331,7 +7357,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal  */
+comment|/*! \internal     This function is called by various specializations of QTest::qCompare     to decide whether to report a failure and to produce verbose test output.      The failureMsg parameter can be null, in which case a default message     will be output if the compare fails.  If the compare succeeds, failureMsg     will not be output.      If the caller has already passed a failure message showing the compared     values, or if those values cannot be stringified, val1 and val2 can be null.  */
 end_comment
 begin_function
 DECL|function|compare_helper
@@ -7346,7 +7372,7 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|msg
+name|failureMsg
 parameter_list|,
 name|char
 modifier|*
@@ -7382,7 +7408,7 @@ name|compare
 argument_list|(
 name|success
 argument_list|,
-name|msg
+name|failureMsg
 argument_list|,
 name|val1
 argument_list|,
@@ -7445,27 +7471,14 @@ name|line
 parameter_list|)
 block|{
 return|return
+name|compare_helper
+argument_list|(
 name|qFuzzyCompare
 argument_list|(
 name|t1
 argument_list|,
 name|t2
 argument_list|)
-condition|?
-name|compare_helper
-argument_list|(
-literal|true
-argument_list|,
-literal|"COMPARE()"
-argument_list|,
-name|file
-argument_list|,
-name|line
-argument_list|)
-else|:
-name|compare_helper
-argument_list|(
-literal|false
 argument_list|,
 literal|"Compared floats are not the same (fuzzy compare)"
 argument_list|,
@@ -7536,27 +7549,14 @@ name|line
 parameter_list|)
 block|{
 return|return
+name|compare_helper
+argument_list|(
 name|qFuzzyCompare
 argument_list|(
 name|t1
 argument_list|,
 name|t2
 argument_list|)
-condition|?
-name|compare_helper
-argument_list|(
-literal|true
-argument_list|,
-literal|"COMPARE()"
-argument_list|,
-name|file
-argument_list|,
-name|line
-argument_list|)
-else|:
-name|compare_helper
-argument_list|(
-literal|false
 argument_list|,
 literal|"Compared doubles are not the same (fuzzy compare)"
 argument_list|,
@@ -7855,7 +7855,8 @@ name|line
 parameter_list|)
 block|{
 return|return
-operator|(
+name|compare_helper
+argument_list|(
 name|qstrcmp
 argument_list|(
 name|t1
@@ -7864,22 +7865,6 @@ name|t2
 argument_list|)
 operator|==
 literal|0
-operator|)
-condition|?
-name|compare_helper
-argument_list|(
-literal|true
-argument_list|,
-literal|"COMPARE()"
-argument_list|,
-name|file
-argument_list|,
-name|line
-argument_list|)
-else|:
-name|compare_helper
-argument_list|(
-literal|false
 argument_list|,
 literal|"Compared strings are not the same"
 argument_list|,

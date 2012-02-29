@@ -348,7 +348,15 @@ name|compare_helper
 argument_list|(
 literal|true
 argument_list|,
-literal|"COMPARE()"
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|actual
+argument_list|,
+name|expected
 argument_list|,
 name|file
 argument_list|,

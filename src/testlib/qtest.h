@@ -1153,6 +1153,14 @@ name|isOk
 argument_list|,
 name|msg
 argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
 name|file
 argument_list|,
 name|line
