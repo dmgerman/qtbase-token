@@ -10000,6 +10000,15 @@ name|view
 decl_stmt|;
 name|view
 operator|.
+name|setFrameStyle
+argument_list|(
+name|QFrame
+operator|::
+name|NoFrame
+argument_list|)
+expr_stmt|;
+name|view
+operator|.
 name|resize
 argument_list|(
 literal|200
