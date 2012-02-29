@@ -13247,6 +13247,10 @@ argument_list|)
 expr_stmt|;
 comment|// fall through
 block|}
+else|else
+block|{
+break|break;
+block|}
 case|case
 literal|'i'
 case|:
@@ -13487,10 +13491,14 @@ operator|)
 literal|0xeffff
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|Tok_CharClass
 return|;
+block|}
+else|else
+block|{
+break|break;
+block|}
 case|case
 literal|'C'
 case|:
@@ -13511,6 +13519,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// fall through
+block|}
+else|else
+block|{
+break|break;
 block|}
 case|case
 literal|'c'
@@ -13803,10 +13815,14 @@ argument_list|,
 literal|0x2040
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|Tok_CharClass
 return|;
+block|}
+else|else
+block|{
+break|break;
+block|}
 case|case
 literal|'P'
 case|:
@@ -13827,6 +13843,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// fall through
+block|}
+else|else
+block|{
+break|break;
 block|}
 case|case
 literal|'p'
@@ -15027,10 +15047,14 @@ name|RXERR_CATEGORY
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 return|return
 name|Tok_CharClass
 return|;
+block|}
+else|else
+block|{
+break|break;
+block|}
 endif|#
 directive|endif
 ifndef|#
@@ -15137,6 +15161,8 @@ return|;
 endif|#
 directive|endif
 default|default:
+break|break;
+block|}
 if|if
 condition|(
 name|prevCh
@@ -15208,7 +15234,6 @@ name|Tok_Char
 operator||
 name|prevCh
 return|;
-block|}
 block|}
 end_function
 begin_ifndef
