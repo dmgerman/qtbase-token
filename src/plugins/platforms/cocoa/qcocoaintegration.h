@@ -201,6 +201,12 @@ name|nativeInterface
 argument_list|()
 specifier|const
 block|;
+name|QPlatformInputContext
+operator|*
+name|inputContext
+argument_list|()
+specifier|const
+block|;
 name|QPlatformAccessibility
 operator|*
 name|accessibility
@@ -230,6 +236,12 @@ block|;
 name|QAbstractEventDispatcher
 operator|*
 name|mEventDispatcher
+block|;
+name|QScopedPointer
+operator|<
+name|QPlatformInputContext
+operator|>
+name|mInputContext
 block|;
 name|QScopedPointer
 operator|<

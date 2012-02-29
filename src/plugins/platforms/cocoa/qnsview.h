@@ -42,6 +42,9 @@ name|interface
 name|QNSView
 operator|:
 name|NSView
+operator|<
+name|NSTextInput
+operator|>
 block|{
 name|CGImageRef
 name|m_cgImage
@@ -62,6 +65,12 @@ block|;
 name|QAccessibleInterface
 operator|*
 name|m_accessibleRoot
+block|;
+name|QString
+name|m_composingText
+block|;
+name|bool
+name|m_keyEventsAccepted
 block|;
 name|QStringList
 operator|*
