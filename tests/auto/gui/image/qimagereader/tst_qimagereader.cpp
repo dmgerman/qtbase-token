@@ -10369,17 +10369,22 @@ name|file
 init|=
 name|i
 condition|?
-operator|(
+name|QString
+argument_list|(
+name|QStringLiteral
+argument_list|(
 literal|":/images/"
+argument_list|)
 operator|+
 name|fileName
-operator|)
+argument_list|)
 else|:
-operator|(
+name|QString
+argument_list|(
 name|prefix
 operator|+
 name|fileName
-operator|)
+argument_list|)
 decl_stmt|;
 block|{
 comment|// suppress warnings if we expect them
