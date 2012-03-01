@@ -5435,6 +5435,8 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|d
+operator|&&
 operator|!
 name|d
 operator|->
@@ -6846,63 +6848,11 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal */
+comment|/*!     \fn QTouchEvent::TouchPoint&QTouchEvent::TouchPoint::operator=(const QTouchEvent::TouchPoint&other)     \internal  */
 end_comment
-begin_function
-DECL|function|operator =
-name|QTouchEvent
-operator|::
-name|TouchPoint
-modifier|&
-name|QTouchEvent
-operator|::
-name|TouchPoint
-operator|::
-name|operator
-name|=
-parameter_list|(
-specifier|const
-name|QTouchEvent
-operator|::
-name|TouchPoint
-modifier|&
-name|other
-parameter_list|)
-block|{
-name|other
-operator|.
-name|d
-operator|->
-name|ref
-operator|.
-name|ref
-parameter_list|()
-constructor_decl|;
-if|if
-condition|(
-operator|!
-name|d
-operator|->
-name|ref
-operator|.
-name|deref
-argument_list|()
-condition|)
-operator|delete
-name|d
-expr_stmt|;
-name|d
-operator|=
-name|other
-operator|.
-name|d
-expr_stmt|;
-return|return
-operator|*
-name|this
-return|;
-block|}
-end_function
+begin_comment
+comment|/*!     \fn void QTouchEvent::TouchPoint::swap(TouchPoint&other);     \internal */
+end_comment
 begin_comment
 comment|/*!     \class QScrollPrepareEvent     \since 4.8     \ingroup events      \brief The QScrollPrepareEvent class is send in preparation of a scrolling.      The scroll prepare event is send before scrolling (usually by QScroller) is started.     The object receiving this event should set viewportSize, maxContentPos and contentPos.     It also should accept this event to indicate that scrolling should be started.      It is not guaranteed that a QScrollEvent will be send after an acceepted     QScrollPrepareEvent, e.g. in a case where the maximum content position is (0,0).      \sa QScrollEvent, QScroller */
 end_comment
