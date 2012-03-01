@@ -755,10 +755,20 @@ block|{
 operator|delete
 name|m_clipboard
 expr_stmt|;
-name|qDeleteAll
-argument_list|(
+comment|// Delete screens in reverse order to avoid crash in case of multiple screens
+while|while
+condition|(
+operator|!
 name|m_screens
-argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+operator|delete
+name|m_screens
+operator|.
+name|takeLast
+argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
