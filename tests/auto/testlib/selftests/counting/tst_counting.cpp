@@ -200,6 +200,15 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|QCOMPARE
+argument_list|(
+literal|2
+operator|+
+literal|1
+argument_list|,
+literal|3
+argument_list|)
+expr_stmt|;
 break|break;
 case|case
 name|Fail
