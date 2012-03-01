@@ -1086,9 +1086,6 @@ operator|::
 name|writeProjectMakefile
 parameter_list|()
 block|{
-name|usePlatformDir
-argument_list|()
-expr_stmt|;
 name|QTextStream
 name|t
 argument_list|(
