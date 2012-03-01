@@ -4369,7 +4369,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Removes the directory corresponding to the model item \a index in the   directory model and \bold{deletes the corresponding directory from the   file system}, returning true if successful. If the directory cannot be   removed, false is returned.    \warning This function deletes directories from the file system; it does   \bold{not} move them to a location where they can be recovered.    \sa remove() */
+comment|/*!   Removes the directory corresponding to the model item \a index in the   directory model and \b{deletes the corresponding directory from the   file system}, returning true if successful. If the directory cannot be   removed, false is returned.    \warning This function deletes directories from the file system; it does   \b{not} move them to a location where they can be recovered.    \sa remove() */
 end_comment
 begin_function
 DECL|function|rmdir
@@ -4506,7 +4506,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Removes the model item \a index from the directory model and \bold{deletes the   corresponding file from the file system}, returning true if successful. If the   item cannot be removed, false is returned.    \warning This function deletes files from the file system; it does \bold{not}   move them to a location where they can be recovered.    \sa rmdir() */
+comment|/*!   Removes the model item \a index from the directory model and \b{deletes the   corresponding file from the file system}, returning true if successful. If the   item cannot be removed, false is returned.    \warning This function deletes files from the file system; it does \b{not}   move them to a location where they can be recovered.    \sa rmdir() */
 end_comment
 begin_function
 DECL|function|remove
@@ -4890,7 +4890,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the file information for the specified model \a index.    \bold{Note:} If the model index represents a symbolic link in the   underlying filing system, the file information returned will contain   information about the symbolic link itself, regardless of whether   resolveSymlinks is enabled or not.    \sa QFileInfo::symLinkTarget() */
+comment|/*!   Returns the file information for the specified model \a index.    \b{Note:} If the model index represents a symbolic link in the   underlying filing system, the file information returned will contain   information about the symbolic link itself, regardless of whether   resolveSymlinks is enabled or not.    \sa QFileInfo::symLinkTarget() */
 end_comment
 begin_function
 DECL|function|fileInfo

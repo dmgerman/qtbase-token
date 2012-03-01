@@ -720,7 +720,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QLayout::addItem(QLayoutItem *item)      Implemented in subclasses to add an \a item. How it is added is     specific to each subclass.      This function is not usually called in application code. To add a widget     to a layout, use the addWidget() function; to add a child layout, use the     addLayout() function provided by the relevant QLayout subclass.      \bold{Note:} The ownership of \a item is transferred to the layout, and it's     the layout's responsibility to delete it.      \sa addWidget(), QBoxLayout::addLayout(), QGridLayout::addLayout() */
+comment|/*!     \fn void QLayout::addItem(QLayoutItem *item)      Implemented in subclasses to add an \a item. How it is added is     specific to each subclass.      This function is not usually called in application code. To add a widget     to a layout, use the addWidget() function; to add a child layout, use the     addLayout() function provided by the relevant QLayout subclass.      \b{Note:} The ownership of \a item is transferred to the layout, and it's     the layout's responsibility to delete it.      \sa addWidget(), QBoxLayout::addLayout(), QGridLayout::addLayout() */
 end_comment
 begin_comment
 comment|/*!     Adds widget \a w to this layout in a manner specific to the     layout. This function uses addItem(). */
@@ -4759,7 +4759,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the widget \a widget from the layout. After this call, it     is the caller's responsibility to give the widget a reasonable     geometry or to put the widget back into a layout.          \bold{Note:} The ownership of \a widget remains the same as     when it was added.      \sa removeItem(), QWidget::setGeometry(), addWidget() */
+comment|/*!     Removes the widget \a widget from the layout. After this call, it     is the caller's responsibility to give the widget a reasonable     geometry or to put the widget back into a layout.          \b{Note:} The ownership of \a widget remains the same as     when it was added.      \sa removeItem(), QWidget::setGeometry(), addWidget() */
 end_comment
 begin_function
 DECL|function|removeWidget

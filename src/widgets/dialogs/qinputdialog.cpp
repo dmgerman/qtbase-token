@@ -3837,7 +3837,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5     \overload      This function connects one of its signals to the slot specified by \a receiver     and \a member. The specific signal depends on the arguments that are specified     in \a member. These are:      \list       \o textValueSelected() if \a member has a QString for its first argument.       \o intValueSelected() if \a member has an int for its first argument.       \o doubleValueSelected() if \a member has a double for its first argument.       \o accepted() if \a member has NO arguments.     \endlist      The signal will be disconnected from the slot when the dialog is closed. */
+comment|/*!     \since 4.5     \overload      This function connects one of its signals to the slot specified by \a receiver     and \a member. The specific signal depends on the arguments that are specified     in \a member. These are:      \list       \li textValueSelected() if \a member has a QString for its first argument.       \li intValueSelected() if \a member has an int for its first argument.       \li doubleValueSelected() if \a member has a double for its first argument.       \li accepted() if \a member has NO arguments.     \endlist      The signal will be disconnected from the slot when the dialog is closed. */
 end_comment
 begin_function
 DECL|function|open

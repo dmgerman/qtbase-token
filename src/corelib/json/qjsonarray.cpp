@@ -1538,7 +1538,7 @@ begin_comment
 comment|/*! \class QJsonArray::iterator     \brief The QJsonArray::iterator class provides an STL-style non-const iterator for QJsonArray.      QJsonArray::iterator allows you to iterate over a QJsonArray     and to modify the array item associated with the     iterator. If you want to iterate over a const QJsonArray, use     QJsonArray::const_iterator instead. It is generally a good practice to     use QJsonArray::const_iterator on a non-const QJsonArray as well, unless     you need to change the QJsonArray through the iterator. Const     iterators are slightly faster and improves code readability.      The default QJsonArray::iterator constructor creates an uninitialized     iterator. You must initialize it using a QJsonArray function like     QJsonArray::begin(), QJsonArray::end(), or QJsonArray::insert() before you can     start iterating.      Most QJsonArray functions accept an integer index rather than an     iterator. For that reason, iterators are rarely useful in     connection with QJsonArray. One place where STL-style iterators do     make sense is as arguments to \l{generic algorithms}.      Multiple iterators can be used on the same array. However, be     aware that any non-const function call performed on the QJsonArray     will render all existing iterators undefined.      \sa QJsonArray::const_iterator */
 end_comment
 begin_comment
-comment|/*! \typedef QJsonArray::iterator::iterator_category    A synonym for \i {std::random_access_iterator_tag} indicating   this iterator is a random access iterator. */
+comment|/*! \typedef QJsonArray::iterator::iterator_category    A synonym for \e {std::random_access_iterator_tag} indicating   this iterator is a random access iterator. */
 end_comment
 begin_comment
 comment|/*! \typedef QJsonArray::iterator::difference_type      \internal */
@@ -1613,7 +1613,7 @@ begin_comment
 comment|/*! \fn QJsonArray::const_iterator::const_iterator()      Constructs an uninitialized iterator.      Functions like operator*() and operator++() should not be called     on an uninitialized iterator. Use operator=() to assign a value     to it before using it.      \sa QJsonArray::constBegin() QJsonArray::constEnd() */
 end_comment
 begin_comment
-comment|/*! \typedef QJsonArray::const_iterator::iterator_category    A synonym for \i {std::random_access_iterator_tag} indicating   this iterator is a random access iterator. */
+comment|/*! \typedef QJsonArray::const_iterator::iterator_category    A synonym for \e {std::random_access_iterator_tag} indicating   this iterator is a random access iterator. */
 end_comment
 begin_comment
 comment|/*! \typedef QJsonArray::const_iterator::difference_type      \internal */

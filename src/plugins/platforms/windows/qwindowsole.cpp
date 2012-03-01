@@ -48,7 +48,7 @@ include|#
 directive|include
 file|<shlobj.h>
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QWindowsOleDataObject     \brief OLE data container     The following methods are NOT supported for data transfer using the    clipboard or drag-drop:    \list    \o IDataObject::SetData    -- return E_NOTIMPL    \o IDataObject::DAdvise    -- return OLE_E_ADVISENOTSUPPORTED    \o ::DUnadvise    \o ::EnumDAdvise    \o IDataObject::GetCanonicalFormatEtc -- return E_NOTIMPL        (NOTE: must set pformatetcOut->ptd = NULL)    \endlist      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsOleDataObject     \brief OLE data container     The following methods are NOT supported for data transfer using the    clipboard or drag-drop:    \list    \li IDataObject::SetData    -- return E_NOTIMPL    \li IDataObject::DAdvise    -- return OLE_E_ADVISENOTSUPPORTED    \li ::DUnadvise    \li ::EnumDAdvise    \li IDataObject::GetCanonicalFormatEtc -- return E_NOTIMPL        (NOTE: must set pformatetcOut->ptd = NULL)    \endlist      \ingroup qt-lighthouse-win */
 DECL|function|QWindowsOleDataObject
 name|QWindowsOleDataObject
 operator|::

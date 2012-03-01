@@ -413,7 +413,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes \a widget from the QStackedWidget. i.e., \a widget is \e     not deleted but simply removed from the stacked layout, causing it     to be hidden.      \bold{Note:} Ownership of \a widget reverts to the application.      \sa addWidget(), insertWidget(), currentWidget() */
+comment|/*!     Removes \a widget from the QStackedWidget. i.e., \a widget is \e     not deleted but simply removed from the stacked layout, causing it     to be hidden.      \b{Note:} Ownership of \a widget reverts to the application.      \sa addWidget(), insertWidget(), currentWidget() */
 end_comment
 begin_function
 DECL|function|removeWidget

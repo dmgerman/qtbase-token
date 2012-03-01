@@ -3474,7 +3474,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     The event \a ev is used to provide the following keyboard shortcuts:     \table     \header \i Keypress            \i Action     \row \i Alt+Left Arrow  \i \l backward()     \row \i Alt+Right Arrow \i \l forward()     \row \i Alt+Up Arrow    \i \l home()     \endtable */
+comment|/*!     The event \a ev is used to provide the following keyboard shortcuts:     \table     \header \li Keypress            \li Action     \row \li Alt+Left Arrow  \li \l backward()     \row \li Alt+Right Arrow \li \l forward()     \row \li Alt+Up Arrow    \li \l home()     \endtable */
 end_comment
 begin_function
 DECL|function|keyPressEvent
@@ -4089,7 +4089,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function is called when the document is loaded and for     each image in the document. The \a type indicates the type of resource     to be loaded. An invalid QVariant is returned if the resource cannot be     loaded.      The default implementation ignores \a type and tries to locate     the resources by interpreting \a name as a file name. If it is     not an absolute path it tries to find the file in the paths of     the \l searchPaths property and in the same directory as the     current source. On success, the result is a QVariant that stores     a QByteArray with the contents of the file.      If you reimplement this function, you can return other QVariant     types. The table below shows which variant types are supported     depending on the resource type:      \table     \header \i ResourceType  \i QVariant::Type     \row    \i QTextDocument::HtmlResource  \i QString or QByteArray     \row    \i QTextDocument::ImageResource \i QImage, QPixmap or QByteArray     \row    \i QTextDocument::StyleSheetResource \i QString or QByteArray     \endtable */
+comment|/*!     This function is called when the document is loaded and for     each image in the document. The \a type indicates the type of resource     to be loaded. An invalid QVariant is returned if the resource cannot be     loaded.      The default implementation ignores \a type and tries to locate     the resources by interpreting \a name as a file name. If it is     not an absolute path it tries to find the file in the paths of     the \l searchPaths property and in the same directory as the     current source. On success, the result is a QVariant that stores     a QByteArray with the contents of the file.      If you reimplement this function, you can return other QVariant     types. The table below shows which variant types are supported     depending on the resource type:      \table     \header \li ResourceType  \li QVariant::Type     \row    \li QTextDocument::HtmlResource  \li QString or QByteArray     \row    \li QTextDocument::ImageResource \li QImage, QPixmap or QByteArray     \row    \li QTextDocument::StyleSheetResource \li QString or QByteArray     \endtable */
 end_comment
 begin_function
 DECL|function|loadResource
@@ -4324,7 +4324,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!    Returns the url of the HistoryItem.      \table     \header \i Input            \i Return     \row \i \a{i}< 0  \i \l backward() history     \row \i\a{i} == 0 \i current, see QTextBrowser::source()     \row \i \a{i}> 0  \i \l forward() history     \endtable      \since 4.4 */
+comment|/*!    Returns the url of the HistoryItem.      \table     \header \li Input            \li Return     \row \li \a{i}< 0  \li \l backward() history     \row \li\a{i} == 0 \li current, see QTextBrowser::source()     \row \li \a{i}> 0  \li \l forward() history     \endtable      \since 4.4 */
 end_comment
 begin_function
 DECL|function|historyUrl
@@ -4357,7 +4357,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the documentTitle() of the HistoryItem.      \table     \header \i Input            \i Return     \row \i \a{i}< 0  \i \l backward() history     \row \i \a{i} == 0 \i current, see QTextBrowser::source()     \row \i \a{i}> 0  \i \l forward() history     \endtable      \snippet doc/src/snippets/code/src_gui_widgets_qtextbrowser.cpp 0      \since 4.4 */
+comment|/*!     Returns the documentTitle() of the HistoryItem.      \table     \header \li Input            \li Return     \row \li \a{i}< 0  \li \l backward() history     \row \li \a{i} == 0 \li current, see QTextBrowser::source()     \row \li \a{i}> 0  \li \l forward() history     \endtable      \snippet doc/src/snippets/code/src_gui_widgets_qtextbrowser.cpp 0      \since 4.4 */
 end_comment
 begin_function
 DECL|function|historyTitle

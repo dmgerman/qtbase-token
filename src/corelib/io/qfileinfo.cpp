@@ -2038,7 +2038,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the path of the object's parent directory as a QDir object.      \bold{Note:} The QDir returned always corresponds to the object's     parent directory, even if the QFileInfo represents a directory.      For each of the following, dir() returns a QDir for     \c{"~/examples/191697"}.      \snippet doc/src/snippets/fileinfo/main.cpp 0      For each of the following, dir() returns a QDir for     \c{"."}.      \snippet doc/src/snippets/fileinfo/main.cpp 1      \sa absolutePath(), filePath(), fileName(), isRelative(), absoluteDir() */
+comment|/*!     Returns the path of the object's parent directory as a QDir object.      \b{Note:} The QDir returned always corresponds to the object's     parent directory, even if the QFileInfo represents a directory.      For each of the following, dir() returns a QDir for     \c{"~/examples/191697"}.      \snippet doc/src/snippets/fileinfo/main.cpp 0      For each of the following, dir() returns a QDir for     \c{"."}.      \snippet doc/src/snippets/fileinfo/main.cpp 1      \sa absolutePath(), filePath(), fileName(), isRelative(), absoluteDir() */
 end_comment
 begin_function
 DECL|function|dir
@@ -2394,7 +2394,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this is a `hidden' file; otherwise returns false.      \bold{Note:} This function returns true for the special entries     "." and ".." on Unix, even though QDir::entryList threats them as shown. */
+comment|/*!     Returns true if this is a `hidden' file; otherwise returns false.      \b{Note:} This function returns true for the special entries     "." and ".." on Unix, even though QDir::entryList threats them as shown. */
 end_comment
 begin_function
 DECL|function|isHidden
@@ -2487,7 +2487,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0     Returns true if the file path can be used directly with native APIs.     Returns false if the file is otherwise supported by a virtual file system     inside Qt, such as \l{the Qt Resource System}.      \bold{Note:} Native paths may still require conversion of path separators     and character encoding, depending on platform and input requirements of the     native API.      \sa QDir::toNativeSeparators(), QFile::encodeName(), filePath(),     absoluteFilePath(), canonicalFilePath() */
+comment|/*!     \since 5.0     Returns true if the file path can be used directly with native APIs.     Returns false if the file is otherwise supported by a virtual file system     inside Qt, such as \l{the Qt Resource System}.      \b{Note:} Native paths may still require conversion of path separators     and character encoding, depending on platform and input requirements of the     native API.      \sa QDir::toNativeSeparators(), QFile::encodeName(), filePath(),     absoluteFilePath(), canonicalFilePath() */
 end_comment
 begin_function
 DECL|function|isNativePath

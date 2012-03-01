@@ -277,7 +277,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the position of the hot spot relative to the top-left corner of the     pixmap used to the point specified by \a hotspot.      \bold{Note:} on X11, the pixmap may not be able to keep up with the mouse     movements if the hot spot causes the pixmap to be displayed     directly under the cursor. */
+comment|/*!     Sets the position of the hot spot relative to the top-left corner of the     pixmap used to the point specified by \a hotspot.      \b{Note:} on X11, the pixmap may not be able to keep up with the mouse     movements if the hot spot causes the pixmap to be displayed     directly under the cursor. */
 end_comment
 begin_function
 DECL|function|setHotSpot
@@ -383,7 +383,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3      Starts the drag and drop operation and returns a value indicating the requested     drop action when it is completed. The drop actions that the user can choose     from are specified in \a supportedActions. The default proposed action will be selected     among the allowed actions in the following order: Move, Copy and Link.      \bold{Note:} On Linux and Mac OS X, the drag and drop operation     can take some time, but this function does not block the event     loop. Other events are still delivered to the application while     the operation is performed. On Windows, the Qt event loop is     blocked while during the operation. */
+comment|/*!     \since 4.3      Starts the drag and drop operation and returns a value indicating the requested     drop action when it is completed. The drop actions that the user can choose     from are specified in \a supportedActions. The default proposed action will be selected     among the allowed actions in the following order: Move, Copy and Link.      \b{Note:} On Linux and Mac OS X, the drag and drop operation     can take some time, but this function does not block the event     loop. Other events are still delivered to the application while     the operation is performed. On Windows, the Qt event loop is     blocked while during the operation. */
 end_comment
 begin_function
 DECL|function|exec
@@ -413,7 +413,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3      Starts the drag and drop operation and returns a value indicating the requested     drop action when it is completed. The drop actions that the user can choose     from are specified in \a supportedActions.      The \a defaultDropAction determines which action will be proposed when the user performs a     drag without using modifier keys.      \bold{Note:} On Linux and Mac OS X, the drag and drop operation     can take some time, but this function does not block the event     loop. Other events are still delivered to the application while     the operation is performed. On Windows, the Qt event loop is     blocked during the operation. However, QDrag::exec() on 	Windows causes processEvents() to be called frequently to keep the GUI responsive. 	If any loops or operations are called while a drag operation is active, it will block the drag operation. */
+comment|/*!     \since 4.3      Starts the drag and drop operation and returns a value indicating the requested     drop action when it is completed. The drop actions that the user can choose     from are specified in \a supportedActions.      The \a defaultDropAction determines which action will be proposed when the user performs a     drag without using modifier keys.      \b{Note:} On Linux and Mac OS X, the drag and drop operation     can take some time, but this function does not block the event     loop. Other events are still delivered to the application while     the operation is performed. On Windows, the Qt event loop is     blocked during the operation. However, QDrag::exec() on 	Windows causes processEvents() to be called frequently to keep the GUI responsive. 	If any loops or operations are called while a drag operation is active, it will block the drag operation. */
 end_comment
 begin_function
 DECL|function|exec
@@ -569,7 +569,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      \bold{Note:} It is recommended to use exec() instead of this function.      Starts the drag and drop operation and returns a value indicating the requested     drop action when it is completed. The drop actions that the user can choose     from are specified in \a request. Qt::CopyAction is always allowed.      \bold{Note:} Although the drag and drop operation can take some time, this function     does not block the event loop. Other events are still delivered to the application     while the operation is performed.      \sa exec() */
+comment|/*!     \obsolete      \b{Note:} It is recommended to use exec() instead of this function.      Starts the drag and drop operation and returns a value indicating the requested     drop action when it is completed. The drop actions that the user can choose     from are specified in \a request. Qt::CopyAction is always allowed.      \b{Note:} Although the drag and drop operation can take some time, this function     does not block the event loop. Other events are still delivered to the application     while the operation is performed.      \sa exec() */
 end_comment
 begin_function
 DECL|function|start

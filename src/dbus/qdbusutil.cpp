@@ -1706,7 +1706,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*!         \fn bool QDBusUtil::isValidInterfaceName(const QString&ifaceName)         Returns true if this is \a ifaceName is a valid interface name.          Valid interface names must:         \list           \o not be empty           \o not exceed 255 characters in length           \o be composed of dot-separated string components that contain only ASCII letters, digits              and the underscore ("_") character           \o contain at least two such components         \endlist     */
+comment|/*!         \fn bool QDBusUtil::isValidInterfaceName(const QString&ifaceName)         Returns true if this is \a ifaceName is a valid interface name.          Valid interface names must:         \list           \li not be empty           \li not exceed 255 characters in length           \li be composed of dot-separated string components that contain only ASCII letters, digits              and the underscore ("_") character           \li contain at least two such components         \endlist     */
 DECL|function|isValidInterfaceName
 name|bool
 name|isValidInterfaceName
@@ -1952,7 +1952,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/*!         \fn bool QDBusUtil::isValidBusName(const QString&busName)         Returns true if \a busName is a valid bus name.          A valid bus name is either a valid unique connection name or follows the rules:         \list           \o is not empty           \o does not exceed 255 characters in length           \o be composed of dot-separated string components that contain only ASCII letters, digits,              hyphens or underscores ("_"), but don't start with a digit           \o contains at least two such elements         \endlist          \sa isValidUniqueConnectionName()     */
+comment|/*!         \fn bool QDBusUtil::isValidBusName(const QString&busName)         Returns true if \a busName is a valid bus name.          A valid bus name is either a valid unique connection name or follows the rules:         \list           \li is not empty           \li does not exceed 255 characters in length           \li be composed of dot-separated string components that contain only ASCII letters, digits,              hyphens or underscores ("_"), but don't start with a digit           \li contains at least two such elements         \endlist          \sa isValidUniqueConnectionName()     */
 DECL|function|isValidBusName
 name|bool
 name|isValidBusName
@@ -2226,7 +2226,7 @@ name|errorName
 argument_list|)
 return|;
 block|}
-comment|/*!         \fn bool QDBusUtil::isValidObjectPath(const QString&path)         Returns true if \a path is valid object path.          Valid object paths follow the rules:         \list           \o start with the slash character ("/")           \o do not end in a slash, unless the path is just the initial slash           \o do not contain any two slashes in sequence           \o contain slash-separated parts, each of which is composed of ASCII letters, digits and              underscores ("_")         \endlist     */
+comment|/*!         \fn bool QDBusUtil::isValidObjectPath(const QString&path)         Returns true if \a path is valid object path.          Valid object paths follow the rules:         \list           \li start with the slash character ("/")           \li do not end in a slash, unless the path is just the initial slash           \li do not contain any two slashes in sequence           \li contain slash-separated parts, each of which is composed of ASCII letters, digits and              underscores ("_")         \endlist     */
 DECL|function|isValidObjectPath
 name|bool
 name|isValidObjectPath
