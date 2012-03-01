@@ -51,7 +51,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qmap.h>
+file|<qhash.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -133,7 +133,7 @@ directive|endif
 name|private
 operator|:
 typedef|typedef
-name|QMap
+name|QHash
 operator|<
 name|QWidget
 operator|*

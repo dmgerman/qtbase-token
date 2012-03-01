@@ -482,7 +482,7 @@ operator|>
 operator|&
 name|gestures
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QWidget
 operator|*
@@ -496,7 +496,7 @@ expr|>
 operator|*
 name|conflicts
 argument_list|,
-name|QMap
+name|QHash
 operator|<
 name|QWidget
 operator|*

@@ -314,7 +314,7 @@ expr_stmt|;
 block|}
 private|private:
 DECL|member|styles
-name|QMap
+name|QHash
 argument_list|<
 specifier|const
 name|QGraphicsWidget

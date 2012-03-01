@@ -3281,7 +3281,7 @@ argument|QFileDialog::Options options
 argument_list|,
 argument|bool isSaveDialog = false
 argument_list|,
-argument|QMap<GtkFileFilter *
+argument|QHash<GtkFileFilter *
 argument_list|,
 argument|QString> *filterMap =
 literal|0

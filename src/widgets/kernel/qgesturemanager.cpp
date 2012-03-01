@@ -3071,7 +3071,7 @@ argument_list|>
 modifier|&
 name|gestures
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QWidget
 modifier|*
@@ -3085,7 +3085,7 @@ argument_list|>
 modifier|*
 name|conflicts
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|QWidget
 modifier|*
@@ -3384,7 +3384,7 @@ argument_list|()
 condition|)
 return|return;
 typedef|typedef
-name|QMap
+name|QHash
 argument_list|<
 name|QWidget
 modifier|*

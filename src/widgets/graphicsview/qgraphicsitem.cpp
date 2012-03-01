@@ -306,7 +306,7 @@ name|QGraphicsItemCustomDataStore
 block|{
 public|public:
 DECL|member|data
-name|QMap
+name|QHash
 argument_list|<
 specifier|const
 name|QGraphicsItem
@@ -3338,7 +3338,7 @@ operator|::
 name|Key
 argument_list|()
 expr_stmt|;
-name|QMutableMapIterator
+name|QMutableHashIterator
 argument_list|<
 name|QPaintDevice
 modifier|*
@@ -20962,7 +20962,7 @@ modifier|*
 argument_list|>
 name|selectedItems
 decl_stmt|;
-name|QMap
+name|QHash
 argument_list|<
 name|QGraphicsItem
 modifier|*

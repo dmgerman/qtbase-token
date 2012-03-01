@@ -225,7 +225,7 @@ name|bool
 name|exclusive
 decl_stmt|;
 DECL|member|mapping
-name|QMap
+name|QHash
 argument_list|<
 name|QAbstractButton
 modifier|*

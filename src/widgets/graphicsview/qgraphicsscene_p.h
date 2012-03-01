@@ -327,7 +327,7 @@ operator|*
 operator|>
 name|topLevelItems
 block|;
-name|QMap
+name|QHash
 operator|<
 name|QGraphicsItem
 operator|*

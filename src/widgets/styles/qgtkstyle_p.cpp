@@ -6079,7 +6079,7 @@ parameter_list|,
 name|bool
 name|isSaveDialog
 parameter_list|,
-name|QMap
+name|QHash
 argument_list|<
 name|GtkFileFilter
 modifier|*
@@ -6601,7 +6601,7 @@ name|Options
 name|options
 parameter_list|)
 block|{
-name|QMap
+name|QHash
 argument_list|<
 name|GtkFileFilter
 modifier|*
@@ -6816,7 +6816,7 @@ name|Options
 name|options
 parameter_list|)
 block|{
-name|QMap
+name|QHash
 argument_list|<
 name|GtkFileFilter
 modifier|*
@@ -7008,7 +7008,7 @@ block|{
 name|QStringList
 name|filenames
 decl_stmt|;
-name|QMap
+name|QHash
 argument_list|<
 name|GtkFileFilter
 modifier|*
@@ -7264,7 +7264,7 @@ name|Options
 name|options
 parameter_list|)
 block|{
-name|QMap
+name|QHash
 argument_list|<
 name|GtkFileFilter
 modifier|*
