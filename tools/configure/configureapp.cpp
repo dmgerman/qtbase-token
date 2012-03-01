@@ -16226,58 +16226,6 @@ name|endl
 expr_stmt|;
 name|moduleStream
 operator|<<
-literal|"QMAKE_MOC       = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/bin/moc.exe"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|moduleStream
-operator|<<
-literal|"QMAKE_UIC       = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/bin/uic.exe"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|moduleStream
-operator|<<
-literal|"QMAKE_RCC       = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/bin/rcc.exe"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|moduleStream
-operator|<<
-literal|"QMAKE_DUMPCPP   = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/bin/dumpcpp.exe"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|moduleStream
-operator|<<
 literal|"QMAKE_INCDIR_QT = $$QT_BUILD_TREE"
 operator|<<
 name|fixSeparators
