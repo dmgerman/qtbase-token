@@ -104,7 +104,7 @@ block|;
 name|QColor
 name|color
 block|;
-name|QList
+name|QVector
 operator|<
 name|QPointF
 operator|>
