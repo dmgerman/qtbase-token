@@ -2148,6 +2148,14 @@ name|toplevel
 operator|->
 name|windowHandle
 argument_list|()
+operator|&&
+name|toplevel
+operator|->
+name|windowHandle
+argument_list|()
+operator|->
+name|handle
+argument_list|()
 condition|)
 if|if
 condition|(
@@ -4116,6 +4124,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Draw on backing store DC only for real widgets.
+comment|// Access paintDevice via engine since the painter may
+comment|// return the clip device which can still be a widget device in case of grabWidget().
 specifier|const
 name|bool
 name|useFallback
@@ -4127,7 +4137,10 @@ name|widget
 operator|||
 name|painter
 operator|->
-name|device
+name|paintEngine
+argument_list|()
+operator|->
+name|paintDevice
 argument_list|()
 operator|->
 name|devType
