@@ -380,7 +380,7 @@ name|d
 operator|->
 name|window
 operator|->
-name|visible
+name|isVisible
 argument_list|()
 return|;
 block|}
