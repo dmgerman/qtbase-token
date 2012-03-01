@@ -1079,8 +1079,13 @@ begin_decl_stmt
 name|class
 name|QBoolBlocker
 block|{
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QBoolBlocker
+argument_list|)
 name|public
 label|:
+name|explicit
 specifier|inline
 name|QBoolBlocker
 argument_list|(
