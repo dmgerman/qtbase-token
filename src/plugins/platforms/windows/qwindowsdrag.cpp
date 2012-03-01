@@ -2699,7 +2699,7 @@ name|dropWindow
 argument_list|,
 name|windowsDrag
 operator|->
-name|platformDropData
+name|dropData
 argument_list|()
 argument_list|,
 name|m_lastPoint
