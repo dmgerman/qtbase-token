@@ -8611,6 +8611,7 @@ literal|"remove-test"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Test that the file just removed is gone
 name|QVERIFY
 argument_list|(
 operator|!
@@ -8618,7 +8619,7 @@ name|dir
 operator|.
 name|remove
 argument_list|(
-literal|"/remove-test"
+literal|"remove-test"
 argument_list|)
 argument_list|)
 expr_stmt|;
