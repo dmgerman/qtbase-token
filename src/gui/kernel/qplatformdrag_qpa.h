@@ -210,6 +210,10 @@ name|QPlatformDragPrivate
 modifier|*
 name|d_ptr
 decl_stmt|;
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QPlatformDrag
+argument_list|)
 block|}
 end_decl_stmt
 begin_empty_stmt
