@@ -3504,7 +3504,7 @@ name|flags
 argument_list|()
 specifier|const
 block|;
-name|QList
+name|QVector
 operator|<
 name|QPointF
 operator|>
@@ -3685,7 +3685,7 @@ name|void
 name|setRawScreenPositions
 argument_list|(
 specifier|const
-name|QList
+name|QVector
 operator|<
 name|QPointF
 operator|>

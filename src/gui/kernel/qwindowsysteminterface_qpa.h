@@ -562,7 +562,7 @@ operator|::
 name|InfoFlags
 name|flags
 expr_stmt|;
-name|QList
+name|QVector
 operator|<
 name|QPointF
 operator|>
