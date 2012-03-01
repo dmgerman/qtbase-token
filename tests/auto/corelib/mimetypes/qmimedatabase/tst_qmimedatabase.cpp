@@ -4576,6 +4576,15 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|// Note: this test fails on "testcompress.z" when using a shared-mime-info older than 1.0.
+end_comment
+begin_comment
+comment|// This because of commit 0f9a506069c in shared-mime-info, which fixed the writing of
+end_comment
+begin_comment
+comment|// case-insensitive patterns into mime.cache.
+end_comment
 begin_function
 DECL|function|findByFile
 name|void
