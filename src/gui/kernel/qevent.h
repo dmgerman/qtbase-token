@@ -2189,6 +2189,17 @@ name|tentativeCommit
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QInputMethodEvent
+operator|::
+name|Attribute
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
