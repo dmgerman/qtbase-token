@@ -1094,6 +1094,10 @@ name|setFocus_sys
 argument_list|()
 block|;
 name|void
+name|updateFocusChild
+argument_list|()
+block|;
+name|void
 name|updateFont
 argument_list|(
 specifier|const
