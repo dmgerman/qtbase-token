@@ -37,6 +37,11 @@ include|#
 directive|include
 file|<QtCore/QLocale>
 end_include
+begin_include
+include|#
+directive|include
+file|<memory>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|bool
