@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"../../corelib/global/qconfig.cpp"
+file|<qconfig.cpp>
 end_include
 begin_include
 include|#
