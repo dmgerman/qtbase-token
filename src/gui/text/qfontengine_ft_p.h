@@ -435,9 +435,12 @@ operator|~
 name|Glyph
 argument_list|()
 block|;
-name|short
+name|int
 name|linearAdvance
+operator|:
+literal|22
 block|;
+comment|// 16.6
 name|unsigned
 name|char
 name|width
