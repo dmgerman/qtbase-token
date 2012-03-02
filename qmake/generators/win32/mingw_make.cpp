@@ -2697,7 +2697,10 @@ argument_list|)
 operator|+
 literal|" --via "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|ar_script_file
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -2755,7 +2758,10 @@ name|ar_cmd
 operator|+
 literal|" -M< "
 operator|+
+name|escapeFilePath
+argument_list|(
 name|ar_script_file
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -2829,7 +2835,10 @@ argument_list|(
 literal|"--via "
 argument_list|)
 operator|+
+name|escapeFilePath
+argument_list|(
 name|ld_script_file
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -2848,7 +2857,10 @@ argument_list|)
 expr_stmt|;
 name|objectsLinkLine
 operator|=
+name|escapeFilePath
+argument_list|(
 name|ld_script_file
+argument_list|)
 expr_stmt|;
 block|}
 block|}
