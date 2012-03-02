@@ -6308,7 +6308,7 @@ name|face
 operator|=
 name|actualFontEngine
 operator|->
-name|harfbuzzFace
+name|initializedHarfbuzzFace
 argument_list|()
 expr_stmt|;
 name|shaper_item
