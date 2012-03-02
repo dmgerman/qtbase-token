@@ -9,7 +9,7 @@ begin_comment
 comment|/*!     \enum QUrl::ParsingMode      The parsing mode controls the way QUrl parses strings.      \value TolerantMode QUrl will try to correct some common errors in URLs.                         This mode is useful when processing URLs entered by                         users.      \value StrictMode Only valid URLs are accepted. This mode is useful for                       general URL validation.      In TolerantMode, the parser corrects the following invalid input:      \list      \li Spaces and "%20": If an encoded URL contains a space, this will be     replaced with "%20". If a decoded URL contains "%20", this will be     replaced with a single space before the URL is parsed.      \li Single "%" characters: Any occurrences of a percent character "%" not     followed by exactly two hexadecimal characters (e.g., "13% coverage.html")     will be replaced by "%25".      \li Reserved and unreserved characters: An encoded URL should only     contain a few characters as literals; all other characters should     be percent-encoded. In TolerantMode, these characters will be     automatically percent-encoded where they are not allowed:             space / double-quote / "<" / ">" / "[" / "\" /             "]" / "^" / "`" / "{" / "|" / "}"      \endlist */
 end_comment
 begin_comment
-comment|/*!     \enum QUrl::FormattingOption      The formatting options define how the URL is formatted when written out     as text.      \value None The format of the URL is unchanged.     \value RemoveScheme  The scheme is removed from the URL.     \value RemovePassword  Any password in the URL is removed.     \value RemoveUserInfo  Any user information in the URL is removed.     \value RemovePort      Any specified port is removed from the URL.     \value RemoveAuthority     \value RemovePath   The URL's path is removed, leaving only the scheme,                         host address, and port (if present).     \value RemoveQuery  The query part of the URL (following a '?' character)                         is removed.     \value RemoveFragment     \value StripTrailingSlash  The trailing slash is removed if one is present.      Note that the case folding rules in \l{RFC 3491}{Nameprep}, which QUrl     conforms to, require host names to always be converted to lower case,     regardless of the Qt::FormattingOptions used. */
+comment|/*!     \enum QUrl::FormattingOption      The formatting options define how the URL is formatted when written out     as text.      \value None The format of the URL is unchanged.     \value RemoveScheme  The scheme is removed from the URL.     \value RemovePassword  Any password in the URL is removed.     \value RemoveUserInfo  Any user information in the URL is removed.     \value RemovePort      Any specified port is removed from the URL.     \value RemoveAuthority     \value RemovePath   The URL's path is removed, leaving only the scheme,                         host address, and port (if present).     \value RemoveQuery  The query part of the URL (following a '?' character)                         is removed.     \value RemoveFragment     \value PreferLocalFile If the URL is a local file according to isLocalFile()      and contains no query or fragment, a local file path is returned.     \value StripTrailingSlash  The trailing slash is removed if one is present.      Note that the case folding rules in \l{RFC 3491}{Nameprep}, which QUrl     conforms to, require host names to always be converted to lower case,     regardless of the Qt::FormattingOptions used. */
 end_comment
 begin_comment
 comment|/*!  \fn uint qHash(const QUrl&url)  \since 4.7  \relates QUrl   Computes a hash key from the normalized version of \a url.  */
@@ -826,6 +826,11 @@ name|QUrl
 operator|::
 name|None
 parameter_list|)
+specifier|const
+function_decl|;
+name|bool
+name|isLocalFile
+parameter_list|()
 specifier|const
 function_decl|;
 DECL|member|ref
@@ -32758,6 +32763,28 @@ return|return
 name|normalized
 argument_list|()
 return|;
+if|if
+condition|(
+operator|(
+name|options
+operator|&
+name|QUrl
+operator|::
+name|PreferLocalFile
+operator|)
+operator|&&
+name|isLocalFile
+argument_list|()
+operator|&&
+operator|!
+name|hasQuery
+operator|&&
+operator|!
+name|hasFragment
+condition|)
+return|return
+name|encodedPath
+return|;
 name|QByteArray
 name|url
 decl_stmt|;
@@ -39860,6 +39887,39 @@ expr_stmt|;
 name|QString
 name|url
 decl_stmt|;
+specifier|const
+name|QString
+name|ourPath
+init|=
+name|path
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|(
+name|options
+operator|&
+name|QUrl
+operator|::
+name|PreferLocalFile
+operator|)
+operator|&&
+name|isLocalFile
+argument_list|()
+operator|&&
+operator|!
+name|d
+operator|->
+name|hasQuery
+operator|&&
+operator|!
+name|d
+operator|->
+name|hasFragment
+condition|)
+return|return
+name|ourPath
+return|;
 if|if
 condition|(
 operator|!
@@ -39890,12 +39950,6 @@ argument_list|(
 literal|':'
 argument_list|)
 expr_stmt|;
-name|QString
-name|ourPath
-init|=
-name|path
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 operator|(
@@ -40162,7 +40216,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a string representation of the URL.     The output can be customized by passing flags with \a options.      The resulting QString can be passed back to a QUrl later on.      Synonym for toString(options).      \sa FormattingOptions, toEncoded(), toString() */
+comment|/*!     \since 5.0     Returns a string representation of the URL.     The output can be customized by passing flags with \a options.      The resulting QString can be passed back to a QUrl later on.      Synonym for toString(options).      \sa FormattingOptions, toEncoded(), toString() */
 end_comment
 begin_function
 DECL|function|url
@@ -40185,7 +40239,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a human-displayable string representation of the URL.     The output can be customized by passing flags with \a options.     The option RemovePassword is always enabled, since passwords     should never be shown back to users.      The resulting QString can be passed back to a QUrl later on,     but any password that was present initially will be lost.      \sa FormattingOptions, toEncoded(), toString() */
+comment|/*!     \since 5.0      Returns a human-displayable string representation of the URL.     The output can be customized by passing flags with \a options.     The option RemovePassword is always enabled, since passwords     should never be shown back to users.      With the default options, the resulting QString can be passed back     to a QUrl later on, but any password that was present initially will     be lost.      \sa FormattingOptions, toEncoded(), toString() */
 end_comment
 begin_function
 DECL|function|toDisplayString
@@ -41638,6 +41692,42 @@ name|tmp
 return|;
 block|}
 end_function
+begin_function
+DECL|function|isLocalFile
+name|bool
+name|QUrlPrivate
+operator|::
+name|isLocalFile
+parameter_list|()
+specifier|const
+block|{
+if|if
+condition|(
+name|scheme
+operator|.
+name|compare
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"file"
+argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|CaseInsensitive
+argument_list|)
+operator|!=
+literal|0
+condition|)
+return|return
+literal|false
+return|;
+comment|// not file
+return|return
+literal|true
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     \since 4.7     Returns true if this URL is pointing to a local file path. A URL is a     local file path if the scheme is "file".      Note that this function considers URLs with hostnames to be local file     paths, even if the eventual file path cannot be opened with     QFile::open().      \sa fromLocalFile(), toLocalFile() */
 end_comment
@@ -41677,32 +41767,11 @@ operator|->
 name|parse
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
+return|return
 name|d
 operator|->
-name|scheme
-operator|.
-name|compare
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"file"
-argument_list|)
-argument_list|,
-name|Qt
-operator|::
-name|CaseInsensitive
-argument_list|)
-operator|!=
-literal|0
-condition|)
-return|return
-literal|false
-return|;
-comment|// not file
-return|return
-literal|true
+name|isLocalFile
+argument_list|()
 return|;
 block|}
 end_function
