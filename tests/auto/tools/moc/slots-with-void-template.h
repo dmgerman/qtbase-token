@@ -42,6 +42,13 @@ argument_list|()
 block|{}
 specifier|inline
 name|void
+name|dummySlot2
+argument_list|(
+argument|void
+argument_list|)
+block|{}
+specifier|inline
+name|void
 name|anotherSlot
 argument_list|(
 argument|const TestTemplate<void>&
@@ -80,6 +87,12 @@ block|;
 name|void
 name|myVoidSignal
 argument_list|()
+block|;
+name|void
+name|myVoidSignal2
+argument_list|(
+name|void
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
