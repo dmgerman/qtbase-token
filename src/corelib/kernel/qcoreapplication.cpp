@@ -1954,16 +1954,6 @@ name|self
 operator|=
 name|this
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_THREAD
-name|QThread
-operator|::
-name|initialize
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 comment|// use the event dispatcher created by the app programmer (if any)
 if|if
 condition|(
@@ -2182,11 +2172,6 @@ condition|)
 name|globalThreadPool
 operator|->
 name|waitForDone
-argument_list|()
-expr_stmt|;
-name|QThread
-operator|::
-name|cleanup
 argument_list|()
 expr_stmt|;
 endif|#

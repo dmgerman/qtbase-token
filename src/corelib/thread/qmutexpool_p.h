@@ -195,14 +195,6 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_decl_stmt
-specifier|extern
-name|Q_CORE_EXPORT
-name|QMutexPool
-modifier|*
-name|qt_global_mutexpool
-decl_stmt|;
-end_decl_stmt
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
