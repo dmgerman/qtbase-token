@@ -5511,7 +5511,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|// http://bugreports.qt.nokia.com/browse/QTBUG-6696
+comment|// http://bugreports.qt-project.org/browse/QTBUG-6696
 end_comment
 begin_comment
 comment|// Check the count of images in various call orders...
