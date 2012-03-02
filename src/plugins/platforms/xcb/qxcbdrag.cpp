@@ -881,7 +881,7 @@ parameter_list|,
 name|xcb_window_t
 name|w
 parameter_list|,
-name|int
+name|xcb_shape_sk_t
 name|shapeType
 parameter_list|)
 block|{
@@ -1223,7 +1223,15 @@ name|isAware
 condition|)
 block|{
 comment|// When ShapeInput and ShapeBounding are not set they return a single rectangle with the geometry of the window, this is why we
-comment|// need an&& here so that in the case one is set and the other is not we still get the correct result.
+comment|// need to check both here so that in the case one is set and the other is not we still get the correct result.
+if|if
+condition|(
+name|connection
+argument_list|()
+operator|->
+name|hasInputShape
+argument_list|()
+condition|)
 name|windowContainsMouse
 operator|=
 name|windowInteractsWithPosition
@@ -1237,7 +1245,19 @@ name|w
 argument_list|,
 name|XCB_SHAPE_SK_INPUT
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|windowContainsMouse
 operator|&&
+name|connection
+argument_list|()
+operator|->
+name|hasXShape
+argument_list|()
+condition|)
+name|windowContainsMouse
+operator|=
 name|windowInteractsWithPosition
 argument_list|(
 name|xcb_connection
