@@ -13638,6 +13638,21 @@ name|vistaInitPending
 operator|=
 literal|false
 expr_stmt|;
+comment|// Do not force AeroStyle when in Classic theme.
+comment|// Note that d->handleAeroStyleChange() needs to be called in any case as it does some
+comment|// necessary initialization, like ensures that the Aero specific back button is hidden if
+comment|// Aero theme isn't active.
+if|if
+condition|(
+name|QVistaHelper
+operator|::
+name|vistaState
+argument_list|()
+operator|!=
+name|QVistaHelper
+operator|::
+name|Classic
+condition|)
 name|d
 operator|->
 name|wizStyle
