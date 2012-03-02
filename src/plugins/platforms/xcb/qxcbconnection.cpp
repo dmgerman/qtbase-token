@@ -435,7 +435,7 @@ argument_list|)
 condition|)
 name|qFatal
 argument_list|(
-literal|"Could not connect to display %s"
+literal|"QXcbConnection: Could not connect to display %s"
 argument_list|,
 name|m_displayName
 operator|.
@@ -965,7 +965,7 @@ parameter_list|(
 name|ev
 parameter_list|)
 define|\
-value|case ev: \         qDebug("%s: %d - %s - sequence: %d", message, int(ev), #ev, event->sequence); \         break;
+value|case ev: \         qDebug("QXcbConnection: %s: %d - %s - sequence: %d", message, int(ev), #ev, event->sequence); \         break;
 switch|switch
 condition|(
 name|event
@@ -1139,7 +1139,7 @@ expr_stmt|;
 default|default:
 name|qDebug
 argument_list|(
-literal|"%s: unknown event - response_type: %d - sequence: %d"
+literal|"QXcbConnection: %s: unknown event - response_type: %d - sequence: %d"
 argument_list|,
 name|message
 argument_list|,
@@ -1614,9 +1614,9 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-name|qDebug
+name|qWarning
 argument_list|(
-literal|"XCB error: %d (%s), sequence: %d, resource id: %d, major code: %d (%s), minor code: %d"
+literal|"QXcbConnection: XCB error: %d (%s), sequence: %d, resource id: %d, major code: %d (%s), minor code: %d"
 argument_list|,
 name|int
 argument_list|(
@@ -2250,11 +2250,6 @@ operator|)
 operator|->
 name|time
 argument_list|)
-expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"XCB_SELECTION_NOTIFY"
 expr_stmt|;
 name|handled
 operator|=
@@ -3916,7 +3911,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Failed to initialize XFixes"
+literal|"QXcbConnection: Failed to initialize XFixes"
 argument_list|)
 expr_stmt|;
 name|free
@@ -4003,7 +3998,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Failed to initialize XRender"
+literal|"QXcbConnection: Failed to initialize XRender"
 argument_list|)
 expr_stmt|;
 name|free
@@ -4216,10 +4211,10 @@ operator|==
 literal|0
 condition|)
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Failed to connect to dri2"
+name|qWarning
+argument_list|(
+literal|"QXcbConnection: Failed to connect to DRI2"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -4261,10 +4256,12 @@ operator|<
 literal|0
 condition|)
 block|{
-name|qDebug
+name|qWarning
 argument_list|()
 operator|<<
-literal|"InitializeDri2: Could'nt open device<< dri2DeviceName"
+literal|"QXcbConnection: Couldn't open DRI2 device"
+operator|<<
+name|m_dri2_device_name
 expr_stmt|;
 name|m_dri2_device_name
 operator|=
@@ -4287,10 +4284,10 @@ name|magic
 argument_list|)
 condition|)
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Failed to get drmMagic"
+name|qWarning
+argument_list|(
+literal|"QXcbConnection: Failed to get drmMagic"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -4339,7 +4336,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"DRI2: failed to authenticate"
+literal|"QXcbConnection: DRI2: failed to authenticate"
 argument_list|)
 expr_stmt|;
 name|free
@@ -4368,7 +4365,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"failed to create display"
+literal|"QXcbConnection: Failed to create EGL display using DRI2"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -4399,7 +4396,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"failed to initialize display"
+literal|"QXcbConnection: Failed to initialize EGL display using DRI2"
 argument_list|)
 expr_stmt|;
 return|return;

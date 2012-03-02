@@ -5750,7 +5750,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"xcb keyboard: failed to get modifier mapping"
+literal|"QXcbKeyboard: failed to get modifier mapping"
 argument_list|)
 expr_stmt|;
 name|free

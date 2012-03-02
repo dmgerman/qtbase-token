@@ -68,6 +68,9 @@ argument_list|(
 name|number
 argument_list|)
 block|{
+ifdef|#
+directive|ifdef
+name|Q_XCB_DEBUG
 name|qDebug
 argument_list|()
 expr_stmt|;
@@ -128,6 +131,8 @@ expr_stmt|;
 name|qDebug
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 specifier|const
 name|quint32
 name|mask
@@ -328,6 +333,9 @@ name|windowManagerReply
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_XCB_DEBUG
 name|qDebug
 argument_list|(
 literal|"Running window manager: %s"
@@ -338,6 +346,8 @@ name|m_windowManagerName
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 elseif|else
 if|if

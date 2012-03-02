@@ -269,10 +269,6 @@ operator|>
 literal|0
 condition|)
 do|;
-comment|//    qDebug()<< "======== updateNetWMAtoms";
-comment|//    for (int i = 0; i< net_wm_atoms.size(); ++i)
-comment|//        qDebug()<< atomName(net_wm_atoms.at(i));
-comment|//    qDebug()<< "======== updateNetWMAtoms";
 block|}
 end_function
 begin_comment
@@ -495,6 +491,9 @@ operator|>
 literal|0
 condition|)
 do|;
+ifdef|#
+directive|ifdef
+name|Q_XCB_DEBUG
 name|qDebug
 argument_list|()
 operator|<<
@@ -538,6 +537,8 @@ argument_list|()
 operator|<<
 literal|"======== updateVirtualRoots"
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_macro

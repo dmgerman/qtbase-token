@@ -6730,7 +6730,7 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"unhandled WM_PROTOCOLS message:"
+literal|"QXcbWindow: Unhandled WM_PROTOCOLS message:"
 operator|<<
 name|connection
 argument_list|()
@@ -6874,7 +6874,7 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"unhandled client message:"
+literal|"QXcbWindow: Unhandled client message:"
 operator|<<
 name|connection
 argument_list|()

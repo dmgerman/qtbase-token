@@ -2919,7 +2919,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"SharedBufferManager::findAvailableBuffer: Can't create new buffer (%s)"
+literal|"QXcbSharedBufferManager::findAvailableBuffer: Can't create new buffer (%s)"
 argument_list|,
 name|qPrintable
 argument_list|(
