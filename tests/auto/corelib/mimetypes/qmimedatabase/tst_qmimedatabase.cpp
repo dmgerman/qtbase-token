@@ -1042,6 +1042,17 @@ literal|"IDontExist.txt"
 operator|<<
 literal|"text/plain"
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"empty"
+argument_list|)
+operator|<<
+literal|""
+operator|<<
+literal|"application/octet-stream"
+expr_stmt|;
 block|}
 end_function
 begin_function
