@@ -659,11 +659,6 @@ argument_list|(
 name|object
 argument_list|)
 expr_stmt|;
-name|qWarning
-argument_list|(
-literal|"QAccessible::updateAccessibility is deprecated."
-argument_list|)
-expr_stmt|;
 name|QAccessibleEvent
 name|event
 init|=
