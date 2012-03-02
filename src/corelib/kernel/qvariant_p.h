@@ -916,6 +916,112 @@ block|{
 comment|/// \internal
 comment|/// This class checks if a type T has method called isNull. Result is kept in the Value property
 comment|/// TODO Can we somehow generalize it? A macro version?
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_COMPILER_DECLTYPE
+argument_list|)
+comment|// C++11 version
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+name|class
+name|HasIsNullMethod
+block|{         struct
+name|Yes
+block|{
+name|char
+name|unused
+index|[
+literal|1
+index|]
+block|; }
+block|;         struct
+name|No
+block|{
+name|char
+name|unused
+index|[
+literal|2
+index|]
+block|; }
+block|;
+name|Q_STATIC_ASSERT
+argument_list|(
+sizeof|sizeof
+argument_list|(
+name|Yes
+argument_list|)
+operator|!=
+sizeof|sizeof
+argument_list|(
+name|No
+argument_list|)
+argument_list|)
+block|;
+name|template
+operator|<
+name|class
+name|C
+operator|>
+specifier|static
+name|decltype
+argument_list|(
+argument|static_cast<const C*>(
+literal|0
+argument|)->isNull()
+argument_list|,
+argument|Yes()
+argument_list|)
+name|test
+argument_list|(
+name|int
+argument_list|)
+block|;
+name|template
+operator|<
+name|class
+name|C
+operator|>
+specifier|static
+name|No
+name|test
+argument_list|(
+operator|...
+argument_list|)
+block|;
+name|public
+operator|:
+specifier|static
+specifier|const
+name|bool
+name|Value
+operator|=
+operator|(
+sizeof|sizeof
+argument_list|(
+name|test
+operator|<
+name|T
+operator|>
+operator|(
+literal|0
+operator|)
+argument_list|)
+operator|==
+sizeof|sizeof
+argument_list|(
+name|Yes
+argument_list|)
+operator|)
+block|;     }
+block|;
+else|#
+directive|else
+comment|// C++98 version (doesn't work for final classes)
 name|template
 operator|<
 name|typename
@@ -982,6 +1088,7 @@ name|public
 name|FallbackMixin
 block|{}
 block|;
+comment|//<- doesn't work for final classes
 name|template
 operator|<
 name|class
@@ -1084,6 +1191,8 @@ operator|=
 name|false
 block|;     }
 block|;
+endif|#
+directive|endif
 comment|// TODO This part should go to autotests during HasIsNullMethod generalization.
 name|Q_STATIC_ASSERT
 argument_list|(
@@ -1139,6 +1248,57 @@ argument_list|(
 name|HasIsNullMethod
 operator|<
 name|SelfTest3
+operator|>
+operator|::
+name|Value
+argument_list|)
+block|;     struct
+name|SelfTestFinal1
+name|Q_DECL_FINAL_CLASS
+block|{
+name|bool
+name|isNull
+argument_list|()
+specifier|const
+block|; }
+block|;
+name|Q_STATIC_ASSERT
+argument_list|(
+name|HasIsNullMethod
+operator|<
+name|SelfTestFinal1
+operator|>
+operator|::
+name|Value
+argument_list|)
+block|;     struct
+name|SelfTestFinal2
+name|Q_DECL_FINAL_CLASS
+block|{}
+block|;
+name|Q_STATIC_ASSERT
+argument_list|(
+operator|!
+name|HasIsNullMethod
+operator|<
+name|SelfTestFinal2
+operator|>
+operator|::
+name|Value
+argument_list|)
+block|;     struct
+name|SelfTestFinal3
+name|Q_DECL_FINAL_CLASS
+operator|:
+name|public
+name|SelfTest1
+block|{}
+block|;
+name|Q_STATIC_ASSERT
+argument_list|(
+name|HasIsNullMethod
+operator|<
+name|SelfTestFinal3
 operator|>
 operator|::
 name|Value
