@@ -347,7 +347,7 @@ literal|14
 return|;
 block|}
 comment|//sizeof each tree element
-name|int
+name|uint
 name|hash
 parameter_list|(
 name|int
@@ -2140,7 +2140,7 @@ end_function
 begin_function
 DECL|function|hash
 specifier|inline
-name|int
+name|uint
 name|QResourceRoot
 operator|::
 name|hash
@@ -2772,7 +2772,7 @@ block|}
 endif|#
 directive|endif
 specifier|const
-name|int
+name|uint
 name|h
 init|=
 name|qHash
@@ -2813,7 +2813,7 @@ name|l
 condition|)
 block|{
 specifier|const
-name|int
+name|uint
 name|sub_node_hash
 init|=
 name|hash
