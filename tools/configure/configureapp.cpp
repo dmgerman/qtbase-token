@@ -15776,7 +15776,7 @@ argument_list|(
 literal|" "
 argument_list|)
 operator|<<
-literal|" incremental depend_includepath no_private_qt_headers_warning QTDIR_build"
+literal|"depend_includepath no_private_qt_headers_warning QTDIR_build"
 operator|<<
 name|endl
 expr_stmt|;
