@@ -3256,7 +3256,7 @@ argument_list|)
 decl_stmt|;
 name|vertical
 operator|->
-name|setClickable
+name|setSectionsClickable
 argument_list|(
 literal|true
 argument_list|)
@@ -3291,7 +3291,7 @@ argument_list|)
 decl_stmt|;
 name|horizontal
 operator|->
-name|setClickable
+name|setSectionsClickable
 argument_list|(
 literal|true
 argument_list|)

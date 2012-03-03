@@ -2743,7 +2743,7 @@ expr_stmt|;
 name|header
 argument_list|()
 operator|->
-name|setClickable
+name|setSectionsClickable
 argument_list|(
 name|enable
 argument_list|)
@@ -14864,7 +14864,7 @@ argument_list|)
 decl_stmt|;
 name|header
 operator|->
-name|setMovable
+name|setSectionsMovable
 argument_list|(
 literal|true
 argument_list|)

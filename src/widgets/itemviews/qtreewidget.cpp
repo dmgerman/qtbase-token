@@ -9868,7 +9868,7 @@ expr_stmt|;
 name|header
 argument_list|()
 operator|->
-name|setClickable
+name|setSectionsClickable
 argument_list|(
 literal|false
 argument_list|)

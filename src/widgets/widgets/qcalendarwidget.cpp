@@ -10735,7 +10735,7 @@ operator|->
 name|horizontalHeader
 argument_list|()
 operator|->
-name|setClickable
+name|setSectionsClickable
 argument_list|(
 literal|false
 argument_list|)
@@ -10761,7 +10761,7 @@ operator|->
 name|verticalHeader
 argument_list|()
 operator|->
-name|setClickable
+name|setSectionsClickable
 argument_list|(
 literal|false
 argument_list|)
