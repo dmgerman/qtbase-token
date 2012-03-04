@@ -286,6 +286,11 @@ decl_stmt|;
 name|headers
 operator|<<
 name|qMakePair
+argument_list|<
+name|QByteArray
+argument_list|,
+name|QByteArray
+argument_list|>
 argument_list|(
 name|QByteArray
 argument_list|(
@@ -374,11 +379,12 @@ operator|.
 name|constData
 argument_list|()
 argument_list|,
-operator|(
+name|QByteArray
+argument_list|(
 literal|"Basic "
 operator|+
 name|expectedReply
-operator|)
+argument_list|)
 operator|.
 name|constData
 argument_list|()
@@ -555,6 +561,11 @@ expr_stmt|;
 name|headers
 operator|<<
 name|qMakePair
+argument_list|<
+name|QByteArray
+argument_list|,
+name|QByteArray
+argument_list|>
 argument_list|(
 name|QByteArray
 argument_list|(

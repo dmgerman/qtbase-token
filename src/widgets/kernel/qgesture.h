@@ -811,6 +811,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QGestureEvent
 argument_list|(
 specifier|const

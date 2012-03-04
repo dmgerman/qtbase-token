@@ -69,10 +69,13 @@ name|newRow
 argument_list|(
 name|QByteArray
 argument_list|(
+name|QByteArray
+argument_list|(
 literal|"native-"
 argument_list|)
 operator|+
 name|name
+argument_list|)
 argument_list|)
 operator|<<
 name|data

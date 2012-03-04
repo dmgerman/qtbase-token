@@ -282,25 +282,6 @@ name|key
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_function
-DECL|function|qIsDetached
-specifier|inline
-name|bool
-name|qIsDetached
-parameter_list|(
-name|QPixmapCacheEntry
-modifier|&
-name|t
-parameter_list|)
-block|{
-return|return
-name|t
-operator|.
-name|isDetached
-argument_list|()
-return|;
-block|}
-end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

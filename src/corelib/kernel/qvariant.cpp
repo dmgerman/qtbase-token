@@ -7684,6 +7684,9 @@ operator|::
 name|type
 argument_list|(
 name|name
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

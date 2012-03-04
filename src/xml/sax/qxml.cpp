@@ -5311,6 +5311,9 @@ operator|->
 name|toUnicode
 argument_list|(
 name|data
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|data
 operator|.
@@ -5414,6 +5417,9 @@ argument_list|(
 name|d
 operator|->
 name|encodingDeclBytes
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|d
 operator|->
@@ -5433,6 +5439,9 @@ operator|->
 name|toUnicode
 argument_list|(
 name|data
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|data
 operator|.

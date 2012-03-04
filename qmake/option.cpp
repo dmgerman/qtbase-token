@@ -3556,7 +3556,7 @@ name|location
 argument_list|(
 name|QLibraryInfo
 operator|::
-name|DataPath
+name|HostDataPath
 argument_list|)
 operator|+
 name|concat
