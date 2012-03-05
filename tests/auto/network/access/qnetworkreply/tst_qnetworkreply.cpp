@@ -17381,20 +17381,6 @@ operator|::
 name|ioGetFromHttpWithProxyAuth
 parameter_list|()
 block|{
-name|qRegisterMetaType
-argument_list|<
-name|QNetworkProxy
-argument_list|>
-argument_list|()
-expr_stmt|;
-comment|// for QSignalSpy
-name|qRegisterMetaType
-argument_list|<
-name|QAuthenticator
-operator|*
-argument_list|>
-argument_list|()
-expr_stmt|;
 comment|// This test sends three requests
 comment|// The first two in parallel
 comment|// The third after the first two finished
@@ -18099,20 +18085,6 @@ parameter_list|()
 block|{
 comment|// HTTP caching proxies are tested by the above function
 comment|// test SOCKSv5 proxies too
-name|qRegisterMetaType
-argument_list|<
-name|QNetworkProxy
-argument_list|>
-argument_list|()
-expr_stmt|;
-comment|// for QSignalSpy
-name|qRegisterMetaType
-argument_list|<
-name|QAuthenticator
-operator|*
-argument_list|>
-argument_list|()
-expr_stmt|;
 name|QFile
 name|reference
 argument_list|(
@@ -18547,23 +18519,6 @@ operator|::
 name|ioGetFromHttpsWithSslErrors
 parameter_list|()
 block|{
-name|qRegisterMetaType
-argument_list|<
-name|QNetworkReply
-operator|*
-argument_list|>
-argument_list|()
-expr_stmt|;
-comment|// for QSignalSpy
-name|qRegisterMetaType
-argument_list|<
-name|QList
-argument_list|<
-name|QSslError
-argument_list|>
-argument_list|>
-argument_list|()
-expr_stmt|;
 name|QFile
 name|reference
 argument_list|(
@@ -18805,23 +18760,6 @@ parameter_list|()
 block|{
 comment|// same as above, except that we call ignoreSslErrors and don't connect
 comment|// to the sslErrors() signal (which is *still* emitted)
-name|qRegisterMetaType
-argument_list|<
-name|QNetworkReply
-operator|*
-argument_list|>
-argument_list|()
-expr_stmt|;
-comment|// for QSignalSpy
-name|qRegisterMetaType
-argument_list|<
-name|QList
-argument_list|<
-name|QSslError
-argument_list|>
-argument_list|>
-argument_list|()
-expr_stmt|;
 name|QFile
 name|reference
 argument_list|(
@@ -18997,23 +18935,6 @@ operator|::
 name|ioGetFromHttpsWithSslHandshakeError
 parameter_list|()
 block|{
-name|qRegisterMetaType
-argument_list|<
-name|QNetworkReply
-operator|*
-argument_list|>
-argument_list|()
-expr_stmt|;
-comment|// for QSignalSpy
-name|qRegisterMetaType
-argument_list|<
-name|QList
-argument_list|<
-name|QSslError
-argument_list|>
-argument_list|>
-argument_list|()
-expr_stmt|;
 name|QFile
 name|reference
 argument_list|(
@@ -22542,20 +22463,6 @@ name|ioGetWithManyProxies
 parameter_list|()
 block|{
 comment|// Test proxy factories
-name|qRegisterMetaType
-argument_list|<
-name|QNetworkProxy
-argument_list|>
-argument_list|()
-expr_stmt|;
-comment|// for QSignalSpy
-name|qRegisterMetaType
-argument_list|<
-name|QAuthenticator
-operator|*
-argument_list|>
-argument_list|()
-expr_stmt|;
 name|QFile
 name|reference
 argument_list|(
@@ -25265,27 +25172,6 @@ operator|::
 name|ioPostToHttpFromSocket
 parameter_list|()
 block|{
-name|qRegisterMetaType
-argument_list|<
-name|QNetworkProxy
-argument_list|>
-argument_list|()
-expr_stmt|;
-comment|// for QSignalSpy
-name|qRegisterMetaType
-argument_list|<
-name|QAuthenticator
-operator|*
-argument_list|>
-argument_list|()
-expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|QNetworkReply
-operator|*
-argument_list|>
-argument_list|()
-expr_stmt|;
 name|QFETCH
 argument_list|(
 name|QByteArray
@@ -29445,16 +29331,6 @@ argument_list|(
 literal|32768
 argument_list|)
 expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|QNetworkReply
-operator|::
-name|NetworkError
-argument_list|>
-argument_list|(
-literal|"QNetworkReply::NetworkError"
-argument_list|)
-expr_stmt|;
 name|QSignalSpy
 name|errorSpy
 argument_list|(
@@ -31946,14 +31822,6 @@ argument_list|(
 literal|"Takes 16 seconds to run, please wait"
 argument_list|)
 expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|QNetworkReply
-operator|::
-name|NetworkError
-argument_list|>
-argument_list|()
-expr_stmt|;
 name|QUrl
 name|url
 argument_list|(
@@ -33102,16 +32970,6 @@ argument_list|,
 name|QNetworkReply
 operator|::
 name|NoError
-argument_list|)
-expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|QNetworkReply
-operator|::
-name|NetworkError
-argument_list|>
-argument_list|(
-literal|"QNetworkReply::NetworkError"
 argument_list|)
 expr_stmt|;
 name|QSignalSpy
@@ -37493,24 +37351,6 @@ argument_list|(
 name|request
 argument_list|)
 decl_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|QNetworkReply
-operator|*
-argument_list|>
-argument_list|(
-literal|"QNetworkReply*"
-argument_list|)
-expr_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|QAuthenticator
-operator|*
-argument_list|>
-argument_list|(
-literal|"QAuthenticator*"
-argument_list|)
-expr_stmt|;
 name|QSignalSpy
 name|authSpy
 argument_list|(
@@ -37546,16 +37386,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|qRegisterMetaType
-argument_list|<
-name|QNetworkReply
-operator|::
-name|NetworkError
-argument_list|>
-argument_list|(
-literal|"QNetworkReply::NetworkError"
-argument_list|)
-expr_stmt|;
 name|QSignalSpy
 name|errorSpy
 argument_list|(
