@@ -574,11 +574,14 @@ parameter_list|)
 function_decl|;
 endif|#
 directive|endif
+name|explicit
 name|QMetaType
-argument_list|(
-argument|const int type
-argument_list|)
-empty_stmt|;
+parameter_list|(
+specifier|const
+name|int
+name|type
+parameter_list|)
+function_decl|;
 specifier|inline
 operator|~
 name|QMetaType
