@@ -377,6 +377,12 @@ name|QPainterPath
 modifier|&
 parameter_list|)
 function_decl|;
+name|private
+label|:
+name|friend
+name|class
+name|QCocoaNativeInterface
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

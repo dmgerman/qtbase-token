@@ -61,6 +61,17 @@ name|QPlatformPrinterSupport
 operator|*
 name|createPlatformPrinterSupport
 argument_list|()
+block|;
+comment|/*         Function to return the NSPrintInfo * from QMacPaintEnginePrivate.         Needed by the native print dialog in the QtPrintSupport library.     */
+name|Q_INVOKABLE
+name|void
+operator|*
+name|NSPrintInfoForPrintEngine
+argument_list|(
+name|QPrintEngine
+operator|*
+name|printEngine
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
