@@ -76,6 +76,10 @@ operator|<
 name|QPlatformCursorImage
 operator|>
 name|m_image
+block|;
+name|QPlatformScreen
+operator|*
+name|m_screen
 block|; }
 decl_stmt|;
 end_decl_stmt

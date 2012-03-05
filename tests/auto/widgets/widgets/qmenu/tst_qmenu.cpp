@@ -3569,20 +3569,6 @@ argument_list|(
 literal|100
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-22565"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|menu
@@ -4933,12 +4919,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|// ### fixme: Check platforms
-name|QSKIP
-argument_list|(
-literal|"QTBUG-20753 QCursor::setPos() / QTest::mouseMove() doesn't work on qpa"
-argument_list|)
-expr_stmt|;
 name|Menu258920
 name|menu
 decl_stmt|;

@@ -100,6 +100,16 @@ return|return
 name|m_physicalSize
 return|;
 block|}
+name|QPlatformCursor
+operator|*
+name|cursor
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_cursor
+return|;
+block|}
 name|public
 operator|:
 name|NSScreen

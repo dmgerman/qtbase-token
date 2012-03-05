@@ -90,6 +90,12 @@ name|QPlatformWindow
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QPlatformCursor
+name|class
+name|QPlatformCursor
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QPlatformScreenPageFlipper
 name|class
 name|QPlatformScreenPageFlipper
@@ -273,6 +279,13 @@ name|virtual
 name|QPlatformScreenPageFlipper
 operator|*
 name|pageFlipper
+argument_list|()
+specifier|const
+expr_stmt|;
+name|virtual
+name|QPlatformCursor
+operator|*
+name|cursor
 argument_list|()
 specifier|const
 expr_stmt|;

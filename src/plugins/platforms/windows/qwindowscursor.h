@@ -110,13 +110,9 @@ name|QPlatformCursor
 block|{
 name|public
 operator|:
-name|explicit
 name|QWindowsCursor
-argument_list|(
-name|QPlatformScreen
-operator|*
-argument_list|)
-block|;
+argument_list|()
+block|{}
 name|virtual
 name|void
 name|changeCursor

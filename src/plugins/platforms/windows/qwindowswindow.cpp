@@ -3210,9 +3210,9 @@ argument_list|(
 name|aWindow
 argument_list|)
 operator|->
-name|cursor
+name|windowsCursor
 argument_list|()
-operator|.
+operator|->
 name|standardWindowCursor
 argument_list|()
 argument_list|)

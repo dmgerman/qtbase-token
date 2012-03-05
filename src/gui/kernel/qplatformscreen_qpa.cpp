@@ -15,6 +15,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/qplatformcursor_qpa.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/private/qguiapplication_p.h>
 end_include
 begin_include
@@ -470,6 +475,24 @@ modifier|*
 name|QPlatformScreen
 operator|::
 name|pageFlipper
+parameter_list|()
+specifier|const
+block|{
+return|return
+literal|0
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Reimplement this function in subclass to return the cursor of the screen.      The default implementation returns 0. */
+end_comment
+begin_function
+DECL|function|cursor
+name|QPlatformCursor
+modifier|*
+name|QPlatformScreen
+operator|::
+name|cursor
 parameter_list|()
 specifier|const
 block|{
