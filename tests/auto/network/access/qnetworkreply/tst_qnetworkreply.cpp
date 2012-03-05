@@ -20333,6 +20333,15 @@ argument_list|(
 name|past
 argument_list|)
 expr_stmt|;
+name|content
+operator|.
+name|first
+operator|.
+name|setExpirationDate
+argument_list|(
+name|past
+argument_list|)
+expr_stmt|;
 name|QTest
 operator|::
 name|newRow
