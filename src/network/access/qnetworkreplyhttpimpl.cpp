@@ -5181,6 +5181,7 @@ parameter_list|(
 specifier|const
 name|QHttpNetworkRequest
 modifier|&
+name|request
 parameter_list|,
 name|QAuthenticator
 modifier|*
@@ -5202,6 +5203,11 @@ name|url
 argument_list|,
 operator|&
 name|urlForLastAuthentication
+argument_list|,
+name|request
+operator|.
+name|withCredentials
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
