@@ -4269,13 +4269,8 @@ operator|&&
 name|ref
 operator|.
 name|second
-condition|)
-block|{
-if|if
-condition|(
-name|ref
-operator|.
-name|second
+operator|>=
+literal|0
 condition|)
 block|{
 name|QAccessibleInterface
@@ -4289,8 +4284,6 @@ argument_list|(
 name|ref
 operator|.
 name|second
-operator|-
-literal|1
 argument_list|)
 decl_stmt|;
 operator|delete
@@ -4308,7 +4301,6 @@ name|acc
 operator|=
 name|res
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

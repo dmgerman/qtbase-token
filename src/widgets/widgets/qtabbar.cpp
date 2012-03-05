@@ -5753,8 +5753,6 @@ argument_list|,
 name|this
 argument_list|,
 name|index
-operator|+
-literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5771,8 +5769,6 @@ argument_list|,
 name|this
 argument_list|,
 name|index
-operator|+
-literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
