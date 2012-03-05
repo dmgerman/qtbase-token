@@ -4267,6 +4267,13 @@ operator|->
 name|show
 argument_list|()
 expr_stmt|;
+name|QTest
+operator|::
+name|qWaitForWindowShown
+argument_list|(
+name|button
+argument_list|)
+expr_stmt|;
 name|button
 operator|->
 name|clearFocus
