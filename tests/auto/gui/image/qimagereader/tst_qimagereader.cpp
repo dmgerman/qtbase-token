@@ -5511,7 +5511,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|// http://bugreports.qt.nokia.com/browse/QTBUG-6696
+comment|// http://bugreports.qt-project.org/browse/QTBUG-6696
 end_comment
 begin_comment
 comment|// Check the count of images in various call orders...
@@ -10369,17 +10369,22 @@ name|file
 init|=
 name|i
 condition|?
-operator|(
+name|QString
+argument_list|(
+name|QStringLiteral
+argument_list|(
 literal|":/images/"
+argument_list|)
 operator|+
 name|fileName
-operator|)
+argument_list|)
 else|:
-operator|(
+name|QString
+argument_list|(
 name|prefix
 operator|+
 name|fileName
-operator|)
+argument_list|)
 decl_stmt|;
 block|{
 comment|// suppress warnings if we expect them

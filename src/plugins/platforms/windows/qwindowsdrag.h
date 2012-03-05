@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<QtGui/QPlatformDrag>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtGui/QPixmap>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -174,13 +179,13 @@ argument_list|)
 specifier|const
 block|;
 name|void
-name|sendDragEnterEvent
+name|handleDrag
 argument_list|(
-argument|QWindow *to
+argument|QWindow *window
 argument_list|,
 argument|DWORD grfKeyState
 argument_list|,
-argument|POINTL pt
+argument|const QPoint&
 argument_list|,
 argument|LPDWORD pdwEffect
 argument_list|)
@@ -192,10 +197,6 @@ name|QWindow
 operator|*
 specifier|const
 name|m_window
-block|;
-name|QWindow
-operator|*
-name|m_currentWindow
 block|;
 name|QRect
 name|m_answerRect
@@ -240,34 +241,15 @@ name|m_dropData
 return|;
 block|}
 name|virtual
-name|void
-name|startDrag
-argument_list|()
-block|;
-name|virtual
-name|void
-name|move
+name|Qt
+operator|::
+name|DropAction
+name|drag
 argument_list|(
-specifier|const
-name|QMouseEvent
+name|QDrag
 operator|*
-name|me
+name|drag
 argument_list|)
-block|;
-name|virtual
-name|void
-name|drop
-argument_list|(
-specifier|const
-name|QMouseEvent
-operator|*
-name|me
-argument_list|)
-block|;
-name|virtual
-name|void
-name|cancel
-argument_list|()
 block|;
 specifier|static
 name|QWindowsDrag
@@ -299,15 +281,11 @@ name|void
 name|releaseDropDataObject
 argument_list|()
 block|;
-name|bool
-name|dragBeingCancelled
+name|QMimeData
+operator|*
+name|dropData
 argument_list|()
-specifier|const
-block|{
-return|return
-name|m_dragBeingCancelled
-return|;
-block|}
+block|;
 name|QPixmap
 name|defaultCursor
 argument_list|(
@@ -323,9 +301,6 @@ block|;
 name|IDataObject
 operator|*
 name|m_dropDataObject
-block|;
-name|bool
-name|m_dragBeingCancelled
 block|;
 name|mutable
 name|QPixmap

@@ -125,14 +125,6 @@ argument_list|()
 specifier|const
 block|;
 name|void
-name|setRange
-argument_list|(
-argument|int min
-argument_list|,
-argument|int max
-argument_list|)
-block|;
-name|void
 name|setSingleStep
 argument_list|(
 name|int
@@ -254,6 +246,14 @@ argument_list|(
 name|Qt
 operator|::
 name|Orientation
+argument_list|)
+block|;
+name|void
+name|setRange
+argument_list|(
+argument|int min
+argument_list|,
+argument|int max
 argument_list|)
 block|;
 name|Q_SIGNALS

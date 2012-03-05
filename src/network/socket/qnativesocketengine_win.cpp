@@ -1970,12 +1970,22 @@ literal|1
 return|;
 break|break;
 block|}
+if|#
+directive|if
+name|Q_BYTE_ORDER
+operator|!=
+name|Q_LITTLE_ENDIAN
+error|#
+directive|error
+error|code assumes windows is little endian
+endif|#
+directive|endif
 name|int
 name|v
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
+comment|//note: windows doesn't write to all bytes if the option type is smaller than int
 name|QT_SOCKOPTLEN_T
 name|len
 init|=
@@ -2004,13 +2014,18 @@ argument_list|,
 operator|&
 name|len
 argument_list|)
-operator|!=
-operator|-
-literal|1
+operator|==
+literal|0
 condition|)
 return|return
 name|v
 return|;
+name|WS_ERROR_DEBUG
+argument_list|(
+name|WSAGetLastError
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 operator|-
 literal|1
@@ -2532,7 +2547,7 @@ name|ipv6only
 init|=
 literal|0
 decl_stmt|;
-name|int
+name|QT_SOCKOPTLEN_T
 name|optlen
 init|=
 sizeof|sizeof
@@ -2578,20 +2593,6 @@ name|optlen
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|optlen
-operator|!=
-sizeof|sizeof
-argument_list|(
-name|ipv6only
-argument_list|)
-condition|)
-name|qWarning
-argument_list|(
-literal|"unexpected size of IPV6_V6ONLY socket option"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!

@@ -132,6 +132,16 @@ argument_list|()
 argument_list|;
 name|bearerThread
 operator|->
+name|setObjectName
+argument_list|(
+name|QStringLiteral
+argument_list|(
+literal|"bearerThread"
+argument_list|)
+argument_list|)
+argument_list|;
+name|bearerThread
+operator|->
 name|moveToThread
 argument_list|(
 name|QCoreApplicationPrivate

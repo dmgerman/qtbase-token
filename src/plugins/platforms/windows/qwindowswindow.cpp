@@ -919,7 +919,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class WindowCreationData     \brief Window creation code.      This struct gathers all information required to create a window.     Window creation is split in 3 steps:      \list     \o fromWindow() Gather all required information     \o create() Create the system handle.     \o initialize() Post creation initialization steps.     \endlist      The reason for this split is to also enable changing the QWindowFlags     by calling:      \list     \o fromWindow() Gather information and determine new system styles     \o applyWindowFlags() to apply the new window system styles.     \o initialize() Post creation initialization steps.     \endlist      Contains the window creation code formerly in qwidget_win.cpp.      \sa QWindowCreationContext     \ingroup qt-lighthouse-win */
+comment|/*!     \class WindowCreationData     \brief Window creation code.      This struct gathers all information required to create a window.     Window creation is split in 3 steps:      \list     \li fromWindow() Gather all required information     \li create() Create the system handle.     \li initialize() Post creation initialization steps.     \endlist      The reason for this split is to also enable changing the QWindowFlags     by calling:      \list     \li fromWindow() Gather information and determine new system styles     \li applyWindowFlags() to apply the new window system styles.     \li initialize() Post creation initialization steps.     \endlist      Contains the window creation code formerly in qwidget_win.cpp.      \sa QWindowCreationContext     \ingroup qt-lighthouse-win */
 end_comment
 begin_struct
 DECL|struct|WindowCreationData
@@ -3145,7 +3145,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     \class QWindowsBaseWindow     \brief Raster or OpenGL Window.      \list     \o Raster type: handleWmPaint() is implemented to        to bitblt the image. The DC can be accessed        via getDC/Relase DC, which has a special handling        when within a paint event (in that case, the DC obtained        from BeginPaint() is returned).      \o Open GL: The first time QWindowsGLContext accesses        the handle, it sets up the pixelformat on the DC        which in turn sets it on the window (see flag        PixelFormatInitialized).        handleWmPaint() is empty (although required).     \endlist      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsBaseWindow     \brief Raster or OpenGL Window.      \list     \li Raster type: handleWmPaint() is implemented to        to bitblt the image. The DC can be accessed        via getDC/Relase DC, which has a special handling        when within a paint event (in that case, the DC obtained        from BeginPaint() is returned).      \li Open GL: The first time QWindowsGLContext accesses        the handle, it sets up the pixelformat on the DC        which in turn sets it on the window (see flag        PixelFormatInitialized).        handleWmPaint() is empty (although required).     \endlist      \ingroup qt-lighthouse-win */
 end_comment
 begin_constructor
 DECL|function|QWindowsWindow

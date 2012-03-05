@@ -364,7 +364,7 @@ directive|ifndef
 name|QT_NO_REGEXP
 end_ifndef
 begin_comment
-comment|/*!     \fn QStringList&QStringList::replaceInStrings(const QRegExp&rx, const QString&after)     \overload      Replaces every occurrence of the regexp \a rx, in each of the     string lists's strings, with \a after. Returns a reference to the     string list.      For example:      \snippet doc/src/snippets/qstringlist/main.cpp 5     \snippet doc/src/snippets/qstringlist/main.cpp 14      For regular expressions that contain \l{capturing parentheses},     occurrences of \bold{\\1}, \bold{\\2}, ..., in \a after are     replaced with \a{rx}.cap(1), \a{rx}.cap(2), ...      For example:      \snippet doc/src/snippets/qstringlist/main.cpp 5     \snippet doc/src/snippets/qstringlist/main.cpp 15 */
+comment|/*!     \fn QStringList&QStringList::replaceInStrings(const QRegExp&rx, const QString&after)     \overload      Replaces every occurrence of the regexp \a rx, in each of the     string lists's strings, with \a after. Returns a reference to the     string list.      For example:      \snippet doc/src/snippets/qstringlist/main.cpp 5     \snippet doc/src/snippets/qstringlist/main.cpp 14      For regular expressions that contain \l{capturing parentheses},     occurrences of \b{\\1}, \b{\\2}, ..., in \a after are     replaced with \a{rx}.cap(1), \a{rx}.cap(2), ...      For example:      \snippet doc/src/snippets/qstringlist/main.cpp 5     \snippet doc/src/snippets/qstringlist/main.cpp 15 */
 end_comment
 begin_function
 DECL|function|QStringList_replaceInStrings

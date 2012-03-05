@@ -833,6 +833,16 @@ argument_list|(
 argument|int at
 argument_list|)
 block|;
+specifier|static
+name|QFontEngine
+operator|*
+name|createMultiFontEngine
+argument_list|(
+argument|QFontEngine *fe
+argument_list|,
+argument|int script
+argument_list|)
+block|;
 name|int
 name|fallbackFamilyCount
 argument_list|()
@@ -863,11 +873,29 @@ return|;
 block|}
 name|private
 operator|:
+name|QFontEngineMultiQPA
+argument_list|(
+argument|QFontEngine *fe
+argument_list|,
+argument|int script
+argument_list|)
+block|;
+name|void
+name|init
+argument_list|(
+name|QFontEngine
+operator|*
+name|fe
+argument_list|)
+block|;
 name|QStringList
 name|fallbackFamilies
 block|;
 name|int
 name|script
+block|;
+name|bool
+name|fallbacksQueried
 block|; }
 decl_stmt|;
 end_decl_stmt

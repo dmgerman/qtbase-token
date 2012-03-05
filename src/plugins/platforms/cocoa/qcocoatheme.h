@@ -25,6 +25,12 @@ file|<QtGui/QPlatformTheme>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QPalette
+name|class
+name|QPalette
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QCocoaTheme
 range|:
@@ -73,12 +79,28 @@ argument|DialogType dialogType
 argument_list|)
 specifier|const
 block|;
+specifier|const
+name|QPalette
+operator|*
+name|palette
+argument_list|(
+argument|Palette type = SystemPalette
+argument_list|)
+specifier|const
+block|;
 name|QVariant
 name|themeHint
 argument_list|(
 argument|ThemeHint hint
 argument_list|)
 specifier|const
+block|;
+name|private
+operator|:
+name|mutable
+name|QPalette
+operator|*
+name|m_systemPalette
 block|; }
 decl_stmt|;
 end_decl_stmt

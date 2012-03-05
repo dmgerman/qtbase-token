@@ -271,8 +271,13 @@ operator|+=
 literal|2
 control|)
 block|{
+ifdef|#
+directive|ifdef
+name|Q_XCB_DEBUG
 name|qDebug
 argument_list|()
+operator|<<
+literal|"QXcbIntegration: Connecting to additional display: "
 operator|<<
 name|parameters
 operator|.
@@ -290,6 +295,8 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QString
 name|display
 init|=
@@ -736,7 +743,7 @@ endif|#
 directive|endif
 name|qWarning
 argument_list|(
-literal|"Cannot create platform GL context, none of GLX, EGL, DRI2 is enabled"
+literal|"QXcbIntegration: Cannot create platform OpenGL context, none of GLX, EGL, or DRI2 are enabled"
 argument_list|)
 expr_stmt|;
 return|return

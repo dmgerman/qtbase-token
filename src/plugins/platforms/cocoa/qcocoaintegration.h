@@ -221,6 +221,13 @@ operator|<
 name|QPlatformTheme
 operator|>
 name|mPlatformTheme
+block|;
+name|QList
+operator|<
+name|QCocoaScreen
+operator|*
+operator|>
+name|mScreens
 block|; }
 decl_stmt|;
 end_decl_stmt

@@ -4567,7 +4567,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Sets the filter used in the file dialog to the given \a filter.      If \a filter contains a pair of parentheses containing one or more     of \bold{anything*something}, separated by spaces, then only the     text contained in the parentheses is used as the filter. This means     that these calls are all equivalent:      \snippet doc/src/snippets/code/src_gui_dialogs_qfiledialog.cpp 6      \sa setNameFilters() */
+comment|/*!     \since 4.4      Sets the filter used in the file dialog to the given \a filter.      If \a filter contains a pair of parentheses containing one or more     of \b{anything*something}, separated by spaces, then only the     text contained in the parentheses is used as the filter. This means     that these calls are all equivalent:      \snippet doc/src/snippets/code/src_gui_dialogs_qfiledialog.cpp 6      \sa setNameFilters() */
 end_comment
 begin_function
 DECL|function|setNameFilter

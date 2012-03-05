@@ -722,7 +722,9 @@ operator|!
 name|Option
 operator|::
 name|prepareProject
-argument_list|()
+argument_list|(
+name|fn
+argument_list|)
 condition|)
 block|{
 name|exit_val

@@ -8611,6 +8611,7 @@ literal|"remove-test"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Test that the file just removed is gone
 name|QVERIFY
 argument_list|(
 operator|!
@@ -8618,7 +8619,7 @@ name|dir
 operator|.
 name|remove
 argument_list|(
-literal|"/remove-test"
+literal|"remove-test"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8726,6 +8727,18 @@ argument_list|(
 name|Q_OS_WIN
 argument_list|)
 comment|// on windows this is possible - maybe make the test a bit better
+ifdef|#
+directive|ifdef
+name|Q_OS_UNIX
+comment|// not valid if run as root so skip if needed
+if|if
+condition|(
+operator|::
+name|getuid
+argument_list|()
+operator|!=
+literal|0
+condition|)
 name|QVERIFY
 argument_list|(
 operator|!
@@ -8739,6 +8752,23 @@ literal|"/rename-test-renamed"
 argument_list|)
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|QVERIFY
+argument_list|(
+operator|!
+name|dir
+operator|.
+name|rename
+argument_list|(
+literal|"rename-test"
+argument_list|,
+literal|"/rename-test-renamed"
+argument_list|)
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 name|QTest

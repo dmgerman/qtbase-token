@@ -1134,8 +1134,9 @@ decl_stmt|;
 name|int
 name|topZorder
 init|=
-literal|0
+literal|1
 decl_stmt|;
+comment|// root window is z-order 0, all "top" level windows are "above" it
 for|for
 control|(
 name|it

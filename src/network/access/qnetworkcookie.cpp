@@ -875,7 +875,7 @@ comment|// quoted-string  = (<"> *(qdtext | quoted-pair )<"> )
 comment|// qdtext         =<any TEXT except<">>
 comment|// quoted-pair    = "\" CHAR
 comment|// If it is NAME=VALUE, retain the value as is
-comment|// refer to http://bugreports.qt.nokia.com/browse/QTBUG-17746
+comment|// refer to http://bugreports.qt-project.org/browse/QTBUG-17746
 if|if
 condition|(
 name|isNameValue
@@ -4275,7 +4275,7 @@ modifier|&
 name|url
 parameter_list|)
 block|{
-comment|// don't do path checking. See http://bugreports.qt.nokia.com/browse/QTBUG-5815
+comment|// don't do path checking. See http://bugreports.qt-project.org/browse/QTBUG-5815
 if|if
 condition|(
 name|d

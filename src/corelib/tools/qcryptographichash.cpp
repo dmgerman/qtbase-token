@@ -35,6 +35,11 @@ end_include
 begin_comment
 comment|/*     These typedefs are needed by the RFC6234 code. Normally they would come     from from stdint.h, but since this header is not available on all platforms     (MSVC 2008, for example), we need to define them ourselves. */
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|_UINT64_T_DECLARED
+end_ifndef
 begin_typedef
 DECL|typedef|uint64_t
 typedef|typedef
@@ -45,6 +50,15 @@ argument_list|)
 name|uint64_t
 expr_stmt|;
 end_typedef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|_UINT32_T_DECLARED
+end_ifndef
 begin_typedef
 DECL|typedef|uint32_t
 typedef|typedef
@@ -55,6 +69,15 @@ argument_list|)
 name|uint32_t
 expr_stmt|;
 end_typedef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|_UINT8_T_DECLARED
+end_ifndef
 begin_typedef
 DECL|typedef|uint8_t
 typedef|typedef
@@ -65,6 +88,10 @@ argument_list|)
 name|uint8_t
 expr_stmt|;
 end_typedef
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_typedef
 DECL|typedef|int_least16_t
 typedef|typedef

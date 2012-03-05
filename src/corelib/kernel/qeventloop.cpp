@@ -471,7 +471,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Process pending events that match \a flags for a maximum of \a     maxTime milliseconds, or until there are no more events to     process, whichever is shorter.     This function is especially useful if you have a long running     operation and want to show its progress without allowing user     input, i.e. by using the \l ExcludeUserInputEvents flag.      \bold{Notes:}     \list     \o This function does not process events continuously; it        returns after all available events are processed.     \o Specifying the \l WaitForMoreEvents flag makes no sense        and will be ignored.     \endlist */
+comment|/*!     Process pending events that match \a flags for a maximum of \a     maxTime milliseconds, or until there are no more events to     process, whichever is shorter.     This function is especially useful if you have a long running     operation and want to show its progress without allowing user     input, i.e. by using the \l ExcludeUserInputEvents flag.      \b{Notes:}     \list     \li This function does not process events continuously; it        returns after all available events are processed.     \li Specifying the \l WaitForMoreEvents flag makes no sense        and will be ignored.     \endlist */
 end_comment
 begin_function
 DECL|function|processEvents

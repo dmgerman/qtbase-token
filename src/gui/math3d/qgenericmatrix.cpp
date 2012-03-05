@@ -9,7 +9,7 @@ file|"qgenericmatrix.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QGenericMatrix     \brief The QGenericMatrix class is a template class that represents a NxM transformation matrix with N columns and M rows.     \since 4.6     \ingroup painting     \ingroup painting-3D      The QGenericMatrix template has three parameters:      \table     \row \i N \i Number of columns.     \row \i M \i Number of rows.     \row \i T \i Element type that is visible to users of the class.     \endtable      \sa QMatrix4x4 */
+comment|/*!     \class QGenericMatrix     \brief The QGenericMatrix class is a template class that represents a NxM transformation matrix with N columns and M rows.     \since 4.6     \ingroup painting     \ingroup painting-3D      The QGenericMatrix template has three parameters:      \table     \row \li N \li Number of columns.     \row \li M \li Number of rows.     \row \li T \li Element type that is visible to users of the class.     \endtable      \sa QMatrix4x4 */
 comment|/*!     \fn QGenericMatrix::QGenericMatrix()      Constructs a NxM identity matrix. */
 comment|/*!     \fn QGenericMatrix::QGenericMatrix(const QGenericMatrix<N, M, T>& other)      Constructs a copy of \a other. */
 comment|/*!     \fn QGenericMatrix::QGenericMatrix(const T *values)      Constructs a matrix from the given N * M floating-point \a values.     The contents of the array \a values is assumed to be in     row-major order.      \sa copyDataTo() */

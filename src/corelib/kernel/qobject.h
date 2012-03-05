@@ -920,6 +920,41 @@ argument|Qt::ConnectionType type = Qt::AutoConnection
 argument_list|)
 specifier|const
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_QDOC
+name|QMetaObject
+operator|::
+name|Connection
+name|QObject
+operator|::
+name|connect
+argument_list|(
+argument|const QObject *sender
+argument_list|,
+argument|(T::*signal)(...)
+argument_list|,
+argument|const QObject *receiver
+argument_list|,
+argument|(T::*method)(...)
+argument_list|,
+argument|Qt::ConnectionType type
+argument_list|)
+name|QMetaObject
+operator|::
+name|Connection
+name|QObject
+operator|::
+name|connect
+argument_list|(
+argument|const QObject *sender
+argument_list|,
+argument|(T::*signal)(...)
+argument_list|,
+argument|Functor functor
+argument_list|)
+else|#
+directive|else
 comment|//Connect a signal to a pointer to qobject member function
 name|template
 operator|<
@@ -1374,8 +1409,16 @@ argument|&SignalType::Object::staticMetaObject
 argument_list|)
 return|;
 end_return
+begin_endif
+unit|}
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|//Q_QDOC
+end_comment
 begin_function_decl
-unit|}      static
+unit|static
 name|bool
 name|disconnect
 parameter_list|(
@@ -1514,7 +1557,27 @@ operator|&
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_QDOC
+end_ifdef
 begin_expr_stmt
+name|bool
+name|QObject
+operator|::
+name|disconnect
+argument_list|(
+argument|const QObject *sender
+argument_list|,
+argument|(T::*signal)(...)
+argument_list|,
+argument|const Qbject *receiver
+argument_list|,
+argument|(T::*method)(...)
+argument_list|)
+else|#
+directive|else
 name|template
 operator|<
 name|typename
@@ -1716,8 +1779,16 @@ name|staticMetaObject
 argument_list|)
 return|;
 end_return
+begin_endif
+unit|}
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|//Q_QDOC
+end_comment
 begin_expr_stmt
-unit|}       void
+unit|void
 name|dumpObjectTree
 argument_list|()
 expr_stmt|;

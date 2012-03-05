@@ -48,7 +48,7 @@ directive|include
 file|"private/qcore_mac_p.h"
 end_include
 begin_comment
-comment|/*  * MacOS X has a proxy configuration module in System Preferences (on  * MacOS X 10.5, it's in Network, Advanced), where one can set the  * proxy settings for:  *  * \list  *   \o FTP proxy  *   \o Web Proxy (HTTP)  *   \o Secure Web Proxy (HTTPS)  *   \o Streaming Proxy (RTSP)  *   \o SOCKS Proxy  *   \o Gopher Proxy  *   \o URL for Automatic Proxy Configuration (PAC scripts)  *   \o Bypass list (by default: *.local, 169.254/16)  * \endlist  *  * The matching configuration can be obtained by calling SCDynamicStoreCopyProxies  * (from<SystemConfiguration/SCDynamicStoreCopySpecific.h>). See  * Apple's documentation:  *  * http://developer.apple.com/DOCUMENTATION/Networking/Reference/SysConfig/SCDynamicStoreCopySpecific/CompositePage.html#//apple_ref/c/func/SCDynamicStoreCopyProxies  *  */
+comment|/*  * MacOS X has a proxy configuration module in System Preferences (on  * MacOS X 10.5, it's in Network, Advanced), where one can set the  * proxy settings for:  *  * \list  *   \li FTP proxy  *   \li Web Proxy (HTTP)  *   \li Secure Web Proxy (HTTPS)  *   \li Streaming Proxy (RTSP)  *   \li SOCKS Proxy  *   \li Gopher Proxy  *   \li URL for Automatic Proxy Configuration (PAC scripts)  *   \li Bypass list (by default: *.local, 169.254/16)  * \endlist  *  * The matching configuration can be obtained by calling SCDynamicStoreCopyProxies  * (from<SystemConfiguration/SCDynamicStoreCopySpecific.h>). See  * Apple's documentation:  *  * http://developer.apple.com/DOCUMENTATION/Networking/Reference/SysConfig/SCDynamicStoreCopySpecific/CompositePage.html#//apple_ref/c/func/SCDynamicStoreCopyProxies  *  */
 end_comment
 begin_function
 name|QT_BEGIN_NAMESPACE

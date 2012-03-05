@@ -1042,6 +1042,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_function_decl
+name|QT_DEPRECATED
 specifier|static
 name|void
 name|updateAccessibility

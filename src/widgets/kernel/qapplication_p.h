@@ -1365,7 +1365,7 @@ block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_DIRECTPAINTER
-name|QMap
+name|QHash
 operator|<
 name|WId
 block|,
@@ -1841,7 +1841,7 @@ directive|ifdef
 name|Q_WS_QWS
 end_ifdef
 begin_expr_stmt
-name|QMap
+name|QHash
 operator|<
 specifier|const
 name|QScreen

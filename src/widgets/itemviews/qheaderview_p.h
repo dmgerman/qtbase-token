@@ -167,11 +167,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
-name|sectionCount
-argument_list|(
-literal|0
-argument_list|)
-block|,
 name|movableSections
 argument_list|(
 name|false
@@ -473,6 +468,7 @@ name|count
 argument_list|()
 operator|!=
 name|sectionCount
+argument_list|()
 operator|*
 literal|2
 condition|)
@@ -483,6 +479,7 @@ argument_list|(
 name|false
 argument_list|,
 name|sectionCount
+argument_list|()
 operator|*
 literal|2
 argument_list|)
@@ -495,6 +492,19 @@ argument_list|(
 name|false
 argument_list|)
 expr_stmt|;
+block|}
+specifier|inline
+name|int
+name|sectionCount
+argument_list|()
+specifier|const
+block|{
+return|return
+name|sectionSpans
+operator|.
+name|count
+argument_list|()
+return|;
 block|}
 specifier|inline
 name|bool
@@ -719,6 +729,7 @@ name|count
 argument_list|()
 operator|!=
 name|sectionCount
+argument_list|()
 operator|||
 name|logicalIndices
 operator|.
@@ -726,6 +737,7 @@ name|count
 argument_list|()
 operator|!=
 name|sectionCount
+argument_list|()
 condition|)
 block|{
 name|visualIndices
@@ -733,6 +745,7 @@ operator|.
 name|resize
 argument_list|(
 name|sectionCount
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|logicalIndices
@@ -740,6 +753,7 @@ operator|.
 name|resize
 argument_list|(
 name|sectionCount
+argument_list|()
 argument_list|)
 expr_stmt|;
 for|for
@@ -752,6 +766,7 @@ init|;
 name|s
 operator|<
 name|sectionCount
+argument_list|()
 condition|;
 operator|++
 name|s
@@ -781,7 +796,10 @@ argument_list|()
 block|{
 name|firstCascadingSection
 operator|=
-name|sectionCount
+name|sectionSpans
+operator|.
+name|count
+argument_list|()
 block|;
 name|lastCascadingSection
 operator|=
@@ -1110,9 +1128,6 @@ name|hover
 block|;
 name|int
 name|length
-block|;
-name|int
-name|sectionCount
 block|;
 name|bool
 name|movableSections

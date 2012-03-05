@@ -14,10 +14,73 @@ directive|define
 name|QPROCESSORDETECTION_H
 end_define
 begin_comment
-comment|/*     This file uses preprocessor #defines to set various Q_PROCESSOR_* #defines     based on the following patterns:      Q_PROCESSOR_{FAMILY}     Q_PROCESSOR_{FAMILY}_{VARIANT}     Q_PROCESSOR_{FAMILY}_{REVISION}      The first is always defined. Defines for the various revisions/variants are     optional and usually dependent on how the compiler was invoked. Variants     that are a superset of another should have a define for the superset. */
+comment|/*     This file uses preprocessor #defines to set various Q_PROCESSOR_* #defines     based on the following patterns:      Q_PROCESSOR_{FAMILY}     Q_PROCESSOR_{FAMILY}_{VARIANT}     Q_PROCESSOR_{FAMILY}_{REVISION}      The first is always defined. Defines for the various revisions/variants are     optional and usually dependent on how the compiler was invoked. Variants     that are a superset of another should have a define for the superset.      In addition to the procesor family, variants, and revisions, we also set     Q_BYTE_ORDER appropriately for the target processor. For bi-endian     processors, we try to auto-detect the byte order using the __BIG_ENDIAN__,     __LITTLE_ENDIAN__, or __BYTE_ORDER__ preprocessor macros. */
 end_comment
 begin_comment
-comment|/*     Alpha family, no revisions or variants */
+comment|/* Machine byte-order, reuse preprocessor provided macros when available */
+end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__ORDER_BIG_ENDIAN__
+argument_list|)
+end_if
+begin_define
+DECL|macro|Q_BIG_ENDIAN
+define|#
+directive|define
+name|Q_BIG_ENDIAN
+value|__ORDER_BIG_ENDIAN__
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|Q_BIG_ENDIAN
+define|#
+directive|define
+name|Q_BIG_ENDIAN
+value|4321
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__ORDER_LITTLE_ENDIAN__
+argument_list|)
+end_if
+begin_define
+DECL|macro|Q_LITTLE_ENDIAN
+define|#
+directive|define
+name|Q_LITTLE_ENDIAN
+value|__ORDER_LITTLE_ENDIAN__
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|Q_LITTLE_ENDIAN
+define|#
+directive|define
+name|Q_LITTLE_ENDIAN
+value|1234
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/*     Alpha family, no revisions or variants      Alpha is bi-endian, use endianness auto-detection described above. */
 end_comment
 begin_comment
 comment|// #elif defined(__alpha__) || defined(_M_ALPHA)
@@ -26,7 +89,10 @@ begin_comment
 comment|// #  define Q_PROCESSOR_ALPHA
 end_comment
 begin_comment
-comment|/*   ARM family, known revisions: V5, V6, and V7 */
+comment|// Q_BYTE_ORDER not defined, use endianness auto-detection
+end_comment
+begin_comment
+comment|/*     ARM family, known revisions: V5, V6, and V7      ARM is bi-endian, detect using __ARMEL__ or __ARMEB__, falling back to     auto-detection described above. */
 end_comment
 begin_if
 if|#
@@ -192,8 +258,49 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__ARMEL__
+argument_list|)
+end_if
+begin_define
+DECL|macro|Q_BYTE_ORDER
+define|#
+directive|define
+name|Q_BYTE_ORDER
+value|Q_LITTLE_ENDIAN
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|__ARMEB__
+argument_list|)
+end_elif
+begin_define
+DECL|macro|Q_BYTE_ORDER
+define|#
+directive|define
+name|Q_BYTE_ORDER
+value|Q_BIG_ENDIAN
+end_define
+begin_else
+else|#
+directive|else
+end_else
 begin_comment
-comment|/*     AVR32 family, no revisions or variants */
+comment|// Q_BYTE_ORDER not defined, use endianness auto-detection
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/*     AVR32 family, no revisions or variants      AVR32 is big-endian. */
 end_comment
 begin_comment
 comment|// #elif defined(__avr32__)
@@ -202,7 +309,10 @@ begin_comment
 comment|// #  define Q_PROCESSOR_AVR32
 end_comment
 begin_comment
-comment|/*     Blackfin family, no revisions or variants */
+comment|// #  define Q_BYTE_ORDER Q_BIG_ENDIAN
+end_comment
+begin_comment
+comment|/*     Blackfin family, no revisions or variants      Blackfin is little-endian. */
 end_comment
 begin_comment
 comment|// #elif defined(__bfin__)
@@ -211,7 +321,10 @@ begin_comment
 comment|// #  define Q_PROCESSOR_BLACKFIN
 end_comment
 begin_comment
-comment|/*     X86 family, known variants: 32- and 64-bit */
+comment|// #  define Q_BYTE_ORDER Q_LITTLE_ENDIAN
+end_comment
+begin_comment
+comment|/*     X86 family, known variants: 32- and 64-bit      X86 is little-endian. */
 end_comment
 begin_elif
 elif|#
@@ -242,6 +355,13 @@ DECL|macro|Q_PROCESSOR_X86_32
 define|#
 directive|define
 name|Q_PROCESSOR_X86_32
+end_define
+begin_define
+DECL|macro|Q_BYTE_ORDER
+define|#
+directive|define
+name|Q_BYTE_ORDER
+value|Q_LITTLE_ENDIAN
 end_define
 begin_elif
 elif|#
@@ -278,8 +398,15 @@ define|#
 directive|define
 name|Q_PROCESSOR_X86_64
 end_define
+begin_define
+DECL|macro|Q_BYTE_ORDER
+define|#
+directive|define
+name|Q_BYTE_ORDER
+value|Q_LITTLE_ENDIAN
+end_define
 begin_comment
-comment|/*     Itanium (IA-64) family, no revisions or variants */
+comment|/*     Itanium (IA-64) family, no revisions or variants      Itanium is bi-endian, use endianness auto-detection described above. */
 end_comment
 begin_elif
 elif|#
@@ -306,7 +433,10 @@ directive|define
 name|Q_PROCESSOR_IA64
 end_define
 begin_comment
-comment|/*     MIPS family, known revisions: I, II, III, IV, 32, 64 */
+comment|// Q_BYTE_ORDER not defined, use endianness auto-detection
+end_comment
+begin_comment
+comment|/*     MIPS family, known revisions: I, II, III, IV, 32, 64      MIPS is bi-endian, use endianness auto-detection described above. */
 end_comment
 begin_elif
 elif|#
@@ -534,7 +664,10 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*     Power family, known variants: 32- and 64-bit      There are many more known variants/revisions that we do not handle/detect.     See http://en.wikipedia.org/wiki/Power_Architecture     and http://en.wikipedia.org/wiki/File:PowerISA-evolution.svg */
+comment|// Q_BYTE_ORDER not defined, use endianness auto-detection
+end_comment
+begin_comment
+comment|/*     Power family, known variants: 32- and 64-bit      There are many more known variants/revisions that we do not handle/detect.     See http://en.wikipedia.org/wiki/Power_Architecture     and http://en.wikipedia.org/wiki/File:PowerISA-evolution.svg      Power is bi-endian, use endianness auto-detection described above. */
 end_comment
 begin_elif
 elif|#
@@ -626,7 +759,10 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*     S390 family, known variant: S390X (64-bit) */
+comment|// Q_BYTE_ORDER not defined, use endianness auto-detection
+end_comment
+begin_comment
+comment|/*     S390 family, known variant: S390X (64-bit)      S390 is big-endian. */
 end_comment
 begin_comment
 comment|// #elif defined(__s390__)
@@ -644,7 +780,10 @@ begin_comment
 comment|// #  endif
 end_comment
 begin_comment
-comment|/*     SuperH family, optional revision: SH-4A */
+comment|// #  define Q_BYTE_ORDER Q_BIG_ENDIAN
+end_comment
+begin_comment
+comment|/*     SuperH family, optional revision: SH-4A      SuperH is bi-endian, use endianness auto-detection descrived above. */
 end_comment
 begin_comment
 comment|// #elif defined(__sh__)
@@ -662,7 +801,10 @@ begin_comment
 comment|// #  endif
 end_comment
 begin_comment
-comment|/*     SPARC family, optional revision: V9 */
+comment|// Q_BYTE_ORDER not defined, use endianness auto-detection
+end_comment
+begin_comment
+comment|/*     SPARC family, optional revision: V9      SPARC is big-endian only prior to V9, while V9 is bi-endian with big-endian     as the default byte order. Assume all SPARC systems are big-endian. */
 end_comment
 begin_comment
 comment|// #elif defined(__sparc__)
@@ -679,6 +821,105 @@ end_comment
 begin_comment
 comment|// #  endif
 end_comment
+begin_comment
+comment|// #  define Q_BYTE_ORDER Q_BIG_ENDIAN
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Some processors support either endian format, try to detect which we are using.
+end_comment
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_BYTE_ORDER
+argument_list|)
+end_if
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__BYTE_ORDER__
+argument_list|)
+operator|&&
+operator|(
+name|__BYTE_ORDER__
+operator|==
+name|Q_BIG_ENDIAN
+operator|||
+name|__BYTE_ORDER__
+operator|==
+name|Q_LITTLE_ENDIAN
+operator|)
+end_if
+begin_comment
+comment|// Reuse __BYTE_ORDER__ as-is, since our Q_*_ENDIAN #defines match the preprocessor defaults
+end_comment
+begin_define
+DECL|macro|Q_BYTE_ORDER
+define|#
+directive|define
+name|Q_BYTE_ORDER
+value|__BYTE_ORDER__
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|__BIG_ENDIAN__
+argument_list|)
+end_elif
+begin_define
+DECL|macro|Q_BYTE_ORDER
+define|#
+directive|define
+name|Q_BYTE_ORDER
+value|Q_BIG_ENDIAN
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|__LITTLE_ENDIAN__
+argument_list|)
+expr|\
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_WINCE
+argument_list|)
+end_elif
+begin_comment
+comment|// Windows CE is always little-endian according to MSDN.
+end_comment
+begin_define
+DECL|macro|Q_BYTE_ORDER
+define|#
+directive|define
+name|Q_BYTE_ORDER
+value|Q_LITTLE_ENDIAN
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_error
+error|#
+directive|error
+literal|"Unable to determine byte order!"
+end_error
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif

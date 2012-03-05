@@ -139,6 +139,7 @@ range|:
 name|public
 name|QObject
 block|{
+name|Q_OBJECT
 name|public
 operator|:
 expr|enum
@@ -1316,6 +1317,7 @@ operator|:
 name|public
 name|QFontEngine
 block|{
+name|Q_OBJECT
 name|public
 operator|:
 name|explicit

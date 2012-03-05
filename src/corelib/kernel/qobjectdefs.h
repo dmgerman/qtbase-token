@@ -82,6 +82,11 @@ begin_else
 else|#
 directive|else
 end_else
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_SIGNALS_SLOTS_KEYWORDS
+end_ifndef
 begin_define
 DECL|macro|slots
 define|#
@@ -95,6 +100,10 @@ directive|define
 name|signals
 value|public
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif

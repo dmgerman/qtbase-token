@@ -2861,7 +2861,7 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"QHttpNetworkConnectionChannel::allDone() called without reply. Please report at http://bugreports.qt.nokia.com/"
+literal|"QHttpNetworkConnectionChannel::allDone() called without reply. Please report at http://bugreports.qt-project.org/"
 expr_stmt|;
 return|return;
 block|}
