@@ -3462,7 +3462,7 @@ name|pb
 operator|.
 name|setStyleSheet
 argument_list|(
-literal|"QPushButton { qproperty-text: hello; qproperty-checkable: true; qproperty-checked: 1}"
+literal|"QPushButton { qproperty-text: hello; qproperty-checkable: 1; qproperty-checked: false}"
 argument_list|)
 expr_stmt|;
 name|pb
@@ -3500,7 +3500,7 @@ operator|.
 name|isChecked
 argument_list|()
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
