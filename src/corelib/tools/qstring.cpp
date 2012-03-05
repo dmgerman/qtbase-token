@@ -6377,30 +6377,34 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if string \a other is equal to this string; otherwise   returns false.    The comparison is based exclusively on the numeric Unicode values of   the characters and is very fast, but is not what a human would   expect. Consider sorting user-interface strings with   localeAwareCompare(). */
+comment|/*!   \relates QString   Returns true if string \a s1 is equal to string \a s2; otherwise   returns false.    The comparison is based exclusively on the numeric Unicode values of   the characters and is very fast, but is not what a human would   expect. Consider sorting user-interface strings with   localeAwareCompare(). */
 end_comment
 begin_function
 DECL|function|operator ==
 name|bool
-name|QString
-operator|::
 name|operator
 name|==
 parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|other
-parameter_list|)
+name|s1
+parameter_list|,
 specifier|const
+name|QString
+modifier|&
+name|s2
+parameter_list|)
 block|{
 if|if
 condition|(
+name|s1
+operator|.
 name|d
 operator|->
 name|size
 operator|!=
-name|other
+name|s2
 operator|.
 name|d
 operator|->
@@ -6412,18 +6416,22 @@ return|;
 return|return
 name|qMemEquals
 argument_list|(
-name|d
-operator|->
-name|data
-argument_list|()
-argument_list|,
-name|other
+name|s1
 operator|.
 name|d
 operator|->
 name|data
 argument_list|()
 argument_list|,
+name|s2
+operator|.
+name|d
+operator|->
+name|data
+argument_list|()
+argument_list|,
+name|s1
+operator|.
 name|d
 operator|->
 name|size
@@ -6547,38 +6555,44 @@ begin_comment
 comment|/*! \fn bool QString::operator==(const char *other) const      \overload operator==()      The \a other const char pointer is converted to a QString using     the fromAscii() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*!     Returns true if this string is lexically less than string \a     other; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
+comment|/*!    \relates QString     Returns true if string \a s1 is lexically less than string     \a s2; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings using the     QString::localeAwareCompare() function. */
 end_comment
 begin_function
 DECL|function|operator <
 name|bool
-name|QString
-operator|::
 name|operator
 name|<
 parameter_list|(
 specifier|const
 name|QString
 modifier|&
-name|other
-parameter_list|)
+name|s1
+parameter_list|,
 specifier|const
+name|QString
+modifier|&
+name|s2
+parameter_list|)
 block|{
 return|return
 name|ucstrcmp
 argument_list|(
-name|constData
-argument_list|()
-argument_list|,
-name|length
-argument_list|()
-argument_list|,
-name|other
+name|s1
 operator|.
 name|constData
 argument_list|()
 argument_list|,
-name|other
+name|s1
+operator|.
+name|length
+argument_list|()
+argument_list|,
+name|s2
+operator|.
+name|constData
+argument_list|()
+argument_list|,
+name|s2
 operator|.
 name|length
 argument_list|()
@@ -6716,7 +6730,7 @@ begin_comment
 comment|/*! \fn bool QString::operator<(const char *other) const      \overload operator<()      The \a other const char pointer is converted to a QString using     the fromAscii() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator<=(const QString&other) const      Returns true if this string is lexically less than or equal to     string \a other; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
+comment|/*! \fn bool operator<=(const QString&s1, const QString&s2)     \relates QString      Returns true if string \a s1 is lexically less than or equal to     string \a s2; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator<=(const QLatin1String&other) const      \overload operator<=() */
@@ -6728,7 +6742,7 @@ begin_comment
 comment|/*! \fn bool QString::operator<=(const char *other) const      \overload operator<=()      The \a other const char pointer is converted to a QString using     the fromAscii() function.      You can disable this operator by defining \c     QT_NO_CAST_FROM_ASCII when you compile your applications. This     can be useful if you want to ensure that all user-visible strings     go through QObject::tr(), for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator>(const QString&other) const      Returns true if this string is lexically greater than string \a     other; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
+comment|/*! \fn bool operator>(const QString&s1, const QString&s2)     \relates QString      Returns true if string \a s1 is lexically greater than string \a     s2; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*!     \overload operator>() */
@@ -6860,7 +6874,7 @@ begin_comment
 comment|/*! \fn bool QString::operator>(const char *other) const      \overload operator>()      The \a other const char pointer is converted to a QString using     the fromAscii() function.      You can disable this operator by defining \c QT_NO_CAST_FROM_ASCII     when you compile your applications. This can be useful if you want     to ensure that all user-visible strings go through QObject::tr(),     for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator>=(const QString&other) const      Returns true if this string is lexically greater than or equal to     string \a other; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
+comment|/*! \fn bool operator>=(const QString&s1, const QString&s2)     \relates QString      Returns true if string \a s1 is lexically greater than or equal to     string \a s2; otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator>=(const QLatin1String&other) const      \overload operator>=() */
@@ -6872,7 +6886,7 @@ begin_comment
 comment|/*! \fn bool QString::operator>=(const char *other) const      \overload operator>=()      The \a other const char pointer is converted to a QString using     the fromAscii() function.      You can disable this operator by defining \c QT_NO_CAST_FROM_ASCII     when you compile your applications. This can be useful if you want     to ensure that all user-visible strings go through QObject::tr(),     for example. */
 end_comment
 begin_comment
-comment|/*! \fn bool QString::operator!=(const QString&other) const      Returns true if this string is not equal to string \a other;     otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
+comment|/*! \fn bool operator!=(const QString&s1, const QString&s2)     \relates QString      Returns true if string \a s1 is not equal to string \a s2;     otherwise returns false.      The comparison is based exclusively on the numeric Unicode values     of the characters and is very fast, but is not what a human would     expect. Consider sorting user-interface strings with     localeAwareCompare(). */
 end_comment
 begin_comment
 comment|/*! \fn bool QString::operator!=(const QLatin1String&other) const      \overload operator!=() */
@@ -14173,6 +14187,9 @@ name|data1
 argument_list|,
 name|length1
 argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|toLocal8Bit_helper
 argument_list|(
@@ -14180,6 +14197,9 @@ name|data2
 argument_list|,
 name|length2
 argument_list|)
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

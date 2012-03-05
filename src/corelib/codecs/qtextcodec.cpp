@@ -398,8 +398,14 @@ condition|(
 name|qstricmp
 argument_list|(
 name|name
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|test
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 operator|==
 literal|0
@@ -2568,6 +2574,9 @@ argument_list|(
 name|LC_CTYPE
 argument_list|,
 name|origlocale
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 endif|#
@@ -3327,6 +3336,9 @@ operator|=
 name|ru_RU_hack
 argument_list|(
 name|lang
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

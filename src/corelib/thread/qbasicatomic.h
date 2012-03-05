@@ -440,7 +440,8 @@ block|}
 comment|// Atomic API, implemented in qatomic_XXX.h
 name|T
 name|loadAcquire
-parameter_list|()
+argument_list|()
+specifier|const
 block|{
 return|return
 name|Ops
@@ -975,10 +976,11 @@ end_function
 begin_comment
 comment|// Atomic API, implemented in qatomic_XXX.h
 end_comment
-begin_function
+begin_expr_stmt
 name|Type
 name|loadAcquire
-parameter_list|()
+argument_list|()
+specifier|const
 block|{
 return|return
 name|Ops
@@ -989,7 +991,7 @@ name|_q_value
 argument_list|)
 return|;
 block|}
-end_function
+end_expr_stmt
 begin_function
 name|void
 name|storeRelease

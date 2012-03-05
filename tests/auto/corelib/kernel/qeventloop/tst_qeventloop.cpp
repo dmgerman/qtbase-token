@@ -372,6 +372,7 @@ name|QEvent
 block|{
 public|public:
 DECL|function|StartStopEvent
+specifier|explicit
 name|StartStopEvent
 parameter_list|(
 name|int

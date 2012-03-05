@@ -21,27 +21,8 @@ end_include
 begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-comment|/*    QTypeInfo     - type trait functionality    qIsDetached   - data sharing functionality */
+comment|/*    QTypeInfo     - type trait functionality */
 comment|/*   The catch-all template. */
-DECL|function|qIsDetached
-name|template
-operator|<
-name|typename
-name|T
-operator|>
-specifier|inline
-name|bool
-name|qIsDetached
-argument_list|(
-argument|T&
-argument_list|)
-block|{
-return|return
-name|true
-return|;
-block|}
-end_expr_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -288,6 +269,37 @@ define|\
 value|template<> \ Q_DECLARE_TYPEINFO_BODY(TYPE, FLAGS)
 end_define
 begin_comment
+comment|/* Specialize QTypeInfo for QFlags<T> */
+end_comment
+begin_expr_stmt
+DECL|variable|QFlags
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+name|class
+name|QFlags
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+name|Q_DECLARE_TYPEINFO_BODY
+argument_list|(
+name|QFlags
+operator|<
+name|T
+operator|>
+argument_list|,
+name|Q_PRIMITIVE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_comment
 comment|/*    Specialize a shared type with:       Q_DECLARE_SHARED(type);     where 'type' is the name of the type to specialize.  NOTE: shared    types must declare a 'bool isDetached(void) const;' member for this    to work. */
 end_comment
 begin_ifdef
@@ -332,7 +344,7 @@ parameter_list|(
 name|TYPE
 parameter_list|)
 define|\
-value|template<> inline bool qIsDetached<TYPE>(TYPE&t) { return t.isDetached(); } \ template<> inline void qSwap<TYPE>(TYPE&value1, TYPE&value2) \ { qSwap(value1.data_ptr(), value2.data_ptr()); } \ Q_DECLARE_SHARED_STL(TYPE)
+value|template<> inline void qSwap<TYPE>(TYPE&value1, TYPE&value2) \ { qSwap(value1.data_ptr(), value2.data_ptr()); } \ Q_DECLARE_SHARED_STL(TYPE)
 end_define
 begin_comment
 comment|/*    QTypeInfo primitive specializations */

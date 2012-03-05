@@ -1850,24 +1850,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \obsolete      Returns a number that identifies the contents of this QPalette     object. Distinct QPalette objects can only have the same serial     number if they refer to the same contents (but they don't have     to). Also, the serial number of a QPalette may change during the     lifetime of the object.      Use cacheKey() instead.      \warning The serial number doesn't necessarily change when the     palette is altered. This means that it may be dangerous to use it     as a cache key.      \sa operator==() */
+comment|/*! \fn int QPalette::serialNumber() const     \obsolete      Returns a number that identifies the contents of this QPalette     object. Distinct QPalette objects can only have the same serial     number if they refer to the same contents (but they don't have     to). Also, the serial number of a QPalette may change during the     lifetime of the object.      Use cacheKey() instead.      \warning The serial number doesn't necessarily change when the     palette is altered. This means that it may be dangerous to use it     as a cache key.      \sa operator==() */
 end_comment
-begin_function
-DECL|function|serialNumber
-name|int
-name|QPalette
-operator|::
-name|serialNumber
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|d
-operator|->
-name|ser_no
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     Returns a number that identifies the contents of this QPalette     object. Distinct QPalette objects can have the same key if     they refer to the same contents.      The cacheKey() will change when the palette is altered. */
 end_comment

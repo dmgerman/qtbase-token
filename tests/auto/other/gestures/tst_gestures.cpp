@@ -229,6 +229,7 @@ name|int
 name|EventType
 decl_stmt|;
 DECL|function|CustomEvent
+specifier|explicit
 name|CustomEvent
 parameter_list|(
 name|int

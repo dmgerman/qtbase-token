@@ -122,6 +122,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QInputEvent
 argument_list|(
 argument|Type type
@@ -1369,6 +1370,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QFocusEvent
 argument_list|(
 argument|Type type
@@ -1432,6 +1434,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QPaintEvent
 argument_list|(
 specifier|const
@@ -1440,6 +1443,7 @@ operator|&
 name|paintRegion
 argument_list|)
 block|;
+name|explicit
 name|QPaintEvent
 argument_list|(
 specifier|const
@@ -1510,6 +1514,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QUpdateLaterEvent
 argument_list|(
 specifier|const
@@ -1619,6 +1624,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QExposeEvent
 argument_list|(
 specifier|const
@@ -2183,6 +2189,17 @@ name|tentativeCommit
 block|; }
 decl_stmt|;
 end_decl_stmt
+begin_expr_stmt
+name|Q_DECLARE_TYPEINFO
+argument_list|(
+name|QInputMethodEvent
+operator|::
+name|Attribute
+argument_list|,
+name|Q_MOVABLE_TYPE
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
@@ -2193,6 +2210,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QInputMethodQueryEvent
 argument_list|(
 argument|Qt::InputMethodQueries queries
@@ -2741,6 +2759,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QStatusTipEvent
 argument_list|(
 specifier|const
@@ -2789,6 +2808,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QWhatsThisClickedEvent
 argument_list|(
 specifier|const
@@ -2893,6 +2913,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QFileOpenEvent
 argument_list|(
 specifier|const
@@ -2901,6 +2922,7 @@ operator|&
 name|file
 argument_list|)
 block|;
+name|explicit
 name|QFileOpenEvent
 argument_list|(
 specifier|const
@@ -2955,6 +2977,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QToolBarChangeEvent
 argument_list|(
 argument|bool t
@@ -3067,6 +3090,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QClipboardEvent
 argument_list|(
 name|QEventPrivate
@@ -3100,6 +3124,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QWindowStateChangeEvent
 argument_list|(
 argument|Qt::WindowStates aOldState
@@ -3259,6 +3284,7 @@ argument|InfoFlags
 argument_list|,
 argument|InfoFlag
 argument_list|)
+name|explicit
 name|TouchPoint
 argument_list|(
 argument|int id = -
@@ -3627,6 +3653,7 @@ block|}
 block|;
 endif|#
 directive|endif
+name|explicit
 name|QTouchEvent
 argument_list|(
 argument|QEvent::Type eventType
@@ -3860,6 +3887,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QScrollPrepareEvent
 argument_list|(
 specifier|const

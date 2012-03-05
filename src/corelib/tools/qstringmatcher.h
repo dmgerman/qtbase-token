@@ -36,13 +36,24 @@ label|:
 name|QStringMatcher
 argument_list|()
 expr_stmt|;
+name|explicit
 name|QStringMatcher
 argument_list|(
-argument|const QString&pattern
+specifier|const
+name|QString
+operator|&
+name|pattern
 argument_list|,
-argument|Qt::CaseSensitivity cs = Qt::CaseSensitive
+name|Qt
+operator|::
+name|CaseSensitivity
+name|cs
+operator|=
+name|Qt
+operator|::
+name|CaseSensitive
 argument_list|)
-empty_stmt|;
+decl_stmt|;
 name|QStringMatcher
 argument_list|(
 argument|const QChar *uc

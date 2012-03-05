@@ -23,6 +23,11 @@ include|#
 directive|include
 file|<qstring.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<qhash.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QSettings
@@ -60,6 +65,14 @@ name|bool
 name|just_check
 parameter_list|)
 function_decl|;
+name|QHash
+operator|<
+name|QString
+operator|,
+name|QString
+operator|>
+name|m_values
+expr_stmt|;
 name|public
 label|:
 name|QMakeProperty

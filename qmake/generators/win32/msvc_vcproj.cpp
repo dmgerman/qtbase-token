@@ -10171,7 +10171,7 @@ name|location
 argument_list|(
 name|QLibraryInfo
 operator|::
-name|DataPath
+name|HostDataPath
 argument_list|)
 operator|+
 literal|"/win32-msvc.net/"
@@ -10195,7 +10195,7 @@ name|location
 argument_list|(
 name|QLibraryInfo
 operator|::
-name|DataPath
+name|HostDataPath
 argument_list|)
 operator|+
 literal|"/win32-msvc2002/"
@@ -10219,7 +10219,7 @@ name|location
 argument_list|(
 name|QLibraryInfo
 operator|::
-name|DataPath
+name|HostDataPath
 argument_list|)
 operator|+
 literal|"/win32-msvc2003/"
@@ -10243,7 +10243,7 @@ name|location
 argument_list|(
 name|QLibraryInfo
 operator|::
-name|DataPath
+name|HostDataPath
 argument_list|)
 operator|+
 literal|"/win32-msvc2005/"
@@ -10267,7 +10267,7 @@ name|location
 argument_list|(
 name|QLibraryInfo
 operator|::
-name|DataPath
+name|HostDataPath
 argument_list|)
 operator|+
 literal|"/win32-msvc2008/"
