@@ -1652,13 +1652,6 @@ argument_list|)
 operator|=
 literal|0
 block|;
-name|virtual
-name|void
-name|unloadEngine
-argument_list|(
-argument|int at
-argument_list|)
-block|;
 name|QVector
 operator|<
 name|QFontEngine
