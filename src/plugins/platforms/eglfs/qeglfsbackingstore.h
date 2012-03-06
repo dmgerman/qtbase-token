@@ -48,7 +48,10 @@ block|;
 operator|~
 name|QEglFSBackingStore
 argument_list|()
-block|{}
+block|{
+name|delete
+name|m_paintDevice
+block|; }
 name|QPaintDevice
 operator|*
 name|paintDevice
