@@ -109,6 +109,7 @@ block|,
 name|AutoVerifyPeer
 block|}
 block|;
+name|explicit
 name|QSslSocket
 argument_list|(
 name|QObject
