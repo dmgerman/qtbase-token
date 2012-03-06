@@ -8709,7 +8709,7 @@ index|[
 literal|"GFX_DRIVERS"
 index|]
 operator|=
-literal|"linuxfb vnc"
+literal|"linuxfb"
 expr_stmt|;
 name|dictionary
 index|[
@@ -18522,8 +18522,6 @@ operator|<<
 literal|"transformed"
 operator|<<
 literal|"qvfb"
-operator|<<
-literal|"vnc"
 operator|<<
 literal|"multiscreen"
 operator|<<
