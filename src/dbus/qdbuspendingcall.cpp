@@ -914,9 +914,12 @@ name|mutex
 argument_list|)
 decl_stmt|;
 return|return
+name|QDBusError
+argument_list|(
 name|d
 operator|->
 name|replyMessage
+argument_list|)
 return|;
 block|}
 comment|// not connected, return an error

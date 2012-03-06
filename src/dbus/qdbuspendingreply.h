@@ -573,10 +573,12 @@ argument|other
 argument_list|)
 block|{ }
 specifier|inline
+comment|/*implicit*/
 name|QDBusPendingReply
 argument_list|(
 argument|const QDBusPendingCall&call
 argument_list|)
+comment|// required by qdbusxml2cpp-generated code
 block|{
 operator|*
 name|this
@@ -584,6 +586,7 @@ operator|=
 name|call
 block|; }
 specifier|inline
+comment|/*implicit*/
 name|QDBusPendingReply
 argument_list|(
 argument|const QDBusMessage&message

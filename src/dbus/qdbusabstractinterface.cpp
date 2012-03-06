@@ -639,7 +639,10 @@ condition|)
 block|{
 name|lastError
 operator|=
+name|QDBusError
+argument_list|(
 name|reply
+argument_list|)
 expr_stmt|;
 name|where
 operator|.
@@ -1054,7 +1057,10 @@ condition|)
 block|{
 name|lastError
 operator|=
+name|QDBusError
+argument_list|(
 name|reply
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -2021,7 +2027,10 @@ name|d
 operator|->
 name|lastError
 operator|=
+name|QDBusError
+argument_list|(
 name|reply
+argument_list|)
 expr_stmt|;
 comment|// will clear if reply isn't an error
 comment|// ensure that there is at least one element
@@ -2246,7 +2255,8 @@ name|d
 operator|->
 name|lastError
 operator|=
-literal|0
+name|QDBusError
+argument_list|()
 expr_stmt|;
 return|return
 name|d

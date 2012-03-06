@@ -10595,7 +10595,10 @@ name|replyMessage
 decl_stmt|;
 name|lastError
 operator|=
+name|QDBusError
+argument_list|(
 name|reply
+argument_list|)
 expr_stmt|;
 comment|// set or clear error
 operator|delete
@@ -13230,7 +13233,10 @@ else|else
 block|{
 name|error
 operator|=
+name|QDBusError
+argument_list|(
 name|reply
+argument_list|)
 expr_stmt|;
 name|lastError
 operator|=
