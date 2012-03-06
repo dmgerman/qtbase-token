@@ -82,6 +82,15 @@ begin_comment
 comment|/*!     \fn void QSharedPointer::clear()      Clears this QSharedPointer object, dropping the reference that it     may have had to the pointer. If this was the last reference, then     the pointer itself will be deleted. */
 end_comment
 begin_comment
+comment|/*!     \fn void QSharedPointer::reset()     \since 5.0      Same as clear(). For std::shared_ptr compatibility. */
+end_comment
+begin_comment
+comment|/*!     \fn void QSharedPointer::reset(T *t)     \since 5.0      Resets this QSharedPointer object to point to \a t     instead. Equivalent to:     \code     QSharedPointer<T> other(t); this->swap(other);     \endcode */
+end_comment
+begin_comment
+comment|/*!     \fn void QSharedPointer::reset(T *t, Deleter deleter)     \since 5.0      Resets this QSharedPointer object to point to \a t     instead, with deleter \a deleter. Equivalent to:     \code     QSharedPointer<T> other(t, deleter); this->swap(other);     \endcode */
+end_comment
+begin_comment
 comment|/*!     \fn QWeakPointer::QWeakPointer()      Creates a QWeakPointer that points to nothing. */
 end_comment
 begin_comment
