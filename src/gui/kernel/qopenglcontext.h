@@ -172,6 +172,7 @@ argument|QOpenGLContext
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QOpenGLContext
 argument_list|(
 name|QObject

@@ -52,6 +52,7 @@ block|{
 name|Q_OBJECT
 name|public
 range|:
+name|explicit
 name|QPdfWriter
 argument_list|(
 specifier|const
@@ -60,13 +61,14 @@ operator|&
 name|filename
 argument_list|)
 decl_stmt|;
+name|explicit
 name|QPdfWriter
-argument_list|(
+parameter_list|(
 name|QIODevice
-operator|*
+modifier|*
 name|device
-argument_list|)
-expr_stmt|;
+parameter_list|)
+function_decl|;
 operator|~
 name|QPdfWriter
 argument_list|()

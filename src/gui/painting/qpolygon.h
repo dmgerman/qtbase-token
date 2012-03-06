@@ -77,6 +77,7 @@ name|QPolygon
 argument_list|()
 block|{}
 specifier|inline
+name|explicit
 name|QPolygon
 argument_list|(
 argument|int size
@@ -100,6 +101,7 @@ name|a
 operator|)
 block|{}
 specifier|inline
+comment|/*implicit*/
 name|QPolygon
 argument_list|(
 specifier|const
@@ -559,6 +561,7 @@ name|QPolygonF
 argument_list|()
 block|{}
 specifier|inline
+name|explicit
 name|QPolygonF
 argument_list|(
 argument|int size
@@ -582,6 +585,7 @@ name|a
 operator|)
 block|{}
 specifier|inline
+comment|/*implicit*/
 name|QPolygonF
 argument_list|(
 specifier|const
@@ -609,6 +613,7 @@ operator|&
 name|r
 argument_list|)
 block|;
+comment|/*implicit*/
 name|QPolygonF
 argument_list|(
 specifier|const

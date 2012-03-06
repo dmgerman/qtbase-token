@@ -918,12 +918,13 @@ expr_stmt|;
 block|}
 name|private
 label|:
+name|explicit
 name|QFont
-argument_list|(
+parameter_list|(
 name|QFontPrivate
-operator|*
-argument_list|)
-expr_stmt|;
+modifier|*
+parameter_list|)
+function_decl|;
 name|void
 name|detach
 parameter_list|()

@@ -108,11 +108,13 @@ literal|0
 expr_stmt|;
 name|protected
 label|:
+name|explicit
 name|QSurface
-argument_list|(
-argument|SurfaceClass type
-argument_list|)
-empty_stmt|;
+parameter_list|(
+name|SurfaceClass
+name|type
+parameter_list|)
+function_decl|;
 name|SurfaceClass
 name|m_type
 decl_stmt|;

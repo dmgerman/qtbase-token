@@ -178,6 +178,7 @@ struct|;
 name|QTextOption
 argument_list|()
 expr_stmt|;
+comment|/*implicit*/
 name|QTextOption
 argument_list|(
 argument|Qt::Alignment alignment

@@ -68,13 +68,20 @@ block|,
 name|Depth
 block|}
 enum|;
+name|explicit
 name|QOpenGLFramebufferObject
-argument_list|(
-argument|const QSize&size
-argument_list|,
-argument|GLenum target = GL_TEXTURE_2D
-argument_list|)
-empty_stmt|;
+parameter_list|(
+specifier|const
+name|QSize
+modifier|&
+name|size
+parameter_list|,
+name|GLenum
+name|target
+init|=
+name|GL_TEXTURE_2D
+parameter_list|)
+function_decl|;
 name|QOpenGLFramebufferObject
 argument_list|(
 argument|int width

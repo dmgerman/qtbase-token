@@ -87,6 +87,7 @@ argument|QPlatformWindow
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QPlatformWindow
 argument_list|(
 name|QWindow

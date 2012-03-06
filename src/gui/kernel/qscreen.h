@@ -412,6 +412,7 @@ argument_list|)
 block|;
 name|private
 operator|:
+name|explicit
 name|QScreen
 argument_list|(
 name|QPlatformScreen

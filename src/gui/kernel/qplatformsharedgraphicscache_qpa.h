@@ -52,6 +52,7 @@ block|{
 name|OpenGLTexture
 block|}
 block|;
+name|explicit
 name|QPlatformSharedGraphicsCache
 argument_list|(
 name|QObject

@@ -256,6 +256,7 @@ name|contentOrientationChanged
 argument_list|)
 name|public
 range|:
+name|explicit
 name|QWindow
 argument_list|(
 name|QScreen
@@ -265,13 +266,14 @@ operator|=
 literal|0
 argument_list|)
 decl_stmt|;
+name|explicit
 name|QWindow
-argument_list|(
+parameter_list|(
 name|QWindow
-operator|*
+modifier|*
 name|parent
-argument_list|)
-expr_stmt|;
+parameter_list|)
+function_decl|;
 name|virtual
 operator|~
 name|QWindow
