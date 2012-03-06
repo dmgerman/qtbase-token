@@ -2281,6 +2281,8 @@ name|digit
 operator|-
 literal|'a'
 operator|)
+operator|+
+literal|10
 expr_stmt|;
 elseif|else
 if|if
@@ -2301,6 +2303,8 @@ name|digit
 operator|-
 literal|'A'
 operator|)
+operator|+
+literal|10
 expr_stmt|;
 else|else
 return|return
