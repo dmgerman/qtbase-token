@@ -677,114 +677,36 @@ decl_stmt|;
 block|}
 class|;
 end_class
-begin_macro
-name|QT_BEGIN_NAMESPACE
-end_macro
-begin_struct
-DECL|struct|QMetaTypeId
-template|template
-parameter_list|<>
-struct|struct
-name|QMetaTypeId
-argument_list|<
+begin_expr_stmt
+DECL|variable|Widget
+name|Q_DECLARE_METATYPE
+argument_list|(
 name|tst_QShortcut
 operator|::
 name|Widget
-argument_list|>
-super|:
-specifier|public
-name|QMetaTypeId
-argument_list|<
-name|int
-argument_list|>
-DECL|function|qt_metatype_id
-block|{
-specifier|static
-specifier|inline
-name|int
-name|qt_metatype_id
-parameter_list|()
-block|{
-return|return
-name|QMetaType
-operator|::
-name|Int
-return|;
-block|}
-block|}
-struct|;
-end_struct
-begin_struct
-DECL|struct|QMetaTypeId
-template|template
-parameter_list|<>
-struct|struct
-name|QMetaTypeId
-argument_list|<
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+DECL|variable|Result
+name|Q_DECLARE_METATYPE
+argument_list|(
 name|tst_QShortcut
 operator|::
 name|Result
-argument_list|>
-super|:
-specifier|public
-name|QMetaTypeId
-argument_list|<
-name|int
-argument_list|>
-DECL|function|qt_metatype_id
-block|{
-specifier|static
-specifier|inline
-name|int
-name|qt_metatype_id
-parameter_list|()
-block|{
-return|return
-name|QMetaType
-operator|::
-name|Int
-return|;
-block|}
-block|}
-struct|;
-end_struct
-begin_struct
-DECL|struct|QMetaTypeId
-template|template
-parameter_list|<>
-struct|struct
-name|QMetaTypeId
-argument_list|<
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+DECL|variable|Action
+name|Q_DECLARE_METATYPE
+argument_list|(
 name|tst_QShortcut
 operator|::
 name|Action
-argument_list|>
-super|:
-specifier|public
-name|QMetaTypeId
-argument_list|<
-name|int
-argument_list|>
-DECL|function|qt_metatype_id
-block|{
-specifier|static
-specifier|inline
-name|int
-name|qt_metatype_id
-parameter_list|()
-block|{
-return|return
-name|QMetaType
-operator|::
-name|Int
-return|;
-block|}
-block|}
-struct|;
-end_struct
-begin_macro
-name|QT_END_NAMESPACE
-end_macro
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_class
 DECL|class|TestEdit
 class|class
@@ -1303,7 +1225,9 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
-name|int
+name|tst_QShortcut
+operator|::
+name|Action
 argument_list|>
 argument_list|(
 literal|"action"
@@ -1313,7 +1237,9 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
-name|int
+name|tst_QShortcut
+operator|::
+name|Widget
 argument_list|>
 argument_list|(
 literal|"testWidget"
@@ -1413,7 +1339,9 @@ name|QTest
 operator|::
 name|addColumn
 argument_list|<
-name|int
+name|tst_QShortcut
+operator|::
+name|Result
 argument_list|>
 argument_list|(
 literal|"result"
@@ -1511,7 +1439,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -1534,7 +1462,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|//===========================================
 comment|// [Shift + key] on non-shift shortcuts testing
@@ -1718,7 +1646,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -1741,7 +1669,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Sequences        Shift + Qt::Key_M    on  Shift + Qt::Key_M                Qt::Key_M    on  Shift + Qt::Key_M        Shift + Qt::Key_Plus on  Shift + Qt::Key_Pluss                Qt::Key_Plus on  Shift + Qt::Key_Pluss     */
@@ -2016,7 +1944,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -2039,7 +1967,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Sequences        Shift + Qt::Key_F1   on  Qt::Key_F1                Qt::Key_F1   on  Qt::Key_F1     */
@@ -2132,7 +2060,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -2155,7 +2083,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Sequences        Shift + Qt::Key_F1   on  Shift + Qt::Key_F1                Qt::Key_F1   on  Shift + Qt::Key_F1     */
@@ -2293,7 +2221,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -2316,7 +2244,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Sequences                Qt::Key_Tab      on  Qt::Key_Tab        Shift + Qt::Key_Tab      on  Qt::Key_Tab                Qt::Key_Backtab  on  Qt::Key_Tab        Shift + Qt::Key_Backtab  on  Qt::Key_Tab     */
@@ -2492,7 +2420,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -2515,7 +2443,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Sequences                Qt::Key_Tab      on  Shift + Qt::Key_Tab        Shift + Qt::Key_Tab      on  Shift + Qt::Key_Tab                Qt::Key_Backtab  on  Shift + Qt::Key_Tab        Shift + Qt::Key_Backtab  on  Shift + Qt::Key_Tab     */
@@ -2735,7 +2663,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -2758,7 +2686,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Sequences                Qt::Key_Tab      on  Qt::Key_Backtab        Shift + Qt::Key_Tab      on  Qt::Key_Backtab                Qt::Key_Backtab  on  Qt::Key_Backtab        Shift + Qt::Key_Backtab  on  Qt::Key_Backtab     */
@@ -2936,7 +2864,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -2959,7 +2887,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Sequences                Qt::Key_Tab      on  Shift + Qt::Key_Backtab        Shift + Qt::Key_Tab      on  Shift + Qt::Key_Backtab                Qt::Key_Backtab  on  Shift + Qt::Key_Backtab        Shift + Qt::Key_Backtab  on  Shift + Qt::Key_Backtab     */
@@ -3180,7 +3108,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -3203,7 +3131,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|//===========================================
@@ -3384,7 +3312,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -3407,7 +3335,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Sequences        Qt::Key_M        Shift + Qt::Key_M        Ctrl  + Qt::Key_M        Alt   + Qt::Key_M     */
@@ -3847,7 +3775,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -3870,7 +3798,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Specialkeys        Qt::Key_aring        Qt::Key_Aring        Qt::UNICODE_ACCEL + Qt::Key_K     */
@@ -4211,7 +4139,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -4234,7 +4162,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Multiple Sequences        Qt::Key_M        Qt::Key_I, Qt::Key_M        Shift+Qt::Key_I, Qt::Key_M     */
@@ -4524,7 +4452,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -4547,7 +4475,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 block|}
@@ -4582,7 +4510,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -4605,7 +4533,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|//===========================================
 comment|// [Shift + key] on non-shift shortcuts testing
@@ -4776,7 +4704,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -4799,7 +4727,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Sequences        Shift + Qt::Key_M    on  Shift + Qt::Key_M                Qt::Key_M    on  Shift + Qt::Key_M        Shift + Qt::Key_Plus on  Shift + Qt::Key_Pluss                Qt::Key_Plus on  Shift + Qt::Key_Pluss        Shift + Ctrl + Qt::Key_Plus on  Ctrl + Qt::Key_Pluss                Ctrl + Qt::Key_Plus on  Ctrl + Qt::Key_Pluss     */
@@ -5056,7 +4984,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -5079,7 +5007,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Sequences        Shift + Ctrl + Qt::Key_Plus on  Ctrl + Qt::Key_Plus                Ctrl + Qt::Key_Plus on  Ctrl + Qt::Key_Plus 	              Qt::Key_Plus on  Ctrl + Qt::Key_Plus     */
@@ -5216,7 +5144,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -5239,7 +5167,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Sequences        Shift + Qt::Key_F1   on  Qt::Key_F1                Qt::Key_F1   on  Qt::Key_F1     */
@@ -5327,7 +5255,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -5350,7 +5278,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Sequences        Shift + Qt::Key_F1   on  Shift + Qt::Key_F1                Qt::Key_F1   on  Shift + Qt::Key_F1     */
@@ -5479,7 +5407,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -5502,7 +5430,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|//===========================================
@@ -5669,7 +5597,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -5692,7 +5620,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Sequences        Qt::Key_M        Shift + Qt::Key_M        Ctrl  + Qt::Key_M        Alt   + Qt::Key_M     */
@@ -6092,7 +6020,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -6115,7 +6043,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Single Specialkeys        Qt::Key_aring        Qt::Key_Aring        Qt::UNICODE_ACCEL + Qt::Key_K     */
@@ -6434,7 +6362,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -6457,7 +6385,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 comment|/* Testing Multiple Sequences        Qt::Key_M        Qt::Key_I, Qt::Key_M        Shift+Qt::Key_I, Qt::Key_M     */
@@ -6718,7 +6646,7 @@ argument_list|)
 operator|<<
 name|ClearAll
 operator|<<
-literal|0
+name|NoWidget
 operator|<<
 name|QString
 argument_list|(
@@ -6741,7 +6669,7 @@ literal|0
 operator|<<
 literal|0
 operator|<<
-literal|0
+name|NoResult
 expr_stmt|;
 comment|// Clear all
 block|}
@@ -10180,14 +10108,18 @@ name|NoResult
 expr_stmt|;
 name|QFETCH
 argument_list|(
-name|int
+name|tst_QShortcut
+operator|::
+name|Action
 argument_list|,
 name|action
 argument_list|)
 expr_stmt|;
 name|QFETCH
 argument_list|(
-name|int
+name|tst_QShortcut
+operator|::
+name|Widget
 argument_list|,
 name|testWidget
 argument_list|)
@@ -10257,7 +10189,9 @@ argument_list|)
 expr_stmt|;
 name|QFETCH
 argument_list|(
-name|int
+name|tst_QShortcut
+operator|::
+name|Result
 argument_list|,
 name|result
 argument_list|)
@@ -10320,10 +10254,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|int
-argument_list|(
 name|currentResult
-argument_list|)
 argument_list|,
 name|result
 argument_list|)
