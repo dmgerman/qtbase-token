@@ -1302,7 +1302,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Refreshes \a row in the model with values from the database table row matching     on primary key values. Without a primary key, all column values must match. If     no matching row is found, the model will show an empty row.      Returns true if successful; otherwise returns false.      \sa select() */
+comment|/*!     \since 5.0      Refreshes \a row in the model with values from the database table row matching     on primary key values. Without a primary key, all column values must match. If     no matching row is found, the model will show an empty row.      Returns true if successful; otherwise returns false.      \sa select() */
 end_comment
 begin_function
 DECL|function|selectRow
