@@ -299,7 +299,6 @@ name|QByteArray
 operator|&
 argument_list|)
 expr_stmt|;
-name|virtual
 operator|~
 name|QDataStream
 argument_list|()
