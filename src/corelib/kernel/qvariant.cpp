@@ -10047,6 +10047,21 @@ condition|)
 return|return
 literal|true
 return|;
+if|if
+condition|(
+name|targetTypeId
+operator|<
+literal|0
+operator|||
+name|targetTypeId
+operator|>=
+name|QMetaType
+operator|::
+name|User
+condition|)
+return|return
+literal|false
+return|;
 comment|// FIXME It should be LastCoreType intead of Uuid
 if|if
 condition|(
