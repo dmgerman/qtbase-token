@@ -204,11 +204,15 @@ init|=
 literal|1000
 block|}
 enum|;
+name|explicit
 name|QTableWidgetItem
-argument_list|(
-argument|int type = Type
-argument_list|)
-empty_stmt|;
+parameter_list|(
+name|int
+name|type
+init|=
+name|Type
+parameter_list|)
+function_decl|;
 name|explicit
 name|QTableWidgetItem
 parameter_list|(

@@ -110,13 +110,20 @@ init|=
 name|Type
 parameter_list|)
 function_decl|;
+name|explicit
 name|QTreeWidgetItem
-argument_list|(
-argument|const QStringList&strings
-argument_list|,
-argument|int type = Type
-argument_list|)
-empty_stmt|;
+parameter_list|(
+specifier|const
+name|QStringList
+modifier|&
+name|strings
+parameter_list|,
+name|int
+name|type
+init|=
+name|Type
+parameter_list|)
+function_decl|;
 name|explicit
 name|QTreeWidgetItem
 parameter_list|(

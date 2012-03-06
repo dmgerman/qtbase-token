@@ -95,6 +95,7 @@ block|{
 name|public
 operator|:
 specifier|inline
+name|explicit
 name|QItemEditorCreator
 argument_list|(
 specifier|const
