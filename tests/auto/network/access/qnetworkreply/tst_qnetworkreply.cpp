@@ -34971,6 +34971,11 @@ operator|::
 name|getAndThenDeleteObject
 parameter_list|()
 block|{
+name|QSKIP
+argument_list|(
+literal|"unstable test - reply may be finished too early"
+argument_list|)
+expr_stmt|;
 comment|// yes, this will leak if the testcase fails. I don't care. It must not fail then :P
 name|QNetworkAccessManager
 modifier|*
