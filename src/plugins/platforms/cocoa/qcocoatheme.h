@@ -88,6 +88,15 @@ argument|Palette type = SystemPalette
 argument_list|)
 specifier|const
 block|;
+specifier|const
+name|QFont
+operator|*
+name|font
+argument_list|(
+argument|Font type = SystemFont
+argument_list|)
+specifier|const
+block|;
 name|QVariant
 name|themeHint
 argument_list|(
@@ -113,6 +122,18 @@ name|QPalette
 operator|*
 operator|>
 name|m_palettes
+block|;
+name|mutable
+name|QHash
+operator|<
+name|QPlatformTheme
+operator|::
+name|Font
+block|,
+name|QFont
+operator|*
+operator|>
+name|m_fonts
 block|; }
 decl_stmt|;
 end_decl_stmt

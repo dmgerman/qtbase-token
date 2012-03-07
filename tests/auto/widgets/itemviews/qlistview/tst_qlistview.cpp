@@ -10964,12 +10964,7 @@ name|list
 operator|<<
 name|QString
 operator|::
-name|fromAscii
-argument_list|(
-literal|"Item %1"
-argument_list|)
-operator|.
-name|arg
+name|number
 argument_list|(
 name|i
 argument_list|)
@@ -10987,6 +10982,13 @@ name|setModel
 argument_list|(
 operator|&
 name|model
+argument_list|)
+expr_stmt|;
+name|view
+operator|.
+name|setUniformItemSizes
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 name|view
