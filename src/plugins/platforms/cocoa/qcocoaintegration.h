@@ -31,6 +31,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qcocoadrag.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QScopedPointer>
 end_include
 begin_include
@@ -192,6 +197,12 @@ name|accessibility
 argument_list|()
 specifier|const
 block|;
+name|QPlatformDrag
+operator|*
+name|drag
+argument_list|()
+specifier|const
+block|;
 name|QPlatformTheme
 operator|*
 name|platformTheme
@@ -228,6 +239,12 @@ name|QCocoaScreen
 operator|*
 operator|>
 name|mScreens
+block|;
+name|QScopedPointer
+operator|<
+name|QCocoaDrag
+operator|>
+name|mCocoaDrag
 block|; }
 decl_stmt|;
 end_decl_stmt
