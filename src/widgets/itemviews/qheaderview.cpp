@@ -13578,7 +13578,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal     Go through and resize all of the sections applying stretchLastSection,     manualy stretches, sizes, and useGlobalMode.      The different resize modes are:     Interactive - the user decides the size     Stretch - take up whatever space is left     Fixed - the size is set programmatically outside the header     ResizeToContentes - the size is set based on the contents of the row or column in the parent view      The resize mode will not affect the last section if stretchLastSection is true. */
+comment|/*!     \internal     Go through and resize all of the sections applying stretchLastSection,     manual stretches, sizes, and useGlobalMode.      The different resize modes are:     Interactive - the user decides the size     Stretch - take up whatever space is left     Fixed - the size is set programmatically outside the header     ResizeToContentes - the size is set based on the contents of the row or column in the parent view      The resize mode will not affect the last section if stretchLastSection is true. */
 end_comment
 begin_function
 DECL|function|resizeSections
@@ -13656,9 +13656,9 @@ operator|=
 name|lastVisibleVisualIndex
 argument_list|()
 expr_stmt|;
-comment|// count up the number of strected sections and how much space left for them
+comment|// count up the number of stretched sections and how much space left for them
 name|int
-name|lengthToStrech
+name|lengthToStretch
 init|=
 operator|(
 name|orientation
@@ -13774,7 +13774,7 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-comment|// because it isn't stretch, determine its width and remove that from lengthToStrech
+comment|// because it isn't stretch, determine its width and remove that from lengthToStretch
 name|int
 name|sectionSize
 init|=
@@ -13841,7 +13841,7 @@ argument_list|(
 name|sectionSize
 argument_list|)
 expr_stmt|;
-name|lengthToStrech
+name|lengthToStretch
 operator|-=
 name|sectionSize
 expr_stmt|;
@@ -13864,7 +13864,7 @@ name|numberOfStretchedSections
 operator|>
 literal|0
 operator|&&
-name|lengthToStrech
+name|lengthToStretch
 operator|>
 literal|0
 condition|)
@@ -13873,7 +13873,7 @@ comment|// we have room to stretch in
 name|int
 name|hintLengthForEveryStretchedSection
 init|=
-name|lengthToStrech
+name|lengthToStretch
 operator|/
 name|numberOfStretchedSections
 decl_stmt|;
@@ -13891,7 +13891,7 @@ argument_list|)
 expr_stmt|;
 name|pixelReminder
 operator|=
-name|lengthToStrech
+name|lengthToStretch
 operator|%
 name|numberOfStretchedSections
 expr_stmt|;
