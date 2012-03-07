@@ -5868,7 +5868,7 @@ operator|->
 name|root
 condition|)
 return|return;
-comment|// we only handle changes in the top level
+comment|// we only handle changes in the root level
 name|int
 name|oldCount
 init|=
@@ -6698,7 +6698,7 @@ operator|!=
 name|root
 condition|)
 return|return;
-comment|// we only handle changes in the top level
+comment|// we only handle changes in the root level
 if|if
 condition|(
 name|qMin
