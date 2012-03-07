@@ -2143,11 +2143,6 @@ name|QUnicodeTables
 operator|::
 name|Script
 name|script
-parameter_list|,
-specifier|const
-name|QStringList
-modifier|&
-name|fallbacks
 parameter_list|)
 block|{
 return|return
@@ -2157,8 +2152,6 @@ argument_list|(
 name|fontEngine
 argument_list|,
 name|script
-argument_list|,
-name|fallbacks
 argument_list|)
 return|;
 block|}

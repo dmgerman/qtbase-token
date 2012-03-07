@@ -40,8 +40,6 @@ argument_list|(
 argument|QFontEngine *fe
 argument_list|,
 argument|int script
-argument_list|,
-argument|const QStringList&fallbacks
 argument_list|)
 block|;
 operator|~

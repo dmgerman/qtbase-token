@@ -1631,6 +1631,13 @@ argument|uint ucs4
 argument_list|)
 specifier|const
 block|;
+name|virtual
+name|void
+name|setFallbackFamiliesList
+argument_list|(
+argument|const QStringList&
+argument_list|)
+block|{}
 name|protected
 operator|:
 name|friend
@@ -1654,6 +1661,11 @@ argument_list|)
 operator|=
 literal|0
 block|;
+name|virtual
+name|void
+name|ensureFallbackFamiliesQueried
+argument_list|()
+block|{}
 name|QVector
 operator|<
 name|QFontEngine

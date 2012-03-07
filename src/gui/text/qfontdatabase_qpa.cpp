@@ -1070,8 +1070,10 @@ operator|->
 name|fontDatabase
 argument_list|()
 decl_stmt|;
-name|engine
-operator|=
+name|QFontEngineMulti
+modifier|*
+name|pfMultiEngine
+init|=
 name|pfdb
 operator|->
 name|fontEngineMulti
@@ -1084,9 +1086,18 @@ name|Script
 argument_list|(
 name|script
 argument_list|)
-argument_list|,
+argument_list|)
+decl_stmt|;
+name|pfMultiEngine
+operator|->
+name|setFallbackFamiliesList
+argument_list|(
 name|fallbacks
 argument_list|)
+expr_stmt|;
+name|engine
+operator|=
+name|pfMultiEngine
 expr_stmt|;
 comment|// Cache Multi font engine as well in case we got the FT single
 comment|// font engine when we are actually looking for a Multi one
