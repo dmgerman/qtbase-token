@@ -5558,10 +5558,29 @@ name|checkBox
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|checkBox
+operator|.
+name|setChecked
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|QVERIFY_EVENT
+argument_list|(
+name|QAccessibleStateChangeEvent
+argument_list|(
+name|st
+argument_list|,
+operator|&
+name|checkBox
+argument_list|)
+argument_list|)
+expr_stmt|;
 operator|delete
 name|interface
 expr_stmt|;
 block|}
+block|{
 comment|// test radiobutton
 name|interface
 operator|=
@@ -5674,15 +5693,38 @@ argument_list|)
 expr_stmt|;
 name|QVERIFY
 argument_list|(
-name|checkBox
+name|radio
 operator|.
 name|isChecked
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|QAccessible
+operator|::
+name|State
+name|st
+decl_stmt|;
+name|st
+operator|.
+name|checked
+operator|=
+literal|true
+expr_stmt|;
+name|QVERIFY_EVENT
+argument_list|(
+name|QAccessibleStateChangeEvent
+argument_list|(
+name|st
+argument_list|,
+operator|&
+name|radio
+argument_list|)
+argument_list|)
+expr_stmt|;
 operator|delete
 name|interface
 expr_stmt|;
+block|}
 comment|//    // test standard toolbutton
 comment|//    QVERIFY(QAccessible::queryAccessibleInterface(&toolbutton,&test));
 comment|//    QCOMPARE(test->role(), QAccessible::PushButton);
@@ -5728,11 +5770,6 @@ comment|//    QCOMPARE(test->state(1), (int)QAccessible::Normal);
 comment|//    QCOMPARE(test->actionText(test->defaultAction(2), QAccessible::Name, 2), QString("Open"));
 comment|//    QCOMPARE(test->state(2), (int)QAccessible::HasPopup);
 comment|//    test->release();
-name|QTestAccessibility
-operator|::
-name|clearEvents
-argument_list|()
-expr_stmt|;
 block|}
 end_function
 begin_function
