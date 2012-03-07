@@ -3957,6 +3957,13 @@ operator|->
 name|quit
 argument_list|()
 expr_stmt|;
+name|thread
+operator|->
+name|wait
+argument_list|(
+literal|5000
+argument_list|)
+expr_stmt|;
 name|finished
 argument_list|()
 expr_stmt|;
