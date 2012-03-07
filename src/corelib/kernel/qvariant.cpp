@@ -7579,7 +7579,7 @@ literal|69
 comment|/* QIcon */
 condition|)
 block|{
-comment|// In Qt5 after modularization project this types where moved to a separate module (and ids were downgraded)
+comment|// In Qt5 after modularization project these types where moved to a separate module (and ids were downgraded)
 name|typeId
 operator|=
 name|QMetaType
@@ -7611,7 +7611,7 @@ operator|>=
 literal|70
 condition|)
 block|{
-comment|// and as a result this types recieved lower ids too
+comment|// and as a result these types received lower ids too
 if|if
 condition|(
 name|typeId
@@ -7941,7 +7941,7 @@ operator|::
 name|QIcon
 condition|)
 block|{
-comment|// In Qt5 after modularization project this types where moved to a separate module (and ids were downgraded)
+comment|// In Qt5 after modularization project these types where moved to a separate module (and ids were downgraded)
 name|typeId
 operator|=
 literal|69
@@ -7972,7 +7972,7 @@ operator|::
 name|QImage
 condition|)
 block|{
-comment|// and as a result this types recieved lower ids too
+comment|// and as a result these types received lower ids too
 if|if
 condition|(
 name|typeId

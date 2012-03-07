@@ -798,7 +798,7 @@ begin_comment
 comment|// #  define Q_BYTE_ORDER Q_BIG_ENDIAN
 end_comment
 begin_comment
-comment|/*     SuperH family, optional revision: SH-4A      SuperH is bi-endian, use endianness auto-detection descrived above. */
+comment|/*     SuperH family, optional revision: SH-4A      SuperH is bi-endian, use endianness auto-detection described above. */
 end_comment
 begin_comment
 comment|// #elif defined(__sh__)
