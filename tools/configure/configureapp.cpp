@@ -9695,28 +9695,6 @@ argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
-literal|""
-argument_list|,
-literal|"Requires EGL support, typically supplied by an OpenGL"
-argument_list|,
-literal|false
-argument_list|,
-literal|' '
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
-literal|""
-argument_list|,
-literal|"or other graphics implementation\n"
-argument_list|,
-literal|false
-argument_list|,
-literal|' '
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
 literal|"-force-asserts"
 argument_list|,
 literal|"Activate asserts in release mode.\n"
@@ -18354,33 +18332,6 @@ condition|)
 name|qconfigList
 operator|+=
 literal|"QT_NO_NATIVE_GESTURES"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"OPENGL_ES_CM"
-index|]
-operator|==
-literal|"no"
-operator|&&
-name|dictionary
-index|[
-literal|"OPENGL_ES_2"
-index|]
-operator|==
-literal|"no"
-operator|&&
-name|dictionary
-index|[
-literal|"OPENVG"
-index|]
-operator|==
-literal|"no"
-condition|)
-name|qconfigList
-operator|+=
-literal|"QT_NO_EGL"
 expr_stmt|;
 if|if
 condition|(
