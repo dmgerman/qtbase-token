@@ -412,7 +412,6 @@ name|QT_NO_LINEEDIT
 end_ifndef
 begin_decl_stmt
 DECL|variable|QAccessibleWidget
-DECL|variable|QAccessibleTextInterface
 name|class
 name|QAccessibleLineEdit
 range|:
@@ -421,9 +420,6 @@ name|QAccessibleWidget
 decl_stmt|,
 name|public
 name|QAccessibleTextInterface
-decl_stmt|,
-name|public
-name|QAccessibleSimpleEditableTextInterface
 block|{
 name|public
 label|:

@@ -319,29 +319,15 @@ argument_list|()
 block|{}
 name|virtual
 name|void
-name|copyText
+name|deleteText
 argument_list|(
 argument|int startOffset
 argument_list|,
 argument|int endOffset
 argument_list|)
-specifier|const
 operator|=
 literal|0
 expr_stmt|;
-name|virtual
-name|void
-name|deleteText
-parameter_list|(
-name|int
-name|startOffset
-parameter_list|,
-name|int
-name|endOffset
-parameter_list|)
-init|=
-literal|0
-function_decl|;
 name|virtual
 name|void
 name|insertText
@@ -353,29 +339,6 @@ specifier|const
 name|QString
 modifier|&
 name|text
-parameter_list|)
-init|=
-literal|0
-function_decl|;
-name|virtual
-name|void
-name|cutText
-parameter_list|(
-name|int
-name|startOffset
-parameter_list|,
-name|int
-name|endOffset
-parameter_list|)
-init|=
-literal|0
-function_decl|;
-name|virtual
-name|void
-name|pasteText
-parameter_list|(
-name|int
-name|offset
 parameter_list|)
 init|=
 literal|0
@@ -394,24 +357,6 @@ specifier|const
 name|QString
 modifier|&
 name|text
-parameter_list|)
-init|=
-literal|0
-function_decl|;
-name|virtual
-name|void
-name|setAttributes
-parameter_list|(
-name|int
-name|startOffset
-parameter_list|,
-name|int
-name|endOffset
-parameter_list|,
-specifier|const
-name|QString
-modifier|&
-name|attributes
 parameter_list|)
 init|=
 literal|0
@@ -421,93 +366,6 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_decl_stmt
-name|class
-name|Q_GUI_EXPORT
-name|QAccessibleSimpleEditableTextInterface
-range|:
-name|public
-name|QAccessibleEditableTextInterface
-block|{
-name|public
-operator|:
-name|explicit
-name|QAccessibleSimpleEditableTextInterface
-argument_list|(
-name|QAccessibleInterface
-operator|*
-name|accessibleInterface
-argument_list|)
-block|;
-comment|//###
-name|void
-name|copyText
-argument_list|(
-argument|int startOffset
-argument_list|,
-argument|int endOffset
-argument_list|)
-specifier|const
-block|;
-name|void
-name|deleteText
-argument_list|(
-argument|int startOffset
-argument_list|,
-argument|int endOffset
-argument_list|)
-block|;
-name|void
-name|insertText
-argument_list|(
-argument|int offset
-argument_list|,
-argument|const QString&text
-argument_list|)
-block|;
-name|void
-name|cutText
-argument_list|(
-argument|int startOffset
-argument_list|,
-argument|int endOffset
-argument_list|)
-block|;
-name|void
-name|pasteText
-argument_list|(
-argument|int offset
-argument_list|)
-block|;
-name|void
-name|replaceText
-argument_list|(
-argument|int startOffset
-argument_list|,
-argument|int endOffset
-argument_list|,
-argument|const QString&text
-argument_list|)
-block|;
-specifier|inline
-name|void
-name|setAttributes
-argument_list|(
-argument|int
-argument_list|,
-argument|int
-argument_list|,
-argument|const QString&
-argument_list|)
-block|{}
-name|private
-operator|:
-name|QAccessibleInterface
-operator|*
-name|iface
-block|; }
-decl_stmt|;
-end_decl_stmt
 begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
