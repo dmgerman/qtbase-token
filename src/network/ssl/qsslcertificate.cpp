@@ -4864,6 +4864,16 @@ block|,
 literal|"Digisign Server ID - (Enrich)"
 block|,
 comment|// (Malaysian) Digicert Sdn. Bhd. cross-signed by Entrust
+literal|"72:03:21:05:c5:0c:08:57:3d:8e:a5:30:4e:fe:e8:b0"
+block|,
+literal|"UTN-USERFirst-Hardware"
+block|,
+comment|// comodogate test certificate
+literal|"41"
+block|,
+literal|"MD5 Collisions Inc. (http://www.phreedom.org/md5)"
+block|,
+comment|// http://www.phreedom.org/research/rogue-ca/
 literal|0
 block|}
 decl_stmt|;
