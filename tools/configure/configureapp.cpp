@@ -918,6 +918,13 @@ literal|"yes"
 expr_stmt|;
 name|dictionary
 index|[
+literal|"WIDGETS"
+index|]
+operator|=
+literal|"yes"
+expr_stmt|;
+name|dictionary
+index|[
 literal|"RTTI"
 index|]
 operator|=
@@ -4806,6 +4813,44 @@ condition|)
 name|dictionary
 index|[
 literal|"EXCEPTIONS"
+index|]
+operator|=
+literal|"no"
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-widgets"
+condition|)
+name|dictionary
+index|[
+literal|"WIDGETS"
+index|]
+operator|=
+literal|"yes"
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-no-widgets"
+condition|)
+name|dictionary
+index|[
+literal|"WIDGETS"
 index|]
 operator|=
 literal|"no"
@@ -9112,7 +9157,7 @@ literal|"[-phonon] [-no-phonon-backend] [-phonon-backend]\n"
 literal|"[-no-multimedia] [-multimedia] [-no-audio-backend] [-audio-backend]\n"
 literal|"[-no-script] [-script] [-no-scripttools] [-scripttools]\n"
 literal|"[-no-webkit] [-webkit] [-webkit-debug]\n"
-literal|"[-no-directwrite] [-directwrite] [-qpa]\n\n"
+literal|"[-no-directwrite] [-directwrite] [-qpa] [-no-widgets] \n\n"
 argument_list|,
 literal|0
 argument_list|,
@@ -9301,6 +9346,17 @@ argument_list|,
 literal|"-exceptions"
 argument_list|,
 literal|"Enable exceptions on platforms that support it.\n"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"WIDGETS"
+argument_list|,
+literal|"no"
+argument_list|,
+literal|"-no-widgets"
+argument_list|,
+literal|"Disable QtWidgets module\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -13561,6 +13617,19 @@ operator|+=
 literal|"release"
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"WIDGETS"
+index|]
+operator|==
+literal|"no"
+condition|)
+name|qtConfig
+operator|+=
+literal|"no-widgets"
+expr_stmt|;
 comment|// Compression --------------------------------------------------
 if|if
 condition|(
@@ -18029,6 +18098,19 @@ if|if
 condition|(
 name|dictionary
 index|[
+literal|"WIDGETS"
+index|]
+operator|==
+literal|"no"
+condition|)
+name|qconfigList
+operator|+=
+literal|"QT_NO_WIDGETS"
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
 literal|"OPENGL"
 index|]
 operator|==
@@ -19854,6 +19936,17 @@ operator|<<
 name|dictionary
 index|[
 literal|"DBUS"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
+name|cout
+operator|<<
+literal|"QtWidgets module support...."
+operator|<<
+name|dictionary
+index|[
+literal|"WIDGETS"
 index|]
 operator|<<
 name|endl
