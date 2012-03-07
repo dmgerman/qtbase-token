@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtGui/private/qfontengine_qpa_p.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<fontconfig/fontconfig.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
@@ -39,6 +44,10 @@ argument_list|,
 argument|const QStringList&fallbacks
 argument_list|)
 block|;
+operator|~
+name|QFontEngineMultiFontConfig
+argument_list|()
+block|;
 name|bool
 name|shouldLoadFontEngineForCharacter
 argument_list|(
@@ -47,6 +56,24 @@ argument_list|,
 argument|uint ucs4
 argument_list|)
 specifier|const
+block|;
+name|private
+operator|:
+name|FcPattern
+operator|*
+name|getMatchPatternForFallback
+argument_list|(
+argument|int at
+argument_list|)
+specifier|const
+block|;
+name|mutable
+name|QVector
+operator|<
+name|FcPattern
+operator|*
+operator|>
+name|cachedMatchPatterns
 block|; }
 decl_stmt|;
 end_decl_stmt
