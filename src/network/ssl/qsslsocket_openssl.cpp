@@ -1543,6 +1543,29 @@ argument_list|,
 name|options
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10000000L
+comment|// Tell OpenSSL to release memory early
+comment|// http://www.openssl.org/docs/ssl/SSL_CTX_set_mode.html
+if|if
+condition|(
+name|q_SSLeay
+argument_list|()
+operator|>=
+literal|0x10000000L
+condition|)
+name|q_SSL_CTX_set_mode
+argument_list|(
+name|ctx
+argument_list|,
+name|SSL_MODE_RELEASE_BUFFERS
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|// Initialize ciphers
 name|QByteArray
 name|cipherString
