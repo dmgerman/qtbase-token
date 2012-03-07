@@ -346,6 +346,14 @@ argument_list|)
 decl|const
 decl_stmt|;
 name|virtual
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|queryKeyboardModifiers
+argument_list|()
+specifier|const
+expr_stmt|;
+name|virtual
 name|QPlatformTheme
 operator|*
 name|platformTheme

@@ -2595,7 +2595,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     Returns the currently held keyboard modifiers. */
+comment|/*!     Returns the current state of the modifier keys on the keyboard. The current     state is updated sychronously as the event queue is emptied of events that     will spontaneously change the keyboard state (QEvent::KeyPress and     QEvent::KeyRelease events).      It should be noted this may not reflect the actual keys held on the input     device at the time of calling but rather the modifiers as last reported in     one of the above events. If no keys are being held Qt::NoModifier is     returned.      \sa mouseButtons(), queryKeyboardModifiers() */
 end_comment
 begin_function
 DECL|function|keyboardModifiers
@@ -2615,7 +2615,37 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the currently held mouse buttons. */
+comment|/*!     \fn Qt::KeyboardModifiers QApplication::queryKeyboardModifiers()      Queries and returns the state of the modifier keys on the keyboard.     Unlike keyboardModifiers, this method returns the actual keys held     on the input device at the time of calling the method.      It does not rely on the keypress events having been received by this     process, which makes it possible to check the modifiers while moving     a window, for instance. Note that in most cases, you should use     keyboardModifiers(), which is faster and more accurate since it contains     the state of the modifiers as they were when the currently processed     event was received.      \sa keyboardModifiers() */
+end_comment
+begin_function
+DECL|function|queryKeyboardModifiers
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|QGuiApplication
+operator|::
+name|queryKeyboardModifiers
+parameter_list|()
+block|{
+name|QPlatformIntegration
+modifier|*
+name|pi
+init|=
+name|QGuiApplicationPrivate
+operator|::
+name|platformIntegration
+argument_list|()
+decl_stmt|;
+return|return
+name|pi
+operator|->
+name|queryKeyboardModifiers
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Returns the current state of the buttons on the mouse. The current state is     updated syncronously as the event queue is emptied of events that will     spontaneously change the mouse state (QEvent::MouseButtonPress and     QEvent::MouseButtonRelease events).      It should be noted this may not reflect the actual buttons held on the     input device at the time of calling but rather the mouse buttons as last     reported in one of the above events. If no mouse buttons are being held     Qt::NoButton is returned.      \sa keyboardModifiers() */
 end_comment
 begin_function
 DECL|function|mouseButtons

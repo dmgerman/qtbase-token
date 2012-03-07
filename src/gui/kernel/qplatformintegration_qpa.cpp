@@ -436,6 +436,25 @@ literal|0
 return|;
 block|}
 end_function
+begin_function
+DECL|function|queryKeyboardModifiers
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|QPlatformIntegration
+operator|::
+name|queryKeyboardModifiers
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QGuiApplication
+operator|::
+name|keyboardModifiers
+argument_list|()
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!   Should be called by the implementation whenever a new screen is added.    The first screen added will be the primary screen, used for default-created   windows, GL contexts, and other resources unless otherwise specified.    This adds the screen to QGuiApplication::screens(), and emits the   QGuiApplication::screenAdded() signal.    The screen is automatically removed when the QPlatformScreen is destroyed. */
 end_comment
