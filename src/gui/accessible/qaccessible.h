@@ -1620,6 +1620,11 @@ argument_list|(
 name|obj
 argument_list|)
 block|;     }
+name|virtual
+operator|~
+name|QAccessibleEvent
+argument_list|()
+block|{}
 name|QAccessible
 operator|::
 name|Event
