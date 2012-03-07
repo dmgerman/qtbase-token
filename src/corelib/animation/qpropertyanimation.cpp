@@ -725,6 +725,11 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+name|locker
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
 comment|// update the default start value
 if|if
 condition|(
