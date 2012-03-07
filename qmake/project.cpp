@@ -9230,14 +9230,6 @@ condition|)
 break|break;
 block|}
 block|}
-name|Option
-operator|::
-name|postProcessProject
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-comment|// let Option post-process
 return|return
 literal|true
 return|;
