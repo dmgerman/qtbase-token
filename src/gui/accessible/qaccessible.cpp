@@ -714,7 +714,13 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QAccessibleEvent     \brief The QAccessibleEvent is use to notify about changes that are     relevant for accessibility in the application.     \internal      \ingroup accessibility     \inmodule QtGui      This class should be created on the stack and used as parameter for     \l QAccessible::updateAccessibility(). */
+comment|/*!     \class QAccessibleEvent     \brief The QAccessibleEvent is use to notify about changes that are     relevant for accessibility in the application.     \internal      \ingroup accessibility     \inmodule QtGui      This class should be created on the stack and used as parameter for     \l QAccessible::updateAccessibility().     \sa QAccessibleStateChangedEvent */
+end_comment
+begin_comment
+comment|/*!     \class QAccessibleStateChangedEvent     \brief This subclass of QAccessibleEvent is used to inform about state changes.     \internal      \ingroup accessibility     \inmodule QtGui      This class should be created on the stack and used as parameter for     \l QAccessible::updateAccessibility().     In addition to the regular \l QAccessibleEvent it contains details about which states     changed.     \sa QAccessibleEvent */
+end_comment
+begin_comment
+comment|/*!     \fn QAccessibleStateChangeEvent::changedStates() const     All states that have changed are set to true. This does not reflect the state of the object,     but indicates which states are changed.     Use the \l QAccessibleInterface::state() function to get the current state.  */
 end_comment
 begin_comment
 comment|/*!     Returns the QAccessibleInterface associated with the event.      The caller of this function takes ownership of the returned interface. */
