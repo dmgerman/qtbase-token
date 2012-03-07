@@ -21319,8 +21319,6 @@ operator|::
 name|Focus
 argument_list|,
 name|f
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -21652,8 +21650,6 @@ operator|::
 name|Focus
 argument_list|,
 name|this
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -25499,8 +25495,6 @@ operator|::
 name|ObjectShow
 argument_list|,
 name|q
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -25885,8 +25879,6 @@ operator|::
 name|ObjectHide
 argument_list|,
 name|q
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -26943,8 +26935,6 @@ operator|::
 name|ObjectHide
 argument_list|,
 name|widget
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -36685,8 +36675,6 @@ operator|::
 name|NameChanged
 argument_list|,
 name|this
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -36746,8 +36734,6 @@ operator|::
 name|DescriptionChanged
 argument_list|,
 name|this
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;

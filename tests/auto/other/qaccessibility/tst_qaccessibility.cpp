@@ -1740,7 +1740,8 @@ name|QVERIFY_EVENT
 argument_list|(
 name|button
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|QAccessible
 operator|::
@@ -1807,7 +1808,8 @@ name|QVERIFY_EVENT
 argument_list|(
 name|button
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|QAccessible
 operator|::
@@ -1825,7 +1827,8 @@ name|QVERIFY_EVENT
 argument_list|(
 name|button
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|QAccessible
 operator|::
@@ -1841,7 +1844,8 @@ name|QVERIFY_EVENT
 argument_list|(
 name|button
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|QAccessible
 operator|::
@@ -4000,7 +4004,8 @@ name|QTestAccessibilityEvent
 argument_list|(
 name|window
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|QAccessible
 operator|::
@@ -4022,7 +4027,8 @@ name|QTestAccessibilityEvent
 argument_list|(
 name|child
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|QAccessible
 operator|::
@@ -4075,7 +4081,8 @@ name|QTestAccessibilityEvent
 argument_list|(
 name|window
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|QAccessible
 operator|::
@@ -4097,7 +4104,8 @@ name|QTestAccessibilityEvent
 argument_list|(
 name|child
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|QAccessible
 operator|::
@@ -4548,7 +4556,8 @@ name|QVERIFY_EVENT
 argument_list|(
 name|mw
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|QAccessible
 operator|::
@@ -5831,7 +5840,8 @@ name|QTestAccessibilityEvent
 argument_list|(
 name|scrollBar
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|QAccessible
 operator|::
@@ -5873,7 +5883,8 @@ name|QTestAccessibilityEvent
 argument_list|(
 name|scrollBar
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|QAccessible
 operator|::
@@ -9020,7 +9031,8 @@ name|expectedEvent
 argument_list|(
 name|spinBox
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 operator|(
 name|int
@@ -11118,7 +11130,8 @@ name|QTestAccessibilityEvent
 argument_list|(
 name|le2
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|QAccessible
 operator|::
@@ -11258,7 +11271,8 @@ name|QTestAccessibilityEvent
 argument_list|(
 name|le3
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|,
 name|QAccessible
 operator|::

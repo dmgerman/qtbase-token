@@ -3051,8 +3051,6 @@ operator|::
 name|Focus
 argument_list|,
 name|focusObj
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;

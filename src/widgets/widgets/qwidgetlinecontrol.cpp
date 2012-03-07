@@ -3096,8 +3096,6 @@ name|TextUpdated
 argument_list|,
 name|parent
 argument_list|()
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6316,8 +6314,6 @@ name|TextCaretMoved
 argument_list|,
 name|parent
 argument_list|()
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
