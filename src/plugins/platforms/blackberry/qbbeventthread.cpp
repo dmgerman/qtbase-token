@@ -1399,6 +1399,9 @@ index|]
 argument_list|)
 decl_stmt|;
 comment|// Convert buttons.
+comment|// Some QNX header files invert 'Right Button versus "Left Button' ('Right' == 0x01). But they also offer a 'Button Swap' bit,
+comment|// so we may receive events as shown. (If this is wrong, the fix is easy.)
+comment|// QNX Button mask is 8 buttons wide, with a maximum value of x080.
 name|Qt
 operator|::
 name|MouseButtons
@@ -1412,7 +1415,7 @@ if|if
 condition|(
 name|buttonState
 operator|&
-literal|1
+literal|0x01
 condition|)
 name|buttons
 operator||=
@@ -1424,7 +1427,7 @@ if|if
 condition|(
 name|buttonState
 operator|&
-literal|2
+literal|0x02
 condition|)
 name|buttons
 operator||=
@@ -1436,13 +1439,75 @@ if|if
 condition|(
 name|buttonState
 operator|&
-literal|4
+literal|0x04
 condition|)
 name|buttons
 operator||=
 name|Qt
 operator|::
 name|RightButton
+expr_stmt|;
+if|if
+condition|(
+name|buttonState
+operator|&
+literal|0x08
+condition|)
+name|buttons
+operator||=
+name|Qt
+operator|::
+name|ExtraButton1
+expr_stmt|;
+comment|// AKA 'Qt::BackButton'
+if|if
+condition|(
+name|buttonState
+operator|&
+literal|0x10
+condition|)
+name|buttons
+operator||=
+name|Qt
+operator|::
+name|ExtraButton2
+expr_stmt|;
+comment|// AKA 'Qt::ForwardButton'
+if|if
+condition|(
+name|buttonState
+operator|&
+literal|0x20
+condition|)
+name|buttons
+operator||=
+name|Qt
+operator|::
+name|ExtraButton3
+expr_stmt|;
+if|if
+condition|(
+name|buttonState
+operator|&
+literal|0x40
+condition|)
+name|buttons
+operator||=
+name|Qt
+operator|::
+name|ExtraButton4
+expr_stmt|;
+if|if
+condition|(
+name|buttonState
+operator|&
+literal|0x80
+condition|)
+name|buttons
+operator||=
+name|Qt
+operator|::
+name|ExtraButton5
 expr_stmt|;
 if|if
 condition|(
