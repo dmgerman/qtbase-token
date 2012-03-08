@@ -120,6 +120,9 @@ endif|#
 directive|endif
 block|}
 enum|;
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
 name|explicit
 name|QDBusError
 parameter_list|(
@@ -140,6 +143,8 @@ operator|&
 name|msg
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QDBusError
 argument_list|(
 argument|ErrorType error
@@ -166,6 +171,9 @@ operator|&
 name|other
 operator|)
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
 name|QDBusError
 modifier|&
 name|operator
@@ -177,6 +185,8 @@ operator|&
 name|msg
 operator|)
 decl_stmt|;
+endif|#
+directive|endif
 name|ErrorType
 name|type
 argument_list|()
