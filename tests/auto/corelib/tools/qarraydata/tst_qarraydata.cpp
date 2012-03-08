@@ -9552,7 +9552,10 @@ literal|1
 index|]
 init|=
 block|{
-name|i
+name|int
+argument_list|(
+argument|i
+argument_list|)
 block|}
 decl_stmt|;
 name|vector
