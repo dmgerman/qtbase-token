@@ -1312,6 +1312,13 @@ literal|"auto"
 expr_stmt|;
 name|dictionary
 index|[
+literal|"ICU"
+index|]
+operator|=
+literal|"auto"
+expr_stmt|;
+name|dictionary
+index|[
 literal|"GIF"
 index|]
 operator|=
@@ -2761,6 +2768,48 @@ literal|"PCRE"
 index|]
 operator|=
 literal|"system"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-icu"
+condition|)
+block|{
+name|dictionary
+index|[
+literal|"ICU"
+index|]
+operator|=
+literal|"yes"
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|configCmdLine
+operator|.
+name|at
+argument_list|(
+name|i
+argument_list|)
+operator|==
+literal|"-no-icu"
+condition|)
+block|{
+name|dictionary
+index|[
+literal|"ICU"
+index|]
+operator|=
+literal|"no"
 expr_stmt|;
 block|}
 comment|// Image formats --------------------------------------------
@@ -9157,7 +9206,7 @@ literal|"[-phonon] [-no-phonon-backend] [-phonon-backend]\n"
 literal|"[-no-multimedia] [-multimedia] [-no-audio-backend] [-audio-backend]\n"
 literal|"[-no-script] [-script] [-no-scripttools] [-scripttools]\n"
 literal|"[-no-webkit] [-webkit] [-webkit-debug]\n"
-literal|"[-no-directwrite] [-directwrite] [-qpa] [-no-widgets] \n\n"
+literal|"[-no-directwrite] [-directwrite] [-qpa] [-no-widgets] [-icu]\n\n"
 argument_list|,
 literal|0
 argument_list|,
@@ -9813,6 +9862,28 @@ argument_list|,
 literal|"-system-pcre"
 argument_list|,
 literal|"Use the PCRE library from the operating system.\nSee http://pcre.org/\n"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"ICU"
+argument_list|,
+literal|"yes"
+argument_list|,
+literal|"-icu"
+argument_list|,
+literal|"Use the ICU library."
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"ICU"
+argument_list|,
+literal|"no"
+argument_list|,
+literal|"-no-icu"
+argument_list|,
+literal|"Do not use the ICU library.\nSee http://site.icu-project.org/\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -11466,6 +11537,35 @@ if|if
 condition|(
 name|part
 operator|==
+literal|"ICU"
+condition|)
+name|available
+operator|=
+name|findFile
+argument_list|(
+literal|"unicode/utypes.h"
+argument_list|)
+operator|&&
+name|findFile
+argument_list|(
+literal|"unicode/ucol.h"
+argument_list|)
+operator|&&
+name|findFile
+argument_list|(
+literal|"unicode/ustring.h"
+argument_list|)
+operator|&&
+name|findFile
+argument_list|(
+literal|"icuin.lib"
+argument_list|)
+expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|part
+operator|==
 literal|"LIBJPEG"
 condition|)
 name|available
@@ -12444,6 +12544,30 @@ literal|"PCRE"
 argument_list|)
 else|:
 literal|"qt"
+expr_stmt|;
+comment|// ICU detection
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"ICU"
+index|]
+operator|==
+literal|"auto"
+condition|)
+name|dictionary
+index|[
+literal|"ICU"
+index|]
+operator|=
+name|checkAvailability
+argument_list|(
+literal|"ICU"
+argument_list|)
+condition|?
+literal|"yes"
+else|:
+literal|"no"
 expr_stmt|;
 comment|// Image format detection
 if|if
@@ -13671,6 +13795,20 @@ condition|)
 name|qmakeConfig
 operator|+=
 literal|"pcre"
+expr_stmt|;
+comment|// ICU ---------------------------------------------------------
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"ICU"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|qtConfig
+operator|+=
+literal|"icu"
 expr_stmt|;
 comment|// Image formates -----------------------------------------------
 if|if
@@ -20035,6 +20173,28 @@ literal|"FREETYPE"
 index|]
 operator|<<
 name|endl
+operator|<<
+name|endl
+expr_stmt|;
+name|cout
+operator|<<
+literal|"    PCRE support............"
+operator|<<
+name|dictionary
+index|[
+literal|"PCRE"
+index|]
+operator|<<
+name|endl
+expr_stmt|;
+name|cout
+operator|<<
+literal|"    ICU support............."
+operator|<<
+name|dictionary
+index|[
+literal|"ICU"
+index|]
 operator|<<
 name|endl
 expr_stmt|;
