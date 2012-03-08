@@ -604,10 +604,9 @@ name|podUserType
 parameter_list|()
 function_decl|;
 name|void
-name|data_
+name|data
 parameter_list|()
 function_decl|;
-comment|// data is virtual function in QtTestCase
 name|void
 name|constData
 parameter_list|()
@@ -18213,11 +18212,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|data_
+DECL|function|data
 name|void
 name|tst_QVariant
 operator|::
-name|data_
+name|data
 parameter_list|()
 block|{
 name|QVariant
