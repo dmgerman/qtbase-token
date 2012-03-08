@@ -536,6 +536,9 @@ decl_stmt|;
 name|bool
 name|m_transparent
 decl_stmt|;
+name|bool
+name|m_deferredActivation
+decl_stmt|;
 name|xcb_window_t
 name|m_netWmUserTimeWindow
 decl_stmt|;
