@@ -8041,6 +8041,12 @@ name|Q_UNLIKELY
 argument_list|(
 operator|!
 name|ct
+operator|||
+name|type
+operator|<
+name|QMetaType
+operator|::
+name|User
 argument_list|)
 condition|)
 return|return
