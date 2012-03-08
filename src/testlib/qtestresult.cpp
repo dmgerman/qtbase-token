@@ -880,6 +880,11 @@ name|int
 name|line
 parameter_list|)
 block|{
+name|QTEST_ASSERT
+argument_list|(
+name|statementStr
+argument_list|)
+expr_stmt|;
 name|char
 name|msg
 index|[
@@ -943,6 +948,10 @@ argument_list|,
 name|statementStr
 argument_list|,
 name|description
+condition|?
+name|description
+else|:
+literal|""
 argument_list|)
 expr_stmt|;
 return|return
