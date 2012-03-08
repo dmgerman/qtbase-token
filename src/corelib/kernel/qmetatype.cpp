@@ -941,9 +941,15 @@ operator|::
 name|typeName
 parameter_list|(
 name|int
-name|type
+name|typeId
 parameter_list|)
 block|{
+specifier|const
+name|uint
+name|type
+init|=
+name|typeId
+decl_stmt|;
 comment|// In theory it can be filled during compilation time, but for some reason template code
 comment|// that is able to do it causes GCC 4.6 to generate additional 3K of executable code. Probably
 comment|// it is not worth of it.
@@ -1057,10 +1063,13 @@ decl_stmt|;
 return|return
 name|ct
 operator|&&
+name|uint
+argument_list|(
 name|ct
 operator|->
 name|count
 argument_list|()
+argument_list|)
 operator|>
 name|type
 operator|-
