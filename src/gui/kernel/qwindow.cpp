@@ -1491,6 +1491,15 @@ operator|::
 name|focusWindow
 argument_list|()
 decl_stmt|;
+comment|// Means the whole application lost the focus
+if|if
+condition|(
+operator|!
+name|focus
+condition|)
+return|return
+literal|false
+return|;
 if|if
 condition|(
 name|focus
