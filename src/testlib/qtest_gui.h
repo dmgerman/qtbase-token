@@ -277,7 +277,7 @@ argument_list|,
 literal|1024
 argument_list|,
 literal|"Compared QImages differ.\n"
-literal|"   Actual (%s).isNull()  : %d\n"
+literal|"   Actual   (%s).isNull(): %d\n"
 literal|"   Expected (%s).isNull(): %d"
 argument_list|,
 name|actual
@@ -366,7 +366,7 @@ argument_list|,
 literal|1024
 argument_list|,
 literal|"Compared QImages differ in size.\n"
-literal|"   Actual (%s)  : %dx%d\n"
+literal|"   Actual   (%s): %dx%d\n"
 literal|"   Expected (%s): %dx%d"
 argument_list|,
 name|actual
@@ -435,7 +435,7 @@ argument_list|,
 literal|1024
 argument_list|,
 literal|"Compared QImages differ in format.\n"
-literal|"   Actual (%s)  : %d\n"
+literal|"   Actual   (%s): %d\n"
 literal|"   Expected (%s): %d"
 argument_list|,
 name|actual
@@ -577,7 +577,7 @@ argument_list|,
 literal|1024
 argument_list|,
 literal|"Compared QPixmaps differ.\n"
-literal|"   Actual (%s).isNull()  : %d\n"
+literal|"   Actual   (%s).isNull(): %d\n"
 literal|"   Expected (%s).isNull(): %d"
 argument_list|,
 name|actual
@@ -670,7 +670,7 @@ argument_list|,
 literal|1024
 argument_list|,
 literal|"Compared QPixmaps differ in size.\n"
-literal|"   Actual (%s)  : %dx%d\n"
+literal|"   Actual   (%s): %dx%d\n"
 literal|"   Expected (%s): %dx%d"
 argument_list|,
 name|actual

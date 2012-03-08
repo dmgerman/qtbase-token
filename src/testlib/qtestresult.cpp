@@ -1167,7 +1167,7 @@ name|msg
 argument_list|,
 literal|1024
 argument_list|,
-literal|"%s\n   Actual (%s): %s\n   Expected (%s): %s"
+literal|"%s\n   Actual   (%s): %s\n   Expected (%s): %s"
 argument_list|,
 name|failureMsg
 argument_list|,
