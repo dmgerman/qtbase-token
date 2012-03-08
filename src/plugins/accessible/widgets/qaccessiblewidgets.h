@@ -213,11 +213,6 @@ name|characterRect
 argument_list|(
 name|int
 name|offset
-argument_list|,
-name|QAccessible2
-operator|::
-name|CoordinateType
-name|coordType
 argument_list|)
 decl|const
 decl_stmt|;
@@ -233,11 +228,6 @@ specifier|const
 name|QPoint
 operator|&
 name|point
-argument_list|,
-name|QAccessible2
-operator|::
-name|CoordinateType
-name|coordType
 argument_list|)
 decl|const
 decl_stmt|;
