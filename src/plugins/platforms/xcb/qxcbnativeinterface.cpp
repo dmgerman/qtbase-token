@@ -444,7 +444,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"%s: Attempt to set invalid event filter type '%s'."
+literal|"QXcbNativeInterface: %s: Attempt to set invalid event filter type '%s'."
 argument_list|,
 name|Q_FUNC_INFO
 argument_list|,

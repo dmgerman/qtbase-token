@@ -128,7 +128,7 @@ break|break;
 default|default:
 name|qWarning
 argument_list|(
-literal|"QTestLiteMime: Internal error: Unsupported clipboard mode"
+literal|"QXcbClipboardMime: Internal error: Unsupported clipboard mode"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -924,7 +924,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QClipboard: Unable to receive an event from the "
+literal|"QXcbClipboard: Unable to receive an event from the "
 literal|"clipboard manager in a reasonable time"
 argument_list|)
 expr_stmt|;
@@ -1319,7 +1319,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QClipboard::setData: Cannot set X11 selection owner"
+literal|"QXcbClipboard::setData: Cannot set X11 selection owner"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1983,9 +1983,9 @@ argument_list|)
 expr_stmt|;
 comment|//            (void)new QClipboardINCRTransaction(window, property, atomFormat, dataFormat, data, increment);
 name|qWarning
-argument_list|()
-operator|<<
-literal|"not implemented INCR just YET!"
+argument_list|(
+literal|"QXcbClipboard: INCR is unimplemented"
+argument_list|)
 expr_stmt|;
 return|return
 name|property
@@ -2155,10 +2155,10 @@ name|requestor
 argument_list|()
 condition|)
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"This should be caught before"
+name|qWarning
+argument_list|(
+literal|"QXcbClipboard: Selection request should be caught before"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -2237,7 +2237,7 @@ block|{
 name|qWarning
 argument_list|()
 operator|<<
-literal|"QClipboard: Unknown selection"
+literal|"QXcbClipboard: Unknown selection"
 operator|<<
 name|connection
 argument_list|()
@@ -2288,7 +2288,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"QClipboard: Cannot transfer data, no data available"
+literal|"QXcbClipboard: Cannot transfer data, no data available"
 argument_list|)
 expr_stmt|;
 name|xcb_send_event
@@ -2343,9 +2343,9 @@ index|]
 operator|)
 condition|)
 block|{
-name|qDebug
+name|qWarning
 argument_list|(
-literal|"QClipboard: SelectionRequest too old"
+literal|"QXcbClipboard: SelectionRequest too old"
 argument_list|)
 expr_stmt|;
 name|xcb_send_event
@@ -2697,7 +2697,7 @@ else|else
 block|{
 name|qWarning
 argument_list|(
-literal|"QClipboard: Invalid data timestamp"
+literal|"QXcbClipboard: Invalid data timestamp"
 argument_list|)
 expr_stmt|;
 block|}

@@ -158,6 +158,16 @@ argument_list|(
 literal|'c'
 argument_list|)
 decl_stmt|;
+name|QChar
+operator|::
+name|SpecialCharacter
+name|special
+argument_list|(
+name|QChar
+operator|::
+name|Nbsp
+argument_list|)
+decl_stmt|;
 name|QString
 name|r2
 argument_list|(
@@ -334,6 +344,22 @@ argument_list|,
 name|QString
 argument_list|(
 argument|achar P string
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|r
+operator|=
+name|special
+operator|+
+name|string
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|r
+argument_list|,
+name|QString
+argument_list|(
+argument|special P string
 argument_list|)
 argument_list|)
 expr_stmt|;

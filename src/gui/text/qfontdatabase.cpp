@@ -11032,7 +11032,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Loads the font from binary data specified by \a fontData and makes it available to     the application. An ID is returned that can be used to remove the font again     with removeApplicationFont() or to retrieve the list of family names contained     in the font.      The function returns -1 if the font could not be loaded.      Currently only TrueType fonts and TrueType font collections are supported.      \bold{Note:} Adding application fonts on Unix/X11 platforms without fontconfig is     currently not supported.      \sa addApplicationFont(), applicationFontFamilies(), removeApplicationFont() */
+comment|/*!     \since 4.2      Loads the font from binary data specified by \a fontData and makes it available to     the application. An ID is returned that can be used to remove the font again     with removeApplicationFont() or to retrieve the list of family names contained     in the font.      The function returns -1 if the font could not be loaded.      Currently only TrueType fonts and TrueType font collections are supported.      \b{Note:} Adding application fonts on Unix/X11 platforms without fontconfig is     currently not supported.      \sa addApplicationFont(), applicationFontFamilies(), removeApplicationFont() */
 end_comment
 begin_function
 DECL|function|addApplicationFontFromData

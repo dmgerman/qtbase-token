@@ -99,6 +99,23 @@ name|type
 index|]
 return|;
 block|}
+name|virtual
+specifier|const
+name|QFont
+operator|*
+name|font
+argument_list|(
+argument|Font type = SystemFont
+argument_list|)
+specifier|const
+block|{
+return|return
+name|m_fonts
+index|[
+name|type
+index|]
+return|;
+block|}
 name|void
 name|windowsThemeChanged
 argument_list|(
@@ -112,9 +129,27 @@ operator|:
 name|void
 name|refresh
 argument_list|()
+block|{
+name|refreshPalettes
+argument_list|()
 block|;
+name|refreshFonts
+argument_list|()
+block|; }
 name|void
 name|clearPalettes
+argument_list|()
+block|;
+name|void
+name|refreshPalettes
+argument_list|()
+block|;
+name|void
+name|clearFonts
+argument_list|()
+block|;
+name|void
+name|refreshFonts
 argument_list|()
 block|;
 name|QPalette
@@ -122,6 +157,13 @@ operator|*
 name|m_palettes
 index|[
 name|NPalettes
+index|]
+block|;
+name|QFont
+operator|*
+name|m_fonts
+index|[
+name|NFonts
 index|]
 block|; }
 decl_stmt|;

@@ -946,8 +946,14 @@ init|=
 name|memcmp
 argument_list|(
 name|str1
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|str2
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|qMin
 argument_list|(
@@ -1417,7 +1423,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \fn QByteArray qUncompress(const QByteArray&data)      \relates QByteArray      Uncompresses the \a data byte array and returns a new byte array     with the uncompressed data.      Returns an empty QByteArray if the input data was corrupt.      This function will uncompress data compressed with qCompress()     from this and any earlier Qt version, back to Qt 3.1 when this     feature was added.      \bold{Note:} If you want to use this function to uncompress external     data that was compressed using zlib, you first need to prepend a four     byte header to the byte array containing the data. The header must     contain the expected length (in bytes) of the uncompressed data,     expressed as an unsigned, big-endian, 32-bit integer.      \sa qCompress() */
+comment|/*!     \fn QByteArray qUncompress(const QByteArray&data)      \relates QByteArray      Uncompresses the \a data byte array and returns a new byte array     with the uncompressed data.      Returns an empty QByteArray if the input data was corrupt.      This function will uncompress data compressed with qCompress()     from this and any earlier Qt version, back to Qt 3.1 when this     feature was added.      \b{Note:} If you want to use this function to uncompress external     data that was compressed using zlib, you first need to prepend a four     byte header to the byte array containing the data. The header must     contain the expected length (in bytes) of the uncompressed data,     expressed as an unsigned, big-endian, 32-bit integer.      \sa qCompress() */
 end_comment
 begin_comment
 comment|/*! \relates QByteArray      \overload      Uncompresses the first \a nbytes of \a data and returns a new byte     array with the uncompressed data. */
@@ -2332,7 +2338,7 @@ begin_comment
 comment|/*! \fn void QByteArray::squeeze()      Releases any memory not required to store the array's data.      The sole purpose of this function is to provide a means of fine     tuning QByteArray's memory usage. In general, you will rarely     ever need to call this function.      \sa reserve(), capacity() */
 end_comment
 begin_comment
-comment|/*! \fn QByteArray::operator const char *() const     \fn QByteArray::operator const void *() const      Returns a pointer to the data stored in the byte array. The     pointer can be used to access the bytes that compose the array.     The data is '\\0'-terminated. The pointer remains valid as long     as the array isn't reallocated or destroyed.      This operator is mostly useful to pass a byte array to a function     that accepts a \c{const char *}.      You can disable this operator by defining \c     QT_NO_CAST_FROM_BYTEARRAY when you compile your applications.      Note: A QByteArray can store any byte values including '\\0's,     but most functions that take \c{char *} arguments assume that the     data ends at the first '\\0' they encounter.      \sa constData() */
+comment|/*! \fn QByteArray::operator const char *() const     \fn QByteArray::operator const void *() const      \obsolete Use constData() instead.      Returns a pointer to the data stored in the byte array. The     pointer can be used to access the bytes that compose the array.     The data is '\\0'-terminated. The pointer remains valid as long     as the array isn't reallocated or destroyed.      This operator is mostly useful to pass a byte array to a function     that accepts a \c{const char *}.      You can disable this operator by defining \c     QT_NO_CAST_FROM_BYTEARRAY when you compile your applications.      Note: A QByteArray can store any byte values including '\\0's,     but most functions that take \c{char *} arguments assume that the     data ends at the first '\\0' they encounter.      \sa constData() */
 end_comment
 begin_comment
 comment|/*!   \macro QT_NO_CAST_FROM_BYTEARRAY   \relates QByteArray    Disables automatic conversions from QByteArray to   const char * or const void *.    \sa QT_NO_CAST_TO_ASCII, QT_NO_CAST_FROM_ASCII */
@@ -8053,6 +8059,9 @@ operator|.
 name|writeBytes
 argument_list|(
 name|ba
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|ba
 operator|.
@@ -9925,7 +9934,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      \overload      Sets the byte array to the printed value of \a n, formatted in format     \a f with precision \a prec, and returns a reference to the     byte array.      The format \a f can be any of the following:      \table     \header \i Format \i Meaning     \row \i \c e \i format as [-]9.9e[+|-]999     \row \i \c E \i format as [-]9.9E[+|-]999     \row \i \c f \i format as [-]9.9     \row \i \c g \i use \c e or \c f format, whichever is the most concise     \row \i \c G \i use \c E or \c f format, whichever is the most concise     \endtable      With 'e', 'E', and 'f', \a prec is the number of digits after the     decimal point. With 'g' and 'G', \a prec is the maximum number of     significant digits (trailing zeroes are omitted).      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa toDouble() */
+comment|/*!      \overload      Sets the byte array to the printed value of \a n, formatted in format     \a f with precision \a prec, and returns a reference to the     byte array.      The format \a f can be any of the following:      \table     \header \li Format \li Meaning     \row \li \c e \li format as [-]9.9e[+|-]999     \row \li \c E \li format as [-]9.9E[+|-]999     \row \li \c f \li format as [-]9.9     \row \li \c g \li use \c e or \c f format, whichever is the most concise     \row \li \c G \li use \c E or \c f format, whichever is the most concise     \endtable      With 'e', 'E', and 'f', \a prec is the number of digits after the     decimal point. With 'g' and 'G', \a prec is the maximum number of     significant digits (trailing zeroes are omitted).      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa toDouble() */
 end_comment
 begin_function
 DECL|function|setNum
@@ -10211,7 +10220,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      \overload      Returns a byte array that contains the printed value of \a n,     formatted in format \a f with precision \a prec.      Argument \a n is formatted according to the \a f format specified,     which is \c g by default, and can be any of the following:      \table     \header \i Format \i Meaning     \row \i \c e \i format as [-]9.9e[+|-]999     \row \i \c E \i format as [-]9.9E[+|-]999     \row \i \c f \i format as [-]9.9     \row \i \c g \i use \c e or \c f format, whichever is the most concise     \row \i \c G \i use \c E or \c f format, whichever is the most concise     \endtable      With 'e', 'E', and 'f', \a prec is the number of digits after the     decimal point. With 'g' and 'G', \a prec is the maximum number of     significant digits (trailing zeroes are omitted).      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 42      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa toDouble() */
+comment|/*!      \overload      Returns a byte array that contains the printed value of \a n,     formatted in format \a f with precision \a prec.      Argument \a n is formatted according to the \a f format specified,     which is \c g by default, and can be any of the following:      \table     \header \li Format \li Meaning     \row \li \c e \li format as [-]9.9e[+|-]999     \row \li \c E \li format as [-]9.9E[+|-]999     \row \li \c f \li format as [-]9.9     \row \li \c g \li use \c e or \c f format, whichever is the most concise     \row \li \c G \li use \c E or \c f format, whichever is the most concise     \endtable      With 'e', 'E', and 'f', \a prec is the number of digits after the     decimal point. With 'g' and 'G', \a prec is the maximum number of     significant digits (trailing zeroes are omitted).      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 42      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa toDouble() */
 end_comment
 begin_function
 DECL|function|number

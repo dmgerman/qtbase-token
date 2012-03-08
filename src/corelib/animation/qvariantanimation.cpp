@@ -27,11 +27,6 @@ include|#
 directive|include
 file|<QtCore/qmutex.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<private/qmutexpool_p.h>
-end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -39,7 +34,7 @@ name|QT_NO_ANIMATION
 end_ifndef
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QVariantAnimation     \ingroup animation     \brief The QVariantAnimation class provides an abstract base class for animations.     \since 4.6      This class is part of \l{The Animation Framework}. It serves as a     base class for property and item animations, with functions for     shared functionality.      QVariantAnimation cannot be used directly as it is an abstract     class; it has a pure virtual method called updateCurrentValue().     The class performs interpolation over     \l{QVariant}s, but leaves using the interpolated values to its     subclasses. Currently, Qt provides QPropertyAnimation, which     animates Qt \l{Qt's Property System}{properties}. See the     QPropertyAnimation class description if you wish to animate such     properties.      You can then set start and end values for the property by calling     setStartValue() and setEndValue(), and finally call start() to     start the animation. QVariantAnimation will interpolate the     property of the target object and emit valueChanged(). To react to     a change in the current value you have to reimplement the     updateCurrentValue() virtual function.      It is also possible to set values at specified steps situated     between the start and end value. The interpolation will then     touch these points at the specified steps. Note that the start and     end values are defined as the key values at 0.0 and 1.0.      There are two ways to affect how QVariantAnimation interpolates     the values. You can set an easing curve by calling     setEasingCurve(), and configure the duration by calling     setDuration(). You can change how the QVariants are interpolated     by creating a subclass of QVariantAnimation, and reimplementing     the virtual interpolated() function.      Subclassing QVariantAnimation can be an alternative if you have     \l{QVariant}s that you do not wish to declare as Qt properties.     Note, however, that you in most cases will be better off declaring     your QVariant as a property.      Not all QVariant types are supported. Below is a list of currently     supported QVariant types:      \list         \o \l{QMetaType::}{Int}         \o \l{QMetaType::}{Double}         \o \l{QMetaType::}{Float}         \o \l{QMetaType::}{QLine}         \o \l{QMetaType::}{QLineF}         \o \l{QMetaType::}{QPoint}         \o \l{QMetaType::}{QPointF}         \o \l{QMetaType::}{QSize}         \o \l{QMetaType::}{QSizeF}         \o \l{QMetaType::}{QRect}         \o \l{QMetaType::}{QRectF}         \o \l{QMetaType::}{QColor}     \endlist      If you need to interpolate other variant types, including custom     types, you have to implement interpolation for these yourself.     To do this, you can register an interpolator function for a given     type. This function takes 3 parameters: the start value, the end value     and the current progress.      Example:     \code         QVariant myColorInterpolator(const QColor&start, const QColor&end, qreal progress)         {             ...             return QColor(...);         }         ...         qRegisterAnimationInterpolator<QColor>(myColorInterpolator);     \endcode      Another option is to reimplement interpolated(), which returns     interpolation values for the value being interpolated.      \omit We need some snippets around here. \endomit      \sa QPropertyAnimation, QAbstractAnimation, {The Animation Framework} */
+comment|/*!     \class QVariantAnimation     \ingroup animation     \brief The QVariantAnimation class provides an abstract base class for animations.     \since 4.6      This class is part of \l{The Animation Framework}. It serves as a     base class for property and item animations, with functions for     shared functionality.      QVariantAnimation cannot be used directly as it is an abstract     class; it has a pure virtual method called updateCurrentValue().     The class performs interpolation over     \l{QVariant}s, but leaves using the interpolated values to its     subclasses. Currently, Qt provides QPropertyAnimation, which     animates Qt \l{Qt's Property System}{properties}. See the     QPropertyAnimation class description if you wish to animate such     properties.      You can then set start and end values for the property by calling     setStartValue() and setEndValue(), and finally call start() to     start the animation. QVariantAnimation will interpolate the     property of the target object and emit valueChanged(). To react to     a change in the current value you have to reimplement the     updateCurrentValue() virtual function.      It is also possible to set values at specified steps situated     between the start and end value. The interpolation will then     touch these points at the specified steps. Note that the start and     end values are defined as the key values at 0.0 and 1.0.      There are two ways to affect how QVariantAnimation interpolates     the values. You can set an easing curve by calling     setEasingCurve(), and configure the duration by calling     setDuration(). You can change how the QVariants are interpolated     by creating a subclass of QVariantAnimation, and reimplementing     the virtual interpolated() function.      Subclassing QVariantAnimation can be an alternative if you have     \l{QVariant}s that you do not wish to declare as Qt properties.     Note, however, that you in most cases will be better off declaring     your QVariant as a property.      Not all QVariant types are supported. Below is a list of currently     supported QVariant types:      \list         \li \l{QMetaType::}{Int}         \li \l{QMetaType::}{Double}         \li \l{QMetaType::}{Float}         \li \l{QMetaType::}{QLine}         \li \l{QMetaType::}{QLineF}         \li \l{QMetaType::}{QPoint}         \li \l{QMetaType::}{QPointF}         \li \l{QMetaType::}{QSize}         \li \l{QMetaType::}{QSizeF}         \li \l{QMetaType::}{QRect}         \li \l{QMetaType::}{QRectF}         \li \l{QMetaType::}{QColor}     \endlist      If you need to interpolate other variant types, including custom     types, you have to implement interpolation for these yourself.     To do this, you can register an interpolator function for a given     type. This function takes 3 parameters: the start value, the end value     and the current progress.      Example:     \code         QVariant myColorInterpolator(const QColor&start, const QColor&end, qreal progress)         {             ...             return QColor(...);         }         ...         qRegisterAnimationInterpolator<QColor>(myColorInterpolator);     \endcode      Another option is to reimplement interpolated(), which returns     interpolation values for the value being interpolated.      \omit We need some snippets around here. \endomit      \sa QPropertyAnimation, QAbstractAnimation, {The Animation Framework} */
 comment|/*!     \fn void QVariantAnimation::valueChanged(const QVariant&value)      QVariantAnimation emits this signal whenever the current \a value changes.      \sa currentValue, startValue, endValue */
 comment|/*!     \fn void QVariantAnimation::updateCurrentValue(const QVariant&value) = 0;      This pure virtual function is called every time the animation's current     value changes. The \a value argument is the new current value.      \sa currentValue */
 DECL|function|animationValueLessThan
@@ -1438,6 +1433,13 @@ argument_list|,
 argument|registeredInterpolators
 argument_list|)
 end_macro
+begin_decl_stmt
+DECL|variable|registeredInterpolatorsMutex
+specifier|static
+name|QBasicMutex
+name|registeredInterpolatorsMutex
+decl_stmt|;
+end_decl_stmt
 begin_comment
 comment|/*!     \fn void qRegisterAnimationInterpolator(QVariant (*func)(const T&from, const T&to, qreal progress))     \relates QVariantAnimation     \threadsafe      Registers a custom interpolator \a func for the template type \c{T}.     The interpolator has to be registered before the animation is constructed.     To unregister (and use the default interpolator) set \a func to 0.  */
 end_comment
@@ -1479,22 +1481,13 @@ condition|(
 name|interpolators
 condition|)
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_THREAD
 name|QMutexLocker
 name|locker
 argument_list|(
-name|QMutexPool
-operator|::
-name|globalInstanceGet
-argument_list|(
-name|interpolators
-argument_list|)
+operator|&
+name|registeredInterpolatorsMutex
 argument_list|)
 decl_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|int
@@ -1592,6 +1585,7 @@ name|int
 name|interpolationType
 parameter_list|)
 block|{
+block|{
 name|QInterpolatorVector
 modifier|*
 name|interpolators
@@ -1599,22 +1593,13 @@ init|=
 name|registeredInterpolators
 argument_list|()
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_THREAD
 name|QMutexLocker
 name|locker
 argument_list|(
-name|QMutexPool
-operator|::
-name|globalInstanceGet
-argument_list|(
-name|interpolators
-argument_list|)
+operator|&
+name|registeredInterpolatorsMutex
 argument_list|)
 decl_stmt|;
-endif|#
-directive|endif
 name|QVariantAnimation
 operator|::
 name|Interpolator
@@ -1648,6 +1633,7 @@ condition|)
 return|return
 name|ret
 return|;
+block|}
 block|}
 switch|switch
 condition|(

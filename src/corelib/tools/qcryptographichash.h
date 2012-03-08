@@ -57,11 +57,13 @@ block|,
 name|Sha512
 block|}
 enum|;
+name|explicit
 name|QCryptographicHash
-argument_list|(
-argument|Algorithm method
-argument_list|)
-empty_stmt|;
+parameter_list|(
+name|Algorithm
+name|method
+parameter_list|)
+function_decl|;
 operator|~
 name|QCryptographicHash
 argument_list|()

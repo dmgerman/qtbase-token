@@ -298,6 +298,16 @@ name|xfixes_first_event
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|has_shape_extension
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
+name|has_input_shape
+argument_list|(
+literal|false
+argument_list|)
 block|{
 name|m_primaryScreen
 operator|=
@@ -425,7 +435,7 @@ argument_list|)
 condition|)
 name|qFatal
 argument_list|(
-literal|"Could not connect to display %s"
+literal|"QXcbConnection: Could not connect to display %s"
 argument_list|,
 name|m_displayName
 operator|.
@@ -696,6 +706,9 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
+name|initializeXShape
+argument_list|()
+expr_stmt|;
 name|m_wmSupport
 operator|.
 name|reset
@@ -755,10 +768,20 @@ block|{
 operator|delete
 name|m_clipboard
 expr_stmt|;
-name|qDeleteAll
-argument_list|(
+comment|// Delete screens in reverse order to avoid crash in case of multiple screens
+while|while
+condition|(
+operator|!
 name|m_screens
-argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+operator|delete
+name|m_screens
+operator|.
+name|takeLast
+argument_list|()
 expr_stmt|;
 ifdef|#
 directive|ifdef
@@ -942,7 +965,7 @@ parameter_list|(
 name|ev
 parameter_list|)
 define|\
-value|case ev: \         qDebug("%s: %d - %s - sequence: %d", message, int(ev), #ev, event->sequence); \         break;
+value|case ev: \         qDebug("QXcbConnection: %s: %d - %s - sequence: %d", message, int(ev), #ev, event->sequence); \         break;
 switch|switch
 condition|(
 name|event
@@ -1116,7 +1139,7 @@ expr_stmt|;
 default|default:
 name|qDebug
 argument_list|(
-literal|"%s: unknown event - response_type: %d - sequence: %d"
+literal|"QXcbConnection: %s: unknown event - response_type: %d - sequence: %d"
 argument_list|,
 name|message
 argument_list|,
@@ -1591,9 +1614,9 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
-name|qDebug
+name|qWarning
 argument_list|(
-literal|"XCB error: %d (%s), sequence: %d, resource id: %d, major code: %d (%s), minor code: %d"
+literal|"QXcbConnection: XCB error: %d (%s), sequence: %d, resource id: %d, major code: %d (%s), minor code: %d"
 argument_list|,
 name|int
 argument_list|(
@@ -2227,11 +2250,6 @@ operator|)
 operator|->
 name|time
 argument_list|)
-expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"XCB_SELECTION_NOTIFY"
 expr_stmt|;
 name|handled
 operator|=
@@ -3029,8 +3047,6 @@ operator|->
 name|handleStatus
 argument_list|(
 name|event
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -3055,8 +3071,6 @@ operator|->
 name|handleFinished
 argument_list|(
 name|event
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -3897,7 +3911,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Failed to initialize XFixes"
+literal|"QXcbConnection: Failed to initialize XFixes"
 argument_list|)
 expr_stmt|;
 name|free
@@ -3984,7 +3998,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"Failed to initialize XRender"
+literal|"QXcbConnection: Failed to initialize XRender"
 argument_list|)
 expr_stmt|;
 name|free
@@ -4000,6 +4014,112 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+block|}
+end_function
+begin_function
+DECL|function|initializeXShape
+name|void
+name|QXcbConnection
+operator|::
+name|initializeXShape
+parameter_list|()
+block|{
+specifier|const
+name|xcb_query_extension_reply_t
+modifier|*
+name|xshape_reply
+init|=
+name|xcb_get_extension_data
+argument_list|(
+name|m_connection
+argument_list|,
+operator|&
+name|xcb_shape_id
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|xshape_reply
+operator|||
+operator|!
+name|xshape_reply
+operator|->
+name|present
+condition|)
+return|return;
+name|has_shape_extension
+operator|=
+literal|true
+expr_stmt|;
+name|xcb_shape_query_version_cookie_t
+name|cookie
+init|=
+name|xcb_shape_query_version
+argument_list|(
+name|m_connection
+argument_list|)
+decl_stmt|;
+name|xcb_shape_query_version_reply_t
+modifier|*
+name|shape_query
+init|=
+name|xcb_shape_query_version_reply
+argument_list|(
+name|m_connection
+argument_list|,
+name|cookie
+argument_list|,
+name|NULL
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|shape_query
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QXcbConnection: Failed to initialize SHAPE extension"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|shape_query
+operator|->
+name|major_version
+operator|>
+literal|1
+operator|||
+operator|(
+name|shape_query
+operator|->
+name|major_version
+operator|==
+literal|1
+operator|&&
+name|shape_query
+operator|->
+name|minor_version
+operator|>=
+literal|1
+operator|)
+condition|)
+block|{
+comment|// The input shape is the only thing added in SHAPE 1.1
+name|has_input_shape
+operator|=
+literal|true
+expr_stmt|;
+block|}
+name|free
+argument_list|(
+name|shape_query
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 begin_if
@@ -4091,10 +4211,10 @@ operator|==
 literal|0
 condition|)
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Failed to connect to dri2"
+name|qWarning
+argument_list|(
+literal|"QXcbConnection: Failed to connect to DRI2"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -4136,10 +4256,12 @@ operator|<
 literal|0
 condition|)
 block|{
-name|qDebug
+name|qWarning
 argument_list|()
 operator|<<
-literal|"InitializeDri2: Could'nt open device<< dri2DeviceName"
+literal|"QXcbConnection: Couldn't open DRI2 device"
+operator|<<
+name|m_dri2_device_name
 expr_stmt|;
 name|m_dri2_device_name
 operator|=
@@ -4162,10 +4284,10 @@ name|magic
 argument_list|)
 condition|)
 block|{
-name|qDebug
-argument_list|()
-operator|<<
-literal|"Failed to get drmMagic"
+name|qWarning
+argument_list|(
+literal|"QXcbConnection: Failed to get drmMagic"
+argument_list|)
 expr_stmt|;
 return|return;
 block|}
@@ -4214,7 +4336,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"DRI2: failed to authenticate"
+literal|"QXcbConnection: DRI2: failed to authenticate"
 argument_list|)
 expr_stmt|;
 name|free
@@ -4243,7 +4365,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"failed to create display"
+literal|"QXcbConnection: Failed to create EGL display using DRI2"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -4274,7 +4396,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"failed to initialize display"
+literal|"QXcbConnection: Failed to initialize EGL display using DRI2"
 argument_list|)
 expr_stmt|;
 return|return;

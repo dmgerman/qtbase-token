@@ -1350,9 +1350,15 @@ name|deleter
 argument_list|,
 name|creator
 argument_list|,
-literal|0
+name|qMetaTypeDestructHelper
+argument_list|<
+name|void
+argument_list|>
 argument_list|,
-literal|0
+name|qMetaTypeConstructHelper
+argument_list|<
+name|void
+argument_list|>
 argument_list|,
 literal|0
 argument_list|,
@@ -1419,6 +1425,12 @@ name|deleter
 operator|||
 operator|!
 name|creator
+operator|||
+operator|!
+name|destructor
+operator|||
+operator|!
+name|constructor
 condition|)
 return|return
 operator|-
@@ -6549,6 +6561,15 @@ operator|.
 name|deleter
 expr_stmt|;
 block|}
+name|Q_ASSERT_X
+argument_list|(
+name|deleter
+argument_list|,
+literal|"void QMetaType::destroy(int type, void *data)"
+argument_list|,
+literal|"The type was not properly registered"
+argument_list|)
+expr_stmt|;
 name|deleter
 argument_list|(
 name|where
@@ -6977,6 +6998,15 @@ operator|.
 name|constructor
 expr_stmt|;
 block|}
+name|Q_ASSERT_X
+argument_list|(
+name|ctor
+argument_list|,
+literal|"void *QMetaType::construct(int type, void *where, const void *copy)"
+argument_list|,
+literal|"The type was not properly registered"
+argument_list|)
+expr_stmt|;
 return|return
 name|ctor
 argument_list|(
@@ -7389,6 +7419,15 @@ operator|.
 name|destructor
 expr_stmt|;
 block|}
+name|Q_ASSERT_X
+argument_list|(
+name|dtor
+argument_list|,
+literal|"void QMetaType::destruct(int type, void *where)"
+argument_list|,
+literal|"The type was not properly registered"
+argument_list|)
+expr_stmt|;
 name|dtor
 argument_list|(
 name|where

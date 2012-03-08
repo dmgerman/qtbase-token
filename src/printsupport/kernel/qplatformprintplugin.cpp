@@ -71,6 +71,7 @@ name|QPlatformPrinterSupportPlugin
 operator|(
 operator|)
 block|{ }
+comment|/*!     \internal      Returns a lazily-initialized singleton. Ownership is granted to the     QPlatformPrinterSupportPlugin, which is never unloaded or destroyed until     application exit, i.e. you can expect this pointer to always be valid and     multiple calls to this function will always return the same pointer. */
 DECL|function|get
 name|QPlatformPrinterSupport
 operator|*
@@ -79,6 +80,19 @@ operator|::
 name|get
 operator|(
 operator|)
+block|{
+specifier|static
+name|QPlatformPrinterSupport
+operator|*
+name|singleton
+operator|=
+literal|0
+block|;
+if|if
+condition|(
+operator|!
+name|singleton
+condition|)
 block|{
 name|QStringList
 name|k
@@ -132,8 +146,9 @@ return|return
 literal|0
 return|;
 end_if
-begin_return
-return|return
+begin_expr_stmt
+name|singleton
+operator|=
 name|plugin
 operator|->
 name|create
@@ -143,7 +158,12 @@ operator|.
 name|first
 argument_list|()
 argument_list|)
-return|;
-end_return
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+unit|}     return
+name|singleton
+expr_stmt|;
+end_expr_stmt
 unit|}  QT_END_NAMESPACE
 end_unit

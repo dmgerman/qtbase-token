@@ -84,6 +84,12 @@ name|physicalSize
 argument_list|()
 specifier|const
 block|;
+name|QPlatformCursor
+operator|*
+name|cursor
+argument_list|()
+specifier|const
+block|;
 name|GLuint
 name|framebufferObject
 argument_list|()

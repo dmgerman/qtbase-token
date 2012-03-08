@@ -1065,7 +1065,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"createCursorXRender: query_pict_formats failed"
+literal|"qt_xcb_createCursorXRender: query_pict_formats failed"
 argument_list|)
 expr_stmt|;
 name|free
@@ -1101,7 +1101,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"createCursorXRender: Failed to find format PICT_STANDARD_ARGB_32"
+literal|"qt_xcb_createCursorXRender: Failed to find format PICT_STANDARD_ARGB_32"
 argument_list|)
 expr_stmt|;
 name|free
@@ -1174,7 +1174,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"createCursorXRender: xcb_image_create failed"
+literal|"qt_xcb_createCursorXRender: xcb_image_create failed"
 argument_list|)
 expr_stmt|;
 name|free
@@ -1213,7 +1213,7 @@ condition|)
 block|{
 name|qWarning
 argument_list|(
-literal|"createCursorXRender: Failed to malloc() image data"
+literal|"qt_xcb_createCursorXRender: Failed to malloc() image data"
 argument_list|)
 expr_stmt|;
 name|xcb_image_destroy

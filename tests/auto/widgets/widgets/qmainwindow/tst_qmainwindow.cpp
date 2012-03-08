@@ -13109,6 +13109,20 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// For QTBUG-15689:
+comment|// Following commands is used to simulate user move action. A better way should
+comment|// use QMainWindowLayout::startSeparatorMove/separatorMove/endSeparatorMove,
+comment|// but then we will need real start/end position coordinates.
+name|l
+operator|->
+name|layoutState
+operator|.
+name|dockAreaLayout
+operator|.
+name|fallbackToSizeHints
+operator|=
+literal|false
+expr_stmt|;
 name|l
 operator|->
 name|layoutState

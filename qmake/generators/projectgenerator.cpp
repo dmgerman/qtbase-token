@@ -2560,31 +2560,6 @@ name|endl
 operator|<<
 name|endl
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|Option
-operator|::
-name|user_configs
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-name|t
-operator|<<
-literal|"CONFIG += "
-operator|<<
-name|Option
-operator|::
-name|user_configs
-operator|.
-name|join
-argument_list|(
-literal|" "
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
 name|int
 name|i
 decl_stmt|;

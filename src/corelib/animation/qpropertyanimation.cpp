@@ -23,7 +23,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<private/qmutexpool_p.h>
+file|<QtCore/QMutex>
 end_include
 begin_ifndef
 ifndef|#
@@ -642,16 +642,15 @@ block|{
 ifndef|#
 directive|ifndef
 name|QT_NO_THREAD
+specifier|static
+name|QBasicMutex
+name|mutex
+decl_stmt|;
 name|QMutexLocker
 name|locker
 argument_list|(
-name|QMutexPool
-operator|::
-name|globalInstanceGet
-argument_list|(
 operator|&
-name|staticMetaObject
-argument_list|)
+name|mutex
 argument_list|)
 decl_stmt|;
 endif|#
@@ -725,6 +724,11 @@ name|key
 argument_list|,
 name|this
 argument_list|)
+expr_stmt|;
+name|locker
+operator|.
+name|unlock
+argument_list|()
 expr_stmt|;
 comment|// update the default start value
 if|if

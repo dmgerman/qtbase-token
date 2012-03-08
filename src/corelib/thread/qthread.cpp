@@ -20,11 +20,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qmutexpool_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qreadwritelock.h"
 end_include
 begin_include
@@ -1117,77 +1112,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Initializes the QThread system. */
-end_comment
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-end_if
-begin_function_decl
-name|void
-name|qt_create_tls
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_function
-DECL|function|initialize
-name|void
-name|QThread
-operator|::
-name|initialize
-parameter_list|()
-block|{
-if|if
-condition|(
-name|qt_global_mutexpool
-condition|)
-return|return;
-name|qt_global_mutexpool
-operator|=
-name|QMutexPool
-operator|::
-name|instance
-argument_list|()
-expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_WIN
-argument_list|)
-name|qt_create_tls
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
-block|}
-end_function
-begin_comment
-comment|/*! \internal     Cleans up the QThread system. */
-end_comment
-begin_function
-DECL|function|cleanup
-name|void
-name|QThread
-operator|::
-name|cleanup
-parameter_list|()
-block|{
-name|qt_global_mutexpool
-operator|=
-literal|0
-expr_stmt|;
-block|}
-end_function
-begin_comment
 comment|/*! \fn void QThread::setPriority(Priority priority)     \since 4.1      This function sets the \a priority for a running thread. If the     thread is not running, this function does nothing and returns     immediately.  Use start() to start a thread with a specific     priority.      The \a priority argument can be any value in the \c     QThread::Priority enum except for \c InheritPriorty.      The effect of the \a priority parameter is dependent on the     operating system's scheduling policy. In particular, the \a priority     will be ignored on systems that do not support thread priorities     (such as on Linux, see http://linux.die.net/man/2/sched_setscheduler     for more details).      \sa Priority priority() start() */
 end_comment
 begin_comment
@@ -1245,7 +1169,7 @@ begin_comment
 comment|/*!     \fn void QThread::terminate()      Terminates the execution of the thread. The thread may or may not     be terminated immediately, depending on the operating systems     scheduling policies. Use QThread::wait() after terminate() for     synchronous termination.      When the thread is terminated, all threads waiting for the thread     to finish will be woken up.      \warning This function is dangerous and its use is discouraged.     The thread can be terminated at any point in its code path.     Threads can be terminated while modifying data. There is no     chance for the thread to clean up after itself, unlock any held     mutexes, etc. In short, use this function only if absolutely     necessary.      Termination can be explicitly enabled or disabled by calling     QThread::setTerminationEnabled(). Calling this function while     termination is disabled results in the termination being     deferred, until termination is re-enabled. See the documentation     of QThread::setTerminationEnabled() for more information.      \sa setTerminationEnabled() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QThread::wait(unsigned long time)      Blocks the thread until either of these conditions is met:      \list     \o The thread associated with this QThread object has finished        execution (i.e. when it returns from \l{run()}). This function        will return true if the thread has finished. It also returns        true if the thread has not been started yet.     \o \a time milliseconds has elapsed. If \a time is ULONG_MAX (the         default), then the wait will never timeout (the thread must         return from \l{run()}). This function will return false if the         wait timed out.     \endlist      This provides similar functionality to the POSIX \c     pthread_join() function.      \sa sleep(), terminate() */
+comment|/*!     \fn bool QThread::wait(unsigned long time)      Blocks the thread until either of these conditions is met:      \list     \li The thread associated with this QThread object has finished        execution (i.e. when it returns from \l{run()}). This function        will return true if the thread has finished. It also returns        true if the thread has not been started yet.     \li \a time milliseconds has elapsed. If \a time is ULONG_MAX (the         default), then the wait will never timeout (the thread must         return from \l{run()}). This function will return false if the         wait timed out.     \endlist      This provides similar functionality to the POSIX \c     pthread_join() function.      \sa sleep(), terminate() */
 end_comment
 begin_comment
 comment|/*!     \fn void QThread::setTerminationEnabled(bool enabled)      Enables or disables termination of the current thread based on the     \a enabled parameter. The thread must have been started by     QThread.      When \a enabled is false, termination is disabled.  Future calls     to QThread::terminate() will return immediately without effect.     Instead, the termination is deferred until termination is enabled.      When \a enabled is true, termination is enabled.  Future calls to     QThread::terminate() will terminate the thread normally.  If     termination has been deferred (i.e. QThread::terminate() was     called with termination disabled), this function will terminate     the calling thread \e immediately.  Note that this function will     not return in this case.      \sa terminate() */

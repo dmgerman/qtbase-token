@@ -2761,28 +2761,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \obsolete      Returns a number that identifies the contents of this     QIcon object. Distinct QIcon objects can have     the same serial number if they refer to the same contents     (but they don't have to). Also, the serial number of     a QIcon object may change during its lifetime.      Use cacheKey() instead.      A null icon always has a serial number of 0.      Serial numbers are mostly useful in conjunction with caching.      \sa QPixmap::serialNumber() */
+comment|/*! \fn int QIcon::serialNumber() const     \obsolete      Returns a number that identifies the contents of this     QIcon object. Distinct QIcon objects can have     the same serial number if they refer to the same contents     (but they don't have to). Also, the serial number of     a QIcon object may change during its lifetime.      Use cacheKey() instead.      A null icon always has a serial number of 0.      Serial numbers are mostly useful in conjunction with caching.      \sa QPixmap::serialNumber() */
 end_comment
-begin_function
-DECL|function|serialNumber
-name|int
-name|QIcon
-operator|::
-name|serialNumber
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|d
-condition|?
-name|d
-operator|->
-name|serialNum
-else|:
-literal|0
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     Returns a number that identifies the contents of this QIcon     object. Distinct QIcon objects can have the same key if     they refer to the same contents.     \since 4.3      The cacheKey() will change when the icon is altered via     addPixmap() or addFile().      Cache keys are mostly useful in conjunction with caching.      \sa QPixmap::cacheKey() */
 end_comment
@@ -3576,7 +3556,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.6      Returns the QIcon corresponding to \a name in the current     icon theme. If no such icon is found in the current theme     \a fallback is returned instead.      The latest version of the freedesktop icon specification and naming     specification can be obtained here:      \list     \o \l{http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html}     \o \l{http://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html}     \endlist      To fetch an icon from the current icon theme:      \snippet doc/src/snippets/code/src_gui_image_qicon.cpp 3      Or if you want to provide a guaranteed fallback for platforms that     do not support theme icons, you can use the second argument:      \snippet doc/src/snippets/code/src_gui_image_qicon.cpp 4      \note By default, only X11 will support themed icons. In order to     use themed icons on Mac and Windows, you will have to bundle a     compliant theme in one of your themeSearchPaths() and set the     appropriate themeName().      \sa themeName(), setThemeName(), themeSearchPaths() */
+comment|/*!     \since 4.6      Returns the QIcon corresponding to \a name in the current     icon theme. If no such icon is found in the current theme     \a fallback is returned instead.      The latest version of the freedesktop icon specification and naming     specification can be obtained here:      \list     \li \l{http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html}     \li \l{http://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html}     \endlist      To fetch an icon from the current icon theme:      \snippet doc/src/snippets/code/src_gui_image_qicon.cpp 3      Or if you want to provide a guaranteed fallback for platforms that     do not support theme icons, you can use the second argument:      \snippet doc/src/snippets/code/src_gui_image_qicon.cpp 4      \note By default, only X11 will support themed icons. In order to     use themed icons on Mac and Windows, you will have to bundle a     compliant theme in one of your themeSearchPaths() and set the     appropriate themeName().      \sa themeName(), setThemeName(), themeSearchPaths() */
 end_comment
 begin_function
 DECL|function|fromTheme

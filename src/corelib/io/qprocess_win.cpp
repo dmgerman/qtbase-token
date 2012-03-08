@@ -2816,14 +2816,6 @@ name|NOTIFYTIMEOUT
 argument_list|)
 expr_stmt|;
 block|}
-comment|// give the process a chance to start ...
-name|Sleep
-argument_list|(
-name|SLEEPMIN
-operator|*
-literal|2
-argument_list|)
-expr_stmt|;
 name|_q_startupNotification
 argument_list|()
 expr_stmt|;

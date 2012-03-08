@@ -1360,34 +1360,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns fonts for class names.      \sa QGuiApplication::font()     \since 5.0 */
-end_comment
-begin_function
-DECL|function|defaultFonts
-name|QHash
-argument_list|<
-name|QByteArray
-argument_list|,
-name|QFont
-argument_list|>
-name|QPlatformFontDatabase
-operator|::
-name|defaultFonts
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|QHash
-argument_list|<
-name|QByteArray
-argument_list|,
-name|QFont
-argument_list|>
-argument_list|()
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!     Resolve alias to actual font family names.      \since 5.0  */
 end_comment
 begin_function

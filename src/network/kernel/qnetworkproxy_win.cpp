@@ -1042,6 +1042,11 @@ operator|::
 name|QWindowsSystemProxy
 parameter_list|()
 member_init_list|:
+name|hHttpSession
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|initialized
 argument_list|(
 literal|false

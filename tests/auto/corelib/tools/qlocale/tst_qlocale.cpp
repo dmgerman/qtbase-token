@@ -6425,18 +6425,6 @@ operator|)
 operator|&
 name|negativeZero
 decl_stmt|;
-ifdef|#
-directive|ifdef
-name|QT_ARMFPA
-name|ptr
-index|[
-literal|3
-index|]
-operator|=
-literal|0x80
-expr_stmt|;
-else|#
-directive|else
 name|ptr
 index|[
 name|QSysInfo
@@ -6454,8 +6442,6 @@ index|]
 operator|=
 literal|0x80
 expr_stmt|;
-endif|#
-directive|endif
 name|QString
 name|s
 init|=

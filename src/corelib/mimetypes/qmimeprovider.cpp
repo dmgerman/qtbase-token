@@ -1173,6 +1173,17 @@ block|{
 name|checkCache
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|fileName
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return
+name|QStringList
+argument_list|()
+return|;
 specifier|const
 name|QString
 name|lowerFileName

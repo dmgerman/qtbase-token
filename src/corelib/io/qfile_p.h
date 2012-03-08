@@ -46,17 +46,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"private/qabstractfileengine_p.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"private/qiodevice_p.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"private/qringbuffer_p.h"
+file|"private/qfiledevice_p.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -70,7 +60,7 @@ name|class
 name|QFilePrivate
 range|:
 name|public
-name|QIODevicePrivate
+name|QFileDevicePrivate
 block|{
 name|Q_DECLARE_PUBLIC
 argument_list|(
@@ -118,60 +108,6 @@ specifier|const
 block|;
 name|QString
 name|fileName
-block|;
-name|mutable
-name|QAbstractFileEngine
-operator|*
-name|fileEngine
-block|;
-name|bool
-name|lastWasWrite
-block|;
-name|QRingBuffer
-name|writeBuffer
-block|;
-specifier|inline
-name|bool
-name|ensureFlushed
-argument_list|()
-specifier|const
-block|;
-name|bool
-name|putCharHelper
-argument_list|(
-argument|char c
-argument_list|)
-block|;
-name|QFile
-operator|::
-name|FileError
-name|error
-block|;
-name|void
-name|setError
-argument_list|(
-argument|QFile::FileError err
-argument_list|)
-block|;
-name|void
-name|setError
-argument_list|(
-argument|QFile::FileError err
-argument_list|,
-argument|const QString&errorString
-argument_list|)
-block|;
-name|void
-name|setError
-argument_list|(
-argument|QFile::FileError err
-argument_list|,
-argument|int errNum
-argument_list|)
-block|;
-name|mutable
-name|qint64
-name|cachedSize
 block|;
 name|private
 operator|:

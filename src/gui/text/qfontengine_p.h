@@ -139,6 +139,7 @@ range|:
 name|public
 name|QObject
 block|{
+name|Q_OBJECT
 name|public
 operator|:
 expr|enum
@@ -792,6 +793,11 @@ name|harfbuzzFace
 argument_list|()
 specifier|const
 block|;
+name|HB_Face
+name|initializedHarfbuzzFace
+argument_list|()
+specifier|const
+block|;
 name|virtual
 name|HB_Error
 name|getPointInOutline
@@ -968,16 +974,6 @@ block|;
 comment|// Number of positions within a single pixel for this cache
 name|protected
 operator|:
-specifier|static
-specifier|const
-name|QVector
-operator|<
-name|QRgb
-operator|>
-operator|&
-name|grayPalette
-argument_list|()
-block|;
 name|QFixed
 name|lastRightBearing
 argument_list|(
@@ -1326,6 +1322,7 @@ operator|:
 name|public
 name|QFontEngine
 block|{
+name|Q_OBJECT
 name|public
 operator|:
 name|explicit

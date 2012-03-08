@@ -156,10 +156,6 @@ argument|int msecs = -
 literal|1
 argument_list|)
 block|;
-name|bool
-name|startFrontRunnable
-argument_list|()
-block|;
 name|void
 name|stealRunnable
 argument_list|(

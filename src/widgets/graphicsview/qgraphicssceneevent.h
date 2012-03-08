@@ -97,6 +97,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QGraphicsSceneEvent
 argument_list|(
 argument|Type type
@@ -164,6 +165,7 @@ name|QGraphicsSceneEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QGraphicsSceneMouseEvent
 argument_list|(
 argument|Type type = None
@@ -370,6 +372,7 @@ name|QGraphicsSceneEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QGraphicsSceneWheelEvent
 argument_list|(
 argument|Type type = None
@@ -510,6 +513,7 @@ block|,
 name|Other
 block|}
 block|;
+name|explicit
 name|QGraphicsSceneContextMenuEvent
 argument_list|(
 argument|Type type = None
@@ -614,6 +618,7 @@ name|QGraphicsSceneEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QGraphicsSceneHoverEvent
 argument_list|(
 argument|Type type = None
@@ -749,6 +754,7 @@ name|QGraphicsSceneEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QGraphicsSceneHelpEvent
 argument_list|(
 argument|Type type = None
@@ -815,6 +821,7 @@ name|QGraphicsSceneEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QGraphicsSceneDragDropEvent
 argument_list|(
 argument|Type type = None

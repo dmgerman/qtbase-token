@@ -117,8 +117,51 @@ include|#
 directive|include
 file|<limits.h>
 end_include
-begin_decl_stmt
+begin_macro
 name|QT_BEGIN_NAMESPACE
+end_macro
+begin_struct
+DECL|struct|ExtraData
+struct|struct
+name|QObjectPrivate
+operator|::
+name|ExtraData
+block|{
+DECL|function|ExtraData
+name|ExtraData
+parameter_list|()
+block|{}
+ifndef|#
+directive|ifndef
+name|QT_NO_USERDATA
+DECL|member|userData
+name|QVector
+argument_list|<
+name|QObjectUserData
+modifier|*
+argument_list|>
+name|userData
+decl_stmt|;
+endif|#
+directive|endif
+DECL|member|propertyNames
+name|QList
+argument_list|<
+name|QByteArray
+argument_list|>
+name|propertyNames
+decl_stmt|;
+DECL|member|propertyValues
+name|QList
+argument_list|<
+name|QVariant
+argument_list|>
+name|propertyValues
+decl_stmt|;
+block|}
+struct|;
+end_struct
+begin_decl_stmt
 DECL|variable|DIRECT_CONNECTION_ONLY
 specifier|static
 name|int
@@ -5529,7 +5572,7 @@ begin_comment
 comment|/*!     \fn QObject::destroyed(QObject *obj)      This signal is emitted immediately before the object \a obj is     destroyed, and can not be blocked.      All the objects's children are destroyed immediately after this     signal is emitted.      \sa deleteLater(), QPointer */
 end_comment
 begin_comment
-comment|/*!     Schedules this object for deletion.      The object will be deleted when control returns to the event     loop. If the event loop is not running when this function is     called (e.g. deleteLater() is called on an object before     QCoreApplication::exec()), the object will be deleted once the     event loop is started.      Note that entering and leaving a new event loop (e.g., by opening a modal     dialog) will \e not perform the deferred deletion; for the object to be     deleted, the control must return to the event loop from which     deleteLater() was called.      \bold{Note:} It is safe to call this function more than once; when the     first deferred deletion event is delivered, any pending events for the     object are removed from the event queue.      \sa destroyed(), QPointer */
+comment|/*!     Schedules this object for deletion.      The object will be deleted when control returns to the event     loop. If the event loop is not running when this function is     called (e.g. deleteLater() is called on an object before     QCoreApplication::exec()), the object will be deleted once the     event loop is started.      Note that entering and leaving a new event loop (e.g., by opening a modal     dialog) will \e not perform the deferred deletion; for the object to be     deleted, the control must return to the event loop from which     deleteLater() was called.      \b{Note:} It is safe to call this function more than once; when the     first deferred deletion event is delivered, any pending events for the     object are removed from the event queue.      \sa destroyed(), QPointer */
 end_comment
 begin_function
 DECL|function|deleteLater
@@ -5557,10 +5600,10 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QString QObject::tr(const char *sourceText, const char *disambiguation, int n)     \reentrant      Returns a translated version of \a sourceText, optionally based on a     \a disambiguation string and value of \a n for strings containing plurals;     otherwise returns \a sourceText itself if no appropriate translated string     is available.      Example:     \snippet mainwindows/sdi/mainwindow.cpp implicit tr context     \dots      If the same \a sourceText is used in different roles within the     same context, an additional identifying string may be passed in     \a disambiguation (0 by default). In Qt 4.4 and earlier, this was     the preferred way to pass comments to translators.      Example:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 17     \dots      See \l{Writing Source Code for Translation} for a detailed description of     Qt's translation mechanisms in general, and the     \l{Writing Source Code for Translation#Disambiguation}{Disambiguation}     section for information on disambiguation.      \warning This method is reentrant only if all translators are     installed \e before calling this method. Installing or removing     translators while performing translations is not supported. Doing     so will probably result in crashes or other undesirable behavior.      \sa trUtf8(), QApplication::translate(), QTextCodec::setCodecForTr(), {Internationalization with Qt} */
+comment|/*!     \fn QString QObject::tr(const char *sourceText, const char *disambiguation, int n)     \reentrant      Returns a translated version of \a sourceText, optionally based on a     \a disambiguation string and value of \a n for strings containing plurals;     otherwise returns \a sourceText itself if no appropriate translated string     is available.      Example:     \snippet mainwindows/sdi/mainwindow.cpp implicit tr context     \dots      If the same \a sourceText is used in different roles within the     same context, an additional identifying string may be passed in     \a disambiguation (0 by default). In Qt 4.4 and earlier, this was     the preferred way to pass comments to translators.      Example:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 17     \dots      See \l{Writing Source Code for Translation} for a detailed description of     Qt's translation mechanisms in general, and the     \l{Writing Source Code for Translation#Disambiguation}{Disambiguation}     section for information on disambiguation.      \warning This method is reentrant only if all translators are     installed \e before calling this method. Installing or removing     translators while performing translations is not supported. Doing     so will probably result in crashes or other undesirable behavior.      \sa trUtf8(), QApplication::translate(), {Internationalization with Qt} */
 end_comment
 begin_comment
-comment|/*!     \fn QString QObject::trUtf8(const char *sourceText, const char *disambiguation, int n)     \reentrant      Returns a translated version of \a sourceText, or     QString::fromUtf8(\a sourceText) if there is no appropriate     version. It is otherwise identical to tr(\a sourceText, \a     disambiguation, \a n).      Note that using the Utf8 variants of the translation functions     is not required if \c CODECFORTR is already set to UTF-8 in the     qmake project file and QTextCodec::setCodecForTr("UTF-8") is     used.      \warning This method is reentrant only if all translators are     installed \e before calling this method. Installing or removing     translators while performing translations is not supported. Doing     so will probably result in crashes or other undesirable behavior.      \warning For portability reasons, we recommend that you use     escape sequences for specifying non-ASCII characters in string     literals to trUtf8(). For example:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 20      \sa tr(), QApplication::translate(), {Internationalization with Qt} */
+comment|/*!     \fn QString QObject::trUtf8(const char *sourceText, const char *disambiguation, int n)     \reentrant      Returns a translated version of \a sourceText, or     QString::fromUtf8(\a sourceText) if there is no appropriate     version. It is otherwise identical to tr(\a sourceText, \a     disambiguation, \a n).      \warning This method is reentrant only if all translators are     installed \e before calling this method. Installing or removing     translators while performing translations is not supported. Doing     so will probably result in crashes or other undesirable behavior.      \warning For portability reasons, we recommend that you use     escape sequences for specifying non-ASCII characters in string     literals to trUtf8(). For example:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 20      \sa tr(), QApplication::translate(), {Internationalization with Qt} */
 end_comment
 begin_comment
 comment|/*****************************************************************************   Signals and slots  *****************************************************************************/
@@ -6503,7 +6546,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      This helper function calculates signal and method index for the given     member in the specified class.      \list     \o If member.mobj is 0 then both signalIndex and methodIndex are set to -1.      \o If specified member is not a member of obj instance class (or one of     its parent classes) then both signalIndex and methodIndex are set to -1.     \endlist      This function is used by QObject::connect and QObject::disconnect which     are working with QMetaMethod.      \a signalIndex is set to the signal index of member. If the member     specified is not signal this variable is set to -1.      \a methodIndex is set to the method index of the member. If the     member is not a method of the object specified by the \a obj argument this     variable is set to -1. */
+comment|/*!     \internal      This helper function calculates signal and method index for the given     member in the specified class.      \list     \li If member.mobj is 0 then both signalIndex and methodIndex are set to -1.      \li If specified member is not a member of obj instance class (or one of     its parent classes) then both signalIndex and methodIndex are set to -1.     \endlist      This function is used by QObject::connect and QObject::disconnect which     are working with QMetaMethod.      \a signalIndex is set to the signal index of member. If the member     specified is not signal this variable is set to -1.      \a methodIndex is set to the method index of the member. If the     member is not a method of the object specified by the \a obj argument this     variable is set to -1. */
 end_comment
 begin_function
 DECL|function|memberIndexes
@@ -8592,7 +8635,7 @@ begin_comment
 comment|/*!     \fn bool QObject::connect(const QObject *sender, const char *signal, const char *method, Qt::ConnectionType type) const     \overload connect()     \threadsafe      Connects \a signal from the \a sender object to this object's \a     method.      Equivalent to connect(\a sender, \a signal, \c this, \a method, \a type).      Every connection you make emits a signal, so duplicate connections emit     two signals. You can break a connection using disconnect().      \sa disconnect() */
 end_comment
 begin_comment
-comment|/*!     \threadsafe      Disconnects \a signal in object \a sender from \a method in object     \a receiver. Returns true if the connection is successfully broken;     otherwise returns false.      A signal-slot connection is removed when either of the objects     involved are destroyed.      disconnect() is typically used in three ways, as the following     examples demonstrate.     \list 1     \i Disconnect everything connected to an object's signals:         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 26         equivalent to the non-static overloaded function         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 27      \i Disconnect everything connected to a specific signal:         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 28         equivalent to the non-static overloaded function         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 29      \i Disconnect a specific receiver:         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 30         equivalent to the non-static overloaded function         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 31      \endlist      0 may be used as a wildcard, meaning "any signal", "any receiving     object", or "any slot in the receiving object", respectively.      The \a sender may never be 0. (You cannot disconnect signals from     more than one object in a single call.)      If \a signal is 0, it disconnects \a receiver and \a method from     any signal. If not, only the specified signal is disconnected.      If \a receiver is 0, it disconnects anything connected to \a     signal. If not, slots in objects other than \a receiver are not     disconnected.      If \a method is 0, it disconnects anything that is connected to \a     receiver. If not, only slots named \a method will be disconnected,     and all other slots are left alone. The \a method must be 0 if \a     receiver is left out, so you cannot disconnect a     specifically-named slot on all objects.      \sa connect() */
+comment|/*!     \threadsafe      Disconnects \a signal in object \a sender from \a method in object     \a receiver. Returns true if the connection is successfully broken;     otherwise returns false.      A signal-slot connection is removed when either of the objects     involved are destroyed.      disconnect() is typically used in three ways, as the following     examples demonstrate.     \list 1     \li Disconnect everything connected to an object's signals:         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 26         equivalent to the non-static overloaded function         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 27      \li Disconnect everything connected to a specific signal:         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 28         equivalent to the non-static overloaded function         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 29      \li Disconnect a specific receiver:         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 30         equivalent to the non-static overloaded function         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 31      \endlist      0 may be used as a wildcard, meaning "any signal", "any receiving     object", or "any slot in the receiving object", respectively.      The \a sender may never be 0. (You cannot disconnect signals from     more than one object in a single call.)      If \a signal is 0, it disconnects \a receiver and \a method from     any signal. If not, only the specified signal is disconnected.      If \a receiver is 0, it disconnects anything connected to \a     signal. If not, slots in objects other than \a receiver are not     disconnected.      If \a method is 0, it disconnects anything that is connected to \a     receiver. If not, only slots named \a method will be disconnected,     and all other slots are left alone. The \a method must be 0 if \a     receiver is left out, so you cannot disconnect a     specifically-named slot on all objects.      \sa connect() */
 end_comment
 begin_function
 DECL|function|disconnect
@@ -9308,7 +9351,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8      Disconnects \a signal in object \a sender from \a method in object     \a receiver. Returns true if the connection is successfully broken;     otherwise returns false.      This function provides the same possibilities like     disconnect(const QObject *sender, const char *signal, const QObject *receiver, const char *method)     but uses QMetaMethod to represent the signal and the method to be disconnected.      Additionally this function returnsfalse and no signals and slots disconnected     if:     \list 1          \i \a signal is not a member of sender class or one of its parent classes.          \i \a method is not a member of receiver class or one of its parent classes.          \i \a signal instance represents not a signal.      \endlist      QMetaMethod() may be used as wildcard in the meaning "any signal" or "any slot in receiving object".     In the same way 0 can be used for \a receiver in the meaning "any receiving object". In this case     method should also be QMetaMethod(). \a sender parameter should be never 0.      \sa disconnect(const QObject *sender, const char *signal, const QObject *receiver, const char *method)  */
+comment|/*!     \since 4.8      Disconnects \a signal in object \a sender from \a method in object     \a receiver. Returns true if the connection is successfully broken;     otherwise returns false.      This function provides the same possibilities like     disconnect(const QObject *sender, const char *signal, const QObject *receiver, const char *method)     but uses QMetaMethod to represent the signal and the method to be disconnected.      Additionally this function returnsfalse and no signals and slots disconnected     if:     \list 1          \li \a signal is not a member of sender class or one of its parent classes.          \li \a method is not a member of receiver class or one of its parent classes.          \li \a signal instance represents not a signal.      \endlist      QMetaMethod() may be used as wildcard in the meaning "any signal" or "any slot in receiving object".     In the same way 0 can be used for \a receiver in the meaning "any receiving object". In this case     method should also be QMetaMethod(). \a sender parameter should be never 0.      \sa disconnect(const QObject *sender, const char *signal, const QObject *receiver, const char *method)  */
 end_comment
 begin_function
 DECL|function|disconnect
@@ -12767,7 +12810,7 @@ directive|ifndef
 name|QT_NO_PROPERTIES
 end_ifndef
 begin_comment
-comment|/*!   Sets the value of the object's \a name property to \a value.    If the property is defined in the class using Q_PROPERTY then   true is returned on success and false otherwise. If the property   is not defined using Q_PROPERTY, and therefore not listed in the   meta-object, it is added as a dynamic property and false is returned.    Information about all available properties is provided through the   metaObject() and dynamicPropertyNames().    Dynamic properties can be queried again using property() and can be   removed by setting the property value to an invalid QVariant.   Changing the value of a dynamic property causes a QDynamicPropertyChangeEvent   to be sent to the object.    \bold{Note:} Dynamic properties starting with "_q_" are reserved for internal   purposes.    \sa property(), metaObject(), dynamicPropertyNames() */
+comment|/*!   Sets the value of the object's \a name property to \a value.    If the property is defined in the class using Q_PROPERTY then   true is returned on success and false otherwise. If the property   is not defined using Q_PROPERTY, and therefore not listed in the   meta-object, it is added as a dynamic property and false is returned.    Information about all available properties is provided through the   metaObject() and dynamicPropertyNames().    Dynamic properties can be queried again using property() and can be   removed by setting the property value to an invalid QVariant.   Changing the value of a dynamic property causes a QDynamicPropertyChangeEvent   to be sent to the object.    \b{Note:} Dynamic properties starting with "_q_" are reserved for internal   purposes.    \sa property(), metaObject(), dynamicPropertyNames() */
 end_comment
 begin_function
 DECL|function|setProperty
@@ -14889,7 +14932,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QObject::disconnect(const QObject *sender, (T::*signal)(...), const Qbject *receiver, (T::*method)(...))     \threadsafe     \overload      Disconnects \a signal in object \a sender from \a method in object     \a receiver. Returns true if the connection is successfully broken;     otherwise returns false.      A signal-slot connection is removed when either of the objects     involved are destroyed.      disconnect() is typically used in three ways, as the following     examples demonstrate.     \list 1     \i Disconnect everything connected to an object's signals:         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 26      \i Disconnect everything connected to a specific signal:         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 47      \i Disconnect a specific receiver:         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 30      \i Disconnect a connection from one specific signal to a specific slot:         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 48       \endlist      0 may be used as a wildcard, meaning "any signal", "any receiving     object", or "any slot in the receiving object", respectively.      The \a sender may never be 0. (You cannot disconnect signals from     more than one object in a single call.)      If \a signal is 0, it disconnects \a receiver and \a method from     any signal. If not, only the specified signal is disconnected.      If \a receiver is 0, it disconnects anything connected to \a     signal. If not, slots in objects other than \a receiver are not     disconnected.      If \a method is 0, it disconnects anything that is connected to \a     receiver. If not, only slots named \a method will be disconnected,     and all other slots are left alone. The \a method must be 0 if \a     receiver is left out, so you cannot disconnect a     specifically-named slot on all objects.      \note It is not possible to use this overload to diconnect signals     connected to functors or lambda expressions. That is because it is not     possible to compare them. Instead, use the olverload that take a     QMetaObject::Connection      \sa connect() */
+comment|/*! \fn bool QObject::disconnect(const QObject *sender, (T::*signal)(...), const Qbject *receiver, (T::*method)(...))     \threadsafe     \overload      Disconnects \a signal in object \a sender from \a method in object     \a receiver. Returns true if the connection is successfully broken;     otherwise returns false.      A signal-slot connection is removed when either of the objects     involved are destroyed.      disconnect() is typically used in three ways, as the following     examples demonstrate.     \list 1     \li Disconnect everything connected to an object's signals:         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 26      \li Disconnect everything connected to a specific signal:         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 47      \li Disconnect a specific receiver:         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 30      \li Disconnect a connection from one specific signal to a specific slot:         \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 48       \endlist      0 may be used as a wildcard, meaning "any signal", "any receiving     object", or "any slot in the receiving object", respectively.      The \a sender may never be 0. (You cannot disconnect signals from     more than one object in a single call.)      If \a signal is 0, it disconnects \a receiver and \a method from     any signal. If not, only the specified signal is disconnected.      If \a receiver is 0, it disconnects anything connected to \a     signal. If not, slots in objects other than \a receiver are not     disconnected.      If \a method is 0, it disconnects anything that is connected to \a     receiver. If not, only slots named \a method will be disconnected,     and all other slots are left alone. The \a method must be 0 if \a     receiver is left out, so you cannot disconnect a     specifically-named slot on all objects.      \note It is not possible to use this overload to diconnect signals     connected to functors or lambda expressions. That is because it is not     possible to compare them. Instead, use the olverload that take a     QMetaObject::Connection      \sa connect() */
 end_comment
 begin_function
 DECL|function|disconnectImpl

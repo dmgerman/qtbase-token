@@ -1436,7 +1436,7 @@ name|isFinished
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+name|QVERIFY2
 argument_list|(
 name|int
 argument_list|(
@@ -1445,8 +1445,16 @@ operator|.
 name|error
 argument_list|()
 argument_list|)
-argument_list|,
+operator|==
 name|error
+argument_list|,
+name|qPrintable
+argument_list|(
+name|lookup
+operator|.
+name|errorString
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

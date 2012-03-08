@@ -5041,7 +5041,7 @@ block|{
 ifdef|#
 directive|ifdef
 name|QT_NO_SSL
-name|QFAIL
+name|QSKIP
 argument_list|(
 literal|"SSL not compiled in"
 argument_list|)

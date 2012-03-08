@@ -3675,6 +3675,9 @@ operator|.
 name|write
 argument_list|(
 name|m_out
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|m_out
 operator|.

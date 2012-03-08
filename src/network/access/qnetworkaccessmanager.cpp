@@ -442,7 +442,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Sets the proxy factory for this class to be \a factory. A proxy     factory is used to determine a more specific list of proxies to be     used for a given request, instead of trying to use the same proxy     value for all requests.      All queries sent by QNetworkAccessManager will have type     QNetworkProxyQuery::UrlRequest.      For example, a proxy factory could apply the following rules:     \list       \o if the target address is in the local network (for example,          if the hostname contains no dots or if it's an IP address in          the organization's range), return QNetworkProxy::NoProxy       \o if the request is FTP, return an FTP proxy       \o if the request is HTTP or HTTPS, then return an HTTP proxy       \o otherwise, return a SOCKSv5 proxy server     \endlist      The lifetime of the object \a factory will be managed by     QNetworkAccessManager. It will delete the object when necessary.      \note If a specific proxy is set with setProxy(), the factory will not     be used.      \sa proxyFactory(), setProxy(), QNetworkProxyQuery */
+comment|/*!     \since 4.5      Sets the proxy factory for this class to be \a factory. A proxy     factory is used to determine a more specific list of proxies to be     used for a given request, instead of trying to use the same proxy     value for all requests.      All queries sent by QNetworkAccessManager will have type     QNetworkProxyQuery::UrlRequest.      For example, a proxy factory could apply the following rules:     \list       \li if the target address is in the local network (for example,          if the hostname contains no dots or if it's an IP address in          the organization's range), return QNetworkProxy::NoProxy       \li if the request is FTP, return an FTP proxy       \li if the request is HTTP or HTTPS, then return an HTTP proxy       \li otherwise, return a SOCKSv5 proxy server     \endlist      The lifetime of the object \a factory will be managed by     QNetworkAccessManager. It will delete the object when necessary.      \note If a specific proxy is set with setProxy(), the factory will not     be used.      \sa proxyFactory(), setProxy(), QNetworkProxyQuery */
 end_comment
 begin_function
 DECL|function|setProxyFactory
@@ -2515,6 +2515,9 @@ parameter_list|,
 name|QUrl
 modifier|*
 name|urlForLastAuthentication
+parameter_list|,
+name|bool
+name|allowAuthenticationReuse
 parameter_list|)
 block|{
 name|Q_Q
@@ -2527,6 +2530,9 @@ comment|// being called twice for the same URL means the authentication failed
 comment|// also called when last URL is empty, e.g. on first call
 if|if
 condition|(
+name|allowAuthenticationReuse
+operator|&&
+operator|(
 name|urlForLastAuthentication
 operator|->
 name|isEmpty
@@ -2536,6 +2542,7 @@ name|url
 operator|!=
 operator|*
 name|urlForLastAuthentication
+operator|)
 condition|)
 block|{
 comment|// if credentials are included in the url, then use them
@@ -2665,6 +2672,10 @@ argument_list|,
 name|authenticator
 argument_list|)
 emit|;
+if|if
+condition|(
+name|allowAuthenticationReuse
+condition|)
 name|authenticationManager
 operator|->
 name|cacheCredentials

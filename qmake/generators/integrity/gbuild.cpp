@@ -910,6 +910,9 @@ argument_list|()
 operator|.
 name|toAscii
 argument_list|()
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QTextStream
@@ -2550,6 +2553,9 @@ argument_list|,
 name|outputName
 operator|.
 name|toAscii
+argument_list|()
+operator|.
+name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;

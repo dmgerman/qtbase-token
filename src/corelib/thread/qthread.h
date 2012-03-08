@@ -278,16 +278,6 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QThread
 argument_list|)
-specifier|static
-name|void
-name|initialize
-argument_list|()
-block|;
-specifier|static
-name|void
-name|cleanup
-argument_list|()
-block|;
 name|friend
 name|class
 name|QCoreApplication

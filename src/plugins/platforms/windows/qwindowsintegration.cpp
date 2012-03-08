@@ -125,7 +125,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QWindowsNativeInterface     \brief Provides access to native handles.      Currently implemented keys     \list     \o handle (HWND)     \o getDC (DC)     \o releaseDC Releases the previously acquired DC and returns 0.     \endlist      \ingroup qt-lighthouse-win */
+comment|/*!     \class QWindowsNativeInterface     \brief Provides access to native handles.      Currently implemented keys     \list     \li handle (HWND)     \li getDC (DC)     \li releaseDC Releases the previously acquired DC and returns 0.     \endlist      \ingroup qt-lighthouse-win */
 end_comment
 begin_class
 DECL|class|QWindowsNativeInterface

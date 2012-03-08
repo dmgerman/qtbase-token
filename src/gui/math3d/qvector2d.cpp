@@ -37,7 +37,7 @@ name|QT_BEGIN_NAMESPACE
 ifndef|#
 directive|ifndef
 name|QT_NO_VECTOR2D
-comment|/*!     \class QVector2D     \brief The QVector2D class represents a vector or vertex in 2D space.     \since 4.6     \ingroup painting     \ingroup painting-3D      The QVector2D class can also be used to represent vertices in 2D space.     We therefore do not need to provide a separate vertex class.      \bold{Note:} By design values in the QVector2D instance are stored as \c float.     This means that on platforms where the \c qreal arguments to QVector2D     functions are represented by \c double values, it is possible to     lose precision.      \sa QVector3D, QVector4D, QQuaternion */
+comment|/*!     \class QVector2D     \brief The QVector2D class represents a vector or vertex in 2D space.     \since 4.6     \ingroup painting     \ingroup painting-3D      The QVector2D class can also be used to represent vertices in 2D space.     We therefore do not need to provide a separate vertex class.      \b{Note:} By design values in the QVector2D instance are stored as \c float.     This means that on platforms where the \c qreal arguments to QVector2D     functions are represented by \c double values, it is possible to     lose precision.      \sa QVector3D, QVector4D, QQuaternion */
 comment|/*!     \fn QVector2D::QVector2D()      Constructs a null vector, i.e. with coordinates (0, 0, 0). */
 comment|/*!     \fn QVector2D::QVector2D(qreal xpos, qreal ypos)      Constructs a vector with coordinates (\a xpos, \a ypos). */
 comment|/*!     \fn QVector2D::QVector2D(const QPoint& point)      Constructs a vector with x and y coordinates from a 2D \a point. */

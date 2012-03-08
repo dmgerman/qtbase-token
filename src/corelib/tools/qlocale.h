@@ -16,11 +16,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/qvariant.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<QtCore/qstring.h>
 end_include
 begin_include

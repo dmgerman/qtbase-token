@@ -366,11 +366,6 @@ operator|=
 literal|83
 block|,
 comment|// input method
-name|AccessibilityPrepare
-operator|=
-literal|86
-block|,
-comment|// accessibility information is requested
 name|TabletMove
 operator|=
 literal|87
@@ -864,11 +859,13 @@ literal|65535
 comment|// last user event id
 block|}
 decl_stmt|;
+name|explicit
 name|QEvent
-argument_list|(
-argument|Type type
-argument_list|)
-empty_stmt|;
+parameter_list|(
+name|Type
+name|type
+parameter_list|)
+function_decl|;
 name|virtual
 operator|~
 name|QEvent
@@ -1053,6 +1050,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QTimerEvent
 argument_list|(
 argument|int timerId
@@ -1169,6 +1167,7 @@ name|QEvent
 block|{
 name|public
 operator|:
+name|explicit
 name|QDynamicPropertyChangeEvent
 argument_list|(
 specifier|const

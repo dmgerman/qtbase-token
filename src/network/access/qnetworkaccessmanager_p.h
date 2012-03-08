@@ -230,6 +230,8 @@ argument_list|,
 argument|QUrl&url
 argument_list|,
 argument|QUrl *urlForLastAuthentication
+argument_list|,
+argument|bool allowAuthenticationReuse = true
 argument_list|)
 block|;
 name|void

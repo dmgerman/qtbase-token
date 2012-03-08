@@ -72,6 +72,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
+name|Q_GUI_EXPORT
 name|QPaintEnginePrivate
 block|{
 name|Q_DECLARE_PUBLIC

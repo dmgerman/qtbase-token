@@ -28,6 +28,7 @@ name|QT_BEGIN_NAMESPACE
 name|class
 name|QXlibCursor
 range|:
+name|public
 name|QPlatformCursor
 block|{
 name|public
@@ -72,7 +73,11 @@ operator|*
 name|testLiteScreen
 argument_list|()
 specifier|const
-block|;
+block|{
+return|return
+name|m_screen
+return|;
+block|}
 name|QMap
 operator|<
 name|int
@@ -80,6 +85,10 @@ block|,
 name|Cursor
 operator|>
 name|cursorMap
+block|;
+name|QXlibScreen
+operator|*
+name|m_screen
 block|; }
 decl_stmt|;
 end_decl_stmt

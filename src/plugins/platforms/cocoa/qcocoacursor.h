@@ -38,12 +38,8 @@ name|QPlatformCursor
 block|{
 name|public
 operator|:
-name|explicit
 name|QCocoaCursor
-argument_list|(
-name|QPlatformScreen
-operator|*
-argument_list|)
+argument_list|()
 block|;
 name|virtual
 name|void

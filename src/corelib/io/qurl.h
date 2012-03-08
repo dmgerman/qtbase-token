@@ -114,6 +114,10 @@ init|=
 literal|0x80
 block|,
 comment|// 0x100: private: normalized
+name|PreferLocalFile
+init|=
+literal|0x200
+block|,
 name|StripTrailingSlash
 init|=
 literal|0x10000

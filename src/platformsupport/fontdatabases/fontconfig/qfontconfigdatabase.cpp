@@ -2708,7 +2708,7 @@ name|hbFace
 init|=
 name|engine
 operator|->
-name|harfbuzzFace
+name|initializedHarfbuzzFace
 argument_list|()
 decl_stmt|;
 if|if

@@ -152,7 +152,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QAbstractSpinBox     \brief The QAbstractSpinBox class provides a spinbox and a line edit to     display values.      \ingroup abstractwidgets     \inmodule QtWidgets      The class is designed as a common super class for widgets like     QSpinBox, QDoubleSpinBox and QDateTimeEdit      Here are the main properties of the class:      \list 1      \i \l text: The text that is displayed in the QAbstractSpinBox.      \i \l alignment: The alignment of the text in the QAbstractSpinBox.      \i \l wrapping: Whether the QAbstractSpinBox wraps from the     minimum value to the maximum value and vica versa.      \endlist      QAbstractSpinBox provides a virtual stepBy() function that is     called whenever the user triggers a step. This function takes an     integer value to signify how many steps were taken. E.g. Pressing     Qt::Key_Down will trigger a call to stepBy(-1).      QAbstractSpinBox also provide a virtual function stepEnabled() to     determine whether stepping up/down is allowed at any point. This     function returns a bitset of StepEnabled.      \sa QAbstractSlider, QSpinBox, QDoubleSpinBox, QDateTimeEdit,         {Spin Boxes Example} */
+comment|/*!     \class QAbstractSpinBox     \brief The QAbstractSpinBox class provides a spinbox and a line edit to     display values.      \ingroup abstractwidgets     \inmodule QtWidgets      The class is designed as a common super class for widgets like     QSpinBox, QDoubleSpinBox and QDateTimeEdit      Here are the main properties of the class:      \list 1      \li \l text: The text that is displayed in the QAbstractSpinBox.      \li \l alignment: The alignment of the text in the QAbstractSpinBox.      \li \l wrapping: Whether the QAbstractSpinBox wraps from the     minimum value to the maximum value and vica versa.      \endlist      QAbstractSpinBox provides a virtual stepBy() function that is     called whenever the user triggers a step. This function takes an     integer value to signify how many steps were taken. E.g. Pressing     Qt::Key_Down will trigger a call to stepBy(-1).      QAbstractSpinBox also provide a virtual function stepEnabled() to     determine whether stepping up/down is allowed at any point. This     function returns a bitset of StepEnabled.      \sa QAbstractSlider, QSpinBox, QDoubleSpinBox, QDateTimeEdit,         {Spin Boxes Example} */
 end_comment
 begin_comment
 comment|/*!     \enum QAbstractSpinBox::StepEnabledFlag      \value StepNone     \value StepUpEnabled     \value StepDownEnabled */
@@ -249,7 +249,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \enum QAbstractSpinBox::ButtonSymbols      This enum type describes the symbols that can be displayed on the buttons     in a spin box.      \inlineimage qspinbox-updown.png     \inlineimage qspinbox-plusminus.png      \value UpDownArrows Little arrows in the classic style.     \value PlusMinus \bold{+} and \bold{-} symbols.     \value NoButtons Don't display buttons.      \sa QAbstractSpinBox::buttonSymbols */
+comment|/*!     \enum QAbstractSpinBox::ButtonSymbols      This enum type describes the symbols that can be displayed on the buttons     in a spin box.      \inlineimage qspinbox-updown.png     \inlineimage qspinbox-plusminus.png      \value UpDownArrows Little arrows in the classic style.     \value PlusMinus \b{+} and \b{-} symbols.     \value NoButtons Don't display buttons.      \sa QAbstractSpinBox::buttonSymbols */
 end_comment
 begin_comment
 comment|/*!     \property QAbstractSpinBox::buttonSymbols      \brief the current button symbol mode      The possible values can be either \c UpDownArrows or \c PlusMinus.     The default is \c UpDownArrows.      Note that some styles might render PlusMinus and UpDownArrows     identically.      \sa ButtonSymbols */
@@ -2680,7 +2680,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \reimp      This function handles keyboard input.      The following keys are handled specifically:     \table     \row \i Enter/Return          \i This will reinterpret the text and emit a signal even if the value has not changed          since last time a signal was emitted.     \row \i Up          \i This will invoke stepBy(1)     \row \i Down          \i This will invoke stepBy(-1)     \row \i Page up          \i This will invoke stepBy(10)     \row \i Page down          \i This will invoke stepBy(-10)     \endtable */
+comment|/*!     \reimp      This function handles keyboard input.      The following keys are handled specifically:     \table     \row \li Enter/Return          \li This will reinterpret the text and emit a signal even if the value has not changed          since last time a signal was emitted.     \row \li Up          \li This will invoke stepBy(1)     \row \li Down          \li This will invoke stepBy(-1)     \row \li Page up          \li This will invoke stepBy(10)     \row \li Page down          \li This will invoke stepBy(-10)     \endtable */
 end_comment
 begin_function
 DECL|function|keyPressEvent

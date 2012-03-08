@@ -37,6 +37,7 @@ argument_list|)
 argument_list|)
 block|{     }
 DECL|function|StateSwitchEvent
+specifier|explicit
 name|StateSwitchEvent
 parameter_list|(
 name|int

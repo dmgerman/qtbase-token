@@ -99,6 +99,7 @@ argument|int filterRole READ filterRole WRITE setFilterRole
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QSortFilterProxyModel
 argument_list|(
 name|QObject

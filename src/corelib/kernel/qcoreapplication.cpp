@@ -1954,16 +1954,6 @@ name|self
 operator|=
 name|this
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_THREAD
-name|QThread
-operator|::
-name|initialize
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 comment|// use the event dispatcher created by the app programmer (if any)
 if|if
 condition|(
@@ -2182,11 +2172,6 @@ condition|)
 name|globalThreadPool
 operator|->
 name|waitForDone
-argument_list|()
-expr_stmt|;
-name|QThread
-operator|::
-name|cleanup
 argument_list|()
 expr_stmt|;
 endif|#
@@ -2442,7 +2427,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sends \a event to \a receiver: \a {receiver}->event(\a event).   Returns the value that is returned from the receiver's event   handler. Note that this function is called for all events sent to   any object in any thread.    For certain types of events (e.g. mouse and key events),   the event will be propagated to the receiver's parent and so on up to   the top-level object if the receiver is not interested in the event   (i.e., it returns false).    There are five different ways that events can be processed;   reimplementing this virtual function is just one of them. All five   approaches are listed below:   \list 1   \i Reimplementing paintEvent(), mousePressEvent() and so   on. This is the commonest, easiest and least powerful way.    \i Reimplementing this function. This is very powerful, providing   complete control; but only one subclass can be active at a time.    \i Installing an event filter on QCoreApplication::instance(). Such   an event filter is able to process all events for all widgets, so   it's just as powerful as reimplementing notify(); furthermore, it's   possible to have more than one application-global event filter.   Global event filters even see mouse events for   \l{QWidget::isEnabled()}{disabled widgets}. Note that application   event filters are only called for objects that live in the main   thread.    \i Reimplementing QObject::event() (as QWidget does). If you do   this you get Tab key presses, and you get to see the events before   any widget-specific event filters.    \i Installing an event filter on the object. Such an event filter gets all   the events, including Tab and Shift+Tab key press events, as long as they   do not change the focus widget.   \endlist    \sa QObject::event(), installEventFilter() */
+comment|/*!   Sends \a event to \a receiver: \a {receiver}->event(\a event).   Returns the value that is returned from the receiver's event   handler. Note that this function is called for all events sent to   any object in any thread.    For certain types of events (e.g. mouse and key events),   the event will be propagated to the receiver's parent and so on up to   the top-level object if the receiver is not interested in the event   (i.e., it returns false).    There are five different ways that events can be processed;   reimplementing this virtual function is just one of them. All five   approaches are listed below:   \list 1   \li Reimplementing paintEvent(), mousePressEvent() and so   on. This is the commonest, easiest and least powerful way.    \li Reimplementing this function. This is very powerful, providing   complete control; but only one subclass can be active at a time.    \li Installing an event filter on QCoreApplication::instance(). Such   an event filter is able to process all events for all widgets, so   it's just as powerful as reimplementing notify(); furthermore, it's   possible to have more than one application-global event filter.   Global event filters even see mouse events for   \l{QWidget::isEnabled()}{disabled widgets}. Note that application   event filters are only called for objects that live in the main   thread.    \li Reimplementing QObject::event() (as QWidget does). If you do   this you get Tab key presses, and you get to see the events before   any widget-specific event filters.    \li Installing an event filter on the object. Such an event filter gets all   the events, including Tab and Shift+Tab key press events, as long as they   do not change the focus widget.   \endlist    \sa QObject::event(), installEventFilter() */
 end_comment
 begin_function
 DECL|function|notify
@@ -5106,7 +5091,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \enum QCoreApplication::Encoding      This enum type defines the 8-bit encoding of character string     arguments to translate():      \value CodecForTr  The encoding specified by                        QTextCodec::codecForTr() (Latin-1 if none has                        been set).     \value UnicodeUTF8  UTF-8.     \value DefaultCodec  (Obsolete) Use CodecForTr instead.      \sa QObject::tr(), QObject::trUtf8(), QString::fromUtf8() */
+comment|/*! \enum QCoreApplication::Encoding      This enum type defines the 8-bit encoding of character string     arguments to translate():      \value UnicodeUTF8   UTF-8.     \value Latin1        Latin-1.     \value DefaultCodec  Latin-1.      \sa QObject::tr(), QObject::trUtf8(), QString::fromUtf8() */
 end_comment
 begin_function
 DECL|function|ref
@@ -5530,7 +5515,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \reentrant     \since 4.5      Returns the translation text for \a sourceText, by querying the     installed translation files. The translation files are searched     from the most recently installed file back to the first     installed file.      QObject::tr() and QObject::trUtf8() provide this functionality     more conveniently.      \a context is typically a class name (e.g., "MyDialog") and \a     sourceText is either English text or a short identifying text.      \a disambiguation is an identifying string, for when the same \a     sourceText is used in different roles within the same context. By     default, it is null.      See the \l QTranslator and \l QObject::tr() documentation for     more information about contexts, disambiguations and comments.      \a encoding indicates the 8-bit encoding of character strings.      \a n is used in conjunction with \c %n to support plural forms.     See QObject::tr() for details.      If none of the translation files contain a translation for \a     sourceText in \a context, this function returns a QString     equivalent of \a sourceText. The encoding of \a sourceText is     specified by \e encoding; it defaults to CodecForTr.      This function is not virtual. You can use alternative translation     techniques by subclassing \l QTranslator.      \warning This method is reentrant only if all translators are     installed \e before calling this method. Installing or removing     translators while performing translations is not supported. Doing     so will most likely result in crashes or other undesirable     behavior.      \sa QObject::tr() installTranslator() QTextCodec::codecForTr() */
+comment|/*!     \reentrant     \since 4.5      Returns the translation text for \a sourceText, by querying the     installed translation files. The translation files are searched     from the most recently installed file back to the first     installed file.      QObject::tr() and QObject::trUtf8() provide this functionality     more conveniently.      \a context is typically a class name (e.g., "MyDialog") and \a     sourceText is either English text or a short identifying text.      \a disambiguation is an identifying string, for when the same \a     sourceText is used in different roles within the same context. By     default, it is null.      See the \l QTranslator and \l QObject::tr() documentation for     more information about contexts, disambiguations and comments.      \a encoding indicates the 8-bit encoding of character strings.      \a n is used in conjunction with \c %n to support plural forms.     See QObject::tr() for details.      If none of the translation files contain a translation for \a     sourceText in \a context, this function returns a QString     equivalent of \a sourceText. The encoding of \a sourceText is     specified by \e encoding; it defaults to DefaultCodec.      This function is not virtual. You can use alternative translation     techniques by subclassing \l QTranslator.      \warning This method is reentrant only if all translators are     installed \e before calling this method. Installing or removing     translators while performing translations is not supported. Doing     so will most likely result in crashes or other undesirable     behavior.      \sa QObject::tr() installTranslator() */
 end_comment
 begin_function
 DECL|function|translate
@@ -5690,28 +5675,6 @@ operator|=
 name|QString
 operator|::
 name|fromUtf8
-argument_list|(
-name|sourceText
-argument_list|)
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|QTextCodec
-operator|::
-name|codecForTr
-argument_list|()
-operator|!=
-literal|0
-condition|)
-name|result
-operator|=
-name|QTextCodec
-operator|::
-name|codecForTr
-argument_list|()
-operator|->
-name|toUnicode
 argument_list|(
 name|sourceText
 argument_list|)

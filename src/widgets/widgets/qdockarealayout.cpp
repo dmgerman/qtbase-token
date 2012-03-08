@@ -15272,10 +15272,6 @@ argument_list|(
 name|bottom_min
 argument_list|)
 expr_stmt|;
-name|fallbackToSizeHints
-operator|=
-literal|false
-expr_stmt|;
 if|if
 condition|(
 name|_ver_struct_list

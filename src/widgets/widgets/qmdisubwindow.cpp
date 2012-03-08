@@ -11034,7 +11034,7 @@ name|QApplication
 operator|::
 name|font
 argument_list|(
-literal|"QWorkspaceTitleBar"
+literal|"QMdiSubWindowTitleBar"
 argument_list|)
 expr_stmt|;
 comment|// We don't want the menu icon by default on mac.

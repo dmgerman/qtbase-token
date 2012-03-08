@@ -344,17 +344,6 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|virtual
-name|QHash
-operator|<
-name|QByteArray
-operator|,
-name|QFont
-operator|>
-name|defaultFonts
-argument_list|()
-specifier|const
-expr_stmt|;
-name|virtual
 name|QString
 name|resolveFontFamilyAlias
 argument_list|(

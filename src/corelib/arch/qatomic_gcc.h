@@ -180,7 +180,7 @@ specifier|static
 name|T
 name|loadAcquire
 argument_list|(
-argument|T&_q_value
+argument|const T&_q_value
 argument_list|)
 block|{
 name|T

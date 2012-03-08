@@ -628,7 +628,7 @@ name|key
 expr_stmt|;
 block|}
 struct|;
-name|QMap
+name|QHash
 operator|<
 name|QPaintDevice
 operator|*
@@ -2519,7 +2519,7 @@ name|needsRepaint
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
-name|QMap
+name|QHash
 operator|<
 name|QWidget
 operator|*

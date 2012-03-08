@@ -988,7 +988,7 @@ comment|// separator extent
 name|bool
 name|fallbackToSizeHints
 decl_stmt|;
-comment|//determines if we should use the sizehint for the dock areas (true until the layout is restored or the central widget is set)
+comment|//determines if we should use the sizehint for the dock areas (true until the layout is restored or the separator is moved by user)
 name|mutable
 name|QVector
 operator|<

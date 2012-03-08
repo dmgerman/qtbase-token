@@ -1433,6 +1433,7 @@ operator|<
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 condition|)
 block|{
 name|int
@@ -1906,6 +1907,7 @@ init|=
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -2312,6 +2314,7 @@ operator|>=
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 operator|||
 name|to
 operator|<
@@ -2322,6 +2325,7 @@ operator|>=
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 condition|)
 return|return;
 if|if
@@ -2934,6 +2938,7 @@ operator|>=
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 operator|||
 name|second
 operator|<
@@ -2944,6 +2949,7 @@ operator|>=
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 condition|)
 return|return;
 name|int
@@ -3553,6 +3559,7 @@ operator|>=
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 condition|)
 return|return
 literal|false
@@ -3877,6 +3884,7 @@ return|return
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 return|;
 block|}
 end_function
@@ -3934,6 +3942,7 @@ operator|<
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 condition|)
 return|return
 name|logicalIndex
@@ -3971,6 +3980,7 @@ operator|<
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -4015,6 +4025,7 @@ operator|>=
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 condition|)
 return|return
 operator|-
@@ -4634,6 +4645,7 @@ operator|>=
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 condition|)
 block|{
 emit|emit
@@ -4672,6 +4684,7 @@ operator|>=
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 operator|||
 operator|(
 name|old
@@ -5844,6 +5857,7 @@ init|=
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 decl_stmt|;
 name|d
 operator|->
@@ -5865,12 +5879,6 @@ name|logicalFirst
 operator|+
 literal|1
 decl_stmt|;
-name|d
-operator|->
-name|sectionCount
-operator|+=
-name|insertCount
-expr_stmt|;
 name|QHeaderViewPrivate
 operator|::
 name|SectionSpan
@@ -6008,6 +6016,7 @@ operator|=
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 expr_stmt|;
 elseif|else
 if|if
@@ -6025,6 +6034,7 @@ operator|=
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 expr_stmt|;
 comment|// clear selection cache
 name|d
@@ -6327,6 +6337,7 @@ operator|<
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 condition|;
 operator|++
 name|j
@@ -6513,6 +6524,7 @@ init|;
 name|j
 operator|<
 name|sectionCount
+argument_list|()
 condition|;
 operator|++
 name|j
@@ -6559,6 +6571,7 @@ init|=
 name|qMin
 argument_list|(
 name|sectionCount
+argument_list|()
 operator|-
 name|changeCount
 argument_list|,
@@ -6687,6 +6700,7 @@ name|logicalFirst
 argument_list|)
 operator|>=
 name|sectionCount
+argument_list|()
 condition|)
 return|return;
 name|int
@@ -6763,6 +6777,7 @@ decl_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|sectionCount
+argument_list|()
 operator|==
 name|logicalIndices
 operator|.
@@ -6780,6 +6795,7 @@ init|;
 name|v
 operator|<
 name|sectionCount
+argument_list|()
 condition|;
 operator|++
 name|v
@@ -7045,10 +7061,6 @@ block|}
 block|}
 comment|// ### handle sectionSelection (sectionHidden is handled by updateHiddenSections)
 block|}
-name|sectionCount
-operator|-=
-name|changeCount
-expr_stmt|;
 comment|// update sorting column
 if|if
 condition|(
@@ -7078,6 +7090,7 @@ comment|// if we only have the last section (the "end" position) left, the heade
 if|if
 condition|(
 name|sectionCount
+argument_list|()
 operator|<=
 literal|0
 condition|)
@@ -7251,6 +7264,7 @@ name|modelSectionCount
 argument_list|()
 operator|!=
 name|sectionCount
+argument_list|()
 condition|)
 name|q
 operator|->
@@ -7362,6 +7376,7 @@ name|modelSectionCount
 argument_list|()
 operator|!=
 name|sectionCount
+argument_list|()
 operator|)
 condition|)
 block|{
@@ -7449,6 +7464,7 @@ init|=
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 decl_stmt|;
 specifier|const
 name|int
@@ -7529,6 +7545,7 @@ argument_list|(
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 operator|-
 literal|1
 argument_list|)
@@ -7596,6 +7613,14 @@ operator|->
 name|invalidateCachedSizeHint
 argument_list|()
 expr_stmt|;
+name|int
+name|oldCount
+init|=
+name|d
+operator|->
+name|sectionCount
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|end
@@ -7605,6 +7630,7 @@ operator|<
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 condition|)
 block|{
 name|int
@@ -7623,6 +7649,7 @@ argument_list|,
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 operator|-
 literal|1
 argument_list|)
@@ -7640,9 +7667,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|d
-operator|->
-name|sectionCount
+name|oldCount
 operator|-
 name|newCount
 operator|>
@@ -7668,6 +7693,7 @@ operator|<
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 condition|;
 operator|++
 name|i
@@ -7742,20 +7768,12 @@ block|}
 block|}
 block|}
 name|int
-name|oldCount
+name|newSectionCount
 init|=
-name|d
-operator|->
-name|sectionCount
-decl_stmt|;
-name|d
-operator|->
-name|sectionCount
-operator|=
 name|end
 operator|+
 literal|1
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -7771,9 +7789,7 @@ if|if
 condition|(
 name|oldCount
 operator|<=
-name|d
-operator|->
-name|sectionCount
+name|newSectionCount
 condition|)
 block|{
 name|d
@@ -7782,9 +7798,7 @@ name|logicalIndices
 operator|.
 name|resize
 argument_list|(
-name|d
-operator|->
-name|sectionCount
+name|newSectionCount
 argument_list|)
 expr_stmt|;
 name|d
@@ -7793,9 +7807,7 @@ name|visualIndices
 operator|.
 name|resize
 argument_list|(
-name|d
-operator|->
-name|sectionCount
+name|newSectionCount
 argument_list|)
 expr_stmt|;
 for|for
@@ -7807,9 +7819,7 @@ name|oldCount
 init|;
 name|i
 operator|<
-name|d
-operator|->
-name|sectionCount
+name|newSectionCount
 condition|;
 operator|++
 name|i
@@ -7873,9 +7883,7 @@ if|if
 condition|(
 name|v
 operator|<
-name|d
-operator|->
-name|sectionCount
+name|newSectionCount
 condition|)
 block|{
 name|d
@@ -7907,9 +7915,7 @@ name|logicalIndices
 operator|.
 name|resize
 argument_list|(
-name|d
-operator|->
-name|sectionCount
+name|newSectionCount
 argument_list|)
 expr_stmt|;
 name|d
@@ -7918,9 +7924,7 @@ name|visualIndices
 operator|.
 name|resize
 argument_list|(
-name|d
-operator|->
-name|sectionCount
+name|newSectionCount
 argument_list|)
 expr_stmt|;
 block|}
@@ -7937,9 +7941,7 @@ name|d
 operator|->
 name|stretchSections
 operator|=
-name|d
-operator|->
-name|sectionCount
+name|newSectionCount
 expr_stmt|;
 elseif|else
 if|if
@@ -7954,9 +7956,7 @@ name|d
 operator|->
 name|contentsSections
 operator|=
-name|d
-operator|->
-name|sectionCount
+name|newSectionCount
 expr_stmt|;
 if|if
 condition|(
@@ -7974,16 +7974,12 @@ name|sectionHidden
 operator|.
 name|resize
 argument_list|(
-name|d
-operator|->
-name|sectionCount
+name|newSectionCount
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|d
-operator|->
-name|sectionCount
+name|newSectionCount
 operator|>
 name|oldCount
 condition|)
@@ -8018,6 +8014,7 @@ condition|(
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 operator|!=
 name|oldCount
 condition|)
@@ -8029,6 +8026,7 @@ argument_list|,
 name|d
 operator|->
 name|sectionCount
+argument_list|()
 argument_list|)
 emit|;
 name|d
@@ -13598,6 +13596,7 @@ expr_stmt|;
 if|if
 condition|(
 name|sectionCount
+argument_list|()
 operator|==
 literal|0
 condition|)
@@ -13683,6 +13682,7 @@ init|;
 name|i
 operator|<
 name|sectionCount
+argument_list|()
 condition|;
 operator|++
 name|i
@@ -13909,6 +13909,7 @@ init|;
 name|i
 operator|<
 name|sectionCount
+argument_list|()
 condition|;
 operator|++
 name|i
@@ -14135,11 +14136,13 @@ argument_list|(
 name|spanStartSection
 argument_list|,
 name|sectionCount
+argument_list|()
 operator|-
 literal|1
 argument_list|,
 operator|(
 name|sectionCount
+argument_list|()
 operator|-
 name|spanStartSection
 operator|)
@@ -14378,10 +14381,6 @@ name|NoClear
 condition|)
 block|{
 name|length
-operator|=
-literal|0
-expr_stmt|;
-name|sectionCount
 operator|=
 literal|0
 expr_stmt|;
@@ -14722,6 +14721,7 @@ init|;
 name|i
 operator|<
 name|sectionCount
+argument_list|()
 condition|;
 operator|++
 name|i
@@ -15015,6 +15015,7 @@ init|;
 name|i
 operator|<
 name|sectionCount
+argument_list|()
 condition|;
 operator|++
 name|i
@@ -15333,6 +15334,7 @@ condition|(
 name|visual
 operator|<
 name|sectionCount
+argument_list|()
 operator|&&
 name|visual
 operator|>=
@@ -15372,6 +15374,7 @@ condition|(
 name|visual
 operator|<
 name|sectionCount
+argument_list|()
 operator|&&
 name|visual
 operator|>=
@@ -15839,6 +15842,7 @@ expr_stmt|;
 name|out
 operator|<<
 name|sectionCount
+argument_list|()
 expr_stmt|;
 name|out
 operator|<<
@@ -15971,9 +15975,13 @@ name|in
 operator|>>
 name|length
 expr_stmt|;
+name|int
+name|unusedSectionCount
+decl_stmt|;
+comment|// For compability
 name|in
 operator|>>
-name|sectionCount
+name|unusedSectionCount
 expr_stmt|;
 name|in
 operator|>>
