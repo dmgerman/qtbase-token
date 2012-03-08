@@ -511,25 +511,10 @@ name|capacityReserved
 range|:
 literal|1
 decl_stmt|;
-union|union
-block|{
 DECL|member|offset
 name|qptrdiff
 name|offset
 decl_stmt|;
-comment|// will always work as we add/subtract from a ushort ptr
-DECL|member|d
-name|char
-name|d
-index|[
-sizeof|sizeof
-argument_list|(
-name|qptrdiff
-argument_list|)
-index|]
-decl_stmt|;
-block|}
-union|;
 DECL|function|data
 specifier|inline
 name|char
@@ -538,12 +523,14 @@ name|data
 parameter_list|()
 block|{
 return|return
-name|d
-operator|+
-sizeof|sizeof
-argument_list|(
-name|qptrdiff
-argument_list|)
+name|reinterpret_cast
+operator|<
+name|char
+operator|*
+operator|>
+operator|(
+name|this
+operator|)
 operator|+
 name|offset
 return|;
@@ -558,12 +545,15 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|d
-operator|+
-sizeof|sizeof
-argument_list|(
-name|qptrdiff
-argument_list|)
+name|reinterpret_cast
+operator|<
+specifier|const
+name|char
+operator|*
+operator|>
+operator|(
+name|this
+operator|)
 operator|+
 name|offset
 return|;
@@ -572,22 +562,20 @@ block|}
 struct|;
 end_struct
 begin_expr_stmt
-DECL|struct|QConstByteArrayData
+DECL|struct|QStaticByteArrayData
 name|template
 operator|<
 name|int
 name|N
 operator|>
 expr|struct
-name|QConstByteArrayData
+name|QStaticByteArrayData
 block|{
 DECL|member|ba
-specifier|const
 name|QByteArrayData
 name|ba
 block|;
 DECL|member|data
-specifier|const
 name|char
 name|data
 index|[
@@ -599,18 +587,18 @@ block|; }
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-DECL|struct|QConstByteArrayDataPtr
+DECL|struct|QStaticByteArrayDataPtr
 name|template
 operator|<
 name|int
 name|N
 operator|>
 expr|struct
-name|QConstByteArrayDataPtr
+name|QStaticByteArrayDataPtr
 block|{
 DECL|member|ptr
 specifier|const
-name|QConstByteArrayData
+name|QStaticByteArrayData
 operator|<
 name|N
 operator|>
@@ -635,7 +623,7 @@ name|QByteArrayLiteral
 parameter_list|(
 name|str
 parameter_list|)
-value|([]() -> QConstByteArrayDataPtr<sizeof(str) - 1> { \         enum { Size = sizeof(str) - 1 }; \         static const QConstByteArrayData<Size> qbytearray_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size, 0, 0, { 0 } }, str }; \         QConstByteArrayDataPtr<Size> holder = {&qbytearray_literal }; \     return holder; }())
+value|([]() -> QStaticByteArrayDataPtr<sizeof(str) - 1> { \         enum { Size = sizeof(str) - 1 }; \         static const QStaticByteArrayData<Size> qbytearray_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, sizeof(QByteArrayData) }, str }; \         QStaticByteArrayDataPtr<Size> holder = {&qbytearray_literal }; \     return holder; }())
 end_define
 begin_elif
 elif|#
@@ -663,7 +651,7 @@ parameter_list|(
 name|str
 parameter_list|)
 define|\
-value|__extension__ ({ \         enum { Size = sizeof(str) - 1 }; \         static const QConstByteArrayData<Size> qbytearray_literal = \         { { Q_REFCOUNT_INITIALIZER(-1), Size, 0, 0, { 0 } }, str }; \         QConstByteArrayDataPtr<Size> holder = {&qbytearray_literal }; \         holder; })
+value|__extension__ ({ \         enum { Size = sizeof(str) - 1 }; \         static const QStaticByteArrayData<Size> qbytearray_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, sizeof(QByteArrayData) }, str }; \         QStaticByteArrayDataPtr<Size> holder = {&qbytearray_literal }; \         holder; })
 end_define
 begin_endif
 endif|#
@@ -710,16 +698,10 @@ argument_list|()
 expr_stmt|;
 name|QByteArray
 argument_list|(
-specifier|const
-name|char
-operator|*
-argument_list|)
-expr_stmt|;
-name|QByteArray
-argument_list|(
 argument|const char *
 argument_list|,
-argument|int size
+argument|int size = -
+literal|1
 argument_list|)
 empty_stmt|;
 name|QByteArray
@@ -2442,7 +2424,7 @@ specifier|inline
 name|QByteArray
 argument_list|(
 specifier|const
-name|QConstByteArrayData
+name|QStaticByteArrayData
 operator|<
 name|n
 operator|>
@@ -2464,7 +2446,7 @@ name|Q_DECL_CONSTEXPR
 specifier|inline
 name|QByteArray
 argument_list|(
-name|QConstByteArrayDataPtr
+name|QStaticByteArrayDataPtr
 operator|<
 name|N
 operator|>
@@ -2485,7 +2467,7 @@ specifier|const
 expr_stmt|;
 specifier|static
 specifier|const
-name|QConstByteArrayData
+name|QStaticByteArrayData
 operator|<
 literal|1
 operator|>
@@ -2493,7 +2475,7 @@ name|shared_null
 expr_stmt|;
 specifier|static
 specifier|const
-name|QConstByteArrayData
+name|QStaticByteArrayData
 operator|<
 literal|1
 operator|>
@@ -2840,12 +2822,20 @@ condition|(
 name|d
 operator|->
 name|ref
-operator|!=
-literal|1
+operator|.
+name|isShared
+argument_list|()
 operator|||
+operator|(
 name|d
 operator|->
 name|offset
+operator|!=
+sizeof|sizeof
+argument_list|(
+name|QByteArrayData
+argument_list|)
+operator|)
 condition|)
 name|realloc
 argument_list|(
@@ -2867,11 +2857,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+operator|!
 name|d
 operator|->
 name|ref
-operator|==
-literal|1
+operator|.
+name|isShared
+argument_list|()
 return|;
 block|}
 end_expr_stmt
@@ -2932,8 +2924,9 @@ condition|(
 name|d
 operator|->
 name|ref
-operator|!=
-literal|1
+operator|.
+name|isShared
+argument_list|()
 operator|||
 name|asize
 operator|>
@@ -2982,8 +2975,9 @@ condition|(
 name|d
 operator|->
 name|ref
-operator|>
-literal|1
+operator|.
+name|isShared
+argument_list|()
 operator|||
 name|d
 operator|->
@@ -3012,7 +3006,8 @@ operator|->
 name|capacityReserved
 condition|)
 block|{
-comment|// cannot set unconditionally, since d could be the shared_null/shared_empty (which is const)
+comment|// cannot set unconditionally, since d could be shared_null or
+comment|// otherwise static.
 name|d
 operator|->
 name|capacityReserved

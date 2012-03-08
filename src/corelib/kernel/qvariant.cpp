@@ -7691,8 +7691,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|typeId
+operator|==
+name|QMetaType
+operator|::
+name|UnknownType
 condition|)
 block|{
 name|s

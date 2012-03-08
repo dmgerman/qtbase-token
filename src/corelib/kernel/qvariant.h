@@ -403,7 +403,7 @@ name|Invalid
 operator|=
 name|QMetaType
 operator|::
-name|Void
+name|UnknownType
 block|,
 name|Bool
 operator|=
