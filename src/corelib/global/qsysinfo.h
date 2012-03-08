@@ -120,11 +120,6 @@ endif|#
 directive|endif
 block|}
 enum|;
-else|#
-directive|else
-error|#
-directive|error
-literal|"Qt not configured correctly, please run configure"
 endif|#
 directive|endif
 if|#

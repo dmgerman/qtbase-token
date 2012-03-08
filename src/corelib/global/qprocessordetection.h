@@ -80,7 +80,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*     Alpha family, no revisions or variants      Alpha is bi-endian, use endianness auto-detection described above. */
+comment|/*     Alpha family, no revisions or variants      Alpha is bi-endian, use endianness auto-detection implemented below. */
 end_comment
 begin_comment
 comment|// #elif defined(__alpha__) || defined(_M_ALPHA)
@@ -92,7 +92,7 @@ begin_comment
 comment|// Q_BYTE_ORDER not defined, use endianness auto-detection
 end_comment
 begin_comment
-comment|/*     ARM family, known revisions: V5, V6, and V7      ARM is bi-endian, detect using __ARMEL__ or __ARMEB__, falling back to     auto-detection described above. */
+comment|/*     ARM family, known revisions: V5, V6, and V7      ARM is bi-endian, detect using __ARMEL__ or __ARMEB__, falling back to     auto-detection implemented below. */
 end_comment
 begin_if
 if|#
@@ -421,7 +421,7 @@ name|Q_BYTE_ORDER
 value|Q_LITTLE_ENDIAN
 end_define
 begin_comment
-comment|/*     Itanium (IA-64) family, no revisions or variants      Itanium is bi-endian, use endianness auto-detection described above. */
+comment|/*     Itanium (IA-64) family, no revisions or variants      Itanium is bi-endian, use endianness auto-detection implemented below. */
 end_comment
 begin_elif
 elif|#
@@ -451,7 +451,7 @@ begin_comment
 comment|// Q_BYTE_ORDER not defined, use endianness auto-detection
 end_comment
 begin_comment
-comment|/*     MIPS family, known revisions: I, II, III, IV, 32, 64      MIPS is bi-endian, use endianness auto-detection described above. */
+comment|/*     MIPS family, known revisions: I, II, III, IV, 32, 64      MIPS is bi-endian, use endianness auto-detection implemented below. */
 end_comment
 begin_elif
 elif|#
@@ -682,7 +682,7 @@ begin_comment
 comment|// Q_BYTE_ORDER not defined, use endianness auto-detection
 end_comment
 begin_comment
-comment|/*     Power family, known variants: 32- and 64-bit      There are many more known variants/revisions that we do not handle/detect.     See http://en.wikipedia.org/wiki/Power_Architecture     and http://en.wikipedia.org/wiki/File:PowerISA-evolution.svg      Power is bi-endian, use endianness auto-detection described above. */
+comment|/*     Power family, known variants: 32- and 64-bit      There are many more known variants/revisions that we do not handle/detect.     See http://en.wikipedia.org/wiki/Power_Architecture     and http://en.wikipedia.org/wiki/File:PowerISA-evolution.svg      Power is bi-endian, use endianness auto-detection implemented below. */
 end_comment
 begin_elif
 elif|#
@@ -798,7 +798,7 @@ begin_comment
 comment|// #  define Q_BYTE_ORDER Q_BIG_ENDIAN
 end_comment
 begin_comment
-comment|/*     SuperH family, optional revision: SH-4A      SuperH is bi-endian, use endianness auto-detection described above. */
+comment|/*     SuperH family, optional revision: SH-4A      SuperH is bi-endian, use endianness auto-detection implemented below. */
 end_comment
 begin_comment
 comment|// #elif defined(__sh__)
@@ -843,6 +843,9 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|/*   NOTE:   GCC 4.6 added __BYTE_ORDER__, __ORDER_BIG_ENDIAN__, __ORDER_LITTLE_ENDIAN__   and __ORDER_PDP_ENDIAN__ in SVN r165881. If you are using GCC 4.6 or newer,   this code will properly detect your target byte order; if you are not, and   the __LITTLE_ENDIAN__ or __BIG_ENDIAN__ macros are not defined, then this   code will fail to detect the target byte order. */
+end_comment
 begin_comment
 comment|// Some processors support either endian format, try to detect which we are using.
 end_comment
