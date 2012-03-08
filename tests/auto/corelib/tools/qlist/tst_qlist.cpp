@@ -12,9 +12,6 @@ include|#
 directive|include
 file|<QList>
 end_include
-begin_comment
-comment|/*!   \class tst_QVector   \internal   \since 4.5   \brief Test Qt's class QList.  */
-end_comment
 begin_class
 DECL|class|tst_QList
 class|class
