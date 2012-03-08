@@ -94,6 +94,13 @@ name|select
 argument_list|()
 block|;
 name|virtual
+name|bool
+name|selectRow
+argument_list|(
+argument|int row
+argument_list|)
+block|;
+name|virtual
 name|void
 name|setTable
 argument_list|(

@@ -1240,7 +1240,7 @@ argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// We query the widgets about their size and then we fix the size.
 comment|// This should do the trick for the laying out part...
 name|QSize
@@ -1287,7 +1287,7 @@ name|QFormLayout
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 comment|// We have to change the growth policy in Mac.
 name|formLayout
 operator|->
@@ -3258,7 +3258,7 @@ argument_list|)
 operator|||
 name|defined
 argument_list|(
-name|Q_WS_MAC
+name|Q_OS_MAC
 argument_list|)
 if|if
 condition|(

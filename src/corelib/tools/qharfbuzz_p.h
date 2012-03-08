@@ -119,6 +119,16 @@ name|HB_Face
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+name|Q_CORE_EXPORT
+name|HB_Face
+name|qHBLoadFace
+parameter_list|(
+name|HB_Face
+name|face
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_expr_stmt
 name|Q_DECLARE_TYPEINFO
 argument_list|(

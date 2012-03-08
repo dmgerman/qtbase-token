@@ -86,6 +86,19 @@ return|return
 name|m_physicalSize
 return|;
 block|}
+name|QPlatformCursor
+operator|*
+name|cursor
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_cursor
+operator|.
+name|data
+argument_list|()
+return|;
+block|}
 comment|// DirectFb helpers
 name|IDirectFBDisplayLayer
 operator|*

@@ -2628,6 +2628,13 @@ name|bool
 name|noIO
 parameter_list|)
 block|{
+name|Option
+operator|::
+name|postProcessProject
+argument_list|(
+name|proj
+argument_list|)
+expr_stmt|;
 name|MakefileGenerator
 modifier|*
 name|mkfile
@@ -2909,6 +2916,13 @@ modifier|*
 name|success
 parameter_list|)
 block|{
+name|Option
+operator|::
+name|postProcessProject
+argument_list|(
+name|proj
+argument_list|)
+expr_stmt|;
 name|MetaMakefileGenerator
 modifier|*
 name|ret

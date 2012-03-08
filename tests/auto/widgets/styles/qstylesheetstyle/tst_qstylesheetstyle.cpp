@@ -3462,7 +3462,7 @@ name|pb
 operator|.
 name|setStyleSheet
 argument_list|(
-literal|"QPushButton { qproperty-text: hello; qproperty-checkable: true; qproperty-checked: 1}"
+literal|"QPushButton { qproperty-text: hello; qproperty-checkable: 1; qproperty-checked: false}"
 argument_list|)
 expr_stmt|;
 name|pb
@@ -3500,7 +3500,7 @@ operator|.
 name|isChecked
 argument_list|()
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -4898,29 +4898,6 @@ name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-if|if
-condition|(
-name|widget
-operator|==
-name|widgets
-operator|.
-name|first
-argument_list|()
-condition|)
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"Failure only for first widget, the QPushButton, see QTBUG-23686"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY2
 argument_list|(
 name|testForColors
@@ -5575,15 +5552,6 @@ directive|ifdef
 name|Q_OS_MAC
 if|if
 condition|(
-name|qobject_cast
-argument_list|<
-name|QPushButton
-operator|*
-argument_list|>
-argument_list|(
-name|widget
-argument_list|)
-operator|||
 name|qobject_cast
 argument_list|<
 name|QComboBox

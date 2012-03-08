@@ -574,11 +574,14 @@ parameter_list|)
 function_decl|;
 endif|#
 directive|endif
+name|explicit
 name|QMetaType
-argument_list|(
-argument|const int type
-argument_list|)
-empty_stmt|;
+parameter_list|(
+specifier|const
+name|int
+name|type
+parameter_list|)
+function_decl|;
 specifier|inline
 operator|~
 name|QMetaType
@@ -1840,6 +1843,18 @@ endif|#
 directive|endif
 argument_list|)
 block|{
+name|Q_STATIC_ASSERT_X
+argument_list|(
+name|QMetaTypeId2
+operator|<
+name|T
+operator|>
+operator|::
+name|Defined
+argument_list|,
+literal|"Type is not registered, please use Q_DECLARE_METATYPE macro to make it know to Qt's meta-object system"
+argument_list|)
+block|;
 return|return
 name|QMetaTypeId2
 operator|<

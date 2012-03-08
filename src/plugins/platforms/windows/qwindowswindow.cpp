@@ -3210,9 +3210,9 @@ argument_list|(
 name|aWindow
 argument_list|)
 operator|->
-name|cursor
+name|windowsCursor
 argument_list|()
-operator|.
+operator|->
 name|standardWindowCursor
 argument_list|()
 argument_list|)
@@ -6945,7 +6945,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \brief Applies to cursor property set on the window to the global cursor     unless there is an override cursor.      \sa QWindowsCursor */
+comment|/*!     \brief Applies to cursor property set on the window to the global cursor.      \sa QWindowsCursor */
 end_comment
 begin_function
 DECL|function|applyCursor
@@ -6955,14 +6955,6 @@ operator|::
 name|applyCursor
 parameter_list|()
 block|{
-if|if
-condition|(
-operator|!
-name|QGuiApplication
-operator|::
-name|overrideCursor
-argument_list|()
-condition|)
 name|SetCursor
 argument_list|(
 name|m_cursor

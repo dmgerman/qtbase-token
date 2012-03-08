@@ -1121,12 +1121,6 @@ argument_list|)
 expr_stmt|;
 if|#
 directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_DEBUG
-argument_list|)
-operator|&&
 operator|(
 name|defined
 argument_list|(

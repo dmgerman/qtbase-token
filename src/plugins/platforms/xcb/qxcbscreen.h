@@ -125,6 +125,12 @@ name|physicalSize
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QPlatformCursor
+operator|*
+name|cursor
+argument_list|()
+specifier|const
+expr_stmt|;
 name|int
 name|screenNumber
 argument_list|()

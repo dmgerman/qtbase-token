@@ -98,23 +98,6 @@ end_function_decl
 begin_comment
 comment|/*!     \class QWindowsCursor     \brief Platform cursor implementation      Note that whereas under X11, a cursor can be set as a property of     a window, there is only a global SetCursor() function on Windows.     Each Window sets on the global cursor on receiving a Enter-event     as do the Window manager frames (resize/move handles).      \ingroup qt-lighthouse-win     \sa QWindowsWindowCursor */
 end_comment
-begin_constructor
-DECL|function|QWindowsCursor
-name|QWindowsCursor
-operator|::
-name|QWindowsCursor
-parameter_list|(
-name|QPlatformScreen
-modifier|*
-name|s
-parameter_list|)
-member_init_list|:
-name|QPlatformCursor
-argument_list|(
-name|s
-argument_list|)
-block|{ }
-end_constructor
 begin_function
 DECL|function|createPixmapCursor
 name|HCURSOR

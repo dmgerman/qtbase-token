@@ -1000,13 +1000,6 @@ operator|&
 name|tmp_proj
 argument_list|)
 decl_stmt|;
-name|pp
-operator|->
-name|read
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
 name|pb_subdirs
 operator|+=
 operator|new

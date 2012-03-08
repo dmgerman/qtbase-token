@@ -5894,7 +5894,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the raw, unfiltered positions for the touch point. The positions are in screen coordinates.   To get local coordinates you can use mapFromGlobal() of the QWindow returned by QTouchEvent::window().    \note Returns an empty list if the touch device's capabilities do not include QTouchDevice::RawPositions.    \sa QTouchDevice::capabilities(), device(), window()   */
+comment|/*!   Returns the raw, unfiltered positions for the touch point. The positions are in native screen coordinates.   To get local coordinates you can use mapFromGlobal() of the QWindow returned by QTouchEvent::window().    \note Returns an empty list if the touch device's capabilities do not include QTouchDevice::RawPositions.    \note Native screen coordinates refer to the native orientation of the screen which, in case of   mobile devices, is typically portrait. This means that on systems capable of screen orientation   changes the positions in this list will not reflect the current orientation (unlike pos(),   screenPos(), etc.) and will always be reported in the native orientation.    \sa QTouchDevice::capabilities(), device(), window()   */
 end_comment
 begin_function
 DECL|function|rawScreenPositions

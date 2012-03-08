@@ -194,8 +194,6 @@ name|backslashWarned
 decl_stmt|;
 name|QString
 name|pfile
-decl_stmt|,
-name|cfile
 decl_stmt|;
 name|QMakeProperty
 modifier|*

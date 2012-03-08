@@ -30826,14 +30826,7 @@ name|QMouseEvent
 modifier|*
 name|event
 parameter_list|)
-block|{
-name|mousePressEvent
-argument_list|(
-name|event
-argument_list|)
-expr_stmt|;
-comment|// try mouse press event
-block|}
+block|{ }
 ifndef|#
 directive|ifndef
 name|QT_NO_WHEELEVENT

@@ -6356,6 +6356,14 @@ condition|)
 return|return
 literal|false
 return|;
+name|layoutState
+operator|.
+name|dockAreaLayout
+operator|.
+name|fallbackToSizeHints
+operator|=
+literal|false
+expr_stmt|;
 name|savedState
 operator|=
 name|layoutState

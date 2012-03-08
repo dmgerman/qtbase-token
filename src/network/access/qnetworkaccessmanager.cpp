@@ -2515,6 +2515,9 @@ parameter_list|,
 name|QUrl
 modifier|*
 name|urlForLastAuthentication
+parameter_list|,
+name|bool
+name|allowAuthenticationReuse
 parameter_list|)
 block|{
 name|Q_Q
@@ -2527,6 +2530,9 @@ comment|// being called twice for the same URL means the authentication failed
 comment|// also called when last URL is empty, e.g. on first call
 if|if
 condition|(
+name|allowAuthenticationReuse
+operator|&&
+operator|(
 name|urlForLastAuthentication
 operator|->
 name|isEmpty
@@ -2536,6 +2542,7 @@ name|url
 operator|!=
 operator|*
 name|urlForLastAuthentication
+operator|)
 condition|)
 block|{
 comment|// if credentials are included in the url, then use them
@@ -2665,6 +2672,10 @@ argument_list|,
 name|authenticator
 argument_list|)
 emit|;
+if|if
+condition|(
+name|allowAuthenticationReuse
+condition|)
 name|authenticationManager
 operator|->
 name|cacheCredentials

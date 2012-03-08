@@ -141,6 +141,11 @@ argument_list|)
 expr|\
 operator|||
 operator|(
+name|defined
+argument_list|(
+name|__TARGET_ARCH_ARM
+argument_list|)
+operator|&&
 name|__TARGET_ARCH_ARM
 operator|-
 literal|0
@@ -212,6 +217,11 @@ argument_list|)
 expr|\
 operator|||
 operator|(
+name|defined
+argument_list|(
+name|__TARGET_ARCH_ARM
+argument_list|)
+operator|&&
 name|__TARGET_ARCH_ARM
 operator|-
 literal|0
@@ -241,6 +251,11 @@ argument_list|)
 expr|\
 operator|||
 operator|(
+name|defined
+argument_list|(
+name|__TARGET_ARCH_ARM
+argument_list|)
+operator|&&
 name|__TARGET_ARCH_ARM
 operator|-
 literal|0

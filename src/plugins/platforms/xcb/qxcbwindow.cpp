@@ -2553,6 +2553,15 @@ name|updateNetWmStateBeforeMap
 argument_list|()
 expr_stmt|;
 block|}
+name|updateNetWmUserTime
+argument_list|(
+name|connection
+argument_list|()
+operator|->
+name|time
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Q_XCB_CALL
 argument_list|(
 name|xcb_map_window

@@ -6515,8 +6515,6 @@ name|indexOf
 argument_list|(
 name|action
 argument_list|)
-operator|+
-literal|1
 decl_stmt|;
 name|QAccessible
 operator|::

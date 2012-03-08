@@ -26,7 +26,7 @@ modifier|*
 name|screen
 parameter_list|)
 member_init_list|:
-name|QPlatformCursor
+name|m_screen
 argument_list|(
 name|screen
 argument_list|)
@@ -181,7 +181,7 @@ name|layer
 init|=
 name|toDfbLayer
 argument_list|(
-name|screen
+name|m_screen
 argument_list|)
 decl_stmt|;
 name|IDirectFBSurface

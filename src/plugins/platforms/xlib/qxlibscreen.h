@@ -105,6 +105,12 @@ return|return
 name|mPhysicalSize
 return|;
 block|}
+name|QPlatformCursor
+operator|*
+name|cursor
+argument_list|()
+specifier|const
+expr_stmt|;
 name|Window
 name|rootWindow
 parameter_list|()

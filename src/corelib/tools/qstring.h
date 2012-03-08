@@ -303,6 +303,7 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+expr|\
 operator|||
 operator|(
 name|defined
@@ -314,7 +315,15 @@ name|__SIZEOF_WCHAR_T__
 operator|==
 literal|2
 operator|)
+expr|\
 operator|||
+operator|(
+operator|!
+name|defined
+argument_list|(
+name|__SIZEOF_WCHAR_T__
+argument_list|)
+operator|&&
 name|defined
 argument_list|(
 name|WCHAR_MAX
@@ -326,6 +335,7 @@ operator|-
 literal|0
 operator|<
 literal|65536
+operator|)
 operator|)
 end_elif
 begin_comment

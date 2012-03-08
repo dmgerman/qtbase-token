@@ -612,7 +612,7 @@ block|,
 block|{
 literal|"Examples"
 block|,
-literal|""
+literal|"examples"
 block|}
 block|,
 block|{

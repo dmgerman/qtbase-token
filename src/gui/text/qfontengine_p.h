@@ -793,6 +793,11 @@ name|harfbuzzFace
 argument_list|()
 specifier|const
 block|;
+name|HB_Face
+name|initializedHarfbuzzFace
+argument_list|()
+specifier|const
+block|;
 name|virtual
 name|HB_Error
 name|getPointInOutline

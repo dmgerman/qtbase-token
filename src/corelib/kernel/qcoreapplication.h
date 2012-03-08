@@ -456,13 +456,13 @@ directive|endif
 block|enum
 name|Encoding
 block|{
-name|CodecForTr
-block|,
 name|UnicodeUTF8
+block|,
+name|Latin1
 block|,
 name|DefaultCodec
 operator|=
-name|CodecForTr
+name|Latin1
 block|}
 block|;
 specifier|static
@@ -476,7 +476,7 @@ argument_list|,
 argument|const char * disambiguation =
 literal|0
 argument_list|,
-argument|Encoding encoding = CodecForTr
+argument|Encoding encoding = DefaultCodec
 argument_list|,
 argument|int n = -
 literal|1
@@ -1017,7 +1017,7 @@ parameter_list|(
 name|context
 parameter_list|)
 define|\
-value|public: \     static inline QString tr(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, \                                              QCoreApplication::CodecForTr, n); } \     static inline QString trUtf8(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, \                                              QCoreApplication::UnicodeUTF8, n); } \ private:
+value|public: \     static inline QString tr(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, \                                              QCoreApplication::DefaultCodec, n); } \     static inline QString trUtf8(const char *sourceText, const char *disambiguation = 0, int n = -1) \         { return QCoreApplication::translate(#context, sourceText, disambiguation, \                                              QCoreApplication::UnicodeUTF8, n); } \ private:
 end_define
 begin_function_decl
 unit|typedef

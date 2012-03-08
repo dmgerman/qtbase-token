@@ -366,11 +366,6 @@ operator|=
 literal|83
 block|,
 comment|// input method
-name|AccessibilityPrepare
-operator|=
-literal|86
-block|,
-comment|// accessibility information is requested
 name|TabletMove
 operator|=
 literal|87

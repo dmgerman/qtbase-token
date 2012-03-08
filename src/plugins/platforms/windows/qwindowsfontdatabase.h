@@ -203,17 +203,6 @@ name|defaultFont
 argument_list|()
 specifier|const
 block|;
-name|virtual
-name|QHash
-operator|<
-name|QByteArray
-block|,
-name|QFont
-operator|>
-name|defaultFonts
-argument_list|()
-specifier|const
-block|;
 specifier|static
 name|QFontEngine
 operator|*

@@ -3038,9 +3038,6 @@ argument_list|(
 name|action
 argument_list|)
 decl_stmt|;
-operator|++
-name|actionIndex
-expr_stmt|;
 name|QAccessible
 operator|::
 name|updateAccessibility

@@ -34,11 +34,6 @@ modifier|*
 name|screen
 parameter_list|)
 member_init_list|:
-name|QPlatformCursor
-argument_list|(
-name|screen
-argument_list|)
-member_init_list|,
 name|m_screen
 argument_list|(
 name|screen
