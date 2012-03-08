@@ -406,6 +406,11 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|childIface
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|childIface

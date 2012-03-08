@@ -90,9 +90,8 @@ name|QPlatformAccessibility
 operator|::
 name|notifyAccessibilityUpdate
 argument_list|(
-specifier|const
 name|QAccessibleEvent
-operator|&
+operator|*
 name|event
 argument_list|)
 argument_list|{

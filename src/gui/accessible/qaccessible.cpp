@@ -642,9 +642,7 @@ name|object
 argument_list|)
 expr_stmt|;
 name|QAccessibleEvent
-name|event
-init|=
-name|QAccessibleEvent
+name|ev
 argument_list|(
 name|reason
 argument_list|,
@@ -655,7 +653,8 @@ argument_list|)
 decl_stmt|;
 name|updateAccessibility
 argument_list|(
-name|event
+operator|&
+name|ev
 argument_list|)
 expr_stmt|;
 block|}
@@ -670,9 +669,8 @@ name|QAccessible
 operator|::
 name|updateAccessibility
 parameter_list|(
-specifier|const
 name|QAccessibleEvent
-modifier|&
+modifier|*
 name|event
 parameter_list|)
 block|{

@@ -2394,11 +2394,8 @@ block|}
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
-name|QAccessible
-operator|::
-name|updateAccessibility
-argument_list|(
 name|QAccessibleEvent
+name|event
 argument_list|(
 name|QAccessible
 operator|::
@@ -2406,6 +2403,13 @@ name|DialogStart
 argument_list|,
 name|this
 argument_list|)
+decl_stmt|;
+name|QAccessible
+operator|::
+name|updateAccessibility
+argument_list|(
+operator|&
+name|event
 argument_list|)
 expr_stmt|;
 endif|#
@@ -2438,11 +2442,9 @@ condition|(
 name|isVisible
 argument_list|()
 condition|)
-name|QAccessible
-operator|::
-name|updateAccessibility
-argument_list|(
+block|{
 name|QAccessibleEvent
+name|event
 argument_list|(
 name|QAccessible
 operator|::
@@ -2450,8 +2452,16 @@ name|DialogEnd
 argument_list|,
 name|this
 argument_list|)
+decl_stmt|;
+name|QAccessible
+operator|::
+name|updateAccessibility
+argument_list|(
+operator|&
+name|event
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 comment|// Reimplemented to exit a modal event loop when the dialog is hidden.
