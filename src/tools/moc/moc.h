@@ -885,11 +885,6 @@ argument_list|(
 name|false
 argument_list|)
 block|,
-name|mustIncludeQMetaTypeH
-argument_list|(
-name|false
-argument_list|)
-block|,
 name|mustIncludeQPluginH
 argument_list|(
 argument|false
@@ -907,9 +902,6 @@ name|noInclude
 block|;
 name|bool
 name|generatedCode
-block|;
-name|bool
-name|mustIncludeQMetaTypeH
 block|;
 name|bool
 name|mustIncludeQPluginH

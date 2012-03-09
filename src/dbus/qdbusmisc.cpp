@@ -636,7 +636,7 @@ literal|'*'
 argument_list|)
 condition|)
 block|{
-comment|//qWarning("Could not parse the method '%s'", mm.signature());
+comment|//qWarning("Could not parse the method '%s'", mm.methodSignature().constData());
 comment|// pointer?
 return|return
 operator|-
@@ -687,7 +687,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|//qWarning("Could not parse the method '%s'", mm.signature());
+comment|//qWarning("Could not parse the method '%s'", mm.methodSignature().constData());
 comment|// invalid type in method parameter list
 return|return
 operator|-
@@ -730,7 +730,7 @@ name|seenMessage
 condition|)
 block|{
 comment|//&& !type.endsWith('&')
-comment|//qWarning("Could not parse the method '%s'", mm.signature());
+comment|//qWarning("Could not parse the method '%s'", mm.methodSignature().constData());
 comment|// non-output parameters after message or after output params
 return|return
 operator|-
@@ -752,10 +752,12 @@ if|if
 condition|(
 name|id
 operator|==
-literal|0
+name|QMetaType
+operator|::
+name|UnknownType
 condition|)
 block|{
-comment|//qWarning("Could not parse the method '%s'", mm.signature());
+comment|//qWarning("Could not parse the method '%s'", mm.methodSignature().constData());
 comment|// invalid type in method parameter list
 return|return
 operator|-

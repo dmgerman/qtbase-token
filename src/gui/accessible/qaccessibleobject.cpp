@@ -191,7 +191,7 @@ if|if
 condition|(
 name|member
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 operator|==
 name|defaultAction
@@ -208,7 +208,7 @@ name|actionList
 operator|<<
 name|member
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 expr_stmt|;
 block|}

@@ -616,14 +616,6 @@ if|if
 condition|(
 operator|!
 name|d
-condition|)
-return|return;
-end_expr_stmt
-begin_if
-if|if
-condition|(
-operator|!
-name|d
 operator|->
 name|ref
 operator|.
@@ -635,9 +627,10 @@ argument_list|(
 name|d
 argument_list|)
 expr_stmt|;
-end_if
+block|}
+end_expr_stmt
 begin_expr_stmt
-unit|}      QMap
+name|QMap
 operator|<
 name|Key
 operator|,
@@ -861,8 +854,9 @@ condition|(
 name|d
 operator|->
 name|ref
-operator|!=
-literal|1
+operator|.
+name|isShared
+argument_list|()
 condition|)
 name|detach_helper
 argument_list|()
@@ -877,11 +871,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+operator|!
 name|d
 operator|->
 name|ref
-operator|==
-literal|1
+operator|.
+name|isShared
+argument_list|()
 return|;
 block|}
 end_expr_stmt

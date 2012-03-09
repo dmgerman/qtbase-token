@@ -116,7 +116,7 @@ name|ba
 init|=
 name|member
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 decl_stmt|;
 return|return
@@ -464,9 +464,19 @@ name|typeId
 operator|!=
 name|QMetaType
 operator|::
-name|Void
+name|UnknownType
 condition|)
 block|{
+name|Q_ASSERT
+argument_list|(
+name|typeId
+operator|!=
+name|QMetaType
+operator|::
+name|Void
+argument_list|)
+expr_stmt|;
+comment|// void parameter => metaobject is corrupt
 name|str
 operator|.
 name|append
@@ -719,7 +729,7 @@ name|str
 operator|+=
 name|member
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 expr_stmt|;
 name|qPrintMessage

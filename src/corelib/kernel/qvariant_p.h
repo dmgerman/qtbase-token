@@ -849,11 +849,33 @@ name|void
 modifier|*
 parameter_list|)
 block|{
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
+expr_stmt|;
 return|return
 name|true
 return|;
 block|}
 end_function
+begin_decl_stmt
+name|bool
+name|delegate
+argument_list|(
+specifier|const
+name|QMetaTypeSwitcher
+operator|::
+name|UnknownType
+operator|*
+argument_list|)
+block|{
+return|return
+name|true
+return|;
+comment|// for historical reason invalid variant == invalid variant
+block|}
+end_decl_stmt
 begin_decl_stmt
 name|bool
 name|delegate
@@ -1512,6 +1534,11 @@ name|void
 modifier|*
 parameter_list|)
 block|{
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
+expr_stmt|;
 return|return
 name|m_d
 operator|->
@@ -1519,6 +1546,24 @@ name|is_null
 return|;
 block|}
 end_function
+begin_decl_stmt
+name|bool
+name|delegate
+argument_list|(
+specifier|const
+name|QMetaTypeSwitcher
+operator|::
+name|UnknownType
+operator|*
+argument_list|)
+block|{
+return|return
+name|m_d
+operator|->
+name|is_null
+return|;
+block|}
+end_decl_stmt
 begin_decl_stmt
 name|bool
 name|delegate
@@ -1898,8 +1943,19 @@ argument_list|(
 argument|const void*
 argument_list|)
 block|{
-comment|// QMetaType::Void == QVariant::Invalid, creating an invalid value creates invalid QVariant
-comment|// TODO it might go away, check is needed
+name|qWarning
+argument_list|(
+literal|"Trying to create a QVariant instance of QMetaType::Void type, an invalid QVariant will be constructed instead"
+argument_list|)
+block|;
+name|m_x
+operator|->
+name|type
+operator|=
+name|QMetaType
+operator|::
+name|UnknownType
+block|;
 name|m_x
 operator|->
 name|is_shared
@@ -1913,8 +1969,59 @@ operator|=
 operator|!
 name|m_copy
 block|;     }
-name|private
-operator|:
+name|void
+name|delegate
+argument_list|(
+argument|const QMetaTypeSwitcher::UnknownType*
+argument_list|)
+block|{
+if|if
+condition|(
+name|m_x
+operator|->
+name|type
+operator|!=
+name|QMetaType
+operator|::
+name|UnknownType
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"Trying to construct an instance of an invalid type, type id: %i"
+argument_list|,
+name|m_x
+operator|->
+name|type
+argument_list|)
+expr_stmt|;
+name|m_x
+operator|->
+name|type
+operator|=
+name|QMetaType
+operator|::
+name|UnknownType
+expr_stmt|;
+block|}
+name|m_x
+operator|->
+name|is_shared
+operator|=
+name|false
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|m_x
+operator|->
+name|is_null
+operator|=
+operator|!
+name|m_copy
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+unit|} private:
 name|QVariant
 operator|::
 name|Private
@@ -2076,9 +2183,20 @@ comment|// Ignore nonconstructible type
 name|void
 name|delegate
 argument_list|(
-argument|const void*
+argument|const QMetaTypeSwitcher::UnknownType*
 argument_list|)
 block|{}
+name|void
+name|delegate
+argument_list|(
+argument|const void*
+argument_list|)
+block|{
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
+block|; }
 name|private
 operator|:
 name|QVariant
@@ -2279,7 +2397,7 @@ block|;     }
 name|void
 name|delegate
 argument_list|(
-argument|const void*
+argument|const QMetaTypeSwitcher::UnknownType*
 argument_list|)
 block|{
 name|m_debugStream
@@ -2289,6 +2407,17 @@ argument_list|()
 operator|<<
 literal|"QVariant::Invalid"
 block|;     }
+name|void
+name|delegate
+argument_list|(
+argument|const void*
+argument_list|)
+block|{
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
+block|; }
 name|private
 operator|:
 name|QDebug

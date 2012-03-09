@@ -1008,9 +1008,9 @@ operator|!
 name|signature
 condition|)
 return|return
-name|QVariant
+name|QMetaType
 operator|::
-name|Invalid
+name|UnknownType
 return|;
 name|QDBusMetaTypeId
 operator|::
@@ -1203,9 +1203,9 @@ block|}
 comment|// fall through
 default|default:
 return|return
-name|QVariant
+name|QMetaType
 operator|::
-name|Invalid
+name|UnknownType
 return|;
 block|}
 block|}

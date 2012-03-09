@@ -542,7 +542,7 @@ name|signature
 init|=
 name|mm
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 decl_stmt|;
 name|int

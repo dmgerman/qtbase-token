@@ -113,7 +113,9 @@ if|if
 condition|(
 name|id
 operator|!=
-literal|0
+name|QMetaType
+operator|::
+name|UnknownType
 condition|)
 block|{
 name|void

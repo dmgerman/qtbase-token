@@ -165,7 +165,15 @@ name|QObject
 operator|::
 name|staticMetaObject
 block|,
+cast|reinterpret_cast
+argument_list|<
+specifier|const
+name|QByteArrayData
+operator|*
+argument_list|>
+argument_list|(
 name|qt_meta_stringdata_OldNormalizeObject
+argument_list|)
 block|,
 name|qt_meta_data_OldNormalizeObject
 block|,

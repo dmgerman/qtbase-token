@@ -242,7 +242,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 argument_list|)
 expr_stmt|;

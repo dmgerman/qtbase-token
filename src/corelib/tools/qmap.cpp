@@ -83,11 +83,7 @@ block|,
 literal|0
 block|}
 block|,
-name|Q_REFCOUNT_INITIALIZER
-argument_list|(
-operator|-
-literal|1
-argument_list|)
+name|Q_REFCOUNT_INITIALIZE_STATIC
 block|,
 literal|0
 block|,
@@ -160,8 +156,9 @@ expr_stmt|;
 name|d
 operator|->
 name|ref
-operator|=
-literal|1
+operator|.
+name|initializeOwned
+argument_list|()
 expr_stmt|;
 name|d
 operator|->
