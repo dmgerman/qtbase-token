@@ -50,6 +50,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/private/qcore_unix_p.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<errno.h>
 end_include
 begin_include
@@ -964,7 +969,7 @@ expr_stmt|;
 name|int
 name|bytes
 init|=
-name|read
+name|qt_safe_read
 argument_list|(
 name|m_fd
 argument_list|,
