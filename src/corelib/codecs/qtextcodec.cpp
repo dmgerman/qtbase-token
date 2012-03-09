@@ -1640,6 +1640,7 @@ expr_stmt|;
 endif|#
 directive|endif
 operator|delete
+index|[]
 name|mbcs
 expr_stmt|;
 return|return
