@@ -10,11 +10,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QApplication>
-end_include
-begin_include
-include|#
-directive|include
 file|<QEvent>
 end_include
 begin_struct
@@ -23,7 +18,7 @@ struct|struct
 name|MyApplication
 super|:
 specifier|public
-name|QApplication
+name|QGuiApplication
 block|{
 DECL|function|MyApplication
 name|MyApplication
@@ -38,7 +33,7 @@ modifier|*
 name|argv
 parameter_list|)
 member_init_list|:
-name|QApplication
+name|QGuiApplication
 argument_list|(
 name|argc
 argument_list|,
@@ -121,7 +116,7 @@ block|}
 else|else
 block|{
 return|return
-name|QApplication
+name|QGuiApplication
 operator|::
 name|event
 argument_list|(
