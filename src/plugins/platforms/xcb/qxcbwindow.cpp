@@ -6903,6 +6903,23 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|event
+operator|->
+name|type
+operator|==
+name|atom
+argument_list|(
+name|QXcbAtom
+operator|::
+name|_XEMBED
+argument_list|)
+condition|)
+block|{
+comment|// QSystemTrayIcon
+block|}
 else|else
 block|{
 name|qWarning
