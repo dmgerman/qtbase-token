@@ -921,7 +921,7 @@ parameter_list|,
 name|handler
 parameter_list|)
 define|\
-value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->windowMember)) \         platformWindow->handler(e); \ } \ break;
+value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->windowMember))  { \         long result = 0; \         handled = QWindowSystemInterface::handleNativeEvent(platformWindow->window(), m_nativeInterface->genericEventFilterType(), event,&result); \         if (!handled) \             platformWindow->handler(e); \     } \ } \ break;
 end_define
 begin_define
 DECL|macro|HANDLE_KEYBOARD_EVENT
@@ -934,7 +934,7 @@ parameter_list|,
 name|handler
 parameter_list|)
 define|\
-value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->event)) \         m_keyboard->handler(platformWindow, e); \ } \ break;
+value|{ \     event_t *e = (event_t *)event; \     if (QXcbWindow *platformWindow = platformWindowFromId(e->event)) { \         long result = 0; \         handled = QWindowSystemInterface::handleNativeEvent(platformWindow->window(), m_nativeInterface->genericEventFilterType(), event,&result); \         if (!handled) \             m_keyboard->handler(platformWindow, e); \     } \ } \ break;
 end_define
 begin_comment
 comment|//#define XCB_EVENT_DEBUG
