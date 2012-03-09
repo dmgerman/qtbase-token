@@ -1551,7 +1551,7 @@ name|setSourceModel
 parameter_list|(
 name|QAbstractItemModel
 modifier|*
-name|sourceModel
+name|newSourceModel
 parameter_list|)
 block|{
 name|beginResetModel
@@ -1560,11 +1560,13 @@ expr_stmt|;
 if|if
 condition|(
 name|sourceModel
+argument_list|()
 condition|)
 block|{
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -1600,6 +1602,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -1635,6 +1638,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -1670,6 +1674,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -1705,6 +1710,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -1752,6 +1758,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -1799,6 +1806,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -1834,6 +1842,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -1869,6 +1878,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -1904,6 +1914,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -1939,6 +1950,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -1986,6 +1998,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2033,6 +2046,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2052,6 +2066,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2071,6 +2086,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2106,6 +2122,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2141,6 +2158,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2160,6 +2178,7 @@ expr_stmt|;
 name|disconnect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2181,17 +2200,19 @@ name|QAbstractProxyModel
 operator|::
 name|setSourceModel
 argument_list|(
-name|sourceModel
+name|newSourceModel
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|sourceModel
+argument_list|()
 condition|)
 block|{
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2225,6 +2246,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2258,6 +2280,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2291,6 +2314,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2324,6 +2348,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2369,6 +2394,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2414,6 +2440,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2447,6 +2474,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2480,6 +2508,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2513,6 +2542,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2546,6 +2576,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2591,6 +2622,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2636,6 +2668,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2653,6 +2686,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2670,6 +2704,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2703,6 +2738,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2736,6 +2772,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
@@ -2753,6 +2790,7 @@ expr_stmt|;
 name|connect
 argument_list|(
 name|sourceModel
+argument_list|()
 argument_list|,
 name|SIGNAL
 argument_list|(
