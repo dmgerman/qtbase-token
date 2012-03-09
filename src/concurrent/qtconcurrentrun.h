@@ -1090,7 +1090,7 @@ operator|(
 name|new
 name|StoredFunctorCall0
 operator|<
-name|QT_TYPENAME
+name|typename
 name|FunctionObject
 operator|::
 name|result_type
@@ -1135,7 +1135,7 @@ operator|(
 name|new
 name|StoredFunctorCall1
 operator|<
-name|QT_TYPENAME
+name|typename
 name|FunctionObject
 operator|::
 name|result_type
@@ -1189,7 +1189,7 @@ operator|(
 name|new
 name|StoredFunctorCall2
 operator|<
-name|QT_TYPENAME
+name|typename
 name|FunctionObject
 operator|::
 name|result_type
@@ -1252,7 +1252,7 @@ operator|(
 name|new
 name|StoredFunctorCall3
 operator|<
-name|QT_TYPENAME
+name|typename
 name|FunctionObject
 operator|::
 name|result_type
@@ -1324,7 +1324,7 @@ operator|(
 name|new
 name|StoredFunctorCall4
 operator|<
-name|QT_TYPENAME
+name|typename
 name|FunctionObject
 operator|::
 name|result_type
@@ -1405,7 +1405,7 @@ operator|(
 name|new
 name|StoredFunctorCall5
 operator|<
-name|QT_TYPENAME
+name|typename
 name|FunctionObject
 operator|::
 name|result_type
@@ -1463,10 +1463,10 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredFunctorPointerCall0
 operator|<
-name|QT_TYPENAME
+name|typename
 name|FunctionObject
 operator|::
 name|result_type
@@ -1511,10 +1511,10 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredFunctorPointerCall1
 operator|<
-name|QT_TYPENAME
+name|typename
 name|FunctionObject
 operator|::
 name|result_type
@@ -1568,10 +1568,10 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredFunctorPointerCall2
 operator|<
-name|QT_TYPENAME
+name|typename
 name|FunctionObject
 operator|::
 name|result_type
@@ -1634,10 +1634,10 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredFunctorPointerCall3
 operator|<
-name|QT_TYPENAME
+name|typename
 name|FunctionObject
 operator|::
 name|result_type
@@ -1709,10 +1709,10 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredFunctorPointerCall4
 operator|<
-name|QT_TYPENAME
+name|typename
 name|FunctionObject
 operator|::
 name|result_type
@@ -1793,10 +1793,10 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredFunctorPointerCall5
 operator|<
-name|QT_TYPENAME
+name|typename
 name|FunctionObject
 operator|::
 name|result_type
@@ -1858,7 +1858,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredMemberFunctionCall0
 operator|<
 name|T
@@ -1910,7 +1910,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredMemberFunctionCall1
 operator|<
 name|T
@@ -1976,7 +1976,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredMemberFunctionCall2
 operator|<
 name|T
@@ -2056,7 +2056,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredMemberFunctionCall3
 operator|<
 name|T
@@ -2150,7 +2150,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredMemberFunctionCall4
 operator|<
 name|T
@@ -2258,7 +2258,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredMemberFunctionCall5
 operator|<
 name|T
@@ -2332,7 +2332,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredConstMemberFunctionCall0
 operator|<
 name|T
@@ -2384,7 +2384,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredConstMemberFunctionCall1
 operator|<
 name|T
@@ -2450,7 +2450,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredConstMemberFunctionCall2
 operator|<
 name|T
@@ -2530,7 +2530,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredConstMemberFunctionCall3
 operator|<
 name|T
@@ -2624,7 +2624,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredConstMemberFunctionCall4
 operator|<
 name|T
@@ -2732,7 +2732,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredConstMemberFunctionCall5
 operator|<
 name|T
@@ -2806,7 +2806,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredMemberFunctionPointerCall0
 operator|<
 name|T
@@ -2858,7 +2858,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredMemberFunctionPointerCall1
 operator|<
 name|T
@@ -2924,7 +2924,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredMemberFunctionPointerCall2
 operator|<
 name|T
@@ -3004,7 +3004,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredMemberFunctionPointerCall3
 operator|<
 name|T
@@ -3098,7 +3098,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredMemberFunctionPointerCall4
 operator|<
 name|T
@@ -3206,7 +3206,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredMemberFunctionPointerCall5
 operator|<
 name|T
@@ -3280,7 +3280,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredConstMemberFunctionPointerCall0
 operator|<
 name|T
@@ -3332,7 +3332,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredConstMemberFunctionPointerCall1
 operator|<
 name|T
@@ -3398,7 +3398,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredConstMemberFunctionPointerCall2
 operator|<
 name|T
@@ -3478,7 +3478,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredConstMemberFunctionPointerCall3
 operator|<
 name|T
@@ -3572,7 +3572,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredConstMemberFunctionPointerCall4
 operator|<
 name|T
@@ -3680,7 +3680,7 @@ block|{
 return|return
 operator|(
 name|new
-name|QT_TYPENAME
+name|typename
 name|SelectStoredConstMemberFunctionPointerCall5
 operator|<
 name|T
