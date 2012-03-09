@@ -2442,6 +2442,13 @@ comment|// trigger registering of QVariant's GUI types
 name|qRegisterGuiVariant
 argument_list|()
 expr_stmt|;
+name|QWindowSystemInterfacePrivate
+operator|::
+name|eventTime
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|is_app_running
 operator|=
 literal|true

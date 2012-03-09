@@ -40,7 +40,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|member|eventTime
-name|QTime
+name|QElapsedTimer
 name|QWindowSystemInterfacePrivate
 operator|::
 name|eventTime
@@ -1430,24 +1430,6 @@ expr_stmt|;
 name|queueMutex
 operator|.
 name|unlock
-argument_list|()
-expr_stmt|;
-comment|// Make sure the event timer is started.
-if|if
-condition|(
-operator|!
-name|QWindowSystemInterfacePrivate
-operator|::
-name|eventTime
-operator|.
-name|isValid
-argument_list|()
-condition|)
-name|QWindowSystemInterfacePrivate
-operator|::
-name|eventTime
-operator|.
-name|start
 argument_list|()
 expr_stmt|;
 name|QAbstractEventDispatcher
