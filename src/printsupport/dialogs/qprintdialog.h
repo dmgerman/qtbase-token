@@ -296,23 +296,6 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|QTOPIA_PRINTDIALOG
-name|public
-operator|:
-name|bool
-name|eventFilter
-argument_list|(
-name|QObject
-operator|*
-argument_list|,
-name|QEvent
-operator|*
-argument_list|)
-block|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
 name|Q_NO_USING_KEYWORD
 ifndef|#
 directive|ifndef
@@ -349,9 +332,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-ifndef|#
-directive|ifndef
-name|QTOPIA_PRINTDIALOG
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()
@@ -392,78 +372,6 @@ argument|void _q_checkFields()
 argument_list|)
 endif|#
 directive|endif
-else|#
-directive|else
-comment|// QTOPIA_PRINTDIALOG
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_okClicked()
-argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_printerOrFileSelected(QAbstractButton *b)
-argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_paperSizeSelected(int)
-argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_orientSelected(int)
-argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_pageOrderSelected(int)
-argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_colorModeSelected(QAbstractButton *)
-argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_setNumCopies(int)
-argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_printRangeSelected(int)
-argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_setFirstPage(int)
-argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_setLastPage(int)
-argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_fileNameEditChanged(const QString&text)
-argument_list|)
-endif|#
-directive|endif
-comment|// QTOPIA_PRINTDIALOG
 name|friend
 name|class
 name|QUnixPrintWidget
