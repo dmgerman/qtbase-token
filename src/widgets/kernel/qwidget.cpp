@@ -32168,7 +32168,7 @@ operator|-
 literal|1
 return|;
 block|}
-comment|/*!     Returns true if the widget's preferred height depends on its width; otherwise returns false. */
+comment|/*!     \Since 5.0      Returns true if the widget's preferred height depends on its width; otherwise returns false. */
 DECL|function|hasHeightForWidth
 name|bool
 name|QWidget
