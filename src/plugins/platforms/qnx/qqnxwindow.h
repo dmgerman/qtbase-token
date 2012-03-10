@@ -58,12 +58,6 @@ name|QQnxScreen
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QPlatformGLContext
-name|class
-name|QPlatformGLContext
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|variable|QSurfaceFormat
 name|class
 name|QSurfaceFormat
