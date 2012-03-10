@@ -27,11 +27,6 @@ include|#
 directive|include
 file|<qpainter.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<qdialog.h>
-end_include
 begin_class
 DECL|class|tst_QPolygon
 class|class
