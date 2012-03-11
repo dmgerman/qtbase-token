@@ -116,6 +116,11 @@ include|#
 directive|include
 file|"qabstractitemmodel.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"qregularexpression.h"
+end_include
 begin_endif
 endif|#
 directive|endif
@@ -560,6 +565,38 @@ block|}
 struct|;
 endif|#
 directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_BOOTSTRAPPED
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|QT_NO_REGEXP
+argument_list|)
+DECL|struct|TypeDefinition
+DECL|member|IsAvailable
+template|template
+parameter_list|<>
+struct|struct
+name|TypeDefinition
+argument_list|<
+name|QRegularExpression
+argument_list|>
+block|{
+specifier|static
+specifier|const
+name|bool
+name|IsAvailable
+init|=
+literal|false
+decl_stmt|;
+block|}
+struct|;
+endif|#
+directive|endif
 block|}
 end_namespace
 begin_comment
@@ -572,7 +609,7 @@ begin_comment
 comment|/*!     \macro Q_DECLARE_METATYPE(Type)     \relates QMetaType      This macro makes the type \a Type known to QMetaType as long as it     provides a public default constructor, a public copy constructor and     a public destructor.     It is needed to use the type \a Type as a custom type in QVariant.      This macro requires that \a Type is a fully defined type at the point where     it is used. For pointer types, it also requires that the pointed to type is     fully defined. Use in conjunction with Q_DECLARE_OPAQUE_POINTER() to     register pointers to forward declared types.      Ideally, this macro should be placed below the declaration of     the class or struct. If that is not possible, it can be put in     a private header file which has to be included every time that     type is used in a QVariant.      Adding a Q_DECLARE_METATYPE() makes the type known to all template     based functions, including QVariant. Note that if you intend to     use the type in \e queued signal and slot connections or in     QObject's property system, you also have to call     qRegisterMetaType() since the names are resolved at runtime.      This example shows a typical use case of Q_DECLARE_METATYPE():      \snippet doc/src/snippets/code/src_corelib_kernel_qmetatype.cpp 0      If \c MyStruct is in a namespace, the Q_DECLARE_METATYPE() macro     has to be outside the namespace:      \snippet doc/src/snippets/code/src_corelib_kernel_qmetatype.cpp 1      Since \c{MyStruct} is now known to QMetaType, it can be used in QVariant:      \snippet doc/src/snippets/code/src_corelib_kernel_qmetatype.cpp 2      \sa qRegisterMetaType() */
 end_comment
 begin_comment
-comment|/*!     \enum QMetaType::Type      These are the built-in types supported by QMetaType:      \value Void \c void     \value Bool \c bool     \value Int \c int     \value UInt \c{unsigned int}     \value Double \c double     \value QChar QChar     \value QString QString     \value QByteArray QByteArray      \value VoidStar \c{void *}     \value Long \c{long}     \value LongLong LongLong     \value Short \c{short}     \value Char \c{char}     \value ULong \c{unsigned long}     \value ULongLong ULongLong     \value UShort \c{unsigned short}     \value UChar \c{unsigned char}     \value Float \c float     \value QObjectStar QObject *     \value QWidgetStar QWidget *     \value QVariant QVariant      \value QCursor QCursor     \value QDate QDate     \value QSize QSize     \value QTime QTime     \value QVariantList QVariantList     \value QPolygon QPolygon     \value QPolygonF QPolygonF     \value QColor QColor     \value QSizeF QSizeF     \value QRectF QRectF     \value QLine QLine     \value QTextLength QTextLength     \value QStringList QStringList     \value QVariantMap QVariantMap     \value QVariantHash QVariantHash     \value QIcon QIcon     \value QPen QPen     \value QLineF QLineF     \value QTextFormat QTextFormat     \value QRect QRect     \value QPoint QPoint     \value QUrl QUrl     \value QRegExp QRegExp     \value QDateTime QDateTime     \value QPointF QPointF     \value QPalette QPalette     \value QFont QFont     \value QBrush QBrush     \value QRegion QRegion     \value QBitArray QBitArray     \value QImage QImage     \value QKeySequence QKeySequence     \value QSizePolicy QSizePolicy     \value QPixmap QPixmap     \value QLocale QLocale     \value QBitmap QBitmap     \value QMatrix QMatrix     \value QTransform QTransform     \value QMatrix4x4 QMatrix4x4     \value QVector2D QVector2D     \value QVector3D QVector3D     \value QVector4D QVector4D     \value QQuaternion QQuaternion     \value QEasingCurve QEasingCurve      \value User  Base value for user types     \value UnknownType This is an invalid type id. It is returned from QMetaType for types that are not registered      \omitvalue FirstGuiType     \omitvalue FirstWidgetsType     \omitvalue LastCoreType     \omitvalue LastGuiType     \omitvalue LastWidgetsType     \omitvalue QReal     \omitvalue HighestInternalId      Additional types can be registered using Q_DECLARE_METATYPE().      \sa type(), typeName() */
+comment|/*!     \enum QMetaType::Type      These are the built-in types supported by QMetaType:      \value Void \c void     \value Bool \c bool     \value Int \c int     \value UInt \c{unsigned int}     \value Double \c double     \value QChar QChar     \value QString QString     \value QByteArray QByteArray      \value VoidStar \c{void *}     \value Long \c{long}     \value LongLong LongLong     \value Short \c{short}     \value Char \c{char}     \value ULong \c{unsigned long}     \value ULongLong ULongLong     \value UShort \c{unsigned short}     \value UChar \c{unsigned char}     \value Float \c float     \value QObjectStar QObject *     \value QWidgetStar QWidget *     \value QVariant QVariant      \value QCursor QCursor     \value QDate QDate     \value QSize QSize     \value QTime QTime     \value QVariantList QVariantList     \value QPolygon QPolygon     \value QPolygonF QPolygonF     \value QColor QColor     \value QSizeF QSizeF     \value QRectF QRectF     \value QLine QLine     \value QTextLength QTextLength     \value QStringList QStringList     \value QVariantMap QVariantMap     \value QVariantHash QVariantHash     \value QIcon QIcon     \value QPen QPen     \value QLineF QLineF     \value QTextFormat QTextFormat     \value QRect QRect     \value QPoint QPoint     \value QUrl QUrl     \value QRegExp QRegExp     \value QRegularExpression QRegularExpression     \value QDateTime QDateTime     \value QPointF QPointF     \value QPalette QPalette     \value QFont QFont     \value QBrush QBrush     \value QRegion QRegion     \value QBitArray QBitArray     \value QImage QImage     \value QKeySequence QKeySequence     \value QSizePolicy QSizePolicy     \value QPixmap QPixmap     \value QLocale QLocale     \value QBitmap QBitmap     \value QMatrix QMatrix     \value QTransform QTransform     \value QMatrix4x4 QMatrix4x4     \value QVector2D QVector2D     \value QVector3D QVector3D     \value QVector4D QVector4D     \value QQuaternion QQuaternion     \value QEasingCurve QEasingCurve      \value User  Base value for user types     \value UnknownType This is an invalid type id. It is returned from QMetaType for types that are not registered      \omitvalue FirstGuiType     \omitvalue FirstWidgetsType     \omitvalue LastCoreType     \omitvalue LastGuiType     \omitvalue LastWidgetsType     \omitvalue QReal     \omitvalue HighestInternalId      Additional types can be registered using Q_DECLARE_METATYPE().      \sa type(), typeName() */
 end_comment
 begin_comment
 comment|/*!     \enum QMetaType::TypeFlags      The enum describes attributes of a type supported by QMetaType.      \value NeedsConstruction This type has non-trivial constructors. If the flag is not set instances can be safely initialized with memset to 0.     \value NeedsDestruction This type has a non-trivial destructor. If the flag is not set calls to the destructor are not necessary before discarding objects.     \value MovableType An instance of a type having this attribute can be safely moved by memcpy. */
@@ -3066,6 +3103,34 @@ directive|endif
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP
+case|case
+name|QMetaType
+operator|::
+name|QRegularExpression
+case|:
+name|stream
+operator|<<
+operator|*
+expr|static_cast
+operator|<
+specifier|const
+name|NS
+argument_list|(
+name|QRegularExpression
+argument_list|)
+operator|*
+operator|>
+operator|(
+name|data
+operator|)
+expr_stmt|;
+break|break;
+endif|#
+directive|endif
+comment|// QT_NO_REGEXP
 case|case
 name|QMetaType
 operator|::
@@ -3090,6 +3155,7 @@ expr_stmt|;
 break|break;
 endif|#
 directive|endif
+comment|// QT_BOOTSTRAPPED
 case|case
 name|QMetaType
 operator|::
@@ -4204,6 +4270,33 @@ directive|endif
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP
+case|case
+name|QMetaType
+operator|::
+name|QRegularExpression
+case|:
+name|stream
+operator|>>
+operator|*
+expr|static_cast
+operator|<
+name|NS
+argument_list|(
+name|QRegularExpression
+argument_list|)
+operator|*
+operator|>
+operator|(
+name|data
+operator|)
+expr_stmt|;
+break|break;
+endif|#
+directive|endif
+comment|// QT_NO_REGEXP
 case|case
 name|QMetaType
 operator|::
@@ -4227,6 +4320,7 @@ expr_stmt|;
 break|break;
 endif|#
 directive|endif
+comment|// QT_BOOTSTRAPPED
 case|case
 name|QMetaType
 operator|::
@@ -5478,6 +5572,39 @@ directive|endif
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP
+case|case
+name|QMetaType
+operator|::
+name|QRegularExpression
+case|:
+return|return
+operator|new
+name|NS
+argument_list|(
+argument|QRegularExpression
+argument_list|)
+operator|(
+operator|*
+expr|static_cast
+operator|<
+specifier|const
+name|NS
+argument_list|(
+name|QRegularExpression
+argument_list|)
+operator|*
+operator|>
+operator|(
+name|copy
+operator|)
+operator|)
+return|;
+endif|#
+directive|endif
+comment|// QT_NO_REGEXP
 case|case
 name|QMetaType
 operator|::
@@ -5507,6 +5634,7 @@ operator|)
 return|;
 endif|#
 directive|endif
+comment|// QT_BOOTSTRAPPED
 case|case
 name|QMetaType
 operator|::
@@ -6031,6 +6159,24 @@ directive|endif
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP
+case|case
+name|QMetaType
+operator|::
+name|QRegularExpression
+case|:
+return|return
+operator|new
+name|NS
+argument_list|(
+name|QRegularExpression
+argument_list|)
+return|;
+endif|#
+directive|endif
+comment|// QT_NO_REGEXP
 case|case
 name|QMetaType
 operator|::
@@ -6045,6 +6191,7 @@ argument_list|)
 return|;
 endif|#
 directive|endif
+comment|// QT_BOOTSTRAPPED
 case|case
 name|QMetaType
 operator|::

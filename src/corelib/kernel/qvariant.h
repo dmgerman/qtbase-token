@@ -174,10 +174,19 @@ name|class
 name|QRegExp
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QRegularExpression
+name|class
+name|QRegularExpression
+decl_stmt|;
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QT_NO_REGEXP
+end_comment
 begin_decl_stmt
 DECL|variable|QTextFormat
 name|class
@@ -566,6 +575,12 @@ operator|=
 name|QMetaType
 operator|::
 name|QRegExp
+block|,
+name|RegularExpression
+operator|=
+name|QMetaType
+operator|::
+name|QRegularExpression
 block|,
 name|Hash
 operator|=
@@ -1081,8 +1096,23 @@ operator|&
 name|regExp
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_BOOTSRAPPED
+name|QVariant
+argument_list|(
+specifier|const
+name|QRegularExpression
+operator|&
+name|re
+argument_list|)
+block|;
 endif|#
 directive|endif
+comment|// QT_BOOTSTRAPPED
+endif|#
+directive|endif
+comment|// QT_NO_REGEXP
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
@@ -1405,8 +1435,20 @@ name|toRegExp
 argument_list|()
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+name|QRegularExpression
+name|toRegularExpression
+argument_list|()
+specifier|const
+block|;
 endif|#
 directive|endif
+comment|// QT_BOOTSTRAPPED
+endif|#
+directive|endif
+comment|// QT_NO_REGEXP
 ifndef|#
 directive|ifndef
 name|QT_BOOTSTRAPPED
