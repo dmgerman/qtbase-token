@@ -3167,7 +3167,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QHeaderView::resizeSection(int logicalIndex, int size)      Resizes the section specified by \a logicalIndex to \a size measured in     pixels.      \sa sectionResized(), resizeMode(), sectionSize() */
+comment|/*!     \fn void QHeaderView::resizeSection(int logicalIndex, int size)      Resizes the section specified by \a logicalIndex to \a size measured in     pixels. The size parameter must be a value larger or equal to zero. A     size equal to zero is however not recommended. In that situation hideSection     should be used instead.      \sa sectionResized(), resizeMode(), sectionSize(), hideSection() */
 end_comment
 begin_function
 DECL|function|resizeSection
