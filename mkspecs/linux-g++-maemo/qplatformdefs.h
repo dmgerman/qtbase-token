@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"../linux-g++/qplatformdefs.h"
+file|"../linux-arm-gnueabi-g++/qplatformdefs.h"
 end_include
 begin_define
 DECL|macro|QT_GUI_DOUBLE_CLICK_RADIUS
