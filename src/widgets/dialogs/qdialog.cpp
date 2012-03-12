@@ -2397,11 +2397,11 @@ name|QT_NO_ACCESSIBILITY
 name|QAccessibleEvent
 name|event
 argument_list|(
+name|this
+argument_list|,
 name|QAccessible
 operator|::
 name|DialogStart
-argument_list|,
-name|this
 argument_list|)
 decl_stmt|;
 name|QAccessible
@@ -2446,11 +2446,11 @@ block|{
 name|QAccessibleEvent
 name|event
 argument_list|(
+name|this
+argument_list|,
 name|QAccessible
 operator|::
 name|DialogEnd
-argument_list|,
-name|this
 argument_list|)
 decl_stmt|;
 name|QAccessible

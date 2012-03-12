@@ -1843,11 +1843,11 @@ name|QT_NO_ACCESSIBILITY
 name|QAccessibleEvent
 name|event
 argument_list|(
+name|this
+argument_list|,
 name|QAccessible
 operator|::
 name|ContextHelpStart
-argument_list|,
-name|this
 argument_list|)
 decl_stmt|;
 name|QAccessible
@@ -1897,11 +1897,11 @@ name|QT_NO_ACCESSIBILITY
 name|QAccessibleEvent
 name|event
 argument_list|(
+name|this
+argument_list|,
 name|QAccessible
 operator|::
 name|ContextHelpEnd
-argument_list|,
-name|this
 argument_list|)
 decl_stmt|;
 name|QAccessible

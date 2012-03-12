@@ -560,6 +560,8 @@ name|QT_NO_ACCESSIBILITY
 name|QAccessibleTextSelectionEvent
 name|ev
 argument_list|(
+name|q
+argument_list|,
 name|control
 operator|->
 name|selectionStart
@@ -569,8 +571,6 @@ name|control
 operator|->
 name|selectionEnd
 argument_list|()
-argument_list|,
-name|q
 argument_list|)
 decl_stmt|;
 name|ev

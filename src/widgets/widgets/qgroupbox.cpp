@@ -737,13 +737,11 @@ name|QT_NO_ACCESSIBILITY
 name|QAccessibleEvent
 name|event
 argument_list|(
+name|this
+argument_list|,
 name|QAccessible
 operator|::
 name|NameChanged
-argument_list|,
-name|this
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 name|QAccessible

@@ -2983,11 +2983,11 @@ name|QT_NO_ACCESSIBILITY
 name|QAccessibleValueChangeEvent
 name|event
 argument_list|(
+name|this
+argument_list|,
 name|d
 operator|->
 name|value
-argument_list|,
-name|this
 argument_list|)
 decl_stmt|;
 name|QAccessible
@@ -5966,9 +5966,9 @@ name|QT_NO_ACCESSIBILITY
 name|QAccessibleValueChangeEvent
 name|event
 argument_list|(
-name|value
-argument_list|,
 name|q
+argument_list|,
+name|value
 argument_list|)
 decl_stmt|;
 name|QAccessible

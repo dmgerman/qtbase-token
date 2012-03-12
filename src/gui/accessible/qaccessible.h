@@ -1596,12 +1596,9 @@ label|:
 specifier|inline
 name|QAccessibleEvent
 argument_list|(
-argument|QAccessible::Event typ
-argument_list|,
 argument|QObject *obj
 argument_list|,
-argument|int chld = -
-literal|1
+argument|QAccessible::Event typ
 argument_list|)
 operator|:
 name|m_type
@@ -1616,7 +1613,8 @@ argument_list|)
 operator|,
 name|m_child
 argument_list|(
-argument|chld
+argument|-
+literal|1
 argument_list|)
 block|{
 name|Q_ASSERT
@@ -1715,6 +1713,18 @@ return|return
 name|m_object
 return|;
 block|}
+name|void
+name|setChild
+parameter_list|(
+name|int
+name|chld
+parameter_list|)
+block|{
+name|m_child
+operator|=
+name|chld
+expr_stmt|;
+block|}
 name|int
 name|child
 argument_list|()
@@ -1762,23 +1772,18 @@ operator|:
 specifier|inline
 name|QAccessibleStateChangeEvent
 argument_list|(
-argument|QAccessible::State state
-argument_list|,
 argument|QObject *obj
 argument_list|,
-argument|int chld = -
-literal|1
+argument|QAccessible::State state
 argument_list|)
 operator|:
 name|QAccessibleEvent
 argument_list|(
+name|obj
+argument_list|,
 name|QAccessible
 operator|::
 name|InvalidEvent
-argument_list|,
-name|obj
-argument_list|,
-name|chld
 argument_list|)
 block|,
 name|m_changedStates
@@ -1828,23 +1833,18 @@ operator|:
 specifier|inline
 name|QAccessibleTextCursorEvent
 argument_list|(
-argument|int cursorPos
-argument_list|,
 argument|QObject *obj
 argument_list|,
-argument|int chld = -
-literal|1
+argument|int cursorPos
 argument_list|)
 operator|:
 name|QAccessibleEvent
 argument_list|(
+name|obj
+argument_list|,
 name|QAccessible
 operator|::
 name|InvalidEvent
-argument_list|,
-name|obj
-argument_list|,
-name|chld
 argument_list|)
 block|,
 name|m_cursorPosition
@@ -1900,18 +1900,17 @@ operator|:
 specifier|inline
 name|QAccessibleTextSelectionEvent
 argument_list|(
+argument|QObject *obj
+argument_list|,
 argument|int start
 argument_list|,
 argument|int end
-argument_list|,
-argument|QObject *obj
-argument_list|,
-argument|int chld = -
-literal|1
 argument_list|)
 operator|:
 name|QAccessibleTextCursorEvent
 argument_list|(
+name|obj
+argument_list|,
 operator|(
 name|start
 operator|==
@@ -1922,10 +1921,6 @@ operator|?
 literal|0
 operator|:
 name|end
-argument_list|,
-name|obj
-argument_list|,
-name|chld
 argument_list|)
 block|,
 name|m_selectionStart
@@ -2001,28 +1996,23 @@ operator|:
 specifier|inline
 name|QAccessibleTextInsertEvent
 argument_list|(
+argument|QObject *obj
+argument_list|,
 argument|int position
 argument_list|,
 argument|const QString&text
-argument_list|,
-argument|QObject *obj
-argument_list|,
-argument|int chld = -
-literal|1
 argument_list|)
 operator|:
 name|QAccessibleTextCursorEvent
 argument_list|(
+name|obj
+argument_list|,
 name|position
 operator|+
 name|text
 operator|.
 name|length
 argument_list|()
-argument_list|,
-name|obj
-argument_list|,
-name|chld
 argument_list|)
 block|,
 name|m_position
@@ -2082,23 +2072,18 @@ operator|:
 specifier|inline
 name|QAccessibleTextRemoveEvent
 argument_list|(
+argument|QObject *obj
+argument_list|,
 argument|int position
 argument_list|,
 argument|const QString&text
-argument_list|,
-argument|QObject *obj
-argument_list|,
-argument|int chld = -
-literal|1
 argument_list|)
 operator|:
 name|QAccessibleTextCursorEvent
 argument_list|(
-name|position
-argument_list|,
 name|obj
 argument_list|,
-name|chld
+name|position
 argument_list|)
 block|,
 name|m_position
@@ -2158,30 +2143,25 @@ operator|:
 specifier|inline
 name|QAccessibleTextUpdateEvent
 argument_list|(
+argument|QObject *obj
+argument_list|,
 argument|int position
 argument_list|,
 argument|const QString&oldText
 argument_list|,
 argument|const QString&text
-argument_list|,
-argument|QObject *obj
-argument_list|,
-argument|int chld = -
-literal|1
 argument_list|)
 operator|:
 name|QAccessibleTextCursorEvent
 argument_list|(
+name|obj
+argument_list|,
 name|position
 operator|+
 name|text
 operator|.
 name|length
 argument_list|()
-argument_list|,
-name|obj
-argument_list|,
-name|chld
 argument_list|)
 block|,
 name|m_position
@@ -2258,23 +2238,23 @@ operator|:
 specifier|inline
 name|QAccessibleValueChangeEvent
 argument_list|(
-argument|const QVariant&val
+name|QObject
+operator|*
+name|obj
 argument_list|,
-argument|QObject *obj
-argument_list|,
-argument|int chld = -
-literal|1
+specifier|const
+name|QVariant
+operator|&
+name|val
 argument_list|)
 operator|:
 name|QAccessibleEvent
 argument_list|(
+name|obj
+argument_list|,
 name|QAccessible
 operator|::
 name|InvalidEvent
-argument_list|,
-name|obj
-argument_list|,
-name|chld
 argument_list|)
 block|,
 name|m_value

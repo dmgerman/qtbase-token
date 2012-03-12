@@ -644,11 +644,9 @@ expr_stmt|;
 name|QAccessibleEvent
 name|ev
 argument_list|(
-name|reason
-argument_list|,
 name|object
 argument_list|,
-name|child
+name|reason
 argument_list|)
 decl_stmt|;
 name|updateAccessibility
