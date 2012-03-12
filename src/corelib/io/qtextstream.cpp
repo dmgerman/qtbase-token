@@ -1978,13 +1978,13 @@ comment|// flush the file
 ifndef|#
 directive|ifndef
 name|QT_NO_QOBJECT
-name|QFile
+name|QFileDevice
 modifier|*
 name|file
 init|=
 name|qobject_cast
 argument_list|<
-name|QFile
+name|QFileDevice
 operator|*
 argument_list|>
 argument_list|(
