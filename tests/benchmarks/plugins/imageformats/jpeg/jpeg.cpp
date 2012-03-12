@@ -71,11 +71,29 @@ parameter_list|()
 block|{
 comment|// QtWebkit currently calls size() to get the image size for layouting purposes.
 comment|// Then when it is in the viewport (we assume that here) it actually gets decoded.
+name|QString
+name|testFile
+init|=
+name|QFINDTESTDATA
+argument_list|(
+literal|"n900.jpeg"
+argument_list|)
+decl_stmt|;
+name|QVERIFY2
+argument_list|(
+operator|!
+name|testFile
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|,
+literal|"cannot find test file n900.jpeg!"
+argument_list|)
+expr_stmt|;
 name|QFile
 name|inputJpeg
 argument_list|(
-name|SRCDIR
-literal|"n900.jpeg"
+name|testFile
 argument_list|)
 decl_stmt|;
 name|QVERIFY
