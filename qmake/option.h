@@ -923,6 +923,14 @@ block|{
 return|return
 name|paths
 operator|.
+name|isEmpty
+argument_list|()
+condition|?
+name|QStringList
+argument_list|()
+else|:
+name|paths
+operator|.
 name|split
 argument_list|(
 name|Option
