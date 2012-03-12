@@ -8688,7 +8688,7 @@ argument_list|()
 condition|)
 block|{
 comment|// hack to get the Option stuff in there
-name|base_vars
+name|vars
 index|[
 literal|"QMAKE_EXT_CPP"
 index|]
@@ -8697,7 +8697,7 @@ name|Option
 operator|::
 name|cpp_ext
 expr_stmt|;
-name|base_vars
+name|vars
 index|[
 literal|"QMAKE_EXT_C"
 index|]
@@ -8706,7 +8706,7 @@ name|Option
 operator|::
 name|c_ext
 expr_stmt|;
-name|base_vars
+name|vars
 index|[
 literal|"QMAKE_EXT_H"
 index|]
@@ -8715,7 +8715,7 @@ name|Option
 operator|::
 name|h_ext
 expr_stmt|;
-name|base_vars
+name|vars
 index|[
 literal|"QMAKE_SH"
 index|]
@@ -8734,7 +8734,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
-name|base_vars
+name|vars
 index|[
 literal|"TEMPLATE_PREFIX"
 index|]
@@ -9624,7 +9624,7 @@ name|read
 argument_list|(
 name|superfile
 argument_list|,
-name|base_vars
+name|vars
 argument_list|)
 expr_stmt|;
 block|}
@@ -9685,7 +9685,7 @@ name|read
 argument_list|(
 name|spec
 argument_list|,
-name|base_vars
+name|vars
 argument_list|)
 condition|)
 block|{
@@ -9739,7 +9739,7 @@ name|read
 argument_list|(
 name|conffile
 argument_list|,
-name|base_vars
+name|vars
 argument_list|)
 expr_stmt|;
 block|}
@@ -9771,17 +9771,24 @@ name|read
 argument_list|(
 name|cachefile
 argument_list|,
-name|base_vars
+name|vars
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|base_vars
+operator|=
+name|vars
+expr_stmt|;
 block|}
+else|else
+block|{
 name|vars
 operator|=
 name|base_vars
 expr_stmt|;
 comment|// start with the base
+block|}
 for|for
 control|(
 name|QHash
@@ -10470,7 +10477,7 @@ name|QStringList
 modifier|&
 name|gen
 init|=
-name|base_vars
+name|vars
 operator|.
 name|value
 argument_list|(
@@ -10529,7 +10536,7 @@ name|QStringList
 modifier|&
 name|tgt
 init|=
-name|base_vars
+name|vars
 operator|.
 name|value
 argument_list|(
@@ -10739,7 +10746,7 @@ name|QStringList
 modifier|&
 name|spec_org
 init|=
-name|base_vars
+name|vars
 index|[
 literal|"QMAKESPEC_ORIGINAL"
 index|]
