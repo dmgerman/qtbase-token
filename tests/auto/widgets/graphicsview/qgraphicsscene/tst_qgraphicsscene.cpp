@@ -19378,7 +19378,7 @@ name|QGraphicsScene
 block|{
 public|public:
 DECL|member|mouseMovePoints
-name|QList
+name|QVector
 argument_list|<
 name|QPointF
 argument_list|>

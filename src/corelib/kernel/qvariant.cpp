@@ -7579,7 +7579,7 @@ literal|69
 comment|/* QIcon */
 condition|)
 block|{
-comment|// In Qt5 after modularization project this types where moved to a separate module (and ids were downgraded)
+comment|// In Qt5 after modularization project these types where moved to a separate module (and ids were downgraded)
 name|typeId
 operator|=
 name|QMetaType
@@ -7611,7 +7611,7 @@ operator|>=
 literal|70
 condition|)
 block|{
-comment|// and as a result this types recieved lower ids too
+comment|// and as a result these types received lower ids too
 if|if
 condition|(
 name|typeId
@@ -7944,7 +7944,7 @@ operator|::
 name|QIcon
 condition|)
 block|{
-comment|// In Qt5 after modularization project this types where moved to a separate module (and ids were downgraded)
+comment|// In Qt5 after modularization project these types where moved to a separate module (and ids were downgraded)
 name|typeId
 operator|=
 literal|69
@@ -7975,7 +7975,7 @@ operator|::
 name|QImage
 condition|)
 block|{
-comment|// and as a result this types recieved lower ids too
+comment|// and as a result these types received lower ids too
 if|if
 condition|(
 name|typeId
@@ -10049,6 +10049,21 @@ argument_list|)
 condition|)
 return|return
 literal|true
+return|;
+if|if
+condition|(
+name|targetTypeId
+operator|<
+literal|0
+operator|||
+name|targetTypeId
+operator|>=
+name|QMetaType
+operator|::
+name|User
+condition|)
+return|return
+literal|false
 return|;
 comment|// FIXME It should be LastCoreType intead of Uuid
 if|if

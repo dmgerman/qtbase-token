@@ -439,7 +439,7 @@ operator|::
 name|handlePageFlipCompleted
 parameter_list|()
 block|{
-comment|//qDebug()<< "Display signal recieved";
+comment|//qDebug()<< "Display signal received";
 name|drmEventContext
 name|eventContext
 decl_stmt|;

@@ -4187,7 +4187,7 @@ begin_comment
 comment|/*!     \fn bool QAbstractItemModel::insertColumn(int column, const QModelIndex&parent)      Inserts a single column before the given \a column in the child items of     the \a parent specified.      Returns true if the column is inserted; otherwise returns false.      \sa insertColumns() insertRow() removeColumn() */
 end_comment
 begin_comment
-comment|/*!     \fn bool QAbstractItemModel::insertRow(int row, const QModelIndex&parent)      \note The base class implementation of this function does nothing and     returns false.      Inserts a single row before the given \a row in the child items of the     \a parent specified.      Returns true if the row is inserted; otherwise returns false.      \sa insertRows() insertColumn() removeRow() */
+comment|/*!     \fn bool QAbstractItemModel::insertRow(int row, const QModelIndex&parent)      Inserts a single row before the given \a row in the child items of the     \a parent specified.      \note This function calls the virtual method insertRows.      Returns true if the row is inserted; otherwise returns false.      \sa insertRows() insertColumn() removeRow() */
 end_comment
 begin_comment
 comment|/*!     \fn QObject *QAbstractItemModel::parent() const     \internal */

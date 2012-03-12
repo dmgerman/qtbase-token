@@ -236,6 +236,17 @@ name|cacheId
 argument_list|)
 decl|const
 decl_stmt|;
+name|virtual
+name|QPaintEngine
+modifier|*
+name|createImagePaintEngine
+argument_list|(
+name|QPaintDevice
+operator|*
+name|paintDevice
+argument_list|)
+decl|const
+decl_stmt|;
 comment|// Event dispatcher:
 name|virtual
 name|QAbstractEventDispatcher
@@ -334,6 +345,14 @@ name|hint
 argument_list|)
 decl|const
 decl_stmt|;
+name|virtual
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|queryKeyboardModifiers
+argument_list|()
+specifier|const
+expr_stmt|;
 name|virtual
 name|QPlatformTheme
 operator|*

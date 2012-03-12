@@ -4570,6 +4570,10 @@ comment|// To avoid messy pixel-by-pixel comparison, we assume that the goal
 comment|// is reached if at least ten pixels of the right color can be found in
 comment|// the image.
 comment|// For this reason, we use unusual and extremely ugly colors! :-)
+comment|// Note that in case of anti-aliased text, ensuring that we have at least
+comment|// ten pixels of the right color requires quite a many characters, as the
+comment|// majority of the pixels will have slightly different colors due to the
+comment|// anti-aliasing effect.
 if|#
 directive|if
 operator|!
@@ -4622,7 +4626,7 @@ operator|<<
 operator|new
 name|QPushButton
 argument_list|(
-literal|"TESTING"
+literal|"TESTING TESTING"
 argument_list|)
 expr_stmt|;
 name|widgets
@@ -4630,7 +4634,7 @@ operator|<<
 operator|new
 name|QLineEdit
 argument_list|(
-literal|"TESTING"
+literal|"TESTING TESTING"
 argument_list|)
 expr_stmt|;
 name|widgets
@@ -4638,7 +4642,7 @@ operator|<<
 operator|new
 name|QLabel
 argument_list|(
-literal|"TESTING"
+literal|"TESTING TESTING"
 argument_list|)
 expr_stmt|;
 name|QSpinBox
@@ -4650,9 +4654,16 @@ name|QSpinBox
 decl_stmt|;
 name|spinbox
 operator|->
+name|setMaximum
+argument_list|(
+literal|1000000000
+argument_list|)
+expr_stmt|;
+name|spinbox
+operator|->
 name|setValue
 argument_list|(
-literal|8888
+literal|123456789
 argument_list|)
 expr_stmt|;
 name|widgets
@@ -4680,7 +4691,7 @@ argument_list|(
 name|QStringList
 argument_list|()
 operator|<<
-literal|"TESTING"
+literal|"TESTING TESTING"
 argument_list|)
 expr_stmt|;
 name|widgets
@@ -4692,7 +4703,7 @@ operator|<<
 operator|new
 name|QLabel
 argument_list|(
-literal|"TESTING"
+literal|"TESTING TESTING"
 argument_list|)
 expr_stmt|;
 ifdef|#
@@ -4990,7 +5001,7 @@ operator|<<
 operator|new
 name|QPushButton
 argument_list|(
-literal|"TESTING"
+literal|"TESTING TESTING"
 argument_list|)
 expr_stmt|;
 name|widgets
@@ -4998,7 +5009,7 @@ operator|<<
 operator|new
 name|QLineEdit
 argument_list|(
-literal|"TESTING"
+literal|"TESTING TESTING"
 argument_list|)
 expr_stmt|;
 name|widgets
@@ -5006,7 +5017,7 @@ operator|<<
 operator|new
 name|QLabel
 argument_list|(
-literal|"TESTING"
+literal|"TESTING TESTING"
 argument_list|)
 expr_stmt|;
 name|QSpinBox
@@ -5018,9 +5029,16 @@ name|QSpinBox
 decl_stmt|;
 name|spinbox
 operator|->
+name|setMaximum
+argument_list|(
+literal|1000000000
+argument_list|)
+expr_stmt|;
+name|spinbox
+operator|->
 name|setValue
 argument_list|(
-literal|8888
+literal|123456789
 argument_list|)
 expr_stmt|;
 name|widgets
@@ -5048,7 +5066,7 @@ argument_list|(
 name|QStringList
 argument_list|()
 operator|<<
-literal|"TESTING"
+literal|"TESTING TESTING"
 argument_list|)
 expr_stmt|;
 name|widgets
@@ -5060,7 +5078,7 @@ operator|<<
 operator|new
 name|QLabel
 argument_list|(
-literal|"<b>TESTING</b>"
+literal|"<b>TESTING TESTING</b>"
 argument_list|)
 expr_stmt|;
 foreach|foreach

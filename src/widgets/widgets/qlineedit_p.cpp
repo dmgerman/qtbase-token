@@ -568,8 +568,6 @@ operator|::
 name|TextSelectionChanged
 argument_list|,
 name|q
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;

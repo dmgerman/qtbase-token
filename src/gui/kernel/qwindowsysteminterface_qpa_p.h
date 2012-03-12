@@ -18,6 +18,11 @@ include|#
 directive|include
 file|"qwindowsysteminterface_qpa.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<QElapsedTimer>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -1170,7 +1175,7 @@ name|ev
 parameter_list|)
 function_decl|;
 specifier|static
-name|QTime
+name|QElapsedTimer
 name|eventTime
 decl_stmt|;
 specifier|static

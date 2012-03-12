@@ -149,6 +149,12 @@ name|QTextItem
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QTextEngine
+name|class
+name|QTextEngine
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QMatrix
 name|class
 name|QMatrix
@@ -3305,6 +3311,10 @@ decl_stmt|;
 name|friend
 name|class
 name|QPreviewPaintEngine
+decl_stmt|;
+name|friend
+name|class
+name|QTextEngine
 decl_stmt|;
 block|}
 end_decl_stmt

@@ -3708,7 +3708,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle any event sent to the window.      Remembet to call the base class version if you wish for mouse events,     key events, resize events, etc to be dispatched as usual. */
+comment|/*!     Override this to handle any event sent to the window.      Remember to call the base class version if you wish for mouse events,     key events, resize events, etc to be dispatched as usual. */
 end_comment
 begin_function
 DECL|function|event
