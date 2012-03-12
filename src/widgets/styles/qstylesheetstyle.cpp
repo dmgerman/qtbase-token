@@ -16382,6 +16382,7 @@ name|QString
 argument_list|>
 name|properties
 decl_stmt|;
+specifier|const
 name|QVector
 argument_list|<
 name|Declaration
@@ -16523,6 +16524,7 @@ name|property
 expr_stmt|;
 continue|continue;
 block|}
+specifier|const
 name|QMetaProperty
 name|metaProperty
 init|=
