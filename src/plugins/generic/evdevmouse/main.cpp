@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qevdevmouse.h"
+file|"qevdevmousemanager.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
@@ -130,7 +130,7 @@ argument_list|)
 condition|)
 return|return
 operator|new
-name|QEvdevMouseHandler
+name|QEvdevMouseManager
 argument_list|(
 name|key
 argument_list|,

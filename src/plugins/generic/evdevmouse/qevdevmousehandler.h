@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QEVDEVMOUSE_H
+name|QEVDEVMOUSEHANDLER_H
 end_ifndef
 begin_define
-DECL|macro|QEVDEVMOUSE_H
+DECL|macro|QEVDEVMOUSEHANDLER_H
 define|#
 directive|define
-name|QEVDEVMOUSE_H
+name|QEVDEVMOUSEHANDLER_H
 end_define
 begin_include
 include|#
@@ -41,7 +41,10 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+specifier|static
 name|QEvdevMouseHandler
+operator|*
+name|createLinuxInputMouseHandler
 argument_list|(
 specifier|const
 name|QString
@@ -67,24 +70,28 @@ argument_list|()
 block|;
 name|private
 operator|:
+name|QEvdevMouseHandler
+argument_list|(
+argument|int deviceDescriptor
+argument_list|,
+argument|bool compression
+argument_list|,
+argument|bool smooth
+argument_list|,
+argument|int jitterLimit
+argument_list|,
+argument|int xoffset
+argument_list|,
+argument|int yoffset
+argument_list|)
+block|;
 name|void
 name|sendMouseEvent
 argument_list|()
 block|;
-name|void
-name|pathFromUdev
-argument_list|(
-name|QString
-operator|*
-name|path
-argument_list|)
-block|;
 name|QSocketNotifier
 operator|*
 name|m_notify
-block|;
-name|int
-name|m_fd
 block|;
 name|int
 name|m_x
@@ -97,25 +104,28 @@ block|,
 name|m_prevy
 block|;
 name|int
-name|m_xoffset
-block|,
-name|m_yoffset
-block|;
-name|int
-name|m_smoothx
-block|,
-name|m_smoothy
-block|;
-name|Qt
-operator|::
-name|MouseButtons
-name|m_buttons
+name|m_fd
 block|;
 name|bool
 name|m_compression
 block|;
 name|bool
 name|m_smooth
+block|;
+name|int
+name|m_xoffset
+block|,
+name|m_yoffset
+block|;
+name|Qt
+operator|::
+name|MouseButtons
+name|m_buttons
+block|;
+name|int
+name|m_smoothx
+block|,
+name|m_smoothy
 block|;
 name|int
 name|m_jitterLimitSquared
@@ -131,6 +141,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QEVDEVMOUSE_H
+comment|// QEVDEVMOUSEHANDLER_H
 end_comment
 end_unit

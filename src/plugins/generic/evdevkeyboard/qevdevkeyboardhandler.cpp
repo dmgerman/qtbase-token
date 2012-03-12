@@ -79,11 +79,6 @@ parameter_list|(
 name|int
 name|deviceDescriptor
 parameter_list|,
-specifier|const
-name|QString
-modifier|&
-name|device
-parameter_list|,
 name|bool
 name|disableZap
 parameter_list|,
@@ -99,11 +94,6 @@ member_init_list|:
 name|m_fd
 argument_list|(
 name|deviceDescriptor
-argument_list|)
-member_init_list|,
-name|m_device
-argument_list|(
-name|device
 argument_list|)
 member_init_list|,
 name|m_modifiers
@@ -550,8 +540,6 @@ operator|new
 name|QEvdevKeyboardHandler
 argument_list|(
 name|fd
-argument_list|,
-name|device
 argument_list|,
 name|disableZap
 argument_list|,
