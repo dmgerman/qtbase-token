@@ -5782,12 +5782,12 @@ literal|" width=\""
 operator|<<
 name|width
 operator|<<
-literal|"\">"
+literal|"\""
 expr_stmt|;
 name|out
 argument_list|()
 operator|<<
-literal|"\n "
+literal|">\n "
 expr_stmt|;
 name|numTableRows
 operator|=
