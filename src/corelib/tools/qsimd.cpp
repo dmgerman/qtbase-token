@@ -310,7 +310,6 @@ argument_list|)
 name|int
 name|auxv
 init|=
-operator|::
 name|qt_safe_open
 argument_list|(
 literal|"/proc/self/auxv"
@@ -345,7 +344,6 @@ condition|)
 block|{
 name|nread
 operator|=
-operator|::
 name|qt_safe_read
 argument_list|(
 name|auxv
@@ -441,7 +439,6 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-operator|::
 name|qt_safe_close
 argument_list|(
 name|auxv
