@@ -884,12 +884,6 @@ argument_list|(
 literal|"GENERATED_SOURCES"
 argument_list|)
 block|;     }
-comment|//for cross-platform dependent directories
-name|virtual
-name|void
-name|usePlatformDir
-argument_list|()
-block|;
 comment|//for installs
 name|virtual
 name|QString

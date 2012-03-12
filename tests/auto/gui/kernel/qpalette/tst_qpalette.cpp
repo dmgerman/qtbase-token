@@ -12,11 +12,6 @@ include|#
 directive|include
 file|"qpalette.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<qapplication.h>
-end_include
 begin_class
 DECL|class|tst_QPalette
 class|class

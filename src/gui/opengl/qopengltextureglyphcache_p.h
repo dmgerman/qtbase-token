@@ -110,8 +110,6 @@ argument_list|)
 block|{
 if|if
 condition|(
-name|ctx
-operator|&&
 operator|!
 name|ctx
 operator|->

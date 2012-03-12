@@ -7622,6 +7622,16 @@ operator|::
 name|waitForBytesWrittenMinusOne
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|QSKIP
+argument_list|(
+literal|"QTBUG-24451 - indefinite wait may hang"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QTcpSocket
 modifier|*
 name|socket
@@ -7755,6 +7765,16 @@ operator|::
 name|waitForReadyReadMinusOne
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|QSKIP
+argument_list|(
+literal|"QTBUG-24451 - indefinite wait may hang"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QTcpSocket
 modifier|*
 name|socket
@@ -10852,6 +10872,16 @@ operator|::
 name|localAddressEmptyOnBSD
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|QSKIP
+argument_list|(
+literal|"QTBUG-24451 - indefinite wait may hang"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QFETCH_GLOBAL
 argument_list|(
 name|bool

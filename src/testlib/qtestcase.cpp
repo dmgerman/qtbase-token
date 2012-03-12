@@ -251,7 +251,7 @@ comment|/*! \macro QFAIL(message)     \relates QTest     This macro can be used 
 comment|/*! \macro QTEST(actual, testElement)     \relates QTest     QTEST() is a convenience macro for \l QCOMPARE() that compares    the value \a actual with the element \a testElement from the test's data.    If there is no such element, the test asserts.     Apart from that, QTEST() behaves exactly as \l QCOMPARE().     Instead of writing:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 6     you can write:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 7     \sa QCOMPARE() */
 comment|/*! \macro QSKIP(description)     \relates QTest     If called from a test function, the QSKIP() macro stops execution of the test    without adding a failure to the test log. You can use it to skip tests that    wouldn't make sense in the current configuration. The text \a description is    appended to the test log and should contain an explanation of why the test    couldn't be executed.     If the test is data-driven, each call to QSKIP() will skip only the current    row of test data, so an unconditional call to QSKIP will produce one skip    message in the test log for each row of test data.     If called from an _data function, the QSKIP() macro will stop execution of    the _data function and will prevent execution of the associated test    function.     If called from initTestCase() or initTestCase_data(), the QSKIP() macro will    skip all test and _data functions.     \b {Note:} This macro can only be used in a test function or _data    function that is invoked by the test framework.     Example:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 8 */
 comment|/*! \macro QEXPECT_FAIL(dataIndex, comment, mode)     \relates QTest     The QEXPECT_FAIL() macro marks the next \l QCOMPARE() or \l QVERIFY() as an    expected failure. Instead of adding a failure to the test log, an expected    failure will be reported.     If a \l QVERIFY() or \l QCOMPARE() is marked as an expected failure,    but passes instead, an unexpected pass (XPASS) is written to the test log.     The parameter \a dataIndex describes for which entry in the test data the    failure is expected. Pass an empty string (\c{""}) if the failure    is expected for all entries or if no test data exists.     \a comment will be appended to the test log for the expected failure.     \a mode is a \l QTest::TestFailMode and sets whether the test should    continue to execute or not.     \b {Note:} This macro can only be used in a test function that is invoked    by the test framework.     Example 1:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 9     In the example above, an expected fail will be written into the test output    if the variable \c i is not 42. If the variable \c i is 42, an unexpected pass    is written instead. The QEXPECT_FAIL() has no influence on the second QCOMPARE()    statement in the example.     Example 2:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 10     The above testfunction will not continue executing for the test data    entry \c{data27}.     \sa QTest::TestFailMode, QVERIFY(), QCOMPARE() */
-comment|/*! \macro QFINDTESTDATA(filename)    \since 5.0     \relates QTest     Returns a QString for the testdata file referred to by \a filename, or an    empty QString if the testdata file could not be found.     This macro allows the test to load data from an external file without    hardcoding an absolute filename into the test, or using relative paths    which may be error prone.     The returned path will be the first path from the following list which    resolves to an existing file or directory:     \list    \li \a filename relative to QCoreApplication::applicationDirPath()       (only if a QCoreApplication or QApplication object has been created).    \li \a filename relative to the test's standard install directory       (QLibraryInfo::TestsPath with the lowercased testcase name appended).    \li \a filename relative to the directory containing the source file from which       QFINDTESTDATA is invoked.    \endlist     If the named file/directory does not exist at any of these locations,    a warning is printed to the test log.     For example, in this code:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 26     The testdata file will be resolved as the first existing file from:     \list    \li \c{/home/user/build/myxmlparser/tests/tst_myxmlparser/testxml/simple1.xml}    \li \c{/usr/local/Qt-5.0.0/tests/tst_myxmlparser/testxml/simple1.xml}    \li \c{/home/user/sources/myxmlparser/tests/tst_myxmlparser/testxml/simple1.xml}    \endlist     This allows the test to find its testdata regardless of whether the    test has been installed, and regardless of whether the test's build tree    is equal to the test's source tree.     \b {Note:} reliable detection of testdata from the source directory requires    either that qmake is used, or the \c{QT_TESTCASE_BUILDDIR} macro is defined to    point to the working directory from which the compiler is invoked, or only    absolute paths to the source files are passed to the compiler. Otherwise, the    absolute path of the source directory cannot be determined. */
+comment|/*! \macro QFINDTESTDATA(filename)    \since 5.0     \relates QTest     Returns a QString for the testdata file referred to by \a filename, or an    empty QString if the testdata file could not be found.     This macro allows the test to load data from an external file without    hardcoding an absolute filename into the test, or using relative paths    which may be error prone.     The returned path will be the first path from the following list which    resolves to an existing file or directory:     \list    \li \a filename relative to QCoreApplication::applicationDirPath()       (only if a QCoreApplication or QApplication object has been created).    \li \a filename relative to the test's standard install directory       (QLibraryInfo::TestsPath with the lowercased testcase name appended).    \li \a filename relative to the directory containing the source file from which       QFINDTESTDATA is invoked.    \endlist     If the named file/directory does not exist at any of these locations,    a warning is printed to the test log.     For example, in this code:    \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 26     The testdata file will be resolved as the first existing file from:     \list    \li \c{/home/user/build/myxmlparser/tests/tst_myxmlparser/testxml/simple1.xml}    \li \c{/usr/local/Qt-5.0.0/tests/tst_myxmlparser/testxml/simple1.xml}    \li \c{/home/user/sources/myxmlparser/tests/tst_myxmlparser/testxml/simple1.xml}    \endlist     This allows the test to find its testdata regardless of whether the    test has been installed, and regardless of whether the test's build tree    is equal to the test's source tree.     \b {Note:} reliable detection of testdata from the source directory requires    either that qmake is used, or the \c{QT_TESTCASE_BUILDDIR} macro is defined to    point to the working directory from which the compiler is invoked, or only    absolute paths to the source files are passed to the compiler. Otherwise, the    absolute path of the source directory cannot be determined.     \bold {Note:} For tests that use the \l QTEST_APPLESS_MAIN() macro to generate a    \c{main()} function, \c{QFINDTESTDATA} will not attempt to find test data    relative to QCoreApplication::applicationDirPath().  In practice, this means that    tests using \c{QTEST_APPLESS_MAIN()} will fail to find their test data    if run from a shadow build tree. */
 comment|/*! \macro QTEST_MAIN(TestClass)      \relates QTest      Implements a main() function that instantiates an application object and     the \a TestClass, and executes all tests in the order they were defined.     Use this macro to build stand-alone executables.      If \c QT_WIDGETS_LIB is defined, the application object will be a QApplication,     if \c QT_GUI_LIB is defined, the application object will be a QGuiApplication,     otherwise it will be a QCoreApplication.  If qmake is used and the configuration     includes \c{QT += widgets}, then \c QT_WIDGETS_LIB will be defined automatically.     Similarly, if qmake is used and the configuration includes \c{QT += gui}, then     \c QT_GUI_LIB will be defined automatically.      \b {Note:} On platforms that have keypad navigation enabled by default,     this macro will forcefully disable it if \c QT_WIDGETS_LIB is defined.  This is done     to simplify the usage of key events when writing autotests. If you wish to write a     test case that uses keypad navigation, you should enable it either in the     \c {initTestCase()} or \c {init()} functions of your test case by calling     \l {QApplication::setNavigationMode()}.      Example:     \snippet doc/src/snippets/code/src_qtestlib_qtestcase.cpp 11      \sa QTEST_APPLESS_MAIN(), QTEST_GUILESS_MAIN(), QTest::qExec(),     QApplication::setNavigationMode() */
 comment|/*! \macro QTEST_APPLESS_MAIN(TestClass)      \relates QTest      Implements a main() function that executes all tests in \a TestClass.      Behaves like \l QTEST_MAIN(), but doesn't instantiate a QApplication     object. Use this macro for really simple stand-alone non-GUI tests.      \sa QTEST_MAIN() */
 comment|/*! \macro QTEST_GUILESS_MAIN(TestClass)     \since 5.0      \relates QTest      Implements a main() function that instantiates a QCoreApplication object     and the \a TestClass, and executes all tests in the order they were     defined.  Use this macro to build stand-alone executables.      Behaves like \l QTEST_MAIN(), but instantiates a QCoreApplication instead     of the QApplication object. Use this macro if your test case doesn't need     functionality offered by QApplication, but the event loop is still necessary.      \sa QTEST_MAIN() */
@@ -7334,6 +7334,32 @@ name|int
 name|line
 parameter_list|)
 block|{
+specifier|static
+name|bool
+name|warned
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|warned
+condition|)
+block|{
+name|warned
+operator|=
+literal|true
+expr_stmt|;
+name|QTest
+operator|::
+name|qWarn
+argument_list|(
+literal|"QTest::compare_helper(bool, const char *, const char *, int) is obsolete "
+literal|"and will soon be removed. Please update your code to use the other "
+literal|"version of this function."
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|QTestResult
 operator|::
@@ -7351,7 +7377,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal  */
+comment|/*! \internal     This function is called by various specializations of QTest::qCompare     to decide whether to report a failure and to produce verbose test output.      The failureMsg parameter can be null, in which case a default message     will be output if the compare fails.  If the compare succeeds, failureMsg     will not be output.      If the caller has already passed a failure message showing the compared     values, or if those values cannot be stringified, val1 and val2 can be null.  */
 end_comment
 begin_function
 DECL|function|compare_helper
@@ -7366,7 +7392,7 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|msg
+name|failureMsg
 parameter_list|,
 name|char
 modifier|*
@@ -7402,7 +7428,7 @@ name|compare
 argument_list|(
 name|success
 argument_list|,
-name|msg
+name|failureMsg
 argument_list|,
 name|val1
 argument_list|,
@@ -7465,27 +7491,14 @@ name|line
 parameter_list|)
 block|{
 return|return
+name|compare_helper
+argument_list|(
 name|qFuzzyCompare
 argument_list|(
 name|t1
 argument_list|,
 name|t2
 argument_list|)
-condition|?
-name|compare_helper
-argument_list|(
-literal|true
-argument_list|,
-literal|"COMPARE()"
-argument_list|,
-name|file
-argument_list|,
-name|line
-argument_list|)
-else|:
-name|compare_helper
-argument_list|(
-literal|false
 argument_list|,
 literal|"Compared floats are not the same (fuzzy compare)"
 argument_list|,
@@ -7556,27 +7569,14 @@ name|line
 parameter_list|)
 block|{
 return|return
+name|compare_helper
+argument_list|(
 name|qFuzzyCompare
 argument_list|(
 name|t1
 argument_list|,
 name|t2
 argument_list|)
-condition|?
-name|compare_helper
-argument_list|(
-literal|true
-argument_list|,
-literal|"COMPARE()"
-argument_list|,
-name|file
-argument_list|,
-name|line
-argument_list|)
-else|:
-name|compare_helper
-argument_list|(
-literal|false
 argument_list|,
 literal|"Compared doubles are not the same (fuzzy compare)"
 argument_list|,
@@ -7875,7 +7875,8 @@ name|line
 parameter_list|)
 block|{
 return|return
-operator|(
+name|compare_helper
+argument_list|(
 name|qstrcmp
 argument_list|(
 name|t1
@@ -7884,22 +7885,6 @@ name|t2
 argument_list|)
 operator|==
 literal|0
-operator|)
-condition|?
-name|compare_helper
-argument_list|(
-literal|true
-argument_list|,
-literal|"COMPARE()"
-argument_list|,
-name|file
-argument_list|,
-name|line
-argument_list|)
-else|:
-name|compare_helper
-argument_list|(
-literal|false
 argument_list|,
 literal|"Compared strings are not the same"
 argument_list|,

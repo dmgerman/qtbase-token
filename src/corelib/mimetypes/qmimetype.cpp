@@ -37,6 +37,11 @@ include|#
 directive|include
 file|<QtCore/QLocale>
 end_include
+begin_include
+include|#
+directive|include
+file|<memory>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|bool
@@ -81,22 +86,6 @@ name|QMimeTypePrivate
 operator|::
 name|QMimeTypePrivate
 parameter_list|()
-member_init_list|:
-name|name
-argument_list|()
-comment|//, comment()
-member_init_list|,
-name|localeComments
-argument_list|()
-member_init_list|,
-name|genericIconName
-argument_list|()
-member_init_list|,
-name|iconName
-argument_list|()
-member_init_list|,
-name|globPatterns
-argument_list|()
 block|{}
 end_constructor
 begin_constructor
@@ -119,7 +108,6 @@ name|d
 operator|->
 name|name
 argument_list|)
-comment|//, comment(other.d->comment)
 member_init_list|,
 name|localeComments
 argument_list|(
@@ -171,7 +159,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-comment|//comment.clear();
 name|localeComments
 operator|.
 name|clear
@@ -223,7 +210,6 @@ name|other
 operator|.
 name|name
 operator|&&
-comment|//comment == other.comment&&
 name|localeComments
 operator|==
 name|other

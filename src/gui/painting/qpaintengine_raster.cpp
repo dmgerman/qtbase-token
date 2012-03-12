@@ -14933,6 +14933,33 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \internal  */
+end_comment
+begin_function
+DECL|function|rasterBuffer
+name|QRasterBuffer
+modifier|*
+name|QRasterPaintEngine
+operator|::
+name|rasterBuffer
+parameter_list|()
+block|{
+name|Q_D
+argument_list|(
+name|QRasterPaintEngine
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|rasterBuffer
+operator|.
+name|data
+argument_list|()
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
@@ -17920,10 +17947,6 @@ condition|(
 name|shouldDrawCachedGlyphs
 argument_list|(
 name|fontEngine
-operator|->
-name|fontDef
-operator|.
-name|pixelSize
 argument_list|,
 name|state
 argument_list|()
@@ -19534,7 +19557,6 @@ name|QRasterPaintEngine
 operator|::
 name|supportsTransformations
 parameter_list|(
-specifier|const
 name|QFontEngine
 modifier|*
 name|fontEngine
@@ -19555,10 +19577,6 @@ return|return
 name|supportsTransformations
 argument_list|(
 name|fontEngine
-operator|->
-name|fontDef
-operator|.
-name|pixelSize
 argument_list|,
 name|m
 argument_list|)
@@ -19572,8 +19590,9 @@ name|QRasterPaintEngine
 operator|::
 name|supportsTransformations
 parameter_list|(
-name|qreal
-name|pixelSize
+name|QFontEngine
+modifier|*
+name|fontEngine
 parameter_list|,
 specifier|const
 name|QTransform
@@ -19600,7 +19619,7 @@ return|return
 operator|!
 name|shouldDrawCachedGlyphs
 argument_list|(
-name|pixelSize
+name|fontEngine
 argument_list|,
 name|m
 argument_list|)

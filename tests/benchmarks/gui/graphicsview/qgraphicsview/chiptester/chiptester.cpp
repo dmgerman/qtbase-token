@@ -17,6 +17,11 @@ include|#
 directive|include
 file|<QtGui>
 end_include
+begin_include
+include|#
+directive|include
+file|<QScrollBar>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef

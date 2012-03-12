@@ -16363,6 +16363,11 @@ modifier|*
 name|w
 parameter_list|)
 block|{
+comment|// we have two data structures here: a hash of property -> value for lookup,
+comment|// and a vector giving properties in the order they are specified.
+comment|//
+comment|// this means we only set a property once (thanks to the hash) but we set
+comment|// properties in the order they are specified.
 name|QHash
 argument_list|<
 name|QString
@@ -16370,6 +16375,12 @@ argument_list|,
 name|QVariant
 argument_list|>
 name|propertyHash
+decl_stmt|;
+name|QVector
+argument_list|<
+name|QString
+argument_list|>
+name|properties
 decl_stmt|;
 name|QVector
 argument_list|<
@@ -16695,6 +16706,30 @@ name|variant
 expr_stmt|;
 break|break;
 block|}
+if|if
+condition|(
+name|propertyHash
+operator|.
+name|contains
+argument_list|(
+name|property
+argument_list|)
+condition|)
+block|{
+comment|// we're ignoring the original appearance of this property
+name|properties
+operator|.
+name|remove
+argument_list|(
+name|properties
+operator|.
+name|indexOf
+argument_list|(
+name|property
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|propertyHash
 index|[
 name|property
@@ -16702,20 +16737,15 @@ index|]
 operator|=
 name|v
 expr_stmt|;
-block|}
-comment|// apply the values
-specifier|const
-name|QList
-argument_list|<
-name|QString
-argument_list|>
 name|properties
-init|=
-name|propertyHash
 operator|.
-name|keys
-argument_list|()
-decl_stmt|;
+name|append
+argument_list|(
+name|property
+argument_list|)
+expr_stmt|;
+block|}
+comment|// apply the values from left to right order
 for|for
 control|(
 name|int

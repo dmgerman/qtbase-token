@@ -1084,16 +1084,6 @@ name|false
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_function_decl
-name|void
-name|removeEngine
-parameter_list|(
-name|QFontEngine
-modifier|*
-name|engine
-parameter_list|)
-function_decl|;
-end_function_decl
 begin_label
 name|private
 label|:

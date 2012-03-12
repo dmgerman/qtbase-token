@@ -2274,6 +2274,11 @@ name|defined
 argument_list|(
 name|GNU_LIBICONV
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
 if|#
 directive|if
 name|defined

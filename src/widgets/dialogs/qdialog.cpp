@@ -2405,8 +2405,6 @@ operator|::
 name|DialogStart
 argument_list|,
 name|this
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2451,8 +2449,6 @@ operator|::
 name|DialogEnd
 argument_list|,
 name|this
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;

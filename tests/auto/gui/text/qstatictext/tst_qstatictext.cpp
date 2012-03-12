@@ -10,7 +10,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/QApplication>
+file|<QtGui/QGuiApplication>
 end_include
 begin_include
 include|#
@@ -36,11 +36,6 @@ begin_include
 include|#
 directive|include
 file|<private/qstatictext_p.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<private/qapplication_p.h>
 end_include
 begin_comment
 comment|// #define DEBUG_SAVE_IMAGE
@@ -1251,7 +1246,7 @@ block|{
 name|QFont
 name|font
 init|=
-name|QApplication
+name|QGuiApplication
 operator|::
 name|font
 argument_list|()
@@ -2720,7 +2715,7 @@ block|{
 name|QFont
 name|font
 init|=
-name|QApplication
+name|QGuiApplication
 operator|::
 name|font
 argument_list|()
@@ -2920,7 +2915,7 @@ block|{
 name|QFont
 name|font
 init|=
-name|QApplication
+name|QGuiApplication
 operator|::
 name|font
 argument_list|()
@@ -3124,7 +3119,7 @@ block|{
 name|QFont
 name|font
 init|=
-name|QApplication
+name|QGuiApplication
 operator|::
 name|font
 argument_list|()

@@ -182,7 +182,7 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|msg
+name|failureMsg
 parameter_list|,
 name|char
 modifier|*

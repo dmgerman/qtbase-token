@@ -231,12 +231,6 @@ name|other
 operator|.
 name|d
 expr_stmt|;
-name|a
-operator|=
-name|other
-operator|.
-name|a
-expr_stmt|;
 if|if
 condition|(
 name|d
@@ -249,6 +243,12 @@ name|ref
 parameter_list|()
 constructor_decl|;
 block|}
+name|a
+operator|=
+name|other
+operator|.
+name|a
+expr_stmt|;
 return|return
 operator|*
 name|this

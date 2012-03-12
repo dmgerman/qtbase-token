@@ -680,12 +680,33 @@ argument_list|,
 argument|Qt::ClipOperation op
 argument_list|)
 block|;
+specifier|inline
+specifier|const
+name|QClipData
+operator|*
+name|clip
+argument_list|()
+specifier|const
+block|;
 name|void
 name|drawStaticTextItem
 argument_list|(
 name|QStaticTextItem
 operator|*
 name|textItem
+argument_list|)
+block|;
+name|virtual
+name|bool
+name|drawCachedGlyphs
+argument_list|(
+argument|int numGlyphs
+argument_list|,
+argument|const glyph_t *glyphs
+argument_list|,
+argument|const QFixedPoint *positions
+argument_list|,
+argument|QFontEngine *fontEngine
 argument_list|)
 block|;      enum
 name|ClipType
@@ -785,6 +806,11 @@ argument_list|()
 block|;
 endif|#
 directive|endif
+name|QRasterBuffer
+operator|*
+name|rasterBuffer
+argument_list|()
+block|;
 name|void
 name|alphaPenBlt
 argument_list|(
@@ -820,14 +846,14 @@ block|;
 name|bool
 name|supportsTransformations
 argument_list|(
-argument|const QFontEngine *fontEngine
+argument|QFontEngine *fontEngine
 argument_list|)
 specifier|const
 block|;
 name|bool
 name|supportsTransformations
 argument_list|(
-argument|qreal pixelSize
+argument|QFontEngine *fontEngine
 argument_list|,
 argument|const QTransform&m
 argument_list|)
@@ -892,18 +918,6 @@ argument_list|,
 name|QSpanData
 operator|*
 name|fill
-argument_list|)
-block|;
-name|bool
-name|drawCachedGlyphs
-argument_list|(
-argument|int numGlyphs
-argument_list|,
-argument|const glyph_t *glyphs
-argument_list|,
-argument|const QFixedPoint *positions
-argument_list|,
-argument|QFontEngine *fontEngine
 argument_list|)
 block|;
 name|bool
@@ -2084,8 +2098,60 @@ name|data
 argument_list|()
 return|;
 end_return
+begin_expr_stmt
+unit|}  inline
+DECL|function|clip
+specifier|const
+name|QClipData
+operator|*
+name|QRasterPaintEngine
+operator|::
+name|clip
+argument_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QRasterPaintEngine
+argument_list|)
+block|;
+if|if
+condition|(
+name|state
+argument_list|()
+operator|&&
+name|state
+argument_list|()
+operator|->
+name|clip
+operator|&&
+name|state
+argument_list|()
+operator|->
+name|clip
+operator|->
+name|enabled
+condition|)
+return|return
+name|state
+argument_list|()
+operator|->
+name|clip
+return|;
+end_expr_stmt
+begin_return
+return|return
+name|d
+operator|->
+name|baseClip
+operator|.
+name|data
+argument_list|()
+return|;
+end_return
 begin_endif
-unit|}   QT_END_NAMESPACE
+unit|}  QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif

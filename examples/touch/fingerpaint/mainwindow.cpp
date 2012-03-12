@@ -880,6 +880,8 @@ operator|.
 name|arg
 argument_list|(
 name|QString
+operator|::
+name|fromLatin1
 argument_list|(
 name|fileFormat
 operator|.
@@ -891,6 +893,8 @@ operator|.
 name|arg
 argument_list|(
 name|QString
+operator|::
+name|fromLatin1
 argument_list|(
 name|fileFormat
 argument_list|)
@@ -919,6 +923,9 @@ argument_list|(
 name|fileName
 argument_list|,
 name|fileFormat
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 return|;
 block|}

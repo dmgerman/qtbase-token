@@ -277,7 +277,7 @@ argument_list|,
 literal|1024
 argument_list|,
 literal|"Compared QImages differ.\n"
-literal|"   Actual (%s).isNull()  : %d\n"
+literal|"   Actual   (%s).isNull(): %d\n"
 literal|"   Expected (%s).isNull(): %d"
 argument_list|,
 name|actual
@@ -296,6 +296,14 @@ name|false
 argument_list|,
 name|msg
 argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
 name|file
 argument_list|,
 name|line
@@ -313,7 +321,15 @@ name|compare_helper
 argument_list|(
 name|true
 argument_list|,
-literal|"COMPARE()"
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|actual
+argument_list|,
+name|expected
 argument_list|,
 name|file
 argument_list|,
@@ -350,7 +366,7 @@ argument_list|,
 literal|1024
 argument_list|,
 literal|"Compared QImages differ in size.\n"
-literal|"   Actual (%s)  : %dx%d\n"
+literal|"   Actual   (%s): %dx%d\n"
 literal|"   Expected (%s): %dx%d"
 argument_list|,
 name|actual
@@ -385,6 +401,14 @@ name|false
 argument_list|,
 name|msg
 argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
 name|file
 argument_list|,
 name|line
@@ -411,7 +435,7 @@ argument_list|,
 literal|1024
 argument_list|,
 literal|"Compared QImages differ in format.\n"
-literal|"   Actual (%s)  : %d\n"
+literal|"   Actual   (%s): %d\n"
 literal|"   Expected (%s): %d"
 argument_list|,
 name|actual
@@ -436,6 +460,14 @@ name|false
 argument_list|,
 name|msg
 argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|actual
+argument_list|,
+name|expected
+argument_list|,
 name|file
 argument_list|,
 name|line
@@ -443,26 +475,11 @@ argument_list|)
 return|;
 block|}
 return|return
-operator|(
+name|compare_helper
+argument_list|(
 name|t1
 operator|==
 name|t2
-operator|)
-condition|?
-name|compare_helper
-argument_list|(
-name|true
-argument_list|,
-literal|"COMPARE()"
-argument_list|,
-name|file
-argument_list|,
-name|line
-argument_list|)
-else|:
-name|compare_helper
-argument_list|(
-name|false
 argument_list|,
 literal|"Compared values are not the same"
 argument_list|,
@@ -560,7 +577,7 @@ argument_list|,
 literal|1024
 argument_list|,
 literal|"Compared QPixmaps differ.\n"
-literal|"   Actual (%s).isNull()  : %d\n"
+literal|"   Actual   (%s).isNull(): %d\n"
 literal|"   Expected (%s).isNull(): %d"
 argument_list|,
 name|actual
@@ -578,6 +595,14 @@ argument_list|(
 name|false
 argument_list|,
 name|msg
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|actual
+argument_list|,
+name|expected
 argument_list|,
 name|file
 argument_list|,
@@ -598,7 +623,15 @@ name|compare_helper
 argument_list|(
 name|true
 argument_list|,
-literal|"COMPARE()"
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|actual
+argument_list|,
+name|expected
 argument_list|,
 name|file
 argument_list|,
@@ -637,7 +670,7 @@ argument_list|,
 literal|1024
 argument_list|,
 literal|"Compared QPixmaps differ in size.\n"
-literal|"   Actual (%s)  : %dx%d\n"
+literal|"   Actual   (%s): %dx%d\n"
 literal|"   Expected (%s): %dx%d"
 argument_list|,
 name|actual
@@ -671,6 +704,14 @@ argument_list|(
 name|false
 argument_list|,
 name|msg
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|actual
+argument_list|,
+name|expected
 argument_list|,
 name|file
 argument_list|,

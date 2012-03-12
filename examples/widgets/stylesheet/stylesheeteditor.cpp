@@ -267,7 +267,9 @@ expr_stmt|;
 name|QString
 name|styleSheet
 init|=
-name|QLatin1String
+name|QString
+operator|::
+name|fromLatin1
 argument_list|(
 name|file
 operator|.

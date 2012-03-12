@@ -1039,7 +1039,7 @@ name|msg
 argument_list|)
 argument_list|,
 literal|"Compared QStringLists have different sizes.\n"
-literal|"   Actual (%s) size  : '%d'\n"
+literal|"   Actual   (%s) size: '%d'\n"
 literal|"   Expected (%s) size: '%d'"
 argument_list|,
 name|actual
@@ -1102,8 +1102,8 @@ name|msg
 argument_list|)
 argument_list|,
 literal|"Compared QStringLists differ at index %d.\n"
-literal|"   Actual (%s) : '%s'\n"
-literal|"   Expected (%s) : '%s'"
+literal|"   Actual   (%s): '%s'\n"
+literal|"   Expected (%s): '%s'"
 argument_list|,
 name|i
 argument_list|,
@@ -1152,6 +1152,14 @@ argument_list|(
 name|isOk
 argument_list|,
 name|msg
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|actual
+argument_list|,
+name|expected
 argument_list|,
 name|file
 argument_list|,

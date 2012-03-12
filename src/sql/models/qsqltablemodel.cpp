@@ -4340,12 +4340,8 @@ name|row
 argument_list|()
 argument_list|)
 operator|.
-name|op
+name|insert
 argument_list|()
-operator|==
-name|QSqlTableModelPrivate
-operator|::
-name|Insert
 condition|)
 return|return
 name|QModelIndex

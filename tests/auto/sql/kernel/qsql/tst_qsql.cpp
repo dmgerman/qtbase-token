@@ -433,7 +433,7 @@ begin_comment
 comment|// make sure that the static stuff will be deleted
 end_comment
 begin_comment
-comment|// when using multiple QApplication objects
+comment|// when using multiple QGuiApplication objects
 end_comment
 begin_function
 DECL|function|open
@@ -481,7 +481,7 @@ operator|++
 name|i
 control|)
 block|{
-name|QApplication
+name|QGuiApplication
 name|app
 argument_list|(
 name|argc

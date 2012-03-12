@@ -320,6 +320,13 @@ block|;
 specifier|static
 name|Qt
 operator|::
+name|KeyboardModifiers
+name|queryKeyboardModifiers
+argument_list|()
+block|;
+specifier|static
+name|Qt
+operator|::
 name|MouseButtons
 name|mouseButtons
 argument_list|()

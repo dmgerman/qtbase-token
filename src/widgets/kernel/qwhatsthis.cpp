@@ -1851,8 +1851,6 @@ operator|::
 name|ContextHelpStart
 argument_list|,
 name|this
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1903,8 +1901,6 @@ operator|::
 name|ContextHelpEnd
 argument_list|,
 name|this
-argument_list|,
-literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;

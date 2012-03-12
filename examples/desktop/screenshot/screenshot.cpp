@@ -325,6 +325,9 @@ name|format
 operator|.
 name|toAscii
 argument_list|()
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

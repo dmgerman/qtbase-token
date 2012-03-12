@@ -40,7 +40,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|member|eventTime
-name|QTime
+name|QElapsedTimer
 name|QWindowSystemInterfacePrivate
 operator|::
 name|eventTime

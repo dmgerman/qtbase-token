@@ -163,6 +163,12 @@ DECL|struct|AbstractTester
 struct|struct
 name|AbstractTester
 block|{
+DECL|function|~AbstractTester
+specifier|virtual
+name|~
+name|AbstractTester
+parameter_list|()
+block|{}
 specifier|virtual
 name|void
 name|operator

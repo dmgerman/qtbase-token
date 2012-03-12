@@ -178,7 +178,11 @@ operator|::
 name|~
 name|QPlatformDrag
 parameter_list|()
-block|{ }
+block|{
+operator|delete
+name|d_ptr
+expr_stmt|;
+block|}
 end_destructor
 begin_function
 DECL|function|currentDrag

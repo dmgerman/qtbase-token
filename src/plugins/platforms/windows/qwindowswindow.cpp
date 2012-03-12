@@ -2215,7 +2215,7 @@ name|hwnd
 condition|)
 return|return;
 name|UINT
-name|flags
+name|swpFlags
 init|=
 name|SWP_NOMOVE
 operator||
@@ -2225,7 +2225,7 @@ if|if
 condition|(
 name|frameChange
 condition|)
-name|flags
+name|swpFlags
 operator||=
 name|SWP_FRAMECHANGED
 expr_stmt|;
@@ -2234,7 +2234,7 @@ condition|(
 name|topLevel
 condition|)
 block|{
-name|flags
+name|swpFlags
 operator||=
 name|SWP_NOACTIVATE
 expr_stmt|;
@@ -2271,7 +2271,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|flags
+name|swpFlags
 argument_list|)
 expr_stmt|;
 if|if
@@ -2312,7 +2312,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|flags
+name|swpFlags
 argument_list|)
 expr_stmt|;
 block|}
@@ -2391,7 +2391,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|flags
+name|swpFlags
 argument_list|)
 expr_stmt|;
 block|}

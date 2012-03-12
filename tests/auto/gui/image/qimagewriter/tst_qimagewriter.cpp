@@ -35,11 +35,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QLabel>
-end_include
-begin_include
-include|#
-directive|include
 file|<QPainter>
 end_include
 begin_include

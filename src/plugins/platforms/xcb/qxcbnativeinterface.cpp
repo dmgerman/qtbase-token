@@ -172,6 +172,14 @@ name|QXcbNativeInterface
 operator|::
 name|QXcbNativeInterface
 parameter_list|()
+member_init_list|:
+name|m_genericEventFilterType
+argument_list|(
+name|QByteArrayLiteral
+argument_list|(
+literal|"xcb_generic_event_t"
+argument_list|)
+argument_list|)
 block|{
 name|qFill
 argument_list|(
@@ -425,10 +433,7 @@ if|if
 condition|(
 name|eventType
 operator|==
-name|QByteArrayLiteral
-argument_list|(
-literal|"xcb_generic_event_t"
-argument_list|)
+name|m_genericEventFilterType
 condition|)
 name|type
 operator|=
