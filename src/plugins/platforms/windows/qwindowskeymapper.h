@@ -121,6 +121,13 @@ operator|=
 name|w
 expr_stmt|;
 block|}
+specifier|static
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|queryKeyboardModifiers
+argument_list|()
+expr_stmt|;
 name|private
 label|:
 name|bool
