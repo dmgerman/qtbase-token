@@ -166,6 +166,17 @@ operator|&
 name|other
 operator|)
 decl_stmt|;
+name|QDBusError
+modifier|&
+name|operator
+init|=
+operator|(
+specifier|const
+name|QDBusMessage
+operator|&
+name|msg
+operator|)
+decl_stmt|;
 name|ErrorType
 name|type
 argument_list|()
