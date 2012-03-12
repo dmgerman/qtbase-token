@@ -31,6 +31,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qcocoaclipboard.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qcocoadrag.h"
 end_include
 begin_include
@@ -213,6 +218,12 @@ name|accessibility
 argument_list|()
 specifier|const
 block|;
+name|QPlatformClipboard
+operator|*
+name|clipboard
+argument_list|()
+specifier|const
+block|;
 name|QPlatformDrag
 operator|*
 name|drag
@@ -268,6 +279,10 @@ name|QCocoaScreen
 operator|*
 operator|>
 name|mScreens
+block|;
+name|QCocoaClipboard
+operator|*
+name|mCocoaClipboard
 block|;
 name|QScopedPointer
 operator|<
