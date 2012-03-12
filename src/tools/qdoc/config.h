@@ -845,13 +845,6 @@ name|CONFIG_SOURCEENCODING
 value|"sourceencoding"
 end_define
 begin_define
-DECL|macro|CONFIG_SOURCEMODULES
-define|#
-directive|define
-name|CONFIG_SOURCEMODULES
-value|"sourcemodules"
-end_define
-begin_define
 DECL|macro|CONFIG_SOURCES
 define|#
 directive|define
