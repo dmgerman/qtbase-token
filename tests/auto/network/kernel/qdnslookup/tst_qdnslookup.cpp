@@ -1598,16 +1598,16 @@ name|hostAddressRecords
 argument_list|()
 control|)
 block|{
-name|QCOMPARE
-argument_list|(
+comment|//reply may include A& AAAA records for nameservers, ignore them and only look at records matching the query
+if|if
+condition|(
 name|record
 operator|.
 name|name
 argument_list|()
-argument_list|,
+operator|==
 name|hostName
-argument_list|)
-expr_stmt|;
+condition|)
 name|addresses
 operator|<<
 name|record
@@ -1721,16 +1721,16 @@ name|nameServerRecords
 argument_list|()
 control|)
 block|{
-name|QCOMPARE
-argument_list|(
+comment|//reply may include NS records for authoritative nameservers, ignore them and only look at records matching the query
+if|if
+condition|(
 name|record
 operator|.
 name|name
 argument_list|()
-argument_list|,
+operator|==
 name|domain
-argument_list|)
-expr_stmt|;
+condition|)
 name|nameServers
 operator|<<
 name|record
