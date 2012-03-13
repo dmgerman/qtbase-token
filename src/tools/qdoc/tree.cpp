@@ -5399,7 +5399,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!  */
+comment|/*!   Read a<section> element from the index file and create the   appropriate node(s).  */
 end_comment
 begin_function
 DECL|function|readIndexSection
@@ -7607,6 +7607,11 @@ name|setDoc
 argument_list|(
 name|doc
 argument_list|)
+expr_stmt|;
+name|section
+operator|->
+name|setIndexNodeFlag
+argument_list|()
 expr_stmt|;
 if|if
 condition|(

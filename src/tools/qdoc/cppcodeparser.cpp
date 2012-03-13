@@ -3848,6 +3848,7 @@ name|command
 operator|==
 name|COMMAND_QMLMETHOD
 condition|)
+block|{
 return|return
 name|makeFunctionNode
 argument_list|(
@@ -3866,6 +3867,7 @@ argument_list|,
 name|COMMAND_QMLMETHOD
 argument_list|)
 return|;
+block|}
 elseif|else
 if|if
 condition|(

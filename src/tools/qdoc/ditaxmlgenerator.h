@@ -1779,7 +1779,7 @@ argument_list|(
 argument|DitaTag t
 argument_list|)
 block|;
-name|void
+name|bool
 name|writeEndTag
 argument_list|(
 argument|DitaTag t=DT_NONE

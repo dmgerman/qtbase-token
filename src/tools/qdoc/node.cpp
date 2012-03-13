@@ -198,6 +198,11 @@ argument_list|(
 name|Commendable
 argument_list|)
 member_init_list|,
+name|indexNodeFlag_
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
 name|parent_
 argument_list|(
 name|parent
