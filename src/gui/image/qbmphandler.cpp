@@ -1295,13 +1295,6 @@ operator|)
 operator|)
 condition|)
 block|{
-name|Q_ASSERT
-argument_list|(
-name|ncols
-operator|==
-literal|0
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|d
