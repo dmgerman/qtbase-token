@@ -137,6 +137,15 @@ name|rect
 argument_list|)
 block|;
 name|void
+name|setCocoaGeometry
+argument_list|(
+specifier|const
+name|QRect
+operator|&
+name|rect
+argument_list|)
+block|;
+name|void
 name|setVisible
 argument_list|(
 argument|bool visible
@@ -237,6 +246,15 @@ name|protected
 operator|:
 comment|// NSWindow handling. The QCocoaWindow/QNSView can either be displayed
 comment|// in an existing NSWindow or in one created by Qt.
+name|void
+name|recreateWindow
+argument_list|(
+specifier|const
+name|QPlatformWindow
+operator|*
+name|parentWindow
+argument_list|)
+block|;
 name|NSWindow
 operator|*
 name|createNSWindow
