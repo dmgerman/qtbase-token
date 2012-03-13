@@ -63,6 +63,11 @@ include|#
 directive|include
 include|FT_TRUETYPE_TABLES_H
 end_include
+begin_include
+include|#
+directive|include
+include|FT_ERRORS_H
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|macro|SimplifiedChineseCsbBit
@@ -1593,13 +1598,13 @@ name|cm
 operator|->
 name|encoding
 operator|==
-name|ft_encoding_adobe_custom
+name|FT_ENCODING_ADOBE_CUSTOM
 operator|||
 name|cm
 operator|->
 name|encoding
 operator|==
-name|ft_encoding_symbol
+name|FT_ENCODING_MS_SYMBOL
 condition|)
 block|{
 name|writingSystems
