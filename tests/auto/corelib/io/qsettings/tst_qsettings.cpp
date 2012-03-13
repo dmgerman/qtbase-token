@@ -6573,11 +6573,22 @@ condition|;
 operator|++
 name|i
 control|)
+block|{
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QSettings::endGroup: No matching beginGroup()"
+argument_list|)
+expr_stmt|;
 name|settings2
 operator|.
 name|endGroup
 argument_list|()
 expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|settings2
@@ -16228,6 +16239,87 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/*         This code generates lots of warnings, but that's on purpose.         Basically, we check that endGroup() can be used instead of         endArray() and vice versa. This is not documented, but this         is the behavior that we have chosen.     */
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QSettings::setArrayIndex: Missing beginArray()"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QSettings::setArrayIndex: Missing beginArray()"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QSettings::setArrayIndex: Missing beginArray()"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QSettings::setArrayIndex: Missing beginArray()"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QSettings::setArrayIndex: Missing beginArray()"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QSettings::endArray: Expected endGroup() instead"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QSettings::endGroup: Expected endArray() instead"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QSettings::endArray: Expected endGroup() instead"
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QSettings::endGroup: No matching beginGroup()"
+argument_list|)
+expr_stmt|;
 name|QSettings
 name|settings1
 argument_list|(
