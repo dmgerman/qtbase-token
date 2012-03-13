@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qwindowsfontdatabase_ft.h"
+file|"qwindowsfontdatabase.h"
 end_include
 begin_include
 include|#
@@ -2350,7 +2350,7 @@ specifier|const
 name|QFont
 name|menuFont
 init|=
-name|QWindowsFontDatabaseFT
+name|QWindowsFontDatabase
 operator|::
 name|LOGFONT_to_QFont
 argument_list|(
@@ -2363,7 +2363,7 @@ specifier|const
 name|QFont
 name|messageBoxFont
 init|=
-name|QWindowsFontDatabaseFT
+name|QWindowsFontDatabase
 operator|::
 name|LOGFONT_to_QFont
 argument_list|(
@@ -2376,7 +2376,7 @@ specifier|const
 name|QFont
 name|statusFont
 init|=
-name|QWindowsFontDatabaseFT
+name|QWindowsFontDatabase
 operator|::
 name|LOGFONT_to_QFont
 argument_list|(
@@ -2389,7 +2389,7 @@ specifier|const
 name|QFont
 name|titleFont
 init|=
-name|QWindowsFontDatabaseFT
+name|QWindowsFontDatabase
 operator|::
 name|LOGFONT_to_QFont
 argument_list|(
@@ -2420,7 +2420,7 @@ specifier|const
 name|QFont
 name|iconTitleFont
 init|=
-name|QWindowsFontDatabaseFT
+name|QWindowsFontDatabase
 operator|::
 name|LOGFONT_to_QFont
 argument_list|(
@@ -2435,7 +2435,7 @@ operator|=
 operator|new
 name|QFont
 argument_list|(
-name|QWindowsFontDatabaseFT
+name|QWindowsFontDatabase
 operator|::
 name|systemDefaultFont
 argument_list|()
