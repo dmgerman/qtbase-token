@@ -8397,7 +8397,7 @@ name|error
 argument_list|,
 name|QJsonParseError
 operator|::
-name|EndOfNumber
+name|TerminationByNumber
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8550,7 +8550,7 @@ name|error
 argument_list|,
 name|QJsonParseError
 operator|::
-name|StringEscapeSequence
+name|IllegalEscapeSequence
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8603,7 +8603,7 @@ name|error
 argument_list|,
 name|QJsonParseError
 operator|::
-name|StringUTF8Scan
+name|IllegalUTF8String
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8654,7 +8654,7 @@ name|error
 argument_list|,
 name|QJsonParseError
 operator|::
-name|EndOfString
+name|UnterminatedString
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8707,7 +8707,7 @@ name|error
 argument_list|,
 name|QJsonParseError
 operator|::
-name|StringEscapeSequence
+name|IllegalEscapeSequence
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8762,7 +8762,7 @@ name|error
 argument_list|,
 name|QJsonParseError
 operator|::
-name|StringUTF8Scan
+name|IllegalUTF8String
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -8815,7 +8815,7 @@ name|error
 argument_list|,
 name|QJsonParseError
 operator|::
-name|EndOfString
+name|UnterminatedString
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
