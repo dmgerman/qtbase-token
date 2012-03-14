@@ -300,7 +300,7 @@ expr_stmt|;
 comment|// used in debug mode to verify the reuse of pointers
 name|Q_CORE_EXPORT
 name|void
-name|internalSafetyCheckAdd2
+name|internalSafetyCheckAdd
 parameter_list|(
 specifier|const
 name|void
@@ -314,7 +314,7 @@ parameter_list|)
 function_decl|;
 name|Q_CORE_EXPORT
 name|void
-name|internalSafetyCheckRemove2
+name|internalSafetyCheckRemove
 parameter_list|(
 specifier|const
 name|void
@@ -1049,7 +1049,7 @@ modifier|*
 name|self
 parameter_list|)
 block|{
-name|internalSafetyCheckRemove2
+name|internalSafetyCheckRemove
 argument_list|(
 name|self
 argument_list|)
@@ -1237,7 +1237,7 @@ modifier|*
 name|self
 parameter_list|)
 block|{
-name|internalSafetyCheckRemove2
+name|internalSafetyCheckRemove
 argument_list|(
 name|self
 argument_list|)
@@ -1620,7 +1620,7 @@ if|if
 condition|(
 name|ptr
 condition|)
-name|internalSafetyCheckAdd2
+name|internalSafetyCheckAdd
 argument_list|(
 name|d
 argument_list|,
