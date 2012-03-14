@@ -874,7 +874,7 @@ expr_stmt|;
 else|else
 name|exampleNameFilter
 operator|=
-literal|"*.cpp *.h *.js *.xq *.svg *.xml *.ui"
+literal|"*.cpp *.h *.js *.xq *.svg *.xml *.dita *.ui"
 expr_stmt|;
 name|QStringList
 name|exampleImagePatterns
