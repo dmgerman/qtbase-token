@@ -1493,7 +1493,15 @@ operator|!
 name|reply
 condition|)
 block|{
-comment|// heh, how should that happen!
+if|if
+condition|(
+name|socket
+operator|->
+name|bytesAvailable
+argument_list|()
+operator|>
+literal|0
+condition|)
 name|qWarning
 argument_list|()
 operator|<<
