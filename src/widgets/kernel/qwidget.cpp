@@ -30825,7 +30825,13 @@ name|QMouseEvent
 modifier|*
 name|event
 parameter_list|)
-block|{ }
+block|{
+name|Q_UNUSED
+argument_list|(
+name|event
+argument_list|)
+expr_stmt|;
+block|}
 ifndef|#
 directive|ifndef
 name|QT_NO_WHEELEVENT
