@@ -209,7 +209,7 @@ literal|0
 block|,
 name|User
 init|=
-literal|256
+literal|1024
 block|}
 enum|;
 enum|enum
