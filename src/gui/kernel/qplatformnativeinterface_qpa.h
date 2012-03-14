@@ -68,6 +68,17 @@ operator|:
 name|virtual
 name|void
 operator|*
+name|nativeResourceForIntegration
+argument_list|(
+specifier|const
+name|QByteArray
+operator|&
+name|resource
+argument_list|)
+block|;
+name|virtual
+name|void
+operator|*
 name|nativeResourceForContext
 argument_list|(
 specifier|const
