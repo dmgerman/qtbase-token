@@ -3865,10 +3865,18 @@ operator|::
 name|ThemeChanged
 case|:
 comment|// ### fixme: Compress these events?
+if|if
+condition|(
+name|QWindowsTheme
+modifier|*
+name|theme
+init|=
 name|QWindowsTheme
 operator|::
 name|instance
 argument_list|()
+condition|)
+name|theme
 operator|->
 name|windowsThemeChanged
 argument_list|(

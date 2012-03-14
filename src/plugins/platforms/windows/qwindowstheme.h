@@ -56,7 +56,11 @@ name|QWindowsTheme
 operator|*
 name|instance
 argument_list|()
-block|;
+block|{
+return|return
+name|m_instance
+return|;
+block|}
 name|virtual
 name|bool
 name|usePlatformNativeDialog
@@ -124,6 +128,12 @@ operator|*
 name|window
 argument_list|)
 block|;
+specifier|static
+specifier|const
+name|char
+operator|*
+name|name
+block|;
 name|private
 operator|:
 name|void
@@ -151,6 +161,11 @@ block|;
 name|void
 name|refreshFonts
 argument_list|()
+block|;
+specifier|static
+name|QWindowsTheme
+operator|*
+name|m_instance
 block|;
 name|QPalette
 operator|*

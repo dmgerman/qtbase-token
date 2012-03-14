@@ -104,6 +104,12 @@ argument|ThemeHint hint
 argument_list|)
 specifier|const
 block|;
+specifier|static
+specifier|const
+name|char
+operator|*
+name|name
+block|;
 name|private
 operator|:
 name|mutable

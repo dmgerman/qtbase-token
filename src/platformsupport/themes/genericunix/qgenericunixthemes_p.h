@@ -89,6 +89,16 @@ specifier|static
 name|QPlatformTheme
 operator|*
 name|createUnixTheme
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|name
+argument_list|)
+block|;
+specifier|static
+name|QStringList
+name|themeNames
 argument_list|()
 block|;
 name|virtual
@@ -103,6 +113,12 @@ specifier|static
 name|QStringList
 name|xdgIconThemePaths
 argument_list|()
+block|;
+specifier|static
+specifier|const
+name|char
+operator|*
+name|name
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -174,6 +190,12 @@ name|type
 index|]
 return|;
 block|}
+specifier|static
+specifier|const
+name|char
+operator|*
+name|name
+block|;
 name|private
 operator|:
 name|QString
@@ -232,6 +254,12 @@ argument_list|(
 argument|ThemeHint hint
 argument_list|)
 specifier|const
+block|;
+specifier|static
+specifier|const
+name|char
+operator|*
+name|name
 block|;
 name|private
 operator|:

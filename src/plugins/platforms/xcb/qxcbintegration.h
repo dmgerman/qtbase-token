@@ -171,10 +171,17 @@ name|services
 argument_list|()
 specifier|const
 block|;
+name|QStringList
+name|themeNames
+argument_list|()
+specifier|const
+block|;
 name|QPlatformTheme
 operator|*
-name|platformTheme
-argument_list|()
+name|createPlatformTheme
+argument_list|(
+argument|const QString&name
+argument_list|)
 specifier|const
 block|;
 name|private
@@ -233,12 +240,6 @@ operator|<
 name|QPlatformServices
 operator|>
 name|m_services
-block|;
-name|QScopedPointer
-operator|<
-name|QPlatformTheme
-operator|>
-name|m_theme
 block|; }
 decl_stmt|;
 end_decl_stmt
