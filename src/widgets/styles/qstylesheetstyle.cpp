@@ -16572,8 +16572,22 @@ name|type
 argument_list|()
 condition|)
 block|{
-comment|// ### Qt 5
-comment|//        case QVariant::Icon: v = decl.iconValue(); break;
+case|case
+name|QVariant
+operator|::
+name|Icon
+case|:
+name|v
+operator|=
+name|cssIconValueToIcon
+argument_list|(
+name|decl
+operator|.
+name|iconValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+break|break;
 case|case
 name|QVariant
 operator|::
