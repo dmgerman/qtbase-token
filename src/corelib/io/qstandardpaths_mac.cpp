@@ -225,6 +225,9 @@ operator|::
 name|fromUtf8
 argument_list|(
 name|ba
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 operator|.
 name|normalized
