@@ -75,7 +75,7 @@ begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
 begin_comment
-comment|/*!     \class QWindow     \since 5.0     \brief The QWindow class represents a window in the underlying windowing system.      A window that is supplied a parent becomes a native child window of     their parent window.      \section1 Resource management      Windows can potentially use a lot of memory. A usual measurement is     width times height times color depth. A window might also include multiple     buffers to support double and triple buffering, as well as depth and stencil     buffers. To release a window's memory resources, the destroy() function.      \section1 Window and content orientation      QWindow has reportContentOrientationChange() and     requestWindowOrientation() that can be used to specify the     layout of the window contents in relation to the screen. The     window orientation determines the actual buffer layout of the     window, and the windowing system uses this value to rotate the     window before it ends up on the display, and to ensure that input     coordinates are in the correct coordinate space relative to the     application.      On the other hand, the content orientation is simply a hint to the     windowing system about which orientation the window contents are in.     It's useful when you wish to keep the same buffer layout, but rotate     the contents instead, especially when doing rotation animations     between different orientations. The windowing system might use this     value to determine the layout of system popups or dialogs.      \section1 Visibility and Windowing system exposure.      By default, the window is not visible, and you must call setVisible(true),     or show() or similar to make it visible. To make a window hidden again,     call setVisible(false) or hide(). The visible property describes the state     the application wants the window to be in. Depending on the underlying     system, a visible window might still not be shown on the screen. It could,     for instance, be covered by other opaque windows or moved outside the     physical area of the screen. On windowing systems that have exposure     notifications, the isExposed() accessor describes whether the window should     be treated as directly visible on screen. The exposeEvent() function is     called whenever the windows exposure in the windowing system changes.  On     windowing systems that do not make this information visible to the     application, isExposed() will simply return the same value as isVisible(). */
+comment|/*!     \class QWindow     \since 5.0     \brief The QWindow class represents a window in the underlying windowing system.      A window that is supplied a parent becomes a native child window of     their parent window.      \section1 Resource management      Windows can potentially use a lot of memory. A usual measurement is     width times height times color depth. A window might also include multiple     buffers to support double and triple buffering, as well as depth and stencil     buffers. To release a window's memory resources, the destroy() function.      \section1 Window and content orientation      QWindow has reportContentOrientationChange() and     requestWindowOrientation() that can be used to specify the     layout of the window contents in relation to the screen. The     window orientation determines the actual buffer layout of the     window, and the windowing system uses this value to rotate the     window before it ends up on the display, and to ensure that input     coordinates are in the correct coordinate space relative to the     application.      On the other hand, the content orientation is simply a hint to the     windowing system about which orientation the window contents are in.     It's useful when you wish to keep the same buffer layout, but rotate     the contents instead, especially when doing rotation animations     between different orientations. The windowing system might use this     value to determine the layout of system popups or dialogs.      \section1 Visibility and Windowing system exposure.      By default, the window is not visible, and you must call setVisible(true),     or show() or similar to make it visible. To make a window hidden again,     call setVisible(false) or hide(). The visible property describes the state     the application wants the window to be in. Depending on the underlying     system, a visible window might still not be shown on the screen. It could,     for instance, be covered by other opaque windows or moved outside the     physical area of the screen. On windowing systems that have exposure     notifications, the isExposed() accessor describes whether the window should     be treated as directly visible on screen. The exposeEvent() function is     called whenever the windows exposure in the windowing system changes.  On     windowing systems that do not make this information visible to the     application, isExposed() will simply return the same value as isVisible().      \section1 Rendering      There are two Qt APIs that can be used to render content into a window,     QBackingStore for rendering with a QPainter and flushing the contents     to a window with type QSurface::RasterSurface, and QOpenGLContext for     rendering with OpenGL to a window with type QSurface::OpenGLSurface.      The application can start rendering as soon as isExposed() returns true,     and can keep rendering until it isExposed() returns false. To find out when     isExposed() changes, reimplement exposeEvent(). The window will always get     a resize event before the first expose event. */
 end_comment
 begin_comment
 comment|/*!     Creates a window as a top level on the given screen.      The window is not shown until setVisible(true), show(), or similar is called.      \sa setScreen() */
@@ -1435,22 +1435,10 @@ specifier|const
 name|QWindow
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|d
-operator|->
-name|platformWindow
-condition|)
 return|return
 name|d
 operator|->
-name|platformWindow
-operator|->
-name|isExposed
-argument_list|()
-return|;
-return|return
-literal|false
+name|exposed
 return|;
 block|}
 end_function
@@ -2997,6 +2985,24 @@ name|platformWindow
 expr_stmt|;
 name|d
 operator|->
+name|resizeEventPending
+operator|=
+literal|true
+expr_stmt|;
+name|d
+operator|->
+name|receivedExpose
+operator|=
+literal|false
+expr_stmt|;
+name|d
+operator|->
+name|exposed
+operator|=
+literal|false
+expr_stmt|;
+name|d
+operator|->
 name|platformWindow
 operator|=
 literal|0
@@ -3607,7 +3613,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     The expose event is sent by the window system whenever the window's     exposure on screen changes.      If the window is moved off screen, is made totally obscured by another     window, iconified or similar, this function might be called and the     value of isExposed() might change to false. When this happens,     an application should stop its rendering as it is no longer visible     to the user.      \sa isExposed() */
+comment|/*!     The expose event is sent by the window system whenever the window's     exposure on screen changes.      The application can start rendering into the window with QBackingStore     and QOpenGLContext as soon as it gets an exposeEvent() such that     isExposed() is true.      If the window is moved off screen, is made totally obscured by another     window, iconified or similar, this function might be called and the     value of isExposed() might change to false. When this happens,     an application should stop its rendering as it is no longer visible     to the user.      A resize event will always be sent before the expose event the first time     a window is shown.      \sa isExposed() */
 end_comment
 begin_function
 DECL|function|exposeEvent
@@ -3673,7 +3679,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle show events.      The show event is called when the window becomes visible in the windowing system. */
+comment|/*!     Override this to handle show events.      The show event is called when the window has requested becoming visible.      If the window is successfully shown by the windowing system, this will     be followed by a resize and an expose event. */
 end_comment
 begin_function
 DECL|function|showEvent
@@ -3695,7 +3701,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle show events.      The show event is called when the window becomes hidden in the windowing system. */
+comment|/*!     Override this to handle hide evens.      The hide event is called when the window has requested being hidden in the     windowing system. */
 end_comment
 begin_function
 DECL|function|hideEvent

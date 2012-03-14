@@ -346,10 +346,10 @@ operator|->
 name|pos
 argument_list|()
 expr_stmt|;
-block|}
 name|scheduleRender
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -417,10 +417,10 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-block|}
 name|scheduleRender
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -568,7 +568,7 @@ name|old
 argument_list|)
 expr_stmt|;
 block|}
-name|render
+name|scheduleRender
 argument_list|()
 expr_stmt|;
 block|}
@@ -675,6 +675,11 @@ name|QTimerEvent
 modifier|*
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isExposed
+argument_list|()
+condition|)
 name|render
 argument_list|()
 expr_stmt|;

@@ -10753,6 +10753,13 @@ if|if
 condition|(
 name|updatesEnabled
 argument_list|()
+operator|&&
+name|testAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_Mapped
+argument_list|)
 condition|)
 name|glDraw
 argument_list|()

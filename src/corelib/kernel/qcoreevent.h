@@ -817,34 +817,26 @@ name|Scroll
 operator|=
 literal|205
 block|,
-name|Map
+name|Expose
 operator|=
 literal|206
 block|,
-name|Unmap
+name|InputMethodQuery
 operator|=
 literal|207
 block|,
-name|Expose
-operator|=
-literal|208
-block|,
-name|InputMethodQuery
-operator|=
-literal|209
-block|,
 name|OrientationChange
 operator|=
-literal|210
+literal|208
 block|,
 comment|// Screen orientation has changed
 name|TouchCancel
 operator|=
-literal|211
+literal|209
 block|,
 name|ThemeChange
 operator|=
-literal|212
+literal|210
 block|,
 comment|// 512 reserved for Qt Jambi's MetaCall event
 comment|// 513 reserved for Qt Jambi's DeleteOnMainThread event

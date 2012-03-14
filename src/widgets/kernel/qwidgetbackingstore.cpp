@@ -4897,34 +4897,7 @@ name|tlw
 operator|||
 operator|!
 name|tlwExtra
-condition|)
-return|return
-literal|true
-return|;
-ifdef|#
-directive|ifdef
-name|Q_WS_X11
-comment|// Delay the sync until we get an Expose event from X11 (initial show).
-comment|// Qt::WA_Mapped is set to true, but the actual mapping has not yet occurred.
-comment|// However, we must repaint immediately regardless of the state if someone calls repaint().
-if|if
-condition|(
-name|tlwExtra
-operator|->
-name|waitingForMapNotify
-operator|&&
-operator|!
-name|tlwExtra
-operator|->
-name|inRepaint
-condition|)
-return|return
-literal|true
-return|;
-endif|#
-directive|endif
-if|if
-condition|(
+operator|||
 operator|!
 name|tlw
 operator|->
@@ -4934,31 +4907,12 @@ name|Qt
 operator|::
 name|WA_Mapped
 argument_list|)
-condition|)
-return|return
-literal|true
-return|;
-if|if
-condition|(
+operator|||
 operator|!
 name|tlw
 operator|->
 name|isVisible
 argument_list|()
-ifndef|#
-directive|ifndef
-name|Q_WS_X11
-comment|// If we're minimized on X11, WA_Mapped will be false and we
-comment|// will return in the case above. Some window managers on X11
-comment|// sends us the PropertyNotify to change the minimized state
-comment|// *AFTER* we've received the expose event, which is baaad.
-operator|||
-name|tlw
-operator|->
-name|isMinimized
-argument_list|()
-endif|#
-directive|endif
 condition|)
 return|return
 literal|true
@@ -7156,6 +7110,17 @@ argument_list|(
 name|QWidget
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|discardSyncRequest
+argument_list|(
+name|q
+argument_list|,
+name|maybeTopData
+argument_list|()
+argument_list|)
+condition|)
+return|return;
 if|if
 condition|(
 name|q
