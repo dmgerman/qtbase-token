@@ -38,6 +38,11 @@ block|{
 name|public
 label|:
 name|virtual
+operator|~
+name|QPlatformSurface
+argument_list|()
+expr_stmt|;
+name|virtual
 name|QSurfaceFormat
 name|format
 argument_list|()

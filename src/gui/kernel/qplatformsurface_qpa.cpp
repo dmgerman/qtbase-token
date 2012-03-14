@@ -7,8 +7,16 @@ include|#
 directive|include
 file|"qplatformsurface_qpa.h"
 end_include
-begin_function
+begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|function|~QPlatformSurface
+name|QPlatformSurface
+operator|::
+name|~
+name|QPlatformSurface
+operator|(
+operator|)
+block|{  }
 DECL|function|surfaceClass
 name|QSurface
 operator|::
@@ -16,14 +24,15 @@ name|SurfaceClass
 name|QPlatformSurface
 operator|::
 name|surfaceClass
-parameter_list|()
+operator|(
+operator|)
 specifier|const
 block|{
 return|return
 name|m_type
 return|;
 block|}
-end_function
+end_expr_stmt
 begin_constructor
 DECL|function|QPlatformSurface
 name|QPlatformSurface
