@@ -26,6 +26,11 @@ end_ifndef
 begin_include
 include|#
 directive|include
+file|"../qtwindows_additional.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<oleacc.h>
 end_include
 begin_include
@@ -68,7 +73,6 @@ begin_define
 define|#
 directive|define
 name|accessibleDebug
-parameter_list|()
 end_define
 begin_endif
 endif|#

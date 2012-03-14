@@ -82,6 +82,17 @@ name|acc
 argument_list|)
 block|;
 specifier|static
+name|QWindow
+operator|*
+name|windowHelper
+argument_list|(
+specifier|const
+name|QAccessibleInterface
+operator|*
+name|iface
+argument_list|)
+block|;
+specifier|static
 name|QPair
 operator|<
 name|QObject
