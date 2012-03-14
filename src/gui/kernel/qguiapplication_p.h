@@ -577,6 +577,13 @@ block|}
 end_function
 begin_decl_stmt
 specifier|static
+name|QString
+modifier|*
+name|platform_name
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|static
 name|bool
 name|app_do_modal
 decl_stmt|;
