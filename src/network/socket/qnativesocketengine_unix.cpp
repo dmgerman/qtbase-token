@@ -3984,6 +3984,12 @@ operator|==
 name|QAbstractSocket
 operator|::
 name|IPv6Protocol
+operator|||
+name|socketProtocol
+operator|==
+name|QAbstractSocket
+operator|::
+name|AnyIPProtocol
 condition|)
 block|{
 name|memset
