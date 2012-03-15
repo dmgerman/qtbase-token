@@ -14229,6 +14229,7 @@ operator|.
 name|count
 argument_list|()
 condition|)
+block|{
 name|sectionSpans
 operator|.
 name|resize
@@ -14238,6 +14239,11 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+name|sectionStartposRecalc
+operator|=
+literal|true
+expr_stmt|;
+block|}
 name|SectionSpan
 modifier|*
 name|sectiondata
