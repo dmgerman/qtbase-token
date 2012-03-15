@@ -3692,7 +3692,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes \a count rows starting at \a row. Since this model     does not support hierarchical structures, \a parent must be     an invalid model index.      When the edit strategy is OnManualSubmit, deletion of rows from     the database is delayed until submitAll() is called; otherwise,     deletions are immediate.      Inserted but not yet submitted rows in the range to be removed     are immediately removed from the model.      Before a row is deleted from the database, the beforeDelete()     signal is emitted.      If row< 0 or row + count> rowCount(), no action is taken and     false is returned. Returns true if all rows could be removed;     otherwise returns false. Detailed database error information     can be retrieved using lastError().      \sa removeColumns(), insertRows() */
+comment|/*!     Removes \a count rows starting at \a row. Since this model     does not support hierarchical structures, \a parent must be     an invalid model index.      When the edit strategy is OnManualSubmit, deletion of rows from     the database is delayed until submitAll() is called.      For OnFieldChange and OnRowChange, only one row may be deleted     at a time and only if no other row has a cached change. Deletions     are submitted immediately to the database. The model retains a     blank row for successfully deleted row until refreshed with select().      After failed deletion, the operation is not reverted in the model.     The application may resubmit or revert.      Inserted but not yet successfully submitted rows in the range to be     removed are immediately removed from the model.      Before a row is deleted from the database, the beforeDelete()     signal is emitted.      If row< 0 or row + count> rowCount(), no action is taken and     false is returned. Returns true if all rows could be removed;     otherwise returns false. Detailed database error information     can be retrieved using lastError().      \sa removeColumns(), insertRows() */
 end_comment
 begin_function
 DECL|function|removeRows
@@ -3757,6 +3757,40 @@ name|count
 condition|)
 return|return
 literal|true
+return|;
+if|if
+condition|(
+name|d
+operator|->
+name|strategy
+operator|!=
+name|OnManualSubmit
+condition|)
+if|if
+condition|(
+name|count
+operator|>
+literal|1
+operator|||
+operator|(
+name|d
+operator|->
+name|cache
+operator|.
+name|value
+argument_list|(
+name|row
+argument_list|)
+operator|.
+name|submitted
+argument_list|()
+operator|&&
+name|isDirty
+argument_list|()
+operator|)
+condition|)
+return|return
+literal|false
 return|;
 comment|// Iterate backwards so we don't have to worry about removed rows causing
 comment|// higher cache entries to shift downwards.
