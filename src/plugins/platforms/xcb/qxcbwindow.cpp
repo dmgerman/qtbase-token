@@ -6962,6 +6962,10 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
+name|parent
+argument_list|()
+operator|&&
+operator|!
 name|fromSendEvent
 condition|)
 block|{
