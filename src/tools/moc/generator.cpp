@@ -107,9 +107,12 @@ argument_list|)
 condition|?
 name|tp
 else|:
+name|uint
+argument_list|(
 name|QMetaType
 operator|::
 name|UnknownType
+argument_list|)
 return|;
 block|}
 end_function
