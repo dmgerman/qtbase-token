@@ -1125,6 +1125,9 @@ operator|::
 name|TabFocus
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 name|leftB
 operator|->
 name|setAccessibleName
@@ -1149,6 +1152,8 @@ literal|"Scroll Right"
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|q
 operator|->
 name|setSizePolicy

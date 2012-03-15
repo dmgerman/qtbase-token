@@ -69,12 +69,17 @@ return|return
 name|m_widget
 return|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 name|QAccessibleInterface
 operator|*
 name|accessibleRoot
 argument_list|()
 specifier|const
 block|;
+endif|#
+directive|endif
 name|QObject
 operator|*
 name|focusObject

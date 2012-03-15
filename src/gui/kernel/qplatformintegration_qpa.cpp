@@ -358,6 +358,11 @@ literal|0
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
+end_ifndef
 begin_comment
 comment|/*!   Returns the platforms accessibility.    The default implementation returns 0, implying no accessibility support. */
 end_comment
@@ -376,6 +381,10 @@ literal|0
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|styleHint
 name|QVariant

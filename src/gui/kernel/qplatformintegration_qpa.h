@@ -296,6 +296,9 @@ name|inputContext
 argument_list|()
 specifier|const
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 name|virtual
 name|QPlatformAccessibility
 operator|*
@@ -303,6 +306,8 @@ name|accessibility
 argument_list|()
 specifier|const
 expr_stmt|;
+endif|#
+directive|endif
 comment|// Access native handles. The window handle is already available from Wid;
 name|virtual
 name|QPlatformNativeInterface
