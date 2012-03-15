@@ -14101,14 +14101,14 @@ name|ignoreMessage
 argument_list|(
 name|QtWarningMsg
 argument_list|,
-literal|"Trying to construct an instance of an invalid type, type id: 46"
+literal|"Trying to construct an instance of an invalid type, type id: 49"
 argument_list|)
 expr_stmt|;
 specifier|const
 name|QByteArray
 name|settingsHex
 argument_list|(
-literal|"0000002effffffffff"
+literal|"00000031ffffffffff"
 argument_list|)
 decl_stmt|;
 specifier|const
