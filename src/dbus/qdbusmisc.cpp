@@ -556,11 +556,6 @@ modifier|&
 name|metaTypes
 parameter_list|)
 block|{
-name|QDBusMetaTypeId
-operator|::
-name|init
-argument_list|()
-expr_stmt|;
 return|return
 name|qDBusParametersForMethod
 argument_list|(
@@ -602,6 +597,11 @@ modifier|&
 name|metaTypes
 parameter_list|)
 block|{
+name|QDBusMetaTypeId
+operator|::
+name|init
+argument_list|()
+expr_stmt|;
 name|metaTypes
 operator|.
 name|clear
