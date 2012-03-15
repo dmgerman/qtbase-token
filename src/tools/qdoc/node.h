@@ -499,6 +499,15 @@ name|true
 expr_stmt|;
 block|}
 name|virtual
+name|void
+name|setOutputFileName
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+parameter_list|)
+block|{ }
+name|virtual
 name|bool
 name|isInnerNode
 argument_list|()
@@ -680,6 +689,17 @@ specifier|const
 block|{
 return|return
 name|name_
+return|;
+block|}
+name|virtual
+name|QString
+name|outputFileName
+argument_list|()
+specifier|const
+block|{
+return|return
+name|QString
+argument_list|()
 return|;
 block|}
 name|Access
@@ -1451,6 +1471,27 @@ argument_list|(
 argument|InnerNode*
 argument_list|)
 block|{ }
+name|virtual
+name|void
+name|setOutputFileName
+argument_list|(
+argument|const QString& f
+argument_list|)
+block|{
+name|outputFileName_
+operator|=
+name|f
+block|; }
+name|virtual
+name|QString
+name|outputFileName
+argument_list|()
+specifier|const
+block|{
+return|return
+name|outputFileName_
+return|;
+block|}
 name|protected
 operator|:
 name|InnerNode
@@ -1510,6 +1551,9 @@ name|Node
 operator|*
 name|child
 argument_list|)
+block|;
+name|QString
+name|outputFileName_
 block|;
 name|QStringList
 name|pageKeywds
