@@ -75,13 +75,6 @@ ifdef|#
 directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
 name|QMimeType
-argument_list|(
-name|QMimeType
-operator|&&
-name|other
-argument_list|)
-expr_stmt|;
-name|QMimeType
 modifier|&
 name|operator
 init|=
