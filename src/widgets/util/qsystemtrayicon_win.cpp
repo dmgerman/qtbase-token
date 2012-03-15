@@ -180,6 +180,13 @@ directive|define
 name|NIF_SHOWTIP
 value|0x00000080
 end_define
+begin_define
+DECL|macro|NOTIFYICON_VERSION_4
+define|#
+directive|define
+name|NOTIFYICON_VERSION_4
+value|4
+end_define
 begin_endif
 endif|#
 directive|endif
