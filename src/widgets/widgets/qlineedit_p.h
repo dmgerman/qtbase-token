@@ -106,6 +106,7 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|class
+name|Q_AUTOTEST_EXPORT
 name|QLineEditPrivate
 range|:
 name|public
@@ -266,6 +267,22 @@ operator|!
 name|control
 operator|->
 name|isReadOnly
+argument_list|()
+return|;
+block|}
+specifier|static
+specifier|inline
+name|QLineEditPrivate
+operator|*
+name|get
+argument_list|(
+argument|QLineEdit *lineEdit
+argument_list|)
+block|{
+return|return
+name|lineEdit
+operator|->
+name|d_func
 argument_list|()
 return|;
 block|}
