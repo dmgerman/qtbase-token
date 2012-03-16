@@ -6504,7 +6504,6 @@ argument_list|(
 argument|s
 argument_list|)
 block|{}
-name|Q_DECL_CONSTEXPR
 specifier|inline
 name|explicit
 name|QLatin1String
