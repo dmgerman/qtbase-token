@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qeglfs_hooks.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtPlatformSupport/private/qgenericunixfontdatabase_p.h>
 end_include
 begin_include
@@ -73,9 +78,6 @@ name|mScreen
 argument_list|(
 operator|new
 name|QEglFSScreen
-argument_list|(
-name|EGL_DEFAULT_DISPLAY
-argument_list|)
 argument_list|)
 block|{
 name|screenAdded
