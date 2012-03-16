@@ -80,6 +80,11 @@ block|;
 name|QStringList
 operator|*
 name|currentCustomDragTypes
+block|;
+name|Qt
+operator|::
+name|KeyboardModifiers
+name|currentWheelModifiers
 block|; }
 operator|-
 operator|(
