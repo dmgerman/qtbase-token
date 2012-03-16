@@ -654,10 +654,15 @@ argument|int tabIndex
 argument_list|)
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 name|friend
 name|class
 name|QAccessibleTabBar
 block|;
+endif|#
+directive|endif
 name|private
 operator|:
 name|Q_DISABLE_COPY

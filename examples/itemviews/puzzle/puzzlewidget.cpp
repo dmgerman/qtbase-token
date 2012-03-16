@@ -182,7 +182,7 @@ name|updateRect
 init|=
 name|highlightedRect
 operator|.
-name|unite
+name|united
 argument_list|(
 name|targetSquare
 argument_list|(

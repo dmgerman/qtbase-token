@@ -3955,6 +3955,13 @@ return|return
 literal|false
 return|;
 block|}
+if|if
+condition|(
+name|mode
+operator|!=
+name|DefaultForPlatform
+condition|)
+block|{
 ifdef|#
 directive|ifdef
 name|Q_OS_UNIX
@@ -4072,6 +4079,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+block|}
 name|bool
 name|result
 init|=

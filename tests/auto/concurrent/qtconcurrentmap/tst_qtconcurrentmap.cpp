@@ -15744,19 +15744,6 @@ operator|::
 name|changeTypeConst
 argument_list|)
 expr_stmt|;
-name|QStringList
-name|stringList
-decl_stmt|;
-specifier|const
-name|QStringList
-name|constStringList
-decl_stmt|;
-comment|// QtConcurrent::map(stringList, changeTypeQStringListConst);
-comment|// QtConcurrent::map(intList, changeTypeNonConst);
-comment|// QList<QString>(QtConcurrent::map(constStringList, changeTypeQStringList));
-comment|// QtConcurrent::map(classList,&MemFnTester::changeType);
-comment|// QtConcurrent::map(classList,&MemFnTester::changeTypeConst);
-comment|// QtConcurrent::map(constMemFnTesterList,&MemFnTester::changeTypeConst);
 block|}
 end_function
 begin_decl_stmt

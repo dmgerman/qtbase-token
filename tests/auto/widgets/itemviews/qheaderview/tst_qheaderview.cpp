@@ -2095,7 +2095,7 @@ name|QCOMPARE
 argument_list|(
 name|view
 operator|->
-name|isMovable
+name|sectionsMovable
 argument_list|()
 argument_list|,
 literal|false
@@ -2103,7 +2103,7 @@ argument_list|)
 expr_stmt|;
 name|view
 operator|->
-name|setMovable
+name|setSectionsMovable
 argument_list|(
 literal|false
 argument_list|)
@@ -2112,7 +2112,7 @@ name|QCOMPARE
 argument_list|(
 name|view
 operator|->
-name|isMovable
+name|sectionsMovable
 argument_list|()
 argument_list|,
 literal|false
@@ -2120,7 +2120,7 @@ argument_list|)
 expr_stmt|;
 name|view
 operator|->
-name|setMovable
+name|setSectionsMovable
 argument_list|(
 literal|true
 argument_list|)
@@ -2129,7 +2129,7 @@ name|QCOMPARE
 argument_list|(
 name|view
 operator|->
-name|isMovable
+name|sectionsMovable
 argument_list|()
 argument_list|,
 literal|true
@@ -2149,7 +2149,7 @@ name|QCOMPARE
 argument_list|(
 name|view
 operator|->
-name|isClickable
+name|sectionsClickable
 argument_list|()
 argument_list|,
 literal|false
@@ -2157,7 +2157,7 @@ argument_list|)
 expr_stmt|;
 name|view
 operator|->
-name|setClickable
+name|setSectionsClickable
 argument_list|(
 literal|false
 argument_list|)
@@ -2166,7 +2166,7 @@ name|QCOMPARE
 argument_list|(
 name|view
 operator|->
-name|isClickable
+name|sectionsClickable
 argument_list|()
 argument_list|,
 literal|false
@@ -2174,7 +2174,7 @@ argument_list|)
 expr_stmt|;
 name|view
 operator|->
-name|setClickable
+name|setSectionsClickable
 argument_list|(
 literal|true
 argument_list|)
@@ -2183,7 +2183,7 @@ name|QCOMPARE
 argument_list|(
 name|view
 operator|->
-name|isClickable
+name|sectionsClickable
 argument_list|()
 argument_list|,
 literal|true
@@ -6278,7 +6278,7 @@ argument_list|)
 expr_stmt|;
 name|view
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|i
 argument_list|,
@@ -6560,7 +6560,7 @@ name|QCOMPARE
 argument_list|(
 name|view
 operator|->
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 name|last
 argument_list|)
@@ -6574,7 +6574,7 @@ name|QCOMPARE
 argument_list|(
 name|view
 operator|->
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 literal|1
 argument_list|)
@@ -6597,7 +6597,7 @@ name|QCOMPARE
 argument_list|(
 name|view
 operator|->
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 name|last
 argument_list|)
@@ -6611,7 +6611,7 @@ name|QCOMPARE
 argument_list|(
 name|view
 operator|->
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 literal|1
 argument_list|)
@@ -6634,7 +6634,7 @@ name|QCOMPARE
 argument_list|(
 name|view
 operator|->
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 name|last
 argument_list|)
@@ -6648,7 +6648,7 @@ name|QCOMPARE
 argument_list|(
 name|view
 operator|->
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 literal|1
 argument_list|)
@@ -6689,7 +6689,7 @@ name|i
 control|)
 name|view
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|i
 argument_list|,
@@ -6710,7 +6710,7 @@ literal|2
 decl_stmt|;
 name|view
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|logicalIndex
 argument_list|,
@@ -6765,7 +6765,7 @@ name|QCOMPARE
 argument_list|(
 name|view
 operator|->
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 name|i
 argument_list|)
@@ -6780,7 +6780,7 @@ name|QCOMPARE
 argument_list|(
 name|view
 operator|->
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 name|i
 argument_list|)
@@ -7059,7 +7059,7 @@ argument_list|()
 expr_stmt|;
 name|view
 operator|->
-name|setMovable
+name|setSectionsMovable
 argument_list|(
 literal|true
 argument_list|)
@@ -7115,7 +7115,7 @@ condition|)
 comment|// for now
 name|view
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|logical
 operator|.
@@ -8530,7 +8530,7 @@ argument_list|)
 expr_stmt|;
 name|view
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 literal|0
 argument_list|,
@@ -10022,7 +10022,7 @@ name|QCOMPARE
 argument_list|(
 name|h
 operator|.
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 name|i
 argument_list|)
@@ -10176,7 +10176,7 @@ argument_list|()
 expr_stmt|;
 name|h
 operator|.
-name|setClickable
+name|setSectionsClickable
 argument_list|(
 name|clickable
 argument_list|)
@@ -10306,7 +10306,7 @@ argument_list|()
 expr_stmt|;
 name|h
 operator|.
-name|setClickable
+name|setSectionsClickable
 argument_list|(
 name|clickable
 argument_list|)
@@ -11156,7 +11156,7 @@ argument_list|)
 expr_stmt|;
 name|view
 operator|.
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 literal|3
 argument_list|,
@@ -12539,7 +12539,7 @@ operator|.
 name|horizontalHeader
 argument_list|()
 operator|->
-name|setClickable
+name|setSectionsClickable
 argument_list|(
 literal|true
 argument_list|)
@@ -13153,7 +13153,7 @@ operator|.
 name|horizontalHeader
 argument_list|()
 operator|->
-name|setMovable
+name|setSectionsMovable
 argument_list|(
 literal|true
 argument_list|)

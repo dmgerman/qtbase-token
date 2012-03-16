@@ -39,12 +39,24 @@ directive|include
 file|"qnsview.h"
 end_include
 begin_decl_stmt
+DECL|variable|QCocoaWindow
+name|class
+name|QCocoaWindow
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QCocoaWindow
 unit|@
 name|interface
 name|QNSWindow
 range|:
 name|NSWindow
-block|{  }
+block|{     @
+name|public
+name|QCocoaWindow
+operator|*
+name|m_cocoaPlatformWindow
+block|; }
 operator|-
 operator|(
 name|BOOL
@@ -60,7 +72,12 @@ name|interface
 name|QNSPanel
 operator|:
 name|NSPanel
-block|{  }
+block|{     @
+name|public
+name|QCocoaWindow
+operator|*
+name|m_cocoaPlatformWindow
+block|; }
 operator|-
 operator|(
 name|BOOL
@@ -125,6 +142,14 @@ argument_list|(
 argument|bool visible
 argument_list|)
 block|;
+name|Qt
+operator|::
+name|WindowFlags
+name|setWindowFlags
+argument_list|(
+argument|Qt::WindowFlags flags
+argument_list|)
+block|;
 name|void
 name|setWindowTitle
 argument_list|(
@@ -163,11 +188,24 @@ name|winId
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setParent
+argument_list|(
+specifier|const
+name|QPlatformWindow
+operator|*
+name|window
+argument_list|)
+block|;
 name|NSView
 operator|*
 name|contentView
 argument_list|()
 specifier|const
+block|;
+name|void
+name|windowWillMove
+argument_list|()
 block|;
 name|void
 name|windowDidMove
@@ -197,14 +235,28 @@ specifier|const
 block|;
 name|protected
 operator|:
-name|void
-name|determineWindowClass
-argument_list|()
-block|;
+comment|// NSWindow handling. The QCocoaWindow/QNSView can either be displayed
+comment|// in an existing NSWindow or in one created by Qt.
 name|NSWindow
 operator|*
-name|createWindow
+name|createNSWindow
 argument_list|()
+block|;
+name|void
+name|setNSWindow
+argument_list|(
+name|NSWindow
+operator|*
+name|window
+argument_list|)
+block|;
+name|void
+name|clearNSWindow
+argument_list|(
+name|NSWindow
+operator|*
+name|window
+argument_list|)
 block|;
 name|QRect
 name|windowGeometry
@@ -237,11 +289,16 @@ name|QNSWindow
 operator|*
 name|m_nsWindow
 block|;
-name|quint32
-name|m_windowAttributes
+name|Qt
+operator|::
+name|WindowFlags
+name|m_windowFlags
 block|;
-name|quint32
-name|m_windowClass
+name|QPointer
+operator|<
+name|QWindow
+operator|>
+name|m_activePopupWindow
 block|;
 name|bool
 name|m_inConstructor

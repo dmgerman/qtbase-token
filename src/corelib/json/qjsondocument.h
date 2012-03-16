@@ -79,6 +79,9 @@ name|StringUTF8Scan
 block|,
 DECL|enumerator|EndOfString
 name|EndOfString
+block|,
+DECL|enumerator|MissingObject
+name|MissingObject
 block|}
 enum|;
 DECL|member|offset

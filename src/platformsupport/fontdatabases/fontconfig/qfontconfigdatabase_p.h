@@ -44,8 +44,6 @@ argument_list|(
 argument|QFontEngine *fontEngine
 argument_list|,
 argument|QUnicodeTables::Script script
-argument_list|,
-argument|const QStringList&fallbacks
 argument_list|)
 block|;
 name|QFontEngine

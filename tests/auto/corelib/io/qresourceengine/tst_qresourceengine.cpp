@@ -1844,7 +1844,14 @@ argument_list|,
 name|contentsSize
 argument_list|)
 expr_stmt|;
-comment|//QVERIFY(fileInfo.isReadable());
+name|QVERIFY
+argument_list|(
+name|fileInfo
+operator|.
+name|isReadable
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 operator|!

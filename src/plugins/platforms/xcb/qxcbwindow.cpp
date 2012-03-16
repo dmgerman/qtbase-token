@@ -2558,6 +2558,16 @@ name|updateNetWmStateBeforeMap
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|connection
+argument_list|()
+operator|->
+name|time
+argument_list|()
+operator|!=
+name|CurrentTime
+condition|)
 name|updateNetWmUserTime
 argument_list|(
 name|connection
@@ -6951,6 +6961,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|parent
+argument_list|()
+operator|&&
 operator|!
 name|fromSendEvent
 condition|)

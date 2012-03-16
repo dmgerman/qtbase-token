@@ -396,7 +396,7 @@ value|(qMetaTypeDestructHelper<Type>), \
 comment|/*size*/
 value|(QTypeInfo<Type>::sizeOf), \
 comment|/*flags*/
-value|(!QTypeInfo<Type>::isStatic * QMetaType::MovableType) \             | (QTypeInfo<Type>::isComplex * QMetaType::NeedsConstruction) \             | (QTypeInfo<Type>::isComplex * QMetaType::NeedsDestruction) \ }
+value|QtPrivate::QMetaTypeTypeFlags<Type>::Flags \ }
 end_define
 begin_comment
 comment|/* These  QT_METATYPE_INTERFACE_INIT* macros are used to initialize QMetaTypeInterface instance.   - QT_METATYPE_INTERFACE_INIT(Type) -> It takes Type argument and creates all necessary wrapper functions for the Type,    it detects if QT_NO_DATASTREAM was defined. Probably it is the macro that you want to use.   - QT_METATYPE_INTERFACE_INIT_EMPTY() -> It initializes an empty QMetaTypeInterface instance.   - QT_METATYPE_INTERFACE_INIT_NO_DATASTREAM(Type) -> Temporary workaround for missing auto-detection of data stream    operators. It creates same instance as QT_METATYPE_INTERFACE_INIT(Type) but with null stream operators callbacks.  */

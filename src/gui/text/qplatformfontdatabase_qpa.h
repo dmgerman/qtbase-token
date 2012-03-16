@@ -230,11 +230,6 @@ name|QUnicodeTables
 operator|::
 name|Script
 name|script
-argument_list|,
-specifier|const
-name|QStringList
-operator|&
-name|fallbacks
 argument_list|)
 decl_stmt|;
 name|virtual

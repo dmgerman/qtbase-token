@@ -619,12 +619,24 @@ name|HB_UShort
 name|PairValueCount
 decl_stmt|;
 comment|/* number of PairValueRecord tables */
+ifndef|#
+directive|ifndef
+name|HB_USE_FLEXIBLE_VALUE_RECORD
 DECL|member|PairValueRecord
 name|HB_PairValueRecord
 modifier|*
 name|PairValueRecord
 decl_stmt|;
 comment|/* array of PairValueRecord tables  */
+else|#
+directive|else
+DECL|member|ValueRecords
+name|HB_Short
+modifier|*
+name|ValueRecords
+decl_stmt|;
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct

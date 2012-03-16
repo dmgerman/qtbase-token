@@ -202,6 +202,16 @@ name|QFont
 name|defaultFont
 argument_list|()
 specifier|const
+block|{
+return|return
+name|systemDefaultFont
+argument_list|()
+return|;
+block|}
+specifier|static
+name|QFont
+name|systemDefaultFont
+argument_list|()
 block|;
 specifier|static
 name|QFontEngine

@@ -169,7 +169,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     A function called when the editor is no longer needed and should be     destroyed. The default behavior is a call to deleteLater on the editor.     It possible e.g. to avoid this delete by reimplementing this function.      \sa createEditor() */
+comment|/*!     \since 5.0      A function called when the editor is no longer needed and should be     destroyed. The default behavior is a call to deleteLater on the editor.     It possible e.g. to avoid this delete by reimplementing this function.      \sa createEditor() */
 end_comment
 begin_function
 DECL|function|destroyEditor

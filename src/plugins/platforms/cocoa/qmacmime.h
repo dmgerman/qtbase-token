@@ -72,7 +72,12 @@ argument_list|()
 expr_stmt|;
 specifier|static
 name|void
-name|initialize
+name|initializeMimeTypes
+parameter_list|()
+function_decl|;
+specifier|static
+name|void
+name|destroyMimeTypes
 parameter_list|()
 function_decl|;
 specifier|static

@@ -146,6 +146,10 @@ argument|Qt::LayoutDirection layoutDirection READ layoutDirection WRITE setLayou
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
+argument|QString platformName READ platformName STORED false
+argument_list|)
+name|Q_PROPERTY
+argument_list|(
 argument|bool quitOnLastWindowClosed  READ quitOnLastWindowClosed WRITE setQuitOnLastWindowClosed
 argument_list|)
 name|public
@@ -191,6 +195,11 @@ name|QPoint
 operator|&
 name|pos
 argument_list|)
+block|;
+specifier|static
+name|QString
+name|platformName
+argument_list|()
 block|;
 ifdef|#
 directive|ifdef

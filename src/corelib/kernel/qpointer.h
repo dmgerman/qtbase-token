@@ -21,21 +21,12 @@ end_include
 begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
-if|#
-directive|if
-name|QT_DEPRECATED_SINCE
-argument_list|(
-literal|5
-operator|,
-literal|0
-argument_list|)
 name|template
 operator|<
 name|class
 name|T
 operator|>
 name|class
-name|QT_DEPRECATED
 name|QPointer
 block|{
 name|QWeakPointer
@@ -917,13 +908,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_DEPRECATED_SINCE(5,0)
-end_comment
 begin_expr_stmt
 name|QT_END_NAMESPACE
 name|QT_END_HEADER

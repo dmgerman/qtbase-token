@@ -11247,6 +11247,8 @@ condition|)
 continue|continue;
 if|if
 condition|(
+name|Connection
+argument_list|(
 name|QMetaObjectPrivate
 operator|::
 name|connect
@@ -11258,6 +11260,7 @@ argument_list|,
 name|o
 argument_list|,
 name|i
+argument_list|)
 argument_list|)
 condition|)
 block|{

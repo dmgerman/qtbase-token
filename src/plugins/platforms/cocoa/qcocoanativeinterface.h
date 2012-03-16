@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtGui/QPlatformNativeInterface>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtPrintSupport/QPlatformPrinterSupport>
+end_include
 begin_decl_stmt
 DECL|variable|QWidget
 name|class
@@ -31,6 +36,7 @@ range|:
 name|public
 name|QPlatformNativeInterface
 block|{
+name|Q_OBJECT
 name|public
 operator|:
 name|void
@@ -45,6 +51,26 @@ argument_list|,
 name|QWindow
 operator|*
 name|window
+argument_list|)
+block|;
+name|private
+operator|:
+comment|/*         "Virtual" function to create the platform printer support         implementation.          We use an invokable function instead of a virtual one, we do not want         this in the QPlatform* API yet.          This was added here only because QPlatformNativeInterface is a QObject         and allow us to use QMetaObject::indexOfMethod() from the printsupport         plugin.     */
+name|Q_INVOKABLE
+name|QPlatformPrinterSupport
+operator|*
+name|createPlatformPrinterSupport
+argument_list|()
+block|;
+comment|/*         Function to return the NSPrintInfo * from QMacPaintEnginePrivate.         Needed by the native print dialog in the QtPrintSupport library.     */
+name|Q_INVOKABLE
+name|void
+operator|*
+name|NSPrintInfoForPrintEngine
+argument_list|(
+name|QPrintEngine
+operator|*
+name|printEngine
 argument_list|)
 block|; }
 decl_stmt|;

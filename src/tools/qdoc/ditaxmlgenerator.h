@@ -1779,7 +1779,7 @@ argument_list|(
 argument|DitaTag t
 argument_list|)
 block|;
-name|void
+name|bool
 name|writeEndTag
 argument_list|(
 argument|DitaTag t=DT_NONE
@@ -1865,7 +1865,8 @@ argument|const QString& src
 argument_list|)
 specifier|const
 block|;
-name|void
+name|Node
+operator|*
 name|collectNodesByTypeAndSubtype
 argument_list|(
 specifier|const

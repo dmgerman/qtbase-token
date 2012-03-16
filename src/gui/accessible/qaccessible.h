@@ -978,9 +978,8 @@ modifier|*
 name|UpdateHandler
 function_decl|)
 parameter_list|(
-specifier|const
 name|QAccessibleEvent
-modifier|&
+modifier|*
 name|event
 parameter_list|)
 function_decl|;
@@ -1068,9 +1067,8 @@ specifier|static
 name|void
 name|updateAccessibility
 parameter_list|(
-specifier|const
 name|QAccessibleEvent
-modifier|&
+modifier|*
 name|event
 parameter_list|)
 function_decl|;

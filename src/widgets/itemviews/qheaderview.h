@@ -282,27 +282,97 @@ argument_list|)
 specifier|const
 block|;
 name|void
-name|setMovable
+name|setSectionsMovable
 argument_list|(
 argument|bool movable
 argument_list|)
 block|;
 name|bool
-name|isMovable
+name|sectionsMovable
 argument_list|()
 specifier|const
 block|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+specifier|inline
+name|QT_DEPRECATED
 name|void
-name|setClickable
+name|setMovable
+argument_list|(
+argument|bool movable
+argument_list|)
+block|{
+name|setSectionsMovable
+argument_list|(
+name|movable
+argument_list|)
+block|; }
+specifier|inline
+name|QT_DEPRECATED
+name|bool
+name|isMovable
+argument_list|()
+specifier|const
+block|{
+return|return
+name|sectionsMovable
+argument_list|()
+return|;
+block|}
+endif|#
+directive|endif
+name|void
+name|setSectionsClickable
 argument_list|(
 argument|bool clickable
 argument_list|)
 block|;
 name|bool
-name|isClickable
+name|sectionsClickable
 argument_list|()
 specifier|const
 block|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+specifier|inline
+name|QT_DEPRECATED
+name|void
+name|setClickable
+argument_list|(
+argument|bool clickable
+argument_list|)
+block|{
+name|setSectionsClickable
+argument_list|(
+name|clickable
+argument_list|)
+block|; }
+specifier|inline
+name|QT_DEPRECATED
+name|bool
+name|isClickable
+argument_list|()
+specifier|const
+block|{
+return|return
+name|sectionsClickable
+argument_list|()
+return|;
+block|}
+endif|#
+directive|endif
 name|void
 name|setHighlightSections
 argument_list|(
@@ -320,21 +390,64 @@ argument_list|(
 argument|ResizeMode mode
 argument_list|)
 block|;
+name|ResizeMode
+name|sectionResizeMode
+argument_list|(
+argument|int logicalIndex
+argument_list|)
+specifier|const
+block|;
 name|void
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 argument|int logicalIndex
 argument_list|,
 argument|ResizeMode mode
 argument_list|)
 block|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+specifier|inline
+name|QT_DEPRECATED
+name|void
+name|setResizeMode
+argument_list|(
+argument|int logicalindex
+argument_list|,
+argument|ResizeMode mode
+argument_list|)
+block|{
+name|setSectionResizeMode
+argument_list|(
+name|logicalindex
+argument_list|,
+name|mode
+argument_list|)
+block|; }
+specifier|inline
+name|QT_DEPRECATED
 name|ResizeMode
 name|resizeMode
 argument_list|(
-argument|int logicalIndex
+argument|int logicalindex
 argument_list|)
 specifier|const
-block|;
+block|{
+return|return
+name|sectionResizeMode
+argument_list|(
+name|logicalindex
+argument_list|)
+return|;
+block|}
+endif|#
+directive|endif
 name|int
 name|stretchSectionCount
 argument_list|()

@@ -827,6 +827,13 @@ argument_list|,
 argument|const QStringList&fallbacks
 argument_list|)
 block|;
+name|QFontEngineMultiQPA
+argument_list|(
+argument|QFontEngine *fe
+argument_list|,
+argument|int script
+argument_list|)
+block|;
 name|void
 name|loadEngine
 argument_list|(
@@ -871,15 +878,23 @@ name|at
 argument_list|)
 return|;
 block|}
-name|private
-operator|:
-name|QFontEngineMultiQPA
+name|virtual
+name|void
+name|ensureFallbackFamiliesQueried
+argument_list|()
+block|;
+name|virtual
+name|void
+name|setFallbackFamiliesList
 argument_list|(
-argument|QFontEngine *fe
-argument_list|,
-argument|int script
+specifier|const
+name|QStringList
+operator|&
+name|fallbacks
 argument_list|)
 block|;
+name|private
+operator|:
 name|void
 name|init
 argument_list|(
@@ -888,12 +903,14 @@ operator|*
 name|fe
 argument_list|)
 block|;
+name|mutable
 name|QStringList
 name|fallbackFamilies
 block|;
 name|int
 name|script
 block|;
+name|mutable
 name|bool
 name|fallbacksQueried
 block|; }

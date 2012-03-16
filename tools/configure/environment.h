@@ -112,6 +112,16 @@ name|removeEnv
 parameter_list|)
 function_decl|;
 specifier|static
+name|QString
+name|execute
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|command
+parameter_list|)
+function_decl|;
+specifier|static
 name|bool
 name|cpdir
 parameter_list|(

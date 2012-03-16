@@ -422,7 +422,7 @@ operator|*
 name|p
 argument_list|)
 expr_stmt|;
-comment|//qpaintengine_mac.cpp
+comment|//qpaintengine_mac.mm
 specifier|inline
 name|QMacCGContext
 argument_list|()

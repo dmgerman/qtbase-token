@@ -435,7 +435,7 @@ argument_list|(
 literal|false
 argument_list|)
 block|{
-comment|/* We're going to hard code these delimiters:         * C++, Qt, Qt Script, Java:           //! [<id>]         * .pro, .py files:           #! [<id>]         * .html, .qrc, .ui, .xq, .xml files:<!-- [<id>] -->     */
+comment|/* We're going to hard code these delimiters:         * C++, Qt, Qt Script, Java:           //! [<id>]         * .pro, .py files:           #! [<id>]         * .html, .qrc, .ui, .xq, .xml .dita files:<!-- [<id>] -->     */
 name|commentHash
 index|[
 literal|"pro"
@@ -474,6 +474,13 @@ expr_stmt|;
 name|commentHash
 index|[
 literal|"xml"
+index|]
+operator|=
+literal|"<!--"
+expr_stmt|;
+name|commentHash
+index|[
+literal|"dita"
 index|]
 operator|=
 literal|"<!--"

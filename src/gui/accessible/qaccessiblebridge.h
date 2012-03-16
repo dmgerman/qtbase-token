@@ -65,9 +65,8 @@ name|virtual
 name|void
 name|notifyAccessibilityUpdate
 parameter_list|(
-specifier|const
 name|QAccessibleEvent
-modifier|&
+modifier|*
 name|event
 parameter_list|)
 init|=

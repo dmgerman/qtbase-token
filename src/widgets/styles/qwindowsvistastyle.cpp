@@ -3440,7 +3440,9 @@ condition|(
 name|widget
 condition|)
 block|{
-comment|//Since spin box and combo box includes a line edit we need to resolve the palette on the parent instead
+comment|// Since spin box includes a line edit we need to resolve the palette mask also from
+comment|// the parent, as while the color is always correct on the palette supplied by panel,
+comment|// the mask can still be empty. If either mask specifies custom base color, use that.
 ifndef|#
 directive|ifndef
 name|QT_NO_SPINBOX
@@ -3463,7 +3465,7 @@ argument_list|()
 argument_list|)
 condition|)
 name|resolve_mask
-operator|=
+operator||=
 name|spinbox
 operator|->
 name|palette

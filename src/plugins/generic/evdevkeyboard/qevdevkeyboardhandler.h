@@ -357,8 +357,6 @@ name|QEvdevKeyboardHandler
 argument_list|(
 argument|int deviceDescriptor
 argument_list|,
-argument|const QString&device
-argument_list|,
 argument|bool disableZap
 argument_list|,
 argument|bool enableCompose
@@ -612,11 +610,6 @@ end_function_decl
 begin_decl_stmt
 name|int
 name|m_fd
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
-name|QString
-name|m_device
 decl_stmt|;
 end_decl_stmt
 begin_comment

@@ -557,11 +557,8 @@ emit|;
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
-name|QAccessible
-operator|::
-name|updateAccessibility
-argument_list|(
 name|QAccessibleEvent
+name|event
 argument_list|(
 name|QAccessible
 operator|::
@@ -569,6 +566,13 @@ name|TextSelectionChanged
 argument_list|,
 name|q
 argument_list|)
+decl_stmt|;
+name|QAccessible
+operator|::
+name|updateAccessibility
+argument_list|(
+operator|&
+name|event
 argument_list|)
 expr_stmt|;
 endif|#

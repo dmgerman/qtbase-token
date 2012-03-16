@@ -493,7 +493,20 @@ name|QBearerEngineImpl
 argument_list|(
 name|parent
 argument_list|)
-block|{ }
+block|{
+comment|//workaround for deadlock in __cxa_guard_acquire with webkit on macos x
+comment|//initialise the Q_GLOBAL_STATIC in same thread as the AtomicallyInitializedStatic
+operator|(
+name|void
+operator|)
+name|QNetworkInterface
+operator|::
+name|interfaceFromIndex
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
 end_constructor
 begin_destructor
 DECL|function|~QGenericEngine

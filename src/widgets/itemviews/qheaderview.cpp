@@ -184,10 +184,10 @@ begin_comment
 comment|// QT_NO_DATASTREAM
 end_comment
 begin_comment
-comment|/*!     \class QHeaderView      \brief The QHeaderView class provides a header row or header column for     item views.      \ingroup model-view     \inmodule QtWidgets      A QHeaderView displays the headers used in item views such as the     QTableView and QTreeView classes. It takes the place of Qt3's \c QHeader     class previously used for the same purpose, but uses the Qt's model/view     architecture for consistency with the item view classes.      The QHeaderView class is one of the \l{Model/View Classes} and is part of     Qt's \l{Model/View Programming}{model/view framework}.      The header gets the data for each section from the model using the     QAbstractItemModel::headerData() function. You can set the data by using     QAbstractItemModel::setHeaderData().      Each header has an orientation() and a number of sections, given by the     count() function. A section refers to a part of the header - either a row     or a column, depending on the orientation.      Sections can be moved and resized using moveSection() and resizeSection();     they can also be hidden and shown with hideSection() and showSection().      Each section of a header is described by a section ID, specified by its     section(), and can be located at a particular visualIndex() in the header.     A section can have a sort indicator set with setSortIndicator(); this     indicates whether the items in the associated item view will be sorted in     the order given by the section.      For a horizontal header the section is equivalent to a column in the model,     and for a vertical header the section is equivalent to a row in the model.      \section1 Moving Header Sections      A header can be fixed in place, or made movable with setMovable(). It can     be made clickable with setClickable(), and has resizing behavior in     accordance with setResizeMode().      \note Double-clicking on a header to resize a section only applies for     visible rows.      A header will emit sectionMoved() if the user moves a section,     sectionResized() if the user resizes a section, and sectionClicked() as     well as sectionHandleDoubleClicked() in response to mouse clicks. A header     will also emit sectionCountChanged() and sectionAutoResize().      You can identify a section using the logicalIndex() and logicalIndexAt()     functions, or by its index position, using the visualIndex() and     visualIndexAt() functions. The visual index will change if a section is     moved, but the logical index will not change.      \section1 Appearance      QTableWidget and QTableView create default headers. If you want     the headers to be visible, you can use \l{QFrame::}{setVisible()}.      Not all \l{Qt::}{ItemDataRole}s will have an effect on a     QHeaderView. If you need to draw other roles, you can subclass     QHeaderView and reimplement \l{QHeaderView::}{paintEvent()}.     QHeaderView respects the following item data roles:     \l{Qt::}{TextAlignmentRole}, \l{Qt::}{DisplayRole},     \l{Qt::}{FontRole}, \l{Qt::}{DecorationRole},     \l{Qt::}{ForegroundRole}, and \l{Qt::}{BackgroundRole}.      \note Each header renders the data for each section itself, and does not     rely on a delegate. As a result, calling a header's setItemDelegate()     function will have no effect.      \sa {Model/View Programming}, QListView, QTableView, QTreeView */
+comment|/*!     \class QHeaderView      \brief The QHeaderView class provides a header row or header column for     item views.      \ingroup model-view     \inmodule QtWidgets      A QHeaderView displays the headers used in item views such as the     QTableView and QTreeView classes. It takes the place of Qt3's \c QHeader     class previously used for the same purpose, but uses the Qt's model/view     architecture for consistency with the item view classes.      The QHeaderView class is one of the \l{Model/View Classes} and is part of     Qt's \l{Model/View Programming}{model/view framework}.      The header gets the data for each section from the model using the     QAbstractItemModel::headerData() function. You can set the data by using     QAbstractItemModel::setHeaderData().      Each header has an orientation() and a number of sections, given by the     count() function. A section refers to a part of the header - either a row     or a column, depending on the orientation.      Sections can be moved and resized using moveSection() and resizeSection();     they can also be hidden and shown with hideSection() and showSection().      Each section of a header is described by a section ID, specified by its     section(), and can be located at a particular visualIndex() in the header.     A section can have a sort indicator set with setSortIndicator(); this     indicates whether the items in the associated item view will be sorted in     the order given by the section.      For a horizontal header the section is equivalent to a column in the model,     and for a vertical header the section is equivalent to a row in the model.      \section1 Moving Header Sections      A header can be fixed in place, or made movable with setSectionsMovable(). It can     be made clickable with setSectionsClickable(), and has resizing behavior in     accordance with setResizeMode() and setSectionResizeMode()      \note Double-clicking on a header to resize a section only applies for     visible rows.      A header will emit sectionMoved() if the user moves a section,     sectionResized() if the user resizes a section, and sectionClicked() as     well as sectionHandleDoubleClicked() in response to mouse clicks. A header     will also emit sectionCountChanged() and sectionAutoResize().      You can identify a section using the logicalIndex() and logicalIndexAt()     functions, or by its index position, using the visualIndex() and     visualIndexAt() functions. The visual index will change if a section is     moved, but the logical index will not change.      \section1 Appearance      QTableWidget and QTableView create default headers. If you want     the headers to be visible, you can use \l{QFrame::}{setVisible()}.      Not all \l{Qt::}{ItemDataRole}s will have an effect on a     QHeaderView. If you need to draw other roles, you can subclass     QHeaderView and reimplement \l{QHeaderView::}{paintEvent()}.     QHeaderView respects the following item data roles:     \l{Qt::}{TextAlignmentRole}, \l{Qt::}{DisplayRole},     \l{Qt::}{FontRole}, \l{Qt::}{DecorationRole},     \l{Qt::}{ForegroundRole}, and \l{Qt::}{BackgroundRole}.      \note Each header renders the data for each section itself, and does not     rely on a delegate. As a result, calling a header's setItemDelegate()     function will have no effect.      \sa {Model/View Programming}, QListView, QTableView, QTreeView */
 end_comment
 begin_comment
-comment|/*!     \enum QHeaderView::ResizeMode      The resize mode specifies the behavior of the header sections. It can be     set on the entire header view or on individual sections using     setResizeMode().      \value Interactive The user can resize the section. The section can also be            resized programmatically using resizeSection().  The section size            defaults to \l defaultSectionSize. (See also            \l cascadingSectionResizes.)      \value Fixed The user cannot resize the section. The section can only be            resized programmatically using resizeSection(). The section size            defaults to \l defaultSectionSize.      \value Stretch QHeaderView will automatically resize the section to fill            the available space. The size cannot be changed by the user or            programmatically.      \value ResizeToContents QHeaderView will automatically resize the section            to its optimal size based on the contents of the entire column or            row. The size cannot be changed by the user or programmatically.            (This value was introduced in 4.2)      The following values are obsolete:     \value Custom Use Fixed instead.      \sa setResizeMode() stretchLastSection minimumSectionSize */
+comment|/*!     \enum QHeaderView::ResizeMode      The resize mode specifies the behavior of the header sections. It can be     set on the entire header view or on individual sections using     setResizeMode().      \value Interactive The user can resize the section. The section can also be            resized programmatically using resizeSection().  The section size            defaults to \l defaultSectionSize. (See also            \l cascadingSectionResizes.)      \value Fixed The user cannot resize the section. The section can only be            resized programmatically using resizeSection(). The section size            defaults to \l defaultSectionSize.      \value Stretch QHeaderView will automatically resize the section to fill            the available space. The size cannot be changed by the user or            programmatically.      \value ResizeToContents QHeaderView will automatically resize the section            to its optimal size based on the contents of the entire column or            row. The size cannot be changed by the user or programmatically.            (This value was introduced in 4.2)      The following values are obsolete:     \value Custom Use Fixed instead.      \sa setResizeMode() setSectionResizeMode() stretchLastSection minimumSectionSize */
 end_comment
 begin_comment
 comment|/*!     \fn void QHeaderView::sectionMoved(int logicalIndex, int oldVisualIndex,     int newVisualIndex)      This signal is emitted when a section is moved. The section's logical index     is specified by \a logicalIndex, the old index by \a oldVisualIndex, and     the new index position by \a newVisualIndex.      \sa moveSection() */
@@ -196,22 +196,22 @@ begin_comment
 comment|/*!     \fn void QHeaderView::sectionResized(int logicalIndex, int oldSize,     int newSize)      This signal is emitted when a section is resized. The section's logical     number is specified by \a logicalIndex, the old size by \a oldSize, and the     new size by \a newSize.      \sa resizeSection() */
 end_comment
 begin_comment
-comment|/*!     \fn void QHeaderView::sectionPressed(int logicalIndex)      This signal is emitted when a section is pressed. The section's logical     index is specified by \a logicalIndex.      \sa setClickable() */
+comment|/*!     \fn void QHeaderView::sectionPressed(int logicalIndex)      This signal is emitted when a section is pressed. The section's logical     index is specified by \a logicalIndex.      \sa setSectionsClickable() */
 end_comment
 begin_comment
-comment|/*!     \fn void QHeaderView::sectionClicked(int logicalIndex)      This signal is emitted when a section is clicked. The section's logical     index is specified by \a logicalIndex.      Note that the sectionPressed signal will also be emitted.      \sa setClickable(), sectionPressed() */
+comment|/*!     \fn void QHeaderView::sectionClicked(int logicalIndex)      This signal is emitted when a section is clicked. The section's logical     index is specified by \a logicalIndex.      Note that the sectionPressed signal will also be emitted.      \sa setSectionsClickable(), sectionPressed() */
 end_comment
 begin_comment
-comment|/*!     \fn void QHeaderView::sectionEntered(int logicalIndex)     \since 4.3      This signal is emitted when the cursor moves over the section and the left     mouse button is pressed. The section's logical index is specified by     \a logicalIndex.      \sa setClickable(), sectionPressed() */
+comment|/*!     \fn void QHeaderView::sectionEntered(int logicalIndex)     \since 4.3      This signal is emitted when the cursor moves over the section and the left     mouse button is pressed. The section's logical index is specified by     \a logicalIndex.      \sa setSectionsClickable(), sectionPressed() */
 end_comment
 begin_comment
-comment|/*!     \fn void QHeaderView::sectionDoubleClicked(int logicalIndex)      This signal is emitted when a section is double-clicked. The section's     logical index is specified by \a logicalIndex.      \sa setClickable() */
+comment|/*!     \fn void QHeaderView::sectionDoubleClicked(int logicalIndex)      This signal is emitted when a section is double-clicked. The section's     logical index is specified by \a logicalIndex.      \sa setSectionsClickable() */
 end_comment
 begin_comment
 comment|/*!     \fn void QHeaderView::sectionCountChanged(int oldCount, int newCount)      This signal is emitted when the number of sections changes, i.e., when     sections are added or deleted. The original count is specified by     \a oldCount, and the new count by \a newCount.      \sa count(), length(), headerDataChanged() */
 end_comment
 begin_comment
-comment|/*!     \fn void QHeaderView::sectionHandleDoubleClicked(int logicalIndex)      This signal is emitted when a section is double-clicked. The section's     logical index is specified by \a logicalIndex.      \sa setClickable() */
+comment|/*!     \fn void QHeaderView::sectionHandleDoubleClicked(int logicalIndex)      This signal is emitted when a section is double-clicked. The section's     logical index is specified by \a logicalIndex.      \sa setSectionsClickable() */
 end_comment
 begin_comment
 comment|/*!     \fn void QHeaderView::sortIndicatorChanged(int logicalIndex,     Qt::SortOrder order)     \since 4.3      This signal is emitted when the section containing the sort indicator or     the order indicated is changed. The section's logical index is specified     by \a logicalIndex and the sort order is specified by \a order.      \sa setSortIndicator() */
@@ -3167,7 +3167,7 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QHeaderView::resizeSection(int logicalIndex, int size)      Resizes the section specified by \a logicalIndex to \a size measured in     pixels.      \sa sectionResized(), resizeMode(), sectionSize() */
+comment|/*!     \fn void QHeaderView::resizeSection(int logicalIndex, int size)      Resizes the section specified by \a logicalIndex to \a size measured in     pixels. The size parameter must be a value larger or equal to zero. A     size equal to zero is however not recommended. In that situation hideSection     should be used instead.      \sa sectionResized(), resizeMode(), sectionSize(), hideSection() */
 end_comment
 begin_function
 DECL|function|resizeSection
@@ -4042,17 +4042,14 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     If \a movable is true, the header may be moved by the user; otherwise it     is fixed in place.      \sa isMovable(), sectionMoved() */
-end_comment
-begin_comment
-comment|// ### Qt 5: change to setSectionsMovable()
+comment|/*!     If \a sectionsMovable is true, the header may be moved by the user; otherwise it     is fixed in place.      \sa sectionsMovable(), sectionMoved() */
 end_comment
 begin_function
-DECL|function|setMovable
+DECL|function|setSectionsMovable
 name|void
 name|QHeaderView
 operator|::
-name|setMovable
+name|setSectionsMovable
 parameter_list|(
 name|bool
 name|movable
@@ -4072,17 +4069,20 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the header can be moved by the user; otherwise returns     false.      \sa setMovable() */
+comment|// ### Qt 6 - remove this obsolete function
 end_comment
 begin_comment
-comment|// ### Qt 5: change to sectionsMovable()
+comment|/*!     \obsolete     \fn void QHeaderView::setMovable(bool movable)      Use setSectionsMovable instead.      \sa setSectionsMovable() */
+end_comment
+begin_comment
+comment|/*!     Returns true if the header can be moved by the user; otherwise returns     false.      \sa setSectionsMovable() */
 end_comment
 begin_function
-DECL|function|isMovable
+DECL|function|sectionsMovable
 name|bool
 name|QHeaderView
 operator|::
-name|isMovable
+name|sectionsMovable
 parameter_list|()
 specifier|const
 block|{
@@ -4100,17 +4100,20 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     If \a clickable is true, the header will respond to single clicks.      \sa isClickable(), sectionClicked(), sectionPressed(),     setSortIndicatorShown() */
+comment|// ### Qt 6 - remove this obsolete function
 end_comment
 begin_comment
-comment|// ### Qt 5: change to setSectionsClickable()
+comment|/*!     \obsolete     \fn bool QHeaderView::isMovable(bool movable)      Use sectionsMovable instead.      \sa sectionsMovable() */
+end_comment
+begin_comment
+comment|/*!     If \a clickable is true, the header will respond to single clicks.      \sa sectionsClickable(), sectionClicked(), sectionPressed(),     setSortIndicatorShown() */
 end_comment
 begin_function
-DECL|function|setClickable
+DECL|function|setSectionsClickable
 name|void
 name|QHeaderView
 operator|::
-name|setClickable
+name|setSectionsClickable
 parameter_list|(
 name|bool
 name|clickable
@@ -4130,17 +4133,20 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the header is clickable; otherwise returns false. A     clickable header could be set up to allow the user to change the     representation of the data in the view related to the header.      \sa setClickable() */
+comment|// ### Qt 6 - remove this obsolete function
 end_comment
 begin_comment
-comment|// ### Qt 5: change to sectionsClickable()
+comment|/*!     \obsolete     \fn void QHeaderView::setClickable(bool clickable)      Use setSectionsClickable instead.      \sa setSectionsClickable() */
+end_comment
+begin_comment
+comment|/*!     Returns true if the header is clickable; otherwise returns false. A     clickable header could be set up to allow the user to change the     representation of the data in the view related to the header.      \sa setSectionsClickable() */
 end_comment
 begin_function
-DECL|function|isClickable
+DECL|function|sectionsClickable
 name|bool
 name|QHeaderView
 operator|::
-name|isClickable
+name|sectionsClickable
 parameter_list|()
 specifier|const
 block|{
@@ -4157,6 +4163,12 @@ name|clickableSections
 return|;
 block|}
 end_function
+begin_comment
+comment|// ### Qt 6 - remove this obsolete function
+end_comment
+begin_comment
+comment|/*!     \obsolete     \fn bool QHeaderView::isClickable() const      Use sectionsClickable instead.      \sa sectionsClickable() */
+end_comment
 begin_function
 DECL|function|setHighlightSections
 name|void
@@ -4278,17 +4290,14 @@ comment|// section sizes may change as a result of the new mode
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Sets the constraints on how the section specified by \a logicalIndex in     the header can be resized to those described by the given \a mode. The logical     index should exist at the time this function is called.      \note This setting will be ignored for the last section if the stretchLastSection     property is set to true. This is the default for the horizontal headers provided     by QTreeView.      \sa setStretchLastSection() */
-end_comment
-begin_comment
-comment|// ### Qt 5: change to setSectionResizeMode()
+comment|/*!     Sets the constraints on how the section specified by \a logicalIndex in     the header can be resized to those described by the given \a mode. The logical     index should exist at the time this function is called.      \note This setting will be ignored for the last section if the stretchLastSection     property is set to true. This is the default for the horizontal headers provided     by QTreeView.      \sa setStretchLastSection() */
 end_comment
 begin_function
-DECL|function|setResizeMode
+DECL|function|setSectionResizeMode
 name|void
 name|QHeaderView
 operator|::
-name|setResizeMode
+name|setSectionResizeMode
 parameter_list|(
 name|int
 name|logicalIndex
@@ -4424,16 +4433,22 @@ comment|// section sizes may change as a result of the new mode
 block|}
 end_function
 begin_comment
+comment|// ### Qt 6 - remove this obsolete function
+end_comment
+begin_comment
+comment|/*!     \overload     \obsolete     \fn void QHeaderView::setResizeMode(int logicalIndex, ResizeMode mode)      Use setSectionResizeMode instead.      \sa setSectionResizeMode() */
+end_comment
+begin_comment
 comment|/*!     Returns the resize mode that applies to the section specified by the given     \a logicalIndex.      \sa setResizeMode() */
 end_comment
 begin_function
-DECL|function|resizeMode
+DECL|function|sectionResizeMode
 name|QHeaderView
 operator|::
 name|ResizeMode
 name|QHeaderView
 operator|::
-name|resizeMode
+name|sectionResizeMode
 parameter_list|(
 name|int
 name|logicalIndex
@@ -4476,6 +4491,12 @@ return|;
 block|}
 end_function
 begin_comment
+comment|// ### Qt 6 - remove this obsolete function
+end_comment
+begin_comment
+comment|/*!     \obsolete     \fn QHeaderView::ResizeMode QHeaderView::resizeMode(int logicalIndex) const      Use sectionResizeMode instead.      \sa sectionResizeMode() */
+end_comment
+begin_comment
 comment|/*!     \since 4.1      Returns the number of sections that are set to resize mode stretch. In     views, this can be used to see if the headerview needs to resize the     sections when the view's geometry changes.      \sa stretchLastSection, resizeMode() */
 end_comment
 begin_function
@@ -4501,7 +4522,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \property QHeaderView::showSortIndicator   \brief whether the sort indicator is shown    By default, this property is false.    \sa setClickable() */
+comment|/*!   \property QHeaderView::showSortIndicator   \brief whether the sort indicator is shown    By default, this property is false.    \sa setSectionsClickable() */
 end_comment
 begin_function
 DECL|function|setSortIndicatorShown
@@ -4671,7 +4692,7 @@ name|logicalIndex
 operator|>=
 literal|0
 operator|&&
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 name|logicalIndex
 argument_list|)
@@ -4691,7 +4712,7 @@ name|old
 operator|>=
 literal|0
 operator|&&
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 name|old
 argument_list|)
@@ -9416,7 +9437,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 name|handle
 argument_list|)
@@ -9964,7 +9985,7 @@ operator|-
 literal|1
 operator|&&
 operator|(
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 name|handle
 argument_list|)
@@ -10340,7 +10361,7 @@ operator|>
 operator|-
 literal|1
 operator|&&
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 name|handle
 argument_list|)
@@ -10410,7 +10431,7 @@ operator|>
 operator|-
 literal|1
 operator|&&
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 name|handle
 argument_list|)
@@ -12245,7 +12266,7 @@ control|)
 name|resizeRequired
 operator|=
 operator|(
-name|resizeMode
+name|sectionResizeMode
 argument_list|(
 name|i
 argument_list|)

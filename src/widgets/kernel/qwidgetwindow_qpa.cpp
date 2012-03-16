@@ -17,11 +17,20 @@ include|#
 directive|include
 file|"private/qapplication_p.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
+end_ifndef
 begin_include
 include|#
 directive|include
 file|<QtGui/qaccessible.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|qt_button_down
@@ -99,6 +108,11 @@ name|widget
 argument_list|)
 block|{ }
 end_constructor
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
+end_ifndef
 begin_function
 DECL|function|accessibleRoot
 name|QAccessibleInterface
@@ -126,6 +140,10 @@ literal|0
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|focusObject
 name|QObject

@@ -5754,20 +5754,6 @@ name|hidePopup
 argument_list|()
 expr_stmt|;
 comment|//allow combobox effect to complete
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-23678"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTRY_VERIFY
 argument_list|(
 operator|!

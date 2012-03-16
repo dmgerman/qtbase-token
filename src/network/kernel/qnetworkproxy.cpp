@@ -967,7 +967,14 @@ name|d
 argument_list|(
 literal|0
 argument_list|)
-block|{ }
+block|{
+comment|// make sure we have QGlobalNetworkProxy singleton created, otherwise
+comment|// you don't have any socket engine handler created when directly setting
+comment|// a proxy to a socket
+name|globalNetworkProxy
+argument_list|()
+expr_stmt|;
+block|}
 end_constructor
 begin_comment
 comment|/*!     Constructs a QNetworkProxy with \a type, \a hostName, \a port,     \a user and \a password.      The default capabilities for proxy type \a type are set automatically.      \sa capabilities() */
@@ -1016,7 +1023,14 @@ argument_list|,
 name|password
 argument_list|)
 argument_list|)
-block|{ }
+block|{
+comment|// make sure we have QGlobalNetworkProxy singleton created, otherwise
+comment|// you don't have any socket engine handler created when directly setting
+comment|// a proxy to a socket
+name|globalNetworkProxy
+argument_list|()
+expr_stmt|;
+block|}
 end_constructor
 begin_comment
 comment|/*!     Constructs a copy of \a other. */

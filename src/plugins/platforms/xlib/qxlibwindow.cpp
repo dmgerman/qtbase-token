@@ -111,7 +111,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QApplication>
+file|<QGuiApplication>
+end_include
+begin_include
+include|#
+directive|include
+file|<QStyleHints>
 end_include
 begin_include
 include|#
@@ -2120,6 +2125,18 @@ name|QEvent
 operator|::
 name|MouseButtonPress
 decl_stmt|;
+specifier|const
+name|int
+name|doubleClickInterval
+init|=
+name|qApp
+operator|->
+name|styleHints
+argument_list|()
+operator|->
+name|mouseDoubleClickInterval
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|e
@@ -2137,10 +2154,7 @@ argument_list|)
 operator|-
 name|prevTime
 operator|<
-name|QApplication
-operator|::
 name|doubleClickInterval
-argument_list|()
 operator|&&
 name|qAbs
 argument_list|(
@@ -2177,10 +2191,7 @@ name|e
 operator|->
 name|time
 operator|-
-name|QApplication
-operator|::
 name|doubleClickInterval
-argument_list|()
 expr_stmt|;
 comment|//no double click next time
 block|}
@@ -4179,7 +4190,7 @@ name|s
 operator|.
 name|win_gravity
 operator|=
-name|QApplication
+name|QGuiApplication
 operator|::
 name|isRightToLeft
 argument_list|()

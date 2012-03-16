@@ -139,10 +139,18 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
+name|QStringList
+name|themeNames
+argument_list|()
+specifier|const
+block|;
+name|virtual
 name|QPlatformTheme
 operator|*
-name|platformTheme
-argument_list|()
+name|createPlatformTheme
+argument_list|(
+argument|const QString&name
+argument_list|)
 specifier|const
 block|;
 name|QPlatformServices

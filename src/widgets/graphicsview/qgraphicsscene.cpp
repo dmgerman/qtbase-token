@@ -3040,11 +3040,8 @@ name|toGraphicsObject
 argument_list|()
 condition|)
 block|{
-name|QAccessible
-operator|::
-name|updateAccessibility
-argument_list|(
 name|QAccessibleEvent
+name|event
 argument_list|(
 name|QAccessible
 operator|::
@@ -3052,6 +3049,13 @@ name|Focus
 argument_list|,
 name|focusObj
 argument_list|)
+decl_stmt|;
+name|QAccessible
+operator|::
+name|updateAccessibility
+argument_list|(
+operator|&
+name|event
 argument_list|)
 expr_stmt|;
 block|}

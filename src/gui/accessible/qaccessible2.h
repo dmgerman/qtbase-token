@@ -667,6 +667,9 @@ operator|=
 literal|0
 expr_stmt|;
 comment|//            Gets the row and column indexes and extents of this cell accessible and whether or not it is selected.
+comment|//          ### Is this really needed??
+comment|//
+comment|//          ### Maybe change to QSize cellSize(), we already have accessors for the row, column and selected
 name|virtual
 name|void
 name|rowColumnExtents

@@ -32,11 +32,6 @@ name|fe
 parameter_list|,
 name|int
 name|script
-parameter_list|,
-specifier|const
-name|QStringList
-modifier|&
-name|fallbacks
 parameter_list|)
 member_init_list|:
 name|QFontEngineMultiQPA
@@ -44,8 +39,6 @@ argument_list|(
 name|fe
 argument_list|,
 name|script
-argument_list|,
-name|fallbacks
 argument_list|)
 block|{ }
 end_constructor

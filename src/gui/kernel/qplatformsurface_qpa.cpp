@@ -16,7 +16,7 @@ name|~
 name|QPlatformSurface
 operator|(
 operator|)
-block|{}
+block|{  }
 DECL|function|surfaceClass
 name|QSurface
 operator|::

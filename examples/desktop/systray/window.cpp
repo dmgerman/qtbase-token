@@ -642,7 +642,7 @@ name|addItem
 argument_list|(
 name|QIcon
 argument_list|(
-literal|":/images/bad.svg"
+literal|":/images/bad.png"
 argument_list|)
 argument_list|,
 name|tr
@@ -657,7 +657,7 @@ name|addItem
 argument_list|(
 name|QIcon
 argument_list|(
-literal|":/images/heart.svg"
+literal|":/images/heart.png"
 argument_list|)
 argument_list|,
 name|tr
@@ -672,7 +672,7 @@ name|addItem
 argument_list|(
 name|QIcon
 argument_list|(
-literal|":/images/trash.svg"
+literal|":/images/trash.png"
 argument_list|)
 argument_list|,
 name|tr
