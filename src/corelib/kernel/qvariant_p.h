@@ -765,6 +765,12 @@ argument_list|,
 argument|const QVariant::Private *
 argument_list|)
 block|{
+comment|// It is not possible to construct a QVariant containing not fully defined type
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
+block|;
 return|return
 name|false
 return|;
@@ -1575,6 +1581,12 @@ name|NotBuiltinType
 operator|*
 argument_list|)
 block|{
+comment|// QVariantIsNull is used only for built-in types
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
+expr_stmt|;
 return|return
 name|m_d
 operator|->
@@ -1920,22 +1932,11 @@ argument_list|(
 argument|const QMetaTypeSwitcher::NotBuiltinType*
 argument_list|)
 block|{
-name|qWarning
+comment|// QVariantConstructor is used only for built-in types.
+name|Q_ASSERT
 argument_list|(
-literal|"Trying to construct an instance of an invalid type, type id: %i"
-argument_list|,
-name|m_x
-operator|->
-name|type
+name|false
 argument_list|)
-block|;
-name|m_x
-operator|->
-name|type
-operator|=
-name|QVariant
-operator|::
-name|Invalid
 block|;     }
 name|void
 name|delegate
@@ -2100,8 +2101,13 @@ name|FilteredDestructor
 argument_list|(
 argument|QVariant::Private *
 argument_list|)
-block|{}
-comment|// ignore non accessible types
+block|{
+comment|// It is not possible to create not accepted type
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
+block|;         }
 block|}
 block|;
 name|public
@@ -2170,13 +2176,10 @@ argument_list|(
 argument|const QMetaTypeSwitcher::NotBuiltinType*
 argument_list|)
 block|{
-name|qWarning
+comment|// QVariantDestructor class is used only for a built-in type
+name|Q_ASSERT
 argument_list|(
-literal|"Trying to destruct an instance of an invalid type, type id: %i"
-argument_list|,
-name|m_d
-operator|->
-name|type
+name|false
 argument_list|)
 block|;     }
 comment|// Ignore nonconstructible type
@@ -2318,23 +2321,17 @@ operator|>
 block|{
 name|Filtered
 argument_list|(
-argument|QDebug dbg
+argument|QDebug
+comment|/* dbg */
 argument_list|,
-argument|QVariant::Private *d
+argument|QVariant::Private *
 argument_list|)
 block|{
-name|dbg
-operator|.
-name|nospace
-argument_list|()
-operator|<<
-literal|"QVariant::Type("
-operator|<<
-name|d
-operator|->
-name|type
-operator|<<
-literal|")"
+comment|// It is not possible to construct not acccepted type, QVariantConstructor creates an invalid variant for them
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
 block|;         }
 block|}
 block|;
@@ -2385,13 +2382,10 @@ argument_list|(
 argument|const QMetaTypeSwitcher::NotBuiltinType*
 argument_list|)
 block|{
-name|qWarning
+comment|// QVariantDebugStream class is used only for a built-in type
+name|Q_ASSERT
 argument_list|(
-literal|"Trying to stream an instance of an invalid type, type id: %i"
-argument_list|,
-name|m_d
-operator|->
-name|type
+name|false
 argument_list|)
 block|;     }
 name|void
