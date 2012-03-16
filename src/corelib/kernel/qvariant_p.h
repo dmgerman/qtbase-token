@@ -2231,16 +2231,6 @@ operator|*
 name|handler
 argument_list|)
 decl_stmt|;
-name|Q_CORE_EXPORT
-name|void
-name|unregisterHandler
-parameter_list|(
-specifier|const
-name|int
-comment|/* Modules::Names */
-name|name
-parameter_list|)
-function_decl|;
 block|}
 end_decl_stmt
 begin_if

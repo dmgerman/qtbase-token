@@ -552,13 +552,6 @@ end_function_decl
 begin_function_decl
 specifier|extern
 name|void
-name|qUnregisterGuiVariant
-parameter_list|()
-function_decl|;
-end_function_decl
-begin_function_decl
-specifier|extern
-name|void
 name|qInitDrawhelperAsm
 parameter_list|()
 function_decl|;
@@ -934,9 +927,6 @@ operator|=
 literal|0
 expr_stmt|;
 name|clearPalette
-argument_list|()
-expr_stmt|;
-name|qUnregisterGuiVariant
 argument_list|()
 expr_stmt|;
 ifndef|#
