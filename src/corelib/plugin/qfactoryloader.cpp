@@ -746,14 +746,6 @@ operator|.
 name|toObject
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|object
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
 name|metaDataOk
 operator|=
 literal|true
