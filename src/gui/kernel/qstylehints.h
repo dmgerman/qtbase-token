@@ -72,6 +72,11 @@ name|showIsFullScreen
 argument_list|()
 specifier|const
 block|;
+name|int
+name|passwordMaskDelay
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|friend

@@ -339,6 +339,8 @@ block|,
 name|KeyboardAutoRepeatRate
 block|,
 name|ShowIsFullScreen
+block|,
+name|PasswordMaskDelay
 block|}
 enum|;
 name|virtual
