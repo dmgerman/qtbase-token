@@ -41,7 +41,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"pagegenerator.h"
+file|"generator.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
@@ -78,7 +78,7 @@ name|class
 name|DitaXmlGenerator
 range|:
 name|public
-name|PageGenerator
+name|Generator
 block|{
 name|public
 operator|:
@@ -1312,19 +1312,6 @@ argument_list|)
 block|;
 name|void
 name|generateQmlInherits
-argument_list|(
-specifier|const
-name|QmlClassNode
-operator|*
-name|qcn
-argument_list|,
-name|CodeMarker
-operator|*
-name|marker
-argument_list|)
-block|;
-name|void
-name|generateQmlInheritedBy
 argument_list|(
 specifier|const
 name|QmlClassNode
