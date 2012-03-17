@@ -9051,7 +9051,7 @@ name|styleHint
 argument_list|(
 name|QStyle
 operator|::
-name|SH_Q3ListViewExpand_SelectMouseType
+name|SH_ListViewExpand_SelectMouseType
 argument_list|,
 literal|0
 argument_list|,
@@ -9172,7 +9172,7 @@ name|styleHint
 argument_list|(
 name|QStyle
 operator|::
-name|SH_Q3ListViewExpand_SelectMouseType
+name|SH_ListViewExpand_SelectMouseType
 argument_list|,
 literal|0
 argument_list|,

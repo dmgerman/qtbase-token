@@ -45248,13 +45248,6 @@ name|inherits
 argument_list|(
 literal|"QDockWidgetSeparator"
 argument_list|)
-operator|||
-name|widget
-operator|->
-name|inherits
-argument_list|(
-literal|"Q3DockWindowResizeHandle"
-argument_list|)
 condition|)
 block|{
 name|widget
@@ -45535,13 +45528,6 @@ operator|->
 name|inherits
 argument_list|(
 literal|"QDockWidgetSeparator"
-argument_list|)
-operator|||
-name|widget
-operator|->
-name|inherits
-argument_list|(
-literal|"Q3DockWindowResizeHandle"
 argument_list|)
 condition|)
 block|{

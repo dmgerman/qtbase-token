@@ -1005,10 +1005,6 @@ name|QETWidget
 block|;
 name|friend
 name|class
-name|Q3AccelManager
-block|;
-name|friend
-name|class
 name|QTranslator
 block|;
 name|friend
