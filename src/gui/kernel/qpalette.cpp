@@ -544,6 +544,10 @@ operator|::
 name|black
 argument_list|)
 expr_stmt|;
+name|resolve_mask
+operator|=
+literal|0
+expr_stmt|;
 block|}
 block|}
 end_constructor
