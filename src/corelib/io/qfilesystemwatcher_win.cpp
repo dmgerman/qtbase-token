@@ -1702,6 +1702,11 @@ index|[
 name|handle
 index|]
 decl_stmt|;
+name|bool
+name|fakeRemove
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -1718,6 +1723,21 @@ init|=
 name|GetLastError
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|error
+operator|==
+name|ERROR_ACCESS_DENIED
+condition|)
+block|{
+comment|// for directories, our object's handle appears to be woken up when the target of a
+comment|// watch is deleted, before the watched thing is actually deleted...
+comment|// anyway.. we're given an error code of ERROR_ACCESS_DENIED in that case.
+name|fakeRemove
+operator|=
+literal|true
+expr_stmt|;
+block|}
 name|qErrnoWarning
 argument_list|(
 name|error
@@ -1794,8 +1814,12 @@ name|path
 argument_list|)
 decl_stmt|;
 comment|// qDebug()<< "checking"<< x.key();
+comment|// i'm not completely sure the fileInfo.exist() check will ever work... see QTBUG-2331
+comment|// ..however, I'm not completely sure enough to remove it.
 if|if
 condition|(
+name|fakeRemove
+operator|||
 operator|!
 name|fileInfo
 operator|.
