@@ -8389,12 +8389,6 @@ operator|==
 name|Qt
 operator|::
 name|RichText
-operator|||
-name|format
-operator|==
-name|Qt
-operator|::
-name|LogText
 condition|)
 name|setHtml
 argument_list|(

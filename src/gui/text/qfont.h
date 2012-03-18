@@ -53,12 +53,6 @@ name|QVariant
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|Q3TextFormatCollection
-name|class
-name|Q3TextFormatCollection
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|Q_GUI_EXPORT
 name|QFont
@@ -972,10 +966,6 @@ decl_stmt|;
 name|friend
 name|class
 name|QWidgetPrivate
-decl_stmt|;
-name|friend
-name|class
-name|Q3TextFormatCollection
 decl_stmt|;
 name|friend
 name|class

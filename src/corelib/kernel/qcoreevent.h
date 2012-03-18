@@ -586,12 +586,6 @@ name|AcceptDropsChange
 operator|=
 literal|152
 block|,
-name|MenubarUpdated
-operator|=
-literal|153
-block|,
-comment|// Support event for Q3MainWindow, which needs to
-comment|// knwow when QMenubar is updated.
 name|ZeroTimerEvent
 operator|=
 literal|154

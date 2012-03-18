@@ -3226,10 +3226,6 @@ name|Q_DISABLE_COPY
 argument_list|(
 argument|QPainter
 argument_list|)
-name|friend
-name|class
-name|Q3Painter
-decl_stmt|;
 name|QScopedPointer
 operator|<
 name|QPainterPrivate
