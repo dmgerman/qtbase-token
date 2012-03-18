@@ -43,11 +43,6 @@ end_comment
 begin_comment
 comment|//
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QMAC_Q3MENUBAR_CPP_FILE
-end_ifndef
 begin_include
 include|#
 directive|include
@@ -675,8 +670,6 @@ endif|#
 directive|endif
 block|}
 block|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 comment|// QT_NO_MENUBAR

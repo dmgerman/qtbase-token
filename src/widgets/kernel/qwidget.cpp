@@ -9534,7 +9534,7 @@ name|window_state
 argument_list|)
 return|;
 block|}
-comment|/*!\internal     The function sets the window state on child widgets similar to    setWindowState(). The difference is that the window state changed    event has the isOverride() flag set. It exists mainly to keep    Q3Workspace working.  */
+comment|/*!\internal     The function sets the window state on child widgets similar to    setWindowState(). The difference is that the window state changed    event has the isOverride() flag set. It exists mainly to keep    QWorkspace working.  */
 DECL|function|overrideWindowState
 name|void
 name|QWidget

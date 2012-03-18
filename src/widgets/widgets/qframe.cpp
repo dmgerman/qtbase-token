@@ -1133,7 +1133,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Mostly for the sake of Q3Frame  */
+comment|/*!     \internal      Used by QLabel and QLCDNumber  */
 end_comment
 begin_function
 DECL|function|drawFrame
