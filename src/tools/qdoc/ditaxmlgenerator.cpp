@@ -730,7 +730,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Write the start tag \c{<apiDesc>}. if \a title is not   empty, generate a GUID from it and write the GUID as the   value of the \e{id} attribute. Then write \a title as   the value of the \e {spectitle} attribute.    Then if \a outputclass is not empty, write it as the value   of the \a outputclass attribute.    Fiunally, set the section nesting level to 1 and return 1.  */
+comment|/*!   Write the start tag \c{<apiDesc>}. if \a title is not   empty, generate a GUID from it and write the GUID as the   value of the \e{id} attribute.    Then if \a outputclass is not empty, write it as the value   of the \a outputclass attribute.    Fiunally, set the section nesting level to 1 and return 1.  */
 end_comment
 begin_function
 DECL|function|enterApiDesc
@@ -769,16 +769,8 @@ argument_list|(
 name|title
 argument_list|)
 expr_stmt|;
-name|xmlWriter
-argument_list|()
-operator|.
-name|writeAttribute
-argument_list|(
-literal|"spectitle"
-argument_list|,
-name|title
-argument_list|)
-expr_stmt|;
+comment|//Are there cases where the spectitle is required?
+comment|//xmlWriter().writeAttribute("spectitle",title);
 block|}
 if|if
 condition|(
