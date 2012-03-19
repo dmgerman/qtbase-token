@@ -661,6 +661,8 @@ argument_list|,
 name|QMetaType
 operator|::
 name|MovableType
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}

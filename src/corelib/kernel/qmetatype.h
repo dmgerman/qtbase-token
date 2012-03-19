@@ -107,6 +107,12 @@ name|QMetaTypeInterface
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QMetaObject
+name|class
+name|QMetaObject
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
 name|QMetaType
@@ -405,6 +411,11 @@ name|QMetaType
 operator|::
 name|TypeFlags
 name|flags
+argument_list|,
+specifier|const
+name|QMetaObject
+operator|*
+name|metaObject
 argument_list|)
 decl_stmt|;
 specifier|static
@@ -720,6 +731,8 @@ argument_list|,
 argument|uint theTypeFlags
 argument_list|,
 argument|int typeId
+argument_list|,
+argument|const QMetaObject *metaObject
 argument_list|)
 expr_stmt|;
 name|QMetaType
@@ -865,6 +878,12 @@ decl_stmt|;
 name|int
 name|m_typeId
 decl_stmt|;
+specifier|const
+name|QMetaObject
+modifier|*
+name|m_metaObject
+decl_stmt|;
+comment|// Placeholder for Qt 5.1 feature.
 block|}
 end_decl_stmt
 begin_empty_stmt
@@ -1360,7 +1379,71 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_expr_stmt
-unit|}  template
+name|template
+operator|<
+name|typename
+name|T
+operator|,
+name|bool
+operator|=
+name|IsPointerToTypeDerivedFromQObject
+operator|<
+name|T
+operator|>
+operator|::
+name|Value
+operator|>
+expr|struct
+name|MetaObjectForType
+block|{
+specifier|static
+specifier|inline
+specifier|const
+name|QMetaObject
+operator|*
+name|value
+argument_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+unit|};
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+expr|struct
+name|MetaObjectForType
+operator|<
+name|T
+operator|*
+operator|,
+comment|/* isPointerToTypeDerivedFromQObject = */
+name|true
+operator|>
+block|{
+specifier|static
+specifier|inline
+specifier|const
+name|QMetaObject
+operator|*
+name|value
+argument_list|()
+block|{
+return|return
+operator|&
+name|T
+operator|::
+name|staticMetaObject
+return|;
+block|}
+end_expr_stmt
+begin_expr_stmt
+unit|}; }  template
 DECL|variable|T
 DECL|variable|bool
 operator|<
@@ -1825,6 +1908,16 @@ name|T
 argument_list|)
 argument_list|,
 name|flags
+argument_list|,
+name|QtPrivate
+operator|::
+name|MetaObjectForType
+operator|<
+name|T
+operator|>
+operator|::
+name|value
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -2479,6 +2572,8 @@ argument_list|,
 argument|uint theTypeFlags
 argument_list|,
 argument|int typeId
+argument_list|,
+argument|const QMetaObject *metaObject
 argument_list|)
 operator|:
 name|m_creator
@@ -2528,7 +2623,12 @@ argument_list|)
 operator|,
 name|m_typeId
 argument_list|(
-argument|typeId
+name|typeId
+argument_list|)
+operator|,
+name|m_metaObject
+argument_list|(
+argument|metaObject
 argument_list|)
 block|{
 if|if

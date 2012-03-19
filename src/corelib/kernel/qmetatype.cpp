@@ -1410,6 +1410,8 @@ literal|0
 argument_list|,
 name|TypeFlags
 argument_list|()
+argument_list|,
+literal|0
 argument_list|)
 return|;
 block|}
@@ -1446,6 +1448,11 @@ name|size
 parameter_list|,
 name|TypeFlags
 name|flags
+parameter_list|,
+specifier|const
+name|QMetaObject
+modifier|*
+name|metaObject
 parameter_list|)
 block|{
 name|QVector
@@ -7406,6 +7413,8 @@ operator|.
 name|flags
 argument_list|,
 name|type
+argument_list|,
+literal|0
 argument_list|)
 else|:
 name|QMetaType
@@ -7588,6 +7597,13 @@ name|other
 operator|.
 name|m_typeId
 argument_list|)
+member_init_list|,
+name|m_metaObject
+argument_list|(
+name|other
+operator|.
+name|m_metaObject
+argument_list|)
 block|{}
 end_constructor
 begin_function
@@ -7671,6 +7687,12 @@ operator|=
 name|other
 operator|.
 name|m_typeId
+expr_stmt|;
+name|m_metaObject
+operator|=
+name|other
+operator|.
+name|m_metaObject
 expr_stmt|;
 return|return
 operator|*
