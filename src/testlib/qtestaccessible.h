@@ -259,9 +259,8 @@ specifier|static
 name|bool
 name|verifyEvent
 parameter_list|(
-specifier|const
 name|QAccessibleEvent
-modifier|&
+modifier|*
 name|ev
 parameter_list|)
 block|{
@@ -292,6 +291,7 @@ init|=
 operator|*
 name|first
 operator|==
+operator|*
 name|ev
 decl_stmt|;
 name|delete
@@ -305,9 +305,8 @@ specifier|static
 name|bool
 name|containsEvent
 parameter_list|(
-specifier|const
 name|QAccessibleEvent
-modifier|&
+modifier|*
 name|event
 parameter_list|)
 block|{
@@ -323,6 +322,7 @@ condition|(
 operator|*
 name|ev
 operator|==
+operator|*
 name|event
 condition|)
 return|return

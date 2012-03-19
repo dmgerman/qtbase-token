@@ -2068,7 +2068,7 @@ name|j
 init|=
 name|set1
 operator|.
-name|constBegin
+name|cbegin
 argument_list|()
 decl_stmt|;
 name|QSet
@@ -2094,7 +2094,7 @@ name|ell
 init|=
 name|set2
 operator|.
-name|constBegin
+name|cbegin
 argument_list|()
 decl_stmt|;
 name|QVERIFY
@@ -2157,7 +2157,7 @@ name|j
 init|=
 name|set1
 operator|.
-name|constBegin
+name|cbegin
 argument_list|()
 decl_stmt|;
 name|QSet
@@ -2183,7 +2183,7 @@ name|ell
 init|=
 name|set2
 operator|.
-name|constBegin
+name|cbegin
 argument_list|()
 decl_stmt|;
 name|QVERIFY
@@ -2243,7 +2243,7 @@ name|j
 init|=
 name|set1
 operator|.
-name|constBegin
+name|cbegin
 argument_list|()
 decl_stmt|;
 name|QSet
@@ -2269,7 +2269,7 @@ name|ell
 init|=
 name|set2
 operator|.
-name|constBegin
+name|cbegin
 argument_list|()
 decl_stmt|;
 name|QVERIFY
@@ -2349,7 +2349,7 @@ name|j
 init|=
 name|set1
 operator|.
-name|constEnd
+name|cend
 argument_list|()
 decl_stmt|;
 name|QSet
@@ -2375,7 +2375,7 @@ name|ell
 init|=
 name|set2
 operator|.
-name|constEnd
+name|cend
 argument_list|()
 decl_stmt|;
 name|QVERIFY
@@ -2464,7 +2464,7 @@ name|j
 init|=
 name|set1
 operator|.
-name|constEnd
+name|cend
 argument_list|()
 decl_stmt|;
 name|QSet
@@ -2490,7 +2490,7 @@ name|ell
 init|=
 name|set2
 operator|.
-name|constEnd
+name|cend
 argument_list|()
 decl_stmt|;
 name|QVERIFY
@@ -2576,7 +2576,7 @@ name|j
 init|=
 name|set1
 operator|.
-name|constEnd
+name|cend
 argument_list|()
 decl_stmt|;
 name|QSet
@@ -2602,7 +2602,7 @@ name|ell
 init|=
 name|set2
 operator|.
-name|constEnd
+name|cend
 argument_list|()
 decl_stmt|;
 name|QVERIFY

@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qmenubar.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<qapplication.h>
 end_include
 begin_include
@@ -355,7 +360,7 @@ argument_list|()
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 operator|!
@@ -743,7 +748,7 @@ argument_list|()
 decl_stmt|;
 ifdef|#
 directive|ifdef
-name|Q_WS_MAC
+name|Q_OS_MAC
 if|if
 condition|(
 operator|!

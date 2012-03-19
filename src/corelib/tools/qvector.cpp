@@ -385,6 +385,9 @@ begin_comment
 comment|/*! \fn QVector::const_iterator QVector::begin() const      \overload */
 end_comment
 begin_comment
+comment|/*! \fn QVector::const_iterator QVector::cbegin() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the first item     in the vector.      \sa begin(), cend() */
+end_comment
+begin_comment
 comment|/*! \fn QVector::const_iterator QVector::constBegin() const      Returns a const \l{STL-style iterator} pointing to the first item     in the vector.      \sa begin(), constEnd() */
 end_comment
 begin_comment
@@ -392,6 +395,9 @@ comment|/*! \fn QVector::iterator QVector::end()      Returns an \l{STL-style it
 end_comment
 begin_comment
 comment|/*! \fn QVector::const_iterator QVector::end() const      \overload */
+end_comment
+begin_comment
+comment|/*! \fn QVector::const_iterator QVector::cend() const     \since 5.0      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the vector.      \sa cbegin(), end() */
 end_comment
 begin_comment
 comment|/*! \fn QVector::const_iterator QVector::constEnd() const      Returns a const \l{STL-style iterator} pointing to the imaginary     item after the last item in the vector.      \sa constBegin(), end() */

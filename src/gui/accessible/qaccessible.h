@@ -1585,6 +1585,10 @@ name|class
 name|Q_GUI_EXPORT
 name|QAccessibleEvent
 block|{
+name|Q_DISABLE_COPY
+argument_list|(
+argument|QAccessibleEvent
+argument_list|)
 name|public
 label|:
 specifier|inline
@@ -1659,7 +1663,7 @@ name|accessibleInterface
 argument_list|()
 specifier|const
 expr_stmt|;
-name|private
+name|protected
 label|:
 name|QAccessible
 operator|::
@@ -1726,7 +1730,7 @@ return|return
 name|m_changedStates
 return|;
 block|}
-name|private
+name|protected
 operator|:
 name|QAccessible
 operator|::
