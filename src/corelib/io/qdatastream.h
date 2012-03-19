@@ -1940,13 +1940,6 @@ operator|.
 name|detach
 argument_list|()
 block|;
-name|map
-operator|.
-name|setInsertInOrder
-argument_list|(
-name|true
-argument_list|)
-block|;
 for|for
 control|(
 name|quint32
@@ -1996,13 +1989,6 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-name|map
-operator|.
-name|setInsertInOrder
-argument_list|(
-name|false
-argument_list|)
-expr_stmt|;
 end_expr_stmt
 begin_if
 if|if
