@@ -428,7 +428,7 @@ name|fileName
 argument_list|,
 name|QString
 operator|::
-name|fromLatin1
+name|fromUtf8
 argument_list|(
 name|cont
 argument_list|)
