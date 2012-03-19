@@ -82,6 +82,12 @@ operator|&
 name|primaryScreen
 argument_list|)
 decl_stmt|;
+comment|// This won't compile unless libxcb>= 1.5 which defines XCB_ATOM_PRIMARY.
+name|int
+name|xcbAtomPrimary
+init|=
+name|XCB_ATOM_PRIMARY
+decl_stmt|;
 return|return
 literal|0
 return|;
