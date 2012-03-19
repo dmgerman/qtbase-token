@@ -263,7 +263,6 @@ condition|;
 operator|++
 name|i
 control|)
-block|{
 if|if
 condition|(
 name|i
@@ -277,7 +276,6 @@ condition|)
 operator|++
 name|cnt
 expr_stmt|;
-block|}
 return|return
 name|cnt
 return|;
@@ -747,7 +745,6 @@ condition|;
 operator|++
 name|i
 control|)
-block|{
 if|if
 condition|(
 name|rec
@@ -769,7 +766,6 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|i
@@ -786,7 +782,6 @@ condition|;
 operator|++
 name|i
 control|)
-block|{
 if|if
 condition|(
 name|whereValues
@@ -816,7 +811,6 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -1153,6 +1147,7 @@ argument_list|(
 name|QSqlTableModel
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QString
 name|query
 init|=
@@ -2195,6 +2190,7 @@ argument_list|(
 name|row
 argument_list|)
 decl_stmt|;
+specifier|const
 name|bool
 name|prepStatement
 init|=
@@ -2237,6 +2233,7 @@ argument_list|,
 name|prepStatement
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QString
 name|where
 init|=
@@ -2370,6 +2367,7 @@ argument_list|(
 name|rec
 argument_list|)
 emit|;
+specifier|const
 name|bool
 name|prepStatement
 init|=
@@ -2387,6 +2385,7 @@ operator|::
 name|PreparedQueries
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QString
 name|stmt
 init|=
@@ -2497,6 +2496,7 @@ argument_list|(
 name|row
 argument_list|)
 decl_stmt|;
+specifier|const
 name|bool
 name|prepStatement
 init|=
@@ -2540,6 +2540,7 @@ argument_list|,
 name|prepStatement
 argument_list|)
 decl_stmt|;
+specifier|const
 name|QString
 name|where
 init|=
@@ -3022,7 +3023,6 @@ condition|;
 operator|--
 name|i
 control|)
-block|{
 name|revertRow
 argument_list|(
 name|rows
@@ -3033,7 +3033,6 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 begin_comment
