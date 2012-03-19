@@ -53,6 +53,12 @@ name|class
 name|QQnxWindow
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QQnxServices
+name|class
+name|QQnxServices
+decl_stmt|;
+end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -222,6 +228,13 @@ return|return
 name|m_paintUsingOpenGL
 return|;
 block|}
+name|virtual
+name|QPlatformServices
+operator|*
+name|services
+argument_list|()
+specifier|const
+block|;
 specifier|static
 name|QWindow
 operator|*
@@ -273,6 +286,10 @@ block|;
 name|QAbstractEventDispatcher
 operator|*
 name|m_eventDispatcher
+block|;
+name|QQnxServices
+operator|*
+name|m_services
 block|;
 ifndef|#
 directive|ifndef
