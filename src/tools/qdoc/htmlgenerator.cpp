@@ -6628,7 +6628,7 @@ name|compatLink
 operator|<<
 literal|"\">"
 operator|<<
-literal|"Qt 3 support members</a></li>\n"
+literal|"Compatibility members</a></li>\n"
 expr_stmt|;
 name|out
 argument_list|()
@@ -8576,7 +8576,7 @@ name|compatLink
 operator|<<
 literal|"\">"
 operator|<<
-literal|"Qt 3 support members</a></li>\n"
+literal|"Compatibility members</a></li>\n"
 expr_stmt|;
 name|out
 argument_list|()
@@ -12627,7 +12627,7 @@ condition|)
 block|{
 name|title
 operator|=
-literal|"Qt 3 Support Members for "
+literal|"Compatibility Members for "
 operator|+
 name|inner
 operator|->
@@ -12641,7 +12641,7 @@ argument_list|(
 name|inner
 argument_list|)
 operator|+
-literal|"-qt3."
+literal|"-compat."
 operator|+
 name|fileExtension
 argument_list|(
@@ -12718,8 +12718,7 @@ name|out
 argument_list|()
 operator|<<
 literal|"<p><b>The following class members are part of the "
-literal|"<a href=\"qt3support.html\">Qt 3 support layer</a>.</b> "
-literal|"They are provided to help you port old code to Qt 4. We advise against "
+literal|"Qt compatibility layer.</b> We advise against "
 literal|"using them in new code.</p>\n"
 expr_stmt|;
 block|}
@@ -18797,7 +18796,7 @@ name|Compat
 case|:
 name|result
 operator|+=
-literal|"-qt3"
+literal|"-compat"
 expr_stmt|;
 break|break;
 case|case
@@ -27007,7 +27006,7 @@ name|replace
 argument_list|(
 literal|".html"
 argument_list|,
-literal|"-qt3.html"
+literal|"-compat.html"
 argument_list|)
 expr_stmt|;
 break|break;

@@ -6213,7 +6213,7 @@ argument_list|(
 name|node
 argument_list|)
 operator|<<
-literal|" is part of the Qt 3 compatibility layer."
+literal|" is part of the Qt compatibility layer."
 operator|<<
 name|Atom
 argument_list|(
@@ -6226,20 +6226,7 @@ argument_list|)
 operator|<<
 literal|" It is provided to keep old source code working. "
 operator|<<
-literal|"We strongly advise against "
-operator|<<
-literal|"using it in new code. See "
-operator|<<
-name|Atom
-argument_list|(
-name|Atom
-operator|::
-name|AutoLink
-argument_list|,
-literal|"Porting to Qt 4"
-argument_list|)
-operator|<<
-literal|" for more information."
+literal|"We strongly advise against using it in new code."
 operator|<<
 name|Atom
 operator|::

@@ -3028,7 +3028,7 @@ operator|-
 literal|5
 argument_list|)
 operator|+
-literal|"-qt3.html"
+literal|"-compat.html"
 decl_stmt|;
 name|writer
 operator|.
@@ -3054,7 +3054,7 @@ literal|"title"
 argument_list|,
 name|tr
 argument_list|(
-literal|"Qt 3 support members"
+literal|"Compatibility members"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3392,7 +3392,7 @@ operator|-
 literal|5
 argument_list|)
 operator|+
-literal|"-qt3.html"
+literal|"-compat.html"
 decl_stmt|;
 name|writer
 operator|.
@@ -3418,7 +3418,7 @@ literal|"title"
 argument_list|,
 name|tr
 argument_list|(
-literal|"Qt 3 support members"
+literal|"Compatibility members"
 argument_list|)
 argument_list|)
 expr_stmt|;
