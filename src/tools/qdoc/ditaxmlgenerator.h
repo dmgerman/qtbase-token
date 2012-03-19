@@ -1104,19 +1104,6 @@ name|marker
 argument_list|)
 block|;
 name|void
-name|generateIncludes
-argument_list|(
-specifier|const
-name|InnerNode
-operator|*
-name|inner
-argument_list|,
-name|CodeMarker
-operator|*
-name|marker
-argument_list|)
-block|;
-name|void
 name|generateTableOfContents
 argument_list|(
 argument|const Node* node
