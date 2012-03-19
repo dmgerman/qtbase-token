@@ -9468,7 +9468,7 @@ operator|.
 name|writeEndElement
 argument_list|()
 expr_stmt|;
-comment|// getter
+comment|// setter
 block|}
 block|}
 foreach|foreach
@@ -9528,7 +9528,67 @@ operator|.
 name|writeEndElement
 argument_list|()
 expr_stmt|;
-comment|// getter
+comment|// resetter
+block|}
+block|}
+foreach|foreach
+control|(
+specifier|const
+name|Node
+modifier|*
+name|fnNode
+decl|,
+name|propertyNode
+operator|->
+name|notifiers
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|fnNode
+condition|)
+block|{
+specifier|const
+name|FunctionNode
+modifier|*
+name|functionNode
+init|=
+cast|static_cast
+argument_list|<
+specifier|const
+name|FunctionNode
+operator|*
+argument_list|>
+argument_list|(
+name|fnNode
+argument_list|)
+decl_stmt|;
+name|writer
+operator|.
+name|writeStartElement
+argument_list|(
+literal|"notifier"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|writeAttribute
+argument_list|(
+literal|"name"
+argument_list|,
+name|functionNode
+operator|->
+name|name
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|writeEndElement
+argument_list|()
+expr_stmt|;
+comment|// notifier
 block|}
 block|}
 block|}
