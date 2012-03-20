@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qqnxnavigatorthread.h"
+file|"qqnxnavigatoreventhandler.h"
 end_include
 begin_include
 include|#
@@ -99,10 +99,10 @@ literal|4096
 decl_stmt|;
 end_decl_stmt
 begin_constructor
-DECL|function|QQnxNavigatorThread
-name|QQnxNavigatorThread
+DECL|function|QQnxNavigatorEventHandler
+name|QQnxNavigatorEventHandler
 operator|::
-name|QQnxNavigatorThread
+name|QQnxNavigatorEventHandler
 parameter_list|(
 name|QQnxScreen
 modifier|&
@@ -127,40 +127,62 @@ argument_list|)
 block|{ }
 end_constructor
 begin_destructor
-DECL|function|~QQnxNavigatorThread
-name|QQnxNavigatorThread
+DECL|function|~QQnxNavigatorEventHandler
+name|QQnxNavigatorEventHandler
 operator|::
 name|~
-name|QQnxNavigatorThread
+name|QQnxNavigatorEventHandler
 parameter_list|()
 block|{
-comment|// block until thread terminates
-name|shutdown
-argument_list|()
-expr_stmt|;
 operator|delete
 name|m_readNotifier
 expr_stmt|;
+comment|// close connection to navigator
+if|if
+condition|(
+name|m_fd
+operator|!=
+operator|-
+literal|1
+condition|)
+name|close
+argument_list|(
+name|m_fd
+argument_list|)
+expr_stmt|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QQNXNAVIGATOREVENTHANDLER_DEBUG
+argument_list|)
+name|qDebug
+argument_list|()
+operator|<<
+literal|"QQNX: navigator event handler stopped"
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_destructor
 begin_function
-DECL|function|run
+DECL|function|start
 name|void
-name|QQnxNavigatorThread
+name|QQnxNavigatorEventHandler
 operator|::
-name|run
+name|start
 parameter_list|()
 block|{
 if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXNAVIGATORTHREAD_DEBUG
+name|QQNXNAVIGATOREVENTHANDLER_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
 operator|<<
-literal|"QQNX: navigator thread started"
+literal|"QQNX: navigator event handler started"
 expr_stmt|;
 endif|#
 directive|endif
@@ -207,7 +229,6 @@ operator|::
 name|Read
 argument_list|)
 expr_stmt|;
-comment|// using direct connection to get the slot called in this thread's context
 name|connect
 argument_list|(
 name|m_readNotifier
@@ -227,84 +248,14 @@ argument_list|(
 name|readData
 argument_list|()
 argument_list|)
-argument_list|,
-name|Qt
-operator|::
-name|DirectConnection
 argument_list|)
 expr_stmt|;
-name|exec
-argument_list|()
-expr_stmt|;
-comment|// close connection to navigator
-name|close
-argument_list|(
-name|m_fd
-argument_list|)
-expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXNAVIGATORTHREAD_DEBUG
-argument_list|)
-name|qDebug
-argument_list|()
-operator|<<
-literal|"QQNX: navigator thread stopped"
-expr_stmt|;
-endif|#
-directive|endif
-block|}
-end_function
-begin_function
-DECL|function|shutdown
-name|void
-name|QQnxNavigatorThread
-operator|::
-name|shutdown
-parameter_list|()
-block|{
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXNAVIGATORTHREAD_DEBUG
-argument_list|)
-name|qDebug
-argument_list|()
-operator|<<
-literal|"QQNX: navigator thread shutdown begin"
-expr_stmt|;
-endif|#
-directive|endif
-comment|// signal thread to terminate
-name|quit
-argument_list|()
-expr_stmt|;
-comment|// block until thread terminates
-name|wait
-argument_list|()
-expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QQNXNAVIGATORTHREAD_DEBUG
-argument_list|)
-name|qDebug
-argument_list|()
-operator|<<
-literal|"QQNX: navigator thread shutdown end"
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
 DECL|function|parsePPS
 name|void
-name|QQnxNavigatorThread
+name|QQnxNavigatorEventHandler
 operator|::
 name|parsePPS
 parameter_list|(
@@ -330,7 +281,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXNAVIGATORTHREAD_DEBUG
+name|QQNXNAVIGATOREVENTHANDLER_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
@@ -422,7 +373,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXNAVIGATORTHREAD_DEBUG
+name|QQNXNAVIGATOREVENTHANDLER_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
@@ -505,7 +456,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXNAVIGATORTHREAD_DEBUG
+name|QQNXNAVIGATOREVENTHANDLER_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
@@ -581,7 +532,7 @@ end_function
 begin_function
 DECL|function|replyPPS
 name|void
-name|QQnxNavigatorThread
+name|QQnxNavigatorEventHandler
 operator|::
 name|replyPPS
 parameter_list|(
@@ -645,7 +596,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXNAVIGATORTHREAD_DEBUG
+name|QQNXNAVIGATOREVENTHANDLER_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
@@ -700,7 +651,7 @@ end_function
 begin_function
 DECL|function|handleMessage
 name|void
-name|QQnxNavigatorThread
+name|QQnxNavigatorEventHandler
 operator|::
 name|handleMessage
 parameter_list|(
@@ -724,7 +675,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXNAVIGATORTHREAD_DEBUG
+name|QQNXNAVIGATOREVENTHANDLER_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
@@ -756,7 +707,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXNAVIGATORTHREAD_DEBUG
+name|QQNXNAVIGATOREVENTHANDLER_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
@@ -790,7 +741,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXNAVIGATORTHREAD_DEBUG
+name|QQNXNAVIGATOREVENTHANDLER_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
@@ -846,7 +797,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXNAVIGATORTHREAD_DEBUG
+name|QQNXNAVIGATOREVENTHANDLER_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
@@ -916,7 +867,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXNAVIGATORTHREAD_DEBUG
+name|QQNXNAVIGATOREVENTHANDLER_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
@@ -936,7 +887,7 @@ end_function
 begin_function
 DECL|function|readData
 name|void
-name|QQnxNavigatorThread
+name|QQnxNavigatorEventHandler
 operator|::
 name|readData
 parameter_list|()
@@ -945,7 +896,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXNAVIGATORTHREAD_DEBUG
+name|QQNXNAVIGATOREVENTHANDLER_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()

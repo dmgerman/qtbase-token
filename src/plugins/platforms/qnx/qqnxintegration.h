@@ -42,9 +42,9 @@ name|QQnxInputContext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QQnxNavigatorThread
+DECL|variable|QQnxNavigatorEventHandler
 name|class
-name|QQnxNavigatorThread
+name|QQnxNavigatorEventHandler
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -255,9 +255,9 @@ name|QQnxEventThread
 operator|*
 name|m_eventThread
 block|;
-name|QQnxNavigatorThread
+name|QQnxNavigatorEventHandler
 operator|*
-name|m_navigatorThread
+name|m_navigatorEventHandler
 block|;
 name|QQnxInputContext
 operator|*
