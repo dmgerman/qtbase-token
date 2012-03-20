@@ -106,12 +106,11 @@ name|class
 name|QMetaTypeInterface
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|QMetaObject
-name|class
+begin_struct_decl
+struct_decl|struct
 name|QMetaObject
-decl_stmt|;
-end_decl_stmt
+struct_decl|;
+end_struct_decl
 begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
