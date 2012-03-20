@@ -27,6 +27,14 @@ end_comment
 begin_pragma
 pragma|#
 directive|pragma
+name|qt_class
+name|(
+name|QStringBuilder
+name|)
+end_pragma
+begin_pragma
+pragma|#
+directive|pragma
 name|qt_sync_stop_processing
 end_pragma
 begin_endif
