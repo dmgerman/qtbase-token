@@ -1031,7 +1031,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the value to a bool and returns it.      If type() is not bool, false will be returned.  */
+comment|/*!     Converts the value to a bool and returns it.      If type() is not bool, the defaultValue will be returned.  */
 end_comment
 begin_function
 DECL|function|toBool
@@ -1039,7 +1039,10 @@ name|bool
 name|QJsonValue
 operator|::
 name|toBool
-parameter_list|()
+parameter_list|(
+name|bool
+name|defaultValue
+parameter_list|)
 specifier|const
 block|{
 if|if
@@ -1049,7 +1052,7 @@ operator|!=
 name|Bool
 condition|)
 return|return
-literal|false
+name|defaultValue
 return|;
 return|return
 name|b
@@ -1057,7 +1060,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the value to a double and returns it.      If type() is not Double, 0. will be returned.  */
+comment|/*!     Converts the value to a double and returns it.      If type() is not Double, the defaultValue will be returned.  */
 end_comment
 begin_function
 DECL|function|toDouble
@@ -1065,7 +1068,10 @@ name|double
 name|QJsonValue
 operator|::
 name|toDouble
-parameter_list|()
+parameter_list|(
+name|double
+name|defaultValue
+parameter_list|)
 specifier|const
 block|{
 if|if
@@ -1075,7 +1081,7 @@ operator|!=
 name|Double
 condition|)
 return|return
-literal|0
+name|defaultValue
 return|;
 return|return
 name|dbl
@@ -1083,7 +1089,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the value to a QString and returns it.      If type() is not String, a QString() will be returned.  */
+comment|/*!     Converts the value to a QString and returns it.      If type() is not String, the defaultValue will be returned.  */
 end_comment
 begin_function
 DECL|function|toString
@@ -1091,7 +1097,12 @@ name|QString
 name|QJsonValue
 operator|::
 name|toString
-parameter_list|()
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|defaultValue
+parameter_list|)
 specifier|const
 block|{
 if|if
@@ -1101,8 +1112,7 @@ operator|!=
 name|String
 condition|)
 return|return
-name|QString
-argument_list|()
+name|defaultValue
 return|;
 name|stringData
 operator|->
@@ -1128,7 +1138,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the value to an array and returns it.      If type() is not Array, a QJsonArray() will be returned.  */
+comment|/*!     Converts the value to an array and returns it.      If type() is not Array, the defaultValue will be returned.  */
 end_comment
 begin_function
 DECL|function|toArray
@@ -1136,7 +1146,12 @@ name|QJsonArray
 name|QJsonValue
 operator|::
 name|toArray
-parameter_list|()
+parameter_list|(
+specifier|const
+name|QJsonArray
+modifier|&
+name|defaultValue
+parameter_list|)
 specifier|const
 block|{
 if|if
@@ -1149,8 +1164,7 @@ operator|!=
 name|Array
 condition|)
 return|return
-name|QJsonArray
-argument_list|()
+name|defaultValue
 return|;
 return|return
 name|QJsonArray
@@ -1172,7 +1186,28 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the value to an object and returns it.      If type() is not Object, a QJsonObject() will be returned.  */
+comment|/*!     \overload      Converts the value to an array and returns it.      If type() is not Array, a QJsonArray() will be returned.  */
+end_comment
+begin_function
+DECL|function|toArray
+name|QJsonArray
+name|QJsonValue
+operator|::
+name|toArray
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|toArray
+argument_list|(
+name|QJsonArray
+argument_list|()
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Converts the value to an object and returns it.      If type() is not Object, the defaultValue will be returned.  */
 end_comment
 begin_function
 DECL|function|toObject
@@ -1180,7 +1215,12 @@ name|QJsonObject
 name|QJsonValue
 operator|::
 name|toObject
-parameter_list|()
+parameter_list|(
+specifier|const
+name|QJsonObject
+modifier|&
+name|defaultValue
+parameter_list|)
 specifier|const
 block|{
 if|if
@@ -1193,8 +1233,7 @@ operator|!=
 name|Object
 condition|)
 return|return
-name|QJsonObject
-argument_list|()
+name|defaultValue
 return|;
 return|return
 name|QJsonObject
@@ -1211,6 +1250,27 @@ argument_list|>
 argument_list|(
 name|base
 argument_list|)
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     \overload      Converts the value to an object and returns it.      If type() is not Object, the QJsonObject() will be returned.  */
+end_comment
+begin_function
+DECL|function|toObject
+name|QJsonObject
+name|QJsonValue
+operator|::
+name|toObject
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|toObject
+argument_list|(
+name|QJsonObject
+argument_list|()
 argument_list|)
 return|;
 block|}
