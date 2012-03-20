@@ -6530,12 +6530,15 @@ argument_list|)
 operator|:
 name|m_size
 argument_list|(
+name|int
+argument_list|(
 name|strlen
 argument_list|(
 name|s
 operator|.
 name|constData
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 operator|,
