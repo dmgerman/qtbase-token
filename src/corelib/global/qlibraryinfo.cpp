@@ -558,7 +558,7 @@ block|{
 block|{
 literal|"Prefix"
 block|,
-literal|""
+literal|"."
 block|}
 block|,
 block|{
@@ -600,7 +600,7 @@ block|,
 block|{
 literal|"Data"
 block|,
-literal|""
+literal|"."
 block|}
 block|,
 block|{
@@ -645,7 +645,7 @@ block|,
 block|{
 literal|"HostData"
 block|,
-literal|""
+literal|"."
 block|}
 block|,
 endif|#
@@ -1085,6 +1085,12 @@ block|}
 block|}
 if|if
 condition|(
+operator|!
+name|ret
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
 name|QDir
 operator|::
 name|isRelativePath
