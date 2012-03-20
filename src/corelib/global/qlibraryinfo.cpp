@@ -1160,10 +1160,15 @@ operator|||
 name|loc
 operator|==
 name|PrefixPath
+operator|||
+name|loc
+operator|==
+name|SysrootPath
 condition|)
 block|{
-comment|// We make the prefix path absolute to the executable's directory.
+comment|// We make the prefix/sysroot path absolute to the executable's directory.
 comment|// loc == PrefixPath while a sysroot is set would make no sense here.
+comment|// loc == SysrootPath only makes sense if qmake lives inside the sysroot itself.
 name|baseDir
 operator|=
 name|QFileInfo
@@ -1175,19 +1180,6 @@ operator|.
 name|absolutePath
 argument_list|()
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|loc
-operator|==
-name|SysrootPath
-condition|)
-block|{
-comment|// The sysroot is bare
-return|return
-name|ret
-return|;
 block|}
 elseif|else
 if|if
