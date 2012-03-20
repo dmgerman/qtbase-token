@@ -1871,8 +1871,6 @@ name|m
 operator|.
 name|toLatin1
 argument_list|()
-operator|+
-literal|'('
 decl_stmt|;
 for|for
 control|(
@@ -1909,13 +1907,10 @@ if|if
 condition|(
 name|mm
 operator|.
-name|methodSignature
+name|name
 argument_list|()
-operator|.
-name|startsWith
-argument_list|(
+operator|==
 name|match
-argument_list|)
 condition|)
 block|{
 comment|// found a method with the same name as what we're looking for

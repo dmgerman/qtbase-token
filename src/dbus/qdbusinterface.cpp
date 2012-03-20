@@ -1155,11 +1155,23 @@ operator|++
 decl_stmt|;
 if|if
 condition|(
-operator|*
 name|mm
 operator|.
-name|typeName
+name|returnType
 argument_list|()
+operator|!=
+name|QMetaType
+operator|::
+name|UnknownType
+operator|&&
+name|mm
+operator|.
+name|returnType
+argument_list|()
+operator|!=
+name|QMetaType
+operator|::
+name|Void
 condition|)
 block|{
 comment|// this method has a return type
