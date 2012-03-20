@@ -1993,6 +1993,13 @@ operator|::
 name|Latin
 argument_list|)
 expr_stmt|;
+while|while
+condition|(
+name|f
+operator|->
+name|qtname
+condition|)
+block|{
 name|QString
 name|familyQtName
 init|=
@@ -2005,13 +2012,6 @@ operator|->
 name|qtname
 argument_list|)
 decl_stmt|;
-while|while
-condition|(
-name|f
-operator|->
-name|qtname
-condition|)
-block|{
 name|registerFont
 argument_list|(
 name|familyQtName
