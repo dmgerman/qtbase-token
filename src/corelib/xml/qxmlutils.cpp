@@ -2432,7 +2432,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \internal     Determines whether \a encName is a valid instance of production [81]EncName in the XML 1.0    specification. If it is, true is returned, otherwise false.      \sa \l {http://www.w3.org/TR/REC-xml/#NT-EncName}            {Extensible Markup Language (XML) 1.0 (Fourth Edition), [81] EncName}  */
+comment|/*!    \internal     Determines whether \a encName is a valid instance of production [81]EncName in the XML 1.0    specification. If it is, true is returned, otherwise false.      \sa {http://www.w3.org/TR/REC-xml/#NT-EncName},            {Extensible Markup Language (XML) 1.0 (Fourth Edition), [81] EncName}  */
 end_comment
 begin_function
 DECL|function|isEncName
@@ -2477,7 +2477,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  \internal     Determines whether \a c is a valid instance of production [84]Letter in the XML 1.0    specification. If it is, true is returned, otherwise false.      \sa \l {http://www.w3.org/TR/REC-xml/#NT-Letter}            {Extensible Markup Language (XML) 1.0 (Fourth Edition), [84] Letter}  */
+comment|/*!  \internal     Determines whether \a c is a valid instance of production [84]Letter in the XML 1.0    specification. If it is, true is returned, otherwise false.      \sa {http://www.w3.org/TR/REC-xml/#NT-Letter},            {Extensible Markup Language (XML) 1.0 (Fourth Edition), [84] Letter}  */
 end_comment
 begin_function
 DECL|function|isLetter
@@ -2505,7 +2505,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \internal     Determines whether \a c is a valid instance of production [2]Char in the XML 1.0    specification. If it is, true is returned, otherwise false.      \sa \l {http://www.w3.org/TR/REC-xml/#NT-Char}            {Extensible Markup Language (XML) 1.0 (Fourth Edition), [2] Char}  */
+comment|/*!    \internal     Determines whether \a c is a valid instance of production [2]Char in the XML 1.0    specification. If it is, true is returned, otherwise false.      \sa {http://www.w3.org/TR/REC-xml/#NT-Char},            {Extensible Markup Language (XML) 1.0 (Fourth Edition), [2] Char}  */
 end_comment
 begin_function
 DECL|function|isChar
@@ -2576,7 +2576,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \internal     Determines whether \a c is a valid instance of    production [4]NameChar in the XML 1.0 specification. If it    is, true is returned, otherwise false.      \sa \l {http://www.w3.org/TR/REC-xml/#NT-NameChar}            {Extensible Markup Language (XML) 1.0 (Fourth Edition), [4] NameChar}  */
+comment|/*!    \internal     Determines whether \a c is a valid instance of    production [4]NameChar in the XML 1.0 specification. If it    is, true is returned, otherwise false.      \sa {http://www.w3.org/TR/REC-xml/#NT-NameChar},            {Extensible Markup Language (XML) 1.0 (Fourth Edition), [4] NameChar}  */
 end_comment
 begin_function
 DECL|function|isNameChar
@@ -2647,7 +2647,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \internal     Determines whether \a c is a valid instance of    production [12] PubidLiteral in the XML 1.0 specification. If it    is, true is returned, otherwise false.      \sa \l {http://www.w3.org/TR/REC-xml/#NT-PubidLiteral}            {Extensible Markup Language (XML) 1.0 (Fourth Edition), [12] PubidLiteral}  */
+comment|/*!    \internal     Determines whether \a c is a valid instance of    production [12] PubidLiteral in the XML 1.0 specification. If it    is, true is returned, otherwise false.      \sa {http://www.w3.org/TR/REC-xml/#NT-PubidLiteral},            {Extensible Markup Language (XML) 1.0 (Fourth Edition), [12] PubidLiteral}  */
 end_comment
 begin_function
 DECL|function|isPublicID
@@ -2820,7 +2820,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!    \internal     Determines whether \a c is a valid instance of    production [4]NCName in the XML 1.0 Namespaces specification. If it    is, true is returned, otherwise false.      \sa \l {http://www.w3.org/TR/REC-xml-names/#NT-NCName}            {W3CNamespaces in XML 1.0 (Second Edition), [4] NCName}  */
+comment|/*!    \internal     Determines whether \a c is a valid instance of    production [4]NCName in the XML 1.0 Namespaces specification. If it    is, true is returned, otherwise false.      \sa {http://www.w3.org/TR/REC-xml-names/#NT-NCName},            {W3CNamespaces in XML 1.0 (Second Edition), [4] NCName}  */
 end_comment
 begin_function
 DECL|function|isNCName

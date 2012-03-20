@@ -1983,7 +1983,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds a new enumerator to this class with the specified     \a name.  Returns an object that can be used to adjust     the other attributes of the enumerator.      \sa enumerator(), enumeratorCount(), removeEnumerator(),     \sa indexOfEnumerator() */
+comment|/*!     Adds a new enumerator to this class with the specified     \a name.  Returns an object that can be used to adjust     the other attributes of the enumerator.      \sa enumerator(), enumeratorCount(), removeEnumerator()     \sa indexOfEnumerator() */
 end_comment
 begin_function
 DECL|function|addEnumerator
@@ -2031,7 +2031,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds a new enumerator to this class that has the same information as     \a prototype.  This is used to clone the enumerators of an existing     QMetaObject.  Returns an object that can be used to adjust the     attributes of the enumerator.      \sa enumerator(), enumeratorCount(), removeEnumerator(),     \sa indexOfEnumerator() */
+comment|/*!     Adds a new enumerator to this class that has the same information as     \a prototype.  This is used to clone the enumerators of an existing     QMetaObject.  Returns an object that can be used to adjust the     attributes of the enumerator.      \sa enumerator(), enumeratorCount(), removeEnumerator()     \sa indexOfEnumerator() */
 end_comment
 begin_function
 DECL|function|addEnumerator

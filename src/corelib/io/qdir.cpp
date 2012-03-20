@@ -1804,7 +1804,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QDir     \brief The QDir class provides access to directory structures and their contents.      \ingroup io     \ingroup shared     \reentrant       A QDir is used to manipulate path names, access information     regarding paths and files, and manipulate the underlying file     system. It can also be used to access Qt's \l{resource system}.      Qt uses "/" as a universal directory separator in the same way     that "/" is used as a path separator in URLs. If you always use     "/" as a directory separator, Qt will translate your paths to     conform to the underlying operating system.      A QDir can point to a file using either a relative or an absolute     path. Absolute paths begin with the directory separator     (optionally preceded by a drive specification under Windows).     Relative file names begin with a directory name or a file name and     specify a path relative to the current directory.      Examples of absolute paths:      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 0      On Windows, the second example above will be translated to     \c{C:\Documents and Settings} when used to access files.      Examples of relative paths:      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 1      You can use the isRelative() or isAbsolute() functions to check if     a QDir is using a relative or an absolute file path. Call     makeAbsolute() to convert a relative QDir to an absolute one.      \section1 Navigation and Directory Operations      A directory's path can be obtained with the path() function, and     a new path set with the setPath() function. The absolute path to     a directory is found by calling absolutePath().      The name of a directory is found using the dirName() function. This     typically returns the last element in the absolute path that specifies     the location of the directory. However, it can also return "." if     the QDir represents the current directory.      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 2      The path for a directory can also be changed with the cd() and cdUp()     functions, both of which operate like familiar shell commands.     When cd() is called with the name of an existing directory, the QDir     object changes directory so that it represents that directory instead.     The cdUp() function changes the directory of the QDir object so that     it refers to its parent directory; i.e. cd("..") is equivalent to     cdUp().      Directories can be created with mkdir(), renamed with rename(), and     removed with rmdir().      You can test for the presence of a directory with a given name by     using exists(), and the properties of a directory can be tested with     isReadable(), isAbsolute(), isRelative(), and isRoot().      The refresh() function re-reads the directory's data from disk.      \section1 Files and Directory Contents      Directories contain a number of entries, representing files,     directories, and symbolic links. The number of entries in a     directory is returned by count().     A string list of the names of all the entries in a directory can be     obtained with entryList(). If you need information about each     entry, use entryInfoList() to obtain a list of QFileInfo objects.      Paths to files and directories within a directory can be     constructed using filePath() and absoluteFilePath().     The filePath() function returns a path to the specified file     or directory relative to the path of the QDir object;     absoluteFilePath() returns an absolute path to the specified     file or directory. Neither of these functions checks for the     existence of files or directory; they only construct paths.      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 3      Files can be removed by using the remove() function. Directories     cannot be removed in the same way as files; use rmdir() to remove     them instead.      It is possible to reduce the number of entries returned by     entryList() and entryInfoList() by applying filters to a QDir object.     You can apply a name filter to specify a pattern with wildcards that     file names need to match, an attribute filter that selects properties     of entries and can distinguish between files and directories, and a     sort order.      Name filters are lists of strings that are passed to setNameFilters().     Attribute filters consist of a bitwise OR combination of Filters, and     these are specified when calling setFilter().     The sort order is specified using setSorting() with a bitwise OR     combination of SortFlags.      You can test to see if a filename matches a filter using the match()     function.      Filter and sort order flags may also be specified when calling     entryList() and entryInfoList() in order to override previously defined     behavior.      \section1 The Current Directory and Other Special Paths      Access to some common directories is provided with a number of static     functions that return QDir objects. There are also corresponding functions     for these that return strings:      \table     \header \li QDir      \li QString         \li Return Value     \row    \li current() \li currentPath()   \li The application's working directory     \row    \li home()    \li homePath()      \li The user's home directory     \row    \li root()    \li rootPath()      \li The root directory     \row    \li temp()    \li tempPath()      \li The system's temporary directory     \endtable      The setCurrent() static function can also be used to set the application's     working directory.      If you want to find the directory containing the application's executable,     see \l{QCoreApplication::applicationDirPath()}.      The drives() static function provides a list of root directories for each     device that contains a filing system. On Unix systems this returns a list     containing a single root directory "/"; on Windows the list will usually     contain \c{C:/}, and possibly other drive letters such as \c{D:/}, depending     on the configuration of the user's system.      \section1 Path Manipulation and Strings      Paths containing "." elements that reference the current directory at that     point in the path, ".." elements that reference the parent directory, and     symbolic links can be reduced to a canonical form using the canonicalPath()     function.      Paths can also be simplified by using cleanPath() to remove redundant "/"     and ".." elements.      It is sometimes necessary to be able to show a path in the native     representation for the user's platform. The static toNativeSeparators()     function returns a copy of the specified path in which each directory     separator is replaced by the appropriate separator for the underlying     operating system.      \section1 Examples      Check if a directory exists:      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 4      (We could also use the static convenience function     QFile::exists().)      Traversing directories and reading a file:      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 5      A program that lists all the files in the current directory     (excluding symbolic links), sorted by size, smallest first:      \snippet doc/src/snippets/qdir-listfiles/main.cpp 0      \sa QFileInfo, QFile, QFileDialog, QApplication::applicationDirPath(), {Find Files Example} */
+comment|/*!     \class QDir     \brief The QDir class provides access to directory structures and their contents.      \ingroup io     \ingroup shared     \reentrant       A QDir is used to manipulate path names, access information     regarding paths and files, and manipulate the underlying file     system. It can also be used to access Qt's \l{resource system}.      Qt uses "/" as a universal directory separator in the same way     that "/" is used as a path separator in URLs. If you always use     "/" as a directory separator, Qt will translate your paths to     conform to the underlying operating system.      A QDir can point to a file using either a relative or an absolute     path. Absolute paths begin with the directory separator     (optionally preceded by a drive specification under Windows).     Relative file names begin with a directory name or a file name and     specify a path relative to the current directory.      Examples of absolute paths:      \snippet code/src_corelib_io_qdir.cpp 0      On Windows, the second example above will be translated to     \c{C:\Documents and Settings} when used to access files.      Examples of relative paths:      \snippet code/src_corelib_io_qdir.cpp 1      You can use the isRelative() or isAbsolute() functions to check if     a QDir is using a relative or an absolute file path. Call     makeAbsolute() to convert a relative QDir to an absolute one.      \section1 Navigation and Directory Operations      A directory's path can be obtained with the path() function, and     a new path set with the setPath() function. The absolute path to     a directory is found by calling absolutePath().      The name of a directory is found using the dirName() function. This     typically returns the last element in the absolute path that specifies     the location of the directory. However, it can also return "." if     the QDir represents the current directory.      \snippet code/src_corelib_io_qdir.cpp 2      The path for a directory can also be changed with the cd() and cdUp()     functions, both of which operate like familiar shell commands.     When cd() is called with the name of an existing directory, the QDir     object changes directory so that it represents that directory instead.     The cdUp() function changes the directory of the QDir object so that     it refers to its parent directory; i.e. cd("..") is equivalent to     cdUp().      Directories can be created with mkdir(), renamed with rename(), and     removed with rmdir().      You can test for the presence of a directory with a given name by     using exists(), and the properties of a directory can be tested with     isReadable(), isAbsolute(), isRelative(), and isRoot().      The refresh() function re-reads the directory's data from disk.      \section1 Files and Directory Contents      Directories contain a number of entries, representing files,     directories, and symbolic links. The number of entries in a     directory is returned by count().     A string list of the names of all the entries in a directory can be     obtained with entryList(). If you need information about each     entry, use entryInfoList() to obtain a list of QFileInfo objects.      Paths to files and directories within a directory can be     constructed using filePath() and absoluteFilePath().     The filePath() function returns a path to the specified file     or directory relative to the path of the QDir object;     absoluteFilePath() returns an absolute path to the specified     file or directory. Neither of these functions checks for the     existence of files or directory; they only construct paths.      \snippet code/src_corelib_io_qdir.cpp 3      Files can be removed by using the remove() function. Directories     cannot be removed in the same way as files; use rmdir() to remove     them instead.      It is possible to reduce the number of entries returned by     entryList() and entryInfoList() by applying filters to a QDir object.     You can apply a name filter to specify a pattern with wildcards that     file names need to match, an attribute filter that selects properties     of entries and can distinguish between files and directories, and a     sort order.      Name filters are lists of strings that are passed to setNameFilters().     Attribute filters consist of a bitwise OR combination of Filters, and     these are specified when calling setFilter().     The sort order is specified using setSorting() with a bitwise OR     combination of SortFlags.      You can test to see if a filename matches a filter using the match()     function.      Filter and sort order flags may also be specified when calling     entryList() and entryInfoList() in order to override previously defined     behavior.      \section1 The Current Directory and Other Special Paths      Access to some common directories is provided with a number of static     functions that return QDir objects. There are also corresponding functions     for these that return strings:      \table     \header \li QDir      \li QString         \li Return Value     \row    \li current() \li currentPath()   \li The application's working directory     \row    \li home()    \li homePath()      \li The user's home directory     \row    \li root()    \li rootPath()      \li The root directory     \row    \li temp()    \li tempPath()      \li The system's temporary directory     \endtable      The setCurrent() static function can also be used to set the application's     working directory.      If you want to find the directory containing the application's executable,     see \l{QCoreApplication::applicationDirPath()}.      The drives() static function provides a list of root directories for each     device that contains a filing system. On Unix systems this returns a list     containing a single root directory "/"; on Windows the list will usually     contain \c{C:/}, and possibly other drive letters such as \c{D:/}, depending     on the configuration of the user's system.      \section1 Path Manipulation and Strings      Paths containing "." elements that reference the current directory at that     point in the path, ".." elements that reference the parent directory, and     symbolic links can be reduced to a canonical form using the canonicalPath()     function.      Paths can also be simplified by using cleanPath() to remove redundant "/"     and ".." elements.      It is sometimes necessary to be able to show a path in the native     representation for the user's platform. The static toNativeSeparators()     function returns a copy of the specified path in which each directory     separator is replaced by the appropriate separator for the underlying     operating system.      \section1 Examples      Check if a directory exists:      \snippet code/src_corelib_io_qdir.cpp 4      (We could also use the static convenience function     QFile::exists().)      Traversing directories and reading a file:      \snippet code/src_corelib_io_qdir.cpp 5      A program that lists all the files in the current directory     (excluding symbolic links), sorted by size, smallest first:      \snippet qdir-listfiles/main.cpp 0      \sa QFileInfo, QFile, QFileDialog, QApplication::applicationDirPath(), {Find Files Example} */
 end_comment
 begin_comment
 comment|/*!     \internal */
@@ -2029,7 +2029,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the canonical path, i.e. a path without symbolic links or     redundant "." or ".." elements.      On systems that do not have symbolic links this function will     always return the same string that absolutePath() returns. If the     canonical path does not exist (normally due to dangling symbolic     links) canonicalPath() returns an empty string.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 6      \sa path(), absolutePath(), exists(), cleanPath(), dirName(),         absoluteFilePath() */
+comment|/*!     Returns the canonical path, i.e. a path without symbolic links or     redundant "." or ".." elements.      On systems that do not have symbolic links this function will     always return the same string that absolutePath() returns. If the     canonical path does not exist (normally due to dangling symbolic     links) canonicalPath() returns an empty string.      Example:      \snippet code/src_corelib_io_qdir.cpp 6      \sa path(), absolutePath(), exists(), cleanPath(), dirName(),         absoluteFilePath() */
 end_comment
 begin_function
 DECL|function|canonicalPath
@@ -2130,7 +2130,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the path name of a file in the directory. Does \e not     check if the file actually exists in the directory; but see     exists(). If the QDir is relative the returned path name will also     be relative. Redundant multiple separators or "." and ".."     directories in \a fileName are not removed (see cleanPath()).      \sa dirName() absoluteFilePath(), isRelative(), canonicalPath() */
+comment|/*!     Returns the path name of a file in the directory. Does \e not     check if the file actually exists in the directory; but see     exists(). If the QDir is relative the returned path name will also     be relative. Redundant multiple separators or "." and ".."     directories in \a fileName are not removed (see cleanPath()).      \sa dirName(), absoluteFilePath(), isRelative(), canonicalPath() */
 end_comment
 begin_function
 DECL|function|filePath
@@ -2242,7 +2242,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the absolute path name of a file in the directory. Does \e     not check if the file actually exists in the directory; but see     exists(). Redundant multiple separators or "." and ".."     directories in \a fileName are not removed (see cleanPath()).      \sa relativeFilePath() filePath() canonicalPath() */
+comment|/*!     Returns the absolute path name of a file in the directory. Does \e     not check if the file actually exists in the directory; but see     exists(). Redundant multiple separators or "." and ".."     directories in \a fileName are not removed (see cleanPath()).      \sa relativeFilePath(), filePath(), canonicalPath() */
 end_comment
 begin_function
 DECL|function|absoluteFilePath
@@ -2336,7 +2336,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the path to \a fileName relative to the directory.      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 7      \sa absoluteFilePath() filePath() canonicalPath() */
+comment|/*!     Returns the path to \a fileName relative to the directory.      \snippet code/src_corelib_io_qdir.cpp 7      \sa absoluteFilePath(), filePath(), canonicalPath() */
 end_comment
 begin_function
 DECL|function|relativeFilePath
@@ -3302,7 +3302,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the name filters used by entryList() and entryInfoList() to the     list of filters specified by \a nameFilters.      Each name filter is a wildcard (globbing) filter that understands     \c{*} and \c{?} wildcards. (See \l{QRegExp wildcard matching}.)      For example, the following code sets three name filters on a QDir     to ensure that only files with extensions typically used for C++     source files are listed:      \snippet doc/src/snippets/qdir-namefilters/main.cpp 0      \sa nameFilters(), setFilter() */
+comment|/*!     Sets the name filters used by entryList() and entryInfoList() to the     list of filters specified by \a nameFilters.      Each name filter is a wildcard (globbing) filter that understands     \c{*} and \c{?} wildcards. (See \l{QRegExp wildcard matching}.)      For example, the following code sets three name filters on a QDir     to ensure that only files with extensions typically used for C++     source files are listed:      \snippet qdir-namefilters/main.cpp 0      \sa nameFilters(), setFilter() */
 end_comment
 begin_function
 DECL|function|setNameFilters
@@ -3386,7 +3386,7 @@ directive|ifdef
 name|QT_BUILD_CORE_LIB
 end_ifdef
 begin_comment
-comment|/*!     \since 4.3      Sets or replaces Qt's search paths for file names with the prefix \a prefix     to \a searchPaths.      To specify a prefix for a file name, prepend the prefix followed by a single     colon (e.g., "images:undo.png", "xmldocs:books.xml"). \a prefix can only     contain letters or numbers (e.g., it cannot contain a colon, nor a slash).      Qt uses this search path to locate files with a known prefix. The search     path entries are tested in order, starting with the first entry.      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 8      File name prefix must be at least 2 characters long to avoid conflicts with     Windows drive letters.      Search paths may contain paths to \l{The Qt Resource System}. */
+comment|/*!     \since 4.3      Sets or replaces Qt's search paths for file names with the prefix \a prefix     to \a searchPaths.      To specify a prefix for a file name, prepend the prefix followed by a single     colon (e.g., "images:undo.png", "xmldocs:books.xml"). \a prefix can only     contain letters or numbers (e.g., it cannot contain a colon, nor a slash).      Qt uses this search path to locate files with a known prefix. The search     path entries are tested in order, starting with the first entry.      \snippet code/src_corelib_io_qdir.cpp 8      File name prefix must be at least 2 characters long to avoid conflicts with     Windows drive letters.      Search paths may contain paths to \l{The Qt Resource System}. */
 end_comment
 begin_function
 DECL|function|setSearchPaths
@@ -3702,7 +3702,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value set by setSorting()      \sa setSorting() SortFlag */
+comment|/*!     Returns the value set by setSorting()      \sa setSorting(), SortFlag */
 end_comment
 begin_function
 DECL|function|sorting
@@ -3736,7 +3736,7 @@ begin_comment
 comment|/*!     \enum QDir::SortFlag      This enum describes the sort options available to QDir, e.g. for     entryList() and entryInfoList(). The sort value is specified by     OR-ing together values from the following list:      \value Name  Sort by name.     \value Time  Sort by time (modification time).     \value Size  Sort by file size.     \value Type  Sort by file type (extension).     \value Unsorted  Do not sort.     \value NoSort Not sorted by default.      \value DirsFirst  Put the directories first, then the files.     \value DirsLast Put the files first, then the directories.     \value Reversed  Reverse the sort order.     \value IgnoreCase  Sort case-insensitively.     \value LocaleAware Sort items appropriately using the current locale settings.      \omitvalue SortByMask     \omitvalue DefaultSort      You can only specify one of the first four.      If you specify both DirsFirst and Reversed, directories are     still put first, but in reverse order; the files will be listed     after the directories, again in reverse order. */
 end_comment
 begin_comment
-comment|/*!     Sets the sort order used by entryList() and entryInfoList().      The \a sort is specified by OR-ing values from the enum     \l{QDir::SortFlag}.      \sa sorting() SortFlag */
+comment|/*!     Sets the sort order used by entryList() and entryInfoList().      The \a sort is specified by OR-ing values from the enum     \l{QDir::SortFlag}.      \sa sorting(), SortFlag */
 end_comment
 begin_function
 DECL|function|setSorting
@@ -4903,7 +4903,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the directory is the root directory; otherwise     returns false.      Note: If the directory is a symbolic link to the root directory     this function returns false. If you want to test for this use     canonicalPath(), e.g.      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 9      \sa root(), rootPath() */
+comment|/*!     Returns true if the directory is the root directory; otherwise     returns false.      Note: If the directory is a symbolic link to the root directory     this function returns false. If you want to test for this use     canonicalPath(), e.g.      \snippet code/src_corelib_io_qdir.cpp 9      \sa root(), rootPath() */
 end_comment
 begin_function
 DECL|function|isRoot
@@ -4950,13 +4950,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QDir::isAbsolute() const      Returns true if the directory's path is absolute; otherwise     returns false. See isAbsolutePath().      \sa isRelative() makeAbsolute() cleanPath() */
+comment|/*!     \fn bool QDir::isAbsolute() const      Returns true if the directory's path is absolute; otherwise     returns false. See isAbsolutePath().      \sa isRelative(), makeAbsolute(), cleanPath() */
 end_comment
 begin_comment
-comment|/*!    \fn bool QDir::isAbsolutePath(const QString&)      Returns true if \a path is absolute; returns false if it is     relative.      \sa isAbsolute() isRelativePath() makeAbsolute() cleanPath() */
+comment|/*!    \fn bool QDir::isAbsolutePath(const QString&)      Returns true if \a path is absolute; returns false if it is     relative.      \sa isAbsolute(), isRelativePath(), makeAbsolute(), cleanPath() */
 end_comment
 begin_comment
-comment|/*!     Returns true if the directory path is relative; otherwise returns     false. (Under Unix a path is relative if it does not start with a     "/").      \sa makeAbsolute() isAbsolute() isAbsolutePath() cleanPath() */
+comment|/*!     Returns true if the directory path is relative; otherwise returns     false. (Under Unix a path is relative if it does not start with a     "/").      \sa makeAbsolute(), isAbsolute(), isAbsolutePath(), cleanPath() */
 end_comment
 begin_function
 DECL|function|isRelative
@@ -4995,7 +4995,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the directory path to an absolute path. If it is already     absolute nothing happens. Returns true if the conversion     succeeded; otherwise returns false.      \sa isAbsolute() isAbsolutePath() isRelative() cleanPath() */
+comment|/*!     Converts the directory path to an absolute path. If it is already     absolute nothing happens. Returns true if the conversion     succeeded; otherwise returns false.      \sa isAbsolute(), isAbsolutePath(), isRelative(), cleanPath() */
 end_comment
 begin_function
 DECL|function|makeAbsolute
@@ -5131,7 +5131,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if directory \a dir and this directory have the same     path and their sort and filter settings are the same; otherwise     returns false.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 10 */
+comment|/*!     Returns true if directory \a dir and this directory have the same     path and their sort and filter settings are the same; otherwise     returns false.      Example:      \snippet code/src_corelib_io_qdir.cpp 10 */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -5474,7 +5474,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn bool QDir::operator!=(const QDir&dir) const      Returns true if directory \a dir and this directory have different     paths or different sort or filter settings; otherwise returns     false.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 11 */
+comment|/*!     \fn bool QDir::operator!=(const QDir&dir) const      Returns true if directory \a dir and this directory have different     paths or different sort or filter settings; otherwise returns     false.      Example:      \snippet code/src_corelib_io_qdir.cpp 11 */
 end_comment
 begin_comment
 comment|/*!     Removes the file, \a fileName.      Returns true if the file is removed successfully; otherwise     returns false. */
@@ -5768,7 +5768,7 @@ begin_comment
 comment|/*!     \fn QDir QDir::home()      Returns the user's home directory.      The directory is constructed using the absolute path of the home directory,     ensuring that its path() will be the same as its absolutePath().      See homePath() for details.      \sa drives(), current(), root(), temp() */
 end_comment
 begin_comment
-comment|/*!     Returns the absolute path of the user's home directory.      Under Windows this function will return the directory of the     current user's profile. Typically, this is:      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 12      Use the toNativeSeparators() function to convert the separators to     the ones that are appropriate for the underlying operating system.      If the directory of the current user's profile does not exist or     cannot be retrieved, the following alternatives will be checked (in     the given order) until an existing and available path is found:      \list 1     \li The path specified by the \c USERPROFILE environment variable.     \li The path formed by concatenating the \c HOMEDRIVE and \c HOMEPATH     environment variables.     \li The path specified by the \c HOME environment variable.     \li The path returned by the rootPath() function (which uses the \c SystemDrive     environment variable)     \li  The \c{C:/} directory.     \endlist      Under non-Windows operating systems the \c HOME environment     variable is used if it exists, otherwise the path returned by the     rootPath().      \sa home(), currentPath(), rootPath(), tempPath() */
+comment|/*!     Returns the absolute path of the user's home directory.      Under Windows this function will return the directory of the     current user's profile. Typically, this is:      \snippet code/src_corelib_io_qdir.cpp 12      Use the toNativeSeparators() function to convert the separators to     the ones that are appropriate for the underlying operating system.      If the directory of the current user's profile does not exist or     cannot be retrieved, the following alternatives will be checked (in     the given order) until an existing and available path is found:      \list 1     \li The path specified by the \c USERPROFILE environment variable.     \li The path formed by concatenating the \c HOMEDRIVE and \c HOMEPATH     environment variables.     \li The path specified by the \c HOME environment variable.     \li The path returned by the rootPath() function (which uses the \c SystemDrive     environment variable)     \li  The \c{C:/} directory.     \endlist      Under non-Windows operating systems the \c HOME environment     variable is used if it exists, otherwise the path returned by the     rootPath().      \sa home(), currentPath(), rootPath(), tempPath() */
 end_comment
 begin_function
 DECL|function|homePath
@@ -5836,7 +5836,7 @@ directive|ifndef
 name|QT_NO_REGEXP
 end_ifndef
 begin_comment
-comment|/*!     \overload      Returns true if the \a fileName matches any of the wildcard (glob)     patterns in the list of \a filters; otherwise returns false. The     matching is case insensitive.      \sa {QRegExp wildcard matching}, QRegExp::exactMatch() entryList() entryInfoList() */
+comment|/*!     \overload      Returns true if the \a fileName matches any of the wildcard (glob)     patterns in the list of \a filters; otherwise returns false. The     matching is case insensitive.      \sa {QRegExp wildcard matching}, QRegExp::exactMatch(), entryList(), entryInfoList() */
 end_comment
 begin_function
 DECL|function|match
@@ -5913,7 +5913,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the \a fileName matches the wildcard (glob)     pattern \a filter; otherwise returns false. The \a filter may     contain multiple patterns separated by spaces or semicolons.     The matching is case insensitive.      \sa {QRegExp wildcard matching}, QRegExp::exactMatch() entryList() entryInfoList() */
+comment|/*!     Returns true if the \a fileName matches the wildcard (glob)     pattern \a filter; otherwise returns false. The \a filter may     contain multiple patterns separated by spaces or semicolons.     The matching is case insensitive.      \sa {QRegExp wildcard matching}, QRegExp::exactMatch(), entryList(), entryInfoList() */
 end_comment
 begin_function
 DECL|function|match
@@ -5954,7 +5954,7 @@ begin_comment
 comment|// QT_NO_REGEXP
 end_comment
 begin_comment
-comment|/*!     Removes all multiple directory separators "/" and resolves any     "."s or ".."s found in the path, \a path.      Symbolic links are kept. This function does not return the     canonical path, but rather the simplest version of the input.     For example, "./local" becomes "local", "local/../bin" becomes     "bin" and "/local/usr/../bin" becomes "/local/bin".      \sa absolutePath() canonicalPath() */
+comment|/*!     Removes all multiple directory separators "/" and resolves any     "."s or ".."s found in the path, \a path.      Symbolic links are kept. This function does not return the     canonical path, but rather the simplest version of the input.     For example, "./local" becomes "local", "local/../bin" becomes     "bin" and "/local/usr/../bin" becomes "/local/bin".      \sa absolutePath(), canonicalPath() */
 end_comment
 begin_function
 DECL|function|cleanPath
@@ -6777,7 +6777,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if \a path is relative; returns false if it is     absolute.      \sa isRelative() isAbsolutePath() makeAbsolute() */
+comment|/*!     Returns true if \a path is relative; returns false if it is     absolute.      \sa isRelative(), isAbsolutePath(), makeAbsolute() */
 end_comment
 begin_function
 DECL|function|isRelativePath
@@ -6899,10 +6899,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \macro void Q_INIT_RESOURCE(name)     \relates QDir      Initializes the resources specified by the \c .qrc file with the     specified base \a name. Normally, Qt resources are loaded     automatically at startup. The Q_INIT_RESOURCE() macro is     necessary on some platforms for resources stored in a static     library.      For example, if your application's resources are listed in a file     called \c myapp.qrc, you can ensure that the resources are     initialized at startup by adding this line to your \c main()     function:      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 13      If the file name contains characters that cannot be part of a valid C++ function name     (such as '-'), they have to be replaced by the underscore character ('_').      Note: This macro cannot be used in a namespace. It should be called from     main(). If that is not possible, the following workaround can be used     to init the resource \c myapp from the function \c{MyNamespace::myFunction}:      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 14      \sa Q_CLEANUP_RESOURCE(), {The Qt Resource System} */
+comment|/*!     \macro void Q_INIT_RESOURCE(name)     \relates QDir      Initializes the resources specified by the \c .qrc file with the     specified base \a name. Normally, Qt resources are loaded     automatically at startup. The Q_INIT_RESOURCE() macro is     necessary on some platforms for resources stored in a static     library.      For example, if your application's resources are listed in a file     called \c myapp.qrc, you can ensure that the resources are     initialized at startup by adding this line to your \c main()     function:      \snippet code/src_corelib_io_qdir.cpp 13      If the file name contains characters that cannot be part of a valid C++ function name     (such as '-'), they have to be replaced by the underscore character ('_').      Note: This macro cannot be used in a namespace. It should be called from     main(). If that is not possible, the following workaround can be used     to init the resource \c myapp from the function \c{MyNamespace::myFunction}:      \snippet code/src_corelib_io_qdir.cpp 14      \sa Q_CLEANUP_RESOURCE(), {The Qt Resource System} */
 end_comment
 begin_comment
-comment|/*!     \since 4.1     \macro void Q_CLEANUP_RESOURCE(name)     \relates QDir      Unloads the resources specified by the \c .qrc file with the base     name \a name.      Normally, Qt resources are unloaded automatically when the     application terminates, but if the resources are located in a     plugin that is being unloaded, call Q_CLEANUP_RESOURCE() to force     removal of your resources.      Note: This macro cannot be used in a namespace. Please see the     Q_INIT_RESOURCE documentation for a workaround.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qdir.cpp 15      \sa Q_INIT_RESOURCE(), {The Qt Resource System} */
+comment|/*!     \since 4.1     \macro void Q_CLEANUP_RESOURCE(name)     \relates QDir      Unloads the resources specified by the \c .qrc file with the base     name \a name.      Normally, Qt resources are unloaded automatically when the     application terminates, but if the resources are located in a     plugin that is being unloaded, call Q_CLEANUP_RESOURCE() to force     removal of your resources.      Note: This macro cannot be used in a namespace. Please see the     Q_INIT_RESOURCE documentation for a workaround.      Example:      \snippet code/src_corelib_io_qdir.cpp 15      \sa Q_INIT_RESOURCE(), {The Qt Resource System} */
 end_comment
 begin_ifndef
 ifndef|#

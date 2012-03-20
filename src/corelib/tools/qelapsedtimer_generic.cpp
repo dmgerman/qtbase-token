@@ -46,7 +46,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Starts this timer. Once started, a timer value can be checked with elapsed() or msecsSinceReference().      Normally, a timer is started just before a lengthy operation, such as:     \snippet doc/src/snippets/qelapsedtimer/main.cpp 0      Also, starting a timer makes it valid again.      \sa restart(), invalidate(), elapsed() */
+comment|/*!     Starts this timer. Once started, a timer value can be checked with elapsed() or msecsSinceReference().      Normally, a timer is started just before a lengthy operation, such as:     \snippet qelapsedtimer/main.cpp 0      Also, starting a timer makes it valid again.      \sa restart(), invalidate(), elapsed() */
 end_comment
 begin_function
 DECL|function|start
@@ -62,7 +62,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Restarts the timer and returns the time elapsed since the previous start.     This function is equivalent to obtaining the elapsed time with elapsed()     and then starting the timer again with restart(), but it does so in one     single operation, avoiding the need to obtain the clock value twice.      The following example illustrates how to use this function to calibrate a     parameter to a slow operation (for example, an iteration count) so that     this operation takes at least 250 milliseconds:      \snippet doc/src/snippets/qelapsedtimer/main.cpp 3      \sa start(), invalidate(), elapsed() */
+comment|/*!     Restarts the timer and returns the time elapsed since the previous start.     This function is equivalent to obtaining the elapsed time with elapsed()     and then starting the timer again with restart(), but it does so in one     single operation, avoiding the need to obtain the clock value twice.      The following example illustrates how to use this function to calibrate a     parameter to a slow operation (for example, an iteration count) so that     this operation takes at least 250 milliseconds:      \snippet qelapsedtimer/main.cpp 3      \sa start(), invalidate(), elapsed() */
 end_comment
 begin_function
 DECL|function|restart

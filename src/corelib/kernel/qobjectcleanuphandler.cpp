@@ -168,7 +168,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this cleanup handler is empty or if all objects in     this cleanup handler have been destroyed; otherwise return false.      \sa add() remove() clear() */
+comment|/*!     Returns true if this cleanup handler is empty or if all objects in     this cleanup handler have been destroyed; otherwise return false.      \sa add(), remove(), clear() */
 end_comment
 begin_function
 DECL|function|isEmpty

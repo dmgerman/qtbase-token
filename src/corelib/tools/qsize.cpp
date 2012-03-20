@@ -57,7 +57,7 @@ begin_comment
 comment|/*!   \fn QSize QSize::transposed() const   \since 5.0    Returns a QSize with width and height swapped.    \sa transpose() */
 end_comment
 begin_comment
-comment|/*!   \fn void QSize::scale(int width, int height, Qt::AspectRatioMode mode)      Scales the size to a rectangle with the given \a width and \a     height, according to the specified \a mode:      \list     \li If \a mode is Qt::IgnoreAspectRatio, the size is set to (\a width, \a height).     \li If \a mode is Qt::KeepAspectRatio, the current size is scaled to a rectangle        as large as possible inside (\a width, \a height), preserving the aspect ratio.     \li If \a mode is Qt::KeepAspectRatioByExpanding, the current size is scaled to a rectangle        as small as possible outside (\a width, \a height), preserving the aspect ratio.     \endlist      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qsize.cpp 0      \sa setWidth(), setHeight(), scaled() */
+comment|/*!   \fn void QSize::scale(int width, int height, Qt::AspectRatioMode mode)      Scales the size to a rectangle with the given \a width and \a     height, according to the specified \a mode:      \list     \li If \a mode is Qt::IgnoreAspectRatio, the size is set to (\a width, \a height).     \li If \a mode is Qt::KeepAspectRatio, the current size is scaled to a rectangle        as large as possible inside (\a width, \a height), preserving the aspect ratio.     \li If \a mode is Qt::KeepAspectRatioByExpanding, the current size is scaled to a rectangle        as small as possible outside (\a width, \a height), preserving the aspect ratio.     \endlist      Example:     \snippet code/src_corelib_tools_qsize.cpp 0      \sa setWidth(), setHeight(), scaled() */
 end_comment
 begin_comment
 comment|/*!     \fn void QSize::scale(const QSize&size, Qt::AspectRatioMode mode)     \overload      Scales the size to a rectangle with the given \a size, according to     the specified \a mode. */
@@ -218,16 +218,16 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn int&QSize::rwidth()      Returns a reference to the width.      Using a reference makes it possible to manipulate the width     directly. For example:      \snippet doc/src/snippets/code/src_corelib_tools_qsize.cpp 1      \sa rheight(), setWidth() */
+comment|/*!     \fn int&QSize::rwidth()      Returns a reference to the width.      Using a reference makes it possible to manipulate the width     directly. For example:      \snippet code/src_corelib_tools_qsize.cpp 1      \sa rheight(), setWidth() */
 end_comment
 begin_comment
-comment|/*!     \fn int&QSize::rheight()      Returns a reference to the height.      Using a reference makes it possible to manipulate the height     directly. For example:      \snippet doc/src/snippets/code/src_corelib_tools_qsize.cpp 2      \sa rwidth(), setHeight() */
+comment|/*!     \fn int&QSize::rheight()      Returns a reference to the height.      Using a reference makes it possible to manipulate the height     directly. For example:      \snippet code/src_corelib_tools_qsize.cpp 2      \sa rwidth(), setHeight() */
 end_comment
 begin_comment
-comment|/*!     \fn QSize&QSize::operator+=(const QSize&size)      Adds the given \a size to \e this size, and returns a reference to     this size. For example:      \snippet doc/src/snippets/code/src_corelib_tools_qsize.cpp 3 */
+comment|/*!     \fn QSize&QSize::operator+=(const QSize&size)      Adds the given \a size to \e this size, and returns a reference to     this size. For example:      \snippet code/src_corelib_tools_qsize.cpp 3 */
 end_comment
 begin_comment
-comment|/*!     \fn QSize&QSize::operator-=(const QSize&size)      Subtracts the given \a size from \e this size, and returns a     reference to this size. For example:      \snippet doc/src/snippets/code/src_corelib_tools_qsize.cpp 4 */
+comment|/*!     \fn QSize&QSize::operator-=(const QSize&size)      Subtracts the given \a size from \e this size, and returns a     reference to this size. For example:      \snippet code/src_corelib_tools_qsize.cpp 4 */
 end_comment
 begin_comment
 comment|/*!     \fn QSize&QSize::operator*=(qreal factor)     \overload      Multiplies both the width and height by the given \a factor, and     returns a reference to the size.      Note that the result is rounded to the nearest integer.      \sa scale() */
@@ -562,13 +562,13 @@ begin_comment
 comment|/*!     \fn QSizeF QSizeF::transposed() const     \since 5.0      Returns the size with width and height values swapped.      \sa transpose() */
 end_comment
 begin_comment
-comment|/*!   \fn void QSizeF::scale(qreal width, qreal height, Qt::AspectRatioMode mode)      Scales the size to a rectangle with the given \a width and \a     height, according to the specified \a mode.      \list     \li If \a mode is Qt::IgnoreAspectRatio, the size is set to (\a width, \a height).     \li If \a mode is Qt::KeepAspectRatio, the current size is scaled to a rectangle        as large as possible inside (\a width, \a height), preserving the aspect ratio.     \li If \a mode is Qt::KeepAspectRatioByExpanding, the current size is scaled to a rectangle        as small as possible outside (\a width, \a height), preserving the aspect ratio.     \endlist      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qsize.cpp 5      \sa setWidth(), setHeight(), scaled() */
+comment|/*!   \fn void QSizeF::scale(qreal width, qreal height, Qt::AspectRatioMode mode)      Scales the size to a rectangle with the given \a width and \a     height, according to the specified \a mode.      \list     \li If \a mode is Qt::IgnoreAspectRatio, the size is set to (\a width, \a height).     \li If \a mode is Qt::KeepAspectRatio, the current size is scaled to a rectangle        as large as possible inside (\a width, \a height), preserving the aspect ratio.     \li If \a mode is Qt::KeepAspectRatioByExpanding, the current size is scaled to a rectangle        as small as possible outside (\a width, \a height), preserving the aspect ratio.     \endlist      Example:     \snippet code/src_corelib_tools_qsize.cpp 5      \sa setWidth(), setHeight(), scaled() */
 end_comment
 begin_comment
 comment|/*!     \fn void QSizeF::scale(const QSizeF&size, Qt::AspectRatioMode mode)     \overload      Scales the size to a rectangle with the given \a size, according to     the specified \a mode. */
 end_comment
 begin_comment
-comment|/*!     \fn QSizeF QSizeF::scaled(int width, int height, Qt::AspectRatioMode mode) const     \since 5.0      Returns a size scaled to a rectangle with the given \a width and     \a height, according to the specified \mode.      \sa scale() */
+comment|/*!     \fn QSizeF QSizeF::scaled(qreal width, qreal height, Qt::AspectRatioMode mode) const     \since 5.0      Returns a size scaled to a rectangle with the given \a width and     \a height, according to the specified \a mode.      \sa scale() */
 end_comment
 begin_comment
 comment|/*!   \overload   \since 5.0 */
@@ -704,16 +704,16 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn int&QSizeF::rwidth()      Returns a reference to the width.      Using a reference makes it possible to manipulate the width     directly. For example:      \snippet doc/src/snippets/code/src_corelib_tools_qsize.cpp 6      \sa rheight(), setWidth() */
+comment|/*!     \fn int&QSizeF::rwidth()      Returns a reference to the width.      Using a reference makes it possible to manipulate the width     directly. For example:      \snippet code/src_corelib_tools_qsize.cpp 6      \sa rheight(), setWidth() */
 end_comment
 begin_comment
-comment|/*!     \fn int&QSizeF::rheight()      Returns a reference to the height.      Using a reference makes it possible to manipulate the height     directly. For example:      \snippet doc/src/snippets/code/src_corelib_tools_qsize.cpp 7      \sa rwidth(), setHeight() */
+comment|/*!     \fn int&QSizeF::rheight()      Returns a reference to the height.      Using a reference makes it possible to manipulate the height     directly. For example:      \snippet code/src_corelib_tools_qsize.cpp 7      \sa rwidth(), setHeight() */
 end_comment
 begin_comment
-comment|/*!     \fn QSizeF&QSizeF::operator+=(const QSizeF&size)      Adds the given \a size to this size and returns a reference to     this size. For example:      \snippet doc/src/snippets/code/src_corelib_tools_qsize.cpp 8 */
+comment|/*!     \fn QSizeF&QSizeF::operator+=(const QSizeF&size)      Adds the given \a size to this size and returns a reference to     this size. For example:      \snippet code/src_corelib_tools_qsize.cpp 8 */
 end_comment
 begin_comment
-comment|/*!     \fn QSizeF&QSizeF::operator-=(const QSizeF&size)      Subtracts the given \a size from this size and returns a reference     to this size. For example:      \snippet doc/src/snippets/code/src_corelib_tools_qsize.cpp 9 */
+comment|/*!     \fn QSizeF&QSizeF::operator-=(const QSizeF&size)      Subtracts the given \a size from this size and returns a reference     to this size. For example:      \snippet code/src_corelib_tools_qsize.cpp 9 */
 end_comment
 begin_comment
 comment|/*!     \fn QSizeF&QSizeF::operator*=(qreal factor)     \overload      Multiplies both the width and height by the given \a factor and     returns a reference to the size.      \sa scale() */

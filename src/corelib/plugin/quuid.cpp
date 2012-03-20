@@ -806,7 +806,7 @@ begin_comment
 comment|/*!     \fn QUuid::QUuid()      Creates the null UUID. toString() will output the null UUID     as "{00000000-0000-0000-0000-000000000000}". */
 end_comment
 begin_comment
-comment|/*!     \fn QUuid::QUuid(uint l, ushort w1, ushort w2, uchar b1, uchar b2, uchar b3, uchar b4, uchar b5, uchar b6, uchar b7, uchar b8)      Creates a UUID with the value specified by the parameters, \a l,     \a w1, \a w2, \a b1, \a b2, \a b3, \a b4, \a b5, \a b6, \a b7, \a     b8.      Example:     \snippet doc/src/snippets/code/src_corelib_plugin_quuid.cpp 0 */
+comment|/*!     \fn QUuid::QUuid(uint l, ushort w1, ushort w2, uchar b1, uchar b2, uchar b3, uchar b4, uchar b5, uchar b6, uchar b7, uchar b8)      Creates a UUID with the value specified by the parameters, \a l,     \a w1, \a w2, \a b1, \a b2, \a b3, \a b4, \a b5, \a b6, \a b7, \a     b8.      Example:     \snippet code/src_corelib_plugin_quuid.cpp 0 */
 end_comment
 begin_ifndef
 ifndef|#
@@ -1068,10 +1068,10 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!   \since 5.0   \fn QUuid::createUuidV3()    This functions returns a new UUID with variant QUuid::DCE and version QUuid::MD5.   \a ns is the namespace and \a name is the name as described by RFC 4122.    \sa variant(), version(), createUuidV5() */
+comment|/*!   \since 5.0   \fn QUuid QUuid::createUuidV3(const QUuid&ns, const QByteArray&baseData);    This functions returns a new UUID with variant QUuid::DCE and version QUuid::MD5.   \a ns is the namespace and \a name is the name as described by RFC 4122.    \sa variant(), version(), createUuidV5() */
 end_comment
 begin_comment
-comment|/*!   \since 5.0   \fn QUuid::createUuidV5()    This functions returns a new UUID with variant QUuid::DCE and version QUuid::SHA1.   \a ns is the namespace and \a name is the name as described by RFC 4122.    \sa variant(), version(), createUuidV3() */
+comment|/*!   \since 5.0   \fn QUuid QUuid::createUuidV5(const QUuid&ns, const QByteArray&baseData);    This functions returns a new UUID with variant QUuid::DCE and version QUuid::SHA1.   \a ns is the namespace and \a name is the name as described by RFC 4122.    \sa variant(), version(), createUuidV3() */
 end_comment
 begin_ifndef
 ifndef|#

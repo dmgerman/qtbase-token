@@ -622,7 +622,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*! \internal     This function loops and waits for native adopted threads to finish.     When this happens it derefs the QThreadData for the adopted thread     to make sure it gets cleaned up properly. */
+comment|/*     This function loops and waits for native adopted threads to finish.     When this happens it derefs the QThreadData for the adopted thread     to make sure it gets cleaned up properly. */
 end_comment
 begin_function
 DECL|function|qt_adopted_thread_watcher_function

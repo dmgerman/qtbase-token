@@ -71,7 +71,7 @@ file|<QtCore/private/qfilesystemengine_p.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QAbstractFileEngineHandler     \reentrant     \internal      \brief The QAbstractFileEngineHandler class provides a way to register     custom file engines with your application.      \ingroup io     \since 4.1      QAbstractFileEngineHandler is a factory for creating QAbstractFileEngine     objects (file engines), which are used internally by QFile, QFileInfo, and     QDir when working with files and directories.      When you open a file, Qt chooses a suitable file engine by passing the     file name from QFile or QDir through an internal list of registered file     engine handlers. The first handler to recognize the file name is used to     create the engine. Qt provides internal file engines for working with     regular files and resources, but you can also register your own     QAbstractFileEngine subclasses.      To install an application-specific file engine, you subclass     QAbstractFileEngineHandler and reimplement create(). When you instantiate     the handler (e.g. by creating an instance on the stack or on the heap), it     will automatically register with Qt. (The latest registered handler takes     precedence over existing handlers.)      For example:      \snippet doc/src/snippets/code/src_corelib_io_qabstractfileengine.cpp 0      When the handler is destroyed, it is automatically removed from Qt.      The most common approach to registering a handler is to create an instance     as part of the start-up phase of your application. It is also possible to     limit the scope of the file engine handler to a particular area of     interest (e.g. a special file dialog that needs a custom file engine). By     creating the handler inside a local scope, you can precisely control the     area in which your engine will be applied without disturbing file     operations in other parts of your application.      \sa QAbstractFileEngine, QAbstractFileEngine::create() */
+comment|/*!     \class QAbstractFileEngineHandler     \reentrant     \internal      \brief The QAbstractFileEngineHandler class provides a way to register     custom file engines with your application.      \ingroup io     \since 4.1      QAbstractFileEngineHandler is a factory for creating QAbstractFileEngine     objects (file engines), which are used internally by QFile, QFileInfo, and     QDir when working with files and directories.      When you open a file, Qt chooses a suitable file engine by passing the     file name from QFile or QDir through an internal list of registered file     engine handlers. The first handler to recognize the file name is used to     create the engine. Qt provides internal file engines for working with     regular files and resources, but you can also register your own     QAbstractFileEngine subclasses.      To install an application-specific file engine, you subclass     QAbstractFileEngineHandler and reimplement create(). When you instantiate     the handler (e.g. by creating an instance on the stack or on the heap), it     will automatically register with Qt. (The latest registered handler takes     precedence over existing handlers.)      For example:      \snippet code/src_corelib_io_qabstractfileengine.cpp 0      When the handler is destroyed, it is automatically removed from Qt.      The most common approach to registering a handler is to create an instance     as part of the start-up phase of your application. It is also possible to     limit the scope of the file engine handler to a particular area of     interest (e.g. a special file dialog that needs a custom file engine). By     creating the handler inside a local scope, you can precisely control the     area in which your engine will be applied without disturbing file     operations in other parts of your application.      \sa QAbstractFileEngine, QAbstractFileEngine::create() */
 DECL|variable|qt_file_engine_handlers_in_use
 specifier|static
 name|bool
@@ -313,7 +313,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QAbstractFileEngine *QAbstractFileEngineHandler::create(const QString&fileName) const      Creates a file engine for file \a fileName. Returns 0 if this     file handler cannot handle \a fileName.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qabstractfileengine.cpp 1      \sa QAbstractFileEngine::create() */
+comment|/*!     \fn QAbstractFileEngine *QAbstractFileEngineHandler::create(const QString&fileName) const      Creates a file engine for file \a fileName. Returns 0 if this     file handler cannot handle \a fileName.      Example:      \snippet code/src_corelib_io_qabstractfileengine.cpp 1      \sa QAbstractFileEngine::create() */
 end_comment
 begin_comment
 comment|/*!     Creates and returns a QAbstractFileEngine suitable for processing \a     fileName.      You should not need to call this function; use QFile, QFileInfo or     QDir directly instead.      If you reimplemnt this function, it should only return file     engines that knows how to handle \a fileName; otherwise, it should     return 0.      \sa QAbstractFileEngineHandler */
@@ -593,7 +593,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Requests that the file is deleted from the file system. If the     operation succeeds return true; otherwise return false.      This virtual function must be reimplemented by all subclasses.      \sa setFileName() rmdir()  */
+comment|/*!     Requests that the file is deleted from the file system. If the     operation succeeds return true; otherwise return false.      This virtual function must be reimplemented by all subclasses.      \sa setFileName(), rmdir()  */
 end_comment
 begin_function
 DECL|function|remove
@@ -687,7 +687,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Requests that the directory \a dirName be created. If     \a createParentDirectories is true, then any sub-directories in \a dirName     that don't exist must be created. If \a createParentDirectories is false then     any sub-directories in \a dirName must already exist for the function to     succeed. If the operation succeeds return true; otherwise return     false.      This virtual function must be reimplemented by all subclasses.      \sa setFileName() rmdir() isRelativePath()  */
+comment|/*!     Requests that the directory \a dirName be created. If     \a createParentDirectories is true, then any sub-directories in \a dirName     that don't exist must be created. If \a createParentDirectories is false then     any sub-directories in \a dirName must already exist for the function to     succeed. If the operation succeeds return true; otherwise return     false.      This virtual function must be reimplemented by all subclasses.      \sa setFileName(), rmdir(), isRelativePath()  */
 end_comment
 begin_function
 DECL|function|mkdir
@@ -722,7 +722,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Requests that the directory \a dirName is deleted from the file     system. When \a recurseParentDirectories is true, then any empty     parent-directories in \a dirName must also be deleted. If     \a recurseParentDirectories is false, only the \a dirName leaf-node     should be deleted. In most file systems a directory cannot be deleted     using this function if it is non-empty. If the operation succeeds     return true; otherwise return false.      This virtual function must be reimplemented by all subclasses.      \sa setFileName() remove() mkdir() isRelativePath()  */
+comment|/*!     Requests that the directory \a dirName is deleted from the file     system. When \a recurseParentDirectories is true, then any empty     parent-directories in \a dirName must also be deleted. If     \a recurseParentDirectories is false, only the \a dirName leaf-node     should be deleted. In most file systems a directory cannot be deleted     using this function if it is non-empty. If the operation succeeds     return true; otherwise return false.      This virtual function must be reimplemented by all subclasses.      \sa setFileName(), remove(), mkdir(), isRelativePath()  */
 end_comment
 begin_function
 DECL|function|rmdir
@@ -954,7 +954,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     If \a owner is \c OwnerUser return the ID of the user who owns     the file. If \a owner is \c OwnerGroup return the ID of the group     that own the file. If you can't determine the owner return -2.      This virtual function must be reimplemented by all subclasses.      \sa owner() setFileName(), FileOwner  */
+comment|/*!     If \a owner is \c OwnerUser return the ID of the user who owns     the file. If \a owner is \c OwnerGroup return the ID of the group     that own the file. If you can't determine the owner return -2.      This virtual function must be reimplemented by all subclasses.      \sa owner(), setFileName(), FileOwner  */
 end_comment
 begin_function
 DECL|function|ownerId
@@ -979,7 +979,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     If \a owner is \c OwnerUser return the name of the user who owns     the file. If \a owner is \c OwnerGroup return the name of the group     that own the file. If you can't determine the owner return     QString().      This virtual function must be reimplemented by all subclasses.      \sa ownerId() setFileName(), FileOwner  */
+comment|/*!     If \a owner is \c OwnerUser return the name of the user who owns     the file. If \a owner is \c OwnerGroup return the name of the group     that own the file. If you can't determine the owner return     QString().      This virtual function must be reimplemented by all subclasses.      \sa ownerId(), setFileName(), FileOwner  */
 end_comment
 begin_function
 DECL|function|owner
@@ -1207,7 +1207,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3     \class QAbstractFileEngineIterator     \brief The QAbstractFileEngineIterator class provides an iterator     interface for custom file engines.     \internal      If all you want is to iterate over entries in a directory, see     QDirIterator instead. This class is only for custom file engine authors.      QAbstractFileEngineIterator is a unidirectional single-use virtual     iterator that plugs into QDirIterator, providing transparent proxy     iteration for custom file engines.      You can subclass QAbstractFileEngineIterator to provide an iterator when     writing your own file engine. To plug the iterator into your file system,     you simply return an instance of this subclass from a reimplementation of     QAbstractFileEngine::beginEntryList().      Example:      \snippet doc/src/snippets/code/src_corelib_io_qabstractfileengine.cpp 2      QAbstractFileEngineIterator is associated with a path, name filters, and     entry filters. The path is the directory that the iterator lists entries     in. The name filters and entry filters are provided for file engines that     can optimize directory listing at the iterator level (e.g., network file     systems that need to minimize network traffic), but they can also be     ignored by the iterator subclass; QAbstractFileEngineIterator already     provides the required filtering logics in the matchesFilters() function.     You can call dirName() to get the directory name, nameFilters() to get a     stringlist of name filters, and filters() to get the entry filters.      The pure virtual function hasNext() returns true if the current directory     has at least one more entry (i.e., the directory name is valid and     accessible, and we have not reached the end of the entry list), and false     otherwise. Reimplement next() to seek to the next entry.      The pure virtual function currentFileName() returns the name of the     current entry without advancing the iterator. The currentFilePath()     function is provided for convenience; it returns the full path of the     current entry.      Here is an example of how to implement an iterator that returns each of     three fixed entries in sequence.      \snippet doc/src/snippets/code/src_corelib_io_qabstractfileengine.cpp 3      Note: QAbstractFileEngineIterator does not deal with QDir::IteratorFlags;     it simply returns entries for a single directory.      \sa QDirIterator */
+comment|/*!     \since 4.3     \class QAbstractFileEngineIterator     \brief The QAbstractFileEngineIterator class provides an iterator     interface for custom file engines.     \internal      If all you want is to iterate over entries in a directory, see     QDirIterator instead. This class is only for custom file engine authors.      QAbstractFileEngineIterator is a unidirectional single-use virtual     iterator that plugs into QDirIterator, providing transparent proxy     iteration for custom file engines.      You can subclass QAbstractFileEngineIterator to provide an iterator when     writing your own file engine. To plug the iterator into your file system,     you simply return an instance of this subclass from a reimplementation of     QAbstractFileEngine::beginEntryList().      Example:      \snippet code/src_corelib_io_qabstractfileengine.cpp 2      QAbstractFileEngineIterator is associated with a path, name filters, and     entry filters. The path is the directory that the iterator lists entries     in. The name filters and entry filters are provided for file engines that     can optimize directory listing at the iterator level (e.g., network file     systems that need to minimize network traffic), but they can also be     ignored by the iterator subclass; QAbstractFileEngineIterator already     provides the required filtering logics in the matchesFilters() function.     You can call dirName() to get the directory name, nameFilters() to get a     stringlist of name filters, and filters() to get the entry filters.      The pure virtual function hasNext() returns true if the current directory     has at least one more entry (i.e., the directory name is valid and     accessible, and we have not reached the end of the entry list), and false     otherwise. Reimplement next() to seek to the next entry.      The pure virtual function currentFileName() returns the name of the     current entry without advancing the iterator. The currentFilePath()     function is provided for convenience; it returns the full path of the     current entry.      Here is an example of how to implement an iterator that returns each of     three fixed entries in sequence.      \snippet code/src_corelib_io_qabstractfileengine.cpp 3      Note: QAbstractFileEngineIterator does not deal with QDir::IteratorFlags;     it simply returns entries for a single directory.      \sa QDirIterator */
 end_comment
 begin_comment
 comment|/*!     \enum QAbstractFileEngineIterator::EntryInfoType     \internal      This enum describes the different types of information that can be     requested through the QAbstractFileEngineIterator::entryInfo() function. */
@@ -1664,7 +1664,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function reads one line, terminated by a '\n' character, from the     file info \a data. At most \a maxlen characters will be read. The     end-of-line character is included. */
+comment|/*!     This function reads one line, terminated by a '\\n' character, from the     file info \a data. At most \a maxlen characters will be read. The     end-of-line character is included. */
 end_comment
 begin_function
 DECL|function|readLine

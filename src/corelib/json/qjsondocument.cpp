@@ -295,7 +295,7 @@ begin_comment
 comment|/*! \enum QJsonDocument::DataValidation    This value is used to tell QJsonDocument whether to validate the binary data   when converting to a QJsonDocument using fromBinaryData() or fromRawData().    \value Validate Validate the data before using it. This is the default.   \value BypassValidation Bypasses data validation. Only use if you received the   data from a trusted place and know it's valid, as using of invalid data can crash   the application.   */
 end_comment
 begin_comment
-comment|/*!  Creates a QJsonDocument that uses the first \a size bytes from  \a data. It assumes \a data contains a binary encoded JSON document.  The created document does not take ownership of \a data and the caller  has to guarantee that \a data will not be deleted or modified as long as  any QJsonDocument, QJsonObject or QJsonArray still references the data.   \a data has to be aligned to a 4 byte boundary.   \a validation decides whether the data is checked for validity before being used.  By default the data is validated. If the \a data is not valid, the method returns  a null document.   Returns a QJsonDocument representing the data.   \sa rawData fromBinaryData isNull DataValidation  */
+comment|/*!  Creates a QJsonDocument that uses the first \a size bytes from  \a data. It assumes \a data contains a binary encoded JSON document.  The created document does not take ownership of \a data and the caller  has to guarantee that \a data will not be deleted or modified as long as  any QJsonDocument, QJsonObject or QJsonArray still references the data.   \a data has to be aligned to a 4 byte boundary.   \a validation decides whether the data is checked for validity before being used.  By default the data is validated. If the \a data is not valid, the method returns  a null document.   Returns a QJsonDocument representing the data.   \sa rawData, fromBinaryData, isNull, DataValidation  */
 end_comment
 begin_function
 DECL|function|fromRawData
@@ -439,7 +439,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  Creates a QJsonDocument from \a data.   \a validation decides whether the data is checked for validity before being used.  By default the data is validated. If the \a data is not valid, the method returns  a null document.   \sa toBinaryData fromRawData isNull DataValidation  */
+comment|/*!  Creates a QJsonDocument from \a data.   \a validation decides whether the data is checked for validity before being used.  By default the data is validated. If the \a data is not valid, the method returns  a null document.   \sa toBinaryData, fromRawData, isNull, DataValidation  */
 end_comment
 begin_function
 DECL|function|fromBinaryData
@@ -1090,7 +1090,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the document contains an array.      \sa array() isObject()  */
+comment|/*!     Returns true if the document contains an array.      \sa array(), isObject()  */
 end_comment
 begin_function
 DECL|function|isArray
@@ -1137,7 +1137,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the document contains an object.      \sa object() isArray()  */
+comment|/*!     Returns true if the document contains an object.      \sa object(), isArray()  */
 end_comment
 begin_function
 DECL|function|isObject
@@ -1184,7 +1184,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the QJsonObject contained in the document.      Returns an empty object if the document contains an     array.      \sa isObject array setObject  */
+comment|/*!     Returns the QJsonObject contained in the document.      Returns an empty object if the document contains an     array.      \sa isObject, array, setObject  */
 end_comment
 begin_function
 DECL|function|object
@@ -1245,7 +1245,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the QJsonArray contained in the document.      Returns an empty array if the document contains an     object.      \sa isArray object setArray  */
+comment|/*!     Returns the QJsonArray contained in the document.      Returns an empty array if the document contains an     object.      \sa isArray, object, setArray  */
 end_comment
 begin_function
 DECL|function|array
@@ -1306,7 +1306,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets \a object as the main object of this document.      \sa setArray object  */
+comment|/*!     Sets \a object as the main object of this document.      \sa setArray, object  */
 end_comment
 begin_function
 DECL|function|setObject
@@ -1430,7 +1430,7 @@ constructor_decl|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets \a array as the main object of this document.      \sa setObject array  */
+comment|/*!     Sets \a array as the main object of this document.      \sa setObject, array  */
 end_comment
 begin_function
 DECL|function|setArray

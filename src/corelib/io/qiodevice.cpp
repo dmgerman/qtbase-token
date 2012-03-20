@@ -410,10 +410,10 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \class QIODevice     \reentrant      \brief The QIODevice class is the base interface class of all I/O     devices in Qt.      \ingroup io      QIODevice provides both a common implementation and an abstract     interface for devices that support reading and writing of blocks     of data, such as QFile, QBuffer and QTcpSocket. QIODevice is     abstract and can not be instantiated, but it is common to use the     interface it defines to provide device-independent I/O features.     For example, Qt's XML classes operate on a QIODevice pointer,     allowing them to be used with various devices (such as files and     buffers).      Before accessing the device, open() must be called to set the     correct OpenMode (such as ReadOnly or ReadWrite). You can then     write to the device with write() or putChar(), and read by calling     either read(), readLine(), or readAll(). Call close() when you are     done with the device.      QIODevice distinguishes between two types of devices:     random-access devices and sequential devices.      \list     \li Random-access devices support seeking to arbitrary     positions using seek(). The current position in the file is     available by calling pos(). QFile and QBuffer are examples of     random-access devices.      \li Sequential devices don't support seeking to arbitrary     positions. The data must be read in one pass. The functions     pos() and size() don't work for sequential devices.     QTcpSocket and QProcess are examples of sequential devices.     \endlist      You can use isSequential() to determine the type of device.      QIODevice emits readyRead() when new data is available for     reading; for example, if new data has arrived on the network or if     additional data is appended to a file that you are reading     from. You can call bytesAvailable() to determine the number of     bytes that are currently available for reading. It's common to use     bytesAvailable() together with the readyRead() signal when     programming with asynchronous devices such as QTcpSocket, where     fragments of data can arrive at arbitrary points in     time. QIODevice emits the bytesWritten() signal every time a     payload of data has been written to the device. Use bytesToWrite()     to determine the current amount of data waiting to be written.      Certain subclasses of QIODevice, such as QTcpSocket and QProcess,     are asynchronous. This means that I/O functions such as write()     or read() always return immediately, while communication with the     device itself may happen when control goes back to the event loop.     QIODevice provides functions that allow you to force these     operations to be performed immediately, while blocking the     calling thread and without entering the event loop. This allows     QIODevice subclasses to be used without an event loop, or in     a separate thread:      \list     \li waitForReadyRead() - This function suspends operation in the     calling thread until new data is available for reading.      \li waitForBytesWritten() - This function suspends operation in the     calling thread until one payload of data has been written to the     device.      \li waitFor....() - Subclasses of QIODevice implement blocking     functions for device-specific operations. For example, QProcess     has a function called waitForStarted() which suspends operation in     the calling thread until the process has started.     \endlist      Calling these functions from the main, GUI thread, may cause your     user interface to freeze. Example:      \snippet doc/src/snippets/code/src_corelib_io_qiodevice.cpp 0      By subclassing QIODevice, you can provide the same interface to     your own I/O devices. Subclasses of QIODevice are only required to     implement the protected readData() and writeData() functions.     QIODevice uses these functions to implement all its convenience     functions, such as getChar(), readLine() and write(). QIODevice     also handles access control for you, so you can safely assume that     the device is opened in write mode if writeData() is called.      Some subclasses, such as QFile and QTcpSocket, are implemented     using a memory buffer for intermediate storing of data. This     reduces the number of required device accessing calls, which are     often very slow. Buffering makes functions like getChar() and     putChar() fast, as they can operate on the memory buffer instead     of directly on the device itself. Certain I/O operations, however,     don't work well with a buffer. For example, if several users open     the same device and read it character by character, they may end     up reading the same data when they meant to read a separate chunk     each. For this reason, QIODevice allows you to bypass any     buffering by passing the Unbuffered flag to open(). When     subclassing QIODevice, remember to bypass any buffer you may use     when the device is open in Unbuffered mode.      \sa QBuffer QFile QTcpSocket */
+comment|/*!     \class QIODevice     \reentrant      \brief The QIODevice class is the base interface class of all I/O     devices in Qt.      \ingroup io      QIODevice provides both a common implementation and an abstract     interface for devices that support reading and writing of blocks     of data, such as QFile, QBuffer and QTcpSocket. QIODevice is     abstract and can not be instantiated, but it is common to use the     interface it defines to provide device-independent I/O features.     For example, Qt's XML classes operate on a QIODevice pointer,     allowing them to be used with various devices (such as files and     buffers).      Before accessing the device, open() must be called to set the     correct OpenMode (such as ReadOnly or ReadWrite). You can then     write to the device with write() or putChar(), and read by calling     either read(), readLine(), or readAll(). Call close() when you are     done with the device.      QIODevice distinguishes between two types of devices:     random-access devices and sequential devices.      \list     \li Random-access devices support seeking to arbitrary     positions using seek(). The current position in the file is     available by calling pos(). QFile and QBuffer are examples of     random-access devices.      \li Sequential devices don't support seeking to arbitrary     positions. The data must be read in one pass. The functions     pos() and size() don't work for sequential devices.     QTcpSocket and QProcess are examples of sequential devices.     \endlist      You can use isSequential() to determine the type of device.      QIODevice emits readyRead() when new data is available for     reading; for example, if new data has arrived on the network or if     additional data is appended to a file that you are reading     from. You can call bytesAvailable() to determine the number of     bytes that are currently available for reading. It's common to use     bytesAvailable() together with the readyRead() signal when     programming with asynchronous devices such as QTcpSocket, where     fragments of data can arrive at arbitrary points in     time. QIODevice emits the bytesWritten() signal every time a     payload of data has been written to the device. Use bytesToWrite()     to determine the current amount of data waiting to be written.      Certain subclasses of QIODevice, such as QTcpSocket and QProcess,     are asynchronous. This means that I/O functions such as write()     or read() always return immediately, while communication with the     device itself may happen when control goes back to the event loop.     QIODevice provides functions that allow you to force these     operations to be performed immediately, while blocking the     calling thread and without entering the event loop. This allows     QIODevice subclasses to be used without an event loop, or in     a separate thread:      \list     \li waitForReadyRead() - This function suspends operation in the     calling thread until new data is available for reading.      \li waitForBytesWritten() - This function suspends operation in the     calling thread until one payload of data has been written to the     device.      \li waitFor....() - Subclasses of QIODevice implement blocking     functions for device-specific operations. For example, QProcess     has a function called waitForStarted() which suspends operation in     the calling thread until the process has started.     \endlist      Calling these functions from the main, GUI thread, may cause your     user interface to freeze. Example:      \snippet code/src_corelib_io_qiodevice.cpp 0      By subclassing QIODevice, you can provide the same interface to     your own I/O devices. Subclasses of QIODevice are only required to     implement the protected readData() and writeData() functions.     QIODevice uses these functions to implement all its convenience     functions, such as getChar(), readLine() and write(). QIODevice     also handles access control for you, so you can safely assume that     the device is opened in write mode if writeData() is called.      Some subclasses, such as QFile and QTcpSocket, are implemented     using a memory buffer for intermediate storing of data. This     reduces the number of required device accessing calls, which are     often very slow. Buffering makes functions like getChar() and     putChar() fast, as they can operate on the memory buffer instead     of directly on the device itself. Certain I/O operations, however,     don't work well with a buffer. For example, if several users open     the same device and read it character by character, they may end     up reading the same data when they meant to read a separate chunk     each. For this reason, QIODevice allows you to bypass any     buffering by passing the Unbuffered flag to open(). When     subclassing QIODevice, remember to bypass any buffer you may use     when the device is open in Unbuffered mode.      \sa QBuffer, QFile, QTcpSocket */
 end_comment
 begin_comment
-comment|/*!     \enum QIODevice::OpenModeFlag      This enum is used with open() to describe the mode in which a device     is opened. It is also returned by openMode().      \value NotOpen   The device is not open.     \value ReadOnly  The device is open for reading.     \value WriteOnly The device is open for writing.     \value ReadWrite The device is open for reading and writing.     \value Append    The device is opened in append mode, so that all data is                      written to the end of the file.     \value Truncate  If possible, the device is truncated before it is opened.                      All earlier contents of the device are lost.     \value Text      When reading, the end-of-line terminators are                      translated to '\n'. When writing, the end-of-line                      terminators are translated to the local encoding, for                      example '\r\n' for Win32.     \value Unbuffered Any buffer in the device is bypassed.      Certain flags, such as \c Unbuffered and \c Truncate, are     meaningless when used with some subclasses. Some of these     restrictions are implied by the type of device that is represented     by a subclass. In other cases, the restriction may be due to the     implementation, or may be imposed by the underlying platform; for     example, QTcpSocket does not support \c Unbuffered mode, and     limitations in the native API prevent QFile from supporting \c     Unbuffered on Windows. */
+comment|/*!     \enum QIODevice::OpenModeFlag      This enum is used with open() to describe the mode in which a device     is opened. It is also returned by openMode().      \value NotOpen   The device is not open.     \value ReadOnly  The device is open for reading.     \value WriteOnly The device is open for writing.     \value ReadWrite The device is open for reading and writing.     \value Append    The device is opened in append mode, so that all data is                      written to the end of the file.     \value Truncate  If possible, the device is truncated before it is opened.                      All earlier contents of the device are lost.     \value Text      When reading, the end-of-line terminators are                      translated to '\\n'. When writing, the end-of-line                      terminators are translated to the local encoding, for                      example '\\r\\n' for Win32.     \value Unbuffered Any buffer in the device is bypassed.      Certain flags, such as \c Unbuffered and \c Truncate, are     meaningless when used with some subclasses. Some of these     restrictions are implied by the type of device that is represented     by a subclass. In other cases, the restriction may be due to the     implementation, or may be imposed by the underlying platform; for     example, QTcpSocket does not support \c Unbuffered mode, and     limitations in the native API prevent QFile from supporting \c     Unbuffered on Windows. */
 end_comment
 begin_comment
 comment|/*!     \fn QIODevice::bytesWritten(qint64 bytes)      This signal is emitted every time a payload of data has been     written to the device. The \a bytes argument is set to the number     of bytes that were written in this payload.      bytesWritten() is not emitted recursively; if you reenter the event loop     or call waitForBytesWritten() inside a slot connected to the     bytesWritten() signal, the signal will not be reemitted (although     waitForBytesWritten() may still return true).      \sa readyRead() */
@@ -693,7 +693,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the OpenMode of the device to \a openMode. Call this     function to set the open mode if the flags change after the device     has been opened.      \sa openMode() OpenMode */
+comment|/*!     Sets the OpenMode of the device to \a openMode. Call this     function to set the open mode if the flags change after the device     has been opened.      \sa openMode(), OpenMode */
 end_comment
 begin_function
 DECL|function|setOpenMode
@@ -840,7 +840,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the device is open; otherwise returns false. A     device is open if it can be read from and/or written to. By     default, this function returns false if openMode() returns     \c NotOpen.      \sa openMode() OpenMode */
+comment|/*!     Returns true if the device is open; otherwise returns false. A     device is open if it can be read from and/or written to. By     default, this function returns false if openMode() returns     \c NotOpen.      \sa openMode(), OpenMode */
 end_comment
 begin_function
 DECL|function|isOpen
@@ -862,7 +862,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if data can be read from the device; otherwise returns     false. Use bytesAvailable() to determine how many bytes can be read.      This is a convenience function which checks if the OpenMode of the     device contains the ReadOnly flag.      \sa openMode() OpenMode */
+comment|/*!     Returns true if data can be read from the device; otherwise returns     false. Use bytesAvailable() to determine how many bytes can be read.      This is a convenience function which checks if the OpenMode of the     device contains the ReadOnly flag.      \sa openMode(), OpenMode */
 end_comment
 begin_function
 DECL|function|isReadable
@@ -886,7 +886,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if data can be written to the device; otherwise returns     false.      This is a convenience function which checks if the OpenMode of the     device contains the WriteOnly flag.      \sa openMode() OpenMode */
+comment|/*!     Returns true if data can be written to the device; otherwise returns     false.      This is a convenience function which checks if the OpenMode of the     device contains the WriteOnly flag.      \sa openMode(), OpenMode */
 end_comment
 begin_function
 DECL|function|isWritable
@@ -910,7 +910,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Opens the device and sets its OpenMode to \a mode. Returns true if successful;     otherwise returns false. This function should be called from any     reimplementations of open() or other functions that open the device.      \sa openMode() OpenMode */
+comment|/*!     Opens the device and sets its OpenMode to \a mode. Returns true if successful;     otherwise returns false. This function should be called from any     reimplementations of open() or other functions that open the device.      \sa openMode(), OpenMode */
 end_comment
 begin_function
 DECL|function|open
@@ -997,7 +997,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     First emits aboutToClose(), then closes the device and sets its     OpenMode to NotOpen. The error string is also reset.      \sa setOpenMode() OpenMode */
+comment|/*!     First emits aboutToClose(), then closes the device and sets its     OpenMode to NotOpen. The error string is also reset.      \sa setOpenMode(), OpenMode */
 end_comment
 begin_function
 DECL|function|close
@@ -1482,7 +1482,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of bytes that are available for reading. This     function is commonly used with sequential devices to determine the     number of bytes to allocate in a buffer before reading.      Subclasses that reimplement this function must call the base     implementation in order to include the size of QIODevices' buffer. Example:      \snippet doc/src/snippets/code/src_corelib_io_qiodevice.cpp 1      \sa bytesToWrite(), readyRead(), isSequential() */
+comment|/*!     Returns the number of bytes that are available for reading. This     function is commonly used with sequential devices to determine the     number of bytes to allocate in a buffer before reading.      Subclasses that reimplement this function must call the base     implementation in order to include the size of QIODevices' buffer. Example:      \snippet code/src_corelib_io_qiodevice.cpp 1      \sa bytesToWrite(), readyRead(), isSequential() */
 end_comment
 begin_function
 DECL|function|bytesAvailable
@@ -1576,7 +1576,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     Reads at most \a maxSize bytes from the device into \a data, and     returns the number of bytes read. If an error occurs, such as when     attempting to read from a device opened in WriteOnly mode, this     function returns -1.      0 is returned when no more data is available for reading. However,     reading past the end of the stream is considered an error, so this     function returns -1 in those cases (that is, reading on a closed     socket or after a process has died).      \sa readData() readLine() write() */
+comment|/*!     Reads at most \a maxSize bytes from the device into \a data, and     returns the number of bytes read. If an error occurs, such as when     attempting to read from a device opened in WriteOnly mode, this     function returns -1.      0 is returned when no more data is available for reading. However,     reading past the end of the stream is considered an error, so this     function returns -1 in those cases (that is, reading on a closed     socket or after a process has died).      \sa readData(), readLine(), write() */
 end_comment
 begin_function
 DECL|function|read
@@ -2936,7 +2936,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     This function reads a line of ASCII characters from the device, up     to a maximum of \a maxSize - 1 bytes, stores the characters in \a     data, and returns the number of bytes read. If a line could not be     read but no error ocurred, this function returns 0. If an error     occurs, this function returns the length of what could be read, or     -1 if nothing was read.      A terminating '\0' byte is always appended to \a data, so \a     maxSize must be larger than 1.      Data is read until either of the following conditions are met:      \list     \li The first '\n' character is read.     \li \a maxSize - 1 bytes are read.     \li The end of the device data is detected.     \endlist      For example, the following code reads a line of characters from a     file:      \snippet doc/src/snippets/code/src_corelib_io_qiodevice.cpp 2      The newline character ('\n') is included in the buffer. If a     newline is not encountered before maxSize - 1 bytes are read, a     newline will not be inserted into the buffer. On windows newline     characters are replaced with '\n'.      This function calls readLineData(), which is implemented using     repeated calls to getChar(). You can provide a more efficient     implementation by reimplementing readLineData() in your own     subclass.      \sa getChar(), read(), write() */
+comment|/*!     This function reads a line of ASCII characters from the device, up     to a maximum of \a maxSize - 1 bytes, stores the characters in \a     data, and returns the number of bytes read. If a line could not be     read but no error ocurred, this function returns 0. If an error     occurs, this function returns the length of what could be read, or     -1 if nothing was read.      A terminating '\\0' byte is always appended to \a data, so \a     maxSize must be larger than 1.      Data is read until either of the following conditions are met:      \list     \li The first '\\n' character is read.     \li \a maxSize - 1 bytes are read.     \li The end of the device data is detected.     \endlist      For example, the following code reads a line of characters from a     file:      \snippet code/src_corelib_io_qiodevice.cpp 2      The newline character ('\\n') is included in the buffer. If a     newline is not encountered before maxSize - 1 bytes are read, a     newline will not be inserted into the buffer. On windows newline     characters are replaced with '\\n'.      This function calls readLineData(), which is implemented using     repeated calls to getChar(). You can provide a more efficient     implementation by reimplementing readLineData() in your own     subclass.      \sa getChar(), read(), write() */
 end_comment
 begin_function
 DECL|function|readLine
@@ -3692,7 +3692,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reads up to \a maxSize characters into \a data and returns the     number of characters read.      This function is called by readLine(), and provides its base     implementation, using getChar(). Buffered devices can improve the     performance of readLine() by reimplementing this function.      readLine() appends a '\0' byte to \a data; readLineData() does not     need to do this.      If you reimplement this function, be careful to return the correct     value: it should return the number of bytes read in this line,     including the terminating newline, or 0 if there is no line to be     read at this point. If an error occurs, it should return -1 if and     only if no bytes were read. Reading past EOF is considered an error. */
+comment|/*!     Reads up to \a maxSize characters into \a data and returns the     number of characters read.      This function is called by readLine(), and provides its base     implementation, using getChar(). Buffered devices can improve the     performance of readLine() by reimplementing this function.      readLine() appends a '\\0' byte to \a data; readLineData() does not     need to do this.      If you reimplement this function, be careful to return the correct     value: it should return the number of bytes read in this line,     including the terminating newline, or 0 if there is no line to be     read at this point. If an error occurs, it should return -1 if and     only if no bytes were read. Reading past EOF is considered an error. */
 end_comment
 begin_function
 DECL|function|readLineData
@@ -3852,7 +3852,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     Returns true if a complete line of data can be read from the device;     otherwise returns false.      Note that unbuffered devices, which have no way of determining what     can be read, always return false.      This function is often called in conjunction with the readyRead()     signal.      Subclasses that reimplement this function must call the base     implementation in order to include the contents of the QIODevice's buffer. Example:      \snippet doc/src/snippets/code/src_corelib_io_qiodevice.cpp 3      \sa readyRead(), readLine() */
+comment|/*!     Returns true if a complete line of data can be read from the device;     otherwise returns false.      Note that unbuffered devices, which have no way of determining what     can be read, always return false.      This function is often called in conjunction with the readyRead()     signal.      Subclasses that reimplement this function must call the base     implementation in order to include the contents of the QIODevice's buffer. Example:      \snippet code/src_corelib_io_qiodevice.cpp 3      \sa readyRead(), readLine() */
 end_comment
 begin_function
 DECL|function|canReadLine
@@ -3875,7 +3875,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Writes at most \a maxSize bytes of data from \a data to the     device. Returns the number of bytes that were actually written, or     -1 if an error occurred.      \sa read() writeData() */
+comment|/*!     Writes at most \a maxSize bytes of data from \a data to the     device. Returns the number of bytes that were actually written, or     -1 if an error occurred.      \sa read(), writeData() */
 end_comment
 begin_function
 DECL|function|write
@@ -4257,7 +4257,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      \overload       Writes data from a zero-terminated string of 8-bit characters to the     device. Returns the number of bytes that were actually written, or     -1 if an error occurred. This is equivalent to     \code     ...     QIODevice::write(data, qstrlen(data));     ...     \endcode      \sa read() writeData() */
+comment|/*!     \since 4.5      \overload       Writes data from a zero-terminated string of 8-bit characters to the     device. Returns the number of bytes that were actually written, or     -1 if an error occurred. This is equivalent to     \code     ...     QIODevice::write(data, qstrlen(data));     ...     \endcode      \sa read(), writeData() */
 end_comment
 begin_function
 DECL|function|write
@@ -4286,7 +4286,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn qint64 QIODevice::write(const QByteArray&byteArray)      \overload      Writes the content of \a byteArray to the device. Returns the number of     bytes that were actually written, or -1 if an error occurred.      \sa read() writeData() */
+comment|/*! \fn qint64 QIODevice::write(const QByteArray&byteArray)      \overload      Writes the content of \a byteArray to the device. Returns the number of     bytes that were actually written, or -1 if an error occurred.      \sa read(), writeData() */
 end_comment
 begin_comment
 comment|/*!     Puts the character \a c back into the device, and decrements the     current position unless the position is 0. This function is     usually called to "undo" a getChar() operation, such as when     writing a backtracking parser.      If \a c was not previously read from the device, the behavior is     undefined. */
@@ -4363,7 +4363,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QIODevice::putChar(char c)      Writes the character \a c to the device. Returns true on success;     otherwise returns false.      \sa write() getChar() ungetChar() */
+comment|/*! \fn bool QIODevice::putChar(char c)      Writes the character \a c to the device. Returns true on success;     otherwise returns false.      \sa write(), getChar(), ungetChar() */
 end_comment
 begin_function
 DECL|function|putChar
@@ -4540,7 +4540,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn bool QIODevice::getChar(char *c)      Reads one character from the device and stores it in \a c. If \a c     is 0, the character is discarded. Returns true on success;     otherwise returns false.      \sa read() putChar() ungetChar() */
+comment|/*! \fn bool QIODevice::getChar(char *c)      Reads one character from the device and stores it in \a c. If \a c     is 0, the character is discarded. Returns true on success;     otherwise returns false.      \sa read(), putChar(), ungetChar() */
 end_comment
 begin_function
 DECL|function|getChar
@@ -4578,7 +4578,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1      Reads at most \a maxSize bytes from the device into \a data, without side     effects (i.e., if you call read() after peek(), you will get the same     data).  Returns the number of bytes read. If an error occurs, such as     when attempting to peek a device opened in WriteOnly mode, this function     returns -1.      0 is returned when no more data is available for reading.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qiodevice.cpp 4      \sa read() */
+comment|/*!     \since 4.1      Reads at most \a maxSize bytes from the device into \a data, without side     effects (i.e., if you call read() after peek(), you will get the same     data).  Returns the number of bytes read. If an error occurs, such as     when attempting to peek a device opened in WriteOnly mode, this function     returns -1.      0 is returned when no more data is available for reading.      Example:      \snippet code/src_corelib_io_qiodevice.cpp 4      \sa read() */
 end_comment
 begin_function
 DECL|function|peek
@@ -4609,7 +4609,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1     \overload      Peeks at most \a maxSize bytes from the device, returning the data peeked     as a QByteArray.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qiodevice.cpp 5      This function has no way of reporting errors; returning an empty     QByteArray() can mean either that no data was currently available     for peeking, or that an error occurred.      \sa read() */
+comment|/*!     \since 4.1     \overload      Peeks at most \a maxSize bytes from the device, returning the data peeked     as a QByteArray.      Example:      \snippet code/src_corelib_io_qiodevice.cpp 5      This function has no way of reporting errors; returning an empty     QByteArray() can mean either that no data was currently available     for peeking, or that an error occurred.      \sa read() */
 end_comment
 begin_function
 DECL|function|peek
@@ -4767,10 +4767,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn qint64 QIODevice::readData(char *data, qint64 maxSize)      Reads up to \a maxSize bytes from the device into \a data, and     returns the number of bytes read or -1 if an error occurred.      If there are no bytes to be read and there can never be more bytes     available (examples include socket closed, pipe closed, sub-process     finished), this function returns -1.      This function is called by QIODevice. Reimplement this function     when creating a subclass of QIODevice.      When reimplementing this function it is important that this function     reads all the required data before returning. This is required in order     for QDataStream to be able to operate on the class. QDataStream assumes     all the requested information was read and therefore does not retry reading     if there was a problem.      \sa read() readLine() writeData() */
+comment|/*!     \fn qint64 QIODevice::readData(char *data, qint64 maxSize)      Reads up to \a maxSize bytes from the device into \a data, and     returns the number of bytes read or -1 if an error occurred.      If there are no bytes to be read and there can never be more bytes     available (examples include socket closed, pipe closed, sub-process     finished), this function returns -1.      This function is called by QIODevice. Reimplement this function     when creating a subclass of QIODevice.      When reimplementing this function it is important that this function     reads all the required data before returning. This is required in order     for QDataStream to be able to operate on the class. QDataStream assumes     all the requested information was read and therefore does not retry reading     if there was a problem.      \sa read(), readLine(), writeData() */
 end_comment
 begin_comment
-comment|/*!     \fn qint64 QIODevice::writeData(const char *data, qint64 maxSize)      Writes up to \a maxSize bytes from \a data to the device. Returns     the number of bytes written, or -1 if an error occurred.      This function is called by QIODevice. Reimplement this function     when creating a subclass of QIODevice.      When reimplementing this function it is important that this function     writes all the data available before returning. This is required in order     for QDataStream to be able to operate on the class. QDataStream assumes     all the information was written and therefore does not retry writing if     there was a problem.      \sa read() write() */
+comment|/*!     \fn qint64 QIODevice::writeData(const char *data, qint64 maxSize)      Writes up to \a maxSize bytes from \a data to the device. Returns     the number of bytes written, or -1 if an error occurred.      This function is called by QIODevice. Reimplement this function     when creating a subclass of QIODevice.      When reimplementing this function it is important that this function     writes all the data available before returning. This is required in order     for QDataStream to be able to operate on the class. QDataStream assumes     all the information was written and therefore does not retry writing if     there was a problem.      \sa read(), write() */
 end_comment
 begin_if
 if|#

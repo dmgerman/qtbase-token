@@ -49,7 +49,7 @@ begin_comment
 comment|/*!     \class QJsonObject     \ingroup json     \reentrant     \since 5.0      \brief The QJsonObject class encapsulates a JSON object.      A JSON object is a list of key value pairs, where the keys are unique strings     and the values are represented by a QJsonValue.      A QJsonObject can be converted to and from a QVariantMap. You can query the     number of (key, value) pairs with size(), insert(), and remove() entries from it     and iterate over its content using the standard C++ iterator pattern.      QJsonObject is an implicitly shared class, and shares the data with the document     it has been created from as long as it is not being modified.      You can convert the array to and from text based JSON through QJsonDocument. */
 end_comment
 begin_comment
-comment|/*!     Constructs an empty JSON object      \sa isEmpty  */
+comment|/*!     Constructs an empty JSON object      \sa isEmpty()  */
 end_comment
 begin_constructor
 DECL|function|QJsonObject
@@ -261,7 +261,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Converts the variant map \a map to a QJsonObject.      The keys in \a map will be used as the keys in the JSON object,     and the QVariant values will be converted to JSON values.      \sa toVariantMap, QJsonValue::fromVariant  */
+comment|/*!     Converts the variant map \a map to a QJsonObject.      The keys in \a map will be used as the keys in the JSON object,     and the QVariant values will be converted to JSON values.      \sa toVariantMap(), QJsonValue::fromVariant()  */
 end_comment
 begin_function
 DECL|function|fromVariantMap
@@ -506,7 +506,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if the object is empty. This is the same as size() == 0.      \sa size  */
+comment|/*!     Returns \c true if the object is empty. This is the same as size() == 0.      \sa size()  */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -534,7 +534,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QJsonValue representing the value for the key \a key.      The returned QJsonValue is \c Undefined, if the key does not exist.      \sa setValue, QJsonValue, QJsonValue::isUndefined  */
+comment|/*!     Returns a QJsonValue representing the value for the key \a key.      The returned QJsonValue is \c Undefined, if the key does not exist.      \sa QJsonValue, QJsonValue::isUndefined()  */
 end_comment
 begin_function
 DECL|function|value
@@ -608,7 +608,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a QJsonValue representing the value for the key \a key.      This does the same as value().      The returned QJsonValue is \c Undefined, if the key does not exist.      \sa value, setValue, QJsonValue, QJsonValue::isUndefined  */
+comment|/*!     Returns a QJsonValue representing the value for the key \a key.      This does the same as value().      The returned QJsonValue is \c Undefined, if the key does not exist.      \sa value(), QJsonValue, QJsonValue::isUndefined()  */
 end_comment
 begin_function
 DECL|function|operator []
@@ -634,7 +634,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a reference to the value for \a key.      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference.      \sa setValue, value  */
+comment|/*!     Returns a reference to the value for \a key.      The return value is of type QJsonValueRef, a helper class for QJsonArray     and QJsonObject. When you get an object of type QJsonValueRef, you can     use it as if it were a reference to a QJsonValue. If you assign to it,     the assignment will apply to the character in the QJsonArray of QJsonObject     from which you got the reference.      \sa value()  */
 end_comment
 begin_function
 DECL|function|operator []
@@ -709,7 +709,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts a new item with the key \a key and a value of \a value.      If there is already an item with the key \a key then that item's value     is replaced with \a value.      Returns an iterator pointing to the inserted item.      If the value is QJsonValue::Undefined, it will cause the key to get removed     from the object. The returned iterator will then point to end()      \sa remove, take, QJsonObject::iterator, end  */
+comment|/*!     Inserts a new item with the key \a key and a value of \a value.      If there is already an item with the key \a key then that item's value     is replaced with \a value.      Returns an iterator pointing to the inserted item.      If the value is QJsonValue::Undefined, it will cause the key to get removed     from the object. The returned iterator will then point to end()      \sa remove(), take(), QJsonObject::iterator, end()  */
 end_comment
 begin_function
 DECL|function|insert
@@ -998,7 +998,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes \a key from the object.      \sa insert, take  */
+comment|/*!     Removes \a key from the object.      \sa insert(), take()  */
 end_comment
 begin_function
 DECL|function|remove
@@ -1085,7 +1085,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes \a key from the object.      Returns a QJsonValue containing the value referenced by \a key.     If \a key was not contained in the object, the returned QJsonValue     is Undefined.      \sa insert, remove, QJsonValue  */
+comment|/*!     Removes \a key from the object.      Returns a QJsonValue containing the value referenced by \a key.     If \a key was not contained in the object, the returned QJsonValue     is Undefined.      \sa insert(), remove(), QJsonValue  */
 end_comment
 begin_function
 DECL|function|take
@@ -1208,7 +1208,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns \c true if the object contains key \a key.      \sa insert, remove, take  */
+comment|/*!     Returns \c true if the object contains key \a key.      \sa insert(), remove(), take()  */
 end_comment
 begin_function
 DECL|function|contains
@@ -1592,7 +1592,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn QJsonObject::const_iterator QJsonObject::find(const Key&key) const      \overload */
+comment|/*! \fn QJsonObject::const_iterator QJsonObject::find(const QString&key) const      \overload */
 end_comment
 begin_comment
 comment|/*!     Returns an const iterator pointing to the item with key \a key in the     map.      If the map contains no item with key \a key, the function     returns constEnd().  */
@@ -1682,7 +1682,7 @@ begin_comment
 comment|/*!     \fn bool QJsonObject::empty() const      This function is provided for STL compatibility. It is equivalent     to isEmpty(), returning \c true if the object is empty; otherwise     returning \c false. */
 end_comment
 begin_comment
-comment|/*! \class QJsonObject::iterator     \brief The QJsonObject::iterator class provides an STL-style non-const iterator for QJsonObject.      QJsonObject::iterator allows you to iterate over a QJsonObject     and to modify the value (but not the key) stored under     a particular key. If you want to iterate over a const QJsonObject, you     should use QJsonObject::const_iterator. It is generally good practice to     use QJsonObject::const_iterator on a non-const QJsonObject as well, unless you     need to change the QJsonObject through the iterator. Const iterators are     slightly faster, and improves code readability.      The default QJsonObject::iterator constructor creates an uninitialized     iterator. You must initialize it using a QJsonObject function like     QJsonObject::begin(), QJsonObject::end(), or QJsonObject::find() before you can     start iterating.      Multiple iterators can be used on the same object. Existing iterators will however     become dangling once the object gets modified.      \sa QJsonObject::const_iterator */
+comment|/*! \class QJsonObject::iterator     \ingroup json     \reentrant     \since 5.0      \brief The QJsonObject::iterator class provides an STL-style non-const iterator for QJsonObject.      QJsonObject::iterator allows you to iterate over a QJsonObject     and to modify the value (but not the key) stored under     a particular key. If you want to iterate over a const QJsonObject, you     should use QJsonObject::const_iterator. It is generally good practice to     use QJsonObject::const_iterator on a non-const QJsonObject as well, unless you     need to change the QJsonObject through the iterator. Const iterators are     slightly faster, and improves code readability.      The default QJsonObject::iterator constructor creates an uninitialized     iterator. You must initialize it using a QJsonObject function like     QJsonObject::begin(), QJsonObject::end(), or QJsonObject::find() before you can     start iterating.      Multiple iterators can be used on the same object. Existing iterators will however     become dangling once the object gets modified.      \sa QJsonObject::const_iterator */
 end_comment
 begin_comment
 comment|/*! \typedef QJsonObject::iterator::difference_type      \internal */
@@ -1697,7 +1697,7 @@ begin_comment
 comment|/*! \typedef QJsonObject::iterator::value_type      \internal */
 end_comment
 begin_comment
-comment|/*! \fn QJsonObject::iterator::iterator()      Constructs an uninitialized iterator.      Functions like key(), value(), and operator++() must not be     called on an uninitialized iterator. Use operator=() to assign a     value to it before using it.      \sa QJsonObject::begin() QJsonObject::end() */
+comment|/*! \fn QJsonObject::iterator::iterator()      Constructs an uninitialized iterator.      Functions like key(), value(), and operator++() must not be     called on an uninitialized iterator. Use operator=() to assign a     value to it before using it.      \sa QJsonObject::begin(), QJsonObject::end() */
 end_comment
 begin_comment
 comment|/*! \fn QString QJsonObject::iterator::key() const      Returns the current item's key.      There is no direct way of changing an item's key through an     iterator, although it can be done by calling QJsonObject::erase()     followed by QJsonObject::insert().      \sa value() */
@@ -1739,7 +1739,7 @@ begin_comment
 comment|/*! \fn QJsonObject::iterator&QJsonObject::iterator::operator-=(int j)      Makes the iterator go back by \a j items. If \a j is negative,     the iterator goes forward.      \sa operator+=(), operator-() */
 end_comment
 begin_comment
-comment|/*! \class QJsonObject::const_iterator     \brief The QJsonObject::const_iterator class provides an STL-style const iterator for QJsonObject.      QJsonObject::const_iterator allows you to iterate over a QJsonObject.     If you want to modify the QJsonObject as you iterate     over it, you must use QJsonObject::iterator instead. It is generally     good practice to use QJsonObject::const_iterator on a non-const QJsonObject as     well, unless you need to change the QJsonObject through the iterator.     Const iterators are slightly faster and improves code     readability.      The default QJsonObject::const_iterator constructor creates an     uninitialized iterator. You must initialize it using a QJsonObject     function like QJsonObject::constBegin(), QJsonObject::constEnd(), or     QJsonObject::find() before you can start iterating.      Multiple iterators can be used on the same object. Existing iterators     will however become dangling if the object gets modified.      \sa QJsonObject::iterator, QJsonObjectIterator */
+comment|/*!     \class QJsonObject::const_iterator     \brief The QJsonObject::const_iterator class provides an STL-style const iterator for QJsonObject.      QJsonObject::const_iterator allows you to iterate over a QJsonObject.     If you want to modify the QJsonObject as you iterate     over it, you must use QJsonObject::iterator instead. It is generally     good practice to use QJsonObject::const_iterator on a non-const QJsonObject as     well, unless you need to change the QJsonObject through the iterator.     Const iterators are slightly faster and improves code     readability.      The default QJsonObject::const_iterator constructor creates an     uninitialized iterator. You must initialize it using a QJsonObject     function like QJsonObject::constBegin(), QJsonObject::constEnd(), or     QJsonObject::find() before you can start iterating.      Multiple iterators can be used on the same object. Existing iterators     will however become dangling if the object gets modified.      \sa QJsonObject::iterator, QJsonObjectIterator */
 end_comment
 begin_comment
 comment|/*! \typedef QJsonObject::const_iterator::difference_type      \internal */
@@ -1754,7 +1754,7 @@ begin_comment
 comment|/*! \typedef QJsonObject::const_iterator::value_type      \internal */
 end_comment
 begin_comment
-comment|/*! \fn QJsonObject::const_iterator::const_iterator()      Constructs an uninitialized iterator.      Functions like key(), value(), and operator++() must not be     called on an uninitialized iterator. Use operator=() to assign a     value to it before using it.      \sa QJsonObject::constBegin() QJsonObject::constEnd() */
+comment|/*! \fn QJsonObject::const_iterator::const_iterator()      Constructs an uninitialized iterator.      Functions like key(), value(), and operator++() must not be     called on an uninitialized iterator. Use operator=() to assign a     value to it before using it.      \sa QJsonObject::constBegin(), QJsonObject::constEnd() */
 end_comment
 begin_comment
 comment|/*! \fn QJsonObject::const_iterator::const_iterator(const iterator&other)      Constructs a copy of \a other. */
@@ -2173,9 +2173,6 @@ comment|/*! \typedef QJsonObject::Iterator      Qt-style synonym for QJsonObject
 end_comment
 begin_comment
 comment|/*! \typedef QJsonObject::ConstIterator      Qt-style synonym for QJsonObject::const_iterator. */
-end_comment
-begin_comment
-comment|/*! \class QJsonObject::iterator     \ingroup json     \reentrant     \since 5.0      \brief The QJsonDocument::iterator class provides a way to iterate over q QJsonObject    */
 end_comment
 begin_ifndef
 ifndef|#

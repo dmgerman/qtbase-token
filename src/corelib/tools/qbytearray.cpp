@@ -1995,7 +1995,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QByteArray     \brief The QByteArray class provides an array of bytes.      \ingroup tools     \ingroup shared     \ingroup string-processing      \reentrant      QByteArray can be used to store both raw bytes (including '\\0's)     and traditional 8-bit '\\0'-terminated strings. Using QByteArray     is much more convenient than using \c{const char *}. Behind the     scenes, it always ensures that the data is followed by a '\\0'     terminator, and uses \l{implicit sharing} (copy-on-write) to     reduce memory usage and avoid needless copying of data.      In addition to QByteArray, Qt also provides the QString class to     store string data. For most purposes, QString is the class you     want to use. It stores 16-bit Unicode characters, making it easy     to store non-ASCII/non-Latin-1 characters in your application.     Furthermore, QString is used throughout in the Qt API. The two     main cases where QByteArray is appropriate are when you need to     store raw binary data, and when memory conservation is critical     (e.g., with Qt for Embedded Linux).      One way to initialize a QByteArray is simply to pass a \c{const     char *} to its constructor. For example, the following code     creates a byte array of size 5 containing the data "Hello":      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 0      Although the size() is 5, the byte array also maintains an extra     '\\0' character at the end so that if a function is used that     asks for a pointer to the underlying data (e.g. a call to     data()), the data pointed to is guaranteed to be     '\\0'-terminated.      QByteArray makes a deep copy of the \c{const char *} data, so you     can modify it later without experiencing side effects. (If for     performance reasons you don't want to take a deep copy of the     character data, use QByteArray::fromRawData() instead.)      Another approach is to set the size of the array using resize()     and to initialize the data byte per byte. QByteArray uses 0-based     indexes, just like C++ arrays. To access the byte at a particular     index position, you can use operator[](). On non-const byte     arrays, operator[]() returns a reference to a byte that can be     used on the left side of an assignment. For example:      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 1      For read-only access, an alternative syntax is to use at():      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 2      at() can be faster than operator[](), because it never causes a     \l{deep copy} to occur.      To extract many bytes at a time, use left(), right(), or mid().      A QByteArray can embed '\\0' bytes. The size() function always     returns the size of the whole array, including embedded '\\0'     bytes. If you want to obtain the length of the data up to and     excluding the first '\\0' character, call qstrlen() on the byte     array.      After a call to resize(), newly allocated bytes have undefined     values. To set all the bytes to a particular value, call fill().      To obtain a pointer to the actual character data, call data() or     constData(). These functions return a pointer to the beginning of the data.     The pointer is guaranteed to remain valid until a non-const function is     called on the QByteArray. It is also guaranteed that the data ends with a     '\\0' byte unless the QByteArray was created from a \l{fromRawData()}{raw     data}. This '\\0' byte is automatically provided by QByteArray and is not     counted in size().      QByteArray provides the following basic functions for modifying     the byte data: append(), prepend(), insert(), replace(), and     remove(). For example:      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 3      The replace() and remove() functions' first two arguments are the     position from which to start erasing and the number of bytes that     should be erased.      When you append() data to a non-empty array, the array will be     reallocated and the new data copied to it. You can avoid this     behavior by calling reserve(), which preallocates a certain amount     of memory. You can also call capacity() to find out how much     memory QByteArray actually allocated. Data appended to an empty     array is not copied.      A frequent requirement is to remove whitespace characters from a     byte array ('\\n', '\\t', ' ', etc.). If you want to remove     whitespace from both ends of a QByteArray, use trimmed(). If you     want to remove whitespace from both ends and replace multiple     consecutive whitespaces with a single space character within the     byte array, use simplified().      If you want to find all occurrences of a particular character or     substring in a QByteArray, use indexOf() or lastIndexOf(). The     former searches forward starting from a given index position, the     latter searches backward. Both return the index position of the     character or substring if they find it; otherwise, they return -1.     For example, here's a typical loop that finds all occurrences of a     particular substring:      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 4      If you simply want to check whether a QByteArray contains a     particular character or substring, use contains(). If you want to     find out how many times a particular character or substring     occurs in the byte array, use count(). If you want to replace all     occurrences of a particular value with another, use one of the     two-parameter replace() overloads.      QByteArrays can be compared using overloaded operators such as     operator<(), operator<=(), operator==(), operator>=(), and so on.     The comparison is based exclusively on the numeric values     of the characters and is very fast, but is not what a human would     expect. QString::localeAwareCompare() is a better choice for     sorting user-interface strings.      For historical reasons, QByteArray distinguishes between a null     byte array and an empty byte array. A \e null byte array is a     byte array that is initialized using QByteArray's default     constructor or by passing (const char *)0 to the constructor. An     \e empty byte array is any byte array with size 0. A null byte     array is always empty, but an empty byte array isn't necessarily     null:      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 5      All functions except isNull() treat null byte arrays the same as     empty byte arrays. For example, data() returns a pointer to a     '\\0' character for a null byte array (\e not a null pointer),     and QByteArray() compares equal to QByteArray(""). We recommend     that you always use isEmpty() and avoid isNull().      \section1 Notes on Locale      \section2 Number-String Conversions      Functions that perform conversions between numeric data types and     strings are performed in the C locale, irrespective of the user's     locale settings. Use QString to perform locale-aware conversions     between numbers and strings.      \section2 8-bit Character Comparisons      In QByteArray, the notion of uppercase and lowercase and of which     character is greater than or less than another character is     locale dependent. This affects functions that support a case     insensitive option or that compare or lowercase or uppercase     their arguments. Case insensitive operations and comparisons will     be accurate if both strings contain only ASCII characters. (If \c     $LC_CTYPE is set, most Unix systems do "the right thing".)     Functions that this affects include contains(), indexOf(),     lastIndexOf(), operator<(), operator<=(), operator>(),     operator>=(), toLower() and toUpper().      This issue does not apply to QStrings since they represent     characters using Unicode.      \sa QString, QBitArray */
+comment|/*!     \class QByteArray     \brief The QByteArray class provides an array of bytes.      \ingroup tools     \ingroup shared     \ingroup string-processing      \reentrant      QByteArray can be used to store both raw bytes (including '\\0's)     and traditional 8-bit '\\0'-terminated strings. Using QByteArray     is much more convenient than using \c{const char *}. Behind the     scenes, it always ensures that the data is followed by a '\\0'     terminator, and uses \l{implicit sharing} (copy-on-write) to     reduce memory usage and avoid needless copying of data.      In addition to QByteArray, Qt also provides the QString class to     store string data. For most purposes, QString is the class you     want to use. It stores 16-bit Unicode characters, making it easy     to store non-ASCII/non-Latin-1 characters in your application.     Furthermore, QString is used throughout in the Qt API. The two     main cases where QByteArray is appropriate are when you need to     store raw binary data, and when memory conservation is critical     (e.g., with Qt for Embedded Linux).      One way to initialize a QByteArray is simply to pass a \c{const     char *} to its constructor. For example, the following code     creates a byte array of size 5 containing the data "Hello":      \snippet code/src_corelib_tools_qbytearray.cpp 0      Although the size() is 5, the byte array also maintains an extra     '\\0' character at the end so that if a function is used that     asks for a pointer to the underlying data (e.g. a call to     data()), the data pointed to is guaranteed to be     '\\0'-terminated.      QByteArray makes a deep copy of the \c{const char *} data, so you     can modify it later without experiencing side effects. (If for     performance reasons you don't want to take a deep copy of the     character data, use QByteArray::fromRawData() instead.)      Another approach is to set the size of the array using resize()     and to initialize the data byte per byte. QByteArray uses 0-based     indexes, just like C++ arrays. To access the byte at a particular     index position, you can use operator[](). On non-const byte     arrays, operator[]() returns a reference to a byte that can be     used on the left side of an assignment. For example:      \snippet code/src_corelib_tools_qbytearray.cpp 1      For read-only access, an alternative syntax is to use at():      \snippet code/src_corelib_tools_qbytearray.cpp 2      at() can be faster than operator[](), because it never causes a     \l{deep copy} to occur.      To extract many bytes at a time, use left(), right(), or mid().      A QByteArray can embed '\\0' bytes. The size() function always     returns the size of the whole array, including embedded '\\0'     bytes. If you want to obtain the length of the data up to and     excluding the first '\\0' character, call qstrlen() on the byte     array.      After a call to resize(), newly allocated bytes have undefined     values. To set all the bytes to a particular value, call fill().      To obtain a pointer to the actual character data, call data() or     constData(). These functions return a pointer to the beginning of the data.     The pointer is guaranteed to remain valid until a non-const function is     called on the QByteArray. It is also guaranteed that the data ends with a     '\\0' byte unless the QByteArray was created from a \l{fromRawData()}{raw     data}. This '\\0' byte is automatically provided by QByteArray and is not     counted in size().      QByteArray provides the following basic functions for modifying     the byte data: append(), prepend(), insert(), replace(), and     remove(). For example:      \snippet code/src_corelib_tools_qbytearray.cpp 3      The replace() and remove() functions' first two arguments are the     position from which to start erasing and the number of bytes that     should be erased.      When you append() data to a non-empty array, the array will be     reallocated and the new data copied to it. You can avoid this     behavior by calling reserve(), which preallocates a certain amount     of memory. You can also call capacity() to find out how much     memory QByteArray actually allocated. Data appended to an empty     array is not copied.      A frequent requirement is to remove whitespace characters from a     byte array ('\\n', '\\t', ' ', etc.). If you want to remove     whitespace from both ends of a QByteArray, use trimmed(). If you     want to remove whitespace from both ends and replace multiple     consecutive whitespaces with a single space character within the     byte array, use simplified().      If you want to find all occurrences of a particular character or     substring in a QByteArray, use indexOf() or lastIndexOf(). The     former searches forward starting from a given index position, the     latter searches backward. Both return the index position of the     character or substring if they find it; otherwise, they return -1.     For example, here's a typical loop that finds all occurrences of a     particular substring:      \snippet code/src_corelib_tools_qbytearray.cpp 4      If you simply want to check whether a QByteArray contains a     particular character or substring, use contains(). If you want to     find out how many times a particular character or substring     occurs in the byte array, use count(). If you want to replace all     occurrences of a particular value with another, use one of the     two-parameter replace() overloads.      QByteArrays can be compared using overloaded operators such as     operator<(), operator<=(), operator==(), operator>=(), and so on.     The comparison is based exclusively on the numeric values     of the characters and is very fast, but is not what a human would     expect. QString::localeAwareCompare() is a better choice for     sorting user-interface strings.      For historical reasons, QByteArray distinguishes between a null     byte array and an empty byte array. A \e null byte array is a     byte array that is initialized using QByteArray's default     constructor or by passing (const char *)0 to the constructor. An     \e empty byte array is any byte array with size 0. A null byte     array is always empty, but an empty byte array isn't necessarily     null:      \snippet code/src_corelib_tools_qbytearray.cpp 5      All functions except isNull() treat null byte arrays the same as     empty byte arrays. For example, data() returns a pointer to a     '\\0' character for a null byte array (\e not a null pointer),     and QByteArray() compares equal to QByteArray(""). We recommend     that you always use isEmpty() and avoid isNull().      \section1 Notes on Locale      \section2 Number-String Conversions      Functions that perform conversions between numeric data types and     strings are performed in the C locale, irrespective of the user's     locale settings. Use QString to perform locale-aware conversions     between numbers and strings.      \section2 8-bit Character Comparisons      In QByteArray, the notion of uppercase and lowercase and of which     character is greater than or less than another character is     locale dependent. This affects functions that support a case     insensitive option or that compare or lowercase or uppercase     their arguments. Case insensitive operations and comparisons will     be accurate if both strings contain only ASCII characters. (If \c     $LC_CTYPE is set, most Unix systems do "the right thing".)     Functions that this affects include contains(), indexOf(),     lastIndexOf(), operator<(), operator<=(), operator>(),     operator>=(), toLower() and toUpper().      This issue does not apply to QStrings since they represent     characters using Unicode.      \sa QString, QBitArray */
 end_comment
 begin_comment
 comment|/*! \fn QByteArray::iterator QByteArray::begin()      \internal */
@@ -2291,10 +2291,10 @@ begin_comment
 comment|/*! \fn void QByteArray::swap(QByteArray&other)     \since 4.8      Swaps byte array \a other with this byte array. This operation is very     fast and never fails. */
 end_comment
 begin_comment
-comment|/*! \fn int QByteArray::size() const      Returns the number of bytes in this byte array.      The last byte in the byte array is at position size() - 1. In addition,     QByteArray ensures that the byte at position size() is always '\\0', so     that you can use the return value of data() and constData() as arguments to     functions that expect '\\0'-terminated strings. If the QByteArray object     was created from a \l{fromRawData()}{raw data} that didn't include the     trailing null-termination character then QByteArray doesn't add it     automaticall unless the \l{deep copy} is created.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 6      \sa isEmpty(), resize() */
+comment|/*! \fn int QByteArray::size() const      Returns the number of bytes in this byte array.      The last byte in the byte array is at position size() - 1. In addition,     QByteArray ensures that the byte at position size() is always '\\0', so     that you can use the return value of data() and constData() as arguments to     functions that expect '\\0'-terminated strings. If the QByteArray object     was created from a \l{fromRawData()}{raw data} that didn't include the     trailing null-termination character then QByteArray doesn't add it     automaticall unless the \l{deep copy} is created.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 6      \sa isEmpty(), resize() */
 end_comment
 begin_comment
-comment|/*! \fn bool QByteArray::isEmpty() const      Returns true if the byte array has size 0; otherwise returns false.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 7      \sa size() */
+comment|/*! \fn bool QByteArray::isEmpty() const      Returns true if the byte array has size 0; otherwise returns false.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 7      \sa size() */
 end_comment
 begin_comment
 comment|/*! \fn int QByteArray::capacity() const      Returns the maximum number of bytes that can be stored in the     byte array without forcing a reallocation.      The sole purpose of this function is to provide a means of fine     tuning QByteArray's memory usage. In general, you will rarely     ever need to call this function. If you want to know how many     bytes are in the byte array, call size().      \sa reserve(), squeeze() */
@@ -2312,7 +2312,7 @@ begin_comment
 comment|/*!   \macro QT_NO_CAST_FROM_BYTEARRAY   \relates QByteArray    Disables automatic conversions from QByteArray to   const char * or const void *.    \sa QT_NO_CAST_TO_ASCII, QT_NO_CAST_FROM_ASCII */
 end_comment
 begin_comment
-comment|/*! \fn char *QByteArray::data()      Returns a pointer to the data stored in the byte array. The     pointer can be used to access and modify the bytes that compose     the array. The data is '\\0'-terminated, i.e. the number of     bytes in the returned character string is size() + 1 for the     '\\0' terminator.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 8      The pointer remains valid as long as the byte array isn't     reallocated or destroyed. For read-only access, constData() is     faster because it never causes a \l{deep copy} to occur.      This function is mostly useful to pass a byte array to a function     that accepts a \c{const char *}.      The following example makes a copy of the char* returned by     data(), but it will corrupt the heap and cause a crash because it     does not allocate a byte for the '\\0' at the end:      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 46      This one allocates the correct amount of space:      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 47      Note: A QByteArray can store any byte values including '\\0's,     but most functions that take \c{char *} arguments assume that the     data ends at the first '\\0' they encounter.      \sa constData(), operator[]() */
+comment|/*! \fn char *QByteArray::data()      Returns a pointer to the data stored in the byte array. The     pointer can be used to access and modify the bytes that compose     the array. The data is '\\0'-terminated, i.e. the number of     bytes in the returned character string is size() + 1 for the     '\\0' terminator.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 8      The pointer remains valid as long as the byte array isn't     reallocated or destroyed. For read-only access, constData() is     faster because it never causes a \l{deep copy} to occur.      This function is mostly useful to pass a byte array to a function     that accepts a \c{const char *}.      The following example makes a copy of the char* returned by     data(), but it will corrupt the heap and cause a crash because it     does not allocate a byte for the '\\0' at the end:      \snippet code/src_corelib_tools_qbytearray.cpp 46      This one allocates the correct amount of space:      \snippet code/src_corelib_tools_qbytearray.cpp 47      Note: A QByteArray can store any byte values including '\\0's,     but most functions that take \c{char *} arguments assume that the     data ends at the first '\\0' they encounter.      \sa constData(), operator[]() */
 end_comment
 begin_comment
 comment|/*! \fn const char *QByteArray::data() const      \overload */
@@ -2333,7 +2333,7 @@ begin_comment
 comment|/*! \fn char QByteArray::at(int i) const      Returns the character at index position \a i in the byte array.      \a i must be a valid index position in the byte array (i.e., 0<=     \a i< size()).      \sa operator[]() */
 end_comment
 begin_comment
-comment|/*! \fn QByteRef QByteArray::operator[](int i)      Returns the byte at index position \a i as a modifiable reference.      If an assignment is made beyond the end of the byte array, the     array is extended with resize() before the assignment takes     place.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 9      The return value is of type QByteRef, a helper class for     QByteArray. When you get an object of type QByteRef, you can use     it as if it were a char&. If you assign to it, the assignment     will apply to the character in the QByteArray from which you got     the reference.      \sa at() */
+comment|/*! \fn QByteRef QByteArray::operator[](int i)      Returns the byte at index position \a i as a modifiable reference.      If an assignment is made beyond the end of the byte array, the     array is extended with resize() before the assignment takes     place.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 9      The return value is of type QByteRef, a helper class for     QByteArray. When you get an object of type QByteRef, you can use     it as if it were a char&. If you assign to it, the assignment     will apply to the character in the QByteArray from which you got     the reference.      \sa at() */
 end_comment
 begin_comment
 comment|/*! \fn char QByteArray::operator[](int i) const      \overload      Same as at(\a i). */
@@ -2354,7 +2354,7 @@ begin_comment
 comment|/*! \fn bool QByteArray::contains(char ch) const      \overload      Returns true if the byte array contains the character \a ch;     otherwise returns false. */
 end_comment
 begin_comment
-comment|/*!      Truncates the byte array at index position \a pos.      If \a pos is beyond the end of the array, nothing happens.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 10      \sa chop(), resize(), left() */
+comment|/*!      Truncates the byte array at index position \a pos.      If \a pos is beyond the end of the array, nothing happens.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 10      \sa chop(), resize(), left() */
 end_comment
 begin_function
 DECL|function|truncate
@@ -2383,7 +2383,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!      Removes \a n bytes from the end of the byte array.      If \a n is greater than size(), the result is an empty byte     array.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 11      \sa truncate(), resize(), left() */
+comment|/*!      Removes \a n bytes from the end of the byte array.      If \a n is greater than size(), the result is an empty byte     array.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 11      \sa truncate(), resize(), left() */
 end_comment
 begin_function
 DECL|function|chop
@@ -2414,7 +2414,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn QByteArray&QByteArray::operator+=(const QByteArray&ba)      Appends the byte array \a ba onto the end of this byte array and     returns a reference to this byte array.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 12      Note: QByteArray is an \l{implicitly shared} class. Consequently,     if \e this is an empty QByteArray, then \e this will just share     the data held in \a ba. In this case, no copying of data is done,     taking \l{constant time}. If a shared instance is modified, it will     be copied (copy-on-write), taking \l{linear time}.      If \e this is not an empty QByteArray, a deep copy of the data is     performed, taking \l{linear time}.      This operation typically does not suffer from allocation overhead,     because QByteArray preallocates extra space at the end of the data     so that it may grow without reallocating for each append operation.      \sa append(), prepend() */
+comment|/*! \fn QByteArray&QByteArray::operator+=(const QByteArray&ba)      Appends the byte array \a ba onto the end of this byte array and     returns a reference to this byte array.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 12      Note: QByteArray is an \l{implicitly shared} class. Consequently,     if \e this is an empty QByteArray, then \e this will just share     the data held in \a ba. In this case, no copying of data is done,     taking \l{constant time}. If a shared instance is modified, it will     be copied (copy-on-write), taking \l{linear time}.      If \e this is not an empty QByteArray, a deep copy of the data is     performed, taking \l{linear time}.      This operation typically does not suffer from allocation overhead,     because QByteArray preallocates extra space at the end of the data     so that it may grow without reallocating for each append operation.      \sa append(), prepend() */
 end_comment
 begin_comment
 comment|/*! \fn QByteArray&QByteArray::operator+=(const QString&str)      \overload      Appends the string \a str onto the end of this byte array and     returns a reference to this byte array. The Unicode data is     converted into 8-bit characters using QString::toAscii().      If the QString contains non-ASCII Unicode characters, using this     operator can lead to loss of information. You can disable this     operator by defining \c QT_NO_CAST_TO_ASCII when you compile your     applications. You then need to call QString::toAscii() (or     QString::toLatin1() or QString::toUtf8() or QString::toLocal8Bit())     explicitly if you want to convert the data to \c{const char *}. */
@@ -2429,7 +2429,7 @@ begin_comment
 comment|/*! \fn int QByteArray::length() const      Same as size(). */
 end_comment
 begin_comment
-comment|/*! \fn bool QByteArray::isNull() const      Returns true if this byte array is null; otherwise returns false.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 13      Qt makes a distinction between null byte arrays and empty byte     arrays for historical reasons. For most applications, what     matters is whether or not a byte array contains any data,     and this can be determined using isEmpty().      \sa isEmpty() */
+comment|/*! \fn bool QByteArray::isNull() const      Returns true if this byte array is null; otherwise returns false.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 13      Qt makes a distinction between null byte arrays and empty byte     arrays for historical reasons. For most applications, what     matters is whether or not a byte array contains any data,     and this can be determined using isEmpty().      \sa isEmpty() */
 end_comment
 begin_comment
 comment|/*! \fn QByteArray::QByteArray()      Constructs an empty byte array.      \sa isEmpty() */
@@ -2953,7 +2953,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Sets every byte in the byte array to character \a ch. If \a size     is different from -1 (the default), the byte array is resized to     size \a size beforehand.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 14      \sa resize() */
+comment|/*!     Sets every byte in the byte array to character \a ch. If \a size     is different from -1 (the default), the byte array is resized to     size \a size beforehand.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 14      \sa resize() */
 end_comment
 begin_function
 DECL|function|fill
@@ -3279,7 +3279,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Prepends the byte array \a ba to this byte array and returns a     reference to this byte array.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 15      This is the same as insert(0, \a ba).      Note: QByteArray is an \l{implicitly shared} class. Consequently,     if \e this is an empty QByteArray, then \e this will just share     the data held in \a ba. In this case, no copying of data is done,     taking \l{constant time}. If a shared instance is modified, it will     be copied (copy-on-write), taking \l{linear time}.      If \e this is not an empty QByteArray, a deep copy of the data is     performed, taking \l{linear time}.      \sa append(), insert() */
+comment|/*!     Prepends the byte array \a ba to this byte array and returns a     reference to this byte array.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 15      This is the same as insert(0, \a ba).      Note: QByteArray is an \l{implicitly shared} class. Consequently,     if \e this is an empty QByteArray, then \e this will just share     the data held in \a ba. In this case, no copying of data is done,     taking \l{constant time}. If a shared instance is modified, it will     be copied (copy-on-write), taking \l{linear time}.      If \e this is not an empty QByteArray, a deep copy of the data is     performed, taking \l{linear time}.      \sa append(), insert() */
 end_comment
 begin_function
 DECL|function|prepend
@@ -3629,7 +3629,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Appends the byte array \a ba onto the end of this byte array.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 16      This is the same as insert(size(), \a ba).      Note: QByteArray is an \l{implicitly shared} class. Consequently,     if \e this is an empty QByteArray, then \e this will just share     the data held in \a ba. In this case, no copying of data is done,     taking \l{constant time}. If a shared instance is modified, it will     be copied (copy-on-write), taking \l{linear time}.      If \e this is not an empty QByteArray, a deep copy of the data is     performed, taking \l{linear time}.      This operation typically does not suffer from allocation overhead,     because QByteArray preallocates extra space at the end of the data     so that it may grow without reallocating for each append operation.      \sa operator+=(), prepend(), insert() */
+comment|/*!     Appends the byte array \a ba onto the end of this byte array.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 16      This is the same as insert(size(), \a ba).      Note: QByteArray is an \l{implicitly shared} class. Consequently,     if \e this is an empty QByteArray, then \e this will just share     the data held in \a ba. In this case, no copying of data is done,     taking \l{constant time}. If a shared instance is modified, it will     be copied (copy-on-write), taking \l{linear time}.      If \e this is not an empty QByteArray, a deep copy of the data is     performed, taking \l{linear time}.      This operation typically does not suffer from allocation overhead,     because QByteArray preallocates extra space at the end of the data     so that it may grow without reallocating for each append operation.      \sa operator+=(), prepend(), insert() */
 end_comment
 begin_function
 DECL|function|append
@@ -4266,7 +4266,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts the byte array \a ba at index position \a i and returns a     reference to this byte array.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 17      \sa append(), prepend(), replace(), remove() */
+comment|/*!     Inserts the byte array \a ba at index position \a i and returns a     reference to this byte array.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 17      \sa append(), prepend(), replace(), remove() */
 end_comment
 begin_function
 DECL|function|insert
@@ -4425,7 +4425,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes \a len bytes from the array, starting at index position \a     pos, and returns a reference to the array.      If \a pos is out of range, nothing happens. If \a pos is valid,     but \a pos + \a len is larger than the size of the array, the     array is truncated at position \a pos.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 18      \sa insert(), replace() */
+comment|/*!     Removes \a len bytes from the array, starting at index position \a     pos, and returns a reference to the array.      If \a pos is out of range, nothing happens. If \a pos is valid,     but \a pos + \a len is larger than the size of the array, the     array is truncated at position \a pos.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 18      \sa insert(), replace() */
 end_comment
 begin_function
 DECL|function|remove
@@ -4528,7 +4528,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Replaces \a len bytes from index position \a pos with the byte     array \a after, and returns a reference to this byte array.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 19      \sa insert(), remove() */
+comment|/*!     Replaces \a len bytes from index position \a pos with the byte     array \a after, and returns a reference to this byte array.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 19      \sa insert(), remove() */
 end_comment
 begin_function
 DECL|function|replace
@@ -4671,7 +4671,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn QByteArray&QByteArray::replace(int pos, int len, const char *after, int alen)      \overload      Replaces \a len bytes from index position \a pos with \a alen bytes     from the string \a after. \a after is allowed to have '\0' characters.      \since 4.7 */
+comment|/*! \fn QByteArray&QByteArray::replace(int pos, int len, const char *after, int alen)      \overload      Replaces \a len bytes from index position \a pos with \a alen bytes     from the string \a after. \a after is allowed to have '\\0' characters.      \since 4.7 */
 end_comment
 begin_function
 DECL|function|replace
@@ -4771,7 +4771,7 @@ begin_comment
 comment|// QByteArray::replace(const char *before, int blen, const char *after, int alen)
 end_comment
 begin_comment
-comment|/*!     \overload      Replaces every occurrence of the byte array \a before with the     byte array \a after.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 20 */
+comment|/*!     \overload      Replaces every occurrence of the byte array \a before with the     byte array \a after.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 20 */
 end_comment
 begin_function
 DECL|function|replace
@@ -6033,7 +6033,7 @@ define|\
 value|if (ol_minus_1< sizeof(uint) * CHAR_BIT) \         hashHaystack -= (a)<< ol_minus_1; \     hashHaystack<<= 1
 end_define
 begin_comment
-comment|/*!     Returns the index position of the first occurrence of the byte     array \a ba in this byte array, searching forward from index     position \a from. Returns -1 if \a ba could not be found.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 21      \sa lastIndexOf(), contains(), count() */
+comment|/*!     Returns the index position of the first occurrence of the byte     array \a ba in this byte array, searching forward from index     position \a from. Returns -1 if \a ba could not be found.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 21      \sa lastIndexOf(), contains(), count() */
 end_comment
 begin_function
 DECL|function|indexOf
@@ -6247,7 +6247,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Returns the index position of the first occurrence of the     character \a ch in the byte array, searching forward from index     position \a from. Returns -1 if \a ch could not be found.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 22      \sa lastIndexOf(), contains() */
+comment|/*!     \overload      Returns the index position of the first occurrence of the     character \a ch in the byte array, searching forward from index     position \a from. Returns -1 if \a ch could not be found.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 22      \sa lastIndexOf(), contains() */
 end_comment
 begin_function
 DECL|function|indexOf
@@ -6574,7 +6574,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn int QByteArray::lastIndexOf(const QByteArray&ba, int from) const      Returns the index position of the last occurrence of the byte     array \a ba in this byte array, searching backward from index     position \a from. If \a from is -1 (the default), the search     starts at the last byte. Returns -1 if \a ba could not be found.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 23      \sa indexOf(), contains(), count() */
+comment|/*!     \fn int QByteArray::lastIndexOf(const QByteArray&ba, int from) const      Returns the index position of the last occurrence of the byte     array \a ba in this byte array, searching backward from index     position \a from. If \a from is -1 (the default), the search     starts at the last byte. Returns -1 if \a ba could not be found.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 23      \sa indexOf(), contains(), count() */
 end_comment
 begin_function
 DECL|function|lastIndexOf
@@ -6718,7 +6718,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Returns the index position of the last occurrence of character \a     ch in the byte array, searching backward from index position \a     from. If \a from is -1 (the default), the search starts at the     last (size() - 1) byte. Returns -1 if \a ch could not be found.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 24      \sa indexOf(), contains() */
+comment|/*!     \overload      Returns the index position of the last occurrence of character \a     ch in the byte array, searching backward from index position \a     from. If \a from is -1 (the default), the search starts at the     last (size() - 1) byte. Returns -1 if \a ch could not be found.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 24      \sa indexOf(), contains() */
 end_comment
 begin_function
 DECL|function|lastIndexOf
@@ -7029,7 +7029,7 @@ begin_comment
 comment|/*! \fn int QByteArray::count() const      \overload      Same as size(). */
 end_comment
 begin_comment
-comment|/*!     Returns true if this byte array starts with byte array \a ba;     otherwise returns false.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 25      \sa endsWith(), left() */
+comment|/*!     Returns true if this byte array starts with byte array \a ba;     otherwise returns false.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 25      \sa endsWith(), left() */
 end_comment
 begin_function
 DECL|function|startsWith
@@ -7210,7 +7210,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this byte array ends with byte array \a ba;     otherwise returns false.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 26      \sa startsWith(), right() */
+comment|/*!     Returns true if this byte array ends with byte array \a ba;     otherwise returns false.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 26      \sa startsWith(), right() */
 end_comment
 begin_function
 DECL|function|endsWith
@@ -7411,7 +7411,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a byte array that contains the leftmost \a len bytes of     this byte array.      The entire byte array is returned if \a len is greater than     size().      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 27      \sa right(), mid(), startsWith(), truncate() */
+comment|/*!     Returns a byte array that contains the leftmost \a len bytes of     this byte array.      The entire byte array is returned if \a len is greater than     size().      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 27      \sa right(), mid(), startsWith(), truncate() */
 end_comment
 begin_function
 DECL|function|left
@@ -7461,7 +7461,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a byte array that contains the rightmost \a len bytes of     this byte array.      The entire byte array is returned if \a len is greater than     size().      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 28      \sa endsWith(), left(), mid() */
+comment|/*!     Returns a byte array that contains the rightmost \a len bytes of     this byte array.      The entire byte array is returned if \a len is greater than     size().      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 28      \sa endsWith(), left(), mid() */
 end_comment
 begin_function
 DECL|function|right
@@ -7517,7 +7517,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a byte array containing \a len bytes from this byte array,     starting at position \a pos.      If \a len is -1 (the default), or \a pos + \a len>= size(),     returns a byte array containing all bytes starting at position \a     pos until the end of the byte array.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 29      \sa left(), right() */
+comment|/*!     Returns a byte array containing \a len bytes from this byte array,     starting at position \a pos.      If \a len is -1 (the default), or \a pos + \a len>= size(),     returns a byte array containing all bytes starting at position \a     pos until the end of the byte array.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 29      \sa left(), right() */
 end_comment
 begin_function
 DECL|function|mid
@@ -7641,7 +7641,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a lowercase copy of the byte array. The bytearray is     interpreted as a Latin-1 encoded string.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 30      \sa toUpper(), {8-bit Character Comparisons} */
+comment|/*!     Returns a lowercase copy of the byte array. The bytearray is     interpreted as a Latin-1 encoded string.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 30      \sa toUpper(), {8-bit Character Comparisons} */
 end_comment
 begin_function
 DECL|function|toLower
@@ -7712,7 +7712,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns an uppercase copy of the byte array. The bytearray is     interpreted as a Latin-1 encoded string.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 31      \sa toLower(), {8-bit Character Comparisons} */
+comment|/*!     Returns an uppercase copy of the byte array. The bytearray is     interpreted as a Latin-1 encoded string.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 31      \sa toLower(), {8-bit Character Comparisons} */
 end_comment
 begin_function
 DECL|function|toUpper
@@ -8130,7 +8130,7 @@ begin_comment
 comment|/*! \fn const QByteArray operator+(char a1, const QByteArray&a2)     \relates QByteArray      \overload      Returns a byte array that is the result of concatenating character     \a a1 and byte array \a a2. */
 end_comment
 begin_comment
-comment|/*!     Returns a byte array that has whitespace removed from the start     and the end, and which has each sequence of internal whitespace     replaced with a single space.      Whitespace means any character for which the standard C++     isspace() function returns true. This includes the ASCII     characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' '.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 32      \sa trimmed() */
+comment|/*!     Returns a byte array that has whitespace removed from the start     and the end, and which has each sequence of internal whitespace     replaced with a single space.      Whitespace means any character for which the standard C++     isspace() function returns true. This includes the ASCII     characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' '.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 32      \sa trimmed() */
 end_comment
 begin_function
 DECL|function|simplified
@@ -8300,7 +8300,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a byte array that has whitespace removed from the start     and the end.      Whitespace means any character for which the standard C++     isspace() function returns true. This includes the ASCII     characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' '.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 33      Unlike simplified(), trimmed() leaves internal whitespace alone.      \sa simplified() */
+comment|/*!     Returns a byte array that has whitespace removed from the start     and the end.      Whitespace means any character for which the standard C++     isspace() function returns true. This includes the ASCII     characters '\\t', '\\n', '\\v', '\\f', '\\r', and ' '.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 33      Unlike simplified(), trimmed() leaves internal whitespace alone.      \sa simplified() */
 end_comment
 begin_function
 DECL|function|trimmed
@@ -8483,7 +8483,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a byte array of size \a width that contains this byte     array padded by the \a fill character.      If \a truncate is false and the size() of the byte array is more     than \a width, then the returned byte array is a copy of this byte     array.      If \a truncate is true and the size() of the byte array is more     than \a width, then any bytes in a copy of the byte array     after position \a width are removed, and the copy is returned.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 34      \sa rightJustified() */
+comment|/*!     Returns a byte array of size \a width that contains this byte     array padded by the \a fill character.      If \a truncate is false and the size() of the byte array is more     than \a width, then the returned byte array is a copy of this byte     array.      If \a truncate is true and the size() of the byte array is more     than \a width, then any bytes in a copy of the byte array     after position \a width are removed, and the copy is returned.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 34      \sa rightJustified() */
 end_comment
 begin_function
 DECL|function|leftJustified
@@ -8600,7 +8600,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a byte array of size \a width that contains the \a fill     character followed by this byte array.      If \a truncate is false and the size of the byte array is more     than \a width, then the returned byte array is a copy of this byte     array.      If \a truncate is true and the size of the byte array is more     than \a width, then the resulting byte array is truncated at     position \a width.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 35      \sa leftJustified() */
+comment|/*!     Returns a byte array of size \a width that contains the \a fill     character followed by this byte array.      If \a truncate is false and the size of the byte array is more     than \a width, then the returned byte array is a copy of this byte     array.      If \a truncate is true and the size of the byte array is more     than \a width, then the resulting byte array is truncated at     position \a width.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 35      \sa leftJustified() */
 end_comment
 begin_function
 DECL|function|rightJustified
@@ -8882,7 +8882,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the byte array converted to an \c int using base \a     base, which is 10 by default and must be between 2 and 36, or 0.      If \a base is 0, the base is determined automatically using the     following rules: If the byte array begins with "0x", it is assumed to     be hexadecimal; if it begins with "0", it is assumed to be octal;     otherwise it is assumed to be decimal.      Returns 0 if the conversion fails.      If \a ok is not 0: if a conversion error occurs, *\a{ok} is set to     false; otherwise *\a{ok} is set to true.      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 36      \note The conversion of the number is performed in the default C locale,     irrespective of the user's locale.      \sa number() */
+comment|/*!     Returns the byte array converted to an \c int using base \a     base, which is 10 by default and must be between 2 and 36, or 0.      If \a base is 0, the base is determined automatically using the     following rules: If the byte array begins with "0x", it is assumed to     be hexadecimal; if it begins with "0", it is assumed to be octal;     otherwise it is assumed to be decimal.      Returns 0 if the conversion fails.      If \a ok is not 0: if a conversion error occurs, *\a{ok} is set to     false; otherwise *\a{ok} is set to true.      \snippet code/src_corelib_tools_qbytearray.cpp 36      \note The conversion of the number is performed in the default C locale,     irrespective of the user's locale.      \sa number() */
 end_comment
 begin_function
 DECL|function|toInt
@@ -9002,7 +9002,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1      Returns the byte array converted to a \c long int using base \a     base, which is 10 by default and must be between 2 and 36, or 0.      If \a base is 0, the base is determined automatically using the     following rules: If the byte array begins with "0x", it is assumed to     be hexadecimal; if it begins with "0", it is assumed to be octal;     otherwise it is assumed to be decimal.      Returns 0 if the conversion fails.      If \a ok is not 0: if a conversion error occurs, *\a{ok} is set to     false; otherwise *\a{ok} is set to true.      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 37      \note The conversion of the number is performed in the default C locale,     irrespective of the user's locale.      \sa number() */
+comment|/*!     \since 4.1      Returns the byte array converted to a \c long int using base \a     base, which is 10 by default and must be between 2 and 36, or 0.      If \a base is 0, the base is determined automatically using the     following rules: If the byte array begins with "0x", it is assumed to     be hexadecimal; if it begins with "0", it is assumed to be octal;     otherwise it is assumed to be decimal.      Returns 0 if the conversion fails.      If \a ok is not 0: if a conversion error occurs, *\a{ok} is set to     false; otherwise *\a{ok} is set to true.      \snippet code/src_corelib_tools_qbytearray.cpp 37      \note The conversion of the number is performed in the default C locale,     irrespective of the user's locale.      \sa number() */
 end_comment
 begin_function
 DECL|function|toLong
@@ -9242,7 +9242,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the byte array converted to a \c double value.      Returns 0.0 if the conversion fails.      If \a ok is not 0: if a conversion error occurs, *\a{ok} is set to     false; otherwise *\a{ok} is set to true.      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 38      \note The conversion of the number is performed in the default C locale,     irrespective of the user's locale.      \sa number() */
+comment|/*!     Returns the byte array converted to a \c double value.      Returns 0.0 if the conversion fails.      If \a ok is not 0: if a conversion error occurs, *\a{ok} is set to     false; otherwise *\a{ok} is set to true.      \snippet code/src_corelib_tools_qbytearray.cpp 38      \note The conversion of the number is performed in the default C locale,     irrespective of the user's locale.      \sa number() */
 end_comment
 begin_function
 DECL|function|toDouble
@@ -9301,7 +9301,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a copy of the byte array, encoded as Base64.      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 39      The algorithm used to encode Base64-encoded data is defined in \l{RFC 2045}.      \sa fromBase64() */
+comment|/*!     Returns a copy of the byte array, encoded as Base64.      \snippet code/src_corelib_tools_qbytearray.cpp 39      The algorithm used to encode Base64-encoded data is defined in \l{RFC 2045}.      \sa fromBase64() */
 end_comment
 begin_function
 DECL|function|toBase64
@@ -9593,7 +9593,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      \fn QByteArray&QByteArray::setNum(int n, int base)      Sets the byte array to the printed value of \a n in base \a base (10     by default) and returns a reference to the byte array. The \a base can     be any value between 2 and 36.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 40      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa number(), toInt() */
+comment|/*!      \fn QByteArray&QByteArray::setNum(int n, int base)      Sets the byte array to the printed value of \a n in base \a base (10     by default) and returns a reference to the byte array. The \a base can     be any value between 2 and 36.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 40      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa number(), toInt() */
 end_comment
 begin_comment
 comment|/*!      \fn QByteArray&QByteArray::setNum(uint n, int base)     \overload      \sa toUInt() */
@@ -9923,7 +9923,7 @@ begin_comment
 comment|/*!      \fn QByteArray&QByteArray::setNum(float n, char f, int prec)     \overload      Sets the byte array to the printed value of \a n, formatted in format     \a f with precision \a prec, and returns a reference to the     byte array.      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa toFloat() */
 end_comment
 begin_comment
-comment|/*!     Returns a byte array containing the string equivalent of the     number \a n to base \a base (10 by default). The \a base can be     any value between 2 and 36.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 41      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa setNum(), toInt() */
+comment|/*!     Returns a byte array containing the string equivalent of the     number \a n to base \a base (10 by default). The \a base can be     any value between 2 and 36.      Example:     \snippet code/src_corelib_tools_qbytearray.cpp 41      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa setNum(), toInt() */
 end_comment
 begin_function
 DECL|function|number
@@ -10059,7 +10059,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!      \overload      Returns a byte array that contains the printed value of \a n,     formatted in format \a f with precision \a prec.      Argument \a n is formatted according to the \a f format specified,     which is \c g by default, and can be any of the following:      \table     \header \li Format \li Meaning     \row \li \c e \li format as [-]9.9e[+|-]999     \row \li \c E \li format as [-]9.9E[+|-]999     \row \li \c f \li format as [-]9.9     \row \li \c g \li use \c e or \c f format, whichever is the most concise     \row \li \c G \li use \c E or \c f format, whichever is the most concise     \endtable      With 'e', 'E', and 'f', \a prec is the number of digits after the     decimal point. With 'g' and 'G', \a prec is the maximum number of     significant digits (trailing zeroes are omitted).      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 42      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa toDouble() */
+comment|/*!      \overload      Returns a byte array that contains the printed value of \a n,     formatted in format \a f with precision \a prec.      Argument \a n is formatted according to the \a f format specified,     which is \c g by default, and can be any of the following:      \table     \header \li Format \li Meaning     \row \li \c e \li format as [-]9.9e[+|-]999     \row \li \c E \li format as [-]9.9E[+|-]999     \row \li \c f \li format as [-]9.9     \row \li \c g \li use \c e or \c f format, whichever is the most concise     \row \li \c G \li use \c E or \c f format, whichever is the most concise     \endtable      With 'e', 'E', and 'f', \a prec is the number of digits after the     decimal point. With 'g' and 'G', \a prec is the maximum number of     significant digits (trailing zeroes are omitted).      \snippet code/src_corelib_tools_qbytearray.cpp 42      \note The format of the number is not localized; the default C locale     is used irrespective of the user's locale.      \sa toDouble() */
 end_comment
 begin_function
 DECL|function|number
@@ -10098,7 +10098,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Constructs a QByteArray that uses the first \a size bytes of the     \a data array. The bytes are \e not copied. The QByteArray will     contain the \a data pointer. The caller guarantees that \a data     will not be deleted or modified as long as this QByteArray and any     copies of it exist that have not been modified. In other words,     because QByteArray is an \l{implicitly shared} class and the     instance returned by this function contains the \a data pointer,     the caller must not delete \a data or modify it directly as long     as the returned QByteArray and any copies exist. However,     QByteArray does not take ownership of \a data, so the QByteArray     destructor will never delete the raw \a data, even when the     last QByteArray referring to \a data is destroyed.      A subsequent attempt to modify the contents of the returned     QByteArray or any copy made from it will cause it to create a deep     copy of the \a data array before doing the modification. This     ensures that the raw \a data array itself will never be modified     by QByteArray.      Here is an example of how to read data using a QDataStream on raw     data in memory without copying the raw data into a QByteArray:      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 43      \warning A byte array created with fromRawData() is \e not     null-terminated, unless the raw data contains a 0 character at     position \a size. While that does not matter for QDataStream or     functions like indexOf(), passing the byte array to a function     accepting a \c{const char *} expected to be '\\0'-terminated will     fail.      \sa setRawData(), data(), constData() */
+comment|/*!     Constructs a QByteArray that uses the first \a size bytes of the     \a data array. The bytes are \e not copied. The QByteArray will     contain the \a data pointer. The caller guarantees that \a data     will not be deleted or modified as long as this QByteArray and any     copies of it exist that have not been modified. In other words,     because QByteArray is an \l{implicitly shared} class and the     instance returned by this function contains the \a data pointer,     the caller must not delete \a data or modify it directly as long     as the returned QByteArray and any copies exist. However,     QByteArray does not take ownership of \a data, so the QByteArray     destructor will never delete the raw \a data, even when the     last QByteArray referring to \a data is destroyed.      A subsequent attempt to modify the contents of the returned     QByteArray or any copy made from it will cause it to create a deep     copy of the \a data array before doing the modification. This     ensures that the raw \a data array itself will never be modified     by QByteArray.      Here is an example of how to read data using a QDataStream on raw     data in memory without copying the raw data into a QByteArray:      \snippet code/src_corelib_tools_qbytearray.cpp 43      \warning A byte array created with fromRawData() is \e not     null-terminated, unless the raw data contains a 0 character at     position \a size. While that does not matter for QDataStream or     functions like indexOf(), passing the byte array to a function     accepting a \c{const char *} expected to be '\\0'-terminated will     fail.      \sa setRawData(), data(), constData() */
 end_comment
 begin_function
 DECL|function|fromRawData
@@ -10300,7 +10300,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a decoded copy of the Base64 array \a base64. Input is not checked     for validity; invalid characters in the input are skipped, enabling the     decoding process to continue with subsequent characters.      For example:      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 44      The algorithm used to decode Base64-encoded data is defined in \l{RFC 2045}.      \sa toBase64() */
+comment|/*!     Returns a decoded copy of the Base64 array \a base64. Input is not checked     for validity; invalid characters in the input are skipped, enabling the     decoding process to continue with subsequent characters.      For example:      \snippet code/src_corelib_tools_qbytearray.cpp 44      The algorithm used to decode Base64-encoded data is defined in \l{RFC 2045}.      \sa toBase64() */
 end_comment
 begin_function
 DECL|function|fromBase64
@@ -10532,7 +10532,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a decoded copy of the hex encoded array \a hexEncoded. Input is not checked     for validity; invalid characters in the input are skipped, enabling the     decoding process to continue with subsequent characters.      For example:      \snippet doc/src/snippets/code/src_corelib_tools_qbytearray.cpp 45      \sa toHex() */
+comment|/*!     Returns a decoded copy of the hex encoded array \a hexEncoded. Input is not checked     for validity; invalid characters in the input are skipped, enabling the     decoding process to continue with subsequent characters.      For example:      \snippet code/src_corelib_tools_qbytearray.cpp 45      \sa toHex() */
 end_comment
 begin_function
 DECL|function|fromHex

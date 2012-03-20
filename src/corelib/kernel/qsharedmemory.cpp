@@ -254,7 +254,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!   The destructor clears the key, which forces the shared memory object   to \l {detach()} {detach} from its underlying shared memory   segment. If this shared memory object is the last one connected to   the shared memory segment, the detach() operation destroys the   shared memory segment.    \sa detach() isAttached()  */
+comment|/*!   The destructor clears the key, which forces the shared memory object   to \l {detach()} {detach} from its underlying shared memory   segment. If this shared memory object is the last one connected to   the shared memory segment, the detach() operation destroys the   shared memory segment.    \sa detach(), isAttached()  */
 end_comment
 begin_destructor
 DECL|function|~QSharedMemory
@@ -273,7 +273,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!   Sets the platform independent \a key for this shared memory object. If \a key   is the same as the current key, the function returns without doing anything.    You can call key() to retrieve the platform independent key. Internally,   QSharedMemory converts this key into a platform specific key. If you instead   call nativeKey(), you will get the platform specific, converted key.    If the shared memory object is attached to an underlying shared memory   segment, it will \l {detach()} {detach} from it before setting the new key.   This function does not do an attach().    \sa key() nativeKey() isAttached() */
+comment|/*!   Sets the platform independent \a key for this shared memory object. If \a key   is the same as the current key, the function returns without doing anything.    You can call key() to retrieve the platform independent key. Internally,   QSharedMemory converts this key into a platform specific key. If you instead   call nativeKey(), you will get the platform specific, converted key.    If the shared memory object is attached to an underlying shared memory   segment, it will \l {detach()} {detach} from it before setting the new key.   This function does not do an attach().    \sa key(), nativeKey(), isAttached() */
 end_comment
 begin_function
 DECL|function|setKey
@@ -346,7 +346,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.8    Sets the native, platform specific, \a key for this shared memory object. If   \a key is the same as the current native key, the function returns without   doing anything. If all you want is to assign a key to a segment, you should   call setKey() instead.    You can call nativeKey() to retrieve the native key. If a native key has been   assigned, calling key() will return a null string.    If the shared memory object is attached to an underlying shared memory   segment, it will \l {detach()} {detach} from it before setting the new key.   This function does not do an attach().    The application will not be portable if you set a native key.    \sa nativeKey() key() isAttached() */
+comment|/*!   \since 4.8    Sets the native, platform specific, \a key for this shared memory object. If   \a key is the same as the current native key, the function returns without   doing anything. If all you want is to assign a key to a segment, you should   call setKey() instead.    You can call nativeKey() to retrieve the native key. If a native key has been   assigned, calling key() will return a null string.    If the shared memory object is attached to an underlying shared memory   segment, it will \l {detach()} {detach} from it before setting the new key.   This function does not do an attach().    The application will not be portable if you set a native key.    \sa nativeKey(), key(), isAttached() */
 end_comment
 begin_function
 DECL|function|setNativeKey
@@ -588,7 +588,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the key assigned with setKey() to this shared memory, or a null key   if no key has been assigned, or if the segment is using a nativeKey(). The   key is the identifier used by Qt applications to identify the shared memory   segment.    You can find the native, platform specific, key used by the operating system   by calling nativeKey().    \sa setKey() setNativeKey()  */
+comment|/*!   Returns the key assigned with setKey() to this shared memory, or a null key   if no key has been assigned, or if the segment is using a nativeKey(). The   key is the identifier used by Qt applications to identify the shared memory   segment.    You can find the native, platform specific, key used by the operating system   by calling nativeKey().    \sa setKey(), setNativeKey()  */
 end_comment
 begin_function
 DECL|function|key
@@ -613,7 +613,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 4.8    Returns the native, platform specific, key for this shared memory object. The   native key is the identifier used by the operating system to identify the   shared memory segment.    You can use the native key to access shared memory segments that have not   been created by Qt, or to grant shared memory access to non-Qt applications.    \sa setKey() setNativeKey() */
+comment|/*!   \since 4.8    Returns the native, platform specific, key for this shared memory object. The   native key is the identifier used by the operating system to identify the   shared memory segment.    You can use the native key to access shared memory segments that have not   been created by Qt, or to grant shared memory access to non-Qt applications.    \sa setKey(), setNativeKey() */
 end_comment
 begin_function
 DECL|function|nativeKey
@@ -801,7 +801,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns the size of the attached shared memory segment. If no shared   memory segment is attached, 0 is returned.    \sa create() attach()  */
+comment|/*!   Returns the size of the attached shared memory segment. If no shared   memory segment is attached, 0 is returned.    \sa create(), attach()  */
 end_comment
 begin_function
 DECL|function|size
@@ -1048,7 +1048,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns a const pointer to the contents of the shared memory   segment, if one is attached. Otherwise it returns null. Remember to   lock the shared memory with lock() before reading from or writing to   the shared memory, and remember to release the lock with unlock()   after you are done.    \sa attach() create()  */
+comment|/*!   Returns a const pointer to the contents of the shared memory   segment, if one is attached. Otherwise it returns null. Remember to   lock the shared memory with lock() before reading from or writing to   the shared memory, and remember to release the lock with unlock()   after you are done.    \sa attach(), create()  */
 end_comment
 begin_function
 DECL|function|constData

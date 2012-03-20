@@ -3581,7 +3581,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a QLocale object with the specified \a language and \a     country.      \list     \li If the language/country pair is found in the database, it is used.     \li If the language is found but the country is not, or if the country        is \c AnyCountry, the language is used with the most        appropriate available country (for example, Germany for German),     \li If neither the language nor the country are found, QLocale        defaults to the default locale (see setDefault()).     \endlist      The language and country that are actually used can be queried     using language() and country().      \sa setDefault() language() country() */
+comment|/*!     Constructs a QLocale object with the specified \a language and \a     country.      \list     \li If the language/country pair is found in the database, it is used.     \li If the language is found but the country is not, or if the country        is \c AnyCountry, the language is used with the most        appropriate available country (for example, Germany for German),     \li If neither the language nor the country are found, QLocale        defaults to the default locale (see setDefault()).     \endlist      The language and country that are actually used can be queried     using language() and country().      \sa setDefault(), language(), country() */
 end_comment
 begin_constructor
 DECL|function|QLocale
@@ -3677,7 +3677,7 @@ block|}
 end_constructor
 begin_comment
 unit|\
-comment|/*!     \since 4.8      Constructs a QLocale object with the specified \a language, \a script and     \a country.      \list     \li If the language/script/country is found in the database, it is used.     \li If both \a script is AnyScript and \a country is AnyCountry, the        language is used with the most appropriate available script and country        (for example, Germany for German),     \li If either \a script is AnyScript or \a country is AnyCountry, the        language is used with the first locale that matches the given \a script        and \a country.     \li If neither the language nor the country are found, QLocale        defaults to the default locale (see setDefault()).     \endlist      The language, script and country that are actually used can be queried     using language(), script() and country().      \sa setDefault() language() script() country() */
+comment|/*!     \since 4.8      Constructs a QLocale object with the specified \a language, \a script and     \a country.      \list     \li If the language/script/country is found in the database, it is used.     \li If both \a script is AnyScript and \a country is AnyCountry, the        language is used with the most appropriate available script and country        (for example, Germany for German),     \li If either \a script is AnyScript or \a country is AnyCountry, the        language is used with the first locale that matches the given \a script        and \a country.     \li If neither the language nor the country are found, QLocale        defaults to the default locale (see setDefault()).     \endlist      The language, script and country that are actually used can be queried     using language(), script() and country().      \sa setDefault(), language(), script(), country() */
 end_comment
 begin_constructor
 DECL|function|QLocale
@@ -4439,7 +4439,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \nonreentrant      Sets the global default locale to \a locale. These     values are used when a QLocale object is constructed with     no arguments. If this function is not called, the system's     locale is used.      \warning In a multithreaded application, the default locale     should be set at application startup, before any non-GUI threads     are created.      \sa system() c() */
+comment|/*!     \nonreentrant      Sets the global default locale to \a locale. These     values are used when a QLocale object is constructed with     no arguments. If this function is not called, the system's     locale is used.      \warning In a multithreaded application, the default locale     should be set at application startup, before any non-GUI threads     are created.      \sa system(), c() */
 end_comment
 begin_function
 DECL|function|setDefault
@@ -5259,7 +5259,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the double represented by the localized string \a s, or     0.0 if the conversion failed.      If \a ok is not 0, reports failure by setting     *ok to false and success by setting *ok to true.      Unlike QString::toDouble(), this function does not fall back to     the "C" locale if the string cannot be interpreted in this     locale.      \snippet doc/src/snippets/code/src_corelib_tools_qlocale.cpp 3      Notice that the last conversion returns 1234.0, because '.' is the     thousands group separator in the German locale.      This function ignores leading and trailing whitespace.      \sa toFloat(), toInt(), toString() */
+comment|/*!     Returns the double represented by the localized string \a s, or     0.0 if the conversion failed.      If \a ok is not 0, reports failure by setting     *ok to false and success by setting *ok to true.      Unlike QString::toDouble(), this function does not fall back to     the "C" locale if the string cannot be interpreted in this     locale.      \snippet code/src_corelib_tools_qlocale.cpp 3      Notice that the last conversion returns 1234.0, because '.' is the     thousands group separator in the German locale.      This function ignores leading and trailing whitespace.      \sa toFloat(), toInt(), toString() */
 end_comment
 begin_function
 DECL|function|toDouble

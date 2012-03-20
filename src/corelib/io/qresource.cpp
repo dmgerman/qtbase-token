@@ -2113,7 +2113,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   \obsolete    Use QDir::searchPaths() instead.    Returns the current search path list. This list is consulted when   creating a relative resource.    \sa QDir::addSearchPath() QDir::setSearchPaths() */
+comment|/*!   \obsolete    Use QDir::searchPaths() instead.    Returns the current search path list. This list is consulted when   creating a relative resource.    \sa QDir::addSearchPath(), QDir::setSearchPaths() */
 end_comment
 begin_function
 name|QStringList

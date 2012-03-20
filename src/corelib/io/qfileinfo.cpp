@@ -806,7 +806,7 @@ begin_comment
 comment|//************* QFileInfo
 end_comment
 begin_comment
-comment|/*!     \class QFileInfo     \reentrant     \brief The QFileInfo class provides system-independent file information.      \ingroup io     \ingroup shared      QFileInfo provides information about a file's name and position     (path) in the file system, its access rights and whether it is a     directory or symbolic link, etc. The file's size and last     modified/read times are also available. QFileInfo can also be     used to obtain information about a Qt \l{resource     system}{resource}.      A QFileInfo can point to a file with either a relative or an     absolute file path. Absolute file paths begin with the directory     separator "/" (or with a drive specification on Windows). Relative     file names begin with a directory name or a file name and specify     a path relative to the current working directory. An example of an     absolute path is the string "/tmp/quartz". A relative path might     look like "src/fatlib". You can use the function isRelative() to     check whether a QFileInfo is using a relative or an absolute file     path. You can call the function makeAbsolute() to convert a     relative QFileInfo's path to an absolute path.      The file that the QFileInfo works on is set in the constructor or     later with setFile(). Use exists() to see if the file exists and     size() to get its size.      The file's type is obtained with isFile(), isDir() and     isSymLink(). The symLinkTarget() function provides the name of the file     the symlink points to.      On Unix (including Mac OS X), the symlink has the same size() has     the file it points to, because Unix handles symlinks     transparently; similarly, opening a symlink using QFile     effectively opens the link's target. For example:      \snippet doc/src/snippets/code/src_corelib_io_qfileinfo.cpp 0      On Windows, symlinks (shortcuts) are \c .lnk files. The reported     size() is that of the symlink (not the link's target), and     opening a symlink using QFile opens the \c .lnk file. For     example:      \snippet doc/src/snippets/code/src_corelib_io_qfileinfo.cpp 1      Elements of the file's name can be extracted with path() and     fileName(). The fileName()'s parts can be extracted with     baseName(), suffix() or completeSuffix(). QFileInfo objects to     directories created by Qt classes will not have a trailing file     separator. If you wish to use trailing separators in your own file     info objects, just append one to the file name given to the constructors     or setFile().      The file's dates are returned by created(), lastModified() and     lastRead(). Information about the file's access permissions is     obtained with isReadable(), isWritable() and isExecutable(). The     file's ownership is available from owner(), ownerId(), group() and     groupId(). You can examine a file's permissions and ownership in a     single statement using the permission() function.      \section1 Performance Issues      Some of QFileInfo's functions query the file system, but for     performance reasons, some functions only operate on the     file name itself. For example: To return the absolute path of     a relative file name, absolutePath() has to query the file system.     The path() function, however, can work on the file name directly,     and so it is faster.      \note To speed up performance, QFileInfo caches information about     the file.      To speed up performance, QFileInfo caches information about the     file. Because files can be changed by other users or programs, or     even by other parts of the same program, there is a function that     refreshes the file information: refresh(). If you want to switch     off a QFileInfo's caching and force it to access the file system     every time you request information from it call setCaching(false).      \sa QDir, QFile */
+comment|/*!     \class QFileInfo     \reentrant     \brief The QFileInfo class provides system-independent file information.      \ingroup io     \ingroup shared      QFileInfo provides information about a file's name and position     (path) in the file system, its access rights and whether it is a     directory or symbolic link, etc. The file's size and last     modified/read times are also available. QFileInfo can also be     used to obtain information about a Qt \l{resource     system}{resource}.      A QFileInfo can point to a file with either a relative or an     absolute file path. Absolute file paths begin with the directory     separator "/" (or with a drive specification on Windows). Relative     file names begin with a directory name or a file name and specify     a path relative to the current working directory. An example of an     absolute path is the string "/tmp/quartz". A relative path might     look like "src/fatlib". You can use the function isRelative() to     check whether a QFileInfo is using a relative or an absolute file     path. You can call the function makeAbsolute() to convert a     relative QFileInfo's path to an absolute path.      The file that the QFileInfo works on is set in the constructor or     later with setFile(). Use exists() to see if the file exists and     size() to get its size.      The file's type is obtained with isFile(), isDir() and     isSymLink(). The symLinkTarget() function provides the name of the file     the symlink points to.      On Unix (including Mac OS X), the symlink has the same size() has     the file it points to, because Unix handles symlinks     transparently; similarly, opening a symlink using QFile     effectively opens the link's target. For example:      \snippet code/src_corelib_io_qfileinfo.cpp 0      On Windows, symlinks (shortcuts) are \c .lnk files. The reported     size() is that of the symlink (not the link's target), and     opening a symlink using QFile opens the \c .lnk file. For     example:      \snippet code/src_corelib_io_qfileinfo.cpp 1      Elements of the file's name can be extracted with path() and     fileName(). The fileName()'s parts can be extracted with     baseName(), suffix() or completeSuffix(). QFileInfo objects to     directories created by Qt classes will not have a trailing file     separator. If you wish to use trailing separators in your own file     info objects, just append one to the file name given to the constructors     or setFile().      The file's dates are returned by created(), lastModified() and     lastRead(). Information about the file's access permissions is     obtained with isReadable(), isWritable() and isExecutable(). The     file's ownership is available from owner(), ownerId(), group() and     groupId(). You can examine a file's permissions and ownership in a     single statement using the permission() function.      \section1 Performance Issues      Some of QFileInfo's functions query the file system, but for     performance reasons, some functions only operate on the     file name itself. For example: To return the absolute path of     a relative file name, absolutePath() has to query the file system.     The path() function, however, can work on the file name directly,     and so it is faster.      \note To speed up performance, QFileInfo caches information about     the file.      To speed up performance, QFileInfo caches information about the     file. Because files can be changed by other users or programs, or     even by other parts of the same program, there is a function that     refreshes the file information: refresh(). If you want to switch     off a QFileInfo's caching and force it to access the file system     every time you request information from it call setCaching(false).      \sa QDir, QFile */
 end_comment
 begin_comment
 comment|/*!     \internal */
@@ -1205,7 +1205,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the file that the QFileInfo provides information about to \a     file.      The \a file can also include an absolute or relative file path.     Absolute paths begin with the directory separator (e.g. "/" under     Unix) or a drive specification (under Windows). Relative file     names begin with a directory name or a file name and specify a     path relative to the current directory.      Example:     \snippet doc/src/snippets/code/src_corelib_io_qfileinfo.cpp 2      \sa isRelative(), QDir::setCurrent(), QDir::isRelativePath() */
+comment|/*!     Sets the file that the QFileInfo provides information about to \a     file.      The \a file can also include an absolute or relative file path.     Absolute paths begin with the directory separator (e.g. "/" under     Unix) or a drive specification (under Windows). Relative file     names begin with a directory name or a file name and specify a     path relative to the current directory.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 2      \sa isRelative(), QDir::setCurrent(), QDir::isRelativePath() */
 end_comment
 begin_function
 DECL|function|setFile
@@ -1306,7 +1306,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns an absolute path including the file name.      The absolute path name consists of the full path and the file     name. On Unix this will always begin with the root, '/',     directory. On Windows this will always begin 'D:/' where D is a     drive letter, except for network shares that are not mapped to a     drive letter, in which case the path will begin '//sharename/'.     QFileInfo will uppercase drive letters. Note that QDir does not do     this. The code snippet below shows this.      \snippet doc/src/snippets/code/src_corelib_io_qfileinfo.cpp newstuff      This function returns the same as filePath(), unless isRelative()     is true. In contrast to canonicalFilePath(), symbolic links or     redundant "." or ".." elements are not necessarily removed.      If the QFileInfo is empty it returns QDir::currentPath().      \sa filePath(), canonicalFilePath(), isRelative() */
+comment|/*!     Returns an absolute path including the file name.      The absolute path name consists of the full path and the file     name. On Unix this will always begin with the root, '/',     directory. On Windows this will always begin 'D:/' where D is a     drive letter, except for network shares that are not mapped to a     drive letter, in which case the path will begin '//sharename/'.     QFileInfo will uppercase drive letters. Note that QDir does not do     this. The code snippet below shows this.      \snippet code/src_corelib_io_qfileinfo.cpp newstuff      This function returns the same as filePath(), unless isRelative()     is true. In contrast to canonicalFilePath(), symbolic links or     redundant "." or ".." elements are not necessarily removed.      If the QFileInfo is empty it returns QDir::currentPath().      \sa filePath(), canonicalFilePath(), isRelative() */
 end_comment
 begin_function
 DECL|function|absoluteFilePath
@@ -1796,7 +1796,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the name of the file, excluding the path.      Example:     \snippet doc/src/snippets/code/src_corelib_io_qfileinfo.cpp 3      Note that, if this QFileInfo object is given a path ending in a     slash, the name of the file is considered empty.      \sa isRelative(), filePath(), baseName(), extension() */
+comment|/*!     Returns the name of the file, excluding the path.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 3      Note that, if this QFileInfo object is given a path ending in a     slash, the name of the file is considered empty.      \sa isRelative(), filePath(), baseName(), extension() */
 end_comment
 begin_function
 DECL|function|fileName
@@ -1836,7 +1836,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.3     Returns the name of the bundle.      On Mac OS X this returns the proper localized name for a bundle if the     path isBundle(). On all other platforms an empty QString is returned.      Example:     \snippet doc/src/snippets/code/src_corelib_io_qfileinfo.cpp 4      \sa isBundle(), filePath(), baseName(), extension() */
+comment|/*!     \since 4.3     Returns the name of the bundle.      On Mac OS X this returns the proper localized name for a bundle if the     path isBundle(). On all other platforms an empty QString is returned.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 4      \sa isBundle(), filePath(), baseName(), extension() */
 end_comment
 begin_function
 DECL|function|bundleName
@@ -1878,7 +1878,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the base name of the file without the path.      The base name consists of all characters in the file up to (but     not including) the \e first '.' character.      Example:     \snippet doc/src/snippets/code/src_corelib_io_qfileinfo.cpp 5       The base name of a file is computed equally on all platforms, independent     of file naming conventions (e.g., ".bashrc" on Unix has an empty base     name, and the suffix is "bashrc").      \sa fileName(), suffix(), completeSuffix(), completeBaseName() */
+comment|/*!     Returns the base name of the file without the path.      The base name consists of all characters in the file up to (but     not including) the \e first '.' character.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 5       The base name of a file is computed equally on all platforms, independent     of file naming conventions (e.g., ".bashrc" on Unix has an empty base     name, and the suffix is "bashrc").      \sa fileName(), suffix(), completeSuffix(), completeBaseName() */
 end_comment
 begin_function
 DECL|function|baseName
@@ -1918,7 +1918,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the complete base name of the file without the path.      The complete base name consists of all characters in the file up     to (but not including) the \e last '.' character.      Example:     \snippet doc/src/snippets/code/src_corelib_io_qfileinfo.cpp 6      \sa fileName(), suffix(), completeSuffix(), baseName() */
+comment|/*!     Returns the complete base name of the file without the path.      The complete base name consists of all characters in the file up     to (but not including) the \e last '.' character.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 6      \sa fileName(), suffix(), completeSuffix(), baseName() */
 end_comment
 begin_function
 DECL|function|completeBaseName
@@ -1958,7 +1958,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the complete suffix of the file.      The complete suffix consists of all characters in the file after     (but not including) the first '.'.      Example:     \snippet doc/src/snippets/code/src_corelib_io_qfileinfo.cpp 7      \sa fileName(), suffix(), baseName(), completeBaseName() */
+comment|/*!     Returns the complete suffix of the file.      The complete suffix consists of all characters in the file after     (but not including) the first '.'.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 7      \sa fileName(), suffix(), baseName(), completeBaseName() */
 end_comment
 begin_function
 DECL|function|completeSuffix
@@ -1998,7 +1998,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the suffix of the file.      The suffix consists of all characters in the file after (but not     including) the last '.'.      Example:     \snippet doc/src/snippets/code/src_corelib_io_qfileinfo.cpp 8      The suffix of a file is computed equally on all platforms, independent of     file naming conventions (e.g., ".bashrc" on Unix has an empty base name,     and the suffix is "bashrc").      \sa fileName(), completeSuffix(), baseName(), completeBaseName() */
+comment|/*!     Returns the suffix of the file.      The suffix consists of all characters in the file after (but not     including) the last '.'.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 8      The suffix of a file is computed equally on all platforms, independent of     file naming conventions (e.g., ".bashrc" on Unix has an empty base name,     and the suffix is "bashrc").      \sa fileName(), completeSuffix(), baseName(), completeBaseName() */
 end_comment
 begin_function
 DECL|function|suffix
@@ -2038,7 +2038,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the path of the object's parent directory as a QDir object.      \b{Note:} The QDir returned always corresponds to the object's     parent directory, even if the QFileInfo represents a directory.      For each of the following, dir() returns a QDir for     \c{"~/examples/191697"}.      \snippet doc/src/snippets/fileinfo/main.cpp 0      For each of the following, dir() returns a QDir for     \c{"."}.      \snippet doc/src/snippets/fileinfo/main.cpp 1      \sa absolutePath(), filePath(), fileName(), isRelative(), absoluteDir() */
+comment|/*!     Returns the path of the object's parent directory as a QDir object.      \b{Note:} The QDir returned always corresponds to the object's     parent directory, even if the QFileInfo represents a directory.      For each of the following, dir() returns a QDir for     \c{"~/examples/191697"}.      \snippet fileinfo/main.cpp 0      For each of the following, dir() returns a QDir for     \c{"."}.      \snippet fileinfo/main.cpp 1      \sa absolutePath(), filePath(), fileName(), isRelative(), absoluteDir() */
 end_comment
 begin_function
 DECL|function|dir
@@ -2816,7 +2816,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this object points to a symbolic link (or to a     shortcut on Windows); otherwise returns false.      On Unix (including Mac OS X), opening a symlink effectively opens     the \l{symLinkTarget()}{link's target}. On Windows, it opens the \c     .lnk file itself.      Example:      \snippet doc/src/snippets/code/src_corelib_io_qfileinfo.cpp 9      \note If the symlink points to a non existing file, exists() returns      false.      \sa isFile(), isDir(), symLinkTarget() */
+comment|/*!     Returns true if this object points to a symbolic link (or to a     shortcut on Windows); otherwise returns false.      On Unix (including Mac OS X), opening a symlink effectively opens     the \l{symLinkTarget()}{link's target}. On Windows, it opens the \c     .lnk file itself.      Example:      \snippet code/src_corelib_io_qfileinfo.cpp 9      \note If the symlink points to a non existing file, exists() returns      false.      \sa isFile(), isDir(), symLinkTarget() */
 end_comment
 begin_function
 DECL|function|isSymLink
@@ -3350,7 +3350,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Tests for file permissions. The \a permissions argument can be     several flags of type QFile::Permissions OR-ed together to check     for permission combinations.      On systems where files do not have permissions this function     always returns true.      Example:     \snippet doc/src/snippets/code/src_corelib_io_qfileinfo.cpp 10      \sa isReadable(), isWritable(), isExecutable() */
+comment|/*!     Tests for file permissions. The \a permissions argument can be     several flags of type QFile::Permissions OR-ed together to check     for permission combinations.      On systems where files do not have permissions this function     always returns true.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 10      \sa isReadable(), isWritable(), isExecutable() */
 end_comment
 begin_function
 DECL|function|permission
@@ -3706,7 +3706,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the date and time when the file was created.      On most Unix systems, this function returns the time of the last     status change. A status change occurs when the file is created,     but it also occurs whenever the user writes or sets inode     information (for example, changing the file permissions).      If neither creation time nor "last status change" time are not     available, returns the same as lastModified().      \sa lastModified() lastRead() */
+comment|/*!     Returns the date and time when the file was created.      On most Unix systems, this function returns the time of the last     status change. A status change occurs when the file is created,     but it also occurs whenever the user writes or sets inode     information (for example, changing the file permissions).      If neither creation time nor "last status change" time are not     available, returns the same as lastModified().      \sa lastModified(), lastRead() */
 end_comment
 begin_function
 DECL|function|created
@@ -3800,7 +3800,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the date and time when the file was last modified.      \sa created() lastRead() */
+comment|/*!     Returns the date and time when the file was last modified.      \sa created(), lastRead() */
 end_comment
 begin_function
 DECL|function|lastModified
@@ -3894,7 +3894,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the date and time when the file was last read (accessed).      On platforms where this information is not available, returns the     same as lastModified().      \sa created() lastModified() */
+comment|/*!     Returns the date and time when the file was last read (accessed).      On platforms where this information is not available, returns the     same as lastModified().      \sa created(), lastModified() */
 end_comment
 begin_function
 DECL|function|lastRead

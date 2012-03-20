@@ -568,7 +568,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     This is a helper for the assignment operators of implicitly     shared classes. Your assignment operator should look like this:      \snippet doc/src/snippets/code/src.corelib.thread.qatomic.h 0 */
+comment|/*!     This is a helper for the assignment operators of implicitly     shared classes. Your assignment operator should look like this:      \snippet code/src.corelib.thread.qatomic.h 0 */
 end_comment
 begin_expr_stmt
 name|template
@@ -624,7 +624,7 @@ expr_stmt|;
 end_expr_stmt
 begin_comment
 unit|}
-comment|/*!     This is a helper for the detach method of implicitly shared     classes. Your private class needs a copy constructor which copies     the members and sets the refcount to 1. After that, your detach     function should look like this:      \snippet doc/src/snippets/code/src.corelib.thread.qatomic.h 1 */
+comment|/*!     This is a helper for the detach method of implicitly shared     classes. Your private class needs a copy constructor which copies     the members and sets the refcount to 1. After that, your detach     function should look like this:      \snippet code/src.corelib.thread.qatomic.h 1 */
 end_comment
 begin_expr_stmt
 unit|template

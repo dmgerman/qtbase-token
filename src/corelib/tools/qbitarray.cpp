@@ -24,7 +24,7 @@ file|<string.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QBitArray     \brief The QBitArray class provides an array of bits.      \ingroup tools     \ingroup shared     \reentrant      A QBitArray is an array that gives access to individual bits and     provides operators (\link operator&() AND\endlink, \link     operator|() OR\endlink, \link operator^() XOR\endlink, and \link     operator~() NOT\endlink) that work on entire arrays of bits. It     uses \l{implicit sharing} (copy-on-write) to reduce memory usage     and to avoid the needless copying of data.      The following code constructs a QBitArray containing 200 bits     initialized to false (0):      \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 0      To initialize the bits to true, either pass \c true as second     argument to the constructor, or call fill() later on.      QBitArray uses 0-based indexes, just like C++ arrays. To access     the bit at a particular index position, you can use operator[]().     On non-const bit arrays, operator[]() returns a reference to a     bit that can be used on the left side of an assignment. For     example:      \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 1      For technical reasons, it is more efficient to use testBit() and     setBit() to access bits in the array than operator[](). For     example:      \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 2      QBitArray supports \c{&} (\link operator&() AND\endlink), \c{|}     (\link operator|() OR\endlink), \c{^} (\link operator^()     XOR\endlink), \c{~} (\link operator~() NOT\endlink), as well as     \c{&=}, \c{|=}, and \c{^=}. These operators work in the same way     as the built-in C++ bitwise operators of the same name. For     example:      \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 3      For historical reasons, QBitArray distinguishes between a null     bit array and an empty bit array. A \e null bit array is a bit     array that is initialized using QBitArray's default constructor.     An \e empty bit array is any bit array with size 0. A null bit     array is always empty, but an empty bit array isn't necessarily     null:      \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 4      All functions except isNull() treat null bit arrays the same as     empty bit arrays; for example, QBitArray() compares equal to     QBitArray(0). We recommend that you always use isEmpty() and     avoid isNull().      \sa QByteArray, QVector */
+comment|/*!     \class QBitArray     \brief The QBitArray class provides an array of bits.      \ingroup tools     \ingroup shared     \reentrant      A QBitArray is an array that gives access to individual bits and     provides operators (\link operator&() AND\endlink, \link     operator|() OR\endlink, \link operator^() XOR\endlink, and \link     operator~() NOT\endlink) that work on entire arrays of bits. It     uses \l{implicit sharing} (copy-on-write) to reduce memory usage     and to avoid the needless copying of data.      The following code constructs a QBitArray containing 200 bits     initialized to false (0):      \snippet code/src_corelib_tools_qbitarray.cpp 0      To initialize the bits to true, either pass \c true as second     argument to the constructor, or call fill() later on.      QBitArray uses 0-based indexes, just like C++ arrays. To access     the bit at a particular index position, you can use operator[]().     On non-const bit arrays, operator[]() returns a reference to a     bit that can be used on the left side of an assignment. For     example:      \snippet code/src_corelib_tools_qbitarray.cpp 1      For technical reasons, it is more efficient to use testBit() and     setBit() to access bits in the array than operator[](). For     example:      \snippet code/src_corelib_tools_qbitarray.cpp 2      QBitArray supports \c{&} (\link operator&() AND\endlink), \c{|}     (\link operator|() OR\endlink), \c{^} (\link operator^()     XOR\endlink), \c{~} (\link operator~() NOT\endlink), as well as     \c{&=}, \c{|=}, and \c{^=}. These operators work in the same way     as the built-in C++ bitwise operators of the same name. For     example:      \snippet code/src_corelib_tools_qbitarray.cpp 3      For historical reasons, QBitArray distinguishes between a null     bit array and an empty bit array. A \e null bit array is a bit     array that is initialized using QBitArray's default constructor.     An \e empty bit array is any bit array with size 0. A null bit     array is always empty, but an empty bit array isn't necessarily     null:      \snippet code/src_corelib_tools_qbitarray.cpp 4      All functions except isNull() treat null bit arrays the same as     empty bit arrays; for example, QBitArray() compares equal to     QBitArray(0). We recommend that you always use isEmpty() and     avoid isNull().      \sa QByteArray, QVector */
 comment|/*! \fn QBitArray::QBitArray()      Constructs an empty bit array.      \sa isEmpty() */
 comment|/*!     Constructs a bit array containing \a size bits. The bits are     initialized with \a value, which defaults to false (0). */
 DECL|function|QBitArray
@@ -650,10 +650,10 @@ begin_comment
 comment|/*! \fn bool QBitArray::isEmpty() const      Returns true if this bit array has size 0; otherwise returns     false.      \sa size() */
 end_comment
 begin_comment
-comment|/*! \fn bool QBitArray::isNull() const      Returns true if this bit array is null; otherwise returns false.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 5      Qt makes a distinction between null bit arrays and empty bit     arrays for historical reasons. For most applications, what     matters is whether or not a bit array contains any data,     and this can be determined using isEmpty().      \sa isEmpty() */
+comment|/*! \fn bool QBitArray::isNull() const      Returns true if this bit array is null; otherwise returns false.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 5      Qt makes a distinction between null bit arrays and empty bit     arrays for historical reasons. For most applications, what     matters is whether or not a bit array contains any data,     and this can be determined using isEmpty().      \sa isEmpty() */
 end_comment
 begin_comment
-comment|/*! \fn bool QBitArray::fill(bool value, int size = -1)      Sets every bit in the bit array to \a value, returning true if successful;     otherwise returns false. If \a size is different from -1 (the default),     the bit array is resized to \a size beforehand.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 6      \sa resize() */
+comment|/*! \fn bool QBitArray::fill(bool value, int size = -1)      Sets every bit in the bit array to \a value, returning true if successful;     otherwise returns false. If \a size is different from -1 (the default),     the bit array is resized to \a size beforehand.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 6      \sa resize() */
 end_comment
 begin_comment
 comment|/*!     \overload      Sets bits at index positions \a begin up to and excluding \a end     to \a value.      \a begin and \a end must be a valid index position in the bit     array (i.e., 0<= \a begin<= size() and 0<= \a end<= size()). */
@@ -805,7 +805,7 @@ begin_comment
 comment|/*! \fn bool QBitArray::at(int i) const      Returns the value of the bit at index position \a i.      \a i must be a valid index position in the bit array (i.e., 0<=     \a i< size()).      \sa operator[]() */
 end_comment
 begin_comment
-comment|/*! \fn QBitRef QBitArray::operator[](int i)      Returns the bit at index position \a i as a modifiable reference.      \a i must be a valid index position in the bit array (i.e., 0<=     \a i< size()).      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 7      The return value is of type QBitRef, a helper class for QBitArray.     When you get an object of type QBitRef, you can assign to     it, and the assignment will apply to the bit in the QBitArray     from which you got the reference.      The functions testBit(), setBit(), and clearBit() are slightly     faster.      \sa at(), testBit(), setBit(), clearBit() */
+comment|/*! \fn QBitRef QBitArray::operator[](int i)      Returns the bit at index position \a i as a modifiable reference.      \a i must be a valid index position in the bit array (i.e., 0<=     \a i< size()).      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 7      The return value is of type QBitRef, a helper class for QBitArray.     When you get an object of type QBitRef, you can assign to     it, and the assignment will apply to the bit in the QBitArray     from which you got the reference.      The functions testBit(), setBit(), and clearBit() are slightly     faster.      \sa at(), testBit(), setBit(), clearBit() */
 end_comment
 begin_comment
 comment|/*! \fn bool QBitArray::operator[](int i) const      \overload */
@@ -832,7 +832,7 @@ begin_comment
 comment|/*! \fn bool QBitArray::operator!=(const QBitArray&other) const      Returns true if \a other is not equal to this bit array;     otherwise returns false.      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     Performs the AND operation between all bits in this bit array and     \a other. Assigns the result to this bit array, and returns a     reference to it.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 8      \sa operator&(), operator|=(), operator^=(), operator~() */
+comment|/*!     Performs the AND operation between all bits in this bit array and     \a other. Assigns the result to this bit array, and returns a     reference to it.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 8      \sa operator&(), operator|=(), operator^=(), operator~() */
 end_comment
 begin_function
 DECL|function|operator &=
@@ -962,7 +962,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Performs the OR operation between all bits in this bit array and     \a other. Assigns the result to this bit array, and returns a     reference to it.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 9      \sa operator|(), operator&=(), operator^=(), operator~() */
+comment|/*!     Performs the OR operation between all bits in this bit array and     \a other. Assigns the result to this bit array, and returns a     reference to it.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 9      \sa operator|(), operator&=(), operator^=(), operator~() */
 end_comment
 begin_function
 DECL|function|operator |=
@@ -1067,7 +1067,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Performs the XOR operation between all bits in this bit array and     \a other. Assigns the result to this bit array, and returns a     reference to it.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 10      \sa operator^(), operator&=(), operator|=(), operator~() */
+comment|/*!     Performs the XOR operation between all bits in this bit array and     \a other. Assigns the result to this bit array, and returns a     reference to it.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 10      \sa operator^(), operator&=(), operator|=(), operator~() */
 end_comment
 begin_function
 DECL|function|operator ^=
@@ -1172,7 +1172,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a bit array that contains the inverted bits of this bit     array.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 11      \sa operator&(), operator|(), operator^() */
+comment|/*!     Returns a bit array that contains the inverted bits of this bit     array.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 11      \sa operator&(), operator|(), operator^() */
 end_comment
 begin_function
 DECL|function|operator ~
@@ -1295,7 +1295,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QBitArray      Returns a bit array that is the AND of the bit arrays \a a1 and \a     a2.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 12      \sa QBitArray::operator&=(), operator|(), operator^() */
+comment|/*!     \relates QBitArray      Returns a bit array that is the AND of the bit arrays \a a1 and \a     a2.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 12      \sa QBitArray::operator&=(), operator|(), operator^() */
 end_comment
 begin_function
 DECL|function|operator &
@@ -1329,7 +1329,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QBitArray      Returns a bit array that is the OR of the bit arrays \a a1 and \a     a2.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 13      \sa QBitArray::operator|=(), operator&(), operator^() */
+comment|/*!     \relates QBitArray      Returns a bit array that is the OR of the bit arrays \a a1 and \a     a2.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 13      \sa QBitArray::operator|=(), operator&(), operator^() */
 end_comment
 begin_function
 DECL|function|operator |
@@ -1363,7 +1363,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QBitArray      Returns a bit array that is the XOR of the bit arrays \a a1 and \a     a2.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet doc/src/snippets/code/src_corelib_tools_qbitarray.cpp 14      \sa QBitArray::operator^=(), operator&(), operator|() */
+comment|/*!     \relates QBitArray      Returns a bit array that is the XOR of the bit arrays \a a1 and \a     a2.      The result has the length of the longest of the two bit arrays,     with any missing bits (if one array is shorter than the other)     taken to be 0.      Example:     \snippet code/src_corelib_tools_qbitarray.cpp 14      \sa QBitArray::operator^=(), operator&(), operator|() */
 end_comment
 begin_function
 DECL|function|operator ^
@@ -1423,7 +1423,7 @@ directive|ifndef
 name|QT_NO_DATASTREAM
 end_ifndef
 begin_comment
-comment|/*!     \relates QBitArray      Writes bit array \a ba to stream \a out.      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*!     \relates QBitArray      Writes bit array \a ba to stream \a out.      \sa {Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_function
 DECL|function|operator <<
@@ -1489,7 +1489,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \relates QBitArray      Reads a bit array into \a ba from stream \a in.      \sa \link datastreamformat.html Format of the QDataStream operators \endlink */
+comment|/*!     \relates QBitArray      Reads a bit array into \a ba from stream \a in.      \sa {Serializing Qt Data Types}{Format of the QDataStream operators} */
 end_comment
 begin_function
 DECL|function|operator >>

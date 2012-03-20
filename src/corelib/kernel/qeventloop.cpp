@@ -587,7 +587,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the event loop is running; otherwise returns     false. The event loop is considered running from the time when     exec() is called until exit() is called.      \sa exec() exit()  */
+comment|/*!     Returns true if the event loop is running; otherwise returns     false. The event loop is considered running from the time when     exec() is called until exit() is called.      \sa exec(), exit()  */
 end_comment
 begin_function
 DECL|function|isRunning

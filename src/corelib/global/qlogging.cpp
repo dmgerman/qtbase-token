@@ -73,7 +73,7 @@ end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QMessageLogContext     \relates<QtGlobal>     \brief The QMessageLogContext class provides additional information about a log message.     \since 5.0      The class provides information about the source code location a qDebug(), qWarning(),     qCritical() or qFatal() message was generated.      \sa QMessageLogger, QMessageHandler, qInstallMessageHandler() */
-comment|/*!     \class QMessageLogger     \relates<QtGlobal>     \brief The QMessageLogger class generates log messages.     \since 5.0      QMessageLogger is used to generate messages for the Qt logging framework. Usually one uses     it through qDebug(), qWarning(), qCritical, or qFatal() functions,     which are actually macros that expand to QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO).debug()     et al.      One example of direct use is to forward errors that stem from a scripting language, e.g. QML:      \snippet doc/src/snippets/code/qlogging/qloggingsnippet.cpp 1      \sa QMessageLogContext, qDebug(), qWarning(), qCritical(), qFatal() */
+comment|/*!     \class QMessageLogger     \relates<QtGlobal>     \brief The QMessageLogger class generates log messages.     \since 5.0      QMessageLogger is used to generate messages for the Qt logging framework. Usually one uses     it through qDebug(), qWarning(), qCritical, or qFatal() functions,     which are actually macros that expand to QMessageLogger(__FILE__, __LINE__, Q_FUNC_INFO).debug()     et al.      One example of direct use is to forward errors that stem from a scripting language, e.g. QML:      \snippet code/qlogging/qlogging.cpp 1      \sa QMessageLogContext, qDebug(), qWarning(), qCritical(), qFatal() */
 if|#
 directive|if
 operator|!
@@ -3143,6 +3143,18 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|/*!     \typedef QtMsgHandler     \relates<QtGlobal>     \deprecated      This is a typedef for a pointer to a function with the following     signature:      \snippet code/src_corelib_global_qglobal.cpp 7      This typedef is deprecated, you should use QMessageHandler instead.     \sa QtMsgType, QMessageHandler, qInstallMsgHandler(), qInstallMessageHandler() */
+end_comment
+begin_comment
+comment|/*!     \fn QtMsgHandler qInstallMsgHandler(QtMsgHandler handler)     \relates<QtGlobal>     \deprecated      Installs a Qt message \a handler which has been defined     previously. This method is deprecated, use qInstallMessageHandler     instead.     \sa QtMsgHandler, qInstallMessageHandler */
+end_comment
+begin_comment
+comment|/*!     \typedef QMessageHandler     \relates<QtGlobal>     \since 5.0      This is a typedef for a pointer to a function with the following     signature:      \snippet code/src_corelib_global_qglobal.cpp 49      \sa QtMsgType, qInstallMessageHandler() */
+end_comment
+begin_comment
+comment|/*!     \fn QMessageHandler qInstallMessageHandler(QMessageHandler handler)     \relates<QtGlobal>     \since 5.0      Installs a Qt message \a handler which has been defined     previously. Returns a pointer to the previous message handler     (which may be 0).      The message handler is a function that prints out debug messages,     warnings, critical and fatal error messages. The Qt library (debug     mode) contains hundreds of warning messages that are printed     when internal errors (usually invalid function arguments)     occur. Qt built in release mode also contains such warnings unless     QT_NO_WARNING_OUTPUT and/or QT_NO_DEBUG_OUTPUT have been set during     compilation. If you implement your own message handler, you get total     control of these messages.      The default message handler prints the message to the standard     output under X11 or to the debugger under Windows. If it is a     fatal message, the application aborts immediately.      Only one message handler can be defined, since this is usually     done on an application-wide basis to control debug output.      To restore the message handler, call \c qInstallMessageHandler(0).      Example:      \snippet code/src_corelib_global_qglobal.cpp 23      \sa qDebug(), qWarning(), qCritical(), qFatal(), QtMsgType,     {Debugging Techniques} */
+end_comment
 begin_function
 DECL|function|qInstallMessageHandler
 name|QMessageHandler

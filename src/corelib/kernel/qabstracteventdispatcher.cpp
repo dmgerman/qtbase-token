@@ -487,7 +487,7 @@ begin_comment
 comment|/*!     \variable QAbstractEventDispatcher::TimerInfo::timerType      The timer's type      \sa Qt::TimerType */
 end_comment
 begin_comment
-comment|/*!     \typedef QAbstractEventDispatcher::EventFilter      Typedef for a function with the signature      \snippet doc/src/snippets/code/src_corelib_kernel_qabstracteventdispatcher.cpp 0      Note that the type of the \a message is platform dependent. The     following table shows the \a {message}'s type on Windows, Mac, and     X11. You can do a static cast to these types.      \table         \header             \li Platform             \li type         \row             \li Windows             \li MSG         \row             \li X11             \li XEvent         \row             \li Mac             \li NSEvent     \endtable            \sa setEventFilter(), filterEvent() */
+comment|/*!     \typedef QAbstractEventDispatcher::EventFilter      Typedef for a function with the signature      \snippet code/src_corelib_kernel_qabstracteventdispatcher.cpp 0      Note that the type of the \a message is platform dependent. The     following table shows the \a {message}'s type on Windows, Mac, and     X11. You can do a static cast to these types.      \table         \header             \li Platform             \li type         \row             \li Windows             \li MSG         \row             \li X11             \li XEvent         \row             \li Mac             \li NSEvent     \endtable            \sa setEventFilter(), filterEvent() */
 end_comment
 begin_comment
 comment|/*!     Replaces the event filter function for this     QAbstractEventDispatcher with \a filter and returns the replaced     event filter function. Only the current event filter function is     called. If you want to use both filter functions, save the     replaced EventFilter in a place where yours can call it.      The event filter function set here is called for all messages     taken from the system event loop before the event is dispatched to     the respective target, including the messages not meant for Qt     objects.      The event filter function should return true if the message should     be filtered, (i.e. stopped). It should return false to allow     processing the message to continue.      By default, no event filter function is set (i.e., this function     returns a null EventFilter the first time it is called). */
@@ -580,7 +580,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn void QAbstractEventDispatcher::awake()      This signal is emitted after the event loop returns from a     function that could block.      \sa wakeUp() aboutToBlock() */
+comment|/*! \fn void QAbstractEventDispatcher::awake()      This signal is emitted after the event loop returns from a     function that could block.      \sa wakeUp(), aboutToBlock() */
 end_comment
 begin_comment
 comment|/*! \fn void QAbstractEventDispatcher::aboutToBlock()      This signal is emitted before the event loop calls a function that     could block.      \sa awake() */
