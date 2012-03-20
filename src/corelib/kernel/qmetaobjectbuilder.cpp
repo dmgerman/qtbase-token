@@ -132,7 +132,9 @@ modifier|&
 name|_returnType
 init|=
 name|QByteArray
-argument_list|()
+argument_list|(
+literal|"void"
+argument_list|)
 parameter_list|,
 name|QMetaMethod
 operator|::
@@ -1164,7 +1166,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds a new public method to this class with the specified     \a signature and \a returnType.  Returns an object that can be     used to adjust the other attributes of the method.  The \a signature     and \a returnType will be normalized before they are added to     the class.  If \a returnType is empty, then it indicates that     the method has \c{void} as its return type.      \sa method(), methodCount(), removeMethod(), indexOfMethod() */
+comment|/*!     Adds a new public method to this class with the specified     \a signature and \a returnType.  Returns an object that can be     used to adjust the other attributes of the method.  The \a signature     and \a returnType will be normalized before they are added to     the class.      \sa method(), methodCount(), removeMethod(), indexOfMethod() */
 end_comment
 begin_function
 DECL|function|addMethod
@@ -1486,7 +1488,9 @@ argument_list|,
 name|signature
 argument_list|,
 name|QByteArray
-argument_list|()
+argument_list|(
+literal|"void"
+argument_list|)
 argument_list|,
 name|QMetaMethod
 operator|::
@@ -1543,6 +1547,10 @@ operator|::
 name|Constructor
 argument_list|,
 name|signature
+argument_list|,
+comment|/*returnType=*/
+name|QByteArray
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

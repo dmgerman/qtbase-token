@@ -1144,7 +1144,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -1200,7 +1200,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -1256,7 +1256,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -1368,7 +1368,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 name|QList
@@ -1418,7 +1418,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -1491,7 +1491,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -1564,7 +1564,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -1710,7 +1710,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -1782,7 +1782,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -1854,7 +1854,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -1998,7 +1998,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -2071,7 +2071,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -2144,7 +2144,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -2290,7 +2290,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -2362,7 +2362,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -2434,7 +2434,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -2578,7 +2578,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -2646,7 +2646,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -2714,7 +2714,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -3768,7 +3768,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -3858,7 +3858,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -3948,7 +3948,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|""
+literal|"void"
 argument_list|)
 operator|<<
 operator|(
@@ -4413,6 +4413,16 @@ name|returnType
 argument_list|()
 argument_list|,
 name|returnType
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|method
+operator|.
+name|typeName
+argument_list|()
+operator|!=
+literal|0
 argument_list|)
 expr_stmt|;
 if|if

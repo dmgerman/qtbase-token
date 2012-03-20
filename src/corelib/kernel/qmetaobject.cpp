@@ -7410,23 +7410,6 @@ name|TypeNameIndexMask
 argument_list|)
 return|;
 else|else
-block|{
-if|if
-condition|(
-name|typeInfo
-operator|==
-name|QMetaType
-operator|::
-name|Void
-condition|)
-block|{
-comment|// QMetaMethod::typeName() is documented to return an empty string
-comment|// if the return type is void, but QMetaType::typeName() returns
-comment|// "void".
-return|return
-literal|""
-return|;
-block|}
 return|return
 name|QMetaType
 operator|::
@@ -7435,7 +7418,6 @@ argument_list|(
 name|typeInfo
 argument_list|)
 return|;
-block|}
 block|}
 end_function
 begin_function
@@ -8471,7 +8453,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the return type name of this method, or an empty string if the     return type is \e void. */
+comment|/*!     Returns the return type name of this method.      \sa returnType(), QMetaType::type() */
 end_comment
 begin_function
 DECL|function|typeName
