@@ -520,20 +520,6 @@ argument_list|(
 argument|Qt::DropActions supportedActions
 argument_list|)
 block|;
-name|void
-name|internalDrop
-argument_list|(
-name|QDropEvent
-operator|*
-name|e
-argument_list|)
-block|;
-name|void
-name|internalDrag
-argument_list|(
-argument|Qt::DropActions supportedActions
-argument_list|)
-block|;
 endif|#
 directive|endif
 comment|// QT_NO_DRAGANDDROP
