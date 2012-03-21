@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QWidget>
+file|<QtWidgets/QWidget>
 end_include
 begin_include
 include|#
 directive|include
-file|<QDialog>
+file|<QtWidgets/QDialog>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
@@ -78,6 +78,10 @@ name|showNormalButton
 block|;
 name|QPushButton
 operator|*
+name|showMinimizedButton
+block|;
+name|QPushButton
+operator|*
 name|showMaximizedButton
 block|;
 name|QPushButton
@@ -124,6 +128,10 @@ block|;
 name|QPushButton
 operator|*
 name|showNormalButton
+block|;
+name|QPushButton
+operator|*
+name|showMinimizedButton
 block|;
 name|QPushButton
 operator|*

@@ -163,6 +163,14 @@ argument_list|(
 argument|Qt::WindowFlags flags
 argument_list|)
 block|;
+name|Qt
+operator|::
+name|WindowState
+name|setWindowState
+argument_list|(
+argument|Qt::WindowState state
+argument_list|)
+block|;
 name|void
 name|setWindowTitle
 argument_list|(
@@ -308,6 +316,12 @@ operator|*
 name|parentCocoaWindow
 argument_list|()
 specifier|const
+block|;
+name|void
+name|syncWindowState
+argument_list|(
+argument|Qt::WindowState newState
+argument_list|)
 block|;
 comment|// private:
 name|public

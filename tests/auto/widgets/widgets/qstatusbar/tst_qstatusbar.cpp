@@ -843,11 +843,17 @@ operator|->
 name|processEvents
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
+comment|// Work around Lion fullscreen issues on CI system - QTQAINFRA-506
 name|mainWindow
 operator|.
 name|showFullScreen
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|Q_WS_X11
@@ -952,11 +958,16 @@ operator|->
 name|processEvents
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_MAC
 name|mainWindow
 operator|.
 name|showNormal
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 name|qApp
 operator|->
 name|processEvents
