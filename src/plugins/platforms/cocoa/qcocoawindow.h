@@ -228,6 +228,11 @@ name|void
 name|windowWillClose
 argument_list|()
 block|;
+name|bool
+name|windowIsPopupType
+argument_list|()
+specifier|const
+block|;
 name|void
 name|setCurrentContext
 argument_list|(
