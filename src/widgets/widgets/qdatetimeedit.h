@@ -557,7 +557,7 @@ argument_list|(
 specifier|const
 name|QDateTime
 operator|&
-name|date
+name|dateTime
 argument_list|)
 block|;
 name|void
@@ -566,7 +566,7 @@ argument_list|(
 specifier|const
 name|QTime
 operator|&
-name|date
+name|time
 argument_list|)
 block|;
 name|void
