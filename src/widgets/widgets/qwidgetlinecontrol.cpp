@@ -2040,6 +2040,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|m_selstart
+operator|!=
+name|m_selend
+condition|)
+name|selectionChange
+operator|=
+literal|true
+expr_stmt|;
 name|m_selstart
 operator|=
 name|m_selend
