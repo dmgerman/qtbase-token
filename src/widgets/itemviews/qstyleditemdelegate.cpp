@@ -1509,46 +1509,6 @@ operator|.
 name|name
 argument_list|()
 decl_stmt|;
-comment|// ### Qt 5: remove
-comment|// A work-around for missing "USER true" in qdatetimeedit.h for
-comment|// QTimeEdit's time property and QDateEdit's date property.
-comment|// It only triggers if the default user property "dateTime" is
-comment|// reported for QTimeEdit and QDateEdit.
-if|if
-condition|(
-name|n
-operator|==
-literal|"dateTime"
-condition|)
-block|{
-if|if
-condition|(
-name|editor
-operator|->
-name|inherits
-argument_list|(
-literal|"QTimeEdit"
-argument_list|)
-condition|)
-name|n
-operator|=
-literal|"time"
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|editor
-operator|->
-name|inherits
-argument_list|(
-literal|"QDateEdit"
-argument_list|)
-condition|)
-name|n
-operator|=
-literal|"date"
-expr_stmt|;
-block|}
 comment|// ### Qt 5: give QComboBox a USER property
 if|if
 condition|(

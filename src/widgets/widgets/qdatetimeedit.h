@@ -754,6 +754,10 @@ name|public
 name|QDateTimeEdit
 block|{
 name|Q_OBJECT
+name|Q_PROPERTY
+argument_list|(
+argument|QTime time READ time WRITE setTime NOTIFY userTimeChanged USER true
+argument_list|)
 name|public
 operator|:
 name|QTimeEdit
@@ -778,6 +782,17 @@ name|parent
 operator|=
 literal|0
 argument_list|)
+block|;
+name|Q_SIGNALS
+operator|:
+name|void
+name|userTimeChanged
+argument_list|(
+specifier|const
+name|QTime
+operator|&
+name|time
+argument_list|)
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -790,6 +805,10 @@ name|public
 name|QDateTimeEdit
 block|{
 name|Q_OBJECT
+name|Q_PROPERTY
+argument_list|(
+argument|QDate date READ date WRITE setDate NOTIFY userDateChanged USER true
+argument_list|)
 name|public
 operator|:
 name|QDateEdit
@@ -813,6 +832,17 @@ operator|*
 name|parent
 operator|=
 literal|0
+argument_list|)
+block|;
+name|Q_SIGNALS
+operator|:
+name|void
+name|userDateChanged
+argument_list|(
+specifier|const
+name|QDate
+operator|&
+name|date
 argument_list|)
 block|; }
 decl_stmt|;
