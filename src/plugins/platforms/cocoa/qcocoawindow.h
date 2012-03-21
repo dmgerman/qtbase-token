@@ -184,6 +184,12 @@ name|void
 name|propagateSizeHints
 argument_list|()
 block|;
+name|void
+name|setOpacity
+argument_list|(
+argument|qreal level
+argument_list|)
+block|;
 name|bool
 name|setKeyboardGrabEnabled
 argument_list|(
