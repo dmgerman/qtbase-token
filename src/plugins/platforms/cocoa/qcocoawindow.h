@@ -312,7 +312,7 @@ name|QNSView
 operator|*
 name|m_contentView
 block|;
-name|QNSWindow
+name|NSWindow
 operator|*
 name|m_nsWindow
 block|;
