@@ -33,6 +33,7 @@ begin_empty
 empty|#import<Cocoa/Cocoa.h>
 end_empty
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|class
 name|QMacPasteboard
 block|{
@@ -264,6 +265,9 @@ name|paste
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif
