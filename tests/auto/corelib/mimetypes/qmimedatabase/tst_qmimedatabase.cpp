@@ -70,7 +70,7 @@ name|qputenv
 argument_list|(
 literal|"LANG"
 argument_list|,
-literal|"en_US"
+literal|"C"
 argument_list|)
 expr_stmt|;
 name|QCoreApplication
