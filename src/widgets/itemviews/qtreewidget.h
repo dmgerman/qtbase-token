@@ -1726,17 +1726,6 @@ argument|Qt::SortOrder order
 argument_list|)
 block|;
 name|void
-name|setSortingEnabled
-argument_list|(
-argument|bool enable
-argument_list|)
-block|;
-name|bool
-name|isSortingEnabled
-argument_list|()
-specifier|const
-block|;
-name|void
 name|editItem
 argument_list|(
 argument|QTreeWidgetItem *item
