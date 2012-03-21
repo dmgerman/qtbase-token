@@ -1591,15 +1591,6 @@ block|;
 name|int
 name|indexOfTopLevelItem
 argument_list|(
-name|QTreeWidgetItem
-operator|*
-name|item
-argument_list|)
-block|;
-comment|// ### Qt 5: remove me
-name|int
-name|indexOfTopLevelItem
-argument_list|(
 argument|QTreeWidgetItem *item
 argument_list|)
 specifier|const
