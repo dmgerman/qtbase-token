@@ -284,6 +284,15 @@ operator|>
 name|dictionary
 expr_stmt|;
 name|QStringList
+name|defaultBuildParts
+decl_stmt|;
+name|QStringList
+name|buildParts
+decl_stmt|;
+name|QStringList
+name|nobuildParts
+decl_stmt|;
+name|QStringList
 name|licensedModules
 decl_stmt|;
 name|QStringList
@@ -300,9 +309,6 @@ name|enabledModules
 decl_stmt|;
 name|QStringList
 name|modules
-decl_stmt|;
-name|QStringList
-name|disabledBuildParts
 decl_stmt|;
 comment|//    QStringList sqlDrivers;
 name|QStringList
