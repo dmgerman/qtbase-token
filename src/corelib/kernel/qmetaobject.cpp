@@ -6478,17 +6478,21 @@ operator|++
 name|d
 expr_stmt|;
 block|}
+comment|// "void" should only be removed if this is part of a signature that has
+comment|// an explicit void argument; e.g., "void foo(void)" --> "void foo()"
 if|if
 condition|(
 name|strncmp
 argument_list|(
-literal|"void"
+literal|"void)"
 argument_list|,
 name|t
 argument_list|,
 name|d
 operator|-
 name|t
+operator|+
+literal|1
 argument_list|)
 operator|!=
 literal|0
