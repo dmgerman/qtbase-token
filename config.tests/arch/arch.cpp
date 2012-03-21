@@ -96,6 +96,10 @@ argument_list|(
 name|Q_PROCESSOR_ALPHA
 argument_list|)
 end_if
+begin_label
+name|Architecture
+label|:
+end_label
 begin_decl_stmt
 name|alpha
 elif|#
@@ -104,6 +108,8 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_ARM
 argument_list|)
+name|Architecture
+range|:
 name|arm
 elif|#
 directive|elif
@@ -111,6 +117,8 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_AVR32
 argument_list|)
+name|Architecture
+operator|:
 name|avr32
 elif|#
 directive|elif
@@ -118,6 +126,8 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_BLACKFIN
 argument_list|)
+name|Architecture
+operator|:
 name|bfin
 elif|#
 directive|elif
@@ -125,6 +135,8 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_X86_32
 argument_list|)
+name|Architecture
+operator|:
 name|i386
 elif|#
 directive|elif
@@ -132,6 +144,8 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_X86_64
 argument_list|)
+name|Architecture
+operator|:
 name|x86_64
 elif|#
 directive|elif
@@ -139,6 +153,8 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_IA64
 argument_list|)
+name|Architecture
+operator|:
 name|ia64
 elif|#
 directive|elif
@@ -146,6 +162,8 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_MIPS
 argument_list|)
+name|Architecture
+operator|:
 name|mips
 elif|#
 directive|elif
@@ -153,6 +171,8 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_POWER
 argument_list|)
+name|Architecture
+operator|:
 name|power
 elif|#
 directive|elif
@@ -160,6 +180,8 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_S390
 argument_list|)
+name|Architecture
+operator|:
 name|s390
 elif|#
 directive|elif
@@ -167,6 +189,8 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_SH
 argument_list|)
+name|Architecture
+operator|:
 name|sh
 elif|#
 directive|elif
@@ -174,9 +198,13 @@ name|defined
 argument_list|(
 name|Q_PROCESSOR_SPARC
 argument_list|)
+name|Architecture
+operator|:
 name|sparc
 else|#
 directive|else
+name|Architecture
+operator|:
 name|unknown
 end_decl_stmt
 begin_endif
