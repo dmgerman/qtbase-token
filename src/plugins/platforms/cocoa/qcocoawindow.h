@@ -360,6 +360,9 @@ block|;
 name|QCocoaGLContext
 operator|*
 name|m_glContext
+block|;
+name|bool
+name|m_hasModalSession
 block|; }
 decl_stmt|;
 end_decl_stmt
