@@ -1044,35 +1044,6 @@ name|void
 name|endLink
 argument_list|()
 block|;
-name|bool
-name|generatePageElement
-argument_list|(
-argument|QXmlStreamWriter& writer
-argument_list|,
-argument|const Node* node
-argument_list|,
-argument|CodeMarker* marker
-argument_list|)
-specifier|const
-block|;
-name|void
-name|generatePageElements
-argument_list|(
-argument|QXmlStreamWriter& writer
-argument_list|,
-argument|const Node* node
-argument_list|,
-argument|CodeMarker* marker
-argument_list|)
-specifier|const
-block|;
-name|void
-name|generatePageIndex
-argument_list|(
-argument|const QString& fileName
-argument_list|)
-specifier|const
-block|;
 name|void
 name|generateExtractionMark
 argument_list|(
