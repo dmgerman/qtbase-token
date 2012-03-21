@@ -10053,7 +10053,7 @@ operator|::
 name|QmlClass
 case|:
 return|return
-literal|"element"
+literal|"type"
 return|;
 case|case
 name|Node
