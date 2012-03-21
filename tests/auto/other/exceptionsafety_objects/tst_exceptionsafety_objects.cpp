@@ -1935,11 +1935,6 @@ argument_list|(
 name|QTreeWidget
 argument_list|)
 expr_stmt|;
-name|NEWROW
-argument_list|(
-name|QWorkspace
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 begin_function
@@ -2185,13 +2180,6 @@ operator|==
 name|QLatin1String
 argument_list|(
 literal|"QTreeWidget"
-argument_list|)
-operator|||
-name|tag
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"QWorkspace"
 argument_list|)
 condition|)
 name|QSKIP

@@ -10172,16 +10172,6 @@ end_macro
 begin_macro
 name|QT_CLASS_LIB
 argument_list|(
-argument|QWorkspace
-argument_list|,
-argument|QtWidgets
-argument_list|,
-argument|qworkspace.h
-argument_list|)
-end_macro
-begin_macro
-name|QT_CLASS_LIB
-argument_list|(
 argument|QScriptEngineDebugger
 argument_list|,
 argument|QtScriptTools
