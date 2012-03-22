@@ -401,7 +401,7 @@ decl_stmt|;
 name|int
 name|num
 init|=
-name|qHash
+name|qt_hash
 argument_list|(
 name|st
 argument_list|)

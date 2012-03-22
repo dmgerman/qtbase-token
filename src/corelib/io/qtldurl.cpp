@@ -48,7 +48,7 @@ block|{
 name|int
 name|index
 init|=
-name|qHash
+name|qt_hash
 argument_list|(
 name|entry
 argument_list|)

@@ -2775,9 +2775,12 @@ specifier|const
 name|uint
 name|h
 init|=
-name|qHash
+name|qt_hash
 argument_list|(
 name|segment
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|//do the binary search for the hash

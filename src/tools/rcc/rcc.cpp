@@ -1241,7 +1241,7 @@ name|lib
 operator|.
 name|writeNumber4
 argument_list|(
-name|qHash
+name|qt_hash
 argument_list|(
 name|m_name
 argument_list|)
@@ -4757,14 +4757,14 @@ name|right
 parameter_list|)
 block|{
 return|return
-name|qHash
+name|qt_hash
 argument_list|(
 name|left
 operator|->
 name|m_name
 argument_list|)
 operator|<
-name|qHash
+name|qt_hash
 argument_list|(
 name|right
 operator|->
