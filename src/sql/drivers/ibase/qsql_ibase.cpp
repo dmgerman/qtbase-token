@@ -10592,13 +10592,13 @@ return|;
 end_return
 begin_macro
 unit|}  bool
-DECL|function|subscribeToNotificationImplementation
+DECL|function|subscribeToNotification
 name|QIBaseDriver
 end_macro
 begin_expr_stmt
-DECL|function|subscribeToNotificationImplementation
+DECL|function|subscribeToNotification
 operator|::
-name|subscribeToNotificationImplementation
+name|subscribeToNotification
 operator|(
 specifier|const
 name|QString
@@ -10863,13 +10863,13 @@ return|;
 end_return
 begin_macro
 unit|}  bool
-DECL|function|unsubscribeFromNotificationImplementation
+DECL|function|unsubscribeFromNotification
 name|QIBaseDriver
 end_macro
 begin_expr_stmt
-DECL|function|unsubscribeFromNotificationImplementation
+DECL|function|unsubscribeFromNotification
 operator|::
-name|unsubscribeFromNotificationImplementation
+name|unsubscribeFromNotification
 operator|(
 specifier|const
 name|QString
@@ -11037,13 +11037,13 @@ return|;
 end_return
 begin_macro
 unit|}  QStringList
-DECL|function|subscribedToNotificationsImplementation
+DECL|function|subscribedToNotifications
 name|QIBaseDriver
 end_macro
 begin_expr_stmt
-DECL|function|subscribedToNotificationsImplementation
+DECL|function|subscribedToNotifications
 operator|::
-name|subscribedToNotificationsImplementation
+name|subscribedToNotifications
 operator|(
 operator|)
 specifier|const

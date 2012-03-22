@@ -13867,11 +13867,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isIdentifierEscapedImplementation
+DECL|function|isIdentifierEscaped
 name|bool
 name|QODBCDriver
 operator|::
-name|isIdentifierEscapedImplementation
+name|isIdentifierEscaped
 parameter_list|(
 specifier|const
 name|QString

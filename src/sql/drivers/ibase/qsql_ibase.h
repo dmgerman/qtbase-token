@@ -301,11 +301,8 @@ argument|IdentifierType type
 argument_list|)
 specifier|const
 block|;
-name|protected
-name|Q_SLOTS
-operator|:
 name|bool
-name|subscribeToNotificationImplementation
+name|subscribeToNotification
 argument_list|(
 specifier|const
 name|QString
@@ -314,7 +311,7 @@ name|name
 argument_list|)
 block|;
 name|bool
-name|unsubscribeFromNotificationImplementation
+name|unsubscribeFromNotification
 argument_list|(
 specifier|const
 name|QString
@@ -323,7 +320,7 @@ name|name
 argument_list|)
 block|;
 name|QStringList
-name|subscribedToNotificationsImplementation
+name|subscribedToNotifications
 argument_list|()
 specifier|const
 block|;

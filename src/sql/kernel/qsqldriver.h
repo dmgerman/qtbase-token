@@ -318,6 +318,7 @@ argument_list|)
 operator|=
 literal|0
 block|;
+name|virtual
 name|bool
 name|subscribeToNotification
 argument_list|(
@@ -327,7 +328,7 @@ operator|&
 name|name
 argument_list|)
 block|;
-comment|// ### Qt 5: make virtual
+name|virtual
 name|bool
 name|unsubscribeFromNotification
 argument_list|(
@@ -337,13 +338,13 @@ operator|&
 name|name
 argument_list|)
 block|;
-comment|// ### Qt 5: make virtual
+name|virtual
 name|QStringList
 name|subscribedToNotifications
 argument_list|()
 specifier|const
 block|;
-comment|// ### Qt 5: make virtual
+name|virtual
 name|bool
 name|isIdentifierEscaped
 argument_list|(
@@ -353,7 +354,7 @@ argument|IdentifierType type
 argument_list|)
 specifier|const
 block|;
-comment|// ### Qt 5: make virtual
+name|virtual
 name|QString
 name|stripDelimiters
 argument_list|(
@@ -363,7 +364,6 @@ argument|IdentifierType type
 argument_list|)
 specifier|const
 block|;
-comment|// ### Qt 5: make virtual
 name|void
 name|setNumericalPrecisionPolicy
 argument_list|(
@@ -422,55 +422,6 @@ operator|&
 name|e
 argument_list|)
 block|;
-name|protected
-name|Q_SLOTS
-operator|:
-name|bool
-name|subscribeToNotificationImplementation
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|name
-argument_list|)
-block|;
-comment|// ### Qt 5: eliminate, see subscribeToNotification()
-name|bool
-name|unsubscribeFromNotificationImplementation
-argument_list|(
-specifier|const
-name|QString
-operator|&
-name|name
-argument_list|)
-block|;
-comment|// ### Qt 5: eliminate, see unsubscribeFromNotification()
-name|QStringList
-name|subscribedToNotificationsImplementation
-argument_list|()
-specifier|const
-block|;
-comment|// ### Qt 5: eliminate, see subscribedNotifications()
-name|bool
-name|isIdentifierEscapedImplementation
-argument_list|(
-argument|const QString&identifier
-argument_list|,
-argument|IdentifierType type
-argument_list|)
-specifier|const
-block|;
-comment|// ### Qt 5: eliminate, see isIdentifierEscaped()
-name|QString
-name|stripDelimitersImplementation
-argument_list|(
-argument|const QString&identifier
-argument_list|,
-argument|IdentifierType type
-argument_list|)
-specifier|const
-block|;
-comment|// ### Qt 5: eliminate, see stripDelimiters()
 name|private
 operator|:
 name|Q_DISABLE_COPY
