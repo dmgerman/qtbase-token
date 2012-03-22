@@ -1323,7 +1323,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QGuiApplication::platformName     \brief The name of the underlying platform plugin.     \since 5.0 */
+comment|/*!     \property QGuiApplication::platformName     \brief The name of the underlying platform plugin. */
 end_comment
 begin_function
 DECL|function|platformName
@@ -8687,7 +8687,7 @@ begin_comment
 comment|// QT_NO_CURSOR
 end_comment
 begin_comment
-comment|/*!   \since 5.0    Returns the application's style hints.    The style hints encapsulate a set of platform dependent properties   such as double click intervals, full width selection and others.    The hints can be used to integrate tighter with the underlying platform.    \sa QStyleHints   */
+comment|/*!   Returns the application's style hints.    The style hints encapsulate a set of platform dependent properties   such as double click intervals, full width selection and others.    The hints can be used to integrate tighter with the underlying platform.    \sa QStyleHints   */
 end_comment
 begin_function
 DECL|function|styleHints
@@ -8820,7 +8820,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 5.0    returns the input panel.    The input panel returns properties about the state and position of   the virtual keyboard. It also provides information about the position of the   current focused input element.    \sa QInputPanel   */
+comment|/*!   returns the input panel.    The input panel returns properties about the state and position of   the virtual keyboard. It also provides information about the position of the   current focused input element.    \sa QInputPanel   */
 end_comment
 begin_function
 DECL|function|inputPanel
@@ -8839,7 +8839,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5     \fn void QGuiApplication::fontDatabaseChanged()      This signal is emitted when application fonts are loaded or removed.      \sa QFontDatabase::addApplicationFont(),     QFontDatabase::addApplicationFontFromData(),     QFontDatabase::removeAllApplicationFonts(),     QFontDatabase::removeApplicationFont() */
+comment|/*!     \fn void QGuiApplication::fontDatabaseChanged()      This signal is emitted when application fonts are loaded or removed.      \sa QFontDatabase::addApplicationFont(),     QFontDatabase::addApplicationFontFromData(),     QFontDatabase::removeAllApplicationFonts(),     QFontDatabase::removeApplicationFont() */
 end_comment
 begin_comment
 comment|// These pixmaps approximate the images in the Windows User Interface Guidelines.

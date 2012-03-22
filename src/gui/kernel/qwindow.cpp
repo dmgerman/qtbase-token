@@ -447,7 +447,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::visible     \brief whether the window is visible or not     \since 5.0      This property controls the visibility of the window in the windowing system.      By default, the window is not visible, you must call setVisible(true), or     show() or similar to make it visible.      \sa show() */
+comment|/*!     \property QWindow::visible     \brief whether the window is visible or not      This property controls the visibility of the window in the windowing system.      By default, the window is not visible, you must call setVisible(true), or     show() or similar to make it visible.      \sa show() */
 end_comment
 begin_function
 DECL|function|setVisible
@@ -1215,7 +1215,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::windowTitle     \brief the window's title in the windowing system     \since 5.0      The window title might appear in the title area of the window decorations,     depending on the windowing system and the window flags. It might also     be used by the windowing system to identify the window in other contexts,     such as in the task switcher.      \sa windowFlags() */
+comment|/*!     \property QWindow::windowTitle     \brief the window's title in the windowing system      The window title might appear in the title area of the window decorations,     depending on the windowing system and the window flags. It might also     be used by the windowing system to identify the window in other contexts,     such as in the task switcher.      \sa windowFlags() */
 end_comment
 begin_function
 DECL|function|setWindowTitle
@@ -1556,7 +1556,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::contentOrientation     \since 5.0     \brief the orientation of the window's contents      This is a hint to the window manager in case it needs to display     additional content like popups, dialogs, status bars, or similar     in relation to the window.      The recommended orientation is QScreen::orientation() but     an application doesn't have to support all possible orientations,     and thus can opt to ignore the current screen orientation.      The difference between the window and the content orientation     determines how much to rotate the content by. QScreen::angleBetween(),     QScreen::transformBetween(), and QScreen::mapBetween() can be used     to compute the necessary transform.      The default value is Qt::PrimaryOrientation      \sa requestWindowOrientation(), QScreen::orientation() */
+comment|/*!     \property QWindow::contentOrientation     \brief the orientation of the window's contents      This is a hint to the window manager in case it needs to display     additional content like popups, dialogs, status bars, or similar     in relation to the window.      The recommended orientation is QScreen::orientation() but     an application doesn't have to support all possible orientations,     and thus can opt to ignore the current screen orientation.      The difference between the window and the content orientation     determines how much to rotate the content by. QScreen::angleBetween(),     QScreen::transformBetween(), and QScreen::mapBetween() can be used     to compute the necessary transform.      The default value is Qt::PrimaryOrientation      \sa requestWindowOrientation(), QScreen::orientation() */
 end_comment
 begin_function
 DECL|function|reportContentOrientationChange
@@ -2514,16 +2514,16 @@ emit|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QWindow::x     \since 5.0     \brief the x position of the window's geometry */
+comment|/*!     \property QWindow::x     \brief the x position of the window's geometry */
 end_comment
 begin_comment
-comment|/*!     \property QWindow::y     \since 5.0     \brief the y position of the window's geometry */
+comment|/*!     \property QWindow::y     \brief the y position of the window's geometry */
 end_comment
 begin_comment
-comment|/*!     \property QWindow::width     \since 5.0     \brief the width of the window's geometry */
+comment|/*!     \property QWindow::width     \brief the width of the window's geometry */
 end_comment
 begin_comment
-comment|/*!     \property QWindow::height     \since 5.0     \brief the height of the window's geometry */
+comment|/*!     \property QWindow::height     \brief the height of the window's geometry */
 end_comment
 begin_comment
 comment|/*!     Returns the geometry of the window, excluding its window frame.      \sa frameMargins(), frameGeometry() */
