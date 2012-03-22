@@ -393,7 +393,7 @@ name|notification
 argument_list|(
 argument|const QString&name
 argument_list|,
-argument|NotificationSource source
+argument|QSqlDriver::NotificationSource source
 argument_list|)
 block|;
 name|protected
