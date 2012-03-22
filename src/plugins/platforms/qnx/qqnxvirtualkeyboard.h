@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtCore/QThread>
+file|<QtCore/QObject>
 end_include
 begin_include
 include|#
@@ -54,13 +54,19 @@ directive|include
 file|<sys/pps.h>
 end_include
 begin_decl_stmt
+DECL|variable|QSocketNotifier
+name|class
+name|QSocketNotifier
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/* Shamelessly copied from the browser - this should be rewritten once we have a proper PPS wrapper class */
 name|class
 name|QQnxVirtualKeyboard
 range|:
 name|public
-name|QThread
+name|QObject
 block|{
 name|Q_OBJECT
 name|public
@@ -157,6 +163,13 @@ return|return
 name|m_locale
 return|;
 block|}
+name|public
+name|Q_SLOTS
+operator|:
+name|void
+name|start
+argument_list|()
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
@@ -175,6 +188,13 @@ argument|bool visible
 argument_list|)
 block|;
 name|private
+name|Q_SLOTS
+operator|:
+name|void
+name|ppsDataReady
+argument_list|()
+block|;
+name|private
 operator|:
 name|QQnxVirtualKeyboard
 argument_list|()
@@ -191,10 +211,6 @@ argument_list|()
 block|;
 name|void
 name|close
-argument_list|()
-block|;
-name|void
-name|ppsDataReady
 argument_list|()
 block|;
 name|bool
@@ -251,12 +267,6 @@ name|void
 name|addPinModeOptions
 argument_list|()
 block|;
-comment|// QThread overrides
-name|virtual
-name|void
-name|run
-argument_list|()
-block|;
 name|pps_encoder_t
 operator|*
 name|m_encoder
@@ -283,6 +293,10 @@ name|m_visible
 block|;
 name|QLocale
 name|m_locale
+block|;
+name|QSocketNotifier
+operator|*
+name|m_readNotifier
 block|;
 comment|// Path to keyboardManager in PPS.
 specifier|static
