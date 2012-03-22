@@ -5507,7 +5507,7 @@ literal|"QVariant"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qFree
+name|free
 argument_list|(
 name|meta
 argument_list|)
@@ -9735,7 +9735,7 @@ name|~
 name|TestObject
 parameter_list|()
 block|{
-name|qFree
+name|free
 argument_list|(
 name|m_metaObject
 argument_list|)

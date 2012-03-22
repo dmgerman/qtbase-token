@@ -18,6 +18,11 @@ include|#
 directive|include
 file|<QtCore/qglobal.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<stdlib.h>
+end_include
 begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -141,7 +146,7 @@ if|if
 condition|(
 name|pointer
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|pointer
 argument_list|)

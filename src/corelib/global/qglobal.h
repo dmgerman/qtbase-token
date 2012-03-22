@@ -5729,8 +5729,16 @@ block|;
 endif|#
 directive|endif
 block|}
-comment|/*    These functions make it possible to use standard C++ functions with    a similar name from Qt header files (especially template classes). */
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
 name|Q_CORE_EXPORT
+name|QT_DEPRECATED
 name|void
 operator|*
 name|qMalloc
@@ -5745,6 +5753,7 @@ expr_stmt|;
 end_expr_stmt
 begin_function_decl
 name|Q_CORE_EXPORT
+name|QT_DEPRECATED
 name|void
 name|qFree
 parameter_list|(
@@ -5756,6 +5765,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|Q_CORE_EXPORT
+name|QT_DEPRECATED
 name|void
 modifier|*
 name|qRealloc
@@ -5775,6 +5785,10 @@ begin_empty_stmt
 unit|)
 empty_stmt|;
 end_empty_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function_decl
 name|Q_CORE_EXPORT
 name|void

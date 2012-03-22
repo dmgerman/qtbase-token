@@ -69,6 +69,11 @@ end_endif
 begin_include
 include|#
 directive|include
+file|<stdlib.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<new>
 end_include
 begin_include
@@ -5620,7 +5625,7 @@ argument_list|(
 argument|...
 argument_list|)
 block|{
-name|qFree
+name|free
 argument_list|(
 name|d
 argument_list|)
@@ -5702,7 +5707,7 @@ name|i
 operator|)
 argument_list|)
 block|;
-name|qFree
+name|free
 argument_list|(
 name|d
 argument_list|)
@@ -5829,7 +5834,7 @@ argument_list|(
 argument|...
 argument_list|)
 block|{
-name|qFree
+name|free
 argument_list|(
 name|d
 argument_list|)
@@ -5952,7 +5957,7 @@ if|if
 condition|(
 name|d_
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|d_
 argument_list|)
@@ -6260,7 +6265,7 @@ name|end
 operator|)
 argument_list|)
 block|;
-name|qFree
+name|free
 argument_list|(
 name|data
 argument_list|)

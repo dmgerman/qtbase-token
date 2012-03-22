@@ -53,6 +53,11 @@ include|#
 directive|include
 file|<stdio.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<stdlib.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QBenchmarkResult
@@ -280,7 +285,7 @@ name|buf
 operator|!=
 name|staticBuf
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|buf
 argument_list|)
@@ -365,7 +370,7 @@ name|char
 operator|*
 operator|>
 operator|(
-name|qMalloc
+name|malloc
 argument_list|(
 name|newSize
 argument_list|)
@@ -383,7 +388,7 @@ name|char
 operator|*
 operator|>
 operator|(
-name|qRealloc
+name|realloc
 argument_list|(
 name|buf
 argument_list|,

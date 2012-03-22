@@ -68,6 +68,11 @@ include|#
 directive|include
 file|<cstring>
 end_include
+begin_include
+include|#
+directive|include
+file|<stdlib.h>
+end_include
 begin_decl_stmt
 name|QT_QML_BEGIN_NAMESPACE
 name|namespace
@@ -164,13 +169,13 @@ index|[
 name|i
 index|]
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|b
 argument_list|)
 expr_stmt|;
 block|}
-name|qFree
+name|free
 argument_list|(
 name|_blocks
 argument_list|)
@@ -290,7 +295,7 @@ name|char
 operator|*
 operator|*
 operator|)
-name|qRealloc
+name|realloc
 argument_list|(
 name|_blocks
 argument_list|,
@@ -346,7 +351,7 @@ operator|(
 name|char
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|BLOCK_SIZE
 argument_list|)

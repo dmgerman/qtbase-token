@@ -48,6 +48,11 @@ include|#
 directive|include
 file|"QtCore/qbytearray.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<stdlib.h>
+end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
 name|template
@@ -79,7 +84,7 @@ operator|(
 name|Type
 operator|*
 operator|)
-name|qMalloc
+name|malloc
 argument_list|(
 name|capacity
 operator|*
@@ -106,7 +111,7 @@ if|if
 condition|(
 name|buffer
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|buffer
 argument_list|)
@@ -430,7 +435,7 @@ operator|(
 name|Type
 operator|*
 operator|)
-name|qRealloc
+name|realloc
 argument_list|(
 name|buffer
 argument_list|,
@@ -468,7 +473,7 @@ operator|(
 name|Type
 operator|*
 operator|)
-name|qRealloc
+name|realloc
 argument_list|(
 name|buffer
 argument_list|,
@@ -482,7 +487,7 @@ argument_list|)
 expr_stmt|;
 else|else
 block|{
-name|qFree
+name|free
 argument_list|(
 name|buffer
 argument_list|)
