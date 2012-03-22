@@ -3102,13 +3102,6 @@ condition|(
 name|fontSet
 condition|)
 block|{
-if|if
-condition|(
-name|result
-operator|==
-name|FcResultMatch
-condition|)
-block|{
 for|for
 control|(
 name|int
@@ -3200,7 +3193,6 @@ name|fallbackFamilies
 operator|<<
 name|familyName
 expr_stmt|;
-block|}
 block|}
 block|}
 name|FcFontSetDestroy
