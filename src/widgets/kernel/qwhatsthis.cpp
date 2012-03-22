@@ -995,13 +995,15 @@ name|QSysInfo
 operator|::
 name|WV_XP
 operator|&&
+operator|(
 name|QSysInfo
 operator|::
 name|WindowsVersion
-operator|<
+operator|&
 name|QSysInfo
 operator|::
 name|WV_NT_based
+operator|)
 operator|)
 condition|)
 block|{
