@@ -2059,7 +2059,14 @@ name|MeasurementSystem
 block|{
 name|MetricSystem
 block|,
+name|ImperialUSSystem
+block|,
+name|ImperialUKSystem
+block|,
 name|ImperialSystem
+init|=
+name|ImperialUSSystem
+comment|// Qt 4 compatibility
 block|}
 enum|;
 enum|enum

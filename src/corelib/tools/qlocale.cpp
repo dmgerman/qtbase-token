@@ -8413,9 +8413,12 @@ name|m_country_id
 condition|)
 block|{
 return|return
-name|QLocale
-operator|::
-name|ImperialSystem
+name|ImperialMeasurementSystems
+index|[
+name|i
+index|]
+operator|.
+name|system
 return|;
 block|}
 block|}
