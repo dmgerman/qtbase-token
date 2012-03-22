@@ -4380,10 +4380,6 @@ name|map
 operator|.
 name|end
 argument_list|()
-operator|,
-name|i
-operator|<
-literal|100
 condition|;
 operator|++
 name|stlIt
@@ -4404,6 +4400,13 @@ name|arg
 argument_list|(
 name|i
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|i
+argument_list|,
+literal|100
 argument_list|)
 expr_stmt|;
 comment|//STL-Style const-iterators
@@ -4505,10 +4508,6 @@ name|map
 operator|.
 name|constEnd
 argument_list|()
-operator|,
-name|i
-operator|<
-literal|100
 condition|;
 operator|++
 name|cstlIt
@@ -4529,6 +4528,13 @@ name|arg
 argument_list|(
 name|i
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|i
+argument_list|,
+literal|100
 argument_list|)
 expr_stmt|;
 comment|//Java-Style iterators
