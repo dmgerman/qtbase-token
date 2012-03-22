@@ -225,7 +225,7 @@ begin_comment
 comment|/*!     \since 4.4      \fn QSqlDriver::notification(const QString&name)      This signal is emitted when the database posts an event notification     that the driver subscribes to. \a name identifies the event notification.      \sa subscribeToNotification() */
 end_comment
 begin_comment
-comment|/*!     \since 5.0      \fn QSqlDriver::notification(const QString&name, NotificationSource source)      This signal is emitted when the database posts an event notification     that the driver subscribes to. \a name identifies the event notification, \a source indicates the signal source.      \sa subscribeToNotification() */
+comment|/*!     \since 5.0      \fn QSqlDriver::notification(const QString&name, NotificationSource source, const QString& payload)      This signal is emitted when the database posts an event notification     that the driver subscribes to. \a name identifies the event notification, \a source indicates the signal source,     \a payload holds the extra data optionally delivered with the notification.      \sa subscribeToNotification() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QSqlDriver::open(const QString&db, const QString&user, const QString& password,                               const QString&host, int port, const QString&options)      Derived classes must reimplement this pure virtual function to     open a database connection on database \a db, using user name \a     user, password \a password, host \a host, port \a port and     connection options \a options.      The function must return true on success and false on failure.      \sa setOpen() */
