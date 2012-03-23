@@ -594,6 +594,22 @@ name|void
 name|_q_resumeImplementation
 argument_list|()
 block|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|virtual
+name|void
+name|_q_caRootLoaded
+argument_list|(
+name|QSslCertificate
+argument_list|,
+name|QSslCertificate
+argument_list|)
+operator|=
+literal|0
+block|;
+endif|#
+directive|endif
 comment|// Platform specific functions
 name|virtual
 name|void
