@@ -30,6 +30,11 @@ include|#
 directive|include
 file|<iostream>
 end_include
+begin_include
+include|#
+directive|include
+file|<cstddef>
+end_include
 begin_comment
 comment|// something mean to see if the compiler and C++ standard lib are good enough
 end_comment

@@ -76,6 +76,15 @@ return|return
 name|m_geometry
 return|;
 block|}
+name|QRect
+name|availableGeometry
+argument_list|()
+specifier|const
+block|{
+return|return
+name|m_availableGeometry
+return|;
+block|}
 name|int
 name|depth
 argument_list|()
@@ -123,6 +132,9 @@ name|m_screen
 block|;
 name|QRect
 name|m_geometry
+block|;
+name|QRect
+name|m_availableGeometry
 block|;
 name|int
 name|m_depth

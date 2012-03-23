@@ -8809,25 +8809,6 @@ argument_list|(
 literal|0xffff0000
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|QGL_EGL
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_WS_X11
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"renderPixmap() not yet supported under EGL on your platform"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QFUZZY_COMPARE_IMAGES
 argument_list|(
 name|fb

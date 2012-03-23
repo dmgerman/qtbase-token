@@ -262,11 +262,9 @@ name|bool
 argument_list|)
 expr_stmt|;
 name|friend
-name|QSystemLocale
-modifier|*
-name|QSystemLocale_globalSystemLocale
-parameter_list|()
-function_decl|;
+name|class
+name|QSystemLocaleSingleton
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt

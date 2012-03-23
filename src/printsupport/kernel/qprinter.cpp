@@ -86,23 +86,6 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
-argument_list|)
-end_if
-begin_include
-include|#
-directive|include
-file|<private/qprintengine_win_p.h>
-end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
 name|Q_WS_X11
 argument_list|)
 end_if
@@ -4188,7 +4171,7 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_WS_WIN
+name|Q_OS_WIN
 argument_list|)
 comment|/*!     Sets the page size to be used by the printer under Windows to \a     pageSize.      \warning This function is not portable so you may prefer to use     setPaperSize() instead.      \sa winPageSize() */
 DECL|function|setWinPageSize
@@ -4267,7 +4250,7 @@ return|;
 block|}
 endif|#
 directive|endif
-comment|// Q_WS_WIN
+comment|// Q_OS_WIN
 comment|/*!     Returns a list of the resolutions (a list of dots-per-inch     integers) that the printer says it supports.      For X11 where all printing is directly to PDF, this     function will always return a one item list containing only the     PDF resolution, i.e., 72 (72 dpi -- but see PrinterMode). */
 DECL|function|supportedResolutions
 name|QList
@@ -4436,59 +4419,7 @@ comment|/*! \fn QSize QPrinter::margins() const      \overload      Returns a QS
 comment|/*! \fn bool QPrinter::aborted()      Use printerState() == QPrinter::Aborted instead. */
 ifdef|#
 directive|ifdef
-name|Q_WS_WIN
-comment|/*!     \internal */
-DECL|function|getDC
-name|HDC
-name|QPrinter
-operator|::
-name|getDC
-parameter_list|()
-specifier|const
-block|{
-name|Q_D
-argument_list|(
-specifier|const
-name|QPrinter
-argument_list|)
-expr_stmt|;
-return|return
-name|d
-operator|->
-name|printEngine
-operator|->
-name|getPrinterDC
-argument_list|()
-return|;
-block|}
-comment|/*!     \internal */
-DECL|function|releaseDC
-name|void
-name|QPrinter
-operator|::
-name|releaseDC
-parameter_list|(
-name|HDC
-name|hdc
-parameter_list|)
-specifier|const
-block|{
-name|Q_D
-argument_list|(
-specifier|const
-name|QPrinter
-argument_list|)
-expr_stmt|;
-name|d
-operator|->
-name|printEngine
-operator|->
-name|releasePrinterDC
-argument_list|(
-name|hdc
-argument_list|)
-expr_stmt|;
-block|}
+name|Q_OS_WIN
 comment|/*!     Returns the supported paper sizes for this printer.      The values will be either a value that matches an entry in the     QPrinter::PaperSource enum or a driver spesific value. The driver     spesific values are greater than the constant DMBIN_USER declared     in wingdi.h.      \warning This function is only available in windows. */
 DECL|function|supportedPaperSources
 name|QList
@@ -4582,11 +4513,12 @@ return|;
 block|}
 endif|#
 directive|endif
+comment|// Q_OS_WIN
 comment|/*!     \fn QString QPrinter::printerSelectionOption() const      Returns the printer options selection string. This is useful only     if the print command has been explicitly set.      The default value (an empty string) implies that the printer should     be selected in a system-dependent manner.      Any other value implies that the given value should be used.      \warning This function is not available on Windows.      \sa setPrinterSelectionOption() */
 comment|/*!     \fn void QPrinter::setPrinterSelectionOption(const QString&option)      Sets the printer to use \a option to select the printer. \a option     is null by default (which implies that Qt should be smart enough     to guess correctly), but it can be set to other values to use a     specific printer selection option.      If the printer selection option is changed while the printer is     active, the current print job may or may not be affected.      \warning This function is not available on Windows.      \sa printerSelectionOption() */
 ifndef|#
 directive|ifndef
-name|Q_WS_WIN
+name|Q_OS_WIN
 DECL|function|printerSelectionOption
 name|QString
 name|QPrinter
@@ -4798,8 +4730,6 @@ comment|/*!     \fn bool QPrintEngine::newPage()      Instructs the print engine
 comment|/*!     \fn bool QPrintEngine::abort()      Instructs the print engine to abort the printing process. Returns     true if successful; otherwise returns false. */
 comment|/*!     \fn int QPrintEngine::metric(QPaintDevice::PaintDeviceMetric id) const      Returns the metric for the given \a id. */
 comment|/*!     \fn QPrinter::PrinterState QPrintEngine::printerState() const      Returns the current state of the printer being used by the print engine. */
-comment|/*!     \fn HDC QPrintEngine::getPrinterDC() const     \internal */
-comment|/*!     \fn void QPrintEngine::releasePrinterDC(HDC) const     \internal */
 comment|/*     Returns the dimensions for the given paper size, \a size, in millimeters. */
 DECL|function|qt_paperSizeToQSizeF
 name|QSizeF

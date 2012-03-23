@@ -2520,6 +2520,35 @@ endif|#
 directive|endif
 end_endif
 begin_comment
+comment|// QIdentityProxyModel
+end_comment
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_IDENTITYPROXYMODEL
+argument_list|)
+operator|&&
+operator|(
+name|defined
+argument_list|(
+name|QT_NO_PROXYMODEL
+argument_list|)
+operator|)
+end_if
+begin_define
+DECL|macro|QT_NO_IDENTITYPROXYMODEL
+define|#
+directive|define
+name|QT_NO_IDENTITYPROXYMODEL
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
 comment|// QListWidget
 end_comment
 begin_if

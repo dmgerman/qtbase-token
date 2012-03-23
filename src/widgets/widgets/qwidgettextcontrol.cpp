@@ -9863,8 +9863,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|contextWidget
-operator|&&
 name|isPreediting
 argument_list|()
 condition|)
@@ -9930,10 +9928,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|e
-operator|->
-name|type
-argument_list|()
+name|eventType
 operator|==
 name|QEvent
 operator|::

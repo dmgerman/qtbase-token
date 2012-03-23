@@ -14229,6 +14229,7 @@ operator|.
 name|count
 argument_list|()
 condition|)
+block|{
 name|sectionSpans
 operator|.
 name|resize
@@ -14238,6 +14239,11 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+name|sectionStartposRecalc
+operator|=
+literal|true
+expr_stmt|;
+block|}
 name|SectionSpan
 modifier|*
 name|sectiondata
@@ -15150,14 +15156,21 @@ index|]
 decl_stmt|;
 if|if
 condition|(
-name|span
+name|sectionHidden
 operator|.
-name|size
-operator|>
-literal|0
+name|isEmpty
+argument_list|()
+operator|||
+operator|!
+name|sectionHidden
+operator|.
+name|testBit
+argument_list|(
+name|i
+argument_list|)
 condition|)
 block|{
-comment|//we resize it if it is not hidden (ie size> 0)
+comment|// resize on not hidden.
 specifier|const
 name|int
 name|newSize

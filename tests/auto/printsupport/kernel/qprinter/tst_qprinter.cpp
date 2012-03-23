@@ -1073,12 +1073,12 @@ operator|::
 name|testPageSize
 parameter_list|()
 block|{
-if|#
-directive|if
-literal|1
+ifndef|#
+directive|ifndef
+name|Q_OS_WIN
 name|QSKIP
 argument_list|(
-literal|"QPrinter::winPageSize(): Windows only and currently not implemented / QTBUG-22927"
+literal|"QPrinter::winPageSize(): Windows only."
 argument_list|)
 expr_stmt|;
 else|#
@@ -1208,6 +1208,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+comment|// Q_OS_WIN
 block|}
 end_function
 begin_function
@@ -4978,6 +4979,116 @@ operator|::
 name|NativeFormat
 decl_stmt|;
 comment|// TODO: Correct?
+comment|// Some properties are documented to only be supported by NativeFormat in X11 environment
+name|bool
+name|doX11Tests
+init|=
+name|QGuiApplication
+operator|::
+name|platformName
+argument_list|()
+operator|.
+name|compare
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"xcb"
+argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|CaseInsensitive
+argument_list|)
+operator|==
+literal|0
+decl_stmt|;
+name|bool
+name|windowsPlatform
+init|=
+name|QGuiApplication
+operator|::
+name|platformName
+argument_list|()
+operator|.
+name|compare
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"windows"
+argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|CaseInsensitive
+argument_list|)
+operator|==
+literal|0
+decl_stmt|;
+name|bool
+name|manualSourceSupported
+init|=
+literal|true
+decl_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+comment|// QPrinter::supportedPaperSources() is only available on Windows, so just assuming manual is supported on others.
+name|QPrinter
+name|printer
+decl_stmt|;
+name|printer
+operator|.
+name|setOutputFormat
+argument_list|(
+name|newFormat
+argument_list|)
+expr_stmt|;
+name|QList
+argument_list|<
+name|QPrinter
+operator|::
+name|PaperSource
+argument_list|>
+name|sources
+init|=
+name|printer
+operator|.
+name|supportedPaperSources
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|sources
+operator|.
+name|contains
+argument_list|(
+name|QPrinter
+operator|::
+name|Manual
+argument_list|)
+condition|)
+block|{
+name|manualSourceSupported
+operator|=
+literal|false
+expr_stmt|;
+name|qWarning
+argument_list|()
+operator|<<
+literal|"Manual paper source not supported by native printer, skipping related test."
+expr_stmt|;
+block|}
+endif|#
+directive|endif
+comment|// Q_OS_WIN
+comment|// Querying PPK_CollateCopies is hardcoded to return false with Windows native print engine,
+comment|// so skip testing that in Windows.
+if|if
+condition|(
+operator|!
+name|windowsPlatform
+condition|)
 block|{
 name|QPrinter
 name|printer
@@ -5171,6 +5282,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|doX11Tests
+condition|)
 block|{
 name|QPrinter
 name|printer
@@ -5359,6 +5474,10 @@ name|status
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|doX11Tests
+condition|)
 block|{
 name|QPrinter
 name|printer
@@ -5447,6 +5566,10 @@ name|status
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|doX11Tests
+condition|)
 block|{
 name|QPrinter
 name|printer
@@ -5822,6 +5945,10 @@ name|status
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|doX11Tests
+condition|)
 block|{
 name|QPrinter
 name|printer
@@ -6020,6 +6147,10 @@ name|B5
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|manualSourceSupported
+condition|)
 block|{
 name|QPrinter
 name|printer
@@ -6113,6 +6244,10 @@ name|Manual
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|doX11Tests
+condition|)
 block|{
 name|QPrinter
 name|printer
@@ -6406,6 +6541,7 @@ name|status
 argument_list|)
 expr_stmt|;
 block|}
+comment|// QPrinter::printerSelectionOption is explicitly documented not to be available on Windows.
 ifndef|#
 directive|ifndef
 name|Q_OS_WIN
@@ -6505,6 +6641,7 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+comment|// Q_OS_WIN
 block|{
 name|QPrinter
 name|printer

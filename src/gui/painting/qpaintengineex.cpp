@@ -5743,9 +5743,12 @@ operator|.
 name|x
 argument_list|()
 operator|+
+name|qreal
+argument_list|(
 literal|1
 operator|/
 literal|63.
+argument_list|)
 block|,
 name|points
 index|[

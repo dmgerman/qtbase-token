@@ -443,11 +443,11 @@ begin_comment
 comment|/*!     \property QInputMethod::visible     \brief Virtual keyboard's visibility on the screen      Input method visibility remains false for devices     with no virtual keyboards.      \sa show(), hide() */
 end_comment
 begin_function
-DECL|function|visible
+DECL|function|isVisible
 name|bool
 name|QInputMethod
 operator|::
-name|visible
+name|isVisible
 parameter_list|()
 specifier|const
 block|{

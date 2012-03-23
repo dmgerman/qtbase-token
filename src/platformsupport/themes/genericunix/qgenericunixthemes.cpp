@@ -556,14 +556,11 @@ literal|true
 return|;
 block|}
 end_function
-begin_comment
-comment|// Reads the KDE system palette
-end_comment
 begin_function
 DECL|function|readKdeSystemPalette
 specifier|static
 specifier|inline
-name|bool
+name|void
 name|readKdeSystemPalette
 parameter_list|(
 specifier|const
@@ -576,8 +573,6 @@ modifier|*
 name|pal
 parameter_list|)
 block|{
-comment|// Setup KDE palette
-return|return
 name|kdeColor
 argument_list|(
 name|pal
@@ -593,7 +588,7 @@ argument_list|(
 literal|"Colors:Button/BackgroundNormal"
 argument_list|)
 argument_list|)
-operator|||
+expr_stmt|;
 name|kdeColor
 argument_list|(
 name|pal
@@ -609,7 +604,7 @@ argument_list|(
 literal|"Colors:Window/BackgroundNormal"
 argument_list|)
 argument_list|)
-operator|||
+expr_stmt|;
 name|kdeColor
 argument_list|(
 name|pal
@@ -625,7 +620,7 @@ argument_list|(
 literal|"Colors:View/ForegroundNormal"
 argument_list|)
 argument_list|)
-operator|||
+expr_stmt|;
 name|kdeColor
 argument_list|(
 name|pal
@@ -641,7 +636,7 @@ argument_list|(
 literal|"Colors:Window/ForegroundNormal"
 argument_list|)
 argument_list|)
-operator|||
+expr_stmt|;
 name|kdeColor
 argument_list|(
 name|pal
@@ -657,7 +652,7 @@ argument_list|(
 literal|"Colors:View/BackgroundNormal"
 argument_list|)
 argument_list|)
-operator|||
+expr_stmt|;
 name|kdeColor
 argument_list|(
 name|pal
@@ -673,7 +668,7 @@ argument_list|(
 literal|"Colors:Selection/BackgroundNormal"
 argument_list|)
 argument_list|)
-operator|||
+expr_stmt|;
 name|kdeColor
 argument_list|(
 name|pal
@@ -689,7 +684,7 @@ argument_list|(
 literal|"Colors:Selection/ForegroundNormal"
 argument_list|)
 argument_list|)
-operator|||
+expr_stmt|;
 name|kdeColor
 argument_list|(
 name|pal
@@ -705,7 +700,7 @@ argument_list|(
 literal|"Colors:View/BackgroundAlternate"
 argument_list|)
 argument_list|)
-operator|||
+expr_stmt|;
 name|kdeColor
 argument_list|(
 name|pal
@@ -721,7 +716,7 @@ argument_list|(
 literal|"Colors:Button/ForegroundNormal"
 argument_list|)
 argument_list|)
-operator|||
+expr_stmt|;
 name|kdeColor
 argument_list|(
 name|pal
@@ -737,7 +732,7 @@ argument_list|(
 literal|"Colors:View/ForegroundLink"
 argument_list|)
 argument_list|)
-operator|||
+expr_stmt|;
 name|kdeColor
 argument_list|(
 name|pal
@@ -753,7 +748,7 @@ argument_list|(
 literal|"Colors:View/ForegroundVisited"
 argument_list|)
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 end_function
 begin_comment
@@ -1049,9 +1044,10 @@ argument_list|)
 decl_stmt|;
 name|QPalette
 name|systemPalette
+init|=
+name|QPalette
+argument_list|()
 decl_stmt|;
-if|if
-condition|(
 name|readKdeSystemPalette
 argument_list|(
 name|kdeSettings
@@ -1059,7 +1055,7 @@ argument_list|,
 operator|&
 name|systemPalette
 argument_list|)
-condition|)
+expr_stmt|;
 name|m_resources
 operator|.
 name|palettes

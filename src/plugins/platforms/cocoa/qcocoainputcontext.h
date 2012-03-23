@@ -61,8 +61,16 @@ name|private
 name|Q_SLOTS
 operator|:
 name|void
-name|inputItemChanged
+name|connectSignals
 argument_list|()
+block|;
+name|void
+name|focusObjectChanged
+argument_list|(
+name|QObject
+operator|*
+name|focusObject
+argument_list|)
 block|;
 name|private
 operator|:

@@ -558,7 +558,7 @@ block|{
 block|{
 literal|"Prefix"
 block|,
-literal|""
+literal|"."
 block|}
 block|,
 block|{
@@ -600,7 +600,7 @@ block|,
 block|{
 literal|"Data"
 block|,
-literal|""
+literal|"."
 block|}
 block|,
 block|{
@@ -645,7 +645,7 @@ block|,
 block|{
 literal|"HostData"
 block|,
-literal|""
+literal|"."
 block|}
 block|,
 endif|#
@@ -993,6 +993,52 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_BUILD_QMAKE
+if|if
+condition|(
+name|ret
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+name|loc
+operator|==
+name|HostPrefixPath
+condition|)
+name|ret
+operator|=
+name|config
+operator|->
+name|value
+argument_list|(
+name|QLatin1String
+argument_list|(
+name|qtConfEntries
+index|[
+name|PrefixPath
+index|]
+operator|.
+name|key
+argument_list|)
+argument_list|,
+name|QLatin1String
+argument_list|(
+name|qtConfEntries
+index|[
+name|PrefixPath
+index|]
+operator|.
+name|value
+argument_list|)
+argument_list|)
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
 comment|// expand environment variables in the form $(ENVVAR)
 name|int
 name|rep
@@ -1085,6 +1131,12 @@ block|}
 block|}
 if|if
 condition|(
+operator|!
+name|ret
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
 name|QDir
 operator|::
 name|isRelativePath
@@ -1108,10 +1160,15 @@ operator|||
 name|loc
 operator|==
 name|PrefixPath
+operator|||
+name|loc
+operator|==
+name|SysrootPath
 condition|)
 block|{
-comment|// We make the prefix path absolute to the executable's directory.
+comment|// We make the prefix/sysroot path absolute to the executable's directory.
 comment|// loc == PrefixPath while a sysroot is set would make no sense here.
+comment|// loc == SysrootPath only makes sense if qmake lives inside the sysroot itself.
 name|baseDir
 operator|=
 name|QFileInfo
@@ -1123,19 +1180,6 @@ operator|.
 name|absolutePath
 argument_list|()
 expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|loc
-operator|==
-name|SysrootPath
-condition|)
-block|{
-comment|// The sysroot is bare
-return|return
-name|ret
-return|;
 block|}
 elseif|else
 if|if

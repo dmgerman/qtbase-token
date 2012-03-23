@@ -4798,6 +4798,13 @@ name|append
 argument_list|(
 name|function
 argument_list|)
+block|;
+name|function
+operator|->
+name|setAssociatedProperty
+argument_list|(
+name|this
+argument_list|)
 block|; }
 DECL|function|functions
 specifier|inline

@@ -9041,6 +9041,7 @@ name|clusterStart
 operator|=
 literal|false
 expr_stmt|;
+comment|//FIXME - Shouldn't we otherwise set this to true, rather than leaving it?
 block|}
 name|item
 operator|->
@@ -9062,6 +9063,8 @@ name|glyphs_substituted
 condition|)
 block|{
 comment|// we can't do this for indic, as we pass the stuf in syllables and it's easier to do it in the shaper.
+comment|// #### the reconstruction of the logclusters currently does not work if the original string
+comment|// contains surrogate pairs
 name|unsigned
 name|short
 modifier|*
@@ -9077,12 +9080,31 @@ init|=
 literal|0
 decl_stmt|;
 name|int
-name|oldCi
+name|oldIntermediateIndex
 init|=
 literal|0
 decl_stmt|;
-comment|// #### the reconstruction of the logclusters currently does not work if the original string
-comment|// contains surrogate pairs
+comment|// This code makes a mapping, logClusters, between the original utf16 string (item->string) and the final
+comment|// set of glyphs (in_string).
+comment|//
+comment|// The code sets the value of logClusters[i] to the index of in_string containing the glyph that will render
+comment|// item->string[i].
+comment|//
+comment|// This is complicated slightly because in_string[i].cluster is an index to an intermediate
+comment|// array of glyphs - the array that we were passed as the original value of item->glyphs.
+comment|// To map from the original string to the intermediate array of glyphs we have tmpLogClusters.
+comment|//
+comment|// So we have three groups of indexes:
+comment|//
+comment|// i,clusterStart = index to in_length, the final set of glyphs.  Also an index to attributes
+comment|// intermediateIndex = index to the glyphs originally passed in.
+comment|// stringIndex = index to item->string, the original string.
+name|int
+name|stringIndex
+init|=
+literal|0
+decl_stmt|;
+comment|// Iterate over the final set of glyphs...
 for|for
 control|(
 name|unsigned
@@ -9103,8 +9125,9 @@ operator|++
 name|i
 control|)
 block|{
+comment|// Get the index into the intermediate string for the start of the cluster of chars
 name|int
-name|ci
+name|intermediateIndex
 init|=
 name|face
 operator|->
@@ -9117,84 +9140,63 @@ index|]
 operator|.
 name|cluster
 decl_stmt|;
-comment|//         DEBUG("   ci[%d] = %d mark=%d, cmb=%d, cs=%d",
-comment|//                i, ci, glyphAttributes[i].mark, glyphAttributes[i].combiningClass, glyphAttributes[i].clusterStart);
 if|if
 condition|(
-operator|!
-name|attributes
-index|[
-name|i
-index|]
-operator|.
-name|mark
-operator|&&
-name|attributes
-index|[
-name|i
-index|]
-operator|.
-name|clusterStart
-operator|&&
-name|ci
+name|intermediateIndex
 operator|!=
-name|oldCi
+name|oldIntermediateIndex
 condition|)
 block|{
-for|for
-control|(
-name|int
-name|j
-init|=
-name|oldCi
-init|;
-name|j
+comment|// We have found the end of the cluster of chars in the intermediate string
+while|while
+condition|(
+name|face
+operator|->
+name|tmpLogClusters
+index|[
+name|stringIndex
+index|]
 operator|<
-name|ci
-condition|;
-name|j
-operator|++
-control|)
+name|intermediateIndex
+condition|)
+block|{
 name|logClusters
 index|[
-name|j
+name|stringIndex
+operator|++
 index|]
 operator|=
 name|clusterStart
 expr_stmt|;
+block|}
 name|clusterStart
 operator|=
 name|i
 expr_stmt|;
-name|oldCi
+name|oldIntermediateIndex
 operator|=
-name|ci
+name|intermediateIndex
 expr_stmt|;
 block|}
 block|}
-for|for
-control|(
-name|int
-name|j
-init|=
-name|oldCi
-init|;
-name|j
+while|while
+condition|(
+name|stringIndex
 operator|<
 name|face
 operator|->
 name|length
-condition|;
-name|j
-operator|++
-control|)
+condition|)
+block|{
 name|logClusters
 index|[
-name|j
+name|stringIndex
+operator|++
 index|]
 operator|=
 name|clusterStart
 expr_stmt|;
+block|}
 block|}
 comment|// calulate the advances for the shaped glyphs
 comment|//     DEBUG("unpositioned: ");
