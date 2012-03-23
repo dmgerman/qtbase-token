@@ -289,11 +289,6 @@ argument_list|(
 name|ev
 argument_list|)
 member_init_list|,
-name|isBody
-argument_list|(
-literal|false
-argument_list|)
-member_init_list|,
 name|bodyBytesRead
 argument_list|(
 literal|0
@@ -303,6 +298,11 @@ name|bodyLength
 argument_list|(
 operator|-
 literal|1
+argument_list|)
+member_init_list|,
+name|isBody
+argument_list|(
+literal|false
 argument_list|)
 block|{
 name|setObjectName

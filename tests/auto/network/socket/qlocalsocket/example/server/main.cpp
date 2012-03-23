@@ -148,9 +148,13 @@ name|str
 expr_stmt|;
 if|if
 condition|(
-literal|"exit"
-operator|==
+operator|!
+name|qstrcmp
+argument_list|(
 name|str
+argument_list|,
+literal|"exit"
+argument_list|)
 condition|)
 name|qApp
 operator|->

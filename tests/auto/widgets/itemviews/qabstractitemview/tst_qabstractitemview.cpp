@@ -1125,7 +1125,6 @@ parameter_list|,
 specifier|const
 name|QModelIndex
 modifier|&
-name|index
 parameter_list|)
 specifier|const
 block|{
@@ -1133,7 +1132,6 @@ name|calledVirtualDtor
 operator|=
 literal|true
 expr_stmt|;
-comment|// QAbstractItemDelegate::destroyEditor(editor,index);
 name|editor
 operator|->
 name|deleteLater
