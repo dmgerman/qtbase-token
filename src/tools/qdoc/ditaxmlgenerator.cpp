@@ -30968,7 +30968,7 @@ operator|::
 name|QmlClass
 index|]
 argument_list|,
-literal|"QML classes"
+literal|"QML types"
 argument_list|)
 expr_stmt|;
 name|writeTopicrefs
