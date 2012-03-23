@@ -1551,6 +1551,11 @@ modifier|*
 name|metaObject
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|metaObject
+argument_list|)
+expr_stmt|;
 name|QVector
 argument_list|<
 name|QCustomTypeInfo
