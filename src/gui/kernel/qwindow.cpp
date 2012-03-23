@@ -1848,14 +1848,6 @@ argument_list|(
 name|QWindow
 argument_list|)
 expr_stmt|;
-name|QWindow
-modifier|*
-name|previousParent
-init|=
-name|d
-operator|->
-name|transientParent
-decl_stmt|;
 name|d
 operator|->
 name|transientParent
