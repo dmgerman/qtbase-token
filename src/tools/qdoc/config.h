@@ -454,6 +454,10 @@ name|QString
 name|dot
 decl_stmt|;
 specifier|static
+name|bool
+name|generateExamples
+decl_stmt|;
+specifier|static
 name|QString
 name|overrideOutputDir
 decl_stmt|;

@@ -3116,6 +3116,13 @@ operator|==
 name|COMMAND_EXAMPLE
 condition|)
 block|{
+if|if
+condition|(
+name|Config
+operator|::
+name|generateExamples
+condition|)
+block|{
 name|ExampleNode
 modifier|*
 name|en
@@ -3139,6 +3146,7 @@ expr_stmt|;
 return|return
 name|en
 return|;
+block|}
 block|}
 elseif|else
 if|if
