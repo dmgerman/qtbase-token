@@ -111,6 +111,11 @@ operator|=
 literal|9
 block|,
 comment|// keyboard focus lost
+name|FocusAboutToChange
+operator|=
+literal|23
+block|,
+comment|// keyboard focus is about to be lost
 name|Enter
 operator|=
 literal|10

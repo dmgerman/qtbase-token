@@ -836,11 +836,29 @@ argument_list|()
 expr_stmt|;
 name|Q_FOREACH
 argument_list|(
-argument|const QString&lang
+argument|const QString&language
 argument_list|,
 argument|languageList
 argument_list|)
 block|{
+specifier|const
+name|QString
+name|lang
+init|=
+name|language
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"C"
+argument_list|)
+condition|?
+name|QLatin1String
+argument_list|(
+literal|"en_US"
+argument_list|)
+else|:
+name|language
+decl_stmt|;
 specifier|const
 name|QString
 name|comm

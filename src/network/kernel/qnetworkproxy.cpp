@@ -234,6 +234,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|factory
+operator|==
+name|applicationLevelProxyFactory
+condition|)
+return|return;
+if|if
+condition|(
 name|applicationLevelProxy
 condition|)
 operator|*

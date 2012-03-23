@@ -55,10 +55,12 @@ include|#
 directive|include
 file|<QtCore/qdebug.h>
 end_include
-begin_function
-name|QT_BEGIN_NAMESPACE
+begin_endif
 endif|#
 directive|endif
+end_endif
+begin_function
+name|QT_BEGIN_NAMESPACE
 comment|/*!     \internal  */
 DECL|function|clear
 name|void

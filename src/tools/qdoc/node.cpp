@@ -4900,16 +4900,6 @@ if|if
 condition|(
 name|moduleName
 operator|==
-literal|"qt3support"
-condition|)
-return|return
-literal|"Qt3Support"
-return|;
-elseif|else
-if|if
-condition|(
-name|moduleName
-operator|==
 literal|"svg"
 condition|)
 return|return

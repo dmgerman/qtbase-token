@@ -9022,9 +9022,15 @@ name|Element
 name|elm
 init|=
 block|{
+name|qreal
+argument_list|(
 name|x
+argument_list|)
 block|,
+name|qreal
+argument_list|(
 name|y
+argument_list|)
 block|,
 name|QPainterPath
 operator|::

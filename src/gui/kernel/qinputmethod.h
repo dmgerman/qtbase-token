@@ -74,7 +74,7 @@ argument|QRectF keyboardRectangle READ keyboardRectangle NOTIFY keyboardRectangl
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
-argument|bool visible READ visible NOTIFY visibleChanged
+argument|bool visible READ isVisible NOTIFY visibleChanged
 argument_list|)
 name|Q_PROPERTY
 argument_list|(
@@ -152,8 +152,29 @@ block|,
 name|ContextMenu
 block|}
 block|;
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+name|QT_DEPRECATED
 name|bool
 name|visible
+argument_list|()
+specifier|const
+block|{
+return|return
+name|isVisible
+argument_list|()
+return|;
+block|}
+endif|#
+directive|endif
+name|bool
+name|isVisible
 argument_list|()
 specifier|const
 block|;

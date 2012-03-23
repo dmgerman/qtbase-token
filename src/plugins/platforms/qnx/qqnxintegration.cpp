@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qqnxnavigatorthread.h"
+file|"qqnxnavigatoreventhandler.h"
 end_include
 begin_include
 include|#
@@ -155,7 +155,7 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|m_navigatorThread
+name|m_navigatorEventHandler
 argument_list|(
 literal|0
 argument_list|)
@@ -284,11 +284,15 @@ operator|->
 name|start
 argument_list|()
 expr_stmt|;
-comment|// Create/start navigator thread
-name|m_navigatorThread
+comment|// Create/start navigator event handler
+comment|// Not on BlackBerry, it has specialised event dispatcher which also handles navigator events
+ifndef|#
+directive|ifndef
+name|Q_OS_BLACKBERRY
+name|m_navigatorEventHandler
 operator|=
 operator|new
-name|QQnxNavigatorThread
+name|QQnxNavigatorEventHandler
 argument_list|(
 operator|*
 name|QQnxScreen
@@ -297,11 +301,23 @@ name|primaryDisplay
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|m_navigatorThread
-operator|->
-name|start
-argument_list|()
+comment|// delay invocation of start() to the time the event loop is up and running
+comment|// needed to have the QThread internals of the main thread properly initialized
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|m_navigatorEventHandler
+argument_list|,
+literal|"start"
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
+argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|// Create/start the keyboard class.
 name|QQnxVirtualKeyboard
 operator|::
@@ -358,7 +374,7 @@ name|m_eventThread
 expr_stmt|;
 comment|// Stop/destroy navigator thread
 operator|delete
-name|m_navigatorThread
+name|m_navigatorEventHandler
 expr_stmt|;
 comment|// Destroy all displays
 name|QQnxScreen

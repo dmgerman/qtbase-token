@@ -13716,6 +13716,7 @@ argument_list|)
 end_macro
 begin_function
 DECL|function|qt_qgl_paint_engine
+name|Q_OPENGL_EXPORT
 name|QPaintEngine
 modifier|*
 name|qt_qgl_paint_engine

@@ -3324,20 +3324,7 @@ name|QFont
 operator|::
 name|Times
 operator|<<
-literal|"Times"
-expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"courier"
-argument_list|)
-operator|<<
-name|QFont
-operator|::
-name|Courier
-operator|<<
-literal|"Courier"
+literal|"serif"
 expr_stmt|;
 name|QTest
 operator|::
@@ -3350,7 +3337,20 @@ name|QFont
 operator|::
 name|Monospace
 operator|<<
-literal|"Courier New"
+literal|"monospace"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"sans-serif"
+argument_list|)
+operator|<<
+name|QFont
+operator|::
+name|SansSerif
+operator|<<
+literal|"sans-serif"
 expr_stmt|;
 name|QTest
 operator|::
@@ -3363,7 +3363,7 @@ name|QFont
 operator|::
 name|Cursive
 operator|<<
-literal|"Comic Sans MS"
+literal|"cursive"
 expr_stmt|;
 name|QTest
 operator|::
@@ -3376,7 +3376,7 @@ name|QFont
 operator|::
 name|Fantasy
 operator|<<
-literal|"Impact"
+literal|"fantasy"
 expr_stmt|;
 name|QTest
 operator|::
@@ -3390,19 +3390,6 @@ operator|::
 name|OldEnglish
 operator|<<
 literal|"Old English"
-expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"sans-serif"
-argument_list|)
-operator|<<
-name|QFont
-operator|::
-name|Helvetica
-operator|<<
-literal|"Helvetica"
 expr_stmt|;
 block|}
 end_function

@@ -1307,7 +1307,8 @@ name|local
 argument_list|,
 name|global
 argument_list|,
-name|point
+name|QPoint
+argument_list|()
 argument_list|,
 name|point
 argument_list|,

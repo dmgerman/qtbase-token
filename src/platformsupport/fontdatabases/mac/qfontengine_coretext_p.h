@@ -330,6 +330,16 @@ return|return
 literal|0
 return|;
 block|}
+specifier|static
+name|int
+name|antialiasingThreshold
+block|;
+specifier|static
+name|QFontEngineGlyphCache
+operator|::
+name|Type
+name|defaultGlyphFormat
+block|;
 name|private
 operator|:
 name|friend

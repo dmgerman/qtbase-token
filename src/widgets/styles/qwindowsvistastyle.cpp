@@ -1183,13 +1183,15 @@ name|QSysInfo
 operator|::
 name|WV_VISTA
 operator|&&
+operator|(
 name|QSysInfo
 operator|::
 name|WindowsVersion
-operator|<
+operator|&
 name|QSysInfo
 operator|::
 name|WV_NT_based
+operator|)
 operator|)
 operator|)
 return|;

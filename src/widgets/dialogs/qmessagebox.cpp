@@ -5139,11 +5139,11 @@ name|QT_NO_ACCESSIBILITY
 name|QAccessibleEvent
 name|event
 argument_list|(
+name|this
+argument_list|,
 name|QAccessible
 operator|::
 name|Alert
-argument_list|,
-name|this
 argument_list|)
 decl_stmt|;
 name|QAccessible

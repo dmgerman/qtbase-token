@@ -502,9 +502,7 @@ parameter_list|,
 name|int
 name|haystackLen
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|needle
 parameter_list|,
 name|Qt
@@ -557,9 +555,7 @@ parameter_list|,
 name|int
 name|haystackLen
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|needle
 parameter_list|,
 name|Qt
@@ -27228,9 +27224,7 @@ parameter_list|,
 name|int
 name|haystackLen
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|needle
 parameter_list|,
 name|Qt
@@ -27600,9 +27594,7 @@ parameter_list|,
 name|int
 name|haystackLen
 parameter_list|,
-specifier|const
 name|QLatin1String
-modifier|&
 name|needle
 parameter_list|,
 name|Qt

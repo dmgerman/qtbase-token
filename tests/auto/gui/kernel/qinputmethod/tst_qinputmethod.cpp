@@ -316,7 +316,7 @@ name|initTestCase
 parameter_list|()
 function_decl|;
 name|void
-name|visible
+name|isVisible
 parameter_list|()
 function_decl|;
 name|void
@@ -407,11 +407,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|visible
+DECL|function|isVisible
 name|void
 name|tst_qinputmethod
 operator|::
-name|visible
+name|isVisible
 parameter_list|()
 block|{
 name|QCOMPARE
@@ -421,7 +421,7 @@ operator|->
 name|inputMethod
 argument_list|()
 operator|->
-name|visible
+name|isVisible
 argument_list|()
 argument_list|,
 literal|false
@@ -442,7 +442,7 @@ operator|->
 name|inputMethod
 argument_list|()
 operator|->
-name|visible
+name|isVisible
 argument_list|()
 argument_list|,
 literal|true
@@ -463,7 +463,7 @@ operator|->
 name|inputMethod
 argument_list|()
 operator|->
-name|visible
+name|isVisible
 argument_list|()
 argument_list|,
 literal|false
@@ -486,7 +486,7 @@ operator|->
 name|inputMethod
 argument_list|()
 operator|->
-name|visible
+name|isVisible
 argument_list|()
 argument_list|,
 literal|true
@@ -509,7 +509,7 @@ operator|->
 name|inputMethod
 argument_list|()
 operator|->
-name|visible
+name|isVisible
 argument_list|()
 argument_list|,
 literal|false

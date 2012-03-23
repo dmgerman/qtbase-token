@@ -1313,7 +1313,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QGuiApplication::platformName     \brief The name of the underlying platform plugin.     \since 5.0 */
+comment|/*!     \property QGuiApplication::platformName     \brief The name of the underlying platform plugin. */
 end_comment
 begin_function
 DECL|function|platformName
@@ -1455,6 +1455,21 @@ argument_list|)
 decl_stmt|;
 elif|#
 directive|elif
+name|defined
+argument_list|(
+name|Q_OS_QNX
+argument_list|)
+specifier|const
+name|QString
+name|defaultPlatform
+init|=
+name|QLatin1String
+argument_list|(
+literal|"qnx"
+argument_list|)
+decl_stmt|;
+elif|#
+directive|elif
 operator|!
 name|defined
 argument_list|(
@@ -1483,6 +1498,22 @@ init|=
 name|QLatin1String
 argument_list|(
 literal|"wayland"
+argument_list|)
+decl_stmt|;
+elif|#
+directive|elif
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_EGLFS
+argument_list|)
+specifier|const
+name|QString
+name|defaultPlatform
+init|=
+name|QLatin1String
+argument_list|(
+literal|"eglfs"
 argument_list|)
 decl_stmt|;
 else|#
@@ -4523,24 +4554,22 @@ name|QGuiApplicationPrivate
 operator|::
 name|focus_window
 decl_stmt|;
-name|QGuiApplicationPrivate
-operator|::
-name|focus_window
-operator|=
+name|QWindow
+modifier|*
+name|newFocus
+init|=
 name|e
 operator|->
 name|activated
 operator|.
 name|data
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|previous
 operator|==
-name|QGuiApplicationPrivate
-operator|::
-name|focus_window
+name|newFocus
 condition|)
 return|return;
 name|QObject
@@ -4556,6 +4585,36 @@ argument_list|()
 else|:
 literal|0
 decl_stmt|;
+if|if
+condition|(
+name|previous
+condition|)
+block|{
+name|QFocusEvent
+name|focusAboutToChange
+argument_list|(
+name|QEvent
+operator|::
+name|FocusAboutToChange
+argument_list|)
+decl_stmt|;
+name|QCoreApplication
+operator|::
+name|sendSpontaneousEvent
+argument_list|(
+name|previous
+argument_list|,
+operator|&
+name|focusAboutToChange
+argument_list|)
+expr_stmt|;
+block|}
+name|QGuiApplicationPrivate
+operator|::
+name|focus_window
+operator|=
+name|newFocus
+expr_stmt|;
 if|if
 condition|(
 name|previous
@@ -8583,7 +8642,7 @@ begin_comment
 comment|// QT_NO_CURSOR
 end_comment
 begin_comment
-comment|/*!   \since 5.0    Returns the application's style hints.    The style hints encapsulate a set of platform dependent properties   such as double click intervals, full width selection and others.    The hints can be used to integrate tighter with the underlying platform.    \sa QStyleHints   */
+comment|/*!   Returns the application's style hints.    The style hints encapsulate a set of platform dependent properties   such as double click intervals, full width selection and others.    The hints can be used to integrate tighter with the underlying platform.    \sa QStyleHints   */
 end_comment
 begin_function
 DECL|function|styleHints
@@ -8716,7 +8775,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   \since 5.0    returns the input panel.    The input panel returns properties about the state and position of   the virtual keyboard. It also provides information about the position of the   current focused input element.    \sa QInputPanel   */
+comment|/*!   returns the input panel.    The input panel returns properties about the state and position of   the virtual keyboard. It also provides information about the position of the   current focused input element.    \sa QInputPanel   */
 end_comment
 begin_function
 DECL|function|inputPanel
@@ -8735,7 +8794,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5     \fn void QGuiApplication::fontDatabaseChanged()      This signal is emitted when application fonts are loaded or removed.      \sa QFontDatabase::addApplicationFont(),     QFontDatabase::addApplicationFontFromData(),     QFontDatabase::removeAllApplicationFonts(),     QFontDatabase::removeApplicationFont() */
+comment|/*!     \fn void QGuiApplication::fontDatabaseChanged()      This signal is emitted when application fonts are loaded or removed.      \sa QFontDatabase::addApplicationFont(),     QFontDatabase::addApplicationFontFromData(),     QFontDatabase::removeAllApplicationFonts(),     QFontDatabase::removeApplicationFont() */
 end_comment
 begin_comment
 comment|// These pixmaps approximate the images in the Windows User Interface Guidelines.

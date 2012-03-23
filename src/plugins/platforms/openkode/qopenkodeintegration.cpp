@@ -484,6 +484,7 @@ condition|(
 name|displayNameLength
 condition|)
 operator|delete
+index|[]
 name|displayName
 expr_stmt|;
 name|KDchar

@@ -3043,11 +3043,11 @@ block|{
 name|QAccessibleEvent
 name|event
 argument_list|(
+name|focusObj
+argument_list|,
 name|QAccessible
 operator|::
 name|Focus
-argument_list|,
-name|focusObj
 argument_list|)
 decl_stmt|;
 name|QAccessible

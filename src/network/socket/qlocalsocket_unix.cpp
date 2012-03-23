@@ -1655,6 +1655,10 @@ operator|::
 name|open
 argument_list|(
 name|connectingOpenMode
+operator||
+name|QIODevice
+operator|::
+name|Unbuffered
 argument_list|)
 expr_stmt|;
 name|q

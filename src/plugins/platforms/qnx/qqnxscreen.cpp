@@ -774,7 +774,7 @@ if|if
 condition|(
 name|isOrthogonal
 argument_list|(
-name|m_currentRotation
+name|m_initialRotation
 argument_list|,
 name|rotation
 argument_list|)

@@ -2631,11 +2631,11 @@ name|QT_NO_ACCESSIBILITY
 name|QAccessibleEvent
 name|event
 argument_list|(
+name|this
+argument_list|,
 name|QAccessible
 operator|::
 name|NameChanged
-argument_list|,
-name|this
 argument_list|)
 decl_stmt|;
 name|QAccessible
@@ -3065,9 +3065,9 @@ expr_stmt|;
 name|QAccessibleStateChangeEvent
 name|event
 argument_list|(
-name|s
-argument_list|,
 name|this
+argument_list|,
+name|s
 argument_list|)
 decl_stmt|;
 name|QAccessible

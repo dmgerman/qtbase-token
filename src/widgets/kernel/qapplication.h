@@ -331,7 +331,15 @@ argument_list|(
 name|int
 argument_list|)
 block|;
-comment|// ### Qt4 compatibility, remove?
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+name|QT_DEPRECATED
 specifier|static
 specifier|inline
 name|void
@@ -340,6 +348,8 @@ argument_list|(
 argument|const QString&
 argument_list|)
 block|{}
+endif|#
+directive|endif
 name|using
 name|QGuiApplication
 operator|::

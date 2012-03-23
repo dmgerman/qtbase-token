@@ -447,6 +447,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 name|error
 argument_list|(
 name|QLatin1String
@@ -455,6 +456,9 @@ literal|"Invalid object path passed in arguments"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
 specifier|const
 name|char
 modifier|*
@@ -478,6 +482,7 @@ operator|&
 name|cdata
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
@@ -515,6 +520,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 name|error
 argument_list|(
 name|QLatin1String
@@ -523,6 +529,9 @@ literal|"Invalid signature passed in arguments"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
 specifier|const
 name|char
 modifier|*
@@ -546,6 +555,7 @@ operator|&
 name|cdata
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 begin_function

@@ -60,6 +60,35 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_comment
+comment|// #define WINQFSW_DEBUG
+end_comment
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|WINQFSW_DEBUG
+end_ifdef
+begin_define
+DECL|macro|DEBUG
+define|#
+directive|define
+name|DEBUG
+value|qDebug
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+define|#
+directive|define
+name|DEBUG
+value|if (false) qDebug
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_constructor
 DECL|function|Handle
 name|QWindowsFileSystemWatcherEngine
@@ -134,7 +163,32 @@ modifier|*
 name|directories
 parameter_list|)
 block|{
-comment|// qDebug()<<"Adding"<<paths.count()<<"to existing"<<(files->count() + directories->count())<<"watchers";
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"Adding"
+operator|<<
+name|paths
+operator|.
+name|count
+argument_list|()
+operator|<<
+literal|"to existing"
+operator|<<
+operator|(
+name|files
+operator|->
+name|count
+argument_list|()
+operator|+
+name|directories
+operator|->
+name|count
+argument_list|()
+operator|)
+operator|<<
+literal|"watchers"
+expr_stmt|;
 name|QStringList
 name|p
 init|=
@@ -295,7 +349,13 @@ argument_list|)
 condition|)
 continue|continue;
 block|}
-comment|// qDebug()<<"Looking for a thread/handle for"<<normalPath;
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"Looking for a thread/handle for"
+operator|<<
+name|normalPath
+expr_stmt|;
 specifier|const
 name|QString
 name|absolutePath
@@ -455,7 +515,13 @@ name|flags
 condition|)
 block|{
 comment|// found a thread now insert...
-comment|// qDebug()<<"  Found a thread"<<thread;
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"Found a thread"
+operator|<<
+name|thread
+expr_stmt|;
 name|QHash
 argument_list|<
 name|QString
@@ -558,7 +624,11 @@ operator|!=
 name|flags
 condition|)
 block|{
-comment|// qDebug()<<"  No thread found";
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"No thread found"
+expr_stmt|;
 comment|// Volume and folder paths need a trailing slash for proper notification
 comment|// (e.g. "c:" -> "c:/").
 specifier|const
@@ -655,8 +725,30 @@ operator|<
 name|MAXIMUM_WAIT_OBJECTS
 condition|)
 block|{
-comment|// qDebug()<< "  Added handle"<< handle.handle<< "for"<< absolutePath<< "to watch"<< fileInfo.absoluteFilePath();
-comment|// qDebug()<< "  to existing thread"<<thread;
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"Added handle"
+operator|<<
+name|handle
+operator|.
+name|handle
+operator|<<
+literal|"for"
+operator|<<
+name|absolutePath
+operator|<<
+literal|"to watch"
+operator|<<
+name|fileInfo
+operator|.
+name|absoluteFilePath
+argument_list|()
+operator|<<
+literal|"to existing thread "
+operator|<<
+name|thread
+expr_stmt|;
 name|thread
 operator|->
 name|handles
@@ -748,7 +840,26 @@ operator|new
 name|QWindowsFileSystemWatcherEngineThread
 argument_list|()
 decl_stmt|;
-comment|//qDebug()<<"  ###Creating new thread"<<thread<<"("<<(threads.count()+1)<<"threads)";
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"  ###Creating new thread"
+operator|<<
+name|thread
+operator|<<
+literal|"("
+operator|<<
+operator|(
+name|threads
+operator|.
+name|count
+argument_list|()
+operator|+
+literal|1
+operator|)
+operator|<<
+literal|"threads)"
+expr_stmt|;
 name|thread
 operator|->
 name|handles
@@ -919,7 +1030,13 @@ operator|*
 name|directories
 operator|)
 block|{
-comment|// qDebug()<<"removePaths"<<paths;
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"removePaths"
+operator|<<
+name|paths
+block|;
 name|QStringList
 name|p
 operator|=
@@ -993,7 +1110,13 @@ name|toLower
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// qDebug()<<"removing"<<normalPath;
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"removing"
+operator|<<
+name|normalPath
+expr_stmt|;
 name|QString
 name|absolutePath
 init|=
@@ -1173,7 +1296,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// qDebug()<< "Closing handle"<< handle.handle;
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"Closing handle"
+operator|<<
+name|handle
+operator|.
+name|handle
+expr_stmt|;
 name|FindCloseChangeNotification
 argument_list|(
 name|handle
@@ -1238,7 +1369,13 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// qDebug()<<"Stopping thread "<<thread;
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"Stopping thread "
+operator|<<
+name|thread
+expr_stmt|;
 name|locker
 operator|.
 name|unlock
@@ -1552,7 +1689,22 @@ operator|.
 name|unlock
 argument_list|()
 expr_stmt|;
-comment|// qDebug()<< "QWindowsFileSystemWatcherThread"<<this<<"waiting on"<< handlesCopy.count()<< "handles";
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"QWindowsFileSystemWatcherThread"
+operator|<<
+name|this
+operator|<<
+literal|"waiting on"
+operator|<<
+name|handlesCopy
+operator|.
+name|count
+argument_list|()
+operator|<<
+literal|"handles"
+expr_stmt|;
 name|DWORD
 name|r
 init|=
@@ -1603,7 +1755,15 @@ operator|==
 literal|'q'
 condition|)
 block|{
-comment|// qDebug()<< "thread"<<this<<"told to quit";
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"thread"
+operator|<<
+name|this
+operator|<<
+literal|"told to quit"
+expr_stmt|;
 return|return;
 block|}
 if|if
@@ -1612,18 +1772,16 @@ name|m
 operator|!=
 literal|'@'
 condition|)
-block|{
-name|qDebug
-argument_list|(
-literal|"QWindowsFileSystemWatcherEngine: unknown message '%c' send to thread"
-argument_list|,
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"QWindowsFileSystemWatcherEngine: unknown message sent to thread: "
+operator|<<
 name|char
 argument_list|(
 name|m
 argument_list|)
-argument_list|)
 expr_stmt|;
-block|}
 break|break;
 block|}
 elseif|else
@@ -1685,7 +1843,19 @@ name|handle
 argument_list|)
 condition|)
 block|{
-comment|// qDebug()<<"thread"<<this<<"Acknowledged handle:"<<at<<handle;
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"thread"
+operator|<<
+name|this
+operator|<<
+literal|"Acknowledged handle:"
+operator|<<
+name|at
+operator|<<
+name|handle
+expr_stmt|;
 name|QHash
 argument_list|<
 name|QString
@@ -1701,6 +1871,11 @@ name|pathInfoForHandle
 index|[
 name|handle
 index|]
+decl_stmt|;
+name|bool
+name|fakeRemove
+init|=
+literal|false
 decl_stmt|;
 if|if
 condition|(
@@ -1718,6 +1893,21 @@ init|=
 name|GetLastError
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|error
+operator|==
+name|ERROR_ACCESS_DENIED
+condition|)
+block|{
+comment|// for directories, our object's handle appears to be woken up when the target of a
+comment|// watch is deleted, before the watched thing is actually deleted...
+comment|// anyway.. we're given an error code of ERROR_ACCESS_DENIED in that case.
+name|fakeRemove
+operator|=
+literal|true
+expr_stmt|;
+block|}
 name|qErrnoWarning
 argument_list|(
 name|error
@@ -1793,9 +1983,22 @@ operator|.
 name|path
 argument_list|)
 decl_stmt|;
-comment|// qDebug()<< "checking"<< x.key();
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"checking"
+operator|<<
+name|x
+operator|.
+name|key
+argument_list|()
+expr_stmt|;
+comment|// i'm not completely sure the fileInfo.exist() check will ever work... see QTBUG-2331
+comment|// ..however, I'm not completely sure enough to remove it.
 if|if
 condition|(
+name|fakeRemove
+operator|||
 operator|!
 name|fileInfo
 operator|.
@@ -1803,7 +2006,16 @@ name|exists
 argument_list|()
 condition|)
 block|{
-comment|// qDebug()<< x.key()<< "removed!";
+name|DEBUG
+argument_list|()
+operator|<<
+name|x
+operator|.
+name|key
+argument_list|()
+operator|<<
+literal|"removed!"
+expr_stmt|;
 if|if
 condition|(
 name|x
@@ -1856,7 +2068,13 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// qDebug()<< "Thread closing handle"<< handle;
+name|DEBUG
+argument_list|()
+operator|<<
+literal|"Thread closing handle"
+operator|<<
+name|handle
+expr_stmt|;
 name|FindCloseChangeNotification
 argument_list|(
 name|handle
@@ -1909,7 +2127,16 @@ operator|.
 name|isDir
 condition|)
 block|{
-comment|// qDebug()<< x.key()<< "directory changed!";
+name|DEBUG
+argument_list|()
+operator|<<
+name|x
+operator|.
+name|key
+argument_list|()
+operator|<<
+literal|"directory changed!"
+expr_stmt|;
 emit|emit
 name|directoryChanged
 argument_list|(
@@ -1942,7 +2169,16 @@ operator|!=
 name|fileInfo
 condition|)
 block|{
-comment|// qDebug()<< x.key()<< "file changed!";
+name|DEBUG
+argument_list|()
+operator|<<
+name|x
+operator|.
+name|key
+argument_list|()
+operator|<<
+literal|"file changed!"
+expr_stmt|;
 emit|emit
 name|fileChanged
 argument_list|(

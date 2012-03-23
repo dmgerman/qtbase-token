@@ -2043,6 +2043,7 @@ return|;
 block|}
 end_expr_stmt
 begin_function_decl
+name|Q_OPENGL_EXPORT
 specifier|extern
 name|QPaintEngine
 modifier|*

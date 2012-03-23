@@ -6111,6 +6111,15 @@ expr_stmt|;
 block|}
 block|}
 end_constructor
+begin_destructor
+DECL|function|~QDashStroker
+name|QDashStroker
+operator|::
+name|~
+name|QDashStroker
+parameter_list|()
+block|{ }
+end_destructor
 begin_function
 DECL|function|patternForStyle
 name|QVector

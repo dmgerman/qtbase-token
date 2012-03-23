@@ -115,7 +115,7 @@ block|{
 case|case
 name|QFont
 operator|::
-name|Times
+name|SansSerif
 case|:
 name|familyName
 operator|=
@@ -123,14 +123,14 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Times"
+literal|"sans-serif"
 argument_list|)
 expr_stmt|;
 break|break;
 case|case
 name|QFont
 operator|::
-name|Courier
+name|Serif
 case|:
 name|familyName
 operator|=
@@ -138,10 +138,15 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Courier"
+literal|"serif"
 argument_list|)
 expr_stmt|;
 break|break;
+case|case
+name|QFont
+operator|::
+name|TypeWriter
+case|:
 case|case
 name|QFont
 operator|::
@@ -153,7 +158,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Courier New"
+literal|"monospace"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -168,7 +173,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Comic Sans MS"
+literal|"cursive"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -183,7 +188,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Impact"
+literal|"fantasy"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -198,15 +203,10 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"Old English"
+literal|"decorative"
 argument_list|)
 expr_stmt|;
 break|break;
-case|case
-name|QFont
-operator|::
-name|Helvetica
-case|:
 case|case
 name|QFont
 operator|::
@@ -216,12 +216,9 @@ default|default:
 name|familyName
 operator|=
 name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-literal|"Helvetica"
-argument_list|)
+argument_list|()
 expr_stmt|;
+break|break;
 block|}
 return|return
 name|QGuiApplicationPrivate
