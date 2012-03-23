@@ -3088,7 +3088,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"000.000.000.000; "
+literal|"000.000.000.000"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -3122,7 +3122,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"AAA.aa.999.###; "
+literal|"AAA.aa.999.###"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -3139,7 +3139,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|">abcdef<GHIJK; "
+literal|">abcdef<GHIJK"
 argument_list|)
 expr_stmt|;
 comment|// set an invalid input mask...
@@ -3158,7 +3158,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"ABCDEFGHIKLMNOP; "
+literal|"ABCDEFGHIKLMNOP"
 argument_list|)
 expr_stmt|;
 comment|// verify that we can unset the mask again
