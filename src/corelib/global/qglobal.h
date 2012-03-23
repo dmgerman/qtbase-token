@@ -6746,33 +6746,9 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_CC_MIPS
-argument_list|)
-end_if
-begin_comment
-comment|/*    Proper for-scoping in MIPSpro CC */
-end_comment
-begin_define
-DECL|macro|Q_FOREACH
-define|#
-directive|define
-name|Q_FOREACH
-parameter_list|(
-name|variable
-parameter_list|,
-name|container
-parameter_list|)
-define|\
-value|if(0){}else                                                                                     \     for (const QForeachContainerBase&_container_ = qForeachContainerNew(container);                \          qForeachContainer(&_container_, true ? 0 : qForeachPointer(container))->condition();       \          ++qForeachContainer(&_container_, true ? 0 : qForeachPointer(container))->i)               \         for (variable = *qForeachContainer(&_container_, true ? 0 : qForeachPointer(container))->i; \              qForeachContainer(&_container_, true ? 0 : qForeachPointer(container))->brk;           \              --qForeachContainer(&_container_, true ? 0 : qForeachPointer(container))->brk)
-end_define
-begin_elif
-elif|#
-directive|elif
-name|defined
-argument_list|(
 name|Q_CC_DIAB
 argument_list|)
-end_elif
+end_if
 begin_comment
 comment|// VxWorks DIAB generates unresolvable symbols, if container is a function call
 end_comment
