@@ -2605,7 +2605,7 @@ operator|->
 name|time
 argument_list|()
 operator|!=
-name|CurrentTime
+name|XCB_TIME_CURRENT_TIME
 condition|)
 name|updateNetWmUserTime
 argument_list|(
