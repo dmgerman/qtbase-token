@@ -16679,7 +16679,7 @@ continue|continue;
 name|QRegExp
 name|re
 argument_list|(
-literal|"Project MESSAGE:.*Architecture: ([a-zA-Z0-9]*)"
+literal|"Project MESSAGE:.*Architecture: ([a-zA-Z0-9_]*)"
 argument_list|)
 decl_stmt|;
 if|if
