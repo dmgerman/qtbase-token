@@ -413,7 +413,15 @@ end_endif
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_CC_MSVC
+end_ifndef
 begin_function_decl
+name|Q_NORETURN
+endif|#
+directive|endif
 name|void
 name|fatal
 parameter_list|(

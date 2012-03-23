@@ -618,6 +618,14 @@ argument_list|,
 name|ap
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_CC_MSVC
+name|Q_UNREACHABLE
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
 name|va_end
 argument_list|(
 name|ap
