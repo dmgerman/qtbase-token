@@ -48,6 +48,12 @@ name|QQnxNavigatorEventHandler
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QQnxVirtualKeyboard
+name|class
+name|QQnxVirtualKeyboard
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QQnxWindow
 name|class
 name|QQnxWindow
@@ -271,6 +277,10 @@ block|;
 name|QQnxNavigatorEventHandler
 operator|*
 name|m_navigatorEventHandler
+block|;
+name|QQnxVirtualKeyboard
+operator|*
+name|m_virtualKeyboard
 block|;
 name|QQnxInputContext
 operator|*
