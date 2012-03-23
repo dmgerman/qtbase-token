@@ -3810,8 +3810,6 @@ name|DirectConnection
 block|,
 name|QueuedConnection
 block|,
-name|AutoCompatConnection
-block|,
 name|BlockingQueuedConnection
 block|,
 name|UniqueConnection
