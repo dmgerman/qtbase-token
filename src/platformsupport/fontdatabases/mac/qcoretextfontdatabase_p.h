@@ -74,6 +74,9 @@ argument|const QUnicodeTables::Script&script
 argument_list|)
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CORESERVICES
 name|QStringList
 name|addApplicationFont
 argument_list|(
@@ -88,6 +91,8 @@ operator|&
 name|fileName
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|void
 name|releaseHandle
 argument_list|(
