@@ -17574,6 +17574,9 @@ specifier|const
 name|QRegExpEngineKey
 modifier|&
 name|key
+parameter_list|,
+name|uint
+name|seed
 parameter_list|)
 block|{
 return|return
@@ -17582,6 +17585,8 @@ argument_list|(
 name|key
 operator|.
 name|pattern
+argument_list|,
+name|seed
 argument_list|)
 return|;
 block|}

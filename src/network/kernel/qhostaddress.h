@@ -479,6 +479,11 @@ specifier|const
 name|QHostAddress
 modifier|&
 name|key
+parameter_list|,
+name|uint
+name|seed
+init|=
+literal|0
 parameter_list|)
 function_decl|;
 end_function_decl

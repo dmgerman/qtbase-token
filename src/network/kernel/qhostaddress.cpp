@@ -3688,6 +3688,9 @@ specifier|const
 name|QHostAddress
 modifier|&
 name|key
+parameter_list|,
+name|uint
+name|seed
 parameter_list|)
 block|{
 return|return
@@ -3697,6 +3700,8 @@ name|key
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+name|seed
 argument_list|)
 return|;
 block|}

@@ -298,6 +298,9 @@ specifier|const
 name|QDBusObjectPath
 modifier|&
 name|objectPath
+parameter_list|,
+name|uint
+name|seed
 parameter_list|)
 block|{
 return|return
@@ -307,6 +310,8 @@ name|objectPath
 operator|.
 name|path
 argument_list|()
+argument_list|,
+name|seed
 argument_list|)
 return|;
 block|}
@@ -566,6 +571,9 @@ specifier|const
 name|QDBusSignature
 modifier|&
 name|signature
+parameter_list|,
+name|uint
+name|seed
 parameter_list|)
 block|{
 return|return
@@ -575,6 +583,8 @@ name|signature
 operator|.
 name|signature
 argument_list|()
+argument_list|,
+name|seed
 argument_list|)
 return|;
 block|}
