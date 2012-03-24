@@ -633,6 +633,10 @@ DECL|member|numBuckets
 name|int
 name|numBuckets
 decl_stmt|;
+DECL|member|seed
+name|uint
+name|seed
+decl_stmt|;
 DECL|member|sharable
 name|uint
 name|sharable

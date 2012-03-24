@@ -11,6 +11,32 @@ directive|if
 name|defined
 name|__cplusplus
 end_if
+begin_comment
+comment|// for rand_s, _CRT_RAND_S must be #defined before #including stdlib.h.
+end_comment
+begin_comment
+comment|// put it at the beginning so some indirect inclusion doesn't break it
+end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|_CRT_RAND_S
+end_ifndef
+begin_define
+DECL|macro|_CRT_RAND_S
+define|#
+directive|define
+name|_CRT_RAND_S
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_include
+include|#
+directive|include
+file|<stdlib.h>
+end_include
 begin_include
 include|#
 directive|include
@@ -84,11 +110,6 @@ begin_include
 include|#
 directive|include
 file|<qtextcodec.h>
-end_include
-begin_include
-include|#
-directive|include
-file|<stdlib.h>
 end_include
 begin_endif
 endif|#
