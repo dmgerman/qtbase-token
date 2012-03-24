@@ -94,6 +94,11 @@ include|#
 directive|include
 file|<CoreFoundation/CFArray.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_CORESERVICES
+end_ifndef
 begin_typedef
 DECL|typedef|PtrSecCertificateGetData
 typedef|typedef
@@ -139,6 +144,10 @@ modifier|*
 parameter_list|)
 function_decl|;
 end_typedef
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_elif
 elif|#
 directive|elif
@@ -479,6 +488,12 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_MAC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_NO_CORESERVICES
 argument_list|)
 specifier|static
 name|PtrSecCertificateGetData
