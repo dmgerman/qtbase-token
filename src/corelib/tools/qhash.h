@@ -5964,7 +5964,9 @@ name|qHash
 argument_list|(
 name|akey
 argument_list|,
-literal|0
+name|d
+operator|->
+name|seed
 argument_list|)
 expr_stmt|;
 if|if
