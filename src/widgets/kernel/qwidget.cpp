@@ -17801,16 +17801,6 @@ name|q
 operator|->
 name|paintingActive
 argument_list|()
-operator|&&
-operator|!
-name|q
-operator|->
-name|testAttribute
-argument_list|(
-name|Qt
-operator|::
-name|WA_PaintOutsidePaintEvent
-argument_list|)
 condition|)
 name|qWarning
 argument_list|(

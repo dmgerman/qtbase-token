@@ -7303,16 +7303,6 @@ endif|#
 directive|endif
 if|if
 condition|(
-operator|!
-name|q
-operator|->
-name|testAttribute
-argument_list|(
-name|Qt
-operator|::
-name|WA_PaintOutsidePaintEvent
-argument_list|)
-operator|&&
 name|q
 operator|->
 name|paintingActive

@@ -1024,10 +1024,6 @@ operator|=
 literal|12
 block|,
 comment|// Mac only
-name|WA_PaintOutsidePaintEvent
-operator|=
-literal|13
-block|,
 name|WA_InputMethodEnabled
 operator|=
 literal|14
