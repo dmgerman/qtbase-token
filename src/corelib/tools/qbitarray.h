@@ -69,6 +69,9 @@ specifier|const
 name|QBitArray
 modifier|&
 name|key
+parameter_list|,
+name|uint
+name|seed
 parameter_list|)
 function_decl|;
 name|QByteArray
