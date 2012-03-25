@@ -464,6 +464,8 @@ name|DT_tt
 block|,
 name|DT_u
 block|,
+name|DT_uicontrol
+block|,
 name|DT_ul
 block|,
 name|DT_unknown

@@ -403,6 +403,14 @@ literal|"</tt>"
 block|}
 block|,
 block|{
+name|ATOM_FORMATTING_UICONTROL
+block|,
+literal|"<b>"
+block|,
+literal|"</b>"
+block|}
+block|,
+block|{
 name|ATOM_FORMATTING_UNDERLINE
 block|,
 literal|"<u>"
