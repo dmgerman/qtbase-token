@@ -463,6 +463,46 @@ name|result
 return|;
 block|}
 end_function
+begin_function
+DECL|function|qHash
+name|uint
+name|qHash
+parameter_list|(
+specifier|const
+name|QLatin1String
+modifier|&
+name|key
+parameter_list|,
+name|uint
+name|seed
+parameter_list|)
+block|{
+return|return
+name|hash
+argument_list|(
+cast|reinterpret_cast
+argument_list|<
+specifier|const
+name|uchar
+operator|*
+argument_list|>
+argument_list|(
+name|key
+operator|.
+name|data
+argument_list|()
+argument_list|)
+argument_list|,
+name|key
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|seed
+argument_list|)
+return|;
+block|}
+end_function
 begin_comment
 comment|/*!     \internal      Creates the QHash random seed from various sources.     In order of decreasing precedence:     - under Unix, it attemps to read from /dev/urandom;     - under Unix, it attemps to read from /dev/random;     - under Windows, it attempts to use rand_s;     - as a general fallback, the application's PID, a timestamp and the       address of a stack-local variable are used. */
 end_comment
@@ -2363,7 +2403,7 @@ begin_comment
 comment|/*! \fn uint qHash(QChar key)     \relates QHash      Returns the hash value for the \a key. */
 end_comment
 begin_comment
-comment|/*! \fn uint qHash(const QByteArray&key, uint seed = 0)     \fn uint qHash(const QBitArray&key, uint seed = 0)     \fn uint qHash(const QString&key, uint seed = 0)     \fn uint qHash(const QStringRef&key, uint seed = 0)      \relates QHash     \since 5.0      Returns the hash value for the \a key, using \a seed to     seed the calculation. */
+comment|/*! \fn uint qHash(const QByteArray&key, uint seed = 0)     \fn uint qHash(const QBitArray&key, uint seed = 0)     \fn uint qHash(const QString&key, uint seed = 0)     \fn uint qHash(const QStringRef&key, uint seed = 0)     \fn uint qHash(const QLatin1String&key, uint seed = 0)      \relates QHash     \since 5.0      Returns the hash value for the \a key, using \a seed to     seed the calculation. */
 end_comment
 begin_comment
 comment|/*! \fn uint qHash(const T *key)     \relates QHash      Returns the hash value for the \a key. */
