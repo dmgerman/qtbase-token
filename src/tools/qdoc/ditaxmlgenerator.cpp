@@ -30667,6 +30667,7 @@ block|{
 name|QString
 name|doctype
 decl_stmt|;
+comment|/*     Remove #if 0 to get a flat ditamap. */
 if|#
 directive|if
 literal|0
@@ -31434,6 +31435,26 @@ name|end
 argument_list|()
 condition|)
 block|{
+comment|// Hardcode not writing index.dita multiple times in the tree.
+comment|// index.dita should only appear at the top of the ditamap.
+if|if
+condition|(
+name|fileName
+argument_list|(
+name|i
+operator|.
+name|value
+argument_list|()
+argument_list|)
+operator|==
+literal|"index.dita"
+condition|)
+block|{
+name|i
+operator|++
+expr_stmt|;
+continue|continue;
+block|}
 name|writeStartTag
 argument_list|(
 name|DT_topicref
