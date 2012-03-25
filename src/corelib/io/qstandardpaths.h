@@ -169,6 +169,14 @@ name|QStringList
 argument_list|()
 parameter_list|)
 function_decl|;
+specifier|static
+name|void
+name|enableTestMode
+parameter_list|(
+name|bool
+name|testMode
+parameter_list|)
+function_decl|;
 name|private
 label|:
 comment|// prevent construction
