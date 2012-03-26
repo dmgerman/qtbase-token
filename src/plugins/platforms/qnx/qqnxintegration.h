@@ -36,9 +36,9 @@ name|QQnxBpsEventFilter
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|variable|QQnxEventThread
+DECL|variable|QQnxScreenEventThread
 name|class
-name|QQnxEventThread
+name|QQnxScreenEventThread
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -350,9 +350,9 @@ block|;
 name|screen_context_t
 name|m_screenContext
 block|;
-name|QQnxEventThread
+name|QQnxScreenEventThread
 operator|*
-name|m_eventThread
+name|m_screenEventThread
 block|;
 name|QQnxNavigatorEventHandler
 operator|*

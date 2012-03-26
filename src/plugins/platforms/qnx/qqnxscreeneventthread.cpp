@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qqnxeventthread.h"
+file|"qqnxscreeneventthread.h"
 end_include
 begin_include
 include|#
@@ -33,10 +33,10 @@ directive|include
 file|<cctype>
 end_include
 begin_constructor
-DECL|function|QQnxEventThread
-name|QQnxEventThread
+DECL|function|QQnxScreenEventThread
+name|QQnxScreenEventThread
 operator|::
-name|QQnxEventThread
+name|QQnxScreenEventThread
 parameter_list|(
 name|screen_context_t
 name|context
@@ -66,11 +66,11 @@ argument_list|)
 block|{ }
 end_constructor
 begin_destructor
-DECL|function|~QQnxEventThread
-name|QQnxEventThread
+DECL|function|~QQnxScreenEventThread
+name|QQnxScreenEventThread
 operator|::
 name|~
-name|QQnxEventThread
+name|QQnxScreenEventThread
 parameter_list|()
 block|{
 comment|// block until thread terminates
@@ -82,7 +82,7 @@ end_destructor
 begin_function
 DECL|function|injectKeyboardEvent
 name|void
-name|QQnxEventThread
+name|QQnxScreenEventThread
 operator|::
 name|injectKeyboardEvent
 parameter_list|(
@@ -122,7 +122,7 @@ end_function
 begin_function
 DECL|function|run
 name|void
-name|QQnxEventThread
+name|QQnxScreenEventThread
 operator|::
 name|run
 parameter_list|()
@@ -150,7 +150,7 @@ name|result
 condition|)
 name|qFatal
 argument_list|(
-literal|"QQNX: failed to create event, errno=%d"
+literal|"QQNX: failed to create screen event, errno=%d"
 argument_list|,
 name|errno
 argument_list|)
@@ -159,12 +159,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXEVENTTHREAD_DEBUG
+name|QQNXSCREENEVENTTHREAD_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
 operator|<<
-literal|"QQNX: event loop started"
+literal|"QQNX: screen event thread started"
 expr_stmt|;
 endif|#
 directive|endif
@@ -198,7 +198,7 @@ name|result
 condition|)
 name|qFatal
 argument_list|(
-literal|"QQNX: failed to get event, errno=%d"
+literal|"QQNX: failed to get screen event, errno=%d"
 argument_list|,
 name|errno
 argument_list|)
@@ -230,7 +230,7 @@ name|result
 condition|)
 name|qFatal
 argument_list|(
-literal|"QQNX: failed to query event type, errno=%d"
+literal|"QQNX: failed to query screen event type, errno=%d"
 argument_list|,
 name|errno
 argument_list|)
@@ -247,12 +247,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXEVENTTHREAD_DEBUG
+name|QQNXSCREENEVENTTHREAD_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
 operator|<<
-literal|"QQNX: QNX user event"
+literal|"QQNX: QNX user screen event"
 expr_stmt|;
 endif|#
 directive|endif
@@ -278,12 +278,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXEVENTTHREAD_DEBUG
+name|QQNXSCREENEVENTTHREAD_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
 operator|<<
-literal|"QQNX: event loop stopped"
+literal|"QQNX: screen event thread stopped"
 expr_stmt|;
 endif|#
 directive|endif
@@ -298,7 +298,7 @@ end_function
 begin_function
 DECL|function|shutdown
 name|void
-name|QQnxEventThread
+name|QQnxScreenEventThread
 operator|::
 name|shutdown
 parameter_list|()
@@ -326,7 +326,7 @@ name|result
 condition|)
 name|qFatal
 argument_list|(
-literal|"QQNX: failed to create event, errno=%d"
+literal|"QQNX: failed to create screen event, errno=%d"
 argument_list|,
 name|errno
 argument_list|)
@@ -359,7 +359,7 @@ name|result
 condition|)
 name|qFatal
 argument_list|(
-literal|"QQNX: failed to set event type, errno=%d"
+literal|"QQNX: failed to set screen event type, errno=%d"
 argument_list|,
 name|errno
 argument_list|)
@@ -388,7 +388,7 @@ name|result
 condition|)
 name|qFatal
 argument_list|(
-literal|"QQNX: failed to set event type, errno=%d"
+literal|"QQNX: failed to set screen event type, errno=%d"
 argument_list|,
 name|errno
 argument_list|)
@@ -403,12 +403,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXEVENTTHREAD_DEBUG
+name|QQNXSCREENEVENTTHREAD_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
 operator|<<
-literal|"QQNX: event loop shutdown begin"
+literal|"QQNX: screen event thread shutdown begin"
 expr_stmt|;
 endif|#
 directive|endif
@@ -420,12 +420,12 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|QQNXEVENTTHREAD_DEBUG
+name|QQNXSCREENEVENTTHREAD_DEBUG
 argument_list|)
 name|qDebug
 argument_list|()
 operator|<<
-literal|"QQNX: event loop shutdown end"
+literal|"QQNX: screen event thread shutdown end"
 expr_stmt|;
 endif|#
 directive|endif

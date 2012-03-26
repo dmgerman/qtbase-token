@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QQNXEVENTTHREAD_H
+name|QQNXSCREENEVENTTHREAD_H
 end_ifndef
 begin_define
-DECL|macro|QQNXEVENTTHREAD_H
+DECL|macro|QQNXSCREENEVENTTHREAD_H
 define|#
 directive|define
-name|QQNXEVENTTHREAD_H
+name|QQNXSCREENEVENTTHREAD_H
 end_define
 begin_include
 include|#
@@ -32,23 +32,22 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|class
-name|QQnxEventThread
+name|QQnxScreenEventThread
 range|:
 name|public
 name|QThread
 block|{
 name|public
 operator|:
-name|QQnxEventThread
+name|QQnxScreenEventThread
 argument_list|(
 argument|screen_context_t context
 argument_list|,
 argument|QQnxScreenEventHandler *screenEventHandler
 argument_list|)
 block|;
-name|virtual
 operator|~
-name|QQnxEventThread
+name|QQnxScreenEventThread
 argument_list|()
 block|;
 specifier|static
@@ -98,6 +97,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QQNXEVENTTHREAD_H
+comment|// QQNXSCREENEVENTTHREAD_H
 end_comment
 end_unit
