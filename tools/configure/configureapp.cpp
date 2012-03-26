@@ -16543,39 +16543,6 @@ name|endl
 operator|<<
 name|endl
 expr_stmt|;
-comment|//so that we can build without an install first (which would be impossible)
-name|moduleStream
-operator|<<
-literal|"#local paths that cannot be queried from the QT_INSTALL_* properties while building QTDIR"
-operator|<<
-name|endl
-expr_stmt|;
-name|moduleStream
-operator|<<
-literal|"QMAKE_INCDIR_QT = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/include"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
-name|moduleStream
-operator|<<
-literal|"QMAKE_LIBDIR_QT = $$QT_BUILD_TREE"
-operator|<<
-name|fixSeparators
-argument_list|(
-literal|"/lib"
-argument_list|,
-literal|true
-argument_list|)
-operator|<<
-name|endl
-expr_stmt|;
 name|QString
 name|hostSpec
 init|=
