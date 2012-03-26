@@ -33,11 +33,6 @@ include|#
 directive|include
 file|<QtCore/qrefcount.h>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_include
 include|#
 directive|include
@@ -48,10 +43,6 @@ include|#
 directive|include
 file|<vector>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
@@ -2782,11 +2773,6 @@ name|list
 argument_list|)
 expr_stmt|;
 end_expr_stmt
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_expr_stmt
 specifier|static
 specifier|inline
@@ -2892,10 +2878,6 @@ name|tmp
 return|;
 block|}
 end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_label
 name|private
 label|:

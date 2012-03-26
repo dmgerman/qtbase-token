@@ -558,9 +558,6 @@ name|split_stdvector_stdstring
 parameter_list|()
 specifier|const
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
 name|QFETCH
 argument_list|(
 name|QString
@@ -631,8 +628,6 @@ argument_list|)
 control|)
 empty_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -644,9 +639,6 @@ name|split_stdvector_stdwstring
 parameter_list|()
 specifier|const
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
 name|QFETCH
 argument_list|(
 name|QString
@@ -717,8 +709,6 @@ argument_list|)
 control|)
 empty_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 end_function
 begin_function

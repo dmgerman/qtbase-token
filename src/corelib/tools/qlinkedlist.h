@@ -23,11 +23,6 @@ include|#
 directive|include
 file|<QtCore/qrefcount.h>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_include
 include|#
 directive|include
@@ -38,10 +33,6 @@ include|#
 directive|include
 file|<list>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -1920,11 +1911,6 @@ name|qptrdiff
 name|difference_type
 typedef|;
 end_typedef
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_expr_stmt
 specifier|static
 specifier|inline
@@ -2009,10 +1995,6 @@ name|tmp
 return|;
 block|}
 end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// comfort
 end_comment

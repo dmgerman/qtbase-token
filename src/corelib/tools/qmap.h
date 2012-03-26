@@ -47,20 +47,11 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_include
 include|#
 directive|include
 file|<map>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
@@ -2254,11 +2245,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_decl_stmt
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_decl_stmt
 name|explicit
 name|QMap
@@ -2292,10 +2278,6 @@ argument_list|()
 specifier|const
 expr_stmt|;
 end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
 name|bool
 name|operator
@@ -6642,14 +6624,8 @@ return|return
 name|true
 return|;
 end_return
-begin_ifndef
-unit|}
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_expr_stmt
-unit|template
+unit|}  template
 DECL|variable|Key
 operator|<
 name|class
@@ -6829,16 +6805,8 @@ return|return
 name|map
 return|;
 end_return
-begin_endif
-unit|}
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_STL
-end_comment
 begin_expr_stmt
-unit|template
+unit|}  template
 DECL|variable|Key
 operator|<
 name|class

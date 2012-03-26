@@ -247,20 +247,11 @@ include|#
 directive|include
 file|<QtTest/QtTest>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_include
 include|#
 directive|include
 file|<algorithm>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
@@ -474,9 +465,6 @@ name|void
 name|constAndNonConstStlIterators
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
 name|void
 name|vector_stl_data
 parameter_list|()
@@ -501,8 +489,6 @@ name|void
 name|linkedlist_stl
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 name|void
 name|q_init
 parameter_list|()
@@ -918,12 +904,6 @@ argument_list|)
 expr_stmt|;
 if|#
 directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_STL
-argument_list|)
-operator|&&
 operator|!
 name|defined
 argument_list|(
@@ -6802,13 +6782,6 @@ literal|5
 operator|<<
 literal|6
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_STL
-argument_list|)
 name|QVERIFY
 argument_list|(
 name|std
@@ -6853,8 +6826,6 @@ operator|==
 literal|false
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|QVERIFY
 argument_list|(
 name|qBinaryFind
@@ -19731,11 +19702,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_function
 DECL|function|vector_stl_data
 name|void
@@ -20350,10 +20316,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 template|template
 parameter_list|<
@@ -20624,9 +20586,6 @@ argument_list|(
 name|container
 argument_list|)
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
 typename|typename
 name|ContainerType
 operator|::
@@ -20675,8 +20634,6 @@ name|Q_UNUSED
 argument_list|(
 argument|constIt
 argument_list|)
-endif|#
-directive|endif
 name|container
 operator|.
 name|clear
@@ -20758,9 +20715,6 @@ expr_stmt|;
 name|ContainerType
 name|container
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
 typename|typename
 name|ContainerType
 operator|::
@@ -20785,8 +20739,6 @@ name|Q_UNUSED
 argument_list|(
 argument|it
 argument_list|)
-endif|#
-directive|endif
 comment|// QSet lacks count(T).
 specifier|const
 name|ValueType
@@ -24340,9 +24292,6 @@ name|val
 argument_list|)
 return|;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
 DECL|function|operator std::string
 name|operator
 name|std::string
@@ -24384,8 +24333,6 @@ name|toInt
 argument_list|()
 argument_list|)
 block|{ }
-endif|#
-directive|endif
 block|}
 struct|;
 end_struct
@@ -25624,9 +25571,6 @@ argument_list|>
 argument_list|>
 argument_list|()
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
 name|insert_remove_loop_impl
 argument_list|<
 name|ExtList
@@ -25699,8 +25643,6 @@ argument_list|>
 argument_list|>
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_macro

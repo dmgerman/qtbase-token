@@ -33,23 +33,11 @@ include|#
 directive|include
 file|<QtCore/qnamespace.h>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_include
 include|#
 directive|include
 file|<string>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_STL
-end_comment
 begin_include
 include|#
 directive|include
@@ -5811,11 +5799,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_decl_stmt
 specifier|static
 specifier|inline
@@ -5866,10 +5849,6 @@ argument_list|()
 specifier|const
 expr_stmt|;
 end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// compatibility
 end_comment
@@ -12040,11 +12019,6 @@ end_endif
 begin_comment
 comment|// QT_USE_QSTRINGBUILDER
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_expr_stmt
 specifier|inline
 name|std
@@ -12180,7 +12154,7 @@ name|str
 return|;
 end_return
 begin_expr_stmt
-unit|} inline
+unit|}  inline
 name|QString
 name|QString
 operator|::
@@ -12208,10 +12182,6 @@ argument_list|)
 return|;
 block|}
 end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_if
 if|#
 directive|if

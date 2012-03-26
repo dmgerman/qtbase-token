@@ -38,11 +38,6 @@ include|#
 directive|include
 file|<QtCore/qlist.h>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_include
 include|#
 directive|include
@@ -53,10 +48,6 @@ include|#
 directive|include
 file|<vector>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
@@ -2286,11 +2277,6 @@ end_expr_stmt
 begin_comment
 comment|//static QRawVector<T> fromList(const QList<T>&list);
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_expr_stmt
 specifier|static
 specifier|inline
@@ -2375,10 +2361,6 @@ name|tmp
 return|;
 block|}
 end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_label
 name|private
 label|:

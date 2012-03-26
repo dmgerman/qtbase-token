@@ -6758,9 +6758,6 @@ parameter_list|()
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_STL
-ifndef|#
-directive|ifndef
 name|QT_NO_CAST_TO_ASCII
 name|QString
 name|qt
@@ -6956,15 +6953,6 @@ name|toStdWString
 argument_list|()
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|QSKIP
-argument_list|(
-literal|"Not tested without STL support"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -28096,13 +28084,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_STL
-argument_list|)
 name|std
 operator|::
 name|string
@@ -28178,8 +28159,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
@@ -28200,13 +28179,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_STL
-argument_list|)
 name|QString
 name|nord
 init|=
@@ -28336,8 +28308,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_function
