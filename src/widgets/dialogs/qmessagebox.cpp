@@ -6012,7 +6012,7 @@ name|pm
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/qmessagebox/images/qtlogo-64.png"
+literal|":/qt-project.org/qmessagebox/images/qtlogo-64.png"
 argument_list|)
 argument_list|)
 decl_stmt|;

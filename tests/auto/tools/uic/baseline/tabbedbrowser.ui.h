@@ -435,7 +435,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|":/trolltech/assistant/images/close.png"
+literal|":/qt-project.org/assistant/images/close.png"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -583,7 +583,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|":/trolltech/assistant/images/win/previous.png"
+literal|":/qt-project.org/assistant/images/win/previous.png"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -657,7 +657,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|":/trolltech/assistant/images/win/next.png"
+literal|":/qt-project.org/assistant/images/win/next.png"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1031,7 +1031,7 @@ name|translate
 argument_list|(
 literal|"TabbedBrowser"
 argument_list|,
-literal|"<img src=\":/trolltech/assistant/images/wrap.png\">&nbsp;Search wrapped"
+literal|"<img src=\":/qt-project.org/assistant/images/wrap.png\">&nbsp;Search wrapped"
 argument_list|,
 literal|0
 argument_list|,

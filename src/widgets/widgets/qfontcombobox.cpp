@@ -375,7 +375,7 @@ name|QIcon
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/fonttruetype-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/fonttruetype-16.png"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -385,7 +385,7 @@ name|QIcon
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/fontbitmap-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/fontbitmap-16.png"
 argument_list|)
 argument_list|)
 expr_stmt|;

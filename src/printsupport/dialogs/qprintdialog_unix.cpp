@@ -1898,7 +1898,7 @@ name|QIcon
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/dialogs/qprintdialog/images/status-color.png"
+literal|":/qt-project.org/dialogs/qprintdialog/images/status-color.png"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1927,7 +1927,7 @@ name|QIcon
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/dialogs/qprintdialog/images/status-gray-scale.png"
+literal|":/qt-project.org/dialogs/qprintdialog/images/status-gray-scale.png"
 argument_list|)
 argument_list|)
 argument_list|)

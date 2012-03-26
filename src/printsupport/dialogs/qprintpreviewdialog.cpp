@@ -1699,7 +1699,7 @@ block|{
 name|QLatin1String
 name|imagePrefix
 argument_list|(
-literal|":/trolltech/dialogs/qprintpreviewdialog/images/"
+literal|":/qt-project.org/dialogs/qprintpreviewdialog/images/"
 argument_list|)
 decl_stmt|;
 name|QIcon
