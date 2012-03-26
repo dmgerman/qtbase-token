@@ -1869,7 +1869,7 @@ argument_list|()
 argument_list|,
 name|event
 operator|->
-name|pixelDelta
+name|angleDelta
 argument_list|()
 argument_list|,
 name|event
