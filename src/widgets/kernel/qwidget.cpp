@@ -9907,6 +9907,7 @@ name|QWidget
 operator|::
 name|isEnabledTo
 parameter_list|(
+specifier|const
 name|QWidget
 modifier|*
 name|ancestor
@@ -27513,6 +27514,7 @@ name|QWidget
 operator|::
 name|isVisibleTo
 parameter_list|(
+specifier|const
 name|QWidget
 modifier|*
 name|ancestor
