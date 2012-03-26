@@ -1464,6 +1464,7 @@ decl_stmt|;
 name|QPoint
 name|mapTo
 argument_list|(
+specifier|const
 name|QWidget
 operator|*
 argument_list|,
@@ -1476,6 +1477,7 @@ decl_stmt|;
 name|QPoint
 name|mapFrom
 argument_list|(
+specifier|const
 name|QWidget
 operator|*
 argument_list|,

@@ -13024,6 +13024,7 @@ name|QWidget
 operator|::
 name|mapTo
 parameter_list|(
+specifier|const
 name|QWidget
 modifier|*
 name|parent
@@ -13063,7 +13064,7 @@ name|Q_ASSERT_X
 argument_list|(
 name|w
 argument_list|,
-literal|"QWidget::mapTo(QWidget *parent, const QPoint&pos)"
+literal|"QWidget::mapTo(const QWidget *parent, const QPoint&pos)"
 argument_list|,
 literal|"parent must be in parent hierarchy"
 argument_list|)
@@ -13097,6 +13098,7 @@ name|QWidget
 operator|::
 name|mapFrom
 parameter_list|(
+specifier|const
 name|QWidget
 modifier|*
 name|parent
@@ -13137,7 +13139,7 @@ name|Q_ASSERT_X
 argument_list|(
 name|w
 argument_list|,
-literal|"QWidget::mapFrom(QWidget *parent, const QPoint&pos)"
+literal|"QWidget::mapFrom(const QWidget *parent, const QPoint&pos)"
 argument_list|,
 literal|"parent must be in parent hierarchy"
 argument_list|)
