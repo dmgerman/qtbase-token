@@ -57,7 +57,6 @@ operator|~
 name|QQnxInputContext
 argument_list|()
 block|;
-name|virtual
 name|bool
 name|isValid
 argument_list|()
@@ -67,7 +66,6 @@ name|void
 name|reset
 argument_list|()
 block|;
-name|virtual
 name|bool
 name|filterEvent
 argument_list|(
@@ -91,23 +89,19 @@ argument_list|,
 argument|int cap
 argument_list|)
 block|;
-name|virtual
 name|void
 name|showInputPanel
 argument_list|()
 block|;
-name|virtual
 name|void
 name|hideInputPanel
 argument_list|()
 block|;
-name|virtual
 name|bool
 name|isInputPanelVisible
 argument_list|()
 specifier|const
 block|;
-name|virtual
 name|QLocale
 name|locale
 argument_list|()

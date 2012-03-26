@@ -71,7 +71,6 @@ name|void
 name|shutdown
 argument_list|()
 block|;
-name|virtual
 name|bool
 name|makeCurrent
 argument_list|(
@@ -80,12 +79,10 @@ operator|*
 name|surface
 argument_list|)
 block|;
-name|virtual
 name|void
 name|doneCurrent
 argument_list|()
 block|;
-name|virtual
 name|void
 name|swapBuffers
 argument_list|(
@@ -94,7 +91,6 @@ operator|*
 name|surface
 argument_list|)
 block|;
-name|virtual
 name|QFunctionPointer
 name|getProcAddress
 argument_list|(

@@ -121,12 +121,10 @@ operator|:
 name|QQnxIntegration
 argument_list|()
 block|;
-name|virtual
 operator|~
 name|QQnxIntegration
 argument_list|()
 block|;
-name|virtual
 name|bool
 name|hasCapability
 argument_list|(
@@ -134,7 +132,6 @@ argument|QPlatformIntegration::Capability cap
 argument_list|)
 specifier|const
 block|;
-name|virtual
 name|QPlatformWindow
 operator|*
 name|createPlatformWindow
@@ -143,7 +140,6 @@ argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|virtual
 name|QPlatformBackingStore
 operator|*
 name|createPlatformBackingStore
@@ -152,7 +148,6 @@ argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
-name|virtual
 name|QPlatformOpenGLContext
 operator|*
 name|createPlatformOpenGLContext
@@ -161,14 +156,12 @@ argument|QOpenGLContext *context
 argument_list|)
 specifier|const
 block|;
-name|virtual
 name|QPlatformInputContext
 operator|*
 name|inputContext
 argument_list|()
 specifier|const
 block|;
-name|virtual
 name|QList
 operator|<
 name|QPlatformScreen
@@ -178,7 +171,6 @@ name|screens
 argument_list|()
 specifier|const
 block|;
-name|virtual
 name|void
 name|moveToScreen
 argument_list|(
@@ -187,14 +179,12 @@ argument_list|,
 argument|int screen
 argument_list|)
 block|;
-name|virtual
 name|QAbstractEventDispatcher
 operator|*
 name|guiThreadEventDispatcher
 argument_list|()
 specifier|const
 block|;
-name|virtual
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase
@@ -208,7 +198,6 @@ block|}
 ifndef|#
 directive|ifndef
 name|QT_NO_CLIPBOARD
-name|virtual
 name|QPlatformClipboard
 operator|*
 name|clipboard
@@ -217,7 +206,6 @@ specifier|const
 block|;
 endif|#
 directive|endif
-name|virtual
 name|QVariant
 name|styleHint
 argument_list|(
@@ -234,7 +222,6 @@ return|return
 name|m_paintUsingOpenGL
 return|;
 block|}
-name|virtual
 name|QPlatformServices
 operator|*
 name|services

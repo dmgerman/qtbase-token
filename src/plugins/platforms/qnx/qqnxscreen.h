@@ -117,7 +117,6 @@ name|int
 name|defaultDepth
 parameter_list|()
 function_decl|;
-name|virtual
 name|QRect
 name|geometry
 argument_list|()
@@ -127,13 +126,11 @@ return|return
 name|m_currentGeometry
 return|;
 block|}
-name|virtual
 name|QRect
 name|availableGeometry
 argument_list|()
 specifier|const
 expr_stmt|;
-name|virtual
 name|int
 name|depth
 argument_list|()
@@ -144,7 +141,6 @@ name|defaultDepth
 argument_list|()
 return|;
 block|}
-name|virtual
 name|QImage
 operator|::
 name|Format
@@ -169,7 +165,6 @@ operator|::
 name|Format_RGB16
 return|;
 block|}
-name|virtual
 name|QSizeF
 name|physicalSize
 argument_list|()
@@ -339,7 +334,6 @@ argument_list|,
 argument|bool primaryScreen
 argument_list|)
 empty_stmt|;
-name|virtual
 operator|~
 name|QQnxScreen
 argument_list|()

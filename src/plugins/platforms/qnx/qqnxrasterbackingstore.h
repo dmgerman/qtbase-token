@@ -46,18 +46,15 @@ operator|*
 name|window
 argument_list|)
 block|;
-name|virtual
 operator|~
 name|QQnxRasterBackingStore
 argument_list|()
 block|;
-name|virtual
 name|QPaintDevice
 operator|*
 name|paintDevice
 argument_list|()
 block|;
-name|virtual
 name|void
 name|flush
 argument_list|(
@@ -76,7 +73,6 @@ operator|&
 name|offset
 argument_list|)
 block|;
-name|virtual
 name|void
 name|resize
 argument_list|(
@@ -91,7 +87,6 @@ operator|&
 name|staticContents
 argument_list|)
 block|;
-name|virtual
 name|bool
 name|scroll
 argument_list|(
@@ -102,7 +97,6 @@ argument_list|,
 argument|int dy
 argument_list|)
 block|;
-name|virtual
 name|void
 name|beginPaint
 argument_list|(
@@ -112,7 +106,6 @@ operator|&
 name|region
 argument_list|)
 block|;
-name|virtual
 name|void
 name|endPaint
 argument_list|(

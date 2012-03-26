@@ -61,7 +61,6 @@ argument_list|)
 block|;
 name|protected
 operator|:
-name|virtual
 name|void
 name|run
 argument_list|()
