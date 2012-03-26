@@ -271,6 +271,8 @@ specifier|const
 name|bool
 name|IsAccepted
 init|=
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T

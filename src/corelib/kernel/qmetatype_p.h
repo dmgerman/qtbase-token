@@ -115,9 +115,6 @@ return|return
 name|Unknown
 return|;
 block|}
-block|}
-end_decl_stmt
-begin_expr_stmt
 name|template
 operator|<
 name|typename
@@ -157,8 +154,6 @@ name|IsCore
 block|}
 block|; }
 expr_stmt|;
-end_expr_stmt
-begin_define
 DECL|macro|QT_ASSIGN_TYPE_TO_MODULE
 define|#
 directive|define
@@ -170,8 +165,6 @@ name|MODULE
 parameter_list|)
 define|\
 value|template<> \ class QTypeModuleInfo<TYPE> \ { \ public: \     enum Module { \         IsCore = (((MODULE) == (QModulesPrivate::Core))), \         IsWidget = (((MODULE) == (QModulesPrivate::Widgets))), \         IsGui = (((MODULE) == (QModulesPrivate::Gui))), \         IsUnknown = !(IsCore || IsWidget || IsGui) \     }; \     static inline int module() { return MODULE; } \     Q_STATIC_ASSERT((IsUnknown&& !(IsCore || IsWidget || IsGui)) \                  || (IsCore&& !(IsUnknown || IsWidget || IsGui)) \                  || (IsWidget&& !(IsUnknown || IsCore || IsGui)) \                  || (IsGui&& !(IsUnknown || IsCore || IsWidget))); \ };
-end_define
-begin_define
 DECL|macro|QT_DECLARE_CORE_MODULE_TYPES_ITER
 define|#
 directive|define
@@ -185,8 +178,6 @@ name|Name
 parameter_list|)
 define|\
 value|QT_ASSIGN_TYPE_TO_MODULE(Name, QModulesPrivate::Core);
-end_define
-begin_define
 DECL|macro|QT_DECLARE_GUI_MODULE_TYPES_ITER
 define|#
 directive|define
@@ -200,8 +191,6 @@ name|Name
 parameter_list|)
 define|\
 value|QT_ASSIGN_TYPE_TO_MODULE(Name, QModulesPrivate::Gui);
-end_define
-begin_define
 DECL|macro|QT_DECLARE_WIDGETS_MODULE_TYPES_ITER
 define|#
 directive|define
@@ -215,32 +204,27 @@ name|Name
 parameter_list|)
 define|\
 value|QT_ASSIGN_TYPE_TO_MODULE(Name, QModulesPrivate::Widgets);
-end_define
-begin_macro
-DECL|function|QT_FOR_EACH_STATIC_CORE_CLASS
 name|QT_FOR_EACH_STATIC_CORE_CLASS
 argument_list|(
 argument|QT_DECLARE_CORE_MODULE_TYPES_ITER
 argument_list|)
-end_macro
-begin_macro
 name|QT_FOR_EACH_STATIC_CORE_TEMPLATE
 argument_list|(
 argument|QT_DECLARE_CORE_MODULE_TYPES_ITER
 argument_list|)
-end_macro
-begin_macro
 name|QT_FOR_EACH_STATIC_GUI_CLASS
 argument_list|(
 argument|QT_DECLARE_GUI_MODULE_TYPES_ITER
 argument_list|)
-end_macro
-begin_macro
 name|QT_FOR_EACH_STATIC_WIDGETS_CLASS
 argument_list|(
 argument|QT_DECLARE_WIDGETS_MODULE_TYPES_ITER
 argument_list|)
-end_macro
+block|}
+end_decl_stmt
+begin_comment
+comment|// namespace QModulesPrivate
+end_comment
 begin_undef
 DECL|macro|QT_DECLARE_CORE_MODULE_TYPES_ITER
 undef|#
