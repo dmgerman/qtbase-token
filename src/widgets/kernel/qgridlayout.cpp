@@ -1065,6 +1065,7 @@ name|int
 modifier|*
 name|columnSpan
 parameter_list|)
+specifier|const
 block|{
 if|if
 condition|(
@@ -1076,6 +1077,7 @@ name|count
 argument_list|()
 condition|)
 block|{
+specifier|const
 name|QGridBox
 modifier|*
 name|b
@@ -7497,9 +7499,11 @@ name|int
 modifier|*
 name|columnSpan
 parameter_list|)
+specifier|const
 block|{
 name|Q_D
 argument_list|(
+specifier|const
 name|QGridLayout
 argument_list|)
 expr_stmt|;
