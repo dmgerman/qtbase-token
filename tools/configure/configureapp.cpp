@@ -921,13 +921,6 @@ literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"STL"
-index|]
-operator|=
-literal|"yes"
-expr_stmt|;
-name|dictionary
-index|[
 literal|"EXCEPTIONS"
 index|]
 operator|=
@@ -4796,44 +4789,6 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
-literal|"-stl"
-condition|)
-name|dictionary
-index|[
-literal|"STL"
-index|]
-operator|=
-literal|"yes"
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
-literal|"-no-stl"
-condition|)
-name|dictionary
-index|[
-literal|"STL"
-index|]
-operator|=
-literal|"no"
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
 literal|"-exceptions"
 condition|)
 name|dictionary
@@ -8557,13 +8512,6 @@ literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"STL"
-index|]
-operator|=
-literal|"no"
-expr_stmt|;
-name|dictionary
-index|[
 literal|"EXCEPTIONS"
 index|]
 operator|=
@@ -9085,7 +9033,7 @@ literal|"Usage: configure\n"
 literal|"[-release] [-debug] [-debug-and-release] [-shared] [-static]\n"
 literal|"[-no-fast] [-fast] [-no-exceptions] [-exceptions]\n"
 literal|"[-no-accessibility] [-accessibility] [-no-rtti] [-rtti]\n"
-literal|"[-no-stl] [-stl] [-no-sql-<driver>] [-qt-sql-<driver>]\n"
+literal|"[-no-sql-<driver>] [-qt-sql-<driver>]\n"
 literal|"[-plugin-sql-<driver>] [-system-sqlite]\n"
 literal|"[-D<define>] [-I<includepath>] [-L<librarypath>]\n"
 literal|"[-help] [-no-dsp] [-dsp] [-no-vcproj] [-vcproj]\n"
@@ -9383,28 +9331,6 @@ argument_list|,
 literal|"-accessibility"
 argument_list|,
 literal|"Compile Windows Active Accessibility support.\n"
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
-literal|"STL"
-argument_list|,
-literal|"no"
-argument_list|,
-literal|"-no-stl"
-argument_list|,
-literal|"Do not compile STL support."
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
-literal|"STL"
-argument_list|,
-literal|"yes"
-argument_list|,
-literal|"-stl"
-argument_list|,
-literal|"Compile STL support.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -13308,7 +13234,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*  Things that affect the Qt API/ABI:    Options:      minimal-config small-config medium-config large-config full-config     Options:      debug release      stl   Things that do not affect the Qt API/ABI:      system-jpeg no-jpeg jpeg      system-png no-png png      system-zlib no-zlib zlib      no-gif gif      dll staticlib       nocrosscompiler      GNUmake      largefile      nis      nas      tablet       X11     : x11sm xinerama xcursor xfixes xrandr xrender fontconfig xkb      Embedded: embedded freetype */
+comment|/*  Things that affect the Qt API/ABI:    Options:      minimal-config small-config medium-config large-config full-config     Options:      debug release   Things that do not affect the Qt API/ABI:      system-jpeg no-jpeg jpeg      system-png no-png png      system-zlib no-zlib zlib      no-gif gif      dll staticlib       nocrosscompiler      GNUmake      largefile      nis      nas      tablet       X11     : x11sm xinerama xcursor xfixes xrandr xrender fontconfig xkb      Embedded: embedded freetype */
 end_comment
 begin_function
 DECL|function|generateBuildKey
@@ -16613,19 +16539,6 @@ if|if
 condition|(
 name|dictionary
 index|[
-literal|"STL"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|configStream
-operator|<<
-literal|" stl"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
 literal|"EXCEPTIONS"
 index|]
 operator|==
@@ -17583,19 +17496,6 @@ expr_stmt|;
 name|QStringList
 name|qconfigList
 decl_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"STL"
-index|]
-operator|==
-literal|"no"
-condition|)
-name|qconfigList
-operator|+=
-literal|"QT_NO_STL"
-expr_stmt|;
 if|if
 condition|(
 name|dictionary
@@ -19505,17 +19405,6 @@ operator|<<
 name|dictionary
 index|[
 literal|"ACCESSIBILITY"
-index|]
-operator|<<
-name|endl
-expr_stmt|;
-name|cout
-operator|<<
-literal|"STL support................."
-operator|<<
-name|dictionary
-index|[
-literal|"STL"
 index|]
 operator|<<
 name|endl

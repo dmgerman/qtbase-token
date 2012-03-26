@@ -330,12 +330,6 @@ begin_comment
 comment|//#define QT_NO_STATUSTIP
 end_comment
 begin_comment
-comment|// Standard Template Library
-end_comment
-begin_comment
-comment|//#define QT_NO_STL
-end_comment
-begin_comment
 comment|// QMotifStyle
 end_comment
 begin_comment
