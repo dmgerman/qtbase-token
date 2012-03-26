@@ -9678,7 +9678,6 @@ operator|=
 name|locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|longLongToString
 argument_list|(
@@ -9762,7 +9761,6 @@ operator|=
 name|locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|unsLongLongToString
 argument_list|(
@@ -9905,7 +9903,6 @@ operator|=
 name|locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|doubleToString
 argument_list|(

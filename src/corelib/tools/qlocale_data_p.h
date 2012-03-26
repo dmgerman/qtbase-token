@@ -842,7 +842,7 @@ begin_decl_stmt
 DECL|variable|locale_data
 specifier|static
 specifier|const
-name|QLocalePrivate
+name|QLocaleData
 name|locale_data
 index|[]
 init|=

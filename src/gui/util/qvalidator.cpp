@@ -406,7 +406,6 @@ name|locale
 argument_list|()
 operator|.
 name|d
-argument_list|()
 operator|->
 name|validateChars
 argument_list|(
@@ -633,7 +632,6 @@ name|locale
 argument_list|()
 operator|.
 name|d
-argument_list|()
 operator|->
 name|validateChars
 argument_list|(
@@ -1171,7 +1169,6 @@ operator|!
 name|locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|validateChars
 argument_list|(

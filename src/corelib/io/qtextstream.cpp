@@ -8027,7 +8027,6 @@ init|=
 name|locale
 operator|.
 name|d
-argument_list|()
 decl_stmt|;
 name|int
 name|base
@@ -8845,7 +8844,6 @@ operator|->
 name|locale
 operator|.
 name|d
-argument_list|()
 decl_stmt|;
 name|QString
 name|num

@@ -17743,7 +17743,6 @@ operator|=
 name|locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|longLongToString
 argument_list|(
@@ -17929,7 +17928,6 @@ operator|=
 name|locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|unsLongLongToString
 argument_list|(
@@ -18077,7 +18075,6 @@ operator|=
 name|locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|doubleToString
 argument_list|(
@@ -18290,7 +18287,6 @@ operator|=
 name|locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|unsLongLongToString
 argument_list|(
@@ -18603,7 +18599,6 @@ return|return
 name|c_locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|stringToLongLong
 argument_list|(
@@ -18689,7 +18684,6 @@ return|return
 name|c_locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|stringToUnsLongLong
 argument_list|(
@@ -19092,7 +19086,6 @@ return|return
 name|c_locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|stringToDouble
 argument_list|(
@@ -19267,7 +19260,6 @@ operator|=
 name|locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|longLongToString
 argument_list|(
@@ -19348,7 +19340,6 @@ operator|=
 name|locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|unsLongLongToString
 argument_list|(
@@ -19494,7 +19485,6 @@ operator|=
 name|locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|doubleToString
 argument_list|(
@@ -22110,7 +22100,6 @@ name|c
 argument_list|()
 operator|.
 name|d
-argument_list|()
 operator|->
 name|longLongToString
 argument_list|(
@@ -22164,7 +22153,6 @@ operator|=
 name|locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|longLongToString
 argument_list|(
@@ -22302,7 +22290,6 @@ name|c
 argument_list|()
 operator|.
 name|d
-argument_list|()
 operator|->
 name|unsLongLongToString
 argument_list|(
@@ -22356,7 +22343,6 @@ operator|=
 name|locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|unsLongLongToString
 argument_list|(
@@ -22669,7 +22655,6 @@ name|c
 argument_list|()
 operator|.
 name|d
-argument_list|()
 operator|->
 name|doubleToString
 argument_list|(
@@ -22722,7 +22707,6 @@ operator|=
 name|locale
 operator|.
 name|d
-argument_list|()
 operator|->
 name|doubleToString
 argument_list|(
