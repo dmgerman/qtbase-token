@@ -417,8 +417,15 @@ name|errno
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Not on BlackBerry, it has specialised event dispatcher which also handles navigator events
 if|#
 directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
+operator|&&
 name|defined
 argument_list|(
 name|QQNX_PPS
@@ -611,6 +618,8 @@ operator|=
 operator|new
 name|QQnxBpsEventFilter
 argument_list|(
+name|m_navigatorEventHandler
+argument_list|,
 name|m_screenEventHandler
 argument_list|)
 expr_stmt|;
