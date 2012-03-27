@@ -3359,7 +3359,7 @@ literal|"a{os}"
 operator|<<
 literal|"[Argument: a{os} {[ObjectPath: /] = \"root\", [ObjectPath: /bar/baz] = \"bar and baz\", [ObjectPath: /foo] = \"foo\"}]"
 expr_stmt|;
-name|QHash
+name|QMap
 argument_list|<
 name|QDBusSignature
 argument_list|,
@@ -4201,7 +4201,7 @@ literal|"a((iii)(iiii)i)"
 operator|<<
 literal|"[Argument: a((iii)(iiii)i) {[Argument: ((iii)(iiii)i) [Argument: (iii) 0, 0, 0], [Argument: (iiii) -1, -1, -1, -1], 0], [Argument: ((iii)(iiii)i) [Argument: (iii) 1977, 9, 13], [Argument: (iiii) 0, 0, 0, 0], 0], [Argument: ((iii)(iiii)i) [Argument: (iii) 2006, 6, 18], [Argument: (iiii) 13, 14, 0, 0], 0]}]"
 expr_stmt|;
-name|QHash
+name|QMap
 argument_list|<
 name|qlonglong
 argument_list|,
@@ -4368,7 +4368,7 @@ index|]
 operator|=
 literal|"c"
 expr_stmt|;
-name|QHash
+name|QMap
 argument_list|<
 name|QDBusSignature
 argument_list|,
