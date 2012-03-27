@@ -199,7 +199,24 @@ name|revision
 argument_list|(
 name|_revision
 argument_list|)
-block|{     }
+block|{
+name|Q_ASSERT
+argument_list|(
+operator|(
+name|_methodType
+operator|==
+name|QMetaMethod
+operator|::
+name|Constructor
+operator|)
+operator|==
+name|returnType
+operator|.
+name|isNull
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|member|signature
 name|QByteArray
 name|signature
