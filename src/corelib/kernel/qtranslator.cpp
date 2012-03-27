@@ -880,7 +880,6 @@ argument_list|(
 literal|0
 argument_list|)
 block|{}
-comment|// for mmap'ed files, this is what needs to be unmapped.
 if|#
 directive|if
 name|defined
@@ -899,11 +898,13 @@ name|char
 modifier|*
 name|unmapPointer
 decl_stmt|;
+comment|// owned memory (mmap or new)
 DECL|member|unmapLength
 name|quint32
 name|unmapLength
 decl_stmt|;
-comment|// for squeezed but non-file data, this is what needs to be deleted
+comment|// Pointers and offsets into unmapPointer[unmapLength] array, or user
+comment|// provided data array
 DECL|member|messageArray
 specifier|const
 name|uchar
