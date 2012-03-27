@@ -234,7 +234,7 @@ end_class
 begin_decl_stmt
 DECL|variable|counter
 specifier|static
-name|QBasicAtomicInt
+name|QAtomicInt
 name|counter
 decl_stmt|;
 end_decl_stmt

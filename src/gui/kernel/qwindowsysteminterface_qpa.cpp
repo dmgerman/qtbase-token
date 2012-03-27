@@ -639,6 +639,12 @@ name|ushort
 name|count
 parameter_list|)
 block|{
+name|QGuiApplicationPrivate
+operator|::
+name|modifier_buttons
+operator|=
+name|mods
+expr_stmt|;
 name|QKeyEvent
 name|qevent
 argument_list|(
@@ -802,6 +808,12 @@ name|ushort
 name|count
 parameter_list|)
 block|{
+name|QGuiApplicationPrivate
+operator|::
+name|modifier_buttons
+operator|=
+name|mods
+expr_stmt|;
 name|QKeyEventEx
 name|qevent
 argument_list|(

@@ -76,7 +76,7 @@ comment|// Internal ones
 name|OutlineCapability
 init|=
 literal|0x0001000
-block|,     }
+block|}
 enum|;
 name|Q_DECLARE_FLAGS
 argument_list|(

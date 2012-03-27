@@ -444,6 +444,12 @@ case|:
 return|return
 literal|false
 return|;
+case|case
+name|PasswordMaskDelay
+case|:
+return|return
+literal|0
+return|;
 block|}
 return|return
 literal|0

@@ -1365,9 +1365,6 @@ name|characterRect
 parameter_list|(
 name|int
 name|offset
-parameter_list|,
-name|CoordinateType
-name|coordType
 parameter_list|)
 specifier|const
 block|{
@@ -1495,14 +1492,6 @@ name|averageCharWidth
 argument_list|)
 expr_stmt|;
 block|}
-switch|switch
-condition|(
-name|coordType
-condition|)
-block|{
-case|case
-name|RelativeToScreen
-case|:
 name|r
 operator|.
 name|moveTo
@@ -1521,12 +1510,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-break|break;
-case|case
-name|RelativeToParent
-case|:
-break|break;
-block|}
 return|return
 name|r
 return|;
@@ -1568,9 +1551,6 @@ specifier|const
 name|QPoint
 modifier|&
 name|point
-parameter_list|,
-name|CoordinateType
-name|coordType
 parameter_list|)
 specifier|const
 block|{
@@ -1584,16 +1564,6 @@ decl_stmt|;
 name|QPoint
 name|p
 init|=
-name|point
-decl_stmt|;
-if|if
-condition|(
-name|coordType
-operator|==
-name|RelativeToScreen
-condition|)
-name|p
-operator|=
 name|edit
 operator|->
 name|viewport
@@ -1601,9 +1571,9 @@ argument_list|()
 operator|->
 name|mapFromGlobal
 argument_list|(
-name|p
+name|point
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// convert to document coordinates
 name|p
 operator|+=

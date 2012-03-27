@@ -38,14 +38,15 @@ include|#
 directive|include
 file|"qnsview.h"
 end_include
-begin_decl_stmt
-DECL|variable|QCocoaWindow
+begin_function_decl
 name|class
+name|QT_PREPEND_NAMESPACE
+parameter_list|(
 name|QCocoaWindow
-decl_stmt|;
-end_decl_stmt
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_decl_stmt
-DECL|variable|QCocoaWindow
 unit|@
 name|interface
 name|QNSWindow
@@ -74,7 +75,10 @@ operator|:
 name|NSPanel
 block|{     @
 name|public
+name|QT_PREPEND_NAMESPACE
+argument_list|(
 name|QCocoaWindow
+argument_list|)
 operator|*
 name|m_cocoaPlatformWindow
 block|; }
@@ -179,6 +183,12 @@ block|;
 name|void
 name|propagateSizeHints
 argument_list|()
+block|;
+name|void
+name|setOpacity
+argument_list|(
+argument|qreal level
+argument_list|)
 block|;
 name|bool
 name|setKeyboardGrabEnabled
@@ -308,7 +318,7 @@ name|QNSView
 operator|*
 name|m_contentView
 block|;
-name|QNSWindow
+name|NSWindow
 operator|*
 name|m_nsWindow
 block|;

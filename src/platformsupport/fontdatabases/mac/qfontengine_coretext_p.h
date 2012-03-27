@@ -326,6 +326,11 @@ argument_list|(
 argument|QFontEngineGlyphCache::Type type
 argument_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|type
+argument_list|)
+block|;
 return|return
 literal|0
 return|;

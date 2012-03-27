@@ -52,6 +52,11 @@ end_endif
 begin_include
 include|#
 directive|include
+file|<QtCore/qvector.h>
+end_include
+begin_include
+include|#
+directive|include
 file|"qdbusmetatype_p.h"
 end_include
 begin_ifndef
@@ -548,7 +553,7 @@ name|QMetaMethod
 modifier|&
 name|mm
 parameter_list|,
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -589,7 +594,7 @@ argument_list|>
 modifier|&
 name|parameterTypes
 parameter_list|,
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>

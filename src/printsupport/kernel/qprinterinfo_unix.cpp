@@ -4979,6 +4979,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|cupsPrinterIndex
+argument_list|)
 endif|#
 directive|endif
 return|return

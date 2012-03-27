@@ -24,6 +24,7 @@ directive|include
 file|<CoreFoundation/CoreFoundation.h>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 name|class
 name|Q_GUI_EXPORT
 name|QMacPasteboardMime
@@ -203,6 +204,9 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif

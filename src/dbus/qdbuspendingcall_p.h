@@ -59,7 +59,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qlist.h>
+file|<qvector.h>
 end_include
 begin_include
 include|#
@@ -138,7 +138,7 @@ name|QObject
 operator|>
 name|receiver
 block|;
-name|QList
+name|QVector
 operator|<
 name|int
 operator|>

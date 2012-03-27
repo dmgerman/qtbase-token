@@ -40,6 +40,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QVector>
+end_include
+begin_include
+include|#
+directive|include
 file|<stdio.h>
 end_include
 begin_include
@@ -204,7 +209,7 @@ name|FunctionDef
 modifier|&
 name|mm
 parameter_list|,
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>
@@ -467,7 +472,7 @@ name|mm
 operator|.
 name|arguments
 decl_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|int
 argument_list|>

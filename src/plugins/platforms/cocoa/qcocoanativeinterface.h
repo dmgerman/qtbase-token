@@ -24,6 +24,7 @@ directive|include
 file|<QtPrintSupport/QPlatformPrinterSupport>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QWidget
 name|class
 name|QWidget
@@ -82,4 +83,7 @@ end_endif
 begin_comment
 comment|// QCOCOANATIVEINTERFACE_H
 end_comment
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

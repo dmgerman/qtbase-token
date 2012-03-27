@@ -3117,7 +3117,6 @@ end_function
 begin_function
 template|template
 parameter_list|<>
-name|Q_STATIC_TEMPLATE_SPECIALIZATION
 DECL|function|qt_memrotate90_template
 specifier|inline
 name|void

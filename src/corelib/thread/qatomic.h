@@ -42,6 +42,12 @@ name|__GNUC_MINOR__
 operator|>=
 literal|406
 operator|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_INTEL
+argument_list|)
 pragma|#
 directive|pragma
 name|GCC
@@ -543,6 +549,12 @@ name|__GNUC_MINOR__
 operator|>=
 literal|406
 operator|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_INTEL
+argument_list|)
 end_if
 begin_pragma
 pragma|#

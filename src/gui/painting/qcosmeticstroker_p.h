@@ -113,7 +113,7 @@ block|,
 name|CapEnd
 init|=
 literal|0x2
-block|,     }
+block|}
 enum|;
 comment|// used to avoid drop outs or duplicated points
 enum|enum
