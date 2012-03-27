@@ -36,6 +36,9 @@ argument_list|(
 name|QArrayData
 operator|::
 name|shared_null
+index|[
+literal|0
+index|]
 operator|.
 name|ref
 operator|.
@@ -48,6 +51,9 @@ argument_list|(
 name|QArrayData
 operator|::
 name|shared_null
+index|[
+literal|0
+index|]
 operator|.
 name|ref
 operator|.
@@ -60,6 +66,9 @@ argument_list|(
 name|QArrayData
 operator|::
 name|shared_null
+index|[
+literal|0
+index|]
 operator|.
 name|ref
 operator|.
@@ -632,7 +641,6 @@ name|QArrayData
 operator|*
 argument_list|>
 argument_list|(
-operator|&
 name|QArrayData
 operator|::
 name|shared_null
