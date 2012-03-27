@@ -450,6 +450,15 @@ case|:
 return|return
 literal|0
 return|;
+case|case
+name|FontSmoothingGamma
+case|:
+return|return
+name|qreal
+argument_list|(
+literal|1.7
+argument_list|)
+return|;
 block|}
 return|return
 literal|0

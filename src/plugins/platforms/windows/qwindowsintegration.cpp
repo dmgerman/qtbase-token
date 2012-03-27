@@ -1402,6 +1402,20 @@ name|ShowIsFullScreen
 case|:
 break|break;
 comment|// Not implemented
+case|case
+name|QPlatformIntegration
+operator|::
+name|FontSmoothingGamma
+case|:
+return|return
+name|QVariant
+argument_list|(
+name|QWindowsFontDatabase
+operator|::
+name|fontSmoothingGamma
+argument_list|()
+argument_list|)
+return|;
 block|}
 return|return
 name|QPlatformIntegration

@@ -248,6 +248,11 @@ argument|int verticalDPI =
 literal|0
 argument_list|)
 block|;
+specifier|static
+name|qreal
+name|fontSmoothingGamma
+argument_list|()
+block|;
 name|private
 operator|:
 name|void

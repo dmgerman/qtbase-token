@@ -341,6 +341,8 @@ block|,
 name|ShowIsFullScreen
 block|,
 name|PasswordMaskDelay
+block|,
+name|FontSmoothingGamma
 block|}
 enum|;
 name|virtual
