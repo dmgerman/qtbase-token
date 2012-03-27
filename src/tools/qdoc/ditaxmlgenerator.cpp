@@ -30006,6 +30006,13 @@ name|name
 argument_list|()
 operator|==
 literal|"index.html"
+operator|||
+name|child
+operator|->
+name|name
+argument_list|()
+operator|==
+literal|"index"
 condition|)
 block|{
 name|rootPageNode
