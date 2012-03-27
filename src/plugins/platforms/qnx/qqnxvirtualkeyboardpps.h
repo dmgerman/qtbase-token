@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|VIRTUALKEYBOARD_H_
+name|VIRTUALKEYBOARDPPS_H_
 end_ifndef
 begin_define
-DECL|macro|VIRTUALKEYBOARD_H_
+DECL|macro|VIRTUALKEYBOARDPPS_H_
 define|#
 directive|define
-name|VIRTUALKEYBOARD_H_
+name|VIRTUALKEYBOARDPPS_H_
 end_define
 begin_include
 include|#
@@ -30,12 +30,9 @@ name|class
 name|QSocketNotifier
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|/* Shamelessly copied from the browser - this should be rewritten once we have a proper PPS wrapper class */
-end_comment
 begin_decl_stmt
 name|class
-name|QQnxVirtualKeyboard
+name|QQnxVirtualKeyboardPps
 range|:
 name|public
 name|QQnxAbstractVirtualKeyboard
@@ -43,11 +40,11 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
-name|QQnxVirtualKeyboard
+name|QQnxVirtualKeyboardPps
 argument_list|()
 block|;
 operator|~
-name|QQnxVirtualKeyboard
+name|QQnxVirtualKeyboardPps
 argument_list|()
 block|;
 name|bool
@@ -175,6 +172,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* VIRTUALKEYBOARD_H_ */
+comment|/* VIRTUALKEYBOARDPPS_H_ */
 end_comment
 end_unit
