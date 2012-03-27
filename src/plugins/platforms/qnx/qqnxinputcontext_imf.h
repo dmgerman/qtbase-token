@@ -45,9 +45,9 @@ file|"imf/input_control.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-DECL|variable|QQnxVirtualKeyboard
+DECL|variable|QQnxAbstractVirtualKeyboard
 name|class
-name|QQnxVirtualKeyboard
+name|QQnxAbstractVirtualKeyboard
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -60,9 +60,10 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QQnxInputContext
 argument_list|(
-name|QQnxVirtualKeyboard
+name|QQnxAbstractVirtualKeyboard
 operator|&
 name|keyboard
 argument_list|)
@@ -422,7 +423,7 @@ block|;
 name|QLocale
 name|m_inputPanelLocale
 block|;
-name|QQnxVirtualKeyboard
+name|QQnxAbstractVirtualKeyboard
 operator|&
 name|m_virtualKeyboad
 block|; }

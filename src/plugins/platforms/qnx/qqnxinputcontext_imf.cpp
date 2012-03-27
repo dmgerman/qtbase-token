@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qqnxvirtualkeyboard.h"
+file|"qqnxabstractvirtualkeyboard.h"
 end_include
 begin_include
 include|#
@@ -2967,7 +2967,7 @@ name|QQnxInputContext
 operator|::
 name|QQnxInputContext
 parameter_list|(
-name|QQnxVirtualKeyboard
+name|QQnxAbstractVirtualKeyboard
 modifier|&
 name|keyboard
 parameter_list|)
@@ -7758,7 +7758,7 @@ name|m_virtualKeyboard
 operator|.
 name|setKeyboardMode
 argument_list|(
-name|QQnxVirtualKeyboard
+name|QQnxAbstractVirtualKeyboard
 operator|::
 name|Phone
 argument_list|)
@@ -7768,7 +7768,7 @@ name|m_virtualKeyboard
 operator|.
 name|setKeyboardMode
 argument_list|(
-name|QQnxVirtualKeyboard
+name|QQnxAbstractVirtualKeyboard
 operator|::
 name|Default
 argument_list|)
