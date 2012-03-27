@@ -500,7 +500,8 @@ argument_list|,
 name|stateKey
 argument_list|)
 expr_stmt|;
-comment|//QCursor::setPos(window->mapToGlobal(pos));
+comment|// No QCursor::setPos() call here. That could potentially result in mouse events sent by the windowing system
+comment|// which is highly undesired here. Tests must avoid relying on QCursor.
 break|break;
 default|default:
 name|QTEST_ASSERT
