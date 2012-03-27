@@ -194,7 +194,10 @@ operator|<<
 operator|(
 name|size
 operator|/
+name|qreal
+argument_list|(
 literal|1024
+argument_list|)
 operator|)
 operator|/
 operator|(
@@ -203,7 +206,10 @@ operator|.
 name|elapsed
 argument_list|()
 operator|/
+name|qreal
+argument_list|(
 literal|1000
+argument_list|)
 operator|)
 operator|<<
 literal|"KB/sec"
