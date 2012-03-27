@@ -2415,11 +2415,11 @@ condition|)
 break|break;
 if|if
 condition|(
-name|data
-operator|+
-name|blockLen
-operator|>
 name|end
+operator|-
+name|data
+operator|<
+name|blockLen
 condition|)
 block|{
 name|ok
