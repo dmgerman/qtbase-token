@@ -727,14 +727,6 @@ modifier|*
 name|acc
 parameter_list|)
 block|{
-ifdef|#
-directive|ifdef
-name|Q_CC_MINGW
-return|return
-literal|0
-return|;
-else|#
-directive|else
 if|if
 condition|(
 operator|!
@@ -794,8 +786,6 @@ expr_stmt|;
 return|return
 name|iacc
 return|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment
