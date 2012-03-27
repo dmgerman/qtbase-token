@@ -332,11 +332,6 @@ decl_stmt|;
 name|uint
 name|g
 decl_stmt|;
-if|if
-condition|(
-name|name
-condition|)
-block|{
 name|k
 operator|=
 operator|(
@@ -389,7 +384,6 @@ operator|&=
 operator|~
 name|g
 expr_stmt|;
-block|}
 block|}
 block|}
 end_function
