@@ -824,6 +824,9 @@ decl_stmt|;
 name|bool
 name|forceConnectionCloseEnabled
 decl_stmt|;
+name|bool
+name|lastChunkRead
+decl_stmt|;
 name|qint64
 name|currentChunkSize
 decl_stmt|;
