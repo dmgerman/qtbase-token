@@ -1912,8 +1912,6 @@ begin_expr_stmt
 name|QT_END_NAMESPACE
 endif|#
 directive|endif
-comment|//bool compare(const QVariantList&l1, const QVariantList&l2);
-comment|//bool compare(const QVariantMap&m1, const QVariantMap&m2);
 name|template
 operator|<
 name|typename
