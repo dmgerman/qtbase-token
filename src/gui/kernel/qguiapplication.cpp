@@ -1937,15 +1937,6 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"init_plugins"
-operator|<<
-name|i
-operator|<<
-name|pluginSpec
-expr_stmt|;
 name|int
 name|colonPos
 init|=
@@ -2012,13 +2003,6 @@ literal|1
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"   created"
-operator|<<
-name|plugin
 expr_stmt|;
 if|if
 condition|(
