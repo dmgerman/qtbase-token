@@ -235,7 +235,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/file-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/file-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -712,7 +712,7 @@ name|QImage
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/file-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/file-16.png"
 argument_list|)
 argument_list|)
 return|;
