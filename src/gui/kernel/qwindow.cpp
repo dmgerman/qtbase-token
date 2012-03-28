@@ -924,7 +924,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns whether the window is modal.      A modal window prevents other windows from getting any input. */
+comment|/*!     Returns whether the window is modal.      A modal window prevents other windows from getting any input.      \sa QWindow::windowModality */
 end_comment
 begin_function
 DECL|function|isModal
@@ -953,7 +953,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the window's modality.      \sa setWindowModality() */
+comment|/*! \property QWindow::windowModality     \brief the modality of the window      A modal window prevents other windows from receiving input events. Qt     supports two types of modality: Qt::WindowModal and Qt::ApplicationModal.      By default, this property is Qt::NonModal      \sa Qt::WindowModality */
 end_comment
 begin_function
 DECL|function|windowModality
@@ -979,9 +979,6 @@ name|modality
 return|;
 block|}
 end_function
-begin_comment
-comment|/*!     Sets the window's modality to \a windowModality. */
-end_comment
 begin_function
 DECL|function|setWindowModality
 name|void
@@ -992,7 +989,7 @@ parameter_list|(
 name|Qt
 operator|::
 name|WindowModality
-name|windowModality
+name|modality
 parameter_list|)
 block|{
 name|Q_D
@@ -1000,14 +997,32 @@ argument_list|(
 name|QWindow
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|d
+operator|->
+name|modality
+operator|==
+name|modality
+condition|)
+return|return;
 name|d
 operator|->
 name|modality
 operator|=
-name|windowModality
+name|modality
 expr_stmt|;
+emit|emit
+name|windowModalityChanged
+argument_list|(
+name|modality
+argument_list|)
+emit|;
 block|}
 end_function
+begin_comment
+comment|/*! \fn void QWindow::windowModalityChanged(Qt::WindowModality windowModality)      This signal is emitted when the Qwindow::windowModality property changes to \a windowModality. */
+end_comment
 begin_comment
 comment|/*!     Sets the window's surface \a format.      The format determines properties such as color depth, alpha,     depth and stencil buffer size, etc. */
 end_comment
