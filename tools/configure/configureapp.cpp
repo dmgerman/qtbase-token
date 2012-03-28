@@ -6257,7 +6257,7 @@ condition|)
 break|break;
 name|nobuildParts
 operator|.
-name|removeAll
+name|append
 argument_list|(
 name|configCmdLine
 operator|.
