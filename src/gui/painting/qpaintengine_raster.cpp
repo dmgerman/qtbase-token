@@ -3470,6 +3470,12 @@ literal|1
 operator|)
 operator|||
 operator|(
+operator|!
+name|pen
+operator|.
+name|isCosmetic
+argument_list|()
+operator|&&
 name|s
 operator|->
 name|flags
