@@ -8516,9 +8516,6 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QTextEdit::KeyboardAction      \compat      \value ActionBackspace     \value ActionDelete     \value ActionReturn     \value ActionKill     \value ActionWordBackspace     \value ActionWordDelete */
-end_comment
-begin_comment
 comment|/*!     \fn bool QTextEdit::find(const QString&exp, bool cs, bool wo)      Use the find() overload that takes a QTextDocument::FindFlags     argument. */
 end_comment
 begin_comment

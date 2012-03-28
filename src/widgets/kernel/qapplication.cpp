@@ -15159,9 +15159,6 @@ begin_comment
 comment|/*!     \fn void QSessionManager::requestPhase2()      Requests a second session management phase for the application. The     application may then return immediately from the QApplication::commitData()     or QApplication::saveState() function, and they will be called again once     most or all other applications have finished their session management.      The two phases are useful for applications such as the X11 window manager     that need to store information about another application's windows and     therefore have to wait until these applications have completed their     respective session management tasks.      \note If another application has requested a second phase it may get called     before, simultaneously with, or after your application's second phase.      \sa isPhase2() */
 end_comment
 begin_comment
-comment|/*!     \typedef QApplication::ColorMode     \compat      Use ColorSpec instead. */
-end_comment
-begin_comment
 comment|/*!     \fn Qt::MacintoshVersion QApplication::macVersion()      Use QSysInfo::MacintoshVersion instead. */
 end_comment
 begin_comment
@@ -15215,12 +15212,6 @@ literal|0
 return|;
 block|}
 end_function
-begin_comment
-comment|/*! \variable QApplication::NormalColors     \compat      Use \l NormalColor instead. */
-end_comment
-begin_comment
-comment|/*! \variable QApplication::CustomColors     \compat      Use \l CustomColor instead. */
-end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef

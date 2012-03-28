@@ -10086,10 +10086,4 @@ end_endif
 begin_comment
 comment|// QT_NO_COLORDIALOG
 end_comment
-begin_comment
-comment|/*!     \fn QColor QColorDialog::getColor(const QColor&init, QWidget *parent, const char *name)     \compat */
-end_comment
-begin_comment
-comment|/*!     \fn QRgb QColorDialog::getRgba(QRgb rgba, bool *ok, QWidget *parent, const char *name)     \compat */
-end_comment
 end_unit
