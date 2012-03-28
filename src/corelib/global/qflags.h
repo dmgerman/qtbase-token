@@ -22,7 +22,6 @@ begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
 name|class
-name|Q_CORE_EXPORT
 name|QFlag
 block|{
 name|int
@@ -67,7 +66,6 @@ argument|ai
 argument_list|)
 block|{}
 name|class
-name|Q_CORE_EXPORT
 name|QIncompatibleFlag
 block|{
 name|int
