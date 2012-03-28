@@ -26104,6 +26104,19 @@ name|DT_apiRelation
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// Write simple arguments, like void and bool,
+comment|// which do not have a Qt defined target.
+name|writeCharacters
+argument_list|(
+name|arg
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 else|else
