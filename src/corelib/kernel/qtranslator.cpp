@@ -462,7 +462,7 @@ name|uchar
 modifier|*
 name|rules
 parameter_list|,
-name|int
+name|uint
 name|rulesSize
 parameter_list|)
 block|{
@@ -477,7 +477,7 @@ name|result
 init|=
 literal|0
 decl_stmt|;
-name|int
+name|uint
 name|i
 init|=
 literal|0
