@@ -5,6 +5,12 @@ end_comment
 begin_comment
 comment|// NOTE: This file is not meant to be compiled, only preprocessed.
 end_comment
+begin_define
+DECL|macro|QGLOBAL_H
+define|#
+directive|define
+name|QGLOBAL_H
+end_define
 begin_include
 include|#
 directive|include
