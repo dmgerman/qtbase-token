@@ -201,6 +201,12 @@ name|QString
 name|platformName
 argument_list|()
 block|;
+specifier|static
+name|QWindow
+operator|*
+name|modalWindow
+argument_list|()
+block|;
 ifdef|#
 directive|ifdef
 name|QT_DEPRECATED

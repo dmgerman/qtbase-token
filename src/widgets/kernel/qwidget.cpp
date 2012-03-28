@@ -25617,30 +25617,6 @@ operator|&
 name|showEvent
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|isEmbedded
-operator|&&
-name|q
-operator|->
-name|isModal
-argument_list|()
-operator|&&
-name|q
-operator|->
-name|isWindow
-argument_list|()
-condition|)
-comment|// QApplicationPrivate::enterModal *before* show, otherwise the initial
-comment|// stacking might be wrong
-name|QApplicationPrivate
-operator|::
-name|enterModal
-argument_list|(
-name|q
-argument_list|)
-expr_stmt|;
 name|show_sys
 argument_list|()
 expr_stmt|;
@@ -25843,31 +25819,6 @@ name|d_func
 argument_list|()
 operator|->
 name|closePopup
-argument_list|(
-name|q
-argument_list|)
-expr_stmt|;
-comment|// Move test modal here.  Otherwise, a modal dialog could get
-comment|// destroyed and we lose all access to its parent because we haven't
-comment|// left modality.  (Eg. modal Progress Dialog)
-if|if
-condition|(
-operator|!
-name|isEmbedded
-operator|&&
-name|q
-operator|->
-name|isModal
-argument_list|()
-operator|&&
-name|q
-operator|->
-name|isWindow
-argument_list|()
-condition|)
-name|QApplicationPrivate
-operator|::
-name|leaveModal
 argument_list|(
 name|q
 argument_list|)
@@ -35558,19 +35509,7 @@ operator|!
 name|on
 condition|)
 block|{
-if|if
-condition|(
-name|isVisible
-argument_list|()
-condition|)
-name|QApplicationPrivate
-operator|::
-name|leaveModal
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-comment|// reset modality type to Modeless when clearing WA_ShowModal
+comment|// reset modality type to NonModal when clearing WA_ShowModal
 name|data
 operator|->
 name|window_modality
@@ -35673,10 +35612,9 @@ name|Qt
 operator|::
 name|ApplicationModal
 expr_stmt|;
-comment|// Some window managers does not allow us to enter modal after the
-comment|// window is showing. Therefore, to be consistent, we cannot call
-comment|// QApplicationPrivate::enterModal(this) here. The window must be
-comment|// hidden before changing modality.
+comment|// Some window managers do not allow us to enter modality after the
+comment|// window is visible.The window must be hidden before changing the
+comment|// windowModality property and then reshown.
 block|}
 if|if
 condition|(

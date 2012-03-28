@@ -137,6 +137,11 @@ operator|::
 name|NonModal
 argument_list|)
 block|,
+name|blockedByModalWindow
+argument_list|(
+name|false
+argument_list|)
+block|,
 name|transientParent
 argument_list|(
 literal|0
@@ -315,6 +320,11 @@ name|WindowModality
 name|modality
 expr_stmt|;
 end_expr_stmt
+begin_decl_stmt
+name|bool
+name|blockedByModalWindow
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|QPointer
 operator|<
