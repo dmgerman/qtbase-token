@@ -211,6 +211,27 @@ name|void
 name|clear
 parameter_list|()
 function_decl|;
+name|bool
+name|isEmpty
+argument_list|()
+specifier|const
+block|{
+return|return
+name|sectionIsPresent
+operator|==
+literal|0
+operator|&&
+name|port
+operator|==
+operator|-
+literal|1
+operator|&&
+name|path
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
 comment|// no QString scheme() const;
 name|void
 name|appendAuthority
