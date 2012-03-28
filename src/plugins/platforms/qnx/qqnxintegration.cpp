@@ -281,12 +281,6 @@ operator|new
 name|QQnxEventThread
 argument_list|(
 name|m_screenContext
-argument_list|,
-operator|*
-name|QQnxScreen
-operator|::
-name|primaryDisplay
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|m_eventThread
