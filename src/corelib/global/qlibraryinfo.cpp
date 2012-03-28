@@ -1127,6 +1127,15 @@ operator|->
 name|endGroup
 argument_list|()
 expr_stmt|;
+name|ret
+operator|=
+name|QDir
+operator|::
+name|fromNativeSeparators
+argument_list|(
+name|ret
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 if|if
