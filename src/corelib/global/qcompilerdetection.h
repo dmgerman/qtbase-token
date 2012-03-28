@@ -2915,6 +2915,7 @@ name|Q_ASSUME
 parameter_list|(
 name|expr
 parameter_list|)
+value|qt_noop()
 end_define
 begin_endif
 endif|#
@@ -2931,6 +2932,7 @@ define|#
 directive|define
 name|Q_UNREACHABLE
 parameter_list|()
+value|qt_noop()
 end_define
 begin_endif
 endif|#
