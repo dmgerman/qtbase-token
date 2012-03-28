@@ -73,7 +73,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \class QInputMethod     \brief The QInputMethod class provides access to the active text input method.      QInputMethod is used by the text editors for integrating to the platform text input     methods and more commonly by application views for querying various text input method-related     information like virtual keyboard visibility and keyboard dimensions.      Qt Quick also provides access to QInputMethod in QML through \l{QmlGlobalQtObject}{Qt global object}     as \c Qt.application.inputPanel property. */
+comment|/*!     \class QInputMethod     \brief The QInputMethod class provides access to the active text input method.      QInputMethod is used by the text editors for integrating to the platform text input     methods and more commonly by application views for querying various text input method-related     information like virtual keyboard visibility and keyboard dimensions.      Qt Quick also provides access to QInputMethod in QML through \l{QmlGlobalQtObject}{Qt global object}     as \c Qt.inputMethod property. */
 end_comment
 begin_comment
 comment|/*!     \property QInputMethod::inputItem     \brief Focused item that accepts text input     \obsolete      Input item is set and unset by the focused window. In QML Scene Graph this is done by     QQuickCanvas and the input item is either TextInput or TextEdit element. Any QObject can     behave as an input item as long as it responds to QInputMethodQueryEvent and QInputMethodEvent     events sent by the input methods.      \sa inputItemTransform, inputWindow, QInputMethodQueryEvent, QInputMethodEvent */
