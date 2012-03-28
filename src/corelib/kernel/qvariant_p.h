@@ -2100,6 +2100,11 @@ name|m_debugStream
 argument_list|,
 name|m_d
 argument_list|)
+block|;
+name|Q_UNUSED
+argument_list|(
+name|streamIt
+argument_list|)
 block|;     }
 name|void
 name|delegate
