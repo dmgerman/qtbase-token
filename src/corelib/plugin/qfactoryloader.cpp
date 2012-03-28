@@ -822,6 +822,12 @@ operator|!
 name|metaDataOk
 condition|)
 block|{
+if|if
+condition|(
+name|library
+operator|->
+name|compatPlugin
+condition|)
 name|library
 operator|->
 name|unload
