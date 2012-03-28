@@ -625,7 +625,7 @@ end_comment
 begin_function
 DECL|function|numerusHelper
 specifier|static
-name|int
+name|uint
 name|numerusHelper
 parameter_list|(
 name|int
@@ -640,7 +640,7 @@ name|uint
 name|rulesSize
 parameter_list|)
 block|{
-name|int
+name|uint
 name|result
 init|=
 literal|0
@@ -2823,7 +2823,7 @@ name|char
 modifier|*
 name|comment
 parameter_list|,
-name|int
+name|uint
 name|numerus
 parameter_list|)
 block|{
@@ -2838,12 +2838,6 @@ name|uint
 name|tn_length
 init|=
 literal|0
-decl_stmt|;
-name|int
-name|currentNumerus
-init|=
-operator|-
-literal|1
 decl_stmt|;
 for|for
 control|(
@@ -2912,10 +2906,9 @@ literal|4
 expr_stmt|;
 if|if
 condition|(
-operator|++
-name|currentNumerus
-operator|==
+operator|!
 name|numerus
+operator|--
 condition|)
 block|{
 name|tn_length
@@ -3380,7 +3373,7 @@ return|return
 name|QString
 argument_list|()
 return|;
-name|int
+name|uint
 name|numerus
 init|=
 literal|0
