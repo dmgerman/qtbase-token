@@ -71,6 +71,12 @@ name|class
 name|QQnxScreen
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QQnxScreenEventHandler
+name|class
+name|QQnxScreenEventHandler
+decl_stmt|;
+end_decl_stmt
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -305,6 +311,10 @@ name|QQnxScreen
 operator|*
 operator|>
 name|m_screens
+block|;
+name|QQnxScreenEventHandler
+operator|*
+name|m_screenEventHandler
 block|;
 ifndef|#
 directive|ifndef

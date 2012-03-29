@@ -40,6 +40,10 @@ name|QQnxEventThread
 parameter_list|(
 name|screen_context_t
 name|context
+parameter_list|,
+name|QQnxScreenEventHandler
+modifier|*
+name|screenEventHandler
 parameter_list|)
 member_init_list|:
 name|QThread
@@ -48,6 +52,11 @@ member_init_list|,
 name|m_screenContext
 argument_list|(
 name|context
+argument_list|)
+member_init_list|,
+name|m_screenEventHandler
+argument_list|(
+name|screenEventHandler
 argument_list|)
 member_init_list|,
 name|m_quit
@@ -118,9 +127,6 @@ operator|::
 name|run
 parameter_list|()
 block|{
-name|QQnxScreenEventHandler
-name|eventHandler
-decl_stmt|;
 name|screen_event_t
 name|event
 decl_stmt|;
@@ -257,8 +263,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|eventHandler
-operator|.
+name|m_screenEventHandler
+operator|->
 name|handleEvent
 argument_list|(
 name|event

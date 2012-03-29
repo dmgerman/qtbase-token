@@ -25,6 +25,12 @@ file|<screen/screen.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QQnxScreenEventHandler
+name|class
+name|QQnxScreenEventHandler
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QQnxEventThread
 range|:
@@ -33,10 +39,11 @@ name|QThread
 block|{
 name|public
 operator|:
-name|explicit
 name|QQnxEventThread
 argument_list|(
 argument|screen_context_t context
+argument_list|,
+argument|QQnxScreenEventHandler *screenEventHandler
 argument_list|)
 block|;
 name|virtual
@@ -73,6 +80,10 @@ argument_list|()
 block|;
 name|screen_context_t
 name|m_screenContext
+block|;
+name|QQnxScreenEventHandler
+operator|*
+name|m_screenEventHandler
 block|;
 name|bool
 name|m_quit
