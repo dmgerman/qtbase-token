@@ -22347,13 +22347,6 @@ name|outFileName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|qDebug
-argument_list|()
-operator|<<
-literal|"LOCAL LINK:"
-operator|<<
-name|link
-expr_stmt|;
 block|}
 return|return
 name|link
