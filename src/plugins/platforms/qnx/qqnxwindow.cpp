@@ -355,13 +355,22 @@ name|errno
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Assign the window to the primary display (this is the default specified by screen).
 name|setScreen
 argument_list|(
+cast|static_cast
+argument_list|<
 name|QQnxScreen
-operator|::
-name|primaryDisplay
+operator|*
+argument_list|>
+argument_list|(
+name|window
+operator|->
+name|screen
 argument_list|()
+operator|->
+name|handle
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Add the window to the root of the hierarchy
