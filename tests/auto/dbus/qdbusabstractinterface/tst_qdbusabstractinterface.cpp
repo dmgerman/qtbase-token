@@ -5559,7 +5559,7 @@ literal|"this isn't valid"
 operator|<<
 literal|"/"
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidService"
+literal|"org.qtproject.QtDBus.Error.InvalidService"
 expr_stmt|;
 name|QTest
 operator|::
@@ -5578,7 +5578,7 @@ argument_list|()
 operator|<<
 literal|"this isn't valid"
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidObjectPath"
+literal|"org.qtproject.QtDBus.Error.InvalidObjectPath"
 expr_stmt|;
 block|}
 end_function
@@ -5682,7 +5682,7 @@ argument_list|)
 operator|<<
 literal|"this isn't valid"
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidObjectPath"
+literal|"org.qtproject.QtDBus.Error.InvalidObjectPath"
 expr_stmt|;
 block|}
 end_function
@@ -5763,7 +5763,7 @@ argument_list|()
 operator|<<
 literal|"/"
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidService"
+literal|"org.qtproject.QtDBus.Error.InvalidService"
 expr_stmt|;
 name|QTest
 operator|::
@@ -5783,7 +5783,7 @@ operator|<<
 name|QString
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidObjectPath"
+literal|"org.qtproject.QtDBus.Error.InvalidObjectPath"
 expr_stmt|;
 name|QTest
 operator|::
@@ -5798,7 +5798,7 @@ operator|<<
 name|QString
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidService"
+literal|"org.qtproject.QtDBus.Error.InvalidService"
 expr_stmt|;
 block|}
 end_function
@@ -6023,7 +6023,7 @@ operator|<<
 name|QString
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidObjectPath"
+literal|"org.qtproject.QtDBus.Error.InvalidObjectPath"
 expr_stmt|;
 block|}
 end_function

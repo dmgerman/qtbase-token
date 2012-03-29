@@ -6477,7 +6477,7 @@ operator|<<
 name|QVariantList
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidService"
+literal|"org.qtproject.QtDBus.Error.InvalidService"
 operator|<<
 literal|"Invalid service name: this isn't valid"
 operator|<<
@@ -6501,7 +6501,7 @@ operator|<<
 name|QVariantList
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidObjectPath"
+literal|"org.qtproject.QtDBus.Error.InvalidObjectPath"
 operator|<<
 literal|"Object path cannot be empty"
 operator|<<
@@ -6525,7 +6525,7 @@ operator|<<
 name|QVariantList
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidObjectPath"
+literal|"org.qtproject.QtDBus.Error.InvalidObjectPath"
 operator|<<
 literal|"Invalid object path: //"
 operator|<<
@@ -6550,7 +6550,7 @@ operator|<<
 name|QVariantList
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidInterface"
+literal|"org.qtproject.QtDBus.Error.InvalidInterface"
 operator|<<
 literal|"Invalid interface class: this isn't valid"
 operator|<<
@@ -6574,7 +6574,7 @@ operator|<<
 name|QVariantList
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidMember"
+literal|"org.qtproject.QtDBus.Error.InvalidMember"
 operator|<<
 literal|"method name cannot be empty"
 operator|<<
@@ -6598,7 +6598,7 @@ operator|<<
 name|QVariantList
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidMember"
+literal|"org.qtproject.QtDBus.Error.InvalidMember"
 operator|<<
 literal|"Invalid method name: this isn't valid"
 operator|<<

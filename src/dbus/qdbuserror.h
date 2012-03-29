@@ -97,9 +97,9 @@ name|InvalidSignature
 block|,
 name|UnknownInterface
 block|,
-name|InternalError
-block|,
 name|UnknownObject
+block|,
+name|InternalError
 block|,
 name|InvalidService
 block|,
