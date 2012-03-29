@@ -42,6 +42,12 @@ name|QQnxInputContext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QQnxNativeInterface
+name|class
+name|QQnxNativeInterface
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QQnxNavigatorEventHandler
 name|class
 name|QQnxNavigatorEventHandler
@@ -198,6 +204,12 @@ return|return
 name|m_fontDatabase
 return|;
 block|}
+name|QPlatformNativeInterface
+operator|*
+name|nativeInterface
+argument_list|()
+specifier|const
+block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CLIPBOARD
@@ -300,6 +312,10 @@ block|;
 name|QAbstractEventDispatcher
 operator|*
 name|m_eventDispatcher
+block|;
+name|QQnxNativeInterface
+operator|*
+name|m_nativeInterface
 block|;
 name|QQnxServices
 operator|*

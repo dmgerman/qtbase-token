@@ -25,6 +25,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qqnxnativeinterface.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qqnxnavigatoreventhandler.h"
 end_include
 begin_include
@@ -195,6 +200,13 @@ member_init_list|,
 name|m_eventDispatcher
 argument_list|(
 name|createUnixEventDispatcher
+argument_list|()
+argument_list|)
+member_init_list|,
+name|m_nativeInterface
+argument_list|(
+operator|new
+name|QQnxNativeInterface
 argument_list|()
 argument_list|)
 member_init_list|,
@@ -417,6 +429,9 @@ endif|#
 directive|endif
 operator|delete
 name|m_screenEventHandler
+expr_stmt|;
+operator|delete
+name|m_nativeInterface
 expr_stmt|;
 comment|// Destroy input context
 operator|delete
@@ -796,6 +811,21 @@ endif|#
 directive|endif
 return|return
 name|m_eventDispatcher
+return|;
+block|}
+end_function
+begin_function
+DECL|function|nativeInterface
+name|QPlatformNativeInterface
+modifier|*
+name|QQnxIntegration
+operator|::
+name|nativeInterface
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|m_nativeInterface
 return|;
 block|}
 end_function
