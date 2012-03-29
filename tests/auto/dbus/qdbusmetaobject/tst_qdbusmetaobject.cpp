@@ -934,7 +934,7 @@ name|TypesTest16_xml
 index|[]
 init|=
 literal|"<signal name=\"signal\"><arg type=\"(ss)\"/>"
-literal|"<annotation name=\"com.trolltech.QtDBus.QtTypeName.Out0\" value=\"StringPair\"></signal>"
+literal|"<annotation name=\"org.qtproject.QtDBus.QtTypeName.Out0\" value=\"StringPair\"></signal>"
 decl_stmt|;
 end_decl_stmt
 begin_class
@@ -964,7 +964,7 @@ name|TypesTest17_xml
 index|[]
 init|=
 literal|"<signal name=\"signal\"><arg type=\"(s)\"/>"
-literal|"<annotation name=\"com.trolltech.QtDBus.QtTypeName.Out0\" value=\"Struct1\"></signal>"
+literal|"<annotation name=\"org.qtproject.QtDBus.QtTypeName.Out0\" value=\"Struct1\"></signal>"
 decl_stmt|;
 end_decl_stmt
 begin_class
@@ -994,7 +994,7 @@ name|TypesTest18_xml
 index|[]
 init|=
 literal|"<signal name=\"signal\"><arg type=\"(ssa(ss)sayasx)\"/>"
-literal|"<annotation name=\"com.trolltech.QtDBus.QtTypeName.Out0\" value=\"Struct4\"></signal>"
+literal|"<annotation name=\"org.qtproject.QtDBus.QtTypeName.Out0\" value=\"Struct4\"></signal>"
 decl_stmt|;
 end_decl_stmt
 begin_class
@@ -1024,7 +1024,7 @@ name|TypesTest19_xml
 index|[]
 init|=
 literal|"<signal name=\"signal\"><arg type=\"av\"/>"
-literal|"<annotation name=\"com.trolltech.QtDBus.QtTypeName.Out0\" value=\"QVariantList\"></signal>"
+literal|"<annotation name=\"org.qtproject.QtDBus.QtTypeName.Out0\" value=\"QVariantList\"></signal>"
 decl_stmt|;
 end_decl_stmt
 begin_class
@@ -1051,6 +1051,17 @@ DECL|variable|TypesTest20_xml
 specifier|const
 name|char
 name|TypesTest20_xml
+index|[]
+init|=
+literal|"<signal name=\"signal\"><arg type=\"a{sv}\"/>"
+literal|"<annotation name=\"org.qtproject.QtDBus.QtTypeName.Out0\" value=\"QVariantMap\"></signal>"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|TypesTest20_oldxml
+specifier|const
+name|char
+name|TypesTest20_oldxml
 index|[]
 init|=
 literal|"<signal name=\"signal\"><arg type=\"a{sv}\"/>"
@@ -1425,6 +1436,23 @@ operator|<<
 name|QString
 argument_list|(
 name|TypesTest20_xml
+argument_list|)
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"QVariantMap-oldannotation"
+argument_list|)
+operator|<<
+operator|&
+name|TypesTest20
+operator|::
+name|staticMetaObject
+operator|<<
+name|QString
+argument_list|(
+name|TypesTest20_oldxml
 argument_list|)
 expr_stmt|;
 block|}
@@ -3047,7 +3075,7 @@ name|PropertyTest4_xml
 index|[]
 init|=
 literal|"<property name=\"property\" type=\"(s)\" access=\"write\">"
-literal|"<annotation name=\"com.trolltech.QtDBus.QtTypeName\" value=\"Struct1\"/>"
+literal|"<annotation name=\"org.qtproject.QtDBus.QtTypeName\" value=\"Struct1\"/>"
 literal|"</property>"
 decl_stmt|;
 end_decl_stmt

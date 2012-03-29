@@ -50,7 +50,7 @@ name|char
 name|serviceName
 index|[]
 init|=
-literal|"com.trolltech.autotests.qpong"
+literal|"org.qtproject.autotests.qpong"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -61,7 +61,7 @@ name|char
 name|objectPath
 index|[]
 init|=
-literal|"/com/trolltech/qpong"
+literal|"/org/qtproject/qpong"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -6450,7 +6450,7 @@ argument_list|()
 operator|<<
 literal|"org.freedesktop.DBus.Error.UnknownMethod"
 operator|<<
-literal|"Method \"ping\" with signature \"\" on interface \"com.trolltech.autotests.qpong\" doesn't exist\n"
+literal|"Method \"ping\" with signature \"\" on interface \"org.qtproject.autotests.qpong\" doesn't exist\n"
 operator|<<
 operator|(
 specifier|const

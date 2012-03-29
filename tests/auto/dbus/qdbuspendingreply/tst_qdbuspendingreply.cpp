@@ -294,7 +294,7 @@ name|Q_CLASSINFO
 argument_list|(
 literal|"D-Bus Interface"
 argument_list|,
-literal|"com.trolltech.Qt.Autotests.TypesInterface"
+literal|"org.qtproject.Qt.Autotests.TypesInterface"
 argument_list|)
 decl|public
 range|:
@@ -692,7 +692,7 @@ argument_list|()
 argument_list|,
 literal|"/"
 argument_list|,
-literal|"com.trolltech.Qt.Autotests.TypesInterface"
+literal|"org.qtproject.Qt.Autotests.TypesInterface"
 argument_list|,
 name|QDBusConnection
 operator|::

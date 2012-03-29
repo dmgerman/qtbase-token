@@ -149,7 +149,7 @@ literal|"</method>\n"
 literal|"<method name=\"GetAll\">\n"
 literal|"<arg name=\"interface_name\" type=\"s\" direction=\"in\"/>\n"
 literal|"<arg name=\"values\" type=\"a{sv}\" direction=\"out\"/>\n"
-literal|"<annotation name=\"com.trolltech.QtDBus.QtTypeName.Out0\" value=\"QVariantMap\"/>\n"
+literal|"<annotation name=\"org.qtproject.QtDBus.QtTypeName.Out0\" value=\"QVariantMap\"/>\n"
 literal|"</method>\n"
 literal|"</interface>\n"
 decl_stmt|;

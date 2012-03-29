@@ -260,7 +260,7 @@ name|prepend
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"com.trolltech.QtDBus."
+literal|"org.qtproject.QtDBus."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -303,7 +303,7 @@ name|prepend
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"com.trolltech.Qt."
+literal|"org.qtproject.Qt."
 argument_list|)
 argument_list|)
 expr_stmt|;
