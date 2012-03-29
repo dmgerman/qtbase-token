@@ -539,7 +539,7 @@ expr_stmt|;
 block|}
 name|QWindowSystemInterface
 operator|::
-name|handleKeyEvent
+name|handleExtendedKeyEvent
 argument_list|(
 name|QGuiApplication
 operator|::
@@ -551,6 +551,12 @@ argument_list|,
 name|key
 argument_list|,
 name|qtMod
+argument_list|,
+name|scan
+argument_list|,
+name|sym
+argument_list|,
+name|modifiers
 argument_list|,
 name|keyStr
 argument_list|)
