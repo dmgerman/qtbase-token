@@ -107,6 +107,14 @@ name|locale
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setFocusObject
+argument_list|(
+name|QObject
+operator|*
+name|object
+argument_list|)
+block|;
 name|private
 name|Q_SLOTS
 operator|:
@@ -124,10 +132,6 @@ name|QLocale
 operator|&
 name|locale
 argument_list|)
-block|;
-name|void
-name|inputItemChanged
-argument_list|()
 block|;
 name|private
 operator|:
