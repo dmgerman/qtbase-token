@@ -99,6 +99,10 @@ name|UnknownInterface
 block|,
 name|UnknownObject
 block|,
+name|UnknownProperty
+block|,
+name|PropertyReadOnly
+block|,
 name|InternalError
 block|,
 name|InvalidService
