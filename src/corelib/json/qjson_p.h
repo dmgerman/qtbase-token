@@ -3941,6 +3941,13 @@ name|size
 decl_stmt|;
 if|if
 condition|(
+name|b
+operator|==
+name|header
+operator|->
+name|root
+argument_list|()
+operator|&&
 name|ref
 operator|.
 name|load
