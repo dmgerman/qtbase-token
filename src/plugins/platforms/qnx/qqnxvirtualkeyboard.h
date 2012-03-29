@@ -31,11 +31,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QWindowSystemInterface>
-end_include
-begin_include
-include|#
-directive|include
 file|<stddef.h>
 end_include
 begin_include
@@ -54,14 +49,16 @@ directive|include
 file|<sys/pps.h>
 end_include
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|QSocketNotifier
 name|class
 name|QSocketNotifier
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-name|QT_BEGIN_NAMESPACE
+begin_comment
 comment|/* Shamelessly copied from the browser - this should be rewritten once we have a proper PPS wrapper class */
+end_comment
+begin_decl_stmt
 name|class
 name|QQnxVirtualKeyboard
 range|:
@@ -102,15 +99,11 @@ block|,
 name|Pin
 block|}
 block|;
-specifier|static
 name|QQnxVirtualKeyboard
-operator|&
-name|instance
 argument_list|()
 block|;
-specifier|static
-name|void
-name|destroy
+operator|~
+name|QQnxVirtualKeyboard
 argument_list|()
 block|;
 name|bool
@@ -187,6 +180,12 @@ argument_list|(
 argument|bool visible
 argument_list|)
 block|;
+name|void
+name|heightChanged
+argument_list|(
+argument|int height
+argument_list|)
+block|;
 name|private
 name|Q_SLOTS
 operator|:
@@ -196,14 +195,6 @@ argument_list|()
 block|;
 name|private
 operator|:
-name|QQnxVirtualKeyboard
-argument_list|()
-block|;
-name|virtual
-operator|~
-name|QQnxVirtualKeyboard
-argument_list|()
-block|;
 comment|// Will be called internally if needed.
 name|bool
 name|connect
@@ -226,10 +217,6 @@ name|handleKeyboardStateChangeMessage
 argument_list|(
 argument|bool visible
 argument_list|)
-block|;
-name|void
-name|updateAvailableScreenGeometry
-argument_list|()
 block|;
 name|void
 name|applyKeyboardModeOptions

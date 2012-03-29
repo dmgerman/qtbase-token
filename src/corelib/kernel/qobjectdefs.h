@@ -405,13 +405,33 @@ block|{}
 endif|#
 directive|endif
 comment|// QT_NO_QOBJECT_CHECK
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_INTEL
+argument_list|)
+comment|// Cannot redefine the visibility of a method in an exported class
+DECL|macro|Q_DECL_HIDDEN_STATIC_METACALL
+define|#
+directive|define
+name|Q_DECL_HIDDEN_STATIC_METACALL
+else|#
+directive|else
+DECL|macro|Q_DECL_HIDDEN_STATIC_METACALL
+define|#
+directive|define
+name|Q_DECL_HIDDEN_STATIC_METACALL
+value|Q_DECL_HIDDEN
+endif|#
+directive|endif
 comment|/* tmake ignore Q_OBJECT */
 DECL|macro|Q_OBJECT
 define|#
 directive|define
 name|Q_OBJECT
 define|\
-value|public: \     Q_OBJECT_CHECK \     static const QMetaObject staticMetaObject; \     virtual const QMetaObject *metaObject() const; \     virtual void *qt_metacast(const char *); \     QT_TR_FUNCTIONS \     virtual int qt_metacall(QMetaObject::Call, int, void **); \ private: \     Q_DECL_HIDDEN static const QMetaObjectExtraData staticMetaObjectExtraData; \     Q_DECL_HIDDEN static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **);
+value|public: \     Q_OBJECT_CHECK \     static const QMetaObject staticMetaObject; \     virtual const QMetaObject *metaObject() const; \     virtual void *qt_metacast(const char *); \     QT_TR_FUNCTIONS \     virtual int qt_metacall(QMetaObject::Call, int, void **); \ private: \     Q_DECL_HIDDEN static const QMetaObjectExtraData staticMetaObjectExtraData; \     Q_DECL_HIDDEN_STATIC_METACALL static void qt_static_metacall(QObject *, QMetaObject::Call, int, void **);
 comment|/* tmake ignore Q_OBJECT */
 DECL|macro|Q_OBJECT_FAKE
 define|#

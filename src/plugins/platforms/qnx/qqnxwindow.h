@@ -88,7 +88,6 @@ operator|~
 name|QQnxWindow
 argument_list|()
 block|;
-name|virtual
 name|void
 name|setGeometry
 argument_list|(
@@ -98,21 +97,18 @@ operator|&
 name|rect
 argument_list|)
 block|;
-name|virtual
 name|void
 name|setVisible
 argument_list|(
 argument|bool visible
 argument_list|)
 block|;
-name|virtual
 name|void
 name|setOpacity
 argument_list|(
 argument|qreal level
 argument_list|)
 block|;
-name|virtual
 name|WId
 name|winId
 argument_list|()
@@ -199,7 +195,6 @@ operator|*
 name|platformScreen
 argument_list|)
 block|;
-name|virtual
 name|void
 name|setParent
 argument_list|(
@@ -209,17 +204,14 @@ operator|*
 name|window
 argument_list|)
 block|;
-name|virtual
 name|void
 name|raise
 argument_list|()
 block|;
-name|virtual
 name|void
 name|lower
 argument_list|()
 block|;
-name|virtual
 name|void
 name|requestActivateWindow
 argument_list|()

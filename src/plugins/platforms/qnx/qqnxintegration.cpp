@@ -165,6 +165,11 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
+name|m_virtualKeyboard
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
 name|m_inputContext
 argument_list|(
 literal|0
@@ -281,12 +286,6 @@ operator|new
 name|QQnxEventThread
 argument_list|(
 name|m_screenContext
-argument_list|,
-operator|*
-name|QQnxScreen
-operator|::
-name|primaryDisplay
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|m_eventThread
@@ -329,16 +328,65 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|// Create/start the keyboard class.
+name|m_virtualKeyboard
+operator|=
+operator|new
 name|QQnxVirtualKeyboard
-operator|::
-name|instance
 argument_list|()
+expr_stmt|;
+comment|// delay invocation of start() to the time the event loop is up and running
+comment|// needed to have the QThread internals of the main thread properly initialized
+name|QMetaObject
+operator|::
+name|invokeMethod
+argument_list|(
+name|m_virtualKeyboard
+argument_list|,
+literal|"start"
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
+argument_list|)
+expr_stmt|;
+comment|// TODO check if we need to do this for all screens or only the primary one
+name|QObject
+operator|::
+name|connect
+argument_list|(
+name|m_virtualKeyboard
+argument_list|,
+name|SIGNAL
+argument_list|(
+name|heightChanged
+argument_list|(
+name|int
+argument_list|)
+argument_list|)
+argument_list|,
+name|QQnxScreen
+operator|::
+name|primaryDisplay
+argument_list|()
+argument_list|,
+name|SLOT
+argument_list|(
+name|keyboardHeightChanged
+argument_list|(
+name|int
+argument_list|)
+argument_list|)
+argument_list|)
 expr_stmt|;
 comment|// Set up the input context
 name|m_inputContext
 operator|=
 operator|new
 name|QQnxInputContext
+argument_list|(
+operator|*
+name|m_virtualKeyboard
+argument_list|)
 expr_stmt|;
 comment|// Create services handling class
 ifdef|#
@@ -374,11 +422,13 @@ literal|"QQnx: platform plugin shutdown begin"
 expr_stmt|;
 endif|#
 directive|endif
+comment|// Destroy input context
+operator|delete
+name|m_inputContext
+expr_stmt|;
 comment|// Destroy the keyboard class.
-name|QQnxVirtualKeyboard
-operator|::
-name|destroy
-argument_list|()
+operator|delete
+name|m_virtualKeyboard
 expr_stmt|;
 ifndef|#
 directive|ifndef
