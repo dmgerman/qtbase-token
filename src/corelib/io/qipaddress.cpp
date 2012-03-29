@@ -1229,11 +1229,13 @@ operator|.
 name|size
 argument_list|()
 operator|+
+operator|(
 name|embeddedIp4
 condition|?
 name|Ip6WithIp4AddressMaxLen
 else|:
 name|Ip6AddressMaxLen
+operator|)
 argument_list|)
 expr_stmt|;
 comment|// for finding where to place the "::"
