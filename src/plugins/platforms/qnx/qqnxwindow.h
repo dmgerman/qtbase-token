@@ -263,6 +263,13 @@ return|return
 name|m_platformOpenGLContext
 return|;
 block|}
+name|QQnxWindow
+operator|*
+name|findWindow
+argument_list|(
+argument|screen_window_t windowHandle
+argument_list|)
+block|;
 name|private
 operator|:
 name|void
