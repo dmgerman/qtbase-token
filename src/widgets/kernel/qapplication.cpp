@@ -11121,6 +11121,22 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|QGuiApplicationPrivate
+operator|::
+name|sendQWindowEventToQPlatformWindow
+argument_list|(
+name|qobject_cast
+argument_list|<
+name|QWindow
+operator|*
+argument_list|>
+argument_list|(
+name|receiver
+argument_list|)
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 comment|// capture the current mouse/keyboard state
 if|if
 condition|(

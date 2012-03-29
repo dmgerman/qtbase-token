@@ -289,6 +289,15 @@ argument_list|(
 argument|bool grab
 argument_list|)
 block|;
+name|virtual
+name|void
+name|windowEvent
+argument_list|(
+name|QEvent
+operator|*
+name|event
+argument_list|)
+block|;
 name|protected
 operator|:
 name|QScopedPointer
