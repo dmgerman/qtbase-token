@@ -418,7 +418,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"<annotation name=\"com.trolltech.QtDBus.QtTypeName.Out0\" value=\"%1\"/>\n"
+literal|"<annotation name=\"org.qtproject.QtDBus.QtTypeName.Out0\" value=\"%1\"/>\n"
 argument_list|)
 operator|.
 name|arg
@@ -733,7 +733,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"<annotation name=\"com.trolltech.QtDBus.QtTypeName.%1%2\" value=\"%3\"/>\n"
+literal|"<annotation name=\"org.qtproject.QtDBus.QtTypeName.%1%2\" value=\"%3\"/>\n"
 argument_list|)
 operator|.
 name|arg
@@ -1112,7 +1112,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|">\n<annotation name=\"com.trolltech.QtDBus.QtTypeName\" value=\"%3\"/>\n</property>\n"
+literal|">\n<annotation name=\"org.qtproject.QtDBus.QtTypeName\" value=\"%3\"/>\n</property>\n"
 argument_list|)
 operator|.
 name|arg
@@ -1354,7 +1354,7 @@ name|prepend
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"com.trolltech.QtDBus."
+literal|"org.qtproject.QtDBus."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1397,7 +1397,7 @@ name|prepend
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"local.com.trolltech.Qt."
+literal|"local.org.qtproject.Qt."
 argument_list|)
 argument_list|)
 expr_stmt|;
