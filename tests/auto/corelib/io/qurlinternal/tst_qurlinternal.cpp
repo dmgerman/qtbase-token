@@ -317,6 +317,11 @@ function_decl|;
 block|}
 class|;
 end_class
+begin_include
+include|#
+directive|include
+file|"tst_qurlinternal.moc"
+end_include
 begin_function
 DECL|function|idna_testsuite_data
 name|void
@@ -6639,9 +6644,4 @@ argument_list|(
 argument|tst_QUrlInternal
 argument_list|)
 end_macro
-begin_include
-include|#
-directive|include
-file|"tst_qurlinternal.moc"
-end_include
 end_unit
