@@ -18992,7 +18992,7 @@ name|int
 argument_list|(
 name|QUrl
 operator|::
-name|FullyEncoded
+name|EncodeSpaces
 argument_list|)
 operator|<<
 literal|"user%20name"
@@ -19029,7 +19029,7 @@ name|int
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeSpaces
+name|MostDecoded
 argument_list|)
 operator|<<
 literal|"user name"
@@ -19112,7 +19112,7 @@ name|int
 argument_list|(
 name|QUrl
 operator|::
-name|FullyEncoded
+name|EncodeUnicode
 argument_list|)
 operator|<<
 literal|"%C2%80"
@@ -19149,7 +19149,7 @@ name|int
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeUnicode
+name|MostDecoded
 argument_list|)
 operator|<<
 name|QString
@@ -19297,8 +19297,10 @@ literal|"x://!$&:'()@host/*+,#;="
 expr_stmt|;
 comment|//    gen-delims    = ":" / "/" / "?" / "#" / "[" / "]" / "@"
 comment|// these are the separators between fields
-comment|// they must appear encoded in proper URLs everywhere
-comment|// 1) test the delimiters that, if they were decoded, would change the URL parsing
+comment|// they must appear encoded in certain positions, no exceptions
+comment|// in other positions, they can appear decoded, so they always do
+comment|// 1) test the delimiters that must appear encoded
+comment|//    (if they were decoded, they'd would change the URL parsing)
 name|QTest
 operator|::
 name|newRow
@@ -19355,7 +19357,7 @@ name|int
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeDelimiters
+name|FullyEncoded
 argument_list|)
 operator|<<
 literal|""
@@ -19516,7 +19518,7 @@ name|int
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeDelimiters
+name|MostDecoded
 argument_list|)
 operator|<<
 name|QString

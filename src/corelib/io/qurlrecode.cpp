@@ -2413,11 +2413,14 @@ block|{
 comment|// decode the UTF-8 sequence
 if|if
 condition|(
+operator|!
+operator|(
 name|encoding
 operator|&
 name|QUrl
 operator|::
-name|DecodeUnicode
+name|EncodeUnicode
+operator|)
 operator|&&
 name|encodedUtf8ToUtf16
 argument_list|(
@@ -2475,15 +2478,11 @@ name|decoded
 operator|>=
 literal|0x80
 operator|&&
-operator|(
 name|encoding
 operator|&
 name|QUrl
 operator|::
-name|DecodeUnicode
-operator|)
-operator|==
-literal|0
+name|EncodeUnicode
 condition|)
 block|{
 comment|// encode the UTF-8 sequence
@@ -2797,6 +2796,7 @@ index|[
 name|i
 index|]
 argument_list|; }
+comment|/*!     \internal      Recodes the string from \a begin to \a end. If any transformations are     done, append them to \a appendTo and return the number of characters added.     If no transformations were required, return 0.      The \a encoding option modifies the default behaviour:     \list     \li QUrl::EncodeDelimiters: if set, delimiters will be left untransformed (note: not encoded!);                                 if unset, delimiters will be decoded     \li QUrl::DecodeReserved: if set, reserved characters will be decoded;                               if unset, reserved characters will be encoded     \li QUrl::EncodeSpaces: if set, spaces will be encoded to "%20"; if unset, they will be " "     \li QUrl::EncodeUnicode: if set, characters above U+0080 will be encoded to their UTF-8                              percent-encoded form; if unset, they will be decoded to UTF-16     \endlist      Other flags are ignored (including QUrl::EncodeReserved).      The \a tableModifications argument can be used to supply extra     modifications to the tables, to be applied after the flags above are     handled. It consists of a sequence of 16-bit values, where the low 8 bits     indicate the character in question and the high 8 bits are either \c     EncodeCharacter, \c LeaveCharacter or \c DecodeCharacter.  */
 name|Q_AUTOTEST_EXPORT
 name|int
 DECL|function|qt_urlRecode
@@ -2835,11 +2835,14 @@ name|defaultActionTable
 index|]
 argument_list|;     if
 operator|(
+operator|!
+operator|(
 name|encoding
 operator|&
 name|QUrl
 operator|::
-name|DecodeDelimiters
+name|EncodeDelimiters
+operator|)
 operator|&&
 name|encoding
 operator|&
@@ -2861,14 +2864,11 @@ argument_list|)
 block|;
 if|if
 condition|(
-operator|!
-operator|(
 name|encoding
 operator|&
 name|QUrl
 operator|::
-name|DecodeSpaces
-operator|)
+name|EncodeSpaces
 condition|)
 name|actionTable
 index|[
@@ -2909,11 +2909,14 @@ name|actionTable
 argument_list|)
 argument_list|;         if
 operator|(
+operator|!
+operator|(
 name|encoding
 operator|&
 name|QUrl
 operator|::
-name|DecodeDelimiters
+name|EncodeDelimiters
+operator|)
 operator|)
 name|maskTable
 argument_list|(
@@ -2937,11 +2940,14 @@ name|reservedMask
 argument_list|)
 argument_list|;         if
 operator|(
+operator|!
+operator|(
 name|encoding
 operator|&
 name|QUrl
 operator|::
-name|DecodeSpaces
+name|EncodeSpaces
+operator|)
 operator|)
 name|actionTable
 index|[

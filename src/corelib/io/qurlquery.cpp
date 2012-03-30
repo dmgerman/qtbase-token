@@ -597,11 +597,14 @@ name|input
 return|;
 if|if
 condition|(
+operator|!
+operator|(
 name|encoding
 operator|&
 name|QUrl
 operator|::
-name|DecodeDelimiters
+name|EncodeDelimiters
+operator|)
 condition|)
 block|{
 name|QString
@@ -1477,19 +1480,8 @@ name|encoding
 operator|&
 name|QUrl
 operator|::
-name|DecodeDelimiters
+name|EncodeDelimiters
 condition|)
-block|{
-comment|// full decoding: we only encode the characters above
-name|tableActions
-index|[
-literal|3
-index|]
-operator|=
-literal|0
-expr_stmt|;
-block|}
-else|else
 block|{
 name|tableActions
 index|[

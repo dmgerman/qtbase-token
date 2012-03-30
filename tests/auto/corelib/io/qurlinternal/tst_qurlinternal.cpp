@@ -5299,9 +5299,7 @@ operator|.
 name|length
 argument_list|()
 argument_list|,
-name|QUrl
-operator|::
-name|DecodeUnicode
+literal|0
 argument_list|)
 condition|)
 name|output
@@ -5375,7 +5373,7 @@ name|ComponentFormattingOptions
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeUnicode
+name|MostDecoded
 argument_list|)
 operator|<<
 name|decoded
@@ -5804,7 +5802,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeSpaces
+name|MostDecoded
 argument_list|)
 operator|<<
 literal|"Hello World "
@@ -5858,7 +5856,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeSpaces
+name|MostDecoded
 argument_list|)
 operator|<<
 literal|"Hello World "
@@ -5896,7 +5894,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeSpaces
+name|MostDecoded
 argument_list|)
 operator|<<
 literal|"%01%02 0"
@@ -5914,7 +5912,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeSpaces
+name|MostDecoded
 argument_list|)
 operator|<<
 literal|" %01%02"
@@ -6238,7 +6236,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeUnicode
+name|MostDecoded
 argument_list|)
 operator|<<
 name|QString
@@ -6261,7 +6259,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeUnicode
+name|MostDecoded
 argument_list|)
 operator|<<
 name|QString
@@ -6284,7 +6282,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeUnicode
+name|MostDecoded
 argument_list|)
 operator|<<
 name|QString
@@ -6307,7 +6305,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeUnicode
+name|MostDecoded
 argument_list|)
 operator|<<
 name|QString
@@ -6330,7 +6328,7 @@ name|F
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeUnicode
+name|MostDecoded
 argument_list|)
 operator|<<
 name|QString
@@ -6481,7 +6479,7 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"\xE0!A2\x80"
+literal|"\xE0.A2\x80"
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -6493,14 +6491,14 @@ argument_list|)
 operator|<<
 name|QByteArray
 argument_list|(
-literal|"\xE0\xA2!80"
+literal|"\xE0\xA2.80"
 argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"utf8-mix-5"
+literal|"utf8-mix-6"
 argument_list|)
 operator|<<
 name|QByteArray
@@ -6566,7 +6564,7 @@ argument_list|()
 argument_list|,
 name|QUrl
 operator|::
-name|DecodeUnicode
+name|MostDecoded
 argument_list|)
 condition|)
 name|output
