@@ -19544,13 +19544,13 @@ argument_list|()
 operator|<<
 literal|"?%21%24%26%27%28%29%2A%2B%2C%2F%3A%3B%3D%3F%40%5B%5D"
 expr_stmt|;
-comment|// other characters:  '"' / "<" / ">" / "^" / "\" / "{" / "|" "}"
+comment|// reserved characters:  '"' / "<" / ">" / "^" / "\" / "{" / "|" "}"
 comment|// the RFC does not allow them undecoded anywhere, but we do
 name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"encoded-others"
+literal|"encoded-reserved"
 argument_list|)
 operator|<<
 name|QUrl
@@ -19588,7 +19588,7 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
-literal|"decoded-others"
+literal|"decoded-reserved"
 argument_list|)
 operator|<<
 name|QUrl
@@ -19601,7 +19601,7 @@ name|int
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeDelimiters
+name|DecodeReserved
 argument_list|)
 operator|<<
 literal|"\"<>^\\{|}"

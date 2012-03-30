@@ -300,6 +300,517 @@ comment|// BSKP
 block|}
 decl_stmt|;
 end_decl_stmt
+begin_comment
+comment|// mask tables, in negative polarity
+end_comment
+begin_comment
+comment|// 0x00 if it belongs to this category
+end_comment
+begin_comment
+comment|// 0xff if it doesn't
+end_comment
+begin_decl_stmt
+DECL|variable|delimsMask
+specifier|static
+specifier|const
+name|uchar
+name|delimsMask
+index|[
+literal|96
+index|]
+init|=
+block|{
+literal|0xff
+block|,
+comment|// space
+literal|0x00
+block|,
+comment|// '!' (sub-delim)
+literal|0xff
+block|,
+comment|// '"'
+literal|0x00
+block|,
+comment|// '#' (gen-delim)
+literal|0x00
+block|,
+comment|// '$' (gen-delim)
+literal|0xff
+block|,
+comment|// '%' (percent)
+literal|0x00
+block|,
+comment|// '&' (gen-delim)
+literal|0x00
+block|,
+comment|// "'" (sub-delim)
+literal|0x00
+block|,
+comment|// '(' (sub-delim)
+literal|0x00
+block|,
+comment|// ')' (sub-delim)
+literal|0x00
+block|,
+comment|// '*' (sub-delim)
+literal|0x00
+block|,
+comment|// '+' (sub-delim)
+literal|0x00
+block|,
+comment|// ',' (sub-delim)
+literal|0xff
+block|,
+comment|// '-' (unreserved)
+literal|0xff
+block|,
+comment|// '.' (unreserved)
+literal|0x00
+block|,
+comment|// '/' (gen-delim)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// '0' to '4' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// '5' to '9' (unreserved)
+literal|0x00
+block|,
+comment|// ':' (gen-delim)
+literal|0x00
+block|,
+comment|// ';' (sub-delim)
+literal|0xff
+block|,
+comment|// '<'
+literal|0x00
+block|,
+comment|// '=' (sub-delim)
+literal|0xff
+block|,
+comment|// '>'
+literal|0x00
+block|,
+comment|// '?' (gen-delim)
+literal|0x00
+block|,
+comment|// '@' (gen-delim)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'A' to 'E' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'F' to 'J' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'K' to 'O' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'P' to 'T' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'U' to 'Z' (unreserved)
+literal|0x00
+block|,
+comment|// '[' (gen-delim)
+literal|0xff
+block|,
+comment|// '\'
+literal|0x00
+block|,
+comment|// ']' (gen-delim)
+literal|0xff
+block|,
+comment|// '^'
+literal|0xff
+block|,
+comment|// '_' (unreserved)
+literal|0xff
+block|,
+comment|// '`'
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'a' to 'e' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'f' to 'j' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'k' to 'o' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'p' to 't' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'u' to 'z' (unreserved)
+literal|0xff
+block|,
+comment|// '{'
+literal|0xff
+block|,
+comment|// '|'
+literal|0xff
+block|,
+comment|// '}'
+literal|0xff
+block|,
+comment|// '~' (unreserved)
+literal|0xff
+comment|// BSKP
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|reservedMask
+specifier|static
+specifier|const
+name|uchar
+name|reservedMask
+index|[
+literal|96
+index|]
+init|=
+block|{
+literal|0xff
+block|,
+comment|// space
+literal|0xff
+block|,
+comment|// '!' (sub-delim)
+literal|0x00
+block|,
+comment|// '"'
+literal|0xff
+block|,
+comment|// '#' (gen-delim)
+literal|0xff
+block|,
+comment|// '$' (gen-delim)
+literal|0xff
+block|,
+comment|// '%' (percent)
+literal|0xff
+block|,
+comment|// '&' (gen-delim)
+literal|0xff
+block|,
+comment|// "'" (sub-delim)
+literal|0xff
+block|,
+comment|// '(' (sub-delim)
+literal|0xff
+block|,
+comment|// ')' (sub-delim)
+literal|0xff
+block|,
+comment|// '*' (sub-delim)
+literal|0xff
+block|,
+comment|// '+' (sub-delim)
+literal|0xff
+block|,
+comment|// ',' (sub-delim)
+literal|0xff
+block|,
+comment|// '-' (unreserved)
+literal|0xff
+block|,
+comment|// '.' (unreserved)
+literal|0xff
+block|,
+comment|// '/' (gen-delim)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// '0' to '4' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// '5' to '9' (unreserved)
+literal|0xff
+block|,
+comment|// ':' (gen-delim)
+literal|0xff
+block|,
+comment|// ';' (sub-delim)
+literal|0x00
+block|,
+comment|// '<'
+literal|0xff
+block|,
+comment|// '=' (sub-delim)
+literal|0x00
+block|,
+comment|// '>'
+literal|0xff
+block|,
+comment|// '?' (gen-delim)
+literal|0xff
+block|,
+comment|// '@' (gen-delim)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'A' to 'E' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'F' to 'J' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'K' to 'O' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'P' to 'T' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'U' to 'Z' (unreserved)
+literal|0xff
+block|,
+comment|// '[' (gen-delim)
+literal|0x00
+block|,
+comment|// '\'
+literal|0xff
+block|,
+comment|// ']' (gen-delim)
+literal|0x00
+block|,
+comment|// '^'
+literal|0xff
+block|,
+comment|// '_' (unreserved)
+literal|0x00
+block|,
+comment|// '`'
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'a' to 'e' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'f' to 'j' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'k' to 'o' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'p' to 't' (unreserved)
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|// 'u' to 'z' (unreserved)
+literal|0x00
+block|,
+comment|// '{'
+literal|0x00
+block|,
+comment|// '|'
+literal|0x00
+block|,
+comment|// '}'
+literal|0xff
+block|,
+comment|// '~' (unreserved)
+literal|0xff
+comment|// BSKP
+block|}
+decl_stmt|;
+end_decl_stmt
 begin_function
 DECL|function|isHex
 specifier|static
@@ -2232,52 +2743,110 @@ literal|0
 return|;
 block|}
 end_function
-begin_function
+begin_decl_stmt
+template|template
+parameter_list|<
+name|size_t
+name|N
+parameter_list|>
+DECL|variable|uchar
+specifier|static
+name|void
+name|maskTable
+argument_list|(
+name|uchar
+argument_list|(
+operator|&
+name|table
+argument_list|)
+index|[
+name|N
+index|]
+argument_list|,
+specifier|const
+name|uchar
+argument_list|(
+operator|&
+name|mask
+argument_list|)
+index|[
+name|N
+index|]
+argument_list|)
+argument_list|{     for
+operator|(
+name|size_t
+name|i
+operator|=
+literal|0
+expr|;
+name|i
+operator|<
+name|N
+expr|;
+operator|++
+name|i
+operator|)
+name|table
+index|[
+name|i
+index|]
+operator|&=
+name|mask
+index|[
+name|i
+index|]
+argument_list|; }
 name|Q_AUTOTEST_EXPORT
 name|int
 DECL|function|qt_urlRecode
 name|qt_urlRecode
-parameter_list|(
+argument_list|(
 name|QString
-modifier|&
+operator|&
 name|appendTo
-parameter_list|,
+argument_list|,
 specifier|const
 name|QChar
-modifier|*
+operator|*
 name|begin
-parameter_list|,
+argument_list|,
 specifier|const
 name|QChar
-modifier|*
+operator|*
 name|end
-parameter_list|,
+argument_list|,
 name|QUrl
 operator|::
 name|ComponentFormattingOptions
 name|encoding
-parameter_list|,
+argument_list|,
 specifier|const
 name|ushort
-modifier|*
+operator|*
 name|tableModifications
-parameter_list|)
-block|{
+argument_list|)
+argument_list|{
 name|uchar
 name|actionTable
 index|[
 sizeof|sizeof
 name|defaultActionTable
 index|]
-decl_stmt|;
-if|if
-condition|(
+argument_list|;     if
+operator|(
 name|encoding
 operator|&
 name|QUrl
 operator|::
 name|DecodeDelimiters
-condition|)
+operator|&&
+name|encoding
+operator|&
+name|QUrl
+operator|::
+name|DecodeReserved
+operator|)
 block|{
 comment|// reset the table
 name|memset
@@ -2289,7 +2858,7 @@ argument_list|,
 sizeof|sizeof
 name|actionTable
 argument_list|)
-expr_stmt|;
+block|;
 if|if
 condition|(
 operator|!
@@ -2317,7 +2886,7 @@ literal|' '
 index|]
 operator|=
 name|EncodeCharacter
-expr_stmt|;
+argument_list|;
 name|actionTable
 index|[
 literal|0x7F
@@ -2326,10 +2895,9 @@ literal|' '
 index|]
 operator|=
 name|EncodeCharacter
-expr_stmt|;
-block|}
-else|else
-block|{
+argument_list|;     }
+decl|else
+argument_list|{
 name|memcpy
 argument_list|(
 name|actionTable
@@ -2339,44 +2907,70 @@ argument_list|,
 sizeof|sizeof
 name|actionTable
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
+argument_list|;         if
+operator|(
+name|encoding
+operator|&
+name|QUrl
+operator|::
+name|DecodeDelimiters
+operator|)
+name|maskTable
+argument_list|(
+name|actionTable
+argument_list|,
+name|delimsMask
+argument_list|)
+argument_list|;         if
+operator|(
+name|encoding
+operator|&
+name|QUrl
+operator|::
+name|DecodeReserved
+operator|)
+name|maskTable
+argument_list|(
+name|actionTable
+argument_list|,
+name|reservedMask
+argument_list|)
+argument_list|;         if
+operator|(
 name|encoding
 operator|&
 name|QUrl
 operator|::
 name|DecodeSpaces
-condition|)
+operator|)
 name|actionTable
 index|[
 literal|0
 index|]
 operator|=
 name|DecodeCharacter
-expr_stmt|;
+argument_list|;
 comment|// decode
-block|}
-if|if
-condition|(
+argument_list|}
+decl|if
+argument_list|(
 name|tableModifications
-condition|)
-block|{
-for|for
-control|(
+argument_list|)
+argument_list|{         for
+operator|(
 specifier|const
 name|ushort
-modifier|*
-name|p
-init|=
-name|tableModifications
-init|;
 operator|*
 name|p
-condition|;
+operator|=
+name|tableModifications
+expr|;
+operator|*
+name|p
+expr|;
 operator|++
 name|p
-control|)
+operator|)
 name|actionTable
 index|[
 name|uchar
@@ -2392,9 +2986,8 @@ operator|*
 name|p
 operator|>>
 literal|8
-expr_stmt|;
-block|}
-return|return
+argument_list|;     }
+decl|return
 name|recode
 argument_list|(
 name|appendTo
@@ -2425,10 +3018,7 @@ name|actionTable
 argument_list|,
 literal|false
 argument_list|)
-return|;
-block|}
-end_function
-begin_macro
-name|QT_END_NAMESPACE
-end_macro
+decl_stmt|;
+end_decl_stmt
+unit|}  QT_END_NAMESPACE
 end_unit
