@@ -606,10 +606,19 @@ begin_comment
 comment|//  - username: ":" is ambiguous
 end_comment
 begin_comment
-comment|// list the recoding table modifications to be used with the recodeFromUser
+comment|// list the recoding table modifications to be used with the recodeFromUser and
 end_comment
 begin_comment
-comment|// function, according to the rules above
+comment|// appendToUser functions, according to the rules above.
+end_comment
+begin_comment
+comment|// the encodedXXX tables are run with the delimiters set to "leave" by default;
+end_comment
+begin_comment
+comment|// the decodedXXX tables are run with the delimiters set to "decode" by default
+end_comment
+begin_comment
+comment|// (except for the query, which doesn't use these functions)
 end_comment
 begin_define
 DECL|macro|decode
@@ -1011,26 +1020,168 @@ literal|0
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|// the query is handled specially, since we prefer not to transform the delims
+comment|// the query is handled specially: the decodedQueryXXX tables are run with
+end_comment
+begin_comment
+comment|// the delimiters set to "leave" by default and the others set to "encode"
 end_comment
 begin_decl_stmt
 DECL|variable|encodedQueryActions
 specifier|static
 specifier|const
 name|ushort
-modifier|*
-specifier|const
 name|encodedQueryActions
+index|[]
 init|=
-name|encodedFragmentActions
-operator|+
-literal|4
+block|{
+comment|//    query         = *( pchar / "/" / "?" )
+comment|// gen-delims permitted: ":" / "@" / "/" / "?"
+comment|// HOWEVER: we leave alone them alone, plus "[" and "]"
+comment|//   ->   must encode: "#"
+name|encode
+argument_list|(
+literal|'#'
+argument_list|)
+block|,
+comment|// 0
+literal|0
+block|}
 decl_stmt|;
 end_decl_stmt
-begin_comment
-DECL|variable|encodedQueryActions
-comment|// encode "#" / "[" / "]"
-end_comment
+begin_decl_stmt
+DECL|variable|decodedQueryInIsolationActions
+specifier|static
+specifier|const
+name|ushort
+name|decodedQueryInIsolationActions
+index|[]
+init|=
+block|{
+name|decode
+argument_list|(
+literal|'"'
+argument_list|)
+block|,
+comment|// 0
+name|decode
+argument_list|(
+literal|'<'
+argument_list|)
+block|,
+comment|// 1
+name|decode
+argument_list|(
+literal|'>'
+argument_list|)
+block|,
+comment|// 2
+name|decode
+argument_list|(
+literal|'^'
+argument_list|)
+block|,
+comment|// 3
+name|decode
+argument_list|(
+literal|'\\'
+argument_list|)
+block|,
+comment|// 4
+name|decode
+argument_list|(
+literal|'|'
+argument_list|)
+block|,
+comment|// 5
+name|decode
+argument_list|(
+literal|'{'
+argument_list|)
+block|,
+comment|// 6
+name|decode
+argument_list|(
+literal|'}'
+argument_list|)
+block|,
+comment|// 7
+name|decode
+argument_list|(
+literal|'#'
+argument_list|)
+block|,
+comment|// 8
+literal|0
+block|}
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|decodedQueryInUrlActions
+specifier|static
+specifier|const
+name|ushort
+name|decodedQueryInUrlActions
+index|[]
+init|=
+block|{
+name|decode
+argument_list|(
+literal|'"'
+argument_list|)
+block|,
+comment|// 0
+name|decode
+argument_list|(
+literal|'<'
+argument_list|)
+block|,
+comment|// 1
+name|decode
+argument_list|(
+literal|'>'
+argument_list|)
+block|,
+comment|// 2
+name|decode
+argument_list|(
+literal|'^'
+argument_list|)
+block|,
+comment|// 3
+name|decode
+argument_list|(
+literal|'\\'
+argument_list|)
+block|,
+comment|// 4
+name|decode
+argument_list|(
+literal|'|'
+argument_list|)
+block|,
+comment|// 5
+name|decode
+argument_list|(
+literal|'{'
+argument_list|)
+block|,
+comment|// 6
+name|decode
+argument_list|(
+literal|'}'
+argument_list|)
+block|,
+comment|// 7
+name|encode
+argument_list|(
+literal|'#'
+argument_list|)
+block|,
+comment|// 8
+literal|0
+block|}
+decl_stmt|;
+end_decl_stmt
 begin_function
 specifier|static
 specifier|inline
@@ -1726,6 +1877,9 @@ name|QUrl
 operator|::
 name|FormattingOptions
 name|options
+parameter_list|,
+name|Section
+name|appendingTo
 parameter_list|)
 specifier|const
 block|{
@@ -1738,6 +1892,10 @@ operator|==
 name|QUrl
 operator|::
 name|PrettyDecoded
+operator|&&
+name|appendingTo
+operator|==
+name|Query
 condition|)
 block|{
 name|appendTo
@@ -1755,17 +1913,11 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-operator|(
 name|options
 operator|&
 name|QUrl
 operator|::
 name|DecodeAllDelimiters
-operator|)
-operator|==
-name|QUrl
-operator|::
-name|DecodeUnambiguousDelimiters
 condition|)
 block|{
 comment|// reset to default qt_urlRecode behaviour (leave delimiters alone)
@@ -1775,6 +1927,16 @@ operator|~
 name|QUrl
 operator|::
 name|DecodeAllDelimiters
+expr_stmt|;
+name|actions
+operator|=
+name|appendingTo
+operator|==
+name|Query
+condition|?
+name|decodedQueryInIsolationActions
+else|:
+name|decodedQueryInUrlActions
 expr_stmt|;
 block|}
 elseif|else
@@ -2856,67 +3018,7 @@ operator|&=
 operator|~
 name|Query
 expr_stmt|;
-comment|// use the default actions for the query
-specifier|static
-specifier|const
-name|ushort
-name|decodeActions
-index|[]
-init|=
-block|{
-name|decode
-argument_list|(
-literal|'"'
-argument_list|)
-block|,
-name|decode
-argument_list|(
-literal|'<'
-argument_list|)
-block|,
-name|decode
-argument_list|(
-literal|'>'
-argument_list|)
-block|,
-name|decode
-argument_list|(
-literal|'\\'
-argument_list|)
-block|,
-name|decode
-argument_list|(
-literal|'^'
-argument_list|)
-block|,
-name|decode
-argument_list|(
-literal|'`'
-argument_list|)
-block|,
-name|decode
-argument_list|(
-literal|'{'
-argument_list|)
-block|,
-name|decode
-argument_list|(
-literal|'|'
-argument_list|)
-block|,
-name|decode
-argument_list|(
-literal|'}'
-argument_list|)
-block|,
-name|encode
-argument_list|(
-literal|'#'
-argument_list|)
-block|,
-literal|0
-block|}
-decl_stmt|;
+comment|// use the default actions for the query (don't set QUrl::DecodeAllDelimiters)
 name|QString
 name|output
 decl_stmt|;
@@ -2962,7 +3064,7 @@ name|QUrl
 operator|::
 name|DecodeSpaces
 argument_list|,
-name|decodeActions
+name|decodedQueryInIsolationActions
 argument_list|)
 condition|)
 name|query
@@ -6668,6 +6770,10 @@ argument_list|(
 name|result
 argument_list|,
 name|options
+argument_list|,
+name|QUrlPrivate
+operator|::
+name|Query
 argument_list|)
 expr_stmt|;
 if|if
@@ -7709,6 +7815,10 @@ argument_list|(
 name|url
 argument_list|,
 name|options
+argument_list|,
+name|QUrlPrivate
+operator|::
+name|FullUrl
 argument_list|)
 expr_stmt|;
 block|}

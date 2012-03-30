@@ -13522,7 +13522,7 @@ argument_list|)
 argument_list|,
 name|QString
 argument_list|(
-literal|"//[0:56:56:56:56:56:56:56]?%5B%5D"
+literal|"//[0:56:56:56:56:56:56:56]?[]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13713,7 +13713,7 @@ argument_list|)
 argument_list|,
 name|QString
 argument_list|(
-literal|"//[0:56:56:56:56:56:56:56]?%5B%5D"
+literal|"//[0:56:56:56:56:56:56:56]?[]"
 argument_list|)
 argument_list|)
 expr_stmt|;

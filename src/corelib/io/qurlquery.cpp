@@ -389,7 +389,10 @@ begin_comment
 comment|// delimiters are "#", "[" and "]" -- if those are present, they must be
 end_comment
 begin_comment
-comment|// percent-encoded.
+comment|// percent-encoded. The fact that "[" and "]" should be encoded is probably a
+end_comment
+begin_comment
+comment|// mistake in the spec, so we ignore it and leave the decoded.
 end_comment
 begin_comment
 comment|//
@@ -431,10 +434,10 @@ begin_comment
 comment|// But when recreating the query string, in toString(), we must take care of
 end_comment
 begin_comment
-comment|// the special delimiters: the pair and value delimiters and those that the
+comment|// the special delimiters: the pair and value delimiters, as well as the "#"
 end_comment
 begin_comment
-comment|// definition says must be encoded ("#" / "[" / "]")
+comment|// character if unambiguous decoding is requested.
 end_comment
 begin_define
 DECL|macro|decode
@@ -673,8 +676,7 @@ return|return
 name|input
 return|;
 block|}
-comment|// re-encode the gen-delims that the RFC says must be encoded the
-comment|// query delimiter pair; the non-delimiters will get encoded too
+comment|// re-encode the "#" character and the query delimiter pair
 name|ushort
 name|actions
 index|[]
@@ -699,16 +701,6 @@ block|,
 name|encode
 argument_list|(
 literal|'#'
-argument_list|)
-block|,
-name|encode
-argument_list|(
-literal|'['
-argument_list|)
-block|,
-name|encode
-argument_list|(
-literal|']'
 argument_list|)
 block|,
 literal|0
@@ -1483,7 +1475,7 @@ return|;
 comment|// unlike the component encoding, for the whole query we need to modify a little:
 comment|//  - the "#" character is ambiguous, so we decode it only in DecodeAllDelimiters mode
 comment|//  - the query delimiter pair must always be encoded
-comment|//  - the "[" and "]" sub-delimiters and the non-delimiters very on DecodeUnambiguousDelimiters
+comment|//  - the non-delimiters vary on DecodeUnambiguousDelimiters
 comment|// so:
 comment|//  - full encoding: encode the non-delimiters, the pair, "#", "[" and "]"
 comment|//  - pretty decode: decode the non-delimiters, "[" and "]"; encode the pair and "#"
@@ -1491,9 +1483,7 @@ comment|//  - decode all: decode the non-delimiters, "[", "]", "#"; encode the p
 comment|// start with what's always encoded
 name|ushort
 name|tableActions
-index|[
-literal|7
-index|]
+index|[]
 init|=
 block|{
 name|leave
@@ -1524,18 +1514,19 @@ argument_list|()
 argument_list|)
 block|,
 comment|// 2
+name|decode
+argument_list|(
+literal|'#'
+argument_list|)
+block|,
+comment|// 3
+literal|0
 block|}
 decl_stmt|;
 if|if
 condition|(
-operator|(
 name|encoding
 operator|&
-name|QUrl
-operator|::
-name|DecodeAllDelimiters
-operator|)
-operator|==
 name|QUrl
 operator|::
 name|DecodeAllDelimiters
@@ -1568,66 +1559,6 @@ argument_list|(
 literal|'#'
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|encoding
-operator|&
-name|QUrl
-operator|::
-name|DecodeUnambiguousDelimiters
-condition|)
-block|{
-name|tableActions
-index|[
-literal|4
-index|]
-operator|=
-literal|0
-expr_stmt|;
-name|encoding
-operator||=
-name|QUrl
-operator|::
-name|DecodeAllDelimiters
-expr_stmt|;
-block|}
-else|else
-block|{
-name|tableActions
-index|[
-literal|4
-index|]
-operator|=
-name|encode
-argument_list|(
-literal|'['
-argument_list|)
-expr_stmt|;
-name|tableActions
-index|[
-literal|5
-index|]
-operator|=
-name|encode
-argument_list|(
-literal|']'
-argument_list|)
-expr_stmt|;
-name|tableActions
-index|[
-literal|6
-index|]
-operator|=
-literal|0
-expr_stmt|;
-name|encoding
-operator|&=
-operator|~
-name|QUrl
-operator|::
-name|DecodeAllDelimiters
-expr_stmt|;
-block|}
 block|}
 name|QString
 name|result
