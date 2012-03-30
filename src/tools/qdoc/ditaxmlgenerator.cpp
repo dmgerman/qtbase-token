@@ -5582,6 +5582,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|atom
+operator|->
+name|string
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
 name|atom
 operator|->
 name|string
@@ -8519,9 +8528,9 @@ argument_list|)
 expr_stmt|;
 name|enterSection
 argument_list|(
-literal|"h2"
+literal|""
 argument_list|,
-literal|"Detailed Description"
+literal|""
 argument_list|)
 expr_stmt|;
 name|generateBody
@@ -9344,9 +9353,9 @@ argument_list|)
 expr_stmt|;
 name|enterSection
 argument_list|(
-literal|"h2"
+literal|""
 argument_list|,
-literal|"Detailed Description"
+literal|""
 argument_list|)
 expr_stmt|;
 name|generateBody
@@ -10107,9 +10116,9 @@ argument_list|)
 expr_stmt|;
 name|enterSection
 argument_list|(
-literal|"h2"
+literal|""
 argument_list|,
-literal|"Detailed Description"
+literal|""
 argument_list|)
 expr_stmt|;
 name|generateBody
@@ -10875,9 +10884,9 @@ argument_list|)
 expr_stmt|;
 name|enterSection
 argument_list|(
-literal|"h2"
+literal|""
 argument_list|,
-literal|"Detailed Description"
+literal|""
 argument_list|)
 expr_stmt|;
 name|generateBody
@@ -11697,9 +11706,9 @@ condition|)
 block|{
 name|enterSection
 argument_list|(
-literal|"h2"
+literal|""
 argument_list|,
-literal|"Detailed Description"
+literal|""
 argument_list|)
 expr_stmt|;
 name|generateBody
