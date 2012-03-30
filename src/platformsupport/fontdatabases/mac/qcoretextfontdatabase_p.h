@@ -101,6 +101,14 @@ name|defaultFont
 argument_list|()
 specifier|const
 block|;
+name|QList
+operator|<
+name|int
+operator|>
+name|standardSizes
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|mutable
