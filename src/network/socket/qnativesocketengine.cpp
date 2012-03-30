@@ -1841,6 +1841,54 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// if the user binds a socket to an IPv6 address (or QHostAddress::Any) and
+comment|// then attempts to join an IPv4 multicast group, this won't work on
+comment|// Windows. In order to make this cross-platform, we warn& fail on all
+comment|// platforms.
+if|if
+condition|(
+name|groupAddress
+operator|.
+name|protocol
+argument_list|()
+operator|==
+name|QAbstractSocket
+operator|::
+name|IPv4Protocol
+operator|&&
+operator|(
+name|d
+operator|->
+name|socketProtocol
+operator|==
+name|QAbstractSocket
+operator|::
+name|IPv6Protocol
+operator|||
+name|d
+operator|->
+name|socketProtocol
+operator|==
+name|QAbstractSocket
+operator|::
+name|AnyIPProtocol
+operator|)
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"QAbstractSocket: cannot bind to QHostAddress::Any (or an IPv6 address) and join an IPv4 multicast group"
+argument_list|)
+expr_stmt|;
+name|qWarning
+argument_list|(
+literal|"QAbstractSocket: bind to QHostAddress::AnyIPv4 instead if you want to do this"
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 return|return
 name|d
 operator|->
