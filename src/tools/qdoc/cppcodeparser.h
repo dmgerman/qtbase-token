@@ -628,7 +628,7 @@ name|nodeTypeMap
 block|;
 name|Tree
 operator|*
-name|tre
+name|tree_
 block|;
 name|Tokenizer
 operator|*
@@ -675,7 +675,7 @@ name|QSet
 operator|<
 name|QString
 operator|>
-name|usedNamespaces
+name|activeNamespaces_
 block|;
 name|QMap
 operator|<

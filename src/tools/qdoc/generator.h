@@ -242,7 +242,6 @@ name|virtual
 name|void
 name|generateTree
 parameter_list|(
-specifier|const
 name|Tree
 modifier|*
 name|tree
@@ -442,7 +441,6 @@ name|virtual
 name|void
 name|generateClassLikeNode
 parameter_list|(
-specifier|const
 name|InnerNode
 modifier|*
 name|inner
@@ -456,7 +454,6 @@ name|virtual
 name|void
 name|generateFakeNode
 parameter_list|(
-specifier|const
 name|FakeNode
 modifier|*
 name|fake
@@ -498,7 +495,6 @@ name|virtual
 name|void
 name|generateInnerNode
 parameter_list|(
-specifier|const
 name|InnerNode
 modifier|*
 name|node
@@ -854,6 +850,15 @@ parameter_list|,
 name|CodeMarker
 modifier|*
 name|marker
+parameter_list|)
+function_decl|;
+name|QString
+name|getCollisionLink
+parameter_list|(
+specifier|const
+name|Atom
+modifier|*
+name|atom
 parameter_list|)
 function_decl|;
 name|QString
@@ -1272,6 +1277,12 @@ name|quot
 decl_stmt|;
 name|QRegExp
 name|tag
+decl_stmt|;
+name|protected
+label|:
+name|Tree
+modifier|*
+name|tree_
 decl_stmt|;
 block|}
 end_decl_stmt
