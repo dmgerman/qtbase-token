@@ -2686,6 +2686,9 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+name|q_ERR_free_strings
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 begin_comment

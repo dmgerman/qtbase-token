@@ -537,6 +537,22 @@ end_macro
 begin_macro
 name|DEFINEFUNC
 argument_list|(
+argument|void
+argument_list|,
+argument|ERR_free_strings
+argument_list|,
+argument|void
+argument_list|,
+argument|DUMMYARG
+argument_list|,
+argument|return
+argument_list|,
+argument|DUMMYARG
+argument_list|)
+end_macro
+begin_macro
+name|DEFINEFUNC
+argument_list|(
 argument|const EVP_CIPHER *
 argument_list|,
 argument|EVP_des_ede3_cbc
@@ -4569,6 +4585,10 @@ argument_list|)
 name|RESOLVEFUNC
 argument_list|(
 argument|ERR_get_error
+argument_list|)
+name|RESOLVEFUNC
+argument_list|(
+argument|ERR_free_strings
 argument_list|)
 name|RESOLVEFUNC
 argument_list|(

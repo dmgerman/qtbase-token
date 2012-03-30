@@ -921,6 +921,12 @@ parameter_list|()
 function_decl|;
 end_function_decl
 begin_function_decl
+name|void
+name|q_ERR_free_strings
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
 specifier|const
 name|EVP_CIPHER
 modifier|*
