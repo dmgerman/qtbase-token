@@ -3711,7 +3711,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle show events.      The show event is called when the window becomes visible in the windowing system. */
+comment|/*!     Override this to handle show events.      This function is called when the window becomes visible in the windowing system. */
 end_comment
 begin_function
 DECL|function|showEvent
@@ -3733,7 +3733,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle show events.      The show event is called when the window becomes hidden in the windowing system. */
+comment|/*!     Override this to handle hide events.      This function is called when the window becomes hidden in the windowing system. */
 end_comment
 begin_function
 DECL|function|hideEvent
