@@ -847,9 +847,15 @@ literal|0x400000
 operator||
 literal|0x800000
 block|,
-name|DecodeReserved
+name|PrettyDecodeReserved
 init|=
 literal|0x1000000
+block|,
+name|DecodeReserved
+init|=
+name|PrettyDecodeReserved
+operator||
+literal|0x2000000
 block|,
 name|PrettyDecoded
 init|=
@@ -857,7 +863,7 @@ name|DecodeSpaces
 operator||
 name|DecodeDelimiters
 operator||
-name|DecodeReserved
+name|PrettyDecodeReserved
 operator||
 name|DecodeUnicode
 block|,

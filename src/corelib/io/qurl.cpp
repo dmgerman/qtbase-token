@@ -909,13 +909,42 @@ DECL|variable|decodedPathInUrlActions
 specifier|static
 specifier|const
 name|ushort
-modifier|*
-specifier|const
 name|decodedPathInUrlActions
+index|[]
 init|=
-name|encodedPathActions
-operator|+
-literal|2
+block|{
+name|decode
+argument_list|(
+literal|'{'
+argument_list|)
+block|,
+comment|// 0
+name|decode
+argument_list|(
+literal|'}'
+argument_list|)
+block|,
+comment|// 1
+name|encode
+argument_list|(
+literal|'?'
+argument_list|)
+block|,
+comment|// 2
+name|encode
+argument_list|(
+literal|'#'
+argument_list|)
+block|,
+comment|// 3
+name|leave
+argument_list|(
+literal|'/'
+argument_list|)
+block|,
+comment|// 4
+literal|0
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1124,42 +1153,6 @@ name|decodedQueryInUrlActions
 index|[]
 init|=
 block|{
-name|decode
-argument_list|(
-literal|'"'
-argument_list|)
-block|,
-comment|// 0
-name|decode
-argument_list|(
-literal|'<'
-argument_list|)
-block|,
-comment|// 1
-name|decode
-argument_list|(
-literal|'>'
-argument_list|)
-block|,
-comment|// 2
-name|decode
-argument_list|(
-literal|'^'
-argument_list|)
-block|,
-comment|// 3
-name|decode
-argument_list|(
-literal|'\\'
-argument_list|)
-block|,
-comment|// 4
-name|decode
-argument_list|(
-literal|'|'
-argument_list|)
-block|,
-comment|// 5
 name|decode
 argument_list|(
 literal|'{'
@@ -7583,6 +7576,21 @@ block|}
 name|QString
 name|url
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|options
+operator|.
+name|testFlag
+argument_list|(
+name|DecodeReserved
+argument_list|)
+condition|)
+name|options
+operator|&=
+operator|~
+name|DecodeReserved
+expr_stmt|;
 if|if
 condition|(
 operator|!
