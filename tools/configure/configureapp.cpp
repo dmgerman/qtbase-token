@@ -1042,7 +1042,7 @@ literal|"auto"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 index|]
 operator|=
 literal|"yes"
@@ -5473,12 +5473,12 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
-literal|"-no-declarative-debug"
+literal|"-no-qml-debug"
 condition|)
 block|{
 name|dictionary
 index|[
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 index|]
 operator|=
 literal|"no"
@@ -5494,12 +5494,12 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
-literal|"-declarative-debug"
+literal|"-qml-debug"
 condition|)
 block|{
 name|dictionary
 index|[
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 index|]
 operator|=
 literal|"yes"
@@ -10417,24 +10417,24 @@ argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 argument_list|,
 literal|"no"
 argument_list|,
-literal|"-no-declarative-debug"
+literal|"-no-qml-debug"
 argument_list|,
-literal|"Do not build the declarative debugging support"
+literal|"Do not build the QML debugging support"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 argument_list|,
 literal|"yes"
 argument_list|,
-literal|"-declarative-debug"
+literal|"-qml-debug"
 argument_list|,
-literal|"Build the declarative debugging support"
+literal|"Build the QML debugging support"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -13198,19 +13198,19 @@ if|if
 condition|(
 name|dictionary
 index|[
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 index|]
 operator|==
 literal|"auto"
 condition|)
 name|dictionary
 index|[
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 index|]
 operator|=
 name|dictionary
 index|[
-literal|"DECLARATIVE"
+literal|"QML"
 index|]
 operator|==
 literal|"yes"
@@ -18273,14 +18273,14 @@ if|if
 condition|(
 name|dictionary
 index|[
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 index|]
 operator|==
 literal|"no"
 condition|)
 name|qconfigList
 operator|+=
-literal|"QDECLARATIVE_NO_DEBUG_PROTOCOL"
+literal|"QT_QML_NO_DEBUGGER"
 expr_stmt|;
 if|if
 condition|(
@@ -20017,11 +20017,11 @@ name|endl
 expr_stmt|;
 name|cout
 operator|<<
-literal|"Declarative debugging......."
+literal|"QML debugging..............."
 operator|<<
 name|dictionary
 index|[
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 index|]
 operator|<<
 name|endl
