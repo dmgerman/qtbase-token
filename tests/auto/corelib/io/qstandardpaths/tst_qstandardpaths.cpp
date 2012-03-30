@@ -54,6 +54,12 @@ name|defined
 argument_list|(
 name|Q_OS_MAC
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
 end_if
 begin_define
 DECL|macro|Q_XDG_PLATFORM
@@ -914,6 +920,11 @@ parameter_list|()
 block|{
 comment|// On all platforms, DataLocation should be GenericDataLocation / organization name / app name
 comment|// This allows one app to access the data of another app.
+comment|// Blackberry OS is an exception to this case, owing to the fact that
+comment|// applications are sandboxed.
+ifndef|#
+directive|ifndef
+name|Q_OS_BLACKBERRY
 specifier|const
 name|QString
 name|base
@@ -995,6 +1006,8 @@ operator|+
 literal|"/Qt/QtTest"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|Q_XDG_PLATFORM
