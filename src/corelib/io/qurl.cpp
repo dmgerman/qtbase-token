@@ -1245,15 +1245,7 @@ name|end
 argument_list|,
 name|QUrl
 operator|::
-name|DecodeUnicode
-operator||
-name|QUrl
-operator|::
-name|DecodeAllDelimiters
-operator||
-name|QUrl
-operator|::
-name|DecodeSpaces
+name|MostDecoded
 argument_list|,
 name|actions
 argument_list|)
@@ -1353,7 +1345,7 @@ name|options
 operator|&
 name|QUrl
 operator|::
-name|DecodeAllDelimiters
+name|DecodeDelimiters
 condition|)
 name|actions
 operator|=
@@ -1542,7 +1534,7 @@ name|options
 operator|&
 name|QUrl
 operator|::
-name|DecodeAllDelimiters
+name|DecodeDelimiters
 condition|)
 block|{
 switch|switch
@@ -1779,7 +1771,7 @@ name|options
 operator|&
 name|QUrl
 operator|::
-name|DecodeAllDelimiters
+name|DecodeDelimiters
 condition|)
 block|{
 if|if
@@ -1917,7 +1909,7 @@ name|options
 operator|&
 name|QUrl
 operator|::
-name|DecodeAllDelimiters
+name|DecodeDelimiters
 condition|)
 block|{
 comment|// reset to default qt_urlRecode behaviour (leave delimiters alone)
@@ -1926,7 +1918,7 @@ operator|&=
 operator|~
 name|QUrl
 operator|::
-name|DecodeAllDelimiters
+name|DecodeDelimiters
 expr_stmt|;
 name|actions
 operator|=
@@ -1947,7 +1939,7 @@ name|options
 operator|&
 name|QUrl
 operator|::
-name|DecodeAllDelimiters
+name|DecodeDelimiters
 operator|)
 operator|==
 literal|0

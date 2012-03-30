@@ -2276,7 +2276,7 @@ name|encoding
 operator|&
 name|QUrl
 operator|::
-name|DecodeAllDelimiters
+name|DecodeDelimiters
 condition|)
 block|{
 comment|// reset the table

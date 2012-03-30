@@ -720,7 +720,7 @@ name|toEncoded
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeUnambiguousDelimiters
+name|DecodeDelimiters
 argument_list|)
 operator|.
 name|constData

@@ -19355,7 +19355,7 @@ name|int
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeUnambiguousDelimiters
+name|DecodeDelimiters
 argument_list|)
 operator|<<
 literal|""
@@ -19516,7 +19516,7 @@ name|int
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeUnambiguousDelimiters
+name|DecodeDelimiters
 argument_list|)
 operator|<<
 name|QString
@@ -19601,7 +19601,7 @@ name|int
 argument_list|(
 name|QUrl
 operator|::
-name|DecodeAllDelimiters
+name|DecodeDelimiters
 argument_list|)
 operator|<<
 literal|"\"<>^\\{|}"
