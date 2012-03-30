@@ -306,7 +306,7 @@ literal|1400
 name|int
 name|len
 init|=
-name|qstrlen
+name|strlen
 argument_list|(
 name|src
 argument_list|)
@@ -2219,7 +2219,7 @@ block|{
 name|int
 name|len
 init|=
-name|qstrlen
+name|strlen
 argument_list|(
 name|str
 argument_list|)
@@ -4007,7 +4007,7 @@ block|{
 name|int
 name|len
 init|=
-name|qstrlen
+name|strlen
 argument_list|(
 name|str
 argument_list|)
@@ -7298,7 +7298,7 @@ return|;
 name|int
 name|len
 init|=
-name|qstrlen
+name|strlen
 argument_list|(
 name|str
 argument_list|)
@@ -7489,7 +7489,7 @@ return|;
 name|int
 name|len
 init|=
-name|qstrlen
+name|strlen
 argument_list|(
 name|str
 argument_list|)
