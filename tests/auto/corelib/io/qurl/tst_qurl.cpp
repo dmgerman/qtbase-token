@@ -842,7 +842,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"hi%23mum.txt"
+literal|"hi#mum.txt"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -956,15 +956,6 @@ literal|"file:///hi%23mum.txt"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"Regression in the new QUrl, will fix soon"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|localWithHash
@@ -989,6 +980,10 @@ argument_list|(
 name|QUrl
 operator|::
 name|PreferLocalFile
+operator||
+name|QUrl
+operator|::
+name|PrettyDecoded
 argument_list|)
 argument_list|,
 name|QString
@@ -1006,6 +1001,10 @@ argument_list|(
 name|QUrl
 operator|::
 name|PreferLocalFile
+operator||
+name|QUrl
+operator|::
+name|PrettyDecoded
 argument_list|)
 argument_list|,
 name|QString
@@ -3110,7 +3109,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"/home/gis/src/kde/kdelibs/kfile/.%23kfiledetailview.cpp.1.18"
+literal|"/home/gis/src/kde/kdelibs/kfile/.#kfiledetailview.cpp.1.18"
 argument_list|)
 argument_list|)
 expr_stmt|;

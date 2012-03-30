@@ -109,6 +109,10 @@ block|,
 name|Fragment
 init|=
 literal|0x80
+block|,
+name|FullUrl
+init|=
+literal|0xff
 block|}
 enum|;
 enum|enum
@@ -244,6 +248,9 @@ name|QUrl
 operator|::
 name|FormattingOptions
 name|options
+argument_list|,
+name|Section
+name|appendingTo
 argument_list|)
 decl|const
 decl_stmt|;
@@ -258,6 +265,9 @@ name|QUrl
 operator|::
 name|FormattingOptions
 name|options
+argument_list|,
+name|Section
+name|appendingTo
 argument_list|)
 decl|const
 decl_stmt|;
@@ -314,6 +324,9 @@ name|QUrl
 operator|::
 name|FormattingOptions
 name|options
+argument_list|,
+name|Section
+name|appendingTo
 argument_list|)
 decl|const
 decl_stmt|;
