@@ -97,7 +97,7 @@ end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 end_ifndef
 begin_typedef
 DECL|typedef|PtrSecCertificateGetData
@@ -493,7 +493,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 specifier|static
 name|PtrSecCertificateGetData

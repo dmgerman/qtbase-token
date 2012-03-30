@@ -76,7 +76,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 end_if
 begin_include
@@ -105,7 +105,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 DECL|variable|qt_sequence_no_mnemonics
 specifier|static
@@ -6496,7 +6496,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 end_if
 begin_function
@@ -6667,7 +6667,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 name|maybeSwapShortcut
 argument_list|(
@@ -7507,7 +7507,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 specifier|const
 name|bool
@@ -7896,7 +7896,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 for|for
 control|(
@@ -8202,7 +8202,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 name|int
 name|qtKey
@@ -8654,7 +8654,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 if|if
 condition|(
@@ -9183,7 +9183,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 if|if
 condition|(
@@ -9229,7 +9229,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 name|NonSymbol
 label|:
@@ -9373,7 +9373,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 if|if
 condition|(

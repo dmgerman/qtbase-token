@@ -189,7 +189,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 specifier|static
 name|QString

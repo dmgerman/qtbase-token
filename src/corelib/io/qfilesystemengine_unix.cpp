@@ -79,7 +79,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 DECL|function|_q_isMacHidden
 specifier|static
@@ -643,7 +643,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 block|{
 name|FSRef
@@ -870,7 +870,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 comment|// Mac OS X 10.5.x doesn't support the realpath(X,0) extension we use here.
 if|if
@@ -1746,7 +1746,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 end_if
 begin_comment
@@ -1886,7 +1886,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 if|if
 condition|(
@@ -1943,7 +1943,7 @@ directive|endif
 comment|// MAC_OS_X_VERSION_MAX_ALLOWED...
 endif|#
 directive|endif
-comment|// defined(Q_OS_MAC)&& !defined(QT_NO_CORESERVICES)
+comment|// defined(Q_OS_MAC)&& !defined(Q_OS_IOS)
 if|if
 condition|(
 name|what
@@ -2229,7 +2229,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 if|if
 condition|(
@@ -2514,7 +2514,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 if|if
 condition|(

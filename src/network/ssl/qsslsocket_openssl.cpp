@@ -105,7 +105,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 DECL|macro|kSecTrustSettingsDomainSystem
 define|#
@@ -2962,7 +2962,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 name|QLibrary
 name|securityLib
@@ -3595,7 +3595,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 name|CFArrayRef
 name|cfCerts

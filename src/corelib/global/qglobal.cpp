@@ -147,13 +147,13 @@ if|#
 directive|if
 name|defined
 argument_list|(
-name|Q_OS_MACX
+name|Q_OS_MAC
 argument_list|)
 operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 end_if
 begin_include
@@ -582,7 +582,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 end_if
 begin_function
@@ -718,7 +718,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// defined(Q_OS_MAC)&& !defined(QT_NO_CORESERVICES)
+comment|// defined(Q_OS_MAC)&& !defined(Q_OS_IOS)
 end_comment
 begin_if
 if|#
@@ -740,7 +740,7 @@ parameter_list|()
 block|{
 ifndef|#
 directive|ifndef
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 name|SInt32
 name|gestalt_version
 decl_stmt|;

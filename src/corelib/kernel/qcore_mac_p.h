@@ -92,7 +92,7 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 end_ifndef
 begin_include
 include|#

@@ -76,7 +76,7 @@ specifier|const
 block|;
 ifndef|#
 directive|ifndef
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 name|QStringList
 name|addApplicationFont
 argument_list|(

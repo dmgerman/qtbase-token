@@ -178,7 +178,7 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 end_ifndef
 begin_include
 include|#
@@ -190,7 +190,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|//QT_NO_CORESERVICES
+comment|//Q_OS_IOS
 end_comment
 begin_ifdef
 ifdef|#
@@ -1539,7 +1539,7 @@ operator|&&
 operator|!
 name|defined
 argument_list|(
-name|QT_NO_CORESERVICES
+name|Q_OS_IOS
 argument_list|)
 comment|// Mac OS X
 name|cores
