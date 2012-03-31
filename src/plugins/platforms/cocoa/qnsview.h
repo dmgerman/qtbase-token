@@ -48,7 +48,7 @@ name|QNSView
 operator|:
 name|NSView
 operator|<
-name|NSTextInput
+name|NSTextInputClient
 operator|>
 block|{
 name|CGImageRef
