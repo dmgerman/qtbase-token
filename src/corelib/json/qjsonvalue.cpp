@@ -1112,19 +1112,17 @@ name|ref
 parameter_list|()
 constructor_decl|;
 comment|// the constructor below doesn't add a ref.
+name|QStringDataPtr
+name|holder
+init|=
+block|{
+name|stringData
+block|}
+decl_stmt|;
 return|return
 name|QString
 argument_list|(
-operator|*
-operator|(
-specifier|const
-name|QStaticStringData
-argument_list|<
-literal|1
-argument_list|>
-operator|*
-operator|)
-name|stringData
+name|holder
 argument_list|)
 return|;
 block|}
