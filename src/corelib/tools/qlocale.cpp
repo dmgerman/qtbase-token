@@ -7857,7 +7857,7 @@ name|name
 init|=
 name|getLocaleListData
 argument_list|(
-name|standalone_months_data
+name|months_data
 operator|+
 name|idx
 argument_list|,
