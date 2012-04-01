@@ -286,6 +286,11 @@ name|quint32
 name|flags
 decl_stmt|;
 comment|// same as QMetaType::TypeFlags
+specifier|const
+name|QMetaObject
+modifier|*
+name|metaObject
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
@@ -357,6 +362,39 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+end_ifndef
+begin_define
+DECL|macro|METAOBJECT_DELEGATE
+define|#
+directive|define
+name|METAOBJECT_DELEGATE
+parameter_list|(
+name|Type
+parameter_list|)
+value|(QtPrivate::MetaObjectForType<Type>::value())
+end_define
+begin_else
+else|#
+directive|else
+end_else
+begin_define
+DECL|macro|METAOBJECT_DELEGATE
+define|#
+directive|define
+name|METAOBJECT_DELEGATE
+parameter_list|(
+name|Type
+parameter_list|)
+value|0
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|QT_METATYPE_INTERFACE_INIT_IMPL
 define|#
@@ -380,7 +418,9 @@ value|(qMetaTypeDestructHelper<Type>), \
 comment|/*size*/
 value|(QTypeInfo<Type>::sizeOf), \
 comment|/*flags*/
-value|QtPrivate::QMetaTypeTypeFlags<Type>::Flags \ }
+value|QtPrivate::QMetaTypeTypeFlags<Type>::Flags, \
+comment|/*metaObject*/
+value|METAOBJECT_DELEGATE(Type) \ }
 end_define
 begin_comment
 comment|/* These  QT_METATYPE_INTERFACE_INIT* macros are used to initialize QMetaTypeInterface instance.   - QT_METATYPE_INTERFACE_INIT(Type) -> It takes Type argument and creates all necessary wrapper functions for the Type,    it detects if QT_NO_DATASTREAM was defined. Probably it is the macro that you want to use.   - QT_METATYPE_INTERFACE_INIT_EMPTY() -> It initializes an empty QMetaTypeInterface instance.   - QT_METATYPE_INTERFACE_INIT_NO_DATASTREAM(Type) -> Temporary workaround for missing auto-detection of data stream    operators. It creates same instance as QT_METATYPE_INTERFACE_INIT(Type) but with null stream operators callbacks.  */
@@ -424,6 +464,8 @@ value|0, \
 comment|/*size*/
 value|0, \
 comment|/*flags*/
+value|0, \
+comment|/*metaObject*/
 value|0 \ }
 end_define
 begin_decl_stmt
