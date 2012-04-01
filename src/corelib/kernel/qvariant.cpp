@@ -10257,7 +10257,6 @@ argument_list|()
 operator|==
 literal|1
 return|;
-else|else
 return|return
 name|qCanConvertMatrix
 index|[
