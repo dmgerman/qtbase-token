@@ -62,6 +62,11 @@ include|#
 directive|include
 file|<QtCore/QLocale>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtCore/QtGlobal>
+end_include
 begin_typedef
 DECL|typedef|QStringMap
 typedef|typedef
@@ -93,6 +98,10 @@ private|private
 name|slots
 private|:
 name|void
+name|initTestCase
+parameter_list|()
+function_decl|;
+name|void
 name|rcc_data
 parameter_list|()
 function_decl|;
@@ -115,6 +124,28 @@ function_decl|;
 block|}
 class|;
 end_class
+begin_function
+DECL|function|initTestCase
+name|void
+name|tst_rcc
+operator|::
+name|initTestCase
+parameter_list|()
+block|{
+comment|// rcc uses a QHash to store files in the resource system.
+comment|// we must force a certain hash order when testing or tst_rcc will fail, see QTBUG-25078
+name|QVERIFY
+argument_list|(
+name|qputenv
+argument_list|(
+literal|"QT_RCC_TEST"
+argument_list|,
+literal|"1"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_function
 DECL|function|findExpectedFile
 name|QString

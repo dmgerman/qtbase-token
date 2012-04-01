@@ -37,6 +37,16 @@ include|#
 directive|include
 file|<QTextStream>
 end_include
+begin_include
+include|#
+directive|include
+file|<QAtomicInt>
+end_include
+begin_include
+include|#
+directive|include
+file|<QtGlobal>
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|showHelp
@@ -1290,6 +1300,16 @@ literal|1
 return|;
 block|}
 end_function
+begin_decl_stmt
+name|Q_CORE_EXPORT
+specifier|extern
+name|QBasicAtomicInt
+name|qt_qhash_seed
+decl_stmt|;
+end_decl_stmt
+begin_comment
+comment|// from qhash.cpp
+end_comment
 begin_function
 name|QT_END_NAMESPACE
 DECL|function|main
@@ -1305,6 +1325,35 @@ name|argv
 index|[]
 parameter_list|)
 block|{
+comment|// rcc uses a QHash to store files in the resource system.
+comment|// we must force a certain hash order when testing or tst_rcc will fail, see QTBUG-25078
+if|if
+condition|(
+operator|!
+name|qgetenv
+argument_list|(
+literal|"QT_RCC_TEST"
+argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+operator|!
+name|qt_qhash_seed
+operator|.
+name|testAndSetRelaxed
+argument_list|(
+operator|-
+literal|1
+argument_list|,
+literal|0
+argument_list|)
+condition|)
+name|qFatal
+argument_list|(
+literal|"Cannot force QHash seed for testing as requested"
+argument_list|)
+expr_stmt|;
 return|return
 name|QT_PREPEND_NAMESPACE
 argument_list|(
