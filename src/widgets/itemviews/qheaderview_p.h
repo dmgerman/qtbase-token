@@ -167,6 +167,11 @@ argument_list|(
 literal|0
 argument_list|)
 block|,
+name|preventCursorChangeInSetOffset
+argument_list|(
+name|false
+argument_list|)
+block|,
 name|movableSections
 argument_list|(
 name|false
@@ -1128,6 +1133,9 @@ name|hover
 block|;
 name|int
 name|length
+block|;
+name|bool
+name|preventCursorChangeInSetOffset
 block|;
 name|bool
 name|movableSections
