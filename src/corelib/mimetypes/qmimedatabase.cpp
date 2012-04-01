@@ -1463,7 +1463,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QMimeType QMimeDatabase::findMimeTypesByFileName(const QString&fileName) const;     Returns the MIME types for the file name \a fileName.      If the file name doesn't match any known pattern, an empty list is returned.     If multiple MIME types match this file, they are all returned.      This function does not try to open the file. To also use the content     when determining the MIME type, use mimeTypeForFile() or     mimeTypeForNameAndData() instead.      \sa mimeTypeForFile */
+comment|/*!     Returns the MIME types for the file name \a fileName.      If the file name doesn't match any known pattern, an empty list is returned.     If multiple MIME types match this file, they are all returned.      This function does not try to open the file. To also use the content     when determining the MIME type, use mimeTypeForFile() or     mimeTypeForNameAndData() instead.      \sa mimeTypeForFile */
 end_comment
 begin_function
 DECL|function|mimeTypesForFileName
