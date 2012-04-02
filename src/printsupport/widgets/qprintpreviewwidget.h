@@ -233,11 +233,6 @@ argument_list|()
 block|;
 name|private
 operator|:
-name|void
-operator|*
-name|dummy
-block|;
-comment|// ### remove in Qt 5.0
 name|Q_PRIVATE_SLOT
 argument_list|(
 argument|d_func()

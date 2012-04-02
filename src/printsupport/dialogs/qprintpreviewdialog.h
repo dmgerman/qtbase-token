@@ -212,11 +212,6 @@ argument|d_func()
 argument_list|,
 argument|void _q_zoomFactorChanged()
 argument_list|)
-name|void
-operator|*
-name|dummy
-block|;
-comment|// ### Qt 5 - remove me
 block|}
 decl_stmt|;
 end_decl_stmt
