@@ -727,7 +727,7 @@ operator|*
 name|it
 operator|)
 operator|->
-name|offset
+name|setOffset
 argument_list|(
 name|offset
 argument_list|)
@@ -737,11 +737,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|offset
+DECL|function|setOffset
 name|void
 name|QQnxWindow
 operator|::
-name|offset
+name|setOffset
 parameter_list|(
 specifier|const
 name|QPoint
@@ -880,7 +880,7 @@ operator|*
 name|it
 operator|)
 operator|->
-name|offset
+name|setOffset
 argument_list|(
 name|offset
 argument_list|)

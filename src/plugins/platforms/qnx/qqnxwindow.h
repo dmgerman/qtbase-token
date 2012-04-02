@@ -277,12 +277,12 @@ name|removeFromParent
 argument_list|()
 block|;
 name|void
-name|offset
+name|setOffset
 argument_list|(
 specifier|const
 name|QPoint
 operator|&
-name|offset
+name|setOffset
 argument_list|)
 block|;
 name|void
