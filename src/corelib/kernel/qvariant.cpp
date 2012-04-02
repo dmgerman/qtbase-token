@@ -7101,9 +7101,6 @@ begin_comment
 comment|/*!     \fn bool QVariant::isDetached() const      \internal */
 end_comment
 begin_comment
-comment|// ### Qt 5: change typeName()(and froends= to return a QString. Suggestion from Harald.
-end_comment
-begin_comment
 comment|/*!     Returns the name of the type stored in the variant. The returned     strings describe the C++ datatype used to store the data: for     example, "QFont", "QString", or "QVariantList". An Invalid     variant returns 0. */
 end_comment
 begin_function

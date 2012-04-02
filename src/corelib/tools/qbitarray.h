@@ -227,7 +227,6 @@ name|on
 argument_list|)
 decl|const
 decl_stmt|;
-comment|// ### Qt 5: Store the number of set bits separately
 specifier|inline
 name|bool
 name|isEmpty
