@@ -93,6 +93,8 @@ name|GeneratedList
 block|,
 name|GuidLink
 block|,
+name|HR
+block|,
 name|Image
 block|,
 name|ImageText

@@ -4230,6 +4230,17 @@ break|break;
 case|case
 name|Atom
 operator|::
+name|HR
+case|:
+name|out
+argument_list|()
+operator|<<
+literal|"<hr />\n"
+expr_stmt|;
+break|break;
+case|case
+name|Atom
+operator|::
 name|Image
 case|:
 case|case

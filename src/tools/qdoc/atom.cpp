@@ -465,6 +465,14 @@ name|GuidLink
 block|}
 block|,
 block|{
+literal|"hr"
+block|,
+name|Atom
+operator|::
+name|HR
+block|}
+block|,
+block|{
 literal|"Image"
 block|,
 name|Atom
