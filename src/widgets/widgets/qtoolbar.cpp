@@ -5003,56 +5003,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     \reimp */
-end_comment
-begin_function
-DECL|function|childEvent
-name|void
-name|QToolBar
-operator|::
-name|childEvent
-parameter_list|(
-name|QChildEvent
-modifier|*
-name|event
-parameter_list|)
-comment|// ### remove me in 5.0
-block|{
-name|QWidget
-operator|::
-name|childEvent
-argument_list|(
-name|event
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     \reimp */
-end_comment
-begin_function
-DECL|function|resizeEvent
-name|void
-name|QToolBar
-operator|::
-name|resizeEvent
-parameter_list|(
-name|QResizeEvent
-modifier|*
-name|event
-parameter_list|)
-comment|// ### remove me in 5.0
-block|{
-name|QWidget
-operator|::
-name|resizeEvent
-argument_list|(
-name|event
-argument_list|)
-expr_stmt|;
-block|}
-end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
