@@ -209,7 +209,7 @@ name|void
 name|close
 argument_list|()
 block|;
-comment|// ### Qt 5: pos() and seek() should not be virtual, and
+comment|// ### Qt 6: pos() and seek() should not be virtual, and
 comment|// ### seek() should call a virtual seekData() function.
 name|virtual
 name|qint64

@@ -482,7 +482,7 @@ name|PE_PanelItemViewItem
 block|,
 name|PE_PanelItemViewRow
 block|,
-comment|// ### Qt 5: remove
+comment|// ### Qt 6: remove
 name|PE_PanelStatusBar
 block|,
 name|PE_IndicatorTabClose
@@ -667,7 +667,7 @@ name|SE_ProgressBarContents
 block|,
 name|SE_ProgressBarLabel
 block|,
-comment|// ### Qt 5: These values are unused; eliminate them
+comment|// ### Qt 6: These values are unused; eliminate them
 name|SE_DialogButtonAccept
 block|,
 name|SE_DialogButtonReject
@@ -732,7 +732,7 @@ name|SE_DateTimeEditLayoutItem
 block|,
 name|SE_DialogButtonBoxLayoutItem
 block|,
-comment|// ### remove
+comment|// ### Qt 6: remove
 name|SE_LabelLayoutItem
 block|,
 name|SE_ProgressBarLayoutItem

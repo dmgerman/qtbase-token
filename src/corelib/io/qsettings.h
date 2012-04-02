@@ -490,7 +490,7 @@ operator|&
 name|dir
 argument_list|)
 block|;
-comment|// ### remove in 5.0 (use setPath() instead)
+comment|// ### Qt 6: remove (use setPath() instead)
 specifier|static
 name|void
 name|setUserIniPath
@@ -501,7 +501,7 @@ operator|&
 name|dir
 argument_list|)
 block|;
-comment|// ### remove in 5.0 (use setPath() instead)
+comment|// ### Qt 6: remove (use setPath() instead)
 specifier|static
 name|void
 name|setPath

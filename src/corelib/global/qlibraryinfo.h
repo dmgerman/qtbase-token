@@ -119,7 +119,7 @@ parameter_list|(
 name|LibraryLocation
 parameter_list|)
 function_decl|;
-comment|// ### Qt 5: consider renaming it to path()
+comment|// ### Qt 6: consider renaming it to path()
 ifdef|#
 directive|ifdef
 name|QT_BUILD_QMAKE
