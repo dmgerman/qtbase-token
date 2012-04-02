@@ -668,14 +668,6 @@ argument|int logicalIndex
 argument_list|)
 block|;
 name|void
-name|sectionAutoResize
-argument_list|(
-argument|int logicalIndex
-argument_list|,
-argument|QHeaderView::ResizeMode mode
-argument_list|)
-block|;
-name|void
 name|geometriesChanged
 argument_list|()
 block|;
