@@ -428,9 +428,6 @@ expr_stmt|;
 endif|#
 directive|endif
 operator|delete
-name|m_screenEventHandler
-expr_stmt|;
-operator|delete
 name|m_nativeInterface
 expr_stmt|;
 comment|// Destroy input context
@@ -457,6 +454,9 @@ expr_stmt|;
 comment|// Stop/destroy navigator thread
 operator|delete
 name|m_navigatorEventHandler
+expr_stmt|;
+operator|delete
+name|m_screenEventHandler
 expr_stmt|;
 comment|// Destroy all displays
 name|destroyDisplays
