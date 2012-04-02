@@ -9522,6 +9522,11 @@ name|toReal
 argument_list|()
 argument_list|,
 name|minY
+operator|-
+name|font
+operator|.
+name|ascent
+argument_list|()
 argument_list|,
 name|selectionWidth
 operator|.
