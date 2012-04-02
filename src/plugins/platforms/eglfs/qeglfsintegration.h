@@ -42,6 +42,10 @@ operator|:
 name|QEglFSIntegration
 argument_list|()
 block|;
+operator|~
+name|QEglFSIntegration
+argument_list|()
+block|;
 name|bool
 name|hasCapability
 argument_list|(
@@ -97,6 +101,10 @@ operator|:
 name|QPlatformFontDatabase
 operator|*
 name|mFontDb
+block|;
+name|QPlatformScreen
+operator|*
+name|mScreen
 block|; }
 decl_stmt|;
 end_decl_stmt

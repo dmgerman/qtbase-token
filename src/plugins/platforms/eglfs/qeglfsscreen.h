@@ -53,7 +53,7 @@ block|;
 operator|~
 name|QEglFSScreen
 argument_list|()
-block|{}
+block|;
 name|QRect
 name|geometry
 argument_list|()
