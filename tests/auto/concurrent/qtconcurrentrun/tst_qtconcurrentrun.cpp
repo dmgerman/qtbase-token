@@ -1675,7 +1675,6 @@ catch|catch
 parameter_list|(
 name|Exception
 modifier|&
-name|e
 parameter_list|)
 block|{
 name|caught
@@ -1714,7 +1713,6 @@ catch|catch
 parameter_list|(
 name|Exception
 modifier|&
-name|e
 parameter_list|)
 block|{
 name|caught

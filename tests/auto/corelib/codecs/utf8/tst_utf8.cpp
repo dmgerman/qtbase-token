@@ -887,9 +887,12 @@ name|encoded
 operator|.
 name|mid
 argument_list|(
+name|int
+argument_list|(
 name|strlen
 argument_list|(
 name|utf8bom
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

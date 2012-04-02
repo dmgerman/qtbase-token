@@ -5143,14 +5143,17 @@ name|writeAttribute
 argument_list|(
 literal|"attribute"
 argument_list|,
-name|QString
+name|QStringLiteral
 argument_list|(
 literal|"value"
 argument_list|)
 operator|+
 name|QChar
+argument_list|(
+name|QChar
 operator|::
 name|Nbsp
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|writer
@@ -7765,14 +7768,23 @@ name|ReadWrite
 argument_list|)
 argument_list|)
 expr_stmt|;
+specifier|const
+name|QByteArray
+name|expected
+init|=
+name|QByteArrayLiteral
+argument_list|(
+literal|"<?xml version=\""
+argument_list|)
+decl_stmt|;
 name|fb
 operator|.
 name|setCapacity
 argument_list|(
-name|strlen
-argument_list|(
-literal|"<?xml version=\""
-argument_list|)
+name|expected
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QXmlStreamWriter
@@ -7802,10 +7814,7 @@ operator|.
 name|data
 argument_list|()
 argument_list|,
-name|QByteArray
-argument_list|(
-literal|"<?xml version=\""
-argument_list|)
+name|expected
 argument_list|)
 expr_stmt|;
 block|}
@@ -7826,14 +7835,23 @@ name|ReadWrite
 argument_list|)
 argument_list|)
 expr_stmt|;
+specifier|const
+name|QByteArray
+name|expected
+init|=
+name|QByteArrayLiteral
+argument_list|(
+literal|"<?xml version=\"1.0"
+argument_list|)
+decl_stmt|;
 name|fb
 operator|.
 name|setCapacity
 argument_list|(
-name|strlen
-argument_list|(
-literal|"<?xml version=\"1.0"
-argument_list|)
+name|expected
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QXmlStreamWriter
@@ -7863,10 +7881,7 @@ operator|.
 name|data
 argument_list|()
 argument_list|,
-name|QByteArray
-argument_list|(
-literal|"<?xml version=\"1.0"
-argument_list|)
+name|expected
 argument_list|)
 expr_stmt|;
 block|}
@@ -7887,14 +7902,23 @@ name|ReadWrite
 argument_list|)
 argument_list|)
 expr_stmt|;
+specifier|const
+name|QByteArray
+name|expected
+init|=
+name|QByteArrayLiteral
+argument_list|(
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?><test xmlns:"
+argument_list|)
+decl_stmt|;
 name|fb
 operator|.
 name|setCapacity
 argument_list|(
-name|strlen
-argument_list|(
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?><test xmlns:"
-argument_list|)
+name|expected
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|QXmlStreamWriter
@@ -7940,10 +7964,7 @@ operator|.
 name|data
 argument_list|()
 argument_list|,
-name|QByteArray
-argument_list|(
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?><test xmlns:"
-argument_list|)
+name|expected
 argument_list|)
 expr_stmt|;
 block|}

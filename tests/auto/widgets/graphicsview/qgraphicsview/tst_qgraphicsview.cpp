@@ -27086,8 +27086,6 @@ argument_list|(
 name|view
 operator|.
 name|painted
-operator|>
-literal|0
 argument_list|)
 expr_stmt|;
 name|RenderTester
