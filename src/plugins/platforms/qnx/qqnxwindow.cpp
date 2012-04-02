@@ -373,14 +373,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Add the window to the root of the hierarchy
-name|m_screen
-operator|->
-name|addWindow
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 comment|// Add window to plugin's window mapper
 name|QQnxIntegration
 operator|::
@@ -1828,15 +1820,7 @@ return|return;
 if|if
 condition|(
 name|m_screen
-operator|&&
-name|m_screen
-operator|->
-name|findWindow
-argument_list|(
-name|m_window
-argument_list|)
 condition|)
-block|{
 name|m_screen
 operator|->
 name|removeWindow
@@ -1851,7 +1835,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-block|}
 name|m_screen
 operator|=
 name|platformScreen
