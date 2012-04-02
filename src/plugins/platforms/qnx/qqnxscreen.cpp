@@ -986,8 +986,9 @@ argument_list|,
 argument|m_overlays
 argument_list|)
 block|{
-if|if
-condition|(
+comment|// Do nothing when this fails. This can happen if we have stale windows in mOverlays,
+comment|// which in turn can happen because a window was removed but we didn't get a notification
+comment|// yet.
 name|screen_set_window_property_iv
 argument_list|(
 name|overlay
@@ -996,15 +997,6 @@ name|SCREEN_PROPERTY_ZORDER
 argument_list|,
 operator|&
 name|topZorder
-argument_list|)
-operator|!=
-literal|0
-condition|)
-name|qWarning
-argument_list|(
-literal|"QQnxScreen: failed to update z order for overlay, errno=%d"
-argument_list|,
-name|errno
 argument_list|)
 expr_stmt|;
 name|topZorder
