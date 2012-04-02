@@ -38667,7 +38667,7 @@ specifier|const
 name|uint
 name|features
 init|=
-name|qDetectCPUFeatures
+name|qCpuFeatures
 argument_list|()
 decl_stmt|;
 if|if
