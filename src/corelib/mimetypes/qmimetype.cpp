@@ -164,66 +164,6 @@ literal|false
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     \fn bool QMimeTypePrivate::operator==(const QMimeTypePrivate&other) const;     Returns true if \a other equals this QMimeTypePrivate object, otherwise returns false.  */
-end_comment
-begin_function
-DECL|function|operator ==
-name|bool
-name|QMimeTypePrivate
-operator|::
-name|operator
-name|==
-parameter_list|(
-specifier|const
-name|QMimeTypePrivate
-modifier|&
-name|other
-parameter_list|)
-specifier|const
-block|{
-if|if
-condition|(
-name|name
-operator|==
-name|other
-operator|.
-name|name
-operator|&&
-name|localeComments
-operator|==
-name|other
-operator|.
-name|localeComments
-operator|&&
-name|genericIconName
-operator|==
-name|other
-operator|.
-name|genericIconName
-operator|&&
-name|iconName
-operator|==
-name|other
-operator|.
-name|iconName
-operator|&&
-name|globPatterns
-operator|==
-name|other
-operator|.
-name|globPatterns
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-return|return
-literal|false
-return|;
-block|}
-end_function
 begin_function
 DECL|function|addGlobPattern
 name|void
@@ -369,7 +309,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \fn bool QMimeType::operator==(const QMimeType&other) const;     Returns true if \a other equals this QMimeType object, otherwise returns false.  */
+comment|/*!     \fn bool QMimeType::operator==(const QMimeType&other) const;     Returns true if \a other equals this QMimeType object, otherwise returns false.     The name is the unique identifier for a mimetype, so two mimetypes with     the same name, are equal.  */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -393,13 +333,15 @@ name|other
 operator|.
 name|d
 operator|||
-operator|*
 name|d
+operator|->
+name|name
 operator|==
-operator|*
 name|other
 operator|.
 name|d
+operator|->
+name|name
 return|;
 block|}
 end_function
