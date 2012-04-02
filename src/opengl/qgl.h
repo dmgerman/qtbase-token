@@ -1054,7 +1054,6 @@ modifier|&
 name|format
 parameter_list|)
 function_decl|;
-comment|// ### Qt 5: return bools + maybe remove virtuals
 name|virtual
 name|void
 name|makeCurrent
@@ -1372,7 +1371,6 @@ name|int
 name|listBase
 parameter_list|)
 function_decl|;
-comment|// ### Qt 5: remove
 name|uint
 name|colorIndex
 argument_list|(
@@ -1620,7 +1618,6 @@ name|isSharing
 argument_list|()
 specifier|const
 block|;
-comment|// ### Qt 5: return bools
 name|void
 name|makeCurrent
 argument_list|()
@@ -1952,7 +1949,6 @@ argument|int listBase =
 literal|2000
 argument_list|)
 block|;
-comment|// ### Qt 5: remove
 name|QGLWidget
 argument_list|(
 argument|QGLWidgetPrivate&dd
