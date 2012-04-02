@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QEGLWINDOW_H
+name|QEGLFSWINDOW_H
 end_ifndef
 begin_define
-DECL|macro|QEGLWINDOW_H
+DECL|macro|QEGLFSWINDOW_H
 define|#
 directive|define
-name|QEGLWINDOW_H
+name|QEGLFSWINDOW_H
 end_define
 begin_include
 include|#
@@ -78,6 +78,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QEGLWINDOW_H
+comment|// QEGLFSWINDOW_H
 end_comment
 end_unit

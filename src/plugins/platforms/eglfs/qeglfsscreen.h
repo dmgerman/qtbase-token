@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QEGLSCREEN_H
+name|QEGLFSSCREEN_H
 end_ifndef
 begin_define
-DECL|macro|QEGLSCREEN_H
+DECL|macro|QEGLFSSCREEN_H
 define|#
 directive|define
-name|QEGLSCREEN_H
+name|QEGLFSSCREEN_H
 end_define
 begin_include
 include|#
@@ -128,6 +128,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QEGLSCREEN_H
+comment|// QEGLFSSCREEN_H
 end_comment
 end_unit

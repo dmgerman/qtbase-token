@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QEGLWINDOWSURFACE_H
+name|QEGLFSBACKINGSTORE_H
 end_ifndef
 begin_define
-DECL|macro|QEGLWINDOWSURFACE_H
+DECL|macro|QEGLFSBACKINGSTORE_H
 define|#
 directive|define
-name|QEGLWINDOWSURFACE_H
+name|QEGLFSBACKINGSTORE_H
 end_define
 begin_include
 include|#
@@ -120,6 +120,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QEGLWINDOWSURFACE_H
+comment|// QEGLFSBACKINGSTORE_H
 end_comment
 end_unit

@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|EGLINTEGRATION_H
+name|QEGLFSINTEGRATION_H
 end_ifndef
 begin_define
-DECL|macro|EGLINTEGRATION_H
+DECL|macro|QEGLFSINTEGRATION_H
 define|#
 directive|define
-name|EGLINTEGRATION_H
+name|QEGLFSINTEGRATION_H
 end_define
 begin_include
 include|#
@@ -108,4 +108,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QEGLFSINTEGRATION_H
+end_comment
 end_unit
