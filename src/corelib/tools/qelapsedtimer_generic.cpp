@@ -155,7 +155,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of milliseconds between this QElapsedTimer and \a     other. If \a other was started before this object, the returned value     will be positive. If it was started later, the returned value will be     negative.      The return value is undefined if this object or \a other were invalidated.      \sa secsTo(), elapsed() */
+comment|/*!     Returns the number of milliseconds between this QElapsedTimer and \a     other. If \a other was started before this object, the returned value     will be negative. If it was started later, the returned value will be     positive.      The return value is undefined if this object or \a other were invalidated.      \sa secsTo(), elapsed() */
 end_comment
 begin_function
 DECL|function|msecsTo
@@ -186,7 +186,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the number of seconds between this QElapsedTimer and \a other. If     \a other was started before this object, the returned value will be     positive. If it was started later, the returned value will be negative.      The return value is undefined if this object or \a other were invalidated.      \sa msecsTo(), elapsed() */
+comment|/*!     Returns the number of seconds between this QElapsedTimer and \a other. If     \a other was started before this object, the returned value will be     negative. If it was started later, the returned value will be positive.      The return value is undefined if this object or \a other were invalidated.      \sa msecsTo(), elapsed() */
 end_comment
 begin_function
 DECL|function|secsTo
