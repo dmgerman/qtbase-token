@@ -311,12 +311,6 @@ argument_list|,
 name|stream
 operator|->
 name|buffer
-operator|.
-name|toLocal8Bit
-argument_list|()
-operator|.
-name|data
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -131,8 +131,8 @@ modifier|&
 name|context
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|QString
+modifier|&
 name|msg
 parameter_list|)
 block|{
@@ -160,12 +160,7 @@ name|function
 expr_stmt|;
 name|s_message
 operator|=
-name|QString
-operator|::
-name|fromLocal8Bit
-argument_list|(
 name|msg
-argument_list|)
 expr_stmt|;
 block|}
 end_function
@@ -269,6 +264,9 @@ argument_list|)
 expr_stmt|;
 name|qInstallMessageHandler
 argument_list|(
+operator|(
+name|QtMessageHandler
+operator|)
 literal|0
 argument_list|)
 expr_stmt|;
@@ -323,7 +321,7 @@ operator|::
 name|installMessageHandler
 parameter_list|()
 block|{
-name|QMessageHandler
+name|QtMessageHandler
 name|oldHandler
 init|=
 name|qInstallMessageHandler
@@ -381,7 +379,7 @@ argument_list|,
 name|line
 argument_list|)
 expr_stmt|;
-name|QMessageHandler
+name|QtMessageHandler
 name|myHandler
 init|=
 name|qInstallMessageHandler
