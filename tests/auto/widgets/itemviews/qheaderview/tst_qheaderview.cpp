@@ -11673,12 +11673,12 @@ parameter_list|()
 block|{
 name|QHeaderViewPrivate
 operator|::
-name|SectionSpan
-name|span
+name|SectionItem
+name|section
 decl_stmt|;
 name|QCOMPARE
 argument_list|(
-name|span
+name|section
 operator|.
 name|sectionSize
 argument_list|()

@@ -129,12 +129,12 @@ parameter_list|,
 specifier|const
 name|QHeaderViewPrivate
 operator|::
-name|SectionSpan
+name|SectionItem
 modifier|&
-name|span
+name|section
 parameter_list|)
 block|{
-name|span
+name|section
 operator|.
 name|write
 argument_list|(
@@ -159,12 +159,12 @@ name|in
 parameter_list|,
 name|QHeaderViewPrivate
 operator|::
-name|SectionSpan
+name|SectionItem
 modifier|&
-name|span
+name|section
 parameter_list|)
 block|{
-name|span
+name|section
 operator|.
 name|read
 argument_list|(
@@ -2751,7 +2751,7 @@ name|logical
 expr_stmt|;
 comment|//Q_ASSERT(oldHeaderLength == length());
 comment|// move sizes
-comment|// ### check for spans of section sizes here
+comment|// ### check for items of section sizes here
 if|if
 condition|(
 name|to
@@ -2795,7 +2795,7 @@ index|]
 decl_stmt|;
 name|d
 operator|->
-name|createSectionSpan
+name|createSectionItems
 argument_list|(
 name|visual
 argument_list|,
@@ -2846,7 +2846,7 @@ index|]
 decl_stmt|;
 name|d
 operator|->
-name|createSectionSpan
+name|createSectionItems
 argument_list|(
 name|visual
 argument_list|,
@@ -3014,7 +3014,7 @@ argument_list|)
 decl_stmt|;
 name|d
 operator|->
-name|createSectionSpan
+name|createSectionItems
 argument_list|(
 name|second
 argument_list|,
@@ -3027,7 +3027,7 @@ argument_list|)
 expr_stmt|;
 name|d
 operator|->
-name|createSectionSpan
+name|createSectionItems
 argument_list|(
 name|first
 argument_list|,
@@ -3288,7 +3288,7 @@ name|size
 expr_stmt|;
 name|d
 operator|->
-name|createSectionSpan
+name|createSectionItems
 argument_list|(
 name|visual
 argument_list|,
@@ -5902,8 +5902,8 @@ literal|1
 decl_stmt|;
 name|QHeaderViewPrivate
 operator|::
-name|SectionSpan
-name|span
+name|SectionItem
+name|section
 argument_list|(
 name|d
 operator|->
@@ -5924,7 +5924,7 @@ if|if
 condition|(
 name|d
 operator|->
-name|sectionSpans
+name|sectionItems
 operator|.
 name|isEmpty
 argument_list|()
@@ -5933,7 +5933,7 @@ name|insertAt
 operator|>=
 name|d
 operator|->
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -5956,27 +5956,27 @@ name|insertLength
 expr_stmt|;
 name|d
 operator|->
-name|sectionSpans
+name|sectionItems
 operator|.
 name|insert
 argument_list|(
 name|d
 operator|->
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
 argument_list|,
 name|insertCount
 argument_list|,
-name|span
+name|section
 argument_list|)
 expr_stmt|;
 comment|// append
 block|}
 else|else
 block|{
-comment|// separate them out into their own spans
+comment|// separate them out into their own sections
 name|int
 name|insertLength
 init|=
@@ -5994,7 +5994,7 @@ name|insertLength
 expr_stmt|;
 name|d
 operator|->
-name|sectionSpans
+name|sectionItems
 operator|.
 name|insert
 argument_list|(
@@ -6002,7 +6002,7 @@ name|insertAt
 argument_list|,
 name|insertCount
 argument_list|,
-name|span
+name|section
 argument_list|)
 expr_stmt|;
 block|}
@@ -6762,7 +6762,7 @@ argument_list|()
 condition|)
 block|{
 comment|//Q_ASSERT(headerSectionCount() == sectionCount);
-name|removeSectionsFromSpans
+name|removeSectionsFromSectionItems
 argument_list|(
 name|logicalFirst
 argument_list|,
@@ -6882,7 +6882,7 @@ name|l
 argument_list|)
 expr_stmt|;
 comment|//Q_ASSERT(headerSectionCount() == sectionCount);
-name|removeSectionsFromSpans
+name|removeSectionsFromSectionItems
 argument_list|(
 name|visual
 argument_list|,
@@ -6906,7 +6906,7 @@ literal|0
 init|;
 name|u
 operator|<
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -6914,8 +6914,8 @@ condition|;
 operator|++
 name|u
 control|)
-comment|// Store spans info
-name|sectionSpans
+comment|// Store section info
+name|sectionItems
 operator|.
 name|at
 argument_list|(
@@ -6936,7 +6936,7 @@ control|(
 name|int
 name|v
 init|=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -6956,7 +6956,7 @@ if|if
 condition|(
 name|logicalFirst
 operator|<=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|at
 argument_list|(
@@ -6965,7 +6965,7 @@ argument_list|)
 operator|.
 name|tmpLogIdx
 operator|&&
-name|sectionSpans
+name|sectionItems
 operator|.
 name|at
 argument_list|(
@@ -6976,20 +6976,19 @@ name|tmpLogIdx
 operator|<=
 name|logicalLast
 condition|)
-name|removeSectionsFromSpans
+name|removeSectionsFromSectionItems
 argument_list|(
 name|v
 argument_list|,
 name|v
 argument_list|)
 expr_stmt|;
-comment|// Invalidates the spans variable
 block|}
 name|visualIndices
 operator|.
 name|resize
 argument_list|(
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -6999,7 +6998,7 @@ name|logicalIndices
 operator|.
 name|resize
 argument_list|(
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -7032,7 +7031,7 @@ literal|0
 init|;
 name|w
 operator|<
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -7045,7 +7044,7 @@ comment|// Restore visual and logical indexes
 name|int
 name|logindex
 init|=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|at
 argument_list|(
@@ -7663,7 +7662,7 @@ literal|1
 decl_stmt|;
 name|d
 operator|->
-name|removeSectionsFromSpans
+name|removeSectionsFromSectionItems
 argument_list|(
 name|newCount
 argument_list|,
@@ -8006,7 +8005,7 @@ name|oldCount
 condition|)
 name|d
 operator|->
-name|createSectionSpan
+name|createSectionItems
 argument_list|(
 name|start
 argument_list|,
@@ -9237,8 +9236,8 @@ block|}
 if|#
 directive|if
 literal|0
-comment|// ### visualize section spans
-block|for (int a = 0, i = 0; i< d->sectionSpans.count(); ++i) {         QColor color((i& 4 ? 255 : 0), (i& 2 ? 255 : 0), (i& 1 ? 255 : 0));         if (d->orientation == Qt::Horizontal)             painter.fillRect(a - d->offset, 0, d->sectionSpans.at(i).size, 4, color);         else             painter.fillRect(0, a - d->offset, 4, d->sectionSpans.at(i).size, color);         a += d->sectionSpans.at(i).size;     }
+comment|// ### visualize sections
+block|for (int a = 0, i = 0; i< d->sectionItems.count(); ++i) {         QColor color((i& 4 ? 255 : 0), (i& 2 ? 255 : 0), (i& 1 ? 255 : 0));         if (d->orientation == Qt::Horizontal)             painter.fillRect(a - d->offset, 0, d->sectionItems.at(i).size, 4, color);         else             painter.fillRect(0, a - d->offset, 4, d->sectionItems.at(i).size, color);         a += d->sectionItems.at(i).size;     }
 endif|#
 directive|endif
 block|}
@@ -13900,6 +13899,7 @@ operator|%
 name|numberOfStretchedSections
 expr_stmt|;
 block|}
+comment|// ### The code below would be nicer if it was cleaned up a bit (since spans has been replaced with items)
 name|int
 name|spanStartSection
 init|=
@@ -14103,7 +14103,7 @@ operator|)
 operator|*
 name|previousSectionLength
 decl_stmt|;
-name|createSectionSpan
+name|createSectionItems
 argument_list|(
 name|spanStartSection
 argument_list|,
@@ -14152,7 +14152,7 @@ operator|=
 name|newSectionResizeMode
 expr_stmt|;
 block|}
-name|createSectionSpan
+name|createSectionItems
 argument_list|(
 name|spanStartSection
 argument_list|,
@@ -14186,11 +14186,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|createSectionSpan
+DECL|function|createSectionItems
 name|void
 name|QHeaderViewPrivate
 operator|::
-name|createSectionSpan
+name|createSectionItems
 parameter_list|(
 name|int
 name|start
@@ -14224,13 +14224,13 @@ if|if
 condition|(
 name|end
 operator|>=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
 condition|)
 block|{
-name|sectionSpans
+name|sectionItems
 operator|.
 name|resize
 argument_list|(
@@ -14244,11 +14244,11 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-name|SectionSpan
+name|SectionItem
 modifier|*
 name|sectiondata
 init|=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|data
 argument_list|()
@@ -14316,11 +14316,11 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|removeSectionsFromSpans
+DECL|function|removeSectionsFromSectionItems
 name|void
 name|QHeaderViewPrivate
 operator|::
-name|removeSectionsFromSpans
+name|removeSectionsFromSectionItems
 parameter_list|(
 name|int
 name|start
@@ -14335,7 +14335,7 @@ operator||=
 operator|(
 name|end
 operator|!=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -14364,7 +14364,7 @@ name|u
 control|)
 name|removedlength
 operator|+=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|at
 argument_list|(
@@ -14377,7 +14377,7 @@ name|length
 operator|-=
 name|removedlength
 expr_stmt|;
-name|sectionSpans
+name|sectionItems
 operator|.
 name|remove
 argument_list|(
@@ -14436,7 +14436,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|sectionSpans
+name|sectionItems
 operator|.
 name|clear
 argument_list|()
@@ -14670,7 +14670,7 @@ name|currentSectionSize
 operator|+
 name|delta
 decl_stmt|;
-name|resizeSectionSpan
+name|resizeSectionItem
 argument_list|(
 name|i
 argument_list|,
@@ -14725,7 +14725,7 @@ name|oldSize
 operator|!=
 name|newSize
 condition|)
-name|resizeSectionSpan
+name|resizeSectionItem
 argument_list|(
 name|visual
 argument_list|,
@@ -14791,7 +14791,7 @@ name|minimumSize
 argument_list|)
 decl_stmt|;
 comment|//qDebug()<< "### cascading to"<< i<< newSectionSize - currentSectionSize<< delta;
-name|resizeSectionSpan
+name|resizeSectionItem
 argument_list|(
 name|i
 argument_list|,
@@ -14895,7 +14895,7 @@ name|currentSectionSize
 operator|-
 name|delta
 decl_stmt|;
-name|resizeSectionSpan
+name|resizeSectionItem
 argument_list|(
 name|i
 argument_list|,
@@ -14930,7 +14930,7 @@ expr_stmt|;
 break|break;
 block|}
 comment|// resize the section
-name|resizeSectionSpan
+name|resizeSectionItem
 argument_list|(
 name|visual
 argument_list|,
@@ -14997,7 +14997,7 @@ operator|<=
 name|minimumSize
 condition|)
 continue|continue;
-name|resizeSectionSpan
+name|resizeSectionItem
 argument_list|(
 name|i
 argument_list|,
@@ -15077,7 +15077,7 @@ argument_list|,
 name|minimumSize
 argument_list|)
 decl_stmt|;
-name|resizeSectionSpan
+name|resizeSectionItem
 argument_list|(
 name|i
 argument_list|,
@@ -15134,7 +15134,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -15145,11 +15145,11 @@ control|)
 block|{
 name|QHeaderViewPrivate
 operator|::
-name|SectionSpan
+name|SectionItem
 modifier|&
-name|span
+name|section
 init|=
-name|sectionSpans
+name|sectionItems
 index|[
 name|i
 index|]
@@ -15181,7 +15181,7 @@ if|if
 condition|(
 name|newSize
 operator|!=
-name|span
+name|section
 operator|.
 name|size
 condition|)
@@ -15190,7 +15190,7 @@ name|length
 operator|+=
 name|newSize
 operator|-
-name|span
+name|section
 operator|.
 name|size
 expr_stmt|;
@@ -15199,12 +15199,12 @@ specifier|const
 name|int
 name|oldSectionSize
 init|=
-name|span
+name|section
 operator|.
 name|sectionSize
 argument_list|()
 decl_stmt|;
-name|span
+name|section
 operator|.
 name|size
 operator|=
@@ -15249,20 +15249,20 @@ for|for
 control|(
 name|QVector
 argument_list|<
-name|SectionSpan
+name|SectionItem
 argument_list|>
 operator|::
 name|const_iterator
 name|i
 init|=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|constBegin
 argument_list|()
 init|;
 name|i
 operator|!=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|constEnd
 argument_list|()
@@ -15292,11 +15292,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|resizeSectionSpan
+DECL|function|resizeSectionItem
 name|void
 name|QHeaderViewPrivate
 operator|::
-name|resizeSectionSpan
+name|resizeSectionItem
 parameter_list|(
 name|int
 name|visualIndex
@@ -15323,7 +15323,7 @@ argument_list|(
 name|visualIndex
 argument_list|)
 decl_stmt|;
-name|createSectionSpan
+name|createSectionItems
 argument_list|(
 name|visualIndex
 argument_list|,
@@ -15375,7 +15375,7 @@ operator|>=
 literal|0
 condition|)
 return|return
-name|sectionSpans
+name|sectionItems
 operator|.
 name|at
 argument_list|(
@@ -15423,7 +15423,7 @@ name|recalcSectionStartPos
 argument_list|()
 expr_stmt|;
 return|return
-name|sectionSpans
+name|sectionItems
 operator|.
 name|at
 argument_list|(
@@ -15466,7 +15466,7 @@ decl_stmt|;
 name|int
 name|endidx
 init|=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -15493,7 +15493,7 @@ literal|2
 decl_stmt|;
 if|if
 condition|(
-name|sectionSpans
+name|sectionItems
 operator|.
 name|at
 argument_list|(
@@ -15516,7 +15516,7 @@ else|else
 block|{
 if|if
 condition|(
-name|sectionSpans
+name|sectionItems
 operator|.
 name|at
 argument_list|(
@@ -15571,7 +15571,7 @@ argument_list|(
 name|visual
 argument_list|)
 decl_stmt|;
-name|createSectionSpan
+name|createSectionItems
 argument_list|(
 name|visual
 argument_list|,
@@ -15617,7 +15617,7 @@ return|return
 name|globalResizeMode
 return|;
 return|return
-name|sectionSpans
+name|sectionItems
 operator|.
 name|at
 argument_list|(
@@ -15654,7 +15654,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -15662,7 +15662,7 @@ condition|;
 operator|++
 name|i
 control|)
-name|sectionSpans
+name|sectionItems
 index|[
 name|i
 index|]
@@ -15770,7 +15770,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -15930,7 +15930,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|<<
-name|sectionSpans
+name|sectionItems
 expr_stmt|;
 block|}
 end_function
@@ -16081,14 +16081,16 @@ name|global
 expr_stmt|;
 name|in
 operator|>>
-name|sectionSpans
+name|sectionItems
 expr_stmt|;
-comment|// Spans in Qt5 only contains one element - but for backward compability with Qt4 we do the following
+comment|// In Qt4 we had a vector of spans where one span could hold information on more sections.
+comment|// Now we have an itemvector where one items contains information about one section
+comment|// For backward compability with Qt4 we do the following
 name|QVector
 argument_list|<
-name|SectionSpan
+name|SectionItem
 argument_list|>
-name|newSectionSpans
+name|newSectionItems
 decl_stmt|;
 for|for
 control|(
@@ -16099,7 +16101,7 @@ literal|0
 init|;
 name|u
 operator|<
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -16111,7 +16113,7 @@ block|{
 name|int
 name|count
 init|=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|at
 argument_list|(
@@ -16134,20 +16136,20 @@ condition|;
 operator|++
 name|n
 control|)
-name|newSectionSpans
+name|newSectionItems
 operator|.
 name|append
 argument_list|(
-name|sectionSpans
+name|sectionItems
 index|[
 name|u
 index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|sectionSpans
+name|sectionItems
 operator|=
-name|newSectionSpans
+name|newSectionItems
 expr_stmt|;
 name|recalcSectionStartPos
 argument_list|()

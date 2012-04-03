@@ -500,7 +500,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -796,7 +796,7 @@ argument_list|()
 block|{
 name|firstCascadingSection
 operator|=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -1190,9 +1190,9 @@ name|mutable
 name|bool
 name|sectionStartposRecalc
 block|;
-comment|// header section spans
+comment|// header sections
 block|struct
-name|SectionSpan
+name|SectionItem
 block|{
 name|int
 name|size
@@ -1223,7 +1223,7 @@ name|ResizeMode
 name|resizeMode
 block|;
 specifier|inline
-name|SectionSpan
+name|SectionItem
 argument_list|()
 operator|:
 name|size
@@ -1237,7 +1237,7 @@ argument|QHeaderView::Interactive
 argument_list|)
 block|{}
 specifier|inline
-name|SectionSpan
+name|SectionItem
 argument_list|(
 argument|int length
 argument_list|,
@@ -1345,12 +1345,12 @@ expr|}
 block|;
 name|QVector
 operator|<
-name|SectionSpan
+name|SectionItem
 operator|>
-name|sectionSpans
+name|sectionItems
 block|;
 name|void
-name|createSectionSpan
+name|createSectionItems
 argument_list|(
 argument|int start
 argument_list|,
@@ -1362,7 +1362,7 @@ argument|QHeaderView::ResizeMode mode
 argument_list|)
 block|;
 name|void
-name|removeSectionsFromSpans
+name|removeSectionsFromSectionItems
 argument_list|(
 argument|int start
 argument_list|,
@@ -1370,7 +1370,7 @@ argument|int end
 argument_list|)
 block|;
 name|void
-name|resizeSectionSpan
+name|resizeSectionItem
 argument_list|(
 argument|int visualIndex
 argument_list|,
@@ -1399,7 +1399,7 @@ specifier|const
 block|{
 comment|// for debugging
 return|return
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -1426,7 +1426,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -1436,7 +1436,7 @@ name|i
 control|)
 name|len
 operator|+=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|at
 argument_list|(
@@ -1478,7 +1478,7 @@ control|)
 block|{
 name|length
 operator|-=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|at
 argument_list|(
@@ -1492,7 +1492,7 @@ argument_list|)
 operator|.
 name|size
 expr_stmt|;
-name|sectionSpans
+name|sectionItems
 operator|.
 name|remove
 argument_list|(
@@ -1518,7 +1518,7 @@ if|if
 condition|(
 name|visual
 operator|<
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
