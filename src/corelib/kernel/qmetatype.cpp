@@ -6877,15 +6877,6 @@ name|void
 name|delegate
 parameter_list|(
 specifier|const
-name|void
-modifier|*
-parameter_list|)
-block|{}
-DECL|function|delegate
-name|void
-name|delegate
-parameter_list|(
-specifier|const
 name|QMetaTypeSwitcher
 operator|::
 name|UnknownType
@@ -7030,10 +7021,6 @@ operator|.
 name|info
 operator|.
 name|creator
-operator|||
-name|type
-operator|==
-name|Void
 condition|?
 name|QMetaType
 argument_list|(
