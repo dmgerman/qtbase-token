@@ -5026,10 +5026,7 @@ name|tree_
 operator|->
 name|findClassNode
 argument_list|(
-name|QStringList
-argument_list|(
 name|newPath
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -5043,10 +5040,7 @@ name|tree_
 operator|->
 name|findNamespaceNode
 argument_list|(
-name|QStringList
-argument_list|(
 name|newPath
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
