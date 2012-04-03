@@ -3611,6 +3611,8 @@ operator|->
 name|size
 operator|-
 name|i
+operator|-
+literal|1
 operator|)
 operator|*
 sizeof|sizeof
