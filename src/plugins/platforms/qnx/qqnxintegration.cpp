@@ -276,32 +276,6 @@ name|errno
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Create displays for all possible screens (which may not be attached)
-name|createDisplays
-argument_list|()
-expr_stmt|;
-comment|// Initialize global OpenGL resources
-name|QQnxGLContext
-operator|::
-name|initialize
-argument_list|()
-expr_stmt|;
-comment|// Create/start event thread
-name|m_eventThread
-operator|=
-operator|new
-name|QQnxEventThread
-argument_list|(
-name|m_screenContext
-argument_list|,
-name|m_screenEventHandler
-argument_list|)
-expr_stmt|;
-name|m_eventThread
-operator|->
-name|start
-argument_list|()
-expr_stmt|;
 comment|// Create/start navigator event handler
 comment|// Not on BlackBerry, it has specialised event dispatcher which also handles navigator events
 ifndef|#
@@ -334,6 +308,32 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+comment|// Create displays for all possible screens (which may not be attached)
+name|createDisplays
+argument_list|()
+expr_stmt|;
+comment|// Initialize global OpenGL resources
+name|QQnxGLContext
+operator|::
+name|initialize
+argument_list|()
+expr_stmt|;
+comment|// Create/start event thread
+name|m_eventThread
+operator|=
+operator|new
+name|QQnxEventThread
+argument_list|(
+name|m_screenContext
+argument_list|,
+name|m_screenEventHandler
+argument_list|)
+expr_stmt|;
+name|m_eventThread
+operator|->
+name|start
+argument_list|()
+expr_stmt|;
 comment|// Create/start the keyboard class.
 name|m_virtualKeyboard
 operator|=
@@ -1310,6 +1310,36 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|Q_OS_BLACKBERRY
+name|QObject
+operator|::
+name|connect
+argument_list|(
+name|m_navigatorEventHandler
+argument_list|,
+name|SIGNAL
+argument_list|(
+name|rotationChanged
+argument_list|(
+name|int
+argument_list|)
+argument_list|)
+argument_list|,
+name|screen
+argument_list|,
+name|SLOT
+argument_list|(
+name|setRotation
+argument_list|(
+name|int
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 block|}
 end_function

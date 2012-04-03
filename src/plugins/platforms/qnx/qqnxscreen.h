@@ -142,13 +142,6 @@ return|return
 name|m_currentRotation
 return|;
 block|}
-name|void
-name|setRotation
-parameter_list|(
-name|int
-name|rotation
-parameter_list|)
-function_decl|;
 name|int
 name|nativeFormat
 argument_list|()
@@ -271,13 +264,19 @@ name|public
 name|Q_SLOTS
 range|:
 name|void
-name|newWindowCreated
+name|setRotation
 argument_list|(
-name|void
-operator|*
-name|window
+argument|int rotation
 argument_list|)
 decl_stmt|;
+name|void
+name|newWindowCreated
+parameter_list|(
+name|void
+modifier|*
+name|window
+parameter_list|)
+function_decl|;
 name|void
 name|windowClosed
 parameter_list|(

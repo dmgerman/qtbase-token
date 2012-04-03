@@ -680,6 +680,23 @@ name|m_currentRotation
 operator|=
 name|rotation
 expr_stmt|;
+comment|// TODO: check if other screens are supposed to rotate as well and/or whether this depends
+comment|// on if clone mode is being used.
+comment|// Rotating only the primary screen is what we had in the navigator event handler before refactoring
+if|if
+condition|(
+name|m_primaryScreen
+condition|)
+name|QWindowSystemInterface
+operator|::
+name|handleScreenGeometryChange
+argument_list|(
+name|screen
+argument_list|()
+argument_list|,
+name|m_currentGeometry
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_function
