@@ -26844,6 +26844,10 @@ argument_list|)
 expr_stmt|;
 name|Q_UNUSED
 argument_list|(
+argument|device
+argument_list|)
+name|Q_UNUSED
+argument_list|(
 argument|replacement
 argument_list|)
 name|Q_UNUSED
