@@ -500,11 +500,6 @@ argument_list|(
 name|previous
 argument_list|)
 expr_stmt|;
-name|Q_Q
-argument_list|(
-name|QApplication
-argument_list|)
-expr_stmt|;
 name|QWindow
 modifier|*
 name|wnd
@@ -529,8 +524,8 @@ argument_list|(
 name|wnd
 argument_list|)
 decl_stmt|;
-name|q
-operator|->
+name|QApplication
+operator|::
 name|setActiveWindow
 argument_list|(
 name|tlw
@@ -706,11 +701,6 @@ modifier|*
 name|popup
 parameter_list|)
 block|{
-name|Q_Q
-argument_list|(
-name|QApplication
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -889,8 +879,8 @@ operator|::
 name|PopupFocusReason
 argument_list|)
 decl_stmt|;
-name|q
-operator|->
+name|QCoreApplication
+operator|::
 name|sendEvent
 argument_list|(
 name|fw

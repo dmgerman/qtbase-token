@@ -438,15 +438,9 @@ name|inputMethodAccepted
 parameter_list|()
 specifier|const
 block|{
-name|Q_D
-argument_list|(
-specifier|const
-name|QPlatformInputContext
-argument_list|)
-expr_stmt|;
 return|return
-name|d
-operator|->
+name|QPlatformInputContextPrivate
+operator|::
 name|s_inputMethodAccepted
 return|;
 block|}
@@ -472,6 +466,8 @@ name|bool
 name|accepted
 parameter_list|)
 block|{
+name|QPlatformInputContextPrivate
+operator|::
 name|s_inputMethodAccepted
 operator|=
 name|accepted
