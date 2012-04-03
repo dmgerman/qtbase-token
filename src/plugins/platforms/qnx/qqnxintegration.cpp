@@ -277,19 +277,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Create/start navigator event handler
-comment|// Not on BlackBerry, it has specialised event dispatcher which also handles navigator events
-ifndef|#
-directive|ifndef
-name|Q_OS_BLACKBERRY
 name|m_navigatorEventHandler
 operator|=
 operator|new
 name|QQnxNavigatorEventHandler
-argument_list|(
-operator|*
-name|primaryDisplay
-argument_list|()
-argument_list|)
 expr_stmt|;
 comment|// delay invocation of start() to the time the event loop is up and running
 comment|// needed to have the QThread internals of the main thread properly initialized
@@ -306,8 +297,6 @@ operator|::
 name|QueuedConnection
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 comment|// Create displays for all possible screens (which may not be attached)
 name|createDisplays
 argument_list|()
