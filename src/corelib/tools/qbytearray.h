@@ -633,6 +633,38 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+begin_define
+DECL|macro|Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET
+define|#
+directive|define
+name|Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET
+parameter_list|(
+name|size
+parameter_list|,
+name|offset
+parameter_list|)
+define|\
+value|{ Q_REFCOUNT_INITIALIZE_STATIC, size, 0, 0, offset }
+end_define
+begin_comment
+unit|\
+comment|/**/
+end_comment
+begin_define
+DECL|macro|Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER
+define|#
+directive|define
+name|Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER
+parameter_list|(
+name|size
+parameter_list|)
+define|\
+value|Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(size, sizeof(QByteArrayData))
+end_define
+begin_comment
+unit|\
+comment|/**/
+end_comment
 begin_if
 if|#
 directive|if
@@ -650,7 +682,7 @@ parameter_list|(
 name|str
 parameter_list|)
 define|\
-value|([]() -> QByteArrayDataPtr { \         enum { Size = sizeof(str) - 1 }; \         static const QStaticByteArrayData<Size> qbytearray_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, sizeof(QByteArrayData) }, str }; \         QByteArrayDataPtr holder = { qbytearray_literal.data_ptr() }; \         return holder; \     }())
+value|([]() -> QByteArrayDataPtr { \         enum { Size = sizeof(str) - 1 }; \         static const QStaticByteArrayData<Size> qbytearray_literal = { \             Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER(Size), \             str }; \         QByteArrayDataPtr holder = { qbytearray_literal.data_ptr() }; \         return holder; \     }())
 end_define
 begin_comment
 unit|\
@@ -682,7 +714,7 @@ parameter_list|(
 name|str
 parameter_list|)
 define|\
-value|__extension__ ({ \         enum { Size = sizeof(str) - 1 }; \         static const QStaticByteArrayData<Size> qbytearray_literal = \         { { Q_REFCOUNT_INITIALIZE_STATIC, Size, 0, 0, sizeof(QByteArrayData) }, str }; \         QByteArrayDataPtr holder = { qbytearray_literal.data_ptr() }; \         holder; \     })
+value|__extension__ ({ \         enum { Size = sizeof(str) - 1 }; \         static const QStaticByteArrayData<Size> qbytearray_literal = { \             Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER(Size), \             str }; \         QByteArrayDataPtr holder = { qbytearray_literal.data_ptr() }; \         holder; \     })
 end_define
 begin_comment
 unit|\

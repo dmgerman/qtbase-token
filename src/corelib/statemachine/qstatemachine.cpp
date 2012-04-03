@@ -10957,7 +10957,8 @@ name|ofs
 parameter_list|,
 name|len
 parameter_list|)
-value|{ \     Q_REFCOUNT_INITIALIZE_STATIC, len, 0, 0, \     offsetof(qt_meta_stringdata_QSignalEventGenerator_t, stringdata) + ofs \         - idx * sizeof(QByteArrayData) \     }
+define|\
+value|Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \         offsetof(qt_meta_stringdata_QSignalEventGenerator_t, stringdata) + ofs \         - idx * sizeof(QByteArrayData) \     )
 end_define
 begin_decl_stmt
 DECL|variable|qt_meta_stringdata_QSignalEventGenerator
