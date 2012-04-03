@@ -237,7 +237,7 @@ init|=
 literal|"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 decl_stmt|;
 specifier|const
-name|int
+name|size_t
 name|length
 init|=
 name|strlen
@@ -260,7 +260,7 @@ condition|(
 operator|(
 name|length
 operator|<
-literal|6
+literal|6u
 operator|)
 operator|||
 name|strncmp

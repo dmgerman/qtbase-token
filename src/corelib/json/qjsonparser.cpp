@@ -3259,6 +3259,8 @@ operator|+
 name|stringPos
 operator|)
 operator|=
+name|ushort
+argument_list|(
 name|current
 operator|-
 name|outStart
@@ -3266,6 +3268,7 @@ operator|-
 sizeof|sizeof
 argument_list|(
 name|ushort
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|int

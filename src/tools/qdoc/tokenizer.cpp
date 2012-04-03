@@ -351,9 +351,12 @@ name|hashKword
 argument_list|(
 name|s
 argument_list|,
+name|int
+argument_list|(
 name|strlen
 argument_list|(
 name|s
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -579,7 +582,10 @@ name|hashKword
 argument_list|(
 name|yyLex
 argument_list|,
+name|int
+argument_list|(
 name|yyLexLen
+argument_list|)
 argument_list|)
 decl_stmt|;
 for|for

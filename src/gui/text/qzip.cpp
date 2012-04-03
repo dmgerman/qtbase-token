@@ -2703,6 +2703,7 @@ operator|-
 literal|1
 condition|)
 block|{
+specifier|const
 name|int
 name|pos
 init|=
@@ -2711,9 +2712,12 @@ operator|->
 name|size
 argument_list|()
 operator|-
+name|int
+argument_list|(
 sizeof|sizeof
 argument_list|(
 name|EndOfDirectory
+argument_list|)
 argument_list|)
 operator|-
 name|i

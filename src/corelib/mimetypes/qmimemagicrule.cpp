@@ -1439,12 +1439,10 @@ name|mask
 operator|.
 name|fill
 argument_list|(
-cast|static_cast
-argument_list|<
 name|char
-argument_list|>
 argument_list|(
-literal|0xff
+operator|-
+literal|1
 argument_list|)
 argument_list|,
 name|d

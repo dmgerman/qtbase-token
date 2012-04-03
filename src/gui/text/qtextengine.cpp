@@ -110,7 +110,7 @@ specifier|const
 name|float
 name|smallCapsFraction
 init|=
-literal|0.7
+literal|0.7f
 decl_stmt|;
 end_decl_stmt
 begin_namespace
