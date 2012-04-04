@@ -13017,9 +13017,17 @@ name|pos
 operator|=
 name|qMax
 argument_list|(
+name|qMin
+argument_list|(
+name|block
+operator|.
+name|length
+argument_list|()
+argument_list|,
 name|specialData
 operator|->
 name|preeditPosition
+argument_list|)
 operator|-
 literal|1
 argument_list|,
