@@ -625,14 +625,18 @@ name|qHash
 argument_list|(
 argument|const T&t
 argument_list|,
-argument|uint
+argument|uint seed
 argument_list|)
 block|{
 return|return
+operator|(
 name|qHash
 argument_list|(
 name|t
 argument_list|)
+operator|^
+name|seed
+operator|)
 return|;
 block|}
 end_expr_stmt
