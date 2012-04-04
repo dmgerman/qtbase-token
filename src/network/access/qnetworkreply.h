@@ -117,6 +117,8 @@ name|TemporaryNetworkFailureError
 block|,
 name|NetworkSessionFailedError
 block|,
+name|BackgroundRequestNotAllowedError
+block|,
 name|UnknownNetworkError
 operator|=
 literal|99
