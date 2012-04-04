@@ -11,9 +11,6 @@ end_comment
 begin_comment
 comment|/*!     \enum QUrl::FormattingOption      The formatting options define how the URL is formatted when written out     as text.      \value None The format of the URL is unchanged.     \value RemoveScheme  The scheme is removed from the URL.     \value RemovePassword  Any password in the URL is removed.     \value RemoveUserInfo  Any user information in the URL is removed.     \value RemovePort      Any specified port is removed from the URL.     \value RemoveAuthority     \value RemovePath   The URL's path is removed, leaving only the scheme,                         host address, and port (if present).     \value RemoveQuery  The query part of the URL (following a '?' character)                         is removed.     \value RemoveFragment     \value PreferLocalFile If the URL is a local file according to isLocalFile()      and contains no query or fragment, a local file path is returned.     \value StripTrailingSlash  The trailing slash is removed if one is present.      Note that the case folding rules in \l{RFC 3491}{Nameprep}, which QUrl     conforms to, require host names to always be converted to lower case,     regardless of the Qt::FormattingOptions used. */
 end_comment
-begin_comment
-comment|/*!  \fn uint qHash(const QUrl&url)  \since 4.7  \relates QUrl   Computes a hash key from the normalized version of \a url.  */
-end_comment
 begin_include
 include|#
 directive|include
@@ -43,6 +40,11 @@ begin_include
 include|#
 directive|include
 file|"qdebug.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"qhash.h"
 end_include
 begin_include
 include|#
@@ -9437,7 +9439,7 @@ begin_comment
 comment|/*!     \fn DataPtr&QUrl::data_ptr()     \internal */
 end_comment
 begin_comment
-comment|/*! \fn uint qHash(const QUrl&url)     \relates QHash      Returns the hash value for the \a url. */
+comment|/*! \fn uint qHash(const QUrl&url, uint seed = 0)     \relates QHash     \since 5.0      Returns the hash value for the \a url. */
 end_comment
 begin_function
 DECL|function|qHash
@@ -9448,6 +9450,9 @@ specifier|const
 name|QUrl
 modifier|&
 name|url
+parameter_list|,
+name|uint
+name|seed
 parameter_list|)
 block|{
 if|if
@@ -9462,6 +9467,8 @@ name|qHash
 argument_list|(
 operator|-
 literal|1
+argument_list|,
+name|seed
 argument_list|)
 return|;
 comment|// the hash of an unset port (-1)
@@ -9509,6 +9516,8 @@ operator|.
 name|d
 operator|->
 name|port
+argument_list|,
+name|seed
 argument_list|)
 operator|^
 name|qHash
