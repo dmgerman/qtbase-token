@@ -1299,9 +1299,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|Q_OS_BLACKBERRY
 name|QObject
 operator|::
 name|connect
@@ -1327,8 +1324,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 block|}
 end_function
