@@ -5111,14 +5111,11 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// ### Qt5: make the return type for toULongLong() qulonglong.
-end_comment
-begin_comment
 comment|/*!     Returns the unsigned long long int represented by the localized     string \a s.      If the conversion fails the function returns 0.      If \a ok is not 0, failure is reported by setting *ok to false, and     success by setting *ok to true.      This function ignores leading and trailing whitespace.      \sa toLongLong(), toInt(), toDouble(), toString() */
 end_comment
 begin_function
 DECL|function|toULongLong
-name|qlonglong
+name|qulonglong
 name|QLocale
 operator|::
 name|toULongLong
