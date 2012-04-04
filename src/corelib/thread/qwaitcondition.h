@@ -65,7 +65,7 @@ name|wait
 parameter_list|(
 name|QMutex
 modifier|*
-name|mutex
+name|lockedMutex
 parameter_list|,
 name|unsigned
 name|long
@@ -79,7 +79,7 @@ name|wait
 parameter_list|(
 name|QReadWriteLock
 modifier|*
-name|readWriteLock
+name|lockedReadWriteLock
 parameter_list|,
 name|unsigned
 name|long
