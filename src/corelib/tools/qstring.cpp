@@ -23468,11 +23468,6 @@ sizeof|sizeof
 argument_list|(
 name|Data
 argument_list|)
-operator|+
-sizeof|sizeof
-argument_list|(
-name|ushort
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -10233,8 +10233,6 @@ sizeof|sizeof
 argument_list|(
 name|Data
 argument_list|)
-operator|+
-literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
