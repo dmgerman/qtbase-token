@@ -2514,6 +2514,11 @@ name|realloc
 parameter_list|(
 name|int
 name|alloc
+parameter_list|,
+name|bool
+name|grow
+init|=
+name|false
 parameter_list|)
 function_decl|;
 name|void
