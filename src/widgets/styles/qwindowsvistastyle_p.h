@@ -815,13 +815,12 @@ name|transitionsEnabled
 argument_list|()
 specifier|const
 block|;
-name|QWidget
-operator|*
-name|treeViewHelper
-argument_list|()
-block|;
 name|private
 operator|:
+name|bool
+name|initTreeViewTheming
+argument_list|()
+block|;
 name|QList
 operator|<
 name|QWindowsVistaAnimation
@@ -832,8 +831,7 @@ block|;
 name|QBasicTimer
 name|animationTimer
 block|;
-name|QWidget
-operator|*
+name|HWND
 name|m_treeViewHelper
 block|; }
 decl_stmt|;
