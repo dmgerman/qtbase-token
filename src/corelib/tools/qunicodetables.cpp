@@ -136667,6 +136667,16 @@ block|}
 enum|;
 end_enum
 begin_enum
+DECL|enumerator|NormalizationCorrectionsVersionMax
+enum|enum
+block|{
+name|NormalizationCorrectionsVersionMax
+init|=
+literal|7
+block|}
+enum|;
+end_enum
+begin_enum
 DECL|enumerator|UnicodeBlockCount
 enum|enum
 block|{

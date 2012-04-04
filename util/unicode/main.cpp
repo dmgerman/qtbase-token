@@ -5633,7 +5633,7 @@ name|uint
 name|mapped
 decl_stmt|;
 DECL|member|version
-name|uint
+name|int
 name|version
 decl_stmt|;
 block|}
@@ -5686,6 +5686,11 @@ literal|"    int version;\n"
 literal|"};\n\n"
 literal|"static const NormalizationCorrection uc_normalization_corrections[] = {\n"
 expr_stmt|;
+name|int
+name|maxVersion
+init|=
+literal|0
+decl_stmt|;
 name|int
 name|numCorrections
 init|=
@@ -5961,6 +5966,17 @@ expr_stmt|;
 operator|++
 name|numCorrections
 expr_stmt|;
+name|maxVersion
+operator|=
+name|qMax
+argument_list|(
+name|c
+operator|.
+name|version
+argument_list|,
+name|maxVersion
+argument_list|)
+expr_stmt|;
 block|}
 name|out
 operator|+=
@@ -5972,6 +5988,16 @@ operator|::
 name|number
 argument_list|(
 name|numCorrections
+argument_list|)
+operator|+
+literal|" };\n"
+literal|"enum { NormalizationCorrectionsVersionMax = "
+operator|+
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|maxVersion
 argument_list|)
 operator|+
 literal|" };\n\n"
