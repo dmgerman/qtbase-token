@@ -2995,23 +2995,6 @@ block|}
 block|}
 end_function
 begin_function
-DECL|function|realloc
-name|void
-name|QString
-operator|::
-name|realloc
-parameter_list|()
-block|{
-name|realloc
-argument_list|(
-name|d
-operator|->
-name|size
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_function
 DECL|function|expand
 name|void
 name|QString
@@ -8327,7 +8310,11 @@ operator|*
 name|this
 return|;
 name|realloc
-argument_list|()
+argument_list|(
+name|d
+operator|->
+name|size
+argument_list|)
 expr_stmt|;
 name|int
 name|index
@@ -9145,7 +9132,11 @@ operator|*
 name|this
 return|;
 name|realloc
-argument_list|()
+argument_list|(
+name|d
+operator|->
+name|size
+argument_list|)
 expr_stmt|;
 name|int
 name|numCaptures
@@ -15395,6 +15386,8 @@ argument_list|(
 name|d
 argument_list|)
 condition|)
+block|{
+comment|// ensure '\0'-termination for ::fromRawData strings
 cast|const_cast
 argument_list|<
 name|QString
@@ -15405,9 +15398,13 @@ name|this
 argument_list|)
 operator|->
 name|realloc
-argument_list|()
+argument_list|(
+name|d
+operator|->
+name|size
+argument_list|)
 expr_stmt|;
-comment|// ensure '\\0'-termination for ::fromRawData strings
+block|}
 return|return
 name|d
 operator|->
