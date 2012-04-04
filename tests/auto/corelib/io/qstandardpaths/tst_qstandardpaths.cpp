@@ -796,7 +796,7 @@ name|writableLocation
 argument_list|(
 name|QStandardPaths
 operator|::
-name|DataLocation
+name|GenericDataLocation
 argument_list|)
 argument_list|,
 name|dataDir
@@ -812,7 +812,7 @@ name|standardLocations
 argument_list|(
 name|QStandardPaths
 operator|::
-name|DataLocation
+name|GenericDataLocation
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
@@ -827,7 +827,7 @@ operator|<<
 name|m_globalAppDir
 argument_list|)
 expr_stmt|;
-comment|// CacheLocation
+comment|// GenericCacheLocation
 specifier|const
 name|QString
 name|cacheDir
@@ -847,7 +847,7 @@ name|writableLocation
 argument_list|(
 name|QStandardPaths
 operator|::
-name|CacheLocation
+name|GenericCacheLocation
 argument_list|)
 argument_list|,
 name|cacheDir
@@ -863,7 +863,7 @@ name|standardLocations
 argument_list|(
 name|QStandardPaths
 operator|::
-name|CacheLocation
+name|GenericCacheLocation
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
