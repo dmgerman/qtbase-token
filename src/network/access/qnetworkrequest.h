@@ -117,6 +117,8 @@ comment|// internal
 name|SynchronousRequestAttribute
 block|,
 comment|// internal
+name|BackgroundRequestAttribute
+block|,
 name|User
 init|=
 literal|1000
