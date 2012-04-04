@@ -1216,6 +1216,28 @@ argument|ushort count =
 literal|1
 argument_list|)
 block|;
+name|QKeyEvent
+argument_list|(
+argument|Type type
+argument_list|,
+argument|int key
+argument_list|,
+argument|Qt::KeyboardModifiers modifiers
+argument_list|,
+argument|quint32 nativeScanCode
+argument_list|,
+argument|quint32 nativeVirtualKey
+argument_list|,
+argument|quint32 nativeModifiers
+argument_list|,
+argument|const QString&text = QString()
+argument_list|,
+argument|bool autorep = false
+argument_list|,
+argument|ushort count =
+literal|1
+argument_list|)
+block|;
 operator|~
 name|QKeyEvent
 argument_list|()
@@ -1281,8 +1303,47 @@ name|c
 argument_list|)
 return|;
 block|}
+specifier|inline
+name|quint32
+name|nativeScanCode
+argument_list|()
+specifier|const
+block|{
+return|return
+name|nScanCode
+return|;
+block|}
+specifier|inline
+name|quint32
+name|nativeVirtualKey
+argument_list|()
+specifier|const
+block|{
+return|return
+name|nVirtualKey
+return|;
+block|}
+specifier|inline
+name|quint32
+name|nativeModifiers
+argument_list|()
+specifier|const
+block|{
+return|return
+name|nModifiers
+return|;
+block|}
 comment|// Functions for the extended key event information
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
 specifier|static
+specifier|inline
 name|QKeyEvent
 operator|*
 name|createExtendedKeyEvent
@@ -1306,7 +1367,31 @@ argument_list|,
 argument|ushort count =
 literal|1
 argument_list|)
-block|;
+block|{
+return|return
+name|new
+name|QKeyEvent
+argument_list|(
+name|type
+argument_list|,
+name|key
+argument_list|,
+name|modifiers
+argument_list|,
+name|nativeScanCode
+argument_list|,
+name|nativeVirtualKey
+argument_list|,
+name|nativeModifiers
+argument_list|,
+name|text
+argument_list|,
+name|autorep
+argument_list|,
+name|count
+argument_list|)
+return|;
+block|}
 specifier|inline
 name|bool
 name|hasExtendedInfo
@@ -1314,34 +1399,11 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|reinterpret_cast
-operator|<
-specifier|const
-name|QKeyEvent
-operator|*
-operator|>
-operator|(
-name|d
-operator|)
-operator|==
-name|this
+name|true
 return|;
 block|}
-name|quint32
-name|nativeScanCode
-argument_list|()
-specifier|const
-block|;
-name|quint32
-name|nativeVirtualKey
-argument_list|()
-specifier|const
-block|;
-name|quint32
-name|nativeModifiers
-argument_list|()
-specifier|const
-block|;
+endif|#
+directive|endif
 name|protected
 operator|:
 name|QString
@@ -1350,14 +1412,25 @@ block|;
 name|int
 name|k
 block|;
+name|quint32
+name|nScanCode
+block|;
+name|quint32
+name|nVirtualKey
+block|;
+name|quint32
+name|nModifiers
+block|;
 name|ushort
 name|c
 block|;
-name|uint
+name|ushort
 name|autor
 operator|:
 literal|1
-block|; }
+block|;
+comment|// ushort reserved:15;
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
