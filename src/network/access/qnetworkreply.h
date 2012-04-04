@@ -115,6 +115,8 @@ name|SslHandshakeFailedError
 block|,
 name|TemporaryNetworkFailureError
 block|,
+name|NetworkSessionFailedError
+block|,
 name|UnknownNetworkError
 operator|=
 literal|99
