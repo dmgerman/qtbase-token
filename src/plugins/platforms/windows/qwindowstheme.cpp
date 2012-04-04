@@ -1550,7 +1550,7 @@ name|menuColor
 argument_list|(
 name|getSysColor
 argument_list|(
-name|COLOR_INFOBK
+name|COLOR_MENU
 argument_list|)
 argument_list|)
 decl_stmt|;
