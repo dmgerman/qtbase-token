@@ -2690,14 +2690,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|int
-argument_list|(
 name|d
 operator|->
 name|alloc
-argument_list|)
-operator|>=
-name|size
 condition|)
 block|{
 name|d
