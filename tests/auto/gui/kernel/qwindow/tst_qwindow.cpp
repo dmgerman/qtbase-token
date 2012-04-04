@@ -488,6 +488,20 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"This test fails on Mac OS X, see QTBUG-23059"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QTRY_COMPARE
 argument_list|(
 name|window
@@ -831,6 +845,20 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"This test fails on Mac OS X, see QTBUG-23059"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QTRY_COMPARE
 argument_list|(
 name|window
