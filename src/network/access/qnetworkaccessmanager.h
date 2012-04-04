@@ -546,6 +546,10 @@ name|friend
 name|class
 name|QNetworkReplyHttpImpl
 block|;
+name|friend
+name|class
+name|QNetworkReplyHttpImplPrivate
+block|;
 name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QNetworkAccessManager
