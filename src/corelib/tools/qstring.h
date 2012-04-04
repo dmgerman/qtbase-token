@@ -2826,7 +2826,7 @@ operator|->
 name|alloc
 argument_list|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -6106,7 +6106,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|void
-name|realloc
+name|reallocData
 parameter_list|(
 name|int
 name|alloc
@@ -7224,7 +7224,7 @@ name|QStringData
 argument_list|)
 operator|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -9381,7 +9381,7 @@ operator|->
 name|alloc
 argument_list|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|asize
 argument_list|)
@@ -9434,7 +9434,7 @@ operator|->
 name|alloc
 argument_list|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->

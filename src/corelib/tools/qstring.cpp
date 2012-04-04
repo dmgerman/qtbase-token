@@ -2681,7 +2681,7 @@ argument_list|>
 literal|1
 operator|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|size
 argument_list|,
@@ -2729,15 +2729,12 @@ end_comment
 begin_comment
 comment|/*!     \fn void QString::squeeze()      Releases any memory not required to store the character data.      The sole purpose of this function is to provide a means of fine     tuning QString's memory usage. In general, you will rarely ever     need to call this function.      \sa reserve(), capacity() */
 end_comment
-begin_comment
-comment|// ### Qt 5: rename reallocData() to avoid confusion. 197625
-end_comment
 begin_function
-DECL|function|realloc
+DECL|function|reallocData
 name|void
 name|QString
 operator|::
-name|realloc
+name|reallocData
 parameter_list|(
 name|int
 name|alloc
@@ -3720,7 +3717,7 @@ operator|->
 name|alloc
 argument_list|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -3862,7 +3859,7 @@ operator|->
 name|alloc
 argument_list|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -3955,7 +3952,7 @@ operator|->
 name|alloc
 argument_list|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -8306,7 +8303,7 @@ return|return
 operator|*
 name|this
 return|;
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -9128,7 +9125,7 @@ return|return
 operator|*
 name|this
 return|;
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -15394,7 +15391,7 @@ argument_list|(
 name|this
 argument_list|)
 operator|->
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->

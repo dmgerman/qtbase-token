@@ -2233,7 +2233,7 @@ argument_list|>
 literal|1
 operator|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|len
 argument_list|)
@@ -3042,7 +3042,7 @@ argument_list|>
 literal|1
 operator|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|size
 argument_list|,
@@ -3139,11 +3139,11 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|realloc
+DECL|function|reallocData
 name|void
 name|QByteArray
 operator|::
-name|realloc
+name|reallocData
 parameter_list|(
 name|int
 name|alloc
@@ -3596,7 +3596,7 @@ operator|->
 name|alloc
 argument_list|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -3700,7 +3700,7 @@ operator|->
 name|alloc
 argument_list|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -3852,7 +3852,7 @@ operator|->
 name|alloc
 argument_list|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -3976,7 +3976,7 @@ operator|->
 name|alloc
 argument_list|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -4081,7 +4081,7 @@ operator|->
 name|alloc
 argument_list|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
@@ -4171,7 +4171,7 @@ operator|->
 name|alloc
 argument_list|)
 condition|)
-name|realloc
+name|reallocData
 argument_list|(
 name|d
 operator|->
