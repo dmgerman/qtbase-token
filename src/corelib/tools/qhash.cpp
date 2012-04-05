@@ -603,9 +603,18 @@ block|}
 endif|#
 directive|endif
 comment|// Q_OS_UNIX
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_WIN32
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_CC_GNU
+argument_list|)
 name|errno_t
 name|err
 decl_stmt|;
