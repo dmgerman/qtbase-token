@@ -1213,15 +1213,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_expr_stmt
-name|Q_DECLARE_TYPEINFO
-argument_list|(
-name|QBitArray
-argument_list|,
-name|Q_MOVABLE_TYPE
-argument_list|)
-expr_stmt|;
-end_expr_stmt
 begin_macro
 name|Q_DECLARE_SHARED
 argument_list|(

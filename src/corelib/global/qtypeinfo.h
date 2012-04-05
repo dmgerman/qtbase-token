@@ -322,7 +322,7 @@ parameter_list|(
 name|TYPE
 parameter_list|)
 define|\
-value|template<> inline void qSwap<TYPE>(TYPE&value1, TYPE&value2) \ { value1.swap(value2); } \ Q_DECLARE_SHARED_STL(TYPE)
+value|Q_DECLARE_TYPEINFO(TYPE, Q_MOVABLE_TYPE); \ template<> inline void qSwap<TYPE>(TYPE&value1, TYPE&value2) \ { value1.swap(value2); } \ Q_DECLARE_SHARED_STL(TYPE)
 end_define
 begin_comment
 comment|/*    QTypeInfo primitive specializations */

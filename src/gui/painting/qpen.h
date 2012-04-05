@@ -464,15 +464,6 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_expr_stmt
-name|Q_DECLARE_TYPEINFO
-argument_list|(
-name|QPen
-argument_list|,
-name|Q_MOVABLE_TYPE
-argument_list|)
-expr_stmt|;
-end_expr_stmt
 begin_macro
 name|Q_DECLARE_SHARED
 argument_list|(

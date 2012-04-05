@@ -12788,15 +12788,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_expr_stmt
-name|Q_DECLARE_TYPEINFO
-argument_list|(
-name|QString
-argument_list|,
-name|Q_MOVABLE_TYPE
-argument_list|)
-expr_stmt|;
-end_expr_stmt
 begin_macro
 DECL|function|Q_DECLARE_SHARED
 name|Q_DECLARE_SHARED

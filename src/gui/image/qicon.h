@@ -630,15 +630,6 @@ argument_list|(
 argument|QIcon
 argument_list|)
 end_macro
-begin_expr_stmt
-name|Q_DECLARE_TYPEINFO
-argument_list|(
-name|QIcon
-argument_list|,
-name|Q_MOVABLE_TYPE
-argument_list|)
-expr_stmt|;
-end_expr_stmt
 begin_if
 if|#
 directive|if
@@ -649,7 +640,6 @@ name|QT_NO_DATASTREAM
 argument_list|)
 end_if
 begin_expr_stmt
-DECL|variable|operator
 name|Q_GUI_EXPORT
 name|QDataStream
 operator|&
@@ -666,6 +656,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|variable|operator
 name|Q_GUI_EXPORT
 name|QDataStream
 operator|&

@@ -553,29 +553,14 @@ name|acolor
 argument_list|)
 argument_list|)
 block|; }
-name|Q_DECLARE_TYPEINFO
-argument_list|(
-name|QBrush
-argument_list|,
-name|Q_MOVABLE_TYPE
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_macro
 name|Q_DECLARE_SHARED
 argument_list|(
 argument|QBrush
 argument_list|)
-end_macro
-begin_comment
 comment|/*****************************************************************************   QBrush stream functions  *****************************************************************************/
-end_comment
-begin_ifndef
 ifndef|#
 directive|ifndef
 name|QT_NO_DATASTREAM
-end_ifndef
-begin_expr_stmt
 name|Q_GUI_EXPORT
 name|QDataStream
 operator|&
