@@ -5359,6 +5359,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QTextCursor::swap(QTextCursor&other)     \since 5.0      Swaps this text cursor instance with \a other. This function is     very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     Destroys the QTextCursor.  */
 end_comment
 begin_destructor

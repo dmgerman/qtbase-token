@@ -203,6 +203,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!   \fn void QRawFont::operator=(QRawFont&other)   \since 5.0    Swaps this raw font with \a other. This function is very fast and   never fails. */
+end_comment
+begin_comment
 comment|/*!    Returns true if the QRawFont is valid and false otherwise. */
 end_comment
 begin_function

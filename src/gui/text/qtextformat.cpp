@@ -2234,6 +2234,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QTextFormat::swap(QTextFormat&other)     \since 5.0      Swaps this text format with \a other. This function is very fast     and never fails. */
+end_comment
+begin_comment
 comment|/*!     Destroys this text format. */
 end_comment
 begin_destructor

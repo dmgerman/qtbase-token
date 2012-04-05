@@ -2013,6 +2013,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QFont::swap(QFont&other)     \since 5.0      Swaps this font instance with \a other. This function is very fast     and never fails. */
+end_comment
+begin_comment
 comment|/*!     Returns the requested font family name, i.e. the name set in the     constructor or the last setFont() call.      \sa setFamily(), substitutes(), substitute() */
 end_comment
 begin_function
@@ -6470,6 +6473,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QFontInfo::swap(QFontInfo&other)     \since 5.0      Swaps this font info instance with \a other. This function is very     fast and never fails. */
+end_comment
 begin_comment
 comment|/*!     Returns the family name of the matched window system font.      \sa QFont::family() */
 end_comment

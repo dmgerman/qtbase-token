@@ -154,6 +154,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QGlyphRun::swap(QGlyphRun&other)     \since 5.0      Swaps this glyph run instance with \a other. This function is very     fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     Compares \a other to this QGlyphRun object. Returns true if the list of glyph indexes,     the list of positions and the font are all equal, otherwise returns false. */
 end_comment
 begin_function

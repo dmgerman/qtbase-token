@@ -283,6 +283,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QFontMetrics::swap(QFontMetrics&other)     \since 5.0      Swaps this font metrics instance with \a other. This function is     very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     Returns true if \a other is equal to this object; otherwise     returns false.      Two font metrics are considered equal if they were constructed     from the same QFont and the paint devices they were constructed     for are considered compatible.      \sa operator!=() */
 end_comment
 begin_function
@@ -2842,6 +2845,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QFontMetricsF::swap(QFontMetricsF&other)     \since 5.0      Swaps this font metrics instance with \a other. This function is     very fast and never fails. */
+end_comment
 begin_comment
 comment|/*!     Constructs a font metrics object for \a font.      The font metrics will be compatible with the paintdevice used to     create \a font.      The font metrics object holds the information for the font that is     passed in the constructor at the time it is created, and is not     updated if the font's attributes are changed later.      Use QFontMetricsF(const QFont&, QPaintDevice *) to get the font     metrics that are compatible with a certain paint device. */
 end_comment
