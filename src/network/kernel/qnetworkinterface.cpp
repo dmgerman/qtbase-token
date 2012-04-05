@@ -664,6 +664,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QNetworkAddressEntry::swap(QNetworkAddressEntry&other)     \since 5.0      Swaps this network address entry instance with \a other. This     function is very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     Destroys this QNetworkAddressEntry object. */
 end_comment
 begin_destructor
@@ -1049,6 +1052,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QNetworkInterface::swap(QNetworkInterface&other)     \since 5.0      Swaps this network interface instance with \a other. This function     is very fast and never fails. */
+end_comment
 begin_comment
 comment|/*!     Returns true if this QNetworkInterface object contains valid     information about a network interface. */
 end_comment

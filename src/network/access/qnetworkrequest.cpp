@@ -395,6 +395,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QNetworkRequest::swap(QNetworkRequest&other)     \since 5.0      Swaps this network request with \a other. This function is very     fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     Returns the URL this network request is referring to.      \sa setUrl() */
 end_comment
 begin_function

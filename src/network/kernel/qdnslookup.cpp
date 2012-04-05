@@ -1373,6 +1373,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QDnsDomainNameRecord::swap(QDnsDomainNameRecord&other)      Swaps this domain-name record instance with \a other. This     function is very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     \class QDnsHostAddressRecord     \brief The QDnsHostAddressRecord class stores information about a host     address record.      \inmodule QtNetwork     \ingroup network      When performing an address lookup, zero or more records will be     returned. Each record is represented by a QDnsHostAddressRecord instance.      \sa QDnsLookup */
 end_comment
 begin_comment
@@ -1514,6 +1517,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QDnsHostAddressRecord::swap(QDnsHostAddressRecord&other)      Swaps this host address record instance with \a other. This     function is very fast and never fails. */
+end_comment
 begin_comment
 comment|/*!     \class QDnsMailExchangeRecord     \brief The QDnsMailExchangeRecord class stores information about a DNS MX record.      \inmodule QtNetwork     \ingroup network      When performing a lookup on a service, zero or more records will be     returned. Each record is represented by a QDnsMailExchangeRecord instance.      The meaning of the fields is defined in     \l{http://www.rfc-editor.org/rfc/rfc1035.txt}{RFC 1035}.      \sa QDnsLookup */
 end_comment
@@ -1675,6 +1681,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QDnsMailExchangeRecord::swap(QDnsMailExchangeRecord&other)      Swaps this mail exchange record with \a other. This function is     very fast and never fails. */
+end_comment
 begin_comment
 comment|/*!     \class QDnsServiceRecord     \brief The QDnsServiceRecord class stores information about a DNS SRV record.      \inmodule QtNetwork     \ingroup network      When performing a lookup on a service, zero or more records will be     returned. Each record is represented by a QDnsServiceRecord instance.      The meaning of the fields is defined in     \l{http://www.rfc-editor.org/rfc/rfc2782.txt}{RFC 2782}.      \sa QDnsLookup */
 end_comment
@@ -1875,6 +1884,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QDnsServiceRecord::swap(QDnsServiceRecord&other)      Swaps this service record instance with \a other. This function is     very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     \class QDnsTextRecord     \brief The QDnsTextRecord class stores information about a DNS TXT record.      \inmodule QtNetwork     \ingroup network      When performing a text lookup, zero or more records will be     returned. Each record is represented by a QDnsTextRecord instance.      The meaning of the fields is defined in     \l{http://www.rfc-editor.org/rfc/rfc1035.txt}{RFC 1035}.      \sa QDnsLookup */
 end_comment
 begin_comment
@@ -2019,6 +2031,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QDnsTextRecord::swap(QDnsTextRecord&other)      Swaps this text record instance with \a other. This function is     very fast and never fails. */
+end_comment
 begin_function
 DECL|function|_q_lookupFinished
 name|void

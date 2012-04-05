@@ -101,6 +101,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QSslCertificateExtension::swap(QSslCertificateExtension&other)      Swaps this certificate extension instance with \a other. This     function is very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     Returns the ASN.1 OID of this extension.  */
 end_comment
 begin_function

@@ -998,6 +998,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QSslKey::swap(QSslKey&other)     \since 5.0      Swaps this ssl key with \a other. This function is very fast and     never fails. */
+end_comment
+begin_comment
 comment|/*!     Returns true if this is a null key; otherwise false.      \sa clear() */
 end_comment
 begin_function

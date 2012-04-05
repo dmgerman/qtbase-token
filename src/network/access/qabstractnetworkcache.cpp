@@ -263,6 +263,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QNetworkCacheMetaData::swap(QNetworkCacheMetaData&other)     \since 5.0      Swaps this metadata instance with \a other. This function is very     fast and never fails.  */
+end_comment
+begin_comment
 comment|/*!     Returns true if this meta data is equal to the \a other meta data; otherwise returns false.      \sa operator!=()  */
 end_comment
 begin_function

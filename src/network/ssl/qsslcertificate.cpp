@@ -282,6 +282,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QSslCertificate::swap(QSslCertificate&other)     \since 5.0      Swaps this certificate instance with \a other. This function is     very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     Returns true if this certificate is the same as \a other; otherwise     returns false. */
 end_comment
 begin_function

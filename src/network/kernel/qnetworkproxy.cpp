@@ -1183,6 +1183,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QNetworkProxy::swap(QNetworkProxy&other)     \since 5.0      Swaps this network proxy instance with \a other. This function is     very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     Sets the proxy type for this instance to be \a type.      Note that changing the type of a proxy does not change     the set of capabilities this QNetworkProxy object holds if any     capabilities have been set with setCapabilities().      \sa type(), setCapabilities() */
 end_comment
 begin_function
@@ -2494,6 +2497,9 @@ name|this
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \fn void QNetworkProxyQuery::swap(QNetworkProxyQuery&other)     \since 5.0      Swaps this network proxy query instance with \a other. This     function is very fast and never fails. */
+end_comment
 begin_comment
 comment|/*!     Returns true if this QNetworkProxyQuery object contains the same     data as \a other. */
 end_comment

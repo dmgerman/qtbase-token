@@ -124,6 +124,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QHttpPart::swap(QHttpPart&other)     \since 5.0      Swaps this HTTP part with \a other. This function is very fast and     never fails. */
+end_comment
+begin_comment
 comment|/*!     Returns true if this object is the same as \a other (i.e., if they     have the same headers and body).      \sa operator!=() */
 end_comment
 begin_function

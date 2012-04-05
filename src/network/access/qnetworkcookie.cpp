@@ -195,6 +195,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QNetworkCookie::swap(QNetworkCookie&other)     \since 5.0      Swaps this cookie with \a other. This function is very fast and     never fails. */
+end_comment
+begin_comment
 comment|/*!     \fn bool QNetworkCookie::operator!=(const QNetworkCookie&other) const      Returns true if this cookie is not equal to \a other.      \sa operator==() */
 end_comment
 begin_comment

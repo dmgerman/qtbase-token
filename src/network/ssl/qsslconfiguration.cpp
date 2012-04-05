@@ -135,6 +135,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QSslConfiguration::swap(QSslConfiguration&other)     \since 5.0      Swaps this SSL configuration instance with \a other. This function     is very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     Returns true if this QSslConfiguration object is equal to \a     other.      Two QSslConfiguration objects are considered equal if they have     the exact same settings and state.      \sa operator!=() */
 end_comment
 begin_function
