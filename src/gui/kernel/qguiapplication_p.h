@@ -405,6 +405,17 @@ name|e
 argument_list|)
 block|;
 specifier|static
+name|void
+name|processFileOpenEvent
+argument_list|(
+name|QWindowSystemInterfacePrivate
+operator|::
+name|FileOpenEvent
+operator|*
+name|e
+argument_list|)
+block|;
+specifier|static
 name|QPlatformDragQtResponse
 name|processDrag
 argument_list|(

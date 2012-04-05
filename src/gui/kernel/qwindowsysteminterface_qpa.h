@@ -1121,6 +1121,16 @@ modifier|*
 name|tlw
 parameter_list|)
 function_decl|;
+specifier|static
+name|void
+name|handleFileOpenEvent
+parameter_list|(
+specifier|const
+name|QString
+modifier|&
+name|fileName
+parameter_list|)
+function_decl|;
 comment|// For event dispatcher implementations
 specifier|static
 name|bool

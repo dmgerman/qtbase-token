@@ -67,6 +67,8 @@ block|,
 name|ThemeChange
 block|,
 name|Expose
+block|,
+name|FileOpen
 block|}
 enum|;
 name|class
@@ -1102,6 +1104,36 @@ name|isExposed
 block|;
 name|QRegion
 name|region
+block|;     }
+decl_stmt|;
+name|class
+name|FileOpenEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|FileOpenEvent
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|fileName
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|FileOpen
+argument_list|)
+block|,
+name|fileName
+argument_list|(
+argument|fileName
+argument_list|)
+block|{ }
+name|QString
+name|fileName
 block|;     }
 decl_stmt|;
 specifier|static
