@@ -1191,6 +1191,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QFileInfo::swap(QFileInfo&other)     \since 5.0      Swaps this file info with \a other. This function is very fast and     never fails. */
+end_comment
+begin_comment
 comment|/*!     Sets the file that the QFileInfo provides information about to \a     file.      The \a file can also include an absolute or relative file path.     Absolute paths begin with the directory separator (e.g. "/" under     Unix) or a drive specification (under Windows). Relative file     names begin with a directory name or a file name and specify a     path relative to the current directory.      Example:     \snippet code/src_corelib_io_qfileinfo.cpp 2      \sa isRelative(), QDir::setCurrent(), QDir::isRelativePath() */
 end_comment
 begin_function

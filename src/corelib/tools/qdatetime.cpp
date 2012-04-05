@@ -5104,6 +5104,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QDateTime::swap(QDateTime&other)     \since 5.0      Swaps this date-time with \a other. This operation is very fast     and never fails. */
+end_comment
+begin_comment
 comment|/*!     Returns true if both the date and the time are null; otherwise     returns false. A null datetime is invalid.      \sa QDate::isNull(), QTime::isNull(), isValid() */
 end_comment
 begin_function

@@ -5474,6 +5474,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QDir::swap(QDir&other)     \since 5.0      Swaps this QDir instance with \a other. This function is very fast     and never fails. */
+end_comment
+begin_comment
 comment|/*!     \fn bool QDir::operator!=(const QDir&dir) const      Returns true if directory \a dir and this directory have different     paths or different sort or filter settings; otherwise returns     false.      Example:      \snippet code/src_corelib_io_qdir.cpp 11 */
 end_comment
 begin_comment

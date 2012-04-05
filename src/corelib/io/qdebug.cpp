@@ -62,6 +62,9 @@ begin_comment
 comment|/*!     \fn QDebug::~QDebug()      Flushes any pending data to be written and destroys the debug stream. */
 end_comment
 begin_comment
+comment|/*!     \fn QDebug::swap(QDebug&other)     \since 5.0      Swaps this debug stream instance with \a other. This function is     very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     \fn QDebug&QDebug::space()      Writes a space character to the debug stream and returns a reference to     the stream.      The stream will record that the last character sent to the stream was a     space.      \sa nospace(), maybeSpace() */
 end_comment
 begin_comment

@@ -717,6 +717,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QProcessEnvironment::swap(QProcessEnvironment&other)     \since 5.0      Swaps this process environment instance with \a other. This     function is very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     \fn bool QProcessEnvironment::operator !=(const QProcessEnvironment&other) const      Returns true if this and the \a other QProcessEnvironment objects are different.      \sa operator==() */
 end_comment
 begin_comment

@@ -1153,6 +1153,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QUrlQuery::swap(QUrlQuery&other)      Swaps this URL query instance with \a other. This function is very     fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     Destroys this QUrlQuery object. */
 end_comment
 begin_destructor
