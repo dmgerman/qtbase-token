@@ -705,6 +705,9 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QDBusPendingCall::swap(QDBusPendingCall&other)     \since 5.0      Swaps this pending call instance with \a other. This function is     very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     \fn bool QDBusPendingCallWatcher::isFinished() const      Returns true if the pending call has finished processing and the     reply has been received.      Note that this function only changes state if you call     waitForFinished() or if an external D-Bus event happens, which in     general only happens if you return to the event loop execution.      \sa QDBusPendingReply::isFinished() */
 end_comment
 begin_comment

@@ -244,6 +244,9 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
+comment|/*!     \fn void QDBusUnixFileDescriptor::swap(QDBusUnixFileDescriptor&other)     \since 5.0      Swaps this file descriptor instance with \a other. This function     is very fast and never fails. */
+end_comment
+begin_comment
 comment|/*!     Returns true if this Unix file descriptor is valid. A valid Unix file     descriptor is not -1.      \sa fileDescriptor() */
 end_comment
 begin_function
