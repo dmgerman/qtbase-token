@@ -10579,7 +10579,7 @@ operator|=
 literal|'Y'
 expr_stmt|;
 block|}
-name|QVERIFY
+name|QCOMPARE
 argument_list|(
 name|arr
 operator|.
@@ -10587,7 +10587,7 @@ name|at
 argument_list|(
 literal|0
 argument_list|)
-operator|==
+argument_list|,
 literal|'X'
 argument_list|)
 expr_stmt|;
