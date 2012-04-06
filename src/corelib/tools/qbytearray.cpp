@@ -3165,15 +3165,6 @@ name|alloc
 operator|=
 name|alloc
 expr_stmt|;
-name|x
-operator|->
-name|offset
-operator|=
-sizeof|sizeof
-argument_list|(
-name|QByteArrayData
-argument_list|)
-expr_stmt|;
 name|d
 operator|=
 name|x
