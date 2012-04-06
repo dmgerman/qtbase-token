@@ -3315,7 +3315,7 @@ end_expr_stmt
 begin_else
 else|else
 block|{
-name|qMemSet
+name|memset
 argument_list|(
 name|m_begin
 argument_list|,
@@ -3836,7 +3836,7 @@ name|xsize
 condition|)
 block|{
 comment|// initialize newly allocated memory to 0
-name|qMemSet
+name|memset
 argument_list|(
 name|xbegin
 operator|+

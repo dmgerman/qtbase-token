@@ -292,7 +292,7 @@ operator|++
 name|y
 control|)
 block|{
-name|qMemSet
+name|memset
 argument_list|(
 name|image
 operator|->
@@ -2363,7 +2363,7 @@ operator|::
 name|Format_ARGB32
 argument_list|)
 decl_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|niceImage
 operator|.

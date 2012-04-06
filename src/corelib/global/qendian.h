@@ -149,7 +149,7 @@ argument_list|,
 argument|uchar *dest
 argument_list|)
 block|{
-name|qMemCopy
+name|memcpy
 argument_list|(
 name|dest
 argument_list|,

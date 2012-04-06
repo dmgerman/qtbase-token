@@ -4817,7 +4817,7 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-name|qMemCopy
+name|memcpy
 argument_list|(
 name|scope_buffer
 argument_list|,

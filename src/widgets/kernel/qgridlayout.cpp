@@ -4777,7 +4777,7 @@ operator|*
 name|cc
 argument_list|)
 decl_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|grid
 operator|.

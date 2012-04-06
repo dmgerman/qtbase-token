@@ -440,7 +440,7 @@ operator|+
 name|padding
 argument_list|)
 expr_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|output
 operator|.

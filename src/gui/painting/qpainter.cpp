@@ -20176,7 +20176,7 @@ argument_list|(
 name|glyphCount
 argument_list|)
 decl_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|glyphAttributes
 operator|.
@@ -20196,7 +20196,7 @@ name|HB_GlyphAttributes
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|advances
 operator|.
@@ -20216,7 +20216,7 @@ name|QFixed
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|glyphJustifications
 operator|.

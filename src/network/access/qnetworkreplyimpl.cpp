@@ -4094,7 +4094,7 @@ else|:
 literal|0
 return|;
 comment|// FIXME what about "Aborted" state?
-name|qMemCopy
+name|memcpy
 argument_list|(
 name|data
 argument_list|,

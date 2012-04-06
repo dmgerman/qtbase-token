@@ -441,7 +441,7 @@ operator|->
 name|glyphIndexDataSize
 argument_list|)
 decl_stmt|;
-name|qMemCopy
+name|memcpy
 argument_list|(
 name|indexes
 operator|.
@@ -565,7 +565,7 @@ operator|->
 name|glyphPositionDataSize
 argument_list|)
 decl_stmt|;
-name|qMemCopy
+name|memcpy
 argument_list|(
 name|glyphPositions
 operator|.

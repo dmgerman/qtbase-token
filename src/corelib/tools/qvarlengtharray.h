@@ -1455,7 +1455,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qMemCopy
+name|memcpy
 argument_list|(
 operator|&
 name|ptr
@@ -1693,7 +1693,7 @@ begin_else
 unit|}             }
 else|else
 block|{
-name|qMemCopy
+name|memcpy
 argument_list|(
 name|ptr
 argument_list|,

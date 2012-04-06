@@ -1007,7 +1007,7 @@ return|return
 literal|false
 return|;
 block|}
-name|qMemCopy
+name|memcpy
 argument_list|(
 name|buffer
 argument_list|,
@@ -2715,7 +2715,7 @@ index|[
 name|size
 index|]
 decl_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|alphaValues
 argument_list|,

@@ -8248,7 +8248,7 @@ name|QChar
 argument_list|)
 condition|)
 block|{
-name|qMemCopy
+name|memcpy
 argument_list|(
 name|array
 argument_list|,

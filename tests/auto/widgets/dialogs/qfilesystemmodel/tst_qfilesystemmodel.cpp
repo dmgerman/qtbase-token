@@ -2817,7 +2817,7 @@ index|[
 name|MAX_PATH
 index|]
 decl_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|nativeHiddenFile
 argument_list|,

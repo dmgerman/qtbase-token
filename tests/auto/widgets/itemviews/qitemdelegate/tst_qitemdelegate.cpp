@@ -4801,7 +4801,7 @@ operator|::
 name|Format_Mono
 argument_list|)
 decl_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|img
 operator|.

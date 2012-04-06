@@ -4305,7 +4305,7 @@ index|[
 literal|20
 index|]
 decl_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|buf
 argument_list|,
@@ -4368,7 +4368,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|qMemSet
+name|memset
 argument_list|(
 name|buf
 argument_list|,
@@ -4425,7 +4425,7 @@ literal|42
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|buf
 argument_list|,
@@ -4613,7 +4613,7 @@ expr_stmt|;
 ifndef|#
 directive|ifndef
 name|Q_OS_WIN
-name|qMemSet
+name|memset
 argument_list|(
 name|buf
 argument_list|,

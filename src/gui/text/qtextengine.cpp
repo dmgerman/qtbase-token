@@ -5410,7 +5410,7 @@ expr_stmt|;
 name|HB_ShaperItem
 name|entire_shaper_item
 decl_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 operator|&
 name|entire_shaper_item

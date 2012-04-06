@@ -3852,7 +3852,7 @@ end_expr_stmt
 begin_else
 else|else
 block|{
-name|qMemSet
+name|memset
 argument_list|(
 name|d
 operator|->
@@ -4689,7 +4689,7 @@ name|size
 condition|)
 block|{
 comment|// initialize newly allocated memory to 0
-name|qMemSet
+name|memset
 argument_list|(
 name|x
 operator|->
