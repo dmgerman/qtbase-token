@@ -2583,16 +2583,16 @@ name|d
 decl_stmt|;
 name|void
 name|reallocData
-parameter_list|(
+argument_list|(
 name|uint
 name|alloc
-parameter_list|,
-name|bool
-name|grow
-init|=
-name|false
-parameter_list|)
-function_decl|;
+argument_list|,
+name|Data
+operator|::
+name|AllocationOptions
+name|options
+argument_list|)
+decl_stmt|;
 name|void
 name|expand
 parameter_list|(
@@ -2982,6 +2982,11 @@ name|size
 argument_list|)
 operator|+
 literal|1u
+argument_list|,
+name|d
+operator|->
+name|detachFlags
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -3087,6 +3092,7 @@ name|d
 operator|->
 name|alloc
 condition|)
+block|{
 name|reallocData
 argument_list|(
 name|uint
@@ -3095,19 +3101,24 @@ name|asize
 argument_list|)
 operator|+
 literal|1u
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_if
-if|if
-condition|(
-operator|!
+argument_list|,
 name|d
 operator|->
-name|capacityReserved
-condition|)
+name|detachFlags
+argument_list|()
+operator||
+name|Data
+operator|::
+name|CapacityReserved
+argument_list|)
+expr_stmt|;
+block|}
+end_expr_stmt
+begin_else
+else|else
 block|{
-comment|// cannot set unconditionally, since d could be the shared_null/shared_empty (which is const)
+comment|// cannot set unconditionally, since d could be the shared_null or
+comment|// otherwise static
 name|d
 operator|->
 name|capacityReserved
@@ -3115,7 +3126,7 @@ operator|=
 name|true
 expr_stmt|;
 block|}
-end_if
+end_else
 begin_expr_stmt
 unit|}  inline
 DECL|function|squeeze
@@ -3147,6 +3158,7 @@ name|d
 operator|->
 name|alloc
 condition|)
+block|{
 name|reallocData
 argument_list|(
 name|uint
@@ -3157,16 +3169,22 @@ name|size
 argument_list|)
 operator|+
 literal|1u
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_if
-if|if
-condition|(
+argument_list|,
 name|d
 operator|->
-name|capacityReserved
-condition|)
+name|detachFlags
+argument_list|()
+operator|&
+operator|~
+name|Data
+operator|::
+name|CapacityReserved
+argument_list|)
+expr_stmt|;
+block|}
+end_expr_stmt
+begin_else
+else|else
 block|{
 comment|// cannot set unconditionally, since d could be shared_null or
 comment|// otherwise static.
@@ -3177,7 +3195,7 @@ operator|=
 name|false
 expr_stmt|;
 block|}
-end_if
+end_else
 begin_decl_stmt
 unit|}  class
 name|Q_CORE_EXPORT
