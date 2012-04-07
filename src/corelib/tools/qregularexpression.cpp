@@ -296,6 +296,11 @@ operator|::
 name|MatchOptions
 name|matchOptions
 parameter_list|,
+name|bool
+name|checkSubjectString
+init|=
+literal|true
+parameter_list|,
 specifier|const
 name|QRegularExpressionMatchPrivate
 modifier|*
@@ -1480,7 +1485,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Performs a match of type \a matchType on the given \a subject string with     options \a matchOptions and returns the QRegularExpressionMatchPrivate of     the result. It also advances a match if a previous result is given as \a     previous.      Advancing a match is a tricky algorithm. If the previous match matched a     non-empty string, we just do an ordinary match at the offset position.      If the previous match matched an empty string, then an anchored, non-empty     match is attempted at the offset position. If that succeeds, then we got     the next match and we can return it. Otherwise, we advance by 1 position     (which can be one or two code units in UTF-16!) and reattempt a "normal"     match. We also have the problem of detecting the current newline format: if     the new advanced offset is pointing to the beginning of a CRLF sequence, we     must advance over it. */
+comment|/*!     \internal      Performs a match of type \a matchType on the given \a subject string with     options \a matchOptions and returns the QRegularExpressionMatchPrivate of     the result. It also advances a match if a previous result is given as \a     previous. The \a subject string goes a Unicode validity check if     \a checkSubjectString is true (PCRE doesn't like illegal UTF-16 sequences).      Advancing a match is a tricky algorithm. If the previous match matched a     non-empty string, we just do an ordinary match at the offset position.      If the previous match matched an empty string, then an anchored, non-empty     match is attempted at the offset position. If that succeeds, then we got     the next match and we can return it. Otherwise, we advance by 1 position     (which can be one or two code units in UTF-16!) and reattempt a "normal"     match. We also have the problem of detecting the current newline format: if     the new advanced offset is pointing to the beginning of a CRLF sequence, we     must advance over it. */
 end_comment
 begin_function
 DECL|function|doMatch
@@ -1507,6 +1512,9 @@ name|QRegularExpression
 operator|::
 name|MatchOptions
 name|matchOptions
+parameter_list|,
+name|bool
+name|checkSubjectString
 parameter_list|,
 specifier|const
 name|QRegularExpressionMatchPrivate
@@ -1665,6 +1673,15 @@ condition|)
 name|pcreOptions
 operator||=
 name|PCRE_PARTIAL_HARD
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|checkSubjectString
+condition|)
+name|pcreOptions
+operator||=
+name|PCRE_NO_UTF16_CHECK
 expr_stmt|;
 name|bool
 name|previousMatchWasEmpty
@@ -2171,6 +2188,10 @@ operator|||
 name|hasPartialMatch
 argument_list|)
 expr_stmt|;
+comment|// Note the "false" passed for the check of the subject string:
+comment|// if we're advancing a match on the same subject,
+comment|// then that subject was already checked at least once (when this object
+comment|// was created, or when the object that created this one was created, etc.)
 name|QRegularExpressionMatchPrivate
 modifier|*
 name|nextPrivate
@@ -2193,6 +2214,8 @@ argument_list|,
 name|matchType
 argument_list|,
 name|matchOptions
+argument_list|,
+literal|false
 argument_list|,
 name|this
 argument_list|)
