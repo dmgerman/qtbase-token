@@ -43,6 +43,14 @@ ifdef|#
 directive|ifdef
 name|__GLEW_H__
 end_ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_CC_GNU
+argument_list|)
+end_if
 begin_warning
 warning|#
 directive|warning
@@ -53,6 +61,10 @@ warning|#
 directive|warning
 warning|To use GLEW with Qt, do not include<qopengl.h> or<QOpenGLFunctions> after glew.h
 end_warning
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
