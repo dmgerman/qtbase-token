@@ -55,6 +55,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/QPlatformCursor>
+end_include
+begin_include
+include|#
+directive|include
 file|<EGL/egl.h>
 end_include
 begin_macro
