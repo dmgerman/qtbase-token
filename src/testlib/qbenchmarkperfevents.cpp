@@ -467,7 +467,7 @@ block|{
 return|return
 name|QTest
 operator|::
-name|Events
+name|CPUCycles
 return|;
 block|}
 end_function

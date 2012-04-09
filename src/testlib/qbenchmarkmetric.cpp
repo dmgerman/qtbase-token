@@ -8,7 +8,7 @@ directive|include
 file|<QtTest/private/qbenchmarkmetric_p.h>
 end_include
 begin_comment
-comment|/*!   \enum QTest::QBenchmarkMetric   \since 4.7    This enum lists all the things that can be benchmarked.    \value FramesPerSecond        Frames per second   \value BitsPerSecond          Bits per second   \value BytesPerSecond         Bytes per second   \value WalltimeMilliseconds   Clock time in milliseconds   \value CPUTicks               CPU time   \value InstructionReads       Instruction reads   \value Events                 Event count   \value WalltimeNanoseconds    Clock time in nanoseconds   \value BytesAllocated         Memory usage in bytes    Note that \c WalltimeNanoseconds and \c BytesAllocated are   only provided for use via \l setBenchmarkResult(), and results   in those metrics are not able to be provided automatically   by the QTest framework.    \sa QTest::benchmarkMetricName(), QTest::benchmarkMetricUnit()   */
+comment|/*!   \enum QTest::QBenchmarkMetric   \since 4.7    This enum lists all the things that can be benchmarked.    \value FramesPerSecond        Frames per second   \value BitsPerSecond          Bits per second   \value BytesPerSecond         Bytes per second   \value WalltimeMilliseconds   Clock time in milliseconds   \value WalltimeNanoseconds    Clock time in nanoseconds   \value BytesAllocated         Memory usage in bytes   \value Events                 Event count   \value CPUTicks               CPU time   \value CPUMigrations          Process migrations between CPUs   \value CPUCycles              CPU cycles   \value BusCycles              Bus cycles   \value StalledCycles          Cycles stalled   \value InstructionReads       Instruction reads   \value Instructions           Instructions executed   \value BranchInstructions     Branch-type instructions   \value BranchMisses           Branch instructions that were mispredicted   \value CacheReferences        Cache accesses of any type   \value CacheMisses            Cache misses of any type   \value CacheReads             Cache reads / loads   \value CacheReadMisses        Cache read / load misses   \value CacheWrites            Cache writes / stores   \value CacheWriteMisses       Cache write / store misses   \value CachePrefetches        Cache prefetches   \value CachePrefetchMisses    Cache prefetch misses   \value ContextSwitches        Context switches   \value PageFaults             Page faults of any type   \value MinorPageFaults        Minor page faults   \value MajorPageFaults        Major page faults   \value AlignmentFaults        Faults caused due to misalignment   \value EmulationFaults        Faults that needed software emulation    \sa QTest::benchmarkMetricName(), QTest::benchmarkMetricUnit()    Note that \c WalltimeNanoseconds and \c BytesAllocated are   only provided for use via \l setBenchmarkResult(), and results   in those metrics are not able to be provided automatically   by the QTest framework.  */
 end_comment
 begin_comment
 comment|/*!   \relates QTest   \since 4.7   Returns the enum value \a metric as a character string.  */
@@ -56,10 +56,40 @@ return|return
 literal|"WalltimeMilliseconds"
 return|;
 case|case
+name|Events
+case|:
+return|return
+literal|"Events"
+return|;
+case|case
 name|CPUTicks
 case|:
 return|return
 literal|"CPUTicks"
+return|;
+case|case
+name|CPUMigrations
+case|:
+return|return
+literal|"CPUMigrations"
+return|;
+case|case
+name|CPUCycles
+case|:
+return|return
+literal|"CPUCycles"
+return|;
+case|case
+name|BusCycles
+case|:
+return|return
+literal|"BusCycles"
+return|;
+case|case
+name|StalledCycles
+case|:
+return|return
+literal|"StalledCycles"
 return|;
 case|case
 name|InstructionReads
@@ -68,10 +98,10 @@ return|return
 literal|"InstructionReads"
 return|;
 case|case
-name|Events
+name|Instructions
 case|:
 return|return
-literal|"Events"
+literal|"Instructions"
 return|;
 case|case
 name|WalltimeNanoseconds
@@ -84,6 +114,102 @@ name|BytesAllocated
 case|:
 return|return
 literal|"BytesAllocated"
+return|;
+case|case
+name|BranchInstructions
+case|:
+return|return
+literal|"BranchInstructions"
+return|;
+case|case
+name|BranchMisses
+case|:
+return|return
+literal|"BranchMisses"
+return|;
+case|case
+name|CacheReferences
+case|:
+return|return
+literal|"CacheReferences"
+return|;
+case|case
+name|CacheReads
+case|:
+return|return
+literal|"CacheReads"
+return|;
+case|case
+name|CacheWrites
+case|:
+return|return
+literal|"CacheWrites"
+return|;
+case|case
+name|CachePrefetches
+case|:
+return|return
+literal|"CachePrefetches"
+return|;
+case|case
+name|CacheMisses
+case|:
+return|return
+literal|"CacheMisses"
+return|;
+case|case
+name|CacheReadMisses
+case|:
+return|return
+literal|"CacheReadMisses"
+return|;
+case|case
+name|CacheWriteMisses
+case|:
+return|return
+literal|"CacheWriteMisses"
+return|;
+case|case
+name|CachePrefetchMisses
+case|:
+return|return
+literal|"CachePrefetchMisses"
+return|;
+case|case
+name|ContextSwitches
+case|:
+return|return
+literal|"ContextSwitches"
+return|;
+case|case
+name|PageFaults
+case|:
+return|return
+literal|"PageFaults"
+return|;
+case|case
+name|MinorPageFaults
+case|:
+return|return
+literal|"MinorPageFaults"
+return|;
+case|case
+name|MajorPageFaults
+case|:
+return|return
+literal|"MajorPageFaults"
+return|;
+case|case
+name|AlignmentFaults
+case|:
+return|return
+literal|"AlignmentFaults"
+return|;
+case|case
+name|EmulationFaults
+case|:
+return|return
+literal|"EmulationFaults"
 return|;
 default|default:
 return|return
@@ -141,10 +267,40 @@ return|return
 literal|"msecs"
 return|;
 case|case
+name|Events
+case|:
+return|return
+literal|"events"
+return|;
+case|case
 name|CPUTicks
 case|:
 return|return
 literal|"CPU ticks"
+return|;
+case|case
+name|CPUMigrations
+case|:
+return|return
+literal|"CPU migrations"
+return|;
+case|case
+name|CPUCycles
+case|:
+return|return
+literal|"CPU cycles"
+return|;
+case|case
+name|BusCycles
+case|:
+return|return
+literal|"bus cycles"
+return|;
+case|case
+name|StalledCycles
+case|:
+return|return
+literal|"stalled cycles"
 return|;
 case|case
 name|InstructionReads
@@ -153,10 +309,10 @@ return|return
 literal|"instruction reads"
 return|;
 case|case
-name|Events
+name|Instructions
 case|:
 return|return
-literal|"events"
+literal|"instructions"
 return|;
 case|case
 name|WalltimeNanoseconds
@@ -169,6 +325,102 @@ name|BytesAllocated
 case|:
 return|return
 literal|"bytes"
+return|;
+case|case
+name|BranchInstructions
+case|:
+return|return
+literal|"branch instructions"
+return|;
+case|case
+name|BranchMisses
+case|:
+return|return
+literal|"branch misses"
+return|;
+case|case
+name|CacheReferences
+case|:
+return|return
+literal|"cache references"
+return|;
+case|case
+name|CacheReads
+case|:
+return|return
+literal|"cache loads"
+return|;
+case|case
+name|CacheWrites
+case|:
+return|return
+literal|"cache stores"
+return|;
+case|case
+name|CachePrefetches
+case|:
+return|return
+literal|"cache prefetches"
+return|;
+case|case
+name|CacheMisses
+case|:
+return|return
+literal|"cache misses"
+return|;
+case|case
+name|CacheReadMisses
+case|:
+return|return
+literal|"cache load misses"
+return|;
+case|case
+name|CacheWriteMisses
+case|:
+return|return
+literal|"cache store misses"
+return|;
+case|case
+name|CachePrefetchMisses
+case|:
+return|return
+literal|"cache prefetch misses"
+return|;
+case|case
+name|ContextSwitches
+case|:
+return|return
+literal|"context switches"
+return|;
+case|case
+name|PageFaults
+case|:
+return|return
+literal|"page faults"
+return|;
+case|case
+name|MinorPageFaults
+case|:
+return|return
+literal|"minor page faults"
+return|;
+case|case
+name|MajorPageFaults
+case|:
+return|return
+literal|"major page faults"
+return|;
+case|case
+name|AlignmentFaults
+case|:
+return|return
+literal|"alignment faults"
+return|;
+case|case
+name|EmulationFaults
+case|:
+return|return
+literal|"emulation faults"
 return|;
 default|default:
 return|return
