@@ -9462,10 +9462,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \threadsafe      \fn bool QObject::disconnect(const char *signal, const QObject *receiver, const char *method)     \overload disconnect()      Disconnects \a signal from \a method of \a receiver.      A signal-slot connection is removed when either of the objects     involved are destroyed. */
+comment|/*!     \threadsafe      \fn bool QObject::disconnect(const char *signal, const QObject *receiver, const char *method) const     \overload disconnect()      Disconnects \a signal from \a method of \a receiver.      A signal-slot connection is removed when either of the objects     involved are destroyed. */
 end_comment
 begin_comment
-comment|/*!     \fn bool QObject::disconnect(const QObject *receiver, const char *method)     \overload disconnect()      Disconnects all signals in this object from \a receiver's \a     method.      A signal-slot connection is removed when either of the objects     involved are destroyed. */
+comment|/*!     \fn bool QObject::disconnect(const QObject *receiver, const char *method) const     \overload disconnect()      Disconnects all signals in this object from \a receiver's \a     method.      A signal-slot connection is removed when either of the objects     involved are destroyed. */
 end_comment
 begin_comment
 comment|/*!     \fn void QObject::connectNotify(const char *signal)      This virtual function is called when something has been connected     to \a signal in this object.      If you want to compare \a signal with a specific signal, use     QLatin1String and the \c SIGNAL() macro as follows:      \snippet doc/src/snippets/code/src_corelib_kernel_qobject.cpp 32      If the signal contains multiple parameters or parameters that     contain spaces, call QMetaObject::normalizedSignature() on     the result of the \c SIGNAL() macro.      \warning This function violates the object-oriented principle of     modularity. However, it might be useful when you need to perform     expensive initialization only if something is connected to a     signal.      \sa connect(), disconnectNotify() */
