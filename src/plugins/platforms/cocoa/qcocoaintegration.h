@@ -315,6 +315,12 @@ name|mCocoaDrag
 block|;
 name|QScopedPointer
 operator|<
+name|QPlatformNativeInterface
+operator|>
+name|mNativeInterface
+block|;
+name|QScopedPointer
+operator|<
 name|QCocoaServices
 operator|>
 name|mServices
