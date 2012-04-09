@@ -2601,9 +2601,16 @@ name|isAvailable
 argument_list|()
 condition|)
 block|{
-name|printf
+comment|// perf available
+name|QBenchmarkGlobalData
+operator|::
+name|current
+operator|->
+name|setMode
 argument_list|(
-literal|"perf available\n"
+name|QBenchmarkGlobalData
+operator|::
+name|PerfCounter
 argument_list|)
 expr_stmt|;
 block|}

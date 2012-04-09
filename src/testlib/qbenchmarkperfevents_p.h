@@ -138,7 +138,13 @@ argument_list|()
 block|;
 name|private
 operator|:
-block|}
+name|int
+name|fd
+block|;
+name|qint64
+name|readValue
+argument_list|()
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro
