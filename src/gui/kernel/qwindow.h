@@ -1113,10 +1113,6 @@ block|}
 name|Q_SIGNALS
 label|:
 name|void
-name|backBufferReady
-parameter_list|()
-function_decl|;
-name|void
 name|screenChanged
 parameter_list|(
 name|QScreen
