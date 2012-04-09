@@ -101,7 +101,8 @@ return|;
 block|}
 name|QPoint
 name|hotspot
-parameter_list|()
+argument_list|()
+specifier|const
 block|{
 return|return
 name|hot
