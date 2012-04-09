@@ -1587,6 +1587,12 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
+name|QTESTLIB_USE_PERF_EVENTS
+literal|" -perf               : Use Linux perf events to time benchmarks\n"
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
 name|HAVE_TICK_COUNTER
 literal|" -tickcounter        : Use CPU tick counters to time benchmarks\n"
 endif|#
@@ -2565,6 +2571,52 @@ operator|::
 name|outFileBase
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|QTESTLIB_USE_PERF_EVENTS
+block|}
+elseif|else
+if|if
+condition|(
+name|strcmp
+argument_list|(
+name|argv
+index|[
+name|i
+index|]
+argument_list|,
+literal|"-perf"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+if|if
+condition|(
+name|QBenchmarkPerfEventsMeasurer
+operator|::
+name|isAvailable
+argument_list|()
+condition|)
+block|{
+name|printf
+argument_list|(
+literal|"perf available\n"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|fprintf
+argument_list|(
+name|stderr
+argument_list|,
+literal|"WARNING: Linux perf events not available. Using the walltime measurer.\n"
+argument_list|)
+expr_stmt|;
+block|}
 endif|#
 directive|endif
 ifdef|#
