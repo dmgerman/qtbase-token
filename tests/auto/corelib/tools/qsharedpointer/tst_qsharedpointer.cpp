@@ -9304,6 +9304,10 @@ expr_stmt|;
 operator|++
 name|it
 expr_stmt|;
+if|if
+condition|(
+name|Ordered
+condition|)
 name|QVERIFY
 argument_list|(
 name|it
