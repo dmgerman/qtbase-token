@@ -136,6 +136,32 @@ name|bool
 name|isAvailable
 argument_list|()
 block|;
+specifier|static
+name|QTest
+operator|::
+name|QBenchmarkMetric
+name|metricForEvent
+argument_list|(
+argument|quint32 type
+argument_list|,
+argument|quint64 event_id
+argument_list|)
+block|;
+specifier|static
+name|void
+name|setCounter
+argument_list|(
+specifier|const
+name|char
+operator|*
+name|name
+argument_list|)
+block|;
+specifier|static
+name|void
+name|listCounters
+argument_list|()
+block|;
 name|private
 operator|:
 name|int
