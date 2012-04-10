@@ -43,11 +43,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtPlatformSupport/private/qudevicehelper_p.h>
-end_include
-begin_include
-include|#
-directive|include
 file|<errno.h>
 end_include
 begin_include

@@ -37,11 +37,23 @@ include|#
 directive|include
 file|<QtCore/private/qcore_unix_p.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBUDEV
+end_ifndef
 begin_include
 include|#
 directive|include
 file|<QtPlatformSupport/private/qudevicehelper_p.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_LIBUDEV
+end_comment
 begin_include
 include|#
 directive|include
@@ -564,6 +576,9 @@ expr_stmt|;
 name|QString
 name|dev
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBUDEV
 comment|// try to let udev scan for already connected devices
 name|QScopedPointer
 argument_list|<
@@ -618,6 +633,9 @@ literal|0
 index|]
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_LIBUDEV
 if|if
 condition|(
 name|dev
