@@ -530,8 +530,8 @@ condition|(
 name|cpuid_supported
 condition|)
 block|{
-asm|asm ("xchg %%ebx, %2\n"              "cpuid\n"              "xchg %%ebx, %2\n"             : "=c" (feature_result), "=d" (result), "=&r" (tmp1)             : "a" (1));
-asm|asm ("xchg %%ebx, %1\n"              "cpuid\n"              "cmp $0x80000000, %%eax\n"              "jnbe 1f\n"              "xor %0, %0\n"              "jmp 2f\n"              "1:\n"              "mov $0x80000001, %%eax\n"              "cpuid\n"              "2:\n"              "xchg %%ebx, %1\n"             : "=d" (extended_result), "=&r" (tmp1)             : "a" (0x80000000)             : "%ecx"             );
+asm|asm ("xchg %%ebx, %2\n"              "cpuid\n"              "xchg %%ebx, %2\n"             : "=&c" (feature_result), "=d" (result), "=&r" (tmp1)             : "a" (1));
+asm|asm ("xchg %%ebx, %1\n"              "cpuid\n"              "cmp $0x80000000, %%eax\n"              "jnbe 1f\n"              "xor %0, %0\n"              "jmp 2f\n"              "1:\n"              "mov $0x80000001, %%eax\n"              "cpuid\n"              "2:\n"              "xchg %%ebx, %1\n"             : "=&d" (extended_result), "=&r" (tmp1)             : "a" (0x80000000)             : "%ecx"             );
 block|}
 elif|#
 directive|elif
@@ -815,7 +815,7 @@ argument_list|)
 name|quint64
 name|tmp
 decl_stmt|;
-asm|asm ("xchg %%rbx, %1\n"          "cpuid\n"          "xchg %%rbx, %1\n"         : "=c" (feature_result), "=&r" (tmp)         : "a" (1)         : "%edx"         );
+asm|asm ("xchg %%rbx, %1\n"          "cpuid\n"          "xchg %%rbx, %1\n"         : "=&c" (feature_result), "=&r" (tmp)         : "a" (1)         : "%edx"         );
 endif|#
 directive|endif
 if|if
