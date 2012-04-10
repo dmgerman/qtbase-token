@@ -5830,7 +5830,6 @@ operator|::
 name|blue
 argument_list|)
 expr_stmt|;
-comment|// ### Qt5: QApplication::palette().link());
 block|}
 block|}
 break|break;
