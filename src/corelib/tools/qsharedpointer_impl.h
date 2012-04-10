@@ -66,6 +66,14 @@ end_include
 begin_comment
 comment|// for qobject_cast
 end_comment
+begin_include
+include|#
+directive|include
+file|<QtCore/qhash.h>
+end_include
+begin_comment
+comment|// for qHash
+end_comment
 begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -4287,31 +4295,14 @@ operator|<
 name|class
 name|T
 operator|>
-specifier|inline
-name|uint
-name|qHash
-argument_list|(
-specifier|const
-name|T
-operator|*
-name|key
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_comment
-comment|// defined in qhash.h
-end_comment
-begin_expr_stmt
-name|template
-operator|<
-name|class
-name|T
-operator|>
 name|Q_INLINE_TEMPLATE
 name|uint
 name|qHash
 argument_list|(
 argument|const QSharedPointer<T>&ptr
+argument_list|,
+argument|uint seed =
+literal|0
 argument_list|)
 block|{
 return|return
@@ -4319,15 +4310,14 @@ name|QT_PREPEND_NAMESPACE
 argument_list|(
 name|qHash
 argument_list|)
-operator|<
-name|T
-operator|>
-operator|(
+argument_list|(
 name|ptr
 operator|.
 name|data
 argument_list|()
-operator|)
+argument_list|,
+name|seed
+argument_list|)
 return|;
 block|}
 end_expr_stmt
