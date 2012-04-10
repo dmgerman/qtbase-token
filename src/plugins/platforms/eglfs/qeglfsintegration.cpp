@@ -124,6 +124,21 @@ name|cap
 parameter_list|)
 specifier|const
 block|{
+comment|// We assume that devices will have more and not less capabilities
+if|if
+condition|(
+name|hooks
+operator|&&
+name|hooks
+operator|->
+name|hasCapability
+argument_list|(
+name|cap
+argument_list|)
+condition|)
+return|return
+literal|true
+return|;
 switch|switch
 condition|(
 name|cap
