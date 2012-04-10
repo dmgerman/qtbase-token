@@ -69,6 +69,29 @@ begin_comment
 comment|/* Implementation of the IAccessible2 table2 interface. Much simpler than the other table interfaces since there is only the main table and cells:  TABLE/LIST/TREE   |- HEADER CELL   |- CELL   |- CELL   ... */
 end_comment
 begin_function
+DECL|function|view
+name|QAbstractItemView
+modifier|*
+name|QAccessibleTable
+operator|::
+name|view
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|qobject_cast
+argument_list|<
+name|QAbstractItemView
+operator|*
+argument_list|>
+argument_list|(
+name|object
+argument_list|()
+argument_list|)
+return|;
+block|}
+end_function
+begin_function
 DECL|function|logicalIndex
 name|int
 name|QAccessibleTable
@@ -163,6 +186,15 @@ name|logicalIndex
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|isValid
+argument_list|()
+condition|)
+return|return
+literal|0
+return|;
 name|logicalIndex
 operator|--
 expr_stmt|;
@@ -191,6 +223,7 @@ name|int
 name|columns
 init|=
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -238,6 +271,7 @@ operator|new
 name|QAccessibleTableCornerButton
 argument_list|(
 name|view
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -246,6 +280,7 @@ operator|new
 name|QAccessibleTableHeaderCell
 argument_list|(
 name|view
+argument_list|()
 argument_list|,
 name|row
 operator|-
@@ -278,6 +313,7 @@ operator|new
 name|QAccessibleTableHeaderCell
 argument_list|(
 name|view
+argument_list|()
 argument_list|,
 name|column
 argument_list|,
@@ -296,8 +332,10 @@ operator|new
 name|QAccessibleTableCell
 argument_list|(
 name|view
+argument_list|()
 argument_list|,
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -331,20 +369,10 @@ argument_list|(
 name|w
 argument_list|)
 block|{
-name|view
-operator|=
-name|qobject_cast
-argument_list|<
-name|QAbstractItemView
-operator|*
-argument_list|>
-argument_list|(
-name|w
-argument_list|)
-expr_stmt|;
 name|Q_ASSERT
 argument_list|(
 name|view
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -357,6 +385,7 @@ operator|*
 argument_list|>
 argument_list|(
 name|view
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -378,6 +407,7 @@ operator|*
 argument_list|>
 argument_list|(
 name|view
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -399,6 +429,7 @@ operator|*
 argument_list|>
 argument_list|(
 name|view
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -471,6 +502,7 @@ operator|*
 argument_list|>
 argument_list|(
 name|view
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -503,6 +535,7 @@ operator|*
 argument_list|>
 argument_list|(
 name|view
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -562,6 +595,7 @@ operator|*
 argument_list|>
 argument_list|(
 name|view
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -607,6 +641,7 @@ operator|new
 name|QAccessibleTableCell
 argument_list|(
 name|view
+argument_list|()
 argument_list|,
 name|index
 argument_list|,
@@ -649,6 +684,7 @@ name|QModelIndex
 name|index
 init|=
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -679,6 +715,7 @@ operator|<<
 literal|" for "
 operator|<<
 name|view
+argument_list|()
 expr_stmt|;
 return|return
 literal|0
@@ -721,6 +758,7 @@ specifier|const
 block|{
 return|return
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -750,6 +788,7 @@ specifier|const
 block|{
 return|return
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -770,6 +809,7 @@ specifier|const
 block|{
 return|return
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -790,6 +830,7 @@ specifier|const
 block|{
 return|return
 name|view
+argument_list|()
 operator|->
 name|selectionModel
 argument_list|()
@@ -813,6 +854,7 @@ specifier|const
 block|{
 return|return
 name|view
+argument_list|()
 operator|->
 name|selectionModel
 argument_list|()
@@ -836,6 +878,7 @@ specifier|const
 block|{
 return|return
 name|view
+argument_list|()
 operator|->
 name|selectionModel
 argument_list|()
@@ -862,6 +905,7 @@ specifier|const
 block|{
 return|return
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -904,7 +948,7 @@ name|Q_FOREACH
 argument_list|(
 argument|const QModelIndex&index
 argument_list|,
-argument|view->selectionModel()->selectedIndexes()
+argument|view()->selectionModel()->selectedIndexes()
 argument_list|)
 block|{
 name|cells
@@ -945,7 +989,7 @@ name|Q_FOREACH
 argument_list|(
 argument|const QModelIndex&index
 argument_list|,
-argument|view->selectionModel()->selectedColumns()
+argument|view()->selectionModel()->selectedColumns()
 argument_list|)
 block|{
 name|columns
@@ -986,7 +1030,7 @@ name|Q_FOREACH
 argument_list|(
 argument|const QModelIndex&index
 argument_list|,
-argument|view->selectionModel()->selectedRows()
+argument|view()->selectionModel()->selectedRows()
 argument_list|)
 block|{
 name|rows
@@ -1034,6 +1078,7 @@ specifier|const
 block|{
 return|return
 name|view
+argument_list|()
 operator|->
 name|selectionModel
 argument_list|()
@@ -1062,6 +1107,7 @@ specifier|const
 block|{
 return|return
 name|view
+argument_list|()
 operator|->
 name|selectionModel
 argument_list|()
@@ -1091,6 +1137,7 @@ name|QModelIndex
 name|index
 init|=
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -1111,6 +1158,7 @@ name|isValid
 argument_list|()
 operator|||
 name|view
+argument_list|()
 operator|->
 name|selectionMode
 argument_list|()
@@ -1123,6 +1171,7 @@ return|return
 literal|false
 return|;
 name|view
+argument_list|()
 operator|->
 name|selectionModel
 argument_list|()
@@ -1156,6 +1205,7 @@ name|QModelIndex
 name|index
 init|=
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -1176,6 +1226,7 @@ name|isValid
 argument_list|()
 operator|||
 name|view
+argument_list|()
 operator|->
 name|selectionMode
 argument_list|()
@@ -1188,6 +1239,7 @@ return|return
 literal|false
 return|;
 name|view
+argument_list|()
 operator|->
 name|selectionModel
 argument_list|()
@@ -1221,6 +1273,7 @@ name|QModelIndex
 name|index
 init|=
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -1241,6 +1294,7 @@ name|isValid
 argument_list|()
 operator|||
 name|view
+argument_list|()
 operator|->
 name|selectionMode
 argument_list|()
@@ -1253,6 +1307,7 @@ return|return
 literal|false
 return|;
 name|view
+argument_list|()
 operator|->
 name|selectionModel
 argument_list|()
@@ -1286,6 +1341,7 @@ name|QModelIndex
 name|index
 init|=
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -1306,6 +1362,7 @@ name|isValid
 argument_list|()
 operator|||
 name|view
+argument_list|()
 operator|->
 name|selectionMode
 argument_list|()
@@ -1318,6 +1375,7 @@ return|return
 literal|false
 return|;
 name|view
+argument_list|()
 operator|->
 name|selectionModel
 argument_list|()
@@ -1395,6 +1453,7 @@ name|QPoint
 name|viewportOffset
 init|=
 name|view
+argument_list|()
 operator|->
 name|viewport
 argument_list|()
@@ -1402,6 +1461,7 @@ operator|->
 name|mapTo
 argument_list|(
 name|view
+argument_list|()
 argument_list|,
 name|QPoint
 argument_list|(
@@ -1415,6 +1475,7 @@ name|QPoint
 name|indexPosition
 init|=
 name|view
+argument_list|()
 operator|->
 name|mapFromGlobal
 argument_list|(
@@ -1433,6 +1494,7 @@ name|QModelIndex
 name|index
 init|=
 name|view
+argument_list|()
 operator|->
 name|indexAt
 argument_list|(
@@ -1475,6 +1537,7 @@ if|if
 condition|(
 operator|!
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -1505,6 +1568,7 @@ decl_stmt|;
 return|return
 operator|(
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -1517,6 +1581,7 @@ operator|)
 operator|*
 operator|(
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -1685,6 +1750,7 @@ operator|)
 operator|*
 operator|(
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -1767,12 +1833,14 @@ name|Description
 condition|)
 return|return
 name|view
+argument_list|()
 operator|->
 name|accessibleDescription
 argument_list|()
 return|;
 return|return
 name|view
+argument_list|()
 operator|->
 name|accessibleName
 argument_list|()
@@ -1792,6 +1860,7 @@ if|if
 condition|(
 operator|!
 name|view
+argument_list|()
 operator|->
 name|isVisible
 argument_list|()
@@ -1804,6 +1873,7 @@ name|QPoint
 name|pos
 init|=
 name|view
+argument_list|()
 operator|->
 name|mapToGlobal
 argument_list|(
@@ -1829,11 +1899,13 @@ name|y
 argument_list|()
 argument_list|,
 name|view
+argument_list|()
 operator|->
 name|width
 argument_list|()
 argument_list|,
 name|view
+argument_list|()
 operator|->
 name|height
 argument_list|()
@@ -1854,6 +1926,7 @@ block|{
 if|if
 condition|(
 name|view
+argument_list|()
 operator|->
 name|parent
 argument_list|()
@@ -1866,6 +1939,7 @@ argument_list|(
 literal|"QComboBoxPrivateContainer"
 argument_list|,
 name|view
+argument_list|()
 operator|->
 name|parent
 argument_list|()
@@ -1886,6 +1960,7 @@ operator|::
 name|queryAccessibleInterface
 argument_list|(
 name|view
+argument_list|()
 operator|->
 name|parent
 argument_list|()
@@ -1901,6 +1976,7 @@ operator|::
 name|queryAccessibleInterface
 argument_list|(
 name|view
+argument_list|()
 operator|->
 name|parent
 argument_list|()
@@ -1991,6 +2067,16 @@ name|column
 parameter_list|)
 specifier|const
 block|{
+if|if
+condition|(
+operator|!
+name|isValid
+argument_list|()
+condition|)
+return|return
+name|QModelIndex
+argument_list|()
+return|;
 specifier|const
 name|QTreeView
 modifier|*
@@ -2004,6 +2090,7 @@ operator|*
 argument_list|>
 argument_list|(
 name|view
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|QModelIndex
@@ -2038,6 +2125,7 @@ block|{
 name|modelIndex
 operator|=
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -2083,6 +2171,7 @@ name|QPoint
 name|viewportOffset
 init|=
 name|view
+argument_list|()
 operator|->
 name|viewport
 argument_list|()
@@ -2090,6 +2179,7 @@ operator|->
 name|mapTo
 argument_list|(
 name|view
+argument_list|()
 argument_list|,
 name|QPoint
 argument_list|(
@@ -2103,6 +2193,7 @@ name|QPoint
 name|indexPosition
 init|=
 name|view
+argument_list|()
 operator|->
 name|mapFromGlobal
 argument_list|(
@@ -2120,6 +2211,7 @@ name|QModelIndex
 name|index
 init|=
 name|view
+argument_list|()
 operator|->
 name|indexAt
 argument_list|(
@@ -2150,6 +2242,7 @@ operator|*
 argument_list|>
 argument_list|(
 name|view
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|int
@@ -2188,6 +2281,7 @@ init|=
 name|row
 operator|*
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -2204,6 +2298,7 @@ argument_list|(
 name|i
 operator|>
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -2244,6 +2339,7 @@ operator|*
 argument_list|>
 argument_list|(
 name|view
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Q_ASSERT
@@ -2255,6 +2351,7 @@ if|if
 condition|(
 operator|!
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -2288,6 +2385,7 @@ name|hHeader
 operator|)
 operator|*
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -2337,6 +2435,7 @@ condition|(
 name|index
 operator|<
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -2350,6 +2449,7 @@ operator|new
 name|QAccessibleTableHeaderCell
 argument_list|(
 name|view
+argument_list|()
 argument_list|,
 name|index
 argument_list|,
@@ -2364,6 +2464,7 @@ block|{
 name|index
 operator|-=
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -2379,6 +2480,7 @@ init|=
 name|index
 operator|/
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -2392,6 +2494,7 @@ init|=
 name|index
 operator|%
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -2451,6 +2554,7 @@ operator|*
 argument_list|>
 argument_list|(
 name|view
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Q_ASSERT
@@ -2525,6 +2629,7 @@ operator|*
 argument_list|>
 argument_list|(
 name|view
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Q_ASSERT
@@ -2572,6 +2677,7 @@ init|=
 name|row
 operator|*
 name|view
+argument_list|()
 operator|->
 name|model
 argument_list|()
@@ -2716,6 +2822,7 @@ operator|new
 name|QAccessibleTableCell
 argument_list|(
 name|view
+argument_list|()
 argument_list|,
 name|index
 argument_list|,
@@ -2765,6 +2872,7 @@ argument_list|)
 decl_stmt|;
 return|return
 name|view
+argument_list|()
 operator|->
 name|selectionModel
 argument_list|()
@@ -2812,6 +2920,7 @@ name|isValid
 argument_list|()
 operator|||
 name|view
+argument_list|()
 operator|->
 name|selectionMode
 argument_list|()
@@ -2824,6 +2933,7 @@ return|return
 literal|false
 return|;
 name|view
+argument_list|()
 operator|->
 name|selectionModel
 argument_list|()
