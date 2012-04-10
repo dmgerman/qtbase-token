@@ -6691,6 +6691,16 @@ specifier|const
 block|{
 if|if
 condition|(
+operator|!
+name|options
+operator|->
+name|testOption
+argument_list|(
+name|QColorDialogOptions
+operator|::
+name|DontUseNativeDialog
+argument_list|)
+operator|&&
 name|nativeDialogInUse
 condition|)
 return|return
@@ -9154,9 +9164,16 @@ name|alpha
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// ### fixme: Call helper
 if|if
 condition|(
+operator|!
+name|testOption
+argument_list|(
+name|QColorDialog
+operator|::
+name|DontUseNativeDialog
+argument_list|)
+operator|&&
 name|d
 operator|->
 name|nativeDialogInUse

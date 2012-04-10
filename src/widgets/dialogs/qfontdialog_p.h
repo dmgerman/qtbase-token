@@ -381,6 +381,7 @@ block|;
 name|bool
 name|canBeNativeDialog
 argument_list|()
+specifier|const
 block|;
 name|void
 name|_q_runNativeAppModalPanel
