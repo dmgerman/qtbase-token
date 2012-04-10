@@ -51,11 +51,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qtextcodec.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qunicodetables_p.h"
 end_include
 begin_include
@@ -65,20 +60,6 @@ file|"qunicodetables.cpp"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-ifndef|#
-directive|ifndef
-name|QT_NO_CODEC_FOR_C_STRINGS
-ifdef|#
-directive|ifdef
-name|QT_NO_TEXTCODEC
-DECL|macro|QT_NO_CODEC_FOR_C_STRINGS
-define|#
-directive|define
-name|QT_NO_CODEC_FOR_C_STRINGS
-endif|#
-directive|endif
-endif|#
-directive|endif
 DECL|macro|FLAG
 define|#
 directive|define
@@ -87,7 +68,7 @@ parameter_list|(
 name|x
 parameter_list|)
 value|(1<< (x))
-comment|/*!     \class QLatin1Char     \brief The QLatin1Char class provides an 8-bit ASCII/Latin-1 character.      \ingroup string-processing      This class is only useful to avoid the codec for C strings business     in the QChar(ch) constructor. You can avoid it by writing QChar(ch, 0).      \sa QChar, QLatin1String, QString */
+comment|/*!     \class QLatin1Char     \brief The QLatin1Char class provides an 8-bit ASCII/Latin-1 character.      \ingroup string-processing      This class is only useful to construct a QChar with 8-bit character.      \sa QChar, QLatin1String, QString */
 comment|/*!     \fn const char QLatin1Char::toLatin1() const      Converts a Latin-1 character to an 8-bit ASCII representation of the character. */
 comment|/*!     \fn const ushort QLatin1Char::unicode() const      Converts a Latin-1 character to an 16-bit-encoded Unicode representation     of the character. */
 comment|/*!     \fn QLatin1Char::QLatin1Char(char c)      Constructs a Latin-1 character for \a c. This constructor should be     used when the encoding of the input character is known to be Latin-1. */
