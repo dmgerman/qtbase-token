@@ -4020,6 +4020,10 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 case|case
+name|PP_NEWLINE
+case|:
+continue|continue;
+case|case
 name|SIGNALS
 case|:
 case|case
