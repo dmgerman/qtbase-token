@@ -658,7 +658,8 @@ operator|>
 name|UNICODE_LAST_CODEPOINT
 condition|)
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 return|return
 name|qGetProp
