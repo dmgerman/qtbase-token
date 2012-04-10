@@ -617,6 +617,9 @@ name|uint
 name|qHash
 argument_list|(
 argument|const T *key
+argument_list|,
+argument|uint seed =
+literal|0
 argument_list|)
 block|{
 return|return
@@ -629,6 +632,8 @@ operator|>
 operator|(
 name|key
 operator|)
+argument_list|,
+name|seed
 argument_list|)
 return|;
 block|}
