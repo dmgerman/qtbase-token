@@ -48,6 +48,14 @@ modifier|*
 name|argv
 parameter_list|)
 block|{
+name|QApplication
+name|app
+argument_list|(
+name|argc
+argument_list|,
+name|argv
+argument_list|)
+decl_stmt|;
 name|MyWidget
 name|myWidget
 decl_stmt|;

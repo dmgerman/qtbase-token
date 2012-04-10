@@ -3172,14 +3172,9 @@ literal|0
 condition|)
 block|{
 comment|// this is weird. we had nothing pipelined but still bytes available. better close it.
-comment|//if (socket->bytesAvailable()> 0)
-comment|//    close();
-comment|//
-comment|// FIXME
-comment|// We do not close it anymore now, but should introduce this again after having fixed
-comment|// the chunked decoder in QHttpNetworkReply to read the whitespace after the last chunk.
-comment|// (Currently this is worked around by readStatus in the QHttpNetworkReply ignoring
-comment|// leading whitespace.
+name|close
+argument_list|()
+expr_stmt|;
 name|QMetaObject
 operator|::
 name|invokeMethod

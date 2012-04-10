@@ -153,20 +153,6 @@ operator|=
 literal|0
 block|;
 name|virtual
-name|void
-name|serializeBuffer
-argument_list|(
-argument|void *bufferId
-argument_list|,
-argument|QByteArray *serializedData
-argument_list|,
-argument|int *fileDescriptor
-argument_list|)
-specifier|const
-operator|=
-literal|0
-block|;
-name|virtual
 name|uint
 name|textureIdForBuffer
 argument_list|(
@@ -191,6 +177,29 @@ block|;
 name|virtual
 name|bool
 name|dereferenceBuffer
+argument_list|(
+name|void
+operator|*
+name|bufferId
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|QSize
+name|sizeOfBuffer
+argument_list|(
+name|void
+operator|*
+name|bufferId
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+operator|*
+name|eglImageForBuffer
 argument_list|(
 name|void
 operator|*
@@ -229,11 +238,6 @@ argument_list|,
 name|void
 operator|*
 name|bufferId
-argument_list|,
-specifier|const
-name|QSize
-operator|&
-name|bufferSize
 argument_list|,
 specifier|const
 name|QVector
@@ -280,11 +284,6 @@ argument_list|,
 name|void
 operator|*
 name|bufferId
-argument_list|,
-specifier|const
-name|QSize
-operator|&
-name|bufferSize
 argument_list|,
 specifier|const
 name|QVector

@@ -286,7 +286,10 @@ name|NULL
 argument_list|,
 name|b
 argument_list|,
+name|DWORD
+argument_list|(
 name|size
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

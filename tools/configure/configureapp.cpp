@@ -776,11 +776,6 @@ name|QStringLiteral
 argument_list|(
 literal|"examples"
 argument_list|)
-operator|<<
-name|QStringLiteral
-argument_list|(
-literal|"tests"
-argument_list|)
 expr_stmt|;
 name|dictionary
 index|[
@@ -1019,7 +1014,7 @@ literal|"auto"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 index|]
 operator|=
 literal|"yes"
@@ -5298,12 +5293,12 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
-literal|"-no-declarative-debug"
+literal|"-no-qml-debug"
 condition|)
 block|{
 name|dictionary
 index|[
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 index|]
 operator|=
 literal|"no"
@@ -5319,12 +5314,12 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
-literal|"-declarative-debug"
+literal|"-qml-debug"
 condition|)
 block|{
 name|dictionary
 index|[
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 index|]
 operator|=
 literal|"yes"
@@ -5898,27 +5893,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
-literal|"-qpa"
-condition|)
-block|{
-name|dictionary
-index|[
-literal|"QPA"
-index|]
-operator|=
-literal|"yes"
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
 operator|(
 name|configCmdLine
 operator|.
@@ -6082,7 +6056,7 @@ condition|)
 break|break;
 name|nobuildParts
 operator|.
-name|removeAll
+name|append
 argument_list|(
 name|configCmdLine
 operator|.
@@ -9051,7 +9025,7 @@ literal|"[-phonon] [-no-phonon-backend] [-phonon-backend]\n"
 literal|"[-no-multimedia] [-multimedia] [-no-audio-backend] [-audio-backend]\n"
 literal|"[-no-script] [-script] [-no-scripttools] [-scripttools]\n"
 literal|"[-no-webkit] [-webkit] [-webkit-debug]\n"
-literal|"[-no-directwrite] [-directwrite] [-qpa] [-no-widgets] [-icu]\n\n"
+literal|"[-no-directwrite] [-directwrite] [-no-widgets] [-icu]\n\n"
 argument_list|,
 literal|0
 argument_list|,
@@ -10147,24 +10121,24 @@ argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 argument_list|,
 literal|"no"
 argument_list|,
-literal|"-no-declarative-debug"
+literal|"-no-qml-debug"
 argument_list|,
-literal|"Do not build the declarative debugging support"
+literal|"Do not build the QML debugging support"
 argument_list|)
 expr_stmt|;
 name|desc
 argument_list|(
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 argument_list|,
 literal|"yes"
 argument_list|,
-literal|"-declarative-debug"
+literal|"-qml-debug"
 argument_list|,
-literal|"Build the declarative debugging support"
+literal|"Build the QML debugging support"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -12799,19 +12773,19 @@ if|if
 condition|(
 name|dictionary
 index|[
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 index|]
 operator|==
 literal|"auto"
 condition|)
 name|dictionary
 index|[
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 index|]
 operator|=
 name|dictionary
 index|[
-literal|"DECLARATIVE"
+literal|"QML"
 index|]
 operator|==
 literal|"yes"
@@ -14024,10 +13998,25 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
 name|buildParts
 operator|=
 name|defaultBuildParts
 expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"BUILDDEV"
+index|]
+operator|==
+literal|"yes"
+condition|)
+name|buildParts
+operator|+=
+literal|"tests"
+expr_stmt|;
+block|}
 while|while
 condition|(
 operator|!
@@ -16630,19 +16619,6 @@ if|if
 condition|(
 name|dictionary
 index|[
-literal|"QPA"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|configStream
-operator|<<
-literal|" qpa"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
 literal|"CROSS_COMPILE"
 index|]
 operator|==
@@ -16664,6 +16640,11 @@ condition|)
 name|configStream
 operator|<<
 literal|"directwrite"
+expr_stmt|;
+comment|// ### For compatibility only, should be removed later.
+name|configStream
+operator|<<
+literal|" qpa"
 expr_stmt|;
 name|configStream
 operator|<<
@@ -17468,15 +17449,7 @@ operator|<<
 name|endl
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"QPA"
-index|]
-operator|==
-literal|"yes"
-condition|)
+comment|// ### For compatibility only, should be removed later.
 name|tmpStream
 operator|<<
 name|endl
@@ -17810,14 +17783,14 @@ if|if
 condition|(
 name|dictionary
 index|[
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 index|]
 operator|==
 literal|"no"
 condition|)
 name|qconfigList
 operator|+=
-literal|"QDECLARATIVE_NO_DEBUG_PROTOCOL"
+literal|"QT_QML_NO_DEBUGGER"
 expr_stmt|;
 if|if
 condition|(
@@ -19510,11 +19483,11 @@ name|endl
 expr_stmt|;
 name|cout
 operator|<<
-literal|"Declarative debugging......."
+literal|"QML debugging..............."
 operator|<<
 name|dictionary
 index|[
-literal|"DECLARATIVE_DEBUG"
+literal|"QML_DEBUG"
 index|]
 operator|<<
 name|endl

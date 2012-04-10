@@ -74,6 +74,10 @@ name|udpSocket
 operator|->
 name|bind
 argument_list|(
+name|QHostAddress
+operator|::
+name|AnyIPv4
+argument_list|,
 literal|45454
 argument_list|,
 name|QUdpSocket

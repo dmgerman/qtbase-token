@@ -124,79 +124,29 @@ modifier|&
 name|actual
 parameter_list|)
 block|{
-name|QList
-operator|<
-name|QByteArray
-operator|>
-name|expected
-expr_stmt|;
-comment|// Mandriva; old test server
-name|expected
-operator|<<
-name|QByteArray
-argument_list|(
-literal|"* OK [CAPABILITY IMAP4 IMAP4rev1 LITERAL+ ID STARTTLS LOGINDISABLED] "
-argument_list|)
+comment|// Server greeting may contain capability, version and server name
+comment|// But spec only requires "* OK" and "\r\n"
+comment|// Match against a prefix and postfix that covers all Cyrus versions
+if|if
+condition|(
+name|actual
 operator|.
-name|append
-argument_list|(
-name|QtNetworkSettings
-operator|::
-name|serverName
-argument_list|()
-operator|.
-name|toAscii
-argument_list|()
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|" Cyrus IMAP4 v2.3.11-Mandriva-RPM-2.3.11-6mdv2008.1 server ready\r\n"
-argument_list|)
-expr_stmt|;
-comment|// Ubuntu 10.04; new test server
-name|expected
-operator|<<
-name|QByteArray
+name|startsWith
 argument_list|(
 literal|"* OK "
 argument_list|)
-operator|.
-name|append
-argument_list|(
-name|QtNetworkSettings
-operator|::
-name|serverLocalName
-argument_list|()
-operator|.
-name|toAscii
-argument_list|()
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|" Cyrus IMAP4 v2.2.13-Debian-2.2.13-19 server ready\r\n"
-argument_list|)
-expr_stmt|;
-comment|// Feel free to add more as needed
-name|Q_FOREACH
-argument_list|(
-argument|QByteArray const& ba
-argument_list|,
-argument|expected
-argument_list|)
-block|{
-if|if
-condition|(
-name|ba
-operator|==
+operator|&&
 name|actual
+operator|.
+name|endsWith
+argument_list|(
+literal|"server ready\r\n"
+argument_list|)
 condition|)
 block|{
 return|return
 name|true
 return|;
-block|}
 block|}
 return|return
 name|false
@@ -212,82 +162,11 @@ modifier|&
 name|actual
 parameter_list|)
 block|{
-name|QList
-operator|<
-name|QByteArray
-operator|>
-name|expected
-expr_stmt|;
-comment|// Mandriva; old test server
-name|expected
-operator|<<
-name|QByteArray
+return|return
+name|compareReplyIMAP
 argument_list|(
-literal|"* OK [CAPABILITY IMAP4 IMAP4rev1 LITERAL+ ID AUTH=PLAIN SASL-IR] "
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|QtNetworkSettings
-operator|::
-name|serverName
-argument_list|()
-operator|.
-name|toAscii
-argument_list|()
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|" Cyrus IMAP4 v2.3.11-Mandriva-RPM-2.3.11-6mdv2008.1 server ready\r\n"
-argument_list|)
-expr_stmt|;
-comment|// Ubuntu 10.04; new test server
-name|expected
-operator|<<
-name|QByteArray
-argument_list|(
-literal|"* OK "
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|QtNetworkSettings
-operator|::
-name|serverLocalName
-argument_list|()
-operator|.
-name|toAscii
-argument_list|()
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|" Cyrus IMAP4 v2.2.13-Debian-2.2.13-19 server ready\r\n"
-argument_list|)
-expr_stmt|;
-comment|// Feel free to add more as needed
-name|Q_FOREACH
-argument_list|(
-argument|QByteArray const& ba
-argument_list|,
-argument|expected
-argument_list|)
-block|{
-if|if
-condition|(
-name|ba
-operator|==
 name|actual
-condition|)
-block|{
-return|return
-name|true
-return|;
-block|}
-block|}
-return|return
-name|false
+argument_list|)
 return|;
 block|}
 specifier|static

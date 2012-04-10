@@ -8729,6 +8729,13 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|d
+operator|->
+name|alphaCache
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|setActive
 argument_list|(
 literal|true

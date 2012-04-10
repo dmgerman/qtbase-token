@@ -869,12 +869,6 @@ return|return
 literal|"variable"
 return|;
 case|case
-name|Target
-case|:
-return|return
-literal|"target"
-return|;
-case|case
 name|QmlProperty
 case|:
 return|return
@@ -1838,14 +1832,12 @@ comment|/*!   If this node is a QML class node, return a pointer to it.   If it 
 end_comment
 begin_function
 DECL|function|qmlClassNode
-specifier|const
 name|QmlClassNode
 modifier|*
 name|Node
 operator|::
 name|qmlClassNode
 parameter_list|()
-specifier|const
 block|{
 if|if
 condition|(
@@ -1853,7 +1845,6 @@ name|isQmlNode
 argument_list|()
 condition|)
 block|{
-specifier|const
 name|Node
 modifier|*
 name|n
@@ -1896,7 +1887,6 @@ condition|)
 return|return
 cast|static_cast
 argument_list|<
-specifier|const
 name|QmlClassNode
 operator|*
 argument_list|>
@@ -1915,16 +1905,13 @@ comment|/*!   If this node is a QML node, find its QML class node,   and return 
 end_comment
 begin_function
 DECL|function|declarativeCppNode
-specifier|const
 name|ClassNode
 modifier|*
 name|Node
 operator|::
 name|declarativeCppNode
 parameter_list|()
-specifier|const
 block|{
-specifier|const
 name|QmlClassNode
 modifier|*
 name|qcn
@@ -1944,6 +1931,65 @@ argument_list|()
 return|;
 return|return
 literal|0
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!   Returns true if the node's status is Internal, or if its   parent is a class with internal status.  */
+end_comment
+begin_function
+DECL|function|isInternal
+name|bool
+name|Node
+operator|::
+name|isInternal
+parameter_list|()
+specifier|const
+block|{
+if|if
+condition|(
+name|status
+argument_list|()
+operator|==
+name|Internal
+condition|)
+return|return
+literal|true
+return|;
+if|if
+condition|(
+name|parent
+argument_list|()
+operator|&&
+name|parent
+argument_list|()
+operator|->
+name|status
+argument_list|()
+operator|==
+name|Internal
+condition|)
+return|return
+literal|true
+return|;
+if|if
+condition|(
+name|relates
+argument_list|()
+operator|&&
+name|relates
+argument_list|()
+operator|->
+name|status
+argument_list|()
+operator|==
+name|Internal
+condition|)
+return|return
+literal|true
+return|;
+return|return
+literal|false
 return|;
 block|}
 end_function
@@ -1973,12 +2019,12 @@ begin_comment
 comment|/*!   Find the node in this node's children that has the   given \a name. If this node is a QML class node, be   sure to also look in the children of its property   group nodes. Return the matching node or 0.  */
 end_comment
 begin_function
-DECL|function|findNode
+DECL|function|findChildNodeByName
 name|Node
 modifier|*
 name|InnerNode
 operator|::
-name|findNode
+name|findChildNodeByName
 parameter_list|(
 specifier|const
 name|QString
@@ -2078,7 +2124,7 @@ argument_list|(
 name|n
 argument_list|)
 operator|->
-name|findNode
+name|findChildNodeByName
 argument_list|(
 name|name
 argument_list|)
@@ -2223,7 +2269,7 @@ argument_list|(
 name|node
 argument_list|)
 operator|->
-name|findNode
+name|findChildNodeByName
 argument_list|(
 name|name
 argument_list|)
@@ -2305,7 +2351,7 @@ argument_list|(
 name|node
 argument_list|)
 operator|->
-name|findNode
+name|findChildNodeByName
 argument_list|(
 name|name
 argument_list|)
@@ -2356,15 +2402,15 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!   Find the node in this node's children that has the given \a name. If   this node is a QML class node, be sure to also look in the children   of its property group nodes. Return the matching node or 0.    If \a qml is true, only match a node for which node->isQmlNode()   returns true. If \a qml is false, only match a node for which   node->isQmlNode() returns false.  */
+comment|/*!   Find the node in this node's children that has the given \a name. If   this node is a QML class node, be sure to also look in the children   of its property group nodes. Return the matching node or 0. This is   not a recearsive search.    If \a qml is true, only match a node for which node->isQmlNode()   returns true. If \a qml is false, only match a node for which   node->isQmlNode() returns false.  */
 end_comment
 begin_function
-DECL|function|findNode
+DECL|function|findChildNodeByName
 name|Node
 modifier|*
 name|InnerNode
 operator|::
-name|findNode
+name|findChildNodeByName
 parameter_list|(
 specifier|const
 name|QString
@@ -2536,7 +2582,7 @@ argument_list|(
 name|node
 argument_list|)
 operator|->
-name|findNode
+name|findChildNodeByName
 argument_list|(
 name|name
 argument_list|)
@@ -2562,15 +2608,15 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Same as the other findNode(), but if the node with the   specified \a name is not of the specified \a type, return   0.  */
+comment|/*!   This function is like findChildNodeByName(), but if a node   with the specified \a name is found but it is not of the   specified \a type, 0 is returned.    This function is not recursive and therefore can't handle   collisions. If it finds a collision node named \a name, it   will return that node. But it might not find the collision   node because it looks up \a name in the child map, not the   list.  */
 end_comment
 begin_function
-DECL|function|findNode
+DECL|function|findChildNodeByNameAndType
 name|Node
 modifier|*
 name|InnerNode
 operator|::
-name|findNode
+name|findChildNodeByNameAndType
 parameter_list|(
 specifier|const
 name|QString
@@ -2587,7 +2633,6 @@ name|type
 operator|==
 name|Function
 condition|)
-block|{
 return|return
 name|primaryFunctionMap
 operator|.
@@ -2596,7 +2641,6 @@ argument_list|(
 name|name
 argument_list|)
 return|;
-block|}
 else|else
 block|{
 name|Node
@@ -2621,22 +2665,17 @@ argument_list|()
 operator|==
 name|type
 condition|)
-block|{
 return|return
 name|node
 return|;
 block|}
-else|else
-block|{
 return|return
 literal|0
 return|;
 block|}
-block|}
-block|}
 end_function
 begin_comment
-comment|/*!   Find the function node in this node for the function named \a name.  */
+comment|/*!   Find a function node that is a child of this nose, such   that the function node has the specified \a name.  */
 end_comment
 begin_function
 DECL|function|findFunctionNode
@@ -2670,7 +2709,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Find the function node in this node that has the same name as \a clone.  */
+comment|/*!   Find the function node that is a child of this node, such   that the function has the same name and signature as the   \a clone node.  */
 end_comment
 begin_function
 DECL|function|findFunctionNode
@@ -3653,13 +3692,13 @@ begin_comment
 comment|/*!  */
 end_comment
 begin_function
-DECL|function|findNode
+DECL|function|findChildNodeByName
 specifier|const
 name|Node
 modifier|*
 name|InnerNode
 operator|::
-name|findNode
+name|findChildNodeByName
 parameter_list|(
 specifier|const
 name|QString
@@ -3681,7 +3720,7 @@ decl_stmt|;
 return|return
 name|that
 operator|->
-name|findNode
+name|findChildNodeByName
 argument_list|(
 name|name
 argument_list|)
@@ -3692,13 +3731,13 @@ begin_comment
 comment|/*!   If \a qml is true, only match a node for which node->isQmlNode()   returns true. If \a qml is false, only match a node for which   node->isQmlNode() returns false.  */
 end_comment
 begin_function
-DECL|function|findNode
+DECL|function|findChildNodeByName
 specifier|const
 name|Node
 modifier|*
 name|InnerNode
 operator|::
-name|findNode
+name|findChildNodeByName
 parameter_list|(
 specifier|const
 name|QString
@@ -3723,7 +3762,7 @@ decl_stmt|;
 return|return
 name|that
 operator|->
-name|findNode
+name|findChildNodeByName
 argument_list|(
 name|name
 argument_list|,
@@ -3733,16 +3772,16 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  */
+comment|/*!   Searches this node's children for a child named \a name   with the specified node \a type.  */
 end_comment
 begin_function
-DECL|function|findNode
+DECL|function|findChildNodeByNameAndType
 specifier|const
 name|Node
 modifier|*
 name|InnerNode
 operator|::
-name|findNode
+name|findChildNodeByNameAndType
 parameter_list|(
 specifier|const
 name|QString
@@ -3767,7 +3806,7 @@ decl_stmt|;
 return|return
 name|that
 operator|->
-name|findNode
+name|findChildNodeByNameAndType
 argument_list|(
 name|name
 argument_list|,
@@ -3777,7 +3816,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Find the function node in this node that has the given \a name.  */
+comment|/*!   Find a function node that is a child of this nose, such   that the function node has the specified \a name. This   function calls the non-const version of itself.  */
 end_comment
 begin_function
 DECL|function|findFunctionNode
@@ -3816,7 +3855,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Find the function node in this node that has the same name as \a clone.  */
+comment|/*!   Find the function node that is a child of this node, such   that the function has the same name and signature as the   \a clone node. This function calls the non-const version.  */
 end_comment
 begin_function
 DECL|function|findFunctionNode
@@ -4982,22 +5021,8 @@ begin_comment
 comment|/*!   \class LeafNode  */
 end_comment
 begin_comment
-comment|/*!   Returns false because this is a LeafNode.  */
+comment|/*! \fn bool LeafNode::isInnerNode() const   Returns false because this is a LeafNode.  */
 end_comment
-begin_function
-DECL|function|isInnerNode
-name|bool
-name|LeafNode
-operator|::
-name|isInnerNode
-parameter_list|()
-specifier|const
-block|{
-return|return
-literal|false
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!   Constructs a leaf node named \a name of the specified   \a type. The new leaf node becomes a child of \a parent.  */
 end_comment
@@ -5546,7 +5571,6 @@ comment|/*!   Search the child list to find the property node with the   specifi
 end_comment
 begin_function
 DECL|function|findPropertyNode
-specifier|const
 name|PropertyNode
 modifier|*
 name|ClassNode
@@ -5558,14 +5582,12 @@ name|QString
 modifier|&
 name|name
 parameter_list|)
-specifier|const
 block|{
-specifier|const
 name|Node
 modifier|*
 name|n
 init|=
-name|findNode
+name|findChildNodeByNameAndType
 argument_list|(
 name|name
 argument_list|,
@@ -5581,7 +5603,6 @@ condition|)
 return|return
 cast|static_cast
 argument_list|<
-specifier|const
 name|PropertyNode
 operator|*
 argument_list|>
@@ -5589,7 +5610,6 @@ argument_list|(
 name|n
 argument_list|)
 return|;
-specifier|const
 name|PropertyNode
 modifier|*
 name|pn
@@ -5634,7 +5654,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|const
 name|ClassNode
 modifier|*
 name|cn
@@ -5700,7 +5719,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|const
 name|ClassNode
 modifier|*
 name|cn
@@ -5738,16 +5756,13 @@ comment|/*!   This function does a recursive search of this class node's   base 
 end_comment
 begin_function
 DECL|function|findQmlBaseNode
-specifier|const
 name|QmlClassNode
 modifier|*
 name|ClassNode
 operator|::
 name|findQmlBaseNode
 parameter_list|()
-specifier|const
 block|{
-specifier|const
 name|QmlClassNode
 modifier|*
 name|result
@@ -5792,7 +5807,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|const
 name|ClassNode
 modifier|*
 name|cn
@@ -5840,7 +5854,6 @@ operator|++
 name|i
 control|)
 block|{
-specifier|const
 name|ClassNode
 modifier|*
 name|cn
@@ -6113,17 +6126,9 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|(
 name|nodeSubtype_
 operator|==
 name|HeaderFile
-operator|)
-operator|||
-operator|(
-name|nodeSubtype_
-operator|==
-name|Collision
-operator|)
 condition|)
 block|{
 if|if
@@ -6145,6 +6150,19 @@ argument_list|()
 operator|+
 literal|" - "
 operator|+
+name|title
+argument_list|()
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|nodeSubtype_
+operator|==
+name|Collision
+condition|)
+block|{
+return|return
 name|title
 argument_list|()
 return|;
@@ -7521,65 +7539,6 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if the node's status is Internal, or if its   parent is a class with internal status.  */
-end_comment
-begin_function
-DECL|function|isInternal
-name|bool
-name|FunctionNode
-operator|::
-name|isInternal
-parameter_list|()
-specifier|const
-block|{
-if|if
-condition|(
-name|status
-argument_list|()
-operator|==
-name|Internal
-condition|)
-return|return
-literal|true
-return|;
-if|if
-condition|(
-name|parent
-argument_list|()
-operator|&&
-name|parent
-argument_list|()
-operator|->
-name|status
-argument_list|()
-operator|==
-name|Internal
-condition|)
-return|return
-literal|true
-return|;
-if|if
-condition|(
-name|relates
-argument_list|()
-operator|&&
-name|relates
-argument_list|()
-operator|->
-name|status
-argument_list|()
-operator|==
-name|Internal
-condition|)
-return|return
-literal|true
-return|;
-return|return
-literal|false
-return|;
-block|}
-end_function
-begin_comment
 comment|/*!   Print some debugging stuff.  */
 end_comment
 begin_function
@@ -7960,55 +7919,6 @@ return|;
 block|}
 block|}
 end_function
-begin_comment
-comment|/*!   \class TargetNode  */
-end_comment
-begin_comment
-comment|/*!  */
-end_comment
-begin_constructor
-DECL|function|TargetNode
-name|TargetNode
-operator|::
-name|TargetNode
-parameter_list|(
-name|InnerNode
-modifier|*
-name|parent
-parameter_list|,
-specifier|const
-name|QString
-modifier|&
-name|name
-parameter_list|)
-member_init_list|:
-name|LeafNode
-argument_list|(
-name|Target
-argument_list|,
-name|parent
-argument_list|,
-name|name
-argument_list|)
-block|{ }
-end_constructor
-begin_comment
-comment|/*!   Returns false because this is a TargetNode.  */
-end_comment
-begin_function
-DECL|function|isInnerNode
-name|bool
-name|TargetNode
-operator|::
-name|isInnerNode
-parameter_list|()
-specifier|const
-block|{
-return|return
-literal|false
-return|;
-block|}
-end_function
 begin_decl_stmt
 DECL|member|qmlOnly
 name|bool
@@ -8065,7 +7975,6 @@ name|QString
 modifier|&
 name|name
 parameter_list|,
-specifier|const
 name|ClassNode
 modifier|*
 name|cn
@@ -8515,7 +8424,6 @@ name|QmlClassNode
 operator|::
 name|resolveInheritance
 parameter_list|(
-specifier|const
 name|Tree
 modifier|*
 name|tree
@@ -8571,52 +8479,26 @@ argument_list|(
 literal|"::"
 argument_list|)
 decl_stmt|;
-specifier|const
 name|Node
 modifier|*
 name|n
 init|=
 name|tree
 operator|->
-name|findNode
+name|findQmlClassNode
 argument_list|(
 name|strList
-argument_list|,
-name|Node
-operator|::
-name|Fake
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
 name|n
-operator|&&
-operator|(
-name|n
-operator|->
-name|subType
-argument_list|()
-operator|==
-name|Node
-operator|::
-name|QmlClass
-operator|||
-name|n
-operator|->
-name|subType
-argument_list|()
-operator|==
-name|Node
-operator|::
-name|Collision
-operator|)
 condition|)
 block|{
 name|base_
 operator|=
 cast|static_cast
 argument_list|<
-specifier|const
 name|FakeNode
 operator|*
 argument_list|>
@@ -8756,7 +8638,6 @@ name|base_
 operator|=
 cast|static_cast
 argument_list|<
-specifier|const
 name|FakeNode
 operator|*
 argument_list|>
@@ -8816,7 +8697,6 @@ name|base_
 operator|=
 cast|static_cast
 argument_list|<
-specifier|const
 name|QmlClassNode
 operator|*
 argument_list|>
@@ -8844,7 +8724,6 @@ condition|(
 name|cnode_
 condition|)
 block|{
-specifier|const
 name|QmlClassNode
 modifier|*
 name|qcn
@@ -9262,12 +9141,10 @@ name|QmlPropertyNode
 operator|::
 name|isWritable
 parameter_list|(
-specifier|const
 name|Tree
 modifier|*
 name|tree
 parameter_list|)
-specifier|const
 block|{
 if|if
 condition|(
@@ -9283,7 +9160,6 @@ argument_list|,
 literal|false
 argument_list|)
 return|;
-specifier|const
 name|PropertyNode
 modifier|*
 name|pn
@@ -9330,21 +9206,17 @@ block|}
 end_function
 begin_function
 DECL|function|correspondingProperty
-specifier|const
 name|PropertyNode
 modifier|*
 name|QmlPropertyNode
 operator|::
 name|correspondingProperty
 parameter_list|(
-specifier|const
 name|Tree
 modifier|*
 name|tree
 parameter_list|)
-specifier|const
 block|{
-specifier|const
 name|PropertyNode
 modifier|*
 name|pn
@@ -9381,14 +9253,12 @@ condition|(
 name|n
 condition|)
 block|{
-specifier|const
 name|QmlClassNode
 modifier|*
 name|qcn
 init|=
 cast|static_cast
 argument_list|<
-specifier|const
 name|QmlClassNode
 operator|*
 argument_list|>
@@ -9396,7 +9266,6 @@ argument_list|(
 name|n
 argument_list|)
 decl_stmt|;
-specifier|const
 name|ClassNode
 modifier|*
 name|cn
@@ -9466,18 +9335,15 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-specifier|const
 name|Node
 modifier|*
 name|nn
 init|=
 name|tree
 operator|->
-name|findNode
+name|findClassNode
 argument_list|(
 name|path
-argument_list|,
-name|Class
 argument_list|)
 decl_stmt|;
 if|if
@@ -9485,14 +9351,12 @@ condition|(
 name|nn
 condition|)
 block|{
-specifier|const
 name|ClassNode
 modifier|*
 name|cn
 init|=
 cast|static_cast
 argument_list|<
-specifier|const
 name|ClassNode
 operator|*
 argument_list|>
@@ -9500,7 +9364,6 @@ argument_list|(
 name|nn
 argument_list|)
 decl_stmt|;
-specifier|const
 name|PropertyNode
 modifier|*
 name|pn2
@@ -9602,7 +9465,7 @@ argument_list|)
 block|{
 name|setTitle
 argument_list|(
-literal|"Name Collisions For: "
+literal|"Name Collision: "
 operator|+
 name|child
 operator|->
@@ -9734,7 +9597,6 @@ comment|/*!   Find any of this collision node's children that has type \a t   an
 end_comment
 begin_function
 DECL|function|findAny
-specifier|const
 name|InnerNode
 modifier|*
 name|NameCollisionNode
@@ -9751,7 +9613,6 @@ operator|::
 name|SubType
 name|st
 parameter_list|)
-specifier|const
 block|{
 if|if
 condition|(
@@ -9831,7 +9692,6 @@ condition|)
 return|return
 cast|static_cast
 argument_list|<
-specifier|const
 name|InnerNode
 operator|*
 argument_list|>
@@ -11439,17 +11299,6 @@ name|str
 operator|=
 literal|"var-"
 operator|+
-name|name
-argument_list|()
-expr_stmt|;
-break|break;
-case|case
-name|Node
-operator|::
-name|Target
-case|:
-name|str
-operator|=
 name|name
 argument_list|()
 expr_stmt|;

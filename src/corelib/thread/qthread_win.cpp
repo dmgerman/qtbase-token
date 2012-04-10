@@ -933,6 +933,10 @@ name|thread
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|thread_p
+argument_list|)
 name|Q_ASSERT
 argument_list|(
 operator|!

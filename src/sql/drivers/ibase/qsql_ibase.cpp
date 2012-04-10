@@ -11207,6 +11207,9 @@ argument_list|,
 name|QSqlDriver
 operator|::
 name|UnknownSource
+argument_list|,
+name|QVariant
+argument_list|()
 argument_list|)
 emit|;
 block|}

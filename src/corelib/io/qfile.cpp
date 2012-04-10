@@ -1137,7 +1137,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Renames the file currently specified by fileName() to \a newName.     Returns true if successful; otherwise returns false.      If a file with the name \a newName already exists, rename() returns false     (i.e., QFile will not overwrite it).      The file is closed before it is renamed.      \sa setFileName() */
+comment|/*!     Renames the file currently specified by fileName() to \a newName.     Returns true if successful; otherwise returns false.      If a file with the name \a newName already exists, rename() returns false     (i.e., QFile will not overwrite it).      The file is closed before it is renamed.      If the rename operation fails, Qt will attempt to copy this file's     contents to \a newName, and then remove this file, keeping only     \a newName. If that copy operation fails or this file can't be removed,     the destination file \a newName is removed to restore the old state.      \sa setFileName() */
 end_comment
 begin_function
 name|bool

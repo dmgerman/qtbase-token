@@ -78,7 +78,15 @@ name|printer
 argument_list|,
 name|parent
 argument_list|)
-block|{ }
+block|{
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_DontShowOnScreen
+argument_list|)
+expr_stmt|;
+block|}
 end_constructor
 begin_constructor
 DECL|function|QPageSetupDialog
@@ -103,7 +111,15 @@ literal|0
 argument_list|,
 name|parent
 argument_list|)
-block|{ }
+block|{
+name|setAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_DontShowOnScreen
+argument_list|)
+expr_stmt|;
+block|}
 end_constructor
 begin_function
 DECL|function|exec
@@ -487,6 +503,13 @@ operator|/
 name|multiplier
 expr_stmt|;
 empty_stmt|;
+name|QDialog
+operator|::
+name|setVisible
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|bool
 name|result
 init|=
@@ -496,6 +519,13 @@ operator|&
 name|psd
 argument_list|)
 decl_stmt|;
+name|QDialog
+operator|::
+name|setVisible
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|result

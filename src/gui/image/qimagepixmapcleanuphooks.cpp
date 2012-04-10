@@ -394,6 +394,22 @@ name|qint64
 name|key
 parameter_list|)
 block|{
+name|QImagePixmapCleanupHooks
+modifier|*
+name|h
+init|=
+name|qt_image_and_pixmap_cleanup_hooks
+argument_list|()
+decl_stmt|;
+comment|// the global destructor for the pixmap and image hooks might have
+comment|// been called already if the app is "leaking" global
+comment|// pixmaps/images
+if|if
+condition|(
+operator|!
+name|h
+condition|)
+return|return;
 for|for
 control|(
 name|int
@@ -403,8 +419,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|qt_image_and_pixmap_cleanup_hooks
-argument_list|()
+name|h
 operator|->
 name|imageHooks
 operator|.
@@ -414,8 +429,7 @@ condition|;
 operator|++
 name|i
 control|)
-name|qt_image_and_pixmap_cleanup_hooks
-argument_list|()
+name|h
 operator|->
 name|imageHooks
 index|[

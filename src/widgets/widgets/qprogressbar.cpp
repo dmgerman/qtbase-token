@@ -1759,9 +1759,11 @@ name|QProgressBar
 operator|::
 name|invertedAppearance
 parameter_list|()
+specifier|const
 block|{
 name|Q_D
 argument_list|(
+specifier|const
 name|QProgressBar
 argument_list|)
 expr_stmt|;
@@ -1813,9 +1815,11 @@ name|QProgressBar
 operator|::
 name|textDirection
 parameter_list|()
+specifier|const
 block|{
 name|Q_D
 argument_list|(
+specifier|const
 name|QProgressBar
 argument_list|)
 expr_stmt|;

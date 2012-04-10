@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<math.h>
+file|<qmath.h>
 end_include
 begin_include
 include|#

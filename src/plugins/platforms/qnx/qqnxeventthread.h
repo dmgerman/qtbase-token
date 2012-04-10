@@ -21,20 +21,16 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformScreen>
-end_include
-begin_include
-include|#
-directive|include
-file|<QtGui/QWindowSystemInterface>
-end_include
-begin_include
-include|#
-directive|include
 file|<screen/screen.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QQnxScreenEventHandler
+name|class
+name|QQnxScreenEventHandler
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QQnxEventThread
 range|:
@@ -47,7 +43,7 @@ name|QQnxEventThread
 argument_list|(
 argument|screen_context_t context
 argument_list|,
-argument|QPlatformScreen& screen
+argument|QQnxScreenEventHandler *screenEventHandler
 argument_list|)
 block|;
 name|virtual
@@ -72,91 +68,25 @@ argument_list|)
 block|;
 name|protected
 operator|:
-name|virtual
 name|void
 name|run
 argument_list|()
 block|;
 name|private
 operator|:
-expr|enum
-block|{
-name|MaximumTouchPoints
-operator|=
-literal|10
-block|}
-block|;
 name|void
 name|shutdown
 argument_list|()
 block|;
-name|void
-name|dispatchEvent
-argument_list|(
-argument|screen_event_t event
-argument_list|)
-block|;
-name|void
-name|handleKeyboardEvent
-argument_list|(
-argument|screen_event_t event
-argument_list|)
-block|;
-name|void
-name|handlePointerEvent
-argument_list|(
-argument|screen_event_t event
-argument_list|)
-block|;
-name|void
-name|handleTouchEvent
-argument_list|(
-argument|screen_event_t event
-argument_list|,
-argument|int type
-argument_list|)
-block|;
-name|void
-name|handleCloseEvent
-argument_list|(
-argument|screen_event_t event
-argument_list|)
-block|;
 name|screen_context_t
 name|m_screenContext
 block|;
-name|QPlatformScreen
-operator|&
-name|m_platformScreen
+name|QQnxScreenEventHandler
+operator|*
+name|m_screenEventHandler
 block|;
 name|bool
 name|m_quit
-block|;
-name|QPoint
-name|m_lastGlobalMousePoint
-block|;
-name|QPoint
-name|m_lastLocalMousePoint
-block|;
-name|Qt
-operator|::
-name|MouseButtons
-name|m_lastButtonState
-block|;
-name|screen_window_t
-name|m_lastMouseWindow
-block|;
-name|QTouchDevice
-operator|*
-name|m_touchDevice
-block|;
-name|QWindowSystemInterface
-operator|::
-name|TouchPoint
-name|m_touchPoints
-index|[
-name|MaximumTouchPoints
-index|]
 block|; }
 decl_stmt|;
 end_decl_stmt

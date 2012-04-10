@@ -77,6 +77,11 @@ name|passwordMaskDelay
 argument_list|()
 specifier|const
 block|;
+name|qreal
+name|fontSmoothingGamma
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|friend

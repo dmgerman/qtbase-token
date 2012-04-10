@@ -1144,7 +1144,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the additional formats supported by the text layout to \a formatList.      \sa additionalFormats(), clearAdditionalFormats() */
+comment|/*!     Sets the additional formats supported by the text layout to \a formatList.     The formats are applied with preedit area text in place.      \sa additionalFormats(), clearAdditionalFormats() */
 end_comment
 begin_function
 DECL|function|setAdditionalFormats
@@ -9517,6 +9517,11 @@ name|toReal
 argument_list|()
 argument_list|,
 name|minY
+operator|-
+name|font
+operator|.
+name|ascent
+argument_list|()
 argument_list|,
 name|selectionWidth
 operator|.
@@ -12361,6 +12366,24 @@ operator|->
 name|attributes
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|attributes
+condition|)
+block|{
+operator|*
+name|cursorPos
+operator|=
+literal|0
+expr_stmt|;
+return|return
+name|x
+operator|.
+name|toReal
+argument_list|()
+return|;
+block|}
 while|while
 condition|(
 name|pos
@@ -13229,7 +13252,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn int QTextLine::xToCursor(qreal x, CursorPosition cpos) const      Converts the x-coordinate \a x, to the nearest matching cursor     position, depending on the cursor position type, \a cpos.      \sa cursorToX() */
+comment|/*!     \fn int QTextLine::xToCursor(qreal x, CursorPosition cpos) const      Converts the x-coordinate \a x, to the nearest matching cursor     position, depending on the cursor position type, \a cpos.     Note that result cursor position includes possible preedit area text.      \sa cursorToX() */
 end_comment
 begin_function
 DECL|function|xToCursor

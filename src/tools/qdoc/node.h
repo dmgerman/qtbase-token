@@ -184,8 +184,6 @@ name|Property
 block|,
 name|Variable
 block|,
-name|Target
-block|,
 name|QmlProperty
 block|,
 name|QmlSignal
@@ -517,6 +515,16 @@ literal|0
 expr_stmt|;
 name|virtual
 name|bool
+name|isLeaf
+argument_list|()
+specifier|const
+block|{
+return|return
+name|false
+return|;
+block|}
+name|virtual
+name|bool
 name|isReimp
 argument_list|()
 specifier|const
@@ -547,16 +555,6 @@ return|;
 block|}
 name|virtual
 name|bool
-name|isInternal
-argument_list|()
-specifier|const
-block|{
-return|return
-name|false
-return|;
-block|}
-name|virtual
-name|bool
 name|isQtQuickNode
 argument_list|()
 specifier|const
@@ -568,6 +566,26 @@ block|}
 name|virtual
 name|bool
 name|isAbstract
+argument_list|()
+specifier|const
+block|{
+return|return
+name|false
+return|;
+block|}
+name|virtual
+name|bool
+name|isQmlPropertyGroup
+argument_list|()
+specifier|const
+block|{
+return|return
+name|false
+return|;
+block|}
+name|virtual
+name|bool
+name|isCollisionNode
 argument_list|()
 specifier|const
 block|{
@@ -593,6 +611,11 @@ name|QString
 argument_list|()
 return|;
 block|}
+name|bool
+name|isInternal
+argument_list|()
+specifier|const
+expr_stmt|;
 name|bool
 name|isIndexNode
 argument_list|()
@@ -702,6 +725,22 @@ name|QString
 argument_list|()
 return|;
 block|}
+name|virtual
+name|void
+name|addGroupMember
+parameter_list|(
+name|Node
+modifier|*
+parameter_list|)
+block|{ }
+name|virtual
+name|void
+name|addQmlModuleMember
+parameter_list|(
+name|Node
+modifier|*
+parameter_list|)
+block|{ }
 name|Access
 name|access
 argument_list|()
@@ -889,12 +928,10 @@ modifier|&
 parameter_list|)
 function_decl|;
 name|virtual
-specifier|const
 name|ClassNode
-operator|*
+modifier|*
 name|classNode
-argument_list|()
-specifier|const
+parameter_list|()
 block|{
 return|return
 literal|0
@@ -942,20 +979,16 @@ return|return
 literal|0
 return|;
 block|}
-specifier|const
 name|QmlClassNode
-operator|*
+modifier|*
 name|qmlClassNode
-argument_list|()
-specifier|const
-expr_stmt|;
-specifier|const
+parameter_list|()
+function_decl|;
 name|ClassNode
-operator|*
+modifier|*
 name|declarativeCppNode
-argument_list|()
-specifier|const
-expr_stmt|;
+parameter_list|()
+function_decl|;
 specifier|const
 name|QString
 operator|&
@@ -1186,7 +1219,7 @@ argument_list|()
 block|;
 name|Node
 operator|*
-name|findNode
+name|findChildNodeByName
 argument_list|(
 specifier|const
 name|QString
@@ -1196,7 +1229,7 @@ argument_list|)
 block|;
 name|Node
 operator|*
-name|findNode
+name|findChildNodeByName
 argument_list|(
 argument|const QString& name
 argument_list|,
@@ -1205,7 +1238,7 @@ argument_list|)
 block|;
 name|Node
 operator|*
-name|findNode
+name|findChildNodeByNameAndType
 argument_list|(
 argument|const QString& name
 argument_list|,
@@ -1305,10 +1338,20 @@ return|return
 name|true
 return|;
 block|}
+name|virtual
+name|bool
+name|isLeaf
+argument_list|()
+specifier|const
+block|{
+return|return
+name|false
+return|;
+block|}
 specifier|const
 name|Node
 operator|*
-name|findNode
+name|findChildNodeByName
 argument_list|(
 argument|const QString& name
 argument_list|)
@@ -1317,7 +1360,7 @@ block|;
 specifier|const
 name|Node
 operator|*
-name|findNode
+name|findChildNodeByName
 argument_list|(
 argument|const QString& name
 argument_list|,
@@ -1328,7 +1371,7 @@ block|;
 specifier|const
 name|Node
 operator|*
-name|findNode
+name|findChildNodeByNameAndType
 argument_list|(
 argument|const QString& name
 argument_list|,
@@ -1620,7 +1663,21 @@ name|bool
 name|isInnerNode
 argument_list|()
 specifier|const
-block|;
+block|{
+return|return
+name|false
+return|;
+block|}
+name|virtual
+name|bool
+name|isLeaf
+argument_list|()
+specifier|const
+block|{
+return|return
+name|true
+return|;
+block|}
 name|protected
 operator|:
 name|LeafNode
@@ -1863,12 +1920,10 @@ name|sname
 operator|=
 name|value
 block|; }
-specifier|const
 name|QmlClassNode
 operator|*
 name|qmlElement
 argument_list|()
-specifier|const
 block|{
 return|return
 name|qmlelement
@@ -1905,21 +1960,20 @@ name|abstract
 operator|=
 name|b
 block|; }
-specifier|const
 name|PropertyNode
 operator|*
 name|findPropertyNode
 argument_list|(
-argument|const QString& name
+specifier|const
+name|QString
+operator|&
+name|name
 argument_list|)
-specifier|const
 block|;
-specifier|const
 name|QmlClassNode
 operator|*
 name|findQmlBaseNode
 argument_list|()
-specifier|const
 block|;
 name|private
 operator|:
@@ -2001,6 +2055,7 @@ name|subtitle_
 operator|=
 name|subTitle
 block|; }
+name|virtual
 name|void
 name|addGroupMember
 argument_list|(
@@ -2014,6 +2069,7 @@ argument_list|(
 name|node
 argument_list|)
 block|; }
+name|virtual
 name|void
 name|addQmlModuleMember
 argument_list|(
@@ -2105,6 +2161,20 @@ argument_list|(
 argument|const QString&
 argument_list|)
 block|{ }
+name|virtual
+name|bool
+name|isQmlPropertyGroup
+argument_list|()
+specifier|const
+block|{
+return|return
+operator|(
+name|nodeSubtype_
+operator|==
+name|QmlPropertyGroup
+operator|)
+return|;
+block|}
 name|protected
 operator|:
 name|SubType
@@ -2181,6 +2251,16 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
+name|bool
+name|isCollisionNode
+argument_list|()
+specifier|const
+block|{
+return|return
+name|true
+return|;
+block|}
+name|virtual
 specifier|const
 name|Node
 operator|*
@@ -2190,7 +2270,6 @@ argument|const Node* origin
 argument_list|)
 specifier|const
 block|;
-specifier|const
 name|InnerNode
 operator|*
 name|findAny
@@ -2199,7 +2278,6 @@ argument|Node::Type t
 argument_list|,
 argument|Node::SubType st
 argument_list|)
-specifier|const
 block|;
 name|void
 name|addCollision
@@ -2348,7 +2426,6 @@ name|QString
 operator|&
 name|name
 argument_list|,
-specifier|const
 name|ClassNode
 operator|*
 name|cn
@@ -2388,12 +2465,10 @@ operator|)
 return|;
 block|}
 name|virtual
-specifier|const
 name|ClassNode
 operator|*
 name|classNode
 argument_list|()
-specifier|const
 block|{
 return|return
 name|cnode_
@@ -2474,7 +2549,6 @@ block|}
 name|void
 name|resolveInheritance
 argument_list|(
-specifier|const
 name|Tree
 operator|*
 name|tree
@@ -2544,12 +2618,10 @@ operator|:
 name|bool
 name|abstract
 block|;
-specifier|const
 name|ClassNode
 operator|*
 name|cnode_
 block|;
-specifier|const
 name|FakeNode
 operator|*
 name|base_
@@ -2956,9 +3028,10 @@ block|}
 name|bool
 name|isWritable
 argument_list|(
-argument|const Tree* tree
+name|Tree
+operator|*
+name|tree
 argument_list|)
-specifier|const
 block|;
 name|bool
 name|isAttached
@@ -3048,14 +3121,14 @@ name|qmlModuleIdentifier
 argument_list|()
 return|;
 block|}
-specifier|const
 name|PropertyNode
 operator|*
 name|correspondingProperty
 argument_list|(
-argument|const Tree *tree
+name|Tree
+operator|*
+name|tree
 argument_list|)
-specifier|const
 block|;
 specifier|const
 name|QString
@@ -4004,12 +4077,6 @@ return|return
 name|attached_
 return|;
 block|}
-name|virtual
-name|bool
-name|isInternal
-argument_list|()
-specifier|const
-block|;
 name|virtual
 name|bool
 name|isQmlNode
@@ -4989,42 +5056,8 @@ block|{
 comment|// nothing.
 block|}
 name|class
-name|TargetNode
-operator|:
-name|public
-name|LeafNode
-block|{
-name|public
-operator|:
-name|TargetNode
-argument_list|(
-name|InnerNode
-operator|*
-name|parent
-argument_list|,
-specifier|const
-name|QString
-operator|&
-name|name
-argument_list|)
-block|;
-name|virtual
-operator|~
-name|TargetNode
-argument_list|()
-block|{ }
-name|virtual
-name|bool
-name|isInnerNode
-argument_list|()
-specifier|const
-block|; }
-expr_stmt|;
-end_expr_stmt
-begin_decl_stmt
-name|class
 name|DitaMapNode
-range|:
+operator|:
 name|public
 name|FakeNode
 block|{
@@ -5073,10 +5106,11 @@ name|ditamap
 argument_list|()
 return|;
 block|}
-expr|}
-block|;
+end_expr_stmt
+begin_macro
+unit|};
 name|QT_END_NAMESPACE
-end_decl_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif

@@ -604,6 +604,12 @@ literal|"first:"
 operator|<<
 name|endl
 expr_stmt|;
+name|t
+operator|<<
+literal|"all:"
+operator|<<
+name|endl
+expr_stmt|;
 return|return;
 block|}
 name|t

@@ -11730,7 +11730,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 specifier|const
 name|bool
 name|updatesEnabled
@@ -11829,7 +11829,7 @@ comment|// menu before it's shown, causing flicker since the window then display
 comment|// background.
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|container
 operator|->
 name|setUpdatesEnabled
@@ -11896,7 +11896,7 @@ argument_list|)
 expr_stmt|;
 ifndef|#
 directive|ifndef
-name|Q_WS_MAC
+name|Q_OS_MAC
 name|container
 operator|->
 name|setUpdatesEnabled

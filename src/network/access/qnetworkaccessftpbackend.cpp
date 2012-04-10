@@ -907,6 +907,14 @@ init|=
 name|url
 argument_list|()
 decl_stmt|;
+name|QString
+name|userInfo
+init|=
+name|newUrl
+operator|.
+name|userInfo
+argument_list|()
+decl_stmt|;
 name|newUrl
 operator|.
 name|setUserInfo
@@ -966,6 +974,19 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// Re insert the user info so that we can remove the cache entry.
+name|newUrl
+operator|.
+name|setUserInfo
+argument_list|(
+name|userInfo
+argument_list|)
+expr_stmt|;
+name|setUrl
+argument_list|(
+name|newUrl
+argument_list|)
+expr_stmt|;
 name|error
 argument_list|(
 name|QNetworkReply

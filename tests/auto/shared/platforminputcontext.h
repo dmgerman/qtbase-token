@@ -75,7 +75,14 @@ argument_list|)
 block|,
 name|m_lastEventType
 argument_list|(
-argument|QEvent::None
+name|QEvent
+operator|::
+name|None
+argument_list|)
+block|,
+name|m_setFocusObjectCallCount
+argument_list|(
+literal|0
 argument_list|)
 block|{}
 name|virtual
@@ -113,7 +120,54 @@ argument_list|()
 block|{
 name|m_commitCallCount
 operator|++
-block|; }
+block|;
+name|QInputMethodEvent
+name|commitEvent
+block|;
+name|commitEvent
+operator|.
+name|setCommitString
+argument_list|(
+name|m_commitString
+argument_list|)
+block|;
+if|if
+condition|(
+name|qGuiApp
+operator|->
+name|focusObject
+argument_list|()
+condition|)
+name|qGuiApp
+operator|->
+name|sendEvent
+argument_list|(
+name|qGuiApp
+operator|->
+name|focusObject
+argument_list|()
+argument_list|,
+operator|&
+name|commitEvent
+argument_list|)
+expr_stmt|;
+else|else
+name|qWarning
+argument_list|(
+literal|"Test input context to commit without focused object"
+argument_list|)
+expr_stmt|;
+block|}
+name|void
+name|setCommitString
+argument_list|(
+argument|const QString&commitString
+argument_list|)
+block|{
+name|m_commitString
+operator|=
+name|commitString
+block|;     }
 name|virtual
 name|void
 name|update
@@ -224,6 +278,21 @@ operator|::
 name|LeftToRight
 return|;
 block|}
+name|virtual
+name|void
+name|setFocusObject
+argument_list|(
+argument|QObject *object
+argument_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|object
+argument_list|)
+block|;
+name|m_setFocusObjectCallCount
+operator|++
+block|;     }
 name|bool
 name|m_animating
 block|;
@@ -238,6 +307,9 @@ name|m_resetCallCount
 block|;
 name|int
 name|m_commitCallCount
+block|;
+name|QString
+name|m_commitString
 block|;
 name|mutable
 name|int
@@ -265,6 +337,9 @@ name|m_lastEventType
 block|;
 name|QRectF
 name|m_keyboardRect
+block|;
+name|int
+name|m_setFocusObjectCallCount
 block|; }
 decl_stmt|;
 end_decl_stmt

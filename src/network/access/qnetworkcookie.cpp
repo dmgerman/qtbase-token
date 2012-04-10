@@ -1761,9 +1761,12 @@ return|;
 block|}
 name|i
 operator|+=
+name|int
+argument_list|(
 name|strlen
 argument_list|(
 name|str
+argument_list|)
 argument_list|)
 operator|+
 literal|1

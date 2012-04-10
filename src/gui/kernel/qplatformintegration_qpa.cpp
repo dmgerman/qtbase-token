@@ -335,6 +335,10 @@ name|paintDevice
 parameter_list|)
 specifier|const
 block|{
+name|Q_UNUSED
+argument_list|(
+argument|paintDevice
+argument_list|)
 return|return
 literal|0
 return|;
@@ -449,6 +453,15 @@ name|PasswordMaskDelay
 case|:
 return|return
 literal|0
+return|;
+case|case
+name|FontSmoothingGamma
+case|:
+return|return
+name|qreal
+argument_list|(
+literal|1.7
+argument_list|)
 return|;
 block|}
 return|return

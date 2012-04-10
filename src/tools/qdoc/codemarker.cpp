@@ -3186,11 +3186,6 @@ name|Node
 operator|::
 name|Fake
 case|:
-case|case
-name|Node
-operator|::
-name|Target
-case|:
 default|default:
 return|return
 name|QStringList

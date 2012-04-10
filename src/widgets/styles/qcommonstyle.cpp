@@ -2526,7 +2526,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-closetab-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-closetab-16.png"
 argument_list|)
 argument_list|)
 argument_list|,
@@ -2549,7 +2549,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-closetab-down-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-closetab-down-16.png"
 argument_list|)
 argument_list|)
 argument_list|,
@@ -2572,7 +2572,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-closetab-hover-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-closetab-hover-16.png"
 argument_list|)
 argument_list|)
 argument_list|,
@@ -38000,7 +38000,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/left-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/left-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38012,7 +38012,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/right-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/right-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38024,7 +38024,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/up-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/up-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38036,7 +38036,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/down-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/down-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38064,7 +38064,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/newdirectory-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/newdirectory-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38076,7 +38076,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/viewdetailed-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/viewdetailed-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38088,7 +38088,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/fileinfo-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/fileinfo-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38100,7 +38100,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/filecontents-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/filecontents-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38112,7 +38112,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/viewlist-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/viewlist-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38140,7 +38140,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/harddrive-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/harddrive-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38152,7 +38152,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/trash-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/trash-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38164,7 +38164,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/floppy-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/floppy-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38176,7 +38176,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/networkdrive-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/networkdrive-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38188,7 +38188,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/desktop-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/desktop-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38200,7 +38200,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/computer-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/computer-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38212,7 +38212,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/cdr-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/cdr-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38224,7 +38224,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/dvd-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/dvd-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38239,7 +38239,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/diropen-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/diropen-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38254,7 +38254,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/dirclosed-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/dirclosed-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38266,7 +38266,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/dirlink-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/dirlink-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38278,7 +38278,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/file-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/file-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38290,7 +38290,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/filelink-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/filelink-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38302,7 +38302,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-ok-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-ok-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38314,7 +38314,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-cancel-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-cancel-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38326,7 +38326,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-help-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-help-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38338,7 +38338,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-open-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38350,7 +38350,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-save-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-save-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38362,7 +38362,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-close-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-close-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38374,7 +38374,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-apply-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-apply-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38386,7 +38386,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-clear-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-clear-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38398,7 +38398,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-delete-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-delete-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38410,7 +38410,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-yes-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-yes-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38422,7 +38422,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-no-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-no-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38434,7 +38434,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/refresh-24.png"
+literal|":/qt-project.org/styles/commonstyle/images/refresh-24.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38446,7 +38446,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/stop-24.png"
+literal|":/qt-project.org/styles/commonstyle/images/stop-24.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38458,7 +38458,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-play-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-play-32.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38470,7 +38470,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-pause-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-pause-32.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38482,7 +38482,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-stop-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-stop-32.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38494,7 +38494,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-seek-forward-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-seek-forward-32.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38506,7 +38506,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-seek-backward-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-seek-backward-32.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38518,7 +38518,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-skip-forward-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-skip-forward-32.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38530,7 +38530,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-skip-backward-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-skip-backward-32.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38542,7 +38542,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-volume-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-volume-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -38554,7 +38554,7 @@ name|QPixmap
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-volume-muted-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-volume-muted-16.png"
 argument_list|)
 argument_list|)
 return|;
@@ -39989,7 +39989,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/macstyle/images/closedock-16.png"
+literal|":/qt-project.org/styles/macstyle/images/closedock-16.png"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -39999,7 +39999,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/macstyle/images/closedock-down-16.png"
+literal|":/qt-project.org/styles/macstyle/images/closedock-down-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40027,7 +40027,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/macstyle/images/dockdock-16.png"
+literal|":/qt-project.org/styles/macstyle/images/dockdock-16.png"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -40037,7 +40037,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/macstyle/images/dockdock-down-16.png"
+literal|":/qt-project.org/styles/macstyle/images/dockdock-down-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40229,7 +40229,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/newdirectory-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/newdirectory-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40246,7 +40246,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/newdirectory-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/newdirectory-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40263,7 +40263,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/newdirectory-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/newdirectory-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40310,7 +40310,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/viewdetailed-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/viewdetailed-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40327,7 +40327,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/viewdetailed-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/viewdetailed-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40344,7 +40344,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/viewdetailed-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/viewdetailed-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40365,7 +40365,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/fileinfo-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/fileinfo-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40382,7 +40382,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/fileinfo-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/fileinfo-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40399,7 +40399,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/fileinfo-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/fileinfo-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40420,7 +40420,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/filecontents-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/filecontents-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40437,7 +40437,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/filecontents-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/filecontents-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40454,7 +40454,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/filecontents-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/filecontents-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40475,7 +40475,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/viewlist-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/viewlist-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40492,7 +40492,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/viewlist-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/viewlist-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40509,7 +40509,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/viewlist-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/viewlist-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40530,7 +40530,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-ok-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-ok-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40547,7 +40547,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-ok-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-ok-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40564,7 +40564,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-ok-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-ok-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40585,7 +40585,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-cancel-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-cancel-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40602,7 +40602,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-cancel-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-cancel-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40619,7 +40619,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-cancel-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-cancel-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40640,7 +40640,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-help-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-help-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40657,7 +40657,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-help-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-help-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40674,7 +40674,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-help-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-help-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40695,7 +40695,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-open-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40712,7 +40712,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-open-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40729,7 +40729,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-open-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-open-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40750,7 +40750,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-save-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-save-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40767,7 +40767,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-save-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-save-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40784,7 +40784,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-save-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-save-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40805,7 +40805,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-close-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-close-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40822,7 +40822,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-close-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-close-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40839,7 +40839,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-close-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-close-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40860,7 +40860,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-apply-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-apply-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40877,7 +40877,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-apply-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-apply-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40894,7 +40894,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-apply-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-apply-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40915,7 +40915,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-clear-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-clear-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40932,7 +40932,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-clear-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-clear-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40949,7 +40949,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-clear-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-clear-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40970,7 +40970,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-delete-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-delete-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -40987,7 +40987,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-delete-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-delete-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41004,7 +41004,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-delete-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-delete-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41025,7 +41025,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-yes-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-yes-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41042,7 +41042,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-yes-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-yes-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41059,7 +41059,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-yes-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-yes-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41080,7 +41080,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-no-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-no-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41097,7 +41097,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-no-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-no-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41114,7 +41114,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/standardbutton-no-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/standardbutton-no-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41189,7 +41189,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/left-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/left-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41206,7 +41206,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/left-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/left-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41223,7 +41223,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/left-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/left-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41244,7 +41244,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/right-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/right-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41261,7 +41261,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/right-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/right-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41278,7 +41278,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/right-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/right-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41299,7 +41299,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/up-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/up-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41316,7 +41316,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/up-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/up-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41333,7 +41333,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/up-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/up-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41354,7 +41354,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/down-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/down-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41371,7 +41371,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/down-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/down-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41388,7 +41388,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/down-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/down-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41412,7 +41412,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/dirclosed-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/dirclosed-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41433,7 +41433,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/diropen-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/diropen-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41454,7 +41454,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/dirclosed-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/dirclosed-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41479,7 +41479,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/diropen-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/diropen-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41504,7 +41504,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/dirclosed-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/dirclosed-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41529,7 +41529,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/diropen-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/diropen-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41558,7 +41558,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/cdr-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/cdr-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41575,7 +41575,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/cdr-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/cdr-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41592,7 +41592,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/cdr-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/cdr-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41613,7 +41613,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/dvd-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/dvd-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41630,7 +41630,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/dvd-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/dvd-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41647,7 +41647,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/dvd-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/dvd-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41668,7 +41668,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/file-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/file-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41685,7 +41685,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/file-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/file-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41702,7 +41702,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/file-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/file-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41723,7 +41723,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/filelink-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/filelink-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41740,7 +41740,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/filelink-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/filelink-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41757,7 +41757,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/filelink-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/filelink-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41778,7 +41778,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/trash-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/trash-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41795,7 +41795,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/trash-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/trash-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41812,7 +41812,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/trash-128.png"
+literal|":/qt-project.org/styles/commonstyle/images/trash-128.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41833,7 +41833,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/refresh-24.png"
+literal|":/qt-project.org/styles/commonstyle/images/refresh-24.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41850,7 +41850,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/refresh-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/refresh-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41871,7 +41871,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/stop-24.png"
+literal|":/qt-project.org/styles/commonstyle/images/stop-24.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41888,7 +41888,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/stop-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/stop-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41909,7 +41909,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-play-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-play-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41926,7 +41926,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-play-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-play-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41947,7 +41947,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-pause-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-pause-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41964,7 +41964,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-pause-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-pause-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -41985,7 +41985,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-stop-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-stop-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -42002,7 +42002,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-stop-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-stop-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -42023,7 +42023,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-seek-forward-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-seek-forward-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -42040,7 +42040,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-seek-forward-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-seek-forward-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -42061,7 +42061,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-seek-backward-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-seek-backward-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -42078,7 +42078,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-seek-backward-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-seek-backward-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -42099,7 +42099,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-skip-forward-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-skip-forward-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -42116,7 +42116,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-skip-forward-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-skip-forward-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -42137,7 +42137,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-skip-backward-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-skip-backward-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -42154,7 +42154,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-skip-backward-32.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-skip-backward-32.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -42175,7 +42175,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-volume-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-volume-16.png"
 argument_list|)
 argument_list|,
 name|QSize
@@ -42196,7 +42196,7 @@ name|addFile
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/styles/commonstyle/images/media-volume-muted-16.png"
+literal|":/qt-project.org/styles/commonstyle/images/media-volume-muted-16.png"
 argument_list|)
 argument_list|,
 name|QSize

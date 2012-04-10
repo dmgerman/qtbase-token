@@ -469,6 +469,16 @@ argument_list|)
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|member|generateExamples
+name|bool
+name|Config
+operator|::
+name|generateExamples
+init|=
+literal|true
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|member|overrideOutputDir
 name|QString
 name|Config

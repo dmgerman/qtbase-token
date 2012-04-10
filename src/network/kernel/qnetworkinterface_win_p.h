@@ -295,6 +295,16 @@ directive|define
 name|MIB_IF_TYPE_SLIP
 value|28
 end_define
+begin_comment
+comment|// definitions from Ipifcons.h
+end_comment
+begin_define
+DECL|macro|IF_TYPE_PPP
+define|#
+directive|define
+name|IF_TYPE_PPP
+value|23
+end_define
 begin_endif
 endif|#
 directive|endif

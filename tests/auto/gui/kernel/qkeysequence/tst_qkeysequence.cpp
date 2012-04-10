@@ -3050,9 +3050,15 @@ argument_list|,
 name|warning
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
+ifdef|#
+directive|ifdef
 name|QT_NO_DEBUG
+name|Q_UNUSED
+argument_list|(
+argument|warning
+argument_list|)
+else|#
+directive|else
 if|if
 condition|(
 name|warning

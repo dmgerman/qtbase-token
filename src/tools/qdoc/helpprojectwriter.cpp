@@ -614,18 +614,6 @@ name|Variable
 expr_stmt|;
 name|typeHash
 index|[
-literal|"target"
-index|]
-operator|=
-name|Node
-operator|::
-name|Target
-expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QDOC_QML
-name|typeHash
-index|[
 literal|"qmlproperty"
 index|]
 operator|=
@@ -660,8 +648,6 @@ name|Node
 operator|::
 name|QmlMethod
 expr_stmt|;
-endif|#
-directive|endif
 name|QHash
 argument_list|<
 name|QString
@@ -735,9 +721,6 @@ name|Node
 operator|::
 name|ExternalPage
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|QDOC_QML
 name|subTypeHash
 index|[
 literal|"qmlclass"
@@ -765,8 +748,6 @@ name|Node
 operator|::
 name|QmlBasicType
 expr_stmt|;
-endif|#
-directive|endif
 name|QSet
 argument_list|<
 name|Node

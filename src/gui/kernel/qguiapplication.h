@@ -514,6 +514,12 @@ name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QGuiApplication
 argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void q_updateFocusObject(QObject *object)
+argument_list|)
 ifndef|#
 directive|ifndef
 name|QT_NO_GESTURES

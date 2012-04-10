@@ -2504,7 +2504,7 @@ return|return
 operator|new
 name|float
 argument_list|(
-literal|3.14
+literal|3.14f
 argument_list|)
 return|;
 block|}

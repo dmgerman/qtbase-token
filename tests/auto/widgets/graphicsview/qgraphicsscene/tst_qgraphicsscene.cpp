@@ -31653,6 +31653,12 @@ name|m_resetCallCount
 operator|=
 literal|0
 expr_stmt|;
+name|inputContext
+operator|.
+name|m_commitCallCount
+operator|=
+literal|0
+expr_stmt|;
 name|scene
 operator|.
 name|addItem
@@ -31777,6 +31783,10 @@ argument_list|(
 name|inputContext
 operator|.
 name|m_resetCallCount
+operator|+
+name|inputContext
+operator|.
+name|m_commitCallCount
 argument_list|,
 name|callFocusItem
 condition|?

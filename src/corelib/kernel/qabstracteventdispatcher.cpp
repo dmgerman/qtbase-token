@@ -472,7 +472,19 @@ parameter_list|()
 block|{ }
 end_function
 begin_comment
-comment|/*!     \typedef QAbstractEventDispatcher::TimerInfo      Typedef for QPair<int, int>. The first component of     the pair is the timer ID; the second component is     the interval.      \sa registeredTimers() */
+comment|/*!     \class QAbstractEventDispatcher::TimerInfo      This struct represents information about a timer:     \l{QAbstractEventDispatcher::TimerInfo::timerId}{timerId},     \l{QAbstractEventDispatcher::TimerInfo::interval}{interval}, and     \l{QAbstractEventDispatcher::TimerInfo::timerType}{timerType}.      \sa registeredTimers() */
+end_comment
+begin_comment
+comment|/*! \fn QAbstractEventDispatcher::TimerInfo::TimerInfo(int timerId, int interval, Qt::TimerType timerType)      Constructs a TimerInfo struct with the given \a timerId, \a interval, and     \a timerType. */
+end_comment
+begin_comment
+comment|/*!     \variable QAbstractEventDispatcher::TimerInfo::timerId      The timer's unique id. */
+end_comment
+begin_comment
+comment|/*!     \variable QAbstractEventDispatcher::TimerInfo::interval      The timer's interval. */
+end_comment
+begin_comment
+comment|/*!     \variable QAbstractEventDispatcher::TimerInfo::timerType      The timer's type      \sa Qt::TimerType */
 end_comment
 begin_comment
 comment|/*!     \typedef QAbstractEventDispatcher::EventFilter      Typedef for a function with the signature      \snippet doc/src/snippets/code/src_corelib_kernel_qabstracteventdispatcher.cpp 0      Note that the type of the \a message is platform dependent. The     following table shows the \a {message}'s type on Windows, Mac, and     X11. You can do a static cast to these types.      \table         \header             \li Platform             \li type         \row             \li Windows             \li MSG         \row             \li X11             \li XEvent         \row             \li Mac             \li NSEvent     \endtable            \sa setEventFilter(), filterEvent() */

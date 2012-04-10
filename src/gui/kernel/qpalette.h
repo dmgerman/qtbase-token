@@ -296,12 +296,10 @@ name|Link
 block|,
 name|LinkVisited
 block|,
-comment|// ### Qt 5: remove
 name|AlternateBase
 block|,
 name|NoRole
 block|,
-comment|// ### Qt 5: value should be 0 or -1
 name|ToolTipBase
 block|,
 name|ToolTipText
@@ -319,7 +317,6 @@ block|,
 name|Background
 init|=
 name|Window
-comment|// ### Qt 5: remove
 block|}
 enum|;
 specifier|inline

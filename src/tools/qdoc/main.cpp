@@ -256,22 +256,24 @@ name|tr
 argument_list|(
 literal|"Usage: qdoc [options] file1.qdocconf ...\n"
 literal|"Options:\n"
-literal|"    -help          "
-literal|"Display this information and exit\n"
-literal|"    -version       "
-literal|"Display version of qdoc and exit\n"
 literal|"    -D<name>       "
 literal|"Define<name> as a macro while parsing sources\n"
+literal|"    -help          "
+literal|"Display this information and exit\n"
 literal|"    -highlighting  "
 literal|"Turn on syntax highlighting (makes qdoc run slower)\n"
-literal|"    -showinternal  "
-literal|"Include stuff marked internal\n"
+literal|"    -no-examples   "
+literal|"Do not generate documentation for examples"
 literal|"    -obsoletelinks "
 literal|"Report links from obsolete items to non-obsolete items\n"
 literal|"    -outputdir     "
 literal|"Specify output directory, overrides setting in qdocconf file\n"
 literal|"    -outputformat  "
 literal|"Specify output format, overrides setting in qdocconf file"
+literal|"    -showinternal  "
+literal|"Include content marked internal\n"
+literal|"    -version       "
+literal|"Display version of qdoc and exit\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1477,6 +1479,21 @@ block|{
 name|showInternal
 operator|=
 literal|true
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|opt
+operator|==
+literal|"-no-examples"
+condition|)
+block|{
+name|Config
+operator|::
+name|generateExamples
+operator|=
+literal|false
 expr_stmt|;
 block|}
 elseif|else

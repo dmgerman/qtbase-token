@@ -93,6 +93,8 @@ name|GeneratedList
 block|,
 name|GuidLink
 block|,
+name|HR
+block|,
 name|Image
 block|,
 name|ImageText
@@ -610,6 +612,12 @@ end_decl_stmt
 begin_decl_stmt
 specifier|static
 name|QLatin1String
+name|UICONTROL_
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+specifier|static
+name|QLatin1String
 name|UNDERLINE_
 decl_stmt|;
 end_decl_stmt
@@ -744,6 +752,13 @@ define|#
 directive|define
 name|ATOM_FORMATTING_TELETYPE
 value|"teletype"
+end_define
+begin_define
+DECL|macro|ATOM_FORMATTING_UICONTROL
+define|#
+directive|define
+name|ATOM_FORMATTING_UICONTROL
+value|"uicontrol"
 end_define
 begin_define
 DECL|macro|ATOM_FORMATTING_UNDERLINE

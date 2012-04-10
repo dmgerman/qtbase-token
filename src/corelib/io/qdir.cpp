@@ -5523,7 +5523,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Renames a file or directory from \a oldName to \a newName, and returns     true if successful; otherwise returns false.      On most file systems, rename() fails only if \a oldName does not     exist, if \a newName and \a oldName are not on the same     partition or if a file with the new name already exists.     However, there are also other reasons why rename() can     fail. For example, on at least one file system rename() fails if     \a newName points to an open file. */
+comment|/*!     Renames a file or directory from \a oldName to \a newName, and returns     true if successful; otherwise returns false.      On most file systems, rename() fails only if \a oldName does not     exist, or if a file with the new name already exists.     However, there are also other reasons why rename() can     fail. For example, on at least one file system rename() fails if     \a newName points to an open file.      If \a oldName is a file (not a directory) that can't be renamed     right away, Qt will try to copy \a oldName to \a newName and remove     \a oldName.      \sa QFile::rename() */
 end_comment
 begin_function
 DECL|function|rename

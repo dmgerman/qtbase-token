@@ -464,6 +464,8 @@ name|DT_tt
 block|,
 name|DT_u
 block|,
+name|DT_uicontrol
+block|,
 name|DT_ul
 block|,
 name|DT_unknown
@@ -520,17 +522,15 @@ name|virtual
 name|void
 name|generateTree
 argument_list|(
-specifier|const
 name|Tree
 operator|*
 name|tree
 argument_list|)
 block|;
-name|virtual
 name|void
-name|generateDisambiguationPages
+name|generateCollisionPages
 argument_list|()
-block|{ }
+block|;
 name|QString
 name|protectEnc
 argument_list|(
@@ -620,7 +620,6 @@ name|virtual
 name|void
 name|generateClassLikeNode
 argument_list|(
-specifier|const
 name|InnerNode
 operator|*
 name|inner
@@ -634,7 +633,6 @@ name|virtual
 name|void
 name|generateFakeNode
 argument_list|(
-specifier|const
 name|FakeNode
 operator|*
 name|fake
@@ -1282,7 +1280,6 @@ block|;
 name|void
 name|generateDetailedQmlMember
 argument_list|(
-specifier|const
 name|Node
 operator|*
 name|node
@@ -1313,7 +1310,6 @@ block|;
 name|void
 name|generateQmlInstantiates
 argument_list|(
-specifier|const
 name|QmlClassNode
 operator|*
 name|qcn
@@ -1326,7 +1322,6 @@ block|;
 name|void
 name|generateInstantiatedBy
 argument_list|(
-specifier|const
 name|ClassNode
 operator|*
 name|cn
@@ -1558,19 +1553,6 @@ operator|*
 name|node
 argument_list|)
 block|;
-name|QString
-name|getDisambiguationLink
-argument_list|(
-specifier|const
-name|Atom
-operator|*
-name|atom
-argument_list|,
-name|CodeMarker
-operator|*
-name|marker
-argument_list|)
-block|;
 name|virtual
 name|void
 name|generateIndex
@@ -1690,7 +1672,6 @@ name|virtual
 name|void
 name|generateInnerNode
 argument_list|(
-specifier|const
 name|InnerNode
 operator|*
 name|node
@@ -1732,7 +1713,6 @@ block|;
 name|void
 name|writeDitaMap
 argument_list|(
-specifier|const
 name|Tree
 operator|*
 name|tree
@@ -1992,11 +1972,6 @@ name|stylesheets
 block|;
 name|QStringList
 name|customHeadElements
-block|;
-specifier|const
-name|Tree
-operator|*
-name|tree_
 block|;
 name|QMap
 operator|<

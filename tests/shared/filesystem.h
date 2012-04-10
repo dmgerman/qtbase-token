@@ -601,6 +601,8 @@ name|reparseInfo
 operator|->
 name|ReparseTargetLength
 operator|=
+name|DWORD
+argument_list|(
 name|target
 operator|.
 name|size
@@ -609,6 +611,7 @@ operator|*
 sizeof|sizeof
 argument_list|(
 name|wchar_t
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|reparseInfo

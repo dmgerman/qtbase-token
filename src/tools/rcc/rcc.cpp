@@ -57,6 +57,9 @@ include|#
 directive|include
 file|<QtCore/QXmlStreamReader>
 end_include
+begin_comment
+comment|// Note: A copy of this file is used in Qt Designer (qttools/src/designer/src/lib/shared/rcc.cpp)
+end_comment
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 name|enum

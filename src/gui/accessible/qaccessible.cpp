@@ -649,6 +649,13 @@ argument_list|,
 name|reason
 argument_list|)
 decl_stmt|;
+name|ev
+operator|.
+name|setChild
+argument_list|(
+name|child
+argument_list|)
+expr_stmt|;
 name|updateAccessibility
 argument_list|(
 operator|&

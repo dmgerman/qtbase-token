@@ -764,6 +764,10 @@ return|;
 block|}
 else|#
 directive|else
+name|Q_UNUSED
+argument_list|(
+argument|command
+argument_list|)
 return|return
 name|QString
 argument_list|()

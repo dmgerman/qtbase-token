@@ -14,16 +14,16 @@ name|APIENTRY
 name|WinMain
 parameter_list|(
 name|HINSTANCE
-name|hInstance
+comment|/* hInstance */
 parameter_list|,
 name|HINSTANCE
-name|hPrevInstance
+comment|/* hPrevInstance */
 parameter_list|,
 name|LPSTR
-name|lpCmdLine
+comment|/* lpCmdLine */
 parameter_list|,
 name|int
-name|nCmdShow
+comment|/* nCmdShow */
 parameter_list|)
 block|{
 name|HANDLE

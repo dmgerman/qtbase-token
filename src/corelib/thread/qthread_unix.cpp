@@ -231,6 +231,12 @@ name|defined
 argument_list|(
 name|Q_OS_LINUX
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_LINUXBASE
+argument_list|)
 end_if
 begin_include
 include|#
@@ -343,7 +349,16 @@ argument_list|(
 name|Q_CC_INTEL
 argument_list|)
 operator|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_LINUXBASE
+argument_list|)
 end_if
+begin_comment
+comment|/* LSB doesn't have __thread, https://lsbbugs.linuxfoundation.org/show_bug.cgi?id=993 */
+end_comment
 begin_define
 DECL|macro|HAVE_TLS
 define|#
@@ -1166,6 +1181,12 @@ directive|if
 name|defined
 argument_list|(
 name|Q_OS_LINUX
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|QT_LINUXBASE
 argument_list|)
 name|prctl
 argument_list|(

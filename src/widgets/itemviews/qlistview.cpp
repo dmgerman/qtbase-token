@@ -577,12 +577,6 @@ end_function
 begin_comment
 comment|/*!     \property QListView::spacing     \brief the space around the items in the layout      This property is the size of the empty space that is padded around     an item in the layout.      Setting this property when the view is visible will cause the     items to be laid out again.      By default, this property contains a value of 0.      \sa viewMode */
 end_comment
-begin_comment
-comment|// ### Qt5: Use same semantic as layouts (spacing is the size of space
-end_comment
-begin_comment
-comment|// *between* items)
-end_comment
 begin_function
 DECL|function|setSpacing
 name|void

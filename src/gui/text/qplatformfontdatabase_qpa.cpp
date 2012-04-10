@@ -854,16 +854,22 @@ name|fontpath
 argument_list|)
 condition|)
 block|{
-name|qFatal
+name|qWarning
 argument_list|(
-literal|"QFontDatabase: Cannot find font directory %s - is Qt installed correctly?"
+literal|"QFontDatabase: Cannot find font directory '%s' - is Qt installed correctly?"
 argument_list|,
 name|qPrintable
+argument_list|(
+name|QDir
+operator|::
+name|toNativeSeparators
 argument_list|(
 name|fontpath
 argument_list|)
 argument_list|)
+argument_list|)
 expr_stmt|;
+return|return;
 block|}
 name|QDir
 name|dir

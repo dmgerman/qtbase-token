@@ -4806,7 +4806,7 @@ name|d
 operator|->
 name|control
 operator|->
-name|realText
+name|text
 argument_list|()
 argument_list|)
 return|;
@@ -5327,13 +5327,6 @@ operator|::
 name|PopupFocusReason
 condition|)
 name|deselect
-argument_list|()
-expr_stmt|;
-name|d
-operator|->
-name|control
-operator|->
-name|commitPreedit
 argument_list|()
 expr_stmt|;
 name|d

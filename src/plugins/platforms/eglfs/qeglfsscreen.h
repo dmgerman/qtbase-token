@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QEGLSCREEN_H
+name|QEGLFSSCREEN_H
 end_ifndef
 begin_define
-DECL|macro|QEGLSCREEN_H
+DECL|macro|QEGLFSSCREEN_H
 define|#
 directive|define
-name|QEGLSCREEN_H
+name|QEGLFSSCREEN_H
 end_define
 begin_include
 include|#
@@ -46,14 +46,12 @@ block|{
 name|public
 operator|:
 name|QEglFSScreen
-argument_list|(
-argument|EGLNativeDisplayType display
-argument_list|)
+argument_list|()
 block|;
 operator|~
 name|QEglFSScreen
 argument_list|()
-block|{}
+block|;
 name|QRect
 name|geometry
 argument_list|()
@@ -117,6 +115,9 @@ name|m_dpy
 block|;
 name|EGLSurface
 name|m_surface
+block|;
+name|EGLNativeWindowType
+name|m_window
 block|; }
 decl_stmt|;
 end_decl_stmt
@@ -128,6 +129,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QEGLSCREEN_H
+comment|// QEGLFSSCREEN_H
 end_comment
 end_unit

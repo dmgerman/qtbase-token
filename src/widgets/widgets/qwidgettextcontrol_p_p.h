@@ -638,9 +638,6 @@ name|bool
 name|hideCursor
 block|;
 comment|// used to hide the cursor in the preedit area
-name|QString
-name|tentativeCommit
-block|;
 name|QVector
 operator|<
 name|QAbstractTextDocumentLayout

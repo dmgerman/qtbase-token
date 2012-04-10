@@ -2069,6 +2069,18 @@ index|]
 operator|==
 literal|0x200C
 condition|)
+block|{
+comment|// Check that we do not run out of bounds when setting item->attributes.  If we do
+comment|// run out of bounds then this function will return false, the necessary amount of
+comment|// memory is reallocated, and this function will then be called again.
+if|if
+condition|(
+name|slen
+operator|<=
+name|item
+operator|->
+name|num_glyphs
+condition|)
 name|item
 operator|->
 name|attributes
@@ -2083,6 +2095,7 @@ operator|=
 name|true
 expr_stmt|;
 comment|// Hide ZWJ and ZWNJ characters
+block|}
 block|}
 else|else
 block|{

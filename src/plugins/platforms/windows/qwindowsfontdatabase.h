@@ -248,6 +248,11 @@ argument|int verticalDPI =
 literal|0
 argument_list|)
 block|;
+specifier|static
+name|qreal
+name|fontSmoothingGamma
+argument_list|()
+block|;
 name|private
 operator|:
 name|void
@@ -262,6 +267,10 @@ name|QString
 argument_list|()
 argument_list|)
 block|;
+name|void
+name|removeApplicationFonts
+argument_list|()
+block|;
 name|QSharedPointer
 operator|<
 name|QWindowsFontEngineData
@@ -273,6 +282,21 @@ operator|<
 name|QString
 operator|>
 name|m_families
+block|;      struct
+name|WinApplicationFont
+block|{
+name|HANDLE
+name|handle
+block|;
+name|QString
+name|fileName
+block|;     }
+block|;
+name|QList
+operator|<
+name|WinApplicationFont
+operator|>
+name|m_applicationFonts
 block|; }
 decl_stmt|;
 end_decl_stmt

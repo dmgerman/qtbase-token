@@ -253,6 +253,10 @@ name|currentContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|context
+argument_list|)
 name|resource
 operator|=
 literal|0

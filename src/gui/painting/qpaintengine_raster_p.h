@@ -684,7 +684,7 @@ specifier|inline
 specifier|const
 name|QClipData
 operator|*
-name|clip
+name|clipData
 argument_list|()
 specifier|const
 block|;
@@ -2100,13 +2100,13 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  inline
-DECL|function|clip
+DECL|function|clipData
 specifier|const
 name|QClipData
 operator|*
 name|QRasterPaintEngine
 operator|::
-name|clip
+name|clipData
 argument_list|()
 specifier|const
 block|{

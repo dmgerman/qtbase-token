@@ -36,12 +36,10 @@ operator|:
 name|QQnxClipboard
 argument_list|()
 block|;
-name|virtual
 operator|~
 name|QQnxClipboard
 argument_list|()
 block|;
-name|virtual
 name|QMimeData
 operator|*
 name|mimeData
@@ -49,7 +47,6 @@ argument_list|(
 argument|QClipboard::Mode mode = QClipboard::Clipboard
 argument_list|)
 block|;
-name|virtual
 name|void
 name|setMimeData
 argument_list|(

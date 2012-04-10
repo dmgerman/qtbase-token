@@ -593,10 +593,6 @@ directive|endif
 block|}
 class|;
 end_class
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_if
 if|#
 directive|if
@@ -1902,7 +1898,7 @@ name|QIcon
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/dialogs/qprintdialog/images/status-color.png"
+literal|":/qt-project.org/dialogs/qprintdialog/images/status-color.png"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1931,7 +1927,7 @@ name|QIcon
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|":/trolltech/dialogs/qprintdialog/images/status-gray-scale.png"
+literal|":/qt-project.org/dialogs/qprintdialog/images/status-gray-scale.png"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -7630,6 +7626,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// !defined(QT_NO_CUPS)&& !defined(QT_NO_LIBRARY)
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// defined (Q_OS_UNIX)
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

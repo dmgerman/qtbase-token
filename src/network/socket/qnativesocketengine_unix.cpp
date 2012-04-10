@@ -1183,9 +1183,25 @@ name|defined
 argument_list|(
 name|SO_REUSEPORT
 argument_list|)
+comment|// on OS X, SO_REUSEADDR isn't sufficient to allow multiple binds to the
+comment|// same port (which is useful for multicast UDP). SO_REUSEPORT is, but
+comment|// we most definitely do not want to use this for TCP. See QTBUG-6305.
+if|if
+condition|(
+name|socketType
+operator|==
+name|QAbstractSocket
+operator|::
+name|UdpSocket
+condition|)
 name|n
 operator|=
 name|SO_REUSEPORT
+expr_stmt|;
+else|else
+name|n
+operator|=
+name|SO_REUSEADDR
 expr_stmt|;
 else|#
 directive|else

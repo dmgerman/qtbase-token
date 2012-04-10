@@ -139,6 +139,13 @@ name|Q_UNREACHABLE
 parameter_list|()
 value|__assume(0)
 end_define
+begin_define
+DECL|macro|Q_NORETURN
+define|#
+directive|define
+name|Q_NORETURN
+value|__declspec(noreturn)
+end_define
 begin_comment
 comment|/* Intel C++ disguising as Visual C++: the `using' keyword avoids warnings */
 end_comment
@@ -583,6 +590,13 @@ parameter_list|(
 name|expr
 parameter_list|)
 value|__builtin_expect(!!(expr), false)
+end_define
+begin_define
+DECL|macro|Q_NORETURN
+define|#
+directive|define
+name|Q_NORETURN
+value|__attribute__((__noreturn__))
 end_define
 begin_if
 if|#
@@ -1652,6 +1666,21 @@ error|#
 directive|error
 literal|"Qt has not been tested with this compiler - see http://www.qt-project.org/"
 end_error
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|Q_NORETURN
+end_ifndef
+begin_define
+DECL|macro|Q_NORETURN
+define|#
+directive|define
+name|Q_NORETURN
+end_define
 begin_endif
 endif|#
 directive|endif
