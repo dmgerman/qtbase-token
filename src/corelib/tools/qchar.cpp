@@ -361,7 +361,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the character is a number (Number_* categories,     not just 0-9); otherwise returns false.      \sa isDigit() */
+comment|/*!     \fn bool QChar::isNumber() const      Returns true if the character is a number (Number_* categories,     not just 0-9); otherwise returns false.      \sa isDigit() */
+end_comment
+begin_comment
+comment|/*!     \internal     \overload */
 end_comment
 begin_function
 DECL|function|isNumber
@@ -369,8 +372,10 @@ name|bool
 name|QChar
 operator|::
 name|isNumber
-parameter_list|()
-specifier|const
+parameter_list|(
+name|ushort
+name|ucs2
+parameter_list|)
 block|{
 specifier|const
 name|int
@@ -396,7 +401,7 @@ name|FLAG
 argument_list|(
 name|qGetProp
 argument_list|(
-name|ucs
+name|ucs2
 argument_list|)
 operator|->
 name|category
