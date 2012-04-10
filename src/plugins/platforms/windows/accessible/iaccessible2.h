@@ -1633,6 +1633,12 @@ name|count
 argument_list|()
 argument_list|)
 block|;     }
+DECL|function|~AccessibleRelation
+name|virtual
+operator|~
+name|AccessibleRelation
+argument_list|()
+block|{}
 comment|/* IUnknown */
 DECL|function|QueryInterface
 name|HRESULT
