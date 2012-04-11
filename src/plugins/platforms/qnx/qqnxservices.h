@@ -20,6 +20,12 @@ file|<QtGui/QPlatformServices>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QQnxAbstractNavigator
+name|class
+name|QQnxAbstractNavigator
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QQnxServices
 range|:
@@ -28,8 +34,13 @@ name|QPlatformServices
 block|{
 name|public
 operator|:
+name|explicit
 name|QQnxServices
-argument_list|()
+argument_list|(
+name|QQnxAbstractNavigator
+operator|*
+name|navigator
+argument_list|)
 block|;
 operator|~
 name|QQnxServices
@@ -63,6 +74,12 @@ name|QUrl
 operator|&
 name|url
 argument_list|)
+block|;
+name|private
+operator|:
+name|QQnxAbstractNavigator
+operator|*
+name|m_navigator
 block|; }
 decl_stmt|;
 end_decl_stmt
