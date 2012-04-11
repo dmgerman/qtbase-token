@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qeglfs_hooks.h"
+file|"qeglfshooks.h"
 end_include
 begin_include
 include|#
