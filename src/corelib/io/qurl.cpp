@@ -9906,7 +9906,10 @@ name|path
 operator|.
 name|startsWith
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"//"
+argument_list|)
 argument_list|)
 condition|)
 name|url
