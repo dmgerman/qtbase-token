@@ -170,7 +170,9 @@ directive|endif
 specifier|inline
 name|void
 name|sort
-argument_list|()
+argument_list|(
+argument|Qt::CaseSensitivity cs = Qt::CaseSensitive
+argument_list|)
 block|;
 specifier|inline
 name|int
@@ -511,9 +513,9 @@ name|void
 name|Q_CORE_EXPORT
 name|QStringList_sort
 argument_list|(
-name|QStringList
-operator|*
-name|that
+argument|QStringList *that
+argument_list|,
+argument|Qt::CaseSensitivity cs
 argument_list|)
 block|;
 name|int
@@ -733,13 +735,17 @@ name|void
 name|QStringList
 operator|::
 name|sort
-argument_list|()
+argument_list|(
+argument|Qt::CaseSensitivity cs
+argument_list|)
 block|{
 name|QtPrivate
 operator|::
 name|QStringList_sort
 argument_list|(
 name|this
+argument_list|,
+name|cs
 argument_list|)
 block|; }
 DECL|function|removeDuplicates
