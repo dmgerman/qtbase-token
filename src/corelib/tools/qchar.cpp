@@ -2396,10 +2396,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn char QChar::toLatin1() const      Returns the Latin-1 character equivalent to the QChar, or 0. This     is mainly useful for non-internationalized software.      \sa toAscii(), unicode() */
+comment|/*!     \fn char QChar::toLatin1() const      Returns the Latin-1 character equivalent to the QChar, or 0. This     is mainly useful for non-internationalized software.      \note It is not possible to distinguish a non-Latin-1 character from a Latin-1 0     (NUL) character. Prefer to use unicode(), which does not have this ambiguity.      \sa toAscii(), unicode() */
 end_comment
 begin_comment
-comment|/*!     \fn char QChar::toAscii() const      Returns the Latin-1 character value of the QChar, or 0 if the character is not     representable.      The main purpose of this function is to preserve ASCII characters used     in C strings. This is mainly useful for developers of non-internationalized     software.      \note It is not possible to distinguish a non-Latin 1 character from an ASCII 0     (NUL) character. Prefer to use unicode(), which does not have this ambiguity.      \sa toLatin1(), unicode() */
+comment|/*!     \fn QChar QChar::fromLatin1(char)      Converts the Latin-1 character \a c to its equivalent QChar. This     is mainly useful for non-internationalized software.      An alternative is to use QLatin1Char.      \sa fromAscii(), unicode() */
+end_comment
+begin_comment
+comment|/*!     \fn char QChar::toAscii() const      Returns the Latin-1 character value of the QChar, or 0 if the character is not     representable.      The main purpose of this function is to preserve ASCII characters used     in C strings. This is mainly useful for developers of non-internationalized     software.      \note It is not possible to distinguish a non-Latin 1 character from an ASCII 0     (NUL) character. Prefer to use unicode(), which does not have this ambiguity.      \note This function does not check whether the character value is inside     the valid range of US-ASCII.      \sa toLatin1(), unicode() */
 end_comment
 begin_comment
 comment|/*!     \fn QChar QChar::fromAscii(char)      Converts the ASCII character \a c to it's equivalent QChar. This     is mainly useful for non-internationalized software.      An alternative is to use QLatin1Char.      \sa fromLatin1(), unicode() */
@@ -2494,7 +2497,7 @@ begin_comment
 comment|/*!     \fn ushort& QChar::unicode()      Returns a reference to the numeric Unicode value of the QChar. */
 end_comment
 begin_comment
-comment|/*!     \fn ushort QChar::unicode() const      \overload */
+comment|/*!     \fn ushort QChar::unicode() const      Returns the numeric Unicode value of the QChar. */
 end_comment
 begin_comment
 comment|/*****************************************************************************   Documentation of QChar related functions  *****************************************************************************/
