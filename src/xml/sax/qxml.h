@@ -1842,7 +1842,7 @@ specifier|const
 operator|=
 literal|0
 expr_stmt|;
-comment|// ### Qt 5: Conform to SAX by adding elementDecl
+comment|// ### Conform to SAX by adding elementDecl
 block|}
 end_decl_stmt
 begin_empty_stmt

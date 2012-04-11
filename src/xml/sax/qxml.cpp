@@ -450,7 +450,7 @@ begin_comment
 comment|// Hack for letting QDom know where the skipped entity occurred
 end_comment
 begin_comment
-comment|// ### Qt5: the use of this variable means the code isn't reentrant.
+comment|// ### the use of this variable means the code isn't reentrant.
 end_comment
 begin_decl_stmt
 DECL|variable|qt_xml_skipped_entity_in_content
@@ -4178,7 +4178,7 @@ name|~
 name|QXmlInputSource
 parameter_list|()
 block|{
-comment|// ### Qt 5: close the input device. See task 153111
+comment|// ### close the input device.
 ifndef|#
 directive|ifndef
 name|QT_NO_TEXTCODEC
@@ -7086,7 +7086,6 @@ init|=
 name|d_func
 argument_list|()
 decl_stmt|;
-comment|// Qt5 ###: Change these strings to qt.nokia.com
 if|if
 condition|(
 name|ok
@@ -7140,9 +7139,16 @@ name|QLatin1String
 argument_list|(
 literal|"http://trolltech.com/xml/features/report-whitespace-only-CharData"
 argument_list|)
+comment|// For compat with Qt 4
+operator|||
+name|name
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"http://qt-project.org/xml/features/report-whitespace-only-CharData"
+argument_list|)
 condition|)
 block|{
-comment|// Shouldn't change in Qt 4
 return|return
 name|d
 operator|->
@@ -7158,9 +7164,16 @@ name|QLatin1String
 argument_list|(
 literal|"http://trolltech.com/xml/features/report-start-end-entity"
 argument_list|)
+comment|// For compat with Qt 4
+operator|||
+name|name
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"http://qt-project.org/xml/features/report-start-end-entity"
+argument_list|)
 condition|)
 block|{
-comment|// Shouldn't change in Qt 4
 return|return
 name|d
 operator|->
@@ -7200,7 +7213,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Turns on the feature \a name if \a enable is true; otherwise turns it off.      The \a name parameter must be one of the following strings:     \table     \header \li Feature \li Default \li Notes     \row \li \e http://xml.org/sax/features/namespaces          \li true          \li If enabled, namespaces are reported to the content handler.     \row \li \e http://xml.org/sax/features/namespace-prefixes          \li false          \li If enabled, the original prefixed names             and attributes used for namespace declarations are             reported.     \row \li \e http://trolltech.com/xml/features/report-whitespace-only-CharData          \li true          \li If enabled, CharData that consist of             only whitespace characters are reported             using QXmlContentHandler::characters(). If disabled, whitespace is silently             discarded.     \row \li \e http://trolltech.com/xml/features/report-start-end-entity          \li false          \li If enabled, the parser reports             QXmlContentHandler::startEntity() and             QXmlContentHandler::endEntity() events, so character data             might be reported in chunks.             If disabled, the parser does not report these events, but             silently substitutes the entities, and reports the character             data in one chunk.     \endtable      \sa feature(), hasFeature(), {SAX2 Features} */
+comment|/*!     Turns on the feature \a name if \a enable is true; otherwise turns it off.      The \a name parameter must be one of the following strings:     \table     \header \li Feature \li Default \li Notes     \row \li \e http://xml.org/sax/features/namespaces          \li true          \li If enabled, namespaces are reported to the content handler.     \row \li \e http://xml.org/sax/features/namespace-prefixes          \li false          \li If enabled, the original prefixed names             and attributes used for namespace declarations are             reported.     \row \li \e http://trolltech.com/xml/features/report-whitespace-only-CharData          \li true          \li Obsolete, use the following string instead.             If enabled, CharData that consist of             only whitespace characters are reported             using QXmlContentHandler::characters(). If disabled, whitespace is silently             discarded.     \row \li \e http://qt-project.org/xml/features/report-whitespace-only-CharData          \li true          \li If enabled, CharData that consist of             only whitespace characters are reported             using QXmlContentHandler::characters(). If disabled, whitespace is silently             discarded.     \row \li \e http://trolltech.com/xml/features/report-start-end-entity          \li false          \li Obsolete, use the following string instead.             If enabled, the parser reports             QXmlContentHandler::startEntity() and             QXmlContentHandler::endEntity() events, so character data             might be reported in chunks.             If disabled, the parser does not report these events, but             silently substitutes the entities, and reports the character             data in one chunk.     \row \li \e http://qt-project.org/xml/features/report-start-end-entity          \li false          \li If enabled, the parser reports             QXmlContentHandler::startEntity() and             QXmlContentHandler::endEntity() events, so character data             might be reported in chunks.             If disabled, the parser does not report these events, but             silently substitutes the entities, and reports the character             data in one chunk.     \endtable      \sa feature(), hasFeature(), {SAX2 Features} */
 end_comment
 begin_function
 DECL|function|setFeature
@@ -7223,7 +7236,6 @@ argument_list|(
 name|QXmlSimpleReader
 argument_list|)
 expr_stmt|;
-comment|// Qt5 ###: Change these strings to qt.nokia.com
 if|if
 condition|(
 name|name
@@ -7268,9 +7280,16 @@ name|QLatin1String
 argument_list|(
 literal|"http://trolltech.com/xml/features/report-whitespace-only-CharData"
 argument_list|)
+comment|// For compat with Qt 4
+operator|||
+name|name
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"http://qt-project.org/xml/features/report-whitespace-only-CharData"
+argument_list|)
 condition|)
 block|{
-comment|// Shouldn't change in Qt 4
 name|d
 operator|->
 name|reportWhitespaceCharData
@@ -7287,9 +7306,16 @@ name|QLatin1String
 argument_list|(
 literal|"http://trolltech.com/xml/features/report-start-end-entity"
 argument_list|)
+comment|// For compat with Qt 4
+operator|||
+name|name
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"http://trolltech.com/xml/features/report-start-end-entity"
+argument_list|)
 condition|)
 block|{
-comment|// Shouldn't change in Qt 4
 name|d
 operator|->
 name|reportEntities
@@ -7332,7 +7358,6 @@ name|name
 parameter_list|)
 specifier|const
 block|{
-comment|// Qt5 ###: Change these strings to qt.nokia.com
 if|if
 condition|(
 name|name
@@ -7355,7 +7380,14 @@ name|QLatin1String
 argument_list|(
 literal|"http://trolltech.com/xml/features/report-whitespace-only-CharData"
 argument_list|)
-comment|// Shouldn't change in Qt 4
+comment|// For compat with Qt 4
+operator|||
+name|name
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"http://qt-project.org/xml/features/report-whitespace-only-CharData"
+argument_list|)
 operator|||
 name|name
 operator|==
@@ -7363,9 +7395,16 @@ name|QLatin1String
 argument_list|(
 literal|"http://trolltech.com/xml/features/report-start-end-entity"
 argument_list|)
+comment|// For compat with Qt 4
+operator|||
+name|name
+operator|==
+name|QLatin1String
+argument_list|(
+literal|"http://qt-project.org/xml/features/report-start-end-entity"
+argument_list|)
 condition|)
 block|{
-comment|// Shouldn't change in Qt 4
 return|return
 literal|true
 return|;
