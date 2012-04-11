@@ -24457,7 +24457,6 @@ else|else
 name|updateGeometry
 argument_list|()
 expr_stmt|;
-comment|// ### Qt 5: compat, remove
 if|if
 condition|(
 name|isVisible
