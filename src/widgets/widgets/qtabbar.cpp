@@ -6326,7 +6326,6 @@ argument_list|(
 name|QTabBar
 argument_list|)
 expr_stmt|;
-comment|// ### Qt 5: make this a protected virtual function in QTabBar
 name|Tab
 modifier|&
 name|tab
