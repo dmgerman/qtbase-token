@@ -84,16 +84,10 @@ block|;
 name|void
 name|addButton
 argument_list|(
-name|QAbstractButton
-operator|*
-argument_list|)
-block|;
-name|void
-name|addButton
-argument_list|(
 argument|QAbstractButton *
 argument_list|,
-argument|int id
+argument|int id = -
+literal|1
 argument_list|)
 block|;
 name|void
