@@ -1511,7 +1511,7 @@ block|}
 block|}
 end_destructor
 begin_comment
-comment|/*!     \class QFont     \reentrant      \brief The QFont class specifies a font used for drawing text.      \ingroup painting     \ingroup appearance     \ingroup shared     \ingroup richtext-processing       When you create a QFont object you specify various attributes that     you want the font to have. Qt will use the font with the specified     attributes, or if no matching font exists, Qt will use the closest     matching installed font. The attributes of the font that is     actually used are retrievable from a QFontInfo object. If the     window system provides an exact match exactMatch() returns true.     Use QFontMetrics to get measurements, e.g. the pixel length of a     string using QFontMetrics::width().      Note that a QGuiApplication instance must exist before a QFont can be     used. You can set the application's default font with     QGuiApplication::setFont().      If a chosen font does not include all the characters that     need to be displayed, QFont will try to find the characters in the     nearest equivalent fonts. When a QPainter draws a character from a     font the QFont will report whether or not it has the character; if     it does not, QPainter will draw an unfilled square.      Create QFonts like this:      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 0      The attributes set in the constructor can also be set later, e.g.     setFamily(), setPointSize(), setPointSizeFloat(), setWeight() and     setItalic(). The remaining attributes must be set after     contstruction, e.g. setBold(), setUnderline(), setOverline(),     setStrikeOut() and setFixedPitch(). QFontInfo objects should be     created \e after the font's attributes have been set. A QFontInfo     object will not change, even if you change the font's     attributes. The corresponding "get" functions, e.g. family(),     pointSize(), etc., return the values that were set, even though     the values used may differ. The actual values are available from a     QFontInfo object.      If the requested font family is unavailable you can influence the     \link #fontmatching font matching algorithm\endlink by choosing a     particular \l{QFont::StyleHint} and \l{QFont::StyleStrategy} with     setStyleHint(). The default family (corresponding to the current     style hint) is returned by defaultFamily().      The font-matching algorithm has a lastResortFamily() and     lastResortFont() in cases where a suitable match cannot be found.     You can provide substitutions for font family names using     insertSubstitution() and insertSubstitutions(). Substitutions can     be removed with removeSubstitution(). Use substitute() to retrieve     a family's first substitute, or the family name itself if it has     no substitutes. Use substitutes() to retrieve a list of a family's     substitutes (which may be empty).      Every QFont has a key() which you can use, for example, as the key     in a cache or dictionary. If you want to store a user's font     preferences you could use QSettings, writing the font information     with toString() and reading it back with fromString(). The     operator<<() and operator>>() functions are also available, but     they work on a data stream.      It is possible to set the height of characters shown on the screen     to a specified number of pixels with setPixelSize(); however using     setPointSize() has a similar effect and provides device     independence.      In X11 you can set a font using its system     specific name with setRawName().      Loading fonts can be expensive, especially on X11. QFont contains     extensive optimizations to make the copying of QFont objects fast,     and to cache the results of the slow window system functions it     depends upon.      \target fontmatching     The font matching algorithm works as follows:     \list 1     \li The specified font family is searched for.     \li If not found, the styleHint() is used to select a replacement        family.     \li Each replacement font family is searched for.     \li If none of these are found or there was no styleHint(), "helvetica"        will be searched for.     \li If "helvetica" isn't found Qt will try the lastResortFamily().     \li If the lastResortFamily() isn't found Qt will try the        lastResortFont() which will always return a name of some kind.     \endlist      Note that the actual font matching algorithm varies from platform to platform.      In Windows a request for the "Courier" font is automatically changed to     "Courier New", an improved version of Courier that allows for smooth scaling.     The older "Courier" bitmap font can be selected by setting the PreferBitmap     style strategy (see setStyleStrategy()).      Once a font is found, the remaining attributes are matched in order of     priority:     \list 1     \li fixedPitch()     \li pointSize() (see below)     \li weight()     \li style()     \endlist      If you have a font which matches on family, even if none of the     other attributes match, this font will be chosen in preference to     a font which doesn't match on family but which does match on the     other attributes. This is because font family is the dominant     search criteria.      The point size is defined to match if it is within 20% of the     requested point size. When several fonts match and are only     distinguished by point size, the font with the closest point size     to the one requested will be chosen.      The actual family, font size, weight and other font attributes     used for drawing text will depend on what's available for the     chosen family under the window system. A QFontInfo object can be     used to determine the actual values used for drawing the text.      Examples:      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 1     If you had both an Adobe and a Cronyx Helvetica, you might get     either.      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 2      You can specify the foundry you want in the family name. The font f     in the above example will be set to "Helvetica     [Cronyx]".      To determine the attributes of the font actually used in the window     system, use a QFontInfo object, e.g.      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 3      To find out font metrics use a QFontMetrics object, e.g.      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 4      For more general information on fonts, see the     \link http://nwalsh.com/comp.fonts/FAQ/ comp.fonts FAQ.\endlink     Information on encodings can be found from     \link http://czyborra.com/ Roman Czyborra's\endlink page.      \sa QFontComboBox, QFontMetrics, QFontInfo, QFontDatabase, {Character Map Example} */
+comment|/*!     \class QFont     \reentrant      \brief The QFont class specifies a font used for drawing text.      \ingroup painting     \ingroup appearance     \ingroup shared     \ingroup richtext-processing       When you create a QFont object you specify various attributes that     you want the font to have. Qt will use the font with the specified     attributes, or if no matching font exists, Qt will use the closest     matching installed font. The attributes of the font that is     actually used are retrievable from a QFontInfo object. If the     window system provides an exact match exactMatch() returns true.     Use QFontMetrics to get measurements, e.g. the pixel length of a     string using QFontMetrics::width().      Note that a QGuiApplication instance must exist before a QFont can be     used. You can set the application's default font with     QGuiApplication::setFont().      If a chosen font does not include all the characters that     need to be displayed, QFont will try to find the characters in the     nearest equivalent fonts. When a QPainter draws a character from a     font the QFont will report whether or not it has the character; if     it does not, QPainter will draw an unfilled square.      Create QFonts like this:      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 0      The attributes set in the constructor can also be set later, e.g.     setFamily(), setPointSize(), setPointSizeFloat(), setWeight() and     setItalic(). The remaining attributes must be set after     contstruction, e.g. setBold(), setUnderline(), setOverline(),     setStrikeOut() and setFixedPitch(). QFontInfo objects should be     created \e after the font's attributes have been set. A QFontInfo     object will not change, even if you change the font's     attributes. The corresponding "get" functions, e.g. family(),     pointSize(), etc., return the values that were set, even though     the values used may differ. The actual values are available from a     QFontInfo object.      If the requested font family is unavailable you can influence the     \link #fontmatching font matching algorithm\endlink by choosing a     particular \l{QFont::StyleHint} and \l{QFont::StyleStrategy} with     setStyleHint(). The default family (corresponding to the current     style hint) is returned by defaultFamily().      The font-matching algorithm has a lastResortFamily() and     lastResortFont() in cases where a suitable match cannot be found.     You can provide substitutions for font family names using     insertSubstitution() and insertSubstitutions(). Substitutions can     be removed with removeSubstitutions(). Use substitute() to retrieve     a family's first substitute, or the family name itself if it has     no substitutes. Use substitutes() to retrieve a list of a family's     substitutes (which may be empty).      Every QFont has a key() which you can use, for example, as the key     in a cache or dictionary. If you want to store a user's font     preferences you could use QSettings, writing the font information     with toString() and reading it back with fromString(). The     operator<<() and operator>>() functions are also available, but     they work on a data stream.      It is possible to set the height of characters shown on the screen     to a specified number of pixels with setPixelSize(); however using     setPointSize() has a similar effect and provides device     independence.      In X11 you can set a font using its system     specific name with setRawName().      Loading fonts can be expensive, especially on X11. QFont contains     extensive optimizations to make the copying of QFont objects fast,     and to cache the results of the slow window system functions it     depends upon.      \target fontmatching     The font matching algorithm works as follows:     \list 1     \li The specified font family is searched for.     \li If not found, the styleHint() is used to select a replacement        family.     \li Each replacement font family is searched for.     \li If none of these are found or there was no styleHint(), "helvetica"        will be searched for.     \li If "helvetica" isn't found Qt will try the lastResortFamily().     \li If the lastResortFamily() isn't found Qt will try the        lastResortFont() which will always return a name of some kind.     \endlist      Note that the actual font matching algorithm varies from platform to platform.      In Windows a request for the "Courier" font is automatically changed to     "Courier New", an improved version of Courier that allows for smooth scaling.     The older "Courier" bitmap font can be selected by setting the PreferBitmap     style strategy (see setStyleStrategy()).      Once a font is found, the remaining attributes are matched in order of     priority:     \list 1     \li fixedPitch()     \li pointSize() (see below)     \li weight()     \li style()     \endlist      If you have a font which matches on family, even if none of the     other attributes match, this font will be chosen in preference to     a font which doesn't match on family but which does match on the     other attributes. This is because font family is the dominant     search criteria.      The point size is defined to match if it is within 20% of the     requested point size. When several fonts match and are only     distinguished by point size, the font with the closest point size     to the one requested will be chosen.      The actual family, font size, weight and other font attributes     used for drawing text will depend on what's available for the     chosen family under the window system. A QFontInfo object can be     used to determine the actual values used for drawing the text.      Examples:      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 1     If you had both an Adobe and a Cronyx Helvetica, you might get     either.      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 2      You can specify the foundry you want in the family name. The font f     in the above example will be set to "Helvetica     [Cronyx]".      To determine the attributes of the font actually used in the window     system, use a QFontInfo object, e.g.      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 3      To find out font metrics use a QFontMetrics object, e.g.      \snippet doc/src/snippets/code/src_gui_text_qfont.cpp 4      For more general information on fonts, see the     \link http://nwalsh.com/comp.fonts/FAQ/ comp.fonts FAQ.\endlink     Information on encodings can be found from     \link http://czyborra.com/ Roman Czyborra's\endlink page.      \sa QFontComboBox, QFontMetrics, QFontInfo, QFontDatabase, {Character Map Example} */
 end_comment
 begin_comment
 comment|/*!     \internal     \enum QFont::ResolveProperties      This enum describes the properties of a QFont that can be set on a font     individually and then considered resolved.      \value FamilyResolved     \value SizeResolved     \value StyleHintResolved     \value StyleStrategyResolved     \value WeightResolved     \value StyleResolved     \value UnderlineResolved     \value OverlineResolved     \value StrikeOutResolved     \value FixedPitchResolved     \value StretchResolved     \value KerningResolved     \value CapitalizationResolved     \value LetterSpacingResolved     \value WordSpacingResolved     \value CompletelyResolved */
@@ -4263,114 +4263,7 @@ argument|globalFontSubst
 argument_list|)
 end_macro
 begin_comment
-comment|// create substitution dict
-end_comment
-begin_function
-DECL|function|initFontSubst
-specifier|static
-name|void
-name|initFontSubst
-parameter_list|()
-block|{
-comment|// default substitutions
-specifier|static
-specifier|const
-name|char
-modifier|*
-specifier|const
-name|initTbl
-index|[]
-init|=
-block|{
-literal|0
-block|,
-literal|0
-block|}
-decl_stmt|;
-name|QFontSubst
-modifier|*
-name|fontSubst
-init|=
-name|globalFontSubst
-argument_list|()
-decl_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|fontSubst
-operator|!=
-literal|0
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|fontSubst
-operator|->
-name|isEmpty
-argument_list|()
-condition|)
-return|return;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|initTbl
-index|[
-name|i
-index|]
-operator|!=
-literal|0
-condition|;
-name|i
-operator|+=
-literal|2
-control|)
-block|{
-name|QStringList
-modifier|&
-name|list
-init|=
-operator|(
-operator|*
-name|fontSubst
-operator|)
-index|[
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-name|initTbl
-index|[
-name|i
-index|]
-argument_list|)
-index|]
-decl_stmt|;
-name|list
-operator|.
-name|append
-argument_list|(
-name|QString
-operator|::
-name|fromLatin1
-argument_list|(
-name|initTbl
-index|[
-name|i
-operator|+
-literal|1
-index|]
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-end_function
-begin_comment
-comment|/*!     Returns the first family name to be used whenever \a familyName is     specified. The lookup is case insensitive.      If there is no substitution for \a familyName, \a familyName is     returned.      To obtain a list of substitutions use substitutes().      \sa setFamily() insertSubstitutions() insertSubstitution() removeSubstitution() */
+comment|/*!     Returns the first family name to be used whenever \a familyName is     specified. The lookup is case insensitive.      If there is no substitution for \a familyName, \a familyName is     returned.      To obtain a list of substitutions use substitutes().      \sa setFamily() insertSubstitutions() insertSubstitution() removeSubstitutions() */
 end_comment
 begin_function
 DECL|function|substitute
@@ -4385,9 +4278,6 @@ modifier|&
 name|familyName
 parameter_list|)
 block|{
-name|initFontSubst
-argument_list|()
-expr_stmt|;
 name|QFontSubst
 modifier|*
 name|fontSubst
@@ -4450,7 +4340,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of family names to be used whenever \a familyName     is specified. The lookup is case insensitive.      If there is no substitution for \a familyName, an empty list is     returned.      \sa substitute() insertSubstitutions() insertSubstitution() removeSubstitution()  */
+comment|/*!     Returns a list of family names to be used whenever \a familyName     is specified. The lookup is case insensitive.      If there is no substitution for \a familyName, an empty list is     returned.      \sa substitute() insertSubstitutions() insertSubstitution() removeSubstitutions()  */
 end_comment
 begin_function
 DECL|function|substitutes
@@ -4465,9 +4355,6 @@ modifier|&
 name|familyName
 parameter_list|)
 block|{
-name|initFontSubst
-argument_list|()
-expr_stmt|;
 name|QFontSubst
 modifier|*
 name|fontSubst
@@ -4499,7 +4386,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts \a substituteName into the substitution     table for the family \a familyName.      \sa insertSubstitutions() removeSubstitution() substitutions() substitute() substitutes() */
+comment|/*!     Inserts \a substituteName into the substitution     table for the family \a familyName.      \sa insertSubstitutions() removeSubstitutions() substitutions() substitute() substitutes() */
 end_comment
 begin_function
 DECL|function|insertSubstitution
@@ -4519,9 +4406,6 @@ modifier|&
 name|substituteName
 parameter_list|)
 block|{
-name|initFontSubst
-argument_list|()
-expr_stmt|;
 name|QFontSubst
 modifier|*
 name|fontSubst
@@ -4579,7 +4463,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts the list of families \a substituteNames into the     substitution list for \a familyName.      \sa insertSubstitution(), removeSubstitution(), substitutions(), substitute() */
+comment|/*!     Inserts the list of families \a substituteNames into the     substitution list for \a familyName.      \sa insertSubstitution(), removeSubstitutions(), substitutions(), substitute() */
 end_comment
 begin_function
 DECL|function|insertSubstitutions
@@ -4599,9 +4483,6 @@ modifier|&
 name|substituteNames
 parameter_list|)
 block|{
-name|initFontSubst
-argument_list|()
-expr_stmt|;
 name|QFontSubst
 modifier|*
 name|fontSubst
@@ -4631,33 +4512,21 @@ name|toLower
 argument_list|()
 index|]
 decl_stmt|;
-name|QStringList
-operator|::
-name|ConstIterator
-name|it
-init|=
-name|substituteNames
-operator|.
-name|constBegin
-argument_list|()
-decl_stmt|;
-while|while
-condition|(
-name|it
-operator|!=
-name|substituteNames
-operator|.
-name|constEnd
-argument_list|()
-condition|)
-block|{
+foreach|foreach
+control|(
+specifier|const
 name|QString
-name|s
+modifier|&
+name|substituteName
+decl|,
+name|substituteNames
+control|)
+block|{
+specifier|const
+name|QString
+name|lowerSubstituteName
 init|=
-operator|(
-operator|*
-name|it
-operator|)
+name|substituteName
 operator|.
 name|toLower
 argument_list|()
@@ -4669,18 +4538,15 @@ name|list
 operator|.
 name|contains
 argument_list|(
-name|s
+name|lowerSubstituteName
 argument_list|)
 condition|)
 name|list
 operator|.
 name|append
 argument_list|(
-name|s
+name|lowerSubstituteName
 argument_list|)
-expr_stmt|;
-name|it
-operator|++
 expr_stmt|;
 block|}
 block|}
@@ -4692,17 +4558,14 @@ begin_comment
 comment|/*! \fn void QFont::cleanup()   \internal    Internal function that cleans up the font system. */
 end_comment
 begin_comment
-comment|// ### mark: should be called removeSubstitutions()
-end_comment
-begin_comment
-comment|/*!     Removes all the substitutions for \a familyName.      \sa insertSubstitutions(), insertSubstitution(), substitutions(), substitute() */
+comment|/*!     Removes all the substitutions for \a familyName.      \sa insertSubstitutions(), insertSubstitution(), substitutions(), substitute()     \since 5.0 */
 end_comment
 begin_function
-DECL|function|removeSubstitution
+DECL|function|removeSubstitutions
 name|void
 name|QFont
 operator|::
-name|removeSubstitution
+name|removeSubstitutions
 parameter_list|(
 specifier|const
 name|QString
@@ -4710,11 +4573,6 @@ modifier|&
 name|familyName
 parameter_list|)
 block|{
-comment|// ### function name should be removeSubstitutions() or
-comment|// ### removeSubstitutionList()
-name|initFontSubst
-argument_list|()
-expr_stmt|;
 name|QFontSubst
 modifier|*
 name|fontSubst
@@ -4742,6 +4600,9 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
+comment|/*!     \fn void QFont::removeSubstitution(const QString&familyName)      \obsolete      This function is deprecated. Use removeSubstitutions() instead. */
+end_comment
+begin_comment
 comment|/*!     Returns a sorted list of substituted family names.      \sa insertSubstitution(), removeSubstitution(), substitute() */
 end_comment
 begin_function
@@ -4752,9 +4613,12 @@ operator|::
 name|substitutions
 parameter_list|()
 block|{
-name|initFontSubst
-argument_list|()
-expr_stmt|;
+typedef|typedef
+name|QFontSubst
+operator|::
+name|const_iterator
+name|QFontSubstConstIterator
+typedef|;
 name|QFontSubst
 modifier|*
 name|fontSubst
@@ -4772,26 +4636,32 @@ expr_stmt|;
 name|QStringList
 name|ret
 decl_stmt|;
-name|QFontSubst
-operator|::
-name|ConstIterator
+specifier|const
+name|QFontSubstConstIterator
+name|cend
+init|=
+name|fontSubst
+operator|->
+name|constEnd
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|QFontSubstConstIterator
 name|it
 init|=
 name|fontSubst
 operator|->
 name|constBegin
 argument_list|()
-decl_stmt|;
-while|while
-condition|(
+init|;
 name|it
 operator|!=
-name|fontSubst
-operator|->
-name|constEnd
-argument_list|()
-condition|)
-block|{
+name|cend
+condition|;
+operator|++
+name|it
+control|)
 name|ret
 operator|.
 name|append
@@ -4802,10 +4672,6 @@ name|key
 argument_list|()
 argument_list|)
 expr_stmt|;
-operator|++
-name|it
-expr_stmt|;
-block|}
 name|ret
 operator|.
 name|sort
