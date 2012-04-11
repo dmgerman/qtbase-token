@@ -1423,10 +1423,26 @@ argument_list|,
 name|appendingTo
 argument_list|)
 expr_stmt|;
+comment|// add '@' only if we added anything
 if|if
 condition|(
-name|hasUserInfo
+name|hasUserName
 argument_list|()
+operator|||
+operator|(
+name|hasPassword
+argument_list|()
+operator|&&
+operator|(
+name|options
+operator|&
+name|QUrl
+operator|::
+name|RemovePassword
+operator|)
+operator|==
+literal|0
+operator|)
 condition|)
 name|appendTo
 operator|+=
