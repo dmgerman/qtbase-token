@@ -71,7 +71,7 @@ operator|-
 literal|0xfdd0U
 operator|)
 operator|<
-literal|16
+literal|32
 return|;
 block|}
 end_function
