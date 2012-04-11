@@ -388,15 +388,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_destructor
-begin_destructor
-DECL|function|~QSurface
-name|QSurface
-operator|::
-name|~
-name|QSurface
-parameter_list|()
-block|{ }
-end_destructor
 begin_comment
 comment|/*!     Set the \a surfaceType of the window.      Specifies whether the window is meant for raster rendering with     QBackingStore, or OpenGL rendering with QOpenGLContext.      \sa QBackingStore, QOpenGLContext */
 end_comment
