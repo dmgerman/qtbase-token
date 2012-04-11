@@ -34357,6 +34357,14 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+name|PM_ScrollView_ScrollBarOverlap
+case|:
+name|ret
+operator|=
+literal|0
+expr_stmt|;
+break|break;
+case|case
 name|PM_SubMenuOverlap
 case|:
 name|ret

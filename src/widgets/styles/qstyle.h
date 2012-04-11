@@ -1210,6 +1210,8 @@ name|PM_TabCloseIndicatorHeight
 block|,
 name|PM_ScrollView_ScrollBarSpacing
 block|,
+name|PM_ScrollView_ScrollBarOverlap
+block|,
 name|PM_SubMenuOverlap
 block|,
 comment|// do not add any values below/greater than this
