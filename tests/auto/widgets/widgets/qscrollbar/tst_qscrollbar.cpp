@@ -562,20 +562,6 @@ name|mouseReleaseEvent
 argument_list|)
 expr_stmt|;
 comment|// Check that the action was triggered once.
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"Fix does does not work on Mac due to paint architechure differences."
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|scrollArea
