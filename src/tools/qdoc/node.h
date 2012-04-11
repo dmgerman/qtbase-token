@@ -313,6 +313,23 @@ block|,
 name|OnBeyondZebra
 block|}
 enum|;
+enum|enum
+name|FlagValue
+block|{
+name|FlagValueDefault
+init|=
+operator|-
+literal|1
+block|,
+name|FlagValueFalse
+init|=
+literal|0
+block|,
+name|FlagValueTrue
+init|=
+literal|1
+block|}
+enum|;
 name|virtual
 operator|~
 name|Node
@@ -1018,6 +1035,25 @@ name|idForNode
 argument_list|()
 specifier|const
 expr_stmt|;
+specifier|static
+name|FlagValue
+name|toFlagValue
+parameter_list|(
+name|bool
+name|b
+parameter_list|)
+function_decl|;
+specifier|static
+name|bool
+name|fromFlagValue
+parameter_list|(
+name|FlagValue
+name|fv
+parameter_list|,
+name|bool
+name|defaultValue
+parameter_list|)
+function_decl|;
 specifier|static
 name|QString
 name|pageTypeString
@@ -2679,13 +2715,17 @@ name|public
 operator|:
 name|QmlPropGroupNode
 argument_list|(
-argument|QmlClassNode* parent
+name|QmlClassNode
+operator|*
+name|parent
 argument_list|,
-argument|const QString& name
-argument_list|,
-argument|bool attached
+specifier|const
+name|QString
+operator|&
+name|name
 argument_list|)
 block|;
+comment|//bool attached);
 name|virtual
 operator|~
 name|QmlPropGroupNode
@@ -2772,75 +2812,13 @@ name|name
 argument_list|()
 return|;
 block|}
-name|void
-name|setDefault
-argument_list|()
-block|{
-name|isdefault_
-operator|=
-name|true
-block|; }
-name|void
-name|setReadOnly
-argument_list|(
-argument|int ro
-argument_list|)
-block|{
-name|readOnly_
-operator|=
-name|ro
-block|; }
-name|int
-name|getReadOnly
-argument_list|()
-specifier|const
-block|{
-return|return
-name|readOnly_
-return|;
-block|}
-name|bool
-name|isDefault
-argument_list|()
-specifier|const
-block|{
-return|return
-name|isdefault_
-return|;
-block|}
-name|bool
-name|isAttached
-argument_list|()
-specifier|const
-block|{
-return|return
-name|attached_
-return|;
-block|}
-name|bool
-name|isReadOnly
-argument_list|()
-specifier|const
-block|{
-return|return
-operator|(
-name|readOnly_
-operator|>
+if|#
+directive|if
 literal|0
-operator|)
-return|;
-block|}
-name|private
-operator|:
-name|bool
-name|isdefault_
-block|;
-name|bool
-name|attached_
-block|;
-name|int
-name|readOnly_
-block|; }
+expr|void setDefault() { isdefault_ = true; }     void setReadOnly(int ro) { readOnly_ = ro; }     int getReadOnly() const { return readOnly_; }     bool isDefault() const { return isdefault_; }     bool isAttached() const { return attached_; }     bool isReadOnly() const { return (readOnly_> 0); }  private:     bool    isdefault_;     bool    attached_;     int     readOnly_;
+endif|#
+directive|endif
+expr|}
 block|;
 DECL|variable|QmlPropertyNode
 name|class
@@ -2908,9 +2886,9 @@ argument_list|(
 argument|bool stored
 argument_list|)
 block|{
-name|sto
+name|stored_
 operator|=
-name|toTrool
+name|toFlagValue
 argument_list|(
 name|stored
 argument_list|)
@@ -2921,25 +2899,33 @@ argument_list|(
 argument|bool designable
 argument_list|)
 block|{
-name|des
+name|designable_
 operator|=
-name|toTrool
+name|toFlagValue
 argument_list|(
 name|designable
 argument_list|)
 block|; }
 name|void
-name|setWritable
+name|setReadOnly
 argument_list|(
-argument|bool writable
+argument|bool ro
 argument_list|)
 block|{
-name|wri
+name|readOnly_
 operator|=
-name|toTrool
+name|toFlagValue
 argument_list|(
-name|writable
+name|ro
 argument_list|)
+block|; }
+name|void
+name|setDefault
+argument_list|()
+block|{
+name|isdefault_
+operator|=
+name|true
 block|; }
 specifier|const
 name|QString
@@ -2961,31 +2947,17 @@ return|return
 name|type_
 return|;
 block|}
-name|void
-name|setDefault
-argument_list|()
-block|{
-name|isdefault_
-operator|=
-name|true
-block|; }
-name|void
-name|setReadOnly
-argument_list|(
-argument|int ro
-argument_list|)
-block|{
-name|readOnly_
-operator|=
-name|ro
-block|; }
-name|int
-name|getReadOnly
+name|bool
+name|isReadOnlySet
 argument_list|()
 specifier|const
 block|{
 return|return
+operator|(
 name|readOnly_
+operator|!=
+name|FlagValueDefault
+operator|)
 return|;
 block|}
 name|bool
@@ -3003,9 +2975,9 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|fromTrool
+name|fromFlagValue
 argument_list|(
-name|sto
+name|stored_
 argument_list|,
 name|true
 argument_list|)
@@ -3017,9 +2989,9 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|fromTrool
+name|fromFlagValue
 argument_list|(
-name|des
+name|designable_
 argument_list|,
 name|false
 argument_list|)
@@ -3048,11 +3020,12 @@ argument_list|()
 specifier|const
 block|{
 return|return
-operator|(
+name|fromFlagValue
+argument_list|(
 name|readOnly_
-operator|>
-literal|0
-operator|)
+argument_list|,
+name|false
+argument_list|)
 return|;
 block|}
 name|virtual
@@ -3178,43 +3151,14 @@ return|;
 block|}
 name|private
 operator|:
-expr|enum
-name|Trool
-block|{
-name|Trool_True
-block|,
-name|Trool_False
-block|,
-name|Trool_Default
-block|}
-block|;
-specifier|static
-name|Trool
-name|toTrool
-argument_list|(
-argument|bool boolean
-argument_list|)
-block|;
-specifier|static
-name|bool
-name|fromTrool
-argument_list|(
-argument|Trool troolean
-argument_list|,
-argument|bool defaultValue
-argument_list|)
-block|;
 name|QString
 name|type_
 block|;
-name|Trool
-name|sto
+name|FlagValue
+name|stored_
 block|;
-name|Trool
-name|des
-block|;
-name|Trool
-name|wri
+name|FlagValue
+name|designable_
 block|;
 name|bool
 name|isdefault_
@@ -3222,7 +3166,7 @@ block|;
 name|bool
 name|attached_
 block|;
-name|int
+name|FlagValue
 name|readOnly_
 block|;
 name|NodeList
@@ -4342,9 +4286,9 @@ argument_list|(
 argument|bool stored
 argument_list|)
 block|{
-name|sto
+name|stored_
 operator|=
-name|toTrool
+name|toFlagValue
 argument_list|(
 name|stored
 argument_list|)
@@ -4355,9 +4299,9 @@ argument_list|(
 argument|bool designable
 argument_list|)
 block|{
-name|des
+name|designable_
 operator|=
-name|toTrool
+name|toFlagValue
 argument_list|(
 name|designable
 argument_list|)
@@ -4368,9 +4312,9 @@ argument_list|(
 argument|bool scriptable
 argument_list|)
 block|{
-name|scr
+name|scriptable_
 operator|=
-name|toTrool
+name|toFlagValue
 argument_list|(
 name|scriptable
 argument_list|)
@@ -4381,9 +4325,9 @@ argument_list|(
 argument|bool writable
 argument_list|)
 block|{
-name|wri
+name|writable_
 operator|=
-name|toTrool
+name|toFlagValue
 argument_list|(
 name|writable
 argument_list|)
@@ -4394,9 +4338,9 @@ argument_list|(
 argument|bool user
 argument_list|)
 block|{
-name|usr
+name|user_
 operator|=
-name|toTrool
+name|toFlagValue
 argument_list|(
 name|user
 argument_list|)
@@ -4548,9 +4492,9 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|fromTrool
+name|fromFlagValue
 argument_list|(
-name|sto
+name|stored_
 argument_list|,
 name|storedDefault
 argument_list|()
@@ -4563,9 +4507,9 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|fromTrool
+name|fromFlagValue
 argument_list|(
-name|des
+name|designable_
 argument_list|,
 name|designableDefault
 argument_list|()
@@ -4578,9 +4522,9 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|fromTrool
+name|fromFlagValue
 argument_list|(
-name|scr
+name|scriptable_
 argument_list|,
 name|scriptableDefault
 argument_list|()
@@ -4615,9 +4559,9 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|fromTrool
+name|fromFlagValue
 argument_list|(
-name|wri
+name|writable_
 argument_list|,
 name|writableDefault
 argument_list|()
@@ -4630,9 +4574,9 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|fromTrool
+name|fromFlagValue
 argument_list|(
-name|usr
+name|user_
 argument_list|,
 name|userDefault
 argument_list|()
@@ -4725,32 +4669,6 @@ return|;
 block|}
 name|private
 operator|:
-expr|enum
-name|Trool
-block|{
-name|Trool_True
-block|,
-name|Trool_False
-block|,
-name|Trool_Default
-block|}
-block|;
-specifier|static
-name|Trool
-name|toTrool
-argument_list|(
-argument|bool boolean
-argument_list|)
-block|;
-specifier|static
-name|bool
-name|fromTrool
-argument_list|(
-argument|Trool troolean
-argument_list|,
-argument|bool defaultValue
-argument_list|)
-block|;
 name|QString
 name|type_
 block|;
@@ -4766,20 +4684,20 @@ index|[
 name|NumFunctionRoles
 index|]
 block|;
-name|Trool
-name|sto
+name|FlagValue
+name|stored_
 block|;
-name|Trool
-name|des
+name|FlagValue
+name|designable_
 block|;
-name|Trool
-name|scr
+name|FlagValue
+name|scriptable_
 block|;
-name|Trool
-name|wri
+name|FlagValue
+name|writable_
 block|;
-name|Trool
-name|usr
+name|FlagValue
+name|user_
 block|;
 name|bool
 name|cst
@@ -4910,11 +4828,9 @@ return|return
 name|list
 return|;
 block|}
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|VariableNode
-range|:
+operator|:
 name|public
 name|LeafNode
 block|{
@@ -5020,9 +4936,7 @@ block|;
 name|bool
 name|sta
 block|; }
-decl_stmt|;
-end_decl_stmt
-begin_expr_stmt
+block|;
 DECL|function|VariableNode
 specifier|inline
 name|VariableNode
@@ -5047,7 +4961,7 @@ name|parent
 argument_list|,
 name|name
 argument_list|)
-operator|,
+block|,
 name|sta
 argument_list|(
 argument|false
@@ -5106,11 +5020,10 @@ name|ditamap
 argument_list|()
 return|;
 block|}
-end_expr_stmt
-begin_macro
-unit|};
+expr|}
+block|;
 name|QT_END_NAMESPACE
-end_macro
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
