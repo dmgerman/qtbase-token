@@ -1949,11 +1949,11 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.5      Returns the custom color at the given \a index as a QRgb value. */
+comment|/*!     \since 4.5      Returns the custom color at the given \a index as a QColor value. */
 end_comment
 begin_function
 DECL|function|customColor
-name|QRgb
+name|QColor
 name|QColorDialog
 operator|::
 name|customColor
@@ -1963,17 +1963,20 @@ name|index
 parameter_list|)
 block|{
 return|return
+name|QColor
+argument_list|(
 name|QColorDialogOptions
 operator|::
 name|customColor
 argument_list|(
 name|index
 argument_list|)
+argument_list|)
 return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the custom color at \a index to the QRgb \a color value.      \note This function does not apply to the Native Color Dialog on the Mac     OS X platform. If you still require this function, use the     QColorDialog::DontUseNativeDialog option. */
+comment|/*!     Sets the custom color at \a index to the QColor \a color value.      \note This function does not apply to the Native Color Dialog on the Mac     OS X platform. If you still require this function, use the     QColorDialog::DontUseNativeDialog option. */
 end_comment
 begin_function
 DECL|function|setCustomColor
@@ -1985,7 +1988,7 @@ parameter_list|(
 name|int
 name|index
 parameter_list|,
-name|QRgb
+name|QColor
 name|color
 parameter_list|)
 block|{
@@ -1996,12 +1999,42 @@ argument_list|(
 name|index
 argument_list|,
 name|color
+operator|.
+name|rgba
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the standard color at \a  index to the QRgb \a color value.      \note This function does not apply to the Native Color Dialog on the Mac     OS X platform. If you still require this function, use the     QColorDialog::DontUseNativeDialog option. */
+comment|/*!     \since 5.0      Returns the standard color at the given \a index as a QColor value. */
+end_comment
+begin_function
+DECL|function|standardColor
+name|QColor
+name|QColorDialog
+operator|::
+name|standardColor
+parameter_list|(
+name|int
+name|index
+parameter_list|)
+block|{
+return|return
+name|QColor
+argument_list|(
+name|QColorDialogOptions
+operator|::
+name|standardColor
+argument_list|(
+name|index
+argument_list|)
+argument_list|)
+return|;
+block|}
+end_function
+begin_comment
+comment|/*!     Sets the standard color at \a index to the QColor \a color value.      \note This function does not apply to the Native Color Dialog on the Mac     OS X platform. If you still require this function, use the     QColorDialog::DontUseNativeDialog option. */
 end_comment
 begin_function
 DECL|function|setStandardColor
@@ -2013,7 +2046,7 @@ parameter_list|(
 name|int
 name|index
 parameter_list|,
-name|QRgb
+name|QColor
 name|color
 parameter_list|)
 block|{
@@ -2024,6 +2057,9 @@ argument_list|(
 name|index
 argument_list|,
 name|color
+operator|.
+name|rgba
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

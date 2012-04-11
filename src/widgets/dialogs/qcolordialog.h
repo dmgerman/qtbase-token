@@ -222,14 +222,13 @@ argument|QWidget *parent =
 literal|0
 argument_list|)
 block|;
-comment|// ### Qt 5: use QColor in signatures
 specifier|static
 name|int
 name|customCount
 argument_list|()
 block|;
 specifier|static
-name|QRgb
+name|QColor
 name|customColor
 argument_list|(
 argument|int index
@@ -241,7 +240,14 @@ name|setCustomColor
 argument_list|(
 argument|int index
 argument_list|,
-argument|QRgb color
+argument|QColor color
+argument_list|)
+block|;
+specifier|static
+name|QColor
+name|standardColor
+argument_list|(
+argument|int index
 argument_list|)
 block|;
 specifier|static
@@ -250,7 +256,7 @@ name|setStandardColor
 argument_list|(
 argument|int index
 argument_list|,
-argument|QRgb color
+argument|QColor color
 argument_list|)
 block|;
 name|Q_SIGNALS
