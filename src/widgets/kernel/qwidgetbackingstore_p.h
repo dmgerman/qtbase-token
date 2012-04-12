@@ -222,9 +222,6 @@ name|isEmpty
 argument_list|()
 operator|&&
 operator|!
-name|hasDirtyFromPreviousSync
-operator|&&
-operator|!
 name|fullUpdatePending
 operator|)
 return|;
@@ -318,11 +315,6 @@ expr_stmt|;
 name|QBackingStore
 modifier|*
 name|store
-decl_stmt|;
-name|uint
-name|hasDirtyFromPreviousSync
-range|:
-literal|1
 decl_stmt|;
 name|uint
 name|fullUpdatePending

@@ -3604,11 +3604,6 @@ argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
-name|hasDirtyFromPreviousSync
-argument_list|(
-literal|false
-argument_list|)
-member_init_list|,
 name|fullUpdatePending
 argument_list|(
 literal|0
@@ -5121,14 +5116,6 @@ condition|(
 name|updatesDisabled
 condition|)
 return|return;
-if|if
-condition|(
-name|hasDirtyFromPreviousSync
-condition|)
-name|dirty
-operator|+=
-name|dirtyFromPreviousSync
-expr_stmt|;
 comment|// Contains everything that needs repaint.
 name|QRegion
 name|toClean
