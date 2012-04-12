@@ -305,6 +305,20 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"This test fails on Mac OS X, see QTBUG-25272"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|testWidget
