@@ -923,36 +923,36 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|Q_QDOC
+specifier|static
 name|QMetaObject
 operator|::
 name|Connection
-name|QObject
-operator|::
 name|connect
 argument_list|(
 argument|const QObject *sender
 argument_list|,
-argument|(T::*signal)(...)
+argument|PointerToMemberFunction signal
 argument_list|,
 argument|const QObject *receiver
 argument_list|,
-argument|(T::*method)(...)
+argument|PointerToMemberFunction method
 argument_list|,
 argument|Qt::ConnectionType type
 argument_list|)
+expr_stmt|;
+specifier|static
 name|QMetaObject
 operator|::
 name|Connection
-name|QObject
-operator|::
 name|connect
 argument_list|(
 argument|const QObject *sender
 argument_list|,
-argument|(T::*signal)(...)
+argument|PointerToMemberFunction signal
 argument_list|,
 argument|Functor functor
 argument_list|)
+expr_stmt|;
 else|#
 directive|else
 comment|//Connect a signal to a pointer to qobject member function
@@ -1562,22 +1562,34 @@ ifdef|#
 directive|ifdef
 name|Q_QDOC
 end_ifdef
-begin_expr_stmt
+begin_function_decl
+specifier|static
 name|bool
-name|QObject
-operator|::
 name|disconnect
-argument_list|(
-argument|const QObject *sender
-argument_list|,
-argument|(T::*signal)(...)
-argument_list|,
-argument|const Qbject *receiver
-argument_list|,
-argument|(T::*method)(...)
-argument_list|)
+parameter_list|(
+specifier|const
+name|QObject
+modifier|*
+name|sender
+parameter_list|,
+name|PointerToMemberFunction
+name|signal
+parameter_list|,
+specifier|const
+name|QObject
+modifier|*
+name|receiver
+parameter_list|,
+name|PointerToMemberFunction
+name|method
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_else
 else|#
 directive|else
+end_else
+begin_expr_stmt
 name|template
 operator|<
 name|typename

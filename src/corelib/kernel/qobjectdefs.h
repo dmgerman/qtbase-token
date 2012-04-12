@@ -2150,7 +2150,7 @@ operator|)
 block|;
 ifdef|#
 directive|ifdef
-name|qdoc
+name|Q_QDOC
 name|operator
 name|bool
 argument_list|()
