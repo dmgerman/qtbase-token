@@ -431,7 +431,6 @@ name|finished
 parameter_list|(
 name|QNetworkReply
 modifier|*
-name|reply
 parameter_list|)
 block|{ }
 end_function
@@ -621,6 +620,7 @@ decl_stmt|;
 comment|//provide the credentials exactly once, so that it fails if credentials are incorrect.
 if|if
 condition|(
+operator|(
 name|transfer
 operator|&&
 operator|!
@@ -630,6 +630,7 @@ name|user
 operator|.
 name|isEmpty
 argument_list|()
+operator|)
 operator|||
 operator|!
 name|transfer
@@ -685,7 +686,6 @@ parameter_list|(
 specifier|const
 name|QNetworkProxy
 modifier|&
-name|proxy
 parameter_list|,
 name|QAuthenticator
 modifier|*

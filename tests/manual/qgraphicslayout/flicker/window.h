@@ -27,12 +27,17 @@ DECL|function|Statistics
 name|Statistics
 argument_list|()
 operator|:
-name|output
+name|setGeometryCount
 argument_list|(
 literal|0
 argument_list|)
 operator|,
-name|setGeometryCount
+name|sleepMsecs
+argument_list|(
+literal|0
+argument_list|)
+operator|,
+name|output
 argument_list|(
 literal|0
 argument_list|)
@@ -44,12 +49,7 @@ argument_list|)
 operator|,
 name|relayoutClicked
 argument_list|(
-name|false
-argument_list|)
-operator|,
-name|sleepMsecs
-argument_list|(
-literal|0
+argument|false
 argument_list|)
 block|{     }
 DECL|member|QGraphicsWidget

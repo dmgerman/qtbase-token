@@ -2827,9 +2827,12 @@ break|break;
 block|}
 name|pos
 operator|+=
+name|int
+argument_list|(
 name|strlen
 argument_list|(
 literal|"\r\ncontent-length: "
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|int
