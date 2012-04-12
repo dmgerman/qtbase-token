@@ -736,6 +736,10 @@ argument_list|(
 argument|QVector<int> *logicalIndices
 argument_list|,
 argument|QVector<QStyleOptionViewItemV4::ViewItemPosition> *itemPositions
+argument_list|,
+argument|int left
+argument_list|,
+argument|int right
 argument_list|)
 specifier|const
 block|;
