@@ -697,12 +697,6 @@ argument_list|,
 argument|bool enable = true
 argument_list|)
 block|;
-specifier|static
-name|QPlatformNativeInterface
-operator|*
-name|platformNativeInterface
-argument_list|()
-block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_SESSIONMANAGER
