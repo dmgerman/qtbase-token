@@ -612,9 +612,12 @@ continue|continue;
 block|}
 if|if
 condition|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|u
-operator|>
-literal|0xffff
+argument_list|)
 condition|)
 block|{
 operator|*
