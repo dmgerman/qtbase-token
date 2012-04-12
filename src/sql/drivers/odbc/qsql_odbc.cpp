@@ -8201,6 +8201,7 @@ operator|::
 name|Out
 condition|)
 block|{
+specifier|const
 name|QVarLengthArray
 argument_list|<
 name|SQLTCHAR
@@ -8213,16 +8214,6 @@ name|str
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|a
-operator|.
-name|reserve
-argument_list|(
-name|str
-operator|.
-name|capacity
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|QByteArray
 name|ba
 argument_list|(
