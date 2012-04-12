@@ -149,15 +149,6 @@ init|=
 name|context
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|ctx
-operator|!=
-name|QGLContext
-operator|::
-name|currentContext
-argument_list|()
-condition|)
 name|ctx
 operator|->
 name|makeCurrent
