@@ -31694,11 +31694,12 @@ name|foundInDitaMap
 operator|=
 literal|true
 expr_stmt|;
+break|break;
+block|}
 block|}
 operator|++
 name|mapIterator
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
