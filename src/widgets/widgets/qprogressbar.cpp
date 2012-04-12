@@ -937,6 +937,12 @@ emit|;
 ifndef|#
 directive|ifndef
 name|QT_NO_ACCESSIBILITY
+if|if
+condition|(
+name|isVisible
+argument_list|()
+condition|)
+block|{
 name|QAccessibleValueChangeEvent
 name|event
 argument_list|(
@@ -953,6 +959,7 @@ operator|&
 name|event
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 if|if
