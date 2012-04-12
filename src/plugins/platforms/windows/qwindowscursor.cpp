@@ -3261,27 +3261,6 @@ operator|&
 name|p
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|QWindowsContext
-operator|::
-name|verboseWindows
-condition|)
-name|qDebug
-argument_list|(
-literal|"%s %ld,%ld"
-argument_list|,
-name|__FUNCTION__
-argument_list|,
-name|p
-operator|.
-name|x
-argument_list|,
-name|p
-operator|.
-name|y
-argument_list|)
-expr_stmt|;
 return|return
 name|QPoint
 argument_list|(

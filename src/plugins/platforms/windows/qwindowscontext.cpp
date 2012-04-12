@@ -1149,7 +1149,7 @@ name|v
 init|=
 name|getenv
 argument_list|(
-literal|"QT_LIGHTHOUSE_WINDOWS_VERBOSE"
+literal|"QT_QPA_VERBOSE"
 argument_list|)
 condition|)
 block|{
