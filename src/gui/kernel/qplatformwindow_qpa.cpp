@@ -697,6 +697,30 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Reimplement to be able to let Qt indicate that the window has been     modified. Return true if the native window supports setting the modified     flag, false otherwise. */
+end_comment
+begin_function
+DECL|function|setWindowModified
+name|bool
+name|QPlatformWindow
+operator|::
+name|setWindowModified
+parameter_list|(
+name|bool
+name|modified
+parameter_list|)
+block|{
+name|Q_UNUSED
+argument_list|(
+name|modified
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Reimplement this method to be able to do any platform specific event     handling. All events for window() are passed to this function before being     sent to QWindow::event().      The default implementation is empty and does nothing with \a event. */
 end_comment
 begin_function

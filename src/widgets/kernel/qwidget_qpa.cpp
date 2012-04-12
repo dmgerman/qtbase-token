@@ -545,6 +545,9 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+name|setWindowModified_helper
+argument_list|()
+expr_stmt|;
 name|setWinId
 argument_list|(
 name|win

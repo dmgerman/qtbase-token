@@ -290,6 +290,13 @@ argument|bool grab
 argument_list|)
 block|;
 name|virtual
+name|bool
+name|setWindowModified
+argument_list|(
+argument|bool modified
+argument_list|)
+block|;
+name|virtual
 name|void
 name|windowEvent
 argument_list|(

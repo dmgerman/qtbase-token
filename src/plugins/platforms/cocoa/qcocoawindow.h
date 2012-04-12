@@ -257,6 +257,13 @@ name|currentContext
 argument_list|()
 specifier|const
 block|;
+name|Q_DECL_OVERRIDE
+name|bool
+name|setWindowModified
+argument_list|(
+argument|bool modified
+argument_list|)
+block|;
 name|protected
 operator|:
 comment|// NSWindow handling. The QCocoaWindow/QNSView can either be displayed
