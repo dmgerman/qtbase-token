@@ -1157,6 +1157,7 @@ if|if
 condition|(
 name|own
 operator|&&
+operator|(
 name|own
 operator|->
 name|testAttribute
@@ -1174,6 +1175,7 @@ name|isVisible
 argument_list|()
 operator|==
 literal|false
+operator|)
 condition|)
 block|{
 name|s
