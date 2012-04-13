@@ -500,6 +500,14 @@ operator|*
 name|focusObject
 argument_list|)
 block|;
+name|void
+name|focusWindowChanged
+argument_list|(
+name|QWindow
+operator|*
+name|focusWindow
+argument_list|)
+block|;
 name|protected
 operator|:
 name|bool

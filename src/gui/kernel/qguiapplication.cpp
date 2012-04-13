@@ -1612,6 +1612,9 @@ begin_comment
 comment|/*!     \fn QGuiApplication::focusObjectChanged(QObject *focusObject)      This signal is emitted when final receiver of events tied to focus is changed.     \sa focusObject() */
 end_comment
 begin_comment
+comment|/*!     \fn QGuiApplication::focusWindowChanged(QWindow *focusWindow)      This signal is emitted when the focused window changes.     \sa focusWindow() */
+end_comment
+begin_comment
 comment|/*!     Returns the QObject in currently active window that will be final receiver of events     tied to focus, such as key events.  */
 end_comment
 begin_function
@@ -5427,6 +5430,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+emit|emit
+name|qApp
+operator|->
+name|focusWindowChanged
+argument_list|(
+name|newFocus
+argument_list|)
+emit|;
 block|}
 end_function
 begin_function
