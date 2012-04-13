@@ -2860,6 +2860,17 @@ block|{
 name|QProcess
 name|process
 decl_stmt|;
+specifier|const
+name|QString
+name|appExe
+init|=
+name|m_appDir
+operator|+
+literal|"/app"
+decl_stmt|;
+comment|//
+comment|// test QT_MESSAGE_PATTERN
+comment|//
 name|QStringList
 name|environment
 init|=
@@ -2883,13 +2894,6 @@ argument_list|(
 name|environment
 argument_list|)
 expr_stmt|;
-name|QString
-name|appExe
-init|=
-name|m_appDir
-operator|+
-literal|"/app"
-decl_stmt|;
 name|process
 operator|.
 name|start
@@ -2975,7 +2979,7 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"debug tst_qlogging 54 main qDebug"
+literal|"debug tst_qlogging 56 main qDebug"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2985,7 +2989,7 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"warning tst_qlogging 55 main qWarning"
+literal|"warning tst_qlogging 57 main qWarning"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2995,7 +2999,17 @@ name|output
 operator|.
 name|contains
 argument_list|(
-literal|"critical tst_qlogging 56 main qCritical"
+literal|"critical tst_qlogging 58 main qCritical"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|QVERIFY
+argument_list|(
+name|output
+operator|.
+name|contains
+argument_list|(
+literal|"debug tst_qlogging 62 main qDebug2"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3094,6 +3108,138 @@ operator|.
 name|contains
 argument_list|(
 literal|"PREFIX:  qDebug"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|//
+comment|// test qSetMessagePattern
+comment|//
+name|QMutableListIterator
+argument_list|<
+name|QString
+argument_list|>
+name|iter
+argument_list|(
+name|environment
+argument_list|)
+decl_stmt|;
+while|while
+condition|(
+name|iter
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|iter
+operator|.
+name|next
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"QT_MESSAGE_PATTERN"
+argument_list|)
+condition|)
+name|iter
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
+block|}
+name|process
+operator|.
+name|setEnvironment
+argument_list|(
+name|environment
+argument_list|)
+expr_stmt|;
+name|process
+operator|.
+name|start
+argument_list|(
+name|appExe
+argument_list|)
+expr_stmt|;
+name|QVERIFY2
+argument_list|(
+name|process
+operator|.
+name|waitForStarted
+argument_list|()
+argument_list|,
+name|qPrintable
+argument_list|(
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"Could not start %1: %2"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|appExe
+argument_list|,
+name|process
+operator|.
+name|errorString
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|process
+operator|.
+name|waitForFinished
+argument_list|()
+expr_stmt|;
+name|output
+operator|=
+name|process
+operator|.
+name|readAllStandardError
+argument_list|()
+expr_stmt|;
+comment|//qDebug()<< output;
+name|QByteArray
+name|expected
+init|=
+literal|"static constructor\n"
+literal|"[debug] qDebug\n"
+literal|"[warning] qWarning\n"
+literal|"[critical] qCritical\n"
+decl_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|output
+operator|.
+name|replace
+argument_list|(
+literal|"\r\n"
+argument_list|,
+literal|"\n"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+name|QCOMPARE
+argument_list|(
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+name|output
+argument_list|)
+argument_list|,
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+name|expected
 argument_list|)
 argument_list|)
 expr_stmt|;
