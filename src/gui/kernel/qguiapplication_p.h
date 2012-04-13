@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QGUIAPPLICATION_QPA_P_H
+name|QGUIAPPLICATION_P_H
 end_ifndef
 begin_define
-DECL|macro|QGUIAPPLICATION_QPA_P_H
+DECL|macro|QGUIAPPLICATION_P_H
 define|#
 directive|define
-name|QGUIAPPLICATION_QPA_P_H
+name|QGUIAPPLICATION_P_H
 end_define
 begin_include
 include|#
@@ -1038,6 +1038,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QGUIAPPLICATION_QPA_P_H
+comment|// QGUIAPPLICATION_P_H
 end_comment
 end_unit
