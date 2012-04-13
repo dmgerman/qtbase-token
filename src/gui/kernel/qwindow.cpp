@@ -580,24 +580,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_comment
-comment|/*!     Returns true if the window is set to visible.     \obsolete */
-end_comment
-begin_function
-DECL|function|visible
-name|bool
-name|QWindow
-operator|::
-name|visible
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|isVisible
-argument_list|()
-return|;
-block|}
-end_function
 begin_function
 DECL|function|isVisible
 name|bool
