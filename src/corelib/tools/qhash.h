@@ -1272,9 +1272,49 @@ name|key
 return|;
 block|}
 end_expr_stmt
-begin_define
-DECL|macro|Q_HASH_DECLARE_INT_NODES
+begin_if
 unit|};
+if|#
+directive|if
+literal|0
+end_if
+begin_comment
+comment|// ###
+end_comment
+begin_comment
+comment|// The introduction of the QHash random seed breaks this optimization, as it
+end_comment
+begin_comment
+comment|// relies on qHash(int i) = i. If the hash value is salted, then the hash
+end_comment
+begin_comment
+comment|// table becomes corrupted.
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// A bit more research about whether it makes sense or not to salt integer
+end_comment
+begin_comment
+comment|// keys (and in general keys whose hash value is easy to invert)
+end_comment
+begin_comment
+comment|// is needed, or about how keep this optimization and the seed (f.i. by
+end_comment
+begin_comment
+comment|// specializing QHash for integer values, and re-apply the seed during lookup).
+end_comment
+begin_comment
+comment|//
+end_comment
+begin_comment
+comment|// Be aware that such changes can easily be binary incompatible, and therefore
+end_comment
+begin_comment
+comment|// cannot be made during the Qt 5 lifetime.
+end_comment
+begin_define
 define|#
 directive|define
 name|Q_HASH_DECLARE_INT_NODES
@@ -1302,46 +1342,24 @@ name|Q_BYTE_ORDER
 operator|==
 name|Q_LITTLE_ENDIAN
 end_if
-begin_expr_stmt
-name|Q_HASH_DECLARE_INT_NODES
-argument_list|(
-name|short
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-DECL|variable|ushort
-name|Q_HASH_DECLARE_INT_NODES
-argument_list|(
-name|ushort
-argument_list|)
-expr_stmt|;
-end_expr_stmt
 begin_endif
+unit|Q_HASH_DECLARE_INT_NODES(short); Q_HASH_DECLARE_INT_NODES(ushort);
 endif|#
 directive|endif
 end_endif
-begin_expr_stmt
-name|Q_HASH_DECLARE_INT_NODES
-argument_list|(
-name|int
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_expr_stmt
-DECL|variable|uint
-name|Q_HASH_DECLARE_INT_NODES
-argument_list|(
-name|uint
-argument_list|)
-expr_stmt|;
-end_expr_stmt
 begin_undef
-DECL|macro|Q_HASH_DECLARE_INT_NODES
+unit|Q_HASH_DECLARE_INT_NODES(int); Q_HASH_DECLARE_INT_NODES(uint);
 undef|#
 directive|undef
 name|Q_HASH_DECLARE_INT_NODES
 end_undef
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// #if 0
+end_comment
 begin_expr_stmt
 DECL|variable|Key
 name|template
