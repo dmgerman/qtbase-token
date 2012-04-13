@@ -9112,7 +9112,7 @@ name|warning
 argument_list|(
 name|tr
 argument_list|(
-literal|"Can't detect if QML property %1 isread-only; writable assumed."
+literal|"Can't detect if QML property %1 is read-only; writable assumed."
 argument_list|)
 operator|.
 name|arg

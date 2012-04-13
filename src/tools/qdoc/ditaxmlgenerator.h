@@ -1868,6 +1868,15 @@ operator|*
 name|node
 argument_list|)
 block|;
+name|void
+name|debugPara
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|t
+argument_list|)
+block|;
 name|private
 operator|:
 comment|/*       These flags indicate which elements the generator       is currently outputting.      */
