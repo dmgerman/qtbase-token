@@ -271,11 +271,9 @@ block|;
 name|QFunctionPointer
 name|getProcAddress
 argument_list|(
-specifier|const
-name|QByteArray
-operator|&
-name|procName
+argument|const QByteArray&procName
 argument_list|)
+specifier|const
 block|;
 name|QSurface
 operator|*

@@ -1312,9 +1312,11 @@ name|QByteArray
 modifier|&
 name|procName
 parameter_list|)
+specifier|const
 block|{
 name|Q_D
 argument_list|(
+specifier|const
 name|QOpenGLContext
 argument_list|)
 expr_stmt|;
