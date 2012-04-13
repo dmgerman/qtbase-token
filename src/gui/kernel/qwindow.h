@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QWINDOW_QPA_H
+name|QWINDOW_H
 end_ifndef
 begin_define
-DECL|macro|QWINDOW_QPA_H
+DECL|macro|QWINDOW_H
 define|#
 directive|define
-name|QWINDOW_QPA_H
+name|QWINDOW_H
 end_define
 begin_include
 include|#
@@ -1401,6 +1401,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QWINDOW_QPA_H
+comment|// QWINDOW_H
 end_comment
 end_unit
