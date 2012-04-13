@@ -276,6 +276,7 @@ argument|Qt::ScreenOrientation a
 argument_list|,
 argument|Qt::ScreenOrientation b
 argument_list|)
+specifier|const
 block|;
 name|QTransform
 name|transformBetween
@@ -286,6 +287,7 @@ argument|Qt::ScreenOrientation b
 argument_list|,
 argument|const QRect&target
 argument_list|)
+specifier|const
 block|;
 name|QRect
 name|mapBetween
@@ -296,18 +298,21 @@ argument|Qt::ScreenOrientation b
 argument_list|,
 argument|const QRect&rect
 argument_list|)
+specifier|const
 block|;
 name|bool
 name|isPortrait
 argument_list|(
 argument|Qt::ScreenOrientation orientation
 argument_list|)
+specifier|const
 block|;
 name|bool
 name|isLandscape
 argument_list|(
 argument|Qt::ScreenOrientation orientation
 argument_list|)
+specifier|const
 block|;
 name|QPixmap
 name|grabWindow
@@ -322,7 +327,6 @@ argument|int w
 argument_list|,
 argument|int h
 argument_list|)
-specifier|const
 block|;
 name|Q_SIGNALS
 operator|:

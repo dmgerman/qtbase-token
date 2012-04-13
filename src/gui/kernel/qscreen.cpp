@@ -807,6 +807,7 @@ operator|::
 name|ScreenOrientation
 name|b
 parameter_list|)
+specifier|const
 block|{
 if|if
 condition|(
@@ -931,6 +932,7 @@ name|QRect
 modifier|&
 name|target
 parameter_list|)
+specifier|const
 block|{
 if|if
 condition|(
@@ -1081,6 +1083,7 @@ name|QRect
 modifier|&
 name|rect
 parameter_list|)
+specifier|const
 block|{
 if|if
 condition|(
@@ -1193,6 +1196,7 @@ operator|::
 name|ScreenOrientation
 name|o
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|o
@@ -1239,6 +1243,7 @@ operator|::
 name|ScreenOrientation
 name|o
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|o
@@ -1331,7 +1336,6 @@ parameter_list|,
 name|int
 name|h
 parameter_list|)
-specifier|const
 block|{
 specifier|const
 name|QPlatformScreen
