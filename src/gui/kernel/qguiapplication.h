@@ -384,11 +384,11 @@ operator|::
 name|LeftToRight
 return|;
 block|}
+specifier|static
 name|QStyleHints
 operator|*
 name|styleHints
 argument_list|()
-specifier|const
 block|;
 specifier|static
 name|void
