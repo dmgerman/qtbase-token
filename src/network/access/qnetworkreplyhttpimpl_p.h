@@ -98,6 +98,11 @@ include|#
 directive|include
 file|<QtNetwork/QNetworkProxy>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtNetwork/QNetworkSession>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -250,6 +255,12 @@ argument_list|(
 argument|d_func()
 argument_list|,
 argument|void _q_networkSessionFailed()
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_networkSessionUsagePoliciesChanged(QNetworkSession::UsagePolicies)
 argument_list|)
 endif|#
 directive|endif
@@ -499,6 +510,14 @@ block|;
 name|void
 name|_q_networkSessionFailed
 argument_list|()
+block|;
+name|void
+name|_q_networkSessionUsagePoliciesChanged
+argument_list|(
+name|QNetworkSession
+operator|::
+name|UsagePolicies
+argument_list|)
 block|;
 endif|#
 directive|endif

@@ -93,6 +93,11 @@ include|#
 directive|include
 file|<QSharedPointer>
 end_include
+begin_include
+include|#
+directive|include
+file|<QtNetwork/QNetworkSession>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QAbstractNetworkCache
@@ -230,6 +235,12 @@ argument_list|(
 argument|d_func()
 argument_list|,
 argument|void _q_networkSessionFailed()
+argument_list|)
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_networkSessionUsagePoliciesChanged(QNetworkSession::UsagePolicies)
 argument_list|)
 endif|#
 directive|endif
@@ -390,6 +401,16 @@ name|_q_networkSessionFailed
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_decl_stmt
+name|void
+name|_q_networkSessionUsagePoliciesChanged
+argument_list|(
+name|QNetworkSession
+operator|::
+name|UsagePolicies
+argument_list|)
+decl_stmt|;
+end_decl_stmt
 begin_endif
 endif|#
 directive|endif
