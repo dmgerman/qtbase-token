@@ -180,6 +180,7 @@ name|TCBPoint
 modifier|&
 name|other
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|_point
@@ -328,6 +329,7 @@ name|QEasingCurveFunction
 modifier|&
 name|other
 parameter_list|)
+specifier|const
 function_decl|;
 DECL|member|_t
 name|Type
@@ -431,6 +433,7 @@ name|QEasingCurveFunction
 modifier|&
 name|other
 parameter_list|)
+specifier|const
 block|{
 return|return
 name|_t
