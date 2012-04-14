@@ -224,7 +224,12 @@ argument_list|)
 operator|:
 name|accessible
 argument_list|(
-argument|a
+name|a
+argument_list|)
+operator|,
+name|ref
+argument_list|(
+literal|0
 argument_list|)
 block|{     }
 name|virtual
