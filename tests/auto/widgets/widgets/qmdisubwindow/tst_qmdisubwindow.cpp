@@ -312,12 +312,7 @@ operator|->
 name|showNormal
 argument_list|()
 expr_stmt|;
-name|qApp
-operator|->
-name|processEvents
-argument_list|()
-expr_stmt|;
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 operator|!
 name|window
@@ -326,7 +321,7 @@ name|isMinimized
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 operator|!
 name|window
@@ -335,7 +330,7 @@ name|isMaximized
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 operator|!
 name|window
