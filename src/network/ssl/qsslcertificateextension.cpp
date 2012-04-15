@@ -32,6 +32,9 @@ name|QSslCertificateExtensionPrivate
 argument_list|)
 block|{ }
 end_constructor
+begin_comment
+comment|/*!     Constructs a copy of \a other.  */
+end_comment
 begin_constructor
 DECL|function|QSslCertificateExtension
 name|QSslCertificateExtension
@@ -52,6 +55,9 @@ name|d
 argument_list|)
 block|{ }
 end_constructor
+begin_comment
+comment|/*!     Destroys the extension.  */
+end_comment
 begin_destructor
 DECL|function|~QSslCertificateExtension
 name|QSslCertificateExtension
@@ -61,6 +67,9 @@ name|QSslCertificateExtension
 parameter_list|()
 block|{ }
 end_destructor
+begin_comment
+comment|/*!     Assigns \a other to this extension and returns a reference to this extension.  */
+end_comment
 begin_function
 DECL|function|operator =
 name|QSslCertificateExtension
