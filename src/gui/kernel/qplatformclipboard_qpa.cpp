@@ -116,6 +116,9 @@ name|q_clipboardData
 argument_list|)
 expr_stmt|;
 end_expr_stmt
+begin_comment
+comment|/*!     \class QPlatformClipboard     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformClipboard class provides an abstraction for the system clipboard.  */
+end_comment
 begin_destructor
 DECL|function|~QPlatformClipboard
 name|QPlatformClipboard

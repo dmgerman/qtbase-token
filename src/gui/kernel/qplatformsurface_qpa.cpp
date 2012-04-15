@@ -9,6 +9,7 @@ file|"qplatformsurface_qpa.h"
 end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
+comment|/*!     \class QPlatformSurface     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformSurface class provides an abstraction for a surface.  */
 DECL|function|~QPlatformSurface
 name|QPlatformSurface
 operator|::

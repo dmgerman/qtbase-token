@@ -39,7 +39,7 @@ file|<QtGui/QColor>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-comment|/*!     \class QPlatformDialogHelper     \since 5.0     \internal     \brief The QPlatformDialogHelper class allows for platform-specific customization of dialogs.  */
+comment|/*!     \class QPlatformDialogHelper     \since 5.0     \internal     \ingroup qpa      \brief The QPlatformDialogHelper class allows for platform-specific customization of dialogs.  */
 comment|/*!     \enum QPlatformDialogHelper::StyleHint      This enum type specifies platform-specific style hints.      \value SnapToDefaultButton Snap the mouse to the center of the default                                button. There is corresponding system                                setting on Windows.      \sa styleHint() */
 DECL|function|QPlatformDialogHelper
 name|QPlatformDialogHelper
@@ -386,6 +386,9 @@ name|options
 return|;
 block|}
 end_function
+begin_comment
+comment|/*!     \class QPlatformFontDialogHelper     \since 5.0     \internal     \ingroup qpa      \brief The QPlatformFontDialogHelper class allows for platform-specific customization of font dialogs.  */
+end_comment
 begin_function
 DECL|function|options
 specifier|const
@@ -1252,6 +1255,9 @@ name|color
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \class QPlatformColorDialogHelper     \since 5.0     \internal     \ingroup qpa      \brief The QPlatformColorDialogHelper class allows for platform-specific customization of color dialogs.  */
+end_comment
 begin_function
 DECL|function|options
 specifier|const
@@ -2180,6 +2186,9 @@ name|files
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \class QPlatformFileDialogHelper     \since 5.0     \internal     \ingroup qpa      \brief The QPlatformFileDialogHelper class allows for platform-specific customization of file dialogs.  */
+end_comment
 begin_function
 DECL|function|options
 specifier|const

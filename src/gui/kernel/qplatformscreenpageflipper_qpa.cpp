@@ -10,6 +10,9 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_comment
+comment|/*!     \class QPlatformScreenBuffer     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformScreenBuffer class provides an abstraction for screen buffers.  */
+end_comment
 begin_constructor
 DECL|function|QPlatformScreenBuffer
 name|QPlatformScreenBuffer
@@ -83,6 +86,9 @@ name|displayed
 parameter_list|()
 block|{ }
 end_function
+begin_comment
+comment|/*!     \class QPlatformScreenPageFlipper     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformScreenPageFlipper class provides an abstraction for flipping the screen     page.  */
+end_comment
 begin_constructor
 DECL|function|QPlatformScreenPageFlipper
 name|QPlatformScreenPageFlipper

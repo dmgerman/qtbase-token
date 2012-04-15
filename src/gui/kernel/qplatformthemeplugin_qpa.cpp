@@ -10,6 +10,9 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_comment
+comment|/*!     \class QPlatformThemePlugin     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformScreen class provides an abstraction for theme plugins.  */
+end_comment
 begin_constructor
 DECL|function|QPlatformThemePlugin
 name|QPlatformThemePlugin

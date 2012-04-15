@@ -9,6 +9,7 @@ file|"qplatformnativeinterface_qpa.h"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
+comment|/*!     \class QPlatformNativeInterface     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformNativeInterface class provides an abstraction for retrieving native     resource handles.  */
 DECL|function|nativeResourceForIntegration
 name|void
 modifier|*

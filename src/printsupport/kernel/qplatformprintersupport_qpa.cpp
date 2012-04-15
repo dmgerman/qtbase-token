@@ -24,6 +24,7 @@ name|QT_NO_PRINTER
 end_ifndef
 begin_function
 name|QT_BEGIN_NAMESPACE
+comment|/*!     \class QPlatformPrinterSupport     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformPrinterSupport class provides an abstraction for print support.  */
 DECL|function|QPlatformPrinterSupport
 name|QPlatformPrinterSupport
 operator|::

@@ -9,9 +9,7 @@ file|"qplatformmenu_qpa.h"
 end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
-comment|//
-comment|// QPlatformMenuAction
-comment|//
+comment|/*!     \class QPlatformMenuAction     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformMenuAction class provides an abstraction for menu actions.  */
 DECL|function|~QPlatformMenuAction
 name|QPlatformMenuAction
 operator|::
@@ -20,9 +18,7 @@ name|QPlatformMenuAction
 operator|(
 operator|)
 block|{  }
-comment|//
-comment|// QPlatformMenu
-comment|//
+comment|/*!     \class QPlatformMenu     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformMenu class provides an abstraction for menus.  */
 DECL|function|QPlatformMenu
 name|QPlatformMenu
 operator|::
@@ -68,9 +64,7 @@ argument_list|(
 name|enable
 argument_list|)
 block|; }
-comment|//
-comment|// QPlatformMenuBar
-comment|//
+comment|/*!     \class QPlatformMenuBar     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformMenuBar class provides an abstraction for menu bars.  */
 DECL|function|QPlatformMenuBar
 name|QPlatformMenuBar
 operator|::

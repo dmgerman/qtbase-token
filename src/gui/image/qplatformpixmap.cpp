@@ -39,6 +39,7 @@ file|<private/qimagepixmapcleanuphooks_p.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
+comment|/*!     \class QPlatformPixmap     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformPixmap class provides an abstraction for native pixmaps.  */
 DECL|function|create
 name|QPlatformPixmap
 modifier|*

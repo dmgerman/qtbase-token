@@ -157,6 +157,9 @@ decl_stmt|;
 block|}
 class|;
 end_class
+begin_comment
+comment|/*!     \class QPlatformDrag     \since 5.0     \internal     \preliminary     \ingroup qpa      \brief The QPlatformDrag class provides an abstraction for drag.  */
+end_comment
 begin_constructor
 DECL|function|QPlatformDrag
 name|QPlatformDrag
