@@ -2919,7 +2919,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns this certificate converted to a human-readable text     representation. */
+comment|/*!     Returns this certificate converted to a human-readable text     representation.      \since 5.0 */
 end_comment
 begin_function
 DECL|function|toText
@@ -3438,7 +3438,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Verifies a certificate chain. If \a hostName is specified then the certificate is     also checked to see if it is valid for the specified host name.     Note that the first certificate in the list should be the leaf certificate of     the chain to be verified.     The root (CA) certificate should not be included in the list to be verified,     this will be looked up automatically either using the CA list specified by     QSslSocket::defaultCaCertificates() or, if possible, it will be loaded on demand     on Unix.  */
+comment|/*!     Verifies a certificate chain. If \a hostName is specified then the certificate is     also checked to see if it is valid for the specified host name.     Note that the first certificate in the list should be the leaf certificate of     the chain to be verified.     The root (CA) certificate should not be included in the list to be verified,     this will be looked up automatically either using the CA list specified by     QSslSocket::defaultCaCertificates() or, if possible, it will be loaded on demand     on Unix.      \since 5.0  */
 end_comment
 begin_function
 DECL|function|verify
