@@ -58,6 +58,14 @@ name|QRect
 operator|&
 argument_list|)
 block|;
+name|Qt
+operator|::
+name|WindowState
+name|setWindowState
+argument_list|(
+argument|Qt::WindowState state
+argument_list|)
+block|;
 name|WId
 name|winId
 argument_list|()
