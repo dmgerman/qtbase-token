@@ -327,11 +327,6 @@ function_decl|;
 comment|//parse cmdline
 specifier|static
 name|void
-name|applyHostMode
-parameter_list|()
-function_decl|;
-specifier|static
-name|void
 name|prepareProject
 parameter_list|(
 specifier|const
