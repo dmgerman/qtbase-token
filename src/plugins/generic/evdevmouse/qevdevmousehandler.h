@@ -76,6 +76,8 @@ argument|int deviceDescriptor
 argument_list|,
 argument|bool compression
 argument_list|,
+argument|bool clamp
+argument_list|,
 argument|bool smooth
 argument_list|,
 argument|int jitterLimit
@@ -108,6 +110,9 @@ name|m_fd
 block|;
 name|bool
 name|m_compression
+block|;
+name|bool
+name|m_clamp
 block|;
 name|bool
 name|m_smooth
