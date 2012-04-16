@@ -3922,7 +3922,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|/*             We need to distinguish between empty lists and one-item             lists that contain an empty string. Ideally, we'd have a             @EmptyList() symbol but that would break compatibility             with Qt 4.0. @Invalid() stands for QVariant(), and             QVariant().toStringList() returns an empty QStringList,             so we're in good shape.              ### Qt 5: Use a nicer syntax, e.g. @List, for variant lists         */
+comment|/*             We need to distinguish between empty lists and one-item             lists that contain an empty string. Ideally, we'd have a             @EmptyList() symbol but that would break compatibility             with Qt 4.0. @Invalid() stands for QVariant(), and             QVariant().toStringList() returns an empty QStringList,             so we're in good shape.         */
 name|result
 operator|+=
 literal|"@Invalid()"
