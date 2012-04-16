@@ -195,12 +195,21 @@ define|#
 directive|define
 name|PNG_CONSOLE_IO_SUPPORTED
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|_WIN32_WCE
+end_ifndef
 begin_define
 DECL|macro|PNG_CONVERT_tIME_SUPPORTED
 define|#
 directive|define
 name|PNG_CONVERT_tIME_SUPPORTED
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_define
 DECL|macro|PNG_EASY_ACCESS_SUPPORTED
 define|#
@@ -1023,6 +1032,12 @@ end_define
 begin_comment
 comment|/* end of options */
 end_comment
+begin_define
+DECL|macro|PNG_SAFE_LIMITS_SUPPORTED
+define|#
+directive|define
+name|PNG_SAFE_LIMITS_SUPPORTED
+end_define
 begin_endif
 endif|#
 directive|endif

@@ -41,11 +41,20 @@ end_endif
 begin_comment
 comment|/* For the memory copy APIs (i.e. the standard definitions of these),  * because this file defines png_memcpy and so on the base APIs must  * be defined here.  */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|BSD
-end_ifdef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|VXWORKS
+argument_list|)
+end_if
 begin_include
 include|#
 directive|include
