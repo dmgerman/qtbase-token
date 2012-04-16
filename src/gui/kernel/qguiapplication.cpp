@@ -135,6 +135,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtGui/qpixmapcache.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qplatformtheme_qpa.h>
 end_include
 begin_include
@@ -3310,6 +3315,11 @@ operator|delete
 name|inputMethod
 expr_stmt|;
 name|qt_cleanupFontDatabase
+argument_list|()
+expr_stmt|;
+name|QPixmapCache
+operator|::
+name|clear
 argument_list|()
 expr_stmt|;
 operator|delete
