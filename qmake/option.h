@@ -722,11 +722,6 @@ specifier|static
 name|TARG_MODE
 name|target_mode
 decl_stmt|;
-DECL|member|target_mode_overridden
-specifier|static
-name|bool
-name|target_mode_overridden
-decl_stmt|;
 DECL|member|user_template
 DECL|member|user_template_prefix
 specifier|static
