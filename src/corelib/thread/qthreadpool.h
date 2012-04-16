@@ -143,14 +143,11 @@ name|void
 name|releaseThread
 argument_list|()
 block|;
-name|void
-name|waitForDone
-argument_list|()
-block|;
 name|bool
 name|waitForDone
 argument_list|(
-argument|int msecs
+argument|int msecs = -
+literal|1
 argument_list|)
 block|; }
 decl_stmt|;

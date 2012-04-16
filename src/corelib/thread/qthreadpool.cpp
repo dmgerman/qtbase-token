@@ -1305,16 +1305,7 @@ name|~
 name|QThreadPool
 parameter_list|()
 block|{
-name|d_func
-argument_list|()
-operator|->
 name|waitForDone
-argument_list|()
-expr_stmt|;
-name|d_func
-argument_list|()
-operator|->
-name|reset
 argument_list|()
 expr_stmt|;
 block|}
@@ -1694,35 +1685,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Waits for each thread to exit and removes all threads from the thread pool. */
-end_comment
-begin_function
-DECL|function|waitForDone
-name|void
-name|QThreadPool
-operator|::
-name|waitForDone
-parameter_list|()
-block|{
-name|Q_D
-argument_list|(
-name|QThreadPool
-argument_list|)
-expr_stmt|;
-name|d
-operator|->
-name|waitForDone
-argument_list|()
-expr_stmt|;
-name|d
-operator|->
-name|reset
-argument_list|()
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     \overload waitForDone()     \since 4.8      Waits up to \a msecs milliseconds for all threads to exit and removes all      threads from the thread pool. Returns true if all threads were removed;      otherwise it returns false. */
+comment|/*!     Waits up to \a msecs milliseconds for all threads to exit and removes all      threads from the thread pool. Returns true if all threads were removed;      otherwise it returns false. If \a msecs is -1 (the default), the timeout     is ignored (waits for the last thread to exit). */
 end_comment
 begin_function
 DECL|function|waitForDone

@@ -152,8 +152,7 @@ block|;
 name|bool
 name|waitForDone
 argument_list|(
-argument|int msecs = -
-literal|1
+argument|int msecs
 argument_list|)
 block|;
 name|void
