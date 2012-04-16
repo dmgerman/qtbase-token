@@ -393,7 +393,10 @@ comment|// recalculate the timeout
 name|qint64
 name|xtimeout
 init|=
+name|qint64
+argument_list|(
 name|timeout
+argument_list|)
 operator|*
 literal|1000
 operator|*
