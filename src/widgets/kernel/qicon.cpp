@@ -1250,7 +1250,7 @@ comment|// #### Qt5 no idea what this really does, but we need to remove the QAp
 name|QString
 name|key
 init|=
-name|QLatin1Literal
+name|QLatin1String
 argument_list|(
 literal|"qt_"
 argument_list|)

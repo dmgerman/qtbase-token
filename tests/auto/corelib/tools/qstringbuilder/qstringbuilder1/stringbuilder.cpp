@@ -123,12 +123,6 @@ parameter_list|()
 block|{
 comment|// this code is latin1. TODO: replace it with the utf8 block below, once
 comment|// strings default to utf8.
-name|QLatin1Literal
-name|l1literal
-argument_list|(
-name|LITERAL
-argument_list|)
-decl_stmt|;
 name|QLatin1String
 name|l1string
 argument_list|(
@@ -193,19 +187,6 @@ name|r
 decl_stmt|;
 name|r
 operator|=
-name|l1literal
-name|Q
-name|l1literal
-expr_stmt|;
-name|QCOMPARE
-argument_list|(
-name|r
-argument_list|,
-name|r2
-argument_list|)
-expr_stmt|;
-name|r
-operator|=
 name|string
 name|P
 name|string
@@ -239,19 +220,6 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|r
-operator|=
-name|string
-name|Q
-name|l1literal
-expr_stmt|;
-name|QCOMPARE
-argument_list|(
-name|r
-argument_list|,
-name|r2
 argument_list|)
 expr_stmt|;
 name|r

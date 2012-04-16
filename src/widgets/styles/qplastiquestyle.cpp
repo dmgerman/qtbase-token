@@ -1561,7 +1561,7 @@ decl_stmt|;
 name|QString
 name|name
 init|=
-name|QLatin1Literal
+name|QLatin1String
 argument_list|(
 literal|"qbrushtexture-alpha"
 argument_list|)
@@ -1977,7 +1977,7 @@ decl_stmt|;
 name|QString
 name|name
 init|=
-name|QLatin1Literal
+name|QLatin1String
 argument_list|(
 literal|"qbrushtexture-light"
 argument_list|)
@@ -2377,7 +2377,7 @@ decl_stmt|;
 name|QString
 name|name
 init|=
-name|QLatin1Literal
+name|QLatin1String
 argument_list|(
 literal|"qbrushtexture-dark"
 argument_list|)
@@ -3601,7 +3601,7 @@ block|{
 name|QString
 name|gradientName
 init|=
-name|QLatin1Literal
+name|QLatin1String
 argument_list|(
 literal|"qplastique-g"
 argument_list|)

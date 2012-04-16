@@ -22354,7 +22354,7 @@ decl_stmt|;
 name|QString
 name|key
 init|=
-name|QLatin1Literal
+name|QLatin1String
 argument_list|(
 literal|"WaveUnderline-"
 argument_list|)

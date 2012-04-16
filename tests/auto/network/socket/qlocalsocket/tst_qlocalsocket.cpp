@@ -6764,7 +6764,7 @@ operator|::
 name|tempPath
 argument_list|()
 operator|+
-name|QLatin1Literal
+name|QLatin1String
 argument_list|(
 literal|"/testsocket"
 argument_list|)

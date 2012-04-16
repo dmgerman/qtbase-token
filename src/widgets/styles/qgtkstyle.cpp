@@ -3406,7 +3406,7 @@ specifier|const
 name|QString
 name|pmKey
 init|=
-name|QLatin1Literal
+name|QLatin1String
 argument_list|(
 literal|"windowframe"
 argument_list|)
