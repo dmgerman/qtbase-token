@@ -1,9 +1,9 @@
 begin_unit
 begin_comment
-comment|/* png.h - header file for PNG reference library  *  * libpng version 1.5.1 - February 3, 2011  * Copyright (c) 1998-2011 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license (See LICENSE, below)  *  * Authors and maintainers:  *   libpng versions 0.71, May 1995, through 0.88, January 1996: Guy Schalnat  *   libpng versions 0.89c, June 1996, through 0.96, May 1997: Andreas Dilger  *   libpng versions 0.97, January 1998, through 1.5.1 - February 3, 2011: Glenn  *   See also "Contributing Authors", below.  *  * Note about libpng version numbers:  *  *   Due to various miscommunications, unforeseen code incompatibilities  *   and occasional factors outside the authors' control, version numbering  *   on the library has not always been consistent and straightforward.  *   The following table summarizes matters since version 0.89c, which was  *   the first widely used release:  *  *    source                 png.h  png.h  shared-lib  *    version                string   int  version  *    -------                ------ -----  ----------  *    0.89c "1.0 beta 3"     0.89      89  1.0.89  *    0.90  "1.0 beta 4"     0.90      90  0.90  [should have been 2.0.90]  *    0.95  "1.0 beta 5"     0.95      95  0.95  [should have been 2.0.95]  *    0.96  "1.0 beta 6"     0.96      96  0.96  [should have been 2.0.96]  *    0.97b "1.00.97 beta 7" 1.00.97   97  1.0.1 [should have been 2.0.97]  *    0.97c                  0.97      97  2.0.97  *    0.98                   0.98      98  2.0.98  *    0.99                   0.99      98  2.0.99  *    0.99a-m                0.99      99  2.0.99  *    1.00                   1.00     100  2.1.0 [100 should be 10000]  *    1.0.0      (from here on, the   100  2.1.0 [100 should be 10000]  *    1.0.1       png.h string is   10001  2.1.0  *    1.0.1a-e    identical to the  10002  from here on, the shared library  *    1.0.2       source version)   10002  is 2.V where V is the source code  *    1.0.2a-b                      10003  version, except as noted.  *    1.0.3                         10003  *    1.0.3a-d                      10004  *    1.0.4                         10004  *    1.0.4a-f                      10005  *    1.0.5 (+ 2 patches)           10005  *    1.0.5a-d                      10006  *    1.0.5e-r                      10100 (not source compatible)  *    1.0.5s-v                      10006 (not binary compatible)  *    1.0.6 (+ 3 patches)           10006 (still binary incompatible)  *    1.0.6d-f                      10007 (still binary incompatible)  *    1.0.6g                        10007  *    1.0.6h                        10007  10.6h (testing xy.z so-numbering)  *    1.0.6i                        10007  10.6i  *    1.0.6j                        10007  2.1.0.6j (incompatible with 1.0.0)  *    1.0.7beta11-14        DLLNUM  10007  2.1.0.7beta11-14 (binary compatible)  *    1.0.7beta15-18           1    10007  2.1.0.7beta15-18 (binary compatible)  *    1.0.7rc1-2               1    10007  2.1.0.7rc1-2 (binary compatible)  *    1.0.7                    1    10007  (still compatible)  *    1.0.8beta1-4             1    10008  2.1.0.8beta1-4  *    1.0.8rc1                 1    10008  2.1.0.8rc1  *    1.0.8                    1    10008  2.1.0.8  *    1.0.9beta1-6             1    10009  2.1.0.9beta1-6  *    1.0.9rc1                 1    10009  2.1.0.9rc1  *    1.0.9beta7-10            1    10009  2.1.0.9beta7-10  *    1.0.9rc2                 1    10009  2.1.0.9rc2  *    1.0.9                    1    10009  2.1.0.9  *    1.0.10beta1              1    10010  2.1.0.10beta1  *    1.0.10rc1                1    10010  2.1.0.10rc1  *    1.0.10                   1    10010  2.1.0.10  *    1.0.11beta1-3            1    10011  2.1.0.11beta1-3  *    1.0.11rc1                1    10011  2.1.0.11rc1  *    1.0.11                   1    10011  2.1.0.11  *    1.0.12beta1-2            2    10012  2.1.0.12beta1-2  *    1.0.12rc1                2    10012  2.1.0.12rc1  *    1.0.12                   2    10012  2.1.0.12  *    1.1.0a-f                 -    10100  2.1.1.0a-f (branch abandoned)  *    1.2.0beta1-2             2    10200  2.1.2.0beta1-2  *    1.2.0beta3-5             3    10200  3.1.2.0beta3-5  *    1.2.0rc1                 3    10200  3.1.2.0rc1  *    1.2.0                    3    10200  3.1.2.0  *    1.2.1beta1-4             3    10201  3.1.2.1beta1-4  *    1.2.1rc1-2               3    10201  3.1.2.1rc1-2  *    1.2.1                    3    10201  3.1.2.1  *    1.2.2beta1-6            12    10202  12.so.0.1.2.2beta1-6  *    1.0.13beta1             10    10013  10.so.0.1.0.13beta1  *    1.0.13rc1               10    10013  10.so.0.1.0.13rc1  *    1.2.2rc1                12    10202  12.so.0.1.2.2rc1  *    1.0.13                  10    10013  10.so.0.1.0.13  *    1.2.2                   12    10202  12.so.0.1.2.2  *    1.2.3rc1-6              12    10203  12.so.0.1.2.3rc1-6  *    1.2.3                   12    10203  12.so.0.1.2.3  *    1.2.4beta1-3            13    10204  12.so.0.1.2.4beta1-3  *    1.0.14rc1               13    10014  10.so.0.1.0.14rc1  *    1.2.4rc1                13    10204  12.so.0.1.2.4rc1  *    1.0.14                  10    10014  10.so.0.1.0.14  *    1.2.4                   13    10204  12.so.0.1.2.4  *    1.2.5beta1-2            13    10205  12.so.0.1.2.5beta1-2  *    1.0.15rc1-3             10    10015  10.so.0.1.0.15rc1-3  *    1.2.5rc1-3              13    10205  12.so.0.1.2.5rc1-3  *    1.0.15                  10    10015  10.so.0.1.0.15  *    1.2.5                   13    10205  12.so.0.1.2.5  *    1.2.6beta1-4            13    10206  12.so.0.1.2.6beta1-4  *    1.0.16                  10    10016  10.so.0.1.0.16  *    1.2.6                   13    10206  12.so.0.1.2.6  *    1.2.7beta1-2            13    10207  12.so.0.1.2.7beta1-2  *    1.0.17rc1               10    10017  12.so.0.1.0.17rc1  *    1.2.7rc1                13    10207  12.so.0.1.2.7rc1  *    1.0.17                  10    10017  12.so.0.1.0.17  *    1.2.7                   13    10207  12.so.0.1.2.7  *    1.2.8beta1-5            13    10208  12.so.0.1.2.8beta1-5  *    1.0.18rc1-5             10    10018  12.so.0.1.0.18rc1-5  *    1.2.8rc1-5              13    10208  12.so.0.1.2.8rc1-5  *    1.0.18                  10    10018  12.so.0.1.0.18  *    1.2.8                   13    10208  12.so.0.1.2.8  *    1.2.9beta1-3            13    10209  12.so.0.1.2.9beta1-3  *    1.2.9beta4-11           13    10209  12.so.0.9[.0]  *    1.2.9rc1                13    10209  12.so.0.9[.0]  *    1.2.9                   13    10209  12.so.0.9[.0]  *    1.2.10beta1-7           13    10210  12.so.0.10[.0]  *    1.2.10rc1-2             13    10210  12.so.0.10[.0]  *    1.2.10                  13    10210  12.so.0.10[.0]  *    1.4.0beta1-5            14    10400  14.so.0.0[.0]  *    1.2.11beta1-4           13    10211  12.so.0.11[.0]  *    1.4.0beta7-8            14    10400  14.so.0.0[.0]  *    1.2.11                  13    10211  12.so.0.11[.0]  *    1.2.12                  13    10212  12.so.0.12[.0]  *    1.4.0beta9-14           14    10400  14.so.0.0[.0]  *    1.2.13                  13    10213  12.so.0.13[.0]  *    1.4.0beta15-36          14    10400  14.so.0.0[.0]  *    1.4.0beta37-87          14    10400  14.so.14.0[.0]  *    1.4.0rc01               14    10400  14.so.14.0[.0]  *    1.4.0beta88-109         14    10400  14.so.14.0[.0]  *    1.4.0rc02-08            14    10400  14.so.14.0[.0]  *    1.4.0                   14    10400  14.so.14.0[.0]  *    1.4.1beta01-03          14    10401  14.so.14.1[.0]  *    1.4.1rc01               14    10401  14.so.14.1[.0]  *    1.4.1beta04-12          14    10401  14.so.14.1[.0]  *    1.4.1                   14    10401  14.so.14.1[.0]  *    1.4.2                   14    10402  14.so.14.2[.0]  *    1.4.3                   14    10403  14.so.14.3[.0]  *    1.4.4                   14    10404  14.so.14.4[.0]  *    1.5.0beta01-58          15    10500  15.so.15.0[.0]  *    1.5.0rc01-07            15    10500  15.so.15.0[.0]  *    1.5.0                   15    10500  15.so.15.0[.0]  *    1.5.1beta01-11          15    10501  15.so.15.1[.0]  *    1.5.1rc01-02            15    10501  15.so.15.1[.0]  *    1.5.1                   15    10501  15.so.15.1[.0]  *  *   Henceforth the source version will match the shared-library major  *   and minor numbers; the shared-library major version number will be  *   used for changes in backward compatibility, as it is intended.  The  *   PNG_LIBPNG_VER macro, which is not used within libpng but is available  *   for applications, is an unsigned integer of the form xyyzz corresponding  *   to the source version x.y.z (leading zeros in y and z).  Beta versions  *   were given the previous public release number plus a letter, until  *   version 1.0.6j; from then on they were given the upcoming public  *   release number plus "betaNN" or "rcN".  *  *   Binary incompatibility exists only when applications make direct access  *   to the info_ptr or png_ptr members through png.h, and the compiled  *   application is loaded with a different version of the library.  *  *   DLLNUM will change each time there are forward or backward changes  *   in binary compatibility (e.g., when a new feature is added).  *  * See libpng-manual.txt or libpng.3 for more information.  The PNG  * specification is available as a W3C Recommendation and as an ISO  * Specification,<http://www.w3.org/TR/2003/REC-PNG-20031110/  */
+comment|/* png.h - header file for PNG reference library  *  * libpng version 1.5.10 - March 29, 2012  * Copyright (c) 1998-2012 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license (See LICENSE, below)  *  * Authors and maintainers:  *   libpng versions 0.71, May 1995, through 0.88, January 1996: Guy Schalnat  *   libpng versions 0.89c, June 1996, through 0.96, May 1997: Andreas Dilger  *   libpng versions 0.97, January 1998, through 1.5.10 - March 29, 2012: Glenn  *   See also "Contributing Authors", below.  *  * Note about libpng version numbers:  *  *   Due to various miscommunications, unforeseen code incompatibilities  *   and occasional factors outside the authors' control, version numbering  *   on the library has not always been consistent and straightforward.  *   The following table summarizes matters since version 0.89c, which was  *   the first widely used release:  *  *    source                 png.h  png.h  shared-lib  *    version                string   int  version  *    -------                ------ -----  ----------  *    0.89c "1.0 beta 3"     0.89      89  1.0.89  *    0.90  "1.0 beta 4"     0.90      90  0.90  [should have been 2.0.90]  *    0.95  "1.0 beta 5"     0.95      95  0.95  [should have been 2.0.95]  *    0.96  "1.0 beta 6"     0.96      96  0.96  [should have been 2.0.96]  *    0.97b "1.00.97 beta 7" 1.00.97   97  1.0.1 [should have been 2.0.97]  *    0.97c                  0.97      97  2.0.97  *    0.98                   0.98      98  2.0.98  *    0.99                   0.99      98  2.0.99  *    0.99a-m                0.99      99  2.0.99  *    1.00                   1.00     100  2.1.0 [100 should be 10000]  *    1.0.0      (from here on, the   100  2.1.0 [100 should be 10000]  *    1.0.1       png.h string is   10001  2.1.0  *    1.0.1a-e    identical to the  10002  from here on, the shared library  *    1.0.2       source version)   10002  is 2.V where V is the source code  *    1.0.2a-b                      10003  version, except as noted.  *    1.0.3                         10003  *    1.0.3a-d                      10004  *    1.0.4                         10004  *    1.0.4a-f                      10005  *    1.0.5 (+ 2 patches)           10005  *    1.0.5a-d                      10006  *    1.0.5e-r                      10100 (not source compatible)  *    1.0.5s-v                      10006 (not binary compatible)  *    1.0.6 (+ 3 patches)           10006 (still binary incompatible)  *    1.0.6d-f                      10007 (still binary incompatible)  *    1.0.6g                        10007  *    1.0.6h                        10007  10.6h (testing xy.z so-numbering)  *    1.0.6i                        10007  10.6i  *    1.0.6j                        10007  2.1.0.6j (incompatible with 1.0.0)  *    1.0.7beta11-14        DLLNUM  10007  2.1.0.7beta11-14 (binary compatible)  *    1.0.7beta15-18           1    10007  2.1.0.7beta15-18 (binary compatible)  *    1.0.7rc1-2               1    10007  2.1.0.7rc1-2 (binary compatible)  *    1.0.7                    1    10007  (still compatible)  *    1.0.8beta1-4             1    10008  2.1.0.8beta1-4  *    1.0.8rc1                 1    10008  2.1.0.8rc1  *    1.0.8                    1    10008  2.1.0.8  *    1.0.9beta1-6             1    10009  2.1.0.9beta1-6  *    1.0.9rc1                 1    10009  2.1.0.9rc1  *    1.0.9beta7-10            1    10009  2.1.0.9beta7-10  *    1.0.9rc2                 1    10009  2.1.0.9rc2  *    1.0.9                    1    10009  2.1.0.9  *    1.0.10beta1              1    10010  2.1.0.10beta1  *    1.0.10rc1                1    10010  2.1.0.10rc1  *    1.0.10                   1    10010  2.1.0.10  *    1.0.11beta1-3            1    10011  2.1.0.11beta1-3  *    1.0.11rc1                1    10011  2.1.0.11rc1  *    1.0.11                   1    10011  2.1.0.11  *    1.0.12beta1-2            2    10012  2.1.0.12beta1-2  *    1.0.12rc1                2    10012  2.1.0.12rc1  *    1.0.12                   2    10012  2.1.0.12  *    1.1.0a-f                 -    10100  2.1.1.0a-f (branch abandoned)  *    1.2.0beta1-2             2    10200  2.1.2.0beta1-2  *    1.2.0beta3-5             3    10200  3.1.2.0beta3-5  *    1.2.0rc1                 3    10200  3.1.2.0rc1  *    1.2.0                    3    10200  3.1.2.0  *    1.2.1beta1-4             3    10201  3.1.2.1beta1-4  *    1.2.1rc1-2               3    10201  3.1.2.1rc1-2  *    1.2.1                    3    10201  3.1.2.1  *    1.2.2beta1-6            12    10202  12.so.0.1.2.2beta1-6  *    1.0.13beta1             10    10013  10.so.0.1.0.13beta1  *    1.0.13rc1               10    10013  10.so.0.1.0.13rc1  *    1.2.2rc1                12    10202  12.so.0.1.2.2rc1  *    1.0.13                  10    10013  10.so.0.1.0.13  *    1.2.2                   12    10202  12.so.0.1.2.2  *    1.2.3rc1-6              12    10203  12.so.0.1.2.3rc1-6  *    1.2.3                   12    10203  12.so.0.1.2.3  *    1.2.4beta1-3            13    10204  12.so.0.1.2.4beta1-3  *    1.0.14rc1               13    10014  10.so.0.1.0.14rc1  *    1.2.4rc1                13    10204  12.so.0.1.2.4rc1  *    1.0.14                  10    10014  10.so.0.1.0.14  *    1.2.4                   13    10204  12.so.0.1.2.4  *    1.2.5beta1-2            13    10205  12.so.0.1.2.5beta1-2  *    1.0.15rc1-3             10    10015  10.so.0.1.0.15rc1-3  *    1.2.5rc1-3              13    10205  12.so.0.1.2.5rc1-3  *    1.0.15                  10    10015  10.so.0.1.0.15  *    1.2.5                   13    10205  12.so.0.1.2.5  *    1.2.6beta1-4            13    10206  12.so.0.1.2.6beta1-4  *    1.0.16                  10    10016  10.so.0.1.0.16  *    1.2.6                   13    10206  12.so.0.1.2.6  *    1.2.7beta1-2            13    10207  12.so.0.1.2.7beta1-2  *    1.0.17rc1               10    10017  12.so.0.1.0.17rc1  *    1.2.7rc1                13    10207  12.so.0.1.2.7rc1  *    1.0.17                  10    10017  12.so.0.1.0.17  *    1.2.7                   13    10207  12.so.0.1.2.7  *    1.2.8beta1-5            13    10208  12.so.0.1.2.8beta1-5  *    1.0.18rc1-5             10    10018  12.so.0.1.0.18rc1-5  *    1.2.8rc1-5              13    10208  12.so.0.1.2.8rc1-5  *    1.0.18                  10    10018  12.so.0.1.0.18  *    1.2.8                   13    10208  12.so.0.1.2.8  *    1.2.9beta1-3            13    10209  12.so.0.1.2.9beta1-3  *    1.2.9beta4-11           13    10209  12.so.0.9[.0]  *    1.2.9rc1                13    10209  12.so.0.9[.0]  *    1.2.9                   13    10209  12.so.0.9[.0]  *    1.2.10beta1-7           13    10210  12.so.0.10[.0]  *    1.2.10rc1-2             13    10210  12.so.0.10[.0]  *    1.2.10                  13    10210  12.so.0.10[.0]  *    1.4.0beta1-5            14    10400  14.so.0.0[.0]  *    1.2.11beta1-4           13    10211  12.so.0.11[.0]  *    1.4.0beta7-8            14    10400  14.so.0.0[.0]  *    1.2.11                  13    10211  12.so.0.11[.0]  *    1.2.12                  13    10212  12.so.0.12[.0]  *    1.4.0beta9-14           14    10400  14.so.0.0[.0]  *    1.2.13                  13    10213  12.so.0.13[.0]  *    1.4.0beta15-36          14    10400  14.so.0.0[.0]  *    1.4.0beta37-87          14    10400  14.so.14.0[.0]  *    1.4.0rc01               14    10400  14.so.14.0[.0]  *    1.4.0beta88-109         14    10400  14.so.14.0[.0]  *    1.4.0rc02-08            14    10400  14.so.14.0[.0]  *    1.4.0                   14    10400  14.so.14.0[.0]  *    1.4.1beta01-03          14    10401  14.so.14.1[.0]  *    1.4.1rc01               14    10401  14.so.14.1[.0]  *    1.4.1beta04-12          14    10401  14.so.14.1[.0]  *    1.4.1                   14    10401  14.so.14.1[.0]  *    1.4.2                   14    10402  14.so.14.2[.0]  *    1.4.3                   14    10403  14.so.14.3[.0]  *    1.4.4                   14    10404  14.so.14.4[.0]  *    1.5.0beta01-58          15    10500  15.so.15.0[.0]  *    1.5.0rc01-07            15    10500  15.so.15.0[.0]  *    1.5.0                   15    10500  15.so.15.0[.0]  *    1.5.1beta01-11          15    10501  15.so.15.1[.0]  *    1.5.1rc01-02            15    10501  15.so.15.1[.0]  *    1.5.1                   15    10501  15.so.15.1[.0]  *    1.5.2beta01-03          15    10502  15.so.15.2[.0]  *    1.5.2rc01-03            15    10502  15.so.15.2[.0]  *    1.5.2                   15    10502  15.so.15.2[.0]  *    1.5.3beta01-10          15    10503  15.so.15.3[.0]  *    1.5.3rc01-02            15    10503  15.so.15.3[.0]  *    1.5.3beta11             15    10503  15.so.15.3[.0]  *    1.5.3 [omitted]  *    1.5.4beta01-08          15    10504  15.so.15.4[.0]  *    1.5.4rc01               15    10504  15.so.15.4[.0]  *    1.5.4                   15    10504  15.so.15.4[.0]  *    1.5.5beta01-08          15    10505  15.so.15.5[.0]  *    1.5.5rc01               15    10505  15.so.15.5[.0]  *    1.5.5                   15    10505  15.so.15.5[.0]  *    1.5.6beta01-07          15    10506  15.so.15.6[.0]  *    1.5.6rc01-03            15    10506  15.so.15.6[.0]  *    1.5.6                   15    10506  15.so.15.6[.0]  *    1.5.7beta01-05          15    10507  15.so.15.7[.0]  *    1.5.7rc01-03            15    10507  15.so.15.7[.0]  *    1.5.7                   15    10507  15.so.15.7[.0]  *    1.5.8beta01             15    10508  15.so.15.8[.0]  *    1.5.8rc01               15    10508  15.so.15.8[.0]  *    1.5.8                   15    10508  15.so.15.8[.0]  *    1.5.9beta01-02          15    10509  15.so.15.9[.0]  *    1.5.9rc01               15    10509  15.so.15.9[.0]  *    1.5.9                   15    10509  15.so.15.9[.0]  *    1.5.10beta01-05         15    10510  15.so.15.10[.0]  *    1.5.10                  15    10510  15.so.15.10[.0]  *  *   Henceforth the source version will match the shared-library major  *   and minor numbers; the shared-library major version number will be  *   used for changes in backward compatibility, as it is intended.  The  *   PNG_LIBPNG_VER macro, which is not used within libpng but is available  *   for applications, is an unsigned integer of the form xyyzz corresponding  *   to the source version x.y.z (leading zeros in y and z).  Beta versions  *   were given the previous public release number plus a letter, until  *   version 1.0.6j; from then on they were given the upcoming public  *   release number plus "betaNN" or "rcNN".  *  *   Binary incompatibility exists only when applications make direct access  *   to the info_ptr or png_ptr members through png.h, and the compiled  *   application is loaded with a different version of the library.  *  *   DLLNUM will change each time there are forward or backward changes  *   in binary compatibility (e.g., when a new feature is added).  *  * See libpng-manual.txt or libpng.3 for more information.  The PNG  * specification is available as a W3C Recommendation and as an ISO  * Specification,<http://www.w3.org/TR/2003/REC-PNG-20031110/  */
 end_comment
 begin_comment
-comment|/*  * COPYRIGHT NOTICE, DISCLAIMER, and LICENSE:  *  * If you modify libpng you may insert additional notices immediately following  * this sentence.  *  * This code is released under the libpng license.  *  * libpng versions 1.2.6, August 15, 2004, through 1.5.1, February 3, 2011, are  * Copyright (c) 2004, 2006-2011 Glenn Randers-Pehrson, and are  * distributed according to the same disclaimer and license as libpng-1.2.5  * with the following individual added to the list of Contributing Authors:  *  *    Cosmin Truta  *  * libpng versions 1.0.7, July 1, 2000, through 1.2.5, October 3, 2002, are  * Copyright (c) 2000-2002 Glenn Randers-Pehrson, and are  * distributed according to the same disclaimer and license as libpng-1.0.6  * with the following individuals added to the list of Contributing Authors:  *  *    Simon-Pierre Cadieux  *    Eric S. Raymond  *    Gilles Vollant  *  * and with the following additions to the disclaimer:  *  *    There is no warranty against interference with your enjoyment of the  *    library or against infringement.  There is no warranty that our  *    efforts or the library will fulfill any of your particular purposes  *    or needs.  This library is provided with all faults, and the entire  *    risk of satisfactory quality, performance, accuracy, and effort is with  *    the user.  *  * libpng versions 0.97, January 1998, through 1.0.6, March 20, 2000, are  * Copyright (c) 1998, 1999, 2000 Glenn Randers-Pehrson, and are  * distributed according to the same disclaimer and license as libpng-0.96,   * with the following individuals added to the list of Contributing Authors:  *  *    Tom Lane  *    Glenn Randers-Pehrson  *    Willem van Schaik  *  * libpng versions 0.89, June 1996, through 0.96, May 1997, are  * Copyright (c) 1996, 1997 Andreas Dilger  * Distributed according to the same disclaimer and license as libpng-0.88,   * with the following individuals added to the list of Contributing Authors:  *  *    John Bowler  *    Kevin Bracey  *    Sam Bushell  *    Magnus Holmgren  *    Greg Roelofs  *    Tom Tanner  *  * libpng versions 0.5, May 1995, through 0.88, January 1996, are  * Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.  *  * For the purposes of this copyright and license, "Contributing Authors"  * is defined as the following set of individuals:  *  *    Andreas Dilger  *    Dave Martindale  *    Guy Eric Schalnat  *    Paul Schmidt  *    Tim Wegner  *  * The PNG Reference Library is supplied "AS IS".  The Contributing Authors  * and Group 42, Inc. disclaim all warranties, expressed or implied,   * including, without limitation, the warranties of merchantability and of  * fitness for any purpose.  The Contributing Authors and Group 42, Inc.  * assume no liability for direct, indirect, incidental, special, exemplary,   * or consequential damages, which may result from the use of the PNG  * Reference Library, even if advised of the possibility of such damage.  *  * Permission is hereby granted to use, copy, modify, and distribute this  * source code, or portions hereof, for any purpose, without fee, subject  * to the following restrictions:  *  *   1. The origin of this source code must not be misrepresented.  *  *   2. Altered versions must be plainly marked as such and must not  *      be misrepresented as being the original source.  *  *   3. This Copyright notice may not be removed or altered from  *      any source or altered source distribution.  *  * The Contributing Authors and Group 42, Inc. specifically permit, without  * fee, and encourage the use of this source code as a component to  * supporting the PNG file format in commercial products.  If you use this  * source code in a product, acknowledgment is not required but would be  * appreciated.  */
+comment|/*  * COPYRIGHT NOTICE, DISCLAIMER, and LICENSE:  *  * If you modify libpng you may insert additional notices immediately following  * this sentence.  *  * This code is released under the libpng license.  *  * libpng versions 1.2.6, August 15, 2004, through 1.5.10, March 29, 2012, are  * Copyright (c) 2004, 2006-2012 Glenn Randers-Pehrson, and are  * distributed according to the same disclaimer and license as libpng-1.2.5  * with the following individual added to the list of Contributing Authors:  *  *    Cosmin Truta  *  * libpng versions 1.0.7, July 1, 2000, through 1.2.5, October 3, 2002, are  * Copyright (c) 2000-2002 Glenn Randers-Pehrson, and are  * distributed according to the same disclaimer and license as libpng-1.0.6  * with the following individuals added to the list of Contributing Authors:  *  *    Simon-Pierre Cadieux  *    Eric S. Raymond  *    Gilles Vollant  *  * and with the following additions to the disclaimer:  *  *    There is no warranty against interference with your enjoyment of the  *    library or against infringement.  There is no warranty that our  *    efforts or the library will fulfill any of your particular purposes  *    or needs.  This library is provided with all faults, and the entire  *    risk of satisfactory quality, performance, accuracy, and effort is with  *    the user.  *  * libpng versions 0.97, January 1998, through 1.0.6, March 20, 2000, are  * Copyright (c) 1998, 1999, 2000 Glenn Randers-Pehrson, and are  * distributed according to the same disclaimer and license as libpng-0.96,  * with the following individuals added to the list of Contributing Authors:  *  *    Tom Lane  *    Glenn Randers-Pehrson  *    Willem van Schaik  *  * libpng versions 0.89, June 1996, through 0.96, May 1997, are  * Copyright (c) 1996, 1997 Andreas Dilger  * Distributed according to the same disclaimer and license as libpng-0.88,  * with the following individuals added to the list of Contributing Authors:  *  *    John Bowler  *    Kevin Bracey  *    Sam Bushell  *    Magnus Holmgren  *    Greg Roelofs  *    Tom Tanner  *  * libpng versions 0.5, May 1995, through 0.88, January 1996, are  * Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.  *  * For the purposes of this copyright and license, "Contributing Authors"  * is defined as the following set of individuals:  *  *    Andreas Dilger  *    Dave Martindale  *    Guy Eric Schalnat  *    Paul Schmidt  *    Tim Wegner  *  * The PNG Reference Library is supplied "AS IS".  The Contributing Authors  * and Group 42, Inc. disclaim all warranties, expressed or implied,  * including, without limitation, the warranties of merchantability and of  * fitness for any purpose.  The Contributing Authors and Group 42, Inc.  * assume no liability for direct, indirect, incidental, special, exemplary,  * or consequential damages, which may result from the use of the PNG  * Reference Library, even if advised of the possibility of such damage.  *  * Permission is hereby granted to use, copy, modify, and distribute this  * source code, or portions hereof, for any purpose, without fee, subject  * to the following restrictions:  *  *   1. The origin of this source code must not be misrepresented.  *  *   2. Altered versions must be plainly marked as such and must not  *      be misrepresented as being the original source.  *  *   3. This Copyright notice may not be removed or altered from  *      any source or altered source distribution.  *  * The Contributing Authors and Group 42, Inc. specifically permit, without  * fee, and encourage the use of this source code as a component to  * supporting the PNG file format in commercial products.  If you use this  * source code in a product, acknowledgment is not required but would be  * appreciated.  */
 end_comment
 begin_comment
 comment|/*  * A "png_get_copyright" function is available, for convenient use in "about"  * boxes and the like:  *  *     printf("%s", png_get_copyright(NULL));  *  * Also, the PNG logo (in PNG format, of course) is supplied in the  * files "pngbar.png" and "pngbar.jpg (88x31) and "pngnow.png" (98x31).  */
@@ -15,7 +15,7 @@ begin_comment
 comment|/*  * The contributing authors would like to thank all those who helped  * with testing, bug fixes, and patience.  This wouldn't have been  * possible without all of you.  *  * Thanks to Frank J. T. Wojcik for helping with the documentation.  */
 end_comment
 begin_comment
-comment|/*  * Y2K compliance in libpng:  * =========================  *  *    February 3, 2011  *  *    Since the PNG Development group is an ad-hoc body, we can't make  *    an official declaration.  *  *    This is your unofficial assurance that libpng from version 0.71 and  *    upward through 1.5.1 are Y2K compliant.  It is my belief that  *    earlier versions were also Y2K compliant.  *  *    Libpng only has three year fields.  One is a 2-byte unsigned integer  *    that will hold years up to 65535.  The other two hold the date in text  *    format, and will hold years up to 9999.  *  *    The integer is  *        "png_uint_16 year" in png_time_struct.  *  *    The strings are  *        "png_charp time_buffer" in png_struct and  *        "near_time_buffer", which is a local character string in png.c.  *  *    There are seven time-related functions:  *        png.c: png_convert_to_rfc_1123() in png.c  *          (formerly png_convert_to_rfc_1152() in error)  *        png_convert_from_struct_tm() in pngwrite.c, called in pngwrite.c  *        png_convert_from_time_t() in pngwrite.c  *        png_get_tIME() in pngget.c  *        png_handle_tIME() in pngrutil.c, called in pngread.c  *        png_set_tIME() in pngset.c  *        png_write_tIME() in pngwutil.c, called in pngwrite.c  *  *    All handle dates properly in a Y2K environment.  The  *    png_convert_from_time_t() function calls gmtime() to convert from system  *    clock time, which returns (year - 1900), which we properly convert to  *    the full 4-digit year.  There is a possibility that applications using  *    libpng are not passing 4-digit years into the png_convert_to_rfc_1123()  *    function, or that they are incorrectly passing only a 2-digit year  *    instead of "year - 1900" into the png_convert_from_struct_tm() function,   *    but this is not under our control.  The libpng documentation has always  *    stated that it works with 4-digit years, and the APIs have been  *    documented as such.  *  *    The tIME chunk itself is also Y2K compliant.  It uses a 2-byte unsigned  *    integer to hold the year, and can hold years as large as 65535.  *  *    zlib, upon which libpng depends, is also Y2K compliant.  It contains  *    no date-related code.  *  *       Glenn Randers-Pehrson  *       libpng maintainer  *       PNG Development Group  */
+comment|/*  * Y2K compliance in libpng:  * =========================  *  *    March 29, 2012  *  *    Since the PNG Development group is an ad-hoc body, we can't make  *    an official declaration.  *  *    This is your unofficial assurance that libpng from version 0.71 and  *    upward through 1.5.10 are Y2K compliant.  It is my belief that  *    earlier versions were also Y2K compliant.  *  *    Libpng only has two year fields.  One is a 2-byte unsigned integer  *    that will hold years up to 65535.  The other holds the date in text  *    format, and will hold years up to 9999.  *  *    The integer is  *        "png_uint_16 year" in png_time_struct.  *  *    The string is  *        "png_char time_buffer" in png_struct  *  *    There are seven time-related functions:  *        png.c: png_convert_to_rfc_1123() in png.c  *          (formerly png_convert_to_rfc_1152() in error)  *        png_convert_from_struct_tm() in pngwrite.c, called in pngwrite.c  *        png_convert_from_time_t() in pngwrite.c  *        png_get_tIME() in pngget.c  *        png_handle_tIME() in pngrutil.c, called in pngread.c  *        png_set_tIME() in pngset.c  *        png_write_tIME() in pngwutil.c, called in pngwrite.c  *  *    All handle dates properly in a Y2K environment.  The  *    png_convert_from_time_t() function calls gmtime() to convert from system  *    clock time, which returns (year - 1900), which we properly convert to  *    the full 4-digit year.  There is a possibility that applications using  *    libpng are not passing 4-digit years into the png_convert_to_rfc_1123()  *    function, or that they are incorrectly passing only a 2-digit year  *    instead of "year - 1900" into the png_convert_from_struct_tm() function,  *    but this is not under our control.  The libpng documentation has always  *    stated that it works with 4-digit years, and the APIs have been  *    documented as such.  *  *    The tIME chunk itself is also Y2K compliant.  It uses a 2-byte unsigned  *    integer to hold the year, and can hold years as large as 65535.  *  *    zlib, upon which libpng depends, is also Y2K compliant.  It contains  *    no date-related code.  *  *       Glenn Randers-Pehrson  *       libpng maintainer  *       PNG Development Group  */
 end_comment
 begin_ifndef
 ifndef|#
@@ -29,7 +29,7 @@ directive|define
 name|PNG_H
 end_define
 begin_comment
-comment|/* This is not the place to learn how to use libpng. The file libpng-manual.txt  * describes how to use libpng, and the file example.c summarizes it  * with some code on which to build.  This file is useful for looking  * at the actual function definitions and structure components.  */
+comment|/* This is not the place to learn how to use libpng. The file libpng-manual.txt  * describes how to use libpng, and the file example.c summarizes it  * with some code on which to build.  This file is useful for looking  * at the actual function definitions and structure components.  *  * If you just need to read a PNG file and don't want to read the documentation  * skip to the end of this file and read the section entitled 'simplified API'.  */
 end_comment
 begin_comment
 comment|/* Version information for png.h - this should match the version in png.c */
@@ -39,7 +39,7 @@ DECL|macro|PNG_LIBPNG_VER_STRING
 define|#
 directive|define
 name|PNG_LIBPNG_VER_STRING
-value|"1.5.1"
+value|"1.5.10"
 end_define
 begin_define
 DECL|macro|PNG_HEADER_VERSION_STRING
@@ -47,7 +47,7 @@ define|#
 directive|define
 name|PNG_HEADER_VERSION_STRING
 define|\
-value|" libpng version 1.5.1 - February 3, 2011\n"
+value|" libpng version 1.5.10 - March 29, 2012\n"
 end_define
 begin_define
 DECL|macro|PNG_LIBPNG_VER_SONUM
@@ -85,7 +85,7 @@ DECL|macro|PNG_LIBPNG_VER_RELEASE
 define|#
 directive|define
 name|PNG_LIBPNG_VER_RELEASE
-value|1
+value|10
 end_define
 begin_comment
 comment|/* This should match the numeric part of the final component of  * PNG_LIBPNG_VER_STRING, omitting any leading zero:  */
@@ -176,7 +176,7 @@ DECL|macro|PNG_LIBPNG_BUILD_BASE_TYPE
 define|#
 directive|define
 name|PNG_LIBPNG_BUILD_BASE_TYPE
-value|PNG_LIBPNG_BUILD_BETA
+value|PNG_LIBPNG_BUILD_STABLE
 end_define
 begin_comment
 comment|/* Careful here.  At one time, Guy wanted to use 082, but that would be octal.  * We must not include leading zeros.  * Versions 0.7 through 1.0.0 were in the range 0 to 100 here (only  * version 1.0.0 was mis-numbered 100 instead of 10000).  From  * version 1.0.1 it's    xxyyzz, where x=major, y=minor, z=release  */
@@ -186,11 +186,11 @@ DECL|macro|PNG_LIBPNG_VER
 define|#
 directive|define
 name|PNG_LIBPNG_VER
-value|10501
+value|10510
 end_define
 begin_comment
 DECL|macro|PNG_LIBPNG_VER
-comment|/* 1.5.1 */
+comment|/* 1.5.10 */
 end_comment
 begin_comment
 comment|/* Library configuration: these options cannot be changed after  * the library has been built.  */
@@ -217,8 +217,13 @@ ifndef|#
 directive|ifndef
 name|PNG_VERSION_INFO_ONLY
 end_ifndef
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|PNG_BUILDING_SYMBOL_TABLE
+end_ifndef
 begin_comment
-comment|/* Standard header files (not needed for the version info) */
+comment|/*    *   Standard header files (not needed for the version info or while    *   building symbol table -- see scripts/pnglibconf.dfa)    */
 end_comment
 begin_ifdef
 ifdef|#
@@ -235,7 +240,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/* Need the time information for converting tIME chunks, it  * defines struct tm:  */
+comment|/* Need the time information for converting tIME chunks, it      * defines struct tm:      */
 end_comment
 begin_ifdef
 ifdef|#
@@ -250,6 +255,10 @@ include|#
 directive|include
 file|<time.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif
@@ -351,11 +360,11 @@ comment|/* This file is arranged in several sections:  *  * 1. Any configuration
 comment|/* Section 1: run time configuration  * See pnglibconf.h for build time configuration  *  * Run time configuration allows the application to choose between  * implementations of certain arithmetic APIs.  The default is set  * at build time and recorded in pnglibconf.h, but it is safe to  * override these (and only these) settings.  Note that this won't  * change what the library does, only application code, and the  * settings can (and probably should) be made on a per-file basis  * by setting the #defines before including png.h  *  * Use macros to read integers from PNG data or use the exported  * functions?  *   PNG_USE_READ_MACROS: use the macros (see below)  Note that  *     the macros evaluate their argument multiple times.  *   PNG_NO_USE_READ_MACROS: call the relevant library function.  *  * Use the alternative algorithm for compositing alpha samples that  * does not use division?  *   PNG_READ_COMPOSITE_NODIV_SUPPORTED: use the 'no division'  *      algorithm.  *   PNG_NO_READ_COMPOSITE_NODIV: use the 'division' algorithm.  *  * How to handle benign errors if PNG_ALLOW_BENIGN_ERRORS is  * false?  *   PNG_ALLOW_BENIGN_ERRORS: map calls to the benign error  *      APIs to png_warning.  * Otherwise the calls are mapped to png_error.  */
 comment|/* Section 2: type definitions, including structures and compile time  * constants.  * See pngconf.h for base types that vary by machine/system  */
 comment|/* This triggers a compiler error in png.c, if png.c and png.h  * do not agree upon the version number.  */
-DECL|typedef|png_libpng_version_1_5_1
+DECL|typedef|png_libpng_version_1_5_10
 typedef|typedef
 name|char
 modifier|*
-name|png_libpng_version_1_5_1
+name|png_libpng_version_1_5_10
 typedef|;
 comment|/* Three color definitions.  The order of the red, green, and blue, (and the  * exact size) is not important, although the size of the fields need to  * be png_byte or png_uint_16 (as defined below).  */
 DECL|struct|png_color_struct
@@ -626,7 +635,7 @@ typedef|;
 ifdef|#
 directive|ifdef
 name|PNG_TEXT_SUPPORTED
-comment|/* png_text holds the contents of a text/ztxt/itxt chunk in a PNG file,   * and whether that contents is compressed or not.  The "key" field  * points to a regular zero-terminated C string.  The "text", "lang", and  * "lang_key" fields can be regular C strings, empty strings, or NULL pointers.  * However, the * structure returned by png_get_text() will always contain  * regular zero-terminated C strings (possibly empty), never NULL pointers,   * so they can be safely used in printf() and other string-handling functions.  */
+comment|/* png_text holds the contents of a text/ztxt/itxt chunk in a PNG file,  * and whether that contents is compressed or not.  The "key" field  * points to a regular zero-terminated C string.  The "text" fields can be a  * regular C string, an empty string, or a NULL pointer.  * However, the structure returned by png_get_text() will always contain  * the "text" field as a regular zero-terminated C string (possibly  * empty), never a NULL pointer, so it can be safely used in printf() and  * other string-handling functions.  Note that the "itxt_length", "lang", and  * "lang_key" members of the structure only exist when the library is built  * with iTXt chunk support.  Prior to libpng-1.4.0 the library was built by  * default without iTXt support. Also note that when iTXt *is* supported,  * the "lang" and "lang_key" fields contain NULL pointers when the  * "compression" field contains * PNG_TEXT_COMPRESSION_NONE or  * PNG_TEXT_COMPRESSION_zTXt. Note that the "compression value" is not the  * same as what appears in the PNG tEXt/zTXt/iTXt chunk's "compression flag"  * which is always 0 or 1, or its "compression method" which is always 0.  */
 DECL|struct|png_text_struct
 typedef|typedef
 struct|struct
@@ -868,6 +877,23 @@ name|png_unknown_chunkpp
 typedef|;
 endif|#
 directive|endif
+comment|/* Values for the unknown chunk location byte */
+DECL|macro|PNG_HAVE_IHDR
+define|#
+directive|define
+name|PNG_HAVE_IHDR
+value|0x01
+DECL|macro|PNG_HAVE_PLTE
+define|#
+directive|define
+name|PNG_HAVE_PLTE
+value|0x02
+DECL|macro|PNG_AFTER_IDAT
+define|#
+directive|define
+name|PNG_AFTER_IDAT
+value|0x08
+comment|/* The complete definition of png_info has, as of libpng-1.5.0,  * been moved into a separate header file that is not accessible to  * applications.  Read libpng-manual.txt or libpng.3 for more info.  */
 DECL|typedef|png_info
 typedef|typedef
 name|struct
@@ -925,6 +951,16 @@ define|#
 directive|define
 name|PNG_FP_HALF
 value|50000
+DECL|macro|PNG_FP_MAX
+define|#
+directive|define
+name|PNG_FP_MAX
+value|((png_fixed_point)0x7fffffffL)
+DECL|macro|PNG_FP_MIN
+define|#
+directive|define
+name|PNG_FP_MIN
+value|(-PNG_FP_MAX)
 comment|/* These describe the color_type field in png_info. */
 comment|/* color type masks */
 DECL|macro|PNG_COLOR_MASK_PALETTE
@@ -1245,7 +1281,7 @@ DECL|macro|PNG_INFO_IDAT
 define|#
 directive|define
 name|PNG_INFO_IDAT
-value|0x8000L
+value|0x8000
 comment|/* ESR, 1.0.6 */
 comment|/* This is used for the transformation routines, as some of them  * change these values for the row.  It also should enable using  * the routines for other purposes.  */
 DECL|struct|png_row_info_struct
@@ -1303,7 +1339,7 @@ name|FAR
 modifier|*
 name|png_row_infopp
 typedef|;
-comment|/* These are the function types for the I/O functions and for the functions  * that allow the user to override the default I/O functions with his or her  * own.  The png_error_ptr type should match that of user-supplied warning  * and error functions, while the png_rw_ptr type should match that of the  * user read/write data functions.  Note that the 'write' function must not  * modify the buffer it is passed. The 'read' function, on the other hand, is  * expected to return the read data in the buffer.  */
+comment|/* The complete definition of png_struct has, as of libpng-1.5.0,  * been moved into a separate header file that is not accessible to  * applications.  Read libpng-manual.txt or libpng.3 for more info.  */
 DECL|typedef|png_struct
 typedef|typedef
 name|struct
@@ -1325,6 +1361,7 @@ name|FAR
 modifier|*
 name|png_structp
 typedef|;
+comment|/* These are the function types for the I/O functions and for the functions  * that allow the user to override the default I/O functions with his or her  * own.  The png_error_ptr type should match that of user-supplied warning  * and error functions, while the png_rw_ptr type should match that of the  * user read/write data functions.  Note that the 'write' function must not  * modify the buffer it is passed. The 'read' function, on the other hand, is  * expected to return the read data in the buffer.  */
 DECL|typedef|PNG_CALLBACK
 typedef|typedef
 name|PNG_CALLBACK
@@ -1339,7 +1376,7 @@ name|png_structp
 operator|,
 name|png_const_charp
 operator|)
-argument_list|, )
+argument_list|)
 expr_stmt|;
 DECL|typedef|PNG_CALLBACK
 typedef|typedef
@@ -1357,7 +1394,7 @@ name|png_bytep
 operator|,
 name|png_size_t
 operator|)
-argument_list|, )
+argument_list|)
 expr_stmt|;
 DECL|typedef|PNG_CALLBACK
 typedef|typedef
@@ -1371,7 +1408,7 @@ argument_list|,
 operator|(
 name|png_structp
 operator|)
-argument_list|, )
+argument_list|)
 expr_stmt|;
 DECL|typedef|PNG_CALLBACK
 typedef|typedef
@@ -1389,7 +1426,7 @@ name|png_uint_32
 operator|,
 name|int
 operator|)
-argument_list|, )
+argument_list|)
 expr_stmt|;
 DECL|typedef|PNG_CALLBACK
 typedef|typedef
@@ -1407,7 +1444,7 @@ name|png_uint_32
 operator|,
 name|int
 operator|)
-argument_list|, )
+argument_list|)
 expr_stmt|;
 ifdef|#
 directive|ifdef
@@ -1426,7 +1463,7 @@ name|png_structp
 operator|,
 name|png_infop
 operator|)
-argument_list|, )
+argument_list|)
 expr_stmt|;
 DECL|typedef|PNG_CALLBACK
 typedef|typedef
@@ -1442,8 +1479,9 @@ name|png_structp
 operator|,
 name|png_infop
 operator|)
-argument_list|, )
+argument_list|)
 expr_stmt|;
+comment|/* The following callback receives png_uint_32 row_number, int pass for the  * png_bytep data of the row.  When transforming an interlaced image the  * row number is the row number within the sub-image of the interlace pass, so  * the value will increase to the height of the sub-image (not the full image)  * then reset to 0 for the next pass.  *  * Use PNG_ROW_FROM_PASS_ROW(row, pass) and PNG_COL_FROM_PASS_COL(col, pass) to  * find the output pixel (x,y) given an interlaced sub-image pixel  * (row,col,pass).  (See below for these macros.)  */
 DECL|typedef|PNG_CALLBACK
 typedef|typedef
 name|PNG_CALLBACK
@@ -1462,7 +1500,7 @@ name|png_uint_32
 operator|,
 name|int
 operator|)
-argument_list|, )
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -1494,7 +1532,7 @@ name|png_row_infop
 operator|,
 name|png_bytep
 operator|)
-argument_list|, )
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -1515,7 +1553,7 @@ name|png_structp
 operator|,
 name|png_unknown_chunkp
 operator|)
-argument_list|, )
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -1534,38 +1572,25 @@ argument_list|,
 operator|(
 name|png_structp
 operator|)
-argument_list|, )
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
 ifdef|#
 directive|ifdef
 name|PNG_SETJMP_SUPPORTED
-comment|/* This must match the function definition in<setjmp.h>, and the  * application must include this before png.h to obtain the definition  * of jmp_buf.  The function is required to be PNG_NORETURN.  (Note that  * PNG_PTR_NORETURN is used here because current versions of the Microsoft  * C compiler do not support the PNG_NORETURN attribute on a pointer.)  *  * If you get a type warning from the compiler when linking against this line  * then your compiler has 'longjmp' that does not match the requirements of the  * compiler that built libpng.  You will have to write a wrapper function for  * your compiler's longjmp and call png_set_longjmp_fn directly (not via the  * png_jmpbuf macro.)  *  * If you get a warning here while building the library you will need to make  * changes to ensure that pnglibconf.h records the calling convention used by  * your compiler.  This may be very difficult - try using a different compiler  * to build the library!  */
-DECL|typedef|PNG_FUNCTION
-typedef|typedef
+comment|/* This must match the function definition in<setjmp.h>, and the application  * must include this before png.h to obtain the definition of jmp_buf.  The  * function is required to be PNG_NORETURN, but this is not checked.  If the  * function does return the application will crash via an abort() or similar  * system level call.  *  * If you get a warning here while building the library you may need to make  * changes to ensure that pnglibconf.h records the calling convention used by  * your compiler.  This may be very difficult - try using a different compiler  * to build the library!  */
 name|PNG_FUNCTION
 argument_list|(
-name|void
+argument|void
 argument_list|,
-operator|(
-name|PNGCAPI
-operator|*
-name|png_longjmp_ptr
-operator|)
+argument|(PNGCAPI *png_longjmp_ptr)
 argument_list|,
-name|PNGARG
-argument_list|(
-operator|(
-name|jmp_buf
-operator|,
-name|int
-operator|)
+argument|PNGARG((jmp_buf, int))
+argument_list|,
+argument|typedef
 argument_list|)
-argument_list|,
-name|PNG_PTR_NORETURN
-argument_list|)
-expr_stmt|;
+empty_stmt|;
 endif|#
 directive|endif
 comment|/* Transform masks for the high-level interface */
@@ -1666,6 +1691,19 @@ directive|define
 name|PNG_TRANSFORM_GRAY_TO_RGB
 value|0x2000
 comment|/* read only */
+comment|/* Added to libpng-1.5.4 */
+DECL|macro|PNG_TRANSFORM_EXPAND_16
+define|#
+directive|define
+name|PNG_TRANSFORM_EXPAND_16
+value|0x4000
+comment|/* read only */
+DECL|macro|PNG_TRANSFORM_SCALE_16
+define|#
+directive|define
+name|PNG_TRANSFORM_SCALE_16
+value|0x8000
+comment|/* read only */
 comment|/* Flags for MNG supported features */
 DECL|macro|PNG_FLAG_MNG_EMPTY_PLTE
 define|#
@@ -1682,7 +1720,7 @@ define|#
 directive|define
 name|PNG_ALL_MNG_FEATURES
 value|0x05
-comment|/* NOTE: prior to 1.5 these functions had no 'API' style declaration,   * this allowed the zlib default functions to be used on Windows  * platforms.  In 1.5 the zlib default malloc (which just calls malloc and  * ignores the first argument) should be completely compatible with the  * following.  */
+comment|/* NOTE: prior to 1.5 these functions had no 'API' style declaration,  * this allowed the zlib default functions to be used on Windows  * platforms.  In 1.5 the zlib default malloc (which just calls malloc and  * ignores the first argument) should be completely compatible with the  * following.  */
 DECL|typedef|PNG_CALLBACK
 typedef|typedef
 name|PNG_CALLBACK
@@ -1697,7 +1735,7 @@ name|png_structp
 operator|,
 name|png_alloc_size_t
 operator|)
-argument_list|, )
+argument_list|)
 expr_stmt|;
 DECL|typedef|PNG_CALLBACK
 typedef|typedef
@@ -1713,7 +1751,7 @@ name|png_structp
 operator|,
 name|png_voidp
 operator|)
-argument_list|, )
+argument_list|)
 expr_stmt|;
 DECL|typedef|png_structpp
 typedef|typedef
@@ -2352,6 +2390,26 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|PNG_READ_EXPAND_16_SUPPORTED
+comment|/* Expand to 16-bit channels, forces conversion of palette to RGB and expansion  * of a tRNS chunk if present.  */
+name|PNG_EXPORT
+argument_list|(
+literal|221
+argument_list|,
+name|void
+argument_list|,
+name|png_set_expand_16
+argument_list|,
+operator|(
+name|png_structp
+name|png_ptr
+operator|)
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
 name|defined
@@ -2404,6 +2462,27 @@ ifdef|#
 directive|ifdef
 name|PNG_READ_RGB_TO_GRAY_SUPPORTED
 comment|/* Reduce RGB to grayscale. */
+DECL|macro|PNG_ERROR_ACTION_NONE
+define|#
+directive|define
+name|PNG_ERROR_ACTION_NONE
+value|1
+DECL|macro|PNG_ERROR_ACTION_WARN
+define|#
+directive|define
+name|PNG_ERROR_ACTION_WARN
+value|2
+DECL|macro|PNG_ERROR_ACTION_ERROR
+define|#
+directive|define
+name|PNG_ERROR_ACTION_ERROR
+value|3
+DECL|macro|PNG_RGB_TO_GRAY_DEFAULT
+define|#
+directive|define
+name|PNG_RGB_TO_GRAY_DEFAULT
+value|(-1)
+comment|/*for red/green coefficients*/
 name|PNG_FP_EXPORT
 argument_list|(
 literal|32
@@ -2466,6 +2545,9 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|PNG_BUILD_GRAYSCALE_PALETTE_SUPPORTED
 name|PNG_EXPORT
 argument_list|(
 literal|35
@@ -2483,6 +2565,129 @@ name|palette
 operator|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|PNG_READ_ALPHA_MODE_SUPPORTED
+comment|/* How the alpha channel is interpreted - this affects how the color channels of  * a PNG file are returned when an alpha channel, or tRNS chunk in a palette  * file, is present.  *  * This has no effect on the way pixels are written into a PNG output  * datastream. The color samples in a PNG datastream are never premultiplied  * with the alpha samples.  *  * The default is to return data according to the PNG specification: the alpha  * channel is a linear measure of the contribution of the pixel to the  * corresponding composited pixel.  The gamma encoded color channels must be  * scaled according to the contribution and to do this it is necessary to undo  * the encoding, scale the color values, perform the composition and reencode  * the values.  This is the 'PNG' mode.  *  * The alternative is to 'associate' the alpha with the color information by  * storing color channel values that have been scaled by the alpha.  The  * advantage is that the color channels can be resampled (the image can be  * scaled) in this form.  The disadvantage is that normal practice is to store  * linear, not (gamma) encoded, values and this requires 16-bit channels for  * still images rather than the 8-bit channels that are just about sufficient if  * gamma encoding is used.  In addition all non-transparent pixel values,  * including completely opaque ones, must be gamma encoded to produce the final  * image.  This is the 'STANDARD', 'ASSOCIATED' or 'PREMULTIPLIED' mode (the  * latter being the two common names for associated alpha color channels.)  *  * Since it is not necessary to perform arithmetic on opaque color values so  * long as they are not to be resampled and are in the final color space it is  * possible to optimize the handling of alpha by storing the opaque pixels in  * the PNG format (adjusted for the output color space) while storing partially  * opaque pixels in the standard, linear, format.  The accuracy required for  * standard alpha composition is relatively low, because the pixels are  * isolated, therefore typically the accuracy loss in storing 8-bit linear  * values is acceptable.  (This is not true if the alpha channel is used to  * simulate transparency over large areas - use 16 bits or the PNG mode in  * this case!)  This is the 'OPTIMIZED' mode.  For this mode a pixel is  * treated as opaque only if the alpha value is equal to the maximum value.  *  * The final choice is to gamma encode the alpha channel as well.  This is  * broken because, in practice, no implementation that uses this choice  * correctly undoes the encoding before handling alpha composition.  Use this  * choice only if other serious errors in the software or hardware you use  * mandate it; the typical serious error is for dark halos to appear around  * opaque areas of the composited PNG image because of arithmetic overflow.  *  * The API function png_set_alpha_mode specifies which of these choices to use  * with an enumerated 'mode' value and the gamma of the required output:  */
+DECL|macro|PNG_ALPHA_PNG
+define|#
+directive|define
+name|PNG_ALPHA_PNG
+value|0
+comment|/* according to the PNG standard */
+DECL|macro|PNG_ALPHA_STANDARD
+define|#
+directive|define
+name|PNG_ALPHA_STANDARD
+value|1
+comment|/* according to Porter/Duff */
+DECL|macro|PNG_ALPHA_ASSOCIATED
+define|#
+directive|define
+name|PNG_ALPHA_ASSOCIATED
+value|1
+comment|/* as above; this is the normal practice */
+DECL|macro|PNG_ALPHA_PREMULTIPLIED
+define|#
+directive|define
+name|PNG_ALPHA_PREMULTIPLIED
+value|1
+comment|/* as above */
+DECL|macro|PNG_ALPHA_OPTIMIZED
+define|#
+directive|define
+name|PNG_ALPHA_OPTIMIZED
+value|2
+comment|/* 'PNG' for opaque pixels, else 'STANDARD' */
+DECL|macro|PNG_ALPHA_BROKEN
+define|#
+directive|define
+name|PNG_ALPHA_BROKEN
+value|3
+comment|/* the alpha channel is gamma encoded */
+name|PNG_FP_EXPORT
+argument_list|(
+literal|227
+argument_list|,
+name|void
+argument_list|,
+name|png_set_alpha_mode
+argument_list|,
+operator|(
+name|png_structp
+name|png_ptr
+operator|,
+name|int
+name|mode
+operator|,
+name|double
+name|output_gamma
+operator|)
+argument_list|)
+expr_stmt|;
+name|PNG_FIXED_EXPORT
+argument_list|(
+literal|228
+argument_list|,
+name|void
+argument_list|,
+name|png_set_alpha_mode_fixed
+argument_list|,
+operator|(
+name|png_structp
+name|png_ptr
+operator|,
+name|int
+name|mode
+operator|,
+name|png_fixed_point
+name|output_gamma
+operator|)
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|PNG_READ_GAMMA_SUPPORTED
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|PNG_READ_ALPHA_MODE_SUPPORTED
+argument_list|)
+comment|/* The output_gamma value is a screen gamma in libpng terminology: it expresses  * how to decode the output values, not how they are encoded.  The values used  * correspond to the normal numbers used to describe the overall gamma of a  * computer display system; for example 2.2 for an sRGB conformant system.  The  * values are scaled by 100000 in the _fixed version of the API (so 220000 for  * sRGB.)  *  * The inverse of the value is always used to provide a default for the PNG file  * encoding if it has no gAMA chunk and if png_set_gamma() has not been called  * to override the PNG gamma information.  *  * When the ALPHA_OPTIMIZED mode is selected the output gamma is used to encode  * opaque pixels however pixels with lower alpha values are not encoded,  * regardless of the output gamma setting.  *  * When the standard Porter Duff handling is requested with mode 1 the output  * encoding is set to be linear and the output_gamma value is only relevant  * as a default for input data that has no gamma information.  The linear output  * encoding will be overridden if png_set_gamma() is called - the results may be  * highly unexpected!  *  * The following numbers are derived from the sRGB standard and the research  * behind it.  sRGB is defined to be approximated by a PNG gAMA chunk value of  * 0.45455 (1/2.2) for PNG.  The value implicitly includes any viewing  * correction required to take account of any differences in the color  * environment of the original scene and the intended display environment; the  * value expresses how to *decode* the image for display, not how the original  * data was *encoded*.  *  * sRGB provides a peg for the PNG standard by defining a viewing environment.  * sRGB itself, and earlier TV standards, actually use a more complex transform  * (a linear portion then a gamma 2.4 power law) than PNG can express.  (PNG is  * limited to simple power laws.)  By saying that an image for direct display on  * an sRGB conformant system should be stored with a gAMA chunk value of 45455  * (11.3.3.2 and 11.3.3.5 of the ISO PNG specification) the PNG specification  * makes it possible to derive values for other display systems and  * environments.  *  * The Mac value is deduced from the sRGB based on an assumption that the actual  * extra viewing correction used in early Mac display systems was implemented as  * a power 1.45 lookup table.  *  * Any system where a programmable lookup table is used or where the behavior of  * the final display device characteristics can be changed requires system  * specific code to obtain the current characteristic.  However this can be  * difficult and most PNG gamma correction only requires an approximate value.  *  * By default, if png_set_alpha_mode() is not called, libpng assumes that all  * values are unencoded, linear, values and that the output device also has a  * linear characteristic.  This is only very rarely correct - it is invariably  * better to call png_set_alpha_mode() with PNG_DEFAULT_sRGB than rely on the  * default if you don't know what the right answer is!  *  * The special value PNG_GAMMA_MAC_18 indicates an older Mac system (pre Mac OS  * 10.6) which used a correction table to implement a somewhat lower gamma on an  * otherwise sRGB system.  *  * Both these values are reserved (not simple gamma values) in order to allow  * more precise correction internally in the future.  *  * NOTE: the following values can be passed to either the fixed or floating  * point APIs, but the floating point API will also accept floating point  * values.  */
+DECL|macro|PNG_DEFAULT_sRGB
+define|#
+directive|define
+name|PNG_DEFAULT_sRGB
+value|-1
+comment|/* sRGB gamma and color space */
+DECL|macro|PNG_GAMMA_MAC_18
+define|#
+directive|define
+name|PNG_GAMMA_MAC_18
+value|-2
+comment|/* Old Mac '1.8' gamma and color space */
+DECL|macro|PNG_GAMMA_sRGB
+define|#
+directive|define
+name|PNG_GAMMA_sRGB
+value|220000
+comment|/* Television standards--matches sRGB gamma */
+DECL|macro|PNG_GAMMA_LINEAR
+define|#
+directive|define
+name|PNG_GAMMA_LINEAR
+value|PNG_FP_1
+comment|/* Linear */
+endif|#
+directive|endif
+comment|/* The following are examples of calls to png_set_alpha_mode to achieve the  * required overall gamma correction and, where necessary, alpha  * premultiplication.  *  * png_set_alpha_mode(pp, PNG_ALPHA_PNG, PNG_DEFAULT_sRGB);  *    This is the default libpng handling of the alpha channel - it is not  *    pre-multiplied into the color components.  In addition the call states  *    that the output is for a sRGB system and causes all PNG files without gAMA  *    chunks to be assumed to be encoded using sRGB.  *  * png_set_alpha_mode(pp, PNG_ALPHA_PNG, PNG_GAMMA_MAC);  *    In this case the output is assumed to be something like an sRGB conformant  *    display preceeded by a power-law lookup table of power 1.45.  This is how  *    early Mac systems behaved.  *  * png_set_alpha_mode(pp, PNG_ALPHA_STANDARD, PNG_GAMMA_LINEAR);  *    This is the classic Jim Blinn approach and will work in academic  *    environments where everything is done by the book.  It has the shortcoming  *    of assuming that input PNG data with no gamma information is linear - this  *    is unlikely to be correct unless the PNG files where generated locally.  *    Most of the time the output precision will be so low as to show  *    significant banding in dark areas of the image.  *  * png_set_expand_16(pp);  * png_set_alpha_mode(pp, PNG_ALPHA_STANDARD, PNG_DEFAULT_sRGB);  *    This is a somewhat more realistic Jim Blinn inspired approach.  PNG files  *    are assumed to have the sRGB encoding if not marked with a gamma value and  *    the output is always 16 bits per component.  This permits accurate scaling  *    and processing of the data.  If you know that your input PNG files were  *    generated locally you might need to replace PNG_DEFAULT_sRGB with the  *    correct value for your system.  *  * png_set_alpha_mode(pp, PNG_ALPHA_OPTIMIZED, PNG_DEFAULT_sRGB);  *    If you just need to composite the PNG image onto an existing background  *    and if you control the code that does this you can use the optimization  *    setting.  In this case you just copy completely opaque pixels to the  *    output.  For pixels that are not completely transparent (you just skip  *    those) you do the composition math using png_composite or png_composite_16  *    below then encode the resultant 8-bit or 16-bit values to match the output  *    encoding.  *  * Other cases  *    If neither the PNG nor the standard linear encoding work for you because  *    of the software or hardware you use then you have a big problem.  The PNG  *    case will probably result in halos around the image.  The linear encoding  *    will probably result in a washed out, too bright, image (it's actually too  *    contrasty.)  Try the ALPHA_OPTIMIZED mode above - this will probably  *    substantially reduce the halos.  Alternatively try:  *  * png_set_alpha_mode(pp, PNG_ALPHA_BROKEN, PNG_DEFAULT_sRGB);  *    This option will also reduce the halos, but there will be slight dark  *    halos round the opaque parts of the image where the background is light.  *    In the OPTIMIZED mode the halos will be light halos where the background  *    is dark.  Take your pick - the halos are unavoidable unless you can get  *    your hardware/software fixed!  (The OPTIMIZED approach is slightly  *    faster.)  *  * When the default gamma of PNG files doesn't match the output gamma.  *    If you have PNG files with no gamma information png_set_alpha_mode allows  *    you to provide a default gamma, but it also sets the ouput gamma to the  *    matching value.  If you know your PNG files have a gamma that doesn't  *    match the output you can take advantage of the fact that  *    png_set_alpha_mode always sets the output gamma but only sets the PNG  *    default if it is not already set:  *  * png_set_alpha_mode(pp, PNG_ALPHA_PNG, PNG_DEFAULT_sRGB);  * png_set_alpha_mode(pp, PNG_ALPHA_PNG, PNG_GAMMA_MAC);  *    The first call sets both the default and the output gamma values, the  *    second call overrides the output gamma without changing the default.  This  *    is easier than achieving the same effect with png_set_gamma.  You must use  *    PNG_ALPHA_PNG for the first call - internal checking in png_set_alpha will  *    fire if more than one call to png_set_alpha_mode and png_set_background is  *    made in the same read operation, however multiple calls with PNG_ALPHA_PNG  *    are ignored.  */
 ifdef|#
 directive|ifdef
 name|PNG_READ_STRIP_ALPHA_SUPPORTED
@@ -2801,7 +3006,7 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|PNG_READ_BACKGROUND_SUPPORTED
-comment|/* Handle alpha and tRNS by replacing with a background color. */
+comment|/* Handle alpha and tRNS by replacing with a background color.  Prior to  * libpng-1.5.4 this API must not be called before the PNG file header has been  * read.  Doing so will result in unexpected behavior and possible warnings or  * errors if the PNG file contains a bKGD chunk.  */
 name|PNG_FP_EXPORT
 argument_list|(
 literal|47
@@ -2883,7 +3088,33 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
-name|PNG_READ_16_TO_8_SUPPORTED
+name|PNG_READ_SCALE_16_TO_8_SUPPORTED
+comment|/* Scale a 16-bit depth file down to 8-bit, accurately. */
+name|PNG_EXPORT
+argument_list|(
+literal|229
+argument_list|,
+name|void
+argument_list|,
+name|png_set_scale_16
+argument_list|,
+operator|(
+name|png_structp
+name|png_ptr
+operator|)
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|PNG_READ_STRIP_16_TO_8_SUPPORTED
+DECL|macro|PNG_READ_16_TO_8
+define|#
+directive|define
+name|PNG_READ_16_TO_8
+value|SUPPORTED
+comment|/* Name prior to 1.5.4 */
 comment|/* Strip the second byte of information from a 16-bit depth file. */
 name|PNG_EXPORT
 argument_list|(
@@ -2945,7 +3176,7 @@ define|#
 directive|define
 name|PNG_GAMMA_THRESHOLD
 value|(PNG_GAMMA_THRESHOLD_FIXED*.00001)
-comment|/* Handle gamma correction. Screen_gamma=(display_exponent) */
+comment|/* Handle gamma correction. Screen_gamma=(display_exponent).  * NOTE: this API simply sets the screen and file gamma values. It will  * therefore override the value for gamma in a PNG file if it is called after  * the file header has been read - use with care  - call before reading the PNG  * file for best results!  *  * These routines accept the same gamma values as png_set_alpha_mode (described  * above).  The PNG_GAMMA_ defines and PNG_DEFAULT_sRGB can be passed to either  * API (floating point or fixed.)  Notice, however, that the 'file_gamma' value  * is the inverse of a 'screen gamma' value.  */
 name|PNG_FP_EXPORT
 argument_list|(
 literal|50
@@ -2962,7 +3193,7 @@ name|double
 name|screen_gamma
 operator|,
 name|double
-name|default_file_gamma
+name|override_file_gamma
 operator|)
 argument_list|)
 expr_stmt|;
@@ -2982,7 +3213,7 @@ name|png_fixed_point
 name|screen_gamma
 operator|,
 name|png_fixed_point
-name|default_file_gamma
+name|override_file_gamma
 operator|)
 argument_list|)
 expr_stmt|;
@@ -3313,7 +3544,7 @@ name|ancil_action
 operator|)
 argument_list|)
 expr_stmt|;
-comment|/* Values for png_set_crc_action() say how to handle CRC errors in  * ancillary and critical chunks, and whether to use the data contained  * therein.  Note that it is impossible to "discard" data in a critical  * chunk.  For versions prior to 0.90, the action was always error/quit,   * whereas in version 0.90 and later, the action for CRC errors in ancillary  * chunks is warn/discard.  These values should NOT be changed.  *  *      value                       action:critical     action:ancillary  */
+comment|/* Values for png_set_crc_action() say how to handle CRC errors in  * ancillary and critical chunks, and whether to use the data contained  * therein.  Note that it is impossible to "discard" data in a critical  * chunk.  For versions prior to 0.90, the action was always error/quit,  * whereas in version 0.90 and later, the action for CRC errors in ancillary  * chunks is warn/discard.  These values should NOT be changed.  *  *      value                       action:critical     action:ancillary  */
 DECL|macro|PNG_CRC_DEFAULT
 define|#
 directive|define
@@ -3524,7 +3755,10 @@ directive|define
 name|PNG_FILTER_HEURISTIC_LAST
 value|3
 comment|/* Not a valid value */
-comment|/* Set the library compression level.  Currently, valid values range from  * 0 - 9, corresponding directly to the zlib compression levels 0 - 9  * (0 - no compression, 9 - "maximal" compression).  Note that tests have  * shown that zlib compression levels 3-6 usually perform as well as level 9  * for PNG images, and do considerably fewer caclulations.  In the future,   * these values may not correspond directly to the zlib compression levels.  */
+ifdef|#
+directive|ifdef
+name|PNG_WRITE_SUPPORTED
+comment|/* Set the library compression level.  Currently, valid values range from  * 0 - 9, corresponding directly to the zlib compression levels 0 - 9  * (0 - no compression, 9 - "maximal" compression).  Note that tests have  * shown that zlib compression levels 3-6 usually perform as well as level 9  * for PNG images, and do considerably fewer caclulations.  In the future,  * these values may not correspond directly to the zlib compression levels.  */
 name|PNG_EXPORT
 argument_list|(
 literal|69
@@ -3576,6 +3810,7 @@ name|strategy
 operator|)
 argument_list|)
 expr_stmt|;
+comment|/* If PNG_WRITE_OPTIMIZE_CMF_SUPPORTED is defined, libpng will use a  * smaller value of window_bits if it can do so safely.  */
 name|PNG_EXPORT
 argument_list|(
 literal|72
@@ -3610,7 +3845,102 @@ name|method
 operator|)
 argument_list|)
 expr_stmt|;
-comment|/* These next functions are called for input/output, memory, and error  * handling.  They are in the file pngrio.c, pngwio.c, and pngerror.c,   * and call standard C I/O routines such as fread(), fwrite(), and  * fprintf().  These functions can be made to use other I/O routines  * at run time for those applications that need to handle I/O in a  * different manner by calling png_set_???_fn().  See libpng-manual.txt for  * more information.  */
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|PNG_WRITE_CUSTOMIZE_ZTXT_COMPRESSION_SUPPORTED
+comment|/* Also set zlib parameters for compressing non-IDAT chunks */
+name|PNG_EXPORT
+argument_list|(
+literal|222
+argument_list|,
+name|void
+argument_list|,
+name|png_set_text_compression_level
+argument_list|,
+operator|(
+name|png_structp
+name|png_ptr
+operator|,
+name|int
+name|level
+operator|)
+argument_list|)
+expr_stmt|;
+name|PNG_EXPORT
+argument_list|(
+literal|223
+argument_list|,
+name|void
+argument_list|,
+name|png_set_text_compression_mem_level
+argument_list|,
+operator|(
+name|png_structp
+name|png_ptr
+operator|,
+name|int
+name|mem_level
+operator|)
+argument_list|)
+expr_stmt|;
+name|PNG_EXPORT
+argument_list|(
+literal|224
+argument_list|,
+name|void
+argument_list|,
+name|png_set_text_compression_strategy
+argument_list|,
+operator|(
+name|png_structp
+name|png_ptr
+operator|,
+name|int
+name|strategy
+operator|)
+argument_list|)
+expr_stmt|;
+comment|/* If PNG_WRITE_OPTIMIZE_CMF_SUPPORTED is defined, libpng will use a  * smaller value of window_bits if it can do so safely.  */
+name|PNG_EXPORT
+argument_list|(
+literal|225
+argument_list|,
+name|void
+argument_list|,
+name|png_set_text_compression_window_bits
+argument_list|,
+operator|(
+name|png_structp
+name|png_ptr
+operator|,
+name|int
+name|window_bits
+operator|)
+argument_list|)
+expr_stmt|;
+name|PNG_EXPORT
+argument_list|(
+literal|226
+argument_list|,
+name|void
+argument_list|,
+name|png_set_text_compression_method
+argument_list|,
+operator|(
+name|png_structp
+name|png_ptr
+operator|,
+name|int
+name|method
+operator|)
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|/* PNG_WRITE_CUSTOMIZE_ZTXT_COMPRESSION_SUPPORTED */
+comment|/* These next functions are called for input/output, memory, and error  * handling.  They are in the file pngrio.c, pngwio.c, and pngerror.c,  * and call standard C I/O routines such as fread(), fwrite(), and  * fprintf().  These functions can be made to use other I/O routines  * at run time for those applications that need to handle I/O in a  * different manner by calling png_set_???_fn().  See libpng-manual.txt for  * more information.  */
 ifdef|#
 directive|ifdef
 name|PNG_STDIO_SUPPORTED
@@ -3901,7 +4231,7 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|PNG_USER_TRANSFORM_INFO_SUPPORTED
-comment|/* Return information about the row currently being processed.  Note that these  * APIs do not fail but will return unexpected results if called outside a user  * transform callback.  Also note that when transforming an interlaced image the  * row number is still the row in the final, de-interlaced, image but the row  * only contains the data of the current pass - consult png_row_info for the  * actual width of the row!  */
+comment|/* Return information about the row currently being processed.  Note that these  * APIs do not fail but will return unexpected results if called outside a user  * transform callback.  Also note that when transforming an interlaced image the  * row number is the row number within the sub-image of the interlace pass, so  * the value will increase to the height of the sub-image (not the full image)  * then reset to 0 for the next pass.  *  * Use PNG_ROW_FROM_PASS_ROW(row, pass) and PNG_COL_FROM_PASS_COL(col, pass) to  * find the output pixel (x,y) given an interlaced sub-image pixel  * (row,col,pass).  (See below for these macros.)  */
 name|PNG_EXPORT
 argument_list|(
 literal|217
@@ -4069,6 +4399,9 @@ name|png_structp
 operator|)
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|PNG_READ_INTERLACING_SUPPORTED
 comment|/* Function that combines rows.  'new_row' is a flag that should come from  * the callback and be non-NULL if anything needs to be done; the library  * stores its own version of the new data internally and ignores the passed  * in value.  */
 name|PNG_EXPORT
 argument_list|(
@@ -4090,6 +4423,9 @@ name|new_row
 operator|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+comment|/* PNG_READ_INTERLACING_SUPPORTED */
 endif|#
 directive|endif
 comment|/* PNG_PROGRESSIVE_READ_SUPPORTED */
@@ -4406,6 +4742,9 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|PNG_WARNINGS_SUPPORTED
 comment|/* Non-fatal error in libpng.  Can continue, but may have a problem. */
 name|PNG_EXPORT
 argument_list|(
@@ -4442,6 +4781,8 @@ name|warning_message
 operator|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|PNG_BENIGN_ERRORS_SUPPORTED
@@ -5048,6 +5389,59 @@ name|blue_y
 operator|)
 argument_list|)
 expr_stmt|;
+name|PNG_FP_EXPORT
+argument_list|(
+literal|230
+argument_list|,
+name|png_uint_32
+argument_list|,
+name|png_get_cHRM_XYZ
+argument_list|,
+operator|(
+name|png_structp
+name|png_ptr
+operator|,
+name|png_const_infop
+name|info_ptr
+operator|,
+name|double
+operator|*
+name|red_X
+operator|,
+name|double
+operator|*
+name|red_Y
+operator|,
+name|double
+operator|*
+name|red_Z
+operator|,
+name|double
+operator|*
+name|green_X
+operator|,
+name|double
+operator|*
+name|green_Y
+operator|,
+name|double
+operator|*
+name|green_Z
+operator|,
+name|double
+operator|*
+name|blue_X
+operator|,
+name|double
+operator|*
+name|blue_Y
+operator|,
+name|double
+operator|*
+name|blue_Z
+operator|)
+argument_list|)
+expr_stmt|;
 ifdef|#
 directive|ifdef
 name|PNG_FIXED_POINT_SUPPORTED
@@ -5103,6 +5497,59 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|PNG_FIXED_EXPORT
+argument_list|(
+literal|231
+argument_list|,
+name|png_uint_32
+argument_list|,
+name|png_get_cHRM_XYZ_fixed
+argument_list|,
+operator|(
+name|png_structp
+name|png_ptr
+operator|,
+name|png_const_infop
+name|info_ptr
+operator|,
+name|png_fixed_point
+operator|*
+name|int_red_X
+operator|,
+name|png_fixed_point
+operator|*
+name|int_red_Y
+operator|,
+name|png_fixed_point
+operator|*
+name|int_red_Z
+operator|,
+name|png_fixed_point
+operator|*
+name|int_green_X
+operator|,
+name|png_fixed_point
+operator|*
+name|int_green_Y
+operator|,
+name|png_fixed_point
+operator|*
+name|int_green_Z
+operator|,
+name|png_fixed_point
+operator|*
+name|int_blue_X
+operator|,
+name|png_fixed_point
+operator|*
+name|int_blue_Y
+operator|,
+name|png_fixed_point
+operator|*
+name|int_blue_Z
+operator|)
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 ifdef|#
@@ -5149,6 +5596,50 @@ name|blue_y
 operator|)
 argument_list|)
 expr_stmt|;
+name|PNG_FP_EXPORT
+argument_list|(
+literal|232
+argument_list|,
+name|void
+argument_list|,
+name|png_set_cHRM_XYZ
+argument_list|,
+operator|(
+name|png_structp
+name|png_ptr
+operator|,
+name|png_infop
+name|info_ptr
+operator|,
+name|double
+name|red_X
+operator|,
+name|double
+name|red_Y
+operator|,
+name|double
+name|red_Z
+operator|,
+name|double
+name|green_X
+operator|,
+name|double
+name|green_Y
+operator|,
+name|double
+name|green_Z
+operator|,
+name|double
+name|blue_X
+operator|,
+name|double
+name|blue_Y
+operator|,
+name|double
+name|blue_Z
+operator|)
+argument_list|)
+expr_stmt|;
 name|PNG_FIXED_EXPORT
 argument_list|(
 literal|136
@@ -5187,6 +5678,50 @@ name|int_blue_x
 operator|,
 name|png_fixed_point
 name|int_blue_y
+operator|)
+argument_list|)
+expr_stmt|;
+name|PNG_FIXED_EXPORT
+argument_list|(
+literal|233
+argument_list|,
+name|void
+argument_list|,
+name|png_set_cHRM_XYZ_fixed
+argument_list|,
+operator|(
+name|png_structp
+name|png_ptr
+operator|,
+name|png_infop
+name|info_ptr
+operator|,
+name|png_fixed_point
+name|int_red_X
+operator|,
+name|png_fixed_point
+name|int_red_Y
+operator|,
+name|png_fixed_point
+name|int_red_Z
+operator|,
+name|png_fixed_point
+name|int_green_X
+operator|,
+name|png_fixed_point
+name|int_green_Y
+operator|,
+name|png_fixed_point
+name|int_green_Z
+operator|,
+name|png_fixed_point
+name|int_blue_X
+operator|,
+name|png_fixed_point
+name|int_blue_Y
+operator|,
+name|png_fixed_point
+name|int_blue_Z
 operator|)
 argument_list|)
 expr_stmt|;
@@ -5965,7 +6500,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|/* Note while png_set_text() will accept a structure whose text,   * language, and  translated keywords are NULL pointers, the structure  * returned by png_get_text will always contain regular  * zero-terminated C strings.  They might be empty strings but  * they will never be NULL pointers.  */
+comment|/* Note while png_set_text() will accept a structure whose text,  * language, and  translated keywords are NULL pointers, the structure  * returned by png_get_text will always contain regular  * zero-terminated C strings.  They might be empty strings but  * they will never be NULL pointers.  */
 ifdef|#
 directive|ifdef
 name|PNG_TEXT_SUPPORTED
@@ -6145,7 +6680,7 @@ expr_stmt|;
 ifdef|#
 directive|ifdef
 name|PNG_FLOATING_ARITHMETIC_SUPPORTED
-comment|/* NOTE: this API is currently implemented using floating point arithmetic,   * consequently it can only be used on systems with floating point support.  * In any case the range of values supported by png_fixed_point is small and it  * is highly recommended that png_get_sCAL_s be used instead.  */
+comment|/* NOTE: this API is currently implemented using floating point arithmetic,  * consequently it can only be used on systems with floating point support.  * In any case the range of values supported by png_fixed_point is small and it  * is highly recommended that png_get_sCAL_s be used instead.  */
 name|PNG_FIXED_EXPORT
 argument_list|(
 literal|214
@@ -6288,7 +6823,7 @@ comment|/* PNG_sCAL_SUPPORTED */
 ifdef|#
 directive|ifdef
 name|PNG_HANDLE_AS_UNKNOWN_SUPPORTED
-comment|/* Provide a list of chunks and how they are to be handled, if the built-in    handling or default unknown chunk handling is not desired.  Any chunks not    listed will be handled in the default manner.  The IHDR and IEND chunks    must not be listed.       keep = 0: follow default behaviour            = 1: do not keep            = 2: keep only if safe-to-copy            = 3: keep even if unsafe-to-copy */
+comment|/* Provide a list of chunks and how they are to be handled, if the built-in    handling or default unknown chunk handling is not desired.  Any chunks not    listed will be handled in the default manner.  The IHDR and IEND chunks    must not be listed.  Because this turns off the default handling for chunks    that would otherwise be recognized the behavior of libpng transformations may    well become incorrect!       keep = 0: PNG_HANDLE_CHUNK_AS_DEFAULT: follow default behavior            = 1: PNG_HANDLE_CHUNK_NEVER:      do not keep            = 2: PNG_HANDLE_CHUNK_IF_SAFE:    keep only if safe-to-copy            = 3: PNG_HANDLE_CHUNK_ALWAYS:     keep even if unsafe-to-copy */
 name|PNG_EXPORT
 argument_list|(
 literal|172
@@ -6312,6 +6847,7 @@ name|num_chunks
 operator|)
 argument_list|)
 expr_stmt|;
+comment|/* The handling code is returned; the result is therefore true (non-zero) if  * special handling is required, false for the default handling.  */
 name|PNG_EXPORT
 argument_list|(
 literal|173
@@ -6402,7 +6938,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|/* Png_free_data() will turn off the "valid" flag for anything it frees.  * If you need to turn it off for a chunk that your application has freed,   * you can use png_set_invalid(png_ptr, info_ptr, PNG_INFO_CHNK);  */
+comment|/* Png_free_data() will turn off the "valid" flag for anything it frees.  * If you need to turn it off for a chunk that your application has freed,  * you can use png_set_invalid(png_ptr, info_ptr, PNG_INFO_CHNK);  */
 name|PNG_EXPORT
 argument_list|(
 literal|177
@@ -7010,7 +7546,7 @@ name|PNG_PASS_START_ROW
 parameter_list|(
 name|pass
 parameter_list|)
-value|(((1U&~(pass))<<(3-((pass)>>1)))&7)
+value|(((1&~(pass))<<(3-((pass)>>1)))&7)
 DECL|macro|PNG_PASS_START_COL
 define|#
 directive|define
@@ -7018,7 +7554,24 @@ name|PNG_PASS_START_COL
 parameter_list|(
 name|pass
 parameter_list|)
-value|(((1U& (pass))<<(3-(((pass)+1)>>1)))&7)
+value|(((1& (pass))<<(3-(((pass)+1)>>1)))&7)
+comment|/* A macro to return the offset between pixels in the output row for a pair of  * pixels in the input - effectively the inverse of the 'COL_SHIFT' macro that  * follows.  Note that ROW_OFFSET is the offset from one row to the next whereas  * COL_OFFSET is from one column to the next, within a row.  */
+DECL|macro|PNG_PASS_ROW_OFFSET
+define|#
+directive|define
+name|PNG_PASS_ROW_OFFSET
+parameter_list|(
+name|pass
+parameter_list|)
+value|((pass)>2?(8>>(((pass)-1)>>1)):8)
+DECL|macro|PNG_PASS_COL_OFFSET
+define|#
+directive|define
+name|PNG_PASS_COL_OFFSET
+parameter_list|(
+name|pass
+parameter_list|)
+value|(1<<((7-(pass))>>1))
 comment|/* Two macros to help evaluate the number of rows or columns in each  * pass.  This is expressed as a shift - effectively log2 of the number or  * rows or columns in each 8x8 tile of the original image.  */
 DECL|macro|PNG_PASS_ROW_SHIFT
 define|#
@@ -7057,7 +7610,7 @@ parameter_list|,
 name|pass
 parameter_list|)
 value|(((width)+(((1<<PNG_PASS_COL_SHIFT(pass))\    -1)-PNG_PASS_START_COL(pass)))>>PNG_PASS_COL_SHIFT(pass))
-comment|/* For the progressive reader it is necessary to find the row in the output  * image given a row in an interlaced image, so two more macros:  */
+comment|/* For the reader row callbacks (both progressive and sequential) it is  * necessary to find the row in the output image given a row in an interlaced  * image, so two more macros:  */
 DECL|macro|PNG_ROW_FROM_PASS_ROW
 define|#
 directive|define
@@ -7090,7 +7643,7 @@ name|pass
 parameter_list|,
 name|off
 parameter_list|)
-value|( \    ((0x110145AFU>>(((7-(off))-(pass))<<2))& 0xFU) | \    ((0x01145AF0U>>(((7-(off))-(pass))<<2))& 0xF0U))
+value|( \    ((0x110145AF>>(((7-(off))-(pass))<<2))& 0xF) | \    ((0x01145AF0>>(((7-(off))-(pass))<<2))& 0xF0))
 DECL|macro|PNG_ROW_IN_INTERLACE_PASS
 define|#
 directive|define
@@ -7132,7 +7685,7 @@ parameter_list|,
 name|bg
 parameter_list|)
 define|\
-value|{ png_uint_16 temp = (png_uint_16)((png_uint_16)(fg) \            * (png_uint_16)(alpha)                         \            + (png_uint_16)(bg)*(png_uint_16)(255          \            - (png_uint_16)(alpha)) + (png_uint_16)128);   \        (composite) = (png_byte)((temp + (temp>> 8))>> 8); }
+value|{ png_uint_16 temp = (png_uint_16)((png_uint_16)(fg) \            * (png_uint_16)(alpha)                         \            + (png_uint_16)(bg)*(png_uint_16)(255          \            - (png_uint_16)(alpha)) + 128);                \        (composite) = (png_byte)((temp + (temp>> 8))>> 8); }
 DECL|macro|png_composite_16
 define|#
 directive|define
@@ -7147,7 +7700,7 @@ parameter_list|,
 name|bg
 parameter_list|)
 define|\
-value|{ png_uint_32 temp = (png_uint_32)((png_uint_32)(fg)  \            * (png_uint_32)(alpha)                          \            + (png_uint_32)(bg)*(png_uint_32)(65535L        \            - (png_uint_32)(alpha)) + (png_uint_32)32768L); \        (composite) = (png_uint_16)((temp + (temp>> 16))>> 16); }
+value|{ png_uint_32 temp = (png_uint_32)((png_uint_32)(fg)  \            * (png_uint_32)(alpha)                          \            + (png_uint_32)(bg)*(65535                      \            - (png_uint_32)(alpha)) + 32768);               \        (composite) = (png_uint_16)((temp + (temp>> 16))>> 16); }
 else|#
 directive|else
 comment|/* Standard method using integer division */
@@ -7165,7 +7718,7 @@ parameter_list|,
 name|bg
 parameter_list|)
 define|\
-value|(composite) = (png_byte)(((png_uint_16)(fg) * (png_uint_16)(alpha) +  \      (png_uint_16)(bg) * (png_uint_16)(255 - (png_uint_16)(alpha)) +       \      (png_uint_16)127) / 255)
+value|(composite) = (png_byte)(((png_uint_16)(fg) * (png_uint_16)(alpha) +  \      (png_uint_16)(bg) * (png_uint_16)(255 - (png_uint_16)(alpha)) +       \      127) / 255)
 DECL|macro|png_composite_16
 define|#
 directive|define
@@ -7180,7 +7733,7 @@ parameter_list|,
 name|bg
 parameter_list|)
 define|\
-value|(composite) = (png_uint_16)(((png_uint_32)(fg) * (png_uint_32)(alpha) + \      (png_uint_32)(bg)*(png_uint_32)(65535L - (png_uint_32)(alpha)) +        \      (png_uint_32)32767) / (png_uint_32)65535L)
+value|(composite) = (png_uint_16)(((png_uint_32)(fg) * (png_uint_32)(alpha) + \      (png_uint_32)(bg)*(png_uint_32)(65535 - (png_uint_32)(alpha)) +         \      32767) / 65535)
 endif|#
 directive|endif
 comment|/* PNG_READ_COMPOSITE_NODIV_SUPPORTED */
@@ -7294,7 +7847,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-comment|/* Place a 16-bit number into a buffer in PNG byte order.  * The parameter is declared unsigned int, not png_uint_16,   * just to avoid potential problems on pre-ANSI C compilers.  */
+comment|/* Place a 16-bit number into a buffer in PNG byte order.  * The parameter is declared unsigned int, not png_uint_16,  * just to avoid potential problems on pre-ANSI C compilers.  */
 ifdef|#
 directive|ifdef
 name|PNG_WRITE_INT_FUNCTIONS_SUPPORTED
@@ -7353,6 +7906,37 @@ define|\
 value|((png_int_32)((*(buf)& 0x80) \       ? -((png_int_32)((png_get_uint_32(buf) ^ 0xffffffffL) + 1)) \       : (png_int_32)png_get_uint_32(buf)))
 endif|#
 directive|endif
+if|#
+directive|if
+name|defined
+argument_list|(
+name|PNG_READ_CHECK_FOR_INVALID_INDEX_SUPPORTED
+argument_list|)
+operator|||
+expr|\
+name|defined
+argument_list|(
+name|PNG_WRITE_CHECK_FOR_INVALID_INDEX_SUPPORTED
+argument_list|)
+name|PNG_EXPORT
+argument_list|(
+literal|234
+argument_list|,
+name|void
+argument_list|,
+name|png_set_check_for_invalid_index
+argument_list|,
+operator|(
+name|png_structp
+name|png_ptr
+operator|,
+name|int
+name|allowed
+operator|)
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|/* Maintainer: Put new public prototypes here ^, in libpng.3, and project  * defs  */
 comment|/* The last ordinal number (this is the *last* one already used; the next  * one to use is one more than this.)  Maintainer, remember to add an entry to  * scripts/symbols.def as well.  */
 ifdef|#
@@ -7360,7 +7944,7 @@ directive|ifdef
 name|PNG_EXPORT_LAST_ORDINAL
 name|PNG_EXPORT_LAST_ORDINAL
 argument_list|(
-literal|220
+literal|234
 argument_list|)
 expr_stmt|;
 endif|#

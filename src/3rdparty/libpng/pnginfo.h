@@ -194,11 +194,6 @@ argument_list|(
 name|PNG_READ_BACKGROUND_SUPPORTED
 argument_list|)
 comment|/* The tRNS chunk supplies transparency data for paletted images and     * other image types that don't need a full alpha channel.  There are     * "num_trans" transparency values for a paletted image, stored in the     * same order as the palette colors, starting from index 0.  Values     * for the data are in the range [0, 255], ranging from fully transparent     * to fully opaque, respectively.  For non-paletted images, there is a     * single color specified that should be treated as fully transparent.     * Data is valid if (valid& PNG_INFO_tRNS) is non-zero.     */
-DECL|member|trans
-name|png_bytep
-name|trans
-decl_stmt|;
-comment|/* alpha values for paletted image */
 DECL|member|trans_alpha
 name|png_bytep
 name|trans_alpha

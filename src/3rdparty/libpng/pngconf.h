@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* pngconf.h - machine configurable file for libpng  *  * libpng version 1.5.1 - February 3, 2011  *  * Copyright (c) 1998-2011 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  *  */
+comment|/* pngconf.h - machine configurable file for libpng  *  * libpng version 1.5.10 - March 29, 2012  *  * Copyright (c) 1998-2012 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  *  */
 end_comment
 begin_comment
 comment|/* Any machine specific code is near the front of this file, so if you  * are configuring libpng for a machine, you may want to read the section  * starting here down to where it starts to typedef png_color, png_text,  * and png_info.  */
@@ -16,6 +16,11 @@ define|#
 directive|define
 name|PNGCONF_H
 end_define
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|PNG_BUILDING_SYMBOL_TABLE
+end_ifndef
 begin_comment
 comment|/* PNG_NO_LIMITS_H may be used to turn off the use of the standard C  * definition file for  machine specific limits, this may impact the  * correctness of the definitons below (see uses of INT_MAX).  */
 end_comment
@@ -36,20 +41,11 @@ end_endif
 begin_comment
 comment|/* For the memory copy APIs (i.e. the standard definitions of these),  * because this file defines png_memcpy and so on the base APIs must  * be defined here.  */
 end_comment
-begin_if
-if|#
-directive|if
-name|defined
-argument_list|(
+begin_ifdef
+ifdef|#
+directive|ifdef
 name|BSD
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|VXWORKS
-argument_list|)
-end_if
+end_ifdef
 begin_include
 include|#
 directive|include
@@ -85,8 +81,12 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
-comment|/* This controls optimization of the reading of 16 and 32 bit values  * from PNG files.  It can be set on a per-app-file basis - it  * just changes whether a macro is used to the function is called.  * The library builder sets the default, if read functions are not  * built into the library the macro implementation is forced on.  */
+comment|/* This controls optimization of the reading of 16 and 32 bit values  * from PNG files.  It can be set on a per-app-file basis - it  * just changes whether a macro is used when the function is called.  * The library builder sets the default; if read functions are not  * built into the library the macro implementation is forced on.  */
 end_comment
 begin_ifndef
 ifndef|#
@@ -224,7 +224,7 @@ begin_comment
 comment|/* Function calling conventions.  * =============================  * Normally it is not necessary to specify to the compiler how to call  * a function - it just does it - however on x86 systems derived from  * Microsoft and Borland C compilers ('IBM PC', 'DOS', 'Windows' systems  * and some others) there are multiple ways to call a function and the  * default can be changed on the compiler command line.  For this reason  * libpng specifies the calling convention of every exported function and  * every function called via a user supplied function pointer.  This is  * done in this file by defining the following macros:  *  * PNGAPI    Calling convention for exported functions.  * PNGCBAPI  Calling convention for user provided (callback) functions.  * PNGCAPI   Calling convention used by the ANSI-C library (required  *           for longjmp callbacks and sometimes used internally to  *           specify the calling convention for zlib).  *  * These macros should never be overridden.  If it is necessary to  * change calling convention in a private build this can be done  * by setting PNG_API_RULE (which defaults to 0) to one of the values  * below to select the correct 'API' variants.  *  * PNG_API_RULE=0 Use PNGCAPI - the 'C' calling convention - throughout.  *                This is correct in every known environment.  * PNG_API_RULE=1 Use the operating system convention for PNGAPI and  *                the 'C' calling convention (from PNGCAPI) for  *                callbacks (PNGCBAPI).  This is no longer required  *                in any known environment - if it has to be used  *                please post an explanation of the problem to the  *                libpng mailing list.  *  * These cases only differ if the operating system does not use the C  * calling convention, at present this just means the above cases  * (x86 DOS/Windows sytems) and, even then, this does not apply to  * Cygwin running on those systems.  *  * Note that the value must be defined in pnglibconf.h so that what  * the application uses to call the library matches the conventions  * set when building the library.  */
 end_comment
 begin_comment
-comment|/* Symbol export  * =============  * When building a shared library it is almost always necessary to tell  * the compiler which symbols to export.  The png.h macro 'PNG_EXPORT'  * is used to mark the symbols.  On some systems these symbols can be  * extracted at link time and need no special processing by the compiler,  * on other systems the symbols are flagged by the compiler and just  * the declaration requires a special tag applied (unfortunately) in a  * compiler dependent way.  Some systems can do either.  *  * A small number of older systems also require a symbol from a DLL to  * be flagged to the program that calls it.  This is a problem because  * we do not know in the header file included by application code that  * the symbol will come from a shared library, as opposed to a statically  * linked one.  For this reason the application must tell us by setting  * the magic flag PNG_USE_DLL to turn on the special processing before  * it includes png.h.  *  * Four additional macros are used to make this happen:  *  * PNG_IMPEXP The magic (if any) to cause a symbol to be exported from  *            the build or imported if PNG_USE_DLL is set - compiler  *            and system specific.  *  * PNG_EXPORT_TYPE(type) A macro that pre or appends PNG_IMPEXP to  *                       'type', compiler specific.  *  * PNG_DLL_EXPORT Set to the magic to use during a libpng build to  *                make a symbol exported from the DLL.  *  * PNG_DLL_IMPORT Set to the magic to force the libpng symbols to come  *                from a DLL - used to define PNG_IMPEXP when  *                PNG_USE_DLL is set.  */
+comment|/* Symbol export  * =============  * When building a shared library it is almost always necessary to tell  * the compiler which symbols to export.  The png.h macro 'PNG_EXPORT'  * is used to mark the symbols.  On some systems these symbols can be  * extracted at link time and need no special processing by the compiler,  * on other systems the symbols are flagged by the compiler and just  * the declaration requires a special tag applied (unfortunately) in a  * compiler dependent way.  Some systems can do either.  *  * A small number of older systems also require a symbol from a DLL to  * be flagged to the program that calls it.  This is a problem because  * we do not know in the header file included by application code that  * the symbol will come from a shared library, as opposed to a statically  * linked one.  For this reason the application must tell us by setting  * the magic flag PNG_USE_DLL to turn on the special processing before  * it includes png.h.  *  * Four additional macros are used to make this happen:  *  * PNG_IMPEXP The magic (if any) to cause a symbol to be exported from  *            the build or imported if PNG_USE_DLL is set - compiler  *            and system specific.  *  * PNG_EXPORT_TYPE(type) A macro that pre or appends PNG_IMPEXP to  *                       'type', compiler specific.  *  * PNG_DLL_EXPORT Set to the magic to use during a libpng build to  *                make a symbol exported from the DLL.  Not used in the  *                public header files; see pngpriv.h for how it is used  *                in the libpng build.  *  * PNG_DLL_IMPORT Set to the magic to force the libpng symbols to come  *                from a DLL - used to define PNG_IMPEXP when  *                PNG_USE_DLL is set.  */
 end_comment
 begin_comment
 comment|/* System specific discovery.  * ==========================  * This code is used at build time to find PNG_IMPEXP, the API settings  * and PNG_EXPORT_TYPE(), it may also set a macro to indicate the DLL  * import processing is possible.  On Windows/x86 systems it also sets  * compiler-specific macros to the values required to change the calling  * conventions of the various functions.  */
@@ -338,11 +338,6 @@ operator|>=
 literal|800
 operator|)
 operator|)
-operator|||
-name|defined
-argument_list|(
-name|__WINSCW__
-argument_list|)
 end_if
 begin_define
 DECL|macro|PNGCAPI
@@ -581,68 +576,10 @@ name|PNGAPI
 value|PNGCAPI
 endif|#
 directive|endif
-comment|/* The default for PNG_IMPEXP depends on whether the library is  * being built or used.  */
+comment|/* PNG_IMPEXP may be set on the compilation system command line or (if not set)  * then in an internal header file when building the library, otherwise (when  * using the library) it is set here.  */
 ifndef|#
 directive|ifndef
 name|PNG_IMPEXP
-ifdef|#
-directive|ifdef
-name|PNGLIB_BUILD
-comment|/* Building the library */
-if|#
-directive|if
-operator|(
-name|defined
-argument_list|(
-name|DLL_EXPORT
-argument_list|)
-comment|/*from libtool*/
-operator|||
-expr|\
-name|defined
-argument_list|(
-name|_WINDLL
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|_DLL
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|__DLL__
-argument_list|)
-operator|||
-expr|\
-name|defined
-argument_list|(
-name|_USRDLL
-argument_list|)
-operator|||
-expr|\
-name|defined
-argument_list|(
-name|PNG_BUILD_DLL
-argument_list|)
-operator|)
-operator|&&
-name|defined
-argument_list|(
-name|PNG_DLL_EXPORT
-argument_list|)
-comment|/* Building a DLL. */
-DECL|macro|PNG_IMPEXP
-define|#
-directive|define
-name|PNG_IMPEXP
-value|PNG_DLL_EXPORT
-endif|#
-directive|endif
-comment|/* DLL */
-else|#
-directive|else
-comment|/* Using the library */
 if|#
 directive|if
 name|defined
@@ -655,12 +592,11 @@ argument_list|(
 name|PNG_DLL_IMPORT
 argument_list|)
 comment|/* This forces use of a DLL, disallowing static linking */
+DECL|macro|PNG_IMPEXP
 define|#
 directive|define
 name|PNG_IMPEXP
 value|PNG_DLL_IMPORT
-endif|#
-directive|endif
 endif|#
 directive|endif
 ifndef|#
@@ -674,13 +610,10 @@ endif|#
 directive|endif
 endif|#
 directive|endif
-comment|/* THe following complexity is concerned with getting the 'attributes' of the  * declared function in the correct place.  This potentially requires a separate  * PNG_EXPORT function for every compiler.  */
+comment|/* In 1.5.2 the definition of PNG_FUNCTION has been changed to always treat  * 'attributes' as a storage class - the attributes go at the start of the  * function definition, and attributes are always appended regardless of the  * compiler.  This considerably simplifies these macros but may cause problems  * if any compilers both need function attributes and fail to handle them as  * a storage class (this is unlikely.)  */
 ifndef|#
 directive|ifndef
 name|PNG_FUNCTION
-ifdef|#
-directive|ifdef
-name|__GNUC__
 DECL|macro|PNG_FUNCTION
 define|#
 directive|define
@@ -694,49 +627,7 @@ name|args
 parameter_list|,
 name|attributes
 parameter_list|)
-define|\
 value|attributes type name args
-else|#
-directive|else
-comment|/* !GNUC */
-ifdef|#
-directive|ifdef
-name|_MSC_VER
-define|#
-directive|define
-name|PNG_FUNCTION
-parameter_list|(
-name|type
-parameter_list|,
-name|name
-parameter_list|,
-name|args
-parameter_list|,
-name|attributes
-parameter_list|)
-define|\
-value|attributes type name args
-else|#
-directive|else
-comment|/* !MSC */
-define|#
-directive|define
-name|PNG_FUNCTION
-parameter_list|(
-name|type
-parameter_list|,
-name|name
-parameter_list|,
-name|args
-parameter_list|,
-name|attributes
-parameter_list|)
-define|\
-value|type name args
-endif|#
-directive|endif
-endif|#
-directive|endif
 endif|#
 directive|endif
 ifndef|#
@@ -772,9 +663,15 @@ parameter_list|,
 name|attributes
 parameter_list|)
 define|\
-value|extern PNG_FUNCTION(PNG_EXPORT_TYPE(type),(PNGAPI name),PNGARG(args),\          attributes)
+value|PNG_FUNCTION(PNG_EXPORT_TYPE(type),(PNGAPI name),PNGARG(args), \         extern attributes)
 endif|#
 directive|endif
+comment|/* ANSI-C (C90) does not permit a macro to be invoked with an empty argument,  * so make something non-empty to satisfy the requirement:  */
+DECL|macro|PNG_EMPTY
+define|#
+directive|define
+name|PNG_EMPTY
+comment|/*empty list*/
 DECL|macro|PNG_EXPORT
 define|#
 directive|define
@@ -789,7 +686,7 @@ parameter_list|,
 name|args
 parameter_list|)
 define|\
-value|PNG_EXPORTA(ordinal, type, name, args, )
+value|PNG_EXPORTA(ordinal, type, name, args, PNG_EMPTY)
 comment|/* Use PNG_REMOVED to comment out a removed interface. */
 ifndef|#
 directive|ifndef
@@ -824,11 +721,8 @@ parameter_list|,
 name|name
 parameter_list|,
 name|args
-parameter_list|,
-name|attributes
 parameter_list|)
-define|\
-value|type (PNGCBAPI name) PNGARG(args) attributes
+value|type (PNGCBAPI name) PNGARG(args)
 endif|#
 directive|endif
 comment|/* Support for compiler specific function attributes.  These are used  * so that where compiler support is available incorrect use of API  * functions in png.h will generate compiler warnings.  *  * Added at libpng-1.2.41.  */
@@ -850,9 +744,12 @@ ifdef|#
 directive|ifdef
 name|PNG_PEDANTIC_WARNINGS_SUPPORTED
 comment|/* Support for compiler specific function attributes.  These are used    * so that where compiler support is available incorrect use of API    * functions in png.h will generate compiler warnings.  Added at libpng    * version 1.2.41.    */
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|__GNUC__
+argument_list|)
 ifndef|#
 directive|ifndef
 name|PNG_USE_RESULT
@@ -875,16 +772,6 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|PNG_PTR_NORETURN
-DECL|macro|PNG_PTR_NORETURN
-define|#
-directive|define
-name|PNG_PTR_NORETURN
-value|__attribute__((__noreturn__))
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
 name|PNG_ALLOCATED
 DECL|macro|PNG_ALLOCATED
 define|#
@@ -893,10 +780,6 @@ name|PNG_ALLOCATED
 value|__attribute__((__malloc__))
 endif|#
 directive|endif
-comment|/* This specifically protects structure members that should only be      * accessed from within the library, therefore should be empty during      * a library build.      */
-ifndef|#
-directive|ifndef
-name|PNGLIB_BUILD
 ifndef|#
 directive|ifndef
 name|PNG_DEPRECATED
@@ -904,16 +787,6 @@ DECL|macro|PNG_DEPRECATED
 define|#
 directive|define
 name|PNG_DEPRECATED
-value|__attribute__((__deprecated__))
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
-name|PNG_DEPSTRUCT
-DECL|macro|PNG_DEPSTRUCT
-define|#
-directive|define
-name|PNG_DEPSTRUCT
 value|__attribute__((__deprecated__))
 endif|#
 directive|endif
@@ -941,17 +814,21 @@ endif|#
 directive|endif
 endif|#
 directive|endif
-comment|/* PNG_PRIVATE */
-endif|#
-directive|endif
-comment|/* PNGLIB_BUILD */
 endif|#
 directive|endif
 comment|/* __GNUC__ */
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|_MSC_VER
-comment|/* may need to check value */
+argument_list|)
+operator|&&
+operator|(
+name|_MSC_VER
+operator|>=
+literal|1300
+operator|)
 ifndef|#
 directive|ifndef
 name|PNG_USE_RESULT
@@ -959,7 +836,7 @@ DECL|macro|PNG_USE_RESULT
 define|#
 directive|define
 name|PNG_USE_RESULT
-comment|/*not supported*/
+comment|/* not supported */
 endif|#
 directive|endif
 ifndef|#
@@ -974,17 +851,14 @@ endif|#
 directive|endif
 ifndef|#
 directive|ifndef
-name|PNG_PTR_NORETURN
-DECL|macro|PNG_PTR_NORETURN
-define|#
-directive|define
-name|PNG_PTR_NORETURN
-comment|/*not supported*/
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
 name|PNG_ALLOCATED
+if|#
+directive|if
+operator|(
+name|_MSC_VER
+operator|>=
+literal|1400
+operator|)
 DECL|macro|PNG_ALLOCATED
 define|#
 directive|define
@@ -992,10 +866,8 @@ name|PNG_ALLOCATED
 value|__declspec(restrict)
 endif|#
 directive|endif
-comment|/* This specifically protects structure members that should only be      * accessed from within the library, therefore should be empty during      * a library build.      */
-ifndef|#
-directive|ifndef
-name|PNGLIB_BUILD
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|PNG_DEPRECATED
@@ -1003,16 +875,6 @@ DECL|macro|PNG_DEPRECATED
 define|#
 directive|define
 name|PNG_DEPRECATED
-value|__declspec(deprecated)
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
-name|PNG_DEPSTRUCT
-DECL|macro|PNG_DEPSTRUCT
-define|#
-directive|define
-name|PNG_DEPSTRUCT
 value|__declspec(deprecated)
 endif|#
 directive|endif
@@ -1026,13 +888,9 @@ name|PNG_PRIVATE
 value|__declspec(deprecated)
 endif|#
 directive|endif
-comment|/* PNG_PRIVATE */
 endif|#
 directive|endif
-comment|/* PNGLIB_BUILD */
-endif|#
-directive|endif
-comment|/* __GNUC__ */
+comment|/* _MSC_VER */
 endif|#
 directive|endif
 comment|/* PNG_PEDANTIC_WARNINGS */
@@ -1074,16 +932,6 @@ define|#
 directive|define
 name|PNG_ALLOCATED
 comment|/* The result of the function is new memory */
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
-name|PNG_DEPSTRUCT
-DECL|macro|PNG_DEPSTRUCT
-define|#
-directive|define
-name|PNG_DEPSTRUCT
-comment|/* Access to this struct member is deprecated */
 endif|#
 directive|endif
 ifndef|#

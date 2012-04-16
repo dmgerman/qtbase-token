@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* pngwtran.c - transforms the data in a row for PNG writers  *  * Last changed in libpng 1.5.0 [January 6, 2011]  * Copyright (c) 1998-2011 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
+comment|/* pngwtran.c - transforms the data in a row for PNG writers  *  * Last changed in libpng 1.5.6 [November 3, 2011]  * Copyright (c) 1998-2011 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
 end_comment
 begin_include
 include|#
@@ -11,6 +11,11 @@ begin_ifdef
 ifdef|#
 directive|ifdef
 name|PNG_WRITE_SUPPORTED
+end_ifdef
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|PNG_WRITE_TRANSFORMS_SUPPORTED
 end_ifdef
 begin_comment
 comment|/* Transform the data according to the user's wishes.  The order of  * transformations is significant.  */
@@ -23,6 +28,9 @@ name|png_do_write_transformations
 parameter_list|(
 name|png_structp
 name|png_ptr
+parameter_list|,
+name|png_row_infop
+name|row_info
 parameter_list|)
 block|{
 name|png_debug
@@ -71,12 +79,7 @@ operator|(
 name|png_ptr
 operator|,
 comment|/* png_ptr */
-operator|&
-operator|(
-name|png_ptr
-operator|->
 name|row_info
-operator|)
 operator|,
 comment|/* row_info: */
 comment|/*  png_uint_32 width;       width of row */
@@ -106,14 +109,9 @@ name|transformations
 operator|&
 name|PNG_FILLER
 condition|)
-name|png_do_strip_filler
+name|png_do_strip_channel
 argument_list|(
-operator|&
-operator|(
-name|png_ptr
-operator|->
 name|row_info
-operator|)
 argument_list|,
 name|png_ptr
 operator|->
@@ -121,9 +119,14 @@ name|row_buf
 operator|+
 literal|1
 argument_list|,
+operator|!
+operator|(
 name|png_ptr
 operator|->
 name|flags
+operator|&
+name|PNG_FLAG_FILLER_AFTER
+operator|)
 argument_list|)
 expr_stmt|;
 endif|#
@@ -141,12 +144,7 @@ name|PNG_PACKSWAP
 condition|)
 name|png_do_packswap
 argument_list|(
-operator|&
-operator|(
-name|png_ptr
-operator|->
 name|row_info
-operator|)
 argument_list|,
 name|png_ptr
 operator|->
@@ -170,12 +168,7 @@ name|PNG_PACK
 condition|)
 name|png_do_pack
 argument_list|(
-operator|&
-operator|(
-name|png_ptr
-operator|->
 name|row_info
-operator|)
 argument_list|,
 name|png_ptr
 operator|->
@@ -206,12 +199,7 @@ name|PNG_SWAP_BYTES
 condition|)
 name|png_do_swap
 argument_list|(
-operator|&
-operator|(
-name|png_ptr
-operator|->
 name|row_info
-operator|)
 argument_list|,
 name|png_ptr
 operator|->
@@ -235,12 +223,7 @@ name|PNG_SHIFT
 condition|)
 name|png_do_shift
 argument_list|(
-operator|&
-operator|(
-name|png_ptr
-operator|->
 name|row_info
-operator|)
 argument_list|,
 name|png_ptr
 operator|->
@@ -271,12 +254,7 @@ name|PNG_SWAP_ALPHA
 condition|)
 name|png_do_write_swap_alpha
 argument_list|(
-operator|&
-operator|(
-name|png_ptr
-operator|->
 name|row_info
-operator|)
 argument_list|,
 name|png_ptr
 operator|->
@@ -300,12 +278,7 @@ name|PNG_INVERT_ALPHA
 condition|)
 name|png_do_write_invert_alpha
 argument_list|(
-operator|&
-operator|(
-name|png_ptr
-operator|->
 name|row_info
-operator|)
 argument_list|,
 name|png_ptr
 operator|->
@@ -329,12 +302,7 @@ name|PNG_BGR
 condition|)
 name|png_do_bgr
 argument_list|(
-operator|&
-operator|(
-name|png_ptr
-operator|->
 name|row_info
-operator|)
 argument_list|,
 name|png_ptr
 operator|->
@@ -358,12 +326,7 @@ name|PNG_INVERT_MONO
 condition|)
 name|png_do_invert
 argument_list|(
-operator|&
-operator|(
-name|png_ptr
-operator|->
 name|row_info
-operator|)
 argument_list|,
 name|png_ptr
 operator|->
@@ -2476,6 +2439,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|/* PNG_WRITE_TRANSFORMS_SUPPORTED */
+end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef

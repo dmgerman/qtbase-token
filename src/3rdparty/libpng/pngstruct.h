@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/* pngstruct.h - header file for PNG reference library  *  * Copyright (c) 1998-2011 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * Last changed in libpng 1.5.0 [January 6, 2011]  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
+comment|/* pngstruct.h - header file for PNG reference library  *  * Copyright (c) 1998-2011 Glenn Randers-Pehrson  * (Version 0.96 Copyright (c) 1996, 1997 Andreas Dilger)  * (Version 0.88 Copyright (c) 1995, 1996 Guy Eric Schalnat, Group 42, Inc.)  *  * Last changed in libpng 1.5.9 [March 29, 2012]  *  * This code is released under the libpng license.  * For conditions of distribution and use, see the disclaimer  * and license in png.h  */
 end_comment
 begin_comment
 comment|/* The structure that holds the information to read and write PNG files.  * The only people who need to care about what is inside of this are the  * people who will be modifying the library for their own special needs.  * It should NOT be accessed directly by an application.  */
@@ -32,9 +32,9 @@ block|{
 ifdef|#
 directive|ifdef
 name|PNG_SETJMP_SUPPORTED
-DECL|member|png_jmpbuf
+DECL|member|longjmp_buffer
 name|jmp_buf
-name|png_jmpbuf
+name|longjmp_buffer
 decl_stmt|;
 comment|/* used in png_error */
 DECL|member|longjmp_fn
@@ -49,11 +49,16 @@ name|png_error_ptr
 name|error_fn
 decl_stmt|;
 comment|/* function for printing errors and aborting */
+ifdef|#
+directive|ifdef
+name|PNG_WARNINGS_SUPPORTED
 DECL|member|warning_fn
 name|png_error_ptr
 name|warning_fn
 decl_stmt|;
 comment|/* function for printing warnings */
+endif|#
+directive|endif
 DECL|member|error_ptr
 name|png_voidp
 name|error_ptr
@@ -159,6 +164,44 @@ name|uInt
 name|zbuf_size
 decl_stmt|;
 comment|/* size of zbuf (typically 65536) */
+ifdef|#
+directive|ifdef
+name|PNG_WRITE_SUPPORTED
+comment|/* Added in 1.5.4: state to keep track of whether the zstream has been  * initialized and if so whether it is for IDAT or some other chunk.  */
+DECL|macro|PNG_ZLIB_UNINITIALIZED
+define|#
+directive|define
+name|PNG_ZLIB_UNINITIALIZED
+value|0
+DECL|macro|PNG_ZLIB_FOR_IDAT
+define|#
+directive|define
+name|PNG_ZLIB_FOR_IDAT
+value|1
+DECL|macro|PNG_ZLIB_FOR_TEXT
+define|#
+directive|define
+name|PNG_ZLIB_FOR_TEXT
+value|2
+comment|/* anything other than IDAT */
+DECL|macro|PNG_ZLIB_USE_MASK
+define|#
+directive|define
+name|PNG_ZLIB_USE_MASK
+value|3
+comment|/* bottom two bits */
+DECL|macro|PNG_ZLIB_IN_USE
+define|#
+directive|define
+name|PNG_ZLIB_IN_USE
+value|4
+comment|/* a flag value */
+DECL|member|zlib_state
+name|png_uint_32
+name|zlib_state
+decl_stmt|;
+comment|/* State of zlib initialization */
+comment|/* End of material added at libpng 1.5.4 */
 DECL|member|zlib_level
 name|int
 name|zlib_level
@@ -184,6 +227,49 @@ name|int
 name|zlib_strategy
 decl_stmt|;
 comment|/* holds zlib compression strategy */
+endif|#
+directive|endif
+comment|/* Added at libpng 1.5.4 */
+if|#
+directive|if
+name|defined
+argument_list|(
+name|PNG_WRITE_COMPRESSED_TEXT_SUPPORTED
+argument_list|)
+operator|||
+expr|\
+name|defined
+argument_list|(
+name|PNG_WRITE_CUSTOMIZE_ZTXT_COMPRESSION_SUPPORTED
+argument_list|)
+DECL|member|zlib_text_level
+name|int
+name|zlib_text_level
+decl_stmt|;
+comment|/* holds zlib compression level */
+DECL|member|zlib_text_method
+name|int
+name|zlib_text_method
+decl_stmt|;
+comment|/* holds zlib compression method */
+DECL|member|zlib_text_window_bits
+name|int
+name|zlib_text_window_bits
+decl_stmt|;
+comment|/* holds zlib compression window bits */
+DECL|member|zlib_text_mem_level
+name|int
+name|zlib_text_mem_level
+decl_stmt|;
+comment|/* holds zlib compression memory level */
+DECL|member|zlib_text_strategy
+name|int
+name|zlib_text_strategy
+decl_stmt|;
+comment|/* holds zlib compression strategy */
+endif|#
+directive|endif
+comment|/* End of material added at libpng 1.5.4 */
 DECL|member|width
 name|png_uint_32
 name|width
@@ -219,16 +305,21 @@ name|png_uint_32
 name|row_number
 decl_stmt|;
 comment|/* current row in interlace pass */
+DECL|member|chunk_name
+name|png_uint_32
+name|chunk_name
+decl_stmt|;
+comment|/* PNG_CHUNK() id of current chunk */
 DECL|member|prev_row
 name|png_bytep
 name|prev_row
 decl_stmt|;
-comment|/* buffer to save previous (unfiltered) row */
+comment|/* buffer to save previous (unfiltered) row.                                * This is a pointer into big_prev_row                                */
 DECL|member|row_buf
 name|png_bytep
 name|row_buf
 decl_stmt|;
-comment|/* buffer to save current (unfiltered) row */
+comment|/* buffer to save current (unfiltered) row.                                * This is a pointer into big_row_buf                                */
 DECL|member|sub_row
 name|png_bytep
 name|sub_row
@@ -249,11 +340,11 @@ name|png_bytep
 name|paeth_row
 decl_stmt|;
 comment|/* buffer to save "Paeth" row when filtering */
-DECL|member|row_info
-name|png_row_info
-name|row_info
+DECL|member|info_rowbytes
+name|png_size_t
+name|info_rowbytes
 decl_stmt|;
-comment|/* used for transformation routines */
+comment|/* Added in 1.5.4: cache of updated row bytes */
 DECL|member|idat_size
 name|png_uint_32
 name|idat_size
@@ -274,19 +365,22 @@ name|png_uint_16
 name|num_palette
 decl_stmt|;
 comment|/* number of color entries in palette */
+comment|/* Added at libpng-1.5.10 */
+ifdef|#
+directive|ifdef
+name|PNG_CHECK_FOR_INVALID_INDEX_SUPPORTED
+DECL|member|num_palette_max
+name|int
+name|num_palette_max
+decl_stmt|;
+comment|/* maximum palette index found in IDAT */
+endif|#
+directive|endif
 DECL|member|num_trans
 name|png_uint_16
 name|num_trans
 decl_stmt|;
 comment|/* number of transparency values */
-DECL|member|chunk_name
-name|png_byte
-name|chunk_name
-index|[
-literal|5
-index|]
-decl_stmt|;
-comment|/* null-terminated name of current chunk */
 DECL|member|compression
 name|png_byte
 name|compression
@@ -326,7 +420,7 @@ DECL|member|usr_bit_depth
 name|png_byte
 name|usr_bit_depth
 decl_stmt|;
-comment|/* bit depth of users row */
+comment|/* bit depth of users row: write only */
 DECL|member|pixel_depth
 name|png_byte
 name|pixel_depth
@@ -341,12 +435,30 @@ DECL|member|usr_channels
 name|png_byte
 name|usr_channels
 decl_stmt|;
-comment|/* channels at start of write */
+comment|/* channels at start of write: write only */
 DECL|member|sig_bytes
 name|png_byte
 name|sig_bytes
 decl_stmt|;
 comment|/* magic bytes read/written from start of file */
+DECL|member|maximum_pixel_depth
+name|png_byte
+name|maximum_pixel_depth
+decl_stmt|;
+comment|/* pixel depth used for the row buffers */
+DECL|member|transformed_pixel_depth
+name|png_byte
+name|transformed_pixel_depth
+decl_stmt|;
+comment|/* pixel depth after read/write transforms */
+DECL|member|io_chunk_string
+name|png_byte
+name|io_chunk_string
+index|[
+literal|5
+index|]
+decl_stmt|;
+comment|/* string name of chunk */
 if|#
 directive|if
 name|defined
@@ -365,9 +477,23 @@ decl_stmt|;
 comment|/* filler bytes for pixel expansion */
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|PNG_bKGD_SUPPORTED
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|PNG_READ_BACKGROUND_SUPPORTED
+argument_list|)
+operator|||
+expr|\
+name|defined
+argument_list|(
+name|PNG_READ_ALPHA_MODE_SUPPORTED
+argument_list|)
 DECL|member|background_gamma_type
 name|png_byte
 name|background_gamma_type
@@ -414,17 +540,9 @@ decl_stmt|;
 comment|/* number of rows written since last flush */
 endif|#
 directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
+ifdef|#
+directive|ifdef
 name|PNG_READ_GAMMA_SUPPORTED
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|PNG_READ_BACKGROUND_SUPPORTED
-argument_list|)
 DECL|member|gamma_shift
 name|int
 name|gamma_shift
@@ -440,24 +558,34 @@ name|png_fixed_point
 name|screen_gamma
 decl_stmt|;
 comment|/* screen gamma value (display_exponent) */
-endif|#
-directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|PNG_READ_GAMMA_SUPPORTED
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|PNG_READ_BACKGROUND_SUPPORTED
-argument_list|)
 DECL|member|gamma_table
 name|png_bytep
 name|gamma_table
 decl_stmt|;
 comment|/* gamma table for 8-bit depth files */
+DECL|member|gamma_16_table
+name|png_uint_16pp
+name|gamma_16_table
+decl_stmt|;
+comment|/* gamma table for 16-bit depth files */
+if|#
+directive|if
+name|defined
+argument_list|(
+name|PNG_READ_BACKGROUND_SUPPORTED
+argument_list|)
+operator|||
+expr|\
+name|defined
+argument_list|(
+name|PNG_READ_ALPHA_MODE_SUPPORTED
+argument_list|)
+operator|||
+expr|\
+name|defined
+argument_list|(
+name|PNG_READ_RGB_TO_GRAY_SUPPORTED
+argument_list|)
 DECL|member|gamma_from_1
 name|png_bytep
 name|gamma_from_1
@@ -468,11 +596,6 @@ name|png_bytep
 name|gamma_to_1
 decl_stmt|;
 comment|/* converts from file to 1.0 */
-DECL|member|gamma_16_table
-name|png_uint_16pp
-name|gamma_16_table
-decl_stmt|;
-comment|/* gamma table for 16-bit depth files */
 DECL|member|gamma_16_from_1
 name|png_uint_16pp
 name|gamma_16_from_1
@@ -483,6 +606,9 @@ name|png_uint_16pp
 name|gamma_16_to_1
 decl_stmt|;
 comment|/* converts from file to 1.0 */
+endif|#
+directive|endif
+comment|/* READ_BACKGROUND || READ_ALPHA_MODE || RGB_TO_GRAY */
 endif|#
 directive|endif
 if|#
@@ -643,32 +769,6 @@ name|int
 name|cur_palette
 decl_stmt|;
 comment|/* current push library palette index */
-ifdef|#
-directive|ifdef
-name|PNG_TEXT_SUPPORTED
-DECL|member|current_text_size
-name|png_size_t
-name|current_text_size
-decl_stmt|;
-comment|/* current size of text input data */
-DECL|member|current_text_left
-name|png_size_t
-name|current_text_left
-decl_stmt|;
-comment|/* how much text left to read in input */
-DECL|member|current_text
-name|png_charp
-name|current_text
-decl_stmt|;
-comment|/* current text chunk buffer */
-DECL|member|current_text_ptr
-name|png_charp
-name|current_text_ptr
-decl_stmt|;
-comment|/* current location in current_text */
-endif|#
-directive|endif
-comment|/* PNG_PROGRESSIVE_READ_SUPPORTED&& PNG_TEXT_SUPPORTED */
 endif|#
 directive|endif
 comment|/* PNG_PROGRESSIVE_READ_SUPPORTED */
@@ -790,8 +890,11 @@ ifdef|#
 directive|ifdef
 name|PNG_TIME_RFC1123_SUPPORTED
 DECL|member|time_buffer
-name|png_charp
+name|char
 name|time_buffer
+index|[
+literal|29
+index|]
 decl_stmt|;
 comment|/* String to hold RFC 1123 time text */
 endif|#
@@ -829,6 +932,16 @@ name|chunk_list
 decl_stmt|;
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|PNG_READ_sRGB_SUPPORTED
+comment|/* Added in 1.5.5 to record an sRGB chunk in the png. */
+DECL|member|is_sRGB
+name|png_byte
+name|is_sRGB
+decl_stmt|;
+endif|#
+directive|endif
 comment|/* New members added in libpng-1.0.3 */
 ifdef|#
 directive|ifdef
@@ -836,6 +949,11 @@ name|PNG_READ_RGB_TO_GRAY_SUPPORTED
 DECL|member|rgb_to_gray_status
 name|png_byte
 name|rgb_to_gray_status
+decl_stmt|;
+comment|/* Added in libpng 1.5.5 to record setting of coefficients: */
+DECL|member|rgb_to_gray_coefficients_set
+name|png_byte
+name|rgb_to_gray_coefficients_set
 decl_stmt|;
 comment|/* These were changed from png_byte in libpng-1.0.6 */
 DECL|member|rgb_to_gray_red_coeff
@@ -846,10 +964,7 @@ DECL|member|rgb_to_gray_green_coeff
 name|png_uint_16
 name|rgb_to_gray_green_coeff
 decl_stmt|;
-DECL|member|rgb_to_gray_blue_coeff
-name|png_uint_16
-name|rgb_to_gray_blue_coeff
-decl_stmt|;
+comment|/* deleted in 1.5.5: rgb_to_gray_blue_coeff; */
 endif|#
 directive|endif
 comment|/* New member added in libpng-1.0.4 (renamed in 1.0.9) */
@@ -858,18 +973,6 @@ directive|if
 name|defined
 argument_list|(
 name|PNG_MNG_FEATURES_SUPPORTED
-argument_list|)
-operator|||
-expr|\
-name|defined
-argument_list|(
-name|PNG_READ_EMPTY_PLTE_SUPPORTED
-argument_list|)
-operator|||
-expr|\
-name|defined
-argument_list|(
-name|PNG_WRITE_EMPTY_PLTE_SUPPORTED
 argument_list|)
 comment|/* Changed from png_byte to png_uint_32 at version 1.2.0 */
 DECL|member|mng_features_permitted
@@ -976,14 +1079,10 @@ name|unknown_chunk
 decl_stmt|;
 endif|#
 directive|endif
-comment|/* New members added in libpng-1.2.26 */
+comment|/* New member added in libpng-1.2.26 */
 DECL|member|old_big_row_buf_size
 name|png_size_t
 name|old_big_row_buf_size
-decl_stmt|;
-DECL|member|old_prev_row_size
-name|png_size_t
-name|old_prev_row_size
 decl_stmt|;
 comment|/* New member added in libpng-1.2.30 */
 DECL|member|chunkdata
@@ -1001,6 +1100,33 @@ name|io_state
 decl_stmt|;
 endif|#
 directive|endif
+comment|/* New member added in libpng-1.5.6 */
+DECL|member|big_prev_row
+name|png_bytep
+name|big_prev_row
+decl_stmt|;
+DECL|member|read_filter
+name|void
+function_decl|(
+modifier|*
+name|read_filter
+index|[
+name|PNG_FILTER_VALUE_LAST
+operator|-
+literal|1
+index|]
+function_decl|)
+parameter_list|(
+name|png_row_infop
+name|row_info
+parameter_list|,
+name|png_bytep
+name|row
+parameter_list|,
+name|png_const_bytep
+name|prev_row
+parameter_list|)
+function_decl|;
 block|}
 struct|;
 end_struct
