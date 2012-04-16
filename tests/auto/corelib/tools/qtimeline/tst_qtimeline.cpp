@@ -972,14 +972,14 @@ operator|.
 name|currentTime
 argument_list|()
 operator|>
-literal|0.9
+literal|900
 argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
 name|qWait
 argument_list|(
-literal|50
+literal|100
 argument_list|)
 expr_stmt|;
 name|QCOMPARE
@@ -992,6 +992,16 @@ argument_list|,
 name|QTimeLine
 operator|::
 name|NotRunning
+argument_list|)
+expr_stmt|;
+name|QCOMPARE
+argument_list|(
+name|timeLine
+operator|.
+name|currentTime
+argument_list|()
+argument_list|,
+literal|1000
 argument_list|)
 expr_stmt|;
 comment|// The duration shouldn't change
