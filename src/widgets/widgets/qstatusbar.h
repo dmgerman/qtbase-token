@@ -173,7 +173,7 @@ name|QResizeEvent
 operator|*
 argument_list|)
 block|;
-comment|// ### Qt 5: consider making reformat() and hideOrShow() private
+comment|// ### Qt 6: consider making reformat() and hideOrShow() private
 name|void
 name|reformat
 argument_list|()

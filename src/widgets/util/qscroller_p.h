@@ -397,9 +397,30 @@ argument|qreal v
 argument_list|,
 argument|qreal startPos
 argument_list|,
-argument|qreal ppm
+argument|qreal deltaTime
+argument_list|,
+argument|qreal deltaPos
 argument_list|,
 argument|Qt::Orientation orientation
+argument_list|)
+block|;
+name|void
+name|createScrollingSegments
+argument_list|(
+specifier|const
+name|QPointF
+operator|&
+name|v
+argument_list|,
+specifier|const
+name|QPointF
+operator|&
+name|startPos
+argument_list|,
+specifier|const
+name|QPointF
+operator|&
+name|ppm
 argument_list|)
 block|;
 name|void

@@ -7750,7 +7750,7 @@ literal|"<a>\nc\nc\na\na</a>"
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// ### Qt 5: fix this, if we keep QDom at all
+comment|// ### Qt 6: fix this, if we keep QDom at all
 name|QEXPECT_FAIL
 argument_list|(
 literal|""

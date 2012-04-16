@@ -903,6 +903,10 @@ block|,
 name|DontDrawNativeChildren
 operator|=
 literal|0x40
+block|,
+name|DontSetCompositionMode
+operator|=
+literal|0x80
 block|}
 block|;      enum
 name|CloseMode

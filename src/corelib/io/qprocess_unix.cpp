@@ -3834,8 +3834,20 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|QT_CHDIR
 argument_list|(
+name|workingDir
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+name|qWarning
+argument_list|(
+literal|"ThreadCtl(): failed to chdir to %s"
+argument_list|,
 name|workingDir
 argument_list|)
 expr_stmt|;
@@ -3913,8 +3925,20 @@ condition|(
 name|oldWorkingDir
 condition|)
 block|{
+if|if
+condition|(
 name|QT_CHDIR
 argument_list|(
+name|oldWorkingDir
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+name|qWarning
+argument_list|(
+literal|"ThreadCtl(): failed to chdir to %s"
+argument_list|,
 name|oldWorkingDir
 argument_list|)
 expr_stmt|;
@@ -4343,11 +4367,25 @@ if|if
 condition|(
 name|workingDir
 condition|)
+block|{
+if|if
+condition|(
 name|QT_CHDIR
 argument_list|(
 name|workingDir
 argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+name|qWarning
+argument_list|(
+literal|"QProcessPrivate::execChild() failed to chdir to %s"
+argument_list|,
+name|workingDir
+argument_list|)
 expr_stmt|;
+block|}
 comment|// this is a virtual call, and it base behavior is to do nothing.
 name|q
 operator|->
@@ -7403,6 +7441,9 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|)
+block|{
+if|if
+condition|(
 name|QT_CHDIR
 argument_list|(
 name|encodedWorkingDirectory
@@ -7410,7 +7451,21 @@ operator|.
 name|constData
 argument_list|()
 argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+name|qWarning
+argument_list|(
+literal|"QProcessPrivate::startDetached: failed to chdir to %s"
+argument_list|,
+name|encodedWorkingDirectory
+operator|.
+name|constData
+argument_list|()
+argument_list|)
 expr_stmt|;
+block|}
 name|char
 modifier|*
 modifier|*
@@ -7837,9 +7892,19 @@ name|pid_t
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|QT_CHDIR
 argument_list|(
 literal|"/"
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+name|qWarning
+argument_list|(
+literal|"QProcessPrivate::startDetached: failed to chdir to /"
 argument_list|)
 expr_stmt|;
 operator|::

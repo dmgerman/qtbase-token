@@ -376,7 +376,7 @@ name|MidButton
 init|=
 literal|0x00000004
 block|,
-comment|// ### Qt 5: remove me
+comment|// ### Qt 6: remove me
 name|MiddleButton
 init|=
 name|MidButton

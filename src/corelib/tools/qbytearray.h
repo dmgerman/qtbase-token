@@ -2206,7 +2206,7 @@ name|uint
 name|n
 parameter_list|)
 function_decl|;
-comment|// ### Qt 5: use an int
+comment|// ### Qt 6: use an int
 specifier|static
 name|QByteArray
 name|number

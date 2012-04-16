@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/QMainWindow>
+file|<QtWidgets/QMainWindow>
 end_include
 begin_include
 include|#
 directive|include
-file|"ui_tst_inputmethodhints.h"
+file|"ui_inputmethodhints.h"
 end_include
 begin_decl_stmt
 name|class

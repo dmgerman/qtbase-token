@@ -783,6 +783,17 @@ argument|d_func()
 argument_list|,
 argument|void _q_resumeImplementation()
 argument_list|)
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|Q_PRIVATE_SLOT
+argument_list|(
+argument|d_func()
+argument_list|,
+argument|void _q_caRootLoaded(QSslCertificate,QSslCertificate)
+argument_list|)
+endif|#
+directive|endif
 name|friend
 name|class
 name|QSslSocketBackendPrivate

@@ -293,6 +293,10 @@ block|,
 name|OpenGlPixelFormatInitialized
 operator|=
 literal|0x40
+block|,
+name|BlockedByModal
+operator|=
+literal|0x80
 block|}
 block|;      struct
 name|WindowData
@@ -464,6 +468,14 @@ name|virtual
 name|void
 name|lower
 argument_list|()
+block|;
+name|void
+name|windowEvent
+argument_list|(
+name|QEvent
+operator|*
+name|event
+argument_list|)
 block|;
 name|virtual
 name|void
@@ -753,6 +765,28 @@ operator|&=
 operator|~
 name|f
 block|; }
+name|void
+name|setEnabled
+argument_list|(
+argument|bool enabled
+argument_list|)
+block|;
+name|bool
+name|isEnabled
+argument_list|()
+specifier|const
+block|;
+name|void
+name|alertWindow
+argument_list|(
+argument|int durationMs =
+literal|0
+argument_list|)
+block|;
+name|void
+name|stopAlertWindow
+argument_list|()
+block|;
 name|private
 operator|:
 specifier|inline

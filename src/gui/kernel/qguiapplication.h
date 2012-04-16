@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QGUIAPPLICATION_QPA_H
+name|QGUIAPPLICATION_H
 end_ifndef
 begin_define
-DECL|macro|QGUIAPPLICATION_QPA_H
+DECL|macro|QGUIAPPLICATION_H
 define|#
 directive|define
-name|QGUIAPPLICATION_QPA_H
+name|QGUIAPPLICATION_H
 end_define
 begin_include
 include|#
@@ -199,6 +199,12 @@ block|;
 specifier|static
 name|QString
 name|platformName
+argument_list|()
+block|;
+specifier|static
+name|QWindow
+operator|*
+name|modalWindow
 argument_list|()
 block|;
 ifdef|#
@@ -548,6 +554,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QGUIAPPLICATION_QPA_H
+comment|// QGUIAPPLICATION_H
 end_comment
 end_unit

@@ -2055,7 +2055,7 @@ specifier|const
 name|QFileInfo
 argument_list|)
 expr_stmt|;
-comment|// ### Qt5: Maybe rename this to parentDirectory(), considering what it actually do?
+comment|// ### Qt 6: Maybe rename this to parentDirectory(), considering what it actually does?
 return|return
 name|QDir
 argument_list|(

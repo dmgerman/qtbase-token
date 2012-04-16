@@ -1000,7 +1000,7 @@ name|normalVector
 argument_list|()
 specifier|const
 expr_stmt|;
-comment|// ### Qt 5: rename intersects() or intersection() and rename IntersectType IntersectionType
+comment|// ### Qt 6: rename intersects() or intersection() and rename IntersectType IntersectionType
 name|IntersectType
 name|intersect
 argument_list|(

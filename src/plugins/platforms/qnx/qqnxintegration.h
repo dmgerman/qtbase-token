@@ -54,6 +54,12 @@ name|QQnxNavigatorEventHandler
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|variable|QQnxNavigatorEventNotifier
+name|class
+name|QQnxNavigatorEventNotifier
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QQnxAbstractVirtualKeyboard
 name|class
 name|QQnxAbstractVirtualKeyboard
@@ -293,6 +299,10 @@ block|;
 name|QQnxNavigatorEventHandler
 operator|*
 name|m_navigatorEventHandler
+block|;
+name|QQnxNavigatorEventNotifier
+operator|*
+name|m_navigatorEventNotifier
 block|;
 name|QQnxAbstractVirtualKeyboard
 operator|*

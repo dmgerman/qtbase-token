@@ -361,6 +361,9 @@ operator|*
 name|authenticator
 argument_list|)
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
 name|void
 name|sslErrors
 argument_list|(
@@ -377,6 +380,8 @@ operator|&
 name|errors
 argument_list|)
 block|;
+endif|#
+directive|endif
 name|void
 name|downloadFinished
 argument_list|(

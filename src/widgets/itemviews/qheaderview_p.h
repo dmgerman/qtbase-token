@@ -500,7 +500,7 @@ argument_list|()
 specifier|const
 block|{
 return|return
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -796,7 +796,7 @@ argument_list|()
 block|{
 name|firstCascadingSection
 operator|=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -1190,9 +1190,9 @@ name|mutable
 name|bool
 name|sectionStartposRecalc
 block|;
-comment|// header section spans
+comment|// header sections
 block|struct
-name|SectionSpan
+name|SectionItem
 block|{
 name|int
 name|size
@@ -1223,7 +1223,7 @@ name|ResizeMode
 name|resizeMode
 block|;
 specifier|inline
-name|SectionSpan
+name|SectionItem
 argument_list|()
 operator|:
 name|size
@@ -1237,7 +1237,7 @@ argument|QHeaderView::Interactive
 argument_list|)
 block|{}
 specifier|inline
-name|SectionSpan
+name|SectionItem
 argument_list|(
 argument|int length
 argument_list|,
@@ -1345,12 +1345,12 @@ expr|}
 block|;
 name|QVector
 operator|<
-name|SectionSpan
+name|SectionItem
 operator|>
-name|sectionSpans
+name|sectionItems
 block|;
 name|void
-name|createSectionSpan
+name|createSectionItems
 argument_list|(
 argument|int start
 argument_list|,
@@ -1362,7 +1362,7 @@ argument|QHeaderView::ResizeMode mode
 argument_list|)
 block|;
 name|void
-name|removeSectionsFromSpans
+name|removeSectionsFromSectionItems
 argument_list|(
 argument|int start
 argument_list|,
@@ -1370,7 +1370,7 @@ argument|int end
 argument_list|)
 block|;
 name|void
-name|resizeSectionSpan
+name|resizeSectionItem
 argument_list|(
 argument|int visualIndex
 argument_list|,
@@ -1393,20 +1393,6 @@ block|;
 comment|// not really const
 specifier|inline
 name|int
-name|headerSectionCount
-argument_list|()
-specifier|const
-block|{
-comment|// for debugging
-return|return
-name|sectionSpans
-operator|.
-name|count
-argument_list|()
-return|;
-block|}
-specifier|inline
-name|int
 name|headerLength
 argument_list|()
 specifier|const
@@ -1426,7 +1412,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|sectionSpans
+name|sectionItems
 operator|.
 name|count
 argument_list|()
@@ -1436,7 +1422,7 @@ name|i
 control|)
 name|len
 operator|+=
-name|sectionSpans
+name|sectionItems
 operator|.
 name|at
 argument_list|(
@@ -1447,94 +1433,6 @@ name|size
 expr_stmt|;
 return|return
 name|len
-return|;
-block|}
-specifier|inline
-name|void
-name|removeSpans
-argument_list|(
-argument|const QList<int>&spans
-argument_list|)
-block|{
-for|for
-control|(
-name|int
-name|i
-init|=
-name|spans
-operator|.
-name|count
-argument_list|()
-operator|-
-literal|1
-init|;
-name|i
-operator|>=
-literal|0
-condition|;
-operator|--
-name|i
-control|)
-block|{
-name|length
-operator|-=
-name|sectionSpans
-operator|.
-name|at
-argument_list|(
-name|spans
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-argument_list|)
-operator|.
-name|size
-expr_stmt|;
-name|sectionSpans
-operator|.
-name|remove
-argument_list|(
-name|spans
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-specifier|inline
-name|int
-name|sectionSpanIndex
-argument_list|(
-argument|int visual
-argument_list|)
-specifier|const
-block|{
-if|if
-condition|(
-name|visual
-operator|<
-name|sectionSpans
-operator|.
-name|count
-argument_list|()
-operator|&&
-name|visual
-operator|>=
-literal|0
-condition|)
-block|{
-return|return
-name|visual
-return|;
-block|}
-return|return
-operator|-
-literal|1
 return|;
 block|}
 name|int

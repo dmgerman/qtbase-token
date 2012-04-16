@@ -41,6 +41,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qcocoaservices.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QScopedPointer>
 end_include
 begin_include
@@ -255,6 +260,12 @@ argument|const QString&name
 argument_list|)
 specifier|const
 block|;
+name|QPlatformServices
+operator|*
+name|services
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|QScopedPointer
@@ -301,6 +312,18 @@ operator|<
 name|QCocoaDrag
 operator|>
 name|mCocoaDrag
+block|;
+name|QScopedPointer
+operator|<
+name|QPlatformNativeInterface
+operator|>
+name|mNativeInterface
+block|;
+name|QScopedPointer
+operator|<
+name|QCocoaServices
+operator|>
+name|mServices
 block|; }
 decl_stmt|;
 end_decl_stmt

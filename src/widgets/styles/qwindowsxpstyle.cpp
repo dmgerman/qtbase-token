@@ -2106,6 +2106,8 @@ name|qWarning
 argument_list|(
 literal|"%s: Invalid parameters #%d, %p"
 argument_list|,
+name|Q_FUNC_INFO
+argument_list|,
 name|theme
 argument_list|,
 name|hwnd

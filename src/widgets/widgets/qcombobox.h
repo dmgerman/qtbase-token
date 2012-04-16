@@ -309,7 +309,7 @@ name|AdjustToContentsOnFirstShow
 block|,
 name|AdjustToMinimumContentsLength
 block|,
-comment|// ### Qt 5: remove
+comment|// ### Qt 6: remove
 name|AdjustToMinimumContentsLengthWithIcon
 block|}
 block|;

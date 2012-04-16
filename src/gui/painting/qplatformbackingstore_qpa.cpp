@@ -126,7 +126,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function is called before painting onto the surface begins,     with the \a region in which the painting will occur.      \note A platform providing a backing store with an alpha channel     needs to properly initialize the region to be painted.      \sa endPaint(), paintDevice() */
+comment|/*!     This function is called before painting onto the surface begins,     with the \a region in which the painting will occur.      \sa endPaint(), paintDevice() */
 end_comment
 begin_function
 DECL|function|beginPaint

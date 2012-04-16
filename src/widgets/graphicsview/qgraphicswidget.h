@@ -824,7 +824,6 @@ literal|0
 block|void dumpFocusChain();
 endif|#
 directive|endif
-comment|// ### Qt 5: Disambiguate
 ifdef|#
 directive|ifdef
 name|Q_NO_USING_KEYWORD

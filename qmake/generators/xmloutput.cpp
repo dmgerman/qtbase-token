@@ -670,12 +670,7 @@ argument_list|)
 expr_stmt|;
 name|addRaw
 argument_list|(
-name|QString
-argument_list|(
-literal|"%1"
-argument_list|)
-operator|.
-name|arg
+name|doConversion
 argument_list|(
 name|o
 operator|.

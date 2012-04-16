@@ -378,13 +378,14 @@ name|QTextOption
 operator|::
 name|setTabArray
 parameter_list|(
+specifier|const
 name|QList
 argument_list|<
 name|qreal
 argument_list|>
+modifier|&
 name|tabStops
 parameter_list|)
-comment|// Qt5: const ref
 block|{
 if|if
 condition|(
@@ -449,15 +450,16 @@ name|QTextOption
 operator|::
 name|setTabs
 parameter_list|(
+specifier|const
 name|QList
 argument_list|<
 name|QTextOption
 operator|::
 name|Tab
 argument_list|>
+modifier|&
 name|tabStops
 parameter_list|)
-comment|// Qt5: const ref
 block|{
 if|if
 condition|(

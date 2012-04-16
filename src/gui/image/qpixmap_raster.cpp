@@ -561,7 +561,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|// from qwindowsurface.cpp
+comment|// from qbackingstore.cpp
 end_comment
 begin_function_decl
 specifier|extern

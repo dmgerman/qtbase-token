@@ -107,7 +107,7 @@ operator|-
 literal|0xfdd0U
 operator|)
 operator|<
-literal|16
+literal|32
 return|;
 block|}
 end_function
@@ -612,9 +612,12 @@ continue|continue;
 block|}
 if|if
 condition|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|u
-operator|>
-literal|0xffff
+argument_list|)
 condition|)
 block|{
 operator|*

@@ -57,11 +57,24 @@ argument_list|(
 name|key
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBUDEV
 name|bool
 name|useUDev
 init|=
 literal|true
 decl_stmt|;
+else|#
+directive|else
+name|bool
+name|useUDev
+init|=
+literal|false
+decl_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_LIBUDEV
 name|QStringList
 name|args
 init|=
@@ -163,6 +176,9 @@ argument_list|(
 name|device
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBUDEV
 if|if
 condition|(
 name|useUDev
@@ -271,6 +287,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_LIBUDEV
 block|}
 end_function
 begin_destructor

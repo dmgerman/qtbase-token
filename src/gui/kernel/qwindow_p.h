@@ -5,13 +5,13 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|QWINDOW_QPA_P_H
+name|QWINDOW_P_H
 end_ifndef
 begin_define
-DECL|macro|QWINDOW_QPA_P_H
+DECL|macro|QWINDOW_P_H
 define|#
 directive|define
-name|QWINDOW_QPA_P_H
+name|QWINDOW_P_H
 end_define
 begin_include
 include|#
@@ -145,6 +145,11 @@ argument_list|(
 name|Qt
 operator|::
 name|NonModal
+argument_list|)
+block|,
+name|blockedByModalWindow
+argument_list|(
+name|false
 argument_list|)
 block|,
 name|transientParent
@@ -335,6 +340,11 @@ name|WindowModality
 name|modality
 expr_stmt|;
 end_expr_stmt
+begin_decl_stmt
+name|bool
+name|blockedByModalWindow
+decl_stmt|;
+end_decl_stmt
 begin_expr_stmt
 name|QPointer
 operator|<
@@ -359,6 +369,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// QWINDOW_QPA_P_H
+comment|// QWINDOW_P_H
 end_comment
 end_unit

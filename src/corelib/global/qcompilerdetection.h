@@ -519,6 +519,19 @@ end_else
 begin_comment
 comment|/* Plain GCC */
 end_comment
+begin_if
+if|#
+directive|if
+operator|(
+name|__GNUC__
+operator|*
+literal|100
+operator|+
+name|__GNUC_MINOR__
+operator|)
+operator|>=
+literal|405
+end_if
 begin_define
 DECL|macro|Q_ASSUME
 define|#
@@ -537,6 +550,10 @@ name|Q_UNREACHABLE
 parameter_list|()
 value|__builtin_unreachable()
 end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_endif
 endif|#
 directive|endif

@@ -78,6 +78,11 @@ include|#
 directive|include
 file|"private/qwidget_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<qplatformmenu_qpa.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 ifndef|#

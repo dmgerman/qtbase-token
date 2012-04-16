@@ -279,7 +279,7 @@ name|visitedPages
 argument_list|()
 specifier|const
 block|;
-comment|// ### visitedIds()?
+comment|// ### Qt 6: visitedIds()?
 name|QList
 operator|<
 name|int

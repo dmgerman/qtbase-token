@@ -1744,9 +1744,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|val
-operator|>=
-literal|0x10000
+argument_list|)
 condition|)
 block|{
 name|utf16map
@@ -3670,13 +3673,19 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|codepoint
-operator|>=
-literal|0x10000
+argument_list|)
 operator|||
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|upperCase
-operator|>=
-literal|0x10000
+argument_list|)
 condition|)
 block|{
 comment|// if the conditions below doesn't hold anymore we need to modify our upper casing code
@@ -3808,13 +3817,19 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|codepoint
-operator|>=
-literal|0x10000
+argument_list|)
 operator|||
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|lowerCase
-operator|>=
-literal|0x10000
+argument_list|)
 condition|)
 block|{
 comment|// if the conditions below doesn't hold anymore we need to modify our lower casing code
@@ -3967,13 +3982,19 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|codepoint
-operator|>=
-literal|0x10000
+argument_list|)
 operator|||
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|titleCase
-operator|>=
-literal|0x10000
+argument_list|)
 condition|)
 block|{
 comment|// if the conditions below doesn't hold anymore we need to modify our title casing code
@@ -5633,7 +5654,7 @@ name|uint
 name|mapped
 decl_stmt|;
 DECL|member|version
-name|uint
+name|int
 name|version
 decl_stmt|;
 block|}
@@ -5686,6 +5707,11 @@ literal|"    int version;\n"
 literal|"};\n\n"
 literal|"static const NormalizationCorrection uc_normalization_corrections[] = {\n"
 expr_stmt|;
+name|int
+name|maxVersion
+init|=
+literal|0
+decl_stmt|;
 name|int
 name|numCorrections
 init|=
@@ -5961,6 +5987,17 @@ expr_stmt|;
 operator|++
 name|numCorrections
 expr_stmt|;
+name|maxVersion
+operator|=
+name|qMax
+argument_list|(
+name|c
+operator|.
+name|version
+argument_list|,
+name|maxVersion
+argument_list|)
+expr_stmt|;
 block|}
 name|out
 operator|+=
@@ -5972,6 +6009,16 @@ operator|::
 name|number
 argument_list|(
 name|numCorrections
+argument_list|)
+operator|+
+literal|" };\n"
+literal|"enum { NormalizationCorrectionsVersionMax = "
+operator|+
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|maxVersion
 argument_list|)
 operator|+
 literal|" };\n\n"
@@ -6602,9 +6649,13 @@ comment|// if the condition below doesn't hold anymore we need to modify our
 comment|// lower/upper/title casing code and case folding code
 name|Q_ASSERT
 argument_list|(
+operator|!
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|codepoint
-operator|<
-literal|0x10000
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//         qDebug()<< "codepoint"<< hex<< codepoint;
@@ -7379,13 +7430,19 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|codepoint
-operator|>=
-literal|0x10000
+argument_list|)
 operator|||
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|caseFolded
-operator|>=
-literal|0x10000
+argument_list|)
 condition|)
 block|{
 comment|// if the conditions below doesn't hold anymore we need to modify our case folding code
@@ -11825,6 +11882,10 @@ name|j
 control|)
 name|utf16Chars
 operator|+=
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|d
 operator|.
 name|decomposition
@@ -11833,8 +11894,7 @@ name|at
 argument_list|(
 name|j
 argument_list|)
-operator|>=
-literal|0x10000
+argument_list|)
 condition|?
 literal|2
 else|:
@@ -11889,9 +11949,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|code
-operator|>=
-literal|0x10000
+argument_list|)
 condition|)
 block|{
 comment|// save as surrogate pair
@@ -12146,6 +12209,10 @@ name|j
 control|)
 name|utf16Chars
 operator|+=
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|d
 operator|.
 name|decomposition
@@ -12154,8 +12221,7 @@ name|at
 argument_list|(
 name|j
 argument_list|)
-operator|>=
-literal|0x10000
+argument_list|)
 condition|?
 literal|2
 else|:
@@ -12210,9 +12276,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
 name|code
-operator|>=
-literal|0x10000
+argument_list|)
 condition|)
 block|{
 comment|// save as surrogate pair

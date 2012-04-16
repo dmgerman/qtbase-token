@@ -204,7 +204,6 @@ name|option
 parameter_list|,
 name|QWidget
 modifier|*
-name|widget
 parameter_list|)
 block|{
 if|if

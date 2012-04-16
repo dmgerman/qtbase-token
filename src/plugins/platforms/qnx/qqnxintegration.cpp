@@ -35,6 +35,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qqnxnavigatoreventnotifier.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qqnxrasterbackingstore.h"
 end_include
 begin_include
@@ -172,6 +177,13 @@ argument_list|)
 member_init_list|,
 name|m_navigatorEventHandler
 argument_list|(
+operator|new
+name|QQnxNavigatorEventHandler
+argument_list|()
+argument_list|)
+member_init_list|,
+name|m_navigatorEventNotifier
+argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
@@ -276,11 +288,14 @@ name|errno
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Create/start navigator event handler
-name|m_navigatorEventHandler
+comment|// Create/start navigator event notifier
+name|m_navigatorEventNotifier
 operator|=
 operator|new
-name|QQnxNavigatorEventHandler
+name|QQnxNavigatorEventNotifier
+argument_list|(
+name|m_navigatorEventHandler
+argument_list|)
 expr_stmt|;
 comment|// delay invocation of start() to the time the event loop is up and running
 comment|// needed to have the QThread internals of the main thread properly initialized
@@ -288,7 +303,7 @@ name|QMetaObject
 operator|::
 name|invokeMethod
 argument_list|(
-name|m_navigatorEventHandler
+name|m_navigatorEventNotifier
 argument_list|,
 literal|"start"
 argument_list|,
@@ -436,13 +451,16 @@ name|m_clipboard
 expr_stmt|;
 endif|#
 directive|endif
+comment|// Stop/destroy navigator event notifier
+operator|delete
+name|m_navigatorEventNotifier
+expr_stmt|;
+operator|delete
+name|m_navigatorEventHandler
+expr_stmt|;
 comment|// Stop/destroy event thread
 operator|delete
 name|m_eventThread
-expr_stmt|;
-comment|// Stop/destroy navigator thread
-operator|delete
-name|m_navigatorEventHandler
 expr_stmt|;
 operator|delete
 name|m_screenEventHandler
