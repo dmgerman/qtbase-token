@@ -163,42 +163,6 @@ directive|define
 name|QT_VSNPRINTF
 value|::vsnprintf
 end_define
-begin_comment
-comment|// Older FreeBSD versions may still use the a.out format instead of ELF.
-end_comment
-begin_comment
-comment|// From the FreeBSD man pages:
-end_comment
-begin_comment
-comment|// 	In previous implementations, it was necessary to prepend an
-end_comment
-begin_comment
-comment|// 	underscore to all external symbols in order to gain symbol
-end_comment
-begin_comment
-comment|// 	compatibility with object code compiled from the C language.
-end_comment
-begin_comment
-comment|// 	This is still the case when using the (obsolete) -aout option to
-end_comment
-begin_comment
-comment|// 	the C language compiler.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|__ELF__
-end_ifndef
-begin_define
-DECL|macro|QT_AOUT_UNDERSCORE
-define|#
-directive|define
-name|QT_AOUT_UNDERSCORE
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif
