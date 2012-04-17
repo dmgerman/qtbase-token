@@ -8461,20 +8461,6 @@ expr_stmt|;
 comment|// QRect(0, 0, 200, 12) is the first update, expanded (-2, -2, 2, 2)
 comment|// QRect(0, 12, 102, 10) is the scroll update, expanded (-2, -2, 2, 2),
 comment|// intersected with the above update.
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-24294"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|view
@@ -15014,20 +15000,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-24294"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTRY_COMPARE
 argument_list|(
 name|box
@@ -21262,6 +21234,16 @@ operator|::
 name|updateAndDelete
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"Test case unstable on this platform, QTBUG-23700"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QGraphicsScene
 name|scene
 decl_stmt|;
@@ -21310,6 +21292,14 @@ operator|.
 name|npaints
 operator|>
 literal|0
+argument_list|)
+expr_stmt|;
+comment|// Wait a bit to clear all pending paint events
+name|QTest
+operator|::
+name|qWait
+argument_list|(
+literal|10
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -21380,20 +21370,6 @@ operator|->
 name|hide
 argument_list|()
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-24294"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QTRY_COMPARE
 argument_list|(
 name|view
@@ -21403,20 +21379,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-23700"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|view

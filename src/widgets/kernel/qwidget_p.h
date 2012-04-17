@@ -415,9 +415,9 @@ name|opacity
 range|:
 literal|8
 decl_stmt|;
-DECL|member|posFromMove
+DECL|member|posIncludesFrame
 name|uint
-name|posFromMove
+name|posIncludesFrame
 range|:
 literal|1
 decl_stmt|;
@@ -1843,6 +1843,12 @@ name|int
 parameter_list|,
 name|bool
 parameter_list|)
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
+name|fixPosIncludesFrame
+parameter_list|()
 function_decl|;
 end_function_decl
 begin_function_decl

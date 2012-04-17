@@ -514,6 +514,14 @@ name|bool
 name|doesNotAcceptFocus
 parameter_list|)
 function_decl|;
+name|QRect
+name|windowToWmGeometry
+argument_list|(
+name|QRect
+name|r
+argument_list|)
+decl|const
+decl_stmt|;
 name|void
 name|create
 parameter_list|()
@@ -556,6 +564,9 @@ operator|::
 name|WindowState
 name|m_windowState
 expr_stmt|;
+name|xcb_gravity_t
+name|m_gravity
+decl_stmt|;
 name|bool
 name|m_mapped
 decl_stmt|;

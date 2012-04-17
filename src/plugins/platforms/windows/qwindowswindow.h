@@ -164,6 +164,16 @@ name|QPoint
 modifier|&
 parameter_list|)
 function_decl|;
+specifier|static
+name|bool
+name|positionIncludesFrame
+parameter_list|(
+specifier|const
+name|QWindow
+modifier|*
+name|w
+parameter_list|)
+function_decl|;
 DECL|member|minimumSize
 name|QSize
 name|minimumSize

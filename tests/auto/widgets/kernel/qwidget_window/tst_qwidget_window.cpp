@@ -155,16 +155,6 @@ operator|::
 name|tst_move_show
 parameter_list|()
 block|{
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-name|QSKIP
-argument_list|(
-literal|"QTBUG-25331"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QWidget
 name|w
 decl_stmt|;

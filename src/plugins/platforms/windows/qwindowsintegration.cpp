@@ -957,7 +957,7 @@ argument_list|()
 operator|<<
 name|__FUNCTION__
 operator|<<
-literal|' '
+literal|'<'
 operator|<<
 name|window
 operator|<<
@@ -968,6 +968,15 @@ operator|<<
 name|requested
 operator|.
 name|geometry
+operator|<<
+literal|"frame incl.: "
+operator|<<
+name|QWindowsGeometryHint
+operator|::
+name|positionIncludesFrame
+argument_list|(
+name|window
+argument_list|)
 operator|<<
 literal|" Flags="
 operator|<<
@@ -1040,27 +1049,6 @@ argument_list|(
 name|obtained
 operator|.
 name|flags
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|requested
-operator|.
-name|geometry
-operator|!=
-name|obtained
-operator|.
-name|geometry
-condition|)
-name|QWindowSystemInterface
-operator|::
-name|handleGeometryChange
-argument_list|(
-name|window
-argument_list|,
-name|obtained
-operator|.
-name|geometry
 argument_list|)
 expr_stmt|;
 return|return
