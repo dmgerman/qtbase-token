@@ -422,13 +422,6 @@ argument_list|(
 name|blueSize
 argument_list|)
 expr_stmt|;
-name|format
-operator|.
-name|setSamples
-argument_list|(
-literal|2
-argument_list|)
-expr_stmt|;
 comment|// Select EGL config based on requested window format
 name|m_eglConfig
 operator|=
