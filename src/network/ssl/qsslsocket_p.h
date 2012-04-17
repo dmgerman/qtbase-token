@@ -625,6 +625,22 @@ literal|0
 block|;
 endif|#
 directive|endif
+name|virtual
+name|qint64
+name|peek
+argument_list|(
+argument|char *data
+argument_list|,
+argument|qint64 maxSize
+argument_list|)
+block|;
+name|virtual
+name|QByteArray
+name|peek
+argument_list|(
+argument|qint64 maxSize
+argument_list|)
+block|;
 comment|// Platform specific functions
 name|virtual
 name|void
