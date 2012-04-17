@@ -33,11 +33,6 @@ include|#
 directive|include
 file|<QtWidgets/qaction.h>
 end_include
-begin_include
-include|#
-directive|include
-file|<QtWidgets/qplatformmenu_qpa.h>
-end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -70,6 +65,12 @@ begin_decl_stmt
 DECL|variable|QStyleOptionMenuItem
 name|class
 name|QStyleOptionMenuItem
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QPlatformMenu
+name|class
+name|QPlatformMenu
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

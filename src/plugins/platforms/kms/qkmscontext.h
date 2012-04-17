@@ -96,6 +96,13 @@ name|eglContext
 argument_list|()
 specifier|const
 block|;
+name|GLuint
+name|defaultFramebufferObject
+argument_list|(
+argument|QPlatformSurface *surface
+argument_list|)
+specifier|const
+block|;
 name|private
 operator|:
 name|QKmsDevice

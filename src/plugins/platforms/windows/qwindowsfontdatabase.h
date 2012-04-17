@@ -208,6 +208,12 @@ name|systemDefaultFont
 argument_list|()
 return|;
 block|}
+name|virtual
+name|bool
+name|fontsAlwaysScalable
+argument_list|()
+specifier|const
+block|;
 specifier|static
 name|QFont
 name|systemDefaultFont

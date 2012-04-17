@@ -324,7 +324,6 @@ name|void
 name|updateGeometry
 parameter_list|()
 function_decl|;
-comment|//### rename to sizeHintChanged()
 name|QGraphicsLayoutItem
 operator|*
 name|parentLayoutItem
@@ -344,7 +343,6 @@ name|isLayout
 argument_list|()
 specifier|const
 expr_stmt|;
-comment|// ###Qt5: Make automatic reparenting work regardless of item/object/widget type.
 name|QGraphicsItem
 operator|*
 name|graphicsItem

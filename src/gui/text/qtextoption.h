@@ -383,10 +383,12 @@ block|}
 name|void
 name|setTabArray
 argument_list|(
+specifier|const
 name|QList
 operator|<
 name|qreal
 operator|>
+operator|&
 name|tabStops
 argument_list|)
 decl_stmt|;
@@ -401,10 +403,12 @@ expr_stmt|;
 name|void
 name|setTabs
 argument_list|(
+specifier|const
 name|QList
 operator|<
 name|Tab
 operator|>
+operator|&
 name|tabStops
 argument_list|)
 decl_stmt|;

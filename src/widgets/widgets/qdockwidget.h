@@ -148,7 +148,7 @@ name|DockWidgetMovable
 operator||
 name|DockWidgetFloatable
 block|,
-comment|// ### remove in 5.0
+comment|// ### Qt 6: remove
 name|NoDockWidgetFeatures
 operator|=
 literal|0x00

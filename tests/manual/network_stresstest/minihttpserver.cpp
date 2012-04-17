@@ -561,9 +561,12 @@ literal|4
 argument_list|,
 name|eol
 operator|-
+name|int
+argument_list|(
 name|strlen
 argument_list|(
 name|http11
+argument_list|)
 argument_list|)
 operator|-
 literal|4

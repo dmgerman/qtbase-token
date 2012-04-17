@@ -472,7 +472,7 @@ name|PE_PanelItemViewItem
 block|,
 name|PE_PanelItemViewRow
 block|,
-comment|// ### Qt 5: remove
+comment|// ### Qt 6: remove
 name|PE_PanelStatusBar
 block|,
 name|PE_IndicatorTabClose
@@ -699,7 +699,7 @@ name|SE_DateTimeEditLayoutItem
 block|,
 name|SE_DialogButtonBoxLayoutItem
 block|,
-comment|// ### remove
+comment|// ### Qt 6: remove
 name|SE_LabelLayoutItem
 block|,
 name|SE_ProgressBarLayoutItem

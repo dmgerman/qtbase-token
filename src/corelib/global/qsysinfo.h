@@ -181,6 +181,10 @@ name|WV_WINDOWS7
 init|=
 literal|0x0090
 block|,
+name|WV_WINDOWS8
+init|=
+literal|0x00a0
+block|,
 name|WV_NT_based
 init|=
 literal|0x00f0
@@ -209,6 +213,10 @@ block|,
 name|WV_6_1
 init|=
 name|WV_WINDOWS7
+block|,
+name|WV_6_2
+init|=
+name|WV_WINDOWS8
 block|,
 name|WV_CE
 init|=

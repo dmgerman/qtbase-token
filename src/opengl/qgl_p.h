@@ -1481,9 +1481,6 @@ block|;     }
 block|}
 decl_stmt|;
 end_decl_stmt
-begin_comment
-comment|// ### make QGLContext a QObject in 5.0 and remove the proxy stuff
-end_comment
 begin_decl_stmt
 name|class
 name|Q_OPENGL_EXPORT

@@ -9036,7 +9036,7 @@ name|ahsv
 operator|.
 name|saturation
 decl_stmt|;
-name|int
+name|uint
 name|v
 init|=
 name|hsv

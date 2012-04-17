@@ -49,6 +49,13 @@ argument|QOpenGLContext *context
 argument_list|)
 specifier|const
 block|;
+name|bool
+name|hasCapability
+argument_list|(
+argument|QPlatformIntegration::Capability cap
+argument_list|)
+specifier|const
+block|;
 name|protected
 operator|:
 name|void

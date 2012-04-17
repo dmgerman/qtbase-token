@@ -106,6 +106,16 @@ argument_list|(
 name|array
 argument_list|)
 block|{
+name|Q_ASSERT
+argument_list|(
+name|data
+argument_list|)
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|array
+argument_list|)
+expr_stmt|;
 name|d
 operator|->
 name|ref

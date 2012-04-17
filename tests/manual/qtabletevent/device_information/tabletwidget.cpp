@@ -297,7 +297,6 @@ name|paintEvent
 parameter_list|(
 name|QPaintEvent
 modifier|*
-name|event
 parameter_list|)
 block|{
 name|QPainter

@@ -999,6 +999,18 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_NO_SSL
+name|QVERIFY
+argument_list|(
+operator|!
+name|useSslSocket
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_SSL
 for|for
 control|(
 name|int
@@ -1057,13 +1069,15 @@ name|QTcpSocket
 argument_list|>
 name|socket
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
 if|if
 condition|(
 name|useSslSocket
 operator|||
 name|isHttps
 condition|)
-block|{
 name|socket
 operator|=
 name|QSharedPointer
@@ -1075,9 +1089,16 @@ operator|new
 name|QSslSocket
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
+endif|#
+directive|endif
+comment|// QT_NO_SSL
+if|if
+condition|(
+name|socket
+operator|.
+name|isNull
+argument_list|()
+condition|)
 name|socket
 operator|=
 name|QSharedPointer
@@ -1089,7 +1110,6 @@ operator|new
 name|QTcpSocket
 argument_list|)
 expr_stmt|;
-block|}
 name|socket
 operator|->
 name|connectToHost
@@ -1128,6 +1148,9 @@ name|encodedHost
 argument_list|()
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
 if|if
 condition|(
 name|isHttps
@@ -1210,6 +1233,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+comment|// QT_NO_SSL
 name|socket
 operator|->
 name|write
@@ -1428,6 +1454,18 @@ argument_list|,
 name|useSslSocket
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_NO_SSL
+name|QVERIFY
+argument_list|(
+operator|!
+name|useSslSocket
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_SSL
 name|qint64
 name|totalBytes
 init|=
@@ -1499,13 +1537,15 @@ name|QTcpSocket
 argument_list|>
 name|socket
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
 if|if
 condition|(
 name|useSslSocket
 operator|||
 name|isHttps
 condition|)
-block|{
 name|socket
 operator|=
 name|QSharedPointer
@@ -1517,9 +1557,16 @@ operator|new
 name|QSslSocket
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
+endif|#
+directive|endif
+comment|// QT_NO_SSL
+if|if
+condition|(
+name|socket
+operator|.
+name|isNull
+argument_list|()
+condition|)
 name|socket
 operator|=
 name|QSharedPointer
@@ -1531,12 +1578,14 @@ operator|new
 name|QTcpSocket
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|isHttps
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
 cast|static_cast
 argument_list|<
 name|QSslSocket
@@ -1598,6 +1647,9 @@ operator|->
 name|ignoreSslErrors
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_SSL
 block|}
 else|else
 block|{
@@ -1952,6 +2004,18 @@ argument_list|,
 name|parallelAttempts
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|QT_NO_SSL
+name|QVERIFY
+argument_list|(
+operator|!
+name|useSslSocket
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_SSL
 name|qint64
 name|totalBytes
 init|=
@@ -2062,7 +2126,12 @@ decl_stmt|;
 name|QTcpSocket
 modifier|*
 name|socket
+init|=
+literal|0
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
 if|if
 condition|(
 name|useSslSocket
@@ -2074,7 +2143,14 @@ operator|=
 operator|new
 name|QSslSocket
 expr_stmt|;
-else|else
+endif|#
+directive|endif
+comment|// QT_NO_SSL
+if|if
+condition|(
+operator|!
+name|socket
+condition|)
 name|socket
 operator|=
 operator|new
@@ -2085,6 +2161,9 @@ condition|(
 name|isHttps
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_SSL
 cast|static_cast
 argument_list|<
 name|QSslSocket
@@ -2137,6 +2216,9 @@ operator|->
 name|ignoreSslErrors
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
+comment|// QT_NO_SSL
 block|}
 else|else
 block|{

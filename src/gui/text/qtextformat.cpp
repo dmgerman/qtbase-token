@@ -5228,16 +5228,10 @@ begin_comment
 comment|/*!     \fn void QTextImageFormat::setWidth(qreal width)      Sets the \a width of the rectangle occupied by the image.      \sa width() setHeight() */
 end_comment
 begin_comment
-comment|// ### Qt5 qreal replace with a QTextLength
-end_comment
-begin_comment
 comment|/*!     \fn qreal QTextImageFormat::width() const      Returns the width of the rectangle occupied by the image.      \sa height() setWidth() */
 end_comment
 begin_comment
 comment|/*!     \fn void QTextImageFormat::setHeight(qreal height)      Sets the \a height of the rectangle occupied by the image.      \sa height() setWidth() */
-end_comment
-begin_comment
-comment|// ### Qt5 qreal replace with a QTextLength
 end_comment
 begin_comment
 comment|/*!     \fn qreal QTextImageFormat::height() const      Returns the height of the rectangle occupied by the image.      \sa width() setHeight() */

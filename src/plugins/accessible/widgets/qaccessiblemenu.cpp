@@ -1156,6 +1156,8 @@ decl_stmt|;
 if|if
 condition|(
 name|own
+operator|&&
+name|own
 operator|->
 name|testAttribute
 argument_list|(
@@ -1253,6 +1255,8 @@ directive|endif
 block|}
 if|if
 condition|(
+name|own
+operator|&&
 name|own
 operator|->
 name|style

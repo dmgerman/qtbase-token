@@ -1141,6 +1141,13 @@ parameter_list|()
 function_decl|;
 endif|#
 directive|endif
+empty|#
+comment|//QTBUG-22717
+empty|#
+comment|/*  */
+empty|#
+empty|# \
+comment|//
 end_signals
 begin_public
 public|public

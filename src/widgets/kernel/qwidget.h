@@ -3048,14 +3048,6 @@ name|backingStore
 argument_list|()
 specifier|const
 expr_stmt|;
-name|void
-name|setWindowHandle
-parameter_list|(
-name|QWindow
-modifier|*
-name|window
-parameter_list|)
-function_decl|;
 name|QWindow
 operator|*
 name|windowHandle

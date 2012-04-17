@@ -15302,7 +15302,7 @@ name|isNull
 argument_list|()
 condition|)
 block|{
-comment|/** ### Qt 5:          *          * If we still have QDom, optimize this so that we only declare namespaces that are not          * yet declared. We loose default namespace mappings, so maybe we should rather store          * the information that we get from startPrefixMapping()/endPrefixMapping() and use them.          * Modifications becomes more complex then, however.          *          * We cannot do this during the Qt 4 series because it would require too invasive changes, and          * hence possibly behavioral changes.          */
+comment|/** ###          *          * If we still have QDom, optimize this so that we only declare namespaces that are not          * yet declared. We loose default namespace mappings, so maybe we should rather store          * the information that we get from startPrefixMapping()/endPrefixMapping() and use them.          * Modifications becomes more complex then, however.          *          * We cannot do this in a patch release because it would require too invasive changes, and          * hence possibly behavioral changes.          */
 if|if
 condition|(
 name|prefix

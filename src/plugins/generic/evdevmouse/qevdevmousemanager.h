@@ -18,11 +18,23 @@ include|#
 directive|include
 file|"qevdevmousehandler.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBUDEV
+end_ifndef
 begin_include
 include|#
 directive|include
 file|<QtPlatformSupport/private/qudevicehelper_p.h>
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_NO_LIBUDEV
+end_comment
 begin_include
 include|#
 directive|include
@@ -106,10 +118,17 @@ operator|*
 operator|>
 name|m_mice
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_LIBUDEV
 name|QUDeviceHelper
 operator|*
 name|m_udeviceHelper
-block|; }
+block|;
+endif|#
+directive|endif
+comment|// QT_NO_LIBUDEV
+block|}
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt

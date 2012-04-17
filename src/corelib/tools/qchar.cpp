@@ -51,11 +51,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qtextcodec.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qunicodetables_p.h"
 end_include
 begin_include
@@ -65,20 +60,6 @@ file|"qunicodetables.cpp"
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
-ifndef|#
-directive|ifndef
-name|QT_NO_CODEC_FOR_C_STRINGS
-ifdef|#
-directive|ifdef
-name|QT_NO_TEXTCODEC
-DECL|macro|QT_NO_CODEC_FOR_C_STRINGS
-define|#
-directive|define
-name|QT_NO_CODEC_FOR_C_STRINGS
-endif|#
-directive|endif
-endif|#
-directive|endif
 DECL|macro|FLAG
 define|#
 directive|define
@@ -87,7 +68,7 @@ parameter_list|(
 name|x
 parameter_list|)
 value|(1<< (x))
-comment|/*!     \class QLatin1Char     \brief The QLatin1Char class provides an 8-bit ASCII/Latin-1 character.      \ingroup string-processing      This class is only useful to avoid the codec for C strings business     in the QChar(ch) constructor. You can avoid it by writing QChar(ch, 0).      \sa QChar, QLatin1String, QString */
+comment|/*!     \class QLatin1Char     \brief The QLatin1Char class provides an 8-bit ASCII/Latin-1 character.      \ingroup string-processing      This class is only useful to construct a QChar with 8-bit character.      \sa QChar, QLatin1String, QString */
 comment|/*!     \fn const char QLatin1Char::toLatin1() const      Converts a Latin-1 character to an 8-bit ASCII representation of the character. */
 comment|/*!     \fn const ushort QLatin1Char::unicode() const      Converts a Latin-1 character to an 16-bit-encoded Unicode representation     of the character. */
 comment|/*!     \fn QLatin1Char::QLatin1Char(char c)      Constructs a Latin-1 character for \a c. This constructor should be     used when the encoding of the input character is known to be Latin-1. */
@@ -380,7 +361,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the character is a number (Number_* categories,     not just 0-9); otherwise returns false.      \sa isDigit() */
+comment|/*!     \fn bool QChar::isNumber() const      Returns true if the character is a number (Number_* categories,     not just 0-9); otherwise returns false.      \sa isDigit() */
+end_comment
+begin_comment
+comment|/*!     \internal     \overload */
 end_comment
 begin_function
 DECL|function|isNumber
@@ -388,8 +372,10 @@ name|bool
 name|QChar
 operator|::
 name|isNumber
-parameter_list|()
-specifier|const
+parameter_list|(
+name|ushort
+name|ucs2
+parameter_list|)
 block|{
 specifier|const
 name|int
@@ -415,7 +401,7 @@ name|FLAG
 argument_list|(
 name|qGetProp
 argument_list|(
-name|ucs
+name|ucs2
 argument_list|)
 operator|->
 name|category
@@ -677,7 +663,8 @@ operator|>
 name|UNICODE_LAST_CODEPOINT
 condition|)
 return|return
-literal|0
+operator|-
+literal|1
 return|;
 return|return
 name|qGetProp
@@ -2409,10 +2396,13 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn char QChar::toLatin1() const      Returns the Latin-1 character equivalent to the QChar, or 0. This     is mainly useful for non-internationalized software.      \sa toAscii(), unicode() */
+comment|/*!     \fn char QChar::toLatin1() const      Returns the Latin-1 character equivalent to the QChar, or 0. This     is mainly useful for non-internationalized software.      \note It is not possible to distinguish a non-Latin-1 character from a Latin-1 0     (NUL) character. Prefer to use unicode(), which does not have this ambiguity.      \sa toAscii(), unicode() */
 end_comment
 begin_comment
-comment|/*!     \fn char QChar::toAscii() const      Returns the Latin-1 character value of the QChar, or 0 if the character is not     representable.      The main purpose of this function is to preserve ASCII characters used     in C strings. This is mainly useful for developers of non-internationalized     software.      \note It is not possible to distinguish a non-Latin 1 character from an ASCII 0     (NUL) character. Prefer to use unicode(), which does not have this ambiguity.      \sa toLatin1(), unicode() */
+comment|/*!     \fn QChar QChar::fromLatin1(char)      Converts the Latin-1 character \a c to its equivalent QChar. This     is mainly useful for non-internationalized software.      An alternative is to use QLatin1Char.      \sa fromAscii(), unicode() */
+end_comment
+begin_comment
+comment|/*!     \fn char QChar::toAscii() const      Returns the Latin-1 character value of the QChar, or 0 if the character is not     representable.      The main purpose of this function is to preserve ASCII characters used     in C strings. This is mainly useful for developers of non-internationalized     software.      \note It is not possible to distinguish a non-Latin 1 character from an ASCII 0     (NUL) character. Prefer to use unicode(), which does not have this ambiguity.      \note This function does not check whether the character value is inside     the valid range of US-ASCII.      \sa toLatin1(), unicode() */
 end_comment
 begin_comment
 comment|/*!     \fn QChar QChar::fromAscii(char)      Converts the ASCII character \a c to it's equivalent QChar. This     is mainly useful for non-internationalized software.      An alternative is to use QLatin1Char.      \sa fromLatin1(), unicode() */
@@ -2507,7 +2497,7 @@ begin_comment
 comment|/*!     \fn ushort& QChar::unicode()      Returns a reference to the numeric Unicode value of the QChar. */
 end_comment
 begin_comment
-comment|/*!     \fn ushort QChar::unicode() const      \overload */
+comment|/*!     \fn ushort QChar::unicode() const      Returns the numeric Unicode value of the QChar. */
 end_comment
 begin_comment
 comment|/*****************************************************************************   Documentation of QChar related functions  *****************************************************************************/

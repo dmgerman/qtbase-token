@@ -388,15 +388,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_destructor
-begin_destructor
-DECL|function|~QSurface
-name|QSurface
-operator|::
-name|~
-name|QSurface
-parameter_list|()
-block|{ }
-end_destructor
 begin_comment
 comment|/*!     Set the \a surfaceType of the window.      Specifies whether the window is meant for raster rendering with     QBackingStore, or OpenGL rendering with QOpenGLContext.      \sa QBackingStore, QOpenGLContext */
 end_comment
@@ -529,6 +520,32 @@ name|this
 argument_list|,
 operator|&
 name|showEvent
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|isModal
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|visible
+condition|)
+name|QGuiApplicationPrivate
+operator|::
+name|showModalWindow
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+else|else
+name|QGuiApplicationPrivate
+operator|::
+name|hideModalWindow
+argument_list|(
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -3691,7 +3708,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle show events.      The show event is called when the window has requested becoming visible.      If the window is successfully shown by the windowing system, this will     be followed by a resize and an expose event. */
+comment|/*!     Override this to handle show events.      The function is called when the window has requested becoming visible.      If the window is successfully shown by the windowing system, this will     be followed by a resize and an expose event. */
 end_comment
 begin_function
 DECL|function|showEvent
@@ -3713,7 +3730,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Override this to handle hide evens.      The hide event is called when the window has requested being hidden in the     windowing system. */
+comment|/*!     Override this to handle hide evens.      The function is called when the window has requested being hidden in the     windowing system. */
 end_comment
 begin_function
 DECL|function|hideEvent
