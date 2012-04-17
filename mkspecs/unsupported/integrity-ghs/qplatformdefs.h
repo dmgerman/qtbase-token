@@ -703,6 +703,26 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// INTEGRITY doesn't enable the declaration in _POSIX_SOURCE mode,
+end_comment
+begin_comment
+comment|// because strdup() is not part of strict Posix; declare it here
+end_comment
+begin_extern
+extern|extern
+literal|"C"
+name|char
+modifier|*
+name|strdup
+parameter_list|(
+specifier|const
+name|char
+modifier|*
+name|src
+parameter_list|)
+function_decl|;
+end_extern
 begin_ifndef
 ifndef|#
 directive|ifndef
