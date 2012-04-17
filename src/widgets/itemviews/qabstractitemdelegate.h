@@ -243,6 +243,15 @@ operator|&
 name|index
 argument_list|)
 block|;
+name|virtual
+name|QSet
+operator|<
+name|int
+operator|>
+name|paintingRoles
+argument_list|()
+specifier|const
+block|;
 name|Q_SIGNALS
 operator|:
 name|void

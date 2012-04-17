@@ -167,11 +167,11 @@ begin_comment
 comment|/*!     \fn QItemSelectionRange QItemSelectionRange::intersected(const QItemSelectionRange&other) const     \since 4.2      Returns a new selection range containing only the items that are found in     both the selection range and the \a other selection range. */
 end_comment
 begin_function
-DECL|function|intersect
+DECL|function|intersected
 name|QItemSelectionRange
 name|QItemSelectionRange
 operator|::
-name|intersect
+name|intersected
 parameter_list|(
 specifier|const
 name|QItemSelectionRange

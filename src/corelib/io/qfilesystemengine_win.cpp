@@ -7,12 +7,6 @@ include|#
 directive|include
 file|"qfilesystemengine_p.h"
 end_include
-begin_define
-DECL|macro|_POSIX_
-define|#
-directive|define
-name|_POSIX_
-end_define
 begin_include
 include|#
 directive|include

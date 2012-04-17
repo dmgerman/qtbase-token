@@ -302,24 +302,6 @@ end_expr_stmt
 begin_comment
 comment|/*    Specialize a shared type with:       Q_DECLARE_SHARED(type);     where 'type' is the name of the type to specialize.  NOTE: shared    types must declare a 'bool isDetached(void) const;' member for this    to work. */
 end_comment
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QT_NO_STL
-end_ifdef
-begin_define
-DECL|macro|Q_DECLARE_SHARED_STL
-define|#
-directive|define
-name|Q_DECLARE_SHARED_STL
-parameter_list|(
-name|TYPE
-parameter_list|)
-end_define
-begin_else
-else|#
-directive|else
-end_else
 begin_define
 DECL|macro|Q_DECLARE_SHARED_STL
 define|#
@@ -331,10 +313,6 @@ parameter_list|)
 define|\
 value|QT_END_NAMESPACE \ namespace std { \     template<> inline void swap<QT_PREPEND_NAMESPACE(TYPE)>(QT_PREPEND_NAMESPACE(TYPE)&value1, QT_PREPEND_NAMESPACE(TYPE)&value2) \     { swap(value1.data_ptr(), value2.data_ptr()); } \ } \ QT_BEGIN_NAMESPACE
 end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_define
 DECL|macro|Q_DECLARE_SHARED
 define|#

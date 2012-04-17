@@ -27,6 +27,11 @@ include|#
 directive|include
 file|"QtCore/qstringlist.h"
 end_include
+begin_include
+include|#
+directive|include
+file|"QtCore/qhash.h"
+end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 DECL|function|containsTLDEntry
@@ -43,7 +48,7 @@ block|{
 name|int
 name|index
 init|=
-name|qHash
+name|qt_hash
 argument_list|(
 name|entry
 argument_list|)

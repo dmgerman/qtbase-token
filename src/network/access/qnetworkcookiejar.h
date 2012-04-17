@@ -48,6 +48,7 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|explicit
 name|QNetworkCookieJar
 argument_list|(
 name|QObject

@@ -3145,53 +3145,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_comment
-comment|/*!     \internal      Called whenever items from the view is dropped on the viewport.     The \a event provides additional information. */
-end_comment
-begin_function
-DECL|function|internalDrop
-name|void
-name|QListView
-operator|::
-name|internalDrop
-parameter_list|(
-name|QDropEvent
-modifier|*
-name|event
-parameter_list|)
-block|{
-comment|// ### Qt5: remove that function
-name|Q_UNUSED
-argument_list|(
-name|event
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-begin_comment
-comment|/*!     \internal      Called whenever the user starts dragging items and the items are movable,     enabling internal dragging and dropping of items. */
-end_comment
-begin_function
-DECL|function|internalDrag
-name|void
-name|QListView
-operator|::
-name|internalDrag
-parameter_list|(
-name|Qt
-operator|::
-name|DropActions
-name|supportedActions
-parameter_list|)
-block|{
-comment|// ### Qt5: remove that function
-name|Q_UNUSED
-argument_list|(
-name|supportedActions
-argument_list|)
-expr_stmt|;
-block|}
-end_function
 begin_endif
 endif|#
 directive|endif

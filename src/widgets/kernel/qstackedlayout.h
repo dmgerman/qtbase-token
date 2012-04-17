@@ -207,6 +207,18 @@ operator|&
 name|rect
 argument_list|)
 block|;
+name|bool
+name|hasHeightForWidth
+argument_list|()
+specifier|const
+block|;
+name|int
+name|heightForWidth
+argument_list|(
+argument|int width
+argument_list|)
+specifier|const
+block|;
 name|Q_SIGNALS
 operator|:
 name|void

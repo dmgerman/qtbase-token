@@ -1108,6 +1108,24 @@ argument_list|)
 expr_stmt|;
 comment|// returns 4
 comment|//! [18]
+comment|//! [95]
+name|QString
+name|str
+init|=
+literal|"banana and panama"
+decl_stmt|;
+name|str
+operator|.
+name|count
+argument_list|(
+name|QRegularExpression
+argument_list|(
+literal|"a[nm]a"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// returns 4
+comment|//! [95]
 block|}
 end_function
 begin_function
@@ -1391,6 +1409,26 @@ argument_list|)
 expr_stmt|;
 comment|// returns 4
 comment|//! [25]
+comment|//! [93]
+name|QString
+name|str
+init|=
+literal|"the minimum"
+decl_stmt|;
+name|str
+operator|.
+name|indexOf
+argument_list|(
+name|QRegularExpression
+argument_list|(
+literal|"m[aeiou]"
+argument_list|)
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// returns 4
+comment|//! [93]
 block|}
 end_function
 begin_function
@@ -1582,6 +1620,24 @@ argument_list|)
 expr_stmt|;
 comment|// returns 8
 comment|//! [30]
+comment|//! [94]
+name|QString
+name|str
+init|=
+literal|"the minimum"
+decl_stmt|;
+name|str
+operator|.
+name|lastIndexOf
+argument_list|(
+name|QRegularExpression
+argument_list|(
+literal|"m[aeiou]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// returns 8
+comment|//! [94]
 block|}
 end_function
 begin_function
@@ -1845,6 +1901,24 @@ argument_list|)
 expr_stmt|;
 comment|// r == "The"
 comment|//! [39]
+comment|//! [96]
+name|QString
+name|r
+init|=
+literal|"Telephone"
+decl_stmt|;
+name|r
+operator|.
+name|remove
+argument_list|(
+name|QRegularExpression
+argument_list|(
+literal|"[aeiou]."
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// r == "The"
+comment|//! [96]
 block|}
 end_function
 begin_function
@@ -1959,6 +2033,46 @@ argument_list|)
 expr_stmt|;
 comment|// equis == "xxx"
 comment|//! [86]
+comment|//! [87]
+name|QString
+name|s
+init|=
+literal|"Banana"
+decl_stmt|;
+name|s
+operator|.
+name|replace
+argument_list|(
+name|QRegularExpression
+argument_list|(
+literal|"a[mn]"
+argument_list|)
+argument_list|,
+literal|"ox"
+argument_list|)
+expr_stmt|;
+comment|// s == "Boxoxa"
+comment|//! [87]
+comment|//! [88]
+name|QString
+name|t
+init|=
+literal|"A<i>bon mot</i>."
+decl_stmt|;
+name|t
+operator|.
+name|replace
+argument_list|(
+name|QRegularExpression
+argument_list|(
+literal|"<i>([^<]*)</i>"
+argument_list|)
+argument_list|,
+literal|"\\emph{\\1}"
+argument_list|)
+expr_stmt|;
+comment|// t == "A \\emph{bon mot}."
+comment|//! [88]
 block|}
 end_function
 begin_function
@@ -2327,7 +2441,7 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-comment|// s == "surname"
+comment|// str == "surname"
 name|str
 operator|=
 name|line
@@ -2343,8 +2457,51 @@ operator|-
 literal|2
 argument_list|)
 expr_stmt|;
-comment|// s == "middlename  surname"
+comment|// str == "middlename  surname"
 comment|//! [55]
+comment|//! [89]
+name|QString
+name|line
+init|=
+literal|"forename\tmiddlename  surname \t \t phone"
+decl_stmt|;
+name|QRegularExpression
+name|sep
+argument_list|(
+literal|"\\s+"
+argument_list|)
+decl_stmt|;
+name|str
+operator|=
+name|line
+operator|.
+name|section
+argument_list|(
+name|sep
+argument_list|,
+literal|2
+argument_list|,
+literal|2
+argument_list|)
+expr_stmt|;
+comment|// str == "surname"
+name|str
+operator|=
+name|line
+operator|.
+name|section
+argument_list|(
+name|sep
+argument_list|,
+operator|-
+literal|3
+argument_list|,
+operator|-
+literal|2
+argument_list|)
+expr_stmt|;
+comment|// str == "middlename  surname"
+comment|//! [89]
 block|}
 end_function
 begin_function
@@ -2523,6 +2680,73 @@ argument_list|)
 expr_stmt|;
 comment|// list: [ "", "Now", ": ", "this", " ", "sentence", " ", "fragment", "." ]
 comment|//! [61]
+comment|//! [90]
+name|QString
+name|str
+decl_stmt|;
+name|QStringList
+name|list
+decl_stmt|;
+name|str
+operator|=
+literal|"Some  text\n\twith  strange whitespace."
+expr_stmt|;
+name|list
+operator|=
+name|str
+operator|.
+name|split
+argument_list|(
+name|QRegularExpression
+argument_list|(
+literal|"\\s+"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// list: [ "Some", "text", "with", "strange", "whitespace." ]
+comment|//! [90]
+comment|//! [91]
+name|str
+operator|=
+literal|"This time, a normal English sentence."
+expr_stmt|;
+name|list
+operator|=
+name|str
+operator|.
+name|split
+argument_list|(
+name|QRegularExpression
+argument_list|(
+literal|"\\W+"
+argument_list|)
+argument_list|,
+name|QString
+operator|::
+name|SkipEmptyParts
+argument_list|)
+expr_stmt|;
+comment|// list: [ "This", "time", "a", "normal", "English", "sentence" ]
+comment|//! [91]
+comment|//! [92]
+name|str
+operator|=
+literal|"Now: this sentence fragment."
+expr_stmt|;
+name|list
+operator|=
+name|str
+operator|.
+name|split
+argument_list|(
+name|QRegularExpression
+argument_list|(
+literal|"\\b"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// list: [ "", "Now", ": ", "this", " ", "sentence", " ", "fragment", "." ]
+comment|//! [92]
 block|}
 end_function
 begin_function

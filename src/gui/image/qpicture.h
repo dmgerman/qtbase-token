@@ -369,10 +369,6 @@ name|QPicturePaintEngine
 block|;
 name|friend
 name|class
-name|Q3Picture
-block|;
-name|friend
-name|class
 name|QAlphaPaintEngine
 block|;
 name|friend

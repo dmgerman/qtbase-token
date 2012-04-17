@@ -224,6 +224,7 @@ name|Alignment
 name|a
 argument_list|)
 decl_stmt|;
+name|virtual
 name|QSizePolicy
 operator|::
 name|ControlTypes
@@ -451,6 +452,13 @@ name|heightForWidth
 argument_list|(
 argument|int
 argument_list|)
+specifier|const
+block|;
+name|QSizePolicy
+operator|::
+name|ControlTypes
+name|controlTypes
+argument_list|()
 specifier|const
 block|;
 name|protected

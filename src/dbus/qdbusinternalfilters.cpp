@@ -149,7 +149,7 @@ literal|"</method>\n"
 literal|"<method name=\"GetAll\">\n"
 literal|"<arg name=\"interface_name\" type=\"s\" direction=\"in\"/>\n"
 literal|"<arg name=\"values\" type=\"a{sv}\" direction=\"out\"/>\n"
-literal|"<annotation name=\"com.trolltech.QtDBus.QtTypeName.Out0\" value=\"QVariantMap\"/>\n"
+literal|"<annotation name=\"org.qtproject.QtDBus.QtTypeName.Out0\" value=\"QVariantMap\"/>\n"
 literal|"</method>\n"
 literal|"</interface>\n"
 decl_stmt|;
@@ -758,7 +758,7 @@ name|createErrorReply
 argument_list|(
 name|QDBusError
 operator|::
-name|InvalidArgs
+name|UnknownProperty
 argument_list|,
 name|QString
 operator|::
@@ -1295,6 +1295,9 @@ block|,
 DECL|enumerator|PropertyTypeMismatch
 name|PropertyTypeMismatch
 block|,
+DECL|enumerator|PropertyReadOnly
+name|PropertyReadOnly
+block|,
 DECL|enumerator|PropertyWriteFailed
 name|PropertyWriteFailed
 block|}
@@ -1360,6 +1363,52 @@ operator|::
 name|fromLatin1
 argument_list|(
 literal|"Invalid arguments for writing to property %1%2%3"
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|interface_name
+argument_list|,
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+name|interface_name
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+literal|""
+else|:
+literal|"."
+argument_list|)
+argument_list|,
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+name|property_name
+argument_list|)
+argument_list|)
+argument_list|)
+return|;
+case|case
+name|PropertyReadOnly
+case|:
+return|return
+name|msg
+operator|.
+name|createErrorReply
+argument_list|(
+name|QDBusError
+operator|::
+name|PropertyReadOnly
+argument_list|,
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"Property %1%2%3 is read-only"
 argument_list|)
 operator|.
 name|arg
@@ -1503,6 +1552,18 @@ argument_list|(
 name|pidx
 argument_list|)
 decl_stmt|;
+comment|// check if this property is writable
+if|if
+condition|(
+operator|!
+name|mp
+operator|.
+name|isWritable
+argument_list|()
+condition|)
+return|return
+name|PropertyReadOnly
+return|;
 comment|// check if this property is exported
 name|bool
 name|isScriptable

@@ -5975,6 +5975,24 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_comment
+comment|/*!     \internal      This method is reserved for future use. */
+end_comment
+begin_function
+DECL|function|viewportSizeHint
+name|QSize
+name|QAbstractScrollArea
+operator|::
+name|viewportSizeHint
+parameter_list|()
+specifier|const
+block|{
+return|return
+name|QSize
+argument_list|()
+return|;
+block|}
+end_function
 begin_macro
 name|QT_END_NAMESPACE
 end_macro

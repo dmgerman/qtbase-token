@@ -408,8 +408,19 @@ name|tp
 operator|==
 name|QMetaType
 operator|::
-name|Void
+name|UnknownType
 condition|)
+block|{
+name|Q_ASSERT
+argument_list|(
+name|tp
+operator|!=
+name|QMetaType
+operator|::
+name|Void
+argument_list|)
+expr_stmt|;
+comment|// void parameter => metaobject is corrupt
 name|qWarning
 argument_list|(
 literal|"Don't know how to handle '%s', use qRegisterMetaType to register it."
@@ -425,6 +436,7 @@ name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|args
 operator|<<
 name|tp

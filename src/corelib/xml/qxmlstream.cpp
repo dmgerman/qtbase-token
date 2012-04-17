@@ -7934,7 +7934,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!  Convenience function to be called in case a StartElement was   read. Reads until the corresponding EndElement and returns all text   in-between. In case of no error, the current token (see tokenType())   after having called this function is EndElement.    The function concatenates text() when it reads either \l Characters   or EntityReference tokens, but skips ProcessingInstruction and \l   Comment. If the current token is not StartElement, an empty string is   returned.    The \a behaviour defines what happens in case anything else is   read before reaching EndElement. The function can include the text from   child elements (useful for example for HTML), ignore child elements, or   raise an UnexpectedElementError and return what was read so far.    \since 4.6  */
+comment|/*!  Convenience function to be called in case a StartElement was   read. Reads until the corresponding EndElement and returns all text   in-between. In case of no error, the current token (see tokenType())   after having called this function is EndElement.    The function concatenates text() when it reads either \l Characters   or EntityReference tokens, but skips ProcessingInstruction and \l   Comment. If the current token is not StartElement, an empty string is   returned.    The \a behaviour defines what happens in case anything else is   read before reaching EndElement. The function can include the text from   child elements (useful for example for HTML), ignore child elements, or   raise an UnexpectedElementError and return what was read so far (default).    \since 4.6  */
 end_comment
 begin_function
 DECL|function|readElementText
@@ -8089,25 +8089,6 @@ block|}
 return|return
 name|QString
 argument_list|()
-return|;
-block|}
-end_function
-begin_comment
-comment|/*!   \overload readElementText()    Calling this function is equivalent to calling readElementText(ErrorOnUnexpectedElement).  */
-end_comment
-begin_function
-DECL|function|readElementText
-name|QString
-name|QXmlStreamReader
-operator|::
-name|readElementText
-parameter_list|()
-block|{
-return|return
-name|readElementText
-argument_list|(
-name|ErrorOnUnexpectedElement
-argument_list|)
 return|;
 block|}
 end_function

@@ -36,6 +36,12 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QDirIterator
+name|class
+name|QDirIterator
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QDirPrivate
 name|class
 name|QDirPrivate
@@ -899,6 +905,10 @@ name|d_ptr
 expr_stmt|;
 name|private
 label|:
+name|friend
+name|class
+name|QDirIterator
+decl_stmt|;
 comment|// Q_DECLARE_PRIVATE equivalent for shared data pointers
 name|QDirPrivate
 modifier|*

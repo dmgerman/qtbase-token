@@ -17053,9 +17053,12 @@ argument_list|()
 condition|?
 literal|""
 else|:
+name|QString
+argument_list|(
 literal|"\\"
 operator|+
 name|quote
+argument_list|)
 decl_stmt|;
 name|QString
 name|newline

@@ -6260,6 +6260,94 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"void"
+argument_list|)
+operator|<<
+literal|"void foo(void)"
+operator|<<
+literal|"void foo()"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"void spaces"
+argument_list|)
+operator|<<
+literal|"void foo( void )"
+operator|<<
+literal|"void foo()"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"void*"
+argument_list|)
+operator|<<
+literal|"void foo(void*)"
+operator|<<
+literal|"void foo(void*)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"void* spaces"
+argument_list|)
+operator|<<
+literal|"void foo( void * )"
+operator|<<
+literal|"void foo(void*)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"function ptr"
+argument_list|)
+operator|<<
+literal|"void foo(void(*)(void))"
+operator|<<
+literal|"void foo(void(*)())"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"function ptr spaces"
+argument_list|)
+operator|<<
+literal|"void foo( void ( * ) ( void ))"
+operator|<<
+literal|"void foo(void(*)())"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"function ptr void*"
+argument_list|)
+operator|<<
+literal|"void foo(void(*)(void*))"
+operator|<<
+literal|"void foo(void(*)(void*))"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"function ptr void* spaces"
+argument_list|)
+operator|<<
+literal|"void foo( void ( * ) ( void * ))"
+operator|<<
+literal|"void foo(void(*)(void*))"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"template args"
 argument_list|)
 operator|<<
@@ -6271,12 +6359,45 @@ name|QTest
 operator|::
 name|newRow
 argument_list|(
+literal|"void template args"
+argument_list|)
+operator|<<
+literal|" void  foo( Foo<void>, Bar<void> ) "
+operator|<<
+literal|"void foo(Foo<void>,Bar<void>)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"void* template args"
+argument_list|)
+operator|<<
+literal|" void  foo( Foo<void*>, Bar<void *> ) "
+operator|<<
+literal|"void foo(Foo<void*>,Bar<void*>)"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
 literal|"rettype"
 argument_list|)
 operator|<<
 literal|"QList<int, int> foo()"
 operator|<<
 literal|"QList<int,int>foo()"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"rettype void template"
+argument_list|)
+operator|<<
+literal|"Foo<void> foo()"
+operator|<<
+literal|"Foo<void>foo()"
 expr_stmt|;
 name|QTest
 operator|::
@@ -6800,6 +6921,17 @@ operator|<<
 literal|"enum foo"
 operator|<<
 literal|"foo"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"void"
+argument_list|)
+operator|<<
+literal|"void"
+operator|<<
+literal|"void"
 expr_stmt|;
 block|}
 end_function
@@ -7713,10 +7845,13 @@ name|QCOMPARE
 argument_list|(
 name|signal
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 argument_list|,
+name|QByteArray
+argument_list|(
 literal|"value6Changed()"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|prop
@@ -7760,10 +7895,13 @@ name|QCOMPARE
 argument_list|(
 name|signal
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 argument_list|,
+name|QByteArray
+argument_list|(
 literal|"value7Changed(QString)"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|prop
@@ -7808,15 +7946,11 @@ name|QCOMPARE
 argument_list|(
 name|signal
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 argument_list|,
-operator|(
-specifier|const
-name|char
-operator|*
-operator|)
-literal|0
+name|QByteArray
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|prop
@@ -7861,15 +7995,11 @@ name|QCOMPARE
 argument_list|(
 name|signal
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 argument_list|,
-operator|(
-specifier|const
-name|char
-operator|*
-operator|)
-literal|0
+name|QByteArray
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -8921,13 +9051,10 @@ argument_list|(
 name|idx
 argument_list|)
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 argument_list|,
 name|name
-operator|.
-name|constData
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|QCOMPARE

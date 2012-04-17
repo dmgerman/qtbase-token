@@ -726,37 +726,6 @@ name|clipBoundingRect
 argument_list|()
 specifier|const
 block|;
-ifdef|#
-directive|ifdef
-name|Q_NO_USING_KEYWORD
-specifier|inline
-name|void
-name|drawEllipse
-argument_list|(
-argument|const QRect&rect
-argument_list|)
-block|{
-name|QPaintEngineEx
-operator|::
-name|drawEllipse
-argument_list|(
-name|rect
-argument_list|)
-block|; }
-else|#
-directive|else
-name|using
-name|QPaintEngineEx
-operator|::
-name|drawPolygon
-block|;
-name|using
-name|QPaintEngineEx
-operator|::
-name|drawEllipse
-block|;
-endif|#
-directive|endif
 name|void
 name|releaseBuffer
 argument_list|()

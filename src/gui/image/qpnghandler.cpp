@@ -671,7 +671,7 @@ block|,
 literal|0x82
 block|}
 decl_stmt|;
-name|qMemCopy
+name|memcpy
 argument_list|(
 name|data
 argument_list|,
@@ -3235,7 +3235,7 @@ name|size
 argument_list|()
 index|]
 decl_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|text_ptr
 argument_list|,

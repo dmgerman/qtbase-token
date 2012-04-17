@@ -1,6 +1,6 @@
 begin_unit
 begin_comment
-comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Contact: http://www.qt-project.org/ ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
+comment|/**************************************************************************** ** ** Copyright (C) 2012 Nokia Corporation and/or its subsidiary(-ies). ** Copyright (C) 2012 Intel Corporation. ** Contact: http://www.qt-project.org/ ** ** This file is part of the test suite of the Qt Toolkit. ** ** $QT_BEGIN_LICENSE:LGPL$ ** GNU Lesser General Public License Usage ** This file may be used under the terms of the GNU Lesser General Public ** License version 2.1 as published by the Free Software Foundation and ** appearing in the file LICENSE.LGPL included in the packaging of this ** file. Please review the following information to ensure the GNU Lesser ** General Public License version 2.1 requirements will be met: ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html. ** ** In addition, as a special exception, Nokia gives you certain additional ** rights. These rights are described in the Nokia Qt LGPL Exception ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package. ** ** GNU General Public License Usage ** Alternatively, this file may be used under the terms of the GNU General ** Public License version 3.0 as published by the Free Software Foundation ** and appearing in the file LICENSE.GPL included in the packaging of this ** file. Please review the following information to ensure the GNU General ** Public License version 3.0 requirements will be met: ** http://www.gnu.org/copyleft/gpl.html. ** ** Other Usage ** Alternatively, this file may be used in accordance with the terms and ** conditions contained in a signed written agreement between you and Nokia. ** ** ** ** ** ** ** $QT_END_LICENSE$ ** ****************************************************************************/
 end_comment
 begin_include
 include|#
@@ -628,6 +628,27 @@ argument_list|)
 operator|<<
 literal|4
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"ip4_06"
+argument_list|)
+operator|<<
+name|QString
+argument_list|(
+literal|"123.0.0"
+argument_list|)
+operator|<<
+literal|true
+operator|<<
+name|QString
+argument_list|(
+literal|"123.0.0.0"
+argument_list|)
+operator|<<
+literal|4
+expr_stmt|;
 comment|// for the format of IPv6 addresses see also RFC 5952
 name|QTest
 operator|::
@@ -645,7 +666,7 @@ literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"FEDC:BA98:7654:3210:FEDC:BA98:7654:3210"
+literal|"fedc:ba98:7654:3210:fedc:ba98:7654:3210"
 argument_list|)
 operator|<<
 literal|6
@@ -666,7 +687,7 @@ literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"1080::8:800:200C:417A"
+literal|"1080::8:800:200c:417a"
 argument_list|)
 operator|<<
 literal|6
@@ -687,7 +708,7 @@ literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"1080::8:800:200C:417A"
+literal|"1080::8:800:200c:417a"
 argument_list|)
 operator|<<
 literal|6
@@ -708,7 +729,7 @@ literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"1080::8:800:200C:417A"
+literal|"1080::8:800:200c:417a"
 argument_list|)
 operator|<<
 literal|6
@@ -729,7 +750,7 @@ literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"FF01::43"
+literal|"ff01::43"
 argument_list|)
 operator|<<
 literal|6
@@ -813,7 +834,7 @@ literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"::D01:4403"
+literal|"::13.1.68.3"
 argument_list|)
 operator|<<
 literal|6
@@ -834,7 +855,7 @@ literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"::D01:4403"
+literal|"::13.1.68.3"
 argument_list|)
 operator|<<
 literal|6
@@ -855,7 +876,7 @@ literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"::FFFF:8190:3426"
+literal|"::ffff:129.144.52.38"
 argument_list|)
 operator|<<
 literal|6
@@ -876,7 +897,7 @@ literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"::FFFF:8190:3426"
+literal|"::ffff:129.144.52.38"
 argument_list|)
 operator|<<
 literal|6
@@ -897,7 +918,7 @@ literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"1::FFFF:8190:3426"
+literal|"1::ffff:8190:3426"
 argument_list|)
 operator|<<
 literal|6
@@ -918,7 +939,7 @@ literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"A:B::D:E"
+literal|"a:b::d:e"
 argument_list|)
 operator|<<
 literal|6
@@ -939,7 +960,7 @@ literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"1080:0:1:0:8:800:200C:417A"
+literal|"1080:0:1:0:8:800:200c:417a"
 argument_list|)
 operator|<<
 literal|6
@@ -960,7 +981,7 @@ literal|true
 operator|<<
 name|QString
 argument_list|(
-literal|"1080:0:1:0:8:800:200C:0"
+literal|"1080:0:1:0:8:800:200c:0"
 argument_list|)
 operator|<<
 literal|6
@@ -1180,6 +1201,7 @@ argument_list|()
 operator|<<
 literal|0
 expr_stmt|;
+comment|//QTest::newRow("error_ip4_02")<< QString("123.0.0")<< false<< QString()<< 0; // no longer invalid in Qt5
 name|QTest
 operator|::
 name|newRow
@@ -1189,7 +1211,7 @@ argument_list|)
 operator|<<
 name|QString
 argument_list|(
-literal|"123.0.0"
+literal|"123.0.0."
 argument_list|)
 operator|<<
 literal|false
@@ -2524,6 +2546,25 @@ operator|==
 name|second
 argument_list|,
 name|result
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|result
+operator|==
+literal|true
+condition|)
+name|QVERIFY
+argument_list|(
+name|qHash
+argument_list|(
+name|first
+argument_list|)
+operator|==
+name|qHash
+argument_list|(
+name|second
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -1587,11 +1587,9 @@ name|readElementText
 parameter_list|(
 name|ReadElementTextBehaviour
 name|behaviour
+init|=
+name|ErrorOnUnexpectedElement
 parameter_list|)
-function_decl|;
-name|QString
-name|readElementText
-parameter_list|()
 function_decl|;
 name|QStringRef
 name|name

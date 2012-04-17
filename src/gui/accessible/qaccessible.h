@@ -53,6 +53,11 @@ include|#
 directive|include
 file|<QtGui/qevent.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<stdlib.h>
+end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -592,7 +597,7 @@ comment|// quint64 alertHigh : 1;
 name|State
 argument_list|()
 block|{
-name|qMemSet
+name|memset
 argument_list|(
 name|this
 argument_list|,

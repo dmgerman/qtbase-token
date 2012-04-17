@@ -2268,7 +2268,7 @@ literal|0
 argument_list|)
 decl|const
 decl_stmt|;
-name|qlonglong
+name|qulonglong
 name|toULongLong
 argument_list|(
 specifier|const

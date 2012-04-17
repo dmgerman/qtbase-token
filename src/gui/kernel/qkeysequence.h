@@ -263,17 +263,9 @@ argument_list|()
 expr_stmt|;
 name|QKeySequence
 argument_list|(
-specifier|const
-name|QString
-operator|&
-name|key
-argument_list|)
-expr_stmt|;
-name|QKeySequence
-argument_list|(
 argument|const QString&key
 argument_list|,
-argument|SequenceFormat format
+argument|SequenceFormat format = NativeText
 argument_list|)
 empty_stmt|;
 name|QKeySequence
@@ -754,12 +746,6 @@ name|ks
 operator|)
 expr_stmt|;
 end_expr_stmt
-begin_decl_stmt
-name|friend
-name|class
-name|Q3AccelManager
-decl_stmt|;
-end_decl_stmt
 begin_decl_stmt
 name|friend
 name|class

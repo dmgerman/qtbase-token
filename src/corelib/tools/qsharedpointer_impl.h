@@ -66,6 +66,14 @@ end_include
 begin_comment
 comment|// for qobject_cast
 end_comment
+begin_include
+include|#
+directive|include
+file|<QtCore/qhash.h>
+end_include
+begin_comment
+comment|// for qHash
+end_comment
 begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -300,7 +308,7 @@ expr_stmt|;
 comment|// used in debug mode to verify the reuse of pointers
 name|Q_CORE_EXPORT
 name|void
-name|internalSafetyCheckAdd2
+name|internalSafetyCheckAdd
 parameter_list|(
 specifier|const
 name|void
@@ -314,7 +322,7 @@ parameter_list|)
 function_decl|;
 name|Q_CORE_EXPORT
 name|void
-name|internalSafetyCheckRemove2
+name|internalSafetyCheckRemove
 parameter_list|(
 specifier|const
 name|void
@@ -1049,7 +1057,7 @@ modifier|*
 name|self
 parameter_list|)
 block|{
-name|internalSafetyCheckRemove2
+name|internalSafetyCheckRemove
 argument_list|(
 name|self
 argument_list|)
@@ -1237,7 +1245,7 @@ modifier|*
 name|self
 parameter_list|)
 block|{
-name|internalSafetyCheckRemove2
+name|internalSafetyCheckRemove
 argument_list|(
 name|self
 argument_list|)
@@ -1620,7 +1628,7 @@ if|if
 condition|(
 name|ptr
 condition|)
-name|internalSafetyCheckAdd2
+name|internalSafetyCheckAdd
 argument_list|(
 name|d
 argument_list|,
@@ -2494,7 +2502,68 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_function
+specifier|inline
+name|void
+name|reset
+parameter_list|()
+block|{
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+begin_function
+specifier|inline
+name|void
+name|reset
+parameter_list|(
+name|T
+modifier|*
+name|t
+parameter_list|)
+block|{
+name|QSharedPointer
+name|copy
+argument_list|(
+name|t
+argument_list|)
+decl_stmt|;
+name|swap
+argument_list|(
+name|copy
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|Deleter
+operator|>
+specifier|inline
+name|void
+name|reset
+argument_list|(
+argument|T *t
+argument_list|,
+argument|Deleter deleter
+argument_list|)
+block|{
+name|QSharedPointer
+name|copy
+argument_list|(
+name|t
+argument_list|,
+name|deleter
+argument_list|)
+block|;
+name|swap
+argument_list|(
+name|copy
+argument_list|)
+block|; }
 name|template
 operator|<
 name|class
@@ -4226,31 +4295,14 @@ operator|<
 name|class
 name|T
 operator|>
-specifier|inline
-name|uint
-name|qHash
-argument_list|(
-specifier|const
-name|T
-operator|*
-name|key
-argument_list|)
-expr_stmt|;
-end_expr_stmt
-begin_comment
-comment|// defined in qhash.h
-end_comment
-begin_expr_stmt
-name|template
-operator|<
-name|class
-name|T
-operator|>
 name|Q_INLINE_TEMPLATE
 name|uint
 name|qHash
 argument_list|(
 argument|const QSharedPointer<T>&ptr
+argument_list|,
+argument|uint seed =
+literal|0
 argument_list|)
 block|{
 return|return
@@ -4258,15 +4310,14 @@ name|QT_PREPEND_NAMESPACE
 argument_list|(
 name|qHash
 argument_list|)
-operator|<
-name|T
-operator|>
-operator|(
+argument_list|(
 name|ptr
 operator|.
 name|data
 argument_list|()
-operator|)
+argument_list|,
+name|seed
+argument_list|)
 return|;
 block|}
 end_expr_stmt
@@ -4325,9 +4376,6 @@ argument_list|(
 name|p2
 argument_list|)
 block|; }
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
 name|QT_END_NAMESPACE
 name|namespace
 name|std
@@ -4355,8 +4403,6 @@ argument_list|)
 block|; }
 block|}
 name|QT_BEGIN_NAMESPACE
-endif|#
-directive|endif
 name|namespace
 name|QtSharedPointer
 block|{

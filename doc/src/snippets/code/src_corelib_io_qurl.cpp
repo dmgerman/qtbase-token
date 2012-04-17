@@ -128,7 +128,7 @@ name|http
 label|:
 end_label
 begin_comment
-comment|//www.example.com/cgi-bin/drawgraph.cgi?type-pie/color-green
+comment|//www.example.com/cgi-bin/drawgraph.cgi?type(pie)color(green)
 end_comment
 begin_comment
 comment|//! [4]

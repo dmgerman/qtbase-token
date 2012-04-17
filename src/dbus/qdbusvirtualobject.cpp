@@ -51,7 +51,7 @@ begin_comment
 comment|/*!     \internal     \fn bool QDBusVirtualObject::handleMessage(const QDBusMessage&message, const QDBusConnection&connection) = 0      This function needs to handle all messages to the path of the     virtual object, when the SubPath option is specified.     The service, path, interface and methos are all part of the message.     Must return true when the message is handled, otherwise false (will generate dbus error message). */
 end_comment
 begin_comment
-comment|/*!     \internal     \fn QString QDBusVirtualObject::introspect(const QString&path) const      This function needs to handle the introspection of the     virtual object. It must return xml of the form:      \code<interface name="com.trolltech.QtDBus.MyObject"><property access="readwrite" type="i" name="prop1" /></interface>     \endcode      If you pass the SubPath option, this introspection has to include all child nodes.     Otherwise QDBus handles the introspection of the child nodes. */
+comment|/*!     \internal     \fn QString QDBusVirtualObject::introspect(const QString&path) const      This function needs to handle the introspection of the     virtual object. It must return xml of the form:      \code<interface name="org.qtproject.QtDBus.MyObject"><property access="readwrite" type="i" name="prop1" /></interface>     \endcode      If you pass the SubPath option, this introspection has to include all child nodes.     Otherwise QDBus handles the introspection of the child nodes. */
 end_comment
 begin_endif
 endif|#

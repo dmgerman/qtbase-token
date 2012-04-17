@@ -765,6 +765,12 @@ argument_list|,
 argument|const QVariant::Private *
 argument_list|)
 block|{
+comment|// It is not possible to construct a QVariant containing not fully defined type
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
+block|;
 return|return
 name|false
 return|;
@@ -849,11 +855,33 @@ name|void
 modifier|*
 parameter_list|)
 block|{
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
+expr_stmt|;
 return|return
 name|true
 return|;
 block|}
 end_function
+begin_decl_stmt
+name|bool
+name|delegate
+argument_list|(
+specifier|const
+name|QMetaTypeSwitcher
+operator|::
+name|UnknownType
+operator|*
+argument_list|)
+block|{
+return|return
+name|true
+return|;
+comment|// for historical reason invalid variant == invalid variant
+block|}
+end_decl_stmt
 begin_decl_stmt
 name|bool
 name|delegate
@@ -916,6 +944,112 @@ block|{
 comment|/// \internal
 comment|/// This class checks if a type T has method called isNull. Result is kept in the Value property
 comment|/// TODO Can we somehow generalize it? A macro version?
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_COMPILER_DECLTYPE
+argument_list|)
+comment|// C++11 version
+name|template
+operator|<
+name|typename
+name|T
+operator|>
+name|class
+name|HasIsNullMethod
+block|{         struct
+name|Yes
+block|{
+name|char
+name|unused
+index|[
+literal|1
+index|]
+block|; }
+block|;         struct
+name|No
+block|{
+name|char
+name|unused
+index|[
+literal|2
+index|]
+block|; }
+block|;
+name|Q_STATIC_ASSERT
+argument_list|(
+sizeof|sizeof
+argument_list|(
+name|Yes
+argument_list|)
+operator|!=
+sizeof|sizeof
+argument_list|(
+name|No
+argument_list|)
+argument_list|)
+block|;
+name|template
+operator|<
+name|class
+name|C
+operator|>
+specifier|static
+name|decltype
+argument_list|(
+argument|static_cast<const C*>(
+literal|0
+argument|)->isNull()
+argument_list|,
+argument|Yes()
+argument_list|)
+name|test
+argument_list|(
+name|int
+argument_list|)
+block|;
+name|template
+operator|<
+name|class
+name|C
+operator|>
+specifier|static
+name|No
+name|test
+argument_list|(
+operator|...
+argument_list|)
+block|;
+name|public
+operator|:
+specifier|static
+specifier|const
+name|bool
+name|Value
+operator|=
+operator|(
+sizeof|sizeof
+argument_list|(
+name|test
+operator|<
+name|T
+operator|>
+operator|(
+literal|0
+operator|)
+argument_list|)
+operator|==
+sizeof|sizeof
+argument_list|(
+name|Yes
+argument_list|)
+operator|)
+block|;     }
+block|;
+else|#
+directive|else
+comment|// C++98 version (doesn't work for final classes)
 name|template
 operator|<
 name|typename
@@ -982,6 +1116,7 @@ name|public
 name|FallbackMixin
 block|{}
 block|;
+comment|//<- doesn't work for final classes
 name|template
 operator|<
 name|class
@@ -1084,6 +1219,8 @@ operator|=
 name|false
 block|;     }
 block|;
+endif|#
+directive|endif
 comment|// TODO This part should go to autotests during HasIsNullMethod generalization.
 name|Q_STATIC_ASSERT
 argument_list|(
@@ -1139,6 +1276,57 @@ argument_list|(
 name|HasIsNullMethod
 operator|<
 name|SelfTest3
+operator|>
+operator|::
+name|Value
+argument_list|)
+block|;     struct
+name|SelfTestFinal1
+name|Q_DECL_FINAL_CLASS
+block|{
+name|bool
+name|isNull
+argument_list|()
+specifier|const
+block|; }
+block|;
+name|Q_STATIC_ASSERT
+argument_list|(
+name|HasIsNullMethod
+operator|<
+name|SelfTestFinal1
+operator|>
+operator|::
+name|Value
+argument_list|)
+block|;     struct
+name|SelfTestFinal2
+name|Q_DECL_FINAL_CLASS
+block|{}
+block|;
+name|Q_STATIC_ASSERT
+argument_list|(
+operator|!
+name|HasIsNullMethod
+operator|<
+name|SelfTestFinal2
+operator|>
+operator|::
+name|Value
+argument_list|)
+block|;     struct
+name|SelfTestFinal3
+name|Q_DECL_FINAL_CLASS
+operator|:
+name|public
+name|SelfTest1
+block|{}
+block|;
+name|Q_STATIC_ASSERT
+argument_list|(
+name|HasIsNullMethod
+operator|<
+name|SelfTestFinal3
 operator|>
 operator|::
 name|Value
@@ -1352,6 +1540,11 @@ name|void
 modifier|*
 parameter_list|)
 block|{
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
+expr_stmt|;
 return|return
 name|m_d
 operator|->
@@ -1366,10 +1559,34 @@ argument_list|(
 specifier|const
 name|QMetaTypeSwitcher
 operator|::
+name|UnknownType
+operator|*
+argument_list|)
+block|{
+return|return
+name|m_d
+operator|->
+name|is_null
+return|;
+block|}
+end_decl_stmt
+begin_decl_stmt
+name|bool
+name|delegate
+argument_list|(
+specifier|const
+name|QMetaTypeSwitcher
+operator|::
 name|NotBuiltinType
 operator|*
 argument_list|)
 block|{
+comment|// QVariantIsNull is used only for built-in types
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
+expr_stmt|;
 return|return
 name|m_d
 operator|->
@@ -1715,22 +1932,11 @@ argument_list|(
 argument|const QMetaTypeSwitcher::NotBuiltinType*
 argument_list|)
 block|{
-name|qWarning
+comment|// QVariantConstructor is used only for built-in types.
+name|Q_ASSERT
 argument_list|(
-literal|"Trying to construct an instance of an invalid type, type id: %i"
-argument_list|,
-name|m_x
-operator|->
-name|type
+name|false
 argument_list|)
-block|;
-name|m_x
-operator|->
-name|type
-operator|=
-name|QVariant
-operator|::
-name|Invalid
 block|;     }
 name|void
 name|delegate
@@ -1738,8 +1944,19 @@ argument_list|(
 argument|const void*
 argument_list|)
 block|{
-comment|// QMetaType::Void == QVariant::Invalid, creating an invalid value creates invalid QVariant
-comment|// TODO it might go away, check is needed
+name|qWarning
+argument_list|(
+literal|"Trying to create a QVariant instance of QMetaType::Void type, an invalid QVariant will be constructed instead"
+argument_list|)
+block|;
+name|m_x
+operator|->
+name|type
+operator|=
+name|QMetaType
+operator|::
+name|UnknownType
+block|;
 name|m_x
 operator|->
 name|is_shared
@@ -1753,8 +1970,59 @@ operator|=
 operator|!
 name|m_copy
 block|;     }
-name|private
-operator|:
+name|void
+name|delegate
+argument_list|(
+argument|const QMetaTypeSwitcher::UnknownType*
+argument_list|)
+block|{
+if|if
+condition|(
+name|m_x
+operator|->
+name|type
+operator|!=
+name|QMetaType
+operator|::
+name|UnknownType
+condition|)
+block|{
+name|qWarning
+argument_list|(
+literal|"Trying to construct an instance of an invalid type, type id: %i"
+argument_list|,
+name|m_x
+operator|->
+name|type
+argument_list|)
+expr_stmt|;
+name|m_x
+operator|->
+name|type
+operator|=
+name|QMetaType
+operator|::
+name|UnknownType
+expr_stmt|;
+block|}
+name|m_x
+operator|->
+name|is_shared
+operator|=
+name|false
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|m_x
+operator|->
+name|is_null
+operator|=
+operator|!
+name|m_copy
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+unit|} private:
 name|QVariant
 operator|::
 name|Private
@@ -1833,8 +2101,13 @@ name|FilteredDestructor
 argument_list|(
 argument|QVariant::Private *
 argument_list|)
-block|{}
-comment|// ignore non accessible types
+block|{
+comment|// It is not possible to create not accepted type
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
+block|;         }
 block|}
 block|;
 name|public
@@ -1903,22 +2176,30 @@ argument_list|(
 argument|const QMetaTypeSwitcher::NotBuiltinType*
 argument_list|)
 block|{
-name|qWarning
+comment|// QVariantDestructor class is used only for a built-in type
+name|Q_ASSERT
 argument_list|(
-literal|"Trying to destruct an instance of an invalid type, type id: %i"
-argument_list|,
-name|m_d
-operator|->
-name|type
+name|false
 argument_list|)
 block|;     }
 comment|// Ignore nonconstructible type
 name|void
 name|delegate
 argument_list|(
-argument|const void*
+argument|const QMetaTypeSwitcher::UnknownType*
 argument_list|)
 block|{}
+name|void
+name|delegate
+argument_list|(
+argument|const void*
+argument_list|)
+block|{
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
+block|; }
 name|private
 operator|:
 name|QVariant
@@ -1950,16 +2231,6 @@ operator|*
 name|handler
 argument_list|)
 decl_stmt|;
-name|Q_CORE_EXPORT
-name|void
-name|unregisterHandler
-parameter_list|(
-specifier|const
-name|int
-comment|/* Modules::Names */
-name|name
-parameter_list|)
-function_decl|;
 block|}
 end_decl_stmt
 begin_if
@@ -2040,23 +2311,17 @@ operator|>
 block|{
 name|Filtered
 argument_list|(
-argument|QDebug dbg
+argument|QDebug
+comment|/* dbg */
 argument_list|,
-argument|QVariant::Private *d
+argument|QVariant::Private *
 argument_list|)
 block|{
-name|dbg
-operator|.
-name|nospace
-argument_list|()
-operator|<<
-literal|"QVariant::Type("
-operator|<<
-name|d
-operator|->
-name|type
-operator|<<
-literal|")"
+comment|// It is not possible to construct not acccepted type, QVariantConstructor creates an invalid variant for them
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
 block|;         }
 block|}
 block|;
@@ -2112,19 +2377,16 @@ argument_list|(
 argument|const QMetaTypeSwitcher::NotBuiltinType*
 argument_list|)
 block|{
-name|qWarning
+comment|// QVariantDebugStream class is used only for a built-in type
+name|Q_ASSERT
 argument_list|(
-literal|"Trying to stream an instance of an invalid type, type id: %i"
-argument_list|,
-name|m_d
-operator|->
-name|type
+name|false
 argument_list|)
 block|;     }
 name|void
 name|delegate
 argument_list|(
-argument|const void*
+argument|const QMetaTypeSwitcher::UnknownType*
 argument_list|)
 block|{
 name|m_debugStream
@@ -2134,6 +2396,17 @@ argument_list|()
 operator|<<
 literal|"QVariant::Invalid"
 block|;     }
+name|void
+name|delegate
+argument_list|(
+argument|const void*
+argument_list|)
+block|{
+name|Q_ASSERT
+argument_list|(
+name|false
+argument_list|)
+block|; }
 name|private
 operator|:
 name|QDebug

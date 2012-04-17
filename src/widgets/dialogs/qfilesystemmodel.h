@@ -470,11 +470,12 @@ block|;
 name|bool
 name|rmdir
 argument_list|(
-argument|const QModelIndex&index
-argument_list|)
 specifier|const
+name|QModelIndex
+operator|&
+name|index
+argument_list|)
 block|;
-comment|// ### Qt5: should not be const
 specifier|inline
 name|QString
 name|fileName
@@ -511,9 +512,11 @@ block|;
 name|bool
 name|remove
 argument_list|(
-argument|const QModelIndex&index
-argument_list|)
 specifier|const
+name|QModelIndex
+operator|&
+name|index
+argument_list|)
 block|;
 name|protected
 operator|:

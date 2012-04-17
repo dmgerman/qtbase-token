@@ -15348,7 +15348,7 @@ name|QString
 operator|::
 name|fromUtf8
 argument_list|(
-literal|"\320\222\321\201"
+literal|"\320\262\321\201"
 argument_list|)
 operator|<<
 literal|7

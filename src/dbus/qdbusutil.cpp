@@ -190,6 +190,11 @@ operator|)
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+end_ifndef
 begin_function_decl
 specifier|static
 name|bool
@@ -1340,6 +1345,10 @@ literal|true
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//------- D-Bus Types --------
 end_comment
@@ -1628,6 +1637,9 @@ block|{
 name|QString
 name|out
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
 name|variantToString
 argument_list|(
 name|arg
@@ -1635,6 +1647,15 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|arg
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|out
 return|;

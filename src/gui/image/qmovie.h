@@ -137,6 +137,7 @@ block|,
 name|CacheAll
 block|}
 block|;
+name|explicit
 name|QMovie
 argument_list|(
 name|QObject

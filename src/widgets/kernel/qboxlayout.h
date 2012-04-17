@@ -212,6 +212,14 @@ argument|int stretch =
 literal|0
 argument_list|)
 block|;
+name|void
+name|insertItem
+argument_list|(
+argument|int index
+argument_list|,
+argument|QLayoutItem *
+argument_list|)
+block|;
 name|int
 name|spacing
 argument_list|()
@@ -325,17 +333,6 @@ argument_list|(
 specifier|const
 name|QRect
 operator|&
-argument_list|)
-block|;
-name|protected
-operator|:
-comment|// ### Qt 5: make public
-name|void
-name|insertItem
-argument_list|(
-argument|int index
-argument_list|,
-argument|QLayoutItem *
 argument_list|)
 block|;
 name|private

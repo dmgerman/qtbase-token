@@ -98,6 +98,12 @@ name|lp
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_function_decl
+name|int
+name|qt_msectime
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
@@ -217,6 +223,12 @@ block|;
 name|void
 name|activateEventNotifiers
 argument_list|()
+block|;
+name|int
+name|remainingTime
+argument_list|(
+argument|int timerId
+argument_list|)
 block|;
 name|void
 name|wakeUp
@@ -351,6 +363,11 @@ operator|::
 name|TimerType
 name|timerType
 expr_stmt|;
+DECL|member|timeout
+name|quint64
+name|timeout
+decl_stmt|;
+comment|// - when to actually fire
 DECL|member|obj
 name|QObject
 modifier|*

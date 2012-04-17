@@ -505,7 +505,7 @@ decl_stmt|;
 block|}
 name|returnValue
 union|;
-name|qMemCopy
+name|memcpy
 argument_list|(
 name|returnValue
 operator|.
@@ -629,7 +629,7 @@ decl_stmt|;
 block|}
 name|returnValue
 union|;
-name|qMemCopy
+name|memcpy
 argument_list|(
 name|returnValue
 operator|.
@@ -753,7 +753,7 @@ decl_stmt|;
 block|}
 name|returnValue
 union|;
-name|qMemCopy
+name|memcpy
 argument_list|(
 name|returnValue
 operator|.

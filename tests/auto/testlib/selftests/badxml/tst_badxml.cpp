@@ -114,7 +114,7 @@ name|~
 name|tst_BadXmlSub
 parameter_list|()
 block|{
-name|qFree
+name|free
 argument_list|(
 name|mo
 argument_list|)
@@ -166,7 +166,7 @@ name|className
 operator|)
 condition|)
 block|{
-name|qFree
+name|free
 argument_list|(
 name|mo
 argument_list|)

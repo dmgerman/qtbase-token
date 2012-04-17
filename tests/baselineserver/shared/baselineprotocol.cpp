@@ -1242,7 +1242,7 @@ operator|++
 name|y
 control|)
 block|{
-name|qMemSet
+name|memset
 argument_list|(
 name|p
 argument_list|,

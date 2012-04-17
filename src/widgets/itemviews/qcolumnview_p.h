@@ -108,6 +108,7 @@ name|QAbstractItemView
 block|{
 name|public
 operator|:
+name|explicit
 name|QColumnViewPreviewColumn
 argument_list|(
 name|QWidget

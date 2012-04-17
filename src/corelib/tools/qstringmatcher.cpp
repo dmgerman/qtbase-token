@@ -496,7 +496,7 @@ operator|::
 name|CaseSensitive
 argument_list|)
 block|{
-name|qMemSet
+name|memset
 argument_list|(
 name|q_data
 argument_list|,

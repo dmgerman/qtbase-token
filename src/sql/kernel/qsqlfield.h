@@ -55,13 +55,27 @@ init|=
 literal|1
 block|}
 enum|;
+name|explicit
 name|QSqlField
 argument_list|(
-argument|const QString& fieldName = QString()
+specifier|const
+name|QString
+operator|&
+name|fieldName
+operator|=
+name|QString
+argument_list|()
 argument_list|,
-argument|QVariant::Type type = QVariant::Invalid
+name|QVariant
+operator|::
+name|Type
+name|type
+operator|=
+name|QVariant
+operator|::
+name|Invalid
 argument_list|)
-empty_stmt|;
+decl_stmt|;
 name|QSqlField
 argument_list|(
 specifier|const

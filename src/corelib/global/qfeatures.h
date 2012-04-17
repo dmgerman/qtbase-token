@@ -330,12 +330,6 @@ begin_comment
 comment|//#define QT_NO_STATUSTIP
 end_comment
 begin_comment
-comment|// Standard Template Library
-end_comment
-begin_comment
-comment|//#define QT_NO_STL
-end_comment
-begin_comment
 comment|// QMotifStyle
 end_comment
 begin_comment
@@ -1803,35 +1797,6 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|// Q3TabDialog
-end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_TABDIALOG
-argument_list|)
-operator|&&
-operator|(
-name|defined
-argument_list|(
-name|QT_NO_TABBAR
-argument_list|)
-operator|)
-end_if
-begin_define
-DECL|macro|QT_NO_TABDIALOG
-define|#
-directive|define
-name|QT_NO_TABDIALOG
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
 comment|// QColorDialog
 end_comment
 begin_if
@@ -2902,45 +2867,6 @@ DECL|macro|QT_NO_PRINTPREVIEWWIDGET
 define|#
 directive|define
 name|QT_NO_PRINTPREVIEWWIDGET
-end_define
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QWorkSpace
-end_comment
-begin_if
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_WORKSPACE
-argument_list|)
-operator|&&
-operator|(
-name|defined
-argument_list|(
-name|QT_NO_SCROLLBAR
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_NO_MAINWINDOW
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|QT_NO_MENUBAR
-argument_list|)
-operator|)
-end_if
-begin_define
-DECL|macro|QT_NO_WORKSPACE
-define|#
-directive|define
-name|QT_NO_WORKSPACE
 end_define
 begin_endif
 endif|#

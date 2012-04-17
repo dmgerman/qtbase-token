@@ -3257,7 +3257,7 @@ name|screenGeometry
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QList
+name|QVector
 argument_list|<
 name|QPointF
 argument_list|>

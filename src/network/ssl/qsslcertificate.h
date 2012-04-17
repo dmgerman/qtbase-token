@@ -129,20 +129,44 @@ block|,
 name|EmailAddress
 block|}
 enum|;
+name|explicit
 name|QSslCertificate
 argument_list|(
-argument|QIODevice *device
+name|QIODevice
+operator|*
+name|device
 argument_list|,
-argument|QSsl::EncodingFormat format = QSsl::Pem
+name|QSsl
+operator|::
+name|EncodingFormat
+name|format
+operator|=
+name|QSsl
+operator|::
+name|Pem
 argument_list|)
-empty_stmt|;
+decl_stmt|;
+name|explicit
 name|QSslCertificate
 argument_list|(
-argument|const QByteArray&data = QByteArray()
+specifier|const
+name|QByteArray
+operator|&
+name|data
+operator|=
+name|QByteArray
+argument_list|()
 argument_list|,
-argument|QSsl::EncodingFormat format = QSsl::Pem
+name|QSsl
+operator|::
+name|EncodingFormat
+name|format
+operator|=
+name|QSsl
+operator|::
+name|Pem
 argument_list|)
-empty_stmt|;
+decl_stmt|;
 name|QSslCertificate
 argument_list|(
 specifier|const

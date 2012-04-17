@@ -147,6 +147,17 @@ return|return
 literal|false
 return|;
 block|}
+DECL|function|remainingTime
+name|int
+name|remainingTime
+parameter_list|(
+name|int
+parameter_list|)
+block|{
+return|return
+literal|0
+return|;
+block|}
 DECL|function|wakeUp
 name|void
 name|wakeUp

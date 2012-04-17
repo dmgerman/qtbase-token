@@ -250,6 +250,7 @@ block|,
 name|NoCommonAncestorForTransitionError
 block|}
 block|;
+name|explicit
 name|QStateMachine
 argument_list|(
 name|QObject

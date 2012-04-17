@@ -20,6 +20,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QUrlQuery>
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qnoncontiguousbytedevice_p.h"
 end_include
 begin_decl_stmt
@@ -306,8 +311,11 @@ argument_list|)
 expr_stmt|;
 name|bareProtocol
 operator|=
+name|QUrlQuery
+argument_list|(
 name|url
 argument_list|()
+argument_list|)
 operator|.
 name|queryItemValue
 argument_list|(

@@ -2739,7 +2739,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QAction::whatsThis     \brief the action's "What's This?" help text      The "What's This?" text is used to provide a brief description of     the action. The text may contain rich text. There is no default     "What's This?" text.      \sa QWhatsThis Q3StyleSheet */
+comment|/*!     \property QAction::whatsThis     \brief the action's "What's This?" help text      The "What's This?" text is used to provide a brief description of     the action. The text may contain rich text. There is no default     "What's This?" text.      \sa QWhatsThis */
 end_comment
 begin_function
 DECL|function|setWhatsThis

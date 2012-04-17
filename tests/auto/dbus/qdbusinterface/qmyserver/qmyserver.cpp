@@ -25,7 +25,7 @@ name|char
 name|serviceName
 index|[]
 init|=
-literal|"com.trolltech.autotests.qmyserver"
+literal|"org.qtproject.autotests.qmyserver"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -36,7 +36,7 @@ name|char
 name|objectPath
 index|[]
 init|=
-literal|"/com/trolltech/qmyserver"
+literal|"/org/qtproject/qmyserver"
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -73,7 +73,7 @@ name|Q_CLASSINFO
 argument_list|(
 literal|"D-Bus Interface"
 argument_list|,
-literal|"com.trolltech.autotests.qmyserver"
+literal|"org.qtproject.autotests.qmyserver"
 argument_list|)
 decl|public
 range|:

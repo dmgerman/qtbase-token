@@ -7,6 +7,11 @@ include|#
 directive|include
 file|<string.h>
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+end_ifndef
 begin_include
 include|#
 directive|include
@@ -35,16 +40,25 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qdbusmetatype_p.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qdbusabstractadaptor_p.h"
 end_include
 begin_comment
 comment|// for QCLASSINFO_DBUS_*
 end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_include
+include|#
+directive|include
+file|<QtCore/qvector.h>
+end_include
+begin_include
+include|#
+directive|include
+file|"qdbusmetatype_p.h"
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -145,6 +159,11 @@ literal|false
 return|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+end_ifndef
 begin_function
 DECL|function|qDBusInterfaceFromMetaObject
 name|QString
@@ -241,7 +260,7 @@ name|prepend
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"com.trolltech.QtDBus."
+literal|"org.qtproject.QtDBus."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -284,7 +303,7 @@ name|prepend
 argument_list|(
 name|QLatin1String
 argument_list|(
-literal|"com.trolltech.Qt."
+literal|"org.qtproject.Qt."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -542,22 +561,52 @@ modifier|&
 name|metaTypes
 parameter_list|)
 block|{
+return|return
+name|qDBusParametersForMethod
+argument_list|(
+name|mm
+operator|.
+name|parameterTypes
+argument_list|()
+argument_list|,
+name|metaTypes
+argument_list|)
+return|;
+block|}
+end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// QT_BOOTSTRAPPED
+end_comment
+begin_function
+DECL|function|qDBusParametersForMethod
+name|int
+name|qDBusParametersForMethod
+parameter_list|(
+specifier|const
+name|QList
+argument_list|<
+name|QByteArray
+argument_list|>
+modifier|&
+name|parameterTypes
+parameter_list|,
+name|QVector
+argument_list|<
+name|int
+argument_list|>
+modifier|&
+name|metaTypes
+parameter_list|)
+block|{
 name|QDBusMetaTypeId
 operator|::
 name|init
 argument_list|()
 expr_stmt|;
-name|QList
-argument_list|<
-name|QByteArray
-argument_list|>
-name|parameterTypes
-init|=
-name|mm
-operator|.
-name|parameterTypes
-argument_list|()
-decl_stmt|;
 name|metaTypes
 operator|.
 name|clear
@@ -636,7 +685,7 @@ literal|'*'
 argument_list|)
 condition|)
 block|{
-comment|//qWarning("Could not parse the method '%s'", mm.signature());
+comment|//qWarning("Could not parse the method '%s'", mm.methodSignature().constData());
 comment|// pointer?
 return|return
 operator|-
@@ -687,7 +736,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|//qWarning("Could not parse the method '%s'", mm.signature());
+comment|//qWarning("Could not parse the method '%s'", mm.methodSignature().constData());
 comment|// invalid type in method parameter list
 return|return
 operator|-
@@ -730,7 +779,7 @@ name|seenMessage
 condition|)
 block|{
 comment|//&& !type.endsWith('&')
-comment|//qWarning("Could not parse the method '%s'", mm.signature());
+comment|//qWarning("Could not parse the method '%s'", mm.methodSignature().constData());
 comment|// non-output parameters after message or after output params
 return|return
 operator|-
@@ -752,10 +801,12 @@ if|if
 condition|(
 name|id
 operator|==
-literal|0
+name|QMetaType
+operator|::
+name|UnknownType
 condition|)
 block|{
-comment|//qWarning("Could not parse the method '%s'", mm.signature());
+comment|//qWarning("Could not parse the method '%s'", mm.methodSignature().constData());
 comment|// invalid type in method parameter list
 return|return
 operator|-

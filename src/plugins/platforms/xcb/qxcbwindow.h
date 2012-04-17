@@ -173,6 +173,11 @@ modifier|*
 name|window
 parameter_list|)
 function_decl|;
+name|bool
+name|isExposed
+argument_list|()
+specifier|const
+expr_stmt|;
 name|void
 name|setWindowTitle
 parameter_list|(
@@ -559,6 +564,12 @@ name|m_transparent
 decl_stmt|;
 name|bool
 name|m_deferredActivation
+decl_stmt|;
+name|bool
+name|m_deferredExpose
+decl_stmt|;
+name|bool
+name|m_configureNotifyPending
 decl_stmt|;
 name|xcb_window_t
 name|m_netWmUserTimeWindow

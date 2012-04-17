@@ -82,6 +82,15 @@ begin_comment
 comment|/*!     \fn void QSharedPointer::clear()      Clears this QSharedPointer object, dropping the reference that it     may have had to the pointer. If this was the last reference, then     the pointer itself will be deleted. */
 end_comment
 begin_comment
+comment|/*!     \fn void QSharedPointer::reset()     \since 5.0      Same as clear(). For std::shared_ptr compatibility. */
+end_comment
+begin_comment
+comment|/*!     \fn void QSharedPointer::reset(T *t)     \since 5.0      Resets this QSharedPointer object to point to \a t     instead. Equivalent to:     \code     QSharedPointer<T> other(t); this->swap(other);     \endcode */
+end_comment
+begin_comment
+comment|/*!     \fn void QSharedPointer::reset(T *t, Deleter deleter)     \since 5.0      Resets this QSharedPointer object to point to \a t     instead, with deleter \a deleter. Equivalent to:     \code     QSharedPointer<T> other(t, deleter); this->swap(other);     \endcode */
+end_comment
+begin_comment
 comment|/*!     \fn QWeakPointer::QWeakPointer()      Creates a QWeakPointer that points to nothing. */
 end_comment
 begin_comment
@@ -944,26 +953,6 @@ DECL|namespace|QtSharedPointer
 namespace|namespace
 name|QtSharedPointer
 block|{
-name|Q_CORE_EXPORT
-name|void
-name|internalSafetyCheckAdd
-parameter_list|(
-specifier|const
-specifier|volatile
-name|void
-modifier|*
-parameter_list|)
-function_decl|;
-name|Q_CORE_EXPORT
-name|void
-name|internalSafetyCheckRemove
-parameter_list|(
-specifier|const
-specifier|volatile
-name|void
-modifier|*
-parameter_list|)
-function_decl|;
 name|Q_AUTOTEST_EXPORT
 name|void
 name|internalSafetyCheckCleanCheck
@@ -982,58 +971,6 @@ operator|::
 name|internalSafetyCheckAdd
 parameter_list|(
 specifier|const
-specifier|volatile
-name|void
-modifier|*
-parameter_list|)
-block|{
-comment|// Qt 4.5 compatibility
-comment|// this function is broken by design, so it was replaced with internalSafetyCheckAdd2
-comment|//
-comment|// it's broken because we tracked the pointers added and
-comment|// removed from QSharedPointer, converted to void*.
-comment|// That is, this is supposed to track the "top-of-object" pointer in
-comment|// case of multiple inheritance.
-comment|//
-comment|// However, it doesn't work well in some compilers:
-comment|// if you create an object with a class of type A and the last reference
-comment|// is dropped of type B, then the value passed to internalSafetyCheckRemove could
-comment|// be different than was added. That would leave dangling addresses.
-comment|//
-comment|// So instead, we track the pointer by the d-pointer instead.
-block|}
-end_function
-begin_comment
-comment|/*!     \internal */
-end_comment
-begin_function
-DECL|function|internalSafetyCheckRemove
-name|void
-name|QtSharedPointer
-operator|::
-name|internalSafetyCheckRemove
-parameter_list|(
-specifier|const
-specifier|volatile
-name|void
-modifier|*
-parameter_list|)
-block|{
-comment|// Qt 4.5 compatibility
-comment|// see comments above
-block|}
-end_function
-begin_comment
-comment|/*!     \internal */
-end_comment
-begin_function
-DECL|function|internalSafetyCheckAdd2
-name|void
-name|QtSharedPointer
-operator|::
-name|internalSafetyCheckAdd2
-parameter_list|(
-specifier|const
 name|void
 modifier|*
 name|d_ptr
@@ -1045,7 +982,6 @@ modifier|*
 name|ptr
 parameter_list|)
 block|{
-comment|// see comments above for the rationale for this function
 name|KnownPointers
 modifier|*
 specifier|const
@@ -1202,11 +1138,11 @@ begin_comment
 comment|/*!     \internal */
 end_comment
 begin_function
-DECL|function|internalSafetyCheckRemove2
+DECL|function|internalSafetyCheckRemove
 name|void
 name|QtSharedPointer
 operator|::
-name|internalSafetyCheckRemove2
+name|internalSafetyCheckRemove
 parameter_list|(
 specifier|const
 name|void

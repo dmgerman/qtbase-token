@@ -23,11 +23,6 @@ include|#
 directive|include
 file|<QtCore/qrefcount.h>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_include
 include|#
 directive|include
@@ -38,10 +33,6 @@ include|#
 directive|include
 file|<list>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -362,8 +353,9 @@ condition|(
 name|d
 operator|->
 name|ref
-operator|!=
-literal|1
+operator|.
+name|isShared
+argument_list|()
 condition|)
 name|detach_helper
 argument_list|()
@@ -378,11 +370,13 @@ argument_list|()
 specifier|const
 block|{
 return|return
+operator|!
 name|d
 operator|->
 name|ref
-operator|==
-literal|1
+operator|.
+name|isShared
+argument_list|()
 return|;
 block|}
 end_expr_stmt
@@ -1917,11 +1911,6 @@ name|qptrdiff
 name|difference_type
 typedef|;
 end_typedef
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_expr_stmt
 specifier|static
 specifier|inline
@@ -2006,10 +1995,6 @@ name|tmp
 return|;
 block|}
 end_expr_stmt
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_comment
 comment|// comfort
 end_comment
@@ -2176,14 +2161,6 @@ if|if
 condition|(
 operator|!
 name|d
-condition|)
-return|return;
-end_expr_stmt
-begin_if
-if|if
-condition|(
-operator|!
-name|d
 operator|->
 name|ref
 operator|.
@@ -2195,9 +2172,10 @@ argument_list|(
 name|d
 argument_list|)
 expr_stmt|;
-end_if
+block|}
+end_expr_stmt
 begin_expr_stmt
-unit|}  template
+name|template
 operator|<
 name|typename
 name|T
@@ -2236,8 +2214,9 @@ operator|.
 name|d
 operator|->
 name|ref
-operator|=
-literal|1
+operator|.
+name|initializeOwned
+argument_list|()
 block|;
 name|x
 operator|.
@@ -2328,6 +2307,20 @@ name|x
 operator|.
 name|e
 block|;
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|x
+operator|.
+name|d
+operator|->
+name|ref
+operator|.
+name|deref
+argument_list|()
+argument_list|)
+block|;
+comment|// Don't trigger assert in free
 name|free
 argument_list|(
 name|x
@@ -2422,15 +2415,20 @@ name|y
 operator|->
 name|n
 block|;
-if|if
-condition|(
+name|Q_ASSERT
+argument_list|(
 name|x
 operator|->
 name|ref
+operator|.
+name|atomic
+operator|.
+name|load
+argument_list|()
 operator|==
 literal|0
-condition|)
-block|{
+argument_list|)
+block|;
 while|while
 condition|(
 name|i
@@ -2459,8 +2457,7 @@ name|x
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-unit|} }
-name|template
+unit|}  template
 operator|<
 name|typename
 name|T

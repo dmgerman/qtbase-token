@@ -111,6 +111,7 @@ argument_list|,
 argument|int h
 argument_list|)
 block|;
+name|explicit
 name|QPixmap
 argument_list|(
 specifier|const
@@ -131,6 +132,7 @@ block|;
 ifndef|#
 directive|ifndef
 name|QT_NO_IMAGEFORMAT_XPM
+name|explicit
 name|QPixmap
 argument_list|(
 specifier|const

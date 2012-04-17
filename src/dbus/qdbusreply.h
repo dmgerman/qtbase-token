@@ -492,7 +492,10 @@ operator|)
 block|{
 name|m_error
 operator|=
+name|QDBusError
+argument_list|(
 name|reply
+argument_list|)
 block|;
 return|return
 operator|*

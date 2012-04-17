@@ -417,13 +417,8 @@ return|return
 name|resolveUrl
 argument_list|(
 name|QUrl
-operator|::
-name|fromEncoded
 argument_list|(
 name|url
-operator|.
-name|toUtf8
-argument_list|()
 argument_list|)
 argument_list|)
 return|;

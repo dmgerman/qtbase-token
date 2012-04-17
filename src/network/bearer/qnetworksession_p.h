@@ -258,6 +258,40 @@ specifier|const
 operator|=
 literal|0
 block|;
+name|virtual
+name|QNetworkSession
+operator|::
+name|UsagePolicies
+name|usagePolicies
+argument_list|()
+specifier|const
+operator|=
+literal|0
+block|;
+name|virtual
+name|void
+name|setUsagePolicies
+argument_list|(
+name|QNetworkSession
+operator|::
+name|UsagePolicies
+argument_list|)
+operator|=
+literal|0
+block|;
+specifier|static
+name|void
+name|setUsagePolicies
+argument_list|(
+name|QNetworkSession
+operator|&
+argument_list|,
+name|QNetworkSession
+operator|::
+name|UsagePolicies
+argument_list|)
+block|;
+comment|//for unit testing
 name|protected
 operator|:
 specifier|inline
@@ -323,6 +357,14 @@ argument_list|(
 argument|const QNetworkConfiguration&config
 argument_list|,
 argument|bool isSeamless
+argument_list|)
+block|;
+name|void
+name|usagePoliciesChanged
+argument_list|(
+name|QNetworkSession
+operator|::
+name|UsagePolicies
 argument_list|)
 block|;
 name|protected

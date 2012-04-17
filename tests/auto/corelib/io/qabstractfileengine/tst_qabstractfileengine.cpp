@@ -1253,7 +1253,7 @@ return|return
 operator|-
 literal|1
 return|;
-name|qMemCopy
+name|memcpy
 argument_list|(
 name|data
 argument_list|,

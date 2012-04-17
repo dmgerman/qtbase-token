@@ -639,7 +639,10 @@ condition|)
 block|{
 name|lastError
 operator|=
+name|QDBusError
+argument_list|(
 name|reply
+argument_list|)
 expr_stmt|;
 name|where
 operator|.
@@ -1054,7 +1057,10 @@ condition|)
 block|{
 name|lastError
 operator|=
+name|QDBusError
+argument_list|(
 name|reply
+argument_list|)
 expr_stmt|;
 return|return
 literal|false
@@ -1865,8 +1871,6 @@ name|m
 operator|.
 name|toLatin1
 argument_list|()
-operator|+
-literal|'('
 decl_stmt|;
 for|for
 control|(
@@ -1901,18 +1905,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|QByteArray
-argument_list|(
 name|mm
 operator|.
-name|signature
+name|name
 argument_list|()
-argument_list|)
-operator|.
-name|startsWith
-argument_list|(
+operator|==
 name|match
-argument_list|)
 condition|)
 block|{
 comment|// found a method with the same name as what we're looking for
@@ -2024,7 +2022,10 @@ name|d
 operator|->
 name|lastError
 operator|=
+name|QDBusError
+argument_list|(
 name|reply
+argument_list|)
 expr_stmt|;
 comment|// will clear if reply isn't an error
 comment|// ensure that there is at least one element
@@ -2249,7 +2250,8 @@ name|d
 operator|->
 name|lastError
 operator|=
-literal|0
+name|QDBusError
+argument_list|()
 expr_stmt|;
 return|return
 name|d

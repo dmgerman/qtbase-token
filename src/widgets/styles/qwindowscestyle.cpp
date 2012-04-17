@@ -1975,9 +1975,6 @@ block|}
 case|case
 name|PE_IndicatorViewItemCheck
 case|:
-case|case
-name|PE_Q3CheckListIndicator
-case|:
 block|{
 if|if
 condition|(
@@ -2002,10 +1999,6 @@ literal|2
 decl_stmt|;
 if|if
 condition|(
-name|element
-operator|==
-name|PE_Q3CheckListIndicator
-operator|||
 name|element
 operator|==
 name|PE_IndicatorViewItemCheck

@@ -3447,7 +3447,7 @@ operator|+
 name|numBytes
 argument_list|)
 expr_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|buffer
 operator|.

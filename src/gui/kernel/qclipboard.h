@@ -52,6 +52,7 @@ block|{
 name|Q_OBJECT
 name|private
 operator|:
+name|explicit
 name|QClipboard
 argument_list|(
 name|QObject

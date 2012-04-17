@@ -76,6 +76,7 @@ argument|SubmitPolicy submitPolicy READ submitPolicy WRITE setSubmitPolicy
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QDataWidgetMapper
 argument_list|(
 name|QObject

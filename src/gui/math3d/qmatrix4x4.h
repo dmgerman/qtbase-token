@@ -1096,10 +1096,11 @@ comment|// General matrix, unknown contents
 block|}
 enum|;
 comment|// Construct without initializing identity matrix.
+name|explicit
 name|QMatrix4x4
-argument_list|(
-argument|int
-argument_list|)
+parameter_list|(
+name|int
+parameter_list|)
 block|{ }
 name|QMatrix4x4
 name|orthonormalInverse

@@ -210,6 +210,37 @@ name|clear
 parameter_list|()
 function_decl|;
 end_function_decl
+begin_function_decl
+name|void
+name|reset
+parameter_list|()
+function_decl|;
+end_function_decl
+begin_function_decl
+name|void
+name|reset
+parameter_list|(
+name|T
+modifier|*
+name|t
+parameter_list|)
+function_decl|;
+end_function_decl
+begin_expr_stmt
+name|template
+operator|<
+name|typename
+name|Deleter
+operator|>
+name|void
+name|reset
+argument_list|(
+argument|T *t
+argument_list|,
+argument|Deleter deleter
+argument_list|)
+expr_stmt|;
+end_expr_stmt
 begin_comment
 comment|// casts:
 end_comment

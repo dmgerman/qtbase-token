@@ -40,7 +40,7 @@ name|char
 name|serviceName
 index|[]
 init|=
-literal|"com.trolltech.autotests.qmyserver"
+literal|"org.qtproject.autotests.qmyserver"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -51,7 +51,7 @@ name|char
 name|objectPath
 index|[]
 init|=
-literal|"/com/trolltech/qmyserver"
+literal|"/org/qtproject/qmyserver"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -2834,7 +2834,7 @@ name|con
 operator|.
 name|registerService
 argument_list|(
-literal|"com.trolltech.tst_QDBusAbstractAdaptor"
+literal|"org.qtproject.tst_QDBusAbstractAdaptor"
 argument_list|)
 expr_stmt|;
 name|MyObject

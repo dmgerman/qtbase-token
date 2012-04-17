@@ -2610,9 +2610,10 @@ argument_list|<
 name|QDBusObjectPath
 argument_list|>
 name|reply
-init|=
+argument_list|(
 operator|*
 name|watcher
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

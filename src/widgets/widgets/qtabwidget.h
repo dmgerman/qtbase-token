@@ -588,10 +588,6 @@ name|bool
 operator|=
 name|false
 argument_list|)
-block|;
-name|friend
-name|class
-name|Q3TabDialog
 block|; }
 decl_stmt|;
 end_decl_stmt

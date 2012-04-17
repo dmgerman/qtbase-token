@@ -306,7 +306,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-literal|"com.trolltech.Qt.Autotests.QDBusConnection"
+literal|"org.qtproject.Qt.Autotests.QDBusConnection"
 return|;
 block|}
 name|bool
@@ -5355,7 +5355,7 @@ name|createSignal
 argument_list|(
 literal|"/"
 argument_list|,
-literal|"com.trolltech.TestCase"
+literal|"org.qtproject.TestCase"
 argument_list|,
 literal|"oneSignal"
 argument_list|)
@@ -5826,7 +5826,7 @@ name|serviceName
 argument_list|,
 literal|"/"
 argument_list|,
-literal|"com.trolltech.TestCase"
+literal|"org.qtproject.TestCase"
 argument_list|,
 literal|"oneSignal"
 argument_list|,
@@ -5891,7 +5891,7 @@ name|createSignal
 argument_list|(
 literal|"/"
 argument_list|,
-literal|"com.trolltech.TestCase"
+literal|"org.qtproject.TestCase"
 argument_list|,
 literal|"oneSignal"
 argument_list|)

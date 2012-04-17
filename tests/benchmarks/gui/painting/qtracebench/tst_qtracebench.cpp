@@ -683,6 +683,15 @@ operator|&
 name|file
 argument_list|)
 decl_stmt|;
+name|in
+operator|.
+name|setVersion
+argument_list|(
+name|QDataStream
+operator|::
+name|Qt_4_7
+argument_list|)
+expr_stmt|;
 name|char
 modifier|*
 name|data

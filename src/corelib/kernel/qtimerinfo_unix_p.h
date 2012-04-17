@@ -226,6 +226,12 @@ name|QTimerInfo
 operator|*
 argument_list|)
 block|;
+name|int
+name|timerRemainingTime
+argument_list|(
+argument|int timerId
+argument_list|)
+block|;
 name|void
 name|registerTimer
 argument_list|(

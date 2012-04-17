@@ -404,11 +404,8 @@ argument|IdentifierType type
 argument_list|)
 specifier|const
 block|;
-name|protected
-name|Q_SLOTS
-operator|:
 name|bool
-name|isIdentifierEscapedImplementation
+name|isIdentifierEscaped
 argument_list|(
 argument|const QString&identifier
 argument_list|,

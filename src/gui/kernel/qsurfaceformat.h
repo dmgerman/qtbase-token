@@ -86,6 +86,7 @@ enum|;
 name|QSurfaceFormat
 argument_list|()
 expr_stmt|;
+comment|/*implicit*/
 name|QSurfaceFormat
 argument_list|(
 argument|FormatOptions options

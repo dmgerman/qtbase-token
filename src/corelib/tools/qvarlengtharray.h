@@ -38,6 +38,11 @@ include|#
 directive|include
 file|<string.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<stdlib.h>
+end_include
 begin_expr_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -173,7 +178,7 @@ operator|(
 name|array
 operator|)
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|ptr
 argument_list|)
@@ -1194,7 +1199,7 @@ name|T
 operator|*
 operator|>
 operator|(
-name|qMalloc
+name|malloc
 argument_list|(
 name|s
 operator|*
@@ -1450,7 +1455,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|qMemCopy
+name|memcpy
 argument_list|(
 operator|&
 name|ptr
@@ -1546,7 +1551,7 @@ name|T
 operator|*
 operator|>
 operator|(
-name|qMalloc
+name|malloc
 argument_list|(
 name|aalloc
 operator|*
@@ -1674,7 +1679,7 @@ name|oldPtr
 operator|!=
 name|ptr
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|oldPtr
 argument_list|)
@@ -1688,7 +1693,7 @@ begin_else
 unit|}             }
 else|else
 block|{
-name|qMemCopy
+name|memcpy
 argument_list|(
 name|ptr
 argument_list|,
@@ -1771,7 +1776,7 @@ name|oldPtr
 operator|!=
 name|ptr
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|oldPtr
 argument_list|)
