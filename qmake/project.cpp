@@ -9655,6 +9655,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// parse qmake configuration
+name|doProjectInclude
+argument_list|(
+literal|"spec_pre"
+argument_list|,
+name|IncludeFlagFeature
+argument_list|,
+name|vars
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 name|qmakespec
@@ -9734,6 +9743,15 @@ return|return
 literal|false
 return|;
 block|}
+name|doProjectInclude
+argument_list|(
+literal|"spec_post"
+argument_list|,
+name|IncludeFlagFeature
+argument_list|,
+name|vars
+argument_list|)
+expr_stmt|;
 name|validateModes
 argument_list|()
 expr_stmt|;
