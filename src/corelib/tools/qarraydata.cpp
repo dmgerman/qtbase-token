@@ -264,7 +264,10 @@ argument_list|,
 name|headerSize
 argument_list|)
 operator|/
+name|int
+argument_list|(
 name|objectSize
+argument_list|)
 expr_stmt|;
 name|size_t
 name|allocSize

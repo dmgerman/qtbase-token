@@ -719,7 +719,10 @@ name|result
 operator|->
 name|size
 operator|=
+name|int
+argument_list|(
 name|n
+argument_list|)
 expr_stmt|;
 block|}
 return|return
