@@ -289,6 +289,17 @@ name|extraCompilerVariablesCache
 block|;
 name|protected
 operator|:
+expr|enum
+name|TARG_MODE
+block|{
+name|TARG_UNIX_MODE
+block|,
+name|TARG_MACX_MODE
+block|,
+name|TARG_WIN_MODE
+block|}
+name|target_mode
+block|;
 name|QStringList
 name|createObjectList
 argument_list|(

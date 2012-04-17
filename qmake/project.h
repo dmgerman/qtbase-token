@@ -399,10 +399,6 @@ name|place
 argument_list|)
 decl_stmt|;
 name|void
-name|validateModes
-parameter_list|()
-function_decl|;
-name|void
 name|resolveSpec
 parameter_list|(
 name|QString
@@ -414,6 +410,10 @@ name|QString
 modifier|&
 name|qmakespec
 parameter_list|)
+function_decl|;
+name|QStringList
+name|qmakeFeaturePaths
+parameter_list|()
 function_decl|;
 name|public
 label|:
