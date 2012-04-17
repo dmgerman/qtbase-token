@@ -2500,11 +2500,14 @@ if|if
 condition|(
 name|widgetState
 operator|!=
+name|int
+argument_list|(
 name|m_widget
 operator|->
 name|data
 operator|->
 name|window_state
+argument_list|)
 condition|)
 block|{
 name|m_widget

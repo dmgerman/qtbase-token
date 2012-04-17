@@ -4815,7 +4815,8 @@ argument_list|()
 operator|&&
 name|key
 operator|==
-operator|(
+name|int
+argument_list|(
 name|shortcut
 index|[
 literal|0
@@ -4825,7 +4826,7 @@ operator|~
 name|Qt
 operator|::
 name|MODIFIER_MASK
-operator|)
+argument_list|)
 condition|)
 block|{
 name|pb
