@@ -3254,26 +3254,6 @@ name|brush
 argument_list|)
 expr_stmt|;
 break|break;
-comment|// #ifdef Q_Q3PAINTER
-comment|//         case QPicturePrivate::PdcSetTabStops:
-comment|//                 s>> i_16;
-comment|//                 painter->setTabStops(i_16);
-comment|//                 break;
-comment|//             case QPicturePrivate::PdcSetTabArray:
-comment|//                 s>> i_16;
-comment|//                 if (i_16 == 0) {
-comment|//                     painter->setTabArray(0);
-comment|//                 } else {
-comment|//                     int *ta = new int[i_16];
-comment|//                     for (int i=0; i<i_16; i++) {
-comment|//                         s>> i1_16;
-comment|//                         ta[i] = i1_16;
-comment|//                     }
-comment|//                     painter->setTabArray(ta);
-comment|//                     delete [] ta;
-comment|//                 }
-comment|//                 break;
-comment|// #endif
 case|case
 name|QPicturePrivate
 operator|::
@@ -3446,14 +3426,6 @@ name|i_8
 argument_list|)
 expr_stmt|;
 break|break;
-comment|// #ifdef Q_Q3PAINTER
-comment|//             case QPicturePrivate::PdcSaveWMatrix:
-comment|//                 painter->saveWorldMatrix();
-comment|//                 break;
-comment|//             case QPicturePrivate::PdcRestoreWMatrix:
-comment|//                 painter->restoreWorldMatrix();
-comment|//                 break;
-comment|// #endif
 case|case
 name|QPicturePrivate
 operator|::

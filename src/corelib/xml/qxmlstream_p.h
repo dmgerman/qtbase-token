@@ -10963,7 +10963,7 @@ if|if
 condition|(
 name|data
 condition|)
-name|qFree
+name|free
 argument_list|(
 name|data
 argument_list|)
@@ -11010,7 +11010,7 @@ name|T
 operator|*
 operator|>
 operator|(
-name|qRealloc
+name|realloc
 argument_list|(
 name|data
 argument_list|,

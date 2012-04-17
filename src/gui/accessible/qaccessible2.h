@@ -431,6 +431,7 @@ name|QAccessibleEditableTextInterface
 block|{
 name|public
 operator|:
+name|explicit
 name|QAccessibleSimpleEditableTextInterface
 argument_list|(
 name|QAccessibleInterface

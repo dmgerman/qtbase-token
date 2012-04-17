@@ -198,6 +198,7 @@ block|,
 name|AlternativeType
 block|}
 block|;
+name|explicit
 name|QHttpMultiPart
 argument_list|(
 name|QObject
@@ -207,6 +208,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QHttpMultiPart
 argument_list|(
 argument|ContentType contentType

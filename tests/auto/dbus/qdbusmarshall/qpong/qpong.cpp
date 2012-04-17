@@ -20,7 +20,7 @@ name|char
 name|serviceName
 index|[]
 init|=
-literal|"com.trolltech.autotests.qpong"
+literal|"org.qtproject.autotests.qpong"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -31,7 +31,7 @@ name|char
 name|objectPath
 index|[]
 init|=
-literal|"/com/trolltech/qpong"
+literal|"/org/qtproject/qpong"
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -50,7 +50,7 @@ name|Q_CLASSINFO
 argument_list|(
 literal|"D-Bus Interface"
 argument_list|,
-literal|"com.trolltech.autotests.qpong"
+literal|"org.qtproject.autotests.qpong"
 argument_list|)
 decl|public
 name|slots

@@ -94,6 +94,7 @@ argument|SocketOptions
 argument_list|,
 argument|SocketOption
 argument_list|)
+name|explicit
 name|QLocalServer
 argument_list|(
 name|QObject

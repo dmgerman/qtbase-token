@@ -599,6 +599,9 @@ specifier|const
 name|Employee
 modifier|&
 name|key
+parameter_list|,
+name|uint
+name|seed
 parameter_list|)
 block|{
 return|return
@@ -608,6 +611,8 @@ name|key
 operator|.
 name|name
 argument_list|()
+argument_list|,
+name|seed
 argument_list|)
 operator|^
 name|key

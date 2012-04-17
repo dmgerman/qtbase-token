@@ -40,66 +40,6 @@ comment|// version without notice, or even be removed.
 comment|//
 comment|// We mean it.
 comment|//
-comment|// ### Qt 5: remove
-name|class
-name|QKeyEventEx
-range|:
-name|public
-name|QKeyEvent
-block|{
-name|public
-operator|:
-name|QKeyEventEx
-argument_list|(
-argument|Type type
-argument_list|,
-argument|int key
-argument_list|,
-argument|Qt::KeyboardModifiers modifiers
-argument_list|,
-argument|const QString&text
-argument_list|,
-argument|bool autorep
-argument_list|,
-argument|ushort count
-argument_list|,
-argument|quint32 nativeScanCode
-argument_list|,
-argument|quint32 nativeVirtualKey
-argument_list|,
-argument|quint32 nativeModifiers
-argument_list|)
-block|;
-name|QKeyEventEx
-argument_list|(
-specifier|const
-name|QKeyEventEx
-operator|&
-name|other
-argument_list|)
-block|;
-operator|~
-name|QKeyEventEx
-argument_list|()
-block|;
-name|protected
-operator|:
-name|quint32
-name|nScanCode
-block|;
-name|quint32
-name|nVirtualKey
-block|;
-name|quint32
-name|nModifiers
-block|;
-name|friend
-name|class
-name|QKeyEvent
-block|; }
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 name|class
 name|QTouchEventTouchPointPrivate
 block|{
@@ -246,7 +186,7 @@ name|flags
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|QList
+name|QVector
 operator|<
 name|QPointF
 operator|>

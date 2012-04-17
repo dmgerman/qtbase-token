@@ -59,12 +59,16 @@ block|,
 name|UnknownError
 block|}
 enum|;
+name|explicit
 name|QHostInfo
-argument_list|(
-argument|int lookupId = -
+parameter_list|(
+name|int
+name|lookupId
+init|=
+operator|-
 literal|1
-argument_list|)
-empty_stmt|;
+parameter_list|)
+function_decl|;
 name|QHostInfo
 argument_list|(
 specifier|const

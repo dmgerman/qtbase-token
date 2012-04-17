@@ -525,6 +525,7 @@ operator|=
 literal|16
 block|}
 block|;
+name|explicit
 name|QDnsLookup
 argument_list|(
 name|QObject

@@ -364,6 +364,12 @@ argument_list|,
 argument|int dy
 argument_list|)
 block|;
+name|virtual
+name|QSize
+name|viewportSizeHint
+argument_list|()
+specifier|const
+block|;
 name|private
 operator|:
 name|Q_DECLARE_PRIVATE

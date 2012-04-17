@@ -274,6 +274,15 @@ operator|=
 literal|0
 block|;
 name|virtual
+name|int
+name|remainingTime
+argument_list|(
+argument|int timerId
+argument_list|)
+operator|=
+literal|0
+block|;
+name|virtual
 name|void
 name|wakeUp
 argument_list|()

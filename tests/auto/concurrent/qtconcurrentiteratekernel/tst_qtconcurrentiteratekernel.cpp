@@ -90,11 +90,6 @@ include|#
 directive|include
 file|<qiterator.h>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_namespace
 DECL|namespace|std
 namespace|namespace
@@ -137,10 +132,6 @@ return|;
 block|}
 block|}
 end_namespace
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_include
 include|#
 directive|include
@@ -190,9 +181,6 @@ name|void
 name|throttling
 parameter_list|()
 function_decl|;
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
 name|void
 name|blockSize
 parameter_list|()
@@ -201,8 +189,6 @@ name|void
 name|multipleResults
 parameter_list|()
 function_decl|;
-endif|#
-directive|endif
 block|}
 class|;
 end_class
@@ -1184,14 +1170,6 @@ block|}
 block|}
 class|;
 end_class
-begin_comment
-comment|// Missing stl iterators prevent correct block size calculation.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_function
 DECL|function|blockSize
 name|void
@@ -1243,10 +1221,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_class
 DECL|class|MultipleResultsFor
 class|class
@@ -1331,14 +1305,6 @@ block|}
 block|}
 class|;
 end_class
-begin_comment
-comment|// Missing stl iterators prevent correct summation.
-end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
-end_ifndef
 begin_function
 DECL|function|multipleResults
 name|void
@@ -1423,10 +1389,6 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_macro
 name|QTEST_MAIN
 argument_list|(

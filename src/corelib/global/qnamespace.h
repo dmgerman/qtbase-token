@@ -1024,10 +1024,6 @@ operator|=
 literal|12
 block|,
 comment|// Mac only
-name|WA_PaintOutsidePaintEvent
-operator|=
-literal|13
-block|,
 name|WA_InputMethodEnabled
 operator|=
 literal|14
@@ -3588,8 +3584,6 @@ block|,
 name|RichText
 block|,
 name|AutoText
-block|,
-name|LogText
 block|}
 enum|;
 enum|enum
@@ -3600,15 +3594,6 @@ block|,
 name|KeepAspectRatio
 block|,
 name|KeepAspectRatioByExpanding
-block|}
-enum|;
-comment|// This is for Q3TextEdit only, actually.
-enum|enum
-name|AnchorAttribute
-block|{
-name|AnchorName
-block|,
-name|AnchorHref
 block|}
 enum|;
 enum|enum
@@ -3820,8 +3805,6 @@ block|,
 name|DirectConnection
 block|,
 name|QueuedConnection
-block|,
-name|AutoCompatConnection
 block|,
 name|BlockingQueuedConnection
 block|,

@@ -45,7 +45,7 @@ name|char
 name|serviceName
 index|[]
 init|=
-literal|"com.trolltech.autotests.qpinger"
+literal|"org.qtproject.autotests.qpinger"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -56,7 +56,7 @@ name|char
 name|objectPath
 index|[]
 init|=
-literal|"/com/trolltech/qpinger"
+literal|"/org/qtproject/qpinger"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1979,7 +1979,7 @@ name|char
 name|server_serviceName
 index|[]
 init|=
-literal|"com.trolltech.autotests.dbusserver"
+literal|"org.qtproject.autotests.dbusserver"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -1990,7 +1990,7 @@ name|char
 name|server_objectPath
 index|[]
 init|=
-literal|"/com/trolltech/server"
+literal|"/org/qtproject/server"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -2001,7 +2001,7 @@ name|char
 name|server_interfaceName
 index|[]
 init|=
-literal|"com.trolltech.QtDBus.Pinger"
+literal|"org.qtproject.QtDBus.Pinger"
 decl_stmt|;
 end_decl_stmt
 begin_class
@@ -5161,7 +5161,7 @@ specifier|const
 name|QString
 name|serviceToFollow
 init|=
-literal|"com.trolltech.tst_qdbusabstractinterface.FollowMe"
+literal|"org.qtproject.tst_qdbusabstractinterface.FollowMe"
 decl_stmt|;
 name|Pinger
 name|p
@@ -5559,7 +5559,7 @@ literal|"this isn't valid"
 operator|<<
 literal|"/"
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidService"
+literal|"org.qtproject.QtDBus.Error.InvalidService"
 expr_stmt|;
 name|QTest
 operator|::
@@ -5578,7 +5578,7 @@ argument_list|()
 operator|<<
 literal|"this isn't valid"
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidObjectPath"
+literal|"org.qtproject.QtDBus.Error.InvalidObjectPath"
 expr_stmt|;
 block|}
 end_function
@@ -5682,7 +5682,7 @@ argument_list|)
 operator|<<
 literal|"this isn't valid"
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidObjectPath"
+literal|"org.qtproject.QtDBus.Error.InvalidObjectPath"
 expr_stmt|;
 block|}
 end_function
@@ -5763,7 +5763,7 @@ argument_list|()
 operator|<<
 literal|"/"
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidService"
+literal|"org.qtproject.QtDBus.Error.InvalidService"
 expr_stmt|;
 name|QTest
 operator|::
@@ -5783,7 +5783,7 @@ operator|<<
 name|QString
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidObjectPath"
+literal|"org.qtproject.QtDBus.Error.InvalidObjectPath"
 expr_stmt|;
 name|QTest
 operator|::
@@ -5798,7 +5798,7 @@ operator|<<
 name|QString
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidService"
+literal|"org.qtproject.QtDBus.Error.InvalidService"
 expr_stmt|;
 block|}
 end_function
@@ -6023,7 +6023,7 @@ operator|<<
 name|QString
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidObjectPath"
+literal|"org.qtproject.QtDBus.Error.InvalidObjectPath"
 expr_stmt|;
 block|}
 end_function

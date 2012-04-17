@@ -9957,6 +9957,7 @@ name|QWidget
 operator|::
 name|isEnabledTo
 parameter_list|(
+specifier|const
 name|QWidget
 modifier|*
 name|ancestor
@@ -13073,6 +13074,7 @@ name|QWidget
 operator|::
 name|mapTo
 parameter_list|(
+specifier|const
 name|QWidget
 modifier|*
 name|parent
@@ -13112,7 +13114,7 @@ name|Q_ASSERT_X
 argument_list|(
 name|w
 argument_list|,
-literal|"QWidget::mapTo(QWidget *parent, const QPoint&pos)"
+literal|"QWidget::mapTo(const QWidget *parent, const QPoint&pos)"
 argument_list|,
 literal|"parent must be in parent hierarchy"
 argument_list|)
@@ -13146,6 +13148,7 @@ name|QWidget
 operator|::
 name|mapFrom
 parameter_list|(
+specifier|const
 name|QWidget
 modifier|*
 name|parent
@@ -13186,7 +13189,7 @@ name|Q_ASSERT_X
 argument_list|(
 name|w
 argument_list|,
-literal|"QWidget::mapFrom(QWidget *parent, const QPoint&pos)"
+literal|"QWidget::mapFrom(const QWidget *parent, const QPoint&pos)"
 argument_list|,
 literal|"parent must be in parent hierarchy"
 argument_list|)
@@ -17848,16 +17851,6 @@ name|q
 operator|->
 name|paintingActive
 argument_list|()
-operator|&&
-operator|!
-name|q
-operator|->
-name|testAttribute
-argument_list|(
-name|Qt
-operator|::
-name|WA_PaintOutsidePaintEvent
-argument_list|)
 condition|)
 name|qWarning
 argument_list|(
@@ -27517,6 +27510,7 @@ name|QWidget
 operator|::
 name|isVisibleTo
 parameter_list|(
+specifier|const
 name|QWidget
 modifier|*
 name|ancestor
@@ -31053,8 +31047,9 @@ parameter_list|)
 block|{
 name|Q_UNUSED
 argument_list|(
-argument|event
+name|event
 argument_list|)
+expr_stmt|;
 block|}
 ifndef|#
 directive|ifndef

@@ -25,7 +25,7 @@ name|char
 name|serviceName
 index|[]
 init|=
-literal|"com.trolltech.autotests.qpinger"
+literal|"org.qtproject.autotests.qpinger"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -36,7 +36,7 @@ name|char
 name|objectPath
 index|[]
 init|=
-literal|"/com/trolltech/qpinger"
+literal|"/org/qtproject/qpinger"
 decl_stmt|;
 end_decl_stmt
 begin_comment
@@ -55,7 +55,7 @@ name|Q_CLASSINFO
 argument_list|(
 literal|"D-Bus Interface"
 argument_list|,
-literal|"com.trolltech.autotests.qpinger"
+literal|"org.qtproject.autotests.qpinger"
 argument_list|)
 decl|public
 range|:

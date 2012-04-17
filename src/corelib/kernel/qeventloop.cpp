@@ -872,10 +872,10 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     \class QEventLoopLocker     \brief The QEventLoopLocker class provides a means to quit an event loop when it is no longer needed.      The QEventLoopLocker operates on particular objects - either a QCoreApplication     instance or a QEventLoop instance.      This makes it possible to, for example, run a batch of jobs with an event loop     and exit that event loop after the last job is finished. That is accomplished     by keeping a QEventLoopLocker with each job instance.      The variant which operates on QCoreApplication makes it possible to finish     asynchronously running jobs after the last gui window has been closed. This     can be useful for example for running a job which uploads data to a network.      \sa QEventLoop, QCoreApplication */
+comment|/*!     \class QEventLoopLocker     \brief The QEventLoopLocker class provides a means to quit an event loop when it is no longer needed.      The QEventLoopLocker operates on particular objects - either a QCoreApplication     instance, a QEventLoop instance or a QThread instance.      This makes it possible to, for example, run a batch of jobs with an event loop     and exit that event loop after the last job is finished. That is accomplished     by keeping a QEventLoopLocker with each job instance.      The variant which operates on QCoreApplication makes it possible to finish     asynchronously running jobs after the last gui window has been closed. This     can be useful for example for running a job which uploads data to a network.      \sa QEventLoop, QCoreApplication */
 end_comment
 begin_comment
-comment|/*!     Creates an event locker operating on the \p app.      The application will quit when there are no more QEventLoopLockers operating on it.      \sa QCoreApplication::quit(), QCoreApplication::isQuitLockEnabled()  */
+comment|/*!     Creates an event locker operating on the QCoreApplication.      The application will quit when there are no more QEventLoopLockers operating on it.      \sa QCoreApplication::quit(), QCoreApplication::isQuitLockEnabled()  */
 end_comment
 begin_constructor
 DECL|function|QEventLoopLocker
@@ -910,7 +910,7 @@ argument_list|)
 block|{  }
 end_constructor
 begin_comment
-comment|/*!     Creates an event locker operating on the \p app.      This particular QEventLoop will quit when there are no more QEventLoopLockers operating on it.      \sa QEventLoop::quit()  */
+comment|/*!     Creates an event locker operating on the \p loop.      This particular QEventLoop will quit when there are no more QEventLoopLockers operating on it.      \sa QEventLoop::quit()  */
 end_comment
 begin_constructor
 DECL|function|QEventLoopLocker
@@ -945,6 +945,9 @@ argument_list|)
 argument_list|)
 block|{  }
 end_constructor
+begin_comment
+comment|/*!     Creates an event locker operating on the \p thread.      This particular QThread will quit when there are no more QEventLoopLockers operating on it.      \sa QThread::quit()  */
+end_comment
 begin_constructor
 DECL|function|QEventLoopLocker
 name|QEventLoopLocker

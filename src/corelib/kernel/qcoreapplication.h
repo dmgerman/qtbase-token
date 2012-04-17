@@ -434,7 +434,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_TRANSLATION
 specifier|static
-name|void
+name|bool
 name|installTranslator
 argument_list|(
 name|QTranslator
@@ -443,7 +443,7 @@ name|messageFile
 argument_list|)
 block|;
 specifier|static
-name|void
+name|bool
 name|removeTranslator
 argument_list|(
 name|QTranslator

@@ -166,10 +166,12 @@ block|;
 name|public
 name|Q_SLOTS
 operator|:
+name|virtual
 name|void
 name|open
 argument_list|()
 block|;
+name|virtual
 name|int
 name|exec
 argument_list|()

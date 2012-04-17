@@ -85,6 +85,7 @@ argument|QOpenGLPaintDevice
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QOpenGLPaintDevice
 argument_list|(
 specifier|const

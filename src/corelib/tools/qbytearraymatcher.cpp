@@ -304,7 +304,7 @@ name|l
 operator|=
 literal|0
 expr_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|p
 operator|.

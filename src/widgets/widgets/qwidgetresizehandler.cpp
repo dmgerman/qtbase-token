@@ -1951,14 +1951,6 @@ name|Qt
 operator|::
 name|WA_SetCursor
 argument_list|)
-operator|&&
-operator|!
-name|w
-operator|->
-name|inherits
-argument_list|(
-literal|"QWorkspaceTitleBar"
-argument_list|)
 condition|)
 block|{
 name|w

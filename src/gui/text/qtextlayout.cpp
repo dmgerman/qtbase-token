@@ -670,11 +670,6 @@ name|text
 operator|)
 argument_list|,
 name|f
-operator|.
-name|d
-operator|.
-name|data
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

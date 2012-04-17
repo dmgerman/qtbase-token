@@ -42,7 +42,7 @@ DECL|macro|TEST_INTERFACE_NAME
 define|#
 directive|define
 name|TEST_INTERFACE_NAME
-value|"com.trolltech.QtDBus.MyObject"
+value|"org.qtproject.QtDBus.MyObject"
 end_define
 begin_class
 DECL|class|MyObject
@@ -57,7 +57,7 @@ name|Q_CLASSINFO
 argument_list|(
 literal|"D-Bus Interface"
 argument_list|,
-literal|"com.trolltech.QtDBus.MyObject"
+literal|"org.qtproject.QtDBus.MyObject"
 argument_list|)
 decl|public
 range|:

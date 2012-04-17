@@ -49,6 +49,7 @@ operator|=
 literal|0
 argument_list|)
 block|;
+name|explicit
 name|QStringListModel
 argument_list|(
 specifier|const

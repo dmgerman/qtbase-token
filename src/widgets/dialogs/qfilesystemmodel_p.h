@@ -2009,9 +2009,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|// ### Qt 5: resolvedSymLinks goes away
-end_comment
 begin_expr_stmt
 name|QHash
 operator|<

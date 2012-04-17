@@ -51,6 +51,12 @@ name|class
 name|QRegExp
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+DECL|variable|QRegularExpression
+name|class
+name|QRegularExpression
+decl_stmt|;
+end_decl_stmt
 begin_typedef
 DECL|typedef|QStringListIterator
 typedef|typedef
@@ -164,7 +170,9 @@ directive|endif
 specifier|inline
 name|void
 name|sort
-argument_list|()
+argument_list|(
+argument|Qt::CaseSensitivity cs = Qt::CaseSensitive
+argument_list|)
 block|;
 specifier|inline
 name|int
@@ -354,6 +362,64 @@ specifier|const
 block|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP
+specifier|inline
+name|QStringList
+name|filter
+argument_list|(
+argument|const QRegularExpression&re
+argument_list|)
+specifier|const
+block|;
+specifier|inline
+name|QStringList
+operator|&
+name|replaceInStrings
+argument_list|(
+specifier|const
+name|QRegularExpression
+operator|&
+name|re
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|after
+argument_list|)
+block|;
+specifier|inline
+name|int
+name|indexOf
+argument_list|(
+argument|const QRegularExpression&re
+argument_list|,
+argument|int from =
+literal|0
+argument_list|)
+specifier|const
+block|;
+specifier|inline
+name|int
+name|lastIndexOf
+argument_list|(
+argument|const QRegularExpression&re
+argument_list|,
+argument|int from = -
+literal|1
+argument_list|)
+specifier|const
+block|;
+endif|#
+directive|endif
+comment|// QT_NO_REGEXP
+endif|#
+directive|endif
+comment|// QT_BOOTSTRAPPED
 if|#
 directive|if
 operator|!
@@ -447,9 +513,9 @@ name|void
 name|Q_CORE_EXPORT
 name|QStringList_sort
 argument_list|(
-name|QStringList
-operator|*
-name|that
+argument|QStringList *that
+argument_list|,
+argument|Qt::CaseSensitivity cs
 argument_list|)
 block|;
 name|int
@@ -594,6 +660,74 @@ argument_list|)
 block|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP
+name|void
+name|Q_CORE_EXPORT
+name|QStringList_replaceInStrings
+argument_list|(
+name|QStringList
+operator|*
+name|that
+argument_list|,
+specifier|const
+name|QRegularExpression
+operator|&
+name|rx
+argument_list|,
+specifier|const
+name|QString
+operator|&
+name|after
+argument_list|)
+block|;
+name|QStringList
+name|Q_CORE_EXPORT
+name|QStringList_filter
+argument_list|(
+specifier|const
+name|QStringList
+operator|*
+name|that
+argument_list|,
+specifier|const
+name|QRegularExpression
+operator|&
+name|re
+argument_list|)
+block|;
+name|int
+name|Q_CORE_EXPORT
+name|QStringList_indexOf
+argument_list|(
+argument|const QStringList *that
+argument_list|,
+argument|const QRegularExpression&re
+argument_list|,
+argument|int from
+argument_list|)
+block|;
+name|int
+name|Q_CORE_EXPORT
+name|QStringList_lastIndexOf
+argument_list|(
+argument|const QStringList *that
+argument_list|,
+argument|const QRegularExpression&re
+argument_list|,
+argument|int from
+argument_list|)
+block|;
+endif|#
+directive|endif
+comment|// QT_NO_REGEXP
+endif|#
+directive|endif
+comment|// QT_BOOTSTRAPPED
 block|}
 DECL|function|sort
 specifier|inline
@@ -601,13 +735,17 @@ name|void
 name|QStringList
 operator|::
 name|sort
-argument_list|()
+argument_list|(
+argument|Qt::CaseSensitivity cs
+argument_list|)
 block|{
 name|QtPrivate
 operator|::
 name|QStringList_sort
 argument_list|(
 name|this
+argument_list|,
+name|cs
 argument_list|)
 block|; }
 DECL|function|removeDuplicates
@@ -894,6 +1032,121 @@ return|;
 block|}
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|QT_BOOTSTRAPPED
+ifndef|#
+directive|ifndef
+name|QT_NO_REGEXP
+DECL|function|replaceInStrings
+specifier|inline
+name|QStringList
+operator|&
+name|QStringList
+operator|::
+name|replaceInStrings
+argument_list|(
+argument|const QRegularExpression&rx
+argument_list|,
+argument|const QString&after
+argument_list|)
+block|{
+name|QtPrivate
+operator|::
+name|QStringList_replaceInStrings
+argument_list|(
+name|this
+argument_list|,
+name|rx
+argument_list|,
+name|after
+argument_list|)
+block|;
+return|return
+operator|*
+name|this
+return|;
+block|}
+DECL|function|filter
+specifier|inline
+name|QStringList
+name|QStringList
+operator|::
+name|filter
+argument_list|(
+argument|const QRegularExpression&rx
+argument_list|)
+specifier|const
+block|{
+return|return
+name|QtPrivate
+operator|::
+name|QStringList_filter
+argument_list|(
+name|this
+argument_list|,
+name|rx
+argument_list|)
+return|;
+block|}
+DECL|function|indexOf
+specifier|inline
+name|int
+name|QStringList
+operator|::
+name|indexOf
+argument_list|(
+argument|const QRegularExpression&rx
+argument_list|,
+argument|int from
+argument_list|)
+specifier|const
+block|{
+return|return
+name|QtPrivate
+operator|::
+name|QStringList_indexOf
+argument_list|(
+name|this
+argument_list|,
+name|rx
+argument_list|,
+name|from
+argument_list|)
+return|;
+block|}
+DECL|function|lastIndexOf
+specifier|inline
+name|int
+name|QStringList
+operator|::
+name|lastIndexOf
+argument_list|(
+argument|const QRegularExpression&rx
+argument_list|,
+argument|int from
+argument_list|)
+specifier|const
+block|{
+return|return
+name|QtPrivate
+operator|::
+name|QStringList_lastIndexOf
+argument_list|(
+name|this
+argument_list|,
+name|rx
+argument_list|,
+name|from
+argument_list|)
+return|;
+block|}
+endif|#
+directive|endif
+comment|// QT_NO_REGEXP
+endif|#
+directive|endif
+comment|// QT_BOOTSTRAPPED
 ifndef|#
 directive|ifndef
 name|QT_NO_DATASTREAM

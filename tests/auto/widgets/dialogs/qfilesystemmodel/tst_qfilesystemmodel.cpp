@@ -2817,7 +2817,7 @@ index|[
 name|MAX_PATH
 index|]
 decl_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|nativeHiddenFile
 argument_list|,
@@ -7220,7 +7220,7 @@ argument_list|(
 literal|'/'
 argument_list|)
 operator|+
-literal|"."
+literal|".."
 operator|<<
 name|dirPath
 operator|+
@@ -7229,7 +7229,7 @@ argument_list|(
 literal|'/'
 argument_list|)
 operator|+
-literal|".."
+literal|"."
 expr_stmt|;
 comment|//File dialog Mode means sub trees are not sorted, only the current root
 if|if

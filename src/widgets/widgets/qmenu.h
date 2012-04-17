@@ -737,10 +737,6 @@ name|QTornOffMenu
 block|;
 name|friend
 name|class
-name|Q3PopupMenu
-block|;
-name|friend
-name|class
 name|QComboBox
 block|;
 name|friend

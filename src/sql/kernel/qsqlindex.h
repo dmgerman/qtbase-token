@@ -40,6 +40,7 @@ name|QSqlRecord
 block|{
 name|public
 operator|:
+name|explicit
 name|QSqlIndex
 argument_list|(
 specifier|const

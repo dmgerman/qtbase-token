@@ -407,6 +407,7 @@ argument|int *rowSpan
 argument_list|,
 argument|int *columnSpan
 argument_list|)
+specifier|const
 block|;
 name|protected
 operator|:

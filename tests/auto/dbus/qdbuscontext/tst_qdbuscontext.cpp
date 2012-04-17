@@ -19,7 +19,7 @@ name|char
 name|errorName
 index|[]
 init|=
-literal|"com.trolltech.tst_QDBusContext.Error"
+literal|"org.qtproject.tst_QDBusContext.Error"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -48,7 +48,7 @@ name|Q_CLASSINFO
 argument_list|(
 literal|"D-Bus Interface"
 argument_list|,
-literal|"com.trolltech.tst_QDBusContext.TestObject"
+literal|"org.qtproject.tst_QDBusContext.TestObject"
 argument_list|)
 decl|public
 range|:

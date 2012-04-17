@@ -636,15 +636,14 @@ end_decl_stmt
 begin_comment
 comment|// Column-major order to match OpenGL.
 end_comment
-begin_macro
+begin_function
+name|explicit
 name|QGenericMatrix
-argument_list|(
-argument|int
-argument_list|)
-end_macro
-begin_block
+parameter_list|(
+name|int
+parameter_list|)
 block|{}
-end_block
+end_function
 begin_comment
 comment|// Construct without initializing identity matrix.
 end_comment

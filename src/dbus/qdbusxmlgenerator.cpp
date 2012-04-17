@@ -484,7 +484,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|">\n<annotation name=\"com.trolltech.QtDBus.QtTypeName\" value=\"%3\"/>\n</property>\n"
+literal|">\n<annotation name=\"org.qtproject.QtDBus.QtTypeName\" value=\"%3\"/>\n</property>\n"
 argument_list|)
 operator|.
 name|arg
@@ -535,24 +535,6 @@ operator|->
 name|method
 argument_list|(
 name|i
-argument_list|)
-decl_stmt|;
-name|QByteArray
-name|signature
-init|=
-name|mm
-operator|.
-name|signature
-argument_list|()
-decl_stmt|;
-name|int
-name|paren
-init|=
-name|signature
-operator|.
-name|indexOf
-argument_list|(
-literal|'('
 argument_list|)
 decl_stmt|;
 name|bool
@@ -700,14 +682,14 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
-name|QLatin1String
+name|QString
+operator|::
+name|fromLatin1
 argument_list|(
-name|signature
+name|mm
 operator|.
-name|left
-argument_list|(
-name|paren
-argument_list|)
+name|name
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -715,19 +697,24 @@ comment|// check the return type first
 name|int
 name|typeId
 init|=
-name|QMetaType
-operator|::
-name|type
-argument_list|(
 name|mm
 operator|.
-name|typeName
+name|returnType
 argument_list|()
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
 name|typeId
+operator|!=
+name|QMetaType
+operator|::
+name|UnknownType
+operator|&&
+name|typeId
+operator|!=
+name|QMetaType
+operator|::
+name|Void
 condition|)
 block|{
 specifier|const
@@ -784,7 +771,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"<annotation name=\"com.trolltech.QtDBus.QtTypeName.Out0\" value=\"%1\"/>\n"
+literal|"<annotation name=\"org.qtproject.QtDBus.QtTypeName.Out0\" value=\"%1\"/>\n"
 argument_list|)
 operator|.
 name|arg
@@ -812,11 +799,11 @@ block|}
 elseif|else
 if|if
 condition|(
-operator|*
-name|mm
-operator|.
-name|typeName
-argument_list|()
+name|typeId
+operator|==
+name|QMetaType
+operator|::
+name|UnknownType
 condition|)
 continue|continue;
 comment|// wasn't a valid type
@@ -1104,7 +1091,7 @@ name|QString
 operator|::
 name|fromLatin1
 argument_list|(
-literal|"<annotation name=\"com.trolltech.QtDBus.QtTypeName.%1%2\" value=\"%3\"/>\n"
+literal|"<annotation name=\"org.qtproject.QtDBus.QtTypeName.%1%2\" value=\"%3\"/>\n"
 argument_list|)
 operator|.
 name|arg
@@ -1380,11 +1367,11 @@ unit|QString qDBusGenerateMetaObjectXml(QString interface, const QMetaObject *mo
 comment|// generate the interface name from the meta object
 end_comment
 begin_comment
-unit|int idx = mo->indexOfClassInfo(QCLASSINFO_DBUS_INTERFACE);         if (idx>= mo->classInfoOffset()) {             interface = QLatin1String(mo->classInfo(idx).value());         } else {             interface = QLatin1String(mo->className());             interface.replace(QLatin1String("::"), QLatin1String("."));              if (interface.startsWith(QLatin1String("QDBus"))) {                 interface.prepend(QLatin1String("com.trolltech.QtDBus."));             } else if (interface.startsWith(QLatin1Char('Q'))&&                        interface.length()>= 2&& interface.at(1).isUpper()) {
+unit|int idx = mo->indexOfClassInfo(QCLASSINFO_DBUS_INTERFACE);         if (idx>= mo->classInfoOffset()) {             interface = QLatin1String(mo->classInfo(idx).value());         } else {             interface = QLatin1String(mo->className());             interface.replace(QLatin1String("::"), QLatin1String("."));              if (interface.startsWith(QLatin1String("QDBus"))) {                 interface.prepend(QLatin1String("org.qtproject.QtDBus."));             } else if (interface.startsWith(QLatin1Char('Q'))&&                        interface.length()>= 2&& interface.at(1).isUpper()) {
 comment|// assume it's Qt
 end_comment
 begin_comment
-unit|interface.prepend(QLatin1String("com.trolltech.Qt."));             } else if (!QCoreApplication::instance()||                        QCoreApplication::instance()->applicationName().isEmpty()) {                 interface.prepend(QLatin1String("local."));             } else {                 interface.prepend(QLatin1Char('.')).prepend(QCoreApplication::instance()->applicationName());                 QStringList domainName =                     QCoreApplication::instance()->organizationDomain().split(QLatin1Char('.'),                                                                              QString::SkipEmptyParts);                 if (domainName.isEmpty())                     interface.prepend(QLatin1String("local."));                 else                     for (int i = 0; i< domainName.count(); ++i)                         interface.prepend(QLatin1Char('.')).prepend(domainName.at(i));             }         }     }      QString xml;     int idx = mo->indexOfClassInfo(QCLASSINFO_DBUS_INTROSPECTION);     if (idx>= mo->classInfoOffset())         return QString::fromUtf8(mo->classInfo(idx).value());     else         xml = generateInterfaceXml(mo, flags, base->methodCount(), base->propertyCount());      if (xml.isEmpty())         return QString();
+unit|interface.prepend(QLatin1String("org.qtproject.Qt."));             } else if (!QCoreApplication::instance()||                        QCoreApplication::instance()->applicationName().isEmpty()) {                 interface.prepend(QLatin1String("local."));             } else {                 interface.prepend(QLatin1Char('.')).prepend(QCoreApplication::instance()->applicationName());                 QStringList domainName =                     QCoreApplication::instance()->organizationDomain().split(QLatin1Char('.'),                                                                              QString::SkipEmptyParts);                 if (domainName.isEmpty())                     interface.prepend(QLatin1String("local."));                 else                     for (int i = 0; i< domainName.count(); ++i)                         interface.prepend(QLatin1Char('.')).prepend(domainName.at(i));             }         }     }      QString xml;     int idx = mo->indexOfClassInfo(QCLASSINFO_DBUS_INTROSPECTION);     if (idx>= mo->classInfoOffset())         return QString::fromUtf8(mo->classInfo(idx).value());     else         xml = generateInterfaceXml(mo, flags, base->methodCount(), base->propertyCount());      if (xml.isEmpty())         return QString();
 comment|// don't add an empty interface
 end_comment
 begin_endif

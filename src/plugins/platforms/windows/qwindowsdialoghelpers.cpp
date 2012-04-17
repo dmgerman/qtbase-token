@@ -4519,7 +4519,7 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-name|qMemCopy
+name|memcpy
 argument_list|(
 operator|*
 name|ptr

@@ -50,7 +50,7 @@ DECL|macro|TEST_INTERFACE_NAME
 define|#
 directive|define
 name|TEST_INTERFACE_NAME
-value|"com.trolltech.QtDBus.MyObject"
+value|"org.qtproject.QtDBus.MyObject"
 end_define
 begin_define
 DECL|macro|TEST_SIGNAL_NAME
@@ -67,7 +67,7 @@ name|char
 name|serviceName
 index|[]
 init|=
-literal|"com.trolltech.autotests.qmyserver"
+literal|"org.qtproject.autotests.qmyserver"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -78,7 +78,7 @@ name|char
 name|objectPath
 index|[]
 init|=
-literal|"/com/trolltech/qmyserver"
+literal|"/org/qtproject/qmyserver"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -123,14 +123,14 @@ name|Q_CLASSINFO
 argument_list|(
 literal|"D-Bus Interface"
 argument_list|,
-literal|"com.trolltech.QtDBus.MyObject"
+literal|"org.qtproject.QtDBus.MyObject"
 argument_list|)
 name|Q_CLASSINFO
 argument_list|(
 literal|"D-Bus Introspection"
 argument_list|,
 literal|""
-literal|"<interface name=\"com.trolltech.QtDBus.MyObjectUnknownTypes\">\n"
+literal|"<interface name=\"org.qtproject.QtDBus.MyObjectUnknownTypes\">\n"
 literal|"<property access=\"readwrite\" type=\"~\" name=\"prop1\" />\n"
 literal|"<signal name=\"somethingHappened\">\n"
 literal|"<arg direction=\"out\" type=\"~\" />\n"
@@ -1736,7 +1736,7 @@ argument_list|(
 literal|"/unknownTypes"
 argument_list|)
 argument_list|,
-literal|"com.trolltech.QtDBus.MyObjectUnknownTypes"
+literal|"org.qtproject.QtDBus.MyObjectUnknownTypes"
 argument_list|)
 decl_stmt|;
 specifier|const
@@ -1945,7 +1945,7 @@ operator|==
 literal|"/some/path/superNode/foo"
 condition|)
 return|return
-literal|"<interface name=\"com.trolltech.QtDBus.VirtualObject\">\n"
+literal|"<interface name=\"org.qtproject.QtDBus.VirtualObject\">\n"
 literal|"<method name=\"klingeling\" />\n"
 literal|"</interface>\n"
 return|;
@@ -2212,7 +2212,7 @@ name|contains
 argument_list|(
 name|QRegExp
 argument_list|(
-literal|"<node>.*<interface name=\"com.trolltech.QtDBus.VirtualObject\">"
+literal|"<node>.*<interface name=\"org.qtproject.QtDBus.VirtualObject\">"
 literal|".*<method name=\"klingeling\" />\n"
 literal|".*</interface>.*<interface name="
 argument_list|)

@@ -73,7 +73,7 @@ expr_stmt|;
 comment|// the following would have been the correct thing, but
 comment|// reality often differs from the specification. People have
 comment|// data: URIs with ? and #
-comment|//QByteArray data = QByteArray::fromPercentEncoding(uri.encodedPath());
+comment|//QByteArray data = QByteArray::fromPercentEncoding(uri.path(QUrl::PrettyDecoded).toLatin1());
 name|QByteArray
 name|data
 init|=
@@ -83,20 +83,21 @@ name|fromPercentEncoding
 argument_list|(
 name|uri
 operator|.
-name|toEncoded
+name|url
+argument_list|(
+name|QUrl
+operator|::
+name|PrettyDecoded
+operator||
+name|QUrl
+operator|::
+name|RemoveScheme
+argument_list|)
+operator|.
+name|toLatin1
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// remove the data: scheme
-name|data
-operator|.
-name|remove
-argument_list|(
-literal|0
-argument_list|,
-literal|5
-argument_list|)
-expr_stmt|;
 comment|// parse it:
 name|int
 name|pos

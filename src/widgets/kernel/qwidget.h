@@ -1134,6 +1134,7 @@ expr_stmt|;
 name|bool
 name|isEnabledTo
 argument_list|(
+specifier|const
 name|QWidget
 operator|*
 argument_list|)
@@ -1463,6 +1464,7 @@ decl_stmt|;
 name|QPoint
 name|mapTo
 argument_list|(
+specifier|const
 name|QWidget
 operator|*
 argument_list|,
@@ -1475,6 +1477,7 @@ decl_stmt|;
 name|QPoint
 name|mapFrom
 argument_list|(
+specifier|const
 name|QWidget
 operator|*
 argument_list|,
@@ -2520,12 +2523,12 @@ expr_stmt|;
 name|bool
 name|isVisibleTo
 argument_list|(
+specifier|const
 name|QWidget
 operator|*
 argument_list|)
 decl|const
 decl_stmt|;
-comment|// ### Qt 5: bool isVisibleTo(_const_ QWidget *) const
 specifier|inline
 name|bool
 name|isHidden

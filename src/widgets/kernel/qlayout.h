@@ -428,6 +428,13 @@ name|isEmpty
 argument_list|()
 specifier|const
 expr_stmt|;
+name|QSizePolicy
+operator|::
+name|ControlTypes
+name|controlTypes
+argument_list|()
+specifier|const
+expr_stmt|;
 name|int
 name|totalHeightForWidth
 argument_list|(

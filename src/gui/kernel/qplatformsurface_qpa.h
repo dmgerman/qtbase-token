@@ -89,11 +89,15 @@ specifier|const
 expr_stmt|;
 name|private
 label|:
+name|explicit
 name|QPlatformSurface
 argument_list|(
-argument|QSurface::SurfaceClass type
+name|QSurface
+operator|::
+name|SurfaceClass
+name|type
 argument_list|)
-empty_stmt|;
+decl_stmt|;
 name|QSurface
 operator|::
 name|SurfaceClass

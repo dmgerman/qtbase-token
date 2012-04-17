@@ -294,7 +294,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reimplemented in subclasses to show the surface     if \a visible is \c true, and hide it if \a visible is \c false. */
+comment|/*!     Reimplemented in subclasses to show the surface     if \a visible is \c true, and hide it if \a visible is \c false.      The default implementation sends a synchronous expose event. */
 end_comment
 begin_function
 DECL|function|setVisible
@@ -307,19 +307,8 @@ name|bool
 name|visible
 parameter_list|)
 block|{
-name|Q_UNUSED
-argument_list|(
-name|visible
-argument_list|)
-expr_stmt|;
-name|QWindowSystemInterface
-operator|::
-name|handleSynchronousExposeEvent
-argument_list|(
-name|window
-argument_list|()
-argument_list|,
 name|QRect
+name|rect
 argument_list|(
 name|QPoint
 argument_list|()
@@ -330,6 +319,15 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|QWindowSystemInterface
+operator|::
+name|handleSynchronousExposeEvent
+argument_list|(
+name|window
+argument_list|()
+argument_list|,
+name|rect
 argument_list|)
 expr_stmt|;
 block|}

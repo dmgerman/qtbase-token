@@ -6568,9 +6568,6 @@ comment|// Fall through!
 case|case
 name|PE_IndicatorViewItemCheck
 case|:
-case|case
-name|PE_Q3CheckListIndicator
-case|:
 if|if
 condition|(
 operator|!
@@ -6589,10 +6586,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|pe
-operator|==
-name|PE_Q3CheckListIndicator
-operator|||
 name|pe
 operator|==
 name|PE_IndicatorViewItemCheck

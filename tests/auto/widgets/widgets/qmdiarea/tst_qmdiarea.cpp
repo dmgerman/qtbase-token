@@ -991,7 +991,7 @@ name|QApplication
 operator|::
 name|font
 argument_list|(
-literal|"QWorkspaceTitleBar"
+literal|"QMdiSubWindowTitleBar"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -7354,7 +7354,10 @@ name|QLatin1String
 argument_list|(
 name|method
 operator|.
-name|signature
+name|methodSignature
+argument_list|()
+operator|.
+name|constData
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -11206,7 +11209,7 @@ name|QApplication
 operator|::
 name|font
 argument_list|(
-literal|"QWorkspaceTitleBar"
+literal|"QMdiSubWindowTitleBar"
 argument_list|)
 argument_list|)
 decl_stmt|;

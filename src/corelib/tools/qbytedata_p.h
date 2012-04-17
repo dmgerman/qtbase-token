@@ -186,7 +186,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|// return the first QByteData. User of this function has to qFree() its .data!
+comment|// return the first QByteData. User of this function has to free() its .data!
 end_comment
 begin_comment
 comment|// preferably use this function to read data.
@@ -216,7 +216,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// return everything. User of this function has to qFree() its .data!
+comment|// return everything. User of this function has to free() its .data!
 end_comment
 begin_comment
 comment|// avoid to use this, it might malloc and memcpy.
@@ -237,7 +237,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// return amount. User of this function has to qFree() its .data!
+comment|// return amount. User of this function has to free() its .data!
 end_comment
 begin_comment
 comment|// avoid to use this, it might malloc and memcpy.
@@ -290,7 +290,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// return amount bytes. User of this function has to qFree() its .data!
+comment|// return amount bytes. User of this function has to free() its .data!
 end_comment
 begin_comment
 comment|// avoid to use this, it will memcpy.

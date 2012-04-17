@@ -47,6 +47,7 @@ block|{
 name|Q_OBJECT
 name|protected
 operator|:
+name|explicit
 name|QDBusAbstractAdaptor
 argument_list|(
 name|QObject

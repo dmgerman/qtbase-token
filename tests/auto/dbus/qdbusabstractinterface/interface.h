@@ -190,7 +190,7 @@ name|Q_CLASSINFO
 argument_list|(
 literal|"D-Bus Interface"
 argument_list|,
-literal|"com.trolltech.QtDBus.Pinger"
+literal|"org.qtproject.QtDBus.Pinger"
 argument_list|)
 name|Q_PROPERTY
 argument_list|(

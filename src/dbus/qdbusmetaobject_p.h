@@ -118,9 +118,17 @@ argument_list|()
 block|{
 name|delete
 index|[]
+name|reinterpret_cast
+operator|<
+specifier|const
+name|char
+operator|*
+operator|>
+operator|(
 name|d
 operator|.
 name|stringdata
+operator|)
 block|;
 name|delete
 index|[]
@@ -129,15 +137,6 @@ operator|.
 name|data
 block|;     }
 comment|// methods (slots& signals):
-specifier|const
-name|char
-operator|*
-name|dbusNameForMethod
-argument_list|(
-argument|int id
-argument_list|)
-specifier|const
-block|;
 specifier|const
 name|int
 operator|*

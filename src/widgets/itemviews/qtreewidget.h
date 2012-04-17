@@ -110,13 +110,20 @@ init|=
 name|Type
 parameter_list|)
 function_decl|;
+name|explicit
 name|QTreeWidgetItem
-argument_list|(
-argument|const QStringList&strings
-argument_list|,
-argument|int type = Type
-argument_list|)
-empty_stmt|;
+parameter_list|(
+specifier|const
+name|QStringList
+modifier|&
+name|strings
+parameter_list|,
+name|int
+name|type
+init|=
+name|Type
+parameter_list|)
+function_decl|;
 name|explicit
 name|QTreeWidgetItem
 parameter_list|(
@@ -1584,15 +1591,6 @@ block|;
 name|int
 name|indexOfTopLevelItem
 argument_list|(
-name|QTreeWidgetItem
-operator|*
-name|item
-argument_list|)
-block|;
-comment|// ### Qt 5: remove me
-name|int
-name|indexOfTopLevelItem
-argument_list|(
 argument|QTreeWidgetItem *item
 argument_list|)
 specifier|const
@@ -1726,17 +1724,6 @@ argument|int column
 argument_list|,
 argument|Qt::SortOrder order
 argument_list|)
-block|;
-name|void
-name|setSortingEnabled
-argument_list|(
-argument|bool enable
-argument_list|)
-block|;
-name|bool
-name|isSortingEnabled
-argument_list|()
-specifier|const
 block|;
 name|void
 name|editItem

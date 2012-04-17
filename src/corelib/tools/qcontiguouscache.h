@@ -1064,9 +1064,6 @@ name|alignOfTypedData
 argument_list|()
 specifier|const
 block|{
-ifdef|#
-directive|ifdef
-name|Q_ALIGNOF
 return|return
 name|qMax
 operator|<
@@ -1085,25 +1082,10 @@ name|Data
 argument_list|)
 operator|)
 return|;
+block|}
 end_expr_stmt
-begin_else
-else|#
-directive|else
-end_else
-begin_return
-return|return
-literal|0
-return|;
-end_return
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_empty_stmt
-unit|} }
-empty_stmt|;
-end_empty_stmt
 begin_expr_stmt
+unit|};
 name|template
 operator|<
 name|typename

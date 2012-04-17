@@ -411,6 +411,62 @@ argument_list|)
 expr_stmt|;
 comment|// list == ["Bill Clinton", "Bill Murray"]
 comment|//! [15]
+name|list
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+comment|//! [16]
+name|list
+operator|<<
+literal|"alpha"
+operator|<<
+literal|"beta"
+operator|<<
+literal|"gamma"
+operator|<<
+literal|"epsilon"
+expr_stmt|;
+name|list
+operator|.
+name|replaceInStrings
+argument_list|(
+name|QRegularExpression
+argument_list|(
+literal|"^a"
+argument_list|)
+argument_list|,
+literal|"o"
+argument_list|)
+expr_stmt|;
+comment|// list == ["olpha", "beta", "gamma", "epsilon"]
+comment|//! [16]
+name|list
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+comment|//! [17]
+name|list
+operator|<<
+literal|"Bill Clinton"
+operator|<<
+literal|"Murray, Bill"
+expr_stmt|;
+name|list
+operator|.
+name|replaceInStrings
+argument_list|(
+name|QRegularExpression
+argument_list|(
+literal|"^(.*), (.*)$"
+argument_list|)
+argument_list|,
+literal|"\\2 \\1"
+argument_list|)
+expr_stmt|;
+comment|// list == ["Bill Clinton", "Bill Murray"]
+comment|//! [17]
 block|}
 end_constructor
 begin_function

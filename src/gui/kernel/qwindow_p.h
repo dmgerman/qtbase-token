@@ -92,6 +92,11 @@ argument_list|(
 name|false
 argument_list|)
 block|,
+name|exposed
+argument_list|(
+name|false
+argument_list|)
+block|,
 name|windowState
 argument_list|(
 name|Qt
@@ -102,6 +107,11 @@ block|,
 name|resizeEventPending
 argument_list|(
 name|true
+argument_list|)
+block|,
+name|receivedExpose
+argument_list|(
+name|false
 argument_list|)
 block|,
 name|positionPolicy
@@ -248,6 +258,11 @@ name|visible
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+name|bool
+name|exposed
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|QSurfaceFormat
 name|requestedFormat
 decl_stmt|;
@@ -272,6 +287,11 @@ end_expr_stmt
 begin_decl_stmt
 name|bool
 name|resizeEventPending
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+name|bool
+name|receivedExpose
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt

@@ -50,7 +50,7 @@ name|char
 name|serviceName
 index|[]
 init|=
-literal|"com.trolltech.autotests.qpong"
+literal|"org.qtproject.autotests.qpong"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -61,7 +61,7 @@ name|char
 name|objectPath
 index|[]
 init|=
-literal|"/com/trolltech/qpong"
+literal|"/org/qtproject/qpong"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -3359,7 +3359,7 @@ literal|"a{os}"
 operator|<<
 literal|"[Argument: a{os} {[ObjectPath: /] = \"root\", [ObjectPath: /bar/baz] = \"bar and baz\", [ObjectPath: /foo] = \"foo\"}]"
 expr_stmt|;
-name|QHash
+name|QMap
 argument_list|<
 name|QDBusSignature
 argument_list|,
@@ -4201,7 +4201,7 @@ literal|"a((iii)(iiii)i)"
 operator|<<
 literal|"[Argument: a((iii)(iiii)i) {[Argument: ((iii)(iiii)i) [Argument: (iii) 0, 0, 0], [Argument: (iiii) -1, -1, -1, -1], 0], [Argument: ((iii)(iiii)i) [Argument: (iii) 1977, 9, 13], [Argument: (iiii) 0, 0, 0, 0], 0], [Argument: ((iii)(iiii)i) [Argument: (iii) 2006, 6, 18], [Argument: (iiii) 13, 14, 0, 0], 0]}]"
 expr_stmt|;
-name|QHash
+name|QMap
 argument_list|<
 name|qlonglong
 argument_list|,
@@ -4368,7 +4368,7 @@ index|]
 operator|=
 literal|"c"
 expr_stmt|;
-name|QHash
+name|QMap
 argument_list|<
 name|QDBusSignature
 argument_list|,
@@ -6450,7 +6450,7 @@ argument_list|()
 operator|<<
 literal|"org.freedesktop.DBus.Error.UnknownMethod"
 operator|<<
-literal|"Method \"ping\" with signature \"\" on interface \"com.trolltech.autotests.qpong\" doesn't exist\n"
+literal|"Method \"ping\" with signature \"\" on interface \"org.qtproject.autotests.qpong\" doesn't exist\n"
 operator|<<
 operator|(
 specifier|const
@@ -6477,7 +6477,7 @@ operator|<<
 name|QVariantList
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidService"
+literal|"org.qtproject.QtDBus.Error.InvalidService"
 operator|<<
 literal|"Invalid service name: this isn't valid"
 operator|<<
@@ -6501,7 +6501,7 @@ operator|<<
 name|QVariantList
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidObjectPath"
+literal|"org.qtproject.QtDBus.Error.InvalidObjectPath"
 operator|<<
 literal|"Object path cannot be empty"
 operator|<<
@@ -6525,7 +6525,7 @@ operator|<<
 name|QVariantList
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidObjectPath"
+literal|"org.qtproject.QtDBus.Error.InvalidObjectPath"
 operator|<<
 literal|"Invalid object path: //"
 operator|<<
@@ -6550,7 +6550,7 @@ operator|<<
 name|QVariantList
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidInterface"
+literal|"org.qtproject.QtDBus.Error.InvalidInterface"
 operator|<<
 literal|"Invalid interface class: this isn't valid"
 operator|<<
@@ -6574,7 +6574,7 @@ operator|<<
 name|QVariantList
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidMember"
+literal|"org.qtproject.QtDBus.Error.InvalidMember"
 operator|<<
 literal|"method name cannot be empty"
 operator|<<
@@ -6598,7 +6598,7 @@ operator|<<
 name|QVariantList
 argument_list|()
 operator|<<
-literal|"com.trolltech.QtDBus.Error.InvalidMember"
+literal|"org.qtproject.QtDBus.Error.InvalidMember"
 operator|<<
 literal|"Invalid method name: this isn't valid"
 operator|<<

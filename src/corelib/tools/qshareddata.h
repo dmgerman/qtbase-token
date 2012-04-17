@@ -1564,9 +1564,6 @@ argument_list|(
 name|p2
 argument_list|)
 block|; }
-ifndef|#
-directive|ifndef
-name|QT_NO_STL
 name|QT_END_NAMESPACE
 name|namespace
 name|std
@@ -1615,8 +1612,6 @@ argument_list|)
 block|; }
 block|}
 name|QT_BEGIN_NAMESPACE
-endif|#
-directive|endif
 name|template
 operator|<
 name|typename

@@ -213,6 +213,7 @@ block|{
 name|Q_OBJECT
 name|public
 range|:
+name|explicit
 name|QDBusPendingCallWatcher
 argument_list|(
 specifier|const

@@ -77,13 +77,20 @@ enum|;
 name|QNetworkProxyQuery
 argument_list|()
 expr_stmt|;
+name|explicit
 name|QNetworkProxyQuery
-argument_list|(
-argument|const QUrl&requestUrl
-argument_list|,
-argument|QueryType queryType = UrlRequest
-argument_list|)
-empty_stmt|;
+parameter_list|(
+specifier|const
+name|QUrl
+modifier|&
+name|requestUrl
+parameter_list|,
+name|QueryType
+name|queryType
+init|=
+name|UrlRequest
+parameter_list|)
+function_decl|;
 name|QNetworkProxyQuery
 argument_list|(
 argument|const QString&hostname
@@ -95,15 +102,26 @@ argument_list|,
 argument|QueryType queryType = TcpSocket
 argument_list|)
 empty_stmt|;
+name|explicit
 name|QNetworkProxyQuery
-argument_list|(
-argument|quint16 bindPort
-argument_list|,
-argument|const QString&protocolTag = QString()
-argument_list|,
-argument|QueryType queryType = TcpServer
-argument_list|)
-empty_stmt|;
+parameter_list|(
+name|quint16
+name|bindPort
+parameter_list|,
+specifier|const
+name|QString
+modifier|&
+name|protocolTag
+init|=
+name|QString
+argument_list|()
+parameter_list|,
+name|QueryType
+name|queryType
+init|=
+name|TcpServer
+parameter_list|)
+function_decl|;
 name|QNetworkProxyQuery
 argument_list|(
 specifier|const

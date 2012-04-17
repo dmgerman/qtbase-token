@@ -580,7 +580,7 @@ name|sig
 init|=
 name|method
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 decl_stmt|;
 name|QTest
@@ -718,7 +718,7 @@ name|sig
 init|=
 name|method
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 decl_stmt|;
 name|QTest
@@ -856,7 +856,7 @@ name|sig
 init|=
 name|method
 operator|.
-name|signature
+name|methodSignature
 argument_list|()
 decl_stmt|;
 name|QTest

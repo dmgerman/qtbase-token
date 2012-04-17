@@ -297,6 +297,12 @@ argument|QObject *object
 argument_list|)
 specifier|const
 block|;
+name|int
+name|remainingTime
+argument_list|(
+argument|int timerId
+argument_list|)
+block|;
 name|void
 name|wakeUp
 argument_list|()

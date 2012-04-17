@@ -123,6 +123,23 @@ operator|=
 name|window
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|win
+operator|&&
+operator|!
+name|qt_window_private
+argument_list|(
+name|win
+argument_list|)
+operator|->
+name|receivedExpose
+condition|)
+name|qWarning
+argument_list|(
+literal|"QBackingStore::flush() called with non-exposed window, behavior is undefined"
+argument_list|)
+expr_stmt|;
 name|d_ptr
 operator|->
 name|platformBackingStore

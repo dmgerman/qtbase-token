@@ -9689,14 +9689,20 @@ name|reader
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|QVERIFY
-argument_list|(
+comment|// tst_QDom relies on a specific QHash ordering, see QTBUG-25071
+name|QString
+name|docAsString
+init|=
 name|doc
 operator|.
 name|toString
 argument_list|(
 literal|0
 argument_list|)
+decl_stmt|;
+name|QVERIFY
+argument_list|(
+name|docAsString
 operator|==
 name|QString
 operator|::
@@ -9705,18 +9711,49 @@ argument_list|(
 literal|"<a>\n<b p:c=\"\" xmlns:p=\"NS\" p:d=\"\"/>\n</a>\n"
 argument_list|)
 operator|||
-name|doc
-operator|.
-name|toString
-argument_list|(
-literal|0
-argument_list|)
+name|docAsString
 operator|==
 name|QString
 operator|::
 name|fromLatin1
 argument_list|(
 literal|"<a>\n<b p:c=\"\" p:d=\"\" xmlns:p=\"NS\"/>\n</a>\n"
+argument_list|)
+operator|||
+name|docAsString
+operator|==
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"<a>\n<b p:d=\"\" p:c=\"\" xmlns:p=\"NS\"/>\n</a>\n"
+argument_list|)
+operator|||
+name|docAsString
+operator|==
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"<a>\n<b p:d=\"\" xmlns:p=\"NS\" p:c=\"\"/>\n</a>\n"
+argument_list|)
+operator|||
+name|docAsString
+operator|==
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"<a>\n<b xmlns:p=\"NS\" p:c=\"\" p:d=\"\"/>\n</a>\n"
+argument_list|)
+operator|||
+name|docAsString
+operator|==
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"<a>\n<b xmlns:p=\"NS\" p:d=\"\" p:c=\"\"/>\n</a>\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -10542,7 +10579,7 @@ operator|.
 name|toDocument
 argument_list|()
 decl_stmt|;
-comment|// for some reason, our DOM implementation reverts the order of entities
+comment|// this string is relying on a specific QHash ordering, QTBUG-25071
 name|QString
 name|expected
 argument_list|(
@@ -10573,10 +10610,15 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|QCOMPARE
+comment|// check against the original string and the expected one, QTBUG-25071
+name|QVERIFY
 argument_list|(
 name|output
-argument_list|,
+operator|==
+name|dtd
+operator|||
+name|output
+operator|==
 name|expected
 argument_list|)
 expr_stmt|;

@@ -6594,6 +6594,8 @@ name|parselist
 operator|.
 name|append
 argument_list|(
+name|QString
+argument_list|(
 name|var
 operator|+
 name|s
@@ -6601,6 +6603,7 @@ operator|.
 name|mid
 argument_list|(
 name|d_off
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

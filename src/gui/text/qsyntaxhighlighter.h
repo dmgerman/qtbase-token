@@ -86,6 +86,7 @@ argument|QSyntaxHighlighter
 argument_list|)
 name|public
 operator|:
+name|explicit
 name|QSyntaxHighlighter
 argument_list|(
 name|QObject
@@ -93,6 +94,7 @@ operator|*
 name|parent
 argument_list|)
 block|;
+name|explicit
 name|QSyntaxHighlighter
 argument_list|(
 name|QTextDocument

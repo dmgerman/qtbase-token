@@ -7948,11 +7948,11 @@ return|return
 name|res
 return|;
 block|}
-DECL|function|isIdentifierEscapedImplementation
+DECL|function|isIdentifierEscaped
 name|bool
 name|QMYSQLDriver
 operator|::
-name|isIdentifierEscapedImplementation
+name|isIdentifierEscaped
 parameter_list|(
 specifier|const
 name|QString

@@ -89,7 +89,6 @@ argument_list|,
 argument|IteratorFlags flags = NoIteratorFlags
 argument_list|)
 empty_stmt|;
-name|virtual
 operator|~
 name|QDirIterator
 argument_list|()
