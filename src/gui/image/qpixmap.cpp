@@ -2568,8 +2568,6 @@ block|{
 name|QPixmap
 name|pixmap
 decl_stmt|;
-comment|// ### Qt5: should we keep or remove this method?
-comment|// SC solution would be to install a callback form QtWidgets, but ugly.
 name|qWarning
 argument_list|(
 literal|"QPixmap::grabWidget is deprecated, use QWidget::grab() instead"

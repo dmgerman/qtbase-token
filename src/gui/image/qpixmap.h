@@ -222,7 +222,6 @@ name|isNull
 argument_list|()
 specifier|const
 block|;
-comment|// ### Qt 5: make inline
 name|int
 name|devType
 argument_list|()
@@ -233,13 +232,11 @@ name|width
 argument_list|()
 specifier|const
 block|;
-comment|// ### Qt 5: make inline
 name|int
 name|height
 argument_list|()
 specifier|const
 block|;
-comment|// ### Qt 5: make inline
 name|QSize
 name|size
 argument_list|()
