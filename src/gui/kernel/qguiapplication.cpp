@@ -898,6 +898,9 @@ name|QGuiApplication
 argument_list|)
 expr_stmt|;
 comment|// flush clipboard contents
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 if|if
 condition|(
 name|QGuiApplicationPrivate
@@ -926,6 +929,8 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 name|d
 operator|->
 name|eventDispatcher
@@ -939,6 +944,9 @@ name|eventDispatcher
 operator|=
 literal|0
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 operator|delete
 name|QGuiApplicationPrivate
 operator|::
@@ -950,6 +958,8 @@ name|qt_clipboard
 operator|=
 literal|0
 expr_stmt|;
+endif|#
+directive|endif
 name|clearPalette
 argument_list|()
 expr_stmt|;
