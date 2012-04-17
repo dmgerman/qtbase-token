@@ -707,9 +707,6 @@ block|,
 name|TARG_WIN_MODE
 block|,
 name|TARG_MACX_MODE
-block|,
-DECL|enumerator|TARG_INTEGRITY_MODE
-name|TARG_INTEGRITY_MODE
 block|}
 enum|;
 DECL|member|target_mode

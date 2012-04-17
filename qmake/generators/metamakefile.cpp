@@ -3171,7 +3171,7 @@ name|target_mode
 operator|=
 name|Option
 operator|::
-name|TARG_INTEGRITY_MODE
+name|TARG_UNIX_MODE
 expr_stmt|;
 block|}
 else|else
