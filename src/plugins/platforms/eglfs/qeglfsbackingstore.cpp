@@ -208,7 +208,7 @@ init|=
 literal|"uniform sampler2D texture;\n"
 literal|"varying highp vec2 textureCoord;\n"
 literal|"void main() {\n"
-literal|"   gl_FragColor = texture2D(texture, textureCoord);\n"
+literal|"   gl_FragColor = texture2D(texture, textureCoord).bgra;\n"
 literal|"}\n"
 decl_stmt|;
 name|m_program
