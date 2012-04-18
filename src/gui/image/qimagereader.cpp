@@ -3887,11 +3887,15 @@ name|scaledSize
 operator|.
 name|isValid
 argument_list|()
+operator|&&
+name|d
+operator|->
+name|clipRect
+operator|.
+name|isNull
+argument_list|()
 condition|)
 block|{
-comment|// in this case, there's nothing we can do. if the
-comment|// plugin supports scaled size but not ClipRect, then
-comment|// we have to ignore ClipRect."
 if|if
 condition|(
 name|d
