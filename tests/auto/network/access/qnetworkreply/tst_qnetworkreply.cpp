@@ -27572,18 +27572,8 @@ operator|*
 literal|1024
 argument_list|)
 expr_stmt|;
-name|QTestEventLoop
-operator|::
-name|instance
-argument_list|()
-operator|.
-name|enterLoop
-argument_list|(
-literal|2
-argument_list|)
-expr_stmt|;
 comment|// some progress should have been made
-name|QVERIFY
+name|QTRY_VERIFY
 argument_list|(
 operator|!
 name|spy
