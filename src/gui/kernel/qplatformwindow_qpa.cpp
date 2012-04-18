@@ -307,6 +307,11 @@ name|bool
 name|visible
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|visible
+argument_list|)
+expr_stmt|;
 name|QRect
 name|rect
 argument_list|(
