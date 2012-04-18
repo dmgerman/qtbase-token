@@ -74,7 +74,7 @@ name|int
 name|moduleForType
 parameter_list|(
 specifier|const
-name|int
+name|uint
 name|typeId
 parameter_list|)
 block|{

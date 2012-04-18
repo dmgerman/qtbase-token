@@ -222,7 +222,7 @@ name|operator
 name|[]
 parameter_list|(
 specifier|const
-name|int
+name|uint
 name|typeId
 parameter_list|)
 specifier|const
@@ -4335,6 +4335,15 @@ operator|!
 name|size
 condition|)
 block|{
+name|qWarning
+argument_list|(
+literal|"Trying to construct an instance of an invalid type, type id: %i"
+argument_list|,
+name|d
+operator|->
+name|type
+argument_list|)
+expr_stmt|;
 name|d
 operator|->
 name|type
@@ -7582,13 +7591,7 @@ block|}
 block|}
 name|create
 argument_list|(
-cast|static_cast
-argument_list|<
-name|int
-argument_list|>
-argument_list|(
 name|typeId
-argument_list|)
 argument_list|,
 literal|0
 argument_list|)

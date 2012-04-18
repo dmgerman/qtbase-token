@@ -95,10 +95,22 @@ argument_list|)
 expr_stmt|;
 break|break;
 default|default:
-name|Q_ASSERT
+name|qWarning
 argument_list|(
-literal|false
+literal|"Trying to construct an instance of an invalid type, type id: %i"
+argument_list|,
+name|x
+operator|->
+name|type
 argument_list|)
+expr_stmt|;
+name|x
+operator|->
+name|type
+operator|=
+name|QVariant
+operator|::
+name|Invalid
 expr_stmt|;
 return|return;
 block|}
