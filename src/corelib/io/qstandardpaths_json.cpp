@@ -705,15 +705,10 @@ argument_list|(
 literal|"${HOME}"
 argument_list|)
 argument_list|,
-name|QFile
+name|QDir
 operator|::
-name|decodeName
-argument_list|(
-name|qgetenv
-argument_list|(
-literal|"HOME"
-argument_list|)
-argument_list|)
+name|homePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Do ${} format environment variable substitution if necessary
