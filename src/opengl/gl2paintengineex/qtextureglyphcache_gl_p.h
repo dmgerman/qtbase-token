@@ -186,6 +186,13 @@ argument_list|,
 name|ctx
 argument_list|)
 block|;
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+name|ctx
+argument_list|)
+block|;
 endif|#
 directive|endif
 if|if
