@@ -1478,7 +1478,7 @@ begin_comment
 comment|// Inline functions...
 end_comment
 begin_expr_stmt
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|bool
 name|QImage
 operator|::
@@ -1506,7 +1506,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|pixelIndex
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|int
 name|QImage
 operator|::
@@ -1534,7 +1534,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|pixel
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QRgb
 name|QImage
 operator|::
@@ -1562,7 +1562,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|setPixel
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|void
 name|QImage
 operator|::
