@@ -30,16 +30,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qqnxnavigatoreventhandler.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qqnxnavigatoreventnotifier.h"
-end_include
-begin_include
-include|#
-directive|include
 file|"qqnxrasterbackingstore.h"
 end_include
 begin_include
@@ -60,17 +50,32 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qqnxglcontext.h"
+end_include
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_BLACKBERRY
+end_ifdef
+begin_include
+include|#
+directive|include
+file|"qqnxnavigatoreventhandler.h"
+end_include
+begin_include
+include|#
+directive|include
+file|"qqnxnavigatoreventnotifier.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qqnxvirtualkeyboard.h"
 end_include
 begin_include
 include|#
 directive|include
 file|"qqnxclipboard.h"
-end_include
-begin_include
-include|#
-directive|include
-file|"qqnxglcontext.h"
 end_include
 begin_include
 include|#
@@ -103,6 +108,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_endif
+endif|#
+directive|endif
+end_endif
+begin_comment
+comment|// Q_OS_BLACKBERRY
+end_comment
 begin_include
 include|#
 directive|include
@@ -174,6 +186,9 @@ name|m_eventThread
 argument_list|(
 literal|0
 argument_list|)
+ifdef|#
+directive|ifdef
+name|Q_OS_BLACKBERRY
 member_init_list|,
 name|m_navigatorEventHandler
 argument_list|(
@@ -196,6 +211,13 @@ name|m_inputContext
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|m_services
+argument_list|(
+literal|0
+argument_list|)
+endif|#
+directive|endif
 member_init_list|,
 name|m_fontDatabase
 argument_list|(
@@ -220,11 +242,6 @@ argument_list|(
 operator|new
 name|QQnxNativeInterface
 argument_list|()
-argument_list|)
-member_init_list|,
-name|m_services
-argument_list|(
-literal|0
 argument_list|)
 member_init_list|,
 name|m_screenEventHandler
@@ -288,6 +305,9 @@ name|errno
 argument_list|)
 expr_stmt|;
 block|}
+ifdef|#
+directive|ifdef
+name|Q_OS_BLACKBERRY
 comment|// Create/start navigator event notifier
 name|m_navigatorEventNotifier
 operator|=
@@ -312,6 +332,8 @@ operator|::
 name|QueuedConnection
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|// Create displays for all possible screens (which may not be attached)
 name|createDisplays
 argument_list|()
@@ -338,6 +360,9 @@ operator|->
 name|start
 argument_list|()
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_BLACKBERRY
 comment|// Create/start the keyboard class.
 name|m_virtualKeyboard
 operator|=
@@ -398,9 +423,6 @@ name|m_virtualKeyboard
 argument_list|)
 expr_stmt|;
 comment|// Create services handling class
-ifdef|#
-directive|ifdef
-name|Q_OS_BLACKBERRY
 name|m_services
 operator|=
 operator|new
@@ -434,6 +456,9 @@ directive|endif
 operator|delete
 name|m_nativeInterface
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_BLACKBERRY
 comment|// Destroy input context
 operator|delete
 name|m_inputContext
@@ -458,6 +483,8 @@ expr_stmt|;
 operator|delete
 name|m_navigatorEventHandler
 expr_stmt|;
+endif|#
+directive|endif
 comment|// Stop/destroy event thread
 operator|delete
 name|m_eventThread
@@ -692,6 +719,11 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_BLACKBERRY
+end_ifdef
 begin_function
 DECL|function|inputContext
 name|QPlatformInputContext
@@ -720,6 +752,10 @@ name|m_inputContext
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|moveToScreen
 name|void
@@ -931,6 +967,11 @@ argument_list|)
 return|;
 block|}
 end_function
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_BLACKBERRY
+end_ifdef
 begin_function
 DECL|function|services
 name|QPlatformServices
@@ -946,6 +987,10 @@ name|m_services
 return|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|window
 name|QWindow
@@ -1317,6 +1362,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_BLACKBERRY
 name|QObject
 operator|::
 name|connect
@@ -1342,6 +1390,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 block|}
 end_function
