@@ -3274,6 +3274,11 @@ expr_stmt|;
 name|clearFontUnlocked
 argument_list|()
 expr_stmt|;
+name|QFont
+operator|::
+name|cleanup
+argument_list|()
+expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_CURSOR
@@ -3289,6 +3294,9 @@ operator|=
 name|Qt
 operator|::
 name|LeftToRight
+expr_stmt|;
+name|cleanupThreadData
+argument_list|()
 expr_stmt|;
 operator|delete
 name|styleHints
@@ -3318,14 +3326,6 @@ operator|delete
 name|m_gammaTables
 operator|.
 name|load
-argument_list|()
-expr_stmt|;
-name|QFont
-operator|::
-name|cleanup
-argument_list|()
-expr_stmt|;
-name|cleanupThreadData
 argument_list|()
 expr_stmt|;
 block|}
