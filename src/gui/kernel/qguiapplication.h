@@ -415,11 +415,11 @@ name|inputPanel
 argument_list|()
 specifier|const
 block|;
+specifier|static
 name|QInputMethod
 operator|*
 name|inputMethod
 argument_list|()
-specifier|const
 block|;
 specifier|static
 name|QPlatformNativeInterface
