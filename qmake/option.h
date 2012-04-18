@@ -159,11 +159,6 @@ struct|struct
 name|Option
 block|{
 comment|//simply global convenience
-DECL|member|js_ext
-specifier|static
-name|QString
-name|js_ext
-decl_stmt|;
 DECL|member|libtool_ext
 specifier|static
 name|QString

@@ -70,14 +70,6 @@ name|prf_ext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|member|js_ext
-name|QString
-name|Option
-operator|::
-name|js_ext
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|member|prl_ext
 name|QString
 name|Option
@@ -2409,12 +2401,6 @@ operator|::
 name|prf_ext
 operator|=
 literal|".prf"
-expr_stmt|;
-name|Option
-operator|::
-name|js_ext
-operator|=
-literal|".js"
 expr_stmt|;
 name|Option
 operator|::
