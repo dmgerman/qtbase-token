@@ -2415,7 +2415,7 @@ operator|.
 name|className
 argument_list|()
 operator|+
-name|QByteArrayLiteral
+name|QByteArray
 argument_list|(
 literal|"*"
 argument_list|)
