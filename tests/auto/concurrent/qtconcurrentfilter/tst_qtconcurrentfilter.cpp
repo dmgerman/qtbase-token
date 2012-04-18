@@ -9016,6 +9016,23 @@ operator|.
 name|waitForFinished
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|l
+operator|.
+name|isDetached
+argument_list|()
+condition|)
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-20688: Known unstable failure"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|l
