@@ -7,11 +7,20 @@ include|#
 directive|include
 file|"qqnxwindow.h"
 end_include
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
 begin_include
 include|#
 directive|include
 file|"qqnxglcontext.h"
 end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
@@ -86,11 +95,16 @@ operator|-
 literal|1
 argument_list|)
 member_init_list|,
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|m_platformOpenGLContext
 argument_list|(
 literal|0
 argument_list|)
 member_init_list|,
+endif|#
+directive|endif
 name|m_screen
 argument_list|(
 literal|0
@@ -1296,6 +1310,9 @@ name|hasBuffers
 argument_list|()
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 comment|// Get pixel format from EGL config if using OpenGL;
 comment|// otherwise inherit pixel format of window's screen
 if|if
@@ -1332,6 +1349,8 @@ name|nativeFormat
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 name|errno
 operator|=
 literal|0
@@ -2432,6 +2451,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
+end_ifndef
 begin_function
 DECL|function|setPlatformOpenGLContext
 name|void
@@ -2452,6 +2476,10 @@ name|platformOpenGLContext
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|findWindow
 name|QQnxWindow

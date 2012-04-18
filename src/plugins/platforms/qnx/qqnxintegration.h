@@ -181,6 +181,9 @@ argument|QWindow *window
 argument_list|)
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|QPlatformOpenGLContext
 operator|*
 name|createPlatformOpenGLContext
@@ -189,6 +192,8 @@ argument|QOpenGLContext *context
 argument_list|)
 specifier|const
 block|;
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|Q_OS_BLACKBERRY
@@ -248,6 +253,9 @@ argument|StyleHint hint
 argument_list|)
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|bool
 name|paintUsingOpenGL
 argument_list|()
@@ -257,6 +265,8 @@ return|return
 name|m_paintUsingOpenGL
 return|;
 block|}
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|Q_OS_BLACKBERRY
@@ -344,9 +354,14 @@ name|QPlatformFontDatabase
 operator|*
 name|m_fontDatabase
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_OPENGL
 name|bool
 name|m_paintUsingOpenGL
 block|;
+endif|#
+directive|endif
 name|QAbstractEventDispatcher
 operator|*
 name|m_eventDispatcher
