@@ -6831,7 +6831,10 @@ expr_stmt|;
 name|LPSTR
 name|oid
 init|=
-operator|(
+call|(
+name|LPSTR
+call|)
+argument_list|(
 name|mode
 operator|==
 name|QSslSocket
@@ -6841,7 +6844,7 @@ condition|?
 name|szOID_PKIX_KP_SERVER_AUTH
 else|:
 name|szOID_PKIX_KP_CLIENT_AUTH
-operator|)
+argument_list|)
 decl_stmt|;
 name|parameters
 operator|.
