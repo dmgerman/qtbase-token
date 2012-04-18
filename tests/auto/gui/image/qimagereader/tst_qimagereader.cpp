@@ -11237,6 +11237,10 @@ operator|<<
 name|QImageIOHandler
 operator|::
 name|Size
+operator|<<
+name|QImageIOHandler
+operator|::
+name|ScaledSize
 operator|)
 expr_stmt|;
 block|}
