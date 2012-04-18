@@ -18343,6 +18343,12 @@ operator|<<
 name|endl
 expr_stmt|;
 name|tmpStream
+operator|<<
+literal|"#define QT_QPA_DEFAULT_PLATFORM_NAME \"windows\""
+operator|<<
+name|endl
+expr_stmt|;
+name|tmpStream
 operator|.
 name|flush
 argument_list|()
