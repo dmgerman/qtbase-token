@@ -2541,6 +2541,9 @@ name|QFont
 operator|::
 name|Unstretched
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG_OUTPUT
 if|if
 condition|(
 name|QWindowsContext
@@ -2624,6 +2627,8 @@ operator|<<
 name|stretch
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 name|QString
 name|englishName
 decl_stmt|;

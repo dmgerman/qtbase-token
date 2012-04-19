@@ -2854,6 +2854,9 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG_OUTPUT
 if|if
 condition|(
 name|QWindowsContext
@@ -2939,6 +2942,8 @@ name|obtainedPfd
 expr_stmt|;
 block|}
 comment|// Debug
+endif|#
+directive|endif
 return|return
 name|pixelFormat
 return|;

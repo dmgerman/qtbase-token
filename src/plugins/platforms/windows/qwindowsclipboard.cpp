@@ -535,6 +535,9 @@ argument_list|(
 name|pDataObj
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG_OUTPUT
 if|if
 condition|(
 name|QWindowsContext
@@ -588,6 +591,8 @@ operator|<<
 name|result
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 return|return
 name|result
 return|;

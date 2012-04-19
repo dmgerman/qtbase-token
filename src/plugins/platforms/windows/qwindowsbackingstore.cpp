@@ -375,6 +375,9 @@ operator|!=
 name|size
 condition|)
 block|{
+ifndef|#
+directive|ifndef
+name|QT_NO_DEBUG_OUTPUT
 if|if
 condition|(
 name|QWindowsContext
@@ -432,6 +435,8 @@ name|size
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 name|m_image
 operator|.
 name|reset
