@@ -155,6 +155,9 @@ operator|=
 operator|new
 name|QLineEdit
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|QPushButton
 modifier|*
 name|clipboardButton
@@ -177,6 +180,8 @@ operator|::
 name|clipboard
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 comment|//! [3]
 comment|//! [4]
 name|connect
@@ -318,6 +323,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|connect
 argument_list|(
 name|clipboardButton
@@ -337,6 +345,8 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|//! [5]
 name|connect
 argument_list|(
@@ -463,6 +473,9 @@ argument_list|(
 literal|12
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|lineLayout
 operator|->
 name|addWidget
@@ -470,6 +483,8 @@ argument_list|(
 name|clipboardButton
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|QVBoxLayout
 modifier|*
 name|centralLayout
@@ -846,6 +861,11 @@ end_comment
 begin_comment
 comment|//! [10]
 end_comment
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
+end_ifndef
 begin_function
 DECL|function|updateClipboard
 name|void
@@ -886,6 +906,10 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//! [10]
 end_comment
