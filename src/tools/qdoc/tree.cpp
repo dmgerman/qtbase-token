@@ -8235,7 +8235,7 @@ name|href
 operator|.
 name|append
 argument_list|(
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -11135,7 +11135,7 @@ name|writeTextElement
 argument_list|(
 literal|"filename"
 argument_list|,
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -11261,7 +11261,7 @@ name|writeTextElement
 argument_list|(
 literal|"filename"
 argument_list|,
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -11744,7 +11744,7 @@ expr_stmt|;
 name|QStringList
 name|pieces
 init|=
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -12074,7 +12074,7 @@ expr_stmt|;
 name|QStringList
 name|pieces
 init|=
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -12165,7 +12165,7 @@ expr_stmt|;
 name|QStringList
 name|pieces
 init|=
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -12355,7 +12355,7 @@ expr_stmt|;
 name|QStringList
 name|pieces
 init|=
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(

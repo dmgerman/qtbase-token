@@ -194,15 +194,6 @@ name|i
 index|]
 return|;
 block|}
-specifier|static
-name|QString
-name|fullDocumentLocation
-argument_list|(
-argument|const Node *node
-argument_list|,
-argument|bool subdir = false
-argument_list|)
-block|;
 name|protected
 operator|:
 name|virtual
@@ -267,9 +258,7 @@ block|;
 name|virtual
 name|QString
 name|fileExtension
-argument_list|(
-argument|const Node *node
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|virtual

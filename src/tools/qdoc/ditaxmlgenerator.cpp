@@ -2078,6 +2078,33 @@ expr_stmt|;
 name|generateCollisionPages
 argument_list|()
 expr_stmt|;
+name|QString
+name|fileBase
+init|=
+name|project
+operator|.
+name|toLower
+argument_list|()
+operator|.
+name|simplified
+argument_list|()
+operator|.
+name|replace
+argument_list|(
+literal|" "
+argument_list|,
+literal|"-"
+argument_list|)
+decl_stmt|;
+name|generateIndex
+argument_list|(
+name|fileBase
+argument_list|,
+name|projectUrl
+argument_list|,
+name|projectDescription
+argument_list|)
+expr_stmt|;
 name|writeDitaMap
 argument_list|(
 name|tree
@@ -12378,12 +12405,7 @@ name|QString
 name|DitaXmlGenerator
 operator|::
 name|fileExtension
-parameter_list|(
-specifier|const
-name|Node
-modifier|*
-comment|/* node */
-parameter_list|)
+parameter_list|()
 specifier|const
 block|{
 return|return
@@ -29816,7 +29838,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!   Returns true if \a format is "XML" or "HTML" .  */
+comment|/*!   Returns true if \a format is "DITAXML" or "HTML" .  */
 end_comment
 begin_function
 DECL|function|canHandleFormat

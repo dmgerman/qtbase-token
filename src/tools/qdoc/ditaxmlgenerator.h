@@ -645,9 +645,7 @@ block|;
 name|virtual
 name|QString
 name|fileExtension
-argument_list|(
-argument|const Node* node
-argument_list|)
+argument_list|()
 specifier|const
 block|;
 name|virtual

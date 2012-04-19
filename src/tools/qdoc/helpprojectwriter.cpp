@@ -1299,7 +1299,7 @@ expr_stmt|;
 block|}
 name|details
 operator|<<
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -1666,7 +1666,7 @@ name|files
 operator|.
 name|insert
 argument_list|(
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -1700,7 +1700,7 @@ name|files
 operator|.
 name|insert
 argument_list|(
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -1850,7 +1850,7 @@ comment|// "id"
 block|}
 name|details
 operator|<<
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -1992,7 +1992,7 @@ name|files
 operator|.
 name|insert
 argument_list|(
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -2084,7 +2084,7 @@ index|[
 literal|2
 index|]
 operator|=
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -2113,7 +2113,7 @@ block|{
 name|QString
 name|location
 init|=
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -2268,7 +2268,7 @@ operator|->
 name|string
 argument_list|()
 operator|<<
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -2320,7 +2320,7 @@ argument_list|)
 operator|.
 name|arg
 argument_list|(
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -2353,7 +2353,7 @@ name|files
 operator|.
 name|insert
 argument_list|(
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -2789,7 +2789,7 @@ block|{
 name|QString
 name|href
 init|=
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -3836,7 +3836,7 @@ name|node
 condition|)
 name|indexPath
 operator|=
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -3876,7 +3876,7 @@ name|files
 operator|.
 name|insert
 argument_list|(
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -4098,7 +4098,7 @@ expr_stmt|;
 name|QString
 name|indexPath
 init|=
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
@@ -4214,7 +4214,7 @@ expr_stmt|;
 name|QString
 name|indexPath
 init|=
-name|HtmlGenerator
+name|Generator
 operator|::
 name|fullDocumentLocation
 argument_list|(
