@@ -11105,7 +11105,7 @@ literal|"\" />\n"
 expr_stmt|;
 name|navigationLinks
 operator|+=
-literal|"[Previous:<a href=\""
+literal|"<a href=\""
 operator|+
 name|anchorPair
 operator|.
@@ -11152,7 +11152,7 @@ argument_list|)
 expr_stmt|;
 name|navigationLinks
 operator|+=
-literal|"</a>]\n"
+literal|"</a>\n"
 expr_stmt|;
 block|}
 if|if
@@ -11229,7 +11229,7 @@ literal|"\" />\n"
 expr_stmt|;
 name|navigationLinks
 operator|+=
-literal|"[Next:<a href=\""
+literal|"<a href=\""
 operator|+
 name|anchorPair
 operator|.
@@ -11276,7 +11276,7 @@ argument_list|)
 expr_stmt|;
 name|navigationLinks
 operator|+=
-literal|"</a>]\n"
+literal|"</a>\n"
 expr_stmt|;
 block|}
 if|if
