@@ -214,6 +214,14 @@ name|void
 name|updateColor
 argument_list|()
 block|;
+name|void
+name|exposeEvent
+argument_list|(
+name|QExposeEvent
+operator|*
+name|event
+argument_list|)
+block|;
 name|signals
 operator|:
 name|void
