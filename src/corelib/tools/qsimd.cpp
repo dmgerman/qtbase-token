@@ -274,12 +274,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|__arm__
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|__arm
+name|Q_PROCESSOR_ARM
 argument_list|)
 operator|||
 name|defined
@@ -487,12 +482,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|__i386__
-argument_list|)
-operator|||
-name|defined
-argument_list|(
-name|_M_IX86
+name|Q_PROCESSOR_X86_32
 argument_list|)
 end_elif
 begin_function
@@ -767,7 +757,7 @@ elif|#
 directive|elif
 name|defined
 argument_list|(
-name|__x86_64
+name|Q_PROCESSOR_X86_64
 argument_list|)
 operator|||
 name|defined
