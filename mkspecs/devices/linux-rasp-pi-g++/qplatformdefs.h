@@ -7,11 +7,4 @@ include|#
 directive|include
 file|"../../linux-g++/qplatformdefs.h"
 end_include
-begin_define
-DECL|macro|QT_QPA_DEFAULT_PLATFORM_NAME
-define|#
-directive|define
-name|QT_QPA_DEFAULT_PLATFORM_NAME
-value|"eglfs"
-end_define
 end_unit
