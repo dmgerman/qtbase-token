@@ -6762,7 +6762,7 @@ expr_stmt|;
 endif|#
 directive|endif
 return|return
-literal|false
+literal|0
 return|;
 block|}
 if|if
@@ -6798,12 +6798,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|Q_D
-argument_list|(
-specifier|const
-name|QObject
-argument_list|)
-expr_stmt|;
 name|QMutexLocker
 name|locker
 argument_list|(
