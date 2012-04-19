@@ -3503,6 +3503,12 @@ condition|(
 name|d
 operator|->
 name|declarativeData
+operator|&&
+name|d
+operator|->
+name|declarativeData
+operator|->
+name|objectNameChanged
 condition|)
 name|d
 operator|->
