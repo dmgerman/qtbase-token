@@ -98,6 +98,9 @@ name|void
 name|saveAs
 argument_list|()
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|void
 name|cut
 argument_list|()
@@ -110,6 +113,8 @@ name|void
 name|paste
 argument_list|()
 block|;
+endif|#
+directive|endif
 name|void
 name|about
 argument_list|()
@@ -232,6 +237,9 @@ name|QAction
 operator|*
 name|exitAct
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|QAction
 operator|*
 name|cutAct
@@ -244,6 +252,8 @@ name|QAction
 operator|*
 name|pasteAct
 block|;
+endif|#
+directive|endif
 name|QAction
 operator|*
 name|closeAct

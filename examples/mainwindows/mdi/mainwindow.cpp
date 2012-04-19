@@ -376,6 +376,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
+end_ifndef
 begin_function
 DECL|function|cut
 name|void
@@ -439,6 +444,10 @@ argument_list|()
 expr_stmt|;
 block|}
 end_function
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_function
 DECL|function|about
 name|void
@@ -499,6 +508,9 @@ argument_list|(
 name|hasMdiChild
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|pasteAct
 operator|->
 name|setEnabled
@@ -506,6 +518,8 @@ argument_list|(
 name|hasMdiChild
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|closeAct
 operator|->
 name|setEnabled
@@ -555,6 +569,9 @@ argument_list|(
 name|hasMdiChild
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|bool
 name|hasSelection
 init|=
@@ -586,6 +603,8 @@ argument_list|(
 name|hasSelection
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -867,6 +886,9 @@ argument_list|(
 name|child
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|connect
 argument_list|(
 name|child
@@ -913,6 +935,8 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|child
 return|;
@@ -1198,6 +1222,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//! [0]
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|cutAct
 operator|=
 operator|new
@@ -1369,6 +1396,8 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|closeAct
 operator|=
 operator|new
@@ -1848,6 +1877,9 @@ literal|"&Edit"
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|editMenu
 operator|->
 name|addAction
@@ -1869,6 +1901,8 @@ argument_list|(
 name|pasteAct
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|windowMenu
 operator|=
 name|menuBar
@@ -1978,6 +2012,9 @@ argument_list|(
 name|saveAct
 argument_list|)
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_CLIPBOARD
 name|editToolBar
 operator|=
 name|addToolBar
@@ -2009,6 +2046,8 @@ argument_list|(
 name|pasteAct
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
