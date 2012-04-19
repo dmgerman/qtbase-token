@@ -117,6 +117,9 @@ name|inputContext
 argument_list|()
 specifier|const
 block|;
+ifndef|#
+directive|ifndef
+name|QT_NO_ACCESSIBILITY
 name|virtual
 name|QPlatformAccessibility
 operator|*
@@ -124,6 +127,8 @@ name|accessibility
 argument_list|()
 specifier|const
 block|;
+endif|#
+directive|endif
 name|virtual
 name|QPlatformNativeInterface
 operator|*
