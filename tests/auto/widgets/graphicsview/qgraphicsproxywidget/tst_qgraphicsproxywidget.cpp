@@ -8461,6 +8461,20 @@ expr_stmt|;
 comment|// QRect(0, 0, 200, 12) is the first update, expanded (-2, -2, 2, 2)
 comment|// QRect(0, 12, 102, 10) is the scroll update, expanded (-2, -2, 2, 2),
 comment|// intersected with the above update.
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-24294"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QCOMPARE
 argument_list|(
 name|view
@@ -15000,6 +15014,20 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-24294"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QTRY_COMPARE
 argument_list|(
 name|box
@@ -21352,6 +21380,20 @@ operator|->
 name|hide
 argument_list|()
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-24294"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|QTRY_COMPARE
 argument_list|(
 name|view
