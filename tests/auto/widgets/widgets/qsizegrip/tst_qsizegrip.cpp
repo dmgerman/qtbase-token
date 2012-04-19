@@ -498,6 +498,15 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-23681"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|sizeGrip
