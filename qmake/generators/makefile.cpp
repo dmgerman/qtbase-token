@@ -24970,6 +24970,15 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|project
+operator|->
+name|isActiveConfig
+argument_list|(
+literal|"shared"
+argument_list|)
+condition|)
 name|pkgConfiglibName
 operator|+=
 name|project
