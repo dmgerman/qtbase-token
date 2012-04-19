@@ -4790,54 +4790,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_CLIPBOARD
-end_ifndef
-begin_comment
-comment|/*!     \class QClipboardEvent     \ingroup events     \internal      \brief The QClipboardEvent class provides the parameters used in a clipboard event.      This class is for internal use only, and exists to aid the clipboard on various     platforms to get all the information it needs. Use QEvent::Clipboard instead.      \sa QClipboard */
-end_comment
-begin_constructor
-DECL|function|QClipboardEvent
-name|QClipboardEvent
-operator|::
-name|QClipboardEvent
-parameter_list|(
-name|QEventPrivate
-modifier|*
-name|data
-parameter_list|)
-member_init_list|:
-name|QEvent
-argument_list|(
-name|QEvent
-operator|::
-name|Clipboard
-argument_list|)
-block|{
-name|d
-operator|=
-name|data
-expr_stmt|;
-block|}
-end_constructor
-begin_destructor
-DECL|function|~QClipboardEvent
-name|QClipboardEvent
-operator|::
-name|~
-name|QClipboardEvent
-parameter_list|()
-block|{ }
-end_destructor
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_CLIPBOARD
-end_comment
 begin_comment
 comment|/*!     \class QShortcutEvent     \brief The QShortcutEvent class provides an event which is generated when     the user presses a key combination.      \ingroup events      Normally you don't need to use this class directly; QShortcut     provides a higher-level interface to handle shortcut keys.      \sa QShortcut */
 end_comment
