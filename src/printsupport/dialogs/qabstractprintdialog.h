@@ -36,7 +36,7 @@ name|QPrinter
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|// ### Qt 5: remove this class
+comment|// ### QtPrintNG: merge this class with QPrintDialog
 end_comment
 begin_decl_stmt
 name|class
