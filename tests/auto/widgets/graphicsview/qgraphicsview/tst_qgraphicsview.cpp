@@ -25437,6 +25437,20 @@ argument_list|,
 name|a
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
+name|QEXPECT_FAIL
+argument_list|(
+literal|""
+argument_list|,
+literal|"QTBUG-24296"
+argument_list|,
+name|Abort
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|COMPARE_REGIONS
 argument_list|(
 name|view
@@ -31651,16 +31665,14 @@ condition|(
 name|itSTimeToTest
 condition|)
 block|{
-comment|//                qDebug()<< event->region();
-comment|//                qDebug()<< updateRegion;
 ifndef|#
 directive|ifndef
-name|Q_OS_MAC
+name|Q_OS_WIN
 name|QEXPECT_FAIL
 argument_list|(
 literal|""
 argument_list|,
-literal|"The event region doesn't include the original item position region. See QTBUG-4416"
+literal|"QTBUG-24296"
 argument_list|,
 name|Continue
 argument_list|)
