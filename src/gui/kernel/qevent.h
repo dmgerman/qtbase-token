@@ -3215,13 +3215,8 @@ name|explicit
 name|QWindowStateChangeEvent
 argument_list|(
 argument|Qt::WindowStates aOldState
-argument_list|)
-block|;
-name|QWindowStateChangeEvent
-argument_list|(
-argument|Qt::WindowStates aOldState
 argument_list|,
-argument|bool isOverride
+argument|bool isOverride = false
 argument_list|)
 block|;
 operator|~
@@ -3251,6 +3246,9 @@ name|Qt
 operator|::
 name|WindowStates
 name|ostate
+block|;
+name|bool
+name|m_override
 block|; }
 block|;
 ifndef|#

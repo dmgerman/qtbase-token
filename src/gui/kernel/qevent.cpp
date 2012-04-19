@@ -4804,32 +4804,6 @@ name|Qt
 operator|::
 name|WindowStates
 name|s
-parameter_list|)
-member_init_list|:
-name|QEvent
-argument_list|(
-name|WindowStateChange
-argument_list|)
-member_init_list|,
-name|ostate
-argument_list|(
-name|s
-argument_list|)
-block|{ }
-end_constructor
-begin_comment
-comment|/*! \internal  */
-end_comment
-begin_constructor
-DECL|function|QWindowStateChangeEvent
-name|QWindowStateChangeEvent
-operator|::
-name|QWindowStateChangeEvent
-parameter_list|(
-name|Qt
-operator|::
-name|WindowStates
-name|s
 parameter_list|,
 name|bool
 name|isOverride
@@ -4844,22 +4818,12 @@ name|ostate
 argument_list|(
 name|s
 argument_list|)
-block|{
-if|if
-condition|(
+member_init_list|,
+name|m_override
+argument_list|(
 name|isOverride
-condition|)
-name|d
-operator|=
-operator|(
-name|QEventPrivate
-operator|*
-operator|)
-operator|(
-name|this
-operator|)
-expr_stmt|;
-block|}
+argument_list|)
+block|{ }
 end_constructor
 begin_comment
 comment|/*! \internal  */
@@ -4874,11 +4838,7 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-operator|(
-name|d
-operator|!=
-literal|0
-operator|)
+name|m_override
 return|;
 block|}
 end_function
