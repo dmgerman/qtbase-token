@@ -1509,6 +1509,12 @@ define|#
 directive|define
 name|Q_CC_SUN
 end_define
+begin_define
+DECL|macro|Q_COMPILER_MANGLES_RETURN_TYPE
+define|#
+directive|define
+name|Q_COMPILER_MANGLES_RETURN_TYPE
+end_define
 begin_comment
 comment|/* 5.0 compiler or better     'bool' is enabled by default but can be disabled using -features=nobool     in which case _BOOL is not defined         this is the default in 4.2 compatibility mode triggered by -compat=4 */
 end_comment
