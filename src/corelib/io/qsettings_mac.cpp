@@ -3465,7 +3465,7 @@ name|organization
 operator|==
 name|QLatin1String
 argument_list|(
-literal|"Trolltech"
+literal|"Qt"
 argument_list|)
 condition|)
 block|{
