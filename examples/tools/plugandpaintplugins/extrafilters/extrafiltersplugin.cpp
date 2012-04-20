@@ -274,7 +274,7 @@ name|numIters
 init|=
 name|QInputDialog
 operator|::
-name|getInteger
+name|getInt
 argument_list|(
 name|parent
 argument_list|,
@@ -600,7 +600,7 @@ name|threshold
 init|=
 name|QInputDialog
 operator|::
-name|getInteger
+name|getInt
 argument_list|(
 name|parent
 argument_list|,

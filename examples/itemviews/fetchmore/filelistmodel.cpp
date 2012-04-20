@@ -324,6 +324,9 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+name|beginResetModel
+argument_list|()
+expr_stmt|;
 name|fileList
 operator|=
 name|dir
@@ -335,7 +338,7 @@ name|fileCount
 operator|=
 literal|0
 expr_stmt|;
-name|reset
+name|endResetModel
 argument_list|()
 expr_stmt|;
 block|}

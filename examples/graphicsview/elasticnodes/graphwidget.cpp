@@ -1038,7 +1038,7 @@ name|fillRect
 argument_list|(
 name|rect
 operator|.
-name|intersect
+name|intersected
 argument_list|(
 name|sceneRect
 argument_list|)

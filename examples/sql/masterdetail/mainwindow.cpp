@@ -2268,7 +2268,7 @@ operator|->
 name|horizontalHeader
 argument_list|()
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 literal|1
 argument_list|,

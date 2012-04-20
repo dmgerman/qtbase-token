@@ -51,11 +51,14 @@ modifier|&
 name|image
 parameter_list|)
 block|{
+name|beginResetModel
+argument_list|()
+expr_stmt|;
 name|modelImage
 operator|=
 name|image
 expr_stmt|;
-name|reset
+name|endResetModel
 argument_list|()
 expr_stmt|;
 block|}

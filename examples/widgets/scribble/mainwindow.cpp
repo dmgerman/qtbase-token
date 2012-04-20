@@ -274,7 +274,7 @@ name|newWidth
 init|=
 name|QInputDialog
 operator|::
-name|getInteger
+name|getInt
 argument_list|(
 name|this
 argument_list|,

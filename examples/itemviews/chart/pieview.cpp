@@ -2563,16 +2563,12 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|!
 name|region
 operator|.
-name|intersect
+name|intersects
 argument_list|(
 name|contentsRect
 argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 name|indexes
 operator|.

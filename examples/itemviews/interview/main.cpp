@@ -118,7 +118,7 @@ operator|->
 name|horizontalHeader
 argument_list|()
 operator|->
-name|setMovable
+name|setSectionsMovable
 argument_list|(
 literal|true
 argument_list|)
@@ -128,7 +128,7 @@ operator|->
 name|verticalHeader
 argument_list|()
 operator|->
-name|setMovable
+name|setSectionsMovable
 argument_list|(
 literal|true
 argument_list|)
