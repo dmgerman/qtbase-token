@@ -22447,6 +22447,28 @@ argument_list|(
 literal|"MyClass"
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"QVariant::load: unable to load type "
+operator|+
+name|QByteArray
+operator|::
+name|number
+argument_list|(
+name|qMetaTypeId
+argument_list|<
+name|MyClass
+argument_list|>
+argument_list|()
+argument_list|)
+operator|+
+literal|"."
+argument_list|)
+expr_stmt|;
 name|char
 name|data
 index|[]
@@ -22550,6 +22572,15 @@ operator|::
 name|loadBrokenUserType
 parameter_list|()
 block|{
+name|QTest
+operator|::
+name|ignoreMessage
+argument_list|(
+name|QtWarningMsg
+argument_list|,
+literal|"Trying to construct an instance of an invalid type, type id: 127"
+argument_list|)
+expr_stmt|;
 name|char
 name|data
 index|[]
