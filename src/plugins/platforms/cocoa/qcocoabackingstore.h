@@ -102,10 +102,6 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|QCocoaWindow
-operator|*
-name|m_cocoaWindow
-block|;
 name|QImage
 operator|*
 name|m_image
