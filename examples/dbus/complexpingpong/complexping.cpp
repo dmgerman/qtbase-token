@@ -104,7 +104,7 @@ name|SERVICE_NAME
 argument_list|,
 literal|"/"
 argument_list|,
-literal|"com.trolltech.QtDBus.ComplexPong.Pong"
+literal|"org.example.QtDBus.ComplexPong.Pong"
 argument_list|,
 name|QDBusConnection
 operator|::

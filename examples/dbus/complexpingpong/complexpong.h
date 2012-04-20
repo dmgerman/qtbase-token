@@ -40,7 +40,7 @@ name|Q_CLASSINFO
 argument_list|(
 literal|"D-Bus Interface"
 argument_list|,
-literal|"com.trolltech.QtDBus.ComplexPong.Pong"
+literal|"org.example.QtDBus.ComplexPong.Pong"
 argument_list|)
 name|Q_PROPERTY
 argument_list|(

@@ -174,7 +174,7 @@ name|connection
 operator|.
 name|registerService
 argument_list|(
-literal|"com.trolltech.CarExample"
+literal|"org.example.CarExample"
 argument_list|)
 expr_stmt|;
 return|return

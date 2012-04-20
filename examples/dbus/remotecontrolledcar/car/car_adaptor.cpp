@@ -88,7 +88,7 @@ operator|::
 name|accelerate
 parameter_list|()
 block|{
-comment|// handle method call com.trolltech.Examples.CarInterface.accelerate
+comment|// handle method call org.example.Examples.CarInterface.accelerate
 name|QMetaObject
 operator|::
 name|invokeMethod
@@ -109,7 +109,7 @@ operator|::
 name|decelerate
 parameter_list|()
 block|{
-comment|// handle method call com.trolltech.Examples.CarInterface.decelerate
+comment|// handle method call org.example.Examples.CarInterface.decelerate
 name|QMetaObject
 operator|::
 name|invokeMethod
@@ -130,7 +130,7 @@ operator|::
 name|turnLeft
 parameter_list|()
 block|{
-comment|// handle method call com.trolltech.Examples.CarInterface.turnLeft
+comment|// handle method call org.example.Examples.CarInterface.turnLeft
 name|QMetaObject
 operator|::
 name|invokeMethod
@@ -151,7 +151,7 @@ operator|::
 name|turnRight
 parameter_list|()
 block|{
-comment|// handle method call com.trolltech.Examples.CarInterface.turnRight
+comment|// handle method call org.example.Examples.CarInterface.turnRight
 name|QMetaObject
 operator|::
 name|invokeMethod

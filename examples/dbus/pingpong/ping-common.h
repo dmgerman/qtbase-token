@@ -7,6 +7,6 @@ DECL|macro|SERVICE_NAME
 define|#
 directive|define
 name|SERVICE_NAME
-value|"com.trolltech.QtDBus.PingExample"
+value|"org.example.QtDBus.PingExample"
 end_define
 end_unit

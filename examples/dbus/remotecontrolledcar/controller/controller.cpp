@@ -51,7 +51,7 @@ name|Examples
 operator|::
 name|CarInterface
 argument_list|(
-literal|"com.trolltech.CarExample"
+literal|"org.example.CarExample"
 argument_list|,
 literal|"/Car"
 argument_list|,

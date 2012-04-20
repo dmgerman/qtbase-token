@@ -54,7 +54,7 @@ directive|include
 file|<QtDBus/QtDBus>
 end_include
 begin_comment
-comment|/*  * Proxy class for interface com.trolltech.Examples.CarInterface  */
+comment|/*  * Proxy class for interface org.example.Examples.CarInterface  */
 end_comment
 begin_decl_stmt
 name|class
@@ -75,7 +75,7 @@ name|staticInterfaceName
 argument_list|()
 block|{
 return|return
-literal|"com.trolltech.Examples.CarInterface"
+literal|"org.example.Examples.CarInterface"
 return|;
 block|}
 name|public

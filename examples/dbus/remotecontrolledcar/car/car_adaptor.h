@@ -76,7 +76,7 @@ decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
 name|QT_END_NAMESPACE
-comment|/*  * Adaptor class for interface com.trolltech.Examples.CarInterface  */
+comment|/*  * Adaptor class for interface org.example.Examples.CarInterface  */
 name|class
 name|CarInterfaceAdaptor
 range|:
@@ -88,14 +88,14 @@ name|Q_CLASSINFO
 argument_list|(
 literal|"D-Bus Interface"
 argument_list|,
-literal|"com.trolltech.Examples.CarInterface"
+literal|"org.example.Examples.CarInterface"
 argument_list|)
 name|Q_CLASSINFO
 argument_list|(
 literal|"D-Bus Introspection"
 argument_list|,
 literal|""
-literal|"<interface name=\"com.trolltech.Examples.CarInterface\">\n"
+literal|"<interface name=\"org.example.Examples.CarInterface\">\n"
 literal|"<method name=\"accelerate\"/>\n"
 literal|"<method name=\"decelerate\"/>\n"
 literal|"<method name=\"turnLeft\"/>\n"

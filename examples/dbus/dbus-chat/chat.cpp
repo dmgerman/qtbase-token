@@ -223,7 +223,7 @@ argument_list|,
 name|QString
 argument_list|()
 argument_list|,
-literal|"com.trolltech.chat"
+literal|"org.example.chat"
 argument_list|,
 literal|"message"
 argument_list|,
@@ -520,7 +520,7 @@ name|createSignal
 argument_list|(
 literal|"/"
 argument_list|,
-literal|"com.trolltech.chat"
+literal|"org.example.chat"
 argument_list|,
 literal|"message"
 argument_list|)
