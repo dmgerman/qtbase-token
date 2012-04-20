@@ -254,11 +254,6 @@ specifier|static
 name|QString
 name|dirlist_sep
 decl_stmt|;
-DECL|member|sysenv_mod
-specifier|static
-name|QString
-name|sysenv_mod
-decl_stmt|;
 DECL|member|pro_ext
 specifier|static
 name|QString
