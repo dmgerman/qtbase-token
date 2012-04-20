@@ -6774,6 +6774,16 @@ name|pixelSize
 operator|=
 name|pixelSize
 expr_stmt|;
+comment|// Disable font merging, as otherwise createEngine will return a multi-engine
+comment|// instance instead of the specific engine we wish to clone.
+name|request
+operator|.
+name|styleStrategy
+operator||=
+name|QFont
+operator|::
+name|NoFontMerging
+expr_stmt|;
 name|QFontEngine
 modifier|*
 name|fontEngine
