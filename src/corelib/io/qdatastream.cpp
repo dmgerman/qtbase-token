@@ -111,12 +111,6 @@ name|Qt_5_0
 end_decl_stmt
 begin_comment
 unit|};
-comment|// ### 5.0: when streaming invalid QVariants, just the type should
-end_comment
-begin_comment
-comment|// be written, no "data" after it
-end_comment
-begin_comment
 comment|/*!     Constructs a data stream that has no I/O device.      \sa setDevice() */
 end_comment
 begin_constructor

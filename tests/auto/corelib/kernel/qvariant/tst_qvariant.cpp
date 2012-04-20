@@ -22564,8 +22564,6 @@ block|,
 literal|127
 block|,
 literal|0
-block|,
-literal|112
 block|}
 decl_stmt|;
 name|QByteArray
@@ -22609,7 +22607,7 @@ argument_list|()
 argument_list|,
 name|QDataStream
 operator|::
-name|ReadPastEnd
+name|Ok
 argument_list|)
 expr_stmt|;
 block|}

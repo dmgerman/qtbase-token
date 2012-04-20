@@ -7609,6 +7609,18 @@ name|isValid
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|s
+operator|.
+name|version
+argument_list|()
+operator|<
+name|QDataStream
+operator|::
+name|Qt_5_0
+condition|)
+block|{
 comment|// Since we wrote something, we should read something
 name|QString
 name|x
@@ -7617,6 +7629,7 @@ name|s
 operator|>>
 name|x
 expr_stmt|;
+block|}
 name|d
 operator|.
 name|is_null
@@ -7933,6 +7946,17 @@ name|isValid
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|s
+operator|.
+name|version
+argument_list|()
+operator|<
+name|QDataStream
+operator|::
+name|Qt_5_0
+condition|)
 name|s
 operator|<<
 name|QString
