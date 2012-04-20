@@ -477,7 +477,6 @@ name|filename
 operator|)
 return|;
 comment|// Other (quite rare) patterns, like "*.anim[1-9j]": use slow but correct method
-specifier|const
 name|QRegExp
 name|rx
 argument_list|(

@@ -4959,6 +4959,11 @@ operator|->
 name|children
 argument_list|()
 decl_stmt|;
+name|QRegExp
+name|reCopy
+init|=
+name|re
+decl_stmt|;
 name|QObject
 modifier|*
 name|obj
@@ -4999,7 +5004,7 @@ argument_list|(
 name|obj
 argument_list|)
 operator|&&
-name|re
+name|reCopy
 operator|.
 name|indexIn
 argument_list|(

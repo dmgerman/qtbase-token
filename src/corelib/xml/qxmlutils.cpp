@@ -2448,7 +2448,6 @@ name|encName
 parameter_list|)
 block|{
 comment|/* Right, we here have a dependency on QRegExp. Writing a manual parser to      * replace that regexp is probably a 70 lines so I prioritize this to when      * the dependency is considered alarming, or when the rest of the bugs      * are fixed. */
-specifier|const
 name|QRegExp
 name|encNameRegExp
 argument_list|(
