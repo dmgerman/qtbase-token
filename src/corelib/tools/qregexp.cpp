@@ -18596,10 +18596,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|// ### Qt 5: make non-const
-end_comment
-begin_comment
-comment|/*!     Returns true if \a str is matched exactly by this regular     expression; otherwise returns false. You can determine how much of     the string was matched by calling matchedLength().      For a given regexp string R, exactMatch("R") is the equivalent of     indexIn("^R$") since exactMatch() effectively encloses the regexp     in the start of string and end of string anchors, except that it     sets matchedLength() differently.      For example, if the regular expression is \b{blue}, then     exactMatch() returns true only for input \c blue. For inputs \c     bluebell, \c blutak and \c lightblue, exactMatch() returns false     and matchedLength() will return 4, 3 and 0 respectively.      Although const, this function sets matchedLength(),     capturedTexts(), and pos().      \sa indexIn(), lastIndexIn() */
+comment|/*!     Returns true if \a str is matched exactly by this regular     expression; otherwise returns false. You can determine how much of     the string was matched by calling matchedLength().      For a given regexp string R, exactMatch("R") is the equivalent of     indexIn("^R$") since exactMatch() effectively encloses the regexp     in the start of string and end of string anchors, except that it     sets matchedLength() differently.      For example, if the regular expression is \b{blue}, then     exactMatch() returns true only for input \c blue. For inputs \c     bluebell, \c blutak and \c lightblue, exactMatch() returns false     and matchedLength() will return 4, 3 and 0 respectively.      \sa indexIn(), lastIndexIn() */
 end_comment
 begin_function
 DECL|function|exactMatch
@@ -18613,7 +18610,6 @@ name|QString
 modifier|&
 name|str
 parameter_list|)
-specifier|const
 block|{
 name|prepareEngineForMatch
 argument_list|(
@@ -18705,10 +18701,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|// ### Qt 5: make non-const
-end_comment
-begin_comment
-comment|/*!     Attempts to find a match in \a str from position \a offset (0 by     default). If \a offset is -1, the search starts at the last     character; if -2, at the next to last character; etc.      Returns the position of the first match, or -1 if there was no     match.      The \a caretMode parameter can be used to instruct whether \b{^}     should match at index 0 or at \a offset.      You might prefer to use QString::indexOf(), QString::contains(),     or even QStringList::filter(). To replace matches use     QString::replace().      Example:     \snippet code/src_corelib_tools_qregexp.cpp 13      Although const, this function sets matchedLength(),     capturedTexts() and pos().      If the QRegExp is a wildcard expression (see setPatternSyntax())     and want to test a string against the whole wildcard expression,     use exactMatch() instead of this function.      \sa lastIndexIn(), exactMatch() */
+comment|/*!     Attempts to find a match in \a str from position \a offset (0 by     default). If \a offset is -1, the search starts at the last     character; if -2, at the next to last character; etc.      Returns the position of the first match, or -1 if there was no     match.      The \a caretMode parameter can be used to instruct whether \b{^}     should match at index 0 or at \a offset.      You might prefer to use QString::indexOf(), QString::contains(),     or even QStringList::filter(). To replace matches use     QString::replace().      Example:     \snippet code/src_corelib_tools_qregexp.cpp 13      If the QRegExp is a wildcard expression (see setPatternSyntax())     and want to test a string against the whole wildcard expression,     use exactMatch() instead of this function.      \sa lastIndexIn(), exactMatch() */
 end_comment
 begin_function
 DECL|function|indexIn
@@ -18728,7 +18721,6 @@ parameter_list|,
 name|CaretMode
 name|caretMode
 parameter_list|)
-specifier|const
 block|{
 name|prepareEngineForMatch
 argument_list|(
@@ -18795,10 +18787,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|// ### Qt 5: make non-const
-end_comment
-begin_comment
-comment|/*!     Attempts to find a match backwards in \a str from position \a     offset. If \a offset is -1 (the default), the search starts at the     last character; if -2, at the next to last character; etc.      Returns the position of the first match, or -1 if there was no     match.      The \a caretMode parameter can be used to instruct whether \b{^}     should match at index 0 or at \a offset.      Although const, this function sets matchedLength(),     capturedTexts() and pos().      \warning Searching backwards is much slower than searching     forwards.      \sa indexIn(), exactMatch() */
+comment|/*!     Attempts to find a match backwards in \a str from position \a     offset. If \a offset is -1 (the default), the search starts at the     last character; if -2, at the next to last character; etc.      Returns the position of the first match, or -1 if there was no     match.      The \a caretMode parameter can be used to instruct whether \b{^}     should match at index 0 or at \a offset.      \warning Searching backwards is much slower than searching     forwards.      \sa indexIn(), exactMatch() */
 end_comment
 begin_function
 DECL|function|lastIndexIn
@@ -18818,7 +18807,6 @@ parameter_list|,
 name|CaretMode
 name|caretMode
 parameter_list|)
-specifier|const
 block|{
 name|prepareEngineForMatch
 argument_list|(
