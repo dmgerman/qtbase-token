@@ -590,6 +590,13 @@ name|CONFIG_DEFINES
 value|"defines"
 end_define
 begin_define
+DECL|macro|CONFIG_DEPENDS
+define|#
+directive|define
+name|CONFIG_DEPENDS
+value|"depends"
+end_define
+begin_define
 DECL|macro|CONFIG_DESCRIPTION
 define|#
 directive|define
