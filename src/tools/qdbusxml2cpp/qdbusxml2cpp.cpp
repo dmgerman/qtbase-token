@@ -1474,7 +1474,7 @@ name|annotations
 operator|.
 name|value
 argument_list|(
-name|annotationName
+name|oldAnnotationName
 argument_list|)
 expr_stmt|;
 if|if
