@@ -14309,7 +14309,6 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
-specifier|const
 name|QRegExp
 name|regex
 argument_list|(
