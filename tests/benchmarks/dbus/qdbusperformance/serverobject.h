@@ -35,7 +35,7 @@ name|Q_CLASSINFO
 argument_list|(
 literal|"D-Bus Interface"
 argument_list|,
-literal|"com.trolltech.autotests.Performance"
+literal|"org.qtproject.autotests.Performance"
 argument_list|)
 name|public
 operator|:

@@ -30,7 +30,7 @@ name|char
 name|serviceName
 index|[]
 init|=
-literal|"com.trolltech.autotests.performance"
+literal|"org.qtproject.autotests.performance"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -274,7 +274,7 @@ name|serviceName
 argument_list|,
 literal|"/"
 argument_list|,
-literal|"com.trolltech.autotests.Performance"
+literal|"org.qtproject.autotests.Performance"
 argument_list|,
 name|con
 argument_list|,
@@ -311,7 +311,7 @@ argument_list|()
 argument_list|,
 literal|"/"
 argument_list|,
-literal|"com.trolltech.autotests.Performance"
+literal|"org.qtproject.autotests.Performance"
 argument_list|,
 name|con
 argument_list|,

@@ -25,7 +25,7 @@ name|char
 name|serviceName
 index|[]
 init|=
-literal|"com.trolltech.autotests.performance"
+literal|"org.qtproject.autotests.performance"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
