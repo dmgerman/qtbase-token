@@ -199,11 +199,6 @@ specifier|static
 name|QStringList
 name|c_ext
 decl_stmt|;
-DECL|member|h_moc_ext
-specifier|static
-name|QString
-name|h_moc_ext
-decl_stmt|;
 DECL|member|cpp_moc_ext
 specifier|static
 name|QString
@@ -228,11 +223,6 @@ DECL|member|h_moc_mod
 specifier|static
 name|QString
 name|h_moc_mod
-decl_stmt|;
-DECL|member|cpp_moc_mod
-specifier|static
-name|QString
-name|cpp_moc_mod
 decl_stmt|;
 DECL|member|lex_mod
 specifier|static
