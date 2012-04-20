@@ -3615,7 +3615,6 @@ modifier|&
 name|cursor
 parameter_list|)
 block|{
-specifier|const
 name|QRegExp
 name|expr
 argument_list|(

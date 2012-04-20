@@ -2320,9 +2320,7 @@ decl|,
 name|indices
 control|)
 block|{
-specifier|const
 name|PaintCommandInfos
-modifier|&
 name|command
 init|=
 name|s_commandInfoTable
