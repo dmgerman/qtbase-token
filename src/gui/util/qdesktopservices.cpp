@@ -554,6 +554,8 @@ name|QDesktopServices
 operator|::
 name|storageLocationImpl
 parameter_list|(
+name|QStandardPaths
+operator|::
 name|StandardLocation
 name|type
 parameter_list|)
@@ -562,6 +564,8 @@ if|if
 condition|(
 name|type
 operator|==
+name|QStandardPaths
+operator|::
 name|DataLocation
 condition|)
 block|{
@@ -687,15 +691,7 @@ name|QStandardPaths
 operator|::
 name|writableLocation
 argument_list|(
-cast|static_cast
-argument_list|<
-name|QStandardPaths
-operator|::
-name|StandardLocation
-argument_list|>
-argument_list|(
 name|type
-argument_list|)
 argument_list|)
 return|;
 block|}

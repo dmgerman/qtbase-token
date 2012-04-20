@@ -100,6 +100,7 @@ literal|5
 operator|,
 literal|0
 argument_list|)
+comment|//Must match QStandardPaths::StandardLocation
 name|QT_DEPRECATED
 name|enum
 name|StandardLocation
@@ -139,7 +140,15 @@ block|{
 return|return
 name|storageLocationImpl
 argument_list|(
+name|static_cast
+operator|<
+name|QStandardPaths
+operator|::
+name|StandardLocation
+operator|>
+operator|(
 name|type
+operator|)
 argument_list|)
 return|;
 block|}
@@ -176,11 +185,13 @@ label|:
 specifier|static
 name|QString
 name|storageLocationImpl
-parameter_list|(
+argument_list|(
+name|QStandardPaths
+operator|::
 name|StandardLocation
 name|type
-parameter_list|)
-function_decl|;
+argument_list|)
+decl_stmt|;
 block|}
 end_decl_stmt
 begin_empty_stmt
