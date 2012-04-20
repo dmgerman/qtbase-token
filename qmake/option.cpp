@@ -174,14 +174,6 @@ name|pro_ext
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
-DECL|member|mmp_ext
-name|QString
-name|Option
-operator|::
-name|mmp_ext
-decl_stmt|;
-end_decl_stmt
-begin_decl_stmt
 DECL|member|dir_sep
 name|QString
 name|Option
@@ -2487,12 +2479,6 @@ operator|::
 name|pro_ext
 operator|=
 literal|".pro"
-expr_stmt|;
-name|Option
-operator|::
-name|mmp_ext
-operator|=
-literal|".mmp"
 expr_stmt|;
 ifdef|#
 directive|ifdef

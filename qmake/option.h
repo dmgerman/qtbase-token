@@ -264,11 +264,6 @@ specifier|static
 name|QString
 name|pro_ext
 decl_stmt|;
-DECL|member|mmp_ext
-specifier|static
-name|QString
-name|mmp_ext
-decl_stmt|;
 DECL|member|res_ext
 specifier|static
 name|QString
