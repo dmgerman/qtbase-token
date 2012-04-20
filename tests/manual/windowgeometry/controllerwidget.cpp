@@ -2111,6 +2111,16 @@ operator|->
 name|show
 argument_list|()
 expr_stmt|;
+name|m_testWindow
+operator|->
+name|setWindowTitle
+argument_list|(
+name|tr
+argument_list|(
+literal|"TestWindow"
+argument_list|)
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 name|QWidget
