@@ -89,6 +89,10 @@ block|,
 name|LoadArchiveMemberHint
 operator|=
 literal|0x04
+block|,
+name|PreventUnloadHint
+operator|=
+literal|0x08
 block|}
 block|;
 name|Q_DECLARE_FLAGS

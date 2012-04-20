@@ -605,6 +605,30 @@ expr_stmt|;
 block|}
 endif|#
 directive|endif
+comment|// Provide access to RTLD_NODELETE flag on Unix
+comment|// From GNU documentation on RTLD_NODELETE:
+comment|// Do not unload the library during dlclose(). Consequently, the
+comment|// library's specific static variables are not reinitialized if the
+comment|// library is reloaded with dlopen() at a later time.
+ifdef|#
+directive|ifdef
+name|RTLD_NODELETE
+if|if
+condition|(
+name|loadHints
+operator|&
+name|QLibrary
+operator|::
+name|PreventUnloadHint
+condition|)
+block|{
+name|dlFlags
+operator||=
+name|RTLD_NODELETE
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 if|#
 directive|if
 name|defined
