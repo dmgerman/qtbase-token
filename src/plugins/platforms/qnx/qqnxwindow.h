@@ -109,6 +109,11 @@ argument_list|(
 argument|qreal level
 argument_list|)
 block|;
+name|bool
+name|isExposed
+argument_list|()
+specifier|const
+block|;
 name|WId
 name|winId
 argument_list|()
