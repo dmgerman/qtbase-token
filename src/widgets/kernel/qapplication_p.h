@@ -854,7 +854,6 @@ name|leave
 argument_list|)
 block|;
 comment|//modality
-name|Q_DECL_OVERRIDE
 name|bool
 name|isWindowBlocked
 argument_list|(
@@ -864,6 +863,7 @@ argument|QWindow **blockingWindow =
 literal|0
 argument_list|)
 specifier|const
+name|Q_DECL_OVERRIDE
 block|;
 specifier|static
 name|bool

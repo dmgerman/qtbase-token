@@ -265,12 +265,12 @@ name|currentContext
 argument_list|()
 specifier|const
 block|;
-name|Q_DECL_OVERRIDE
 name|bool
 name|setWindowModified
 argument_list|(
 argument|bool modified
 argument_list|)
+name|Q_DECL_OVERRIDE
 block|;
 name|protected
 operator|:

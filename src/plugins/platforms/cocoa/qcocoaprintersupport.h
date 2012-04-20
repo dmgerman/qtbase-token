@@ -34,15 +34,14 @@ operator|~
 name|QCocoaPrinterSupport
 argument_list|()
 block|;
-name|Q_DECL_OVERRIDE
 name|QPrintEngine
 operator|*
 name|createNativePrintEngine
 argument_list|(
 argument|QPrinter::PrinterMode printerMode
 argument_list|)
-block|;
 name|Q_DECL_OVERRIDE
+block|;
 name|QPaintEngine
 operator|*
 name|createPaintEngine
@@ -51,8 +50,8 @@ argument|QPrintEngine *
 argument_list|,
 argument|QPrinter::PrinterMode printerMode
 argument_list|)
-block|;
 name|Q_DECL_OVERRIDE
+block|;
 name|QList
 operator|<
 name|QPrinter
@@ -64,14 +63,15 @@ argument_list|(
 argument|const QPrinterInfo&
 argument_list|)
 specifier|const
-block|;
 name|Q_DECL_OVERRIDE
+block|;
 name|QList
 operator|<
 name|QPrinterInfo
 operator|>
 name|availablePrinters
 argument_list|()
+name|Q_DECL_OVERRIDE
 block|; }
 decl_stmt|;
 end_decl_stmt
