@@ -113,7 +113,6 @@ operator|.
 name|readAllStandardOutput
 argument_list|()
 decl_stmt|;
-specifier|const
 name|QRegExp
 name|rx
 argument_list|(
@@ -362,7 +361,6 @@ name|valSeen
 init|=
 literal|false
 decl_stmt|;
-specifier|const
 name|QRegExp
 name|rxValue
 argument_list|(
@@ -556,7 +554,6 @@ argument_list|(
 name|base
 argument_list|)
 decl_stmt|;
-specifier|const
 name|QRegExp
 name|rx
 argument_list|(
