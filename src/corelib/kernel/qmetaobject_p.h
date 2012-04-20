@@ -776,6 +776,19 @@ name|types
 parameter_list|)
 function_decl|;
 specifier|static
+name|QMetaMethod
+name|signal
+parameter_list|(
+specifier|const
+name|QMetaObject
+modifier|*
+name|m
+parameter_list|,
+name|int
+name|signal_index
+parameter_list|)
+function_decl|;
+specifier|static
 name|bool
 name|checkConnectArgs
 parameter_list|(
@@ -873,6 +886,8 @@ argument|const QObject *sender
 argument_list|,
 argument|int signal_index
 argument_list|,
+argument|const QMetaObject *smeta
+argument_list|,
 argument|const QObject *receiver
 argument_list|,
 argument|int method_index_relative
@@ -898,6 +913,11 @@ name|sender
 parameter_list|,
 name|int
 name|signal_index
+parameter_list|,
+specifier|const
+name|QMetaObject
+modifier|*
+name|smeta
 parameter_list|,
 specifier|const
 name|QObject

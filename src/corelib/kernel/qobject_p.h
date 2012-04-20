@@ -638,6 +638,9 @@ name|int
 name|signalIndex
 argument_list|(
 argument|const char *signalName
+argument_list|,
+argument|const QMetaObject **meta =
+literal|0
 argument_list|)
 specifier|const
 block|;

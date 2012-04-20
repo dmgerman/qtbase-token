@@ -1342,21 +1342,20 @@ end_comment
 begin_if
 if|if
 condition|(
-name|QLatin1String
-argument_list|(
 name|signal
-argument_list|)
 operator|==
-name|SIGNAL
+name|QMetaMethod
+operator|::
+name|fromSignal
 argument_list|(
+operator|&
+name|MyObject
+operator|::
 name|valueChanged
-argument_list|(
-name|int
-argument_list|)
 argument_list|)
 condition|)
 block|{
-comment|// signal is valueChanged(int)
+comment|// signal is valueChanged
 block|}
 end_if
 begin_comment
