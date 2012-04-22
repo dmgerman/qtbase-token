@@ -792,44 +792,47 @@ name|features
 init|=
 literal|0
 decl_stmt|;
-if|if
-condition|(
+name|int
+name|cpuidLevel
+init|=
 name|maxBasicCpuidSupported
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cpuidLevel
 operator|<
 literal|1
 condition|)
 return|return
 literal|0
 return|;
+name|uint
+name|cpuid01ECX
+init|=
+literal|0
+decl_stmt|,
+name|cpuid01EDX
+init|=
+literal|0
+decl_stmt|;
+name|cpuidFeatures01
+argument_list|(
+name|cpuid01ECX
+argument_list|,
+name|cpuid01EDX
+argument_list|)
+expr_stmt|;
 if|#
 directive|if
 name|defined
 argument_list|(
 name|Q_PROCESSOR_X86_32
 argument_list|)
-name|unsigned
-name|int
-name|feature_result
-init|=
-literal|0
-decl_stmt|;
-name|uint
-name|result
-init|=
-literal|0
-decl_stmt|;
-name|cpuidFeatures01
-argument_list|(
-name|feature_result
-argument_list|,
-name|result
-argument_list|)
-expr_stmt|;
-comment|// result now contains the standard feature bits
+comment|// x86 might not have SSE2 support
 if|if
 condition|(
-name|result
+name|cpuid01EDX
 operator|&
 operator|(
 literal|1u
@@ -848,26 +851,12 @@ name|features
 operator|=
 name|SSE2
 expr_stmt|;
-name|uint
-name|feature_result
-init|=
-literal|0
-decl_stmt|,
-name|tmp
-decl_stmt|;
-name|cpuidFeatures01
-argument_list|(
-name|feature_result
-argument_list|,
-name|tmp
-argument_list|)
-expr_stmt|;
 endif|#
 directive|endif
 comment|// common part between 32- and 64-bit
 if|if
 condition|(
-name|feature_result
+name|cpuid01ECX
 operator|&
 operator|(
 literal|1u
@@ -879,7 +868,7 @@ name|SSE3
 expr_stmt|;
 if|if
 condition|(
-name|feature_result
+name|cpuid01ECX
 operator|&
 operator|(
 literal|1u
@@ -893,7 +882,7 @@ name|SSSE3
 expr_stmt|;
 if|if
 condition|(
-name|feature_result
+name|cpuid01ECX
 operator|&
 operator|(
 literal|1u
@@ -907,7 +896,7 @@ name|SSE4_1
 expr_stmt|;
 if|if
 condition|(
-name|feature_result
+name|cpuid01ECX
 operator|&
 operator|(
 literal|1u
@@ -919,6 +908,21 @@ name|features
 operator||=
 name|SSE4_2
 expr_stmt|;
+if|if
+condition|(
+name|cpuid01ECX
+operator|&
+operator|(
+literal|1u
+operator|<<
+literal|25
+operator|)
+condition|)
+name|features
+operator||=
+literal|0
+expr_stmt|;
+comment|// AES, enable if needed
 name|uint
 name|xgetbvA
 init|=
@@ -930,7 +934,7 @@ literal|0
 decl_stmt|;
 if|if
 condition|(
-name|feature_result
+name|cpuid01ECX
 operator|&
 operator|(
 literal|1u
@@ -950,6 +954,22 @@ name|xgetbvD
 argument_list|)
 expr_stmt|;
 block|}
+name|uint
+name|cpuid0700EBX
+init|=
+literal|0
+decl_stmt|;
+if|if
+condition|(
+name|cpuidLevel
+operator|>=
+literal|7
+condition|)
+name|cpuidFeatures07_00
+argument_list|(
+name|cpuid0700EBX
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -964,7 +984,7 @@ block|{
 comment|// support for YMM and XMM registers is enabled
 if|if
 condition|(
-name|feature_result
+name|cpuid01ECX
 operator|&
 operator|(
 literal|1u
@@ -976,7 +996,51 @@ name|features
 operator||=
 name|AVX
 expr_stmt|;
+if|if
+condition|(
+name|cpuid0700EBX
+operator|&
+operator|(
+literal|1u
+operator|<<
+literal|5
+operator|)
+condition|)
+name|features
+operator||=
+name|AVX2
+expr_stmt|;
 block|}
+if|if
+condition|(
+name|cpuid0700EBX
+operator|&
+operator|(
+literal|1u
+operator|<<
+literal|4
+operator|)
+condition|)
+name|features
+operator||=
+name|HLE
+expr_stmt|;
+comment|// Hardware Lock Ellision
+if|if
+condition|(
+name|cpuid0700EBX
+operator|&
+operator|(
+literal|1u
+operator|<<
+literal|11
+operator|)
+condition|)
+name|features
+operator||=
+name|RTM
+expr_stmt|;
+comment|// Restricted Transactional Memory
 return|return
 name|features
 return|;
@@ -1003,7 +1067,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*  * Use kdesdk/scripts/generate_string_table.pl to update the table below.  * Here's the data (don't forget the ONE leading space):  iwmmxt  neon  sse2  sse3  ssse3  sse4.1  sse4.2  avx   */
+comment|/*  * Use kdesdk/scripts/generate_string_table.pl to update the table below.  * Here's the data (don't forget the ONE leading space):  iwmmxt  neon  sse2  sse3  ssse3  sse4.1  sse4.2  avx  avx2  hle  rtm   */
 end_comment
 begin_comment
 comment|// begin generated
@@ -1024,6 +1088,9 @@ literal|" ssse3\0"
 literal|" sse4.1\0"
 literal|" sse4.2\0"
 literal|" avx\0"
+literal|" avx2\0"
+literal|" hle\0"
+literal|" rtm\0"
 literal|"\0"
 decl_stmt|;
 end_decl_stmt
@@ -1051,6 +1118,12 @@ block|,
 literal|41
 block|,
 literal|49
+block|,
+literal|54
+block|,
+literal|60
+block|,
+literal|65
 block|,
 operator|-
 literal|1
