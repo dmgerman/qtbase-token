@@ -97,6 +97,11 @@ argument_list|()
 operator|:
 name|atEnd
 argument_list|(
+name|false
+argument_list|)
+block|,
+name|resetting
+argument_list|(
 argument|false
 argument_list|)
 block|{}
@@ -155,7 +160,9 @@ operator|>
 name|colOffsets
 block|;
 comment|// used to calculate indexInQuery of columns
-block|}
+name|bool
+name|resetting
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_comment

@@ -219,6 +219,14 @@ specifier|const
 block|;
 name|protected
 operator|:
+name|void
+name|beginResetModel
+argument_list|()
+block|;
+name|void
+name|endResetModel
+argument_list|()
+block|;
 name|virtual
 name|void
 name|queryChange
