@@ -6106,6 +6106,12 @@ begin_comment
 comment|/*!     \fn bool QMetaMethod::isValid() const     \since 5.0      Returns true if this method is valid (can be introspected and     invoked), otherwise returns false. */
 end_comment
 begin_comment
+comment|/*! \fn bool operator==(const QMetaMethod&m1, const QMetaMethod&m2)     \since 5.0     \relates QMetaMethod     \overload      Returns true if method \a m1 is equal to method \a m2,     otherwise returns false. */
+end_comment
+begin_comment
+comment|/*! \fn bool operator!=(const QMetaMethod&m1, const QMetaMethod&m2)     \since 5.0     \relates QMetaMethod     \overload      Returns true if method \a m1 is not equal to method \a m2,     otherwise returns false. */
+end_comment
+begin_comment
 comment|/*!     \fn const QMetaObject *QMetaMethod::enclosingMetaObject() const     \internal */
 end_comment
 begin_comment
