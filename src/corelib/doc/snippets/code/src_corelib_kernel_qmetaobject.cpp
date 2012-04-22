@@ -372,6 +372,21 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//! [8]
+comment|//! [9]
+name|QMetaMethod
+name|destroyedSignal
+init|=
+name|QMetaMethod
+operator|::
+name|fromSignal
+argument_list|(
+operator|&
+name|QObject
+operator|::
+name|destroyed
+argument_list|)
+decl_stmt|;
+comment|//! [9]
 block|}
 end_function
 end_unit
