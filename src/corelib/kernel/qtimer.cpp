@@ -571,7 +571,7 @@ index|[
 literal|0
 index|]
 operator|<=
-literal|'3'
+literal|'2'
 operator|)
 condition|)
 block|{
