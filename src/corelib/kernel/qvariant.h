@@ -1142,6 +1142,26 @@ directive|ifdef
 name|Q_COMPILER_RVALUE_REFS
 specifier|inline
 name|QVariant
+argument_list|(
+name|QVariant
+operator|&&
+name|other
+argument_list|)
+operator|:
+name|d
+argument_list|(
+argument|other.d
+argument_list|)
+block|{
+name|other
+operator|.
+name|d
+operator|=
+name|Private
+argument_list|()
+block|; }
+specifier|inline
+name|QVariant
 operator|&
 name|operator
 operator|=
