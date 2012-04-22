@@ -7559,6 +7559,11 @@ name|signal_index
 operator|+
 name|methodOffset
 decl_stmt|;
+name|Q_UNUSED
+argument_list|(
+argument|signal_absolute_index
+argument_list|)
+comment|//only used in debug mode
 name|signal_index
 operator|+=
 name|signalOffset
