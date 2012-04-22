@@ -1003,8 +1003,8 @@ modifier|*
 name|receiver
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|QMetaMethod
+modifier|&
 name|signal
 parameter_list|)
 function_decl|;
@@ -1033,8 +1033,8 @@ modifier|*
 name|receiver
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|QMetaMethod
+modifier|&
 name|signal
 parameter_list|)
 function_decl|;

@@ -482,8 +482,8 @@ name|void
 name|connectNotify
 argument_list|(
 specifier|const
-name|char
-operator|*
+name|QMetaMethod
+operator|&
 name|signal
 argument_list|)
 block|;
@@ -491,8 +491,8 @@ name|void
 name|disconnectNotify
 argument_list|(
 specifier|const
-name|char
-operator|*
+name|QMetaMethod
+operator|&
 name|signal
 argument_list|)
 block|;
