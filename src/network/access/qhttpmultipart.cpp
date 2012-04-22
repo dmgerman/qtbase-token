@@ -1135,9 +1135,9 @@ name|currentSize
 operator|+=
 name|boundaryCount
 operator|+
-literal|4
+literal|6
 expr_stmt|;
-comment|// size for ending boundary and 2 beginning and ending dashes
+comment|// size for ending boundary, 2 beginning and ending dashes and "\r\n"
 name|deviceSize
 operator|=
 name|currentSize
@@ -1589,7 +1589,7 @@ name|multiPart
 operator|->
 name|boundary
 operator|+
-literal|"--"
+literal|"--\r\n"
 decl_stmt|;
 name|qint64
 name|boundaryIndex
