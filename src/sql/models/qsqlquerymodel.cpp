@@ -354,7 +354,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \since 4.1      Fetches more rows from a database.     This only affects databases that don't report back the size of a query     (see QSqlDriver::hasFeature()).      To force fetching of the entire database, you can use the following:      \snippet doc/src/snippets/code/src_sql_models_qsqlquerymodel.cpp 0      \a parent should always be an invalid QModelIndex.      \sa canFetchMore() */
+comment|/*!     \since 4.1      Fetches more rows from a database.     This only affects databases that don't report back the size of a query     (see QSqlDriver::hasFeature()).      To force fetching of the entire result set, you can use the following:      \snippet doc/src/snippets/code/src_sql_models_qsqlquerymodel.cpp 0      \a parent should always be an invalid QModelIndex.      \sa canFetchMore() */
 end_comment
 begin_function
 DECL|function|fetchMore
