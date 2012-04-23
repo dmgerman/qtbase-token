@@ -6374,11 +6374,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QDOC_QML
-end_ifdef
 begin_comment
 comment|/*!   Output the "Inherit by" list for the QML element,   if it is inherited by any other elements.  */
 end_comment
@@ -6469,15 +6464,6 @@ block|}
 block|}
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QDOC_QML
-end_ifdef
 begin_comment
 comment|/*!  */
 end_comment
@@ -6499,15 +6485,6 @@ block|{
 comment|// stub.
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|QDOC_QML
-end_ifdef
 begin_comment
 comment|/*!   Extract sections of markup text surrounded by \e qmltext   and \e endqmltext and output them.  */
 end_comment
@@ -6663,10 +6640,6 @@ name|result
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|generateReimplementedFrom
 name|void
