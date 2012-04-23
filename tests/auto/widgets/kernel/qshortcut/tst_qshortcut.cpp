@@ -6060,6 +6060,8 @@ operator|<<
 name|TriggerSlot1
 operator|<<
 name|QString
+operator|::
+name|fromLatin1
 argument_list|(
 literal|"\x0C5"
 argument_list|)
@@ -6094,6 +6096,8 @@ operator|<<
 name|TriggerSlot2
 operator|<<
 name|QString
+operator|::
+name|fromLatin1
 argument_list|(
 literal|"Shift+\x0C5"
 argument_list|)

@@ -1042,7 +1042,10 @@ block|{
 name|QString
 name|text1
 init|=
+name|QLatin1String
+argument_list|(
 literal|"Long Text 1\x9cShorter\x9csmall"
+argument_list|)
 decl_stmt|;
 name|QString
 name|text1_long

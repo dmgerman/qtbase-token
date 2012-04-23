@@ -2822,6 +2822,8 @@ literal|"\303\266\303\244\303\274\303\226\303\204\303\234\303\270\303\246\303\24
 argument_list|)
 operator|<<
 name|QString
+operator|::
+name|fromLatin1
 argument_list|(
 literal|"\366\344\374\326\304\334\370\346\345\330\306\305"
 argument_list|)
@@ -2842,6 +2844,8 @@ literal|"\303\266\303\244\303\274\303\226\303\204\303\234\303\270\303\246\303\24
 argument_list|)
 operator|<<
 name|QString
+operator|::
+name|fromLatin1
 argument_list|(
 literal|"\366\344\374\326\304"
 argument_list|)
@@ -9596,6 +9600,8 @@ literal|2
 argument_list|)
 operator|<<
 name|QString
+operator|::
+name|fromLatin1
 argument_list|(
 literal|"\240"
 argument_list|)

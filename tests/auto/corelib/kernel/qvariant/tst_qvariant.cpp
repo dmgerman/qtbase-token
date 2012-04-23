@@ -25662,7 +25662,10 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|,
+name|QLatin1String
+argument_list|(
 literal|"\xf4"
+argument_list|)
 argument_list|,
 operator|-
 literal|12
@@ -25670,6 +25673,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|;
+comment|// qint8 is char, so it gets converted via QChar
 name|PLAY_WITH_VARIANT
 argument_list|(
 name|qint16
