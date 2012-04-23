@@ -872,8 +872,16 @@ name|QString
 modifier|&
 name|v
 parameter_list|)
-function_decl|;
-comment|// No compat mapping, no magic variables
+block|{
+return|return
+name|vars
+operator|.
+name|contains
+argument_list|(
+name|v
+argument_list|)
+return|;
+block|}
 name|bool
 name|isEmpty
 parameter_list|(
@@ -883,7 +891,6 @@ modifier|&
 name|v
 parameter_list|)
 function_decl|;
-comment|// With compat mapping, but no magic variables
 name|QStringList
 modifier|&
 name|values
@@ -893,8 +900,14 @@ name|QString
 modifier|&
 name|v
 parameter_list|)
-function_decl|;
-comment|// With compat mapping and magic variables
+block|{
+return|return
+name|vars
+index|[
+name|v
+index|]
+return|;
+block|}
 name|QString
 name|first
 parameter_list|(
@@ -904,7 +917,6 @@ modifier|&
 name|v
 parameter_list|)
 function_decl|;
-comment|// ditto
 name|int
 name|intValue
 parameter_list|(
@@ -919,7 +931,6 @@ init|=
 literal|0
 parameter_list|)
 function_decl|;
-comment|// ditto
 name|QHash
 operator|<
 name|QString
@@ -929,8 +940,11 @@ operator|>
 operator|&
 name|variables
 argument_list|()
-expr_stmt|;
-comment|// No compat mapping and magic, obviously
+block|{
+return|return
+name|vars
+return|;
+block|}
 name|bool
 name|isRecursive
 argument_list|()
@@ -1030,50 +1044,7 @@ return|;
 end_return
 begin_expr_stmt
 unit|}  inline
-DECL|function|values
-name|QStringList
-operator|&
-name|QMakeProject
-operator|::
-name|values
-argument_list|(
-argument|const QString&v
-argument_list|)
-block|{
-return|return
-name|values
-argument_list|(
-name|v
-argument_list|,
-name|vars
-argument_list|)
-return|;
-block|}
-end_expr_stmt
-begin_expr_stmt
-DECL|function|isSet
-specifier|inline
-name|bool
-name|QMakeProject
-operator|::
-name|isSet
-argument_list|(
-argument|const QString&v
-argument_list|)
-block|{
-return|return
-name|vars
-operator|.
-name|contains
-argument_list|(
-name|v
-argument_list|)
-return|;
-block|}
-end_expr_stmt
-begin_expr_stmt
 DECL|function|first
-specifier|inline
 name|QString
 name|QMakeProject
 operator|::
@@ -1172,31 +1143,8 @@ return|return
 name|defaultValue
 return|;
 end_return
-begin_expr_stmt
-unit|}  inline
-DECL|variable|QString
-DECL|function|variables
-name|QHash
-operator|<
-name|QString
-operator|,
-name|QStringList
-operator|>
-operator|&
-name|QMakeProject
-operator|::
-name|variables
-argument_list|()
-block|{
-return|return
-name|vars
-return|;
-block|}
-end_expr_stmt
-begin_macro
-name|QT_END_NAMESPACE
-end_macro
 begin_endif
+unit|}  QT_END_NAMESPACE
 endif|#
 directive|endif
 end_endif

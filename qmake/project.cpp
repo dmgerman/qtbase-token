@@ -26074,10 +26074,7 @@ name|vars
 operator|.
 name|constFind
 argument_list|(
-name|varMap
-argument_list|(
 name|v
-argument_list|)
 argument_list|)
 decl_stmt|;
 return|return
