@@ -214,6 +214,24 @@ name|fontsAlwaysScalable
 argument_list|()
 specifier|const
 block|;
+name|void
+name|derefUniqueFont
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|uniqueFont
+argument_list|)
+block|;
+name|void
+name|refUniqueFont
+argument_list|(
+specifier|const
+name|QString
+operator|&
+name|uniqueFont
+argument_list|)
+block|;
 specifier|static
 name|QFont
 name|systemDefaultFont
@@ -303,6 +321,23 @@ operator|<
 name|WinApplicationFont
 operator|>
 name|m_applicationFonts
+block|;      struct
+name|UniqueFontData
+block|{
+name|HANDLE
+name|handle
+block|;
+name|QAtomicInt
+name|refCount
+block|;     }
+block|;
+name|QMap
+operator|<
+name|QString
+block|,
+name|UniqueFontData
+operator|>
+name|m_uniqueFontData
 block|; }
 decl_stmt|;
 end_decl_stmt

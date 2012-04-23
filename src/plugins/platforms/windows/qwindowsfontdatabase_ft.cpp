@@ -1807,7 +1807,7 @@ name|QFontEngine
 modifier|*
 name|fe
 init|=
-name|QPlatformFontDatabase
+name|QBasicFontDatabase
 operator|::
 name|fontEngine
 argument_list|(

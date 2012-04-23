@@ -478,6 +478,16 @@ return|return
 name|m_logfont
 return|;
 block|}
+name|void
+name|setUniqueFamilyName
+argument_list|(
+argument|const QString&newName
+argument_list|)
+block|{
+name|uniqueFamilyName
+operator|=
+name|newName
+block|; }
 name|private
 operator|:
 name|QWindowsNativeImage
