@@ -8962,6 +8962,9 @@ name|tmp
 operator|=
 name|ourPath
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|Q_OS_WIN
 comment|// magic for drives on windows
 if|if
 condition|(
@@ -9005,6 +9008,8 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 return|return
 name|tmp
