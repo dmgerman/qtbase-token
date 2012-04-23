@@ -1829,6 +1829,7 @@ block|{
 name|QStringList
 name|vpath
 decl_stmt|;
+specifier|const
 name|QHash
 argument_list|<
 name|QString

@@ -2777,6 +2777,7 @@ argument_list|,
 literal|"Dumping all variables:"
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QHash
 argument_list|<
 name|QString
@@ -2800,7 +2801,7 @@ argument_list|,
 name|QStringList
 argument_list|>
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|vars
