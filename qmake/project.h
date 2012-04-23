@@ -390,6 +390,10 @@ name|void
 name|loadDefaults
 parameter_list|()
 function_decl|;
+name|void
+name|setupProject
+parameter_list|()
+function_decl|;
 name|QStringList
 modifier|&
 name|values
