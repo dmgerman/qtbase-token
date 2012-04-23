@@ -735,7 +735,7 @@ argument_list|)
 argument_list|,
 name|QLatin1String
 argument_list|(
-literal|"¿Hola, que tal?"
+literal|"\xbfHola, que tal?"
 argument_list|)
 argument_list|)
 expr_stmt|;

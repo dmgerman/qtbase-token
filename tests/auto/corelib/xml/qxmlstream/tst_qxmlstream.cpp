@@ -6631,7 +6631,7 @@ name|char
 modifier|*
 name|latin2
 init|=
-literal|"hé hé"
+literal|"h\xe9 h\xe9"
 decl_stmt|;
 specifier|const
 name|QString
