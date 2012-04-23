@@ -1355,7 +1355,12 @@ argument_list|(
 literal|"path-with-utf8"
 argument_list|)
 operator|<<
+name|QString
+operator|::
+name|fromUtf8
+argument_list|(
 literal|"a=b;path=/R\303\251sum\303\251"
+argument_list|)
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1510,7 +1515,12 @@ argument_list|(
 literal|"idn-domain2"
 argument_list|)
 operator|<<
+name|QString
+operator|::
+name|fromUtf8
+argument_list|(
 literal|"a=b;domain=.d\303\270gn\303\245pent.troll.no"
+argument_list|)
 operator|<<
 name|cookie
 expr_stmt|;
@@ -1532,7 +1542,12 @@ argument_list|(
 literal|"idn-domain4"
 argument_list|)
 operator|<<
+name|QString
+operator|::
+name|fromUtf8
+argument_list|(
 literal|"a=b;domain=.D\303\230GN\303\205PENT.troll.NO"
+argument_list|)
 operator|<<
 name|cookie
 expr_stmt|;
@@ -6142,7 +6157,7 @@ name|parseCookies
 argument_list|(
 name|cookieString
 operator|.
-name|toLatin1
+name|toUtf8
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -7037,7 +7052,7 @@ name|parseCookies
 argument_list|(
 name|cookieString
 operator|.
-name|toLatin1
+name|toUtf8
 argument_list|()
 argument_list|)
 decl_stmt|;
