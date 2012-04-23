@@ -25905,7 +25905,6 @@ end_function
 begin_function
 DECL|function|magicValues
 name|QStringList
-modifier|&
 name|QMakeProject
 operator|::
 name|magicValues
@@ -25915,6 +25914,7 @@ name|QString
 modifier|&
 name|_var
 parameter_list|,
+specifier|const
 name|QHash
 argument_list|<
 name|QString
@@ -25924,6 +25924,7 @@ argument_list|>
 modifier|&
 name|place
 parameter_list|)
+specifier|const
 block|{
 name|QString
 name|var
@@ -25944,17 +25945,7 @@ argument_list|)
 condition|)
 block|{
 comment|//parser line number
-name|var
-operator|=
-literal|".BUILTIN."
-operator|+
-name|var
-expr_stmt|;
-name|place
-index|[
-name|var
-index|]
-operator|=
+return|return
 name|QStringList
 argument_list|(
 name|QString
@@ -25966,7 +25957,7 @@ operator|.
 name|line_no
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 elseif|else
 if|if
@@ -25980,26 +25971,15 @@ argument_list|)
 condition|)
 block|{
 comment|//parser file
-name|var
-operator|=
-literal|".BUILTIN."
-operator|+
-name|var
-expr_stmt|;
-name|place
-index|[
-name|var
-index|]
-operator|=
+return|return
 name|QStringList
 argument_list|(
 name|parser
 operator|.
 name|file
 argument_list|)
-expr_stmt|;
+return|;
 block|}
-comment|//qDebug("REPLACE [%s]->[%s]", qPrintable(var), qPrintable(place[var].join("::")));
 return|return
 name|place
 index|[

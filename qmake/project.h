@@ -414,7 +414,6 @@ name|place
 argument_list|)
 decl_stmt|;
 name|QStringList
-modifier|&
 name|magicValues
 argument_list|(
 specifier|const
@@ -422,6 +421,7 @@ name|QString
 operator|&
 name|v
 argument_list|,
+specifier|const
 name|QHash
 operator|<
 name|QString
@@ -431,6 +431,7 @@ operator|>
 operator|&
 name|place
 argument_list|)
+decl|const
 decl_stmt|;
 name|QStringList
 name|qmakeFeaturePaths
