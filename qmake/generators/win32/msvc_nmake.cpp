@@ -87,6 +87,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|qut
@@ -2154,6 +2155,7 @@ name|x
 operator|++
 control|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|l
@@ -2172,7 +2174,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|sit
 init|=
 name|l

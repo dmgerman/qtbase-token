@@ -204,6 +204,7 @@ argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|qut
@@ -1086,6 +1087,7 @@ condition|(
 name|do_incremental
 condition|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|objs
@@ -1096,7 +1098,9 @@ name|values
 argument_list|(
 literal|"OBJECTS"
 argument_list|)
-decl_stmt|,
+decl_stmt|;
+specifier|const
+name|QStringList
 modifier|&
 name|incrs
 init|=
@@ -1106,7 +1110,8 @@ name|values
 argument_list|(
 literal|"QMAKE_INCREMENTAL"
 argument_list|)
-decl_stmt|,
+decl_stmt|;
+name|QStringList
 name|incrs_out
 decl_stmt|;
 name|t
@@ -1117,7 +1122,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|objit
 init|=
 name|objs
@@ -1145,7 +1150,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|incrit
 init|=
 name|incrs
@@ -1622,6 +1627,7 @@ operator|<<
 name|endl
 expr_stmt|;
 comment|// blasted includes
+specifier|const
 name|QStringList
 modifier|&
 name|qeui
@@ -1635,7 +1641,7 @@ argument_list|)
 decl_stmt|;
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 decl_stmt|;
 for|for
@@ -2200,6 +2206,7 @@ name|x
 operator|++
 control|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|l
@@ -2218,7 +2225,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|l
@@ -2560,6 +2567,7 @@ name|t
 operator|<<
 literal|"SUBLIBS       = "
 expr_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|l
@@ -2575,7 +2583,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|l
@@ -2645,6 +2653,7 @@ literal|"QMAKE_PRL_INTERNAL_FILES"
 argument_list|)
 condition|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|l
@@ -2658,7 +2667,7 @@ argument_list|)
 decl_stmt|;
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 decl_stmt|;
 for|for
@@ -7141,6 +7150,7 @@ argument_list|(
 literal|"SUBLIBS_DIR"
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|l

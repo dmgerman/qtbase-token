@@ -7078,6 +7078,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|arg
@@ -9420,6 +9421,7 @@ argument_list|(
 literal|"QMAKE_LIBS_PRIVATE"
 argument_list|)
 expr_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|incs
@@ -9435,7 +9437,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|incit
 init|=
 name|incs

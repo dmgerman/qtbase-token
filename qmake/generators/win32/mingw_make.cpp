@@ -240,6 +240,7 @@ argument_list|>
 name|dirs
 decl_stmt|;
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|libpaths
@@ -255,7 +256,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|libpathit
 init|=
 name|libpaths
@@ -707,6 +708,7 @@ argument_list|)
 operator|<<
 name|endl
 expr_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|qut
@@ -2162,6 +2164,7 @@ name|t
 operator|<<
 literal|"INCPATH       = "
 expr_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|incs
@@ -2177,7 +2180,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|incit
 init|=
 name|incs

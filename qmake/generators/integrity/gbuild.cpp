@@ -1177,6 +1177,7 @@ name|t
 operator|<<
 literal|"\t"
 expr_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|l
@@ -1192,7 +1193,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|l
@@ -1379,6 +1380,7 @@ name|t
 operator|<<
 literal|"\t"
 expr_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|l
@@ -1397,7 +1399,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|l
@@ -1458,6 +1460,7 @@ block|}
 block|}
 comment|/* first subdirectories/subprojects */
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|l
@@ -1473,7 +1476,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|l
@@ -1637,6 +1640,7 @@ expr_stmt|;
 block|}
 block|}
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|l
@@ -1652,7 +1656,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|l
@@ -1674,19 +1678,17 @@ block|{
 name|QString
 name|tmpstr
 argument_list|(
-operator|(
 operator|*
 name|it
-operator|)
-operator|.
-name|replace
-argument_list|(
-name|pathtoremove
-argument_list|,
-literal|""
-argument_list|)
 argument_list|)
 decl_stmt|;
+name|tmpstr
+operator|.
+name|remove
+argument_list|(
+name|pathtoremove
+argument_list|)
+expr_stmt|;
 name|t
 operator|<<
 name|tmpstr
@@ -1771,6 +1773,7 @@ expr_stmt|;
 block|}
 block|}
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|l
@@ -1786,7 +1789,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|l
@@ -1808,19 +1811,17 @@ block|{
 name|QString
 name|tmpstr
 argument_list|(
-operator|(
 operator|*
 name|it
-operator|)
-operator|.
-name|replace
-argument_list|(
-name|pathtoremove
-argument_list|,
-literal|""
-argument_list|)
 argument_list|)
 decl_stmt|;
+name|tmpstr
+operator|.
+name|remove
+argument_list|(
+name|pathtoremove
+argument_list|)
+expr_stmt|;
 name|t
 operator|<<
 name|tmpstr
@@ -1928,6 +1929,7 @@ name|i
 operator|++
 control|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|l
@@ -1946,7 +1948,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|l
@@ -1997,10 +1999,11 @@ expr_stmt|;
 else|else
 name|t
 operator|<<
-operator|(
+name|QString
+argument_list|(
 operator|*
 name|it
-operator|)
+argument_list|)
 operator|.
 name|remove
 argument_list|(
@@ -2016,6 +2019,7 @@ operator|<<
 literal|"\n"
 expr_stmt|;
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|l
@@ -2031,7 +2035,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|it
 init|=
 name|l

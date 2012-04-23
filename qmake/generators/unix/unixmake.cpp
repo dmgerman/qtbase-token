@@ -5799,6 +5799,7 @@ name|target
 init|=
 literal|"$(TARGET)"
 decl_stmt|;
+specifier|const
 name|QStringList
 modifier|&
 name|targets

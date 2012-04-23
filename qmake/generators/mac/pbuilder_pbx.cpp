@@ -3195,6 +3195,7 @@ operator|<<
 literal|"\n"
 expr_stmt|;
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|qmake_subdirs
@@ -6028,6 +6029,7 @@ literal|"YACCSOURCES"
 argument_list|)
 condition|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|yaccs
@@ -6043,7 +6045,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|yit
 init|=
 name|yaccs
@@ -6116,6 +6118,7 @@ literal|"LEXSOURCES"
 argument_list|)
 condition|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|lexs
@@ -6131,7 +6134,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|lit
 init|=
 name|lexs

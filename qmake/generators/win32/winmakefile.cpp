@@ -474,6 +474,7 @@ argument_list|>
 name|dirs
 decl_stmt|;
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|libpaths
@@ -489,7 +490,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|libpathit
 init|=
 name|libpaths
@@ -1426,6 +1427,7 @@ argument_list|>
 name|libdirs
 decl_stmt|;
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|libpaths
@@ -1441,7 +1443,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|libpathit
 init|=
 name|libpaths
@@ -5625,6 +5627,7 @@ literal|"FORMS"
 argument_list|)
 condition|)
 block|{
+specifier|const
 name|QStringList
 modifier|&
 name|forms
@@ -5640,7 +5643,7 @@ for|for
 control|(
 name|QStringList
 operator|::
-name|Iterator
+name|ConstIterator
 name|formit
 init|=
 name|forms
