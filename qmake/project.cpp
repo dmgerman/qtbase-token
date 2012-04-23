@@ -26039,6 +26039,7 @@ name|QString
 modifier|&
 name|v
 parameter_list|)
+specifier|const
 block|{
 name|QHash
 argument_list|<
