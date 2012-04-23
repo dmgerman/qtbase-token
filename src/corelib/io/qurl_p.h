@@ -211,10 +211,6 @@ name|ParsingMode
 name|parsingMode
 argument_list|)
 decl_stmt|;
-name|void
-name|clear
-parameter_list|()
-function_decl|;
 name|bool
 name|isEmpty
 argument_list|()
