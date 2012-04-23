@@ -163,9 +163,18 @@ name|debugpipeBackend
 argument_list|)
 endif|#
 directive|endif
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_MAC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_IOS
+argument_list|)
 include|#
 directive|include
 file|<CoreServices/CoreServices.h>
@@ -3035,9 +3044,18 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+name|defined
+argument_list|(
 name|Q_OS_MAC
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_IOS
+argument_list|)
 comment|//now we try to get the username and password from keychain
 comment|//if not successful signal will be emitted
 name|QString
