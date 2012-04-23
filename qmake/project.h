@@ -983,6 +983,11 @@ return|return
 name|vars
 return|;
 block|}
+name|void
+name|dump
+argument_list|()
+specifier|const
+expr_stmt|;
 name|bool
 name|isRecursive
 argument_list|()

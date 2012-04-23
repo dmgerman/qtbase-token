@@ -1630,13 +1630,6 @@ operator|==
 literal|"E"
 condition|)
 block|{
-name|fprintf
-argument_list|(
-name|stderr
-argument_list|,
-literal|"-E is deprecated. Use -d instead.\n"
-argument_list|)
-expr_stmt|;
 name|Option
 operator|::
 name|mkfile
