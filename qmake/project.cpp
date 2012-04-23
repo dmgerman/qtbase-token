@@ -26682,10 +26682,6 @@ index|]
 operator|=
 name|QStringList
 argument_list|(
-name|Option
-operator|::
-name|fixPathToTargetOS
-argument_list|(
 operator|!
 name|Option
 operator|::
@@ -26712,9 +26708,6 @@ name|EffectivePaths
 argument_list|)
 operator|+
 literal|"/qmake"
-argument_list|,
-literal|false
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
