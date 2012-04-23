@@ -129,7 +129,6 @@ name|caseFoldSpecial
 range|:
 literal|1
 decl_stmt|;
-comment|/* currently unused */
 name|signed
 name|short
 name|mirrorDiff
