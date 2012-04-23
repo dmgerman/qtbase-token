@@ -955,12 +955,12 @@ block|}
 block|}
 end_function
 begin_decl_stmt
-DECL|variable|lineBreakClass
+DECL|variable|line_break_class_string
 specifier|static
 specifier|const
 name|char
 modifier|*
-name|lineBreakClass
+name|line_break_class_string
 init|=
 literal|"    // see http://www.unicode.org/reports/tr14/tr14-19.html\n"
 literal|"    // we don't use the XX, AI and CB properties and map them to AL instead.\n"
@@ -1419,7 +1419,7 @@ name|char
 modifier|*
 name|methods
 init|=
-literal|"    Q_CORE_EXPORT QUnicodeTables::LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4);\n"
+literal|"    Q_CORE_EXPORT LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4);\n"
 literal|"    inline int lineBreakClass(QChar ch)\n"
 literal|"    { return lineBreakClass(ch.unicode()); }\n"
 literal|"\n"
@@ -1684,15 +1684,6 @@ argument_list|>
 name|specialCaseMap
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|specialCaseMaxLen
-specifier|static
-name|int
-name|specialCaseMaxLen
-init|=
-literal|0
-decl_stmt|;
-end_decl_stmt
 begin_function
 DECL|function|appendToSpecialCaseMap
 specifier|static
@@ -1791,15 +1782,6 @@ name|utf16map
 operator|.
 name|prepend
 argument_list|(
-name|length
-argument_list|)
-expr_stmt|;
-name|specialCaseMaxLen
-operator|=
-name|qMax
-argument_list|(
-name|specialCaseMaxLen
-argument_list|,
 name|length
 argument_list|)
 expr_stmt|;
@@ -3221,6 +3203,11 @@ name|void
 name|readUnicodeData
 parameter_list|()
 block|{
+name|qDebug
+argument_list|()
+operator|<<
+literal|"Reading UnicodeData.txt"
+expr_stmt|;
 name|QFile
 name|f
 argument_list|(
@@ -4366,34 +4353,6 @@ name|ok
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-name|decompositionLength
-operator|.
-name|contains
-argument_list|(
-name|data
-operator|.
-name|decomposition
-operator|.
-name|size
-argument_list|()
-argument_list|)
-condition|)
-name|decompositionLength
-index|[
-name|data
-operator|.
-name|decomposition
-operator|.
-name|size
-argument_list|()
-index|]
-operator|=
-literal|1
-expr_stmt|;
-else|else
 operator|++
 name|decompositionLength
 index|[
@@ -4448,6 +4407,11 @@ name|void
 name|readBidiMirroring
 parameter_list|()
 block|{
+name|qDebug
+argument_list|()
+operator|<<
+literal|"Reading BidiMirroring.txt"
+expr_stmt|;
 name|QFile
 name|f
 argument_list|(
@@ -4699,6 +4663,11 @@ name|void
 name|readArabicShaping
 parameter_list|()
 block|{
+name|qDebug
+argument_list|()
+operator|<<
+literal|"Reading ArabicShaping.txt"
+expr_stmt|;
 name|QFile
 name|f
 argument_list|(
@@ -5013,6 +4982,11 @@ name|void
 name|readDerivedAge
 parameter_list|()
 block|{
+name|qDebug
+argument_list|()
+operator|<<
+literal|"Reading DerivedAge.txt"
+expr_stmt|;
 name|QFile
 name|f
 argument_list|(
@@ -5341,6 +5315,11 @@ name|void
 name|readDerivedNormalizationProps
 parameter_list|()
 block|{
+name|qDebug
+argument_list|()
+operator|<<
+literal|"Reading DerivedNormalizationProps.txt"
+expr_stmt|;
 name|QFile
 name|f
 argument_list|(
@@ -5817,6 +5796,11 @@ name|QByteArray
 name|createNormalizationCorrections
 parameter_list|()
 block|{
+name|qDebug
+argument_list|()
+operator|<<
+literal|"Reading NormalizationCorrections.txt"
+expr_stmt|;
 name|QFile
 name|f
 argument_list|(
@@ -7205,7 +7189,6 @@ argument_list|(
 name|upperMap
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 block|}
 name|unicodeData
 operator|.
@@ -7677,25 +7660,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|caseFolded
-operator|!=
-name|codepoint
-operator|+
-name|ud
-operator|.
-name|p
-operator|.
-name|lowerCaseDiff
-condition|)
-name|qDebug
-argument_list|()
-operator|<<
-name|hex
-operator|<<
-name|codepoint
-expr_stmt|;
+comment|//            if (caseFolded != codepoint + ud.p.lowerCaseDiff)
+comment|//                qDebug()<< hex<< codepoint;
 block|}
 else|else
 block|{
@@ -8731,7 +8697,7 @@ directive|if
 literal|0
 end_if
 begin_endif
-unit|static QList<QByteArray> blockNames; struct BlockInfo {     int blockIndex;     int firstCodePoint;     int lastCodePoint; }; static QList<BlockInfo> blockInfoList;  static void readBlocks() {     QFile f("data/Blocks.txt");     if (!f.exists())         qFatal("Couldn't find Blocks.txt");      f.open(QFile::ReadOnly);      while (!f.atEnd()) {         QByteArray line = f.readLine();         line.resize(line.size() - 1);          int comment = line.indexOf("#");         if (comment>= 0)             line = line.left(comment);          line.replace(" ", "");          if (line.isEmpty())             continue;          int semicolon = line.indexOf(';');         Q_ASSERT(semicolon>= 0);         QByteArray codePoints = line.left(semicolon);         QByteArray blockName = line.mid(semicolon + 1);          int blockIndex = blockNames.indexOf(blockName);         if (blockIndex == -1) {             blockIndex = blockNames.size();             blockNames.append(blockName);         }          codePoints.replace("..", ".");         QList<QByteArray> cl = codePoints.split('.');          bool ok;         int first = cl[0].toInt(&ok, 16);         Q_ASSERT(ok);         int last = first;         if (cl.size() == 2) {             last = cl[1].toInt(&ok, 16);             Q_ASSERT(ok);         }          BlockInfo blockInfo = { blockIndex, first, last };         blockInfoList.append(blockInfo);     } }
+unit|static QList<QByteArray> blockNames; struct BlockInfo {     int blockIndex;     int firstCodePoint;     int lastCodePoint; }; static QList<BlockInfo> blockInfoList;  static void readBlocks() {     qDebug()<< "Reading Blocks.txt";     QFile f("data/Blocks.txt");     if (!f.exists())         qFatal("Couldn't find Blocks.txt");      f.open(QFile::ReadOnly);      while (!f.atEnd()) {         QByteArray line = f.readLine();         line.resize(line.size() - 1);          int comment = line.indexOf("#");         if (comment>= 0)             line = line.left(comment);          line.replace(" ", "");          if (line.isEmpty())             continue;          int semicolon = line.indexOf(';');         Q_ASSERT(semicolon>= 0);         QByteArray codePoints = line.left(semicolon);         QByteArray blockName = line.mid(semicolon + 1);          int blockIndex = blockNames.indexOf(blockName);         if (blockIndex == -1) {             blockIndex = blockNames.size();             blockNames.append(blockName);         }          codePoints.replace("..", ".");         QList<QByteArray> cl = codePoints.split('.');          bool ok;         int first = cl[0].toInt(&ok, 16);         Q_ASSERT(ok);         int last = first;         if (cl.size() == 2) {             last = cl[1].toInt(&ok, 16);             Q_ASSERT(ok);         }          BlockInfo blockInfo = { blockIndex, first, last };         blockInfoList.append(blockInfo);     } }
 endif|#
 directive|endif
 end_endif
@@ -9548,7 +9514,7 @@ expr_stmt|;
 comment|// script table
 name|declaration
 operator|+=
-literal|"namespace QUnicodeTables {\n\nstatic const unsigned char uc_scripts[] = {\n"
+literal|"static const unsigned char uc_scripts[] = {\n"
 expr_stmt|;
 for|for
 control|(
@@ -10180,11 +10146,11 @@ expr_stmt|;
 block|}
 name|declaration
 operator|+=
-literal|"\n};\n\n} // namespace QUnicodeTables\n\n"
+literal|"\n};\n\n"
 expr_stmt|;
 name|declaration
 operator|+=
-literal|"Q_CORE_EXPORT int QT_FASTCALL QUnicodeTables::script(uint ucs4)\n"
+literal|"Q_CORE_EXPORT int QT_FASTCALL script(uint ucs4)\n"
 literal|"{\n"
 literal|"    if (ucs4> 0xffff)\n"
 literal|"        return Common;\n"
@@ -10198,7 +10164,12 @@ literal|"}\n\n"
 expr_stmt|;
 name|qDebug
 argument_list|(
-literal|"createScriptTableDeclaration: table size is %d bytes"
+literal|"createScriptTableDeclaration:"
+argument_list|)
+expr_stmt|;
+name|qDebug
+argument_list|(
+literal|"    memory usage: %d bytes"
 argument_list|,
 name|unicodeBlockCount
 operator|+
@@ -10285,6 +10256,62 @@ block|{
 name|qDebug
 argument_list|(
 literal|"createPropertyInfo:"
+argument_list|)
+expr_stmt|;
+comment|// we reserve one bit more than in the assert below for the sign
+name|Q_ASSERT
+argument_list|(
+name|maxMirroredDiff
+operator|<
+operator|(
+literal|1
+operator|<<
+literal|12
+operator|)
+argument_list|)
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|maxLowerCaseDiff
+operator|<
+operator|(
+literal|1
+operator|<<
+literal|14
+operator|)
+argument_list|)
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|maxUpperCaseDiff
+operator|<
+operator|(
+literal|1
+operator|<<
+literal|14
+operator|)
+argument_list|)
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|maxTitleCaseDiff
+operator|<
+operator|(
+literal|1
+operator|<<
+literal|14
+operator|)
+argument_list|)
+expr_stmt|;
+name|Q_ASSERT
+argument_list|(
+name|maxCaseFoldDiff
+operator|<
+operator|(
+literal|1
+operator|<<
+literal|14
+operator|)
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -10911,7 +10938,6 @@ argument_list|)
 operator|+
 literal|"\n"
 expr_stmt|;
-empty_stmt|;
 for|for
 control|(
 name|int
@@ -11148,62 +11174,6 @@ literal|", "
 expr_stmt|;
 block|}
 block|}
-comment|// we reserve one bit more than in the assert below for the sign
-name|Q_ASSERT
-argument_list|(
-name|maxMirroredDiff
-operator|<
-operator|(
-literal|1
-operator|<<
-literal|12
-operator|)
-argument_list|)
-expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|maxLowerCaseDiff
-operator|<
-operator|(
-literal|1
-operator|<<
-literal|14
-operator|)
-argument_list|)
-expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|maxUpperCaseDiff
-operator|<
-operator|(
-literal|1
-operator|<<
-literal|14
-operator|)
-argument_list|)
-expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|maxTitleCaseDiff
-operator|<
-operator|(
-literal|1
-operator|<<
-literal|14
-operator|)
-argument_list|)
-expr_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|maxCaseFoldDiff
-operator|<
-operator|(
-literal|1
-operator|<<
-literal|14
-operator|)
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|out
@@ -11308,7 +11278,7 @@ argument_list|)
 operator|+
 literal|")]))\n\n"
 literal|"#define GET_PROP_INDEX_UCS2(ucs2) \\\n"
-literal|"(uc_property_trie[uc_property_trie[ucs2>>"
+literal|"       (uc_property_trie[uc_property_trie[ucs2>>"
 operator|+
 name|QByteArray
 operator|::
@@ -11331,7 +11301,7 @@ literal|16
 argument_list|)
 operator|+
 literal|")])\n\n"
-literal|"static const QUnicodeTables::Properties uc_properties[] = {\n"
+literal|"static const Properties uc_properties[] = {"
 expr_stmt|;
 comment|// keep in sync with the property declaration
 for|for
@@ -11364,7 +11334,7 @@ argument_list|)
 decl_stmt|;
 name|out
 operator|+=
-literal|"    { "
+literal|"\n    { "
 expr_stmt|;
 comment|//     "        ushort category : 8;\n"
 name|out
@@ -11665,52 +11635,74 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|+=
-literal|" },\n"
+literal|" },"
 expr_stmt|;
 block|}
 name|out
-operator|+=
-literal|"};\n\n"
+operator|.
+name|chop
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|out
 operator|+=
-literal|"static inline const QUnicodeTables::Properties *qGetProp(uint ucs4)\n"
+literal|"\n};\n\n"
+expr_stmt|;
+name|out
+operator|+=
+literal|"static inline const Properties *qGetProp(uint ucs4)\n"
 literal|"{\n"
-literal|"    int index = GET_PROP_INDEX(ucs4);\n"
+literal|"    const int index = GET_PROP_INDEX(ucs4);\n"
 literal|"    return uc_properties + index;\n"
 literal|"}\n"
 literal|"\n"
-literal|"static inline const QUnicodeTables::Properties *qGetProp(ushort ucs2)\n"
+literal|"static inline const Properties *qGetProp(ushort ucs2)\n"
 literal|"{\n"
-literal|"    int index = GET_PROP_INDEX_UCS2(ucs2);\n"
+literal|"    const int index = GET_PROP_INDEX_UCS2(ucs2);\n"
 literal|"    return uc_properties + index;\n"
 literal|"}\n"
 literal|"\n"
-literal|"Q_CORE_EXPORT const QUnicodeTables::Properties * QT_FASTCALL QUnicodeTables::properties(uint ucs4)\n"
+literal|"Q_CORE_EXPORT const Properties * QT_FASTCALL properties(uint ucs4)\n"
 literal|"{\n"
-literal|"    int index = GET_PROP_INDEX(ucs4);\n"
-literal|"    return uc_properties + index;\n"
+literal|"    return qGetProp(ucs4);\n"
 literal|"}\n"
 literal|"\n"
-literal|"Q_CORE_EXPORT const QUnicodeTables::Properties * QT_FASTCALL QUnicodeTables::properties(ushort ucs2)\n"
+literal|"Q_CORE_EXPORT const Properties * QT_FASTCALL properties(ushort ucs2)\n"
 literal|"{\n"
-literal|"    int index = GET_PROP_INDEX_UCS2(ucs2);\n"
-literal|"    return uc_properties + index;\n"
+literal|"    return qGetProp(ucs2);\n"
 literal|"}\n\n"
 expr_stmt|;
 name|out
 operator|+=
-literal|"Q_CORE_EXPORT QUnicodeTables::LineBreakClass QT_FASTCALL QUnicodeTables::lineBreakClass(uint ucs4)\n"
+literal|"Q_CORE_EXPORT LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4)\n"
 literal|"{\n"
-literal|"    return (QUnicodeTables::LineBreakClass)qGetProp(ucs4)->line_break_class;\n"
+literal|"    return (LineBreakClass)qGetProp(ucs4)->line_break_class;\n"
 literal|"}\n\n"
 expr_stmt|;
+return|return
+name|out
+return|;
+block|}
+end_function
+begin_function
+DECL|function|createSpecialCaseMap
+specifier|static
+name|QByteArray
+name|createSpecialCaseMap
+parameter_list|()
+block|{
+name|qDebug
+argument_list|(
+literal|"createSpecialCaseMap:"
+argument_list|)
+expr_stmt|;
+name|QByteArray
+name|out
+decl_stmt|;
 name|out
 operator|+=
 literal|"static const ushort specialCaseMap[] = {\n"
-expr_stmt|;
-name|out
-operator|+=
 literal|"    0x0, // placeholder"
 expr_stmt|;
 name|int
@@ -11742,13 +11734,11 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|int
-name|j
-decl_stmt|;
 for|for
 control|(
+name|int
 name|j
-operator|=
+init|=
 literal|0
 init|;
 name|j
@@ -11782,19 +11772,6 @@ argument_list|,
 literal|16
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|i
-operator|+
-name|j
-operator|<
-name|specialCaseMap
-operator|.
-name|size
-argument_list|()
-operator|-
-literal|1
-condition|)
 name|out
 operator|+=
 literal|","
@@ -11808,21 +11785,15 @@ literal|1
 expr_stmt|;
 block|}
 name|out
-operator|+=
-literal|"\n};\n"
+operator|.
+name|chop
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 name|out
 operator|+=
-literal|"#define SPECIAL_CASE_MAX_LEN "
-operator|+
-name|QByteArray
-operator|::
-name|number
-argument_list|(
-name|specialCaseMaxLen
-argument_list|)
-operator|+
-literal|"\n\n"
+literal|"\n};\n\n"
 expr_stmt|;
 name|qDebug
 argument_list|(
@@ -11898,7 +11869,9 @@ parameter_list|()
 block|{
 name|qDebug
 argument_list|(
-literal|"createCompositionInfo:"
+literal|"createCompositionInfo: highestComposedCharacter=0x%x"
+argument_list|,
+name|highestComposedCharacter
 argument_list|)
 expr_stmt|;
 specifier|const
@@ -11946,7 +11919,7 @@ name|highestComposedCharacter
 condition|)
 name|qFatal
 argument_list|(
-literal|"end of table smaller than highest composed character at %x"
+literal|"end of table smaller than highest composed character 0x%x"
 argument_list|,
 name|highestComposedCharacter
 argument_list|)
@@ -12051,62 +12024,15 @@ argument_list|()
 condition|)
 block|{
 name|int
-name|utf16Chars
+name|utf16Length
 init|=
 literal|0
 decl_stmt|;
-for|for
-control|(
-name|int
-name|j
-init|=
-literal|0
-init|;
-name|j
-operator|<
-name|d
-operator|.
-name|decomposition
-operator|.
-name|size
-argument_list|()
-condition|;
-operator|++
-name|j
-control|)
-name|utf16Chars
-operator|+=
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|d
-operator|.
-name|decomposition
-operator|.
-name|at
-argument_list|(
-name|j
-argument_list|)
-argument_list|)
-condition|?
-literal|2
-else|:
-literal|1
-expr_stmt|;
 name|decompositions
 operator|.
 name|append
 argument_list|(
-name|d
-operator|.
-name|decompositionType
-operator|+
-operator|(
-name|utf16Chars
-operator|<<
-literal|8
-operator|)
+literal|0
 argument_list|)
 expr_stmt|;
 for|for
@@ -12152,39 +12078,33 @@ argument_list|)
 condition|)
 block|{
 comment|// save as surrogate pair
-name|ushort
-name|high
-init|=
+name|decompositions
+operator|.
+name|append
+argument_list|(
 name|QChar
 operator|::
 name|highSurrogate
 argument_list|(
 name|code
 argument_list|)
-decl_stmt|;
-name|ushort
-name|low
-init|=
-name|QChar
-operator|::
-name|lowSurrogate
-argument_list|(
-name|code
-argument_list|)
-decl_stmt|;
-name|decompositions
-operator|.
-name|append
-argument_list|(
-name|high
 argument_list|)
 expr_stmt|;
 name|decompositions
 operator|.
 name|append
 argument_list|(
-name|low
+name|QChar
+operator|::
+name|lowSurrogate
+argument_list|(
+name|code
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|utf16Length
+operator|+=
+literal|2
 expr_stmt|;
 block|}
 else|else
@@ -12196,8 +12116,26 @@ argument_list|(
 name|code
 argument_list|)
 expr_stmt|;
+name|utf16Length
+operator|++
+expr_stmt|;
 block|}
 block|}
+name|decompositions
+index|[
+name|tableIndex
+index|]
+operator|=
+name|d
+operator|.
+name|decompositionType
+operator|+
+operator|(
+name|utf16Length
+operator|<<
+literal|8
+operator|)
+expr_stmt|;
 name|b
 operator|.
 name|decompositionPositions
@@ -12209,7 +12147,7 @@ argument_list|)
 expr_stmt|;
 name|tableIndex
 operator|+=
-name|utf16Chars
+name|utf16Length
 operator|+
 literal|1
 expr_stmt|;
@@ -12378,62 +12316,15 @@ argument_list|()
 condition|)
 block|{
 name|int
-name|utf16Chars
+name|utf16Length
 init|=
 literal|0
 decl_stmt|;
-for|for
-control|(
-name|int
-name|j
-init|=
-literal|0
-init|;
-name|j
-operator|<
-name|d
-operator|.
-name|decomposition
-operator|.
-name|size
-argument_list|()
-condition|;
-operator|++
-name|j
-control|)
-name|utf16Chars
-operator|+=
-name|QChar
-operator|::
-name|requiresSurrogates
-argument_list|(
-name|d
-operator|.
-name|decomposition
-operator|.
-name|at
-argument_list|(
-name|j
-argument_list|)
-argument_list|)
-condition|?
-literal|2
-else|:
-literal|1
-expr_stmt|;
 name|decompositions
 operator|.
 name|append
 argument_list|(
-name|d
-operator|.
-name|decompositionType
-operator|+
-operator|(
-name|utf16Chars
-operator|<<
-literal|8
-operator|)
+literal|0
 argument_list|)
 expr_stmt|;
 for|for
@@ -12479,39 +12370,33 @@ argument_list|)
 condition|)
 block|{
 comment|// save as surrogate pair
-name|ushort
-name|high
-init|=
+name|decompositions
+operator|.
+name|append
+argument_list|(
 name|QChar
 operator|::
 name|highSurrogate
 argument_list|(
 name|code
 argument_list|)
-decl_stmt|;
-name|ushort
-name|low
-init|=
-name|QChar
-operator|::
-name|lowSurrogate
-argument_list|(
-name|code
-argument_list|)
-decl_stmt|;
-name|decompositions
-operator|.
-name|append
-argument_list|(
-name|high
 argument_list|)
 expr_stmt|;
 name|decompositions
 operator|.
 name|append
 argument_list|(
-name|low
+name|QChar
+operator|::
+name|lowSurrogate
+argument_list|(
+name|code
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|utf16Length
+operator|+=
+literal|2
 expr_stmt|;
 block|}
 else|else
@@ -12523,8 +12408,26 @@ argument_list|(
 name|code
 argument_list|)
 expr_stmt|;
+name|utf16Length
+operator|++
+expr_stmt|;
 block|}
 block|}
+name|decompositions
+index|[
+name|tableIndex
+index|]
+operator|=
+name|d
+operator|.
+name|decompositionType
+operator|+
+operator|(
+name|utf16Length
+operator|<<
+literal|8
+operator|)
+expr_stmt|;
 name|b
 operator|.
 name|decompositionPositions
@@ -12536,7 +12439,7 @@ argument_list|)
 expr_stmt|;
 name|tableIndex
 operator|+=
-name|utf16Chars
+name|utf16Length
 operator|+
 literal|1
 expr_stmt|;
@@ -12612,6 +12515,14 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
+comment|// if the condition below doesn't hold anymore we need to modify our decomposition code
+name|Q_ASSERT
+argument_list|(
+name|tableIndex
+operator|<
+literal|0xffff
+argument_list|)
+expr_stmt|;
 name|int
 name|bmp_block_data
 init|=
@@ -12732,7 +12643,7 @@ argument_list|)
 expr_stmt|;
 name|qDebug
 argument_list|(
-literal|"\n        decomposition table use : %d bytes"
+literal|"\n        decomposition table uses : %d bytes"
 argument_list|,
 name|decompositions
 operator|.
@@ -12910,7 +12821,6 @@ argument_list|)
 operator|+
 literal|"\n"
 expr_stmt|;
-empty_stmt|;
 for|for
 control|(
 name|int
@@ -13164,7 +13074,7 @@ name|out
 operator|.
 name|chop
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|out
@@ -13267,7 +13177,7 @@ argument_list|)
 operator|+
 literal|")]\\\n"
 literal|"           : 0xffff))\n\n"
-literal|"static const unsigned short uc_decomposition_map[] = {\n"
+literal|"static const unsigned short uc_decomposition_map[] = {"
 expr_stmt|;
 for|for
 control|(
@@ -13354,7 +13264,7 @@ name|out
 operator|.
 name|chop
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|out
@@ -13375,9 +13285,11 @@ parameter_list|()
 block|{
 name|qDebug
 argument_list|(
-literal|"createLigatureInfo: numLigatures=%d"
+literal|"createLigatureInfo: numLigatures=%d, highestLigature=0x%x"
 argument_list|,
 name|numLigatures
+argument_list|,
+name|highestLigature
 argument_list|)
 expr_stmt|;
 name|QList
@@ -13417,11 +13329,17 @@ name|BMP_END
 init|=
 literal|0x3100
 decl_stmt|;
-name|Q_ASSERT
-argument_list|(
-name|highestLigature
-operator|<
+if|if
+condition|(
 name|BMP_END
+operator|<=
+name|highestLigature
+condition|)
+name|qFatal
+argument_list|(
+literal|"end of table smaller than highest ligature character 0x%x"
+argument_list|,
+name|highestLigature
 argument_list|)
 expr_stmt|;
 name|int
@@ -13500,11 +13418,23 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|Q_ASSERT
+argument_list|(
+operator|!
+name|QChar
+operator|::
+name|requiresSurrogates
+argument_list|(
+name|uc
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|qSort
 argument_list|(
 name|l
 argument_list|)
 expr_stmt|;
+comment|// needed for bsearch in ligatureHelper code
 name|ligatures
 operator|.
 name|append
@@ -13533,20 +13463,6 @@ operator|++
 name|j
 control|)
 block|{
-name|Q_ASSERT
-argument_list|(
-name|l
-operator|.
-name|at
-argument_list|(
-name|j
-argument_list|)
-operator|.
-name|u2
-operator|==
-name|uc
-argument_list|)
-expr_stmt|;
 name|ligatures
 operator|.
 name|append
@@ -13688,6 +13604,14 @@ operator|/
 name|BMP_BLOCKSIZE
 argument_list|)
 expr_stmt|;
+comment|// if the condition below doesn't hold anymore we need to modify our composition code
+name|Q_ASSERT
+argument_list|(
+name|tableIndex
+operator|<
+literal|0xffff
+argument_list|)
+expr_stmt|;
 name|int
 name|bmp_block_data
 init|=
@@ -13735,6 +13659,13 @@ argument_list|(
 literal|"        trie data uses : %d bytes"
 argument_list|,
 name|bmp_trie
+argument_list|)
+expr_stmt|;
+name|qDebug
+argument_list|(
+literal|"        memory usage: %d bytes"
+argument_list|,
+name|bmp_mem
 argument_list|)
 expr_stmt|;
 name|qDebug
@@ -14034,14 +13965,14 @@ name|out
 operator|.
 name|chop
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|out
 operator|+=
 literal|"\n};\n\n"
-literal|"#define GET_LIGATURE_INDEX(u2) "
-literal|"(u2< 0x"
+literal|"#define GET_LIGATURE_INDEX(u2) \\\n"
+literal|"       (u2< 0x"
 operator|+
 name|QByteArray
 operator|::
@@ -14076,7 +14007,7 @@ literal|16
 argument_list|)
 operator|+
 literal|")] : 0xffff);\n\n"
-literal|"static const unsigned short uc_ligature_map[] = {\n"
+literal|"static const unsigned short uc_ligature_map[] = {"
 expr_stmt|;
 for|for
 control|(
@@ -14163,7 +14094,7 @@ name|out
 operator|.
 name|chop
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|out
@@ -14280,6 +14211,12 @@ name|QByteArray
 name|properties
 init|=
 name|createPropertyInfo
+argument_list|()
+decl_stmt|;
+name|QByteArray
+name|specialCases
+init|=
+name|createSpecialCaseMap
 argument_list|()
 decl_stmt|;
 name|QByteArray
@@ -14414,6 +14351,13 @@ name|f
 operator|.
 name|write
 argument_list|(
+literal|"#include \"qunicodetables_p.h\"\n\n"
+argument_list|)
+expr_stmt|;
+name|f
+operator|.
+name|write
+argument_list|(
 literal|"QT_BEGIN_NAMESPACE\n\n"
 argument_list|)
 expr_stmt|;
@@ -14421,7 +14365,35 @@ name|f
 operator|.
 name|write
 argument_list|(
+literal|"namespace QUnicodeTables {\n\n"
+argument_list|)
+expr_stmt|;
+name|f
+operator|.
+name|write
+argument_list|(
 name|properties
+argument_list|)
+expr_stmt|;
+name|f
+operator|.
+name|write
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|f
+operator|.
+name|write
+argument_list|(
+name|specialCases
+argument_list|)
+expr_stmt|;
+name|f
+operator|.
+name|write
+argument_list|(
+literal|"\n"
 argument_list|)
 expr_stmt|;
 name|f
@@ -14442,6 +14414,13 @@ name|f
 operator|.
 name|write
 argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|f
+operator|.
+name|write
+argument_list|(
 name|normalizationCorrections
 argument_list|)
 expr_stmt|;
@@ -14449,7 +14428,28 @@ name|f
 operator|.
 name|write
 argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|f
+operator|.
+name|write
+argument_list|(
 name|scriptTableDeclaration
+argument_list|)
+expr_stmt|;
+name|f
+operator|.
+name|write
+argument_list|(
+literal|"} // namespace QUnicodeTables\n\n"
+argument_list|)
+expr_stmt|;
+name|f
+operator|.
+name|write
+argument_list|(
+literal|"using namespace QUnicodeTables;\n\n"
 argument_list|)
 expr_stmt|;
 name|f
@@ -14614,7 +14614,7 @@ name|f
 operator|.
 name|write
 argument_list|(
-name|lineBreakClass
+name|line_break_class_string
 argument_list|)
 expr_stmt|;
 name|f

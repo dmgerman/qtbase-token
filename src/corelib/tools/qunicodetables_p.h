@@ -565,15 +565,14 @@ name|LineBreak_BK
 block|}
 enum|;
 name|Q_CORE_EXPORT
-name|QUnicodeTables
-operator|::
 name|LineBreakClass
 name|QT_FASTCALL
 name|lineBreakClass
-argument_list|(
-argument|uint ucs4
-argument_list|)
-expr_stmt|;
+parameter_list|(
+name|uint
+name|ucs4
+parameter_list|)
+function_decl|;
 specifier|inline
 name|int
 name|lineBreakClass
