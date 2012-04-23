@@ -4435,6 +4435,9 @@ argument_list|(
 name|IPV6_V6ONLY
 argument_list|)
 comment|// determine if local address is dual mode
+comment|// On linux, these are returned as "::" (==AnyIPv6)
+comment|// On OSX, these are returned as "::FFFF:0.0.0.0" (==AnyIPv4)
+comment|// in either case, the IPV6_V6ONLY option is cleared
 name|int
 name|ipv6only
 init|=
@@ -4450,11 +4453,25 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|socketProtocol
+operator|==
+name|QAbstractSocket
+operator|::
+name|IPv6Protocol
+operator|&&
+operator|(
+name|localAddress
+operator|==
+name|QHostAddress
+operator|::
+name|AnyIPv4
+operator|||
 name|localAddress
 operator|==
 name|QHostAddress
 operator|::
 name|AnyIPv6
+operator|)
 operator|&&
 operator|!
 name|getsockopt
