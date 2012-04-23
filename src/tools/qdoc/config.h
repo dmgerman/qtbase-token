@@ -459,6 +459,10 @@ name|generateExamples
 decl_stmt|;
 specifier|static
 name|QString
+name|installDir
+decl_stmt|;
+specifier|static
+name|QString
 name|overrideOutputDir
 decl_stmt|;
 specifier|static

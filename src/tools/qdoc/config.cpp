@@ -487,6 +487,14 @@ name|overrideOutputDir
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
+DECL|member|installDir
+name|QString
+name|Config
+operator|::
+name|installDir
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|member|overrideOutputFormats
 name|QSet
 argument_list|<

@@ -274,10 +274,12 @@ literal|"    -help          "
 literal|"Display this information and exit\n"
 literal|"    -highlighting  "
 literal|"Turn on syntax highlighting (makes qdoc run slower)\n"
-literal|"    -no-examples   "
-literal|"Do not generate documentation for examples\n"
 literal|"    -indexdir      "
 literal|"Specify a directory where QDoc should search for indices to link to\n"
+literal|"    -installdir    "
+literal|"Specify the directory where the output will be after running \"make install\"\n"
+literal|"    -no-examples   "
+literal|"Do not generate documentation for examples\n"
 literal|"    -obsoletelinks "
 literal|"Report links from obsolete items to non-obsolete items\n"
 literal|"    -outputdir     "
@@ -1822,6 +1824,27 @@ return|return
 name|EXIT_FAILURE
 return|;
 block|}
+name|i
+operator|++
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|opt
+operator|==
+literal|"-installdir"
+condition|)
+block|{
+name|Config
+operator|::
+name|installDir
+operator|=
+name|argv
+index|[
+name|i
+index|]
+expr_stmt|;
 name|i
 operator|++
 expr_stmt|;
