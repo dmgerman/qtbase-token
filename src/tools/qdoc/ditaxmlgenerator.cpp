@@ -23218,11 +23218,7 @@ argument_list|(
 name|DT_apiName
 argument_list|)
 expr_stmt|;
-name|writeCharacters
-argument_list|(
-literal|"..."
-argument_list|)
-expr_stmt|;
+comment|//writeCharacters("...");
 name|writeEndTag
 argument_list|()
 expr_stmt|;
@@ -23461,11 +23457,7 @@ argument_list|(
 name|DT_apiName
 argument_list|)
 expr_stmt|;
-name|writeCharacters
-argument_list|(
-literal|"..."
-argument_list|)
-expr_stmt|;
+comment|//writeCharacters("...");
 name|writeEndTag
 argument_list|()
 expr_stmt|;
