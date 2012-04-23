@@ -234,6 +234,8 @@ name|QStringList
 operator|>
 name|vars
 operator|,
+name|init_vars
+operator|,
 name|base_vars
 operator|,
 name|extra_vars
@@ -382,6 +384,10 @@ parameter_list|)
 function_decl|;
 name|void
 name|cleanup
+parameter_list|()
+function_decl|;
+name|void
+name|loadDefaults
 parameter_list|()
 function_decl|;
 name|QStringList
