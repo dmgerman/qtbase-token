@@ -8900,7 +8900,11 @@ name|QString
 name|ourPath
 init|=
 name|path
-argument_list|()
+argument_list|(
+name|QUrl
+operator|::
+name|MostDecoded
+argument_list|)
 decl_stmt|;
 comment|// magic for shared drive on windows
 if|if
@@ -8921,9 +8925,8 @@ argument_list|(
 literal|"//"
 argument_list|)
 operator|+
-name|d
-operator|->
 name|host
+argument_list|()
 operator|+
 operator|(
 name|ourPath

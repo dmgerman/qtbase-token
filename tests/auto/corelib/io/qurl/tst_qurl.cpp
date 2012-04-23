@@ -7345,6 +7345,27 @@ argument_list|(
 literal|"/a.txt"
 argument_list|)
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"data11"
+argument_list|)
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"file:///Mambo<%235>.mp3"
+argument_list|)
+operator|<<
+name|QString
+operator|::
+name|fromLatin1
+argument_list|(
+literal|"/Mambo<#5>.mp3"
+argument_list|)
+expr_stmt|;
 comment|// and some that result in empty (i.e., not local)
 name|QTest
 operator|::
