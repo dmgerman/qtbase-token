@@ -8979,7 +8979,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as an int if the variant has type() \l Int,     \l Bool, \l ByteArray, \l Char, \l Double, \l LongLong, \l     String, \l UInt, or \l ULongLong; otherwise returns 0.      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to an int; otherwise \c{*}\a{ok} is set to false.      \b{Warning:} If the value is convertible to a \l LongLong but is too     large to be represented in an int, the resulting arithmetic overflow will     not be reflected in \a ok. A simple workaround is to use QString::toInt().     Fixing this bug has been postponed to Qt 5 in order to avoid breaking existing code.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as an int if the variant has type() \l Int,     \l Bool, \l ByteArray, \l Char, \l Double, \l LongLong, \l     String, \l UInt, or \l ULongLong; otherwise returns 0.      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to an int; otherwise \c{*}\a{ok} is set to false.      \b{Warning:} If the value is convertible to a \l LongLong but is too     large to be represented in an int, the resulting arithmetic overflow will     not be reflected in \a ok. A simple workaround is to use QString::toInt().      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toInt
@@ -9016,7 +9016,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the variant as an unsigned int if the variant has type()     \l UInt,  \l Bool, \l ByteArray, \l Char, \l Double, \l Int, \l     LongLong, \l String, or \l ULongLong; otherwise returns 0.      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to an unsigned int; otherwise \c{*}\a{ok} is set to false.      \b{Warning:} If the value is convertible to a \l ULongLong but is too     large to be represented in an unsigned int, the resulting arithmetic overflow will     not be reflected in \a ok. A simple workaround is to use QString::toUInt().     Fixing this bug has been postponed to Qt 5 in order to avoid breaking existing code.      \sa canConvert(), convert() */
+comment|/*!     Returns the variant as an unsigned int if the variant has type()     \l UInt,  \l Bool, \l ByteArray, \l Char, \l Double, \l Int, \l     LongLong, \l String, or \l ULongLong; otherwise returns 0.      If \a ok is non-null: \c{*}\a{ok} is set to true if the value could be     converted to an unsigned int; otherwise \c{*}\a{ok} is set to false.      \b{Warning:} If the value is convertible to a \l ULongLong but is too     large to be represented in an unsigned int, the resulting arithmetic overflow will     not be reflected in \a ok. A simple workaround is to use QString::toUInt().      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toUInt
