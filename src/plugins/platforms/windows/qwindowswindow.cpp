@@ -1587,7 +1587,6 @@ operator||=
 name|WS_THICKFRAME
 expr_stmt|;
 block|}
-block|}
 if|if
 condition|(
 name|flags
@@ -1600,6 +1599,8 @@ name|style
 operator||=
 name|WS_CAPTION
 expr_stmt|;
+comment|// Contains WS_DLGFRAME
+block|}
 if|if
 condition|(
 name|flags
