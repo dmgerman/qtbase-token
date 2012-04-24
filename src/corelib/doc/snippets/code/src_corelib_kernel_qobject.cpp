@@ -1821,6 +1821,40 @@ name|setText
 argument_list|)
 expr_stmt|;
 comment|//! [48]
+comment|//! [49]
+if|if
+condition|(
+name|isSignalConnected
+argument_list|(
+name|QMethaMethod
+operator|::
+name|fromSignal
+argument_list|(
+operator|&
+name|MyObject
+operator|::
+name|valueChanged
+argument_list|)
+argument_list|)
+condition|)
+block|{
+name|QByteArray
+name|data
+decl_stmt|;
+name|data
+operator|=
+name|get_the_value
+argument_list|()
+expr_stmt|;
+comment|// expensive operation
+emit|emit
+name|valueChanged
+argument_list|(
+name|data
+argument_list|)
+emit|;
+block|}
+comment|//! [49]
 comment|//! [meta data]
 comment|//: This is a comment for the translator.
 comment|//= qtn_foo_bar
