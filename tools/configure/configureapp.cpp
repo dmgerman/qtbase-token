@@ -212,6 +212,10 @@ argument_list|(
 name|QFile
 operator|::
 name|WriteOnly
+operator||
+name|QFile
+operator|::
+name|Text
 argument_list|)
 condition|)
 block|{
@@ -566,6 +570,7 @@ operator|+
 literal|"/bin/syncqt"
 argument_list|)
 decl_stmt|;
+comment|// no QFile::Text, just in case the perl interpreter can't cope with them (unlikely)
 if|if
 condition|(
 name|syncqt
@@ -617,6 +622,10 @@ argument_list|(
 name|QFile
 operator|::
 name|WriteOnly
+operator||
+name|QFile
+operator|::
+name|Text
 argument_list|)
 condition|)
 block|{
@@ -669,6 +678,7 @@ operator|+
 literal|"/bin/qtmodule-configtests"
 argument_list|)
 decl_stmt|;
+comment|// no QFile::Text, just in case the perl interpreter can't cope with them (unlikely)
 if|if
 condition|(
 name|configtests
@@ -22292,6 +22302,10 @@ argument_list|(
 name|QFile
 operator|::
 name|WriteOnly
+operator||
+name|QFile
+operator|::
+name|Text
 argument_list|)
 condition|)
 block|{
