@@ -2522,9 +2522,12 @@ name|load
 argument_list|()
 condition|)
 block|{
+specifier|const
 name|int
 name|len
 init|=
+name|int
+argument_list|(
 name|strlen
 argument_list|(
 name|T
@@ -2533,6 +2536,7 @@ name|staticMetaObject
 operator|.
 name|className
 argument_list|()
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|QVarLengthArray
