@@ -64,9 +64,8 @@ name|virtual
 name|void
 name|notifyAccessibilityUpdate
 argument_list|(
-specifier|const
 name|QAccessibleEvent
-operator|&
+operator|*
 name|event
 argument_list|)
 block|;

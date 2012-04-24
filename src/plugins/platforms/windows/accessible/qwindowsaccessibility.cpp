@@ -258,9 +258,8 @@ name|QWindowsAccessibility
 operator|::
 name|notifyAccessibilityUpdate
 parameter_list|(
-specifier|const
 name|QAccessibleEvent
-modifier|&
+modifier|*
 name|event
 parameter_list|)
 block|{
@@ -270,7 +269,7 @@ decl_stmt|;
 switch|switch
 condition|(
 name|event
-operator|.
+operator|->
 name|type
 argument_list|()
 condition|)
@@ -490,7 +489,7 @@ modifier|*
 name|iface
 init|=
 name|event
-operator|.
+operator|->
 name|accessibleInterface
 argument_list|()
 decl_stmt|;
@@ -565,7 +564,7 @@ decl_stmt|;
 if|if
 condition|(
 name|event
-operator|.
+operator|->
 name|type
 argument_list|()
 operator|!=
@@ -601,12 +600,12 @@ argument_list|,
 name|qMakePair
 argument_list|(
 name|event
-operator|.
+operator|->
 name|object
 argument_list|()
 argument_list|,
 name|event
-operator|.
+operator|->
 name|child
 argument_list|()
 argument_list|)
@@ -615,7 +614,7 @@ expr_stmt|;
 name|ptrNotifyWinEvent
 argument_list|(
 name|event
-operator|.
+operator|->
 name|type
 argument_list|()
 argument_list|,
