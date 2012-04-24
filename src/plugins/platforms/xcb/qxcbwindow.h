@@ -207,7 +207,7 @@ if|#
 directive|if
 name|XCB_USE_MAEMO_WINDOW_PROPERTIES
 name|void
-name|setOrientation
+name|handleContentOrientationChange
 argument_list|(
 name|Qt
 operator|::

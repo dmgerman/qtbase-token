@@ -6304,11 +6304,11 @@ directive|if
 name|XCB_USE_MAEMO_WINDOW_PROPERTIES
 end_if
 begin_function
-DECL|function|setOrientation
+DECL|function|handleContentOrientationChange
 name|void
 name|QXcbWindow
 operator|::
-name|setOrientation
+name|handleContentOrientationChange
 parameter_list|(
 name|Qt
 operator|::
