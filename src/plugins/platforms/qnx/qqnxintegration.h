@@ -307,6 +307,27 @@ name|services
 argument_list|()
 specifier|const
 block|;
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_BLACKBERRY
+argument_list|)
+name|QStringList
+name|themeNames
+argument_list|()
+specifier|const
+block|;
+name|QPlatformTheme
+operator|*
+name|createPlatformTheme
+argument_list|(
+argument|const QString&name
+argument_list|)
+specifier|const
+block|;
+endif|#
+directive|endif
 specifier|static
 name|QWindow
 operator|*
