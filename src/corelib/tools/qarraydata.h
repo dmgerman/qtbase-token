@@ -818,6 +818,23 @@ block|; }
 expr_stmt|;
 end_expr_stmt
 begin_define
+DECL|macro|Q_STATIC_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET
+define|#
+directive|define
+name|Q_STATIC_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET
+parameter_list|(
+name|size
+parameter_list|,
+name|offset
+parameter_list|)
+define|\
+value|{ Q_REFCOUNT_INITIALIZE_STATIC, size, 0, 0, offset }
+end_define
+begin_comment
+unit|\
+comment|/**/
+end_comment
+begin_define
 DECL|macro|Q_STATIC_ARRAY_DATA_HEADER_INITIALIZER
 define|#
 directive|define
@@ -827,7 +844,8 @@ name|type
 parameter_list|,
 name|size
 parameter_list|)
-value|{ \     Q_REFCOUNT_INITIALIZE_STATIC, size, 0, 0, \     (sizeof(QArrayData) + (Q_ALIGNOF(type) - 1)) \& ~(Q_ALIGNOF(type) - 1) }
+define|\
+value|Q_STATIC_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(size,\         (sizeof(QArrayData) + (Q_ALIGNOF(type) - 1)& ~(Q_ALIGNOF(type) - 1) ))
 end_define
 begin_comment
 unit|\

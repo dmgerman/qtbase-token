@@ -579,10 +579,9 @@ parameter_list|,
 name|offset
 parameter_list|)
 define|\
-value|{ Q_REFCOUNT_INITIALIZE_STATIC, size, 0, 0, offset }
+value|Q_STATIC_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(size, offset)
 end_define
 begin_comment
-unit|\
 comment|/**/
 end_comment
 begin_define
