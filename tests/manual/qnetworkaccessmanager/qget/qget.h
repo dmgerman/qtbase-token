@@ -240,9 +240,9 @@ name|void
 name|get
 argument_list|(
 specifier|const
-name|QUrl
+name|QNetworkRequest
 operator|&
-name|url
+name|request
 argument_list|,
 specifier|const
 name|QString
@@ -258,15 +258,13 @@ block|;
 name|void
 name|upload
 argument_list|(
-argument|const QUrl&url
+argument|const QNetworkRequest&request
 argument_list|,
 argument|const QString&user
 argument_list|,
 argument|const QString&password
 argument_list|,
 argument|const QString&filename
-argument_list|,
-argument|const QString&contentType
 argument_list|,
 argument|TransferItem::Method method
 argument_list|)
