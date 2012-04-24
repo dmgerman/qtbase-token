@@ -773,7 +773,9 @@ name|defined
 argument_list|(
 name|Q_CC_GNU
 argument_list|)
-asm|asm ("xgetbv"         : "=a" (eax), "=d" (edx)         : "c" (in));
+asm|asm (".byte 0x0F, 0x01, 0xD0"
+comment|// xgetbv instruction
+asm|: "=a" (eax), "=d" (edx)         : "c" (in));
 endif|#
 directive|endif
 block|}
