@@ -94,20 +94,32 @@ operator|~
 name|QTouchEventSequence
 argument_list|()
 block|{
+if|if
+condition|(
+name|commitWhenDestroyed
+condition|)
 name|commit
 argument_list|()
-block|;         }
+expr_stmt|;
+block|}
 name|QTouchEventSequence
-operator|&
+modifier|&
 name|press
-argument_list|(
-argument|int touchId
-argument_list|,
-argument|const QPoint&pt
-argument_list|,
-argument|QWindow *window =
+parameter_list|(
+name|int
+name|touchId
+parameter_list|,
+specifier|const
+name|QPoint
+modifier|&
+name|pt
+parameter_list|,
+name|QWindow
+modifier|*
+name|window
+init|=
 literal|0
-argument_list|)
+parameter_list|)
 block|{
 name|QTouchEvent
 operator|::
@@ -119,7 +131,7 @@ name|point
 argument_list|(
 name|touchId
 argument_list|)
-block|;
+expr_stmt|;
 name|p
 operator|.
 name|setScreenPos
@@ -131,7 +143,7 @@ argument_list|,
 name|pt
 argument_list|)
 argument_list|)
-block|;
+expr_stmt|;
 name|p
 operator|.
 name|setState
@@ -140,7 +152,7 @@ name|Qt
 operator|::
 name|TouchPointPressed
 argument_list|)
-block|;
+expr_stmt|;
 return|return
 operator|*
 name|this
@@ -466,7 +478,12 @@ endif|#
 directive|endif
 name|void
 name|commit
-parameter_list|()
+parameter_list|(
+name|bool
+name|processEvents
+init|=
+name|true
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -533,6 +550,10 @@ block|}
 endif|#
 directive|endif
 block|}
+if|if
+condition|(
+name|processEvents
+condition|)
 name|QCoreApplication
 operator|::
 name|processEvents
@@ -688,15 +709,13 @@ directive|ifdef
 name|QT_WIDGETS_LIB
 name|QTouchEventSequence
 argument_list|(
-name|QWidget
-operator|*
-name|widget
+argument|QWidget *widget
 argument_list|,
-name|QTouchDevice
-operator|*
-name|aDevice
+argument|QTouchDevice *aDevice
+argument_list|,
+argument|bool autoCommit
 argument_list|)
-operator|:
+block|:
 name|targetWidget
 argument_list|(
 name|widget
@@ -709,20 +728,23 @@ argument_list|)
 operator|,
 name|device
 argument_list|(
-argument|aDevice
+name|aDevice
+argument_list|)
+operator|,
+name|commitWhenDestroyed
+argument_list|(
+argument|autoCommit
 argument_list|)
 block|{         }
 endif|#
 directive|endif
 name|QTouchEventSequence
 argument_list|(
-name|QWindow
-operator|*
-name|window
+argument|QWindow *window
 argument_list|,
-name|QTouchDevice
-operator|*
-name|aDevice
+argument|QTouchDevice *aDevice
+argument_list|,
+argument|bool autoCommit
 argument_list|)
 operator|:
 ifdef|#
@@ -742,7 +764,12 @@ argument_list|)
 operator|,
 name|device
 argument_list|(
-argument|aDevice
+name|aDevice
+argument_list|)
+operator|,
+name|commitWhenDestroyed
+argument_list|(
+argument|autoCommit
 argument_list|)
 block|{         }
 name|QTouchEvent
@@ -963,6 +990,9 @@ name|QTouchDevice
 modifier|*
 name|device
 decl_stmt|;
+name|bool
+name|commitWhenDestroyed
+decl_stmt|;
 ifdef|#
 directive|ifdef
 name|QT_WIDGETS_LIB
@@ -975,6 +1005,8 @@ modifier|*
 parameter_list|,
 name|QTouchDevice
 modifier|*
+parameter_list|,
+name|bool
 parameter_list|)
 function_decl|;
 endif|#
@@ -988,6 +1020,8 @@ modifier|*
 parameter_list|,
 name|QTouchDevice
 modifier|*
+parameter_list|,
+name|bool
 parameter_list|)
 function_decl|;
 block|}
@@ -1012,6 +1046,11 @@ parameter_list|,
 name|QTouchDevice
 modifier|*
 name|device
+parameter_list|,
+name|bool
+name|autoCommit
+init|=
+name|true
 parameter_list|)
 block|{
 return|return
@@ -1020,6 +1059,8 @@ argument_list|(
 name|widget
 argument_list|,
 name|device
+argument_list|,
+name|autoCommit
 argument_list|)
 return|;
 block|}
@@ -1040,6 +1081,11 @@ parameter_list|,
 name|QTouchDevice
 modifier|*
 name|device
+parameter_list|,
+name|bool
+name|autoCommit
+init|=
+name|true
 parameter_list|)
 block|{
 return|return
@@ -1048,6 +1094,8 @@ argument_list|(
 name|window
 argument_list|,
 name|device
+argument_list|,
+name|autoCommit
 argument_list|)
 return|;
 block|}
