@@ -493,10 +493,12 @@ name|void
 modifier|*
 name|ptr
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|expected
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|newval
@@ -511,10 +513,12 @@ name|void
 modifier|*
 name|ptr
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|expected
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|newval
@@ -529,10 +533,12 @@ name|void
 modifier|*
 name|ptr
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|expected
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|newval
@@ -548,6 +554,7 @@ name|void
 modifier|*
 name|ptr
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|newval
@@ -563,6 +570,7 @@ name|void
 modifier|*
 name|ptr
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|newval
@@ -578,6 +586,7 @@ name|void
 modifier|*
 name|ptr
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|newval
