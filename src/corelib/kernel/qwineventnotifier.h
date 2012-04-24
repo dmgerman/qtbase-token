@@ -43,6 +43,12 @@ end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QWinEventNotifierPrivate
+name|class
+name|QWinEventNotifierPrivate
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|Q_CORE_EXPORT
 name|QWinEventNotifier
@@ -53,7 +59,7 @@ block|{
 name|Q_OBJECT
 name|Q_DECLARE_PRIVATE
 argument_list|(
-argument|QObject
+argument|QWinEventNotifier
 argument_list|)
 name|public
 operator|:
@@ -122,14 +128,6 @@ name|QEvent
 operator|*
 name|e
 argument_list|)
-block|;
-name|private
-operator|:
-name|HANDLE
-name|handleToEvent
-block|;
-name|bool
-name|enabled
 block|; }
 decl_stmt|;
 end_decl_stmt
