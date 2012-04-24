@@ -469,6 +469,14 @@ name|GConfClient
 decl_stmt|;
 end_decl_stmt
 begin_typedef
+DECL|typedef|Display
+typedef|typedef
+name|struct
+name|_XDisplay
+name|Display
+typedef|;
+end_typedef
+begin_typedef
 DECL|typedef|Ptr_gconf_client_get_default
 typedef|typedef
 name|GConfClient
