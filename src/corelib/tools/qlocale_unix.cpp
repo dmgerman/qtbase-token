@@ -1302,6 +1302,15 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+case|case
+name|LanguageId
+case|:
+return|return
+name|lc_messages
+operator|.
+name|language
+argument_list|()
+return|;
 default|default:
 break|break;
 block|}
