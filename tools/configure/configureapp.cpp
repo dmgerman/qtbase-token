@@ -22138,6 +22138,16 @@ index|[
 name|j
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|it
+operator|->
+name|directory
+operator|==
+literal|"tools/configure"
+condition|)
+continue|continue;
+comment|// don't overwrite our own Makefile
 name|QString
 name|dirPath
 init|=
