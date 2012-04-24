@@ -657,6 +657,16 @@ operator|::
 name|testOpenGL
 parameter_list|()
 block|{
+ifdef|#
+directive|ifdef
+name|Q_OS_MAC
+name|QSKIP
+argument_list|(
+literal|"QTBUG-22792: This test function crashes on Mac OS X"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|bool
 name|ok
 init|=
