@@ -51,22 +51,13 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QVector>
+file|<QMap>
 end_include
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_IMAGE_TEXT
-end_ifndef
 begin_include
 include|#
 directive|include
-file|<QMap>
+file|<QVector>
 end_include
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
 DECL|variable|QImageWriter
@@ -273,9 +264,6 @@ operator|::
 name|ImageConversionFlags
 argument_list|)
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_IMAGE_TEXT
 DECL|member|QString
 DECL|member|text
 name|QMap
@@ -286,8 +274,6 @@ name|QString
 operator|>
 name|text
 expr_stmt|;
-endif|#
-directive|endif
 name|bool
 name|doImageIO
 argument_list|(
@@ -480,4 +466,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QIMAGE_P_H
+end_comment
 end_unit

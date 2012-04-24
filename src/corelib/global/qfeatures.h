@@ -150,12 +150,6 @@ begin_comment
 comment|//#define QT_NO_IMAGE_HEURISTIC_MASK
 end_comment
 begin_comment
-comment|// Image Text
-end_comment
-begin_comment
-comment|//#define QT_NO_IMAGE_TEXT
-end_comment
-begin_comment
 comment|// QLCDNumber
 end_comment
 begin_comment

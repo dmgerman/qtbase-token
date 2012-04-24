@@ -131,11 +131,6 @@ begin_comment
 DECL|variable|QImageDataMisc
 comment|// internal
 end_comment
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_IMAGE_TEXT
-end_ifndef
 begin_if
 if|#
 directive|if
@@ -274,13 +269,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|//QT_NO_IMAGE_TEXT
-end_comment
 begin_typedef
 DECL|typedef|QImageCleanupFunction
 typedef|typedef
@@ -1274,9 +1262,6 @@ name|QPoint
 operator|&
 argument_list|)
 block|;
-ifndef|#
-directive|ifndef
-name|QT_NO_IMAGE_TEXT
 name|QStringList
 name|textKeys
 argument_list|()
@@ -1369,8 +1354,6 @@ name|QString
 operator|&
 argument_list|)
 block|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 if|#
@@ -1596,9 +1579,6 @@ literal|5
 operator|,
 literal|0
 argument_list|)
-ifndef|#
-directive|ifndef
-name|QT_NO_IMAGE_TEXT
 if|#
 directive|if
 name|defined
@@ -2148,10 +2128,6 @@ name|:
 name|4996
 name|)
 end_pragma
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_endif
 endif|#
 directive|endif

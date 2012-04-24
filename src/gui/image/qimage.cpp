@@ -2931,9 +2931,6 @@ name|d
 operator|->
 name|has_alpha_clut
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_IMAGE_TEXT
 name|image
 operator|.
 name|d
@@ -2944,8 +2941,6 @@ name|d
 operator|->
 name|text
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|image
 return|;
@@ -3729,9 +3724,6 @@ name|d
 operator|->
 name|has_alpha_clut
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_IMAGE_TEXT
 name|image
 operator|.
 name|d
@@ -3742,8 +3734,6 @@ name|d
 operator|->
 name|text
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|image
 return|;
@@ -14711,13 +14701,6 @@ name|dotsPerMeterX
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_IMAGE_TEXT
-argument_list|)
 name|image
 operator|.
 name|d
@@ -14728,9 +14711,6 @@ name|d
 operator|->
 name|text
 expr_stmt|;
-endif|#
-directive|endif
-comment|// !QT_NO_IMAGE_TEXT
 name|converter
 argument_list|(
 name|image
@@ -15024,13 +15004,6 @@ argument_list|(
 name|clut
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_IMAGE_TEXT
-argument_list|)
 name|QString
 name|textsKeys
 init|=
@@ -15095,9 +15068,6 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
-comment|// !QT_NO_IMAGE_TEXT
 name|int
 name|h
 init|=
@@ -15497,13 +15467,6 @@ argument_list|(
 name|image
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_IMAGE_TEXT
-argument_list|)
 name|image
 operator|.
 name|d
@@ -15514,9 +15477,6 @@ name|d
 operator|->
 name|text
 expr_stmt|;
-endif|#
-directive|endif
-comment|// !QT_NO_IMAGE_TEXT
 name|converter
 argument_list|(
 name|image
@@ -21267,11 +21227,6 @@ name|p
 expr_stmt|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_IMAGE_TEXT
-end_ifndef
 begin_comment
 comment|/*!     Returns the text keys for this image.      You can use these keys with text() to list the image text for a     certain key.      \sa text() */
 end_comment
@@ -21461,13 +21416,6 @@ comment|/*!     \fn QString QImage::text(const QImageTextKeyLang& keywordAndLang
 end_comment
 begin_comment
 comment|/*!     \fn void QImage::setText(const char* key, const char* language, const QString& text)     \obsolete      Sets the image text to the given \a text and associate it with the     given \a key. The text is recorded in the specified \a language,     or in a default language if \a language is 0.      Use setText() instead.      The language the text is recorded in is no longer relevant since     the text is always set using QString and UTF-8 representation.      \omit     Records string \a  for the keyword \a key. The \a key should be     a portable keyword recognizable by other software - some suggested     values can be found in     \l{http://www.libpng.org/pub/png/spec/1.2/png-1.2-pdg.html#C.Anc-text}     {the PNG specification}. \a s can be any text. \a lang should     specify the language code (see     \l{http://www.rfc-editor.org/rfc/rfc1766.txt}{RFC 1766}) or 0.     \endomit */
-end_comment
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|// QT_NO_IMAGE_TEXT
 end_comment
 begin_comment
 comment|/*     Sets the image bits to the \a pixmap contents and returns a     reference to the image.      If the image shares data with other images, it will first     dereference the shared data.      Makes a call to QPixmap::convertToImage(). */

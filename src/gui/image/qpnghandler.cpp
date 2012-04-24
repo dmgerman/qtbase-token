@@ -1871,9 +1871,6 @@ modifier|*
 name|info
 parameter_list|)
 block|{
-ifndef|#
-directive|ifndef
-name|QT_NO_IMAGE_TEXT
 name|png_textp
 name|text_ptr
 decl_stmt|;
@@ -2019,8 +2016,6 @@ name|text_ptr
 operator|++
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment
@@ -2466,9 +2461,6 @@ argument_list|,
 name|end_info
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_IMAGE_TEXT
 name|readPngTexts
 argument_list|(
 name|end_info
@@ -2515,8 +2507,6 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|png_destroy_read_struct
 argument_list|(
 operator|&
@@ -3020,11 +3010,6 @@ name|g
 expr_stmt|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|QT_NO_IMAGE_TEXT
-end_ifndef
 begin_function
 DECL|function|set_text
 specifier|static
@@ -3610,10 +3595,6 @@ name|text_ptr
 expr_stmt|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
 begin_function
 DECL|function|writeImage
 name|bool
@@ -3679,16 +3660,6 @@ name|int
 name|off_y_in
 parameter_list|)
 block|{
-ifdef|#
-directive|ifdef
-name|QT_NO_IMAGE_TEXT
-name|Q_UNUSED
-argument_list|(
-name|description
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QPoint
 name|offset
 init|=
@@ -4286,9 +4257,6 @@ name|PNG_RESOLUTION_METER
 argument_list|)
 expr_stmt|;
 block|}
-ifndef|#
-directive|ifndef
-name|QT_NO_IMAGE_TEXT
 name|set_text
 argument_list|(
 name|image
@@ -4300,8 +4268,6 @@ argument_list|,
 name|description
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|png_write_info
 argument_list|(
 name|png_ptr
@@ -5169,7 +5135,8 @@ name|readImageFormat
 argument_list|()
 return|;
 return|return
-literal|0
+name|QVariant
+argument_list|()
 return|;
 block|}
 end_function
