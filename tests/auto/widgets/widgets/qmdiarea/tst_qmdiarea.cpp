@@ -2730,13 +2730,9 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|Q_OS_MAC
-name|QEXPECT_FAIL
+name|QSKIP
 argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-25298"
-argument_list|,
-name|Abort
+literal|"QTBUG-25298: This test is unstable on Mac."
 argument_list|)
 expr_stmt|;
 endif|#
