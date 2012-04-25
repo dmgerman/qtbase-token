@@ -273,6 +273,7 @@ ifndef|#
 directive|ifndef
 name|QT_NO_OPENGL
 literal|"    -opengl         Paints the files to an OpenGL on screen\n"
+literal|"    -pbuffer        Paints the files to an OpenGL pbuffer\n"
 endif|#
 directive|endif
 ifdef|#
@@ -291,8 +292,11 @@ literal|"    -printdialog    Opens a print dialog, then prints to the selected p
 literal|"    -grab           Paints the files to an image called filename_qps.png\n"
 literal|"    -i              Interactive mode.\n"
 literal|"    -v              Verbose.\n"
-literal|"    -bg-white       No checkers background\n"
 literal|"    -commands       Displays all available commands\n"
+literal|"    -w              Width of the paintdevice\n"
+literal|"    -h              Height of the paintdevice\n"
+literal|"    -cmp            Show the reference picture\n"
+literal|"    -bg-white       No checkers background\n"
 argument_list|)
 expr_stmt|;
 block|}
