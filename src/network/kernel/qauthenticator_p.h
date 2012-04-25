@@ -103,9 +103,10 @@ enum|;
 name|QAuthenticatorPrivate
 argument_list|()
 expr_stmt|;
-name|QAtomicInt
-name|ref
-decl_stmt|;
+operator|~
+name|QAuthenticatorPrivate
+argument_list|()
+expr_stmt|;
 name|QString
 name|user
 decl_stmt|;
@@ -263,6 +264,10 @@ name|bool
 name|isProxy
 argument_list|)
 decl_stmt|;
+name|void
+name|updateCredentials
+parameter_list|()
+function_decl|;
 block|}
 end_decl_stmt
 begin_empty_stmt
