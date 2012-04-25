@@ -85,6 +85,27 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|P
+end_ifndef
+begin_error
+error|#
+directive|error
+error|You need to define P
+end_error
+begin_define
+DECL|macro|P
+define|#
+directive|define
+name|P
+value|+
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|//fix for gcc4.0: if the operator+ does not exist without QT_USE_FAST_OPERATOR_PLUS
 end_comment
