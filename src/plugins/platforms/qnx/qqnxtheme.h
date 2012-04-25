@@ -35,6 +35,12 @@ file|<QtCore/qstring.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+DECL|variable|QQnxBpsEventFilter
+name|class
+name|QQnxBpsEventFilter
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 DECL|variable|QPlatformFontDatabase
 name|class
 name|QPlatformFontDatabase
@@ -54,6 +60,10 @@ argument_list|(
 name|QPlatformFontDatabase
 operator|*
 name|fontDatabase
+argument_list|,
+name|QQnxBpsEventFilter
+operator|*
+name|eventFilter
 argument_list|)
 block|;
 operator|~
@@ -72,6 +82,21 @@ literal|"blackberry"
 argument_list|)
 return|;
 block|}
+name|bool
+name|usePlatformNativeDialog
+argument_list|(
+argument|DialogType type
+argument_list|)
+specifier|const
+block|;
+name|QPlatformDialogHelper
+operator|*
+name|createPlatformDialogHelper
+argument_list|(
+argument|DialogType type
+argument_list|)
+specifier|const
+block|;
 specifier|const
 name|QFont
 operator|*
@@ -86,6 +111,10 @@ operator|:
 name|QPlatformFontDatabase
 operator|*
 name|m_fontDatabase
+block|;
+name|QQnxBpsEventFilter
+operator|*
+name|m_eventFilter
 block|;
 name|mutable
 name|QHash
