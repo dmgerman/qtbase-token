@@ -301,6 +301,20 @@ name|~
 name|QNetworkAccessFtpBackend
 parameter_list|()
 block|{
+comment|//if backend destroyed while in use, then abort (this is the code path from QNetworkReply::abort)
+if|if
+condition|(
+name|ftp
+operator|&&
+name|state
+operator|!=
+name|Disconnecting
+condition|)
+name|ftp
+operator|->
+name|abort
+argument_list|()
+expr_stmt|;
 name|disconnectFromFtp
 argument_list|()
 expr_stmt|;
