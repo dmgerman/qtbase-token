@@ -79,16 +79,6 @@ file|<sys/stat.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
-comment|// for Borland, main is defined to qMain which breaks qmake
-DECL|macro|main
-undef|#
-directive|undef
-name|main
-ifdef|#
-directive|ifdef
-name|Q_OS_MAC
-endif|#
-directive|endif
 comment|/* This is to work around lame implementation on Darwin. It has been noted that the getpwd(3) function    is much too slow, and called much too often inside of Qt (every fileFixify). With this we use a locally    cached copy because I can control all the times it is set (because Qt never sets the pwd under me). */
 DECL|variable|pwd
 specifier|static

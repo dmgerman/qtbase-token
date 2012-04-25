@@ -428,11 +428,6 @@ specifier|const
 name|QString
 modifier|&
 name|makeArguments
-parameter_list|,
-specifier|const
-name|QString
-modifier|&
-name|callPostfix
 parameter_list|)
 block|{
 comment|// Pass MAKEFLAGS as environment variable to sub-make calls.
@@ -450,8 +445,6 @@ argument_list|,
 name|callPrefix
 argument_list|,
 name|makeArguments
-argument_list|,
-name|callPostfix
 argument_list|)
 expr_stmt|;
 block|}

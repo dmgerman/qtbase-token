@@ -10173,22 +10173,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
 name|t
 operator|<<
-literal|" FORCE"
-expr_stmt|;
-name|t
-operator|<<
-literal|"\n\t"
+literal|" FORCE\n\t"
 expr_stmt|;
 specifier|const
 name|QStringList
@@ -10303,24 +10290,7 @@ operator|*
 name|it
 operator|)
 operator|<<
-literal|": "
-expr_stmt|;
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
-name|t
-operator|<<
-literal|" FORCE"
-expr_stmt|;
-name|t
-operator|<<
-literal|"\n\t"
+literal|": FORCE\n\t"
 operator|<<
 name|uninst
 operator|.
@@ -10329,9 +10299,7 @@ argument_list|(
 literal|" "
 argument_list|)
 operator|<<
-literal|"\n\t"
-operator|<<
-literal|"-$(DEL_DIR) "
+literal|"\n\t-$(DEL_DIR) "
 operator|<<
 name|filePrefixRoot
 argument_list|(
@@ -10443,27 +10411,8 @@ operator|<<
 literal|" "
 operator|<<
 name|all_installs
-expr_stmt|;
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
-name|t
 operator|<<
-literal|" FORCE"
-expr_stmt|;
-name|t
-operator|<<
-literal|"\n\n"
-expr_stmt|;
-name|t
-operator|<<
-literal|"uninstall: "
+literal|" FORCE\n\nuninstall: "
 operator|<<
 name|all_uninstalls
 operator|<<
@@ -10473,23 +10422,8 @@ name|var
 argument_list|(
 literal|"UNINSTALLDEPS"
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
-name|t
 operator|<<
-literal|" FORCE"
-expr_stmt|;
-name|t
-operator|<<
-literal|"\n\n"
+literal|" FORCE\n\n"
 expr_stmt|;
 block|}
 end_function
@@ -13314,13 +13248,6 @@ if|if
 condition|(
 name|project
 operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-operator|&&
-name|project
-operator|->
 name|values
 argument_list|(
 operator|(
@@ -13341,12 +13268,10 @@ literal|1
 condition|)
 name|deps
 operator|+=
-name|QString
+name|QLatin1String
 argument_list|(
-literal|" "
+literal|" FORCE"
 argument_list|)
-operator|+
-literal|"FORCE"
 expr_stmt|;
 name|t
 operator|<<
@@ -16413,15 +16338,6 @@ argument_list|(
 name|t
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
 name|t
 operator|<<
 literal|"FORCE:"
@@ -16484,15 +16400,6 @@ argument_list|,
 literal|"INSTALLS"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
 name|t
 operator|<<
 literal|"FORCE:"
@@ -18029,11 +17936,6 @@ specifier|const
 name|QString
 modifier|&
 name|makeArguments
-parameter_list|,
-specifier|const
-name|QString
-modifier|&
-name|callPostfix
 parameter_list|)
 block|{
 name|t
@@ -18043,8 +17945,6 @@ operator|<<
 literal|"$(MAKE)"
 operator|<<
 name|makeArguments
-operator|<<
-name|callPostfix
 operator|<<
 name|endl
 expr_stmt|;
@@ -18090,11 +17990,6 @@ specifier|const
 name|QString
 modifier|&
 name|makefilein
-parameter_list|,
-specifier|const
-name|QString
-modifier|&
-name|out_directory_cdout
 parameter_list|)
 block|{
 name|QString
@@ -18165,8 +18060,6 @@ operator|+
 name|pfx
 argument_list|,
 name|makefilein
-argument_list|,
-name|out_directory_cdout
 argument_list|)
 expr_stmt|;
 block|}
@@ -18702,25 +18595,22 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
-DECL|macro|MAKE_CD_IN_AND_OUT
-define|#
-directive|define
-name|MAKE_CD_IN_AND_OUT
-parameter_list|(
-name|directory
-parameter_list|)
-define|\
-value|if(!directory.isEmpty()) {               \             if(project->isActiveConfig("cd_change_global")) { \                 directory ## _cdin = "\n\tcd " + directory + "\n\t";        \                 QDir pwd(Option::output_dir); \                 QStringList in = directory.split(Option::dir_sep), out; \                 for(int i = 0; i< in.size(); i++) { \                     if(in.at(i) == "..") \                         out.prepend(fileInfo(pwd.path()).fileName()); \                     else if(in.at(i) != ".") \                         out.prepend(".."); \                     pwd.cd(in.at(i)); \                 } \                 directory ## _cdout = "\n\t@cd " + out.join(Option::dir_sep); \             } else { \                 directory ## _cdin = "\n\tcd " + directory + "&& ";  \             } \         } else { \             directory ## _cdin = "\n\t"; \         }
 name|QString
 name|out_directory_cdin
-decl_stmt|,
-name|out_directory_cdout
-decl_stmt|;
-name|MAKE_CD_IN_AND_OUT
-argument_list|(
+init|=
 name|out_directory
-argument_list|)
-expr_stmt|;
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+literal|"\n\t"
+else|:
+literal|"\n\tcd "
+operator|+
+name|out_directory
+operator|+
+literal|"&& "
+decl_stmt|;
 name|QString
 name|makefilein
 init|=
@@ -18855,22 +18745,9 @@ literal|"-qmake_all"
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
 name|t
 operator|<<
-literal|" FORCE"
-expr_stmt|;
-name|t
-operator|<<
-literal|"\n\t"
+literal|" FORCE\n\t"
 expr_stmt|;
 if|if
 condition|(
@@ -18889,25 +18766,8 @@ name|out_directory
 argument_list|)
 operator|<<
 name|out_directory_cdin
-operator|<<
-literal|"$(QMAKE) "
-operator|<<
-name|in
-operator|<<
-name|buildArgs
-argument_list|(
-name|in_directory
-argument_list|)
-operator|<<
-literal|" -o "
-operator|<<
-name|out
-operator|<<
-name|out_directory_cdout
 expr_stmt|;
 block|}
-else|else
-block|{
 name|t
 operator|<<
 literal|"$(QMAKE) "
@@ -18923,7 +18783,6 @@ literal|" -o "
 operator|<<
 name|out
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -18938,8 +18797,6 @@ argument_list|,
 name|makefilein
 operator|+
 literal|" qmake_all"
-argument_list|,
-name|out_directory_cdout
 argument_list|)
 expr_stmt|;
 else|else
@@ -18979,15 +18836,6 @@ operator|->
 name|depends
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
 name|t
 operator|<<
 literal|" FORCE"
@@ -19007,8 +18855,6 @@ argument_list|,
 name|out_directory_cdin
 argument_list|,
 name|makefilein
-argument_list|,
-name|out_directory_cdout
 argument_list|)
 expr_stmt|;
 block|}
@@ -19127,15 +18973,6 @@ argument_list|)
 operator|<<
 literal|"-ordered "
 expr_stmt|;
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
 name|t
 operator|<<
 literal|" FORCE"
@@ -19159,8 +18996,6 @@ operator|+
 literal|" "
 operator|+
 name|s
-argument_list|,
-name|out_directory_cdout
 argument_list|)
 expr_stmt|;
 block|}
@@ -19225,15 +19060,6 @@ name|suffix
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
 name|t
 operator|<<
 literal|" FORCE"
@@ -19257,8 +19083,6 @@ operator|+
 literal|" "
 operator|+
 name|s
-argument_list|,
-name|out_directory_cdout
 argument_list|)
 expr_stmt|;
 block|}
@@ -19354,35 +19178,9 @@ literal|"qmake_all"
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
 name|t
 operator|<<
 literal|" FORCE"
-expr_stmt|;
-if|if
-condition|(
-name|project
-operator|->
-name|isActiveConfig
-argument_list|(
-literal|"no_empty_targets"
-argument_list|)
-condition|)
-name|t
-operator|<<
-literal|"\n\t"
-operator|<<
-literal|"@cd ."
-expr_stmt|;
-name|t
 operator|<<
 name|endl
 operator|<<
@@ -19601,20 +19399,9 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
 name|t
 operator|<<
 literal|" FORCE"
-expr_stmt|;
-name|t
 operator|<<
 name|endl
 expr_stmt|;
@@ -19693,26 +19480,6 @@ literal|" "
 argument_list|,
 literal|"\n"
 argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|project
-operator|->
-name|isActiveConfig
-argument_list|(
-literal|"no_empty_targets"
-argument_list|)
-condition|)
-block|{
-name|t
-operator|<<
-literal|"\t"
-operator|<<
-literal|"@cd ."
-operator|<<
-name|endl
 expr_stmt|;
 block|}
 block|}
@@ -20109,14 +19876,20 @@ condition|)
 continue|continue;
 name|QString
 name|out_directory_cdin
-decl_stmt|,
-name|out_directory_cdout
-decl_stmt|;
-name|MAKE_CD_IN_AND_OUT
-argument_list|(
+init|=
 name|out_directory
-argument_list|)
-expr_stmt|;
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+literal|"\n\t"
+else|:
+literal|"\n\tcd "
+operator|+
+name|out_directory
+operator|+
+literal|"&& "
+decl_stmt|;
 name|QString
 name|makefilein
 init|=
@@ -20376,21 +20149,12 @@ operator|+
 literal|" "
 operator|+
 name|sub_targ
-argument_list|,
-name|out_directory_cdout
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 if|if
 condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-operator|&&
 name|project
 operator|->
 name|values
@@ -20477,15 +20241,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
 name|t
 operator|<<
 literal|"FORCE:"
@@ -20850,26 +20605,7 @@ condition|)
 block|{
 name|t
 operator|<<
-literal|"qmake:"
-expr_stmt|;
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
-name|t
-operator|<<
-literal|" FORCE"
-expr_stmt|;
-name|t
-operator|<<
-literal|"\n\t"
-operator|<<
-literal|"@"
+literal|"qmake: FORCE\n\t@"
 operator|<<
 name|qmake
 operator|<<
@@ -20882,46 +20618,14 @@ condition|(
 operator|!
 name|noDummyQmakeAll
 condition|)
-block|{
 name|t
 operator|<<
-literal|"qmake_all:"
-expr_stmt|;
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
-name|t
-operator|<<
-literal|" FORCE"
-expr_stmt|;
-if|if
-condition|(
-name|project
-operator|->
-name|isActiveConfig
-argument_list|(
-literal|"no_empty_targets"
-argument_list|)
-condition|)
-name|t
-operator|<<
-literal|"\n\t"
-operator|<<
-literal|"@cd ."
-expr_stmt|;
-name|t
+literal|"qmake_all: FORCE"
 operator|<<
 name|endl
 operator|<<
 name|endl
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

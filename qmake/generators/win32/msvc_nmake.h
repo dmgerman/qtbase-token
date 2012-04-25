@@ -82,11 +82,6 @@ specifier|const
 name|QString
 operator|&
 name|makeArguments
-argument_list|,
-specifier|const
-name|QString
-operator|&
-name|callPostfix
 argument_list|)
 block|;
 name|virtual

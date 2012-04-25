@@ -522,11 +522,6 @@ specifier|const
 name|QString
 operator|&
 name|makefilein
-argument_list|,
-specifier|const
-name|QString
-operator|&
-name|out_directory_cdout
 argument_list|)
 block|;
 name|virtual
@@ -546,11 +541,6 @@ specifier|const
 name|QString
 operator|&
 name|makeFileIn
-argument_list|,
-specifier|const
-name|QString
-operator|&
-name|outDirectory_cdout
 argument_list|)
 block|;
 name|void

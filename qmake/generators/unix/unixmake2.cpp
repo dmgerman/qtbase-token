@@ -273,15 +273,6 @@ argument_list|(
 name|t
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|project
-operator|->
-name|isEmpty
-argument_list|(
-literal|"QMAKE_NOFORCE"
-argument_list|)
-condition|)
 name|t
 operator|<<
 literal|"FORCE:"
