@@ -4861,6 +4861,17 @@ block|{
 if|if
 condition|(
 name|role
+operator|>=
+name|QAccessible
+operator|::
+name|LayeredPane
+condition|)
+block|{
+comment|// This block should hopefully only be entered if the AT client
+comment|// does not support IAccessible2, since it should prefer IA2::role() then.
+if|if
+condition|(
+name|role
 operator|==
 name|QAccessible
 operator|::
@@ -4872,6 +4883,14 @@ name|QAccessible
 operator|::
 name|Pane
 expr_stmt|;
+else|else
+name|role
+operator|=
+name|QAccessible
+operator|::
+name|Client
+expr_stmt|;
+block|}
 operator|(
 operator|*
 name|pvarRole

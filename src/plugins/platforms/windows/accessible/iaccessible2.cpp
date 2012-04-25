@@ -1259,9 +1259,6 @@ argument_list|(
 name|accessible
 argument_list|)
 expr_stmt|;
-comment|//### Change QAccessibleInterface::role() to return both MSAA and IA2 roles.
-comment|// When that is completed, we must patch the MSAA bridge not not return any
-comment|// IA2-specific roles from get_accRole().
 if|if
 condition|(
 operator|!
