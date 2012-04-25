@@ -3192,6 +3192,9 @@ end_comment
 begin_comment
 comment|/*!     \macro qFatal(const char *message, ...)     \relates<QtGlobal>      Calls the message handler with the fatal message \a message. If no     message handler has been installed, the message is printed to     stderr. Under Windows, the message is sent to the debugger.      If you are using the \b{default message handler} this function will     abort on Unix systems to create a core dump. On Windows, for debug builds,     this function will report a _CRT_ERROR enabling you to connect a debugger     to the application.      This function takes a format string and a list of arguments,     similar to the C printf() function.      Example:     \snippet code/src_corelib_global_qglobal.cpp 30      To suppress the output at runtime, install your own message handler     with qInstallMessageHandler().      \sa qDebug(), qCritical(), qWarning(), qInstallMessageHandler(),         {Debugging Techniques} */
 end_comment
+begin_comment
+comment|/*!     \macro qMove(x)     \relates<QtGlobal>      It expands to "std::move" if your compiler supports that C++11 function, or to nothing     otherwise. */
+end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
