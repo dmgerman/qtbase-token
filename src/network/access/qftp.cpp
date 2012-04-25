@@ -3158,10 +3158,10 @@ condition|(
 name|pi
 operator|->
 name|abortState
-operator|==
+operator|!=
 name|QFtpPI
 operator|::
-name|AbortStarted
+name|None
 condition|)
 block|{
 comment|// discard data
@@ -4149,6 +4149,28 @@ name|None
 condition|)
 comment|// ABOR already sent
 return|return;
+if|if
+condition|(
+name|currentCmd
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+return|return;
+comment|//no command in progress
+if|if
+condition|(
+name|currentCmd
+operator|.
+name|startsWith
+argument_list|(
+name|QLatin1String
+argument_list|(
+literal|"STOR "
+argument_list|)
+argument_list|)
+condition|)
+block|{
 name|abortState
 operator|=
 name|AbortStarted
@@ -4175,23 +4197,28 @@ argument_list|,
 literal|6
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|currentCmd
-operator|.
-name|startsWith
-argument_list|(
-name|QLatin1String
-argument_list|(
-literal|"STOR "
-argument_list|)
-argument_list|)
-condition|)
 name|dtp
 operator|.
 name|abortConnection
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|//Deviation from RFC 959:
+comment|//Most FTP servers do not support ABOR, or require the telnet
+comment|//IP& synch sequence (TCP urgent data) which is not supported by QTcpSocket.
+comment|//Following what most FTP clients do, just reset the data connection and wait for 426
+name|abortState
+operator|=
+name|WaitForAbortToFinish
+expr_stmt|;
+name|dtp
+operator|.
+name|abortConnection
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_function
 begin_function
