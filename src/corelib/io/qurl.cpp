@@ -7368,7 +7368,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the URL is relative; otherwise returns false. A     URL is relative if its scheme is undefined; this function is     therefore equivalent to calling scheme().isEmpty(). */
+comment|/*!     Returns true if the URL is relative; otherwise returns false. A URL is     relative reference if its scheme is undefined; this function is therefore     equivalent to calling scheme().isEmpty().      Relative references are defined in RFC 3986 section 4.2. */
 end_comment
 begin_function
 DECL|function|isRelative
@@ -7393,19 +7393,6 @@ name|d
 operator|->
 name|hasScheme
 argument_list|()
-operator|&&
-operator|!
-name|d
-operator|->
-name|path
-operator|.
-name|startsWith
-argument_list|(
-name|QLatin1Char
-argument_list|(
-literal|'/'
-argument_list|)
-argument_list|)
 return|;
 block|}
 end_function

@@ -12079,7 +12079,7 @@ argument_list|)
 operator|<<
 literal|"/path"
 operator|<<
-literal|false
+literal|true
 expr_stmt|;
 name|QTest
 operator|::
