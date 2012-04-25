@@ -873,18 +873,19 @@ name|Splitter
 operator|=
 literal|0x0000003E
 block|,
+comment|// Reserved space in case MSAA roles needs to be added
 comment|// Additional Qt roles where enum value does not map directly to MSAA:
 name|LayeredPane
 operator|=
-literal|0x0000003F
+literal|0x00000080
 block|,
 name|Terminal
 operator|=
-literal|0x00000040
+literal|0x00000081
 block|,
 name|Desktop
 operator|=
-literal|0x00000041
+literal|0x00000082
 block|,
 name|UserRole
 operator|=
