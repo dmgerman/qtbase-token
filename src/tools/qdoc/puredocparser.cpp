@@ -38,9 +38,13 @@ parameter_list|()
 block|{
 return|return
 name|QStringList
-argument_list|(
+argument_list|()
+operator|<<
 literal|"*.qdoc"
-argument_list|)
+operator|<<
+literal|"*.qtx"
+operator|<<
+literal|"*.qtt"
 return|;
 block|}
 end_function
