@@ -441,6 +441,21 @@ operator|&
 name|qt_array_unsharable_empty
 condition|)
 return|return;
+name|Q_ASSERT_X
+argument_list|(
+operator|!
+name|data
+operator|->
+name|ref
+operator|.
+name|isStatic
+argument_list|()
+argument_list|,
+literal|"QArrayData::deallocate"
+argument_list|,
+literal|"Static data can not be deleted"
+argument_list|)
+expr_stmt|;
 operator|::
 name|free
 argument_list|(
