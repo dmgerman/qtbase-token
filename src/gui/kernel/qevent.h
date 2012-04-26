@@ -618,16 +618,7 @@ return|return
 name|angleD
 return|;
 block|}
-if|#
-directive|if
-name|QT_DEPRECATED_SINCE
-argument_list|(
-literal|5
-operator|,
-literal|0
-argument_list|)
 specifier|inline
-name|QT_DEPRECATED
 name|int
 name|delta
 argument_list|()
@@ -638,7 +629,6 @@ name|qt4D
 return|;
 block|}
 specifier|inline
-name|QT_DEPRECATED
 name|Qt
 operator|::
 name|Orientation
@@ -650,8 +640,6 @@ return|return
 name|qt4O
 return|;
 block|}
-endif|#
-directive|endif
 ifndef|#
 directive|ifndef
 name|QT_NO_INTEGER_EVENT_COORDINATES
