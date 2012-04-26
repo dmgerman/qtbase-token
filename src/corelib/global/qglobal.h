@@ -1705,6 +1705,12 @@ name|defined
 argument_list|(
 name|Q_CC_MINGW
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_WIN64
+argument_list|)
 end_if
 begin_define
 DECL|macro|QT_ENSURE_STACK_ALIGNED_FOR_SSE
