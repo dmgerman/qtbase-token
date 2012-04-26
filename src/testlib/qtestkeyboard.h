@@ -243,7 +243,7 @@ name|window
 operator|=
 name|QGuiApplication
 operator|::
-name|activeWindow
+name|focusWindow
 argument_list|()
 expr_stmt|;
 name|QTEST_ASSERT

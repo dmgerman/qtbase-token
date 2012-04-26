@@ -166,7 +166,7 @@ block|{
 return|return
 name|qApp
 operator|->
-name|activeWindow
+name|focusWindow
 argument_list|()
 return|;
 block|}

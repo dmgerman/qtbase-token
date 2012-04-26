@@ -732,7 +732,7 @@ name|window
 init|=
 name|QGuiApplication
 operator|::
-name|activeWindow
+name|focusWindow
 argument_list|()
 condition|)
 return|return
