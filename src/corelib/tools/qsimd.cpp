@@ -571,7 +571,7 @@ directive|endif
 name|int
 name|result
 decl_stmt|;
-asm|asm ("xchg "PICreg", %1\n"          "cpuid\n"          "xchg "PICreg", %1\n"         : "=&a" (result), "=&r" (tmp1)         : "0" (0)         : "ecx", "edx");
+asm|asm ("xchg " PICreg", %1\n"          "cpuid\n"          "xchg " PICreg", %1\n"         : "=&a" (result), "=&r" (tmp1)         : "0" (0)         : "ecx", "edx");
 return|return
 name|result
 return|;
@@ -637,7 +637,7 @@ argument_list|)
 name|long
 name|tmp1
 decl_stmt|;
-asm|asm ("xchg "PICreg", %2\n"          "cpuid\n"          "xchg "PICreg", %2\n"         : "=&c" (ecx), "=&d" (edx), "=&r" (tmp1)         : "a" (1));
+asm|asm ("xchg " PICreg", %2\n"          "cpuid\n"          "xchg " PICreg", %2\n"         : "=&c" (ecx), "=&d" (edx), "=&r" (tmp1)         : "a" (1));
 endif|#
 directive|endif
 block|}
@@ -688,7 +688,7 @@ name|long
 name|rbx
 decl_stmt|;
 comment|// in case it's 64-bit
-asm|asm ("xchg "PICreg", %0\n"          "cpuid\n"          "xchg "PICreg", %0\n"         : "=&r" (rbx)         : "a" (7), "c" (0)         : "%edx");
+asm|asm ("xchg " PICreg", %0\n"          "cpuid\n"          "xchg " PICreg", %0\n"         : "=&r" (rbx)         : "a" (7), "c" (0)         : "%edx");
 name|ebx
 operator|=
 name|rbx
