@@ -157,20 +157,7 @@ name|Rejected
 block|,
 name|Accepted
 block|}
-block|;     enum
-name|ShowFlag
-block|{
-name|ShowModal
-operator|=
-literal|0x00000001
-block|}
 block|;
-name|Q_DECLARE_FLAGS
-argument_list|(
-argument|ShowFlags
-argument_list|,
-argument|ShowFlag
-argument_list|)
 name|QPlatformDialogHelper
 argument_list|()
 block|;
@@ -212,9 +199,9 @@ name|virtual
 name|bool
 name|show_sys
 argument_list|(
-argument|ShowFlags showFlags
-argument_list|,
 argument|Qt::WindowFlags windowFlags
+argument_list|,
+argument|Qt::WindowModality windowModality
 argument_list|,
 argument|QWindow *parent
 argument_list|)

@@ -68,9 +68,9 @@ block|;
 name|bool
 name|show_sys
 argument_list|(
-argument|ShowFlags showFlags
-argument_list|,
 argument|Qt::WindowFlags windowFlags
+argument_list|,
+argument|Qt::WindowModality windowModality
 argument_list|,
 argument|QWindow *parent
 argument_list|)
@@ -107,9 +107,9 @@ block|;
 name|bool
 name|showCocoaFontPanel
 argument_list|(
-name|QWindow
-operator|*
-name|parent
+argument|Qt::WindowModality windowModality
+argument_list|,
+argument|QWindow *parent
 argument_list|)
 block|;
 name|bool

@@ -117,9 +117,9 @@ name|virtual
 name|bool
 name|show_sys
 argument_list|(
-argument|QPlatformDialogHelper::ShowFlags flags
-argument_list|,
 argument|Qt::WindowFlags windowFlags
+argument_list|,
+argument|Qt::WindowModality windowModality
 argument_list|,
 argument|QWindow *parent
 argument_list|)

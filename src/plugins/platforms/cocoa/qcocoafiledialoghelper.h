@@ -73,9 +73,9 @@ block|;
 name|bool
 name|show_sys
 argument_list|(
-argument|ShowFlags flags
-argument_list|,
 argument|Qt::WindowFlags windowFlags
+argument_list|,
+argument|Qt::WindowModality windowModality
 argument_list|,
 argument|QWindow *parent
 argument_list|)
@@ -141,9 +141,9 @@ operator|:
 name|bool
 name|showCocoaFilePanel
 argument_list|(
-name|QWindow
-operator|*
-name|parent
+argument|Qt::WindowModality windowModality
+argument_list|,
+argument|QWindow *parent
 argument_list|)
 block|;
 name|bool

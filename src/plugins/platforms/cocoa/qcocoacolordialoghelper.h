@@ -56,19 +56,11 @@ block|;
 name|bool
 name|show_sys
 argument_list|(
-name|QFlags
-operator|<
-name|QPlatformDialogHelper
-operator|::
-name|ShowFlag
-operator|>
+argument|Qt::WindowFlags windowFlags
 argument_list|,
-name|Qt
-operator|::
-name|WindowFlags
+argument|Qt::WindowModality windowModality
 argument_list|,
-name|QWindow
-operator|*
+argument|QWindow *parent
 argument_list|)
 block|;
 name|void
@@ -97,9 +89,9 @@ operator|:
 name|bool
 name|showCocoaColorPanel
 argument_list|(
-name|QWindow
-operator|*
-name|parent
+argument|Qt::WindowModality windowModality
+argument_list|,
+argument|QWindow *parent
 argument_list|)
 block|;
 name|bool
