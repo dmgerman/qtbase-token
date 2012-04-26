@@ -531,7 +531,6 @@ name|UnicodeVersion
 block|{
 name|Unicode_Unassigned
 block|,
-comment|// ### Qt 5: assign with some constantly big value
 name|Unicode_1_1
 block|,
 name|Unicode_2_0
