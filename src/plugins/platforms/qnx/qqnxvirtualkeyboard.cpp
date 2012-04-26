@@ -82,7 +82,7 @@ name|QQnxVirtualKeyboard
 operator|::
 name|ms_PPSPath
 init|=
-literal|"/pps/services/input/control?wait"
+literal|"/pps/services/input/control"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -544,6 +544,15 @@ expr_stmt|;
 comment|// reconnect
 return|return;
 block|}
+comment|// We sometimes get spurious read notifications when no data is available.
+comment|// Bail out early in this case
+if|if
+condition|(
+name|nread
+operator|==
+literal|0
+condition|)
+return|return;
 comment|// nread is the real space necessary, not the amount read.
 if|if
 condition|(
