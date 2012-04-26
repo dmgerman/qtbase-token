@@ -1841,7 +1841,7 @@ begin_comment
 comment|// mathematical semantics
 end_comment
 begin_function
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QPoint
 name|operator
 modifier|*
@@ -1868,7 +1868,7 @@ return|;
 block|}
 end_function
 begin_function
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QPointF
 name|operator
 modifier|*
@@ -1895,7 +1895,7 @@ return|;
 block|}
 end_function
 begin_function
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QLineF
 name|operator
 modifier|*
@@ -1922,7 +1922,7 @@ return|;
 block|}
 end_function
 begin_function
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QLine
 name|operator
 modifier|*
@@ -1949,7 +1949,7 @@ return|;
 block|}
 end_function
 begin_function
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QPolygon
 name|operator
 modifier|*
@@ -1976,7 +1976,7 @@ return|;
 block|}
 end_function
 begin_function
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QPolygonF
 name|operator
 modifier|*
@@ -2003,7 +2003,7 @@ return|;
 block|}
 end_function
 begin_function
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QRegion
 name|operator
 modifier|*
@@ -2030,7 +2030,7 @@ return|;
 block|}
 end_function
 begin_function
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QPainterPath
 name|operator
 modifier|*
@@ -2057,7 +2057,7 @@ return|;
 block|}
 end_function
 begin_function
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QTransform
 name|operator
 modifier|*
@@ -2088,7 +2088,7 @@ block|}
 end_function
 begin_expr_stmt
 DECL|function|operator
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QTransform
 name|operator
 operator|/
@@ -2119,7 +2119,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|operator
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QTransform
 name|operator
 operator|+
@@ -2150,7 +2150,7 @@ block|}
 end_expr_stmt
 begin_expr_stmt
 DECL|function|operator
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QTransform
 name|operator
 operator|-
@@ -2187,4 +2187,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_comment
+comment|// QTRANSFORM_H
+end_comment
 end_unit

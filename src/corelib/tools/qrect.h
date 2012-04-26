@@ -799,8 +799,8 @@ block|}
 endif|#
 directive|endif
 name|friend
-name|Q_CORE_EXPORT_INLINE
 name|Q_DECL_CONSTEXPR
+specifier|inline
 name|bool
 name|operator
 operator|==
@@ -815,8 +815,8 @@ operator|&
 operator|)
 expr_stmt|;
 name|friend
-name|Q_CORE_EXPORT_INLINE
 name|Q_DECL_CONSTEXPR
+specifier|inline
 name|bool
 name|operator
 operator|!=
@@ -859,8 +859,8 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_CORE_EXPORT_INLINE
 name|Q_DECL_CONSTEXPR
+specifier|inline
 name|bool
 name|operator
 operator|==
@@ -876,8 +876,8 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_CORE_EXPORT_INLINE
 name|Q_DECL_CONSTEXPR
+specifier|inline
 name|bool
 name|operator
 operator|!=
@@ -3510,8 +3510,8 @@ block|}
 endif|#
 directive|endif
 name|friend
-name|Q_CORE_EXPORT_INLINE
 name|Q_DECL_CONSTEXPR
+specifier|inline
 name|bool
 name|operator
 operator|==
@@ -3526,8 +3526,8 @@ operator|&
 operator|)
 expr_stmt|;
 name|friend
-name|Q_CORE_EXPORT_INLINE
 name|Q_DECL_CONSTEXPR
+specifier|inline
 name|bool
 name|operator
 operator|!=
@@ -3582,8 +3582,8 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_CORE_EXPORT_INLINE
 name|Q_DECL_CONSTEXPR
+specifier|inline
 name|bool
 name|operator
 operator|==
@@ -3599,8 +3599,8 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
-name|Q_CORE_EXPORT_INLINE
 name|Q_DECL_CONSTEXPR
+specifier|inline
 name|bool
 name|operator
 operator|!=

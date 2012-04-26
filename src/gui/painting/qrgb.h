@@ -49,7 +49,7 @@ comment|// masks RGB values
 end_comment
 begin_function
 DECL|function|qRed
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|int
 name|qRed
 parameter_list|(
@@ -73,7 +73,7 @@ block|}
 end_function
 begin_function
 DECL|function|qGreen
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|int
 name|qGreen
 parameter_list|(
@@ -97,7 +97,7 @@ block|}
 end_function
 begin_function
 DECL|function|qBlue
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|int
 name|qBlue
 parameter_list|(
@@ -117,7 +117,7 @@ block|}
 end_function
 begin_function
 DECL|function|qAlpha
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|int
 name|qAlpha
 parameter_list|(
@@ -135,7 +135,7 @@ block|}
 end_function
 begin_function
 DECL|function|qRgb
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QRgb
 name|qRgb
 parameter_list|(
@@ -187,7 +187,7 @@ block|}
 end_function
 begin_function
 DECL|function|qRgba
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|QRgb
 name|qRgba
 parameter_list|(
@@ -246,7 +246,7 @@ block|}
 end_function
 begin_function
 DECL|function|qGray
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|int
 name|qGray
 parameter_list|(
@@ -282,7 +282,7 @@ block|}
 end_function
 begin_function
 DECL|function|qGray
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|int
 name|qGray
 parameter_list|(
@@ -314,7 +314,7 @@ block|}
 end_function
 begin_function
 DECL|function|qIsGray
-name|Q_GUI_EXPORT_INLINE
+specifier|inline
 name|bool
 name|qIsGray
 parameter_list|(
