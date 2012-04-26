@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qplatformcursor_qpa.h>
+file|<qpa/qplatformcursor.h>
 end_include
 begin_include
 include|#

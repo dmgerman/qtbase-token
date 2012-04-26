@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformclipboard_qpa.h"
+file|"qplatformclipboard.h"
 end_include
 begin_ifndef
 ifndef|#

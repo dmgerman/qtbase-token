@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformopenglcontext_qpa.h"
+file|<qpa/qplatformopenglcontext.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"qplatformintegration_qpa.h"
+file|<qpa/qplatformintegration.h>
 end_include
 begin_include
 include|#

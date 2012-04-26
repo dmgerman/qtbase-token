@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformDrag>
+file|<qpa/qplatformdrag.h>
 end_include
 begin_include
 include|#

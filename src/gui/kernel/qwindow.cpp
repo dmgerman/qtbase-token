@@ -10,12 +10,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qplatformwindow_qpa.h"
+file|<qpa/qplatformwindow.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"qplatformintegration_qpa.h"
+file|<qpa/qplatformintegration.h>
 end_include
 begin_include
 include|#
@@ -30,7 +30,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"qplatformopenglcontext_qpa.h"
+file|<qpa/qplatformopenglcontext.h>
 end_include
 begin_include
 include|#

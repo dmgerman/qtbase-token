@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformScreen>
+file|<qpa/qplatformscreen.h>
 end_include
 begin_include
 include|#

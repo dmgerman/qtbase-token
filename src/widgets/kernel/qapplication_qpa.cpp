@@ -59,7 +59,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"private/qplatformintegrationfactory_qpa_p.h"
+file|<qpa/qplatformintegrationfactory_p.h>
 end_include
 begin_include
 include|#
@@ -69,12 +69,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QPlatformCursor>
+file|<qpa/qplatformcursor.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QPlatformTheme>
+file|<qpa/qplatformtheme.h>
 end_include
 begin_include
 include|#
@@ -94,7 +94,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QPlatformIntegration>
+file|<qpa/qplatformintegration.h>
 end_include
 begin_include
 include|#

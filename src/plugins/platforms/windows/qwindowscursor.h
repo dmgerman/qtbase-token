@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformCursor>
+file|<qpa/qplatformcursor.h>
 end_include
 begin_include
 include|#

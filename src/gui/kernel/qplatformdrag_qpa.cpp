@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformdrag_qpa.h"
+file|"qplatformdrag.h"
 end_include
 begin_include
 include|#

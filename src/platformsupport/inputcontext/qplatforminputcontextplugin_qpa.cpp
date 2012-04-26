@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatforminputcontextplugin_qpa_p.h"
+file|"qplatforminputcontextplugin_p.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

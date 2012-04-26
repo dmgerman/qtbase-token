@@ -111,7 +111,7 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<private/qplatforminputcontextfactory_qpa_p.h>
+file|<qpa/qplatforminputcontextfactory_p.h>
 end_include
 begin_include
 include|#
@@ -121,7 +121,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qplatforminputcontext_qpa.h>
+file|<qpa/qplatforminputcontext.h>
 end_include
 begin_if
 if|#
@@ -176,7 +176,7 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformAccessibility>
+file|<qpa/qplatformaccessibility.h>
 end_include
 begin_endif
 endif|#

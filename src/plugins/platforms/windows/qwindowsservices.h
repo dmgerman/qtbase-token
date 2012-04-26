@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/qplatformservices_qpa.h>
+file|<qpa/qplatformservices.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

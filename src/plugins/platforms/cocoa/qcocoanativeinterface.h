@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformNativeInterface>
+file|<qpa/qplatformnativeinterface.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtPrintSupport/QPlatformPrinterSupport>
+file|<qpa/qplatformprintersupport.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

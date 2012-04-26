@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformthemefactory_qpa_p.h"
+file|<qpa/qplatformthemefactory_p.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QPlatformThemePlugin>
+file|<qpa/qplatformthemeplugin.h>
 end_include
 begin_include
 include|#

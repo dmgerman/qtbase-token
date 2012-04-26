@@ -170,7 +170,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qplatformtheme_qpa.h>
+file|<qpa/qplatformtheme.h>
 end_include
 begin_include
 include|#
@@ -235,7 +235,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qplatformfontdatabase_qpa.h"
+file|<qpa/qplatformfontdatabase.h>
 end_include
 begin_ifndef
 ifndef|#

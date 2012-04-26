@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformInputContext>
+file|<qpa/qplatforminputcontext.h>
 end_include
 begin_include
 include|#
@@ -31,7 +31,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformIntegration>
+file|<qpa/qplatformintegration.h>
 end_include
 begin_include
 include|#

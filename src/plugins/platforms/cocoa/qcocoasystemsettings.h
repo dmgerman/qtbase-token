@@ -26,7 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qplatformtheme_qpa.h>
+file|<qpa/qplatformtheme.h>
 end_include
 begin_function_decl
 name|QT_BEGIN_NAMESPACE

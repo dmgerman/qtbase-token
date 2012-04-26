@@ -16,12 +16,12 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformIntegration>
+file|<qpa/qplatformintegration.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformScreen>
+file|<qpa/qplatformscreen.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

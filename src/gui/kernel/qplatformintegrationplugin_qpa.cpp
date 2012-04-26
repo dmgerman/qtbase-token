@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformintegrationplugin_qpa.h"
+file|"qplatformintegrationplugin.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

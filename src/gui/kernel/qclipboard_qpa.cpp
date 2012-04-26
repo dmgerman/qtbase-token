@@ -25,12 +25,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qplatformclipboard_qpa.h"
+file|<qpa/qplatformclipboard.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"qplatformintegration_qpa.h"
+file|<qpa/qplatformintegration.h>
 end_include
 begin_function
 name|QT_BEGIN_NAMESPACE

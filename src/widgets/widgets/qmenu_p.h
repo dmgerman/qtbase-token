@@ -81,7 +81,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qplatformmenu_qpa.h>
+file|<qpa/qplatformmenu.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

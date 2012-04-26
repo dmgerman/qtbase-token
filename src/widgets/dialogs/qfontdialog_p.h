@@ -64,7 +64,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qplatformdialoghelper_qpa.h"
+file|<qpa/qplatformdialoghelper.h>
 end_include
 begin_include
 include|#

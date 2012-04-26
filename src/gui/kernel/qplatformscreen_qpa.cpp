@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformscreen_qpa.h"
+file|"qplatformscreen.h"
 end_include
 begin_include
 include|#
@@ -15,7 +15,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qplatformcursor_qpa.h>
+file|<qpa/qplatformcursor.h>
 end_include
 begin_include
 include|#
@@ -25,12 +25,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/private/qplatformscreen_qpa_p.h>
+file|<qpa/qplatformscreen_p.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qplatformintegration_qpa.h>
+file|<qpa/qplatformintegration.h>
 end_include
 begin_include
 include|#

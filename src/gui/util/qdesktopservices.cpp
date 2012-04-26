@@ -55,12 +55,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qplatformservices_qpa.h>
+file|<qpa/qplatformservices.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<qplatformintegration_qpa.h>
+file|<qpa/qplatformintegration.h>
 end_include
 begin_include
 include|#

@@ -31,7 +31,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QPlatformBackingStore>
+file|<qpa/qplatformbackingstore.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

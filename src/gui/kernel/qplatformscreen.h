@@ -91,7 +91,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qplatformpixmap_qpa.h>
+file|<qpa/qplatformpixmap.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER

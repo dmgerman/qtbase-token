@@ -30,12 +30,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformOpenGLContext>
+file|<qpa/qplatformopenglcontext.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformWindow>
+file|<qpa/qplatformwindow.h>
 end_include
 begin_include
 include|#

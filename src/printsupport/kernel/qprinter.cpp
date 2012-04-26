@@ -69,12 +69,12 @@ end_ifndef
 begin_include
 include|#
 directive|include
-file|"qplatformprintplugin_qpa.h"
+file|<qpa/qplatformprintplugin.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtPrintSupport/QPlatformPrinterSupport>
+file|<qpa/qplatformprintersupport.h>
 end_include
 begin_include
 include|#

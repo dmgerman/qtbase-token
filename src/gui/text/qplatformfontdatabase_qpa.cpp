@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformfontdatabase_qpa.h"
+file|"qplatformfontdatabase.h"
 end_include
 begin_include
 include|#

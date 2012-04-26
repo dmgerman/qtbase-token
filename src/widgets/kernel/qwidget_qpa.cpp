@@ -45,7 +45,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qplatformwindow_qpa.h"
+file|<qpa/qplatformwindow.h>
 end_include
 begin_include
 include|#
@@ -55,7 +55,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qplatformopenglcontext_qpa.h"
+file|<qpa/qplatformopenglcontext.h>
 end_include
 begin_include
 include|#
@@ -65,7 +65,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformCursor>
+file|<qpa/qplatformcursor.h>
 end_include
 begin_include
 include|#

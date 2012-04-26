@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformsharedgraphicscache_qpa.h"
+file|"qplatformsharedgraphicscache.h"
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

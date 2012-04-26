@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<private/qplatforminputcontextplugin_qpa_p.h>
+file|<qpa/qplatforminputcontextplugin_p.h>
 end_include
 begin_include
 include|#

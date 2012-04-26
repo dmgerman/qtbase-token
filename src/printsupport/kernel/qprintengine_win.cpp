@@ -60,7 +60,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qplatformpixmap_qpa.h>
+file|<qpa/qplatformpixmap.h>
 end_include
 begin_include
 include|#

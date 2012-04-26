@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qplatformnativeinterface_qpa.h>
+file|<qpa/qplatformnativeinterface.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

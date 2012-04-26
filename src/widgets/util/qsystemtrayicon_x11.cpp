@@ -80,7 +80,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qplatformnativeinterface_qpa.h>
+file|<qpa/qplatformnativeinterface.h>
 end_include
 begin_include
 include|#

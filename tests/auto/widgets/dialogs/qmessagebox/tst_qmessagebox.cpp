@@ -55,7 +55,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QPlatformTheme>
+file|<qpa/qplatformtheme.h>
 end_include
 begin_include
 include|#

@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<qplatforminputcontext_qpa.h>
+file|<qpa/qplatforminputcontext.h>
 end_include
 begin_decl_stmt
 name|class

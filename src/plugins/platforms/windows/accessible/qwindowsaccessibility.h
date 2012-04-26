@@ -26,7 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformAccessibility>
+file|<qpa/qplatformaccessibility.h>
 end_include
 begin_include
 include|#

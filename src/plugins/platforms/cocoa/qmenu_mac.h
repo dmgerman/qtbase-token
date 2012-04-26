@@ -25,7 +25,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtWidgets/qplatformmenu_qpa.h>
+file|<qpa/qplatformmenu.h>
 end_include
 begin_decl_stmt
 unit|@

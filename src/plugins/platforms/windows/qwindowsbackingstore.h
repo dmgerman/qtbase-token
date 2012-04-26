@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformBackingStore>
+file|<qpa/qplatformbackingstore.h>
 end_include
 begin_include
 include|#

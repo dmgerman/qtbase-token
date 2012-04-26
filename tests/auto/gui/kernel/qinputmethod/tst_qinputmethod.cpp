@@ -20,7 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qplatforminputcontext_qpa.h>
+file|<qpa/qplatforminputcontext.h>
 end_include
 begin_include
 include|#

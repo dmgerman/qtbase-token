@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|"qplatformintegration_qpa.h"
+file|<qpa/qplatformintegration.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

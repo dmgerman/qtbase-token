@@ -26,7 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformIntegration>
+file|<qpa/qplatformintegration.h>
 end_include
 begin_include
 include|#

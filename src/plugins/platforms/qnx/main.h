@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformIntegrationPlugin>
+file|<qpa/qplatformintegrationplugin.h>
 end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE

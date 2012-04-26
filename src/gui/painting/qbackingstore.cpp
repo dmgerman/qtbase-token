@@ -20,12 +20,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qplatformbackingstore_qpa.h>
+file|<qpa/qplatformbackingstore.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<qplatformintegration_qpa.h>
+file|<qpa/qplatformintegration.h>
 end_include
 begin_include
 include|#

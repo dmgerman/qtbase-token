@@ -84,7 +84,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qplatformnativeinterface_qpa.h"
+file|<qpa/qplatformnativeinterface.h>
 end_include
 begin_include
 include|#
@@ -139,7 +139,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|"QtGui/qplatformintegration_qpa.h"
+file|<qpa/qplatformintegration.h>
 end_include
 begin_include
 include|#

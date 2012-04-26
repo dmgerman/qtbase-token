@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<QPlatformFontDatabase>
+file|<qpa/qplatformfontdatabase.h>
 end_include
 begin_include
 include|#

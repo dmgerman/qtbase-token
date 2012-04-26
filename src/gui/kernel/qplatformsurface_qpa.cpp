@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformsurface_qpa.h"
+file|"qplatformsurface.h"
 end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE

@@ -35,7 +35,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformNativeInterface>
+file|<qpa/qplatformnativeinterface.h>
 end_include
 begin_include
 include|#

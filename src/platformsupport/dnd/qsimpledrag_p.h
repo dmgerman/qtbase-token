@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<qplatformdrag_qpa.h>
+file|<qpa/qplatformdrag.h>
 end_include
 begin_include
 include|#

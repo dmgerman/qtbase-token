@@ -16,7 +16,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<qplatformbackingstore_qpa.h>
+file|<qpa/qplatformbackingstore.h>
 end_include
 begin_include
 include|#

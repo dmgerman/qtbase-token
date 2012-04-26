@@ -5,12 +5,12 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformintegrationfactory_qpa_p.h"
+file|<qpa/qplatformintegrationfactory_p.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QPlatformIntegrationPlugin>
+file|<qpa/qplatformintegrationplugin.h>
 end_include
 begin_include
 include|#

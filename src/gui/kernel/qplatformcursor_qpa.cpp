@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformcursor_qpa.h"
+file|"qplatformcursor.h"
 end_include
 begin_include
 include|#
@@ -30,7 +30,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QPlatformScreen>
+file|<qpa/qplatformscreen.h>
 end_include
 begin_include
 include|#

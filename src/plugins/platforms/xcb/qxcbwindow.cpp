@@ -45,7 +45,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qplatformintegration_qpa.h>
+file|<qpa/qplatformintegration.h>
 end_include
 begin_ifdef
 ifdef|#
@@ -238,7 +238,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformBackingStore>
+file|<qpa/qplatformbackingstore.h>
 end_include
 begin_include
 include|#

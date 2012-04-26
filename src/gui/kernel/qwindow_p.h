@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/qplatformwindow_qpa.h>
+file|<qpa/qplatformwindow.h>
 end_include
 begin_include
 include|#

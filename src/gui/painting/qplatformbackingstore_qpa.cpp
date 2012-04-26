@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<qplatformbackingstore_qpa.h>
+file|"qplatformbackingstore.h"
 end_include
 begin_include
 include|#

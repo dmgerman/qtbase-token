@@ -40,12 +40,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|"qplatformaccessibility_qpa.h"
+file|<qpa/qplatformaccessibility.h>
 end_include
 begin_include
 include|#
 directive|include
-file|"qplatformintegration_qpa.h"
+file|<qpa/qplatformintegration.h>
 end_include
 begin_include
 include|#

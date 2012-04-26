@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformscreenpageflipper_qpa.h"
+file|"qplatformscreenpageflipper.h"
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE

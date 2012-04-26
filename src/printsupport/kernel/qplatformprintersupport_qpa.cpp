@@ -5,7 +5,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|"qplatformprintersupport_qpa.h"
+file|"qplatformprintersupport.h"
 end_include
 begin_include
 include|#

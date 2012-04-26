@@ -63,7 +63,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformOpenGLContext>
+file|<qpa/qplatformopenglcontext.h>
 end_include
 begin_include
 include|#
@@ -83,7 +83,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qplatformpixmap_qpa.h>
+file|<qpa/qplatformpixmap.h>
 end_include
 begin_include
 include|#

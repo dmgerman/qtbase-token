@@ -15,12 +15,12 @@ end_include
 begin_include
 include|#
 directive|include
-file|<QtGui/QPlatformNativeInterface>
+file|<qpa/qplatformnativeinterface.h>
 end_include
 begin_include
 include|#
 directive|include
-file|<QtPrintSupport/QPlatformPrinterSupportPlugin>
+file|<qpa/qplatformprintplugin.h>
 end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
