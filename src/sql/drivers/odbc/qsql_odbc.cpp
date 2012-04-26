@@ -5091,9 +5091,10 @@ literal|true
 return|;
 block|}
 name|SQLINTEGER
-name|isScrollable
-decl_stmt|,
 name|bufferLength
+decl_stmt|;
+name|SQLULEN
+name|isScrollable
 decl_stmt|;
 name|r
 operator|=
@@ -8701,9 +8702,10 @@ literal|false
 return|;
 block|}
 name|SQLINTEGER
-name|isScrollable
-decl_stmt|,
 name|bufferLength
+decl_stmt|;
+name|SQLULEN
+name|isScrollable
 decl_stmt|;
 name|r
 operator|=
