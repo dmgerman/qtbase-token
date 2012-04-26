@@ -11105,7 +11105,7 @@ literal|"\" />\n"
 expr_stmt|;
 name|navigationLinks
 operator|+=
-literal|"<a href=\""
+literal|"<a class=\"prevPage\" href=\""
 operator|+
 name|anchorPair
 operator|.
@@ -11229,7 +11229,7 @@ literal|"\" />\n"
 expr_stmt|;
 name|navigationLinks
 operator|+=
-literal|"<a href=\""
+literal|"<a class=\"nextPage\" href=\""
 operator|+
 name|anchorPair
 operator|.
