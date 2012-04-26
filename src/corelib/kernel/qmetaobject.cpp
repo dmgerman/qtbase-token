@@ -2472,6 +2472,9 @@ end_function
 begin_comment
 comment|// Parses a string of comma-separated types into QArgumentTypes.
 end_comment
+begin_comment
+comment|// No normalization of the type names is performed.
+end_comment
 begin_function
 DECL|function|argumentTypesFromString
 specifier|static
