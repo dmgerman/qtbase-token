@@ -348,6 +348,11 @@ operator|::
 name|WindowFlags
 name|m_windowFlags
 block|;
+name|Qt
+operator|::
+name|WindowState
+name|m_synchedWindowState
+block|;
 name|QPointer
 operator|<
 name|QWindow
