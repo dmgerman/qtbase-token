@@ -969,11 +969,11 @@ argument_list|()
 operator|<<
 literal|"QQNX: handleKeyboardInfoMessage size="
 operator|<<
-name|m_height
+name|newHeight
 operator|<<
 literal|"locale="
 operator|<<
-name|m_locale
+name|locale
 expr_stmt|;
 endif|#
 directive|endif
