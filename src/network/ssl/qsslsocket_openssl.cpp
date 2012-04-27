@@ -6195,6 +6195,13 @@ name|QSslError
 operator|::
 name|UnableToGetLocalIssuerCertificate
 case|:
+comment|// site presented intermediate cert, but root is unknown
+case|case
+name|QSslError
+operator|::
+name|SelfSignedCertificateInChain
+case|:
+comment|// site presented a complete chain, but root is unknown
 name|certToFetch
 operator|=
 name|sslErrors
@@ -6648,6 +6655,11 @@ case|case
 name|QSslError
 operator|::
 name|UnableToVerifyFirstCertificate
+case|:
+case|case
+name|QSslError
+operator|::
+name|SelfSignedCertificateInChain
 case|:
 comment|// error can be ignored if OS says the chain is trusted
 name|sslErrors
