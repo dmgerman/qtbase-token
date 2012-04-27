@@ -1586,6 +1586,10 @@ argument_list|(
 name|updateConfigurations
 argument_list|()
 argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
 argument_list|)
 expr_stmt|;
 name|connect
@@ -1609,6 +1613,10 @@ argument_list|(
 name|QNetworkConfigurationPrivatePointer
 argument_list|)
 argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
 argument_list|)
 expr_stmt|;
 name|connect
@@ -1632,6 +1640,10 @@ argument_list|(
 name|QNetworkConfigurationPrivatePointer
 argument_list|)
 argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
 argument_list|)
 expr_stmt|;
 name|connect
@@ -1655,6 +1667,10 @@ argument_list|(
 name|QNetworkConfigurationPrivatePointer
 argument_list|)
 argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
 argument_list|)
 expr_stmt|;
 block|}
