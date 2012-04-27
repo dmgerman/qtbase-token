@@ -143,6 +143,11 @@ modifier|&
 name|offset
 parameter_list|)
 block|{
+name|Q_ASSERT
+argument_list|(
+name|window
+argument_list|)
+expr_stmt|;
 comment|// TODO: Prepare paint for translucent windows.
 specifier|const
 name|QRect
@@ -176,8 +181,12 @@ name|QWindowsWindow
 modifier|*
 name|rw
 init|=
-name|rasterWindow
-argument_list|()
+name|QWindowsWindow
+operator|::
+name|baseWindowOf
+argument_list|(
+name|window
+argument_list|)
 decl_stmt|;
 specifier|const
 name|HDC
