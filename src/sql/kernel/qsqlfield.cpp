@@ -304,13 +304,13 @@ block|}
 class|;
 end_class
 begin_comment
-comment|/*!     \class QSqlField     \brief The QSqlField class manipulates the fields in SQL database tables     and views.      \ingroup database     \ingroup shared     \inmodule QtSql      QSqlField represents the characteristics of a single column in a     database table or view, such as the data type and column name. A     field also contains the value of the database column, which can be     viewed or changed.      Field data values are stored as QVariants. Using an incompatible     type is not permitted. For example:      \snippet doc/src/snippets/sqldatabase/sqldatabase.cpp 2      However, the field will attempt to cast certain data types to the     field data type where possible:      \snippet doc/src/snippets/sqldatabase/sqldatabase.cpp 3      QSqlField objects are rarely created explicitly in application     code. They are usually accessed indirectly through \l{QSqlRecord}s     that already contain a list of fields. For example:      \snippet doc/src/snippets/sqldatabase/sqldatabase.cpp 4     \dots     \snippet doc/src/snippets/sqldatabase/sqldatabase.cpp 5     \snippet doc/src/snippets/sqldatabase/sqldatabase.cpp 6      A QSqlField object can provide some meta-data about the field, for     example, its name(), variant type(), length(), precision(),     defaultValue(), typeID(), and its requiredStatus(),     isGenerated() and isReadOnly(). The field's data can be     checked to see if it isNull(), and its value() retrieved. When     editing the data can be set with setValue() or set to NULL with     clear().      \sa QSqlRecord */
+comment|/*!     \class QSqlField     \brief The QSqlField class manipulates the fields in SQL database tables     and views.      \ingroup database     \ingroup shared     \inmodule QtSql      QSqlField represents the characteristics of a single column in a     database table or view, such as the data type and column name. A     field also contains the value of the database column, which can be     viewed or changed.      Field data values are stored as QVariants. Using an incompatible     type is not permitted. For example:      \snippet sqldatabase/sqldatabase.cpp 2      However, the field will attempt to cast certain data types to the     field data type where possible:      \snippet sqldatabase/sqldatabase.cpp 3      QSqlField objects are rarely created explicitly in application     code. They are usually accessed indirectly through \l{QSqlRecord}s     that already contain a list of fields. For example:      \snippet sqldatabase/sqldatabase.cpp 4     \dots     \snippet sqldatabase/sqldatabase.cpp 5     \snippet sqldatabase/sqldatabase.cpp 6      A QSqlField object can provide some meta-data about the field, for     example, its name(), variant type(), length(), precision(),     defaultValue(), typeID(), and its requiredStatus(),     isGenerated() and isReadOnly(). The field's data can be     checked to see if it isNull(), and its value() retrieved. When     editing the data can be set with setValue() or set to NULL with     clear().      \sa QSqlRecord */
 end_comment
 begin_comment
 comment|/*!     \enum QSqlField::RequiredStatus      Specifies whether the field is required or optional.      \value Required  The field must be specified when inserting records.     \value Optional  The fields doesn't have to be specified when inserting records.     \value Unknown  The database driver couldn't determine whether the field is required or                     optional.      \sa requiredStatus() */
 end_comment
 begin_comment
-comment|/*!     Constructs an empty field called \a fieldName of variant type \a     type.      \sa setRequiredStatus() setLength() setPrecision() setDefaultValue() setGenerated() setReadOnly() */
+comment|/*!     Constructs an empty field called \a fieldName of variant type \a     type.      \sa setRequiredStatus(), setLength(), setPrecision(), setDefaultValue(),         setGenerated(), setReadOnly() */
 end_comment
 begin_constructor
 DECL|function|QSqlField
@@ -498,7 +498,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Sets the required status of this field to \a required.      \sa requiredStatus() setType() setLength() setPrecision() setDefaultValue() setGenerated() setReadOnly() */
+comment|/*!     Sets the required status of this field to \a required.      \sa requiredStatus(), setType(), setLength(), setPrecision(),         setDefaultValue(), setGenerated(), setReadOnly() */
 end_comment
 begin_function
 DECL|function|setRequiredStatus
@@ -526,7 +526,7 @@ begin_comment
 comment|/*! \fn void QSqlField::setRequired(bool required)      Sets the required status of this field to \l Required if \a     required is true; otherwise sets it to \l Optional.      \sa setRequiredStatus(), requiredStatus() */
 end_comment
 begin_comment
-comment|/*!     Sets the field's length to \a fieldLength. For strings this is the     maximum number of characters the string can hold; the meaning     varies for other types.      \sa length() setType() setRequiredStatus() setPrecision() setDefaultValue() setGenerated() setReadOnly() */
+comment|/*!     Sets the field's length to \a fieldLength. For strings this is the     maximum number of characters the string can hold; the meaning     varies for other types.      \sa length(), setType(), setRequiredStatus(), setPrecision(),         setDefaultValue(), setGenerated(), setReadOnly() */
 end_comment
 begin_function
 DECL|function|setLength
@@ -551,7 +551,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the field's \a precision. This only affects numeric fields.      \sa precision() setType() setRequiredStatus() setLength() setDefaultValue() setGenerated() setReadOnly() */
+comment|/*!     Sets the field's \a precision. This only affects numeric fields.      \sa precision(), setType(), setRequiredStatus(), setLength(),         setDefaultValue(), setGenerated(), setReadOnly() */
 end_comment
 begin_function
 DECL|function|setPrecision
@@ -576,7 +576,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the default value used for this field to \a value.      \sa defaultValue() value() setType() setRequiredStatus() setLength() setPrecision() setGenerated() setReadOnly() */
+comment|/*!     Sets the default value used for this field to \a value.      \sa defaultValue(), value(), setType(), setRequiredStatus(),         setLength(), setPrecision(), setGenerated(), setReadOnly() */
 end_comment
 begin_function
 DECL|function|setDefaultValue
@@ -628,7 +628,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the generated state. If \a gen is false, no SQL will     be generated for this field; otherwise, Qt classes such as     QSqlQueryModel and QSqlTableModel will generate SQL for this     field.      \sa isGenerated() setType() setRequiredStatus() setLength() setPrecision() setDefaultValue() setReadOnly() */
+comment|/*!     Sets the generated state. If \a gen is false, no SQL will     be generated for this field; otherwise, Qt classes such as     QSqlQueryModel and QSqlTableModel will generate SQL for this     field.      \sa isGenerated(), setType(), setRequiredStatus(), setLength(),         setPrecision(), setDefaultValue(), setReadOnly() */
 end_comment
 begin_function
 DECL|function|setGenerated
@@ -653,7 +653,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the value of the field to \a value. If the field is read-only     (isReadOnly() returns true), nothing happens.      If the data type of \a value differs from the field's current     data type, an attempt is made to cast it to the proper type. This     preserves the data type of the field in the case of assignment,     e.g. a QString to an integer data type.      To set the value to NULL, use clear().      \sa value() isReadOnly() defaultValue() */
+comment|/*!     Sets the value of the field to \a value. If the field is read-only     (isReadOnly() returns true), nothing happens.      If the data type of \a value differs from the field's current     data type, an attempt is made to cast it to the proper type. This     preserves the data type of the field in the case of assignment,     e.g. a QString to an integer data type.      To set the value to NULL, use clear().      \sa value(), isReadOnly(), defaultValue() */
 end_comment
 begin_function
 DECL|function|setValue
@@ -681,7 +681,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Clears the value of the field and sets it to NULL.     If the field is read-only, nothing happens.      \sa setValue() isReadOnly() requiredStatus() */
+comment|/*!     Clears the value of the field and sets it to NULL.     If the field is read-only, nothing happens.      \sa setValue(), isReadOnly(), requiredStatus() */
 end_comment
 begin_function
 DECL|function|clear
@@ -803,7 +803,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Set's the field's variant type to \a type.      \sa type() setRequiredStatus() setLength() setPrecision() setDefaultValue() setGenerated() setReadOnly() */
+comment|/*!     Set's the field's variant type to \a type.      \sa type(), setRequiredStatus(), setLength(), setPrecision(),         setDefaultValue(), setGenerated(), setReadOnly() */
 end_comment
 begin_function
 DECL|function|setType
@@ -845,7 +845,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the field's value is read-only; otherwise returns     false.      \sa setReadOnly() type() requiredStatus() length() precision() defaultValue() isGenerated() */
+comment|/*!     Returns true if the field's value is read-only; otherwise returns     false.      \sa setReadOnly(), type(), requiredStatus(), length(), precision(),         defaultValue(), isGenerated() */
 end_comment
 begin_function
 DECL|function|isReadOnly
@@ -902,7 +902,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if this is a required field; otherwise returns false.     An \c INSERT will fail if a required field does not have a value.      \sa setRequiredStatus() type() length() precision() defaultValue() isGenerated() */
+comment|/*!     Returns true if this is a required field; otherwise returns false.     An \c INSERT will fail if a required field does not have a value.      \sa setRequiredStatus(), type(), length(), precision(), defaultValue(),         isGenerated() */
 end_comment
 begin_function
 DECL|function|requiredStatus
@@ -923,7 +923,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the field's length.      If the returned value is negative, it means that the information     is not available from the database.      \sa setLength() type() requiredStatus() precision() defaultValue() isGenerated() */
+comment|/*!     Returns the field's length.      If the returned value is negative, it means that the information     is not available from the database.      \sa setLength(), type(), requiredStatus(), precision(), defaultValue(),         isGenerated() */
 end_comment
 begin_function
 DECL|function|length
@@ -942,7 +942,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the field's precision; this is only meaningful for numeric     types.      If the returned value is negative, it means that the information     is not available from the database.      \sa setPrecision() type() requiredStatus() length() defaultValue() isGenerated() */
+comment|/*!     Returns the field's precision; this is only meaningful for numeric     types.      If the returned value is negative, it means that the information     is not available from the database.      \sa setPrecision(), type(), requiredStatus(), length(), defaultValue(),         isGenerated() */
 end_comment
 begin_function
 DECL|function|precision
@@ -961,7 +961,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the field's default value (which may be NULL).      \sa setDefaultValue() type() requiredStatus() length() precision() isGenerated() */
+comment|/*!     Returns the field's default value (which may be NULL).      \sa setDefaultValue(), type(), requiredStatus(), length(), precision(),         isGenerated() */
 end_comment
 begin_function
 DECL|function|defaultValue
@@ -999,7 +999,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the field is generated; otherwise returns     false.      \sa setGenerated() type() requiredStatus() length() precision() defaultValue() */
+comment|/*!     Returns true if the field is generated; otherwise returns     false.      \sa setGenerated(), type(), requiredStatus(), length(), precision(),         defaultValue() */
 end_comment
 begin_function
 DECL|function|isGenerated
@@ -1242,9 +1242,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|/*!     \fn void QSqlField::setNull()      Use clear() instead. */
-end_comment
 begin_comment
 comment|/*!     Returns true if the value is auto-generated by the database,     for example auto-increment primary key values.      \sa setAutoValue() */
 end_comment

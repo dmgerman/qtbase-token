@@ -299,7 +299,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \class QSqlQueryModel     \brief The QSqlQueryModel class provides a read-only data model for SQL     result sets.      \ingroup database     \inmodule QtSql      QSqlQueryModel is a high-level interface for executing SQL     statements and traversing the result set. It is built on top of     the lower-level QSqlQuery and can be used to provide data to     view classes such as QTableView. For example:      \snippet doc/src/snippets/sqldatabase/sqldatabase.cpp 16      We set the model's query, then we set up the labels displayed in     the view header.      QSqlQueryModel can also be used to access a database     programmatically, without binding it to a view:      \snippet doc/src/snippets/sqldatabase/sqldatabase.cpp 21      The code snippet above extracts the \c salary field from record 4 in     the result set of the query \c{SELECT * from employee}. Assuming     that \c salary is column 2, we can rewrite the last line as follows:      \snippet doc/src/snippets/sqldatabase/sqldatabase.cpp 22      The model is read-only by default. To make it read-write, you     must subclass it and reimplement setData() and flags(). Another     option is to use QSqlTableModel, which provides a read-write     model based on a single database table.      The \l{sql/querymodel} example illustrates how to use     QSqlQueryModel to display the result of a query. It also shows     how to subclass QSqlQueryModel to customize the contents of the     data before showing it to the user, and how to create a     read-write model based on QSqlQueryModel.      If the database doesn't return the amount of selected rows in     a query, the model will fetch rows incrementally.     See fetchMore() for more information.      \sa QSqlTableModel, QSqlRelationalTableModel, QSqlQuery,         {Model/View Programming}, {Query Model Example} */
+comment|/*!     \class QSqlQueryModel     \brief The QSqlQueryModel class provides a read-only data model for SQL     result sets.      \ingroup database     \inmodule QtSql      QSqlQueryModel is a high-level interface for executing SQL     statements and traversing the result set. It is built on top of     the lower-level QSqlQuery and can be used to provide data to     view classes such as QTableView. For example:      \snippet sqldatabase/sqldatabase.cpp 16      We set the model's query, then we set up the labels displayed in     the view header.      QSqlQueryModel can also be used to access a database     programmatically, without binding it to a view:      \snippet sqldatabase/sqldatabase.cpp 21      The code snippet above extracts the \c salary field from record 4 in     the result set of the query \c{SELECT * from employee}. Assuming     that \c salary is column 2, we can rewrite the last line as follows:      \snippet sqldatabase/sqldatabase.cpp 22      The model is read-only by default. To make it read-write, you     must subclass it and reimplement setData() and flags(). Another     option is to use QSqlTableModel, which provides a read-write     model based on a single database table.      The \l{sql/querymodel} example illustrates how to use     QSqlQueryModel to display the result of a query. It also shows     how to subclass QSqlQueryModel to customize the contents of the     data before showing it to the user, and how to create a     read-write model based on QSqlQueryModel.      If the database doesn't return the amount of selected rows in     a query, the model will fetch rows incrementally.     See fetchMore() for more information.      \sa QSqlTableModel, QSqlRelationalTableModel, QSqlQuery,         {Model/View Programming}, {Query Model Example} */
 end_comment
 begin_comment
 comment|/*!     Creates an empty QSqlQueryModel with the given \a parent.  */
@@ -364,7 +364,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     \since 4.1      Fetches more rows from a database.     This only affects databases that don't report back the size of a query     (see QSqlDriver::hasFeature()).      To force fetching of the entire result set, you can use the following:      \snippet doc/src/snippets/code/src_sql_models_qsqlquerymodel.cpp 0      \a parent should always be an invalid QModelIndex.      \sa canFetchMore() */
+comment|/*!     \since 4.1      Fetches more rows from a database.     This only affects databases that don't report back the size of a query     (see QSqlDriver::hasFeature()).      To force fetching of the entire result set, you can use the following:      \snippet code/src_sql_models_qsqlquerymodel.cpp 0      \a parent should always be an invalid QModelIndex.      \sa canFetchMore() */
 end_comment
 begin_function
 DECL|function|fetchMore
@@ -1194,7 +1194,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*! \overload      Executes the query \a query for the given database connection \a     db. If no database (or an invalid database) is specified, the     default connection is used.      lastError() can be used to retrieve verbose information if there     was an error setting the query.      Example:     \snippet doc/src/snippets/code/src_sql_models_qsqlquerymodel.cpp 1      \sa query(), queryChange(), lastError() */
+comment|/*! \overload      Executes the query \a query for the given database connection \a     db. If no database (or an invalid database) is specified, the     default connection is used.      lastError() can be used to retrieve verbose information if there     was an error setting the query.      Example:     \snippet code/src_sql_models_qsqlquerymodel.cpp 1      \sa query(), queryChange(), lastError() */
 end_comment
 begin_function
 DECL|function|setQuery
@@ -1585,7 +1585,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts \a count columns into the model at position \a column. The     \a parent parameter must always be an invalid QModelIndex, since     the model does not support parent-child relationships.      Returns true if \a column is within bounds; otherwise returns false.      By default, inserted columns are empty. To fill them with data,     reimplement data() and handle any inserted column separately:      \snippet doc/src/snippets/sqldatabase/sqldatabase.cpp 23      \sa removeColumns() */
+comment|/*!     Inserts \a count columns into the model at position \a column. The     \a parent parameter must always be an invalid QModelIndex, since     the model does not support parent-child relationships.      Returns true if \a column is within bounds; otherwise returns false.      By default, inserted columns are empty. To fill them with data,     reimplement data() and handle any inserted column separately:      \snippet sqldatabase/sqldatabase.cpp 23      \sa removeColumns() */
 end_comment
 begin_function
 DECL|function|insertColumns

@@ -225,7 +225,7 @@ begin_comment
 comment|/*!     \since 4.4      \fn QSqlDriver::notification(const QString&name)      This signal is emitted when the database posts an event notification     that the driver subscribes to. \a name identifies the event notification.      \sa subscribeToNotification() */
 end_comment
 begin_comment
-comment|/*!     \since 5.0      \fn QSqlDriver::notification(const QString&name, NotificationSource source, const QString& payload)      This signal is emitted when the database posts an event notification     that the driver subscribes to. \a name identifies the event notification, \a source indicates the signal source,     \a payload holds the extra data optionally delivered with the notification.      \sa subscribeToNotification() */
+comment|/*!     \since 5.0      \fn QSqlDriver::notification(const QString&name, QSqlDriver::NotificationSource source, const QVariant& payload)      This signal is emitted when the database posts an event notification     that the driver subscribes to. \a name identifies the event notification, \a source indicates the signal source,     \a payload holds the extra data optionally delivered with the notification.      \sa subscribeToNotification() */
 end_comment
 begin_comment
 comment|/*!     \fn bool QSqlDriver::open(const QString&db, const QString&user, const QString& password,                               const QString&host, int port, const QString&options)      Derived classes must reimplement this pure virtual function to     open a database connection on database \a db, using user name \a     user, password \a password, host \a host, port \a port and     connection options \a options.      The function must return true on success and false on failure.      \sa setOpen() */
@@ -1889,7 +1889,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the low-level database handle wrapped in a QVariant or an     invalid variant if there is no handle.      \warning Use this with uttermost care and only if you know what you're doing.      \warning The handle returned here can become a stale pointer if the connection     is modified (for example, if you close the connection).      \warning The handle can be NULL if the connection is not open yet.      The handle returned here is database-dependent, you should query the type     name of the variant before accessing it.      This example retrieves the handle for a connection to sqlite:      \snippet doc/src/snippets/code/src_sql_kernel_qsqldriver.cpp 0      This snippet returns the handle for PostgreSQL or MySQL:      \snippet doc/src/snippets/code/src_sql_kernel_qsqldriver.cpp 1      \sa QSqlResult::handle() */
+comment|/*!     Returns the low-level database handle wrapped in a QVariant or an     invalid variant if there is no handle.      \warning Use this with uttermost care and only if you know what you're doing.      \warning The handle returned here can become a stale pointer if the connection     is modified (for example, if you close the connection).      \warning The handle can be NULL if the connection is not open yet.      The handle returned here is database-dependent, you should query the type     name of the variant before accessing it.      This example retrieves the handle for a connection to sqlite:      \snippet code/src_sql_kernel_qsqldriver.cpp 0      This snippet returns the handle for PostgreSQL or MySQL:      \snippet code/src_sql_kernel_qsqldriver.cpp 1      \sa QSqlResult::handle() */
 end_comment
 begin_function
 DECL|function|handle
@@ -1907,22 +1907,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QSqlRecord QSqlDriver::record(const QSqlQuery& query) const      Use query.record() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QSqlRecord QSqlDriver::recordInfo(const QString& tablename) const      Use record() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QSqlRecord QSqlDriver::recordInfo(const QSqlQuery& query) const      Use query.record() instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QSqlDriver::nullText() const      sqlStatement() is now used to generate SQL. Use tr("NULL") for example, instead. */
-end_comment
-begin_comment
-comment|/*!     \fn QString QSqlDriver::formatValue(const QSqlField *field, bool trimStrings) const      Use the other formatValue() overload instead. */
-end_comment
-begin_comment
-comment|/*!     This function is called to subscribe to event notifications from the database.     \a name identifies the event notification.      If successful, return true, otherwise return false.      The database must be open when this function is called. When the database is closed     by calling close() all subscribed event notifications are automatically unsubscribed.     Note that calling open() on an already open database may implicitly cause close() to     be called, which will cause the driver to unsubscribe from all event notifications.      When an event notification identified by \a name is posted by the database the     notification() signal is emitted.      Reimplement this function if you want to provide event notification support in your     own QSqlDriver subclass,      \since 4.4     \sa unsubscribeFromNotification() subscribedToNotifications() QSqlDriver::hasFeature() */
+comment|/*!     This function is called to subscribe to event notifications from the database.     \a name identifies the event notification.      If successful, return true, otherwise return false.      The database must be open when this function is called. When the database is closed     by calling close() all subscribed event notifications are automatically unsubscribed.     Note that calling open() on an already open database may implicitly cause close() to     be called, which will cause the driver to unsubscribe from all event notifications.      When an event notification identified by \a name is posted by the database the     notification() signal is emitted.      Reimplement this function if you want to provide event notification support in your     own QSqlDriver subclass,      \since 4.4     \sa unsubscribeFromNotification(), subscribedToNotifications(), QSqlDriver::hasFeature() */
 end_comment
 begin_function
 DECL|function|subscribeToNotification
@@ -1948,7 +1933,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function is called to unsubscribe from event notifications from the database.     \a name identifies the event notification.      If successful, return true, otherwise return false.      The database must be open when this function is called. All subscribed event     notifications are automatically unsubscribed from when the close() function is called.      After calling \e this function the notification() signal will no longer be emitted     when an event notification identified by \a name is posted by the database.      Reimplement this function if you want to provide event notification support in your     own QSqlDriver subclass,      \since 4.4     \sa subscribeToNotification() subscribedToNotifications() */
+comment|/*!     This function is called to unsubscribe from event notifications from the database.     \a name identifies the event notification.      If successful, return true, otherwise return false.      The database must be open when this function is called. All subscribed event     notifications are automatically unsubscribed from when the close() function is called.      After calling \e this function the notification() signal will no longer be emitted     when an event notification identified by \a name is posted by the database.      Reimplement this function if you want to provide event notification support in your     own QSqlDriver subclass,      \since 4.4     \sa subscribeToNotification(), subscribedToNotifications() */
 end_comment
 begin_function
 DECL|function|unsubscribeFromNotification
@@ -1974,7 +1959,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of the names of the event notifications that are currently subscribed to.      Reimplement this function if you want to provide event notification support in your     own QSqlDriver subclass,      \since 4.4     \sa subscribeToNotification() unsubscribeFromNotification() */
+comment|/*!     Returns a list of the names of the event notifications that are currently subscribed to.      Reimplement this function if you want to provide event notification support in your     own QSqlDriver subclass,      \since 4.4     \sa subscribeToNotification(), unsubscribeFromNotification() */
 end_comment
 begin_function
 DECL|function|subscribedToNotifications

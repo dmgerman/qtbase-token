@@ -285,7 +285,7 @@ parameter_list|()
 block|{ }
 end_destructor
 begin_comment
-comment|/*!     Returns the text of the error as reported by the driver. This may     contain database-specific descriptions. It may also be empty.      \sa setDriverText() databaseText() text() */
+comment|/*!     Returns the text of the error as reported by the driver. This may     contain database-specific descriptions. It may also be empty.      \sa setDriverText(), databaseText(), text() */
 end_comment
 begin_function
 DECL|function|driverText
@@ -302,7 +302,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the driver error text to the value of \a driverText.      \sa driverText() setDatabaseText() text() */
+comment|/*!     Sets the driver error text to the value of \a driverText.      \sa driverText(), setDatabaseText(), text() */
 end_comment
 begin_function
 DECL|function|setDriverText
@@ -324,7 +324,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the text of the error as reported by the database. This     may contain database-specific descriptions; it may be empty.      \sa setDatabaseText() driverText() text() */
+comment|/*!     Returns the text of the error as reported by the database. This     may contain database-specific descriptions; it may be empty.      \sa setDatabaseText(), driverText(), text() */
 end_comment
 begin_function
 DECL|function|databaseText
@@ -341,7 +341,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the database error text to the value of \a databaseText.      \sa databaseText() setDriverText() text() */
+comment|/*!     Sets the database error text to the value of \a databaseText.      \sa databaseText(), setDriverText(), text() */
 end_comment
 begin_function
 DECL|function|setDatabaseText
@@ -439,7 +439,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     This is a convenience function that returns databaseText() and     driverText() concatenated into a single string.      \sa driverText() databaseText() */
+comment|/*!     This is a convenience function that returns databaseText() and     driverText() concatenated into a single string.      \sa driverText(), databaseText() */
 end_comment
 begin_function
 DECL|function|text
@@ -485,7 +485,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if an error is set, otherwise false.      Example:     \snippet doc/src/snippets/code/src_sql_kernel_qsqlerror.cpp 0      \sa type() */
+comment|/*!     Returns true if an error is set, otherwise false.      Example:     \snippet code/src_sql_kernel_qsqlerror.cpp 0      \sa type() */
 end_comment
 begin_function
 DECL|function|isValid

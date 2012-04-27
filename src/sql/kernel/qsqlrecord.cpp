@@ -346,7 +346,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value of the field located at position \a index in     the record. If \a index is out of bounds, an invalid QVariant     is returned.      \sa fieldName() isNull() */
+comment|/*!     Returns the value of the field located at position \a index in     the record. If \a index is out of bounds, an invalid QVariant     is returned.      \sa fieldName(), isNull() */
 end_comment
 begin_function
 DECL|function|value
@@ -560,7 +560,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Append a copy of field \a field to the end of the record.      \sa insert() replace() remove() */
+comment|/*!     Append a copy of field \a field to the end of the record.      \sa insert(), replace(), remove() */
 end_comment
 begin_function
 DECL|function|append
@@ -590,7 +590,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Inserts the field \a field at position \a pos in the record.      \sa append() replace() remove()  */
+comment|/*!     Inserts the field \a field at position \a pos in the record.      \sa append(), replace(), remove()  */
 end_comment
 begin_function
 DECL|function|insert
@@ -625,7 +625,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Replaces the field at position \a pos with the given \a field. If     \a pos is out of range, nothing happens.      \sa append() insert() remove() */
+comment|/*!     Replaces the field at position \a pos with the given \a field. If     \a pos is out of range, nothing happens.      \sa append(), insert(), remove() */
 end_comment
 begin_function
 DECL|function|replace
@@ -669,7 +669,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes the field at position \a pos. If \a pos is out of range,     nothing happens.      \sa append() insert() replace() */
+comment|/*!     Removes the field at position \a pos. If \a pos is out of range,     nothing happens.      \sa append(), insert(), replace() */
 end_comment
 begin_function
 DECL|function|remove
@@ -708,7 +708,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Removes all the record's fields.      \sa clearValues() isEmpty() */
+comment|/*!     Removes all the record's fields.      \sa clearValues(), isEmpty() */
 end_comment
 begin_function
 DECL|function|clear
@@ -731,7 +731,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if there are no fields in the record; otherwise     returns false.      \sa append() insert() clear() */
+comment|/*!     Returns true if there are no fields in the record; otherwise     returns false.      \sa append(), insert(), clear() */
 end_comment
 begin_function
 DECL|function|isEmpty
@@ -1299,9 +1299,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-begin_comment
-comment|/*!     \fn int QSqlRecord::position(const QString& name) const      Use indexOf() instead. */
-end_comment
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
