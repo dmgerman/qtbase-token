@@ -845,7 +845,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.4      Returns the socket's verify mode. This mode mode decides whether     QSslSocket should request a certificate from the peer (i.e., the client     requests a certificate from the server, or a server requesting a     certificate from the client), and whether it should require that this     certificate is valid.      The default mode is AutoVerifyPeer, which tells QSslSocket to use     VerifyPeer for clients and QueryPeer for servers.      \sa setPeerVerifyMode(), peerVerifyDepth(), mode() */
+comment|/*!     \since 4.4      Returns the socket's verify mode. This mode decides whether     QSslSocket should request a certificate from the peer (i.e., the client     requests a certificate from the server, or a server requesting a     certificate from the client), and whether it should require that this     certificate is valid.      The default mode is AutoVerifyPeer, which tells QSslSocket to use     VerifyPeer for clients and QueryPeer for servers.      \sa setPeerVerifyMode(), peerVerifyDepth(), mode() */
 end_comment
 begin_function
 DECL|function|peerVerifyMode

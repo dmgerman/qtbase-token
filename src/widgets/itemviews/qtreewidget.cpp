@@ -10599,7 +10599,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   Sets the current \a item in the tree widget.    Unless the selection mode is \l{QAbstractItemView::}{NoSelection},   the item is also be selected.    \sa currentItem(), currentItemChanged() */
+comment|/*!   Sets the current \a item in the tree widget.    Unless the selection mode is \l{QAbstractItemView::}{NoSelection},   the item is also selected.    \sa currentItem(), currentItemChanged() */
 end_comment
 begin_function
 DECL|function|setCurrentItem
