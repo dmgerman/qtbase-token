@@ -498,6 +498,8 @@ operator|::
 name|eventOrderOnShow
 parameter_list|()
 block|{
+comment|// Some platforms enforce minimum widths for windows, which can cause extra resize
+comment|// events, so set the width to suitably large value to avoid those.
 name|QRect
 name|geometry
 argument_list|(
@@ -505,7 +507,7 @@ literal|80
 argument_list|,
 literal|80
 argument_list|,
-literal|40
+literal|300
 argument_list|,
 literal|40
 argument_list|)
@@ -523,6 +525,11 @@ expr_stmt|;
 name|window
 operator|.
 name|show
+argument_list|()
+expr_stmt|;
+name|QCoreApplication
+operator|::
+name|processEvents
 argument_list|()
 expr_stmt|;
 name|QTRY_COMPARE
@@ -613,6 +620,8 @@ operator|::
 name|positioning
 parameter_list|()
 block|{
+comment|// Some platforms enforce minimum widths for windows, which can cause extra resize
+comment|// events, so set the width to suitably large value to avoid those.
 name|QRect
 name|geometry
 argument_list|(
@@ -620,7 +629,7 @@ literal|80
 argument_list|,
 literal|80
 argument_list|,
-literal|40
+literal|300
 argument_list|,
 literal|40
 argument_list|)
@@ -648,6 +657,11 @@ expr_stmt|;
 name|window
 operator|.
 name|show
+argument_list|()
+expr_stmt|;
+name|QCoreApplication
+operator|::
+name|processEvents
 argument_list|()
 expr_stmt|;
 name|QTRY_COMPARE
@@ -753,20 +767,11 @@ operator|::
 name|WindowFullScreen
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|Q_OS_WIN
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-24904 - Too many resize events on setting window state"
-argument_list|,
-name|Continue
-argument_list|)
+name|QCoreApplication
+operator|::
+name|processEvents
+argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 name|QTRY_COMPARE
 argument_list|(
 name|window
@@ -789,6 +794,11 @@ name|Qt
 operator|::
 name|WindowNoState
 argument_list|)
+expr_stmt|;
+name|QCoreApplication
+operator|::
+name|processEvents
+argument_list|()
 expr_stmt|;
 name|QTRY_COMPARE
 argument_list|(
@@ -1023,6 +1033,11 @@ operator|.
 name|show
 argument_list|()
 expr_stmt|;
+name|QCoreApplication
+operator|::
+name|processEvents
+argument_list|()
+expr_stmt|;
 name|QTRY_VERIFY
 argument_list|(
 name|window
@@ -1048,6 +1063,11 @@ expr_stmt|;
 name|window
 operator|.
 name|hide
+argument_list|()
+expr_stmt|;
+name|QCoreApplication
+operator|::
+name|processEvents
 argument_list|()
 expr_stmt|;
 ifdef|#
@@ -1100,6 +1120,8 @@ block|{
 name|Window
 name|window
 decl_stmt|;
+comment|// Some platforms enforce minimum widths for windows, which can cause extra resize
+comment|// events, so set the width to suitably large value to avoid those.
 name|window
 operator|.
 name|setGeometry
@@ -1108,7 +1130,7 @@ literal|80
 argument_list|,
 literal|80
 argument_list|,
-literal|40
+literal|300
 argument_list|,
 literal|40
 argument_list|)
@@ -1116,6 +1138,11 @@ expr_stmt|;
 name|window
 operator|.
 name|show
+argument_list|()
+expr_stmt|;
+name|QCoreApplication
+operator|::
+name|processEvents
 argument_list|()
 expr_stmt|;
 name|QTRY_VERIFY
@@ -1221,6 +1248,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// parent shouldn't receive new resize events from child being shown
+name|QCoreApplication
+operator|::
+name|processEvents
+argument_list|()
+expr_stmt|;
 name|QTRY_COMPARE
 argument_list|(
 name|window
@@ -1305,7 +1337,7 @@ literal|110
 argument_list|,
 literal|110
 argument_list|,
-literal|30
+literal|300
 argument_list|,
 literal|30
 argument_list|)
@@ -1327,6 +1359,11 @@ operator|.
 name|isExposed
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|QCoreApplication
+operator|::
+name|processEvents
+argument_list|()
 expr_stmt|;
 name|QTRY_COMPARE
 argument_list|(
@@ -1394,6 +1431,11 @@ operator|==
 operator|&
 name|window
 argument_list|)
+expr_stmt|;
+name|QCoreApplication
+operator|::
+name|processEvents
+argument_list|()
 expr_stmt|;
 name|QTRY_COMPARE
 argument_list|(
