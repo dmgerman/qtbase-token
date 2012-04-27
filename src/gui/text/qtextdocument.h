@@ -31,6 +31,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qvariant.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtGui/qfont.h>
 end_include
 begin_decl_stmt
@@ -1014,6 +1019,7 @@ operator|&
 name|f
 argument_list|)
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|QVariant
 name|loadResource

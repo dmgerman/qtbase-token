@@ -1707,15 +1707,6 @@ argument_list|(
 literal|"<img src=\":/some/resource\"/>"
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"FIXME: Resource detection broken"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|browser
@@ -3000,23 +2991,11 @@ argument_list|(
 name|url
 argument_list|)
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"FIXME: Resource detection broken"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
 name|QCOMPARE
 argument_list|(
 name|browser
 operator|->
 name|lastResource
-operator|.
-name|toLocalFile
-argument_list|()
 argument_list|,
 name|QUrl
 operator|::
@@ -3032,9 +3011,6 @@ argument_list|(
 literal|"foobar.png"
 argument_list|)
 argument_list|)
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|QEXPECT_FAIL

@@ -327,6 +327,7 @@ name|void
 name|ensureCursorVisible
 argument_list|()
 block|;
+name|Q_INVOKABLE
 name|virtual
 name|QVariant
 name|loadResource
