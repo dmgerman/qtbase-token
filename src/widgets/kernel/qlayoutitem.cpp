@@ -1330,7 +1330,7 @@ operator|.
 name|expandingDirections
 argument_list|()
 decl_stmt|;
-comment|/*       ### Qt 4.0:       If the layout is expanding, we make the widget expanding, even if       its own size policy isn't expanding. This behavior should be       reconsidered.     */
+comment|/*       If the layout is expanding, we make the widget expanding, even if       its own size policy isn't expanding.     */
 if|if
 condition|(
 name|wid
