@@ -3272,6 +3272,19 @@ init|=
 operator|new
 name|QHttpThreadDelegate
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|QT_NO_BEARERMANAGEMENT
+name|delegate
+operator|->
+name|networkSession
+operator|=
+name|managerPrivate
+operator|->
+name|networkSession
+expr_stmt|;
+endif|#
+directive|endif
 comment|// For the synchronous HTTP, this is the normal way the delegate gets deleted
 comment|// For the asynchronous HTTP this is a safety measure, the delegate deletes itself when HTTP is finished
 name|QObject
