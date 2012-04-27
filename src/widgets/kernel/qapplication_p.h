@@ -1561,6 +1561,13 @@ argument_list|(
 name|widget
 argument_list|)
 condition|)
+if|if
+condition|(
+name|window
+operator|->
+name|handle
+argument_list|()
+condition|)
 return|return
 name|static_cast
 operator|<
