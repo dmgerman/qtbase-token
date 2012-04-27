@@ -996,6 +996,15 @@ return|return
 literal|0
 return|;
 block|}
+name|virtual
+name|QString
+name|idNumber
+parameter_list|()
+block|{
+return|return
+literal|"0"
+return|;
+block|}
 name|QmlClassNode
 modifier|*
 name|qmlClassNode
@@ -1077,6 +1086,16 @@ parameter_list|(
 name|unsigned
 name|t
 parameter_list|)
+function_decl|;
+specifier|static
+name|int
+name|incPropertyGroupCount
+parameter_list|()
+function_decl|;
+specifier|static
+name|void
+name|clearPropertyGroupCount
+parameter_list|()
 function_decl|;
 name|protected
 label|:
@@ -1175,6 +1194,10 @@ decl_stmt|;
 specifier|static
 name|QStringMap
 name|operators_
+decl_stmt|;
+specifier|static
+name|int
+name|propertyGroupCount_
 decl_stmt|;
 block|}
 end_decl_stmt
@@ -2725,7 +2748,6 @@ operator|&
 name|name
 argument_list|)
 block|;
-comment|//bool attached);
 name|virtual
 operator|~
 name|QmlPropGroupNode
@@ -2797,6 +2819,11 @@ name|qmlModuleIdentifier
 argument_list|()
 return|;
 block|}
+name|virtual
+name|QString
+name|idNumber
+argument_list|()
+block|;
 specifier|const
 name|QString
 operator|&
@@ -2812,13 +2839,11 @@ name|name
 argument_list|()
 return|;
 block|}
-if|#
-directive|if
-literal|0
-expr|void setDefault() { isdefault_ = true; }     void setReadOnly(int ro) { readOnly_ = ro; }     int getReadOnly() const { return readOnly_; }     bool isDefault() const { return isdefault_; }     bool isAttached() const { return attached_; }     bool isReadOnly() const { return (readOnly_> 0); }  private:     bool    isdefault_;     bool    attached_;     int     readOnly_;
-endif|#
-directive|endif
-expr|}
+name|private
+operator|:
+name|int
+name|idNumber_
+block|; }
 block|;
 DECL|variable|QmlPropertyNode
 name|class
@@ -4828,9 +4853,11 @@ return|return
 name|list
 return|;
 block|}
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|VariableNode
-operator|:
+range|:
 name|public
 name|LeafNode
 block|{
@@ -4936,7 +4963,9 @@ block|;
 name|bool
 name|sta
 block|; }
-block|;
+decl_stmt|;
+end_decl_stmt
+begin_expr_stmt
 DECL|function|VariableNode
 specifier|inline
 name|VariableNode
@@ -4961,7 +4990,7 @@ name|parent
 argument_list|,
 name|name
 argument_list|)
-block|,
+operator|,
 name|sta
 argument_list|(
 argument|false
@@ -5020,10 +5049,11 @@ name|ditamap
 argument_list|()
 return|;
 block|}
-expr|}
-block|;
+end_expr_stmt
+begin_macro
+unit|};
 name|QT_END_NAMESPACE
-end_decl_stmt
+end_macro
 begin_endif
 endif|#
 directive|endif
