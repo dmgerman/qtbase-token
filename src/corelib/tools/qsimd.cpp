@@ -522,7 +522,7 @@ name|defined
 argument_list|(
 name|Q_CC_GNU
 argument_list|)
-name|long
+name|qintptr
 name|tmp1
 decl_stmt|;
 ifdef|#
@@ -607,7 +607,7 @@ name|defined
 argument_list|(
 name|Q_CC_GNU
 argument_list|)
-name|long
+name|qintptr
 name|tmp1
 decl_stmt|;
 asm|asm ("xchg " PICreg", %2\n"          "cpuid\n"          "xchg " PICreg", %2\n"         : "=&c" (ecx), "=&d" (edx), "=&r" (tmp1)         : "a" (1));
@@ -664,8 +664,7 @@ name|defined
 argument_list|(
 name|Q_CC_GNU
 argument_list|)
-name|unsigned
-name|long
+name|quintptr
 name|rbx
 decl_stmt|;
 comment|// in case it's 64-bit
