@@ -2096,7 +2096,7 @@ index|[
 name|ibw
 index|]
 expr_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|amp
 operator|.
@@ -2122,7 +2122,7 @@ index|[
 name|ibw
 index|]
 expr_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|amp
 operator|.
@@ -2148,7 +2148,7 @@ index|[
 name|ibw
 index|]
 expr_stmt|;
-name|qMemSet
+name|memset
 argument_list|(
 name|amp
 operator|.
