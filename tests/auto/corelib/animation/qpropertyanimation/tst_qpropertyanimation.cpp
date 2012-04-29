@@ -4221,7 +4221,9 @@ name|progress
 parameter_list|)
 block|{
 return|return
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|<
 name|Number
 argument_list|>
@@ -4325,7 +4327,9 @@ name|setProperty
 argument_list|(
 literal|"number"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|<
 name|Number
 argument_list|>
@@ -4339,7 +4343,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|Number
 argument_list|>
@@ -4380,7 +4384,9 @@ name|anim
 operator|.
 name|setStartValue
 argument_list|(
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|<
 name|Number
 argument_list|>
@@ -4396,7 +4402,9 @@ name|anim
 operator|.
 name|setEndValue
 argument_list|(
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|<
 name|Number
 argument_list|>
@@ -4435,7 +4443,7 @@ expr_stmt|;
 name|Number
 name|t
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|Number
 argument_list|>
@@ -4468,7 +4476,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|Number
 argument_list|>
@@ -5473,7 +5481,7 @@ decl_stmt|;
 comment|//old state
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -5494,7 +5502,7 @@ expr_stmt|;
 comment|//new state
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -5525,7 +5533,7 @@ decl_stmt|;
 comment|//old state
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -5546,7 +5554,7 @@ expr_stmt|;
 comment|//new state
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::

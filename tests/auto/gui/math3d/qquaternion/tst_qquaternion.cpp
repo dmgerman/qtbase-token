@@ -6746,7 +6746,7 @@ expr_stmt|;
 name|QQuaternion
 name|q
 init|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QQuaternion
 argument_list|>
@@ -6817,7 +6817,9 @@ name|setProperty
 argument_list|(
 literal|"quaternion"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|QQuaternion
 argument_list|(
@@ -6838,7 +6840,7 @@ argument_list|)
 expr_stmt|;
 name|q
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QQuaternion
 argument_list|>

@@ -3924,7 +3924,7 @@ operator|::
 name|Points
 name|p
 init|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|myNS
 operator|::
@@ -3972,7 +3972,9 @@ name|setProperty
 argument_list|(
 name|ba
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|p
 argument_list|)
@@ -3984,7 +3986,7 @@ operator|::
 name|Points
 name|pp
 init|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|myNS
 operator|::
@@ -6063,7 +6065,9 @@ argument_list|(
 literal|"foo"
 argument_list|)
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 literal|1
 argument_list|)
@@ -6087,7 +6091,9 @@ argument_list|(
 literal|"bar"
 argument_list|)
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 literal|2
 argument_list|)
@@ -6111,7 +6117,9 @@ argument_list|(
 literal|"plop"
 argument_list|)
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 literal|3
 argument_list|)
@@ -6135,7 +6143,9 @@ argument_list|(
 literal|"baz"
 argument_list|)
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 literal|4
 argument_list|)

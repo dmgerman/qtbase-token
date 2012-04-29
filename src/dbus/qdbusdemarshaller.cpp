@@ -946,7 +946,9 @@ operator|::
 name|UnixFileDescriptorPassing
 condition|)
 return|return
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|toUnixFileDescriptor
 argument_list|()

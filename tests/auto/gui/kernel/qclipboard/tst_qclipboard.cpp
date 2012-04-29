@@ -560,7 +560,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QClipboard
 operator|::
@@ -647,7 +647,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QClipboard
 operator|::
@@ -768,7 +768,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QClipboard
 operator|::

@@ -15661,7 +15661,7 @@ expr_stmt|;
 name|QVector2D
 name|v2
 init|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QVector2D
 argument_list|>
@@ -15703,7 +15703,7 @@ expr_stmt|;
 name|QVector3D
 name|v3
 init|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QVector3D
 argument_list|>
@@ -15758,7 +15758,7 @@ expr_stmt|;
 name|QVector4D
 name|v4
 init|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QVector4D
 argument_list|>
@@ -15829,7 +15829,9 @@ name|setProperty
 argument_list|(
 literal|"vector2D"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|QVector2D
 argument_list|(
@@ -15848,7 +15850,9 @@ name|setProperty
 argument_list|(
 literal|"vector3D"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|QVector3D
 argument_list|(
@@ -15870,7 +15874,9 @@ name|setProperty
 argument_list|(
 literal|"vector4D"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|QVector4D
 argument_list|(
@@ -15891,7 +15897,7 @@ argument_list|)
 expr_stmt|;
 name|v2
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QVector2D
 argument_list|>
@@ -15934,7 +15940,7 @@ argument_list|)
 expr_stmt|;
 name|v3
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QVector3D
 argument_list|>
@@ -15991,7 +15997,7 @@ argument_list|)
 expr_stmt|;
 name|v4
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QVector4D
 argument_list|>

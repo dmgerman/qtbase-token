@@ -360,7 +360,9 @@ name|setProperty
 argument_list|(
 literal|"pendingResponses"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|responses
 argument_list|)
@@ -440,7 +442,9 @@ name|setProperty
 argument_list|(
 literal|"pendingResponses"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|pendingResponses
 argument_list|)

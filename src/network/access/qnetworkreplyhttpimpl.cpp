@@ -4904,7 +4904,9 @@ name|QNetworkRequest
 operator|::
 name|DownloadBufferAttribute
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|<
 name|QSharedPointer
 argument_list|<

@@ -2687,7 +2687,9 @@ name|setProperty
 argument_list|(
 literal|"variantProp"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|expectedValue
 argument_list|)
@@ -2822,7 +2824,9 @@ name|setProperty
 argument_list|(
 literal|"complexProp"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|expectedValue
 argument_list|)
@@ -3102,7 +3106,9 @@ name|setProperty
 argument_list|(
 literal|"variantProp"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|expectedValue
 argument_list|)
@@ -3246,7 +3252,9 @@ name|setProperty
 argument_list|(
 literal|"complexProp"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|expectedValue
 argument_list|)

@@ -15892,7 +15892,7 @@ name|d
 decl_stmt|;
 name|d
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QDate
 argument_list|>
@@ -16160,7 +16160,7 @@ name|t
 decl_stmt|;
 name|t
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QTime
 argument_list|>
@@ -16635,7 +16635,7 @@ name|d
 decl_stmt|;
 name|d
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QDate
 argument_list|>
@@ -16692,7 +16692,7 @@ name|t
 decl_stmt|;
 name|t
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QTime
 argument_list|>
@@ -16749,7 +16749,7 @@ name|dt
 decl_stmt|;
 name|dt
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QDateTime
 argument_list|>

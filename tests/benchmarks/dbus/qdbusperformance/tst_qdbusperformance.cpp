@@ -673,7 +673,9 @@ name|toAscii
 argument_list|()
 argument_list|)
 operator|<<
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|ba
 argument_list|)
@@ -730,7 +732,9 @@ name|toAscii
 argument_list|()
 argument_list|)
 operator|<<
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|s
 argument_list|)
@@ -826,7 +830,9 @@ literal|"size"
 argument_list|,
 name|size
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|QDBusVariant
 argument_list|(
@@ -930,7 +936,9 @@ literal|"echo"
 argument_list|,
 name|size
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|QDBusVariant
 argument_list|(

@@ -1899,7 +1899,9 @@ operator|->
 name|meta
 argument_list|)
 else|:
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|d
 operator|->

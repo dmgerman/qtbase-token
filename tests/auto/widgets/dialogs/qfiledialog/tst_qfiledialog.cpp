@@ -7020,7 +7020,7 @@ expr_stmt|;
 name|QString
 name|currentPath
 init|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QString
 argument_list|>
@@ -7058,7 +7058,7 @@ argument_list|()
 expr_stmt|;
 name|currentPath
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QString
 argument_list|>
@@ -7316,7 +7316,7 @@ name|model
 operator|->
 name|index
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QString
 argument_list|>
@@ -7350,7 +7350,7 @@ name|model
 operator|->
 name|index
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QString
 argument_list|>
@@ -7414,7 +7414,7 @@ name|model
 operator|->
 name|index
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QString
 argument_list|>
@@ -7458,7 +7458,7 @@ name|model
 operator|->
 name|index
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QString
 argument_list|>
@@ -7522,7 +7522,7 @@ name|model
 operator|->
 name|index
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QString
 argument_list|>
@@ -7556,7 +7556,7 @@ name|model
 operator|->
 name|index
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QString
 argument_list|>
@@ -7600,7 +7600,7 @@ name|model
 operator|->
 name|index
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QString
 argument_list|>
@@ -7634,7 +7634,7 @@ name|model
 operator|->
 name|index
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QString
 argument_list|>
@@ -7668,7 +7668,7 @@ name|model
 operator|->
 name|index
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QString
 argument_list|>
@@ -7702,7 +7702,7 @@ name|model
 operator|->
 name|index
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QString
 argument_list|>

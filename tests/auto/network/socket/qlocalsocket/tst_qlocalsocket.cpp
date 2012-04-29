@@ -2006,7 +2006,7 @@ expr_stmt|;
 comment|//QVERIFY(socket->socketDescriptor() == -1);
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QLocalSocket
 operator|::
@@ -2166,7 +2166,7 @@ literal|0
 condition|)
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QLocalSocket
 operator|::
@@ -2192,7 +2192,7 @@ else|else
 block|{
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QLocalSocket
 operator|::
@@ -2217,7 +2217,7 @@ block|}
 comment|// Check first and last state
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QLocalSocket
 operator|::
@@ -2244,7 +2244,7 @@ name|canListen
 condition|)
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QLocalSocket
 operator|::

@@ -150,7 +150,9 @@ name|setProperty
 argument_list|(
 literal|"complexProp"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|value
 argument_list|)
@@ -190,7 +192,9 @@ name|setProperty
 argument_list|(
 literal|"stringProp"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|value
 argument_list|)
@@ -230,7 +234,9 @@ name|setProperty
 argument_list|(
 literal|"variantProp"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|value
 argument_list|)
@@ -390,7 +396,9 @@ name|argumentList
 block|;
 name|argumentList
 operator|<<
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|in0
 argument_list|)

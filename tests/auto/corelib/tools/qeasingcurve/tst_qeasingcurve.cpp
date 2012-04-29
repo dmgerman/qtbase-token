@@ -4877,7 +4877,7 @@ expr_stmt|;
 name|QEasingCurve
 name|easing
 init|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QEasingCurve
 argument_list|>
@@ -4967,7 +4967,9 @@ name|setProperty
 argument_list|(
 literal|"easing"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|QEasingCurve
 argument_list|(
@@ -4980,7 +4982,7 @@ argument_list|)
 expr_stmt|;
 name|easing
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QEasingCurve
 argument_list|>

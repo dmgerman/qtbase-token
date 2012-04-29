@@ -3781,7 +3781,7 @@ operator|::
 name|State
 name|actual
 init|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -3938,7 +3938,7 @@ operator|::
 name|State
 name|actual
 init|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -4398,7 +4398,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -4423,7 +4423,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -4448,7 +4448,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -4473,7 +4473,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -4498,7 +4498,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -4523,7 +4523,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -4548,7 +4548,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -4729,7 +4729,7 @@ expr_stmt|;
 comment|// Running,Paused,Running
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -4910,7 +4910,7 @@ expr_stmt|;
 comment|// Running,Paused,Running,Paused
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -4951,7 +4951,7 @@ expr_stmt|;
 comment|// Running,Paused,Running,Paused,Stopped
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -5261,7 +5261,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -5289,7 +5289,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -5317,7 +5317,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -5345,7 +5345,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -5384,7 +5384,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -5409,7 +5409,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -5475,7 +5475,7 @@ literal|3
 index|]
 argument_list|)
 argument_list|,
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|*
@@ -7802,7 +7802,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -7827,7 +7827,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -8976,7 +8976,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -9001,7 +9001,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -9230,7 +9230,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::
@@ -9255,7 +9255,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QAbstractAnimation
 operator|::

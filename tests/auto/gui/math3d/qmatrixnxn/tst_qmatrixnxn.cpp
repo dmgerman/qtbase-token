@@ -23831,7 +23831,7 @@ expr_stmt|;
 name|QMatrix4x4
 name|m2
 init|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QMatrix4x4
 argument_list|>
@@ -23866,7 +23866,9 @@ name|setProperty
 argument_list|(
 literal|"matrix"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|m3
 argument_list|)
@@ -23874,7 +23876,7 @@ argument_list|)
 expr_stmt|;
 name|m2
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QMatrix4x4
 argument_list|>

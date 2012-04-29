@@ -774,7 +774,9 @@ argument_list|)
 decl_stmt|;
 name|callMsg
 operator|<<
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|QDBusVariant
 argument_list|(
@@ -1058,7 +1060,9 @@ argument_list|)
 decl_stmt|;
 name|callMsg
 operator|<<
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|value
 argument_list|)

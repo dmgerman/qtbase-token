@@ -588,7 +588,9 @@ argument_list|)
 decl_stmt|;
 name|req
 operator|<<
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|val
 argument_list|)
@@ -2272,7 +2274,9 @@ name|call
 argument_list|(
 literal|"ping"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|QDBusVariant
 argument_list|(
@@ -2445,7 +2449,9 @@ name|call
 argument_list|(
 literal|"ping_invokable"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|QDBusVariant
 argument_list|(
@@ -4079,7 +4085,9 @@ name|call
 argument_list|(
 literal|"ping"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|QDBusVariant
 argument_list|(
@@ -4253,7 +4261,9 @@ name|call
 argument_list|(
 literal|"ping_invokable"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|QDBusVariant
 argument_list|(
@@ -6671,7 +6681,9 @@ name|setProperty
 argument_list|(
 literal|"complexProp"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|arg
 argument_list|)
@@ -7041,7 +7053,9 @@ name|setProperty
 argument_list|(
 literal|"complexProp"
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|arg
 argument_list|)

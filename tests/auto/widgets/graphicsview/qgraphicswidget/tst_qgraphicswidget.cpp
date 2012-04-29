@@ -20777,7 +20777,9 @@ name|QEvent
 operator|::
 name|ParentAboutToChange
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|parentItem
 argument_list|()
@@ -20800,7 +20802,9 @@ name|QEvent
 operator|::
 name|ParentChange
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|parentItem
 argument_list|()
@@ -20972,7 +20976,7 @@ expr_stmt|;
 comment|// ParentAboutToChange should be triggered before the parent has changed
 name|QTRY_COMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsItem
 operator|*
@@ -21003,7 +21007,7 @@ expr_stmt|;
 comment|// ParentChange should be triggered after the parent has changed
 name|QTRY_COMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsItem
 operator|*

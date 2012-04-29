@@ -636,10 +636,10 @@ operator|++
 name|i
 control|)
 block|{
-name|qVariantSetValue
-argument_list|(
 name|v
-argument_list|,
+operator|.
+name|setValue
+argument_list|(
 name|d
 argument_list|)
 expr_stmt|;

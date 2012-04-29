@@ -25175,7 +25175,7 @@ control|(
 name|QRectF
 name|rectF
 decl|,
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QList
 argument_list|<

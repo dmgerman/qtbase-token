@@ -20869,7 +20869,7 @@ argument_list|)
 expr_stmt|;
 name|res_outLst
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QVariantList
 argument_list|>

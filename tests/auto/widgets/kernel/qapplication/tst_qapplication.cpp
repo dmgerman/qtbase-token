@@ -7120,7 +7120,7 @@ argument_list|)
 expr_stmt|;
 name|old
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -7141,7 +7141,7 @@ argument_list|)
 expr_stmt|;
 name|now
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -7217,7 +7217,7 @@ argument_list|)
 expr_stmt|;
 name|old
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -7238,7 +7238,7 @@ argument_list|)
 expr_stmt|;
 name|now
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -7305,7 +7305,7 @@ argument_list|)
 expr_stmt|;
 name|old
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -7326,7 +7326,7 @@ argument_list|)
 expr_stmt|;
 name|now
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -7393,7 +7393,7 @@ argument_list|)
 expr_stmt|;
 name|old
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -7414,7 +7414,7 @@ argument_list|)
 expr_stmt|;
 name|now
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -7545,7 +7545,7 @@ expr_stmt|;
 comment|// one for deactivation, one for activation on Windows
 name|old
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -7571,7 +7571,7 @@ argument_list|)
 expr_stmt|;
 name|now
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -7801,7 +7801,7 @@ argument_list|)
 expr_stmt|;
 name|old
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -7822,7 +7822,7 @@ argument_list|)
 expr_stmt|;
 name|now
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -7921,7 +7921,7 @@ argument_list|)
 expr_stmt|;
 name|old
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -7942,7 +7942,7 @@ argument_list|)
 expr_stmt|;
 name|now
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -8041,7 +8041,7 @@ argument_list|)
 expr_stmt|;
 name|old
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -8062,7 +8062,7 @@ argument_list|)
 expr_stmt|;
 name|now
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -8166,7 +8166,7 @@ argument_list|)
 expr_stmt|;
 name|old
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -8187,7 +8187,7 @@ argument_list|)
 expr_stmt|;
 name|now
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -8295,7 +8295,7 @@ argument_list|)
 expr_stmt|;
 name|old
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -8316,7 +8316,7 @@ argument_list|)
 expr_stmt|;
 name|now
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -8385,7 +8385,7 @@ argument_list|)
 expr_stmt|;
 name|old
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -8406,7 +8406,7 @@ argument_list|)
 expr_stmt|;
 name|now
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -8502,7 +8502,7 @@ literal|1
 condition|)
 name|old
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -8529,7 +8529,7 @@ expr_stmt|;
 else|else
 name|old
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*
@@ -8555,7 +8555,7 @@ argument_list|)
 expr_stmt|;
 name|now
 operator|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QWidget
 operator|*

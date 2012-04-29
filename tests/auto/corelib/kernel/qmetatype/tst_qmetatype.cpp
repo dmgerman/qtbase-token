@@ -1103,7 +1103,9 @@ decl_stmt|;
 name|QVariant
 name|v
 init|=
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|nf
 argument_list|)

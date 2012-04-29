@@ -7828,7 +7828,7 @@ parameter_list|,
 name|rtype
 parameter_list|)
 define|\
-value|{ \         QSettings settings1(format, QSettings::UserScope, "software.org", "KillerAPP"); \         settings1.setValue(key, qVariantFromValue(val)); \     } \     QConfFile::clearCache(); \     { \         QSettings settings2(format, QSettings::UserScope, "software.org", "KillerAPP"); \         QVariant v = settings2.value(key); \         QVERIFY(qvariant_cast<tp>(v) == val); \         QVERIFY(v.type() == QVariant::rtype); \     }
+value|{ \         QSettings settings1(format, QSettings::UserScope, "software.org", "KillerAPP"); \         settings1.setValue(key, QVariant::fromValue(val)); \     } \     QConfFile::clearCache(); \     { \         QSettings settings2(format, QSettings::UserScope, "software.org", "KillerAPP"); \         QVariant v = settings2.value(key); \         QVERIFY(qvariant_cast<tp>(v) == val); \         QVERIFY(v.type() == QVariant::rtype); \     }
 typedef|typedef
 name|QMap
 argument_list|<
@@ -7969,7 +7969,9 @@ argument_list|)
 operator|<<
 literal|10
 operator|<<
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|QColor
 argument_list|(

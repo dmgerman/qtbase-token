@@ -14457,7 +14457,7 @@ name|QRectF
 argument_list|>
 name|rlist
 init|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QList
 argument_list|<
@@ -33758,13 +33758,13 @@ block|{
 name|QVariant
 name|variant
 decl_stmt|;
-name|qVariantSetValue
+name|variant
+operator|.
+name|setValue
 argument_list|<
 name|QMatrix
 argument_list|>
 argument_list|(
-name|variant
-argument_list|,
 name|matrix
 argument_list|()
 argument_list|)
@@ -33784,13 +33784,13 @@ block|{
 name|QVariant
 name|variant
 decl_stmt|;
-name|qVariantSetValue
+name|variant
+operator|.
+name|setValue
 argument_list|<
 name|QTransform
 argument_list|>
 argument_list|(
-name|variant
-argument_list|,
 name|transform
 argument_list|()
 argument_list|)
@@ -33865,7 +33865,9 @@ name|ItemParentChange
 case|:
 name|oldValues
 operator|<<
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|<
 name|void
 operator|*
@@ -33917,7 +33919,9 @@ name|ItemSceneChange
 case|:
 name|oldValues
 operator|<<
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -33931,7 +33935,7 @@ if|if
 condition|(
 name|itemSceneChangeTargetScene
 operator|&&
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -33942,7 +33946,7 @@ argument_list|)
 operator|&&
 name|itemSceneChangeTargetScene
 operator|!=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -33953,7 +33957,9 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -34338,15 +34344,15 @@ expr_stmt|;
 block|}
 block|{
 comment|// ItemMatrixChange / ItemTransformHasChanged
-name|qVariantSetValue
+name|tester
+operator|.
+name|itemChangeReturnValue
+operator|.
+name|setValue
 argument_list|<
 name|QMatrix
 argument_list|>
 argument_list|(
-name|tester
-operator|.
-name|itemChangeReturnValue
-argument_list|,
 name|QMatrix
 argument_list|()
 operator|.
@@ -34441,7 +34447,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QMatrix
 argument_list|>
@@ -34501,13 +34507,13 @@ expr_stmt|;
 name|QVariant
 name|variant
 decl_stmt|;
-name|qVariantSetValue
+name|variant
+operator|.
+name|setValue
 argument_list|<
 name|QMatrix
 argument_list|>
 argument_list|(
-name|variant
-argument_list|,
 name|QMatrix
 argument_list|()
 argument_list|)
@@ -34555,15 +34561,15 @@ name|changeCount
 expr_stmt|;
 comment|// notification sent too
 comment|// ItemTransformChange / ItemTransformHasChanged
-name|qVariantSetValue
+name|tester
+operator|.
+name|itemChangeReturnValue
+operator|.
+name|setValue
 argument_list|<
 name|QTransform
 argument_list|>
 argument_list|(
-name|tester
-operator|.
-name|itemChangeReturnValue
-argument_list|,
 name|QTransform
 argument_list|()
 operator|.
@@ -34649,7 +34655,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QTransform
 argument_list|>
@@ -34684,7 +34690,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QTransform
 argument_list|>
@@ -34718,13 +34724,13 @@ expr_stmt|;
 name|QVariant
 name|variant
 decl_stmt|;
-name|qVariantSetValue
+name|variant
+operator|.
+name|setValue
 argument_list|<
 name|QTransform
 argument_list|>
 argument_list|(
-name|variant
-argument_list|,
 name|QTransform
 argument_list|()
 argument_list|)
@@ -35736,7 +35742,9 @@ expr_stmt|;
 name|QVariant
 name|expectedFlags
 init|=
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|<
 name|quint32
 argument_list|>
@@ -35794,7 +35802,9 @@ operator|-
 literal|1
 argument_list|)
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|<
 name|quint32
 argument_list|>
@@ -36260,16 +36270,16 @@ expr_stmt|;
 block|}
 block|{
 comment|// ItemParentChange
-name|qVariantSetValue
+name|tester
+operator|.
+name|itemChangeReturnValue
+operator|.
+name|setValue
 argument_list|<
 name|QGraphicsItem
 operator|*
 argument_list|>
 argument_list|(
-name|tester
-operator|.
-name|itemChangeReturnValue
-argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -36310,7 +36320,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsItem
 operator|*
@@ -36334,7 +36344,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsItem
 operator|*
@@ -36606,7 +36616,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsItem
 operator|*
@@ -36667,7 +36677,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsItem
 operator|*
@@ -36947,7 +36957,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsItem
 operator|*
@@ -36987,7 +36997,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsItem
 operator|*
@@ -37108,7 +37118,7 @@ comment|// Item's old value was 0
 comment|// Item's current value is scene
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37131,7 +37141,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37296,7 +37306,7 @@ comment|// Item's last old value was scene
 comment|// Item's last current value is 0
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37329,7 +37339,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37361,7 +37371,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37393,7 +37403,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37425,7 +37435,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37458,7 +37468,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37493,7 +37503,7 @@ comment|// Item's last old value was 0
 comment|// Item's last current value is scene2
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37516,7 +37526,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37630,7 +37640,7 @@ comment|// Item's last old value was scene2
 comment|// Item's last current value is 0
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37654,7 +37664,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37686,7 +37696,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37757,7 +37767,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37790,7 +37800,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*
@@ -37823,7 +37833,7 @@ argument_list|)
 expr_stmt|;
 name|QCOMPARE
 argument_list|(
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QGraphicsScene
 operator|*

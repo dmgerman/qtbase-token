@@ -366,7 +366,9 @@ name|Qt
 operator|::
 name|UserRole
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|defaultConfig
 argument_list|)
@@ -607,7 +609,9 @@ name|Qt
 operator|::
 name|UserRole
 argument_list|,
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|configurations
 index|[
@@ -682,7 +686,7 @@ block|}
 name|QNetworkConfiguration
 name|networkConfiguration
 init|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QNetworkConfiguration
 argument_list|>
@@ -741,7 +745,7 @@ block|}
 name|QNetworkConfiguration
 name|networkConfiguration
 init|=
-name|qVariantValue
+name|qvariant_cast
 argument_list|<
 name|QNetworkConfiguration
 argument_list|>

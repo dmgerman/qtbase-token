@@ -494,7 +494,9 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|(
 name|data
 argument_list|)

@@ -3555,7 +3555,9 @@ literal|0
 index|]
 argument_list|)
 operator|<<
-name|qVariantFromValue
+name|QVariant
+operator|::
+name|fromValue
 argument_list|<
 name|LengthData
 argument_list|>
