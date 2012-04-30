@@ -390,6 +390,16 @@ name|hw_pressure_max
 argument_list|(
 literal|0
 argument_list|)
+member_init_list|,
+name|m_device
+argument_list|(
+literal|0
+argument_list|)
+member_init_list|,
+name|m_typeB
+argument_list|(
+literal|false
+argument_list|)
 block|{
 name|m_forceToActiveWindow
 operator|=
