@@ -1571,6 +1571,17 @@ name|ret
 operator|=
 literal|"QMAKE_FRAMEWORKPATH_FLAGS"
 expr_stmt|;
+elseif|else
+if|if
+condition|(
+name|ret
+operator|==
+literal|"IN_PWD"
+condition|)
+name|ret
+operator|=
+literal|"PWD"
+expr_stmt|;
 else|else
 return|return
 name|ret
@@ -25894,14 +25905,6 @@ operator|==
 name|QLatin1String
 argument_list|(
 literal|"PWD"
-argument_list|)
-operator|||
-comment|//current working dir (of _FILE_)
-name|var
-operator|==
-name|QLatin1String
-argument_list|(
-literal|"IN_PWD"
 argument_list|)
 condition|)
 block|{
