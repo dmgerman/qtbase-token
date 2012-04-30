@@ -176,10 +176,6 @@ block|{
 name|delete
 name|m_platformHelper
 block|; }
-name|void
-name|_q_platformRunNativeAppModalPanel
-argument_list|()
-block|;
 name|QWindow
 operator|*
 name|parentWindow

@@ -325,20 +325,6 @@ argument|d_func()
 argument_list|,
 argument|void _q_updateSample()
 argument_list|)
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_WS_MAC
-argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_macRunNativeAppModalPanel()
-argument_list|)
-endif|#
-directive|endif
 block|}
 decl_stmt|;
 end_decl_stmt

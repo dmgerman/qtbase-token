@@ -115,20 +115,6 @@ argument_list|()
 return|;
 block|}
 end_function
-begin_function
-DECL|function|emitLaunchNativeAppModalPanel
-name|void
-name|QPlatformDialogHelper
-operator|::
-name|emitLaunchNativeAppModalPanel
-parameter_list|()
-block|{
-emit|emit
-name|launchNativeAppModalPanel
-argument_list|()
-emit|;
-block|}
-end_function
 begin_comment
 comment|// Font dialog
 end_comment

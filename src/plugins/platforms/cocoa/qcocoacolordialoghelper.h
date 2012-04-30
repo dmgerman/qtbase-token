@@ -42,11 +42,7 @@ name|QCocoaColorDialogHelper
 argument_list|()
 block|;
 name|void
-name|platformNativeDialogModalHelp
-argument_list|()
-block|;
-name|void
-name|_q_platformRunNativeAppModalPanel
+name|exec_sys
 argument_list|()
 block|;
 name|void
@@ -65,10 +61,6 @@ argument_list|)
 block|;
 name|void
 name|hide_sys
-argument_list|()
-block|;
-name|DialogCode
-name|dialogResultCode_sys
 argument_list|()
 block|;
 name|void

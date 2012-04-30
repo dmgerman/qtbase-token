@@ -331,12 +331,6 @@ argument|d_func()
 argument_list|,
 argument|void _q_newStandard(int, int)
 argument_list|)
-name|Q_PRIVATE_SLOT
-argument_list|(
-argument|d_func()
-argument_list|,
-argument|void _q_platformRunNativeAppModalPanel()
-argument_list|)
 name|friend
 name|class
 name|QColorShower

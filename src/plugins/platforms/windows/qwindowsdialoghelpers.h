@@ -100,12 +100,7 @@ name|public
 operator|:
 name|virtual
 name|void
-name|platformNativeDialogModalHelp
-argument_list|()
-block|;
-name|virtual
-name|void
-name|_q_platformRunNativeAppModalPanel
+name|exec_sys
 argument_list|()
 block|;
 name|virtual
@@ -136,13 +131,6 @@ argument_list|(
 argument|QPlatformDialogHelper::StyleHint
 argument_list|)
 specifier|const
-block|;
-name|virtual
-name|QPlatformDialogHelper
-operator|::
-name|DialogCode
-name|dialogResultCode_sys
-argument_list|()
 block|;
 name|virtual
 name|bool
