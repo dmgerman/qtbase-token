@@ -13048,8 +13048,6 @@ return|return
 name|n
 return|;
 return|return
-name|n
-operator|=
 name|findNodeRecursive
 argument_list|(
 name|path
@@ -13062,13 +13060,6 @@ name|type
 argument_list|,
 name|subtype
 argument_list|)
-return|;
-if|if
-condition|(
-name|n
-condition|)
-return|return
-name|n
 return|;
 block|}
 else|else
