@@ -6962,17 +6962,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Was used to synchronize with the X server in 4.x, here for source compatibility.     \internal     \obsolete */
+comment|/*!    \fn void QApplication::syncX()     Was used to synchronize with the X server in 4.x, here for source compatibility.     \internal     \obsolete */
 end_comment
-begin_function
-DECL|function|syncX
-name|void
-name|QApplication
-operator|::
-name|syncX
-parameter_list|()
-block|{ }
-end_function
 begin_function
 DECL|function|notifyLayoutDirectionChange
 name|void
@@ -15187,64 +15178,11 @@ begin_comment
 comment|/*!     \macro qApp     \relates QApplication      A global pointer referring to the unique application object. It is     equivalent to the pointer returned by the QCoreApplication::instance()     function except that, in GUI applications, it is a pointer to a     QApplication instance.      Only one application object can be created.      \sa QCoreApplication::instance() */
 end_comment
 begin_comment
-comment|/*!     \since 4.2     \obsolete      Returns the current keyboard input locale. Replaced with QInputMethod::locale() */
+comment|/*!     \fn QLocale QApplication::keyboardInputLocale()     \since 4.2     \obsolete      Returns the current keyboard input locale. Replaced with QInputMethod::locale() */
 end_comment
-begin_function
-DECL|function|keyboardInputLocale
-name|QLocale
-name|QApplication
-operator|::
-name|keyboardInputLocale
-parameter_list|()
-block|{
-return|return
-name|qApp
-condition|?
-name|qApp
-operator|->
-name|inputMethod
-argument_list|()
-operator|->
-name|locale
-argument_list|()
-else|:
-name|QLocale
-operator|::
-name|c
-argument_list|()
-return|;
-block|}
-end_function
 begin_comment
-comment|/*!     \since 4.2     \obsolete      Returns the current keyboard input direction. Replaced with QInputMethod::inputDirection() */
+comment|/*!     \fn Qt::LayoutDirection QApplication::keyboardInputDirection()*     \since 4.2     \obsolete      Returns the current keyboard input direction. Replaced with QInputMethod::inputDirection() */
 end_comment
-begin_function
-DECL|function|keyboardInputDirection
-name|Qt
-operator|::
-name|LayoutDirection
-name|QApplication
-operator|::
-name|keyboardInputDirection
-parameter_list|()
-block|{
-return|return
-name|qApp
-condition|?
-name|qApp
-operator|->
-name|inputMethod
-argument_list|()
-operator|->
-name|inputDirection
-argument_list|()
-else|:
-name|Qt
-operator|::
-name|LeftToRight
-return|;
-block|}
-end_function
 begin_function
 DECL|function|qt_sendSpontaneousEvent
 name|bool

@@ -94,6 +94,9 @@ argument|Action
 argument_list|)
 name|public
 operator|:
+ifdef|#
+directive|ifdef
+name|QT_DEPRECATED
 name|QT_DEPRECATED
 name|QObject
 operator|*
@@ -118,6 +121,8 @@ name|inputWindow
 argument_list|()
 specifier|const
 block|;
+endif|#
+directive|endif
 name|QTransform
 name|inputItemTransform
 argument_list|()

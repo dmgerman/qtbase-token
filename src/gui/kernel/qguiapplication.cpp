@@ -9411,24 +9411,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!   returns the input panel.    The input panel returns properties about the state and position of   the virtual keyboard. It also provides information about the position of the   current focused input element.    \sa QInputPanel   */
+comment|/*!   \fn QInputPanel *QGuiApplication::inputPanel() const   returns the input panel.    The input panel returns properties about the state and position of   the virtual keyboard. It also provides information about the position of the   current focused input element.    \obsolete    \sa inputMethod()   */
 end_comment
-begin_function
-DECL|function|inputPanel
-name|QInputPanel
-modifier|*
-name|QGuiApplication
-operator|::
-name|inputPanel
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|inputMethod
-argument_list|()
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     \fn void QGuiApplication::fontDatabaseChanged()      This signal is emitted when application fonts are loaded or removed.      \sa QFontDatabase::addApplicationFont(),     QFontDatabase::addApplicationFontFromData(),     QFontDatabase::removeAllApplicationFonts(),     QFontDatabase::removeApplicationFont() */
 end_comment

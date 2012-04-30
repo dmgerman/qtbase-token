@@ -115,7 +115,6 @@ operator|*
 name|instance
 argument_list|()
 block|;
-name|QT_DEPRECATED
 specifier|static
 name|QObjectList
 name|staticInstances

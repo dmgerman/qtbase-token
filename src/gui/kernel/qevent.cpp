@@ -2135,27 +2135,8 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the tentative commit string to \a tentativeCommitString.      The tentative commit string is what the preedit string is expected to be committed as.     The string can be used within the editor to trigger code that reacts on text changes such as validators.     \deprecated */
+comment|/*!     \fn void QInputMethodEvent::setTentativeCommitString(const QString&string)     Sets the tentative commit string to \a string.      The tentative commit string is what the preedit string is expected to be committed as.     The string can be used within the editor to trigger code that reacts on text changes such as validators.     \deprecated */
 end_comment
-begin_function
-DECL|function|setTentativeCommitString
-name|void
-name|QInputMethodEvent
-operator|::
-name|setTentativeCommitString
-parameter_list|(
-specifier|const
-name|QString
-modifier|&
-name|tentativeCommitString
-parameter_list|)
-block|{
-name|tentativeCommit
-operator|=
-name|tentativeCommitString
-expr_stmt|;
-block|}
-end_function
 begin_comment
 comment|/*!     \fn const QList<Attribute>&QInputMethodEvent::attributes() const      Returns the list of attributes passed to the QInputMethodEvent     constructor. The attributes control the visual appearance of the     preedit string (the visual appearance of text outside the preedit     string is controlled by the widget only).      \sa preeditString(), Attribute */
 end_comment
