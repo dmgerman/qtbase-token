@@ -1429,14 +1429,6 @@ expr_stmt|;
 name|QT_RETHROW
 expr_stmt|;
 block|}
-name|dup
-operator|->
-name|h
-operator|=
-name|oldNode
-operator|->
-name|h
-expr_stmt|;
 operator|*
 name|nextNode
 operator|=
