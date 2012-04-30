@@ -98,15 +98,6 @@ begin_comment
 comment|/*! \enum QClipboard::Mode     \keyword clipboard mode      This enum type is used to control which part of the system clipboard is     used by QClipboard::mimeData(), QClipboard::setMimeData() and related functions.      \value Clipboard  indicates that data should be stored and retrieved from     the global clipboard.      \value Selection  indicates that data should be stored and retrieved from     the global mouse selection. Support for \c Selection is provided only on      systems with a global mouse selection (e.g. X11).      \value FindBuffer indicates that data should be stored and retrieved from     the Find buffer. This mode is used for holding search strings on Mac OS X.      \omitvalue LastMode      \sa QClipboard::supportsSelection() */
 end_comment
 begin_comment
-comment|/*****************************************************************************   QApplication member functions related to QClipboard.  *****************************************************************************/
-end_comment
-begin_comment
-comment|// text handling is done directly in qclipboard_qws, for now
-end_comment
-begin_comment
-comment|/*!     \fn bool QClipboard::event(QEvent *e)     \reimp */
-end_comment
-begin_comment
 comment|/*!     \overload      Returns the clipboard text in subtype \a subtype, or an empty string     if the clipboard does not contain any text. If \a subtype is null,     any subtype is acceptable, and \a subtype is set to the chosen     subtype.      The \a mode argument is used to control which part of the system     clipboard is used.  If \a mode is QClipboard::Clipboard, the     text is retrieved from the global clipboard.  If \a mode is     QClipboard::Selection, the text is retrieved from the global     mouse selection.      Common values for \a subtype are "plain" and "html".      Note that calling this function repeatedly, for instance from a     key event handler, may be slow. In such cases, you should use the     \c dataChanged() signal instead.      \sa setText(), mimeData() */
 end_comment
 begin_function
