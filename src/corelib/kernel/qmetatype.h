@@ -3043,6 +3043,11 @@ argument_list|(
 name|destructor
 argument_list|)
 operator|,
+name|m_extension
+argument_list|(
+literal|0
+argument_list|)
+operator|,
 name|m_size
 argument_list|(
 name|size
