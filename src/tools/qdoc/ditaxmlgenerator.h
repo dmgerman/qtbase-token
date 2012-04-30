@@ -426,6 +426,8 @@ name|DT_prolog
 block|,
 name|DT_publisher
 block|,
+name|DT_qmlAttached
+block|,
 name|DT_qmlDetail
 block|,
 name|DT_qmlImportModule
