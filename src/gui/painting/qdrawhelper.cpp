@@ -4230,8 +4230,8 @@ parameter_list|<
 name|TextureBlendType
 name|blendType
 parameter_list|>
-name|Q_STATIC_TEMPLATE_FUNCTION
 DECL|function|fetchTransformedARGB32PM
+specifier|static
 specifier|const
 name|uint
 modifier|*
@@ -4803,8 +4803,8 @@ name|TextureBlendType
 name|blendType
 parameter_list|>
 comment|/* either BlendTransformed or BlendTransformedTiled */
-name|Q_STATIC_TEMPLATE_FUNCTION
 DECL|function|fetchTransformed
+specifier|static
 specifier|const
 name|uint
 modifier|*
@@ -5946,8 +5946,8 @@ name|TextureBlendType
 name|blendType
 parameter_list|>
 comment|/* blendType = BlendTransformedBilinear or BlendTransformedBilinearTiled */
-name|Q_STATIC_TEMPLATE_FUNCTION
 DECL|function|fetchTransformedBilinearARGB32PM
+specifier|static
 specifier|const
 name|uint
 modifier|*
@@ -9338,8 +9338,8 @@ parameter_list|<
 name|TextureBlendType
 name|blendType
 parameter_list|>
-name|Q_STATIC_TEMPLATE_FUNCTION
 DECL|function|fetchTransformedBilinear
+specifier|static
 specifier|const
 name|uint
 modifier|*
