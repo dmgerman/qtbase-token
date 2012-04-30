@@ -121,10 +121,17 @@ argument_list|(
 name|Q_OF_ELF
 argument_list|)
 operator|&&
+operator|(
 name|defined
 argument_list|(
 name|Q_CC_GNU
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_CC_CLANG
+argument_list|)
+operator|)
 end_if
 begin_define
 DECL|macro|QT_PLUGIN_VERIFICATION_SECTION
@@ -141,6 +148,84 @@ directive|define
 name|QT_PLUGIN_METADATA_SECTION
 define|\
 value|__attribute__ ((section (".qtmetadata"))) __attribute__((used))
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_OS_MAC
+argument_list|)
+end_elif
+begin_comment
+comment|// TODO: Implement section parsing on Mac
+end_comment
+begin_define
+DECL|macro|QT_PLUGIN_VERIFICATION_SECTION
+define|#
+directive|define
+name|QT_PLUGIN_VERIFICATION_SECTION
+define|\
+value|__attribute__((section("__TEXT,qtplugin"))) __attribute__((used))
+end_define
+begin_define
+DECL|macro|QT_PLUGIN_METADATA_SECTION
+define|#
+directive|define
+name|QT_PLUGIN_METADATA_SECTION
+define|\
+value|__attribute__ ((section ("__TEXT,qtmetadata"))) __attribute__((used))
+end_define
+begin_elif
+elif|#
+directive|elif
+name|defined
+argument_list|(
+name|Q_CC_MSVC
+argument_list|)
+end_elif
+begin_comment
+comment|// TODO: Implement section parsing for MSVC
+end_comment
+begin_pragma
+pragma|#
+directive|pragma
+name|section
+name|(
+literal|".qtplugin"
+name|,
+name|read
+name|,
+name|shared
+name|)
+end_pragma
+begin_pragma
+pragma|#
+directive|pragma
+name|section
+name|(
+literal|".qtmetadata"
+name|,
+name|read
+name|,
+name|shared
+name|)
+end_pragma
+begin_define
+DECL|macro|QT_PLUGIN_VERIFICATION_SECTION
+define|#
+directive|define
+name|QT_PLUGIN_VERIFICATION_SECTION
+define|\
+value|__declspec(allocate(".qtplugin"))
+end_define
+begin_define
+DECL|macro|QT_PLUGIN_METADATA_SECTION
+define|#
+directive|define
+name|QT_PLUGIN_METADATA_SECTION
+define|\
+value|__declspec(allocate(".qtmetadata"))
 end_define
 begin_else
 else|#
@@ -286,12 +371,6 @@ comment|// qlibrary.cpp as well.  changing the pattern will break all
 end_comment
 begin_comment
 comment|// backwards compatibility as well (no old plugins will be loaded).
-end_comment
-begin_comment
-comment|// QT5: should probably remove the entire pattern thing and do the section
-end_comment
-begin_comment
-comment|//      trick for all platforms. for now, keep it and fallback to scan for it.
 end_comment
 begin_ifdef
 ifdef|#
