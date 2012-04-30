@@ -319,7 +319,7 @@ begin_decl_stmt
 DECL|variable|layouts
 specifier|static
 specifier|const
-name|int
+name|uint
 name|layouts
 index|[
 literal|2
@@ -1574,7 +1574,7 @@ expr_stmt|;
 comment|// Mac modeless
 block|}
 specifier|const
-name|int
+name|uint
 modifier|*
 name|currentLayout
 init|=

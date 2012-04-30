@@ -7421,6 +7421,8 @@ init|=
 block|{
 literal|0
 block|,
+name|int
+argument_list|(
 name|m_parent
 operator|->
 name|m_indices
@@ -7429,7 +7431,10 @@ name|at
 argument_list|(
 name|i
 argument_list|)
+argument_list|)
 block|,
+name|int
+argument_list|(
 name|m_parent
 operator|->
 name|m_indices
@@ -7439,6 +7444,7 @@ argument_list|(
 name|i
 operator|+
 literal|1
+argument_list|)
 argument_list|)
 block|,
 operator|-
