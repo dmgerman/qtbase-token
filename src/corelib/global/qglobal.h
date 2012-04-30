@@ -1487,15 +1487,12 @@ ifndef|#
 directive|ifndef
 name|QT_DISABLE_DEPRECATED_BEFORE
 end_ifndef
-begin_comment
-comment|// ### Qt5: remember to change that to 5 when we reach feature freeze
-end_comment
 begin_define
 DECL|macro|QT_DISABLE_DEPRECATED_BEFORE
 define|#
 directive|define
 name|QT_DISABLE_DEPRECATED_BEFORE
-value|QT_VERSION_CHECK(4, 9, 0)
+value|QT_VERSION_CHECK(5, 0, 0)
 end_define
 begin_endif
 endif|#
