@@ -2254,6 +2254,16 @@ condition|(
 name|c
 operator|<
 literal|0x20U
+condition|)
+name|action
+operator|=
+name|EncodeCharacter
+expr_stmt|;
+if|if
+condition|(
+name|c
+operator|<
+literal|0x20U
 operator|||
 name|c
 operator|>=
@@ -2524,16 +2534,6 @@ expr_stmt|;
 continue|continue;
 block|}
 block|}
-if|if
-condition|(
-name|decoded
-operator|<
-literal|0x20
-condition|)
-name|action
-operator|=
-name|EncodeCharacter
-expr_stmt|;
 comment|// there are six possibilities:
 comment|//  current \ action  | DecodeCharacter | LeaveCharacter | EncodeCharacter
 comment|//      decoded       |    1:leave      |    2:leave     |    3:encode
