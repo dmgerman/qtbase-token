@@ -437,26 +437,6 @@ argument|glyph_metrics_t *metrics
 argument_list|)
 specifier|const
 block|;
-specifier|static
-name|QFontEngine
-operator|*
-name|createEngine
-argument_list|(
-argument|int script
-argument_list|,
-argument|const QFontDef&request
-argument_list|,
-argument|HDC fontHdc
-argument_list|,
-argument|int dpi
-argument_list|,
-argument|bool rawMode
-argument_list|,
-argument|const QStringList&family_list
-argument_list|,
-argument|const QSharedPointer<QWindowsFontEngineData>&data
-argument_list|)
-block|;
 name|QSharedPointer
 operator|<
 name|QWindowsFontEngineData
