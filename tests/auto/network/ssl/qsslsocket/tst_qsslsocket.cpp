@@ -13023,7 +13023,7 @@ name|setPauseMode
 argument_list|(
 name|QAbstractSocket
 operator|::
-name|PauseOnNotify
+name|PauseOnSslErrors
 argument_list|)
 expr_stmt|;
 name|QSignalSpy

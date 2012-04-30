@@ -6384,7 +6384,7 @@ argument_list|()
 operator|&
 name|QAbstractSocket
 operator|::
-name|PauseOnNotify
+name|PauseOnSslErrors
 condition|)
 block|{
 name|pauseSocketNotifiers

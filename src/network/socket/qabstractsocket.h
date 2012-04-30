@@ -237,7 +237,7 @@ name|PauseNever
 operator|=
 literal|0x0
 block|,
-name|PauseOnNotify
+name|PauseOnSslErrors
 operator|=
 literal|0x1
 block|}
