@@ -346,9 +346,15 @@ name|m_textureResource
 operator|->
 name|m_texture
 condition|)
+block|{
 operator|delete
 name|m_textureResource
 expr_stmt|;
+name|m_textureResource
+operator|=
+literal|0
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
