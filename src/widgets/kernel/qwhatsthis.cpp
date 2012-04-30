@@ -45,6 +45,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"qscreen.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"qpainter.h"
 end_include
 begin_include
@@ -648,8 +653,11 @@ parameter_list|)
 block|{
 name|background
 operator|=
-name|QPixmap
+name|QGuiApplication
 operator|::
+name|primaryScreen
+argument_list|()
+operator|->
 name|grabWindow
 argument_list|(
 name|QApplication
