@@ -64,6 +64,11 @@ name|defined
 argument_list|(
 name|Q_OS_WIN
 argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_LINUX_ANDROID
+argument_list|)
 end_if
 begin_include
 include|#
@@ -214,6 +219,11 @@ operator|||
 name|defined
 argument_list|(
 name|Q_OS_WIN
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|Q_OS_LINUX_ANDROID
 argument_list|)
 end_if
 begin_function
