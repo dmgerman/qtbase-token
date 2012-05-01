@@ -1028,6 +1028,13 @@ modifier|*
 name|arg
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_LINUX_ANDROID
+argument_list|)
 name|pthread_setcancelstate
 argument_list|(
 name|PTHREAD_CANCEL_DISABLE
@@ -1035,6 +1042,8 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|pthread_cleanup_push
 argument_list|(
 name|QThreadPrivate
@@ -1296,6 +1305,13 @@ operator|->
 name|started
 argument_list|()
 emit|;
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_LINUX_ANDROID
+argument_list|)
 name|pthread_setcancelstate
 argument_list|(
 name|PTHREAD_CANCEL_ENABLE
@@ -1306,6 +1322,8 @@ expr_stmt|;
 name|pthread_testcancel
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 name|thr
 operator|->
 name|run
@@ -2708,6 +2726,12 @@ condition|)
 block|{
 comment|// caller does not have permission to set the scheduling
 comment|// parameters/policy
+if|#
+directive|if
+name|defined
+argument_list|(
+name|QT_HAS_THREAD_PRIORITY_SCHEDULING
+argument_list|)
 name|pthread_attr_setinheritsched
 argument_list|(
 operator|&
@@ -2716,6 +2740,8 @@ argument_list|,
 name|PTHREAD_INHERIT_SCHED
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|code
 operator|=
 name|pthread_create
@@ -2789,6 +2815,13 @@ operator|::
 name|terminate
 parameter_list|()
 block|{
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_LINUX_ANDROID
+argument_list|)
 name|Q_D
 argument_list|(
 name|QThread
@@ -2851,6 +2884,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
@@ -2978,6 +3013,19 @@ name|Q_UNUSED
 argument_list|(
 argument|thr
 argument_list|)
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_LINUX_ANDROID
+argument_list|)
+name|Q_UNUSED
+argument_list|(
+name|enabled
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|pthread_setcancelstate
 argument_list|(
 name|enabled
@@ -2996,6 +3044,8 @@ condition|)
 name|pthread_testcancel
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 begin_function
