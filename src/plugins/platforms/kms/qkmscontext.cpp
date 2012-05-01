@@ -154,11 +154,6 @@ operator|::
 name|doneCurrent
 parameter_list|()
 block|{
-name|QPlatformOpenGLContext
-operator|::
-name|doneCurrent
-argument_list|()
-expr_stmt|;
 name|bool
 name|ok
 init|=
