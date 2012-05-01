@@ -38,6 +38,37 @@ include|#
 directive|include
 file|<string>
 end_include
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|Q_OS_LINUX_ANDROID
+argument_list|)
+end_if
+begin_comment
+comment|// std::wstring is disabled on android's glibc, as bionic lacks certain features
+end_comment
+begin_comment
+comment|// that libstdc++ checks for (like mbcslen).
+end_comment
+begin_decl_stmt
+name|namespace
+name|std
+block|{
+typedef|typedef
+name|basic_string
+operator|<
+name|wchar_t
+operator|>
+name|wstring
+expr_stmt|;
+block|}
+end_decl_stmt
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_include
 include|#
 directive|include
