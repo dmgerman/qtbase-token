@@ -1823,6 +1823,13 @@ condition|)
 return|return
 literal|false
 return|;
+name|d
+operator|->
+name|glfuncs
+operator|->
+name|initializeGLFunctions
+argument_list|()
+expr_stmt|;
 name|GLuint
 name|program
 init|=
