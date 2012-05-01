@@ -6844,6 +6844,14 @@ name|relatedMetaObjects
 operator|=
 literal|0
 expr_stmt|;
+name|output
+operator|->
+name|d
+operator|.
+name|static_metacall
+operator|=
+literal|0
+expr_stmt|;
 block|}
 end_function
 begin_comment
