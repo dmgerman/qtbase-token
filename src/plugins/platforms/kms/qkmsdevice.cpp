@@ -65,7 +65,7 @@ name|QT_OPEN
 argument_list|(
 name|path
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -87,7 +87,7 @@ literal|"Could not open %s."
 argument_list|,
 name|path
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData

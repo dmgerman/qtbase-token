@@ -301,7 +301,7 @@ name|fileName
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"win%1_%2.png"
 argument_list|)

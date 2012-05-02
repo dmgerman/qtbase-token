@@ -326,7 +326,7 @@ argument_list|()
 argument_list|,
 name|display
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData

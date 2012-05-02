@@ -356,7 +356,7 @@ name|QT_OPEN
 argument_list|(
 name|ttyDevice
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData

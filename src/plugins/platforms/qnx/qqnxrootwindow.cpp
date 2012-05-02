@@ -1010,7 +1010,7 @@ operator|.
 name|toString
 argument_list|()
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 expr_stmt|;
 comment|// Create window group so child windows can be parented by container window
