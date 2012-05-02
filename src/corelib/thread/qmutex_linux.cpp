@@ -52,6 +52,11 @@ include|#
 directive|include
 file|<errno.h>
 end_include
+begin_include
+include|#
+directive|include
+file|<asm/unistd.h>
+end_include
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -120,7 +125,7 @@ name|value
 operator|=
 name|syscall
 argument_list|(
-name|SYS_futex
+name|__NR_futex
 argument_list|,
 operator|&
 name|futexFlagSupport
@@ -245,10 +250,12 @@ name|val2
 init|=
 literal|0
 decl_stmt|;
+comment|// we use __NR_futex because some libcs (like Android's bionic) don't
+comment|// provide SYS_futex etc.
 return|return
 name|syscall
 argument_list|(
-name|SYS_futex
+name|__NR_futex
 argument_list|,
 name|int_addr
 argument_list|,
