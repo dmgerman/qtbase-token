@@ -4345,6 +4345,7 @@ name|QInternal
 operator|::
 name|Image
 case|:
+comment|// Ensure the backing store has received as resize and is initialized.
 if|if
 condition|(
 name|QBackingStore
@@ -4360,6 +4361,14 @@ argument_list|)
 condition|)
 if|if
 condition|(
+name|bs
+operator|->
+name|size
+argument_list|()
+operator|.
+name|isValid
+argument_list|()
+operator|&&
 name|bs
 operator|->
 name|paintDevice
