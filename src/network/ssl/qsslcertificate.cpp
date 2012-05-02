@@ -391,7 +391,7 @@ literal|0
 argument_list|)
 end_if
 begin_comment
-comment|/*!     \fn bool QSslCertificate::isValid() const      Returns true if this certificate is valid; otherwise returns     false.      Note: Currently, this function checks that the current     data-time is within the date-time range during which the     certificate is considered valid, and checks that the     certificate is not in a blacklist of fraudulent certificates.      \sa isNull() */
+comment|/*!     \fn bool QSslCertificate::isValid() const     \obsolete      To verify a certificate, use verify().     To check if a certificate is blacklisted, use isBlacklisted().     To check if a certificate has expired or is not yet valid, compare     expiryDate() and effectiveDate() with QDateTime::currentDateTime()      This function checks that the current     data-time is within the date-time range during which the     certificate is considered valid, and checks that the     certificate is not in a blacklist of fraudulent certificates.      \sa isNull(), verify(), isBlacklisted(), expiryDate(), effectiveDate() */
 end_comment
 begin_endif
 endif|#
@@ -1240,6 +1240,23 @@ argument_list|()
 return|;
 block|}
 end_function
+begin_if
+if|#
+directive|if
+name|QT_DEPRECATED_SINCE
+argument_list|(
+literal|5
+operator|,
+literal|0
+argument_list|)
+end_if
+begin_comment
+comment|/*!   \fn QMultiMap<QSsl::AlternateNameEntryType, QString> alternateSubjectNames() const   \obsolete    Use subjectAlternativeNames(); */
+end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/*!   Returns the list of alternative subject names for this   certificate. The alternative names typically contain host   names, optionally with wildcards, that are valid for this   certificate.    These names are tested against the connected peer's host name, if   either the subject information for \l CommonName doesn't define a   valid host name, or the subject info name doesn't match the peer's   host name.    \sa subjectInfo() */
 end_comment
