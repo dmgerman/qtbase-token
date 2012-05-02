@@ -1691,6 +1691,12 @@ name|defined
 argument_list|(
 name|Q_OS_VXWORKS
 argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|Q_OS_LINUX_ANDROID
+argument_list|)
 name|resolveLibrary
 argument_list|()
 expr_stmt|;
