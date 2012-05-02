@@ -8969,7 +8969,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Writes \a array to the stream. The contents of \a array are     converted with QString::fromAscii(). */
+comment|/*!     \overload      Writes \a array to the stream. The contents of \a array are     converted with QString::fromUtf8(). */
 end_comment
 begin_function
 DECL|function|operator <<
@@ -9003,7 +9003,7 @@ name|putString
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|array
 operator|.

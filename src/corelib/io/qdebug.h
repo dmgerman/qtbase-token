@@ -741,7 +741,7 @@ name|ts
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|t
 argument_list|)
