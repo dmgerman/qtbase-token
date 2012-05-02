@@ -585,7 +585,7 @@ operator|.
 name|key
 argument_list|()
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 operator|.
 name|data
@@ -601,7 +601,7 @@ operator|.
 name|toString
 argument_list|()
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 operator|.
 name|data
@@ -662,7 +662,7 @@ operator|.
 name|toString
 argument_list|()
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 operator|.
 name|data
