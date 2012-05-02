@@ -6947,9 +6947,9 @@ directive|endif
 name|QStringList
 name|paths
 init|=
-name|QString
+name|QFile
 operator|::
-name|fromLatin1
+name|decodeName
 argument_list|(
 name|libPathEnv
 argument_list|)

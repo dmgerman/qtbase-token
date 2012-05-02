@@ -4640,10 +4640,12 @@ decl_stmt|;
 name|QByteArray
 name|ascii
 init|=
+name|QFile
+operator|::
+name|encodeName
+argument_list|(
 name|installPathPluginsDeCanon
-operator|.
-name|toAscii
-argument_list|()
+argument_list|)
 decl_stmt|;
 name|qputenv
 argument_list|(
