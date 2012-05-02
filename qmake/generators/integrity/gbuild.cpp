@@ -908,7 +908,7 @@ operator|.
 name|fileName
 argument_list|()
 operator|.
-name|toAscii
+name|toLocal8Bit
 argument_list|()
 operator|.
 name|constData
@@ -2552,7 +2552,7 @@ name|WarnParser
 argument_list|,
 name|outputName
 operator|.
-name|toAscii
+name|toLocal8Bit
 argument_list|()
 operator|.
 name|constData

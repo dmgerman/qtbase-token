@@ -12669,7 +12669,7 @@ name|val
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLocal8Bit
 argument_list|(
 name|qgetenv
 argument_list|(
