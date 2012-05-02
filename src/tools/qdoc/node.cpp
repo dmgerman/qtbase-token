@@ -10859,7 +10859,7 @@ else|else
 name|qDebug
 argument_list|()
 operator|<<
-literal|"qdoc3 internal error: Operator missing from operators_ map:"
+literal|"qdoc internal error: Operator missing from operators_ map:"
 operator|<<
 name|op
 expr_stmt|;
@@ -10950,7 +10950,7 @@ else|else
 name|qDebug
 argument_list|()
 operator|<<
-literal|"qdoc3 internal error: Node subtype not handled:"
+literal|"qdoc internal error: Node subtype not handled:"
 operator|<<
 name|parent_
 operator|->
@@ -10967,7 +10967,7 @@ else|else
 name|qDebug
 argument_list|()
 operator|<<
-literal|"qdoc3 internal error: Node type not handled:"
+literal|"qdoc internal error: Node type not handled:"
 operator|<<
 name|parent_
 operator|->
