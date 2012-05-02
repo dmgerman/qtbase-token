@@ -7954,7 +7954,7 @@ argument_list|)
 operator|+
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|v
 operator|.
@@ -7976,7 +7976,7 @@ argument_list|)
 operator|+
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|v
 operator|.

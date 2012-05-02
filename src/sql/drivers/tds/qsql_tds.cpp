@@ -645,7 +645,7 @@ name|arg
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|msgtext
 argument_list|)
@@ -670,7 +670,7 @@ name|arg
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|srvname
 argument_list|)
@@ -2094,7 +2094,7 @@ name|f
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|dbcolname
 argument_list|(

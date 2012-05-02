@@ -1740,7 +1740,7 @@ argument_list|)
 else|:
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|val
 argument_list|)
@@ -1826,7 +1826,7 @@ name|dbl
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|val
 argument_list|)
@@ -1900,7 +1900,7 @@ block|}
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|val
 argument_list|)
@@ -1909,7 +1909,7 @@ block|}
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|val
 argument_list|)
@@ -3617,7 +3617,7 @@ name|val
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|PQgetvalue
 argument_list|(
@@ -7456,7 +7456,7 @@ argument_list|)
 else|:
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|notify
 operator|->

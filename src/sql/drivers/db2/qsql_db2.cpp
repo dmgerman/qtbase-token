@@ -3835,7 +3835,7 @@ operator|.
 name|toString
 argument_list|()
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 decl_stmt|;
 name|int
@@ -4391,7 +4391,7 @@ index|]
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|tmpStorage
 operator|.

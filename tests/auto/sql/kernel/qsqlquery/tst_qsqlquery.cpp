@@ -18877,7 +18877,7 @@ literal|":data"
 argument_list|,
 name|shortBLOB
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -18906,7 +18906,7 @@ literal|":data"
 argument_list|,
 name|longerBLOB
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;

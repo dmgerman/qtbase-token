@@ -526,7 +526,7 @@ argument_list|)
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|err
 argument_list|)
@@ -648,7 +648,7 @@ name|fieldStr
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|fieldName
 argument_list|)
@@ -712,7 +712,7 @@ name|nameToType
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|cnames
 index|[
@@ -969,7 +969,7 @@ argument_list|)
 else|:
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|fvals
 index|[
@@ -1233,7 +1233,7 @@ argument_list|()
 else|:
 name|query
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -1281,7 +1281,7 @@ argument_list|)
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|err
 argument_list|)
@@ -1713,7 +1713,7 @@ argument_list|)
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|err
 argument_list|)
@@ -1887,7 +1887,7 @@ argument_list|)
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|err
 argument_list|)
@@ -1973,7 +1973,7 @@ argument_list|)
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|err
 argument_list|)
@@ -2059,7 +2059,7 @@ argument_list|)
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|err
 argument_list|)
