@@ -35,6 +35,15 @@ include|#
 directive|include
 file|<winsock2.h>
 end_include
+begin_else
+else|#
+directive|else
+end_else
+begin_include
+include|#
+directive|include
+file|<netinet/in.h>
+end_include
 begin_endif
 endif|#
 directive|endif
