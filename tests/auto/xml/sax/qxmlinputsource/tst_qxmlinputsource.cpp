@@ -420,7 +420,7 @@ operator|.
 name|path
 argument_list|()
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -453,7 +453,7 @@ operator|.
 name|host
 argument_list|()
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;

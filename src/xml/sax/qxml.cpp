@@ -4957,7 +4957,7 @@ expr_stmt|;
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|data
 operator|.
