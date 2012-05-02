@@ -1139,7 +1139,7 @@ name|context
 operator|.
 name|tag
 operator|.
-name|toAscii
+name|toLocal8Bit
 argument_list|()
 decl_stmt|;
 if|if

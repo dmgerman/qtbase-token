@@ -267,7 +267,7 @@ argument_list|(
 operator|&
 name|buf
 argument_list|,
-literal|"<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 literal|"<TestCase name=\"%s\">\n"
 argument_list|,
 name|quotedTc
@@ -794,7 +794,7 @@ name|context
 operator|.
 name|tag
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 operator|.
 name|constData
