@@ -1507,11 +1507,7 @@ specifier|public
 private|:
 DECL|function|QOpenGLShaderProgramPrivate
 name|QOpenGLShaderProgramPrivate
-parameter_list|(
-name|QOpenGLContext
-modifier|*
-name|ctx
-parameter_list|)
+parameter_list|()
 member_init_list|:
 name|programGuard
 argument_list|(
@@ -1552,9 +1548,6 @@ name|glfuncs
 argument_list|(
 operator|new
 name|QOpenGLFunctions
-argument_list|(
-name|ctx
-argument_list|)
 argument_list|)
 block|{     }
 name|~
@@ -1735,12 +1728,6 @@ argument_list|(
 operator|*
 operator|new
 name|QOpenGLShaderProgramPrivate
-argument_list|(
-name|QOpenGLContext
-operator|::
-name|currentContext
-argument_list|()
-argument_list|)
 argument_list|,
 name|parent
 argument_list|)
