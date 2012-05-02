@@ -89,6 +89,24 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|Q_OS_LINUX_ANDROID
+end_ifdef
+begin_comment
+comment|// android lacks if_nameindex
+end_comment
+begin_define
+DECL|macro|QT_NO_IPV6IFNAME
+define|#
+directive|define
+name|QT_NO_IPV6IFNAME
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
