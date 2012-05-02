@@ -1897,9 +1897,9 @@ name|fontFile
 operator|->
 name|fileName
 operator|=
-name|QString
+name|QFile
 operator|::
-name|fromAscii
+name|decodeName
 argument_list|(
 name|file
 argument_list|)
