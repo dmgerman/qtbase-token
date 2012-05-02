@@ -2302,7 +2302,7 @@ name|name
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"(%1,%2,%3,%4"
 argument_list|)
@@ -8282,7 +8282,7 @@ name|QtWarningMsg
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"QGraphicsGridLayout::itemAt: invalid index %1"
 argument_list|)
@@ -8546,7 +8546,7 @@ name|QtWarningMsg
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"QGraphicsGridLayout::removeAt: invalid index 0"
 argument_list|)
@@ -8696,7 +8696,7 @@ name|QtWarningMsg
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"QGraphicsGridLayout::removeAt: invalid index -1"
 argument_list|)
@@ -8733,7 +8733,7 @@ name|QtWarningMsg
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"QGraphicsGridLayout::removeAt: invalid index -1"
 argument_list|)

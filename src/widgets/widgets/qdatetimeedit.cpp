@@ -8854,7 +8854,7 @@ name|qPrintable
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"Internal error (%1 %2)"
 argument_list|)

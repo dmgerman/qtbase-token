@@ -1229,7 +1229,7 @@ name|str
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"<%1>"
 argument_list|)
@@ -1270,7 +1270,7 @@ name|str
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"Row %1:"
 argument_list|)
@@ -1310,7 +1310,7 @@ name|str
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1"
 argument_list|)

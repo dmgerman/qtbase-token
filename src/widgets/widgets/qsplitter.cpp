@@ -7366,7 +7366,7 @@ name|restoreState
 argument_list|(
 name|line
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;

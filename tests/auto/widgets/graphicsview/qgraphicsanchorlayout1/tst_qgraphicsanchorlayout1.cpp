@@ -566,7 +566,7 @@ literal|0
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"w%1"
 argument_list|)
@@ -11748,7 +11748,7 @@ literal|0
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"W%1"
 argument_list|)

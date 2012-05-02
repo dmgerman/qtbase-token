@@ -2498,7 +2498,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"motif"
 argument_list|)
@@ -2521,7 +2521,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"cde"
 argument_list|)
@@ -2544,7 +2544,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"windows"
 argument_list|)
@@ -2567,7 +2567,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"cleanlooks"
 argument_list|)
@@ -2590,7 +2590,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"gtk"
 argument_list|)
@@ -2618,7 +2618,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"mac"
 argument_list|)
@@ -2641,7 +2641,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"plastique"
 argument_list|)
@@ -2669,7 +2669,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"windowsxp"
 argument_list|)
@@ -2697,7 +2697,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"windowsvista"
 argument_list|)
@@ -2725,7 +2725,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"windowsce"
 argument_list|)
@@ -2753,7 +2753,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"windowsmobile"
 argument_list|)

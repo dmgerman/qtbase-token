@@ -2899,7 +2899,7 @@ name|setText
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"(%1,%2)"
 argument_list|)
@@ -4663,7 +4663,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"motif"
 argument_list|)
@@ -4741,7 +4741,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"windows"
 argument_list|)
@@ -9526,7 +9526,7 @@ name|testName
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"arrowpad with %1 empty rows, %2 empty columns"
 argument_list|)

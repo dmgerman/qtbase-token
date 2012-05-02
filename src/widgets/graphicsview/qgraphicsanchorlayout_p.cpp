@@ -2519,7 +2519,7 @@ name|string
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|" (+++) %1"
 argument_list|)
@@ -2544,7 +2544,7 @@ name|string
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|" (---) %1"
 argument_list|)
@@ -3175,7 +3175,7 @@ name|strVertices
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1 - "
 argument_list|)
@@ -3199,7 +3199,7 @@ name|strPath
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1 - %2%3"
 argument_list|)
@@ -3449,7 +3449,7 @@ name|dumpGraph
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1-full"
 argument_list|)
@@ -3544,7 +3544,7 @@ name|dumpGraph
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1-simplified-%2"
 argument_list|)
@@ -3558,7 +3558,7 @@ name|arg
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|orientation
 operator|==
@@ -3743,7 +3743,7 @@ name|name
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1 --to--> %2"
 argument_list|)
@@ -7612,7 +7612,7 @@ name|name
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1 --to--> %2"
 argument_list|)
@@ -13415,7 +13415,7 @@ name|file
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"anchorlayout.%1.dot"
 argument_list|)
@@ -13467,7 +13467,7 @@ name|str
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"digraph anchorlayout {\nnode [shape=\"rect\"]\n%1}"
 argument_list|)

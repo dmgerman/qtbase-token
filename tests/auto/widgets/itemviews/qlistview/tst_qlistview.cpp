@@ -7552,7 +7552,7 @@ name|list
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"Item %1"
 argument_list|)
@@ -8085,7 +8085,7 @@ name|list
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"Item %1"
 argument_list|)
@@ -8135,7 +8135,7 @@ name|replacement
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"Item %1"
 argument_list|)
@@ -12607,7 +12607,7 @@ name|contains
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"1"
 argument_list|)

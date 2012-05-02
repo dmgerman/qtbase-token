@@ -9774,7 +9774,7 @@ name|k1
 operator|||
 name|c1
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 condition|)
 block|{
@@ -9856,7 +9856,7 @@ name|k2
 operator|||
 name|c2
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 condition|)
 block|{
@@ -9938,7 +9938,7 @@ name|k3
 operator|||
 name|c3
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 condition|)
 block|{
@@ -10020,7 +10020,7 @@ name|k4
 operator|||
 name|c4
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 condition|)
 block|{

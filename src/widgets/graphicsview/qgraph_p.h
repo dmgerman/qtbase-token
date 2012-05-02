@@ -546,7 +546,7 @@ name|qPrintable
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1-%2"
 argument_list|)
@@ -658,7 +658,7 @@ name|qPrintable
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1-%2"
 argument_list|)
@@ -747,7 +747,7 @@ name|qPrintable
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1-%2"
 argument_list|)
@@ -1141,7 +1141,7 @@ name|edges
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"\"%1\"->\"%2\" [label=\"[%3,%4,%5,%6,%7]\" color=\"#000000\"] \n"
 argument_list|)
@@ -1203,7 +1203,7 @@ name|strVertices
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"\"%1\" [label=\"%2\"]\n"
 argument_list|)
@@ -1228,7 +1228,7 @@ block|}
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1\n%2\n"
 argument_list|)

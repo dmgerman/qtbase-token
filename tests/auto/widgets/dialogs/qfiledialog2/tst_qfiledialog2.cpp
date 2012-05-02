@@ -3239,7 +3239,7 @@ name|QString
 argument_list|(
 name|entry
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 operator|.
@@ -3483,7 +3483,7 @@ operator|.
 name|toLower
 argument_list|()
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|-
 literal|'a'

@@ -486,7 +486,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"Anchor(%1)"
 argument_list|)
@@ -569,7 +569,7 @@ name|name
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1 -- %2"
 argument_list|)
@@ -740,7 +740,7 @@ name|name
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1 | %2"
 argument_list|)
@@ -954,7 +954,7 @@ decl_stmt|;
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"(%1, %2)"
 argument_list|)
@@ -992,7 +992,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"NULL_%1"
 argument_list|)

@@ -14985,7 +14985,7 @@ name|idx
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1,%2"
 argument_list|)
@@ -15070,7 +15070,7 @@ argument_list|)
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"child%1%2"
 argument_list|)

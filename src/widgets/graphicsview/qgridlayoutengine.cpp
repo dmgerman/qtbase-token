@@ -4433,7 +4433,7 @@ name|message
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|" stretch %1"
 argument_list|)
@@ -4469,7 +4469,7 @@ name|message
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|" spacing %1"
 argument_list|)
@@ -4502,7 +4502,7 @@ name|message
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|" alignment %1"
 argument_list|)

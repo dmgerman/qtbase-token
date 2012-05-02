@@ -7777,7 +7777,7 @@ argument_list|()
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"first item"
 argument_list|)
@@ -10631,7 +10631,7 @@ name|newRow
 argument_list|(
 name|testCase
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"normal"
@@ -10674,7 +10674,7 @@ name|newRow
 argument_list|(
 name|testCase
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"non-selectable"
@@ -10715,7 +10715,7 @@ name|newRow
 argument_list|(
 name|testCase
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"disabled"
@@ -10764,7 +10764,7 @@ name|newRow
 argument_list|(
 name|testCase
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"mixed"
@@ -10817,7 +10817,7 @@ name|newRow
 argument_list|(
 name|testCase
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"nearly-empty"
@@ -10875,7 +10875,7 @@ name|newRow
 argument_list|(
 name|testCase
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"only one enabled"
@@ -10941,7 +10941,7 @@ name|newRow
 argument_list|(
 name|testCase
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"home-disabled"
@@ -10979,7 +10979,7 @@ name|newRow
 argument_list|(
 name|testCase
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"end-key"
@@ -11021,7 +11021,7 @@ name|newRow
 argument_list|(
 name|testCase
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"keyboard-search"
@@ -11060,7 +11060,7 @@ name|newRow
 argument_list|(
 name|testCase
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"search same start letter"
@@ -11102,7 +11102,7 @@ name|newRow
 argument_list|(
 name|testCase
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"keyboard search item"
@@ -11181,7 +11181,7 @@ name|newRow
 argument_list|(
 name|testCase
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"all key combinations"
@@ -11240,7 +11240,7 @@ name|newRow
 argument_list|(
 name|testCase
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"disabled"
@@ -11267,7 +11267,7 @@ name|newRow
 argument_list|(
 name|testCase
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"broken autocompletion"

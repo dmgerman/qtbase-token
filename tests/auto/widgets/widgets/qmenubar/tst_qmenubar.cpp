@@ -5222,7 +5222,7 @@ name|objectName
 argument_list|()
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;

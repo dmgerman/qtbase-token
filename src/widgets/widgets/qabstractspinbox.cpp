@@ -8202,7 +8202,7 @@ name|qPrintable
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"Internal error 1 (%1)"
 argument_list|)
@@ -8211,7 +8211,7 @@ name|arg
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|arg1
 operator|.
@@ -8286,7 +8286,7 @@ name|qPrintable
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"Internal error 2 (%1)"
 argument_list|)
@@ -8295,7 +8295,7 @@ name|arg
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|arg1
 operator|.
@@ -8519,7 +8519,7 @@ name|qPrintable
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"Internal error 3 (%1 %2)"
 argument_list|)
@@ -8528,7 +8528,7 @@ name|arg
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|arg1
 operator|.
@@ -8541,7 +8541,7 @@ name|arg
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|arg2
 operator|.

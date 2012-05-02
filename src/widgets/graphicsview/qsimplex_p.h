@@ -303,7 +303,7 @@ name|result
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"-- QSimplexConstraint %1 --"
 argument_list|)
@@ -355,7 +355,7 @@ name|result
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"  %1 x %2"
 argument_list|)
@@ -396,7 +396,7 @@ name|result
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"  (less)<= %1"
 argument_list|)
@@ -414,7 +414,7 @@ name|result
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"  (more)>= %1"
 argument_list|)
@@ -430,7 +430,7 @@ name|result
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"  (eqal) == %1"
 argument_list|)

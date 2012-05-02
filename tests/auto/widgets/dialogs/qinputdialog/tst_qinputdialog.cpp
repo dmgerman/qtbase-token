@@ -410,7 +410,7 @@ argument_list|)
 argument_list|,
 name|valChar
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -500,7 +500,7 @@ name|ledit
 argument_list|,
 name|valChar
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;

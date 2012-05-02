@@ -1102,7 +1102,7 @@ operator|.
 name|toUpper
 argument_list|()
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 condition|)
 block|{
