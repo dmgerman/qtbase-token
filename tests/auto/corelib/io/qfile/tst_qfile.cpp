@@ -9096,7 +9096,7 @@ operator|+
 literal|"/stdfile.txt"
 operator|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|,
 literal|"r"
@@ -13205,7 +13205,7 @@ operator|+
 literal|"/writeabletextfile"
 operator|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|,
 literal|"wt"

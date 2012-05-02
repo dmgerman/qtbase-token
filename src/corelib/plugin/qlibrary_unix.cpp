@@ -1368,7 +1368,7 @@ name|arg
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|symbol
 argument_list|)

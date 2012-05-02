@@ -11313,7 +11313,7 @@ operator|->
 name|objectName
 argument_list|()
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 decl_stmt|;
 name|int

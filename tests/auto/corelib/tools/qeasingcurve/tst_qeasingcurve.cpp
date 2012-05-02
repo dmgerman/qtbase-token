@@ -351,7 +351,7 @@ name|QtWarningMsg
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"QEasingCurve: Invalid curve type %1"
 argument_list|)
@@ -399,7 +399,7 @@ name|QtWarningMsg
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"QEasingCurve: Invalid curve type %1"
 argument_list|)
@@ -447,7 +447,7 @@ name|QtWarningMsg
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"QEasingCurve: Invalid curve type %1"
 argument_list|)
@@ -4077,7 +4077,7 @@ if|#
 directive|if
 literal|0
 comment|// used to generate data tables...
-block|QFile out;     out.open(stdout, QIODevice::WriteOnly);     for (int c = QEasingCurve::Linear; c< QEasingCurve::NCurveTypes - 1; ++c) {         QEasingCurve curve((QEasingCurve::Type)c);         QMetaObject mo = QEasingCurve::staticMetaObject;         QString strCurve = QLatin1String(mo.enumerator(mo.indexOfEnumerator("Type")).key(c));         QString strInputs;         QString strOutputs;          for (int t = 0; t<= 100; t+= 10) {             qreal ease = curve.valueForProgress(t/qreal(100));             strInputs += QString::fromAscii("<< %1").arg(t);             strOutputs += "<< " + fixedToString(qRound(ease*10000));         }         QString str = QString::fromAscii("    QTest::newRow(\"%1\")<< int(QEasingCurve::%2)\n"                                                 "<< (IntList() %3)\n"                                                 "<< (RealList()%4);\n\n")                                       .arg(strCurve)                                       .arg(strCurve)                                       .arg(strInputs)                                       .arg(strOutputs);         out.write(str.toLatin1().constData());     }     out.close();     exit(1);
+block|QFile out;     out.open(stdout, QIODevice::WriteOnly);     for (int c = QEasingCurve::Linear; c< QEasingCurve::NCurveTypes - 1; ++c) {         QEasingCurve curve((QEasingCurve::Type)c);         QMetaObject mo = QEasingCurve::staticMetaObject;         QString strCurve = QLatin1String(mo.enumerator(mo.indexOfEnumerator("Type")).key(c));         QString strInputs;         QString strOutputs;          for (int t = 0; t<= 100; t+= 10) {             qreal ease = curve.valueForProgress(t/qreal(100));             strInputs += QString::fromLatin1("<< %1").arg(t);             strOutputs += "<< " + fixedToString(qRound(ease*10000));         }         QString str = QString::fromLatin1("    QTest::newRow(\"%1\")<< int(QEasingCurve::%2)\n"                                                 "<< (IntList() %3)\n"                                                 "<< (RealList()%4);\n\n")                                       .arg(strCurve)                                       .arg(strCurve)                                       .arg(strInputs)                                       .arg(strOutputs);         out.write(str.toLatin1().constData());     }     out.close();     exit(1);
 else|#
 directive|else
 name|QFETCH

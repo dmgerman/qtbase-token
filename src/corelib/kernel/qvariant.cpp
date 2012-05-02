@@ -1334,7 +1334,7 @@ name|str
 operator|=
 name|QChar
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|d
 operator|->

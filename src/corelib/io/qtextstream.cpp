@@ -8259,7 +8259,7 @@ name|QString
 argument_list|(
 name|QChar
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|c
 argument_list|)

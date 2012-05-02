@@ -15097,7 +15097,7 @@ name|QVERIFY
 argument_list|(
 name|s
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|==
 literal|"first-ascii"
@@ -15111,7 +15111,7 @@ name|QVERIFY
 argument_list|(
 name|s
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|==
 literal|"second-ascii"
@@ -15134,7 +15134,7 @@ name|QVERIFY
 argument_list|(
 name|s
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|size
@@ -15147,7 +15147,7 @@ name|QVERIFY
 argument_list|(
 name|s
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|isEmpty
@@ -15158,7 +15158,7 @@ name|QVERIFY
 argument_list|(
 name|s
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|isNull

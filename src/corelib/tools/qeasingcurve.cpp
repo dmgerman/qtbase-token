@@ -5690,7 +5690,7 @@ name|debug
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"period:%1"
 argument_list|)
@@ -5714,7 +5714,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"amp:%1"
 argument_list|)
@@ -5738,7 +5738,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"overshoot:%1"
 argument_list|)

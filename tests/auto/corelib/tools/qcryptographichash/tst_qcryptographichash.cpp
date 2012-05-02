@@ -794,7 +794,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"data/2c1517dad3678f03917f15849b052fd5.md5"
 argument_list|)
@@ -817,7 +817,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"data/d41d8cd98f00b204e9800998ecf8427e.md5"
 argument_list|)

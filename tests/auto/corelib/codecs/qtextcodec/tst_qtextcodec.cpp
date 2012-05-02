@@ -3217,7 +3217,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"\0abcd"
 argument_list|,
@@ -3242,7 +3242,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"ab"
 argument_list|)
@@ -3266,7 +3266,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"ab\0cd"
 argument_list|,

@@ -177,7 +177,7 @@ operator|)
 name|objectName
 argument_list|()
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|,
 name|sender
@@ -272,7 +272,7 @@ operator|)
 name|objectName
 argument_list|()
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|,
 name|sender

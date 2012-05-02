@@ -776,7 +776,7 @@ condition|)
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"*** Result ('%1') not null-terminated: 0x%2 ***"
 argument_list|)
@@ -785,7 +785,7 @@ name|arg
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|ba
 argument_list|)
@@ -805,7 +805,7 @@ literal|'0'
 argument_list|)
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 return|;
 comment|// Skip mutating checks on shared strings
@@ -871,7 +871,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"*** Failed to replace null-terminator in "
 literal|"result ('%1') ***"
@@ -881,13 +881,13 @@ name|arg
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|ba
 argument_list|)
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 return|;
 block|}
@@ -901,7 +901,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"*** Result ('%1') differs from its copy "
 literal|"after null-terminator was replaced ***"
@@ -911,13 +911,13 @@ name|arg
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|ba
 argument_list|)
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 return|;
 block|}
