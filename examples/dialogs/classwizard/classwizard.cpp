@@ -214,7 +214,7 @@ literal|"    "
 operator|+
 name|header
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"\n"
@@ -564,7 +564,7 @@ literal|"    "
 operator|+
 name|implementation
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"\n"
@@ -584,7 +584,7 @@ literal|"#include \""
 operator|+
 name|header
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"\"\n"

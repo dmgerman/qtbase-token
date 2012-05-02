@@ -323,7 +323,7 @@ name|fileName
 argument_list|,
 name|format
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData

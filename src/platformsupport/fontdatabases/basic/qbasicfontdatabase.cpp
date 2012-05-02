@@ -1023,7 +1023,7 @@ name|family
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|freetype
 operator|->
@@ -1879,7 +1879,7 @@ name|family
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|face
 operator|->
