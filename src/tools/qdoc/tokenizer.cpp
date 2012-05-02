@@ -2240,7 +2240,7 @@ name|tb
 init|=
 name|t
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 decl_stmt|;
 name|ignoredTokensAndDirectives
@@ -2296,7 +2296,7 @@ name|db
 init|=
 name|d
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 decl_stmt|;
 name|ignoredTokensAndDirectives
