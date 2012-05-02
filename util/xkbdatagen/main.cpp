@@ -2519,7 +2519,7 @@ name|l
 operator|.
 name|name
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -2529,7 +2529,7 @@ name|l
 operator|.
 name|description
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -2539,7 +2539,7 @@ name|l
 operator|.
 name|name
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -2550,7 +2550,7 @@ argument_list|(
 name|lang
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -2558,7 +2558,7 @@ argument_list|()
 argument_list|,
 name|lang
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -2566,7 +2566,7 @@ argument_list|()
 argument_list|,
 name|country
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -2619,7 +2619,7 @@ name|l
 operator|.
 name|name
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -2627,7 +2627,7 @@ argument_list|()
 argument_list|,
 name|v
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -2637,7 +2637,7 @@ name|l
 operator|.
 name|description
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -2647,7 +2647,7 @@ name|l
 operator|.
 name|name
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -2655,7 +2655,7 @@ argument_list|()
 argument_list|,
 name|v
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -2666,7 +2666,7 @@ argument_list|(
 name|vlang
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -2674,7 +2674,7 @@ argument_list|()
 argument_list|,
 name|vlang
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -2682,7 +2682,7 @@ argument_list|()
 argument_list|,
 name|country
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData

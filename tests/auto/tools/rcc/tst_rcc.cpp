@@ -631,7 +631,7 @@ name|out
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|process
 operator|.
@@ -708,7 +708,7 @@ name|expectedLines
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|expectedFile
 operator|.
