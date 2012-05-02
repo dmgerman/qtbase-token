@@ -7659,7 +7659,7 @@ name|append
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|error
 argument_list|)

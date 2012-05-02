@@ -1681,7 +1681,7 @@ operator|+
 literal|"\n"
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1698,7 +1698,7 @@ argument_list|(
 literal|"Transfer-Encoding: chunked\n"
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1747,7 +1747,7 @@ argument_list|(
 literal|"0\r\n\r\n"
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1842,7 +1842,7 @@ operator|+
 literal|"\r\n"
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1867,7 +1867,7 @@ argument_list|(
 literal|"\r\n"
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;

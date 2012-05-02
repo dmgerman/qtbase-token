@@ -4490,7 +4490,7 @@ name|line
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|commandSocket
 operator|.
@@ -4721,7 +4721,7 @@ name|line
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|commandSocket
 operator|.

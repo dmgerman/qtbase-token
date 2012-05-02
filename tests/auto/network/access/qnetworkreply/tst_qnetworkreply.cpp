@@ -36172,7 +36172,7 @@ operator|+
 literal|"\n"
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -36189,7 +36189,7 @@ argument_list|(
 literal|"Transfer-Encoding: chunked\n"
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -36238,7 +36238,7 @@ argument_list|(
 literal|"0\r\n\r\n"
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -36333,7 +36333,7 @@ operator|+
 literal|"\r\n"
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -36358,7 +36358,7 @@ argument_list|(
 literal|"\r\n"
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -36926,7 +36926,7 @@ name|server
 argument_list|(
 name|header
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -37376,7 +37376,7 @@ name|fromBase64
 argument_list|(
 name|encodedFile
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -37395,7 +37395,7 @@ name|server
 argument_list|(
 name|header
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 name|decodedFile
@@ -37520,7 +37520,7 @@ name|fromBase64
 argument_list|(
 name|encodedFile
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -37539,7 +37539,7 @@ name|server
 argument_list|(
 name|header
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 name|decodedFile

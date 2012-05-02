@@ -2020,7 +2020,7 @@ name|contains
 argument_list|(
 name|entry
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 argument_list|)

@@ -1395,14 +1395,14 @@ name|replace
 argument_list|(
 name|QChar
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|'_'
 argument_list|)
 argument_list|,
 name|QChar
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|'-'
 argument_list|)
@@ -1424,7 +1424,7 @@ name|acceptLanguage
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"en,*"
 argument_list|)
@@ -1446,7 +1446,7 @@ name|acceptLanguage
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1,*"
 argument_list|)
@@ -1461,7 +1461,7 @@ name|acceptLanguage
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"%1,en,*"
 argument_list|)
@@ -1479,7 +1479,7 @@ literal|"Accept-Language"
 argument_list|,
 name|acceptLanguage
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1561,7 +1561,7 @@ literal|"["
 operator|+
 name|hostName
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|+
 literal|"]"
@@ -1572,7 +1572,7 @@ name|host
 operator|=
 name|hostName
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 expr_stmt|;
 block|}
