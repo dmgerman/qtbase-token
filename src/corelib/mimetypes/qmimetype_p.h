@@ -118,6 +118,11 @@ name|QStringList
 name|globPatterns
 decl_stmt|;
 end_decl_stmt
+begin_decl_stmt
+name|bool
+name|loaded
+decl_stmt|;
+end_decl_stmt
 begin_macro
 unit|};
 name|QT_END_NAMESPACE

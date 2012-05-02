@@ -2992,6 +2992,19 @@ modifier|&
 name|data
 parameter_list|)
 block|{
+if|if
+condition|(
+name|data
+operator|.
+name|loaded
+condition|)
+return|return;
+name|data
+operator|.
+name|loaded
+operator|=
+literal|true
+expr_stmt|;
 comment|// load comment and globPatterns
 specifier|const
 name|QString
