@@ -12668,23 +12668,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns an 8-bit representation of the string as a QByteArray.      This function does the same as toLatin1().      Note that, despite the name, this function does not necessarily return an US-ASCII     (ANSI X3.4-1986) string and its result may not be US-ASCII compatible.      \sa fromAscii(), toLatin1(), toUtf8(), toLocal8Bit(), QTextCodec */
+comment|/*!     \fn QByteArray QString::toAscii() const     \deprecated     Returns an 8-bit representation of the string as a QByteArray.      This function does the same as toLatin1().      Note that, despite the name, this function does not necessarily return an US-ASCII     (ANSI X3.4-1986) string and its result may not be US-ASCII compatible.      \sa fromAscii(), toLatin1(), toUtf8(), toLocal8Bit(), QTextCodec */
 end_comment
-begin_function
-DECL|function|toAscii
-name|QByteArray
-name|QString
-operator|::
-name|toAscii
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|toUtf8
-argument_list|()
-return|;
-block|}
-end_function
 begin_if
 if|#
 directive|if
@@ -13338,7 +13323,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \fn QString QString::fromAscii(const char *, int size);     Returns a QString initialized with the first \a size characters     from the string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      This function does the same as fromLatin1().      \sa toAscii(), fromLatin1(), fromUtf8(), fromLocal8Bit() */
+comment|/*! \fn QString QString::fromAscii(const char *, int size);     \deprecated      Returns a QString initialized with the first \a size characters     from the string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      This function does the same as fromLatin1().      \sa toAscii(), fromLatin1(), fromUtf8(), fromLocal8Bit() */
 end_comment
 begin_comment
 comment|/*! \fn QString QString::fromUtf8(const char *str, int size)     Returns a QString initialized with the first \a size bytes     of the UTF-8 string \a str.      If \a size is -1 (default), it is taken to be strlen(\a     str).      UTF-8 is a Unicode codec and can represent all characters in a Unicode     string like QString. However, invalid sequences are possible with UTF-8     and, if any such are found, they will be replaced with one or more     "replacement characters", or suppressed. These include non-Unicode     sequences, non-characters, overlong sequences or surrogate codepoints     encoded into UTF-8.      Non-characters are codepoints that the Unicode standard reserves and must     not be used in text interchange. They are the last two codepoints in each     Unicode Plane (U+FFFE, U+FFFF, U+1FFFE, U+1FFFF, U+2FFFE, etc.), as well     as 32 codepoints in the range U+FDD0..U+FDEF, inclusive.      \sa toUtf8(), fromLatin1(), fromLocal8Bit() */
@@ -27616,23 +27601,8 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.8      Returns an 8-bit representation of the string as a QByteArray.      This function does the same as toLatin1().      Note that, despite the name, this function does not necessarily return an US-ASCII     (ANSI X3.4-1986) string and its result may not be US-ASCII compatible.      \sa toLatin1(), toUtf8(), toLocal8Bit(), QTextCodec */
+comment|/*!     \fn QByteArray QStringRef::toAscii() const     \since 4.8     \deprecated      Returns an 8-bit representation of the string as a QByteArray.      This function does the same as toLatin1().      Note that, despite the name, this function does not necessarily return an US-ASCII     (ANSI X3.4-1986) string and its result may not be US-ASCII compatible.      \sa toLatin1(), toUtf8(), toLocal8Bit(), QTextCodec */
 end_comment
-begin_function
-DECL|function|toAscii
-name|QByteArray
-name|QStringRef
-operator|::
-name|toAscii
-parameter_list|()
-specifier|const
-block|{
-return|return
-name|toLatin1
-argument_list|()
-return|;
-block|}
-end_function
 begin_comment
 comment|/*!     \since 4.8      Returns the local 8-bit representation of the string as a     QByteArray. The returned byte array is undefined if the string     contains characters not supported by the local 8-bit encoding.      QTextCodec::codecForLocale() is used to perform the conversion from     Unicode. If the locale encoding could not be determined, this function     does the same as toLatin1().      If this string contains any characters that cannot be encoded in the     locale, the returned byte array is undefined. Those characters may be     suppressed or replaced by another.      \sa toLatin1(), toUtf8(), QTextCodec */
 end_comment

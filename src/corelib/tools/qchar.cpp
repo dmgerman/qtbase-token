@@ -2064,10 +2064,10 @@ begin_comment
 comment|/*!     \fn QChar QChar::fromLatin1(char)      Converts the Latin-1 character \a c to its equivalent QChar. This     is mainly useful for non-internationalized software.      An alternative is to use QLatin1Char.      \sa toLatin1(), unicode() */
 end_comment
 begin_comment
-comment|/*!     \fn char QChar::toAscii() const      Returns the Latin-1 character value of the QChar, or 0 if the character is not     representable.      The main purpose of this function is to preserve ASCII characters used     in C strings. This is mainly useful for developers of non-internationalized     software.      \note It is not possible to distinguish a non-Latin 1 character from an ASCII 0     (NUL) character. Prefer to use unicode(), which does not have this ambiguity.      \note This function does not check whether the character value is inside     the valid range of US-ASCII.      \sa toLatin1(), unicode() */
+comment|/*!     \fn char QChar::toAscii() const     \deprecated      Returns the Latin-1 character value of the QChar, or 0 if the character is not     representable.      The main purpose of this function is to preserve ASCII characters used     in C strings. This is mainly useful for developers of non-internationalized     software.      \note It is not possible to distinguish a non-Latin 1 character from an ASCII 0     (NUL) character. Prefer to use unicode(), which does not have this ambiguity.      \note This function does not check whether the character value is inside     the valid range of US-ASCII.      \sa toLatin1(), unicode() */
 end_comment
 begin_comment
-comment|/*!     \fn QChar QChar::fromAscii(char)      Converts the ASCII character \a c to it's equivalent QChar. This     is mainly useful for non-internationalized software.      An alternative is to use QLatin1Char.      \sa fromLatin1(), unicode() */
+comment|/*!     \fn QChar QChar::fromAscii(char)     \deprecated      Converts the ASCII character \a c to it's equivalent QChar. This     is mainly useful for non-internationalized software.      An alternative is to use QLatin1Char.      \sa fromLatin1(), unicode() */
 end_comment
 begin_ifndef
 ifndef|#
