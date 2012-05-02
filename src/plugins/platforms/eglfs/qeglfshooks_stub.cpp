@@ -8,6 +8,7 @@ directive|include
 file|"qeglfshooks.h"
 end_include
 begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|platformInit
 name|void
 name|QEglFSHooks
@@ -134,4 +135,7 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

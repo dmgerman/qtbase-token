@@ -55,6 +55,7 @@ endif|#
 directive|endif
 end_endif
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
 DECL|variable|dispman_display
 specifier|static
 name|DISPMANX_DISPLAY_HANDLE_T
@@ -604,4 +605,7 @@ operator|&
 name|eglFSPiHooks
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

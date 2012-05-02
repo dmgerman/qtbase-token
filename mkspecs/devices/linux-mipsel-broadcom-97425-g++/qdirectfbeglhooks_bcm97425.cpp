@@ -17,10 +17,9 @@ include|#
 directive|include
 file|"default_directfb.h"
 end_include
-begin_comment
-comment|// Exported to the directfb plugin
-end_comment
 begin_decl_stmt
+name|QT_BEGIN_NAMESPACE
+comment|// Exported to the directfb plugin
 DECL|variable|platform_hook
 name|QDirectFBEGLHooks
 name|platform_hook
@@ -109,4 +108,7 @@ return|;
 block|}
 block|}
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit

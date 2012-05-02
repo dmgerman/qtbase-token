@@ -12,6 +12,9 @@ include|#
 directive|include
 file|<X11/Xlib.h>
 end_include
+begin_macro
+name|QT_BEGIN_NAMESPACE
+end_macro
 begin_class
 DECL|class|QEglFSX11Hooks
 class|class
@@ -365,4 +368,7 @@ operator|&
 name|eglFSX11Hooks
 decl_stmt|;
 end_decl_stmt
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 end_unit
