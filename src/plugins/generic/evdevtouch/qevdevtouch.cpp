@@ -2605,7 +2605,7 @@ name|win
 init|=
 name|QGuiApplication
 operator|::
-name|activeWindow
+name|focusWindow
 argument_list|()
 decl_stmt|;
 if|if
