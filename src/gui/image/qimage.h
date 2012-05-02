@@ -1667,7 +1667,7 @@ name|k
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|key
 argument_list|)
@@ -1690,7 +1690,7 @@ argument_list|)
 operator|+
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|lang
 argument_list|)
@@ -1804,7 +1804,7 @@ argument_list|(
 name|index
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 expr_stmt|;
 name|tkl
@@ -1825,7 +1825,7 @@ operator|+
 literal|1
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 expr_stmt|;
 name|imageTextKeys
@@ -1963,7 +1963,7 @@ name|k
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|kl
 operator|.
@@ -1994,7 +1994,7 @@ argument_list|)
 operator|+
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|kl
 operator|.
@@ -2055,7 +2055,7 @@ name|k
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|key
 argument_list|)
@@ -2078,7 +2078,7 @@ argument_list|)
 operator|+
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 name|lang
 argument_list|)

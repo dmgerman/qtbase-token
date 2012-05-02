@@ -977,7 +977,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"Hello"
 argument_list|)
@@ -991,7 +991,7 @@ argument_list|)
 operator|+
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"World"
 argument_list|)
@@ -1020,7 +1020,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"Hello"
 argument_list|)
@@ -1034,7 +1034,7 @@ argument_list|)
 operator|+
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"World"
 argument_list|)
@@ -1067,7 +1067,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"Hello Blah World"
 argument_list|)
@@ -1096,7 +1096,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"HelloBlahWorld"
 argument_list|)
@@ -1127,7 +1127,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"HelloBlahWorld Blah Hah"
 argument_list|)
@@ -1156,7 +1156,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"HelloBlahWorld Blah Hah"
 argument_list|)
@@ -1189,7 +1189,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"Hello: World\n"
 argument_list|)
@@ -1220,7 +1220,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"First Parag\nSecond Parag with a lot more text"
 argument_list|)
@@ -1621,7 +1621,7 @@ argument_list|)
 operator|<<
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"HelloBlahWorld Blah Hah"
 argument_list|)

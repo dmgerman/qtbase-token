@@ -4373,7 +4373,7 @@ argument_list|()
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"test"
 argument_list|)
@@ -4552,7 +4552,7 @@ argument_list|()
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"a"
 argument_list|)
@@ -4601,7 +4601,7 @@ argument_list|()
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"b"
 argument_list|)
@@ -4742,7 +4742,7 @@ argument_list|()
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"H"
 argument_list|)
@@ -4777,7 +4777,7 @@ argument_list|()
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"ello"
 argument_list|)
@@ -4860,7 +4860,7 @@ argument_list|()
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"T"
 argument_list|)
@@ -4939,7 +4939,7 @@ argument_list|()
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"ext"
 argument_list|)
@@ -5634,7 +5634,7 @@ argument_list|)
 argument_list|,
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"Hey"
 argument_list|)

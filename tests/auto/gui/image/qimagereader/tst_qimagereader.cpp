@@ -11945,7 +11945,7 @@ name|inputFileName
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"images/%1"
 argument_list|)
@@ -11993,7 +11993,7 @@ name|baselineFileName
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"baseline/%1.png"
 argument_list|)

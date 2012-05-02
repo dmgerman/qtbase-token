@@ -2499,7 +2499,7 @@ begin_comment
 comment|//             for (int h=2; h<1025; h*=2) {
 end_comment
 begin_comment
-comment|//                 QTest::newRow(QString("brush=%1; size=[%2,%3]").arg(it.key()).arg(w).arg(h).toAscii().data())
+comment|//                 QTest::newRow(QString("brush=%1; size=[%2,%3]").arg(it.key()).arg(w).arg(h).toLatin1().data())
 end_comment
 begin_comment
 comment|//<< *it<< QSize(w, h);

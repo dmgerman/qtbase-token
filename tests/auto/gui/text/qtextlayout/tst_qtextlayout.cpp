@@ -3048,7 +3048,7 @@ argument_list|(
 name|i
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|data

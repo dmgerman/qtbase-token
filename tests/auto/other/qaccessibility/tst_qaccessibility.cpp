@@ -1435,7 +1435,7 @@ name|currentTestFunction
 argument_list|()
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -2762,7 +2762,7 @@ name|QPushButton
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"widget text %1"
 argument_list|)
@@ -2889,7 +2889,7 @@ name|QGroupBox
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"widget text %1"
 argument_list|)
@@ -2924,7 +2924,7 @@ name|QLineEdit
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"widget text %1"
 argument_list|)
@@ -2970,7 +2970,7 @@ name|QCheckBox
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"widget text %1"
 argument_list|)
@@ -2994,7 +2994,7 @@ name|QRadioButton
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"widget text %1"
 argument_list|)
@@ -3084,7 +3084,7 @@ name|QLabel
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"widget text %1"
 argument_list|)
@@ -3141,7 +3141,7 @@ name|QLabel
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"widget text %1"
 argument_list|)
@@ -3165,7 +3165,7 @@ name|QTextEdit
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromLatin1
 argument_list|(
 literal|"widget text %1"
 argument_list|)
