@@ -2101,7 +2101,7 @@ operator|-
 name|i
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|data
@@ -4448,7 +4448,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 expr_stmt|;
 block|}
