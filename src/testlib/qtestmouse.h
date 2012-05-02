@@ -1143,7 +1143,7 @@ index|]
 argument_list|)
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|data

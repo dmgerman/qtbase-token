@@ -681,7 +681,7 @@ name|buffer
 argument_list|,
 name|result
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|constData
@@ -1110,7 +1110,7 @@ name|context
 operator|.
 name|slotName
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|data
