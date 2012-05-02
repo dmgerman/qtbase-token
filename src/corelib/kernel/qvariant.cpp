@@ -8454,7 +8454,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \fn QByteArray QVariant::toByteArray() const      Returns the variant as a QByteArray if the variant has type() \l     ByteArray or \l String (converted using QString::fromAscii());     otherwise returns an empty byte array.      \sa canConvert(), convert() */
+comment|/*!     \fn QByteArray QVariant::toByteArray() const      Returns the variant as a QByteArray if the variant has type() \l     ByteArray or \l String (converted using QString::fromUtf8());     otherwise returns an empty byte array.      \sa canConvert(), convert() */
 end_comment
 begin_function
 DECL|function|toByteArray

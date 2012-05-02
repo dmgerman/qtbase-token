@@ -2827,7 +2827,7 @@ name|str
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|buf
 argument_list|)
