@@ -2178,6 +2178,7 @@ name|msg
 operator|<<
 literal|100
 expr_stmt|;
+comment|// sleep 100 ms
 block|{
 comment|// Call with no timeout -> works
 name|QDBusMessage
@@ -2228,7 +2229,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
-comment|// Call with 1 sec timeout -> fails
+comment|// Call with 1 msec timeout -> fails
 name|QDBusMessage
 name|reply
 init|=
@@ -2317,7 +2318,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
-comment|// Call with 1 sec timeout -> fails
+comment|// Call with 1 msec timeout -> fails
 name|iface
 operator|.
 name|setTimeout
@@ -2347,6 +2348,46 @@ argument_list|,
 name|QDBusMessage
 operator|::
 name|ErrorMessage
+argument_list|)
+expr_stmt|;
+block|}
+block|{
+comment|// Call with 300 msec timeout -> works
+name|iface
+operator|.
+name|setTimeout
+argument_list|(
+literal|300
+argument_list|)
+expr_stmt|;
+name|QDBusMessage
+name|reply
+init|=
+name|iface
+operator|.
+name|call
+argument_list|(
+literal|"sleepMethod"
+argument_list|,
+literal|100
+argument_list|)
+decl_stmt|;
+name|QCOMPARE
+argument_list|(
+name|reply
+operator|.
+name|arguments
+argument_list|()
+operator|.
+name|at
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|toInt
+argument_list|()
+argument_list|,
+literal|42
 argument_list|)
 expr_stmt|;
 block|}
@@ -2405,7 +2446,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
-comment|// Call with 1 sec timeout -> fails
+comment|// Call with 1 msec timeout -> fails
 name|p
 operator|.
 name|setTimeout

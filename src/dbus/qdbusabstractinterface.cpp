@@ -1708,7 +1708,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the timeout in seconds for all future DBus calls to \a timeout.     -1 means the default DBus timeout (usually 25 seconds).      \since 4.8 */
+comment|/*!     Sets the timeout in milliseconds for all future DBus calls to \a timeout.     -1 means the default DBus timeout (usually 25 seconds).      \since 4.8 */
 end_comment
 begin_function
 DECL|function|setTimeout
@@ -1731,7 +1731,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the current value of the timeout in seconds.     -1 means the default DBus timeout (usually 25 seconds).      \since 4.8 */
+comment|/*!     Returns the current value of the timeout in milliseconds.     -1 means the default DBus timeout (usually 25 seconds).      \since 4.8 */
 end_comment
 begin_function
 DECL|function|timeout
