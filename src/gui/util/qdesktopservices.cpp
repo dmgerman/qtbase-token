@@ -547,6 +547,14 @@ end_comment
 begin_comment
 comment|/*!     \fn QString QDesktopServices::displayName(StandardLocation type)     \obsolete     Use QStandardPaths::displayName() */
 end_comment
+begin_function_decl
+specifier|extern
+name|Q_CORE_EXPORT
+name|QString
+name|qt_applicationName_noFallback
+parameter_list|()
+function_decl|;
+end_function_decl
 begin_function
 DECL|function|storageLocationImpl
 name|QString
@@ -572,12 +580,6 @@ block|{
 comment|// Preserve Qt 4 compatibility:
 comment|// * QCoreApplication::applicationName() must default to empty
 comment|// * Unix data location is under the "data/" subdirectory
-specifier|extern
-name|Q_CORE_EXPORT
-name|QString
-name|qt_applicationName_noFallback
-argument_list|()
-decl_stmt|;
 specifier|const
 name|QString
 name|compatAppName
