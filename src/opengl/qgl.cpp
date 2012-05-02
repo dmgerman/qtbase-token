@@ -2407,7 +2407,7 @@ index|[
 literal|2
 index|]
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 condition|)
 block|{
@@ -2507,7 +2507,7 @@ index|[
 literal|2
 index|]
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|==
 literal|'1'
@@ -2574,7 +2574,7 @@ index|[
 literal|2
 index|]
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 condition|)
 block|{

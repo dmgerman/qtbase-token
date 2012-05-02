@@ -1188,7 +1188,7 @@ name|getProcAddress
 argument_list|(
 name|procName
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 argument_list|)
 return|;

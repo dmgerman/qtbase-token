@@ -294,7 +294,7 @@ argument_list|(
 name|smoothPixmapTransform
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|data
@@ -670,7 +670,7 @@ argument_list|(
 name|highQualityAntialiasing
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|data
@@ -1166,7 +1166,7 @@ name|i
 index|]
 argument_list|)
 operator|.
-name|toAscii
+name|toLatin1
 argument_list|()
 operator|.
 name|data
