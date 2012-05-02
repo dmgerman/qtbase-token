@@ -2267,6 +2267,10 @@ argument_list|,
 name|returnMethod
 argument_list|,
 name|errorMethod
+argument_list|,
+name|d
+operator|->
+name|timeout
 argument_list|)
 return|;
 block|}
