@@ -48,6 +48,7 @@ directive|include
 file|<QtGui/qcolor.h>
 end_include
 begin_function
+name|QT_BEGIN_NAMESPACE
 DECL|function|QDateTimeToDATE
 specifier|static
 name|DATE
@@ -1766,5 +1767,5 @@ return|return
 literal|true
 return|;
 end_return
-unit|}
+unit|}  QT_END_NAMESPACE
 end_unit
