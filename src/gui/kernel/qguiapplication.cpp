@@ -2238,12 +2238,12 @@ argument_list|(
 name|equalsPos
 argument_list|)
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 else|:
 name|argument
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 decl_stmt|;
 specifier|const

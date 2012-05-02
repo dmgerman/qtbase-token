@@ -68,7 +68,7 @@ name|family
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|freetype
 operator|->
