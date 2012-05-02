@@ -406,7 +406,7 @@ argument_list|)
 operator|:
 name|m_signature
 argument_list|(
-argument|QString::fromAscii(dBusSignature)
+argument|QString::fromLatin1(dBusSignature)
 argument_list|)
 block|{
 name|doCheck
