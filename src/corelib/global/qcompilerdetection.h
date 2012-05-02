@@ -2114,7 +2114,10 @@ name|__cplusplus
 operator|>=
 literal|201103L
 operator|||
+name|defined
+argument_list|(
 name|__GXX_EXPERIMENTAL_CXX0X__
+argument_list|)
 end_if
 begin_if
 if|#
