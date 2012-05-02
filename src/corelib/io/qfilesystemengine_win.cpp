@@ -3671,7 +3671,7 @@ name|fname
 init|=
 name|entry
 operator|.
-name|filePath
+name|nativeFilePath
 argument_list|()
 decl_stmt|;
 name|PSID
