@@ -1734,7 +1734,7 @@ name|s1
 operator|==
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s2
 argument_list|)
@@ -1767,7 +1767,7 @@ name|s1
 operator|==
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s2
 argument_list|)
@@ -1800,7 +1800,7 @@ name|s1
 operator|==
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s2
 argument_list|)
@@ -1833,7 +1833,7 @@ name|s1
 operator|==
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s2
 argument_list|)

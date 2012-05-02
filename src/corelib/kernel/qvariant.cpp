@@ -1603,7 +1603,7 @@ name|str
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|v_cast
 argument_list|<
@@ -2490,7 +2490,7 @@ argument_list|(
 name|d
 argument_list|)
 operator|->
-name|toAscii
+name|toUtf8
 argument_list|()
 expr_stmt|;
 break|break;
@@ -5345,7 +5345,7 @@ name|s
 init|=
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|val
 argument_list|)

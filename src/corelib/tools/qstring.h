@@ -5042,7 +5042,7 @@ operator|(
 operator|*
 name|this
 operator|=
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|ch
 argument_list|,
@@ -5082,7 +5082,7 @@ operator|(
 operator|*
 name|this
 operator|=
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|a
 operator|.
@@ -5154,7 +5154,7 @@ name|prepend
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|,
@@ -5193,7 +5193,7 @@ name|prepend
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 operator|.
@@ -5235,7 +5235,7 @@ name|append
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|,
@@ -5274,7 +5274,7 @@ name|append
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 operator|.
@@ -5317,7 +5317,7 @@ name|append
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|,
@@ -5357,7 +5357,7 @@ name|append
 argument_list|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 operator|.
@@ -5546,7 +5546,7 @@ name|this
 operator|<
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -5573,7 +5573,7 @@ name|this
 operator|>
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -5600,7 +5600,7 @@ name|this
 operator|<=
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -5627,7 +5627,7 @@ name|this
 operator|>=
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -6675,7 +6675,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -6700,7 +6700,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -6725,7 +6725,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -6750,7 +6750,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -6775,7 +6775,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -6800,7 +6800,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -6825,7 +6825,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -6850,7 +6850,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -6875,7 +6875,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -6900,7 +6900,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -6925,7 +6925,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -6950,7 +6950,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|)
@@ -10200,7 +10200,7 @@ name|this
 operator|<
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|,
@@ -10242,7 +10242,7 @@ name|this
 operator|>
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|,
@@ -10284,7 +10284,7 @@ name|this
 operator|<=
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|,
@@ -10325,7 +10325,7 @@ name|this
 operator|>=
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 argument_list|,
@@ -10424,7 +10424,7 @@ return|return
 operator|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s1
 argument_list|,
@@ -10469,7 +10469,7 @@ return|return
 operator|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s1
 argument_list|,
@@ -10514,7 +10514,7 @@ return|return
 operator|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s1
 argument_list|,
@@ -10559,7 +10559,7 @@ return|return
 operator|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s1
 argument_list|,
@@ -10603,7 +10603,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s1
 argument_list|,
@@ -10646,7 +10646,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s1
 argument_list|,
@@ -10690,7 +10690,7 @@ return|return
 operator|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s1
 argument_list|,
@@ -10735,7 +10735,7 @@ return|return
 operator|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s1
 argument_list|,
@@ -10780,7 +10780,7 @@ return|return
 operator|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s1
 argument_list|,
@@ -10825,7 +10825,7 @@ return|return
 operator|(
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s1
 argument_list|,
@@ -11357,7 +11357,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|constData
 argument_list|()
@@ -11388,7 +11388,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|constData
 argument_list|()
@@ -11419,7 +11419,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|constData
 argument_list|()
@@ -11450,7 +11450,7 @@ block|{
 return|return
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|constData
 argument_list|()
@@ -11491,7 +11491,7 @@ name|append
 argument_list|(
 name|s
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 argument_list|)
 return|;
@@ -11517,7 +11517,7 @@ name|i
 argument_list|,
 name|s
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 argument_list|)
 return|;
@@ -11543,7 +11543,7 @@ name|c
 argument_list|,
 name|after
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 argument_list|)
 return|;
@@ -11567,7 +11567,7 @@ name|replace
 argument_list|(
 name|before
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 argument_list|,
 name|after
@@ -11593,7 +11593,7 @@ name|replace
 argument_list|(
 name|before
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 argument_list|,
 name|after
@@ -11622,7 +11622,7 @@ operator|+=
 operator|(
 name|s
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 operator|)
 return|;
@@ -11646,7 +11646,7 @@ name|indexOf
 argument_list|(
 name|s
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 argument_list|,
 name|from
@@ -11672,7 +11672,7 @@ name|lastIndexOf
 argument_list|(
 name|s
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 argument_list|,
 name|from
@@ -11831,7 +11831,7 @@ name|t
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s2
 argument_list|,
@@ -11878,7 +11878,7 @@ name|t
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s1
 argument_list|,
@@ -12004,7 +12004,7 @@ name|t
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|ba
 operator|.
@@ -12063,7 +12063,7 @@ name|t
 operator|+=
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|ba
 operator|.
@@ -12118,7 +12118,7 @@ specifier|const
 name|QByteArray
 name|asc
 operator|=
-name|toAscii
+name|toUtf8
 argument_list|()
 block|;
 return|return
@@ -12150,7 +12150,7 @@ argument|const std::string&s
 argument_list|)
 block|{
 return|return
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|s
 operator|.

@@ -188,7 +188,7 @@ name|str
 operator|=
 name|QString
 operator|::
-name|fromAscii
+name|fromUtf8
 argument_list|(
 name|value
 argument_list|)
