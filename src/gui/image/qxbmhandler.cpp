@@ -929,7 +929,7 @@ literal|"#define %s_width %d\n"
 argument_list|,
 name|s
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 operator|.
 name|data
@@ -960,7 +960,7 @@ literal|"#define %s_height %d\n"
 argument_list|,
 name|s
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 operator|.
 name|data
@@ -991,7 +991,7 @@ literal|"static char %s_bits[] = {\n "
 argument_list|,
 name|s
 operator|.
-name|toAscii
+name|toUtf8
 argument_list|()
 operator|.
 name|data
