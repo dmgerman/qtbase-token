@@ -7023,6 +7023,7 @@ name|BPP
 name|bpp
 operator|>
 name|uint
+name|QT_FASTCALL
 name|fetchPixel
 argument_list|(
 argument|const uchar *src
@@ -7418,6 +7419,7 @@ name|BPP
 name|width
 operator|>
 name|void
+name|QT_FASTCALL
 name|storePixel
 argument_list|(
 argument|uchar *dest
