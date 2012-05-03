@@ -199,6 +199,8 @@ argument_list|>
 operator|::
 name|IsAvailable
 operator|&&
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -4572,6 +4574,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -4605,6 +4609,8 @@ return|;
 block|}
 if|if
 condition|(
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -4957,6 +4963,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -4990,6 +4998,8 @@ return|return;
 block|}
 if|if
 condition|(
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -5367,6 +5377,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -5400,6 +5412,8 @@ literal|0
 return|;
 if|if
 condition|(
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -5815,6 +5829,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -5848,6 +5864,8 @@ return|return;
 block|}
 if|if
 condition|(
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -6207,6 +6225,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -6235,6 +6255,8 @@ literal|0
 return|;
 if|if
 condition|(
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -6541,6 +6563,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -6569,6 +6593,8 @@ literal|0
 return|;
 if|if
 condition|(
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -6943,6 +6969,8 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -6973,6 +7001,8 @@ return|return;
 block|}
 if|if
 condition|(
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -7058,15 +7088,6 @@ name|info
 argument_list|)
 expr_stmt|;
 block|}
-DECL|function|delegate
-name|void
-name|delegate
-parameter_list|(
-specifier|const
-name|void
-modifier|*
-parameter_list|)
-block|{}
 DECL|function|delegate
 name|void
 name|delegate
@@ -7216,10 +7237,6 @@ operator|.
 name|info
 operator|.
 name|creator
-operator|||
-name|type
-operator|==
-name|Void
 condition|?
 name|QMetaType
 argument_list|(

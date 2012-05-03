@@ -228,9 +228,12 @@ name|mimeData
 operator|.
 name|setColorData
 argument_list|(
+name|QColor
+argument_list|(
 name|Qt
 operator|::
 name|blue
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|QVERIFY

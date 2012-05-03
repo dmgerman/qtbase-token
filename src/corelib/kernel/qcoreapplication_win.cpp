@@ -422,7 +422,7 @@ end_comment
 begin_function_decl
 specifier|extern
 name|Q_CORE_EXPORT
-name|QByteArray
+name|QString
 name|qMessageFormatString
 parameter_list|(
 name|QtMsgType
@@ -434,8 +434,8 @@ modifier|&
 name|context
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|QString
+modifier|&
 name|str
 parameter_list|)
 function_decl|;
@@ -455,8 +455,8 @@ modifier|&
 name|context
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|QString
+modifier|&
 name|str
 parameter_list|)
 block|{
@@ -466,7 +466,7 @@ specifier|static
 name|QWinMsgHandlerCriticalSection
 name|staticCriticalSection
 decl_stmt|;
-name|QByteArray
+name|QString
 name|message
 init|=
 name|qMessageFormatString
@@ -476,17 +476,6 @@ argument_list|,
 name|context
 argument_list|,
 name|str
-argument_list|)
-decl_stmt|;
-name|QString
-name|s
-argument_list|(
-name|QString
-operator|::
-name|fromLocal8Bit
-argument_list|(
-name|message
-argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// OutputDebugString is not threadsafe.
@@ -501,7 +490,7 @@ operator|(
 name|wchar_t
 operator|*
 operator|)
-name|s
+name|message
 operator|.
 name|utf16
 argument_list|()
@@ -538,7 +527,12 @@ name|t
 argument_list|,
 name|emptyContext
 argument_list|,
+name|QString
+operator|::
+name|fromLocal8Bit
+argument_list|(
 name|str
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -644,9 +638,9 @@ operator|=
 literal|true
 argument_list|;
 comment|// Install default debug handler
-name|qInstallMsgHandler
+name|qInstallMessageHandler
 argument_list|(
-name|qWinMsgHandler
+name|qWinMessageHandler
 argument_list|)
 argument_list|;
 comment|// Create command line

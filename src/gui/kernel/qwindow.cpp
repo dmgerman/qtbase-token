@@ -580,9 +580,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-begin_comment
-comment|/*!     \fn bool QWindow::visible() const     Returns true if the window is set to visible.     \obsolete */
-end_comment
 begin_function
 DECL|function|isVisible
 name|bool
