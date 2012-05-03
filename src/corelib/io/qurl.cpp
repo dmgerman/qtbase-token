@@ -7735,13 +7735,22 @@ name|FullUrl
 argument_list|)
 expr_stmt|;
 comment|// check if we need to remove trailing slashes
-while|while
+if|if
 condition|(
 operator|(
 name|options
 operator|&
 name|StripTrailingSlash
 operator|)
+operator|&&
+name|d
+operator|->
+name|path
+operator|!=
+name|QLatin1String
+argument_list|(
+literal|"/"
+argument_list|)
 operator|&&
 name|url
 operator|.
