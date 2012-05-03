@@ -61,11 +61,6 @@ argument_list|()
 block|;
 name|private
 operator|:
-name|bool
-name|isWindowsShell
-argument_list|()
-specifier|const
-block|;
 name|void
 name|writeMingwParts
 argument_list|(

@@ -1327,7 +1327,6 @@ argument|const QString&build
 argument_list|)
 specifier|const
 block|;
-name|virtual
 name|bool
 name|isWindowsShell
 argument_list|()
@@ -1336,11 +1335,12 @@ block|{
 return|return
 name|Option
 operator|::
-name|host_mode
+name|dir_sep
 operator|==
-name|Option
-operator|::
-name|HOST_WIN_MODE
+name|QLatin1String
+argument_list|(
+literal|"\\"
+argument_list|)
 return|;
 block|}
 expr|}
