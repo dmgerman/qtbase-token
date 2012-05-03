@@ -685,11 +685,6 @@ name|user_template
 decl_stmt|,
 name|user_template_prefix
 decl_stmt|;
-DECL|member|shellPath
-specifier|static
-name|QStringList
-name|shellPath
-decl_stmt|;
 comment|//QMAKE_*_PROPERTY options
 DECL|struct|prop
 struct|struct

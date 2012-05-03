@@ -57,11 +57,7 @@ argument_list|)
 block|{
 if|if
 condition|(
-name|Option
-operator|::
-name|shellPath
-operator|.
-name|isEmpty
+name|isWindowsShell
 argument_list|()
 condition|)
 name|quote
