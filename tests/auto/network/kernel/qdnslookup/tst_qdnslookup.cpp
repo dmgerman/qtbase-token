@@ -911,7 +911,7 @@ literal|""
 operator|<<
 literal|""
 operator|<<
-literal|"ns-0.trolltech.net ns-1.trolltech.net ns-i.trolltech.net"
+literal|"ns-0.trolltech.net ns-1.trolltech.net"
 operator|<<
 literal|""
 operator|<<
