@@ -24215,6 +24215,10 @@ argument_list|(
 name|QLibraryInfo
 operator|::
 name|PrefixPath
+argument_list|,
+name|QLibraryInfo
+operator|::
+name|FinalPaths
 argument_list|)
 return|;
 block|}
