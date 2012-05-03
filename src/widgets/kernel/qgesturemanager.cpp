@@ -3857,10 +3857,7 @@ name|w
 init|=
 name|event
 operator|.
-name|d_func
-argument_list|()
-operator|->
-name|targetWidgets
+name|m_targetWidgets
 operator|.
 name|value
 argument_list|(
@@ -4075,10 +4072,7 @@ name|w
 init|=
 name|event
 operator|.
-name|d_func
-argument_list|()
-operator|->
-name|targetWidgets
+name|m_targetWidgets
 operator|.
 name|value
 argument_list|(

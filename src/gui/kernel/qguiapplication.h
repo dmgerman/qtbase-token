@@ -435,11 +435,11 @@ return|;
 block|}
 endif|#
 directive|endif
+specifier|static
 name|QInputMethod
 operator|*
 name|inputMethod
 argument_list|()
-specifier|const
 block|;
 specifier|static
 name|QPlatformNativeInterface

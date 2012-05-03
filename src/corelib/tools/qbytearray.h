@@ -767,7 +767,7 @@ parameter_list|(
 name|str
 parameter_list|)
 define|\
-value|([]() -> QByteArrayDataPtr { \         enum { Size = sizeof(str) - 1 }; \         static const QStaticByteArrayData<Size> qbytearray_literal = { \             Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER(Size), \             str }; \         QByteArrayDataPtr holder = { qbytearray_literal.data_ptr() }; \         return holder; \     }())
+value|([]() -> QByteArray { \         enum { Size = sizeof(str) - 1 }; \         static const QStaticByteArrayData<Size> qbytearray_literal = { \             Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER(Size), \             str }; \         QByteArrayDataPtr holder = { qbytearray_literal.data_ptr() }; \         const QByteArray ba(holder); \         return ba; \     }())
 end_define
 begin_comment
 unit|\
@@ -799,7 +799,7 @@ parameter_list|(
 name|str
 parameter_list|)
 define|\
-value|__extension__ ({ \         enum { Size = sizeof(str) - 1 }; \         static const QStaticByteArrayData<Size> qbytearray_literal = { \             Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER(Size), \             str }; \         QByteArrayDataPtr holder = { qbytearray_literal.data_ptr() }; \         holder; \     })
+value|QByteArray(__extension__ ({ \         enum { Size = sizeof(str) - 1 }; \         static const QStaticByteArrayData<Size> qbytearray_literal = { \             Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER(Size), \             str }; \         QByteArrayDataPtr holder = { qbytearray_literal.data_ptr() }; \         holder; \     }))
 end_define
 begin_comment
 unit|\
@@ -815,7 +815,7 @@ directive|ifndef
 name|QByteArrayLiteral
 end_ifndef
 begin_comment
-comment|// no lambdas, not GCC, use const char * instead
+comment|// no lambdas, not GCC, just return a temporary QByteArray
 end_comment
 begin_define
 DECL|macro|QByteArrayLiteral
@@ -825,7 +825,7 @@ name|QByteArrayLiteral
 parameter_list|(
 name|str
 parameter_list|)
-value|(str)
+value|QByteArray(str, sizeof(str) - 1)
 end_define
 begin_endif
 endif|#

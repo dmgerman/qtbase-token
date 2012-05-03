@@ -294,6 +294,8 @@ specifier|const
 name|bool
 name|IsAccepted
 init|=
+name|QModulesPrivate
+operator|::
 name|QTypeModuleInfo
 argument_list|<
 name|T
@@ -5362,9 +5364,6 @@ end_comment
 begin_comment
 comment|/*!   \fn QVariant::QVariant(const QRegularExpression&re)    \since 5.0    Constructs a new variant with the regular expression value \a re. */
 end_comment
-begin_comment
-comment|/*! \since 4.2   \fn QVariant::QVariant(Qt::GlobalColor color)    Constructs a new variant of type QVariant::Color and initializes   it with \a color.    This is a convenience constructor that allows \c{QVariant(Qt::blue);}   to create a valid QVariant storing a QColor.    Note: This constructor will assert if the application does not link   to the Qt GUI library.  */
-end_comment
 begin_constructor
 DECL|function|QVariant
 name|QVariant
@@ -6671,28 +6670,6 @@ end_endif
 begin_comment
 comment|// QT_NO_REGEXP
 end_comment
-begin_constructor
-DECL|function|QVariant
-name|QVariant
-operator|::
-name|QVariant
-parameter_list|(
-name|Qt
-operator|::
-name|GlobalColor
-name|color
-parameter_list|)
-block|{
-name|create
-argument_list|(
-literal|62
-argument_list|,
-operator|&
-name|color
-argument_list|)
-expr_stmt|;
-block|}
-end_constructor
 begin_comment
 comment|/*!     Returns the storage type of the value stored in the variant.     Although this function is declared as returning QVariant::Type,     the return value should be interpreted as QMetaType::Type. In     particular, QVariant::UserType is returned here only if the value     is equal or greater than QMetaType::User.      Note that return values in the ranges QVariant::Char through     QVariant::RegExp and QVariant::Font through QVariant::Transform     correspond to the values in the ranges QMetaType::QChar through     QMetaType::QRegExp and QMetaType::QFont through QMetaType::QQuaternion.      Pay particular attention when working with char and QChar     variants.  Note that there is no QVariant constructor specifically     for type char, but there is one for QChar. For a variant of type     QChar, this function returns QVariant::Char, which is the same as     QMetaType::QChar, but for a variant of type \c char, this function     returns QMetaType::Char, which is \e not the same as     QVariant::Char.      Also note that the types \c void*, \c long, \c short, \c unsigned     \c long, \c unsigned \c short, \c unsigned \c char, \c float, \c     QObject*, and \c QWidget* are represented in QMetaType::Type but     not in QVariant::Type, and they can be returned by this function.     However, they are considered to be user defined types when tested     against QVariant::Type.      To test whether an instance of QVariant contains a data type that     is compatible with the data type you are interested in, use     canConvert(). */
 end_comment
@@ -7099,15 +7076,6 @@ name|int
 name|typeId
 parameter_list|)
 block|{
-if|if
-condition|(
-name|typeId
-operator|==
-name|Invalid
-condition|)
-return|return
-literal|0
-return|;
 return|return
 name|QMetaType
 operator|::
@@ -7136,18 +7104,6 @@ modifier|*
 name|name
 parameter_list|)
 block|{
-if|if
-condition|(
-operator|!
-name|name
-operator|||
-operator|!
-operator|*
-name|name
-condition|)
-return|return
-name|Invalid
-return|;
 name|int
 name|metaType
 init|=

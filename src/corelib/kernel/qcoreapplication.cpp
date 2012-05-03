@@ -3441,6 +3441,22 @@ condition|)
 block|{
 comment|// remember the current running eventloop for DeferredDelete
 comment|// events posted in the receiver's thread
+comment|// check that QEvent's d pointer is unused before we store the loop level
+comment|// if further updates to QEvent have made the use of the d pointer necessary,
+comment|// then update this code to store the loop level somewhere else
+name|Q_ASSERT_X
+argument_list|(
+name|event
+operator|->
+name|d
+operator|==
+literal|0
+argument_list|,
+literal|"QCoreApplication::postEvent"
+argument_list|,
+literal|"Internal error: this code relies on QEvent::d being null"
+argument_list|)
+expr_stmt|;
 name|event
 operator|->
 name|d

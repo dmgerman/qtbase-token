@@ -283,7 +283,7 @@ argument_list|(
 name|window
 argument_list|()
 operator|->
-name|visible
+name|isVisible
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -357,7 +357,7 @@ condition|(
 name|window
 argument_list|()
 operator|->
-name|visible
+name|isVisible
 argument_list|()
 condition|)
 block|{

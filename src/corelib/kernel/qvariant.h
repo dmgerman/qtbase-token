@@ -1127,11 +1127,6 @@ block|;
 endif|#
 directive|endif
 name|QVariant
-argument_list|(
-argument|Qt::GlobalColor color
-argument_list|)
-block|;
-name|QVariant
 operator|&
 name|operator
 operator|=

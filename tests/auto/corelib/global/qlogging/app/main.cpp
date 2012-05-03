@@ -67,6 +67,11 @@ argument_list|(
 literal|"tst_qlogging"
 argument_list|)
 expr_stmt|;
+name|qSetMessagePattern
+argument_list|(
+literal|"[%{type}] %{message}"
+argument_list|)
+expr_stmt|;
 name|qDebug
 argument_list|(
 literal|"qDebug"
@@ -80,6 +85,17 @@ expr_stmt|;
 name|qCritical
 argument_list|(
 literal|"qCritical"
+argument_list|)
+expr_stmt|;
+name|qSetMessagePattern
+argument_list|(
+name|QString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|qDebug
+argument_list|(
+literal|"qDebug2"
 argument_list|)
 expr_stmt|;
 return|return

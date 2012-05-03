@@ -14374,17 +14374,11 @@ name|wasAccepted
 expr_stmt|;
 name|ge
 operator|.
-name|d_func
-argument_list|()
-operator|->
-name|accepted
+name|m_accepted
 operator|=
 name|gestureEvent
 operator|->
-name|d_func
-argument_list|()
-operator|->
-name|accepted
+name|m_accepted
 expr_stmt|;
 name|res
 operator|=
@@ -14457,10 +14451,7 @@ block|{
 comment|// if the gesture was accepted, mark the target widget for it
 name|gestureEvent
 operator|->
-name|d_func
-argument_list|()
-operator|->
-name|targetWidgets
+name|m_targetWidgets
 index|[
 name|g
 operator|->

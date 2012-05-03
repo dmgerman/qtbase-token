@@ -71,6 +71,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<QtCore/qurl.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/qfile.h>
 end_include
 begin_include
@@ -3024,7 +3029,11 @@ name|QUrl
 name|url
 argument_list|()
 specifier|const
-block|;
+block|{
+return|return
+name|m_url
+return|;
+block|}
 name|bool
 name|openFile
 argument_list|(
@@ -3038,6 +3047,9 @@ name|private
 operator|:
 name|QString
 name|f
+block|;
+name|QUrl
+name|m_url
 block|; }
 block|;
 ifndef|#
@@ -3166,13 +3178,8 @@ name|explicit
 name|QWindowStateChangeEvent
 argument_list|(
 argument|Qt::WindowStates aOldState
-argument_list|)
-block|;
-name|QWindowStateChangeEvent
-argument_list|(
-argument|Qt::WindowStates aOldState
 argument_list|,
-argument|bool isOverride
+argument|bool isOverride = false
 argument_list|)
 block|;
 operator|~
@@ -3202,6 +3209,9 @@ name|Qt
 operator|::
 name|WindowStates
 name|ostate
+block|;
+name|bool
+name|m_override
 block|; }
 block|;
 ifndef|#
@@ -4003,10 +4013,6 @@ name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(
 argument|QTouchEvent::TouchPoint::InfoFlags
 argument_list|)
-DECL|variable|QScrollPrepareEventPrivate
-name|class
-name|QScrollPrepareEventPrivate
-block|;
 name|class
 name|Q_GUI_EXPORT
 name|QScrollPrepareEvent
@@ -4078,22 +4084,22 @@ argument_list|)
 block|;
 name|private
 operator|:
-name|QScrollPrepareEventPrivate
+name|QObject
 operator|*
-name|d_func
-argument_list|()
+name|m_target
 block|;
-specifier|const
-name|QScrollPrepareEventPrivate
-operator|*
-name|d_func
-argument_list|()
-specifier|const
+name|QPointF
+name|m_startPos
+block|;
+name|QSizeF
+name|m_viewportSize
+block|;
+name|QRectF
+name|m_contentPosRange
+block|;
+name|QPointF
+name|m_contentPos
 block|; }
-block|;
-DECL|variable|QScrollEventPrivate
-name|class
-name|QScrollEventPrivate
 block|;
 name|class
 name|Q_GUI_EXPORT
@@ -4144,22 +4150,17 @@ specifier|const
 block|;
 name|private
 operator|:
-name|QScrollEventPrivate
-operator|*
-name|d_func
-argument_list|()
+name|QPointF
+name|m_contentPos
 block|;
-specifier|const
-name|QScrollEventPrivate
-operator|*
-name|d_func
-argument_list|()
-specifier|const
+name|QPointF
+name|m_overshoot
+block|;
+name|QScrollEvent
+operator|::
+name|ScrollState
+name|m_state
 block|; }
-block|;
-DECL|variable|QScreenOrientationChangeEventPrivate
-name|class
-name|QScreenOrientationChangeEventPrivate
 block|;
 name|class
 name|Q_GUI_EXPORT
@@ -4196,17 +4197,14 @@ specifier|const
 block|;
 name|private
 operator|:
-name|QScreenOrientationChangeEventPrivate
+name|QScreen
 operator|*
-name|d_func
-argument_list|()
+name|m_screen
 block|;
-specifier|const
-name|QScreenOrientationChangeEventPrivate
-operator|*
-name|d_func
-argument_list|()
-specifier|const
+name|Qt
+operator|::
+name|ScreenOrientation
+name|m_orientation
 block|; }
 block|;
 name|QT_END_NAMESPACE

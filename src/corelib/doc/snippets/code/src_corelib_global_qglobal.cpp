@@ -841,11 +841,19 @@ modifier|&
 name|context
 parameter_list|,
 specifier|const
-name|char
-modifier|*
+name|QString
+modifier|&
 name|msg
 parameter_list|)
 block|{
+name|QByteArray
+name|localMsg
+init|=
+name|msg
+operator|.
+name|toLocal8Bit
+argument_list|()
+decl_stmt|;
 switch|switch
 condition|(
 name|type
@@ -860,7 +868,10 @@ name|stderr
 argument_list|,
 literal|"Debug: %s (%s:%u, %s)\n"
 argument_list|,
-name|msg
+name|localMsg
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|context
 operator|.
@@ -885,7 +896,10 @@ name|stderr
 argument_list|,
 literal|"Warning: %s (%s:%u, %s)\n"
 argument_list|,
-name|msg
+name|localMsg
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|context
 operator|.
@@ -910,7 +924,10 @@ name|stderr
 argument_list|,
 literal|"Critical: %s (%s:%u, %s)\n"
 argument_list|,
-name|msg
+name|localMsg
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|context
 operator|.
@@ -935,7 +952,10 @@ name|stderr
 argument_list|,
 literal|"Fatal: %s (%s:%u, %s)\n"
 argument_list|,
-name|msg
+name|localMsg
+operator|.
+name|constData
+argument_list|()
 argument_list|,
 name|context
 operator|.
