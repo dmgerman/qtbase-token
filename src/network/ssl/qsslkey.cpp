@@ -869,7 +869,7 @@ expr_stmt|;
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a QSslKey from a valid native key \a handle.     \a type specifies whether the key is public or private.      QSslKey will take ownership for this key and you must not     free the key using the native library. The algorithm used     when creating a key from a handle will always be QSsl::Opaque. */
+comment|/*!     \since 5.0     Constructs a QSslKey from a valid native key \a handle.     \a type specifies whether the key is public or private.      QSslKey will take ownership for this key and you must not     free the key using the native library. The algorithm used     when creating a key from a handle will always be QSsl::Opaque. */
 end_comment
 begin_constructor
 DECL|function|QSslKey

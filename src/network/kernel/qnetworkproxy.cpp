@@ -1586,7 +1586,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the value of the known network header \a header if it is     in use for this proxy. If it is not present, returns QVariant()     (i.e., an invalid variant).      \sa QNetworkRequest::KnownHeaders, rawHeader(), setHeader() */
+comment|/*!     \since 5.0     Returns the value of the known network header \a header if it is     in use for this proxy. If it is not present, returns QVariant()     (i.e., an invalid variant).      \sa QNetworkRequest::KnownHeaders, rawHeader(), setHeader() */
 end_comment
 begin_function
 DECL|function|header
@@ -1635,7 +1635,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the value of the known header \a header to be \a value,     overriding any previously set headers. This operation also sets     the equivalent raw HTTP header.      If the proxy is not of type HttpProxy or HttpCachingProxy this has no     effect.      \sa QNetworkRequest::KnownHeaders, setRawHeader(), header() */
+comment|/*!     \since 5.0     Sets the value of the known header \a header to be \a value,     overriding any previously set headers. This operation also sets     the equivalent raw HTTP header.      If the proxy is not of type HttpProxy or HttpCachingProxy this has no     effect.      \sa QNetworkRequest::KnownHeaders, setRawHeader(), header() */
 end_comment
 begin_function
 DECL|function|setHeader
@@ -1683,7 +1683,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the raw header \a headerName is in use for this     proxy. Returns false if the proxy is not of type HttpProxy or     HttpCachingProxy.      \sa rawHeader(), setRawHeader() */
+comment|/*!     \since 5.0     Returns true if the raw header \a headerName is in use for this     proxy. Returns false if the proxy is not of type HttpProxy or     HttpCachingProxy.      \sa rawHeader(), setRawHeader() */
 end_comment
 begin_function
 DECL|function|hasRawHeader
@@ -1738,7 +1738,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the raw form of header \a headerName. If no such header is     present or the proxy is not of type HttpProxy or HttpCachingProxy,     an empty QByteArray is returned, which may be indistinguishable     from a header that is present but has no content (use hasRawHeader()     to find out if the header exists or not).      Raw headers can be set with setRawHeader() or with setHeader().      \sa header(), setRawHeader() */
+comment|/*!     \since 5.0     Returns the raw form of header \a headerName. If no such header is     present or the proxy is not of type HttpProxy or HttpCachingProxy,     an empty QByteArray is returned, which may be indistinguishable     from a header that is present but has no content (use hasRawHeader()     to find out if the header exists or not).      Raw headers can be set with setRawHeader() or with setHeader().      \sa header(), setRawHeader() */
 end_comment
 begin_function
 DECL|function|rawHeader
@@ -1813,7 +1813,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of all raw headers that are set in this network     proxy. The list is in the order that the headers were set.      If the proxy is not of type HttpProxy or HttpCachingProxy an empty     QList is returned.      \sa hasRawHeader(), rawHeader() */
+comment|/*!     \since 5.0     Returns a list of all raw headers that are set in this network     proxy. The list is in the order that the headers were set.      If the proxy is not of type HttpProxy or HttpCachingProxy an empty     QList is returned.      \sa hasRawHeader(), rawHeader() */
 end_comment
 begin_function
 DECL|function|rawHeaderList
@@ -1859,7 +1859,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the header \a headerName to be of value \a headerValue. If \a     headerName corresponds to a known header (see     QNetworkRequest::KnownHeaders), the raw format will be parsed and     the corresponding "cooked" header will be set as well.      For example:     \snippet doc/src/snippets/code/src_network_access_qnetworkrequest.cpp 0      will also set the known header LastModifiedHeader to be the     QDateTime object of the parsed date.      Note: setting the same header twice overrides the previous     setting. To accomplish the behaviour of multiple HTTP headers of     the same name, you should concatenate the two values, separating     them with a comma (",") and set one single raw header.      If the proxy is not of type HttpProxy or HttpCachingProxy this has no     effect.      \sa QNetworkRequest::KnownHeaders, setHeader(), hasRawHeader(), rawHeader() */
+comment|/*!     \since 5.0     Sets the header \a headerName to be of value \a headerValue. If \a     headerName corresponds to a known header (see     QNetworkRequest::KnownHeaders), the raw format will be parsed and     the corresponding "cooked" header will be set as well.      For example:     \snippet doc/src/snippets/code/src_network_access_qnetworkrequest.cpp 0      will also set the known header LastModifiedHeader to be the     QDateTime object of the parsed date.      Note: setting the same header twice overrides the previous     setting. To accomplish the behaviour of multiple HTTP headers of     the same name, you should concatenate the two values, separating     them with a comma (",") and set one single raw header.      If the proxy is not of type HttpProxy or HttpCachingProxy this has no     effect.      \sa QNetworkRequest::KnownHeaders, setHeader(), hasRawHeader(), rawHeader() */
 end_comment
 begin_function
 DECL|function|setRawHeader
@@ -3021,6 +3021,9 @@ ifndef|#
 directive|ifndef
 name|QT_NO_DEBUG_STREAM
 end_ifndef
+begin_comment
+comment|/*!     \since 5.0     Outputs a QNetworkProxy details to a debug stream */
+end_comment
 begin_function
 DECL|function|operator <<
 name|QDebug

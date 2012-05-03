@@ -6,7 +6,7 @@ begin_comment
 comment|/*!     \class QSslCertificate     \brief The QSslCertificate class provides a convenient API for an X509 certificate.     \since 4.3      \reentrant     \ingroup network     \ingroup ssl     \inmodule QtNetwork      QSslCertificate stores an X509 certificate, and is commonly used     to verify the identity and store information about the local host,     a remotely connected peer, or a trusted third party Certificate     Authority.      There are many ways to construct a QSslCertificate. The most     common way is to call QSslSocket::peerCertificate(), which returns     a QSslCertificate object, or QSslSocket::peerCertificateChain(),     which returns a list of them. You can also load certificates from     a DER (binary) or PEM (Base64) encoded bundle, typically stored as     one or more local files, or in a Qt Resource.      You can call isNull() to check if your certificate is null. By default,     QSslCertificate constructs a null certificate. A null certificate is     invalid, but an invalid certificate is not necessarily null. If you want     to reset all contents in a certificate, call clear().      After loading a certificate, you can find information about the     certificate, its subject, and its issuer, by calling one of the     many accessor functions, including version(), serialNumber(),     issuerInfo() and subjectInfo(). You can call effectiveDate() and     expiryDate() to check when the certificate starts being     effective and when it expires.     The publicKey() function returns the certificate     subject's public key as a QSslKey. You can call issuerInfo() or     subjectInfo() to get detailed information about the certificate     issuer and its subject.      Internally, QSslCertificate is stored as an X509 structure. You     can access this handle by calling handle(), but the results are     likely to not be portable.      \sa QSslSocket, QSslKey, QSslCipher, QSslError */
 end_comment
 begin_comment
-comment|/*!     \enum QSslCertificate::SubjectInfo      Describes keys that you can pass to QSslCertificate::issuerInfo() or     QSslCertificate::subjectInfo() to get information about the certificate     issuer or subject.      \value Organization "O" The name of the organization.      \value CommonName "CN" The common name; most often this is used to store     the host name.      \value LocalityName "L" The locality.      \value OrganizationalUnitName "OU" The organizational unit name.      \value CountryName "C" The country.      \value StateOrProvinceName "ST" The state or province. */
+comment|/*!     \enum QSslCertificate::SubjectInfo      Describes keys that you can pass to QSslCertificate::issuerInfo() or     QSslCertificate::subjectInfo() to get information about the certificate     issuer or subject.      \value Organization "O" The name of the organization.      \value CommonName "CN" The common name; most often this is used to store     the host name.      \value LocalityName "L" The locality.      \value OrganizationalUnitName "OU" The organizational unit name.      \value CountryName "C" The country.      \value StateOrProvinceName "ST" The state or province.      \value DistinguishedNameQualifier The distinguished name qualifier      \value SerialNumber The certificate's serial number      \value EmailAddress The email address associated with the certificate */
 end_comment
 begin_include
 include|#
@@ -1107,7 +1107,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of the attributes that have values in the subject     information of this certificate. The information associated     with a given attribute can be accessed using the subjectInfo()     method. Note that this list may include the OIDs for any     elements that are not known by the SSL backend.      \sa subjectInfo() */
+comment|/*!     \since 5.0     Returns a list of the attributes that have values in the subject     information of this certificate. The information associated     with a given attribute can be accessed using the subjectInfo()     method. Note that this list may include the OIDs for any     elements that are not known by the SSL backend.      \sa subjectInfo() */
 end_comment
 begin_function
 DECL|function|subjectInfoAttributes
@@ -1174,7 +1174,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a list of the attributes that have values in the issuer     information of this certificate. The information associated     with a given attribute can be accessed using the issuerInfo()     method. Note that this list may include the OIDs for any     elements that are not known by the SSL backend.      \sa subjectInfo() */
+comment|/*!     \since 5.0     Returns a list of the attributes that have values in the issuer     information of this certificate. The information associated     with a given attribute can be accessed using the issuerInfo()     method. Note that this list may include the OIDs for any     elements that are not known by the SSL backend.      \sa subjectInfo() */
 end_comment
 begin_function
 DECL|function|issuerInfoAttributes

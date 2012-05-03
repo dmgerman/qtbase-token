@@ -565,7 +565,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds \a cookie to this cookie jar.      Returns true if \a cookie was added, false otherwise.      If a cookie with the same identifier already exists in the     cookie jar, it will be overridden. */
+comment|/*!     \since 5.0     Adds \a cookie to this cookie jar.      Returns true if \a cookie was added, false otherwise.      If a cookie with the same identifier already exists in the     cookie jar, it will be overridden. */
 end_comment
 begin_function
 DECL|function|insertCookie
@@ -636,7 +636,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     If a cookie with the same identifier as \a cookie exists in this cookie jar     it will be updated. This function uses insertCookie().      Returns true if \a cookie was updated, false if no cookie in the jar matches     the identifier of \a cookie.      \sa QNetworkCookie::hasSameIdentifier() */
+comment|/*!     \since 5.0     If a cookie with the same identifier as \a cookie exists in this cookie jar     it will be updated. This function uses insertCookie().      Returns true if \a cookie was updated, false if no cookie in the jar matches     the identifier of \a cookie.      \sa QNetworkCookie::hasSameIdentifier() */
 end_comment
 begin_function
 DECL|function|updateCookie
@@ -670,7 +670,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Deletes from cookie jar the cookie found to have the same identifier as \a cookie.      Returns true if a cookie was deleted, false otherwise.      \sa QNetworkCookie::hasSameIdentifier() */
+comment|/*!     \since 5.0     Deletes from cookie jar the cookie found to have the same identifier as \a cookie.      Returns true if a cookie was deleted, false otherwise.      \sa QNetworkCookie::hasSameIdentifier() */
 end_comment
 begin_function
 DECL|function|deleteCookie
@@ -750,7 +750,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns true if the domain and path of \a cookie are valid, false otherwise. */
+comment|/*!     \since 5.0     Returns true if the domain and path of \a cookie are valid, false otherwise. */
 end_comment
 begin_function
 DECL|function|validateCookie

@@ -3400,7 +3400,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the version number of the SSL library in use. Note that     this is the version of the library in use at run-time not compile     time. If no SSL support is available then this will return an     undefined value. */
+comment|/*!     \since 5.0     Returns the version number of the SSL library in use. Note that     this is the version of the library in use at run-time not compile     time. If no SSL support is available then this will return an     undefined value. */
 end_comment
 begin_function
 DECL|function|sslLibraryVersionNumber
@@ -3419,7 +3419,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the version string of the SSL library in use. Note that     this is the version of the library in use at run-time not compile     time. If no SSL support is available then this will return an empty value. */
+comment|/*!     \since 5.0     Returns the version string of the SSL library in use. Note that     this is the version of the library in use at run-time not compile     time. If no SSL support is available then this will return an empty value. */
 end_comment
 begin_function
 DECL|function|sslLibraryVersionString

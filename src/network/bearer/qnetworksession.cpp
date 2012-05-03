@@ -60,7 +60,7 @@ begin_comment
 comment|/*!     \enum QNetworkSession::SessionError      This enum describes the session errors that can occur.      \value UnknownSessionError          An unidentified error occurred.     \value SessionAbortedError          The session was aborted by the user or system.     \value RoamingError                 The session cannot roam to a new configuration.     \value OperationNotSupportedError   The operation is not supported for current configuration.     \value InvalidConfigurationError    The operation cannot currently be performed for the                                         current configuration. */
 end_comment
 begin_comment
-comment|/*!     \enum QNetworkSession::UsagePolicies      These flags allow the system to inform the application of network usage restrictions that     may be in place.      \value NoPolicy                     No policy in force, usage is unrestricted.     \value NoBackgroundTrafficPolicy    Background network traffic (not user initiated) should be avoided                                         for example to save battery or data charges */
+comment|/*!     \enum QNetworkSession::UsagePolicies     \since 5.0      These flags allow the system to inform the application of network usage restrictions that     may be in place.      \value NoPolicy                     No policy in force, usage is unrestricted.     \value NoBackgroundTrafficPolicy    Background network traffic (not user initiated) should be avoided                                         for example to save battery or data charges */
 end_comment
 begin_comment
 comment|/*!     \fn void QNetworkSession::stateChanged(QNetworkSession::State state)      This signal is emitted whenever the state of the network session changes.     The \a state parameter is the new state.      \sa state() */
@@ -81,7 +81,7 @@ begin_comment
 comment|/*!     \fn void QNetworkSession::closed()      This signal is emitted when the network session has been closed. */
 end_comment
 begin_comment
-comment|/*!     \fn void QNetworkSession::usagePoliciesChanged(UsagePolicies)      This signal is emitted when the usage policies in force are changed by the system. */
+comment|/*!     \fn void QNetworkSession::usagePoliciesChanged(UsagePolicies)     \since 5.0      This signal is emitted when the usage policies in force are changed by the system. */
 end_comment
 begin_comment
 comment|/*!     Constructs a session based on \a connectionConfig with the given \a parent.      \sa QNetworkConfiguration */

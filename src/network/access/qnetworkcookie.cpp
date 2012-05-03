@@ -198,7 +198,7 @@ begin_comment
 comment|/*!     \fn bool QNetworkCookie::operator!=(const QNetworkCookie&other) const      Returns true if this cookie is not equal to \a other.      \sa operator==() */
 end_comment
 begin_comment
-comment|/*!     Returns true if this cookie is equal to \a other. This function     only returns true if all fields of the cookie are the same.      However, in some contexts, two cookies of the same name could be     considered equal.      \sa operator!=(), hasSameIdentifier() */
+comment|/*!     \since 5.0     Returns true if this cookie is equal to \a other. This function     only returns true if all fields of the cookie are the same.      However, in some contexts, two cookies of the same name could be     considered equal.      \sa operator!=(), hasSameIdentifier() */
 end_comment
 begin_function
 DECL|function|operator ==
@@ -4263,7 +4263,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This functions normalizes the path and domain of the cookie if they were previously empty. */
+comment|/*!     \since 5.0     This functions normalizes the path and domain of the cookie if they were previously empty. */
 end_comment
 begin_function
 DECL|function|normalize
