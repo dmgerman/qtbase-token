@@ -516,6 +516,14 @@ expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
 name|virtual
+name|bool
+name|isActive
+argument_list|()
+specifier|const
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+name|virtual
 name|Qt
 operator|::
 name|WindowFlags

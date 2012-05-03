@@ -353,6 +353,23 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Returns true if the window should appear active from a style perspective.      This function can make platform-specific isActive checks, such as checking     if the QWindow is embedded in an active native window. */
+end_comment
+begin_function
+DECL|function|isActive
+name|bool
+name|QPlatformWindow
+operator|::
+name|isActive
+parameter_list|()
+specifier|const
+block|{
+return|return
+literal|false
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Requests setting the window state of this surface     to \a type. Returns the actual state set.      Qt::WindowActive can be ignored. */
 end_comment
 begin_function

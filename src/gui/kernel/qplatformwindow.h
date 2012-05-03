@@ -260,6 +260,12 @@ argument_list|()
 specifier|const
 block|;
 name|virtual
+name|bool
+name|isActive
+argument_list|()
+specifier|const
+block|;
+name|virtual
 name|void
 name|propagateSizeHints
 argument_list|()
