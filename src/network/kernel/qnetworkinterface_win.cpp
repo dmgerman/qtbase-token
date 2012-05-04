@@ -596,8 +596,6 @@ decl_stmt|;
 name|ULONG
 name|flags
 init|=
-name|GAA_FLAG_INCLUDE_ALL_INTERFACES
-operator||
 name|GAA_FLAG_INCLUDE_PREFIX
 operator||
 name|GAA_FLAG_SKIP_DNS_SERVER
