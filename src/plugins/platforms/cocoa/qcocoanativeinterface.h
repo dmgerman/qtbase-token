@@ -40,6 +40,9 @@ block|{
 name|Q_OBJECT
 name|public
 operator|:
+name|QCocoaNativeInterface
+argument_list|()
+block|;
 name|void
 operator|*
 name|nativeResourceForWindow
@@ -49,6 +52,17 @@ name|QByteArray
 operator|&
 name|resourceString
 argument_list|,
+name|QWindow
+operator|*
+name|window
+argument_list|)
+block|;
+name|public
+name|Q_SLOTS
+operator|:
+name|void
+name|onAppFocusWindowChanged
+argument_list|(
 name|QWindow
 operator|*
 name|window

@@ -112,6 +112,12 @@ comment|// [parentView addSubview:qtView];
 comment|//
 comment|// See the qt_on_cocoa manual tests for a working example, located
 comment|// in tests/manual/cocoa at the time of writing.
+DECL|variable|QCocoaMenuBar
+name|class
+name|QCocoaMenuBar
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
 name|class
 name|QCocoaWindow
 range|:
@@ -272,6 +278,20 @@ argument|bool modified
 argument_list|)
 name|Q_DECL_OVERRIDE
 block|;
+name|void
+name|setMenubar
+argument_list|(
+name|QCocoaMenuBar
+operator|*
+name|mb
+argument_list|)
+block|;
+name|QCocoaMenuBar
+operator|*
+name|menubar
+argument_list|()
+specifier|const
+block|;
 name|protected
 operator|:
 comment|// NSWindow handling. The QCocoaWindow/QNSView can either be displayed
@@ -365,6 +385,10 @@ block|;
 name|QCocoaGLContext
 operator|*
 name|m_glContext
+block|;
+name|QCocoaMenuBar
+operator|*
+name|m_menubar
 block|;
 name|bool
 name|m_hasModalSession

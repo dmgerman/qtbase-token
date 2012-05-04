@@ -480,6 +480,24 @@ name|window
 parameter_list|)
 function_decl|;
 end_function_decl
+begin_comment
+comment|// strip out '&' characters, and convert "&&" to a single '&', in menu
+end_comment
+begin_comment
+comment|// text - since menu text is sometimes decorated with these for Windows
+end_comment
+begin_comment
+comment|// accelerators.
+end_comment
+begin_function_decl
+name|QString
+name|qt_mac_removeAmpersandEscapes
+parameter_list|(
+name|QString
+name|s
+parameter_list|)
+function_decl|;
+end_function_decl
 begin_macro
 name|QT_END_NAMESPACE
 end_macro
