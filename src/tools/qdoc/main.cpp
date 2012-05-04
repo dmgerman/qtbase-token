@@ -1364,11 +1364,6 @@ argument_list|()
 expr_stmt|;
 name|tree
 operator|->
-name|resolveQmlModules
-argument_list|()
-expr_stmt|;
-name|tree
-operator|->
 name|resolveTargets
 argument_list|(
 name|tree
