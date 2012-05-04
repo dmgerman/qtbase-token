@@ -7313,6 +7313,10 @@ argument_list|(
 name|_q_networkSessionFailed
 argument_list|()
 argument_list|)
+argument_list|,
+name|Qt
+operator|::
+name|QueuedConnection
 argument_list|)
 expr_stmt|;
 if|if
