@@ -24,6 +24,9 @@ undef|#
 directive|undef
 name|interface
 end_undef
+begin_comment
+comment|//proper header is wlanapi.h, but that is not included in windows XP
+end_comment
 begin_define
 DECL|macro|WLAN_MAX_NAME_LENGTH
 define|#
@@ -37,6 +40,13 @@ define|#
 directive|define
 name|WLAN_MAX_PHY_TYPE_NUMBER
 value|8
+end_define
+begin_define
+DECL|macro|WLAN_NOTIFICATION_SOURCE_ACM
+define|#
+directive|define
+name|WLAN_NOTIFICATION_SOURCE_ACM
+value|0x00000008
 end_define
 begin_define
 DECL|macro|WLAN_NOTIFICATION_SOURCE_ALL
