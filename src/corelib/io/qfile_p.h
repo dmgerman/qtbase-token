@@ -46,6 +46,11 @@ end_comment
 begin_include
 include|#
 directive|include
+file|"qfile.h"
+end_include
+begin_include
+include|#
+directive|include
 file|"private/qfiledevice_p.h"
 end_include
 begin_decl_stmt
