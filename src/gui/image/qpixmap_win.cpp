@@ -1055,11 +1055,6 @@ name|bitmap
 return|;
 block|}
 end_function
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|Q_OS_WINCE
-end_ifndef
 begin_function
 DECL|function|qt_pixmapFromWinHBITMAP
 name|Q_GUI_EXPORT
@@ -1508,13 +1503,6 @@ argument_list|)
 return|;
 block|}
 end_function
-begin_endif
-endif|#
-directive|endif
-end_endif
-begin_comment
-comment|//ifndef Q_OS_WINCE
-end_comment
 begin_function
 DECL|function|qt_pixmapToWinHICON
 name|Q_GUI_EXPORT
