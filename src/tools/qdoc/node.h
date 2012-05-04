@@ -1516,13 +1516,6 @@ argument|const FunctionNode* func
 argument_list|)
 specifier|const
 block|;
-name|int
-name|numOverloads
-argument_list|(
-argument|const QString& funcName
-argument_list|)
-specifier|const
-block|;
 name|NodeList
 name|overloads
 argument_list|(
@@ -3935,11 +3928,6 @@ return|;
 block|}
 name|int
 name|overloadNumber
-argument_list|()
-specifier|const
-block|;
-name|int
-name|numOverloads
 argument_list|()
 specifier|const
 block|;
