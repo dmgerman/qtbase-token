@@ -821,6 +821,10 @@ name|bool
 name|initTreeViewTheming
 argument_list|()
 block|;
+name|void
+name|cleanupTreeViewTheming
+argument_list|()
+block|;
 name|QList
 operator|<
 name|QWindowsVistaAnimation

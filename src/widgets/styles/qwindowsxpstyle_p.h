@@ -1491,6 +1491,29 @@ argument_list|(
 argument|int theme
 argument_list|)
 block|;
+specifier|static
+specifier|inline
+name|bool
+name|hasTheme
+argument_list|(
+argument|int theme
+argument_list|)
+block|{
+return|return
+name|theme
+operator|>=
+literal|0
+operator|&&
+name|theme
+operator|<
+name|NThemes
+operator|&&
+name|m_themes
+index|[
+name|theme
+index|]
+return|;
+block|}
 name|QIcon
 name|dockFloat
 block|,
