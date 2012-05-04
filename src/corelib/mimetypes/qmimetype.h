@@ -271,6 +271,12 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_macro
+name|Q_DECLARE_SHARED
+argument_list|(
+argument|QMimeType
+argument_list|)
+end_macro
+begin_macro
 name|QT_END_NAMESPACE
 end_macro
 begin_endif

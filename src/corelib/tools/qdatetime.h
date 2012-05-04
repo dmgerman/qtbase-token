@@ -1668,15 +1668,12 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
-begin_expr_stmt
-name|Q_DECLARE_TYPEINFO
+begin_macro
+name|Q_DECLARE_SHARED
 argument_list|(
-name|QDateTime
-argument_list|,
-name|Q_MOVABLE_TYPE
+argument|QDateTime
 argument_list|)
-expr_stmt|;
-end_expr_stmt
+end_macro
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -1699,6 +1696,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|variable|operator
 name|Q_CORE_EXPORT
 name|QDataStream
 operator|&

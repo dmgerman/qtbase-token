@@ -954,8 +954,15 @@ name|this
 return|;
 block|}
 end_expr_stmt
-begin_decl_stmt
+begin_macro
 unit|};
+DECL|function|Q_DECLARE_SHARED
+name|Q_DECLARE_SHARED
+argument_list|(
+argument|QDebug
+argument_list|)
+end_macro
+begin_decl_stmt
 name|class
 name|QNoDebug
 block|{

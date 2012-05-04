@@ -955,6 +955,12 @@ begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
 begin_macro
+name|Q_DECLARE_SHARED
+argument_list|(
+argument|QDir
+argument_list|)
+end_macro
+begin_macro
 name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(
 argument|QDir::Filters
@@ -972,12 +978,12 @@ directive|ifndef
 name|QT_NO_DEBUG_STREAM
 end_ifndef
 begin_decl_stmt
-DECL|variable|QDebug
 name|class
 name|QDebug
 decl_stmt|;
 end_decl_stmt
 begin_expr_stmt
+DECL|variable|operator
 name|Q_CORE_EXPORT
 name|QDebug
 name|operator
