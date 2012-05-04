@@ -1376,36 +1376,12 @@ name|hasError
 init|=
 literal|false
 decl_stmt|;
-comment|// It might make sense to bequeath the CONFIG option to the recursed
-comment|// projects. OTOH, one would most likely have it in all projects anyway -
-comment|// either through a qmakespec, a .qmake.cache or explicitly - as otherwise
-comment|// running qmake in a subdirectory would have a different auto-recurse
-comment|// setting than in parent directories.
 name|bool
 name|recurse
 init|=
 name|Option
 operator|::
 name|recursive
-operator|==
-name|Option
-operator|::
-name|QMAKE_RECURSIVE_YES
-operator|||
-operator|(
-name|Option
-operator|::
-name|recursive
-operator|==
-name|Option
-operator|::
-name|QMAKE_RECURSIVE_DEFAULT
-operator|&&
-name|project
-operator|->
-name|isRecursive
-argument_list|()
-operator|)
 decl_stmt|;
 if|if
 condition|(

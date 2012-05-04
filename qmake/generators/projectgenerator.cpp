@@ -412,10 +412,6 @@ condition|(
 name|Option
 operator|::
 name|recursive
-operator|==
-name|Option
-operator|::
-name|QMAKE_RECURSIVE_YES
 condition|)
 block|{
 name|QStringList
@@ -623,10 +619,6 @@ condition|(
 name|Option
 operator|::
 name|recursive
-operator|==
-name|Option
-operator|::
-name|QMAKE_RECURSIVE_YES
 condition|)
 block|{
 name|QStringList
@@ -1150,10 +1142,6 @@ condition|(
 name|Option
 operator|::
 name|recursive
-operator|==
-name|Option
-operator|::
-name|QMAKE_RECURSIVE_YES
 condition|)
 block|{
 name|QStringList
@@ -1577,10 +1565,6 @@ condition|(
 name|Option
 operator|::
 name|recursive
-operator|==
-name|Option
-operator|::
-name|QMAKE_RECURSIVE_YES
 operator|&&
 operator|!
 name|knownDirs

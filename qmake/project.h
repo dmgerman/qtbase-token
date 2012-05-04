@@ -184,9 +184,6 @@ operator|,
 name|replaceFunctions
 expr_stmt|;
 name|bool
-name|recursive
-decl_stmt|;
-name|bool
 name|host_build
 decl_stmt|;
 name|bool
@@ -988,15 +985,6 @@ name|dump
 argument_list|()
 specifier|const
 expr_stmt|;
-name|bool
-name|isRecursive
-argument_list|()
-specifier|const
-block|{
-return|return
-name|recursive
-return|;
-block|}
 name|bool
 name|isHostBuild
 argument_list|()
