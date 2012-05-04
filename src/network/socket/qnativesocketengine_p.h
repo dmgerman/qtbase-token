@@ -761,7 +761,7 @@ name|createNewSocket
 argument_list|(
 argument|QAbstractSocket::SocketType type
 argument_list|,
-argument|QAbstractSocket::NetworkLayerProtocol protocol
+argument|QAbstractSocket::NetworkLayerProtocol&protocol
 argument_list|)
 block|;
 name|bool

@@ -2869,6 +2869,14 @@ operator|::
 name|AddressInUseError
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|QtNetworkSettings
+operator|::
+name|hasIPv6
+argument_list|()
+condition|)
+block|{
 name|PLATFORMSOCKETENGINE
 name|binder4
 decl_stmt|;
@@ -2948,6 +2956,7 @@ operator|::
 name|AddressInUseError
 argument_list|)
 expr_stmt|;
+block|}
 name|PLATFORMSOCKETENGINE
 name|binder6
 decl_stmt|;

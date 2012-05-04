@@ -1492,6 +1492,7 @@ parameter_list|,
 name|QAbstractSocket
 operator|::
 name|NetworkLayerProtocol
+modifier|&
 name|socketProtocol
 parameter_list|)
 block|{

@@ -1008,6 +1008,19 @@ operator|::
 name|ipv6Server
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|QtNetworkSettings
+operator|::
+name|hasIPv6
+argument_list|()
+condition|)
+name|QSKIP
+argument_list|(
+literal|"system doesn't support ipv6!"
+argument_list|)
+expr_stmt|;
 comment|//### need to enter the event loop for the server to get the connection ?? ( windows)
 name|QTcpServer
 name|server
@@ -1255,6 +1268,19 @@ argument_list|(
 literal|"test server proxy doesn't support ipv6"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|QtNetworkSettings
+operator|::
+name|hasIPv6
+argument_list|()
+condition|)
+name|QSKIP
+argument_list|(
+literal|"system doesn't support ipv6!"
+argument_list|)
+expr_stmt|;
 name|QFETCH
 argument_list|(
 name|QHostAddress
@@ -1418,6 +1444,19 @@ name|server
 operator|.
 name|nextPendingConnection
 argument_list|()
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|QtNetworkSettings
+operator|::
+name|hasIPv6
+argument_list|()
+condition|)
+name|QSKIP
+argument_list|(
+literal|"system doesn't support ipv6!"
+argument_list|)
 expr_stmt|;
 comment|// let's try the mapped one in the nice format
 name|QTcpSocket
@@ -4139,9 +4178,16 @@ name|AnyIPv4
 argument_list|)
 expr_stmt|;
 comment|//windows XP doesn't support dual stack sockets
-else|else
+elseif|else
 endif|#
 directive|endif
+if|if
+condition|(
+name|QtNetworkSettings
+operator|::
+name|hasIPv6
+argument_list|()
+condition|)
 name|QTest
 operator|::
 name|newRow
@@ -4161,6 +4207,28 @@ argument_list|(
 name|QHostAddress
 operator|::
 name|Any
+argument_list|)
+expr_stmt|;
+else|else
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"Any"
+argument_list|)
+operator|<<
+name|QHostAddress
+argument_list|(
+name|QHostAddress
+operator|::
+name|Any
+argument_list|)
+operator|<<
+name|QHostAddress
+argument_list|(
+name|QHostAddress
+operator|::
+name|AnyIPv4
 argument_list|)
 expr_stmt|;
 name|QTest
@@ -4184,6 +4252,13 @@ operator|::
 name|AnyIPv4
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|QtNetworkSettings
+operator|::
+name|hasIPv6
+argument_list|()
+condition|)
 name|QTest
 operator|::
 name|newRow
