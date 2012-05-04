@@ -1268,15 +1268,6 @@ operator|::
 name|relativeLinks
 parameter_list|()
 block|{
-name|QEXPECT_FAIL
-argument_list|(
-literal|""
-argument_list|,
-literal|"QTBUG-22416: First call to QTextBrowser::setSource fails unless URL created with QUrl::fromLocalFile"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
 name|qRegisterMetaType
 argument_list|<
 name|QUrl
