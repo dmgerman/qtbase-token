@@ -153,6 +153,10 @@ name|Q_PROPERTY
 argument_list|(
 argument|Qt::ScreenOrientation orientation READ orientation NOTIFY orientationChanged
 argument_list|)
+name|Q_PROPERTY
+argument_list|(
+argument|qreal refreshRate READ refreshRate NOTIFY refreshRateChanged
+argument_list|)
 name|public
 operator|:
 name|QPlatformScreen
@@ -328,6 +332,11 @@ argument_list|,
 argument|int h
 argument_list|)
 block|;
+name|qreal
+name|refreshRate
+argument_list|()
+specifier|const
+block|;
 name|Q_SIGNALS
 operator|:
 name|void
@@ -412,6 +421,12 @@ name|void
 name|orientationChanged
 argument_list|(
 argument|Qt::ScreenOrientation orientation
+argument_list|)
+block|;
+name|void
+name|refreshRateChanged
+argument_list|(
+argument|qreal refreshRate
 argument_list|)
 block|;
 name|private

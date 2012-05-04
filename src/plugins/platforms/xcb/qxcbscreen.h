@@ -131,6 +131,11 @@ name|cursor
 argument_list|()
 specifier|const
 expr_stmt|;
+name|qreal
+name|refreshRate
+argument_list|()
+specifier|const
+expr_stmt|;
 name|int
 name|screenNumber
 argument_list|()
@@ -198,6 +203,10 @@ name|name
 argument_list|()
 specifier|const
 expr_stmt|;
+name|void
+name|updateRefreshRate
+parameter_list|()
+function_decl|;
 name|private
 label|:
 name|xcb_screen_t
@@ -227,6 +236,9 @@ expr_stmt|;
 name|QXcbCursor
 modifier|*
 name|m_cursor
+decl_stmt|;
+name|int
+name|m_refreshRate
 decl_stmt|;
 block|}
 end_decl_stmt

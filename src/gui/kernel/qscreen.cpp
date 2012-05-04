@@ -710,6 +710,31 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!   \property QScreen::refreshRate   \brief the approximate vertical refresh rate of the screen in Hz */
+end_comment
+begin_function
+DECL|function|refreshRate
+name|qreal
+name|QScreen
+operator|::
+name|refreshRate
+parameter_list|()
+specifier|const
+block|{
+name|Q_D
+argument_list|(
+specifier|const
+name|QScreen
+argument_list|)
+expr_stmt|;
+return|return
+name|d
+operator|->
+name|refreshRate
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     \property QScreen::primaryOrientation     \brief the primary screen orientation      The primary screen orientation is Qt::LandscapeOrientation     if the screen geometry's width is greater than or equal to its     height, or Qt::PortraitOrientation otherwise.      \sa primaryOrientationChanged() */
 end_comment
 begin_function

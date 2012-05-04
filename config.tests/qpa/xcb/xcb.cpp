@@ -51,6 +51,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<xcb/randr.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<xcb/shm.h>
 end_include
 begin_function

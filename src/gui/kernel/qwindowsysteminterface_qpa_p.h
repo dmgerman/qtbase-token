@@ -62,6 +62,8 @@ name|ScreenAvailableGeometry
 block|,
 name|ScreenLogicalDotsPerInch
 block|,
+name|ScreenRefreshRate
+block|,
 name|ThemeChange
 block|,
 name|Expose
@@ -994,6 +996,46 @@ name|dpiX
 block|;
 name|qreal
 name|dpiY
+block|;     }
+decl_stmt|;
+name|class
+name|ScreenRefreshRateEvent
+range|:
+name|public
+name|WindowSystemEvent
+block|{
+name|public
+operator|:
+name|ScreenRefreshRateEvent
+argument_list|(
+argument|QScreen *s
+argument_list|,
+argument|qreal r
+argument_list|)
+operator|:
+name|WindowSystemEvent
+argument_list|(
+name|ScreenRefreshRate
+argument_list|)
+block|,
+name|screen
+argument_list|(
+name|s
+argument_list|)
+block|,
+name|rate
+argument_list|(
+argument|r
+argument_list|)
+block|{ }
+name|QWeakPointer
+operator|<
+name|QScreen
+operator|>
+name|screen
+block|;
+name|qreal
+name|rate
 block|;     }
 decl_stmt|;
 name|class

@@ -372,6 +372,17 @@ argument_list|)
 block|;
 specifier|static
 name|void
+name|reportRefreshRateChange
+argument_list|(
+name|QWindowSystemInterfacePrivate
+operator|::
+name|ScreenRefreshRateEvent
+operator|*
+name|e
+argument_list|)
+block|;
+specifier|static
+name|void
 name|processThemeChanged
 argument_list|(
 name|QWindowSystemInterfacePrivate

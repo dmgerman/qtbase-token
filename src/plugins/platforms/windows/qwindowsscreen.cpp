@@ -102,6 +102,11 @@ name|Qt
 operator|::
 name|LandscapeOrientation
 argument_list|)
+member_init_list|,
+name|refreshRateHz
+argument_list|(
+literal|60
+argument_list|)
 block|{ }
 end_constructor
 begin_function
@@ -497,6 +502,30 @@ argument_list|,
 name|VERTSIZE
 argument_list|)
 argument_list|)
+expr_stmt|;
+specifier|const
+name|int
+name|refreshRate
+init|=
+name|GetDeviceCaps
+argument_list|(
+name|hdc
+argument_list|,
+name|VREFRESH
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|refreshRate
+operator|>
+literal|1
+condition|)
+comment|// 0,1 means heardware default.
+name|data
+operator|.
+name|refreshRateHz
+operator|=
+name|refreshRate
 expr_stmt|;
 name|DeleteDC
 argument_list|(

@@ -84,6 +84,13 @@ operator|->
 name|logicalDpi
 argument_list|()
 block|;
+name|refreshRate
+operator|=
+name|screen
+operator|->
+name|refreshRate
+argument_list|()
+block|;
 name|updatePrimaryOrientation
 argument_list|()
 block|;     }
@@ -109,6 +116,9 @@ name|availableGeometry
 block|;
 name|QDpi
 name|logicalDpi
+block|;
+name|qreal
+name|refreshRate
 block|;
 name|QPlatformScreen
 operator|*

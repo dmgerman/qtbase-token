@@ -246,6 +246,12 @@ argument_list|()
 specifier|const
 expr_stmt|;
 name|virtual
+name|qreal
+name|refreshRate
+argument_list|()
+specifier|const
+expr_stmt|;
+name|virtual
 name|Qt
 operator|::
 name|ScreenOrientation

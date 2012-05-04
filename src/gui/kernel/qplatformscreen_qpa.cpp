@@ -399,6 +399,23 @@ return|;
 block|}
 end_function
 begin_comment
+comment|/*!     Reimplement this function in subclass to return the vertical refresh rate     of the screen, in Hz.      The default returns 60, a sensible default for modern displays. */
+end_comment
+begin_function
+DECL|function|refreshRate
+name|qreal
+name|QPlatformScreen
+operator|::
+name|refreshRate
+parameter_list|()
+specifier|const
+block|{
+return|return
+literal|60
+return|;
+block|}
+end_function
+begin_comment
 comment|/*!     Reimplement this function in subclass to return the current orientation     of the screen, for example based on accelerometer data to determine     the device orientation.      The default implementation returns Qt::PrimaryOrientation. */
 end_comment
 begin_function
