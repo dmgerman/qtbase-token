@@ -20336,6 +20336,7 @@ expr_stmt|;
 comment|// test the query
 comment|// since QUrl doesn't know what chars the user wants to use for the pair and value delimiters,
 comment|// it keeps the delimiters alone except for "#", which must always be encoded.
+comment|// In the following test, all delimiter characters appear both as encoded and as decoded (except for "#")
 name|QTest
 operator|::
 name|newRow
@@ -20345,7 +20346,7 @@ argument_list|)
 operator|<<
 name|QUrl
 argument_list|(
-literal|"?!$()*+,;=:/?[]@"
+literal|"?!$()*+,;=:/?[]@%21%24%26%27%28%29%2a%2b%2c%2f%3a%3b%3d%3f%40%5b%5d"
 argument_list|)
 operator|<<
 name|int
@@ -20373,12 +20374,12 @@ operator|<<
 name|QString
 argument_list|()
 operator|<<
-literal|"!$()*+,;=:/?[]@"
+literal|"!$()*+,;=:/?[]@%21%24%26%27%28%29%2A%2B%2C%2F%3A%3B%3D%3F%40%5B%5D"
 operator|<<
 name|QString
 argument_list|()
 operator|<<
-literal|"?!$()*+,;=:/?[]@"
+literal|"?!$()*+,;=:/?[]@%21%24%26%27%28%29%2A%2B%2C%2F%3A%3B%3D%3F%40%5B%5D"
 expr_stmt|;
 name|QTest
 operator|::
@@ -20389,7 +20390,7 @@ argument_list|)
 operator|<<
 name|QUrl
 argument_list|(
-literal|"?%21%24%26%27%28%29%2a%2b%2c%2f%3a%3b%3d%3f%40%5b%5d"
+literal|"?!$()*+,;=:/?[]@%21%24%26%27%28%29%2a%2b%2c%2f%3a%3b%3d%3f%40%5b%5d"
 argument_list|)
 operator|<<
 name|int
@@ -20417,12 +20418,12 @@ operator|<<
 name|QString
 argument_list|()
 operator|<<
-literal|"%21%24%26%27%28%29%2A%2B%2C%2F%3A%3B%3D%3F%40%5B%5D"
+literal|"!$()*+,;=:/?[]@%21%24%26%27%28%29%2A%2B%2C%2F%3A%3B%3D%3F%40%5B%5D"
 operator|<<
 name|QString
 argument_list|()
 operator|<<
-literal|"?%21%24%26%27%28%29%2A%2B%2C%2F%3A%3B%3D%3F%40%5B%5D"
+literal|"?!$()*+,;=:/?[]@%21%24%26%27%28%29%2A%2B%2C%2F%3A%3B%3D%3F%40%5B%5D"
 expr_stmt|;
 comment|// reserved characters:  '"' / "<" / ">" / "^" / "\" / "{" / "|" "}"
 comment|// the RFC does not allow them undecoded anywhere, but we do
