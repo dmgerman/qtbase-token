@@ -1705,6 +1705,10 @@ block|;
 name|short
 name|s
 block|;
+name|signed
+name|char
+name|sc
+block|;
 name|ushort
 name|us
 block|;
