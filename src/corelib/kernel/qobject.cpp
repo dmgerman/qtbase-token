@@ -6953,7 +6953,7 @@ name|Signal
 argument_list|,
 literal|"QObject::isSignalConnected"
 argument_list|,
-literal|"the parametter must be a signal member of the object"
+literal|"the parameter must be a signal member of the object"
 argument_list|)
 expr_stmt|;
 name|uint

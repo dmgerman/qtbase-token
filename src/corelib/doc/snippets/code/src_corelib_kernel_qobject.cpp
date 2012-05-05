@@ -1826,7 +1826,7 @@ if|if
 condition|(
 name|isSignalConnected
 argument_list|(
-name|QMethaMethod
+name|QMetaMethod
 operator|::
 name|fromSignal
 argument_list|(
