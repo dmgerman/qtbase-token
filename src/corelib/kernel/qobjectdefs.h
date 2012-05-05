@@ -31,12 +31,11 @@ name|class
 name|QByteArray
 decl_stmt|;
 end_decl_stmt
-begin_decl_stmt
-DECL|variable|QArrayData
-name|class
+begin_struct_decl
+struct_decl|struct
 name|QArrayData
-decl_stmt|;
-end_decl_stmt
+struct_decl|;
+end_struct_decl
 begin_typedef
 DECL|typedef|QByteArrayData
 typedef|typedef
