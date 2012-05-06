@@ -384,18 +384,18 @@ name|highlightSections
 argument_list|()
 specifier|const
 block|;
-name|void
-name|setResizeMode
-argument_list|(
-argument|ResizeMode mode
-argument_list|)
-block|;
 name|ResizeMode
 name|sectionResizeMode
 argument_list|(
 argument|int logicalIndex
 argument_list|)
 specifier|const
+block|;
+name|void
+name|setSectionResizeMode
+argument_list|(
+argument|ResizeMode mode
+argument_list|)
 block|;
 name|void
 name|setSectionResizeMode
@@ -413,6 +413,19 @@ literal|5
 operator|,
 literal|0
 argument_list|)
+specifier|inline
+name|QT_DEPRECATED
+name|void
+name|setResizeMode
+argument_list|(
+argument|ResizeMode mode
+argument_list|)
+block|{
+name|setSectionResizeMode
+argument_list|(
+name|mode
+argument_list|)
+block|; }
 specifier|inline
 name|QT_DEPRECATED
 name|void

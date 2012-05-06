@@ -25204,7 +25204,7 @@ operator|.
 name|verticalHeader
 argument_list|()
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|QHeaderView
 operator|::

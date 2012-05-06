@@ -2599,7 +2599,7 @@ literal|1
 expr_stmt|;
 name|view
 operator|.
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|QHeaderView
 operator|::
@@ -6553,7 +6553,7 @@ literal|1
 decl_stmt|;
 name|view
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|QHeaderView
 operator|::
@@ -6590,7 +6590,7 @@ argument_list|)
 expr_stmt|;
 name|view
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|QHeaderView
 operator|::
@@ -6627,7 +6627,7 @@ argument_list|)
 expr_stmt|;
 name|view
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|QHeaderView
 operator|::
@@ -8029,7 +8029,7 @@ argument_list|)
 expr_stmt|;
 name|view
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|QHeaderView
 operator|::
@@ -8101,7 +8101,7 @@ argument_list|)
 expr_stmt|;
 name|view
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|QHeaderView
 operator|::
@@ -8619,7 +8619,7 @@ argument_list|)
 expr_stmt|;
 name|view
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|QHeaderView
 operator|::
@@ -10135,7 +10135,7 @@ argument_list|)
 expr_stmt|;
 name|h
 operator|.
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 operator|(
 name|QHeaderView
@@ -12710,7 +12710,7 @@ operator|.
 name|horizontalHeader
 argument_list|()
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|QHeaderView
 operator|::
@@ -13451,7 +13451,7 @@ argument_list|)
 expr_stmt|;
 name|hv
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|QHeaderView
 operator|::

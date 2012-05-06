@@ -139,7 +139,7 @@ operator|->
 name|header
 argument_list|()
 operator|->
-name|setResizeMode
+name|setSectionResizeMode
 argument_list|(
 name|QHeaderView
 operator|::
