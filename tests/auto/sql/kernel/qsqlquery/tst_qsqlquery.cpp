@@ -18876,9 +18876,6 @@ argument_list|(
 literal|":data"
 argument_list|,
 name|shortBLOB
-operator|.
-name|toLatin1
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|QVERIFY_SQL
@@ -18905,9 +18902,6 @@ argument_list|(
 literal|":data"
 argument_list|,
 name|longerBLOB
-operator|.
-name|toLatin1
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|QVERIFY_SQL
@@ -19016,8 +19010,14 @@ argument_list|)
 operator|.
 name|toString
 argument_list|()
+operator|.
+name|toUtf8
+argument_list|()
 argument_list|,
 name|longerBLOB
+operator|.
+name|toUtf8
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Only one execution and result set
