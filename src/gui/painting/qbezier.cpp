@@ -50,33 +50,6 @@ end_include
 begin_function
 name|QT_BEGIN_NAMESPACE
 comment|//#define QDEBUG_BEZIER
-ifdef|#
-directive|ifdef
-name|FLOAT_ACCURACY
-DECL|macro|INV_EPS
-define|#
-directive|define
-name|INV_EPS
-value|(1L<<23)
-else|#
-directive|else
-comment|/* The value of 1.0 / (1L<<14) is enough for most applications */
-define|#
-directive|define
-name|INV_EPS
-value|(1L<<14)
-endif|#
-directive|endif
-ifndef|#
-directive|ifndef
-name|M_SQRT2
-DECL|macro|M_SQRT2
-define|#
-directive|define
-name|M_SQRT2
-value|1.41421356237309504880
-endif|#
-directive|endif
 comment|/*!   \internal */
 DECL|function|fromPoints
 name|QBezier
