@@ -1251,7 +1251,7 @@ literal|0
 argument_list|)
 end_if
 begin_comment
-comment|/*!   \fn QMultiMap<QSsl::AlternateNameEntryType, QString> alternateSubjectNames() const   \obsolete    Use subjectAlternativeNames(); */
+comment|/*!   \fn QMultiMap<QSsl::AlternateNameEntryType, QString> QSslCertificate::alternateSubjectNames() const   \obsolete    Use QSslCertificate::subjectAlternativeNames(); */
 end_comment
 begin_endif
 endif|#
@@ -3455,7 +3455,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Verifies a certificate chain. If \a hostName is specified then the certificate is     also checked to see if it is valid for the specified host name.     Note that the first certificate in the list should be the leaf certificate of     the chain to be verified.     The root (CA) certificate should not be included in the list to be verified,     this will be looked up automatically either using the CA list specified by     QSslSocket::defaultCaCertificates() or, if possible, it will be loaded on demand     on Unix.      \since 5.0  */
+comment|/*!     Verifies a certificate chain. The chain to be verified is passed in the     \a certificateChain parameter. The first certificate in the list should     be the leaf certificate of the chain to be verified. If \a hostName is     specified then the certificate is also checked to see if it is valid for     the specified host name.      Note that the root (CA) certificate should not be included in the list to be verified,     this will be looked up automatically either using the CA list specified by     QSslSocket::defaultCaCertificates() or, if possible, it will be loaded on demand     on Unix.      \since 5.0  */
 end_comment
 begin_function
 DECL|function|verify

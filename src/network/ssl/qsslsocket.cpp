@@ -1221,7 +1221,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \reimp      Returns true if you can read one while line (terminated by a single ASCII     '\n' character) of decrypted characters; otherwise, false is returned. */
+comment|/*!     \reimp      Returns true if you can read one while line (terminated by a single ASCII     '\\n' character) of decrypted characters; otherwise, false is returned. */
 end_comment
 begin_function
 DECL|function|canReadLine
@@ -3516,7 +3516,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Starts a delayed SSL handshake for a server connection. This     function can be called when the socket is in the \l ConnectedState     but still in \l UnencryptedMode. If it is not connected or it is     already encrypted, the function has no effect.      For server sockets, calling this function is the only way to     initiate the SSL handshake. Most servers will call this function     immediately upon receiving a connection, or as a result of having     received a protocol-specific command to enter SSL mode (e.g, the     server may respond to receiving the string "STARTTLS\r\n" by     calling this function).      The most common way to implement an SSL server is to create a     subclass of QTcpServer and reimplement     QTcpServer::incomingConnection(). The returned socket descriptor     is then passed to QSslSocket::setSocketDescriptor().          \sa connectToHostEncrypted(), startClientEncryption() */
+comment|/*!     Starts a delayed SSL handshake for a server connection. This     function can be called when the socket is in the \l ConnectedState     but still in \l UnencryptedMode. If it is not connected or it is     already encrypted, the function has no effect.      For server sockets, calling this function is the only way to     initiate the SSL handshake. Most servers will call this function     immediately upon receiving a connection, or as a result of having     received a protocol-specific command to enter SSL mode (e.g, the     server may respond to receiving the string "STARTTLS\\r\\n" by     calling this function).      The most common way to implement an SSL server is to create a     subclass of QTcpServer and reimplement     QTcpServer::incomingConnection(). The returned socket descriptor     is then passed to QSslSocket::setSocketDescriptor().          \sa connectToHostEncrypted(), startClientEncryption() */
 end_comment
 begin_function
 DECL|function|startServerEncryption

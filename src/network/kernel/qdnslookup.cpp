@@ -751,7 +751,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \property QDnsLookup::finished     \brief whether the reply has finished or was aborted. */
+comment|/*!     Returns whether the reply has finished or was aborted. */
 end_comment
 begin_function
 DECL|function|isFinished

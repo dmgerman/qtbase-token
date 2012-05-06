@@ -1275,7 +1275,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \internal      Tries to connect connectingName and connectingOpenMode      \sa connectToServer() waitForConnected()   */
+comment|/*!     \internal      Tries to connect connectingName and connectingOpenMode      \sa connectToServer(), waitForConnected()   */
 end_comment
 begin_function
 DECL|function|_q_connectToSocket
