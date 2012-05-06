@@ -750,7 +750,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0     Returns true if the domain and path of \a cookie are valid, false otherwise. */
+comment|/*!     \since 5.0     Returns true if the domain and path of \a cookie are valid, false otherwise.     The \a url parameter is used to determine if the domain specified in the cookie     is allowed. */
 end_comment
 begin_function
 DECL|function|validateCookie

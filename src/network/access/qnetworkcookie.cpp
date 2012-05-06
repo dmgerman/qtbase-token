@@ -4263,7 +4263,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 5.0     This functions normalizes the path and domain of the cookie if they were previously empty. */
+comment|/*!     \since 5.0     This functions normalizes the path and domain of the cookie if they were previously empty.     The \a url parameter is used to determine the correct domain and path. */
 end_comment
 begin_function
 DECL|function|normalize

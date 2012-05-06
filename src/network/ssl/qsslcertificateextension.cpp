@@ -18,6 +18,9 @@ end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
+begin_comment
+comment|/*!     Constructs a QSslCertificateExtension.  */
+end_comment
 begin_constructor
 DECL|function|QSslCertificateExtension
 name|QSslCertificateExtension
