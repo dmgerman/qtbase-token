@@ -248,6 +248,8 @@ block|,
 name|Preferences
 block|,
 name|Quit
+block|,
+name|FullScreen
 block|}
 enum|;
 enum|enum
