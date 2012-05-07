@@ -2249,7 +2249,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the IPv6 address as a Q_IPV6ADDR structure. The structure     consists of 16 unsigned characters.      \snippet doc/src/snippets/code/src_network_kernel_qhostaddress.cpp 0      This value is valid if the protocol() is     \l{QAbstractSocket::}{IPv6Protocol}.     If the protocol is     \l{QAbstractSocket::}{IPv4Protocol},     then the address is returned an an IPv4 mapped IPv6 address. (RFC4291)      \sa toString() */
+comment|/*!     Returns the IPv6 address as a Q_IPV6ADDR structure. The structure     consists of 16 unsigned characters.      \snippet code/src_network_kernel_qhostaddress.cpp 0      This value is valid if the protocol() is     \l{QAbstractSocket::}{IPv6Protocol}.     If the protocol is     \l{QAbstractSocket::}{IPv4Protocol},     then the address is returned an an IPv4 mapped IPv6 address. (RFC4291)      \sa toString() */
 end_comment
 begin_function
 DECL|function|toIPv6Address
