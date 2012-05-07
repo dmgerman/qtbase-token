@@ -1096,7 +1096,7 @@ name|glyphs
 operator|->
 name|glyphs
 index|[
-name|i
+name|glyph_pos
 index|]
 operator|=
 name|getTrueTypeGlyphIndex
