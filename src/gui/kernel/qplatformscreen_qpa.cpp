@@ -304,7 +304,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reimplement this function in subclass to return the physical size of the     screen. The physical size represents the actual physical dimensions of     the display.      The default implementation takes the pixel size of the screen, considers a     resolution of 100 dots per inch, and returns the calculated physical size.     A device with a screen that has different resolutions will need to be     supported by a suitable reimplementation of this function.      \sa logcalDpi */
+comment|/*!     Reimplement this function in subclass to return the physical size of the     screen, in millimeters. The physical size represents the actual physical     dimensions of the display.      The default implementation takes the pixel size of the screen, considers a     resolution of 100 dots per inch, and returns the calculated physical size.     A device with a screen that has different resolutions will need to be     supported by a suitable reimplementation of this function.      \sa logcalDpi */
 end_comment
 begin_function
 DECL|function|physicalSize
