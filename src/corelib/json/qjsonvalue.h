@@ -561,6 +561,17 @@ operator|&
 name|val
 operator|)
 decl_stmt|;
+name|QJsonValueRef
+modifier|&
+name|operator
+init|=
+operator|(
+specifier|const
+name|QJsonValueRef
+operator|&
+name|val
+operator|)
+decl_stmt|;
 specifier|inline
 name|QJsonValue
 operator|::
