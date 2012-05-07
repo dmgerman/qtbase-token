@@ -130,7 +130,7 @@ parameter_list|)
 function_decl|;
 end_function_decl
 begin_comment
-comment|/*!     \class QPicture     \brief The QPicture class is a paint device that records and     replays QPainter commands.      \ingroup painting     \ingroup shared       A picture serializes painter commands to an IO device in a     platform-independent format. They are sometimes referred to as meta-files.      Qt pictures use a proprietary binary format. Unlike native picture     (meta-file) formats on many window systems, Qt pictures have no     limitations regarding their contents. Everything that can be     painted on a widget or pixmap (e.g., fonts, pixmaps, regions,     transformed graphics, etc.)  can also be stored in a picture.      QPicture is resolution independent, i.e. a QPicture can be     displayed on different devices (for example svg, pdf, ps, printer     and screen) looking the same. This is, for instance, needed for     WYSIWYG print preview. QPicture runs in the default system dpi,     and scales the painter to match differences in resolution     depending on the window system.      Example of how to record a picture:     \snippet doc/src/snippets/picture/picture.cpp 0      Note that the list of painter commands is reset on each call to     the QPainter::begin() function.      Example of how to replay a picture:     \snippet doc/src/snippets/picture/picture.cpp 1      Pictures can also be drawn using play(). Some basic data about a     picture is available, for example, size(), isNull() and     boundingRect().      \sa QMovie */
+comment|/*!     \class QPicture     \brief The QPicture class is a paint device that records and     replays QPainter commands.      \ingroup painting     \ingroup shared       A picture serializes painter commands to an IO device in a     platform-independent format. They are sometimes referred to as meta-files.      Qt pictures use a proprietary binary format. Unlike native picture     (meta-file) formats on many window systems, Qt pictures have no     limitations regarding their contents. Everything that can be     painted on a widget or pixmap (e.g., fonts, pixmaps, regions,     transformed graphics, etc.)  can also be stored in a picture.      QPicture is resolution independent, i.e. a QPicture can be     displayed on different devices (for example svg, pdf, ps, printer     and screen) looking the same. This is, for instance, needed for     WYSIWYG print preview. QPicture runs in the default system dpi,     and scales the painter to match differences in resolution     depending on the window system.      Example of how to record a picture:     \snippet picture/picture.cpp 0      Note that the list of painter commands is reset on each call to     the QPainter::begin() function.      Example of how to replay a picture:     \snippet picture/picture.cpp 1      Pictures can also be drawn using play(). Some basic data about a     picture is available, for example, size(), isNull() and     boundingRect().      \sa QMovie */
 end_comment
 begin_decl_stmt
 DECL|variable|qt_mfhdr_tag
@@ -4748,7 +4748,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Returns a list of picture formats that are supported for picture     input.      Note that if you want to iterate over the list, you should iterate     over a copy, e.g.     \snippet doc/src/snippets/picture/picture.cpp 2      \sa outputFormatList() inputFormats() QPictureIO */
+comment|/*!     \obsolete      Returns a list of picture formats that are supported for picture     input.      Note that if you want to iterate over the list, you should iterate     over a copy, e.g.     \snippet picture/picture.cpp 2      \sa outputFormatList() inputFormats() QPictureIO */
 end_comment
 begin_function
 DECL|function|inputFormatList
@@ -4770,7 +4770,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Returns a list of picture formats that are supported for picture     output.      Note that if you want to iterate over the list, you should iterate     over a copy, e.g.     \snippet doc/src/snippets/picture/picture.cpp 3      \sa inputFormatList() outputFormats() QPictureIO */
+comment|/*!     \obsolete      Returns a list of picture formats that are supported for picture     output.      Note that if you want to iterate over the list, you should iterate     over a copy, e.g.     \snippet picture/picture.cpp 3      \sa inputFormatList() outputFormats() QPictureIO */
 end_comment
 begin_function
 DECL|function|outputFormatList
@@ -5478,7 +5478,7 @@ comment|// no such handler
 block|}
 end_function
 begin_comment
-comment|/*!     Defines a picture I/O handler for the picture format called \a     format, which is recognized using the regular     expression defined in \a header, read using \a readPicture and     written using \a writePicture.      \a flags is a string of single-character flags for this format.     The only flag defined currently is T (upper case), so the only     legal value for \a flags are "T" and the empty string. The "T"     flag means that the picture file is a text file, and Qt should treat     all newline conventions as equivalent. (XPM files and some PPM     files are text files for example.)      \a format is used to select a handler to write a QPicture; \a header     is used to select a handler to read an picture file.      If \a readPicture is a null pointer, the QPictureIO will not be able     to read pictures in \a format. If \a writePicture is a null pointer,     the QPictureIO will not be able to write pictures in \a format. If     both are null, the QPictureIO object is valid but useless.      Example:     \snippet doc/src/snippets/picture/picture.cpp 6     \codeline     \snippet doc/src/snippets/picture/picture.cpp 7     \codeline     \snippet doc/src/snippets/picture/picture.cpp 8      Before the regular expression test, all the 0 bytes in the file header are     converted to 1 bytes. This is done because when Qt was ASCII-based, QRegExp     could not handle 0 bytes in strings.      The regexp is only applied on the first 14 bytes of the file.      (Note that if one handlerIO supports writing a format and another     supports reading it, Qt supports both reading and writing. If two     handlers support the same operation, Qt chooses one arbitrarily.) */
+comment|/*!     Defines a picture I/O handler for the picture format called \a     format, which is recognized using the regular     expression defined in \a header, read using \a readPicture and     written using \a writePicture.      \a flags is a string of single-character flags for this format.     The only flag defined currently is T (upper case), so the only     legal value for \a flags are "T" and the empty string. The "T"     flag means that the picture file is a text file, and Qt should treat     all newline conventions as equivalent. (XPM files and some PPM     files are text files for example.)      \a format is used to select a handler to write a QPicture; \a header     is used to select a handler to read an picture file.      If \a readPicture is a null pointer, the QPictureIO will not be able     to read pictures in \a format. If \a writePicture is a null pointer,     the QPictureIO will not be able to write pictures in \a format. If     both are null, the QPictureIO object is valid but useless.      Example:     \snippet picture/picture.cpp 6     \codeline     \snippet picture/picture.cpp 7     \codeline     \snippet picture/picture.cpp 8      Before the regular expression test, all the 0 bytes in the file header are     converted to 1 bytes. This is done because when Qt was ASCII-based, QRegExp     could not handle 0 bytes in strings.      The regexp is only applied on the first 14 bytes of the file.      (Note that if one handlerIO supports writing a format and another     supports reading it, Qt supports both reading and writing. If two     handlers support the same operation, Qt chooses one arbitrarily.) */
 end_comment
 begin_function
 DECL|function|defineIOHandler
@@ -6449,7 +6449,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Reads an picture into memory and returns true if the picture was     successfully read; otherwise returns false.      Before reading an picture you must set an IO device or a file name.     If both an IO device and a file name have been set, the IO device     will be used.      Setting the picture file format string is optional.      Note that this function does \e not set the \link format()     format\endlink used to read the picture. If you need that     information, use the pictureFormat() static functions.      Example:      \snippet doc/src/snippets/picture/picture.cpp 4      \sa setIODevice() setFileName() setFormat() write() QPixmap::load() */
+comment|/*!     Reads an picture into memory and returns true if the picture was     successfully read; otherwise returns false.      Before reading an picture you must set an IO device or a file name.     If both an IO device and a file name have been set, the IO device     will be used.      Setting the picture file format string is optional.      Note that this function does \e not set the \link format()     format\endlink used to read the picture. If you need that     information, use the pictureFormat() static functions.      Example:      \snippet picture/picture.cpp 4      \sa setIODevice() setFileName() setFormat() write() QPixmap::load() */
 end_comment
 begin_function
 DECL|function|read
@@ -6716,7 +6716,7 @@ comment|// picture successfully read?
 block|}
 end_function
 begin_comment
-comment|/*!     Writes an picture to an IO device and returns true if the picture was     successfully written; otherwise returns false.      Before writing an picture you must set an IO device or a file name.     If both an IO device and a file name have been set, the IO device     will be used.      The picture will be written using the specified picture format.      Example:     \snippet doc/src/snippets/picture/picture.cpp 5      \sa setIODevice() setFileName() setFormat() read() QPixmap::save() */
+comment|/*!     Writes an picture to an IO device and returns true if the picture was     successfully written; otherwise returns false.      Before writing an picture you must set an IO device or a file name.     If both an IO device and a file name have been set, the IO device     will be used.      The picture will be written using the specified picture format.      Example:     \snippet picture/picture.cpp 5      \sa setIODevice() setFileName() setFormat() read() QPixmap::save() */
 end_comment
 begin_function
 DECL|function|write

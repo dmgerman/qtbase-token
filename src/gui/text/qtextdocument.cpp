@@ -4497,7 +4497,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     This function returns a block to test for the end of the document     while iterating over it.      \snippet doc/src/snippets/textdocumentendsnippet.cpp 0      The block returned is invalid and represents the block after the     last block in the document. You can use lastBlock() to retrieve the     last valid block of the document.      \sa lastBlock() */
+comment|/*!     This function returns a block to test for the end of the document     while iterating over it.      \snippet textdocumentendsnippet.cpp 0      The block returned is invalid and represents the block after the     last block in the document. You can use lastBlock() to retrieve the     last valid block of the document.      \sa lastBlock() */
 end_comment
 begin_function
 DECL|function|end
@@ -5865,7 +5865,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Adds the resource \a resource to the resource cache, using \a     type and \a name as identifiers. \a type should be a value from     QTextDocument::ResourceType.      For example, you can add an image as a resource in order to reference it     from within the document:      \snippet snippets/textdocument-resources/main.cpp Adding a resource      The image can be inserted into the document using the QTextCursor API:      \snippet snippets/textdocument-resources/main.cpp Inserting an image with a cursor      Alternatively, you can insert images using the HTML \c img tag:      \snippet snippets/textdocument-resources/main.cpp Inserting an image using HTML */
+comment|/*!     Adds the resource \a resource to the resource cache, using \a     type and \a name as identifiers. \a type should be a value from     QTextDocument::ResourceType.      For example, you can add an image as a resource in order to reference it     from within the document:      \snippet textdocument-resources/main.cpp Adding a resource      The image can be inserted into the document using the QTextCursor API:      \snippet textdocument-resources/main.cpp Inserting an image with a cursor      Alternatively, you can insert images using the HTML \c img tag:      \snippet textdocument-resources/main.cpp Inserting an image using HTML */
 end_comment
 begin_function
 DECL|function|addResource
@@ -12226,7 +12226,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns a string containing an HTML representation of the document.      The \a encoding parameter specifies the value for the charset attribute     in the html header. For example if 'utf-8' is specified then the     beginning of the generated html will look like this:     \snippet doc/src/snippets/code/src_gui_text_qtextdocument.cpp 0      If no encoding is specified then no such meta information is generated.      If you later on convert the returned html string into a byte array for     transmission over a network or when saving to disk you should specify     the encoding you're going to use for the conversion to a byte array here.      \sa {Supported HTML Subset} */
+comment|/*!     Returns a string containing an HTML representation of the document.      The \a encoding parameter specifies the value for the charset attribute     in the html header. For example if 'utf-8' is specified then the     beginning of the generated html will look like this:     \snippet code/src_gui_text_qtextdocument.cpp 0      If no encoding is specified then no such meta information is generated.      If you later on convert the returned html string into a byte array for     transmission over a network or when saving to disk you should specify     the encoding you're going to use for the conversion to a byte array here.      \sa {Supported HTML Subset} */
 end_comment
 begin_ifndef
 ifndef|#

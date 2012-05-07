@@ -218,7 +218,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \typedef QAccessible::InterfaceFactory      This is a typedef for a pointer to a function with the following     signature:      \snippet doc/src/snippets/code/src_gui_accessible_qaccessible.cpp 1      The function receives a QString and a QObject pointer, where the     QString is the key identifying the interface. The QObject is used     to pass on to the QAccessibleInterface so that it can hold a reference     to it.      If the key and the QObject does not have a corresponding     QAccessibleInterface, a null-pointer will be returned.      Installed factories are called by queryAccessibilityInterface() until     one provides an interface. */
+comment|/*!     \typedef QAccessible::InterfaceFactory      This is a typedef for a pointer to a function with the following     signature:      \snippet code/src_gui_accessible_qaccessible.cpp 1      The function receives a QString and a QObject pointer, where the     QString is the key identifying the interface. The QObject is used     to pass on to the QAccessibleInterface so that it can hold a reference     to it.      If the key and the QObject does not have a corresponding     QAccessibleInterface, a null-pointer will be returned.      Installed factories are called by queryAccessibilityInterface() until     one provides an interface. */
 end_comment
 begin_comment
 comment|/*!     \typedef QAccessible::UpdateHandler      \internal      A function pointer type. Use a function with this prototype to install     your own update function.      The function is called by updateAccessibility(). */

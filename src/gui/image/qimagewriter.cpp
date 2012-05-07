@@ -1030,7 +1030,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Sets the format QImageWriter will use when writing images, to \a     format. \a format is a case insensitive text string. Example:      \snippet doc/src/snippets/code/src_gui_image_qimagewriter.cpp 0      You can call supportedImageFormats() for the full list of formats     QImageWriter supports.      \sa format() */
+comment|/*!     Sets the format QImageWriter will use when writing images, to \a     format. \a format is a case insensitive text string. Example:      \snippet code/src_gui_image_qimagewriter.cpp 0      You can call supportedImageFormats() for the full list of formats     QImageWriter supports.      \sa format() */
 end_comment
 begin_function
 DECL|function|setFormat
@@ -1387,7 +1387,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.1      Sets the image text associated with the key \a key to     \a text. This is useful for storing copyright information     or other information about the image. Example:      \snippet doc/src/snippets/code/src_gui_image_qimagewriter.cpp 1      If you want to store a single block of data     (e.g., a comment), you can pass an empty key, or use     a generic key like "Description".      The key and text will be embedded into the     image data after calling write().      Support for this option is implemented through     QImageIOHandler::Description.      \sa QImage::setText(), QImageReader::text() */
+comment|/*!     \since 4.1      Sets the image text associated with the key \a key to     \a text. This is useful for storing copyright information     or other information about the image. Example:      \snippet code/src_gui_image_qimagewriter.cpp 1      If you want to store a single block of data     (e.g., a comment), you can pass an empty key, or use     a generic key like "Description".      The key and text will be embedded into the     image data after calling write().      Support for this option is implemented through     QImageIOHandler::Description.      \sa QImage::setText(), QImageReader::text() */
 end_comment
 begin_function
 DECL|function|setText
@@ -1816,7 +1816,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \since 4.2      Returns true if the writer supports \a option; otherwise returns     false.      Different image formats support different options. Call this function to     determine whether a certain option is supported by the current format. For     example, the PNG format allows you to embed text into the image's metadata     (see text()).      \snippet doc/src/snippets/code/src_gui_image_qimagewriter.cpp 2      Options can be tested after the writer has been associated with a format.      \sa QImageReader::supportsOption(), setFormat() */
+comment|/*!     \since 4.2      Returns true if the writer supports \a option; otherwise returns     false.      Different image formats support different options. Call this function to     determine whether a certain option is supported by the current format. For     example, the PNG format allows you to embed text into the image's metadata     (see text()).      \snippet code/src_gui_image_qimagewriter.cpp 2      Options can be tested after the writer has been associated with a format.      \sa QImageReader::supportsOption(), setFormat() */
 end_comment
 begin_function
 DECL|function|supportsOption
