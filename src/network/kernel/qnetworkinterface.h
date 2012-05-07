@@ -203,8 +203,13 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|Q_DECLARE_SHARED
+argument_list|(
+argument|QNetworkAddressEntry
+argument_list|)
+end_macro
 begin_decl_stmt
-DECL|variable|QNetworkInterfacePrivate
 name|class
 name|QNetworkInterfacePrivate
 decl_stmt|;
@@ -383,6 +388,12 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|Q_DECLARE_SHARED
+argument_list|(
+argument|QNetworkInterface
+argument_list|)
+end_macro
 begin_macro
 name|Q_DECLARE_OPERATORS_FOR_FLAGS
 argument_list|(

@@ -285,6 +285,12 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|Q_DECLARE_SHARED
+argument_list|(
+argument|QNetworkCacheMetaData
+argument_list|)
+end_macro
 begin_expr_stmt
 name|Q_NETWORK_EXPORT
 name|QDataStream
@@ -302,6 +308,7 @@ operator|)
 expr_stmt|;
 end_expr_stmt
 begin_expr_stmt
+DECL|variable|operator
 name|Q_NETWORK_EXPORT
 name|QDataStream
 operator|&

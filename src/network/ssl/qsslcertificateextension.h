@@ -137,6 +137,12 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|Q_DECLARE_SHARED
+argument_list|(
+argument|QSslCertificateExtension
+argument_list|)
+end_macro
 begin_endif
 endif|#
 directive|endif
