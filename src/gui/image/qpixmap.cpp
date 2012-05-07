@@ -603,13 +603,15 @@ argument_list|()
 condition|)
 block|{
 comment|// make a deep copy
-name|operator
-name|=
-argument_list|(
 name|pixmap
 operator|.
 name|copy
 argument_list|()
+operator|.
+name|swap
+argument_list|(
+operator|*
+name|this
 argument_list|)
 expr_stmt|;
 block|}
@@ -1086,13 +1088,16 @@ argument_list|()
 condition|)
 block|{
 comment|// make a deep copy
-operator|*
-name|this
-operator|=
 name|pixmap
 operator|.
 name|copy
 argument_list|()
+operator|.
+name|swap
+argument_list|(
+operator|*
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 else|else
