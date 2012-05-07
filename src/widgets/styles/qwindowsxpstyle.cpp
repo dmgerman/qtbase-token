@@ -79,7 +79,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<qbackingstore.>
+file|<qbackingstore.h>
 end_include
 begin_include
 include|#
