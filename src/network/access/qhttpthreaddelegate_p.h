@@ -186,6 +186,12 @@ block|;
 name|qint64
 name|downloadBufferMaximumSize
 block|;
+name|qint64
+name|readBufferMaxSize
+block|;
+name|qint64
+name|bytesEmitted
+block|;
 comment|// From backend, modified by us for signal compression
 name|QSharedPointer
 operator|<
@@ -420,6 +426,18 @@ block|;
 name|void
 name|abortRequest
 argument_list|()
+block|;
+name|void
+name|readBufferSizeChanged
+argument_list|(
+argument|qint64 size
+argument_list|)
+block|;
+name|void
+name|readBufferFreed
+argument_list|(
+argument|qint64 size
+argument_list|)
 block|;
 comment|// This is called with a BlockingQueuedConnection from user thread
 name|void

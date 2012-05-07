@@ -411,6 +411,18 @@ name|abortHttpRequest
 argument_list|()
 block|;
 name|void
+name|readBufferSizeChanged
+argument_list|(
+argument|qint64 size
+argument_list|)
+block|;
+name|void
+name|readBufferFreed
+argument_list|(
+argument|qint64 size
+argument_list|)
+block|;
+name|void
 name|startHttpRequestSynchronously
 argument_list|()
 block|;
