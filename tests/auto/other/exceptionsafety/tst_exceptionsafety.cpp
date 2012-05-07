@@ -618,7 +618,16 @@ operator|::
 name|exceptionList
 parameter_list|()
 block|{
+specifier|const
+name|int
+name|intancesCount
+init|=
+name|objCounter
+decl_stmt|;
 block|{
+name|int
+name|instances
+decl_stmt|;
 name|QList
 argument_list|<
 name|FlexibleThrowerSmall
@@ -661,6 +670,10 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|instances
+operator|=
+name|objCounter
+expr_stmt|;
 try|try
 block|{
 name|throwType
@@ -682,7 +695,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|list
@@ -692,6 +713,10 @@ argument_list|()
 argument_list|,
 literal|10
 argument_list|)
+expr_stmt|;
+name|instances
+operator|=
+name|objCounter
 expr_stmt|;
 try|try
 block|{
@@ -714,7 +739,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|list
@@ -739,6 +772,10 @@ argument_list|()
 argument_list|,
 literal|10
 argument_list|)
+expr_stmt|;
+name|instances
+operator|=
+name|objCounter
 expr_stmt|;
 try|try
 block|{
@@ -763,7 +800,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|list
@@ -803,6 +848,10 @@ argument_list|()
 argument_list|,
 literal|10
 argument_list|)
+expr_stmt|;
+name|instances
+operator|=
+name|objCounter
 expr_stmt|;
 try|try
 block|{
@@ -825,7 +874,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|list
@@ -865,6 +922,10 @@ argument_list|()
 argument_list|,
 literal|10
 argument_list|)
+expr_stmt|;
+name|instances
+operator|=
+name|objCounter
 expr_stmt|;
 try|try
 block|{
@@ -881,7 +942,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|list
@@ -961,6 +1030,10 @@ argument_list|()
 argument_list|,
 literal|10
 argument_list|)
+expr_stmt|;
+name|instances
+operator|=
+name|objCounter
 expr_stmt|;
 try|try
 block|{
@@ -983,7 +1056,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|list
@@ -1085,6 +1166,10 @@ name|throwType
 operator|=
 name|ThrowAtCopy
 expr_stmt|;
+name|instances
+operator|=
+name|objCounter
+expr_stmt|;
 name|list3
 operator|=
 name|list
@@ -1096,7 +1181,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|list
@@ -1159,6 +1252,10 @@ name|list
 operator|+
 name|list2
 expr_stmt|;
+name|instances
+operator|=
+name|objCounter
+expr_stmt|;
 try|try
 block|{
 name|throwType
@@ -1180,7 +1277,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|list
@@ -1236,7 +1341,7 @@ name|QCOMPARE
 argument_list|(
 name|objCounter
 argument_list|,
-literal|0
+name|intancesCount
 argument_list|)
 expr_stmt|;
 comment|// check that every object has been freed
@@ -1250,7 +1355,16 @@ operator|::
 name|exceptionLinkedList
 parameter_list|()
 block|{
+specifier|const
+name|int
+name|intancesCount
+init|=
+name|objCounter
+decl_stmt|;
 block|{
+name|int
+name|instances
+decl_stmt|;
 name|QLinkedList
 argument_list|<
 name|FlexibleThrowerSmall
@@ -1293,6 +1407,10 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|instances
+operator|=
+name|objCounter
+expr_stmt|;
 try|try
 block|{
 name|throwType
@@ -1314,7 +1432,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|list
@@ -1324,6 +1450,10 @@ argument_list|()
 argument_list|,
 literal|10
 argument_list|)
+expr_stmt|;
+name|instances
+operator|=
+name|objCounter
 expr_stmt|;
 try|try
 block|{
@@ -1346,7 +1476,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|list
@@ -1369,6 +1507,10 @@ argument_list|()
 argument_list|,
 literal|10
 argument_list|)
+expr_stmt|;
+name|instances
+operator|=
+name|objCounter
 expr_stmt|;
 try|try
 block|{
@@ -1395,7 +1537,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|list
@@ -1434,7 +1584,7 @@ name|QCOMPARE
 argument_list|(
 name|objCounter
 argument_list|,
-literal|0
+name|intancesCount
 argument_list|)
 expr_stmt|;
 comment|// check that every object has been freed
@@ -1448,7 +1598,16 @@ operator|::
 name|exceptionVector
 parameter_list|()
 block|{
+specifier|const
+name|int
+name|intancesCount
+init|=
+name|objCounter
+decl_stmt|;
 block|{
+name|int
+name|instances
+decl_stmt|;
 name|QVector
 argument_list|<
 name|FlexibleThrowerSmall
@@ -1491,6 +1650,10 @@ name|i
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|instances
+operator|=
+name|objCounter
+expr_stmt|;
 try|try
 block|{
 name|throwType
@@ -1512,7 +1675,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|vector
@@ -1522,6 +1693,10 @@ argument_list|()
 argument_list|,
 literal|10
 argument_list|)
+expr_stmt|;
+name|instances
+operator|=
+name|objCounter
 expr_stmt|;
 try|try
 block|{
@@ -1544,7 +1719,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|vector
@@ -1569,6 +1752,10 @@ argument_list|()
 argument_list|,
 literal|10
 argument_list|)
+expr_stmt|;
+name|instances
+operator|=
+name|objCounter
 expr_stmt|;
 try|try
 block|{
@@ -1593,7 +1780,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|vector
@@ -1633,6 +1828,10 @@ argument_list|()
 argument_list|,
 literal|10
 argument_list|)
+expr_stmt|;
+name|instances
+operator|=
+name|objCounter
 expr_stmt|;
 try|try
 block|{
@@ -1649,7 +1848,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|vector
@@ -1729,6 +1936,10 @@ argument_list|()
 argument_list|,
 literal|10
 argument_list|)
+expr_stmt|;
+name|instances
+operator|=
+name|objCounter
 expr_stmt|;
 try|try
 block|{
@@ -1751,7 +1962,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|vector
@@ -1839,6 +2058,10 @@ literal|11
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|instances
+operator|=
+name|objCounter
+expr_stmt|;
 name|throwType
 operator|=
 name|ThrowAtCopy
@@ -1854,7 +2077,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|vector
@@ -1917,6 +2148,10 @@ name|vector
 operator|+
 name|vector2
 expr_stmt|;
+name|instances
+operator|=
+name|objCounter
+expr_stmt|;
 try|try
 block|{
 name|throwType
@@ -1938,7 +2173,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|vector
@@ -1989,6 +2232,10 @@ argument_list|,
 literal|11
 argument_list|)
 expr_stmt|;
+name|instances
+operator|=
+name|objCounter
+expr_stmt|;
 try|try
 block|{
 name|throwType
@@ -2007,7 +2254,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|vector
@@ -2033,6 +2288,10 @@ argument_list|,
 literal|10
 argument_list|)
 expr_stmt|;
+name|instances
+operator|=
+name|objCounter
+expr_stmt|;
 try|try
 block|{
 name|throwType
@@ -2051,7 +2310,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|vector
@@ -2076,6 +2343,10 @@ argument_list|()
 argument_list|,
 literal|10
 argument_list|)
+expr_stmt|;
+name|instances
+operator|=
+name|objCounter
 expr_stmt|;
 try|try
 block|{
@@ -2100,7 +2371,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|vector
@@ -2131,7 +2410,7 @@ name|QCOMPARE
 argument_list|(
 name|objCounter
 argument_list|,
-literal|0
+name|intancesCount
 argument_list|)
 expr_stmt|;
 comment|// check that every object has been freed
@@ -2145,7 +2424,16 @@ operator|::
 name|exceptionMap
 parameter_list|()
 block|{
+specifier|const
+name|int
+name|intancesCount
+init|=
+name|objCounter
+decl_stmt|;
 block|{
+name|int
+name|instances
+decl_stmt|;
 name|MyMap
 name|map
 decl_stmt|;
@@ -2203,6 +2491,10 @@ name|i
 operator|++
 control|)
 block|{
+name|instances
+operator|=
+name|objCounter
+expr_stmt|;
 try|try
 block|{
 name|throwType
@@ -2230,7 +2522,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{             }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|map
@@ -2262,6 +2562,10 @@ name|map2
 operator|=
 name|map
 expr_stmt|;
+name|instances
+operator|=
+name|objCounter
+expr_stmt|;
 try|try
 block|{
 name|throwType
@@ -2286,7 +2590,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 comment|/* qDebug("%d %d", map.size(), map2.size() );         for( int i=0; i<map.size(); i++ )             qDebug( "Value at %d: %d",i, map.value(FlexibleThrowerSmall(i), FlexibleThrowerSmall()).value() );         QCOMPARE( map.value(FlexibleThrowerSmall(1), FlexibleThrowerSmall()), FlexibleThrowerSmall(1) );         qDebug( "Value at %d: %d",1, map[FlexibleThrowerSmall(1)].value() );         qDebug("%d %d", map.size(), map2.size() );         */
 name|QCOMPARE
 argument_list|(
@@ -2345,7 +2657,7 @@ name|QCOMPARE
 argument_list|(
 name|objCounter
 argument_list|,
-literal|0
+name|intancesCount
 argument_list|)
 expr_stmt|;
 comment|// check that every object has been freed
@@ -2359,7 +2671,16 @@ operator|::
 name|exceptionHash
 parameter_list|()
 block|{
+specifier|const
+name|int
+name|intancesCount
+init|=
+name|objCounter
+decl_stmt|;
 block|{
+name|int
+name|instances
+decl_stmt|;
 name|MyHash
 name|hash
 decl_stmt|;
@@ -2411,6 +2732,10 @@ name|i
 operator|++
 control|)
 block|{
+name|instances
+operator|=
+name|objCounter
+expr_stmt|;
 try|try
 block|{
 name|throwType
@@ -2438,7 +2763,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{             }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|hash
@@ -2453,6 +2786,10 @@ block|}
 name|hash2
 operator|=
 name|hash
+expr_stmt|;
+name|instances
+operator|=
+name|objCounter
 expr_stmt|;
 try|try
 block|{
@@ -2478,7 +2815,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|hash
@@ -2536,6 +2881,10 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|instances
+operator|=
+name|objCounter
+expr_stmt|;
 try|try
 block|{
 name|throwType
@@ -2554,7 +2903,15 @@ catch|catch
 parameter_list|(
 modifier|...
 parameter_list|)
-block|{         }
+block|{
+name|QCOMPARE
+argument_list|(
+name|instances
+argument_list|,
+name|objCounter
+argument_list|)
+expr_stmt|;
+block|}
 name|QCOMPARE
 argument_list|(
 name|hash2
@@ -2571,7 +2928,7 @@ name|QCOMPARE
 argument_list|(
 name|objCounter
 argument_list|,
-literal|0
+name|intancesCount
 argument_list|)
 expr_stmt|;
 comment|// check that every object has been freed
