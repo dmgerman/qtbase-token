@@ -210,8 +210,13 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|Q_DECLARE_SHARED
+argument_list|(
+argument|QDBusPendingCall
+argument_list|)
+end_macro
 begin_decl_stmt
-DECL|variable|QDBusPendingCallWatcherPrivate
 name|class
 name|QDBusPendingCallWatcherPrivate
 decl_stmt|;

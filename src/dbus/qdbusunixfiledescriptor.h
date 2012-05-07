@@ -191,6 +191,12 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+name|Q_DECLARE_SHARED
+argument_list|(
+argument|QDBusUnixFileDescriptor
+argument_list|)
+end_macro
 begin_decl_stmt
 name|QT_END_NAMESPACE
 name|Q_DECLARE_METATYPE
