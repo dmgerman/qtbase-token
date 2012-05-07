@@ -9214,7 +9214,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the color that the user selected by clicking the \gui{OK}     or equivalent button.      \note This color is not always the same as the color held by the     \l currentColor property since the user can choose different colors     before finally selecting the one to use. */
+comment|/*!     Returns the color that the user selected by clicking the \uicontrol{OK}     or equivalent button.      \note This color is not always the same as the color held by the     \l currentColor property since the user can choose different colors     before finally selecting the one to use. */
 end_comment
 begin_function
 DECL|function|selectedColor
@@ -9429,7 +9429,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QColorDialog::ColorDialogOption      \since 4.5      This enum specifies various options that affect the look and feel     of a color dialog.      \value ShowAlphaChannel Allow the user to select the alpha component of a color.     \value NoButtons Don't display \gui{OK} and \gui{Cancel} buttons. (Useful for "live dialogs".)     \value DontUseNativeDialog Use Qt's standard color dialog on the Mac instead of Apple's                                native color panel.      \sa options, setOption(), testOption(), windowModality() */
+comment|/*!     \enum QColorDialog::ColorDialogOption      \since 4.5      This enum specifies various options that affect the look and feel     of a color dialog.      \value ShowAlphaChannel Allow the user to select the alpha component of a color.     \value NoButtons Don't display \uicontrol{OK} and \uicontrol{Cancel} buttons. (Useful for "live dialogs".)     \value DontUseNativeDialog Use Qt's standard color dialog on the Mac instead of Apple's                                native color panel.      \sa options, setOption(), testOption(), windowModality() */
 end_comment
 begin_comment
 comment|/*!     \fn void QColorDialog::currentColorChanged(const QColor&color)      This signal is emitted whenever the current color changes in the dialog.     The current color is specified by \a color.      \sa color, colorSelected() */
@@ -9457,7 +9457,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \fn void QColorDialog::colorSelected(const QColor&color);      This signal is emitted just after the user has clicked \gui{OK} to     select a color to use. The chosen color is specified by \a color.      \sa color, currentColorChanged() */
+comment|/*!     \fn void QColorDialog::colorSelected(const QColor&color);      This signal is emitted just after the user has clicked \uicontrol{OK} to     select a color to use. The chosen color is specified by \a color.      \sa color, currentColorChanged() */
 end_comment
 begin_comment
 comment|/*!     Changes the visibility of the dialog. If \a visible is true, the dialog     is shown; otherwise, it is hidden. */
@@ -9852,7 +9852,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \obsolete      Pops up a modal color dialog to allow the user to choose a color     and an alpha channel (transparency) value. The color+alpha is     initially set to \a initial. The dialog is a child of \a parent.      If \a ok is non-null, \e *\a ok is set to true if the user clicked     \gui{OK}, and to false if the user clicked Cancel.      If the user clicks Cancel, the \a initial value is returned.      Use QColorDialog::getColor() instead, passing the     QColorDialog::ShowAlphaChannel option. */
+comment|/*!     \obsolete      Pops up a modal color dialog to allow the user to choose a color     and an alpha channel (transparency) value. The color+alpha is     initially set to \a initial. The dialog is a child of \a parent.      If \a ok is non-null, \e *\a ok is set to true if the user clicked     \uicontrol{OK}, and to false if the user clicked Cancel.      If the user clicks Cancel, the \a initial value is returned.      Use QColorDialog::getColor() instead, passing the     QColorDialog::ShowAlphaChannel option. */
 end_comment
 begin_function
 DECL|function|getRgba

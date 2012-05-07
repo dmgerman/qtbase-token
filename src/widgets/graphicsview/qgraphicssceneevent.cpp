@@ -3113,7 +3113,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the proposed action as accepted, i.e, the drop action     is set to the proposed action. This is equal to:      \snippet doc/src/snippets/code/src_gui_graphicsview_qgraphicssceneevent.cpp 0      When using this function, one should not call \c accept().      \sa dropAction(), setDropAction(), proposedAction() */
+comment|/*!     Sets the proposed action as accepted, i.e, the drop action     is set to the proposed action. This is equal to:      \snippet code/src_gui_graphicsview_qgraphicssceneevent.cpp 0      When using this function, one should not call \c accept().      \sa dropAction(), setDropAction(), proposedAction() */
 end_comment
 begin_function
 DECL|function|acceptProposedAction

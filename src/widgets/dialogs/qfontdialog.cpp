@@ -378,7 +378,7 @@ name|WindowSystemMenuHint
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!   \class QFontDialog   \ingroup standard-dialogs   \inmodule QtWidgets    \brief The QFontDialog class provides a dialog widget for selecting a font.      A font dialog is created through one of the static getFont()     functions.    Examples:    \snippet doc/src/snippets/code/src_gui_dialogs_qfontdialog.cpp 0      The dialog can also be used to set a widget's font directly:   \snippet doc/src/snippets/code/src_gui_dialogs_qfontdialog.cpp 1   If the user clicks OK the font they chose will be used for myWidget,   and if they click Cancel the original font is used.    \image plastique-fontdialog.png A font dialog in the Plastique widget style.    \sa QFont, QFontInfo, QFontMetrics, QColorDialog, QFileDialog, QPrintDialog,       {Standard Dialogs Example} */
+comment|/*!   \class QFontDialog   \ingroup standard-dialogs   \inmodule QtWidgets    \brief The QFontDialog class provides a dialog widget for selecting a font.      A font dialog is created through one of the static getFont()     functions.    Examples:    \snippet code/src_gui_dialogs_qfontdialog.cpp 0      The dialog can also be used to set a widget's font directly:   \snippet code/src_gui_dialogs_qfontdialog.cpp 1   If the user clicks OK the font they chose will be used for myWidget,   and if they click Cancel the original font is used.    \image plastique-fontdialog.png A font dialog in the Plastique widget style.    \sa QFont, QFontInfo, QFontMetrics, QColorDialog, QFileDialog, QPrintDialog,       {Standard Dialogs Example} */
 end_comment
 begin_comment
 comment|/*!     \since 4.5      Constructs a standard font dialog.      Use setCurrentFont() to set the initial font attributes.      The \a parent parameter is passed to the QDialog constructor.      \sa getFont() */
@@ -1566,7 +1566,7 @@ directive|endif
 block|}
 end_destructor
 begin_comment
-comment|/*!   Executes a modal font dialog and returns a font.    If the user clicks \gui OK, the selected font is returned. If the user   clicks \gui Cancel, the \a initial font is returned.    The dialog is constructed with the given \a parent and the options specified   in \a options. \a title is shown as the window title of the dialog and  \a   initial is the initially selected font. If the \a ok parameter is not-null,   the value it refers to is set to true if the user clicks \gui OK, and set to   false if the user clicks \gui Cancel.    Examples:   \snippet doc/src/snippets/code/src_gui_dialogs_qfontdialog.cpp 2      The dialog can also be used to set a widget's font directly:   \snippet doc/src/snippets/code/src_gui_dialogs_qfontdialog.cpp 3   In this example, if the user clicks OK the font they chose will be   used, and if they click Cancel the original font is used.    \warning Do not delete \a parent during the execution of the dialog.            If you want to do this, you should create the dialog            yourself using one of the QFontDialog constructors. */
+comment|/*!   Executes a modal font dialog and returns a font.    If the user clicks \uicontrol OK, the selected font is returned. If the user   clicks \uicontrol Cancel, the \a initial font is returned.    The dialog is constructed with the given \a parent and the options specified   in \a options. \a title is shown as the window title of the dialog and  \a   initial is the initially selected font. If the \a ok parameter is not-null,   the value it refers to is set to true if the user clicks \uicontrol OK, and set to   false if the user clicks \uicontrol Cancel.    Examples:   \snippet code/src_gui_dialogs_qfontdialog.cpp 2      The dialog can also be used to set a widget's font directly:   \snippet code/src_gui_dialogs_qfontdialog.cpp 3   In this example, if the user clicks OK the font they chose will be   used, and if they click Cancel the original font is used.    \warning Do not delete \a parent during the execution of the dialog.            If you want to do this, you should create the dialog            yourself using one of the QFontDialog constructors. */
 end_comment
 begin_function
 DECL|function|getFont
@@ -1616,7 +1616,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload    Executes a modal font dialog and returns a font.    If the user clicks \gui OK, the selected font is returned. If the user   clicks \gui Cancel, the Qt default font is returned.    The dialog is constructed with the given \a parent.   If the \a ok parameter is not-null, the value it refers to is set   to true if the user clicks \gui OK, and false if the user clicks   \gui Cancel.    Example:   \snippet doc/src/snippets/code/src_gui_dialogs_qfontdialog.cpp 4    \warning Do not delete \a parent during the execution of the dialog.            If you want to do this, you should create the dialog            yourself using one of the QFontDialog constructors. */
+comment|/*!     \overload    Executes a modal font dialog and returns a font.    If the user clicks \uicontrol OK, the selected font is returned. If the user   clicks \uicontrol Cancel, the Qt default font is returned.    The dialog is constructed with the given \a parent.   If the \a ok parameter is not-null, the value it refers to is set   to true if the user clicks \uicontrol OK, and false if the user clicks   \uicontrol Cancel.    Example:   \snippet code/src_gui_dialogs_qfontdialog.cpp 4    \warning Do not delete \a parent during the execution of the dialog.            If you want to do this, you should create the dialog            yourself using one of the QFontDialog constructors. */
 end_comment
 begin_function
 DECL|function|getFont
@@ -3899,7 +3899,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the font that the user selected by clicking the \gui{OK}     or equivalent button.      \note This font is not always the same as the font held by the     \l currentFont property since the user can choose different fonts     before finally selecting the one to use. */
+comment|/*!     Returns the font that the user selected by clicking the \uicontrol{OK}     or equivalent button.      \note This font is not always the same as the font held by the     \l currentFont property since the user can choose different fonts     before finally selecting the one to use. */
 end_comment
 begin_function
 DECL|function|selectedFont
@@ -3924,7 +3924,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \enum QFontDialog::FontDialogOption     \since 4.5      This enum specifies various options that affect the look and feel     of a font dialog.      \value NoButtons Don't display \gui{OK} and \gui{Cancel} buttons. (Useful for "live dialogs".)     \value DontUseNativeDialog Use Qt's standard font dialog on the Mac instead of Apple's                                native font panel. (Currently, the native dialog is never used,                                but this is likely to change in future Qt releases.)      \sa options, setOption(), testOption() */
+comment|/*!     \enum QFontDialog::FontDialogOption     \since 4.5      This enum specifies various options that affect the look and feel     of a font dialog.      \value NoButtons Don't display \uicontrol{OK} and \uicontrol{Cancel} buttons. (Useful for "live dialogs".)     \value DontUseNativeDialog Use Qt's standard font dialog on the Mac instead of Apple's                                native font panel. (Currently, the native dialog is never used,                                but this is likely to change in future Qt releases.)      \sa options, setOption(), testOption() */
 end_comment
 begin_comment
 comment|/*!     Sets the given \a option to be enabled if \a on is true;     otherwise, clears the given \a option.      \sa options, testOption() */

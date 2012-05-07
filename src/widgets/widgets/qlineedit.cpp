@@ -6793,7 +6793,7 @@ directive|ifndef
 name|QT_NO_CONTEXTMENU
 end_ifndef
 begin_comment
-comment|/*!     Shows the standard context menu created with     createStandardContextMenu().      If you do not want the line edit to have a context menu, you can set     its \l contextMenuPolicy to Qt::NoContextMenu. If you want to     customize the context menu, reimplement this function. If you want     to extend the standard context menu, reimplement this function, call     createStandardContextMenu() and extend the menu returned.      \snippet doc/src/snippets/code/src_gui_widgets_qlineedit.cpp 0      The \a event parameter is used to obtain the position where     the mouse cursor was when the event was generated.      \sa setContextMenuPolicy() */
+comment|/*!     Shows the standard context menu created with     createStandardContextMenu().      If you do not want the line edit to have a context menu, you can set     its \l contextMenuPolicy to Qt::NoContextMenu. If you want to     customize the context menu, reimplement this function. If you want     to extend the standard context menu, reimplement this function, call     createStandardContextMenu() and extend the menu returned.      \snippet code/src_gui_widgets_qlineedit.cpp 0      The \a event parameter is used to obtain the position where     the mouse cursor was when the event was generated.      \sa setContextMenuPolicy() */
 end_comment
 begin_function
 DECL|function|contextMenuEvent
