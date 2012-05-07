@@ -1273,8 +1273,14 @@ end_decl_stmt
 begin_empty_stmt
 empty_stmt|;
 end_empty_stmt
+begin_macro
+DECL|function|Q_DECLARE_SHARED
+name|Q_DECLARE_SHARED
+argument_list|(
+argument|QPalette
+argument_list|)
+end_macro
 begin_expr_stmt
-DECL|function|setColor
 specifier|inline
 name|void
 name|QPalette
