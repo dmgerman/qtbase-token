@@ -1387,6 +1387,11 @@ modifier|*
 name|txt
 parameter_list|)
 block|{
+name|Q_UNUSED
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
 name|QString
 name|msg
 init|=
