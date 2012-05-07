@@ -93,7 +93,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \class QDBusVariant     \inmodule QtDBus     \since 4.2      \brief The QDBusVariant class enables the programmer to identify     the variant type provided by the D-Bus typesystem.      A D-Bus function that takes an integer, a D-Bus variant and a string as parameters     can be called with the following argument list (see QDBusMessage::setArguments()):      \snippet doc/src/snippets/qdbusextratypes/qdbusextratypes.cpp 0      When a D-Bus function returns a D-Bus variant, it can be retrieved as follows:      \snippet doc/src/snippets/qdbusextratypes/qdbusextratypes.cpp 1      The QVariant within a QDBusVariant is required to distinguish between a normal     D-Bus value and a value within a D-Bus variant.      \sa {The QtDBus type system} */
+comment|/*!     \class QDBusVariant     \inmodule QtDBus     \since 4.2      \brief The QDBusVariant class enables the programmer to identify     the variant type provided by the D-Bus typesystem.      A D-Bus function that takes an integer, a D-Bus variant and a string as parameters     can be called with the following argument list (see QDBusMessage::setArguments()):      \snippet qdbusextratypes/qdbusextratypes.cpp 0      When a D-Bus function returns a D-Bus variant, it can be retrieved as follows:      \snippet qdbusextratypes/qdbusextratypes.cpp 1      The QVariant within a QDBusVariant is required to distinguish between a normal     D-Bus value and a value within a D-Bus variant.      \sa {The QtDBus type system} */
 end_comment
 begin_comment
 comment|/*!     \fn QDBusVariant::QDBusVariant()      Constructs a new D-Bus variant. */
