@@ -1713,6 +1713,7 @@ comment|/*!    \internal */
 end_comment
 begin_function
 DECL|function|qStringComparisonHelper
+name|Q_CORE_EXPORT
 name|bool
 name|qStringComparisonHelper
 parameter_list|(
@@ -1745,6 +1746,7 @@ comment|/*!    \internal */
 end_comment
 begin_function
 DECL|function|qStringComparisonHelper
+name|Q_CORE_EXPORT
 name|bool
 name|qStringComparisonHelper
 parameter_list|(
@@ -1777,6 +1779,7 @@ comment|/*!    \internal */
 end_comment
 begin_function
 DECL|function|qStringComparisonHelper
+name|Q_CORE_EXPORT
 name|bool
 name|qStringComparisonHelper
 parameter_list|(
@@ -1809,6 +1812,7 @@ comment|/*!    \internal */
 end_comment
 begin_function
 DECL|function|qStringComparisonHelper
+name|Q_CORE_EXPORT
 name|bool
 name|qStringComparisonHelper
 parameter_list|(

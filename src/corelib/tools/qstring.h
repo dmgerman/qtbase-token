@@ -6331,6 +6331,7 @@ struct_decl|;
 end_struct_decl
 begin_function_decl
 name|friend
+name|Q_CORE_EXPORT
 name|bool
 name|qStringComparisonHelper
 parameter_list|(
@@ -6348,6 +6349,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|friend
+name|Q_CORE_EXPORT
 name|bool
 name|qStringComparisonHelper
 parameter_list|(
@@ -6365,6 +6367,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|friend
+name|Q_CORE_EXPORT
 name|bool
 name|qStringComparisonHelper
 parameter_list|(
@@ -6382,6 +6385,7 @@ function_decl|;
 end_function_decl
 begin_function_decl
 name|friend
+name|Q_CORE_EXPORT
 name|bool
 name|qStringComparisonHelper
 parameter_list|(
