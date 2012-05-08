@@ -15391,6 +15391,8 @@ argument_list|)
 index|[
 literal|0
 index|]
+operator|.
+name|first
 expr_stmt|;
 name|isGroupPage
 operator|=

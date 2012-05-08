@@ -206,7 +206,7 @@ operator|&
 name|command
 argument_list|,
 specifier|const
-name|QString
+name|ArgLocPair
 operator|&
 name|arg
 argument_list|)
@@ -231,7 +231,7 @@ operator|&
 name|command
 argument_list|,
 specifier|const
-name|QStringList
+name|ArgList
 operator|&
 name|args
 argument_list|)
@@ -317,9 +317,9 @@ operator|&
 name|command
 argument_list|,
 specifier|const
-name|QString
+name|ArgLocPair
 operator|&
-name|arg
+name|argLocPair
 argument_list|,
 name|Node
 operator|*

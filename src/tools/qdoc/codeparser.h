@@ -285,7 +285,7 @@ modifier|&
 name|command
 parameter_list|,
 specifier|const
-name|QString
+name|ArgLocPair
 modifier|&
 name|arg
 parameter_list|,

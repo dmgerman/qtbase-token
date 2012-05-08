@@ -771,7 +771,7 @@ modifier|&
 name|command
 parameter_list|,
 specifier|const
-name|QString
+name|ArgLocPair
 modifier|&
 name|arg
 parameter_list|,
@@ -844,6 +844,8 @@ argument_list|(
 name|node
 argument_list|,
 name|arg
+operator|.
+name|first
 argument_list|)
 expr_stmt|;
 block|}
@@ -862,6 +864,8 @@ argument_list|(
 name|node
 argument_list|,
 name|arg
+operator|.
+name|first
 argument_list|)
 expr_stmt|;
 block|}
@@ -878,6 +882,8 @@ operator|->
 name|setModuleName
 argument_list|(
 name|arg
+operator|.
+name|first
 argument_list|)
 expr_stmt|;
 block|}
@@ -1095,6 +1101,8 @@ operator|->
 name|setSince
 argument_list|(
 name|arg
+operator|.
+name|first
 argument_list|)
 expr_stmt|;
 block|}
@@ -1111,6 +1119,8 @@ operator|->
 name|addPageKeywords
 argument_list|(
 name|arg
+operator|.
+name|first
 argument_list|)
 expr_stmt|;
 block|}
@@ -1152,6 +1162,8 @@ operator|->
 name|setSubTitle
 argument_list|(
 name|arg
+operator|.
+name|first
 argument_list|)
 expr_stmt|;
 block|}
@@ -1228,6 +1240,8 @@ operator|->
 name|setTitle
 argument_list|(
 name|arg
+operator|.
+name|first
 argument_list|)
 expr_stmt|;
 if|if
@@ -1274,6 +1288,8 @@ name|name
 argument_list|()
 argument_list|,
 name|arg
+operator|.
+name|first
 argument_list|)
 expr_stmt|;
 block|}

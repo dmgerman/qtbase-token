@@ -954,7 +954,7 @@ name|bool
 name|setQmlModule
 parameter_list|(
 specifier|const
-name|QString
+name|ArgLocPair
 modifier|&
 parameter_list|)
 function_decl|;
@@ -2268,7 +2268,7 @@ operator|*
 name|tree
 argument_list|,
 specifier|const
-name|QString
+name|ArgLocPair
 operator|&
 name|arg
 argument_list|)

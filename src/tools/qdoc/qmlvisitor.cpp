@@ -1141,7 +1141,7 @@ block|{
 name|QString
 name|topic
 decl_stmt|;
-name|QStringList
+name|ArgList
 name|args
 decl_stmt|;
 name|QSet
@@ -1273,6 +1273,8 @@ name|args
 index|[
 literal|0
 index|]
+operator|.
+name|first
 operator|.
 name|split
 argument_list|(
@@ -1575,6 +1577,8 @@ name|args
 index|[
 literal|0
 index|]
+operator|.
+name|first
 condition|)
 name|doc
 operator|.
@@ -1594,6 +1598,8 @@ name|args
 index|[
 literal|0
 index|]
+operator|.
+name|first
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1613,6 +1619,8 @@ name|args
 index|[
 literal|0
 index|]
+operator|.
+name|first
 argument_list|)
 expr_stmt|;
 if|if
@@ -1635,6 +1643,8 @@ name|args
 index|[
 literal|0
 index|]
+operator|.
+name|first
 argument_list|,
 name|node
 argument_list|)
@@ -1740,10 +1750,10 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|QStringList
+name|ArgList
 operator|::
 name|ConstIterator
-name|arg
+name|argsIter
 init|=
 name|args
 operator|.
@@ -1752,7 +1762,7 @@ argument_list|()
 decl_stmt|;
 while|while
 condition|(
-name|arg
+name|argsIter
 operator|!=
 name|args
 operator|.
@@ -1766,12 +1776,13 @@ name|addToGroup
 argument_list|(
 name|node
 argument_list|,
-operator|*
-name|arg
+name|argsIter
+operator|->
+name|first
 argument_list|)
 expr_stmt|;
 operator|++
-name|arg
+name|argsIter
 expr_stmt|;
 block|}
 block|}
@@ -1871,12 +1882,13 @@ name|QString
 name|arg
 init|=
 name|args
+index|[
+literal|0
+index|]
 operator|.
-name|join
-argument_list|(
-literal|" "
-argument_list|)
+name|first
 decl_stmt|;
+comment|//.join(" ");
 name|node
 operator|->
 name|setSince
