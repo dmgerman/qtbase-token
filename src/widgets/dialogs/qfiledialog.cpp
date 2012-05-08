@@ -658,11 +658,6 @@ name|~
 name|QFileDialog
 parameter_list|()
 block|{
-name|Q_D
-argument_list|(
-name|QFileDialog
-argument_list|)
-expr_stmt|;
 ifndef|#
 directive|ifndef
 name|QT_NO_SETTINGS
@@ -704,11 +699,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|d
-operator|->
-name|deleteNativeDialog_sys
-argument_list|()
-expr_stmt|;
 block|}
 end_destructor
 begin_comment
@@ -5604,17 +5594,13 @@ operator|->
 name|retranslateWindowTitle
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
+comment|// we need to recreate the native dialog when changing the AcceptMode
 name|d
 operator|->
-name|deleteNativeDialog_sys
+name|deleteNativeDialog
 argument_list|()
 expr_stmt|;
+comment|// clear WA_DontShowOnScreen so that d->canBeNativeDialog() doesn't return false incorrectly
 name|setAttribute
 argument_list|(
 name|Qt
@@ -5624,8 +5610,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 begin_comment

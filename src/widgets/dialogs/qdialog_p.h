@@ -199,6 +199,10 @@ argument|QPlatformDialogHelper::StyleHint hint
 argument_list|)
 specifier|const
 block|;
+name|void
+name|deleteNativeDialog
+argument_list|()
+block|;
 name|QPointer
 operator|<
 name|QPushButton
