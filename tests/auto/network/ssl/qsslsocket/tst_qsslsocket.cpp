@@ -5815,6 +5815,9 @@ name|SecureProtocols
 operator|<<
 literal|true
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_SSL2
 name|QTest
 operator|::
 name|newRow
@@ -5834,6 +5837,27 @@ literal|false
 expr_stmt|;
 comment|// we wont set a SNI header here because we connect to a
 comment|// numerical IP, so OpenSSL will send a SSL 2 handshake
+else|#
+directive|else
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"ssl3-any"
+argument_list|)
+operator|<<
+name|QSsl
+operator|::
+name|SslV3
+operator|<<
+name|QSsl
+operator|::
+name|AnyProtocol
+operator|<<
+literal|true
+expr_stmt|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|OPENSSL_NO_SSL2
@@ -5907,6 +5931,9 @@ name|SecureProtocols
 operator|<<
 literal|true
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_SSL2
 name|QTest
 operator|::
 name|newRow
@@ -5926,6 +5953,27 @@ literal|false
 expr_stmt|;
 comment|// we wont set a SNI header here because we connect to a
 comment|// numerical IP, so OpenSSL will send a SSL 2 handshake
+else|#
+directive|else
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"tls1.0-any"
+argument_list|)
+operator|<<
+name|QSsl
+operator|::
+name|TlsV1_0
+operator|<<
+name|QSsl
+operator|::
+name|AnyProtocol
+operator|<<
+literal|true
+expr_stmt|;
+endif|#
+directive|endif
 ifndef|#
 directive|ifndef
 name|OPENSSL_NO_SSL2
@@ -6430,37 +6478,6 @@ name|QAbstractSocket
 operator|::
 name|UnconnectedState
 decl_stmt|;
-if|#
-directive|if
-name|defined
-argument_list|(
-name|UBUNTU_ONEIRIC
-argument_list|)
-operator|&&
-name|defined
-argument_list|(
-name|__x86_64__
-argument_list|)
-name|QEXPECT_FAIL
-argument_list|(
-literal|"ssl3-any"
-argument_list|,
-literal|"QTBUG-23575 - Fails on this platform"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"tls1.0-any"
-argument_list|,
-literal|"QTBUG-23575 - Fails on this platform"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|QCOMPARE
 argument_list|(
 name|int
