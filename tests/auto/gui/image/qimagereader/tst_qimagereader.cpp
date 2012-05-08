@@ -159,11 +159,11 @@ public|public
 name|slots
 public|:
 name|void
-name|init
+name|initTestCase
 parameter_list|()
 function_decl|;
 name|void
-name|cleanup
+name|cleanupTestCase
 parameter_list|()
 function_decl|;
 private|private
@@ -531,11 +531,11 @@ parameter_list|()
 block|{  }
 end_destructor
 begin_function
-DECL|function|init
+DECL|function|initTestCase
 name|void
 name|tst_QImageReader
 operator|::
-name|init
+name|initTestCase
 parameter_list|()
 block|{
 name|prefix
@@ -543,6 +543,18 @@ operator|=
 name|QFINDTESTDATA
 argument_list|(
 literal|"images/"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|prefix
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+name|QFAIL
+argument_list|(
+literal|"Can't find images directory!"
 argument_list|)
 expr_stmt|;
 name|QVERIFY
@@ -556,11 +568,11 @@ expr_stmt|;
 block|}
 end_function
 begin_function
-DECL|function|cleanup
+DECL|function|cleanupTestCase
 name|void
 name|tst_QImageReader
 operator|::
-name|cleanup
+name|cleanupTestCase
 parameter_list|()
 block|{ }
 end_function
@@ -12949,6 +12961,58 @@ literal|"Description"
 operator|<<
 literal|"Rendered by Persistence of Vision (tm) Ray Tracer"
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"jpg, JPEG_COM Title"
+argument_list|)
+operator|<<
+literal|"txts.jpg"
+operator|<<
+literal|"Title"
+operator|<<
+literal|"JPG"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"jpg, JPEG_COM Comment"
+argument_list|)
+operator|<<
+literal|"txts.jpg"
+operator|<<
+literal|"Comment"
+operator|<<
+literal|"Some non-compressed text."
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"jpg, JPEG_COM Disclaimer"
+argument_list|)
+operator|<<
+literal|"txts.jpg"
+operator|<<
+literal|"Disclaimer"
+operator|<<
+literal|"For testing only."
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"jpg, JPEG_COM Description"
+argument_list|)
+operator|<<
+literal|"txts.jpg"
+operator|<<
+literal|"Description"
+operator|<<
+literal|"Rendered by Persistence of Vision (tm) Ray Tracer"
+expr_stmt|;
 block|}
 end_function
 begin_function
@@ -13030,72 +13094,27 @@ argument_list|<
 name|QString
 argument_list|>
 argument_list|(
-literal|"text"
+literal|"fileName"
 argument_list|)
 expr_stmt|;
 name|QTest
 operator|::
-name|newRow
-argument_list|(
-literal|"Simple"
-argument_list|)
-operator|<<
-literal|"simpletext"
-expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"Whitespace"
-argument_list|)
-operator|<<
-literal|" A text  with whitespace "
-expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"Newline"
-argument_list|)
-operator|<<
-literal|"A text\nwith newlines\n"
-expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"Double newlines"
-argument_list|)
-operator|<<
-literal|"A text\n\nwith double newlines\n\n"
-expr_stmt|;
-name|QTest
-operator|::
-name|newRow
-argument_list|(
-literal|"Long"
-argument_list|)
-operator|<<
+name|addColumn
+argument_list|<
 name|QString
+argument_list|>
 argument_list|(
-literal|"A rather long text, at least after many repetitions. "
-argument_list|)
-operator|.
-name|repeated
-argument_list|(
-literal|100
+literal|"text"
 argument_list|)
 expr_stmt|;
 name|QString
 name|latin1set
 decl_stmt|;
-name|int
-name|c
-decl_stmt|;
 for|for
 control|(
+name|int
 name|c
-operator|=
+init|=
 literal|0x20
 init|;
 name|c
@@ -13117,8 +13136,9 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
+name|int
 name|c
-operator|=
+init|=
 literal|0xa0
 init|;
 name|c
@@ -13138,6 +13158,94 @@ name|c
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|QStringList
+name|fileNames
+decl_stmt|;
+name|fileNames
+operator|<<
+name|QLatin1String
+argument_list|(
+literal|":/images/kollada.png"
+argument_list|)
+operator|<<
+name|QLatin1String
+argument_list|(
+literal|":/images/txts.jpg"
+argument_list|)
+expr_stmt|;
+foreach|foreach
+control|(
+specifier|const
+name|QString
+modifier|&
+name|fileName
+decl|,
+name|fileNames
+control|)
+block|{
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"Simple"
+argument_list|)
+operator|<<
+name|fileName
+operator|<<
+literal|"simpletext"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"Whitespace"
+argument_list|)
+operator|<<
+name|fileName
+operator|<<
+literal|" A text  with whitespace "
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"Newline"
+argument_list|)
+operator|<<
+name|fileName
+operator|<<
+literal|"A text\nwith newlines\n"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"Double newlines"
+argument_list|)
+operator|<<
+name|fileName
+operator|<<
+literal|"A text\n\nwith double newlines\n\n"
+expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"Long"
+argument_list|)
+operator|<<
+name|fileName
+operator|<<
+name|QString
+argument_list|(
+literal|"A rather long text, at least after many repetitions. "
+argument_list|)
+operator|.
+name|repeated
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
 name|QTest
 operator|::
 name|newRow
@@ -13145,15 +13253,18 @@ argument_list|(
 literal|"All Latin1 chars"
 argument_list|)
 operator|<<
+name|fileName
+operator|<<
 name|latin1set
 expr_stmt|;
 if|#
 directive|if
 literal|0
 comment|// Depends on iTXt support in libpng
-block|QTest::newRow("Multibyte string")<< QString::fromUtf8("\341\233\222\341\233\226\341\232\251\341\232\271\341\232\242\341\233\232\341\232\240");
+block|QTest::newRow("Multibyte string")<< fileName<< QString::fromUtf8("\341\233\222\341\233\226\341\232\251\341\232\271\341\232\242\341\233\232\341\232\240");
 endif|#
 directive|endif
+block|}
 block|}
 end_function
 begin_function
@@ -13164,6 +13275,26 @@ operator|::
 name|preserveTexts
 parameter_list|()
 block|{
+name|QFETCH
+argument_list|(
+name|QString
+argument_list|,
+name|fileName
+argument_list|)
+expr_stmt|;
+name|QByteArray
+name|format
+init|=
+name|fileName
+operator|.
+name|right
+argument_list|(
+literal|3
+argument_list|)
+operator|.
+name|toLatin1
+argument_list|()
+decl_stmt|;
 name|QFETCH
 argument_list|(
 name|QString
@@ -13204,7 +13335,7 @@ decl_stmt|;
 name|QImage
 name|img
 argument_list|(
-literal|":/images/kollada.png"
+name|fileName
 argument_list|)
 decl_stmt|;
 name|img
@@ -13246,7 +13377,10 @@ argument_list|(
 operator|&
 name|buf
 argument_list|,
-literal|"png"
+name|format
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13267,7 +13401,10 @@ operator|.
 name|buffer
 argument_list|()
 argument_list|,
-literal|"png"
+name|format
+operator|.
+name|constData
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
@@ -13297,7 +13434,7 @@ expr_stmt|;
 name|QImage
 name|img2
 argument_list|(
-literal|":/images/kollada.png"
+name|fileName
 argument_list|)
 decl_stmt|;
 name|img2
@@ -13318,7 +13455,7 @@ argument_list|(
 operator|&
 name|buf2
 argument_list|,
-literal|"png"
+name|format
 argument_list|)
 decl_stmt|;
 name|w
@@ -13360,7 +13497,7 @@ argument_list|(
 operator|&
 name|buf2
 argument_list|,
-literal|"png"
+name|format
 argument_list|)
 decl_stmt|;
 name|QCOMPARE
