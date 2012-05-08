@@ -476,6 +476,9 @@ name|w
 parameter_list|,
 name|int
 name|md
+parameter_list|,
+name|bool
+name|ignoreNonXdndAwareWindows
 parameter_list|)
 function_decl|;
 block|}
