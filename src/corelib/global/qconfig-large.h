@@ -416,6 +416,21 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|QT_NO_CUPS
+end_ifndef
+begin_define
+DECL|macro|QT_NO_CUPS
+define|#
+directive|define
+name|QT_NO_CUPS
+end_define
+begin_endif
+endif|#
+directive|endif
+end_endif
 begin_comment
 comment|/* Qt for Embedded Linux */
 end_comment

@@ -428,21 +428,7 @@ block|;
 comment|// in postscript points
 name|int
 name|fd
-block|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_CUPS
-argument_list|)
-name|QString
-name|cupsTempFile
-block|;
-endif|#
-directive|endif
-comment|// QT_NO_CUPS
-block|}
+block|; }
 decl_stmt|;
 end_decl_stmt
 begin_macro

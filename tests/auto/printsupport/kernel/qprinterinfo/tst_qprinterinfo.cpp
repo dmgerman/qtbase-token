@@ -1035,25 +1035,6 @@ name|defined
 argument_list|(
 name|Q_OS_UNIX
 argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|Q_OS_MAC
-argument_list|)
-name|QSKIP
-argument_list|(
-literal|"Test doesn't work on Unix, plugin not yet enabled"
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-name|defined
-argument_list|(
-name|Q_OS_UNIX
-argument_list|)
 operator|||
 name|defined
 argument_list|(

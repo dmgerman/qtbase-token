@@ -8732,6 +8732,20 @@ literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
+literal|"QT_LPR"
+index|]
+operator|=
+literal|"no"
+expr_stmt|;
+name|dictionary
+index|[
+literal|"QT_CUPS"
+index|]
+operator|=
+literal|"no"
+expr_stmt|;
+name|dictionary
+index|[
 literal|"QT_GLIB"
 index|]
 operator|=
@@ -18299,6 +18313,21 @@ if|if
 condition|(
 name|dictionary
 index|[
+literal|"QT_CUPS"
+index|]
+operator|==
+literal|"no"
+condition|)
+name|tmpStream
+operator|<<
+literal|"#define QT_NO_CUPS"
+operator|<<
+name|endl
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
 literal|"QT_ICONV"
 index|]
 operator|==
@@ -18322,6 +18351,21 @@ condition|)
 name|tmpStream
 operator|<<
 literal|"#define QT_NO_GLIB"
+operator|<<
+name|endl
+expr_stmt|;
+if|if
+condition|(
+name|dictionary
+index|[
+literal|"QT_LPR"
+index|]
+operator|==
+literal|"no"
+condition|)
+name|tmpStream
+operator|<<
+literal|"#define QT_NO_LPR"
 operator|<<
 name|endl
 expr_stmt|;

@@ -1026,6 +1026,9 @@ name|rightMargin
 block|,
 name|bottomMargin
 block|;
+name|QString
+name|cupsTempFile
+block|;
 name|private
 operator|:
 ifdef|#

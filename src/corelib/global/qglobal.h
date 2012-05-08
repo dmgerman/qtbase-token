@@ -2208,6 +2208,12 @@ DECL|macro|QT_NO_PROCESS
 comment|// no exec*, no fork
 end_comment
 begin_define
+DECL|macro|QT_NO_LPR
+define|#
+directive|define
+name|QT_NO_LPR
+end_define
+begin_define
 DECL|macro|QT_NO_SHAREDMEMORY
 define|#
 directive|define
