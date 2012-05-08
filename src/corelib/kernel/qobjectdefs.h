@@ -59,7 +59,7 @@ DECL|macro|Q_MOC_OUTPUT_REVISION
 define|#
 directive|define
 name|Q_MOC_OUTPUT_REVISION
-value|66
+value|67
 end_define
 begin_endif
 endif|#
