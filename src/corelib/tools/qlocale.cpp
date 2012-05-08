@@ -8880,6 +8880,12 @@ operator|==
 name|QLocale
 operator|::
 name|Syriac
+operator|||
+name|lang
+operator|==
+name|QLocale
+operator|::
+name|Divehi
 condition|)
 return|return
 name|Qt
