@@ -48,11 +48,6 @@ include|#
 directive|include
 file|"private/qshortcutmap_p.h"
 end_include
-begin_include
-include|#
-directive|include
-file|<qpa/qplatformdrag.h>
-end_include
 begin_decl_stmt
 name|QT_BEGIN_HEADER
 name|QT_BEGIN_NAMESPACE
@@ -65,6 +60,12 @@ begin_decl_stmt
 DECL|variable|QPlatformTheme
 name|class
 name|QPlatformTheme
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|QPlatformDragQtResponse
+name|class
+name|QPlatformDragQtResponse
 decl_stmt|;
 end_decl_stmt
 begin_struct_decl

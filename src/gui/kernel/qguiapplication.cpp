@@ -55,6 +55,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|<qpa/qplatformdrag.h>
+end_include
+begin_include
+include|#
+directive|include
 file|<QtCore/QAbstractEventDispatcher>
 end_include
 begin_include
