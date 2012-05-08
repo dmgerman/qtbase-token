@@ -1869,7 +1869,7 @@ end_comment
 begin_expr_stmt
 unit|template
 operator|<
-name|int
+name|bool
 name|tryNormalizedType
 operator|>
 DECL|function|qMetaTypeTypeImpl
