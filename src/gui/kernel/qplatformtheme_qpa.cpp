@@ -25,7 +25,7 @@ end_include
 begin_expr_stmt
 name|QT_BEGIN_NAMESPACE
 comment|/*!     \class QPlatformTheme     \since 5.0     \internal     \preliminary     \ingroup qpa     \brief The QPlatformTheme class allows customizing the UI based on themes.  */
-comment|/*!     \enum QPlatformTheme::ThemeHint      This enum describes the available theme hints.      \value TextCursorWidth  (int) Determines the width of the text cursor.      \value DropShadow       (bool) Determines whether the drop shadow effect for                             tooltips or whatsthis is enabled.      \value MaximumScrollBarDragDistance (int) Determines the value returned by                             QStyle::pixelMetric(PM_MaximumDragDistance)      \value ToolButtonStyle (int) A value representing a Qt::ToolButtonStyle.      \value ToolBarIconSize Icon size for tool bars.      \value SystemIconThemeName (QString) Name of the icon theme.      \value SystemIconFallbackThemeName (QString) Name of the fallback icon theme.      \value IconThemeSearchPaths (QStringList) Search paths for icons.      \value ItemViewActivateItemOnSingleClick (bool) Activate items by single click.      \value StyleNames (QStringList) A list of preferred style names.      \value WindowAutoPlacement (bool) A boolean value indicating whether Windows                                (particularly dialogs) are placed by the system                                (see _NET_WM_FULL_PLACEMENT in X11).      \value DialogButtonBoxLayout (int) An integer representing a                                  QDialogButtonBox::ButtonLayout value.      \value DialogButtonBoxButtonsHaveIcons (bool) A boolean value indicating whether                                             the buttons of a QDialogButtonBox should have icons.      \value UseFullScreenForPopupMenu (bool) Pop menus can cover the full screen including task bar.      \value KeyboardScheme (int) An integer value (enum KeyboardSchemes) specifying the                            keyboard scheme.      \sa themeHint(), QStyle::pixelMetric() */
+comment|/*!     \enum QPlatformTheme::ThemeHint      This enum describes the available theme hints.      \value TextCursorWidth  (int) Determines the width of the text cursor.      \value DropShadow       (bool) Determines whether the drop shadow effect for                             tooltips or whatsthis is enabled.      \value MaximumScrollBarDragDistance (int) Determines the value returned by                             QStyle::pixelMetric(PM_MaximumDragDistance)      \value ToolButtonStyle (int) A value representing a Qt::ToolButtonStyle.      \value ToolBarIconSize Icon size for tool bars.      \value SystemIconThemeName (QString) Name of the icon theme.      \value SystemIconFallbackThemeName (QString) Name of the fallback icon theme.      \value IconThemeSearchPaths (QStringList) Search paths for icons.      \value ItemViewActivateItemOnSingleClick (bool) Activate items by single click.      \value StyleNames (QStringList) A list of preferred style names.      \value WindowAutoPlacement (bool) A boolean value indicating whether Windows                                (particularly dialogs) are placed by the system                                (see _NET_WM_FULL_PLACEMENT in X11).      \value DialogButtonBoxLayout (int) An integer representing a                                  QDialogButtonBox::ButtonLayout value.      \value DialogButtonBoxButtonsHaveIcons (bool) A boolean value indicating whether                                             the buttons of a QDialogButtonBox should have icons.      \value UseFullScreenForPopupMenu (bool) Pop menus can cover the full screen including task bar.      \value KeyboardScheme (int) An integer value (enum KeyboardSchemes) specifying the                            keyboard scheme.      \value UiEffects (int) A flag value consisting of UiEffect values specifying the enabled UI animations.      \sa themeHint(), QStyle::pixelMetric() */
 DECL|function|~QPlatformTheme
 name|QPlatformTheme
 operator|::
@@ -355,6 +355,18 @@ argument_list|(
 name|int
 argument_list|(
 name|WindowsKeyboardScheme
+argument_list|)
+argument_list|)
+return|;
+case|case
+name|UiEffects
+case|:
+return|return
+name|QVariant
+argument_list|(
+name|int
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 return|;
