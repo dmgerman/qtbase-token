@@ -7743,6 +7743,14 @@ operator|&
 name|StripTrailingSlash
 operator|)
 operator|&&
+operator|!
+name|d
+operator|->
+name|path
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
 name|d
 operator|->
 name|path

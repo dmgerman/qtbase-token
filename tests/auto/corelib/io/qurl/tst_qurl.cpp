@@ -16931,6 +16931,17 @@ literal|"file:///"
 operator|<<
 literal|"file:///"
 expr_stmt|;
+name|QTest
+operator|::
+name|newRow
+argument_list|(
+literal|"no path"
+argument_list|)
+operator|<<
+literal|"remote://"
+operator|<<
+literal|"remote://"
+expr_stmt|;
 block|}
 end_function
 begin_function
