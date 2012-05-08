@@ -26,7 +26,7 @@ literal|5
 operator|,
 literal|0
 argument_list|)
-comment|// Make sure they're defined to be exportedgit
+comment|// Make sure they're defined to be exported
 name|Q_CORE_EXPORT
 name|void
 modifier|*
