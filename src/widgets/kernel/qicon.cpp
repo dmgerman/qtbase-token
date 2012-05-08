@@ -3271,6 +3271,26 @@ argument_list|()
 condition|)
 block|{
 comment|// first try version 2 engines..
+specifier|const
+name|int
+name|index
+init|=
+name|loader
+argument_list|()
+operator|->
+name|indexOf
+argument_list|(
+name|suffix
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|index
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
 if|if
 condition|(
 name|QIconEngineFactoryInterface
@@ -3288,7 +3308,7 @@ argument_list|()
 operator|->
 name|instance
 argument_list|(
-name|suffix
+name|index
 argument_list|)
 argument_list|)
 condition|)
@@ -3318,6 +3338,7 @@ name|engine
 operator|=
 name|engine
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -4081,7 +4102,28 @@ argument_list|(
 name|QT_NO_SETTINGS
 argument_list|)
 block|}
-elseif|else
+else|else
+block|{
+specifier|const
+name|int
+name|index
+init|=
+name|loader
+argument_list|()
+operator|->
+name|indexOf
+argument_list|(
+name|key
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|index
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
 if|if
 condition|(
 name|QIconEngineFactoryInterface
@@ -4099,7 +4141,7 @@ argument_list|()
 operator|->
 name|instance
 argument_list|(
-name|key
+name|index
 argument_list|)
 argument_list|)
 condition|)
@@ -4139,6 +4181,11 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+comment|// factory
+block|}
+comment|// instance
+block|}
+comment|// index
 endif|#
 directive|endif
 block|}
