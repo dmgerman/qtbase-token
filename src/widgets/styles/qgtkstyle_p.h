@@ -95,7 +95,7 @@ name|signals
 end_undef
 begin_comment
 DECL|macro|signals
-comment|// Collides with GTK stymbols
+comment|// Collides with GTK symbols
 end_comment
 begin_include
 include|#
