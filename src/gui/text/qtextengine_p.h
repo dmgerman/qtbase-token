@@ -1700,50 +1700,6 @@ name|fontEngine
 block|; }
 decl_stmt|;
 end_decl_stmt
-begin_function
-DECL|function|qIsControlChar
-specifier|inline
-name|bool
-name|qIsControlChar
-parameter_list|(
-name|ushort
-name|uc
-parameter_list|)
-block|{
-return|return
-name|uc
-operator|>=
-literal|0x200b
-operator|&&
-name|uc
-operator|<=
-literal|0x206f
-operator|&&
-operator|(
-name|uc
-operator|<=
-literal|0x200f
-comment|/* ZW Space, ZWNJ, ZWJ, LRM and RLM */
-operator|||
-operator|(
-name|uc
-operator|>=
-literal|0x2028
-operator|&&
-name|uc
-operator|<=
-literal|0x202f
-comment|/* LS, PS, LRE, RLE, PDF, LRO, RLO, NNBSP */
-operator|)
-operator|||
-name|uc
-operator|>=
-literal|0x206a
-comment|/* ISS, ASS, IAFS, AFS, NADS, NODS */
-operator|)
-return|;
-block|}
-end_function
 begin_struct
 DECL|struct|QScriptItem
 struct|struct
