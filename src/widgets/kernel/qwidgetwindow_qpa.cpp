@@ -189,6 +189,29 @@ modifier|*
 name|event
 parameter_list|)
 block|{
+if|if
+condition|(
+name|m_widget
+operator|->
+name|testAttribute
+argument_list|(
+name|Qt
+operator|::
+name|WA_DontShowOnScreen
+argument_list|)
+condition|)
+block|{
+comment|// \a event is uninteresting for QWidgetWindow, the event was probably
+comment|// generated before WA_DontShowOnScreen was set
+return|return
+name|m_widget
+operator|->
+name|event
+argument_list|(
+name|event
+argument_list|)
+return|;
+block|}
 switch|switch
 condition|(
 name|event
