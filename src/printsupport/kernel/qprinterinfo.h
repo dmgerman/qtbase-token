@@ -170,6 +170,10 @@ name|friend
 name|class
 name|QCocoaPrinterSupport
 decl_stmt|;
+name|friend
+name|class
+name|QCupsPrinterSupport
+decl_stmt|;
 name|Q_DECLARE_PRIVATE
 argument_list|(
 argument|QPrinterInfo

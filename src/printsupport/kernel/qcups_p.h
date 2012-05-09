@@ -83,8 +83,37 @@ include|#
 directive|include
 file|<cups/ppd.h>
 end_include
+begin_include
+include|#
+directive|include
+file|"qprintengine.h"
+end_include
 begin_decl_stmt
 name|QT_BEGIN_NAMESPACE
+comment|// HACK! Define these here temporarily so they can be used in the dialogs
+comment|// without a circular reference to QCupsPrintEngine in the plugin.
+comment|// Move back to qcupsprintengine_p.h in the plugin once all usage
+comment|// removed from the dialogs.
+DECL|macro|PPK_CupsOptions
+define|#
+directive|define
+name|PPK_CupsOptions
+value|QPrintEngine::PrintEnginePropertyKey(0xfe00)
+DECL|macro|PPK_CupsPageRect
+define|#
+directive|define
+name|PPK_CupsPageRect
+value|QPrintEngine::PrintEnginePropertyKey(0xfe01)
+DECL|macro|PPK_CupsPaperRect
+define|#
+directive|define
+name|PPK_CupsPaperRect
+value|QPrintEngine::PrintEnginePropertyKey(0xfe02)
+DECL|macro|PPK_CupsStringPageSize
+define|#
+directive|define
+name|PPK_CupsStringPageSize
+value|QPrintEngine::PrintEnginePropertyKey(0xfe03)
 name|Q_DECLARE_TYPEINFO
 argument_list|(
 name|cups_option_t
