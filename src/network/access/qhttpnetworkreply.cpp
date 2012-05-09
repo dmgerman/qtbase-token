@@ -2801,6 +2801,14 @@ argument_list|,
 name|readBufferMaxSize
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|toBeRead
+condition|)
+return|return
+literal|0
+return|;
 name|QByteArray
 name|bd
 decl_stmt|;
