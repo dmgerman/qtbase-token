@@ -2692,7 +2692,7 @@ decl_stmt|;
 comment|// Generate a screen position that is always inside the active window
 comment|// or the primary screen.
 specifier|const
-name|int
+name|qreal
 name|wx
 init|=
 name|winRect
@@ -2700,8 +2700,6 @@ operator|.
 name|left
 argument_list|()
 operator|+
-name|int
-argument_list|(
 name|tp
 operator|.
 name|normalPosition
@@ -2713,10 +2711,9 @@ name|winRect
 operator|.
 name|width
 argument_list|()
-argument_list|)
 decl_stmt|;
 specifier|const
-name|int
+name|qreal
 name|wy
 init|=
 name|winRect
@@ -2724,8 +2721,6 @@ operator|.
 name|top
 argument_list|()
 operator|+
-name|int
-argument_list|(
 name|tp
 operator|.
 name|normalPosition
@@ -2737,7 +2732,6 @@ name|winRect
 operator|.
 name|height
 argument_list|()
-argument_list|)
 decl_stmt|;
 specifier|const
 name|qreal
@@ -2766,7 +2760,7 @@ name|tp
 operator|.
 name|area
 operator|=
-name|QRect
+name|QRectF
 argument_list|(
 literal|0
 argument_list|,
@@ -2797,7 +2791,7 @@ name|area
 operator|.
 name|moveCenter
 argument_list|(
-name|QPoint
+name|QPointF
 argument_list|(
 name|wx
 argument_list|,
