@@ -2781,10 +2781,9 @@ name|func
 operator|->
 name|setLocation
 argument_list|(
-name|doc
+name|arg
 operator|.
-name|location
-argument_list|()
+name|second
 argument_list|)
 expr_stmt|;
 name|func
@@ -3102,6 +3101,15 @@ operator|.
 name|first
 argument_list|)
 decl_stmt|;
+name|en
+operator|->
+name|setLocation
+argument_list|(
+name|arg
+operator|.
+name|second
+argument_list|)
+expr_stmt|;
 name|createExampleFileNodes
 argument_list|(
 name|en
@@ -3498,6 +3506,15 @@ argument_list|,
 name|ptype
 argument_list|)
 expr_stmt|;
+name|fn
+operator|->
+name|setLocation
+argument_list|(
+name|arg
+operator|.
+name|second
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ncn
@@ -3638,8 +3655,9 @@ name|qcn
 operator|->
 name|setLocation
 argument_list|(
-name|location
-argument_list|()
+name|arg
+operator|.
+name|second
 argument_list|)
 expr_stmt|;
 if|if
@@ -11684,9 +11702,6 @@ condition|)
 block|{
 name|fake
 operator|->
-name|doc
-argument_list|()
-operator|.
 name|location
 argument_list|()
 operator|.
@@ -11710,9 +11725,6 @@ argument_list|)
 expr_stmt|;
 name|fake
 operator|->
-name|doc
-argument_list|()
-operator|.
 name|location
 argument_list|()
 operator|.
@@ -11720,7 +11732,7 @@ name|warning
 argument_list|(
 name|tr
 argument_list|(
-literal|"EXAMPLE PATH DOES NOT EXIST: %1"
+literal|"  EXAMPLE PATH DOES NOT EXIST: %1"
 argument_list|)
 operator|.
 name|arg
