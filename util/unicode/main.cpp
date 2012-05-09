@@ -1419,6 +1419,18 @@ name|char
 modifier|*
 name|methods
 init|=
+literal|"    Q_CORE_EXPORT GraphemeBreak QT_FASTCALL graphemeBreakClass(uint ucs4);\n"
+literal|"    inline int graphemeBreakClass(QChar ch)\n"
+literal|"    { return graphemeBreakClass(ch.unicode()); }\n"
+literal|"\n"
+literal|"    Q_CORE_EXPORT WordBreak QT_FASTCALL wordBreakClass(uint ucs4);\n"
+literal|"    inline int wordBreakClass(QChar ch)\n"
+literal|"    { return wordBreakClass(ch.unicode()); }\n"
+literal|"\n"
+literal|"    Q_CORE_EXPORT SentenceBreak QT_FASTCALL sentenceBreakClass(uint ucs4);\n"
+literal|"    inline int sentenceBreakClass(QChar ch)\n"
+literal|"    { return sentenceBreakClass(ch.unicode()); }\n"
+literal|"\n"
 literal|"    Q_CORE_EXPORT LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4);\n"
 literal|"    inline int lineBreakClass(QChar ch)\n"
 literal|"    { return lineBreakClass(ch.unicode()); }\n"
@@ -1426,6 +1438,26 @@ literal|"\n"
 literal|"    Q_CORE_EXPORT int QT_FASTCALL script(uint ucs4);\n"
 literal|"    inline int script(QChar ch)\n"
 literal|"    { return script(ch.unicode()); }\n\n"
+decl_stmt|;
+end_decl_stmt
+begin_decl_stmt
+DECL|variable|generated_methods
+specifier|static
+specifier|const
+name|char
+modifier|*
+name|generated_methods
+init|=
+literal|"    inline bool isNonCharacter(uint ucs4)\n"
+literal|"    {\n"
+literal|"        // Noncharacter_Code_Point:\n"
+literal|"        // Unicode has a couple of \"non-characters\" that one can use internally,\n"
+literal|"        // but are not allowed to be used for text interchange.\n"
+literal|"        // Those are the last two entries each Unicode Plane (U+FFFE..U+FFFF,\n"
+literal|"        // U+1FFFE..U+1FFFF, etc.) as well as the entries in range U+FDD0..U+FDEF\n"
+literal|"\n"
+literal|"        return ucs4>= 0xfdd0&& (ucs4<= 0xfdef || (ucs4& 0xfffe) == 0xfffe);\n"
+literal|"    }\n\n"
 decl_stmt|;
 end_decl_stmt
 begin_decl_stmt
@@ -11666,6 +11698,21 @@ literal|"}\n\n"
 expr_stmt|;
 name|out
 operator|+=
+literal|"Q_CORE_EXPORT GraphemeBreak QT_FASTCALL graphemeBreakClass(uint ucs4)\n"
+literal|"{\n"
+literal|"    return (GraphemeBreak)qGetProp(ucs4)->graphemeBreak;\n"
+literal|"}\n"
+literal|"\n"
+literal|"Q_CORE_EXPORT WordBreak QT_FASTCALL wordBreakClass(uint ucs4)\n"
+literal|"{\n"
+literal|"    return (WordBreak)qGetProp(ucs4)->wordBreak;\n"
+literal|"}\n"
+literal|"\n"
+literal|"Q_CORE_EXPORT SentenceBreak QT_FASTCALL sentenceBreakClass(uint ucs4)\n"
+literal|"{\n"
+literal|"    return (SentenceBreak)qGetProp(ucs4)->sentenceBreak;\n"
+literal|"}\n"
+literal|"\n"
 literal|"Q_CORE_EXPORT LineBreakClass QT_FASTCALL lineBreakClass(uint ucs4)\n"
 literal|"{\n"
 literal|"    return (LineBreakClass)qGetProp(ucs4)->line_break_class;\n"
@@ -15271,6 +15318,20 @@ operator|.
 name|write
 argument_list|(
 name|methods
+argument_list|)
+expr_stmt|;
+name|f
+operator|.
+name|write
+argument_list|(
+literal|"\n"
+argument_list|)
+expr_stmt|;
+name|f
+operator|.
+name|write
+argument_list|(
+name|generated_methods
 argument_list|)
 expr_stmt|;
 name|f

@@ -12,6 +12,11 @@ include|#
 directive|include
 file|"qjson_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qunicodetables_p.h>
+end_include
 begin_macro
 name|QT_BEGIN_NAMESPACE
 end_macro
@@ -69,48 +74,6 @@ name|compact
 parameter_list|)
 function_decl|;
 end_function_decl
-begin_comment
-comment|// some code from qutfcodec.cpp, inlined here for performance reasons
-end_comment
-begin_comment
-comment|// to allow fast escaping of strings
-end_comment
-begin_function
-DECL|function|isUnicodeNonCharacter
-specifier|static
-specifier|inline
-name|bool
-name|isUnicodeNonCharacter
-parameter_list|(
-name|uint
-name|ucs4
-parameter_list|)
-block|{
-comment|// Unicode has a couple of "non-characters" that one can use internally,
-comment|// but are not allowed to be used for text interchange.
-comment|//
-comment|// Those are the last two entries each Unicode Plane (U+FFFE, U+FFFF,
-comment|// U+1FFFE, U+1FFFF, etc.) as well as the entries between U+FDD0 and
-comment|// U+FDEF (inclusive)
-return|return
-operator|(
-name|ucs4
-operator|&
-literal|0xfffe
-operator|)
-operator|==
-literal|0xfffe
-operator|||
-operator|(
-name|ucs4
-operator|-
-literal|0xfdd0U
-operator|)
-operator|<
-literal|32
-return|;
-block|}
-end_function
 begin_function
 DECL|function|hexdig
 specifier|static
@@ -593,7 +556,9 @@ block|{
 comment|// is it one of the Unicode non-characters?
 if|if
 condition|(
-name|isUnicodeNonCharacter
+name|QUnicodeTables
+operator|::
+name|isNonCharacter
 argument_list|(
 name|u
 argument_list|)

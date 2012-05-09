@@ -31,6 +31,11 @@ include|#
 directive|include
 file|"qjson_p.h"
 end_include
+begin_include
+include|#
+directive|include
+file|<private/qunicodetables_p.h>
+end_include
 begin_comment
 comment|//#define PARSER_DEBUG
 end_comment
@@ -2766,42 +2771,6 @@ return|;
 block|}
 end_function
 begin_function
-DECL|function|isUnicodeNonCharacter
-specifier|static
-specifier|inline
-name|bool
-name|isUnicodeNonCharacter
-parameter_list|(
-name|uint
-name|ucs4
-parameter_list|)
-block|{
-comment|// Unicode has a couple of "non-characters" that one can use internally,
-comment|// but are not allowed to be used for text interchange.
-comment|//
-comment|// Those are the last two entries each Unicode Plane (U+FFFE, U+FFFF,
-comment|// U+1FFFE, U+1FFFF, etc.) as well as the entries between U+FDD0 and
-comment|// U+FDEF (inclusive)
-return|return
-operator|(
-name|ucs4
-operator|&
-literal|0xfffe
-operator|)
-operator|==
-literal|0xfffe
-operator|||
-operator|(
-name|ucs4
-operator|-
-literal|0xfdd0U
-operator|)
-operator|<
-literal|32
-return|;
-block|}
-end_function
-begin_function
 DECL|function|scanUtf8Char
 specifier|static
 specifier|inline
@@ -3009,7 +2978,9 @@ name|uc
 operator|<
 name|min_uc
 operator|||
-name|isUnicodeNonCharacter
+name|QUnicodeTables
+operator|::
+name|isNonCharacter
 argument_list|(
 name|uc
 argument_list|)
