@@ -300,7 +300,10 @@ decl_stmt|;
 name|QString
 name|device
 init|=
+name|QLatin1String
+argument_list|(
 literal|"/dev/input/event0"
+argument_list|)
 decl_stmt|;
 name|int
 name|repeatDelay

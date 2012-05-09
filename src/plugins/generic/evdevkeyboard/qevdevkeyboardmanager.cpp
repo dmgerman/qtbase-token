@@ -107,14 +107,20 @@ name|arg
 operator|.
 name|startsWith
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"udev"
+argument_list|)
 argument_list|)
 operator|&&
 name|arg
 operator|.
 name|contains
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"no"
+argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -130,7 +136,10 @@ name|arg
 operator|.
 name|startsWith
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"/dev/"
+argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -158,7 +167,10 @@ name|args
 operator|.
 name|join
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|":"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// add all keyboards for devices specified in the argument list
@@ -287,6 +299,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|#
+directive|else
+name|Q_UNUSED
+argument_list|(
+argument|useUDev
+argument_list|)
 endif|#
 directive|endif
 comment|// QT_NO_LIBUDEV
@@ -355,7 +373,10 @@ name|specification
 operator|.
 name|append
 argument_list|(
-literal|":"
+name|QLatin1Char
+argument_list|(
+literal|':'
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|specification
@@ -376,7 +397,10 @@ name|QEvdevKeyboardHandler
 operator|::
 name|createLinuxInputKeyboardHandler
 argument_list|(
+name|QLatin1String
+argument_list|(
 literal|"EvdevKeyboard"
+argument_list|)
 argument_list|,
 name|specification
 argument_list|)

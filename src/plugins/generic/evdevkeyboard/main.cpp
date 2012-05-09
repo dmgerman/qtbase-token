@@ -80,15 +80,13 @@ parameter_list|()
 specifier|const
 block|{
 return|return
-operator|(
 name|QStringList
-argument_list|()
-operator|<<
+argument_list|(
 name|QLatin1String
 argument_list|(
 literal|"EvdevKeyboard"
 argument_list|)
-operator|)
+argument_list|)
 return|;
 block|}
 end_function
