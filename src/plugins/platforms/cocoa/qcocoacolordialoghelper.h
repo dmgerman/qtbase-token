@@ -45,10 +45,6 @@ name|void
 name|exec
 argument_list|()
 block|;
-name|void
-name|deleteNativeDialog
-argument_list|()
-block|;
 name|bool
 name|show
 argument_list|(

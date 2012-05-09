@@ -196,7 +196,7 @@ argument_list|)
 specifier|const
 block|;
 name|void
-name|deleteNativeDialog
+name|deletePlatformHelper
 argument_list|()
 block|;
 name|QPointer

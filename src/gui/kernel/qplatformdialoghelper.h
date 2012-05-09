@@ -182,13 +182,6 @@ operator|=
 literal|0
 block|;
 name|virtual
-name|void
-name|deleteNativeDialog
-argument_list|()
-operator|=
-literal|0
-block|;
-name|virtual
 name|bool
 name|show
 argument_list|(

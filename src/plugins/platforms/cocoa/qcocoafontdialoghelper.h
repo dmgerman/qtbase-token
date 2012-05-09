@@ -48,17 +48,12 @@ operator|:
 name|QCocoaFontDialogHelper
 argument_list|()
 block|;
-name|virtual
 operator|~
 name|QCocoaFontDialogHelper
 argument_list|()
 block|;
 name|void
 name|exec
-argument_list|()
-block|;
-name|void
-name|deleteNativeDialog
 argument_list|()
 block|;
 name|bool

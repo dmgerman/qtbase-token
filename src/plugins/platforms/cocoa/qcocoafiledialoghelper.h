@@ -62,10 +62,6 @@ name|defaultNameFilterDisables
 argument_list|()
 specifier|const
 block|;
-name|void
-name|deleteNativeDialog
-argument_list|()
-block|;
 name|bool
 name|show
 argument_list|(

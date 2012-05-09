@@ -104,11 +104,6 @@ name|exec
 argument_list|()
 block|;
 name|virtual
-name|void
-name|deleteNativeDialog
-argument_list|()
-block|;
-name|virtual
 name|bool
 name|show
 argument_list|(
@@ -144,6 +139,12 @@ return|;
 block|}
 name|protected
 operator|:
+name|QWindowsDialogHelperBase
+argument_list|()
+expr_stmt|;
+end_expr_stmt
+begin_expr_stmt
+operator|~
 name|QWindowsDialogHelperBase
 argument_list|()
 expr_stmt|;

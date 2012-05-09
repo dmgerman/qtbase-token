@@ -5597,7 +5597,7 @@ expr_stmt|;
 comment|// we need to recreate the native dialog when changing the AcceptMode
 name|d
 operator|->
-name|deleteNativeDialog
+name|deletePlatformHelper
 argument_list|()
 expr_stmt|;
 comment|// clear WA_DontShowOnScreen so that d->canBeNativeDialog() doesn't return false incorrectly
