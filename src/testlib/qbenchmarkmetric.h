@@ -40,6 +40,10 @@ block|,
 name|InstructionReads
 block|,
 name|Events
+block|,
+name|WalltimeNanoseconds
+block|,
+name|BytesAllocated
 block|}
 enum|;
 block|}
