@@ -12772,9 +12772,26 @@ name|nameTag
 argument_list|)
 expr_stmt|;
 comment|//<title> or<apiName>
+if|if
+condition|(
+operator|!
+name|name
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
 name|writeCharacters
 argument_list|(
 name|name
+argument_list|)
+expr_stmt|;
+else|else
+name|writeCharacters
+argument_list|(
+name|node
+operator|->
+name|name
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|writeEndTag
