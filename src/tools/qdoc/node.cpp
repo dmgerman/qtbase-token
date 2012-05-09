@@ -9261,6 +9261,11 @@ argument_list|(
 name|attached
 argument_list|)
 member_init_list|,
+name|qproperty_
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
 name|readOnly_
 argument_list|(
 name|FlagValueDefault
@@ -9332,6 +9337,11 @@ member_init_list|,
 name|attached_
 argument_list|(
 name|attached
+argument_list|)
+member_init_list|,
+name|qproperty_
+argument_list|(
+literal|false
 argument_list|)
 member_init_list|,
 name|readOnly_
@@ -9410,6 +9420,11 @@ argument_list|(
 name|attached
 argument_list|)
 member_init_list|,
+name|qproperty_
+argument_list|(
+literal|false
+argument_list|)
+member_init_list|,
 name|readOnly_
 argument_list|(
 name|FlagValueDefault
@@ -9443,7 +9458,6 @@ name|readOnly_
 operator|!=
 name|FlagValueDefault
 condition|)
-block|{
 return|return
 operator|!
 name|fromFlagValue
@@ -9453,7 +9467,11 @@ argument_list|,
 literal|false
 argument_list|)
 return|;
-block|}
+if|if
+condition|(
+name|qproperty_
+condition|)
+block|{
 name|PropertyNode
 modifier|*
 name|pn
@@ -9467,16 +9485,12 @@ if|if
 condition|(
 name|pn
 condition|)
-block|{
 return|return
 name|pn
 operator|->
 name|isWritable
 argument_list|()
 return|;
-block|}
-else|else
-block|{
 name|location
 argument_list|()
 operator|.
@@ -9484,7 +9498,20 @@ name|warning
 argument_list|(
 name|tr
 argument_list|(
-literal|"Can't detect if QML property %1 is read-only; writable assumed."
+literal|"Can't detect if QML property %1::%2::%3 is read-only; "
+literal|"writable assumed."
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|qmlModuleIdentifier
+argument_list|()
+argument_list|)
+operator|.
+name|arg
+argument_list|(
+name|qmlTypeName
+argument_list|()
 argument_list|)
 operator|.
 name|arg
@@ -9494,10 +9521,10 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|true
 return|;
-block|}
 block|}
 end_function
 begin_function
