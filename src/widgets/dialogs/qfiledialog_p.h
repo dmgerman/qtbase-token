@@ -1592,7 +1592,7 @@ argument_list|()
 condition|)
 name|helper
 operator|->
-name|setDirectory_sys
+name|setDirectory
 argument_list|(
 name|directory
 argument_list|)
@@ -1621,7 +1621,7 @@ condition|)
 return|return
 name|helper
 operator|->
-name|directory_sys
+name|directory
 argument_list|()
 return|;
 end_expr_stmt
@@ -1653,7 +1653,7 @@ argument_list|()
 condition|)
 name|helper
 operator|->
-name|selectFile_sys
+name|selectFile
 argument_list|(
 name|filename
 argument_list|)
@@ -1682,7 +1682,7 @@ condition|)
 return|return
 name|helper
 operator|->
-name|selectedFiles_sys
+name|selectedFiles
 argument_list|()
 return|;
 end_expr_stmt
@@ -1712,7 +1712,7 @@ argument_list|()
 condition|)
 name|helper
 operator|->
-name|setFilter_sys
+name|setFilter
 argument_list|()
 expr_stmt|;
 block|}
@@ -1739,7 +1739,7 @@ argument_list|()
 condition|)
 name|helper
 operator|->
-name|selectNameFilter_sys
+name|selectNameFilter
 argument_list|(
 name|filter
 argument_list|)
@@ -1768,7 +1768,7 @@ condition|)
 return|return
 name|helper
 operator|->
-name|selectedNameFilter_sys
+name|selectedNameFilter
 argument_list|()
 return|;
 end_expr_stmt

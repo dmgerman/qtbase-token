@@ -6707,7 +6707,7 @@ return|return
 name|platformColorDialogHelper
 argument_list|()
 operator|->
-name|currentColor_sys
+name|currentColor
 argument_list|()
 return|;
 return|return
@@ -9183,7 +9183,7 @@ operator|->
 name|platformColorDialogHelper
 argument_list|()
 operator|->
-name|setCurrentColor_sys
+name|setCurrentColor
 argument_list|(
 name|color
 argument_list|)

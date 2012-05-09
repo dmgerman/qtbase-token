@@ -3813,7 +3813,7 @@ argument_list|()
 condition|)
 name|helper
 operator|->
-name|setCurrentFont_sys
+name|setCurrentFont
 argument_list|(
 name|font
 argument_list|)
@@ -3884,7 +3884,7 @@ condition|)
 return|return
 name|helper
 operator|->
-name|currentFont_sys
+name|currentFont
 argument_list|()
 return|;
 block|}

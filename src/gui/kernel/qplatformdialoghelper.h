@@ -176,21 +176,21 @@ specifier|const
 block|;
 name|virtual
 name|void
-name|exec_sys
+name|exec
 argument_list|()
 operator|=
 literal|0
 block|;
 name|virtual
 name|void
-name|deleteNativeDialog_sys
+name|deleteNativeDialog
 argument_list|()
 operator|=
 literal|0
 block|;
 name|virtual
 name|bool
-name|show_sys
+name|show
 argument_list|(
 argument|Qt::WindowFlags windowFlags
 argument_list|,
@@ -203,7 +203,7 @@ literal|0
 block|;
 name|virtual
 name|void
-name|hide_sys
+name|hide
 argument_list|()
 operator|=
 literal|0
@@ -430,7 +430,7 @@ argument_list|)
 block|;
 name|virtual
 name|void
-name|setCurrentColor_sys
+name|setCurrentColor
 argument_list|(
 specifier|const
 name|QColor
@@ -441,7 +441,7 @@ literal|0
 block|;
 name|virtual
 name|QColor
-name|currentColor_sys
+name|currentColor
 argument_list|()
 specifier|const
 operator|=
@@ -599,7 +599,7 @@ name|public
 operator|:
 name|virtual
 name|void
-name|setCurrentFont_sys
+name|setCurrentFont
 argument_list|(
 specifier|const
 name|QFont
@@ -610,7 +610,7 @@ literal|0
 block|;
 name|virtual
 name|QFont
-name|currentFont_sys
+name|currentFont
 argument_list|()
 specifier|const
 operator|=
@@ -1044,7 +1044,7 @@ literal|0
 block|;
 name|virtual
 name|void
-name|setDirectory_sys
+name|setDirectory
 argument_list|(
 specifier|const
 name|QString
@@ -1056,7 +1056,7 @@ literal|0
 block|;
 name|virtual
 name|QString
-name|directory_sys
+name|directory
 argument_list|()
 specifier|const
 operator|=
@@ -1064,7 +1064,7 @@ literal|0
 block|;
 name|virtual
 name|void
-name|selectFile_sys
+name|selectFile
 argument_list|(
 specifier|const
 name|QString
@@ -1076,7 +1076,7 @@ literal|0
 block|;
 name|virtual
 name|QStringList
-name|selectedFiles_sys
+name|selectedFiles
 argument_list|()
 specifier|const
 operator|=
@@ -1084,14 +1084,14 @@ literal|0
 block|;
 name|virtual
 name|void
-name|setFilter_sys
+name|setFilter
 argument_list|()
 operator|=
 literal|0
 block|;
 name|virtual
 name|void
-name|selectNameFilter_sys
+name|selectNameFilter
 argument_list|(
 specifier|const
 name|QString
@@ -1103,7 +1103,7 @@ literal|0
 block|;
 name|virtual
 name|QString
-name|selectedNameFilter_sys
+name|selectedNameFilter
 argument_list|()
 specifier|const
 operator|=

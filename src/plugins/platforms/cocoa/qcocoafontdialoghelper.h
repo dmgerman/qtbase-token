@@ -54,15 +54,15 @@ name|QCocoaFontDialogHelper
 argument_list|()
 block|;
 name|void
-name|exec_sys
+name|exec
 argument_list|()
 block|;
 name|void
-name|deleteNativeDialog_sys
+name|deleteNativeDialog
 argument_list|()
 block|;
 name|bool
-name|show_sys
+name|show
 argument_list|(
 argument|Qt::WindowFlags windowFlags
 argument_list|,
@@ -72,11 +72,11 @@ argument|QWindow *parent
 argument_list|)
 block|;
 name|void
-name|hide_sys
+name|hide
 argument_list|()
 block|;
 name|void
-name|setCurrentFont_sys
+name|setCurrentFont
 argument_list|(
 specifier|const
 name|QFont
@@ -84,7 +84,7 @@ operator|&
 argument_list|)
 block|;
 name|QFont
-name|currentFont_sys
+name|currentFont
 argument_list|()
 specifier|const
 block|;

@@ -383,7 +383,7 @@ name|nativeDialogInUse
 operator|=
 name|helper
 operator|->
-name|show_sys
+name|show
 argument_list|(
 name|q
 operator|->
@@ -404,7 +404,7 @@ else|else
 block|{
 name|helper
 operator|->
-name|hide_sys
+name|hide
 argument_list|()
 expr_stmt|;
 block|}
@@ -476,7 +476,7 @@ condition|)
 block|{
 name|helper
 operator|->
-name|deleteNativeDialog_sys
+name|deleteNativeDialog
 argument_list|()
 expr_stmt|;
 name|nativeDialogInUse
@@ -1334,7 +1334,7 @@ operator|->
 name|platformHelper
 argument_list|()
 operator|->
-name|exec_sys
+name|exec
 argument_list|()
 expr_stmt|;
 block|}

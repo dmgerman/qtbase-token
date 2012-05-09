@@ -100,17 +100,17 @@ name|public
 operator|:
 name|virtual
 name|void
-name|exec_sys
+name|exec
 argument_list|()
 block|;
 name|virtual
 name|void
-name|deleteNativeDialog_sys
+name|deleteNativeDialog
 argument_list|()
 block|;
 name|virtual
 name|bool
-name|show_sys
+name|show
 argument_list|(
 argument|Qt::WindowFlags windowFlags
 argument_list|,
@@ -121,7 +121,7 @@ argument_list|)
 block|;
 name|virtual
 name|void
-name|hide_sys
+name|hide
 argument_list|()
 block|;
 name|virtual
