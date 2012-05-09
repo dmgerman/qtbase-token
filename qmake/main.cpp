@@ -716,6 +716,13 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+name|Option
+operator|::
+name|prepareProject
+argument_list|(
+name|fn
+argument_list|)
+expr_stmt|;
 comment|// read project..
 if|if
 condition|(
