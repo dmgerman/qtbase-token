@@ -229,16 +229,6 @@ DECL|member|hbFace
 name|HB_Face
 name|hbFace
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_FONTCONFIG
-DECL|member|charset
-name|FcCharSet
-modifier|*
-name|charset
-decl_stmt|;
-endif|#
-directive|endif
 DECL|member|xsize
 name|int
 name|xsize

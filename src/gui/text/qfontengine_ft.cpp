@@ -1200,17 +1200,6 @@ name|symbol_map
 operator|=
 literal|0
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_FONTCONFIG
-name|newFreetype
-operator|->
-name|charset
-operator|=
-literal|0
-expr_stmt|;
-endif|#
-directive|endif
 name|memset
 argument_list|(
 name|newFreetype
@@ -1372,12 +1361,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block|FcChar8 *name;         FcPatternGetString(pattern, FC_FAMILY, 0,&name);         qDebug("%s: using maps: default: %x unicode: %x, symbol: %x", name,                newFreetype->face->charmap ? newFreetype->face->charmap->encoding : 0,                newFreetype->unicode_map ? newFreetype->unicode_map->encoding : 0,                newFreetype->symbol_map ? newFreetype->symbol_map->encoding : 0);          for (int i = 0; i< 256; i += 8)             qDebug("    %x: %d %d %d %d %d %d %d %d", i,                    FcCharSetHasChar(newFreetype->charset, i), FcCharSetHasChar(newFreetype->charset, i),                    FcCharSetHasChar(newFreetype->charset, i), FcCharSetHasChar(newFreetype->charset, i),                    FcCharSetHasChar(newFreetype->charset, i), FcCharSetHasChar(newFreetype->charset, i),                    FcCharSetHasChar(newFreetype->charset, i), FcCharSetHasChar(newFreetype->charset, i));
-endif|#
-directive|endif
 name|FT_Set_Charmap
 argument_list|(
 name|newFreetype
@@ -1479,20 +1462,6 @@ argument_list|(
 name|face
 argument_list|)
 expr_stmt|;
-ifndef|#
-directive|ifndef
-name|QT_NO_FONTCONFIG
-if|if
-condition|(
-name|charset
-condition|)
-name|FcCharSetDestroy
-argument_list|(
-name|charset
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|freetypeData
@@ -8956,12 +8925,6 @@ name|freetype
 operator|->
 name|face
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block|if (_cmap != -1) {         lockFace();         for ( int i = 0; i< len; i++ ) {             unsigned int uc = getChar(string, i, len);             if (!FcCharSetHasChar (_font->charset, uc)&& getAdobeCharIndex(face, _cmap, uc) == 0) {                 allExist = false;                 break;             }         }         unlockFace();     } else
-endif|#
-directive|endif
 block|{
 for|for
 control|(
@@ -9440,54 +9403,24 @@ name|glyph_pos
 index|]
 condition|)
 block|{
+comment|// Symbol fonts can have more than one CMAPs, FreeType should take the
+comment|// correct one for us by default, so we always try FT_Get_Char_Index
+comment|// first. If it didn't work (returns 0), we will explicitly set the
+comment|// CMAP to symbol font one and try again. symbol_map is not always the
+comment|// correct one because in certain fonts like Wingdings symbol_map only
+comment|// contains PUA codepoints instead of the common ones.
 name|glyph_t
 name|glyph
-decl_stmt|;
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_FONTCONFIG
-argument_list|)
-if|if
-condition|(
-name|freetype
-operator|->
-name|charset
-operator|!=
-literal|0
-operator|&&
-name|FcCharSetHasChar
-argument_list|(
-name|freetype
-operator|->
-name|charset
-argument_list|,
-name|uc
-argument_list|)
-condition|)
-block|{
-else|#
-directive|else
-if|if
-condition|(
-literal|false
-condition|)
-block|{
-endif|#
-directive|endif
-name|redo0
-label|:
-name|glyph
-operator|=
+init|=
 name|FT_Get_Char_Index
 argument_list|(
 name|face
 argument_list|,
 name|uc
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+comment|// Certain symbol fonts don't have no-break space (0xa0) and tab (0x9),
+comment|// while we usually want to render them as space
 if|if
 condition|(
 operator|!
@@ -9508,12 +9441,21 @@ name|uc
 operator|=
 literal|0x20
 expr_stmt|;
-goto|goto
-name|redo0
-goto|;
+name|glyph
+operator|=
+name|FT_Get_Char_Index
+argument_list|(
+name|face
+argument_list|,
+name|uc
+argument_list|)
+expr_stmt|;
 block|}
-block|}
-else|else
+if|if
+condition|(
+operator|!
+name|glyph
+condition|)
 block|{
 name|FT_Set_Charmap
 argument_list|(
@@ -9658,32 +9600,6 @@ name|glyph_pos
 index|]
 condition|)
 block|{
-if|#
-directive|if
-operator|!
-name|defined
-argument_list|(
-name|QT_NO_FONTCONFIG
-argument_list|)
-if|if
-condition|(
-name|freetype
-operator|->
-name|charset
-operator|==
-literal|0
-operator|||
-name|FcCharSetHasChar
-argument_list|(
-name|freetype
-operator|->
-name|charset
-argument_list|,
-name|uc
-argument_list|)
-condition|)
-endif|#
-directive|endif
 block|{
 name|redo
 label|:
@@ -9787,6 +9703,8 @@ return|return
 literal|true
 return|;
 block|}
+end_function
+begin_function
 DECL|function|recalcAdvances
 name|void
 name|QFontEngineFT
@@ -10044,6 +9962,8 @@ name|unlockFace
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|boundingBox
 name|glyph_metrics_t
 name|QFontEngineFT
@@ -10516,6 +10436,8 @@ return|return
 name|overall
 return|;
 block|}
+end_function
+begin_function
 DECL|function|boundingBox
 name|glyph_metrics_t
 name|QFontEngineFT
@@ -10794,6 +10716,8 @@ return|return
 name|overall
 return|;
 block|}
+end_function
+begin_function
 DECL|function|boundingBox
 name|glyph_metrics_t
 name|QFontEngineFT
@@ -10824,6 +10748,8 @@ name|Format_None
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 DECL|function|QTransformToFTMatrix
 specifier|static
 name|FT_Matrix
@@ -10900,6 +10826,8 @@ return|return
 name|m
 return|;
 block|}
+end_function
+begin_function
 DECL|function|alphaMapBoundingBox
 name|glyph_metrics_t
 name|QFontEngineFT
@@ -11405,6 +11333,8 @@ return|return
 name|overall
 return|;
 block|}
+end_function
+begin_function
 DECL|function|lockedAlphaMapForGlyph
 name|QImage
 modifier|*
@@ -11905,6 +11835,8 @@ operator|&
 name|currentlyLockedAlphaMap
 return|;
 block|}
+end_function
+begin_function
 DECL|function|unlockAlphaMapForGlyph
 name|void
 name|QFontEngineFT
@@ -11930,6 +11862,8 @@ name|QImage
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|loadGlyphFor
 name|QFontEngineFT
 operator|::
@@ -11973,6 +11907,8 @@ name|format
 argument_list|)
 return|;
 block|}
+end_function
+begin_function
 DECL|function|alphaMapForGlyph
 name|QImage
 name|QFontEngineFT
@@ -12248,6 +12184,8 @@ return|return
 name|img
 return|;
 block|}
+end_function
+begin_function
 DECL|function|alphaRGBMapForGlyph
 name|QImage
 name|QFontEngineFT
@@ -12377,6 +12315,8 @@ return|return
 name|img
 return|;
 block|}
+end_function
+begin_function
 DECL|function|removeGlyphFromCache
 name|void
 name|QFontEngineFT
@@ -12397,6 +12337,8 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|glyphCount
 name|int
 name|QFontEngineFT
@@ -12435,6 +12377,8 @@ return|return
 name|count
 return|;
 block|}
+end_function
+begin_function
 DECL|function|lockFace
 name|FT_Face
 name|QFontEngineFT
@@ -12615,6 +12559,8 @@ return|return
 name|face
 return|;
 block|}
+end_function
+begin_function
 DECL|function|unlockFace
 name|void
 name|QFontEngineFT
@@ -12629,6 +12575,8 @@ name|unlock
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|non_locked_face
 name|FT_Face
 name|QFontEngineFT
@@ -12643,6 +12591,8 @@ operator|->
 name|face
 return|;
 block|}
+end_function
+begin_constructor
 DECL|function|QGlyphSet
 name|QFontEngineFT
 operator|::
@@ -12697,6 +12647,8 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+end_constructor
+begin_destructor
 DECL|function|~QGlyphSet
 name|QFontEngineFT
 operator|::
@@ -12710,6 +12662,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+end_destructor
+begin_function
 DECL|function|clear
 name|void
 name|QFontEngineFT
@@ -12780,6 +12734,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+end_function
+begin_function
 DECL|function|removeGlyphFromCache
 name|void
 name|QFontEngineFT
@@ -12854,6 +12810,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_function
 DECL|function|setGlyph
 name|void
 name|QFontEngineFT
@@ -12920,6 +12878,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+begin_function
 DECL|function|getPointInOutline
 name|HB_Error
 name|QFontEngineFT
@@ -13004,6 +12964,8 @@ return|return
 name|result
 return|;
 block|}
+end_function
+begin_function
 DECL|function|initFromFontEngine
 name|bool
 name|QFontEngineFT
@@ -13109,6 +13071,8 @@ return|return
 literal|true
 return|;
 block|}
+end_function
+begin_function
 DECL|function|cloneWithSize
 name|QFontEngine
 modifier|*
@@ -13170,8 +13134,10 @@ name|fe
 return|;
 block|}
 block|}
-name|QT_END_NAMESPACE
 end_function
+begin_macro
+name|QT_END_NAMESPACE
+end_macro
 begin_endif
 endif|#
 directive|endif
