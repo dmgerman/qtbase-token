@@ -931,13 +931,6 @@ literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"EXCEPTIONS"
-index|]
-operator|=
-literal|"yes"
-expr_stmt|;
-name|dictionary
-index|[
 literal|"WIDGETS"
 index|]
 operator|=
@@ -4799,44 +4792,6 @@ argument_list|(
 name|i
 argument_list|)
 operator|==
-literal|"-exceptions"
-condition|)
-name|dictionary
-index|[
-literal|"EXCEPTIONS"
-index|]
-operator|=
-literal|"yes"
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
-literal|"-no-exceptions"
-condition|)
-name|dictionary
-index|[
-literal|"EXCEPTIONS"
-index|]
-operator|=
-literal|"no"
-expr_stmt|;
-elseif|else
-if|if
-condition|(
-name|configCmdLine
-operator|.
-name|at
-argument_list|(
-name|i
-argument_list|)
-operator|==
 literal|"-widgets"
 condition|)
 name|dictionary
@@ -8553,13 +8508,6 @@ literal|"no"
 expr_stmt|;
 name|dictionary
 index|[
-literal|"EXCEPTIONS"
-index|]
-operator|=
-literal|"no"
-expr_stmt|;
-name|dictionary
-index|[
 literal|"RTTI"
 index|]
 operator|=
@@ -8701,13 +8649,6 @@ expr_stmt|;
 name|dictionary
 index|[
 literal|"OPENGL"
-index|]
-operator|=
-literal|"no"
-expr_stmt|;
-name|dictionary
-index|[
-literal|"EXCEPTIONS"
 index|]
 operator|=
 literal|"no"
@@ -9072,7 +9013,7 @@ name|desc
 argument_list|(
 literal|"Usage: configure\n"
 literal|"[-release] [-debug] [-debug-and-release] [-shared] [-static]\n"
-literal|"[-no-fast] [-fast] [-no-exceptions] [-exceptions]\n"
+literal|"[-no-fast] [-fast] \n"
 literal|"[-no-accessibility] [-accessibility] [-no-rtti] [-rtti]\n"
 literal|"[-no-sql-<driver>] [-qt-sql-<driver>]\n"
 literal|"[-plugin-sql-<driver>] [-system-sqlite]\n"
@@ -9430,28 +9371,6 @@ argument_list|(
 literal|"-nomake<part>"
 argument_list|,
 literal|"Exclude part from the list of parts to be built.\n"
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
-literal|"EXCEPTIONS"
-argument_list|,
-literal|"no"
-argument_list|,
-literal|"-no-exceptions"
-argument_list|,
-literal|"Disable exceptions on platforms that support it."
-argument_list|)
-expr_stmt|;
-name|desc
-argument_list|(
-literal|"EXCEPTIONS"
-argument_list|,
-literal|"yes"
-argument_list|,
-literal|"-exceptions"
-argument_list|,
-literal|"Enable exceptions on platforms that support it.\n"
 argument_list|)
 expr_stmt|;
 name|desc
@@ -16621,32 +16540,6 @@ if|if
 condition|(
 name|dictionary
 index|[
-literal|"EXCEPTIONS"
-index|]
-operator|==
-literal|"yes"
-condition|)
-name|configStream
-operator|<<
-literal|" exceptions"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"EXCEPTIONS"
-index|]
-operator|==
-literal|"no"
-condition|)
-name|configStream
-operator|<<
-literal|" exceptions_off"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
 literal|"RTTI"
 index|]
 operator|==
@@ -17844,19 +17737,6 @@ condition|)
 name|qconfigList
 operator|+=
 literal|"QT_NO_ACCESSIBILITY"
-expr_stmt|;
-if|if
-condition|(
-name|dictionary
-index|[
-literal|"EXCEPTIONS"
-index|]
-operator|==
-literal|"no"
-condition|)
-name|qconfigList
-operator|+=
-literal|"QT_NO_EXCEPTIONS"
 expr_stmt|;
 if|if
 condition|(
@@ -19547,17 +19427,6 @@ operator|<<
 name|dictionary
 index|[
 literal|"ACCESSIBILITY"
-index|]
-operator|<<
-name|endl
-expr_stmt|;
-name|cout
-operator|<<
-literal|"Exception support..........."
-operator|<<
-name|dictionary
-index|[
-literal|"EXCEPTIONS"
 index|]
 operator|<<
 name|endl
