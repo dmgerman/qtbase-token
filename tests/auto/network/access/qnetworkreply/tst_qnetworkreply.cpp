@@ -27845,11 +27845,6 @@ operator|::
 name|ioGetFromBuiltinHttp
 parameter_list|()
 block|{
-name|QSKIP
-argument_list|(
-literal|"Limiting is broken right now, check QTBUG-15065"
-argument_list|)
-expr_stmt|;
 name|QFETCH
 argument_list|(
 name|bool
@@ -28252,24 +28247,6 @@ argument_list|()
 operator|<<
 literal|"bytes are missing"
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"http+limited"
-argument_list|,
-literal|"Limiting is broken right now, check QTBUG-15065"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"https+limited"
-argument_list|,
-literal|"Limiting is broken right now, check QTBUG-15065"
-argument_list|,
-name|Abort
-argument_list|)
-expr_stmt|;
 block|}
 name|QCOMPARE
 argument_list|(
@@ -28369,39 +28346,11 @@ name|maxRate
 operator|<<
 literal|"?"
 expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"http+limited"
-argument_list|,
-literal|"Limiting is broken right now, check QTBUG-15065"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QEXPECT_FAIL
-argument_list|(
-literal|"https+limited"
-argument_list|,
-literal|"Limiting is broken right now, check QTBUG-15065"
-argument_list|,
-name|Continue
-argument_list|)
-expr_stmt|;
-name|QVERIFY
-argument_list|(
-name|server
-operator|.
-name|transferRate
-operator|>=
-name|minRate
-operator|&&
-name|server
-operator|.
-name|transferRate
-operator|<=
-name|maxRate
-argument_list|)
-expr_stmt|;
+comment|// The test takes too long to run if sending enough data to overwhelm the
+comment|// reciever's kernel buffers.
+comment|//QEXPECT_FAIL("http+limited", "Limiting is broken right now, check QTBUG-15065", Continue);
+comment|//QEXPECT_FAIL("https+limited", "Limiting is broken right now, check QTBUG-15065", Continue);
+comment|//QVERIFY(server.transferRate>= minRate&& server.transferRate<= maxRate);
 block|}
 block|}
 end_function
