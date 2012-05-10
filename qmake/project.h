@@ -199,6 +199,9 @@ name|bool
 name|backslashWarned
 decl_stmt|;
 name|QString
+name|cachefile
+decl_stmt|;
+name|QString
 name|pfile
 decl_stmt|;
 name|QMakeProperty
@@ -563,6 +566,15 @@ name|QString
 name|projectFile
 parameter_list|()
 function_decl|;
+name|QString
+name|cacheFile
+argument_list|()
+specifier|const
+block|{
+return|return
+name|cachefile
+return|;
+block|}
 specifier|inline
 name|QMakeProperty
 modifier|*
