@@ -43701,6 +43701,14 @@ operator|::
 name|NoBackgroundTrafficPolicy
 argument_list|)
 expr_stmt|;
+comment|// After we have changed the policy we can download at full speed.
+name|reply
+operator|->
+name|setReadBufferSize
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|QVERIFY
 argument_list|(
 name|waitForFinish
