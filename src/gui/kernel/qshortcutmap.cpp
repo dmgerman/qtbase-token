@@ -2370,7 +2370,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*! \internal     Clears \a seq to an empty QKeySequence.     Same as doing (the slower)     \snippet doc/src/snippets/code/src_gui_kernel_qshortcutmap.cpp 0 */
+comment|/*! \internal     Clears \a seq to an empty QKeySequence.     Same as doing (the slower)     \snippet code/src_gui_kernel_qshortcutmap.cpp 0 */
 end_comment
 begin_function
 DECL|function|clearSequence

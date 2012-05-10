@@ -4317,10 +4317,10 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn QLayoutItem *QLayout::itemAt(int index) const      Must be implemented in subclasses to return the layout item at \a     index. If there is no such item, the function must return 0.     Items are numbered consecutively from 0. If an item is deleted, other items will be renumbered.      This function can be used to iterate over a layout. The following     code will draw a rectangle for each layout item in the layout structure of the widget.      \snippet doc/src/snippets/code/src_gui_kernel_qlayout.cpp 0      \sa count(), takeAt() */
+comment|/*!     \fn QLayoutItem *QLayout::itemAt(int index) const      Must be implemented in subclasses to return the layout item at \a     index. If there is no such item, the function must return 0.     Items are numbered consecutively from 0. If an item is deleted, other items will be renumbered.      This function can be used to iterate over a layout. The following     code will draw a rectangle for each layout item in the layout structure of the widget.      \snippet code/src_gui_kernel_qlayout.cpp 0      \sa count(), takeAt() */
 end_comment
 begin_comment
-comment|/*!     \fn QLayoutItem *QLayout::takeAt(int index)      Must be implemented in subclasses to remove the layout item at \a     index from the layout, and return the item. If there is no such     item, the function must do nothing and return 0.  Items are numbered     consecutively from 0. If an item is removed, other items will be     renumbered.      The following code fragment shows a safe way to remove all items     from a layout:      \snippet doc/src/snippets/code/src_gui_kernel_qlayout.cpp 1      \sa itemAt(), count() */
+comment|/*!     \fn QLayoutItem *QLayout::takeAt(int index)      Must be implemented in subclasses to remove the layout item at \a     index from the layout, and return the item. If there is no such     item, the function must do nothing and return 0.  Items are numbered     consecutively from 0. If an item is removed, other items will be     renumbered.      The following code fragment shows a safe way to remove all items     from a layout:      \snippet code/src_gui_kernel_qlayout.cpp 1      \sa itemAt(), count() */
 end_comment
 begin_comment
 comment|/*!     \fn int *QLayout::count() const      Must be implemented in subclasses to return the number of items     in the layout.      \sa itemAt() */

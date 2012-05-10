@@ -2314,7 +2314,7 @@ begin_comment
 comment|/*!     \fn bool QTextBlock::operator<(const QTextBlock&other) const      Returns true if this text block occurs before the \a other text     block in the document. */
 end_comment
 begin_comment
-comment|/*!     \class QTextBlock::iterator     \reentrant      \brief The QTextBlock::iterator class provides an iterator for reading     the contents of a QTextBlock.      \ingroup richtext-processing      A block consists of a sequence of text fragments. This class provides     a way to iterate over these, and read their contents. It does not provide     a way to modify the internal structure or contents of the block.      An iterator can be constructed and used to access the fragments within     a text block in the following way:      \snippet doc/src/snippets/textblock-fragments/xmlwriter.cpp 4     \snippet doc/src/snippets/textblock-fragments/xmlwriter.cpp 7      \sa QTextFragment */
+comment|/*!     \class QTextBlock::iterator     \reentrant      \brief The QTextBlock::iterator class provides an iterator for reading     the contents of a QTextBlock.      \ingroup richtext-processing      A block consists of a sequence of text fragments. This class provides     a way to iterate over these, and read their contents. It does not provide     a way to modify the internal structure or contents of the block.      An iterator can be constructed and used to access the fragments within     a text block in the following way:      \snippet textblock-fragments/xmlwriter.cpp 4     \snippet textblock-fragments/xmlwriter.cpp 7      \sa QTextFragment */
 end_comment
 begin_comment
 comment|/*!     \typedef QTextBlock::Iterator      Qt-style synonym for QTextBlock::iterator. */

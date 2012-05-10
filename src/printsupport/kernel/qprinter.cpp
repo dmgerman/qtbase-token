@@ -1710,7 +1710,7 @@ name|PPK_PrinterName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*!   \since 4.4    Returns true if the printer currently selected is a valid printer   in the system, or a pure PDF printer; otherwise returns false.    To detect other failures check the output of QPainter::begin() or QPrinter::newPage().    \snippet doc/src/snippets/printing-qprinter/errors.cpp 0    \sa setPrinterName() */
+comment|/*!   \since 4.4    Returns true if the printer currently selected is a valid printer   in the system, or a pure PDF printer; otherwise returns false.    To detect other failures check the output of QPainter::begin() or QPrinter::newPage().    \snippet printing-qprinter/errors.cpp 0    \sa setPrinterName() */
 DECL|function|isValid
 name|bool
 name|QPrinter

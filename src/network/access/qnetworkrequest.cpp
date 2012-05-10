@@ -605,7 +605,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Sets the header \a headerName to be of value \a headerValue. If \a     headerName corresponds to a known header (see     QNetworkRequest::KnownHeaders), the raw format will be parsed and     the corresponding "cooked" header will be set as well.      For example:     \snippet doc/src/snippets/code/src_network_access_qnetworkrequest.cpp 0      will also set the known header LastModifiedHeader to be the     QDateTime object of the parsed date.      Note: setting the same header twice overrides the previous     setting. To accomplish the behaviour of multiple HTTP headers of     the same name, you should concatenate the two values, separating     them with a comma (",") and set one single raw header.      \sa KnownHeaders, setHeader(), hasRawHeader(), rawHeader() */
+comment|/*!     Sets the header \a headerName to be of value \a headerValue. If \a     headerName corresponds to a known header (see     QNetworkRequest::KnownHeaders), the raw format will be parsed and     the corresponding "cooked" header will be set as well.      For example:     \snippet code/src_network_access_qnetworkrequest.cpp 0      will also set the known header LastModifiedHeader to be the     QDateTime object of the parsed date.      Note: setting the same header twice overrides the previous     setting. To accomplish the behaviour of multiple HTTP headers of     the same name, you should concatenate the two values, separating     them with a comma (",") and set one single raw header.      \sa KnownHeaders, setHeader(), hasRawHeader(), rawHeader() */
 end_comment
 begin_function
 DECL|function|setRawHeader

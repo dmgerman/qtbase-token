@@ -1345,7 +1345,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Connects to the IP address and port specified by \a address and \a     port. If the connection is established, this function returns true     and the socket enters ConnectedState. Otherwise, false is     returned.      If false is returned, state() should be called to see if the     socket is in ConnectingState. If so, a delayed TCP connection is     taking place, and connectToHost() must be called again later to     determine if the connection was established successfully or     not. The second connection attempt must be made when the socket is     ready for writing. This state can be determined either by     connecting a QSocketNotifier to the socket descriptor returned by     socketDescriptor(), or by calling the blocking function     waitForWrite().      Example:     \snippet doc/src/snippets/code/src_network_socket_qnativesocketengine.cpp 0      Otherwise, error() should be called to determine the cause of the     error. */
+comment|/*!     Connects to the IP address and port specified by \a address and \a     port. If the connection is established, this function returns true     and the socket enters ConnectedState. Otherwise, false is     returned.      If false is returned, state() should be called to see if the     socket is in ConnectingState. If so, a delayed TCP connection is     taking place, and connectToHost() must be called again later to     determine if the connection was established successfully or     not. The second connection attempt must be made when the socket is     ready for writing. This state can be determined either by     connecting a QSocketNotifier to the socket descriptor returned by     socketDescriptor(), or by calling the blocking function     waitForWrite().      Example:     \snippet code/src_network_socket_qnativesocketengine.cpp 0      Otherwise, error() should be called to determine the cause of the     error. */
 end_comment
 begin_function
 DECL|function|connectToHost
@@ -1642,7 +1642,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Prepares a TCP server for accepting incoming connections. This     function must be called after bind(), and only by TCP sockets.      After this function has been called, pending client connections     are detected by checking if the socket is ready for reading. This     can be done by either creating a QSocketNotifier, passing the     socket descriptor returned by socketDescriptor(), or by calling     the blocking function waitForRead().      Example:     \snippet doc/src/snippets/code/src_network_socket_qnativesocketengine.cpp 1      \sa bind(), accept() */
+comment|/*!     Prepares a TCP server for accepting incoming connections. This     function must be called after bind(), and only by TCP sockets.      After this function has been called, pending client connections     are detected by checking if the socket is ready for reading. This     can be done by either creating a QSocketNotifier, passing the     socket descriptor returned by socketDescriptor(), or by calling     the blocking function waitForRead().      Example:     \snippet code/src_network_socket_qnativesocketengine.cpp 1      \sa bind(), accept() */
 end_comment
 begin_function
 DECL|function|listen

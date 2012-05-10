@@ -353,7 +353,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Draws the source directly using the given \a painter.      This function should only be called from QGraphicsEffect::draw().      For example:      \snippet doc/src/snippets/code/src_gui_effects_qgraphicseffect.cpp 0      \sa QGraphicsEffect::draw() */
+comment|/*!     Draws the source directly using the given \a painter.      This function should only be called from QGraphicsEffect::draw().      For example:      \snippet code/src_gui_effects_qgraphicseffect.cpp 0      \sa QGraphicsEffect::draw() */
 end_comment
 begin_function
 DECL|function|drawSource
@@ -1170,7 +1170,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \fn virtual void QGraphicsEffect::draw(QPainter *painter) = 0      This pure virtual function draws the effect and is called whenever the     source needs to be drawn.      Reimplement this function in a QGraphicsEffect subclass to provide the     effect's drawing implementation, using \a painter.      For example:      \snippet doc/src/snippets/code/src_gui_effects_qgraphicseffect.cpp 1      This function should not be called explicitly by the user, since it is     meant for reimplementation purposes only. */
+comment|/*!     \fn virtual void QGraphicsEffect::draw(QPainter *painter) = 0      This pure virtual function draws the effect and is called whenever the     source needs to be drawn.      Reimplement this function in a QGraphicsEffect subclass to provide the     effect's drawing implementation, using \a painter.      For example:      \snippet code/src_gui_effects_qgraphicseffect.cpp 1      This function should not be called explicitly by the user, since it is     meant for reimplementation purposes only. */
 end_comment
 begin_comment
 comment|/*!     \enum QGraphicsEffect::ChangeFlag      This enum describes what has changed in QGraphicsEffectSource.      \value SourceAttached The effect is installed on a source.     \value SourceDetached The effect is uninstalled on a source.     \value SourceBoundingRectChanged The bounding rect of the source has            changed.     \value SourceInvalidated The visual appearance of the source has changed. */
@@ -2542,7 +2542,7 @@ begin_comment
 comment|/*!     \fn void QGraphicsOpacityEffect::opacityChanged(qreal opacity)      This signal is emitted whenever the effect's opacity changes.     The \a opacity parameter holds the effect's new opacity. */
 end_comment
 begin_comment
-comment|/*!     \property QGraphicsOpacityEffect::opacityMask     \brief the opacity mask of the effect.      An opacity mask allows you apply opacity to portions of an element.      For example:      \snippet doc/src/snippets/code/src_gui_effects_qgraphicseffect.cpp 2      There is no opacity mask by default.      \sa setOpacity() */
+comment|/*!     \property QGraphicsOpacityEffect::opacityMask     \brief the opacity mask of the effect.      An opacity mask allows you apply opacity to portions of an element.      For example:      \snippet code/src_gui_effects_qgraphicseffect.cpp 2      There is no opacity mask by default.      \sa setOpacity() */
 end_comment
 begin_function
 DECL|function|opacityMask

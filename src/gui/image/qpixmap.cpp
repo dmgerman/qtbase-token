@@ -625,7 +625,7 @@ block|}
 block|}
 end_constructor
 begin_comment
-comment|/*!     Constructs a pixmap from the given \a xpm data, which must be a     valid XPM image.      Errors are silently ignored.      Note that it's possible to squeeze the XPM variable a little bit     by using an unusual declaration:      \snippet doc/src/snippets/code/src_gui_image_qpixmap.cpp 0      The extra \c const makes the entire definition read-only, which is     slightly more efficient (for example, when the code is in a shared     library) and ROMable when the application is to be stored in ROM. */
+comment|/*!     Constructs a pixmap from the given \a xpm data, which must be a     valid XPM image.      Errors are silently ignored.      Note that it's possible to squeeze the XPM variable a little bit     by using an unusual declaration:      \snippet code/src_gui_image_qpixmap.cpp 0      The extra \c const makes the entire definition read-only, which is     slightly more efficient (for example, when the code is in a shared     library) and ROMable when the application is to be stored in ROM. */
 end_comment
 begin_ifndef
 ifndef|#
@@ -861,7 +861,7 @@ begin_comment
 comment|/*!     \fn QPixmap::scroll(int dx, int dy, int x, int y, int width, int height, QRegion *exposed)     \since 4.6      This convenience function is equivalent to calling QPixmap::scroll(\a dx,     \a dy, QRect(\a x, \a y, \a width, \a height), \a exposed).      \sa QWidget::scroll(), QGraphicsItem::scroll() */
 end_comment
 begin_comment
-comment|/*!     \since 4.6      Scrolls the area \a rect of this pixmap by (\a dx, \a dy). The exposed     region is left unchanged. You can optionally pass a pointer to an empty     QRegion to get the region that is \a exposed by the scroll operation.      \snippet doc/src/snippets/code/src_gui_image_qpixmap.cpp 2      You cannot scroll while there is an active painter on the pixmap.      \sa QWidget::scroll(), QGraphicsItem::scroll() */
+comment|/*!     \since 4.6      Scrolls the area \a rect of this pixmap by (\a dx, \a dy). The exposed     region is left unchanged. You can optionally pass a pointer to an empty     QRegion to get the region that is \a exposed by the scroll operation.      \snippet code/src_gui_image_qpixmap.cpp 2      You cannot scroll while there is an active painter on the pixmap.      \sa QWidget::scroll(), QGraphicsItem::scroll() */
 end_comment
 begin_function
 DECL|function|scroll
@@ -1822,7 +1822,7 @@ directive|ifndef
 name|QT_NO_IMAGE_HEURISTIC_MASK
 end_ifndef
 begin_comment
-comment|/*!     Creates and returns a heuristic mask for this pixmap.      The function works by selecting a color from one of the corners     and then chipping away pixels of that color, starting at all the     edges.  If \a clipTight is true (the default) the mask is just     large enough to cover the pixels; otherwise, the mask is larger     than the data pixels.      The mask may not be perfect but it should be reasonable, so you     can do things such as the following:      \snippet doc/src/snippets/code/src_gui_image_qpixmap.cpp 1      This function is slow because it involves converting to/from a     QImage, and non-trivial computations.      \sa QImage::createHeuristicMask(), createMaskFromColor() */
+comment|/*!     Creates and returns a heuristic mask for this pixmap.      The function works by selecting a color from one of the corners     and then chipping away pixels of that color, starting at all the     edges.  If \a clipTight is true (the default) the mask is just     large enough to cover the pixels; otherwise, the mask is larger     than the data pixels.      The mask may not be perfect but it should be reasonable, so you     can do things such as the following:      \snippet code/src_gui_image_qpixmap.cpp 1      This function is slow because it involves converting to/from a     QImage, and non-trivial computations.      \sa QImage::createHeuristicMask(), createMaskFromColor() */
 end_comment
 begin_function
 DECL|function|createHeuristicMask
@@ -2251,7 +2251,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      This function writes a QPixmap to the given \a device using the     specified image file \a format and \a quality factor. This can be     used, for example, to save a pixmap directly into a QByteArray:      \snippet doc/src/snippets/image/image.cpp 1 */
+comment|/*!     \overload      This function writes a QPixmap to the given \a device using the     specified image file \a format and \a quality factor. This can be     used, for example, to save a pixmap directly into a QByteArray:      \snippet image/image.cpp 1 */
 end_comment
 begin_function
 DECL|function|save

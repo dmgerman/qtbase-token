@@ -607,7 +607,7 @@ directive|ifndef
 name|QT_NO_REGEXP
 end_ifndef
 begin_comment
-comment|/*!     \fn QStringList&QStringList::replaceInStrings(const QRegularExpression&re, const QString&after)     \overload     \since 5.0      Replaces every occurrence of the regular expression \a re, in each of the     string lists's strings, with \a after. Returns a reference to the string     list.      For example:      \snippet doc/src/snippets/qstringlist/main.cpp 5     \snippet doc/src/snippets/qstringlist/main.cpp 16      For regular expressions that contain capturing groups,     occurrences of \b{\\1}, \b{\\2}, ..., in \a after are     replaced with the string captured by the corresponding capturing group.      For example:      \snippet doc/src/snippets/qstringlist/main.cpp 5     \snippet doc/src/snippets/qstringlist/main.cpp 17 */
+comment|/*!     \fn QStringList&QStringList::replaceInStrings(const QRegularExpression&re, const QString&after)     \overload     \since 5.0      Replaces every occurrence of the regular expression \a re, in each of the     string lists's strings, with \a after. Returns a reference to the string     list.      For example:      \snippet qstringlist/main.cpp 5     \snippet qstringlist/main.cpp 16      For regular expressions that contain capturing groups,     occurrences of \b{\\1}, \b{\\2}, ..., in \a after are     replaced with the string captured by the corresponding capturing group.      For example:      \snippet qstringlist/main.cpp 5     \snippet qstringlist/main.cpp 17 */
 end_comment
 begin_function
 DECL|function|QStringList_replaceInStrings
