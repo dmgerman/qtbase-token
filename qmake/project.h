@@ -202,6 +202,9 @@ name|QString
 name|conffile
 decl_stmt|;
 name|QString
+name|superfile
+decl_stmt|;
+name|QString
 name|cachefile
 decl_stmt|;
 name|QString
