@@ -9617,7 +9617,7 @@ directive|ifndef
 name|QT_NO_CONTEXTMENU
 end_ifndef
 begin_comment
-comment|/*!   \fn void QPlainTextEdit::contextMenuEvent(QContextMenuEvent *event)    Shows the standard context menu created with createStandardContextMenu().    If you do not want the text edit to have a context menu, you can set   its \l contextMenuPolicy to Qt::NoContextMenu. If you want to   customize the context menu, reimplement this function. If you want   to extend the standard context menu, reimplement this function, call   createStandardContextMenu() and extend the menu returned.    Information about the event is passed in the \a event object.    \snippet doc/src/snippets/code/src_gui_widgets_qplaintextedit.cpp 0 */
+comment|/*!   \fn void QPlainTextEdit::contextMenuEvent(QContextMenuEvent *event)    Shows the standard context menu created with createStandardContextMenu().    If you do not want the text edit to have a context menu, you can set   its \l contextMenuPolicy to Qt::NoContextMenu. If you want to   customize the context menu, reimplement this function. If you want   to extend the standard context menu, reimplement this function, call   createStandardContextMenu() and extend the menu returned.    Information about the event is passed in the \a event object.    \snippet code/src_gui_widgets_qplaintextedit.cpp 0 */
 end_comment
 begin_function
 DECL|function|contextMenuEvent
@@ -11276,7 +11276,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Convenience slot that inserts \a text at the current     cursor position.      It is equivalent to      \snippet doc/src/snippets/code/src_gui_widgets_qplaintextedit.cpp 1  */
+comment|/*!     Convenience slot that inserts \a text at the current     cursor position.      It is equivalent to      \snippet code/src_gui_widgets_qplaintextedit.cpp 1  */
 end_comment
 begin_function
 DECL|function|insertPlainText
@@ -11417,7 +11417,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*! \property QPlainTextEdit::tabChangesFocus   \brief whether \gui Tab changes focus or is accepted as input    In some occasions text edits should not allow the user to input   tabulators or change indentation using the \gui Tab key, as this breaks   the focus chain. The default is false.  */
+comment|/*! \property QPlainTextEdit::tabChangesFocus   \brief whether \uicontrol Tab changes focus or is accepted as input    In some occasions text edits should not allow the user to input   tabulators or change indentation using the \uicontrol Tab key, as this breaks   the focus chain. The default is false.  */
 end_comment
 begin_function
 DECL|function|tabChangesFocus

@@ -520,7 +520,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the preferred height for this layout item, given the width     \a w.      The default implementation returns -1, indicating that the     preferred height is independent of the width of the item. Using     the function hasHeightForWidth() will typically be much faster     than calling this function and testing for -1.      Reimplement this function in layout managers that support height     for width. A typical implementation will look like this:     \snippet doc/src/snippets/code/src_gui_kernel_qlayoutitem.cpp 0      Caching is strongly recommended; without it layout will take     exponential time.      \sa hasHeightForWidth() */
+comment|/*!     Returns the preferred height for this layout item, given the width     \a w.      The default implementation returns -1, indicating that the     preferred height is independent of the width of the item. Using     the function hasHeightForWidth() will typically be much faster     than calling this function and testing for -1.      Reimplement this function in layout managers that support height     for width. A typical implementation will look like this:     \snippet code/src_gui_kernel_qlayoutitem.cpp 0      Caching is strongly recommended; without it layout will take     exponential time.      \sa hasHeightForWidth() */
 end_comment
 begin_function
 DECL|function|heightForWidth

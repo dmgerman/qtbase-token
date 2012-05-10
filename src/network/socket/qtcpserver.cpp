@@ -1757,7 +1757,7 @@ directive|ifndef
 name|QT_NO_NETWORKPROXY
 end_ifndef
 begin_comment
-comment|/*!     \since 4.1      Sets the explicit network proxy for this socket to \a networkProxy.      To disable the use of a proxy for this socket, use the     QNetworkProxy::NoProxy proxy type:      \snippet doc/src/snippets/code/src_network_socket_qtcpserver.cpp 0      \sa proxy(), QNetworkProxy */
+comment|/*!     \since 4.1      Sets the explicit network proxy for this socket to \a networkProxy.      To disable the use of a proxy for this socket, use the     QNetworkProxy::NoProxy proxy type:      \snippet code/src_network_socket_qtcpserver.cpp 0      \sa proxy(), QNetworkProxy */
 end_comment
 begin_function
 DECL|function|setProxy

@@ -1960,7 +1960,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     \obsolete     \overload      Returns the pixmap associated with the \a key in the cache, or     null if there is no such pixmap.      \warning If valid, you should copy the pixmap immediately (this is     fast). Subsequent insertions into the cache could cause the     pointer to become invalid. For this reason, we recommend you use     bool find(const QString&, QPixmap*) instead.      Example:     \snippet doc/src/snippets/code/src_gui_image_qpixmapcache.cpp 0 */
+comment|/*!     \obsolete     \overload      Returns the pixmap associated with the \a key in the cache, or     null if there is no such pixmap.      \warning If valid, you should copy the pixmap immediately (this is     fast). Subsequent insertions into the cache could cause the     pointer to become invalid. For this reason, we recommend you use     bool find(const QString&, QPixmap*) instead.      Example:     \snippet code/src_gui_image_qpixmapcache.cpp 0 */
 end_comment
 begin_function
 DECL|function|find
@@ -2019,7 +2019,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Looks for a cached pixmap associated with the given \a key in the cache.     If the pixmap is found, the function sets \a pixmap to that pixmap and     returns true; otherwise it leaves \a pixmap alone and returns false.      \since 4.6      Example:     \snippet doc/src/snippets/code/src_gui_image_qpixmapcache.cpp 1 */
+comment|/*!     Looks for a cached pixmap associated with the given \a key in the cache.     If the pixmap is found, the function sets \a pixmap to that pixmap and     returns true; otherwise it leaves \a pixmap alone and returns false.      \since 4.6      Example:     \snippet code/src_gui_image_qpixmapcache.cpp 1 */
 end_comment
 begin_function
 DECL|function|find

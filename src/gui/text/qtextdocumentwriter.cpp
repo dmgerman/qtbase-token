@@ -302,7 +302,7 @@ expr_stmt|;
 block|}
 end_destructor
 begin_comment
-comment|/*!     Sets the format used to write documents to the \a format specified.     \a format is a case insensitive text string. For example:      \snippet doc/src/snippets/code/src.gui.text.qtextdocumentwriter.cpp 0      You can call supportedDocumentFormats() for the full list of formats     QTextDocumentWriter supports.      \sa format() */
+comment|/*!     Sets the format used to write documents to the \a format specified.     \a format is a case insensitive text string. For example:      \snippet code/src_gui_text_qtextdocumentwriter.cpp 0      You can call supportedDocumentFormats() for the full list of formats     QTextDocumentWriter supports.      \sa format() */
 end_comment
 begin_function
 DECL|function|setFormat

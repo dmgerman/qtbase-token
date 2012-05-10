@@ -2971,7 +2971,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Searches all files in the \a path for certificates encoded in the     specified \a format and returns them in a list. \e must be a file or a     pattern matching one or more files, as specified by \a syntax.      Example:      \snippet doc/src/snippets/code/src_network_ssl_qsslcertificate.cpp 0      \sa fromData() */
+comment|/*!     Searches all files in the \a path for certificates encoded in the     specified \a format and returns them in a list. \e must be a file or a     pattern matching one or more files, as specified by \a syntax.      Example:      \snippet code/src_network_ssl_qsslcertificate.cpp 0      \sa fromData() */
 end_comment
 begin_function
 DECL|function|fromPath

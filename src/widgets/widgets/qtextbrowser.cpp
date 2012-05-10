@@ -4352,7 +4352,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!     Returns the documentTitle() of the HistoryItem.      \table     \header \li Input            \li Return     \row \li \a{i}< 0  \li \l backward() history     \row \li \a{i} == 0 \li current, see QTextBrowser::source()     \row \li \a{i}> 0  \li \l forward() history     \endtable      \snippet doc/src/snippets/code/src_gui_widgets_qtextbrowser.cpp 0      \since 4.4 */
+comment|/*!     Returns the documentTitle() of the HistoryItem.      \table     \header \li Input            \li Return     \row \li \a{i}< 0  \li \l backward() history     \row \li \a{i} == 0 \li current, see QTextBrowser::source()     \row \li \a{i}> 0  \li \l forward() history     \endtable      \snippet code/src_gui_widgets_qtextbrowser.cpp 0      \since 4.4 */
 end_comment
 begin_function
 DECL|function|historyTitle

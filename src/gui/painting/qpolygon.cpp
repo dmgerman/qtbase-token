@@ -237,7 +237,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \class QPolygon     \brief The QPolygon class provides a vector of points using     integer precision.      \reentrant      \ingroup painting     \ingroup shared      A QPolygon object is a QVector<QPoint>.  The easiest way to add     points to a QPolygon is to use QVector's streaming operator, as     illustrated below:      \snippet doc/src/snippets/polygon/polygon.cpp 0      In addition to the functions provided by QVector, QPolygon     provides some point-specific functions.      Each point in a polygon can be retrieved by passing its index to     the point() function. To populate the polygon, QPolygon provides     the setPoint() function to set the point at a given index, the     setPoints() function to set all the points in the polygon     (resizing it to the given number of points), and the putPoints()     function which copies a number of given points into the polygon     from a specified index (resizing the polygon if necessary).      QPolygon provides the boundingRect() and translate() functions for     geometry functions. Use the QMatrix::map() function for more     general transformations of QPolygons.      The QPolygon class is \l {Implicit Data Sharing}{implicitly     shared}.      \sa QVector, QPolygonF, QLine */
+comment|/*!     \class QPolygon     \brief The QPolygon class provides a vector of points using     integer precision.      \reentrant      \ingroup painting     \ingroup shared      A QPolygon object is a QVector<QPoint>.  The easiest way to add     points to a QPolygon is to use QVector's streaming operator, as     illustrated below:      \snippet polygon/polygon.cpp 0      In addition to the functions provided by QVector, QPolygon     provides some point-specific functions.      Each point in a polygon can be retrieved by passing its index to     the point() function. To populate the polygon, QPolygon provides     the setPoint() function to set the point at a given index, the     setPoints() function to set all the points in the polygon     (resizing it to the given number of points), and the putPoints()     function which copies a number of given points into the polygon     from a specified index (resizing the polygon if necessary).      QPolygon provides the boundingRect() and translate() functions for     geometry functions. Use the QMatrix::map() function for more     general transformations of QPolygons.      The QPolygon class is \l {Implicit Data Sharing}{implicitly     shared}.      \sa QVector, QPolygonF, QLine */
 end_comment
 begin_comment
 comment|/*****************************************************************************   QPolygon member functions  *****************************************************************************/
@@ -594,7 +594,7 @@ begin_comment
 comment|/*!     \fn void QPolygon::setPoint(int index, int x, int y)      Sets the point at the given \a index to the point specified by     (\a{x}, \a{y}).      \sa point(), putPoints(), setPoints(), */
 end_comment
 begin_comment
-comment|/*!     Resizes the polygon to \a nPoints and populates it with the given     \a points.      The example code creates a polygon with two points (10, 20) and     (30, 40):      \snippet doc/src/snippets/polygon/polygon.cpp 2      \sa setPoint() putPoints() */
+comment|/*!     Resizes the polygon to \a nPoints and populates it with the given     \a points.      The example code creates a polygon with two points (10, 20) and     (30, 40):      \snippet polygon/polygon.cpp 2      \sa setPoint() putPoints() */
 end_comment
 begin_function
 DECL|function|setPoints
@@ -652,7 +652,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     \overload      Resizes the polygon to \a nPoints and populates it with the points     specified by the variable argument list.  The points are given as a     sequence of integers, starting with \a firstx then \a firsty, and     so on.      The example code creates a polygon with two points (10, 20) and     (30, 40):      \snippet doc/src/snippets/polygon/polygon.cpp 3 */
+comment|/*!     \overload      Resizes the polygon to \a nPoints and populates it with the points     specified by the variable argument list.  The points are given as a     sequence of integers, starting with \a firstx then \a firsty, and     so on.      The example code creates a polygon with two points (10, 20) and     (30, 40):      \snippet polygon/polygon.cpp 3 */
 end_comment
 begin_function
 DECL|function|setPoints
@@ -821,7 +821,7 @@ block|}
 block|}
 end_function
 begin_comment
-comment|/*!     Copies \a nPoints points from the variable argument list into this     polygon from the given \a index.      The points are given as a sequence of integers, starting with \a     firstx then \a firsty, and so on. The polygon is resized if     \c{index+nPoints} exceeds its current size.      The example code creates a polygon with three points (4,5), (6,7)     and (8,9), by expanding the polygon from 1 to 3 points:      \snippet doc/src/snippets/polygon/polygon.cpp 4      The following code has the same result, but here the putPoints()     function overwrites rather than extends:      \snippet doc/src/snippets/polygon/polygon.cpp 5      \sa setPoints() */
+comment|/*!     Copies \a nPoints points from the variable argument list into this     polygon from the given \a index.      The points are given as a sequence of integers, starting with \a     firstx then \a firsty, and so on. The polygon is resized if     \c{index+nPoints} exceeds its current size.      The example code creates a polygon with three points (4,5), (6,7)     and (8,9), by expanding the polygon from 1 to 3 points:      \snippet polygon/polygon.cpp 4      The following code has the same result, but here the putPoints()     function overwrites rather than extends:      \snippet polygon/polygon.cpp 5      \sa setPoints() */
 end_comment
 begin_function
 DECL|function|putPoints
@@ -939,7 +939,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!     \fn void QPolygon::putPoints(int index, int nPoints, const QPolygon&fromPolygon, int fromIndex)     \overload      Copies \a nPoints points from the given \a fromIndex ( 0 by     default) in \a fromPolygon into this polygon, starting at the     specified \a index. For example:      \snippet doc/src/snippets/polygon/polygon.cpp 6 */
+comment|/*!     \fn void QPolygon::putPoints(int index, int nPoints, const QPolygon&fromPolygon, int fromIndex)     \overload      Copies \a nPoints points from the given \a fromIndex ( 0 by     default) in \a fromPolygon into this polygon, starting at the     specified \a index. For example:      \snippet polygon/polygon.cpp 6 */
 end_comment
 begin_function
 DECL|function|putPoints
@@ -1268,7 +1268,7 @@ endif|#
 directive|endif
 end_endif
 begin_comment
-comment|/*!     \class QPolygonF     \brief The QPolygonF class provides a vector of points using     floating point precision.      \reentrant     \ingroup painting     \ingroup shared      A QPolygonF is a QVector<QPointF>. The easiest way to add points     to a QPolygonF is to use its streaming operator, as illustrated     below:      \snippet doc/src/snippets/polygon/polygon.cpp 1      In addition to the functions provided by QVector, QPolygonF     provides the boundingRect() and translate() functions for geometry     operations. Use the QMatrix::map() function for more general     transformations of QPolygonFs.      QPolygonF also provides the isClosed() function to determine     whether a polygon's start and end points are the same, and the     toPolygon() function returning an integer precision copy of this     polygon.      The QPolygonF class is \l {Implicit Data Sharing}{implicitly     shared}.      \sa QVector, QPolygon, QLineF */
+comment|/*!     \class QPolygonF     \brief The QPolygonF class provides a vector of points using     floating point precision.      \reentrant     \ingroup painting     \ingroup shared      A QPolygonF is a QVector<QPointF>. The easiest way to add points     to a QPolygonF is to use its streaming operator, as illustrated     below:      \snippet polygon/polygon.cpp 1      In addition to the functions provided by QVector, QPolygonF     provides the boundingRect() and translate() functions for geometry     operations. Use the QMatrix::map() function for more general     transformations of QPolygonFs.      QPolygonF also provides the isClosed() function to determine     whether a polygon's start and end points are the same, and the     toPolygon() function returning an integer precision copy of this     polygon.      The QPolygonF class is \l {Implicit Data Sharing}{implicitly     shared}.      \sa QVector, QPolygon, QLineF */
 end_comment
 begin_comment
 comment|/*****************************************************************************   QPolygonF member functions  *****************************************************************************/
