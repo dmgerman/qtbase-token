@@ -157,6 +157,11 @@ empty_stmt|;
 name|private
 label|:
 specifier|inline
+name|void
+name|eatBOM
+parameter_list|()
+function_decl|;
+specifier|inline
 name|bool
 name|eatSpace
 parameter_list|()
