@@ -191,6 +191,13 @@ name|result
 argument_list|)
 block|;
 name|private
+name|slots
+operator|:
+name|void
+name|updateObjectName
+argument_list|()
+block|;
+name|private
 operator|:
 name|void
 name|updateGeometry
