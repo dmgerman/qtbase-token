@@ -9094,6 +9094,119 @@ argument_list|(
 literal|"Installation options:\n\n"
 argument_list|)
 expr_stmt|;
+name|desc
+argument_list|(
+literal|"These are optional, but you may specify install directories.\n\n"
+argument_list|,
+literal|0
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-prefix<dir>"
+argument_list|,
+literal|"This will install everything relative to<dir> (default $QT_INSTALL_PREFIX)\n\n"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-hostprefix [dir]"
+argument_list|,
+literal|"Tools and libraries needed when developing applications are installed in [dir]. "
+literal|"If [dir] is not given, the current build directory will be used. (default PREFIX)\n"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"You may use these to separate different parts of the install:\n\n"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-bindir<dir>"
+argument_list|,
+literal|"Executables will be installed to<dir> (default PREFIX/bin)"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-libdir<dir>"
+argument_list|,
+literal|"Libraries will be installed to<dir> (default PREFIX/lib)"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-docdir<dir>"
+argument_list|,
+literal|"Documentation will be installed to<dir> (default PREFIX/doc)"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-headerdir<dir>"
+argument_list|,
+literal|"Headers will be installed to<dir> (default PREFIX/include)"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-plugindir<dir>"
+argument_list|,
+literal|"Plugins will be installed to<dir> (default PREFIX/plugins)"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-importdir<dir>"
+argument_list|,
+literal|"Imports for QML will be installed to<dir> (default PREFIX/imports)"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-datadir<dir>"
+argument_list|,
+literal|"Data used by Qt programs will be installed to<dir> (default PREFIX)"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-translationdir<dir>"
+argument_list|,
+literal|"Translations of Qt programs will be installed to<dir> (default PREFIX/translations)"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-examplesdir<dir>"
+argument_list|,
+literal|"Examples will be installed to<dir> (default PREFIX/examples)"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-testsdir<dir>"
+argument_list|,
+literal|"Tests will be installed to<dir> (default PREFIX/tests)"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-hostbindir<dir>"
+argument_list|,
+literal|"Host executables will be installed to<dir> (default HOSTPREFIX/bin)"
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-hostdatadir<dir>"
+argument_list|,
+literal|"Data used by qmake will be installed to<dir> (default HOSTPREFIX)"
+argument_list|)
+expr_stmt|;
 if|#
 directive|if
 operator|!
@@ -9637,6 +9750,13 @@ argument_list|,
 literal|false
 argument_list|,
 literal|' '
+argument_list|)
+expr_stmt|;
+name|desc
+argument_list|(
+literal|"-sysroot<dir>"
+argument_list|,
+literal|"Sets<dir> as the target compiler's and qmake's sysroot."
 argument_list|)
 expr_stmt|;
 if|#
