@@ -611,11 +611,6 @@ name|~
 name|QDialog
 parameter_list|()
 block|{
-name|Q_D
-argument_list|(
-name|QDialog
-argument_list|)
-expr_stmt|;
 name|QT_TRY
 block|{
 comment|// Need to hide() here, as our (to-be) overridden hide()
