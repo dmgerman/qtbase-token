@@ -371,6 +371,17 @@ name|elapsed
 argument_list|()
 specifier|const
 block|;
+name|void
+name|setStartTime
+argument_list|(
+argument|qint64 startTime
+argument_list|)
+block|;
+name|qint64
+name|startTime
+argument_list|()
+specifier|const
+block|;
 name|Q_SIGNALS
 operator|:
 name|void

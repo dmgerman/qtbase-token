@@ -303,11 +303,19 @@ argument_list|()
 operator|:
 name|running
 argument_list|(
-argument|false
+name|false
+argument_list|)
+block|,
+name|startTime
+argument_list|(
+literal|0
 argument_list|)
 block|{}
 name|bool
 name|running
+block|;
+name|qint64
+name|startTime
 block|; }
 decl_stmt|;
 end_decl_stmt
