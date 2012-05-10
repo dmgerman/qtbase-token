@@ -199,6 +199,9 @@ name|bool
 name|backslashWarned
 decl_stmt|;
 name|QString
+name|conffile
+decl_stmt|;
+name|QString
 name|cachefile
 decl_stmt|;
 name|QString
@@ -566,6 +569,15 @@ name|QString
 name|projectFile
 parameter_list|()
 function_decl|;
+name|QString
+name|confFile
+argument_list|()
+specifier|const
+block|{
+return|return
+name|conffile
+return|;
+block|}
 name|QString
 name|cacheFile
 argument_list|()
