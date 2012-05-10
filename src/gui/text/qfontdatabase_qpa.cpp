@@ -1658,6 +1658,10 @@ block|{
 name|QStringList
 name|fallbacks
 init|=
+name|request
+operator|.
+name|fallBackFamilies
+operator|+
 name|fallbackFamilies
 argument_list|(
 name|request
@@ -2153,12 +2157,28 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|family_list
-operator|=
+name|QStringList
+name|familiesForRequest
+init|=
 name|familyList
 argument_list|(
 name|req
 argument_list|)
+decl_stmt|;
+comment|// Add primary selection
+name|family_list
+operator|<<
+name|familiesForRequest
+operator|.
+name|takeFirst
+argument_list|()
+expr_stmt|;
+comment|// Fallbacks requested in font request
+name|req
+operator|.
+name|fallBackFamilies
+operator|=
+name|familiesForRequest
 expr_stmt|;
 comment|// add the default family
 name|QString
@@ -2289,6 +2309,14 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+comment|// No need to check requested fallback families again
+name|req
+operator|.
+name|fallBackFamilies
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 if|if
 condition|(

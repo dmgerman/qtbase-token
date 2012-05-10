@@ -61,6 +61,11 @@ end_include
 begin_include
 include|#
 directive|include
+file|"QtCore/qstringlist.h"
+end_include
+begin_include
+include|#
+directive|include
 file|<private/qunicodetables_p.h>
 end_include
 begin_include
@@ -162,6 +167,10 @@ expr_stmt|;
 DECL|member|styleName
 name|QString
 name|styleName
+decl_stmt|;
+DECL|member|fallBackFamilies
+name|QStringList
+name|fallBackFamilies
 decl_stmt|;
 DECL|member|pointSize
 name|qreal
