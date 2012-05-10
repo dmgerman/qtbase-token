@@ -188,6 +188,11 @@ include|#
 directive|include
 file|<qpa/qplatformaccessibility.h>
 end_include
+begin_include
+include|#
+directive|include
+file|"../../../platformsupport/linuxaccessibility/bridge_p.h"
+end_include
 begin_endif
 endif|#
 directive|endif
@@ -395,7 +400,7 @@ operator|.
 name|reset
 argument_list|(
 operator|new
-name|QPlatformAccessibility
+name|QSpiAccessibleBridge
 argument_list|()
 argument_list|)
 expr_stmt|;
