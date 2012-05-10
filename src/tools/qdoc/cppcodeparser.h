@@ -211,20 +211,11 @@ operator|&
 name|arg
 argument_list|)
 block|;
-ifdef|#
-directive|ifdef
-name|QDOC_QML
-comment|// might need to implement this in QsCodeParser as well.
 name|virtual
 name|Node
 operator|*
 name|processTopicCommandGroup
 argument_list|(
-specifier|const
-name|Doc
-operator|&
-name|doc
-argument_list|,
 specifier|const
 name|QString
 operator|&
@@ -239,11 +230,6 @@ block|;
 name|bool
 name|splitQmlPropertyArg
 argument_list|(
-specifier|const
-name|Doc
-operator|&
-name|doc
-argument_list|,
 specifier|const
 name|QString
 operator|&
@@ -270,11 +256,6 @@ name|bool
 name|splitQmlMethodArg
 argument_list|(
 specifier|const
-name|Doc
-operator|&
-name|doc
-argument_list|,
-specifier|const
 name|QString
 operator|&
 name|arg
@@ -292,8 +273,6 @@ operator|&
 name|element
 argument_list|)
 block|;
-endif|#
-directive|endif
 name|virtual
 name|QSet
 operator|<

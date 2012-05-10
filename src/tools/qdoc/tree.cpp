@@ -1838,7 +1838,7 @@ block|}
 decl_stmt|;
 end_decl_stmt
 begin_comment
-comment|/*!   This function searches for a node with the specified \a title.   If \a relative is provided, use it to disambiguate if it has a   QML module identifier.  */
+comment|/*!   This function searches for a node with the specified \a title.   If \a relative node is provided, it is used to disambiguate if   it has a QML module identifier.  */
 end_comment
 begin_function
 DECL|function|findFakeNodeByTitle
@@ -2121,9 +2121,6 @@ operator|.
 name|value
 argument_list|()
 operator|->
-name|doc
-argument_list|()
-operator|.
 name|location
 argument_list|()
 argument_list|)
@@ -2147,9 +2144,6 @@ operator|.
 name|value
 argument_list|()
 operator|->
-name|doc
-argument_list|()
-operator|.
 name|location
 argument_list|()
 operator|.
@@ -2157,7 +2151,7 @@ name|warning
 argument_list|(
 name|tr
 argument_list|(
-literal|"Page '%1' defined in more than one location:"
+literal|"This page exists in more than one file: \"%1\""
 argument_list|)
 operator|.
 name|arg
@@ -2181,7 +2175,7 @@ name|warning
 argument_list|(
 name|tr
 argument_list|(
-literal|"(defined here)"
+literal|"[It also exists here]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2797,7 +2791,7 @@ return|;
 block|}
 end_function
 begin_comment
-comment|/*!  */
+comment|/*!   This function adds the \a group name to the list of groups   for the \a node name. It also adds the \a node to the \a group.  */
 end_comment
 begin_function
 DECL|function|addToPublicGroup
@@ -2840,7 +2834,7 @@ expr_stmt|;
 block|}
 end_function
 begin_comment
-comment|/*!  */
+comment|/*!   Returns the public group map.  */
 end_comment
 begin_function
 DECL|function|publicGroups
